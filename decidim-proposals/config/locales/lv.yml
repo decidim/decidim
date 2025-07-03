@@ -12,12 +12,10 @@ lv:
         address: Adrese
         answer: Atbilde
         answered_at: Atbildēts
-        automatic_hashtags: Automātiski tiek pievienotas mirkļbirkas
         body: Pamatteksts
         decidim_scope_id: Darbības tvērums
         has_address: Ir adrese
         state: Stāvoklis
-        suggested_hashtags: Ieteiktās mirkļbirkas
         title: Nosaukums
       proposal_answer:
         answer: Atbilde
@@ -100,11 +98,9 @@ lv:
             amendments_visibility_help: Ja ir atlasīta opcija „Grozījumi ir redzami tikai to autoriem”, dalībniekam jāpierakstās, lai redzētu veiktos grozījumus.
             announcement: Paziņojums
             answers_with_costs: Iespējot izmaksas priekšlikumu atbildēs
-            automatic_hashtags: Mirkļbirkas tiek pievienotas visiem priekšlikumiem
             comments_blocked: Komentāri ir bloķēti
             proposal_answering_enabled: Atbilde uz priekšlikumiem ir iespējota
             publish_answers_immediately: Nekavējoties publicēt atbildes uz priekšlikumiem
-            suggested_hashtags: Dalībniekiem ieteiktās mirkļbirkas jaunajiem priekšlikumiem
     events:
       proposals:
         admin:

@@ -108,7 +108,6 @@ pt-BR:
           state: Status
           state_values:
             closed: Fechado
-            open: Aberto
         index:
           new_debate: Novo debate
         new:
@@ -121,10 +120,8 @@ pt-BR:
           recent: Mais recente
           updated: Atualizado recentemente
         show:
-          debate_closed: Fechado
           debate_conclusions_are: 'O debate foi encerrado em %{date} com estas conclusões:'
           edit_conclusions: Editar conclusões
-          open: Debate aberto
           participants_count: Participantes
         update:
           invalid: Ocorreu um problema ao atualizar esse debate.

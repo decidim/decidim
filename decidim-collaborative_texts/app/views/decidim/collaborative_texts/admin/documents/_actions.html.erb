@@ -1,23 +1,82 @@
-<% if view == :deleted %>
-  <% if allowed_to? :restore, :collaborative_text, trashable_deleted_resource: document %>
-    <%= icon_link_to "refresh-line", restore_document_path(document), t("actions.restore", scope: "decidim.admin"), method: :patch, class: "action-icon--restore" %>
-  <% end %>
-<% else %>
-  <% if allowed_to? :update, :collaborative_text, document: %>
-    <%= icon_link_to "settings-4-line", edit_settings_document_path(document), t("actions.manage", scope: "decidim.collaborative_texts") %>
-    <%= icon_link_to "pencil-line", edit_document_path(document), t("actions.edit", scope: "decidim.collaborative_texts"), class: "action-icon--edit" %>
-  <% end %>
-  <%= icon_link_to "eye-line", resource_locator(document).path, t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview", target: :blank, data: { "external-link": false } %>
-  <% if allowed_to?(:update, :collaborative_text, document:) %>
-    <% if document.published? %>
-      <%= icon_link_to "close-circle-line", unpublish_document_path(document), t("actions.unpublish", scope: "decidim.admin"), method: :put, class: "action-icon--unpublish" %>
+<button type="button" data-component="dropdown" data-target="actions-post-<%= document.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: document.title) %>">
+  <%= icon "more-fill", class: "text-secondary" %>
+</button>
+
+<div class="inline-block relative">
+  <ul id="actions-post-<%= document.id %>" class="dropdown dropdown__action" aria-hidden="true">
+    <% if view == :deleted %>
+      <% if allowed_to? :restore, :collaborative_text, trashable_deleted_resource: document %>
+        <li class="dropdown__item">
+          <%= link_to restore_document_path(document), method: :patch, class: "dropdown__button" do %>
+            <%= icon "refresh-line" %>
+            <%= t("actions.restore", scope: "decidim.admin") %>
+          <% end %>
+        </li>
+      <% end %>
     <% else %>
-      <%= icon_link_to "check-line", publish_document_path(document), t("actions.publish", scope: "decidim.admin"), method: :put, class: "action-icon--publish" %>
+      <% if allowed_to? :update, :collaborative_text, document: document %>
+        <li class="dropdown__item">
+          <%= link_to edit_settings_document_path(document), class: "dropdown__button" do %>
+            <%= icon "settings-4-line" %>
+            <%= t("actions.manage", scope: "decidim.collaborative_texts") %>
+          <% end %>
+        </li>
+        <li class="dropdown__item">
+          <%= link_to edit_document_path(document), class: "dropdown__button" do %>
+            <%= icon "pencil-line" %>
+            <%= t("actions.edit", scope: "decidim.collaborative_texts") %>
+          <% end %>
+        </li>
+      <% end %>
+
+      <% if allowed_to?(:update, :collaborative_text, document: document) %>
+        <hr>
+
+        <% if document.published? %>
+          <li class="dropdown__item">
+            <%= link_to unpublish_document_path(document), method: :put, class: "dropdown__button" do %>
+              <%= icon "close-circle-line" %>
+              <%= t("actions.unpublish", scope: "decidim.admin") %>
+            <% end %>
+          </li>
+        <% else %>
+          <li class="dropdown__item">
+            <%= link_to publish_document_path(document), method: :put, class: "dropdown__button" do %>
+              <%= icon "check-line" %>
+              <%= t("actions.publish", scope: "decidim.admin") %>
+            <% end %>
+          </li>
+        <% end %>
+      <% end %>
+
+      <hr>
+
+      <li class="dropdown__item">
+        <%= link_to resource_locator(document).path, target: :blank, data: { "external-link": false }, class: "dropdown__button" do %>
+          <%= icon "eye-line" %>
+          <%= t("actions.preview", scope: "decidim.admin") %>
+        <% end %>
+      </li>
+
+      <hr>
+
+      <li class="dropdown__item">
+        <% if allowed_to? :soft_delete, :collaborative_text, trashable_deleted_resource: document %>
+          <%= link_to soft_delete_document_path(document), method: :patch, data: { confirm: t("actions.confirm_delete_document", scope: "decidim.collaborative_texts") }, class: "dropdown__button" do %>
+            <%= icon "delete-bin-line" %>
+            <%= t("actions.soft_delete", scope: "decidim.admin") %>
+          <% end %>
+        <% else %>
+          <div class="dropdown__button-disabled">
+            <%= with_tooltip t("tooltips.deleted_collaborative_texts_info", scope: "decidim.admin") do %>
+              <%= icon "delete-bin-line", class: "text-gray" %>
+              <span>
+                <%= t("actions.soft_delete", scope: "decidim.admin") %>
+              </span>
+            <% end %>
+          </div>
+        <% end %>
+      </li>
     <% end %>
-  <% end %>
-  <% if allowed_to? :soft_delete, :collaborative_text, trashable_deleted_resource: document %>
-    <%= icon_link_to "delete-bin-line", soft_delete_document_path(document), t("actions.soft_delete", scope: "decidim.admin"), method: :patch, class: "action-icon--delete", data: { confirm: t("actions.confirm_delete_document", scope: "decidim.collaborative_texts") } %>
-  <% else %>
-    <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.soft_delete", scope: "decidim.admin") %>
-  <% end %>
-<% end %>
+  </ul>
+</div>

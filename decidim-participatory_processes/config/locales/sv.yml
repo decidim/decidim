@@ -13,7 +13,6 @@ sv:
         document: Dokument
         domain: Domän
         end_date: Slutdatum
-        hashtag: Hashtag
         hero_image: Startbild
         import_attachments: Importera bilagor
         import_categories: Importera kategorier
@@ -39,7 +38,6 @@ sv:
         description: Beskrivning
         developer_group: Arrangör
         group_url: Webbplats
-        hashtag: Hashtag
         hero_image: Bild
         local_area: Område
         meta_scope: Omfattning
@@ -110,7 +108,6 @@ sv:
         participatory_process_groups: Grupper för processer
         participatory_process_groups_submenu:
           info: Info
-          landing_page: Landningssida
         participatory_processes: Processer
         participatory_processes_submenu:
           attachment_collections: Mappar
@@ -118,7 +115,6 @@ sv:
           attachments: Bilagor
           components: Komponenter
           info: Om processen
-          landing_page: Landningssida
           moderations: Moderering
           private_users: Medlemmar
           process_admins: Administratörer för process
@@ -134,6 +130,7 @@ sv:
           name: Deltagandeprocess
         participatory_process_group:
           fields:
+            actions: Åtgärder
             title: Titel
           name: Grupp av processer
         participatory_process_step:
@@ -352,7 +349,6 @@ sv:
           developer_group: Ansvariga för processen. Organisation eller grupp som står bakom processen.
           end_date: Slutdatum för processen
           follows_count: Antal följare
-          hashtag: Processens hashtag, används för Twitter/X
           id: Unikt id för processen
           local_area: Geografiskt område för processen. Det område där processen genomförs.
           participatory_process_group: Grupp av processer, om tillämpbart

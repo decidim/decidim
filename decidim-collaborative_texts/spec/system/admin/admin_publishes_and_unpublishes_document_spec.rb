@@ -23,12 +23,16 @@ describe "Admin publish and unpublish documents" do
     expect(page).to have_content("New text")
     expect(page).to have_content("Configure")
 
-    expect(page).to have_css(".action-icon--publish")
-    click_on "Publish", match: :first
+    within "tr", text: title do
+      find("button[data-component='dropdown']").click
+      click_on "Publish"
+    end
     expect(page).to have_admin_callout "Document successfully published"
 
-    expect(page).to have_css(".action-icon--unpublish")
-    click_on "Unpublish", match: :first
+    within "tr", text: title do
+      find("button[data-component='dropdown']").click
+      click_on "Unpublish"
+    end
     expect(page).to have_admin_callout "Document successfully unpublished"
   end
 

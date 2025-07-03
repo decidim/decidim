@@ -239,6 +239,11 @@ module Decidim
         app.config.active_storage.variant_processor = :mini_magick
       end
 
+      initializer "decidim_core.setup_i18n" do |app|
+        app.config.i18n.available_locales = Decidim.available_locales
+        app.config.i18n.default_locale = Decidim.default_locale
+      end
+
       initializer "decidim_core.active_storage_method_patch" do |_app|
         if Rails::VERSION::MAJOR < 8
           # This is a manual bugfix of https://github.com/rails/rails/pull/51931
@@ -477,7 +482,7 @@ module Decidim
 
       initializer "decidim_core.content_processors" do |_app|
         Decidim.configure do |config|
-          config.content_processors += [:user, :hashtag, :link, :blob, :mention_resource]
+          config.content_processors += [:user, :link, :blob, :mention_resource]
         end
       end
 
@@ -654,13 +659,11 @@ module Decidim
         Decidim.register_social_share_service("Twitter") do |service|
           service.icon = "twitter-line"
           service.share_uri = "https://twitter.com/intent/tweet?url=%{url}&text=%{title}"
-          service.optional_params = %w(hashtags via)
         end
 
         Decidim.register_social_share_service("X") do |service|
           service.icon = "twitter-x-line"
           service.share_uri = "https://twitter.com/intent/tweet?url=%{url}&text=%{title}"
-          service.optional_params = %w(hashtags via)
         end
 
         Decidim.register_social_share_service("Vkontakte") do |service|
@@ -685,6 +688,10 @@ module Decidim
 
       initializer "decidim_core.webpacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
+
+      initializer "decidim_core.register_application_assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", Rails.application.root)
       end
 
       initializer "decidim_core.preview_mailer" do

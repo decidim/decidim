@@ -8,7 +8,7 @@ import Text from "@tiptap/extension-text";
 
 import { updateContent } from "src/decidim/editor/test/helpers";
 
-import Heading from "src/decidim/editor/extensions/heading";
+import Heading from "@tiptap/extension-heading";
 
 const createBasicEditor = () => {
   const element = document.createElement("div");
@@ -51,6 +51,6 @@ describe("Heading", () => {
     editorElement.focus();
     await updateContent(editorElement, "# ");
 
-    expect(editor.getHTML()).toMatchHtml("<p># </p>");
+    expect(editor.getHTML()).toMatchHtml("<h2></h2>");
   });
 });

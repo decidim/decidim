@@ -2,9 +2,9 @@
 
 We try to let most of the things defined through Environment Variables, as https://12factor.net/config[12factor applications's config]. You will need to configure through your hosting provider (for example in Heroku), through a gem like `figaro` or through docker-compose `env_file`.
 
-This is an extensive list of all the Env variables supported for an application created with the default `decidim` generator (ie: `decidim my-application`). Custom applications may modify or customize the default decidim initializer (`config/initializers/decidim.rb`) in such a a way that this will have no effect.
+This is an extensive list of all the Env variables supported for an application created with the default `decidim` generator (ie: `decidim my-application`). Custom applications may implement a  decidim initializer (`config/initializers/decidim.rb`) in such a way that this will have no effect.
 
-Finally, take into account that there are some config variables not available as Env vars, this is because it is not enough to set them in order to make that particular feature to work, it requires the user to add some custom code (usually a service class that acts a wrapper for an external API). These are the case for initializers such as `sms_gateway_service`, `timestamp_service`, `pdf_signature_service` or `machine_translation_service`. For more information about these extra services check the xref:configure:initializer.adoc[Initializer documentation].
+Finally, take into account that there are some config variables not available to Environment. This is because it is not enough to set them in order to make that particular feature to work, it requires the user to add some custom code (like a local generator). For more information about these extra services check the xref:configure:initializer.adoc[Initializer documentation].
 
 The next tables show all the default Env Vars available when running a default Decidim application (note that customized Decidim apps might differ). The ones marked in *bold* are the minimal required to run a production server. The ones marked as _italic_ are only required for development.
 
@@ -425,6 +425,12 @@ Also some more refined configurations:
 |auto
 |No
 
+| DECIDIM_PAGE_BLOCKS
+| Sets the list of static pages' slugs that can include content blocks.
+By default is only enabled in the terms-of-service static page to allow a summary to be added and include sections with a two-pane view
+| terms-of-service
+| no
+
 |DECIDIM_ENABLE_HTML_HEADER_SNIPPETS
 |Set to `true` in order to allow administrators to define an arbitrary custom HTML code in the `<head></head>` section any Decidim page.
 
@@ -608,6 +614,15 @@ Additional context: This has been revealed as an issue during a security audit o
 |false
 |No
 
+|DECIDIM_CONTENT_PROCESSORS
+|Exposes a configuration option: an array of symbols representing processors that will be automatically executed when a content is parsed or rendered.
+
+A content processor is a concept to refer to a set of two classes:
+- the content parser class
+- the content renderer class.
+| ""
+| No
+
 |DECIDIM_ADMIN_PASSWORD_STRONG
 |Enable strong password rules for admin users.
 |true
@@ -633,7 +648,7 @@ Additional context: This has been revealed as an issue during a security audit o
 | 365
 | No
 
-| DECIDIM_MINIMUM_INACTIVITY_PERIOD
+| DECIDIM_MINIMUM_INACTIVITY_PERIOD_IN_DAYS
 | Minimum allowed inactivity period before a user can be considered inactive.
 | 30
 | No
@@ -658,24 +673,50 @@ Additional context: This has been revealed as an issue during a security audit o
 |true
 |No
 
-|*DECIDIM_SPAM_DETECTION_BACKEND_USER*
-| The adapter type needed for user classifier. (for CI purposes, you can set "memory")
-| redis
+|*DECIDIM_ENABLE_MACHINE_TRANSLATION*
+| Whether the Decidim attempt to automatically translate missing translations.
+Read more about this at xref:services:machine_translation.adoc[Machine Translation] service page.
+| false
 | No
 
-|*DECIDIM_SPAM_DETECTION_BACKEND_USER_REDIS_URL*
-| The redis connection url used by the user classifier
-| redis://localhost:6379/3
+|*DECIDIM_MACHINE_TRANSLATION_SERVICE*
+| The name of the class to translate user content.
+Read more about this at xref:services:machine_translation.adoc[Machine Translation] service page.
+| nil
 | No
 
-|*DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE*
-| The adapter type needed for resource classifier. (for CI purposes, you can set "memory")
-| redis
+
+|*DECIDIM_SMS_GATEWAY_SERVICE*
+| The name of the class to deliver SMS codes to users.
+Read more about this at xref:services:sms.adoc[SMS] service page.
+| nil
 | No
 
-|*DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE_REDIS_URL*
-| The redis connection url used by the resource classifier
-| redis://localhost:6379/2
+|*DECIDIM_TIMESTAMP_SERVICE*
+| The name of the class used to generate a timestamp from a document.
+Read more about this at xref:services:timestamp.adoc[Timestamp] service page.
+| nil
+| No
+
+|*DECIDIM_PDF_SIGNATURE_SERVICE*
+| The name of the class used to process a pdf and add a signature to the document.
+Read more about this at xref:services:pdf.adoc[PDF signing] service page.
+| nil
+| No
+
+|*DECIDIM_USER_ROLES*
+| The list of roles a user can have, not considering the space-specific roles.
+| admin, user_manager
+| No
+
+|*DECIDIM_AMENDMENTS_VISIBILITY_OPTIONS*
+| The list of visibility options for amendments.
+| all, participants
+| No
+
+|*DECIDIM_DEFAULT_MAX_LAST_ACTIVITY_USERS*
+| The default max last activity users to be shown
+| 6
 | No
 
 |DECIDIM_OAUTH_ACCESS_TOKEN_EXPIRES_IN
@@ -735,10 +776,6 @@ Additional context: This has been revealed as an issue during a security audit o
 |2
 |No
 
-*We recommend not to tamper with this setting unless you know what are you doing*
-|auto
-|No
-
 |MEETINGS_EMBEDDABLE_SERVICES
 |A list (separated by spaces) of allowed services that can be embedded in a iframe when creating an online meeting.
 |www.youtube.com www.twitch.tv meet.jit.si
@@ -747,14 +784,6 @@ Additional context: This has been revealed as an issue during a security audit o
 |MEETINGS_WAITING_LIST_ENABLED
 |If set to "false", disables the waiting list feature for meetings. Enabled by default.
 |true
-|No
-
-*We recommend not to tamper with this setting unless you know what are you doing*
-|auto
-|No
-
-*We recommend not to tamper with this setting unless you know what are you doing*
-|auto
 |No
 
 |INITIATIVES_CREATION_ENABLED
@@ -826,6 +855,71 @@ After this time the initiative will be moved to discarded state.
 |Secret used by the base class Decidim::Initiatives::SignatureHandler to encrypt the user personal data that will be stored in the initiatives votes.
 |personal user metadata
 |No
+
+|*DECIDIM_SPAM_REPORTING_USER*
+| This is the email address used by the spam engine to properly identify the user that will report users and content
+| decidim-reporting-user@example.org
+| No
+
+|*DECIDIM_SPAM_DETECTION_RESOURCE_SCORE_THRESHOLD*
+| This is the threshold used to report resources. If the score falls under this value, the resource will not be reported.
+| 0.75
+| No
+
+|*DECIDIM_SPAM_DETECTION_USER_SCORE_THRESHOLD*
+| This is the threshold used to report users. If the score falls under this value, the user will not be reported.
+| 0.75
+| No
+
+|*DECIDIM_SPAM_DETECTION_DELAY_IN_SECONDS*
+| You can configure the spam delay for the spam detection service. It is recommended not to set it to 0, as the request may not finished (ex: resources could not yet exist in Database)
+| 30
+| No
+
+|*DECIDIM_SPAM_DETECTION_BACKEND_USER*
+| The adapter type needed for user classifier. (for CI purposes, you can set "memory")
+| redis
+| No
+
+|*DECIDIM_SPAM_DETECTION_BACKEND_USER_REDIS_URL*
+| The redis connection url used by the user classifier
+| redis://localhost:6379/3
+| No
+
+|*DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE*
+| The adapter type needed for resource classifier. (for CI purposes, you can set "memory")
+| redis
+| No
+
+|*DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE_REDIS_URL*
+| The redis connection url used by the resource classifier
+| redis://localhost:6379/2
+| No
+
+|*DECIDIM_SPAM_DETECTION_RESOURCE_SERVICE*
+| Spam detection service class.
+| Decidim::Ai::SpamDetection::Service
+| No
+
+|*DECIDIM_SPAM_DETECTION_USER_SERVICE*
+| Spam detection service class.
+| Decidim::Ai::SpamDetection::Service
+| No
+
+|*DECIDIM_AI_LANGUAGE_FORMATTER*
+| Text cleanup service
+| Decidim::Ai::Language::Formatter
+| No
+
+|*DECIDIM_SPAM_HIDE_REPORTED_RESOURCES_AUTOMATICALLY*
+| When the engine is consistently marking spam content without errors, you can skip human intervention by enabling this functionality
+| false
+| No
+
+|*VERIFICATIONS_DOCUMENT_TYPES*
+| For the verification of the participants' data in Verifications, you can configure which type of documents a participant can have. By default these documents are `identification_number` and `passport`
+| identification_number,passport
+| No
 
 |===
 

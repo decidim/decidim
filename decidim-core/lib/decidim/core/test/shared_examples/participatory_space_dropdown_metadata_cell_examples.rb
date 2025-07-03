@@ -79,21 +79,3 @@ shared_examples_for "participatory space dropdown metadata cell" do
     end
   end
 end
-
-shared_examples_for "participatory space dropdown metadata cell hashtag" do
-  context "when the hashtag is blank" do
-    let(:hashtag) { nil }
-
-    it "does not render the hashtag symbol" do
-      expect(subject).to have_no_content("#")
-    end
-  end
-
-  context "when the hashtag is present" do
-    let(:hashtag) { "space_is_the_place" }
-
-    it "renders the hashtag" do
-      expect(subject).to have_link("#space_is_the_place")
-    end
-  end
-end
