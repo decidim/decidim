@@ -51,7 +51,7 @@ describe "Admin manages moderated users" do
       it "cannot block itself" do
         within "tr", text: admin.name do
           find("button[data-component='dropdown']").click
-          expect(page).to_not have_css(".button", text: "Block")
+          expect(page).to have_no_css(".button", text: "Block")
         end
       end
     end
