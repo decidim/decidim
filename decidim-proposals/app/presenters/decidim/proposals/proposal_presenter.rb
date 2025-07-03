@@ -43,8 +43,10 @@ module Decidim
         "##{proposal.id} - #{title(html_escape:)}"
       end
 
-      def body(links: false, extras: true, strip_tags: false, all_locales: false)
+      def body(links: false, extras: nil, strip_tags: false, all_locales: false)
         return unless proposal
+
+        raise "Extras being set" unless extras.nil?
 
         content_handle_locale(proposal.body, all_locales, extras, links, strip_tags)
       end

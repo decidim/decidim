@@ -36,8 +36,10 @@ module Decidim
         super(meeting.title, html_escape, all_locales)
       end
 
-      def description(links: false, extras: true, strip_tags: false, all_locales: false)
+      def description(links: false, extras: nil, strip_tags: false, all_locales: false)
         return unless meeting
+
+        raise "Extras being set" unless extras.nil?
 
         content_handle_locale(meeting.description, all_locales, extras, links, strip_tags)
       end
@@ -72,8 +74,9 @@ module Decidim
         end
       end
 
-      def closing_report(links: false, extras: false, strip_tags: false, all_locales: false)
+      def closing_report(links: false, extras: nil, strip_tags: false, all_locales: false)
         return unless meeting
+        raise "Extras being set" unless extras.nil?
 
         content_handle_locale(meeting.closing_report, all_locales, extras, links, strip_tags)
       end

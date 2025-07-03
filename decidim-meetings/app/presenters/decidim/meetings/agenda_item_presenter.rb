@@ -13,8 +13,9 @@ module Decidim
         __getobj__
       end
 
-      def description(links: false, extras: true, strip_tags: false, all_locales: false)
+      def description(links: false, extras: nil, strip_tags: false, all_locales: false)
         return unless agenda_item
+        raise "Extras being set" unless extras.nil?
 
         content_handle_locale(agenda_item.description, all_locales, extras, links, strip_tags)
       end

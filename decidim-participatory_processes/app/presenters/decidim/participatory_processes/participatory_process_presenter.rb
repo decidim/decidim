@@ -23,8 +23,9 @@ module Decidim
         super(process.title, html_escape, all_locales)
       end
 
-      def description(links: false, extras: true, strip_tags: false, all_locales: false)
+      def description(links: false, extras: nil, strip_tags: false, all_locales: false)
         return unless process
+        raise "Extras being set" unless extras.nil?
 
         content_handle_locale(process.description, all_locales, extras, links, strip_tags)
       end
@@ -35,8 +36,9 @@ module Decidim
         editor_locales(process.description, all_locales, extras:)
       end
 
-      def short_description(links: false, extras: true, strip_tags: false, all_locales: false)
+      def short_description(links: false, extras: nil, strip_tags: false, all_locales: false)
         return unless process
+        raise "Extras being set" unless extras.nil?
 
         content_handle_locale(process.short_description, all_locales, extras, links, strip_tags)
       end
