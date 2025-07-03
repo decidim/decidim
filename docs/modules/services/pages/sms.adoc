@@ -1,7 +1,7 @@
 = SMS gateway configuration
 
 If you want to verify your users by sending a verification code via
-xref:services:sms.adoc[SMS] you need to provide a SMS gateway service class.
+SMS (mobile/cell phones text messages) you need to provide a SMS gateway service class.
 
 An example class would be something like:
 
