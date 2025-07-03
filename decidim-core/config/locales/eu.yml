@@ -414,7 +414,7 @@ eu:
       wizard_step_form:
         steps:
           '1': Sortu zure zuzenketa
-          '2': Argitaratu zure zuzenketa
+          '2': Zure zuzenketa argitaratu
     anonymous_user: Anonimoa
     application:
       document:
