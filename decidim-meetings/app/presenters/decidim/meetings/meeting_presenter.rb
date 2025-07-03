@@ -42,10 +42,8 @@ module Decidim
         content_handle_locale(meeting.description, all_locales, links, strip_tags)
       end
 
-      def editor_description(all_locales: false, extras: nil)
+      def editor_description(all_locales: false)
         return unless meeting
-
-        raise "Extras are set" unless extras.nil?
 
         editor_locales(meeting.description, all_locales)
       end

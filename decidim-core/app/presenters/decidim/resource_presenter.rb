@@ -31,9 +31,7 @@ module Decidim
 
     # Prepares the HTML content for the editors with the correct tags included
     # to identify the mentions.
-    def editor_locales(data, all_locales, extras: nil)
-      raise "Extras are set" unless extras.nil?
-
+    def editor_locales(data, all_locales)
       handle_locales(data, all_locales) do |content|
         [
           Decidim::ContentRenderers::BlobRenderer,

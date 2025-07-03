@@ -49,9 +49,7 @@ module Decidim
         content_handle_locale(proposal.body, all_locales, links, strip_tags)
       end
 
-      def editor_body(all_locales: false, extras: nil)
-        raise "Extras are set" unless extras.nil?
-
+      def editor_body(all_locales: false)
         editor_locales(proposal.body, all_locales)
       end
 
