@@ -1,0 +1,38 @@
+= Machine Translations
+
+To enable machine translations you need to enable the service and specify the class used for translation (this usually is the one contacting an external API from a 3d party service that actually translates the string).
+
+[source,ruby]
+....
+class MyTranslationService
+  attr_reader :text, :source_locale, :target_locale, :resource, :field_name
+
+  def initialize(resource, field_name, text, target_locale, source_locale)
+    @resource = resource
+    @field_name = field_name
+    @text = text
+    @target_locale = target_locale
+    @source_locale = source_locale
+  end
+
+  def translate
+    # Actual code to translate the text
+  end
+end
+....
+
+The arguments provided for the initialize method are:
+
+- `resource` - The object of the resource that being translated (ex: a `Decidim::Meetings::Meeting` instance )
+- `field_name` - The name of the field that is being translated (ex: "title")
+- `text` - The text that is going to be translated (ex: "This meeting is great" )
+- `target_locale` - The language in which you want to translate ( ex: "ca" )
+- `source_locale` - The language in which the content has been created (ex: "en")
+
+Then you will need to configure it with the help of Environment Variables:
+
+[source,bash]
+....
+export DECIDIM_ENABLE_MACHINE_TRANSLATION="true"
+export DECIDIM_MACHINE_TRANSLATION_SERVICE="MyTranslator"
+....

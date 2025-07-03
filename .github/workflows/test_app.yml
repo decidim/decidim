@@ -51,6 +51,7 @@ jobs:
       DATABASE_HOST: localhost
       DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE: "memory"
       DECIDIM_SPAM_DETECTION_BACKEND_USER: "memory"
+      DECIDIM_AVAILABLE_LOCALES: en,ca,es
     services:
       validator:
         image: ghcr.io/validator/validator:latest
@@ -120,6 +121,11 @@ jobs:
           DECIDIM_BULLET_N_PLUS_ONE: ${{ inputs.bullet_n_plus_one }}
           DECIDIM_BULLET_COUNTER_CACHE: ${{ inputs.bullet_counter_cache }}
           DECIDIM_BULLET_UNUSED_EAGER: ${{ inputs.bullet_unused_eager_loading }}
+          DECIDIM_ENABLE_MACHINE_TRANSLATION: true
+          DECIDIM_SMS_GATEWAY_SERVICE: Decidim::Verifications::Sms::ExampleGateway
+          DECIDIM_TIMESTAMP_SERVICE: Decidim::Initiatives::DummyTimestamp
+          DECIDIM_PDF_SIGNATURE_SERVICE: Decidim::PdfSignatureExample
+          DECIDIM_MACHINE_TRANSLATION_SERVICE: Decidim::Dev::DummyTranslator
           DISPLAY: ":99"
           CI: "true"
           FAST_SEEDS: "true"

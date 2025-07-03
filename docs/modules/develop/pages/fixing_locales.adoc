@@ -10,17 +10,12 @@ When you create an organization, you choose the available languages for it (thro
 However, when trying to edit it, the language selector is not available anymore.
 Here is a way to update that locales manually:
 
-First, make sure that your initializer file has all the locales you want:
+First, make sure you have set your environment variables to use all the locales that you want
 
-Edit the file `config/initializers/decidim.rb` and be sure to include all the necessary locales:
-
-[source,ruby]
+[source,bash]
 ----
-...
-# Change these lines to set your preferred locales
-  config.default_locale = :en
-  config.available_locales = [:en, :ca, :es, :fr, :pt]
-..
+export DECIDIM_DEFAULT_LOCALE="en"
+export DECIDIM_AVAILABLE_LOCALES="en,ca,es,fr,pt"
 ----
 
 Then you need to access the rails console and update the organization locales manually.
@@ -76,12 +71,12 @@ In order to solve that you can make use of these rake tasks:
 bundle exec rake decidim:locales:sync_all
 ----
 
-Run this task if you have changed `available_locales` or `default_locale` in `config/initializers/decidim.rb` and you think that some organization have values not supported by the Decidim installation.
+Run this task if you have changed `DECIDIM_AVAILABLE_LOCALES` or `DECIDIM_DEFAULT_LOCALE` environment variables, and you think that some organization has values not supported by the Decidim installation.
 
 Examples:
 
-* `Decidim.available_locales` is set to `[:en, :ca, :fr]` and your organization has `available_locales` to `[:es, :ca]`, running this script will change it to `[:ca]` as `:es` is not supported.
-* `organization.default_locale` is set to `:fr` and your `available_locales` to `[:en, :es]`, running this script will change `organization.default_locale` to `:en`.
+* `DECIDIM_AVAILABLE_LOCALES` is set to `"en,ca,fr"` and your organization has `available_locales` set to `"es,ca"`, running this script will change it to `ca` as `es` is not supported.
+* `organization.default_locale` is set to `:fr` and your `DECIDIM_AVAILABLE_LOCALES` is set to `"en,es"`, running this script will change `organization.default_locale` to `:en`.
 
 It is safe to run this task as it respects organizations with less languages than the supported.
 
