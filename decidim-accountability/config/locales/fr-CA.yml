@@ -291,6 +291,8 @@ fr-CA:
             label: Statut
           taxonomies_part_of_contains:
             label: Taxonomie
+      tooltips:
+        deleted_results_info: Impossible de supprimer ce résultat
     components:
       accountability:
         actions:
