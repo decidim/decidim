@@ -609,6 +609,15 @@ Additional context: This has been revealed as an issue during a security audit o
 |false
 |No
 
+|DECIDIM_CONTENT_PROCESSORS
+|Exposes a configuration option: an array of symbols representing processors that will be automatically executed when a content is parsed or rendered.
+
+A content processor is a concept to refer to a set of two classes:
+- the content parser class
+- the content renderer class.
+| ""
+| No
+
 |DECIDIM_ADMIN_PASSWORD_STRONG
 |Enable strong password rules for admin users.
 |true

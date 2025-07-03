@@ -341,7 +341,7 @@ module Decidim
   #   Decidim::ContentParsers::UserParser < BaseParser
   #   Decidim::ContentRenderers::UserRenderer < BaseRenderer
   config_accessor :content_processors do
-    []
+    Decidim::Env.new("DECIDIM_CONTENT_PROCESSORS", "").to_array
   end
 
   # Exposes a configuration option: an object to configure geocoder
