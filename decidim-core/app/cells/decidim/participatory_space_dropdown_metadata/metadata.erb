@@ -1,9 +1,1 @@
 <h4 class="menu-bar__secondary-dropdown__title"><%= title %></h4>
-<% if hashtag.present? %>
-  <div class="menu-bar__secondary-dropdown__metadata">
-    <span>
-      <%= icon "twitter-x-line", class: "text-gray fill-current" %>
-      <%= link_to "##{hashtag}", twitter_hashtag_url(hashtag), target: "_blank", class: "text-secondary underline" %>
-    </span>
-  </div>
-<% end %>

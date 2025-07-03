@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Accountability
-  describe Admin::CreateTimelineEntry do
+  describe Admin::CreateMilestone do
     subject { described_class.new(form) }
 
     let(:organization) { create(:organization, available_locales: [:en]) }
@@ -37,36 +37,36 @@ module Decidim::Accountability
     end
 
     context "when everything is ok" do
-      let(:timeline_entry) { TimelineEntry.last }
+      let(:milestone) { Milestone.last }
 
-      it "creates the timeline entry" do
-        expect { subject.call }.to change(TimelineEntry, :count).by(1)
+      it "creates the milestone" do
+        expect { subject.call }.to change(Milestone, :count).by(1)
       end
 
       it "sets the entry date" do
         subject.call
-        expect(timeline_entry.entry_date).to eq(Date.new(2017, 8, 23))
+        expect(milestone.entry_date).to eq(Date.new(2017, 8, 23))
       end
 
       it "sets the title" do
         subject.call
-        expect(translated(timeline_entry.title)).to eq title
+        expect(translated(milestone.title)).to eq title
       end
 
       it "sets the description" do
         subject.call
-        expect(translated(timeline_entry.description)).to eq description
+        expect(translated(milestone.description)).to eq description
       end
 
       it "sets the result" do
         subject.call
-        expect(timeline_entry.result).to eq(result)
+        expect(milestone.result).to eq(result)
       end
 
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
-          .with(:create, Decidim::Accountability::TimelineEntry, user, {})
+          .with(:create, Decidim::Accountability::Milestone, user, {})
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)

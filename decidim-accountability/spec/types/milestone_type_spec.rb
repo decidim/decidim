@@ -5,10 +5,10 @@ require "decidim/api/test"
 
 module Decidim
   module Accountability
-    describe TimelineEntryType, type: :graphql do
+    describe MilestoneType, type: :graphql do
       include_context "with a graphql class type"
 
-      let(:model) { create(:timeline_entry) }
+      let(:model) { create(:milestone) }
 
       include_examples "traceable interface"
       include_examples "timestamps interface"

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Accountability
-  describe Admin::TimelineEntryForm do
+  describe Admin::MilestoneForm do
     subject { described_class.from_params(attributes).with_context(context) }
 
     let(:organization) { create(:organization, available_locales: [:en]) }
