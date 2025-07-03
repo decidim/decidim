@@ -39,7 +39,7 @@ module Decidim
           Decidim::ContentRenderers::MentionResourceRenderer
         ].each do |renderer_class|
           renderer = renderer_class.new(content)
-          content = renderer.render(links: false, editor: true, extras:).html_safe
+          content = renderer.render(links: false, editor: true).html_safe
         end
 
         content
