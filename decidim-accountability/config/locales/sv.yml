@@ -291,6 +291,8 @@ sv:
             label: Status
           taxonomies_part_of_contains:
             label: Kategori
+      tooltips:
+        deleted_results_info: Kan inte ta bort detta resultat
     components:
       accountability:
         actions:
