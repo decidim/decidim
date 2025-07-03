@@ -558,7 +558,6 @@ module Decidim
   # The name of the class to translate user content.
   #
   config_accessor :machine_translation_service do
-    # "MyTranslationService"
     Decidim::Env.new("DECIDIM_MACHINE_TRANSLATION_SERVICE", nil).value
   end
 
