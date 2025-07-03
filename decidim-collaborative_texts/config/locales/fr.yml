@@ -16,6 +16,9 @@ fr:
           draft: Brouillon
           version_number: Numéro de version
   decidim:
+    admin:
+      tooltips:
+        deleted_collaborative_texts_info: Impossible de supprimer ce document
     collaborative_texts:
       actions:
         confirm_delete_document: Êtes-vous sûr(e) de vouloir supprimer ce document ?
