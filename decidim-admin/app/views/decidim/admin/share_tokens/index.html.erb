@@ -74,7 +74,7 @@
                     <hr>
 
                     <li class="dropdown__item">
-                      <%= link_to share_token.url, target: "_blank", class: "dropdown__button" do %>
+                      <%= link_to share_token.url, target: "_blank", class: "dropdown__button", data: { "external-domain-link": false, "external-link": "text-only" } do %>
                         <%= icon "eye-line" %>
                         <%= t("actions.preview", scope: "decidim.admin.share_tokens") %>
                       <% end %>
