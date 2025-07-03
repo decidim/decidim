@@ -173,6 +173,13 @@ en:
       x_seconds:
         one: 1 second
         other: "%{count} seconds"
+    widget:
+      label:
+        date: Select date for %{label}
+        time: Select time for %{label}
+      picker:
+        date_button: Open calendar picker for %{label}
+        time_button: Open time picker for %{label}
   decidim:
     accessibility:
       external_link: External link
