@@ -10,6 +10,8 @@ module Decidim
       belongs_to :election, class_name: "Decidim::Elections::Election", inverse_of: :questions
 
       has_many :response_options, class_name: "Decidim::Elections::ResponseOption", dependent: :destroy, inverse_of: :question
+      has_many :votes, class_name: "Decidim::Elections::Vote", foreign_key: :decidim_elections_question_id, dependent: :destroy
+
 
       validates :question_type, inclusion: { in: QUESTION_TYPES }
 
