@@ -260,7 +260,7 @@ de:
     components:
       accountability:
         actions:
-          comment: Kommentar
+          comment: Kommentieren
         name: Rechenschaftspflicht
         settings:
           global:
