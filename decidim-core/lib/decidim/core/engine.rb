@@ -477,7 +477,7 @@ module Decidim
 
       initializer "decidim_core.content_processors" do |_app|
         Decidim.configure do |config|
-          config.content_processors += [:user, :hashtag, :link, :blob, :mention_resource]
+          config.content_processors += [:user, :link, :blob, :mention_resource]
         end
       end
 
@@ -645,13 +645,11 @@ module Decidim
         Decidim.register_social_share_service("Twitter") do |service|
           service.icon = "twitter-line"
           service.share_uri = "https://twitter.com/intent/tweet?url=%{url}&text=%{title}"
-          service.optional_params = %w(hashtags via)
         end
 
         Decidim.register_social_share_service("X") do |service|
           service.icon = "twitter-x-line"
           service.share_uri = "https://twitter.com/intent/tweet?url=%{url}&text=%{title}"
-          service.optional_params = %w(hashtags via)
         end
 
         Decidim.register_social_share_service("Vkontakte") do |service|

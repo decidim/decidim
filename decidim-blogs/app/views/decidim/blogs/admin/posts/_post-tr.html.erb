@@ -1,28 +1,28 @@
 <tr data-id="<%= post.id %>">
-  <td>
+  <td data-label="<%= t("models.post.fields.title", scope: "decidim.blogs") %>">
     <% if allowed_to? :update, :blogpost, blogpost: post %>
       <%= link_to translated_attribute(post.title), edit_post_path(post) %><br>
     <% else %>
       <%= translated_attribute(post.title) %><br>
     <% end %>
   </td>
-  <td>
+  <td data-label="<%= t("models.post.fields.body", scope: "decidim.blogs") %>">
     <%= decidim_sanitize_editor post_description_admin(post) %>
   </td>
-  <td>
+  <td data-label="<%= t("models.post.fields.author", scope: "decidim.blogs") %>">
     <%= translated_attribute(post.try(:author).try(:name)) %>
   </td>
-  <td>
+  <td data-label="<%= t("models.post.fields.taxonomies", scope: "decidim.blogs") %>">
     <%= present(post).taxonomy_names.join(", ") %>
   </td>
   <% publish_data = publish_data(post.published_at) %>
-  <td>
+  <td data-label="<%= t("models.post.fields.published_at", scope: "decidim.blogs") %>">
     <%= content_tag :span, class: "padding-3", data: { tooltip: true, disable_hover: false, click_open: false }, title: publish_data[:popup] do
       publish_data[:icon]
     end %>
     <%= l post.published_at, format: :decidim_short %>
   </td>
-  <td class="table-list__actions">
+  <td class="table-list__actions" data-label="<%= t("actions.title", scope: "decidim.blogs") %>">
     <%= render partial: "decidim/blogs/admin/posts/actions", locals: { post:, view: } %>
   </td>
 </tr>

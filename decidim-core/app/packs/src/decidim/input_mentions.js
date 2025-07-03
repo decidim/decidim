@@ -5,8 +5,7 @@ const mentionsInitializer = () => {
   const $mentionContainer = $(".js-mentions");
   const nodatafound = $mentionContainer.attr("data-noresults");
 
-  // The editor implements hashtags functionality by itself so it is not needed
-  // to attach tribute to the rich text editor.
+  //  Prevents the mention component to be initialized inside the editor
   if ($mentionContainer.parent().hasClass("editor")) {
     return;
   }
