@@ -28,7 +28,7 @@ de:
     components:
       debates:
         actions:
-          comment: Kommentar
+          comment: Kommentieren
           create: Debatte erstellen
         name: Debatten
         settings:
