@@ -87,11 +87,11 @@
                         <%= t("actions.preview", scope: "decidim.admin") %>
                       <% end %>
                     </li>
-
-                    <hr>
                   <% end %>
 
                   <% if allowed_to?(:destroy, :newsletter, newsletter: newsletter) && !newsletter.sent? %>
+                    <hr>
+
                     <li class="dropdown__item">
                       <%= link_to decidim_admin.newsletter_path(newsletter), method: :delete, data: { confirm: t(".confirm_delete") }, class: "dropdown__button dropdown__button--danger" do %>
                         <%= icon "delete-bin-line" %>
