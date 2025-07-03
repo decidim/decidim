@@ -49,8 +49,10 @@ module Decidim
         content_handle_locale(proposal.body, all_locales, links, strip_tags)
       end
 
-      def editor_body(all_locales: false, extras: true)
-        editor_locales(proposal.body, all_locales, extras:)
+      def editor_body(all_locales: false, extras: nil)
+        raise "Extras are set" unless extras.nil?
+
+        editor_locales(proposal.body, all_locales)
       end
 
       # Returns the proposal versions, hiding not published answers

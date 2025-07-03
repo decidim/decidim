@@ -19,10 +19,11 @@ module Decidim
         content_handle_locale(agenda_item.description, all_locales, links, strip_tags)
       end
 
-      def editor_description(all_locales: false, extras: true)
+      def editor_description(all_locales: false, extras: nil)
         return unless agenda_item
+        raise "Extras are set" unless extras.nil?
 
-        editor_locales(agenda_item.description, all_locales, extras:)
+        editor_locales(agenda_item.description, all_locales)
       end
     end
   end
