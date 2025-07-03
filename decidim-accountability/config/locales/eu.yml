@@ -118,12 +118,12 @@ eu:
           destroy:
             success: Mugarria zuzen ezabatu da.
           edit:
-            title: Editatu mugarria
-            update: Eguneratu mugarria
+            title: Mugarria editatu
+            update: Mugarria eguneratu
           index:
             title: Mugarriak
           new:
-            create: Sortu mugarria
+            create: Mugarria sortu
             title: Beste mugarri bat
           update:
             invalid: Arazo bat egon da mugarri hau eguneratzean.
