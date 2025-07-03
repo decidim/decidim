@@ -42,7 +42,7 @@ module Decidim
         content_handle_locale(process.short_description, all_locales, links, strip_tags)
       end
 
-      def editor_short_description(extras: true, all_locales: nil)
+      def editor_short_description(extras: nil, all_locales: false)
         return unless process
         raise "Extras are set" unless extras.nil?
 
