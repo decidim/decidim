@@ -14,19 +14,23 @@ module Decidim::Budgets
     let(:component) { create(:budgets_component, participatory_space: participatory_process) }
     let(:proposals_component) { create(:component, manifest_name: :proposals, participatory_space: participatory_process) }
     let!(:budget) { create(:budget, component:) }
+    let!(:project) { create(:project, component:) }
+    let(:address) { Faker::Address.full_address }
     let!(:proposal) { create(:proposal, component: proposals_component) }
     let(:model) { budget }
     let(:title_en) { Faker::Lorem.sentence(word_count: 3) }
     let(:description_en) { Faker::Lorem.paragraph(sentence_count: 2) }
-    let(:latitude) { 123.45 }
-    let(:longitude) { 234.56 }
+    let(:latitude) { Faker::Address.latitude }
+    let(:longitude) { Faker::Address.longitude }
     let!(:root_taxonomy) { create(:taxonomy, organization:) }
     let!(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization:) }
     let(:taxonomy_id) { taxonomy.id }
     let(:budget_amount) { 123_4 }
+
     let(:variables) do
       {
         input: {
+          id: project.id,
           attributes: {
             title: { en: title_en },
             description: { en: description_en },
@@ -42,8 +46,8 @@ module Decidim::Budgets
 
     let(:query) do
       <<~GRAPHQL
-        mutation($input: CreateProjectInput!) {
-          createProject(input: $input) {
+        mutation($input: UpdateProjectInput!) {
+          updateProject(input: $input) {
             id
             title { translation(locale: "#{locale}") }
             description { translation(locale: "#{locale}") }
@@ -66,19 +70,19 @@ module Decidim::Budgets
     end
 
     context "with an admin user" do
-      it_behaves_like "API creatable project" do
+      it_behaves_like "API updatable project" do
         let!(:user_type) { :admin }
       end
     end
 
     context "with an api user" do
-      it_behaves_like "API creatable project" do
+      it_behaves_like "API updatable project" do
         let!(:user_type) { :api_user }
       end
     end
 
     it "does not create project for unauthorized user" do
-      expect(response["createProject"]).to be_nil
+      expect(response["updateProoject"]).to be_nil
     end
   end
 end

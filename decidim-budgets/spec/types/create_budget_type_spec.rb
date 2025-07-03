@@ -1,41 +1,43 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
+require "decidim/api/test/mutation_context"
 
 module Decidim::Budgets
   describe CreateBudgetType, type: :graphql do
-    include_context "with a graphql type and authenticated user"
+    include_context "with a graphql class mutation"
 
+    let(:root_klass) { BudgetsMutationType }
     let(:locale) { "en" }
     let(:model) { create(:budgets_component) }
     let(:title_en) { Faker::Lorem.sentence(word_count: 3) }
     let(:description_en) { Faker::Lorem.paragraph(sentence_count: 2) }
     let(:resource_class) { Decidim::Budgets::Budget }
     let(:total_budget) { 1234 }
+    let(:variables) do
+      {
+        input: {
+          attributes: {
+            title: { en: title_en },
+            totalBudget: 1234,
+            description: { en: description_en }
+          }
+        }
+      }
+    end
 
     let(:query) do
       <<~GRAPHQL
-        mutation {
-          component(id: "#{model.id}") {
-            ...on BudgetsMutation {
-              createBudget(input: {
-                attributes: {
-                  title: {en: "#{title_en}"},
-                  totalBudget: 1234,
-                  description: {en: "#{description_en}"}
-                }
-              }) {
-                id
-                title {
-                  translation(locale: "#{locale}")
-                }
-                description {
-                  translation(locale: "#{locale}")
-                }
-                total_budget
-              }
+        mutation($input: CreateBudgetInput!) {
+          createBudget(input: $input) {
+            id
+            title {
+              translation(locale: "#{locale}")
             }
+            description {
+              translation(locale: "#{locale}")
+            }
+            total_budget
           }
         }
       GRAPHQL
@@ -49,7 +51,7 @@ module Decidim::Budgets
 
     context "with normal user" do
       it "returns nil" do
-        budget = response["component"]["createBudget"]
+        budget = response["createBudget"]
         expect(budget).to be_nil
       end
     end

@@ -3,6 +3,8 @@
 module Decidim
   module Budgets
     class CreateProjectType < Decidim::Api::Types::BaseMutation
+      graphql_name "CreateProject"
+
       description "Creates a Project"
       type Decidim::Budgets::ProjectType
 

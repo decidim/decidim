@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
+require "decidim/api/test/mutation_context"
 
 module Decidim
   module Proposals
     describe ProposalMutationType, type: :graphql do
-      include_context "with a graphql type and authenticated user"
+      include_context "with a graphql class mutation"
 
       let(:model) { create(:proposal) }
       let(:state) { %w(accepted evaluating rejected).sample }
