@@ -665,7 +665,8 @@ Additional context: This has been revealed as an issue during a security audit o
 |No
 
 |*DECIDIM_ENABLE_MACHINE_TRANSLATION*
-| Whether the Decidim attempt to automatically translate missing translations
+| Whether the Decidim attempt to automatically translate missing translations.
+Read more about this at xref:services:machine_translation.adoc[Machine Translation] service page.
 | false
 | No
 
