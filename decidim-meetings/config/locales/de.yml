@@ -147,7 +147,7 @@ de:
     components:
       meetings:
         actions:
-          comment: Kommentar
+          comment: Kommentieren
           join: Beitreten
           reply_poll: Umfrage beantworten
         name: Veranstaltungen
