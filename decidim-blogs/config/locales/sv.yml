@@ -18,6 +18,8 @@ sv:
       admin_log:
         changeset:
           posts: Inlägg
+      tooltips:
+        deleted_posts_info: Kan inte ta bort detta inlägg
     blogs:
       actions:
         author_id: Skapa inlägg som
