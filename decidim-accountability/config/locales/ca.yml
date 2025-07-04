@@ -291,6 +291,8 @@ ca:
             label: Estat
           taxonomies_part_of_contains:
             label: Taxonomia
+      tooltips:
+        deleted_results_info: No es pot esborrar aquest resultat
     components:
       accountability:
         actions:
