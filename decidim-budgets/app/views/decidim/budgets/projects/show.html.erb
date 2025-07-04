@@ -25,14 +25,6 @@ edit_link(
 <%= render partial: "exit_modal" %>
 
 <div id="project-item">
-  <%= render partial: "budget_summary", locals: { responsive: true, focus_mode_origin: "show" } %>
-  <% content_for :item_header do %>
-    <% unless voting_finished? %>
-      <%= render partial: "budget_summary", locals: { responsive: false, focus_mode_origin: "show" } %>
-      <%= render partial: "budget_excess" %>
-      <%= render partial: "budget_confirm" %>
-    <% end %>
-  <% end %>
   <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: budget_projects_path(budget) } do %>
     <section class="layout-main__section layout-main__heading">
       <%= cell("decidim/budgets/budget_information_modal", budget) %>
@@ -94,11 +86,6 @@ edit_link(
     </section>
 
     <% content_for :aside do %>
-      <section class="layout-aside__section layout-aside__buttons hidden md:block">
-        <% if voting_open? %>
-          <%= render partial: "project_budget_button", locals: { project: } %>
-        <% end %>
-      </section>
       <section class="layout-aside__section">
         <span class="budget__definition-data__title">
           <%= t("budget", scope: "decidim.budgets.projects.show") %>
