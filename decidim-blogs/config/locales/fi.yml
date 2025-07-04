@@ -18,6 +18,8 @@ fi:
       admin_log:
         changeset:
           posts: Artikkelit
+      tooltips:
+        deleted_posts_info: Tätä artikkelia ei voi poistaa
     blogs:
       actions:
         author_id: Luo artikkeli käyttäjänä
