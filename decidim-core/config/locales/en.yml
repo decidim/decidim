@@ -790,7 +790,7 @@ en:
           reason: The reason of this report
           updated_at: The date and time when this report was last updated
         users:
-          about: The biography of this user
+          about: The profile description of this participant
           accepted_tos_version: The date when the Terms of Service of this platform was accepted by the user
           admin: Whether this user is an administrator
           confirmation_sent_at: The date and time when the confirmation was sent
