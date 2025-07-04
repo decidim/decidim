@@ -2,11 +2,6 @@
 
 Module that collects demographic data about users.
 
-## Usage
-
-Demographics will be available as a Component for a Participatory
-Space.
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -19,6 +14,7 @@ And then execute:
 
 ```bash
 bundle
+bin/rails decidim_demographics:install:migrations
 ```
 
 ## Contributing

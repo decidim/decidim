@@ -53,6 +53,52 @@ module Decidim
           #316395
         )
       end
+
+      private
+
+      def matrix_stack_chart_wrapper(question)
+        counts = Hash.new { |hash, key| hash[key] = Hash.new(0) }
+
+        question.responses.each do |response|
+          response.choices.each do |choice|
+            name = translated_attribute(choice.response_option.body)
+            row = translated_attribute(choice.matrix_row.body)
+
+            counts[name][row] += 1
+          end
+        end
+
+        tally = counts.map do |name, row_data|
+          {
+            name:,
+            data: row_data.map { |row, count| [row, count] }
+          }
+        end
+
+        column_chart(tally, stacked: true, legend: :right, download: true)
+      end
+
+      def sorting_stack_chart_wrapper(question)
+        counts = Hash.new { |hash, key| hash[key] = Hash.new(0) }
+
+        question.responses.each do |response|
+          response.choices.each do |choice|
+            name = translated_attribute(choice.response_option.body)
+            row = choice.position + 1
+
+            counts[row][name] += 1
+          end
+        end
+
+        tally = counts.map do |name, row_data|
+          {
+            name:,
+            data: row_data.map { |row, count| [row, count] }
+          }
+        end
+
+        bar_chart(tally.sort_by { |data| data[:name] }, stacked: true, download: true)
+      end
     end
   end
 end

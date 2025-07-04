@@ -56,8 +56,6 @@ module Decidim
         @demographic ||= Decidim::Demographics::Demographic.where(organization: current_organization).first_or_create!
       end
 
-      # You can implement this method in your controller to change the
-      # enforce_permission_to arguments.
       def enforce_permission_to_respond_questionnaire
         enforce_permission_to :respond, :demographics
       end

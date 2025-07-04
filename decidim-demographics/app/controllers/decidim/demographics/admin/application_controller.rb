@@ -6,8 +6,8 @@ module Decidim
       # This controller is the abstract class from which all other controllers of
       # this engine inherit.
       #
-      # Note that it inherits from `Decidim::Components::BaseController`, which
-      # override its layout and provide all kinds of useful methods.
+      # Note that it inherits from `Decidim::Admin::ApplicationController`, which
+      # overrides its layout and provides all kinds of useful methods.
       class ApplicationController < Decidim::Admin::ApplicationController
         register_permissions(::Decidim::Demographics::Admin::ApplicationController,
                              ::Decidim::Demographics::Admin::Permissions,

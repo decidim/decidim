@@ -21,14 +21,12 @@ module Decidim
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
           Decidim.traceability.perform_action!("update", demographic, current_user) do
-            transaction do
-              update_demographic_settings
-            end
-          rescue ActiveRecord::RecordInvalid
-            broadcast(:invalid)
+            update_demographic_settings
           end
 
           broadcast(:ok)
+        rescue ActiveRecord::RecordInvalid
+          broadcast(:invalid)
         end
 
         private
