@@ -19,6 +19,8 @@ module Decidim
 
       scope :enabled, -> { where.not(voting_enabled_at: nil) }
       scope :disabled, -> { where(voting_enabled_at: nil) }
+      scope :published_results, -> { where.not(published_results_at: nil) }
+      scope :unpublished_results, -> { where(published_results_at: nil) }
 
       default_scope { order(position: :asc) }
 

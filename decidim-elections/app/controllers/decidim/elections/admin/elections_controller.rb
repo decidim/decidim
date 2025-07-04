@@ -41,12 +41,12 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :update, :election, election: election
+          enforce_permission_to :update, :election, election:
           @form = form(Decidim::Elections::Admin::ElectionForm).from_model(election)
         end
 
         def update
-          enforce_permission_to :update, :election, election: election
+          enforce_permission_to :update, :election, election:
 
           @form = form(Decidim::Elections::Admin::ElectionForm).from_params(params, current_component:, election:)
 
@@ -64,7 +64,7 @@ module Decidim
         end
 
         def publish
-          enforce_permission_to :publish, :election, election: election
+          enforce_permission_to :publish, :election, election:
 
           PublishElection.call(election, current_user) do
             on(:ok) do
@@ -80,7 +80,7 @@ module Decidim
         end
 
         def unpublish
-          enforce_permission_to :unpublish, :election, election: election
+          enforce_permission_to :unpublish, :election, election:
 
           Decidim::Elections::Admin::UnpublishElection.call(election, current_user) do
             on(:ok) do
@@ -96,25 +96,23 @@ module Decidim
         end
 
         def dashboard
-          enforce_permission_to :dashboard, :election, election: election
+          enforce_permission_to :dashboard, :election, election:
         end
 
         def update_status
-          enforce_permission_to :update, :election, election: election
+          enforce_permission_to :update, :election, election:
 
-          @form = form(ElectionStatusForm).from_params(params)
-
-          UpdateElectionStatus.call(@form, election) do
+          status_action = params[:status_action]
+          UpdateElectionStatus.call(status_action, election) do
             on(:ok) do
-              flash[:notice] = I18n.t("statuses.#{@form.status_action}.success", scope: "decidim.elections.admin")
-              redirect_to dashboard_election_path(election)
+              flash[:notice] = I18n.t("statuses.#{status_action}.success", scope: "decidim.elections.admin")
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("statuses.unknown", scope: "decidim.elections.admin")
-              render action: "dashboard"
+              flash[:alert] = I18n.t("statuses.unknown", scope: "decidim.elections.admin")
             end
           end
+          redirect_to dashboard_election_path(election)
         end
 
         private

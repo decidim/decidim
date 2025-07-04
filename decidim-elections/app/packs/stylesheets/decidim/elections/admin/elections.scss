@@ -11,7 +11,14 @@
       @apply bg-[var(--bg-warning)] text-[var(--warning)];
     }
     &.scheduled {
-      @apply bg-secondary text-white;
+      @apply bg-neutral-200 text-neutral-900;
+    }
+    &.spinner {
+      @apply relative;
+
+      &::before {
+        @apply content-[""] inline-block w-4 h-4 mr-2 rounded-full animate-spin border-2 border-l-transparent border-y-transparent;
+      }
     }
   }
 }

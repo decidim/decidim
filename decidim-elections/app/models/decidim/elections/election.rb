@@ -69,6 +69,10 @@ module Decidim
         started? && !vote_finished?
       end
 
+      def finished?
+        end_at.present? && end_at <= Time.current
+      end
+
       def vote_finished?
         # If end_at is present and in the past, the election is finished no matter what type of voting
         @vote_finished ||= if end_at.present? && end_at <= Time.current
@@ -109,7 +113,7 @@ module Decidim
         return false if questions.empty?
 
         # If per_question, we can publish when there is at least one question enabled
-        questions.any? { |question| question.voting_enabled? && !question.published_results? }
+        questions.unpublished_results.any?(&:voting_enabled?)
       end
 
       def per_question?
@@ -117,7 +121,7 @@ module Decidim
       end
 
       def per_question_waiting?
-        per_question? && questions.all? { |q| !q.voting_enabled? && !q.published_results? }
+        per_question? && !finished? && questions.unpublished_results.none?(&:voting_enabled?)
       end
 
       def current_status

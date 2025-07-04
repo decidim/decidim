@@ -3,21 +3,21 @@
 module Decidim
   module Elections
     module Admin
-      class UpdateElectionStatus < Decidim::Command
-        def initialize(action, election)
+      class UpdateQuestionStatus < Decidim::Command
+        def initialize(action, question)
           @action = action.to_sym
-          @election = election
+          @question = question
         end
 
         def call
-          return broadcast(:invalid) unless action.in?([:start, :end, :publish_results])
+          return broadcast(:invalid) unless action.in?([:enable_voting, :publish_results])
 
           transaction do
             update_status
-            election.save!
+            question.save!
           end
 
-          broadcast(:ok, election)
+          broadcast(:ok, question)
         rescue StandardError => e
           Rails.logger.error "#{e.class.name}: #{e.message}"
           broadcast(:invalid)
@@ -25,16 +25,14 @@ module Decidim
 
         private
 
-        attr_reader :action, :election
+        attr_reader :action, :question
 
         def update_status
           case action
-          when :start
-            election.start_at = Time.current
-          when :end
-            election.end_at = Time.current
+          when :enable_voting
+            question.voting_enabled_at = Time.current
           when :publish_results
-            election.published_results_at = Time.current
+            question.published_results_at = Time.current
           end
         end
       end

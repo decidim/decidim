@@ -44,6 +44,8 @@ module Decidim
           case permission_action.action
           when :update, :reorder
             toggle_allow(election.present? && !election.published?)
+          when :update_status
+            toggle_allow(election.present? && election.published? && election.questions.exists?)
           end
         end
 

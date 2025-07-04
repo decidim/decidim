@@ -48,22 +48,35 @@ module Decidim
           end
         end
 
-        def enable_voting_button(election, question)
+        def enable_question_voting_button(question)
           return if question.published_results?
 
-          button_to update_status_election_path(election),
+          if question.voting_enabled?
+            return content_tag(:div, class: "status-label") do
+              content_tag(:span, t("decidim.elections.status.voting_enabled"), class: "label warning spinner")
+            end
+          end
+
+          return unless question.can_enable_voting?
+
+          button_to update_question_status_election_path(question.election),
                     method: :put,
                     params: { status_action: "enable_voting", question_id: question.id },
-                    disabled: !question&.can_enable_voting?,
                     class: "button button__sm button__secondary" do
             t("decidim.elections.admin.dashboard.results.start_question_button")
           end
         end
 
-        def publish_button_for(election, question)
-          button_to update_status_election_path(election),
+        def publish_question_button(question)
+          if question.published_results?
+            return content_tag(:div, class: "status-label") do
+              content_tag(:span, t("decidim.elections.status.results_published"), class: "label success")
+            end
+          end
+
+          button_to update_question_status_election_path(question.election),
                     method: :put,
-                    params: { status_action: "publish_results" },
+                    params: { status_action: "publish_results", question_id: question.id },
                     disabled: !question&.publishable_results?,
                     class: "button button__sm button__secondary" do
             t("decidim.elections.admin.dashboard.results.publish_button")

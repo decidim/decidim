@@ -17,7 +17,7 @@ module Decidim
         before do
           allow(helper).to receive(:current_organization).and_return(organization)
           allow(helper).to receive(:current_user).and_return(current_user)
-          allow(helper).to receive(:update_status_election_path).and_return("/elections/#{election.id}/update_status")
+          allow(helper).to receive(:update_question_status_election_path).and_return("/elections/#{election.id}/update_question_status")
         end
 
         shared_examples "returns user presenter" do |helper_method|
@@ -73,31 +73,90 @@ module Decidim
           end
         end
 
-        describe "#enable_voting_button" do
-          it "returns nil if results published" do
-            allow(question).to receive(:published_results?).and_return(true)
-            expect(helper.enable_voting_button(election, question)).to be_nil
+        describe "#enable_question_voting_button" do
+          let(:voting_enabled) { false }
+          let(:published_results) { false }
+          let(:can_enable_voting) { false }
+
+          before do
+            allow(question).to receive(:voting_enabled?).and_return(voting_enabled)
+            allow(question).to receive(:published_results?).and_return(published_results)
+            allow(question).to receive(:can_enable_voting?).and_return(can_enable_voting)
           end
 
-          it "renders button if voting can be enabled" do
-            allow(question).to receive(:published_results?).and_return(false)
-            allow(question).to receive(:can_enable_voting?).and_return(true)
+          it "does not render button" do
+            expect(helper.enable_question_voting_button(question)).to be_nil
+          end
 
-            html = helper.enable_voting_button(election, question)
+          context "when can enable voting" do
+            let(:can_enable_voting) { true }
 
-            expect(html).to include("form")
-            expect(html).to include(I18n.t("decidim.elections.admin.dashboard.results.start_question_button"))
+            it "renders button to enable voting" do
+              html = helper.enable_question_voting_button(question)
+              expect(html).to include("form")
+              expect(html).to include(I18n.t("decidim.elections.admin.dashboard.results.start_question_button"))
+            end
+          end
+
+          context "when results published" do
+            let(:published_results) { true }
+
+            it "does not render button" do
+              expect(helper.enable_question_voting_button(question)).to be_nil
+            end
+          end
+
+          context "when voting is enabled" do
+            let(:voting_enabled) { true }
+
+            it "renders status label instead of button" do
+              allow(question).to receive(:voting_enabled?).and_return(true)
+              html = helper.enable_question_voting_button(question)
+              expect(html).to include("status-label")
+              expect(html).to include(I18n.t("decidim.elections.status.voting_enabled"))
+            end
           end
         end
 
-        describe "#publish_button_for" do
-          it "renders publish button if publishable" do
-            allow(question).to receive(:publishable_results?).and_return(true)
+        describe "#publish_question_button" do
+          let(:published_results) { false }
+          let(:publishable_results) { false }
 
-            html = helper.publish_button_for(election, question)
+          before do
+            allow(question).to receive(:published_results?).and_return(published_results)
+            allow(question).to receive(:publishable_results?).and_return(publishable_results)
+          end
+
+          it "renders the button disabled" do
+            html = helper.publish_question_button(question)
 
             expect(html).to include("form")
+            expect(html).to include("disabled=\"disabled\"")
             expect(html).to include(I18n.t("decidim.elections.admin.dashboard.results.publish_button"))
+          end
+
+          context "when results are publishable" do
+            let(:publishable_results) { true }
+
+            it "renders publish button if publishable" do
+              html = helper.publish_question_button(question)
+
+              expect(html).to include("form")
+              expect(html).not_to include("disabled=\"disabled\"")
+              expect(html).to include(I18n.t("decidim.elections.admin.dashboard.results.publish_button"))
+            end
+          end
+
+          context "when results are published" do
+            let(:published_results) { true }
+
+            it "renders status label instead of button" do
+              allow(question).to receive(:published_results?).and_return(true)
+              html = helper.publish_question_button(question)
+
+              expect(html).to include("status-label")
+              expect(html).to include(I18n.t("decidim.elections.status.results_published"))
+            end
           end
         end
       end

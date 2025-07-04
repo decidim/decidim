@@ -75,13 +75,13 @@ en:
             results: Results
           results:
             no_results: There are no results yet.
+            per_question_waiting: No questions are currently enabled for voting. People will see a "Waiting for the next question" message until you enable voting for at least one question.
             publish_button: Publish results
             results_availability:
               after_end: You can publish all results after the election ends. Results will remain hidden until you publish them manually.
               per_question: You must enable voting for each question and also publish results manually for each question. If the election has no questions enabled, users will be shown a "Waiting for the next question" message.
               real_time: Results are displayed automatically during the election.
             start_question_button: Enable voting
-            per_question_waiting: No questions are currently enabled for voting. People will see a "Waiting for the next question" message until you enable voting for at least one question.
             title: Results
           status:
             title: Status
@@ -204,6 +204,7 @@ en:
         ongoing: Ongoing
         results_published: Published results
         scheduled: Scheduled
+        voting_enabled: Voting in progress
     statistics:
       elections_count: Elections
   time:

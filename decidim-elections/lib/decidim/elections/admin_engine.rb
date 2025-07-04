@@ -22,6 +22,7 @@ module Decidim
 
             get "edit_questions", to: "questions#edit_questions"
             put "update_questions", to: "questions#update"
+            put "update_question_status", to: "questions#update_status"
 
             get "census", to: "census#edit"
             patch "census", to: "census#update"
