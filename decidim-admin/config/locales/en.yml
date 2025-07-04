@@ -36,7 +36,7 @@ en:
       id: ID
       newsletter:
         body: Body
-        send_to_all_users: Send to all users
+        send_to_all_users: Send to all participants
         send_to_followers: Send to followers
         send_to_participants: Send to participants
         subject: Subject
