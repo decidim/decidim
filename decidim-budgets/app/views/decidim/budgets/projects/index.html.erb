@@ -1,6 +1,7 @@
 <% if @focus_mode %>
   <% content_for :focus_mode, true %>
-  <% content_for :focus_mode_return_path, budget_projects_path(budget) %>
+  <% content_for :focus_mode_return_path, budgets_path %>
+  <% content_for :focus_mode_return_string, t("decidim.budgets.projects.back_to_budgets") %>
 <% end %>
 
 <% add_decidim_meta_tags(

@@ -244,6 +244,7 @@ en:
           subject: You have voted on the %{space_name} participatory space
           voted_on_space: You have voted on the %{budget_name} budget for the %{space_name} participatory space.
       projects:
+        back_to_budgets: Back to budgets
         budget_confirm:
           are_you_sure: If you change your mind, you can change your vote later.
           cancel: Cancel

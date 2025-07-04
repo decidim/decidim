@@ -2103,7 +2103,7 @@ en:
         sign_up: Create an account
         terms_of_service: Terms of Service
       header:
-        back: Back to list
+        back: Back
         cancel: Cancel
         close: Close
         confirm_close_ephemeral_session: If you navigate away, your temporary session will be closed. However, all your progress and activity will be saved. If you have finished your activity, click Ok.

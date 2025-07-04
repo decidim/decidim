@@ -1,13 +1,12 @@
 <div class="main-bar__back-button hidden lg:flex">
-  <div>
-    <%= link_to(
-        content_for(:focus_mode_return_path),
-        class: "main-bar__links-desktop__item",
-        "aria-label": t("layouts.decidim.header.back")
-    ) do %>
-        <%= icon "arrow-left-line" %><span><%= t("layouts.decidim.header.back") %></span>
-    <% end %>
-  </div>
+  <%= link_to(
+      content_for(:focus_mode_return_path),
+      class: "main-bar__links-desktop__item",
+      "aria-label": t("layouts.decidim.header.back")
+  ) do %>
+      <%= icon "arrow-left-line" %>
+      <span class="ml-2"><%= yield(:focus_mode_return_string).presence || t("layouts.decidim.header.back") %></span>
+  <% end %>
 </div>
 
 <div class="main-bar__back-button lg:hidden">
