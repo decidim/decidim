@@ -112,7 +112,7 @@ module Decidim
 
           it "renders dashboard on invalid" do
             patch :update_status, params: { id: election.id, status_action: nil }
-            expect(response).to render_template(:dashboard)
+            expect(response).to redirect_to(dashboard_path(election))
             expect(flash[:alert]).to be_present
           end
         end

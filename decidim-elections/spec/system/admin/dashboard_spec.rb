@@ -95,7 +95,7 @@ describe "Dashboard" do
     end
 
     it "shows the election start_at date" do
-      expected_date = start_at.strftime("%b %d, %Y, %-I:%M %p")
+      expected_date = start_at.strftime("%b %-d, %Y, %-I:%M %p")
       expect(page).to have_content("Start time: #{expected_date}")
     end
   end
@@ -133,6 +133,7 @@ describe "Dashboard" do
 
   context "when results availability is set to per_question" do
     let!(:election) { create(:election, :with_token_csv_census, component: current_component, start_at:, results_availability: "per_question", published_at:) }
+    let!(:questions) { create_list(:election_question, 3, election:, voting_enabled_at: nil) }
 
     context "and the election is not started" do
       let(:start_at) { 1.day.from_now }

@@ -48,6 +48,18 @@ module Decidim
           end
         end
 
+        def enable_voting_button(election, question)
+          return if question.published_results?
+
+          button_to update_status_election_path(election),
+                    method: :put,
+                    params: { status_action: "enable_voting", question_id: question.id },
+                    disabled: !question&.can_enable_voting?,
+                    class: "button button__sm button__secondary" do
+            t("decidim.elections.admin.dashboard.results.start_question_button")
+          end
+        end
+
         def enable_question_voting_button(question)
           return if question.published_results?
 
@@ -78,6 +90,16 @@ module Decidim
                     method: :put,
                     params: { status_action: "publish_results", question_id: question.id },
                     disabled: !question&.publishable_results?,
+                    class: "button button__sm button__secondary" do
+            t("decidim.elections.admin.dashboard.results.publish_button")
+          end
+        end
+
+        def publish_button_for(election)
+          button_to update_status_election_path(election),
+                    method: :put,
+                    disabled: election.published_results_at? || !election.finished?,
+                    params: { status_action: "publish_results" },
                     class: "button button__sm button__secondary" do
             t("decidim.elections.admin.dashboard.results.publish_button")
           end
