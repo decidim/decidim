@@ -15,32 +15,34 @@
 </div>
 
 <div class="filters__section">
-  <div class="fcell">
-    <ul class="dropdown menu" data-dropdown-menu data-close-on-click-inside="false">
-      <li class="is-dropdown-submenu-parent">
-        <a href="#" class="dropdown button">
-          <%= t("filter_label", scope: "decidim.admin.filters") %>
-          <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
-        </a>
-        <ul class="menu is-dropdown-submenu">
-          <li><%= link_to t(".filter.managed"), url_for(state: "managed", q: @query) %></li>
-          <li><%= link_to t(".filter.not_managed"), url_for(state: "not_managed", q: @query) %></li>
-          <li><%= link_to t(".filter.all"), url_for(q: @query) %></li>
-        </ul>
+  <div class="relative">
+    <button class="button button__xs button__transparent-secondary" data-component="dropdown" data-target="dropdown-filters">
+      <%= t("filter_label", scope: "decidim.admin.filters") %>
+      <%= icon "arrow-down-s-line", class: "!fill-secondary" %>
+      <%= icon "arrow-down-s-line", class: "!fill-secondary" %>
+    </button>
+
+    <ul class="dropdown" id="dropdown-filters" aria-hidden="true">
+      <li class="dropdown__item">
+        <%= link_to t(".filter.managed"), url_for(state: "managed", q: @query), class: "dropdown__button" %>
+      </li>
+      <li class="dropdown__item">
+        <%= link_to t(".filter.not_managed"), url_for(state: "not_managed", q: @query), class: "dropdown__button" %>
+      </li>
+      <li class="dropdown__item">
+        <%= link_to t(".filter.all"), url_for(q: @query), class: "dropdown__button" %>
       </li>
     </ul>
   </div>
   <div class="fcell search">
     <%= form_tag "", method: :get do %>
-      <div>
-        <div class="input-group">
-          <%= search_field_tag :q, @query,label: false, class: "input-group-field", placeholder: t(".search") %>
-          <%= hidden_field_tag :state, @state %>
-          <div class="input-group-button">
-            <button type="submit" class="text-secondary" aria-label="<%= t("decidim.search.term_input_placeholder") %>">
-              <%= icon "search-line", class: "fill-secondary w-4 h-4" %>
-            </button>
-          </div>
+      <div class="input-group">
+        <%= search_field_tag :q, @query,label: false, class: "input-group-field", placeholder: t(".search") %>
+        <%= hidden_field_tag :state, @state %>
+        <div class="input-group-button">
+          <button type="submit" class="text-secondary" aria-label="<%= t("decidim.search.term_input_placeholder") %>">
+            <%= icon "search-line", class: "fill-secondary w-4 h-4" %>
+          </button>
         </div>
       </div>
     <% end %>

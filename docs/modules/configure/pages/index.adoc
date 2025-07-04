@@ -51,5 +51,5 @@ Although most of these settings you can change them through xref:configure:envir
 You also have more settings in:
 
 * xref:configure:initializer.adoc[Decidim initializer file].
-* System panel.
-
+* xref:configure:environment_variables.adoc[Environment variables].
+* xref:configure:system.adoc[System panel].

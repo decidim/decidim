@@ -62,13 +62,5 @@ module Decidim
         it { is_expected.to eq("") }
       end
     end
-
-    describe "with hashtag related methods" do
-      [:name, :hashtag_path, :display_hashtag, :display_hashtag_name].each do |method|
-        let(:method) { method }
-
-        it { is_expected.to eq("") }
-      end
-    end
   end
 end
