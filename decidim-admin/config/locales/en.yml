@@ -390,7 +390,7 @@ en:
         form:
           domain_too_short: Domain too short
         update:
-          error: Failed to update list of allowed external domains
+          error: Failed to update list of allowed external domains.
           success: The list of allowed external domain successfully updated.
       exports:
         export_as: "%{name} as %{export_format}"
