@@ -222,6 +222,7 @@ fi-pl:
           pending_to_vote_budgets:
             one: Voit äänestää toisesta budjetista
             other: Voit äänestää myös muista budjeteista
+          share_text: "Äänestin juuri suosikkiprojektejani osallistumistilassa %{space_name}! 🎉 Äänestä sinäkin osoitteessa: %{component_url}"
           share_vote: Jaa äänesi
           title: Äänesi on hyväksytty onnistuneesti
           view_votes:
@@ -231,6 +232,7 @@ fi-pl:
             one: Olet jo äänestänyt budjetin %{budget_name} äänestyksessä.
             other: Olet jo antanut %{count} ääntä budjetin %{budget_name} äänestyksessä.
       order_pdf:
+        text: Äänestit seuraavia projekteja osallistumistilassa %{space_name}
         title: Äänesi kirjaaminen onnistui.
       order_summary_mailer:
         order_summary:
@@ -255,6 +257,7 @@ fi-pl:
             title: Maksimisuunnitelmien määrä ylitetty
         budget_summary:
           are_you_sure: Haluatko varmasti peruuttaa äänesi?
+          cancel_order: Poista äänesi
           checked_out:
             description: Olet jo äänestänyt tätä budjettia. Jos muutit mieltäsi, %{cancel_link}.
             title: Budjetin äänestys suoritettu
@@ -284,6 +287,14 @@ fi-pl:
             minimum_reached: Olet saavuttanut äänestystä varten vaaditun vähimmäismäärän
             start_adding_projects: Aloita valitsemalla projekteja
           minimum: Vähintään
+          minimum_projects_rule:
+            description: Valitse vähintään %{minimum_number} haluamaasi projektia äänestääksesi mieltymystesi mukaisesti.
+          projects_rule:
+            description: Valitse vähintään %{minimum_number} ja enintään %{maximum_number} haluamaasi projektia äänestääksesi mieltymystesi mukaisesti.
+          projects_rule_maximum_only:
+            description: Valitse enintään %{maximum_number} haluamaasi projektia äänestääksesi mieltymystesi mukaisesti.
+          vote_threshold_percent_rule:
+            description: Varaa vähintään %{minimum_budget} projekteille äänestääksesi mieltymystesi mukaisesti.
         orders:
           highest_cost: Kallein ensin
           label: Järjestä suunnitelmat
@@ -308,8 +319,10 @@ fi-pl:
           added: Lisätty
           all: Kaikki
         projects_for: Projektit kohteelle %{name}
+        select_projects: Valitse projektit
         show:
           budget: Budjetti
+        start_voting: Aloita äänestys
       prompt: Valitse budjetti
       vote_reminder_mailer:
         vote_reminder:
@@ -427,5 +440,7 @@ fi-pl:
         project_proposal: Tähän projektiin liittyvät ehdotukset
     statistics:
       orders_count: Kannatusta
+      projects_count: Projekteja
+      projects_count_tooltip: Osallistuvan budjetoinnin projektien ja niiden saamien äänten lukumäärä.
   index:
     confirmed_orders_count: Äänten määrä

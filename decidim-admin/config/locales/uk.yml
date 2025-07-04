@@ -35,13 +35,6 @@ uk:
         favicon: Значок
         github_handler: Адреса GitHub
         header_snippets: Сніпети для гіпертекстових заголовків сторінок сайту
-        highlighted_content_banner_action_subtitle: Підзаголовок кнопки дії
-        highlighted_content_banner_action_title: Заголовок кнопки дії
-        highlighted_content_banner_action_url: Веб-адреса кнопки заклику до дії
-        highlighted_content_banner_enabled: Показувати банер висвітленого вмісту
-        highlighted_content_banner_image: Зображення
-        highlighted_content_banner_short_description: Стислий опис
-        highlighted_content_banner_title: Назва
         instagram_handler: Адреса Instagram
         logo: Логотип
         name: Назва
@@ -246,7 +239,6 @@ uk:
         area_types: Різновиди дільниць
         areas: Дільниці
         configuration: Конфігурація
-        homepage: Домашня сторінка
         impersonations: Виступи в ролі учасника
         manage: Керувати
         newsletters: Розсилання новин
@@ -380,11 +372,6 @@ uk:
         update:
           error: При спробі оновити цю організацію сталася помилка.
           success: Організацію успішно оновлено.
-      organization_appearance:
-        edit:
-          update: Оновити
-        form:
-          homepage_highlighted_content_banner_title: Банер висвітленого вмісту
       participatory_space_private_users:
         create:
           error: При спробі додати приватного учасника до цього простору співучасті сталася помилка.

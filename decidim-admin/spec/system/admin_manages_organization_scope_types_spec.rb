@@ -62,6 +62,7 @@ describe "Admin manages scope types" do
 
     it "can edit them" do
       within "tr", text: translated(scope_type.name) do
+        find("button[data-component='dropdown']").click
         click_on "Edit"
       end
 
@@ -92,6 +93,7 @@ describe "Admin manages scope types" do
 
     it "can delete them" do
       within "tr", text: translated(scope_type.name) do
+        find("button[data-component='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
 

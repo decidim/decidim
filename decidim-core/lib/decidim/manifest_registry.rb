@@ -33,7 +33,7 @@ module Decidim
     private
 
     def manifest_class
-      "Decidim::#{@entity.to_s.classify}Manifest".constantize
+      "Decidim::#{@entity.to_s.classify}Manifest".safe_constantize || "Decidim::#{@entity.to_s.camelize}Manifest".constantize
     end
   end
 end

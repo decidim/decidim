@@ -1,5 +1,9 @@
 pl:
   decidim:
+    admin:
+      menu:
+        elections_menu:
+          election_questions: Pytania
     components:
       elections:
         name: Wybory
@@ -15,14 +19,16 @@ pl:
         elections:
           edit:
             title: Edytuj wybory
-            update: Aktualizuj wybory
           form:
             add_images: Dodaj obrazy
           index:
             title: Wybory
           new:
-            create: Utwórz wybory
             title: Nowe wybory
+        questions:
+          edit_questions:
+            new_question: Nowe pytanie
+            title: Pytania
       models:
         election:
           fields:

@@ -76,6 +76,7 @@ describe "Admin manages officializations" do
         end
 
         within "tr[data-user-id=\"#{user.id}\"]" do
+          find("button[data-component='dropdown']").click
           click_on "Officialize"
         end
       end
@@ -124,6 +125,7 @@ describe "Admin manages officializations" do
         end
 
         within "tr[data-user-id=\"#{user.id}\"]" do
+          find("button[data-component='dropdown']").click
           click_on "Reofficialize"
         end
       end
@@ -156,6 +158,7 @@ describe "Admin manages officializations" do
       end
 
       within "tr[data-user-id=\"#{user.id}\"]" do
+        find("button[data-component='dropdown']").click
         click_on "Unofficialize"
       end
     end
@@ -180,6 +183,7 @@ describe "Admin manages officializations" do
 
     it "redirect to conversation path" do
       within "tr[data-user-id=\"#{user.id}\"]" do
+        find("button[data-component='dropdown']").click
         click_on "Contact"
       end
       expect(page).to have_current_path decidim.new_conversation_path(recipient_id: user.id)
@@ -238,6 +242,7 @@ describe "Admin manages officializations" do
     it "shows the users emails to admin users and logs the action" do
       users.each do |user|
         within "tr[data-user-id=\"#{user.id}\"]" do
+          find("button[data-component='dropdown']").click
           click_on "Show email"
         end
 

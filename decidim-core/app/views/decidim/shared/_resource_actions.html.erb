@@ -13,11 +13,11 @@
       <%= yield %>
       <% unless defined?(skip_report) && skip_report %>
         <li role="menuitem" class="dropdown__item">
-          <%= cell "decidim/report_button", resource %>
+          <%= cell "decidim/report_button", resource, button_classes: "dropdown__button" %>
         </li>
       <% end %>
       <li role="menuitem" class="dropdown__item">
-        <%= cell "decidim/follow_button", resource, large: false %>
+        <%= cell "decidim/follow_button", resource, large: false, button_classes: "dropdown__button" %>
       </li>
     </ul>
   </div>

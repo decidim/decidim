@@ -17,7 +17,7 @@ By default, the CSP is enabled, and is configured to be as restrictive as possib
   }
 ....
 
-In order to customize the CSP we are providing, have 2 options, either by using a configuration key the initializer `config/initializers/decidim.rb` or by setting values in the Organization's system admin.
+In order to customize the CSP we are providing, have 2 options, either by using a configuration key the xref:configure:initializer.adoc[initializer] or by setting values in the Organization's xref:configure:system.adoc[system panel].
 
 Using the initializer is the recommended way to customize the CSP when you have multiple organizations sharing the same Decidim instance, sharing the same tools. Fox example, if you are using a custom map provider, you will need to add the domain to the CSP, so that the map can be displayed. In this case, you will need to add the following to your initializer:
 

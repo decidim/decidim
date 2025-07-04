@@ -1,10 +1,11 @@
 <% add_decidim_page_title(t("decidim.admin.titles.participants")) %>
+
 <div class="card" id="user-groups">
   <div class="item_show__header">
     <h1 class="item_show__header-title"><%= t "decidim.admin.titles.participants" %></h1>
   </div>
   <%= admin_filter_selector %>
-  <div class="table-scroll">
+  <div class="table-stacked">
     <table class="table-list">
       <thead>
       <tr>
@@ -20,38 +21,96 @@
       <tbody>
       <% @users.each do |user| %>
         <tr data-user-id="<%= user.id %>">
-          <td><%= link_to_if user.nickname.present?, user.name, decidim.profile_path(user.nickname) %></td>
-          <td><%= link_to_if user.nickname.present?, user.nickname, decidim.profile_path(user.nickname) %></td>
-          <td><%= l user.created_at, format: :short %></td>
-          <td><%= user.officialized? ? t(".officialized") : t(".not_officialized") %></td>
-          <td><%= translated_attribute(user.officialized_as) %></td>
-          <td><%= user.report_count %></td>
+          <td data-label="<%= t(".name") %>">
+            <%= link_to_if user.nickname.present?, user.name, decidim.profile_path(user.nickname) %>
+          </td>
+          <td data-label="<%= t(".nickname") %>">
+            <%= link_to_if user.nickname.present?, user.nickname, decidim.profile_path(user.nickname) %>
+          </td>
+          <td data-label="<%= t(".created_at") %>">
+            <%= l user.created_at, format: :short %>
+          </td>
+          <td data-label="<%= t(".status") %>">
+            <%= user.officialized? ? t(".officialized") : t(".not_officialized") %>
+          </td>
+          <td data-label="<%= t(".badge") %>">
+            <%= translated_attribute(user.officialized_as) %>
+          </td>
+          <td data-label="<%= t(".reports") %>">
+            <%= user.report_count %>
+          </td>
+          <td data-label="<%= t(".actions") %>" class="table-list__actions">
+            <button type="button" data-component="dropdown" data-target="actions-user-<%= user.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: user.nickname.presence || user.id) %>">
+              <%= icon "more-fill", class: "text-secondary" %>
+            </button>
 
-          <td class="table-list__actions">
-            <% if allowed_to?(:block, :admin_user, user: user) %>
-              <% if user.blocked? %>
-                <%= icon_link_to "forbid-2-line", user_block_path(user_id: user.id), t(".unblock"), class: "action-icon action-icon--disabled", method: :delete %>
-              <% else %>
-                <%= icon_link_to "forbid-2-line", new_user_block_path(user_id: user.id), t(".block"), class: "action-icon action-icon" %>
-              <% end %>
-            <% end %>
-            <% if allowed_to? :show_email, :user, user: user %>
-              <%= icon_link_to "mail-open-line", show_email_officialization_path(user_id: user.id), t(".show_email"), class: "action-icon action-icon--show-email", data: { full_name: user.name, dialog_open: "show-email-modal" } %>
-            <% end %>
-            <% unless user.blocked? %>
-              <% unless current_user == user %>
-                <%= icon_link_to "mail-line", current_or_new_conversation_path_with(user), t("decidim.contact"), class: "action-icon--new" %>
-              <% end %>
-              <% if user.officialized? %>
-                <%= icon "checkbox-circle-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t(".officialize") %>
-                <%= icon_link_to "pencil-line", new_officialization_path(user_id: user.id), t(".reofficialize"), class: "action-icon--new" %>
-                <%= icon_link_to "delete-bin-line", officialization_path(user.id), t(".unofficialize"), method: :delete, class: "action-icon--reject" %>
-              <% else %>
-                <%= icon_link_to "checkbox-circle-line", new_officialization_path(user_id: user.id), t(".officialize"), class: "action-icon--verify" %>
-                <%= icon "pencil-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t(".reofficialize") %>
-                <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t(".unofficialize") %>
-              <% end %>
-            <% end %>
+            <div class="inline-block relative">
+              <ul id="actions-user-<%= user.id %>" class="dropdown dropdown__action" aria-hidden="true">
+                <% if allowed_to?(:block, :admin_user, user: user) %>
+                  <% if user.blocked? %>
+                    <li class="dropdown__item">
+                      <%= link_to user_block_path(user_id: user.id), method: :delete, class: "dropdown__button dropdown__button--danger" do %>
+                        <%= icon "forbid-2-line" %>
+                        <%= t(".unblock") %>
+                      <% end %>
+                    </li>
+                  <% else %>
+                    <li class="dropdown__item">
+                      <%= link_to new_user_block_path(user_id: user.id), class: "dropdown__button" do %>
+                        <%= icon "forbid-2-line" %>
+                        <%= t(".block") %>
+                      <% end %>
+                    </li>
+                  <% end %>
+
+                  <hr>
+                <% end %>
+
+                <% if allowed_to?(:show_email, :user, user: user) %>
+                  <li class="dropdown__item">
+                    <%= link_to show_email_officialization_path(user_id: user.id), class: "dropdown__button", data: { full_name: user.name, dialog_open: "show-email-modal" } do %>
+                      <%= icon "mail-open-line" %>
+                      <%= t(".show_email") %>
+                    <% end %>
+                  </li>
+                <% end %>
+
+                <% unless user.blocked? %>
+                  <% unless current_user == user %>
+                    <li class="dropdown__item">
+                      <%= link_to current_or_new_conversation_path_with(user), class: "dropdown__button" do %>
+                        <%= icon "mail-line" %>
+                        <%= t("decidim.contact") %>
+                      <% end %>
+                    </li>
+                  <% end %>
+
+                  <hr>
+
+                  <% if user.officialized? %>
+                    <li class="dropdown__item">
+                      <%= link_to new_officialization_path(user_id: user.id), class: "dropdown__button" do %>
+                        <%= icon "pencil-line" %>
+                        <%= t(".reofficialize") %>
+                      <% end %>
+                    </li>
+                    <li class="dropdown__item">
+                      <%= link_to officialization_path(user.id), method: :delete, class: "dropdown__button" do %>
+                        <%= icon "delete-bin-line" %>
+                        <%= t(".unofficialize") %>
+                      <% end %>
+                    </li>
+                  <% else %>
+                    <li class="dropdown__item">
+                      <%= link_to new_officialization_path(user_id: user.id), class: "dropdown__button" do %>
+                        <%= icon "checkbox-circle-line" %>
+                        <%= t(".officialize") %>
+                      <% end %>
+                    </li>
+                  <% end %>
+                <% end %>
+              </ul>
+            </div>
           </td>
         </tr>
       <% end %>
