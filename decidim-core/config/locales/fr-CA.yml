@@ -160,6 +160,13 @@ fr-CA:
       x_seconds:
         one: 1 seconde
         other: "%{count} secondes"
+    widget:
+      label:
+        date: Sélectionnez une date pour %{label}
+        time: Sélectionnez l'heure pour %{label}
+      picker:
+        date_button: Ouvrir le sélecteur de date pour %{label}
+        time_button: Ouvrir le sélecteur d'heure pour %{label}
   decidim:
     accessibility:
       external_link: Lien externe
