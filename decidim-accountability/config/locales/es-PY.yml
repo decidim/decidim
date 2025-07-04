@@ -291,6 +291,8 @@ es-PY:
             label: Estado
           taxonomies_part_of_contains:
             label: Taxonomía
+      tooltips:
+        deleted_results_info: No se puede eliminar este resultado
     components:
       accountability:
         actions:
