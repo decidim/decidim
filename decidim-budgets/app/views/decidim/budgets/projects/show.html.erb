@@ -35,7 +35,7 @@ edit_link(
           <%= render partial: "decidim/shared/static_map", locals: { icon_name: "projects", geolocalizable: project } %>
         </div>
       <% end %>
-      <%= cell("decidim/budgets/project_selected_status", project, as_label: true) %>
+      <%= cell("decidim/budgets/project_selected_status", project) %>
 
       <div class="layout-author">
         <div class="relative flex items-center justify-center w-full">
