@@ -1,6 +1,10 @@
 fi:
   activemodel:
     attributes:
+      milestone:
+        description: Kuvaus
+        entry_date: Päivämäärä
+        title: Otsikko
       result:
         decidim_accountability_status_id: Tila
         decidim_category_id: Aihepiiri
@@ -45,6 +49,8 @@ fi:
         edit: Muokkaa
         import: Tuo tuloksia toisesta komponentista
         import_csv: Tuo tulokset CSV-tiedostosta
+        milestones: Välitavoitteet
+        new_milestone: Uusi välitavoite
         new_result: Uusi tulos
         new_status: Uusi tila
         preview: Esikatsele
@@ -105,6 +111,23 @@ fi:
           create:
             invalid: Tulosten tuonti epäonnistui.
             success: Tiedoston tuominen on aloitettu. Saat muutaman minuutin kuluttua sähköpostin, jossa ilmoitetaan tuonnin lopputulos.
+        milestones:
+          create:
+            invalid: Välitavoitteen luonti epäonnistui.
+            success: Välitavoitteen luonti onnistui.
+          destroy:
+            success: Välitavoitteen poisto onnistui.
+          edit:
+            title: Muokkaa välitavoitetta
+            update: Päivitä välitavoite
+          index:
+            title: Välitavoitteet
+          new:
+            create: Luo välitavoite
+            title: Uusi välitavoite
+          update:
+            invalid: Välitavoitteen päivitys epäonnistui.
+            success: Välitavoitteen päivitys onnistui.
         models:
           result:
             name: Tulos
@@ -177,6 +200,10 @@ fi:
             invalid: Tilan päivitys epäonnistui.
             success: Tilan päivitys onnistui.
       admin_log:
+        milestones:
+          create: "%{user_name} loi välitavoitteen %{resource_name}"
+          delete: "%{user_name} poisti välitavoitteen %{resource_name}"
+          update: "%{user_name} päivitti välitavoittetta %{resource_name}"
         result:
           create: "%{user_name} loi tuloksen %{resource_name} osallistumistilassa %{space_name}"
           delete: "%{user_name} poisti tuloksen %{resource_name} osallistumistilassa %{space_name}"
@@ -219,6 +246,10 @@ fi:
       last_activity:
         new_result: 'Uusi tulos:'
       models:
+        milestone:
+          fields:
+            entry_date: Päivämäärä
+            title: Otsikko
         result:
           fields:
             created_at: Luontiaika
@@ -242,6 +273,8 @@ fi:
             other: "%{count} tulosta"
         home_header:
           global_status: Yleisen toteutuksen tila
+        milestones:
+          title: Välitavoitteet
         no_results: Projekteja ei ole saatavilla
         root_taxonomies:
           title: 'Näytä luokittelun mukaan:'
@@ -257,6 +290,8 @@ fi:
             label: Tila
           taxonomies_part_of_contains:
             label: Luokittelu
+      tooltips:
+        deleted_results_info: Tätä tulosta ei voi poistaa
     components:
       accountability:
         actions:
