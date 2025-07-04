@@ -304,6 +304,7 @@ fi-pl:
           pending_authorizations:
             index:
               address: Osoite
+              already_sent: Tämä paperikirje on jo lähetetty, minkä takia sitä ei voida uudestaan merkitä lähetetyksi.
               letter_sent_at: Kirje lähetetty osoitteeseen
               mark_as_sent: Merkitse lähetetyksi
               not_yet_sent: Ei vielä lähetetty
