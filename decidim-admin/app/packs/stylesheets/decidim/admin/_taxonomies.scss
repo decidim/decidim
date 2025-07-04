@@ -23,10 +23,10 @@
 }
 
 ul.taxonomy {
-  @apply flex;
+  @apply md:flex;
 
   li {
-    @apply flex-none text-center w-20 mt-2 mb-2;
+    @apply flex-none md:w-20 mt-2 mb-2 md:text-center;
 
     &:first-child {
       @apply flex-initial text-left flex-grow;
