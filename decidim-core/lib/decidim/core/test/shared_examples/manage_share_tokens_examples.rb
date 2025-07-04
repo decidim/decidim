@@ -116,6 +116,7 @@ shared_examples "manage resource share tokens" do
         expect(page).to have_content("Yes")
       end
       within ".share_tokens tbody tr", text: last_token.token do
+        find("button[data-component='dropdown']").click
         click_on "Edit"
       end
 
@@ -142,6 +143,7 @@ shared_examples "manage resource share tokens" do
 
     it "allows copying the share link from the share token" do
       within ".share_tokens tbody tr", text: last_token.token do
+        find("button[data-component='dropdown']").click
         click_on "Copy link"
         expect(page).to have_content("copied!")
         expect(page).to have_css("[data-clipboard-copy-label]")
@@ -153,6 +155,7 @@ shared_examples "manage resource share tokens" do
     it "has a share link for each token" do
       urls = share_tokens.map(&:url)
       within ".share_tokens tbody tr", text: last_token.token do
+        find("button[data-component='dropdown']").click
         share_window = window_opened_by { click_on "Preview" }
 
         within_window share_window do
@@ -163,6 +166,7 @@ shared_examples "manage resource share tokens" do
 
     it "has a share button that opens the share url for the resource" do
       within ".share_tokens tbody tr", text: last_token.token do
+        find("button[data-component='dropdown']").click
         share_window = window_opened_by { click_on "Preview", wait: 2 }
 
         within_window share_window do
@@ -173,6 +177,7 @@ shared_examples "manage resource share tokens" do
 
     it "can delete tokens" do
       within ".share_tokens tbody tr", text: last_token.token do
+        find("button[data-component='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
 
