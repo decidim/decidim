@@ -1234,10 +1234,10 @@ en:
         taxonomy_filters: Taxonomy filters for "%{taxonomy}"
         users: Administrators
       tooltips:
+        cannot_destroy_taxonomy_filter: Cannot destroy this taxonomy filter
         cannot_edit_taxonomy_filter: Cannot edit this taxonomy filter
         deleted_attachment_collections_info: Cannot delete this folder because it has attachments.
         deleted_component_info: This component can only be deleted if status is 'Unpublished'.
-        cannot_destroy_taxonomy_filter: Cannot destroy this taxonomy filter
       trash_management:
         restore:
           invalid: There was a problem restoring %{resource_name}.
