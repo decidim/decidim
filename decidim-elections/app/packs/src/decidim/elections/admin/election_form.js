@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const availabilityRadios = document.querySelectorAll(
     'input[name="election[results_availability]"]'
   );
-  const currentAvailability = () => Array.from(availabilityRadios).find(radio => radio.checked);
+  const currentAvailability = () => Array.from(availabilityRadios).find((radio) => radio.checked)
 
   if (!manualStart || !datepickerRow || availabilityRadios.length === 0) {
     return;

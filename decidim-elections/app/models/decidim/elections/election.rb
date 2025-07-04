@@ -77,13 +77,13 @@ module Decidim
         # If end_at is present and in the past, the election is finished no matter what type of voting
         @vote_finished ||= if end_at.present? && end_at <= Time.current
                              true
-                           # Per question elections are considered finished if all questions have published results
-                           # as long as there is at least one question enabled
+                             # Per question elections are considered finished if all questions have published results
+                             # as long as there is at least one question enabled
                            elsif per_question? && questions.enabled.any?
                              questions.all?(&:published_results?)
                            else
                              false
-                        end
+                           end
       end
 
       def verification_filters
