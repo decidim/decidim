@@ -1265,7 +1265,7 @@ en:
           last_day: Last day
           last_month: Last month
           last_week: Last week
-          no_users_count_statistics_yet: There are no users count statistics yet.
+          no_users_count_statistics_yet: There are no participant count statistics yet.
           participants: Participants
     forms:
       errors:
