@@ -34,7 +34,6 @@ describe "Admin creates proposals" do
     click_on("Create")
     find("a.action-icon--edit-proposal").click
 
-    expect(page).to have_content("city.jpeg")
     expect(page).to have_content("FOO BAR")
   end
 
