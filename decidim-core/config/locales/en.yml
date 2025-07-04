@@ -801,7 +801,7 @@ en:
           delete_reason: The reason given for deleting this user
           deleted_at: The date and time when this user was deleted
           email: The email address of this user
-          followers_count: The number of participants that are following to this user
+          followers_count: The number of participants that are following this user
           following_count: The number of participants this user is following
           id: The unique identifier of this user
           invitation_accepted_at: The date and time when the invitation was accepted
