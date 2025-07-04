@@ -166,6 +166,7 @@ fi-pl:
   decidim:
     admin:
       actions:
+        actions: Toiminnot
         actions_label: Toiminnot kohteelle %{resource}
         add: Lisää
         attachment:
