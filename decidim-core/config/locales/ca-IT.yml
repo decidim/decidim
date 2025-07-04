@@ -173,6 +173,9 @@ ca-IT:
       x_seconds:
         one: 1 segon
         other: "%{count} segons"
+    widget:
+      label:
+        date: Seleccionar data per %{label}
   decidim:
     accessibility:
       external_link: Enllaç extern
