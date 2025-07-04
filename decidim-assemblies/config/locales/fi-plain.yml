@@ -192,6 +192,7 @@ fi-pl:
             vice_president: Varapuheenjohtaja
         assembly_user_role:
           fields:
+            actions: Toiminnot
             email: Sähköposti
             name: Nimi
             role: Rooli
