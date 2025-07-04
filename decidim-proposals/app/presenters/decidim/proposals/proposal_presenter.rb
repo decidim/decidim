@@ -43,9 +43,8 @@ module Decidim
         "##{proposal.id} - #{title(html_escape:)}"
       end
 
-      def body(links: nil, strip_tags: false, all_locales: false)
+      def body(links: false, strip_tags: false, all_locales: false)
         return unless proposal
-        raise "Links are being defined" unless links.nil?
 
         content_handle_locale(proposal.body, all_locales, links, strip_tags)
       end

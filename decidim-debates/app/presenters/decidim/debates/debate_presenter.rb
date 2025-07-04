@@ -29,10 +29,8 @@ module Decidim
         super(debate.title, html_escape, all_locales)
       end
 
-      def description(strip_tags: false, links: nil, all_locales: false)
+      def description(links: false, strip_tags: false, all_locales: false)
         return unless debate
-
-        raise "Links are being defined" unless links.nil?
 
         content_handle_locale(debate.description, all_locales, links, strip_tags)
       end

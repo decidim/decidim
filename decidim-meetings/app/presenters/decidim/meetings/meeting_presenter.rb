@@ -36,10 +36,8 @@ module Decidim
         super(meeting.title, html_escape, all_locales)
       end
 
-      def description(links: nil, strip_tags: false, all_locales: false)
+      def description(links: false, strip_tags: false, all_locales: false)
         return unless meeting
-
-        raise "Links are being defined" unless links.nil?
 
         content_handle_locale(meeting.description, all_locales, links, strip_tags)
       end
@@ -74,10 +72,8 @@ module Decidim
         end
       end
 
-      def closing_report(links: nil, strip_tags: false, all_locales: false)
+      def closing_report(links: false, strip_tags: false, all_locales: false)
         return unless meeting
-
-        raise "Links are being defined" unless links.nil?
 
         content_handle_locale(meeting.closing_report, all_locales, links, strip_tags)
       end
