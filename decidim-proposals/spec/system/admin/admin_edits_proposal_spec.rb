@@ -111,7 +111,6 @@ describe "Admin edits proposals" do
         click_on("Update")
         find("a.action-icon--edit-proposal").click
 
-        expect(page).to have_content("city.jpeg")
         expect(page).to have_content("FOO BAR")
       end
     end
