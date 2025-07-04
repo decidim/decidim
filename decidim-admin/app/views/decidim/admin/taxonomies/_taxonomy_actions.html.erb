@@ -1,15 +1,48 @@
-<% if allowed_to? :update, :taxonomy, taxonomy: taxonomy %>
-  <% if taxonomy.root? %>
-    <%= icon_link_to "pencil-line", edit_taxonomy_path(taxonomy), t("actions.edit", scope: "decidim.admin.taxonomies"), class: "action-icon--edit js-drawer-editor" %>
-    <%= icon_link_to "filter-line", taxonomy_filters_path(taxonomy), t("actions.filters", scope: "decidim.admin.taxonomies"), class: "-action-icon--edit" %>
-  <% else %>
-    <%= icon_link_to "pencil-line", edit_taxonomy_item_path(taxonomy_id: taxonomy.root_taxonomy.id, id: taxonomy.id), t("actions.edit", scope: "decidim.admin.taxonomies"), class: "action-icon--edit js-drawer-editor" %>
-  <% end %>
-<% else %>
-  <span class="action-space icon"></span>
-<% end %>
-<% if allowed_to? :destroy, :taxonomy, taxonomy: taxonomy %>
-  <%= icon_link_to "delete-bin-line", taxonomy, t("actions.destroy", scope: "decidim.admin.taxonomies"), class: "action-icon--remove", method: :delete, data: { confirm: t(".confirm_destroy", name: strip_tags(translated_attribute(taxonomy.name))) } %>
-<% else %>
-  <span class="action-space icon"></span>
-<% end %>
+<button type="button" data-component="dropdown" data-target="actions-taxonomy-<%= taxonomy.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: taxonomy.name) %>">
+  <%= icon "more-fill", class: "text-secondary" %>
+</button>
+
+<div class="inline-block relative">
+  <ul id="actions-taxonomy-<%= taxonomy.id %>" class="dropdown dropdown__action" aria-hidden="true">
+    <% if allowed_to? :update, :taxonomy, taxonomy: taxonomy %>
+      <li class="dropdown__item">
+        <% if taxonomy.root? %>
+          <%= link_to edit_taxonomy_path(taxonomy), class: "dropdown__button js-drawer-editor" do %>
+            <%= icon "pencil-line" %>
+            <%= t("actions.edit", scope: "decidim.admin.taxonomies") %>
+          <% end %>
+        <% else %>
+          <%= link_to edit_taxonomy_item_path(taxonomy_id: taxonomy.root_taxonomy.id, id: taxonomy.id), class: "dropdown__button js-drawer-editor" do %>
+            <%= icon "pencil-line" %>
+            <%= t("actions.edit", scope: "decidim.admin.taxonomies") %>
+          <% end %>
+        <% end %>
+      </li>
+
+      <% if taxonomy.root? %>
+        <hr>
+
+        <li class="dropdown__item">
+          <%= link_to taxonomy_filters_path(taxonomy), class: "dropdown__button" do %>
+            <%= icon "filter-line" %>
+            <%= t("actions.filters", scope: "decidim.admin.taxonomies") %>
+          <% end %>
+        </li>
+      <% end %>
+    <% end %>
+
+    <% if allowed_to? :destroy, :taxonomy, taxonomy: taxonomy %>
+      <hr>
+
+      <li class="dropdown__item">
+        <%= link_to taxonomy,
+                    method: :delete,
+                    data: { confirm: t(".confirm_destroy", name: strip_tags(translated_attribute(taxonomy.name))) },
+                    class: "dropdown__button dropdown__button--danger" do %>
+          <%= icon "delete-bin-line" %>
+          <%= t("actions.destroy", scope: "decidim.admin.taxonomies") %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
