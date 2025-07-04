@@ -41,6 +41,8 @@ ca:
               'true': No s'ha seleccionat per implementar
           taxonomies_part_of_contains:
             label: Taxonomia
+      tooltips:
+        deleted_projects_info: No podeu eliminar aquest projecte
     budgets:
       actions:
         attachment_collections: Carpetes
