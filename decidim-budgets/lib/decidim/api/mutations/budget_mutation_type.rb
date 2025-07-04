@@ -4,7 +4,7 @@ module Decidim
   module Budgets
     class BudgetMutationType < Decidim::Api::Types::BaseObject
       description "Budget mutation"
-      graphql_name "Budget"
+      graphql_name "BudgetMutation"
 
       field :create_project, mutation: Decidim::Budgets::CreateProjectType, description: "create a project"
       field :delete_project, mutation: Decidim::Budgets::DeleteProjectType, description: "delete a project"

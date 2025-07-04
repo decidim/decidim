@@ -6,7 +6,7 @@ module Decidim
       graphql_name "BudgetsMutation"
       description "Budgets of a component."
 
-      field :budget, type: Decidim::Budgets::BudgetMutationType, description: "A budget" do
+      field :budget_mutation, type: Decidim::Budgets::BudgetMutationType, description: "A budget mutation" do
         argument :id, GraphQL::Types::ID, description: "id of the budget", required: true
       end
       field :create_budget, mutation: Decidim::Budgets::CreateBudgetType, description: "creates a budget"
