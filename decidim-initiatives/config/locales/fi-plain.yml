@@ -123,8 +123,12 @@ fi-pl:
             state: Maakunta/osavaltio
             supports_count: Allekirjoituksia
             title: Aloitteet
+        initiatives_committee_member:
+          fields:
+            actions: Toiminnot
         initiatives_type_scope:
           fields:
+            actions: Toiminnot
             scope: Teema
             supports_required: Kannatuksia vaaditaan
           name: Aloitetyypin teema
