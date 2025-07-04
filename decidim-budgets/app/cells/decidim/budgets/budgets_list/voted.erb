@@ -1,13 +1,13 @@
 <% if voted? %>
   <p><%= t(:voted_on, scope: i18n_scope, links: budgets_link_list(voted)) %></p>
 
+  <% if finished? %>
+    <%= cell("decidim/announcement", { body: t(:finished_message, scope: i18n_scope) }, callout_class: "success w-full") %>
+  <% end %>
+
   <div id="voted-budgets" class="card__list-list w-full">
     <% voted.each do |budget| %>
       <%= cell("decidim/budgets/budget_list_item", budget) %>
     <% end %>
   </div>
-
-  <% if finished? %>
-    <p><%= t(:finished_message, scope: i18n_scope) %></p>
-  <% end %>
 <% end %>

@@ -179,6 +179,7 @@ en:
         cancel_order:
           more_than_one: delete your vote on %{name} and start over
           only_one: delete your vote and start over.
+        completed: Completed
         count:
           one: "%{count} budget"
           other: "%{count} budgets"

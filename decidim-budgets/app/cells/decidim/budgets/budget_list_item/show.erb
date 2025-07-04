@@ -5,7 +5,10 @@
         <%= decidim_escape_translated(title) %>
       </h3>
       <% if voted? %>
-        <%= icon "check-double-line", class: "inline-block align-middle fill-success ml-2 h-[1.5em] w-[1.5em]" %>
+        <div class="float-right">
+          <%= icon "check-double-line", class: "inline-block align-middle fill-success ml-2 h-[1.5em] w-[1.5em]" %>
+          <span class="text-success font-bold"><%= t("completed", scope: "decidim.budgets.budgets_list") %></span>
+        </div>
       <% end %>
       <div class="my-2">
         <%= decidim_sanitize html_truncate(translated_attribute(description), length: 70) %>
