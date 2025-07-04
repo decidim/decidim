@@ -166,6 +166,13 @@ fi:
       x_seconds:
         one: 1 sekunti
         other: "%{count} sekuntia"
+    widget:
+      label:
+        date: Valitse päivämäärä kohteelle %{label}
+        time: Valitse aika kohteelle %{label}
+      picker:
+        date_button: Avaa kalenterivalitsin kohteelle %{label}
+        time_button: Avaa aikavalitsin kohteelle %{label}
   decidim:
     accessibility:
       external_link: Ulkoinen linkki
