@@ -1,4 +1,5 @@
 <% add_decidim_page_title(t("attachment_collections.index.attachment_collections_title", scope: "decidim.admin")) %>
+
 <div class="card" id="attachment_collections">
   <div class="item_show__header">
     <h1 class="item_show__header-title">
@@ -9,32 +10,59 @@
     </h1>
   </div>
   <% if collection_for.attachment_collections.any? %>
-    <div class="table-scroll">
+    <div class="table-stacked">
       <table class="table-list">
         <thead>
           <tr>
             <th><%= t("activemodel.attributes.attachment_collection.name") %></th>
-            <th></th>
+            <th><%= t("decidim.admin.actions.actions") %></th>
           </tr>
         </thead>
         <tbody>
           <% collection_for.attachment_collections.each do |attachment_collection| %>
             <tr data-id="<%= attachment_collection.id %>">
-              <td>
+              <td data-label="<%= t("activemodel.attributes.attachment_collection.name") %>">
                 <%= link_to translated_attribute(attachment_collection.name), edit_polymorphic_path([collection_for, attachment_collection]) %><br>
               </td>
-              <td class="table-list__actions">
-                <% if allowed_to? :update, :attachment_collection, attachment_collection: attachment_collection %>
-                  <%= icon_link_to "pencil-line", edit_polymorphic_path([collection_for, attachment_collection]), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
-                <% end %>
+              <td class="table-list__actions" data-label="<%= t("decidim.admin.actions.actions") %>">
+                <button type="button" data-component="dropdown" data-target="actions-attachment-collection-<%= attachment_collection.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: translated_attribute(attachment_collection.name)) %>">
+                  <%= icon "more-fill", class: "text-secondary" %>
+                </button>
 
-                <% if allowed_to? :destroy, :attachment_collection, attachment_collection: attachment_collection %>
-                  <% if attachment_collection.unused? %>
-                    <%= icon_link_to "delete-bin-line", polymorphic_path([collection_for, attachment_collection]), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
-                  <% else %>
-                    <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", "aria-hidden": true %>
-                  <% end %>
-                <% end %>
+                <div class="inline-block relative">
+                  <ul id="actions-attachment-collection-<%= attachment_collection.id %>" class="dropdown dropdown__action" aria-hidden="true">
+                    <% if allowed_to? :update, :attachment_collection, attachment_collection: attachment_collection %>
+                      <li class="dropdown__item">
+                        <%= link_to edit_polymorphic_path([collection_for, attachment_collection]), class: "dropdown__button" do %>
+                          <%= icon "pencil-line" %>
+                          <%= t("actions.edit", scope: "decidim.admin") %>
+                        <% end %>
+                      </li>
+                    <% end %>
+
+                    <% if allowed_to? :destroy, :attachment_collection, attachment_collection: attachment_collection %>
+                      <hr>
+
+                      <li class="dropdown__item">
+                        <% if attachment_collection.unused? %>
+                          <%= link_to polymorphic_path([collection_for, attachment_collection]), method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") }, class: "dropdown__button" do %>
+                            <%= icon "delete-bin-line" %>
+                            <%= t("actions.destroy", scope: "decidim.admin") %>
+                          <% end %>
+                        <% else %>
+                          <div class="dropdown__button-disabled">
+                            <%= with_tooltip t("tooltips.deleted_attachment_collections_info", scope: "decidim.admin") do %>
+                              <%= icon "delete-bin-line", class: "text-gray" %>
+                              <span>
+                                <%= t("actions.destroy", scope: "decidim.admin") %>
+                              </span>
+                            <% end %>
+                          </div>
+                        <% end %>
+                      </li>
+                    <% end %>
+                  </ul>
+                </div>
               </td>
             </tr>
           <% end %>

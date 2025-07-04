@@ -265,12 +265,12 @@ module Decidim
 
   # VAPID public key that will be used to sign the Push API requests.
   config_accessor :vapid_public_key do
-    Decidim::Env.new("VAPID_PUBLIC_KEY", nil)
+    Decidim::Env.new("VAPID_PUBLIC_KEY", nil).to_s
   end
 
   # VAPID private key that will be used to sign the Push API requests.
   config_accessor :vapid_private_key do
-    Decidim::Env.new("VAPID_PRIVATE_KEY", nil)
+    Decidim::Env.new("VAPID_PRIVATE_KEY", nil).to_s
   end
 
   # Having this on true will change the way the svg assets are being served.
@@ -280,7 +280,8 @@ module Decidim
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fa fi-pl fi fr fr-CA ga gl hr hu id is it ja ko lb lt lv mt nl no pl pt pt-BR ro ru sk sl sr sv tr uk vi zh-CN zh-TW)
+    Decidim::Env.new("DECIDIM_AVAILABLE_LOCALES", %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fa fi-pl fi fr fr-CA ga gl hr
+                                                     hu id is it ja ko lb lt lv mt nl no pl pt pt-BR ro ru sk sl sr sv tr uk vi zh-CN zh-TW).join(",")).to_array
   end
 
   # Exposes a configuration option: The application default locale.
@@ -295,17 +296,17 @@ module Decidim
 
   # The minimum allowed inactivity period for deleting participants.
   config_accessor :minimum_inactivity_period do
-    30
+    Decidim::Env.new("DECIDIM_MINIMUM_INACTIVITY_PERIOD_IN_DAYS", 30).to_i
   end
 
   # Users will be warned for the first time this amount of days before the final removal
   config_accessor :delete_inactive_users_first_warning_days_before do
-    30
+    Decidim::Env.new("DECIDIM_DELETE_INACTIVE_USERS_FIRST_WARNING_DAYS_BEFORE", 30).to_i
   end
 
   # Users will be warned for the last time this amount of days before the final removal
   config_accessor :delete_inactive_users_last_warning_days_before do
-    7
+    Decidim::Env.new("DECIDIM_DELETE_INACTIVE_USERS_LAST_WARNING_DAYS_BEFORE", 7).to_i
   end
 
   # Returns the inactivity threshold (in days) to trigger the first warning email.
@@ -339,7 +340,7 @@ module Decidim
   #   Decidim::ContentParsers::UserParser < BaseParser
   #   Decidim::ContentRenderers::UserRenderer < BaseRenderer
   config_accessor :content_processors do
-    []
+    Decidim::Env.new("DECIDIM_CONTENT_PROCESSORS", "").to_array
   end
 
   # Exposes a configuration option: an object to configure geocoder
@@ -347,7 +348,55 @@ module Decidim
 
   # Exposes a configuration option: an object to configure the mapping
   # functionality. See Decidim::Map for more information.
-  config_accessor :maps
+  config_accessor :maps do
+    if Decidim::Env.new("MAPS_STATIC_PROVIDER", ENV.fetch("MAPS_PROVIDER", nil)).present?
+
+      @maps ||= begin
+        static_provider = Decidim::Env.new("MAPS_STATIC_PROVIDER", ENV.fetch("MAPS_PROVIDER", nil)).to_s
+        maps = {
+          provider: static_provider,
+          api_key: Decidim::Env.new("MAPS_STATIC_API_KEY", ENV.fetch("MAPS_API_KEY", nil)).to_s,
+          static: false,
+          dynamic: false
+        }
+
+        maps[:geocoding] = { host: ENV["MAPS_GEOCODING_HOST"], use_https: true } if ENV["MAPS_GEOCODING_HOST"]
+
+        static_url = ENV.fetch("MAPS_STATIC_URL", nil)
+        static_url = "https://image.maps.hereapi.com/mia/v3/base/mc/overlay" if static_provider == "here"
+        maps[:static] = { url: static_url } if static_url
+
+        dynamic_provider = Decidim::Env.new("MAPS_DYNAMIC_PROVIDER", ENV.fetch("MAPS_PROVIDER", nil)).to_s
+
+        if dynamic_provider
+          dynamic_url = ENV.fetch("MAPS_DYNAMIC_URL", nil)
+          maps[:dynamic] = {
+            provider: dynamic_provider,
+            api_key: Decidim::Env.new("MAPS_DYNAMIC_API_KEY", ENV.fetch("MAPS_API_KEY", nil)).to_s
+          }
+          maps[:dynamic][:tile_layer] = {}
+          maps[:dynamic][:tile_layer][:url] = dynamic_url if dynamic_url
+          maps[:dynamic][:tile_layer][:attribution] = ENV["MAPS_ATTRIBUTION"] if ENV["MAPS_ATTRIBUTION"]
+        end
+        if dynamic_provider && ENV["MAPS_EXTRA_VARS"].present?
+          vars = URI.decode_www_form(ENV.fetch("MAPS_EXTRA_VARS", nil))
+          vars.each do |key, value|
+            # perform a naive type conversion
+            maps[:dynamic][:tile_layer][key] = case value
+                                               when /^true$|^false$/i
+                                                 value.downcase == "true"
+                                               when /\A[-+]?\d+\z/
+                                                 value.to_i
+                                               else
+                                                 value
+                                               end
+          end
+        end
+
+        maps
+      end
+    end
+  end
 
   # Exposes a configuration option: a custom method to generate references.
   # If overwritten, it should handle both component resources and participatory spaces.
@@ -440,7 +489,7 @@ module Decidim
 
   # Allow machine translations
   config_accessor :enable_machine_translations do
-    false
+    Decidim::Env.new("DECIDIM_ENABLE_MACHINE_TRANSLATION", false).present?
   end
 
   # How long can a user remained logged in before the session expires. Notice that
@@ -466,11 +515,13 @@ module Decidim
 
   # Exposes a configuration option: an object to configure Etherpad
   config_accessor :etherpad do
-    # {
-    #   server: <your url>,
-    #   api_key: <your key>,
-    #   api_version: <your version>
-    # }
+    if Decidim::Env.new("ETHERPAD_SERVER").present? && Decidim::Env.new("ETHERPAD_API_KEY").present?
+      {
+        server: Decidim::Env.new("ETHERPAD_SERVER").to_s,
+        api_key: Decidim::Env.new("ETHERPAD_API_KEY").to_s,
+        api_version: Decidim::Env.new("ETHERPAD_API_VERSION", "1.2.1").to_s
+      }
+    end
   end
 
   # A base path for the uploads. If set, make sure it ends in a slash.
@@ -485,14 +536,14 @@ module Decidim
   #
   # Check the example in `decidim-verifications`.
   config_accessor :sms_gateway_service do
-    # "MyGatewayClass"
+    Decidim::Env.new("DECIDIM_SMS_GATEWAY_SERVICE", nil).value
   end
 
   # The name of the class used to generate a timestamp from a document.
   #
   # Check the example in `decidim-initiatives`
   config_accessor :timestamp_service do
-    # "MyTimestampService"
+    Decidim::Env.new("DECIDIM_TIMESTAMP_SERVICE", nil).value
   end
 
   # The name of the class used to process a pdf and add a signature to the
@@ -500,13 +551,13 @@ module Decidim
   #
   # Check the example in `decidim-initiatives`
   config_accessor :pdf_signature_service do
-    # "MyPDFSignatureService"
+    Decidim::Env.new("DECIDIM_PDF_SIGNATURE_SERVICE", nil).value
   end
 
   # The name of the class to translate user content.
   #
   config_accessor :machine_translation_service do
-    # "MyTranslationService"
+    Decidim::Env.new("DECIDIM_MACHINE_TRANSLATION_SERVICE", nil).value
   end
 
   config_accessor :maximum_attachment_size do
@@ -536,7 +587,7 @@ module Decidim
 
   # The list of roles a user can have, not considering the space-specific roles.
   config_accessor :user_roles do
-    %w(admin user_manager)
+    Decidim::Env.new("DECIDIM_USER_ROLES", "admin,user_manager").to_array
   end
 
   # The list of visibility options for amendments. An Array of Strings that
@@ -547,13 +598,13 @@ module Decidim
   # radio buttons collection input field form for a Decidim::Component
   # step setting :amendments_visibility.
   config_accessor :amendments_visibility_options do
-    %w(all participants)
+    Decidim::Env.new("DECIDIM_AMENDMENTS_VISIBILITY_OPTIONS", "all,participants").to_array
   end
 
   # Exposes a configuration option: The maximum length for conversation
   # messages.
   config_accessor :maximum_conversation_message_length do
-    Decidim::Env.new("DECIDIM_MAXIMUM_CONVERSATION_MESSAGE_LENGTH", "1000").to_i
+    Decidim::Env.new("DECIDIM_MAXIMUM_CONVERSATION_MESSAGE_LENGTH", 1000).to_i
   end
 
   # Defines the name of the cookie used to check if the user has given consent
@@ -660,7 +711,7 @@ module Decidim
 
   # The default max last activity users to be shown
   config_accessor :default_max_last_activity_users do
-    6
+    Decidim::Env.new("DECIDIM_DEFAULT_MAX_LAST_ACTIVITY_USERS", 6).to_i
   end
 
   # List of additional content security policies to be appended to the default ones
