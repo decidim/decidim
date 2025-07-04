@@ -2,9 +2,8 @@
 
 module Decidim
   module Demographics
-    # This is the engine that runs on the public interface of `decidim-debates`.
-    # It mostly handles rendering the created debate associated to a participatory
-    # process.
+    # This is the engine that runs on the admin interface of `decidim-demographics`.
+    # It handles rendering the admin interface for demographics
     class AdminEngine < ::Rails::Engine
       isolate_namespace Decidim::Demographics::Admin
 
