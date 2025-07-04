@@ -41,6 +41,8 @@ es-MX:
               'true': No seleccionado para la implementación
           taxonomies_part_of_contains:
             label: Taxonomía
+      tooltips:
+        deleted_projects_info: No se puede eliminar este proyecto
     budgets:
       actions:
         attachment_collections: Carpetas
