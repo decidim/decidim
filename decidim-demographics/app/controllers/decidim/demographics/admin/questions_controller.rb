@@ -29,9 +29,6 @@ module Decidim
         def edit_questionnaire_title = t(:title, scope: "decidim.demographics.admin.questions.edit")
 
         def create_default_questionnaire!
-          return if @questionnaire.persisted?
-
-          @questionnaire.save!
           Decidim::Demographics.create_default_questionnaire!(@questionnaire)
         end
       end

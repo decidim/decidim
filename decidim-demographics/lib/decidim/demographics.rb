@@ -14,6 +14,10 @@ module Decidim
     # i18n-tasks-use t('decidim.demographics.questions.gender.options')
     # i18n-tasks-use t('decidim.demographics.questions.postal.question')
     def self.create_default_questionnaire!(questionnaire)
+      return if questionnaire.persisted?
+
+      questionnaire.save!
+
       locales = questionnaire.questionnaire_for.organization.available_locales
 
       scope = "decidim.demographics.questions"
