@@ -13,7 +13,7 @@ module Decidim
 
         Checkout.call(current_order) do
           on(:ok) do
-            redirect_to status_budget_order_path(budget)
+            redirect_to status_budget_focus_order_path(budget)
           end
 
           on(:invalid) do

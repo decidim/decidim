@@ -1,3 +1,8 @@
+<% if @focus_mode %>
+  <% content_for :focus_mode, true %>
+  <% content_for :focus_mode_return_path, budgets_path %>
+<% end %>
+
 <%= render layout: "layouts/decidim/shared/layout_center", locals: { columns: 8 } do %>
   <div class="flex flex-col gap-4 items-center text-center my-12">
     <%= success_animation %>
