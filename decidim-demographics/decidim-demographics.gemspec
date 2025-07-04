@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
 
   s.name = "decidim-demographics"
   s.summary = "A decidim demographics module"
-  s.description = "Module that collects demographic data about users."
+  s.description = "Module that collects demographic data about participants."
 
   s.files = Dir.chdir(__dir__) do
     `git ls-files -z`.split("\x0").select do |f|
