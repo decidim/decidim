@@ -1,5 +1,6 @@
 ---
 en:
+
   activemodel:
     attributes:
       area:
@@ -289,7 +290,7 @@ en:
       block_user:
         bulk_new:
           action: Block accounts and send justification
-          already_reported_html: Continuing with this action you will also hide all the participants contents.
+          already_reported_html: By continuing with this action you will also hide all the participant's content.
           description: Blocking a user will render their account unusable. You may provide in your justification any guidelines on ways you would consider unblocking the user.
           justification: Justification
           title: Block Users
