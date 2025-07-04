@@ -1,7 +1,7 @@
 <% add_decidim_page_title(t(".title")) %>
 
-<%= append_stylesheet_pack_tag "decidim_elections_admin" %>
-<%= append_javascript_pack_tag "decidim_elections_admin" %>
+<% append_javascript_pack_tag "decidim_elections_admin" %>
+<% append_stylesheet_pack_tag "decidim_elections_admin" %>
 
 <%= render "decidim/elections/admin/elections/tabs_menu" do %>
   <% if allowed_to?(:publish, :election, election:) %>

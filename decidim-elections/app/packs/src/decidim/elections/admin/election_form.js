@@ -4,12 +4,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const availabilityRadios = document.querySelectorAll(
     'input[name="election[results_availability]"]'
   );
+  const currentAvailability = () => Array.from(availabilityRadios).find(radio => radio.checked);
 
   if (!manualStart || !datepickerRow || availabilityRadios.length === 0) {
     return;
   }
 
-  const toggleVisibility = () => {
+  const toggleManualStart = () => {
+    if (currentAvailability()?.value === "per_question") {
+      manualStart.checked = true;
+    }
     if (manualStart.checked) {
       datepickerRow.style.display = "none";
     } else {
@@ -17,23 +21,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  const syncManualStartWithAvailability = () => {
-    const selected = document.querySelector(
-      'input[name="election[results_availability]"]:checked'
-    );
-    if (selected?.value === "per_question") {
+  const setManualStart = () => {
+    if (currentAvailability()?.value === "per_question") {
       manualStart.checked = true;
-      toggleVisibility();
+      toggleManualStart();
     }
   };
 
-  manualStart.addEventListener("change", toggleVisibility);
-  toggleVisibility();
+  manualStart.addEventListener("change", toggleManualStart);
 
   availabilityRadios.forEach((radio) => {
-    radio.addEventListener("change", syncManualStartWithAvailability);
+    radio.addEventListener("change", setManualStart);
   });
 
-  // при инициализации — тоже синхронизируем
-  syncManualStartWithAvailability();
+  setManualStart();
 });
