@@ -137,12 +137,14 @@ fi-pl:
           name: Prosessiryhmä
         participatory_process_step:
           fields:
+            actions: Toiminnot
             end_date: Päättymispäivä
             start_date: Alkamispäivä
             title: Otsikko
           name: Osallisuusprosessin vaihe
         participatory_process_user_role:
           fields:
+            actions: Toiminnot
             email: Sähköposti
             name: Nimi
             role: Rooli
