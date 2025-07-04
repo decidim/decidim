@@ -18,7 +18,7 @@ module Decidim
           votes_data.each do |question_id, data|
             response_option_id = data["response_option_id"]
             next if response_option_id.blank?
-            byebug
+
             create_vote(question_id, response_option_id)
           end
         end
