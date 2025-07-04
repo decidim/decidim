@@ -166,6 +166,7 @@ fr-CA:
   decidim:
     admin:
       actions:
+        actions: Actions
         actions_label: Actions pour %{resource}
         add: Ajouter
         attachment:
