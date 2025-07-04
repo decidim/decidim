@@ -13,7 +13,9 @@ module Decidim
       end
 
       def call
-        @questionnaire.responses.where(user: @user).destroy_all
+        Decidim.traceability.perform_action!("delete", @questionnaire.questionnaire_for, @user) do
+          @questionnaire.responses.where(user: @user).destroy_all
+        end
 
         broadcast(:ok)
       rescue ActiveRecord::RecordInvalid

@@ -4,10 +4,9 @@ module Decidim
   module Demographics
     module Admin
       class UpdateDemographicsSettings < Decidim::Command
-        # Initializes a UpdateSurveySettings Command.
+        # Initializes an UpdateDemographicsSettings Command.
         #
-        # form - The form from which to get the data.
-        # user - The user doing the update
+        # @param form - The form from which to get the data.
         def initialize(form)
           @form = form
         end
@@ -17,7 +16,7 @@ module Decidim
         delegate :current_organization, to: :form
         delegate :current_user, to: :form
 
-        # Updates the survey questionnaire if valid.
+        # Updates the demographic data if valid.
         #
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
