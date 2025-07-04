@@ -53,9 +53,9 @@ describe "Admin manages proposals evaluators" do
         within "tr", text: translated(proposal.title) do
           expect(page).to have_css("td.evaluators-count", text: 1)
         end
-      end
 
-      it "displays log" do
+        sleep(1)
+
         visit decidim_admin.root_path
         expect(page).to have_content("assigned the #{translated(proposal.title)} proposal to a evaluator")
       end
