@@ -50,6 +50,10 @@ ul.taxonomy {
     .action-space {
       @apply w-5 h-5;
     }
+
+    .dropdown__item {
+      @apply text-left m-0 w-full;
+    }
   }
 }
 

@@ -1,4 +1,4 @@
-<div class="table-scroll mt-8" role="table" aria-labelledby="taxonomies-title">
+<div class="table-stacked mt-8" role="table" aria-labelledby="taxonomies-title">
   <table class="table-list">
     <thead>
       <tr role="row">
@@ -11,20 +11,57 @@
     <tbody role="rowgroup">
       <% collection.each do |taxonomy_filter| %>
         <tr>
-          <td><%= translated_attribute(taxonomy_filter.internal_name) %></td>
-          <td><%= translated_attribute(taxonomy_filter.name) %></td>
-          <td><%= taxonomy_filter.components_count %></td>
-          <td>
-            <% if allowed_to? :update, :taxonomy_filter, taxonomy_filter: %>
-              <%= icon_link_to "pencil-line", edit_taxonomy_filter_path(root_taxonomy, taxonomy_filter), t(".edit"), class: "action-icon--edit" %>
-            <% else %>
-              <span class="action-space icon"></span>
-            <% end %>
-            <% if allowed_to? :destroy, :taxonomy_filter, taxonomy_filter: %>
-              <%= icon_link_to "delete-bin-line", taxonomy_filter_path(root_taxonomy, taxonomy_filter), t(".destroy"), class: "action-icon--remove", method: :delete, data: { confirm: t(".confirm_destroy", name: strip_tags(translated_attribute(taxonomy_filter.name))) } %>
-            <% else %>
-              <span class="action-space icon"></span>
-            <% end %>
+          <td data-label="<%= t('.internal_name') %>">
+            <%= translated_attribute(taxonomy_filter.internal_name) %>
+          </td>
+          <td data-label="<%= t('.name') %>">
+            <%= translated_attribute(taxonomy_filter.name) %>
+          </td>
+          <td data-label="<%= t('.components_count') %>">
+            <%= taxonomy_filter.components_count %>
+          </td>
+          <td data-label="<%= t('.actions') %>" class="table-list__actions">
+            <button type="button" data-component="dropdown" data-target="actions-taxonomy-filter-<%= taxonomy_filter.id %>" aria-label="<%= t(".actions") %>">
+              <%= icon "more-fill", class: "text-secondary" %>
+            </button>
+
+            <div class="inline-block relative">
+              <ul id="actions-taxonomy-filter-<%= taxonomy_filter.id %>" class="dropdown dropdown__action" aria-hidden="true">
+                <% if allowed_to? :update, :taxonomy_filter, taxonomy_filter: taxonomy_filter %>
+                  <li class="dropdown__item">
+                    <%= link_to edit_taxonomy_filter_path(root_taxonomy, taxonomy_filter), class: "dropdown__button" do %>
+                      <%= icon "pencil-line" %>
+                      <%= t(".edit") %>
+                    <% end %>
+                  </li>
+                <% else %>
+                  <div class="dropdown__button-disabled">
+                    <%= with_tooltip t("tooltips.cannot_edit_taxonomy_filter", scope: "decidim.admin") do %>
+                      <%= icon "pencil-line", class: "text-gray" %>
+                      <%= t(".edit") %>
+                    <% end %>
+                  </div>
+                <% end %>
+
+                <% if allowed_to? :destroy, :taxonomy_filter, taxonomy_filter: taxonomy_filter %>
+                  <hr>
+
+                  <li class="dropdown__item">
+                    <%= link_to taxonomy_filter_path(root_taxonomy, taxonomy_filter), method: :delete, data: { confirm: t(".confirm_destroy", name: strip_tags(translated_attribute(taxonomy_filter.name))) }, class: "dropdown__button" do %>
+                      <%= icon "delete-bin-line" %>
+                      <%= t(".destroy") %>
+                    <% end %>
+                  </li>
+                <% else %>
+                  <div class="dropdown__button-disabled">
+                    <%= with_tooltip t("tooltips.cannot_destroy_taxonomy_filter", scope: "decidim.admin") do %>
+                      <%= icon "delete-bin-line", class: "text-gray" %>
+                      <%= t(".destroy") %>
+                    <% end %>
+                  </div>
+                <% end %>
+              </ul>
+            </div>
           </td>
         </tr>
       <% end %>
