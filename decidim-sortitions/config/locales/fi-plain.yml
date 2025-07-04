@@ -44,6 +44,7 @@ fi-pl:
           edit: Muokkaa
           new_sortition: Uusi satunnaisvalinta
           show: Satunnaistamisen yksityiskohdat
+          title: Toiminnot
         models:
           sortition:
             fields:
