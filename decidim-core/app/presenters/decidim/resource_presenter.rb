@@ -10,7 +10,7 @@ module Decidim
       handle_locales(resource_title, all_locales) do |content|
         content = decidim_html_escape(content) if html_escape
 
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(content)
+        renderer = Decidim::ContentRenderers::BlobRenderer.new(content)
         renderer.render(links:, extras:).html_safe
       end
     end
@@ -30,11 +30,11 @@ module Decidim
     end
 
     # Prepares the HTML content for the editors with the correct tags included
-    # to identify the hashtags and mentions.
+    # to identify the mentions.
     def editor_locales(data, all_locales, extras: true)
       handle_locales(data, all_locales) do |content|
         [
-          Decidim::ContentRenderers::HashtagRenderer,
+          Decidim::ContentRenderers::BlobRenderer,
           Decidim::ContentRenderers::UserRenderer,
           Decidim::ContentRenderers::MentionResourceRenderer
         ].each do |renderer_class|

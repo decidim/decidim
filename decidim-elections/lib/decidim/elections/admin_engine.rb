@@ -51,20 +51,35 @@ module Decidim
 
           menu.add_item :election_questions_edit,
                         I18n.t("election_questions", scope: "decidim.admin.menu.elections_menu"),
+<<<<<<< HEAD
                         @election.nil? || @election.published? ? "#" : current_component_admin_proxy&.edit_questions_election_path(@election),
                         active: @election.present? && !@election.published? && is_active_link?(current_component_admin_proxy&.edit_questions_election_path(@election)),
+=======
+                        @election.nil? ? "#" : current_component_admin_proxy&.edit_questions_election_path(@election),
+                        active: @election.present? ? is_active_link?(current_component_admin_proxy&.edit_questions_election_path(@election)) : false,
+>>>>>>> develop
                         icon_name: "question-answer-line"
 
           menu.add_item :election_census,
                         I18n.t("election_census", scope: "decidim.admin.menu.elections_menu"),
+<<<<<<< HEAD
                         @election.nil? || @election.published? || @election.questions.blank? ? "#" : current_component_admin_proxy&.census_election_path(@election),
                         active: @election.present? && !@election.published? && is_active_link?(current_component_admin_proxy&.census_election_path(@election)),
+=======
+                        @election.present? && @election.questions&.any? ? current_component_admin_proxy&.census_election_path(@election) : "#",
+                        active: @election.present? ? is_active_link?(current_component_admin_proxy&.census_election_path(@election)) : false,
+>>>>>>> develop
                         icon_name: "group-2-line"
 
           menu.add_item :election_dashboard,
                         I18n.t("election_dashboard", scope: "decidim.admin.menu.elections_menu"),
+<<<<<<< HEAD
                         @election.present? && @election.census_ready? ? current_component_admin_proxy&.dashboard_election_path(@election) : "#",
                         active: @election.present? ? is_active_link?(current_component_admin_proxy&.dashboard_election_path(@election)) : false,
+=======
+                        @election.present? && @election.census_ready? ? current_component_admin_proxy&.dashboard_page_election_path(@election) : "#",
+                        active: @election.present? ? is_active_link?(current_component_admin_proxy&.dashboard_page_election_path(@election)) : false,
+>>>>>>> develop
                         icon_name: "dashboard-line"
         end
       end

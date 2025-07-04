@@ -15,7 +15,7 @@
   <div class="content-block__description editor-content" <%= "data-component='accordion'" if should_truncate %>>
     <% if should_truncate %>
       <% seed = SecureRandom.hex(4) %>
-      <div id="panel-view-more-<%= seed %>" aria-hidden="true" class="editor-content">
+      <div id="panel-view-more-<%= seed %>" class="editor-content" inert>
         <% if rich_text_processors? %>
           <%= render_rich_text(resource, :description) %>
         <% else %>
@@ -23,7 +23,7 @@
         <% end %>
       </div>
 
-      <button class="button button__sm button__text-secondary mt-2" data-controls="panel-view-more-<%= seed %>" aria-expanded="false">
+      <button class="button button__sm button__text-secondary mt-2" data-controls="panel-view-more-<%= seed %>" aria-expanded="false" onclick="document.querySelector('div[id^=panel-view-more]').toggleAttribute('inert')">
         <span>
           <%= t("view_more", scope: "layouts.decidim.announcements") %>
         </span>
@@ -42,3 +42,12 @@
     <% end %>
   </div>
 <% end %>
+<script>
+  const button = document.querySelector('button[data-controls^="panel-view-more"]')
+  button.addEventListener('keydown', function(e){
+    // press space or enter
+    if (e.keyCode === 32 || e.keyCode === 13){
+      document.querySelector('div[id^=panel-view-more]').toggleAttribute('inert')
+    }
+  })
+</script>

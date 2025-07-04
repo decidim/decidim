@@ -141,6 +141,7 @@ describe "Admin manages election census" do
 
           check "Example authorization"
           check "Another example authorization"
+
           click_on "Save and continue" # redirects to the dashboard
           expect(page).to have_css("h1", text: "Dashboard")
 

@@ -59,6 +59,17 @@ module Decidim
             toggle_allow(election.present? && !election.published?)
           end
         end
+
+        def allowed_elections_census_action?
+          return unless permission_action.subject == :census
+
+          case permission_action.action
+          when :edit
+            allow!
+          when :update
+            toggle_allow(election.present?)
+          end
+        end
       end
     end
   end
