@@ -1,3 +1,17 @@
 .election-fields .card {
   @apply mb-4 pt-4;
 }
+
+.status-label {
+  .label{
+    &.finished,&.results_published {
+      @apply bg-[var(--bg-success)] text-[var(--success)];
+    }
+    &.ongoing {
+      @apply bg-[var(--bg-warning)] text-[var(--warning)];
+    }
+    &.scheduled {
+      @apply bg-secondary text-white;
+    }
+  }
+}

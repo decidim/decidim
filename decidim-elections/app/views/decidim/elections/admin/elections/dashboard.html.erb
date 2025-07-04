@@ -1,0 +1,32 @@
+<% add_decidim_page_title(t(".title")) %>
+
+<%= append_stylesheet_pack_tag "decidim_elections_admin" %>
+<%= append_javascript_pack_tag "decidim_elections_admin" %>
+
+<%= render "decidim/elections/admin/elections/tabs_menu" do %>
+  <% if allowed_to?(:publish, :election, election:) %>
+    <%= link_to t("publish", scope: "decidim.elections.admin.elections.form"),
+                publish_election_path(election),
+                method: :put,
+                class: "main-tabs-menu__cta-button",
+                data: { confirm: t("publish_confirm", scope: "decidim.elections.admin.dashboard") } %>
+  <% end %>
+<% end %>
+
+<div class="item_show__header">
+  <h1 class="item_show__header-title">
+    <%= t(".title") %>
+  </h1>
+</div>
+
+<div class="item__edit-form">
+  <% if election.published? %>
+    <%= render partial: "decidim/elections/admin/dashboard/status" %>
+    <%= render partial: "decidim/elections/admin/dashboard/calendar" %>
+    <%= render partial: "decidim/elections/admin/dashboard/results" %>
+  <% else %>
+    <%= render partial: "decidim/elections/admin/dashboard/main" %>
+    <%= render partial: "decidim/elections/admin/dashboard/questions" %>
+    <%= render partial: "decidim/elections/admin/dashboard/census" %>
+  <% end %>
+</div>

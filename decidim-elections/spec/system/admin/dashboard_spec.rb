@@ -16,6 +16,21 @@ describe "Dashboard" do
     visit election_dashboard_path
   end
 
+  context "when the election is published" do
+    it "does not show publish button" do
+      expect(page).to have_no_link("Publish")
+    end
+
+    it "can edit only election description" do
+      expect(page).to have_link("Main")
+      expect(page).to have_no_link("Questions")
+      expect(page).to have_no_link("Census")
+
+      click_on "Main"
+      # expect(page).to have_field("election[title_en]", with: translated(election.title), disabled: true)
+    end
+  end
+
   context "when the election is not published" do
     let(:published_at) { nil }
 
@@ -42,21 +57,6 @@ describe "Dashboard" do
       emails.each do |email|
         expect(page).to have_content(email)
       end
-    end
-  end
-
-  context "when the election is published" do
-    it "does not show publish button" do
-      expect(page).to have_no_link("Publish")
-    end
-
-    it "can edit only election description" do
-      expect(page).to have_link("Main")
-      expect(page).to have_no_link("Questions")
-      expect(page).to have_no_link("Census")
-
-      click_on "Main"
-      # expect(page).to have_field("election[title_en]", with: translated(election.title), disabled: true)
     end
   end
 
@@ -257,6 +257,6 @@ describe "Dashboard" do
   private
 
   def election_dashboard_path
-    Decidim::EngineRouter.admin_proxy(component).dashboard_page_election_path(election)
+    Decidim::EngineRouter.admin_proxy(component).dashboard_election_path(election)
   end
 end

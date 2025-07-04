@@ -53,7 +53,7 @@ module Decidim
           UpdateElection.call(@form, election) do
             on(:ok) do
               flash[:notice] = I18n.t("elections.update.success", scope: "decidim.elections.admin")
-              redirect_to election.published? ? dashboard_page_election_path(election) : edit_questions_election_path(election)
+              redirect_to election.published? ? dashboard_election_path(election) : edit_questions_election_path(election)
             end
 
             on(:invalid) do
@@ -69,7 +69,7 @@ module Decidim
           PublishElection.call(election, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("elections.publish.success", scope: "decidim.elections.admin")
-              redirect_to dashboard_page_election_path(election)
+              redirect_to dashboard_election_path(election)
             end
 
             on(:invalid) do
@@ -95,7 +95,7 @@ module Decidim
           end
         end
 
-        def dashboard_page
+        def dashboard
           enforce_permission_to :dashboard, :election, election: election
         end
 
@@ -107,12 +107,12 @@ module Decidim
           UpdateElectionStatus.call(@form, election) do
             on(:ok) do
               flash[:notice] = I18n.t("statuses.#{@form.status_action}.success", scope: "decidim.elections.admin")
-              redirect_to dashboard_page_election_path(election)
+              redirect_to dashboard_election_path(election)
             end
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("statuses.unknown", scope: "decidim.elections.admin")
-              render action: "dashboard_page"
+              render action: "dashboard"
             end
           end
         end

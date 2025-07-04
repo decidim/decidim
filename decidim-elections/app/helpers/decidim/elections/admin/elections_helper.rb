@@ -25,9 +25,9 @@ module Decidim
         end
 
         def election_status_with_label(election)
-          status, css_class = election_status_and_class(election)
-
-          content_tag(:span, status, class: css_class)
+          content_tag(:span,
+                      I18n.t("decidim.elections.status.#{election.current_status}"),
+                      class: "#{election.current_status} label")
         end
 
         def formatted_datetime(datetime)
@@ -54,7 +54,7 @@ module Decidim
           button_to update_status_election_path(election),
                     method: :put,
                     params: { status_action: "enable_voting", question_id: question.id },
-                    disabled: !election.can_enable_voting_for?(question),
+                    disabled: !question&.can_enable_voting?,
                     class: "button button__sm button__secondary" do
             t("decidim.elections.admin.dashboard.results.start_question_button")
           end
@@ -64,25 +64,10 @@ module Decidim
           button_to update_status_election_path(election),
                     method: :put,
                     params: { status_action: "publish_results" },
-                    disabled: !election.results_publishable_for?(question),
+                    disabled: !question&.publishable_results?,
                     class: "button button__sm button__secondary" do
             t("decidim.elections.admin.dashboard.results.publish_button")
           end
-        end
-
-        private
-
-        def election_status_and_class(election)
-          status = election.per_question? && election.status.ongoing? ? election.current_status[:election_status] : election.current_status
-
-          css_class = {
-            scheduled: "secondary label",
-            ongoing: "warning label",
-            ended: "success label",
-            results_published: "success label"
-          }.fetch(status, "default label")
-
-          [election.localized_status, css_class]
         end
       end
     end

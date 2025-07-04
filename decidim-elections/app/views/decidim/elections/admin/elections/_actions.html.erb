@@ -14,7 +14,7 @@
   <% end %>
 
   <% if allowed_to? :unpublish, :election, election: election %>
-    <%= icon_link_to "close-circle-line", unpublish_election_path(election), t("actions.unpublish", scope: "decidim.admin"), method: :put, class: "action-icon--unpublish", data: { confirm: t("actions.unpublish", scope: "decidim.admin") } %>
+    <%= icon_link_to "close-circle-line", unpublish_election_path(election), t("actions.unpublish", scope: "decidim.admin"), method: :put, class: "action-icon--unpublish", data: { confirm: t("actions.confirm_unpublish_election", scope: "decidim.elections") } %>
   <% end %>
 
   <%= resource_permissions_link(election) %>

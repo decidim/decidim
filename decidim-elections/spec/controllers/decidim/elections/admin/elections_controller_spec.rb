@@ -29,7 +29,7 @@ module Decidim
         end
 
         def dashboard_path(election)
-          Decidim::EngineRouter.admin_proxy(component).dashboard_page_election_path(election)
+          Decidim::EngineRouter.admin_proxy(component).dashboard_election_path(election)
         end
 
         before do
@@ -38,7 +38,7 @@ module Decidim
           request.env["decidim.current_component"] = component
           allow(controller).to receive(:edit_questions_election_path).and_return(edit_questions_path(election))
           allow(controller).to receive(:elections_path).and_return(elections_path)
-          allow(controller).to receive(:dashboard_page_election_path).and_return(dashboard_path(election))
+          allow(controller).to receive(:dashboard_election_path).and_return(dashboard_path(election))
           sign_in current_user
         end
 
@@ -90,13 +90,13 @@ module Decidim
           end
         end
 
-        describe "GET #dashboard_page" do
+        describe "GET #dashboard" do
           let!(:election) { create(:election, :with_token_csv_census, component:) }
           let!(:election_question) { create(:election_question, election:) }
 
           it "renders dashboard page" do
-            get :dashboard_page, params: { id: election.id }
-            expect(response).to render_template(:dashboard_page)
+            get :dashboard, params: { id: election.id }
+            expect(response).to render_template(:dashboard)
           end
         end
 
@@ -106,13 +106,13 @@ module Decidim
 
           it "updates and redirects" do
             patch :update_status, params: { id: election.id, status_action: "start" }
-            expect(response).to redirect_to(Decidim::EngineRouter.admin_proxy(component).dashboard_page_election_path(election))
+            expect(response).to redirect_to(Decidim::EngineRouter.admin_proxy(component).dashboard_election_path(election))
             expect(flash[:notice]).to be_present
           end
 
-          it "renders dashboard_page on invalid" do
+          it "renders dashboard on invalid" do
             patch :update_status, params: { id: election.id, status_action: nil }
-            expect(response).to render_template(:dashboard_page)
+            expect(response).to render_template(:dashboard)
             expect(flash[:alert]).to be_present
           end
         end
@@ -123,7 +123,7 @@ module Decidim
 
           it "publishes and redirects" do
             put :publish, params: { id: election.id }
-            expect(response).to redirect_to(Decidim::EngineRouter.admin_proxy(component).dashboard_page_election_path(election))
+            expect(response).to redirect_to(Decidim::EngineRouter.admin_proxy(component).dashboard_election_path(election))
             expect(flash[:notice]).to be_present
           end
         end

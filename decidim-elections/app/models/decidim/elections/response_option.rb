@@ -13,8 +13,8 @@ module Decidim
 
       validates :body, presence: true
 
-      def translated_body
-        Decidim::Forms::ResponseOptionPresenter.new(self).translated_body
+      def presenter
+        Decidim::Elections::ResponseOptionPresenter.new(self)
       end
     end
   end

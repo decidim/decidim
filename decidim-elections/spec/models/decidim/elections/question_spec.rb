@@ -34,43 +34,98 @@ module Decidim
         end
       end
 
-      describe "#translated_body" do
-        it "returns the translated body" do
-          expect(subject.translated_body).to eq(subject.body["en"])
-        end
-      end
-
-      describe "#number_of_options" do
-        it "returns the number of associated response options" do
-          expect(subject.number_of_options).to eq(subject.response_options.count)
+      describe "#presenter" do
+        it "returns a presenter instance" do
+          expect(subject.presenter).to be_a(Decidim::Elections::QuestionPresenter)
         end
       end
 
       describe "#voting_enabled?" do
-        context "when voting_enabled_at is present" do
-          let(:question) { build(:election_question, voting_enabled_at: Time.current) }
+        let(:question) { build(:election_question) }
 
-          it { expect(subject.voting_enabled?).to be true }
-        end
+        it { expect(subject.voting_enabled?).to be true }
 
         context "when voting_enabled_at is nil" do
-          let(:question) { build(:election_question, voting_enabled_at: nil) }
+          let(:question) { build(:election_question, voting_enabled: false) }
 
           it { expect(subject.voting_enabled?).to be false }
         end
       end
 
+      describe "#can_enable_voting?" do
+        let(:question) { build(:election_question, voting_enabled:, election:) }
+        let(:voting_enabled) { true }
+        let(:election) { build(:election) }
+
+        it { is_expected.not_to be_can_enable_voting }
+
+        context "when voting is not enabled" do
+          let(:voting_enabled) { false }
+
+          it { is_expected.not_to be_can_enable_voting }
+        end
+
+        context "when election is ongoing" do
+          let(:election) { build(:election, :ongoing) }
+
+          it { is_expected.not_to be_can_enable_voting }
+
+          context "when voting is not enabled" do
+            let(:voting_enabled) { false }
+
+            it { is_expected.to be_can_enable_voting }
+          end
+        end
+      end
+
       describe "#published_results?" do
+        let(:question) { build(:election_question) }
+
+        it { expect(subject.published_results?).to be false }
+
         context "when published_results_at is present" do
-          let(:question) { build(:election_question, published_results_at: Time.current) }
+          let(:question) { build(:election_question, :published_results) }
 
           it { expect(subject.published_results?).to be true }
         end
+      end
 
-        context "when published_results_at is nil" do
-          let(:question) { build(:election_question, published_results_at: nil) }
+      describe "#publishable_results?" do
+        let(:question) { build(:election_question, voting_enabled:, election:) }
+        let(:voting_enabled) { true }
+        let(:election) { build(:election, results_availability:) }
+        let(:results_availability) { "real_time" }
 
-          it { expect(subject.published_results?).to be false }
+        it { is_expected.not_to be_publishable_results }
+
+        context "when after_end results availability" do
+          let(:results_availability) { "after_end" }
+
+          it { is_expected.not_to be_publishable_results }
+
+          context "when election is ready to publish results" do
+            before { allow(election).to receive(:ready_to_publish_results?).and_return(true) }
+
+            it { is_expected.to be_publishable_results }
+          end
+        end
+
+        context "when per_question results availability" do
+          let(:results_availability) { "per_question" }
+
+          it { is_expected.to be_publishable_results }
+
+          context "when already published results" do
+            let(:question) { build(:election_question, :published_results, voting_enabled:, election:) }
+
+            it { is_expected.not_to be_publishable_results }
+          end
+
+          context "when voting is not enabled" do
+            let(:voting_enabled) { false }
+
+            it { is_expected.not_to be_publishable_results }
+          end
         end
       end
     end

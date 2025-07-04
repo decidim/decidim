@@ -24,6 +24,7 @@ en:
     elections:
       actions:
         confirm_delete_election: Are you sure you want to delete this election?
+        confirm_unpublish_election: Are you sure you want to unpublish this election?
         deleted_election_info: Deleted elections are not shown in the list. You can view them by clicking the button below.
         edit: Edit election
         new: New election
@@ -76,10 +77,11 @@ en:
             no_results: There are no results yet.
             publish_button: Publish results
             results_availability:
-              after_end: You can publish all results after the election ends.Results will remain hidden until you publish them manually.
-              per_question: You can publish results one question at a time. Results will appear after each question is finalized.
+              after_end: You can publish all results after the election ends. Results will remain hidden until you publish them manually.
+              per_question: You must enable voting for each question and also publish results manually for each question. If the election has no questions enabled, users will be shown a "Waiting for the next question" message.
               real_time: Results are displayed automatically during the election.
             start_question_button: Enable voting
+            per_question_waiting: No questions are currently enabled for voting. People will see a "Waiting for the next question" message until you enable voting for at least one question.
             title: Results
           status:
             title: Status
@@ -87,7 +89,7 @@ en:
           create:
             invalid: There was a problem creating the election.
             success: Election created successfully.
-          dashboard_page:
+          dashboard:
             title: Dashboard
           edit:
             title: Edit election
@@ -103,11 +105,11 @@ en:
             publish: Publish
             results_availability:
               after_end: After elections end
-              after_end_help: Show results only when the election is ended
+              after_end_help: publish results when the election is finished
               per_question: Question by question
-              per_question_help: Show results per question as they are finalized
+              per_question_help: manually handle voting and publish results for each question
               real_time: Real time
-              real_time_help: Show results as soon as the first vote is submitted
+              real_time_help: automatically publish results during the election while voting
               title: Results availability
             save: Save and continue
             start_at: Start time
@@ -198,7 +200,7 @@ en:
             title: Title
       status:
         active: Active
-        ended: Ended
+        finished: Finished
         ongoing: Ongoing
         results_published: Published results
         scheduled: Scheduled

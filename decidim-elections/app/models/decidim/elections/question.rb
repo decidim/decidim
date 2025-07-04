@@ -17,20 +17,40 @@ module Decidim
 
       validates :body, presence: true
 
-      def translated_body
-        Decidim::Forms::QuestionPresenter.new(self).translated_body
-      end
+      scope :enabled, -> { where.not(voting_enabled_at: nil) }
+      scope :disabled, -> { where(voting_enabled_at: nil) }
 
-      def number_of_options
-        response_options.size
+      default_scope { order(position: :asc) }
+
+      def presenter
+        Decidim::Elections::QuestionPresenter.new(self)
       end
 
       def voting_enabled?
         voting_enabled_at.present?
       end
 
+      def can_enable_voting?
+        return false unless election.ongoing?
+
+        !voting_enabled?
+      end
+
       def published_results?
         published_results_at.present?
+      end
+
+      def publishable_results?
+        return false if published_results?
+
+        case election.results_availability
+        when "per_question"
+          voting_enabled?
+        when "after_end"
+          election.ready_to_publish_results?
+        else
+          false
+        end
       end
     end
   end

@@ -1,7 +1,7 @@
 <div class="form__wrapper">
   <div class="card">
     <div class="card-divider">
-      <h2 class="card-title flex items-center justify-between">
+      <h2 class="card-title flex items-center justify-between my-4">
         <%= t("decidim.elections.admin.dashboard.main.title") %>
         <%= link_to edit_election_path(election), class: "flex items-end justify-between gap-x-3" do %>
           <span class="border-b-2"><%= icon "pencil-line", class: "!w-4 !h-4" %></span>
@@ -12,11 +12,11 @@
 
     <div class="card-section">
       <div class="row column mb-2">
-        <h3><%= t("labels.title", scope: "decidim.elections.admin.dashboard.main") %></h3>
+        <h3 class="h6"><%= t("labels.title", scope: "decidim.elections.admin.dashboard.main") %></h6>
         <div><%= translated_attribute election.title %></div>
       </div>
       <div class="row column mb-2">
-        <h3><%= t("labels.description", scope: "decidim.elections.admin.dashboard.main") %></h3>
+        <h3 class="h6"><%= t("labels.description", scope: "decidim.elections.admin.dashboard.main") %></h6>
         <div><%= decidim_sanitize_translated election.description %></div>
       </div>
       <div class="row column mb-2">
@@ -25,11 +25,11 @@
         <% end %>
       </div>
       <div class="row column mb-2">
-        <h3><%= t("labels.calendar", scope: "decidim.elections.admin.dashboard.main") %></h3>
+        <h3 class="h6"><%= t("labels.calendar", scope: "decidim.elections.admin.dashboard.main") %></h6>
         <div><%= election.manual_start? ? t("decidim.elections.admin.dashboard.calendar.manual_start") : election.start_at.strftime("%d/%m/%Y %H:%M") %> – <%= election.end_at.strftime("%d/%m/%Y %H:%M") %></div>
       </div>
       <div class="row column">
-        <h3><%= t("labels.results", scope: "decidim.elections.admin.dashboard.main") %></h3>
+        <h3 class="h6"><%= t("labels.results", scope: "decidim.elections.admin.dashboard.main") %></h6>
         <div>
           <%= t("decidim.elections.admin.elections.form.results_availability.#{election.results_availability}") %>
           (<%= t("decidim.elections.admin.elections.form.results_availability.#{election.results_availability}_help") %>)

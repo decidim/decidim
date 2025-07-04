@@ -69,7 +69,7 @@ module Decidim
             html = helper.election_status_with_label(election)
 
             expect(html).to include("Ongoing")
-            expect(html).to include("warning label")
+            expect(html).to include("ongoing label")
           end
         end
 
@@ -81,7 +81,7 @@ module Decidim
 
           it "renders button if voting can be enabled" do
             allow(question).to receive(:published_results?).and_return(false)
-            allow(election).to receive(:can_enable_voting_for?).with(question).and_return(true)
+            allow(question).to receive(:can_enable_voting?).and_return(true)
 
             html = helper.enable_voting_button(election, question)
 
@@ -92,7 +92,7 @@ module Decidim
 
         describe "#publish_button_for" do
           it "renders publish button if publishable" do
-            allow(election).to receive(:results_publishable_for?).with(question).and_return(true)
+            allow(question).to receive(:publishable_results?).and_return(true)
 
             html = helper.publish_button_for(election, question)
 

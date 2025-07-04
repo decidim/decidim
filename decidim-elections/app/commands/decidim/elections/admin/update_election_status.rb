@@ -51,7 +51,7 @@ module Decidim
         def enable_voting_for_question(question_id)
           question = election.questions.find_by(id: question_id)
           raise "Question not found" unless question
-          return unless election.can_enable_voting_for?(question)
+          return unless question.can_enable_voting?
 
           question.update!(voting_enabled_at: Time.current)
         end
@@ -61,7 +61,7 @@ module Decidim
         end
 
         def publish_results_per_question
-          question = election.questions.detect { |q| q.published_results_at.nil? && election.results_publishable_for?(q) }
+          question = election.questions.detect(&:publishable_results?)
 
           raise "No publishable question found" unless question
 

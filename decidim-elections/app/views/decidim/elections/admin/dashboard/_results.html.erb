@@ -1,5 +1,5 @@
 <div class="card">
-  <div class="card-divider mb-2">
+  <div class="card-divider my-4">
     <h2 class="card-title flex items-center justify-between">
       <%= t("decidim.elections.admin.dashboard.results.title") %>
       <% if election.results_availability == "after_end" %>
@@ -13,7 +13,8 @@
         <%= cell "decidim/announcement", t("decidim.elections.admin.dashboard.results.no_results") %>
       <% else %>
         <%= cell "decidim/announcement", t("decidim.elections.admin.dashboard.results.results_availability.#{election.results_availability}") unless election.results_published? %>
-        <%= render partial: "decidim/elections/admin/dashboard/questions_with_results", locals: { election_questions: election_questions } %>
+        <%= cell "decidim/announcement", t("decidim.elections.admin.dashboard.results.per_question_waiting"), callout_class: "alert" if election.per_question_waiting? %>
+        <%= render partial: "decidim/elections/admin/dashboard/questions_with_results" %>
       <% end %>
     </div>
   </div>
