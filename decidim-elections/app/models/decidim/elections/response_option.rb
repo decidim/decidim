@@ -8,7 +8,6 @@ module Decidim
       belongs_to :question
       has_many :votes, class_name: "Decidim::Elections::Vote", foreign_key: :decidim_elections_response_option_id, dependent: :destroy
 
-
       default_scope { order(arel_table[:id].asc) }
 
       translatable_fields :body

@@ -1,26 +1,35 @@
-<h2><%= translated_attribute(@question.body) %></h2>
+<%= form_with url: question_election_votes_path(election_id: election.id, id: @question.position), method: :post, local: true do %>
+  <%= question_title(@question) %>
 
-<% @question.response_options.each do |option| %>
-  <label class="input-group__label">
-    <% if @question.question_type == "multiple_option" %>
-      <%= check_box_tag "response_option_ids[]", option.id, false %>
-    <% else %>
-      <%= radio_button_tag 'response_option_id', option.id, false %>
+  <div class="question__response-options mt-4 flex flex-col gap-4">
+    <% @question.response_options.each do |option| %>
+      <label class="rounded-lg border border-gray p-4">
+        <% if @question.question_type == "multiple_option" %>
+          <%= render "decidim/elections/votes/responses/single_option",
+                     question: @question,
+                     response_option: option,
+                     field_id: "response_option_#{option.id}" %>
+        <% else %>
+          <%= render "decidim/elections/votes/responses/single_option",
+                     question: @question,
+                     response_option: option,
+                     field_id: "response_option_#{option.id}" %>
+        <% end %>
+      </label>
     <% end %>
-    <span class="input-group__text"><%= translated_attribute(option.body) %></span>
-  </label>
+  </div>
+
+  <div class="vote-navigation flex justify-between mt-8">
+    <% unless @question.position == 0 %>
+      <%= link_to question_election_votes_path(election_id: election.id, id: @question.position.pred), class: "button button__lg button__secondary" do %>
+        <%= icon "arrow-left-line", class: "fill-current" %>
+        <%= t("back", scope: "decidim.elections.votes.question") %>
+      <% end %>
+    <% end %>
+
+    <div class="ml-auto">
+      <%= submit_tag t("next", scope: "decidim.elections.votes.question"),
+                     class: "button button__lg button__secondary" %>
+    </div>
+  </div>
 <% end %>
-
-<div class="vote-navigation">
-  <% if @question.position > 0 %>
-    <%= link_to t("back", scope: "decidim.elections.votes.question"),
-                question_election_votes_path(election_id: election.id, id: @question.position.pred),
-                class: "button button__secondary" %>
-  <% end %>
-
-  <%= link_to t("next", scope: "decidim.elections.votes.question"),
-              @question.position.next == questions_count ?
-                confirm_election_votes_path(election_id: election.id) :
-                question_election_votes_path(election_id: election.id, id: @question.position.next),
-              class: "button button__secondary" %>
-</div>

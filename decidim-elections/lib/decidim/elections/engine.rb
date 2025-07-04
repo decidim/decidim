@@ -11,8 +11,10 @@ module Decidim
             collection do
               get :verify
               post :check_verification
-              get "question/:id", action: :question, as: :question
+              get  "question/:id", action: :question, as: :question
+              post "question/:id", action: :step
               get :confirm
+              post :cast_vote
             end
           end
         end

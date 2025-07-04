@@ -19,6 +19,11 @@
       <%= render partial: "layouts/decidim/election_votes_header" %>
     </div>
   </header>
+  <% if display_flash_messages.present? %>
+    <div id="flash-messages-container" class="container">
+      <%= display_flash_messages %>
+    </div>
+  <% end %>
   <main class="layout-1col cols-6">
     <div class="py-12 space-y-12">
       <%= yield %>

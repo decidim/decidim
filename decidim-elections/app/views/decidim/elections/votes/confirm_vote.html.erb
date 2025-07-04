@@ -1,0 +1,33 @@
+<h3 class="h3"><%= t(".title") %></h3>
+
+<div class="selected_responses space-y-6 mt-8">
+  <% questions.each_with_index do |question, idx| %>
+    <div>
+      <p class="font-semibold mb-2">
+        <%= "#{idx + 1}- #{translated_attribute(question.body)}" %>
+      </p>
+
+      <% selected_id = session.dig(:votes_buffer, question.id.to_s, "response_option_id") %>
+      <% if selected_id.present? %>
+        <% selected_option = question.response_options.find { |opt| opt.id.to_s == selected_id.to_s } %>
+        <p><%= translated_attribute(selected_option.body) %></p>
+      <% else %>
+        <p class="italic text-gray-500"><%= t("not_answered", scope: "decidim.elections.votes.confirm_vote") %></p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<div class="vote-navigation flex justify-between mt-8">
+  <%= link_to question_election_votes_path(election_id: election.id, id: 0),
+              class: "button button__lg button__transparent-secondary" do %>
+    <%= icon "edit-line", class: "fill-current mr-2" %>
+    <%= t(".edit_vote") %>
+  <% end %>
+
+  <%= form_with url: cast_vote_election_votes_path(election_id: election.id), method: :post, local: true do %>
+    <%= button_tag type: "submit", class: "button button__lg button__secondary" do %>
+      <%= t(".next") %>
+      <%= icon "arrow-right-line", class: "fill-current ml-2" %>
+    <% end %>
+  <% end %>
+</div>

@@ -7,10 +7,7 @@
   <div class="card-accordion border border-gray rounded-lg py-2 px-4" data-component="accordion">
     <div class="card-accordion-divider">
       <button class="card-accordion-divider-button" data-open="<%= open_accordion ||= false %>" data-controls="panel-title--<%= question.id %>" type="button">
-        <h2 class="card-accordion-title" id="title">
-          <span><%= question.position.next %> - </span>
-          <%= translated_attribute question.body %>
-        </h2>
+        <%= question_title(question) %>
         <%= icon "arrow-down-s-line" %>
       </button>
     </div>

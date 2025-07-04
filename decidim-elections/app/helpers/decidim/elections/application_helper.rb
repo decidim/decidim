@@ -37,6 +37,17 @@ module Decidim
         (defined?(current_component) && translated_attribute(current_component&.name).presence) || t("decidim.components.elections.name")
       end
 
+      def question_title(question)
+        content_tag(:h2, class: "h4", id: "title") do
+          concat content_tag(:span, "#{question.position.next} - ")
+          concat translated_attribute(question.body)
+        end
+      end
+
+      def selected_response_option_id(question)
+        session.dig(:votes_buffer, question.id.to_s, "response_option_id")&.to_i
+      end
+
       private
 
       def all_filter_text

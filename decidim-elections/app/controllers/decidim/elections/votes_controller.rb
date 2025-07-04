@@ -29,23 +29,14 @@ module Decidim
       end
 
       def check_verification
+        email = params.dig(:login, :email).to_s.strip.downcase
         token = params.dig(:login, :token).to_s.strip
 
-        if valid_token?(token)
+        if valid_voter?(email, token)
           redirect_to question_election_votes_path(election_id: election.id, id: 0)
         else
           flash[:alert] = t("invalid", scope: "decidim.elections.votes.check_census")
           redirect_to new_election_vote_path(election)
-        end
-      end
-
-      def step
-        step_index = params[:step].to_i
-
-        case step_index
-        when 0...questions_count then render_question(step_index)
-        when questions_count then render :confirm_vote
-        else redirect_to exit_path
         end
       end
 
@@ -60,7 +51,42 @@ module Decidim
       end
 
       def confirm
+        @questions = questions
+        @responses = session[:votes_buffer] || {}
         render :confirm_vote, layout: "decidim/election_booth"
+      end
+
+      def step
+        step_index = params[:id].to_i
+
+        save_vote(step_index) if request.post?
+
+        next_step = step_index + 1
+
+        if next_step < questions_count
+          redirect_to question_election_votes_path(election_id: election.id, id: next_step)
+        elsif next_step == questions_count
+          redirect_to confirm_election_votes_path(election_id: election.id)
+        else
+          redirect_to exit_path
+        end
+      end
+
+      def cast_vote
+        votes_data = session[:votes_buffer] || {}
+
+        ConfirmVote.call(election:, voter:, votes_data:) do
+          on(:ok) do
+            session[:votes_buffer] = nil
+            flash[:notice] = t("votes.cast_vote.success", scope: "decidim.elections")
+            redirect_to exit_path, notice: t("votes.cast_vote.success", scope: "decidim.elections")
+          end
+
+          on(:invalid) do
+            flash[:alert] = I18n.t("votes.cast_vote.invalid", scope: "decidim.elections")
+            redirect_to confirm_election_votes_path(election_id: election.id)
+          end
+        end
       end
 
       private
@@ -118,8 +144,20 @@ module Decidim
         @voter ||= Decidim::Elections::Voter.with_email(current_user&.email).find_by(election_id: election.id)
       end
 
-      def valid_token?(token)
-        voter&.token == token
+      def valid_voter?(email, token)
+        voter&.token == token && voter&.email == email && voter&.election_id == election.id
+      end
+
+      def save_vote(step_index)
+        question = questions[step_index]
+        response_option_id = params.dig(:response, :votes, question.id.to_s, :response_option_id)
+
+        return unless response_option_id.present?
+
+        session[:votes_buffer] ||= {}
+        session[:votes_buffer][question.id.to_s] = {
+          "response_option_id" => response_option_id
+        }
       end
     end
   end
