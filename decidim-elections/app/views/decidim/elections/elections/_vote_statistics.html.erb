@@ -3,7 +3,7 @@
   <span><%= t(".title") %></span>
 </h4>
 <div class="mb-4"><%= t(".subtitle.#{@election.results_availability}") %></div>
-<% @election.questions.each_with_index do |question| %>
+<% questions.each_with_index do |question| %>
   <div class="border border-gray rounded-lg py-2 px-4 mb-6">
     <div class="mb-4 border-b-2 border-gray-3 pb-2">
       <%= question_title(question) %>
@@ -16,12 +16,10 @@
         <div class="font-semibold mb-1">
           <%= "#{index + 1}. #{translated_attribute(option.body)}" %>
         </div>
-
         <div class="flex items-center justify-between gap-2 mb-2">
           <div class="relative h-3 flex-1 rounded bg-gray-3">
             <div class="absolute h-full top-0 left-0 rounded bg-success" style="width: <%= percent %>%"></div>
           </div>
-
           <div class="text-right text-sm leading-tight shrink-0 min-w-[64px]">
             <div><%= "#{percent} %" %></div>
             <div><%= t("votes_count", scope: "decidim.elections.elections.show", count: option.votes_count) %></div>

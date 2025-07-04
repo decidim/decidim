@@ -39,7 +39,9 @@
     <div><%= render partial: "questions", locals: { questions: } %></div>
   </section>
 
-  <section class="layout-main__section">
-    <div><%= render partial: "vote_statistics", locals: { questions: } %></div>
-  </section>
+  <% if visible_questions(@election).any? %>
+    <section class="layout-main__section">
+      <div><%= render partial: "vote_statistics", locals: { questions: visible_questions(@election) } %></div>
+    </section>
+  <% end %>
 <% end %>

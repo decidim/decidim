@@ -48,6 +48,19 @@ module Decidim
         session.dig(:votes_buffer, question.id.to_s, "response_option_id")&.to_i
       end
 
+      def visible_questions(election)
+        case election.results_availability
+        when "real_time"
+          election.questions
+        when "after_end"
+          election.vote_ended? ? election.questions : []
+        when "per_question"
+          election.questions.select(&:published_results?)
+        else
+          []
+        end
+      end
+
       private
 
       def all_filter_text
