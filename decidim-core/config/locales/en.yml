@@ -765,7 +765,7 @@ en:
           created_at: The date when this conversation was created
           id: The unique identifier for this conversation
           messages: The messages of this conversation
-          updated_at: The date when this converstaion was last updated
+          updated_at: The date when this conversation was last updated
         notifications:
           created_at: The date and time when the notification was created
           event_class: The class of the event that triggered the notification
