@@ -13,8 +13,9 @@ module Decidim
         __getobj__
       end
 
-      def description(links: false, strip_tags: false, all_locales: false)
+      def description(links: nil, strip_tags: false, all_locales: false)
         return unless agenda_item
+        raise "Links are being defined" unless links.nil?
 
         content_handle_locale(agenda_item.description, all_locales, links, strip_tags)
       end

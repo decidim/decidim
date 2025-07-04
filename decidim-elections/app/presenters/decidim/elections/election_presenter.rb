@@ -23,8 +23,10 @@ module Decidim
         super(election.title, html_escape, all_locales)
       end
 
-      def description(links: false, strip_tags: false, all_locales: false)
+      def description(links: nil, strip_tags: false, all_locales: false)
         return unless election
+
+        raise "Links are being defined" unless links.nil?
 
         content_handle_locale(election.description, all_locales, links, strip_tags)
       end
