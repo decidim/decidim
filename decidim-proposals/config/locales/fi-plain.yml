@@ -147,6 +147,10 @@ fi-pl:
               state_published: Vastattu
         search_placeholder:
           id_string_or_title_cont: Hae kohteesta %{collection} ID-numeron tai otsikon perusteella
+      tooltips:
+        cannot_edit_proposal_info: Tätä ehdotusta ei voi muokata, koska se on osallistujan luoma tai sitä on jo äänestetty
+        deleted_proposal_states_info: Tätä ehdotusten tilaa ei voi poistaa, koska kyseinen tila on määritetty joillekin ehdotuksille
+        deleted_proposals_info: Tätä ehdotusta ei voi poistaa
     application:
       geocoding:
         not_configured: Karttatoimintojen asetuksia ei ole määritetty!
