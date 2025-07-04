@@ -19,7 +19,7 @@ module Decidim
             response_option_id = data["response_option_id"]
             next if response_option_id.blank?
 
-            create_vote(question_id, response_option_id)
+            upsert_vote(question_id, response_option_id)
           end
         end
 
@@ -31,12 +31,10 @@ module Decidim
 
       private
 
-      def create_vote(question_id, response_option_id)
-        Vote.create!(
-          voter: voter,
-          decidim_elections_question_id: question_id,
-          decidim_elections_response_option_id: response_option_id
-        )
+      def upsert_vote(question_id, response_option_id)
+        vote = Vote.find_or_initialize_by(voter:, decidim_elections_question_id: question_id)
+        vote.decidim_elections_response_option_id = response_option_id
+        vote.save!
       end
     end
   end

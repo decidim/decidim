@@ -2,7 +2,7 @@
   <%= icon "bar-chart-2-line", class: "fill-tertiary" %>
   <span><%= t(".title") %></span>
 </h4>
-<div class="mb-4"><%= t(".subtitle") %></div>
+<div class="mb-4"><%= t(".subtitle.#{@election.results_availability}") %></div>
 <% @election.questions.each_with_index do |question| %>
   <div class="border border-gray rounded-lg py-2 px-4 mb-6">
     <div class="mb-4 border-b-2 border-gray-3 pb-2">
@@ -24,7 +24,7 @@
 
           <div class="text-right text-sm leading-tight shrink-0 min-w-[64px]">
             <div><%= "#{percent} %" %></div>
-            <div><%= pluralize(option.votes_count, "vote") %></div>
+            <div><%= t("votes_count", scope: "decidim.elections.elections.show", count: option.votes_count) %></div>
           </div>
         </div>
       </div>

@@ -92,7 +92,7 @@ module Decidim
       private
 
       def exit_path
-        @exit_path ||= if allowed_to?(:view, :election, election:)
+        @exit_path ||= if allowed_to?(:read, :election, election:)
                          election_path(election)
                        else
                          elections_path
@@ -109,17 +109,6 @@ module Decidim
 
       def questions
         @questions ||= election.questions.includes(:response_options).order(position: :asc)
-      end
-
-      def vote_allowed?
-        unless can_vote?
-          redirect_to(exit_path, alert: t("votes.messages.not_allowed", scope: "decidim.elections"))
-          return false
-        end
-
-        enforce_permission_to(:vote, :election, election:)
-
-        true
       end
 
       def voter_not_yet_in_census?
@@ -152,12 +141,10 @@ module Decidim
         question = questions[step_index]
         response_option_id = params.dig(:response, :votes, question.id.to_s, :response_option_id)
 
-        return unless response_option_id.present?
+        return if response_option_id.blank?
 
         session[:votes_buffer] ||= {}
-        session[:votes_buffer][question.id.to_s] = {
-          "response_option_id" => response_option_id
-        }
+        session[:votes_buffer][question.id.to_s] = { "response_option_id" => response_option_id }
       end
     end
   end

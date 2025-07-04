@@ -28,11 +28,13 @@
           </tr>
           </thead>
           <tbody>
+          <% total = question.response_options.sum(&:votes_count) %>
           <% question.response_options.each do |option| %>
+            <% percent = total.positive? ? (option.votes_count.to_f / total * 100).round(1) : 0 %>
             <tr>
               <td class="w-2/3"><%= translated_attribute option.body %></td>
-              <td>votes_count</td> <!-- Placeholder for votes count -->
-              <td>0.0%</td> <!-- Placeholder for percentage -->
+              <td><%= t("votes_count", scope: "decidim.elections.admin.dashboard.questions_table", count: option.votes_count) %></td>
+              <td><%= number_to_percentage(percent, precision: 1) %></td>
             </tr>
           <% end %>
           </tbody>

@@ -73,6 +73,9 @@ en:
             answer: Answers
             percentage: Percentage
             results: Results
+            votes_count:
+              one: 1 vote
+              other: "%{count} votes"
           results:
             no_results: There are no results yet.
             publish_button: Publish results
@@ -222,8 +225,15 @@ en:
           not_started: Not started
           ongoing: Ongoing
           vote_button: Start voting
+          voted: You have already voted. You can vote again, only your last vote will be counted.
+          votes_count:
+            one: 1 vote
+            other: "%{count} votes"
         vote_statistics:
-          subtitle: Voting results
+          subtitle:
+            after_end: Voting results
+            per_question: These are the results of the voting, for each question
+            real_time: Real-time voting results
           title: Vote statistics
       models:
         election:
@@ -239,19 +249,19 @@ en:
         scheduled: Scheduled
       votes:
         cast_vote:
-          success: Your vote has been successfully cast.
           invalid: There was a problem casting your vote. Please check the information you provided and try again.
-        confirm_vote:
-          not_answered: You have not answered all the questions.
-          title: Confirm your vote
-          edit_vote: Edit your vote
-          next: Next
+          success: Your vote has been successfully cast.
         check_census:
-          invalid: The email or token is not valid. Please check the details and try again.
           access: Access
           election_not_open: The election is not open yet. Please check the dates and try again.
           failed: Your identity could not be verified. Please check the information you provided and try again.
           form_title: Verify your identity
+          invalid: The email or token is not valid. Please check the details and try again.
+        confirm_vote:
+          edit_vote: Edit your vote
+          next: Next
+          not_answered: You have not answered all the questions.
+          title: Confirm your vote
         new:
           email: Email
           email_placeholder: Enter your email address

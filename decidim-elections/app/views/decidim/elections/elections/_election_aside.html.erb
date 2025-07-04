@@ -3,5 +3,11 @@
     <% if election.ongoing? %>
       <%= link_to t("vote_button", scope: "decidim.elections.elections.show"), new_election_vote_path(election), class: "button button__secondary button__lg", target: "_blank", rel: "noopener noreferrer" %>
     <% end %>
+    <% if voter.votes.exists? %>
+      <div class="election__aside-voted mt-6">
+        <span><%= icon "check-line", class: "fill-success inline mr-2" %></span>
+        <span><%= t("decidim.elections.elections.show.voted") %></span>
+      </div>
+    <% end %>
   </div>
 </section>
