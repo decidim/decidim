@@ -23,6 +23,7 @@ fi-pl:
         progress: Edistyminen
       timeline_entry:
         description: Kuvaus
+        entry_date: Päivämäärä
         title: Otsikko
     models:
       decidim/accountability/proposal_linked_event: Ehdotus sisältyy tulokseen
@@ -212,6 +213,7 @@ fi-pl:
             progress: Edistyminen
         timeline_entry:
           fields:
+            entry_date: Päivämäärä
             title: Otsikko
       results:
         count:
