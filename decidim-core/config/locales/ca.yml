@@ -166,6 +166,13 @@ ca:
       x_seconds:
         one: 1 segon
         other: "%{count} segons"
+    widget:
+      label:
+        date: Seleccionar data per %{label}
+        time: Seleccionar hora per %{label}
+      picker:
+        date_button: Obre el selector de calendari per a %{label}
+        time_button: Obre el selector d'hora per a %{label}
   decidim:
     accessibility:
       external_link: Enllaç extern
