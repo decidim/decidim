@@ -3,6 +3,7 @@ ja:
     admin:
       menu:
         elections_menu:
+          election_census: センサス
           election_questions: 質問
     components:
       elections:
@@ -21,6 +22,9 @@ ja:
         title: アクション
         view_deleted_elections: 削除された選挙を表示
       admin:
+        census:
+          edit:
+            created_at: 作成日時
         elections:
           create:
             invalid: 選挙の作成中に問題がありました。
