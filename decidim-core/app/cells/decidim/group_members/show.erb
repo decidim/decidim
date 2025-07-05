@@ -24,14 +24,18 @@
         t("decidim.group_members.actions.promote_to_admin"),
         decidim.promote_group_manage_user_path(model.nickname, membership),
         method: :post,
-        data: { confirm: t("decidim.group_members.actions.are_you_sure") },
+        data: { confirm: t("decidim.group_members.actions.confirm_promote_to_admin"),
+                confirm_title: t("decidim.group_admins.actions.confirm_modal.title_add"),
+                confirm_button: t("decidim.group_admins.actions.confirm_modal.ok_add") },
         class: "button button__sm button__transparent-secondary"
       ) %>
 
       <%= link_to(
         decidim.group_manage_user_path(model.nickname, membership),
         method: :delete,
-        data: { confirm: t("decidim.group_members.actions.are_you_sure") },
+        data: { confirm: t("decidim.group_members.actions.confirm_remove_from_group"),
+                confirm_title: t("decidim.group_members.actions.confirm_modal.title_remove"),
+                confirm_button: t("decidim.group_members.actions.confirm_modal.ok_remove") },
         class: "button button__sm button__transparent-secondary"
       ) do %>
         <span><%= t("decidim.group_members.actions.remove_from_group") %></span>

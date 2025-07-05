@@ -1177,7 +1177,12 @@ en:
       title: What are the badges?
     group_admins:
       actions:
-        are_you_sure: Are you sure? This will not remove the participant from the group.
+        confirm_modal:
+          ok_add: Add an administrator
+          ok_remove: Remove the administrator
+          title_add: Confirm the new administrator
+          title_remove: Remove the administrator
+        confirm_remove_from_admin: Are you sure you want to remove the administrator from this group?
         demote_admin: Remove admin
       demote:
         error: There was a problem removing this participant from the admins list.
@@ -1207,7 +1212,11 @@ en:
         error: There was a problem accepting this join request.
         success: Join request successfully accepted.
       actions:
-        are_you_sure: Are you sure?
+        confirm_modal:
+          ok_remove: Remove the member
+          title_remove: Remove the member
+        confirm_promote_to_admin: Are you sure you want to add this user as an administrator?
+        confirm_remove_from_group: Are you sure you want to remove the user from this group?
         promote_to_admin: Make admin
         remove_from_group: Remove participant
       index:

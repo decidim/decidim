@@ -18,14 +18,10 @@
   }
 
   [data-dialog-container] {
-    @apply grid grid-cols-[auto_1fr] items-start md:items-center gap-2 text-left;
+    @apply grid grid-rows-[auto_1fr] items-start md:items-center gap-2 text-left;
 
     > svg {
       @apply w-6 h-6 text-gray fill-current flex-none;
-    }
-
-    > :last-child {
-      @apply col-span-2 md:col-span-1 md:col-start-2;
     }
   }
 
