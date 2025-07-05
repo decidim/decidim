@@ -555,6 +555,9 @@ it:
           download_example: Scarica esempio
           file_legend: Aggiungi un file da importare che verrà analizzato.
           import: Importazione
+      logs:
+        filters:
+          text: Ricerca per email, nome o nickname.
       managed_users:
         promotion:
           error: Si è verificato un problema nella promozione del partecipante gestito.
@@ -998,10 +1001,13 @@ it:
       user_group:
         csv_verify:
           invalid: Si è verificato un errore durante la lettura del file CSV.
+          success: File CSV caricato con successo, stiamo verificando i gruppi di utenti che soddisfano i criteri. Questo potrebbe richiedere del tempo.
         reject:
           invalid: Si è verificato un errore rifiutando questo gruppo di utenti.
+          success: Gruppo utenti rifiutato correttamente.
         verify:
           invalid: Si è verificato un errore durante la verifica di questo gruppo di utenti.
+          success: Il gruppo utenti è stato verificato correttamente.
       user_groups:
         index:
           state:
@@ -1012,6 +1018,9 @@ it:
       user_groups_csv_verifications:
         new:
           explanation: Carica il tuo file CSV. Deve avere le e-mail ufficiali dei gruppi di utenti nella tua organizzazione nella prima colonna del file, senza intestazioni. Verranno convalidati solo i gruppi di utenti che hanno confermato la loro e-mail e che hanno una e-mail che appare nel file CSV.
+          explanation_example: |
+            acme@example.org
+            bubba.gump@example.org
           title: Carica il tuo file CSV
           upload: Carica File
       users:
