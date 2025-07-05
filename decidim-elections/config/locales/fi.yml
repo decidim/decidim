@@ -4,6 +4,7 @@ fi:
       menu:
         elections_menu:
           basic_elections: Yleiset asetukset
+          election_census: Henkilötietorekisteri
           election_questions: Kysymykset
     components:
       elections:
@@ -22,6 +23,9 @@ fi:
         title: Toiminnot
         view_deleted_elections: Näytä poistetut vaalit
       admin:
+        census:
+          edit:
+            created_at: Luonnin ajankohta
         elections:
           create:
             invalid: Vaalin luonti epäonnistui.
