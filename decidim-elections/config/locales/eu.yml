@@ -4,6 +4,7 @@ eu:
       menu:
         elections_menu:
           basic_elections: Nagusia
+          election_census: Errolda
           election_questions: Galderak
     components:
       elections:
@@ -22,6 +23,9 @@ eu:
         title: Ekintzak
         view_deleted_elections: Ikusi ezabatutako hauteskundeak
       admin:
+        census:
+          edit:
+            created_at: Sortze-data
         elections:
           create:
             invalid: Arazo bat egon da hauteskunde hau sortzean.
