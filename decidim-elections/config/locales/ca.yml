@@ -4,6 +4,7 @@ ca:
       menu:
         elections_menu:
           basic_elections: Principal
+          election_census: Cens
           election_questions: Preguntes
     components:
       elections:
@@ -22,6 +23,9 @@ ca:
         title: Accions
         view_deleted_elections: Veure les eleccions eliminades
       admin:
+        census:
+          edit:
+            created_at: Creada el
         elections:
           create:
             invalid: S'ha produït un error en crear l'elecció.
