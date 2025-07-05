@@ -166,6 +166,7 @@ ca-IT:
   decidim:
     admin:
       actions:
+        actions: Accions
         actions_label: Accions per a %{resource}
         add: Afegir
         attachment:
