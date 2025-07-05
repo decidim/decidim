@@ -173,6 +173,13 @@ es-PY:
       x_seconds:
         one: 1 segundo
         other: "%{count} segundos"
+    widget:
+      label:
+        date: Seleccionar fecha para %{label}
+        time: Seleccionar hora para %{label}
+      picker:
+        date_button: Abrir el selector de calendario para %{label}
+        time_button: Abrir selector de hora para %{label}
   decidim:
     accessibility:
       external_link: Enlace externo
