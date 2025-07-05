@@ -22,6 +22,10 @@ ro:
       decidim/accountability/result_progress_updated_event: Progresul rezultatului a fost actualizat
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: Acest rezultat %{link} a fost inclus
       decidim/accountability/result:
         one: Rezultat
         few: Rezultate
