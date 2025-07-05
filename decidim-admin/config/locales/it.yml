@@ -205,6 +205,7 @@ it:
         verify: Verifica
       admin_terms_of_service:
         accept:
+          error: Si è verificato un problema durante l'accettazione dei termini di servizio per l'amministratore.
           success: Ottimo! Hai accettato i termini d'uso per l'amministratrice/tore.
         actions:
           accept: Sono d'accordo con i termini
@@ -368,6 +369,7 @@ it:
         user_name: Utente
       content_blocks:
         create:
+          error: Si è verificato un problema durante la creazione del blocco contenuti.
           success: Blocco contenuto creato correttamente.
         destroy:
           error: Si è verificato un problema cercando di eliminare questo blocco di contenuti.
@@ -548,6 +550,9 @@ it:
           download_example: Scarica esempio
           file_legend: Aggiungi un file da importare che verrà analizzato.
           import: Importazione
+      logs:
+        filters:
+          text: Ricerca per email, nome o nickname.
       managed_users:
         promotion:
           error: Si è verificato un problema nella promozione del partecipante gestito.
@@ -771,6 +776,7 @@ it:
           success: OK, la Newsletter è stata aggiornata. Conviene controllarla prima di inviarla.
       officializations:
         block:
+          error: Si è verificato un errore durante il blocco del partecipante.
           success: Partecipante bloccato con successo.
         create:
           success: Partecipante ufficializzato con successo.
@@ -804,6 +810,7 @@ it:
           show: Mostra
           title: Mostra l'indirizzo email del partecipante
         unblock:
+          error: Si è verificato un errore durante lo sblocco del partecipante.
           success: Partecipante sbloccato con successo.
       organization:
         edit:
@@ -917,6 +924,7 @@ it:
           error: Si è verificato un problema durante la distruzione del token.
           success: Token eliminato correttamente.
         share_tokens:
+          empty: Non esistono token attivi.
           help: Questi token sono utilizzati per condividere pubblicamente questa risorsa non pubblicata con qualsiasi utente. Saranno nascosti al momento della pubblicazione della risorsa. Clicca sull'icona di condivisione del token per visitare l'URL condivisibile.
           title: Condividi token
       shared:
@@ -980,10 +988,13 @@ it:
       user_group:
         csv_verify:
           invalid: Si è verificato un errore durante la lettura del file CSV.
+          success: File CSV caricato con successo, stiamo verificando i gruppi di utenti che soddisfano i criteri. Questo potrebbe richiedere del tempo.
         reject:
           invalid: Si è verificato un errore rifiutando questo gruppo di utenti.
+          success: Gruppo utenti rifiutato correttamente.
         verify:
           invalid: Si è verificato un errore durante la verifica di questo gruppo di utenti.
+          success: Il gruppo utenti è stato verificato correttamente.
       user_groups:
         index:
           state:
@@ -994,6 +1005,9 @@ it:
       user_groups_csv_verifications:
         new:
           explanation: Carica il tuo file CSV. Deve avere le e-mail ufficiali dei gruppi di utenti nella tua organizzazione nella prima colonna del file, senza intestazioni. Verranno convalidati solo i gruppi di utenti che hanno confermato la loro e-mail e che hanno una e-mail che appare nel file CSV.
+          explanation_example: |
+            acme@example.org
+            bubba.gump@example.org
           title: Carica il tuo file CSV
           upload: Carica File
       users:
