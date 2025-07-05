@@ -3,6 +3,7 @@ lt:
     admin:
       menu:
         elections_menu:
+          election_census: Surašymas
           election_questions: Klausimai
     components:
       elections:
@@ -16,6 +17,9 @@ lt:
       actions:
         title: Veiksmai
       admin:
+        census:
+          edit:
+            created_at: Sukurta
         elections:
           edit:
             title: Redaguoti rinkimus
