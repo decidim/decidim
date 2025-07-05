@@ -25,12 +25,12 @@
             </span>
           </button>
 
-            <% if editable %>
+          <% if editable %>
             <button class="button button__xs button__transparent-secondary small alert remove-question button--title" data-confirm="<%= t("remove_question_confirm", scope: "decidim.elections.admin.questions.edit_questions") %>">
               <%= icon "delete-bin-line" %>
               <span class="hidden md:block"><%= t("remove", scope: "decidim.forms.admin.questionnaires.question") %></span>
             </button>
-            <% end %>
+          <% end %>
           </span>
         </h2>
       </div>

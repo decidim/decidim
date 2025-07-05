@@ -6,6 +6,7 @@ shared_examples "manage posts" do |audit_check: true|
   it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='post-body-tabs']", "full" do
     before do
       within "tr", text: translated(post1.title) do
+        find("button[data-component='dropdown']").click
         click_on "Edit"
       end
     end
@@ -14,6 +15,7 @@ shared_examples "manage posts" do |audit_check: true|
 
   it "updates a post", versioning: true do
     within "tr", text: translated(post1.title) do
+      find("button[data-component='dropdown']").click
       click_on "Edit"
     end
 
@@ -82,6 +84,7 @@ shared_examples "manage posts" do |audit_check: true|
 
     it "deletes a post" do
       within "tr", text: translated(post1.title) do
+        find("button[data-component='dropdown']").click
         accept_confirm { click_on "Soft delete" }
       end
 
@@ -134,6 +137,7 @@ shared_examples "manage posts" do |audit_check: true|
 
     it "can update the blog as the organization" do
       within "tr", text: translated(post1.title) do
+        find("button[data-component='dropdown']").click
         click_on "Edit"
       end
 
@@ -190,6 +194,7 @@ shared_examples "manage posts" do |audit_check: true|
 
     it "can update the blog as the user" do
       within "tr", text: translated(post1.title) do
+        find("button[data-component='dropdown']").click
         click_on "Edit"
       end
 
@@ -207,6 +212,7 @@ shared_examples "manage posts" do |audit_check: true|
 
     it "changes the publish time" do
       within "tr", text: translated(post1.title) do
+        find("button[data-component='dropdown']").click
         click_on "Edit"
       end
       within ".edit_post" do

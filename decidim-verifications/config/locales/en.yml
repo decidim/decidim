@@ -305,6 +305,7 @@ en:
           pending_authorizations:
             index:
               address: Address
+              already_sent: The postal letter was already sent and cannot be marked again as sent.
               letter_sent_at: Letter sent at
               mark_as_sent: Mark as sent
               not_yet_sent: Not yet sent

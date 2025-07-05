@@ -62,4 +62,9 @@ FactoryBot.define do
     association :question, factory: :election_question
     body { generate_localized_title(:response_option_body) }
   end
+
+  factory :voter, class: "Decidim::Elections::Voter" do
+    association :election
+    sequence(:data) { |n| { email: "voter#{n}@example.com", token: "token#{n}" } }
+  end
 end

@@ -10,7 +10,7 @@
     </h1>
   </div>
   <% if @templates.any? %>
-    <div class="table-scroll">
+    <div class="table-stacked">
       <table class="table-list">
         <thead>
           <tr>
@@ -18,28 +18,65 @@
             <th><%= t(".proposal_state_id") %></th>
             <th><%= t(".component_constraint") %></th>
             <th><%= t("template.fields.created_at", scope: "decidim.models") %></th>
-            <th></th>
+            <th><%= t("decidim.admin.actions.actions") %></th>
           </tr>
         </thead>
         <tbody>
           <% @templates.each do |template| %>
             <tr data-proposal_answer-id="<%= template.id %>">
-              <td><%= link_to_if allowed_to?(:update, :template, template:) , translated_attribute(template.name), edit_proposal_answer_template_path(template) %></td>
-              <td> <%= proposal_state(template) %></td>
-              <td><%= availability_option_as_text(template) %></td>
-              <td><%= l template.created_at, format: :long %></td>
-
-              <td class="table-list__actions">
-                <% if allowed_to?(:update, :template, template:) %>
-                  <%= icon_link_to "pencil-line", edit_proposal_answer_template_path(template), t("actions.edit", scope: "decidim.admin"), class: "edit" %>
-                <% end %>
-                <% if allowed_to?(:copy, :template, template:) %>
-                  <%= icon_link_to "file-copy-line", copy_proposal_answer_template_path(template), t("actions.duplicate", scope: "decidim.admin"), method: :post %>
-                <% end %>
-                <% if allowed_to?(:destroy, :template, template:) %>
-                  <%= icon_link_to "delete-bin-line", proposal_answer_template_path(template), t("actions.destroy", scope: "decidim.admin"), method: :delete, data: { confirm: t(".confirm_delete") }, class: "action-icon--remove" %>
-                <% end %>
+              <td data-label="<%= t("template.name", scope: "decidim.models") %>">
+                <%= link_to_if allowed_to?(:update, :template, template: template), translated_attribute(template.name), edit_proposal_answer_template_path(template) %>
               </td>
+              <td data-label="<%= t(".proposal_state_id") %>">
+                <%= proposal_state(template) %>
+              </td>
+              <td data-label="<%= t(".component_constraint") %>">
+                <%= availability_option_as_text(template) %>
+              </td>
+              <td data-label="<%= t("template.fields.created_at", scope: "decidim.models") %>">
+                <%= l template.created_at, format: :long %>
+              </td>
+              <td data-label="<%= t("decidim.admin.actions.actions") %>" class="table-list__actions">
+                <button type="button" data-component="dropdown" data-target="actions-proposal-answer-template-<%= template.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: template.name) %>">
+                  <%= icon "more-fill", class: "text-secondary" %>
+                </button>
+
+                <div class="inline-block relative">
+                  <ul id="actions-proposal-answer-template-<%= template.id %>" class="dropdown dropdown__action" aria-hidden="true">
+                    <% if allowed_to?(:update, :template, template: template) %>
+                      <li class="dropdown__item">
+                        <%= link_to edit_proposal_answer_template_path(template), class: "dropdown__button edit" do %>
+                          <%= icon "pencil-line" %>
+                          <%= t("actions.edit", scope: "decidim.admin") %>
+                        <% end %>
+                      </li>
+
+                      <hr>
+                    <% end %>
+
+                    <% if allowed_to?(:copy, :template, template: template) %>
+                      <li class="dropdown__item">
+                        <%= link_to copy_proposal_answer_template_path(template), method: :post, class: "dropdown__button" do %>
+                          <%= icon "file-copy-line" %>
+                          <%= t("actions.duplicate", scope: "decidim.admin") %>
+                        <% end %>
+                      </li>
+
+                      <hr>
+                    <% end %>
+
+                    <% if allowed_to?(:destroy, :template, template: template) %>
+                      <li class="dropdown__item">
+                        <%= link_to proposal_answer_template_path(template), method: :delete, data: { confirm: t(".confirm_delete") }, class: "dropdown__button action-icon--remove" do %>
+                          <%= icon "delete-bin-line" %>
+                          <%= t("actions.destroy", scope: "decidim.admin") %>
+                        <% end %>
+                      </li>
+                    <% end %>
+                  </ul>
+                </div>
+              </td>
+
             </tr>
           <% end %>
         </tbody>

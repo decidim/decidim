@@ -3,6 +3,7 @@
 RSpec.shared_examples "manage child results" do
   it "updates a result" do
     within "tr", text: translated(child_result.title) do
+      find("button[data-component='dropdown']").click
       click_on "Edit"
     end
 
@@ -27,18 +28,18 @@ RSpec.shared_examples "manage child results" do
 
   it "allows the user to preview the result" do
     within "tr", text: translated(child_result.title) do
-      klass = "action-icon--preview"
-      href = resource_locator(child_result).path
-      target = "blank"
+      find("button[data-component='dropdown']").click
+      preview_window = window_opened_by { click_on "Preview" }
 
-      expect(page).to have_xpath(
-        "//a[contains(@class,'#{klass}')][@href='#{href}'][@target='#{target}']"
-      )
+      within_window preview_window do
+        expect(page).to have_content translated(result.title)
+        expect(page).to have_content "Progress"
+      end
     end
   end
 
   it "creates a new child result" do
-    click_on "New result", match: :first
+    click_on "New result"
 
     within ".new_result" do
       fill_in_i18n(
@@ -73,13 +74,15 @@ RSpec.shared_examples "manage child results" do
   describe "soft delete a result" do
     before do
       visit current_path
-      within "tr[data-id='#{result.id}'] .table-list__actions" do
+      within "tr", text: translated(result.title) do
+        find("button[data-component='dropdown']").click
         click_on "New result"
       end
     end
 
     it "moves to the trash a result" do
       within "tr", text: translated(child_result.title) do
+        find("button[data-component='dropdown']").click
         accept_confirm { click_on "Soft delete" }
       end
 
