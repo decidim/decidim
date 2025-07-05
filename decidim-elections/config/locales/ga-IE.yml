@@ -3,6 +3,7 @@ ga:
     admin:
       menu:
         elections_menu:
+          election_census: Móráireamh
           election_questions: Ceisteanna
     elections:
       actions:
