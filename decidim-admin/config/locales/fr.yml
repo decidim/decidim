@@ -1164,6 +1164,9 @@ fr:
         statistics: Statistiques
         users: Administrateurs
       tooltips:
+        cannot_destroy_taxonomy_filter: Impossible de détruire ce filtre de taxonomie
+        cannot_edit_taxonomy_filter: Impossible de modifier ce filtre de taxonomie
+        deleted_attachment_collections_info: Impossible de supprimer ce dossier car il contient des pièces jointes.
         deleted_component_info: Ce composant ne peut être supprimé que si son statut est 'non publié'.
       trash_management:
         restore:
