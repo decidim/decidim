@@ -150,6 +150,13 @@ sv:
       x_seconds:
         one: 1 sekund
         other: "%{count} sekunder"
+    widget:
+      label:
+        date: Välj datum för %{label}
+        time: Välj tidpunkt för %{label}
+      picker:
+        date_button: Öppna kalenderväljare för %{label}
+        time_button: Öppen tidsväljare för %{label}
   decidim:
     accessibility:
       external_link: Extern länk
