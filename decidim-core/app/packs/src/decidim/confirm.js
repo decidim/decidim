@@ -10,10 +10,24 @@ import Rails from "@rails/ujs"
 class ConfirmDialog {
   constructor(sourceElement) {
     this.$modal = $("#confirm-modal");
-    this.$source = sourceElement;
     this.$content = $("[data-confirm-modal-content]", this.$modal);
+    this.$title = $("[data-dialog-title]", this.$modal);
     this.$buttonConfirm = $("[data-confirm-ok]", this.$modal);
     this.$buttonCancel = $("[data-confirm-cancel]", this.$modal);
+
+    if (sourceElement) {
+      this.$source = $(sourceElement);
+
+      const confirmTitle = this.$source.data("confirm-title");
+      const confirmButton = this.$source.data("confirm-button");
+
+      this.$title.text(confirmTitle)
+
+      const $buttonSpan = this.$buttonConfirm.find("span");
+      if ($buttonSpan.length > 0) {
+        $buttonSpan.text(confirmButton);
+      }
+    }
 
     window.Decidim.currentDialogs["confirm-modal"].open()
   }

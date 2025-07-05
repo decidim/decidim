@@ -1,16 +1,14 @@
 <%= decidim_modal id: "confirm-modal" do %>
   <div data-dialog-container>
-    <%= icon "delete-bin-line" %>
     <h2 class="h2" data-dialog-title id="dialog-title-confirm-modal"><%= t("title", scope: "decidim.shared.confirm_modal") %></h2>
-
     <div data-confirm-modal-content></div>
   </div>
 
-  <div data-dialog-actions>
-    <button class="button button__lg button__transparent-secondary" data-confirm-cancel data-dialog-close="confirm-modal">
+  <div data-dialog-actions class="flex flex-col-reverse md:flex-row">
+    <button class="button button__lg button__transparent-secondary w-full md:w-auto" data-confirm-cancel data-dialog-close="confirm-modal">
       <span><%= t("cancel", scope: "decidim.shared.confirm_modal") %></span>
     </button>
-    <button class="button button__lg button__secondary" data-confirm-ok>
+    <button class="button button__lg button__secondary w-full md:w-auto" data-confirm-ok>
       <span><%= t("ok", scope: "decidim.shared.confirm_modal") %></span>
     </button>
   </div>
