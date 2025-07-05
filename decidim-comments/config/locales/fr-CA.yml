@@ -120,6 +120,9 @@ fr-CA:
           one: "%{count} commentaire"
           other: "%{count} commentaires"
       down_vote_button:
+        label:
+          one: Bouton "Je n'aime pas". %{count} "je n'aime pas"
+          other: Bouton "Je n'aime pas". %{count} "je n'aime pas"
         text: Je ne suis pas d'accord avec ce commentaire
       edit_comment_modal_form:
         close: Fermer
@@ -130,6 +133,9 @@ fr-CA:
           submit: Envoyer
         title: Modifier votre commentaire
       up_vote_button:
+        label:
+          one: Bouton "J'aime". %{count} "J'aime"
+          other: Bouton "J'aime". %{count} "J'aime"
         text: Je suis d'accord avec ce commentaire
     events:
       comments:
