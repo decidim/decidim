@@ -304,6 +304,7 @@ es:
           pending_authorizations:
             index:
               address: Dirección
+              already_sent: La carta postal ya se ha enviado y no se puede marcar de nuevo como enviada.
               letter_sent_at: Carta enviada el
               mark_as_sent: Marcar como enviada
               not_yet_sent: Aún no se ha enviado
