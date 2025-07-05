@@ -3,6 +3,7 @@ sv:
     admin:
       menu:
         elections_menu:
+          election_census: Census
           election_questions: Frågor
     components:
       elections:
@@ -21,6 +22,9 @@ sv:
         title: Åtgärder
         view_deleted_elections: Visa raderade val
       admin:
+        census:
+          edit:
+            created_at: Skapad den
         elections:
           create:
             invalid: Det gick inte att skapa valet.
