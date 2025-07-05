@@ -4,6 +4,7 @@ es-PY:
       menu:
         elections_menu:
           basic_elections: Principal
+          election_census: Censo
           election_questions: Preguntas
     components:
       elections:
@@ -22,6 +23,9 @@ es-PY:
         title: Acciones
         view_deleted_elections: Ver las elecciones eliminadas
       admin:
+        census:
+          edit:
+            created_at: Creado el
         elections:
           create:
             invalid: Se ha producido un error al crear la elección.
