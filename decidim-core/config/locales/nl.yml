@@ -632,7 +632,6 @@ nl:
       reject_invitation: afwijzen
     group_members:
       actions:
-        are_you_sure: Weet je het zeker?
         promote_to_admin: Beheerder maken
         remove_from_group: Gebruiker verwijderen
       index:
