@@ -647,7 +647,6 @@ tr:
       reject_invitation: Reddet
     group_members:
       actions:
-        are_you_sure: Emin misiniz?
         promote_to_admin: Yönetici yap
         remove_from_group: Katılımcıyı kaldır
       index:
