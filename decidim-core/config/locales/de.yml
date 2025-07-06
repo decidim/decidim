@@ -1160,7 +1160,6 @@ de:
       title: Was sind Abzeichen?
     group_admins:
       actions:
-        are_you_sure: Sind Sie sicher? Dadurch wird der Teilnehmer nicht aus der Gruppe entfernt.
         demote_admin: Entferne Admin
       demote:
         error: Beim Entfernen dieses Teilnehmers aus der Adminliste ist ein Fehler aufgetreten.
@@ -1190,7 +1189,6 @@ de:
         error: Bei der Annahme dieser Beitrittsanfrage ist ein Fehler aufgetreten.
         success: Beitrittsanfrage erfolgreich angenommen.
       actions:
-        are_you_sure: Sind Sie sich sicher?
         promote_to_admin: Zum Admin ernennen
         remove_from_group: Benutzer entfernen
       index:
