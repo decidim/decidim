@@ -1170,7 +1170,6 @@ es:
       title: '¿Qué son las insignias?'
     group_admins:
       actions:
-        are_you_sure: '¿Seguro? Esto no eliminará a la participante del grupo.'
         demote_admin: Eliminar permisos de administración
       demote:
         error: Se ha producido un error al eliminar esta participante de la lista de administradoras.
@@ -1200,7 +1199,6 @@ es:
         error: Se ha producido un error al aceptar esta solicitud de incorporación al grupo.
         success: Solicitud de unirse correctamente aceptada.
       actions:
-        are_you_sure: '¿Seguro?'
         promote_to_admin: Hacer administradora
         remove_from_group: Eliminar participante
       index:
