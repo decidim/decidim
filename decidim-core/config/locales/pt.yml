@@ -635,7 +635,6 @@ pt:
       reject_invitation: Rejeitar
     group_members:
       actions:
-        are_you_sure: Tem a certeza?
         promote_to_admin: Tornar administrador
         remove_from_group: Remover participante
       index:
