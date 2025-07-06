@@ -631,7 +631,6 @@ lb:
       reject_invitation: Refuséieren
     group_members:
       actions:
-        are_you_sure: Bass du sécher?
         promote_to_admin: Zum Admin maachen
         remove_from_group: Teilnehmer läschen
       index:
