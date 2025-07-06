@@ -814,7 +814,6 @@ zh-TW:
       title: 徽章是什麼？
     group_admins:
       actions:
-        are_you_sure: 確定嗎？這將不會將該參與者從該組中移除。
         demote_admin: 移除管理員
       demote:
         error: 刪除此參與者的管理員名單時發生問題。
@@ -843,7 +842,6 @@ zh-TW:
         error: 加入請求接受時發生問題.
         success: 加入申請已成功接受.
       actions:
-        are_you_sure: 您確定嗎？
         promote_to_admin: 設為管理員
         remove_from_group: 刪除該參與者
       index:
