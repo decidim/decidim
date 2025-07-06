@@ -1201,7 +1201,6 @@ cs:
       title: Jaké jsou odznaky?
     group_admins:
       actions:
-        are_you_sure: Jste si jisti? Toto uživatele ze skupiny neodstraní.
         demote_admin: Odstranit admin
       demote:
         error: Při odebrání tohoto účastníka ze seznamu administrátorů došlo k chybě.
@@ -1231,7 +1230,6 @@ cs:
         error: Při přijímání této žádosti o připojení došlo k chybě.
         success: Žádost o připojení byla úspěšně přijata.
       actions:
-        are_you_sure: Jste si jisti?
         promote_to_admin: Udělat adminem
         remove_from_group: Odstranit uživatele
       index:
