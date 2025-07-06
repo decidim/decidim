@@ -1170,7 +1170,6 @@ ca-IT:
       title: Què són les ensenyes?
     group_admins:
       actions:
-        are_you_sure: Segur? Això no eliminarà la participant del grup.
         demote_admin: Elimina l'administradora
       demote:
         error: S'ha produït un error en eliminar aquesta usuària de la llista d'administradores.
@@ -1200,7 +1199,6 @@ ca-IT:
         error: S'ha produït un error en acceptar aquesta sol·licitud d'incorporació al grup.
         success: Sol·licitud d'incorporació rebutjada correctament.
       actions:
-        are_you_sure: Segur?
         promote_to_admin: Fer administradora
         remove_from_group: Eliminar participant
       index:
