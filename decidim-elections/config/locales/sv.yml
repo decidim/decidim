@@ -1,9 +1,15 @@
 sv:
+  activemodel:
+    attributes:
+      token_csv:
+        file: Fil
+        remove_all: Ta bort all aktuell folkräkningsdata
   decidim:
     admin:
       menu:
         elections_menu:
           election_census: Census
+          election_dashboard: Kontrollpanel
           election_questions: Frågor
     components:
       elections:
@@ -24,11 +30,23 @@ sv:
       admin:
         census:
           edit:
+            choose_census: Välj vilken typ av folkräkning du vill använda för detta val
             created_at: Skapad den
+            identifier: Identifierare för användare
+            title: Typ av folkräkning
+          preview:
+            title:
+              one: 'Användarförhandsgranskning (listan är begränsad till %{count} post):'
+              other: 'Användarförhandsgranskning (listan är begränsad till %{count} poster):'
+          update:
+            error: Ett fel uppstod när folkräkningen skulle skapas eller sparas.
+            success: Folkräkningen har uppdaterats.
         elections:
           create:
             invalid: Det gick inte att skapa valet.
             success: Valet skapades framgångsrikt.
+          dashboard_page:
+            title: Kontrollpanel
           edit:
             title: Redigera val
           form:
@@ -76,6 +94,25 @@ sv:
           soft_delete: "%{user_name} Flyttade valet %{resource_name} i %{space_name} till papperskorgen"
           unpublish: "%{user_name} Tog bort valet %{resource_name} i %{space_name}"
           update: "%{user_name} Uppdaterade valet %{resource_name} i %{space_name}"
+      censuses:
+        internal_users:
+          info_html: |
+            Du kan begränsa kandidaterna i valet till deltagare som har behörighet.<br>
+            Observera att deltagarna måste uppfylla valda behörigheter för att kunna rösta. Genom att lämna alla kryssrutor tomma kan man rösta på alla registrerade.
+          internal_type_title: Ytterligare behörigheter som krävs för att få rösta (valfritt)
+          label: Registrerade deltagare (dynamisk)
+        token_csv:
+          example: |
+            e-post;token
+            user@example.org;123456
+            user2@example.org;ABCXYZ
+          info_html: |
+            Måste vara en fil i CSV-format med två kolumner, en med e-postadressen och en annan med värdet av en token som användaren måste införa för att kunna rösta.
+            De måste separeras med en semikolon (;)
+          label: Oregistrerade deltagare med tokens (fixerade)
+          remove_before_upload: 'Om du vill ladda upp en ny folkräkning måste du först ta bort den befintliga. '
+          upload_file: Ladda upp fil
+          upload_new_census: Ladda upp en CSV-fil
       models:
         election:
           fields:
