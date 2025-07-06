@@ -1137,7 +1137,6 @@ ja:
       title: バッジとは？
     group_admins:
       actions:
-        are_you_sure: 本当によろしいですか？この操作はグループから参加者を削除しません。
         demote_admin: 管理者を削除
       demote:
         error: この参加者を管理者リストから削除する際に問題が発生しました。
@@ -1167,7 +1166,6 @@ ja:
         error: この参加リクエストを承認する際に問題が発生しました。
         success: 参加リクエストを承認しました。
       actions:
-        are_you_sure: よろしいですか？
         promote_to_admin: 管理者にする
         remove_from_group: 参加者の削除
       index:
