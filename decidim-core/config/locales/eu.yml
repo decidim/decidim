@@ -1164,7 +1164,6 @@ eu:
       title: Zer dira garaikurrak?
     group_admins:
       actions:
-        are_you_sure: Ziur zaude? Honek ez du partaide-taldetik aterako.
         demote_admin: Kendu kudeatzailea
       demote:
         error: Arazo bat egon da parte-hartzaile hau administratzaileen zerrendatik kentzean.
@@ -1194,7 +1193,6 @@ eu:
         error: Arazo bat egon da lotzeko eskaera hau onartzean.
         success: Lotzeko eskaera zuzen onartua.
       actions:
-        are_you_sure: Ziur zaude?
         promote_to_admin: Egin administratzailea
         remove_from_group: Kendu parte-hartzailea
       index:
