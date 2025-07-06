@@ -919,7 +919,6 @@ pl:
       title: Co to są odznaki?
     group_admins:
       actions:
-        are_you_sure: Na pewno? Nie spowoduje to usunięcia uczestnika z grupy.
         demote_admin: Usuń administratora
       demote:
         error: Wystąpił błąd podczas usuwania tego użytkownika z listy administratorów.
@@ -949,7 +948,6 @@ pl:
         error: Wystąpił błąd podczas akceptowania prośby o dołączenie.
         success: Prośba o dołączenie została zaakceptowana.
       actions:
-        are_you_sure: Jesteś pewny?
         promote_to_admin: Uczyń administratorem
         remove_from_group: Usuń użytkownika
       index:
