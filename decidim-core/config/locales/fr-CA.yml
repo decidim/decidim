@@ -1058,7 +1058,6 @@ fr-CA:
       title: Que sont les badges ?
     group_admins:
       actions:
-        are_you_sure: Êtes-vous sûr ? Cela ne supprimera pas l'utilisateur du groupe.
         demote_admin: Supprimer admin
       demote:
         error: Une erreur s'est produite lors de la suppression de cet utilisateur de la liste des administrateurs.
@@ -1088,7 +1087,6 @@ fr-CA:
         error: Une erreur s'est produite lors de l'acceptation de cette demande d'adhésion.
         success: La demande d’adhésion a été acceptée avec succès.
       actions:
-        are_you_sure: Êtes-vous sûr?
         promote_to_admin: Faire admin
         remove_from_group: Supprimer l'utilisateur
       index:
