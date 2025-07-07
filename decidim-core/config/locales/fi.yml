@@ -990,7 +990,6 @@ fi:
       title: Mitä kunniamerkit ovat?
     group_admins:
       actions:
-        are_you_sure: Oletko varma? Tämä ei poista osallistujaa ryhmästä.
         demote_admin: Poista ylläpitäjä
       demote:
         error: Osallistujan poistaminen hallintakäyttäjien luettelosta epäonnistui.
@@ -1020,7 +1019,6 @@ fi:
         error: Liittymispyynnön hyväksyminen epäonnistui.
         success: Liittymispyyntö on hyväksytty.
       actions:
-        are_you_sure: Oletko varma?
         promote_to_admin: Nimitä ylläpitäjäksi
         remove_from_group: Poista käyttäjä
       index:
