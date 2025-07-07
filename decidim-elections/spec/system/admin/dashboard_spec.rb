@@ -28,10 +28,10 @@ describe "Dashboard" do
 
       click_on "Main"
       expect(page).to have_field("election[title_en]", with: translated(election.title), disabled: true)
-      fill_in_i18n_editor("election[description]", "en", "Updated description")
-      click_on "Save changes"
+      fill_in_i18n_editor(:election_description, "#election-description-tabs", { en: "Updated description" })
+      click_on "Save and continue"
       expect(page).to have_content("Election updated successfully.")
-      expect(election.reload.description["en"]).to eq("Updated description")
+      expect(election.reload.description["en"]).to eq("<p>Updated description</p>")
     end
   end
 
@@ -40,19 +40,10 @@ describe "Dashboard" do
 
     it "shows publish button" do
       expect(page).to have_content("Publish")
-    end
-
-    it "can edit the main election settings" do
       expect(page).to have_content("Main")
       expect(page).to have_link("Edit", href: %r{/admin/.*/elections/\d+/edit\z})
-    end
-
-    it "can edit the election questions" do
       expect(page).to have_content("Questions")
       expect(page).to have_link("Edit", href: %r{/admin/.*/elections/\d+/edit_questions\z})
-    end
-
-    it "can edit the census" do
       expect(page).to have_content("Census")
       expect(page).to have_link("Edit", href: %r{/admin/.*/elections/\d+/census\z})
       expect(all("table.table-list tbody tr").count).to eq(3)
@@ -72,7 +63,7 @@ describe "Dashboard" do
       it "shows the election scheduled status" do
         expect(page).to have_content("Scheduled")
         expect(page).to have_button("Start election")
-        expect(page).to have_content("There are no results yet.")
+        expect(page).to have_content("Election has not started yet.")
       end
     end
 
@@ -92,13 +83,7 @@ describe "Dashboard" do
 
     it "shows the election scheduled status" do
       expect(page).to have_content("Scheduled")
-    end
-
-    it "does not show the start election button" do
       expect(page).to have_no_button("Start election")
-    end
-
-    it "shows the election start_at date" do
       expected_date = start_at.strftime("%b %-d, %Y, %-I:%M %p")
       expect(page).to have_content("Start time: #{expected_date}")
     end
@@ -112,10 +97,7 @@ describe "Dashboard" do
 
       it "shows the election scheduled status" do
         expect(page).to have_content("Scheduled")
-      end
-
-      it "shows the results message" do
-        expect(page).to have_content("There are no results yet.")
+        expect(page).to have_content("Election has not started yet.")
       end
     end
 
@@ -125,11 +107,8 @@ describe "Dashboard" do
       it "shows the election as ongoing" do
         expect(page).to have_content("Ongoing")
         expect(page).to have_button("End election")
-      end
-
-      it "shows the results message" do
         expect(page).to have_content("Results")
-        expect(page).to have_no_content("There are no results yet.")
+        expect(page).to have_no_content("Election has not started yet.")
         expect(page).to have_no_content("Publish results")
       end
     end
@@ -241,10 +220,7 @@ describe "Dashboard" do
 
       it "shows the election scheduled status" do
         expect(page).to have_content("Scheduled")
-      end
-
-      it "shows the results message" do
-        expect(page).to have_content("There are no results yet.")
+        expect(page).to have_content("Election has not started yet.")
       end
     end
 
@@ -254,11 +230,8 @@ describe "Dashboard" do
       it "shows the election as ongoing" do
         expect(page).to have_content("Ongoing")
         expect(page).to have_button("End election")
-      end
-
-      it "shows the results message" do
         expect(page).to have_content("Results")
-        expect(page).to have_no_content("There are no results yet.")
+        expect(page).to have_no_content("Election has not started yet.")
         expect(page).to have_button("Publish results", count: 1, disabled: true)
       end
     end
@@ -274,7 +247,7 @@ describe "Dashboard" do
 
       it "shows the results message" do
         expect(page).to have_content("Results")
-        expect(page).to have_no_content("There are no results yet.")
+        expect(page).to have_no_content("Election has not started yet.")
         expect(page).to have_button("Publish results", count: 1, disabled: false)
       end
     end
