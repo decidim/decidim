@@ -166,6 +166,13 @@ eu:
       x_seconds:
         one: Segundo bat
         other: "%{count} segundo"
+    widget:
+      label:
+        date: 'Hautatu data honetarako: %{label}'
+        time: 'Hautatu ordua honetarako: %{label}'
+      picker:
+        date_button: 'Ireki egutegi-hautagailua honetarako: %{label}'
+        time_button: 'Ireki ordu-hautagailua honetarako: %{label}'
   decidim:
     accessibility:
       external_link: Kanpoko esteka
