@@ -13,6 +13,20 @@ describe "Admin manages surveys" do
   let!(:questionnaire) { create(:questionnaire) }
   let!(:survey) { create(:survey, :published, :clean_after_publish, component:, questionnaire:) }
 
+  context "when managing the component" do
+    before do
+      visit Decidim::EngineRouter.admin_proxy(component.participatory_space).components_path
+    end
+
+    it "can view the permissions" do
+      within "tr", text: translated(component.name) do
+        find("button[data-component='dropdown']").click
+        click_on "Permissions"
+      end
+      expect(page).to have_content("Response")
+    end
+  end
+
   include_context "when managing a component as an admin"
 
   it_behaves_like "manage questionnaires"
@@ -72,6 +86,14 @@ describe "Admin manages surveys" do
         click_on "Expand all"
         expect(page).to have_css("#questions_questions_#{question.id}_body_en")
         expect(page).to have_no_selector("#questions_questions_#{question.id}_body_en[disabled]")
+      end
+
+      it "displays the permissions page" do
+        within "tr", text: decidim_sanitize_translated(survey.title) do
+          find("button[data-component='dropdown']").click
+          click_on "Permissions"
+        end
+        expect(page).to have_content("Response")
       end
 
       it "deletes responses after published" do

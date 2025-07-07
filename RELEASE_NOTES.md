@@ -117,6 +117,7 @@ bin/rails db:migrate
 bin/rails decidim:upgrade:user_groups:remove
 bin/rails decidim:upgrade:fix_nickname_casing
 bin/rails decidim:verifications:revoke:sms
+bin/rails decidim_surveys:upgrade:fix_survey_component_permissions
 ```
 
 ### 1.6. Follow the steps and commands detailed in these notes
@@ -275,7 +276,19 @@ In the process to extract the old initiatives vote form to a base handler a new 
 
 For more information about the definition of a signature workflow read the documentation of `Decidim::Initiatives::SignatureWorkflowManifest`.
 
-### 2.6. [[TITLE OF THE ACTION]]
+### 2.6. Permission rename in surveys module
+
+As we have changed the terminology surveys from "respond" to "response", we need to make sure that your already set permissions are still working.
+
+To ensure that, you just need to run the below task.
+
+```bash
+bin/rails decidim_surveys:upgrade:fix_survey_component_permissions
+```
+
+You can read more about this change on PR [#14940](https://github.com/decidim/decidim/pull/14940).
+
+### 2.7. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#xxxx](https://github.com/decidim/decidim/pull/xxx).
 

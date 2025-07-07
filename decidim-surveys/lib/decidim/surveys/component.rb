@@ -50,7 +50,7 @@ Decidim.register_component(:surveys) do |component|
   end
 
   # These actions permissions can be configured in the admin panel
-  component.actions = %w(respond)
+  component.actions = %w(response)
 
   component.settings(:global) do |settings|
     settings.attribute :announcement, type: :text, translated: true, editor: true
