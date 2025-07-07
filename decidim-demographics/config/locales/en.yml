@@ -26,7 +26,7 @@ en:
             expand: Expand all questions
         responses:
           index:
-            publish_responses: Publish responses
+            publish_responses: Show responses
             title: "%{total} total responses"
         settings:
           show:
