@@ -886,7 +886,7 @@ DEPENDENCIES
   web-console (~> 4.2)
 
 RUBY VERSION
-   ruby 3.3.4p94
+   ruby 3.4.4p34
 
 BUNDLED WITH
    2.4.20
