@@ -975,7 +975,12 @@ sv:
       title: Vilka är märkena?
     group_admins:
       actions:
-        are_you_sure: Är du säker? Detta tar inte bort deltagaren från gruppen.
+        confirm_modal:
+          ok_add: Lägg till en administratör
+          ok_remove: Ta bort administratören
+          title_add: Bekräfta den nya administratören
+          title_remove: Ta bort administratören
+        confirm_remove_from_admin: Är du säker på att du vill ta bort administratören från denna grupp?
         demote_admin: Ta bort administratör
       demote:
         error: Det gick inte att ta bort den här deltagaren från administratörslistan.
@@ -1005,7 +1010,11 @@ sv:
         error: Det gick inte att godkänna denna förfrågan att gå med.
         success: Förfrågan att gå med har godkänts.
       actions:
-        are_you_sure: Är du säker?
+        confirm_modal:
+          ok_remove: Ta bort medlemmen
+          title_remove: Ta bort medlemmen
+        confirm_promote_to_admin: Är du säker på att du vill lägga till den här användaren som administratör?
+        confirm_remove_from_group: Är du säker på att du vill ta bort den här användaren från gruppen?
         promote_to_admin: Gör till administratör
         remove_from_group: Ta bort deltagaren
       index:
