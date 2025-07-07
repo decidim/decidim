@@ -24,13 +24,19 @@ shared_examples_for "manage questionnaire responses" do
     let!(:file_response) { create(:response, :with_attachments, questionnaire:, question: third, body: nil, user: response3.user, session_token: response3.session_token) }
 
     it "shows the response admin link" do
-      click_on "Questions"
+      within "tr", text: decidim_sanitize_translated(survey.title) do
+        find("button[data-component='dropdown']").click
+        click_on "Questions"
+      end
       expect(page).to have_content("Responses")
     end
 
     context "and managing responses page" do
       before do
-        click_on "Questions"
+        within "tr", text: decidim_sanitize_translated(survey.title) do
+          find("button[data-component='dropdown']").click
+          click_on "Questions"
+        end
         click_on "Responses"
       end
 
@@ -46,13 +52,19 @@ shared_examples_for "manage questionnaire responses" do
       end
 
       it "has a detail link" do
-        expect(page).to have_link("Show responses")
+        within "tr", text: decidim_sanitize_translated(response1.body) do
+          find("button[data-component='dropdown']").click
+          expect(page).to have_link("Show responses")
+        end
       end
 
       it "has an export link" do
         expect(page).to have_link(response1.body)
         expect(page).to have_link(response2.body)
-        expect(page).to have_link("Export")
+        within "tr", text: decidim_sanitize_translated(response1.body) do
+          find("button[data-component='dropdown']").click
+          expect(page).to have_link("Export")
+        end
       end
 
       context "when no short response exist" do
@@ -74,12 +86,14 @@ shared_examples_for "manage questionnaire responses" do
         let!(:response_choice) { create(:response_choice, response: response1, response_option:, body: translated(response_option.body, locale: I18n.locale)) }
 
         it "shows the responses page with custom body" do
-          new_window = window_opened_by { find_all("a.action-icon.action-icon--eye").first.click }
-
-          page.within_window(new_window) do
-            within "#responses" do
-              expect(page).to have_css("dt", text: translated(first.body))
-              expect(page).to have_css("li", text: translated(response_option.body))
+          within "tr", text: decidim_sanitize_translated(response1.session_token) do
+            find("button[data-component='dropdown']").click
+            new_window = window_opened_by { click_on "Show responses" }
+            page.within_window(new_window) do
+              within "#responses" do
+                expect(page).to have_css("dt", text: translated(first.body))
+                expect(page).to have_css("li", text: translated(response_option.body))
+              end
             end
           end
         end
@@ -90,7 +104,10 @@ shared_examples_for "manage questionnaire responses" do
       let!(:response11) { create(:response, questionnaire:, body: "", user: response1.user, question: second) }
 
       before do
-        click_on "Questions"
+        within "tr", text: decidim_sanitize_translated(survey.title) do
+          find("button[data-component='dropdown']").click
+          click_on "Questions"
+        end
         click_on "Responses"
       end
 

@@ -553,6 +553,14 @@ fr:
         welcome_text: Texte de bienvenue
       highlighted_content_banner:
         name: Bannière de contenu mis en valeur
+      highlighted_content_banner_settings_form:
+        action_button_subtitle: Sous-titre du bouton d'action
+        action_button_title: Titre du bouton d'action
+        action_button_url: URL du bouton d'action
+        background_image: Image d'arrière-plan
+        short_description: Brève description
+        subtitle: Sous-titre
+        title: Titre
       highlighted_elements_settings_form:
         components:
           all: Tout

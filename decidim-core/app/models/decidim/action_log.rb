@@ -12,9 +12,7 @@ module Decidim
                foreign_key: :decidim_organization_id,
                class_name: "Decidim::Organization"
 
-    belongs_to :user,
-               foreign_key: :decidim_user_id,
-               class_name: "Decidim::User"
+    belongs_to :user, class_name: "Decidim::UserBaseEntity"
 
     belongs_to :component,
                foreign_key: :decidim_component_id,
@@ -200,7 +198,7 @@ module Decidim
     # Lazy loads the `user` association through BatchLoader, can be used
     # as a regular object.
     def user_lazy(cache: true)
-      self.class.lazy_relation(decidim_user_id, "Decidim::User", cache)
+      self.class.lazy_relation(user_id, user_type, cache)
     end
 
     # Lazy loads the `participatory_space` association through BatchLoader, can be used

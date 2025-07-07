@@ -25,7 +25,6 @@ it:
         duration: Durata
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
         hero_image: Immagine della home page
         import_attachments: Importa allegati
         import_categories: Importa categorie
@@ -168,7 +167,6 @@ it:
           attachments: Allegati
           components: Componenti
           info: Info su questo spazio
-          landing_page: Pagina iniziale
           moderations: Moderazione
           private_users: Membri
           see_assembly: Guarda l'assemblea

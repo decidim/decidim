@@ -16,13 +16,11 @@ ro:
         address: Adresa
         answer: Răspuns
         answered_at: Răspuns la
-        automatic_hashtags: Hashtag-uri adăugate automat
         body: Conținut
         decidim_scope_id: Domeniu de interes
         has_address: Are adresă
         scope_id: Domeniu de interes
         state: Stadiu
-        suggested_hashtags: Hashtag-uri sugerate
         title: Titlu
       proposal_answer:
         answer: Răspuns
@@ -156,7 +154,6 @@ ro:
             amendments_visibility_help: Dacă este selectată opţiunea "Amendamentele sunt vizibile doar autorilor lor", participantul trebuie să fie conectat pe platformă pentru a vedea amendamentele primite.
             announcement: Anunţ
             answers_with_costs: Activează opțiunea de cost în răspunsurile la propuneri
-            automatic_hashtags: Hashtag-uri adăugate la toate propunerile
             comments_blocked: Comentarii blocate
             creation_enabled: Participantul poate crea propuneri
             default_sort_order: Mod implicit de sortare a propunerilor
@@ -168,7 +165,6 @@ ro:
               with_more_authors: Cu mai mulți autori
             proposal_answering_enabled: Modulul de răspuns pentru propuneri a fost activat
             publish_answers_immediately: Publică imediat răspunsurile la propunere
-            suggested_hashtags: Hashtag-uri sugerate participanţilor pentru noi propuneri
     events:
       proposals:
         admin:

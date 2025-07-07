@@ -181,10 +181,10 @@ shared_examples "comments" do
         click_on "Accept all"
         login_as user, scope: :user
         visit resource_path
-      end
-
-      it "shows the add comment button" do
-        expect(page).to have_content("Add comment")
+        if page.has_content?("Log in")
+          login_as user, scope: :user
+          visit resource_path
+        end
       end
 
       it "does not show a message so user can Log in or create an account" do
@@ -192,7 +192,6 @@ shared_examples "comments" do
       end
 
       it "shows a modal with the comment form" do
-        sleep(2)
         expect(page).to have_content("Add comment")
         click_on "Add comment"
 
@@ -571,6 +570,8 @@ shared_examples "comments" do
           field.native.send_keys content
           click_on "Publish comment"
         end
+
+        expect(page).to have_content(content)
       end
 
       it "shows comment to the user, updates the comments counter and clears the comment textarea" do
@@ -1013,26 +1014,6 @@ shared_examples "comments" do
           expect(page).to have_comment_from(user, "This text mentions a @nonexistent user", wait: 20)
           expect(page).to have_no_link "@nonexistent"
         end
-      end
-    end
-
-    describe "hashtags", :slow do
-      let(:content) { "A comment with a hashtag #decidim" }
-
-      before do
-        visit resource_path
-
-        within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
-          field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
-          field.set " "
-          field.native.send_keys content
-          click_on "Publish comment"
-        end
-      end
-
-      it "replaces the hashtag with a link to the hashtag search" do
-        expect(page).to have_comment_from(user, "A comment with a hashtag #decidim", wait: 20)
-        expect(page).to have_link "#decidim", href: "/search?term=%23decidim"
       end
     end
 

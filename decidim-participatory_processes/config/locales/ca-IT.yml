@@ -13,7 +13,6 @@ ca-IT:
         document: Document
         domain: Àrees municipals
         end_date: Data de finalització
-        hashtag: Etiqueta (hashtag)
         hero_image: Imatge de portada
         import_attachments: Importar arxius adjunts
         import_categories: Importar categories
@@ -39,7 +38,6 @@ ca-IT:
         description: Descripció
         developer_group: Grup promotor
         group_url: Lloc web
-        hashtag: Hashtag
         hero_image: Imatge
         local_area: Àrea d'organització
         meta_scope: Metadades d'àmbit
@@ -110,7 +108,7 @@ ca-IT:
         participatory_process_groups: Grups de processos
         participatory_process_groups_submenu:
           info: Informació
-          landing_page: Pàgina d'inici
+          landing_page: Disposició de la pàgina de destinació
         participatory_processes: Processos
         participatory_processes_submenu:
           attachment_collections: Carpetes
@@ -118,7 +116,7 @@ ca-IT:
           attachments: Adjunts
           components: Components
           info: Quant a aquest procés
-          landing_page: Pàgina d'inici
+          landing_page: Disposició de la pàgina de destinació
           moderations: Moderacions
           private_users: Membres
           process_admins: Administradores del procés
@@ -134,16 +132,19 @@ ca-IT:
           name: Procés participatiu
         participatory_process_group:
           fields:
+            actions: Accions
             title: Títol
           name: Grup de processos
         participatory_process_step:
           fields:
+            actions: Accions
             end_date: Data de finalització
             start_date: Data d'inici
             title: Títol
           name: Fase del procés participatiu
         participatory_process_user_role:
           fields:
+            actions: Accions
             email: Correu electrònic
             name: Nom
             role: Rol
@@ -352,7 +353,6 @@ ca-IT:
           developer_group: El grup promotor del procés. Qui està promovent el procés.
           end_date: La data de finalització del procés
           follows_count: El número d'usuàries que segueixen aquest procés participatiu
-          hashtag: L'etiqueta que fa servir el procés a Twitter/X
           id: L'identificador únic del procés
           local_area: L'àrea d'organització del procés. Això és l'àrea d'organització de la qual depèn d'aquest procés.
           meta_scope: Les metadades de l'àmbit territorial del procés

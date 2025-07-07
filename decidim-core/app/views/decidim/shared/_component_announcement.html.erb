@@ -1,5 +1,5 @@
 <% announcement = translated_attribute(current_settings.announcement).presence || translated_attribute(component_settings.announcement).presence %>
-<% if announcement %>
+<% if strip_tags(announcement).present? %>
   <section class="layout-main__section">
     <%= cell("decidim/announcement", announcement, local_assigns.merge(callout_class: "editor-content")) %>
   </section>

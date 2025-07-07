@@ -48,7 +48,7 @@ gem "decidim-dev", github: "decidim/decidim"
 
 ### 1.4. Rails upgrade
 
-This particular release is deploying a new Rails version 7.1. As a result you need to update your application configuration. Before that, you need to run the following commands:
+This particular release is deploying a new Rails version 7.2. As a result you need to update your application configuration. Before that, you need to run the following commands:
 
 ```console
 bundle update decidim
@@ -78,17 +78,35 @@ module DevelopDevelopmentApp
 end
 ```
 
+After you have validated that your application still works as expected, you will need to do the next change, to fully finalize the upgrade. You need to change again the `config/application.rb` to load the 7.2 defaults.
+
+```diff
+module DevelopDevelopmentApp
+  class Application < Rails::Application
+    # Initialize configuration defaults for originally generated Rails version.
+-    config.load_defaults 7.1
++    config.load_defaults 7.2
+    # ....
+  end
+end
+```
+
+We are recommending to follow the proposed steps, as you may have installed other decidim modules that are not yet ready to be used with 7.2
+
 ⚠ **Important**: Local environment variable introduced
 
 Besides of what is already mentioned, you may encounter some encryption-related issues while developing locally, and this is caused by a Rails internal change that it is outside the control of Decidim's Maintainers team.
 
-In the previous Rails versions the `secret_key_base` for local development was stored in a local file `development_app/tmp/development_secret.txt`, which has been remove starting Rails 7.1.
-Depending on your environment setup, you will need to define an environment variable named `SECRET_KEY_BASE`.
+In the previous Rails versions the `secret_key_base` for local development was stored in a local file `tmp/development_secret.txt`, which has been remove starting Rails 7.1.
+Depending on your environment setup, you will need to define an environment variable named `SECRET_KEY_BASE`, or you can rename the file `tmp/development_secret.txt` to `tmp/local_secret.txt` so that you can continue the same secret.
 
 You can read more about the Rails upgrade process on the following PRs:
 
-* [Change framework defaults from Rails v6.1 to v7.0 #14735](https://github.com/decidim/decidim/pull/13267).
-* [Update Rails to v7.1 #13267](https://github.com/decidim/decidim/pull/13267)
+* [Change framework defaults from Rails v6.1 to v7.0](https://github.com/decidim/decidim/pull/13267).
+* [Update Rails to v7.1](https://github.com/decidim/decidim/pull/13267)
+* [Update Rails to v7.2](https://github.com/decidim/decidim/pull/14784)
+* [Change framework defaults from Rails v7.1 to v7.2](https://github.com/decidim/decidim/pull/14829)
+* [Rails official documentation about secret change for development and test environments](https://guides.rubyonrails.org/upgrading_ruby_on_rails.html#development-and-test-environments-secret-key-base-file-changed)
 
 ### 1.5. Run these commands
 
@@ -384,7 +402,15 @@ Implementers will notice this transition once they run the needed migrations on 
 
 You can read more about this change on PR [#14666](https://github.com/decidim/decidim/pull/14666).
 
-### 3.9. [[TITLE OF THE ACTION]]
+### 3.9. Removal of Hashtags
+
+We have removed the Hashtags from all modules in the application. Rendering hashtags in the title and description of certain modules will cease to work.
+
+This also includes renderers and parsers which used the hashtag object to render HTML in forms.
+
+You can read more about this change on PR [#14803](https://github.com/decidim/decidim/pull/14803) and [#14868](https://github.com/decidim/decidim/pull/14868)
+
+### 3.10. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -427,7 +453,99 @@ Decidim::UserBaseEntity.nicknamize(nickname, user.decidim_organization_id)
 
 You can read more about this change on PR [#14669](https://github.com/decidim/decidim/pull/14669).
 
-### 5.3. Encryption mechanism changes
+### 5.3. Extended OAuth application capabilities for integrating external participant-facing applications
+
+Decidim has been able to act as the authentication authority for external applications through the OAuth applications
+feature available at the `/system` panel. The OAuth features have been extended by adding the capability to integrate
+external participant-facing third party applications to Decidim with OAuth. The external applications are able to
+provide OAuth authentication for their users as well as utilize the issued OAuth tokens to perform certain actions
+through the Decidim API representing the signed in user (such as creating a new comment from an external application).
+
+By default, the OAuth access tokens are valid for 120 minutes. You can change this setting through
+`DECIDIM_OAUTH_ACCESS_TOKEN_EXPIRES_IN` environment variable to make these tokens valid for a longer period. You can
+also enable refresh tokens for the OAuth applications from the `/system` panel in case you need to access the API as the
+signed in user for a longer time period.
+
+You can read more about these changes on PR [#14225](https://github.com/decidim/decidim/pull/14225).
+
+### 5.4. Changed scopes for OAuth authorization requests
+
+In previous versions, there was only a single OAuth scope defined for external OAuth applications to request during the
+[OAuth authorization request](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.1). The scope was previously
+named `public` indicating that it allows the external application to fetch information about the signed in user through
+the `/oauth/me` endpoint in order to use these details in the integrated application.
+
+This scope was misleadingly named as this information is not public. This information is very private and sensitive user
+information, and contains also the user's email address which is not public information.
+
+This scope has been renamed to `profile`, so if you have defined the `scope` parameter in the external application's
+OAuth authorization request, you need to change `public` to `profile` within that parameter. If you have not defined the
+`scope` parameter for the authorization request, you do not have to make any changes as the `profile` scope is
+automatically assigned as the default scope in case it is not defined within the authorization request.
+
+Additionally, the following OAuth scopes have been introduced in order to allow external applications to represent the
+user through the API:
+
+* `user` - The authenticated user is able to perform actions within Decidim representing themselves when authenticated
+  with the API.
+* `api:read` - The authenticated user is able to read data through the Decidim API when authenticated with the API.
+* `api:write` - The authenticated user is able to write data through the Decidim API when authenticated with the API.
+
+Note that for the `api:write` scope to work, you additionally need to request the `user` scope as well in order to
+represent the user which is necessary for most writing operations within Decidim. It is also highly recommended to
+request the `api:read` scope because otherwise the responses from the API mutations would be otherwise empty, even if
+the mutation itself was successful.
+
+The Decidim system administrator defines which of these scopes are available to the external applications when
+configuring the OAuth application through the Decidim `/system` panel. By default, only the `profile` scope is enabled,
+so there is no changes to the capabilities of existing OAuth applications.
+
+You can read more about these changes on PR [#14225](https://github.com/decidim/decidim/pull/14225).
+
+### 5.5. API users for machine-to-machine integrations
+
+This version provides a new concept of API users that can be used to integrate automations with Decidim, i.e.
+applications where a Decidim user is not directly interacting with the application. Such integrations could include, for
+example, external application publishing proposal answers or meeting reports in Decidim automatically based on data
+available in an external system without requiring a Decidim administrator to manually copy-paste this data to the
+Decidim administration interface.
+
+In order to create such integrations, create API credentials (i.e. an API key and secret) through the `/system` panel,
+sign in to the API with these credentials, perform the required automation through the API, and finally sign out from
+the API. Such machine-to-machine integrations should only perform automated administrative tasks without any user
+interaction. In case you need the end user to represent themselves through the API, please create an OAuth integration
+instead, where the user authorizes the external application to represent them within Decidim.
+
+You can read more about these changes on PR [#14225](https://github.com/decidim/decidim/pull/14225).
+
+### 5.6. Possibility to force API authentication
+
+There are times that we need to let only authenticated users to use the API. This configuration option filters out unauthenticated users from accessing the API endpoint. You need to add `DECIDIM_API_FORCE_API_AUTHENTICATION=1` to your environment variables if you want to enable this feature.
+
+You can read more about this change on PR [#14225](https://github.com/decidim/decidim/pull/14225).
+
+### 5.7. JWT token based API authentication
+
+This change provides a new endpoint for API authentication and a method to check for an active authentication token
+header for each request, based on [Devise::JWT](https://github.com/waiting-for-dev/devise-jwt).
+
+For this to work, you need to add a secret key that will be used by devise-jwt to sign the tokens. Add
+`DECIDIM_API_JWT_SECRET` environment variable to enable the JWT based API authentication for your users. In case you do
+not need API authentication, this is not required.
+
+Also, you can set the JWT expiration time through `DECIDIM_API_JWT_EXPIRES_IN` environment variable. This defines the
+validity period for the tokens in minutes. The default is set to the same value as
+`DECIDIM_OAUTH_ACCESS_TOKEN_EXPIRES_IN`.
+
+You can generate the key from the console by running:
+
+```ruby
+bundle exec rails secret
+```
+
+You can read more about this change on PR [#14225](https://github.com/decidim/decidim/pull/14225).
+
+### 5.8. Encryption mechanism changes
 
 As we have upgraded Rails from 7.0 we have improved the security of the application by upgrading the encryption mechanism from SHA1 to SHA256.
 
@@ -463,7 +581,7 @@ end
 
 You can read more about this change on PR [#14800](https://github.com/decidim/decidim/pull/14800).
 
-### 5.4. [[TITLE OF THE CHANGE]]
+### 5.9. [[TITLE OF THE CHANGE]]
 
 In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
 

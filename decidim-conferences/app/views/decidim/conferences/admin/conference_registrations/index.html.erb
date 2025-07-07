@@ -24,7 +24,7 @@
       <% end %>
     </h1>
   </div>
-  <div class="table-scroll">
+  <div class="table-stacked">
     <table class="table-list">
       <thead>
         <tr>
@@ -32,29 +32,39 @@
           <th><%= t("models.conference_registration.fields.email", scope: "decidim.conferences") %></th>
           <th><%= t("models.conference_registration.fields.registration_type", scope: "decidim.conferences") %></th>
           <th><%= t("models.conference_registration.fields.state", scope: "decidim.conferences") %></th>
-          <th></th>
+          <th><%= t("models.conference_registration.fields.actions", scope: "decidim.conferences") %></th>
         </tr>
       </thead>
       <tbody>
         <% @conference_registrations.each do |registration| %>
           <tr data-id="<%= registration.id %>">
-            <td>
+            <td data-label="<%= t("models.conference_registration.fields.name", scope: "decidim.conferences") %>">
               <%= registration.user.name %>
             </td>
-            <td>
+            <td data-label="<%= t("models.conference_registration.fields.email", scope: "decidim.conferences") %>">
               <%= registration.user.email %>
             </td>
-            <td>
+            <td data-label="<%= t("models.conference_registration.fields.registration_type", scope: "decidim.conferences") %>">
               <%= translated_attribute(registration.registration_type.title) %>
             </td>
-            <td>
+            <td data-label="<%= t("models.conference_registration.fields.state", scope: "decidim.conferences") %>">
               <%= t("models.conference_registration.fields.states.#{registration.confirmed? ? "confirmed" : "pending"}", scope: "decidim.conferences") %>
             </td>
-            <td>
-              <% if allowed_to?(:confirm, :conference_registration, conference_registration: registration) %>
-                <% if !registration.confirmed? %>
-                  <%= icon_link_to "check-line", confirm_conference_conference_registration_path(current_conference, registration), t("actions.confirm", scope: "decidim.admin"), class: "action-icon--publish", method: :post %>
-                <% end %>
+            <td class="table-list__actions" data-label="<%= t("models.conference_registration.fields.actions", scope: "decidim.conferences") %>">
+              <% if allowed_to?(:confirm, :conference_registration, conference_registration: registration) && !registration.confirmed? %>
+                <button type="button" data-component="dropdown" data-target="actions-conference-registration-<%= registration.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: registration.user.name) %>">
+                  <%= icon "more-fill", class: "text-secondary" %>
+                </button>
+
+                <div class="inline-block relative">
+                  <ul id="actions-conference-registration-<%= registration.id %>" class="dropdown dropdown__action" aria-hidden="true">
+                    <li class="dropdown__item">
+                      <%= link_to confirm_conference_conference_registration_path(current_conference, registration), method: :post, class: "dropdown__button action-icon--publish" do %>
+                        <%= icon "check-line" %> <%= t("actions.confirm", scope: "decidim.admin") %>
+                      <% end %>
+                    </li>
+                  </ul>
+                </div>
               <% end %>
             </td>
           </tr>

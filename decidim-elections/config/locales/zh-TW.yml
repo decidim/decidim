@@ -1,5 +1,9 @@
 zh-TW:
   decidim:
+    admin:
+      menu:
+        elections_menu:
+          election_questions: 問題
     components:
       elections:
         name: 選舉
@@ -15,14 +19,16 @@ zh-TW:
         elections:
           edit:
             title: 編輯選舉
-            update: 更新選舉
           form:
             add_images: 添加圖案
           index:
             title: 選舉
           new:
-            create: 建立選舉
             title: 新選舉
+        questions:
+          edit_questions:
+            new_question: 新問題
+            title: 問題
       models:
         election:
           fields:

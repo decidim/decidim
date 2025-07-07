@@ -1,5 +1,21 @@
 ---
 fi:
+  activemodel:
+    attributes:
+      collaborative_texts:
+        document:
+          body: Sisältö
+          draft: Luonnos
+          title: Otsikko
+          version_number: Versionumero
+        suggestion:
+          nodes: DOM-solmut
+          original: Alkuperäinen teksti
+          replace: Korvaava teksti
+        version:
+          body: Sisältö
+          draft: Luonnos
+          version_number: Versionumero
   decidim:
     collaborative_texts:
       actions:
@@ -15,9 +31,19 @@ fi:
           create:
             invalid: Asiakirjan luonti epäonnistui.
             success: Asiakirjan luonti onnistui.
+          draft_options:
+            accepting_suggestions: Ota muutosehdotukset käyttöön uudessa versiossa
+            accepting_suggestions_help: Muutosehdotusten käyttöön ottaminen aloittaa uuden muutosehdotuskierroksen tälle tekstille. Nykyiset muutosehdotukset eivät näy tekstin uudessa versiossa.
+            draft: Luonnosversio
+            draft_help_html: Luonnosversio ei ole julkinen ja ainoastaan hallintakäyttäjät voivat muokata sitä. Julkaise tämä sisältö poistamalla se luonnostilasta, mikäli haluat tämän tekstin olevan julkisesti näkyvissä. <strong>Huomioithan, että tekstin ollessa luonnostilassa, osallistujat näkevät edellisen version ja he eivät voi ehdottaa luonnokseen muutoksia.</strong>
           edit:
+            document_has_suggestions_html: <a href="%{url}">Tässä tekstissä on muutosehdotuksia</a>, joten koko tekstiä ei voi muokata sellaisenaan. Hyväksy tai hylkää muutosehdotukset luodaksesi tästä tekstistä uuden version, jota voi muokata.
+            draft: Luonnosversio
+            previous_versions: Edelliset versiot
+            public_version: Julkinen versio
             title: Muokkaa yhteistyötekstiä
             update: Päivitä
+            version: Versiolle %{version_number}, jonka luontiaika on %{created_at}, tuli %{suggestions_count} muutosehdotusta.
           edit_settings:
             title: Yhteistyötekstien asetukset
             update: Päivitä
@@ -28,6 +54,11 @@ fi:
           new:
             create: Luo
             title: Luo yhteistyöteksti
+          non_draft_options:
+            create_draft: Hylkää muutosehdotukset ja luo uusi luonnosversio
+            draft_help_html: Luonnosversio ei ole julkinen ja ainoastaan hallintakäyttäjät voivat muokata sitä. Julkaise tämä sisältö poistamalla se luonnostilasta, mikäli haluat tämän tekstin olevan julkisesti näkyvissä. <strong>Huomioithan, että tekstin ollessa luonnostilassa, osallistujat näkevät edellisen version ja he eivät voi ehdottaa luonnokseen muutoksia.</strong>
+            enable_suggestions: Muutosehdotukset käytössä
+            enable_suggestions_help: Muutosehdotusten avulla osallistujat voivat ehdottaa muutoksia tähän versioon.
           publish:
             invalid: Asiakirjan julkaisu epäonnistui.
             success: Asiakirjan julkaisu onnistui.
@@ -40,17 +71,67 @@ fi:
           update_settings:
             invalid: Asiakirjan päivittäminen epäonnistui.
             success: Asiakirjan päivittäminen onnistui.
+      admin_log:
+        document:
+          create: "%{user_name} loi yhteistyötekstin %{resource_name} tilassa %{space_name}"
+          delete: "%{user_name} poisti yhteistyötekstin %{resource_name} tilasta %{space_name}"
+          publish: "%{user_name} julkaisi yhteistyötekstin %{resource_name} tilassa %{space_name}"
+          restore: "%{user_name} palautti yhteistyötekstin %{resource_name} tilaan %{space_name}"
+          soft_delete: "%{user_name} siirsi yhteistyötekstin %{resource_name} roskakoriin tilassa %{space_name}"
+          unpublish: "%{user_name} perui yhteistyötekstin %{resource_name} julkaisun tilassa %{space_name}"
+          update: "%{user_name} päivitti yhteistyötekstiä %{resource_name} tilassa %{space_name}"
+        suggestion:
+          create: "%{user_name} ehdotti muutoksia yhteistyötekstiin %{resource_name} tilassa %{space_name}"
+        version:
+          delete: "%{user_name} poisti yhteistyötekstin %{resource_name} version tilassa %{space_name}"
+          update: "%{user_name} päivitti yhteistyötekstin %{resource_name} versiota tilassa %{space_name}"
+      document:
+        apply: Hyväksy
+        cancel: Peruuta
+        consolidate:
+          confirm: Tämä toiminto yhdistää kaikki hyväksytyt muutosehdotukset tämän tekstin uudeksi versioksi. Hyväksymättömät muutokset siirretään uuteen versioon jatkoarviointia varten. Tämä toiminto pitää muutosehdotukset toiminnassa tälle tekstille.
+          new: Yhdistä hyväksytyt muutosehdotukset
+        consolidate_counter: Yhdistystoiminto yhdistää %{applied} hyväksyttyä muutosehdotusta ja siirtää %{pending} odottavaa muutosehdotusta uuteen versioon.
+        controls_label: Muutosehdotuksen toiminnot
+        draft_counter: Luonnostoiminto yhdistää %{applied} hyväksyttyä muutosehdotusta ja hylkää %{pending} odottavaa muutosehdotusta.
+        index: Sisällys
+        restore: Palauta
+        rollout:
+          confirm: Tämä toiminto luo uuden luonnosversion tekstistä ja sinut ohjataan kyseisen tekstin muokkaussivulle sen viimeistelemiseksi. Nykyinen versio pysyy julkisesti näkyvissä ja muutosehdotukset otetaan pois käytöstä.
+          invalid: Tämän tekstin uuden version luonti epäonnistui (%{errors}).
+          new: Luo uusi luonnosversio
+        save: Ehdota muutoksia
+        status:
+          accepting_suggestions: Ehdottaaksesi muutoksia, valitse tai tuplaklikkaa sitä tekstiä, jota haluat muokata. Tämän jälkeen, paina "Ehdota muutoksia" -painiketta.
+          draft: Tämä teksti on parhaillaan hallintakäyttäjien arvioitavana parhaillaan. Ehdotuksia ei sallita arvioinnin aikana, mutta voit tarkastella muiden osallistujien tekemiä muutosehdotuksia.
+          not_accepting_suggestions: Muutosehdotuksia ei oteta vastaan tällä hetkellä.
+          selection_active: Valinta on jo tehty. Paina peruuta nykyisestä valinnastasi, mikäli haluat tehdä uuden valinnan.
+        suggestions_count: "%{count} muutosehdotusta"
+        toggle: Näytä/piilota muutosehdotukset
       documents:
         index:
           count:
             one: "%{count} yhteistyöteksti"
             other: "%{count} yhteistyötekstiä"
           empty: Yhteistyötekstejä ei ole vielä luotu.
+        show:
+          contributors: Osallistujat
       models:
         collaborative_text:
           fields:
             suggestions: Hyväksy muutosehdotus
             title: Otsikko
+      suggestion:
+        add_html: <span class="type">Lisää:</span> <span class="text">%{text}</span>
+        remove_html: <span class="type">Poista:</span> <span class="text">%{text}</span>
+        replace_html: <span class="type">Korvaa:</span> <span class="text">%{text}</span>
+      suggestions:
+        create:
+          invalid: Muutosehdotuksen luonti epäonnistui.
+          success: Muutosehdotuksen luonti onnistui.
+        errors:
+          blank_changeset: Muutettavaksi ehdotettu sisältö ei voi olla tyhjä.
+          invalid_nodes: Virheellinen valinta.
     components:
       collaborative_texts:
         name: Yhteistyötekstit
@@ -61,4 +142,6 @@ fi:
           step:
             announcement: Ilmoitus
     statistics:
+      all_collaborative_texts_count: Kaikki yhteistyötekstit
       collaborative_texts_count: Yhteistyötekstit
+      collaborative_texts_count_tooltip: Yhteistyötekstien määrä

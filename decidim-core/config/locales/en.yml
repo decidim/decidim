@@ -167,6 +167,13 @@ en:
       x_seconds:
         one: 1 second
         other: "%{count} seconds"
+    widget:
+      label:
+        date: Select date for %{label}
+        time: Select time for %{label}
+      picker:
+        date_button: Open calendar picker for %{label}
+        time_button: Open time picker for %{label}
   decidim:
     accessibility:
       external_link: External link
@@ -595,6 +602,14 @@ en:
         welcome_text: Welcome text
       highlighted_content_banner:
         name: Highlighted content banner
+      highlighted_content_banner_settings_form:
+        action_button_subtitle: Action button subtitle
+        action_button_title: Action button title
+        action_button_url: Action button URL
+        background_image: Background image
+        short_description: Short description
+        subtitle: Subtitle
+        title: Title
       highlighted_elements_settings_form:
         components:
           all: All
@@ -715,6 +730,7 @@ en:
     doorkeeper:
       authorizations:
         new:
+          api_read: Read content through the API
           authorize: Authorize application
           by_organization_link_html: by %{link}
           cancel: Cancel

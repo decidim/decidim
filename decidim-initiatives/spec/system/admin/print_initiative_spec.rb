@@ -137,7 +137,10 @@ describe "User prints the initiative" do
         let(:print_enabled) { true }
 
         it "shows a printable form with all available data about the initiative", :download do
-          page.find(".action-icon--print").click
+          within("tr", text: translated(initiative.title)) do
+            find("button[data-component='dropdown']").click
+            click_on "Print"
+          end
           expect(File.basename(download_path)).to include("initiative_submit_#{initiative.id}.pdf")
         end
       end
@@ -146,7 +149,10 @@ describe "User prints the initiative" do
         let(:print_enabled) { false }
 
         it "does not show the print link" do
-          expect(page).to have_no_css(".action-icon--print")
+          within("tr", text: translated(initiative.title)) do
+            find("button[data-component='dropdown']").click
+            expect(page).to have_no_content("Print")
+          end
         end
       end
     end
