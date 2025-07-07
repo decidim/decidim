@@ -15,7 +15,7 @@ en:
         publish_responses:
           index:
             description: Description
-            title: Publish responses
+            title: Show responses
         questions:
           edit:
             save: Save
