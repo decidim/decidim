@@ -1,6 +1,10 @@
 ja:
   activemodel:
     attributes:
+      milestone:
+        description: 説明
+        entry_date: 日付
+        title: タイトル
       result:
         decidim_accountability_status_id: ステータス
         decidim_category_id: カテゴリ
@@ -44,6 +48,8 @@ ja:
         edit: 編集
         import: 別のコンポーネントから結果をインポート
         import_csv: CSVファイルから結果をインポート
+        milestones: マイルストーン
+        new_milestone: 新しいマイルストーン
         new_result: 新しい結果
         new_status: 新しいステータス
         preview: プレビュー
@@ -101,6 +107,23 @@ ja:
           create:
             invalid: 結果のインポート中に問題が発生しました。
             success: ファイルのインポートが開始されました。インポートの結果は、数分後にメールで届きます。
+        milestones:
+          create:
+            invalid: マイルストーンの作成中に問題が発生しました。
+            success: マイルストーンを作成しました。
+          destroy:
+            success: マイルストーンを削除しました。
+          edit:
+            title: マイルストーンを編集
+            update: マイルストーンを更新
+          index:
+            title: マイルストーン
+          new:
+            create: マイルストーンを作成
+            title: 新しいマイルストーン
+          update:
+            invalid: マイルストーンの更新中に問題がありました。
+            success: マイルストーンを更新しました。
         models:
           result:
             name: 結果
@@ -173,6 +196,10 @@ ja:
             invalid: ステータスの更新中に問題が発生しました。
             success: ステータスが正常に更新されました。
       admin_log:
+        milestones:
+          create: "%{user_name} が %{resource_name} マイルストーンを作成しました"
+          delete: "%{user_name} が %{resource_name} マイルストーンを削除しました"
+          update: "%{user_name} は %{resource_name} マイルストーンを更新しました"
         result:
           create: "%{user_name} が結果 %{resource_name} を %{space_name} に作成しました"
           delete: "%{user_name} が %{resource_name} の結果 %{space_name} を削除しました"
@@ -213,6 +240,10 @@ ja:
       last_activity:
         new_result: '新しい結果:'
       models:
+        milestone:
+          fields:
+            entry_date: 日付
+            title: タイトル
         result:
           fields:
             created_at: 作成日時
@@ -235,6 +266,8 @@ ja:
             other: "%{count} 件の結果"
         home_header:
           global_status: 全体の実行状況
+        milestones:
+          title: マイルストーン
         no_results: プロジェクトがありません
         root_taxonomies:
           title: '表示：'
@@ -250,6 +283,8 @@ ja:
             label: ステータス
           taxonomies_part_of_contains:
             label: タクソノミー
+      tooltips:
+        deleted_results_info: この結果は削除できません
     components:
       accountability:
         actions:
