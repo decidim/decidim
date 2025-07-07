@@ -102,7 +102,7 @@ shared_examples "manage taxonomy filters in settings" do
     it "can be removed from settings" do
       within ".js-current-filters" do
         within "tr", text: "Internal taxonomy filter name" do
-          find("button[data-component='dropdown']").click if page.has_css?("button[data-component='dropdown']")
+          find("button[data-component='dropdown']").click
           click_on "Edit"
         end
       end
