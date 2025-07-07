@@ -116,6 +116,16 @@ module Decidim
               expect(html).to include(I18n.t("decidim.elections.status.voting_enabled"))
             end
           end
+
+          context "when election has not started" do
+            before do
+              allow(election).to receive(:scheduled?).and_return(true)
+            end
+
+            it "does not render button" do
+              expect(helper.enable_question_voting_button(question)).to be_nil
+            end
+          end
         end
 
         describe "#publish_question_button" do

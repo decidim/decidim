@@ -27,7 +27,11 @@ describe "Dashboard" do
       expect(page).to have_no_link("Census")
 
       click_on "Main"
-      # expect(page).to have_field("election[title_en]", with: translated(election.title), disabled: true)
+      expect(page).to have_field("election[title_en]", with: translated(election.title), disabled: true)
+      fill_in_i18n_editor("election[description]", "en", "Updated description")
+      click_on "Save changes"
+      expect(page).to have_content("Election updated successfully.")
+      expect(election.reload.description["en"]).to eq("Updated description")
     end
   end
 
@@ -134,16 +138,23 @@ describe "Dashboard" do
   context "when results availability is set to per_question" do
     let!(:election) { create(:election, :with_token_csv_census, component: current_component, start_at:, results_availability: "per_question", published_at:) }
     let!(:questions) { create_list(:election_question, 3, election:, voting_enabled_at: nil) }
+    let(:first_question) { election.questions.first }
+    let(:second_question) { election.questions.second }
+    let(:third_question) { election.questions.third }
 
     context "and the election is not started" do
       let(:start_at) { 1.day.from_now }
 
       it "shows the election scheduled status" do
         expect(page).to have_content("Scheduled")
-      end
-
-      it "shows the results message" do
-        expect(page).to have_content("There are no results yet.")
+        expect(page).to have_content("Results")
+        expect(page).to have_content("Election has not started yet.")
+        expect(page).to have_content(first_question.body["en"])
+        expect(page).to have_content(second_question.body["en"])
+        expect(page).to have_content(third_question.body["en"])
+        expect(page).to have_no_button("Publish results")
+        expect(page).to have_no_button("Publish results")
+        expect(page).to have_no_button("Enable voting")
       end
     end
 
@@ -153,44 +164,69 @@ describe "Dashboard" do
       it "shows the election as ongoing" do
         expect(page).to have_content("Ongoing")
         expect(page).to have_button("End election")
+        expect(page).to have_content("No questions are currently enabled for voting.")
       end
 
       it "shows the results message" do
         expect(page).to have_content("Results")
-        expect(page).to have_no_content("There are no results yet.")
+        expect(page).to have_no_content("Election has not started yet.")
         expect(page).to have_button("Publish results", count: 0, disabled: false)
         expect(page).to have_button("Publish results", count: election.questions.size, disabled: true)
         expect(page).to have_button("Enable voting", count: 3, disabled: false)
       end
 
-      context "when the first question is published and voted" do
+      context "when a question is enabled" do
         before do
-          question = election.questions.first
-
-          within("#question_#{question&.id}") do
+          within("#question_#{first_question.id}") do
             click_on "Enable voting"
-            click_on "Publish results"
           end
         end
 
-        it "marks the first question as published and enables voting on the second" do
-          first_question = election.questions.first
-          second_question = election.questions.second
-
-          within("#question_#{first_question&.id}") do
-            expect(page).to have_content("Published results")
+        it "marks the first question as in progress" do
+          expect(page).to have_content("Voting enabled successfully.")
+          within("#question_#{first_question.id}") do
+            expect(page).to have_content("Voting in progress")
             expect(page).to have_no_button("Enable voting")
-            expect(page).to have_no_button("Publish results")
+            expect(page).to have_button("Publish results", disabled: false)
           end
 
           within("#question_#{second_question.id}") do
+            expect(page).to have_no_content("Voting in progress")
             expect(page).to have_button("Enable voting", disabled: false)
             expect(page).to have_button("Publish results", disabled: true)
           end
 
-          third_question = election.questions.third
           within("#question_#{third_question.id}") do
+            expect(page).to have_no_content("Voting in progress")
             expect(page).to have_button("Enable voting", disabled: false)
+            expect(page).to have_button("Publish results", disabled: true)
+          end
+        end
+
+        context "when has published results" do
+          before do
+            within("#question_#{first_question.id}") do
+              click_on "Publish results"
+            end
+          end
+
+          it "shows the published results status for the first question" do
+            expect(page).to have_content("Results published successfully.")
+            within("#question_#{first_question.id}") do
+              expect(page).to have_content("Published results")
+              expect(page).to have_no_content("Enable voting")
+              expect(page).to have_no_content("Publish results")
+            end
+
+            within("#question_#{second_question.id}") do
+              expect(page).to have_button("Enable voting", disabled: false)
+              expect(page).to have_button("Publish results", disabled: true)
+            end
+
+            within("#question_#{third_question.id}") do
+              expect(page).to have_button("Enable voting", disabled: false)
+              expect(page).to have_button("Publish results", disabled: true)
+            end
           end
         end
       end

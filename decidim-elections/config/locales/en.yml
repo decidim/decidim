@@ -72,9 +72,9 @@ en:
           questions_table:
             answer: Answers
             percentage: Percentage
-            results: Results
+            votes: Votes
           results:
-            no_results: There are no results yet.
+            not_started: Election has not started yet.
             per_question_waiting: No questions are currently enabled for voting. People will see a "Waiting for the next question" message until you enable voting for at least one question.
             publish_button: Publish results
             results_availability:

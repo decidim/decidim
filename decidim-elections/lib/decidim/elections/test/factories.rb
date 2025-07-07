@@ -94,7 +94,7 @@ FactoryBot.define do
     description { generate_localized_description(:question_description) }
     mandatory { false }
     question_type { "multiple_option" }
-    position { 0 }
+    sequence(:position) { |n| n }
 
     trait :published_results do
       published_results_at { Time.current }
