@@ -4,6 +4,7 @@ require "decidim/dev"
 
 ENV["RAILS_ENV"] ||= "test"
 ENV["RAILS_SYSTEM_TESTING_SCREENSHOT_HTML"] ||= "1"
+ENV["DECIDIM_API_JWT_SECRET"] ||= "dummy-api-jwt-secret"
 
 engine_spec_dir = File.join(Dir.pwd, "spec")
 

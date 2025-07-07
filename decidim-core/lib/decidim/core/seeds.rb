@@ -110,7 +110,7 @@ module Decidim
           organization_name: "Example organization",
           organization_url: "http://www.example.org",
           redirect_uri: "https://www.example.org/oauth/decidim",
-          scopes: "public"
+          scopes: "profile"
         )
 
         oauth_application.organization_logo.attach(io: File.open(File.join(seeds_root, "homepage_image.jpg")), filename: "organization_logo.jpg", content_type: "image/jpeg")

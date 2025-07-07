@@ -515,8 +515,8 @@ module Decidim
           # Define access token scopes for your provider
           # For more information go to
           # https://github.com/doorkeeper-gem/doorkeeper/wiki/Using-Scopes
-          default_scopes :public
-          optional_scopes []
+          default_scopes :profile
+          optional_scopes :user, :"api:read", :"api:write"
 
           # Forces the usage of the HTTPS protocol in non-native redirect uris (enabled
           # by default in non-development environments). OAuth2 delegates security in
@@ -530,6 +530,15 @@ module Decidim
 
           # WWW-Authenticate Realm (default "Doorkeeper").
           realm "Decidim"
+
+          # Custom access token generation for API access
+          access_token_generator "Decidim::OAuth::TokenGenerator"
+
+          # How long the access tokens are valid
+          access_token_expires_in Decidim.config.oauth_access_token_expires_in
+
+          # Whether refresh tokens are enabled or not
+          use_refresh_token { |context| context.client.refresh_tokens_enabled? }
         end
       end
 
