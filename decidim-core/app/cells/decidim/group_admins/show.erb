@@ -21,7 +21,9 @@
       <%= link_to(
         decidim.demote_group_manage_user_path(model.nickname, membership),
         method: :post,
-        data: { confirm: t("decidim.group_admins.actions.are_you_sure") },
+        data: { confirm: t("decidim.group_admins.actions.confirm_remove_from_admin"),
+                confirm_title: t("decidim.group_admins.actions.confirm_modal.title_remove"),
+                confirm_button: t("decidim.group_admins.actions.confirm_modal.ok_remove") },
         class: "button button__sm button__transparent-secondary"
       ) do %>
         <span><%= t("decidim.group_admins.actions.demote_admin") %></span>
