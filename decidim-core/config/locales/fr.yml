@@ -1058,6 +1058,12 @@ fr:
       title: Que sont les badges ?
     group_admins:
       actions:
+        confirm_modal:
+          ok_add: Ajouter un administrateur
+          ok_remove: Supprimer l'administrateur
+          title_add: Confirmer le nouvel administrateur
+          title_remove: Supprimer l'administrateur
+        confirm_remove_from_admin: Êtes-vous sûr(e) de vouloir supprimer l'administrateur de ce groupe ?
         demote_admin: Supprimer admin
       demote:
         error: Une erreur s'est produite lors de la suppression de cet utilisateur de la liste des administrateurs.
@@ -1087,6 +1093,11 @@ fr:
         error: Une erreur s'est produite lors de l'acceptation de cette demande d'adhésion.
         success: La demande d’adhésion a été acceptée avec succès.
       actions:
+        confirm_modal:
+          ok_remove: Retirer le membre
+          title_remove: Retirer le membre
+        confirm_promote_to_admin: Êtes-vous sûr(e) de vouloir ajouter cet utilisateur en tant qu'administrateur ?
+        confirm_remove_from_group: Êtes-vous sûr(e) de vouloir retirer l'utilisateur de ce groupe ?
         promote_to_admin: Faire admin
         remove_from_group: Supprimer l'utilisateur
       index:
