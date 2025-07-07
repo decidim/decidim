@@ -7,6 +7,9 @@ en:
         remove_all: Remove all current census data
   decidim:
     admin:
+      tooltips:
+        deleted_elections_info: Cannot delete this election
+        edit_elections_info: Cannot edit this election
       menu:
         elections_menu:
           basic_elections: Main
