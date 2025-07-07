@@ -159,6 +159,13 @@ ja:
         other: "%{count} ヶ月"
       x_seconds:
         other: "%{count} 秒"
+    widget:
+      label:
+        date: '%{label} の日付を選択'
+        time: '%{label} の時間を選択'
+      picker:
+        date_button: '%{label}のカレンダーピッカーを開く'
+        time_button: '%{label} のタイムピッカーを開く'
   decidim:
     accessibility:
       external_link: 外部リンク
@@ -825,10 +832,19 @@ ja:
         error: 画像のアップロードに失敗しました。
         success: 画像が正常にアップロードされました。
       drag_and_drop_help: ドラッグ&ドロップまたは貼り付けることで画像を追加できます。
+    endorsement_buttons_cell:
+      already_endorsed: いいねの取り消し
+      endorse: いいね
     endorsements:
       identities:
         done: 完了
         select_identity: IDを選択
+    endorsers_list:
+      endorsed_by:
+        other: '%{visible} によるいいね'
+      others: "%{count} 以上"
+      title: いいねした人
+      you: あなた
     ephemeral_user: 訪問者
     errors:
       files:
@@ -1137,6 +1153,12 @@ ja:
       title: バッジとは？
     group_admins:
       actions:
+        confirm_modal:
+          ok_add: 管理者を追加
+          ok_remove: 管理者を削除
+          title_add: 新しい管理者の確認
+          title_remove: 管理者を削除
+        confirm_remove_from_admin: このグループから管理者を削除してもよろしいですか？
         demote_admin: 管理者を削除
       demote:
         error: この参加者を管理者リストから削除する際に問題が発生しました。
@@ -1166,6 +1188,11 @@ ja:
         error: この参加リクエストを承認する際に問題が発生しました。
         success: 参加リクエストを承認しました。
       actions:
+        confirm_modal:
+          ok_remove: メンバーを削除
+          title_remove: メンバーを削除
+        confirm_promote_to_admin: このユーザーを管理者として追加してもよろしいですか？
+        confirm_remove_from_group: このグループからユーザーを削除してもよろしいですか？
         promote_to_admin: 管理者にする
         remove_from_group: 参加者の削除
       index:
