@@ -67,7 +67,7 @@ RSpec.shared_examples "manage child results" do
 
     within "table" do
       expect(page).to have_content("My result")
-      expect(page).not_to have_css(".action-icon--plus"), "results grandchildren creation is disallowed"
+      expect(page).not_to have_css(".button", text: "New result"), "results grandchildren creation is disallowed"
     end
   end
 

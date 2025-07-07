@@ -136,7 +136,10 @@ describe "Admin manages moderated users" do
     end
 
     it "user cannot unreport them" do
-      expect(page).to have_no_css(".action-icon--unreport")
+      within "tr", text: first_user.name do
+        find("button[data-component='dropdown']").click
+        expect(page).to have_no_css(".button", text: "Unreport")
+      end
     end
 
     context "when filtering by report reason" do

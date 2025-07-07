@@ -167,10 +167,6 @@
 
   svg {
     @apply inline-block fill-secondary w-5 h-5;
-
-    &.action-icon--disabled {
-      @apply fill-gray mr-2;
-    }
   }
 
   .action-space {

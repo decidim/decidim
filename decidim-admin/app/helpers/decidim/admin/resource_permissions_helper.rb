@@ -33,8 +33,7 @@ module Decidim
                        resource_name: resource.resource_manifest.name,
                        resource_id: resource.id
                      ),
-                     t("actions.permissions", scope: "decidim.admin"),
-                     class: "action-icon--permissions #{"action-icon--highlighted" if resource.permissions.present?}"
+                     t("actions.permissions", scope: "decidim.admin")
       end
 
       # Public: Render a link to the permissions page for a resource not

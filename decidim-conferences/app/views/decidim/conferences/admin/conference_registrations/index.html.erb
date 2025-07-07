@@ -59,7 +59,7 @@
                 <div class="inline-block relative">
                   <ul id="actions-conference-registration-<%= registration.id %>" class="dropdown dropdown__action" aria-hidden="true">
                     <li class="dropdown__item">
-                      <%= link_to confirm_conference_conference_registration_path(current_conference, registration), method: :post, class: "dropdown__button action-icon--publish" do %>
+                      <%= link_to confirm_conference_conference_registration_path(current_conference, registration), method: :post, class: "dropdown__button" do %>
                         <%= icon "check-line" %> <%= t("actions.confirm", scope: "decidim.admin") %>
                       <% end %>
                     </li>

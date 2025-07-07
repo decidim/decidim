@@ -17,7 +17,7 @@ module Decidim
         with_tooltip(title, options.merge(class: "top")) do
           link_to(link,
                   method: options[:method],
-                  class: "action-icon #{options[:class]}",
+                  class: options[:class],
                   data: options[:data] || {},
                   title:,
                   target: options[:target]) do

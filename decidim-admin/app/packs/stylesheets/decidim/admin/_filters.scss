@@ -34,20 +34,5 @@
     .type-icon {
       @apply align-top;
     }
-
-    .action-icon {
-      span {
-        @apply ml-1;
-      }
-
-      &.action-icon--remove {
-        color: #e66a5d;
-        margin-left: 0.3rem;
-
-        &:hover {
-          color: #e66a5d;
-        }
-      }
-    }
   }
 }

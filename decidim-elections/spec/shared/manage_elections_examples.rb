@@ -41,7 +41,8 @@ RSpec.shared_examples "manage elections" do
   describe "updating an election" do
     it "updates an election" do
       within "tr", text: translated(election.title) do
-        page.find(".action-icon--edit").click
+        find("button[data-component='dropdown']").click
+        click_on "Edit"
       end
 
       within ".edit_election" do
