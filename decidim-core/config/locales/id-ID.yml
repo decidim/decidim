@@ -488,7 +488,6 @@ id:
       reject_invitation: Menolak
     group_members:
       actions:
-        are_you_sure: Apakah kamu yakin?
         promote_to_admin: Membuat admin
         remove_from_group: Hapus pengguna
       index:
