@@ -160,6 +160,13 @@ eu:
       x_seconds:
         one: Segundo bat
         other: "%{count} segundo"
+    widget:
+      label:
+        date: 'Hautatu data honetarako: %{label}'
+        time: 'Hautatu ordua honetarako: %{label}'
+      picker:
+        date_button: 'Ireki egutegi-hautagailua honetarako: %{label}'
+        time_button: 'Ireki ordu-hautagailua honetarako: %{label}'
   decidim:
     accessibility:
       external_link: Kanpoko esteka
@@ -984,7 +991,12 @@ eu:
       title: Zer dira garaikurrak?
     group_admins:
       actions:
-        are_you_sure: Ziur zaude? Honek ez du partaide-taldetik aterako.
+        confirm_modal:
+          ok_add: Gehitu administratzaile bat
+          ok_remove: Kendu administratzailea
+          title_add: Berretsi administratzaile berria
+          title_remove: Kendu administratzailea
+        confirm_remove_from_admin: Ziur zaude talde honen administratzailea kendu nahi duzula?
         demote_admin: Kendu kudeatzailea
       demote:
         error: Arazo bat egon da parte-hartzaile hau administratzaileen zerrendatik kentzean.
@@ -1014,7 +1026,11 @@ eu:
         error: Arazo bat egon da lotzeko eskaera hau onartzean.
         success: Lotzeko eskaera zuzen onartua.
       actions:
-        are_you_sure: Ziur zaude?
+        confirm_modal:
+          ok_remove: Kendu kidea
+          title_remove: Kendu kidea
+        confirm_promote_to_admin: Seguru zaude erabiltzaile hau administratzaile moduan gehitu nahi duzula?
+        confirm_remove_from_group: Ziur zaude talde honen erabiltzailea kendu nahi duzula?
         promote_to_admin: Egin administratzailea
         remove_from_group: Kendu parte-hartzailea
       index:
