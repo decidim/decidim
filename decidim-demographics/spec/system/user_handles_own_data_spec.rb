@@ -77,7 +77,7 @@ describe "user submits demographic data" do
       expect(questionnaire.reload).not_to be_responded_by(user)
     end
 
-    it "requires tos to be accepted" do
+    it "requires Terms of Service to be accepted" do
       fill_in translated(question.body), with: "My first response"
 
       expect(page).to have_button("Save data", class: "button__secondary", disabled: false)
