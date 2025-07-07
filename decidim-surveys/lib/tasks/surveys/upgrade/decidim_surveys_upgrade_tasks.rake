@@ -8,6 +8,12 @@ namespace :decidim_surveys do
       Decidim::Component.where(manifest_name: "surveys").find_each do |component|
         next if component.permissions.nil?
 
+        if component.permissions.is_a?(Hash) && component.permissions.has_key?("answer")
+          component.permissions["response"] = component.permissions["answer"]
+          component.permissions.delete("answer")
+          component.save!
+        end
+
         if component.permissions.is_a?(Hash) && component.permissions.has_key?("respond")
           component.permissions["response"] = component.permissions["respond"]
           component.permissions.delete("respond")
