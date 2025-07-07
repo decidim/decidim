@@ -166,6 +166,7 @@ eu:
   decidim:
     admin:
       actions:
+        actions: Ekintzak
         actions_label: 'Ekintzak honentzat: %{resource}'
         add: Gehitu
         attachment:
@@ -1232,6 +1233,9 @@ eu:
         taxonomy_filters: 'Taxonomia-iragazkiak honetarako: "%{taxonomy}"'
         users: Administratzaileak
       tooltips:
+        cannot_destroy_taxonomy_filter: Ezin da suntsitu taxonomi-iragazki hau
+        cannot_edit_taxonomy_filter: Ezin da editatu taxonomi-iragazki hau
+        deleted_attachment_collections_info: Ezin da ezabatu karpeta hau, eranskinak dituelako.
         deleted_component_info: Osagai hau ezabatu ahal izateko, egoera "Argitaratugabea" izan behar da.
       trash_management:
         restore:
