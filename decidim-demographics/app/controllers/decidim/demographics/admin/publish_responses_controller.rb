@@ -3,6 +3,8 @@
 module Decidim
   module Demographics
     module Admin
+      # Mind that even though the name of the controller, currently we don't allow the publication.
+      # This is only for showing to the admin the visualization of the responses
       class PublishResponsesController < Admin::ApplicationController
         include Decidim::Forms::Admin::Concerns::HasQuestionnaireResponsesUrlHelper
 
