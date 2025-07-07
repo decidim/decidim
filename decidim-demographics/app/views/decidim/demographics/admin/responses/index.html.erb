@@ -38,17 +38,27 @@
       <tbody>
       <% @participants.each_with_index do |participant, idx| %>
         <tr>
-          <td><%= idx + 1 + page_offset %></td>
-          <td class="!text-left">
+          <td data-label="#">
+            <%= idx + 1 + page_offset %>
+          </td>
+          <td class="!text-left" data-label="<%= first_table_th(@participants.first) %>">
             <% if allowed_to? :show, :questionnaire_responses %>
               <%= link_to first_table_td(participant), questionnaire_participant_responses_url(participant.session_token) %>
             <% else %>
               <%= first_table_td(participant) %></td>
             <% end %>
-            <td><%= participant.status %></td>
-            <td><%= participant.ip_hash %></td>
-            <td><%= display_percentage(participant.completion) %></td>
-            <td><%= l participant.responded_at, format: :short %></td>
+            <td data-label="<%= t("user_status", scope: "decidim.forms.user_responses_serializer") %>">
+              <%= participant.status %>
+            </td>
+            <td data-label="<%= t("ip_hash", scope: "decidim.forms.user_responses_serializer") %>">
+              <%= participant.ip_hash %>
+            </td>
+            <td data-label="<%= t("completion", scope: "decidim.forms.user_responses_serializer") %>">
+              <%= display_percentage(participant.completion) %>
+            </td>
+            <td data-label="<%= t("created_at", scope: "decidim.forms.user_responses_serializer") %>">
+              <%= l participant.responded_at, format: :short %>
+            </td>
             <td data-label="<%= t("actions.title", scope: "decidim.demographics") %>" class="table-list__actions">
               <button type="button" data-component="dropdown" data-target="actions-participant-<%= idx %>" aria-label="<%= t("decidim.admin.actions.actions_label") %>">
                 <%= icon "more-fill", class: "text-secondary" %>
