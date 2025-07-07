@@ -303,6 +303,7 @@ module Decidim
                             decidim/demographics/admin/settings
                             decidim/demographics/admin/questions
                             decidim/demographics/admin/responses
+                            decidim/demographics/admin/publish_responses
                           ), []
                         ]
         end
