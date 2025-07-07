@@ -389,7 +389,6 @@ ru:
       reject_invitation: Отклонить
     group_members:
       actions:
-        are_you_sure: Вы уверены?
         remove_from_group: Удалить участника
       index:
         manage_members: Управление участниками
