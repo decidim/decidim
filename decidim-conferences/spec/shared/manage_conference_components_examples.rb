@@ -60,6 +60,7 @@ shared_examples "manage conference components" do
     context "and then edit it" do
       before do
         within "tr", text: translated(attributes[:name]) do
+          find("button[data-component='dropdown']").click
           click_on "Configure"
         end
       end
@@ -101,6 +102,7 @@ shared_examples "manage conference components" do
 
     it "updates the component" do
       within ".component-#{component.id}" do
+        find("button[data-component='dropdown']").click
         click_on "Configure"
       end
 
@@ -126,6 +128,7 @@ shared_examples "manage conference components" do
       expect(page).to have_content(translated(attributes[:name]))
 
       within "tr", text: translated(attributes[:name]) do
+        find("button[data-component='dropdown']").click
         click_on "Configure"
       end
 
@@ -157,11 +160,13 @@ shared_examples "manage conference components" do
     context "when the component is unpublished" do
       it "publishes the component" do
         within ".component-#{component.id}" do
+          find("button[data-component='dropdown']").click
           click_on "Publish"
         end
 
         within ".component-#{component.id}" do
-          expect(page).to have_css(".action-icon--unpublish")
+          find("button[data-component='dropdown']").click
+          expect(page).to have_css("a", text: "Hide")
         end
       end
 
@@ -170,6 +175,7 @@ shared_examples "manage conference components" do
         create(:follow, followable: conference, user: follower)
 
         within ".component-#{component.id}" do
+          find("button[data-component='dropdown']").click
           click_on "Publish"
         end
 
@@ -191,11 +197,13 @@ shared_examples "manage conference components" do
 
       it "hides the component from the menu" do
         within ".component-#{component.id}" do
+          find("button[data-component='dropdown']").click
           click_on "Hide"
         end
 
         within ".component-#{component.id}" do
-          expect(page).to have_css(".action-icon--menu-hidden")
+          find("button[data-component='dropdown']").click
+          expect(page).to have_css("a", text: "Unpublish")
         end
       end
     end
@@ -206,11 +214,13 @@ shared_examples "manage conference components" do
 
       it "unpublishes the component" do
         within ".component-#{component.id}" do
+          find("button[data-component='dropdown']").click
           click_on "Unpublish"
         end
 
         within ".component-#{component.id}" do
-          expect(page).to have_css(".action-icon--publish")
+          find("button[data-component='dropdown']").click
+          expect(page).to have_css("a", text: "Publish")
         end
       end
     end
@@ -234,7 +244,7 @@ shared_examples "manage conference components" do
       visit current_path
 
       expect(page.text.index("Component 2")).to be < page.text.index("Component 1")
-      expect(page.text.index("Component 1")).to be < page.text.index("Component 3")
+      expect(page.text.index("Component 2")).to be < page.text.index("Component 3")
     end
   end
 

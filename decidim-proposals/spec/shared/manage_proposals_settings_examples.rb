@@ -7,7 +7,11 @@ shared_examples "manage settings" do
     within "#admin-sidebar-menu-settings" do
       click_on "Components"
     end
-    click_on "Configure"
+
+    within "tr", text: translated(component.name) do
+      find("button[data-component='dropdown']").click
+      click_on "Configure"
+    end
   end
 
   context "when rich text editor is enabled" do

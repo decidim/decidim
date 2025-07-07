@@ -117,9 +117,11 @@ describe "Admin manages newsletters" do
     context "when admin clicks on the 'send me a test email' button" do
       it "sends a test email" do
         visit decidim_admin.newsletter_path(newsletter)
+
         perform_enqueued_jobs do
           click_on "Send me a test email"
         end
+
         expect(page).to have_content("Newsletter has been sent")
         expect(last_email.subject).to include("A fancy newsletter for")
       end
@@ -128,9 +130,14 @@ describe "Admin manages newsletters" do
     context "when admin clicks on the 'send me a test email' button in the index page" do
       it "sends a test email" do
         visit decidim_admin.newsletters_path
-        perform_enqueued_jobs do
-          click_on "Send me a test email"
+
+        within("tr[data-newsletter-id=\"#{newsletter.id}\"]") do
+          find("button[data-component='dropdown']").click
+          perform_enqueued_jobs do
+            click_on "Send me a test email"
+          end
         end
+
         expect(page).to have_content("Newsletter has been sent")
         expect(last_email.subject).to include("A fancy newsletter for")
       end
@@ -143,6 +150,7 @@ describe "Admin manages newsletters" do
     it "allows a newsletter to be updated" do
       visit decidim_admin.newsletters_path
       within("tr[data-newsletter-id=\"#{newsletter.id}\"]") do
+        find("button[data-component='dropdown']").click
         click_on "Edit"
       end
 
@@ -537,6 +545,7 @@ describe "Admin manages newsletters" do
       visit decidim_admin.newsletters_path
 
       within("tr[data-newsletter-id=\"#{newsletter.id}\"]") do
+        find("button[data-component='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
 

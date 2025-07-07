@@ -124,6 +124,9 @@ en:
           other: "%{count} comments"
         top_comment_label: Most upvoted
       down_vote_button:
+        label:
+          one: Dislike button. %{count} dislike
+          other: Dislike button. %{count} dislikes
         text: I disagree with this comment
       edit_comment_modal_form:
         close: Close
@@ -134,6 +137,9 @@ en:
           submit: Send
         title: Edit your comment
       up_vote_button:
+        label:
+          one: Like button. %{count} like
+          other: Like button. %{count} likes
         text: I agree with this comment
     download_your_data:
       help:
