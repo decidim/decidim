@@ -304,6 +304,7 @@ eu:
           pending_authorizations:
             index:
               address: Helbidea
+              already_sent: Posta-gutuna bidalita zegoen, eta ezin da berriro markatu bidalita bezala.
               letter_sent_at: Gutuna bidali
               mark_as_sent: Markatu bidali gisa
               not_yet_sent: Ez da bidali oraindik
