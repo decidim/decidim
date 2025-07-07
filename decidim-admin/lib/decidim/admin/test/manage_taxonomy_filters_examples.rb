@@ -127,7 +127,9 @@ shared_examples "manage taxonomy filters in settings" do
         expect(page).to have_css("td", text: "Another taxonomy filter name")
         expect(page).to have_css("td", text: "Internal taxonomy filter name")
         expect(page).to have_css("td", text: "Public taxonomy filter name")
-        expect(page).to have_link("Edit", count: 2)
+        within "table" do
+          expect(page).to have_css("button[data-component='dropdown']", count: 2)
+        end
       end
 
       click_on "Update"
