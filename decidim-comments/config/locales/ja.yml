@@ -110,6 +110,8 @@ ja:
         title:
           other: "%{count} 件のコメント"
       down_vote_button:
+        label:
+          other: よくないねボタン。 %{count} よくないね
         text: このコメントに同意しません
       edit_comment_modal_form:
         close: 閉じる
@@ -120,6 +122,8 @@ ja:
           submit: 送信
         title: コメントを編集
       up_vote_button:
+        label:
+          other: いいねボタン。 %{count} いいね
         text: このコメントに同意します
     events:
       comments:
