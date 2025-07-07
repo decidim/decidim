@@ -557,6 +557,8 @@ ja:
             endorsements_count: オススメ数
             endorsers: オススメしている人
             link: 提案を見る
+            n_more_endorsers:
+              other: 他%{count}件
             photos: 写真
             ranking: "%{ranking} / %{total}"
             related_meetings: 関連するミーティング
