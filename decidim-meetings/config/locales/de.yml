@@ -523,8 +523,8 @@ de:
           outlook: Zum Outlook-Kalender hinzufügen
         count:
           meetings_count:
-            one: "%{count} Besprechung"
-            other: "%{count} Besprechungen"
+            one: "%{count} Veranstaltung"
+            other: "%{count} Veranstaltungen"
         create:
           invalid: Beim Erstellen dieser Besprechung ist ein Problem aufgetreten.
           success: Sie haben die Besprechung erfolgreich erstellt.
@@ -583,7 +583,7 @@ de:
           view_poll: Umfrage ansehen
         meetings:
           no_meetings_warning: Keine Veranstaltungen entsprechen Ihren Suchkriterien oder es ist keine Besprechung geplant.
-          upcoming_meetings_warning: Momentan gibt es keine geplanten Besprechungen, aber hier finden Sie alle aufgelisteten Besprechungen.
+          upcoming_meetings_warning: Momentan gibt es keine bevorstehenden Veranstaltungen. Hier finden Sie alle Veranstaltungen.
         new:
           back: Zurück
           create: Erstellen
@@ -785,7 +785,7 @@ de:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Vergangene Veranstaltungen
-        see_all: Alle anzeigen (%{count})
+        see_all: Alle Veranstaltungen anzeigen
         upcoming_meetings: Bevorstehende Veranstaltungen
     resource_links:
       meetings_through_proposals:
