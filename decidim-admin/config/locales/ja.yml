@@ -166,6 +166,8 @@ ja:
   decidim:
     admin:
       actions:
+        actions: アクション
+        actions_label: '%{resource} のアクション'
         add: 追加
         attachment:
           new: 新しい添付ファイル
@@ -344,6 +346,8 @@ ja:
       conflicts:
         attempts: 試行回数
         'false': 'いいえ'
+        index:
+          text: 現在のユーザーのメールアドレス、名前、ニックネームで検索
         managed_user_name: 管理対象ユーザー
         solved: 解決済み
         title: 確認の競合
@@ -444,7 +448,11 @@ ja:
         remove_all: すべて削除
         search_label: 検索
         search_placeholder:
+          name_or_nickname_or_email_cont: '%{collection} をメールアドレス、名前、ニックネームで検索'
           report_count_eq: 報告数
+          reported_id_string_or_reported_content_cont: 報告可能なIDまたはコンテンツで %{collection} を検索
+          title_cont: '%{collection} をタイトルで検索'
+          user_name_or_user_nickname_or_user_email_cont: '%{collection} をメールアドレス、名前、ニックネームで検索'
         state_eq:
           label: 状態
           values:
@@ -539,6 +547,7 @@ ja:
       logs:
         filters:
           participatory_space: 参加型スペースを探す
+          text: ユーザーのメールアドレス、名前、ニックネームで検索
           user: ユーザー
         logs_list:
           no_logs_yet: ログはまだありません。
@@ -565,6 +574,7 @@ ja:
         content: 報告されたコンテンツ
         external_domain_allowlist: 許可された外部ドメイン
         help_sections: ヘルプセクション
+        homepage: ホームページのレイアウト
         impersonations: なりすまし
         insights: インサイト
         manage: 管理
@@ -858,6 +868,8 @@ ja:
         form:
           admin_terms_of_service: 管理者向け利用規約
           basic_configuration: 基本設定
+          colors:
+            choose_color: プライマリカラーを選択
           extra_features: 追加機能
           facebook: Facebook
           github: GitHub
