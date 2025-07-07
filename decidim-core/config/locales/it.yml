@@ -670,7 +670,6 @@ it:
       reject_invitation: Rifiutato
     group_members:
       actions:
-        are_you_sure: Sei sicuro?
         promote_to_admin: Rendere amministratore
         remove_from_group: Rimuovi utente
       index:
