@@ -580,7 +580,6 @@ lv:
       reject_invitation: Noraidīt
     group_members:
       actions:
-        are_you_sure: Vai esat pārliecināts?
         promote_to_admin: Padarīt par administratoru
         remove_from_group: Noņemt dalībnieku
       index:
