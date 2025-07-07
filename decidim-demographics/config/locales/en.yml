@@ -2,6 +2,8 @@
 en:
   decidim:
     demographics:
+      actions:
+        title: Actions
       admin:
         demographics:
           tabs_menu:
