@@ -12,7 +12,7 @@ describe "rake decidim_surveys:upgrade:fix_survey_component_permissions", type: 
       expect { task.execute }.not_to raise_error
     end
 
-    it "changes the permissions of the oldesc component permission" do
+    it "changes the permissions of the oldest component permission" do
       expect(legacy_component.permissions).not_to have_key("response")
       expect(legacy_component.permissions).to have_key("answer")
 
