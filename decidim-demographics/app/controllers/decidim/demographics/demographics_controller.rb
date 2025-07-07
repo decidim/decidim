@@ -59,6 +59,12 @@ module Decidim
       def enforce_permission_to_respond_questionnaire
         enforce_permission_to :respond, :demographics
       end
+
+      def questionnaire
+        @questionnaire ||= Decidim::Forms::Questionnaire.where(questionnaire_for:).first_or_initialize
+        Decidim::Demographics.create_default_questionnaire!(@questionnaire)
+        @questionnaire
+      end
     end
   end
 end

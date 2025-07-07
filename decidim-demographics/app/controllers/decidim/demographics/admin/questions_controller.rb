@@ -20,17 +20,13 @@ module Decidim
         def questionnaire
           @questionnaire ||= Decidim::Forms::Questionnaire.where(questionnaire_for:).first_or_initialize
           @questionnaire.override_edit!
-          create_default_questionnaire!
+          Decidim::Demographics.create_default_questionnaire!(@questionnaire)
           @questionnaire
         end
 
         def questionnaire_for = demographic
 
         def edit_questionnaire_title = t(:title, scope: "decidim.demographics.admin.questions.edit")
-
-        def create_default_questionnaire!
-          Decidim::Demographics.create_default_questionnaire!(@questionnaire)
-        end
       end
     end
   end
