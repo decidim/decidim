@@ -1,10 +1,16 @@
 eu:
+  activemodel:
+    attributes:
+      token_csv:
+        file: Fitxategia
+        remove_all: Ezabatu egungo errolda-datu guztiak
   decidim:
     admin:
       menu:
         elections_menu:
           basic_elections: Nagusia
           election_census: Errolda
+          election_dashboard: Kontrol-panela
           election_questions: Galderak
     components:
       elections:
@@ -25,11 +31,23 @@ eu:
       admin:
         census:
           edit:
+            choose_census: Aukeratu bozketa honetarako erabili nahi duzun errolda mota
             created_at: Sortze-data
+            identifier: Parte-hartzailearen identifikatzailea
+            title: Errolda mota
+          preview:
+            title:
+              one: 'Erabiltzailearen aurrebista (zerrenda mugatuta dago %{count} erregistrotara):'
+              other: 'Erabiltzailearen aurrebista (zerrenda mugatuta dago %{count} erregistrotara):'
+          update:
+            error: Errore bat egon da errolda sortzean edo gordetzean.
+            success: Errolda zuzen eguneratua.
         elections:
           create:
             invalid: Arazo bat egon da hauteskunde hau sortzean.
             success: Hauteskundea zuzen sortua.
+          dashboard_page:
+            title: Kontrol-panela
           edit:
             title: Editatu hauteskundea
           form:
@@ -88,6 +106,25 @@ eu:
           update: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea eguneratu du %{space_name} espazioan"
         question:
           update: "%{user_name} -k eguneratu ditu %{resource_name} aukerako galderak"
+      censuses:
+        internal_users:
+          info_html: |
+            Bozketan parte hartzea baimen bat duten parte-hartzaileei mugatu diezaiekezu.<br>
+            Kontuan izan parte-hartzaileek aukeratutako baimenak bete beharko dituztela botoa eman ahal izateko. Txeke-kutxa guztiak hutsik uzteak aukera emango du izena ematen duen edonori botoa emateko.
+          internal_type_title: Baimen gehigarriak behar dira botoa emateko (aukerakoa)
+          label: Parte-hartzaile erregistratuak (dinamikoa)
+        token_csv:
+          example: |
+            e-maila: 
+            user@example.org;123456
+            user2@example.org;ABCXYZ
+          info_html: |
+            CSV formatuko fitxategia izan behar da, bi zutaberekin, bata posta elektronikoko helbidearekin eta bestea erabiltzaileak botoa emateko sartu beharko duen fitxa baten balioarekin.
+            Puntu eta koma batez bereizi behar da (;)
+          label: Fitxekin erregistratu gabeko parte-hartzaileak (finkoa)
+          remove_before_upload: 'Beste errolda bat igo nahi baduzu, aurretik dagoena kendu behar duzu '
+          upload_file: Igo fitxategia
+          upload_new_census: Igo CSV fitxategia
       models:
         election:
           fields:
