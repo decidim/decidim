@@ -588,7 +588,6 @@ sk:
       reject_invitation: Odmietnuť
     group_members:
       actions:
-        are_you_sure: Ste si istí?
         promote_to_admin: Urobiť adminom
         remove_from_group: Odstrániť užívateľa
       index:
