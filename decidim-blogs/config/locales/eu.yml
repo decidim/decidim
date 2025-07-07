@@ -18,6 +18,8 @@ eu:
       admin_log:
         changeset:
           posts: Argitalpenak
+      tooltips:
+        deleted_posts_info: Ezin da ezabatu argitalpen hau
     blogs:
       actions:
         author_id: Sortu argitalpena hau bezala
