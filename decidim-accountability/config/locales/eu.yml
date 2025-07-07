@@ -290,6 +290,8 @@ eu:
             label: Egoera
           taxonomies_part_of_contains:
             label: Taxonomia
+      tooltips:
+        deleted_results_info: Ezin da ezabatu emaitza hau
     components:
       accountability:
         actions:
