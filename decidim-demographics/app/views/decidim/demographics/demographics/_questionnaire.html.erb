@@ -6,7 +6,7 @@
   <%= cell("decidim/announcement", translated_attribute(questionnaire_for.announcement), callout_class: "warning") %>
 <% end %>
 
-<%= decidim_form_for(@form, url: update_url, method: :post, html: { multipart: true, class: "form sociodemographic response-questionnaire" }, data: { "safe-path" => form_path }) do |form| %>
+<%= decidim_form_for(@form, url: update_url, method: :post, html: { multipart: true, class: "form demographic response-questionnaire" }, data: { "safe-path" => form_path }) do |form| %>
 
   <%= invisible_captcha %>
 

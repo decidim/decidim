@@ -210,6 +210,7 @@ Defg
 deivid
 demodulize
 demodulized
+demographic
 demonym
 Denesik
 denunciat
@@ -854,7 +855,6 @@ smartbreak
 Smileys
 Snowlvhme
 Snoworg
-sociodemographic
 softdeleteable
 somecapitalguy
 somedatabase

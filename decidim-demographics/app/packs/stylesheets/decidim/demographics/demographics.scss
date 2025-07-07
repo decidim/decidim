@@ -1,8 +1,8 @@
-.sociodemographic.response-questionnaire {
+.demographic.response-questionnaire {
   @apply border-t-0 border-background pt-8;
 }
 
-.sociodemographic {
+.demographic {
   .response-questionnaire {
     &__question-label {
       @apply before:hidden;
