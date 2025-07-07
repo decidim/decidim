@@ -41,6 +41,8 @@ eu:
               'true': Ez hautaua gauzatzeko
           taxonomies_part_of_contains:
             label: Taxonomia
+      tooltips:
+        deleted_projects_info: Ezin da ezabatu proiektu hau
     budgets:
       actions:
         attachment_collections: Karpetak
