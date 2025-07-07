@@ -3,7 +3,7 @@
     <%= icon_link_to "refresh-line", url_for(action: :restore, id: election, controller: "elections"), t("decidim.admin.actions.restore"), method: :patch %>
   <% end %>
 <% else %>
-  <button type="button" data-component="dropdown" data-target="actions-election-<%= election.id %>" aria-label="<%= t('decidim.admin.actions.actions_label', resource: present(election).title(html_escape: true)) %>">
+  <button type="button" data-component="dropdown" data-target="actions-election-<%= election.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: present(election).title(html_escape: true)) %>">
     <%= icon "more-fill", class: "text-secondary" %>
   </button>
 

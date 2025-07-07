@@ -11,14 +11,14 @@
       <% component.available_taxonomy_filters.each do |taxonomy_filter| %>
         <%= hidden_field_tag(field_name, taxonomy_filter.id) %>
         <tr>
-          <td data-label="<%= t('decidim.admin.taxonomy_filters.table.name') %>">
+          <td data-label="<%= t("decidim.admin.taxonomy_filters.table.name") %>">
             <%= taxonomy_filter.translated_name %>
           </td>
-          <td data-label="<%= t('decidim.admin.taxonomy_filters.table.internal_name') %>">
+          <td data-label="<%= t("decidim.admin.taxonomy_filters.table.internal_name") %>">
             <%= taxonomy_filter.translated_internal_name %>
           </td>
-          <td data-label="<%= t('decidim.admin.taxonomy_filters.table.actions') %>" class="table-list__actions">
-            <button type="button" data-component="dropdown" data-target="taxonomy-filter-actions-<%= taxonomy_filter.id %>" aria-label="<%= t('decidim.admin.actions.actions_label', resource: taxonomy_filter.translated_name ) %>">
+          <td data-label="<%= t("decidim.admin.taxonomy_filters.table.actions") %>" class="table-list__actions">
+            <button type="button" data-component="dropdown" data-target="taxonomy-filter-actions-<%= taxonomy_filter.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: taxonomy_filter.translated_name ) %>">
               <%= icon "more-fill", class: "text-secondary" %>
             </button>
 

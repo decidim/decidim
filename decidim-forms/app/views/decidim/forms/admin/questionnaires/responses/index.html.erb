@@ -29,21 +29,21 @@
                 <%= first_table_td(participant) %>
               <% end %>
             </td>
-            <td data-label="<%= t('user_status', scope: 'decidim.forms.user_responses_serializer') %>">
+            <td data-label="<%= t("user_status", scope: "decidim.forms.user_responses_serializer") %>">
               <%= participant.status %>
             </td>
-            <td data-label="<%= t('ip_hash', scope: 'decidim.forms.user_responses_serializer') %>">
+            <td data-label="<%= t("ip_hash", scope: "decidim.forms.user_responses_serializer") %>">
               <%= participant.ip_hash %>
             </td>
-            <td data-label="<%= t('completion', scope: 'decidim.forms.user_responses_serializer') %>">
+            <td data-label="<%= t("completion", scope: "decidim.forms.user_responses_serializer") %>">
               <%= display_percentage(participant.completion) %>
             </td>
-            <td data-label="<%= t('created_at', scope: 'decidim.forms.user_responses_serializer') %>">
+            <td data-label="<%= t("created_at", scope: "decidim.forms.user_responses_serializer") %>">
               <%= l participant.responded_at, format: :short %>
             </td>
-            <td data-label="<%= t('actions.title', scope: 'decidim.admin') %>" class="table-list__actions">
+            <td data-label="<%= t("actions.title", scope: "decidim.admin") %>" class="table-list__actions">
               <button type="button" data-component="dropdown" data-target="actions-participant-<%= participant.id %>"
-                aria-label="<%= t('decidim.admin.actions.actions_label', resource: participant.session_token) %>">
+                aria-label="<%= t("decidim.admin.actions.actions_label", resource: participant.session_token) %>">
                 <%= icon "more-fill", class: "text-secondary" %>
               </button>
 
