@@ -1,9 +1,7 @@
-.demographic.response-questionnaire {
-  @apply border-t-0 border-background pt-8;
-}
-
 .demographic {
   .response-questionnaire {
+    @apply border-t-0 border-background pt-8;
+
     &__question-label {
       @apply before:hidden;
     }
