@@ -993,7 +993,12 @@ es-MX:
       title: '¿Qué son las insignias?'
     group_admins:
       actions:
-        are_you_sure: '¿Seguro? Esto no eliminará a la participante del grupo.'
+        confirm_modal:
+          ok_add: Añadir una administradora
+          ok_remove: Eliminar la administradora
+          title_add: Confirmar la nueva administradora
+          title_remove: Eliminar la administradora
+        confirm_remove_from_admin: '¿Seguro que quieres eliminar a la administradora de este grupo?'
         demote_admin: Eliminar permisos de administración
       demote:
         error: Se ha producido un error al eliminar esta participante de la lista de administradoras.
@@ -1023,7 +1028,11 @@ es-MX:
         error: Se ha producido un error al aceptar esta solicitud de incorporación al grupo.
         success: Solicitud de unirse correctamente aceptada.
       actions:
-        are_you_sure: '¿Estás seguro?'
+        confirm_modal:
+          ok_remove: Eliminar miembro
+          title_remove: Eliminar miembro
+        confirm_promote_to_admin: '¿Seguro que quieres agregar esta usuaria como administradora?'
+        confirm_remove_from_group: '¿Seguro que quieres eliminar a esta usuaria de este grupo?'
         promote_to_admin: Hacer administrador
         remove_from_group: Eliminar usuario
       index:
