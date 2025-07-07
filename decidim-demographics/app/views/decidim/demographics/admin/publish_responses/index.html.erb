@@ -20,10 +20,6 @@
         <li class="<%= "text-gray" unless question_response_is_publicable(question.question_type) %> mb-6">
           <div class="inline">
             <span><%= translated_attribute question.body %> (<%= I18n.t("decidim.surveys.admin.publish_responses.index.responses", count: question.responses.count) %>)</span>
-
-            <% if question_response_is_publicable(question.question_type) %>
-              <%#= render partial: "toggle_button", locals: { question: } %>
-            <% end %>
           </div>
 
           <% if question_response_is_publicable(question.question_type) %>
