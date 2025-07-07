@@ -10,11 +10,14 @@ module Decidim::System
     let(:params) do
       {
         name: "Meta Decidim",
+        application_type: "confidential",
         decidim_organization_id: organization.id,
         organization_name: "Ajuntament de Barcelona",
         organization_url: "http://www.barcelona.cat",
         organization_logo: file,
-        redirect_uri: "https://meta.decidim.barcelona/users/auth/decidim"
+        redirect_uri: "https://meta.decidim.barcelona/users/auth/decidim",
+        scopes: %w(profile),
+        refresh_tokens_enabled: false
       }
     end
     let(:file) do
@@ -46,10 +49,16 @@ module Decidim::System
         expect(organization.oauth_applications.count).to eq(1)
       end
 
-      it "sets the scopes as public" do
+      it "sets the scopes as profile" do
         subject
 
-        expect(organization.oauth_applications.last.scopes.to_s).to eq("public")
+        expect(organization.oauth_applications.last.scopes.to_s).to eq("profile")
+      end
+
+      it "sets the refresh tokens disabled" do
+        subject
+
+        expect(organization.oauth_applications.last.refresh_tokens_enabled?).to be(false)
       end
 
       it "traces the action", versioning: true do

@@ -730,6 +730,7 @@ en:
     doorkeeper:
       authorizations:
         new:
+          api_read: Read content through the API
           authorize: Authorize application
           by_organization_link_html: by %{link}
           cancel: Cancel
