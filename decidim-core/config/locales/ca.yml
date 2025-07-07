@@ -990,7 +990,12 @@ ca:
       title: Què són les ensenyes?
     group_admins:
       actions:
-        are_you_sure: Segur? Això no eliminarà la participant del grup.
+        confirm_modal:
+          ok_add: Afegir una administradora
+          ok_remove: Eliminar l'administradora
+          title_add: Confirmar la nova administradora
+          title_remove: Eliminar l'administradora
+        confirm_remove_from_admin: Segur que vols eliminar a l'avaluadora d'aquest grup?
         demote_admin: Elimina l'administradora
       demote:
         error: S'ha produït un error en eliminar aquesta usuària de la llista d'administradores.
@@ -1020,7 +1025,11 @@ ca:
         error: S'ha produït un error en acceptar aquesta sol·licitud d'incorporació al grup.
         success: Sol·licitud d'incorporació rebutjada correctament.
       actions:
-        are_you_sure: Segur?
+        confirm_modal:
+          ok_remove: Eliminar membre
+          title_remove: Eliminar membre
+        confirm_promote_to_admin: Segur que vols afegir aquesta usuària com a administradora?
+        confirm_remove_from_group: Segur que vols eliminar a aquesta usuària d'aquest grup?
         promote_to_admin: Fer administradora
         remove_from_group: Eliminar participant
       index:
