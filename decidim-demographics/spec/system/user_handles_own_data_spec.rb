@@ -3,9 +3,6 @@
 require "spec_helper"
 
 describe "user submits demographic data" do
-  InvisibleCaptcha.honeypots = [:honeypot_id]
-  InvisibleCaptcha.visual_honeypots = true
-
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization:) }
   let!(:questionnaire_for) { create(:demographic, organization:, collect_data:) }
@@ -16,6 +13,9 @@ describe "user submits demographic data" do
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
+
+    allow(InvisibleCaptcha).to receive(:honeypots).and_return([:honeypot_id])
+    allow(InvisibleCaptcha).to receive(:visual_honeypots).and_return(true)
 
     visit demographics_engine.demographics_path
   end

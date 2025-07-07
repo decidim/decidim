@@ -3,8 +3,10 @@
 require "spec_helper"
 
 describe "Respond a survey" do
-  InvisibleCaptcha.honeypots = [:honeypot_id]
-  InvisibleCaptcha.visual_honeypots = true
+  before do
+    allow(InvisibleCaptcha).to receive(:honeypots).and_return([:honeypot_id])
+    allow(InvisibleCaptcha).to receive(:visual_honeypots).and_return(true)
+  end
 
   let(:manifest_name) { "surveys" }
 
