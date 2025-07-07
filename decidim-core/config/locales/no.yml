@@ -666,7 +666,6 @@
       reject_invitation: Avvis
     group_members:
       actions:
-        are_you_sure: Er du sikker?
         promote_to_admin: Lag administrator
         remove_from_group: Fjern deltaker
       index:
