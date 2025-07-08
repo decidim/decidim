@@ -40,8 +40,9 @@ shared_examples "manage taxonomy filters in settings" do
       within ".js-current-filters" do
         expect(page).to have_css("td", text: "Internal taxonomy filter name")
         expect(page).to have_css("td", text: "Public taxonomy filter name")
-        expect(page).to have_link("Edit")
+        expect(page).to have_css("button[data-component='dropdown']", count: 1)
       end
+
       expect(component.reload.settings.taxonomy_filters).to eq([taxonomy_filter.id.to_s])
 
       click_on "Add filter"
@@ -56,7 +57,7 @@ shared_examples "manage taxonomy filters in settings" do
         expect(page).to have_css("td", text: "Internal taxonomy filter name")
         expect(page).to have_css("td", text: "Public taxonomy filter name")
         expect(page).to have_css("td", text: "Another filter")
-        expect(page).to have_link("Edit", count: 2)
+        expect(page).to have_css("button[data-component='dropdown']", count: 2)
       end
       expect(component.reload.settings.taxonomy_filters).to contain_exactly(taxonomy_filter.id.to_s, another_taxonomy_filter.id.to_s)
 
