@@ -107,6 +107,19 @@ module Decidim
           []
         end
       end
+
+      # The voter_uid block is used to generate a unique identifier for the voter
+      def voter_uid(&block)
+        @voter_uid = block if block_given?
+        @voter_uid
+      end
+
+      # Generates a unique voter identifier based on the provided data
+      def generate_voter_uid(data)
+        raise "voter_uid block not set in manifest" unless @voter_uid
+
+        @voter_uid.call(data)
+      end
     end
   end
 end

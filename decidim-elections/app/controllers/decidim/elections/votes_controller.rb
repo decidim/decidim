@@ -8,21 +8,24 @@ module Decidim
 
       include FormFactory
       include Decidim::UserProfile
+      include Decidim::Elections::VoterVerifications
 
-      helper_method :exit_path, :elections, :election, :questions, :questions_count, :voter_not_yet_in_census?, :voter
+      helper_method :exit_path, :elections, :election, :questions, :questions_count
 
       delegate :count, to: :questions, prefix: true
 
       def new
+        enforce_permission_to :create, :vote, election:
+
         case election.census_manifest
         when "token_csv"
           @form = form(LoginForm).instance
           render :new, layout: "decidim/election_booth"
         else
-          if authorized_to_vote?
+          if voter_verified?
             redirect_to question_election_votes_path(election_id: election.id, id: 0)
           else
-            flash[:alert] = t("votes.messages.not_authorized", scope: "decidim.elections")
+            flash[:alert] = t("votes.not_authorized", scope: "decidim.elections")
             redirect_to exit_path
           end
         end
@@ -33,6 +36,7 @@ module Decidim
         token = params.dig(:login, :token).to_s.strip
 
         if valid_voter?(email, token)
+          session[:voter_credentials] = { email:, token: }
           redirect_to question_election_votes_path(election_id: election.id, id: 0)
         else
           flash[:alert] = t("invalid", scope: "decidim.elections.votes.check_census")
@@ -74,8 +78,9 @@ module Decidim
 
       def cast_vote
         votes_data = session[:votes_buffer] || {}
+        voter_credentials = session[:voter_credentials] || {}
 
-        ConfirmVote.call(election:, voter:, votes_data:) do
+        ConfirmVote.call(election:, votes_data:, voter_credentials:) do
           on(:ok) do
             session[:votes_buffer] = nil
             flash[:notice] = t("votes.cast_vote.success", scope: "decidim.elections")
@@ -108,33 +113,7 @@ module Decidim
       end
 
       def questions
-        @questions ||= election.questions.includes(:response_options).order(position: :asc)
-      end
-
-      def voter_not_yet_in_census?
-        voter.nil?
-      end
-
-      def authorized_to_vote?
-        return false unless current_user
-        return true if current_user.admin?
-
-        required_verifications = election.verification_types
-        user_authorizations = Decidim::Verifications::Authorizations.new(
-          organization: current_organization,
-          user: current_user,
-          granted: true
-        ).query.pluck(:name)
-
-        required_verifications.all? { |type| user_authorizations.include?(type) }
-      end
-
-      def voter
-        @voter ||= Decidim::Elections::Voter.with_email(current_user&.email).find_by(election_id: election.id)
-      end
-
-      def valid_voter?(email, token)
-        voter&.token == token && voter&.email == email && voter&.election_id == election.id
+        @questions ||= election.questions.includes(:response_options).order(:position)
       end
 
       def save_vote(step_index)

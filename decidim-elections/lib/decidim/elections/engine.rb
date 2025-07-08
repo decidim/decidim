@@ -35,6 +35,10 @@ module Decidim
           manifest.admin_form_partial = "decidim/elections/admin/censuses/token_csv_form"
           manifest.after_update_command = "Decidim::Elections::Admin::Censuses::TokenCsv"
           manifest.user_query(&:voters)
+
+          manifest.voter_uid do |data|
+            Digest::SHA256.hexdigest("#{data["email"]}-#{data["token"]}")
+          end
         end
 
         Decidim::Elections.census_registry.register(:internal_users) do |manifest|
@@ -46,9 +50,13 @@ module Decidim
               handlers: election.census_settings["verification_handlers"].presence
             ).query
           end
-          # census is dynamic so we do not need to validate it
+          # census is dynamic, so we do not need to validate it
           manifest.census_ready_validator do |_election|
             true
+          end
+
+          manifest.voter_uid do |data|
+            Digest::SHA256.hexdigest("user-#{data[:id] || data["id"]}")
           end
         end
       end

@@ -267,6 +267,7 @@ en:
           email_placeholder: Enter your email address
           token: Token
           token_placeholder: Enter your token
+        not_authorized: You are not authorized to vote in this election.
         question:
           back: Back
           next: Next

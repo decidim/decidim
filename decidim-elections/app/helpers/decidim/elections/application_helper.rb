@@ -61,6 +61,17 @@ module Decidim
         end
       end
 
+      def voted_by_current_user?(election)
+        voter_uid = (Digest::SHA256.hexdigest("#{current_user.id}-#{current_user.email}") if current_user)
+
+        return false if voter_uid.blank?
+
+        Decidim::Elections::Vote.exists?(
+          voter_uid: voter_uid,
+          decidim_elections_question_id: election.questions.pluck(:id)
+        )
+      end
+
       private
 
       def all_filter_text
