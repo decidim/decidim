@@ -36,6 +36,8 @@ ja:
               baz: Baz
               foo: Foo
           step:
+            likes_blocked: '「いいね」がブロックされました'
+            likes_enabled: いいねを有効にする
             readonly_step_attribute: 読み取り専用ステップ属性
             test_options:
               bar: バー
