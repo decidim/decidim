@@ -3,7 +3,6 @@
 module Decidim
   module Proposals
     class ProposalsMutationType < Decidim::Api::Types::BaseObject
-      graphql_name "ProposalsMutation"
       description "A proposals of a component."
 
       field :proposal, type: Decidim::Proposals::ProposalMutationType, description: "Mutates a proposal", null: true do
@@ -11,8 +10,13 @@ module Decidim
       end
 
       def proposal(id:)
-        # TODO: Add other conditions to exclude the non-editable proposals similarly as in the core
-        Decidim::Proposals::Proposal.find_by(id:, component: object)
+        collection.find(id)
+      end
+
+      private
+
+      def collection
+        Proposal.where(component: object).not_hidden.published
       end
     end
   end

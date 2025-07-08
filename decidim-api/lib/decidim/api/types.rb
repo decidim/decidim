@@ -6,6 +6,7 @@ module Decidim
     autoload :MutationType, "decidim/api/mutation_type"
     autoload :Schema, "decidim/api/schema"
     autoload :RequiredScopes, "decidim/api/required_scopes"
+    autoload :GraphqlPermissions, "decidim/api/graphql_permissions"
     autoload :ComponentMutationType, "decidim/api/component_mutation_type"
 
     module Types
