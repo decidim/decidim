@@ -73,6 +73,7 @@ ja:
       decidim/promoted_to_admin_event: グループ管理者に昇格しました
       decidim/removed_from_group: グループから削除しました
       decidim/resource_hidden_event: リソースを非表示
+      decidim/resource_liked_event: いいねされたリソース
       decidim/welcome_notification_event: ウェルカムメッセージ
   activerecord:
     attributes:
@@ -92,6 +93,8 @@ ja:
           other: 履歴
       decidim/amendment:
         other: 修正
+      decidim/like:
+        other: いいね
       decidim/user:
         other: 参加者
   booleans:
@@ -150,6 +153,13 @@ ja:
         other: "%{count} ヶ月"
       x_seconds:
         other: "%{count} 秒"
+    widget:
+      label:
+        date: '%{label} の日付を選択'
+        time: '%{label} の時間を選択'
+      picker:
+        date_button: '%{label}のカレンダーピッカーを開く'
+        time_button: '%{label} のタイムピッカーを開く'
   decidim:
     accessibility:
       external_link: 外部リンク
@@ -420,6 +430,8 @@ ja:
       avatar: 'アバター: %{name}'
       comments:
         other: コメント
+      likes:
+        other: いいね
       official_author: 公式
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -565,9 +577,21 @@ ja:
         name: ヒーローイメージと CTA
       hero_settings_form:
         background_image: 背景画像
+        cta_button_path: Call To Action ボタンURL
+        cta_button_path_help: 'ホームページの Call To Action ボタンのリンク先は上書き設定できます。ここではフル URL ではなく部分的なパスを使用してください。文字、数字、ハイフン、スラッシュのみを受け付け、先頭は文字で始まる必要があります。Call To Action ボタンはウェルカムテキストと説明文の間に表示されます。例: %{url}'
+        cta_button_text: Call To Action ボタンのテキスト
+        cta_button_text_help: ホームページの Call To Action ボタンのテキストは、組織で利用可能な各言語ごとに上書き設定できます。設定しない場合は、デフォルトの値が使用されます。Call To Action ボタンは、ホームページのウェルカムテキストと説明文の間に表示されます。
         welcome_text: ウェルカムテキスト
       highlighted_content_banner:
         name: 強調表示されたコンテンツバナー
+      highlighted_content_banner_settings_form:
+        action_button_subtitle: アクションボタンのサブタイトル
+        action_button_title: アクションボタンのタイトル
+        action_button_url: アクションボタンのURL
+        background_image: 背景画像
+        short_description: 短い説明
+        subtitle: サブタイトル
+        title: タイトル
       highlighted_elements_settings_form:
         components:
           all: すべて
@@ -929,6 +953,11 @@ ja:
           notification_title: |-
             %{resource_type} として報告されたため、管理者が %{report_reasons} を削除しました。</br>
             <i>%{resource_content}</i>
+      resource_liked:
+        email_intro: 'あなたがフォローしている%{liker_name} %{liker_nickname}が「%{resource_title}」をいいねしました。興味深いかもしれないので、ぜひチェックしてご参加ください：'
+        email_outro: '%{liker_nickname}をフォローしているため、この通知を受信しました。前のリンク先から、通知の受信を停止できます。'
+        email_subject: "%{liker_nickname} が新しいいいねを実行しました"
+        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} は <a href="%{liker_path}">%{liker_name} %{liker_nickname}</a>によっていいねされました。
       resources:
         soft_deleted:
           notification_title: 管理者があなたの "%{resource_type}" " "%{resource_title}" を削除しました。
@@ -1077,6 +1106,15 @@ ja:
         last_activity: 最近のアクティビティ
       name: 最近のアクティビティ
       no_activities_warning: このアクティビティ種別に表示するエントリがありません。
+    like_buttons_cell:
+      already_liked: いいねの取り消し
+      like: いいね
+    likes_list:
+      liked_by:
+        other: '%{visible} によるいいね'
+      others: "%{count} 以上"
+      title: いいねした人
+      you: あなた
     linked_resource_from:
       included_in: 含まれるリスト
     links:
@@ -1535,6 +1573,9 @@ ja:
       controls_label: リソースコントロール
     resource_autocomplete:
       help: 提案を検索するには入力してください
+    resource_likes:
+      create:
+        error: いいねする際に問題がありました。
     scopes:
       global: グローバルスコープ
       prompt: スコープを選択
@@ -1632,6 +1673,7 @@ ja:
       followers_count: フォロワー
       followers_count_tooltip: このスペースのいずれかの部分をフォローしているユーザー数が更新されます。
       headline: 統計情報
+      likes_count: いいね
       no_stats: 統計情報はまだありません。
       pages_count: ページ
       participants_count: 参加者
