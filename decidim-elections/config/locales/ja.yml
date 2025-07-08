@@ -1,9 +1,16 @@
 ja:
+  activemodel:
+    attributes:
+      token_csv:
+        file: ファイル
+        remove_all: 現在のセンサスデータをすべて削除する
   decidim:
     admin:
       menu:
         elections_menu:
+          basic_elections: メイン
           election_census: センサス
+          election_dashboard: ダッシュボード
           election_questions: 質問
     components:
       elections:
@@ -24,11 +31,22 @@ ja:
       admin:
         census:
           edit:
+            choose_census: この選挙に使用したいセンサスの種類を選択してください
             created_at: 作成日時
+            identifier: ユーザーID
+            title: センサスの種類
+          preview:
+            title:
+              other: 'ユーザープレビュー（リストは %{count} レコードに制限されています）：'
+          update:
+            error: センサスの作成または保存中にエラーが発生しました。
+            success: センサスを更新しました。
         elections:
           create:
             invalid: 選挙の作成中に問題がありました。
             success: 選挙を作成しました。
+          dashboard_page:
+            title: ダッシュボード
           edit:
             title: 選挙を編集
           form:
@@ -44,6 +62,11 @@ ja:
               after_end: 選挙終了後
               after_end_help: 選挙が終了したときにのみ結果を表示します
               per_question: 質問ごとの質問
+              per_question_help: 質問ごとに結果を表示する
+              real_time: リアルタイム
+              real_time_help: 最初の投票が登録され次第結果を表示する
+              title: 検索結果が利用可能です
+            save: 保存して続ける
             start_at: 開始日時
           index:
             title: 選挙
@@ -51,13 +74,55 @@ ja:
             title: 削除された選挙
           new:
             title: 新しい選挙
+          publish:
+            invalid: 選挙の公表中に問題が発生しました。
+            success: 選挙を公開しました。
+          unpublish:
+            invalid: 選挙の非公表中に問題が発生しました。
+            success: 選挙を非公開にしました。
+          update:
+            invalid: 選挙の更新中に問題が発生しました。
+            success: 選挙を更新しました。
         questions:
           edit_questions:
             new_question: 新しい質問
+            remove_question_confirm: この質問を削除してもよろしいですか？
             title: 質問
+          form:
+            errors:
+              at_least_one_question: 少なくとも 1 つの質問が必要です。
+            form_description: 次のステップに進むには、質問には少なくとも2つの回答が必要です。
+          update:
+            invalid: 質問の更新中に問題が発生しました。
+            success: 質問を更新しました。
+      admin_log:
+        election:
+          create: "%{user_name} が %{space_name}で %{resource_name} 選挙を作成しました"
+      censuses:
+        internal_users:
+          info_html: |
+            選挙に参加できるのは認証済みの参加者のみに制限することができます。 <br>参加者が投票するには、選択された認証要件を満たす必要があります。すべてのチェックボックスを空のままにすると、登録済みの人なら誰でも投票できるようになります。
+          internal_type_title: 投票するための追加の必要な権限 (任意)
+          label: 登録済み参加者（動的）
+        token_csv:
+          example: |
+            email;token
+            user@example.org;123456
+            user2@example.org;ABCXYZ
+          info_html: |
+            CSVフォーマットのファイルは2つのカラムを持つ必要があります。1つはメールアドレス、もう1つはユーザーが投票するために導入しなければならないトークンの値です。
+            カラムはセミコロン(;)で区切る必要があります
+          remove_before_upload: '新しいセンサスをアップロードする場合、まず既存のセンサスを削除する必要があります '
+          upload_file: ファイルをアップロード
+          upload_new_census: CSVファイルをアップロードする
+          uploaded_data_html:
+            other: |
+              <b>%{election\_title}</b> 選挙に使用するためのセンサスデータがアップロードされ、準備が完了しました。 <br>現在、この選挙で投票資格がある人は <strong>%{count}</strong> 名です（動的なセンサスの場合は変更される可能性があります）。
       models:
         election:
           fields:
+            end_at: 終了日時
+            start_at: 開始日時
             title: タイトル
     statistics:
       elections_count: 選挙
