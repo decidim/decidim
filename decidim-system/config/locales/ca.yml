@@ -7,6 +7,9 @@ ca:
         organization_name: Organització
         organization_url: URL de l'organització
         redirect_uri: URI de redirecció
+        refresh_tokens: Renovar autentificadors (tokens)
+        refresh_tokens_enabled: Renovar autentificadors (tokens) habilitats
+        scopes: Àmbits disponibles
       organization:
         address: Nom del servidor SMTP
         from_email: Adreça de correu electrònic
@@ -38,12 +41,28 @@ ca:
   decidim:
     system:
       actions:
+        api_user:
+          hidden_secret: El secret està amagat
+          hide_secret: Amagar el secret
+          secret_can_not_be_shown: el secret d'API només es pot veure i copiar després de la creació
+          show_secret: Mostrar secret
+          shown_secret: Es mostra el secret
+        api_users:
+          create: Crear
+          new: Nova usuària de l'API
+          remove: Eliminar usuària
         confirm_destroy: Segur que ho vols eliminar això?
+        confirm_refresh_api_secret: Segur que vols renovar el secret per a aquesta usuària de l'API? Un cop renovat, el secret antic no serà vàlid i ja no es podrà fer servir.
+        confirm_remove_api_user: Segur que vols eliminar a aquesta usuària de l'API?
+        copied: S'ha copiat
+        copy_secret: Copiar el secret
+        copy_secret_clarification: Copiar el secret al porta-retalls
         destroy: Suprimeix
         edit: Edita
         new_admin: Afegir administradora
         new_oauth_application: Afegir aplicació OAUTH
         new_organization: Afegir organització
+        refresh_secret: Actualitzar el secret
         save: Desa
         title: Accions
       admins:
@@ -63,6 +82,21 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquesta administradora.
           success: L'administradora s'ha actualitzat correctament.
+      api_user:
+        create:
+          error: S'ha produït un error en crear la usuària de l'API.
+          success: La usuària de l'API s'ha creat correctament. El secret per a la usuària només és visible després de la creació. Si us plau, copia'l i guarda'l de forma segura abans de sortir d'aquesta pàgina!
+        destroy:
+          success: La usuària de l'API s'ha esborrat amb èxit.
+        refresh:
+          error: Alguna cosa ha anat malament. Si us plau, intenta-ho de nou més tard.
+          success: S'ha renovat el secret correctament. El secret per a la usuària només és visible després de la creació. Si us plau, copia'l i guarda'l de forma segura abans de sortir d'aquesta pàgina!
+      api_users:
+        index:
+          manage: Gestionar usuàries s de l'API
+        new:
+          select_organization: Seleccionar la teva organització
+          title: Crear una nova usuària de l'API
       dashboard:
         show:
           admins: Administradores
@@ -91,6 +125,7 @@ ca:
             sign_up: Crea un compte
       menu:
         admins: Administradores
+        api_credentials: Credencials de l'API
         dashboard: Tauler d'administració
         oauth_applications: Aplicacions OAuth
         organizations: Organitzacions
@@ -101,6 +136,15 @@ ca:
             email: Correu electrònic
           validations:
             email_uniqueness: ja existeix una altra administradora amb aquest correu electrònic
+        api_user:
+          fields:
+            created_at: Creat el
+            key: Clau
+            name: Nom
+            organization: Organització
+            secret: Secret
+          validations:
+            name_uniqueness: Ja existeix una usuària de l'API amb aquest nom.
         oauth_application:
           fields:
             created_at: Creat el
@@ -127,6 +171,17 @@ ca:
           save: Guardar
           title: Editar aplicació
         form:
+          application_type:
+            confidential:
+              name: Confidencial
+            public:
+              explanation: Aplicacions que no poden utilitzar secrets de clients registrats, com ara aplicacions que s'executen en un navegador o en un dispositiu mòbil.
+              name: Públic
+          scopes_explanation:
+            "api:read": Permet a la usuària fer operacions de consulta a través de l'API GraphQL.
+            "api:write": Permet a la usuària fer operacions de mutació a través de l'API GraphQL.
+            profile: Proporciona accés als detalls del perfil de la usuària. Aquest àmbit només és necessari si l'aplicació OAuth només s'utilitza com a proveïdor d'identitat o servei d'autenticació.
+            user: Capacitat per actuar com a usuària registrada amb l'autentificador (token) donat durant les trucades a l'API GraphQL. Això és necessari per a totes les operacions api:write o api:read que necessitin informació sobre l'usuari actual.
           select_organization: Seleccionar una organització
         index:
           confirm_delete: Segur que vols eliminar aquesta aplicació?
