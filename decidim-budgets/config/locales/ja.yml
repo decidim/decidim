@@ -39,6 +39,8 @@ ja:
               'true': 未選択
           taxonomies_part_of_contains:
             label: タクソノミー
+      tooltips:
+        deleted_projects_info: このプロジェクトは削除できません
     budgets:
       actions:
         attachment_collections: フォルダ
