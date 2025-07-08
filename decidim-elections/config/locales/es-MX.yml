@@ -1,10 +1,16 @@
 es-MX:
+  activemodel:
+    attributes:
+      token_csv:
+        file: Archivo
+        remove_all: Eliminar todos los datos del censo actual
   decidim:
     admin:
       menu:
         elections_menu:
           basic_elections: Principal
           election_census: Censo
+          election_dashboard: Panel de control
           election_questions: Preguntas
     components:
       elections:
@@ -25,11 +31,23 @@ es-MX:
       admin:
         census:
           edit:
+            choose_census: Elige el tipo de censo que quieres vincular esta elección
             created_at: Creado el
+            identifier: Identificador de usuaria
+            title: Tipo de censo
+          preview:
+            title:
+              one: 'Vista previa de usuarias (la lista está limitada a %{count} registro):'
+              other: 'Vista previa del usuario (la lista está limitada a %{count} registros):'
+          update:
+            error: Hubo un error al generar o guardar el censo.
+            success: Censo actualizado correctamente.
         elections:
           create:
             invalid: Se ha producido un error al crear la elección.
             success: Elección creada correctamente.
+          dashboard_page:
+            title: Panel de control
           edit:
             title: Editar la votación
           form:
@@ -88,6 +106,28 @@ es-MX:
           update: "%{user_name} ha actualizado la elección \"%{resource_name}\" de %{space_name}"
         question:
           update: "%{user_name} actualizó las preguntas de la elección \"%{resource_name}\""
+      censuses:
+        internal_users:
+          info_html: |
+            Puedes restringir la participación en la elección a las participantes que tengan una autorización. <br>Ten en cuenta que las participantes obtener la autorización seleccionada para poder votar. Si dejas todas las casillas de verificación vacías, cualquier persona registrada podrá votar.
+          internal_type_title: Autorizaciones adicionales requeridas para votar (opcional)
+          label: Participantes registradas (dinámico)
+        token_csv:
+          example: |
+            email;token
+            user@example.org;123456
+            user2@example.org;ABCXYZ
+          info_html: |
+            Debe ser un archivo en formato CSV con solo dos columnas, una con la dirección de correo electrónico y otra con el valor del autentificador (token). Los campos deben estar separados con punto y coma (;).
+          label: Participantes no registrados con autentificador/token (fijado)
+          remove_before_upload: 'Si quieres subir un nuevo censo, primero tienes que eliminar el que ya existe. '
+          upload_file: Subir un archivo
+          upload_new_census: Cargar un archivo CSV
+          uploaded_data_html:
+            one: |
+              Los datos censales están cargados y listos para utilizarse en la elección "<b>%{election_title}</b>". <br>Actualmente hay <strong>1</strong> persona con derecho a voto en estas elecciones (esto podría cambiar en un censo dinámico).
+            other: |
+              Los datos censales están cargados y listos para utilizarse en la elección "<b>%{election_title}</b>". <br>Actualmente hay <strong>%{count}</strong> persones con derecho a voto en estas elecciones (esto podría cambiar en un censo dinámico).
       models:
         election:
           fields:
