@@ -41,7 +41,7 @@
             <td data-label="<%= t("created_at", scope: "decidim.forms.user_responses_serializer") %>">
               <%= l participant.responded_at, format: :short %>
             </td>
-            <td data-label="<%= t("actions.title", scope: "decidim.admin") %>" class="table-list__actions">
+            <td data-label="<%= t("actions.actions", scope: "decidim.admin") %>" class="table-list__actions">
               <button type="button" data-component="dropdown" data-target="actions-participant-<%= participant.id %>"
                 aria-label="<%= t("decidim.admin.actions.actions_label", resource: participant.session_token) %>">
                 <%= icon "more-fill", class: "text-secondary" %>
