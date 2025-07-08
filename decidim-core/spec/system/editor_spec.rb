@@ -425,7 +425,7 @@ describe "Editor" do
       prosemirror.native.send_keys "Hello, world!"
     end
 
-    it "videoEmbed" do
+    it "videoEmbed" do # rubocop:disable RSpec/ExampleLength
       click_toggle("videoEmbed")
       within "[data-dialog][aria-hidden='false']" do
         fill_in "Video URL", with: "https://www.youtube.com/watch?v=f6JMgJAQ2tc"
@@ -451,6 +451,8 @@ describe "Editor" do
         find("button[data-action='save']").click
       end
 
+      sleep 0.5
+
       expect_value(
         <<~HTML
           <p>Hello, world!</p>
@@ -469,6 +471,8 @@ describe "Editor" do
         fill_in "Title", with: "La plataforma digital"
         find("[data-input='src'] input").native.send_keys [:enter]
       end
+
+      sleep 0.5
 
       expect_value(
         <<~HTML
@@ -1232,26 +1236,6 @@ describe "Editor" do
     end
   end
 
-  context "with hashtags" do
-    let(:editor_options) { { hashtaggable: true } }
-
-    let!(:hashtag1) { create(:hashtag, name: "nature", organization:) }
-    let!(:hashtag2) { create(:hashtag, name: "nation", organization:) }
-    let!(:hashtag3) { create(:hashtag, name: "native", organization:) }
-
-    it "allows selecting hashtags" do
-      prosemirror.native.send_keys "#na"
-
-      expect(page).to have_css(".editor-suggestions-item", text: "nature")
-      expect(page).to have_css(".editor-suggestions-item", text: "nation")
-      expect(page).to have_css(".editor-suggestions-item", text: "native")
-
-      prosemirror.native.send_keys [:enter]
-
-      expect_value(%(<p><span data-type="hashtag" data-label="#nature">#nature</span> na</p>))
-    end
-  end
-
   context "with mentions" do
     let(:editor_options) { { mentionable: true } }
 
@@ -1409,6 +1393,8 @@ describe "Editor" do
         within ".editor [data-bubble-menu] [data-linkbubble]" do
           click_on "Remove"
         end
+
+        sleep 0.5
 
         expect_value(%(<p>Hello, world!</p>))
 

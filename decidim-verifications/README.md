@@ -59,7 +59,7 @@ Decidim implements two type of authorization methods:
   To register your handler, use
 
   ```ruby
-  # config/initializers/decidim.rb
+  # config/initializers/decidim_verifications.rb
 
   Decidim::Verifications.register_workflow(:census) do |workflow|
     workflow.form = "<myAuthorizationHandlerClass>"
@@ -74,7 +74,7 @@ Decidim implements two type of authorization methods:
   For example:
 
   ```ruby
-  # config/initializers/decidim.rb
+  # config/initializers/decidim_verifications.rb
 
   Decidim::Verifications.register_workflow(:my_verification) do |workflow|
     workflow.engine = Decidim::Verifications::MyVerification::Engine
@@ -103,7 +103,7 @@ Decidim implements two type of authorization methods:
   Optionally to change the renew modal content part of the data stored, you can set a new value for the cell used to render the metadata.
 
   ```ruby
-  # config/initializers/decidim.rb
+  # config/initializers/decidim_verifications.rb
 
   Decidim::Verifications.register_workflow(:census) do |workflow|
     workflow.form = "myAuthorizationHandlerClass"
@@ -146,7 +146,7 @@ SMS code using your preferred provider.
 In order to setup Decidim with SMS verification you need to:
 
 1. Create a class that accepts two parameters when initializing it (mobile phone and code) and a method named `deliver_code` that will send an SMS and return a truthy or falsey value if the delivery was OK or not.
-1. Set the `sms_gateway_service` configuration variable to the name of the class that you just created (use a String, not the actual class) at `config/initializers/decidim.rb`.
+1. Set the `sms_gateway_service` configuration variable to the name of the class that you just created (use a String, not the actual class) using the `DECIDIM_SMS_GATEWAY_SERVICE` environment variable
 
 Keep in mind that Decidim will not store a free text version of the mobile phone, only a hashed
 version so we can avoid duplicates and guarantee the users' privacy.
@@ -217,7 +217,7 @@ To be used by the verification method, this class should be referenced by name i
 its workflow manifest:
 
 ```ruby
-# config/initializers/decidim.rb
+# config/initializers/decidim_verifications.rb
 
 Decidim::Verifications.register_workflow(:my_verification) do |workflow|
   workflow.engine = Decidim::Verifications::MyVerification::Engine

@@ -12,11 +12,9 @@ id:
         address: Alamat
         answer: Menjawab
         answered_at: Dijawab di
-        automatic_hashtags: Hashtag secara otomatis ditambahkan
         body: Tubuh
         has_address: Memiliki alamat
         state: Negara
-        suggested_hashtags: Tagar yang disarankan
         title: Judul
       proposal_answer:
         answer: Menjawab
@@ -74,10 +72,8 @@ id:
             threshold_per_proposal: Ambang batas per proposal
           step:
             announcement: Pengumuman
-            automatic_hashtags: Hashtag ditambahkan ke semua proposal
             comments_blocked: Komentar diblokir
             proposal_answering_enabled: Pengangkatan proposal diaktifkan
-            suggested_hashtags: Hashtag disarankan kepada pengguna untuk proposal baru
     events:
       proposals:
         collaborative_draft_access_accepted:

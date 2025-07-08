@@ -65,7 +65,11 @@ describe "Admin manages census" do
         expect(page).to have_content("Actions")
         expect(page).to have_content("this_email_does_not_exist@example.org")
 
-        click_on "Edit", match: :first
+        within "tr", text: "this_email_does_not_exist@example.org" do
+          find("button[data-component='dropdown']").click
+          click_on "Edit"
+        end
+
         expect(page).to have_content("Edit census record")
         fill_in "Email", with: "this_edit_email_exist@example.org"
         click_on "Save"
@@ -75,7 +79,10 @@ describe "Admin manages census" do
       end
 
       it "deletes the added census record" do
-        accept_confirm { click_on "Destroy", match: :first }
+        within "tr", text: "this_email_does_not_exist@example.org" do
+          find("button[data-component='dropdown']").click
+          accept_confirm { click_on "Destroy" }
+        end
         expect(page).to have_content("Census data record have been deleted.")
         expect(page).to have_content("There are no census data. Use Import CSV to import a CSV file.")
       end

@@ -12,7 +12,6 @@ tr:
         developer_group: Tanıtım grubu
         domain: domain
         end_date: Bitiş tarihi
-        hashtag: Başlık etiketi
         hero_image: Ana resim
         local_area: Organizasyon alanı
         meta_scope: Kapsam meta verileri
@@ -32,7 +31,6 @@ tr:
         description: Açıklama
         developer_group: Tanıtım grubu
         group_url: Web sitesi
-        hashtag: Etiket
         hero_image: görüntü
         local_area: Organizasyon alanı
         meta_scope: Kapsam meta verileri
@@ -90,7 +88,6 @@ tr:
         participatory_process_groups: Süreç grupları
         participatory_process_groups_submenu:
           info: Bilgi
-          landing_page: Açılış sayfası
         participatory_processes: Süreçler
         participatory_processes_submenu:
           attachment_collections: Klasörler

@@ -1,5 +1,9 @@
 sv:
   decidim:
+    admin:
+      menu:
+        elections_menu:
+          election_questions: Frågor
     components:
       elections:
         name: Val
@@ -23,7 +27,6 @@ sv:
             success: Valet skapades framgångsrikt.
           edit:
             title: Redigera val
-            update: Uppdatera val
           form:
             add_images: Lägg till bilder
             attachment_legend: Lägg till ett bildgalleri (valfritt)
@@ -47,7 +50,6 @@ sv:
           manage_trash:
             title: Borttagna val
           new:
-            create: Skapa val
             title: Nytt val
           publish:
             invalid: Det gick inte att publicera valet.
@@ -58,6 +60,10 @@ sv:
           update:
             invalid: Det gick inte att uppdatera valet.
             success: Val uppdaterades.
+        questions:
+          edit_questions:
+            new_question: Ny fråga
+            title: Frågor
       admin_log:
         election:
           create: "%{user_name} Skapade valet %{resource_name} i %{space_name}"

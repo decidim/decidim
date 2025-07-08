@@ -57,13 +57,6 @@ sq:
         from: Adresa email e dërguesit
         github_handler: Emri i përdoruesit Github
         highlight_color: Theksim
-        highlighted_content_banner_action_subtitle: Nëntitull i butonit të veprimit
-        highlighted_content_banner_action_title: Titulli i butonit të veprimit
-        highlighted_content_banner_action_url: URL e butonit të veprimit
-        highlighted_content_banner_enabled: Shfaq banerin e theksuar të përmbajtjes
-        highlighted_content_banner_image: Imazhi
-        highlighted_content_banner_short_description: Përshkrim i shkurtër
-        highlighted_content_banner_title: Titulli
         host: Organizatori
         instagram_handler: Emri i përdoruesit Instagram
         logo: Logo
@@ -313,7 +306,6 @@ sq:
         components: Komponentët
         configuration: Konfigurimi
         content: Përmbajtje e raportuar
-        homepage: Kryefaqja
         newsletters: Buletinet
         participants: Pjesëmarrësit
         scopes: Fushëveprimet

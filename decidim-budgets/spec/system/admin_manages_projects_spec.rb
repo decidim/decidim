@@ -22,7 +22,8 @@ describe "Admin manages projects" do
     visit_component_admin
 
     within "tr", text: translated(budget.title) do
-      page.find(".action-icon--edit-projects").click
+      find("button[data-component='dropdown']").click
+      click_on "Manage projects"
     end
   end
 

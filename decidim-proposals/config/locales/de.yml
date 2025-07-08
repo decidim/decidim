@@ -18,7 +18,6 @@ de:
         address: Adresse
         answer: Antworten
         answered_at: Beantwortet bei
-        automatic_hashtags: Hashtags werden automatisch hinzugefügt
         body: Haupttext
         decidim_proposals_proposal_state_id: Status
         decidim_scope_id: Umfang
@@ -27,7 +26,6 @@ de:
         longitude: Längengrad
         scope_id: Bereich
         state: Status
-        suggested_hashtags: Vorgeschlagene Hashtags
         title: Titel
       proposal_answer:
         answer: Antworten
@@ -225,7 +223,6 @@ de:
             amendments_visibility_help: Wenn die Option „Ergänzungen sind nur für ihre Autoren sichtbar“ ausgewählt ist, müssen Teilnehmer angemeldet sein, um die vorgenommenen Ergänzungen zu sehen.
             announcement: Ankündigung
             answers_with_costs: Kosten für Vorschlagsantworten aktivieren
-            automatic_hashtags: Hashtags wurden allen Vorschlägen hinzugefügt
             comments_blocked: Kommentare blockiert
             creation_enabled: Teilnehmer können Vorschläge erstellen
             creation_enabled_readonly: Diese Einstellung ist deaktiviert, wenn Sie die Funktion "Partizipative Texte" aktivieren. Um Vorschläge als partizipativen Text hochzuladen, klicken Sie "Partizipative Texte" und folgen Sie den Anweisungen.
@@ -242,7 +239,6 @@ de:
             proposal_answering_enabled: Vorschlagsantworten aktiviert
             publish_answers_immediately: Vorschlagsantworten sofort veröffentlichten
             publish_answers_immediately_help_html: 'Wenn Sie einen Vorschlag ohne diese Option beantworten, müssen Sie die Antwort manuell veröffentlichen, indem Sie den Vorschlag auswählen und über «Aktionen» im Menü veröffentlichen. Weitere Informationen darüber finden Sie auf der <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">Dokumentationsseite zur Vorschlagsbeantwortung</a>.'
-            suggested_hashtags: Hashtags schlug Benutzern neue Vorschläge vor
             votes_blocked: Stimmensammlung deaktiviert
             votes_enabled: Stimmensammlung aktiviert
             votes_hidden: Stimmenanzahl ausgeblendet (falls die Stimmensammlung aktiviert ist, wird die Anzahl Stimmen nicht angezeigt)
@@ -919,7 +915,7 @@ de:
           list_mode: Listen-Ansicht
           new_proposal: Neuer Vorschlag
           see_all: Alle Vorschläge ansehen
-          see_all_withdrawn: Sehen Sie sich alle zurückgezogenen Vorschläge an
+          see_all_withdrawn: Zurückgezogene Vorschläge ansehen
           text_banner: Hier sehen Sie alle Vorschläge, die von ihren Autoren zurückgezogen wurden. %{go_back_link}.
         new:
           send: Fortsetzen
@@ -1005,7 +1001,7 @@ de:
           current_step: Aktueller Schritt
           step_1: Vorschlag erstellen
           step_2: Vorschlag veröffentlichen
-          title: Schritten zur Erstellung von Vorschlägen
+          title: Schritte der Vorschlagserstellung
       proposals_picker:
         choose_proposals: Vorschläge auswählen
         no_proposals: Kein Vorschlag entspricht Ihren Suchkriterien oder es ist keine Vorschlag geplant.

@@ -44,13 +44,14 @@ jobs:
     name: Test
     runs-on: ubuntu-22.04
     if: "!startsWith(github.head_ref, 'chore/l10n')"
-    timeout-minutes: 60
+    timeout-minutes: 30
     env:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
       DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE: "memory"
       DECIDIM_SPAM_DETECTION_BACKEND_USER: "memory"
+      DECIDIM_AVAILABLE_LOCALES: en,ca,es
     services:
       validator:
         image: ghcr.io/validator/validator:latest
@@ -72,6 +73,15 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ inputs.ruby_version }}
+          bundler-cache: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node_version }}
+          cache: 'npm'
+          cache-dependency-path: ./package-lock.json
+      - run: npm config set fetch-retries 5 && npm config set fetch-retry-mintimeout 20000 && npm config set fetch-retry-maxtimeout 120000
+        name: Tune NPM configuration
+        shell: "bash"
       - run: |
           sudo apt update
           sudo apt install libu2f-udev
@@ -82,12 +92,16 @@ jobs:
         with:
           chromedriver-version: ${{inputs.chrome_version}}
         name: Install Chrome version ${{inputs.chrome_version}}
-      - uses: actions/cache@v4
-        id: app-cache
-        with:
-          path: ./spec/decidim_dummy_app/
-          key: app-${{ github.sha }}
-          restore-keys: app-${{ github.sha }}
+      - run: bundle exec brakeman --rails7 --force-scan .
+        name: Scanning Security issues on module
+        working-directory: ${{ inputs.working-directory }}
+        shell: "bash"
+      - run: bundle exec rake test_app
+        name: Create test app
+        shell: "bash"
+      - run: mkdir -p ./spec/decidim_dummy_app/tmp/screenshots
+        name: Create the screenshots folder
+        shell: "bash"
       - run: |
           bundle install
           bundle exec rake parallel:create parallel:load_schema
@@ -107,6 +121,11 @@ jobs:
           DECIDIM_BULLET_N_PLUS_ONE: ${{ inputs.bullet_n_plus_one }}
           DECIDIM_BULLET_COUNTER_CACHE: ${{ inputs.bullet_counter_cache }}
           DECIDIM_BULLET_UNUSED_EAGER: ${{ inputs.bullet_unused_eager_loading }}
+          DECIDIM_ENABLE_MACHINE_TRANSLATION: true
+          DECIDIM_SMS_GATEWAY_SERVICE: Decidim::Verifications::Sms::ExampleGateway
+          DECIDIM_TIMESTAMP_SERVICE: Decidim::Initiatives::DummyTimestamp
+          DECIDIM_PDF_SIGNATURE_SERVICE: Decidim::PdfSignatureExample
+          DECIDIM_MACHINE_TRANSLATION_SERVICE: Decidim::Dev::DummyTranslator
           DISPLAY: ":99"
           CI: "true"
           FAST_SEEDS: "true"

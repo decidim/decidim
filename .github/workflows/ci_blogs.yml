@@ -19,17 +19,16 @@ on:
       - "decidim-dev/**"
       - "decidim-participatory_processes/**"
 
+permissions:
+  contents: read
+  pull-requests: read
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
 
 jobs:
-  build_app:
-    uses: ./.github/workflows/build_app.yml
-    secrets: inherit
-    name: Build test application
   main:
-    needs: build_app
     name: Tests
     uses: ./.github/workflows/test_app.yml
     secrets: inherit

@@ -13,13 +13,11 @@ it:
         address: Indirizzo
         answer: Risposta
         answered_at: Risposto a
-        automatic_hashtags: Hashtag aggiunti automaticamente
         body: Corpo del testo
         decidim_scope_id: Ambito
         has_address: Ha un indirizzo
         scope_id: Ambito
         state: Stato
-        suggested_hashtags: Hashtag consigliati
         title: Titolo
       proposal_answer:
         answer: Risposta
@@ -138,12 +136,10 @@ it:
             amendments_visibility_help: Se viene selezionata l'opzione "Gli emendamenti sono visibili solo ai loro autori", il partecipante deve essere loggato per vedere gli emendamenti apportati.
             announcement: Annuncio
             answers_with_costs: Abilita i costi sulle risposte proposte
-            automatic_hashtags: Hashtag aggiunti a tutte le proposte
             comments_blocked: Commenti bloccati
             creation_enabled: I partecipanti possono creare proposte
             proposal_answering_enabled: Risposta alla proposta abilitata
             publish_answers_immediately: Pubblica immediatamente le risposte proposte
-            suggested_hashtags: Gli hashtag hanno suggerito agli utenti nuove proposte
             votes_blocked: Voti bloccati
             votes_enabled: Voti abilitati
     events:

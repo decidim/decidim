@@ -51,6 +51,7 @@ describe "Organization scopes" do
 
       it "can edit them" do
         within "tr", text: translated(scope.name) do
+          find("button[data-component='dropdown']").click
           click_on "Edit"
         end
 
@@ -71,6 +72,7 @@ describe "Organization scopes" do
 
       it "can delete them" do
         within "tr", text: translated(scope.name) do
+          find("button[data-component='dropdown']").click
           accept_confirm { click_on "Delete" }
         end
 

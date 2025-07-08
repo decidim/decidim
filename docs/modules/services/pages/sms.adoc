@@ -1,8 +1,7 @@
-= SMS
+= SMS gateway configuration
 
-If you want to verify your users by sending a verification code via SMS you need to provide a SMS gateway service class through the xref:configure:initializer.adoc[initializer].
-
-This service can also be used by some spaces, and external modules could use it too.
+If you want to verify your users by sending a verification code via
+SMS (mobile/cell phones text messages) you need to provide a SMS gateway service class.
 
 An example class would be something like:
 
@@ -28,11 +27,11 @@ The arguments provided for the initialize method are:
 - `code` - The code or the message to be sent to the given mobile phone number.
 - `context` - An extra context attribute which can be used to pass e.g. the correct organization for the gateway to utilize.
 
-Then you will need to configure it in the Decidim initializer:
+Then you will need to configure it with the help of Environment Variables:
 
-[source,ruby]
+[source,bash]
 ....
-  config.sms_gateway_service = "MySMSGatewayService"
+export DECIDIM_SMS_GATEWAY_SERVICE="MySMSGatewayService"
 ....
 
 You can find an example on how this is set up at https://github.com/AjuntamentdeBarcelona/decidim-barcelona/blob/672f5a8938d884940899b4304f0a17e25d42d2a0/app/services/sms_gateway.rb[DecidimBarcelona's app/services/sms_gateway.rb]. Your final implementation will depend on how your SMS provider works.

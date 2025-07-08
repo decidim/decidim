@@ -1,0 +1,21 @@
+<div class="border-t border-gray-3 my-4">
+  <p class="my-4"><em><%= t("decidim.elections.admin.census.preview.title", count: preview_users.count) %></em></p>
+  <div class="table-scroll">
+    <table class="table-list">
+      <thead>
+      <tr>
+        <th><%= t("edit.identifier", scope: "decidim.elections.admin.census") %></th>
+        <th><%= t("edit.created_at", scope: "decidim.elections.admin.census") %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% preview_users.each do |voter| %>
+        <tr>
+          <td><%= voter.identifier %></td>
+          <td><%= voter.date_created %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

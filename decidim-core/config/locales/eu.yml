@@ -593,6 +593,14 @@ eu:
         welcome_text: Ongi etorri testua
       highlighted_content_banner:
         name: Nabarmendutako edukia banner
+      highlighted_content_banner_settings_form:
+        action_button_subtitle: Ekintza-botoiaren azpititulua
+        action_button_title: Ekintza-botoiaren izenburua
+        action_button_url: Ekintza-botoiaren URLa
+        background_image: Atzeko planoko irudia
+        short_description: Deskribapen laburra
+        subtitle: Azpititulua
+        title: Izenburua
       highlighted_elements_settings_form:
         components:
           all: Guztiak

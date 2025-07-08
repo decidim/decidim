@@ -202,7 +202,7 @@ sv:
           email_subject: Nytt möte har lagts till i %{participatory_space_title}
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> har lagts till i %{participatory_space_title}
         meeting_registration_confirmed:
-          notification_title: Din anmälan till mötet <a href="%{resource_url}">%{resource_title}</a> har bekräftats. Din anmälningskod är %{registration_code}.
+          notification_title: Din anmälan till <a href="%{resource_url}">%{resource_title}</a> har bekräftats. Din anmälningskod är %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: De tilldelade platserna för mötet "%{resource_title}" är över %{percentage}%.
           email_outro: Du har fått det här meddelandet eftersom du är en administratör för mötets deltagandeutrymme.
@@ -516,7 +516,7 @@ sv:
             subject: Inbjudan för att delta i ett möte
         registration_mailer:
           confirmation:
-            subject: Din mötesregistrering har bekräftats
+            subject: Din anmälan har bekräftats
       meeting:
         not_allowed: Du har inte behörighet att visa det här mötet.
       meeting_closes:
@@ -605,7 +605,7 @@ sv:
           join: Anmäl dig
           join_waitlist: Gå med i väntelistan
           leave: Dra tillbaka din anmälan
-          leave_confirmation: Är du säker på att du vill dra tillbaka din anmälan till mötet?
+          leave_confirmation: Är du säker på att du vill dra tillbaka din anmälan?
           leave_waitlist: Lämna väntelistan
           leave_waitlist_confirmation: Är du säker på att du vill lämna väntelistan för mötet?
           link_available_soon: Länk kommer snart
@@ -707,8 +707,8 @@ sv:
       read_more: "(läs mer)"
       registration_mailer:
         confirmation:
-          confirmed_html: Din registrering för mötet <a href="%{url}">%{title}</a> har bekräftats.
-          details: Du hittar mötesuppgifterna i bilagan.
+          confirmed_html: Din anmälan till <a href="%{url}">%{title}</a> har bekräftats.
+          details: Kalenderinformation finns i bilagan.
           registration_code: Din anmälningskod är %{code}. Vänligen visa följande QR-kod för en administratör för att bekräfta din närvaro.
       registration_type:
         on_different_platform: På en annan plattform
@@ -717,13 +717,13 @@ sv:
       registrations:
         create:
           invalid: Det gick inte att ansluta till mötet.
-          success: Du har gått med i mötet. Eftersom du har anmält dig kommer du att få notiser med uppdateringar om mötet.
+          success: Du är nu anmäld. Eftersom du har anmält dig kommer du att få notiser med uppdateringar om mötet.
         decline_invitation:
           invalid: Det gick inte att avböja inbjudan.
           success: Du har avböjt inbjudan.
         destroy:
           invalid: Det gick inte att lämna mötet.
-          success: Du har lämnat mötet.
+          success: Du har dragit tillbaka din anmälan.
         waitlist:
           invalid: Det gick inte att gå med i väntelistan.
           success: Du har gått med i väntelistan för mötet. Du kommer att meddelas om din anmälan registreras.

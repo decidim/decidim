@@ -108,7 +108,6 @@ bg:
           state: Статус
           state_values:
             closed: Затворен
-            open: Отворен
         index:
           new_debate: Нов дебат
         new:
@@ -121,10 +120,8 @@ bg:
           recent: Най-скорошни
           updated: Скоро обновени
         show:
-          debate_closed: Затворен
           debate_conclusions_are: 'Дебатът беше затворен на %{date} със следните заключения:'
           edit_conclusions: Редактиране на заключенията
-          open: Отворен дебат
           participants_count: Участници
         update:
           invalid: Възникна проблем при актуализирането на дебата.

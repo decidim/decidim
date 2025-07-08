@@ -47,13 +47,6 @@ gl:
         header_snippets: Fragmentos de cabeceira
         highlight_alternative_color: Realzado, alternativo
         highlight_color: Realzado
-        highlighted_content_banner_action_subtitle: Subtítulo do botón de acción
-        highlighted_content_banner_action_title: Título do botón de acción
-        highlighted_content_banner_action_url: URL do botón de acción
-        highlighted_content_banner_enabled: Mostrar a bandeira de contido resaltada
-        highlighted_content_banner_image: Imaxe
-        highlighted_content_banner_short_description: Descrición curta
-        highlighted_content_banner_title: Título
         host: Host
         instagram_handler: Administrador de Instagram
         logo: Logo
@@ -429,7 +422,6 @@ gl:
         areas: Campos
         configuration: Configuración
         help_sections: Seccións de axuda
-        homepage: Páxina de inicio
         impersonations: Impersonacións
         manage: Xestionar
         moderation: Moderacións globais
@@ -639,11 +631,6 @@ gl:
         update:
           error: Produciuse un erro ao actualizar esta organización.
           success: A organización actualizouse con éxito.
-      organization_appearance:
-        edit:
-          update: Actualización
-        form:
-          homepage_highlighted_content_banner_title: Banner de contido de alto nivel
       participatory_space_private_users:
         create:
           error: Produciuse un erro engadindo un usuario privado a este espazo participativo.

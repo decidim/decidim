@@ -59,13 +59,6 @@ cs:
         header_snippets: Úryvky záhlaví
         highlight_alternative_color: Jiné zvýraznění
         highlight_color: Zvýraznit
-        highlighted_content_banner_action_subtitle: Podnadpis Tlačítka Akce
-        highlighted_content_banner_action_title: Název tlačítka akce
-        highlighted_content_banner_action_url: Adresa URL tlačítka akce
-        highlighted_content_banner_enabled: Zobrazit zvýrazněný banner obsahu
-        highlighted_content_banner_image: Obrázek
-        highlighted_content_banner_short_description: Stručný popis
-        highlighted_content_banner_title: Titul
         host: Hostitel
         instagram_handler: Instagram handler
         logo: Logo
@@ -587,7 +580,6 @@ cs:
         content: Nahlášený obsah
         external_domain_allowlist: Povolené externí domény
         help_sections: Sekce nápovědy
-        homepage: Domovská stránka
         impersonations: V zastoupení
         manage: Spravovat
         moderation: Globální moderace
@@ -905,14 +897,6 @@ cs:
         update:
           error: Při aktualizaci této organizace došlo k chybě.
           success: Organizace byla úspěšně aktualizována.
-      organization_appearance:
-        edit:
-          update: Aktualizace
-        form:
-          header_snippets:
-            header_snippets_help_html: Toto pole použijte k přidání věcí do HTML záhlaví. Nejběžnějším použitím je integrace služeb třetích stran, které vyžadují nějaký další JavaScript nebo CSS. Můžete jej také použít k přidání dalších metaznaček do HTML. Všimněte si, že to bude vykresleno pouze na veřejných stránkách, nikoli v sekci pro správu. Pokud kód interaguje s externími rozhraními API nebo nesplňuje zásady zabezpečení aplikace, bude nutné změnit Zásady zabezpečení obsahu. Další informace o <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">na webu dokumentace</a>.
-            title: HTML snippety záhlaví
-          homepage_highlighted_content_banner_title: Zvýrazněný obsahový banner
       organization_external_domain_allowlist:
         edit:
           update: Aktualizovat
@@ -1238,8 +1222,6 @@ cs:
         authorization_workflows: Metody ověření
         dashboard: Ovládací panel
         edit_external_domains: Seznam povolených externích domén
-        edit_landing_page: Obsah stránky
-        edit_organization_appearance: Upravit vzhled domovské stránky
         impersonatable_users: Spravovatelní účastníci
         impersonations: Správa účastníků
         menu: Nabídka

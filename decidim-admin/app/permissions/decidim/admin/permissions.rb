@@ -42,6 +42,7 @@ module Decidim
           allow! if organization_action?
           allow! if user_action?
           allow! if admin_user_action?
+          allow! if moderate_user_action?
 
           allow! if permission_action.subject == :component
           allow! if permission_action.subject == :attachment
@@ -52,7 +53,6 @@ module Decidim
           allow! if permission_action.subject == :area
           allow! if permission_action.subject == :area_type
           allow! if permission_action.subject == :officialization
-          allow! if permission_action.subject == :moderate_users
           allow! if permission_action.subject == :authorization
           allow! if permission_action.subject == :authorization_workflow
           allow! if permission_action.subject == :static_page_topic
@@ -223,6 +223,19 @@ module Decidim
 
       def admin_user_action?
         return unless permission_action.subject == :admin_user
+
+        target_user = context.fetch(:user, nil)
+
+        case permission_action.action
+        when :destroy, :block
+          target_user != user
+        else
+          true
+        end
+      end
+
+      def moderate_user_action?
+        return unless permission_action.subject == :moderate_users
 
         target_user = context.fetch(:user, nil)
 
