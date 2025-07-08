@@ -7,6 +7,9 @@ es-PY:
         organization_name: Organización
         organization_url: URL de organización
         redirect_uri: Redirigir URI
+        refresh_tokens: Renovar autentificadores (tokens)
+        refresh_tokens_enabled: Renovar autentificadores (tokens) habilitados
+        scopes: Ámbitos disponibles
       organization:
         address: Nombre de host SMTP
         from_email: Dirección de correo electrónico
@@ -38,12 +41,28 @@ es-PY:
   decidim:
     system:
       actions:
+        api_user:
+          hidden_secret: El secreto está oculto
+          hide_secret: Ocultar el secreto
+          secret_can_not_be_shown: el secreto de API solo puede ser visto o copiado después de la creación
+          show_secret: Mostrar secreto
+          shown_secret: Se muestra el secreto
+        api_users:
+          create: Crear
+          new: Nueva usuaria de la API
+          remove: Eliminar usuaria
         confirm_destroy: '¿Seguro que lo quieres eliminar?'
+        confirm_refresh_api_secret: '¿Seguro de que quieres renovar el secreto para esta usuaria de la API? Una vez renovado, el secreto antiguo no será válido y ya no se podrá utilizar.'
+        confirm_remove_api_user: '¿Estás seguro de que quieres eliminar a esta usuaria de la API?'
+        copied: Se ha copiado
+        copy_secret: Copiar el secreto
+        copy_secret_clarification: Copiar el secreto al portapapeles
         destroy: Borrar
         edit: Editar
         new_admin: Añadir administradora
         new_oauth_application: Añadir aplicación OAUTH
         new_organization: Añadir organización
+        refresh_secret: Actualizar el secreto
         save: Guardar
         title: Acciones
       admins:
@@ -63,6 +82,21 @@ es-PY:
         update:
           error: Se ha producido un error al actualizar este administrador.
           success: Administradora actualizada correctamente.
+      api_user:
+        create:
+          error: Se ha producido un error al crear la usuaria de la API.
+          success: La usuaria de la API se ha creado correctamente. El secreto para la usuaria solo es visible después de su creación. ¡Por favor, cópialo y guárdalo de forma segura antes de salir de esta página!
+        destroy:
+          success: La usuaria de la API se ha eliminado con éxito.
+        refresh:
+          error: Algo ha fallado. Por favor, inténtelo de nuevo más tarde.
+          success: Se ha renovado el secreto correctamente. El secreto para la usuaria solo es visible después de su creación. ¡Por favor, cópialo y guárdalo de forma segura antes de salir de esta página!
+      api_users:
+        index:
+          manage: Gestionar usuarias de la API
+        new:
+          select_organization: Selecciona tu organización
+          title: Crear una nueva usuaria de la API
       dashboard:
         show:
           admins: Administradoras
@@ -91,6 +125,7 @@ es-PY:
             sign_up: Crea una cuenta
       menu:
         admins: Administradores
+        api_credentials: Credenciales de la API
         dashboard: Panel de control
         oauth_applications: Aplicaciones OAuth
         organizations: Organizaciones
@@ -101,6 +136,15 @@ es-PY:
             email: Correo electrónico
           validations:
             email_uniqueness: ya existe otro administrador con este correo electrónico
+        api_user:
+          fields:
+            created_at: Creada en
+            key: Clave
+            name: Nombre
+            organization: Organización
+            secret: Secreto
+          validations:
+            name_uniqueness: Ya existe una usuaria API con este nombre.
         oauth_application:
           fields:
             created_at: Creado el
@@ -127,6 +171,17 @@ es-PY:
           save: Guardar
           title: Editar aplicación
         form:
+          application_type:
+            confidential:
+              name: Confidencial
+            public:
+              explanation: Aplicaciones que no pueden utilizar secretos de clientes registrados, como aplicaciones que se ejecutan en un navegador o en un dispositivo móvil.
+              name: Público
+          scopes_explanation:
+            "api:read": Permite a la usuaria realizar operaciones de consulta a través de la API GraphQL.
+            "api:write": Permite a la usuaria realizar operaciones de mutación a través de la API GraphQL.
+            profile: Proporciona acceso a los detalles del perfil de la usuaria. Este ámbito solo es necesario en caso de que la aplicación OAuth solo se utilice como proveedor de identidad o servicio de autenticación.
+            user: Capacidad para actuar como la usuaria registrada con el autentificador (token) dado durante las llamadas a la API GraphQL. Esto es necesario para todas las operaciones api:write o api:read que necesiten información sobre el usuario actual.
           select_organization: Seleccionar una organización
         index:
           confirm_delete: '¿Seguro que quieres eliminar esta aplicación?'
