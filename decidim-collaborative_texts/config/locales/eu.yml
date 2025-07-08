@@ -17,6 +17,9 @@ eu:
           draft: Zirriborroa
           version_number: Bertsio zenbakia
   decidim:
+    admin:
+      tooltips:
+        deleted_collaborative_texts_info: Ezin da ezabatu dokumentu hau
     collaborative_texts:
       actions:
         confirm_delete_document: Ziur zaude dokumentu hau ezabatu nahi duzula?
