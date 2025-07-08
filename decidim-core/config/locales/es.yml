@@ -722,6 +722,7 @@ es:
     doorkeeper:
       authorizations:
         new:
+          api_read: Leer el contenido a través de la API
           authorize: Autoriza la aplicación
           by_organization_link_html: por %{link}
           cancel: Cancelar
