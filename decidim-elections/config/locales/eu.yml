@@ -125,6 +125,13 @@ eu:
           remove_before_upload: 'Beste errolda bat igo nahi baduzu, aurretik dagoena kendu behar duzu '
           upload_file: Igo fitxategia
           upload_new_census: Igo CSV fitxategia
+          uploaded_data_html:
+            one: |
+              Erroldako datuak kargatuta daude eta prest daude <b>%{eleccion_title}</b> bozketan erabiltzeko.
+              <br>Gaur egun pertsona <strong>1</strong> dago hautesleku honetan botoa eman dezakeena (hau errolda dinamiko batean alda daiteke).
+            other: |
+              Erroldako datuak kargatuta daude eta prest daude % <b>{eleccion_title}</b> bozketan erabiltzeko.
+              <br>Gaur egun <strong>% {count} </strong> pertsona daude hauetan botoa eman dezaketenak aukera honetan (hau errolda dinamiko batean alda daiteke).
       models:
         election:
           fields:
