@@ -34,7 +34,7 @@ describe "Space admin manages global moderations" do
       expect(page).to have_content("Please take a moment to review the admin terms of service")
     end
 
-    it "has the main navigation not empty" do
+    it "has the main navigation empty" do
       within ".layout-nav" do
         expect(page).to have_no_css("li a")
       end
