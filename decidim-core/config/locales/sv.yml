@@ -707,6 +707,7 @@ sv:
     doorkeeper:
       authorizations:
         new:
+          api_read: Läs innehåll via API:et
           authorize: Auktorisera ansökan
           by_organization_link_html: av %{link}
           cancel: Avbryt
