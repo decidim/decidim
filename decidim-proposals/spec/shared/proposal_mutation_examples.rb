@@ -1,67 +1,58 @@
 # frozen_string_literal: true
 
 shared_examples "manage proposal mutation examples" do
-  it "changes proposals state" do
-    expect(response["answer"]).to include("id" => model.id.to_s)
-    expect(response["answer"]).to include("state" => state)
-    answer = Decidim::Proposals::Proposal.find(model.id).answer
-    expect(answer["en"]).to eq(answer_en)
-    expect(answer["fi"]).to eq(answer_fi)
-    expect(answer["sv"]).to eq(answer_sv)
+  context "when proposal answering disabled" do
+    it "does not answer the proposal" do
+      expect(response["answer"]).to be_nil
+    end
   end
 
-  describe "add cost" do
-    let(:query) do
-      %(
+  context "when proposal answering enabled" do
+    let!(:proposal_answering_enabled) { true }
+
+    it "answers the proposal but not costs" do
+      answer = response["answer"]
+      expect(answer).to be_present
+      expect(answer).to include(
         {
-          answer(
-            state: "accepted"
-            cost: #{cost}
-            costReport: {
-              en: "#{cost_report[:en]}",
-              fi: "#{cost_report[:fi]}",
-              sv: "#{cost_report[:sv]}"
-            }
-            executionPeriod: {
-              en: "#{execution_period[:en]}",
-              fi: "#{execution_period[:fi]}",
-              sv: "#{execution_period[:sv]}"
-            }
-          )
-          {
-            id
-            state
-          }
+          "id" => model.id.to_s,
+          "state" => state,
+          "answer" => {
+            "translation" => answer_content[:en]
+          },
+          "cost" => nil,
+          "costReport" => nil,
+          "executionPeriod" => nil,
+          "answeredAt" => model.reload.answered_at.to_time.iso8601
         }
       )
     end
-    let(:cost) { Faker::Number.between(from: 1, to: 100_000.0).round(2).to_f }
-    let(:cost_report) do
-      {
-        en: Faker::Lorem.paragraph,
-        fi: Faker::Lorem.paragraph,
-        sv: Faker::Lorem.paragraph
-      }
-    end
-    let(:execution_period) do
-      {
-        en: Faker::Lorem.paragraph,
-        fi: Faker::Lorem.paragraph,
-        sv: Faker::Lorem.paragraph
-      }
-    end
 
-    it "changes proposal's cost" do
-      expect(response["answer"]).to include("state" => "accepted")
-      expect(response["answer"]).to include("id" => model.id.to_s)
-      proposal = Decidim::Proposals::Proposal.find(model.id)
-      expect(proposal.cost).to eq(cost)
-      expect(proposal.cost_report["en"]).to eq(cost_report[:en])
-      expect(proposal.cost_report["fi"]).to eq(cost_report[:fi])
-      expect(proposal.cost_report["sv"]).to eq(cost_report[:sv])
-      expect(proposal.execution_period["en"]).to eq(execution_period[:en])
-      expect(proposal.execution_period["fi"]).to eq(execution_period[:fi])
-      expect(proposal.execution_period["sv"]).to eq(execution_period[:sv])
+    context "with enabled answering with cost" do
+      let!(:proposal_answers_with_costs?) { true }
+
+      it "answers the proposal and adds the cost" do
+        answer = response["answer"]
+
+        expect(answer).to be_present
+        expect(answer).to include(
+          {
+            "id" => model.id.to_s,
+            "state" => state,
+            "answer" => {
+              "translation" => answer_content[:en]
+            },
+            "cost" => "€1,234.00",
+            "costReport" => {
+              "translation" => cost_report[:en]
+            },
+            "executionPeriod" => {
+              "translation" => execution_period[:en]
+            },
+            "answeredAt" => model.reload.answered_at.to_time.iso8601
+          }
+        )
+      end
     end
   end
 end

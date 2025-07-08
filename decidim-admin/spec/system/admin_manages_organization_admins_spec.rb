@@ -70,6 +70,7 @@ describe "Organization admins" do
 
       it "can resend the invitation" do
         within "tr[data-user-id=\"#{user.id}\"]" do
+          find("button[data-component='dropdown']").click
           click_on "Resend invitation"
         end
 
@@ -80,6 +81,7 @@ describe "Organization admins" do
         expect(page).to have_content(other_admin.name)
 
         within "tr[data-user-id=\"#{other_admin.id}\"]" do
+          find("button[data-component='dropdown']").click
           accept_confirm { click_on "Delete" }
         end
 
@@ -88,10 +90,11 @@ describe "Organization admins" do
 
       it "cannot remove admin rights from self" do
         within "tr[data-user-id=\"#{admin.id}\"]" do
-          expect(page).to have_no_link("Delete")
+          expect(page).to have_no_css("button[data-component='dropdown']")
         end
 
         within "tr[data-user-id=\"#{other_admin.id}\"]" do
+          find("button[data-component='dropdown']").click
           expect(page).to have_link("Delete")
         end
       end

@@ -13,34 +13,61 @@
   <div class="callout warning"><%= t("scopes.deprecated", scope: "decidim.admin") %></div>
 
   <% if @scopes.any? %>
-    <div class="table-scroll">
+    <div class="table-stacked">
       <table class="table-list">
       <thead>
         <tr>
           <th><%= t("models.scope.fields.name", scope: "decidim.admin") %></th>
           <th><%= t("models.scope.fields.scope_type", scope: "decidim.admin") %></th>
-          <th></th>
+          <th><%= t("decidim.admin.actions.actions") %></th>
         </tr>
       </thead>
       <tbody>
         <% @scopes.each do |scope| %>
           <tr>
-            <td>
+            <td data-label="<%= t("models.scope.fields.name", scope: "decidim.admin") %>">
               <%= link_to translated_attribute(scope.name), scope_scopes_path(scope) %>
             </td>
-            <td>
+            <td data-label="<%= t("models.scope.fields.scope_type", scope: "decidim.admin") %>">
               <%= scope.scope_type ? translated_attribute(scope.scope_type.name) : "-" %>
             </td>
-            <td class="table-list__actions">
-              <%= icon_link_to "zoom-in-line", scope_scopes_path(scope), t("actions.browse", scope: "decidim.admin"), class: "action-icon--browse", method: :get, data: {} %>
+            <td data-label="<%= t("decidim.admin.actions.actions") %>" class="table-list__actions">
+              <button type="button" data-component="dropdown" data-target="actions-scope-<%= scope.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: translated_attribute(scope.name)) %>">
+                <%= icon "more-fill", class: "text-secondary" %>
+              </button>
 
-              <% if allowed_to? :update, :scope, scope: scope %>
-                <%= icon_link_to "pencil-line", [:edit, scope], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit", method: :get, data: {} %>
-              <% end %>
+              <div class="inline-block relative">
+                <ul id="actions-scope-<%= scope.id %>" class="dropdown dropdown__action" aria-hidden="true">
+                  <li class="dropdown__item">
+                    <%= link_to scope_scopes_path(scope), method: :get, class: "dropdown__button" do %>
+                      <%= icon "zoom-in-line" %>
+                      <%= t("actions.browse", scope: "decidim.admin") %>
+                    <% end %>
+                  </li>
 
-              <% if allowed_to? :destroy, :scope, scope: scope %>
-                <%= icon_link_to "delete-bin-line", scope, t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
-              <% end %>
+                  <% if allowed_to? :update, :scope, scope: scope %>
+                    <hr>
+
+                    <li class="dropdown__item">
+                      <%= link_to [:edit, scope], method: :get, class: "dropdown__button" do %>
+                        <%= icon "pencil-line" %>
+                        <%= t("actions.edit", scope: "decidim.admin") %>
+                      <% end %>
+                    </li>
+                  <% end %>
+
+                  <% if allowed_to? :destroy, :scope, scope: scope %>
+                    <hr>
+
+                    <li class="dropdown__item">
+                      <%= link_to scope, method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") }, class: "dropdown__button" do %>
+                        <%= icon "delete-bin-line" %>
+                        <%= t("actions.destroy", scope: "decidim.admin") %>
+                      <% end %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
             </td>
           </tr>
         <% end %>
