@@ -1,6 +1,10 @@
 de:
   activemodel:
     attributes:
+      milestone:
+        description: Beschreibung
+        entry_date: Datum
+        title: Titel
       result:
         decidim_accountability_status_id: Status
         decidim_category_id: Kategorie
@@ -45,6 +49,8 @@ de:
         edit: Bearbeiten
         import: Ergebnisse aus einer anderen Komponente importieren
         import_csv: Ergebnisse aus CSV importieren
+        milestones: Meilensteine
+        new_milestone: Neuer Meilenstein
         new_result: Neues Ergebnis
         new_status: Neuer Status
         preview: Vorschau
@@ -105,6 +111,9 @@ de:
           create:
             invalid: Beim Importieren der Ergebnisse ist ein Fehler aufgetreten.
             success: Die Datei wird importiert. Innerhalb von ein paar Minuten erhalten Sie eine E-Mail mit dem Importergebnis.
+        milestones:
+          create:
+            invalid: Beim Erstellen dieses Meilensteins ist ein Problem aufgetreten.
         models:
           result:
             name: Ergebnis
@@ -331,7 +340,7 @@ de:
           url: Die URL, unter der dieses Ergebnis gefunden werden kann
     participatory_spaces:
       highlighted_results:
-        see_all: Alle Ergebnisse ansehen (%{count})
+        see_all: Alle Ergebnisse ansehen
     resource_links:
       included_projects:
         result_project: Projekte in diesem Ergebnis enthalten
