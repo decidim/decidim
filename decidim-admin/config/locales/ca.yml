@@ -1233,6 +1233,9 @@ ca:
         taxonomy_filters: Filtre de taxonomia per a "%{taxonomy}"
         users: Administradores
       tooltips:
+        cannot_destroy_taxonomy_filter: No es pot eliminar aquest filtre de taxonomia
+        cannot_edit_taxonomy_filter: No es pot editar aquest filtre de taxonomia
+        deleted_attachment_collections_info: No es pot eliminar aquesta carpeta perquè té arxius adjunts.
         deleted_component_info: Aquest component només es pot eliminar si el seu estat és 'Despublicat'.
       trash_management:
         restore:
