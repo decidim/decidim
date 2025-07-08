@@ -1,0 +1,88 @@
+<noscript>
+  <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_js_disabled.title"), body: t("decidim.forms.questionnaires.show.questionnaire_js_disabled.body") }, callout_class: "warning") %>
+</noscript>
+
+<% if questionnaire_for.respond_to?(:announcement) and questionnaire_for.announcement.present? %>
+  <%= cell("decidim/announcement", translated_attribute(questionnaire_for.announcement), callout_class: "warning") %>
+<% end %>
+
+<%= decidim_form_for(@form, url: update_url, method: :post, html: { multipart: true, class: "form demographic response-questionnaire" }, data: { "safe-path" => form_path }) do |form| %>
+
+  <%= invisible_captcha %>
+
+  <% response_idx = 0 %>
+  <% cleaned_response_idx = 1 %>
+
+  <div id="step-0" class="response-questionnaire__step">
+    <% @form.responses.each_with_index do |response, step_index| %>
+      <div class="response question" data-max-choices="<%= response.question.max_choices %>" data-conditioned="<%= response.question.display_conditions.any? %>" data-question-id="<%= response.question.id %>">
+        <% response.question.display_conditions.each do |display_condition| %>
+          <%= content_tag :div, nil, class: "display-condition", data: display_condition.to_html_data %>
+        <% end %>
+
+        <%= fields_for "questionnaire[responses][#{response_idx}]", response do |response_form| %>
+          <%= render(
+                "decidim/demographics/demographics/response",
+                response_form:,
+                response:,
+                response_idx:,
+                cleaned_response_idx:,
+                disabled: false
+              ) %>
+        <% end %>
+      </div>
+
+      <% if !(response.question.separator? || response.question.title_and_description?) %>
+        <% cleaned_response_idx += 1 %>
+      <% end %>
+
+      <% response_idx += 1 %>
+    <% end %>
+    <div class="response-questionnaire__footer">
+      <div class="response-questionnaire__tos">
+        <%= form.check_box :tos_agreement, label: t(".tos_agreement", link: link_to(t(".terms_of_service"), decidim.page_path("terms-of-service"))), label_options: { class: "form__wrapper-checkbox-label" } %>
+
+        <div>
+          <%= decidim_sanitize_editor translated_attribute questionnaire.tos %>
+        </div>
+      </div>
+
+      <div class="form__wrapper-block flex-col-reverse md:flex-row ml-auto pt-0">
+
+        <% if visitor_already_responded? %>
+          <button type="button" data-dialog-open="delete-answers" class="button button__sm md:button__lg button__transparent-secondary ml-auto mr-0 open-modal-button">
+            <%= t(".delete_my_data") %>
+          </button>
+        <% end %>
+
+        <%= form.submit(
+              t(".submit"),
+              class: "button button__sm md:button__lg button__secondary mr-auto !ml-0",
+              disabled: !demographic.collect_data?
+            ) %>
+
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<%= decidim_modal id: "delete-answers", class:"verification-modal" do %>
+  <div data-dialog-container>
+    <%= icon "delete-bin-line" %>
+    <h3 class="h3" id="dialog-title-delete-account" data-dialog-title>
+      <%= t(".modal_title") %>
+    </h3>
+    <div data-confirm-modal-content="">
+      <%= t(".modal_question") %>
+    </div>
+  </div>
+  <div data-dialog-actions>
+    <button type="button" class="button button__sm md:button__lg button__transparent-secondary" data-dialog-close="delete-answers">
+      <%= t(".modal_close") %>
+    </button>
+
+    <%= button_to demographics_engine.demographics_path, method: :delete, class: "button button__sm md:button__lg button__secondary" do %>
+      <%= t(".modal_ok") %>
+    <% end %>
+  </div>
+<% end %>

@@ -23,7 +23,7 @@ module Decidim
 
           def show
             @form = form(Decidim::Forms::QuestionnaireForm).from_model(questionnaire)
-            render template: "decidim/forms/questionnaires/show"
+            render template:
           end
 
           # i18n-tasks-use t("decidim.forms.questionnaires.response.success")
@@ -41,9 +41,13 @@ module Decidim
 
               on(:invalid) do
                 flash.now[:alert] = I18n.t("response.invalid", scope: i18n_flashes_scope)
-                render template: "decidim/forms/questionnaires/show"
+                render template:
               end
             end
+          end
+
+          def template
+            "decidim/forms/questionnaires/show"
           end
 
           # Public: Method to be implemented at the controller. You need to
@@ -121,7 +125,7 @@ module Decidim
             @form = form(Decidim::Forms::QuestionnaireForm).from_params(params)
 
             flash.now[:alert] = I18n.t("response.spam_detected", scope: i18n_flashes_scope)
-            render template: "decidim/forms/questionnaires/show"
+            render template:
           end
 
           # You can implement this method in your controller to change the
