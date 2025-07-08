@@ -40,7 +40,7 @@ shared_examples "API creatable project" do
   context "when form is not valid" do
     let(:title_en) { nil }
 
-    it "retrurns form error" do
+    it "returns form error" do
       expect do
         execute_query(query, variables)
       end.to raise_error(StandardError)
@@ -50,7 +50,7 @@ shared_examples "API creatable project" do
   context "with unavailable taxonomy" do
     let!(:taxonomy_id) { 0 }
 
-    it "retrurns form error" do
+    it "returns form error" do
       expect do
         execute_query(query, variables)
       end.to raise_error(StandardError)
@@ -74,7 +74,7 @@ shared_examples "API updatable project" do
   context "when form is not valid" do
     let(:title_en) { nil }
 
-    it "retrurns form error" do
+    it "returns form error" do
       expect do
         execute_query(query, variables)
       end.to raise_error(StandardError)
@@ -84,7 +84,7 @@ shared_examples "API updatable project" do
   context "with unavailable taxonomy" do
     let!(:taxonomy_id) { 0 }
 
-    it "retrurns form error" do
+    it "returns form error" do
       expect do
         execute_query(query, variables)
       end.to raise_error(StandardError)
@@ -92,7 +92,7 @@ shared_examples "API updatable project" do
   end
 
   it "updates the project and sets the attributes" do
-    project = response["createProject"]
+    project = response["updateProject"]
     expect(project["id"]).to be_present
     expect(project["coordinates"]).to eq(
       { "longitude" => longitude, "latitude" => latitude }

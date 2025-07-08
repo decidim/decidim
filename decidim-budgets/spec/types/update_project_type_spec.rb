@@ -4,7 +4,7 @@ require "spec_helper"
 require "decidim/api/test/mutation_context"
 
 module Decidim::Budgets
-  describe CreateProjectType, type: :graphql do
+  describe UpdateProjectType, type: :graphql do
     include_context "with a graphql class mutation"
 
     let(:root_klass) { BudgetMutationType }
@@ -14,7 +14,7 @@ module Decidim::Budgets
     let(:component) { create(:budgets_component, participatory_space: participatory_process) }
     let(:proposals_component) { create(:component, manifest_name: :proposals, participatory_space: participatory_process) }
     let!(:budget) { create(:budget, component:) }
-    let!(:project) { create(:project, component:) }
+    let!(:project) { create(:project, component:, budget:) }
     let(:address) { Faker::Address.full_address }
     let!(:proposal) { create(:proposal, component: proposals_component) }
     let(:model) { budget }
@@ -82,7 +82,7 @@ module Decidim::Budgets
     end
 
     it "does not create project for unauthorized user" do
-      expect(response["updateProoject"]).to be_nil
+      expect(response["updateProject"]).to be_nil
     end
   end
 end
