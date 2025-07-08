@@ -297,6 +297,7 @@ module Decidim
                         decidim_admin.statistics_path,
                         icon_name: "line-chart",
                         position: 11,
+                        if: allowed_to?(:read, :statistics),
                         active: [
                           %w(
                             decidim/admin/statistics
