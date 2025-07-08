@@ -7,15 +7,14 @@ module Decidim
 
       possible_types Decidim::Proposals::ProposalsMutationType,
                      Decidim::Budgets::BudgetsMutationType # ,
-      #  ::Decidim::Api::Accountability::AccountabilityMutationType
       def self.resolve_type(obj, _ctx)
         case obj.manifest_name
         when "proposals"
           Decidim::Proposals::ProposalsMutationType
         when "budgets"
           Decidim::Budgets::BudgetsMutationType
-          # when "accountability"
-          #   Decidim::Api::Accountability::AccountabilityMutationType
+        when "accountability"
+          Decidim::Accountability::AccountabilityMutationType
         end
       end
     end
