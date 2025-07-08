@@ -711,6 +711,7 @@ de:
     doorkeeper:
       authorizations:
         new:
+          api_read: Inhalt über die API lesen
           authorize: App zulassen
           by_organization_link_html: <small class="heading-small">von %{link}</small>
           cancel: Abbrechen
