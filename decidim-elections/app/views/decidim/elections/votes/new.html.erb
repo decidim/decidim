@@ -1,8 +1,4 @@
-<%= decidim_form_for(@form, url: check_verification_election_votes_path(election_id: election.id), html: {
-  class: "form form-defaults"
-}) do |f| %>
-  <div id="error-message" class="text-error mt-4"></div>
-
+<%= decidim_form_for(@form, url: check_verification_election_votes_path(election_id: election.id), html: { class: "form form-defaults" }) do |f| %>
   <div class="form__wrapper">
     <div class="flex justify-center">
       <h1 class="title-decorator my-12">

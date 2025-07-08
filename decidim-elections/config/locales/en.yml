@@ -248,6 +248,10 @@ en:
         results_published: Published results
         scheduled: Scheduled
       votes:
+        vote_submitted:
+          exit_button: Exit the voting booth
+          title: Your vote has been cast successfully
+          description: Yo can vote again at any time while the voting period is open. Your previous vote will be overwritten by the new one.
         cast_vote:
           invalid: There was a problem casting your vote. Please check the information you provided and try again.
           success: Your vote has been successfully cast.

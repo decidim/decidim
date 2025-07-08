@@ -15,7 +15,7 @@ module Decidim
       delegate :count, to: :questions, prefix: true
 
       def new
-        enforce_permission_to :create, :vote, election:
+        enforce_permission_to :create, :vote, election: election
 
         case election.census_manifest
         when "token_csv"
@@ -84,14 +84,18 @@ module Decidim
           on(:ok) do
             session[:votes_buffer] = nil
             flash[:notice] = t("votes.cast_vote.success", scope: "decidim.elections")
-            redirect_to exit_path, notice: t("votes.cast_vote.success", scope: "decidim.elections")
+            redirect_to vote_submitted_election_votes_path(election), notice: t("votes.cast_vote.success", scope: "decidim.elections")
           end
 
           on(:invalid) do
             flash[:alert] = I18n.t("votes.cast_vote.invalid", scope: "decidim.elections")
-            redirect_to confirm_election_votes_path(election_id: election.id)
+            redirect_to confirm_election_votes_path(election)
           end
         end
+      end
+
+      def vote_submitted
+        render :vote_submitted, layout: "decidim/election_booth"
       end
 
       private

@@ -1,1 +1,8 @@
-// Styles
+.vote-submitted {
+  @apply flex flex-col items-center justify-center text-center h-[100vh];
+
+  .spinner-container::before {
+    @apply w-[72px] h-[72px] -mt-[36px] border-[10px];
+    @apply border-l-success border-y-success border-r-transparent;
+  }
+}

@@ -1,0 +1,9 @@
+<div class="vote-submitted">
+  <div>
+    <div class="spinner-container mb-6"></div>
+    <h2 class="h2 text-center mb-6"><%= t(".title") %></h2>
+    <p class="text-center"><%= t(".description") %></p>
+  </div>
+  <%= link_to t(".exit_button"), exit_path, class: "button button__secondary button__sm w-full mt-12" %>
+</div>
+<%= append_stylesheet_pack_tag "decidim_elections" %>

@@ -15,6 +15,7 @@ module Decidim
               post "question/:id", action: :step
               get :confirm
               post :cast_vote
+              get :vote_submitted
             end
           end
         end
