@@ -1,0 +1,65 @@
+<table class="stack">
+  <thead>
+    <tr><th><%= t("models.api_user.fields.organization", scope: "decidim.system") %></th>
+      <th><%= t("models.api_user.fields.name", scope: "decidim.system") %></th>
+      <th><%= t("models.api_user.fields.key", scope: "decidim.system") %></th>
+      <th><%= t("models.api_user.fields.secret", scope: "decidim.system") %></th>
+      <th><%= t("models.api_user.fields.created_at", scope: "decidim.system") %></th>
+      <th><%= t("actions.title", scope: "decidim.system") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% api_users&.each do |api_user| %>
+      <tr>
+        <td>
+          <%= api_user.organization.host %>
+        </td>
+        <td>
+          <%= api_user.name %>
+        </td>
+        <td>
+          <%= translated_attribute(api_user.api_key) %>
+        </td>
+        <td>
+          <% if fresh_token?(api_user) %>
+            <div class="api-user-secret flex flex-row items-center gap-x-2">
+              <div class="input-group__password">
+                <input type="password" id="<%= "token_#{api_user.id}" %>" value="<%= @secret_user[:secret] %>" class="w-full" autocomplete="off">
+              </div>
+              <div class="basis-1/4"
+                data-show-password="<%= t "api_user.show_secret", scope: "decidim.system.actions" %>"
+                data-hide-password="<%= t "api_user.hide_secret", scope: "decidim.system.actions" %>"
+                data-hidden-password="<%= t "api_user.hidden_secret", scope: "decidim.system.actions" %>"
+                data-shown-password="<%= t "api_user.shown_secret", scope: "decidim.system.actions" %>">
+                <button type="button"
+                      class="button button__sm button__text-primary"
+                      data-clipboard-copy="<%= "#token_#{api_user.id}" %>"
+                      data-clipboard-content="<%= @secret_user[:secret] %>"
+                      data-clipboard-copy-label="<%= t("copied", scope: "decidim.system.actions") %>"
+                      data-clipboard-copy-message="<%= t("copied", scope: "decidim.system.actions") %>"
+                      title="<%= t("copy_secret_clarification", scope: "decidim.system.actions") %>">
+                  <span><%= t("copy_secret", scope: "decidim.system.actions") %></span>
+                  <%= icon "file-copy-line" %>
+                </button>
+              </div>
+            </div>
+          <% else %>
+           <div class="flex items-center gap-x-2">
+              <div class="basis-3/4">
+                <%= t("api_user.secret_can_not_be_shown", scope:"decidim.system.actions") %>
+              </div>
+            </div>
+          <% end %>
+        </td>
+        <td>
+          <%= l api_user.created_at, format: :short %>
+        </td>
+        <td>
+          <%= link_to t("actions.refresh_secret", scope: "decidim.system"), api_user_path(id: api_user.id), class: "button button__sm button__text-primary", method: :patch, data: { confirm: t("actions.confirm_refresh_api_secret", scope: "decidim.system") } %>
+          <br>
+          <%= link_to t("actions.api_users.remove", scope: "decidim.system"), api_user_path(id: api_user.id), class: "button button__sm button__text-primary", method: :delete, data: { confirm: t("actions.confirm_remove_api_user", scope: "decidim.system") } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

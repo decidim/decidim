@@ -52,7 +52,10 @@ table {
   tr:nth-child(even) td {
     @apply bg-gray-3;
   }
+}
 
+table,
+.text-content {
   a {
     @apply text-primary underline;
   }
@@ -163,4 +166,16 @@ dl {
 
 .tabs-panel[aria-hidden="true"] {
   @apply hidden;
+}
+
+.input-group__password {
+  @apply w-full relative;
+
+  input {
+    @apply w-full;
+  }
+
+  button {
+    @apply absolute ltr:right-2 rtl:left-2 top-4;
+  }
 }

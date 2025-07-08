@@ -35,6 +35,7 @@ PATH
       decidim-core (= 0.31.0.dev)
     decidim-api (0.31.0.dev)
       decidim-core (= 0.31.0.dev)
+      devise-jwt (~> 0.12.1)
       graphql (~> 2.4.0)
       graphql-docs (~> 5.0)
       rack-cors (~> 1.0)
@@ -111,6 +112,9 @@ PATH
     decidim-debates (0.31.0.dev)
       decidim-comments (= 0.31.0.dev)
       decidim-core (= 0.31.0.dev)
+    decidim-demographics (0.31.0.dev)
+      decidim-core (= 0.31.0.dev)
+      decidim-forms (= 0.31.0.dev)
     decidim-design (0.31.0.dev)
       decidim-core (= 0.31.0.dev)
     decidim-dev (0.31.0.dev)
@@ -360,6 +364,9 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (1.12.1)
       devise (>= 4.9.0)
+    devise-jwt (0.12.1)
+      devise (~> 4.0)
+      warden-jwt_auth (~> 0.10)
     devise_invitable (2.0.11)
       actionmailer (>= 5.0)
       devise (>= 4.6)
@@ -373,6 +380,16 @@ GEM
       railties (>= 5)
     doorkeeper-i18n (4.0.1)
     drb (2.2.3)
+    dry-auto_inject (1.1.0)
+      dry-core (~> 1.1)
+      zeitwerk (~> 2.6)
+    dry-configurable (1.3.0)
+      dry-core (~> 1.1)
+      zeitwerk (~> 2.6)
+    dry-core (1.1.0)
+      concurrent-ruby (~> 1.0)
+      logger
+      zeitwerk (~> 2.6)
     erb (5.0.1)
     erb_lint (0.8.0)
       activesupport
@@ -838,6 +855,11 @@ GEM
       rexml (~> 3.2)
     warden (1.2.9)
       rack (>= 2.0.9)
+    warden-jwt_auth (0.11.0)
+      dry-auto_inject (>= 0.8, < 2)
+      dry-configurable (>= 0.13, < 2)
+      jwt (~> 2.1)
+      warden (~> 1.2)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -873,6 +895,7 @@ DEPENDENCIES
   decidim-ai!
   decidim-collaborative_texts!
   decidim-conferences!
+  decidim-demographics!
   decidim-design!
   decidim-dev!
   decidim-elections!
