@@ -12,6 +12,7 @@
   <div class="card-section">
     <div class="row column">
       <%= render partial: "decidim/elections/admin/census/preview", locals: { election: } %>
+      <p class="mt-4 text-gray-2"><%= t("decidim.elections.censuses.token_csv.census_size_html", count: census_count(election)) %></p>
     </div>
   </div>
 </div>

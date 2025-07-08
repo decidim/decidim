@@ -14,11 +14,11 @@
   <div class="pb-4">
     <div class="row column">
       <div>
-        <span><%= t("decidim.elections.admin.dashboard.calendar.start_at") %></span>
+        <span class="font-semibold"><%= t("decidim.elections.admin.dashboard.calendar.start_at") %></span>
         <span><%= election.manual_start? ? t("decidim.elections.admin.dashboard.calendar.manual_start") : l(election.start_at, format: :short_with_time) %></span>
       </div>
       <div>
-        <span><%= t("decidim.elections.admin.dashboard.calendar.end_at") %></span>
+        <span class="font-semibold"><%= t("decidim.elections.admin.dashboard.calendar.end_at") %></span>
         <span><%= l(election.end_at, format: :short_with_time) %></span>
       </div>
     </div>

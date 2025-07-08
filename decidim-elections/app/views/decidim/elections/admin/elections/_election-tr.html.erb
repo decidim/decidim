@@ -1,7 +1,7 @@
 <tr data-id="<%= election.id %>">
   <td>
     <% if allowed_to? :update, :election, election: election %>
-      <%= link_to present(election).title(html_escape: true), edit_election_path(election) %>
+      <%= link_to present(election).title(html_escape: true), election.published? ? dashboard_election_path(election) : edit_election_path(election) %>
     <% else %>
       <%= present(election).title(html_escape: true) %><br>
     <% end %>

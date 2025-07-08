@@ -151,7 +151,7 @@ describe "Dashboard" do
       it "shows the election as ongoing" do
         expect(page).to have_content("Ongoing")
         expect(page).to have_button("End election")
-        expect(page).to have_content("No questions are currently enabled for voting.")
+        expect(page).to have_content("Voting is not yet enabled for any questions.")
       end
 
       it "shows the results message" do

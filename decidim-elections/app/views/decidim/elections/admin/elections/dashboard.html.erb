@@ -21,8 +21,10 @@
 
 <div class="item__edit-form">
   <% if election.published? %>
-    <%= render partial: "decidim/elections/admin/dashboard/status" %>
-    <%= render partial: "decidim/elections/admin/dashboard/calendar" %>
+    <div class="flex flex-col md:flex-row gap-4 w-full mb-10">
+      <div class="flex-1"><%= render partial: "decidim/elections/admin/dashboard/status" %></div>
+      <div class="flex-1"><%= render partial: "decidim/elections/admin/dashboard/calendar" %></div>
+    </div>
     <%= render partial: "decidim/elections/admin/dashboard/results" %>
   <% else %>
     <%= render partial: "decidim/elections/admin/dashboard/main" %>

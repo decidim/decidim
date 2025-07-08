@@ -33,7 +33,7 @@ describe "Admin manages election census" do
         visit election_census_path
 
         expect(page).to have_content("There are currently 2 people")
-        expect(page).to have_content("User preview (the list is limited to 2 records")
+        expect(page).to have_content("User preview (the list is limited to 5 records")
         expect(page).to have_content("user1@example.org")
         expect(page).to have_content("user2@example.org")
       end
@@ -51,7 +51,7 @@ describe "Admin manages election census" do
         visit election_census_path
 
         expect(page).to have_content("There is currently 1 person")
-        expect(page).to have_content("User preview (the list is limited to 1 record")
+        expect(page).to have_content("User preview (the list is limited to 5 records")
       end
     end
 
@@ -67,7 +67,7 @@ describe "Admin manages election census" do
         visit election_census_path
 
         expect(page).to have_content("There is currently 1 person")
-        expect(page).to have_content("User preview (the list is limited to 1 record")
+        expect(page).to have_content("User preview (the list is limited to 5 records")
         expect(page).to have_content("user1@example.org")
       end
     end
@@ -123,7 +123,7 @@ describe "Admin manages election census" do
         visit election_census_path
 
         expect(page).to have_content("There are currently 3 people eligible for voting in this election (this might change on a dynamic census).")
-        expect(page).to have_content("User preview (the list is limited to 3 records)")
+        expect(page).to have_content("User preview (the list is limited to 5 records)")
         expect(page).to have_css("table.table-list tbody tr", count: 3)
       end
 
@@ -148,7 +148,7 @@ describe "Admin manages election census" do
           visit election_census_path
 
           expect(page).to have_content("There is currently 1 person eligible for voting in this election (this might change on a dynamic census).")
-          expect(page).to have_content("User preview (the list is limited to 1 record)")
+          expect(page).to have_content("User preview (the list is limited to 5 records)")
           expect(page).to have_css("table.table-list tbody tr", count: 1)
         end
       end
