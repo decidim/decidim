@@ -1233,6 +1233,9 @@ es-MX:
         taxonomy_filters: Filtros de taxonomía para "%{taxonomy}"
         users: Administradoras
       tooltips:
+        cannot_destroy_taxonomy_filter: No se puede eliminar este filtro de taxonomía
+        cannot_edit_taxonomy_filter: No se puede editar este filtro de taxonomía
+        deleted_attachment_collections_info: No se puede eliminar esta carpeta porque tiene archivos adjuntos.
         deleted_component_info: Este componente solo se puede eliminar si el estado es 'Despublicado'.
       trash_management:
         restore:
