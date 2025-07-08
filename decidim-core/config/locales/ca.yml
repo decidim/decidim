@@ -722,6 +722,7 @@ ca:
     doorkeeper:
       authorizations:
         new:
+          api_read: Llegir-ne el contingut a través de l'API
           authorize: Autoritza l'aplicació
           by_organization_link_html: <small class="heading-small">per %{link}</small>
           cancel: Cancel·lar
