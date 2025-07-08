@@ -1,10 +1,16 @@
 ca:
+  activemodel:
+    attributes:
+      token_csv:
+        file: Arxiu
+        remove_all: Eliminar totes les dades del cens actual
   decidim:
     admin:
       menu:
         elections_menu:
           basic_elections: Principal
           election_census: Cens
+          election_dashboard: Tauler de control
           election_questions: Preguntes
     components:
       elections:
@@ -25,11 +31,23 @@ ca:
       admin:
         census:
           edit:
+            choose_census: Tria el tipus de cens que vols vincular a aquesta elecció
             created_at: Creada el
+            identifier: Identificador d'usuària
+            title: Tipus de cens
+          preview:
+            title:
+              one: 'Vista prèvia d''usuàries (el llistat està limitat a %{count} registre):'
+              other: 'Vista prèvia d''usuàries (el llistat està limitat a %{count} registres):'
+          update:
+            error: S'ha produït un error en generar o desar el cens.
+            success: Cens actualitzat correctament.
         elections:
           create:
             invalid: S'ha produït un error en crear l'elecció.
             success: Elecció creada correctament.
+          dashboard_page:
+            title: Tauler de control
           edit:
             title: Editar la votació
           form:
@@ -88,6 +106,28 @@ ca:
           update: "%{user_name} ha actualitzat l'elecció \"%{resource_name}\" a %{space_name}"
         question:
           update: "%{user_name} va actualitzar les preguntes de l'elecció \"%{resource_name}\""
+      censuses:
+        internal_users:
+          info_html: |
+            Pots restringir la participació en l'elecció a les participants que tinguin una autorització. <br>Tingues en compte que les participants obtenir l'autorització seleccionada per poder votar. Si deixes totes les caselles de verificació buides, qualsevol persona registrada podrà votar.
+          internal_type_title: Autoritzacions addicionals necessàries per votar (opcional)
+          label: Participants registrades (dinàmic)
+        token_csv:
+          example: |
+            email;token
+            user@example.org;123456
+            user2@example.org;ABCXYZ
+          info_html: |
+            Ha de ser un arxiu en format CSV amb només dues columnes, una amb l'adreça de correu electrònic i una altra amb el valor de l'autenticador (token). Els camps han d'estar separats amb punt i coma (;).
+          label: Participants no registrats amb autentificador/token (fixat)
+          remove_before_upload: 'Si vols pujar un nou cens, primer has d''eliminar el que ja existeix.'
+          upload_file: Puja arxiu
+          upload_new_census: Carregar un arxiu CSV
+          uploaded_data_html:
+            one: |
+              Les dades censals estan carregades i llestes per utilitzar-se a l'elecció "<b>%{election_title}</b>". <br>Actualment hi ha <strong>1</strong> persona amb dret a vot en aquestes eleccions (això podria canviar en un cens dinàmic).
+            other: |
+              Les dades censals estan carregades i llestes per utilitzar-se a l'elecció "<b>%{election_title}</b>". <br>Actualment hi ha <strong>%{count}</strong> persones amb dret a vot en aquestes eleccions (això podria canviar en un cens dinàmic).
       models:
         election:
           fields:
