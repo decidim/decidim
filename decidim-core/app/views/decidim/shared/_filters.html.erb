@@ -14,12 +14,12 @@
 
     <div id="dropdown-menu-filters">
       <% if local_assigns.has_key?(:skip_to_id) %>
-        <%= link_to t("skip", scope: "decidim.shared.filter_form_help"), "##{skip_to_id}", class: "filter-skip", role: "menuitem" %>
+        <%= link_to t("skip", scope: "decidim.shared.filter_form_help"), "##{skip_to_id}", class: "filter-skip" %>
       <% end %>
-      <p class="filter-help" role="menuitem" aria-disabled="true"><%= t("help", scope: "decidim.shared.filter_form_help") %></p>
+      <p class="filter-help" aria-disabled="true"><%= t("help", scope: "decidim.shared.filter_form_help") %></p>
 
       <% if local_assigns.has_key?(:search_variable) %>
-        <div class="filter-search filter-container" role="menuitem">
+        <div class="filter-search filter-container">
           <%= form.search_field search_variable,
                                 label: false,
                                 placeholder: search_label,
@@ -40,3 +40,58 @@
 
   <% end %>
 <% end %>
+<script type="text/javascript">
+  // fix button to display/hide filters
+  const button = document.querySelector('#dropdown-trigger-filters');
+  const arrowDown = button.querySelector('svg:first-of-type');
+  const arrowUp = button.querySelector('svg:last-of-type');
+  const list = document.querySelector('#dropdown-menu-filters');
+  // the arrow is up when user arrives on the page, with the list displayed
+  arrowUp.addEventListener('click', function(){
+    setTimeout(() => {
+      button.setAttribute('aria-expanded', 'false');
+      list.style.display = "none";
+      list.setAttribute("aria-hidden", "true");
+    }, 300)
+  })
+  arrowDown.addEventListener('click', function(){
+    setTimeout(() => {
+      button.setAttribute('aria-expanded', 'true');
+      list.style.display = "block";
+      list.setAttribute("aria-hidden", "false");
+    }, 300)
+  })
+  // 32 is code for space bar and 13 is code for enter
+  button.addEventListener('keydown', function(e){
+    if ((e.keyCode === 13 || e.keyCode === 32) && button.getAttribute('aria-expanded') === 'true') {
+      setTimeout(() => {
+        button.setAttribute('aria-expanded', 'false');
+        list.style.display = "none";
+        list.setAttribute("aria-hidden", "true");
+      }, 300)
+    } else if ((e.keyCode === 13 || e.keyCode === 32) && button.getAttribute('aria-expanded') === 'false'){
+      setTimeout(() => {
+        button.setAttribute('aria-expanded', 'true');
+        list.style.display = "block";
+        list.setAttribute("aria-hidden", "false");
+      }, 300)
+    }
+  })
+  // fix inappropriate roles
+  document.addEventListener("DOMContentLoaded", function(event) {
+    const panelDropdownDivs = document.querySelectorAll('div[id^="panel-dropdown-menu"]')
+    setTimeout(() => {
+      list.removeAttribute("role")
+      panelDropdownDivs.forEach((elem) => elem.setAttribute("role", "group"))
+    }, 500)
+  })
+  // when first clicking outside button
+  // keep aria-expanded to true on button, and aria-hidden to false on list
+  function handleAria(event){
+    if(event.currentTarget.id !== "dropdown-trigger-filters") {
+      button.setAttribute('aria-expanded', 'true');
+      list.setAttribute("aria-hidden", 'false')
+    }
+  }
+  window.addEventListener("click", handleAria)
+</script>
