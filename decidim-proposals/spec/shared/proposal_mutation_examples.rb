@@ -31,7 +31,7 @@ shared_examples "manage proposal mutation examples" do
     context "with enabled answering with cost" do
       let!(:proposal_answers_with_costs?) { true }
 
-      it "answers the proposala and adds the cost" do
+      it "answers the proposal and adds the cost" do
         answer = response["answer"]
 
         expect(answer).to be_present
