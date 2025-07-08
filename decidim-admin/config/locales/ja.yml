@@ -870,10 +870,20 @@ ja:
           basic_configuration: 基本設定
           colors:
             choose_color: プライマリカラーを選択
+            colors_title: 組織の配色
+            colors_warning_html: '警告: これらの色を変更すると、アクセシビリティのコントラストが壊れる可能性があります。 <a href="%{link}">WebAIM コントラストチェッカー</a> または他の同様のツールで、選択したコントラストを確認できます。'
+            explanation: このツールは、カラーホイールの周りに均等な間隔の色相で構成された配色を選択するのに役立ちます。 これは組織のウェブサイトに使われます。
+            legend_html: <a href="https://www.color-meanings.com/triadic-colors/">三角法</a>に基づくメインのアプリケーションカラーです。選択されたプライマリカラーと彩度に基づいて、<i>セカンダリ</i> カラーは自動的に計算されます。
+            saturation: 彩度
+            title: 色の選択
+            update_suggested_colors: 提案色を更新
           extra_features: 追加機能
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          logos:
+            organization_logos: 組織のロゴ
+            preview: プレビュー
           rich_text_editor_in_public_views_help: 一部のテキストエリアでは、参加者はリッチテキストエディタを使用してHTMLタグを挿入することができます。
           social_handlers: ソーシャル
           twitter: X
@@ -1215,6 +1225,9 @@ ja:
         taxonomy_filters: '"%{taxonomy}" のタクソノミーフィルター'
         users: 管理者
       tooltips:
+        cannot_destroy_taxonomy_filter: このタクソノミーフィルタは破棄できません
+        cannot_edit_taxonomy_filter: このタクソノミフィルタを修正できません
+        deleted_attachment_collections_info: 添付ファイルがあるため、このフォルダを削除できません。
         deleted_component_info: このコンポーネントは、ステータスが '未公開' の場合にのみ削除できます。
       trash_management:
         restore:
