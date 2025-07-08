@@ -197,6 +197,7 @@ en:
           fields:
             end_at: End time
             start_at: Start time
+            status: Status
             title: Title
       status:
         active: Active
@@ -204,6 +205,7 @@ en:
         ongoing: Ongoing
         results_published: Published results
         scheduled: Scheduled
+        unpublished: Unpublished
         voting_enabled: Voting in progress
     statistics:
       elections_count: Elections

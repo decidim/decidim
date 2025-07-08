@@ -4,9 +4,10 @@ require "spec_helper"
 
 describe "Dashboard" do
   let(:manifest_name) { "elections" }
+  let(:component) { current_component }
   let(:participatory_process) { create(:participatory_process, organization:) }
-  let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "elections") }
-  let!(:election) { create(:election, :with_token_csv_census, component: current_component, published_at:) }
+  let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name:) }
+  let!(:election) { create(:election, :with_token_csv_census, component:, published_at:) }
   let!(:questions) { create_list(:election_question, 3, election:) }
   let(:published_at) { Time.current }
 
@@ -16,12 +17,9 @@ describe "Dashboard" do
     visit election_dashboard_path
   end
 
-  context "when the election is published" do
-    it "does not show publish button" do
-      expect(page).to have_no_link("Publish")
-    end
-
+  shared_examples "can only edit election description" do
     it "can edit only election description" do
+      expect(page).to have_no_link("Publish")
       expect(page).to have_link("Main")
       expect(page).to have_no_link("Questions")
       expect(page).to have_no_link("Census")
@@ -32,6 +30,16 @@ describe "Dashboard" do
       click_on "Save and continue"
       expect(page).to have_content("Election updated successfully.")
       expect(election.reload.description["en"]).to eq("<p>Updated description</p>")
+    end
+  end
+
+  context "when the election is published" do
+    it_behaves_like "can only edit election description"
+
+    context "when per question results availability" do
+      let!(:election) { create(:election, :with_token_csv_census, :per_question, :started, component:, published_at:) }
+
+      it_behaves_like "can only edit election description"
     end
   end
 
@@ -56,7 +64,7 @@ describe "Dashboard" do
   end
 
   context "when the election with a manual start" do
-    let!(:election) { create(:election, :with_token_csv_census, component: current_component, start_at:, published_at:) }
+    let!(:election) { create(:election, :with_token_csv_census, component:, start_at:, published_at:) }
     let(:start_at) { nil }
 
     context "and the election is not started" do
@@ -78,7 +86,7 @@ describe "Dashboard" do
   end
 
   context "when the election with autostart" do
-    let!(:election) { create(:election, :with_token_csv_census, component: current_component, start_at:, published_at:) }
+    let!(:election) { create(:election, :with_token_csv_census, component:, start_at:, published_at:) }
     let(:start_at) { 1.day.from_now }
 
     it "shows the election scheduled status" do
@@ -90,7 +98,7 @@ describe "Dashboard" do
   end
 
   context "when results availability is set to real_time" do
-    let!(:election) { create(:election, :with_token_csv_census, component: current_component, start_at:, results_availability: "real_time", published_at:) }
+    let!(:election) { create(:election, :with_token_csv_census, :real_time, component:, start_at:, published_at:) }
 
     context "and the election is not started" do
       let(:start_at) { 1.day.from_now }
@@ -115,7 +123,7 @@ describe "Dashboard" do
   end
 
   context "when results availability is set to per_question" do
-    let!(:election) { create(:election, :with_token_csv_census, component: current_component, start_at:, results_availability: "per_question", published_at:) }
+    let!(:election) { create(:election, :with_token_csv_census, :per_question, component:, start_at:, published_at:) }
     let!(:questions) { create_list(:election_question, 3, election:, voting_enabled_at: nil) }
     let(:first_question) { election.questions.first }
     let(:second_question) { election.questions.second }
@@ -213,7 +221,7 @@ describe "Dashboard" do
   end
 
   context "when results availability is set to after_end" do
-    let!(:election) { create(:election, :with_token_csv_census, component: current_component, start_at:, results_availability: "after_end", published_at:) }
+    let!(:election) { create(:election, :with_token_csv_census, :after_end, component:, start_at:, published_at:) }
 
     context "and the election is not started" do
       let(:start_at) { 1.day.from_now }
@@ -254,7 +262,7 @@ describe "Dashboard" do
   end
 
   context "when the election has published results" do
-    let!(:election) { create(:election, :with_token_csv_census, component: current_component, end_at:, published_at:, published_results_at:) }
+    let!(:election) { create(:election, :with_token_csv_census, component:, end_at:, published_at:, published_results_at:) }
     let(:end_at) { 1.day.ago }
     let(:published_results_at) { 1.hour.ago }
 

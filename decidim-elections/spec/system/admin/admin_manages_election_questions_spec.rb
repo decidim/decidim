@@ -19,8 +19,8 @@ describe "Admin manages elections questions" do
   let(:description) do
     {
       en: "This is the first question description",
-      ca: "Aquesta es la primera pregunta descripcio",
-      es: "Esta es la primera pregunta descripcion"
+      ca: "Aquesta es la descripció de la primera pregunta",
+      es: "Esta es la descripción de la primera pregunta"
     }
   end
 
@@ -43,11 +43,10 @@ describe "Admin manages elections questions" do
         ["This is the Q2 first option", "This is the Q2 second option", "This is the Q2 third option"]
       ]
 
+      click_on "Add question"
+      click_on "Add question"
+      expand_all_questions
       within "form.edit_questions" do
-        click_on "Add question"
-        click_on "Add question"
-        expand_all_questions
-
         page.all(".questionnaire-question").each_with_index do |question, idx|
           within question do
             fill_in find_nested_form_field_locator("body_en"), with: question_body[idx]
@@ -76,7 +75,8 @@ describe "Admin manages elections questions" do
 
       expect(page).to have_admin_callout("successfully")
 
-      visit_questions_edit_path_and_expand_all
+      visit questions_edit_path
+      expand_all_questions
 
       expect(page).to have_css("input[value='This is the first question']")
       expect(page).to have_content("This is the first question description")
@@ -106,11 +106,6 @@ describe "Admin manages elections questions" do
 
   def expand_all_questions
     click_on "Expand all questions"
-  end
-
-  def visit_questions_edit_path_and_expand_all
-    visit questions_edit_path
-    expand_all_questions
   end
 
   def questions_edit_path

@@ -205,18 +205,18 @@ module Decidim
           end
 
           context "when question by question" do
-            let(:election) { create(:election, :published, :scheduled, results_availability: "per_question") }
+            let(:election) { create(:election, :published, :scheduled, :per_question) }
 
             it { is_expected.not_to be_ready_to_publish_results }
 
             context "when questions enabled" do
-              let(:election) { create(:election, :with_questions, :published, :ongoing, results_availability: "per_question") }
+              let(:election) { create(:election, :with_questions, :published, :ongoing, :per_question) }
 
               it { expect(subject).to be_ready_to_publish_results }
             end
 
             context "when no questions enabled" do
-              let(:election) { create(:election, :with_questions, :published, :ongoing, results_availability: "per_question") }
+              let(:election) { create(:election, :with_questions, :published, :ongoing, :per_question) }
 
               before do
                 election.questions.update_all(voting_enabled_at: nil) # rubocop:disable Rails/SkipsModelValidations
@@ -226,7 +226,7 @@ module Decidim
             end
 
             context "when some questions enabled" do
-              let(:election) { create(:election, :with_questions, :published, :ongoing, results_availability: "per_question") }
+              let(:election) { create(:election, :with_questions, :published, :ongoing, :per_question) }
 
               before do
                 election.questions.first.update!(voting_enabled_at: Time.current)
@@ -240,60 +240,60 @@ module Decidim
 
       describe "#results_published?" do
         context "when realtime" do
-          let(:election) { build(:election, results_availability: "real_time") }
+          let(:election) { build(:election, :real_time) }
 
           it { is_expected.not_to be_results_published }
 
           context "when vote ongoing" do
-            let(:election) { build(:election, :ongoing, results_availability: "real_time") }
+            let(:election) { build(:election, :ongoing, :real_time) }
 
             it { is_expected.to be_results_published }
           end
 
           context "when vote finished" do
-            let(:election) { build(:election, :finished, results_availability: "real_time") }
+            let(:election) { build(:election, :finished, :real_time) }
 
             it { is_expected.to be_results_published }
           end
         end
 
         context "when after_end" do
-          let(:election) { build(:election, results_availability: "after_end") }
+          let(:election) { build(:election, :after_end) }
 
           it { is_expected.not_to be_results_published }
 
           context "when vote ongoing" do
-            let(:election) { build(:election, :ongoing, results_availability: "after_end") }
+            let(:election) { build(:election, :ongoing, :after_end) }
 
             it { is_expected.not_to be_results_published }
           end
 
           context "when vote finished" do
-            let(:election) { build(:election, :finished, results_availability: "after_end") }
+            let(:election) { build(:election, :finished, :after_end) }
 
             it { is_expected.not_to be_results_published }
           end
 
           context "when results published" do
-            let(:election) { build(:election, :results_published, results_availability: "after_end") }
+            let(:election) { build(:election, :results_published, :after_end) }
 
             it { is_expected.to be_results_published }
           end
         end
 
         context "when per_question" do
-          let(:election) { create(:election, :with_questions, results_availability: "per_question") }
+          let(:election) { create(:election, :with_questions, :per_question) }
 
           it { is_expected.not_to be_results_published }
 
           context "when vote scheduled" do
-            let(:election) { create(:election, :scheduled, results_availability: "per_question") }
+            let(:election) { create(:election, :scheduled, :per_question) }
 
             it { is_expected.not_to be_results_published }
           end
 
           context "when vote ongoing" do
-            let(:election) { create(:election, :with_questions, :ongoing, results_availability: "per_question") }
+            let(:election) { create(:election, :with_questions, :ongoing, :per_question) }
 
             it { is_expected.not_to be_results_published }
           end
@@ -316,76 +316,78 @@ module Decidim
         end
       end
 
-      describe "#current_status" do
-        context "when realtime" do
-          let(:election) { build(:election, results_availability: "real_time") }
+      describe "#status" do
+        it { expect(subject.status).to eq(:unpublished) }
 
-          it { expect(subject.current_status).to eq(:scheduled) }
+        context "when realtime" do
+          let(:election) { build(:election, :published, :real_time) }
+
+          it { expect(subject.status).to eq(:scheduled) }
 
           context "when ongoing" do
-            let(:election) { build(:election, :ongoing, results_availability: "real_time") }
+            let(:election) { build(:election, :published, :ongoing, :real_time) }
 
-            it { expect(subject.current_status).to eq(:ongoing) }
+            it { expect(subject.status).to eq(:ongoing) }
           end
 
           context "when finished" do
-            let(:election) { build(:election, :finished, results_availability: "real_time") }
+            let(:election) { build(:election, :published, :finished, :real_time) }
 
-            it { expect(subject.current_status).to eq(:results_published) }
+            it { expect(subject.status).to eq(:results_published) }
           end
 
           context "when results published" do
-            let(:election) { build(:election, :results_published, results_availability: "real_time") }
+            let(:election) { build(:election, :published, :results_published, :real_time) }
 
-            it { expect(subject.current_status).to eq(:results_published) }
+            it { expect(subject.status).to eq(:results_published) }
           end
         end
 
         context "when after_end" do
-          let(:election) { build(:election, results_availability: "after_end") }
+          let(:election) { build(:election, :published, :after_end) }
 
-          it { expect(subject.current_status).to eq(:scheduled) }
+          it { expect(subject.status).to eq(:scheduled) }
 
           context "when ongoing" do
-            let(:election) { build(:election, :ongoing, results_availability: "after_end") }
+            let(:election) { build(:election, :published, :ongoing, :after_end) }
 
-            it { expect(subject.current_status).to eq(:ongoing) }
+            it { expect(subject.status).to eq(:ongoing) }
           end
 
           context "when finished" do
-            let(:election) { build(:election, :finished, results_availability: "after_end") }
+            let(:election) { build(:election, :published, :finished, :after_end) }
 
-            it { expect(subject.current_status).to eq(:finished) }
+            it { expect(subject.status).to eq(:finished) }
           end
 
           context "when results published" do
-            let(:election) { build(:election, :results_published, results_availability: "after_end") }
+            let(:election) { build(:election, :published, :results_published, :after_end) }
 
-            it { expect(subject.current_status).to eq(:results_published) }
+            it { expect(subject.status).to eq(:results_published) }
           end
         end
 
         context "when per_question" do
-          let(:election) { create(:election, :with_questions, results_availability: "per_question") }
+          let(:election) { create(:election, :published, :with_questions, :per_question) }
 
-          it { expect(subject.current_status).to eq(:scheduled) }
+          it { expect(subject.status).to eq(:scheduled) }
 
           context "when ongoing" do
-            let(:election) { create(:election, :with_questions, :ongoing, results_availability: "per_question") }
+            let(:election) { create(:election, :published, :with_questions, :ongoing, :per_question) }
 
-            it { expect(subject.current_status).to eq(:ongoing) }
+            it { expect(subject.status).to eq(:ongoing) }
           end
 
           context "when finished" do
-            let(:election) { create(:election, :with_questions, :finished, results_availability: "per_question") }
+            let(:election) { create(:election, :published, :with_questions, :finished, :per_question) }
 
-            it { expect(subject.current_status).to eq(:finished) }
+            it { expect(subject.status).to eq(:finished) }
           end
 
           context "when results published" do
-            let(:election) { create(:election, :with_questions, :results_published, results_availability: "per_question") }
+            let(:election) { create(:election, :published, :with_questions, :results_published, :per_question) }
 
-            it { expect(subject.current_status).to eq(:scheduled) }
+            it { expect(subject.status).to eq(:scheduled) }
           end
 
           context "when some questions have published results" do
@@ -393,18 +395,18 @@ module Decidim
               election.questions.first.update!(published_results_at: Time.current)
             end
 
-            it { expect(subject.current_status).to eq(:scheduled) }
+            it { expect(subject.status).to eq(:scheduled) }
 
             context "when finished" do
-              let(:election) { create(:election, :with_questions, :finished, results_availability: "per_question") }
+              let(:election) { create(:election, :published, :with_questions, :finished, :per_question) }
 
-              it { expect(subject.current_status).to eq(:finished) }
+              it { expect(subject.status).to eq(:finished) }
             end
 
             context "when ongoing" do
-              let(:election) { create(:election, :with_questions, :ongoing, results_availability: "per_question") }
+              let(:election) { create(:election, :published, :with_questions, :ongoing, :per_question) }
 
-              it { expect(subject.current_status).to eq(:ongoing) }
+              it { expect(subject.status).to eq(:ongoing) }
             end
           end
 
@@ -413,18 +415,18 @@ module Decidim
               election.questions.update_all(published_results_at: Time.current) # rubocop:disable Rails/SkipsModelValidations
             end
 
-            it { expect(subject.current_status).to eq(:results_published) }
+            it { expect(subject.status).to eq(:results_published) }
 
             context "when finished" do
-              let(:election) { create(:election, :with_questions, :finished, results_availability: "per_question") }
+              let(:election) { create(:election, :published, :with_questions, :finished, :per_question) }
 
-              it { expect(subject.current_status).to eq(:results_published) }
+              it { expect(subject.status).to eq(:results_published) }
             end
 
             context "when ongoing" do
-              let(:election) { create(:election, :with_questions, :ongoing, results_availability: "per_question") }
+              let(:election) { create(:election, :published, :with_questions, :ongoing, :per_question) }
 
-              it { expect(subject.current_status).to eq(:results_published) }
+              it { expect(subject.status).to eq(:results_published) }
             end
           end
         end
@@ -473,8 +475,8 @@ module Decidim
       end
 
       describe "#per_question?" do
-        let(:election_with_per_question) { build(:election, results_availability: "per_question") }
-        let(:election_with_real_time) { build(:election, results_availability: "real_time") }
+        let(:election_with_per_question) { build(:election, :per_question) }
+        let(:election_with_real_time) { build(:election, :real_time) }
 
         it "returns true when results_availability is per_question" do
           expect(election_with_per_question).to be_per_question

@@ -7,6 +7,8 @@
         <span>
           <% if editable %>
             <%== icon("drag-move-2-fill") %>
+          <% else %>
+            <%= icon("lock-line") %>
           <% end %>
           <%= dynamic_title(translated_attribute(question.body), class: "question-title-statement", max_length: 50, omission: "...", placeholder: t(".question")) %>
         </span>

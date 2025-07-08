@@ -40,7 +40,7 @@ module Decidim
         context "when publishing results" do
           let(:action) { :publish_results }
 
-          let(:election) { create(:election, :with_token_csv_census, results_availability: "after_end", component:, start_at: 1.hour.ago, end_at: 10.minutes.ago, published_at: 1.day.ago) }
+          let(:election) { create(:election, :with_token_csv_census, :after_end, component:, start_at: 1.hour.ago, end_at: 10.minutes.ago, published_at: 1.day.ago) }
 
           it "sets published_results_at" do
             expect { subject.call }.to broadcast(:ok)

@@ -63,7 +63,7 @@ module Decidim
         describe "#election_status_with_label" do
           it "renders status with correct CSS class" do
             allow(election).to receive(:per_question?).and_return(false)
-            allow(election).to receive(:current_status).and_return(:ongoing)
+            allow(election).to receive(:status).and_return(:ongoing)
             allow(election).to receive(:localized_status).and_return("Ongoing")
 
             html = helper.election_status_with_label(election)

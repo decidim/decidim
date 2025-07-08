@@ -2,19 +2,17 @@
   @apply mb-4 pt-4;
 }
 
-.status-label {
-  .label {
-    &.finished,
-    &.results_published {
-      @apply bg-[var(--bg-success)] text-[var(--success)];
-    }
+.label {
+  &.finished,
+  &.results_published {
+    @apply bg-[var(--bg-success)] text-[var(--success)];
+  }
 
-    &.ongoing {
-      @apply bg-[var(--bg-warning)] text-[var(--warning)];
-    }
+  &.ongoing {
+    @apply bg-[var(--bg-warning)] text-[var(--warning)];
+  }
 
-    &.scheduled {
-      @apply bg-neutral-200 text-neutral-900;
-    }
+  &.scheduled {
+    @apply bg-neutral-200 text-neutral-900;
   }
 }

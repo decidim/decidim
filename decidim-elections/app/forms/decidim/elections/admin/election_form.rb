@@ -25,7 +25,7 @@ module Decidim
         validates :title, translatable_presence: true
         validates :results_availability, inclusion: { in: Decidim::Elections::Election::RESULTS_AVAILABILITY_OPTIONS }
         validates :start_at, date: { before: :end_at }, unless: :manual_start?
-        validates :manual_start, acceptance: true, if: :per_question?
+        validates :manual_start, acceptance: true, if: :per_question_not_started?
         validates :end_at, presence: true
         validates :end_at, date: { after: :start_at }, if: ->(f) { f.start_at.present? && f.end_at.present? }
 
@@ -39,8 +39,8 @@ module Decidim
           end
         end
 
-        def per_question?
-          results_availability == "per_question"
+        def per_question_not_started?
+          results_availability == "per_question" && start_at.blank?
         end
       end
     end

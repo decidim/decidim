@@ -30,6 +30,18 @@ FactoryBot.define do
     published_at { nil }
     deleted_at { nil }
 
+    trait :real_time do
+      results_availability { "real_time" }
+    end
+
+    trait :per_question do
+      results_availability { "per_question" }
+    end
+
+    trait :after_end do
+      results_availability { "after_end" }
+    end
+
     trait :scheduled do
       start_at { 1.day.from_now }
       end_at { 2.days.from_now }
@@ -56,10 +68,6 @@ FactoryBot.define do
 
     trait :results_published do
       published_results_at { Time.current }
-    end
-
-    trait :per_question do
-      results_availability { "per_question" }
     end
 
     trait :with_questions do

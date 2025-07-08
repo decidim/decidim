@@ -26,8 +26,8 @@ module Decidim
 
         def election_status_with_label(election)
           content_tag(:span,
-                      I18n.t("decidim.elections.status.#{election.current_status}"),
-                      class: "#{election.current_status} label")
+                      I18n.t("decidim.elections.status.#{election.status}"),
+                      class: "#{election.status} label")
         end
 
         def formatted_datetime(datetime)
