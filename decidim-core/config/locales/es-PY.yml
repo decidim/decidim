@@ -725,6 +725,7 @@ es-PY:
     doorkeeper:
       authorizations:
         new:
+          api_read: Leer el contenido a través de la API
           authorize: Autorice la aplicación
           by_organization_link_html: <small class="heading-small">por %{link}</small>
           cancel: Cancelar
