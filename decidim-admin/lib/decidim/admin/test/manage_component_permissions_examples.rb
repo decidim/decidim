@@ -2,6 +2,16 @@
 
 require "spec_helper"
 
+shared_examples "access permissions form" do
+  it "can view the permissions" do
+    within "tr", text: row_text do
+      find("button[data-component='dropdown']").click
+      click_on "Permissions"
+    end
+    expect(page).to have_content(permission)
+  end
+end
+
 shared_examples "Managing component permissions" do
   let(:organization) do
     create(

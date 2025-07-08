@@ -18,12 +18,9 @@ describe "Admin manages surveys" do
       visit Decidim::EngineRouter.admin_proxy(component.participatory_space).components_path
     end
 
-    it "can view the permissions" do
-      within "tr", text: translated(component.name) do
-        find("button[data-component='dropdown']").click
-        click_on "Permissions"
-      end
-      expect(page).to have_content("Response")
+    it_behaves_like "access permissions form" do
+      let!(:row_text) { translated(component.name) }
+      let!(:permission) { "Response" }
     end
   end
 
@@ -70,6 +67,11 @@ describe "Admin manages surveys" do
     context "when the survey has responses" do
       let!(:response) { create(:response, question:, questionnaire:) }
 
+      it_behaves_like "access permissions form" do
+        let!(:row_text) { decidim_sanitize_translated(survey.title) }
+        let!(:permission) { "Response" }
+      end
+
       it "shows warning message" do
         within "tr", text: decidim_sanitize_translated(survey.title) do
           find("button[data-component='dropdown']").click
@@ -86,14 +88,6 @@ describe "Admin manages surveys" do
         click_on "Expand all"
         expect(page).to have_css("#questions_questions_#{question.id}_body_en")
         expect(page).to have_no_selector("#questions_questions_#{question.id}_body_en[disabled]")
-      end
-
-      it "displays the permissions page" do
-        within "tr", text: decidim_sanitize_translated(survey.title) do
-          find("button[data-component='dropdown']").click
-          click_on "Permissions"
-        end
-        expect(page).to have_content("Response")
       end
 
       it "deletes responses after published" do
