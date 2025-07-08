@@ -143,6 +143,16 @@ ja:
         new:
           copy: コピー
           title: ミーティングを複製
+      tooltips:
+        cannot_close_meetings: 参加者によって作成されたため、このミーティングを閉じることはできません
+        cannot_duplicate_meetings: 参加者によって作成されたため、このミーティングは複製できません
+        cannot_edit_meetings: 参加者によって作成されたため、このミーティングは編集できません
+        cannot_manage_agenda_meetings: 参加者によって作成されたため、このミーティングの議題を管理できません
+        cannot_manage_attachments_meetings: 参加者によって作成されたため、このミーティングの添付ファイルは管理できません
+        cannot_manage_poll_meetings: 参加者によって作成されたため、このミーティングの投票は管理できません
+        cannot_manage_registrations_meetings: 参加者によって作成されたため、この会議への登録を管理できません。登録が無効になっているか、外部での登録になっています
+        cannot_mark_attendee: 既にマークされていたため、出席者としてマークできません
+        deleted_meetings_info: 参加者によって作成されたため、このミーティングを削除することはできません。
     components:
       meetings:
         actions:
