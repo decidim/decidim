@@ -369,7 +369,7 @@ de:
           url: Die URL, unter der dieses Ergebnis gefunden werden kann
     participatory_spaces:
       highlighted_results:
-        see_all: Alle Ergebnisse ansehen (%{count})
+        see_all: Alle Ergebnisse ansehen
     resource_links:
       included_projects:
         result_project: Projekte in diesem Ergebnis enthalten
