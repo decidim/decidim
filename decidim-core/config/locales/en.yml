@@ -2153,8 +2153,8 @@ en:
         profile: My account
         public_profile: My public profile
         title: Profile links
-        unread_conversations: Unread conversations
-        unread_notifications: Unread notifications
+        unread_conversations: You have unread conversations
+        unread_notifications: You have unread notifications
       user_profile:
         account: Account
         authorizations: Authorizations
