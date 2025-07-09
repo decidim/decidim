@@ -1172,6 +1172,12 @@ fi:
       title: Mitä kunniamerkit ovat?
     group_admins:
       actions:
+        confirm_modal:
+          ok_add: Lisää hallintakäyttäjä
+          ok_remove: Poista hallintakäyttäjä
+          title_add: Vahvista uusi hallintakäyttäjä
+          title_remove: Poista hallintakäyttäjä
+        confirm_remove_from_admin: Haluatko varmasti poistaa hallintakäyttäjän tästä ryhmästä?
         demote_admin: Poista ylläpitäjä
       demote:
         error: Osallistujan poistaminen hallintakäyttäjien luettelosta epäonnistui.
@@ -1201,6 +1207,11 @@ fi:
         error: Liittymispyynnön hyväksyminen epäonnistui.
         success: Liittymispyyntö on hyväksytty.
       actions:
+        confirm_modal:
+          ok_remove: Poista jäsen
+          title_remove: Poista jäsen
+        confirm_promote_to_admin: Haluatko varmasti lisätä tämän käyttäjän hallintakäyttäjäksi?
+        confirm_remove_from_group: Haluatko varmasti poistaa käyttäjän tästä ryhmästä?
         promote_to_admin: Nimitä ylläpitäjäksi
         remove_from_group: Poista käyttäjä
       index:
