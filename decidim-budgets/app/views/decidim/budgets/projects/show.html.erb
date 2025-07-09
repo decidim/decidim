@@ -94,6 +94,17 @@ edit_link(
           <%= budget_to_currency project.budget_amount %>
         </div>
       </section>
+
+      <% if show_votes_count? %>
+        <section class="layout-aside__section">
+          <span class="budget__definition-data__title">
+            <%= t("votes", scope: "decidim.budgets.projects.show") %>
+          </span>
+          <div class="budget__definition-data__number">
+            <%= cell "decidim/budgets/project_votes_count", project %>
+          </div>
+        </section>
+      <% end %>
     <% end %>
     <% content_for :item_footer do %>
       <%= comments_for project, polymorphic: [project.budget] %>
