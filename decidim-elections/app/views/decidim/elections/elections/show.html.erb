@@ -1,15 +1,15 @@
 <% add_decidim_meta_tags(
-     description: present(@election).description,
-     title: present(@election).title,
-     url: election_url(@election.id),
-     resource: @election) %>
+     description: present(election).description,
+     title: present(election).title,
+     url: election_url(election.id),
+     resource: election) %>
 
 <%
   edit_link(
-    resource_locator(@election).edit,
-    :edit,
+    resource_locator(election).edit,
+    :update,
     :election,
-    election: @election
+    election: election
   )
 %>
 
@@ -24,10 +24,10 @@
 
   <section class="layout-main__section layout-main__heading">
     <h1 class="h2 decorator">
-      <%= present(@election).title %>
+      <%= present(election).title %>
     </h1>
     <div class="editor-content">
-      <p><%= present(@election).description %></p>
+      <p><%= present(election).description %></p>
     </div>
   </section>
 
@@ -39,9 +39,9 @@
     <div><%= render partial: "questions", locals: { questions: } %></div>
   </section>
 
-  <% if visible_questions(@election).any? %>
+  <% if visible_questions(election).any? %>
     <section class="layout-main__section">
-      <div><%= render partial: "vote_statistics", locals: { questions: visible_questions(@election) } %></div>
+      <div><%= render partial: "vote_statistics", locals: { questions: visible_questions(election) } %></div>
     </section>
   <% end %>
 <% end %>

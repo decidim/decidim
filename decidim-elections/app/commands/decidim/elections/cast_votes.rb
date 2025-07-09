@@ -2,7 +2,7 @@
 
 module Decidim
   module Elections
-    class ConfirmVote < Decidim::Command
+    class CastVotes < Decidim::Command
       def initialize(election, data, credentials)
         @election = election
         @data = data

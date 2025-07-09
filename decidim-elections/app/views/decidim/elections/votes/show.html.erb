@@ -1,0 +1,36 @@
+<%= form_with url: election_vote_path(election_id: election, id: question), method: :patch, local: true do %>
+  <%= question_title(question) %>
+
+  <div class="question__response-options mt-4 flex flex-col gap-4">
+    <% question.response_options.each do |option| %>
+      <label class="rounded-lg border border-gray p-4">
+        <% if question.question_type == "multiple_option" %>
+          <%= render "decidim/elections/votes/responses/multiple_option",
+                     question: question,
+                     response_option: option,
+                     field_id: "response_option_#{option.id}" %>
+        <% else %>
+          <%= render "decidim/elections/votes/responses/single_option",
+                     question: question,
+                     response_option: option,
+                     field_id: "response_option_#{option.id}" %>
+        <% end %>
+      </label>
+    <% end %>
+  </div>
+
+  <div class="vote-navigation flex justify-between mt-8">
+    <% if question.position.positive? %>
+      <%= link_to election_vote_path(election_id: election.id, id: question.previous_question, edit: editing?), class: "button button__lg button__secondary" do %>
+        <%= icon "arrow-left-line", class: "fill-current" %>
+        <%= t("back", scope: "decidim.elections.votes.question") %>
+      <% end %>
+    <% end %>
+
+    <div class="ml-auto">
+      <%= hidden_field_tag("edit", true) if editing? %>
+      <%= submit_tag t("next", scope: "decidim.elections.votes.question"),
+                     class: "button button__lg button__secondary" %>
+    </div>
+  </div>
+<% end %>

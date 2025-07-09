@@ -91,7 +91,7 @@ module Decidim
           # If a user query is defined, we assume that the user is valid if it exists in the query
           if data.is_a?(Decidim::User)
             @user_query.call(election).exists?(id: data.id)
-          else
+          elsif data.present?
             form_instance(data, context.merge(election:)).valid?
           end
         else

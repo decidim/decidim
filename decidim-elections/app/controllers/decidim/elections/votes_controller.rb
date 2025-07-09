@@ -12,7 +12,7 @@ module Decidim
 
       delegate :count, to: :questions, prefix: true
 
-      before_action except: [:new, :create] do
+      before_action except: [:new, :create, :receipt] do
         next if allowed_to?(:create, :vote, election:) && election.census.valid_user?(election, session_credentials, current_user:)
 
         flash[:alert] = t("votes.not_authorized", scope: "decidim.elections")
@@ -66,10 +66,11 @@ module Decidim
       end
 
       def cast
-        # TODO: Ensure that the user has answered all questions
-        ConfirmVote.call(election, votes_buffer, session_credentials) do
+        CastVotes.call(election, votes_buffer, session_credentials) do
           on(:ok) do
             votes_buffer.clear
+            session[:voter_uid] = election.census.user_uid(session_credentials)
+            session[:session_credentials] = nil
             flash[:notice] = t("votes.cast.success", scope: "decidim.elections")
             redirect_to receipt_election_votes_path(election), notice: t("votes.cast.success", scope: "decidim.elections")
           end
@@ -82,7 +83,11 @@ module Decidim
       end
 
       def receipt
-        # TODO: ensure that the user has voted
+        enforce_permission_to(:create, :vote, election:)
+
+        @voter_uid = session[:voter_uid]
+        redirect_to(exit_path) && return unless election.votes.exists?(voter_uid: @voter_uid)
+
         render :receipt
       end
 
@@ -98,10 +103,6 @@ module Decidim
                        else
                          elections_path
                        end
-      end
-
-      def elections
-        @elections ||= Decidim::Elections::Election.where(component: current_component)
       end
 
       def election

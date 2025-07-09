@@ -1,0 +1,34 @@
+<h3 class="h3"><%= t(".title") %></h3>
+
+<div class="selected_responses space-y-6 mt-8">
+  <% questions.each_with_index do |question, idx| %>
+    <div>
+      <p class="font-semibold mb-2">
+        <%= "#{idx + 1}- #{translated_attribute(question.body)}" %>
+      </p>
+
+      <% list = question.safe_responses(votes_buffer[question.id.to_s]) %>
+      <% if list.present? %>
+        <% list.each do |option| %>
+          <p><%= translated_attribute(option.body) %></p>
+        <% end %>
+      <% else %>
+        <p class="italic text-gray-500"><%= t("not_answered", scope: "decidim.elections.votes.confirm") %></p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<div class="vote-navigation flex justify-between mt-8">
+  <%= link_to election_vote_path(election_id: election, id: questions.first, edit: true),
+              class: "button button__lg button__transparent-secondary" do %>
+    <%= icon "edit-line", class: "fill-current mr-2" %>
+    <%= t(".edit_vote") %>
+  <% end %>
+
+  <%= form_with url: cast_election_votes_path(election_id: election), method: :post, local: true do %>
+    <%= button_tag type: "submit", class: "button button__lg button__secondary" do %>
+      <%= t(".cast_vote") %>
+      <%= icon "arrow-right-line", class: "fill-current ml-2" %>
+    <% end %>
+  <% end %>
+</div>

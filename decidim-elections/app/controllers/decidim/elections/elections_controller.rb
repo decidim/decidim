@@ -16,6 +16,7 @@ module Decidim
       end
 
       def show
+        # TODO: permissions
         raise ActionController::RoutingError, "Not Found" unless election
       end
 
