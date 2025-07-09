@@ -82,11 +82,11 @@
   }
 
   &__card__list-project {
-    @apply ml-auto rounded py-3 px-4 bg-background w-[30%] min-w-[120px] flex flex-col justify-center items-center lg:flex-row lg:justify-around lg:place-items-center;
+    @apply ml-auto rounded py-3 px-4 bg-background w-2/5 min-w-[120px] flex flex-col justify-center items-center lg:flex-row lg:justify-between lg:place-items-center;
   }
 
   &__card__list-project__amount {
-    @apply font-semibold text-gray-2 text-xl inline-block text-center mb-2 md:mb-0;
+    @apply font-semibold text-gray-2 text-xl inline-block m-auto;
   }
 
   &__card__highlight-vote {
@@ -122,7 +122,7 @@
   }
 
   &__definition-data__title {
-    @apply text-sm text-gray-2 mt-6 mb-2 block;
+    @apply text-sm text-gray-2 mb-2 block;
   }
 
   &__definition-data__number {

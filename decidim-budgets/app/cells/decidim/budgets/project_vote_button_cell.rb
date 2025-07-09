@@ -45,7 +45,7 @@ module Decidim
       end
 
       def vote_button_classes
-        classes = []
+        classes = ["w-40"]
 
         classes << if resource_added?
                      "success button__secondary budget-list__data--added"
