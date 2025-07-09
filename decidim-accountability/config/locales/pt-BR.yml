@@ -1,6 +1,10 @@
 pt-BR:
   activemodel:
     attributes:
+      milestone:
+        description: Descrição
+        entry_date: Data
+        title: Título
       result:
         decidim_accountability_status_id: Status
         decidim_category_id: Categoria
@@ -25,6 +29,10 @@ pt-BR:
       decidim:
         accountability:
           result:
+            budget_text: Este resultado %{link} foi incluído
+            meetings_ids: 'Foi discutido nesta reunião: %{link}'
+            project_ids: 'Foi incluído neste projeto: %{link}'
+            proposal_ids: 'Foi incluído nesta proposta: %{link}'
             text: 'Foi adicionado a este resultado: %{link}'
       decidim/accountability/result:
         one: Resultado
@@ -34,33 +42,112 @@ pt-BR:
       actions:
         attachment_collections: Pastas
         attachments: Anexos
+        confirm_delete_result: Você tem certeza que quer deletar este resultado?
         confirm_destroy: Deseja mesmo excluir %{name}?
+        deleted_results_info: Os resultados deletados podem ser restaurados da lixeira.
         destroy: Excluir
         edit: Editar
+        import: Importar resultados de outro componente
         import_csv: Importar resultados de arquivo CSV
+        milestones: Marcos
+        new_milestone: Novo marco
         new_result: Novo resultado
         new_status: Novo status
         preview: Pré-visualização
         title: Ações
+        view_deleted_results: Ver resultados deletados
       admin:
         exports:
           result_comments: Comentários
           results: Resultados
+        import_components:
+          create:
+            invalid: Houve um problema ao importar os resultados, por favor, siga as instruções cuidadosamente e verifique se você selecionou projetos para implementação.
+          filters:
+            new_items_projects:
+              one: 1 projeto selecionado será importado
+              other: "%{count} projetos selecionados serão importados"
+            new_items_proposals:
+              one: 1 proposta será importada
+              other: "%{count} propostas serão importadas"
+            proposal_state: Estatuto da proposta
+            select_state: Selecionar status
+          form:
+            create: Importar
+            no_components: Não há componentes neste espaço participativo para importar.
+            origin_component_id: Componente de origem
+            select_component: Selecionar componente
+          new:
+            title: Importar resultados de outros componentes
         import_results:
           new:
             download_export: Baixe a Exportação com formato CSV
             import: Importar
+            info: |
+              <p>Nós recomendamos que você siga esses passos:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Crie os Status para os Resultado</a>que você queira adicionar.</li>
+              <li><a href='%{link_new_result}' target='_blank'>Crie no mínimo um Resultado manualmente</a> através desse Painel de Administração antes de usar a função Importar, para um melhor entendimento a respeito do formato e o que você precisa preencher.</li>
+              <li>%{link_export_csv}</li>
+              <li>Faça as mudanças localmente. Você só pode alterar as seguintes colunas do CSV (o resto será ignorado):</li>
+                <ul>
+                <li><b>taxonomias/ids:</b> Identificadores para as Taxonomias (Se houver múltiplas, separe-as com vírgula)</li>
+                <li><b>pai/id:</b> Identificador do pai (para Resultados relacionados). Opcional</li>
+                <li><b>titulo/pt-br:</b> Título na língua Portuguesa. Isto dependerá das configurações de linguagem da sua plataforma.</li>
+                <li><b>descricao/pt-br:</b> Descrição na língua Portuguesa. Isto dependerá das configurações de linguagem da sua plataforma.</li>
+                <li><b>data_inicio:</b> data de início de execução dos resultados (formato DD-MM-YYYY)</li>
+                <li><b>data_fim:</b> data de fim da execução dos resultados (formato DD-MM-YYYY)</li>
+                <li><b>status/id:</b> Identificador do Status para este resultado</li>
+                <li><b>progresso:</b> Porcentagem (de 0 a 100) desta execução</li>
+                <li><b>ids_propostos:</b> Identificadores interno das propostas relacionadas (separadas por vírgula). É automaticamente convertida para <span class='attribute-name'>url_proposta</span></li>
+                </ul>
+              </li>
+              </ol>
             title: Importar resultados de arquivo CSV
         imports:
           create:
             invalid: Houve um problema ao importar resultados.
             success: O arquivo começou a importar. Você receberá um e-mail nos próximos minutos com o resultado da importação.
+        milestones:
+          create:
+            invalid: Ocorreu um erro ao criar este marco.
+            success: Marco criado com sucesso.
+          destroy:
+            success: Marco deletado com sucesso.
+          edit:
+            title: Editar marco
+            update: Atualizar marco
+          index:
+            title: Marcos
+          new:
+            create: Criar marco
+            title: Novo marco
+          update:
+            invalid: Ocorreu um erro ao atualizar este marco.
+            success: Marco atualizado com sucesso.
         models:
           result:
             name: Resultado
           status:
             name: Status
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: Alterar data
+              end_date: Data final
+              start_date: Da de início
+            dropdown:
+              actions: Ações
+              change_dates: Alterar datas
+              change_status: Alterar status
+              change_taxonomies: Alterar taxonomias
+            status_form:
+              change_status: Alterar status
+              status: Status
+            submit_buttons:
+              cancel: Cancelar
+            taxonomies_form:
+              change_taxonomies: Alterar taxonomias
           create:
             invalid: Houve um problema criando esse resultado.
             success: Resultado criado com sucesso.
@@ -68,13 +155,19 @@ pt-BR:
             title: Editar resultado
             update: Atualizar resultado
           index:
+            selected: Selecionado
             title: Resultados
+          manage_trash:
+            title: Excluir resultados
           new:
             create: Criar resultado
             title: Novo resultado
           update:
             invalid: Houve um problema atualizando esse resultado.
             success: Resultado atualizado com sucesso.
+          update_dates:
+            invalid: Houve um problema ao atualizar as datas de resultados
+            success: Datas de resultados atualizadas com sucesso
         shared:
           subnav:
             statuses: Statuses
@@ -187,6 +280,11 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque está seguindo "%{proposal_title}" e esta proposta está incluída no resultado "%{resource_title}". Você pode parar de receber notificações após o link anterior.
           email_subject: Uma atualização para %{resource_title} progresso
           notification_title: O resultado <a href="%{resource_path}">%{resource_title}</a>, que inclui a proposta <a href="%{proposal_path}">%{proposal_title}</a>, está agora com %{progress}% de conclusão.
+    open_data:
+      help:
+        results:
+          description: A descrição do resultado
+          end_date: A data de quando o resultado termina a execução e está concluída
     participatory_spaces:
       highlighted_results:
         see_all: Ver todos os resultados (%{count})
