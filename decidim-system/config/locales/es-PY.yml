@@ -93,6 +93,10 @@ es-PY:
           success: Se ha renovado el secreto correctamente. El secreto para la usuaria solo es visible después de su creación. ¡Por favor, cópialo y guárdalo de forma segura antes de salir de esta página!
       api_users:
         index:
+          explanation_html: |
+            <p>Las usuarias API permiten a las desarrolladoras de integración añadir cuentas de usuaria de máquina administrativas al sistema. Estas usuarias de máquina pueden actuar como administradores en la plataforma para realizar actualizaciones que los administradores normales realizarían a través del panel de administración. Un caso de uso típico es una plataforma de gestión externa en la que un script automatizado realizaría tareas administrativas con la plataforma sin que una usuaria real tenga que autenticarse en el sistema. Por ejemplo, un sistema de automatización podría querer enviar respuestas a propuestas en cuyo caso necesitamos una usuaria de integración para realizar esta tarea dentro de esta plataforma.</p>
+            <p>La principal diferencia entre estas cuentas y las cuentas de administración normales es que estas usuarias están destinadas a ser utilizadas por las máquinas y por lo tanto sus requisitos de contraseña son diferentes. Estoas usuarioas no necesitan actualizar regularmente su contraseña y el cambio de contraseña de la cuenta puede realizarse de forma gestionada cuando sea necesario.</p>
+            <p>Estas credenciales están destinadas a ser utilizadas por máquinas. Las aplicaciones orientadas a los participantes deben integrarse con <a href="%{oauth_link}">Aplicaciones OAuth</a>.</p>
           manage: Gestionar usuarias de la API
         new:
           select_organization: Selecciona tu organización
@@ -173,15 +177,24 @@ es-PY:
         form:
           application_type:
             confidential:
+              explanation: Aplicaciones que son capaces de autenticarse de forma segura con el servidor de autorización, por ejemplo siendo capaces de mantener a salvo su secreto de cliente registrado. Normalmente se trata de una aplicación que se ejecuta en un servidor donde se almacena el secreto del cliente.
               name: Confidencial
             public:
               explanation: Aplicaciones que no pueden utilizar secretos de clientes registrados, como aplicaciones que se ejecutan en un navegador o en un dispositivo móvil.
               name: Público
+          application_type_help_html: 'El tipo de cliente OAuth definido por <a href="%{client_type_link}" target="_blank">RFC 6749 Sección 2.1</a>. Los clientes públicos deben implementar el flujo PKCE según lo definido por <a href="%{pkce_link}" target="_blank">RFC 7636</a>. '
+          refresh_tokens_help_html: 'Los autentificadores (tokens) de actualización son útiles en caso de que el autentificador necesite una vida útil más larga que la asignada al autentificador de acceso.'
           scopes_explanation:
             "api:read": Permite a la usuaria realizar operaciones de consulta a través de la API GraphQL.
             "api:write": Permite a la usuaria realizar operaciones de mutación a través de la API GraphQL.
             profile: Proporciona acceso a los detalles del perfil de la usuaria. Este ámbito solo es necesario en caso de que la aplicación OAuth solo se utilice como proveedor de identidad o servicio de autenticación.
             user: Capacidad para actuar como la usuaria registrada con el autentificador (token) dado durante las llamadas a la API GraphQL. Esto es necesario para todas las operaciones api:write o api:read que necesiten información sobre el usuario actual.
+          scopes_help_html: |
+            Los ámbitos seleccionados estarán disponibles para que las aplicaciones conectadas los soliciten durante el proceso de autorización. La usuaria recibirá información detallada sobre la solicitud de autorización cuando inicie sesión mediante OAuth.
+            <br>
+            Los diferentes ámbitos proporcionan diferentes características para la usuaria autenticada utilizando los autentifcadores (tokens) de acceso concedidos.
+            <br>
+            <strong>Nota:</strong> Si sólo necesitas autenticar a las usuarias de tus aplicaciones externas, sólo necesitas el ámbito <strong>perfil</strong>. Las aplicaciones que interactúan con la API de Decidim también necesitan otros ámbitos.
           select_organization: Seleccionar una organización
         index:
           confirm_delete: '¿Seguro que quieres eliminar esta aplicación?'
