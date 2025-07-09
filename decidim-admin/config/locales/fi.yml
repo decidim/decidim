@@ -1233,6 +1233,9 @@ fi:
         taxonomy_filters: Luokittelun suodattimet kohteelle "%{taxonomy}"
         users: Hallintakäyttäjät
       tooltips:
+        cannot_destroy_taxonomy_filter: Tätä luokittelusuodantinta ei voi poistaa
+        cannot_edit_taxonomy_filter: Tätä luokittelusuodantinta ei voi muokata
+        deleted_attachment_collections_info: Tätä kansiota ei voi poistaa, koska siihen on jo lisätty liitteitä.
         deleted_component_info: Komponentti voidaan poistaa ainoastaan, mikäli sitä ei ole julkaistu.
       trash_management:
         restore:
