@@ -3,22 +3,17 @@
 module Decidim
   module Elections
     class ConfirmVote < Decidim::Command
-      def initialize(election:, votes_data:, voter_credentials:)
+      def initialize(election, data, credentials)
         @election = election
-        @voter_credentials = voter_credentials
-        @votes_data = votes_data
+        @data = data
+        @credentials = credentials
       end
 
       def call
-        return broadcast(:invalid) if @votes_data.blank?
+        return broadcast(:invalid) if voted_questions.count != election.questions.count
 
         transaction do
-          @votes_data.each do |question_id, data|
-            response_option_id = data["response_option_id"]
-            next if response_option_id.blank?
-
-            upsert_vote(question_id, response_option_id)
-          end
+          save_votes!
         end
 
         broadcast(:ok)
@@ -29,51 +24,29 @@ module Decidim
 
       private
 
-      attr_reader :election, :voter_credentials, :votes_data
+      attr_reader :election, :credentials, :data
 
-      def upsert_vote(question_id, response_option_id)
-        voter_uid = generate_voter_uid
-
-        vote = Vote.find_or_initialize_by(
-          voter_uid: voter_uid,
-          decidim_elections_question_id: question_id
-        )
-
-        vote.assign_attributes(vote_attributes(response_option_id))
-        vote.save!
+      def voted_questions
+        @voted_questions ||= election.questions.where(id: data.keys).filter_map do |question|
+          responses = question.safe_responses(data[question.id.to_s])
+          [question, responses]
+        end.to_h
       end
 
-      def vote_attributes(response_option_id)
-        attrs = {
-          decidim_elections_response_option_id: response_option_id
-        }
-
-        if election.internal_census?
-          attrs[:decidim_user_id] = current_user&.id
-        else
-          voter = find_voter_by_credentials
-          attrs[:decidim_elections_voter_id] = voter&.id
+      def save_votes!
+        voted_questions.each do |question, responses|
+          responses.each do |response_option|
+            vote = question.votes.find_or_initialize_by(
+              voter_uid: voter_uid,
+              response_option: response_option
+            )
+            vote.save!
+          end
         end
-
-        attrs
       end
 
-      def find_voter_by_credentials
-        return if voter_credentials.blank?
-
-        election.voters.with_email(voter_credentials["email"]).with_token(voter_credentials["token"]).first
-      end
-
-      def generate_voter_uid
-        manifest = Decidim::Elections.census_registry.find(election.census_manifest)
-
-        if manifest.respond_to?(:voter_uid) && manifest.voter_uid
-          manifest.voter_uid.call(voter_credentials)
-        elsif current_user
-          Digest::SHA256.hexdigest("#{current_user.id}-#{current_user.email}")
-        else
-          raise "Cannot generate voter_uid: no current_user or voter_credentials"
-        end
+      def voter_uid
+        @voter_uid ||= election.census.user_uid(credentials)
       end
     end
   end

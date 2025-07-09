@@ -53,7 +53,7 @@ module Decidim
         when "real_time"
           election.questions
         when "after_end"
-          election.vote_ended? ? election.questions : []
+          election.vote_finished? ? election.questions : []
         when "per_question"
           election.questions.select(&:published_results?)
         else
@@ -62,14 +62,8 @@ module Decidim
       end
 
       def voted_by_current_user?(election)
-        voter_uid = (Digest::SHA256.hexdigest("#{current_user.id}-#{current_user.email}") if current_user)
-
-        return false if voter_uid.blank?
-
-        Decidim::Elections::Vote.exists?(
-          voter_uid: voter_uid,
-          decidim_elections_question_id: election.questions.pluck(:id)
-        )
+        credentials = session[:session_credentials] || current_user
+        election.votes.exists?(voter_uid: election.census.user_uid(credentials))
       end
 
       private

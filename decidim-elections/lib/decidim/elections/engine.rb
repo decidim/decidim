@@ -7,15 +7,11 @@ module Decidim
 
       routes do
         resources :elections, except: [:destroy] do
-          resources :votes do
+          resources :votes, except: [:edit, :destroy] do
             collection do
-              get :verify
-              post :check_verification
-              get "question/:id", action: :question, as: :question
-              post "question/:id", action: :step
               get :confirm
-              post :cast_vote
-              get :vote_submitted
+              post :cast
+              get :receipt
             end
           end
         end
@@ -34,11 +30,11 @@ module Decidim
         Decidim::Elections.census_registry.register(:token_csv) do |manifest|
           manifest.admin_form = "Decidim::Elections::Admin::Censuses::TokenCsvForm"
           manifest.admin_form_partial = "decidim/elections/admin/censuses/token_csv_form"
+          manifest.voter_form = "Decidim::Elections::Censuses::TokenCsvForm"
+          manifest.voter_form_partial = "decidim/elections/censuses/token_csv_form"
           manifest.after_update_command = "Decidim::Elections::Admin::Censuses::TokenCsv"
-          manifest.user_query(&:voters)
-
-          manifest.voter_uid do |data|
-            Digest::SHA256.hexdigest("#{data["email"]}-#{data["token"]}")
+          manifest.user_query do |election|
+            Decidim::Elections::Voter.where(election: election)
           end
         end
 
@@ -54,10 +50,6 @@ module Decidim
           # census is dynamic, so we do not need to validate it
           manifest.census_ready_validator do |_election|
             true
-          end
-
-          manifest.voter_uid do |data|
-            Digest::SHA256.hexdigest("user-#{data[:id] || data["id"]}")
           end
         end
       end

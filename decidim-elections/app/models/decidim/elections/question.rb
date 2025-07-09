@@ -10,13 +10,14 @@ module Decidim
       belongs_to :election, class_name: "Decidim::Elections::Election", inverse_of: :questions
 
       has_many :response_options, class_name: "Decidim::Elections::ResponseOption", dependent: :destroy, inverse_of: :question
-      has_many :votes, class_name: "Decidim::Elections::Vote", foreign_key: :decidim_elections_question_id, dependent: :destroy
+      has_many :votes, class_name: "Decidim::Elections::Vote", dependent: :destroy
 
       validates :question_type, inclusion: { in: QUESTION_TYPES }
 
       translatable_fields :body, :description
 
       validates :body, presence: true
+      validates :position, uniqueness: { scope: :election_id }
 
       scope :enabled, -> { where.not(voting_enabled_at: nil) }
       scope :disabled, -> { where(voting_enabled_at: nil) }
@@ -24,6 +25,18 @@ module Decidim
       scope :unpublished_results, -> { where(published_results_at: nil) }
 
       default_scope { order(position: :asc) }
+
+      def sibling_questions
+        @sibling_questions ||= election.per_question? ? election.questions.enabled : election.questions
+      end
+
+      def next_question
+        sibling_questions.where("position > ?", position).first
+      end
+
+      def previous_question
+        sibling_questions.where(position: ...position).last
+      end
 
       def presenter
         Decidim::Elections::QuestionPresenter.new(self)
@@ -53,6 +66,20 @@ module Decidim
           election.ready_to_publish_results?
         else
           false
+        end
+      end
+
+      # returns the selected responses for this question, ensuring that the responses are
+      # valid for the current election and question type.
+      def safe_responses(response_ids)
+        return [] if response_ids.blank?
+
+        response_ids = Array(response_ids)
+        case question_type
+        when "single_option"
+          response_options.where(id: response_ids.first)
+        when "multiple_option"
+          response_options.where(id: response_ids)
         end
       end
     end

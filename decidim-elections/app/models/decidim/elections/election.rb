@@ -24,11 +24,12 @@ module Decidim
 
       has_many :voters, class_name: "Decidim::Elections::Voter", inverse_of: :election, dependent: :destroy
       has_many :questions, class_name: "Decidim::Elections::Question", inverse_of: :election, dependent: :destroy
-      # has_many :votes,
-      #          foreign_key: "decidim_election_id",
-      #          class_name: "Decidim::Elections::ElectionVote",
-      #          dependent: :destroy,
-      #          counter_cache: "election_votes_count"
+      has_many :votes,
+               foreign_key: "decidim_election_id",
+               class_name: "Decidim::Elections::Vote",
+               through: :questions,
+               dependent: :restrict_with_error,
+               counter_cache: "votes_count"
 
       component_manifest_name "elections"
 
@@ -93,16 +94,8 @@ module Decidim
                            end
       end
 
-      def verification_filters
-        verification_types.presence || []
-      end
-
       def census
         @census ||= Decidim::Elections.census_registry.find(census_manifest)
-      end
-
-      def census_status
-        @census_status ||= CsvCensus::Status.new(self)
       end
 
       # syntax sugar to access the census manifest
@@ -151,10 +144,6 @@ module Decidim
         else
           false
         end
-      end
-
-      def election_votes_count
-        model.proposal_votes_count || 0
       end
 
       scope_search_multi :with_any_state, [:ongoing, :ended, :results_published, :scheduled]

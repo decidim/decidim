@@ -21,6 +21,9 @@
   <td>
     <%= election_status_with_label(election) %>
   </td>
+  <td>
+    <%= election.census.label %>
+  </td>
   <td data-label="<%= t("actions.title", scope: "decidim.elections") %>" class="table-list__actions">
     <button type="button" data-component="dropdown" data-target="actions-election-<%= election.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: decidim_sanitize_translated(election.title)) %>">
       <%= icon "more-fill", class: "text-secondary" %>
@@ -67,6 +70,14 @@
             </li>
             <hr>
           <% end %>
+
+          <li class="dropdown__item">
+            <%= link_to resource_locator(election).path, class: "dropdown__button", target: :blank, data: { "external-link": false } do %>
+              <%= icon "eye-line" %>
+              <%= t("actions.preview", scope: "decidim.elections") %>
+            <% end %>
+          </li>
+          <hr>
 
           <li class="dropdown__item">
             <% if allowed_to? :soft_delete, :election, trashable_deleted_resource: election %>

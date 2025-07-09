@@ -6,99 +6,91 @@ module Decidim
     class VotesController < Decidim::Elections::ApplicationController
       layout "decidim/election_booth"
 
-      include FormFactory
-      include Decidim::UserProfile
-      include Decidim::Elections::VoterVerifications
+      include Decidim::FormFactory
 
-      helper_method :exit_path, :elections, :election, :questions, :questions_count
+      helper_method :exit_path, :election, :questions, :question, :response_chosen?, :votes_buffer, :editing?
 
       delegate :count, to: :questions, prefix: true
 
-      def new
-        enforce_permission_to :create, :vote, election: election
+      before_action except: [:new, :create] do
+        next if allowed_to?(:create, :vote, election:) && election.census.valid_user?(election, session_credentials, current_user:)
 
-        case election.census_manifest
-        when "token_csv"
-          @form = form(LoginForm).instance
-          render :new, layout: "decidim/election_booth"
-        else
-          if voter_verified?
-            redirect_to question_election_votes_path(election_id: election.id, id: 0)
-          else
-            flash[:alert] = t("votes.not_authorized", scope: "decidim.elections")
-            redirect_to exit_path
-          end
-        end
+        flash[:alert] = t("votes.not_authorized", scope: "decidim.elections")
+        redirect_to exit_path
       end
 
-      def check_verification
-        email = params.dig(:login, :email).to_s.strip.downcase
-        token = params.dig(:login, :token).to_s.strip
+      # If the election has a census manifest that a prior requires authentication, render the auth form
+      # Otherwise, the current user will be send as data for checking if they are allowed to vote
+      # (Note that a census manifest can still allow unauthenticated users to vote)
+      def new
+        enforce_permission_to(:create, :vote, election:)
 
-        if valid_voter?(email, token)
-          session[:voter_credentials] = { email:, token: }
-          redirect_to question_election_votes_path(election_id: election.id, id: 0)
+        redirect_to(election_vote_path(election_id: election, id: question)) && return unless election.census.auth_form?
+
+        @form = election.census.form_instance({}, election:, current_user:)
+      end
+
+      def create
+        enforce_permission_to(:create, :vote, election:)
+
+        @form = election.census.form_instance(params, { election:, current_user: })
+        if @form.valid?
+          session[:session_credentials] = @form.attributes
+          redirect_to election_vote_path(election_id: election, id: question)
         else
-          flash[:alert] = t("invalid", scope: "decidim.elections.votes.check_census")
+          flash[:alert] = t("failed", scope: "decidim.elections.votes.check_census", errors: @form.errors.full_messages.join(", "))
           redirect_to new_election_vote_path(election)
         end
       end
 
-      def question
-        @question = questions[params[:id].to_i]
+      # Show the voting form for the given question
+      def show; end
 
-        if @question
-          render :vote_question, layout: "decidim/election_booth"
+      # This action is used to save the vote for the current question and redirect to the next question
+      def update
+        save_vote!
+
+        if next_pending_question
+          redirect_to election_vote_path(election_id: election, id: next_pending_question, edit: editing?)
+        elsif election.per_question_waiting?
+          # TODO: show spinner and message
+          byebug
         else
-          redirect_to exit_path
+          redirect_to confirm_election_votes_path(election_id: election)
         end
       end
 
+      # This action is used to show the confirmation page with the votes that will be cast
       def confirm
-        @questions = questions
-        @responses = session[:votes_buffer] || {}
-        render :confirm_vote, layout: "decidim/election_booth"
+        render :confirm
       end
 
-      def step
-        step_index = params[:id].to_i
-
-        save_vote(step_index) if request.post?
-
-        next_step = step_index + 1
-
-        if next_step < questions_count
-          redirect_to question_election_votes_path(election_id: election.id, id: next_step)
-        elsif next_step == questions_count
-          redirect_to confirm_election_votes_path(election_id: election.id)
-        else
-          redirect_to exit_path
-        end
-      end
-
-      def cast_vote
-        votes_data = session[:votes_buffer] || {}
-        voter_credentials = session[:voter_credentials] || {}
-
-        ConfirmVote.call(election:, votes_data:, voter_credentials:) do
+      def cast
+        # TODO: Ensure that the user has answered all questions
+        ConfirmVote.call(election, votes_buffer, session_credentials) do
           on(:ok) do
-            session[:votes_buffer] = nil
-            flash[:notice] = t("votes.cast_vote.success", scope: "decidim.elections")
-            redirect_to vote_submitted_election_votes_path(election), notice: t("votes.cast_vote.success", scope: "decidim.elections")
+            votes_buffer.clear
+            flash[:notice] = t("votes.cast.success", scope: "decidim.elections")
+            redirect_to receipt_election_votes_path(election), notice: t("votes.cast.success", scope: "decidim.elections")
           end
 
           on(:invalid) do
-            flash[:alert] = I18n.t("votes.cast_vote.invalid", scope: "decidim.elections")
+            flash[:alert] = I18n.t("votes.cast.invalid", scope: "decidim.elections")
             redirect_to confirm_election_votes_path(election)
           end
         end
       end
 
-      def vote_submitted
-        render :vote_submitted, layout: "decidim/election_booth"
+      def receipt
+        # TODO: ensure that the user has voted
+        render :receipt
       end
 
       private
+
+      def session_credentials
+        @session_credentials ||= session[:session_credentials] || current_user
+      end
 
       def exit_path
         @exit_path ||= if allowed_to?(:read, :election, election:)
@@ -117,17 +109,46 @@ module Decidim
       end
 
       def questions
-        @questions ||= election.questions.includes(:response_options).order(:position)
+        @questions ||= begin
+          list = election.questions
+          list = list.enabled if election.per_question?
+          list.includes(:response_options)
+        end
       end
 
-      def save_vote(step_index)
-        question = questions[step_index]
-        response_option_id = params.dig(:response, :votes, question.id.to_s, :response_option_id)
+      def question
+        @question ||= questions.find_by(id: params[:id]) || questions.first
+      end
 
-        return if response_option_id.blank?
+      # Returns the next question to be answered, or nil if there are no more questions
+      def next_pending_question
+        return question.next_question if votes_buffer.blank? || editing?
 
+        questions.where.not(id: votes_buffer.keys).first
+      end
+
+      def save_vote!
+        response_ids = params.dig(:response, question.id.to_s)
+        return if response_ids.blank?
+
+        votes_buffer[question.id.to_s] = response_ids
+      end
+
+      def votes_buffer
         session[:votes_buffer] ||= {}
-        session[:votes_buffer][question.id.to_s] = { "response_option_id" => response_option_id }
+      end
+
+      def editing?
+        params[:edit].present? && params[:edit] == "true"
+      end
+
+      def response_chosen?(response_option)
+        return false if votes_buffer.blank?
+
+        response_ids = votes_buffer[question.id.to_s]
+        return false if response_ids.blank?
+
+        response_ids.include?(response_option.id.to_s)
       end
     end
   end

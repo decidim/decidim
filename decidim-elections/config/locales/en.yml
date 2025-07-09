@@ -169,6 +169,10 @@ en:
         question:
           update: "%{user_name} updated the questions of the %{resource_name} election"
       censuses:
+        census_ready_html: The census data is uploaded and prepared for its use in the <b>%{election_title}</b> election.
+        census_size_html:
+          one: There is currently <strong>1</strong> person eligible for voting in this election (this might change on a dynamic census).
+          other: There are currently <strong>%{count}</strong> people eligible for voting in this election (this might change on a dynamic census).
         internal_users:
           info_html: |
             You can restrict participation in the election to participants who have an authorization.<br>
@@ -176,10 +180,6 @@ en:
           internal_type_title: Additional required authorizations to vote (optional)
           label: Registered participants (dynamic)
         token_csv:
-          census_ready_html: The census data is uploaded and prepared for its use in the <b>%{election_title}</b> election.
-          census_size_html:
-            one: There is currently <strong>1</strong> person eligible for voting in this election (this might change on a dynamic census).
-            other: There are currently <strong>%{count}</strong> people eligible for voting in this election (this might change on a dynamic census).
           example: |
             email;token
             user@example.org;123456
@@ -188,9 +188,15 @@ en:
             Must be a file in CSV format with two columns, one with the email address and another with the value of a token that the user will have to introduce in order to vote.
             It must be separated with a semicolon (;)
           label: Unregistered participants with tokens (fixed)
-          remove_before_upload: 'If you want to upload a new census, you must first remove the existing one.'
+          remove_before_upload: If you want to upload a new census, you must first remove the existing one.
           upload_file: Upload file
           upload_new_census: Upload a CSV file
+        token_csv_form:
+          email: Email
+          email_placeholder: Enter the voter's email address
+          invalid: The email or token is not valid. Please check the details and try again.
+          token: Token
+          token_placeholder: Enter the voter's token
       elections:
         count:
           elections_count:
@@ -231,9 +237,11 @@ en:
             after_end: Voting results
             per_question: These are the results of the voting, for each question
             real_time: Real-time
+          title: Vote statistics
       models:
         election:
           fields:
+            census: Census
             end_at: End time
             start_at: Start time
             status: Status
@@ -247,33 +255,28 @@ en:
         unpublished: Unpublished
         voting_enabled: Voting in progress
       votes:
-        vote_submitted:
-          exit_button: Exit the voting booth
-          title: Your vote has been cast successfully
-          description: Yo can vote again at any time while the voting period is open. Your previous vote will be overwritten by the new one.
-        cast_vote:
+        cast:
           invalid: There was a problem casting your vote. Please check the information you provided and try again.
           success: Your vote has been successfully cast.
         check_census:
           access: Access
           election_not_open: The election is not open yet. Please check the dates and try again.
-          failed: Your identity could not be verified. Please check the information you provided and try again.
+          failed: Your identity could not be verified. Please check the information you provided and try again.<br>%{errors}
           form_title: Verify your identity
-          invalid: The email or token is not valid. Please check the details and try again.
-        confirm_vote:
+          invalid: User not found in the census.
+        confirm:
           edit_vote: Edit your vote
           next: Next
           not_answered: You have not answered all the questions.
           title: Confirm your vote
-        new:
-          email: Email
-          email_placeholder: Enter your email address
-          token: Token
-          token_placeholder: Enter your token
         not_authorized: You are not authorized to vote in this election.
         question:
           back: Back
           next: Next
+        receipt:
+          description: Yo can vote again at any time while the voting period is open. Your previous vote will be overwritten by the new one.
+          exit_button: Exit the voting booth
+          title: Your vote has been cast successfully
     statistics:
       elections_count: Elections
   layouts:
