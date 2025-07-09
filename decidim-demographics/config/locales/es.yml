@@ -1,0 +1,79 @@
+---
+es:
+  decidim:
+    demographics:
+      actions:
+        title: Acciones
+      admin:
+        demographics:
+          tabs_menu:
+            title: Datos demográficos
+        demographics_menu:
+          questions: Preguntas
+          responses: Respuestas
+          settings: Configuración
+        publish_responses:
+          index:
+            description: Descripción
+            title: Mostrar las respuestas
+        questions:
+          edit:
+            save: Guardar
+            title: Preguntas
+          questions_form:
+            add_question: Añadir pregunta
+            collapse: Contraer todas las preguntas
+            expand: Desplegar todas las preguntas
+        responses:
+          index:
+            publish_responses: Mostrar las respuestas
+            title: "%{total} respuestas en total"
+        settings:
+          show:
+            collect_data: Activar la recolección de datos demográficos
+            collect_data_help: Habilitando esta opción se permitirá a las usuarias facilitar sus datos a la plataforma.
+            save: Guardar
+            title: Configuración
+          update:
+            invalid: Hubo un error al guardar los datos demográficos
+            success: Los datos demográficos se han guardado correctamente
+        title: Datos demográficos
+      demographics:
+        questionnaire:
+          delete_my_data: Borrar los datos
+          modal_close: Cancelar
+          modal_ok: De acuerdo
+          modal_question: Se eliminarán todos tus datos demográficos.
+          modal_title: Borrar los datos
+          submit: Guardar los datos
+          terms_of_service: términos y condiciones de uso
+          tos_agreement: Al participar aceptas los %{link}.
+        show:
+          page_title: Donación de datos demográficos
+      destroy:
+        error: Hubo un error eliminando tus datos demográficos donados
+        success: Los datos demográficos que donaste se han eliminado correctamente
+      name: Donación de datos demográficos
+      questions:
+        age:
+          options:
+          - entre 15 y 29 años
+          - entre 30 y 44 años
+          - entre 45 y 64 años
+          - 65 años o más
+          question: '¿Qué edad tienes?'
+        gender:
+          options:
+          - Hombre
+          - Mujer
+          - No binario
+          - Mi género no está listado
+          - Prefiero no responder
+          question: '¿Cuál de las siguientes opciones describe mejor tu género?'
+        postal:
+          question: '¿Cuál es el código postal de tu domicilio?'
+  layouts:
+    decidim:
+      shared:
+        layout_center:
+          alert: Al proporcionar esta información estás contribuyendo al análisis estadístico que ayuda a mejorar la calidad de la participación. Tus datos serán agregados y utilizados solo para fines de investigación.
