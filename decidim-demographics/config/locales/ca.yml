@@ -1,0 +1,79 @@
+---
+ca:
+  decidim:
+    demographics:
+      actions:
+        title: Accions
+      admin:
+        demographics:
+          tabs_menu:
+            title: Dades demogràfiques
+        demographics_menu:
+          questions: Preguntes
+          responses: Respostes
+          settings: Configuració
+        publish_responses:
+          index:
+            description: Descripció
+            title: Mostrar les respostes
+        questions:
+          edit:
+            save: Desar
+            title: Preguntes
+          questions_form:
+            add_question: Afegir pregunta
+            collapse: Replega totes les preguntes
+            expand: Desplega totes les preguntes
+        responses:
+          index:
+            publish_responses: Mostrar les respostes
+            title: "%{total} respostes en total"
+        settings:
+          show:
+            collect_data: Activar la recol·lecció de dades demogràfiques
+            collect_data_help: Habilitant aquesta opció es permetrà a les usuàries facilitar les dades a la plataforma.
+            save: Desar
+            title: Configuració
+          update:
+            invalid: S'ha produït un error en desar les dades demogràfiques
+            success: Les dades demogràfiques s'han desat correctament
+        title: Dades demogràfiques
+      demographics:
+        questionnaire:
+          delete_my_data: Esborrar les dades
+          modal_close: Cancel·lar
+          modal_ok: D'acord
+          modal_question: S'esborraran totes les teves dades demogràfiques.
+          modal_title: Esborrar les dades
+          submit: Desar les dades
+          terms_of_service: termes i condicions d'ús
+          tos_agreement: En participar acceptes els %{link}.
+        show:
+          page_title: Donació de dades demogràfiques
+      destroy:
+        error: Hi va haver un error eliminant les teves dades demogràfiques donades
+        success: Les dades demogràfiques que vas donar s'han eliminat correctament
+      name: Donació de dades demogràfiques
+      questions:
+        age:
+          options:
+          - entre 15 i 29 anys
+          - entre 30 i 44 anys
+          - entre 45 i 64 anys
+          - 65 anys o més
+          question: Quina edat tens?
+        gender:
+          options:
+          - Home
+          - Dona
+          - No binari
+          - El meu gènere no està llistat
+          - Prefereixo no respondre
+          question: Quina de les opcions següents descriu millor el teu gènere?
+        postal:
+          question: Quin és el codi postal del teu domicili?
+  layouts:
+    decidim:
+      shared:
+        layout_center:
+          alert: En proporcionar aquesta informació estàs contribuint a l'anàlisi estadística que ajuda a millorar la qualitat de la participació. Les teves dades seran agregades i utilitzades només per a finalitats de recerca.
