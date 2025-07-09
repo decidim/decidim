@@ -53,7 +53,7 @@ module Decidim
 
           if question.voting_enabled?
             return content_tag(:div, class: "status-label") do
-              content_tag(:span, t("decidim.elections.status.voting_enabled"), class: "label warning spinner")
+              content_tag(:span, t("decidim.elections.status.voting_enabled"), class: "label warning")
             end
           end
 

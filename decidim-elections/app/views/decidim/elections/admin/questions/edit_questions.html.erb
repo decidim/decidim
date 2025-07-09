@@ -9,7 +9,6 @@
     <h1 class="item_show__header-title">
       <%= t(".title") %>
 
-      <button class="button button__sm button__transparent-secondary add-question"><%= t("add_question", scope: "decidim.forms.admin.questionnaires.form") %></button>
     </h1>
   </div>
 
@@ -22,6 +21,10 @@
       <%= decidim_form_for(@form, url: update_url, method: :put, html: { id: "questions-election-form", class: "form-defaults form edit_questions" }) do |form| %>
         <%= render partial: "decidim/elections/admin/questions/form", object: form %>
       <% end %>
+
+      <div class="mt-2">
+        <button class="button button__sm button__transparent-secondary add-question"><%= t("add_question", scope: "decidim.forms.admin.questionnaires.form") %></button>
+      </div>
     </div>
   </div>
 </div>
