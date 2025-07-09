@@ -725,6 +725,7 @@ fi-pl:
     doorkeeper:
       authorizations:
         new:
+          api_read: Lukea sisältöä rajapinnan kautta
           authorize: Hyväksyn tietojeni käytön
           by_organization_link_html: '<small class="heading-small">palveluntarjoaja: %{link}</small>'
           cancel: Peruuta
