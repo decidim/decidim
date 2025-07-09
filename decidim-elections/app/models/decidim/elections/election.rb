@@ -20,8 +20,6 @@ module Decidim
       include Decidim::FilterableResource
       include Decidim::Randomable
 
-      delegate :scheduled?, :ongoing?, :vote_ended?, :ready_to_publish_results?, :results_published?, :current_status, :localized_status, to: :status
-
       RESULTS_AVAILABILITY_OPTIONS = %w(real_time per_question after_end).freeze
 
       has_many :voters, class_name: "Decidim::Elections::Voter", inverse_of: :election, dependent: :destroy
@@ -58,10 +56,6 @@ module Decidim
         Decidim::Elections::AdminLog::ElectionPresenter
       end
 
-      def internal_census?
-        census_manifest == "internal_users"
-      end
-
       def auto_start?
         start_at.present?
       end
@@ -70,8 +64,37 @@ module Decidim
         !auto_start?
       end
 
-      def verification_types
-        census_settings["verification_handlers"] || []
+      def scheduled?
+        published? && !ongoing? && !vote_finished? && !results_published?
+      end
+
+      def started?
+        start_at.present? && start_at <= Time.current
+      end
+
+      def ongoing?
+        started? && !vote_finished?
+      end
+
+      def finished?
+        end_at.present? && end_at <= Time.current
+      end
+
+      def vote_finished?
+        # If end_at is present and in the past, the election is finished no matter what type of voting
+        @vote_finished ||= if end_at.present? && end_at <= Time.current
+                             true
+                             # Per question elections are considered finished if all questions have published results
+                             # as long as there is at least one question enabled
+                           elsif per_question? && questions.enabled.any?
+                             questions.all?(&:published_results?)
+                           else
+                             false
+                           end
+      end
+
+      def verification_filters
+        verification_types.presence || []
       end
 
       def census
@@ -89,43 +112,45 @@ module Decidim
         census.ready?(self)
       end
 
-      def status
-        @status ||= Decidim::Elections::ElectionStatus.new(self)
-      end
+      def ready_to_publish_results?
+        return false unless published? || results_published?
 
-      def ordered_questions
-        questions.order(:position).to_a
-      end
+        return vote_finished? unless per_question?
 
-      def results_publishable_for?(question)
-        return false if question&.published_results?
+        return false if questions.empty?
 
-        case results_availability
-        when "per_question"
-          publishable_per_question?(question)
-        when "after_end"
-          ready_to_publish_results?
-        else
-          false
-        end
-      end
-
-      def publishable_per_question?(question)
-        questions.include?(question) && question.voting_enabled? && per_question?
+        # If per_question, we can publish when there is at least one question enabled
+        questions.unpublished_results.any?(&:voting_enabled?)
       end
 
       def per_question?
         results_availability == "per_question"
       end
 
-      def can_enable_voting_for?(question)
-        return false unless ongoing?
-        return false if question.voting_enabled?
+      def per_question_waiting?
+        per_question? && !finished? && questions.unpublished_results.none?(&:voting_enabled?)
+      end
 
-        index = ordered_questions.index(question)
-        return false if index.nil?
+      def status
+        return :unpublished unless published?
+        return :ongoing if ongoing?
+        return :results_published if results_published?
+        return :finished if vote_finished?
 
-        true
+        :scheduled
+      end
+
+      def results_published?
+        case results_availability
+        when "real_time"
+          ongoing? || vote_finished? || published_results_at.present?
+        when "per_question"
+          questions.enabled.any? && questions.enabled.all?(&:published_results_at)
+        when "after_end"
+          published_results_at.present?
+        else
+          false
+        end
       end
 
       def election_votes_count

@@ -216,6 +216,7 @@ describe "Admin manages questionnaire templates" do
 
     it "copies the template" do
       within "tr", text: translated(template.name) do
+        find("button[data-component='dropdown']").click
         click_on "Duplicate"
       end
 
@@ -232,8 +233,9 @@ describe "Admin manages questionnaire templates" do
     end
 
     it "shows a functional questionnaire form" do
-      within ".layout-content" do
-        click_on("Edit")
+      within "tr", text: translated(template.name) do
+        find("button[data-component='dropdown']").click
+        click_on "Edit"
       end
 
       within "[data-content]" do
@@ -278,6 +280,7 @@ describe "Admin manages questionnaire templates" do
 
     it "destroys the template" do
       within "tr", text: translated(template.name) do
+        find("button[data-component='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
 

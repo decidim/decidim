@@ -183,16 +183,6 @@ require "decidim/rails"
 
 * In `config/environments/*.rb` remove any line containing `config.assets.*` (i.e `config.assets.debug = true`)
 
-=== Help Decidim to know the application's assets folder
-
-To prevent Zeitwerk issues trying to autoload the non-ruby application folders, modify the `config/initializers/decidim.rb` file to include the following:
-
-[source,ruby]
----
-# Inform Decidim about the assets folder
-Decidim.register_assets_path File.expand_path("app/packs", Rails.application.root)
----
-
 === Deployment
 
 The deployment needs to be updated to manually run `npm install` before assets are precompiled.
@@ -239,19 +229,15 @@ In some case it might be that some packages are not well resolved when installin
 
 [source,console]
 ----
-...
 [webpack-cli] Error: Cannot find module '@rails/webpacker'
-...
 ----
 
 These might be due some kind of corruption in your `package-lock.json` file, you can try either to remove this file and recreate it with `npm install` or to add the package `@rails/webpacker` manually in your `package.json` file next to the `@decidim/webpacker` package:
 
 [source,json]
 ----
-...
     "@decidim/webpacker": "^0.25.2",
     "@rails/webpacker": "^6.0.0-rc.5",
-...
 ----
 
 Then execute `npm install`.

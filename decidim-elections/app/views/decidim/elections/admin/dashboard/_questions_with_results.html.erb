@@ -3,16 +3,10 @@
     <div class="card-divider">
       <h3 class="flex items-center justify-between">
         <%= "#{index + 1}. #{translated_attribute(question.body)}" %>
-        <% if election.results_availability == "per_question" && !question.published_results? %>
+        <% if election.per_question? %>
           <div class="flex gap-4 items-center justify-between">
-            <%= enable_voting_button(election, question) %>
-            <%= publish_button_for(election, question) %>
-          </div>
-        <% elsif election.results_availability == "per_question" && question.published_results? %>
-          <div class="status-label">
-            <span class="label success">
-              <%= t("decidim.elections.status.results_published") %>
-            </span>
+            <%= enable_question_voting_button(question) %>
+            <%= publish_question_button(question) %>
           </div>
         <% end %>
       </h3>
@@ -23,7 +17,7 @@
           <thead>
           <tr>
             <th class="w-1/2"><%= t("decidim.elections.admin.dashboard.questions_table.answer") %></th>
-            <th><%= t("decidim.elections.admin.dashboard.questions_table.results") %></th>
+            <th><%= t("decidim.elections.admin.dashboard.questions_table.votes") %></th>
             <th><%= t("decidim.elections.admin.dashboard.questions_table.percentage") %></th>
           </tr>
           </thead>
@@ -33,8 +27,8 @@
             <% percent = total.positive? ? (option.votes_count.to_f / total * 100).round(1) : 0 %>
             <tr>
               <td class="w-2/3"><%= translated_attribute option.body %></td>
-              <td><%= t("votes_count", scope: "decidim.elections.admin.dashboard.questions_table", count: option.votes_count) %></td>
-              <td><%= number_to_percentage(percent, precision: 1) %></td>
+              <td data-votes-counter="0"><%= t("votes_count", scope: "decidim.elections.admin.dashboard.questions_table", count: option.votes_count) %></td>
+              <td data-votes-percentage="0.0"><%= number_to_percentage(percent, precision: 1) %></td>
             </tr>
           <% end %>
           </tbody>

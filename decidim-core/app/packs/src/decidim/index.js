@@ -24,7 +24,6 @@ import morphdom from "morphdom"
 
 // local deps with no initialization
 import "src/decidim/input_tags"
-import "src/decidim/input_hashtags"
 import "src/decidim/input_mentions"
 import "src/decidim/input_multiple_mentions"
 import "src/decidim/input_autojump"

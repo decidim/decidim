@@ -82,7 +82,7 @@ describe "Content pages" do
         end
 
         expect(page).to have_admin_callout("successfully")
-        expect(page).to have_css(".table-scroll", text: "General")
+        expect(page).to have_css(".table-stacked", text: "General")
       end
     end
 
@@ -120,7 +120,7 @@ describe "Content pages" do
         end
 
         expect(page).to have_admin_callout("successfully")
-        expect(page).to have_css(".table-scroll", text: "New title")
+        expect(page).to have_css(".table-stacked", text: "New title")
       end
     end
 
@@ -136,12 +136,13 @@ describe "Content pages" do
 
       it "can delete them" do
         within "tr", text: translated(topic.title) do
+          find("button[data-component='dropdown']").click
           accept_confirm { click_on "Delete" }
         end
 
         expect(page).to have_admin_callout("successfully")
 
-        expect(page).to have_no_css(".table-scroll")
+        expect(page).to have_no_css(".table-stacked")
       end
     end
   end
@@ -207,6 +208,7 @@ describe "Content pages" do
       context "when displaying the page form" do
         before do
           within "tr", text: translated(decidim_page.title) do
+            find("button[data-component='dropdown']").click
             click_on "Edit"
           end
         end
@@ -216,6 +218,7 @@ describe "Content pages" do
 
       it "can edit them" do
         within "tr", text: translated(decidim_page.title) do
+          find("button[data-component='dropdown']").click
           click_on "Edit"
         end
 
@@ -246,6 +249,7 @@ describe "Content pages" do
 
       it "can delete them" do
         within "tr", text: translated(decidim_page.title) do
+          find("button[data-component='dropdown']").click
           accept_confirm { click_on "Delete" }
         end
 
@@ -259,6 +263,7 @@ describe "Content pages" do
       it "can visit them" do
         new_window = window_opened_by do
           within "tr", text: translated(decidim_page.title) do
+            find("button[data-component='dropdown']").click
             click_on "View public page"
           end
         end

@@ -13,14 +13,14 @@ module Decidim
         let(:valid_file) { upload_test_file(Decidim::Dev.test_file("valid_election_census.csv", "text/csv")) }
         let(:invalid_file) { upload_test_file(Decidim::Dev.test_file("invalid.jpeg", "image/jpeg")) }
         let(:election_census_path) { Decidim::EngineRouter.admin_proxy(component).election_census_path(election) }
-        let(:dashboard_election_path) { Decidim::EngineRouter.admin_proxy(component).dashboard_page_election_path(election) }
+        let(:dashboard_election_path) { Decidim::EngineRouter.admin_proxy(component).dashboard_election_path(election) }
 
         before do
           request.env["decidim.current_organization"] = organization
           request.env["decidim.current_participatory_space"] = component.participatory_space
           request.env["decidim.current_component"] = component
           allow(controller).to receive(:election_census_path).with(election).and_return(election_census_path)
-          allow(controller).to receive(:dashboard_page_election_path).with(election).and_return(dashboard_election_path)
+          allow(controller).to receive(:dashboard_election_path).with(election).and_return(dashboard_election_path)
           sign_in current_user
         end
 

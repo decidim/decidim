@@ -101,7 +101,13 @@ module Decidim::Elections
       context "and manual_start is false" do
         let(:manual_start) { false }
 
-        it { is_expected.not_to be_valid }
+        it { is_expected.to be_valid }
+
+        context "when start_at is nil" do
+          let(:start_at) { nil }
+
+          it { is_expected.not_to be_valid }
+        end
       end
     end
 
@@ -111,7 +117,7 @@ module Decidim::Elections
       context "and manual_start is true" do
         let(:manual_start) { true }
 
-        it { is_expected.not_to be_valid }
+        it { is_expected.to be_valid }
       end
 
       context "and manual_start is false" do

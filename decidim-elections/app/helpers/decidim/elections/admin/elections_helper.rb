@@ -25,9 +25,9 @@ module Decidim
         end
 
         def election_status_with_label(election)
-          status, css_class = election_status_and_class(election)
-
-          content_tag(:span, status, class: css_class)
+          content_tag(:span,
+                      I18n.t("decidim.elections.status.#{election.status}"),
+                      class: "#{election.status} label")
         end
 
         def formatted_datetime(datetime)
@@ -48,41 +48,51 @@ module Decidim
           end
         end
 
-        def enable_voting_button(election, question)
+        def enable_question_voting_button(question)
           return if question.published_results?
 
-          button_to update_status_election_path(election),
+          if question.voting_enabled?
+            return content_tag(:div, class: "status-label") do
+              content_tag(:span, t("decidim.elections.status.voting_enabled"), class: "label warning")
+            end
+          end
+
+          return unless question.can_enable_voting?
+
+          button_to update_question_status_election_path(question.election),
                     method: :put,
                     params: { status_action: "enable_voting", question_id: question.id },
-                    disabled: !election.can_enable_voting_for?(question),
-                    class: "button button__sm button__secondary" do
+                    class: "button button__xs button__secondary small" do
             t("decidim.elections.admin.dashboard.results.start_question_button")
           end
         end
 
-        def publish_button_for(election, question)
-          button_to update_status_election_path(election),
+        def publish_question_button(question)
+          return if question.election.scheduled?
+
+          if question.published_results?
+            return content_tag(:div, class: "status-label") do
+              content_tag(:span, t("decidim.elections.status.results_published"), class: "label success")
+            end
+          end
+
+          button_to update_question_status_election_path(question.election),
                     method: :put,
-                    params: { status_action: "publish_results" },
-                    disabled: !election.results_publishable_for?(question),
-                    class: "button button__sm button__secondary" do
+                    params: { status_action: "publish_results", question_id: question.id },
+                    disabled: !question&.publishable_results?,
+                    class: "button button__xs button__secondary small" do
             t("decidim.elections.admin.dashboard.results.publish_button")
           end
         end
 
-        private
-
-        def election_status_and_class(election)
-          status = election.per_question? && election.status.ongoing? ? election.current_status[:election_status] : election.current_status
-
-          css_class = {
-            scheduled: "secondary label",
-            ongoing: "warning label",
-            ended: "success label",
-            results_published: "success label"
-          }.fetch(status, "default label")
-
-          [election.localized_status, css_class]
+        def publish_election_button(election)
+          button_to update_status_election_path(election),
+                    method: :put,
+                    disabled: election.published_results_at? || !election.finished?,
+                    params: { status_action: "publish_results" },
+                    class: "button button__xs button__secondary small" do
+            t("decidim.elections.admin.dashboard.results.publish_button")
+          end
         end
       end
     end

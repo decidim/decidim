@@ -32,9 +32,6 @@ module Decidim
 
       # Render the proposal title
       #
-      # links - should render hashtags as links?
-      # extras - should include extra hashtags?
-      #
       # Returns a String.
       def title(links: false, extras: true, html_escape: false, all_locales: false)
         return unless proposal

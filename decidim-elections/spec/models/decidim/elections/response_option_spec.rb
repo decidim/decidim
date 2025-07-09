@@ -16,9 +16,9 @@ module Decidim
         expect(subject.question).to eq(question)
       end
 
-      describe "#translated_body" do
-        it "returns the translated body of the response option" do
-          expect(subject.translated_body).to eq(subject.body["en"])
+      describe "#presenter" do
+        it "returns a presenter instance" do
+          expect(subject.presenter).to be_a(Decidim::Elections::ResponseOptionPresenter)
         end
       end
     end

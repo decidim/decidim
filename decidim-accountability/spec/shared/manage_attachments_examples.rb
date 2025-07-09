@@ -8,6 +8,7 @@ shared_examples "manage accountability attachments" do
 
   before do
     within "tr", text: translated(result.title) do
+      find("button[data-component='dropdown']").click
       click_on "Attachments"
     end
   end

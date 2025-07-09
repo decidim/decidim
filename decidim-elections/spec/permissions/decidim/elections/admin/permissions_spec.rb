@@ -145,6 +145,24 @@ describe Decidim::Elections::Admin::Permissions do
       it_behaves_like "requires an election"
     end
 
+    context "when updating status" do
+      let(:action_name) { :update_status }
+
+      it { is_expected.to be false }
+
+      context "when election is published" do
+        let(:election) { create(:election, component:, published_at: 2.days.ago) }
+
+        it { is_expected.to be false }
+
+        context "when questions exist" do
+          before { create(:election_question, election:) }
+
+          it { is_expected.to be true }
+        end
+      end
+    end
+
     context "when reordering" do
       let(:action_name) { :reorder }
 

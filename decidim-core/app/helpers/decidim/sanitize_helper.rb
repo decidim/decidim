@@ -116,7 +116,7 @@ module Decidim
       handle_locales(body, all_locales) do |content|
         content = strip_tags(sanitize_text(content)) if strip_tags
 
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(content)
+        renderer = Decidim::ContentRenderers::BlobRenderer.new(content)
         content = renderer.render(links:, extras:).html_safe
 
         content = Decidim::ContentRenderers::LinkRenderer.new(content).render if links

@@ -29,7 +29,10 @@ describe "Admin orders projects" do
 
   before do
     visit_component_admin
-    find("a[title='Manage projects']").click
+    within "tr", text: translated_attribute(budget.title) do
+      find("button[data-component='dropdown']").click
+      click_on "Manage projects"
+    end
   end
 
   it "orders projects by ID" do

@@ -5,6 +5,7 @@ shared_examples "manage posts attachment collections" do
 
   before do
     within "tr", text: translated(post.title) do
+      find("button[data-component='dropdown']").click
       click_on "Folders"
     end
   end

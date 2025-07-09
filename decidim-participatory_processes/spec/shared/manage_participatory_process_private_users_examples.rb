@@ -62,6 +62,7 @@ shared_examples "manage participatory process private users examples" do
 
     it "deletes an assembly_private_user" do
       within "#private_users tr", text: other_user.email do
+        find("button[data-component='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
 
@@ -89,6 +90,7 @@ shared_examples "manage participatory process private users examples" do
 
       it "resends the invitation to the user" do
         within "#private_users tr", text: "test@example.org" do
+          find("button[data-component='dropdown']").click
           click_on "Resend invitation"
         end
 

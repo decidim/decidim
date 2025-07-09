@@ -4,13 +4,13 @@ module Decidim
   module Elections
     module Admin
       class UpdateElectionStatus < Decidim::Command
-        def initialize(form, election)
-          @form = form
+        def initialize(action, election)
+          @action = action.to_sym
           @election = election
         end
 
         def call
-          return broadcast(:invalid) unless form.valid?
+          return broadcast(:invalid) unless action.in?([:start, :end, :publish_results])
 
           transaction do
             update_status
@@ -25,53 +25,17 @@ module Decidim
 
         private
 
-        attr_reader :form, :election
+        attr_reader :action, :election
 
         def update_status
-          case form.status_action
+          case action
           when :start
-            start_election
+            election.start_at = Time.current
           when :end
-            end_election
+            election.end_at = Time.current
           when :publish_results
-            publish_results
-          when :enable_voting
-            enable_voting_for_question(form.question_id)
+            election.published_results_at = Time.current
           end
-        end
-
-        def start_election
-          election.start_at = Time.current
-        end
-
-        def end_election
-          election.end_at = Time.current
-        end
-
-        def enable_voting_for_question(question_id)
-          question = election.questions.find_by(id: question_id)
-          raise "Question not found" unless question
-          return unless election.can_enable_voting_for?(question)
-
-          question.update!(voting_enabled_at: Time.current)
-        end
-
-        def publish_results
-          election.per_question? ? publish_results_per_question : publish_all_results
-        end
-
-        def publish_results_per_question
-          question = election.questions.detect { |q| q.published_results_at.nil? && election.results_publishable_for?(q) }
-
-          raise "No publishable question found" unless question
-
-          question.update!(published_results_at: Time.current)
-        end
-
-        def publish_all_results
-          return if election.results_published?
-
-          election.published_results_at = Time.current
         end
       end
     end

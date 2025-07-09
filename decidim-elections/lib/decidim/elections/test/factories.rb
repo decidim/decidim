@@ -30,8 +30,50 @@ FactoryBot.define do
     published_at { nil }
     deleted_at { nil }
 
+    trait :real_time do
+      results_availability { "real_time" }
+    end
+
+    trait :per_question do
+      results_availability { "per_question" }
+    end
+
+    trait :after_end do
+      results_availability { "after_end" }
+    end
+
+    trait :scheduled do
+      start_at { 1.day.from_now }
+      end_at { 2.days.from_now }
+    end
+
+    trait :started do
+      start_at { 1.day.ago }
+      end_at { 1.day.from_now }
+    end
+
+    trait :ongoing do
+      start_at { 1.day.ago }
+      end_at { 1.day.from_now }
+    end
+
+    trait :finished do
+      start_at { 30.days.ago }
+      end_at { 1.day.ago }
+    end
+
     trait :published do
       published_at { Time.current }
+    end
+
+    trait :results_published do
+      published_results_at { Time.current }
+    end
+
+    trait :with_questions do
+      after :create do |election, _evaluator|
+        create_list(:election_question, 2, election:)
+      end
     end
 
     trait :with_image do
@@ -60,11 +102,21 @@ FactoryBot.define do
     description { generate_localized_description(:question_description) }
     mandatory { false }
     question_type { "multiple_option" }
-    position { 0 }
+    sequence(:position) { |n| n }
+
+    trait :published_results do
+      published_results_at { Time.current }
+    end
 
     transient do
       with_response_options { true }
     end
+
+    transient do
+      voting_enabled { true }
+    end
+
+    voting_enabled_at { voting_enabled ? Time.current : nil }
 
     after :create do |question, evaluator|
       create_list(:election_response_option, 2, question:) if evaluator.with_response_options

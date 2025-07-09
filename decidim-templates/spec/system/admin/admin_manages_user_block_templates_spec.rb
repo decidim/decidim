@@ -124,6 +124,7 @@ describe "Admin manages user block templates" do
 
     it "copies the template" do
       within "tr", text: translated(template.name) do
+        find("button[data-component='dropdown']").click
         click_on "Duplicate"
       end
 
@@ -141,6 +142,7 @@ describe "Admin manages user block templates" do
 
     it "destroys the template" do
       within "tr", text: translated(template.name) do
+        find("button[data-component='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
 

@@ -22,6 +22,7 @@ module Decidim
 
             get "edit_questions", to: "questions#edit_questions"
             put "update_questions", to: "questions#update"
+            put "update_question_status", to: "questions#update_status"
 
             get "census", to: "census#edit"
             patch "census", to: "census#update"
@@ -30,7 +31,7 @@ module Decidim
             post :publish_results
             post :publish_result
 
-            get :dashboard_page, path: "dashboard_page"
+            get :dashboard, path: "dashboard"
           end
 
           resource :census, only: [:edit, :update], controller: "census"
@@ -62,8 +63,8 @@ module Decidim
 
           menu.add_item :election_dashboard,
                         I18n.t("election_dashboard", scope: "decidim.admin.menu.elections_menu"),
-                        @election.present? && @election.census_ready? ? current_component_admin_proxy&.dashboard_page_election_path(@election) : "#",
-                        active: @election.present? ? is_active_link?(current_component_admin_proxy&.dashboard_page_election_path(@election)) : false,
+                        @election.present? && @election.census_ready? ? current_component_admin_proxy&.dashboard_election_path(@election) : "#",
+                        active: @election.present? ? is_active_link?(current_component_admin_proxy&.dashboard_election_path(@election)) : false,
                         icon_name: "dashboard-line"
         end
       end

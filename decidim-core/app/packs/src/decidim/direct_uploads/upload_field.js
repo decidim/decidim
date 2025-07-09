@@ -1,5 +1,4 @@
 import UploadModal from "src/decidim/direct_uploads/upload_modal";
-import { truncateFilename } from "src/decidim/direct_uploads/upload_utility";
 import { escapeHtml, escapeQuotes } from "src/decidim/utilities/text";
 
 const updateModalTitle = (modal) => {
@@ -30,7 +29,7 @@ const updateActiveUploads = (modal) => {
   const [removeFiles, addFiles] = [modal.items.filter(({ removable }) => removable), modal.items.filter(({ removable }) => !removable)]
 
   addFiles.forEach((file, ix) => {
-    let title = truncateFilename(file.name, 19)
+    let title = file.name
 
     let hidden = ""
     if (file.hiddenField) {
@@ -80,7 +79,7 @@ const updateActiveUploads = (modal) => {
     const template = `
       <div ${attachmentIdOrHiddenField} data-filename="${escapeQuotes(file.name)}" data-title="${escapeQuotes(title)}">
         ${(/image/).test(file.type) && "<div><img src=\"data:,\" role=\"presentation\" /></div>" || ""}
-        <span>${escapeHtml(title)} (${escapeHtml(truncateFilename(file.name))})</span>
+        <span>${escapeHtml(title)}</span>
         ${hidden}
       </div>
     `

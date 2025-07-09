@@ -35,10 +35,6 @@ module Decidim
         def editable?
           @editable ||= id.blank? || Decidim::Elections::Question.exists?(id:)
         end
-
-        def number_of_options
-          response_options.size
-        end
       end
     end
   end
