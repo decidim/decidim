@@ -56,6 +56,8 @@ module Decidim
               permission_context
             ).permissions
           end.allowed?
+        rescue Decidim::PermissionAction::PermissionNotSetError
+          false
         end
 
         # Injects into context object current_participatory_space and current_component keys as they are needed
@@ -71,6 +73,8 @@ module Decidim
               object
             elsif object.respond_to?(:component)
               object.component
+            elsif object.respond_to?(:result)
+              object.result.component
             end
 
           context.to_h
@@ -109,6 +113,7 @@ module Decidim
           else
             permissions.unshift(object.participatory_space.manifest.permissions_class) if object.respond_to?(:participatory_space)
             permissions.unshift(object.component.manifest.permissions_class) if object.respond_to?(:component) && object.component.present?
+            permissions.unshift(object.result.component.manifest.permissions_class) if object.respond_to?(:result) && object.result.present?
           end
 
           permissions

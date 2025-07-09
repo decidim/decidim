@@ -11,6 +11,19 @@ module Decidim
         input_object_class BaseInputObject
 
         required_scopes "api:read", "api:write"
+
+        private
+
+        def handle_form_submission(&block)
+          result = block.call
+
+          if result[:ok]
+            # The result should be reloaded to reflect the associations
+            return result[:ok].reload
+          elsif result[:invalid]
+            return GraphQL::ExecutionError.new(result[:invalid].errors.full_messages.join(", "))
+          end
+        end
       end
     end
   end

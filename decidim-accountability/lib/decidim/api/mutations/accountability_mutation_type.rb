@@ -6,10 +6,15 @@ module Decidim
       graphql_name "AccountabilityMutation"
       description "Accountability mutations"
 
-      field :results, Decidim::Accountability::ResultType.connection_type, "A collection of Results", null: true, connection: true
+      field :create_result, mutation: CreateResultType, description: "create result"
+      field :delete_result, mutation: DeleteResultType, description: "update result"
+      field :result_mutation, type: ResultMutationType, description: "A result mutation" do
+        argument :id, GraphQL::Types::ID, description: "id of the result", required: true
+      end
+      field :update_result, mutation: UpdateResultType, description: "update result"
 
-      def results
-        Result.where(component: object).includes(:component)
+      def result_mutation(**args)
+        Result.where(component: object).find_by(id: args[:id])
       end
     end
   end

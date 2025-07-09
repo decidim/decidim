@@ -6,7 +6,9 @@ module Decidim
       description "A component mutation."
 
       possible_types Decidim::Proposals::ProposalsMutationType,
-                     Decidim::Budgets::BudgetsMutationType # ,
+                     Decidim::Budgets::BudgetsMutationType,
+                     Decidim::Accountability::AccountabilityMutationType
+
       def self.resolve_type(obj, _ctx)
         case obj.manifest_name
         when "proposals"
