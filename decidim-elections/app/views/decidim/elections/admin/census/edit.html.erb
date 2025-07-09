@@ -15,8 +15,8 @@
 
 </div>
   <% if election.census_ready? %>
-   <% 
-    census_ready = t("decidim.elections.censuses.token_csv.census_ready_html", election_title: decidim_sanitize_translated(election.title)) 
+   <%
+    census_ready = t("decidim.elections.censuses.token_csv.census_ready_html", election_title: decidim_sanitize_translated(election.title))
     census_count = t("decidim.elections.censuses.token_csv.census_size_html", count: census_count(election))
    %>
     <%= cell "decidim/announcement", "#{census_ready}<br>#{census_count}", callout_class: "success" %>
