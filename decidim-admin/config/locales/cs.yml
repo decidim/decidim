@@ -166,6 +166,8 @@ cs:
   decidim:
     admin:
       actions:
+        actions: Akce
+        actions_label: Akce pro %{resource}
         add: Přidat
         attachment:
           new: Nová příloha
@@ -580,6 +582,7 @@ cs:
         content: Nahlášený obsah
         external_domain_allowlist: Povolené externí domény
         help_sections: Sekce nápovědy
+        homepage: Rozložení domovské stránky
         impersonations: V zastoupení
         manage: Spravovat
         moderation: Globální moderace
