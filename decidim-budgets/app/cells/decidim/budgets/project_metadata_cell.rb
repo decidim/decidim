@@ -20,7 +20,7 @@ module Decidim
       private
 
       def project_items
-        [voted_item] + taxonomy_items + [status_item]
+        taxonomy_items + [status_item] + [budget_amount]
       end
 
       def items_for_map
@@ -39,23 +39,22 @@ module Decidim
         }
       end
 
-      def voted_item
-        return unless show_votes_count? && model.confirmed_orders_count.positive?
-
-        {
-          cell: "decidim/budgets/project_votes_count",
-          args: [model, { layout: :one_line }],
-          icon: current_order_checked_out? && resource_added? ? "check-double-line" : "check-line"
-        }
-      end
-
       def status_item
         return unless controller.try(:voting_finished?) && selected?
 
         {
           cell: "decidim/budgets/project_selected_status",
+          args: model
+        }
+      end
+
+      def budget_amount
+        return unless show_votes_count?
+
+        {
+          cell: "decidim/budgets/project_budget_amount",
           args: model,
-          icon: "question-line"
+          icon: "coin-line"
         }
       end
 
