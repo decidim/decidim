@@ -93,6 +93,10 @@ ca:
           success: S'ha renovat el secret correctament. El secret per a la usuària només és visible després de la creació. Si us plau, copia'l i guarda'l de forma segura abans de sortir d'aquesta pàgina!
       api_users:
         index:
+          explanation_html: |
+            <p>Les usuàries de l'API permeten a les desenvolupadores d'integració afegir comptes d'usuària de màquina administratives al sistema. Aquestes usuàries de màquina poden actuar com a administradores a la plataforma per realitzar actualitzacions que els administradors normals farien a través del panell d'administració. Un cas d'ús típic és una plataforma de gestió externa on un script automatitzat realitzaria tasques administratives amb la plataforma sense que una usuària real hagui d'autenticar-se al sistema. Per exemple, un sistema d'automatització podria voler enviar respostes a propostes i en aquest cas necessitem una usuària d'integració per fer aquesta tasca dins d'aquesta plataforma.</p>
+            <p>La principal diferència entre aquests comptes i els comptes d'administració normals és que aquests usuàries estan destinades a ser utilitzats per les màquines i per tant els seus requisits de contrasenya són diferents. Aquestes usuàries no necessiten actualitzar regularment la contrasenya i el canvi de contrasenya del compte es pot fer de manera gestionada quan sigui necessari.</p>
+            <p>Aquestes credencials estan destinades a ser utilitzades per màquines. Les aplicacions orientades als participants s'han d'integrar amb <a href="%{oauth_link}">Aplicacions OAuth</a>.</p>
           manage: Gestionar usuàries s de l'API
         new:
           select_organization: Seleccionar la teva organització
@@ -173,15 +177,24 @@ ca:
         form:
           application_type:
             confidential:
+              explanation: Aplicacions que són capaces d'autenticar-se de forma segura amb el servidor d'autorització, per exemple sent capaços de mantenir fora de perill el seu secret de client registrat. Normalment és una aplicació que s'executa en un servidor on s'emmagatzema el secret del client.
               name: Confidencial
             public:
               explanation: Aplicacions que no poden utilitzar secrets de clients registrats, com ara aplicacions que s'executen en un navegador o en un dispositiu mòbil.
               name: Públic
+          application_type_help_html: 'El tipus de client OAuth definit per <a href="%{client_type_link}" target="_blank">RFC 6749 Secció 2.1</a>. Els clients públics han d''implementar el flux PKCE segons el que defineix <a href="%{pkce_link}" target="_blank">RFC 7636</a>.'
+          refresh_tokens_help_html: 'Els autentificadors (tokens) d''actualització són útils en cas que l''autentificador necessiti una vida útil més llarga que l''assignada a l''autentificador d''accés.'
           scopes_explanation:
             "api:read": Permet a la usuària fer operacions de consulta a través de l'API GraphQL.
             "api:write": Permet a la usuària fer operacions de mutació a través de l'API GraphQL.
             profile: Proporciona accés als detalls del perfil de la usuària. Aquest àmbit només és necessari si l'aplicació OAuth només s'utilitza com a proveïdor d'identitat o servei d'autenticació.
             user: Capacitat per actuar com a usuària registrada amb l'autentificador (token) donat durant les trucades a l'API GraphQL. Això és necessari per a totes les operacions api:write o api:read que necessitin informació sobre l'usuari actual.
+          scopes_help_html: |
+            Els àmbits seleccionats estaran disponibles perquè les aplicacions connectades els sol·licitin durant el procés d'autorització. La usuària rebrà informació detallada sobre la sol·licitud d'autorització quan inicieu sessió mitjançant OAuth.
+            <br>
+            Els diferents àmbits proporcionen característiques diferents per a la usuària autenticada utilitzant els autentifcadors (tokens) d'accés concedits.
+            <br>
+            <strong>Nota:</strong> Si només necessites autenticar les usuàries de les teves aplicacions externes, només necessites l'àmbit <strong>perfil</strong>. Les aplicacions que interactuen amb l'API de Decidim també necessiten altres àmbits.
           select_organization: Seleccionar una organització
         index:
           confirm_delete: Segur que vols eliminar aquesta aplicació?
