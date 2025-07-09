@@ -1,6 +1,10 @@
 cs:
   activemodel:
     attributes:
+      milestone:
+        description: Popis
+        entry_date: Datum
+        title: Název
       result:
         decidim_accountability_status_id: Stav
         decidim_category_id: Kategorie
@@ -47,6 +51,8 @@ cs:
         edit: Upravit
         import: Importovat výsledky z jiné komponenty
         import_csv: Importovat výsledky z CSV souboru
+        milestones: Milníky
+        new_milestone: Nový milník
         new_result: Nový výsledek
         new_status: Nový status
         preview: Náhled
@@ -113,6 +119,23 @@ cs:
           create:
             invalid: Při importu výsledků došlo k chybě.
             success: Soubor se začal importovat. Během několika následujících minut obdržíte e-mail s výsledkem importu.
+        milestones:
+          create:
+            invalid: Při vytváření tohoto milníku došlo k chybě.
+            success: Milník úspěšně vytvořen.
+          destroy:
+            success: Milník byl úspěšně odstraněn.
+          edit:
+            title: Upravit milník
+            update: Aktualizovat milník
+          index:
+            title: Milníky
+          new:
+            create: Vytvořit milník
+            title: Nový milník
+          update:
+            invalid: Při aktualizaci tohoto milníku došlo k chybě.
+            success: Milník byl úspěšně aktualizován.
         models:
           result:
             name: Výsledek
@@ -231,6 +254,10 @@ cs:
       last_activity:
         new_result: 'Nový výsledek:'
       models:
+        milestone:
+          fields:
+            entry_date: Datum
+            title: Název
         result:
           fields:
             created_at: Vytvořeno
@@ -256,6 +283,8 @@ cs:
             other: "%{count} výsledků"
         home_header:
           global_status: Globální stav provedení
+        milestones:
+          title: Milníky
         no_results: Nebyly nalezeny žádné projekty
         root_taxonomies:
           title: 'Zobrazit podle:'
@@ -271,6 +300,8 @@ cs:
             label: Stav
           taxonomies_part_of_contains:
             label: Taxonomie
+      tooltips:
+        deleted_results_info: Nelze odstranit tento výsledek
     components:
       accountability:
         actions:
