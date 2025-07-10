@@ -78,6 +78,9 @@ pt-BR:
             origin_component_id: Componente de origem
             select_component: Selecionar componente
           new:
+            success:
+              one: 1 resultado na fila para ser importado. Você será notificado por e-mail, quando for concluído.
+              other: "%{count} resultados na fila para serem importados. Você será notificado por e-mail, quando for concluído."
             title: Importar resultados de outros componentes
         import_results:
           new:
@@ -168,6 +171,14 @@ pt-BR:
           update_dates:
             invalid: Houve um problema ao atualizar as datas de resultados
             success: Datas de resultados atualizadas com sucesso
+          update_status:
+            invalid: Houve um problema ao atualizar os status dos resultados
+            success: Status dos resultados ataulizados com sucesso
+          update_taxonomies:
+            invalid: Não foi possível atualizar as taxonomias %{taxonomies} para os resultados %{results}
+            select_a_result: Selecione um resultado
+            select_a_taxonomy: Selecione uma taxonomia
+            success: Taxonomias %{taxonomies} atualizadas com sucesso para os resultados %{results}
         shared:
           subnav:
             statuses: Statuses
@@ -189,9 +200,15 @@ pt-BR:
             invalid: Houve um problema ao atualizar esse status.
             success: Status atualizado com sucesso.
       admin_log:
+        milestones:
+          create: "%{user_name} criou o marco %{resource_name}"
+          delete: "%{user_name} excluiu o marco %{resource_name}"
+          update: "%{user_name} atualizou o marco %{resource_name}"
         result:
           create: "%{user_name} resultado criado %{resource_name} em %{space_name}"
           delete: "%{user_name} eliminou o resultado %{resource_name} em %{space_name}"
+          restore: "%{user_name} restaurou o resultado %{resource_name} em %{space_name}"
+          soft_delete: "%{user_name} moveu o resultado %{resource_name} em %{space_name} para a lixeira"
           update: "%{user_name} resultado atualizado %{resource_name} em %{space_name}"
         status:
           create: "%{user_name} criou o status %{resource_name} "
@@ -219,9 +236,20 @@ pt-BR:
             other: "%{count} resultados foram importados de projetos."
           subject: Importação de projetos bem sucedida
           success: Projetos importados com sucesso para resultados no componente %{component_name}. Você pode rever os resultados na “interface” de administração.
+      import_proposals_mailer:
+        import:
+          added_proposals:
+            one: Um resultado foi importado de propostas
+            other: "%{count} resultados foram importados de propostas."
+          subject: Importação bem sucedida de propostas
+          success: Propostas importadas com sucesso para resultados no componente %{component_name}. Você pode rever os resultados na ‘interface’ de administração.
       last_activity:
         new_result: 'Novo resultado:'
       models:
+        milestone:
+          fields:
+            entry_date: Data
+            title: Título
         result:
           fields:
             created_at: Criado
@@ -230,6 +258,7 @@ pt-BR:
             progress: Progresso
             start_date: Data de início
             status: Status
+            taxonomies: Taxonomias
             title: Título
         status:
           fields:
@@ -244,7 +273,11 @@ pt-BR:
             other: "%{count} resultados"
         home_header:
           global_status: Status de execução global
+        milestones:
+          title: Marcos
         no_results: Não há projetos
+        root_taxonomies:
+          title: 'Ver por:'
         search:
           search: Procure ações
         show:
@@ -255,6 +288,10 @@ pt-BR:
         results:
           status_id_eq:
             label: Status
+          taxonomies_part_of_contains:
+            label: Taxonomia
+      tooltips:
+        deleted_results_info: Não é possível excluir este resultado
     components:
       accountability:
         actions:
@@ -262,12 +299,25 @@ pt-BR:
         name: Prestação de contas
         settings:
           global:
+            clear_all: Apagar tudo
             comments_enabled: Comentários ativados
             comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
+            default_taxonomy: Taxonomia padrão
+            default_taxonomy_help: Selecione qual taxonomia você deseja mostrar por padrão. Se nenhuma taxonomia for selecionada, os resultados serão exibidos em um formato de lista.
+            define_taxonomy_filters: Por favor, defina alguns filtros para este espaço participativo antes de usar esta configuração.
             display_progress_enabled: Mostrar progresso
+            geocoding_enabled: Mapas habilitados
             intro: Introdução
+            no_taxonomy_filters_found: Nenhum filtro de taxonomia encontrado.
+            taxonomy_filters: Selecione filtros para o componente
+            taxonomy_filters_add: Adicionar filtro
           step:
             comments_blocked: Comentários bloqueados
+          visualization: Visualização
+    download_your_data:
+      show:
+        result_comments: Exportar resultados de comentários
+        results: Exportar resultados
     events:
       accountability:
         proposal_linked:
@@ -282,9 +332,27 @@ pt-BR:
           notification_title: O resultado <a href="%{resource_path}">%{resource_title}</a>, que inclui a proposta <a href="%{proposal_path}">%{proposal_title}</a>, está agora com %{progress}% de conclusão.
     open_data:
       help:
+        result_comments:
+          alignment: Se este comentário foi favorável, contra ou neutro
+          author: O nome do usuário que fez este comentário
+          body: O comentário em si
+          commentable_id: O ID exclusiva do item comentável
+          commentable_type: O tipo de item comentável (se for um resultado, uma proposta, etc.)
+          created_at: A data em que este comentário foi criado
+          depth: O lugar onde este comentário está na árvore de comentários (se for uma resposta ou uma resposta de uma resposta)
+          id: O ID para este comentário
+          locale: A localidade (linguagem) que o usuário teve ao deixar este comentário
+          root_commentable_url: A URL do recurso ligado a este comentário
         results:
+          address: O endereço do resultado (se houver)
+          children_count: O número de resultados filhos
+          comments_count: O número de comentários que este resultado tem
+          component: O componente ao qual o resultado pertence
+          created_at: A data em que este resultado foi criado
           description: A descrição do resultado
           end_date: A data de quando o resultado termina a execução e está concluída
+          id: O identificador exclusivo do resultado
+          latitude: A latitude do resultado caso ele tenha uma localização física
     participatory_spaces:
       highlighted_results:
         see_all: Ver todos os resultados (%{count})
