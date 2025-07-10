@@ -695,6 +695,7 @@ pt-BR:
             does_not_belong: Não pertence
             hidden_during_block: Oculto enquanto bloqueia o usuário
             offensive: Ofensivo
+            parent_hidden: Conteúdo pai foi oculto
             spam: Spam
         reports:
           index:
@@ -711,6 +712,11 @@ pt-BR:
             report_language: Reportar idioma
             report_reason: Motivo
             title: Detalhes da denúncia
+      new_import:
+        accepted_mime_types:
+          csv: CSV
+          json: JSON
+          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: Pré-visualização
@@ -950,6 +956,11 @@ pt-BR:
           help: Esses tokens são usados para compartilhar publicamente esse recurso não publicado para qualquer usuário. Eles estarão ocultos quando o recurso estiver publicado. Clique no ícone de compartilhamento do token para visitar a URL compartilhável.
           title: Compartilhar tokens
       shared:
+        adjacent_navigation:
+          next: Próximo
+          next_title: Próximo item
+          previous: Anterior
+          previous_title: Item anterior
         gallery:
           add_images: Adicione imagens
           edit_images: Editar imagens
