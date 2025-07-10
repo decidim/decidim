@@ -1,7 +1,9 @@
 <% append_stylesheet_pack_tag "decidim_elections" %>
+<% append_javascript_pack_tag "decidim_elections" %>
 
-<div class="vote-submitted">
+<div class="waiting-room" data-url="<%= waiting_election_votes_path(election_id: election) %>">
   <div>
+    <div class="spinner-container mb-6"></div>
     <h2 class="h2 text-center mb-6"><%= t(".title") %></h2>
     <p class="text-center"><%= t(".description") %></p>
   </div>

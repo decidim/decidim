@@ -19,13 +19,10 @@ module Decidim
         redirect_to exit_path
       end
 
-      # If the election has a census manifest that a prior requires authentication, render the auth form
-      # Otherwise, the current user will be send as data for checking if they are allowed to vote
-      # (Note that a census manifest can still allow unauthenticated users to vote)
+      # If the election has a census manifest that a requires authentication, render the auth form
       def new
         enforce_permission_to(:create, :vote, election:)
-
-        redirect_to(election_vote_path(election_id: election, id: question)) && return unless election.census.auth_form?
+        redirect_to(question_path(question)) unless election.census.auth_form?
 
         @form = election.census.form_instance({}, election:, current_user:)
       end
@@ -33,10 +30,10 @@ module Decidim
       def create
         enforce_permission_to(:create, :vote, election:)
 
-        @form = election.census.form_instance(params, { election:, current_user: })
+        @form = election.census.form_instance(params, election:, current_user:)
         if @form.valid?
           session[:session_credentials] = @form.attributes
-          redirect_to election_vote_path(election_id: election, id: question)
+          redirect_to question_path(question)
         else
           flash[:alert] = t("failed", scope: "decidim.elections.votes.check_census", errors: @form.errors.full_messages.join(", "))
           redirect_to new_election_vote_path(election)
@@ -44,25 +41,51 @@ module Decidim
       end
 
       # Show the voting form for the given question
-      def show; end
+      def show
+        console
+        redirect_to(waiting_election_votes_path(election_id: election)) if waiting_for_next_question?
+      end
 
-      # This action is used to save the vote for the current question and redirect to the next question
+      # Saves the vote for the current question and redirect to the next question
       def update
         save_vote!
 
-        if next_pending_question
-          redirect_to election_vote_path(election_id: election, id: next_pending_question, edit: editing?)
-        elsif election.per_question_waiting?
-          # TODO: show spinner and message
-          byebug
-        else
-          redirect_to confirm_election_votes_path(election_id: election)
+        if election.per_question?
+          CastVotes.call(election, votes_buffer, session_credentials) do
+            on(:ok) do
+              session[:voter_uid] = election.census.user_uid(session_credentials)
+              flash[:notice] = t("votes.cast.success", scope: "decidim.elections")
+            end
+
+            on(:invalid) do
+              redirect_to(question_path(question), alert: t("votes.cast.invalid", scope: "decidim.elections")) && return
+            end
+          end
+        end
+
+        redirect_to question_path(next_pending_question).presence || receipt_election_votes_path(election_id: election)
+      end
+
+      # If the election is per-question, this action will be called to show the waiting page
+      # while the user waits for the next question to be available.
+      # If the election is not per-question, this action will redirect to the next question
+      def waiting
+        redirect_path = waiting_for_next_question? ? nil : question_path(next_pending_question)
+
+        respond_to do |format|
+          format.html do
+            redirect_to(redirect_path) if redirect_path.present?
+          end
+
+          format.json do
+            render json: { url: redirect_path }
+          end
         end
       end
 
-      # This action is used to show the confirmation page with the votes that will be cast
+      # Shows the confirmation page with the votes that will be cast
       def confirm
-        render :confirm
+        redirect_to(waiting_election_votes_path(election_id: election)) if election.per_question?
       end
 
       def cast
@@ -71,27 +94,32 @@ module Decidim
             votes_buffer.clear
             session[:voter_uid] = election.census.user_uid(session_credentials)
             session[:session_credentials] = nil
-            flash[:notice] = t("votes.cast.success", scope: "decidim.elections")
             redirect_to receipt_election_votes_path(election), notice: t("votes.cast.success", scope: "decidim.elections")
           end
 
           on(:invalid) do
-            flash[:alert] = I18n.t("votes.cast.invalid", scope: "decidim.elections")
-            redirect_to confirm_election_votes_path(election)
+            redirect_to confirm_election_votes_path(election), alert: I18n.t("votes.cast.invalid", scope: "decidim.elections")
           end
         end
       end
 
       def receipt
         enforce_permission_to(:create, :vote, election:)
+        redirect_to(waiting_election_votes_path(election_id: election)) if waiting_for_next_question?
 
         @voter_uid = session[:voter_uid]
-        redirect_to(exit_path) && return unless election.votes.exists?(voter_uid: @voter_uid)
-
-        render :receipt
+        votes_buffer.clear
+        session[:session_credentials] = nil
+        redirect_to(exit_path) unless election.votes.exists?(voter_uid: @voter_uid)
       end
 
       private
+
+      def waiting_for_next_question?
+        return false unless election.per_question?
+
+        election.per_question_waiting? || questions.disabled.any?
+      end
 
       def session_credentials
         @session_credentials ||= session[:session_credentials] || current_user
@@ -110,11 +138,7 @@ module Decidim
       end
 
       def questions
-        @questions ||= begin
-          list = election.questions
-          list = list.enabled if election.per_question?
-          list.includes(:response_options)
-        end
+        @questions ||= election.available_questions.includes(:response_options)
       end
 
       def question
@@ -123,9 +147,21 @@ module Decidim
 
       # Returns the next question to be answered, or nil if there are no more questions
       def next_pending_question
-        return question.next_question if votes_buffer.blank? || editing?
+        return question&.next_question if editing?
 
-        questions.where.not(id: votes_buffer.keys).first
+        voted_ids = votes_buffer.present? ? votes_buffer.keys : []
+        questions.where.not(id: voted_ids).first
+      end
+
+      def question_path(question)
+        options = {}.tap do |opts|
+          opts[:edit] = "true" if editing?
+        end
+        return waiting_election_votes_path(election_id: election) if waiting_for_next_question?
+
+        return election_vote_path(election_id: election, id: question, **options) if question
+
+        confirm_election_votes_path(election_id: election) unless election.per_question?
       end
 
       def save_vote!

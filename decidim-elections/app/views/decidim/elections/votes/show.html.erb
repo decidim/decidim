@@ -20,7 +20,7 @@
   </div>
 
   <div class="vote-navigation flex justify-between mt-8">
-    <% if question.position.positive? %>
+    <% if question.previous_question %>
       <%= link_to election_vote_path(election_id: election.id, id: question.previous_question, edit: editing?), class: "button button__lg button__secondary" do %>
         <%= icon "arrow-left-line", class: "fill-current" %>
         <%= t("back", scope: "decidim.elections.votes.question") %>
@@ -29,7 +29,7 @@
 
     <div class="ml-auto">
       <%= hidden_field_tag("edit", true) if editing? %>
-      <%= submit_tag t("next", scope: "decidim.elections.votes.question"),
+      <%= submit_tag t(election.per_question? ? "cast_vote" : "next", scope: "decidim.elections.votes.question"),
                      class: "button button__lg button__secondary" %>
     </div>
   </div>

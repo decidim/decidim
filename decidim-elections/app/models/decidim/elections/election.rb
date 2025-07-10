@@ -124,6 +124,12 @@ module Decidim
         per_question? && !finished? && questions.unpublished_results.none?(&:voting_enabled?)
       end
 
+      def available_questions
+        return questions.enabled if per_question?
+
+        questions
+      end
+
       def status
         return :unpublished unless published?
         return :ongoing if ongoing?

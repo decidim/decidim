@@ -265,18 +265,23 @@ en:
           form_title: Verify your identity
           invalid: User not found in the census.
         confirm:
+          cast_vote: Cast vote
           edit_vote: Edit your vote
-          cast_vote: Cast your vote
           not_answered: You have not answered all the questions.
           title: Confirm your vote
         not_authorized: You are not authorized to vote in this election.
         question:
           back: Back
+          cast_vote: Cast vote
           next: Next
         receipt:
           description: Yo can vote again at any time while the voting period is open. Your previous vote will be overwritten by the new one.
           exit_button: Exit the voting booth
           title: Your vote has been cast successfully
+        waiting:
+          description: You can wait here until the next question is available. You will be automatically redirected to the next question when it is ready.
+          exit_button: Exit the waiting room
+          title: Waiting for the next question
     statistics:
       elections_count: Elections
   layouts:

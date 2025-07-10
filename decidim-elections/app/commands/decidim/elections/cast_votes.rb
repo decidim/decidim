@@ -10,7 +10,8 @@ module Decidim
       end
 
       def call
-        return broadcast(:invalid) if voted_questions.count != election.questions.count
+        return broadcast(:invalid) unless election.per_question? || voted_questions.count == election.questions.count
+        return broadcast(:invalid) if voted_questions.blank?
 
         transaction do
           save_votes!
@@ -27,7 +28,7 @@ module Decidim
       attr_reader :election, :credentials, :data
 
       def voted_questions
-        @voted_questions ||= election.questions.where(id: data.keys).filter_map do |question|
+        @voted_questions ||= election.available_questions.where(id: data.keys).filter_map do |question|
           responses = question.safe_responses(data[question.id.to_s])
           [question, responses]
         end.to_h
