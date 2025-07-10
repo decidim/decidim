@@ -545,6 +545,7 @@ it:
               one: Colonna mancante %{columns}.
               other: Colonne mancanti %{columns}.
         error: Si è verificato un errore durante l'importazione.
+        example_error: Si è verificato un problema durante la creazione di un esempio per il tipo specificato.
         new:
           accepted_mime_types:
             csv: csv
@@ -553,11 +554,20 @@ it:
           actions:
             back: Indietro
           download_example: Scarica esempio
+          download_example_format: Esempio come %{name}
           file_legend: Aggiungi un file da importare che verrà analizzato.
           import: Importazione
+        notice: "%{number} %{resource_name} importati con successo."
       logs:
         filters:
+          participatory_space: Trova spazio partecipativo
           text: Ricerca per email, nome o nickname.
+          user: Utente
+        logs_list:
+          no_logs_yet: Non ci sono ancora log.
+          no_matching_logs: Non ci sono registri con i filtri di ricerca forniti. Prova a cambiarli e riprovare.
+      manage_trash:
+        deleted_items_warning: Stai visualizzando gli elementi eliminati. Per apportare modifiche o modifiche, devi prima ripristinarli.
       managed_users:
         promotion:
           error: Si è verificato un problema nella promozione del partecipante gestito.
@@ -575,6 +585,8 @@ it:
         areas: Ambiti territoriali
         components: Componenti
         configuration: Configurazione
+        content: Contenuto segnalato
+        external_domain_allowlist: Consenti l'uso di domini esterni
         help_sections: Sezioni di Aiuto
         homepage: Homepage
         impersonations: Impersonificazioni
@@ -585,8 +597,13 @@ it:
         reported_users: Partecipanti segnalati
         scope_types: Tipi di ambito
         scopes: Ambito tematico
+        see_site: Vedi sito
         settings: Impostazioni
+        share_tokens: Link di accesso
+        static_page_topics: Argomenti
         static_pages: Pagine
+        taxonomies: Tassonomie
+        taxonomy_filters: Filtri Tassonomia
         user_groups: Gruppi
         users: Partecipanti
       metrics:
@@ -640,8 +657,11 @@ it:
             plural: Plurale
         share_token:
           fields:
+            actions: Azioni
             expires_at: Scade il
+            registered_only: Solo registrati?
             times_used: Volte usate
+            token: Link di accesso
         static_page:
           fields:
             created_at: Creato il
@@ -650,6 +670,7 @@ it:
           fields:
             created_at: Data di creazione
             email: E-mail
+            last_sign_in_at: Data dell'ultimo accesso
             name: Nome
             role: Ruolo
             roles:
@@ -670,13 +691,28 @@ it:
         index:
           actions:
             block: Blocca Utente
+            bulk_actions:
+              actions_dropdown: Azioni
+              block:
+                title: Blocco
+                update_moderated_user_button: Blocca utenti
+              unblock:
+                title: Sblocca
+                update_moderated_user_button: Sblocca Utenti
+              unreport:
+                title: Annulla segnalazione
+            ignore:
+              update_moderated_user_button: Annulla segnalazione utenti
             title: Azioni
             unblock: Sblocca Utente
             unreport: Non inserire
+          cancel: Annulla
           name: Nome
           nickname: Nickname
           reason: Motivazione
           reports: Numero di segnalazioni
+          selected: Selezionati
+          title: Partecipanti segnalati
         report:
           reasons:
             does_not_belong: Non appartiene
@@ -686,6 +722,18 @@ it:
           blocked: Bloccato
           unblocked: Non Bloccato
       moderations:
+        index:
+          actions:
+            actions_dropdown: Azioni
+            hide:
+              title: Nascondi
+              update_moderation_button: Nascondi le risorse selezionate
+            unhide:
+              title: Rivela
+              update_moderation_button: Nascondi le risorse selezionate
+            unreport:
+              title: Annulla segnalazione
+              update_moderation_button: Annulla segnalazione per le risorse selezionate
         report:
           reasons:
             does_not_belong: Non appartiene
