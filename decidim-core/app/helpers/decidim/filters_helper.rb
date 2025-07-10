@@ -33,7 +33,7 @@ module Decidim
     end
 
     def filter_search_label(label, id)
-      label + I18n.t("decidim.searches.filters.resource", collection: filter_for_resource(id))
+      I18n.t("decidim.searches.filters.resource", label:, collection: filter_for_resource(id))
     end
 
     def filter_for_resource(skip_to_id)
