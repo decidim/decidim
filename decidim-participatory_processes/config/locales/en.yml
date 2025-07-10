@@ -632,12 +632,12 @@ en:
       static_pages:
         democratic_quality_indicators:
           content: |-
-            <h1>Indicator system to measure participation quality in Decidim.</h1>
+            <h2>Indicator system to measure participation quality in Decidim.</h2>
 
-            <h2>Introduction</h2>
+            <h3>Introduction</h3>
             <p>Democratic quality is a core principle of Decidim. To uphold this, we have developed a system of indicators that help evaluate the quality of participatory processes on the platform. This article explains how these indicators are calculated.</p>
 
-            <h2>How Are Indicators Calculated?</h2>
+            <h3>How Are Indicators Calculated?</h3>
             <p>We have defined two methods for collecting quality indicators:</p>
 
             <ol>
@@ -656,7 +656,7 @@ en:
             </ul>
 
             <br><br>
-            <h2>Automatic Metrics</h2>
+            <h3>Automatic Metrics</h3>
             <p>These metrics are automatically calculated from data available in Decidim. They are evaluated per participatory process and can be made public by administrators, so all participants can access it.</p>
 
             <p>We have defined four main indicators: Citizen Influence, Hybridization, Responsiveness and Traceability:</p>
@@ -716,18 +716,18 @@ en:
             </ul>
 
             <br><br>
-            <h2>Self-Assessment Metrics</h2>
+            <h3>Self-Assessment Metrics</h3>
 
             <p>In addition to automatic metrics, we propose the use of a <strong>self-evaluation form</strong> to assess the qualitative dimensions of each participatory process. This form will be completed by platform administrators at the end of each process, and the responses will be publicly displayed in the indicators content block.</p>
 
             <p>These questions aim to capture aspects of democratic quality that cannot be assessed through quantitative data alone. It is important to note that the responses to this survey are biased by the opinion of the platform administrators.</p>
 
             <br><br>
-            <h2>Self-assessment questions</h2>
+            <h3>Self-assessment questions</h3>
 
             <p>The questions that make up the self-assessment form answered by the administrators, as well as the values associated with each answer, are set out below.</p>
 
-            <h3>Inclusiveness</h3>
+            <h4>Inclusiveness</h4>
 
             <p>Inclusivity according to cultural origin and functional diversity.</p>
 
@@ -764,7 +764,7 @@ en:
               </li>
             </ol>
 
-            <h3>Relevance</h3>
+            <h4>Relevance</h4>
 
             <p>Impact relevance, as the percentage of the organisation's budget, of the organisation's workforce, or of the total population, that will be affected by the process' result, and the time of such impact.</p>
 
@@ -780,7 +780,7 @@ en:
               </li>
             </ol>
 
-            <h3>Citizens influence</h3>
+            <h4>Citizens influence</h4>
 
             <ol>
               <li>Level of influence of the process according to the participation mechanisms enabled, according to the ladder of participation defined by Sherry Arnstein (1969).
@@ -817,7 +817,7 @@ en:
               </li>
             </ol>
 
-            <h3>Accessibility</h3>
+            <h4>Accessibility</h4>
 
             <ol>
               <li>In how many languages has the process been communicated?
