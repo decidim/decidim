@@ -29,17 +29,3 @@
     </section>
   </div>
 <% end %>
-<script>
-  // remove not necessary attributes on ul added on js
-  const ul = document.querySelector('#dropdown-menu-profile')
-  document.addEventListener("DOMContentLoaded", function(event) {
-    setTimeout(() => {
-      ul.removeAttribute("tabindex")
-      ul.removeAttribute("role")
-    }, 250)
-  });
-  // avoid change value of aria-hidden when clicking anywhere on window
-  window.addEventListener("click", function(){
-    ul.setAttribute("aria-hidden", "false")
-  })
-</script>
