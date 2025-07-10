@@ -18,10 +18,10 @@
         <%= icon "arrow-down-s-line" %>
         <%= icon "arrow-up-s-line" %>
       </button>
-      <ul id="dropdown-menu-pages" class="vertical-tabs__list" role="menu">
+      <ul id="dropdown-menu-pages" class="vertical-tabs__list">
         <% pages.each do |sibling| %>
-          <li class="<%= "is-active" if page == sibling %>" role="menuitem">
-            <%= link_to translated_attribute(sibling.title), page_path(sibling.slug), "aria-current": (page == sibling).to_s %>
+          <li class="<%= "is-active" if page == sibling %>">
+            <%= link_to translated_attribute(sibling.title), page_path(sibling.slug), "aria-current": page == sibling ? "page" : "false" %>
           </li>
         <% end %>
       </ul>
@@ -43,3 +43,16 @@
     </section>
   </div>
 <% end %>
+<script>
+  // remove not necessary attribute on ul added on js
+  const ul = document.querySelector("#dropdown-menu-pages")
+  document.addEventListener("DOMContentLoaded", function(){
+    setTimeout(() => {
+      ul.removeAttribute("role")
+    }, 300)
+  })
+  // avoid change value of aria-hidden when clicking anywhere on window
+  window.addEventListener("click", function(){
+    ul.setAttribute("aria-hidden", "false")
+  })
+</script>
