@@ -62,6 +62,8 @@ module Decidim
           case permission_action.action
           when :update
             toggle_allow(registration_form.present?)
+          when :export_responses
+            permission_action.allow!
           end
         end
 
@@ -82,15 +84,6 @@ module Decidim
           case permission_action.action
           when :update
             toggle_allow(poll.present? && meeting.present?)
-          end
-        end
-
-        def allowed_export_responses?
-          return unless permission_action.subject == :questionnaire
-
-          case permission_action.action
-          when :export_responses
-            permission_action.allow!
           end
         end
       end
