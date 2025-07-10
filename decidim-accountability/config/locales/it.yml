@@ -8,6 +8,7 @@ it:
         decidim_scope_id: Obiettivi
         description: Descrizione
         end_date: Data di fine
+        meetings_ids: Meetings correlati
         progress: Progresso
         project_ids: Progetti inclusi
         proposals: Proposte incluse
@@ -22,6 +23,7 @@ it:
         progress: Progresso
       timeline_entry:
         description: Descrizione
+        entry_date: Data
         title: Nome
     models:
       decidim/accountability/proposal_linked_event: Proposta inclusa in un risultato
@@ -39,7 +41,7 @@ it:
         confirm_destroy: Sei sicuro di voler eliminare questo %{name}?
         destroy: Cancella
         edit: Modifica
-        import: Importa progetti da un'altro componenete
+        import: Importa progetti da un altro componente
         import_csv: Importa risultati da file CSV
         new_result: Nuovo risultato
         new_status: Nuovo stato
@@ -55,6 +57,8 @@ it:
           new:
             download_export: Scarica l'esportazione in formato CSV
             import: Importa
+            info: |
+              <p>Si consiglia di seguire questi passaggi:</p><ol><li>Creare gli stati per i risultati che si desidera aggiungere (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Creare manualmente almeno un risultato attraverso questo pannello di amministrazione (<a href='%{link_new_result}' target='_blank'>link</a>) prima di utilizzare Importa, per avere una migliore comprensione del formato e di ciò che è necessario compilare.</li><li>Scaricare l'esportazione nel formato CSV (%{link_export_csv})</li><li>Effettuare le modifiche localmente. È possibile modificare solo le seguenti colonne del CSV:</li></ol><ul><li><b>categoria/id:</b> ID per la categoria</li><li><b>scope/id:</b> ID per l'ambito</li><li><b>parent/id:</b> ID dell'origine (per i risultati correlati). Opzionale</li><li><b>titolo/I18N:</b> Titolo sulla lingua X</li><li><b>descrizione/I18N:</b> Descrizione sulla lingua X</li><li><b>start_date:</b> data in cui il risultato inizia l'esecuzione (formato AAAA-MM-DD)</li><li><b>end_date:</b> data in cui il risultato termina l'esecuzione (formato AAAA-MM-DD)</li><li><b>status/id:</b> ID dello stato per questo risultato</li><li><b>progresso:</b> Percentuale (da 0 a 100) dell'esecuzione</li><li><b>proposte_ids:</b> ID interno delle relative proposte (separate da una virgola). Viene convertito automaticamente in <span class='attribute-name'>proposal_url</span></li></ul>
             title: Importa risultati da un file CSV
         imports:
           create:
@@ -66,17 +70,27 @@ it:
           status:
             name: Stato
         projects_import:
+          create:
+            invalid: Si è verificato un problema durante l'importazione dei risultati, per favore segui attentamente le istruzioni e assicurati di aver selezionato i progetti per l'implementazione.
           new:
             create: Importa
+            import_all_selected_projects: Importa tutti i progetti selezionati per l'attuazione
             new_items:
               one: 1 progetto selezionato verrà importato
               other: "%{count} progetti selezionati verranno importati"
+            no_components: Non ci sono altri componenti della proposta in questo spazio partecipativo per importare le proposte in progetti.
             origin_component_id: Componente d'origine
             select_component: Seleziona un componente
+            success:
+              one: 1 risultato in coda per essere importato. Sarai avvisato via email, una volta completato.
+              other: "%{count} risultati in coda per essere importati. Sarai avvisato via email, una volta completato."
+            title: Importa da un altro componente
         results:
           create:
             invalid: C'è stato un problema durante la creazione di questo risultato.
             success: Risultato creato con successo.
+          destroy:
+            success: Il risultato è stato cancellato.
           edit:
             title: Modifica il risultato
             update: Aggiorna il risultato
@@ -180,6 +194,7 @@ it:
             progress: Avanzamento
         timeline_entry:
           fields:
+            entry_date: Data
             title: Nome
       results:
         count:
@@ -190,6 +205,8 @@ it:
           all: Tutti
         home:
           categories_label: Categorie
+          empty: Non ci sono ancora risultati.
+          empty_filters: Non ci sono risultati con questi criteri.
           subcategories_label: Sottocategorie
         home_header:
           global_status: Stato di esecuzione globale
