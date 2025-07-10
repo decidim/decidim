@@ -11,60 +11,64 @@ module Decidim
           options[:content_block]
         end
 
+        def option_scope
+          "decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form"
+        end
+
         def settings_options
           {
             migrant_groups_invited: [
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.inclusiveness.migrant_groups_invited.options.five"), 5],
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.inclusiveness.migrant_groups_invited.options.zero"), 0]
+              [t("inclusiveness.migrant_groups_invited.options.five", scope: option_scope), 5],
+              [t("inclusiveness.migrant_groups_invited.options.zero", scope: option_scope), 0]
             ],
             cultural_origins_participation: [
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.inclusiveness.cultural_origins_participation.options.one"), 1],
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.inclusiveness.cultural_origins_participation.options.two"), 2],
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.inclusiveness.cultural_origins_participation.options.three"), 3],
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.inclusiveness.cultural_origins_participation.options.four"), 4],
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.inclusiveness.cultural_origins_participation.options.five"), 5]
+              [t("inclusiveness.cultural_origins_participation.options.one", scope: option_scope), 1],
+              [t("inclusiveness.cultural_origins_participation.options.two", scope: option_scope), 2],
+              [t("inclusiveness.cultural_origins_participation.options.three", scope: option_scope), 3],
+              [t("inclusiveness.cultural_origins_participation.options.four", scope: option_scope), 4],
+              [t("inclusiveness.cultural_origins_participation.options.five", scope: option_scope), 5]
             ],
             functional_diversity_invited: [
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.inclusiveness.functional_diversity_invited.options.five"), 5],
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.inclusiveness.functional_diversity_invited.options.zero"), 0]
+              [t("inclusiveness.functional_diversity_invited.options.five", scope: option_scope), 5],
+              [t("inclusiveness.functional_diversity_invited.options.zero", scope: option_scope), 0]
             ],
             functional_diversity_participation: [
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.inclusiveness.functional_diversity_participation.options.one"), 1],
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.inclusiveness.functional_diversity_participation.options.two"), 2],
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.inclusiveness.functional_diversity_participation.options.three"), 3],
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.inclusiveness.functional_diversity_participation.options.four"), 4],
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.inclusiveness.functional_diversity_participation.options.five"), 5]
+              [t("inclusiveness.functional_diversity_participation.options.one", scope: option_scope), 1],
+              [t("inclusiveness.functional_diversity_participation.options.two", scope: option_scope), 2],
+              [t("inclusiveness.functional_diversity_participation.options.three", scope: option_scope), 3],
+              [t("inclusiveness.functional_diversity_participation.options.four", scope: option_scope), 4],
+              [t("inclusiveness.functional_diversity_participation.options.five", scope: option_scope), 5]
             ],
             relevance_percentage: [
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.relevance.relevance_percentage.options.one"), 1],
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.relevance.relevance_percentage.options.two"), 2],
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.relevance.relevance_percentage.options.three"), 3],
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.relevance.relevance_percentage.options.four"), 4],
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.relevance.relevance_percentage.options.five"), 5]
+              [t("relevance.relevance_percentage.options.one", scope: option_scope), 1],
+              [t("relevance.relevance_percentage.options.two", scope: option_scope), 2],
+              [t("relevance.relevance_percentage.options.three", scope: option_scope), 3],
+              [t("relevance.relevance_percentage.options.four", scope: option_scope), 4],
+              [t("relevance.relevance_percentage.options.five", scope: option_scope), 5]
             ],
             citizen_influence_level: [
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.citizen_influence.citizen_influence_level.options.zero"), 0,
-               t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.citizen_influence.citizen_influence_level.options.zero_description")],
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.citizen_influence.citizen_influence_level.options.one"), 1,
-               t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.citizen_influence.citizen_influence_level.options.one_description")],
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.citizen_influence.citizen_influence_level.options.two"), 2,
-               t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.citizen_influence.citizen_influence_level.options.two_description")],
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.citizen_influence.citizen_influence_level.options.three"), 3,
-               t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.citizen_influence.citizen_influence_level.options.three_description")],
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.citizen_influence.citizen_influence_level.options.four"), 4,
-               t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.citizen_influence.citizen_influence_level.options.four_description")],
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.citizen_influence.citizen_influence_level.options.five"), 5,
-               t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.citizen_influence.citizen_influence_level.options.five_description")]
+              [t("citizen_influence.citizen_influence_level.options.zero", scope: option_scope), 0,
+               t("citizen_influence.citizen_influence_level.options.zero_description", scope: option_scope)],
+              [t("citizen_influence.citizen_influence_level.options.one", scope: option_scope), 1,
+               t("citizen_influence.citizen_influence_level.options.one_description", scope: option_scope)],
+              [t("citizen_influence.citizen_influence_level.options.two", scope: option_scope), 2,
+               t("citizen_influence.citizen_influence_level.options.two_description", scope: option_scope)],
+              [t("citizen_influence.citizen_influence_level.options.three", scope: option_scope), 3,
+               t("citizen_influence.citizen_influence_level.options.three_description", scope: option_scope)],
+              [t("citizen_influence.citizen_influence_level.options.four", scope: option_scope), 4,
+               t("citizen_influence.citizen_influence_level.options.four_description", scope: option_scope)],
+              [t("citizen_influence.citizen_influence_level.options.five", scope: option_scope), 5,
+               t("citizen_influence.citizen_influence_level.options.five_description", scope: option_scope)]
             ],
             languages_count: [
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.accessibility.languages_count.options.one"), 1],
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.accessibility.languages_count.options.two_five"), 2.5],
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.accessibility.languages_count.options.five"), 5]
+              [t("accessibility.languages_count.options.one", scope: option_scope), 1],
+              [t("accessibility.languages_count.options.two_five", scope: option_scope), 2.5],
+              [t("accessibility.languages_count.options.five", scope: option_scope), 5]
             ],
             venue_accessibility: [
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.accessibility.venue_accessibility.options.zero"), 0],
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.accessibility.venue_accessibility.options.two_five"), 2.5],
-              [t("decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.accessibility.venue_accessibility.options.five"), 5]
+              [t("accessibility.venue_accessibility.options.zero", scope: option_scope), 0],
+              [t("accessibility.venue_accessibility.options.two_five", scope: option_scope), 2.5],
+              [t("accessibility.venue_accessibility.options.five", scope: option_scope), 5]
             ]
           }
         end
