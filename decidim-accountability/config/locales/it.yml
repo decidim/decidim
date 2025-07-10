@@ -20,6 +20,7 @@ it:
         progress: Progresso
       timeline_entry:
         description: Descrizione
+        entry_date: Data
         title: Nome
     models:
       decidim/accountability/proposal_linked_event: Proposta inclusa in un risultato
@@ -246,12 +247,16 @@ it:
             progress: Avanzamento
         timeline_entry:
           fields:
+            entry_date: Data
             title: Nome
       results:
         count:
           results_count:
             one: 1 risultato
             other: "%{count} risultati"
+        home:
+          empty: Non ci sono ancora risultati.
+          empty_filters: Non ci sono risultati con questi criteri.
         home_header:
           global_status: Stato di esecuzione globale
         no_results: Non ci sono i progetti
