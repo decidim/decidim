@@ -59,7 +59,7 @@ module Decidim
             yield
           end
         end
-       end
+      end
 
       def button_class
         css_classes = "button button__sm w-full budget__card__highlight-vote__button "
