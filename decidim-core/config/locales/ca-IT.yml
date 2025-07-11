@@ -1500,6 +1500,7 @@ ca-IT:
     searches:
       filters:
         jump_to: 'Salta a:'
+        resource: "%{label} entre %{collection}"
         search: Cercar
         state:
           active: Actiu
