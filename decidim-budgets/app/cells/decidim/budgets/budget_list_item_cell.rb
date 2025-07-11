@@ -45,15 +45,15 @@ module Decidim
 
       # If the voting is open, then do the link for the authorized focus mode
       # If not (i.e. voting is disabled or finished), then link to the resource itself
-      def link_to_resource_wrapper(css_class, &block)
+      def link_to_resource_wrapper(css_class)
         if voting_open?
           action_authorized_link_to "vote",
-                                      budget_projects_path(budget, start_voting: true),
-                                      resource: budget,
-                                      data: { "redirect-url": budget_projects_path(budget) },
-                                      class: css_class do
-                                        yield
-                                      end
+                                    budget_projects_path(budget, start_voting: true),
+                                    resource: budget,
+                                    data: { "redirect-url": budget_projects_path(budget) },
+                                    class: css_class do
+            yield
+          end
         else
           link_to resource_locator(budget).path, class: css_class do
             yield
