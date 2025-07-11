@@ -20,7 +20,7 @@ describe "Admin manages surveys" do
 
     it_behaves_like "access permissions form" do
       let!(:row_text) { translated(component.name) }
-      let!(:permission) { "Response" }
+      let!(:permission) { "Respond" }
     end
   end
 
@@ -69,7 +69,7 @@ describe "Admin manages surveys" do
 
       it_behaves_like "access permissions form" do
         let!(:row_text) { decidim_sanitize_translated(survey.title) }
-        let!(:permission) { "Response" }
+        let!(:permission) { "Respond" }
       end
 
       it "shows warning message" do

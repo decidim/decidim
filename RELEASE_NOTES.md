@@ -117,7 +117,7 @@ bin/rails db:migrate
 bin/rails decidim:upgrade:user_groups:remove
 bin/rails decidim:upgrade:fix_nickname_casing
 bin/rails decidim:verifications:revoke:sms
-bin/rails decidim_surveys:upgrade:fix_survey_component_permissions
+bin/rails decidim_surveys:upgrade:fix_survey_permissions
 ```
 
 ### 1.6. Follow the steps and commands detailed in these notes
@@ -283,7 +283,7 @@ As we have changed the terminology surveys from "answer" to "respond", we need t
 To ensure that, you just need to run the below task.
 
 ```bash
-bin/rails decidim_surveys:upgrade:fix_survey_component_permissions
+bin/rails decidim_surveys:upgrade:fix_survey_permissions
 ```
 
 You can read more about this change on PR [#14940](https://github.com/decidim/decidim/pull/14940).
