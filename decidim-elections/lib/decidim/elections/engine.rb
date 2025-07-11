@@ -45,7 +45,7 @@ module Decidim
           manifest.voter_form = "Decidim::Elections::Censuses::InternalUsersForm"
           manifest.voter_form_partial = "decidim/elections/censuses/internal_users_form"
           manifest.user_query do |election|
-            # These are granted authorizations
+            # These are users with granted authorizations
             # note that this does not necessarily mean that the user is authorized (as the authorization handler may have restricting attributes)
             Decidim::AuthorizedUsers.new(
               organization: election.organization,

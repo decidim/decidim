@@ -3,6 +3,7 @@
 module Decidim
   module Elections
     class Voter < Elections::ApplicationRecord
+      include Decidim::Traceable
       belongs_to :election, class_name: "Decidim::Elections::Election"
 
       has_many :votes, class_name: "Decidim::Elections::Vote", foreign_key: :decidim_elections_voter_id, dependent: :destroy

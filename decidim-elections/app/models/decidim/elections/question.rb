@@ -3,6 +3,7 @@
 module Decidim
   module Elections
     class Question < ApplicationRecord
+      include Decidim::Traceable
       include Decidim::TranslatableResource
 
       QUESTION_TYPES = %w(single_option multiple_option).freeze
