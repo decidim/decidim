@@ -1799,6 +1799,7 @@ ca-IT:
     searches:
       filters:
         jump_to: 'Salta a:'
+        resource: "%{label} entre %{collection}"
         search: Cercar
         state:
           active: Actiu
@@ -2322,6 +2323,8 @@ ca-IT:
         profile: El meu compte
         public_profile: El meu perfil públic
         title: Enllaços del perfil
+        unread_conversations: Tens converses sense llegir
+        unread_notifications: Tens notificacions sense llegir
       user_profile:
         account: Compte
         authorizations: Autoritzacions
