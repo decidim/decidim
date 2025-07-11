@@ -7,9 +7,10 @@ module Decidim
     describe Vote do
       subject { vote }
 
-      let(:question) { create(:election_question, :with_response_options) }
+      let(:question) { create(:election_question, :with_response_options, question_type:) }
       let(:response_option) { question.response_options.first }
       let(:vote) { create(:election_vote, question:, response_option:) }
+      let(:question_type) { "single_option" }
 
       it { is_expected.to be_valid }
       it { is_expected.to be_versioned }
@@ -31,6 +32,28 @@ module Decidim
       describe "#voter_uid" do
         it "is read-only" do
           expect { subject.voter_uid = "new_uid" }.to raise_error(ActiveRecord::ReadonlyAttributeError)
+        end
+
+        context "when voter_uid already exists" do
+          let(:another_vote) { build(:election_vote, voter_uid: vote.voter_uid, question:, response_option: other_response_option) }
+          let(:other_response_option) { question.response_options.last }
+
+          it "cannot be repeaded" do
+            expect(another_vote).not_to be_valid
+          end
+
+          context "when question allows multiple votes" do
+            let(:question_type) { "multiple_option" }
+
+            it "can be repeated" do
+              expect(another_vote).to be_valid
+            end
+
+            it "cannot be associated with the same response option" do
+              another_vote.response_option = response_option
+              expect(another_vote).not_to be_valid
+            end
+          end
         end
       end
 

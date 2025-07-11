@@ -143,6 +143,17 @@ module Decidim
           response_ids = question.response_options.pluck(:id)
           expect(question.safe_responses(response_ids)).to eq(question.response_options.where(id: response_ids.first))
         end
+
+        context "when number of responses exceeds max votable options" do
+          before do
+            allow(question).to receive(:max_votable_options).and_return(0)
+          end
+
+          it "returns an empty array" do
+            response_ids = question.response_options.pluck(:id)
+            expect(question.safe_responses(response_ids)).to be_empty
+          end
+        end
       end
 
       describe "#sibling_questions" do
@@ -204,7 +215,7 @@ module Decidim
         end
 
         it "raises an error when trying to destroy with votes" do
-          create(:election_vote, question:)
+          create(:election_vote, question:, response_option: question.response_options.first)
           expect { question.destroy! }.to raise_error(ActiveRecord::RecordNotDestroyed)
           expect(question.reload).to be_persisted
           expect(question.votes.count).to be_positive

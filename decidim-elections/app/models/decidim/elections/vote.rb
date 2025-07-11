@@ -10,8 +10,9 @@ module Decidim
       attr_readonly :voter_uid, :question_id
 
       validates :voter_uid, presence: true
-
       validate :response_belong_to_question
+      validates :response_option, uniqueness: { scope: [:question_id, :voter_uid, :response_option_id] }
+      validate :max_votable_options
 
       # To ensure records cannot be deleted
       before_destroy { |_record| raise ActiveRecord::ReadOnlyRecord }
@@ -21,6 +22,14 @@ module Decidim
       def response_belong_to_question
         return unless question && response_option
         return if question.response_options.include?(response_option)
+
+        errors.add(:response_option, :invalid)
+      end
+
+      def max_votable_options
+        return unless question && response_option
+
+        return if question.votes.where.not(id: id).where(voter_uid: voter_uid).count < question.max_votable_options
 
         errors.add(:response_option, :invalid)
       end
