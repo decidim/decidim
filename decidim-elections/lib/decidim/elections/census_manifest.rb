@@ -53,8 +53,8 @@ module Decidim
       # Registers a block that will be used to generate a unique voter identifier
       # The block will receive the data of the voter and should return a unique identifier
       # If the block is not set, a default identifier will be generated based on the data
-      def voter_uid(&block)
-        @voter_uid = block
+      def voter_uid_generator(&block)
+        @on_voter_uid_generation = block
       end
 
       # a callback that will be called by the method "valid_user?"
@@ -133,9 +133,9 @@ module Decidim
       end
 
       # Generates a unique voter identifier based on the provided data
-      def user_uid(data)
-        if @voter_uid
-          @voter_uid.call(data)
+      def voter_uid(data)
+        if @on_voter_uid_generation
+          @on_voter_uid_generation.call(data)
         elsif data.respond_to?(:to_global_id)
           # If the data is a Decidim::User or similar, we can use its global ID
           Digest::SHA256.hexdigest(data.to_global_id.to_s)

@@ -62,7 +62,7 @@ module Decidim
       end
 
       def voted_by_current_user?(election)
-        voter_uid = session[:voter_uid] || election.census.user_uid(current_user)
+        voter_uid = session[:voter_uid] || election.census.voter_uid(current_user)
         election.votes.exists?(voter_uid:)
       end
 

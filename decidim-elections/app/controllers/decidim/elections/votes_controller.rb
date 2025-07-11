@@ -58,7 +58,7 @@ module Decidim
         if election.per_question?
           CastVotes.call(election, votes_buffer, session_credentials) do
             on(:ok) do
-              session[:voter_uid] = election.census.user_uid(session_credentials)
+              session[:voter_uid] = election.census.voter_uid(session_credentials)
               flash[:notice] = t("votes.cast.success", scope: "decidim.elections")
             end
 
@@ -99,7 +99,7 @@ module Decidim
         CastVotes.call(election, votes_buffer, session_credentials) do
           on(:ok) do
             votes_buffer.clear
-            session[:voter_uid] = election.census.user_uid(session_credentials)
+            session[:voter_uid] = election.census.voter_uid(session_credentials)
             session_credentials.clear
             redirect_to receipt_election_votes_path(election), notice: t("votes.cast.success", scope: "decidim.elections")
           end

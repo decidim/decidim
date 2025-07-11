@@ -47,7 +47,7 @@ module Decidim
       end
 
       def voter_uid
-        @voter_uid ||= election.census.user_uid(credentials)
+        @voter_uid ||= election.census.voter_uid(credentials)
       end
     end
   end
