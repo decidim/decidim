@@ -24,7 +24,7 @@ const adjustCtasButtons = () => {
     return;
   }
 
-  // On focus or ephemereal mode we do not have footer
+  // On focus or ephemeral mode we do not have footer
   if (!footer) {
     return;
   }
