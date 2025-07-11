@@ -278,7 +278,7 @@ For more information about the definition of a signature workflow read the docum
 
 ### 2.6. Permission rename in surveys module
 
-As we have changed the terminology surveys from "respond" to "response", we need to make sure that your already set permissions are still working.
+As we have changed the terminology surveys from "answer" to "respond", we need to make sure that your already set permissions are still working.
 
 To ensure that, you just need to run the below task.
 
