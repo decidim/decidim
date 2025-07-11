@@ -1502,6 +1502,7 @@ fr-CA:
     searches:
       filters:
         jump_to: 'Aller à:'
+        resource: "%{label} parmi %{collection}"
         search: Rechercher
         state:
           active: actif
