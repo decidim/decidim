@@ -11,6 +11,10 @@ module Decidim
       def elections
         Election.where(component: current_component)
       end
+
+      def questions
+        @questions ||= election.available_questions.includes(:response_options)
+      end
     end
   end
 end

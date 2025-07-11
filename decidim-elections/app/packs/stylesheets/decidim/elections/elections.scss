@@ -6,3 +6,39 @@
     @apply border-l-success border-y-success border-r-transparent;
   }
 }
+
+.verification {
+  @apply flex items-center justify-between gap-4 border-[3px] border-background rounded px-4 py-2 cursor-pointer;
+
+  &__no_clickable {
+    @apply cursor-default;
+  }
+
+  &__container {
+    @apply space-y-8;
+  }
+
+  &__icon {
+    @apply flex-none w-8 h-8 text-gray fill-current;
+
+    &.is-granted {
+      @apply text-success;
+    }
+  }
+
+  &__text {
+    @apply grow space-y-2.5;
+
+    span {
+      @apply inline-block text-sm text-gray-2;
+    }
+  }
+
+  &:not(.verification__no_clickable):hover {
+    @apply border-tertiary;
+  }
+
+  &:not(.verification__no_clickable):hover &__text > :first-child {
+    @apply underline;
+  }
+}

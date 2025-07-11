@@ -26,10 +26,6 @@ module Decidim
         @elections ||= reorder(search.result)
       end
 
-      def questions
-        @questions ||= election.questions if election
-      end
-
       def election
         @election ||= elections.find_by(id: params[:id])
       end

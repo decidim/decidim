@@ -1,36 +1,35 @@
 <% add_decidim_meta_tags({ description: translated_attribute(election.description), title: present(election).title }) %>
 
-<!doctype html>
-<html class="no-js" lang="<%= I18n.locale %>">
-<head>
-  <meta charset="utf-8">
-  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-  <meta name="author" content="">
-  <meta name="copyright" content="">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= decidim_page_title %></title>
-  <%= render "layouts/decidim/head" %>
-</head>
-<body>
-<div class="layout-container">
-  <header>
-    <div id="sticky-header-container" data-sticky-header>
-      <%= render partial: "layouts/decidim/election_votes_header" %>
-    </div>
-  </header>
-  <% if display_flash_messages.present? %>
-    <div id="flash-messages-container" class="container">
-      <%= display_flash_messages %>
-    </div>
-  <% end %>
-  <main class="layout-1col cols-6">
-    <div class="py-12 space-y-12">
-      <%= yield %>
-    </div>
-  </main>
-</div>
+<% append_stylesheet_pack_tag "decidim_elections" %>
+<% append_javascript_pack_tag "decidim_elections" %>
 
-<%= render partial: "layouts/decidim/decidim_javascript" %>
-</body>
+<%= render partial: "layouts/decidim/meta_tags_config" %>
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>" dir="<%= rtl_direction %>" class="no-js">
+  <head>
+    <title><%= decidim_page_title %></title>
+    <%= render partial: "layouts/decidim/head" %>
+  </head>
+  <body class="text-black text-md form-defaults<%= yield (:body_class) %>">
+  <div class="layout-container">
+    <header>
+      <div id="sticky-header-container" data-sticky-header>
+        <%= render partial: "layouts/decidim/election_votes_header" %>
+      </div>
+    </header>
+    <% if display_flash_messages.present? %>
+      <div id="flash-messages-container" class="container">
+        <%= display_flash_messages %>
+      </div>
+    <% end %>
+    <main class="layout-1col cols-6">
+      <div class="py-12 space-y-12">
+        <%= yield %>
+      </div>
+    </main>
+  </div>
+
+  <%= render partial: "decidim/shared/login_modal" unless current_user %>
+  <%= render partial: "layouts/decidim/decidim_javascript" %>
+  </body>
 </html>

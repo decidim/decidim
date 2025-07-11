@@ -1,0 +1,52 @@
+<% if current_user %>
+  <% if @form.in_census? && @form.invalid? %>
+    <%= cell "decidim/announcement", title: t(".invalid"), body: t(".authorization_options_invalid"), callout_class: "alert" %>
+    <%= link_to t(".exit_button"), exit_path, class: "button button__secondary button__lg w-full mt-12" %>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const submit = document.querySelector("button[type='submit']");
+        if (submit) {
+          submit.disabled = true;
+        }
+      });
+    </script>
+  <% else %>
+    <% redirect_url = new_election_vote_path(election) %>
+    <div class="verification__container">
+      <% @form.authorizations.each do |adapter, authorization| %>
+        <% if authorization %>
+          <% if authorization.granted? %>
+            <div class="verification verification__no_clickable">
+                <%= icon "checkbox-circle-line", class: "verification__icon is-granted" %>
+                <div class="verification__text">
+                    <h2 class="h5 text-secondary">
+                    <%= adapter.fullname %>
+                    </h2>
+                </div>
+            </div>
+          <% else %>
+            <%= link_to adapter.resume_authorization_path(redirect_url:), class: "verification" do %>
+                <%= icon "time-line", class: "verification__icon" %>
+                <div class="verification__text">
+                  <h2 class="h5 text-secondary">
+                    <%= t(".resume_with_method", name: adapter.fullname) %>
+                  </h2>
+                </div>
+              <% end %>
+          <% end %>
+        <% else %>
+          <%= link_to adapter.root_path(redirect_url:), class: "verification" do %>
+            <%= icon(adapter.icon || "login-circle-line", class: "verification__icon") %>
+            <div class="verification__text">
+              <h2 class="h5 text-secondary">
+                <%= t(".verify_with_method", name: adapter.fullname) %>
+              </h2>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+    <% end %>
+<% else %>
+  <%= render partial: "decidim/devise/shared/login_boxes", locals: { scope: "decidim.elections.censuses.internal_users" } %>
+<% end %>

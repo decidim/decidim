@@ -8,12 +8,12 @@ module Decidim
 
       include Decidim::FormFactory
 
-      helper_method :exit_path, :election, :questions, :question, :response_chosen?, :votes_buffer, :editing?
+      helper_method :exit_path, :election, :questions, :question, :response_chosen?, :votes_buffer, :editing?, :session_authenticated?
 
       delegate :count, to: :questions, prefix: true
 
       before_action except: [:new, :create, :receipt] do
-        next if allowed_to?(:create, :vote, election:) && election.census.valid_user?(election, session_credentials, current_user:)
+        next if allowed_to?(:create, :vote, election:) && session_authenticated?
 
         flash[:alert] = t("votes.not_authorized", scope: "decidim.elections")
         redirect_to exit_path
@@ -22,27 +22,32 @@ module Decidim
       # If the election has a census manifest that a requires authentication, render the auth form
       def new
         enforce_permission_to(:create, :vote, election:)
-        redirect_to(question_path(question)) unless election.census.auth_form?
+        if session_authenticated?
+          return redirect_to(question_path(question))
+        elsif !election.census.auth_form?
+          flash[:alert] = t("votes.not_authorized", scope: "decidim.elections")
+          return redirect_to exit_path
+        end
 
         @form = election.census.form_instance({}, election:, current_user:)
       end
 
+      # If the election has a census manifest that requires authentication, create the session credentials
       def create
         enforce_permission_to(:create, :vote, election:)
 
         @form = election.census.form_instance(params, election:, current_user:)
         if @form.valid?
-          session[:session_credentials] = @form.attributes
+          session_credentials = @form.attributes # rubocop:disable Lint/UselessAssignment
           redirect_to question_path(question)
         else
-          flash[:alert] = t("failed", scope: "decidim.elections.votes.check_census", errors: @form.errors.full_messages.join(", "))
+          flash[:alert] = @form.errors.full_messages.join("<br>").presence || t("failed", scope: "decidim.elections.votes.check_census")
           redirect_to new_election_vote_path(election)
         end
       end
 
       # Show the voting form for the given question
       def show
-        console
         redirect_to(waiting_election_votes_path(election_id: election)) if waiting_for_next_question?
       end
 
@@ -58,7 +63,7 @@ module Decidim
             end
 
             on(:invalid) do
-              redirect_to(question_path(question), alert: t("votes.cast.invalid", scope: "decidim.elections")) && return
+              return redirect_to(question_path(question), alert: t("votes.cast.invalid", scope: "decidim.elections"))
             end
           end
         end
@@ -88,12 +93,14 @@ module Decidim
         redirect_to(waiting_election_votes_path(election_id: election)) if election.per_question?
       end
 
+      # Casts the votes that have been saved in the session and redirects to the receipt page
+      # Does not apply to per-question elections, as they cast votes on each question update
       def cast
         CastVotes.call(election, votes_buffer, session_credentials) do
           on(:ok) do
             votes_buffer.clear
             session[:voter_uid] = election.census.user_uid(session_credentials)
-            session[:session_credentials] = nil
+            session_credentials.clear
             redirect_to receipt_election_votes_path(election), notice: t("votes.cast.success", scope: "decidim.elections")
           end
 
@@ -103,26 +110,27 @@ module Decidim
         end
       end
 
+      # Shows the receipt page
       def receipt
         enforce_permission_to(:create, :vote, election:)
-        redirect_to(waiting_election_votes_path(election_id: election)) if waiting_for_next_question?
+        return redirect_to(waiting_election_votes_path(election_id: election)) if waiting_for_next_question?
 
         @voter_uid = session[:voter_uid]
         votes_buffer.clear
-        session[:session_credentials] = nil
+        session_credentials.clear
         redirect_to(exit_path) unless election.votes.exists?(voter_uid: @voter_uid)
       end
 
       private
 
+      def session_authenticated?
+        election.census.valid_user?(election, session_credentials, current_user:)
+      end
+
       def waiting_for_next_question?
         return false unless election.per_question?
 
         election.per_question_waiting? || questions.disabled.any?
-      end
-
-      def session_credentials
-        @session_credentials ||= session[:session_credentials] || current_user
       end
 
       def exit_path
@@ -135,10 +143,6 @@ module Decidim
 
       def election
         @election ||= elections.find(params[:election_id])
-      end
-
-      def questions
-        @questions ||= election.available_questions.includes(:response_options)
       end
 
       def question
@@ -173,6 +177,10 @@ module Decidim
 
       def votes_buffer
         session[:votes_buffer] ||= {}
+      end
+
+      def session_credentials
+        session[:session_credentials] ||= {}
       end
 
       def editing?

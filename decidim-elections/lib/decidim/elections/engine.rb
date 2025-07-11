@@ -42,7 +42,11 @@ module Decidim
         Decidim::Elections.census_registry.register(:internal_users) do |manifest|
           manifest.admin_form = "Decidim::Elections::Admin::Censuses::InternalUsersForm"
           manifest.admin_form_partial = "decidim/elections/admin/censuses/internal_users_form"
+          manifest.voter_form = "Decidim::Elections::Censuses::InternalUsersForm"
+          manifest.voter_form_partial = "decidim/elections/censuses/internal_users_form"
           manifest.user_query do |election|
+            # These are granted authorizations
+            # note that this does not necessarily mean that the user is authorized (as the authorization handler may have restricting attributes)
             Decidim::AuthorizedUsers.new(
               organization: election.organization,
               handlers: election.census_settings["verification_handlers"].presence

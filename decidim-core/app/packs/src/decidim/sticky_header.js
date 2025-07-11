@@ -9,12 +9,13 @@ import { screens } from "tailwindcss/defaultTheme"
 
 let prevScroll = window.scrollY;
 const stickyHeader = document.querySelector("[data-sticky-header]");
+const menuBarContainer = document.querySelector("#menu-bar-container");
 
 // Fix the menu bar container margin top when there are multiple elements in the sticky header
 // As there could be different heights and we cannot know beforehand, we need to adjust this in a dynamic way
 // For instance we could have the omnipresent banner, the admin bar and the offline banner
 const fixMenuBarContainerMargin = () => {
-  if (!stickyHeader) {
+  if (!stickyHeader || !menuBarContainer) {
     return;
   }
 
@@ -22,7 +23,6 @@ const fixMenuBarContainerMargin = () => {
     return window.matchMedia(`(max-width: ${screens[key]})`).matches;
   }
 
-  const menuBarContainer = document.querySelector("#menu-bar-container");
   const marginTop = isMaxScreenSize("md")
     ? stickyHeader.offsetHeight
     : 0;
