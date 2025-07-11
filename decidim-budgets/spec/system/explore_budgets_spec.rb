@@ -41,7 +41,7 @@ describe "Explore Budgets", :slow do
 
       budgets.each do |budget|
         expect(page).to have_content(translated(budget.title))
-        expect(page).to have_content(number_to_currency(budget.total_budget, unit: Decidim.currency_unit, precision: 0))
+        expect(page).to have_content(strip_tags(number_to_currency(budget.total_budget, unit: Decidim.currency_unit, precision: 0)))
       end
       expect(page).to have_no_content("Remove vote")
       expect(page).to have_content("0 projects")
@@ -54,6 +54,7 @@ describe "Explore Budgets", :slow do
     end
 
     before do
+      allow(Decidim).to receive(:currency_unit).and_return("€")
       visit_component
     end
 
@@ -68,7 +69,7 @@ describe "Explore Budgets", :slow do
 
       budgets.each do |budget|
         expect(page).to have_content(translated(budget.title))
-        expect(page).to have_content(number_to_currency(budget.total_budget, unit: Decidim.currency_unit, precision: 0))
+        expect(page).to have_content(strip_tags(number_to_currency(budget.total_budget, unit: Decidim.currency_unit, precision: 0)))
       end
       expect(page).to have_no_content("Remove vote")
       expect(page).to have_content("0 projects")
@@ -104,7 +105,7 @@ describe "Explore Budgets", :slow do
         it "shows a finish voting link" do
           visit_component
 
-          expect(item).to have_link("Finish voting", href: budget_path(budget))
+          expect(item).to have_link("Finish voting", href: budget_projects_path(budget))
         end
 
         it "shows the projects count and it has no remove vote link" do
@@ -130,7 +131,7 @@ describe "Explore Budgets", :slow do
           visit_component
 
           expect(item).to have_css("div.card__highlight-text svg.fill-success")
-          expect(item).to have_link("See projects", href: budget_path(budget))
+          expect(item).to have_link("See projects", href: budget_projects_path(budget))
         end
 
         it "shows the projects count" do
@@ -158,5 +159,9 @@ describe "Explore Budgets", :slow do
 
   def budget_path(budget)
     Decidim::EngineRouter.main_proxy(component).budget_path(budget.id)
+  end
+
+  def budget_projects_path(budget)
+    Decidim::EngineRouter.main_proxy(component).budget_projects_path(budget.id, start_voting: true)
   end
 end

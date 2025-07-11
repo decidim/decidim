@@ -1,6 +1,6 @@
 <div class="<%= card_class %> card__highlight">
   <div class="card__highlight-text md:w-[70%] p-0">
-    <%= link_to_resource_wrapper("p-4") do %>
+    <%= link_to resource_path, class: "p-4" do %>
       <h3 class="h3 text-secondary inline-block align-middle">
         <%= decidim_escape_translated(title) %>
       </h3>
@@ -29,7 +29,7 @@
   </div>
 
   <% if voting_context? %>
-    <%= link_to_resource_wrapper("budget__card__highlight-vote") do %>
+    <%= link_to_resource_or_vote("budget__card__highlight-vote") do %>
       <div class="budget__card__highlight-vote__header">
         <span class="budget__card__highlight-vote__number">
           <%= budget_to_currency(total_budget) %>
