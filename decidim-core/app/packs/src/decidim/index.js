@@ -52,6 +52,7 @@ import "src/decidim/sw"
 import "src/decidim/sticky_header"
 import "src/decidim/sticky_footer"
 import "src/decidim/attachments"
+import "src/decidim/dropdown_menu"
 
 // local deps that require initialization
 import ConfirmDialog, { initializeConfirm } from "src/decidim/confirm"
