@@ -8,12 +8,14 @@ module Decidim
 
       helper_method :pending_to_vote_budgets
 
+      before_action :set_focus_mode_if_voting_open
+
       def checkout
         enforce_permission_to :vote, :project, order: current_order, budget:, workflow: current_workflow
 
         Checkout.call(current_order) do
           on(:ok) do
-            redirect_to status_budget_focus_order_path(budget)
+            redirect_to status_budget_order_path(budget)
           end
 
           on(:invalid) do
@@ -75,6 +77,10 @@ module Decidim
 
       def pending_to_vote_budgets
         current_workflow.budgets - current_workflow.voted - [current_order.budget]
+      end
+
+      def set_focus_mode_if_voting_open
+        @focus_mode = true if voting_open?
       end
     end
   end

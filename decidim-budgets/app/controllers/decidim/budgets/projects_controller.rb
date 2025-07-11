@@ -11,6 +11,8 @@ module Decidim
 
       helper_method :projects, :project, :budget, :all_geocoded_projects, :tabs, :panels
 
+      before_action :set_focus_mode_if_voting_open
+
       def index
         raise ActionController::RoutingError, "Not Found" unless budget
       end
@@ -97,6 +99,10 @@ module Decidim
             args: ["decidim/documents_panel", @project]
           }
         ].select { |item| item[:enabled] }
+      end
+
+      def set_focus_mode_if_voting_open
+        @focus_mode = true if voting_open?
       end
     end
   end

@@ -16,11 +16,7 @@ module Decidim
       private
 
       def resource_path
-        if voting_open?
-          resource_locator([project.budget, "focus", project]).path(url_extra_params)
-        else
-          resource_locator([project.budget, project]).path(url_extra_params)
-        end
+        resource_locator([project.budget, project]).path(url_extra_params)
       end
 
       def resource_added?

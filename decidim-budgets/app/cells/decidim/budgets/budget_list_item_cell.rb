@@ -48,9 +48,9 @@ module Decidim
       def link_to_resource_wrapper(css_class, &block)
         if voting_open?
           action_authorized_link_to "vote",
-                                      budget_focus_projects_path(budget, start_voting: true),
+                                      budget_projects_path(budget, start_voting: true),
                                       resource: budget,
-                                      data: { "redirect-url": budget_focus_projects_path(budget) },
+                                      data: { "redirect-url": budget_projects_path(budget) },
                                       class: css_class do
                                         yield
                                       end
