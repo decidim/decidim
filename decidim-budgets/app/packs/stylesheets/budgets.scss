@@ -99,6 +99,10 @@
 
   &__card__highlight-vote__number {
     @apply text-xl font-semibold;
+
+    span {
+      @apply text-sm;
+    }
   }
 
   &__card__highlight-vote__button {
@@ -127,6 +131,10 @@
 
   &__definition-data__number {
     @apply text-gray-2 font-bold text-3xl bg-background text-center p-2 rounded;
+
+    span {
+      @apply text-2xl;
+    }
   }
 
   &__filter-title {
@@ -163,6 +171,10 @@
 
       .card__list {
         @apply inline-block w-[65%];
+
+        &-metadata span {
+          @apply text-xs;
+        }
       }
 
       +.project-item {

@@ -63,10 +63,12 @@ en:
   number:
     currency:
       format:
-        format: "%u %n"
+        format: "<span>%u</span> %n"
 ```
 
 Some examples:
 
 - "%u %n" -> Shows it as € 999
 - "%n%u"-> Shows it as 999€
+
+Adding the value in a `span` element, will make it look better.

@@ -2159,7 +2159,7 @@ en:
   number:
     currency:
       format:
-        format: "%u %n"
+        format: "<span>%u</span> %n"
   password_validator:
     denied: is denied
     domain_included_in_password: is too similar to this domain name
