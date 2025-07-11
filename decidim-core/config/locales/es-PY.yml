@@ -1503,6 +1503,7 @@ es-PY:
     searches:
       filters:
         jump_to: 'Salta a:'
+        resource: "%{label} entre %{collection}"
         search: Buscar
         state:
           active: Activo
