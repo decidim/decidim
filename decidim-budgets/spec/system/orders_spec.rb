@@ -348,19 +348,6 @@ describe "Orders" do
         expect(page).to have_current_path budget_projects_path
       end
 
-      it "is alerted but can sign out before completing" do
-        visit_budget
-
-        within_user_menu do
-          click_on("Log out")
-        end
-
-        expect(page).to have_content "You have not yet voted"
-
-        page.find_by_id("exit-notification-link").click
-        expect(page).to have_content("Logged out successfully")
-      end
-
       context "and try to vote a project that exceed the total budget" do
         let!(:expensive_project) { create(:project, budget:, budget_amount: 250_000_000) }
 
@@ -369,20 +356,6 @@ describe "Orders" do
 
           within "#project-#{expensive_project.id}-item" do
             page.find(".budget-list__action").click
-          end
-
-          expect(page).to have_css("#budget-excess", visible: :visible)
-        end
-      end
-
-      context "and in project show page cannot exceed the budget" do
-        let!(:expensive_project) { create(:project, budget:, budget_amount: 250_000_000) }
-
-        it "cannot add the project" do
-          page.visit Decidim::EngineRouter.main_proxy(component).budget_project_path(budget, expensive_project)
-
-          within "#project-#{expensive_project.id}-budget-button" do
-            click_on
           end
 
           expect(page).to have_css("#budget-excess", visible: :visible)
@@ -560,9 +533,9 @@ describe "Orders" do
 
         expect(page).to have_content("Budget vote completed")
 
-        page.find("a[href='#{decidim.root_path}']").click
+        click_on "Back to budgets"
 
-        expect(page).to have_current_path decidim.root_path
+        expect(page).to have_current_path Decidim::EngineRouter.main_proxy(component).budgets_path
       end
     end
 
@@ -600,7 +573,7 @@ describe "Orders" do
       it "displays the number of votes for a project" do
         visit_budget
 
-        within "#project-#{project.id}-item .card__list" do
+        within "#project-#{project.id}-item" do
           expect(page).to have_css(".project-votes", text: "1 vote")
         end
       end

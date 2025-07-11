@@ -37,7 +37,9 @@ end
     <%= yield %>
   </div>
 
-  <% unless current_user&.ephemeral? || content_for?(:focus_mode) %>
+  <% if current_user&.ephemeral? || content_for?(:focus_mode) %>
+    <%= render partial: "layouts/decidim/footer/main_legal" %>
+  <% else %>
     <footer>
       <%= render partial: "layouts/decidim/footer/main" %>
       <%= render partial: "layouts/decidim/footer/mini" %>
