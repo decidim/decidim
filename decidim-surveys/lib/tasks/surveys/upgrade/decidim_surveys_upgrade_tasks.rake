@@ -2,8 +2,8 @@
 
 namespace :decidim_surveys do
   namespace :upgrade do
-    desc "Migrates the component permission from respond to response"
-    task fix_survey_component_permissions: :environment do
+    desc "Migrates the component permission from answer to respond"
+    task fix_survey_permissions: :environment do
       Decidim::Component.where(manifest_name: "surveys").find_each do |component|
         next if component.permissions.nil?
 
