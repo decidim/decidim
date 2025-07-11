@@ -51,6 +51,7 @@ import "src/decidim/abide_form_validator_fixer"
 import "src/decidim/sw"
 import "src/decidim/sticky_header"
 import "src/decidim/attachments"
+import "src/decidim/dropdown_menu"
 
 // local deps that require initialization
 import formDatePicker from "src/decidim/datepicker/form_datepicker"
