@@ -84,8 +84,6 @@ en:
         exports:
           projects: Projects
         models:
-          budget:
-            name: Budget
           project:
             name: Project
         projects:
