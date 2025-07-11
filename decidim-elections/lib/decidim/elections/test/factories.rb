@@ -91,7 +91,7 @@ FactoryBot.define do
       census_manifest { "token_csv" }
 
       after :create do |election|
-        create_list(:voter, 3, election:)
+        create_list(:election_voter, 3, election:)
       end
     end
   end
@@ -103,33 +103,51 @@ FactoryBot.define do
     mandatory { false }
     question_type { "multiple_option" }
     sequence(:position) { |n| n }
+    published_results_at { nil }
+    voting_enabled_at { nil }
 
-    trait :published_results do
+    trait :results_published do
       published_results_at { Time.current }
     end
 
-    transient do
-      with_response_options { true }
+    trait :voting_enabled do
+      voting_enabled_at { Time.current }
     end
 
-    transient do
-      voting_enabled { true }
-    end
-
-    voting_enabled_at { voting_enabled ? Time.current : nil }
-
-    after :create do |question, evaluator|
-      create_list(:election_response_option, 2, question:) if evaluator.with_response_options
+    trait :with_response_options do
+      after :create do |question, _evaluator|
+        create_list(:election_response_option, 2, question:)
+      end
     end
   end
 
   factory :election_response_option, class: "Decidim::Elections::ResponseOption" do
     association :question, factory: :election_question
     body { generate_localized_title(:response_option_body) }
+
+    trait :with_votes do
+      after :create do |response_option, _evaluator|
+        create_list(:election_vote, 2, response_option:, question: response_option.question)
+      end
+    end
   end
 
-  factory :voter, class: "Decidim::Elections::Voter" do
+  factory :election_vote, class: "Decidim::Elections::Vote" do
+    association :question, factory: :election_question
+    association :response_option, factory: :election_response_option
+    voter_uid { "voter_#{SecureRandom.hex(4)}" }
+  end
+
+  factory :election_voter, class: "Decidim::Elections::Voter" do
     association :election
     sequence(:data) { |n| { email: "voter#{n}@example.com", token: "token#{n}" } }
+
+    trait :with_votes do
+      after :create do |_voter|
+        question = create(:election_question, :with_response_options, election:)
+        create_list(:election_vote, 2, question:,
+                                       response_option: question.response_options.first)
+      end
+    end
   end
 end

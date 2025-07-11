@@ -6,20 +6,10 @@ module Decidim
       include Decidim::Traceable
       belongs_to :election, class_name: "Decidim::Elections::Election"
 
-      has_many :votes, class_name: "Decidim::Elections::Vote", foreign_key: :decidim_elections_voter_id, dependent: :destroy
-
       validates :data, presence: true
 
       def self.bulk_insert(election, values)
         values.each { |data| create(election:, data: data.transform_keys(&:to_s)) }
-      end
-
-      def email
-        data["email"]
-      end
-
-      def token
-        data["token"]
       end
 
       def identifier

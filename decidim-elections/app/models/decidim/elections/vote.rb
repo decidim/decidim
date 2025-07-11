@@ -9,11 +9,21 @@ module Decidim
 
       attr_readonly :voter_uid, :question_id
 
+      validates :voter_uid, presence: true
+
+      validate :response_belong_to_question
+
       # To ensure records cannot be deleted
       before_destroy { |_record| raise ActiveRecord::ReadOnlyRecord }
 
-      # TODO: validate voter_uid per election
-      # TODO: validate number of response options per question type
+      private
+
+      def response_belong_to_question
+        return unless question && response_option
+        return if question.response_options.include?(response_option)
+
+        errors.add(:response_option, :invalid)
+      end
     end
   end
 end

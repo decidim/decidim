@@ -12,6 +12,7 @@ module Decidim
 
       it { is_expected.to be_valid }
       it { is_expected.to act_as_paranoid }
+      it { is_expected.to be_versioned }
 
       include_examples "has component"
       include_examples "resourceable"
@@ -187,8 +188,14 @@ module Decidim
           it { is_expected.not_to be_ready_to_publish_results }
         end
 
+        context "when no questions" do
+          let(:election) { create(:election, :published, :finished) }
+
+          it { expect(subject).not_to be_ready_to_publish_results }
+        end
+
         context "when published" do
-          let(:election) { build(:election, :published, :finished) }
+          let(:election) { create(:election, :with_questions, :published, :finished) }
 
           it { is_expected.to be_ready_to_publish_results }
 
@@ -209,30 +216,18 @@ module Decidim
 
             it { is_expected.not_to be_ready_to_publish_results }
 
-            context "when questions enabled" do
+            context "when questions" do
               let(:election) { create(:election, :with_questions, :published, :ongoing, :per_question) }
-
-              it { expect(subject).to be_ready_to_publish_results }
-            end
-
-            context "when no questions enabled" do
-              let(:election) { create(:election, :with_questions, :published, :ongoing, :per_question) }
-
-              before do
-                election.questions.update_all(voting_enabled_at: nil) # rubocop:disable Rails/SkipsModelValidations
-              end
 
               it { expect(subject).not_to be_ready_to_publish_results }
-            end
 
-            context "when some questions enabled" do
-              let(:election) { create(:election, :with_questions, :published, :ongoing, :per_question) }
+              context "when some questions enabled" do
+                before do
+                  election.questions.first.update!(voting_enabled_at: Time.current)
+                end
 
-              before do
-                election.questions.first.update!(voting_enabled_at: Time.current)
+                it { expect(subject).to be_ready_to_publish_results }
               end
-
-              it { expect(subject).to be_ready_to_publish_results }
             end
           end
         end
@@ -390,9 +385,9 @@ module Decidim
             it { expect(subject.status).to eq(:scheduled) }
           end
 
-          context "when some questions have published results" do
+          context "when some questions are enabled" do
             before do
-              election.questions.first.update!(published_results_at: Time.current)
+              election.questions.first.update!(voting_enabled_at: Time.current)
             end
 
             it { expect(subject.status).to eq(:scheduled) }
@@ -410,18 +405,32 @@ module Decidim
             end
           end
 
-          context "when all questions have published results" do
+          context "when some questions have published results" do
             before do
-              election.questions.update_all(published_results_at: Time.current) # rubocop:disable Rails/SkipsModelValidations
+              election.questions.first.update(voting_enabled_at: Time.current, published_results_at: Time.current)
             end
 
-            it { expect(subject.status).to eq(:results_published) }
+            it { expect(subject.status).to eq(:scheduled) }
 
             context "when finished" do
               let(:election) { create(:election, :published, :with_questions, :finished, :per_question) }
 
               it { expect(subject.status).to eq(:results_published) }
             end
+
+            context "when ongoing" do
+              let(:election) { create(:election, :published, :with_questions, :ongoing, :per_question) }
+
+              it { expect(subject.status).to eq(:ongoing) }
+            end
+          end
+
+          context "when all questions have published results" do
+            before do
+              election.questions.update_all(voting_enabled_at: Time.current, published_results_at: Time.current) # rubocop:disable Rails/SkipsModelValidations
+            end
+
+            it { expect(subject.status).to eq(:scheduled) }
 
             context "when ongoing" do
               let(:election) { create(:election, :published, :with_questions, :ongoing, :per_question) }
@@ -435,8 +444,50 @@ module Decidim
       describe "associations" do
         it "has many questions" do
           election.save!
-          create(:election_question, election: election)
+          create(:election_question, election:)
           expect(election.questions.count).to eq(1)
+        end
+
+        it "has many voters" do
+          election.save!
+          create(:election_voter, election:)
+          expect(election.voters.count).to eq(1)
+        end
+
+        it "has many votes" do
+          election.save!
+          question = create(:election_question, :with_response_options, election:)
+          create(:election_vote, question:, response_option: question.response_options.first)
+          expect(election.votes.count).to eq(1)
+        end
+
+        context "when destroying" do
+          before do
+            election.save!
+            create(:election_question, :with_response_options, election:)
+            create(:election_voter, election:)
+          end
+
+          it "does not delete questions" do
+            election.destroy!
+            expect(election.questions.count).to eq(0)
+          end
+
+          it "does not delete voters" do
+            election.destroy!
+            expect(election.voters.count).to eq(0)
+          end
+
+          context "when votes exist" do
+            before do
+              create(:election_vote, question: election.questions.first, response_option: election.questions.first.response_options.first)
+            end
+
+            it "restricts deletion with error" do
+              expect { election.destroy! }.to raise_error(ActiveRecord::RecordNotDestroyed)
+              expect(election.reload).to be_persisted
+            end
+          end
         end
       end
 
