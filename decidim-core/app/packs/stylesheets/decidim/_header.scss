@@ -404,7 +404,7 @@ header {
         @apply w-full px-4;
 
         &-menu {
-          @apply w-full md:w-1/2 mt-0 grid md:grid-cols-2 gap-x-6 text-secondary;
+          @apply w-full md:w-[100%] mt-0 grid md:grid-cols-2 gap-x-6 text-secondary;
 
           > * {
             @apply py-3 md:py-3.5 border-b last:border-0 border-gray-3;
@@ -431,6 +431,14 @@ header {
 
       &__bottom {
         @apply hidden md:flex;
+
+        &-right {
+          @apply mr-2 mb-2;
+        }
+
+        &-left {
+          @apply mr-2 mt-1;
+        }
       }
 
       &__title {
