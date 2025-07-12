@@ -604,7 +604,7 @@ de:
     resources:
       initiative:
         actions:
-          comment: Kommentar
+          comment: Kommentieren
       initiatives_type:
         actions:
           create: Erstellen

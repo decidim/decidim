@@ -19,7 +19,7 @@ lv:
         name: Nosaukums
       timeline_entry:
         description: Apraksts
-        entry_date: Datums
+        title: Nosaukums
     models:
       decidim/accountability/proposal_linked_event: Priekšlikums iekļauts rezultātā
       decidim/accountability/result_progress_updated_event: Rezultātu progress ir atjaunināts
@@ -112,7 +112,7 @@ lv:
             name: Nosaukums
         timeline_entry:
           fields:
-            entry_date: Datums
+            title: Nosaukums
       results:
         count:
           results_count:

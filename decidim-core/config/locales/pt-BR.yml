@@ -927,7 +927,6 @@ pt-BR:
       title: O que são as medalhas?
     group_admins:
       actions:
-        are_you_sure: Você tem certeza? Isso não removerá o usuário do grupo.
         demote_admin: Remover Administrador
       demote:
         error: Ocorreu um erro ao remover este usuário da lista de administradores.
@@ -954,7 +953,6 @@ pt-BR:
       reject_invitation: Rejeitar
     group_members:
       actions:
-        are_you_sure: Você tem certeza?
         promote_to_admin: Tornar administrador
         remove_from_group: Remover usuário
       index:

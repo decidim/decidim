@@ -115,6 +115,9 @@ es-MX:
           one: "%{count} comentario"
           other: "%{count} comentarios"
       down_vote_button:
+        label:
+          one: Botón "No me gusta". %{count} "no me gusta"
+          other: Botón "No me gusta". %{count} "no me gusta"
         text: No estoy de acuerdo con este comentario
       edit_comment_modal_form:
         close: Cerrar
@@ -125,6 +128,9 @@ es-MX:
           submit: Enviar
         title: Edita tu comentario
       up_vote_button:
+        label:
+          one: Botón "Me gusta". %{count} "me gusta"
+          other: Botón "Me gusta". %{count} "me gusta"
         text: Estoy de acuerdo con este comentario
     events:
       comments:

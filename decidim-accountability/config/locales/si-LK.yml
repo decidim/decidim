@@ -13,7 +13,7 @@ si:
         name: නම
       timeline_entry:
         description: සවිස්තරය
-        entry_date: දිනය
+        title: මාතෘකාව
   activerecord:
     models:
       decidim/accountability/result:
@@ -60,7 +60,7 @@ si:
             category: ප්‍රවර්ගය
         timeline_entry:
           fields:
-            entry_date: දිනය
+            title: මාතෘකාව
     admin:
       filters:
         results:

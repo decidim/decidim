@@ -531,7 +531,6 @@ gl:
       reject_invitation: Rexeitar
     group_members:
       actions:
-        are_you_sure: Estás seguro?
         promote_to_admin: Facer admin
         remove_from_group: Eliminar o usuario
       index:

@@ -22,7 +22,6 @@ sq:
         progress: Ecuria
       timeline_entry:
         description: Përshkrimi
-        entry_date: Data
         title: Titulli
     models:
       decidim/accountability/proposal_linked_event: Propozimi i përfshirë në një rezultat
@@ -207,7 +206,6 @@ sq:
             progress: Ecuria
         timeline_entry:
           fields:
-            entry_date: Data
             title: Titulli
       results:
         count:

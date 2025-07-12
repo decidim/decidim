@@ -22,7 +22,6 @@ th:
         progress: ความคืบหน้า
       timeline_entry:
         description: คำอธิบาย
-        entry_date: วันที่
         title: ชื่อ
     models:
       decidim/accountability/proposal_linked_event: ข้อเสนอที่รวมอยู่ในผลลัพธ์
@@ -144,6 +143,9 @@ th:
           fields:
             category: หมวดหมู่
             scope: ขอบเขต
+        timeline_entry:
+          fields:
+            title: ชื่อ
       results:
         home:
           empty: ยังไม่มีผลลัพธ์

@@ -23,7 +23,6 @@ he:
         progress: התקדמות
       timeline_entry:
         description: תיאור
-        entry_date: תאריך
         title: כותרת
     models:
       decidim/accountability/proposal_linked_event: הצעה כלולה בתוצאה
@@ -214,7 +213,6 @@ he:
             progress: התקדמות
         timeline_entry:
           fields:
-            entry_date: תאריך
             title: כותרת
       results:
         count:

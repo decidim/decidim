@@ -23,7 +23,6 @@ ro:
         progress: Progres
       timeline_entry:
         description: Descriere
-        entry_date: Data
         title: Titlu
     models:
       decidim/accountability/proposal_linked_event: Propunere inclusă în rezultat
@@ -187,7 +186,6 @@ ro:
             progress: Progres
         timeline_entry:
           fields:
-            entry_date: Dată
             title: Titlu
       results:
         count:

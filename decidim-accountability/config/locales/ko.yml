@@ -22,7 +22,6 @@ ko:
         progress: 진행 상황
       timeline_entry:
         description: 상세정보
-        entry_date: 날짜
         title: 제목
     models:
       decidim/accountability/proposal_linked_event: 결과에 포함된 제안
@@ -178,7 +177,6 @@ ko:
             progress: 진행 상황
         timeline_entry:
           fields:
-            entry_date: 날짜
             title: 제목
       results:
         count:

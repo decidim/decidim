@@ -8,7 +8,7 @@ eu:
           demo: Demoa
           demo_description: Aplikazioan zehar akordeoiak erabiltzen dira, batez ere edukiak erlaitzetan erakusteko/ezkutatzeko edo testu ikusgarriak tolesteko/ez tolesteko.
           description_accordions_html: Akordeoiak javascript funtzioak dira, erabilgarri daudenak %{link_code} izeneko kanpoko liburutegi bati esker.
-          github_source_html: 'Iturburu-kodea hemen: GitHub % {github_link}}'
+          github_source_html: 'Iturburu-kodea hemen: GitHub %{github_link}'
           panel: Panela
           title: Akordeoiak
           trigger: Eragin
@@ -110,7 +110,7 @@ eu:
         color:
           color_header: Kolorea
           description_p1: Base paleta bat eskaintzen dugu kolore gutxirekin, pertsonalizazio sinpleak errazak izan daitezen. Oinarrizko paleta alda dezakezu Administrazioaren eremuan edo Tailwind konfigurazio fitxategian, pertsonalizazio aurreratuagoa behar baduzu.
-          description_p2_html: Zure koloreak pertsonalizatzean, eduki gogoan % {contrast_link}. Zure aukeraren kontrastea egiazta dezakezu % {checker_link} edo antzeko tresnen bitartez.
+          description_p2_html: Zure koloreak pertsonalizatzean, eduki gogoan %{contrast_link}. Zure aukeraren kontrastea egiazta dezakezu %{checker_link} edo antzeko tresnen bitartez.
           wcag_compliant_rations: WCAG 2.1 AA adostasun-kontraste erlazioa
           wcag_contrast_checker: WebAIM Kontraste-egiaztatzailea
         iconography:
@@ -203,7 +203,7 @@ eu:
         dropdowns_demo_1_description: 'Hurrengo adibidea ez da ikusgarri egongo mahaigainean, mugikorrean baizik:'
         dropdowns_demo_description: Goitibeherako zerrendak aplikazioan zehar erabiltzen dira ez kolapsatzeko menu handiak, erraz irakurtzeko modukoak mahaigaineko gailuentzat, baina koloretsuegiak gailu mugikorrentzat.
         dropdowns_demo_description_html: 'Javascript ezaugarri hau css txiki batez indartzen da, izenburuaren bidez: eduki ezkutagarriak nortasun agiria IZAN BEHAR DU <code>id</code> goitibeherako zerrendatik hasita.'
-        dropdowns_description_html: Goitibeherako zerrendak javascript ezaugarriak dira, % {link} izeneko kanpoko liburutegi bati esker.
+        dropdowns_description_html: Goitibeherako zerrendak javascript ezaugarriak dira, %{link} izeneko kanpoko liburutegi bati esker.
         dropdowns_usage_1_description: 2. Elementu modala, zeinaren <code>id</code> datu-kontrolek bat egiten duten eragileari dagokion balioarekin.
         dropdowns_usage_description: 'Goitibeherako zerrenda batek bi elementu eskatzen ditu:'
         dropdowns_usage_description_html: 1. Partaide-elementu prozesagarria, datu-osagaia = "dropdown" data-target = "dropdown-menu-element" datu-atributuak dituena.

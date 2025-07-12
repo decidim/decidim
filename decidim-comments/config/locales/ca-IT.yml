@@ -115,6 +115,9 @@ ca-IT:
           one: "%{count} comentari"
           other: "%{count} comentaris"
       down_vote_button:
+        label:
+          one: Botó "No m'agrada". %{count} "no m'agrada"
+          other: Botó "No m'agrada". %{count} "no m'agrada"
         text: No estic d'acord amb aquest comentari
       edit_comment_modal_form:
         close: Tancar
@@ -125,6 +128,9 @@ ca-IT:
           submit: Enviar
         title: Edita el teu comentari
       up_vote_button:
+        label:
+          one: Botó "M'agrada". %{count} "M'agrada"
+          other: Botó "M'agrada". %{count} "M'agrada"
         text: Estic d'acord amb aquest comentari
     events:
       comments:

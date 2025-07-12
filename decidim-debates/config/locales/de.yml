@@ -29,7 +29,7 @@ de:
     components:
       debates:
         actions:
-          comment: Kommentar
+          comment: Kommentieren
           create: Erstellen
           endorse: Bestätigen
         name: Debatten

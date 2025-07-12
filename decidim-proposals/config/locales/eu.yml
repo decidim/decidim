@@ -325,7 +325,7 @@ eu:
           email_subject: '%{resource_title} proposamenaren eremua eguneratu egin da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamenaren eparrua administratzaile batek eguneratu du.
         voting_enabled:
-          email_intro: 'Proposamenak bozkatu ditzakezu hemen: % {participatory_space_title} Hasi orri honetan parte hartzen:'
+          email_intro: 'Proposamenak bozkatu ditzakezu hemen: %{participatory_space_title} Hasi orri honetan parte hartzen:'
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen duzulako. Jakinarazpenak jasotzeari uti ahal diozu aurreko estekan.
           email_subject: 'Proposamenak bozkatzen hasi dira hemen: %{participatory_space_title}'
           notification_title: 'Orain has zaitezke <a href="%{resource_path}">proposamena bozkatzen hemen: s</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>'
@@ -405,7 +405,7 @@ eu:
           proposals: Proposamenak
         import_proposals_mailer:
           notify_failure:
-            body: Arazo bat egon da proposamenak inportatzen ziren bitartean %{origin_sizent_nombre} osagaitik % {target et_espezi_nombre} osagaira.
+            body: Arazo bat egon da proposamenak inportatzen ziren bitartean %{origin_component_name} osagaitik %{target_component_name} osagaira.
             subject: Errore bat egon da proposamenak inportatzean
           notify_success:
             added_proposals:
@@ -902,7 +902,7 @@ eu:
           title: 'Botoek arau hauek bete behar dituzte:'
           vote_limit:
             description: Gehienez, %{limit} proposamen bozkatu ahal dituzu.
-            votes: Gainerako % {kopurua} babes
+            votes: Gainerako %{number} babes
         wizard_aside:
           back: Atzera
           back_from_step_1: Itzuli proposamenetara

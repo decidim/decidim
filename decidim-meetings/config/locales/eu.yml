@@ -372,7 +372,7 @@ eu:
               - Galdera batek erantzunak jasotzen dituenean edo argitaratuta/itxita dagoenean, jada ezin da editatu.
               - Edozein unetan gehitu ahal duzu galdera bat.
               - Inkesta itxi egingo da sortutako galdera guztien emaitzak argitaratzen direnean.
-              - Bisitatu <a href='% {admin_link}'>inkestak administratzeko orria </a>, galderak bidali eta emaitzak argitaratzeko.
+              - Bisitatu <a href='%{admin_link}'>inkestak administratzeko orria </a>, galderak bidali eta emaitzak argitaratzeko.
         registrations:
           edit:
             save: Gorde

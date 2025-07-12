@@ -21,7 +21,6 @@ nl:
         progress: Vooruitgang
       timeline_entry:
         description: Beschrijving
-        entry_date: Datum
         title: Titel
     models:
       decidim/accountability/proposal_linked_event: Voorstel opgenomen in een resultaat
@@ -132,7 +131,6 @@ nl:
             progress: Vooruitgang
         timeline_entry:
           fields:
-            entry_date: Datum
             title: Titel
       results:
         count:

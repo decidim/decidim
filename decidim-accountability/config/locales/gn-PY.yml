@@ -7,7 +7,7 @@ gn:
         decidim_category_id: Hendápe
         description: Techaukaha
       timeline_entry:
-        entry_date: Fecha
+        description: Techaukaha
   decidim:
     accountability:
       models:

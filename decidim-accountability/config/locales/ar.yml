@@ -23,8 +23,7 @@ ar:
         progress: تقدم
       timeline_entry:
         description: وصف
-        entry_date: تاريخ
-        title: العنوان
+        title: عنوان
     models:
       decidim/accountability/proposal_linked_event: الاقتراح المدرج في نتيجة
       decidim/accountability/result_progress_updated_event: النتائج المحدثة
@@ -219,8 +218,7 @@ ar:
             progress: تقدم
         timeline_entry:
           fields:
-            entry_date: تاريخ
-            title: العنوان
+            title: عنوان
       results:
         count:
           results_count:

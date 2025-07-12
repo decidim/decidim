@@ -21,7 +21,7 @@ is:
         progress: Framfarir
       timeline_entry:
         description: Lýsing
-        entry_date: Dagsetning
+        title: Titill
     models:
       decidim/accountability/proposal_linked_event: Tillögur innifalnar í þessari niðurstöðu
   activerecord:
@@ -120,7 +120,7 @@ is:
             progress: Framfarir
         timeline_entry:
           fields:
-            entry_date: Dagsetning
+            title: Titill
       results:
         count:
           results_count:
