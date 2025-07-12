@@ -12,6 +12,9 @@ ca-IT:
           election_census: Cens
           election_dashboard: Tauler de control
           election_questions: Preguntes
+      tooltips:
+        deleted_elections_info: No es pot esborrar aquesta elecció
+        edit_elections_info: No es pot editar aquesta elecció
     components:
       elections:
         name: Votacions
