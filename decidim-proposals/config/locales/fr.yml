@@ -138,6 +138,10 @@ fr:
               state_published: Répondue
         search_placeholder:
           id_string_or_title_cont: Rechercher %{collection} par ID ou titre
+      tooltips:
+        cannot_edit_proposal_info: Impossible de modifier cette proposition car elle a été créée par un participant ou elle a reçu un vote
+        deleted_proposal_states_info: Impossible de supprimer cet état de proposition car il y a des propositions qui lui sont assignées
+        deleted_proposals_info: Impossible de supprimer cette proposition
     application:
       geocoding:
         not_configured: La géolocalisation n'est pas configurée !

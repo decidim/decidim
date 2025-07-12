@@ -41,6 +41,8 @@ fi:
               'true': Ei valittu toteutukseen
           taxonomies_part_of_contains:
             label: Luokittelu
+      tooltips:
+        deleted_projects_info: Tätä projektia ei voi poistaa
     budgets:
       actions:
         attachment_collections: Kansiot

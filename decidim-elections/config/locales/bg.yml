@@ -3,6 +3,7 @@ bg:
     admin:
       menu:
         elections_menu:
+          election_census: Преброяване
           election_questions: Въпроси
     components:
       elections:
@@ -16,6 +17,9 @@ bg:
       actions:
         title: Активности
       admin:
+        census:
+          edit:
+            created_at: Създадено на
         elections:
           edit:
             title: Редактиране на избора

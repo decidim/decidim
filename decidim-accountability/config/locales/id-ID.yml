@@ -16,9 +16,6 @@ id:
         key: Kunci
         name: Nama
         progress: Kemajuan
-      timeline_entry:
-        description: Deskripsi
-        entry_date: Tanggal
     models:
       decidim/accountability/proposal_linked_event: Proposal termasuk dalam hasil
       decidim/accountability/result_progress_updated_event: Kemajuan hasil diperbarui
@@ -33,7 +30,6 @@ id:
         destroy: Menghapus
         edit: Edit
         preview: Pratinjau
-        timeline_entries: Evolusi proyek
         title: Tindakan
       admin:
         exports:
@@ -64,15 +60,6 @@ id:
           new:
             create: Buat status
             title: Status baru
-        timeline_entries:
-          edit:
-            title: Edit entri
-            update: Perbarui entri
-          index:
-            title: Entri garis waktu proyek
-          new:
-            create: Buat entri
-            title: Masukan baru
       admin_log:
         result:
           create: "%{user_name} hasil yang dibuat %{resource_name} dalam %{space_name}"
@@ -95,9 +82,6 @@ id:
             key: Kunci
             name: Nama
             progress: Kemajuan
-        timeline_entry:
-          fields:
-            entry_date: Tanggal
       results:
         count:
           results_count:
@@ -109,8 +93,6 @@ id:
         show:
           stats:
             back_to_resource: Kembali ke hasil
-        timeline:
-          title: Evolusi proyek
     components:
       accountability:
         name: Akuntabilitas

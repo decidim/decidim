@@ -16,10 +16,6 @@ nl:
         key: sleutel
         name: Naam
         progress: Vooruitgang
-      timeline_entry:
-        description: Beschrijving
-        entry_date: Datum
-        title: Titel
     models:
       decidim/accountability/proposal_linked_event: Voorstel opgenomen in een resultaat
       decidim/accountability/result_progress_updated_event: Resultaat voortgang bijgewerkt
@@ -37,7 +33,6 @@ nl:
         destroy: Verwijder
         edit: Bewerk
         preview: Voorbeeld
-        timeline_entries: Project evolutie
         title: acties
       admin:
         exports:
@@ -72,15 +67,6 @@ nl:
           new:
             create: Maak een status
             title: Nieuwe status
-        timeline_entries:
-          edit:
-            title: Bewerk invoer
-            update: Update invoer
-          index:
-            title: Project tijdlijn inzendingen
-          new:
-            create: Item maken
-            title: Nieuw item
       admin_log:
         result:
           create: "%{user_name} heeft het resultaat %{resource_name} gemaakt in %{space_name}"
@@ -90,10 +76,6 @@ nl:
           create: "%{user_name} heeft %{resource_name} status aangemaakt"
           delete: "%{user_name} heeft %{resource_name} status verwijderd"
           update: "%{user_name} heeft %{resource_name} status bijgewerkt"
-        timeline_entry:
-          create: "%{user_name} heeft timeline entry %{resource_name} aangemaakt"
-          delete: "%{user_name} heeft timeline entry %{resource_name} verwijderd"
-          update: "%{user_name} heeft timeline entry %{resource_name} bijgewerkt"
         value_types:
           parent_presenter:
             not_found: 'Het bovenliggende element is niet gevonden in de database (ID: %{id})'
@@ -122,10 +104,6 @@ nl:
             key: Sleutel
             name: Naam
             progress: Vooruitgang
-        timeline_entry:
-          fields:
-            entry_date: Datum
-            title: Titel
       results:
         count:
           results_count:
@@ -138,8 +116,6 @@ nl:
         show:
           stats:
             back_to_resource: Ga terug naar resultaat
-        timeline:
-          title: Project evolutie
     admin:
       filters:
         results:

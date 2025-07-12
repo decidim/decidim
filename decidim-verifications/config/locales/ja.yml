@@ -302,6 +302,7 @@ ja:
           pending_authorizations:
             index:
               address: 住所
+              already_sent: 郵送物は既に送信されており、送信済みとして再度マークすることはできません。
               letter_sent_at: 送信日時
               mark_as_sent: 送信済みにする
               not_yet_sent: 送信されていません
