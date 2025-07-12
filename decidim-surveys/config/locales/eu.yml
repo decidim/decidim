@@ -59,7 +59,7 @@ eu:
         manage_questions: Galderak
         new_survey: Beste inkesta bat
         preview: Aurreikusi
-        responses_alert: Erantzunak ezabatzea argitalpenean aktibatuta dago inkesta honetarako. Une honetan, erantzunen % {responers_count} suntsitu egingo dira, jarraitzen baduzu.
+        responses_alert: Erantzunak ezabatzea argitalpenean aktibatuta dago inkesta honetarako. Une honetan, erantzunen %{responses_count} suntsitu egingo dira, jarraitzen baduzu.
         title: Ekintzak
       admin:
         exports:

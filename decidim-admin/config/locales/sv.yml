@@ -1231,6 +1231,7 @@ sv:
         taxonomy_filters: Kategorifilter för "%{taxonomy}"
         users: Administratörer
       tooltips:
+        deleted_attachment_collections_info: Kan inte ta bort denna mapp eftersom den har bilagor.
         deleted_component_info: Komponenten kan endast tas bort om statusen är 'avpublicerad'.
       trash_management:
         restore:

@@ -18,6 +18,8 @@ ca:
       admin_log:
         changeset:
           posts: Entrades al blog
+      tooltips:
+        deleted_posts_info: No es pot esborrar aquesta entrada al blog
     blogs:
       actions:
         author_id: Crear publicació com

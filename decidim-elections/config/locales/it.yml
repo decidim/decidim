@@ -3,6 +3,7 @@ it:
     admin:
       menu:
         elections_menu:
+          election_census: Censimento
           election_questions: Quesiti
     components:
       elections:
@@ -16,6 +17,9 @@ it:
       actions:
         title: Azioni
       admin:
+        census:
+          edit:
+            created_at: Creato il
         elections:
           edit:
             title: Modifica elezione

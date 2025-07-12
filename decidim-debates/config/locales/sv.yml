@@ -21,6 +21,9 @@ sv:
         one: Debatt
         other: Debatter
   decidim:
+    admin:
+      tooltips:
+        deleted_debates_info: Kan inte ta bort denna debatt
     components:
       debates:
         actions:

@@ -17,6 +17,9 @@ fi-pl:
           draft: Luonnos
           version_number: Versionumero
   decidim:
+    admin:
+      tooltips:
+        deleted_collaborative_texts_info: Tätä asiakirjaa ei voi poistaa
     collaborative_texts:
       actions:
         confirm_delete_document: Haluatko varmasti poistaa tämän asiakirjan?
