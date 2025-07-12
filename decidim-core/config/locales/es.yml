@@ -1606,6 +1606,7 @@ es:
     searches:
       filters:
         jump_to: 'Salta a:'
+        resource: "%{label} entre %{collection}"
         search: Buscar
         state:
           active: Activo
@@ -2144,6 +2145,8 @@ es:
         profile: Mi cuenta
         public_profile: Mi perfil público
         title: Enlaces de perfil
+        unread_conversations: Tienes conversaciones sin leer
+        unread_notifications: Tienes notificaciones sin leer
       user_profile:
         account: Cuenta
         authorizations: Autorizaciones
