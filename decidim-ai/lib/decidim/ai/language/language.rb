@@ -16,7 +16,7 @@ module Decidim
       #   end
       # end
       config_accessor :formatter do
-        "Decidim::Ai::Language::Formatter"
+        Decidim::Env.new("DECIDIM_AI_LANGUAGE_FORMATTER", "Decidim::Ai::Language::Formatter").value
       end
     end
   end

@@ -239,6 +239,11 @@ module Decidim
         app.config.active_storage.variant_processor = :mini_magick
       end
 
+      initializer "decidim_core.setup_i18n" do |app|
+        app.config.i18n.available_locales = Decidim.available_locales
+        app.config.i18n.default_locale = Decidim.default_locale
+      end
+
       initializer "decidim_core.active_storage_method_patch" do |_app|
         if Rails::VERSION::MAJOR < 8
           # This is a manual bugfix of https://github.com/rails/rails/pull/51931
@@ -510,8 +515,8 @@ module Decidim
           # Define access token scopes for your provider
           # For more information go to
           # https://github.com/doorkeeper-gem/doorkeeper/wiki/Using-Scopes
-          default_scopes :public
-          optional_scopes []
+          default_scopes :profile
+          optional_scopes :user, :"api:read", :"api:write"
 
           # Forces the usage of the HTTPS protocol in non-native redirect uris (enabled
           # by default in non-development environments). OAuth2 delegates security in
@@ -525,6 +530,15 @@ module Decidim
 
           # WWW-Authenticate Realm (default "Doorkeeper").
           realm "Decidim"
+
+          # Custom access token generation for API access
+          access_token_generator "Decidim::OAuth::TokenGenerator"
+
+          # How long the access tokens are valid
+          access_token_expires_in Decidim.config.oauth_access_token_expires_in
+
+          # Whether refresh tokens are enabled or not
+          use_refresh_token { |context| context.client.refresh_tokens_enabled? }
         end
       end
 
@@ -674,6 +688,10 @@ module Decidim
 
       initializer "decidim_core.webpacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
+
+      initializer "decidim_core.register_application_assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", Rails.application.root)
       end
 
       initializer "decidim_core.preview_mailer" do

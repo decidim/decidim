@@ -10,7 +10,7 @@
       </h2>
     <% end %>
   </div>
-  <div class="table-scroll">
+  <div class="table-stacked">
     <% if pages.any? %>
       <table class="table-list">
         <thead>
@@ -18,33 +18,63 @@
             <th><%= t("models.static_page.fields.title", scope: "decidim.admin") %></th>
             <th><%= t("models.static_page.fields.created_at", scope: "decidim.admin") %></th>
             <th><%= t("last_notable_change", scope: "decidim.admin.static_pages.index") %></th>
-            <th></th>
+            <th><%= t("decidim.admin.actions.actions") %></th>
           </tr>
         </thead>
         <tbody>
           <% pages.each do |page| %>
             <tr>
-              <td>
-                <%= link_to translated_attribute(page.title), [:edit, page] %><br>
+              <td data-label="<%= t("models.static_page.fields.title", scope: "decidim.admin") %>">
+                <%= link_to translated_attribute(page.title), [:edit, page] %>
               </td>
-              <td>
-                <%= l page.created_at, format: :short %>
+
+              <td data-label="<%= t("models.static_page.fields.created_at", scope: "decidim.admin") %>">
+                <%= l(page.created_at, format: :short) %>
               </td>
-              <td>
-                <% if allowed_to? :update_notable_changes, :static_page, static_page: page %>
+
+              <td data-label="<%= t("last_notable_change", scope: "decidim.admin.static_pages.index") %>">
+                <% if allowed_to?(:update_notable_changes, :static_page, static_page: page) %>
                   <%= @tos_version_formatted %>
                 <% end %>
               </td>
-              <td class="table-list__actions">
-                <% if allowed_to? :update, :static_page, static_page: page %>
-                  <%= icon_link_to "pencil-line", [:edit, page], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
-                <% end %>
 
-                <%= icon_link_to "eye-line", decidim.page_path(page), t("actions.view", scope: "decidim.admin.static_pages"), class: "action-icon--preview", target: "_blank", data: { "external-link": false } %>
+              <td data-label="<%= t("decidim.admin.actions.actions") %>" class="table-list__actions">
+                 <button type="button" data-component="dropdown" data-target="actions-static-page-<%= page.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: translated_attribute(page.title)) %>">
+                  <%= icon "more-fill", class: "text-secondary" %>
+                </button>
 
-                <% if allowed_to? :destroy, :static_page, static_page: page %>
-                  <%= icon_link_to "delete-bin-line", page, t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
-                <% end %>
+                <div class="inline-block relative">
+                  <ul id="actions-static-page-<%= page.id %>" class="dropdown dropdown__action" aria-hidden="true">
+                    <% if allowed_to? :update, :static_page, static_page: page %>
+                      <li class="dropdown__item">
+                        <%= link_to [:edit, page], class: "dropdown__button" do %>
+                          <%= icon "pencil-line" %>
+                          <%= t("actions.edit", scope: "decidim.admin") %>
+                        <% end %>
+                      </li>
+
+                      <hr>
+                    <% end %>
+
+                    <li class="dropdown__item">
+                      <%= link_to decidim.page_path(page), target: "_blank", data: { "external-link": false }, class: "dropdown__button" do %>
+                        <%= icon "eye-line" %>
+                        <%= t("actions.view", scope: "decidim.admin.static_pages") %>
+                      <% end %>
+                    </li>
+
+                    <% if allowed_to? :destroy, :static_page, static_page: page %>
+                      <hr>
+
+                      <li class="dropdown__item">
+                        <%= link_to page, method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") }, class: "dropdown__button" do %>
+                          <%= icon "delete-bin-line" %>
+                          <%= t("actions.destroy", scope: "decidim.admin") %>
+                        <% end %>
+                      </li>
+                    <% end %>
+                  </ul>
+                </div>
               </td>
             </tr>
           <% end %>

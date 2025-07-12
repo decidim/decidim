@@ -32,6 +32,31 @@ module Decidim
       end
     end
 
+    def filter_search_label(label, id)
+      I18n.t("decidim.searches.filters.resource", label:, collection: filter_for_resource(id))
+    end
+
+    def filter_for_resource(skip_to_id)
+      case skip_to_id
+      when "proposals"
+        I18n.t("decidim/proposals/proposal.other", scope: "activerecord.models")
+      when "meetings"
+        I18n.t("decidim/meetings/meeting.other", scope: "activerecord.models")
+      when "debates"
+        I18n.t("decidim/debates/debate.other", scope: "activerecord.models")
+      when "sortitions"
+        I18n.t("decidim/sortitions/sortition.other", scope: "activerecord.models")
+      when "surveys"
+        I18n.t("decidim/surveys/survey.other", scope: "activerecord.models")
+      when "projects"
+        I18n.t("decidim/budgets/project.other", scope: "activerecord.models")
+      when "initiatives"
+        I18n.t("decidim/initiative.other", scope: "activerecord.models")
+      else
+        ""
+      end
+    end
+
     private
 
     # Creates a unique namespace for a filter form to prevent duplicate IDs in

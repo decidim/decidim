@@ -705,7 +705,7 @@ module Decidim
           let(:present?) { true }
 
           it "renders the filename" do
-            expect(output).to include(%(<a href="#{url}">#{filename}</a>))
+            expect(output).to include(%(<a class="w-full break-all mb-2" href="#{url}">#{filename}</a>))
           end
 
           it "does not render an image tag" do

@@ -94,6 +94,10 @@ module Decidim
           end
         end
 
+        def dashboard_page
+          election
+        end
+
         private
 
         def elections

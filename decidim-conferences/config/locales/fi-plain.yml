@@ -223,12 +223,14 @@ fi-pl:
             title: Otsikko
         conference_speaker:
           fields:
+            actions: Toiminnot
             affiliation: Jäsenyys
             full_name: Koko nimi
             position: Asema
           name: Konferenssin puhuja
         conference_user_role:
           fields:
+            actions: Toiminnot
             email: Sähköposti
             name: Nimi
             role: Rooli
@@ -240,12 +242,14 @@ fi-pl:
             moderator: Moderoija
         media_link:
           fields:
+            actions: Toiminnot
             date: Päivämäärä
             link: Linkki
             title: Otsikko
           name: Medialinkki
         partner:
           fields:
+            actions: Toiminnot
             link: Linkki
             logo: Logo
             name: Nimi
@@ -256,6 +260,7 @@ fi-pl:
             main_promotor: Pääpromoottori
         registration_type:
           fields:
+            actions: Toiminnot
             conference_meetings: Konferenssin tapaamiset
             price: Hinta
             registrations_count: Ilmoittautuneiden määrä
@@ -515,6 +520,7 @@ fi-pl:
             sent: Lähetetty
         conference_registration:
           fields:
+            actions: Toiminnot
             email: Sähköposti
             name: Nimi
             registration_type: Ilmoittautumistyyppi

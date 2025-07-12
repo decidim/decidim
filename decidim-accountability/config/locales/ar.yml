@@ -17,10 +17,6 @@ ar:
         key: مفتاح
         name: اسم
         progress: تقدم
-      timeline_entry:
-        description: وصف
-        entry_date: تاريخ
-        title: العنوان
     models:
       decidim/accountability/proposal_linked_event: الاقتراح المدرج في نتيجة
       decidim/accountability/result_progress_updated_event: النتائج المحدثة
@@ -54,9 +50,7 @@ ar:
         import_csv: اجلب النتائج من ملف CSV
         new_result: نتيجة جديدة
         new_status: حالة جديدة
-        new_timeline_entry: دخول جدول الزمني جديد
         preview: معاينة
-        timeline_entries: تطور المشروع
         title: الإجراءات
         view_deleted_results: عرض النتائج المحذوفة
       admin:
@@ -146,23 +140,6 @@ ar:
           update:
             invalid: هناك مشكلة في تحديث هذه الحالة.
             success: تم تحديث الحالة بنجاح.
-        timeline_entries:
-          create:
-            invalid: حدثت مشكلة في إنشاء هذا الإدخال.
-            success: تم إنشاء الدخول بنجاح.
-          destroy:
-            success: تم حذف الإدخال بنجاح.
-          edit:
-            title: تحرير الإدخال
-            update: تحديث الإدخال
-          index:
-            title: إدخالات الجدول الزمني للمشروع
-          new:
-            create: إنشاء الإدخال
-            title: إدخال جديد
-          update:
-            invalid: حدثت مشكلة في تحديث هذا الإدخال.
-            success: تم تحديث الإدخال بنجاح.
       admin_log:
         result:
           create: "%{user_name} أنشأ النتيجة %{resource_name} في %{space_name}"
@@ -174,10 +151,6 @@ ar:
           create: "%{user_name} أنشأ حالة %{resource_name}"
           delete: "%{user_name} حذف حالة %{resource_name}"
           update: "%{user_name} حدث حالة %{resource_name}"
-        timeline_entry:
-          create: "%{user_name} أنشأ إدخال الجدول الزمني %{resource_name}"
-          delete: "%{user_name} حذف إدخال الجدول الزمني %{resource_name}"
-          update: "%{user_name} حدث إدخال الجدول الزمني %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'لم يتم العثور على الأصل في قاعدة البيانات (الرقم-المُعرف: %{id})'
@@ -223,10 +196,6 @@ ar:
             key: مفتاح
             name: اسم
             progress: تقدم
-        timeline_entry:
-          fields:
-            entry_date: تاريخ
-            title: العنوان
       results:
         count:
           results_count:
@@ -244,8 +213,6 @@ ar:
         show:
           stats:
             back_to_resource: العودة إلى النتيجة
-        timeline:
-          title: تطور المشروع
     admin:
       filters:
         results:

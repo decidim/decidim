@@ -50,28 +50,61 @@
 </div>
 
 <div class="card">
-  <div class="table-scroll">
+  <div class="table-stacked">
     <table class="table-list">
       <thead>
         <tr>
           <th><%= t(".name") %></th>
           <th><%= t(".status") %></th>
-          <th></th>
+          <th><%= t("decidim.admin.actions.actions") %></th>
         </tr>
       </thead>
       <tbody>
         <% @users.each do |user| %>
           <tr data-user-id="<%= user.id %>">
-            <td><%= user.name %></td>
-            <td><%= user.managed? ? t(".managed") : t(".not_managed") %></td>
-            <td class="table-list__actions">
-              <% if allowed_to? :impersonate, :impersonatable_user, user: user %>
-                <%= icon_link_to "user-line", new_impersonatable_user_impersonation_path(user), t(".impersonate"), class: "action-icon--impersonate" %>
-              <% end %>
-              <%= icon_link_to "time-line", impersonatable_user_impersonation_logs_path(user), t(".view_logs"), class: "action-icon--view-logs" %>
-              <% if allowed_to? :promote, :impersonatable_user, user: user %>
-                <%= icon_link_to "award-line", new_impersonatable_user_promotion_path(user), t(".promote"), class: "action-icon--promote" %>
-              <% end %>
+            <td data-label="<%= t(".name") %>">
+              <%= user.name %>
+            </td>
+            <td data-label="<%= t(".status") %>">
+              <%= user.managed? ? t(".managed") : t(".not_managed") %>
+            </td>
+            <td class="table-list__actions" data-label="<%= t("decidim.admin.actions.actions") %>">
+              <button type="button" data-component="dropdown" data-target="actions-user-<%= user.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: user.name) %>">
+                <%= icon "more-fill", class: "text-secondary" %>
+              </button>
+
+              <div class="inline-block relative">
+                <ul id="actions-user-<%= user.id %>" class="dropdown dropdown__action" aria-hidden="true">
+                  <% if allowed_to? :impersonate, :impersonatable_user, user: user %>
+                    <li class="dropdown__item">
+                      <%= link_to new_impersonatable_user_impersonation_path(user), class: "dropdown__button" do %>
+                        <%= icon "user-line" %>
+                        <%= t(".impersonate") %>
+                      <% end %>
+                    </li>
+
+                    <hr>
+                  <% end %>
+
+                  <li class="dropdown__item">
+                    <%= link_to impersonatable_user_impersonation_logs_path(user), class: "dropdown__button" do %>
+                      <%= icon "time-line" %>
+                      <%= t(".view_logs") %>
+                    <% end %>
+                  </li>
+
+                  <% if allowed_to? :promote, :impersonatable_user, user: user %>
+                    <hr>
+
+                    <li class="dropdown__item">
+                      <%= link_to new_impersonatable_user_promotion_path(user), class: "dropdown__button" do %>
+                        <%= icon "award-line" %>
+                        <%= t(".promote") %>
+                      <% end %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
             </td>
           </tr>
         <% end %>
