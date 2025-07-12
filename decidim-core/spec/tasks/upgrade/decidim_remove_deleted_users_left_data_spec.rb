@@ -84,6 +84,14 @@ describe "rake decidim:upgrade:remove_deleted_users_left_data", type: :task, ver
 
       expect { task.execute }.to change(Decidim::UserModeration, :count).by(-1)
     end
+
+    it "deletes user likes" do
+      component = create(:dummy_component, organization: deleted_user.organization)
+      resource = create(:dummy_resource, component:)
+      create(:like, author: deleted_user, resource:)
+
+      expect { task.execute }.to change(Decidim::Like, :count).by(-1)
+    end
   end
 
   context "when task is performed for not deleted users" do

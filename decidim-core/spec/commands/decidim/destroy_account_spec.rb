@@ -139,6 +139,16 @@ module Decidim
           expect { command.call }.to change(ParticipatorySpacePrivateUser, :count).by(-1)
         end
 
+        it "deletes user likes" do
+          component = create(:dummy_component, organization: user.organization)
+          resource = create(:dummy_resource, component:)
+          create(:like, author: user, resource:)
+
+          expect(resource.likes.count).to eq(1)
+          expect { command.call }.to change(Like, :count).by(-1)
+          expect(resource.likes.count).to eq(0)
+        end
+
         it "deletes user's badges" do
           Decidim::Gamification::BadgeScore.find_or_create_by(user:, badge_name: :followers)
 

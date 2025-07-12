@@ -11,6 +11,7 @@ namespace :decidim do
         Decidim::ParticipatorySpacePrivateUser.where(user: deleted_user).find_each(&:destroy)
         Decidim::Gamification::BadgeScore.where(user: deleted_user).find_each(&:destroy)
         Decidim::UserModeration.where(user: deleted_user).find_each(&:destroy)
+        Decidim::Like.where(author: deleted_user).find_each(&:destroy)
 
         Decidim.participatory_space_manifests.each do |space_manifest|
           space_manifest.invoke_on_destroy_account(deleted_user)
