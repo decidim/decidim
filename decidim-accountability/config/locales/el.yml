@@ -19,7 +19,6 @@ el:
         progress: Πρόοδος
       timeline_entry:
         description: Περιγραφή
-        entry_date: Ημερομηνία
         title: Τίτλος
     models:
       decidim/accountability/proposal_linked_event: Η πρόταση περιλαμβάνεται σε ένα αποτέλεσμα
@@ -161,7 +160,6 @@ el:
             progress: Πρόοδος
         timeline_entry:
           fields:
-            entry_date: Ημερομηνία
             title: Τίτλος
       results:
         count:

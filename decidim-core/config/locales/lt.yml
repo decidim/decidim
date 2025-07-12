@@ -923,7 +923,6 @@ lt:
       title: Kas yra ženkleliai?
     group_admins:
       actions:
-        are_you_sure: Ar tikrai? Tai nepašalins dalyvio iš grupės.
         demote_admin: Pašalinti administratorių
       demote:
         error: Šalinant šį dalyvį iš administratorių sąrašo kilo problema.
@@ -953,7 +952,6 @@ lt:
         error: Priimant šį prisijungimo kvietimą iškilo problema.
         success: Prisijungimo kvietimas priimtas.
       actions:
-        are_you_sure: Ar esate tikri?
         promote_to_admin: Padaryti administratoriumi
         remove_from_group: Pašalinti dalyvį
       index:

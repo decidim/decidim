@@ -19,7 +19,6 @@ lt:
         progress: Progresas
       timeline_entry:
         description: Aprašymas
-        entry_date: Data
         title: Pavadinimas
     models:
       decidim/accountability/proposal_linked_event: Pasiūlymas įtrauktas į rezultatą
@@ -165,7 +164,6 @@ lt:
             progress: Progresas
         timeline_entry:
           fields:
-            entry_date: Data
             title: Pavadinimas
       results:
         count:

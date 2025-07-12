@@ -20,7 +20,7 @@ pt-BR:
         progress: Progresso
       timeline_entry:
         description: Descrição
-        entry_date: Encontro
+        entry_date: Data
         title: Título
     models:
       decidim/accountability/proposal_linked_event: Proposta incluída em um resultado
@@ -30,6 +30,10 @@ pt-BR:
       decidim:
         accountability:
           result:
+            budget_text: Este resultado %{link} foi incluído
+            meetings_ids: 'Foi discutido nesta reunião: %{link}'
+            project_ids: 'Foi incluído neste projeto: %{link}'
+            proposal_ids: 'Foi incluído nesta proposta: %{link}'
             text: 'Foi adicionado a este resultado: %{link}'
       decidim/accountability/result:
         one: Resultado
@@ -39,9 +43,12 @@ pt-BR:
       actions:
         attachment_collections: Pastas
         attachments: Anexos
+        confirm_delete_result: Você tem certeza que quer deletar este resultado?
         confirm_destroy: Deseja mesmo excluir %{name}?
+        deleted_results_info: Os resultados deletados podem ser restaurados da lixeira.
         destroy: Excluir
         edit: Editar
+        import: Importar resultados de outro componente
         import_csv: Importar resultados de arquivo CSV
         new_result: Novo resultado
         new_status: Novo status
@@ -49,14 +56,57 @@ pt-BR:
         preview: Pré-visualização
         timeline_entries: Evolução do projeto
         title: Ações
+        view_deleted_results: Ver resultados deletados
       admin:
         exports:
           result_comments: Comentários
           results: Resultados
+        import_components:
+          create:
+            invalid: Houve um problema ao importar os resultados, por favor, siga as instruções cuidadosamente e verifique se você selecionou projetos para implementação.
+          filters:
+            new_items_projects:
+              one: 1 projeto selecionado será importado
+              other: "%{count} projetos selecionados serão importados"
+            new_items_proposals:
+              one: 1 proposta será importada
+              other: "%{count} propostas serão importadas"
+            proposal_state: Estatuto da proposta
+            select_state: Selecionar status
+          form:
+            create: Importar
+            no_components: Não há componentes neste espaço participativo para importar.
+            origin_component_id: Componente de origem
+            select_component: Selecionar componente
+          new:
+            success:
+              one: 1 resultado na fila para ser importado. Você será notificado por e-mail, quando for concluído.
+              other: "%{count} resultados na fila para serem importados. Você será notificado por e-mail, quando for concluído."
+            title: Importar resultados de outros componentes
         import_results:
           new:
             download_export: Baixe a Exportação com formato CSV
             import: Importar
+            info: |
+              <p>Nós recomendamos que você siga esses passos:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Crie os Status para os Resultado</a>que você queira adicionar.</li>
+              <li><a href='%{link_new_result}' target='_blank'>Crie no mínimo um Resultado manualmente</a> através desse Painel de Administração antes de usar a função Importar, para um melhor entendimento a respeito do formato e o que você precisa preencher.</li>
+              <li>%{link_export_csv}</li>
+              <li>Faça as mudanças localmente. Você só pode alterar as seguintes colunas do CSV (o resto será ignorado):</li>
+                <ul>
+                <li><b>taxonomias/ids:</b> Identificadores para as Taxonomias (Se houver múltiplas, separe-as com vírgula)</li>
+                <li><b>pai/id:</b> Identificador do pai (para Resultados relacionados). Opcional</li>
+                <li><b>titulo/pt-br:</b> Título na língua Portuguesa. Isto dependerá das configurações de linguagem da sua plataforma.</li>
+                <li><b>descricao/pt-br:</b> Descrição na língua Portuguesa. Isto dependerá das configurações de linguagem da sua plataforma.</li>
+                <li><b>data_inicio:</b> data de início de execução dos resultados (formato DD-MM-YYYY)</li>
+                <li><b>data_fim:</b> data de fim da execução dos resultados (formato DD-MM-YYYY)</li>
+                <li><b>status/id:</b> Identificador do Status para este resultado</li>
+                <li><b>progresso:</b> Porcentagem (de 0 a 100) desta execução</li>
+                <li><b>ids_propostos:</b> Identificadores interno das propostas relacionadas (separadas por vírgula). É automaticamente convertida para <span class='attribute-name'>url_proposta</span></li>
+                </ul>
+              </li>
+              </ol>
             title: Importar resultados de arquivo CSV
         imports:
           create:
@@ -68,6 +118,23 @@ pt-BR:
           status:
             name: Status
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: Alterar data
+              end_date: Data final
+              start_date: Da de início
+            dropdown:
+              actions: Ações
+              change_dates: Alterar datas
+              change_status: Alterar status
+              change_taxonomies: Alterar taxonomias
+            status_form:
+              change_status: Alterar status
+              status: Status
+            submit_buttons:
+              cancel: Cancelar
+            taxonomies_form:
+              change_taxonomies: Alterar taxonomias
           create:
             invalid: Houve um problema criando esse resultado.
             success: Resultado criado com sucesso.
@@ -75,13 +142,27 @@ pt-BR:
             title: Editar resultado
             update: Atualizar resultado
           index:
+            selected: Selecionado
             title: Resultados
+          manage_trash:
+            title: Excluir resultados
           new:
             create: Criar resultado
             title: Novo resultado
           update:
             invalid: Houve um problema atualizando esse resultado.
             success: Resultado atualizado com sucesso.
+          update_dates:
+            invalid: Houve um problema ao atualizar as datas de resultados
+            success: Datas de resultados atualizadas com sucesso
+          update_status:
+            invalid: Houve um problema ao atualizar os status dos resultados
+            success: Status dos resultados ataulizados com sucesso
+          update_taxonomies:
+            invalid: Não foi possível atualizar as taxonomias %{taxonomies} para os resultados %{results}
+            select_a_result: Selecione um resultado
+            select_a_taxonomy: Selecione uma taxonomia
+            success: Taxonomias %{taxonomies} atualizadas com sucesso para os resultados %{results}
         shared:
           subnav:
             statuses: Statuses
@@ -123,6 +204,8 @@ pt-BR:
         result:
           create: "%{user_name} resultado criado %{resource_name} em %{space_name}"
           delete: "%{user_name} eliminou o resultado %{resource_name} em %{space_name}"
+          restore: "%{user_name} restaurou o resultado %{resource_name} em %{space_name}"
+          soft_delete: "%{user_name} moveu o resultado %{resource_name} em %{space_name} para a lixeira"
           update: "%{user_name} resultado atualizado %{resource_name} em %{space_name}"
         status:
           create: "%{user_name} criou o status %{resource_name} "
@@ -154,6 +237,13 @@ pt-BR:
             other: "%{count} resultados foram importados de projetos."
           subject: Importação de projetos bem sucedida
           success: Projetos importados com sucesso para resultados no componente %{component_name}. Você pode rever os resultados na “interface” de administração.
+      import_proposals_mailer:
+        import:
+          added_proposals:
+            one: Um resultado foi importado de propostas
+            other: "%{count} resultados foram importados de propostas."
+          subject: Importação bem sucedida de propostas
+          success: Propostas importadas com sucesso para resultados no componente %{component_name}. Você pode rever os resultados na ‘interface’ de administração.
       last_activity:
         new_result: 'Novo resultado:'
       models:
@@ -165,6 +255,7 @@ pt-BR:
             progress: Progresso
             start_date: Data de início
             status: Status
+            taxonomies: Taxonomias
             title: Título
         status:
           fields:
@@ -199,6 +290,8 @@ pt-BR:
         results:
           status_id_eq:
             label: Status
+          taxonomies_part_of_contains:
+            label: Taxonomia
     components:
       accountability:
         actions:
@@ -206,12 +299,22 @@ pt-BR:
         name: Prestação de contas
         settings:
           global:
+            clear_all: Apagar tudo
             comments_enabled: Comentários ativados
             comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
+            define_taxonomy_filters: Por favor, defina alguns filtros para este espaço participativo antes de usar esta configuração.
             display_progress_enabled: Mostrar progresso
+            geocoding_enabled: Mapas habilitados
             intro: Introdução
+            no_taxonomy_filters_found: Nenhum filtro de taxonomia encontrado.
+            taxonomy_filters: Selecione filtros para o componente
+            taxonomy_filters_add: Adicionar filtro
           step:
             comments_blocked: Comentários bloqueados
+    download_your_data:
+      show:
+        result_comments: Exportar resultados de comentários
+        results: Exportar resultados
     events:
       accountability:
         proposal_linked:
@@ -229,6 +332,29 @@ pt-BR:
         description: Número de resultados gerados
         object: resultados
         title: Resultados
+    open_data:
+      help:
+        result_comments:
+          alignment: Se este comentário foi favorável, contra ou neutro
+          author: O nome do usuário que fez este comentário
+          body: O comentário em si
+          commentable_id: O ID exclusiva do item comentável
+          commentable_type: O tipo de item comentável (se for um resultado, uma proposta, etc.)
+          created_at: A data em que este comentário foi criado
+          depth: O lugar onde este comentário está na árvore de comentários (se for uma resposta ou uma resposta de uma resposta)
+          id: O ID para este comentário
+          locale: A localidade (linguagem) que o usuário teve ao deixar este comentário
+          root_commentable_url: A URL do recurso ligado a este comentário
+        results:
+          address: O endereço do resultado (se houver)
+          children_count: O número de resultados filhos
+          comments_count: O número de comentários que este resultado tem
+          component: O componente ao qual o resultado pertence
+          created_at: A data em que este resultado foi criado
+          description: A descrição do resultado
+          end_date: A data de quando o resultado termina a execução e está concluída
+          id: O identificador exclusivo do resultado
+          latitude: A latitude do resultado caso ele tenha uma localização física
     participatory_spaces:
       highlighted_results:
         see_all: Ver todos os resultados (%{count})

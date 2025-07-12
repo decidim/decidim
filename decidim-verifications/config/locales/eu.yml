@@ -71,7 +71,7 @@ eu:
         default:
           help:
           - Ez dago zehaztuta baimen-emailearen laguntza.
-          - Garatzaile batek laguntza zehaztu behar du "% {authorization_handler} "(i18n) itzulpen-gakoan
+          - Garatzaile batek laguntza zehaztu behar du "%{authorization_handler} "(i18n) itzulpen-gakoan
         dummy_authorization_handler:
           help:
           - Baimen-emaile adibide bat garatzaileek uler dezaten nola funtzionatzen duen egiaztapen sinple batek.
@@ -144,14 +144,14 @@ eu:
         new:
           authorize: Bidali
           authorize_with: Egiaztatu %{authorizer} rekin
-          tos_agreement: 'Zure nortasuna egiaztatzeko, onartu: % {link}.'
+          tos_agreement: 'Zure nortasuna egiaztatzeko, onartu: %{link}.'
         onboarding_pending:
           completed_verifications: 'Bainema zuzen lortu duzu, orain zuk ahal duzu %{action} hemen: %{resource_name}'
           granted_verifications: Emandako egiaztapenak
           onboarding_message_html: 'Ia prest zaude %{action} ekintzarako hemen: <strong>%{resource_title}</strong> %{resource_name}. Mesedez, egiaztatu zure kontua baimen hauek betez.'
           pending_admin_approval_verifications: Admin. onespenaren egiaztapenen zain
           pending_verifications: Egiaztatzeke
-          unauthorized: Ez duzu baimenik %{ekintza} ekintzarako baliabide honetan
+          unauthorized: Ez duzu baimenik %{action} ekintzarako baliabide honetan
         renew_modal:
           cancel: Ezeztatu
           continue: Jarraitu

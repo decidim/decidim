@@ -838,7 +838,6 @@ hu:
       title: Mik a jelvények?
     group_admins:
       actions:
-        are_you_sure: Biztos vagy ebben? Ez nem fogja eltávolítani a felhasználót a csoportból.
         demote_admin: Admin eltávolítása
       demote:
         error: Hiba történt a résztvevő adminisztrátori listáról történő eltávolítása során.
@@ -868,7 +867,6 @@ hu:
         error: Hiba történt a csatlakozási kérelem elfogadásakor.
         success: A csatlakozási kérelem sikeresen elfogadva.
       actions:
-        are_you_sure: biztos vagy ebben?
         promote_to_admin: Tedd rendszergazdává
         remove_from_group: A résztvevő eltávolítása
       index:

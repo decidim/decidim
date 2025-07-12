@@ -14,7 +14,7 @@ ga:
         name: Ainm
         progress: Forás
       timeline_entry:
-        entry_date: Dáta
+        title: Teideal
   decidim:
     accountability:
       actions:
@@ -68,7 +68,7 @@ ga:
             progress: Forás
         timeline_entry:
           fields:
-            entry_date: Dáta
+            title: Teideal
     admin:
       filters:
         results:

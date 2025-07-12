@@ -1095,7 +1095,6 @@ ro:
       reject_invitation: Respingeți
     group_members:
       actions:
-        are_you_sure: Sunteți sigur?
         promote_to_admin: Setare ca administrator
         remove_from_group: Eliminați participantul
       index:

@@ -19,7 +19,7 @@ id:
         progress: Kemajuan
       timeline_entry:
         description: Deskripsi
-        entry_date: Tanggal
+        title: Judul
     models:
       decidim/accountability/proposal_linked_event: Proposal termasuk dalam hasil
       decidim/accountability/result_progress_updated_event: Kemajuan hasil diperbarui
@@ -98,7 +98,7 @@ id:
             progress: Kemajuan
         timeline_entry:
           fields:
-            entry_date: Tanggal
+            title: Judul
       results:
         count:
           results_count:

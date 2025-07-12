@@ -19,7 +19,6 @@ bg:
         progress: Напредък
       timeline_entry:
         description: Описание
-        entry_date: Дата
         title: Заглавие
     models:
       decidim/accountability/proposal_linked_event: Предложение, включено в резултата
@@ -167,7 +166,6 @@ bg:
             progress: Напредък
         timeline_entry:
           fields:
-            entry_date: Дата
             title: Заглавие
       results:
         count:

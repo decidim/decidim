@@ -173,6 +173,13 @@ ca:
       x_seconds:
         one: 1 segon
         other: "%{count} segons"
+    widget:
+      label:
+        date: Seleccionar data per %{label}
+        time: Seleccionar hora per %{label}
+      picker:
+        date_button: Obre el selector de calendari per a %{label}
+        time_button: Obre el selector d'hora per a %{label}
   decidim:
     accessibility:
       external_link: Enllaç extern
@@ -1163,7 +1170,12 @@ ca:
       title: Què són les ensenyes?
     group_admins:
       actions:
-        are_you_sure: Segur? Això no eliminarà la participant del grup.
+        confirm_modal:
+          ok_add: Afegir una administradora
+          ok_remove: Eliminar l'administradora
+          title_add: Confirmar la nova administradora
+          title_remove: Eliminar l'administradora
+        confirm_remove_from_admin: Segur que vols eliminar a l'avaluadora d'aquest grup?
         demote_admin: Elimina l'administradora
       demote:
         error: S'ha produït un error en eliminar aquesta usuària de la llista d'administradores.
@@ -1193,7 +1205,11 @@ ca:
         error: S'ha produït un error en acceptar aquesta sol·licitud d'incorporació al grup.
         success: Sol·licitud d'incorporació rebutjada correctament.
       actions:
-        are_you_sure: Segur?
+        confirm_modal:
+          ok_remove: Eliminar membre
+          title_remove: Eliminar membre
+        confirm_promote_to_admin: Segur que vols afegir aquesta usuària com a administradora?
+        confirm_remove_from_group: Segur que vols eliminar a aquesta usuària d'aquest grup?
         promote_to_admin: Fer administradora
         remove_from_group: Eliminar participant
       index:
@@ -1783,6 +1799,7 @@ ca:
     searches:
       filters:
         jump_to: 'Salta a:'
+        resource: "%{label} entre %{collection}"
         search: Cercar
         state:
           active: Actiu
@@ -2306,6 +2323,8 @@ ca:
         profile: El meu compte
         public_profile: El meu perfil públic
         title: Enllaços del perfil
+        unread_conversations: Tens converses sense llegir
+        unread_notifications: Tens notificacions sense llegir
       user_profile:
         account: Compte
         authorizations: Autoritzacions

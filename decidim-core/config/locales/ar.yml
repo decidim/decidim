@@ -839,7 +839,6 @@ ar:
       reject_invitation: رفض
     group_members:
       actions:
-        are_you_sure: هل أنت واثق؟
         promote_to_admin: جعل المشرف
         remove_from_group: إزالة المشارك
       index:

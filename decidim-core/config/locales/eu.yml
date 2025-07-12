@@ -173,6 +173,13 @@ eu:
       x_seconds:
         one: Segundo bat
         other: "%{count} segundo"
+    widget:
+      label:
+        date: 'Hautatu data honetarako: %{label}'
+        time: 'Hautatu ordua honetarako: %{label}'
+      picker:
+        date_button: 'Ireki egutegi-hautagailua honetarako: %{label}'
+        time_button: 'Ireki ordu-hautagailua honetarako: %{label}'
   decidim:
     accessibility:
       external_link: Kanpoko esteka
@@ -421,7 +428,7 @@ eu:
       wizard_step_form:
         steps:
           '1': Sortu zure zuzenketa
-          '2': Argitaratu zure zuzenketa
+          '2': Zure zuzenketa argitaratu
     anonymous_user: Anonimoa
     application:
       document:
@@ -1164,7 +1171,12 @@ eu:
       title: Zer dira garaikurrak?
     group_admins:
       actions:
-        are_you_sure: Ziur zaude? Honek ez du partaide-taldetik aterako.
+        confirm_modal:
+          ok_add: Gehitu administratzaile bat
+          ok_remove: Kendu administratzailea
+          title_add: Berretsi administratzaile berria
+          title_remove: Kendu administratzailea
+        confirm_remove_from_admin: Ziur zaude talde honen administratzailea kendu nahi duzula?
         demote_admin: Kendu kudeatzailea
       demote:
         error: Arazo bat egon da parte-hartzaile hau administratzaileen zerrendatik kentzean.
@@ -1194,7 +1206,11 @@ eu:
         error: Arazo bat egon da lotzeko eskaera hau onartzean.
         success: Lotzeko eskaera zuzen onartua.
       actions:
-        are_you_sure: Ziur zaude?
+        confirm_modal:
+          ok_remove: Kendu kidea
+          title_remove: Kendu kidea
+        confirm_promote_to_admin: Seguru zaude erabiltzaile hau administratzaile moduan gehitu nahi duzula?
+        confirm_remove_from_group: Ziur zaude talde honen erabiltzailea kendu nahi duzula?
         promote_to_admin: Egin administratzailea
         remove_from_group: Kendu parte-hartzailea
       index:
@@ -1628,7 +1644,7 @@ eu:
             title: 3. Datuekin lanean
           title: Nola ireki eta lan egin fitxategi hauekin
         license:
-          body_1_html: '%{organization_name} datu-base hau % {link_database} datu-basearen azpian eginda dago. Datu-basearen eduki indibidualen gaineko edozein eskubide % {link_content} -ren arabera dago baimenduta.'
+          body_1_html: '%{organization_name} datu-base hau %{link_database} datu-basearen azpian eginda dago. Datu-basearen eduki indibidualen gaineko edozein eskubide %{link_contents}-ren arabera dago baimenduta.'
           license_contents_link: http://opendatacommons.org/licenses/dbcl/1.0/
           license_contents_name: Datu-basearen Edukien Lizentzia
           license_database_link: http://opendatacommons.org/licenses/odbl/1.0/

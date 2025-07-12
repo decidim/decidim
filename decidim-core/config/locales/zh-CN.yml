@@ -568,7 +568,6 @@ zh-CN:
       reject_invitation: 拒绝
     group_members:
       actions:
-        are_you_sure: 您确定吗？
         promote_to_admin: 设为管理员
         remove_from_group: Remove participant
       index:

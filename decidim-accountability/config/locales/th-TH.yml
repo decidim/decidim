@@ -19,7 +19,6 @@ th:
         progress: ความคืบหน้า
       timeline_entry:
         description: คำอธิบาย
-        entry_date: วันที่
         title: ชื่อ
     models:
       decidim/accountability/proposal_linked_event: ข้อเสนอที่รวมอยู่ในผลลัพธ์
@@ -102,6 +101,10 @@ th:
             success: สร้างรายการสําเร็จแล้ว
           destroy:
             success: ลบรายการเรียบร้อยแล้ว
+      models:
+        timeline_entry:
+          fields:
+            title: ชื่อ
       results:
         home:
           empty: ยังไม่มีผลลัพธ์

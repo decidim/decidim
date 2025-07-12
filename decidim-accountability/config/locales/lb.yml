@@ -19,7 +19,7 @@ lb:
         progress: Progrès
       timeline_entry:
         description: Beschreiwung
-        entry_date: Datum
+        title: Titel
     models:
       decidim/accountability/proposal_linked_event: Propose déi Deel vun engem Resultat ass
       decidim/accountability/result_progress_updated_event: Aktualiséiert Entwécklung vun engem Resultat
@@ -116,7 +116,7 @@ lb:
             progress: Fortschritt
         timeline_entry:
           fields:
-            entry_date: Datum
+            title: Titel
       results:
         count:
           results_count:

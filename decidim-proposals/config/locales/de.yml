@@ -675,7 +675,7 @@ de:
             link: Vorschlag anzeigen
             photos: Fotos
             ranking: "%{ranking} von %{total}"
-            related_meetings: Ähnliche Besprechungen
+            related_meetings: Ähnliche Veranstaltungen
             remove_assignment: Zuweisung entfernen
             remove_assignment_confirmation: Sind Sie sicher, dass Sie den BewerterIn dieses Vorschlags entfernen möchten?
             valuators: Bewertende
