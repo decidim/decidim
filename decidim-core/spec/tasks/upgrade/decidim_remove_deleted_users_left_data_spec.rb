@@ -24,8 +24,6 @@ describe "rake decidim:upgrade:remove_deleted_users_left_data", type: :task, ver
     create(:follow, followable: user, user: other_user)
     create(:follow, followable: other_user, user:)
     create(:private_export, attached_to: user)
-
-    Decidim::Gamification::BadgeScore.find_or_create_by(user: deleted_user, badge_name: :followers)
   end
 
   context "when the task is performed" do
@@ -71,7 +69,20 @@ describe "rake decidim:upgrade:remove_deleted_users_left_data", type: :task, ver
     end
 
     it "deletes the badges of deleted user" do
+      Decidim::Gamification::BadgeScore.find_or_create_by(user: deleted_user, badge_name: :followers)
+
       expect { task.execute }.to change(Decidim::Gamification::BadgeScore, :count).by(-1)
+    end
+
+    it "deletes user's reports status" do
+      form_params = {
+        reason: "spam",
+        details: "some details about the report"
+      }
+      form = Decidim::ReportForm.from_params(form_params).with_context(current_user: deleted_user)
+      Decidim::CreateUserReport.call(form, deleted_user)
+
+      expect { task.execute }.to change(Decidim::UserModeration, :count).by(-1)
     end
   end
 
@@ -83,6 +94,7 @@ describe "rake decidim:upgrade:remove_deleted_users_left_data", type: :task, ver
       expect { task.execute }.not_to(change { user.reload.follows.count })
       expect { task.execute }.not_to(change { user.reload.private_exports.count })
       expect { task.execute }.not_to change(Decidim::Authorization, :count)
+      expect { task.execute }.not_to change(Decidim::UserModeration, :count)
     end
   end
 end

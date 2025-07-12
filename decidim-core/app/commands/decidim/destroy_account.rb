@@ -26,6 +26,7 @@ module Decidim
         destroy_user_reminders
         destroy_user_notifications
         destroy_user_badges
+        destroy_user_reports
         destroy_participatory_space_private_user
         delegate_destroy_to_participatory_spaces
       end
@@ -56,6 +57,10 @@ module Decidim
 
     def destroy_user_badges
       Decidim::Gamification::BadgeScore.where(user: current_user).find_each(&:destroy)
+    end
+
+    def destroy_user_reports
+      Decidim::UserModeration.where(user: current_user).find_each(&:destroy)
     end
 
     def destroy_user_identities

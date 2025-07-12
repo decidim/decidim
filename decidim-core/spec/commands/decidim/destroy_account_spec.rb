@@ -123,32 +123,37 @@ module Decidim
           create(:follow, followable: user, user: other_user)
           create(:follow, followable: other_user, user:)
 
-          expect do
-            command.call
-          end.to change(Follow, :count).by(-2)
+          expect { command.call }.to change(Follow, :count).by(-2)
         end
 
         it "preserves the authorizations" do
           create(:authorization, :granted, user:, unique_id: "12345678X")
           create(:authorization, :granted, user:, unique_id: "A12345678")
 
-          expect{ command.call }.not_to change(Decidim::Authorization, :count)
+          expect { command.call }.not_to change(Decidim::Authorization, :count)
         end
 
         it "deletes participatory space private user" do
           create(:participatory_space_private_user, user:)
 
-          expect do
-            command.call
-          end.to change(ParticipatorySpacePrivateUser, :count).by(-1)
+          expect { command.call }.to change(ParticipatorySpacePrivateUser, :count).by(-1)
         end
 
         it "deletes user's badges" do
-          Decidim::Gamification::BadgeScore.find_or_create_by(user: , badge_name: :followers)
+          Decidim::Gamification::BadgeScore.find_or_create_by(user:, badge_name: :followers)
 
-          expect do
-            command.call
-          end.to change(Decidim::Gamification::BadgeScore, :count).by(-1)
+          expect { command.call }.to change(Decidim::Gamification::BadgeScore, :count).by(-1)
+        end
+
+        it "deletes user's reports status" do
+          form_params = {
+            reason: "spam",
+            details: "some details about the report"
+          }
+          form = ReportForm.from_params(form_params).with_context(current_user: user)
+          Decidim::CreateUserReport.call(form, user)
+
+          expect { command.call }.to change(Decidim::UserModeration, :count).by(-1)
         end
       end
     end
