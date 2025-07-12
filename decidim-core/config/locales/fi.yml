@@ -1608,6 +1608,7 @@ fi:
     searches:
       filters:
         jump_to: 'Siirry kohtaan:'
+        resource: "%{label} kohteesta %{collection}"
         search: Hae
         state:
           active: Aktiiviset
@@ -2147,6 +2148,8 @@ fi:
         profile: Oma käyttäjätili
         public_profile: Oma julkinen profiili
         title: Profiilin linkit
+        unread_conversations: Sinulla on lukemattomia keskusteluja
+        unread_notifications: Sinulla on lukemattomia ilmoituksia
       user_profile:
         account: Käyttäjätili
         authorizations: Vahvistukset
