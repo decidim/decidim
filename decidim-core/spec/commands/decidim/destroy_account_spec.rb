@@ -128,13 +128,11 @@ module Decidim
           end.to change(Follow, :count).by(-2)
         end
 
-        it "deletes the authorizations" do
+        it "preserves the authorizations" do
           create(:authorization, :granted, user:, unique_id: "12345678X")
           create(:authorization, :granted, user:, unique_id: "A12345678")
 
-          expect do
-            command.call
-          end.to change(Decidim::Authorization, :count).by(-2)
+          expect{ command.call }.not_to change(Decidim::Authorization, :count)
         end
 
         it "deletes participatory space private user" do
@@ -143,6 +141,14 @@ module Decidim
           expect do
             command.call
           end.to change(ParticipatorySpacePrivateUser, :count).by(-1)
+        end
+
+        it "deletes user's badges" do
+          Decidim::Gamification::BadgeScore.find_or_create_by(user: , badge_name: :followers)
+
+          expect do
+            command.call
+          end.to change(Decidim::Gamification::BadgeScore, :count).by(-1)
         end
       end
     end

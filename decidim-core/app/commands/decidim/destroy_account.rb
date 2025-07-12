@@ -19,13 +19,13 @@ module Decidim
         destroy_user_account!
         destroy_user_identities
         destroy_follows
-        destroy_user_authorizations
         destroy_user_versions
         destroy_user_private_exports
         destroy_user_access_grants
         destroy_user_access_tokens
         destroy_user_reminders
         destroy_user_notifications
+        destroy_user_badges
         destroy_participatory_space_private_user
         delegate_destroy_to_participatory_spaces
       end
@@ -54,6 +54,10 @@ module Decidim
       current_user.save!
     end
 
+    def destroy_user_badges
+      Decidim::Gamification::BadgeScore.where(user: current_user).find_each(&:destroy)
+    end
+
     def destroy_user_identities
       current_user.identities.find_each(&:destroy)
     end
@@ -80,10 +84,6 @@ module Decidim
 
     def destroy_user_notifications
       current_user.notifications.find_each(&:destroy)
-    end
-
-    def destroy_user_authorizations
-      Decidim::Authorization.where(decidim_user_id: current_user.id).find_each(&:destroy)
     end
 
     def destroy_follows

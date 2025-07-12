@@ -15,17 +15,17 @@ describe "rake decidim:upgrade:remove_deleted_users_left_data", type: :task, ver
     create(:reminder, user: deleted_user)
     create(:private_export, attached_to: deleted_user)
     create(:identity, user: deleted_user)
-    create(:authorization, :granted, user: deleted_user, unique_id: "12345678X")
     create(:follow, followable: deleted_user, user: user)
     create(:follow, followable: user, user: deleted_user)
     create(:participatory_space_private_user, user: deleted_user)
 
     create(:oauth_access_token, resource_owner_id: user.id)
     create(:identity, user:)
-    create(:authorization, :granted, user: user, unique_id: "12345678X")
     create(:follow, followable: user, user: other_user)
     create(:follow, followable: other_user, user:)
     create(:private_export, attached_to: user)
+
+    Decidim::Gamification::BadgeScore.find_or_create_by(user: deleted_user, badge_name: :followers)
   end
 
   context "when the task is performed" do
@@ -50,7 +50,7 @@ describe "rake decidim:upgrade:remove_deleted_users_left_data", type: :task, ver
     end
 
     it "deletes the authorizations of deleted user" do
-      expect { task.execute }.to change(Decidim::Authorization, :count).by(-1)
+      expect { task.execute }.not_to change(Decidim::Authorization, :count)
     end
 
     it "deletes the versions of deleted user" do
@@ -69,6 +69,10 @@ describe "rake decidim:upgrade:remove_deleted_users_left_data", type: :task, ver
     it "deletes the participatory space private user of deleted user" do
       expect { task.execute }.to change(Decidim::ParticipatorySpacePrivateUser, :count).by(-1)
     end
+
+    it "deletes the badges of deleted user" do
+      expect { task.execute }.to change(Decidim::Gamification::BadgeScore, :count).by(-1)
+    end
   end
 
   context "when task is performed for not deleted users" do
@@ -78,9 +82,7 @@ describe "rake decidim:upgrade:remove_deleted_users_left_data", type: :task, ver
       expect { task.execute }.not_to(change { user.reload.identities.count })
       expect { task.execute }.not_to(change { user.reload.follows.count })
       expect { task.execute }.not_to(change { user.reload.private_exports.count })
-      expect do
-        task.execute
-      end.not_to(change { Decidim::Authorization.where(decidim_user_id: user.id).count })
+      expect { task.execute }.not_to change(Decidim::Authorization, :count)
     end
   end
 end
