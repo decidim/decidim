@@ -12,6 +12,9 @@ es-MX:
           election_census: Censo
           election_dashboard: Panel de control
           election_questions: Preguntas
+      tooltips:
+        deleted_elections_info: No se puede eliminar esta elección
+        edit_elections_info: No se puede editar esta elección
     components:
       elections:
         name: Elecciones
