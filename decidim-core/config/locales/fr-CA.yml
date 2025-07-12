@@ -1979,6 +1979,8 @@ fr-CA:
         profile: Mon compte
         public_profile: Mon profil public
         title: Liens du profil
+        unread_conversations: Vous avez des conversations non lues
+        unread_notifications: Vous avez des notifications non lues
       user_profile:
         account: Compte
         authorizations: Autorisations
