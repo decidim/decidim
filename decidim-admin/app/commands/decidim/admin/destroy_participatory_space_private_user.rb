@@ -15,6 +15,10 @@ module Decidim
       end
 
       def run_after_hooks
+        return unless resource.privatable_to.respond_to?(:private_space?)
+        return unless resource.privatable_to.private_space?
+        return if resource.privatable_to.respond_to?(:is_transparent) && resource.privatable_to.is_transparent?
+
         # When private user is destroyed, a hook to destroy the follows of user on private non-transparent assembly
         # or private participatory process and the follows of their children
         DestroyPrivateUsersFollowsJob.perform_later(resource.decidim_user_id, resource.privatable_to)
