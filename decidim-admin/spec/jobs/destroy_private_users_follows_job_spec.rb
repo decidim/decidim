@@ -14,17 +14,14 @@ module Decidim
         let(:assembly) { create(:assembly, :private, :opaque, :published, organization: user.organization) }
         let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: normal_user, privatable_to: assembly) }
         let!(:follow) { create(:follow, followable: assembly, user: normal_user) }
-        let(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space: assembly) }
+        let(:component) { create(:dummy_component, participatory_space: assembly) }
+        let(:resource) { create(:dummy_resource, component: component, author: user) }
+        let!(:followed_resource) { create(:follow, followable: resource, user: normal_user) }
 
         it "destroys 2 follows" do
-          meeting = Decidim::Meetings::Meeting.create!(title: generate_localized_title(:meeting_title, skip_injection: false),
-                                                       description: generate_localized_description(:meeting_description, skip_injection: false),
-                                                       component: meetings_component, author: user)
-          create(:follow, followable: meeting, user: normal_user)
-
           expect(Decidim::Follow.where(user: normal_user).count).to eq(2)
           expect do
-            described_class.perform_now(normal_user.id, "Decidim::Assembly", assembly)
+            described_class.perform_now(normal_user.id, assembly)
           end.to change(Decidim::Follow, :count).by(-2)
         end
       end
@@ -36,17 +33,16 @@ module Decidim
 
         context "and user follows process and follows meeting belonging to process" do
           let!(:follow) { create(:follow, followable: participatory_process, user: normal_user) }
+          let(:component) { create(:dummy_component, participatory_space: participatory_process) }
+          let(:resource) { create(:dummy_resource, component: component, author: user) }
+          let!(:followed_resource) { create(:follow, followable: resource, user: normal_user) }
+
           let(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space: participatory_process) }
 
           it "destroys 2 follows" do
-            meeting = Decidim::Meetings::Meeting.create!(title: generate_localized_title(:meeting_title, skip_injection: false),
-                                                         description: generate_localized_description(:meeting_description, skip_injection: false),
-                                                         component: meetings_component, author: user)
-            create(:follow, followable: meeting, user: normal_user)
-
             expect(Decidim::Follow.where(user: normal_user).count).to eq(2)
             expect do
-              described_class.perform_now(normal_user.id, "Decidim::ParticipatoryProcess", participatory_process)
+              described_class.perform_now(normal_user.id, participatory_process)
             end.to change(Decidim::Follow, :count).by(-2)
           end
         end
