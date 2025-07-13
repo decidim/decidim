@@ -10,10 +10,11 @@ describe Decidim::Debates::Debate do
 
   it { is_expected.to be_valid }
   it { is_expected.to be_versioned }
+  it { is_expected.to act_as_paranoid }
 
-  include_examples "endorsable"
+  include_examples "likeable"
   include_examples "has component"
-  include_examples "has category"
+  include_examples "has taxonomies"
   include_examples "resourceable"
   include_examples "has comments availability attributes"
 
@@ -44,48 +45,42 @@ describe Decidim::Debates::Debate do
 
       it { is_expected.not_to be_official }
     end
-
-    context "when it is authored by a user group" do
-      let(:debate) { build(:debate, :user_group_author) }
-
-      it { is_expected.not_to be_official }
-    end
   end
 
   describe "ama?" do
     context "when it has both start_time and end_time set" do
-      let(:debate) { build(:debate, :open_ama) }
+      let(:debate) { build(:debate, :ongoing_ama) }
 
       it { is_expected.to be_ama }
     end
 
     context "when it does not have both start_time and end_time set" do
-      let(:debate) { build(:debate, :open_ama, end_time: nil) }
+      let(:debate) { build(:debate, :ongoing_ama, end_time: nil) }
 
       it { is_expected.not_to be_ama }
     end
   end
 
-  describe "open_ama?" do
+  describe "ongoing_ama?" do
     context "when it is not an AMA debate" do
       before do
         allow(debate).to receive(:ama?).and_return(false)
       end
 
-      it { is_expected.not_to be_open_ama }
+      it { is_expected.not_to be_ongoing_ama }
     end
 
     context "when it is an AMA debate" do
       context "when current time is between the range" do
         let(:debate) { build(:debate, start_time: 1.day.ago, end_time: 1.day.from_now) }
 
-        it { is_expected.to be_open_ama }
+        it { is_expected.to be_ongoing_ama }
       end
 
       context "when current time is not between the range" do
         let(:debate) { build(:debate, start_time: 1.day.from_now, end_time: 2.days.from_now) }
 
-        it { is_expected.not_to be_open_ama }
+        it { is_expected.not_to be_ongoing_ama }
       end
     end
   end

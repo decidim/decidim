@@ -1,21 +1,24 @@
-<% add_decidim_page_title(t("edit_landing_page", scope: "decidim.admin.titles")) %>
+<% add_decidim_page_title(content_blocks_title) %>
+
 <div class="card edit_content_blocks">
   <div class="item_show__header">
     <h1 class="item_show__header-title">
       <%= content_blocks_title %>
 
-      <div>
-        <button class="button button__sm button__secondary button--title" data-toggle="add-content-block-dropdown">
+      <div class="relative">
+        <button class="button button__sm button__secondary" data-component="dropdown" data-target="add-content-block-dropdown">
           <%= add_content_block_text %>
-          <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
+          <%= icon "arrow-down-s-line", class: "!fill-white" %>
+          <%= icon "arrow-down-s-line", class: "!fill-white" %>
         </button>
-        <div class="dropdown-pane" id="add-content-block-dropdown" data-dropdown data-auto-focus="true" data-close-on-click="true">
-          <ul class="vertical menu add-components font-normal">
-            <% available_manifests.each do |manifest| %>
-              <li><%= link_to t(manifest.public_name_key), resource_create_url(manifest.name), method: :post %></li>
-            <% end %>
-          </ul>
-        </div>
+
+        <ul class="dropdown dropdown__bottom" id="add-content-block-dropdown" aria-hidden="true">
+          <% available_manifests.each do |manifest| %>
+            <li class="dropdown__item">
+              <%= link_to t(manifest.public_name_key), resource_create_url(manifest.name), class: "dropdown__button", method: :post %>
+            </li>
+          <% end %>
+        </ul>
       </div>
     </h1>
   </div>

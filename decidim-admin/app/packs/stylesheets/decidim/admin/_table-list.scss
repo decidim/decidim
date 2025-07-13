@@ -1,10 +1,36 @@
 .table-scroll {
   @apply overflow-x-auto;
 
+  &.half-vh {
+    @apply max-h-[50vh];
+  }
+
   table {
     border-collapse: unset;
 
     @apply mb-0 text-gray-2 border border-background-4 w-full;
+  }
+}
+
+.table-stacked {
+  table {
+    @apply w-full border-collapse md:table;
+
+    thead {
+      @apply hidden md:table-header-group;
+    }
+
+    tbody {
+      @apply block md:table-row-group;
+    }
+
+    tr {
+      @apply block mb-4 md:table-row md:mb-0;
+
+      td {
+        @apply block p-3 md:table-cell before:content-[attr(data-label)] before:border-collapse before:border-spacing-0 before:inline-block before:w-24 before:bg-background-2 before:text-xs before:text-gray-2 before:font-semibold md:before:hidden;
+      }
+    }
   }
 }
 
@@ -68,7 +94,7 @@
 
   th:not(:first-child),
   td:not(:first-child) {
-    @apply text-center;
+    @apply text-left md:text-center;
   }
 
   th [type="checkbox"],
@@ -88,7 +114,7 @@
     @apply text-gray-2 text-xs;
   }
 
-  td a:not(.button) {
+  td a:not(.button):not([class*="dropdown"] a) {
     @apply underline text-md font-semibold text-secondary;
   }
 
@@ -107,6 +133,20 @@
 
   .icon-active {
     @apply bg-[#5dc560] inline-block w-3 h-3 align-middle mr-2 rounded-[50%];
+  }
+
+  .draggable-table {
+    &.dragging {
+      @apply border-dashed border-y-2 border-gray;
+    }
+
+    .dragging-handle {
+      @apply cursor-ns-resize align-top p-3;
+
+      .dragger {
+        @apply text-2xl;
+      }
+    }
   }
 }
 
@@ -127,10 +167,6 @@
 
   svg {
     @apply inline-block fill-secondary w-5 h-5;
-
-    &.action-icon--disabled {
-      @apply fill-gray mr-2;
-    }
   }
 
   .action-space {
@@ -152,4 +188,8 @@
   &.expanded {
     @apply inline-block;
   }
+}
+
+.table-list__title-ellipsis {
+  @apply whitespace-nowrap overflow-hidden text-ellipsis max-w-[200px] sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-2xl inline-block align-middle;
 }

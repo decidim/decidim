@@ -4,7 +4,6 @@ sk:
       decidim/comments/comment_by_followed_user_event: Komentár
       decidim/comments/comment_created_event: Komentár
       decidim/comments/reply_created_event: Odpoveď
-      decidim/comments/user_group_mentioned_event: Zmienka
       decidim/comments/user_mentioned_event: Zmienka
   activerecord:
     models:
@@ -19,6 +18,10 @@ sk:
         many: Hlasy
         other: Hlasy
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Komentáre
     comments:
       votes:
         create:
@@ -29,8 +32,6 @@ sk:
           body:
             label: Komentár
             placeholder: Čo si myslíte o tomto?
-          user_group_id:
-            label: Komentovať ako
         opinion:
           neutral: Neutrálne
         remaining_characters: "Zostáva %{count} znakov"
@@ -70,11 +71,6 @@ sk:
           email_outro: Túto notifikáciu ste dostali, pretože sledujete autora "%{author_name}". Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Je nový komentár od %{author_name} na %{resource_title}
           notification_title: Je nový komentár od <a href="%{author_path}">%{author_name}%{author_nickname}</a> na <a href="%{resource_path}">%{resource_title}</a>.
-        comment_by_followed_user_group:
-          email_intro: 'Skupina %{author_name} komentovala na %{resource_title}. Môžete si to prečítať na stránke:'
-          email_outro: Túto notifikáciu ste dostali, pretože sledujete autora "%{author_name}". Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
-          email_subject: Je nový komentár od %{author_name} na %{resource_title}
-          notification_title: Je nový komentár od <a href="%{author_path}">%{author_name}%{author_nickname}</a> na <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} bol okomentovaný. Komentár si môžete prečítať na stránke:"
           email_outro: Túto notifikáciu ste dostali, pretože sledujete "%{resource_title}" alebo autora. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
@@ -85,18 +81,8 @@ sk:
           email_outro: Túto notifikáciu ste dostali, pretože niekto odpovedal na Váš komentár.
           email_subject: "%{author_name} odpovedal na Váš komentár na %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name}%{author_nickname}</a> odpovedal na váš komentár na <a href="%{resource_path}">%{resource_title}</a>
-        user_group_mentioned:
-          email_intro: Skupina, do ktorej patríte, bola zmienená
-          email_outro: Dostali ste túto notifikáciu, pretože ste členom skupiny %{group_name}, ktorá bola spomenutá v %{resource_title}.
-          email_subject: Boli ste spomenutí v %{resource_title}, ako člen skupiny %{group_name}
-          notification_title: Boli ste zmienení v <a href="%{resource_path}">%{resource_title}</a> autorom <a href="%{author_path}">%{author_name} %{author_nickname}</a> ako člen skupiny <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
           email_intro: Niekto vás spomenul
           email_outro: Túto notifikáciu ste dostali, pretože ste boli spomenutí na %{resource_title}.
           email_subject: Boli ste spomenutí na %{resource_title}
           notification_title: Boli ste spomenutí <a href="%{author_path}">%{author_name}%{author_nickname}</a> na <a href="%{resource_path}">%{resource_title}</a>
-    metrics:
-      comments:
-        description: Počet komentárov všetkých účastníkov
-        object: komentáre
-        title: Komentáre

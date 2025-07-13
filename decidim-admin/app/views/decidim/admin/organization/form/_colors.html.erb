@@ -1,0 +1,66 @@
+<div class="card" data-component="accordion" id="accordion-colors">
+  <div class="card-divider">
+    <button class="card-divider-button" data-open="true" data-controls="panel-colors" type="button">
+      <%= icon "arrow-right-s-line" %>
+      <h2 class="card-title" id="colors">
+        <%= t("colors_title", scope: "decidim.admin.organization.form.colors") %>
+      </h2>
+    </button>
+  </div>
+  <div id="panel-colors" class="card-section">
+    <div class="row column">
+      <details class="color-picker">
+        <summary>
+          <%= t("title", scope: "decidim.admin.organization.form.colors") %>
+        </summary>
+
+        <div class="color-picker__box">
+          <p><%= t("explanation", scope: "decidim.admin.organization.form.colors") %></p>
+
+          <label class="color-picker__label_choose">
+            <%= t("choose_color", scope: "decidim.admin.organization.form.colors") %>
+            <div id="primary-selector"></div>
+          </label>
+
+          <label class="color-picker__label_saturation" for="primary-saturation">
+            <%= t("saturation", scope: "decidim.admin.organization.form.colors") %>
+            <input id="primary-saturation" type="range" min="0" max="100">
+          </label>
+
+          <fieldset>
+            <legend><%= t("legend_html", scope: "decidim.admin.organization.form.colors") %></legend>
+
+            <label>
+              <%= t("primary_color", scope: "activemodel.attributes.organization") %>
+              <div class="color-picker__color color-picker__color_primary"></div>
+              <input id="preview-primary" type="hidden">
+            </label>
+
+            <label>
+              <%= t("secondary_color", scope: "activemodel.attributes.organization") %>
+              <div class="color-picker__color color-picker__color_secondary"></div>
+              <input id="preview-secondary" type="hidden">
+            </label>
+
+            <label>
+              <%= t("tertiary_color", scope: "activemodel.attributes.organization") %>
+              <div class="color-picker__color color-picker__color_tertiary"></div>
+              <input id="preview-tertiary" type="hidden">
+            </label>
+
+            <button id="set-colors" class="button button__sm button__secondary">
+              <%= t("update_suggested_colors", scope: "decidim.admin.organization.form.colors") %>
+            </button>
+          </fieldset>
+        </div>
+      </details>
+      <%= cell("decidim/announcement", t("colors_warning_html", scope: "decidim.admin.organization.form.colors"), callout_class: "warning") %>
+
+      <div class="organization-colors">
+        <%= form.color_field :primary_color, value: current_organization.colors["primary"] %>
+        <%= form.color_field :secondary_color, value: current_organization.colors["secondary"] %>
+        <%= form.color_field :tertiary_color, value: current_organization.colors["tertiary"] %>
+      </div>
+    </div>
+  </div>
+</div>

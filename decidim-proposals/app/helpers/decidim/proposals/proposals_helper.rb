@@ -12,18 +12,21 @@ module Decidim
       end
 
       def proposal_has_costs?
-        @proposal.cost.present? &&
-          translated_attribute(@proposal.cost_report).present? &&
-          translated_attribute(@proposal.execution_period).present?
+        @proposal.cost.present?
       end
 
       def toggle_view_mode_link(current_mode, target_mode, title, params)
         path = proposals_path(params.permit(:order, filter: {}).merge({ view_mode: target_mode }))
         icon_name = target_mode == "grid" ? "layout-grid-fill" : "list-check"
-        icon_class = "view-icon--disabled" unless current_mode == target_mode
 
-        link_to path, remote: true, title: do
-          icon(icon_name, class: icon_class, role: "img", "aria-hidden": true)
+        if current_mode == target_mode
+          link_to path, remote: true, role: "button", "aria-current": true, title: do
+            icon(icon_name, class: "view-icon", role: "img", "aria-hidden": true)
+          end
+        else
+          link_to path, remote: true, role: "button", title: do
+            icon(icon_name, class: "view-icon--disabled", role: "img", "aria-hidden": true)
+          end
         end
       end
 

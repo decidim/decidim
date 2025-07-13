@@ -18,9 +18,13 @@ on:
 
 env:
   CI: "true"
-  NODE_VERSION: 18.17.1
+  NODE_VERSION: 22.14.0
   NODE_ENV: "test"
   SHAKAPACKER_RUNTIME_COMPILE: "false"
+
+permissions:
+  contents: read
+  pull-requests: read
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
@@ -29,7 +33,7 @@ concurrency:
 jobs:
   main:
     name: Tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
     steps:

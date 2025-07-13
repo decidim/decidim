@@ -5,16 +5,12 @@
   var component = $comments.data("comments");
   component.unmountComponent();
 
-  var commentsHtml = '<%== j(render partial: "comments").strip %>';
+  var commentsHtml = '<%== j(inline_comments_for(commentable, order:).inline).strip %>';
   $(".loading-comments").addClass("hidden");
-  $comments.replaceWith(commentsHtml);
+  $comments.html(commentsHtml);
 
-  $comments = $("#" + rootCommentableId);
-
-  // Re-create the component
-  component = new Decidim.CommentsComponent($comments, $comments.data("decidim-comments"));
+  // Re-mount the component
   component.mountComponent();
-  $comments.data("comments", component);
 
   // Update the comments count
   $(".comments-count", $comments).text(<%== t("decidim.components.comments.title", count: @comments_count).to_json %>);

@@ -7,7 +7,6 @@ module Decidim
       # in order to use them in select forms for Proposals.
       #
       module ProposalsHelper
-        include Decidim::Admin::ResourceScopeHelper
         include Decidim::TranslatableAttributes
 
         def available_states
@@ -37,8 +36,8 @@ module Decidim
           end
         end
 
-        def endorsers_presenters_for(proposal)
-          proposal.endorsements.for_listing.map { |identity| present(identity.normalized_author) }
+        def likes_presenters_for(proposal)
+          proposal.likes.for_listing.map { |identity| present(identity.author) }
         end
 
         def proposal_complete_state(proposal)
@@ -46,21 +45,6 @@ module Decidim
           return humanize_proposal_state("not_answered").html_safe if proposal.proposal_state.nil?
 
           translated_attribute(proposal&.proposal_state&.title)
-        end
-
-        def icon_with_link_to_proposal(proposal)
-          icon, tooltip = if allowed_to?(:create, :proposal_answer, proposal:) && !proposal.emendation?
-                            [
-                              "question-answer-line",
-                              t(:answer_proposal, scope: "decidim.proposals.actions")
-                            ]
-                          else
-                            [
-                              "information-line",
-                              t(:show, scope: "decidim.proposals.actions")
-                            ]
-                          end
-          icon_link_to(icon, proposal_path(proposal), tooltip, class: "icon--small action-icon--show-proposal")
         end
       end
     end

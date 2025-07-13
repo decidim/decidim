@@ -17,20 +17,12 @@ describe "Homepage" do
   context "when there is an organization" do
     let(:official_url) { "http://mytesturl.me" }
     let(:organization) do
-      create(:organization, official_url:,
-                            highlighted_content_banner_enabled: true,
-                            highlighted_content_banner_title: Decidim::Faker::Localized.sentence(word_count: 2),
-                            highlighted_content_banner_short_description: Decidim::Faker::Localized.sentence(word_count: 2),
-                            highlighted_content_banner_action_title: Decidim::Faker::Localized.sentence(word_count: 2),
-                            highlighted_content_banner_action_subtitle: Decidim::Faker::Localized.sentence(word_count: 2),
-                            highlighted_content_banner_action_url: Faker::Internet.url,
-                            highlighted_content_banner_image: Decidim::Dev.test_file("city.jpeg", "image/jpeg"))
+      create(:organization, official_url:)
     end
 
     before do
       create(:content_block, organization:, scope_name: :homepage, manifest_name: :hero)
       create(:content_block, organization:, scope_name: :homepage, manifest_name: :sub_hero)
-      create(:content_block, organization:, scope_name: :homepage, manifest_name: :highlighted_content_banner)
       create(:content_block, organization:, scope_name: :homepage, manifest_name: :how_to_participate)
       create(:content_block, organization:, scope_name: :homepage, manifest_name: :footer_sub_hero)
 
@@ -47,7 +39,7 @@ describe "Homepage" do
       end
 
       context "when having homepage anchors" do
-        %w(hero sub_hero highlighted_content_banner how_to_participate footer_sub_hero).each do |anchor|
+        %w(hero sub_hero how_to_participate footer_sub_hero).each do |anchor|
           it { expect(page).to have_css("[id^=#{anchor}]", visible: :all) }
         end
       end
@@ -75,55 +67,6 @@ describe "Homepage" do
 
         it "shows the omnipresent banner's short description" do
           expect(page).to have_i18n_content(organization.omnipresent_banner_short_description)
-        end
-      end
-
-      describe "call to action" do
-        let!(:participatory_process) { create(:participatory_process, :published) }
-        let!(:organization) { participatory_process.organization }
-
-        before do
-          switch_to_host(organization.host)
-          visit decidim.root_path
-        end
-
-        context "when the organization has the CTA button text customized" do
-          let(:cta_button_text) { { en: "Sign up", es: "Regístrate", ca: "Registra't" } }
-          let(:organization) { create(:organization, cta_button_text:) }
-
-          it "uses the custom values for the CTA button text" do
-            within ".hero" do
-              click_on "Sign up"
-            end
-
-            expect(page).to have_current_path decidim.new_user_registration_path
-          end
-        end
-
-        context "when the organization has the CTA button link customized" do
-          let(:organization) { create(:organization, cta_button_path: "users/sign_in") }
-
-          it "uses the custom values for the CTA button" do
-            within ".hero" do
-              click_on "Participate"
-            end
-
-            expect(page).to have_current_path decidim.new_user_session_path
-            expect(page).to have_content("Log in")
-            expect(page).to have_content("New to the platform?")
-          end
-        end
-
-        context "when the organization does not have it customized" do
-          it "uses the default values for the CTA button" do
-            visit decidim.root_path
-
-            within ".hero" do
-              click_on "Participate"
-            end
-
-            expect(page).to have_current_path decidim_participatory_processes.participatory_processes_path
-          end
         end
       end
 
@@ -363,7 +306,7 @@ describe "Homepage" do
 
           it "shows the statistics block" do
             within "#statistics" do
-              expect(page).to have_content("Current state of #{translated(organization.name)}")
+              expect(page).to have_content("Statistics")
               expect(page).to have_content("Processes")
               expect(page).to have_content("Participants")
             end
@@ -376,64 +319,6 @@ describe "Homepage" do
 
             within ".processes_count" do
               expect(page).to have_content("2")
-            end
-          end
-        end
-      end
-
-      describe "includes metrics" do
-        context "when organization does not have the metrics content block" do
-          let(:organization) { create(:organization) }
-
-          it "does not show the statistics block" do
-            expect(page).to have_no_content("Participation in figures")
-          end
-        end
-
-        context "when organization does have the metrics content block" do
-          let(:organization) { create(:organization) }
-          let(:metrics) do
-            Decidim.metrics_registry.all.each do |metric_registry|
-              create(:metric, metric_type: metric_registry.metric_name, day: Time.zone.today, organization:, cumulative: 5, quantity: 2)
-            end
-          end
-
-          context "and have metric records" do
-            before do
-              metrics
-              create(:content_block, organization:, scope_name: :homepage, manifest_name: :metrics)
-              visit current_path
-            end
-
-            it "shows the metrics block" do
-              within "[data-metrics]" do
-                expect(page).to have_content("Metrics")
-                Decidim.metrics_registry.filtered(highlight: true, scope: "home").each do |metric_registry|
-                  expect(page).to have_css(%(##{metric_registry.metric_name}_chart), visible: :all)
-                end
-                Decidim.metrics_registry.filtered(highlight: false, scope: "home").each do |metric_registry|
-                  expect(page).to have_css(%(##{metric_registry.metric_name}_chart), visible: :all)
-                end
-              end
-            end
-          end
-
-          context "and does not have metric records" do
-            before do
-              create(:content_block, organization:, scope_name: :homepage, manifest_name: :metrics)
-              visit current_path
-            end
-
-            it "shows the metrics block empty" do
-              within "[data-metrics]" do
-                expect(page).to have_content("Metrics")
-                Decidim.metrics_registry.highlighted.each do |metric_registry|
-                  expect(page).to have_no_css("##{metric_registry.metric_name}_chart")
-                end
-                Decidim.metrics_registry.not_highlighted.each do |metric_registry|
-                  expect(page).to have_no_css("##{metric_registry.metric_name}_chart")
-                end
-              end
             end
           end
         end
@@ -476,59 +361,6 @@ describe "Homepage" do
             within "a[target='_blank'][href='https://github.com/decidim/decidim']" do
               expect(page).to have_css("svg")
             end
-          end
-        end
-      end
-
-      context "and has highlighted content banner enabled" do
-        let(:organization) do
-          create(:organization,
-                 official_url:,
-                 highlighted_content_banner_enabled: true,
-                 highlighted_content_banner_title: Decidim::Faker::Localized.sentence(word_count: 2),
-                 highlighted_content_banner_short_description: Decidim::Faker::Localized.sentence(word_count: 2),
-                 highlighted_content_banner_action_title: Decidim::Faker::Localized.sentence(word_count: 2),
-                 highlighted_content_banner_action_subtitle: Decidim::Faker::Localized.sentence(word_count: 2),
-                 highlighted_content_banner_action_url: Faker::Internet.url,
-                 highlighted_content_banner_image: Decidim::Dev.test_file("city.jpeg", "image/jpeg"))
-        end
-
-        before do
-          switch_to_host(organization.host)
-          visit decidim.root_path
-        end
-
-        it "shows the banner's title" do
-          expect(page).to have_i18n_content(organization.highlighted_content_banner_title)
-        end
-
-        it "shows the banner's description" do
-          expect(page).to have_i18n_content(organization.highlighted_content_banner_short_description)
-        end
-
-        it "shows the banner's action title" do
-          expect(page).to have_i18n_content(organization.highlighted_content_banner_action_title)
-        end
-
-        it "shows the banner's action subtitle" do
-          expect(page).to have_i18n_content(organization.highlighted_content_banner_action_subtitle)
-        end
-      end
-
-      context "when downloading open data", download: true do
-        before do
-          Decidim::OpenDataJob.perform_now(organization)
-          switch_to_host(organization.host)
-          visit decidim.root_path
-        end
-
-        it "lets the users download open data files" do
-          click_on "Download Open Data files"
-          expect(File.basename(download_path)).to include("open-data.zip")
-          Zip::File.open(download_path) do |zipfile|
-            expect(zipfile.glob("*open-data-proposals.csv").length).to eq(1)
-            expect(zipfile.glob("*open-data-results.csv").length).to eq(1)
-            expect(zipfile.glob("*open-data-meetings.csv").length).to eq(1)
           end
         end
       end

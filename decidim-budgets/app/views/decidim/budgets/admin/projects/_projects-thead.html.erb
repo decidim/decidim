@@ -1,0 +1,14 @@
+<thead>
+<tr>
+  <th><%= check_box_tag "projects_bulk", "all", false, class: "js-check-all" %></th>
+  <th><%= sort_link(query, :id, t("models.project.fields.id", scope: "decidim.budgets"), default_order: :desc) %></th>
+  <th class="!text-left"><%= sort_link(query, :title, t("models.project.fields.title", scope: "decidim.budgets")) %></th>
+  <th><%= sort_link(query, :taxonomies_name, t("models.project.fields.taxonomies", scope: "decidim.budgets") ) %></th>
+  <th><%= sort_link(query, :confirmed_orders_count, t("index.confirmed_orders_count")) %></th>
+  <th><%= sort_link(query, :selected, t("projects.index.selected", scope: "decidim.budgets.admin")) %></th>
+  <% if maps_enabled? && Decidim::Map.available?(:static, :geocoding) %>
+    <th><%= t("models.project.fields.map", scope: "decidim.budgets") %></th>
+  <% end %>
+  <th><%= t("actions.title", scope: "decidim.budgets") %></th>
+</tr>
+</thead>

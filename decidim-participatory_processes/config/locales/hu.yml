@@ -13,7 +13,6 @@ hu:
         document: Dokumentum
         domain: Domain
         end_date: Befejezés dátuma
-        hashtag: Kettőskereszt
         hero_image: Kezdő kép
         import_attachments: Mellékletek importálása
         import_categories: Importált kategóriák
@@ -22,16 +21,12 @@ hu:
         local_area: Szervezet területe
         meta_scope: Metaadatok hatásköre
         participatory_process_group_id: Folyamatcsoport
-        participatory_process_type_id: Folyamattípus
         participatory_scope: Miről születik döntés
         participatory_structure: Így születik döntés
         private_space: Magán folyamat
         promoted: Támogatott
         published_at: Közzétéve
         related_process_ids: Kapcsolódó folyamatok
-        scope_id: Hatáskör
-        scope_type_max_depth_id: Scope szűrő mélysége
-        scopes_enabled: Hatáskörök engedélyezve
         short_description: Rövid leírás
         slug: URL slug
         start_date: Kezdő dátum
@@ -43,7 +38,6 @@ hu:
         description: Leírás
         developer_group: Előterjesztő csoport
         group_url: Weboldal
-        hashtag: Hashtag
         hero_image: Kép
         local_area: Szervezeti terület
         meta_scope: Hatókör-metaadatok
@@ -59,8 +53,6 @@ hu:
         end_date: Befejezés dátuma
         short_description: Rövid leírás
         start_date: Kezdő dátum
-        title: Cím
-      participatory_process_type:
         title: Cím
       participatory_process_user_role:
         email: Email
@@ -100,7 +92,6 @@ hu:
         new_process: Új folyamat
         new_process_group: Új folyamat csoport
         new_process_step: Új fázis
-        new_process_type: Új folyamat típus
         new_process_user_role: Új folyamat adminisztrátor
         preview: Előnézet
         publish: Közzétesz
@@ -110,17 +101,13 @@ hu:
         participatory_process_groups: Folyamat csoportok
         participatory_process_groups_submenu:
           info: Info
-          landing_page: Landing oldal
-        participatory_process_types: Folyamat típusok
         participatory_processes: Folyamatok
         participatory_processes_submenu:
           attachment_collections: Mappák
           attachment_files: Fájlok
           attachments: Mellékletek
-          categories: Kategóriák
           components: Elemek
           moderations: Moderálások
-          private_users: Privát felhasználók
           process_admins: Folyamat adminisztrátorok
           steps: Fázisok
       models:
@@ -141,11 +128,6 @@ hu:
             start_date: Kezdő dátum
             title: Cím
           name: Részvételi folyamat fázis
-        participatory_process_type:
-          fields:
-            created_at: Létrehozva
-            title: Cím
-          name: Folyamat típusa
         participatory_process_user_role:
           fields:
             email: Email
@@ -156,7 +138,6 @@ hu:
             admin: Admin
             collaborator: Közreműködő
             moderator: Moderátor
-            valuator: Értékelő
         user:
           fields:
             invitation_accepted_at: Meghívó elfogadva
@@ -220,21 +201,6 @@ hu:
         update:
           error: Hiba történt a részvételi folyamat fázisainak frissítése során.
           success: Részvételi folyamat fázis frissítése sikerült.
-      participatory_process_types:
-        create:
-          error: Hiba történt az új folyamat típus létrehozásakor.
-          success: Folyamat típus sikeresen létrehozva.
-        destroy:
-          success: Folyamat-típus sikeresen törölve.
-        edit:
-          title: Folyamat típus szerkesztése
-          update: Frissítés
-        new:
-          create: Létrehozás
-          title: Új folyamat típus
-        update:
-          error: Hiba történt a folyamat típus frissítése során.
-          success: A folyamat típus sikeresen frissítésre került.
       participatory_process_user_roles:
         create:
           error: Hiba a felhasználó részvételi folyamathoz való hozzáadásakor.
@@ -338,11 +304,6 @@ hu:
           not_found: 'A folyamat típusa nem található az adatbázisban (ID: %{id}).'
     menu:
       processes: Folyamatok
-    metrics:
-      participatory_processes:
-        description: A részvételi folyamatok száma ebben a szervezetben
-        object: részvételi folyamatok
-        title: Részvételi folyamatok
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -387,14 +348,9 @@ hu:
           form:
             announcement_help: A megadott szöveg a folyamat információk alatt található felhasználónál jelenik meg.
             duration: Időtartam
-            filters: Szűrők
             images: Képek
             metadata: Metaadatok
-            other: Más
             related_processes: Kapcsolódó folyamatok
-            scope_type_max_depth_help: Hatáskör szűrő mélység korlátozása; A szűrő az általánostól a kiválasztott hatáskörtípus típusáig jelenik meg.
-            select_an_area: Válasszon egy területet
-            select_participatory_process_type: Válasszon folyamat típust
             select_process_group: Válassza ki a folyamatcsoportot
             title: Általános információk
       content_blocks:
@@ -402,11 +358,6 @@ hu:
           name: Kiemelt folyamatok
       index:
         title: Részvételi folyamatok
-      last_activity:
-        new_participatory_process: Új részvételi folyamat
-      participatory_process_steps:
-        index:
-          back_to_process: Vissza a folyamatok oldalára
       participatory_processes:
         filters:
           all_types: Minden típus

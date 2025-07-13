@@ -8,29 +8,32 @@ de:
       decidim/surveys/survey:
         one: Umfrage
         other: Umfragen
-      decidim/surveys/survey_answer:
-        one: Antworten
+      decidim/surveys/survey_response:
+        one: Antwort
         other: Antworten
   decidim:
+    admin:
+      actions:
+        see_survey: Umfrage anzeigen
+      admin_log:
+        changeset:
+          surveys: Umfragen
+      menu:
+        surveys_menu:
+          main: Umfrage
+          questions: Fragen
+          responses: Antworten
+          settings: Einstellungen
     components:
       surveys:
         actions:
-          answer: Antworten
-        name: Umfrage
+          response: Antwort
+        name: Umfragen
         settings:
+          announcement: Ankündigung
           global:
             announcement: Ankündigung
-            clean_after_publish: Antworten bei Veröffentlichung des Fragebogens löschen
-            ends_at: Antworten akzeptiert bis
-            ends_at_help: Leer lassen für kein bestimmtes Datum
-            scope_id: Bereich
-            scopes_enabled: Bereiche aktiviert
-            starts_at: Antworten akzeptiert von
-            starts_at_help: Leer lassen für kein bestimmtes Datum
           step:
-            allow_answers: Erlaube Antworten
-            allow_unregistered: Nicht registrierten Benutzern die Beantwortung des Fragebogens erlauben
-            allow_unregistered_help: Wenn aktiviert, ist keine Anmeldung erforderlich, um die Umfrage zu beantworten. Dies kann zu schlechten oder unzuverlässigen Daten führen und ist anfälliger für automatisierte Angriffe. Verwenden Sie diese Funktion mit Vorsicht! Beachten Sie, dass ein Teilnehmer die gleiche Umfrage mehrfach beantworten kann, indem er verschiedene Browser oder die "Private Browsing"-Funktion ihres Web-Browsers nutzt.
             announcement: Ankündigung
     events:
       surveys:
@@ -44,33 +47,114 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Eine neue Umfrage in %{participatory_space_title}
           notification_title: Die Umfrage <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> ist jetzt geöffnet.
-    metrics:
-      survey_answers:
-        description: Anzahl der Umfragen, die von den Benutzern beantwortet wurden
-        object: Antworten auf Umfragen
-        title: Antworten zu Umfragen
     statistics:
-      answers_count: Antworten
+      responses_count: Antworten
+      surveys_count_tooltip: Die Anzahl der verfügbaren Umfragen und abgegebenen Antworten.
     surveys:
+      actions:
+        confirm_destroy: Möchten Sie fortfahren und die Antworten löschen?
+        destroy: Löschen
+        edit: Bearbeiten
+        manage_questions: Fragen
+        new_survey: Neue Umfrage
+        preview: Vorschau
+        responses_alert: Das Löschen der Antworten bei der Veröffentlichung dieser Umfrage aktiv. Derzeit gibt es %{responses_count} Antworten, die gelöscht werden, wenn Sie fortfahren.
+        title: Aktionen
       admin:
-        component:
-          actions:
-            answers_alert: Wenn Sie die Komponente veröffentlichen, werden alle Ergebnisse entfernt.
         exports:
-          survey_user_answers: Umfrage Benutzer Antworten
+          survey_user_responses: Antworten des Umfrageteilnehmenden
+        publish_responses:
+          index:
+            description: |-
+              Indem Sie die Antworten der Fragen veröffentlichen, machen Sie sie für die Öffentlichkeit sichtbar.
+              Sie können die zu veröffentlichenden Antworten auswählen, indem Sie auf das Kontrollkästchen neben jeweiligen Frage klicken.
+              Sie können nur folgende Fragentypen veröffentlichen: "Einzelne Option", "Mehrfachoption", "Matrix (Einzelne Option)", "Matrix (Mehrfachoption)" und "Sortierung".
+            responses:
+              one: "%{count} Antwort"
+              other: "%{count} Antworten"
+            status:
+              not_published: Nicht veröffentlicht
+              published: Veröffentlicht
+            title: Antworten veröffentlichen
+        questions:
+          surveys:
+            edit:
+              title: Fragen
+        responses:
+          index:
+            no_responses: Es sind noch keine Antworten vorhanden
+            title: "%{total} Antworten insgesamt"
+          show:
+            title: 'Antwort #%{number}'
+        settings:
+          surveys:
+            edit:
+              title: Einstellungen
         surveys:
+          create:
+            invalid: Beim Erstellen der Umfrage ist ein Problem aufgetreten.
+            success: Umfrage erfolgreich erstellt.
+          destroy:
+            success: Umfrage erfolgreich gelöscht.
+          edit:
+            title: Umfrage
+          index:
+            title: Umfragen
+          new:
+            title: Umfrage
+          publish:
+            invalid: Beim Veröffentlichen dieser Umfrage ist ein Problem aufgetreten.
+            success: Umfrage erfolgreich veröffentlicht.
+          unpublish:
+            invalid: Beim Aufheben der Veröffentlichung dieser Umfrage ist ein Fehler aufgetreten.
+            success: Veröffentlichung der Umfrage erfolgreich aufgehoben.
           update:
             invalid: Beim Speichern der Umfrage sind Fehler aufgetreten.
             success: Umfrage wurde erfolgreich gespeichert.
+      admin_log:
+        survey:
+          create: "%{user_name} hat das Umfrage %{resource_name} in %{space_name} erstellt"
+          delete: "%{user_name} hat das Umfrage %{resource_name} in %{space_name} gelöscht"
+          publish: "%{user_name} hat die Umfrage %{resource_name} im Bereichs %{space_name} veröffentlicht"
+          unpublish: "%{user_name} hat die Umfrage %{resource_name} im Bereich %{space_name} zurückgezogen"
+          update: "%{user_name} hat die Umfrage %{resource_name} im Bereich %{space_name} aktualisiert"
+      directory:
+        surveys:
+          index:
+            surveys: Umfragen
       last_activity:
         new_survey: 'Neue Umfrage:'
+      models:
+        survey:
+          fields:
+            questions: Fragen
+            responses: Antworten
+            status: Status
+            title: Titel
+          status:
+            closed: Geschlossen
+            open: Offen
       survey_confirmation_mailer:
         confirmation:
           body: Sie haben die Umfrage %{questionnaire_title} auf %{participatory_space} erfolgreich beantwortet
           subject: 'Umfrage "%{questionnaire_title}": Bestätigung Ihrer Antwort'
         export_name: Umfrageantworten
       surveys:
-        answer:
-          invalid: Bei der Beantwortung der Umfrage sind Fehler aufgetreten.
-          spam_detected: Bei der Beantwortung der Umfrage ist ein Fehler aufgetreten. Möglicherweise waren Sie zu schnell, können Sie es erneut versuchen?
+        count:
+          surveys_count:
+            one: "%{count} Umfrage"
+            other: "%{count} Umfragen"
+        filters:
+          all: Alle
+          state_values:
+            closed: Geschlossen
+            open: Offen
+        no_surveys_warning: Keine Umfragen entsprechen Ihren Suchkriterien oder es ist keine Umfrage geöffnet.
+        response:
+          invalid: Es gab ein Problem bei der Beantwortung der Umfrage.
+          spam_detected: Bei der Beantwortung der Umfrage ist ein Fehler aufgetreten. Möglicherweise waren Sie zu schnell. Können Sie es erneut versuchen?
           success: Umfrage erfolgreich beantwortet.
+        show:
+          closed: Geschlossen
+          open: Offen
+          questions: Fragen

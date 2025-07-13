@@ -1,0 +1,18 @@
+<% add_decidim_page_title(t(".title")) %>
+
+<%= render "decidim/elections/admin/elections/tabs_menu" do %>
+  <%= button_tag t("save", scope: "decidim.elections.admin.elections.form"), class: "main-tabs-menu__cta-button", form: "basic-election-form-edit" %>
+<% end %>
+
+<div class="item_show__header">
+  <h1 class="item_show__header-title">
+    <%= t(".title") %>
+  </h1>
+</div>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, html: { id: "basic-election-form-edit", class: "form-defaults form edit_election" }) do |f| %>
+      <%= render partial: "form", object: f %>
+    <% end %>
+  </div>
+</div>

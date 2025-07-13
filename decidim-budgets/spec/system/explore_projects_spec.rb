@@ -11,7 +11,15 @@ describe "Explore projects", :slow do
     create_list(:project, projects_count, budget:)
   end
   let!(:project) { projects.first }
-  let(:categories) { create_list(:category, 3, participatory_space: component.participatory_space) }
+  let(:taxonomy) { create(:taxonomy, :with_parent, skip_injection: true, organization:) }
+  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: taxonomy.parent) }
+  let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
+  let(:taxonomy_filter_ids) { [taxonomy_filter.id] }
+
+  before do
+    component_settings = component["settings"]["global"].merge!(taxonomy_filters: taxonomy_filter_ids)
+    component.update!(settings: component_settings)
+  end
 
   describe "show" do
     let(:description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
@@ -49,6 +57,47 @@ describe "Explore projects", :slow do
     end
 
     context "when filtering" do
+      context "when maps are enabled" do
+        let(:component) { create(:budgets_component, :with_geocoding_enabled, participatory_space: participatory_process) }
+        let!(:projects) { create_list(:project, 2, budget:) }
+        let!(:findable_project) { create(:project, budget:, title: { en: "Findable project" }) }
+        let!(:another_findable_project) { create(:project, budget:, title: { en: "Findable project number 2" }) }
+
+        # We are providing a list of coordinates to make sure the points are scattered all over the map
+        # otherwise, there is a chance that markers can be clustered, which may result in a flaky spec.
+        before do
+          coordinates = [
+            [-95.501705376541395, 95.10059236654689],
+            [-95.501705376541395, -95.10059236654689],
+            [95.10059236654689, -95.501705376541395],
+            [95.10059236654689, 95.10059236654689],
+            [142.15275006889419, -33.33377235135252],
+            [33.33377235135252, -142.15275006889419],
+            [-33.33377235135252, 142.15275006889419],
+            [-142.15275006889419, 33.33377235135252],
+            [-55.28745034772282, -35.587843900166945]
+          ]
+          Decidim::Budgets::Project.where(budget: budget).geocoded.each_with_index do |project, index|
+            project.update!(latitude: coordinates[index][0], longitude: coordinates[index][1]) if coordinates[index]
+          end
+
+          visit_budget
+        end
+
+        it "shows markers for selected project" do
+          expect(page).to have_css(".leaflet-marker-icon", count: 4)
+          within "#dropdown-menu-filters" do
+            fill_in("filter[search_text_cont]", with: "Findable")
+            within "div.filter-search" do
+              click_on
+            end
+          end
+          expect(page).to have_css(".leaflet-marker-icon", count: 2)
+
+          expect_no_js_errors
+        end
+      end
+
       it "allows searching by text" do
         visit_budget
         within "aside form.new_filter" do
@@ -84,32 +133,14 @@ describe "Explore projects", :slow do
         expect(filter_params["filter[search_text_cont]"]).to eq(["foobar"])
       end
 
-      it "allows filtering by scope" do
-        scope = create(:scope, organization:)
-        project.scope = scope
+      it "allows filtering by taxonomy" do
+        project.taxonomies = [taxonomy]
         project.save
 
         visit_budget
 
-        within "#panel-dropdown-menu-scope" do
-          click_filter_item translated(scope.name)
-        end
-
-        within "#projects" do
-          expect(page).to have_css(".card__list", count: 1)
-          expect(page).to have_content(translated(project.title))
-        end
-      end
-
-      it "allows filtering by category" do
-        category = categories.first
-        project.category = category
-        project.save
-
-        visit_budget
-
-        within "#panel-dropdown-menu-category" do
-          click_filter_item decidim_escape_translated(category.name)
+        within "#panel-dropdown-menu-taxonomy-#{taxonomy.parent.id}" do
+          click_filter_item decidim_escape_translated(taxonomy.name)
         end
 
         within "#projects" do

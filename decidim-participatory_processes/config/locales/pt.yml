@@ -12,7 +12,6 @@ pt:
         developer_group: Grupo promotor
         domain: Domínio
         end_date: Data final
-        hashtag: Hashtag
         hero_image: Imagem inicial
         local_area: Área de organização
         meta_scope: Metadados do âmbito
@@ -22,9 +21,6 @@ pt:
         promoted: Destacado
         published_at: Publicado em
         related_process_ids: Processos relacionados
-        scope_id: Âmbito
-        scope_type_max_depth_id: Abrangência do filtro de âmbito
-        scopes_enabled: Âmbitos ativados
         short_description: Pequena descrição
         slug: Campo de dados dinâmicos de URL
         start_date: Data de início
@@ -36,7 +32,6 @@ pt:
         description: Descrição
         developer_group: Grupo promotor
         group_url: Sítio web
-        hashtag: Hashtag
         hero_image: Imagem
         local_area: Área de organização
         meta_scope: Meta dados do âmbito
@@ -93,16 +88,14 @@ pt:
         participatory_process_groups: Grupos do processo
         participatory_process_groups_submenu:
           info: Informação
-          landing_page: Página de entrada
         participatory_processes: Processos
         participatory_processes_submenu:
           attachment_collections: Pastas
           attachment_files: Ficheiros
           attachments: Anexos
-          categories: Categorias
           components: Componentes
+          info: Sobre este processo
           moderations: Moderações
-          private_users: Participantes privados
           process_admins: Administradores de processo
           steps: Fases
       models:
@@ -133,7 +126,6 @@ pt:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
-            valuator: Avaliador
         user:
           fields:
             invitation_accepted_at: Convite aceite em
@@ -285,11 +277,6 @@ pt:
           title: O que é um processo participativo?
     menu:
       processes: Processos
-    metrics:
-      participatory_processes:
-        description: Número de processos participativos nesta organização
-        object: processos participativos
-        title: Processos participativos
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -323,6 +310,7 @@ pt:
         participatory_process_groups:
           form:
             metadata: Meta dados
+            title: Sobre este processo
             visibility: Visibilidade
         participatory_process_imports:
           form:
@@ -334,13 +322,9 @@ pt:
           form:
             announcement_help: O texto que insere aqui será mostrado ao utilizador logo abaixo das informações do processo.
             duration: Duração
-            filters: Filtros
             images: Imagens
             metadata: Metadados
-            other: Outros
             related_processes: Processos relacionados
-            scope_type_max_depth_help: Restrinja a abrangência do filtro de âmbito; O filtro irá mostrar desde o tipo de âmbito geral até ao tipo de âmbito selecionado.
-            select_an_area: Selecione uma Área
             select_process_group: Selecione um grupo do processo
             title: Informação geral
       content_blocks:
@@ -348,12 +332,9 @@ pt:
           name: Processos realçados
       index:
         title: Processos participativos
-      last_activity:
-        new_participatory_process: Novo processo participativo
-      participatory_process_steps:
-        index:
-          back_to_process: Retroceder à página do processo
       participatory_processes:
+        description:
+          title: Sobre este processo
         filters:
           counters:
             active:
@@ -376,6 +357,8 @@ pt:
             past: Passado
             upcoming: Próximos
           see: Ver
+        show:
+          title: Sobre este processo
       show:
         belongs_to_group: Este processo pertence a
         private_space: Este é um processo privado

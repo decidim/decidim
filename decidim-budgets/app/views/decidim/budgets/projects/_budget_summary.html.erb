@@ -1,3 +1,7 @@
 <div id="order-progress<%= "-responsive" if responsive %>" class="budget-summary <%= responsive ? "block md:hidden" : "hidden md:block" %>" data-progress-reference data-safe-url="<%= budget_url(budget) %>">
-  <%= render partial: "order_progress_summary_content", locals: { responsive: , include_heading: } %>
+  <% if responsive %>
+    <%= render partial: "decidim/budgets/projects/order_progress_summary/content_responsive", locals: { focus_mode_origin: focus_mode_origin } %>
+  <% else %>
+    <%= render partial: "decidim/budgets/projects/order_progress_summary/content" %>
+  <% end %>
 </div>

@@ -20,6 +20,7 @@ module Decidim
 
         form = Decidim::Initiatives::CommitteeMemberForm
                .from_params(initiative_id: current_initiative.id, user_id: current_user.id, state: "requested")
+               .with_context(current_organization: current_initiative.organization, current_user:)
 
         SpawnCommitteeRequest.call(form) do
           on(:ok) do
@@ -45,7 +46,7 @@ module Decidim
 
         ApproveMembershipRequest.call(membership_request) do
           on(:ok) do
-            redirect_to edit_initiative_path(current_initiative), flash: {
+            redirect_to redirect_page, flash: {
               notice: I18n.t("success", scope: "decidim.initiatives.committee_requests.approve")
             }
           end
@@ -58,7 +59,7 @@ module Decidim
 
         RevokeMembershipRequest.call(membership_request) do
           on(:ok) do
-            redirect_to edit_initiative_path(current_initiative), flash: {
+            redirect_to redirect_page, flash: {
               notice: I18n.t("success", scope: "decidim.initiatives.committee_requests.revoke")
             }
           end
@@ -66,6 +67,14 @@ module Decidim
       end
 
       private
+
+      def redirect_page
+        if request.referer&.include?("create_initiative")
+          promotal_committee_create_initiative_index_path
+        else
+          edit_initiative_path(current_initiative)
+        end
+      end
 
       def membership_request
         @membership_request ||= InitiativesCommitteeMember.where(initiative: current_participatory_space).find(params[:id])

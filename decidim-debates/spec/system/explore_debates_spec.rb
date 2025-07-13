@@ -4,12 +4,14 @@ require "spec_helper"
 
 describe "Explore debates" do
   include_context "with a component"
+  include_context "with taxonomy filters context"
   let(:manifest_name) { "debates" }
+  let(:participatory_space_manifests) { [participatory_process.manifest.name] }
+  let(:taxonomies) { [taxonomy] }
 
   before do
     switch_to_host(organization.host)
-    component_scope = create(:scope, parent: participatory_process.scope)
-    component_settings = component["settings"]["global"].merge!(scopes_enabled: true, scope_id: component_scope.id)
+    component_settings = component["settings"]["global"].merge!(taxonomy_filters: [taxonomy_filter.id])
     component.update!(settings: component_settings)
   end
 
@@ -58,8 +60,8 @@ describe "Explore debates" do
         it "shows an empty page with a message" do
           visit_component
 
-          within "#panel-dropdown-menu-category" do
-            check decidim_escape_translated(category.name)
+          within "#panel-dropdown-menu-taxonomy-#{taxonomy.parent.id}" do
+            click_filter_item decidim_escape_translated(taxonomy.name)
           end
 
           within "main.layout-2col__main" do
@@ -88,6 +90,7 @@ describe "Explore debates" do
     end
 
     context "when there are open debates" do
+      let(:debates) { nil }
       let!(:open_debate) do
         create(
           :debate,
@@ -96,11 +99,57 @@ describe "Explore debates" do
           end_time: nil
         )
       end
+      let!(:not_started_debate) do
+        create(
+          :debate,
+          component:,
+          start_time: 1.day.from_now,
+          end_time: 2.days.from_now
+        )
+      end
+      let!(:ongoing_debate) do
+        create(
+          :debate,
+          component:,
+          start_time: 1.day.ago,
+          end_time: 1.day.from_now
+        )
+      end
+      let!(:finished_debate) do
+        create(
+          :debate,
+          component:,
+          start_time: 2.days.ago,
+          end_time: 1.day.ago
+        )
+      end
+      let!(:closed_debate) do
+        create(
+          :debate,
+          component:,
+          closed_at: 1.day.ago,
+          conclusions: { en: "Conclusions" }
+        )
+      end
 
-      it "the card informs that they are open" do
+      it "the card informs their status" do
         visit_component
         within "#debates__debate_#{open_debate.id}" do
-          expect(page).to have_content "Open debate"
+          expect(page).to have_content "Ongoing"
+        end
+
+        within "#debates__debate_#{not_started_debate.id}" do
+          expect(page).to have_content "Not started"
+        end
+        within "#debates__debate_#{ongoing_debate.id}" do
+          expect(page).to have_content "Ongoing"
+        end
+        within "#debates__debate_#{finished_debate.id}" do
+          expect(page).to have_content "Closed"
+        end
+
+        within "#debates__debate_#{closed_debate.id}" do
+          expect(page).to have_content "Closed"
         end
       end
     end
@@ -195,37 +244,20 @@ describe "Explore debates" do
         end
       end
 
-      it "allows filtering by scope" do
-        scope = create(:scope, organization:)
-        debate = debates.first
-        debate.scope = scope
-        debate.save
-
-        visit_component
-
-        within "#panel-dropdown-menu-scope" do
-          check "All"
-          uncheck "All"
-          check translated(scope.name)
-        end
-
-        expect(page).to have_css("a.card__list", count: 1)
-      end
-
-      context "when filtering by category" do
-        let(:category2) { create(:category, participatory_space:) }
-        let(:debates) { create_list(:debate, 3, component:, category: category2) }
+      context "when filtering by taxonomy" do
+        let(:taxonomy2) { create(:taxonomy, :with_parent, organization:) }
+        let(:debates) { create_list(:debate, 3, component:, taxonomies: [taxonomy2]) }
 
         before do
-          create(:debate, component:, category:)
+          create(:debate, component:, taxonomies:)
           login_as user, scope: :user
           visit_component
         end
 
-        it "can be filtered by category" do
-          within "#panel-dropdown-menu-category" do
+        it "can be filtered by taxonomy" do
+          within "#panel-dropdown-menu-taxonomy-#{root_taxonomy.id}" do
             uncheck "All"
-            check decidim_escape_translated(category.name)
+            check decidim_escape_translated(taxonomy.name)
           end
 
           expect(page).to have_css("a.card__list", count: 1)
@@ -249,7 +281,7 @@ describe "Explore debates" do
 
     context "with comment metadata" do
       let!(:comment) { create(:comment, commentable: debates) }
-      let!(:debates) { create(:debate, :open_ama, component:) }
+      let!(:debates) { create(:debate, :ongoing_ama, component:) }
 
       it "shows the comments count" do
         visit_component
@@ -279,7 +311,7 @@ describe "Explore debates" do
     let!(:debate) do
       create(
         :debate,
-        :open_ama,
+        :ongoing_ama,
         component:,
         start_time: Time.zone.local(2016, 12, 13, 14, 15),
         end_time: Time.zone.local(2016, 12, 13, 16, 17)
@@ -303,51 +335,20 @@ describe "Explore debates" do
       end
     end
 
-    context "without category or scope" do
+    context "without taxonomies" do
       it "does not show any tag" do
         expect(page).to have_no_selector("[data-tags]")
       end
     end
 
-    context "with a category" do
-      let(:debate) do
-        debate = create(:debate, component:)
-        debate.category = create(:category, participatory_space:)
-        debate.save
-        debate
-      end
+    context "with a taxonomy" do
+      let(:debate) { create(:debate, component:, taxonomies:) }
 
-      it "shows tags for category" do
+      it "shows tags for taxonomy" do
         expect(page).to have_css("[data-tags]")
 
         within "[data-tags]" do
-          expect(page).to have_content(translated(debate.category.name))
-        end
-      end
-    end
-
-    context "with a scope" do
-      let(:debate) do
-        debate = create(:debate, component:)
-        debate.scope = create(:scope, organization:)
-        debate.save
-        debate
-      end
-
-      it "shows tags for scope" do
-        expect(page).to have_css("[data-tags]")
-        within "[data-tags]" do
-          expect(page).to have_content(translated(debate.scope.name))
-        end
-      end
-
-      it "links to the filter for this scope" do
-        within "[data-tags]" do
-          click_on translated(debate.scope.name)
-        end
-
-        within "#dropdown-menu-filters" do
-          expect(page).to have_checked_field(translated(debate.scope.name))
+          expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
         end
       end
     end

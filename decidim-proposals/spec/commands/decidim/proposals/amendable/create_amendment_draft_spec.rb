@@ -30,6 +30,27 @@ module Decidim
       let(:command) { described_class.new(form) }
 
       include_examples "create amendment draft"
+
+      context "when proposal has taxonomies associated" do
+        let!(:taxonomy) { create(:taxonomy, :with_parent, organization: component.organization) }
+        let!(:amendable) { create(:proposal, component:, taxonomies: [taxonomy]) }
+
+        it "copies the Proposal taxonomies" do
+          expect { command.call }
+            .to change(Decidim::Amendment, :count)
+            .by(1)
+            .and change(amendable.class, :count)
+            .by(1)
+
+          amendable.reload
+
+          expect(Decidim::Amendment.last).to be_draft
+          expect(amendable.class.last).not_to be_published
+          expect(amendable.emendations.count).to eq(1)
+          expect(amendable.taxonomies).to include(taxonomy)
+          expect(amendable.emendations.first.taxonomies).to include(taxonomy)
+        end
+      end
     end
   end
 end

@@ -232,6 +232,51 @@ module Decidim
           end
         end
       end
+
+      describe "PUT update" do
+        let(:user) { create(:user, :confirmed, locale: "en", organization:) }
+        let(:comment_author) { create(:user, :confirmed, locale: "en", organization:) }
+        let!(:comment) { create(:comment, commentable:, author: user) }
+
+        it "redirects to sign in path if not signed in" do
+          put :update, xhr: true, params: { id: comment.id }
+          expect(response).to redirect_to("/users/sign_in")
+        end
+
+        context "when the body length is more than 1000" do
+          let(:random_string) do
+            ::Faker::Lorem.characters(number: 1100)
+          end
+          let(:comment_params) do
+            {
+              id: comment.id,
+              comment: { body: random_string }
+            }
+          end
+
+          before do
+            sign_in user, scope: :user
+          end
+
+          context "when component is present and has comments length setting" do
+            before do
+              component.update!(settings: { comments_max_length: random_string.length + 10 }) if component.present?
+            end
+
+            it "renders template update" do
+              put :update, xhr: true, params: comment_params
+              expect(subject).to render_template(:update)
+            end
+          end
+
+          context "when component is present and has a default comments length" do
+            it "renders template update_error" do
+              put :update, xhr: true, params: comment_params
+              expect(subject).to render_template(:update_error)
+            end
+          end
+        end
+      end
     end
   end
 end

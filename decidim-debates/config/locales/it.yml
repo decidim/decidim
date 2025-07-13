@@ -2,17 +2,14 @@ it:
   activemodel:
     attributes:
       debate:
-        category_id: Categoria
         closed_at: Chiuso il
         conclusions: Conclusioni
-        decidim_category_id: Categoria
         description: Descrizione
         end_time: Finisce a
         information_updates: Aggiornamenti delle informazioni
         instructions: Istruzioni per partecipare
         start_time: Inizia a
         title: Titolo
-        user_group_id: Crea dibattito come
     models:
       decidim/debates/close_debate_event: Dibattito chiuso
       decidim/debates/create_debate_event: Discussione
@@ -28,27 +25,19 @@ it:
       debates:
         actions:
           comment: Commenta
-          create: Creare
-          endorse: Sottoscrivi
         name: Dibattiti
         settings:
           global:
             announcement: Annuncio
             comments_enabled: Commenti abilitati
             comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
-            scope_id: Obiettivo
-            scopes_enabled: Obiettivi abilitati
           step:
             announcement: Annuncio
             comments_blocked: Commenti bloccati
             creation_enabled: I partecipanti possono creare nuovi dibattiti
-            endorsements_blocked: Sottoscrizioni bloccate
-            endorsements_enabled: Sottoscrizioni abilitate
     debates:
       actions:
         close: Chiudi
-        confirm_destroy: Sei sicuro?
-        destroy: Elimina
         edit: Modifica
         title: Azioni
       admin:
@@ -60,8 +49,6 @@ it:
           create:
             invalid: C'è stato un problema durante la creazione del dibattito.
             success: Dibattito creato con successo.
-          destroy:
-            success: Dibattito cancellato con successo.
           edit:
             title: Modifica dibattito
             update: Aggiornamento del dibattito
@@ -77,8 +64,6 @@ it:
           update:
             invalid: C'è stato un problema durante l'aggiornamento di questo dibattito.
             success: Dibattito aggiornato con successo.
-        exports:
-          comments: Commenti
       admin_log:
         debate:
           close: "%{user_name} ha chiuso il dibattito %{resource_name} sullo spazio %{space_name}"
@@ -118,15 +103,11 @@ it:
           state: Stato
           state_values:
             closed: Chiuso
-            open: Apri
-        form:
-          select_a_category: Si prega di selezionare una categoria
         index:
           new_debate: Nuovo dibattito
         new:
           back: Indietro
           create: Crea
-          title: Nuovo dibattito
         orders:
           commented: I più commentati
           label: Ordina i dibattiti per
@@ -134,13 +115,8 @@ it:
           recent: Più recenti
           updated: Aggiornato di recente
         show:
-          close_debate: Chiudi dibattito
-          debate_closed: Chiuso
           debate_conclusions_are: 'Il dibattito si è concluso il %{date} con queste conclusioni:'
           edit_conclusions: Modifica conclusioni
-          edit_debate: Modifica dibattito
-          groups_count: Gruppi
-          open: Apri il dibattito
           participants_count: Partecipanti
         update:
           invalid: C'è stato un problema durante l'aggiornamento di questo dibattito.
@@ -193,10 +169,5 @@ it:
           name: Dibattiti
           next_level_in: Partecipa a %{score} altri dibattiti per raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora partecipato a nessun dibattito.
-    metrics:
-      debates:
-        description: Numero di dibattiti creati
-        object: dibattiti
-        title: dibattiti
     statistics:
       debates_count: Dibattiti

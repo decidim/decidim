@@ -77,11 +77,11 @@ describe Decidim::Assemblies::ContentBlocks::MainDataCell, type: :cell do
   end
 
   describe "internal_organisation" do
-    let(:attribute_title) { "Internal organisation" }
+    let(:attribute_title) { "Internal organization" }
     let(:attribute_content) { internal_organisation }
 
     context "when there is the extra attribute" do
-      let(:internal_organisation) { "This is my internal organisation" }
+      let(:internal_organisation) { "This is my internal organization" }
 
       it_behaves_like "with extra attribute"
     end

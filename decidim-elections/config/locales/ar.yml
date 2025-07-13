@@ -1,0 +1,5 @@
+ar:
+  decidim:
+    components:
+      elections:
+        name: الانتخابات

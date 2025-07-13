@@ -10,7 +10,7 @@ module Decidim
     # Property is named as attribute in upload modal and passthru validator, but
     # it cannot be named as attribute here.
     attribute :property, String
-    attribute :blob, String
+    attribute :blob, Decidim::Attributes::Blob
     attribute :form_class, String
 
     validates :resource_class, presence: true
@@ -79,7 +79,7 @@ module Decidim
     class AttachmentContextProxy
       attr_reader :organization, :attachment_context
 
-      delegate :id, :_read_attribute, to: :organization
+      delegate :id, :_read_attribute, :read_attribute, to: :organization
 
       def initialize(organization, attachment_context)
         @organization = organization
@@ -88,6 +88,14 @@ module Decidim
 
       def self.primary_key
         :id
+      end
+
+      def self.composite_primary_key?
+        false
+      end
+
+      def self.has_query_constraints?
+        false
       end
 
       def self.polymorphic_name

@@ -9,6 +9,7 @@ module Decidim
     # used in filters that uses checkboxes trees
     def check_boxes_tree_options(value, label, **options)
       parent_id = options.delete(:parent_id) || ""
+      object = options.delete(:object)
       checkbox_options = {
         value:,
         label:,
@@ -16,10 +17,16 @@ module Decidim
         include_hidden: false,
         label_options: {
           "data-children-checkbox": parent_id,
-          value:
+          value:,
+          for: "#{options[:namespace]}_#{options[:id]}"
         }
       }
       options.merge!(checkbox_options)
+      # as taxonomies work with a nested array of values, we need to manually check if the value is checked
+      matches = options[:id]&.match(/^with_any_taxonomies_([0-9]+)__taxonomy-([0-9_]+)/)
+      if matches.present? && object.respond_to?(:with_any_taxonomies) && object.with_any_taxonomies&.dig(matches[1]).is_a?(Array)
+        options[:checked] = object.with_any_taxonomies[matches[1]].include?(value.to_s)
+      end
 
       if options.delete(:is_root_check_box) == true
         options[:label_options].merge!("data-global-checkbox": "")
@@ -37,9 +44,13 @@ module Decidim
     end
 
     # struct for leafs of checkboxes trees
-    TreePoint = Struct.new(:value, :label) do
+    TreePoint = Struct.new(:value, :label, :root) do
       def tree_node?
         is_a?(TreeNode)
+      end
+
+      def root?
+        root.present? || value.blank?
       end
     end
 
@@ -49,52 +60,29 @@ module Decidim
       raise StandardError, "Not implemented"
     end
 
-    def filter_categories_values
-      sorted_main_categories = current_participatory_space.categories.first_class.includes(:subcategories).sort_by do |category|
-        [category.weight, decidim_escape_translated(category.name)]
-      end
-
-      categories_values = sorted_main_categories.flat_map do |category|
-        sorted_descendant_categories = category.descendants.includes(:subcategories).sort_by do |subcategory|
-          [subcategory.weight, decidim_escape_translated(subcategory.name)]
-        end
-
-        subcategories = sorted_descendant_categories.flat_map do |subcategory|
-          TreePoint.new(subcategory.id.to_s, decidim_escape_translated(subcategory.name))
-        end
-
-        TreeNode.new(
-          TreePoint.new(category.id.to_s, decidim_escape_translated(category.name)),
-          subcategories
-        )
-      end
-
+    def filter_taxonomy_values_for(taxonomy_filter)
+      taxonomies = filter_taxonomy_values_children(taxonomy_filter.taxonomies)
       TreeNode.new(
-        TreePoint.new("", t("decidim.core.application_helper.filter_category_values.all")),
-        categories_values
+        TreePoint.new(taxonomy_filter.root_taxonomy_id, t("decidim.core.application_helper.filter_taxonomy_values.all"), true),
+        taxonomies
       )
     end
 
-    def resource_filter_scope_values(resource)
-      if resource.is_a?(Scope)
-        filter_scopes_values_from([resource], current_participatory_space)
-      else
-        filter_scopes_values
+    def filter_taxonomy_values_children(children)
+      children.map do |id, hash|
+        TreeNode.new(
+          TreePoint.new(id, decidim_escape_translated(hash[:taxonomy].name).html_safe),
+          filter_taxonomy_values_children(hash[:children])
+        )
       end
     end
 
-    def filter_scopes_values
-      return filter_scopes_values_from_parent(current_component.scope) if current_component.scope.present?
-
-      main_scopes = current_participatory_space.scopes.top_level
-                                               .includes(:scope_type, :children)
-      filter_scopes_values_from(main_scopes, current_participatory_space)
-    end
-
+    # pending initiatives removal
     def filter_global_scopes_values
       filter_scopes_values_from(current_organization.scopes.top_level)
     end
 
+    # pending initiatives removal
     def filter_areas_values
       areas_or_types = areas_for_select(current_organization)
 
@@ -134,22 +122,6 @@ module Decidim
     end
 
     private
-
-    def filter_scopes_values_from_parent(scope)
-      scopes_values = []
-      scope.children.each do |child|
-        unless child.children
-          scopes_values << TreePoint.new(child.id.to_s, translated_attribute(child.name, current_participatory_space.organization))
-          next
-        end
-        scopes_values << TreeNode.new(
-          TreePoint.new(child.id.to_s, translated_attribute(child.name, current_participatory_space.organization)),
-          scope_children_to_tree(child, current_participatory_space)
-        )
-      end
-
-      filter_tree_from(scopes_values)
-    end
 
     def filter_scopes_values_from(scopes, participatory_space = nil)
       scopes_values = scopes.compact.flat_map do |scope|

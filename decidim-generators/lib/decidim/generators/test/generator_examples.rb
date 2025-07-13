@@ -46,6 +46,9 @@ shared_examples_for "a new production application" do
       .to match(/^# gem "decidim-initiatives"/)
       .and match(/^# gem "decidim-conferences"/)
       .and match(/^# gem "decidim-templates"/)
+      .and match(/^# gem "decidim-collaborative_texts"/)
+      .and match(/^# gem "decidim-elections"/)
+      .and match(/^# gem "decidim-demographics"/)
   end
 end
 
@@ -57,6 +60,9 @@ shared_examples_for "a new development application" do
       .to match(/^gem "decidim-initiatives"/)
       .and match(/^gem "decidim-conferences"/)
       .and match(/^gem "decidim-templates"/)
+      .and match(/^gem "decidim-collaborative_texts"/)
+      .and match(/^gem "decidim-elections"/)
+      .and match(/^gem "decidim-demographics"/)
 
     # Checks that every table from a migration is included in the generated schema
     schema = File.read("#{test_app}/db/schema.rb")
@@ -65,10 +71,10 @@ shared_examples_for "a new development application" do
     Decidim::GemManager.plugins.each do |plugin|
       Dir.glob("#{plugin}db/migrate/*.rb").each do |migration|
         lines = File.readlines(migration)
-        tables.concat(lines.filter { |line| line.match? "create_table" }.map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
-        dropped.concat(lines.filter { |line| line.match? "drop_table" }.map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
-        tables.concat(lines.filter { |line| line.match? "rename_table" }.map { |line| line.match(/(, :)([a-z_0-9]+)/)[2] })
-        dropped.concat(lines.filter { |line| line.match? "rename_table" }.map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
+        tables.concat(lines.grep(/create_table/).map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
+        dropped.concat(lines.grep(/drop_table/).map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
+        tables.concat(lines.grep(/rename_table/).map { |line| line.match(/(, :)([a-z_0-9]+)/)[2] })
+        dropped.concat(lines.grep(/rename_table/).map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
       end
     end
     tables.each do |table|
@@ -120,8 +126,11 @@ shared_context "with application env vars" do
       "DECIDIM_ADMIN_PASSWORD_MIN_LENGTH" => "",
       "DECIDIM_ADMIN_PASSWORD_REPETITION_TIMES" => "",
       "DECIDIM_ADMIN_PASSWORD_STRONG" => "",
+      "DECIDIM_DELETE_INACTIVE_USERS_AFTER_DAYS" => "",
+      "DECIDIM_MINIMUM_INACTIVITY_PERIOD_IN_DAYS" => "",
+      "DECIDIM_DELETE_INACTIVE_USERS_FIRST_WARNING_DAYS_BEFORE" => "",
+      "DECIDIM_DELETE_INACTIVE_USERS_LAST_WARNING_DAYS_BEFORE" => "",
       "DECIDIM_SERVICE_WORKER_ENABLED" => "",
-      "RAILS_LOG_LEVEL" => "nonsense",
       "STORAGE_PROVIDER" => ""
     }
   end
@@ -195,6 +204,8 @@ shared_context "with application env vars" do
       "DECIDIM_SERVICE_WORKER_ENABLED" => "true",
       "DECIDIM_CONSENT_COOKIE_NAME" => ":weird-consent-cookie-name:",
       "DECIDIM_CACHE_KEY_SEPARATOR" => ":",
+      "DECIDIM_CACHE_EXPIRATION_TIME" => "33",
+      "DECIDIM_STATS_CACHE_EXPIRATION_TIME" => "15",
       "DECIDIM_EXPIRE_SESSION_AFTER" => "45",
       "DECIDIM_ENABLE_REMEMBER_ME" => "",
       "DECIDIM_SESSION_TIMEOUT_INTERVAL" => "33",
@@ -207,6 +218,10 @@ shared_context "with application env vars" do
       "DECIDIM_ADMIN_PASSWORD_MIN_LENGTH" => "18",
       "DECIDIM_ADMIN_PASSWORD_REPETITION_TIMES" => "8",
       "DECIDIM_ADMIN_PASSWORD_STRONG" => "false",
+      "DECIDIM_DELETE_INACTIVE_USERS_AFTER_DAYS" => "365",
+      "DECIDIM_MINIMUM_INACTIVITY_PERIOD_IN_DAYS" => "30",
+      "DECIDIM_DELETE_INACTIVE_USERS_FIRST_WARNING_DAYS_BEFORE" => "30",
+      "DECIDIM_DELETE_INACTIVE_USERS_LAST_WARNING_DAYS_BEFORE" => "7",
       "RAILS_LOG_LEVEL" => "fatal",
       "RAILS_ASSET_HOST" => "http://assets.example.org",
       "ETHERPAD_SERVER" => "http://a-etherpad-server.com",
@@ -224,10 +239,8 @@ shared_context "with application env vars" do
       "PROPOSALS_PARTICIPATORY_SPACE_HIGHLIGHTED_PROPOSALS_LIMIT" => "6",
       "PROPOSALS_PROCESS_GROUP_HIGHLIGHTED_PROPOSALS_LIMIT" => "5",
       "MEETINGS_UPCOMING_MEETING_NOTIFICATION" => "3",
-      "MEETINGS_ENABLE_PROPOSAL_LINKING" => "false",
+      "MEETINGS_WAITING_LIST_ENABLED" => "true",
       "MEETINGS_EMBEDDABLE_SERVICES" => "www.youtube.com www.twitch.tv meet.jit.si 8x8.vc",
-      "BUDGETS_ENABLE_PROPOSAL_LINKING" => "false",
-      "ACCOUNTABILITY_ENABLE_PROPOSAL_LINKING" => "false",
       "INITIATIVES_CREATION_ENABLED" => "false",
       "INITIATIVES_SIMILARITY_THRESHOLD" => "0.99",
       "INITIATIVES_SIMILARITY_LIMIT" => "10",
@@ -280,7 +293,8 @@ shared_examples_for "an application with configurable env vars" do
       %w(omniauth google_oauth2 enabled) => false,
       %w(decidim application_name) => "My Application Name",
       %w(decidim mailer_sender) => "change-me@example.org",
-      %w(decidim available_locales) => %w(ca cs de en es eu fi fr it ja nl pl pt ro),
+      %w(decidim available_locales) => %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fa fi-pl fi fr fr-CA ga gl hr hu
+                                          id is it ja ko lb lt lv mt nl no pl pt pt-BR ro ru sk sl sr sv tr uk vi zh-CN zh-TW),
       %w(decidim default_locale) => "en",
       %w(decidim force_ssl) => "auto",
       %w(decidim enable_html_header_snippets) => false,
@@ -301,6 +315,8 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim service_worker_enabled) => true,
       %w(decidim consent_cookie_name) => "decidim-consent",
       %w(decidim cache_key_separator) => "/",
+      %w(decidim cache_expiry_time) => 1440,
+      %w(decidim stats_cache_expiry_time) => 10,
       %w(decidim expire_session_after) => 30,
       %w(decidim enable_remember_me) => "auto",
       %w(decidim session_timeout_interval) => 10,
@@ -336,14 +352,11 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim proposals participatory_space_highlighted_proposals_limit) => 4,
       %w(decidim proposals process_group_highlighted_proposals_limit) => 3,
       %w(decidim meetings upcoming_meeting_notification) => 2,
-      %w(decidim meetings enable_proposal_linking) => "auto",
       %w(decidim meetings embeddable_services) => [],
-      %w(decidim budgets enable_proposal_linking) => "auto",
-      %w(decidim accountability enable_proposal_linking) => "auto",
       %w(decidim initiatives creation_enabled) => "auto",
       %w(decidim initiatives minimum_committee_members) => 2,
       %w(decidim initiatives default_signature_time_period_length) => 120,
-      %w(decidim initiatives default_components) => %w(pages meetings),
+      %w(decidim initiatives default_components) => %w(pages meetings blogs),
       %w(decidim initiatives first_notification_percentage) => 33,
       %w(decidim initiatives second_notification_percentage) => 66,
       %w(decidim initiatives stats_cache_expiration_time) => 5,
@@ -395,6 +408,8 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim service_worker_enabled) => true,
       %w(decidim consent_cookie_name) => ":weird-consent-cookie-name:",
       %w(decidim cache_key_separator) => ":",
+      %w(decidim cache_expiry_time) => 33,
+      %w(decidim stats_cache_expiry_time) => 15,
       %w(decidim expire_session_after) => 45,
       %w(decidim enable_remember_me) => false,
       %w(decidim session_timeout_interval) => 33,
@@ -430,10 +445,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim proposals participatory_space_highlighted_proposals_limit) => 6,
       %w(decidim proposals process_group_highlighted_proposals_limit) => 5,
       %w(decidim meetings upcoming_meeting_notification) => 3,
-      %w(decidim meetings enable_proposal_linking) => false,
       %w(decidim meetings embeddable_services) => %w(www.youtube.com www.twitch.tv meet.jit.si 8x8.vc),
-      %w(decidim budgets enable_proposal_linking) => false,
-      %w(decidim accountability enable_proposal_linking) => false,
       %w(decidim initiatives creation_enabled) => false,
       %w(decidim initiatives minimum_committee_members) => 3,
       %w(decidim initiatives default_signature_time_period_length) => 133,
@@ -451,14 +463,15 @@ shared_examples_for "an application with configurable env vars" do
     {
       "application_name" => "My Application Name",
       "mailer_sender" => "change-me@example.org",
-      "available_locales" => %w(ca cs de en es eu fi fr it ja nl pl pt ro),
+      "available_locales" => %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fa fi-pl fi fr fr-CA ga gl hr hu id is it
+                                ja ko lb lt lv mt nl no pl pt pt-BR ro ru sk sl sr sv tr uk vi zh-CN zh-TW),
       "default_locale" => "en",
       "force_ssl" => true,
       "enable_html_header_snippets" => false,
       "currency_unit" => "€",
       "image_uploader_quality" => 80,
-      "maximum_attachment_size" => 10_485_760, # 10 megabytes
-      "maximum_avatar_size" => 5_242_880, # 5 megabytes
+      "maximum_attachment_size" => 10, # 10 megabytes
+      "maximum_avatar_size" => 5, # 5 megabytes
       "max_reports_before_hiding" => 3,
       "track_newsletter_links" => true,
       "download_your_data_expiry_time" => 604_800, # 7 days
@@ -471,6 +484,8 @@ shared_examples_for "an application with configurable env vars" do
       "cors_enabled" => false,
       "consent_cookie_name" => "decidim-consent",
       "cache_key_separator" => "/",
+      "cache_expiry_time" => 86_400, # 1 day
+      "stats_cache_expiry_time" => 600, # 10 minutes
       "expire_session_after" => 1800, # 30 minutes
       "enable_remember_me" => true,
       "session_timeout_interval" => 10,
@@ -494,8 +509,8 @@ shared_examples_for "an application with configurable env vars" do
       "enable_html_header_snippets" => true,
       "currency_unit" => "$",
       "image_uploader_quality" => 91,
-      "maximum_attachment_size" => 26_214_400, # 25 megabytes
-      "maximum_avatar_size" => 11_534_336, # 11 megabytes
+      "maximum_attachment_size" => 25, # 25 megabytes
+      "maximum_avatar_size" => 11, # 11 megabytes
       "max_reports_before_hiding" => 4,
       "track_newsletter_links" => false,
       "download_your_data_expiry_time" => 172_800, # 2 days
@@ -508,6 +523,8 @@ shared_examples_for "an application with configurable env vars" do
       "cors_enabled" => true,
       "consent_cookie_name" => ":weird-consent-cookie-name:",
       "cache_key_separator" => ":",
+      "cache_expiry_time" => 1980,
+      "stats_cache_expiry_time" => 900,
       "expire_session_after" => 2700, # 45 minutes
       "enable_remember_me" => false,
       "session_timeout_interval" => 33,
@@ -525,7 +542,7 @@ shared_examples_for "an application with configurable env vars" do
         "provider" => "here",
         "api_key" => "a-maps-api-key",
         "static" => {
-          "url" => "https://image.maps.ls.hereapi.com/mia/1.6/mapview"
+          "url" => "https://image.maps.hereapi.com/mia/v3/base/mc/overlay"
         },
         "dynamic" => {
           "provider" => "here",
@@ -566,7 +583,7 @@ shared_examples_for "an application with configurable env vars" do
         "provider" => "here",
         "api_key" => "a-maps-api-key",
         "static" => {
-          "url" => "https://image.maps.ls.hereapi.com/mia/1.6/mapview"
+          "url" => "https://image.maps.hereapi.com/mia/v3/base/mc/overlay"
         },
         "dynamic" => {
           "provider" => "osm",
@@ -620,7 +637,6 @@ shared_examples_for "an application with configurable env vars" do
   let(:meetings_initializer_off) do
     {
       "upcoming_meeting_notification" => 172_800, # 2.days
-      "enable_proposal_linking" => true,
       "embeddable_services" => %w(www.youtube.com www.twitch.tv meet.jit.si)
     }
   end
@@ -628,32 +644,7 @@ shared_examples_for "an application with configurable env vars" do
   let(:meetings_initializer_on) do
     {
       "upcoming_meeting_notification" => 259_200, # 3.days
-      "enable_proposal_linking" => false,
       "embeddable_services" => %w(www.youtube.com www.twitch.tv meet.jit.si 8x8.vc)
-    }
-  end
-
-  let(:budgets_initializer_off) do
-    {
-      "enable_proposal_linking" => true
-    }
-  end
-
-  let(:budgets_initializer_on) do
-    {
-      "enable_proposal_linking" => false
-    }
-  end
-
-  let(:accountability_initializer_off) do
-    {
-      "enable_proposal_linking" => true
-    }
-  end
-
-  let(:accountability_initializer_on) do
-    {
-      "enable_proposal_linking" => false
     }
   end
 
@@ -685,19 +676,6 @@ shared_examples_for "an application with configurable env vars" do
   # This is using a big example to avoid recreating the application every time
   it "env vars generate secrets application" do
     expect(result[1]).to be_success, result[0]
-    # Test onto the secret generated when ENV vars are empty strings or undefined
-    json_off = json_secrets_for(test_app, env_off)
-    secrets_off.each do |keys, value|
-      current = json_off.dig(*keys)
-      expect(current).to eq(value), "Secret #{keys} = (#{current}) expected to match Env:OFF (#{value})"
-    end
-
-    # Test onto the secret generated when ENV vars are set
-    json_on = json_secrets_for(test_app, env_on)
-    secrets_on.each do |keys, value|
-      current = json_on.dig(*keys)
-      expect(current).to eq(value), "Secret #{keys} = (#{current}) expected to match Env:ON (#{value})"
-    end
 
     # Test onto the initializer when ENV vars are empty strings or undefined
     json_off = initializer_config_for(test_app, env_off)
@@ -776,34 +754,6 @@ shared_examples_for "an application with configurable env vars" do
       expect(current).to eq(value), "Meetings Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
     end
 
-    # Test onto the initializer with ENV vars OFF for the Budgets module
-    json_off = initializer_config_for(test_app, env_off, "Decidim::Budgets")
-    budgets_initializer_off.each do |key, value|
-      current = json_off[key]
-      expect(current).to eq(value), "Budgets Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
-    end
-
-    # Test onto the initializer with ENV vars ON for the Budgets module
-    json_on = initializer_config_for(test_app, env_on, "Decidim::Budgets")
-    budgets_initializer_on.each do |key, value|
-      current = json_on[key]
-      expect(current).to eq(value), "Budgets Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
-    end
-
-    # Test onto the initializer with ENV vars OFF for the Accountability module
-    json_off = initializer_config_for(test_app, env_off, "Decidim::Accountability")
-    accountability_initializer_off.each do |key, value|
-      current = json_off[key]
-      expect(current).to eq(value), "Accountability Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
-    end
-
-    # Test onto the initializer with ENV vars ON for the Accountability module
-    json_on = initializer_config_for(test_app, env_on, "Decidim::Accountability")
-    accountability_initializer_on.each do |key, value|
-      current = json_on[key]
-      expect(current).to eq(value), "Accountability Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
-    end
-
     # Test onto some extra Rails configs when ENV vars are empty or undefined
     rails_off.each do |key, value|
       current = rails_value(key, test_app, env_off)
@@ -826,7 +776,7 @@ shared_examples_for "an application with extra configurable env vars" do
       "creation_enabled" => true,
       "minimum_committee_members" => 2,
       "default_signature_time_period_length" => 120,
-      "default_components" => %w(pages meetings),
+      "default_components" => %w(pages meetings blogs),
       "first_notification_percentage" => 33,
       "second_notification_percentage" => 66,
       "stats_cache_expiration_time" => 300, # 5.minutes
@@ -941,14 +891,10 @@ shared_examples_for "an application with storage and queue gems" do
     current = rails_value("YAML.load(ERB.new(IO.read(\"config/sidekiq.yml\")).result)", test_app, queue_envs_on)
     expect(current["concurrency"]).to eq(11), "sidekiq concurrency (#{current["concurrency"]}) expected to eq 11"
 
-    queues = %w(mailers vote_reminder reminders default newsletter newsletters_opt_in conference_diplomas events translations user_report block_user metrics exports
+    queues = %w(mailers vote_reminder reminders default newsletter newsletters_opt_in conference_diplomas events translations user_report block_user exports
                 close_meeting_reminder)
     expect(current["queues"].flatten).to include(*queues), "sidekiq queues (#{current["queues"].flatten}) expected to contain (#{queues})"
   end
-end
-
-def json_secrets_for(path, env)
-  JSON.parse cmd_capture(path, "bin/rails runner 'puts Rails.application.secrets.to_json'", env:)
 end
 
 def initializer_config_for(path, env, mod = "Decidim")

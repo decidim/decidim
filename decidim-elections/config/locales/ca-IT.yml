@@ -1,0 +1,141 @@
+ca-IT:
+  activemodel:
+    attributes:
+      token_csv:
+        file: Arxiu
+        remove_all: Eliminar totes les dades del cens actual
+  decidim:
+    admin:
+      menu:
+        elections_menu:
+          basic_elections: Principal
+          election_census: Cens
+          election_dashboard: Tauler de control
+          election_questions: Preguntes
+      tooltips:
+        deleted_elections_info: No es pot esborrar aquesta elecció
+        edit_elections_info: No es pot editar aquesta elecció
+    components:
+      elections:
+        name: Votacions
+        settings:
+          global:
+            announcement: Avís
+          step:
+            announcement: Avís
+    elections:
+      actions:
+        confirm_delete_election: Segur que vols eliminar aquesta elecció?
+        deleted_election_info: 'Les eleccions eliminades no es mostren al llistat. Les pots veure fent clic al botó: "Veure les eleccions eliminades" que trobaràs més avall.'
+        edit: Editar l'elecció
+        new: Nova elecció
+        title: Accions
+        view_deleted_elections: Veure les eleccions eliminades
+      admin:
+        census:
+          edit:
+            choose_census: Tria el tipus de cens que vols vincular a aquesta elecció
+            created_at: Creada el
+            identifier: Identificador d'usuària
+            title: Tipus de cens
+          preview:
+            title:
+              one: 'Vista prèvia d''usuàries (el llistat està limitat a %{count} registre):'
+              other: 'Vista prèvia d''usuàries (el llistat està limitat a %{count} registres):'
+          update:
+            error: S'ha produït un error en generar o desar el cens.
+            success: Cens actualitzat correctament.
+        elections:
+          create:
+            invalid: S'ha produït un error en crear l'elecció.
+            success: Elecció creada correctament.
+          dashboard_page:
+            title: Tauler de control
+          edit:
+            title: Editar la votació
+          form:
+            add_images: Afegir imatges
+            attachment_legend: Afegir una galeria d'imatges (opcional)
+            basic_title: Informació bàsica
+            calendar: Calendari
+            calendar_description: Comprova que la zona horària és correcta a la configuració de l'organització. La configuració actual és %{timezone}.
+            edit_attachments: Edita els fitxers adjunts
+            end_at: Dia i hora de finalització
+            manual_start: Inici manual
+            results_availability:
+              after_end: Després de la fi de les eleccions
+              after_end_help: Mostrar els resultats només quan l'elecció hagi finalitzat
+              per_question: Pregunta per pregunta
+              per_question_help: Mostrar els resultats per pregunta a mesura que es finalitzen
+              real_time: En temps real
+              real_time_help: Mostrar els resultats quan s'enviï el primer vot
+              title: Disponibilitat dels resultats
+            save: Desa i continua
+            start_at: Dia i hora d'inici
+          index:
+            title: Votacions
+          manage_trash:
+            title: Eleccions eliminades
+          new:
+            title: Nova votació
+          publish:
+            invalid: S'ha produït un error en publicar l'elecció.
+            success: Elecció publicada amb èxit.
+          unpublish:
+            invalid: S'ha produït un error en despublicar l'elecció.
+            success: Elecció despublicada correctament.
+          update:
+            invalid: S'ha produït un error en actualitzar l'elecció.
+            success: Elecció actualitzada correctament.
+        questions:
+          edit_questions:
+            new_question: Nova pregunta
+            remove_question_confirm: Estàs egur que vols eliminar aquesta pregunta?
+            title: Preguntes
+          form:
+            errors:
+              at_least_one_question: Es requereix almenys una pregunta.
+            form_description: La pregunta ha de tenir, com a mínim, dues opcions de resposta per passar al següent pas.
+          update:
+            invalid: Hi ha hagut un problema en actualitzar les preguntes.
+            success: Preguntes actualitzades correctament.
+      admin_log:
+        election:
+          create: "%{user_name} ha creat l'elecció \"%{resource_name}\" a %{space_name}"
+          publish: "%{user_name} ha publicat l'elecció \"%{resource_name}\" a %{space_name}"
+          restore: "%{user_name} ha restaurat l'elecció \"%{resource_name}\" a %{space_name}"
+          soft_delete: "%{user_name} ha mogut l'elecció \"%{resource_name}\" de %{space_name} a la paperera"
+          unpublish: "%{user_name} ha despublicat l'elecció \"%{resource_name}\" a %{space_name}"
+          update: "%{user_name} ha actualitzat l'elecció \"%{resource_name}\" a %{space_name}"
+        question:
+          update: "%{user_name} va actualitzar les preguntes de l'elecció \"%{resource_name}\""
+      censuses:
+        internal_users:
+          info_html: |
+            Pots restringir la participació en l'elecció a les participants que tinguin una autorització. <br>Tingues en compte que les participants obtenir l'autorització seleccionada per poder votar. Si deixes totes les caselles de verificació buides, qualsevol persona registrada podrà votar.
+          internal_type_title: Autoritzacions addicionals necessàries per votar (opcional)
+          label: Participants registrades (dinàmic)
+        token_csv:
+          example: |
+            email;token
+            user@example.org;123456
+            user2@example.org;ABCXYZ
+          info_html: |
+            Ha de ser un arxiu en format CSV amb només dues columnes, una amb l'adreça de correu electrònic i una altra amb el valor de l'autenticador (token). Els camps han d'estar separats amb punt i coma (;).
+          label: Participants no registrats amb autentificador/token (fixat)
+          remove_before_upload: 'Si vols pujar un nou cens, primer has d''eliminar el que ja existeix.'
+          upload_file: Puja arxiu
+          upload_new_census: Carregar un arxiu CSV
+          uploaded_data_html:
+            one: |
+              Les dades censals estan carregades i llestes per utilitzar-se a l'elecció "<b>%{election_title}</b>". <br>Actualment hi ha <strong>1</strong> persona amb dret a vot en aquestes eleccions (això podria canviar en un cens dinàmic).
+            other: |
+              Les dades censals estan carregades i llestes per utilitzar-se a l'elecció "<b>%{election_title}</b>". <br>Actualment hi ha <strong>%{count}</strong> persones amb dret a vot en aquestes eleccions (això podria canviar en un cens dinàmic).
+      models:
+        election:
+          fields:
+            end_at: Dia i hora de finalització
+            start_at: Dia i hora d'inici
+            title: Títol
+    statistics:
+      elections_count: Eleccions

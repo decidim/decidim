@@ -29,8 +29,8 @@ module Decidim
             Assembly.transaction do
               copy_assembly
               copy_assembly_attachments
-              copy_assembly_categories if @form.copy_categories?
               copy_assembly_components if @form.copy_components?
+              copy_landing_page_blocks if @form.copy_landing_page_blocks?
             end
           end
 
@@ -47,11 +47,9 @@ module Decidim
             title: form.title,
             subtitle: @assembly.subtitle,
             slug: form.slug,
-            hashtag: @assembly.hashtag,
             description: @assembly.description,
             short_description: @assembly.short_description,
             promoted: @assembly.promoted,
-            scope: @assembly.scope,
             parent: @assembly.parent,
             developer_group: @assembly.developer_group,
             local_area: @assembly.local_area,
@@ -60,7 +58,8 @@ module Decidim
             participatory_scope: @assembly.participatory_scope,
             participatory_structure: @assembly.participatory_structure,
             meta_scope: @assembly.meta_scope,
-            announcement: @assembly.announcement
+            announcement: @assembly.announcement,
+            taxonomies: @assembly.taxonomies
           )
         end
 
@@ -69,17 +68,6 @@ module Decidim
             next unless @assembly.attached_uploader(attribute).attached?
 
             @copied_assembly.send(attribute).attach(@assembly.send(attribute).blob)
-          end
-        end
-
-        def copy_assembly_categories
-          @assembly.categories.each do |category|
-            Category.create!(
-              name: category.name,
-              description: category.description,
-              parent_id: category.parent_id,
-              participatory_space: @copied_assembly
-            )
           end
         end
 
@@ -94,6 +82,38 @@ module Decidim
               weight: component.weight
             )
             component.manifest.run_hooks(:copy, new_component:, old_component: component)
+          end
+        end
+
+        def copy_landing_page_blocks
+          blocks = Decidim::ContentBlock.where(scoped_resource_id: @assembly.id, scope_name: "assembly_homepage", organization: @assembly.organization)
+          return if blocks.blank?
+
+          blocks.each do |block|
+            new_block = Decidim::ContentBlock.create!(
+              organization: @copied_assembly.organization,
+              scope_name: "assembly_homepage",
+              scoped_resource_id: @copied_assembly.id,
+              manifest_name: block.manifest_name,
+              settings: block.settings,
+              weight: block.weight,
+              published_at: block.published_at.present? ? @copied_assembly.created_at : nil # determine if block is active/inactive
+            )
+            copy_block_attachments(block, new_block) if block.attachments.present?
+          end
+        end
+
+        def copy_block_attachments(block, new_block)
+          block.attachments.map(&:name).each do |name|
+            original_image = block.images_container.send(name).blob
+            next if original_image.blank?
+
+            new_block.images_container.send("#{name}=", ActiveStorage::Blob.create_and_upload!(
+                                                          io: StringIO.new(original_image.download),
+                                                          filename: "image.png",
+                                                          content_type: block.images_container.background_image.blob.content_type
+                                                        ))
+            new_block.save!
           end
         end
       end

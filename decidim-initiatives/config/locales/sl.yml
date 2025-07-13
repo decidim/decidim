@@ -1,8 +1,4 @@
 sl:
-  activemodel:
-    attributes:
-      initiative:
-        decidim_user_group_id: Avtor
   decidim:
     admin:
       filters:
@@ -11,7 +7,6 @@ sl:
             label: Področje
           state_eq:
             values:
-              created: Ustvarjeno
               discarded: Zavrženo
           type_id_eq:
             label: Tip

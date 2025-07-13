@@ -12,7 +12,7 @@
   }
 
   .dropdown {
-    @apply divide-y divide-gray-3 z-20;
+    @apply divide-y divide-gray-3;
 
     &.button {
       @apply z-10;
@@ -31,5 +31,15 @@
         @apply fill-white p-0 ml-2;
       }
     }
+  }
+}
+
+.dropdown {
+  &[aria-hidden="true"] {
+    @apply hidden;
+  }
+
+  &[aria-hidden="false"] {
+    @apply block;
   }
 }

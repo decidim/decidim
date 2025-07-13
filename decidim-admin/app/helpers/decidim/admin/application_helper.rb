@@ -13,7 +13,6 @@ module Decidim
       include Decidim::MapHelper
       include Decidim::Admin::LogRenderHelper
       include Decidim::Admin::UserRolesHelper
-      include Decidim::Admin::ResourceScopeHelper
       include Decidim::Admin::SearchFormHelper
 
       # Public: Overwrites the `cell` helper method to automatically set some

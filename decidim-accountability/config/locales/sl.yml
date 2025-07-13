@@ -8,8 +8,6 @@ sl:
         description: Opis
         end_date: Končni datum
         progress: Napredek
-        project_ids: Vključeni projekti
-        proposals: Vključeni predlogi
         start_date: Začetni datum
         title: Naslov
         updated_at: Posodobljeno
@@ -18,9 +16,6 @@ sl:
         key: Ključ
         name: Ime
         progress: Napredek
-      timeline_entry:
-        description: Opis
-        entry_date: Datum
     models:
       decidim/accountability/proposal_linked_event: Predlog vključen v rezultat
       decidim/accountability/result_progress_updated_event: Posodobljen razvoj postavk
@@ -31,7 +26,6 @@ sl:
         destroy: Izbriši
         edit: Uredi
         preview: Predogled
-        timeline_entries: Razvoj projekta
         title: Dejanja
       admin:
         exports:
@@ -56,12 +50,6 @@ sl:
             update: Posodobi status
           index:
             title: Statusi
-        timeline_entries:
-          edit:
-            title: Uredi vnos
-          new:
-            create: Ustvari nov vnos
-            title: Nov vnos
       admin_log:
         result:
           create: "%{user_name} ustvaril(a) %{resource_name} v %{space_name}"
@@ -83,15 +71,7 @@ sl:
             key: Ključ
             name: Ime
             progress: Napredek
-        timeline_entry:
-          fields:
-            entry_date: Datum
       results:
-        filters:
-          all: Vsi
-        home:
-          categories_label: Kategorije
-          subcategories_label: Podkategorije
         search:
           search: Išči dejanja
     components:
@@ -99,11 +79,6 @@ sl:
         settings:
           global:
             intro: Predstavitev
-    metrics:
-      results:
-        description: Število ustvarjenih rezultatov
-        object: rezultati
-        title: Rezultati
     resource_links:
       included_proposals:
         result_proposal: Predlogi, vključeni v rezultat

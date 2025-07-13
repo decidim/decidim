@@ -1,0 +1,26 @@
+<thead>
+<tr>
+  <th>
+    <%= sort_link(query, :id, t("models.meeting.fields.id", scope: "decidim.meetings"), default_order: :desc ) %>
+  </th>
+  <th class="!text-left">
+    <%= sort_link(query, :translated_title, t("models.meeting.fields.title", scope: "decidim.meetings"), default_order: :desc ) %>
+  </th>
+  <th>
+    <%= sort_link(query, :start_time, t("models.meeting.fields.start_time", scope: "decidim.meetings"), default_order: :desc ) %>
+  </th>
+  <th>
+    <%= sort_link(query, :end_time, t("models.meeting.fields.end_time", scope: "decidim.meetings"), default_order: :desc ) %>
+  </th>
+  <th>
+    <%= sort_link(query, :closed, t("models.meeting.fields.closed", scope: "decidim.meetings"), default_order: :desc ) %>
+  </th>
+  <% if maps_enabled? && Decidim::Map.available?(:static, :geocoding) %>
+    <th><%= t("models.meeting.fields.map", scope: "decidim.meetings") %></th>
+  <% end %>
+  <th>
+    <%= sort_link(query, :scope_name, t("models.meeting.fields.taxonomies", scope: "decidim.meetings") ) %>
+  </th>
+  <th><%= t("actions.title", scope: "decidim.meetings") %></th>
+</tr>
+</thead>

@@ -9,7 +9,7 @@ module Decidim
 
       alias debate model
 
-      delegate :type_of_meeting, :start_time, :end_time, :category, :withdrawn?, to: :debate
+      delegate :type_of_meeting, :start_time, :end_time, :withdrawn?, to: :debate
 
       def initialize(*)
         super
@@ -17,26 +17,48 @@ module Decidim
         @items.prepend(*debate_items)
       end
 
-      def category_item
-        return if category.blank?
-
-        {
-          text: category.translated_name,
-          icon: resource_type_icon_key("Decidim::Category")
-        }
-      end
-
       def debate_items
-        [duration, comments_count_item, endorsements_count_item, category_item, coauthors_item]
+        [label, duration, comments_count_item, likes_count_item] + taxonomy_items + [coauthors_item]
       end
 
       def duration
-        text = format_date_range(debate.start_time, debate.end_time) || t("open", scope: "decidim.debates.debates.show")
+        text = format_date_range(debate.start_time, debate.end_time)
+        return if text.blank?
 
         {
           text:,
           icon: "time-line"
         }
+      end
+
+      # i18n-tasks-use t("decidim.debates.debates.show.ongoing")
+      # i18n-tasks-use t("decidim.debates.debates.show.not_started")
+      def label
+        {
+          text: content_tag("span", t(label_string, scope: "decidim.debates.debates.show"), class: "#{label_class} label")
+        }
+      end
+
+      def label_string
+        case debate.state
+        when :ongoing
+          "ongoing"
+        when :not_started
+          "not_started"
+        else
+          "closed"
+        end
+      end
+
+      def label_class
+        case debate.state
+        when :ongoing
+          "success"
+        when :not_started
+          "warning"
+        else
+          "alert"
+        end
       end
     end
   end

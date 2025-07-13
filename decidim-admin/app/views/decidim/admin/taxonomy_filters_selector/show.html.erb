@@ -1,0 +1,18 @@
+<% content_for(:action_buttons) do %>
+  <% if taxonomy_filter %>
+    <%= link_to decidim_admin.taxonomy_filters_selector_path(taxonomy_filter_id: taxonomy_filter.id, taxonomy_id: root_taxonomy.id, component_id: component.id), remote: true, method: :delete, class: "button button__transparent-secondary button__sm", id: "remove-taxonomy-filter" do %>
+      <%= t(".remove") %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h3 class="text-lg my-4"><%= root_taxonomy.translated_name %></h3>
+<h4 class="text-xl my-4"><%= taxonomy_filter.translated_internal_name %></h4>
+
+<div class="card">
+  <h3 class="mb-4">
+  <strong><%= taxonomy_filter.translated_name %></strong>
+  <span class="float-right"><%= t(".items_count", count: taxonomy_filter.filter_items_count) %></span>
+  </h3>
+  <%= render "decidim/admin/taxonomy_filters_selector/check_boxes", collection: taxonomy_filter.taxonomies %>
+</div>

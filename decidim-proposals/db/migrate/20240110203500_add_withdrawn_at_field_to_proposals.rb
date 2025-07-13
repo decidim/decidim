@@ -4,7 +4,7 @@ class AddWithdrawnAtFieldToProposals < ActiveRecord::Migration[6.1]
   class CustomProposal < Decidim::Proposals::ApplicationRecord
     self.table_name = "decidim_proposals_proposals"
     STATES = { not_answered: 0, evaluating: 10, accepted: 20, rejected: -10, withdrawn: -20 }.freeze
-    enum state: STATES, _default: "not_answered"
+    enum :state, STATES, default: "not_answered"
   end
 
   def up

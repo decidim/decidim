@@ -8,8 +8,6 @@ lb:
         description: Beschreiwung
         end_date: Schlussdatum
         progress: Progrès
-        project_ids: Bedeelegt Projeten
-        proposals: Bedeelegt Proposen
         start_date: Ufanksdatum
         title: Titel
         updated_at: Aktualiséiert den
@@ -18,9 +16,6 @@ lb:
         key: Schlëssel
         name: Numm
         progress: Progrès
-      timeline_entry:
-        description: Beschreiwung
-        entry_date: Datum
     models:
       decidim/accountability/proposal_linked_event: Propose déi Deel vun engem Resultat ass
       decidim/accountability/result_progress_updated_event: Aktualiséiert Entwécklung vun engem Resultat
@@ -38,7 +33,6 @@ lb:
         destroy: Läschen
         edit: Editéieren
         preview: Preview
-        timeline_entries: Projektentwécklung
         title: Aktiounen
       admin:
         exports:
@@ -73,15 +67,6 @@ lb:
           new:
             create: Status erstellen
             title: Neuer Status
-        timeline_entries:
-          edit:
-            title: Eintrag bearbeiten
-            update: Eintrag aktualisieren
-          index:
-            title: Projektzeitplaneinträge
-          new:
-            create: Eintrag erstellen
-            title: Neuer Eintrag
       admin_log:
         result:
           create: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} erstellt"
@@ -102,12 +87,10 @@ lb:
       models:
         result:
           fields:
-            category: Kategorie
             created_at: Erstellt am
             end_date: Enddatum
             id: ID
             progress: Fortschritt
-            scope: Themenbereich
             start_date: Startdatum
             status: Status
             title: Titel
@@ -117,37 +100,21 @@ lb:
             key: Schlüssel
             name: Name
             progress: Fortschritt
-        timeline_entry:
-          fields:
-            entry_date: Datum
       results:
         count:
           results_count:
             one: 1 Ergebnis
             other: "%{count} Ergebnisse"
-        filters:
-          all: Alle
-        home:
-          categories_label: Kategorien
-          subcategories_label: Unterkategorien
         home_header:
           global_status: Globaler Umsetzungsstatus
-        nav_breadcrumb:
-          global: Globale Ausführung
         search:
           search: Suche nach Aktionen
         show:
           stats:
             back_to_resource: Gehe zurück zum Ergebnis
-        timeline:
-          title: Projektentwicklung
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Kategorie
-          scope_id_eq:
-            label: Themenberäich
           status_id_eq:
             label: Status
     components:
@@ -161,8 +128,6 @@ lb:
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
             display_progress_enabled: Fortschritt anzeigen
             intro: Einführung
-            scope_id: Bereich
-            scopes_enabled: Bereiche aktiviert
           step:
             comments_blocked: Kommentare blockiert
     events:
@@ -177,11 +142,6 @@ lb:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{proposal_title}" folgen und dieser Vorschlag in das Ergebnis "%{resource_title}" aufgenommen wurde. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Fortschritt von %{resource_title} aktualisiert
           notification_title: Das Ergebnis <a href="%{resource_path}">%{resource_title}</a>, das den Vorschlag <a href="%{proposal_path}">%{proposal_title}</a> enthält, ist jetzt zu %{progress}% abgeschlossen.
-    metrics:
-      results:
-        description: Anzahl der generierten Ergebnisse
-        object: Ergebnisse
-        title: Ergebnisse
     participatory_spaces:
       highlighted_results:
         see_all: Alle Ergebnisse ansehen (%{count})

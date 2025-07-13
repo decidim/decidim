@@ -2,15 +2,12 @@ hu:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Hatókör
         description: Leírás
         title: Cím
         total_budget: Teljes költségvetés
         weight: Sorbarendezés
       project:
         budget_amount: Költségvetés összege
-        decidim_category_id: Kategória
-        decidim_scope_id: Hatáskör
         description: Leírás
         proposal_ids: Kapcsolódó javaslatok
         proposals: Javaslatok
@@ -27,10 +24,6 @@ hu:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Kategória
-          scope_id_eq:
-            label: Hatókör
           selected_at_null:
             label: Kiválasztva
             values:
@@ -40,8 +33,6 @@ hu:
       actions:
         attachment_collections: Mappák
         attachments: Mellékletek
-        confirm_destroy: Biztosan törölni szeretnéd ezt a projektet?
-        destroy: Törlés
         edit: Szerkesztés
         edit_projects: Projektek kezelése
         import: Javaslatok importálása projektekhez
@@ -55,9 +46,6 @@ hu:
           create:
             invalid: Hiba történt a költségvetés létrehozása során.
             success: A költségvetés létrehozása sikeres.
-          destroy:
-            invalid: Hiba történt a költségvetés törlése során.
-            success: A költségvetés törlésre került.
           edit:
             title: Költségvetés szerkesztése
             update: Költségvetés frissítése
@@ -84,8 +72,6 @@ hu:
           create:
             invalid: Probléma történt a projekt létrehozása során.
             success: Projekt létrehozása sikeres.
-          destroy:
-            success: A projekt törlése sikerült.
           edit:
             title: Projekt szerkesztése
             update: Frissítés
@@ -93,8 +79,6 @@ hu:
             actions: Műveletek
             cancel: Mégsem
             change_budget: Költségvetés megváltoztatása
-            change_category: Kategória módosítása
-            change_scope: Hatáskör megváltoztatása
             change_selected: Kijelölés módosítása
             deselect_implementation: A kiválasztpott törlése a megvalósításra várók közül
             finished_orders: Befejezett szavazások
@@ -106,7 +90,6 @@ hu:
             title: Projektek
             update: Frissítés
             update_budget_button: A projekt költségvetésének frissítése
-            update_scope_button: Hatáskör frissítése
           new:
             create: Létrehozás
             title: Új projekt
@@ -115,24 +98,9 @@ hu:
             success: Projekt frissítése sikeres.
           update_budget:
             select_a_project: Kérem, válasszon projektet.
-            success: 'A projektek sikeresen frissültek a(z) %{subject_name} költségvetésre: %{projects}.'
-          update_category:
-            invalid: 'Ezeknek a javaslatoknak már megvolt a(z) %{subject_name} kategóriája: %{projects}.'
-            select_a_category: Kérlek, válassz kategóriát.
-            select_a_project: Kérlek, válassz projektet.
-            success: 'A projektek sikeresen frissültek a(z) %{subject_name} kategóriában: %{projects}.'
-          update_scope:
-            invalid: 'Ezeknek a javaslatoknak már megvolt a(z) %{subject_name} hatásköre: %{projects}.'
-            select_a_project: Kérlek, válassz projektet.
-            select_a_scope: Kérlek válassz hatókört.
-            success: 'A javaslatok frissítése a(z) %{subject_name} hatáskörben sikeres: %{projects}.'
           update_selected:
-            invalid:
-              selected: 'Ezeket a projekteket már kiválasztásra kerültek a megvalósításra: %{projektek}.'
             select_a_project: Kérlek, válassz projektet.
             select_a_selection: Kérjük, válasszon egy végrehajtási állapotot.
-            success:
-              selected: 'Ezeket a projektek sikseresen kiválasztásra kerültek a megvalósításra: %{projektek}.'
         proposals_imports:
           create:
             invalid: Probléma merült fel a javaslatok projektekbe történő importálásakor.
@@ -191,16 +159,19 @@ hu:
             total_budget: Teljes költségvetés
         project:
           fields:
-            category: Kategória
             id: Azonosító
             map: Térkép
             title: Cím
+      order:
+        status:
+          title: A szavazatod elfogadása sikeres volt
+      order_pdf:
+        title: A szavazatodat sikeresen leadtad.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Az általad kiválasztott projektek a következők:'
           subject: 'A következő részvételi térben szavazott: %{space_name}'
           voted_on_space: A(z) %{space_name} részvételi tér %{budget_name} költségvetésére szavazott.
-          voted_on_space_with_scope: 'A(z) %{budget_name} részvételi tér %{space_name} költségvetésére szavazott itt: %{scope_name} (%{scope_type}).'
       projects:
         budget_confirm:
           are_you_sure: Ha meggondolja magát, később megváltoztathatja szavazatát.
@@ -219,7 +190,6 @@ hu:
             title: Projektek maximuma túllépve
         budget_summary:
           are_you_sure: Biztosan szeretnéd visszavonni a szavazatod?
-          cancel_order: töröld a szavazatod és kezdd újra
           checked_out:
             description: 'Már szavaztál a költségvetésre. Ha meggondoltad magad, kattints ide: %{cancel_link}.'
             title: Költségvetési szavazás befejeződött
@@ -235,8 +205,6 @@ hu:
           message: Szavazatod nem regisztráltuk, mert még nem fejezted be a szavazási folyamatot. Biztosan kilépsz a szavazásból?
           title: Még nem szavaztál
         filters:
-          category: Kategória
-          scope: Hatáskör
           search: Keresés
           status: Státusz
           status_values:
@@ -251,14 +219,6 @@ hu:
             minimum_reached: Elérted a minimumot a szavazáshoz
             start_adding_projects: Kezdj el projekteket hozzáadni
           minimum: Minimum
-          minimum_projects_rule:
-            description: Válassz lekevesebb %{minimum_number} projektet és szavazz a preferenciád szerint a költségvetésük meghatározására.
-          projects_rule:
-            description: Válassz ki legkevesebb %{minimum_number} és legfeljebb %{maximum_number} projektet és szavazz a költségvetés meghatározásához preferenciáid szerint.
-          projects_rule_maximum_only:
-            description: Válassz ki maximum %{maximum_number} projektet és szavazz a preferenciádis szerint a költségvetés meghatározásához.
-          vote_threshold_percent_rule:
-            description: Rendelj hozzá legalább %{minimum_budget} projektet, és szavazz a prefereniáid szerint a költségvetés meghatározásához.
         orders:
           highest_cost: Legmagasabb költség
           label: Projektek rendezése
@@ -280,7 +240,6 @@ hu:
           added: Hozzáadva
           all: Összes
         projects_for: '%{name} projektek'
-        select_projects: Projektek kiválasztása
         show:
           budget: Költségvetés
       prompt: Költségvetés választása
@@ -312,8 +271,6 @@ hu:
             more_information_modal: További információ modális ablak
             projects_per_page: Projektek oldalanként
             resources_permissions_enabled: A műveletek jogosultságai minden projekthez beállíthatók
-            scope_id: Hatókör
-            scopes_enabled: A hatókör engedélyezett
             title: Cím
             total_budget: Teljes költségvetés
             vote_minimum_budget_projects_number: A szavazásban részt vevő projektek minimum száma
@@ -351,8 +308,6 @@ hu:
     orders:
       checkout:
         error: Hiba történt a szavazatod feldolgozása során.
-        success_html: <p>A szavazatod sikeresen leadtad.</p><p class="text-sm font-normal">Megnézheted <a class="text-secondary underline" href="%{rest_of_budgets_link}"> a többi költségvetést</a></p>
-        success_no_left_budgets_html: A szavazatodat sikeresen leadtad.
       destroy:
         error: Hiba történt a szavazatod visszavonása során.
         success: A szavazatod visszavonása sikerült.
@@ -361,6 +316,5 @@ hu:
         project_proposal: A projekt részét képező javaslatok
     statistics:
       orders_count: Támogatja
-      projects_count: Projektek
   index:
     confirmed_orders_count: Szavazatok száma

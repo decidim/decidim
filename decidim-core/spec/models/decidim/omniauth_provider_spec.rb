@@ -20,15 +20,23 @@ module Decidim
           enabled: false,
           client_id: nil,
           client_secret: nil
+        },
+        test: {
+          enabled: false,
+          icon: "tools-line"
         }
       }
     end
 
     describe "available" do
+      before do
+        allow(Decidim).to receive(:omniauth_providers).and_return(omniauth_secrets)
+      end
+
       subject(:available_providers) { Decidim::OmniauthProvider.available }
 
       it "returns all providers" do
-        expect(available_providers.size).to eq(3)
+        expect(available_providers.size).to eq(4)
         expect(available_providers[:facebook]).to eq(omniauth_secrets[:facebook])
       end
     end

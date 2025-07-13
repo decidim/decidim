@@ -10,11 +10,12 @@ shared_examples "manage diplomas" do
   context "when diploma configuration not exists" do
     it "configure the diploma settings" do
       within "tr", text: translated(conference.title) do
+        find("button[data-component='dropdown']").click
         click_on "Configure"
       end
 
       within_admin_sidebar_menu do
-        click_on "Certificate of Attendance"
+        click_on "Certificate of attendance"
       end
 
       dynamically_attach_file(:conference_main_logo, main_logo_path)
@@ -40,11 +41,12 @@ shared_examples "manage diplomas" do
       context "and diplomas has not been sent" do
         before do
           within "tr", text: translated(conference.title) do
+            find("button[data-component='dropdown']").click
             click_on "Configure"
           end
 
           within_admin_sidebar_menu do
-            click_on "Certificate of Attendance"
+            click_on "Certificate of attendance"
           end
         end
 
@@ -70,11 +72,12 @@ shared_examples "manage diplomas" do
 
         it "cannot send the diplomas" do
           within "tr", text: translated(conference.title) do
+            find("button[data-component='dropdown']").click
             click_on "Configure"
           end
 
           within_admin_sidebar_menu do
-            click_on "Certificate of Attendance"
+            click_on "Certificate of attendance"
           end
 
           expect(page).to have_css("#send-diplomas.disabled")
@@ -88,15 +91,16 @@ shared_examples "manage diplomas" do
 
       it "cannot send the diplomas" do
         within "tr", text: translated(conference.title) do
+          find("button[data-component='dropdown']").click
           click_on "Configure"
         end
 
         within_admin_sidebar_menu do
-          click_on "Certificate of Attendance"
+          click_on "Certificate of attendance"
         end
 
         expect(page).to have_no_css("#send-diplomas")
-        expect(page).to have_content("Certificate of Attendance")
+        expect(page).to have_content("Certificate of attendance")
       end
     end
   end

@@ -19,7 +19,7 @@ module Decidim
         def update_agenda_item(form_agenda_item)
           agenda_item_attributes = {
             title: form_agenda_item.title,
-            description: form_agenda_item.description,
+            description: process_description(form_agenda_item.description),
             position: form_agenda_item.position,
             duration: form_agenda_item.duration,
             parent_id: form_agenda_item.parent_id
@@ -29,7 +29,7 @@ module Decidim
             form_agenda_item.agenda_item_children.each do |form_agenda_item_child|
               agenda_item_child_attributes = {
                 title: form_agenda_item_child.title,
-                description: form_agenda_item_child.description,
+                description: process_description(form_agenda_item_child.description),
                 position: form_agenda_item_child.position,
                 duration: form_agenda_item_child.duration,
                 parent_id: agenda_item.id,
@@ -55,6 +55,10 @@ module Decidim
           else
             record.save!
           end
+        end
+
+        def process_description(description)
+          Decidim::ContentProcessor.parse(description, current_organization: form.current_organization).rewrite
         end
       end
     end

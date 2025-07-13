@@ -183,16 +183,6 @@ describe Decidim::Initiatives::Admin::Permissions do
         context "when initiative is created" do
           let(:initiative) { create(:initiative, :created, organization:) }
 
-          context "when initiative is authored by a user group" do
-            let(:user_group) { create(:user_group, organization: user.organization, users: [user]) }
-
-            before do
-              initiative.update(decidim_user_group_id: user_group.id)
-            end
-
-            it { is_expected.to be true }
-          end
-
           context "when initiative has enough approved members" do
             before do
               allow(initiative).to receive(:enough_committee_members?).and_return(true)
@@ -384,8 +374,8 @@ describe Decidim::Initiatives::Admin::Permissions do
     context "when managing initiatives" do
       let(:action_subject) { :initiative }
 
-      context "when reading" do
-        let(:action_name) { :read }
+      context "when printing" do
+        let(:action_name) { :print }
 
         before do
           allow(Decidim::Initiatives).to receive(:print_enabled).and_return(print_enabled)
@@ -396,6 +386,16 @@ describe Decidim::Initiatives::Admin::Permissions do
 
           it { is_expected.to be false }
         end
+
+        context "when print is enabled" do
+          let(:print_enabled) { true }
+
+          it { is_expected.to be true }
+        end
+      end
+
+      context "when reading" do
+        let(:action_name) { :read }
 
         context "when print is enabled" do
           let(:print_enabled) { true }

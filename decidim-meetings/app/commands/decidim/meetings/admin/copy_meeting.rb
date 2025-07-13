@@ -38,14 +38,13 @@ module Decidim
         attr_reader :form, :meeting, :copied_meeting
 
         def copy_meeting!
-          parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: meeting.organization).rewrite
-          parsed_description = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.description, current_organization: meeting.organization).rewrite
+          parsed_title = Decidim::ContentProcessor.parse(form.title, current_organization: meeting.organization).rewrite
+          parsed_description = Decidim::ContentProcessor.parse_with_processor(:inline_images, form.description, current_organization: meeting.organization).rewrite
 
           @copied_meeting = Decidim.traceability.create!(
             Meeting,
             form.current_user,
-            scope: form.scope,
-            category: form.category,
+            taxonomies: form.taxonomies,
             title: parsed_title,
             description: parsed_description,
             end_time: form.end_time,
@@ -69,6 +68,9 @@ module Decidim
             comments_end_time: form.comments_end_time,
             registration_type: form.registration_type,
             registration_url: form.registration_url,
+            reminder_enabled: form.reminder_enabled,
+            send_reminders_before_hours: form.send_reminders_before_hours,
+            reminder_message_custom_content: form.reminder_message_custom_content,
             **fields_from_meeting
           )
         end

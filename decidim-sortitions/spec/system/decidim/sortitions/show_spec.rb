@@ -38,6 +38,17 @@ describe "show" do
       find("#sortitions .card__list").click
     end
 
+    context "when votes are enabled" do
+      let!(:decidim_proposals_component) { create(:proposal_component, :with_votes_enabled, organization: component.organization) }
+      let!(:sortition) { create(:sortition, component:, decidim_proposals_component:) }
+
+      it "shows all selected proposals" do
+        sortition.proposals.each do |p|
+          expect(page).to have_content(translated(p.title))
+        end
+      end
+    end
+
     it "there are selected proposals" do
       expect(sortition.selected_proposals).not_to be_empty
     end

@@ -21,15 +21,6 @@ describe Decidim::CoauthorshipsCell, type: :cell do
     end
   end
 
-  context "with UserGroup coauthorships" do
-    let(:user_group) { create(:user_group, :verified, users: [user]) }
-    let(:coauthors) { [user_group] }
-
-    it "renders the User author" do
-      expect(subject).to have_content(user_group.name)
-    end
-  end
-
   context "with Official coauthorships" do
     let(:coauthors) { [organization] }
 

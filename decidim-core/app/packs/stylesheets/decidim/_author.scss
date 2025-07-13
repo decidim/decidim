@@ -37,27 +37,6 @@
     }
   }
 
-  &__tooltip {
-    @apply grid grid-cols-[1fr_max-content] gap-6 odd:[&>*]:place-self-start even:[&>*]:place-self-end z-50;
-
-    /* overwrite default styles */
-    &[role="tooltip"] {
-      @apply max-w-max;
-    }
-
-    &-links {
-      @apply flex flex-col items-end justify-evenly h-full whitespace-nowrap text-sm hover:[&>*]:underline;
-    }
-  }
-
-  &__tooltip &__avatar-container {
-    @apply w-10 h-10 border-2 border-white hover:border-tertiary;
-  }
-
-  &__tooltip &__name {
-    @apply text-white text-lg font-bold hover:underline;
-  }
-
   &__coauthors {
     @apply flex flex-wrap items-center gap-2;
 

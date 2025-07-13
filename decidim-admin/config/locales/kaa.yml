@@ -11,7 +11,6 @@ kaa:
       component:
         name: Ataması
       organization:
-        highlighted_content_banner_image: Súwret
         name: Ataması
       participatory_space_private_user:
         email: Elektron pochta
@@ -42,15 +41,8 @@ kaa:
       autocomplete:
         no_results: Nátiyjeler tabılmadı
       categories:
-        edit:
-          update: Jańalaw
         index:
           categories_title: Kategoriyalar
-        new:
-          create: Kategoriya jaratıw
-          title: Jańa kategoriya
-        update:
-          success: Kategoriya tabıslı jańalandı.
       components:
         edit:
           update: Jańalaw
@@ -71,8 +63,6 @@ kaa:
           FormPDF: PDF
           JSON: JSON
       filters:
-        category_id_eq:
-          label: Kategoriya
         filter_label: Filtr
         invitation_accepted_at_present:
           values:
@@ -123,9 +113,6 @@ kaa:
         user:
           fields:
             email: Elektron pochta
-        user_group:
-          fields:
-            phone: Telefon
       moderated_users:
         index:
           actions:
@@ -157,12 +144,6 @@ kaa:
           instagram: Instagram
           url: URL
           youtube: YouTube
-      organization_appearance:
-        edit:
-          update: Jańalaw
-        form:
-          images:
-            preview: Aldınnan kóriw
       participatory_space_private_users:
         new:
           create: Jaratıw
@@ -184,7 +165,6 @@ kaa:
       share_tokens:
         actions:
           destroy: Óshiriw
-          share: Bólisiw
       shared:
         gallery:
           add_images: Súwretlerdi qosıw

@@ -1,6 +1,10 @@
 fr-CA:
   activemodel:
     attributes:
+      authorization:
+        verification_attachment: Pièce jointe de vérification
+      census_data:
+        file: Fichier
       config:
         available_methods: Méthodes disponibles
         offline: Hors ligne
@@ -43,6 +47,7 @@ fr-CA:
           destroy:
             confirm: Révoquer avant la date d'autorisation ne peut pas être annulée. Êtes-vous sûr de vouloir continuer ?
             confirm_all: La révocation des autorisations ne peut être annulée. Êtes-vous sur de vouloir continuer?
+          destroy_nok: Une erreur s'est produite lors de la révocation des autorisations.
           destroy_ok: Toutes les autorisations correspondantes ont été annulées avec succès.
           info: Il y a un total de %{count} participants vérifiés.
           no_data: Aucun participant vérifié.
@@ -73,6 +78,12 @@ fr-CA:
             - Un exemple de gestionnaire d'autorisation pour que les développeurs puissent comprendre comment une simple vérification fonctionne.
             - Il est destiné aux développeurs afin qu'ils puissent comprendre comment implémenter leur propre système de vérification.
             - Obtenir une vérification en saisissant un numéro de document se terminant par "X".
+        ephemeral_dummy_authorization_handler:
+          help:
+            - Un exemple de gestionnaire d'autorisation éphémère pour que les développeurs puissent comprendre comment une simple vérification fonctionne.
+            - Il est destiné aux développeurs afin qu'ils puissent comprendre comment implémenter leur propre système de vérification.
+            - Il s'agit d'une copie d'un exemple d'autorisation.
+            - Soyez vérifié en saisissant un numéro de document se terminant par "X".
         id_documents:
           help:
             - Les utilisateurs remplissent leurs informations d'identité et téléchargent une copie de leur document.
@@ -123,17 +134,6 @@ fr-CA:
         destroy:
           error: Un problème est survenu lors de la destruction de l'autorisation.
           success: Vous avez supprimé avec succès l'autorisation.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Vérifier avec un autre exemple de gestionnaire d'autorisation
-            csv_census: Vérifier par rapport au recensement de l'organisation
-            dummy_authorization_handler: Vérifier en comparant avec l'exemple du gestionnaire d'autorisation
-            dummy_authorization_workflow: Vérifiez par rapport à l'exemple de procédure d'autorisation
-            id_documents: Vérifiez votre identité en téléchargeant votre document d'identité
-            postal_letter: Vérifiez votre identité en recevant un code de vérification par courrier postal
-            sms: Soyez vérifié en recevant un code de vérification par SMS
-          title: Vérifier votre Identité
-          verify_with_these_options: 'Voici les options disponibles pour vérifier votre identité :'
         index:
           expired_verification: Vérification expiré
           granted_verification: Vérification accordée
@@ -145,6 +145,13 @@ fr-CA:
         new:
           authorize: Envoyer
           authorize_with: Vérifier votre identité avec %{authorizer}
+          tos_agreement: En vérifiant votre identité, vous acceptez %{link}.
+        onboarding_pending:
+          completed_verifications: Vous avez été autorisé avec succès, maintenant vous pouvez %{action} dans la %{resource_name}
+          granted_verifications: Vérifications accordées
+          onboarding_message_html: Vous êtes presque prêt à %{action} sur l' <strong>%{resource_title}</strong> %{resource_name}. Veuillez vérifier votre compte en complétant les autorisations suivantes.
+          pending_verifications: Vérifications en attente
+          unauthorized: Vous n'êtes pas autorisé(e) à %{action} dans cette ressource
         renew_modal:
           cancel: Annuler
           continue: Continuer
@@ -155,28 +162,13 @@ fr-CA:
       csv_census:
         admin:
           census:
-            create:
-              success: '%{count} éléments importés avec succès (%{errors} erreurs).'
-            destroy_all:
-              success: Toutes les données du recensement ont été supprimées.
-          destroy:
-            confirm: La suppression du recensement est irréversible. Êtes-vous sûr de vouloir continuer ?
-            title: Supprimer toutes les données du recensement
+            new_import:
+              submit: Déposer un fichier
           index:
-            data: Il y a %{count} enregistrements chargés au total. La dernière date de téléchargement était le %{due_date}.
-            empty: Il n'y a pas de données de recensement. Utilisez le formulaire ci-dessous pour l'importer à l'aide d'un fichier CSV.
             title: Données de recensement actuelles
           instructions:
             body: Pour ce faire, vous devez entrer dans l’administration système et ajouter les autorisations csv_census à l’organisation.
             title: Vous devez activer le recensement CSV pour cette organisation
-          new:
-            example: |
-              john.doe@exemple.org
-              jane.doe@exemple.org
-            file: "Fichier .csv avec données de courrier électronique"
-            info: 'Doit être un fichier au format CSV avec une seule colonne avec l''adresse e-mail :'
-            submit: Téléverser un fichier
-            title: Télécharger un nouveau recensement
         authorizations:
           new:
             error: Nous n'avons pas pu vérifier votre compte ou vous n'êtes pas dans le recensement de l'organisation.
@@ -186,11 +178,9 @@ fr-CA:
           postal_codes:
             one: La participation est réservée aux utilisateurs avec le code postal %{postal_codes}.
             other: 'La participation est réservée aux utilisateurs avec l''un des codes postaux suivants: %{postal_codes}.'
-          scope: La participation est réservée aux participants ayant la portée %{scope_name}.
           user_postal_codes:
             one: La participation est réservée aux participants avec le code postal %{postal_codes}, et votre code postal est %{user_postal_code}.
             other: 'La participation est réservée aux participants avec l''un des codes postaux suivants : %{postal_codes}. Votre code postal est %{user_postal_code}.'
-          user_scope: La participation est réservée aux participants ayant le secteur %{scope_name}, et votre secteur est %{user_scope_name}.
       id_documents:
         admin:
           config:
@@ -255,6 +245,7 @@ fr-CA:
           pending_authorizations:
             index:
               address: Adresse
+              already_sent: La lettre postale a déjà été envoyée et ne peut plus être marquée comme envoyée.
               letter_sent_at: Lettre envoyée à
               mark_as_sent: Marquer comme envoyé
               not_yet_sent: Pas encore envoyé

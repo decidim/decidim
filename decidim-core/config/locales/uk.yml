@@ -21,21 +21,16 @@ uk:
     attributes:
       decidim/user:
         current_password: Поточний пароль
-        email: Адреса електронної пошти
         name: Ім'я учасника
         password: Пароль
         password_confirmation: Підтвердження паролю
         remember_me: Запам'ятати мене
-    models:
-      decidim/user_group:
-        one: Гурт учасників
-        few: Гурти учасників
-        many: Гуртів учасників
-        other: Гуртів учасників
   booleans:
     'false': 'Ні'
     'true': 'Так'
   date:
+    buttons:
+      select: Оберіть
     formats:
       decidim_short: "%d.%m.%Y"
       decidim_with_month_name: "%d %B %Y"
@@ -207,15 +202,12 @@ uk:
           username_help: Загальнодоступне ім'я, яке відображається у ваших дописах. З метою гарантування анонімності, може бути будь-яким.
       sessions:
         new:
-          are_you_new?: Ви вперше на цьому майданчику?
           register: Створити обліковий запис
       shared:
         newsletter_modal:
           buttons:
             check: Поставити галочку та продовжити
           title: Сповіщення про новини
-        omniauth_buttons:
-          or: Або
     doorkeeper:
       authorizations:
         new:
@@ -233,9 +225,6 @@ uk:
     download_your_data:
       export:
         ready: Готово
-      show:
-        download_data: Завантажити дані
-        request_data: Подати запит на дані
     errors:
       internal_server_error:
         title: При з'єднанні з нашим сервером сталася помилка
@@ -269,8 +258,6 @@ uk:
     export_mailer:
       download_your_data_export:
         download: Завантажити
-      export:
-        ready: Нижче додається стиснута в архів версія вашого збереженого файлу.
       subject: Ваш збережений файл "%{name}" готовий
     filters:
       linked_classes:
@@ -379,8 +366,6 @@ uk:
         hero:
           participate: Взяти участь
           welcome: Ласкаво просимо до %{organization}!
-        statistics:
-          headline: Поточний стан %{organization}
         sub_hero:
           register: Зареєструватися
     profile:
@@ -391,13 +376,9 @@ uk:
         followers: Ті, хто стежить
         following: 'Стежить за:'
       user:
-        edit_profile: Редагувати профіль
+        actions:
+          edit_profile: Редагувати профіль
     reported_mailer:
-      hide:
-        hello: Доброго дня, %{name}%!
-        manage_moderations: Керувати діями з модерації
-        report_html: <p>Наступний <a href="%{url}">вміст</a> було автоматично приховано.</p>
-        subject: Ресурс було автоматично приховано
       report:
         hello: Доброго дня, %{name}%!
         report_html: <p>Про наступний <a href="%{url}">вміст</a> було передано скаргу адміністраторам.</p>
@@ -407,14 +388,8 @@ uk:
         success: Скарга була успішно створена, і вона буде розглянута адміністратором.
     scopes:
       global: Всеохопний обсяг
-      picker:
-        cancel: Скасувати
-        choose: Оберіть
-        title: Оберіть %{field}
       prompt: Оберіть обсяг
-      scopes: Обсяги
     search:
-      results_found_for_term: '%{count} Висліди пошуку: "%{term}"'
       term_input_placeholder: Шукати
     searches:
       filters:
@@ -440,9 +415,6 @@ uk:
         share_link: Поділитись посиланням
     statistics:
       comments_count: Коментарів
-    user_conversations:
-      update:
-        error: Повідомлення не надіслано. Спробуйте ще раз пізніше
   devise:
     invitations:
       edit:
@@ -546,6 +518,8 @@ uk:
     weibo: Сіна Вайбо
     xing: Xing
   time:
+    buttons:
+      select: Оберіть
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

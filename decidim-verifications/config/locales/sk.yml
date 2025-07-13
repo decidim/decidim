@@ -65,17 +65,6 @@ sk:
           unconfirmed: Potrebujete potvrdiť svoj e-mail, aby ste sa autorizovali.
         destroy:
           error: Počas rušenia autorizácie nastal problém.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Overte proti inému príkladu poverenia pre autorizáciu
-            csv_census: Overte voči cenzu organizácie
-            dummy_authorization_handler: Overte proti príklade poverenia autorizácie
-            dummy_authorization_workflow: Overte proti pracovnému postupu autorizácie
-            id_documents: Získajte overenie odoslaním dokladu totožnosti
-            postal_letter: Overte si, či dostanete overovací kód poštou
-            sms: Overte svoj účet prostsredníctvom SMS
-          title: Potvrďte vašu identitu
-          verify_with_these_options: 'Sú to dostupné možnosti na overenie totožnosti:'
         index:
           expired_verification: Overovací kód vypršal
           show_renew_info: Kliknite na obnovenie verifikácie
@@ -90,18 +79,10 @@ sk:
         start_exploring: začať skúmať
       csv_census:
         admin:
-          destroy:
-            title: Zmazať všetky dáta sčítania
           index:
-            empty: Neexistujú údaje o sčítaní. Pomocou nižšie uvedeného formulára ho importujte pomocou súboru CSV.
             title: Aktuálne údaje o sčítaní
           instructions:
             body: Ak chcete urobiť, musíte vstúpiť do správy systému a pridať oprávnenia csv_census organizáciu
-          new:
-            file: ".CSV súbor s dátami e-mailov"
-            info: 'Must byť súborom vo formáte CSV s iba jedným stĺpcom s e-mailovou adresou:'
-            submit: Nahrať súbor
-            title: Nahrajte nové sčítanie
         authorizations:
           new:
             error: Váš účet nebol overený, alebo nie ste v sčítanie organizácie.

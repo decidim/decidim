@@ -43,15 +43,6 @@ uk:
       authorizations:
         create:
           error: При спробі створити підтвердження особи сталася помилка.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Підтвердьте, порівнявши з іншим прикладом підтвердження своєї особи
-            dummy_authorization_handler: Підтвердьте, порівнявши з прикладом підтвердження своєї особи
-            dummy_authorization_workflow: Підтвердьте, порівнявши з прикладом підтвердження своєї особи
-            id_documents: Підтвердіть особу, завантаживши ваш документ
-            postal_letter: Підтвердьте особу, отримавши перевірочний код паперовим поштовим листом
-          title: Підтвердьте свою особу
-          verify_with_these_options: 'Наявні такі способи підтвердити вашу особу:'
         new:
           authorize: Надіслати
           authorize_with: Підтвердити особу за допомогою %{authorizer}

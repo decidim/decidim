@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.version = Decidim::Proposals.version
   s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
-  s.license = "AGPL-3.0"
+  s.license = "AGPL-3.0-or-later"
   s.homepage = "https://decidim.org"
   s.metadata = {
     "bug_tracker_uri" => "https://github.com/decidim/decidim/issues",
@@ -34,7 +34,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "decidim-comments", Decidim::Proposals.version
   s.add_dependency "decidim-core", Decidim::Proposals.version
-  s.add_dependency "doc2text", "~> 0.4.7"
+  s.add_dependency "doc2text", "~> 0.4.0", ">= 0.4.8"
   s.add_dependency "redcarpet", "~> 3.5", ">= 3.5.1"
 
   s.add_development_dependency "decidim-admin", Decidim::Proposals.version

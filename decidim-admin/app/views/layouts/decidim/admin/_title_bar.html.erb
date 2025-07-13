@@ -19,7 +19,7 @@
             <ul class="dropdown dropdown__bottom">
               <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
                 <li class="dropdown__item">
-                  <%= link_to(locale_name(locale), decidim.locale_path(locale:), method: :post, tabindex: "-1") %>
+                  <%= link_to(locale_name(locale), decidim.locale_path(locale:), class: "dropdown__button", method: :post, tabindex: "-1") %>
                 </li>
               <% end %>
             </ul>
@@ -36,7 +36,7 @@
         <div id="admin-dropdown-menu-login" aria-hidden="true">
           <ul class="dropdown dropdown__bottom">
             <li class="dropdown__item">
-              <%= link_to(t("layouts.decidim.user_menu.log_out"), decidim.destroy_user_session_path, method: :delete, tabindex: "-1") %>
+              <%= link_to(t("layouts.decidim.user_menu.log_out"), decidim.destroy_user_session_path, class: "dropdown__button", method: :delete, tabindex: "-1") %>
             </li>
           </ul>
         </div>

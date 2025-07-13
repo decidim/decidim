@@ -1,0 +1,56 @@
+<% focus_mode_index = local_assigns[:focus_mode_origin] == "index" %>
+<% focus_mode_show = local_assigns[:focus_mode_origin] == "show" %>
+<% start_voting_param = params[:start_voting] %>
+
+<% show_vote_button = !current_order_checked_out? && voting_open? && current_order_can_be_checked_out? %>
+<% show_hint = !show_vote_button && start_voting_param.present? %>
+
+<div data-order-progress-responsive="true" class="bg-transparent">
+  <% if show_hint %>
+    <div id="progress-summary-backdrop" class="fixed hidden inset-0 z-40 bg-black/50"></div>
+  <% end %>
+
+  <div class="fixed bottom-0 left-0 z-50 flex flex-col w-full" data-sticky-buttons>
+    <div class="budget-summary__content rounded-t-lg" data-progressbox-fixed>
+      <div class="flex items-center justify-between">
+        <%= render partial: "decidim/budgets/projects/order_progress_summary/progress_box" %>
+        <button
+          id="progress-summary-button"
+          data-component="dropdown"
+          data-target="progress-summary-dropdown-menu"
+          data-open="<%= show_hint ? "true" : "false" %>"
+          aria-expanded="<%= show_hint ? "true" : "false" %>"
+          class="w-auto pr-0 cursor-pointer">
+          <%= icon "arrow-up-s-line" %>
+          <%= icon "arrow-down-s-line" %>
+        </button>
+      </div>
+      <div class="pt-5" id="progress-summary-dropdown-menu" aria-hidden="<%= show_hint ? "false" : "true" %>">
+        <ul class="list-disc">
+          <li>
+            <%= current_rule_description %>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <% if focus_mode_show %>
+      <div class="p-4 bg-white">
+        <%= render partial: "decidim/budgets/projects/project_budget_button" %>
+      </div>
+    <% elsif focus_mode_index && show_vote_button %>
+      <div class="p-4 bg-white">
+        <button class="button button__secondary button__lg w-full" data-dialog-open="budget-confirm">
+          <%= t("vote", scope: "decidim.budgets.projects.budget_summary") %>
+        </button>
+      </div>
+    <% elsif focus_mode_index && current_order_checked_out? %>
+      <div class="p-4 bg-white">
+        <%= link_to budget_order_path(return_to: "budget"), method: :delete, class: "button button__lg button__secondary cancel-order w-full", data: { confirm: t("are_you_sure", scope: "decidim.budgets.projects.budget_confirm") } do %>
+          <span><%= t("cancel_order", scope: "decidim.budgets.projects.budget_summary") %></span>
+          <%= icon "delete-bin-line" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

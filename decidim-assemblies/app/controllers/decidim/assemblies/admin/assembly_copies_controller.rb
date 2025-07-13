@@ -20,7 +20,7 @@ module Decidim
           CopyAssembly.call(@form, current_assembly, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("assemblies_copies.create.success", scope: "decidim.admin")
-              redirect_to assemblies_path(parent_id: current_assembly.parent_id)
+              redirect_to assemblies_path
             end
 
             on(:invalid) do

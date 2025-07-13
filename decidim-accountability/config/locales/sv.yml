@@ -1,17 +1,19 @@
 sv:
   activemodel:
     attributes:
+      milestone:
+        description: Beskrivning
+        entry_date: Datum
+        title: Titel
       result:
         decidim_accountability_status_id: Status
         decidim_category_id: Kategori
-        decidim_scope_id: Omfattning
+        decidim_scope_id: Indelning
         description: Beskrivning
         end_date: Slutdatum
-        meetings_ids: Inkluderade möten
         progress: Genomförande
-        project_ids: Projekt som omfattas
-        proposals: Förslag som omfattas
         start_date: Startdatum
+        subresults: Delresultat
         title: Titel
         updated_at: Uppdaterad
       status:
@@ -19,15 +21,19 @@ sv:
         key: Nyckel
         name: Namn
         progress: Genomförande
-      timeline_entry:
-        description: Beskrivning
-        entry_date: Datum
-        title: Titel
     models:
       decidim/accountability/proposal_linked_event: Förslag som ingår i ett resultat
       decidim/accountability/result_progress_updated_event: Uppdaterat resultatutvecklingen
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: Resultatet %{link} har tagits med
+            meetings_ids: 'Diskuterades på det här mötet: %{link}'
+            project_ids: 'Lades till i det här projektet: %{link}'
+            proposal_ids: 'Lades till i det här förslaget: %{link}'
+            text: 'Lades till i det här resultatet: %{link}'
       decidim/accountability/result:
         one: Resultat
         other: Resultat
@@ -36,25 +42,55 @@ sv:
       actions:
         attachment_collections: Mappar
         attachments: Bifogade filer
+        confirm_delete_result: Vill du ta bort det här resultatet?
         confirm_destroy: Vill du radera detta %{name}?
+        deleted_results_info: Borttagna resultat kan återställas från papperskorgen.
         destroy: Radera
         edit: Redigera
+        import: Importera resultat från en annan komponent
+        import_csv: Importera resultat från CSV-fil
+        milestones: Milstolpar
+        new_milestone: Ny milstolpe
+        new_result: Nytt resultat
+        new_status: Ny status
         preview: Förhandsvisa
-        timeline_entries: Projektutveckling
         title: Åtgärder
+        view_deleted_results: Visa raderade resultat
       admin:
         exports:
           result_comments: Kommentarer
           results: Resultat
+        import_components:
+          create:
+            invalid: Det gick inte att importera resultaten, följ instruktionerna noga och se till att du har valt projekt för genomförande.
+          filters:
+            new_items_projects:
+              one: 1 valt projekt kommer att importeras
+              other: "%{count} valda projekt kommer att importeras"
+            new_items_proposals:
+              one: 1 förslag kommer att importeras
+              other: "%{count} förslag kommer att importeras"
+            proposal_state: Förslagets status
+            select_state: Välj status
+          form:
+            create: Importera
+            no_components: Det finns inga komponenter i deltagarutrymmet att importera.
+            origin_component_id: Ursprungskomponent
+            select_component: Välj en komponent
+          new:
+            success:
+              one: 1 projekt väntar på att importeras. Du får ett e-postmeddelande när det är klart.
+              other: "%{count} projekt väntar på att importeras. Du får ett e-postmeddelande när det är klart."
+            title: Importera resultat från en annan komponent
         import_results:
           new:
-            download_export: Ladda ner exporten som CSV
+            download_export: Ladda ner exporten som CSV-fil
             import: Importera
             info: |
-              <p>Vi rekommenderar att du följer dessa steg:</p>
+              <p>Vi rekommenderar att du följer de här stegen:</p>
               <ol>
-              <li><a href='%{link_new_status}' target='_blank'>Skapa statusarna för de resultat</a> som du vill lägga till</li>
-              <li><a href='%{link_new_result}' target='_blank'>Skapa minst ett resultat manuellt</a> via denna administratörspanel innan du använder Import, för att få en bättre förståelse för formatet och vad du behöver fylla i.</li>
+              <li><a href='%{link_new_status}' target='_blank'>Skapa status för de resultat</a> som du vill lägga till</li>
+              <li><a href='%{link_new_result}' target='_blank'>Skapa minst ett resultat manuellt</a> från administratörspanelen innan du importerar, för att få en bättre förståelse för formatet och vad du behöver fylla i.</li>
               <li>%{link_export_csv}</li>
               <li>Genomför ändringarna lokalt. Du kan endast ändra följande kolumner i CSV-filen:
               <ul>
@@ -71,39 +107,88 @@ sv:
               </ul>
               </li>
               </ol>
+            title: Importera resultat från CSV-fil
         imports:
           create:
+            invalid: Det gick inte att importera resultaten.
             success: Importen av filen har påbörjats. Inom några minuter kommer du att få ett e-postmeddelande med importresultatet.
+        milestones:
+          create:
+            invalid: Det gick inte att skapa denna milstolpe.
+            success: Milstolpen skapades.
+          destroy:
+            success: Milstolpen togs bort.
+          edit:
+            title: Redigera milstolpe
+            update: Uppdatera milstolpe
+          index:
+            title: Milstolpar
+          new:
+            create: Skapa milstolpe
+            title: Ny milstolpe
+          update:
+            invalid: Det gick inte att uppdatera denna milstolpe.
+            success: Milstolpen har uppdaterats.
         models:
           result:
             name: Resultat
           status:
             name: Status
-        projects_import:
-          create:
-            invalid: Det gick inte att importera projekten till resultat, följ instruktionerna noga och se till att du har valt projekt för genomförande.
-          new:
-            create: Importera
-            import_all_selected_projects: Importera alla projekt som valts för genomförande
-            new_items:
-              one: 1 valt projekt kommer att importeras
-              other: "%{count} valda projekt kommer att importeras"
-            no_components: Det finns inga budgetkomponenter i detta deltagande utrymme för att exportera projekt till resultat.
-            origin_component_id: Ursprungskomponent
-            select_component: Välj en komponent
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: Ändra datum
+              end_date: Slutdatum
+              start_date: Startdatum
+            dropdown:
+              actions: Åtgärder
+              change_dates: Ändra datum
+              change_status: Ändra status
+              change_taxonomies: Ändra kategorier
+            status_form:
+              change_status: Ändra status
+              status: Status
+            submit_buttons:
+              cancel: Avbryt
+            taxonomies_form:
+              change_taxonomies: Ändra kategorier
+          create:
+            invalid: Det gick inte att skapa resultatet.
+            success: Resultatet har skapats.
           edit:
             title: Redigera resultat
             update: Uppdatera resultat
           index:
+            selected: Valda
             title: Resultat
+          manage_trash:
+            title: Borttagna resultat
           new:
             create: Skapa resultat
             title: Nytt resultat
+          update:
+            invalid: Det gick inte att uppdatera resultatet.
+            success: Resultatet har uppdaterats.
+          update_dates:
+            invalid: Det gick inte att uppdatera resultatets datum
+            success: Resultatets datum har uppdaterats
+          update_status:
+            invalid: Det gick inte att uppdatera resultatets status
+            success: Resultatets status har uppdaterats
+          update_taxonomies:
+            invalid: Det gick inte att uppdatera kategorierna %{taxonomies} för resultatet %{results}
+            select_a_result: Välj ett resultat
+            select_a_taxonomy: Välj en kategori
+            success: Kategorierna %{taxonomies} för resultat %{results} har uppdaterats
         shared:
           subnav:
             statuses: Status
         statuses:
+          create:
+            invalid: Det gick inte att skapa statusen.
+            success: Statusen har skapats.
+          destroy:
+            success: Statusen har raderats.
           edit:
             title: Redigera status
             update: Uppdatera status
@@ -112,60 +197,69 @@ sv:
           new:
             create: Skapa status
             title: Ny status
-        timeline_entries:
-          edit:
-            title: Redigera post
-            update: Uppdatera post
-          index:
-            title: Poster i projekttidslinjen
-          new:
-            create: Skapa post
-            title: Ny post
+          update:
+            invalid: Det gick inte att uppdatera statusen.
+            success: Statusen har uppdaterats.
       admin_log:
+        milestones:
+          create: "%{user_name} skapade milstolpen %{resource_name}"
+          delete: "%{user_name} tog bort milstolpen %{resource_name}"
+          update: "%{user_name} uppdaterade milstolpen %{resource_name}"
         result:
           create: "%{user_name} skapade resultatet %{resource_name} i %{space_name}"
           delete: "%{user_name} raderade resultatet %{resource_name} i %{space_name}"
+          restore: "%{user_name} återställde resultatet %{resource_name} för %{space_name}"
+          soft_delete: "%{user_name} raderade resultatet %{resource_name} i %{space_name}"
           update: "%{user_name} uppdaterade resultatet %{resource_name} i %{space_name}"
         status:
           create: "%{user_name} skapade statusen %{resource_name}"
           delete: "%{user_name} raderade statusen %{resource_name}"
           update: "%{user_name} uppdaterade statusen %{resource_name}"
-        timeline_entry:
-          create: "%{user_name} skapade steget %{resource_name} för tidslinjen"
-          delete: "%{user_name} raderade steget %{resource_name} i tidslinjen"
-          update: "%{user_name} uppdaterade steget %{resource_name} i tidslinjen"
         value_types:
           parent_presenter:
             not_found: 'Föräldraposten hittades inte i databasen (ID: %{id})'
       content_blocks:
         highlighted_results:
           results: Resultat
+      creation:
+        text: Resultatet har skapats
       import_mailer:
         import:
           errors: Fel
+          errors_present: Det gick inte att importera resultaten.
           row_number: Rad
-          subject: Lyckad import av resultat
-          success: Lyckad import av resultat. Du kan granska resultaten i administrationsgränssnittet.
+          subject: Resultaten har importerats
+          success: Resultaten har importerats. Du kan granska resultaten i administrationsgränssnittet.
       import_projects_mailer:
         import:
           added_projects:
             one: Ett resultat importerades från projekt.
             other: "%{count} resultat importerades från projekt."
           subject: Projekten har importerats
-          success: Projekten har importerats till resultat. Du kan se resultaten i administrationsgränssnittet.
+          success: Projekten har importerats till resultat i %{component_name}. Du kan se resultaten i administrationsgränssnittet.
+      import_proposals_mailer:
+        import:
+          added_proposals:
+            one: Ett resultat importerades från förslagen
+            other: "%{count} resultat importerades från förslagen."
+          subject: Förslagen har importerats
+          success: Förslagen har importerats till resultat i %{component_name}. Du kan se resultatet i administrationsgränssnittet.
       last_activity:
         new_result: 'Nytt resultat:'
       models:
+        milestone:
+          fields:
+            entry_date: Datum
+            title: Titel
         result:
           fields:
-            category: Kategori
             created_at: Skapad
             end_date: Slutdatum
             id: ID
             progress: Genomförande
-            scope: Omfång
             start_date: Startdatum
             status: Status
+            taxonomies: Kategorier
             title: Titel
         status:
           fields:
@@ -173,56 +267,58 @@ sv:
             key: Nyckel
             name: Namn
             progress: Behandling
-        timeline_entry:
-          fields:
-            entry_date: Datum
-            title: Titel
       results:
         count:
           results_count:
             one: Ett resultat
             other: "%{count} resultat"
-        filters:
-          all: Alla
-        home:
-          categories_label: Kategorier
-          subcategories_label: Underkategorier
         home_header:
-          global_status: Global genomförandestatus
-        nav_breadcrumb:
-          global: Globalt genomförande
+          global_status: Status för genomförande
+        milestones:
+          title: Milstolpar
         no_results: Det finns inga projekt
+        root_taxonomies:
+          title: 'Visa:'
         search:
           search: Sök efter åtgärder
         show:
           stats:
             back_to_resource: Gå tillbaka till resultatet
-        timeline:
-          title: Projektutveckling
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Kategori
-          scope_id_eq:
-            label: Omfång
           status_id_eq:
             label: Status
+          taxonomies_part_of_contains:
+            label: Kategori
+      tooltips:
+        deleted_results_info: Kan inte ta bort detta resultat
     components:
       accountability:
         actions:
-          comment: Kommentar
-        name: Ansvarsskyldighet
+          comment: Kommentera
+        name: Genomförande
         settings:
           global:
-            comments_enabled: Kommentarer på
-            comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
+            clear_all: Rensa alla
+            comments_enabled: Aktivera kommentarer
+            comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
+            default_taxonomy: Standardkategori
+            default_taxonomy_help: Välj vilka kategorier du vill visa som standard. Om ingen kategori är vald, kommer resultatet visas som en lista.
+            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
             display_progress_enabled: Visa behandling
+            geocoding_enabled: Aktivera visning på karta
             intro: Intro
-            scope_id: Omfång
-            scopes_enabled: Omfång aktiverade
+            no_taxonomy_filters_found: Inga filter för kategorier hittades.
+            taxonomy_filters: Välj filter för komponenten
+            taxonomy_filters_add: Lägg till filter
           step:
-            comments_blocked: Kommentarer blockerade
+            comments_blocked: Stäng av kommentarer
+          visualization: Visualisering
+    download_your_data:
+      show:
+        result_comments: Exportera resultatkommentarer
+        results: Exportera resultat
     events:
       accountability:
         proposal_linked:
@@ -235,14 +331,43 @@ sv:
           email_outro: Du har fått detta meddelande eftersom du följer "%{proposal_title}", och detta förslag ingår i resultatet "%{resource_title}". Du kan sluta ta emot meddelanden genom att följa föregående länk.
           email_subject: En uppdatering till behandlingen av %{resource_title}
           notification_title: Resultatet <a href="%{resource_path}">%{resource_title}</a>, som ingår i förslaget <a href="%{proposal_path}">%{proposal_title}</a>, är nu %{progress}% färdigt.
-    metrics:
-      results:
-        description: Antal genererade resultat
-        object: resultat
-        title: Resultat
+    open_data:
+      help:
+        result_comments:
+          alignment: Positiva, negativa eller neutrala kommentarer
+          author: Namn på den som kommenterat
+          body: Kommentaren
+          commentable_id: Kommentarens unika id
+          commentable_type: Vad som kommenterades (resultat, förslag etc)
+          created_at: Datum för kommentaren
+          depth: Kommentarens plats i en hierarki av kommentarer (om den är ett svar på en annan kommentar)
+          id: Id för kommentaren
+          locale: Kommentarförfattarens språk
+          root_commentable_url: URL till innehållet som är relaterat till kommentaren
+        results:
+          address: Adress till resultatet (om tillämpbart)
+          children_count: Antal underliggande resultat
+          comments_count: Antal kommentarer till resultatet
+          component: Komponent som resultatet tillhör
+          created_at: Datum då resultatet skapades
+          description: Beskrivning av resultatet
+          end_date: Datum då resultatet genomförts och är slutfört
+          id: Unikt id för resultatet
+          latitude: Latitud för resultatet
+          longitude: Longitud för resultatet
+          parent: Det överordnade resultatet (om tillämpbart)
+          progress: Genomförande av resultatet i procent
+          proposal_urls: URLer till de förslag som ingår i resultatet
+          reference: Unikt id för resultatet
+          start_date: Datum när genomförandet av resultatet inleds
+          status: Nuvarande status för resultatet
+          taxonomies: Kategorier för resultatet
+          title: Titel på resultatet
+          updated_at: Senaste datum när resultatet uppdaterades
+          url: URL för resultatet
     participatory_spaces:
       highlighted_results:
-        see_all: Se alla resultat (%{count})
+        see_all: Visa alla resultat
     resource_links:
       included_projects:
         result_project: Projekt som ingår i detta resultat
@@ -250,3 +375,4 @@ sv:
         result_proposal: Förslag som ingår i detta resultat
     statistics:
       results_count: Resultat
+      results_count_tooltip: Antal beslut eller resultat som skapats i det här deltagarutrymmet.

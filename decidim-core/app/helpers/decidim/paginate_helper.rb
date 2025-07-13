@@ -13,7 +13,7 @@ module Decidim
 
       per_page = (params[:per_page] || paginate_params[:per_page] || Decidim::Paginable::OPTIONS.first).to_i
 
-      content_tag :div, class: "flex flex-col-reverse md:flex-row items-center justify-between gap-1 py-8 md:py-16", data: { pagination: "" } do
+      content_tag :div, class: "flex flex-col-reverse md:flex-row items-center justify-between gap-1 py-8 md:py-16 md:flex-wrap", data: { pagination: "" } do
         template = ""
         template += render(partial: "decidim/shared/results_per_page", locals: { per_page: }, formats: [:html]) if collection.total_pages.positive?
         template += paginate collection, window: 2, outer_window: 1, theme: "decidim", params: paginate_params

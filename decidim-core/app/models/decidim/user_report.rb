@@ -19,6 +19,10 @@ module Decidim
       # Decidim::DownloadYourDataSerializers::DownloadYourDataReportSerializer
     end
 
+    def self.ransackable_attributes(_auth_object = nil)
+      %w(reason)
+    end
+
     private
 
     # Private: check if the moderation and the user have the same organization

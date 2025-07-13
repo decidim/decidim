@@ -1,0 +1,36 @@
+<div id="js-bulk-actions-wrapper" class="relative">
+  <button
+    id="js-bulk-actions-button"
+    class="button button__sm button__transparent-secondary hide"
+    type="button"
+    data-component="dropdown"
+    data-target="js-bulk-actions-dropdown"
+    data-action-button>
+    <%= t(".actions") %>
+    <%= icon "arrow-down-s-line" %>
+    <%= icon "arrow-down-s-line" %>
+  </button>
+
+  <ul
+    id="js-bulk-actions-dropdown"
+    class="dropdown dropdown__bottom"
+    aria-hidden="true">
+    <% if current_component_taxonomy_filters&.any? %>
+      <li class="dropdown__item">
+        <button type="button" class="dropdown__button" data-action="change-taxonomies">
+          <%= t(".change_taxonomies") %>
+        </button>
+      </li>
+    <% end %>
+    <li class="dropdown__item">
+      <button type="button" class="dropdown__button" data-action="change-dates">
+        <%= t(".change_dates") %>
+      </button>
+    </li>
+    <li class="dropdown__item">
+      <button type="button" class="dropdown__button" data-action="change-status">
+        <%= t(".change_status") %>
+      </button>
+    </li>
+  </ul>
+</div>

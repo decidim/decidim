@@ -16,7 +16,7 @@ module Decidim
       end
 
       describe "unblock" do
-        shared_examples "unblocking a user or group" do
+        shared_examples "unblocking a user" do
           context "when having a user" do
             it "flashes a notice message" do
               delete :destroy, params: { user_id: user.id }
@@ -57,24 +57,19 @@ module Decidim
         context "when its a user" do
           let!(:user) { create(:user, :blocked, :confirmed, organization:, nickname: "some_nickname") }
 
-          it_behaves_like "unblocking a user or group"
-        end
-
-        context "when its a user group" do
-          let!(:user) { create(:user_group, :blocked, :confirmed, organization:, nickname: "another_nickname") }
-
-          it_behaves_like "unblocking a user or group"
+          it_behaves_like "unblocking a user"
         end
       end
 
       describe "block" do
-        shared_examples "blocking a user or group" do
+        shared_examples "blocking a user" do
           context "when having a user" do
             it "flashes a notice message" do
               put :create, params: { user_id: user.id, justification: ::Faker::Lorem.sentence(word_count: 12) }
 
               expect(flash[:notice]).to be_present
               expect(user.reload.blocked?).to be(true)
+              expect(response).not_to redirect_to(moderated_users_path(blocked: true))
             end
           end
 
@@ -104,13 +99,7 @@ module Decidim
         context "when its a user" do
           let!(:user) { create(:user, :confirmed, organization:, nickname: "some_nickname") }
 
-          it_behaves_like "blocking a user or group"
-        end
-
-        context "when its a user group" do
-          let!(:user) { create(:user_group, :confirmed, organization:, nickname: "another_nickname") }
-
-          it_behaves_like "blocking a user or group"
+          it_behaves_like "blocking a user"
         end
       end
     end

@@ -26,18 +26,15 @@ pt:
         published_at: Publicado em
         weight: Posição do pedido
       id: ID
-      import:
-        user_group_id: Criar importações como
       newsletter:
         body: Corpo
+        send_to_all_users: Enviar para todas as pessoas utilizadoras
         subject: Assunto
       organization:
         alert_color: Alerta
         available_authorizations: Autorizações disponíveis
         badges_enabled: Ativar distintivos
         comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
-        cta_button_path: Caminho do botão Chamar para Ação
-        cta_button_text: Texto do botão Chamar para Ação
         customize_welcome_notification: Personalizar a notificação de boas-vindas
         default_locale: Idioma por defeito
         description: Descrição
@@ -52,13 +49,6 @@ pt:
         header_snippets: Snippets de cabeçalho
         highlight_alternative_color: Realçar, alternativo
         highlight_color: Realçar
-        highlighted_content_banner_action_subtitle: Legenda do botão de ação
-        highlighted_content_banner_action_title: Título do botão de ação
-        highlighted_content_banner_action_url: URL do botão de ação
-        highlighted_content_banner_enabled: Mostrar a faixa de conteúdo realçado
-        highlighted_content_banner_image: Imagem
-        highlighted_content_banner_short_description: Pequena descrição
-        highlighted_content_banner_title: Título
         host: Anfitrião
         instagram_handler: Instagram handler
         logo: Logótipo
@@ -83,7 +73,6 @@ pt:
         success_color: Sucesso
         time_zone: Fuso Horário
         tos_version: Versão dos termos de serviço
-        user_groups_enabled: Ativar grupos
         users_registration_mode: Modo de registo dos utilizadores
         warning_color: Aviso
         welcome_notification_body: Corpo da notificação de boas-vindas
@@ -145,8 +134,6 @@ pt:
         attachment:
           new: Novo anexo
         browse: Explorar
-        category:
-          new: Nova categoria
         export: Exportar tudo
         export-selection: Exportar selecção
         import: Importar
@@ -157,9 +144,8 @@ pt:
           new: Novo utilizador privado do espaço participativo
         per_page: Por página
         permissions: Permissões
-        reject: Rejeitar
         share: Partilhar
-        verify: Verificar
+        soft_delete: Mover para a lixeira
       area_types:
         create:
           error: Ocorreu um problema ao criar um novo tipo de área.
@@ -224,29 +210,20 @@ pt:
       autocomplete:
         no_results: Nenhum resultado encontrado
       block_user:
+        bulk_new:
+          action: Bloquear conta e enviar justificação
+          already_reported_html: Com essa ação todos os conteúdos dos participantes bloqueados serão ocultados.
+          description: Bloquear um participante torna a sua conta inutilizável. Pode dar na sua justificação orientações sobre o que poderia levar a considerar desbloquear o participante.
+          justification: Justificação
+          title: Bloquear participantes
         new:
           action: Bloquear conta e enviar justificação
           description: Bloquear um utilizador torna a sua conta inutilizável. Pode dar na sua justificação orientações sobre o que poderia levar a considerar desbloquear o utilizador.
           justification: Justificação
           title: Bloquear utilizador %{name}
       categories:
-        create:
-          error: Ocorreu um problema ao criar esta categoria.
-          success: Categoria criada com sucesso.
-        destroy:
-          error: Ocorreu um problema ao eliminar esta categoria. Por favor elimine qualquer subcategoria primeiro, certifique-se de que nenhuma outra entidade pertence a esta categoria e tente novamente.
-          success: Categoria apagada com sucesso.
-        edit:
-          title: Editar categoria
-          update: Atualizar
         index:
           categories_title: Categorias
-        new:
-          create: Criar categoria
-          title: Nova categoria
-        update:
-          error: Ocorreu um problema ao atualizar esta categoria.
-          success: Categoria atualizada com sucesso.
       component_permissions:
         update:
           error: Ocorreu um problema ao atualizar as permissões deste componente.
@@ -255,9 +232,6 @@ pt:
         create:
           error: Ocorreu um problema ao criar este componente.
           success: Componente criado corretamente.
-        destroy:
-          error: Ocorreu um problema ao destruir este componente.
-          success: Componente eliminado corretamente.
         edit:
           title: Editar componente
           update: Atualizar
@@ -270,7 +244,6 @@ pt:
           headers:
             actions: Ações
             name: Nome do componente
-            scope: Âmbito do componente
             type: Tipo de componente
         new:
           add: Adicionar componente
@@ -308,8 +281,6 @@ pt:
           FormPDF: PDF
           JSON: JSON
       filters:
-        category_id_eq:
-          label: Categoria
         filter_label: Filtro
         invitation_accepted_at_present:
           label: Convite aceite
@@ -350,13 +321,7 @@ pt:
           values:
             'false': Publicado
             'true': Publicação removida
-        scope_id_eq:
-          label: Âmbito
         search_label: Pesquisa
-        search_placeholder:
-          name_or_nickname_or_email_cont: Pesquisar %{collection} por e-mail, nome ou alcunha.
-          reported_id_string_or_reported_content_cont: Pesquisar %{coleção} por identificador de denúncia ou conteúdo.
-          title_cont: Pesquisar %{collection} por título.
         state_eq:
           label: Estado
           values:
@@ -364,6 +329,9 @@ pt:
             pending: Pendentes
             rejected: Rejeitados
             verified: Verificados
+        taxonomies:
+          taxonomy_id_eq:
+            label: Taxonomia
       forms:
         file_help:
           import:
@@ -415,6 +383,8 @@ pt:
             back: Voltar
           file_legend: Adicionar ficheiro para importar a analisar.
           import: Importar
+      manage_trash:
+        deleted_items_warning: Visualize itens da lixeira no momento. Para fazer qualquer edição ou alterações, deve primeiro restaurá-los.
       managed_users:
         promotion:
           error: Ocorreu um problema ao promover o participante gerido.
@@ -432,7 +402,6 @@ pt:
         areas: Áreas
         configuration: Configuração
         help_sections: Secções de ajuda
-        homepage: Página inicial
         impersonations: Personificações
         manage: Gerir
         moderation: Moderações globais
@@ -442,11 +411,9 @@ pt:
         scopes: Âmbitos
         settings: Configurações
         static_pages: Páginas
-        user_groups: Grupos
+        taxonomies: Taxonomias
+        taxonomy_filters: Filtros de taxonomia
         users: Utilizadores
-      metrics:
-        metrics:
-          see_more_metrics: Mostrar mais métricas
       models:
         area:
           fields:
@@ -495,12 +462,8 @@ pt:
             plural: Plural
         share_token:
           fields:
-            created_at: Criado em
             expires_at: Expira em
-            last_used_at: Ultima utilização
             times_used: Total de utilizações
-            token: Identificador
-            user: Criado por
         static_page:
           fields:
             created_at: Criado em
@@ -515,26 +478,31 @@ pt:
               admin: Administrador(a)
               user_manager: Gestor de participante
           name: Participante
-        user_group:
-          fields:
-            actions: Ações
-            created_at: Criado em
-            document_number: Número do documento
-            name: Nome
-            phone: Telefone
-            state: Estado
-            users_count: Contagem de participantes
       moderated_users:
         index:
           actions:
             block: Bloquear utilizador
+            bulk_actions:
+              actions_dropdown: Ações
+              block:
+                title: Bloquear
+                update_moderated_user_button: Bloquear participantes
+              unblock:
+                title: Desbloquear
+                update_moderated_user_button: Desbloquear participantes
+              unreport:
+                title: Remover denúncia
+            ignore:
+              update_moderated_user_button: Remover denúncias
             title: Acções
             unblock: Desbloquear utilizador
             unreport: Remover denúncia
+          cancel: Cancelar
           name: Nome
           nickname: Alcunha
           reason: Motivo
           reports: Contagem de denúncias
+          selected: Selecionado
         report:
           reasons:
             does_not_belong: Não pertence
@@ -592,7 +560,6 @@ pt:
           confirm_delete: Tem certeza de que deseja eliminar este boletim informativo?
           followers: 'seguidores '
           has_been_sent_to: 'Foi enviado para: '
-          no_scopes: Sem âmbitos
           not_sent: Não enviado
           participants: 'participantes '
           segmented_to: 'Segmentado para %{subject}: '
@@ -607,13 +574,10 @@ pt:
           confirm_deliver: Tem a certeza de que deseja enviar este boletim informativo? Esta ação não pode ser desfeita.
           deliver: Entregar boletim informativo
           followers_help: Envia um boletim informativo para todos os utilizadores confirmados que seguem quaisquer espaços participativos na lista.
-          none: Nenhum
           participants_help: Envia um boletim informativo para todos os utilizadores confirmados que tenham participado em qualquer um dos espaços participativos selecionados na lista.
           recipients_count: Este boletim informativo será enviado para <strong id='recipients_count'>%{count}</strong> utilizadores.
-          scopes_help: Envia um boletim informativo aos utilizadores que tenham qualquer um dos âmbitos selecionados ativados nas definições "Os meus interesses" das suas contas.
-          select_scopes: Filtro para os utilizadores que ativaram qualquer âmbito selecionado nas definições "Os meus interesses" das suas contas.
           select_spaces: Selecione os espaços para segmentar o boletim informativo
-          select_users: Selecione os utilizadores para os quais pretende enviar o boletim informativo
+          send_to_all_users: Enviar para todos os utilizadores
           title: Selecione os destinatários
           warning: "<strong>Atenção:</strong> Este boletim informativo apenas será enviado para utilizadores que tenham ativado a opção <em>Pretendo receber boletins informativo</em> nas suas definições de notificações."
         show:
@@ -666,19 +630,6 @@ pt:
         update:
           error: Ocorreu um problema ao atualizar esta organização.
           success: Organização atualizada corretamente.
-      organization_appearance:
-        edit:
-          update: Atualizar
-        form:
-          colors:
-            colors_title: Cores da organização
-          cta_button_text_help: Pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível na sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
-          homepage_appearance_title: Editar a aparência da página inicial
-          homepage_highlighted_content_banner_title: Faixa de conteúdo realçado
-          images:
-            layout_appearance_title: Editar aparência do layout
-            preview: Pré-visualização
-          omnipresent_banner_appearance_title: Editar faixa omnipresente
       participatory_space_private_users:
         create:
           error: Ocorreu um problema ao adicionar um participante privado neste espaço participativo.
@@ -694,6 +645,8 @@ pt:
           title: Novo participante privado do Espaço Participativo.
       participatory_space_private_users_csv_imports:
         new:
+          csv_upload:
+            title: Envie o seu ficheiro CSV
           upload: Carregar
       resource_permissions:
         edit:
@@ -701,10 +654,6 @@ pt:
           title: Editar permissões
         update:
           success: Permissões atualizadas corretamente.
-      resources:
-        index:
-          headers:
-            scope: Âmbito
       scope_types:
         create:
           error: Ocorreu um problema ao criar um novo tipo de âmbito.
@@ -736,15 +685,7 @@ pt:
           success: Âmbito atualizado com sucesso
       share_tokens:
         actions:
-          confirm_destroy: Tem a certeza que quer eliminar este identificador?
           destroy: Eliminar
-          share: Partilhar
-        destroy:
-          error: Houve um problema ao destruir o identificador
-          success: Identificador destruído com sucesso.
-        share_tokens:
-          help: Estes identificadores são usados para partilhar publicamente para qualquer utilizador este recurso não publicado. Estarão escondidos quando o recurso estiver publicado. Clique no icone de partilha do identificador para visitar o URL parltilhável.
-          title: Compartilhar identificadores
       shared:
         gallery:
           add_images: Adicionar imagens
@@ -757,7 +698,6 @@ pt:
           title: Editar tópico
           update: Atualizar tópico
         new:
-          create: Criar tópico
           title: Novo tópico
         update:
           error: Ocorreu um problema ao atualizar este tópico.
@@ -778,14 +718,11 @@ pt:
         index:
           last_notable_change: Última alteração notável
         new:
-          create: Criar página
           title: Nova página
         topic:
           without_topic: Páginas sem tópico
         update:
           error: Ocorreu um problema ao atualizar esta página.
-      taxonomies:
-        count: Contagem
       titles:
         admin_log: Registo de administrador
         area_types: Tipos de área
@@ -794,32 +731,10 @@ pt:
         dashboard: Painel de Controlo
         impersonatable_users: Participantes geríveis
         impersonations: Gestão de participantes
-        metrics: Métricas
         panel: Administrador
         participants: Participantes
         scope_types: Tipos de âmbito
         scopes: Âmbitos
-        statistics: Atividade
-        user_groups: Grupos
-      user_group:
-        csv_verify:
-          invalid: Ocorreu um problema ao ler o ficheiro CSV.
-        reject:
-          invalid: Ocorreu um problema ao rejeitar este grupo.
-        verify:
-          invalid: Ocorreu um problema ao verificar este grupo.
-      user_groups:
-        index:
-          state:
-            pending: Pendente
-            rejected: Rejeitado
-            verified: Verificado
-          verify_via_csv: Verificar via CSV
-      user_groups_csv_verifications:
-        new:
-          explanation: Envie o seu ficheiro CSV. Deve ter os e-mails oficiais dos grupos na sua organização na primeira coluna do ficheiro, sem cabeçalhos. Somente grupos que confirmaram os seus e-mails e que tenham um e-mail a aparecer no arquivo CSV serão validados.
-          title: Envie o seu ficheiro CSV
-          upload: Envio
       users:
         create:
           error: Ocorreu um problema ao convidar este(a) administrador(a).
@@ -840,16 +755,6 @@ pt:
           last_month: Último mês
           last_week: Última semana
           participants: Participantes
-    metrics:
-      blocked_users:
-        object: utilizadores bloqueados
-        title: Utilizadores bloqueados
-      reported_users:
-        object: utilizadores denunciados
-        title: Utilizadores denunciados
-      user_reports:
-        object: relatórios de utilizador
-        title: Relatórios de utilizador
     moderations:
       actions:
         expand: Expandir

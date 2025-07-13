@@ -1,0 +1,632 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "An example implementation for the integration between Grafana and Decidim, using the GraphQL API from Decidim.",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 16,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "grafanacloud-infinity"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 4,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "12.1.0-87021",
+      "targets": [
+        {
+          "columns": [],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "grafanacloud-infinity"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "data.participatoryProcesses.id",
+          "source": "url",
+          "summarizeExpression": "count(A)",
+          "type": "graphql",
+          "url": "https://meta.decidim.org/api",
+          "url_options": {
+            "body_content_type": "text/plain",
+            "body_graphql_query": "{\n  participatoryProcesses {\n    id\n    slug\n    title {\n      translations {\n        locale\n        text\n      }\n    }  \n  }\n}\n",
+            "body_graphql_variables": "{ }",
+            "body_type": "graphql",
+            "data": "",
+            "method": "POST"
+          }
+        }
+      ],
+      "title": "Participatory Processes",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "dateFormat": "",
+                "destinationType": "time",
+                "targetField": "key"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "grafanacloud-infinity"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 4,
+        "x": 4,
+        "y": 0
+      },
+      "id": 3,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "12.1.0-87021",
+      "targets": [
+        {
+          "columns": [],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "grafanacloud-infinity"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "data.assemblies.id",
+          "source": "url",
+          "summarizeExpression": "count(A)",
+          "type": "graphql",
+          "url": "https://meta.decidim.org/api",
+          "url_options": {
+            "body_content_type": "text/plain",
+            "body_graphql_query": "{\n  assemblies {\n    id\n    slug\n    title {\n      translations {\n        locale\n        text\n      }\n    }  \n  }\n}\n",
+            "body_graphql_variables": "{ }",
+            "body_type": "graphql",
+            "data": "",
+            "method": "POST"
+          }
+        }
+      ],
+      "title": "Assemblies",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "dateFormat": "",
+                "destinationType": "time",
+                "targetField": "key"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "grafanacloud-infinity"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 14,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 4,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "12.1.0-87021",
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "id",
+              "text": "id",
+              "type": "string"
+            },
+            {
+              "selector": "slug",
+              "text": "slug",
+              "type": "string"
+            },
+            {
+              "selector": "title.translations",
+              "text": "Title",
+              "type": "string"
+            }
+          ],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "grafanacloud-infinity"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "data.participatoryProcesses",
+          "source": "url",
+          "summarizeExpression": "",
+          "type": "graphql",
+          "url": "https://meta.decidim.org/api",
+          "url_options": {
+            "body_content_type": "text/plain",
+            "body_graphql_query": "{\n  participatoryProcesses {\n    id\n    slug\n    title {\n      translations {\n        locale\n        text\n      }\n    }  \n  }\n}\n",
+            "body_graphql_variables": "{ }",
+            "body_type": "graphql",
+            "data": "",
+            "method": "POST"
+          }
+        }
+      ],
+      "title": "Participatory Processes",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "dateFormat": "",
+                "destinationType": "time",
+                "targetField": "key"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "grafanacloud-infinity"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "id": 6,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "12.1.0-87021",
+      "targets": [
+        {
+          "columns": [],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "grafanacloud-infinity"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "data.component.proposals.edges",
+          "source": "url",
+          "summarizeExpression": "",
+          "type": "graphql",
+          "url": "https://meta.decidim.org/api",
+          "url_options": {
+            "body_content_type": "text/plain",
+            "body_graphql_query": "{\n  component(id: 122) {\n    ... on Proposals {\n      proposals(order: {publishedAt: \"desc\"}) {\n        edges {\n          node {\n            id\n            title {\n              translations {\n                locale\n                text\n              }\n            }\n            createdAt\n          }\n        }\n      }\n    }\n  }\n}",
+            "body_graphql_variables": "{ }",
+            "body_type": "graphql",
+            "data": "",
+            "method": "POST"
+          }
+        }
+      ],
+      "title": "Proposals on Roadmap process",
+      "transformations": [
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "notEqual",
+                  "options": {
+                    "value": "null"
+                  }
+                },
+                "fieldName": "node"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        },
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "json",
+            "jsonPaths": [
+              {
+                "path": "id"
+              },
+              {
+                "path": "createdAt"
+              },
+              {
+                "alias": "title",
+                "path": "title.translations[0].text"
+              }
+            ],
+            "replace": true,
+            "source": "node"
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "grafanacloud-infinity"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 19
+      },
+      "id": 1,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.1.0-87021",
+      "targets": [
+        {
+          "columns": [],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "grafanacloud-infinity"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "data.metrics.history",
+          "source": "url",
+          "type": "graphql",
+          "url": "https://meta.decidim.org/api",
+          "url_options": {
+            "body_content_type": "text/plain",
+            "body_graphql_query": "{\n  metrics(names: \"users\") {\n    history {\n      key\n      value\n    }\n  }\n}\n",
+            "body_graphql_variables": "{ }",
+            "body_type": "graphql",
+            "data": "",
+            "method": "POST"
+          }
+        }
+      ],
+      "title": "Users in Metrics' history",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "dateFormat": "",
+                "destinationType": "time",
+                "targetField": "key"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 41,
+  "tags": [
+    "decidim"
+  ],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "\"\"",
+          "value": "\"\""
+        },
+        "datasource": {
+          "type": "yesoreyeram-infinity-datasource",
+          "uid": "grafanacloud-infinity"
+        },
+        "definition": "",
+        "description": "",
+        "name": "cursor",
+        "options": [],
+        "query": {
+          "infinityQuery": {
+            "columns": [],
+            "filters": [],
+            "format": "table",
+            "refId": "variable",
+            "root_selector": "",
+            "source": "url",
+            "type": "json",
+            "url": "https://meta.decidim.org/api",
+            "url_options": {
+              "data": "",
+              "method": "GET"
+            }
+          },
+          "query": "",
+          "queryType": "random",
+          "values": [
+            "\"\""
+          ]
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "2024-07-02T11:00:00.000Z",
+    "to": "2026-07-02T10:59:59.998Z"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Metadecidim - GraphQL example",
+  "uid": "cee4f9hzwv0g0d",
+  "version": 3
+}

@@ -16,7 +16,6 @@ zh-TW:
         customize_registration_email: 自定訂登記電子郵件
         decidim_category_id: 分類
         decidim_scope_id: 範圍
-        decidim_user_group_id: 用戶群組
         description: 說明
         end_time: 結束時間
         id: ID
@@ -84,8 +83,6 @@ zh-TW:
     admin:
       filters:
         meetings:
-          category_id_eq:
-            label: 分類
           closed_at_present:
             label: 狀態
             values:
@@ -96,14 +93,11 @@ zh-TW:
             values:
               'false': 過去
               'true': 即將舉行
-          scope_id_eq:
-            label: 範圍
           with_any_origin:
             label: 起源
             values:
               official: 官方
               participants: 參與者
-              user_group: 使用者群組
           with_any_type:
             label: 會議類型
             values:
@@ -132,16 +126,12 @@ zh-TW:
             default_registration_terms: 預設報名條款
             enable_pads_creation: 啟用平板創建
             maps_enabled: 啟用地圖
-            registration_code_enabled: 啟用註冊碼
             resources_permissions_enabled: 可以針對每個會議設定操作權限
-            scope_id: 範圍
-            scopes_enabled: 啟用範圍
             terms_and_conditions_url_for_meeting_creators: 會議創建者的使用條款和條件 URL
           step:
             announcement: 公告
             comments_blocked: 留言已封鎖
             creation_enabled_for_participants: 參與者可以創建會議
-            creation_enabled_for_user_groups: 使用者群組可以創建會議
     events:
       meetings:
         meeting_closed:
@@ -169,10 +159,8 @@ zh-TW:
           email_subject: '"%{resource_title}"會議的可用名額已經超過 %{percentage}%。'
           notification_title: 該會議的可用預約時段已滿 %{percentage}%。
         meeting_updated:
-          email_intro: '%{resource_title} 會議已更新。您可以在該會議頁面上閱讀新版本:'
           email_outro: 您收到此通知是因為您正在追蹤 "%{resource_title}" 會議。您可以透過上方的連結取消追蹤。
           email_subject: '%{resource_title}" 會議已更新。'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 會議的可用名額已滿 %{percentage}%。
         registration_code_validated:
           email_intro: 您的 "%{resource_title}" 會議註冊代碼"%{registration_code}"已通過驗證。
           email_outro: 您已收到此通知，因為您的註冊碼已驗證成功，可參加「%{resource_title}」會議。
@@ -183,11 +171,6 @@ zh-TW:
           email_outro: 您收到此通知是因為您正在追蹤 "%{resource_title}" 會議。您可以透過上方的連結取消追蹤。
           email_subject: '"%{resource_title}"會議已開放註冊。'
           notification_title: <a href="%{resource_path}">%{resource_title}</a>會議已開放註冊。
-        upcoming_meeting:
-          email_intro: '%{resource_title}" 會議將在不到48小時後開始。'
-          email_outro: 您收到此通知是因為您正在追蹤 "%{resource_title}" 會議。您可以透過上方的連結取消追蹤。
-          email_subject: '%{resource_title}" 會議將在不到48小時後開始。'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 會議將在 48 小時內開始。
     forms:
       meetings:
         attendees_count_help_text: 別忘了在您的會議中包括所有與會者的總人數，無論是現場、線上還是混合的參與者。
@@ -209,8 +192,6 @@ zh-TW:
         attachment_collections: 資料夾
         attachments: 附件
         close: 關閉
-        confirm_destroy: 你確定要刪除此會議？
-        destroy: 刪除
         edit: 編輯
         invalid_destroy:
           proposals_count:
@@ -251,7 +232,6 @@ zh-TW:
             invalid: 更新議程時發生問題.
             success: 議程已成功更新.
         exports:
-          answers: 回答
           meeting_comments: 評論
           meetings: 會議
           registrations: 註冊
@@ -286,11 +266,6 @@ zh-TW:
           create:
             invalid: 建立會議時發生問題.
             success: 會議已成功建立。請注意這仍未發佈，您需要手動發佈。
-          destroy:
-            invalid:
-              proposals_count:
-                other: 該會議因有 %{count} 個相關提案而無法刪除.
-            success: 會議已成功刪除
           edit:
             title: 編輯會議
             update: 更新
@@ -337,11 +312,10 @@ zh-TW:
         registrations:
           edit:
             save: 儲存
-            validate: 驗證
-            validate_registration_code: 驗證註冊碼
           form:
             available_slots_help: 如果您有無限的可用名額，請將其設置為0。
             invites: 邀請
+            manage_questions: 問題
             recommendation_message: 出於隱私考量，建議您在不需要此報名表時刪除它。默認情況下，在會議結束後3個月會自動刪除。
             registration_email_help: 這段文字會出現在註冊確認電子郵件中，位於註冊代碼之後。
             registration_form: 註冊表單
@@ -353,9 +327,6 @@ zh-TW:
           update:
             invalid: 儲存註冊設定時出現問題。
             success: 會議註冊設定已成功保存。
-          validate_registration_code:
-            invalid: 此註冊碼無效。
-            success: 註冊碼已成功驗證。
       admin_log:
         invite:
           create: "%{user_name} 邀請 %{attendee_name} 參加在 %{space_name} 空間舉行的 %{resource_name} 會議。"
@@ -373,8 +344,6 @@ zh-TW:
         questionnaire:
           update: "%{user_name} 更新了 %{meeting_name} 會議的問卷"
       application_helper:
-        filter_category_values:
-          all: 全部
         filter_meeting_space_values:
           all: 全部
       calendar_modal:
@@ -470,13 +439,11 @@ zh-TW:
         form:
           address_help: '地址：用於地理編碼器找到位置'
           available_slots_help: 如果您有無限的可用名額，請將其設置為0。
-          create_as: 創建會議
           disclaimer: '免責聲明：使用外部註冊系統時，您知道%{organization} 的組織者不對使用者提供給外部服務的數據負責。'
           location_help: '地點：針對使用者的消息，指示會議地點'
           location_hints_help: '地點提示：額外的訊息。例如，如果是面對面的會議，可以提供建築物樓層的資訊；如果是限制存取權限的線上會議，可以提供會議密碼的資訊。'
           online_meeting_url_help: '連結：允許參與者直接連接到您的會議'
           registration_url_help: '連結：允許參與者進入您用於註冊的外部服務'
-          select_a_category: 請選擇一個類別
           select_a_meeting_type: 請選擇一種會議類型。
           select_a_registration_type: 請選擇一種註冊類型
           select_an_iframe_access_level: 請選擇一個 iframe 存取級別
@@ -492,7 +459,6 @@ zh-TW:
         new:
           back: 返回
           create: 建立
-          title: 新增您的會議
         registration_confirm:
           cancel: 取消
           confirm: 確認
@@ -509,7 +475,6 @@ zh-TW:
           micro_camera_permissions_warning: 當您點擊下面的按鈕時，系統會要求您授權使用麥克風和/或攝像頭，接著您就可以進入視訊會議。
           no_slots_available: 無可用時段。
           organizations: 參加的組織
-          registration_code_help_text: 您的報名代碼
           registration_state:
             validated: 已驗證
             validation_pending: 驗證待處理
@@ -518,7 +483,6 @@ zh-TW:
           visit_finished: 查看過去的會議
           withdraw_btn_hint: 您可以撤回您的會議，如果您改變了主意。會議不會被刪除，而是會顯示在已撤回的會議列表中。
           withdraw_confirmation_html: 您確定要撤回此會議嗎？<br><br><strong>此操作無法取消！</strong>
-          withdraw_meeting: 撤回會議
         update:
           invalid: 更新會議時發生問題.
           success: 您已成功更新會議。
@@ -544,13 +508,9 @@ zh-TW:
             title: 標題
       polls:
         questions:
-          index:
-            empty_questions: 在本次會議期間，您將收到一些問題並且您可以回答這些問題。這些問題將會在此顯示。
           index_admin:
             edit: 在管理面板中編輯
             question: 問題
-            received_answer: 收到回答
-            received_answers: 收到回答
             results: 結果
             send: 發送
             sent: 傳送
@@ -568,7 +528,6 @@ zh-TW:
         confirmation:
           confirmed_html: 您的 <a href="%{url}">%{title}</a> 會議註冊已確認。
           details: 有關會議的詳細信息，請參閱附件。
-          registration_code: 您的註冊碼為 %{code}。
       registration_type:
         on_different_platform: 在不同的平台上
         on_this_platform: 在此平台上
@@ -593,11 +552,6 @@ zh-TW:
         withdraw: 撤回
       withdraw:
         success: 會議已成功撤回.
-    metrics:
-      meetings:
-        description: 建立的會議次數
-        object: 會議
-        title: 會議
     participatory_spaces:
       highlighted_meetings:
         past_meetings: 過去的會議

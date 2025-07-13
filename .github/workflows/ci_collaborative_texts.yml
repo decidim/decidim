@@ -1,0 +1,34 @@
+name: "[CI] Collaborative Texts"
+on:
+  push:
+    branches:
+      - develop
+      - release/*
+      - "*-stable"
+  pull_request:
+    branches-ignore:
+      - "chore/l10n*"
+    paths:
+      - "*"
+      - ".github/**"
+      - "decidim-collaborative_texts/**"
+      - "decidim-core/**"
+      - "decidim-dev/**"
+      - "decidim-participatory_processes/**"
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  main:
+    name: Tests
+    uses: ./.github/workflows/test_app.yml
+    secrets: inherit
+    with:
+      working-directory: "decidim-collaborative_texts"
+      test_command: bundle exec parallel_test --type rspec --pattern spec/

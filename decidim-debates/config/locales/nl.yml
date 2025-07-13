@@ -2,17 +2,14 @@ nl:
   activemodel:
     attributes:
       debate:
-        category_id: Categorie
         closed_at: Gesloten op
         conclusions: Besluit
-        decidim_category_id: Categorie
         description: Omschrijving
         end_time: Eindigt op
         information_updates: Informatie updates
         instructions: Instructies om deel te nemen
         start_time: Begint om
         title: Titel
-        user_group_id: Maak een debat als
     models:
       decidim/debates/close_debate_event: Debat gesloten
       decidim/debates/create_debate_event: Debat
@@ -28,15 +25,12 @@ nl:
       debates:
         actions:
           comment: Reactie
-          create: Aanmaken
         name: Debatten
         settings:
           global:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
             comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
-            scope_id: Scope
-            scopes_enabled: Scopes ingeschakeld
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
@@ -44,8 +38,6 @@ nl:
     debates:
       actions:
         close: Sluiten
-        confirm_destroy: Ben je zeker?
-        destroy: Verwijder
         edit: Bewerk
         title: acties
       admin:
@@ -53,8 +45,6 @@ nl:
           create:
             invalid: Er is een probleem opgetreden tijdens het maken van het debat.
             success: Debat succesvol aangemaakt.
-          destroy:
-            success: Debat succesvol verwijderd.
           edit:
             title: Bewerk debat
             update: Update debat
@@ -70,8 +60,6 @@ nl:
           update:
             invalid: Er is een probleem opgetreden tijdens het bijwerken van dit debat.
             success: Debat succesvol bijgewerkt.
-        exports:
-          comments: Reacties
       admin_log:
         debate:
           create: "%{user_name} heeft het %{resource_name} debat gemaakt in de %{space_name} ruimte"
@@ -104,24 +92,17 @@ nl:
           state: Status
           state_values:
             closed: Gesloten
-            open: Open
-        form:
-          select_a_category: Selecteer een categorie
         index:
           new_debate: Nieuw debat
         new:
           back: Terug
           create: Aanmaken
-          title: Nieuw debat
         orders:
           commented: Meeste reacties
           label: Sorteer debatten op
           random: Willekeurige volgorde
           recent: Meest recent
           updated: Onlangs bijgewerkt
-        show:
-          edit_debate: Bewerk debat
-          open: Debat openen
         update:
           invalid: Er is een fout opgetreden bij het bijwerken van het debat.
           success: Debat succesvol bijgewerkt.
@@ -173,10 +154,5 @@ nl:
           name: debatten
           next_level_in: Neem deel aan %{score} meer debatten om het volgende niveau te bereiken!
           unearned_another: Deze gebruiker heeft nog geen deelgenomen aan een debat.
-    metrics:
-      debates:
-        description: Aantal debatten gemaakt
-        object: debatten
-        title: debatten
     statistics:
       debates_count: Debatten

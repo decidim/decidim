@@ -23,7 +23,7 @@ module Decidim
     end
 
     def path
-      "#comments"
+      "#add-comment-anchor"
     end
 
     def text
@@ -32,6 +32,10 @@ module Decidim
 
     def icon_name
       resource_type_icon_key "Decidim::Comments::Comment"
+    end
+
+    def button_classes
+      "button button__sm button__transparent-secondary add-comment-mobile"
     end
   end
 end

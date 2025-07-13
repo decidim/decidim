@@ -21,6 +21,20 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
     resource.searchable = true
   end
 
+  participatory_space.register_stat :followers_count,
+                                    priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                                    icon_name: "user-follow-line",
+                                    tooltip_key: "followers_count_tooltip" do
+    Decidim::Assemblies::AssembliesStatsFollowersCount.for(participatory_space)
+  end
+
+  participatory_space.register_stat :participants_count,
+                                    priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                                    icon_name: "user-line",
+                                    tooltip_key: "participants_count_tooltip" do
+    Decidim::Assemblies::AssembliesStatsParticipantsCount.for(participatory_space)
+  end
+
   participatory_space.context(:public) do |context|
     context.engine = Decidim::Assemblies::Engine
     context.layout = "layouts/decidim/assembly"
@@ -32,16 +46,20 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
   end
 
   participatory_space.exports :assemblies do |export|
-    export.collection do |assembly|
-      Decidim::Assembly.where(id: assembly.id).includes(:area, :scope, :attachment_collections, :categories)
+    export.collection do
+      Decidim::Assembly
+        .public_spaces
+        .includes(:attachment_collections)
     end
 
+    export.include_in_open_data = true
+
     export.serializer Decidim::Assemblies::AssemblySerializer
+    export.open_data_serializer Decidim::Assemblies::OpenDataAssemblySerializer
   end
 
   participatory_space.register_on_destroy_account do |user|
     Decidim::AssemblyUserRole.where(user:).destroy_all
-    Decidim::AssemblyMember.where(user:).destroy_all
   end
 
   participatory_space.seeds do

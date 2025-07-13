@@ -16,7 +16,6 @@ lt:
         customize_registration_email: Redaguoti registracijos laišką
         decidim_category_id: Kategorija
         decidim_scope_id: Apimtis
-        decidim_user_group_id: Naudotojų grupė
         description: Aprašymas
         end_time: Pabaigos laikas
         id: ID
@@ -95,8 +94,6 @@ lt:
     admin:
       filters:
         meetings:
-          category_id_eq:
-            label: Kategorija
           closed_at_present:
             label: Būsena
             values:
@@ -107,14 +104,11 @@ lt:
             values:
               'false': Praėję
               'true': Artėjantys
-          scope_id_eq:
-            label: Apimtis
           with_any_origin:
             label: Kilmė
             values:
               official: Oficialūs
               participants: Dalyvis
-              user_group: Naudotojų Grupės
           with_any_type:
             label: Susitikimo tipas
             values:
@@ -143,16 +137,12 @@ lt:
             default_registration_terms: Numatytos registracijos sąlygos
             enable_pads_creation: Leisti bendrų dokumentų kūrimą
             maps_enabled: Žemėlapiai įjungti
-            registration_code_enabled: Registracijos kodas įjungtas
             resources_permissions_enabled: Kiekvienam posėdžiui galima nustatyti leistinus veiksmus
-            scope_id: Apimtis
-            scopes_enabled: Sritys įjungtos
             terms_and_conditions_url_for_meeting_creators: Naudojimo taisyklių ir sąlygų URL susirinkimų kūrėjams
           step:
             announcement: Pranešimas
             comments_blocked: Komentarai užblokuoti
             creation_enabled_for_participants: Galimybė dalyviams rengti susirinkimus įjungta
-            creation_enabled_for_user_groups: Galimybė dalyvių grupėms rengti susirinkimus įjungta
     events:
       meetings:
         meeting_closed:
@@ -180,10 +170,8 @@ lt:
           email_subject: Susitikimui „%{resource_title}“ skirti laiko tarpsniai sudaro daugiau kaip %{percentage}%
           notification_title: Susitikimui <a href="%{resource_path}">%{resource_title}</a> skirti laiko tarpsniai sudaro daugiau kaip %{percentage}%.
         meeting_updated:
-          email_intro: '"%{resource_title}" susitikimas buvo atnaujintas. Naująją versiją galite perskaityti susitikimo puslapyje:'
           email_outro: Gavote šį pranešimą nes sekate "%{resource_title}" susirinkimą. Galite jo nebesekti paspaudę ant ankstesnės nuorodos.
           email_subject: '"%{resource_title}" susitikimas buvo atnaujintas'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> susitikimas buvo atnaujintas.
         registration_code_validated:
           email_intro: Jūsų "%{resource_title}" susitikimo registracijos kodas "%{registration_code}" buvo patvirtintas.
           email_outro: Šį pranešimą gavote dėl to, kad jūsų "%{resource_title}“ susitikimo registracijos kodas buvo patvirtintas.
@@ -194,11 +182,6 @@ lt:
           email_outro: Gavote šį pranešimą nes sekate "%{resource_title}" susirinkimą. Galite jo nebesekti paspaudę ant ankstesnės nuorodos.
           email_subject: '"%{resource_title}" posėdžio registracijos įjungtos.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> Susirinkimas leidžia registruotis.
-        upcoming_meeting:
-          email_intro: '%{resource_title} susirinkimas prasidės už mažiau nei 48 val.'
-          email_outro: Gavote šį pranešimą nes sekate "%{resource_title}" susirinkimą. Galite jo nebesekti paspaudę ant ankstesnės nuorodos.
-          email_subject: '"%{resource_title}" susirinkimas prasidės už mažiau nei 48 val.'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> Susirinkimas prasidės už mažiau nei 48 val.
     forms:
       meetings:
         attendees_count_help_text: Nepamirškite įrašyti dalyvių susirinkime skaičiaus (tiek dalyvaujančių gyvai, tiek nuotoliniu būdu).
@@ -220,8 +203,6 @@ lt:
         attachment_collections: Aplankai
         attachments: Priedai
         close: Uždaryti
-        confirm_destroy: Ar tikrai norite panaikinti šį susirinkimą?
-        destroy: Ištrinti
         edit: Redaguoti
         invalid_destroy:
           proposals_count:
@@ -265,7 +246,6 @@ lt:
             invalid: Atnaujinant šią darbotvarkę iškilo problema.
             success: Darbotvarkė atnaujinta.
         exports:
-          answers: Atsakymai
           meeting_comments: Komentarai
           meetings: Susirinkimai
           registrations: Registracijos
@@ -300,14 +280,6 @@ lt:
           create:
             invalid: Kuriant šį susirinkimą iškilo problema.
             success: Susirinkimas sėkmingai sukurtas. Jis dar nepublikuotas, tai turite padaryti rankiniu būdu.
-          destroy:
-            invalid:
-              proposals_count:
-                one: Susirinkimo negalima panaikinti, nes su juo susietas %{count} pasiūlymas.
-                few: Posėdžio negalima panaikinti, nes su juo susieti %{count} pasiūlymai.
-                many: Posėdžio negalima panaikinti, nes su juo susieti %{count} pasiūlymai.
-                other: Posėdžio negalima panaikinti, nes su juo susieti %{count} pasiūlymai.
-            success: Susirinkimas sėkmingai pašalintas
           edit:
             title: Redaguoti susirinkimą
             update: Atnaujinti
@@ -354,11 +326,10 @@ lt:
         registrations:
           edit:
             save: Išsaugoti
-            validate: Patvirtinti
-            validate_registration_code: Patvirtinti registracijos kodą
           form:
             available_slots_help: Jei nėra ribojimų įrašykite 0.
             invites: Pakvietimai
+            manage_questions: Klausimai
             recommendation_message: Dėl privatumo priežasčių rekomenduojame ištrinti šią įrašo formą, kai jos nebereikės. Pagal numatytuosius parametrus, ji ištrinama praėjus 3 mėnesiams nuo susirinkimo pabaigos.
             registration_email_help: Šis tekstas bus rodomas registracijos patvirtinimo el. laiško viduryje. Iš karto po registracijos kodo.
             registration_form: Registracijos forma
@@ -373,9 +344,6 @@ lt:
           update:
             invalid: Išsaugant registracijos nuostatas iškilo problema.
             success: Susirinkimo registracijų nuostatos išsaugotos.
-          validate_registration_code:
-            invalid: Šis registracijos kodas negalioja.
-            success: Registracijos kodas patvirtintas.
       admin_log:
         invite:
           create: "%{user_name} pakvietė %{attendee_name} į susirinkimą %{resource_name} %{space_name} erdvėje"
@@ -393,8 +361,6 @@ lt:
         questionnaire:
           update: "%{user_name} atnaujino klausimyną %{meeting_name} susirinkimui"
       application_helper:
-        filter_category_values:
-          all: Visi
         filter_meeting_space_values:
           all: Visi
       calendar_modal:
@@ -483,7 +449,6 @@ lt:
             all: Visi
             official: Oficialus
             participants: Dalyviai
-            user_group: Grupės
           search: Ieškoti
           type: Tipas
           type_values:
@@ -494,13 +459,11 @@ lt:
         form:
           address_help: 'Adresas: jį naudoja „Geocoder“, kad rastų vietą'
           available_slots_help: Jei nėra ribojimų įrašykite 0
-          create_as: Sukurti posėdį kaip
           disclaimer: 'Perspėjimas: Naudodami išorinę registracijos sistemą jūs suprantate, kad %{organization} organizatoriai nėra atsakingi už naudotojų išorinei paslaugai pateiktus duomenis.'
           location_help: 'Vieta: naudotojams skirtas pranešimas, kuriame nurodoma susitikimo vieta'
           location_hints_help: 'Vietos užuominos: papildoma informacija. Pavyzdžiui: pastato aukštas, jei tai yra susitikimas gyvai, arba susitikimo slaptažodis, jei tai virtualus susitikimas su ribota prieiga.'
           online_meeting_url_help: 'Nuoroda: leiskite dalyviams tiesiai prisijungti prie susitikimo'
           registration_url_help: 'Nuoroda: leiskite dalyviams prisijungti prie išorinės paslaugos, kurią naudojate registracijai'
-          select_a_category: Pasirinkite kategoriją
           select_a_meeting_type: Pasirinkite susitikimo tipą
           select_a_registration_type: Pasirinkite registracijos tipą
           select_an_iframe_access_level: Pasirinkite iframe prieigos lygį
@@ -511,9 +474,7 @@ lt:
           see_all_withdrawn: Žiūrėti visus atšauktus susitikimus
           text_banner: Jūs žiūrite susitikimų, kuriuos atšaukė jų autoriai, sąrašą. %{go_back_link}.
         meeting:
-          close_meeting: Uždaryti susitikimą
           edit_close_meeting: Redaguoti susitikimo ataskaitą
-          edit_meeting: Redaguoti susitikimą
           join_meeting: Prisijunkite prie susitikimo
         meetings:
           no_meetings_warning: Jūsų paieškos kriterijus atitinkančių susirinkimų nerasta arba neplanuojama.
@@ -521,7 +482,6 @@ lt:
         new:
           back: Atgal
           create: Sukurti
-          title: Sukurkite savo susitikimą
         registration_confirm:
           cancel: Atšaukti
           confirm: Patvirtinti
@@ -538,7 +498,6 @@ lt:
           micro_camera_permissions_warning: Kai paspausite ant žemiau esančio mygtuko, Jūsų paprašys leidimo naudoti mikrofoną ir kamerą, bei prisijungsite prie susirinkimo
           no_slots_available: Nebėra vietų
           organizations: Dalyvaujančios organizacijos
-          registration_code_help_text: Jūsų registracijos kodas
           registration_state:
             validated: PATIKRINTA
             validation_pending: VYKSTA PATIKRINIMAS
@@ -550,7 +509,6 @@ lt:
           visit_finished: Peržiūrėti susirinkimą
           withdraw_btn_hint: Galite išimti susirinkimą jei apsigalvojoje. Susirinkimas nebus ištrintas - jis atsidurs išimtų susirinkimų sąraše.
           withdraw_confirmation_html: Ar tikrai norite išimti šį susirinkimą? <br><br><strong>Šio veiksmo atšaukti negalima!</strong>
-          withdraw_meeting: Išimti susirinkimą
         update:
           invalid: Atnaujinant susirinkimą iškilo problema.
           success: Sėkmingai atnaujinote susirinkimą.
@@ -576,13 +534,9 @@ lt:
             title: Pavadinimas
       polls:
         questions:
-          index:
-            empty_questions: Viso šio susitikimo metu bus siunčiami klausimai ir galėsite į juos atsakyti. Jie bus rodomi čia.
           index_admin:
             edit: Redaguoti administratoriaus skydelyje
             question: Klausimas
-            received_answer: gautas atsakymas
-            received_answers: gauti atsakymai
             results: Rezultatai
             send: Siųsti
             sent: Išsiųsta
@@ -592,7 +546,6 @@ lt:
             question_replied: Klausimas atsakytas
             reply_question: Atsakyti į klausimą
       public_participants_list:
-        attending_organizations: Organizacijos
         attending_participants: Dalyviai
         hidden_participants_count:
           one: ir dar %{count} žmogus
@@ -604,7 +557,6 @@ lt:
         confirmation:
           confirmed_html: Jūsų registracija į susirinkimą <a href="%{url}">%{title}</a> buvo patvirtinta.
           details: Išsamią susirinkimo informaciją rasite priede.
-          registration_code: Jūsų registracijos kodas yra %{code}.
       registration_type:
         on_different_platform: Kitoje platformoje
         on_this_platform: Šioje platformoje
@@ -629,11 +581,6 @@ lt:
         withdraw: Atsiimta
       withdraw:
         success: Susirinkimas sėkmingai išimtas.
-    metrics:
-      meetings:
-        description: Sukurtų susirinkimų skaičius
-        object: susirinkimai
-        title: Susirinkimai
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Įvykę susirinkimai

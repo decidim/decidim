@@ -52,7 +52,8 @@ describe "Admin manages initiatives types" do
   context "when updating an initiative type" do
     it "updates the initiative type" do
       within "tr", text: translated(initiatives_type.title) do
-        page.find(".action-icon--edit").click
+        find("button[data-component='dropdown']").click
+        click_on "Configure"
       end
 
       fill_in_i18n(
@@ -85,8 +86,9 @@ describe "Admin manages initiatives types" do
   context "when deleting an initiative type" do
     it "deletes the initiative type" do
       within "tr", text: translated(initiatives_type.title) do
+        find("button[data-component='dropdown']").click
         accept_confirm do
-          page.find(".action-icon--remove").click
+          click_on "Delete"
         end
       end
 

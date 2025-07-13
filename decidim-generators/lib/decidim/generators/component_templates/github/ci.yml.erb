@@ -12,7 +12,7 @@ on:
 env:
   CI: "true"
   RUBY_VERSION: <%= RUBY_VERSION %>
-  NODE_VERSION: 18.17.1
+  NODE_VERSION: 22.14.0
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
@@ -21,7 +21,7 @@ concurrency:
 jobs:
   main:
     name: Tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     timeout-minutes: 30
     services:
       postgres:
@@ -68,7 +68,7 @@ jobs:
         working-directory: ./spec/decidim_dummy_app/
       - run: bundle exec rspec
         name: RSpec
-      - uses: codecov/codecov-action@v4
+      - uses: codecov/codecov-action@v5
       - uses: actions/upload-artifact@v4
         if: always()
         with:

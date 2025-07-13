@@ -2,18 +2,20 @@
   const getButtons = document.querySelectorAll("button.question--collapse");
 
   setTimeout(() => {
-    [...getButtons].forEach((button) => {
+    getButtons.forEach((button) => {
       if (button.classList.contains("question-error")) {
-        button.click()
+        button.click();
       }
-    })
-  }, 100)
+    });
+  }, 100);
 
-  $("button.collapse-all").on("click", () => {
-    $("[id$=field]").find("button.question--collapse[aria-expanded='true']").click()
+  document.querySelector("button.collapse-all")?.addEventListener("click", () => {
+    document.querySelectorAll("[id$=field] button.question--collapse[aria-expanded='true']").
+      forEach((button) => button.click());
   });
 
-  $("button.expand-all").on("click", () => {
-    $("[id$=field]").find("button.question--collapse[aria-expanded='false']").click()
+  document.querySelector("button.expand-all")?.addEventListener("click", () => {
+    document.querySelectorAll("[id$=field] button.question--collapse[aria-expanded='false']").
+      forEach((button) => button.click());
   });
-})(window);
+})();

@@ -27,7 +27,7 @@ shared_examples "sorted moderations" do
       click_on link_text
     end
     all("tbody tr").each_with_index do |row, _index|
-      expect(row.find("td:first-child")).to have_content(reportables.first.id)
+      expect(row.find("td:nth-child(2)")).to have_content(reportables.first.id)
     end
   end
 end
@@ -82,6 +82,7 @@ shared_examples "manage moderations" do
 
     it "user can un-report a resource" do
       within "tr[data-id=\"#{moderation.id}\"]" do
+        find("button[data-component='dropdown']").click
         click_on "Unreport"
       end
 
@@ -90,6 +91,7 @@ shared_examples "manage moderations" do
 
     it "user can hide a resource" do
       within "tr[data-id=\"#{moderation.id}\"]" do
+        find("button[data-component='dropdown']").click
         click_on "Hide"
       end
 
@@ -106,7 +108,7 @@ shared_examples "manage moderations" do
 
         all("tbody tr").each_with_index do |row, index|
           reportable_id = moderations_ordered_by_report_count_asc[index].reportable.id
-          expect(row.find("td:first-child")).to have_content(reportable_id)
+          expect(row.find("td:nth-child(2)")).to have_content(reportable_id)
         end
       end
     end
@@ -114,8 +116,8 @@ shared_examples "manage moderations" do
     it "user can filter by reportable type" do
       reportable_type = moderation.reportable.class.name.demodulize
       within ".filters__section" do
-        find(:xpath, "//a[contains(text(), 'Filter')]").hover
-        find(:xpath, "//a[contains(text(), 'Type')]").hover
+        click_on "Filter"
+        click_on "Type"
         click_on reportable_type
       end
       expect(page).to have_css("tbody tr", count: moderations.length)
@@ -124,7 +126,7 @@ shared_examples "manage moderations" do
     it "user can filter by reported content" do
       search = moderation.reportable.id
       within ".filters__section" do
-        fill_in("Search Moderation by reportable id or content.", with: search)
+        fill_in("Search moderation by reportable id or content", with: search)
         within(".input-group-button") { click_on(class: "text-secondary") }
       end
       expect(page).to have_css("tbody tr", count: 1)
@@ -132,6 +134,7 @@ shared_examples "manage moderations" do
 
     it "user can see moderation details" do
       within "tr[data-id=\"#{moderation.id}\"]" do
+        find("button[data-component='dropdown']").click
         click_on "Expand"
       end
 
@@ -188,13 +191,16 @@ shared_examples "manage moderations" do
     end
 
     it "user cannot unreport them" do
-      expect(page).to have_no_css(".action-icon--unreport")
+      within "tr[data-id=\"#{hidden_moderations.first.id}\"]" do
+        find("button[data-component='dropdown']").click
+        expect(page).to have_no_css("a", text: "Unreport")
+      end
     end
 
     it "user can review them" do
       hidden_moderations.each do |moderation|
         within "tr[data-id=\"#{moderation.id}\"]" do
-          expect(page).to have_css("a[href='#{moderation.reportable.reported_content_url}']")
+          expect(page).to have_css("a[href='#{moderation.reload.reportable.reported_content_url}']")
         end
       end
     end
@@ -231,6 +237,7 @@ shared_examples "manage moderations" do
     it "user can hide them" do
       moderation_id = moderations.first.id
       within "tr[data-id=\"#{moderation_id}\"]" do
+        find("button[data-component='dropdown']").click
         click_on "Hide"
       end
 

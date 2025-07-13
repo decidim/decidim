@@ -8,9 +8,6 @@ module Decidim::Assemblies
 
     let(:organization) { create(:organization) }
     let(:current_user) { create(:user, :admin, :confirmed, organization:) }
-    let(:assembly_type) { create(:assemblies_type, organization:) }
-    let(:scope) { create(:scope, organization:) }
-    let(:area) { create(:area, organization:) }
     let(:errors) { double.as_null_object }
     let(:participatory_processes) do
       create_list(
@@ -22,6 +19,9 @@ module Decidim::Assemblies
     let(:related_process_ids) { [participatory_processes.map(&:id)] }
     let(:hero_image) { nil }
     let(:banner_image) { nil }
+    let(:taxonomizations) do
+      2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
+    end
 
     let(:form) do
       instance_double(
@@ -32,7 +32,6 @@ module Decidim::Assemblies
         subtitle: { en: "subtitle" },
         weight: 1,
         slug: "slug",
-        hashtag: "hashtag",
         meta_scope: { en: "meta scope" },
         hero_image:,
         banner_image:,
@@ -45,16 +44,13 @@ module Decidim::Assemblies
         description: { en: "description" },
         short_description: { en: "short_description" },
         organization:,
-        scopes_enabled: true,
-        scope:,
-        area:,
+        taxonomizations:,
         parent: nil,
         private_space: false,
         errors:,
         participatory_processes_ids: related_process_ids,
         purpose_of_action: { en: "purpose of action" },
         composition: { en: "composition of internal working groups" },
-        assembly_type:,
         creation_date: 1.day.from_now,
         created_by: "others",
         created_by_other: { en: "other created by" },
@@ -126,8 +122,7 @@ module Decidim::Assemblies
           banner_image:,
           description: { en: "description" },
           short_description: { en: "short_description" },
-          organization:,
-          scopes_enabled: false
+          organization:
         ).with_context(
           current_organization: organization,
           current_user:
@@ -167,19 +162,19 @@ module Decidim::Assemblies
         expect(action_log.version).to be_present
       end
 
-      it "links to assembly type" do
+      it "links to taxonomizations" do
         subject.call
 
-        expect(assembly.assembly_type).to eq(assembly_type)
+        expect(assembly.taxonomizations).to match_array(taxonomizations)
       end
 
-      context "when no assembly type is set" do
-        let(:assembly_type) { nil }
+      context "when no taxonomizations are set" do
+        let(:taxonomizations) { [] }
 
-        it "assembly type is null" do
+        it "taxonomizations are empty" do
           subject.call
 
-          expect(assembly.assembly_type).to be_nil
+          expect(assembly.taxonomizations).to be_empty
         end
       end
 

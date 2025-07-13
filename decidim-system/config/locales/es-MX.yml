@@ -7,6 +7,9 @@ es-MX:
         organization_name: Organización
         organization_url: URL de organización
         redirect_uri: Redirigir URI
+        refresh_tokens: Renovar autentificadores (tokens)
+        refresh_tokens_enabled: Renovar autentificadores (tokens) habilitados
+        scopes: Ámbitos disponibles
       organization:
         address: Nombre de host SMTP
         from_email: Dirección de correo electrónico
@@ -38,12 +41,28 @@ es-MX:
   decidim:
     system:
       actions:
+        api_user:
+          hidden_secret: El secreto está oculto
+          hide_secret: Ocultar el secreto
+          secret_can_not_be_shown: el secreto de API solo puede ser visto o copiado después de la creación
+          show_secret: Mostrar secreto
+          shown_secret: Se muestra el secreto
+        api_users:
+          create: Crear
+          new: Nueva usuaria de la API
+          remove: Eliminar usuaria
         confirm_destroy: '¿Seguro que lo quieres eliminar?'
+        confirm_refresh_api_secret: '¿Seguro de que quieres renovar el secreto para esta usuaria de la API? Una vez renovado, el secreto antiguo no será válido y ya no se podrá utilizar.'
+        confirm_remove_api_user: '¿Estás seguro de que quieres eliminar a esta usuaria de la API?'
+        copied: Se ha copiado
+        copy_secret: Copiar el secreto
+        copy_secret_clarification: Copiar el secreto al portapapeles
         destroy: Borrar
         edit: Editar
         new_admin: Añadir administradora
         new_oauth_application: Añadir aplicación OAUTH
         new_organization: Añadir organización
+        refresh_secret: Actualizar el secreto
         save: Guardar
         title: Acciones
       admins:
@@ -63,6 +82,25 @@ es-MX:
         update:
           error: Se ha producido un error al actualizar este administrador.
           success: Administradora actualizada correctamente.
+      api_user:
+        create:
+          error: Se ha producido un error al crear la usuaria de la API.
+          success: La usuaria de la API se ha creado correctamente. El secreto para la usuaria solo es visible después de su creación. ¡Por favor, cópialo y guárdalo de forma segura antes de salir de esta página!
+        destroy:
+          success: La usuaria de la API se ha eliminado con éxito.
+        refresh:
+          error: Algo ha fallado. Por favor, inténtelo de nuevo más tarde.
+          success: Se ha renovado el secreto correctamente. El secreto para la usuaria solo es visible después de su creación. ¡Por favor, cópialo y guárdalo de forma segura antes de salir de esta página!
+      api_users:
+        index:
+          explanation_html: |
+            <p>Las usuarias API permiten a las desarrolladoras de integración añadir cuentas de usuaria de máquina administrativas al sistema. Estas usuarias de máquina pueden actuar como administradores en la plataforma para realizar actualizaciones que los administradores normales realizarían a través del panel de administración. Un caso de uso típico es una plataforma de gestión externa en la que un script automatizado realizaría tareas administrativas con la plataforma sin que una usuaria real tenga que autenticarse en el sistema. Por ejemplo, un sistema de automatización podría querer enviar respuestas a propuestas en cuyo caso necesitamos una usuaria de integración para realizar esta tarea dentro de esta plataforma.</p>
+            <p>La principal diferencia entre estas cuentas y las cuentas de administración normales es que estas usuarias están destinadas a ser utilizadas por las máquinas y por lo tanto sus requisitos de contraseña son diferentes. Estoas usuarioas no necesitan actualizar regularmente su contraseña y el cambio de contraseña de la cuenta puede realizarse de forma gestionada cuando sea necesario.</p>
+            <p>Estas credenciales están destinadas a ser utilizadas por máquinas. Las aplicaciones orientadas a los participantes deben integrarse con <a href="%{oauth_link}">Aplicaciones OAuth</a>.</p>
+          manage: Gestionar usuarias de la API
+        new:
+          select_organization: Selecciona tu organización
+          title: Crear una nueva usuaria de la API
       dashboard:
         show:
           admins: Administradoras
@@ -91,6 +129,7 @@ es-MX:
             sign_up: Crea una cuenta
       menu:
         admins: Administradores
+        api_credentials: Credenciales de la API
         dashboard: Panel de control
         oauth_applications: Aplicaciones OAuth
         organizations: Organizaciones
@@ -101,6 +140,15 @@ es-MX:
             email: Correo electrónico
           validations:
             email_uniqueness: ya existe otro administrador con este correo electrónico
+        api_user:
+          fields:
+            created_at: Creada en
+            key: Clave
+            name: Nombre
+            organization: Organización
+            secret: Secreto
+          validations:
+            name_uniqueness: Ya existe una usuaria API con este nombre.
         oauth_application:
           fields:
             created_at: Creado el
@@ -127,6 +175,26 @@ es-MX:
           save: Guardar
           title: Editar aplicación
         form:
+          application_type:
+            confidential:
+              explanation: Aplicaciones que son capaces de autenticarse de forma segura con el servidor de autorización, por ejemplo siendo capaces de mantener a salvo su secreto de cliente registrado. Normalmente se trata de una aplicación que se ejecuta en un servidor donde se almacena el secreto del cliente.
+              name: Confidencial
+            public:
+              explanation: Aplicaciones que no pueden utilizar secretos de clientes registrados, como aplicaciones que se ejecutan en un navegador o en un dispositivo móvil.
+              name: Público
+          application_type_help_html: 'El tipo de cliente OAuth definido por <a href="%{client_type_link}" target="_blank">RFC 6749 Sección 2.1</a>. Los clientes públicos deben implementar el flujo PKCE según lo definido por <a href="%{pkce_link}" target="_blank">RFC 7636</a>. '
+          refresh_tokens_help_html: 'Los autentificadores (tokens) de actualización son útiles en caso de que el autentificador necesite una vida útil más larga que la asignada al autentificador de acceso.'
+          scopes_explanation:
+            "api:read": Permite a la usuaria realizar operaciones de consulta a través de la API GraphQL.
+            "api:write": Permite a la usuaria realizar operaciones de mutación a través de la API GraphQL.
+            profile: Proporciona acceso a los detalles del perfil de la usuaria. Este ámbito solo es necesario en caso de que la aplicación OAuth solo se utilice como proveedor de identidad o servicio de autenticación.
+            user: Capacidad para actuar como la usuaria registrada con el autentificador (token) dado durante las llamadas a la API GraphQL. Esto es necesario para todas las operaciones api:write o api:read que necesiten información sobre el usuario actual.
+          scopes_help_html: |
+            Los ámbitos seleccionados estarán disponibles para que las aplicaciones conectadas los soliciten durante el proceso de autorización. La usuaria recibirá información detallada sobre la solicitud de autorización cuando inicie sesión mediante OAuth.
+            <br>
+            Los diferentes ámbitos proporcionan diferentes características para la usuaria autenticada utilizando los autentifcadores (tokens) de acceso concedidos.
+            <br>
+            <strong>Nota:</strong> Si sólo necesitas autenticar a las usuarias de tus aplicaciones externas, sólo necesitas el ámbito <strong>perfil</strong>. Las aplicaciones que interactúan con la API de Decidim también necesitan otros ámbitos.
           select_organization: Seleccionar una organización
         index:
           confirm_delete: '¿Seguro que quieres eliminar esta aplicación?'
@@ -149,12 +217,12 @@ es-MX:
             Organización creada correctamente.
             </p>
             <ol>
-            <li>Es posible que necesite actualizar el código de tu aplicación, en cuanto a permitir peticiones a %{host}, necesitas añadir lo siguiente a tu configuración de entorno
+            <li>Es posible que necesites actualizar el código de tu aplicación. En cuanto a permitir peticiones a %{host}, necesitas añadir lo siguiente a tu configuración de entorno
             (p.e <code>config/environment/production.rb</code>) o tu <code>config/application.rb</code>:
             <p>config.hosts << "%{host}" </p>
             </li>
             <li>
-            Hecho esto, tendrías que poder acceder a tu plataforma a través de <a href="http://%{host}">http://%{host}</a>
+            Una vez hecho esto, tendrías que poder acceder a tu plataforma a través de <a href="http://%{host}">http://%{host}</a>
             </li>
             <li>
             Te hemos enviado un correo electrónico a <b>%{email}</b> que necesitas confirmar.
@@ -168,7 +236,7 @@ es-MX:
           default_src: SRC por defecto
           default_src_hint: |
             Default-src es la convención predeterminada para todo el contenido externo, como JavaScript, imágenes, CSS, fuentes, llamadas asincrónicas, marcos y archivos multimedia HTML5.
-            Decidim añade automáticamente el valor "'self' 'unsafe-inline'", pero, si quieres, puedes añadir otros valores. Deja el valor en blanco si no sabe lo que significa.
+            Decidim añade automáticamente el valor "'self' 'unsafe-inline'", pero, si quieres, puedes añadir otros valores. Deja el valor en blanco si no sabes lo que significa.
           font_src: Direcciones de fuentes (font-src)
           font_src_hint: |
             La directiva font-src restringe las URL que se pueden cargar con @font-face.
@@ -197,7 +265,7 @@ es-MX:
           confirm_resend_invitation: '¿Seguro que quieres reenviar la invitación?'
           resend_invitation: Reenviar invitación
           secondary_hosts_hint: Introduce cada uno de ellos en una nueva línea
-          title: Editar la organizacion
+          title: Editar la organización
         file_upload_settings:
           content_types:
             admin_hint: Estos tipos MIME están permitidos para subirse desde el panel de administración. Las personas administradoras deben ser conscientes de los riesgos al subir algunos formatos de documentos, por lo que cabe esperar que sean más cautelosas con las subidas de archivos.
@@ -216,6 +284,7 @@ es-MX:
           intro: |
             Por favor, sé muy cautelosa al considerar cambiar estos ajustes. Cuanto menos opciones permitas, mejor.
             Permitir extensiones de archivos específicas o tipos MIME puede exponer a las usuarias del sistema a riesgos de seguridad y también puede afectar a la accesibilidad del sitio web.
+        header_snippets_help_html: Utiliza este campo para añadir cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieren JavaScript o CSS adicionales. También, puedes usarlo para añadir meta-etiquetas extra al HTML. Ten en cuenta que esto sólo será renderizado en páginas públicas, no en la sección de administración. Si el código interactúa con APIs externas o no cumple con las pautas de seguridad de la aplicación, será necesario cambiar la Política de Seguridad del Contenido. Lea más sobre <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">en el sitio de documentación</a>.
         index:
           title: Organizaciones
         new:

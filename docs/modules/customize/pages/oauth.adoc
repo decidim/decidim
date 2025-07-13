@@ -1,6 +1,6 @@
 = OAuth
 
-Decidim is both and OAuth client (via https://github.com/omniauth/omniauth[omniauth]) and an OAuth provider (via https://github.com/doorkeeper-gem/doorkeeper[doorkeeper]).
+Decidim is both an OAuth client (via https://github.com/omniauth/omniauth[omniauth]) and an OAuth provider (via https://github.com/doorkeeper-gem/doorkeeper[doorkeeper]).
 
 Check the xref:services:social_providers.adoc[Social Providers] document to check the provider and client configurations.
 
@@ -25,6 +25,18 @@ To be notified after a registration one should subscribe to the event, in the pa
 [source,ruby]
 ----
 ActiveSupport::Notifications.subscribe "decidim.user.omniauth_registration" do |name, started, finished, unique_id, data|
+  puts "the data: #{data.inspect}"
+  IdCatMobilVerificationJob.perform_later(data[:raw_data])
+end
+----
+
+Note that, if the user is already registered, the `CreateOmniauthRegistration` command will not trigger the "decidim.user.omniauth_registration" event by instead it will trigger the "decidim.user.omniauth_login" event, which has the same payload as the registration event.
+
+For instance, to retrigger the `IdCatMobilVerificationJob` after a user logs in via omniauth, you can subscribe to the "decidim.user.omniauth_login" event as follows:
+
+[source,ruby]
+----
+ActiveSupport::Notifications.subscribe "decidim.user.omniauth_login" do |name, started, finished, unique_id, data|
   puts "the data: #{data.inspect}"
   IdCatMobilVerificationJob.perform_later(data[:raw_data])
 end

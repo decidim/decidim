@@ -1,6 +1,10 @@
 es-PY:
   activemodel:
     attributes:
+      authorization:
+        verification_attachment: Archivo adjunto de la verificación
+      census_data:
+        file: Archivo
       config:
         available_methods: Metodos disponibles
         offline: Desconectado
@@ -74,6 +78,12 @@ es-PY:
             - Un ejemplo de gestor de autorización para que las desarrolladoras puedan entender como funciona una verificación simple.
             - Está dirigido a las desarrolladoras para que puedan entender cómo implementar su propio sistema de verificación.
             - Verifícate introduciendo un número de documento que termine con "X".
+        ephemeral_dummy_authorization_handler:
+          help:
+            - Un ejemplo de gestor de autorización para que las desarrolladoras puedan entender como funciona una verificación simple.
+            - Está dirigido a las desarrolladoras para que puedan entender cómo implementar su propio sistema de verificación.
+            - Es una copia de la Autorización de ejemplo.
+            - Verifícate introduciendo un número de documento que termine con "X".
         id_documents:
           help:
             - Los usuarios rellenan la información de su identidad y suben una copia de su documento.
@@ -112,6 +122,12 @@ es-PY:
           email_subject: Error al intentar verificarse contra otra participante
           notification_title: La participante <a href="%{resource_path}">%{resource_title}</a> ha intentado verificarse con los datos de otra participante (<a href="%{managed_user_path}">%{managed_user_name}</a>).
     verifications:
+      admin_log:
+        csv_datum:
+          create: "%{user_name} ha creado un nuevo registro de datos censales con email: %{resource_email}"
+          delete: "%{user_name} ha eliminat un nuevo registro de datos censales con email: %{resource_email}"
+          import: "%{user_name} ha importado: %{imported_count} registro(s) censal(es)"
+          update: "%{user_name} ha actualizado el registro de datos censales con email: %{resource_email}"
       authorizations:
         authorization_metadata:
           info: 'Estos son los datos de la verificación actual:'
@@ -124,17 +140,6 @@ es-PY:
         destroy:
           error: Se ha producido un error al borrar la autorización.
           success: Has borrado la autorización correctamente.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Verificar contra otro ejemplo de controlador de autorización
-            csv_census: Verificar contra el censo de la organización.
-            dummy_authorization_handler: Verificar contra el gestor de autorización de ejemplo
-            dummy_authorization_workflow: Verificar contra el flujo de autorización de ejemplo
-            id_documents: Verifícate subiendo tu documento de identidad
-            postal_letter: Verifícate recibiendo un código de verificación a través de correo postal
-            sms: Verifícate a través de un código enviado por SMS
-          title: Verifica tu identidad
-          verify_with_these_options: 'Estas son las opciones disponibles para verificar tu identidad:'
         index:
           expired_verification: La verificación ha caducado
           granted_verification: Autorización concedida
@@ -146,6 +151,14 @@ es-PY:
         new:
           authorize: Enviar
           authorize_with: Verificar con %{authorizer}
+          tos_agreement: Al verificar tu identidad, aceptas los %{link}.
+        onboarding_pending:
+          completed_verifications: Tu perfil se ha verificado con éxito, ahora puedes %{action} en %{resource_name}
+          granted_verifications: Verificaciones concedidas
+          onboarding_message_html: 'Faltan unos pasos previos para poder %{action} en <strong>%{resource_title}</strong>%{resource_name}. Por favor, verifica tu cuenta completando las siguientes verificaciones:'
+          pending_admin_approval_verifications: Verificaciones pendientes de aprobación de una administradora
+          pending_verifications: Verificaciones pendientes
+          unauthorized: No tienes la autorización correspondiente para %{action} en este recurso
         renew_modal:
           cancel: Cancelar
           continue: Continuar
@@ -155,30 +168,62 @@ es-PY:
         start_exploring: empezar a explorar
       csv_census:
         admin:
+          actions:
+            confirm_destroy: '¿Seguro que quieres borrar este registro de datos censales?'
+            destroy: Destruir
+            edit: Editar
           census:
-            create:
+            create_import:
               error: Se ha producido un error al importar el censo.
-              success: '%{count} ítems importados correctamente (%{errors} errores).'
-            destroy_all:
-              success: Todos los datos del censo han sido eliminados.
-          destroy:
-            confirm: La eliminación de todo el censo no se puede deshacer. ¿Seguro que quieres continuar?
-            title: Borrar todos los datos del censo
+              no_user: No se encontró la usuaria
+              success: Se han Importado con éxito %{count} elementos. Se están procesando los datos. Actualiza la página en unos minutos para ver los cambios.
+            destroy:
+              success: Se ha eliminado el registro de datos censales.
+            index:
+              empty: No hay datos del censo. Utiliza %{import_csv} para importarlo usando un archivo CSV.
+              no_sign_in: Nunca ha iniciado sesión
+              no_user: No se ha encontrado ninguna usuaria
+            last_login:
+              no_sign_in: Nunca ha iniciado sesión
+              no_user: Ninguna usuaria
+            new_import:
+              errors:
+                email_exists: La dirección de correo electrónico %{email} ya existe en la organización %{organization}.
+              example: |
+                john.doe@example.org
+                jane.doe@example.org
+              info: 'Debe ser un archivo en formato CSV con una sola columna con la dirección de correo electrónico:'
+              submit: Subir archivo
+              title: Importar datos de censales
+              upload_new_census: Subir un nuevo censo
+          census_records:
+            create_record:
+              success: Registro de datos censales añadidos con éxito. Se están procesando los datos. Actualiza la página, en unos minutos, para ver los cambios.
+            edit_record:
+              save: Guardar
+              title: Editar el registro censal
+            form:
+              email: Correo electrónico
+            new_record:
+              save: Guardar
+              title: Añadir un nuevo registro censal
+            update_record:
+              invalid: Ha habido un problema al actualizar el registro de datos del censo.
+              success: Se ha actualizado correctamente el registro de datos censales.
           index:
-            data: Hay %{count} registros cargados en total. La última fecha de carga fue en %{due_date}.
-            empty: No hay datos del censo. Utilice el siguiente formulario para importarlo usando un archivo CSV.
+            add_new_record_button: Añadir nuevo registro
+            authorized: Usuaria autorizada
+            fields:
+              actions: Acciones
+              created_at: Creado el
+              email: Correo electrónico
+              user_authorized: '¿Usuaria autorizada?'
+            import_csv: Importar CSV
+            no_authorized: Usuaria no autorizada
             title: Datos actuales del censo
           instructions:
             body: Para ello, debe ingresar a la administración del sistema y agregar las autorizaciones csv_census a la organización
             title: Necesitas activar el CSV para esta organización
-          new:
-            example: |
-              john.doe@example.org
-              jane.doe@example.org
-            file: "archivo .csv con datos de correos electrónicos"
-            info: 'Debe ser un archivo en formato CSV con sólo una columna con la dirección de correo electrónico:'
-            submit: Subir archivo
-            title: Subir un nuevo censo
         authorizations:
           new:
             error: No pudimos verificar su cuenta o usted no está en el censo de la organización.
@@ -188,11 +233,13 @@ es-PY:
           postal_codes:
             one: La participación está restringida a usuarios con el código postal %{postal_codes}.
             other: 'La participación está restringida a usuarios con cualquiera de los siguientes códigos postales: %{postal_codes}.'
-          scope: La participación está restringida a las personas verificadas en el ámbito de %{scope_name}.
           user_postal_codes:
             one: La participación está restringida a las participantes con el código postal %{postal_codes} y tu código postal es %{user_postal_code}.
             other: 'La participación está restringida a las participantes con cualquiera de los siguientes códigos postales: %{postal_codes}. Tu código postal es %{user_postal_code}.'
-          user_scope: La participación está restringida a las participantes con el ámbito %{scope_name} y tu ámbito es %{user_scope_name}.
+      errors:
+        invalid_emails: 'Las siguientes direcciones de correo electrónico no son válidas: %{invalid_emails}.'
+        no_emails: El archivo debe contener direcciones de correo electrónico
+        wrong_number_columns: "Se esperaba una columna %{expected}, pero se encontraron %{actual}."
       id_documents:
         admin:
           config:
@@ -257,6 +304,7 @@ es-PY:
           pending_authorizations:
             index:
               address: Dirección
+              already_sent: La carta postal ya se ha enviado y no se puede marcar de nuevo como enviada.
               letter_sent_at: Carta enviada el
               mark_as_sent: Marcar como enviada
               not_yet_sent: Aún no se ha enviado

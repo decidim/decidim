@@ -12,6 +12,8 @@ module Decidim
       it { is_expected.to be_valid }
       it { is_expected.to be_versioned }
 
+      include_examples "has taxonomies"
+
       describe "seed" do
         it "is the multiplication of timestamp per dice value" do
           expect(sortition.seed).to eq(sortition.request_timestamp.to_i * sortition.dice)
@@ -20,10 +22,11 @@ module Decidim
 
       describe "similar_count" do
         let(:sortition) { create(:sortition) }
-        let(:category) { create(:category, participatory_space: sortition.component.participatory_space) }
+        let(:taxonomy1) { create(:taxonomy, :with_parent, organization: sortition.organization) }
+        let(:taxonomy2) { create(:taxonomy, :with_parent, organization: sortition.organization) }
 
         before do
-          Decidim::Categorization.create!(decidim_category_id: category.id, categorizable: sortition)
+          sortition.taxonomies = [taxonomy1, taxonomy2]
           sortition.reload
         end
 
@@ -41,7 +44,7 @@ module Decidim
                         component: sortition.component,
                         decidim_proposals_component: sortition.decidim_proposals_component,
                         target_items: sortition.target_items).each do |sortition|
-              Decidim::Categorization.create!(decidim_category_id: category.id, categorizable: sortition)
+              Decidim::Taxonomization.create!(taxonomy_id: taxonomy1.id, taxonomizable: sortition)
             end
 
             create_list(:sortition, repetitions,

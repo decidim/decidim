@@ -8,12 +8,16 @@ module Decidim
       description "The interface that all participatory spaces should implement."
 
       field :id, GraphQL::Types::ID, "The participatory space's unique ID", null: false
-
+      field :components, [ComponentInterface, { null: true }], null: true, description: "Lists the components this space contains." do
+        argument :filter, ComponentInputFilter, "Provides several methods to filter the results", required: false
+        argument :order, ComponentInputSort, "Provides several methods to order the results", required: false
+      end
+      field :stats, [Decidim::Core::StatisticType, { null: true }], "The statistics collection of this participatory space", null: true
       field :title, TranslatedFieldType, "The graphql_name of this participatory space.", null: false
-
       field :type, String, description: "The participatory space class name. i.e. Decidim::ParticipatoryProcess", null: false
-
       field :manifest, Decidim::Core::ParticipatorySpaceManifestType, description: "The manifest information for the participatory space.", null: false
+      field :allows_steps, Boolean, description: "The participatory space allows steps", null: false, method: :allows_steps?
+      field :has_steps, Boolean, description: "The participatory space allows steps", null: false, method: :has_steps?
 
       def type
         object.class.name
@@ -23,27 +27,16 @@ module Decidim
         ParticipatorySpaceManifestPresenter.new(object.manifest, object.organization)
       end
 
-      field :components, [ComponentInterface], null: true, description: "Lists the components this space contains." do
-        argument :filter, ComponentInputFilter, "Provides several methods to filter the results", required: false
-        argument :order, ComponentInputSort, "Provides several methods to order the results", required: false
-      end
-
       def components(filter: {}, order: {})
         ComponentList.new.call(object, { filter:, order: }, context)
       end
 
-      field :stats, [Decidim::Core::StatisticType, { null: true }], null: true
-
       def stats
         return if object.respond_to?(:show_statistics) && !object.show_statistics
 
-        published_components = Component.where(participatory_space: object).published
-
-        stats = Decidim.component_manifests.map do |component_manifest|
-          component_manifest.stats.with_context(published_components).map { |name, data| [name, data] }.flatten
+        Decidim::ParticipatoryProcesses::ParticipatoryProcessStatsPresenter.new(participatory_process: object).collection.map do |stat|
+          [object.organization, stat]
         end
-
-        stats.reject(&:empty?)
       end
 
       def self.resolve_type(obj, _ctx)

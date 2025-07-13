@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.version = Decidim::ParticipatoryProcesses.version
   s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
-  s.license = "AGPL-3.0"
+  s.license = "AGPL-3.0-or-later"
   s.homepage = "https://decidim.org"
   s.metadata = {
     "bug_tracker_uri" => "https://github.com/decidim/decidim/issues",
@@ -32,7 +32,10 @@ Gem::Specification.new do |s|
 
   s.add_dependency "decidim-core", Decidim::ParticipatoryProcesses.version
 
+  s.add_development_dependency "decidim-accountability", Decidim::ParticipatoryProcesses.version
   s.add_development_dependency "decidim-admin", Decidim::ParticipatoryProcesses.version
+  s.add_development_dependency "decidim-budgets", Decidim::ParticipatoryProcesses.version
   s.add_development_dependency "decidim-dev", Decidim::ParticipatoryProcesses.version
   s.add_development_dependency "decidim-meetings", Decidim::ParticipatoryProcesses.version
+  s.add_development_dependency "decidim-proposals", Decidim::ParticipatoryProcesses.version
 end

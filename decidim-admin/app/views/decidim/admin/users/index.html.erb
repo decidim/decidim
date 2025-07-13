@@ -9,7 +9,7 @@
     </h1>
   </div>
   <%= admin_filter_selector %>
-  <div class="table-scroll">
+  <div class="table-stacked">
     <table class="table-list">
       <thead>
         <tr>
@@ -20,38 +20,62 @@
           <th><%= sort_link(query, :invitation_accepted_at, t("models.user.fields.invitation_accepted_at", scope: "decidim.admin"), default_order: :desc) %></th>
           <th><%= sort_link(query, :last_sign_in_at, t("models.user.fields.last_sign_in_at", scope: "decidim.admin"), default_order: :desc) %></th>
           <th><%= sort_link(query, :created_at, t("models.user.fields.created_at", scope: "decidim.admin"), default_order: :desc) %></th>
-          <th></th>
+          <th><%= t("decidim.admin.actions.actions") %></th>
         </tr>
       </thead>
       <tbody>
         <% @users.each do |user| %>
           <tr data-user-id="<%= user.id %>">
-            <td><%= t("models.user.fields.roles.#{user.active_role}", scope: "decidim.admin") %></td>
-            <td><%= user.name %></td>
-            <td><%= user.email %></td>
-            <td>
-              <% if user.invitation_sent_at %>
-                <%= l user.invitation_sent_at, format: :short %>
-              <% end %>
+            <td data-label="<%= t("models.user.fields.role", scope: "decidim.admin") %>">
+              <%= t("models.user.fields.roles.#{user.active_role}", scope: "decidim.admin") %>
             </td>
-            <td>
-              <% if user.invitation_accepted_at %>
-                <%= l user.invitation_accepted_at, format: :short %>
-              <% end %>
+            <td data-label="<%= t("models.user.fields.name", scope: "decidim.admin") %>">
+              <%= user.name %>
             </td>
-            <td>
-              <% if user.last_sign_in_at %>
-                <%= l user.last_sign_in_at, format: :short %>
-              <% end %>
+            <td data-label="<%= t("models.user.fields.email", scope: "decidim.admin") %>">
+              <%= user.email %>
             </td>
-            <td><%= l user.created_at, format: :short %></td>
-            <td class="table-list__actions">
-              <% if allowed_to?(:invite, :admin_user, user: user) && user.invited_to_sign_up? %>
-                <%= icon_link_to "refresh-line", [:resend_invitation, user], t("actions.resend_invitation", scope: "decidim.admin"), class: "resend-invitation", method: :post %>
-              <% end %>
+            <td data-label="<%= t("models.user.fields.invitation_sent_at", scope: "decidim.admin") %>">
+              <%= l(user.invitation_sent_at, format: :short) if user.invitation_sent_at %>
+            </td>
+            <td data-label="<%= t("models.user.fields.invitation_accepted_at", scope: "decidim.admin") %>">
+              <%= l(user.invitation_accepted_at, format: :short) if user.invitation_accepted_at %>
+            </td>
+            <td data-label="<%= t("models.user.fields.last_sign_in_at", scope: "decidim.admin") %>">
+              <%= l(user.last_sign_in_at, format: :short) if user.last_sign_in_at %>
+            </td>
+            <td data-label="<%= t("models.user.fields.created_at", scope: "decidim.admin") %>">
+              <%= l(user.created_at, format: :short) %>
+            </td>
+            <td data-label="<%= t("decidim.admin.actions.actions") %>" class="table-list__actions">
+              <% if (allowed_to?(:invite, :admin_user, user: user) && user.invited_to_sign_up?) || (allowed_to? :destroy, :admin_user, user: user) %>
+                <button type="button" data-component="dropdown" data-target="actions-user-<%= user.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: user.name) %>">
+                  <%= icon "more-fill", class: "text-secondary" %>
+                </button>
 
-              <% if allowed_to? :destroy, :admin_user, user: user %>
-                <%= icon_link_to "delete-bin-line", user, t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                <div class="inline-block relative">
+                  <ul id="actions-user-<%= user.id %>" class="dropdown dropdown__action" aria-hidden="true">
+                    <% if allowed_to?(:invite, :admin_user, user: user) && user.invited_to_sign_up? %>
+                      <li class="dropdown__item">
+                        <%= link_to [:resend_invitation, user], method: :post, class: "dropdown__button" do %>
+                          <%= icon "refresh-line" %>
+                          <%= t("actions.resend_invitation", scope: "decidim.admin") %>
+                        <% end %>
+                      </li>
+
+                      <hr>
+                    <% end %>
+
+                    <% if allowed_to? :destroy, :admin_user, user: user %>
+                      <li class="dropdown__item">
+                        <%= link_to user, method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") }, class: "dropdown__button dropdown__button--danger" do %>
+                          <%= icon "delete-bin-line" %>
+                          <%= t("actions.destroy", scope: "decidim.admin") %>
+                        <% end %>
+                      </li>
+                    <% end %>
+                  </ul>
+                </div>
               <% end %>
             </td>
           </tr>

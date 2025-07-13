@@ -1,10 +1,13 @@
 eu:
   activemodel:
     attributes:
+      dummy:
+        image: Irudia
+      dummy_attribute: Balizko atributua
       dummy_resource:
         created_at: Sortua
-        decidim_scope_id: Esparrua
-        field: Nire eremua
+        decidim_scope_id: Eremua
+        field: Nire datu-eremua
         start_date: Hasiera data
         title: Izenburua
         translatable_text: Itzul daitekeen testua
@@ -14,6 +17,7 @@ eu:
       dummy:
         settings:
           global:
+            clear_all: Garbitu dena
             guided: Input gidatua
             guided_help: Laguntza-testua
             guided_readonly: Input desgaitua
@@ -22,6 +26,7 @@ eu:
             guided_rich_readonly_html: HTML<strong>laguntza</strong>testua input desgaiturako
             readonly_attribute: Soilik irakurtzeko atributua
             test: Proba bat
+            test_add: Erantsi testa
             test_choices:
               a: A aukera
               b: B aukera
@@ -31,8 +36,8 @@ eu:
               baz: Baz
               foo: foo
           step:
-            endorsements_blocked: Atxikimenduak blokeatuta
-            endorsements_enabled: Atxikimenduak gaituta
+            likes_blocked: Likeak blokeatuta
+            likes_enabled: Likeak gaituta
             readonly_step_attribute: Soilik irakurtzeko atributua
             test_options:
               bar: Bar
@@ -48,7 +53,7 @@ eu:
           conditions:
             - Erabili probako ingurunea erabakitzeko.
           description: Parte-hartzaileek garaikur hau lortzen dute probak sortzeagatik.
-          description_another: Erabiltzaile honek %{score} proba egin ditu.
+          description_another: Parte-hartzaile honek %{score} proba egin ditu.
           description_own: '%{score} proba sortu dituzu.'
           name: Probak
           next_level_in: Sortu %{score} proba gehiago hurrengo mailara iristeko!

@@ -56,13 +56,12 @@ module Decidim
       def proposal_attributes
         fields = {}
 
-        parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, @collaborative_draft.title, current_organization: @collaborative_draft.organization).rewrite
-        parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, @collaborative_draft.body, current_organization: @collaborative_draft.organization).rewrite
+        parsed_title = Decidim::ContentProcessor.parse(@collaborative_draft.title, current_organization: @collaborative_draft.organization).rewrite
+        parsed_body = Decidim::ContentProcessor.parse_with_processor(:inline_images, @collaborative_draft.body, current_organization: @collaborative_draft.organization).rewrite
 
         fields[:title] = { I18n.locale => parsed_title }
         fields[:body] = { I18n.locale => parsed_body }
         fields[:component] = @collaborative_draft.component
-        fields[:scope] = @collaborative_draft.scope
         fields[:address] = @collaborative_draft.address
         fields[:published_at] = Time.current
 
@@ -78,7 +77,7 @@ module Decidim
         ) do
           new_proposal = Proposal.new(proposal_attributes)
           new_proposal.coauthorships = @collaborative_draft.coauthorships
-          new_proposal.category = @collaborative_draft.category
+          new_proposal.taxonomies = @collaborative_draft.taxonomies
           new_proposal.attachments = @collaborative_draft.attachments
           new_proposal.save!
           new_proposal

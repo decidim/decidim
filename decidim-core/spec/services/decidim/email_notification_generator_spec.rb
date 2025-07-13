@@ -105,6 +105,15 @@ describe Decidim::EmailNotificationGenerator do
 
           it_behaves_like "does not enqueue the job"
         end
+
+        context "when the user is blocked" do
+          before do
+            recipient.update!(blocked: true, blocked_at: Time.now.utc)
+            follower.update!(blocked: true, blocked_at: Time.now.utc)
+          end
+
+          it_behaves_like "does not enqueue the job"
+        end
       end
     end
 

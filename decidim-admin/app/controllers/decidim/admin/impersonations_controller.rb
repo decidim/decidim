@@ -29,6 +29,7 @@ module Decidim
 
         @form = form(ImpersonateUserForm).from_params(
           user:,
+          name: params[:impersonate_user][:name],
           handler_name:,
           reason: params[:impersonate_user][:reason],
           authorization: Decidim::AuthorizationHandler.handler_for(
@@ -98,7 +99,7 @@ module Decidim
           managed: true,
           name: params.dig(:impersonate_user, :name)
         ) do |u|
-          u.nickname = Decidim::UserBaseEntity.nicknamize(u.name, organization: current_organization)
+          u.nickname = Decidim::UserBaseEntity.nicknamize(u.name, current_organization.id)
           u.admin = false
           u.tos_agreement = true
         end

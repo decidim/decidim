@@ -2,20 +2,13 @@
 
 module Decidim
   module Debates
-    class DownloadYourDataDebateSerializer < Decidim::Exporters::Serializer
-      # Serializes a Debate for download your data
+    class DownloadYourDataDebateSerializer < Decidim::Debates::DebateSerializer
+      # Serializes a Debate for download your data feature
+      #
+      # Remove the author information as it is the same of the user that
+      # requested the data
       def serialize
-        {
-          id: resource.id,
-          title: resource.title,
-          description: resource.description,
-          instructions: resource.instructions,
-          start_time: resource.start_time,
-          end_time: resource.end_time,
-          information_updates: resource.information_updates,
-          reference: resource.reference,
-          component: resource.component.name
-        }
+        super.except!(:author)
       end
     end
   end

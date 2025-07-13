@@ -1,9 +1,9 @@
-<% add_decidim_meta_tags({
-                           title: translated_attribute(current_participatory_space.title),
-                           image_url: current_participatory_space.attached_uploader(:hero_image).url,
-                           description: translated_attribute(current_participatory_space.short_description),
-                           url: conference_url(current_participatory_space)
-                         }) %>
+<% add_decidim_meta_tags(
+  title: translated_attribute(current_participatory_space.title),
+  image_url: resolve_meta_image_url(current_participatory_space),
+  description: translated_attribute(current_participatory_space.short_description),
+  url: conference_url(current_participatory_space),
+  resource: current_participatory_space) %>
 
 <%
 edit_link(

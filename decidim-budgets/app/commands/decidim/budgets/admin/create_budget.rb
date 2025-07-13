@@ -6,7 +6,7 @@ module Decidim
       # This command is executed when the user creates an Budget
       # from the admin panel.
       class CreateBudget < Decidim::Commands::CreateResource
-        fetch_form_attributes :component, :scope, :title, :weight, :description, :total_budget
+        fetch_form_attributes :component, :title, :weight, :description, :total_budget
 
         private
 

@@ -63,9 +63,32 @@ export default function(node) {
   // append to dom hidden, to apply css transitions
   tooltip.setAttribute("aria-hidden", true)
 
-  const append = () => {
-    // do nothing if the tooltip is already present at the DOM
+  // used to detect if the user is on a mobile device by checking the user agent
+  const useMobile = (/Mobi|Android/i).test(navigator.userAgent);
+
+  // used not to collapse tooltip
+  let removeTooltip = () => {
+    tooltip.setAttribute("aria-hidden", "true");
+  }
+
+  // used to allow clicks outside the tooltip to take place on the page or device
+  const OutsideClick = (event) => {
+    if (!tooltip.contains(event.target) && event.target !== node) {
+      removeTooltip();
+    }
+  }
+
+  // function called again to allow clicks outside the tooltip to collapse the tooltip
+  removeTooltip = () => {
+    tooltip.setAttribute("aria-hidden", "true");
+    document.removeEventListener("click", OutsideClick)
+  }
+
+  const toggleTooltip = (event) => {
+    event.preventDefault();
+    // if the tooltip is visible in the DOM, hide it otherwise display
     if (tooltip.getAttribute("aria-hidden") === "false") {
+      tooltip.setAttribute("aria-hidden", "true");
       return
     }
 
@@ -106,27 +129,24 @@ export default function(node) {
     tooltip.style.left = `${positionX}px`
 
     tooltip.setAttribute("aria-hidden", false)
+
+    // sleep time before hiding the element from the DOM
+    setTimeout(() => document.addEventListener("click", OutsideClick))
   }
 
-  // in order to revoke the remove event when the mouse is over the trigger/tooltip
-  let cancelRemove = false
+  if (useMobile) {
+    // mobile use to click and toggle the tooltip
+    node.addEventListener("click", toggleTooltip);
+    window.addEventListener("keydown", (event) => event.key === "Escape" && removeTooltip())
+  } else {
+    // desktop use for hover and blur over tooltip
+    node.addEventListener("mouseenter", toggleTooltip)
+    node.addEventListener("mouseleave", removeTooltip)
+    node.addEventListener("focus", toggleTooltip)
+    node.addEventListener("blur", removeTooltip)
 
-  const remove = () => {
-    cancelRemove = false
-    // give some sleep time before hiding the element from the DOM
-    setTimeout(() => !cancelRemove && tooltip.setAttribute("aria-hidden", true), 500);
+    // tooltip hover listeners to prevent hiding when hovered
+    tooltip.addEventListener("mouseenter", () => tooltip.setAttribute("aria-hidden", false))
+    tooltip.addEventListener("mouseleave", removeTooltip)
   }
-
-  // keyboard listener is at root-level
-  window.addEventListener("keydown", (event) => event.key === "Escape" && remove())
-
-  node.addEventListener("mouseenter", append)
-  node.addEventListener("mouseleave", remove)
-  node.addEventListener("focus", append)
-  node.addEventListener("blur", remove)
-  tooltip.addEventListener("mouseenter", () => tooltip.setAttribute("aria-hidden", false))
-  tooltip.addEventListener("mouseleave", remove)
-
-  node.addEventListener("mouseover", () => (cancelRemove = true))
-  tooltip.addEventListener("mouseover", () => (cancelRemove = true))
 }

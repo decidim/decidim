@@ -10,18 +10,18 @@ module Decidim
       let(:survey) { create(:survey) }
       let(:component) { survey.component }
       let(:previous_settings) do
-        { allow_answers: previously_allowing_answers }
+        { allow_responses: previously_allowing_responses }
       end
       let(:current_settings) do
-        { allow_answers: currently_allowing_answers }
+        { allow_responses: currently_allowing_responses }
       end
       let(:user) { create(:user, organization: component.organization) }
       let!(:follow) { create(:follow, followable: component.participatory_space, user:) }
 
       context "when there are relevant setting changes" do
         context "when the survey becomes open" do
-          let(:previously_allowing_answers) { false }
-          let(:currently_allowing_answers) { true }
+          let(:previously_allowing_responses) { false }
+          let(:currently_allowing_responses) { true }
 
           it "notifies the space followers about it" do
             expect(Decidim::EventsManager)
@@ -38,8 +38,8 @@ module Decidim
         end
 
         context "when the survey becomes closed" do
-          let(:previously_allowing_answers) { true }
-          let(:currently_allowing_answers) { false }
+          let(:previously_allowing_responses) { true }
+          let(:currently_allowing_responses) { false }
 
           it "notifies the space followers about it" do
             expect(Decidim::EventsManager)
@@ -57,8 +57,8 @@ module Decidim
       end
 
       context "when there are not relevant changes" do
-        let(:previously_allowing_answers) { true }
-        let(:currently_allowing_answers) { true }
+        let(:previously_allowing_responses) { true }
+        let(:currently_allowing_responses) { true }
 
         it "does not notify the upcoming meeting" do
           expect(Decidim::EventsManager)

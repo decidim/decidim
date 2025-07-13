@@ -1,0 +1,25 @@
+<div class="response-questionnaire__single-option js-check-box-collection">
+  <% response.question.response_options.each_with_index do |response_option, idx| %>
+    <% choice = response.selected_choices.find { |choice| choice.response_option_id == response_option.id } %>
+
+    <div class="js-collection-input">
+      <%= label_tag do %>
+        <%= check_box_tag "questionnaire[responses][#{response_idx}][choices][#{idx}][body]",
+                          translated_attribute(response_option.body),
+                          choice.present?, disabled: %>
+
+        <%= translated_attribute(response_option.body) %>
+
+        <%= hidden_field_tag "questionnaire[responses][#{response_idx}][choices][#{idx}][response_option_id]", response_option.id %>
+      <% end %>
+
+      <% if response_option.free_text %>
+        <%= text_field_tag "questionnaire[responses][#{response_idx}][choices][#{idx}][custom_body]",
+                           choice.try(:custom_body),
+                           disabled: true,
+                           maxlength:,
+                           class: "w-full" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

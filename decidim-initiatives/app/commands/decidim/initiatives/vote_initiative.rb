@@ -46,7 +46,7 @@ module Decidim
       def create_votes
         @votes = form.authorized_scopes.map do |scope|
           initiative.votes.create!(
-            author: form.signer,
+            author: form.user,
             encrypted_metadata: form.encrypted_metadata,
             timestamp:,
             hash_id: form.hash_id,
@@ -67,8 +67,8 @@ module Decidim
 
       def send_notification
         Decidim::EventsManager.publish(
-          event: "decidim.events.initiatives.initiative_endorsed",
-          event_class: Decidim::Initiatives::EndorseInitiativeEvent,
+          event: "decidim.events.initiatives.initiative_liked",
+          event_class: Decidim::Initiatives::LikeInitiativeEvent,
           resource: initiative,
           followers: initiative.author.followers
         )

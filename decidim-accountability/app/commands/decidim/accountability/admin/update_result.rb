@@ -8,8 +8,9 @@ module Decidim
       class UpdateResult < Decidim::Commands::UpdateResource
         include Decidim::Accountability::Admin::HasResultCommand
 
-        fetch_form_attributes :scope, :category, :parent_id, :title, :description, :start_date, :end_date,
-                              :progress, :decidim_accountability_status_id, :external_id, :weight
+        fetch_form_attributes :taxonomizations, :parent_id, :title, :description, :start_date, :end_date,
+                              :progress, :decidim_accountability_status_id, :external_id, :weight,
+                              :address, :latitude, :longitude
 
         private
 

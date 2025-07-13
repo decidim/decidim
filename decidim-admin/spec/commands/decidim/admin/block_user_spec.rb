@@ -11,7 +11,7 @@ module Decidim::Admin
     let(:justification) { "justification for blocking the user" }
     let(:user_block) { create(:justification, :user, :current_user) }
 
-    shared_examples "blocking user or group form" do
+    shared_examples "blocking user form" do
       context "when the form is valid" do
         let(:form) do
           double(
@@ -40,6 +40,7 @@ module Decidim::Admin
           expect(form.user.blocked).to be(true)
           expect(form.user.extended_data["user_name"]).to eq(user_name)
           expect(form.user.name).to eq("Blocked user")
+          expect(form.user.notifications_sending_frequency).to eq("none")
         end
 
         it "original username is stored in the action log entry's resource title" do
@@ -82,14 +83,7 @@ module Decidim::Admin
       let(:user_to_block) { create(:user, name: user_name, organization:) }
       let(:user_name) { "Testing user" }
 
-      it_behaves_like "blocking user or group form"
-    end
-
-    context "with a user group" do
-      let(:user_to_block) { create(:user_group, name: user_name, organization:) }
-      let(:user_name) { "Testing user group" }
-
-      it_behaves_like "blocking user or group form"
+      it_behaves_like "blocking user form"
     end
   end
 end

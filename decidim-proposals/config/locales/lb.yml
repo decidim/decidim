@@ -18,9 +18,6 @@ lb:
       badges:
         proposals:
           name: Virschléi
-    metrics:
-      proposals:
-        title: Virschléi
     proposals:
       admin:
         exports:

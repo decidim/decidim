@@ -25,19 +25,19 @@
 
         <div class="attachment-details" data-attachment-id="<%= attachment.id %>" data-title="<%= title_for(attachment) %>" data-filename="<%= file_name_for(attachment) %>" data-state="uploaded">
           <% if file_attachment_path(attachment) && blob(attachment).image? %>
-            <div><%= image_tag(file_attachment_path(attachment), alt: title_for(attachment) || file_name_for(attachment)) %></div>
+            <div><%= image_tag(file_attachment_path(attachment), alt: "") %></div>
           <% elsif uploader_default_image_path(attribute).present? %>
             <div><%= image_tag uploader_default_image_path(attribute) %></div>
           <% end %>
 
           <% if has_title? %>
-            <span><%= title_for(attachment) %> (<%= truncated_file_name_for(attachment) %>)</span>
+            <span><%= title_for(attachment) %></span>
             <%= form.hidden_field attribute, multiple: true, value: attachment.id, id: attachment.id %>
           <% else %>
             <% if blob(attachment).image? %>
-              <span><%= truncated_file_name_for(attachment, 15) %></span>
+              <span><%= title_for(attachment) %></span>
             <% else %>
-              <%= link_to truncated_file_name_for(attachment), file_attachment_path(attachment) %>
+              <%= link_to title_for(attachment), file_attachment_path(attachment), class: "w-full break-all mb-2" %>
             <% end %>
           <% end %>
         </div>

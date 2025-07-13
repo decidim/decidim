@@ -34,8 +34,6 @@ en:
       help_section:
         content: Content
       id: ID
-      import:
-        user_group_id: Create imports as
       newsletter:
         body: Body
         send_to_all_users: Send to all users
@@ -48,8 +46,6 @@ en:
         available_authorizations: Available authorizations
         badges_enabled: Enable badges
         comments_max_length: Comments max length (Leave 0 for default value)
-        cta_button_path: Call To Action button path
-        cta_button_text: Call To Action button text
         customize_welcome_notification: Customize welcome notification
         default_locale: Default locale
         description: Description
@@ -64,13 +60,6 @@ en:
         header_snippets: Header snippets
         highlight_alternative_color: Highlight, alternative
         highlight_color: Highlight
-        highlighted_content_banner_action_subtitle: Action button subtitle
-        highlighted_content_banner_action_title: Action button title
-        highlighted_content_banner_action_url: Action button URL
-        highlighted_content_banner_enabled: Show the highlighted content banner
-        highlighted_content_banner_image: Image
-        highlighted_content_banner_short_description: Short description
-        highlighted_content_banner_title: Title
         host: Host
         instagram_handler: Instagram handler
         logo: Logo
@@ -97,7 +86,6 @@ en:
         time_zone: Time Zone
         tos_version: Terms of service version
         twitter_handler: X handler
-        user_groups_enabled: Enable groups
         users_registration_mode: Users registration mode
         warning_color: Warning
         welcome_notification_body: Welcome notification body
@@ -106,6 +94,8 @@ en:
       participatory_space_private_user:
         email: Email
         name: Name
+      participatory_space_private_user_csv_import:
+        file: File
       scope:
         code: Code
         name: Name
@@ -177,14 +167,21 @@ en:
   decidim:
     admin:
       actions:
+        actions: Actions
+        actions_label: Actions for %{resource}
         add: Add
         attachment:
           new: New attachment
         attachment_collection:
           new: New attachment folder
         browse: Browse
-        category:
-          new: New category
+        confirm_delete_component: |
+          Are you sure you want to delete this component?<br>
+          This component contains:<br>
+          <ul class="list-disc ml-6 my-2">
+            <li class="font-bold">%{resources_count} resources</li>
+          </ul>
+          If you change your mind, you can restore it later.
         export: Export all
         export-selection: Export selection
         import: Import
@@ -195,12 +192,14 @@ en:
           new: New participatory space private user
         per_page: Per page
         permissions: Permissions
-        reject: Reject
+        restore: Restore
         send_me_a_test_email: Send me a test email
         share: Share
+        share_tokens: Access links
+        soft_delete: Soft delete
         user:
           new: New admin
-        verify: Verify
+        view_deleted_components: View deleted components
       admin_terms_of_service:
         accept:
           error: There was a problem while accepting the admin terms of service.
@@ -234,6 +233,7 @@ en:
         create:
           error: There was a problem creating a new area.
           success: Area created successfully.
+        deprecated: Mind that areas are deprecated and will be removed in future versions. Please use taxonomies instead. The only module currently using areas is the initiatives module.
         destroy:
           has_spaces: This area has dependent spaces. Please make sure no Participatory Space references this area before deleting it.
           success: Area successfully destroyed.
@@ -287,6 +287,12 @@ en:
         no_results: No results found
         search_prompt: Type at least three characters to search.
       block_user:
+        bulk_new:
+          action: Block accounts and send justification
+          already_reported_html: Continuing with this action you will also hide all the participants contents.
+          description: Blocking a user will render their account unusable. You may provide in your justification any guidelines on ways you would consider unblocking the user.
+          justification: Justification
+          title: Block Users
         new:
           action: Block account and send justification
           already_reported_html: Continuing with this action you will also hide all the participants contents.
@@ -294,23 +300,8 @@ en:
           justification: Justification
           title: Block User %{name}
       categories:
-        create:
-          error: There was a problem creating this category.
-          success: Category created successfully.
-        destroy:
-          error: There was a problem deleting this category. Please delete any subcategory first, make sure no other entity belongs to this category and try again.
-          success: Category deleted successfully.
-        edit:
-          title: Edit category
-          update: Update
         index:
           categories_title: Categories
-        new:
-          create: Create category
-          title: New category
-        update:
-          error: There was a problem updating this category.
-          success: Category updated successfully.
       component_permissions:
         update:
           error: There was a problem updating the permissions of this component.
@@ -320,9 +311,6 @@ en:
           error: There was a problem creating this component.
           success: Component created successfully.
           success_landing_page: Component created successfully. You can add a content block for this component in the home of the space. Go to <a href="%{landing_page_path}">Landing page</a> to configure it.
-        destroy:
-          error: There was a problem destroying this component.
-          success: Component deleted successfully.
         edit:
           title: Edit component
           update: Update
@@ -330,13 +318,17 @@ en:
           default_step_settings: Default step settings
           global_settings: Global settings
           step_settings: Step settings
+        hide:
+          success: The component has been successfully hidden from the menu.
         index:
           add: Add component
           headers:
             actions: Actions
             name: Component name
-            scope: Component scope
             type: Component type
+            visibility: Visibility
+        manage_trash:
+          title: Deleted components
         new:
           add: Add component
           title: 'Add component: %{name}'
@@ -348,11 +340,15 @@ en:
         update:
           error: There was a problem updating this component.
           success: The component was updated successfully.
+        visibility_label:
+          menu_hidden: Menu hidden
+          published: Published
+          unpublished: Unpublished
       conflicts:
         attempts: Attempts
         'false': 'No'
         index:
-          text: Search by current user email, name or nickname.
+          text: Search by current user email, name or nickname
         managed_user_name: Managed User
         solved: Solved
         title: Verification conflicts
@@ -404,8 +400,6 @@ en:
           JSON: JSON
         notice: Your export is currently in progress. You will receive an email when it is complete.
       filters:
-        category_id_eq:
-          label: Category
         filter_label: Filter
         invitation_accepted_at_present:
           label: Invite accepted
@@ -454,15 +448,13 @@ en:
             'false': Published
             'true': Unpublished
         remove_all: Remove all
-        scope_id_eq:
-          label: Scope
         search_label: Search
         search_placeholder:
-          name_or_nickname_or_email_cont: Search %{collection} by email, name or nickname.
+          name_or_nickname_or_email_cont: Search %{collection} by email, name or nickname
           report_count_eq: Report count eq
-          reported_id_string_or_reported_content_cont: Search %{collection} by reportable id or content.
-          title_cont: Search %{collection} by title.
-          user_name_or_user_nickname_or_user_email_cont: Search %{collection} by email, name or nickname.
+          reported_id_string_or_reported_content_cont: Search %{collection} by reportable id or content
+          title_cont: Search %{collection} by title
+          user_name_or_user_nickname_or_user_email_cont: Search %{collection} by email, name or nickname
         state_eq:
           label: State
           values:
@@ -479,6 +471,10 @@ en:
             explanation: 'Guidance for file:'
             message_1: CSV, JSON and Excel (.xlsx) files are supported
             message_2: For CSV files, the separator between columns must be a semicolon (";")
+          import_csv:
+            explanation: 'Guidance for file:'
+            message_1: CSV files are supported
+            message_2: ".csv file with emails data"
       help_sections:
         error: There was a problem updating the help sections.
         form:
@@ -557,11 +553,13 @@ en:
       logs:
         filters:
           participatory_space: Find participatory space
-          text: Search by user email, name or nickname.
+          text: Search by user email, name or nickname
           user: User
         logs_list:
           no_logs_yet: There are no logs yet.
           no_matching_logs: There are no logs with the provided search filters. Try to change them and retry.
+      manage_trash:
+        deleted_items_warning: You are currently viewing deleted items. To make any edits or changes, you must first restore them.
       managed_users:
         promotion:
           error: There was a problem promoting the managed participant.
@@ -582,8 +580,9 @@ en:
         content: Reported content
         external_domain_allowlist: Allowed external domains
         help_sections: Help sections
-        homepage: Homepage
+        homepage: Homepage layout
         impersonations: Impersonations
+        insights: Insights
         manage: Manage
         moderation: Global moderations
         newsletters: Newsletters
@@ -593,14 +592,13 @@ en:
         scopes: Scopes
         see_site: See site
         settings: Settings
+        share_tokens: Access links
         static_page_topics: Topics
         static_pages: Pages
+        statistics: Statistics
         taxonomies: Taxonomies
-        user_groups: Groups
+        taxonomy_filters: Taxonomy filters
         users: Participants
-      metrics:
-        metrics:
-          see_more_metrics: See more metrics
       models:
         area:
           fields:
@@ -649,12 +647,11 @@ en:
             plural: Plural
         share_token:
           fields:
-            created_at: Created at
+            actions: Actions
             expires_at: Expires at
-            last_used_at: Last time used
+            registered_only: Registered only?
             times_used: Times used
-            token: Token
-            user: Created by
+            token: Access link
         static_page:
           fields:
             created_at: Created at
@@ -670,27 +667,31 @@ en:
               admin: Admin
               user_manager: Participant manager
           name: Participant
-        user_group:
-          fields:
-            actions: Actions
-            created_at: Created at
-            document_number: Document number
-            name: Name
-            nickname: Nickname
-            phone: Phone
-            state: State
-            users_count: Participants count
       moderated_users:
         index:
           actions:
             block: Block User
+            bulk_actions:
+              actions_dropdown: Actions
+              block:
+                title: Block
+                update_moderated_user_button: Block users
+              unblock:
+                title: Unblock
+                update_moderated_user_button: Unblock users
+              unreport:
+                title: Unreport
+            ignore:
+              update_moderated_user_button: Unreport users
             title: Actions
             unblock: Unblock User
             unreport: Unreport
+          cancel: Cancel
           name: Name
           nickname: Nickname
           reason: Reason
           reports: Reports count
+          selected: Selected
           title: Reported participants
         report:
           reasons:
@@ -702,12 +703,26 @@ en:
           unblocked: Not Blocked
       moderations:
         index:
+          actions:
+            actions_dropdown: Actions
+            hide:
+              title: Hide
+              update_moderation_button: Hide selected resources
+            unhide:
+              title: Unhide
+              update_moderation_button: Unhide selected resources
+            unreport:
+              title: Unreport
+              update_moderation_button: Unreport selected resources
+          cancel: Cancel
+          selected: selected
           title: Reported content
         report:
           reasons:
             does_not_belong: Does not belong
             hidden_during_block: Hidden while blocking user
             offensive: Offensive
+            parent_hidden: Parent content has been hidden
             spam: Spam
         reports:
           index:
@@ -724,6 +739,11 @@ en:
             report_language: Report language
             report_reason: Reason
             title: Report details
+      new_import:
+        accepted_mime_types:
+          csv: CSV
+          json: JSON
+          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: Preview
@@ -733,6 +753,10 @@ en:
           preview: 'Preview template: %{template_name}'
           use_template: Use this template
       newsletters:
+        confirm_recipients:
+          email: Email
+          name: Name
+          title: Confirm recipients
         create:
           error: There was a problem creating this newsletter.
           success: Newsletter created successfully. Please review it before sending.
@@ -752,12 +776,14 @@ en:
           confirm_delete: Are you sure you want to delete this newsletter?
           followers: 'followers '
           has_been_sent_to: 'Has been sent to: '
-          no_scopes: No scopes
           not_sent: Not sent
           participants: 'participants '
+          private_members: 'private members '
           segmented_to: 'Segmented to %{subject}: '
           subscribed_count: 'Subscribed:'
           title: Newsletters
+          verification_types: 'Verification types: %{types}'
+          verified_users: Verified users
         new:
           save: Save
           title: New newsletter
@@ -765,16 +791,24 @@ en:
           all_spaces: All
           all_users_help: Sends newsletter to all confirmed users.
           confirm_deliver: Are you sure you want to deliver this newsletter? This action cannot be undone.
+          confirm_recipients: Confirm recipients
           deliver: Deliver newsletter
           followers_help: Sends newsletter to all confirmed users that follow any selected participatory spaces in the list.
-          none: None
           participants_help: Sends newsletter to all confirmed users that have participated in any of the selected participatory spaces in the list.
+          private_members_help: Sends a newsletter to all confirmed users that have been added to the selected private participatory spaces.
           recipients_count: This newsletter will be send to <strong id='recipients_count'>%{count}</strong> users.
-          scopes_help: Sends newsletter to users that have any of the selected scope activated in their account's "My Interests" settings.
-          select_scopes: Filter for users having activated any selected scope in their account's My Interests settings.
+          select_assemblies: Choose assemblies
+          select_conferences: Choose conferences
+          select_initiatives: Choose initiatives
+          select_participatory_processes: Choose participatory processes
           select_spaces: Select spaces to segment the newsletter
-          select_users: Select which users you want to send the newsletter
+          select_users_for_participatory_space: Send newsletter to one or more participatory spaces
+          select_users_general: Send general newsletter
+          select_verification_types: Choose verification methods
+          send_to_all_users: Send to all users
+          send_to_verified_users: Send to verified users
           title: Select recipients to deliver
+          verified_users_help: Sends a newsletter to all confirmed and verified users via any selected verification method.
           warning: "<strong>Attention:</strong> This newsletter will only be send to users that have activated <em>I want to receive newsletters</em> in their notifications settings."
         send:
           no_recipients: No recipients for this selection.
@@ -792,6 +826,13 @@ en:
         block:
           error: There was a problem blocking the participant.
           success: Participant successfully blocked.
+        bulk_action:
+          block:
+            invalid: There was a problem blocking the participants.
+            success: Participants successfully blocked.
+          unblock:
+            invalid: There was a problem unblocking the participants.
+            success: Participants successfully unblocked.
         create:
           success: Participant successfully officialized.
         destroy:
@@ -831,21 +872,8 @@ en:
           title: Edit organization
           update: Update
         form:
-          facebook: Facebook
-          github: GitHub
-          instagram: Instagram
-          rich_text_editor_in_public_views_help: In some text areas, participants will be able to insert some HTML tags by using the rich text editor.
-          social_handlers: Social
-          twitter: X
-          url: URL
-          youtube: YouTube
-        update:
-          error: There was a problem updating this organization.
-          success: Organization updated successfully.
-      organization_appearance:
-        edit:
-          update: Update
-        form:
+          admin_terms_of_service: Admin terms of service
+          basic_configuration: Basic configuration
           colors:
             choose_color: Choose a primary color
             colors_title: Organization colors
@@ -855,17 +883,22 @@ en:
             saturation: Saturation
             title: Color chooser
             update_suggested_colors: Update suggested colors
-          cta_button_path_help_html: 'You can overwrite where the Call To Action button in the homepage links to. Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. The Call To Action button is shown in the homepage between the welcome text and the description. Example: %{url}'
-          cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
-          header_snippets:
-            header_snippets_help_html: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section. If the code interacts with external APIs or does not comply with the application security guidelines, it will be necessary to change the Content Security Policy. Read more about <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">on the documentation site</a> .
-            title: HTML header snippets
-          homepage_appearance_title: Edit homepage appearance
-          homepage_highlighted_content_banner_title: Highligted content banner
-          images:
-            layout_appearance_title: Edit layout appearance
+          extra_features: Extra features
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          logos:
+            organization_logos: Organization logos
             preview: Preview
-          omnipresent_banner_appearance_title: Edit omnipresent banner
+          rich_text_editor_in_public_views_help: In some text areas, participants will be able to insert some HTML tags by using the rich text editor.
+          social_handlers: Social
+          twitter: X
+          url: URL
+          welcome_notification: Welcome notification
+          youtube: YouTube
+        update:
+          error: There was a problem updating this organization.
+          success: Organization updated successfully.
       organization_external_domain_allowlist:
         edit:
           update: Update
@@ -884,12 +917,26 @@ en:
         destroy:
           error: There was a problem deleting a private participant for this participatory space.
           success: Participatory space private participant access successfully destroyed.
+        edit:
+          title: Edit Participatory Space private participant.
+          update: Update
         index:
           import_via_csv: Import via CSV
+          publish_all: Publish all
           title: Participatory space private participant
+          unpublish_all: Unpublish all
         new:
           create: Create
           title: New Participatory Space private participant.
+        publish_all:
+          error: There was a problem publishing all the private participants for this participatory space.
+          success: Successfully published all private participants for this participatory space
+        unpublish_all:
+          error: There was a problem unpublishing all the private participants for this participatory space.
+          success: Successfully unpublished all private participants for this participatory space
+        update:
+          error: There was a problem updating the private participant for this participatory space.
+          success: Participatory space private participant successfully updated
       participatory_space_private_users_csv_imports:
         create:
           invalid: There was a problem reading the CSV file. Please make sure you have followed the instructions.
@@ -922,12 +969,10 @@ en:
         edit:
           submit: Submit
           title: Edit permissions
+        options_form:
+          ephemeral_warning: In order to enable this authorization method, you need to <a href="%{path}">revoke</a> all of the existing authorizations. This minimises the risk of verification conflicts. All the authorizations of this type will be revoked automatically in the organization if you submit changes adding this method or modifiyng its configuration once added.
         update:
           success: Permissions updated successfully.
-      resources:
-        index:
-          headers:
-            scope: Scope
       scope_types:
         create:
           error: There was a problem creating a new scope type.
@@ -947,6 +992,7 @@ en:
         create:
           error: There was a problem creating a new scope.
           success: Scope created successfully.
+        deprecated: Mind that scopes are deprecated and will be removed in future versions. Please use taxonomies instead. The only module currently using scopes is the initiatives module.
         destroy:
           success: Scope successfully destroyed.
         edit:
@@ -961,16 +1007,50 @@ en:
           success: Scope updated successfully
       share_tokens:
         actions:
-          confirm_destroy: Are you sure you want to delete this token?
+          confirm_destroy: Are you sure you want to delete this access?
+          copy_link: Copy link
           destroy: Delete
-          share: Share
+          edit: Edit
+          preview: Preview
+        create:
+          invalid: There was a problem generating the access link.
+          success: Access link created successfully.
         destroy:
-          error: There was a problem destroying the token.
-          success: Token destroyed successfully.
-        share_tokens:
-          empty: There are no active tokens.
-          help: These tokens are used to publicly share this unpublished resource to any user. They will be hidden when the resource is published. Click on the token's share icon to visit the shareable URL.
-          title: Share tokens
+          error: There was a problem destroying the access link.
+          success: Access link successfully destroyed.
+        edit:
+          title: 'Edit access links for: %{name}'
+          update: Update
+        form:
+          automatic: Automatic
+          custom: Custom
+          custom_expiration: Custom expiration
+          custom_token: Custom word
+          expires_at: Expires at
+          'false': 'No'
+          never_expire: Never
+          registered_only: Registered only?
+          token: Access key
+          'true': 'Yes'
+        index:
+          back_to_share_tokens: Back to access links
+          copied: Access link copied!
+          copy_message: The text was successfully copied to clipboard.
+          create_new_token: Create your first access link!
+          empty_html: There are no active access links. %{new_token_link}
+          never: Never
+          new_share_token_button: New access link
+          share_tokens_help_html: |
+            Create and share an access link to allow others to view this unpublished resource.
+            Access links can be valid for registered participants only or have and expiration date if necessary.
+            To share a new access link with someone, create it and then copy the link using the "%{clipboard} clipboard" action icon.
+          title: 'Access links for: %{name}'
+        new:
+          create: Create
+          title: 'New access link for: %{name}'
+        update:
+          error: There was a problem updating this access.
+          success: Access link updated successfully.
       shared:
         adjacent_navigation:
           next: Next
@@ -991,7 +1071,7 @@ en:
           title: Edit topic
           update: Update topic
         new:
-          create: Create topic
+          create: New topic
           title: New topic
         update:
           error: There was a problem updating this topic.
@@ -1015,7 +1095,7 @@ en:
         index:
           last_notable_change: Last notable change
         new:
-          create: Create page
+          create: New page
           title: New page
         topic:
           empty: There are no pages under this topic.
@@ -1024,9 +1104,15 @@ en:
           error: There was a problem updating this page.
           success: Page updated successfully.
       taxonomies:
-        actions: Actions
-        amount: Amount
-        count: Count
+        actions:
+          actions: Actions
+          destroy: Delete taxonomy & items
+          edit: Edit taxonomy & items
+          filters: Manage filters
+        breadcrumb:
+          edit: Edit taxonomy
+          new: New taxonomy
+        count: Associated resources
         create:
           invalid: There was a problem creating this taxonomy.
           success: Taxonomy created successfully.
@@ -1044,22 +1130,81 @@ en:
         filters:
           search_placeholder: Search
         index:
-          description: A taxonomy allows admins categorizing and organizing content. For example, add a taxonomy to classify processes by geographical scope.
+          description: Taxonomies and filters allow administrators to sort and organize content. For example, add a taxonomy with the city's districts and neighborhoods and then create filters only with the districts or for a specific neighborhood.
           new_taxonomy: New taxonomy
           no_items_found: No taxonomies found matching the search criteria.
         name: Name
         new:
           create: Create taxonomy
           title: New taxonomy
-        no_taxonomies: There are currently no taxonomies. Create a list of taxonomies here and defined items in each of them to classify or filter resources.
+        no_taxonomies: There are currently no taxonomies. Create a list of taxonomies here and define items in each of them to classify or filter resources.
         table:
           to_next_page: Drag over for next page
           to_prev_page: Drag over for previous page
         taxonomy_actions:
-          confirm_destroy: Are you sure you want to delete %{name}? This will also delete all the children items.
+          confirm_destroy: 'Are you sure you want to delete %{name}? This will also delete all the children items. NOTE: Resources that are using this taxonomy will not be affected but they will lose the reference to this taxonomy.'
+        total_filters: Filters
+        total_items: Items in the taxonomy
         update:
           invalid: There was a problem updating this taxonomy.
           success: Taxonomy updated successfully.
+      taxonomy_filters:
+        actions:
+          new_taxonomy_filter: New taxonomy filter
+        breadcrumb:
+          edit: Edit filter
+          filters: Filters
+          new: New filter
+        create:
+          error: There was a problem creating this taxonomy filter.
+          success: Taxonomy filter created successfully.
+        destroy:
+          error: There was a problem destroying this taxonomy filter.
+          success: Taxonomy filter successfully destroyed.
+        edit:
+          back: Back
+          title: Edit taxonomy filter
+          update: Update taxonomy filter
+        form:
+          all: All
+          items:
+            one: "%{count} item selected"
+            other: "%{count} items selected"
+          name_help: The title of the filter to be displayed in the frontend.
+          no_items: No items are available for this taxonomy. You can create items in the taxonomy configuration settings.
+          space_filter: Available as filter for
+        index:
+          description: A taxonomy filter allows admins to sort and filter participatory spaces based on a taxonomy. For example, add a taxonomy filter to sort processes by geographical scope.
+          empty: There are currently no taxonomy filters. Create a list of taxonomy filters here to sort and filter participatory spaces based on a taxonomy.
+          new_filter: New filter
+        new:
+          back: Back
+          create: Create taxonomy filter
+          title: New taxonomy filter
+        table:
+          actions: Actions
+          components_count: Components using this
+          confirm_destroy: 'Are you sure you want to delete the filter %{name}? NOTE: Resources that are using this filter will not be affected but they will lose the reference to this filter.'
+          destroy: Delete
+          edit: Edit
+          internal_name: Internal label
+          name: Label
+        update:
+          error: There was a problem updating this taxonomy filter.
+          success: Taxonomy filter updated successfully.
+      taxonomy_filters_selector:
+        new:
+          add_new_items_html: If you need to set a new filter or item, do it through the configuration settings or by clicking <a href="%{url}">here</a>.
+          items_count: "%{count} items"
+          save: Save
+        show:
+          items_count: "%{count} items"
+          remove: Remove
+        taxonomies_select:
+          filters: Filters
+          select_filter: Select a filter
+          select_taxonomy: Select a taxonomy
+          taxonomies: Taxonomies
       taxonomy_items:
         edit:
           title: Edit item in %{taxonomy}
@@ -1075,48 +1220,31 @@ en:
         authorization_workflows: Verification methods
         dashboard: Dashboard
         edit_external_domains: Allowed list of external domains
-        edit_landing_page: Page contents
-        edit_organization_appearance: Edit homepage appearance
         impersonatable_users: Manageable participants
         impersonations: Participants management
         menu: Menu
-        metrics: Metrics
         page_topics: Topics
         pages: Pages
         panel: Admin
         participants: Participants
         scope_types: Scope types
         scopes: Scopes
-        statistics: Activity
+        statistics: Statistics
         taxonomies: Taxonomies
-        user_groups: Groups
+        taxonomy_filters: Taxonomy filters for "%{taxonomy}"
         users: Administrators
-      user_group:
-        csv_verify:
-          invalid: There was a problem reading the CSV file.
-          success: CSV file uploaded successfully, we are verifying the groups matching the criteria. This might take a while.
-        reject:
-          invalid: There was a problem rejecting this group.
-          success: Group successfully rejected.
-        verify:
-          invalid: There was a problem verifying this group.
-          success: Group successfully verified.
-      user_groups:
-        index:
-          state:
-            pending: Pending
-            rejected: Rejected
-            verified: Verified
-          verify_via_csv: Verify via CSV
-      user_groups_csv_verifications:
-        new:
-          example_file: 'Example file:'
-          explanation: Upload your CSV file. It must have the official emails of the groups in your organization in the first column of the file, without headers. Only groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
-          explanation_example: |
-            acme@example.org
-            bubba.gump@example.org
-          title: Upload your CSV file
-          upload: Upload
+      tooltips:
+        cannot_destroy_taxonomy_filter: Cannot destroy this taxonomy filter
+        cannot_edit_taxonomy_filter: Cannot edit this taxonomy filter
+        deleted_attachment_collections_info: Cannot delete this folder because it has attachments.
+        deleted_component_info: This component can only be deleted if status is 'Unpublished'.
+      trash_management:
+        restore:
+          invalid: There was a problem restoring %{resource_name}.
+          success: "%{resource_name} successfully restored."
+        soft_delete:
+          invalid: There was a problem deleting %{resource_name}.
+          success: "%{resource_name} successfully deleted."
       users:
         create:
           error: There was a problem inviting this admin.
@@ -1143,32 +1271,40 @@ en:
       errors:
         impersonate_user:
           reason: You need to provide a reason when managing a non-managed participant.
-    metrics:
-      blocked_users:
-        object: blocked users
-        title: Blocked users
-      reported_users:
-        object: reported users
-        title: Reported users
-      user_reports:
-        object: user reports
-        title: User reports
     moderations:
       actions:
         expand: Expand
         hidden: Hidden
         hide: Hide
         not_hidden: Not hidden
+        parent_hidden: You cannot unhide this resource because its parent is still hidden.
         title: Actions
         unhide: Unhide
         unreport: Unreport
       admin:
         reportable:
+          bulk_action:
+            hide:
+              failed: 'There was a problem hiding some resources: %{errored}'
+              invalid: No moderations selected.
+              success: Resources successfully hidden.
+            ignore:
+              invalid: No users moderations selected.
+              success: Participants successfully unreported.
+            unhide:
+              failed: 'There was a problem unhiding some resources: %{errored}'
+              invalid: No moderations selected.
+              success: Resources successfully unhidden.
+            unreport:
+              failed: 'There was a problem unreporting some resources: %{errored}'
+              invalid: No moderations selected.
+              success: Resources successfully unreported.
           hide:
             invalid: There was a problem hiding the resource.
             success: Resource successfully hidden.
           unhide:
             invalid: There was a problem unhiding the resource.
+            parent_invalid: There was a problem unhiding the resource. Parent is not visible.
             success: Resource successfully unhidden.
           unreport:
             invalid: There was a problem unreporting the resource.
@@ -1199,3 +1335,7 @@ en:
       admin:
         global_moderations:
           title: Global moderations
+        insights:
+          title: Insights
+        taxonomy_filters_selector:
+          title: Filters

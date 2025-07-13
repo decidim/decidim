@@ -73,7 +73,7 @@ describe "Organizations" do
 
       context "without the secret key defined" do
         before do
-          allow(Rails.application.secrets).to receive(:secret_key_base).and_return(nil)
+          allow(Rails.application).to receive(:secret_key_base).and_return(nil)
         end
 
         it "does not create an organization" do
@@ -192,7 +192,7 @@ describe "Organizations" do
 
       context "without the secret key defined" do
         before do
-          allow(Rails.application.secrets).to receive(:secret_key_base).and_return(nil)
+          allow(Rails.application).to receive(:secret_key_base).and_return(nil)
         end
 
         it "shows the error message" do
@@ -204,39 +204,68 @@ describe "Organizations" do
           expect(page).to have_content("You need to define the SECRET_KEY_BASE environment variable to be able to save this field")
         end
       end
+
+      context "when the HTML header snippets feature is enabled" do
+        before do
+          allow(Decidim).to receive(:enable_html_header_snippets).and_return(true)
+        end
+
+        it "shows the HTML header snippet form field" do
+          visit current_path
+
+          expect(page).to have_field(:update_organization_header_snippets)
+        end
+      end
+
+      context "when the HTML header snippets feature is disabled" do
+        before do
+          allow(Decidim).to receive(:enable_html_header_snippets).and_return(false)
+        end
+
+        it "does not show the HTML header snippet form field" do
+          visit current_path
+
+          expect(page).to have_no_field(:update_organization_header_snippets)
+        end
+      end
     end
 
     describe "editing an organization with disabled OmniAuth provider" do
       let!(:organization) do
         create(:organization, name: { ca: "", en: "Citizen Corp", es: "" }, default_locale: :es, available_locales: ["es"], description: { es: "Un texto largo" })
       end
+      let!(:previous_omniauth_secrets) { Decidim.omniauth_providers }
 
       before do
-        secrets = Rails.application.secrets
-        allow(Rails.application).to receive(:secrets).and_return(
-          secrets.merge(
-            omniauth: {
-              facebook: {
-                enabled: true,
-                app_id: "fake-facebook-app-id",
-                app_secret: "fake-facebook-app-secret"
-              },
-              twitter: {
-                enabled: true,
-                api_key: "fake-twitter-api-key",
-                api_secret: "fake-twitter-api-secret"
-              },
-              google_oauth2: {
-                enabled: true,
-                client_id: "",
-                client_secret: ""
-              },
-              developer: {
-                enabled: false,
-                icon: "phone"
-              }
+        allow(Decidim).to receive(:omniauth_providers).and_return(
+          {
+            facebook: {
+              enabled: true,
+              app_id: "fake-facebook-app-id",
+              app_secret: "fake-facebook-app-secret",
+              icon_path: "media/images/facebook.svg"
+            },
+            twitter: {
+              enabled: true,
+              api_key: "fake-twitter-api-key",
+              api_secret: "fake-twitter-api-secret",
+              icon_path: "media/images/twitter-x.svg"
+            },
+            google_oauth2: {
+              enabled: true,
+              client_id: "",
+              client_secret: "",
+              icon_path: "media/images/google.svg"
+            },
+            developer: {
+              enabled: false,
+              icon: "phone"
+            },
+            test: {
+              enabled: false,
+              icon: "tools-line"
             }
-          )
+          }
         )
 
         # Reload the UpdateOrganizationForm
@@ -254,6 +283,7 @@ describe "Organizations" do
       end
 
       after do
+        Decidim.omniauth_providers = previous_omniauth_secrets
         # Reload the UpdateOrganizationForm
         Decidim::System.send(:remove_const, :BaseOrganizationForm)
         Decidim::System.send(:remove_const, :UpdateOrganizationForm)

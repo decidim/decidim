@@ -24,6 +24,7 @@ FactoryBot.define do
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") } # Keep after organization
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") } # Keep after organization
     published_at { Time.current }
+    deleted_at { nil }
     location { Faker::Lorem.sentence(word_count: 3) }
     show_statistics { true }
     start_date { 1.month.ago }
@@ -114,7 +115,7 @@ FactoryBot.define do
     end
   end
 
-  factory :conference_valuator, parent: :user, class: "Decidim::User" do
+  factory :conference_evaluator, parent: :user, class: "Decidim::User" do
     transient do
       skip_injection { false }
       conference { create(:conference, skip_injection:) }
@@ -127,7 +128,7 @@ FactoryBot.define do
       create(:conference_user_role,
              user:,
              conference: evaluator.conference,
-             role: :valuator,
+             role: :evaluator,
              skip_injection: evaluator.skip_injection)
     end
   end

@@ -2,15 +2,12 @@ ro:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Domeniu de interes
         description: Descriere
         title: Titlu
         total_budget: Total budget
         weight: Ordinea în poziționare
       project:
         budget_amount: Sumă bugetară
-        decidim_category_id: Categorie
-        decidim_scope_id: Domeniu de interes
         description: Descriere
         proposal_ids: Propuneri asociate
         proposals: Propuneri
@@ -28,10 +25,6 @@ ro:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Categorie
-          scope_id_eq:
-            label: Domeniu de interes
           selected_at_null:
             label: Selectate
             values:
@@ -41,8 +34,6 @@ ro:
       actions:
         attachment_collections: Dosare
         attachments: Atașamente
-        confirm_destroy: Sigur dorești să ştergi acest proiect?
-        destroy: Ștergere
         edit: Editare
         edit_projects: Gestionați proiectele
         import: Importă propuneri în proiecte
@@ -77,8 +68,6 @@ ro:
           index:
             actions: Acțiuni
             cancel: Anulează
-            change_category: Schimbă categoria
-            change_scope: Schimbă domeniul
             change_selected: Schimbă starea selectată
             finished_orders: Voturi terminate
             pending_orders: Voturi în așteptare
@@ -86,7 +75,6 @@ ro:
             selected: Selectate
             title: Proiecte
             update: Actualizare
-            update_scope_button: Actualizează domeniu
           new:
             create: Creează
             title: Proiect nou
@@ -126,15 +114,19 @@ ro:
             total_budget: Buget total
         project:
           fields:
-            category: Categorie
             id: ID
             title: Titlu
+      order:
+        status:
+          share_text: "Tocmai am votat pentru proiectele mele favorite în %{space_name}! 🎉Votați acum: %{component_url}"
+          title: Votul tău a fost acceptat cu succes
+      order_pdf:
+        text: Ați votat în %{space_name}, pentru următoarele proiecte
       order_summary_mailer:
         order_summary:
           selected_projects: 'Proiectele pe care le-ai selectat sunt:'
           subject: Ai votat pentru spațiul participativ %{space_name}
           voted_on_space: Ai votat pentrul bugetul %{budget_name} aferent spațiului participativ %{space_name}.
-          voted_on_space_with_scope: Ai votat pentrul bugetul %{budget_name} aferent spațiului participativ %{space_name} pentru %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Dacă te răzgândești, poți modifica votul mai târziu.
@@ -150,7 +142,7 @@ ro:
             title: Numărul maxim de proiecte a fost depășit
         budget_summary:
           are_you_sure: Sigur dorești să îți anulezi votul?
-          cancel_order: șterge votul și reia procesul
+          cancel_order: Ștergeți votul dumneavoastră
           checked_out:
             title: Votul pentru buget a fost finalizat
         count:
@@ -164,14 +156,21 @@ ro:
           message: Votul tău nu a fost înregistrat încă pentru că nu ai finalizat procesul de votare. Sigur dorești să ieși din secțiunea de votare?
           title: Nu ai votat încă
         filters:
-          category: Categorie
-          scope: Domeniu
           search: Caută
           status: Stadiu
           status_values:
             all: Toate
             not_selected: Neselectate
             selected: Selectate
+        order_progress:
+          minimum_projects_rule:
+            description: Selectați cel puțin %{minimum_number} proiecte pe care le doriți și votați în funcție de preferințele dvs.
+          projects_rule:
+            description: Selectați cel puțin %{minimum_number} și până la %{maximum_number} proiectele pe care le doriți și votați în funcție de preferințele dvs.
+          projects_rule_maximum_only:
+            description: Selectați până la %{maximum_number} proiecte pe care le doriți și votați în funcție de preferințele dvs.
+          vote_threshold_percent_rule:
+            description: Atribuiți cel puțin %{minimum_budget} proiectelor pe care le doriți și votați în funcție de preferințele dvs.
         orders:
           highest_cost: Cel mai mare cost
           label: Ordonează proiectele după
@@ -189,8 +188,10 @@ ro:
           add: Adaugă la votul tău
           added: Adăugat la votul tău
         projects_for: Proiecte pentru %{name}
+        select_projects: Adaugați proiecte
         show:
           budget: Buget
+        start_voting: Începeți să votați
     components:
       budgets:
         actions:
@@ -206,8 +207,6 @@ ro:
             more_information_modal: Mai multe informații
             projects_per_page: Proiecte pe pagină
             resources_permissions_enabled: Pentru fiecare proiect pot fi setate drepturi pentru acțiuni
-            scope_id: Domeniu de interes
-            scopes_enabled: Domenii activate
             title: Titlu
             total_budget: Buget total
             vote_minimum_budget_projects_number: Numărul minim de proiecte de votat
@@ -246,6 +245,7 @@ ro:
         project_proposal: Propuneri incluse în acest proiect
     statistics:
       orders_count: Voturi
-      projects_count: Proiecte
+      projects_count: Bugete
+      projects_count_tooltip: Numărul de proiecte bugetare participative și totalul voturilor exprimate asupra acestora.
   index:
     confirmed_orders_count: Numărul de voturi

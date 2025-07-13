@@ -1,0 +1,25 @@
+<div class="main-bar__back-button hidden lg:flex">
+  <div>
+    <%= link_to(
+        content_for(:focus_mode_return_path),
+        class: "main-bar__links-desktop__item",
+        "aria-label": t("layouts.decidim.header.back")
+    ) do %>
+        <%= icon "arrow-left-line" %><span><%= t("layouts.decidim.header.back") %></span>
+    <% end %>
+  </div>
+</div>
+
+<div class="main-bar__back-button lg:hidden">
+  <%= link_to(
+      content_for(:focus_mode_return_path),
+      class: "text-secondary",
+      type: :button,
+      "aria-label": t("layouts.decidim.header.back")
+    ) do %>
+      <span class="flex items-center gap-1">
+        <%= icon "arrow-left-line", class: "w-8 h-6 fill-current" %>
+        <%= t("layouts.decidim.header.back") %>
+      </span>
+    <% end %>
+</div>

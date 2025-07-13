@@ -13,7 +13,6 @@ fr-CA:
         document: Document
         domain: Domaine
         end_date: Date de fin
-        hashtag: Hashtag
         hero_image: Image de la page d'accueil
         import_attachments: Importer les pièces jointes
         import_categories: Importer les catégories
@@ -22,16 +21,12 @@ fr-CA:
         local_area: Espace d'organisation
         meta_scope: Échelle
         participatory_process_group_id: Groupe de processus
-        participatory_process_type_id: Type de processus
         participatory_scope: Objectifs
         participatory_structure: Modalités de décision
         private_space: Processus privé
         promoted: Mise en avant
         published_at: Publiée à
         related_process_ids: Concertations liées
-        scope_id: Périmètre d'application
-        scope_type_max_depth_id: Profondeur du filtre de portée
-        scopes_enabled: Périmètres d'application activés
         short_description: Résumé
         slug: Identifiant
         start_date: Date de début
@@ -43,7 +38,6 @@ fr-CA:
         description: Description
         developer_group: Groupe d'initiateurs
         group_url: Site web
-        hashtag: Hashtag
         hero_image: Image
         local_area: Zone d'organisation
         meta_scope: Secteur
@@ -59,8 +53,6 @@ fr-CA:
         end_date: Date de fin
         short_description: Résumé
         start_date: Date de début
-        title: Titre
-      participatory_process_type:
         title: Titre
       participatory_process_user_role:
         email: Email
@@ -91,22 +83,24 @@ fr-CA:
       actions:
         activate: Activer
         configure: Configurer
+        confirm_delete_process: Êtes-vous sûr(e) de vouloir supprimer ce processus ? Si vous changez d'avis, vous pourrez le restaurer plus tard.
         confirm_destroy: Confirmez la suppression
         destroy: Supprimer
         duplicate: Dupliquer
         edit: Modifier
         import_process: Importer
+        menu_hidden: Masquer
         moderate: Modérer
         new_process: Nouvelle concertation
         new_process_group: Nouveau groupe de concertations
         new_process_step: Nouvelle étape
-        new_process_type: Nouveau type de concertation
         new_process_user_role: Nouvel administrateur de la concertation
         preview: Aperçu
         publish: Publier
         resend_invitation: Renvoyer l'invitation
         see_process: Voir la concertation
         unpublish: Dépublier
+        view_deleted_processes: Voir les processus supprimés
       filters:
         decidim_participatory_process_group_id_eq:
           label: Par groupe de concertations
@@ -114,19 +108,15 @@ fr-CA:
         participatory_process_groups: Groupes de concertations
         participatory_process_groups_submenu:
           info: Information
-          landing_page: Page d'accueil
-        participatory_process_types: Types de concertation
         participatory_processes: Concertations
         participatory_processes_submenu:
           attachment_collections: Dossiers
           attachment_files: Fichiers
           attachments: Documents liés
-          categories: Catégories
           components: Fonctionnalités
           info: A propos de cette concertation
-          landing_page: Page d'accueil
           moderations: Modérations
-          private_users: Utilisateurs privés
+          private_users: Membres
           process_admins: Administrateurs de la concertation
           steps: Étapes
       models:
@@ -140,21 +130,19 @@ fr-CA:
           name: Concertation
         participatory_process_group:
           fields:
+            actions: Actions
             title: Titre
           name: Groupe de concertations
         participatory_process_step:
           fields:
+            actions: Actions
             end_date: Date de fin
             start_date: Date de début
             title: Titre
           name: Étape de la concertation
-        participatory_process_type:
-          fields:
-            created_at: Crée le
-            title: Titre
-          name: Type de concertation
         participatory_process_user_role:
           fields:
+            actions: Actions
             email: Email
             name: Nom
             role: Rôle
@@ -162,12 +150,13 @@ fr-CA:
           roles:
             admin: Administrateur
             collaborator: Relecteur
+            evaluator: Évaluateur
             moderator: Modérateur
-            valuator: Évaluateur
         user:
           fields:
             invitation_accepted_at: Invitation acceptée à
             invitation_sent_at: Invitation envoyée à
+            published: Publié
       participatory_process_copies:
         new:
           copy: Copier
@@ -175,6 +164,7 @@ fr-CA:
           title: Dupliquer la concertation
       participatory_process_groups:
         destroy:
+          error: Une erreur s'est produite lors de la suppression du groupe de concertations.
           success: Groupe de concertations supprimé avec succès.
         edit:
           title: Modifier le groupe de concertations
@@ -233,21 +223,6 @@ fr-CA:
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette étape de la concertation.
           success: Étape de la concertation mise à jour avec succès.
-      participatory_process_types:
-        create:
-          error: Une erreur s'est produite lors de la création d'un nouveau type de concertation.
-          success: Type de concertation créé avec succès.
-        destroy:
-          success: Type de concertation supprimé avec succès.
-        edit:
-          title: Modifier le type de concertation
-          update: Mettre à jour
-        new:
-          create: Créer
-          title: Nouveau type de concertation
-        update:
-          error: Une erreur s'est produite lors de la mise à jour de ce type de concertation.
-          success: Type de concertation mis à jour avec succès.
       participatory_process_user_roles:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cette concertation.
@@ -276,6 +251,8 @@ fr-CA:
           public: Publique
           published: Publiée
           unpublished: Non publié
+        manage_trash:
+          title: Processus participatifs supprimés
         new:
           create: Créer
           title: Nouvelle concertation
@@ -290,10 +267,16 @@ fr-CA:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau groupe de concertations.
           success: Groupe de concertations créé avec succès.
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: Tous les processus participatifs
       titles:
         participatory_process_groups: Groupes de concertations
         participatory_process_types: Types de concertation
         participatory_processes: Concertations
+        participatory_processes_deleted: Processus participatifs supprimés
+      tooltips:
+        deleted_processes_info: Un processus ne peut être supprimé que si son statut est "non publié".
       users:
         resend_invitation:
           error: Une erreur s'est produite lors de l'envoi de l’invitation.
@@ -309,6 +292,7 @@ fr-CA:
         update: "%{user_name} a mis à jour la concertation %{resource_name}"
       participatory_process_group:
         create: "%{user_name} a créé le groupe de concertations %{resource_name}"
+        unpublish: "%{user_name} a dépublié le groupe de processus participatifs %{resource_name}"
         update: "%{user_name} a mis à jour le groupe de concertations %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} a activé l'étape %{resource_name} dans la concertation %{space_name}"
@@ -323,6 +307,9 @@ fr-CA:
         create: "%{user_name} a invité l'utilisateur %{resource_name} à la concertation %{space_name}"
         delete: "%{user_name} a supprimé l'utilisateur %{resource_name} de la concertation %{space_name}"
         update: "%{user_name} a changé le rôle de l'utilisateur %{resource_name} dans la concertation %{space_name}"
+    download_your_data:
+      show:
+        participatory_processes: Export des processus participatifs
     events:
       participatory_process:
         role_assigned:
@@ -352,11 +339,11 @@ fr-CA:
           not_found: 'Le type de concertation n''a pas été trouvé dans la base de données (ID: %{id}).'
     menu:
       processes: Concertations
-    metrics:
-      participatory_processes:
-        description: Nombre de concertations dans cette organisation
-        object: concertations
-        title: Concertations
+    open_data:
+      help:
+        participatory_processes:
+          updated_at: La dernière date de mise à jour de cet espace
+          url: L'URL de l'espace
     participatory_process_groups:
       content_blocks:
         extra_data:
@@ -385,6 +372,8 @@ fr-CA:
           participatory_processes:
             one: 1 concertation
             other: "%{count} concertations"
+      related_processes:
+        help: Tous les processus sélectionnés seront assignés à ce groupe, y compris ceux qui sont déjà assignés à d'autres groupes.
       show:
         title: Groupes de concertations
     participatory_process_steps:
@@ -393,6 +382,55 @@ fr-CA:
     participatory_processes:
       admin:
         content_blocks:
+          democratic_quality_stats_settings_form:
+            accessibility:
+              languages_count:
+                options:
+                  one: Une langue = 1
+                  two_five: Moins de la moitié des langues parlées dans la communauté = 2.5
+              name: Accessibilité
+              venue_accessibility:
+                options:
+                  five: Oui = 5
+                  two_five: Partiellement = 2,5
+                  zero: Non = 0
+            citizen_influence:
+              citizen_influence_level:
+                options:
+                  one: Consultation = 1
+                  three: Partenariat = 3
+            inclusiveness:
+              cultural_origins_participation:
+                options:
+                  five: 80 - 100% = 5
+                  four: 60 - 80% = 4
+                  one: 0 - 20% = 1
+                  three: 40 - 60% = 3
+                  two: 20 - 40% = 2
+              functional_diversity_invited:
+                options:
+                  five: Oui = 5
+                  zero: Non = 0
+              functional_diversity_participation:
+                options:
+                  five: 80 - 100% = 5
+                  four: 60 - 80% = 4
+                  one: 0 - 20% = 1
+                  three: 40 - 60% = 3
+                  two: 20 - 40% = 2
+              migrant_groups_invited:
+                options:
+                  five: Oui = 5
+                  zero: Non = 0
+            relevance:
+              name: Pertinence
+              relevance_percentage:
+                options:
+                  five: 80 - 100% = 5
+                  four: 60 - 80% = 4
+                  one: 0 - 20% = 1
+                  three: 40 - 60% = 3
+                  two: 20 - 40% = 2
           highlighted_processes:
             active: Actif(s)
             all: Tout
@@ -420,20 +458,30 @@ fr-CA:
         participatory_processes:
           form:
             announcement_help: Le texte saisi ici sera affiché juste en dessous des informations de la concertation.
+            define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
             duration: Durée
-            filters: Filtres
             images: Images
             metadata: Métadonnées
-            other: Autre
+            no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
+            private_notice: Vous serez en mesure de gérer les membres après l'avoir défini comme privé
             related_processes: Concertations liées
-            scope_type_max_depth_help: Restreindre la profondeur du filtre de téles; Le filtre s'affichera de général au type de télescope sélectionné.
-            select_an_area: Sélectionnez un secteur
-            select_participatory_process_type: Sélectionnez un type de concertation
             select_process_group: Sélectionnez un groupe de concertations
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette concertation. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
+            taxonomies: Taxonomies
             title: Informations générales
             visibility: Visibilité
       content_blocks:
+        democratic_quality_stats:
+          automatic_metrics:
+            description: Ces indicateurs sont obtenus automatiquement à partir des données de la plate-forme.
+          global_score:
+            name: Score global
+            tooltip: Calculée en tant que moyenne de toutes les dimensions
+          name: Qualité de la participation
+          qualitative_metrics:
+            indicators:
+              accessibility: Accessibilité
+              relevance: Pertinence
         extra_data:
           name: Phase & durée
         hero:
@@ -445,15 +493,12 @@ fr-CA:
       index:
         title: Concertations
       last_activity:
-        new_participatory_process: Nouvelle concertation
+        new_participatory_process: 'Nouveau processus participatif:'
       pages:
         home:
           highlighted_processes:
             active_spaces: Concertations actives
             see_all_spaces: Voir toutes les concertations
-      participatory_process_steps:
-        index:
-          back_to_process: Retour à la page du processus
       participatory_processes:
         description:
           area_name: Périmètre d'assemblée
@@ -495,12 +540,19 @@ fr-CA:
           type: Type
         show:
           title: A propos de cette concertation
+      participatory_space_private_users:
+        index:
+          title: Membres
       show:
         belongs_to_group: Cette concertation appartient à
         private_space: Ceci est une concertation privée
         related_processes: Concertations liées
+      static_pages:
+        democratic_quality_indicators:
+          title: Indicateurs de qualité démocratique
     statistics:
       processes_count: Concertations
+      processes_count_tooltip: Le nombre de processus participatifs qui sont accessibles au public.
   layouts:
     decidim:
       participatory_process_groups:
@@ -508,6 +560,8 @@ fr-CA:
           browse: Parcourir
           browse_resource: Parcourir le groupe de processus %{resource_name}
           processes_count: 'Concertations :'
+      participatory_process_navigation:
+        member_menu_item: Membres
       participatory_processes:
         index:
           promoted_processes: Concertations mises en avant

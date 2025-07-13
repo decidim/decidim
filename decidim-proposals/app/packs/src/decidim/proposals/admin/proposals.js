@@ -5,6 +5,11 @@
 import TomSelect from "tom-select/dist/cjs/tom-select.popular";
 
 $(() => {
+  let isMergeProposalsClicked = false;
+  $('button[data-action="merge-proposals"]').on("click", function() {
+    isMergeProposalsClicked = true;
+  });
+
   const selectedProposalsCount = function() {
     return $(".table-list .js-check-all-proposal:checked").length
   }
@@ -24,8 +29,9 @@ $(() => {
 
     if (selectedProposals === 0) {
       $("#js-selected-proposals-count").text("")
-      $("#js-assign-proposals-to-valuator-actions").addClass("hide");
-      $("#js-unassign-proposals-from-valuator-actions").addClass("hide");
+      $("#js-assign-proposals-to-evaluator-actions").addClass("hide");
+      $("#js-unassign-proposals-from-evaluator-actions").addClass("hide");
+      $("#js-taxonomy-change-proposals-actions").addClass("hide");
     } else {
       $("#js-selected-proposals-count").text(selectedProposals);
     }
@@ -71,10 +77,16 @@ $(() => {
   }
 
   const showOtherActionsButtons = function() {
+    if (isMergeProposalsClicked) {
+      return;
+    }
     $("#js-other-actions-wrapper").removeClass("hide");
   }
 
   const hideOtherActionsButtons = function() {
+    if (isMergeProposalsClicked) {
+      return;
+    }
     $("#js-other-actions-wrapper").addClass("hide");
   }
 
@@ -97,14 +109,15 @@ $(() => {
     hideBulkActionForms();
     $("#js-bulk-actions-button").addClass("hide");
 
-    $("#js-bulk-actions-dropdown ul li button").click(function (e) {
+    $("#js-bulk-actions-dropdown li button").click(function (e) {
       $("#js-bulk-actions-dropdown").removeClass("is-open");
       hideBulkActionForms();
 
       let action = $(e.target).data("action");
       const panelActions = [
-        "assign-proposals-to-valuator",
-        "unassign-proposals-from-valuator"
+        "assign-proposals-to-evaluator",
+        "unassign-proposals-from-evaluator",
+        "taxonomy-change-proposals"
       ];
 
       if (!action) {
@@ -123,7 +136,7 @@ $(() => {
         });
 
         $(`#js-${action}-actions`).removeClass("hide");
-        hideBulkActionsButton(true);
+        hideBulkActionsButton(!isMergeProposalsClicked);
         hideOtherActionsButtons();
       }
     });
@@ -183,11 +196,11 @@ $(() => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const valuatorMultiselectContainers = document.querySelectorAll(
-    ".js-valuator-multiselect"
+  const evaluatorMultiselectContainers = document.querySelectorAll(
+    ".js-evaluator-multiselect"
   );
 
-  valuatorMultiselectContainers.forEach((container) => {
+  evaluatorMultiselectContainers.forEach((container) => {
     const config = {
       plugins: ["remove_button", "dropdown_input"],
       allowEmptyOption: true

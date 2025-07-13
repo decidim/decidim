@@ -37,7 +37,7 @@ module Decidim
         subject { helper.render_proposal_body(proposal) }
 
         before do
-          allow(helper).to receive(:present).with(proposal).and_return(Decidim::Proposals::ProposalPresenter.new(proposal))
+          allow(helper).to receive(:present).with(proposal, presenter_class: nil).and_return(Decidim::Proposals::ProposalPresenter.new(proposal))
           allow(helper).to receive(:current_organization).and_return(proposal.organization)
           helper.instance_variable_set(:@proposal, proposal)
         end
@@ -100,6 +100,89 @@ module Decidim
               )
             end
           end
+        end
+      end
+
+      describe "#proposal_limit" do
+        subject { helper.proposal_limit }
+
+        context "when proposal limit is zero" do
+          before do
+            allow(helper).to receive(:component_settings).and_return(double(proposal_limit: 0))
+          end
+
+          it "returns nil" do
+            expect(subject).to be_nil
+          end
+        end
+
+        context "when proposal limit is greater than zero" do
+          before do
+            allow(helper).to receive(:component_settings).and_return(double(proposal_limit: 5))
+          end
+
+          it "returns the proposal limit" do
+            expect(subject).to eq(5)
+          end
+        end
+      end
+
+      describe "#votes_given" do
+        subject { helper.send(:votes_given) }
+
+        let(:user) { create(:user) }
+        let(:component) { create(:component, manifest_name: :proposals) }
+
+        before do
+          allow(helper).to receive(:current_user).and_return(user)
+          allow(helper).to receive(:current_component).and_return(component)
+        end
+
+        context "when the user has not voted on any proposals" do
+          it "returns 0" do
+            expect(subject).to eq(0)
+          end
+        end
+
+        context "when votes_given is already calculated" do
+          it "memoizes the result" do
+            allow(ProposalVote).to receive(:where).and_call_original
+            expect(helper.send(:votes_given)).to eq(0)
+            expect(ProposalVote).not_to receive(:where)
+            expect(helper.send(:votes_given)).to eq(0)
+          end
+        end
+      end
+
+      describe "#filter_type_values" do
+        subject { helper.filter_type_values }
+
+        before do
+          allow(helper).to receive(:t).with("decidim.proposals.application_helper.filter_type_values.all").and_return("All")
+          allow(helper).to receive(:t).with("decidim.proposals.application_helper.filter_type_values.proposals").and_return("Proposals")
+          allow(helper).to receive(:t).with("decidim.proposals.application_helper.filter_type_values.amendments").and_return("Amendments")
+        end
+
+        it "returns the correct filter type values" do
+          expect(subject).to eq([
+                                  %w(all All),
+                                  %w(proposals Proposals),
+                                  %w(amendments Amendments)
+                                ])
+        end
+
+        it "returns an array of arrays with two elements each" do
+          expect(subject).to all(be_an(Array).and(have_attributes(size: 2)))
+        end
+
+        it "includes the expected filter types" do
+          filter_keys = subject.map(&:first)
+          expect(filter_keys).to contain_exactly("all", "proposals", "amendments")
+        end
+
+        it "includes the translated values for each filter type" do
+          translated_values = subject.map(&:last)
+          expect(translated_values).to contain_exactly("All", "Proposals", "Amendments")
         end
       end
     end

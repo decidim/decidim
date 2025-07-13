@@ -1,19 +1,21 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
-
-require "decidim/core/test/shared_examples/attachable_interface_examples"
+require "decidim/api/test"
 
 module Decidim
   module ParticipatoryProcesses
     describe ParticipatoryProcessType, type: :graphql do
       include_context "with a graphql class type"
 
-      let(:model) { create(:participatory_process, :with_scope) }
+      let(:model) { create(:participatory_process) }
+      let(:organization) { model.organization }
 
       include_examples "attachable interface"
-      include_examples "categories container interface"
+      include_examples "taxonomizable interface"
+      include_examples "timestamps interface"
+      include_examples "followable interface"
+      include_examples "referable interface"
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -39,27 +41,19 @@ module Decidim
         end
       end
 
-      describe "hashtag" do
-        let(:query) { "{ hashtag }" }
+      describe "weight" do
+        let(:query) { "{ weight }" }
 
-        it "returns the process' hashtag" do
-          expect(response["hashtag"]).to eq(model.hashtag)
+        it "returns the process' weight" do
+          expect(response["weight"]).to eq(model.weight)
         end
       end
 
-      describe "createdAt" do
-        let(:query) { "{ createdAt }" }
+      describe "url" do
+        let(:query) { "{ url }" }
 
-        it "returns when the process was created" do
-          expect(response["createdAt"]).to eq(model.created_at.to_time.iso8601)
-        end
-      end
-
-      describe "updatedAt" do
-        let(:query) { "{ updatedAt }" }
-
-        it "returns when the process was updated" do
-          expect(response["updatedAt"]).to eq(model.updated_at.to_time.iso8601)
+        it "returns all the required fields" do
+          expect(response["url"]).to eq(Decidim::EngineRouter.main_proxy(model).participatory_process_url(model))
         end
       end
 
@@ -176,36 +170,11 @@ module Decidim
         end
       end
 
-      describe "scopesEnabled" do
-        let(:query) { "{ scopesEnabled }" }
-
-        it "returns if the process has scopes enabled" do
-          expect(response["scopesEnabled"]).to be_in([true, false])
-          expect(response["scopesEnabled"]).to eq(model.scopes_enabled)
-        end
-      end
-
-      describe "scope" do
-        let(:query) { "{ scope { id } }" }
-
-        it "has a scope" do
-          expect(response).to include("scope" => { "id" => model.scope.id.to_s })
-        end
-      end
-
       describe "announcement" do
         let(:query) { '{ announcement { translation(locale: "en")}}' }
 
         it "returns all the required fields" do
           expect(response["announcement"]["translation"]).to eq(model.announcement["en"])
-        end
-      end
-
-      describe "reference" do
-        let(:query) { "{ reference }" }
-
-        it "returns the process' reference" do
-          expect(response["reference"]).to eq(model.reference)
         end
       end
 

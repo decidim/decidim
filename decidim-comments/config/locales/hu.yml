@@ -5,7 +5,6 @@ hu:
       decidim/comments/comment_created_event: Megjegyzés
       decidim/comments/comment_upvoted_event: Hozzászólás feljebb szavazva
       decidim/comments/reply_created_event: Hozzászólás válasz
-      decidim/comments/user_group_mentioned_event: Említés
       decidim/comments/user_mentioned_event: Említés
   activerecord:
     models:
@@ -16,6 +15,10 @@ hu:
         one: Szavazat
         other: Szavazatok
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Hozzászólások
     comments:
       admin:
         shared:
@@ -45,8 +48,6 @@ hu:
           form_error: Kötelező kitölteni, és nem lehet hosszabb, mint %{length} karakter.
           submit_reply: Válasz publikálása
           submit_root_comment: Megjegyzés publikálása
-          user_group_id:
-            label: 'Megjegyzés mint:'
         opinion:
           label: A témáról alkotott véleménye
           negative: Negatív
@@ -119,11 +120,6 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{author_name}". Leiratkozás az előző link segítségével.'
           email_subject: '%{author_name} új megjegyzése itt: %{resource_title}'
           notification_title: 'Új megjegyzés: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a>.'
-        comment_by_followed_user_group:
-          email_intro: 'A csoport %{author_name} megjegyzést hagyott itt: %{resource_title}. Ezen az oldalon megtalálod:'
-          email_outro: 'Ezt az értesítést azért kaptad, mert követed: "%{author_name}". Leiratkozáshoz látogasd meg ezt a csoportod a profiloldaláról.'
-          email_subject: '%{author_name} új megjegyzése itt: %{resource_title}'
-          notification_title: 'Új megjegyzés: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a>.'
         comment_created:
           email_intro: "A \"%{resource_title}\" témához megjegyzést fűzött valaki. Itt tudod elolvasni:"
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt (vagy ennek szerzőjét) követed: "%{resource_title}". Ha szeretnél, a link segítségével leiratkozhatsz.'
@@ -144,21 +140,11 @@ hu:
           email_outro: Ezt az értesítést azért kaptad, mert valaki választolt a mejegyzésedre.
           email_subject: "%{author_name} megjegyzést tett a kommentedhez itt: %{resource_title}"
           notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> válaszolt a megjegyzésedre itt: <a href="%{resource_path}">%{resource_title}</a>'
-        user_group_mentioned:
-          email_intro: Említettek egy csoportot, amelybe tartozol
-          email_outro: Azért kapta ezt az értesítést, mert tagja annak a(z) %{group_name} csoportnak, amelyet a(z) %{resource_title} megemlített.
-          email_subject: A(z) %{resource_title} -ban említettek, a(z) %{group_name} tagjaként
-          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> -ban a <a href="%{author_path}">%{author_name} %{author_nickname}</a> megemlített a(z) <a href="%{group_path}">%{group_name} %{group_nickname} </a> tagjaként
         user_mentioned:
           email_intro: Valaki említette a neved
           email_outro: Ezt az értesítést azért kaptad, mert korábban megemlítettek a(z) "%{resource_title}" témában.
           email_subject: Megemlítettek a(z) %{resource_title} témában
           notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> megemlített itt: <a href="%{resource_path}">%{resource_title}</a>'
-    metrics:
-      comments:
-        description: A felhasználók által generált megjegyzések száma
-        object: Hozzászólások
-        title: Hozzászólások
   errors:
     messages:
       cannot_have_comments: nem adhat hozzá hozzászólásokat

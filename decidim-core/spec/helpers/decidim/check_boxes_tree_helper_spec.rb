@@ -39,7 +39,7 @@ module Decidim
             data: { checkboxes_tree: "with_any_whatever_" },
             include_hidden: false,
             label: "<span>All</span>",
-            label_options: { "data-global-checkbox": "", value: "" },
+            label_options: { "data-global-checkbox": "", value: "", for: "_" },
             multiple: true,
             value: ""
           }
@@ -69,7 +69,7 @@ module Decidim
             label: "<span>An option</span>",
             multiple: true,
             include_hidden: false,
-            label_options: { "data-children-checkbox": "with_any_whatever_", value: "an_option" }
+            label_options: { "data-children-checkbox": "with_any_whatever_", value: "an_option", for: "_" }
           }
         end
 
@@ -79,87 +79,24 @@ module Decidim
       end
     end
 
-    describe "#filter_categories_values" do
-      let(:root) { helper.filter_categories_values }
-      let(:leaf) { helper.filter_categories_values.leaf }
-      let(:nodes) { helper.filter_categories_values.node }
+    describe "#filter_taxonomy_values_for" do
+      let!(:taxonomy_filter) { create(:taxonomy_filter, :with_items, items_count: 5, root_taxonomy:) }
+      let!(:sub_filter) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item:) }
+      let(:root_taxonomy) { create(:taxonomy, organization:) }
+      let(:taxonomy_item) { create(:taxonomy, parent: root_taxonomy.children.first, organization:) }
+      let(:root) { helper.filter_taxonomy_values_for(taxonomy_filter) }
+      let(:leaf) { helper.filter_taxonomy_values_for(taxonomy_filter).leaf }
+      let(:nodes) { helper.filter_taxonomy_values_for(taxonomy_filter).node }
 
-      context "when the participatory space does not have categories" do
-        it "does not return any category" do
-          expect(leaf.value).to eq("")
-          expect(nodes.count).to eq(0)
-          expect(nodes.first).to be_nil
-        end
+      it "returns all the taxonomies" do
+        expect(root).to be_a(Decidim::CheckBoxesTreeHelper::TreeNode)
+        expect(leaf.value).to eq(root_taxonomy.id)
+        expect(nodes.count).to eq(5)
       end
 
-      context "when the participatory space has a category with subcategories" do
-        let(:participatory_space) { create(:participatory_process, organization:) }
-        let(:category) { create(:category, participatory_space:) }
-        let!(:subcategories) { create_list(:subcategory, 5, parent: category, participatory_space:) }
-
-        it "returns all the subcategories" do
-          expect(leaf.value).to eq("")
-          expect(root).to be_a(Decidim::CheckBoxesTreeHelper::TreeNode)
-          expect(root.node.first.node.count).to eq(5)
-        end
-
-        it "sanitizes the labels" do
-          expect(root.node.first.first.label).to start_with("&lt;script&gt;alert(&quot;category_name&quot;);&lt;/script&gt;")
-        end
-      end
-    end
-
-    describe "#filter_scopes_values" do
-      let(:root) { helper.filter_scopes_values }
-      let(:leaf) { helper.filter_scopes_values.leaf }
-      let(:nodes) { helper.filter_scopes_values.node }
-
-      context "when the participatory space does not have a scope" do
-        it "returns the global scope" do
-          expect(leaf.value).to eq("")
-          expect(nodes.count).to eq(1)
-          expect(nodes.first).to be_a(Decidim::CheckBoxesTreeHelper::TreePoint)
-          expect(nodes.first.value).to eq("global")
-        end
-      end
-
-      context "when the participatory space has a scope with subscopes" do
-        let(:participatory_space) { create(:participatory_process, :with_scope, organization:) }
-        let!(:subscopes) { create_list(:subscope, 5, parent: participatory_space.scope) }
-
-        it "returns all the subscopes" do
-          expect(leaf.value).to eq("")
-          expect(root).to be_a(Decidim::CheckBoxesTreeHelper::TreeNode)
-          expect(root.node.count).to eq(5)
-        end
-      end
-
-      context "when the component does not have a scope" do
-        before do
-          component.update!(settings: { scopes_enabled: true, scope_id: nil })
-        end
-
-        it "returns the global scope" do
-          expect(leaf.value).to eq("")
-          expect(nodes.count).to eq(1)
-          expect(nodes.first).to be_a(Decidim::CheckBoxesTreeHelper::TreePoint)
-          expect(nodes.first.value).to eq("global")
-        end
-      end
-
-      context "when the component has a scope with subscopes" do
-        let(:participatory_space) { create(:participatory_process, :with_scope, organization:) }
-        let!(:subscopes) { create_list(:subscope, 5, parent: participatory_space.scope) }
-
-        before do
-          component.update!(settings: { scopes_enabled: true, scope_id: participatory_space.scope.id })
-        end
-
-        it "returns all the subscopes" do
-          expect(leaf.value).to eq("")
-          expect(root).to be_a(Decidim::CheckBoxesTreeHelper::TreeNode)
-          expect(root.node.count).to eq(5)
-        end
+      it "returns all the sub filters" do
+        expect(nodes.first).to be_a(Decidim::CheckBoxesTreeHelper::TreeNode)
+        expect(nodes.first.node.count).to eq(1)
       end
     end
 

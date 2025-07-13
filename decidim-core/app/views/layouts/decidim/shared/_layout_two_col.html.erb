@@ -1,6 +1,8 @@
 <% reverse ||= false %>
+<% large ||= false %>
 <% main_enabled = true unless local_assigns.has_key?(:main_enabled) %>
-<div class="layout-2col<%= " layout-2col__reverse" if reverse %>">
+
+<div class="layout-2col<%= " layout-2col__large" if large %><%= " layout-2col__reverse" if reverse %>">
   <aside class="layout-2col__aside">
     <%= yield :aside %>
   </aside>

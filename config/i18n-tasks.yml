@@ -133,19 +133,27 @@ ignore_unused:
   - booleans.*
   - '{date,time.formats}.*'
   - datetime.distance_in_words.*
+  - decidim.admin.actions.share
   - decidim.admin.participatory_process_steps.default_title
+  - decidim.admin.admin_log.changeset.*
+  - decidim.verifications.admin_log.csv_datum.*
+  - decidim.admin.forms.file_help.import_csv.*
   - decidim.authorization_handlers.{direct,multistep}
   - decidim.admin.models.assembly_member.positions.*
   - decidim.application.documents.component_documents.*
   - decidim.statistics.*
   - decidim.components.*
+  - decidim.collaborative_texts.admin_log.document.*
+  - decidim.collaborative_texts.admin_log.version.*
+  - decidim.collaborative_texts.admin_log.suggestion.*
   - decidim.filters.linked_classes.*
   - decidim.shared.participatory_space_filters.filters.*
   - decidim.follows.create.participatory_space
   - decidim.forms.errors.*
   - decidim.forms.file_help.*
-  - decidim.forms.user_answers_serializer.*
   - decidim.forms.admin_log.questionnaire.update
+  - decidim.elections.admin_log.election.*
+  - decidim.elections.admin_log.question.*
   - decidim.proposals.answers.*
   - decidim.proposals.collaborative_drafts.show.see_other_versions
   - decidim.proposals.collaborative_drafts.wizard_aside.back
@@ -154,9 +162,9 @@ ignore_unused:
   - decidim.proposals.collaborative_drafts.wizard_aside.back_from_step_2
   - decidim.proposals.collaborative_drafts.wizard_aside.back_from_step_3
   - decidim.proposals.collaborative_drafts.wizard_aside.back_from_step_4
-  - decidim.proposals.proposal_endorsements_helper.endorsements_count_title
+  - decidim.proposals.proposal_likes_helper.likes_count_title
   - decidim.proposals.proposals.orders.*
-  - decidim.proposals.proposals.endorsements_card_row.comments_title
+  - decidim.proposals.proposals.likes_card_row.comments_title
   - decidim.proposals.proposals.wizard_aside.back
   - decidim.proposals.proposals.wizard_aside.back_from_step_1
   - decidim.proposals.proposals.wizard_aside.back_from_step_2
@@ -173,9 +181,11 @@ ignore_unused:
   - decidim.resource_links.*
   - decidim.system.default_pages.placeholders.*
   - decidim.system.organizations.omniauth_settings.*
+  - decidim.verifications.csv_census.admin.census.create_import.no_user
+  - decidim.verifications.csv_census.admin.census.index.no_sign_in
+  - decidim.verifications.csv_census.admin.census.index.no_user
   - decidim.verifications.id_documents.{identification_number,passport}
   - decidim.verifications.dummy_authorization.extra_explanation.user_postal_codes.{one,other}
-  - decidim.verifications.dummy_authorization.extra_explanation.user_scope
   - errors.messages.*
   - invisible_captcha.*
   - social_share_button.*
@@ -226,7 +236,9 @@ ignore_unused:
   - decidim.events.*
   - doorkeeper.scopes.*
   - decidim.proposals.proposals.votes_count.count.*
-  - decidim.proposals.proposals.show.hidden_endorsers_count.*
+  - decidim.proposals.proposals.show.hidden_likes_count.*
+  - decidim.admin.taxonomies.breadcrumb.*
+  - decidim.admin.taxonomy_filters.breadcrumb.*
   - decidim.admin.models.*.name
   - decidim.admin.models.*.name.*
   - password_validator.*
@@ -238,6 +250,7 @@ ignore_unused:
   - decidim.participatory_processes.content_blocks.*.name
   - decidim.participatory_process_groups.content_blocks.*.name
   - decidim.assemblies.content_blocks.*.name
+  - decidim.debates.content_blocks.*.name
   - decidim.initiatives.content_blocks.*.name
   - decidim.meetings.content_blocks.*.name
   - decidim.blogs.content_blocks.*.name
@@ -254,7 +267,6 @@ ignore_unused:
   - decidim.conferences.models.conference_registration.fields.states.*
   - decidim.proposals.admin.participatory_texts.sections.*
   - decidim.gamification.badges.*
-  - decidim.surveys.surveys.answer.*
   - decidim.surveys.admin.surveys.update.*
   - decidim.groups.roles.*
   - decidim.welcome_notification.*
@@ -327,7 +339,6 @@ ignore_unused:
   - emojis.*
   - ransack.predicates.*
   - decidim.profiles.user.actions.*
-  - decidim.forms.questionnaires.show.answer_questionnaire.*
   - decidim.forms.upload_help.explanation
   - decidim.admin.assembly_user_roles.create.*
   - decidim.admin.assembly_user_roles.update.*
@@ -353,8 +364,11 @@ ignore_unused:
   - decidim.meetings.polls.questions.index_admin.statuses.{closed,published,unpublished}
   - decidim.meetings.directory.meetings.index.space_type
   - decidim.authorization_modals.content.*
-  - decidim.authorization_handlers.admin.{another_dummy_authorization_handler,csv_census,dummy_authorization_handler,id_documents,postal_letter,sms}.help
+  - decidim.authorization_handlers.admin.{another_dummy_authorization_handler,csv_census,dummy_authorization_handler,ephemeral_dummy_authorization_handler,id_documents,postal_letter,sms}.help
   - time.buttons.*
+  - decidim.profiles.show.members
+  - decidim.participatory_processes.static_pages.democratic_quality_indicators.*
+  - decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

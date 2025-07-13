@@ -1,0 +1,33 @@
+<% add_decidim_page_title(t(".title", name: resource_title)) %>
+
+<div class="item_show__header">
+  <h1 class="item_show__header-title">
+    <%= t ".title", name: resource_title %>
+    <a class="button button__sm button__secondary" href="<%= share_tokens_path %>"><%= t("share_tokens.index.back_to_share_tokens", scope: "decidim.admin") %></a>
+  </h1>
+</div>
+<div class="item__edit-form">
+  <%= decidim_form_for(@form, url: share_tokens_path(:update, id: current_token), html: { class: "form-defaults form edit_share_token" }) do |f| %>
+    <div class="card">
+      <div class="card-section">
+        <div class="form__wrapper">
+          <div class="card pt-4">
+            <div class="row column">
+              <label for="share_token-token"><%= t("token", scope: "decidim.admin.models.share_token.fields") %></label>
+              <div class="flex gap-4">
+                <%= text_field_tag :token, current_token.token, id: "share_token-token", aria: { label: t("token", scope: "decidim.admin.models.share_token.fields") }, disabled: true %>
+                <button type="button" class="button button__sm button__secondary text-nowrap" data-clipboard-copy="#share_token-token" data-clipboard-content="<%= current_token.url %>" data-clipboard-copy-label="<%= t("copied", scope: "decidim.admin.share_tokens.index") %>" data-clipboard-copy-message="<%= t("copy_message", scope: "decidim.admin.share_tokens.index") %>"><%= t("actions.copy_link", scope: "decidim.admin.share_tokens") %></button>
+              </div>
+            </div>
+            <%= render partial: "form", object: f %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="item__edit-sticky">
+      <div class="item__edit-sticky-container">
+        <%= f.submit t(".update"), class: "button button__sm button__secondary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

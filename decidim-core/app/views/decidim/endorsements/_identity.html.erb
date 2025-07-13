@@ -1,4 +1,0 @@
-<button type="button" class="<%= "is-selected" if selected %>" data-user-identity data-method="<%= http_method.to_s.upcase %>" data-create_url="<%= create_url %>" data-destroy_url="<%= destroy_url %>">
-  <%== cell "decidim/author", identity, skip_profile_link: true %>
-  <%= icon("checkbox-circle-line") %>
-</button>

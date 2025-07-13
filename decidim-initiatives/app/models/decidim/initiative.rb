@@ -14,6 +14,7 @@ module Decidim
     include Decidim::HasAttachmentCollections
     include Decidim::Traceable
     include Decidim::Loggable
+    include Decidim::DownloadYourData
     include Decidim::Initiatives::InitiativeSlug
     include Decidim::Resourceable
     include Decidim::HasReference
@@ -24,6 +25,8 @@ module Decidim
     include Decidim::HasResourcePermission
     include Decidim::HasArea
     include Decidim::FilterableResource
+    include Decidim::Reportable
+    include Decidim::ShareableWithToken
 
     translatable_fields :title, :description, :answer
 
@@ -31,6 +34,7 @@ module Decidim
     delegate :document_number_authorization_handler, :promoting_committee_enabled?, :attachments_enabled?,
              :promoting_committee_enabled?, :custom_signature_end_date_enabled?, :area_enabled?, to: :type
     delegate :name, to: :area, prefix: true, allow_nil: true
+    delegate :name, to: :author, prefix: true
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -62,12 +66,10 @@ module Decidim
              dependent: :destroy,
              as: :participatory_space
 
-    enum signature_type: [:online, :offline, :any], _suffix: true
-    enum state: [:created, :validating, :discarded, :open, :rejected, :accepted]
+    enum :signature_type, [:online, :offline, :any], suffix: true
+    enum :state, [:created, :validating, :discarded, :open, :rejected, :accepted]
 
     validates :title, :description, :state, :signature_type, presence: true
-    validates :hashtag,
-              uniqueness: { allow_blank: true, case_sensitive: false }
 
     validate :signature_type_allowed
 
@@ -155,8 +157,28 @@ module Decidim
                       # is Resourceable instead of ParticipatorySpaceResourceable so we cannot use `visible?`
                       index_on_update: ->(initiative) { initiative.published? })
 
+    def self.export_serializer
+      Decidim::Initiatives::DownloadYourDataInitiativeSerializer
+    end
+
     def self.log_presenter_class_for(_log)
       Decidim::Initiatives::AdminLog::InitiativePresenter
+    end
+
+    def presenter
+      Decidim::InitiativePresenter.new(self)
+    end
+
+    def self.ransackable_attributes(auth_object = nil)
+      base = %w(search_text title description id id_string supports_count author_name author_nickname)
+
+      return base unless auth_object&.admin?
+
+      base + %w(published_at state decidim_area_id type_id)
+    end
+
+    def self.ransackable_associations(_auth_object = nil)
+      %w(area scope taxonomies)
     end
 
     def self.ransackable_scopes(_auth_object = nil)
@@ -176,20 +198,9 @@ module Decidim
       type.comments_enabled?
     end
 
-    # Public: Check if an initiative has been created by an individual person.
-    # If it is false, then it has been created by an authorized organization.
-    #
-    # Returns a Boolean
-    def created_by_individual?
-      decidim_user_group_id.nil?
-    end
-
-    # Public: Returns the author name. If it has been created by an organization it will
-    # return the organization's name. Otherwise it will return author's name.
-    #
-    # Returns a string
-    def author_name
-      user_group&.name || author.name
+    # Public: Overrides the `reported_attributes` Reportable concern method.
+    def reported_attributes
+      [:title, :description]
     end
 
     def votes_enabled?
@@ -252,11 +263,6 @@ module Decidim
     # Public: Returns whether the signature interval is already defined or not.
     def has_signature_interval_defined?
       signature_end_date.present? && signature_start_date.present?
-    end
-
-    # Public: Returns the hashtag for the initiative.
-    def hashtag
-      attributes["hashtag"].to_s.delete("#")
     end
 
     # Public: Calculates the number of total current supports.
@@ -443,6 +449,10 @@ module Decidim
 
     def user_allowed_to_comment?(user)
       ActionAuthorizer.new(user, "comment", self, nil).authorize.ok?
+    end
+
+    def shareable_url(share_token)
+      EngineRouter.main_proxy(self).initiative_url(self, share_token: share_token.token)
     end
 
     def self.ransack(params = {}, options = {})

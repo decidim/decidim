@@ -126,8 +126,6 @@ module Decidim
         case @model
         when User
           [@model]
-        when UserGroup
-          @model.users
         end
       end
     end

@@ -41,11 +41,8 @@ nl:
             save: Opslaan
         questionnaire_templates:
           choose:
-            create_from_template: Met template aanmaken
-            description: Je staat op het punt een nieuwe vragenlijst te maken. Je kunt een vooraf gedefinieerd template kiezen en daarna wijzigen.
             label: Template kiezen
             placeholder: Template kiezen
-            skip_template: Overslaan
           edit:
             edit: Bewerk
             questionnaire: Vragenlijst

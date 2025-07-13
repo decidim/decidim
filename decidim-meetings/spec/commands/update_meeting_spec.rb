@@ -11,14 +11,11 @@ module Decidim::Meetings
     let(:current_user) { create(:user, :confirmed, organization:) }
     let(:participatory_process) { meeting.component.participatory_space }
     let(:current_component) { meeting.component }
-    let(:scope) { create(:scope, organization:) }
-    let(:category) { create(:category, participatory_space: participatory_process) }
     let(:address) { "address" }
     let(:invalid) { false }
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
     let(:start_time) { 1.day.from_now }
-    let(:user_group_id) { nil }
     let(:type_of_meeting) { "online" }
     let(:online_meeting_url) { "http://decidim.org" }
     let(:registration_type) { "on_this_platform" }
@@ -26,6 +23,9 @@ module Decidim::Meetings
     let(:registration_url) { "http://decidim.org" }
     let(:iframe_embed_type) { "none" }
     let(:iframe_access_level) { nil }
+    let(:taxonomizations) do
+      2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
+    end
     let(:form) do
       double(
         invalid?: invalid,
@@ -35,12 +35,9 @@ module Decidim::Meetings
         location_hints: "The meeting location hint text",
         start_time: 1.day.from_now,
         end_time: 1.day.from_now + 1.hour,
-        scope:,
-        category:,
         address:,
         latitude:,
         longitude:,
-        user_group_id:,
         current_user:,
         current_organization: organization,
         registration_type:,
@@ -51,7 +48,8 @@ module Decidim::Meetings
         clean_type_of_meeting: type_of_meeting,
         online_meeting_url:,
         iframe_embed_type:,
-        iframe_access_level:
+        iframe_access_level:,
+        taxonomizations:
       )
     end
 
@@ -79,14 +77,9 @@ module Decidim::Meetings
         expect(meeting.description).to include("en" => "The meeting description text")
       end
 
-      it "sets the scope" do
+      it "sets the taxonomies" do
         subject.call
-        expect(meeting.scope).to eq scope
-      end
-
-      it "sets the category" do
-        subject.call
-        expect(meeting.category).to eq category
+        expect(meeting.reload.taxonomies).to eq(taxonomizations.map(&:taxonomy))
       end
 
       it "sets the latitude and longitude" do
@@ -95,22 +88,10 @@ module Decidim::Meetings
         expect(meeting.longitude).to eq(longitude)
       end
 
-      context "when the author is a user_group" do
-        let(:user_group) { create(:user_group, :verified, users: [current_user], organization:) }
-        let(:user_group_id) { user_group.id }
-
-        it "sets the user_group as the author" do
-          subject.call
-          expect(meeting.author).to eq current_user
-          expect(meeting.normalized_author).to eq user_group
-        end
-      end
-
       context "when the author is a user" do
         it "sets the user as the author" do
           subject.call
           expect(meeting.author).to eq current_user
-          expect(meeting.normalized_author).to eq current_user
         end
       end
 
@@ -141,12 +122,10 @@ module Decidim::Meetings
             location_hints: meeting.location_hints,
             start_time:,
             end_time:,
-            scope: meeting.scope,
-            category: meeting.category,
+            taxonomizations: meeting.taxonomizations,
             address:,
             latitude: meeting.latitude,
             longitude: meeting.longitude,
-            user_group_id:,
             services_to_persist: [],
             current_user:,
             current_organization: organization,

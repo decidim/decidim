@@ -7,10 +7,7 @@ el:
         decidim_scope_id: Πεδίο εφαρμογής
         description: Περιγραφή
         end_date: Ημερομηνία λήξης
-        meetings_ids: Συμπεριλαμβανόμενες συναντήσεις
         progress: Πρόοδος
-        project_ids: Έργα που περιλαμβάνονται
-        proposals: Προτάσεις που περιλαμβάνονται
         start_date: Ημερομηνία έναρξης
         title: Τίτλος
         updated_at: Ενημερώθηκε στις
@@ -19,10 +16,6 @@ el:
         key: Κλειδί
         name: Όνομα
         progress: Πρόοδος
-      timeline_entry:
-        description: Περιγραφή
-        entry_date: Ημερομηνία
-        title: Τίτλος
     models:
       decidim/accountability/proposal_linked_event: Η πρόταση περιλαμβάνεται σε ένα αποτέλεσμα
       decidim/accountability/result_progress_updated_event: Η πρόοδος των αποτελεσμάτων ενημερώθηκε
@@ -40,7 +33,6 @@ el:
         destroy: Διαγραφή
         edit: Επεξεργασία
         preview: Προεπισκόπηση
-        timeline_entries: Εξέλιξη έργου
         title: Ενέργειες
       admin:
         exports:
@@ -50,27 +42,6 @@ el:
           new:
             download_export: Κατεβάστε την εξαγωγή με μορφή CSV
             import: Εισαγωγή
-            info: |
-              <p>Συνιστούμε να ακολουθήσετε αυτά τα βήματα:</p>
-              <ol>
-              <li><a href='%{link_new_status}' target='_blank'>Δημιουργήστε τις Καταστάσεις για τα Αποτελέσματα</a> που θέλετε να προσθέσετε</li>
-              <li><a href='%{link_new_result}' target='_blank'>Δημιουργήστε τουλάχιστον ένα Αποτέλεσμα χειροκίνητα</a> μέσω αυτού του πάνελ Διαχειριστή πριν χρησιμοποιήσετε την εισαγωγή, για την καλύτερη κατανόηση της μορφής και του τι θα χρειαστεί να συμπληρώσετε.</li>
-              <li>%{link_export_csv}</li>
-              <li>Κάντε τις αλλαγές τοπικά. Μπορείτε να αλλάξετε μόνο τις ακόλουθες στήλες του CSV:
-                <ul>
-                <li><b>category/id:</b> ID για την Κατηγορία</li>
-                <li><b>scope/id:</b> ID για το πεδίο εφαρμογής</li>
-                <li><b>parent/id:</b> ID του γονέα (για τα σχετικά Αποτελέσματα). Προαιρετικό</li>
-                <li><b>title/en:</b> Τίτλος στην Αγγλική γλώσσα. Αυτό θα εξαρτηθεί από τις ρυθμίσεις της γλώσσας της πλατφόρμας σας.</li>
-                <li><b>description/en:</b> Περιγραφή στην Αγγλική γλώσσα. Αυτό θα εξαρτηθεί από τις ρυθμίσεις της γλώσσας της πλατφόρμας σας.</li>
-                <li><b>start_date:</b> Ημερομηνία έναρξης της εκτέλεσης του αποτελέσματος (μορφή ΕΕΕΕ-ΜΜ-ΗΗ)</li>
-                <li><b>end_date:</b> Ημερομηνία λήξης της εκτέλεσης του αποτελέσματος (μορφή ΕΕΕΕ-ΜΜ-ΗΗ)</li>
-                <li><b>status/id:</b> ID της Κατάστασης για αυτό το αποτέλεσμα</li>
-                <li><b>progress:</b> Ποσοστό (από 0 έως 100) της εκτέλεσης</li>
-                <li><b><b> proposals_ids:</b> εσωτερικά ID των σχετικών προτάσεων (χωρισμένα με κόμμα). Μετατρέπεται αυτόματα σε <span class='attribute-name'>proposal_url</span></li>
-                </ul>
-              </li>
-              </ol>
         imports:
           create:
             success: Η εισαγωγή του αρχείου ξεκίνησε. Μέσα στα επόμενα λεπτά θα λάβετε ένα email με το αποτέλεσμα της εισαγωγής.
@@ -79,27 +50,10 @@ el:
             name: Αποτέλεσμα
           status:
             name: Κατάσταση
-        projects_import:
-          create:
-            invalid: Παρουσιάστηκε πρόβλημα κατά την εισαγωγή των έργων στα αποτελέσματα, παρακαλούμε να ακολουθήσετε προσεκτικά τις οδηγίες και να βεβαιωθείτε ότι έχετε επιλέξει έργα για υλοποίηση.
-          new:
-            create: Εισαγωγή
-            import_all_selected_projects: Εισαγωγή όλων των επιλεγμένων έργων για υλοποίηση
-            new_items:
-              one: 1 επιλεγμένο έργο θα εισαχθεί
-              other: "%{count} επιλεγμένα έργα θα εισαχθούν"
-            no_components: Δεν υπάρχουν άλλα στοιχεία προϋπολογισμού σε αυτόν τον χώρο συμμετοχής για εισαγωγή των έργων σε αποτελέσματα.
-            origin_component_id: Στοιχείο καταγωγής
-            select_component: Επιλέξτε ένα στοιχείο
-            success:
-              one: 1 έργο στην ουρά για εισαγωγή. Θα ειδοποιηθείτε μέσω email μόλις ολοκληρωθεί.
-              other: "%{count} έργα στην ουρά για εισαγωγή. Θα ειδοποιηθείτε μέσω email μόλις ολοκληρωθεί."
         results:
           create:
             invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτού του αποτελέσματος.
             success: Το αποτέλεσμα δημιουργήθηκε με επιτυχία.
-          destroy:
-            success: Το αποτέλεσμα διαγράφηκε με επιτυχία.
           edit:
             title: Επεξεργασία αποτελέσματος
             update: Ενημέρωση αποτελέσματος
@@ -131,23 +85,6 @@ el:
           update:
             invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της κατάστασης.
             success: Η κατάσταση ενημερώθηκε με επιτυχία.
-        timeline_entries:
-          create:
-            invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτής της καταχώρησης.
-            success: Η καταχώρηση δημιουργήθηκε με επιτυχία.
-          destroy:
-            success: Η καταχώριση διαγράφηκε με επιτυχία.
-          edit:
-            title: Επεξεργασία καταχώρησης
-            update: Ενημέρωση καταχώρησης
-          index:
-            title: Καταχωρήσεις χρονοδιαγράμματος έργου
-          new:
-            create: Δημιουργία καταχώρησης
-            title: Νέα καταχώρηση
-          update:
-            invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της καταχώρησης.
-            success: Η καταχώρηση ενημερώθηκε με επιτυχία.
       admin_log:
         result:
           create: "Ο χρήστης %{user_name} δημιούργησε το αποτέλεσμα %{resource_name} στον χώρο %{space_name}"
@@ -157,10 +94,6 @@ el:
           create: "Ο/Η %{user_name} δημιούργησε την κατάσταση %{resource_name}"
           delete: "Ο/Η %{user_name} διέγραψε την κατάσταση %{resource_name}"
           update: "Ο/Η %{user_name} ενημέρωσε την κατάσταση %{resource_name}"
-        timeline_entry:
-          create: "Ο/Η %{user_name} δημιούργησε την καταχώρηση χρονολογίου %{resource_name}"
-          delete: "Ο/Η %{user_name} διέγραψε την καταχώριση χρονολογίου %{resource_name}"
-          update: "Ο/Η %{user_name} ενημέρωσε την καταχώρηση χρονολογίου %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'H γονική διαδικασία δεν βρέθηκε στη βάση δεδομένων (αναγνωριστικό: %{id})'
@@ -186,12 +119,10 @@ el:
       models:
         result:
           fields:
-            category: Κατηγορία
             created_at: Δημιουργήθηκε
             end_date: Ημερομηνία λήξης
             id: Αναγνωριστικό ID
             progress: Πρόοδος
-            scope: Πεδίο εφαρμογής
             start_date: Ημερομηνία έναρξης
             status: Κατάσταση
             title: Τίτλος
@@ -201,38 +132,21 @@ el:
             key: Κλειδί
             name: Όνομα
             progress: Πρόοδος
-        timeline_entry:
-          fields:
-            entry_date: Ημερομηνία
-            title: Τίτλος
       results:
         count:
           results_count:
             one: 1 αποτέλεσμα
             other: "%{count} αποτελέσματα"
-        filters:
-          all: Όλα
-        home:
-          categories_label: Κατηγορίες
-          subcategories_label: Υποκατηγορίες
         home_header:
           global_status: Κατάσταση καθολικής εκτέλεσης
-        nav_breadcrumb:
-          global: Καθολική εκτέλεση
         search:
           search: Αναζήτηση ενεργειών
         show:
           stats:
             back_to_resource: Επιστροφή στο αποτέλεσμα
-        timeline:
-          title: Εξέλιξη έργου
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Κατηγορία
-          scope_id_eq:
-            label: Πεδίο εφαρμογής
           status_id_eq:
             label: Κατάσταση
     components:
@@ -246,8 +160,6 @@ el:
             comments_max_length: Μέγιστο μέγεθος σχολίων (Αφήστε το 0 για το προκαθορισμένο μέγεθος)
             display_progress_enabled: Εμφάνιση προόδου
             intro: Εισαγωγή
-            scope_id: Πεδίο εφαρμογής
-            scopes_enabled: Ενεργοποιημένα πεδία εφαρμογής
           step:
             comments_blocked: Τα σχόλια αποκλείστηκαν
     events:
@@ -262,11 +174,6 @@ el:
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε την πρόταση «%{proposal_title}» και αυτή η πρόταση περιλαμβάνεται στο αποτέλεσμα «%{resource_title}». Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
           email_subject: Μια ενημέρωση στην πρόοδο %{resource_title}
           notification_title: Το αποτέλεσμα <a href="%{resource_path}">%{resource_title}</a>, που περιλαμβάνει την πρόταση <a href="%{proposal_path}">%{proposal_title}</a> έχει τώρα ολοκληρωθεί κατά %{progress}%.
-    metrics:
-      results:
-        description: Αριθμός αποτελεσμάτων που δημιουργήθηκαν
-        object: αποτελέσματα
-        title: Αποτελέσματα
     participatory_spaces:
       highlighted_results:
         see_all: Δείτε όλα τα αποτελέσματα (%{count})

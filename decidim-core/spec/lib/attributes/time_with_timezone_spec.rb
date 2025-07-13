@@ -25,42 +25,82 @@ module Decidim
         context "and timezone offset" do
           it "parses the String in the correct timezone" do
             Time.use_zone("CET") do
-              expect(subject.utc.to_s).to eq("2017-02-01 14:00:00 UTC")
+              expect(subject.utc.to_s).to eq(expected_time_with_offset)
             end
           end
         end
 
         context "and no timezone offset" do
           it "parses the String in the correct timezone" do
-            expect(subject.utc.to_s).to eq("2017-02-01 15:00:00 UTC")
+            expect(subject.utc.to_s).to eq(expected_time_without_offset)
           end
         end
       end
 
       context "when given a String" do
         context "with formatted DateTime" do
-          context "when d/m/Y" do
-            let(:value) { "01/02/2017 15:00" }
+          let(:expected_time_without_offset) { "2017-02-01 15:00:00 UTC" }
 
-            include_context "with date and time parsing"
+          context "without specifying the timezone" do
+            let(:expected_time_with_offset) { "2017-02-01 14:00:00 UTC" }
+
+            context "when d/m/Y HH:mm" do
+              let(:value) { "01/02/2017 15:00" }
+
+              include_context "with date and time parsing"
+            end
+
+            context "when Y-m-d HH:MM" do
+              let(:value) { "2017-02-01 15:00" }
+
+              include_context "with date and time parsing"
+            end
+
+            context "when Y-m-d HH:MM:SS" do
+              let(:value) { "2017-02-01 15:00:00" }
+
+              include_context "with date and time parsing"
+            end
+
+            context "when Y-m-d HH:MM:SS.N" do
+              let(:value) { "2017-02-01 15:00:00.000000" }
+
+              include_context "with date and time parsing"
+            end
+
+            context "when Y-m-dTHH:MM" do
+              let(:value) { "2017-02-01T15:00" }
+
+              include_context "with date and time parsing"
+            end
+
+            context "when Y-m-dTHH:MM:SS" do
+              let(:value) { "2017-02-01T15:00:00" }
+
+              include_context "with date and time parsing"
+            end
+
+            context "when Y-m-dTHH:MM:SS.N" do
+              let(:value) { "2017-02-01T15:00:00.000000" }
+
+              include_context "with date and time parsing"
+            end
           end
 
-          context "when Y-m-d HH:MM" do
-            let(:value) { "2017-02-01 15:00" }
+          context "with specifying the timezone" do
+            let(:expected_time_with_offset) { "2017-02-01 15:00:00 UTC" }
 
-            include_context "with date and time parsing"
-          end
+            context "when Y-m-d HH:MM:SS TZ" do
+              let(:value) { "2017-02-01 16:00:00 +01:00" }
 
-          context "when Y-m-d HH:MM:SS TZ" do
-            let(:value) { "2017-02-01 16:00:00 +01:00" }
+              include_context "with date and time parsing"
+            end
 
-            include_context "with date and time parsing"
-          end
+            context "when %Y-%m-%d %H:%M:%S.%N %z" do
+              let(:value) { "2017-02-01 16:00:00.000000000 +0100" }
 
-          context "when %Y-%m-%d %H:%M:%S.%N %z" do
-            let(:value) { "2017-02-01 16:00:00.000000000 +0100" }
-
-            include_context "with date and time parsing"
+              include_context "with date and time parsing"
+            end
           end
         end
 

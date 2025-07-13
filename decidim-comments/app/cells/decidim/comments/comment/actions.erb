@@ -1,12 +1,4 @@
 <div class="comment__actions">
-  <% if depth.zero? && has_replies_in_children? %>
-    <button class="button button__sm button__text-secondary" data-comment-hide data-controls="comment-<%= model.id %>-replies" data-open="true" id="comment-<%= model.id %>-replies-trigger">
-      <%= icon "arrow-down-s-line" %>
-      <span data-show-comment-reply class="font-normal"><%= t("decidim.components.comment.show_replies", count: replies.size) %></span>
-      <%= icon "arrow-up-s-line" %>
-      <span data-hide-comment-reply class="font-normal"><%= t("decidim.components.comment.hide_replies", count: replies.size) %></span>
-    </button>
-  <% end %>
   <% if can_reply? %>
     <button class="button button__sm button__text-secondary" data-controls="panel-<%= reply_id %>" id="panel-<%= reply_id %>-trigger">
       <%= icon "chat-1-line" %>

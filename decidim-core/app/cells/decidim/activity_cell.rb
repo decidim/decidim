@@ -81,7 +81,6 @@ module Decidim
     end
 
     def user
-      return resource.normalized_author if resource.respond_to?(:normalized_author)
       return resource.author if resource.respond_to?(:author)
       # As Proposals have Coauthorable concern instead of Authorable
       return resource.identities.first if resource.respond_to?(:identities)
@@ -105,9 +104,6 @@ module Decidim
       hash << I18n.locale.to_s
       hash << model.class.name.underscore
       hash << model.cache_key_with_version if model.respond_to?(:cache_key_with_version)
-      if (author_cell = author)
-        hash.push(Digest::MD5.hexdigest(author_cell.send(:cache_hash)))
-      end
 
       hash.join(Decidim.cache_key_separator)
     end
@@ -134,8 +130,6 @@ module Decidim
       presenter = case user
                   when Decidim::User
                     UserPresenter.new(user)
-                  when Decidim::UserGroup
-                    UserGroupPresenter.new(user)
                   end
 
       return unless presenter

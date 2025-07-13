@@ -2,7 +2,7 @@
 
 module Decidim
   module Forms
-    # A class used to collect user answers for a questionnaire
+    # A class used to collect user responses for a questionnaire
     class QuestionnaireParticipant < Decidim::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
@@ -23,12 +23,12 @@ module Decidim
 
       # Returns query with participant info
       def query
-        answers.select(:session_token, :decidim_user_id, :ip_hash).first
+        responses.select(:session_token, :decidim_user_id, :ip_hash).first
       end
 
-      # Finds the participant's answers.
-      def answers
-        Answer.where(questionnaire: @questionnaire, session_token: @token)
+      # Finds the participant's responses.
+      def responses
+        Response.where(questionnaire: @questionnaire, session_token: @token)
       end
     end
   end

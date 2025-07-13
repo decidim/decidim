@@ -4,6 +4,7 @@ There are multiple services that can be enabled in a Decidim installation. It is
 
 * xref:services:activejob.adoc[Active Job]
 * xref:services:activestorage.adoc[Active Storage]
+* xref:services:aitools.adoc[AI tools]
 * xref:services:etherpad.adoc[Etherpad]
 * xref:services:maps.adoc[Maps]
 * xref:services:sms.adoc[SMS]

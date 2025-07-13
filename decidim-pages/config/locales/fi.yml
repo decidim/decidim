@@ -16,6 +16,17 @@ fi:
             announcement: Ilmoitus
           step:
             announcement: Ilmoitus
+    open_data:
+      help:
+        pages:
+          body: Sivun tekstisisältö
+          component: Sivun komponentti
+          created_at: Sivun laatimisaika
+          id: Sivun yksilöivä tunniste
+          participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä sivu kuuluu
+          title: Sivun otsikko
+          updated_at: Sivun viimeisimmän päivityksen ajankohta
+          url: Sivun URL-osoite
     pages:
       admin:
         models:

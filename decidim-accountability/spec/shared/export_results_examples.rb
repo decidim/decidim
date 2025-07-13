@@ -24,24 +24,32 @@ end
 
 shared_examples "export as CSV" do
   it "exports a CSV" do
-    find("span.exports", text: export_type).click
-    perform_enqueued_jobs { click_on "Results as CSV" }
+    expect(Decidim::PrivateExport.count).to eq(0)
+    click_on export_type
+    perform_enqueued_jobs do
+      click_on "Results as CSV"
+      sleep 1
+    end
 
     expect(page).to have_admin_callout "Your export is currently in progress. You will receive an email when it is complete."
-    expect(last_email.subject).to include("results", "csv")
-    expect(last_email.attachments.length).to be_positive
-    expect(last_email.attachments.first.filename).to match(/^results.*\.zip$/)
+    expect(last_email.subject).to eq(%(Your export "results" is ready))
+    expect(Decidim::PrivateExport.count).to eq(1)
+    expect(Decidim::PrivateExport.last.export_type).to eq("results")
   end
 end
 
 shared_examples "export as JSON" do
   it "exports a JSON" do
-    find("span.exports", text: export_type).click
-    perform_enqueued_jobs { click_on "Results as JSON" }
+    expect(Decidim::PrivateExport.count).to eq(0)
+    click_on export_type
+    perform_enqueued_jobs do
+      click_on "Results as JSON"
+      sleep 1
+    end
 
     expect(page).to have_admin_callout "Your export is currently in progress. You will receive an email when it is complete."
-    expect(last_email.subject).to include("results", "json")
-    expect(last_email.attachments.length).to be_positive
-    expect(last_email.attachments.first.filename).to match(/^results.*\.zip$/)
+    expect(last_email.subject).to eq(%(Your export "results" is ready))
+    expect(Decidim::PrivateExport.count).to eq(1)
+    expect(Decidim::PrivateExport.last.export_type).to eq("results")
   end
 end

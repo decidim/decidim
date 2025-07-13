@@ -1,19 +1,11 @@
 id:
   activemodel:
     attributes:
-      answer:
-        body: Menjawab
       question:
         max_choices: Jumlah pilihan maksimum
         question_type: Mengetik
       questionnaire_question:
         mandatory: Wajib
-    errors:
-      models:
-        answer:
-          attributes:
-            choices:
-              missing: tidak lengkap
   decidim:
     forms:
       admin:
@@ -22,21 +14,14 @@ id:
             description: Deskripsi
             tos: Ketentuan layanan
         questionnaires:
-          answer_option:
-            answer_option: Opsi jawaban
-            free_text: Teks gratis
-            remove: Menghapus
-            statement: Pernyataan
           edit:
             save: Menyimpan
           form:
             add_question: Tambahkan pertanyaan
-            already_answered_warning: Formulir sudah dijawab oleh beberapa pengguna sehingga Anda tidak dapat mengubah pertanyaannya.
           matrix_row:
             remove: Menghapus
             statement: Pernyataan
           question:
-            add_answer_option: Tambahkan opsi jawaban
             any: Apa saja
             description: Deskripsi
             down: Turun
@@ -47,25 +32,14 @@ id:
           update:
             invalid: Terjadi masalah saat menyimpan formulir.
       question_types:
-        long_answer: Jawaban panjang
         multiple_option: Opsi berganda
-        short_answer: Jawaban singkat
         single_option: Opsi tunggal
         sorting: Penyortiran
       questionnaires:
-        answer:
-          invalid: Ada masalah saat menjawab formulir.
-          success: Formulir berhasil dijawab.
         question:
           max_choices: 'Pilihan maksimal: %{n}'
         show:
-          answer_questionnaire:
-            title: Jawab formulirnya
-          questionnaire_answered:
-            body: Anda sudah menjawab formulir ini.
-            title: Sudah dijawab
           questionnaire_closed:
-            body: Formulir ditutup dan tidak dapat dijawab.
             title: Formulir ditutup
           questionnaire_for_private_users:
             body: Formulir ini hanya tersedia untuk pengguna pribadi
@@ -73,8 +47,4 @@ id:
           tos_agreement: Dengan berpartisipasi Anda menerima Ketentuan Layanannya
       step_navigation:
         show:
-          are_you_sure: Tindakan ini tidak dapat diurungkan dan Anda tidak akan dapat mengedit jawaban Anda. Apakah kamu yakin
           submit: Menyerahkan
-      user_answers_serializer:
-        created_at: Dijawab pada
-        id: ID jawaban

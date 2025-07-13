@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
+require "decidim/api/test"
 require "decidim/conferences/test/factories"
 
 describe "Decidim::Api::QueryType" do
@@ -10,37 +10,42 @@ describe "Decidim::Api::QueryType" do
 
   let(:locale) { "en" }
 
-  let!(:conference) { create(:conference, :diploma, organization: current_organization) }
+  let!(:taxonomy) { create(:taxonomy, :with_parent, :with_children, organization: current_organization) }
+  let!(:conference) { create(:conference, :diploma, organization: current_organization, taxonomies: [taxonomy]) }
+  let!(:follows) { create_list(:follow, 3, followable: conference) }
+
   let(:conference_data) do
     {
       "attachments" => [],
       "availableSlots" => conference.available_slots,
       "categories" => [],
       "components" => [],
-      "createdAt" => conference.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "createdAt" => conference.created_at.to_time.iso8601,
       "description" => { "translation" => conference.description[locale] },
       "endDate" => conference.end_date.to_s,
-      "hashtag" => conference.hashtag,
+      "followsCount" => 3,
       "id" => conference.id.to_s,
       "location" => conference.location,
       "mediaLinks" => [],
       "objectives" => { "translation" => conference.objectives[locale] },
       "partners" => [],
       "promoted" => conference.promoted?,
-      "publishedAt" => conference.published_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "publishedAt" => conference.published_at.to_time.iso8601,
       "reference" => conference.reference,
       "registrationTerms" => { "translation" => conference.registration_terms[locale] },
       "registrationsEnabled" => conference.registrations_enabled?,
-      "scope" => nil,
+      "taxonomies" => [{ "id" => taxonomy.id.to_s, "name" => { "translation" => taxonomy.name[locale] }, "parent" => { "id" => taxonomy.parent_id.to_s }, "children" => taxonomy.children.map { |child| { "id" => child.id.to_s } } }],
       "shortDescription" => { "translation" => conference.short_description[locale] },
       "showStatistics" => conference.show_statistics?,
       "slogan" => { "translation" => conference.slogan[locale] },
       "slug" => conference.slug,
       "speakers" => conference.speakers.map { |s| { "id" => s.id.to_s } },
-      "startDate" => conference.start_date.to_date.to_s,
+      "startDate" => conference.start_date.iso8601,
       "title" => { "translation" => conference.title[locale] },
       "type" => conference.class.name,
-      "updatedAt" => conference.updated_at.iso8601.to_s.gsub("Z", "+00:00")
+      "updatedAt" => conference.updated_at.to_time.iso8601,
+      "url" => Decidim::EngineRouter.main_proxy(conference).conference_url(conference),
+      "weight" => conference.weight
     }
   end
 
@@ -63,7 +68,7 @@ describe "Decidim::Api::QueryType" do
           translation(locale:"#{locale}")
         }
         endDate
-        hashtag
+        followsCount
         heroImage
         id
         location
@@ -83,7 +88,10 @@ describe "Decidim::Api::QueryType" do
           translation(locale:"#{locale}")
         }
         registrationsEnabled
-        scope {
+        taxonomies {
+          parent {
+            id
+          }
           id
           children{
             id
@@ -109,6 +117,8 @@ describe "Decidim::Api::QueryType" do
         }
         type
         updatedAt
+        url
+        weight
       }
     )
   end
@@ -138,7 +148,7 @@ describe "Decidim::Api::QueryType" do
         %(
           conferences {
             stats{
-              name
+              name { translation(locale: "#{locale}") }
               value
             }
           }
@@ -168,7 +178,7 @@ describe "Decidim::Api::QueryType" do
           translation(locale:"#{locale}")
         }
         endDate
-        hashtag
+        followsCount
         heroImage
         id
         location
@@ -188,7 +198,10 @@ describe "Decidim::Api::QueryType" do
           translation(locale:"#{locale}")
         }
         registrationsEnabled
-        scope {
+        taxonomies {
+          parent {
+            id
+          }
           id
           children{
             id
@@ -214,6 +227,8 @@ describe "Decidim::Api::QueryType" do
         }
         type
         updatedAt
+        url
+        weight
       }
     )
     end
@@ -234,7 +249,7 @@ describe "Decidim::Api::QueryType" do
         %(
           conference(id: #{conference.id}){
             stats{
-              name
+              name { translation(locale: "en") }
               value
             }
           }

@@ -13,11 +13,13 @@ export default function generateDatePicker(input, row, formats) {
   const date = document.createElement("input");
   date.setAttribute("id", `${input.id}_date`);
   date.setAttribute("type", "text");
+  date.setAttribute("aria-label", input.dataset.dateLabel);
 
   const calendar = document.createElement("button");
   calendar.innerHTML = icon("calendar-line");
   calendar.setAttribute("class", "datepicker__calendar-button");
   calendar.setAttribute("type", "button");
+  calendar.setAttribute("aria-label", input.dataset.buttonDateLabel);
 
   dateColumn.appendChild(date);
   dateColumn.appendChild(calendar);

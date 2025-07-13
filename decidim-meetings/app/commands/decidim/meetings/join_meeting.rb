@@ -11,7 +11,6 @@ module Decidim
       # form - A form object with params; can be a questionnaire.
       def initialize(meeting, form)
         @meeting = meeting
-        @user_group = Decidim::UserGroup.find_by(id: form.user_group_id)
         @form = form
       end
 
@@ -22,7 +21,7 @@ module Decidim
       def call
         return broadcast(:invalid) unless can_join_meeting?
         return broadcast(:invalid_form) unless form.valid?
-        return broadcast(:invalid) if answer_questionnaire == :invalid
+        return broadcast(:invalid) if response_questionnaire == :invalid
 
         meeting.with_lock do
           create_registration
@@ -38,16 +37,16 @@ module Decidim
 
       private
 
-      attr_reader :meeting, :user_group, :registration, :form
+      attr_reader :meeting, :registration, :form
 
       def accept_invitation
         meeting.invites.find_by(user: current_user)&.accept!
       end
 
-      def answer_questionnaire
+      def response_questionnaire
         return unless questionnaire?
 
-        Decidim::Forms::AnswerQuestionnaire.call(form, meeting.questionnaire) do
+        Decidim::Forms::ResponseQuestionnaire.call(form, meeting.questionnaire) do
           on(:ok) do
             return :valid
           end
@@ -62,7 +61,6 @@ module Decidim
         @registration = Decidim::Meetings::Registration.create!(
           meeting:,
           user: current_user,
-          user_group:,
           public_participation: form.public_participation
         )
       end

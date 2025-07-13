@@ -36,9 +36,5 @@ module Decidim
     def can_be_contacted?
       false
     end
-
-    def has_tooltip?
-      false
-    end
   end
 end

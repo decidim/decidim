@@ -8,8 +8,6 @@ ru:
         description: Описание
         end_date: Дата окончания
         progress: Продвижение
-        project_ids: Включенные проекты
-        proposals: Включенные предложения
         start_date: Дата начала
         title: Заголовок
         updated_at: 'Обновлено:'
@@ -18,9 +16,6 @@ ru:
         key: Ключ
         name: Имя
         progress: Продвижение
-      timeline_entry:
-        description: Описание
-        entry_date: Дата
     models:
       decidim/accountability/proposal_linked_event: Предложение, включенное в этот итог
       decidim/accountability/result_progress_updated_event: Прогресс результатов обновлен
@@ -38,7 +33,6 @@ ru:
         destroy: Удалить
         edit: Редактировать
         preview: Предварительный просмотр
-        timeline_entries: Развитие проекта
         title: Действия
       admin:
         exports:
@@ -69,15 +63,6 @@ ru:
           new:
             create: Создать состояние
             title: Добавить состояние
-        timeline_entries:
-          edit:
-            title: Редактировать запись
-            update: Обновить запись
-          index:
-            title: Записи на линии времени проекта
-          new:
-            create: Создать запись
-            title: Создать запись
       admin_log:
         result:
           create: "%{user_name} создал итог %{resource_name} в %{space_name}"
@@ -100,9 +85,6 @@ ru:
             key: Ключ
             name: Имя
             progress: Продвижение
-        timeline_entry:
-          fields:
-            entry_date: Дата
       results:
         count:
           results_count:
@@ -110,22 +92,13 @@ ru:
             few: "%{count} итога"
             many: "%{count} итогов"
             other: "%{count} итога"
-        filters:
-          all: Все
-        home:
-          categories_label: Категории
-          subcategories_label: Подкатегории
         home_header:
           global_status: Состояние общего исполнения
-        nav_breadcrumb:
-          global: Всеобщее исполнение
         search:
           search: Поиск действий
         show:
           stats:
             back_to_resource: Вернуться к итогу
-        timeline:
-          title: Развитие проекта
     components:
       accountability:
         name: Отчетность
@@ -147,11 +120,6 @@ ru:
           email_intro: 'Результат "%{resource_title}", который включает предложение "%{proposal_title}", теперь завершено на %{progress}%. Вы можете увидеть его на этой странице:'
           email_outro: Вы получили это уведомление, потому что вы следите за "%{proposal_title}", и это предложение включено в результат "%{resource_title}". Вы можете прекратить получение уведомлений, перейдя по предыдущей ссылке.
           notification_title: Результат <a href="%{resource_path}">%{resource_title}</a>, который включает предложение <a href="%{proposal_path}">%{proposal_title}</a>, теперь %{progress}% завершен.
-    metrics:
-      results:
-        description: Количество сгенерированных результатов
-        object: результаты
-        title: Результаты
     resource_links:
       included_projects:
         result_project: Проекты, включенные в эти итоги

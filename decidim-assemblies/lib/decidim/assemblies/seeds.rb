@@ -9,11 +9,15 @@ module Decidim
         create_content_block!
 
         taxonomy = create_taxonomy!(name: "Assembly Types", parent: nil)
-        2.times do
+        number_of_records.times do
           create_taxonomy!(name: ::Faker::Lorem.word, parent: taxonomy)
         end
+        # filters for assemblies only
+        create_taxonomy_filter!(root_taxonomy: taxonomy,
+                                taxonomies: taxonomy.all_children,
+                                participatory_space_manifests: [:assemblies])
 
-        2.times do |_n|
+        number_of_records.times do |_n|
           assembly = create_assembly!
 
           create_assembly_user_roles!(assembly:)
@@ -24,12 +28,6 @@ module Decidim
             current_assembly.add_to_index_as_search_resource
 
             create_attachments!(attached_to: current_assembly)
-
-            2.times do
-              create_category!(participatory_space: current_assembly)
-            end
-
-            create_assembly_members!(assembly: current_assembly)
 
             seed_components_manifests!(participatory_space: current_assembly)
 
@@ -54,7 +52,6 @@ module Decidim
           title: Decidim::Faker::Localized.sentence(word_count: 5),
           slug: Decidim::Faker::Internet.unique.slug(words: nil, glue: "-"),
           subtitle: Decidim::Faker::Localized.sentence(word_count: 2),
-          hashtag: "##{::Faker::Lorem.word}",
           short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.sentence(word_count: 3)
           end,
@@ -79,7 +76,6 @@ module Decidim
           composition: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,
-          assembly_type: Decidim::AssembliesType.create!(organization:, title: Decidim::Faker::Localized.word),
           creation_date: 1.day.from_now,
           created_by: "others",
           created_by_other: Decidim::Faker::Localized.word,
@@ -124,32 +120,6 @@ module Decidim
             role:
           )
         end
-      end
-
-      def create_assembly_members!(assembly:)
-        Decidim::AssemblyMember::POSITIONS.each do |position|
-          Decidim::AssemblyMember.create!(
-            full_name: ::Faker::Name.name,
-            gender: ::Faker::Lorem.word,
-            birthday: ::Faker::Date.birthday(min_age: 18, max_age: 65),
-            birthplace: ::Faker::Demographic.demonym,
-            designation_date: ::Faker::Date.between(from: 1.year.ago, to: 1.month.ago),
-            position:,
-            position_other: position == "other" ? ::Faker::Job.position : nil,
-            assembly:
-          )
-        end
-
-        Decidim::AssemblyMember.create!(
-          user: assembly.organization.users.first,
-          gender: ::Faker::Lorem.word,
-          birthday: ::Faker::Date.birthday(min_age: 18, max_age: 65),
-          birthplace: ::Faker::Demographic.demonym,
-          designation_date: ::Faker::Date.between(from: 1.year.ago, to: 1.month.ago),
-          position: "other",
-          position_other: ::Faker::Job.position,
-          assembly:
-        )
       end
     end
   end

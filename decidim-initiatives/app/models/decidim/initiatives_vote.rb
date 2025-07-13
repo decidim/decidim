@@ -39,13 +39,13 @@ module Decidim
     end
 
     def decrypted_metadata
-      @decrypted_metadata ||= encrypted_metadata ? encryptor.decrypt(encrypted_metadata) : {}
+      @decrypted_metadata ||= (encrypted_metadata ? encryptor.decrypt(encrypted_metadata) : {}).with_indifferent_access
     end
 
     private
 
     def encryptor
-      @encryptor ||= Decidim::Initiatives::DataEncryptor.new(secret: "personal user metadata")
+      @encryptor ||= Decidim::Initiatives::DataEncryptor.new(secret: Decidim::Initiatives.signature_handler_encryption_secret)
     end
 
     def authorization_unique_id

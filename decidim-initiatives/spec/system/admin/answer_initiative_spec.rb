@@ -5,14 +5,6 @@ require "spec_helper"
 describe "User answers the initiative" do
   include_context "when admins initiative"
 
-  def submit_and_validate(message)
-    within "[data-content]" do
-      find("*[type=submit]").click
-    end
-
-    expect(page).to have_admin_callout(message)
-  end
-
   context "when user is admin" do
     before do
       switch_to_host(organization.host)
@@ -21,8 +13,10 @@ describe "User answers the initiative" do
     end
 
     it "answer is allowed" do
-      expect(page).to have_css(".action-icon--answer")
-      page.find(".action-icon--answer").click
+      within("tr", text: translated(initiative.title)) do
+        find("button[data-component='dropdown']").click
+        click_on "Answer"
+      end
 
       within ".edit_initiative_answer" do
         fill_in_i18n_editor(
@@ -34,7 +28,11 @@ describe "User answers the initiative" do
         )
       end
 
-      submit_and_validate("The initiative has been successfully updated")
+      within "[data-content]" do
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_admin_callout("The initiative has been successfully updated")
     end
 
     context "when initiative is in published state" do
@@ -44,7 +42,10 @@ describe "User answers the initiative" do
 
       context "and signature dates are editable" do
         it "can be edited in answer" do
-          page.find(".action-icon--answer").click
+          within("tr", text: translated(initiative.title)) do
+            find("button[data-component='dropdown']").click
+            click_on "Answer"
+          end
 
           within ".edit_initiative_answer" do
             fill_in_i18n_editor(
@@ -60,12 +61,19 @@ describe "User answers the initiative" do
             fill_in_datepicker :initiative_signature_start_date_date, with: 1.day.ago.strftime("%d/%m/%Y")
           end
 
-          submit_and_validate("The initiative has been successfully updated")
+          within "[data-content]" do
+            find("*[type=submit]").click
+          end
+
+          expect(page).to have_admin_callout("The initiative has been successfully updated")
         end
 
         context "when dates are invalid" do
           it "returns an error message" do
-            page.find(".action-icon--answer").click
+            within("tr", text: translated(initiative.title)) do
+              find("button[data-component='dropdown']").click
+              click_on "Answer"
+            end
 
             within ".edit_initiative_answer" do
               fill_in_i18n_editor(
@@ -82,7 +90,12 @@ describe "User answers the initiative" do
               fill_in_datepicker :initiative_signature_start_date_date, with: 1.month.since(initiative.signature_end_date).strftime("%d/%m/%Y")
             end
 
-            submit_and_validate("There was a problem updating the initiative.")
+            within "[data-content]" do
+              find("*[type=submit]").click
+            end
+
+            expect(page).to have_admin_callout("There was a problem updating the initiative.")
+
             expect(page).to have_current_path decidim_admin_initiatives.edit_initiative_answer_path(initiative)
           end
         end
@@ -95,7 +108,10 @@ describe "User answers the initiative" do
       end
 
       it "signature dates are not displayed" do
-        page.find(".action-icon--answer").click
+        within("tr", text: translated(initiative.title)) do
+          find("button[data-component='dropdown']").click
+          click_on "Answer"
+        end
 
         within ".edit_initiative_answer" do
           expect(page).to have_no_css("#initiative_signature_start_date_date")

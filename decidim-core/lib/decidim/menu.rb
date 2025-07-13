@@ -46,7 +46,7 @@ module Decidim
     #   menu.item "Gestor de Procesos", "/processes", if: admin?
     #
     def item(label, url, options = {})
-      ActiveSupport::Deprecation.warn("Using menu.item in #{@name} context is deprecated. Use menu.add_item")
+      Decidim.deprecator.warn("Using menu.item in #{@name} context is deprecated. Use menu.add_item")
       add_item(nil, label, url, options)
     end
 

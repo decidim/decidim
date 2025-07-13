@@ -29,7 +29,7 @@ shared_examples "inviting participatory space collaborators" do
 
       click_on space_sidebar_label
 
-      within "div.table-scroll" do
+      within ".table-list" do
         expect(page).to have_i18n_content(participatory_space.title)
       end
     end
@@ -53,7 +53,7 @@ shared_examples "inviting participatory space collaborators" do
 
       click_on space_sidebar_label
 
-      within "div.table-scroll" do
+      within ".table-list" do
         expect(page).to have_i18n_content(participatory_space.title)
       end
     end

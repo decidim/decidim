@@ -34,7 +34,7 @@ module Decidim
       send_report_notification_to_moderators
 
       if hideable?
-        hide!
+        @tool.hide!
         send_hide_notification_to_moderators
       end
 
@@ -53,7 +53,7 @@ module Decidim
     end
 
     def participatory_space_moderators
-      @participatory_space_moderators ||= participatory_space.moderators
+      @participatory_space_moderators ||= participatory_space.respond_to?(:moderators) ? participatory_space.moderators : []
     end
 
     def send_report_notification_to_moderators
@@ -69,24 +69,27 @@ module Decidim
     end
 
     def hideable?
-      hidden_by_admin? || (!@reportable.hidden? && moderation.report_count >= Decidim.max_reports_before_hiding)
+      hidden_by_admin? || hidden_by_spam_engine? || hidden_by_report_count?
     end
 
-    def hide!
-      @tool.hide!
-      @tool.send_notification_to_author
+    def hidden_by_report_count?
+      !@reportable.hidden? && moderation.report_count >= Decidim.max_reports_before_hiding
+    end
+
+    def hidden_by_spam_engine?
+      form.hide == true && form.context[:marked_as_spam] == true
     end
 
     def send_hide_notification_to_moderators
       participatory_space_moderators.each do |moderator|
         next unless moderator.email_on_moderations
 
-        ReportedMailer.hide(moderator, @report).deliver_later
+        if hidden_by_admin?
+          ReportedMailer.hidden_manually(moderator, @report, current_user).deliver_later
+        else
+          ReportedMailer.hidden_automatically(moderator, @report).deliver_later
+        end
       end
-    end
-
-    def participatory_space
-      @participatory_space ||= @reportable.component&.participatory_space || @reportable.try(:participatory_space)
     end
   end
 end

@@ -8,8 +8,6 @@ module Decidim::Meetings
 
     let(:meeting) { create(:meeting, :published) }
     let(:organization) { meeting.component.organization }
-    let(:scope) { create(:scope, organization:) }
-    let(:category) { create(:category, participatory_space: meeting.component.participatory_space) }
     let(:address) { meeting.address }
     let(:invalid) { false }
     let(:latitude) { 40.1234 }
@@ -31,6 +29,13 @@ module Decidim::Meetings
     let(:registrations_enabled) { true }
     let(:iframe_embed_type) { "none" }
     let(:iframe_access_level) { nil }
+    let(:components) { [] }
+    let(:reminder_enabled) { true }
+    let(:send_reminders_before_hours) { 50 }
+    let(:reminder_message_custom_content) { { "en" => "Custom reminder message!", "es" => "Mensaje de recordatorio personalizado", "ca" => "Missatge de recordatori personalitzat" } }
+    let(:taxonomizations) do
+      2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
+    end
 
     let(:form) do
       double(
@@ -41,8 +46,7 @@ module Decidim::Meetings
         location_hints: { en: "location_hints" },
         start_time: 1.day.from_now,
         end_time: 1.day.from_now + 1.hour,
-        scope:,
-        category:,
+        taxonomizations:,
         address:,
         latitude:,
         longitude:,
@@ -60,7 +64,11 @@ module Decidim::Meetings
         comments_enabled: true,
         comments_start_time: nil,
         comments_end_time: nil,
-        iframe_access_level:
+        reminder_enabled:,
+        send_reminders_before_hours:,
+        reminder_message_custom_content:,
+        iframe_access_level:,
+        components:
       )
     end
 
@@ -78,14 +86,16 @@ module Decidim::Meetings
         expect(translated(meeting.title)).to eq "title"
       end
 
-      it "sets the scope" do
+      it "sets the taxonomies" do
         subject.call
-        expect(meeting.scope).to eq scope
+        expect(meeting.reload.taxonomies).to eq(taxonomizations.map(&:taxonomy))
       end
 
-      it "sets the category" do
+      it "sets the reminder settings" do
         subject.call
-        expect(meeting.category).to eq category
+        expect(meeting.reminder_enabled).to eq reminder_enabled
+        expect(meeting.send_reminders_before_hours).to eq send_reminders_before_hours
+        expect(meeting.reminder_message_custom_content).to eq reminder_message_custom_content
       end
 
       it "sets the latitude and longitude" do
@@ -144,8 +154,7 @@ module Decidim::Meetings
             location_hints: meeting.location_hints,
             start_time:,
             end_time:,
-            scope: meeting.scope,
-            category: meeting.category,
+            taxonomizations: meeting.taxonomizations,
             address:,
             latitude: meeting.latitude,
             longitude: meeting.longitude,
@@ -163,7 +172,11 @@ module Decidim::Meetings
             comments_enabled: true,
             comments_start_time: nil,
             comments_end_time: nil,
-            iframe_access_level:
+            reminder_enabled:,
+            send_reminders_before_hours:,
+            reminder_message_custom_content:,
+            iframe_access_level:,
+            components:
           )
         end
 
@@ -208,7 +221,8 @@ module Decidim::Meetings
                 event: "decidim.events.meetings.meeting_updated",
                 event_class: UpdateMeetingEvent,
                 resource: meeting,
-                followers: [user]
+                followers: [user],
+                extra: { changed_fields: %w(start_time) }
               )
 
             subject.call
@@ -230,7 +244,8 @@ module Decidim::Meetings
                 event: "decidim.events.meetings.meeting_updated",
                 event_class: UpdateMeetingEvent,
                 resource: meeting,
-                followers: [user]
+                followers: [user],
+                extra: { changed_fields: %w(end_time) }
               )
 
             subject.call
@@ -247,7 +262,8 @@ module Decidim::Meetings
                 event: "decidim.events.meetings.meeting_updated",
                 event_class: UpdateMeetingEvent,
                 resource: meeting,
-                followers: [user]
+                followers: [user],
+                extra: { changed_fields: %w(address) }
               )
 
             subject.call

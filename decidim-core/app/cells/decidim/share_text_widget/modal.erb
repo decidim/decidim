@@ -1,0 +1,16 @@
+<%= decidim_modal id: "socialShare", class: "share-modal" do %>
+  <div data-dialog-container>
+    <h2 tabindex="-1" data-dialog-title><%= t("share", scope: "decidim.shared.share_modal") %></h2>
+
+    <div>
+
+      <div class="share-modal__list" data-social-share>
+        <%= social_share_button_tag(decidim_page_title,
+                                    url: title,
+                                    image: decidim_meta_image_url,
+                                    desc: decidim_html_escape(decidim_meta_description || ""),
+                                    via: decidim_meta_twitter_handler) %>
+      </div>
+    </div>
+  </div>
+<% end %>

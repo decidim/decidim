@@ -3,7 +3,7 @@
     <div class="profile__user-avatar">
       <%= image_tag avatar, alt: t("decidim.author.avatar", name: decidim_sanitize(name)) %>
     </div>
-    <%= render :badge if show_badge? %>
+    <%= render :badge if officialized? %>
   </div>
   <div class="space-y-1">
     <div class="profile__user-name">

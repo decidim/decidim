@@ -1,17 +1,13 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
-require "decidim/core/test/shared_examples/traceable_interface_examples"
-require "decidim/core/test/shared_examples/scopable_interface_examples"
+require "decidim/api/test"
 
 module Decidim
   module Budgets
     describe BudgetType, type: :graphql do
       include_context "with a graphql class type"
-      let(:model) { create(:budget) }
-
-      include_examples "scopable interface"
+      let(:model) { create(:budget, :with_projects) }
 
       it_behaves_like "traceable interface" do
         let(:author) { create(:user, :admin, organization: model.component.organization) }
@@ -22,6 +18,14 @@ module Decidim
 
         it "returns all the required fields" do
           expect(response).to include("id" => model.id.to_s)
+        end
+      end
+
+      describe "url" do
+        let(:query) { "{ url }" }
+
+        it "returns all the required fields" do
+          expect(response["url"]).to eq(Decidim::EngineRouter.main_proxy(model.component).budget_url(model))
         end
       end
 
@@ -49,8 +53,16 @@ module Decidim
         end
       end
 
+      describe "weight" do
+        let(:query) { "{ weight }" }
+
+        it "returns the total budget" do
+          expect(response["weight"]).to eq(model.weight)
+        end
+      end
+
       describe "projects" do
-        let!(:budget2) { create(:budget) }
+        let!(:budget2) { create(:budget, :with_projects) }
         let(:query) { "{ projects { id } }" }
 
         it "returns the budget projects" do

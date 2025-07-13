@@ -45,7 +45,7 @@ Most commonly used concerns are:
 - `xref:develop:authorable.adoc[Decidim::Authorable]`
 - `xref:develop:authorable.adoc[Decidim::Coauthorable]`
 - `Decidim::DownloadYourData`
-- `xref:develop:endorsable.adoc[Decidim::Endorsable]`
+- `xref:develop:likeable.adoc[Decidim::likeable]`
 - `Decidim::FilterableResource`
 - `Decidim::Fingerprintable`
 - `xref:develop:followable.adoc[Decidim::Followable]`
@@ -73,6 +73,7 @@ Most commonly used concerns are:
 - `Decidim::ScopableParticipatorySpace`
 - `Decidim::ScopableResource`
 - `Decidim::Searchable`
+- `xref:develop:taxonomies.adoc[Decidim::Taxonomizable]`
 - `xref:develop:share_tokens.adoc[Decidim::ShareableWithToken]`
 - `xref:develop:traceable.adoc[Decidim::Traceable]`
 - `xref:develop:machine_translations.adoc[Decidim::TranslatableAttributes]`
@@ -89,7 +90,7 @@ Most commonly used concerns are:
 - `Decidim::Proposals::CommentableCollaborativeDraft`
 - `Decidim::Proposals::CommentableProposal`
 - `Decidim::Proposals::ParticipatoryTextSection`
-- `Decidim::Proposals::Valuatable`
+- `Decidim::Proposals::Evaluable`
 - `Decidim::Templates::Templatable`
 
 == More information

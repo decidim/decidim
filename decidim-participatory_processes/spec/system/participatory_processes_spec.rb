@@ -5,7 +5,6 @@ require "decidim/core/test/shared_examples/has_contextual_help"
 
 describe "Participatory Processes" do
   let(:organization) { create(:organization) }
-  let(:hashtag) { true }
   let(:base_description) { { en: "Description", ca: "Descripció", es: "Descripción" } }
   let(:short_description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
 
@@ -202,7 +201,7 @@ describe "Participatory Processes" do
     end
   end
 
-  it_behaves_like "followable content for users" do
+  it_behaves_like "followable space content for users" do
     let!(:participatory_process) { base_process }
     let!(:user) { create(:user, :confirmed, organization:) }
     let(:followable) { participatory_process }
@@ -260,7 +259,6 @@ describe "Participatory Processes" do
               expect(page).to have_content(translated(participatory_process.participatory_structure, locale: :en))
               expect(page).to have_content(I18n.l(participatory_process.start_date, format: :decidim_short_with_month_name_short))
               expect(page).to have_content(I18n.l(participatory_process.end_date, format: :decidim_short_with_month_name_short))
-              expect(page).to have_content(participatory_process.hashtag)
             end
           end
 
@@ -319,42 +317,6 @@ describe "Participatory Processes" do
             end
           end
 
-          context "and the process metrics are enabled" do
-            let(:organization) { create(:organization) }
-            let(:metrics) do
-              Decidim.metrics_registry.filtered(highlight: true, scope: "participatory_process").each do |metric_registry|
-                create(:metric, metric_type: metric_registry.metric_name, day: Time.zone.today - 1.week, organization:, participatory_space_type: Decidim::ParticipatoryProcess.name, participatory_space_id: participatory_process.id, cumulative: 5, quantity: 2)
-              end
-            end
-            let(:blocks_manifests) { [:metrics] }
-
-            before do
-              metrics
-              visit current_path
-            end
-
-            it "shows the metrics charts" do
-              expect(page).to have_css("h2.h2", text: "Metrics")
-
-              within "[data-metrics]" do
-                Decidim.metrics_registry.filtered(highlight: true, scope: "participatory_process").each do |metric_registry|
-                  expect(page).to have_css(%(##{metric_registry.metric_name}_chart))
-                end
-              end
-            end
-
-            it "renders a link to all metrics" do
-              within "[data-metrics]" do
-                expect(page).to have_link("Show all")
-              end
-            end
-
-            it "click link" do
-              click_on("Show all")
-              have_current_path(decidim_participatory_processes.all_metrics_participatory_process_path(participatory_process))
-            end
-          end
-
           context "and the process statistics are enabled" do
             let(:blocks_manifests) { [:hero, :stats] }
 
@@ -372,24 +334,6 @@ describe "Participatory Processes" do
               expect(page).to have_no_css("[data-statistics]", count: 3)
               expect(page).to have_no_css(".statistic__title", text: "Proposals")
               expect(page).to have_no_css(".statistic__number", text: "3")
-            end
-          end
-
-          context "and the process metrics are not enabled" do
-            it "the metrics for the participatory processes are not rendered" do
-              expect(page).to have_no_css("h4", text: "METRICS")
-            end
-
-            it "has no link to all metrics" do
-              expect(page).to have_no_link("Show all metrics")
-            end
-          end
-
-          context "and the process does not have hashtag" do
-            let(:hashtag) { false }
-
-            it "the hashtags for those components are not visible" do
-              expect(page).to have_no_content("#")
             end
           end
         end

@@ -1,0 +1,25 @@
+= Spam detection Service
+
+```ruby
+class SpamDetection::Service
+  def initialize
+    @registry = Decidim::Ai.spam_detection_registry
+  end
+
+  def train(category, text)
+    # train the strategy
+  end
+
+  def classify(text)
+    # classify the text
+  end
+
+  def untrain(category, text)
+    # untrain the strategy
+  end
+
+  def classification_log
+    # return the classification log
+  end
+end
+```

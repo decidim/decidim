@@ -1,14 +1,10 @@
 # frozen_string_literal: true
 
 module Decidim
-  autoload :ActionAuthorizationHelper, "decidim/action_authorization_helper"
-  autoload :ResourceHelper, "decidim/resource_helper"
-
   class ViewModel < Cell::ViewModel
     include ActionView::Helpers::TranslationHelper
     include ::Cell::Translation
     include Decidim::ResourceHelper
-    include Decidim::ScopesHelper
     include ActionController::Helpers
     include Decidim::ActionAuthorization
     include Decidim::ActionAuthorizationHelper
@@ -91,7 +87,7 @@ module Decidim
     end
 
     def cache_expiry_time
-      nil
+      Decidim.cache_expiry_time
     end
 
     def decidim

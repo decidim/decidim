@@ -17,6 +17,7 @@ module Decidim
         if permission_action.scope == :public
           public_list_processes_action?
           public_list_process_groups_action?
+          public_list_members_action?
           public_read_process_group_action?
           public_read_process_action?
           return permission_action
@@ -35,10 +36,10 @@ module Decidim
         user_can_read_process_list?
         user_can_read_current_process?
         user_can_create_process?
+        user_can_upload_images_in_process?
 
         # org admins and space admins can do everything in the admin section
         org_admin_action?
-        participatory_process_type_action?
 
         return permission_action unless process
 
@@ -46,9 +47,8 @@ module Decidim
 
         moderator_action?
         collaborator_action?
-        valuator_action?
+        evaluator_action?
         process_admin_action?
-
         permission_action
       end
 
@@ -101,6 +101,13 @@ module Decidim
         allow!
       end
 
+      def public_list_members_action?
+        return unless permission_action.action == :list &&
+                      permission_action.subject == :members
+
+        allow!
+      end
+
       def public_read_process_group_action?
         return unless permission_action.action == :read &&
                       permission_action.subject == :process_group &&
@@ -117,6 +124,7 @@ module Decidim
         return disallow! unless can_view_private_space?
         return allow! if user&.admin?
         return allow! if process.published?
+        return allow! if user_can_preview_space?
 
         toggle_allow(can_manage_process?)
       end
@@ -125,7 +133,7 @@ module Decidim
         return true unless process.private_space
         return false unless user
 
-        user.admin || process.users.include?(user)
+        user.admin || user_has_any_role?(user, process, broad_check: true) || process.users.include?(user)
       end
 
       # Only organization admins can enter the process groups space area.
@@ -146,7 +154,7 @@ module Decidim
                       permission_action.subject == :space_area &&
                       context.fetch(:space_name, nil) == :processes
 
-        toggle_allow(user.admin? || has_manageable_processes?)
+        toggle_allow(user.admin? || user_has_any_role?(user, process, broad_check: true) || has_manageable_processes?)
       end
 
       # Only organization admins can manage process groups.
@@ -209,9 +217,9 @@ module Decidim
         allow! if permission_action.action == :preview
       end
 
-      # Valuators can only read the components of a process.
-      def valuator_action?
-        return unless can_manage_process?(role: :valuator)
+      # Evaluators can only read the components of a process.
+      def evaluator_action?
+        return unless can_manage_process?(role: :evaluator)
 
         allow! if permission_action.action == :read && permission_action.subject == :component
         allow! if permission_action.action == :export && permission_action.subject == :component_data
@@ -229,7 +237,6 @@ module Decidim
         is_allowed = [
           :attachment,
           :attachment_collection,
-          :category,
           :component,
           :component_data,
           :moderation,
@@ -237,6 +244,7 @@ module Decidim
           :process_step,
           :process_user_role,
           :export_space,
+          :share_tokens,
           :import
         ].include?(permission_action.subject)
         allow! if is_allowed
@@ -248,7 +256,6 @@ module Decidim
         is_allowed = [
           :attachment,
           :attachment_collection,
-          :category,
           :component,
           :component_data,
           :moderation,
@@ -256,22 +263,16 @@ module Decidim
           :process_step,
           :process_user_role,
           :export_space,
+          :share_tokens,
           :import
         ].include?(permission_action.subject)
         allow! if is_allowed
       end
 
-      def participatory_process_type_action?
-        return unless permission_action.subject == :participatory_process_type
-        return disallow! unless user.admin?
-
-        participatory_process_type = context.fetch(:participatory_process_type, nil)
-        case permission_action.action
-        when :destroy
-          toggle_allow(participatory_process_type&.processes&.none?)
-        else
-          allow!
-        end
+      def user_can_preview_space?
+        context[:share_token].present? && Decidim::ShareToken.use!(token_for: process, token: context[:share_token], user:)
+      rescue ActiveRecord::RecordNotFound, StandardError
+        nil
       end
 
       # Checks if the permission_action is to read the admin processes list or
@@ -287,6 +288,10 @@ module Decidim
 
       def process_group
         @process_group ||= context.fetch(:process_group, nil)
+      end
+
+      def user_can_upload_images_in_process?
+        allow! if user&.admin_terms_accepted? && user_has_any_role?(user, process, broad_check: true) && (permission_action.subject == :editor_image)
       end
     end
   end

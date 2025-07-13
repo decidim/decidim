@@ -7,11 +7,9 @@ pt:
         decidim_scope_id: Âmbito
         description: Descrição
         end_date: Data final
-        meetings_ids: Reuniões associadas
         progress: Progresso
-        project_ids: Projetos incluídos
-        proposals: Propostas incluídas
         start_date: Data de início
+        subresults: Sub-resultados
         title: Título
         updated_at: Atualizado em
       status:
@@ -19,15 +17,19 @@ pt:
         key: Chave
         name: Nome
         progress: Progresso
-      timeline_entry:
-        description: Descrição
-        entry_date: Data
-        title: Título
     models:
       decidim/accountability/proposal_linked_event: Proposta incluída em um resultado
       decidim/accountability/result_progress_updated_event: Progresso do resultado atualizado
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: Este resultado %{link} foi incluído
+            meetings_ids: 'Discutido nesta reunião: %{link}'
+            project_ids: 'Incluído neste projeto: %{link}'
+            proposal_ids: 'Incluído nesta proposição: %{link}'
+            text: 'Adicionado a este resultado: %{link}'
       decidim/accountability/result:
         one: Resultado
         other: Resultados
@@ -39,12 +41,10 @@ pt:
         confirm_destroy: Tem certeza de que deseja eliminar este %{name}?
         destroy: Eliminar
         edit: Editar
-        import: Importar projetos de outro componente
         import_csv: Importar resultados de um CSV
         new_result: Novo resultado
         new_status: Novo estado
         preview: Pré-visualizar
-        timeline_entries: Evolução do projeto
         title: Ações
       admin:
         exports:
@@ -79,19 +79,12 @@ pt:
           new:
             create: Criar estado
             title: Novo estado
-        timeline_entries:
-          edit:
-            title: Editar entrada
-            update: Atualizar entrada
-          index:
-            title: Registos do cronograma do projeto
-          new:
-            create: Criar entrada
-            title: Nova entrada
       admin_log:
         result:
           create: "%{user_name} criou o resultado %{resource_name} em %{space_name}"
           delete: "%{user_name} eliminou o resultado %{resource_name} em %{space_name}"
+          restore: "%{user_name} reativou o resultado %{resource_name} no %{space_name}"
+          soft_delete: "%{user_name} moveu o resultado %{resource_name} do espaço %{space_name} para a lixeira"
           update: "%{user_name} atualizou o resultado %{resource_name} em %{space_name}"
         value_types:
           parent_presenter:
@@ -99,6 +92,8 @@ pt:
       content_blocks:
         highlighted_results:
           results: Resultados
+      creation:
+        text: Este resultado foi criado
       import_mailer:
         import:
           errors: Erros
@@ -108,14 +103,13 @@ pt:
       models:
         result:
           fields:
-            category: Categoria
             created_at: Criado em
             end_date: Data final
             id: ID
             progress: Progresso
-            scope: Âmbito
             start_date: Data de início
             status: Estado
+            taxonomies: Taxonomias
             title: Título
         status:
           fields:
@@ -123,39 +117,25 @@ pt:
             key: Chave
             name: Nome
             progress: Progresso
-        timeline_entry:
-          fields:
-            entry_date: Data
       results:
         count:
           results_count:
             one: 1 resultado
             other: "%{count} resultados"
-        filters:
-          all: Todos
-        home:
-          categories_label: Categorias
-          subcategories_label: Subcategorias
         home_header:
           global_status: Estado de execução global
-        nav_breadcrumb:
-          global: Execução global
         search:
           search: Pesquisa por ações
         show:
           stats:
             back_to_resource: Retroceder para o resultado
-        timeline:
-          title: Evolução do projeto
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Categoria
-          scope_id_eq:
-            label: Âmbito
           status_id_eq:
             label: Estado
+          taxonomies_part_of_contains:
+            label: Taxonomia
     components:
       accountability:
         actions:
@@ -163,12 +143,15 @@ pt:
         name: Prestação de contas
         settings:
           global:
+            clear_all: Apagar tudo
             comments_enabled: Comentários ativados
             comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
+            define_taxonomy_filters: Para usar esta definição, filtros devem estar definidos neste espaço participativo.
             display_progress_enabled: Mostrar progresso
             intro: Introdução
-            scope_id: Âmbito
-            scopes_enabled: Âmbitos activados
+            no_taxonomy_filters_found: Nenhum filtro de taxonomia encontrado.
+            taxonomy_filters: Selecione filtros para a funcionalidade
+            taxonomy_filters_add: Adicionar filtro
           step:
             comments_blocked: Comentários bloqueados
     events:
@@ -183,11 +166,21 @@ pt:
           email_outro: Recebeu esta notificação porque segue "%{proposal_title}" e esta proposta está incluída no resultado "%{resource_title}". Pode parar de receber notificações seguindo a hiperligação anterior.
           email_subject: Uma atualização a %{resource_title} está em curso
           notification_title: O resultado <a href="%{resource_path}">%{resource_title}</a>, que inclui a proposta <a href="%{proposal_path}">%{proposal_title}</a>, está agora com %{progress}% de conclusão.
-    metrics:
-      results:
-        description: Número de resultados gerados
-        object: resultados
-        title: Resultados
+    open_data:
+      help:
+        result_comments:
+          alignment: Se este comentário foi em favor, contra ou neutro
+          created_at: A data em que este comentário foi criado
+          depth: O lugar onde este comentário se encontra na hierarquia de comentários (se é uma resposta ou uma resposta de outra resposta).
+          locale: A linguagem que o participante teve ao deixar este comentário
+          root_commentable_url: A URL do recurso ligado a este comentário
+        results:
+          address: O endereço do resultado (se houver)
+          children_count: O número de sub-resultados
+          comments_count: O número de comentários que este resultado tem
+          component: A funcionalidade a qual o resultado pertence
+          created_at: A data em que o resultado foi criado
+          end_date: A data de quando o resultado está concluída
     participatory_spaces:
       highlighted_results:
         see_all: Ver todos os resultados (%{count})

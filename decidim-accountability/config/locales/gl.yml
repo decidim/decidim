@@ -8,8 +8,6 @@ gl:
         description: Descrición
         end_date: Data de finalización
         progress: Progreso
-        project_ids: Proxectos incluídos
-        proposals: Propostas incluídas
         start_date: Data de inicio
         title: Título
         updated_at: Actualizado en
@@ -18,9 +16,6 @@ gl:
         key: Clave
         name: Nome
         progress: Progreso
-      timeline_entry:
-        description: Descrición
-        entry_date: Data
     models:
       decidim/accountability/proposal_linked_event: Proposta incluída nun resultado
       decidim/accountability/result_progress_updated_event: Progreso de resultados actualizado
@@ -38,7 +33,6 @@ gl:
         destroy: Eliminar
         edit: Editar
         preview: Vista previa
-        timeline_entries: Evolución do proxecto
         title: Accións
       admin:
         exports:
@@ -73,15 +67,6 @@ gl:
           new:
             create: Crear estado
             title: Novo estado
-        timeline_entries:
-          edit:
-            title: Editar entrada
-            update: Actualizar a entrada
-          index:
-            title: Entradas da liña de tempo do proxecto
-          new:
-            create: Crear entrada
-            title: Nova entrada
       admin_log:
         result:
           create: "%{user_name} resultado creado %{resource_name} en %{space_name}"
@@ -102,12 +87,10 @@ gl:
       models:
         result:
           fields:
-            category: Categoría
             created_at: Creado
             end_date: Data de finalización
             id: ID
             progress: Progreso
-            scope: Ámbito
             start_date: Data de inicio
             status: Estado
             title: Título
@@ -117,37 +100,21 @@ gl:
             key: Clave
             name: Nome
             progress: Progreso
-        timeline_entry:
-          fields:
-            entry_date: Data
       results:
         count:
           results_count:
             one: 1 resultado
             other: "%{count} resultados"
-        filters:
-          all: Todo
-        home:
-          categories_label: Categorías
-          subcategories_label: Subcategorías
         home_header:
           global_status: Estado de execución global
-        nav_breadcrumb:
-          global: Execución global
         search:
           search: Busca de accións
         show:
           stats:
             back_to_resource: Volver ao resultado
-        timeline:
-          title: Evolución do proxecto
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Categoría
-          scope_id_eq:
-            label: Ámbito
           status_id_eq:
             label: Estado
     components:
@@ -161,8 +128,6 @@ gl:
             comments_max_length: Lonxitude máxima dos comentarios (0 para valor predefinido)
             display_progress_enabled: Mostrar o progreso
             intro: Intro
-            scope_id: Ámbito
-            scopes_enabled: Ámbitos habilitados
           step:
             comments_blocked: Comentarios bloqueados
     events:
@@ -177,11 +142,6 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo "%{proposal_title}" e esta proposta inclúese no resultado "%{resource_title}". Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Unha actualización a %{resource_title} avances
           notification_title: O resultado <a href="%{resource_path}">%{resource_title}</a>, que inclúe a proposta <a href="%{proposal_path}">%{proposal_title}</a>, agora é o %{progress}% completo.
-    metrics:
-      results:
-        description: Número de resultados xerados
-        object: resultados
-        title: Resultados
     participatory_spaces:
       highlighted_results:
         see_all: Ver todos os resultados (%{count})

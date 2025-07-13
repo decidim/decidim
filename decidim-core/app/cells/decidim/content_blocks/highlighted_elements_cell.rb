@@ -4,6 +4,8 @@ module Decidim
   module ContentBlocks
     class HighlightedElementsCell < BaseCell
       include Decidim::ContentBlocks::HasRelatedComponents
+      include Decidim::ComponentPathHelper
+      include Decidim::CardHelper
 
       def published_components
         @published_components ||= if model.settings.try(:component_id).present?

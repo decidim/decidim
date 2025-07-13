@@ -18,15 +18,14 @@
 
       <% else %>
 
-        <% if current_component.has_subscopes? %>
-          <div class="row column">
-            <%= scopes_select_field form, :decidim_scope_id, root: current_component.scope %>
-          </div>
-        <% end %>
-
-        <div class="row column">
-          <%= form.categories_select :decidim_category_id, current_participatory_space.categories, include_blank: true, disable_parents: false %>
+        <% if @form.taxonomy_filters&.any? %>
+          <% @form.taxonomy_filters.each do |filter| %>
+            <div class="row column">
+              <%= filter_taxonomy_items_select_field form, :taxonomies, filter %>
+            </div>
+          <% end %>
         </div>
+        <% end %>
 
       <% end %>
 
@@ -40,6 +39,14 @@
         </div>
       </div>
 
+      <% if @form.geocoding_enabled? %>
+        <div class="row">
+          <div class="columns">
+            <%= form.geocoding_field(:address) %>
+          </div>
+        </div>
+      <% end %>
+
       <div class="row">
         <div class="columns">
           <%= form.select :decidim_accountability_status_id, statuses.map { |status| [translated_attribute(status.name), status.id, { "data-progress" => status.progress }] }, include_blank: true %>
@@ -50,7 +57,7 @@
         </div>
       </div>
 
-    <% if Decidim::Accountability.enable_proposal_linking %>
+    <% if Decidim.module_installed?(:proposals) %>
       <div class="row column">
         <%= render partial: "decidim/proposals/proposals/proposals_picker", locals: { form:, field: :proposals } %>
       </div>

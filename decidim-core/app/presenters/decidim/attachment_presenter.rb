@@ -6,7 +6,7 @@ module Decidim
   #
   class AttachmentPresenter < SimpleDelegator
     def attachment_file_url
-      attachment.attached_uploader(:file).url(host: attached_to.organization.host)
+      attachment.attached_uploader(:file).url
     end
 
     def attachment

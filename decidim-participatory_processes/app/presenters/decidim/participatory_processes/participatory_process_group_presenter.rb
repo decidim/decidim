@@ -6,7 +6,7 @@ module Decidim
       def hero_image_url
         return if process_group.blank?
 
-        process_group.attached_uploader(:hero_image).url(host: process_group.organization.host)
+        process_group.attached_uploader(:hero_image).url
       end
 
       def process_group

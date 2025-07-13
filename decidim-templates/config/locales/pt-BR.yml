@@ -41,11 +41,8 @@ pt-BR:
             save: Salvar
         questionnaire_templates:
           choose:
-            create_from_template: Criar a partir de modelo
-            description: Você está prestes a criar um novo questionário. Você pode escolher um modelo predefinido e modificá-lo depois.
             label: Selecionar modelo
             placeholder: Selecionar modelo
-            skip_template: Ignorar
           edit:
             edit: Editar
             questionnaire: Questionário

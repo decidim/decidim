@@ -4,7 +4,6 @@ id:
       decidim/comments/comment_by_followed_user_event: Komentar
       decidim/comments/comment_created_event: Komentar
       decidim/comments/reply_created_event: Balasan komentar
-      decidim/comments/user_group_mentioned_event: Menyebut
       decidim/comments/user_mentioned_event: Menyebut
   activerecord:
     models:
@@ -13,6 +12,10 @@ id:
       decidim/comments/comment_vote:
         other: Voting
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Komentar
     comments:
       votes:
         create:
@@ -23,8 +26,6 @@ id:
           body:
             label: Komentar
             placeholder: Apa yang Anda pikirkan tentang ini?
-          user_group_id:
-            label: Beri komentar sebagai
         opinion:
           neutral: Netral
         remaining_characters: "%{count} karakter tersisa"
@@ -62,9 +63,6 @@ id:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{author_name}. Anda dapat berhenti mengikuti pengguna ini dari halaman profil mereka.
           email_subject: Ada komentar baru dengan %{author_name} in %{resource_title}
           notification_title: Ada komentar baru oleh <a href="%{author_path}">%{author_name} %{author_nickname}</a> di <a href="%{resource_path}">%{resource_title}</a>.
-        comment_by_followed_user_group:
-          email_subject: Ada komentar baru dengan %{author_name} in %{resource_title}
-          notification_title: Ada komentar baru oleh <a href="%{author_path}">%{author_name} %{author_nickname}</a> di <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} telah dikomentari. Anda dapat membaca komentar di halaman ini:"
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{resource_title}" atau penulisnya. Anda dapat berhenti mengikutinya dari tautan sebelumnya.
@@ -80,8 +78,3 @@ id:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda telah disebutkan dalam %{resource_title}.
           email_subject: Anda telah disebutkan dalam %{resource_title}
           notification_title: Anda telah disebutkan dalam <a href="%{resource_path}">%{resource_title}</a> oleh <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: Jumlah komentar yang dihasilkan oleh peserta
-        object: komentar
-        title: Komentar

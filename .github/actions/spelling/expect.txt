@@ -4,7 +4,9 @@ abans
 abcd
 abcert
 abcloktpes
+acceptada
 accesslist
+Aceasta
 acentos
 acro
 activejob
@@ -21,9 +23,13 @@ admins
 adoc
 AFFERO
 AGPL
+aitools
 Ajuntament
 Ajuntamentde
 alabs
+alecslupu
+Alexandru
+amagat
 amd
 amendables
 AMR
@@ -55,6 +61,7 @@ auths
 autocorrection
 autocorrects
 autojump
+autoloaded
 automatisms
 autosort
 autotranslated
@@ -66,6 +73,7 @@ backticks
 barcat
 Basecontroller
 Batchloader
+bayes
 bbb
 Bbbb
 BCN
@@ -90,6 +98,7 @@ boundingbox
 Brakus
 breadcrumb
 browserstack
+builder
 bugfixing
 byebug
 bytesize
@@ -118,11 +127,13 @@ cdp
 cellphone
 centerblock
 changeme
+chartkick
 cherrypicking
 childs
 chromedriver
 cht
 cityhall
+cld
 clickable
 clickbait
 cmax
@@ -134,6 +145,7 @@ codeclimate
 codecov
 codefor
 CODEOWNERS
+codeql
 coditramuntana
 commentables
 commentaire
@@ -142,13 +154,15 @@ commentvotes
 conferenceinvites
 conferenceregistrations
 confirmada
+confirmado
+confirmat
 Consolas
 constantized
 contingut
 continuar
 contrasenya
 coopdevs
-Correu
+correu
 Cov
 Cprojects
 crdownload
@@ -252,7 +266,7 @@ Emph
 encryptable
 encryptor
 endo
-endorsables
+likeables
 endr
 enduml
 enquestes
@@ -282,6 +296,7 @@ ERVz
 Esa
 espa
 estat
+este
 Etags
 etherpad
 evanfuture
@@ -355,8 +370,10 @@ gotchas
 gpg
 gpu
 gql
+grafana
 Graphi
 graphiql
+Gruhier
 groupless
 grup
 gsutil
@@ -406,6 +423,7 @@ iframes
 iife
 Ijkl
 ilike
+illgotten
 impersonatable
 inbox
 includeurl
@@ -425,6 +443,7 @@ inviteduser
 isbn
 iseq
 isready
+ivan
 Jaskolski
 Jaume
 javascripts
@@ -463,6 +482,7 @@ Lalalilo
 lastcenter
 lastleft
 latlng
+Layouter
 LCell
 legacysupport
 Lesch
@@ -472,6 +492,7 @@ libicu
 libpq
 libreadline
 libreoffice
+libvips
 libyaml
 Liddel
 lighthouserc
@@ -500,6 +521,7 @@ lsclusters
 lte
 lteq
 LTREE
+Lupu
 lvh
 lvml
 magick
@@ -513,6 +535,7 @@ marydoe
 Massot
 matrixmultiple
 matutes
+maxtimeout
 mcdoggo
 mcell
 medios
@@ -537,11 +560,13 @@ Milhouse
 millor
 Millora
 minicard
+mintimeout
 minuscat
 misogi
 mlat
 mlon
 Moby
+Mobi
 modals
 modernizr
 modernizrrc
@@ -557,6 +582,7 @@ mpassid
 mqa
 mrc
 mri
+msgpack
 mso
 msword
 multichoice
@@ -579,8 +605,11 @@ NEWCODE
 newsletterable
 newusermanager
 newwindow
+ngrams
 nicknamizable
 nicknamize
+nicknamenicknamenick
+nicknamenicknamenickname
 nie
 nikola
 nlevel
@@ -593,6 +622,7 @@ nodistro
 nodoc
 nok
 nomargin
+nombre
 nominatim
 noopen
 nopadding
@@ -716,6 +746,7 @@ promotal
 promotors
 proposta
 Propostes
+propozitie
 Propuesta
 prosemirror
 protonmail
@@ -724,6 +755,7 @@ Pujol
 pwa
 QLiterals
 queda
+qux
 railtie
 railties
 randomable
@@ -733,6 +765,7 @@ Raymundo
 rbngzlv
 reallowed
 rebornix
+rebutjada
 recapitated
 reconfirmable
 redcarpet
@@ -740,6 +773,8 @@ reddit
 refactorings
 regexes
 regexps
+registrado
+registrat
 reivindicate
 relogin
 remindable
@@ -761,10 +796,14 @@ riseup
 rlt
 roadmap
 Rojman
+roundtrippable
+roundtripping
 routable
 rowchart
 rowdata
 rowi
+RQR
+rqrcode
 rroe
 rsefa
 rsimplecov
@@ -800,7 +839,6 @@ sgid
 shakapacker
 sharedapp
 shellwords
-shortanswer
 shs
 sidekiq
 signedby
@@ -816,6 +854,8 @@ smartbreak
 Smileys
 Snowlvhme
 Snoworg
+softdeleteable
+somecapitalguy
 somedatabase
 Sorbier
 sortings
@@ -826,6 +866,7 @@ spammer
 spos
 spreadsheetml
 sqbracket
+sqlcommenter
 ssb
 sss
 Stabby
@@ -887,6 +928,7 @@ thant
 thedoggokeeper
 thelma
 thepassword
+THH
 thi
 Tiene
 tilelayer
@@ -908,6 +950,7 @@ traceabilty
 traducido
 Tramuntana
 traslatable
+trashable
 trgm
 trobada
 tsearch
@@ -929,8 +972,8 @@ uncollapse
 uncollapsing
 uncommentable
 undefines
-unendorse
-unendorsing
+unlike
+unliking
 unfollow
 unhides
 Uninstalls
@@ -952,6 +995,7 @@ unresolveable
 unsigning
 unsigns
 unsubscribes
+untrains
 unvotes
 upcomingfoobar
 UPDREF
@@ -959,6 +1003,7 @@ uploaders
 upvoted
 upvotes
 upvoting
+usuarias
 usecase
 usename
 usergroup
@@ -970,7 +1015,6 @@ Uusimaa
 Valero
 validable
 valids
-valuatable
 valueline
 Valuetypes
 VCALENDAR
@@ -988,6 +1032,7 @@ vkontakte
 vml
 vnd
 voner
+vostre
 votar
 votings
 VPAGQ
@@ -1027,6 +1072,7 @@ XXXXXXXY
 yardopts
 yarnkey
 ydd
+yjit
 yieldparam
 yieldreturn
 yoda
@@ -1038,3 +1084,4 @@ Zbd
 zeitwerk
 Zupper
 zzz
+zzzupper

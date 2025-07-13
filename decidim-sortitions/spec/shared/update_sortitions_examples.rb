@@ -7,7 +7,10 @@ shared_examples "update sortitions" do
 
     before do
       visit_component_admin
-      click_on "Edit"
+      within "tr", text: decidim_escape_translated(sortition.title) do
+        find("button[data-component='dropdown']").click
+        click_on "Edit"
+      end
     end
 
     it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='sortition-additional_info-tabs']", "full"

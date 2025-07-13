@@ -13,7 +13,7 @@ module Decidim::Meetings
 
     context "when rendering" do
       it "renders the card" do
-        expect(subject).to have_css("#meeting_#{meeting.id}.card__search")
+        expect(subject).to have_css("div#meeting_#{meeting.id}")
       end
     end
 

@@ -16,8 +16,16 @@ module Decidim
         options[:project_item]
       end
 
+      def button_extra_classes
+        options[:button_extra_classes] || []
+      end
+
       def resource_path
         resource_locator([model.budget, model]).path
+      end
+
+      def resource_index_path
+        resource_locator(model.budget).path
       end
 
       def resource_title
@@ -52,6 +60,7 @@ module Decidim
                    end
 
         classes << "budget-list__action" unless vote_button_disabled?
+        classes << button_extra_classes
 
         classes.join(" ")
       end
@@ -60,6 +69,10 @@ module Decidim
         return :delete if resource_added?
 
         :post
+      end
+
+      def authorization_redirect_path
+        options[:authorization_redirect_path] || resource_path
       end
 
       def vote_button_label

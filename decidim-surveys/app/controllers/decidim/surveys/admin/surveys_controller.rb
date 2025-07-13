@@ -3,43 +3,112 @@
 module Decidim
   module Surveys
     module Admin
-      # This controller allows the user to update a Page.
+      # This controller allows to index, create, update, destroy, publish and unpublish a Survey.
       class SurveysController < Admin::ApplicationController
-        include Decidim::Forms::Admin::Concerns::HasQuestionnaire
-        include Decidim::Forms::Admin::Concerns::HasQuestionnaireAnswers
+        include Decidim::Surveys::Admin::Filterable
+
+        helper_method :surveys
+
+        def index; end
+
+        def new
+          enforce_permission_to(:create, :questionnaire)
+
+          @form = form(Admin::SurveyForm).instance
+        end
+
+        def create
+          enforce_permission_to(:create, :questionnaire)
+
+          @form = form(Admin::SurveyForm).from_params(params)
+          Decidim::Surveys::Admin::CreateSurvey.call(current_component, @form) do
+            on(:ok) do |survey|
+              flash[:notice] = I18n.t("create.success", scope: "decidim.surveys.admin.surveys")
+              redirect_to edit_survey_path(survey)
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("create.invalid", scope: "decidim.surveys.admin.surveys")
+              render action: "new"
+            end
+          end
+        end
 
         def edit
-          enforce_permission_to(:update, :questionnaire, questionnaire:)
-
-          @form = form(Decidim::Forms::Admin::QuestionnaireForm).from_model(questionnaire)
+          enforce_permission_to(:update, :questionnaire, questionnaire: survey)
+          @form = form(Admin::SurveyForm).from_model(survey)
         end
 
-        def questionnaire_for
-          survey
+        def update
+          enforce_permission_to(:update, :questionnaire, questionnaire: survey)
+          @form = form(Admin::SurveyForm).from_params(params)
+
+          Admin::UpdateSurvey.call(@form, survey, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("update.success", scope: "decidim.surveys.admin.surveys")
+              redirect_to edit_survey_path(survey)
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("update.invalid", scope: "decidim.surveys.admin.surveys")
+              render action: "edit"
+            end
+          end
         end
 
-        # Specify the public url from which the survey can be viewed and answered
-        def public_url
-          Decidim::EngineRouter.main_proxy(current_component).survey_path(survey)
+        def publish
+          enforce_permission_to(:update, :questionnaire, questionnaire: survey)
+          Decidim::Surveys::Admin::PublishSurvey.call(survey, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("publish.success", scope: "decidim.surveys.admin.surveys")
+              redirect_to surveys_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("publish.invalid", scope: "decidim.surveys.admin.surveys")
+              render action: "index"
+            end
+          end
         end
 
-        # Specify where to redirect after exporting a user response
-        def questionnaire_participant_answers_url(session_token)
-          Decidim::EngineRouter.admin_proxy(survey.component).show_survey_path(session_token:)
+        def unpublish
+          enforce_permission_to(:update, :questionnaire, questionnaire: survey)
+          Decidim::Surveys::Admin::UnpublishSurvey.call(survey, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("unpublish.success", scope: "decidim.surveys.admin.surveys")
+              redirect_to surveys_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("unpublish.invalid", scope: "decidim.surveys.admin.surveys")
+              render action: "index"
+            end
+          end
         end
 
-        def edit_questionnaire_title
-          t(:title, scope: "decidim.forms.admin.questionnaires.form", questionnaire_for: translated_attribute(current_component.name))
+        def destroy
+          enforce_permission_to(:destroy, :questionnaire, questionnaire: survey)
+          Decidim::Commands::DestroyResource.call(survey, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("destroy.success", scope: "decidim.surveys.admin.surveys")
+
+              redirect_to surveys_path
+            end
+          end
         end
 
         private
 
-        def i18n_flashes_scope
-          "decidim.surveys.admin.surveys"
+        def surveys
+          @surveys ||= filtered_collection
         end
 
         def survey
-          @survey ||= Survey.find_by(component: current_component)
+          @survey ||= collection.find(params[:id])
+        end
+
+        def collection
+          @collection ||= Decidim::Surveys::Survey.where(component: current_component)
         end
       end
     end

@@ -15,7 +15,7 @@ describe "Admin manages initiative type permissions" do
   let(:participatory_space_engine) { decidim_admin_initiatives }
   let!(:initiative_type) { create(:initiatives_type, organization:) }
 
-  let(:action) { "vote" }
+  let(:action) { "create" }
 
   let(:index_path) do
     participatory_space_engine.initiatives_types_path

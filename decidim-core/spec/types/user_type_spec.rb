@@ -1,14 +1,41 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
+require "decidim/api/test"
 
 module Decidim
   module Core
     describe UserType, type: :graphql do
       include_context "with a graphql class type"
 
-      let(:model) { create(:user) }
+      let(:model) { create(:user, :confirmed) }
+
+      describe "unconfirmed user" do
+        let(:model) { create(:user) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
+
+      describe "deleted user" do
+        let(:model) { create(:user, :deleted) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
+
+      describe "moderated user" do
+        let(:model) { create(:user, :blocked) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
 
       describe "name" do
         let(:query) { "{ name }" }
@@ -30,7 +57,7 @@ module Decidim
         let(:query) { "{ badge }" }
 
         context "when the user is officialized" do
-          let(:model) { create(:user, :officialized) }
+          let(:model) { create(:user, :confirmed, :officialized) }
 
           it "returns the icon to use for the verification badge" do
             expect(response).to include("badge" => "verified-badge")
@@ -38,7 +65,7 @@ module Decidim
         end
 
         context "when the user is not officialized" do
-          let(:model) { create(:user) }
+          let(:model) { create(:user, :confirmed) }
 
           it "returns empty" do
             expect(response).to include("badge" => "")
@@ -65,7 +92,7 @@ module Decidim
           let(:model) { create(:user, :deleted) }
 
           it "returns empty" do
-            expect(response).to include("profilePath" => "")
+            expect(response).to be_nil
           end
         end
       end
@@ -78,7 +105,7 @@ module Decidim
         end
 
         context "when user direct messages disabled" do
-          let(:model) { create(:user, direct_message_types: "followed-only") }
+          let(:model) { create(:user, :confirmed, direct_message_types: "followed-only") }
 
           it "returns the direct_messages status" do
             expect(response).to include("directMessagesEnabled" => "false")
@@ -91,30 +118,6 @@ module Decidim
 
         it "returns the user's organization name" do
           expect(response["organizationName"]["translation"]).to eq(translated(model.organization.name))
-        end
-      end
-
-      describe "groups" do
-        let(:query) { "{ ...on User { groups { id nickname } } }" }
-        let(:model) { membership.user }
-        let(:user_group) { membership.user_group }
-
-        context "when user accepted in the group" do
-          let(:membership) { create(:user_group_membership, role: "member") }
-
-          it "returns the user's groups" do
-            groups = response["groups"]
-            expect(groups).to include("id" => user_group.id.to_s, "nickname" => "@#{user_group.nickname}")
-          end
-        end
-
-        context "when user is not accepted yet in the group" do
-          let(:membership) { create(:user_group_membership, role: "requested") }
-
-          it "returns no groups" do
-            groups = response["groups"]
-            expect(groups).to eq([])
-          end
         end
       end
     end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
+require "decidim/api/test"
 
 module Decidim
   module Core
@@ -29,8 +29,8 @@ module Decidim
 
         let(:query) { %({ components { id } }) }
 
-        it "only includes the published components" do
-          component_ids = response["components"].map { |c| c["id"].to_i }
+        it "only displays the published components" do
+          component_ids = response["components"].compact.map { |c| c["id"].to_i }
 
           # Ordered by ID by default.
           expect(component_ids.sort).to eq(published_components.map(&:id))
@@ -39,10 +39,22 @@ module Decidim
       end
 
       describe "stats" do
-        let(:query) { %({ stats { name value } }) }
+        let(:query) { %({ stats { name { translation(locale: "en") } value } }) }
+
+        before do
+          allow(Decidim::ParticipatoryProcesses::ParticipatoryProcessStatsPresenter).to receive(:new)
+            .and_return(double(collection: [
+                                 { name: "dummies_count_high", data: [0], tooltip_key: "dummies_count_high_tooltip" }
+                               ]))
+        end
 
         it "show all the stats for this participatory process" do
-          expect(response["stats"]).to include("name" => "dummies_count_high", "value" => 0)
+          expect(response["stats"]).to include(
+            {
+              "name" => { "translation" => "Dummies high" },
+              "value" => 0
+            }
+          )
         end
       end
 

@@ -2,17 +2,14 @@
   activemodel:
     attributes:
       debate:
-        category_id: Kategori
         closed_at: Stengt
         conclusions: Konklusjoner
-        decidim_category_id: Kategori
         description: Beskrivelse
         end_time: Avsluttes den
         information_updates: Oppdateringer
         instructions: Instruksjoner for å delta
         start_time: Starter den
         title: Tittel
-        user_group_id: Opprett innspillstråd som
     models:
       decidim/debates/close_debate_event: Innspillstråden er stengt
       decidim/debates/create_debate_event: Innspillstråd
@@ -28,27 +25,19 @@
       debates:
         actions:
           comment: Kommenter
-          create: Opprett
-          endorse: Påtegne
         name: Innspillstråder
         settings:
           global:
             announcement: Kunngjøring
             comments_enabled: Kommentarer er aktivert
             comments_max_length: Maks kommentarlengde
-            scope_id: Tema
-            scopes_enabled: Aktiverte temaer
           step:
             announcement: Kunngjøring
             comments_blocked: Kommentarer er blokkert
             creation_enabled: Deltakere kan opprette debatter
-            endorsements_blocked: Påtegnelser blokkert
-            endorsements_enabled: Påtegnelser aktivert
     debates:
       actions:
         close: Lukk
-        confirm_destroy: Er du sikker?
-        destroy: Slett
         edit: Rediger
         title: Handling
       admin:
@@ -60,8 +49,6 @@
           create:
             invalid: Det oppstod et problem med å opprette innspillstråden.
             success: Innspillstråden ble opprettet.
-          destroy:
-            success: Innspillstråden ble slettet.
           edit:
             title: Rediger innspillstråd
             update: Oppdater innspillstråd
@@ -77,8 +64,6 @@
           update:
             invalid: Det oppstod et problem med å oppdatere denne innspillstråden.
             success: Innspillstråden ble oppdatert.
-        exports:
-          comments: Kommentarer
       admin_log:
         debate:
           close: "%{user_name} lukket tråden %{resource_name} under området %{space_name}"
@@ -118,15 +103,11 @@
           state: Status
           state_values:
             closed: Lukket
-            open: Åpen
-        form:
-          select_a_category: Velg en kategori
         index:
           new_debate: Ny innspillstråd
         new:
           back: Tilbake
           create: Opprett
-          title: Ny innspillstråd
         orders:
           commented: Mest kommentert
           label: Ranger debatter etter
@@ -134,13 +115,8 @@
           recent: Nyeste
           updated: Sist oppdatert
         show:
-          close_debate: Avslutt innspillstråd
-          debate_closed: Lukket
           debate_conclusions_are: 'Innspillstråden er avsluttet den %{date}, med denne oppsummeringen:'
           edit_conclusions: Rediger oppsummering
-          edit_debate: Rediger innspillstråd
-          groups_count: Grupper
-          open: Åpen debatt
           participants_count: Deltakere
         update:
           invalid: Det oppsto et problem med å oppdatere innspillstråden.
@@ -193,10 +169,5 @@
           name: Innspillstråder
           next_level_in: Delta i %{score} flere innspillstråder for å nå neste nivå!
           unearned_another: Denne deltakeren har ikke deltatt i noen innspillstråder ennå.
-    metrics:
-      debates:
-        description: Antall innspillstråder opprettet
-        object: innspillstråder
-        title: Innspillstråder
     statistics:
       debates_count: Debatter

@@ -66,7 +66,6 @@ describe("DecidimKit", () => {
       [
         "videoEmbed",
         "image",
-        "hashtag",
         "mention",
         "emoji"
       ].forEach((name) => expect(extensions).not.toContain(name));
@@ -76,8 +75,8 @@ describe("DecidimKit", () => {
   const extensionSettings = {
     videoEmbed: true,
     image: { uploadDialogSelector: "#upload_dialog", uploadImagesPath: "/upload" },
-    hashtag: true,
     mention: true,
+    mentionResource: true,
     emoji: true
   };
   Object.keys(extensionSettings).forEach((extensionKey) => {

@@ -10,10 +10,8 @@ module Decidim::Initiatives
 
     subject { cell("decidim/initiatives/initiative_dropdown_metadata", model).call }
 
-    let(:model) { create(:initiative, hashtag:) }
-    let(:hashtag) { nil }
+    let(:model) { create(:initiative) }
 
     include_examples "participatory space dropdown metadata cell"
-    include_examples "participatory space dropdown metadata cell hashtag"
   end
 end

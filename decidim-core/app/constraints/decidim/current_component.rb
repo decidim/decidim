@@ -33,7 +33,7 @@ module Decidim
     end
 
     def detect_current_component(params)
-      @participatory_space.components.find do |component|
+      @participatory_space.components.with_deleted.find do |component|
         params["component_id"] == component.id.to_s && component.manifest_name == @manifest.name.to_s
       end
     end

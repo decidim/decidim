@@ -2,15 +2,12 @@ ja:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: スコープ
         description: 説明
         title: タイトル
         total_budget: 予算の合計
         weight: 順番の位置
       project:
         budget_amount: 予算額
-        decidim_category_id: カテゴリ
-        decidim_scope_id: スコープ
         description: 説明
         proposal_ids: 関連する提案
         proposals: 提案
@@ -20,29 +17,37 @@ ja:
         scope_id: スコープ
   activerecord:
     models:
+      decidim:
+        budgets:
+          project:
+            text: 'この予算に追加されました： %{link}'
       decidim/budgets/budget:
         other: 予算
       decidim/budgets/project:
         other: プロジェクト
   decidim:
     admin:
+      admin_log:
+        changeset:
+          projects: プロジェクト
       filters:
         projects:
-          category_id_eq:
-            label: カテゴリ
-          scope_id_eq:
-            label: スコープ
           selected_at_null:
             label: 選択済み
             values:
               'false': 選択済み
               'true': 未選択
+          taxonomies_part_of_contains:
+            label: タクソノミー
+      tooltips:
+        deleted_projects_info: このプロジェクトは削除できません
     budgets:
       actions:
         attachment_collections: フォルダ
         attachments: 添付ファイル
-        confirm_destroy: このプロジェクトを削除してもよろしいですか？
-        destroy: 削除
+        confirm_delete_budget: この予算を削除してもよろしいですか？
+        confirm_delete_project: このプロジェクトを削除してもよろしいですか？
+        deleted_budgets_info: 削除された予算はゴミ箱から復元できます。
         edit: 編集
         edit_projects: プロジェクトの管理...
         import: プロジェクトへの提案をインポート
@@ -51,14 +56,13 @@ ja:
         preview: プレビュー
         send_voting_reminders: 投票リマインダーを送信
         title: アクション
+        view_deleted_budgets: 削除された予算を表示
+        view_deleted_projects: 削除されたプロジェクトを表示
       admin:
         budgets:
           create:
             invalid: 予算の作成中に問題が発生しました。
             success: 予算が正常に作成されました。
-          destroy:
-            invalid: 予算の削除中に問題が発生しました。
-            success: 予算を削除しました。
           edit:
             title: 予算の編集
             update: 予算を更新
@@ -68,6 +72,8 @@ ja:
             title: 予算
             users_with_finished_orders: 投票済みのユーザー
             users_with_pending_orders: 投票保留中のユーザー
+          manage_trash:
+            title: 削除された予算
           new:
             create: 予算を作成する
             title: 新しい予算
@@ -85,8 +91,6 @@ ja:
           create:
             invalid: プロジェクトの作成中に問題が発生しました。
             success: プロジェクトが正常に作成されました。
-          destroy:
-            success: プロジェクトを削除しました。
           edit:
             title: プロジェクトを編集
             update: 更新
@@ -94,9 +98,8 @@ ja:
             actions: アクション
             cancel: キャンセル
             change_budget:
-            change_category: カテゴリの変更
-            change_scope: スコープの変更
             change_selected: 選択した状態を変更
+            change_taxonomies: タクソノミーを変更
             deselect_implementation: 実装から選択解除
             finished_orders: 完了した投票
             pending_orders: 保留中の投票
@@ -108,7 +111,8 @@ ja:
             title: プロジェクト
             update: 更新
             update_budget_button: プロジェクトの予算を更新
-            update_scope_button: スコープを更新
+          manage_trash:
+            title: 削除されたプロジェクト
           new:
             create: 作成
             title: 新規プロジェクト
@@ -116,28 +120,23 @@ ja:
             invalid: プロジェクトの更新中に問題が発生しました。
             success: プロジェクトを更新しました。
           update_budget:
-            invalid: 'これらのプロジェクトは既に同じ予算に含まれているか、予算が最大許容額を超えています: %{projects}。'
+            invalid: 'これらのプロジェクトは既に同じ予算に含まれているか、予算が最大許容額を超えています: %{errored}。'
             select_a_project: プロジェクトを選択してください。
-            success: 'プロジェクトが %{subject_name} 予算に更新されました: %{projects}。'
-          update_category:
-            invalid: 'これらのプロジェクトは既に %{subject_name} カテゴリを持っています: %{projects}'
-            select_a_category: カテゴリを選択してください。
-            select_a_project: プロジェクトを選択してください。
-            success: 'プロジェクトは %{subject_name} カテゴリに更新されました: %{projects}'
-          update_scope:
-            invalid: 'これらのプロジェクトは既に %{subject_name} スコープを持っています: %{projects}'
-            select_a_project: プロジェクトを選択してください。
-            select_a_scope: スコープを選択してください。
-            success: 'プロジェクトは %{subject_name} スコープに正常に更新されました: %{projects}'
+            success: 'プロジェクトの予算 %{subject_name} を更新しました: %{successful}。'
           update_selected:
             invalid:
-              selected: 'これらのプロジェクトはすでに実装のために選択されています: %{projects}。'
-              unselected: 'これらのプロジェクトは既に実装から選択解除されています: %{projects}。'
+              selected: 'これらのプロジェクトはすでに実装のために選択されています: %{errored}。'
+              unselected: 'これらのプロジェクトはすでに実装から選択解除されています: %{errored}。'
             select_a_project: プロジェクトを選択してください。
             select_a_selection: 実装状態を選択してください。
             success:
-              selected: 'これらのプロジェクトは、実装のために正常に選択されました: %{projects}。'
-              unselected: 'これらのプロジェクトは、実装から正常に選択解除されました: %{projects}。'
+              selected: 'これらのプロジェクトは、実装に選択されました: %{successful}。'
+              unselected: 'これらのプロジェクトは、実装から選択解除されました: %{successful}。'
+          update_taxonomies:
+            invalid: 'タクソノミー %{taxonomies} はこれらのプロジェクトにすでに割り当てられています: %{errored}.'
+            select_a_project: プロジェクトを選択してください。
+            select_a_taxonomy: タクソノミーを選択してください。
+            success: 'プロジェクトのタクソノミー %{taxonomies} を更新しました: %{successful}。'
         proposals_imports:
           create:
             invalid: 提案をプロジェクトにインポートする際に問題が発生しました。
@@ -159,10 +158,14 @@ ja:
         budget:
           create: "%{user_name} が予算 %{resource_name} を %{space_name} に作成しました。"
           delete: "%{user_name} が予算 %{resource_name} をスコープ %{space_name} から削除しました。"
+          restore: "%{user_name} が %{space_name} の予算 %{resource_name} を復元しました"
+          soft_delete: "%{user_name} が %{space_name} の予算 %{resource_name} をゴミ箱に移動しました"
           update: "%{user_name} がスコープ %{space_name} の予算 %{resource_name} を更新しました。"
         project:
           create: "%{user_name} が %{resource_name} スペースで %{space_name} プロジェクトを作成しました"
           delete: "%{user_name} が %{resource_name} スペースの %{space_name} プロジェクトを削除しました"
+          restore: "%{user_name} が %{space_name} のプロジェクト %{resource_name} を復元しました"
+          soft_delete: "%{user_name} は %{space_name} のプロジェクト %{resource_name} をゴミ箱に移動しました"
           update: "%{user_name} が %{resource_name} スペースの %{space_name} プロジェクトを更新しました"
       budget_information_modal:
         back_to: '%{component_name} に戻る'
@@ -191,6 +194,8 @@ ja:
         vote: 投票
         voted_budgets: 投票された予算
         voted_on: '%{links} に投票しました。'
+      creation:
+        text: この予算に追加されました：
       last_activity:
         new_vote_at: 新しい予算投票日時
       limit_announcement:
@@ -204,16 +209,31 @@ ja:
             total_budget: 予算の合計
         project:
           fields:
-            category: カテゴリ
             id: ID
             map: 地図
+            taxonomies: タクソノミー
             title: タイトル
+      order:
+        status:
+          continue_voting: 投票を続ける
+          download_vote: 投票のダウンロード
+          pending_to_vote_budgets:
+            other: 他の予算に投票できます
+          share_text: "%{space_name}でお気に入りのプロジェクトに投票しました! 🎉 今すぐ投票: %{component_url}"
+          share_vote: 投票を共有する
+          title: 投票は正常に承認されました
+          view_votes:
+            other: 投票を表示
+          votes_count:
+            other: あなたの%{count}票は、%{budget_name}に対してすでに登録されています。
+      order_pdf:
+        text: '%{space_name}で、以下のプロジェクトに投票しました'
+        title: 投票が正常に受理されました。
       order_summary_mailer:
         order_summary:
           selected_projects: '選択したプロジェクトは次のとおりです。'
           subject: 参加型スペース%{space_name} に投票しました
           voted_on_space: '%{budget_name} 参加型スペースの %{space_name} 予算に投票しました。'
-          voted_on_space_with_scope: '%{budget_name} (%{space_name}) の %{scope_name} 参加型スペースの %{scope_type} 予算に投票しました。'
       projects:
         budget_confirm:
           are_you_sure: 気が変わった場合は、後で投票を変更できます。
@@ -232,7 +252,7 @@ ja:
             title: プロジェクト数の上限を超えました
         budget_summary:
           are_you_sure: 投票をキャンセルしてもよろしいですか？
-          cancel_order: 投票を削除してやり直してください
+          cancel_order: 投票を取り消す
           checked_out:
             description: 予算にすでに投票しています。もし考えが変わった場合は、%{cancel_link} できます。
             title: 予算投票が完了しました
@@ -247,8 +267,6 @@ ja:
           message: 投票プロセスがまだ完了していないため、投票が登録されていません。投票を終了してもよろしいですか？
           title: まだ投票していません
         filters:
-          category: カテゴリ
-          scope: スコープ
           search: 検索
           status: 状態
           status_values:
@@ -264,13 +282,13 @@ ja:
             start_adding_projects: プロジェクトの追加を開始
           minimum: 最小
           minimum_projects_rule:
-            description: 希望するプロジェクトを %{minimum_number} 件以上選択し、好ましいと思う予算を決めて投票します。
+            description: 少なくとも%{minimum_number}件のプロジェクトを選び、あなたの希望に沿って投票してください。
           projects_rule:
-            description: 希望するプロジェクトを最小 %{minimum_number} 件、最大 %{maximum_number} 件選択し、好ましいと思う予算を決めて投票します。
+            description: 少なくとも%{minimum_number}件、最大で%{maximum_number}件のプロジェクトを選び、あなたの希望に沿って投票してください。
           projects_rule_maximum_only:
-            description: 希望するプロジェクトを %{maximum_number} 件まで選択し、好ましいと思う予算を決めて投票します。
+            description: 最大で%{maximum_number}件までプロジェクトを選び、あなたの希望に沿って投票してください。
           vote_threshold_percent_rule:
-            description: 希望するプロジェクトに %{minimum_budget} 以上の予算を割り当てて、好ましいと思う予算を決めて投票します。
+            description: 少なくとも%{minimum_budget}の予算をプロジェクトに割り当て、あなたの希望に沿って投票してください。
         orders:
           highest_cost: 最高コスト
           label: 'プロジェクトを注文:'
@@ -294,9 +312,10 @@ ja:
           added: 追加済
           all: すべて
         projects_for: '%{name} のプロジェクト'
-        select_projects: プロジェクトを選択
+        select_projects: プロジェクトを追加
         show:
           budget: 予算
+        start_voting: 投票を開始
       prompt: 予算を選択
       vote_reminder_mailer:
         vote_reminder:
@@ -315,8 +334,10 @@ ja:
         settings:
           global:
             announcement: お知らせ
+            clear_all: すべてクリア
             comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
+            define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             form:
               errors:
                 budget_voting_rule_only_one: 有効にできる投票ルールは1つのみです。
@@ -324,10 +345,11 @@ ja:
             geocoding_enabled: マップは有効です
             landing_page_content: 予算ランディングページ
             more_information_modal: 詳しい情報
+            no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             projects_per_page: ページあたりのプロジェクト数
             resources_permissions_enabled: プロジェクトごとにアクションの権限を設定できます
-            scope_id: スコープ
-            scopes_enabled: スコープは有効です
+            taxonomy_filters: コンポーネントのフィルタを選択
+            taxonomy_filters_add: フィルターを追加
             title: タイトル
             total_budget: 予算の合計
             vote_minimum_budget_projects_number: 投票するプロジェクトの最小数
@@ -355,6 +377,18 @@ ja:
               disabled: 投票は無効です
               enabled: 投票は有効になっています
               finished: 投票完了
+    download_your_data:
+      help:
+        orders:
+          budget: 注文に関連する予算
+          checked_out_at: 注文がチェックアウトされた日時
+          component: 注文に関連するコンポーネント
+          created_at: 注文の作成日時
+          id: 注文の固有ID
+          projects: 注文が投票したプロジェクト
+          updated_at: 注文の更新日時
+      show:
+        projects: プロジェクトのエクスポート
     events:
       budgets:
         budget_published:
@@ -362,11 +396,34 @@ ja:
           email_outro: '%{participatory_space_title} をフォローしているため、この通知を受け取りました。前のリンク先から、通知の受信を停止することができます。'
           email_subject: '%{resource_title} の予算が %{participatory_space_title} に有効になりました。'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> の予算が %{participatory_space_title} に有効になりました。
+    open_data:
+      help:
+        projects:
+          address: プロジェクトのアドレス (もしあれば)
+          budget: プロジェクトの予算（例：「2021年度予算」）に関するデータ
+          budget_amount: このプロジェクトの予算の合計
+          comments: このプロジェクトが受け取ったコメント数
+          component: プロジェクトが属するコンポーネント
+          confirmed_votes: このプロジェクトが受け取った確認済み投票数
+          created_at: プロジェクトの作成日時
+          description: プロジェクトの説明
+          follows_count: プロジェクトのフォロー数
+          id: プロジェクトの固有ID
+          latitude: プロジェクトに物理的な場所がある場合のその緯度
+          longitude: プロジェクトに物理的な場所がある場合のその経度
+          participatory_space: このプロジェクトが所属するスペース（参加型プロセス、参加スペースなど）
+          reference: プロジェクトのユニークな参照
+          related_proposal_titles: 関連する提案のタイトル
+          related_proposal_urls: 関連する提案のURL
+          related_proposals: このプロジェクトに関連する提案
+          selected_at: プロジェクトが選択された日時
+          taxonomies: このプロジェクトのタクソノミー
+          title: プロジェクトのタイトル
+          updated_at: プロジェクトの更新日時
+          url: プロジェクトの URL
     orders:
       checkout:
         error: 投票処理中に問題が発生しました。
-        success_html: <p>あなたの投票は正常に受理されました。</p> <p class="text-sm font-normal"> <a class="text-secondary underline" href="%{rest_of_budgets_link}">残りの予算</a>を探索できます。</p>
-        success_no_left_budgets_html: 投票が正常に受理されました。
       destroy:
         error: 投票の取り消し中に問題が発生しました。
         success: 投票をキャンセルしました。
@@ -375,6 +432,7 @@ ja:
         project_proposal: このプロジェクトに含まれる提案
     statistics:
       orders_count: サポート
-      projects_count: プロジェクト
+      projects_count: 予算
+      projects_count_tooltip: 参加型予算プロジェクトの数と、それらに対して投票された総投票数です。
   index:
     confirmed_orders_count: 投票数

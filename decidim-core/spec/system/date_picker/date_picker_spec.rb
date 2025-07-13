@@ -94,6 +94,7 @@ describe "Datepicker" do
       it "fills the field correctly" do
         find(".datepicker__calendar-button").click
         find('span > input[name="year"]').set("1994")
+        find('select[name="month"]').find(:option, "January").select_option
         find(".wc-datepicker__next-month-button").click
         month = find('select[name="month"]').value
         formatted_month = format("%02d", month)
@@ -501,6 +502,7 @@ describe "Datepicker" do
       it "fills the field correctly" do
         find(".datepicker__calendar-button").click(x: 5, y: 10)
         find('span > input[name="year"]').set("1994")
+        find('select[name="month"]').find(:option, "January").select_option
         find(".wc-datepicker__next-month-button").click
         month = find('select[name="month"]').value
         formatted_month = format("%02d", month)
@@ -756,6 +758,7 @@ describe "Datepicker" do
       it "fills the field correctly" do
         find(".datepicker__calendar-button").click(x: 5, y: 10)
         find('span > input[name="year"]').set("1994")
+        find('select[name="month"]').find(:option, "January").select_option
         find(".wc-datepicker__next-month-button").click
         month = find('select[name="month"]').value
         formatted_month = format("%02d", month)

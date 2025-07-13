@@ -10,31 +10,13 @@ pl:
         few: Ankiety
         many: Ankiety
         other: Ankiety
-      decidim/surveys/survey_answer:
-        one: Odpowiedź
-        few: Odpowiedzi
-        many: Odpowiedzi
-        other: Odpowiedzi
   decidim:
     components:
       surveys:
-        actions:
-          answer: Odpowiedź
-        name: Ankieta
         settings:
           global:
             announcement: Ogłoszenie
-            clean_after_publish: Usuń odpowiedzi podczas publikowania ankiety
-            ends_at: Odpowiedzi akceptowane do
-            ends_at_help: Pozostaw puste jeśli nie określono daty
-            scope_id: Zakres
-            scopes_enabled: Zakresy włączone
-            starts_at: Odpowiedzi akceptowane od
-            starts_at_help: Pozostaw puste jeśli nie określono daty
           step:
-            allow_answers: Pozwól na wypełnianie
-            allow_unregistered: Pozwól niezarejestrowanym użytkownikom wypełnić ankietę
-            allow_unregistered_help: Jeśli to ustawienie jest w użyciu, logowanie nie jest wymagane aby odpowiedzieć na ankietę. Może to prowadzić do słabych lub nierzetelnych danych i będzie bardziej podatne na zautomatyzowane ataki. Należy zachować ostrożność! Pamiętaj, że uczestnik może odpowiedzieć na to samo badanie wielokrotnie, korzystając z różnych przeglądarek lub funkcji "prywatne przeglądanie" swojej przeglądarki internetowej.
             announcement: Ogłoszenie
     events:
       surveys:
@@ -48,33 +30,11 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
           email_subject: Nowa ankieta w %{participatory_space_title}
           notification_title: Ankieta <a href="%{resource_path}">%{resource_title}</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a> jest teraz otwarta.
-    metrics:
-      survey_answers:
-        description: Liczba ankiet wypełnionych przez użytkowników
-        object: odpowiedzi na ankiety
-        title: Odpowiedzi na ankiety
-    statistics:
-      answers_count: Odpowiedzi
     surveys:
       admin:
-        component:
-          actions:
-            answers_alert: Po opublikowaniu komponentu wszystkie wyniki zostaną usunięte.
-        exports:
-          survey_user_answers: Odpowiedzi użytkowników na pytania z ankiety
         surveys:
           update:
             invalid: Podczas zapisywania ankiety wystąpił błąd.
             success: Ankieta została zapisana pomyślnie.
       last_activity:
         new_survey: 'Nowa ankieta:'
-      survey_confirmation_mailer:
-        confirmation:
-          body: Pomyślnie udzielono odpowiedzi na ankietę %{questionnaire_title} w ramach %{participatory_space}
-          subject: Kwestionariusz %{questionnaire_title} odpowiadający na potwierdzenie
-        export_name: Odpowiedzi udzielone w ankiecie
-      surveys:
-        answer:
-          invalid: Podczas wypełniania ankiety wystąpił błąd.
-          spam_detected: Wystąpił błąd podczas wypełniania formularza. Być może zostało to zrobione zbyt szybko, czy możesz spróbować ponownie?
-          success: Twoja ankieta została wypełniona.

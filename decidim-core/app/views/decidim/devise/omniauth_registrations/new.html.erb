@@ -13,7 +13,7 @@
     <%= form_required_explanation %>
   </div>
 
-  <%= decidim_form_for(@form, namespace: "registration", as: resource_name, url: omniauth_registrations_path(resource_name), html: { id: "omniauth-register-form" }) do |f| %>
+  <%= decidim_form_for(@form, namespace: "registration", as: resource_name, url: decidim.omniauth_registrations_path(resource_name), html: { id: "omniauth-register-form" }) do |f| %>
 
     <div class="form__wrapper">
       <%= f.text_field :name, help_text: t("decidim.devise.omniauth_registrations.new.username_help"), autocomplete: "name", placeholder: "John Doe" %>

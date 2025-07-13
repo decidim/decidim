@@ -10,7 +10,7 @@ module Decidim
         attribute :position, Integer
         attribute :mandatory, Boolean, default: false
         attribute :question_type, String
-        attribute :answer_options, Array[AnswerOptionForm]
+        attribute :response_options, Array[ResponseOptionForm]
         attribute :max_choices, Integer
         attribute :deleted, Boolean, default: false
 
@@ -21,7 +21,7 @@ module Decidim
         validates :question_type, inclusion: { in: Decidim::Meetings::Question::QUESTION_TYPES }, if: :editable?
         validates :max_choices, numericality: { only_integer: true, greater_than: 1, less_than_or_equal_to: ->(form) { form.number_of_options } }, allow_blank: true, if: :editable?
         validates :body, translatable_presence: true, if: :requires_body?
-        validates :answer_options, presence: true, if: :editable?
+        validates :response_options, presence: true, if: :editable?
 
         def to_param
           return id if id.present?
@@ -34,7 +34,7 @@ module Decidim
         end
 
         def number_of_options
-          answer_options.size
+          response_options.size
         end
 
         private

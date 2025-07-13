@@ -11,7 +11,6 @@ fr:
         decidim_scope_id: Périmètre
         description: Description
         end_date: Date de fin
-        hashtag: Hashtag
         hero_image: Image de la page d'accueil
         location: Lieu
         main_logo: Logo principal
@@ -21,8 +20,6 @@ fr:
         published_at: Publié à
         registration_terms: Conditions d’inscription
         registrations_enabled: Inscriptions ouvertes
-        scope_id: Périmètre
-        scopes_enabled: Secteurs activés
         short_description: Brève description
         show_statistics: Montrer les statistiques
         sign_date: Date de signature
@@ -68,6 +65,8 @@ fr:
         email: Email
         name: Nom
         role: Rôle
+      partner:
+        logo: Logo
     errors:
       models:
         conference_registration_invite:
@@ -89,6 +88,7 @@ fr:
     admin:
       actions:
         confirm: Confirmer
+        confirm_delete_conference: Êtes-vous sûr(e) de vouloir supprimer cette conférence ? Si vous changez d'avis, vous pourrez la restaurer plus tard.
         new_conference: Nouvelle conférence
         new_conference_user_role: Nouvel administrateur de conférence
         new_media_link: Nouveau lien média
@@ -96,6 +96,7 @@ fr:
         new_registration_type: Nouveau type d'inscription
         new_speaker: Nouveau conférencier
         send_diplomas: Envoyer des certificats de présence
+        view_deleted_conferences: Voir les conférences supprimées
       conference_copies:
         new:
           copy: Copier
@@ -119,7 +120,7 @@ fr:
         destroy:
           success: Conférencier supprimé avec succès pour cette conférence.
         edit:
-          title: Mettre à jour le conférencier.
+          title: Mettre à jour le conférencier
           update: Mettre à jour
         index:
           conference_speakers_title: Conférenciers
@@ -142,13 +143,13 @@ fr:
         destroy:
           success: Administrateur supprimé de cette conférence.
         edit:
-          title: Mettre à jour l'administrateur de la conférence.
+          title: Mettre à jour l'administrateur de la conférence
           update: Mettre à jour
         index:
           conference_admins_title: Administrateurs de conférence
         new:
           create: Créer
-          title: Nouvel administrateur de conférence.
+          title: Nouvel administrateur de conférence
         update:
           error: Il y avait une erreur mise à jour d'un administrateur pour cette conférence.
           success: Administrateur mis à jour avec succès pour cette conférence.
@@ -165,6 +166,8 @@ fr:
         index:
           published: Publié
           unpublished: Non publié
+        manage_trash:
+          title: Conférences supprimées
         new:
           create: Créer
           title: Conférence
@@ -182,13 +185,13 @@ fr:
         destroy:
           success: Lien média supprimé avec succès.
         edit:
-          title: Mettre à jour le lien média.
+          title: Mettre à jour le lien média
           update: Mettre à jour
         index:
-          media_links_title: Liens médias
+          media_links_title: Liens média
         new:
           create: Créer
-          title: Lien média
+          title: Créer un lien média
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce lien multimédia.
           success: Lien média mis à jour avec succès.
@@ -198,34 +201,36 @@ fr:
           attachment_collections: Dossiers
           attachment_files: Fichiers
           attachments: Pièces jointes
-          categories: Catégories
           components: Fonctionnalités
           conference_admins: Administrateurs de conférence
           conference_invites: Invitations
           conference_speakers: Conférenciers
-          diploma: Certificat de participation
+          diploma: Attestation de présence
           info: À propos de cette conférence
-          media_links: Liens médias
+          media_links: Liens média
           moderations: Modération
           partners: Partenaires
           registration_types: Types d'inscription
           registrations: Inscriptions
           see_conference: Voir la conférence
-          user_registrations: Utilisateurs inscrits
+          user_registrations: Inscriptions d'utilisateurs
       models:
         conference:
           fields:
+            actions: Actions
             created_at: Créé à
             published: Publié
             title: Titre
         conference_speaker:
           fields:
+            actions: Actions
             affiliation: Organisme
             full_name: Nom complet
             position: Profession
           name: Conférencier
         conference_user_role:
           fields:
+            actions: Actions
             email: Email
             name: Nom
             role: Rôle
@@ -233,16 +238,18 @@ fr:
           roles:
             admin: Administrateur
             collaborator: Collaborateur
+            evaluator: Évaluateur
             moderator: Modérateur
-            valuator: Évaluateur
         media_link:
           fields:
+            actions: Actions
             date: Date
             link: Lien
             title: Titre
           name: Lien média
         partner:
           fields:
+            actions: Actions
             link: Lien
             logo: Logo
             name: Nom
@@ -253,6 +260,7 @@ fr:
             main_promotor: Promoteur principal
         registration_type:
           fields:
+            actions: Actions
             conference_meetings: Rencontres de la conférence
             price: Prix
             registrations_count: Nombre d'inscriptions
@@ -266,7 +274,7 @@ fr:
         destroy:
           success: Le partenaire a été supprimé avec succès de cette conférence.
         edit:
-          title: Mettre à jour le partenaire.
+          title: Mettre à jour le partenaire
           update: Mettre à jour
         new:
           create: Créer
@@ -288,7 +296,7 @@ fr:
         destroy:
           success: Le type d'inscription a bien été supprimé de cette conférence.
         edit:
-          title: Mettre à jour le type d'inscription.
+          title: Mettre à jour le type d'inscription
           update: Mettre à jour
         new:
           create: Créer
@@ -296,8 +304,14 @@ fr:
         update:
           error: Une erreur s'est produite lors de la mise à jour d'un type d'inscription pour cette conférence.
           success: Le type d'inscription a été mis à jour avec succès pour cette conférence.
+      taxonomy_filters:
+        space_filter_for:
+          conferences: Toutes les conférences
       titles:
         conferences: Conférences
+        conferences_deleted: Conférences supprimées
+      tooltips:
+        deleted_conferences_info: Les conférences ne peuvent être supprimées que si leur statut est "non publiée".
     admin_log:
       conference:
         create: "%{user_name} créé la %{resource_name} conférence"
@@ -383,7 +397,7 @@ fr:
         diplomas:
           edit:
             save: sauvegarder
-            title: Certificat de participation
+            title: Attestation de présence
         invite_join_conference_mailer:
           invite:
             decline: Refuser l'invitation '%{conference_title}'
@@ -403,7 +417,7 @@ fr:
             diploma_html: Vous trouverez le certificat de participation à la conférence <a href="%{url}">%{title}</a> dans les pièces jointes.
           diploma_user:
             attendance_verified_by: Présence vérifiée par
-            certificate_of_attendance: Certificat de participation
+            certificate_of_attendance: Attestation de présence
             certificate_of_attendance_description: Ceci certifie que <strong>%{user}</strong> a assisté et participé aux <strong>%{title}</strong> tenus au <strong>%{location}</strong> sur <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Il y a eu un problème lors de l'envoi des certificats de participation à la conférence.
@@ -473,6 +487,8 @@ fr:
           name: Conférences mises en avant
       index:
         title: Conférences
+      last_activity:
+        new_conference: 'Nouvelle conférence:'
       mailer:
         conference_registration_mailer:
           confirmation:
@@ -499,6 +515,7 @@ fr:
             sent: Envoyé
         conference_registration:
           fields:
+            actions: Actions
             email: Email
             name: Nom
             registration_type: Type d'inscription
@@ -519,10 +536,20 @@ fr:
           title: Types d'inscription
       show:
         details: Détails
-        introduction: introduction
+        introduction: Introduction
         objectives: Objectifs
         related_assemblies: Assemblées connexes
         related_participatory_processes: Concertations associées
+    download_your_data:
+      help:
+        conference_invites:
+          confirmed_at: La date à laquelle cette invitation a été confirmée
+          created_at: La date à laquelle cette invitation a été créée
+          updated_at: La date à laquelle cette invitation a été mise à jour pour la dernière fois
+        conference_registrations:
+          confirmed_at: La date à laquelle cette inscription a été confirmée
+          created_at: La date à laquelle cette inscription a été créée
+          updated_at: La date à laquelle cette inscription a été mise à jour pour la dernière fois
     events:
       conferences:
         conference_registration_confirmed:
@@ -572,6 +599,7 @@ fr:
       conferences: Conférences
     statistics:
       conferences_count: Conférences
+      conferences_count_tooltip: Le nombre de conférences publiées.
   devise:
     mailer:
       join_conference:

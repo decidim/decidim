@@ -5,7 +5,6 @@ require "spec_helper"
 shared_examples_for "general conversation permissions" do
   let(:context) { { conversation: } }
   let(:another_user) { create(:user) }
-  let(:group) { create(:user_group) }
 
   context "when the originator of the conversation is the user" do
     let!(:conversation) do
@@ -63,51 +62,6 @@ shared_examples_for "general conversation permissions" do
 
       it { is_expected.to eq false }
     end
-  end
-
-  context "when the originator of the conversation is a group" do
-    let(:context) { { conversation:, interlocutor: group } }
-    let!(:conversation) do
-      Decidim::Messaging::Conversation.start!(
-        originator: group,
-        interlocutors: [another_user],
-        body: "who wants apples?"
-      )
-    end
-
-    it { is_expected.to eq true }
-  end
-
-  context "when the group is an interlocutor" do
-    let(:context) { { conversation:, interlocutor: group } }
-    let!(:conversation) do
-      Decidim::Messaging::Conversation.start!(
-        originator: another_user,
-        interlocutors: [group],
-        body: "who wants apples?"
-      )
-    end
-
-    it { is_expected.to eq true }
-
-    context "and group is not specified as interlocutor" do
-      let(:context) { { conversation: } }
-
-      it { is_expected.to eq false }
-    end
-  end
-
-  context "when the group is not in the conversation" do
-    let(:context) { { conversation:, interlocutor: group } }
-    let!(:conversation) do
-      Decidim::Messaging::Conversation.start!(
-        originator: another_user,
-        interlocutors: [create(:user_group)],
-        body: "who wants apples?"
-      )
-    end
-
-    it { is_expected.to eq false }
   end
 end
 

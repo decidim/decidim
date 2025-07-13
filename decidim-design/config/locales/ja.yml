@@ -185,7 +185,7 @@ ja:
         conference_s: カンファレンスS
         conferences: カンファレンス
         context: コンテキスト
-        context_description: このセルは、ユーザーに関する情報を表示します。これは、リソース/コンテンツクリエーターを識別するための視覚的なサポートです。マウスをホバーすると、さらに詳しい情報とそのプロファイルへのリンクが含まれたツールチップが表示されます。
+        context_description: このセルはユーザーに関する情報を表示します。リソースやコンテンツの作成者を視覚的に識別するための補助となります。
         context_description_2: リソースの場合、このセルはメインヘッダーの下に表示されます。その他のコンテンツの場合、コンテンツ自体の隣に表示されます。
         debate_l: ディベートL
         debate_s: ディベートS
@@ -294,6 +294,7 @@ ja:
         usage_typography_2: インラインテキスト
         usage_typography_3: ダーク背景上のテキスト
         usage_typography_4: リンクとボタン
+        usage_typography_5: 無効なタブ
         value: 値
         variations: バリエーション
         variations_cards_description: 表示されるリソースのプロパティに応じて、各カードの見た目は異なります。この振る舞いは特定のセルでオーバーライドすることができます。

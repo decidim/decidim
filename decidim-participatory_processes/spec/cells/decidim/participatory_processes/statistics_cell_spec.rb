@@ -9,9 +9,9 @@ module Decidim::ParticipatoryProcesses
     it_behaves_like "statistics cell" do
       let(:model) do
         [
-          { stat_title: :participants_count, stat_number: 123 },
-          { stat_title: :proposals_count, stat_number: 456 },
-          { stat_title: :comments_count, stat_number: 50 }
+          { stat_title: :participants_count, data: [123] },
+          { stat_title: :participatory_space_proposals_count, data: [456, 10] },
+          { stat_title: :comments_count, data: [50] }
         ]
       end
     end

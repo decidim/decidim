@@ -185,7 +185,6 @@ pl:
         conference_s: Konferencja S
         conferences: Konferencje
         context: Kontekst
-        context_description: Ta komórka wyświetla informacje o użytkowniku. Jest to wizualna pomoc w identyfikacji twórcy zasobów/treści. Najechanie myszą wyświetla podpowiedź z dalszymi informacjami i linkami do jego lub jej profilu.
         context_description_2: W przypadku zasobów, ta komórka pojawia się pod głównym nagłówkiem. W przypadku innych treści pojawia się obok samej treści.
         debate_l: Debata L
         debate_s: Debata S

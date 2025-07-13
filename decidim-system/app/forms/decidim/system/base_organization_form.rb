@@ -18,6 +18,7 @@ module Decidim
       attribute :available_authorizations, Array[String]
       attribute :users_registration_mode, String
       attribute :default_locale, String
+      attribute :header_snippets, String
 
       jsonb_attribute :smtp_settings, [
         [:from, String],
@@ -46,7 +47,7 @@ module Decidim
       attribute :file_upload_settings, FileUploadSettingsForm
 
       OMNIATH_PROVIDERS_ATTRIBUTES = Decidim::OmniauthProvider.available.keys.map do |provider|
-        Rails.application.secrets.dig(:omniauth, provider).keys.map do |setting|
+        Decidim.omniauth_providers[provider].keys.map do |setting|
           if setting == :enabled
             [:"omniauth_settings_#{provider}_enabled", Boolean]
           else
@@ -74,13 +75,13 @@ module Decidim
       def clean_secondary_hosts
         return unless secondary_hosts
 
-        secondary_hosts.split("\n").map(&:chomp).select(&:present?)
+        secondary_hosts.split("\n").map(&:chomp).compact_blank
       end
 
       def clean_available_authorizations
         return unless available_authorizations
 
-        available_authorizations.select(&:present?)
+        available_authorizations.compact_blank
       end
 
       def password

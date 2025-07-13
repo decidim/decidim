@@ -13,11 +13,9 @@ describe "Search proposals" do
   let!(:searchables) { create_list(:proposal, 3, component:) }
   let!(:term) { strip_tags(translated(searchables.first.title)).split.sample }
   let(:component) { create(:proposal_component, participatory_space: participatory_process) }
-  let(:hashtag) { "#decidim" }
 
   before do
-    hashtag_proposal = create(:proposal, component:, title: "A proposal with a hashtag #{hashtag}")
-    searchables << hashtag_proposal
+    searchables << create(:proposal, component:, title: "A proposal with a title")
     searchables.each { |s| s.update(published_at: Time.current) }
   end
 

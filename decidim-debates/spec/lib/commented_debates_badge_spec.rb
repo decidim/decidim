@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "commented debates badge" do
-  let!(:debate) { create(:debate, :open_ama) }
+  let!(:debate) { create(:debate, :ongoing_ama) }
   let(:organization) { debate.component.organization }
   let!(:user) { create(:user, organization:) }
 
@@ -32,7 +32,7 @@ describe "commented debates badge" do
 
   describe "badge reset" do
     it "resets to the right score" do
-      debate2 = create(:debate, :open_ama, component: debate.component)
+      debate2 = create(:debate, :ongoing_ama, component: debate.component)
 
       create(:comment, author: user, commentable: debate, root_commentable: debate)
       create(:comment, author: user, commentable: debate, root_commentable: debate)

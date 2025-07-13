@@ -36,8 +36,6 @@ ko:
         alert_color: 알림
         badges_enabled: 뱃지 활성화
         comments_max_length: 댓글 최대 길이(기본값은 0으로 남김)
-        cta_button_path: 수행에 대한 호출 단추 경로
-        cta_button_text: 수행에 대한 호출 단추 텍스트
         customize_welcome_notification: 환영 알림 커스터마이징
         default_locale: 기본 위치
         description: 상세정보
@@ -47,12 +45,6 @@ ko:
         from: 보낸사람의 이메일 주소
         github_handler: Github handler
         highlight_color: 하이라이트
-        highlighted_content_banner_action_title: 실행버튼 URL
-        highlighted_content_banner_action_url: 실행버튼 URL
-        highlighted_content_banner_enabled: 하이라이트된 컨텐츠 배너 보기
-        highlighted_content_banner_image: 이미지
-        highlighted_content_banner_short_description: 요약
-        highlighted_content_banner_title: 제목
         host: 호스트
         instagram_handler: Instagram handler
         logo: 로고
@@ -73,7 +65,6 @@ ko:
         time_zone: 시간대
         tos_version: 서비스 버전 용어
         twitter_handler: X handler
-        user_groups_enabled: 그룹 활성화
         warning_color: 경고
         youtube_handler: YouTube handler
       participatory_space_private_user:
@@ -151,8 +142,6 @@ ko:
         attachment_collection:
           new: 새 첨부 폴더
         browse: 찾아보기
-        category:
-          new: 새 분류
         export: 모두 내보내기
         export-selection: 선택한 항목 내보내기
         import: 가져오기
@@ -162,12 +151,10 @@ ko:
           new: 새 참여 공간 비공개 사용자
         per_page: 페이지 당
         permissions: 권한
-        reject: 거절
         send_me_a_test_email: 나에게 테스트 메일 보내기
         share: 공유
         user:
           new: 새 관리자
-        verify: 인증
       admin_terms_of_service:
         accept:
           success: 좋습니다! 관리자 서비스 약관을 수락했습니다.
@@ -239,23 +226,8 @@ ko:
           justification: 사유
           title: 사용자%{name} 차단
       categories:
-        create:
-          error: 이 카테고리를 생성하는 도중 문제가 생겼습니다.
-          success: 카테고리가 생성되었습니다.
-        destroy:
-          error: 이 카테고리를 삭제하는 도중 문제가 발생했습니다. 하위 카테고리를 먼저 삭제하고, 이 카테고리에 속한 항목이 없게 한 후 다시 시도해보세요
-          success: 카테고리가 성공적으로 삭제되었습니다.
-        edit:
-          title: 카테고리 수정
-          update: 업데이트
         index:
           categories_title: 카테고리
-        new:
-          create: 카테고리 생성
-          title: 새 카테고리
-        update:
-          error: 이 카테고리를 업데이트하는 도중 문제가 생겼습니다.
-          success: 카테고리가 성공덕으로 업데이트되었습니다.
       component_permissions:
         update:
           error: 이 구성 요소의 권한을 업데이트하는 동안 문제가 발생했습니다.
@@ -265,9 +237,6 @@ ko:
           error: 이 구성요소를 생성하는 도중 문제가 생겼습니다.
           success: 구성요소가 성공적으로 생성되었습니다.
           success_landing_page: 구성 요소가 성공적으로 생성되었습니다. 공간 홈에 이 구성 요소의 내용 블록을 추가할 수 있습니다. <a href="%{landing_page_path}">Landing page</a>로 이동하여 구성하십시오.
-        destroy:
-          error: 이 구성요소를 삭제하는 도중 문제가 생겼습니다.
-          success: 구성요소가 성공적으로 삭제되었습니다.
         edit:
           title: 구성 요소 편집
           update: 업데이트
@@ -280,7 +249,6 @@ ko:
           headers:
             actions: 작업
             name: 구성 요소 이름
-            scope: 구성 요소 범위
             type: 구성 요소 유형
         new:
           add: 구성 요소 추가
@@ -322,8 +290,6 @@ ko:
           FormPDF: PDF
           JSON: JSON
       filters:
-        category_id_eq:
-          label: 카테고리
         filter_label: 필터
         invitation_accepted_at_present:
           label: 초대 수락됨
@@ -357,14 +323,7 @@ ko:
           values:
             'false': 게시됨
             'true': 게시되지 않음
-        scope_id_eq:
-          label: 범위
         search_label: 검색
-        search_placeholder:
-          name_or_nickname_or_email_cont: 이메일, 이름 또는 닉네임으로 %{collection} 을(를) 검색합니다.
-          reported_id_string_or_reported_content_cont: 보고 가능한 Id 또는 내용을 기준으로 %{collection} 을(를) 검색합니다.
-          title_cont: 제목별로 %{collection} 을(를) 검색합니다.
-          user_name_or_user_nickname_or_user_email_cont: 이메일, 이름 또는 닉네임으로 %{collection} 을(를) 검색합니다.
         state_eq:
           label: 상태
           values:
@@ -424,7 +383,6 @@ ko:
       logs:
         filters:
           participatory_space: 참여 공간 찾기
-          text: 이메일, 이름 또는 닉네임으로 을(를) 검색합니다.
           user: 사용자
         logs_list:
           no_logs_yet: 결과가 없습니다
@@ -438,7 +396,6 @@ ko:
         settings: 설정
         static_page_topics: 주제
         static_pages: 페이지
-        user_groups: 그룹
         users: 참여자
       models:
         area:
@@ -486,12 +443,8 @@ ko:
             name: 이름
         share_token:
           fields:
-            created_at: 생성일
             expires_at: 만료일
-            last_used_at: 마지막으로 사용한 시간
             times_used: 사용 시간
-            token: 토큰
-            user: 작성자
         static_page:
           fields:
             created_at: 생성 위치
@@ -536,7 +489,6 @@ ko:
           confirm_delete: 이 뉴스레터를 삭제하시겠습니까?
           followers: '팔로워 '
           has_been_sent_to: '다음에게 전송됨: '
-          no_scopes: 범위가 없습니다.
           not_sent: 전송되지 않음
           participants: '참여자 '
           subscribed_count: '구독중:'
@@ -550,13 +502,9 @@ ko:
           confirm_deliver: 이 뉴스레터를 전송하시겠습니까? 이 작업은 취소할 수 없습니다.
           deliver: 뉴스레터 전송
           followers_help: 목록에서 선택한 참여 공간을 따르는 것이 확인된 모든 사용자에게 뉴스레터를 보냅니다.
-          none: 없음
           participants_help: 목록에서 선택한 참여 공간을 따르는 것이 확인된 모든 사용자에게 뉴스레터를 보냅니다.
           recipients_count: 이 뉴스레터는 <strong id='receiveners_count'>% {count}/strong> 사용자에게 발송됩니다.
-          scopes_help: 계정의 "내 관심사" 설정에서 선택한 범위 중 하나라도 활성화된 사용자에게 뉴스레터를 보냅니다.
-          select_scopes: 계정의 내 관심사 설정에서 선택한 범위를 활성화한 사용자를 위해 필터링합니다.
           select_spaces: 뉴스레터를 분할할 공간 선택
-          select_users: 뉴스레터를 보낼 사용자 선택
           title: 전송 받는 사람 선택
           warning: "<strong>주의:/strong>이 뉴스레터는 알림 설정에서 <em>I want to received newsletter</em>을 활성화한 사용자에게만 발송됩니다."
         send:
@@ -588,20 +536,6 @@ ko:
           hidden: 숨겨짐
           show: 표시
           title: 참가자의 이메일 주소 보기
-      organization_appearance:
-        form:
-          colors:
-            choose_color: 기본 색상 선택
-            title: 색상 선택기
-          cta_button_path_help_html: '홈페이지에서 수행 호출 단추가 링크되는 위치를 덮어쓸 수 있습니다. 여기서는 전체 URL이 아닌 일부 경로를 사용하십시오. 문자, 숫자, 대시 및 슬래시를 사용할 수 있으며 문자로 시작해야 합니다. 시작 텍스트와 설명 사이에 홈페이지에서 수행 호출 단추가 표시됩니다. 예: %{url}'
-          cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
-          header_snippets:
-            header_snippets_help_html: 이 필드를 사용하여 HTML 헤드에 항목을 추가할 수 있습니다. 가장 일반적인 용도는 자바스크립트나 CSS가 필요한 타사 서비스를 통합하는 것입니다. 또한 이를 사용하여 HTML에 추가 메타 태그를 추가할 수 있습니다. 이는 관리자 섹션이 아닌 공용 페이지에서만 렌더링됩니다. 코드가 외부 API와 상호 작용하거나 애플리케이션 보안 지침을 준수하지 않는 경우 콘텐츠 보안 정책을 변경해야 합니다. 지침 사이트 </a>에서 <a href="https://docs.decidim.org/develop/en/customize/content_security_policy ">에 대해 자세히 알아보십시오.
-          homepage_appearance_title: 홈페이지 외관 편집
-          homepage_highlighted_content_banner_title: 강조 표시된 내용 배너
-          images:
-            layout_appearance_title: 레이아웃 모양 편집
-            preview: 미리보기
       participatory_space_private_users:
         new:
           create: 생성
@@ -627,10 +561,6 @@ ko:
           title: 권한 수정
         update:
           success: 권한을 성공적으로 업데이트했습니다.
-      resources:
-        index:
-          headers:
-            scope: 범위
       scope_types:
         create:
           error: 새 영역 타입을 생성하는 도중 문제가 생겼습니다.
@@ -648,13 +578,6 @@ ko:
       share_tokens:
         actions:
           destroy: 삭제
-          share: 공유
-        destroy:
-          error: 토큰 삭제에 문제가 발생했습니다.
-          success: 토큰 삭제 성공
-        share_tokens:
-          empty: 활성 토큰이 없습니다.
-          title: 토큰 공유하기
       shared:
         gallery:
           add_images: 이미지 추가
@@ -680,7 +603,6 @@ ko:
           none: 없음
           slug_help_html: '전체 URL이 아닌 일부 경로를 사용하십시오. 문자, 숫자, 대시 및 슬래시를 사용할 수 있으며 문자로 시작해야 합니다. 예: %{url}'
         new:
-          create: 페이지 생성
           title: 새 페이지
         topic:
           empty: 이 주제 아래에 페이지가 없습니다.
@@ -694,8 +616,6 @@ ko:
         areas: 영역
         authorization_workflows: 인증 방식
         dashboard: 대시보드
-        edit_landing_page: 페이지 콘텐츠
-        edit_organization_appearance: 홈페이지 외관 편집
         impersonatable_users: 관리 가능한 참가자
         impersonations: 참가자 관리
         menu: 메뉴
@@ -705,24 +625,7 @@ ko:
         participants: 참가자
         scope_types: 범위 종류
         scopes: 범위
-        statistics: 활동
-        user_groups: 그룹
         users: 관리자
-      user_group:
-        csv_verify:
-          invalid: CSV 파일을 읽는 데 문제가 발생했습니다.
-          success: CSV 파일 업로드가 완료되었습니다. 기준과 일치하는 그룹을 확인 중입니다. 시간이 좀 걸릴 수 있습니다.
-        reject:
-          invalid: 이 그룹을 거부하는 동안 문제가 발생했습니다.
-          success: 그룹이 거부되었습니다.
-        verify:
-          invalid: 이 그룹을 인증하는 동안 문제가 발생했습니다.
-          success: 그룹이 성공적으로 인증되었습니다.
-      user_groups:
-        index:
-          state:
-            rejected: 거부됨
-            verified: 확인됨
       users:
         form:
           email: 이메일
@@ -737,16 +640,6 @@ ko:
           last_month: 지난 달
           last_week: 지난 주
           participants: 참가자
-    metrics:
-      blocked_users:
-        object: 차단된 사용자
-        title: 차단된 사용자
-      reported_users:
-        object: 신고된 사용자
-        title: 신고된 사용자
-      user_reports:
-        object: 사용자 신고
-        title: 사용자 신고
     moderations:
       actions:
         expand: 확장

@@ -1,0 +1,93 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+
+module Decidim
+  module Elections
+    module Admin
+      describe QuestionsController do
+        let(:component) { create(:elections_component) }
+        let(:organization) { component.organization }
+        let(:current_user) { create(:user, :confirmed, :admin, organization:) }
+        let!(:election) { create(:election, component:) }
+        let!(:question) { create(:election_question, election:, body: { "en" => "Question 1" }, question_type: "multiple_option") }
+        let!(:response_option1) { create(:election_response_option, question:, body: { "en" => "Option 1" }) }
+        let!(:response_option2) { create(:election_response_option, question:, body: { "en" => "Option 2" }) }
+
+        before do
+          request.env["decidim.current_organization"] = organization
+          request.env["decidim.current_participatory_space"] = component.participatory_space
+          request.env["decidim.current_component"] = component
+          sign_in current_user
+        end
+
+        describe "GET edit_questions" do
+          it "renders the edit_questions template" do
+            get :edit_questions, params: { id: election.id }
+            expect(response).to render_template("decidim/elections/admin/questions/edit_questions")
+            expect(assigns(:form)).to be_a(Decidim::Elections::Admin::QuestionsForm)
+          end
+        end
+
+        describe "PATCH update" do
+          let(:valid_questions_params) do
+            [
+              {
+                id: question.id,
+                body_en: "Updated Question",
+                question_type: "multiple_option",
+                position: 0,
+                response_options: [
+                  { body_en: "Updated Option 1" },
+                  { body_en: "Updated Option 2" }
+                ]
+              }
+            ]
+          end
+
+          let(:invalid_questions_params) do
+            [
+              {
+                id: question.id,
+                body_en: "", # Invalid body
+                question_type: "multiple_option",
+                position: 0,
+                response_options: [
+                  { body_en: "Only One Option" }
+                ]
+              }
+            ]
+          end
+
+          it "updates the questions and redirects with notice" do
+            edit_questions_election_path = Decidim::EngineRouter.admin_proxy(component).edit_questions_election_path(election)
+
+            allow(controller).to receive(:edit_questions_election_path).and_return(edit_questions_election_path)
+
+            patch :update, params: { id: election.id, questions: valid_questions_params }
+            expect(response).to redirect_to(edit_questions_election_path)
+            expect(flash[:notice]).to be_present
+          end
+
+          it "renders edit_questions on invalid data (less than 2 options) and shows alert" do
+            patch :update, params: { id: election.id, questions: invalid_questions_params }
+            expect(response).to render_template("decidim/elections/admin/questions/edit_questions")
+            expect(flash.now[:alert]).to be_present
+          end
+        end
+
+        describe "#blank_question" do
+          it "returns a blank QuestionForm" do
+            expect(controller.send(:blank_question)).to be_a(Decidim::Elections::Admin::QuestionForm)
+          end
+        end
+
+        describe "#blank_response_option" do
+          it "returns a blank ResponseOptionForm" do
+            expect(controller.send(:blank_response_option)).to be_a(Decidim::Elections::Admin::ResponseOptionForm)
+          end
+        end
+      end
+    end
+  end
+end

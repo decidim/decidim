@@ -8,7 +8,7 @@ module Decidim
         include TranslatableAttributes
 
         translatable_attribute :title, String
-        translatable_attribute :description, String
+        translatable_attribute :description, Decidim::Attributes::RichText
 
         attribute :duration, Integer, default: 0
         attribute :parent_id, Integer
@@ -30,6 +30,10 @@ module Decidim
           return id if id.present?
 
           "meeting-agenda-item-child-id"
+        end
+
+        def map_model(model)
+          self.description = model.presenter.editor_description(all_locales: true)
         end
       end
     end

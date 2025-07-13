@@ -4,7 +4,6 @@ uk:
       decidim/comments/comment_by_followed_user_event: Коментар
       decidim/comments/comment_created_event: Коментар
       decidim/comments/reply_created_event: Відповідь на коментар
-      decidim/comments/user_group_mentioned_event: Згадка
       decidim/comments/user_mentioned_event: Згадка
   activerecord:
     models:
@@ -29,8 +28,6 @@ uk:
           body:
             label: Коментар
             placeholder: Що ви думаєте з цього приводу?
-          user_group_id:
-            label: Коментувати як
         opinion:
           neutral: Безсторонньо
         remaining_characters: "Залишилось %{count} символів"
@@ -65,9 +62,6 @@ uk:
         comment_by_followed_user:
           email_intro: "%{author_name} залишив коментар у %{resource_title}. Ви можете прочитати його на сторінці:"
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_name}. Ви можете припинити стежити за ним на сторінці його профілю.
-          email_subject: У %{resource_title} з'явився новий коментар від %{author_name}
-          notification_title: У <a href="%{resource_path}">%{resource_title}</a> з'явився новий коментар від <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        comment_by_followed_user_group:
           email_subject: У %{resource_title} з'явився новий коментар від %{author_name}
           notification_title: У <a href="%{resource_path}">%{resource_title}</a> з'явився новий коментар від <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         comment_created:

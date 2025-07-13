@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.version = Decidim::Sortitions.version
   s.authors = ["Juan Salvador Perez Garcia"]
   s.email = ["jsperezg@gmail.com"]
-  s.license = "AGPL-3.0"
+  s.license = "AGPL-3.0-or-later"
   s.homepage = "https://decidim.org"
   s.metadata = {
     "bug_tracker_uri" => "https://github.com/decidim/decidim/issues",
@@ -35,5 +35,7 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-core", Decidim::Sortitions.version
   s.add_dependency "decidim-proposals", Decidim::Sortitions.version
 
+  s.add_development_dependency "decidim-assemblies", Decidim::Sortitions.version
   s.add_development_dependency "decidim-dev", Decidim::Sortitions.version
+  s.add_development_dependency "decidim-participatory_processes", Decidim::Sortitions.version
 end

@@ -9,7 +9,7 @@ module Decidim
 
         attribute :decidim_question_id, Integer
         attribute :decidim_condition_question_id, Integer
-        attribute :decidim_answer_option_id, Integer
+        attribute :decidim_response_option_id, Integer
         attribute :condition_type, String
         attribute :mandatory, Boolean, default: false
         attribute :deleted, Boolean, default: false
@@ -18,13 +18,13 @@ module Decidim
 
         validates :question, presence: true, unless: :deleted
         validates :condition_question, presence: true, unless: :deleted
-        validates :answer_option, presence: true, if: :answer_option_mandatory?
+        validates :response_option, presence: true, if: :response_option_mandatory?
 
         validates :condition_value, translatable_presence: true, if: :condition_value_mandatory?
         validates :condition_type, presence: true, unless: :deleted
 
         validate :condition_question_position, unless: :deleted
-        validate :valid_answer_option?, unless: :deleted
+        validate :valid_response_option?, unless: :deleted
 
         def to_param
           return id if id.present?
@@ -32,10 +32,10 @@ module Decidim
           "questionnaire-display-condition-id"
         end
 
-        def answer_options
+        def response_options
           return [] if condition_question.blank?
 
-          condition_question.answer_options
+          condition_question.response_options
         end
 
         def questions_for_select(questionnaire, id)
@@ -65,11 +65,11 @@ module Decidim
           @condition_question ||= Question.find_by(id: decidim_condition_question_id)
         end
 
-        # Finds the Answer Option from the given decidim_answer_option_id
+        # Finds the Response Option from the given decidim_response_option_id
         #
-        # Returns a Decidim::Forms::AnswerOption
-        def answer_option
-          @answer_option ||= AnswerOption.find_by(id: decidim_answer_option_id)
+        # Returns a Decidim::Forms::ResponseOption
+        def response_option
+          @response_option ||= ResponseOption.find_by(id: decidim_response_option_id)
         end
 
         private
@@ -78,15 +78,15 @@ module Decidim
           !deleted && condition_type == "match"
         end
 
-        def answer_option_mandatory?
+        def response_option_mandatory?
           !deleted && %w(equal not_equal).include?(condition_type)
         end
 
-        def valid_answer_option?
-          return unless answer_option_mandatory?
-          return if answer_option.blank?
+        def valid_response_option?
+          return unless response_option_mandatory?
+          return if response_option.blank?
 
-          errors.add(:decidim_answer_option_id, :invalid) if answer_option.question.id != decidim_condition_question_id
+          errors.add(:decidim_response_option_id, :invalid) if response_option.question.id != decidim_condition_question_id
         end
 
         def condition_question_position

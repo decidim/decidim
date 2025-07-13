@@ -1,6 +1,9 @@
 cs:
   activemodel:
     attributes:
+      dummy:
+        image: Obrázek
+      dummy_attribute: Zástupný atribut
       dummy_resource:
         created_at: Vytvořeno v
         decidim_scope_id: Oblast působnosti
@@ -14,6 +17,7 @@ cs:
       dummy:
         settings:
           global:
+            clear_all: Vymazat vše
             guided: Řízené zadávání
             guided_help: Text nápovědy
             guided_readonly: Zakázaný zápis
@@ -22,6 +26,7 @@ cs:
             guided_rich_readonly_html: HTML <strong>nápověda</strong> text pro zakázaný zápis
             readonly_attribute: Atribut pouze pro čtení
             test: Zkouška A
+            test_add: Přidat test
             test_choices:
               a: Možnost A
               b: Možnost B
@@ -31,8 +36,8 @@ cs:
               baz: Baz
               foo: Foo
           step:
-            endorsements_blocked: Schvalování blokováno
-            endorsements_enabled: Schvalování povoleno
+            likes_blocked: Líbí se mi zablokováno
+            likes_enabled: Líbí se mi povoleno
             readonly_step_attribute: Atribut krok čtení
             test_options:
               bar: Bar

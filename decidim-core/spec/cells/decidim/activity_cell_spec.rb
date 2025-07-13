@@ -23,18 +23,6 @@ describe Decidim::ActivityCell, type: :cell do
 
     let(:author) { create(:user, organization: component.organization) }
 
-    context "when the author is a user group" do
-      before do
-        resource.author = author
-        resource.user_group = create(:user_group, :verified, organization: component.organization, users: [author])
-        resource.save!
-      end
-
-      it "returns the user group" do
-        expect(subject.user).to eq(resource.user_group)
-      end
-    end
-
     context "when the author is a user" do
       before do
         resource.author = author
@@ -87,33 +75,13 @@ describe Decidim::ActivityCell, type: :cell do
       allow(controller).to receive(:current_user).and_return(nil)
     end
 
-    context "when the author is shown" do
-      let(:show_author) { true }
-
-      context "and the user is updated" do
-        let!(:original_hash) { subject.send(:cache_hash) }
-
-        before do
-          # rubocop:disable Rails/SkipsModelValidations
-          resource.normalized_author.touch
-          # rubocop:enable Rails/SkipsModelValidations
-
-          subject.user.reload
-        end
-
-        it "changes the cache hash" do
-          expect(subject.send(:cache_hash)).not_to eq(original_hash)
-        end
-      end
-    end
-
     context "when the author is hidden" do
       context "and the user is updated" do
         let!(:original_hash) { subject.send(:cache_hash) }
 
         before do
           # rubocop:disable Rails/SkipsModelValidations
-          resource.normalized_author.touch
+          resource.author.touch
           # rubocop:enable Rails/SkipsModelValidations
 
           subject.user.reload

@@ -32,9 +32,9 @@ module Decidim::Meetings
         expect(subject.size.positive?).to be true
       end
 
-      context "when proposal linking is disabled" do
+      context "when the proposal module is not installed" do
         before do
-          allow(Decidim::Meetings).to receive(:enable_proposal_linking).and_return(false)
+          allow(Decidim).to receive(:module_installed?).and_return(false)
         end
 
         it "returns an empty array and does not call authored_proposals" do
@@ -61,12 +61,31 @@ module Decidim::Meetings
       end
     end
 
-    describe "#description" do
+    describe "#taxonomy_names" do
+      let(:taxonomy1) { create(:taxonomy, :with_parent, organization:) }
+      let(:taxonomy2) { create(:taxonomy, :with_parent, organization:) }
+      let(:meeting) { create(:meeting, component: meeting_component, taxonomies: [taxonomy1, taxonomy2]) }
+
+      subject { presented_meeting.taxonomy_names }
+
+      it "returns the taxonomy names" do
+        expect(subject).to contain_exactly(translated(taxonomy1.name), translated(taxonomy2.name))
+      end
+    end
+
+    describe "description" do
       let(:description1) do
-        Decidim::ContentProcessor.parse_with_processor(:hashtag, "Description #description", current_organization: organization).rewrite
+        Decidim::ContentProcessor.parse(
+          "Description description",
+          current_organization:
+          organization
+        ).rewrite
       end
       let(:description2) do
-        Decidim::ContentProcessor.parse_with_processor(:hashtag, "Description in Spanish #description", current_organization: organization).rewrite
+        Decidim::ContentProcessor.parse(
+          "Description in Spanish description",
+          current_organization: organization
+        ).rewrite
       end
       let(:meeting) do
         create(
@@ -81,13 +100,10 @@ module Decidim::Meetings
         )
       end
 
-      it "parses hashtags in machine translations" do
-        expect(meeting.description["en"]).to match(/gid:/)
-        expect(meeting.description["machine_translations"]["es"]).to match(/gid:/)
-
+      it "parses the description through machine translations" do
         presented_description = presented_meeting.description(all_locales: true)
-        expect(presented_description["en"]).to eq("Description #description")
-        expect(presented_description["machine_translations"]["es"]).to eq("Description in Spanish #description")
+        expect(presented_description["en"]).to eq("Description description")
+        expect(presented_description["machine_translations"]["es"]).to eq("Description in Spanish description")
       end
 
       context "when sanitizes any HTML input" do
@@ -101,12 +117,23 @@ module Decidim::Meetings
     end
 
     describe "#editor_description" do
+      let(:html) do
+        <<~HTML
+          <p>Paragraph with a user mention #{user.to_global_id} and another user mention #{user2.to_global_id}</p>
+        HTML
+      end
+
+      let(:editor_html) do
+        <<~HTML
+          <p>Paragraph with a user mention #{html_mention(user)} and another user mention #{html_mention(user2)}</p>
+        HTML
+      end
       let(:meeting) { create(:meeting, component: meeting_component, description:) }
       let(:description) { { en: html, es: html } }
 
-      include_context "with editor content containing hashtags and mentions"
+      include_context "with editor content containing mentions"
 
-      it "converts the hashtags and mentions to WYSIWYG editor ready elements" do
+      it "converts the mentions to WYSIWYG editor ready elements" do
         expect(presented_meeting.editor_description(all_locales: true)).to eq("en" => editor_html, "es" => editor_html)
       end
     end

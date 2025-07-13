@@ -2,16 +2,17 @@
 en:
   activemodel:
     attributes:
+      milestone:
+        description: Description
+        entry_date: Date
+        title: Title
       result:
         decidim_accountability_status_id: Status
         decidim_category_id: Category
         decidim_scope_id: Scope
         description: Description
         end_date: End date
-        meetings_ids: Included meetings
         progress: Progress
-        project_ids: Included projects
-        proposals: Included proposals
         start_date: Start date
         subresults: Subresults
         title: Title
@@ -21,15 +22,19 @@ en:
         key: Key
         name: Name
         progress: Progress
-      timeline_entry:
-        description: Description
-        entry_date: Date
-        title: Title
     models:
       decidim/accountability/proposal_linked_event: Proposal included in a result
       decidim/accountability/result_progress_updated_event: Result progress updated
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: This result %{link} was included
+            meetings_ids: 'It was discussed in this meeting: %{link}'
+            project_ids: 'It was included in this project: %{link}'
+            proposal_ids: 'It was included in this proposal: %{link}'
+            text: 'It was added to this result: %{link}'
       decidim/accountability/result:
         one: Result
         other: Results
@@ -38,21 +43,48 @@ en:
       actions:
         attachment_collections: Folders
         attachments: Attachments
+        confirm_delete_result: Are you sure you want to delete this result?
         confirm_destroy: Are you sure you want to delete this %{name}?
+        deleted_results_info: Deleted results can be restored from the trash.
         destroy: Delete
         edit: Edit
-        import: Import projects from another component
+        import: Import results from another component
         import_csv: Import results from CSV file
+        milestones: Milestones
+        new_milestone: New milestone
         new_result: New result
         new_status: New status
-        new_timeline_entry: New timeline entry
         preview: Preview
-        timeline_entries: Project evolution
         title: Actions
+        view_deleted_results: View deleted results
       admin:
         exports:
           result_comments: Comments
           results: Results
+        import_components:
+          create:
+            invalid: There was a problem importing the results, please follow the instructions carefully and make sure you have selected projects for implementation.
+          filters:
+            new_items_projects:
+              one: 1 selected project will be imported
+              other: "%{count} selected projects will be imported"
+              zero: There are no selected projects in this origin component
+            new_items_proposals:
+              one: 1 proposal will be imported
+              other: "%{count} proposals will be imported"
+              zero: There are no proposals in this origin component
+            proposal_state: Proposal status
+            select_state: Select status
+          form:
+            create: Import
+            no_components: There are no components in this participatory space to import.
+            origin_component_id: Origin component
+            select_component: Select a component
+          new:
+            success:
+              one: 1 result queued to be imported. You will be notified by email, once completed.
+              other: "%{count} results queued to be imported. You will be notified by email, once completed."
+            title: Import results from another component
         import_results:
           new:
             download_export: Download the Export with CSV format
@@ -63,10 +95,9 @@ en:
               <li><a href='%{link_new_status}' target='_blank'>Create the Statuses for the Results</a> that you want to add</li>
               <li><a href='%{link_new_result}' target='_blank'>Create at least one Result manually</a> through this Admin panel before using Import, for having a better understanding of the format and what you will need to fill out.</li>
               <li>%{link_export_csv}</li>
-              <li>Make the changes locally. You can only change the following columns of the CSV:
+              <li>Make the changes locally. You can only change the following columns of the CSV (the rest will be ignored):</li>
                 <ul>
-                <li><b>category/id:</b> ID for the Category</li>
-                <li><b>scope/id:</b> ID for the Scope</li>
+                <li><b>taxonomies/ids:</b> IDs for the Taxonomies (if more than one, separate with a comma)</li>
                 <li><b>parent/id:</b> ID of the parent (for related Results). Optional</li>
                 <li><b>title/en:</b> Title on English language. This will depend on your platform language configuration.</li>
                 <li><b>description/en:</b> Description on English language. This will depend on your platform language configuration.</li>
@@ -83,45 +114,74 @@ en:
           create:
             invalid: There was a problem importing the results.
             success: The file has begun importing. You will receive an email in the next few minutes with the result of the import.
+        milestones:
+          create:
+            invalid: There was a problem creating this milestone.
+            success: Milestone successfully created.
+          destroy:
+            success: Milestone successfully deleted.
+          edit:
+            title: Edit milestone
+            update: Update milestone
+          index:
+            title: Milestones
+          new:
+            create: Create milestone
+            title: New milestone
+          update:
+            invalid: There was a problem updating this milestone.
+            success: Milestone successfully updated.
         models:
           result:
             name: Result
           status:
             name: Status
-        projects_import:
-          create:
-            invalid: There was a problem importing the projects into results, please follow the instructions carefully and make sure you have selected projects for implementation.
-          new:
-            create: Import
-            import_all_selected_projects: Import all projects selected for implementation
-            new_items:
-              one: 1 selected project will be imported
-              other: "%{count} selected projects will be imported"
-              zero: There are no selected projects in this origin component
-            no_components: There are no budgets components in this participatory space to import the projects into results.
-            origin_component_id: Origin component
-            select_component: Select a component
-            success:
-              one: 1 project queued to be imported. You will be notified by email, once completed.
-              other: "%{count} projects queued to be imported. You will be notified by email, once completed."
-            title: Import projects from another component
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: Change date
+              end_date: End date
+              start_date: Start date
+            dropdown:
+              actions: Actions
+              change_dates: Change dates
+              change_status: Change status
+              change_taxonomies: Change taxonomies
+            status_form:
+              change_status: Change status
+              status: Status
+            submit_buttons:
+              cancel: Cancel
+            taxonomies_form:
+              change_taxonomies: Change taxonomies
           create:
             invalid: There was a problem creating this result.
             success: Result successfully created.
-          destroy:
-            success: Result successfully deleted.
           edit:
             title: Edit result
             update: Update result
           index:
+            selected: Selected
             title: Results
+          manage_trash:
+            title: Deleted results
           new:
             create: Create result
             title: New result
           update:
             invalid: There was a problem updating this result.
             success: Result successfully updated.
+          update_dates:
+            invalid: There was a problem updating the results dates
+            success: Results dates successfully updated
+          update_status:
+            invalid: There was a problem updating the results status
+            success: Results status successfully updated
+          update_taxonomies:
+            invalid: Could not update taxonomies %{taxonomies} for results %{results}
+            select_a_result: Select a result
+            select_a_taxonomy: Select a taxonomy
+            success: Successfully updated taxonomies %{taxonomies} for results %{results}
         shared:
           subnav:
             statuses: Statuses
@@ -142,42 +202,29 @@ en:
           update:
             invalid: There was a problem updating this status.
             success: Status successfully updated.
-        timeline_entries:
-          create:
-            invalid: There was a problem creating this entry.
-            success: Entry successfully created.
-          destroy:
-            success: Entry successfully deleted.
-          edit:
-            title: Edit entry
-            update: Update entry
-          index:
-            title: Project timeline entries
-          new:
-            create: Create entry
-            title: New entry
-          update:
-            invalid: There was a problem updating this entry.
-            success: Entry successfully updated.
       admin_log:
+        milestones:
+          create: "%{user_name} created the %{resource_name} milestone"
+          delete: "%{user_name} deleted the %{resource_name} milestone"
+          update: "%{user_name} updated the %{resource_name} milestone"
         result:
           create: "%{user_name} created result %{resource_name} in %{space_name}"
           delete: "%{user_name} deleted the %{resource_name} result in %{space_name}"
+          restore: "%{user_name} restored the %{resource_name} result in %{space_name}"
+          soft_delete: "%{user_name} moved the %{resource_name} result in %{space_name} to the trash"
           update: "%{user_name} updated result %{resource_name} in %{space_name}"
         status:
           create: "%{user_name} created the %{resource_name} status"
           delete: "%{user_name} deleted the %{resource_name} status"
           update: "%{user_name} updated the %{resource_name} status"
-        timeline_entry:
-          create: "%{user_name} created the %{resource_name} timeline entry"
-          delete: "%{user_name} deleted the %{resource_name} timeline entry"
-          update: "%{user_name} updated the %{resource_name} timeline entry"
         value_types:
           parent_presenter:
             not_found: 'The parent was not found on the database (ID: %{id})'
       content_blocks:
         highlighted_results:
           results: Results
+      creation:
+        text: This result was created
       import_mailer:
         import:
           errors: Errors
@@ -192,19 +239,29 @@ en:
             other: "%{count} results were imported from projects."
           subject: Successful import of projects
           success: Successful imported projects to results in the %{component_name} component. You can review the results in the administration interface.
+      import_proposals_mailer:
+        import:
+          added_proposals:
+            one: One result was imported from proposals
+            other: "%{count} results were imported from proposals."
+          subject: Successful import of proposals
+          success: Successful imported proposals to results in the %{component_name} component. You can review the results in the administration interface.
       last_activity:
         new_result: 'New result:'
       models:
+        milestone:
+          fields:
+            entry_date: Date
+            title: Title
         result:
           fields:
-            category: Category
             created_at: Created
             end_date: End date
             id: ID
             progress: Progress
-            scope: Scope
             start_date: Start date
             status: Status
+            taxonomies: Taxonomies
             title: Title
         status:
           fields:
@@ -212,43 +269,32 @@ en:
             key: Key
             name: Name
             progress: Progress
-        timeline_entry:
-          fields:
-            entry_date: Date
-            title: Title
       results:
         count:
           results_count:
             one: 1 result
             other: "%{count} results"
-        filters:
-          all: All
-        home:
-          categories_label: Categories
-          empty: There are no results yet.
-          empty_filters: There are no results with this criteria.
-          subcategories_label: Subcategories
         home_header:
           global_status: Global execution status
-        nav_breadcrumb:
-          global: Global execution
+        milestones:
+          title: Milestones
         no_results: There are no projects
+        root_taxonomies:
+          title: 'View by:'
         search:
           search: Search for actions
         show:
           stats:
             back_to_resource: Go back to result
-        timeline:
-          title: Project evolution
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Category
-          scope_id_eq:
-            label: Scope
           status_id_eq:
             label: Status
+          taxonomies_part_of_contains:
+            label: Taxonomy
+      tooltips:
+        deleted_results_info: Cannot delete this result
     components:
       accountability:
         actions:
@@ -256,14 +302,25 @@ en:
         name: Accountability
         settings:
           global:
+            clear_all: Clear all
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
+            default_taxonomy: Default taxonomy
+            default_taxonomy_help: Select which taxonomy you want to show by default. If no taxonomy is selected, the results will be shown in a list format.
+            define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             display_progress_enabled: Display progress
+            geocoding_enabled: Maps enabled
             intro: Intro
-            scope_id: Scope
-            scopes_enabled: Scopes enabled
+            no_taxonomy_filters_found: No taxonomy filters found.
+            taxonomy_filters: Select filters for the component
+            taxonomy_filters_add: Add filter
           step:
             comments_blocked: Comments blocked
+          visualization: Visualization
+    download_your_data:
+      show:
+        result_comments: Result comments export
+        results: Results export
     events:
       accountability:
         proposal_linked:
@@ -276,11 +333,40 @@ en:
           email_outro: You have received this notification because you are following "%{proposal_title}", and this proposal is included in the result "%{resource_title}". You can stop receiving notifications following the previous link.
           email_subject: An update to %{resource_title} progress
           notification_title: The result <a href="%{resource_path}">%{resource_title}</a>, which includes the proposal <a href="%{proposal_path}">%{proposal_title}</a>, is now %{progress}% complete.
-    metrics:
-      results:
-        description: Number of results generated
-        object: results
-        title: Results
+    open_data:
+      help:
+        result_comments:
+          alignment: If this comment was a favour, against or neutral
+          author: The name of the participant that made this comment
+          body: The comment itself
+          commentable_id: The unique id of the commentable
+          commentable_type: The type of the commentable (if it was a result, a proposal, etc.)
+          created_at: The date when this comment was created
+          depth: The place where this comment is in the three of comments (if it is an answer or an answer of an answer)
+          id: The id for this comment
+          locale: The locale (language) that the participant had when leaving this comment
+          root_commentable_url: The URL of the resource that ties to this comment
+        results:
+          address: The address of the result (if any)
+          children_count: The number of child results
+          comments_count: The number of comments that this result has
+          component: The component that the result belongs to
+          created_at: The date when the result was created
+          description: The description of the result
+          end_date: The date when the result ends execution and it is finished
+          id: The unique identifier of the result
+          latitude: The latitude of the result in case it has a physical location
+          longitude: The longitude of the result in case it has a physical location
+          parent: The parent result (if any) of the result
+          progress: The percentage of the execution of the result
+          proposal_urls: The URLs of the proposals that are included in this result
+          reference: The unique reference of the result
+          start_date: The date when the result starts execution
+          status: The current status of this result
+          taxonomies: The taxonomies of the result
+          title: The title of the result
+          updated_at: The last date this result was updated
+          url: The URL where this result can be found
     participatory_spaces:
       highlighted_results:
         see_all: See all results
@@ -291,3 +377,4 @@ en:
         result_proposal: Proposals included in this result
     statistics:
       results_count: Results
+      results_count_tooltip: The number of decisions or outcomes generated from this space.

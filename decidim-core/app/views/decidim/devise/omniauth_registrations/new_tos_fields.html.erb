@@ -3,7 +3,7 @@
     <h1 class="title-decorator my-12"><%= t("decidim.devise.omniauth_registrations.new_tos_fields.sign_up_title") %></h1>
   </div>
 
-  <%= decidim_form_for(@form, namespace: "registration", as: resource_name, url: omniauth_registrations_path(resource_name), html: { id: "omniauth-register-form" }) do |f| %>
+  <%= decidim_form_for(@form, namespace: "registration", as: resource_name, url: decidim.omniauth_registrations_path(resource_name), html: { id: "omniauth-register-form" }) do |f| %>
 
     <div class="form__wrapper">
       <%= f.hidden_field :name %>

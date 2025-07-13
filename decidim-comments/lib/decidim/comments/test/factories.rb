@@ -8,7 +8,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     author { build(:user, organization: commentable.organization, skip_injection:) }
-    commentable { build(:dummy_resource, skip_injection:) }
+    commentable { build(:dummy_resource, :published, skip_injection:) }
     root_commentable { commentable }
     body { Decidim::Faker::Localized.paragraph }
     participatory_space { commentable.try(:participatory_space) }
@@ -19,7 +19,7 @@ FactoryBot.define do
                      else
                        evaluator.body
                      end
-      comment.body = Decidim::ContentProcessor.parse_with_processor(:hashtag, comment.body, current_organization: comment.root_commentable.organization).rewrite
+      comment.body = Decidim::ContentProcessor.parse(comment.body, current_organization: comment.root_commentable.organization).rewrite
     end
 
     trait :deleted do
@@ -45,6 +45,14 @@ FactoryBot.define do
       after(:create) do |comment, evaluator|
         create(:moderation, reportable: comment, hidden_at: 2.days.ago, skip_injection: evaluator.skip_injection)
       end
+    end
+
+    trait :in_favor do
+      alignment { 1 }
+    end
+
+    trait :against do
+      alignment { -1 }
     end
   end
 

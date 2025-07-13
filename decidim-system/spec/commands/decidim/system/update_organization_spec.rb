@@ -126,6 +126,33 @@ module Decidim
           end
         end
 
+        describe "when header snippets are configured" do
+          let(:params) do
+            {
+              name: { en: "Gotham City" },
+              host: "decide.example.org",
+              users_registration_mode: "existing",
+              file_upload_settings: params_for_uploads(upload_settings),
+              header_snippets: "<script>alert('Hello world')</script>"
+            }
+          end
+          let(:upload_settings) do
+            Decidim::OrganizationSettings.default(:upload)
+          end
+
+          before do
+            allow(Decidim).to receive(:enable_html_header_snippets).and_return(true)
+          end
+
+          it "saves header snippets" do
+            expect { command.call }.to broadcast(:ok)
+            organization.reload
+
+            expect(organization.header_snippets).to be_present
+            expect(organization.header_snippets).to eq("<script>alert('Hello world')</script>")
+          end
+        end
+
         context "when the form is invalid" do
           context "and the name is empty" do
             let(:params) do

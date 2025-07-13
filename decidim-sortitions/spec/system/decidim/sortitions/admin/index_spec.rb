@@ -17,7 +17,10 @@ describe "index" do
   end
 
   it "Contains a button that shows sortition details" do
-    expect(page).to have_link("Sortition details")
+    within "tr", text: decidim_escape_translated(sortition.title) do
+      find("button[data-component='dropdown']").click
+      expect(page).to have_link("Sortition details")
+    end
   end
 
   it "Contains the sortitions data" do

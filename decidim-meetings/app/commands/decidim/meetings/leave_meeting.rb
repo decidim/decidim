@@ -22,8 +22,9 @@ module Decidim
 
         @meeting.with_lock do
           destroy_registration
-          destroy_questionnaire_answers
+          destroy_questionnaire_responses
           decrement_score
+          promote_from_waitlist!
         end
         broadcast(:ok)
       end
@@ -38,17 +39,25 @@ module Decidim
         registration.destroy!
       end
 
-      def questionnaire_answers
+      def questionnaire_responses
         questionnaire = Decidim::Forms::Questionnaire.find_by(questionnaire_for_id: @meeting)
-        questionnaire.answers.where(user: @user) if questionnaire.present?
+        questionnaire.responses.where(user: @user) if questionnaire.present?
       end
 
-      def destroy_questionnaire_answers
-        questionnaire_answers.try(:destroy_all)
+      def destroy_questionnaire_responses
+        questionnaire_responses.try(:destroy_all)
       end
 
       def decrement_score
         Decidim::Gamification.decrement_score(@user, :attended_meetings)
+      end
+
+      def promote_from_waitlist!
+        return if @meeting.available_slots.zero?
+        return unless @meeting.remaining_slots.positive?
+        return unless @meeting.registrations.on_waiting_list.exists?
+
+        Decidim::Meetings::PromoteFromWaitlistJob.perform_later(@meeting.id)
       end
     end
   end

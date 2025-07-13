@@ -2,20 +2,15 @@ is-IS:
   activemodel:
     attributes:
       debate:
-        category_id: Flokkur
-        decidim_category_id: Flokkur
         description: Lýsing
         end_time: Endar á
         information_updates: Upplýsingauppfærslur
         instructions: Leiðbeiningar um þátttöku
         start_time: Byrjar á
         title: Titill
-        user_group_id: Búðu til umræðu sem
   decidim:
     components:
       debates:
-        actions:
-          create: Búa til
         name: Umræður
         settings:
           global:
@@ -26,8 +21,6 @@ is-IS:
             comments_blocked: Læst fyrir athugasemdir
     debates:
       actions:
-        confirm_destroy: Ertu viss?
-        destroy: Eyða
         edit: Breyta
         title: Aðgerðir
       admin:
@@ -56,14 +49,11 @@ is-IS:
           official: Opinber
           origin: Uppruni
           search: Leita
-        form:
-          select_a_category: Vinsamlegast veldu flokk
         index:
           new_debate: Ný umræða
         new:
           back: Til baka
           create: Búa til
-          title: Ný umræða
       models:
         debate:
           fields:

@@ -23,7 +23,7 @@
   select,
   textarea {
     &:not(.reset-defaults) {
-      @apply inline-block px-4 py-2 border border-gray outline outline-1 outline-transparent rounded bg-background-2 text-black font-normal placeholder:text-gray focus:outline-2 focus:outline-secondary disabled:bg-background-3 disabled:text-gray-2 disabled:cursor-not-allowed;
+      @apply inline-block px-4 py-2 border border-neutral-200 outline outline-1 outline-transparent rounded bg-background-2 text-black font-normal placeholder:text-gray focus:outline-2 focus:outline-secondary disabled:bg-background-3 disabled:text-gray-2 disabled:cursor-not-allowed;
 
       &.sm {
         @apply px-1 py-0.5 text-sm;
@@ -79,10 +79,10 @@
 }
 
 .form__wrapper {
-  @apply flex flex-col py-10 gap-10 last:pb-0;
+  @apply flex flex-col pt-10 pb-4 gap-5 last:pb-0;
 
   &-block {
-    @apply py-10 last:pb-0 border-t-2 border-background flex flex-col gap-4 only:[&_*]:ml-auto [&_p]:text-gray-2;
+    @apply py-10 last:pb-0 border-background flex flex-col gap-4 [&_p]:text-gray-2;
   }
 
   &-checkbox-label {
@@ -96,10 +96,6 @@
   & label:not(&-checkbox-label),
   &-block label:not(&-checkbox-label) {
     @apply font-semibold text-lg;
-  }
-
-  .help-text {
-    @apply mt-4;
   }
 
   input[type="date"],
@@ -152,6 +148,10 @@
   &__text {
     @apply font-normal inline-block text-xs text-gray-2 float-right mt-1;
   }
+}
+
+.input-group {
+  @apply border border-neutral-200 outline outline-1 outline-transparent rounded bg-background-2 text-black font-normal placeholder:text-gray;
 }
 
 .input-group__password {

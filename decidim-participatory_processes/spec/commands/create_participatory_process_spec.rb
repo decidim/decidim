@@ -8,14 +8,15 @@ module Decidim::ParticipatoryProcesses
 
     let(:organization) { create(:organization) }
     let(:participatory_process_group) { create(:participatory_process_group, organization:) }
-    let(:participatory_process_type) { create(:participatory_process_type, organization:) }
-    let(:scope) { create(:scope, organization:) }
-    let(:area) { create(:area, organization:) }
     let(:current_user) { create(:user, :admin, organization:) }
     let(:errors) { double.as_null_object }
     let(:related_process_ids) { [] }
     let(:weight) { 1 }
     let(:hero_image) { nil }
+    let(:taxonomizations) do
+      2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
+    end
+
     let(:form) do
       instance_double(
         Admin::ParticipatoryProcessForm,
@@ -24,7 +25,6 @@ module Decidim::ParticipatoryProcesses
         subtitle: { en: "subtitle" },
         weight:,
         slug: "slug",
-        hashtag: "hashtag",
         meta_scope: { en: "meta scope" },
         hero_image:,
         promoted: nil,
@@ -40,15 +40,11 @@ module Decidim::ParticipatoryProcesses
         current_user:,
         current_organization: organization,
         organization:,
-        scopes_enabled: true,
         private_space: false,
-        scope:,
-        scope_type_max_depth: nil,
-        area:,
+        taxonomizations:,
         errors:,
         related_process_ids:,
         participatory_process_group:,
-        participatory_process_type:,
         announcement: { en: "message" }
       )
     end
@@ -116,6 +112,22 @@ module Decidim::ParticipatoryProcesses
       it "adds the admins as followers" do
         subject.call
         expect(current_user.follows?(process)).to be true
+      end
+
+      it "links to taxonomizations" do
+        subject.call
+
+        expect(process.taxonomizations).to match_array(taxonomizations)
+      end
+
+      context "when no taxonomizations are set" do
+        let(:taxonomizations) { [] }
+
+        it "taxonomizations are empty" do
+          subject.call
+
+          expect(process.taxonomizations).to be_empty
+        end
       end
 
       context "with related processes" do

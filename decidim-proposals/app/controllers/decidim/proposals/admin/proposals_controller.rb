@@ -6,7 +6,9 @@ module Decidim
       # This controller allows admins to manage proposals in a participatory process.
       class ProposalsController < Admin::ApplicationController
         include Decidim::ApplicationHelper
+        include Decidim::Admin::ComponentTaxonomiesHelper
         include Decidim::Proposals::Admin::Filterable
+        include Decidim::Admin::HasTrashableResources
 
         helper Proposals::ApplicationHelper
         helper Decidim::Proposals::Admin::ProposalRankingsHelper
@@ -47,33 +49,45 @@ module Decidim
           end
         end
 
-        def update_category
-          enforce_permission_to :update, :proposal_category
+        def update_taxonomies
+          enforce_permission_to :update, :proposal_taxonomy
 
-          Admin::UpdateProposalCategory.call(params[:category][:id], proposal_ids) do
-            on(:invalid_category) do
-              flash.now[:error] = I18n.t(
-                "proposals.update_category.select_a_category",
+          Admin::UpdateProposalTaxonomies.call(params[:taxonomies], proposal_ids, current_organization) do
+            on(:invalid_taxonomies) do
+              flash[:error] = I18n.t(
+                "proposals.update_taxonomies.select_a_taxonomy",
                 scope: "decidim.proposals.admin"
               )
             end
 
-            on(:invalid_proposal_ids) do
-              flash.now[:alert] = I18n.t(
-                "proposals.update_category.select_a_proposal",
+            on(:invalid_resources) do
+              flash[:alert] = I18n.t(
+                "proposals.update_taxonomies.select_a_proposal",
                 scope: "decidim.proposals.admin"
               )
             end
 
-            on(:update_proposals_category) do
-              flash.now[:notice] = update_proposals_bulk_response_successful(@response, :category)
-              flash.now[:alert] = update_proposals_bulk_response_errored(@response, :category)
+            on(:update_resources_taxonomies) do |response|
+              if response[:successful].any?
+                flash[:notice] = t(
+                  "proposals.update_taxonomies.success",
+                  taxonomies: response[:taxonomies].map { |taxonomy| decidim_escape_translated(taxonomy.name) }.to_sentence,
+                  proposals: response[:successful].map { |resource| decidim_escape_translated(resource.title) }.to_sentence,
+                  scope: "decidim.proposals.admin"
+                )
+              end
+              if response[:errored].any?
+                flash[:alert] = t(
+                  "proposals.update_taxonomies.invalid",
+                  taxonomies: response[:taxonomies].map { |taxonomy| decidim_escape_translated(taxonomy.name) }.to_sentence,
+                  proposals: response[:errored].map { |resource| decidim_escape_translated(resource.title) }.to_sentence,
+                  scope: "decidim.proposals.admin"
+                )
+              end
             end
           end
 
-          respond_to do |format|
-            format.js { render :update_attribute, locals: { form_selector: "#js-form-recategorize-projects", attribute_selector: "#category_id" } }
-          end
+          redirect_to proposals_path
         end
 
         def publish_answers
@@ -94,34 +108,6 @@ module Decidim
 
           respond_to do |format|
             format.js
-          end
-        end
-
-        def update_scope
-          enforce_permission_to :update, :proposal_scope
-
-          Admin::UpdateProposalScope.call(params[:scope_id], proposal_ids) do
-            on(:invalid_scope) do
-              flash.now[:error] = t(
-                "proposals.update_scope.select_a_scope",
-                scope: "decidim.proposals.admin"
-              )
-            end
-
-            on(:invalid_proposal_ids) do
-              flash.now[:alert] = t(
-                "proposals.update_scope.select_a_proposal",
-                scope: "decidim.proposals.admin"
-              )
-            end
-
-            on(:update_proposals_scope) do
-              flash.now[:notice] = update_proposals_bulk_response_successful(@response, :scope)
-              flash.now[:alert] = update_proposals_bulk_response_errored(@response, :scope)
-            end
-          end
-          respond_to do |format|
-            format.js { render :update_attribute, locals: { form_selector: "#js-form-scope-change-projects", attribute_selector: "#scope_id" } }
           end
         end
 
@@ -150,6 +136,18 @@ module Decidim
 
         private
 
+        def trashable_deleted_resource_type
+          :proposal
+        end
+
+        def trashable_deleted_resource
+          @trashable_deleted_resource ||= collection.with_deleted.find_by(id: params[:id])
+        end
+
+        def trashable_deleted_collection
+          @trashable_deleted_collection = filtered_collection.only_deleted.deleted_at_desc
+        end
+
         def collection
           @collection ||= Proposal.where(component: current_component).not_hidden.published
         end
@@ -164,48 +162,6 @@ module Decidim
 
         def proposal_ids
           @proposal_ids ||= params[:proposal_ids]
-        end
-
-        def update_proposals_bulk_response_successful(response, subject)
-          return if response[:successful].blank?
-
-          case subject
-          when :category
-            t(
-              "proposals.update_category.success",
-              subject_name: response[:subject_name],
-              proposals: response[:successful].to_sentence,
-              scope: "decidim.proposals.admin"
-            )
-          when :scope
-            t(
-              "proposals.update_scope.success",
-              subject_name: response[:subject_name],
-              proposals: response[:successful].to_sentence,
-              scope: "decidim.proposals.admin"
-            )
-          end
-        end
-
-        def update_proposals_bulk_response_errored(response, subject)
-          return if response[:errored].blank?
-
-          case subject
-          when :category
-            t(
-              "proposals.update_category.invalid",
-              subject_name: response[:subject_name],
-              proposals: response[:errored].to_sentence,
-              scope: "decidim.proposals.admin"
-            )
-          when :scope
-            t(
-              "proposals.update_scope.invalid",
-              subject_name: response[:subject_name],
-              proposals: response[:errored].to_sentence,
-              scope: "decidim.proposals.admin"
-            )
-          end
         end
 
         def form_presenter

@@ -68,10 +68,10 @@ describe Decidim::Templates::Admin::Permissions do
   context "when reading a template" do
     it_behaves_like "action is allowed", :admin, :read, :template
 
-    context "when user is a valuator" do
+    context "when user is a evaluator" do
       let(:user) { create(:user, :confirmed, organization:) }
-      let!(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process: participatory_space) }
-      let!(:valuation_assignment) { create(:valuation_assignment, proposal:, valuator_role:) }
+      let!(:evaluator_role) { create(:participatory_process_user_role, role: :evaluator, user:, participatory_process: participatory_space) }
+      let!(:evaluation_assignment) { create(:evaluation_assignment, proposal:, evaluator_role:) }
       let(:proposal) { create(:proposal, component:) }
       let(:component) { create(:proposal_component, participatory_space:) }
       let(:participatory_space) { create(:participatory_process, organization:) }

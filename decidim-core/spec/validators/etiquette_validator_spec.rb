@@ -39,7 +39,17 @@ describe EtiquetteValidator do
   context "when the text has too much caps" do
     let(:body) { "A SCREAMING PIECE of text" }
 
-    it { is_expected.to be_invalid }
+    context "when etiquette_validator is disabled" do
+      before do
+        allow(Decidim).to receive(:enable_etiquette_validator).and_return(false)
+      end
+
+      it { is_expected.to be_valid }
+    end
+
+    context "when etiquette_validator is enabled" do
+      it { is_expected.to be_invalid }
+    end
   end
 
   context "when the text has too many marks" do

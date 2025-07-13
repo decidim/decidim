@@ -129,7 +129,7 @@ describe "Conferences" do
     end
   end
 
-  it_behaves_like "followable content for users" do
+  it_behaves_like "followable space content for users" do
     let(:conference) { base_conference }
     let!(:user) { create(:user, :confirmed, organization:) }
     let(:followable) { conference }
@@ -218,7 +218,6 @@ describe "Conferences" do
       within "[data-conference-hero]", match: :first do
         expect(page).to have_content(translated(conference.title, locale: :en))
         expect(page).to have_content(translated(conference.slogan, locale: :en))
-        expect(page).to have_content(conference.hashtag)
       end
 
       expect(page).to have_content(translated(conference.description, locale: :en))
@@ -237,7 +236,7 @@ describe "Conferences" do
       end
 
       it "renders the stats for those components that are visible" do
-        within "[data-statistic]" do
+        within all("[data-statistic]")[0] do
           expect(page).to have_css(".statistic__title", text: "Proposals")
           expect(page).to have_css(".statistic__number", text: "3")
           expect(page).to have_no_css(".statistic__title", text: "Meetings")

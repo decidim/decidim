@@ -7,7 +7,7 @@ class AddFollowableCounterCacheToParticipatoryProcesses < ActiveRecord::Migratio
     reversible do |dir|
       dir.up do
         Decidim::ParticipatoryProcess.reset_column_information
-        Decidim::ParticipatoryProcess.find_each do |record|
+        Decidim::ParticipatoryProcess.unscoped.find_each do |record|
           record.class.reset_counters(record.id, :follows)
         end
       end

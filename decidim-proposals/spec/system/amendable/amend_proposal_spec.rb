@@ -11,6 +11,7 @@ describe "Amend Proposal", versioning: true do
   let(:proposal_title) { translated(proposal.title) }
   let(:emendation_title) { translated(emendation.title) }
   let(:emendation_body) { translated(emendation.body) }
+  let(:user) { proposal.creator_author }
 
   let(:active_step_id) { participatory_space.active_step.id }
   let(:emendation_path) { Decidim::ResourceLocatorPresenter.new(emendation).path }
@@ -193,6 +194,7 @@ describe "Amend Proposal", versioning: true do
 
         context "when the user is not logged in and clicks" do
           before do
+            find("#dropdown-trigger-resource-#{proposal.id}").click
             click_on "Amend"
           end
 
@@ -203,22 +205,22 @@ describe "Amend Proposal", versioning: true do
 
         context "when the user is logged in and clicks" do
           let!(:user) { create(:user, :confirmed, organization: component.organization) }
-          let!(:user_group) { create(:user_group, :verified, organization: user.organization, users: [user]) }
 
           before do
+            switch_to_host(component.organization.host)
             login_as user, scope: :user
             visit proposal_path
             expect(page).to have_content(proposal_title)
+            find("#dropdown-trigger-resource-#{proposal.id}").click
             click_on "Amend"
           end
 
           it "is shown the amendment create form" do
+            expect(page).to have_no_css("#loginModal", visible: :visible), "Login modal was shown instead of amendment form"
             expect(page).to have_content("Create your amendment")
-
             within ".new_amendment" do
               expect(page).to have_content("Title")
               expect(page).to have_content("Body")
-              expect(page).to have_content("Amendment author")
               expect(page).to have_button("Create")
             end
           end
@@ -228,11 +230,11 @@ describe "Amend Proposal", versioning: true do
               login_as user, scope: :user
               visit proposal_path
               expect(page).to have_content(proposal_title)
+              find("#dropdown-trigger-resource-#{proposal.id}").click
               click_on "Amend"
               within ".new_amendment" do
                 fill_in "amendment[emendation_params][title]", with: "More sidewalks and less roads"
                 fill_in "amendment[emendation_params][body]", with: "Cities need more people, not more cars"
-                select user_group.name, from: :amendment_user_group_id # Optional
               end
               click_on "Create"
             end
@@ -247,6 +249,7 @@ describe "Amend Proposal", versioning: true do
               login_as user, scope: :user
               visit proposal_path
               expect(page).to have_content(proposal_title)
+              find("#dropdown-trigger-resource-#{proposal.id}").click
               click_on "Amend"
               within ".new_amendment" do
                 fill_in "amendment[emendation_params][title]", with: "INVALID TITLE"

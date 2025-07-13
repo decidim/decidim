@@ -2,17 +2,14 @@ lb:
   activemodel:
     attributes:
       debate:
-        category_id: Kategorie
         closed_at: Geschlossen am
         conclusions: Zusammenfassung
-        decidim_category_id: Kategorie
         description: Beschreibung
         end_time: Endet am
         information_updates: Informationsaktualisierungen
         instructions: Anweisungen zur Teilnahme
         start_time: Startet um
         title: Titel
-        user_group_id: Debatte erstellen als
     models:
       decidim/debates/close_debate_event: Debatte beendet
       decidim/debates/create_debate_event: Debatte
@@ -27,21 +24,15 @@ lb:
       debates:
         actions:
           comment: Kommentar
-          create: Erstellen
-          endorse: Bestätigen
         name: Debatten
         settings:
           global:
             announcement: Ankündigung
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
-            scope_id: Bereich
-            scopes_enabled: Bereiche aktiviert
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
-            endorsements_blocked: Bestätigungen blockiert
-            endorsements_enabled: Bestätigungen aktiviert
     debates:
       admin:
         debates:
@@ -53,15 +44,11 @@ lb:
           state: Status
           state_values:
             closed: Geschlossen
-            open: Offen
-        form:
-          select_a_category: Bitte wählen sie eine Kategorie
         index:
           new_debate: Neue Debatte
         new:
           back: Zurück
           create: Erstellen
-          title: Neue Debatte
         orders:
           commented: Am meisten kommentiert
           label: Debatten sortieren nach
@@ -69,13 +56,8 @@ lb:
           recent: Neueste zuerst
           updated: Kürzlich aktualisiert
         show:
-          close_debate: Debatte schließen
-          debate_closed: Geschlossen
           debate_conclusions_are: 'Die Debatte wurde am %{date} mit diesen Ergebnissen geschlossen:'
           edit_conclusions: Schlussfolgerungen bearbeiten
-          edit_debate: Debatte bearbeiten
-          groups_count: Gruppen
-          open: Offene Debatte
           participants_count: Teilnehmer
         update:
           invalid: Es gab ein Problem bei der Aktualisierung der Aussprache.
@@ -101,8 +83,5 @@ lb:
       badges:
         commented_debates:
           name: Debatten
-    metrics:
-      debates:
-        title: Debatten
     statistics:
       debates_count: Debatten

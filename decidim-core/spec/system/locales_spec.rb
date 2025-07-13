@@ -42,6 +42,8 @@ describe "Locales" do
         click_on "Català"
       end
 
+      # Prevent flaky spec, where sometimes the language is not changed before the visit
+      sleep 2
       visit decidim_admin.root_path
 
       expect(page).to have_content("Cal iniciar sessió o crear un compte abans de continuar.")
@@ -60,7 +62,7 @@ describe "Locales" do
         click_on "Entra"
       end
 
-      expect(page).to have_content("El Correu electrònic o la contrasenya no són vàlids.")
+      expect(page).to have_content("Adreça de correu electrònic o la contrasenya no són vàlids.")
     end
 
     context "with a signed in user" do
@@ -68,6 +70,9 @@ describe "Locales" do
 
       before do
         login_as user, scope: :user
+
+        # Prevent flaky spec, where sometimes the language is not changed before the visit
+        sleep 2
         visit decidim.root_path
       end
 

@@ -1,7 +1,12 @@
-<%= render partial: "decidim/devise/shared/login_boxes", locals: { scope: "decidim.forms.questionnaires.show.answer_questionnaire" } %>
+<%# i18n-tasks-use t("decidim.forms.questionnaires.show.response_questionnaire.already_have_an_account?") %>
+<%# i18n-tasks-use t("decidim.forms.questionnaires.show.response_questionnaire.are_you_new?") %>
+<%# i18n-tasks-use t("decidim.forms.questionnaires.show.response_questionnaire.sign_in_description") %>
+<%# i18n-tasks-use t("decidim.forms.questionnaires.show.response_questionnaire.sign_up_description") %>
+<%# i18n-tasks-use t("decidim.forms.questionnaires.show.response_questionnaire.title") %>
+<%= render partial: "decidim/devise/shared/login_boxes", locals: { scope: "decidim.forms.questionnaires.show.response_questionnaire" } %>
 
-<div class="answer-questionnaire mt-12">
-  <ol class="answer-questionnaire__step">
+<div class="response-questionnaire mt-12">
+  <ol class="response-questionnaire__step">
     <%= cell(
       "decidim/forms/question_readonly",
       collection: @questionnaire.questions.not_conditioned.not_separator,

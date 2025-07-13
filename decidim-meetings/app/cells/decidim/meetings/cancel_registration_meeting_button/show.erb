@@ -1,10 +1,12 @@
-<%= render :cancelation_modal %>
+<% unless options[:hide_modal] %>
+  <%= render :cancelation_modal %>
+<% end %>
 <%= action_authorized_button_to(
   :join,
   "#",
   class: button_classes,
   data: { "dialog-open": "meeting-cancelation-confirm-#{model.id}" }
 ) do %>
-  <%= t("leave", scope: "decidim.meetings.meetings.show") %>
+  <%= cancel_button_text %>
   <%= icon icon_name %>
 <% end %>

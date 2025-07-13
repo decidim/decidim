@@ -1,0 +1,12 @@
+<div class="row column font-semibold pb-4"><%= t("decidim.elections.censuses.internal_users.internal_type_title") %></div>
+<div class="row column">
+  <p class="mb-2"><%= t("decidim.elections.censuses.internal_users.info_html") %></p>
+</div>
+<div class="row column mt-4">
+  <%= form.collection_check_boxes :verification_handlers,
+                                  current_organization.available_authorizations,
+                                  :to_s,
+                                  ->(item) { t("decidim.authorization_handlers.#{item}.name") } do |builder|
+        builder.label(for: nil, class: "form__wrapper-checkbox-label my-4") { builder.check_box(id: nil) + builder.text }
+      end %>
+</div>

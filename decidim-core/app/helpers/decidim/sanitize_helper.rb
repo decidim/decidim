@@ -37,13 +37,22 @@ module Decidim
       end
     end
 
+    # Converts the blob and blob variant references to blob URLs.
+    def decidim_rich_text(html, **)
+      renderer = Decidim::ContentProcessor.renderer_klass(:blob).constantize.new(html)
+      renderer.render(**)
+    end
+
     def decidim_sanitize_editor(html, options = {})
       content_tag(:div, decidim_sanitize(html, options), class: %w(rich-text-display))
     end
 
     def decidim_sanitize_editor_admin(html, options = {})
       html = Decidim::IframeDisabler.new(html, options).perform
-      decidim_sanitize_editor(html, { scrubber: Decidim::AdminInputScrubber.new }.merge(options))
+      decidim_sanitize_editor(
+        decidim_rich_text(html),
+        { scrubber: Decidim::AdminInputScrubber.new }.merge(options)
+      )
     end
 
     def decidim_html_escape(text)
@@ -51,7 +60,7 @@ module Decidim
     end
 
     def decidim_url_escape(text)
-      decidim_html_escape(text).sub(/^javascript:/, "")
+      decidim_html_escape(text).sub(/^\s*javascript:/, "")
     end
 
     def decidim_sanitize_translated(text)
@@ -107,7 +116,7 @@ module Decidim
       handle_locales(body, all_locales) do |content|
         content = strip_tags(sanitize_text(content)) if strip_tags
 
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(content)
+        renderer = Decidim::ContentRenderers::BlobRenderer.new(content)
         content = renderer.render(links:, extras:).html_safe
 
         content = Decidim::ContentRenderers::LinkRenderer.new(content).render if links
@@ -122,8 +131,8 @@ module Decidim
     # @param method [Symbol] Method name
     #
     # @return ActiveSupport::SafeBuffer
-    def render_sanitized_content(resource, method)
-      content = present(resource).send(method, links: true, strip_tags: !try(:safe_content?))
+    def render_sanitized_content(resource, method, presenter_class: nil)
+      content = present(resource, presenter_class:).send(method, links: true, strip_tags: !try(:safe_content?))
 
       return decidim_sanitize(content, {}) unless try(:safe_content?)
       return decidim_sanitize_editor_admin(content, {}) if try(:safe_content_admin?)

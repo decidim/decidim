@@ -1,0 +1,37 @@
+<% response_option = form.object %>
+
+<div class="card questionnaire-question-response-option mx-4 my-8">
+  <div class="card-divider">
+    <h2 class="card-title mb-2">
+      <span><%= t("response_option", scope: "decidim.forms.admin.questionnaires.response_option") %></span>
+      <% if editable %>
+        <span class="ml-auto flex flex-row-reverse items-center gap-2">
+          <button class="button button__xs button__transparent-secondary small alert remove-response-option button--title">
+            <%= icon("delete-bin-line", class: "w-4 h-4") %>
+            <span class="hidden md:block"><%= t("remove", scope: "decidim.forms.admin.questionnaires.response_option") %></span>
+          </button>
+        </span>
+      <% end %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <%=
+        form.translated(
+          :text_field,
+          :body,
+          tabs_id: tabs_id_for_question_response_option(question, response_option),
+          label: t("statement", scope: "decidim.forms.admin.questionnaires.response_option"),
+          disabled: !editable
+        )
+      %>
+    </div>
+  </div>
+
+  <% if response_option.persisted? %>
+    <%= form.hidden_field :id, disabled: !editable %>
+  <% end %>
+
+  <%= form.hidden_field :deleted, disabled: !editable %>
+</div>

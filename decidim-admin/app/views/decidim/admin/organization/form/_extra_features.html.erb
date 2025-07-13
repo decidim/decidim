@@ -1,0 +1,84 @@
+<div class="card" data-component="accordion" id="accordion-extra_features">
+  <div class="card-divider">
+    <button class="card-divider-button" data-open="true" data-controls="panel-extra_features" type="button">
+      <%= icon "arrow-right-s-line" %>
+      <h2 class="card-title" id="extra_features">
+        <%= t("extra_features", scope: "decidim.admin.organization.form") %>
+      </h2>
+    </button>
+  </div>
+  <div id="panel-extra_features" class="card-section">
+    <div class="row column">
+      <%= form.check_box :badges_enabled %>
+    </div>
+
+    <div class="row column">
+      <%= form.check_box :enable_participatory_space_filters %>
+    </div>
+
+    <% if Decidim.config.enable_machine_translations %>
+      <div class="row column">
+        <%= form.check_box :enable_machine_translations %>
+      </div>
+
+      <div class="row column">
+        <%= form.label :machine_translation_display_priority, t("activemodel.attributes.organization.machine_translation_display_priority") %>
+          <%= form.collection_radio_buttons :machine_translation_display_priority, form.object.machine_translation_priorities, :first, :last %>
+      </div>
+    <% end %>
+
+    <div class="row column">
+      <%= form.check_box :rich_text_editor_in_public_views, help_text: t("rich_text_editor_in_public_views_help", scope: "decidim.admin.organization.form") %>
+    </div>
+
+    <div class="row column">
+      <%= form.text_field :comments_max_length %>
+    </div>
+
+    <div class="row column">
+      <div class="columns">
+        <div class="label--tabs">
+          <label for="organization_social_handlers">
+            <%= t("social_handlers", scope: "decidim.admin.organization.form") %>
+          </label>
+          <ul class="tabs tabs--lang" data-tabs id="organization_social_handlers">
+            <% first_handler = Decidim::Organization::SOCIAL_HANDLERS.first %>
+            <% Decidim::Organization::SOCIAL_HANDLERS.each do |handler| %>
+              <li class="tabs-title <%= " is-active" if handler == first_handler %>">
+                <a href="#<%= handler %>" <% if handler == first_handler %> aria-selected="true" <% end %>>
+                  <%= t("#{handler}", scope: "decidim.admin.organization.form") %>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="tabs-content" data-tabs-content="organization_social_handlers">
+          <% Decidim::Organization::SOCIAL_HANDLERS.each do |handler| %>
+            <div class="tabs-panel <%= " is-active" if handler == first_handler %>" id="<%= handler %>"
+              aria-hidden="<% if handler == first_handler %>false<% else %>true<% end %>">
+              <%= form.text_field "#{handler}_handler", label: false %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row column">
+      <%= form.check_box :enable_omnipresent_banner, "data-toggle": "omnipresent_banner_details" %>
+    </div>
+
+    <div id="omnipresent_banner_details" class="column" <%= form.object.enable_omnipresent_banner ? nil : "hidden" %>>
+      <div class="row column">
+        <%= form.translated :text_field, :omnipresent_banner_title, aria: { label: :omnipresent_banner_title } %>
+      </div>
+
+      <div class="row column">
+        <%= form.translated :text_field, :omnipresent_banner_short_description, aria: { label: :omnipresent_banner_short_description } %>
+      </div>
+
+      <div class="row column">
+        <%= form.url_field :omnipresent_banner_url %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,12 +3,6 @@
 shared_examples "copy conferences" do
   let!(:conference) { create(:conference, organization:) }
   let!(:component) { create(:component, manifest_name: :dummy, participatory_space: conference) }
-  let!(:category) do
-    create(
-      :category,
-      participatory_space: conference
-    )
-  end
 
   before do
     switch_to_host(organization.host)
@@ -18,7 +12,10 @@ shared_examples "copy conferences" do
 
   context "without any context" do
     it "copies the conference with the basic fields" do
-      click_on "Duplicate", match: :first
+      within "tr", text: translated(conference.title) do
+        find("button[data-component='dropdown']").click
+        click_on "Duplicate"
+      end
 
       within ".copy_conference" do
         fill_in_i18n(
@@ -40,7 +37,10 @@ shared_examples "copy conferences" do
 
   context "with context" do
     before do
-      click_on "Duplicate", match: :first
+      within "tr", text: translated(conference.title) do
+        find("button[data-component='dropdown']").click
+        click_on "Duplicate"
+      end
 
       within ".copy_conference" do
         fill_in_i18n(
@@ -54,35 +54,17 @@ shared_examples "copy conferences" do
       end
     end
 
-    it "copies the conference with categories" do
-      page.check("conference[copy_categories]")
-      click_on "Copy"
-
-      expect(page).to have_content("successfully")
-
-      within "tr", text: "Copy conference" do
-        click_on "Configure"
-      end
-      within_admin_sidebar_menu do
-        click_on "Categories"
-      end
-
-      within ".table-list" do
-        conference.categories.each do |category|
-          expect(page).to have_content(translated(category.name))
-        end
-      end
-    end
-
     it "copies the conference with components" do
       page.check("conference[copy_components]")
       click_on "Copy"
 
       expect(page).to have_content("successfully")
 
-      within "tr", text: "Copy conference" do
+      within "tr", text: translated(conference.title) do
+        find("button[data-component='dropdown']").click
         click_on "Configure"
       end
+
       within_admin_sidebar_menu do
         click_on "Components"
       end

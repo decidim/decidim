@@ -10,9 +10,10 @@ describe "Admin manages sortitions" do
   it_behaves_like "manage sortitions"
   it_behaves_like "cancel sortitions"
   it_behaves_like "update sortitions"
+  it_behaves_like "manage taxonomy filters in settings"
 
   context "when adding a new sortitions module" do
-    let(:name) { "My super new sortitions component" }
+    let(:component_name) { "My super new sortitions component" }
 
     it "is added" do
       visit current_path
@@ -25,13 +26,13 @@ describe "Admin manages sortitions" do
       fill_in_i18n(
         :component_name,
         "#component-name-tabs",
-        en: name
+        en: component_name
       )
 
       click_on "Add component"
 
       expect(page).to have_content("Component created successfully")
-      expect(page).to have_content(name)
+      expect(page).to have_content(component_name)
     end
   end
 end

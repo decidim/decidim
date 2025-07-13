@@ -1,8 +1,6 @@
 tr:
   activemodel:
     attributes:
-      assemblies_type:
-        title: Başlik / Unvani 
       assembly:
         announcement: Duyuru
         area_id: Alan
@@ -19,7 +17,6 @@ tr:
         created_by_other: Diğer tarafından oluşturuldu
         creation_date: Tarih oluşturuldu
         decidim_area_id: alan
-        decidim_assemblies_type_id: Montaj tipi
         decidim_scope_id: kapsam
         description: Açıklama
         developer_group: Tanıtım grubu
@@ -28,14 +25,12 @@ tr:
         duration: süre
         facebook: Facebook
         github: GitHub
-        hashtag: Başlık etiketi
         hero_image: Ana resim
         import_attachments: Eki içe aktar 
         import_categories: Kategorileri içe aktar 
         import_components: Bireşenleri içe aktar 
         included_at: Dahil
         instagram: Instagram
-        internal_organisation: İç organizasyon
         is_transparent: Şeffaf mı
         local_area: Organizasyon alanı
         meta_scope: Kapsam meta verileri
@@ -47,8 +42,6 @@ tr:
         promoted: Tanıtılan
         published_at: Yayınlandı
         purpose_of_action: Eylem amacı
-        scope_id: kapsam
-        scopes_enabled: Kapsamlar etkin
         short_description: Kısa Açıklama
         slug: URL sümüklü böcek
         special_features: Özel özellikler
@@ -88,13 +81,10 @@ tr:
       actions:
         import_assembly: İçeri aktar
         new_assembly: Yeni kurul
-        new_assembly_member: Yeni Meclis Üyesi
-        new_assembly_type: Yeni kurul türü
         new_assembly_user_role: Yeni Meclis Yöneticisi
       assemblies:
         create:
           error: Yeni bir kurul oluştururken bir hata oluştu.
-          success: Kurul başarıyla oluşturuldu.
         edit:
           update: Güncelle
         index:
@@ -111,18 +101,6 @@ tr:
         create:
           error: Bu kurul çoğaltırken bir hata oluştu.
           success: Kurul başarıyla kopyalandı.
-      assemblies_types:
-        create:
-          error: Yeni bir kurul türü oluşturulurken bir sorun meydana geldi.
-          success: Kurul türü başarıyla oluşturuldu.
-        destroy:
-          success: Kurul türü başarıyla silindi.
-        new:
-          create: Oluştur
-          title: Yeni kurul türü
-        update:
-          error: Bu kurul türü güncellenirken bir sorun oluştu.
-          success: Kurul türü başarıyla güncellendi.
       assembly_copies:
         new:
           copy: Kopya
@@ -136,21 +114,6 @@ tr:
           import: İçe aktar
           select: Hangi verileri içe aktarmak istediğinizi seçin
           title: Kurulu içe aktar
-      assembly_members:
-        create:
-          error: Bu kurul için üye eklenirken bir hata oluştu.
-          success: Üye bu kurul için başarıyla oluşturuldu.
-        destroy:
-          success: Üye bu kuruldan başarıyla silindi.
-        edit:
-          update: Güncelle
-        index:
-          assembly_members_title: Kurul üyeleri
-        new:
-          create: Oluştur
-        update:
-          error: Bu kurul için üye güncellenirken bir hata oluştu.
-          success: Üye bu kurul için başarıyla güncellendi.
       assembly_publications:
         create:
           error: Bu kurul yayınlanırken bir hata oluştu.
@@ -173,26 +136,16 @@ tr:
         update:
           error: Bu kurul için bir yönetici güncellenirken bir sorun oluştu.
           success: Yönetici bu kurul için başarıyla güncellendi.
-      filters:
-        decidim_assemblies_type_id_eq:
-          label: Montaj tipi
       menu:
         assemblies: Kurullar
         assemblies_submenu:
           assembly_admins: Kurul yöneticileri
-          assembly_members: Üyeler
           attachment_collections: Klasörler
           attachment_files: Dosyalar
           attachments: Ekler
-          categories: Kategoriler
           components: Bileşenler
           moderations: Yönetim
-        assemblies_types: Kurul türü
       models:
-        assemblies_types:
-          fields:
-            created_at: Düzenlendi
-            title: Başlık
         assembly:
           fields:
             created_at: Düzenlendi
@@ -202,11 +155,6 @@ tr:
             title: Başlık
           name: Kurul
         assembly_member:
-          fields:
-            ceased_date: Bitiş tarihi
-            designation_date: Atama tarihi
-            full_name: Adı
-            position: Pozisyon
           name: Üye
           positions:
             other: Diğer
@@ -223,7 +171,6 @@ tr:
             admin: Yönetici
             collaborator: İşbirlikçi
             moderator: Moderatör
-            valuator: Bilirkişi
       titles:
         assemblies: Kurullar
         assemblies_types: Kurul türleri
@@ -256,26 +203,13 @@ tr:
           form:
             duration: Süre
             duration_help: Bu kurulun süresi sınırlıysa, bitiş tarihini seçin. Aksi takdirde belirsiz görünecektir.
-            filters: Filtreler
             images: Resimler
             metadata: Meta veri
             other: Diğer
             select_a_created_by: tarafından oluşturulanı seçin
-            select_an_area: Bir alan seçin
-            select_an_assembly_type: Bir kurul türü seçin
             select_parent_assembly: Bağlı olduğu kurulu seçin
             social_handlers: Sosyal
             title: Genel bilgi
-        assemblies_types:
-          form:
-            title: Başlık
-        assembly_members:
-          form:
-            existing_user: Mevcut katılımcı
-            non_user: Katılımcı olmayan
-            select_a_position: Bir pozisyon seç
-            select_user: Bir katılımcı seçin
-            user_type: Katılımcı tipi
         content_blocks:
           highlighted_assemblies:
             max_results: Gösterilecek maksimum öğe miktarı
@@ -289,14 +223,6 @@ tr:
       assembly_members:
         index:
           members: Üyeler
-      assembly_types:
-        commission: Komisyon
-        consultative_advisory: Danışma/Tavsiye
-        executive: İcra
-        government: Devlet
-        others: Diğerleri
-        participatory: Katılımcı
-        working_group: Çalışma Grubu
       content_blocks:
         highlighted_assemblies:
           name: Vurgulanan kurullar
@@ -321,12 +247,9 @@ tr:
           member_of:
             member_of: Üyesi
       show:
-        assembly_type: Kurul türü
         duration: Süre
         private_space: Bu özel bir kurul
     assembly_members:
-      assembly_member:
-        designated_on: Üzerinde belirlenen
       index:
         title: Üyeler
     events:
@@ -355,11 +278,6 @@ tr:
           not_found: 'Kurul türü veritabanında bulunamadı (ID: %{id})'
     menu:
       assemblies: Kurullar
-    metrics:
-      assemblies:
-        description: Oluşturulan kurul sayısı
-        object: kurullar
-        title: Kurullar
     participatory_processes:
       show:
         related_assemblies: İlgili kurullar

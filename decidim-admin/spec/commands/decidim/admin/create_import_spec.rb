@@ -27,7 +27,7 @@ module Decidim::Admin
     describe "when everything is ok" do
       it "returns broadcast ok" do
         record = double("record", save!: double("record"))
-        importer = instance_double("importer", prepare: [record], invalid_indexes: [], import!: record.save!)
+        importer = instance_double(Decidim::Admin::Import::Importer, prepare: [record], import!: record.save!)
         allow(importer).to receive(:invalid_file?).and_return(false)
         allow(importer).to receive(:verify).and_return(true)
         allow(subject).to receive(:importer).and_return(importer)

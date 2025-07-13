@@ -6,8 +6,6 @@ module Decidim
   module Accountability
     module Admin
       describe ImportResultsController do
-        routes { Decidim::Accountability::AdminEngine.routes }
-
         let(:organization) { create(:organization) }
         let(:current_user) { create(:user, :confirmed, :admin, organization:) }
         let(:params) { { participatory_process_slug: participatory_space.slug, component_id: component.id } }

@@ -20,10 +20,12 @@ module Decidim
       update_password
 
       if current_user.valid?
-        changes = current_user.changed
-        current_user.save!
+        with_events do
+          changes = current_user.changed
+          current_user.save!
+          send_update_summary!(changes)
+        end
         notify_followers
-        send_update_summary!(changes)
         broadcast(:ok, current_user.unconfirmed_email.present?)
       else
         [:avatar, :password].each do |key|
@@ -31,6 +33,12 @@ module Decidim
         end
         broadcast(:invalid, @form.password)
       end
+    end
+
+    protected
+
+    def event_arguments
+      { resource: current_user }
     end
 
     private
@@ -48,7 +56,7 @@ module Decidim
 
     def update_avatar
       if @form.avatar.present?
-        current_user.avatar.attach(@form.avatar)
+        current_user.avatar.attach(@form.avatar.signed_id)
       elsif @form.remove_avatar
         current_user.avatar = nil
       end

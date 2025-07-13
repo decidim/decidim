@@ -29,6 +29,7 @@ FactoryBot.define do
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") } # Keep after organization
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") } # Keep after organization
     published_at { Time.current }
+    deleted_at { nil }
     meta_scope { generate_localized_word(:assembly_meta_scope, skip_injection:) }
     developer_group { generate_localized_title(:assembly_developer_group, skip_injection:) }
     local_area { generate_localized_title(:assembly_local_area, skip_injection:) }
@@ -56,10 +57,6 @@ FactoryBot.define do
     weight { 1 }
     announcement { generate_localized_title(:assembly_announcement, skip_injection:) }
 
-    trait :with_type do
-      assembly_type { create(:assemblies_type, organization:, skip_injection:) }
-    end
-
     trait :promoted do
       promoted { true }
     end
@@ -70,6 +67,10 @@ FactoryBot.define do
 
     trait :published do
       published_at { Time.current }
+    end
+
+    trait :trashed do
+      deleted_at { Time.current }
     end
 
     trait :with_parent do
@@ -173,7 +174,7 @@ FactoryBot.define do
     end
   end
 
-  factory :assembly_valuator, parent: :user, class: "Decidim::User" do
+  factory :assembly_evaluator, parent: :user, class: "Decidim::User" do
     transient do
       skip_injection { false }
       assembly { create(:assembly) }
@@ -186,30 +187,8 @@ FactoryBot.define do
       create(:assembly_user_role,
              user:,
              assembly: evaluator.assembly,
-             role: :valuator,
+             role: :evaluator,
              skip_injection: evaluator.skip_injection)
-    end
-  end
-
-  factory :assembly_member, class: "Decidim::AssemblyMember" do
-    transient do
-      skip_injection { false }
-    end
-    assembly { create(:assembly, skip_injection:) }
-
-    full_name { Faker::Name.name }
-    gender { Faker::Lorem.word }
-    birthday { Faker::Date.birthday(min_age: 18, max_age: 65) }
-    birthplace { Faker::Lorem.word }
-    position { Decidim::AssemblyMember::POSITIONS.first }
-    designation_date { Faker::Date.between(from: 1.year.ago, to: 1.month.ago) }
-
-    trait :ceased do
-      ceased_date { Faker::Date.between(from: 1.day.ago, to: 5.days.ago) }
-    end
-
-    trait :with_user do
-      user { create(:user, organization: assembly.organization, skip_injection:) }
     end
   end
 end

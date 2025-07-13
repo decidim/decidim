@@ -170,7 +170,7 @@ fi:
         block_text: Käytä extra_data -lohkoa
         blog_cards_html: Käytetään <i>Blogien</i> korteissa
         blogs: Blogit
-        budget_card_html: 'Käytetään <i>Budjetointihankkeiden</i> korteissa. Tämä kortti vaatii kyseisen moduulin omien tyylitiedostojen sisällyttämisen sivulle, eli seuraavan koodin lisäämistä näkymään: <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>'
+        budget_card_html: 'Käytetään <i>Budjetointiprojektien</i> korteissa. Tämä kortti vaatii kyseisen moduulin omien tyylitiedostojen sisällyttämisen sivulle, eli seuraavan koodin lisäämistä näkymään: <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>'
         budgets: Budjetit
         callout_class: Huomautuselementin luokka
         callout_description: Tämä attribuutti määrittää ilmoituksen tilan. Oletuksena se käyttää toissijaista väriä.
@@ -185,7 +185,7 @@ fi:
         conference_s: Konferenssi S
         conferences: Konferenssit
         context: Asiayhteys
-        context_description: Tämä solu näyttää tietoja käyttäjästä. Se on visuaalinen tapa tunnistaa tietueen sisältöä tai sen laatija. Hiiren osoittaminen elementin päällä näyttää sivun päälle avautuvan työkaluvinkin, jossa on lisätietoa ja linkkejä profiiliin.
+        context_description: Tämä solu näyttää tietoja käyttäjästä. Sitä käytetään visuaalisena vihjeenä, joka auttaa tunnistamaan asian/sisällön luojan.
         context_description_2: Tämä solu näytetään pääotsikon alapuolella tietueille. Muilla sisällöillä se näytetään sisällön vieressä.
         debate_l: Keskustelu L
         debate_s: Keskustelu S
@@ -242,8 +242,8 @@ fi:
         post_g: Artikkeli G
         post_l: Artikkeli L
         post_s: Artikkeli S
-        project_l: Hanke L
-        project_s: Hanke S
+        project_l: Projekti L
+        project_s: Projekti S
         proposal_l: Ehdotus L
         proposal_s: Ehdotus S
         proposals: Ehdotukset
@@ -294,6 +294,7 @@ fi:
         usage_typography_2: Leipäteksti
         usage_typography_3: Tumman taustan päällä näytettävän tekstin väri
         usage_typography_4: Linkit ja painikkeet
+        usage_typography_5: Käytöstä poistettu välilehti
         value: Arvo
         variations: Muunnelmat
         variations_cards_description: Jokainen kortti näyttää erilaiselta, riippuen mitä tietueen ominaisuuksia näytetään. Voit ohittaa tämän oletustoiminnallisuuden yksittäisissä soluissa.

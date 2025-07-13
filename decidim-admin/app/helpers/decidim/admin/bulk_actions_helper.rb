@@ -3,37 +3,6 @@
 module Decidim
   module Admin
     module BulkActionsHelper
-      # Public: Generates a select field with the categories. Only leaf categories can be set as selected.
-      #
-      # categories - A collection of categories.
-      #
-      # Returns a String.
-      def bulk_categories_select(collection)
-        categories = bulk_categories_for_select collection
-        prompt = t("decidim.proposals.admin.proposals.index.change_category")
-        select(:category, :id, options_for_select(categories, selected: []), prompt:)
-      end
-
-      def bulk_categories_for_select(scope)
-        sorted_main_categories = scope.first_class.includes(:subcategories).sort_by do |category|
-          translated_attribute(category.name, category.participatory_space.organization)
-        end
-
-        sorted_main_categories.flat_map do |category|
-          parent = [[translated_attribute(category.name, category.participatory_space.organization), category.id]]
-
-          sorted_subcategories = category.subcategories.sort_by do |subcategory|
-            translated_attribute(subcategory.name, subcategory.participatory_space.organization)
-          end
-
-          sorted_subcategories.each do |subcategory|
-            parent << ["- #{translated_attribute(subcategory.name, subcategory.participatory_space.organization)}", subcategory.id]
-          end
-
-          parent
-        end
-      end
-
       # Public: Generates a select field with the components.
       #
       # siblings - A collection of components.

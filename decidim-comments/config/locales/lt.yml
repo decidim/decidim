@@ -5,7 +5,6 @@ lt:
       decidim/comments/comment_created_event: Komentarai
       decidim/comments/comment_upvoted_event: Komentaras palaikytas
       decidim/comments/reply_created_event: Atsakymas į komentarą
-      decidim/comments/user_group_mentioned_event: Paminėjimas
       decidim/comments/user_mentioned_event: Paminėti
   activerecord:
     models:
@@ -20,6 +19,10 @@ lt:
         many: Balsai
         other: Balsai
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Komentarai
     comments:
       admin:
         shared:
@@ -49,8 +52,6 @@ lt:
           form_error: Tekstas būtinais ir negali viršyti %{length} simbolių.
           submit_reply: Skelbti atsakymą
           submit_root_comment: Skelbti komentarą
-          user_group_id:
-            label: Komentuoti kaip
         opinion:
           label: Jūsų nuomonė šiuo klausimu
           negative: Negatyvi
@@ -130,11 +131,6 @@ lt:
           email_outro: Gavote šį pranešimą nes sekate %{author_name}. Galite pasirinkti nebesekti šio naudotojo jo profilio puslapyje.
           email_subject: Naujas komentaras %{resource_title} iš %{author_name}
           notification_title: Naujas komentaras <a href="%{resource_path}">%{resource_title}</a> iš <a href="%{author_path}">%{author_name}%{author_nickname}</a>.
-        comment_by_followed_user_group:
-          email_intro: 'Grupė %{author_name} paliko komentarą po %{resource_title}. Galite jį perskaityti šiame puslapyje:'
-          email_outro: Šį pranešimą gavote dėl to, kad sekate %{author_name}. Jūs galite nebesekti šios grupės pasirinkdami šį nustatymą jos profilio puslapyje.
-          email_subject: Naujas komentaras %{resource_title} iš %{author_name}
-          notification_title: Naujas komentaras <a href="%{resource_path}">%{resource_title}</a> iš <a href="%{author_path}">%{author_name}%{author_nickname}</a>.
         comment_created:
           email_intro: "%{resource_title} pateiktas komentaras. Komentarą galite perskaityti šiame puslapyje:"
           email_outro: Šį pranešimą gavote dėl to, kad sekate „%{resource_title}“ arba jo autorių. Jūs galite jo nebesekti spustelėdami aukščiau esančią nuorodą.
@@ -155,21 +151,11 @@ lt:
           email_outro: Gavote šį pranešimą nes į Jūsų komentarą buvo atsakyta.
           email_subject: "%{author_name} atsakė į komentarą %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name}%{author_nickname}</a> atsakė į komentarą <a href="%{resource_path}">%{resource_title}</a>
-        user_group_mentioned:
-          email_intro: Grupė, kuriai priklausote, buvo paminėta
-          email_outro: Gavote šį pranešimą nes esate %{resource_title} paminėtos grupės %{group_name} narė(-ys).
-          email_subject: Buvote paminėtas %{resource_title} kaip %{group_name} narys
-          notification_title: Buvote paminėtas <a href="%{resource_path}">%{resource_title} <a href="%{author_path}">%{author_name}%{author_nickname}</a> kaip <a href="%{group_path}">%{group_name}%{group_nickname}</a> narį
         user_mentioned:
           email_intro: Buvote paminėta(-s)
           email_outro: Gavote šį pranešimą nes buvote paminėta(-s) %{resource_title}.
           email_subject: Buvote paminėta(-s) %{resource_title}
           notification_title: Buvote paminėta(-s) <a href="%{resource_path}"> %{resource_title}</a><a href="%{author_path}">%{author_name}%{author_nickname}</a>
-    metrics:
-      comments:
-        description: Komentarų sugeneruotų dalyvių skaičius
-        object: komentarai
-        title: Komentarai
   errors:
     messages:
       cannot_have_comments: negali turėti komentarų

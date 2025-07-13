@@ -17,12 +17,6 @@
       <div class="row column">
         <%= form.translated :editor, :description, lines: 8, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), aria: { label: :description } %>
       </div>
-
-      <div class="row column">
-        <div class="columns">
-          <%= form.text_field :hashtag, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative) %>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -116,17 +110,17 @@
       <% end %>
     </div>
   </div>
-  <div class="card" data-component="accordion" id="accordion-homepage_highlighted_content_banner_title">
+  <div class="card" data-component="accordion" id="accordion-homepage_attachments">
     <div class="card-divider">
-      <button class="card-divider-button" data-open="true" data-controls="panel-homepage_highlighted_content_banner_title" type="button">
+      <button class="card-divider-button" data-open="true" data-controls="panel-homepage_attachments" type="button">
         <%= icon "arrow-right-s-line" %>
-        <h2 class="card-title" id="homepage_highlighted_content_banner_title">
-          <%= t("homepage_highlighted_content_banner_title", scope: "decidim.admin.organization_appearance.form") %>
+        <h2 class="card-title" id="homepage_attachments">
+          <%= t(".attachments_title") %>
         </h2>
       </button>
     </div>
 
-    <div id="panel-homepage_highlighted_content_banner_title" class="card-section">
+    <div id="panel-homepage_attachments" class="card-section">
       <div class="row">
         <% if allowed_to?(:read, :attachment, initiative: current_participatory_space) %>
           <%= render partial: "initiative_attachments", locals: { current_initiative:, current_participatory_space: } %>

@@ -2,18 +2,14 @@ zh-TW:
   activemodel:
     attributes:
       debate:
-        category_id: 類別
         closed_at: 關閉於
         conclusions: 結論
-        decidim_category_id: 類別
         description: 說明
         end_time: 結束於
         information_updates: 資訊更新
         instructions: 參加指南
-        scope_id: 範圍
         start_time: 開始於
         title: 標題
-        user_group_id: 建立辯論為
     models:
       decidim/debates/close_debate_event: 辯論功能已關閉
       decidim/debates/create_debate_event: 辯論
@@ -28,27 +24,19 @@ zh-TW:
       debates:
         actions:
           comment: 留言
-          create: 建立
-          endorse: 連署
         name: 辯論
         settings:
           global:
             announcement: 公告
             comments_enabled: 啟用評論功能
             comments_max_length: 評論字數最大長度(若要使用預設值請輸入0)
-            scope_id: 範圍
-            scopes_enabled: 啟用範圍
           step:
             announcement: 公告
             comments_blocked: 留言已封鎖
             creation_enabled: 參與者可以建立辯論
-            endorsements_blocked: 連署已封鎖
-            endorsements_enabled: 連署已封鎖
     debates:
       actions:
         close: 關閉
-        confirm_destroy: 您確定嗎？
-        destroy: 刪除
         edit: 編輯
         title: 操作
       admin:
@@ -60,8 +48,6 @@ zh-TW:
           create:
             invalid: 建立辯論時出現問題。
             success: 辯論建立成功。
-          destroy:
-            success: 辯論已成功刪除。
           edit:
             title: 編輯辯論
             update: 更新辯論
@@ -77,8 +63,6 @@ zh-TW:
           update:
             invalid: 更新此辯論時發生問題。
             success: 辯論已成功更新
-        exports:
-          comments: 評論
       admin_log:
         debate:
           close: "%{user_name} 在 %{space_name} 空間關閉了 %{resource_name} 辯論。"
@@ -117,15 +101,11 @@ zh-TW:
           state: 狀態
           state_values:
             closed: 關閉
-            open: 開啟
-        form:
-          select_a_category: 請選擇一個類別
         index:
           new_debate: 新辯論
         new:
           back: 返回
           create: 建立
-          title: 新辯論
         orders:
           commented: 最多評論
           label: 依序排列辯論
@@ -133,13 +113,8 @@ zh-TW:
           recent: 最近
           updated: 最近更新
         show:
-          close_debate: 關閉辯論
-          debate_closed: 關閉
           debate_conclusions_are: '此辯論已於 %{date} 結束，以下是總結結論：'
           edit_conclusions: 修改結論
-          edit_debate: 編輯辯論
-          groups_count: 群組
-          open: 開放性辯論
           participants_count: 參與者
         update:
           invalid: 更新此辯論時發生問題。
@@ -197,10 +172,5 @@ zh-TW:
           next_level_in: 再參與 %{score} 個辯論，即可達成下一等級！
           unearned_another: 這位參與者尚未參與任何辯論。
           unearned_own: 您尚未參與任何辯論。
-    metrics:
-      debates:
-        description: 建立的辯論次數
-        object: 辯論
-        title: 辯論
     statistics:
       debates_count: 辯論

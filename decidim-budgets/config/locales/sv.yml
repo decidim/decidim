@@ -2,65 +2,86 @@ sv:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Omfång
         description: Beskrivning
         title: Titel
         total_budget: Total budget
-        weight: Ordning
+        weight: Position i listan
       project:
         budget_amount: Belopp
-        decidim_category_id: Kategori
-        decidim_scope_id: Omfång
         description: Beskrivning
         proposal_ids: Relaterade förslag
         proposals: Förslag
         selected: Valt för genomförande
         title: Titel
       proposals_import:
-        scope_id: Omfång
+        scope_id: Indelning
   activerecord:
     models:
+      decidim:
+        budgets:
+          project:
+            text: 'Lades till den här budgeten: %{link}'
+      decidim/budgets/budget:
+        one: Budget
+        other: Budgetar
       decidim/budgets/project:
         one: Projekt
         other: Projekt
   decidim:
     admin:
+      admin_log:
+        changeset:
+          projects: Projekt
       filters:
         projects:
-          category_id_eq:
-            label: Kategori
-          scope_id_eq:
-            label: Omfång
           selected_at_null:
             label: Valda
             values:
               'false': Valda för genomförande
               'true': Inte valda för genomförande
+          taxonomies_part_of_contains:
+            label: Kategorisering
+      tooltips:
+        deleted_projects_info: Kan inte ta bort detta projekt
     budgets:
       actions:
         attachment_collections: Mappar
         attachments: Bilagor
-        confirm_destroy: Vill du radera projektet?
-        destroy: Radera
+        confirm_delete_budget: Är du säker på att du vill ta bort budgeten?
+        confirm_delete_project: Är du säker på att du vill radera projektet?
+        deleted_budgets_info: Raderade budgetar kan återställas från papperskorgen.
         edit: Redigera
         edit_projects: Hantera projekt
         import: Importera förslag till projekt
+        new_budget: Ny budget
+        new_project: Nytt projekt
         preview: Förhandsvisa
+        send_voting_reminders: Skicka påminnelser om att rösta
         title: Åtgärder
+        view_deleted_budgets: Visa raderade budgetar
+        view_deleted_projects: Visa raderade projekt
       admin:
         budgets:
+          create:
+            invalid: Det gick inte att skapa budgeten.
+            success: Budgeten har skapats.
           edit:
             title: Redigera budget
             update: Uppdatera budget
           index:
-            finished_orders: Avslutade röster
+            finished_orders: Färdiga omröstningar
             pending_orders: Pågående omröstningar
             title: Budgetar
-            users_with_finished_orders: Användare med avslutade röster
-            users_with_pending_orders: Användare med väntande röster
+            users_with_finished_orders: Användare med färdiga omröstningar
+            users_with_pending_orders: Användare med väntande omröstningar
+          manage_trash:
+            title: Raderade budgetar
           new:
             create: Skapa budget
             title: Ny budget
+          update:
+            invalid: Det gick inte att uppdatera budgeten.
+            success: Budgeten har uppdaterats.
         exports:
           projects: Projekt
         models:
@@ -69,28 +90,67 @@ sv:
           project:
             name: Projekt
         projects:
+          create:
+            invalid: Det gick inte att skapa projektet.
+            success: Projektet har skapats.
           edit:
             title: Redigera projekt
             update: Uppdatera
           index:
             actions: Åtgärder
             cancel: Avbryt
-            change_category: Ändra kategori
+            change_budget: Ändra budget
+            change_selected: Ändra status
+            change_taxonomies: Ändra kategorier
+            deselect_implementation: Välj bort från genomförande
             finished_orders: Avslutade omröstningar
             pending_orders: Pågående omröstningar
+            select_for_implementation: Välj för genomförande
             selected: Valda
+            selected_options:
+              'no': 'Nej'
+              'yes': 'Ja'
             title: Projekt
             update: Uppdatera
-            update_scope_button: Uppdatera omfång
+            update_budget_button: Uppdatera projektets budget
+          manage_trash:
+            title: Raderade projekt
           new:
             create: Skapa
             title: Nytt projekt
+          update:
+            invalid: Det gick inte att uppdatera projektet.
+            success: Projektet har uppdaterats.
+          update_budget:
+            invalid: 'Projekten ingår redan i samma budget eller överstiger det maximala beloppet: %{errored}.'
+            select_a_project: Välj ett projekt.
+            success: 'Projekten till budgeten %{subject_name} har uppdaterats: %{successful}.'
+          update_selected:
+            invalid:
+              selected: 'De här projekten har redan valts för genomförande: %{errored}.'
+              unselected: 'Projekten har redan valts bort för genomförande: %{errored}.'
+            select_a_project: Välj ett projekt.
+            select_a_selection: Välj status för genomförandet.
+            success:
+              selected: 'Projekten har valts för genomförande: %{successful}.'
+              unselected: 'Projekten har valts bort från genomförande: %{successful}.'
+          update_taxonomies:
+            invalid: 'Kategorierna %{taxonomies} har redan lagts till de här projekten: %{errored}.'
+            select_a_project: Välj ett projekt.
+            select_a_taxonomy: Välj en kategori.
+            success: 'Projekt som tilldelats kategorin %{taxonomies}: %{successful}.'
         proposals_imports:
+          create:
+            invalid: Det gick inte att importera förslagen till projekten.
+            success: "%{number} förslag har importerats till projekt."
           new:
             create: Importera förslag till projekt
             default_budget: Förvald budget
+            import_all_accepted_proposals: Importera alla godkända förslag
             no_components: Det finns inga andra förslagskomponenter med förslag i deltagarutrymmet som kan importeras till projekt.
+            origin_component_id: Ursprungskomponent
             select_component: Välj en komponent
+            title: Importera förslag till projekt
         reminders:
           orders:
             description: Användarna kommer få ett e-post med länkar till budgetar de har börjat rösta i.
@@ -101,26 +161,49 @@ sv:
         budget:
           create: "%{user_name} skapade budgeten %{resource_name} i utrymmet %{space_name}"
           delete: "%{user_name} raderade budgeten %{resource_name} i utrymmet %{space_name}"
+          restore: "%{user_name} återställde budgeten %{resource_name} för %{space_name}"
+          soft_delete: "%{user_name} flyttade budgeten %{resource_name} för %{space_name} till papperskorgen"
           update: "%{user_name} uppdaterade budgeten %{resource_name} i utrymmet %{space_name}"
         project:
           create: "%{user_name} skapade projektet %{resource_name} i utrymmet %{space_name}"
           delete: "%{user_name} raderade projektet %{resource_name} i utrymmet %{space_name}"
+          restore: "%{user_name} återställde projektet %{resource_name} för %{space_name}"
+          soft_delete: "%{user_name} flyttade projektet %{resource_name} för %{space_name} till papperskorgen"
           update: "%{user_name} uppdaterade projektet %{resource_name} i utrymmet %{space_name}"
       budget_information_modal:
         back_to: Tillbaka till %{component_name}
         close_modal: Stäng fönster
         continue: Fortsätt
+        more_information: Mer information om budgeten
       budgets_list:
         budgets: Budgetar
         cancel_order:
           more_than_one: dra tillbaka din röst på %{name} och börja om
           only_one: dra tillbaka din röst och börja om.
+        count:
+          one: "%{count} budget"
+          other: "%{count} budgetar"
+        empty: Det finns inga budgetar än
+        finished_message: Du har avslutat omröstningen. Tack för ditt deltagande!
         highlighted_cta: Rösta på %{name}
-        progress: Avsluta röstning
+        if_change_opinion: Om du har ändrat dig kan du
+        orders:
+          highest_cost: Högst kostnad
+          label: Sortera budgetar efter
+          lowest_cost: Lägst kostnad
+          random: Slumpvis ordning
+        progress: Avsluta omröstning
         remove_vote: Ta bort röst
         show: Visa projekt
         vote: Rösta
+        voted_budgets: Budgetar som röstats i
+        voted_on: Du har röstat på %{links}.
+      creation:
+        text: Lades till den här budgeten
+      last_activity:
+        new_vote_at: Ny röst i budget
       limit_announcement:
+        cant_vote: Du kan inte rösta i den här budgeten. <a href="%{landing_path}">Prova en annan budget</a>.
         limit_reached: Du har aktiva röster i %{links}. För att rösta måste du <a href="%{landing_path}">ta bort din röst och börja om</a>.
       models:
         budget:
@@ -130,48 +213,68 @@ sv:
             total_budget: Total budget
         project:
           fields:
-            category: Kategori
             id: ID
             map: Karta
+            taxonomies: Kategorisering
             title: Titel
+      order:
+        status:
+          continue_voting: Fortsätt rösta
+          download_vote: Ladda ner din röst
+          pending_to_vote_budgets:
+            one: Du kan rösta i en till budget
+            other: Du kan rösta i fler budgetar
+          share_text: "Jag röstade just på mina favoritprojekt i %{space_name}! 🎉 Rösta nu: %{component_url}"
+          share_vote: Dela din röst
+          title: Din röst har tagits emot
+          view_votes:
+            one: Visa röst
+            other: Visa röster
+          votes_count:
+            one: Din röst på %{budget_name} har redan registrerats.
+            other: Dina %{count} röster för %{budget_name} har redan registrerats.
+      order_pdf:
+        text: Du har röstat på följande projekt i %{space_name}
+        title: Din röst har tagits emot.
       order_summary_mailer:
         order_summary:
-          selected_projects: 'De projekt som du har valt är:'
-          subject: Du har röstat i deltagarutrymmet %{space_name}
-          voted_on_space: Du har röstat på budgeten %{budget_name} i deltagarutrymmet %{space_name}.
-          voted_on_space_with_scope: Du har röstat på budgeten %{budget_name} i deltagarutrymmet %{space_name} för %{scope_name} (%{scope_type}).
+          selected_projects: 'Du har valt följande projekt:'
+          subject: Du har röstat i %{space_name}
+          voted_on_space: Du har röstat på budgeten %{budget_name} i %{space_name}.
       projects:
         budget_confirm:
           are_you_sure: Om du ändrar dig kan du ändra rösten senare.
           cancel: Avbryt
           confirm: Bekräfta
-          description: De projekt där du har valt att delta i budgeten.
+          description: Projekt du har valt inom budgeten.
           title: Bekräfta röst
         budget_excess:
           budget_excess:
+            description: Det här projekt överstiger budgeten och kan inte läggas till. Du måste först ta bort ett projekt innan du lägger till ett nytt.
             title: Maximal budget överskriden
+          description: Det här projekt överstiger budgeten och kan inte läggas till. Du måste först ta bort ett projekt innan du lägger till ett nytt.
           ok: OK
           projects_excess:
             description: Du har valt för många projekt. Du måste först ta bort ett projekt innan du lägger till ett nytt.
             title: Maximalt antal projekt överskridet
         budget_summary:
           are_you_sure: Vill du dra tillbaka din röst?
-          cancel_order: dra tillbaka din röst och börja om
+          cancel_order: Dra tillbaka din röst
           checked_out:
+            description: Du har redan röstat i budgeten. Om du har ändrat dig kan du ta bort din röst.
             title: Budgetomröstning slutförd
-          vote: Rösta i budgeten
+          vote: Rösta
         count:
           projects_count:
             one: Ett projekt
             other: "%{count} projekt"
+        empty: Det finns inga projekt än
         exit_modal:
           cancel: Tillbaka till omröstningen
-          exit: Lämna omröstning
-          message: Din röst har inte registrerats eftersom du ännu inte har slutfört omröstningen. Är du säker på att du vill avsluta omröstningen?
+          exit: Avbryt omröstning
+          message: Din röst har inte registrerats eftersom du ännu inte har slutfört omröstningen. Är du säker på att du vill lämna omröstningen?
           title: Du har ännu inte röstat
         filters:
-          category: Kategori
-          scope: Omfång
           search: Sök
           status: Status
           status_values:
@@ -179,39 +282,59 @@ sv:
             not_selected: Inte vald
             selected: Valda
         order_progress:
-          assigned: Tilldelade
+          assigned: Valda
           budget: Budget
+          dynamic_help:
+            keep_adding_projects: Fortsätt lägga till projekt
+            minimum_reached: Du har uppnått den lägsta gränsen för att kunna rösta
+            start_adding_projects: Börja lägga till projekt
           minimum: Minst
+          minimum_projects_rule:
+            description: Välj minst %{minimum_number} projekt att rösta på.
+          projects_rule:
+            description: Välj minst %{minimum_number} och som mest %{maximum_number} projekt att rösta på.
+          projects_rule_maximum_only:
+            description: Välj upp till %{maximum_number} projekt att rösta på.
+          vote_threshold_percent_rule:
+            description: Välj projekt för minst %{minimum_budget} att rösta på.
         orders:
           highest_cost: Högst kostnad
-          label: Ordna projekt efter
-          lowest_cost: Lägsta kostnad
-          most_voted: Mest röster
-          random: Slumpmässig ordning
+          label: Sortera projekt efter
+          lowest_cost: Lägst kostnad
+          most_voted: Flest röster
+          random: Slumpvis ordning
           selected: Valda
         project:
+          add: Lägg till projektet %{resource_name} till din röst.
+          remove: Ta bort projektet %{resource_name} från din röst.
           selected: Valda
           votes:
             one: röst
             other: röster
+          you_voted: Du röstade på det här
         project_budget_button:
-          add: Lägg till i din röst
-          added: Lades till i din röst
+          add: Välj
+          add_descriptive: Lägg till projektet %{resource_name} till din röst.
+          added: Vald
+          added_descriptive: Projektet %{resource_name} har lagts till din röst.
         project_filter:
-          added: Lades till i din röst
+          added: Valda
           all: Alla
-        projects_for: Projekt för %{name}
+        projects_for: Projekt inom %{name}
+        select_projects: Välj projekt
         show:
           budget: Budget
+        start_voting: Börja rösta
+      prompt: Välj budget
       vote_reminder_mailer:
         vote_reminder:
-          email_budgets: 'Områden där du inte har skickat din röst:'
-          email_intro: Du har börjat rösta i medborgarbudgeten men inte skickat den.
-          email_link: Rösta klart
-          email_outro: Kom ihåg att slutföra omröstningen. För att rösta måste du först välja ett eller flera förslag som du vill rösta för och bekräfta din röst med knappen "Rösta".
+          email_budgets: 'Områden där du har en oavslutad omröstning:'
+          email_intro: Du har börjat rösta i medborgarbudgeten men inte gjort klart den.
+          email_link: Gör färdigt omröstningen
+          email_outro: Kom ihåg att göra färdigt omröstningen. För att rösta måste du först välja ett eller flera förslag som du vill rösta för och bekräfta din röst med knappen "Rösta".
           email_subject:
-            one: Du har börjat rösta i medborgarbudgeten men glömt skicka din röst
-            other: Du har börjat rösta i medborgarbudgeten men glömt skicka dina röster
+            one: Du har börjat rösta i medborgarbudgeten men inte skickat in din röst
+            other: Du har börjat rösta i medborgarbudgeten men inte skickat in dina röster
     components:
       budgets:
         actions:
@@ -221,52 +344,105 @@ sv:
         settings:
           global:
             announcement: Meddelande
-            comments_enabled: Kommentarer aktiverade
-            comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
-            landing_page_content: Budgetarnas landningssida
+            clear_all: Återställ
+            comments_enabled: Aktivera kommentarer
+            comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
+            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
+            form:
+              errors:
+                budget_voting_rule_only_one: Endast en röstningsregel kan vara aktiverad.
+                budget_voting_rule_required: Det krävs en röstningsregel.
+            geocoding_enabled: Aktivera visning på karta
+            landing_page_content: Landningssida för budgetar
             more_information_modal: Fönster "Mer information"
+            no_taxonomy_filters_found: Inga filter för kategorier hittades.
             projects_per_page: Projekt per sida
-            resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje projekt
-            scope_id: Omfång
-            scopes_enabled: Omfång aktiverade
+            resources_permissions_enabled: Behörigheter kan ställas in för varje projekt
+            taxonomy_filters: Välj filter för komponenten
+            taxonomy_filters_add: Lägg till filter
             title: Titel
             total_budget: Total budget
-            vote_minimum_budget_projects_number: Minsta antal projekt att rösta om
-            vote_rule_minimum_budget_projects_enabled: 'Aktivera regel: Minsta antal projekt att rösta om'
+            vote_minimum_budget_projects_number: Minsta antal projekt att rösta på
+            vote_rule_minimum_budget_projects_enabled: 'Aktivera regel: Minsta antal projekt att rösta på'
+            vote_rule_selected_projects_enabled: 'Aktivera regel: Minsta och högsta antal projekt att rösta på'
             vote_rule_threshold_percent_enabled: 'Aktivera regel: Lägsta procentandel av budget'
-            vote_selected_projects_maximum: Högsta antal projekt att välja
+            vote_selected_projects_maximum: Maximalt antal projekt att välja
             vote_selected_projects_minimum: Minsta antal projekt att välja
-            vote_threshold_percent: Tröskel för röster i procent
+            vote_threshold_percent: Tröskelvärde för röster i procent
             workflow: Arbetsflöde
             workflow_choices:
-              all: 'Rösta på alla: gör det möjligt för deltagare att rösta på alla budgetar.'
-              one: 'Rösta på en: gör det möjligt för deltagare att rösta på valfri budget, men bara på en.'
+              all: 'Rösta på alla: låt deltagare att rösta i alla budgetar.'
+              one: 'Rösta på en: låt deltagare rösta i valfri budget, men bara i en.'
           step:
             announcement: Meddelande
-            comments_blocked: Kommentarer blockerade
-            highlighted_heading: Framhävd rubrik
-            landing_page_content: Budgetarnas landningssida
-            list_heading: Listans rubrik
+            comments_blocked: Stäng av kommentarer
+            highlighted_heading: Markerad rubrik
+            landing_page_content: Landningssida för budgetar
+            list_heading: Rubrik för lista
             more_information_modal: Fönster "Mer information"
             show_votes: Visa röster
             title: Titel
             votes: Omröstning
             votes_choices:
               disabled: Omröstning inaktiverad
-              enabled: Röstning aktiverad
+              enabled: Omröstning aktiverad
               finished: Omröstning avslutad
+    download_your_data:
+      help:
+        orders:
+          budget: Den budget som omröstningen gäller
+          checked_out_at: Datum och tid för när omröstningen registrerades
+          component: Komponent som omröstningen tillhör
+          created_at: Datum och tid för när omröstningen skapades
+          id: Unikt id för omröstningen
+          projects: Projekten som röstades på
+          updated_at: Datum och tid för när omröstningen uppdaterades
+      show:
+        projects: Projektexport
     events:
       budgets:
         budget_published:
-          email_intro: 'Budgeten %{resource_title} är nu aktivt för %{participatory_space_title}. Du kan se den från den här sidan:'
-          email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddlanden via föregående länk.
-          email_subject: Budgeten %{resource_title} är nu aktivt för %{participatory_space_title}.
-          notification_title: Budgeten <a href="%{resource_path}">%{resource_title}</a> är nu aktiv för %{participatory_space_title}.
+          email_intro: 'Budgeten %{resource_title} för %{participatory_space_title} är nu aktiv. Du kan se den från den här sidan:'
+          email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
+          email_subject: Budgeten %{resource_title} för %{participatory_space_title} är nu aktiv.
+          notification_title: Budgeten <a href="%{resource_path}">%{resource_title}</a> för %{participatory_space_title} är nu aktiv.
+    open_data:
+      help:
+        projects:
+          address: Adress till projektet (om tillämpbart)
+          budget: Uppgifter om projektets budget (t.ex. "2021 Budget")
+          budget_amount: Det totala beloppet av budgeten för projektet
+          comments: Antalet kommentarer till projektet
+          component: Komponenten som projektet tillhör
+          confirmed_votes: Antal bekräftade röster projektet har fått
+          created_at: Datum och tid när projektet skapades
+          description: Beskrivningen av projektet
+          follows_count: Antal följare av projektet
+          id: Unikt id för projektet
+          latitude: Latitud för projektet om det har en fysisk plats
+          longitude: Longitud för projektet om det har en fysisk plats
+          participatory_space: Vilket utrymme (deltagandeprocess eller samråd) projektet tillhör
+          reference: Unik referens för projektet
+          related_proposal_titles: Titlar på relaterade förslag
+          related_proposal_urls: URLer till relaterade förslag
+          related_proposals: Relaterade förslag till projektet
+          selected_at: Tidpunkt då projektet valdes
+          taxonomies: Kategorier för projektet
+          title: Titel på projektet
+          updated_at: Senaste datum när projektet uppdaterades
+          url: Projektets URL
+    orders:
+      checkout:
+        error: Det gick inte att behandla din röst.
+      destroy:
+        error: Det gick inte att dra tillbaka din röst.
+        success: Din röst har dragits tillbaka.
     resource_links:
       included_proposals:
-        project_proposal: Förslag som ingår i detta projekt
+        project_proposal: Förslag som ingår i projektet
     statistics:
       orders_count: Stöd
-      projects_count: Projekt
+      projects_count: Budgetar
+      projects_count_tooltip: Antalet projekt och det totala antalet röster.
   index:
     confirmed_orders_count: Antal röster

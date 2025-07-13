@@ -16,7 +16,6 @@ lb:
         created_by_other: Erstellt von anderen
         creation_date: Datum erstellt
         decidim_area_id: Bereich
-        decidim_assemblies_type_id: Versammlungstyp
         decidim_scope_id: Umfang
         description: Beschreibung
         developer_group: Promoter-Gruppe
@@ -24,11 +23,9 @@ lb:
         duration: Dauer
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
         hero_image: Hauptbild
         included_at: Inbegriffen bei
         instagram: Instagram
-        internal_organisation: Interne Organisation
         is_transparent: Ist transparent
         local_area: Organisationsbereich
         meta_scope: Bereichs-Metadaten
@@ -40,8 +37,6 @@ lb:
         promoted: Hervorgehoben
         published_at: Veröffentlicht am
         purpose_of_action: Zweck der Aktion
-        scope_id: Umfang
-        scopes_enabled: Bereiche aktiviert
         short_description: Kurze Beschreibung
         slug: URL-Block
         special_features: Besondere Merkmale
@@ -80,11 +75,9 @@ lb:
       actions:
         import_assembly: Importieren
         new_assembly: Neues Gremium
-        new_assembly_type: Neuer Gremiumtyp
       assemblies:
         create:
           error: Beim Erstellen eines neuen Gremiums ist ein Fehler aufgetreten.
-          success: Das Gremium wurde erfolgreich erstellt.
         edit:
           update: Aktualisieren
         index:
@@ -101,18 +94,6 @@ lb:
         create:
           error: Beim Duplizieren dieses Gremiums ist ein Fehler aufgetreten.
           success: Das Gremium wurde erfolgreich dupliziert.
-      assemblies_types:
-        create:
-          error: Beim Erstellen eines neuen Gremiumtyps ist ein Fehler aufgetreten.
-          success: Gremiumtyp wurde erfolgreich erstellt.
-        destroy:
-          success: Gremiumtyp wurde erfolgreich gelöscht.
-        new:
-          create: Erstellen
-          title: Neuer Gremiumtyp
-        update:
-          error: Beim Aktualisieren dieses Gremiumtyps ist ein Fehler aufgetreten.
-          success: Gremiumtyp wurde erfolgreich aktualisiert.
       assembly_copies:
         new:
           copy: Kopieren
@@ -126,21 +107,6 @@ lb:
           import: Importieren
           select: Wählen Sie aus, welche Daten Sie importieren möchten
           title: Gremium importieren
-      assembly_members:
-        create:
-          error: Beim Hinzufügen eines Mitglieds zu diesem Gremium ist ein Fehler aufgetreten.
-          success: Mitglied wurde diesem Gremium erfolgreich hinzugefügt.
-        destroy:
-          success: Mitglied wurde erfolgreich aus diesem Gremium entfernt.
-        edit:
-          update: Aktualisieren
-        index:
-          assembly_members_title: Gremienmitglieder
-        new:
-          create: Erstellen
-        update:
-          error: Beim Aktualisieren des Mitglieds dieses Gremiums ist ein Fehler aufgetreten.
-          success: Mitglied dieses Gremiums erfolgreich aktualisiert.
       assembly_publications:
         create:
           error: Beim Veröffentlichen dieses Gremiums ist ein Fehler aufgetreten.
@@ -167,18 +133,11 @@ lb:
         assemblies: Gremien
         assemblies_submenu:
           assembly_admins: Assembly Benutzer
-          assembly_members: Mitglieder
           attachment_collections: Ordner
           attachment_files: Dateien
-          categories: Kategorien
           components: Komponenten
           moderations: Moderationen
-        assemblies_types: Versammlungstypen
       models:
-        assemblies_types:
-          fields:
-            created_at: Hergestellt in
-            title: Titel
         assembly:
           fields:
             created_at: Hergestellt in
@@ -188,11 +147,6 @@ lb:
             title: Titel
           name: Gremium
         assembly_member:
-          fields:
-            ceased_date: Aufgegebenes Datum
-            designation_date: Datum der Benennung
-            full_name: Name
-            position: Position
           name: Mitglied
           positions:
             other: Andere
@@ -205,16 +159,6 @@ lb:
             name: Name
     assemblies:
       admin:
-        assemblies_types:
-          form:
-            title: Titel
-        assembly_members:
-          form:
-            existing_user: Existierender Benutzer
-            non_user: Nichtbenutzer
-            select_a_position: Wählen Sie eine Position
-            select_user: Wählen Sie einen Benutzer aus
-            user_type: Benutzertyp
         content_blocks:
           highlighted_assemblies:
             max_results: Maximale Anzahl der Elemente, die angezeigt werden sollen
@@ -228,14 +172,6 @@ lb:
       assembly_members:
         index:
           members: Mitglieder
-      assembly_types:
-        commission: Kommission
-        consultative_advisory: Beratende / Beratende
-        executive: Exekutive
-        government: Regierung
-        others: Andere
-        participatory: Teilnehmend
-        working_group: Arbeitsgruppe
       content_blocks:
         highlighted_assemblies:
           name: Hervorgehobene Gremien
@@ -260,12 +196,9 @@ lb:
           member_of:
             member_of: Mitglied von
       show:
-        assembly_type: Montageart
         duration: Dauer
         private_space: Dies ist eine private Versammlung
     assembly_members:
-      assembly_member:
-        designated_on: Bezeichnet am
       index:
         title: Mitglieder
     events:
@@ -294,11 +227,6 @@ lb:
           not_found: 'Der Versammlungstyp wurde nicht in der Datenbank gefunden (ID: %{id})'
     menu:
       assemblies: Gremien
-    metrics:
-      assemblies:
-        description: Anzahl der erstellten Gremien
-        object: Gremien
-        title: Gremien
     participatory_processes:
       show:
         related_assemblies: Ähnliche Versammlungen

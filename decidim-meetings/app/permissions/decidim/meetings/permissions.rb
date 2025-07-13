@@ -4,17 +4,22 @@ module Decidim
   module Meetings
     class Permissions < Decidim::DefaultPermissions
       def permissions
-        return permission_action unless user
-
         # Delegate the admin permission checks to the admin permissions class
         return Decidim::Meetings::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
         return permission_action if permission_action.scope != :public
 
+        if permission_action.subject == :meeting && permission_action.action == :read
+          toggle_allow(user_has_any_role?(user, meeting.participatory_space, broad_check: true) || (!meeting&.hidden? && meeting&.current_user_can_visit_meeting?(user)))
+          return permission_action
+        end
+
+        return permission_action unless user
+
         case permission_action.subject
-        when :answer
+        when :response
           case permission_action.action
           when :create
-            toggle_allow(can_answer_question?)
+            toggle_allow(can_respond_question?)
           end
         when :question
           case permission_action.action
@@ -25,6 +30,8 @@ module Decidim
           case permission_action.action
           when :join
             toggle_allow(can_join_meeting?)
+          when :join_waitlist
+            toggle_allow(can_join_waitlist?)
           when :leave
             toggle_allow(can_leave_meeting?)
           when :decline_invitation
@@ -69,6 +76,13 @@ module Decidim
           authorized?(:join, resource: meeting)
       end
 
+      def can_join_waitlist?
+        meeting.waitlist_enabled? &&
+          !meeting.has_available_slots? &&
+          !meeting.has_registration_for?(user) &&
+          authorized?(:join_waitlist, resource: meeting)
+      end
+
       def can_leave_meeting?
         meeting.registrations_enabled?
       end
@@ -79,13 +93,20 @@ module Decidim
       end
 
       def can_create_meetings?
-        component_settings&.creation_enabled_for_participants? && public_space_or_member?
+        (component_settings&.creation_enabled_for_participants? && can_participate?) || initiative_authorship?
       end
 
-      def public_space_or_member?
+      def can_participate?
+        context[:current_component].participatory_space.can_participate?(user)
+      end
+
+      def initiative_authorship?
+        return false unless Decidim.module_installed?("initiatives")
+
         participatory_space = context[:current_component].participatory_space
 
-        participatory_space.private_space? ? space_member?(participatory_space, user) : true
+        participatory_space.is_a?(Decidim::Initiative) &&
+          participatory_space.has_authorship?(user)
       end
 
       # Neither platform admins, nor space admins should be able to create meetings from the public side.
@@ -96,21 +117,18 @@ module Decidim
       end
 
       def can_update_meeting?
-        component_settings&.creation_enabled_for_participants? &&
-          meeting.authored_by?(user) &&
+        meeting.authored_by?(user) &&
           !meeting.closed?
       end
 
       def can_withdraw_meeting?
-        component_settings&.creation_enabled_for_participants? &&
-          meeting.authored_by?(user) &&
+        meeting.authored_by?(user) &&
           !meeting.withdrawn? &&
           !meeting.past?
       end
 
       def can_close_meeting?
-        component_settings&.creation_enabled_for_participants? &&
-          meeting.authored_by?(user) &&
+        meeting.authored_by?(user) &&
           meeting.past?
       end
 
@@ -132,8 +150,8 @@ module Decidim
           meeting.poll.present?
       end
 
-      def can_answer_question?
-        question.present? && user.present? && !question.answered_by?(user)
+      def can_respond_question?
+        question.present? && user.present? && !question.responded_by?(user)
       end
 
       def can_update_question?

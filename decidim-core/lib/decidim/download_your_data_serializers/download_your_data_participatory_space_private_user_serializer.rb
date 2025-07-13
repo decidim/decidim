@@ -17,7 +17,9 @@ module Decidim
             slug: resource.privatable_to.slug
           },
           created_at: resource.created_at,
-          updated_at: resource.updated_at
+          updated_at: resource.updated_at,
+          role: resource.role,
+          published: resource.published
         }
       end
     end

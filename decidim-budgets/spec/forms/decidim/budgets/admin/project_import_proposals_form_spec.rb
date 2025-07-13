@@ -58,7 +58,7 @@ module Decidim
           end
         end
 
-        describe "origin_components" do
+        describe "#origin_components" do
           before do
             create(:component, participatory_space: component.participatory_space)
           end

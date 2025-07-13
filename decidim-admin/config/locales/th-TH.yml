@@ -40,7 +40,6 @@ th:
         time_zone: เขตเวลา
         tos_version: เงื่อนไขการให้บริการเวอร์ชัน
         twitter_handler: ตัวจัดการเอ็กซ์
-        user_groups_enabled: เปิดใช้งานกลุ่ม
         users_registration_mode: โหมดการลงทะเบียนผู้ใช้
         warning_color: คำเตือน
         welcome_notification_body: ยินดีต้อนรับเนื้อหาการแจ้งเตือน

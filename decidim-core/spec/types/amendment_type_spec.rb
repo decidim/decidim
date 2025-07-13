@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
+require "decidim/api/test"
 
 module Decidim
   module Core
@@ -19,7 +19,7 @@ module Decidim
           emendation:
         )
       end
-      let(:user) { create(:user) }
+      let(:user) { create(:user, :confirmed) }
       let(:amendable) { create(:proposal) }
       let(:emendation) { create(:proposal) }
 

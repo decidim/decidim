@@ -15,9 +15,8 @@ module Decidim
     SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
     AVAILABLE_MACHINE_TRANSLATION_DISPLAY_PRIORITIES = %w(original translation).freeze
 
-    translatable_fields :name, :description, :cta_button_text, :omnipresent_banner_title, :omnipresent_banner_short_description,
-                        :highlighted_content_banner_title, :highlighted_content_banner_short_description, :highlighted_content_banner_action_title,
-                        :highlighted_content_banner_action_subtitle, :welcome_notification_subject, :welcome_notification_body, :id_documents_explanation_text,
+    translatable_fields :name, :description, :omnipresent_banner_title, :omnipresent_banner_short_description,
+                        :welcome_notification_subject, :welcome_notification_body, :id_documents_explanation_text,
                         :admin_terms_of_service_body
 
     has_many :static_pages, foreign_key: "decidim_organization_id", class_name: "Decidim::StaticPage", inverse_of: :organization, dependent: :destroy
@@ -31,7 +30,6 @@ module Decidim
     has_many :users, foreign_key: "decidim_organization_id", class_name: "Decidim::User", dependent: :destroy
     has_many :user_entities, foreign_key: "decidim_organization_id", class_name: "Decidim::UserBaseEntity", dependent: :destroy
     has_many :oauth_applications, foreign_key: "decidim_organization_id", class_name: "Decidim::OAuthApplication", inverse_of: :organization, dependent: :destroy
-    has_many :hashtags, foreign_key: "decidim_organization_id", class_name: "Decidim::Hashtag", dependent: :destroy
 
     has_many :templates, foreign_key: "decidim_organization_id", class_name: "Decidim::Templates::Template", dependent: :destroy if defined? Decidim::Templates
 
@@ -41,7 +39,7 @@ module Decidim
     #  enabled: Users registration and sign in are enabled (default value).
     #  existing: Users cannot be registered in the system. Only existing users can sign in.
     #  disable: Users cannot register or sign in.
-    enum users_registration_mode: [:enabled, :existing, :disabled], _prefix: true
+    enum :users_registration_mode, [:enabled, :existing, :disabled], prefix: true
 
     validates :host, uniqueness: true
     validates :reference_prefix, presence: true
@@ -57,10 +55,7 @@ module Decidim
     has_one_attached :favicon
     validates_upload :favicon, uploader: Decidim::OrganizationFaviconUploader
 
-    has_one_attached :highlighted_content_banner_image
-    validates_upload :highlighted_content_banner_image, uploader: Decidim::ImageUploader
-
-    has_one_attached :open_data_file
+    has_many_attached :open_data_files
 
     validate :unique_name
 
@@ -150,8 +145,10 @@ module Decidim
       !users_registration_mode_disabled?
     end
 
-    def open_data_file_path
-      "#{host}-open-data.zip"
+    def open_data_file_path(resource = nil)
+      return "#{host}-open-data.zip" if resource.nil?
+
+      "#{host}-open-data-#{resource}.csv"
     end
 
     def enabled_omniauth_providers

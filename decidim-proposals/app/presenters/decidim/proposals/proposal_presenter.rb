@@ -14,8 +14,7 @@ module Decidim
         @author ||= if official?
                       Decidim::Proposals::OfficialAuthorPresenter.new
                     else
-                      coauthorship = coauthorships.includes(:author, :user_group).first
-                      coauthorship.user_group&.presenter || coauthorship.author.presenter
+                      coauthorships.includes(:author).first.author.presenter
                     end
       end
 
@@ -32,9 +31,6 @@ module Decidim
       end
 
       # Render the proposal title
-      #
-      # links - should render hashtags as links?
-      # extras - should include extra hashtags?
       #
       # Returns a String.
       def title(links: false, extras: true, html_escape: false, all_locales: false)

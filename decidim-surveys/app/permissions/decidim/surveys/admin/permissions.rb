@@ -12,13 +12,22 @@ module Decidim
           case permission_action.subject
           when :questionnaire
             case permission_action.action
-            when :export_answers, :update
+            when :export_responses, :update, :create, :destroy
               permission_action.allow!
             end
-          when :questionnaire_answers
+          when :questionnaire_responses
             case permission_action.action
             when :index, :show, :export_response
               permission_action.allow!
+            end
+          when :questionnaire_publish_responses
+            case permission_action.action
+            when :index, :update, :destroy
+              if context.fetch(:survey).allow_responses
+                permission_action.disallow!
+              else
+                permission_action.allow!
+              end
             end
           end
 

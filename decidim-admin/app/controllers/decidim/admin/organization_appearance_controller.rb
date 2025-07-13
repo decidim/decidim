@@ -8,8 +8,6 @@ module Decidim
 
       add_breadcrumb_item_from_menu :admin_settings_menu
 
-      helper Decidim::Admin::UploaderImageDimensionsHelper
-
       def edit
         enforce_permission_to :update, :organization, organization: current_organization
         @form = form(OrganizationAppearanceForm).from_model(current_organization)

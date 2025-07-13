@@ -10,7 +10,6 @@ uk:
         developer_group: Робочий гурт з просування
         domain: Домен
         end_date: Дата закінчення
-        hashtag: Хештег
         hero_image: Зображення головної сторінки
         local_area: Дільниця організації
         meta_scope: Метавідомості обсягу
@@ -20,8 +19,6 @@ uk:
         promoted: Висвітлено
         published_at: 'Оприлюднено:'
         related_process_ids: Супутні рухи
-        scope_id: Обсяг
-        scopes_enabled: Обсяги увімкнено
         short_description: Стислий опис
         slug: Скорочена веб-адреса
         start_date: Дата початку
@@ -86,10 +83,8 @@ uk:
           attachment_collections: Теки
           attachment_files: Вкладені файли
           attachments: Вкладені файли
-          categories: Категорії
           components: Складові
           moderations: Дії з модерації
-          private_users: Приватні учасники
           process_admins: Учасники руху
           steps: Кроки
       models:

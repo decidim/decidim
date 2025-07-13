@@ -7,6 +7,7 @@ module Decidim
       include Decidim::Resourceable
       include Decidim::Coauthorable
       include Decidim::HasComponent
+      include Decidim::Taxonomizable
       include Decidim::ScopableResource
       include Decidim::HasReference
       include Decidim::HasCategory
@@ -23,11 +24,13 @@ module Decidim
       include Decidim::Amendable
       include Decidim::NewsletterParticipant
       include Decidim::Randomable
-      include Decidim::Endorsable
-      include Decidim::Proposals::Valuatable
+      include Decidim::Likeable
+      include Decidim::Proposals::Evaluable
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
       include Decidim::FilterableResource
+      include Decidim::SoftDeletable
+      include Decidim::Publicable
 
       def assign_state(token)
         proposal_state = Decidim::Proposals::ProposalState.where(component:, token:).first
@@ -92,7 +95,6 @@ module Decidim
       scope :not_withdrawn, -> { where(withdrawn_at: nil) }
 
       scope :drafts, -> { where(published_at: nil) }
-      scope :published, -> { where.not(published_at: nil) }
       scope :order_by_most_recent, -> { order(created_at: :desc) }
 
       scope :with_availability, lambda { |state_key|
@@ -119,12 +121,12 @@ module Decidim
         includes(:votes).where(decidim_proposals_proposal_votes: { decidim_author_id: user })
       }
 
-      scope :sort_by_valuation_assignments_count_asc, lambda {
-        order(valuation_assignments_count: :asc)
+      scope :sort_by_evaluation_assignments_count_asc, lambda {
+        order(evaluation_assignments_count: :asc)
       }
 
-      scope :sort_by_valuation_assignments_count_desc, lambda {
-        order(valuation_assignments_count: :desc)
+      scope :sort_by_evaluation_assignments_count_desc, lambda {
+        order(evaluation_assignments_count: :desc)
       }
 
       scope :state_eq, lambda { |state|
@@ -156,11 +158,11 @@ module Decidim
         scoped_query
       }
 
-      def self.with_valuation_assigned_to(user, space)
-        valuator_roles = space.user_roles(:valuator).where(user:)
+      def self.with_evaluation_assigned_to(user, space)
+        evaluator_roles = space.user_roles(:evaluator).where(user:)
 
-        includes(:valuation_assignments)
-          .where(decidim_proposals_valuation_assignments: { valuator_role_id: valuator_roles })
+        includes(:evaluation_assignments)
+          .where(decidim_proposals_evaluation_assignments: { evaluator_role_id: evaluator_roles })
       end
 
       acts_as_list scope: :decidim_component_id
@@ -191,7 +193,7 @@ module Decidim
 
       def self.retrieve_proposals_for(component)
         Decidim::Proposals::Proposal.where(component:).joins(:coauthorships)
-                                    .includes(:votes, :endorsements)
+                                    .includes(:votes, :likes)
                                     .where(decidim_coauthorships: { decidim_author_type: "Decidim::UserBaseEntity" })
                                     .not_hidden
                                     .published
@@ -205,13 +207,13 @@ module Decidim
 
         participants_has_voted_ids = Decidim::Proposals::ProposalVote.joins(:proposal).where(proposal: proposals).joins(:author).map(&:decidim_author_id).flatten.compact.uniq
 
-        endorsements_participants_ids = Decidim::Endorsement.where(resource: proposals)
-                                                            .where(decidim_author_type: "Decidim::UserBaseEntity")
-                                                            .pluck(:decidim_author_id).to_a.compact.uniq
+        likes_participants_ids = Decidim::Like.where(resource: proposals)
+                                              .where(decidim_author_type: "Decidim::UserBaseEntity")
+                                              .pluck(:decidim_author_id).to_a.compact.uniq
 
         commentators_ids = Decidim::Comments::Comment.user_commentators_ids_in(proposals)
 
-        (endorsements_participants_ids + participants_has_voted_ids + coauthors_recipients_ids + commentators_ids).flatten.compact.uniq
+        (likes_participants_ids + participants_has_voted_ids + coauthors_recipients_ids + commentators_ids).flatten.compact.uniq
       end
 
       # Public: Updates the vote count of this proposal.
@@ -230,13 +232,6 @@ module Decidim
         ProposalVote.where(proposal: self, author: user).any?
       end
 
-      # Public: Checks if the proposal has been published or not.
-      #
-      # Returns Boolean.
-      def published?
-        published_at.present?
-      end
-
       # Public: Returns the published state of the proposal.
       #
       # Returns Boolean.
@@ -246,9 +241,6 @@ module Decidim
 
         proposal_state&.token || "not_answered"
       end
-
-      # This is only used to define the setter, as the getter will be overridden below.
-      alias_attribute :internal_state, :state
 
       # Public: Returns the internal state of the proposal.
       #
@@ -299,11 +291,6 @@ module Decidim
       # Returns Boolean.
       def evaluating?
         state == "evaluating"
-      end
-
-      # Public: Overrides the `reported_content_url` Reportable concern method.
-      def reported_content_url
-        ResourceLocatorPresenter.new(self).url
       end
 
       # Returns the presenter for this author, to be used in the views.
@@ -389,30 +376,34 @@ module Decidim
         ProposalSearch.new(self, params, options)
       end
 
-      # method to filter by assigned valuator role ID
-      def self.valuator_role_ids_has(value)
+      # method to filter by assigned evaluator role ID
+      def self.evaluator_role_ids_has(value)
         query = <<-SQL.squish
         :value = any(
-          (SELECT decidim_proposals_valuation_assignments.valuator_role_id
-          FROM decidim_proposals_valuation_assignments
-          WHERE decidim_proposals_valuation_assignments.decidim_proposal_id = decidim_proposals_proposals.id
+          (SELECT decidim_proposals_evaluation_assignments.evaluator_role_id
+          FROM decidim_proposals_evaluation_assignments
+          WHERE decidim_proposals_evaluation_assignments.decidim_proposal_id = decidim_proposals_proposals.id
           )
         )
         SQL
         where(query, value:)
       end
 
-      def self.ransackable_scopes(auth_object = nil)
-        base = [:with_any_origin, :with_any_state, :state_eq, :voted_by, :coauthored_by, :related_to, :with_any_scope, :with_any_category]
-        return base unless auth_object&.admin?
-
-        # Add extra scopes for admins for the admin panel searches
-        base + [:valuator_role_ids_has]
+      def self.ransackable_scopes(_auth_object = nil)
+        [:with_any_origin, :with_any_state, :state_eq, :voted_by, :coauthored_by, :related_to, :with_any_taxonomies, :evaluator_role_ids_has]
       end
 
       # Create i18n ransackers for :title and :body.
       # Create the :search_text ransacker alias for searching from both of these.
       ransacker_i18n_multi :search_text, [:title, :body]
+
+      def self.ransackable_attributes(_auth_object = nil)
+        %w(id_string search_text title body is_emendation comments_count proposal_votes_count published_at proposal_notes_count)
+      end
+
+      def self.ransackable_associations(_auth_object = nil)
+        %w(taxonomies proposal_state)
+      end
 
       ransacker :state_published do
         Arel.sql("CASE
@@ -459,7 +450,7 @@ module Decidim
       end
 
       def self.export_serializer
-        Decidim::Proposals::ProposalSerializer
+        Decidim::Proposals::DownloadYourDataProposalSerializer
       end
 
       def self.download_your_data_images(user)
@@ -544,7 +535,7 @@ module Decidim
       private
 
       def copied_from_other_component?
-        linked_resources(:proposals, "copied_from_component").any?
+        linked_resources(:proposals, %w(splitted_from_component merged_from_component copied_from_component)).any?
       end
     end
   end

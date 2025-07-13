@@ -6,8 +6,6 @@ is-IS:
           body:
             label: Athugasemd
             placeholder: Hvað finnst þér um þetta?
-          user_group_id:
-            label: Athugasemd sem
         opinion:
           neutral: Hlutlaus
         remaining_characters: "%{count} stafir eftir"
@@ -41,9 +39,6 @@ is-IS:
         comment_by_followed_user:
           email_intro: "%{author_name} hefur skilið eftir athugasemd í %{resource_title}. Þú getur lesið það á þessari síðu:"
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{author_name}. Þú getur sleppt þessari notanda frá prófílssíðunni sinni.
-          email_subject: Það er nýtt ummæli um %{author_name} í %{resource_title}
-          notification_title: Það er nýtt ummæli við <a href="%{author_path}">%{author_name} %{author_nickname}</a> í <a href="%{resource_path}">%{resource_title}</a>.
-        comment_by_followed_user_group:
           email_subject: Það er nýtt ummæli um %{author_name} í %{resource_title}
           notification_title: Það er nýtt ummæli við <a href="%{author_path}">%{author_name} %{author_nickname}</a> í <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:

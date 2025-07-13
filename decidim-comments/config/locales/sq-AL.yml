@@ -5,8 +5,6 @@ sq:
         form:
           submit_reply: Publiko përgjigje
           submit_root_comment: Publiko koment
-          user_group_id:
-            label: Komento si
         opinion:
           label: Mendimi jot mbi këtë temë
           negative: Negativ

@@ -1,6 +1,10 @@
 cs:
   activemodel:
     attributes:
+      authorization:
+        verification_attachment: Příloha ověření
+      census_data:
+        file: Soubor
       config:
         available_methods: Dostupné metody
         offline: Offline
@@ -43,6 +47,7 @@ cs:
           destroy:
             confirm: Zrušení před datem autorizace nelze vrátit zpět. Jste si jisti, že chcete pokračovat?
             confirm_all: Zrušení všech autorizací nelze vrátit zpět. Jste si jisti, že chcete pokračovat?
+          destroy_nok: Při odebírání autorizací došlo k chybě.
           destroy_ok: Všechny odpovídající autorizace byly úspěšně zrušeny.
           info: Celkem je %{count} ověřených účastníků.
           no_data: Žádní ověření účastníci.
@@ -55,14 +60,30 @@ cs:
         grant_id_documents_offline_verification: "%{user_name} ověřil %{resource_name} pomocí offline autorizace dokladů totožnosti"
     authorization_handlers:
       admin:
+        another_dummy_authorization_handler:
+          help:
+            - Příklad autorizačního handleru, takže vývojáři mohou pochopit, jak funguje jednoduché ověření.
+            - Zaměřuje se na vývojáře, aby mohli pochopit, jak zavést svůj vlastní ověřovací systém.
+            - Ověřte se uvedením čísla cestovního pasu začínajícího písmenem „A“.
         csv_census:
           help:
             - Administrátoři nahrávají CSV s e-maily přijatých účastníků.
             - Pouze účastníci s e-mailem v souboru CSV mohou být ověřeni.
         default:
           help:
-            - 
+            - Nápověda pro autorizační handler není definována.
             - Vývojář musí definovat pomoc v překladu (i18n) klíč "%{authorization_handler}"
+        dummy_authorization_handler:
+          help:
+            - Příklad autorizačního handleru, takže vývojáři mohou pochopit, jak funguje jednoduché ověření.
+            - Zaměřuje se na vývojáře, aby mohli pochopit, jak zavést svůj vlastní ověřovací systém.
+            - Ověřte tím, že zavedete číslo dokumentu končící "X".
+        ephemeral_dummy_authorization_handler:
+          help:
+            - Příklad přechodné obsluhy autorizace, aby vývojáři pochopili, jak funguje jednoduché ověřování.
+            - Zaměřuje se na vývojáře, aby mohli pochopit, jak zavést svůj vlastní ověřovací systém.
+            - Je to kopie Příkladu autorizace.
+            - Ověřte tím, že uvedete číslo dokumentu končící "X".
         id_documents:
           help:
             - Uživatelé vyplňují údaje o své totožnosti a nahrávají kopii svého dokladu.
@@ -75,6 +96,11 @@ cs:
             - Na adresu zasíláte dopis s ověřovacím kódem.
             - Označte dopis jako odeslaný.
             - Jakmile označíte dopis jako odeslaný, uživatel bude schopen kód zadat a tím se ověřit.
+        sms:
+          help:
+            - Účastníci požádají o zaslání ověřovacího kódu na svůj telefon.
+            - Musí zaadat kód, který bude ověřen.
+            - Pokud kód neobdrží, mohou o něj znovu požádat.
       csv_census:
         explanation: Získejte ověření pomocí členství v organizaci.
         name: Členství organizace
@@ -94,6 +120,7 @@ cs:
           email_intro: Účastník <a href="%{resource_url}">%{resource_title}</a> se pokusil ověřit údaji jiného účastníka (<a href="%{managed_user_url}">%{managed_user_name}</a>).
           email_outro: Zkontrolujte seznam konfliktů <a href="%{conflicts_url}">ověření</a> a kontaktujte uživatele pro ověření jejich údajů a vyřešení problému.
           email_subject: Neúspěšný pokus o ověření proti jinému uživateli
+          notification_title: Účastník <a href="%{resource_path}">%{resource_title}</a> se pokusil ověřit údaji jiného účastníka (<a href="%{managed_user_path}">%{managed_user_name}</a>).
     verifications:
       authorizations:
         authorization_metadata:
@@ -107,17 +134,6 @@ cs:
         destroy:
           error: Při odstraňování autorizace došlo k chybě.
           success: Autorizace byla úspěšně odstraněna.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Ověřte proti jinému příkladu pověření pro autorizaci
-            csv_census: Ověřte prostřednictvím členství v organizaci
-            dummy_authorization_handler: Ověřte proti příkladu pověření autorizace
-            dummy_authorization_workflow: Ověřte proti pracovnímu postupu autorizace
-            id_documents: Získejte ověření odesláním dokladu totožnosti
-            postal_letter: Ověřte si, zda obdržíte ověřovací kód poštou
-            sms: Ověřit obdržením SMS ověřovacího kódu
-          title: Potvrďte vaši identitu
-          verify_with_these_options: 'Jsou to dostupné možnosti k ověření totožnosti:'
         index:
           expired_verification: Ověření vypršelo
           granted_verification: Udělené ověření
@@ -129,6 +145,14 @@ cs:
         new:
           authorize: Poslat
           authorize_with: Ověřte pomocí %{authorizer}
+          tos_agreement: Ověřením Vaší identity přijímáte %{link}.
+        onboarding_pending:
+          completed_verifications: Byli jste úspěšně autorizováni, nyní můžete %{action} v %{resource_name}
+          granted_verifications: Udělená ověření
+          onboarding_message_html: Jste téměř připraveni %{action} na <strong>%{resource_title}</strong> %{resource_name}. Ověřte prosím svůj účet dokončením následujících autorizací.
+          pending_admin_approval_verifications: Čeká na ověření schválení administrátora
+          pending_verifications: Nevyřízená ověření
+          unauthorized: Nemáte oprávnění k %{action} v tomto zdroji
         renew_modal:
           cancel: Zrušit
           continue: Pokračovat
@@ -138,29 +162,48 @@ cs:
         start_exploring: začít zkoumat
       csv_census:
         admin:
+          actions:
+            destroy: Zničit
+            edit: Upravit
           census:
-            create:
-              success: 'Počet úspěšně importovaných položek: %{count} (počet chyb: %{errors}).'
-            destroy_all:
-              success: Všechna data seznamu členů byly smazány.
-          destroy:
-            confirm: Odstranění veškerých seznamů členů nelze vrátit zpět. Opravdu chcete pokračovat?
-            title: Smazat všechna data členství organizace
+            create_import:
+              no_user: Nebyl nalezen žádný uživatel
+              success: Úspěšně importováno %{count} položek. Zpracováváme data. Obnovte stránku za pár minut a uvidíte změny.
+            index:
+              no_sign_in: Nikdy se nepřihlásil
+              no_user: Nebyl nalezen žádný uživatel
+            last_login:
+              no_sign_in: Nikdy se nepřihlásil
+              no_user: Žádný uživatel
+            new_import:
+              errors:
+                email_exists: E-mailová adresa %{email} již existuje v organizaci %{organization}.
+              example: |
+                john.doe@example.org
+                jane.doe@example.org
+              info: 'Musí být soubor ve formátu CSV obsahující pouze jeden sloupec s e-mailovou adresou:'
+              submit: Nahrát soubor
+          census_records:
+            edit_record:
+              save: Uložit
+            form:
+              email: E-mail
+            new_record:
+              save: Uložit
           index:
-            data: Celkem je načteno %{count} záznamů. Poslední datum nahrávání bylo %{due_date}.
-            empty: Nejsou data o členech organizace. Pomocí níže uvedeného formuláře je importujte souborem CSV.
+            add_new_record_button: Přidat nový záznam
+            authorized: Uživatel autorizován
+            fields:
+              actions: Akce
+              created_at: Vytvořeno v
+              email: E-mail
+              user_authorized: Uživatel autorizován?
+            import_csv: Importovat CSV
+            no_authorized: Uživatel neautorizován
             title: Aktuální údaje o členech organizace
           instructions:
             body: Chcete-li to provést, musíte vstoupit do správy systému a přidat oprávnění prostřednictvím souboru csv s e-maily členů organizace
             title: Musíte aktivovat CSV s kontakty členů organizace
-          new:
-            example: |
-              john.doe@example.org
-              jane.doe@example.org
-            file: ".csv soubor s daty e-mailů"
-            info: 'Musí být soubor ve formátu CSV obsahující pouze jeden sloupec s e-mailovou adresou:'
-            submit: Nahrát soubor
-            title: Nahrajte nové členy organizace
         authorizations:
           new:
             error: Váš účet nebyl ověřen, nebo nejste členem organizace.
@@ -172,13 +215,15 @@ cs:
             few: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
             many: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
             other: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
-          scope: Účast je omezena na účastníky s rozsahem %{scope_name}.
           user_postal_codes:
             one: Účast je omezena na účastníky s poštovním kódem %{postal_codes} a vaše poštovní směrovací číslo je %{user_postal_code}.
             few: 'Účast je omezena na účastníky s poštovním kódem %{postal_codes} a vaše poštovní směrovací číslo je %{user_postal_code}.'
             many: 'Účast je omezena na účastníky s poštovními kódy %{postal_codes} a vaše poštovní směrovací číslo je %{user_postal_code}.'
             other: 'Účast je omezena na účastníky s kterýmkoli z následujících poštovních kódů: %{postal_codes}. Vaše poštovní směrovací číslo je %{user_postal_code}.'
-          user_scope: Účast je omezena na účastníky s rozsahem %{scope_name} a váš rozsah je %{user_scope_name}.
+      errors:
+        invalid_emails: 'Následující e-mailové adresy jsou neplatné: %{invalid_emails}.'
+        no_emails: Soubor musí obsahovat e-maily
+        wrong_number_columns: "Byl očekáván sloupec %{expected}, ale byl nalezen %{actual}."
       id_documents:
         admin:
           config:

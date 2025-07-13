@@ -37,8 +37,7 @@ module Decidim
         def attributes
           attrs = {
             title: form.title,
-            description: form.description,
-            hashtag: form.hashtag
+            description: form.description
           }
 
           if form.signature_type_updatable?

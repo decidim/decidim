@@ -11,14 +11,13 @@ module Decidim
         mimic :initiative
 
         translatable_attribute :title, String
-        translatable_attribute :description, String
+        translatable_attribute :description, Decidim::Attributes::RichText
         attribute :type_id, Integer
         attribute :decidim_scope_id, Integer
         attribute :area_id, Integer
         attribute :signature_type, String
         attribute :signature_start_date, Decidim::Attributes::LocalizedDate
         attribute :signature_end_date, Decidim::Attributes::LocalizedDate
-        attribute :hashtag, String
         attribute :offline_votes, Hash
         attribute :state, String
         attribute :attachment, AttachmentForm

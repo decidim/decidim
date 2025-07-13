@@ -1,0 +1,23 @@
+<% add_decidim_page_title(t(".title")) %>
+
+<%= render "decidim/elections/admin/elections/tabs_menu" do %>
+  <%= button_tag t("save", scope: "decidim.elections.admin.elections.form"), class: "main-tabs-menu__cta-button", form: "questions-election-form" %>
+<% end %>
+
+<div class="item_show__header">
+  <h1 class="item_show__header-title">
+    <%= t(".title") %>
+  </h1>
+</div>
+
+<div class="row column">
+  <%= cell "decidim/announcement", t("decidim.elections.admin.questions.form.form_description") %>
+</div>
+
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, url: update_url, method: :put, html: { id: "questions-election-form", class: "form-defaults form edit_questions" }) do |form| %>
+      <%= render partial: "decidim/elections/admin/questions/form", object: form %>
+    <% end %>
+  </div>
+</div>

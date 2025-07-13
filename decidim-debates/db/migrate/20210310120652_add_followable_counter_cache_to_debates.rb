@@ -7,7 +7,7 @@ class AddFollowableCounterCacheToDebates < ActiveRecord::Migration[5.2]
     reversible do |dir|
       dir.up do
         Decidim::Debates::Debate.reset_column_information
-        Decidim::Debates::Debate.find_each do |record|
+        Decidim::Debates::Debate.unscoped.find_each do |record|
           record.class.reset_counters(record.id, :follows)
         end
       end

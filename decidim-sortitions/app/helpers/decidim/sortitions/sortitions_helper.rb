@@ -14,15 +14,15 @@ module Decidim
         (defined?(current_component) && translated_attribute(current_component&.name).presence) || t("decidim.components.sortitions.name")
       end
 
-      # Generates the sortition category label
-      def sortition_category_label(sortition)
-        if sortition.category.present?
-          return I18n.t("show.category",
+      # Generates the sortition taxonomy labels
+      def sortition_taxonomy_labels(sortition)
+        if sortition.taxonomies.present?
+          return I18n.t("show.taxonomies",
                         scope: "decidim.sortitions.sortitions",
-                        category: translated_attribute(sortition.category.name))
+                        taxonomies: sortition.taxonomies.map { |taxonomy| decidim_sanitize_translated(taxonomy.name) }.join(", "))
         end
 
-        I18n.t("show.any_category", scope: "decidim.sortitions.sortitions")
+        I18n.t("show.any_taxonomy", scope: "decidim.sortitions.sortitions")
       end
 
       # Show list of candidate proposals for a sortition. Selected sortition ids will appear with bold font.
@@ -39,13 +39,12 @@ module Decidim
       end
 
       def filter_sections_sortitions
-        sections = [{ method: :with_any_state, collection: filter_state_values, label_scope: "decidim.sortitions.sortitions.filters", id: "state" }]
-        if current_participatory_space.categories.any?
-          sections.append(
-            method: :with_category,
-            collection: filter_categories_values,
-            label_scope: "decidim.sortitions.sortitions.filters", id: "category"
-          )
+        sections = [{ method: :with_any_state, collection: filter_state_values, label: t("decidim.sortitions.sortitions.filters.state"), id: "state" }]
+        current_component.available_taxonomy_filters.each do |taxonomy_filter|
+          sections.append(method: "with_any_taxonomies[#{taxonomy_filter.root_taxonomy_id}]",
+                          collection: filter_taxonomy_values_for(taxonomy_filter),
+                          label: decidim_sanitize_translated(taxonomy_filter.name),
+                          id: "taxonomy-#{taxonomy_filter.root_taxonomy_id}")
         end
         sections.reject { |item| item[:collection].blank? }
       end

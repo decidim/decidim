@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/core/test/shared_examples/softdeleteable_components_examples"
 
 module Decidim
   module ParticipatoryProcesses
@@ -25,11 +26,16 @@ module Decidim
           )
         end
 
+        let(:space) { participatory_process }
+
         before do
           request.env["decidim.current_organization"] = organization
           request.env["decidim.current_participatory_process"] = participatory_process
           sign_in current_user
         end
+
+        it_behaves_like "a reorder components controller", slug_attribute: :participatory_process_slug
+        it_behaves_like "a components controller to hide", slug_attribute: :participatory_process_slug
 
         describe "PATCH update" do
           let(:component_params) do
@@ -54,6 +60,12 @@ module Decidim
             expect(response).to redirect_to components_path
           end
         end
+
+        it_behaves_like "a soft-deletable component",
+                        component_name: :component,
+                        space_name: :participatory_process,
+                        component_path: :components_path,
+                        trash_path: :manage_trash_components_path
       end
     end
   end

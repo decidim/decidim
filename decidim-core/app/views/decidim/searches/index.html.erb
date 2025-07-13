@@ -1,17 +1,20 @@
 <% add_decidim_page_title(t("term_input_placeholder", scope: "decidim.search")) %>
 
 <% content_for :header_snippets do %>
-  <meta name="robots" content="noindex">
+  <%= tag :meta, name: "robots", content: "noindex" %>
 <% end %>
 
 <% content_for :aside do %>
+  <h1 class="title-decorator"><%= t("term_input_placeholder", scope: "decidim.search") %></h1>
   <%= render partial: "filters" %>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
 
   <section id="search-count" class="layout-main__section">
-    <%= render partial: "count" %>
+    <h2 class="h3 decorator mb-10">
+      <%= t("decidim.search.results_found_for_term", count: @results_count, term:) %>
+    </h2>
   </section>
 
   <section id="results" class="layout-main__section">

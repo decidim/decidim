@@ -20,8 +20,6 @@ module Decidim
   # :follows - a collection of `Decidim::Follow` resources. It will return any
   #   activity affecting any of these resources, performed by any of them or
   #   contained in any of them as spaces.
-  # :scopes - a collection of `Decidim::Scope`. It will return any activity that
-  #   took place in any of those scopes.
   class PublicActivities < LastActivity
     def initialize(organization, options = {})
       @organization = organization
@@ -29,13 +27,12 @@ module Decidim
       @user = options[:user]
       @current_user = options[:current_user]
       @follows = options[:follows]
-      @scopes = options[:scopes]
     end
 
     def query
       query = base_query
 
-      query = query.where(user:) if user
+      query = query.where(user_id: user.id, user_type: user.class.name) if user
       query = query.where(resource_type: resource_name) if resource_name.present?
 
       query = filter_follows(query)
@@ -45,7 +42,7 @@ module Decidim
 
     private
 
-    attr_reader :resource_name, :user, :follows, :scopes
+    attr_reader :resource_name, :user, :follows
 
     def filter_follows(query)
       conditions = []
@@ -61,8 +58,6 @@ module Decidim
         conditions += followed_spaces_conditions(follows)
       end
 
-      conditions += interesting_scopes_conditions(scopes)
-
       return query if conditions.empty?
 
       chained_conditions = conditions.inject do |previous_condition, condition|
@@ -76,7 +71,7 @@ module Decidim
       followed_users = follows.where(decidim_followable_type: "Decidim::UserBaseEntity")
       return [] if followed_users.empty?
 
-      [Decidim::ActionLog.arel_table[:decidim_user_id].in(followed_users.map(&:decidim_followable_id))]
+      [Decidim::ActionLog.arel_table[:user_id].in(followed_users.map(&:decidim_followable_id))]
     end
 
     def followed_spaces_conditions(follows)
@@ -88,12 +83,6 @@ module Decidim
           Decidim::ActionLog.arel_table[:participatory_space_id].in(grouped_follows.map(&:decidim_followable_id))
         )
       end
-    end
-
-    def interesting_scopes_conditions(interesting_scopes)
-      return [] if interesting_scopes.blank?
-
-      [Decidim::ActionLog.arel_table[:decidim_scope_id].in(interesting_scopes.map(&:id))]
     end
 
     def participatory_space_classes

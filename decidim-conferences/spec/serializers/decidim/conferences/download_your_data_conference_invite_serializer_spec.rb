@@ -18,15 +18,8 @@ module Decidim::Conferences
         expect(subject.serialize).to include(sent_at: resource.sent_at)
         expect(subject.serialize).to include(accepted_at: resource.accepted_at)
         expect(subject.serialize).to include(rejected_at: resource.rejected_at)
-      end
-
-      it "includes the user" do
-        serialized_user = subject.serialize[:user]
-
-        expect(serialized_user).to be_a(Hash)
-
-        expect(serialized_user).to include(name: resource.user.name)
-        expect(serialized_user).to include(email: resource.user.email)
+        expect(subject.serialize).to include(created_at: resource.created_at)
+        expect(subject.serialize).to include(updated_at: resource.updated_at)
       end
 
       it "includes the registration_type" do
@@ -43,6 +36,7 @@ module Decidim::Conferences
 
         expect(serialized_conference).to be_a(Hash)
 
+        expect(serialized_conference).to include(url: Decidim::EngineRouter.main_proxy(resource.conference).conference_url(resource.conference))
         expect(serialized_conference).to include(title: resource.conference.title)
         expect(serialized_conference).to include(slogan: resource.conference.slogan)
         expect(serialized_conference).to include(description: resource.conference.description)

@@ -1,33 +1,31 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/core/test/shared_examples/softdeleteable_components_examples"
 
 module Decidim
   module Budgets
     module Admin
       describe ProjectsController do
-        routes { Decidim::Budgets::AdminEngine.routes }
-
-        let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }
+        let(:current_user) { create(:user, :confirmed, :admin, organization: component.organization) }
+        let(:component) { create(:budgets_component) }
+        let!(:project) { create(:project, component:) }
+        let!(:additional_params) { { budget_id: project.budget.id } }
 
         before do
           request.env["decidim.current_organization"] = component.organization
           request.env["decidim.current_participatory_space"] = component.participatory_space
           request.env["decidim.current_component"] = component
-          sign_in user
+          sign_in current_user
         end
 
         describe "PATCH update" do
-          let(:component) { create(:budgets_component) }
-          let(:project) { create(:project, component:) }
           let(:project_title) { project.title }
           let(:project_params) do
             {
               title: project_title,
               description: project.description,
               budget_amount: project.budget_amount,
-              decidim_scope_id: project.scope&.id,
-              decidim_category_id: project.category&.id,
               proposal_ids: project.linked_resources(:proposals, "included_proposals").pluck(:id),
               selected: project.selected?,
               photos: project.photos.map { |a| a.id.to_s }
@@ -73,6 +71,11 @@ module Decidim
             end
           end
         end
+
+        it_behaves_like "a soft-deletable resource",
+                        resource_name: :project,
+                        resource_path: :budget_projects_path,
+                        trash_path: :manage_trash_budget_projects_path
       end
     end
   end

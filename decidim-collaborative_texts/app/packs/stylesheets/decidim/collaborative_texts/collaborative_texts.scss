@@ -1,0 +1,287 @@
+.collaborative-texts {
+  &-toc {
+    @apply w-full py-8 lg:sticky top-0;
+
+    .spinner-container::after {
+      @apply bg-transparent;
+    }
+
+    ul {
+      @apply list-none;
+
+      li {
+        @apply flex items-center gap-2 text-secondary text-lg leading-8 cursor-pointer;
+      }
+    }
+  }
+
+  &-container {
+    @apply relative mb-8 md:mr-[18rem] pr-4;
+
+    h2 {
+      @apply mt-8;
+    }
+  }
+
+  &-hidden:not(&-highlight-shown),
+  &-highlight-hidden {
+    @apply hidden;
+  }
+
+  &-manager {
+    @apply sticky top-4 drop-shadow z-10 p-4 bg-background rounded border border-black;
+
+    > div {
+      @apply flex justify-between gap-2 mb-4;
+    }
+
+    &.hidden {
+      display: none;
+    }
+
+    &-applied,
+    &-pending {
+      @apply font-bold;
+    }
+  }
+
+  &-alert {
+    @apply fixed top-8 border-alert z-[40] bg-white rounded;
+
+    > div {
+      @apply flex items-center gap-2 p-4 bg-alert/20 rounded;
+    }
+  }
+
+  &-selection {
+    @apply hidden;
+  }
+
+  &-highlight {
+    @apply relative outline-dashed outline-1 outline-offset-2 outline-gray;
+
+    &:not(.applied) .collaborative-texts-hidden {
+      @apply block;
+    }
+  }
+
+  &-editor {
+    @apply bg-gray-5 mb-4 p-2 pt-1 rounded;
+
+    &-header {
+      @apply flex gap-2 border-b border-gray-6 justify-between items-baseline;
+
+      > svg {
+        @apply fill-secondary text-md;
+      }
+    }
+
+    &-profile {
+      @apply mt-4;
+
+      a {
+        @apply text-black;
+      }
+
+      img {
+        @apply my-0;
+      }
+    }
+
+    &-container {
+      @apply px-2 pt-2 pb-4 my-4 bg-white rounded border border-gray-2 text-md;
+
+      &:focus-visible {
+        @apply outline-none;
+      }
+    }
+
+    &-menu {
+      @apply flex justify-end;
+    }
+  }
+
+  &-menu {
+    @apply absolute top-0 right-0 z-[9] flex gap-2;
+  }
+
+  &-suggestions-box {
+    @apply bg-gray-5 shadow outline outline-gray-3 outline-1 text-xs rounded px-2 pb-2 pt-1 md:pt-0 md:absolute md:top-0 md:right-[-18rem] md:w-[18rem] md:transition-all ease-in-out duration-300;
+
+    .icon {
+      @apply inline-block text-md mr-2;
+
+      &-hover,
+      &-applied {
+        @apply hidden;
+      }
+    }
+
+    &:has([aria-hidden="false"]) {
+      @apply z-[9] shadow-lg;
+
+      &:has(.collaborative-texts-suggestions-box-item:hover) {
+        .icon-pending {
+          @apply hidden;
+        }
+
+        .icon-applied {
+          @apply hidden;
+        }
+
+        .icon-hover {
+          @apply inline-block;
+        }
+      }
+
+      &:has(.applied.collaborative-texts-suggestions-box-item:hover) {
+        .icon-hover {
+          @apply hidden;
+        }
+
+        .icon-applied {
+          @apply inline-block;
+        }
+      }
+    }
+
+    &:has(.applied) {
+      .icon-applied {
+        @apply inline-block;
+      }
+
+      .icon-pending {
+        @apply hidden;
+      }
+
+      .icon-hover {
+        @apply hidden;
+      }
+    }
+
+    &:hover {
+      @apply z-10;
+    }
+
+    &-header {
+      @apply flex items-center justify-between text-secondary mb-4 fill-secondary;
+    }
+
+    &-item {
+      @apply p-2 pr-0 mb-4 rounded w-full;
+
+      &:hover {
+        @apply bg-white drop-shadow relative z-[1];
+      }
+
+      .button-restore {
+        @apply hidden;
+      }
+
+      &.applied {
+        @apply bg-white drop-shadow;
+
+        .button-restore {
+          @apply flex;
+        }
+
+        .button-apply {
+          @apply hidden;
+        }
+      }
+
+      img {
+        @apply m-0;
+      }
+
+      .text {
+        @apply font-semibold;
+      }
+    }
+
+    &-item-header {
+      @apply flex items-center justify-between;
+    }
+
+    [data-component="accordion"] {
+      @apply relative bg-gray-5;
+
+      > button {
+        @apply flex outline-none w-full justify-between;
+
+        svg {
+          @apply fill-secondary;
+        }
+      }
+
+      [id*="panel"][aria-hidden="false"] {
+        @apply z-10 relative;
+      }
+
+      [aria-expanded="false"] > svg:last-of-type,
+      [aria-expanded="false"] > span:last-of-type,
+      [aria-expanded="true"] > span:first-of-type,
+      [aria-expanded="true"] > svg:first-of-type {
+        @apply hidden;
+      }
+
+      [aria-expanded="true"] > svg:last-of-type,
+      [aria-expanded="true"] > span:last-of-type,
+      [aria-expanded="false"] > span:first-of-type,
+      [aria-expanded="false"] > svg:first-of-type {
+        @apply block;
+      }
+    }
+
+    /* overwrite default dropdown styles */
+    [id*="dropdown-trigger"] {
+      @apply flex pr-1;
+
+      > svg {
+        @apply h-3 w-3;
+      }
+    }
+
+    [id*="dropdown-menu"] {
+      @apply cursor-auto w-auto;
+
+      &[aria-hidden="true"] {
+        @apply hidden;
+      }
+
+      ul {
+        @apply list-none;
+      }
+
+      &[aria-hidden="false"] {
+        animation-name: fadeIn;
+        animation-duration: 300ms;
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          visibility: hidden;
+        }
+
+        to {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        to {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+    }
+  }
+}

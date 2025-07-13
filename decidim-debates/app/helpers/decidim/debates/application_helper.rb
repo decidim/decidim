@@ -8,7 +8,7 @@ module Decidim
       include PaginateHelper
       include Decidim::Comments::CommentsHelper
       include Decidim::RichTextEditorHelper
-      include Decidim::EndorsableHelper
+      include Decidim::LikeableHelper
       include Decidim::FollowableHelper
       include Decidim::CheckBoxesTreeHelper
       include Decidim::DateRangeHelper
@@ -44,7 +44,6 @@ module Decidim
       # its origin.
       def filter_origin_values
         origin_keys = %w(official participants)
-        origin_keys << "user_group" if current_organization.user_groups_enabled?
 
         origin_values = origin_keys.map { |key| [key, t(key, scope: "decidim.debates.debates.filters")] }
         origin_values.prepend(["", all_filter_text])
@@ -60,7 +59,7 @@ module Decidim
       # Returns a TreeNode to be used in the list filters to filter debates by
       # its state.
       def filter_debates_state_values
-        %w(open closed).map { |k| [k, t(k, scope: "decidim.debates.debates.filters.state_values")] }.prepend(
+        %w(ongoing closed).map { |k| [k, t(k, scope: "decidim.debates.debates.filters.state_values")] }.prepend(
           ["all", all_filter_text]
         )
       end
@@ -74,18 +73,18 @@ module Decidim
           items = [{
             method: :with_any_state,
             collection: filter_debates_state_values,
-            label_scope: "decidim.meetings.meetings.filters",
+            label: t("decidim.debates.debates.filters.state"),
             id: "date",
             type: :radio_buttons
           }]
-          if current_component.has_subscopes?
-            items.append(method: :with_any_scope, collection: filter_scopes_values, label_scope: "decidim.shared.participatory_space_filters.filters", id: "scope")
+          current_component.available_taxonomy_filters.each do |taxonomy_filter|
+            items.append(method: "with_any_taxonomies[#{taxonomy_filter.root_taxonomy_id}]",
+                         collection: filter_taxonomy_values_for(taxonomy_filter),
+                         label: decidim_sanitize_translated(taxonomy_filter.name),
+                         id: "taxonomy-#{taxonomy_filter.root_taxonomy_id}")
           end
-          if current_participatory_space.categories.any?
-            items.append(method: :with_any_category, collection: filter_categories_values, label_scope: "decidim.debates.debates.filters", id: "category")
-          end
-          items.append(method: :with_any_origin, collection: filter_origin_values, label_scope: "decidim.debates.debates.filters", id: "origin")
-          items.append(method: :activity, collection: activity_filter_values, label_scope: "decidim.debates.debates.filters", id: "activity") if current_user
+          items.append(method: :with_any_origin, collection: filter_origin_values, label: t("decidim.debates.debates.filters.origin"), id: "origin")
+          items.append(method: :activity, collection: activity_filter_values, label: t("decidim.debates.debates.filters.activity"), id: "activity") if current_user
 
           items.reject { |item| item[:collection].blank? }
         end

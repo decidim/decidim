@@ -62,6 +62,7 @@ module TranslationHelpers
   # localized_values - a Hash where the keys are the locales IDs and the values
   #   are the values that will be entered in the form field.
   def fill_in_i18n_editor(field, tab_selector, localized_values)
+    clear_i18n_editor field, tab_selector, localized_values.keys
     fill_in_i18n_fields(field, tab_selector, localized_values) do |locator, value|
       fill_in_editor locator, with: value
     end

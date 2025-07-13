@@ -14,48 +14,58 @@ module Decidim
         Rails.application.reloader.reload! if Rails.application.reloader.check!
         reset_column_information
 
-        ActiveJob::Base.queue_adapter = :inline
-
         organization = create_organization!
 
         if organization.taxonomies.none?
           taxonomy = create_taxonomy!(name: "Scopes", parent: nil)
-          3.times do
+          number_of_records.times do
             sub_taxonomy = create_taxonomy!(name: ::Faker::Address.state, parent: taxonomy)
 
-            5.times do
+            number_of_records.times do
               create_taxonomy!(name: ::Faker::Address.city, parent: sub_taxonomy)
             end
           end
+          # filters for all participatory spaces
+          create_taxonomy_filter!(root_taxonomy: taxonomy,
+                                  taxonomies: taxonomy.all_children,
+                                  participatory_space_manifests: Decidim.participatory_space_manifests.pluck(:name))
 
           taxonomy = create_taxonomy!(name: "Areas", parent: nil)
           sub_taxonomy = create_taxonomy!(name: "Territorial", parent: taxonomy)
-          3.times do
+          number_of_records.times do
             create_taxonomy!(name: ::Faker::Lorem.word, parent: sub_taxonomy)
           end
+
           sub_taxonomy = create_taxonomy!(name: "Sectorial", parent: taxonomy)
-          5.times do
+          number_of_records.times do
             create_taxonomy!(name: ::Faker::Lorem.word, parent: sub_taxonomy)
           end
+          # filters for all participatory except conferences
+          create_taxonomy_filter!(root_taxonomy: taxonomy,
+                                  taxonomies: taxonomy.all_children,
+                                  participatory_space_manifests: Decidim.participatory_space_manifests.pluck(:name) - [:conferences])
 
           taxonomy = create_taxonomy!(name: "Categories", parent: nil)
-          3.times do
+          number_of_records.times do
             sub_taxonomy = create_taxonomy!(name: ::Faker::Lorem.sentence(word_count: 5), parent: taxonomy)
 
-            5.times do
+            number_of_records.times do
               create_taxonomy!(name: ::Faker::Lorem.sentence(word_count: 5), parent: sub_taxonomy)
             end
           end
+          # filters not available for participatory spaces
+          create_taxonomy_filter!(root_taxonomy: taxonomy,
+                                  taxonomies: taxonomy.all_children)
         end
 
         if organization.top_scopes.none?
           province = create_scope_type!(name: "province", plural: "provinces")
           municipality = create_scope_type!(name: "municipality", plural: "municipalities")
 
-          3.times do
+          number_of_records.times do
             parent = create_scope!(scope_type: province, parent: nil)
 
-            5.times do
+            number_of_records.times do
               create_scope!(scope_type: municipality, parent:)
             end
           end
@@ -64,11 +74,11 @@ module Decidim
         territorial = create_area_type!(name: "territorial", plural: "territorials")
         sectorial = create_area_type!(name: "sectorials", plural: "sectorials")
 
-        3.times do
+        number_of_records.times do
           create_area!(area_type: territorial)
         end
 
-        5.times do
+        number_of_records.times do
           create_area!(area_type: sectorial)
         end
 
@@ -94,19 +104,13 @@ module Decidim
           body: "Hey! I am glad you like Decidim"
         )
 
-        Decidim::User.find_each do |user|
-          [nil, Time.current].each do |verified_at|
-            create_user_group!(user:, verified_at:)
-          end
-        end
-
         oauth_application = Decidim::OAuthApplication.create!(
           organization:,
           name: "Test OAuth application",
           organization_name: "Example organization",
           organization_url: "http://www.example.org",
           redirect_uri: "https://www.example.org/oauth/decidim",
-          scopes: "public"
+          scopes: "profile"
         )
 
         oauth_application.organization_logo.attach(io: File.open(File.join(seeds_root, "homepage_image.jpg")), filename: "organization_logo.jpg", content_type: "image/jpeg")
@@ -182,7 +186,6 @@ module Decidim
           users_registration_mode: :enabled,
           tos_version: Time.current,
           badges_enabled: true,
-          user_groups_enabled: true,
           send_welcome_notification: true,
           file_upload_settings: Decidim::OrganizationSettings.default(:upload),
           colors:
@@ -226,27 +229,6 @@ module Decidim
           name: Decidim::Faker::Localized.word,
           area_type:,
           organization:
-        )
-      end
-
-      def create_user_group!(user:, verified_at:)
-        user_group = Decidim::UserGroup.create!(
-          name: ::Faker::Company.unique.name,
-          nickname: ::Faker::Twitter.unique.screen_name,
-          email: ::Faker::Internet.email,
-          confirmed_at: Time.current,
-          extended_data: {
-            document_number: ::Faker::Number.number(digits: 10).to_s,
-            phone: ::Faker::PhoneNumber.phone_number,
-            verified_at:
-          },
-          decidim_organization_id: user.organization.id
-        )
-
-        Decidim::UserGroupMembership.create!(
-          user:,
-          role: "creator",
-          user_group:
         )
       end
     end

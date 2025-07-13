@@ -21,7 +21,11 @@ shared_examples "duplicate meetings" do
 
   it "duplicates a meeting" do
     visit meetings_path
-    click_on "Duplicate"
+
+    within "tr", text: translated(meeting.title) do
+      find("button[data-component='dropdown']").click
+      click_on "Duplicate"
+    end
     click_on "Copy"
 
     expect(page).to have_content("Meeting successfully duplicated.")

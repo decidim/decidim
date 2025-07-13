@@ -8,8 +8,6 @@ sr:
         description: Opis
         end_date: Krajnji datum
         progress: Naprеdak
-        project_ids: Uključeni projekti
-        proposals: Uključeni predlozi
         start_date: Datum početka
         title: Naslov
         updated_at: Ažurirano u
@@ -18,9 +16,6 @@ sr:
         key: Ključ
         name: Ime
         progress: Napredak
-      timeline_entry:
-        description: Opis
-        entry_date: Datum
     models:
       decidim/accountability/proposal_linked_event: Predlog uključen u rezultat
       decidim/accountability/result_progress_updated_event: Rezultati napretka ažurirani
@@ -37,7 +32,6 @@ sr:
         destroy: Obriši
         edit: Izmeni
         preview: Pregled
-        timeline_entries: Evolucija predloga
         title: Akcije
       admin:
         exports:
@@ -68,15 +62,6 @@ sr:
           new:
             create: Stvori status
             title: Novi status
-        timeline_entries:
-          edit:
-            title: Uredi unos
-            update: Ažuriraj unos
-          index:
-            title: Unosi vremenske linije projekta
-          new:
-            create: Stvori unos
-            title: Nov unos
       admin_log:
         result:
           create: "%{user_name} je stvorio rezultat %{resource_name} u %{space_name}"
@@ -99,31 +84,19 @@ sr:
             key: Ključ
             name: Ime
             progress: Napredak
-        timeline_entry:
-          fields:
-            entry_date: Datum
       results:
         count:
           results_count:
             one: 1 rezultat
             few: "%{count} rezultata"
             other: "%{count} rezultata"
-        filters:
-          all: Sve
-        home:
-          categories_label: Kategorije
-          subcategories_label: Podkategorije
         home_header:
           global_status: Sveopšte stanje izvršenja
-        nav_breadcrumb:
-          global: Sveopšte izvršenje
         search:
           search: Potraga za akcijama
         show:
           stats:
             back_to_resource: Vrati se na rezultat
-        timeline:
-          title: Evolucija projekta
     components:
       accountability:
         name: Odgovornost
@@ -146,11 +119,6 @@ sr:
           email_outro: Dobili ste ovo obaveštenje jer pratite "%{proposal_title}", a ovaj predlog je uključen u rezultat "%{resource_title}". Možete da prekinete da dobijate obaveštenja ako pratite prethodni link.
           email_subject: Ažuriranje napredka %{resource_title}
           notification_title: Rezultat <a href="%{resource_path}">%{resource_title}</a>, koji uključuje predlog <a href="%{proposal_path}">%{proposal_title}</a>, je sada %{progress}% gotov.
-    metrics:
-      results:
-        description: Broj generisanih rezultata
-        object: rezultati
-        title: Rezultati
     resource_links:
       included_projects:
         result_project: Projekti koji su deo ovog rezultata

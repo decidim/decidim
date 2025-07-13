@@ -11,7 +11,6 @@ es:
         decidim_scope_id: Ámbito
         description: Descripción
         end_date: Fecha de fin
-        hashtag: Hashtag
         hero_image: Imagen de la pagina de inicio
         location: Localización
         main_logo: Logo principal
@@ -21,8 +20,6 @@ es:
         published_at: Publicada en
         registration_terms: Términos y condiciones de inscripción
         registrations_enabled: Habilitar inscripciones
-        scope_id: Ámbito
-        scopes_enabled: Ámbitos habilitados
         short_description: Breve descripción
         show_statistics: Mostrar estadísticas
         sign_date: Fecha de firma
@@ -68,6 +65,8 @@ es:
         email: Correo electrónico
         name: Nombre
         role: Rol
+      partner:
+        logo: Logo
     errors:
       models:
         conference_registration_invite:
@@ -89,6 +88,7 @@ es:
     admin:
       actions:
         confirm: Confirmar
+        confirm_delete_conference: '¿Seguro que quieres eliminar esta jornada? Si cambias de opinión, puedes restaurarla más tarde.'
         new_conference: Nueva conferencia
         new_conference_user_role: Añadir administradora
         new_media_link: Añadir enlace multimedia
@@ -96,6 +96,7 @@ es:
         new_registration_type: Añadir tipo de inscripción
         new_speaker: Añadir ponente
         send_diplomas: Enviar certificados de asistencia
+        view_deleted_conferences: Ver las jornadas eliminadas
       conference_copies:
         new:
           copy: Copiar
@@ -119,13 +120,13 @@ es:
         destroy:
           success: Ponente de la jornada eliminada correctamente.
         edit:
-          title: Actualizar la ponencia de la conferencia.
+          title: Actualizar la ponente de la conferencia
           update: Actualizar
         index:
           conference_speakers_title: Ponentes de las jornadas
         new:
           create: Crear
-          title: Nueva ponente de la conferencia.
+          title: Nueva ponente de la jornada
         publish:
           invalid: Se ha producido un error al publicar esta ponente.
           success: Ponente de la conferencia actualizada correctamente.
@@ -142,13 +143,13 @@ es:
         destroy:
           success: Administradora de la jornada eliminada correctamente.
         edit:
-          title: Actualizar administradora de la jornada.
+          title: Actualizar administradora de la jornada
           update: Actualizar
         index:
           conference_admins_title: Administradoras de la jornada
         new:
           create: Crear
-          title: Nueva administradora de la jornada.
+          title: Nueva administradora de la jornada
         update:
           error: Se ha producido un error al actualizar la administradora para esta jornada.
           success: Administradora de la jornada actualizada correctamente.
@@ -165,6 +166,8 @@ es:
         index:
           published: Publicado
           unpublished: Despublicada
+        manage_trash:
+          title: Jornadas eliminadas
         new:
           create: Crear
           title: Conferencia
@@ -182,13 +185,13 @@ es:
         destroy:
           success: Enlace multimedia eliminado correctamente.
         edit:
-          title: Actualizar enlace multimedia.
+          title: Actualizar enlace multimedia
           update: Actualizar
         index:
           media_links_title: Enlaces multimedia
         new:
           create: Crear
-          title: Enlace multimedia
+          title: Crear enlace multimedia
         update:
           error: Se ha producido un error al actualizar este enlace multimedia.
           success: Enlace multimedia actualizado correctamente.
@@ -198,7 +201,6 @@ es:
           attachment_collections: Carpetas
           attachment_files: Ficheros
           attachments: Adjuntos
-          categories: Categorías
           components: Componentes
           conference_admins: Administradores de conferencia
           conference_invites: Invita
@@ -215,17 +217,20 @@ es:
       models:
         conference:
           fields:
+            actions: Acciones
             created_at: Creada en
             published: Publicada
             title: Título
         conference_speaker:
           fields:
+            actions: Acciones
             affiliation: Afiliación
             full_name: Nombre completo
             position: Cargo
           name: Ponente de la conferencia
         conference_user_role:
           fields:
+            actions: Acciones
             email: Correo electrónico
             name: Nombre
             role: Rol
@@ -233,16 +238,18 @@ es:
           roles:
             admin: Administradora
             collaborator: Colaboradora
+            evaluator: Evaluadora
             moderator: Moderadora
-            valuator: Evaluadora
         media_link:
           fields:
+            actions: Acciones
             date: Fecha
             link: Enlace
             title: Título
           name: Enlace multimedia
         partner:
           fields:
+            actions: Acciones
             link: Enlace
             logo: Logotipo
             name: Nombre
@@ -253,6 +260,7 @@ es:
             main_promotor: Promotora principal
         registration_type:
           fields:
+            actions: Acciones
             conference_meetings: Encuentros de la conferencia
             price: Precio
             registrations_count: Número de inscripciones
@@ -266,7 +274,7 @@ es:
         destroy:
           success: Colaboradora de la jornada eliminada correctamente.
         edit:
-          title: Actualizar colaboradora.
+          title: Actualizar colaboradora
           update: Actualizar
         new:
           create: Crear
@@ -288,7 +296,7 @@ es:
         destroy:
           success: Tipo de inscripción eliminado correctamente de esta jornada.
         edit:
-          title: Actualizar el tipo de registro.
+          title: Actualizar el tipo de inscripción
           update: Actualizar
         new:
           create: Crear
@@ -296,13 +304,21 @@ es:
         update:
           error: Se ha producido un error al actualizar un tipo de inscripción para esta jornada.
           success: Tipo de inscripción actualizado correctamente para esta jornada.
+      taxonomy_filters:
+        space_filter_for:
+          conferences: Todas las jornadas
       titles:
         conferences: Jornadas
+        conferences_deleted: Jornadas eliminadas
+      tooltips:
+        deleted_conferences_info: Las jornadas solo se pueden eliminar si su estado es 'Despublicada'.
     admin_log:
       conference:
         create: "%{user_name} creó la conferencia %{resource_name}"
         publish: "%{user_name} ha publicado la conferencia %{resource_name}"
+        restore: "%{user_name} restauró la jornada %{resource_name}"
         send_conference_diplomas: "%{user_name} ha enviado certificados de asistencia a las asistentes a la jornada %{resource_name}"
+        soft_delete: "%{user_name} ha movido a la papelera la jornada %{resource_name}"
         unpublish: "%{user_name} ha despublicado la jornada %{resource_name}"
         update: "%{user_name} ha actualizado la jornada %{resource_name}"
         update_diploma: "%{user_name} ha actualizado la configuración de los certificados de asistencia para la jornada %{resource_name}"
@@ -373,10 +389,13 @@ es:
         conferences:
           form:
             available_slots_help: Déjalo en 0 si las plazas disponibles son ilimitadas.
+            define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
+            no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             registrations_count:
               one: Ha habido 1 inscripción.
               other: Ha habido %{count} inscripciones.
             slug_help_html: 'Las URL amigables se utilizan para generar las URL que apuntan a esta conferencia. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            taxonomies: Taxonomías
         content_blocks:
           highlighted_conferences:
             max_results: Cantidad máxima de elementos a mostrar
@@ -473,6 +492,8 @@ es:
           name: Jornadas destacadas
       index:
         title: Jornadas
+      last_activity:
+        new_conference: 'Nueva jornada:'
       mailer:
         conference_registration_mailer:
           confirmation:
@@ -499,6 +520,7 @@ es:
             sent: Enviado
         conference_registration:
           fields:
+            actions: Acciones
             email: Correo electrónico
             name: Nombre
             registration_type: Tipo de inscripción
@@ -523,6 +545,25 @@ es:
         objectives: Objetivos
         related_assemblies: Asambleas relacionadas
         related_participatory_processes: Procesos participativos relacionados
+    download_your_data:
+      help:
+        conference_invites:
+          accepted_at: La fecha en que la invitación a la jornada fue aceptada
+          conference: La jornada a la que corresponde esta invitación
+          confirmed_at: La fecha en la que se confirmó la invitación
+          created_at: La fecha en la que se creó la invitación
+          id: El identificador único de la invitación a la jornada
+          registration_type: El tipo de inscripción enviada para esta jornada
+          rejected_at: La fecha en que la invitación a la jornada fue rechazada
+          sent_at: La fecha en que esta invitación a la conferencia fue enviada
+          updated_at: La fecha en que esta invitación se actualizó por última vez
+        conference_registrations:
+          conference: La jornada a la que pertenece esta inscripción
+          confirmed_at: La fecha en la que se confirmó la inscripción
+          created_at: La fecha en la que se creó la inscripción
+          id: El identificador único de la inscripción a la jornada
+          registration_type: El tipo de inscripción habilitado para esta jornada
+          updated_at: La fecha en que esta inscripción se actualizó por última vez
     events:
       conferences:
         conference_registration_confirmed:
@@ -570,8 +611,35 @@ es:
         title: Multimedia y enlaces
     menu:
       conferences: Jornadas
+    open_data:
+      help:
+        conferences:
+          created_at: La fecha en la que se creó esta jornada
+          decidim_scope_id: El ámbito territorial de la jornada
+          description: Una descripción larga de la jornada
+          end_date: La fecha en la que finalizó esta jornada.
+          follows_count: El número de usuarias que siguen esta jornada
+          id: El identificador único de la jornada
+          location: El lugar de celebración de la jornada. Donde se llevó a cabo esta jornada.
+          objectives: Los objetivos de esta jornada. Cuál fue la meta.
+          promoted: Si la jornada está destacada o no
+          published_at: La fecha en la que se publicó esta jornada
+          reference: La referencia única de la jornada
+          remote_banner_image_url: La URL de la imagen de la cabecera de la jornada
+          remote_hero_image_url: La URL de la imagen principal de la jornada
+          scope: El ámbito territorial de la jornada
+          scopes_enabled: Si el ámbito territorial está habilitado o no
+          short_description: Una breve descripción de la jornada
+          slogan: El lema de esta jornada
+          slug: El nombre corto de la jornada (usado para fines de identificación, para la URL)
+          start_date: La fecha en la que comenzó esta jornada.
+          taxonomies: Las taxonomías de la jornada
+          title: El título de la jornada
+          updated_at: La fecha de la última actualización de esta jornada
+          url: La URL de la jornada
     statistics:
       conferences_count: Jornadas
+      conferences_count_tooltip: El número de jornadas publicadas.
   devise:
     mailer:
       join_conference:

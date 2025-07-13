@@ -1,6 +1,9 @@
 fr-CA:
   activemodel:
     attributes:
+      dummy:
+        image: Image
+      dummy_attribute: Attribut factice
       dummy_resource:
         created_at: Créé le
         decidim_scope_id: Périmètre d'application
@@ -31,8 +34,6 @@ fr-CA:
               baz: Baz
               foo: Foo
           step:
-            endorsements_blocked: Bloquer les soutiens
-            endorsements_enabled: Soutiens activés
             readonly_step_attribute: Attribut étape en lecture seule
             test_options:
               bar: Seuil

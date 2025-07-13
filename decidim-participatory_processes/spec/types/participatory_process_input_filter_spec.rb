@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
-require "decidim/core/test/shared_examples/input_filter_examples"
+require "decidim/api/test"
 
 module Decidim
   module ParticipatoryProcesses
@@ -13,10 +12,6 @@ module Decidim
 
       context "when filtered by published_at" do
         include_examples "collection has before/since input filter", "participatoryProcesses", "published"
-      end
-
-      context "when filtered by hashtag" do
-        include_examples "collection has hashtag input filter", "participatoryProcesses"
       end
     end
   end

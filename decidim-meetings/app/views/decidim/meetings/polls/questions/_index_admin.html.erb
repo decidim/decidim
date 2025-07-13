@@ -25,7 +25,7 @@
           <% if question.unpublished? %>
             <button class="button button__sm button__secondary"><%= t(".send") %></button>
           <% else %>
-            <div><%= pluralize(question.answers_count, t(".received_answer"), t(".received_answers")) %></div>
+            <div><%= pluralize(question.responses_count, t(".received_response"), t(".received_responses")) %></div>
           <% end %>
         </div>
 

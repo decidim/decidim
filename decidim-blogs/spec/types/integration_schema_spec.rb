@@ -1,14 +1,71 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/component_context"
-require "decidim/accountability/test/factories"
+require "decidim/api/test"
 
 describe "Decidim::Api::QueryType" do
-  include_context "with a graphql decidim component"
+  include_context "with a graphql decidim component" do
+    let(:component_fragment) do
+      %(
+      fragment fooComponent on Blogs {
+        post(id: #{post.id}) {
+          acceptsNewComments
+          attachments {
+            thumbnail
+          }
+          author {
+            id
+          }
+          body {
+            translation(locale:"#{locale}")
+          }
+          comments {
+            id
+          }
+          commentsHaveAlignment
+          commentsHaveVotes
+          createdAt
+          likes {
+            id
+            avatarUrl
+            badge
+            deleted
+            name
+            nickname
+            organizationName { translation(locale:"#{locale}") }
+            profilePath
+            __typename
+          }
+          likesCount
+          followsCount
+          hasComments
+          id
+          title {
+            translation(locale:"#{locale}")
+          }
+          totalCommentsCount
+          type
+          updatedAt
+          url
+          userAllowedToComment
+          versions {
+            id
+            changeset
+            createdAt
+            editor {
+              id
+            }
+          }
+          versionsCount
+        }
+      }
+    )
+    end
+  end
   let(:component_type) { "Blogs" }
   let!(:current_component) { create(:post_component, participatory_space: participatory_process) }
-  let!(:post) { create(:post, :with_endorsements, component: current_component, published_at: 2.days.ago) }
+  let!(:post) { create(:post, :with_likes, component: current_component, published_at: 2.days.ago) }
+  let!(:follows) { create_list(:follow, 3, followable: post) }
 
   let(:post_single_result) do
     {
@@ -19,8 +76,8 @@ describe "Decidim::Api::QueryType" do
       "comments" => [],
       "commentsHaveAlignment" => true,
       "commentsHaveVotes" => true,
-      "createdAt" => post.created_at.iso8601.to_s.gsub("Z", "+00:00"),
-      "endorsements" => post.endorsements.map do |endo|
+      "createdAt" => post.created_at.to_time.iso8601,
+      "likes" => post.likes.map do |endo|
         {
           "__typename" => "User",
           "avatarUrl" => endo.author.attached_uploader(:avatar).variant_url(:thumb),
@@ -33,14 +90,16 @@ describe "Decidim::Api::QueryType" do
           "profilePath" => "/profiles/#{endo.author.nickname}"
         }
       end,
-      "endorsementsCount" => 5,
+      "likesCount" => 5,
+      "followsCount" => 3,
       "hasComments" => false,
       "id" => post.id.to_s,
       "title" => { "translation" => post.title[locale] },
       "totalCommentsCount" => 0,
       "type" => "Decidim::Blogs::Post",
-      "updatedAt" => post.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
-      "userAllowedToComment" => true,
+      "updatedAt" => post.updated_at.to_time.iso8601,
+      "url" => Decidim::ResourceLocatorPresenter.new(post).url,
+      "userAllowedToComment" => post.user_allowed_to_comment?(current_user),
       "versions" => [],
       "versionsCount" => 0
     }
@@ -64,8 +123,29 @@ describe "Decidim::Api::QueryType" do
           "startCursor" => "MQ"
         }
       },
+      "url" => Decidim::EngineRouter.main_proxy(current_component).root_url,
       "weight" => 0
     }
+  end
+
+  describe "commentable" do
+    let(:component_fragment) { nil }
+
+    let(:participatory_process_query) do
+      %(
+        commentable(id: "#{post.id}", type: "Decidim::Blogs::Post", locale: "en", toggleTranslations: false) {
+          __typename
+        }
+      )
+    end
+
+    it "executes successfully" do
+      expect { response }.not_to raise_error
+    end
+
+    it do
+      expect(response).to eq({ "commentable" => { "__typename" => "Post" } })
+    end
   end
 
   describe "valid connection query" do
@@ -91,7 +171,7 @@ describe "Decidim::Api::QueryType" do
               commentsHaveAlignment
               commentsHaveVotes
               createdAt
-              endorsements {
+              likes {
                 id
                 avatarUrl
                 badge
@@ -102,7 +182,8 @@ describe "Decidim::Api::QueryType" do
                 profilePath
                 __typename
               }
-              endorsementsCount
+              likesCount
+              followsCount
               hasComments
               id
               title {
@@ -111,6 +192,7 @@ describe "Decidim::Api::QueryType" do
               totalCommentsCount
               type
               updatedAt
+              url
               userAllowedToComment
               versions {
                 id
@@ -194,8 +276,8 @@ describe "Decidim::Api::QueryType" do
           }
         end
 
-        context "with endorsementCount" do
-          let(:criteria) { "order: { endorsementCount: \"asc\" }" }
+        context "with likeCount" do
+          let(:criteria) { "order: { likeCount: \"asc\" }" }
 
           it { expect(edges).to eq([{ "node" => { "id" => other_post.id.to_s } }, { "node" => { "id" => post.id.to_s } }]) }
         end
@@ -251,65 +333,16 @@ describe "Decidim::Api::QueryType" do
   end
 
   describe "valid query" do
-    let(:component_fragment) do
-      %(
-      fragment fooComponent on Blogs {
-        post(id: #{post.id}) {
-          acceptsNewComments
-          attachments {
-            thumbnail
-          }
-          author {
-            id
-          }
-          body {
-            translation(locale:"#{locale}")
-          }
-          comments {
-            id
-          }
-          commentsHaveAlignment
-          commentsHaveVotes
-          createdAt
-          endorsements {
-            id
-            avatarUrl
-            badge
-            deleted
-            name
-            nickname
-            organizationName { translation(locale:"#{locale}") }
-            profilePath
-            __typename
-          }
-          endorsementsCount
-          hasComments
-          id
-          title {
-            translation(locale:"#{locale}")
-          }
-          totalCommentsCount
-          type
-          updatedAt
-          userAllowedToComment
-          versions {
-            id
-            changeset
-            createdAt
-            editor {
-              id
-            }
-          }
-          versionsCount
-        }
-      }
-    )
-    end
-
     it "executes successfully" do
       expect { response }.not_to raise_error
     end
 
     it { expect(response["participatoryProcess"]["components"].first["post"]).to eq(post_single_result) }
+  end
+
+  include_examples "with resource visibility" do
+    let(:component_factory) { :post_component }
+    let(:lookout_key) { "post" }
+    let(:query_result) { post_single_result }
   end
 end

@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.version = Decidim::Blogs.version
   s.authors = ["Isaac Massot Gil"]
   s.email = ["isaac.mg@coditramuntana.com"]
-  s.license = "AGPL-3.0"
+  s.license = "AGPL-3.0-or-later"
   s.homepage = "https://decidim.org"
   s.metadata = {
     "bug_tracker_uri" => "https://github.com/decidim/decidim/issues",

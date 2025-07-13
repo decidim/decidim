@@ -12,8 +12,8 @@ For example, to add new filter to proposals index:
 ....
 Decidim.admin_filter(:proposals) do |filter|
   # An example of how to access to the context. In this case the custom
-  # filter is only enabled for valuators of the space
-  if current_participatory_space.user_roles(:valuator).where(user: current_user).exists?
+  # filter is only enabled for evaluators of the space
+  if current_participatory_space.user_roles(:evaluator).where(user: current_user).exists?
     filter.add_filters(:custom_new_filter)
     filter.add_filters_with_values(custom_new_filter: %w(custom_new_value_1 custom_new_value_2))
   end

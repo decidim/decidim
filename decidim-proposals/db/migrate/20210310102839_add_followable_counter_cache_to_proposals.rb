@@ -7,7 +7,7 @@ class AddFollowableCounterCacheToProposals < ActiveRecord::Migration[5.2]
     reversible do |dir|
       dir.up do
         Decidim::Proposals::Proposal.reset_column_information
-        Decidim::Proposals::Proposal.find_each do |record|
+        Decidim::Proposals::Proposal.unscoped.find_each do |record|
           record.class.reset_counters(record.id, :follows)
         end
       end

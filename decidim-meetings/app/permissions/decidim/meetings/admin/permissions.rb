@@ -12,7 +12,7 @@ module Decidim
           allowed_meeting_action?
           allowed_agenda_action?
           allowed_poll_action?
-          allowed_export_answers?
+          allowed_export_responses?
 
           permission_action
         end
@@ -41,10 +41,16 @@ module Decidim
           return disallow! if meeting && !meeting.official?
 
           case permission_action.action
-          when :close, :copy, :destroy, :export_registrations, :update, :read_invites
+          when :close, :copy, :export_registrations, :update, :read_invites
             toggle_allow(meeting.present?)
           when :invite_attendee
             toggle_allow(meeting.present? && meeting.registrations_enabled?)
+          when :validate_registration_code
+            toggle_allow(
+              meeting.present? &&
+              meeting.registrations_enabled? &&
+              meeting.component.settings.registration_code_enabled
+            )
           when :create
             allow!
           end
@@ -79,11 +85,11 @@ module Decidim
           end
         end
 
-        def allowed_export_answers?
+        def allowed_export_responses?
           return unless permission_action.subject == :questionnaire
 
           case permission_action.action
-          when :export_answers
+          when :export_responses
             permission_action.allow!
           end
         end

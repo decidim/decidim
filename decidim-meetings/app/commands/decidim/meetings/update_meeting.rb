@@ -45,15 +45,13 @@ module Decidim
       end
 
       def update_meeting!
-        parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
+        parsed_title = Decidim::ContentProcessor.parse(form.title, current_organization: form.current_organization).rewrite
         parsed_description = Decidim::ContentProcessor.parse(form.description, current_organization: form.current_organization).rewrite
 
         Decidim.traceability.update!(
           meeting,
           current_user,
           {
-            scope: form.scope,
-            category: form.category,
             title: { I18n.locale => parsed_title },
             description: { I18n.locale => parsed_description },
             end_time: form.end_time,
@@ -64,7 +62,6 @@ module Decidim
             location: { I18n.locale => form.location },
             location_hints: { I18n.locale => form.location_hints },
             author: current_user,
-            decidim_user_group_id: form.user_group_id,
             registration_type: form.registration_type,
             registration_url: form.registration_url,
             available_slots: form.available_slots,
@@ -73,7 +70,8 @@ module Decidim
             type_of_meeting: form.clean_type_of_meeting,
             online_meeting_url: form.online_meeting_url,
             iframe_embed_type: form.iframe_embed_type,
-            iframe_access_level: form.iframe_access_level
+            iframe_access_level: form.iframe_access_level,
+            taxonomizations: form.taxonomizations
           },
           visibility: "public-only"
         )

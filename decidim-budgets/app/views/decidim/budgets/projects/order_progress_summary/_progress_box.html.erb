@@ -1,0 +1,43 @@
+<div class="budget-summary__progressbox w-full" data-current-allocation="<%= current_order ? current_order.total : 0 %>">
+  <% if current_order_checked_out? %>
+    <%= t("title", scope: "decidim.budgets.projects.budget_summary.checked_out") %>
+    <div class="budget-summary__content__header">
+      <span class="budget-summary__content__header--title">
+        <%= t("name", scope: "decidim.components.budgets") %>
+      </span>
+      /
+      <%= translated_attribute(budget.title) %>
+      <p class="budget-summary__content__header--description">
+        <%= t("description", scope: "decidim.budgets.projects.budget_summary.checked_out") %>
+      </p>
+    </div>
+  <% else %>
+    <p class="budget-summary__progressbox--checked_out">
+      <%= current_rule_description %>
+    </p>
+  <% end %>
+  <div class="budget-summary__progressbar">
+    <div class="budget-progress" role="progressbar" aria-label="<%= t("budget", scope: "decidim.budgets.projects.order_progress") %>" aria-valuenow="<%= current_order_budget_percent %>" aria-valuetext="<%= current_order_budget_percent %> %" aria-valuemin="0" aria-valuemax="100">
+      <div class="budget-summary__progressbar--minimum" style="width: <%= current_order_budget_percent_minimum %>%">
+      </div>
+      <div class="budget-summary__progressbar--meter bg-success" style="width: <%= current_order_budget_percent %>%"> </div>
+    </div>
+    <div class="budget-summary__progressbar-marks">
+      <span class="budget-summary__progressbar-legend">
+        <strong id="order-total-budget" class="budget-summary__progressbar-legend-strong">
+          <%= render partial: "decidim/budgets/projects/order_total_budget" %>
+        </strong>
+        <%= t("assigned", scope: "decidim.budgets.projects.order_progress") %>
+      </span>
+      <% if current_order.minimum_budget > 0 %>
+        <span class="budget-summary__progressbar-legend budget-summary__progressbar-marks_center">
+          <strong class="budget-summary__progressbar-legend-strong">
+            <%= budget_to_currency(current_order.minimum_budget) %>
+          </strong>
+          <%= t("minimum", scope: "decidim.budgets.projects.order_progress") %>
+        </span>
+      <% end %>
+      <%= render partial: "decidim/budgets/projects/order_progress_summary/progressbar_marks_right" %>
+    </div>
+  </div>
+</div>

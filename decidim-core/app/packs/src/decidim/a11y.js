@@ -49,6 +49,41 @@ const createAccordion = (component) => {
   Accordions.render(component.id, accordionOptions);
 }
 
+/*
+ * Changes the Child Menu dropdown position when there are multiple children Dropdowns.
+ * This is used when there is a tree of dropdowns, such as in the Filters feature with Taxonomies.
+ * It changs the position of the child menu taking into account the width of the parent
+ * (that it is not the same always).
+ */
+const changeChildMenuDropdownPosition = (component) => {
+  const target = component.dataset.target;
+  const childMenu = document.getElementById(target);
+  const parentMenu = component.parentNode.parentNode;
+
+  const observer = new MutationObserver(() => {
+    if (childMenu.style.display !== "none" && parentMenu.offsetWidth !== 0) {
+      const positionLeft = parentMenu.offsetWidth - 10;
+
+      childMenu.style.left = `${positionLeft}px`;
+    }
+  });
+
+  observer.observe(childMenu, { attributes: true, childList: true });
+}
+
+/*
+ * Changes the style of the selected element when there are children Dropdowns
+ */
+const changeStyleOfSelectedElement = (component) => {
+  component.addEventListener("click", function() {
+    component.parentNode.parentNode.querySelectorAll("a").forEach((link) => {
+      link.parentNode.classList.remove("dropdown__item-hovered")
+    })
+
+    component.parentNode.classList.add("dropdown__item-hovered")
+  })
+}
+
 /**
  * Create dropdown from a component
  *
@@ -59,7 +94,6 @@ const createDropdown = (component) => {
   const dropdownOptions = {};
   dropdownOptions.dropdown = component.dataset.target;
   dropdownOptions.hover = component.dataset.hover === "true";
-  dropdownOptions.isOpen = component.dataset.open === "true";
   dropdownOptions.autoClose = component.dataset.autoClose === "true";
 
   // This snippet allows to disable the dropdown based on the current viewport
@@ -77,6 +111,17 @@ const createDropdown = (component) => {
   if (isDisabled) {
     return
   }
+
+  dropdownOptions.isOpen = component.dataset.open === "true";
+
+  const isOpen = Object.keys(screens).some((key) => {
+    if (!isScreenSize(key)) {
+      return false;
+    }
+    return Boolean(component.dataset[`open-${key}`.replace(/-([a-z])/g, (str) => str[1].toUpperCase())]);
+  });
+
+  dropdownOptions.isOpen = dropdownOptions.isOpen || isOpen;
 
   if (!component.id) {
     // when component has no id, we enforce to have it one
@@ -104,19 +149,12 @@ const createDropdown = (component) => {
     });
   }
 
-  // Disable focus on children elements so we can pass the AXE accessibility tests
-  const dropdownMenu = document.getElementById(dropdownOptions.dropdown);
-  if (dropdownMenu.getAttribute("aria-hidden") === "true") {
-    dropdownMenu.
-      querySelectorAll("a, input, button").
-      forEach((element) => { element.tabIndex = -1 })
+  // Fixes styles for dropdowns with child dropdowns
+  const hasChildMenu = component.parentNode.classList.contains("dropdown__item")
+  if (hasChildMenu) {
+    changeChildMenuDropdownPosition(component);
+    changeStyleOfSelectedElement(component);
   }
-
-  component.addEventListener("click", () => {
-    dropdownMenu.
-      querySelectorAll("a, input, button").
-      forEach((element) => { element.tabIndex = 0 })
-  })
 
   Dropdowns.render(component.id, dropdownOptions);
 }

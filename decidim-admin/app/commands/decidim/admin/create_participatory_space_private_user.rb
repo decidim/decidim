@@ -53,7 +53,9 @@ module Decidim
         ) do
           Decidim::ParticipatorySpacePrivateUser.find_or_create_by!(
             user:,
-            privatable_to: @private_user_to
+            privatable_to: @private_user_to,
+            role: form.role,
+            published: form.published
           )
         end
       end
@@ -62,7 +64,7 @@ module Decidim
         return @existing_user if defined?(@existing_user)
 
         @existing_user = User.find_by(
-          email: form.email,
+          email: form.email.downcase,
           organization: private_user_to.organization
         )
 

@@ -17,6 +17,7 @@ Decidim.register_component(:sortitions) do |component|
   component.actions = %w(comment)
 
   component.settings(:global) do |settings|
+    settings.attribute :taxonomy_filters, type: :taxonomy_filters
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :comments_max_length, type: :integer, required: true
   end
@@ -29,7 +30,11 @@ Decidim.register_component(:sortitions) do |component|
     resource.actions = %w(comment)
   end
 
-  component.register_stat :sortitions_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
+  component.register_stat :sortitions_count,
+                          primary: true,
+                          priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                          icon_name: "team-line",
+                          tooltip_key: "sortitions_count_tooltip" do |components, start_at, end_at|
     Decidim::Sortitions::FilteredSortitions.for(components, start_at, end_at).count
   end
 

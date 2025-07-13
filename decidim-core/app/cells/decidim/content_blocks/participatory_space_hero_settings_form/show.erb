@@ -1,8 +1,15 @@
 <% form.fields_for :settings, form.object.settings do |settings_fields| %>
-  <%= settings_fields.translated :text_field, :button_text, label: t("decidim.content_blocks.cta_settings_form.button_text") %>
-  <%= settings_fields.translated :text_field, :button_url, label: t("decidim.content_blocks.cta_settings_form.button_url") %>
+  <div class="row column">
+    <%= settings_fields.translated :text_field, :button_text, label: t("decidim.content_blocks.cta_settings_form.button_text") %>
+  </div>
+
+  <div class="row column">
+    <%= settings_fields.translated :text_field, :button_url, label: t("decidim.content_blocks.cta_settings_form.button_url") %>
+  </div>
 <% end %>
 
 <% form.fields_for :images, form.object.images do |images_fields| %>
-  <%= images_fields.upload :background_image, label: t("decidim.content_blocks.cta_settings_form.background_image") %>
+  <div class="row column">
+    <%= images_fields.upload :background_image, label: t("decidim.content_blocks.cta_settings_form.background_image"), button_class: "button button__sm button__transparent-secondary" %>
+  </div>
 <% end %>

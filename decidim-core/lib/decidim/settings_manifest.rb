@@ -115,7 +115,8 @@ module Decidim
         enum: { klass: String, default: nil },
         select: { klass: String, default: nil },
         scope: { klass: Integer, default: nil },
-        time: { klass: Decidim::Attributes::TimeWithZone, default: nil }
+        time: { klass: Decidim::Attributes::TimeWithZone, default: nil },
+        taxonomy_filters: { klass: Array, default: [] }
       }.freeze
 
       attribute :type, Symbol, default: :boolean
@@ -128,6 +129,7 @@ module Decidim
       attribute :required_for_authorization, Boolean, default: false
       attribute :readonly
       attribute :choices
+      attribute :raw_choices, Boolean, default: false
       attribute :units
       attribute :include_blank, Boolean, default: false
 
@@ -144,6 +146,8 @@ module Decidim
       end
 
       def type_class
+        return Decidim::Attributes::RichText if type == :text && editor == true
+
         TYPES[type][:klass]
       end
 
@@ -151,8 +155,8 @@ module Decidim
         default || TYPES[type][:default]
       end
 
-      def build_choices
-        choices.try(:call) || choices
+      def build_choices(context = nil)
+        choices.try(:call, context) || choices
       end
 
       def build_units

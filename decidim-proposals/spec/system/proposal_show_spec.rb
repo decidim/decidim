@@ -31,7 +31,7 @@ describe "Show a Proposal" do
         end
 
         context "when I am an admin user" do
-          let(:user) { create(:user, :admin, :confirmed, organization:) }
+          let!(:user) { create(:user, :admin, :confirmed, organization:) }
 
           it "has a link to answer to the proposal at the admin" do
             within "header" do
@@ -42,7 +42,7 @@ describe "Show a Proposal" do
         end
 
         context "when I am a regular user" do
-          let(:user) { create(:user, :confirmed, organization:) }
+          let!(:user) { create(:user, :confirmed, organization:) }
 
           it "does not have a link to answer the proposal at the admin" do
             within "header" do
@@ -53,21 +53,47 @@ describe "Show a Proposal" do
         end
       end
 
-      describe "author tooltip" do
+      describe "when participant is deleted" do
         let(:user) { create(:user, :confirmed, organization:) }
+        let!(:author) { create(:user, :deleted, organization: component.organization) }
+        let!(:proposal) { create(:proposal, component:, users: [author]) }
 
         before do
+          visit_proposal
           login_as user, scope: :user
           visit current_path
         end
 
-        context "when author does not restrict messaging" do
-          it "includes a link to message the proposal author" do
-            within "[data-author]" do
-              find(".author__container").hover
-            end
-            expect(page).to have_link("Send private message")
-          end
+        it "successfully shows the page" do
+          expect(page).to have_content("Deleted participant")
+        end
+      end
+    end
+
+    context "when proposal author is a meeting" do
+      let(:address) { "Somewhere over the rainbow" }
+      let(:latitude) { 40.1234 }
+      let(:longitude) { 2.1234 }
+      let!(:author) { create(:user, :deleted, organization: component.organization) }
+      let!(:proposal) { create(:proposal, component:, users: [author]) }
+      let(:meeting_component) { create(:meeting_component, participatory_space: participatory_process) }
+      let!(:meeting) { create(:meeting, :published, component: meeting_component, address:, latitude:, longitude:) }
+
+      it "shows the meeting link" do
+        stub_geocoding_coordinates([latitude, longitude])
+        proposal.link_resources(meeting, "proposals_from_meeting")
+        visit resource_locator(meeting).path
+        expect(page).to have_content(translated(proposal.title))
+      end
+
+      context "when the proposal component has votes enabled" do
+        let(:component) { create(:proposal_component, :with_votes_enabled, participatory_space: participatory_process) }
+
+        it "shows the meeting link" do
+          stub_geocoding_coordinates([latitude, longitude])
+          proposal.link_resources(meeting, "proposals_from_meeting")
+          visit resource_locator(meeting).path
+          expect(page).to have_content(translated(proposal.title))
         end
       end
     end

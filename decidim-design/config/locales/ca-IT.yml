@@ -1,0 +1,310 @@
+---
+ca-IT:
+  decidim:
+    design:
+      components:
+        accordions:
+          content_panel: Contingut del panell
+          demo: Demo
+          demo_description: Al llarg de tota l'aplicació els acordions es fan servir, principalment, per mostrar/amagar contingut a les pestanyes o per replegar/desplegar textos visibles.
+          description_accordions_html: Els acordions són una característica JavaScript disponible gràcies a una biblioteca externa anomenada %{link_code} a11y-accordion-component.
+          github_source_html: Codi font a GitHub %{github_link}
+          panel: Panell
+          title: Acordions
+          trigger: Activador
+          usage: Ús
+          usage_p: Un acordió necessita com a mínim tres elements
+          usage_p_1_html: '1. Un embolcall <code>div</code>, amb l''atribut "data": <code>data-component="accordion"</code>, sobre tots els activadors i panells disponibles.'
+          usage_p_2_html: 2. Un element activador, usuària accionable (com un botó), apuntant a l'element plegable a través de <code>data-controls="panel"</code>, on <i>panel</i> és el <code>id</code> del panell.
+          usage_p_3_html: 3. Un element ocult, on <code>id</code> coincideix amb el valor dels controls de dades al que es refereix l'activador.
+        activities:
+          activities: Activitats
+        address:
+          title: Adreça
+        announcement:
+          iam_an_announcement: Soc un anunci
+          this_is_the_body: Això és el cos/descripció
+          this_is_the_title: Això és el títol
+          title: Anunci/Avís
+        author:
+          title: Autoria
+        buttons:
+          description_html: 'Els botons es construeixen fent servir diferents combinacions de classes CSS: la classe <code>botó</code>, una mida i un color.'
+          title: Botons
+        cards:
+          title: Targetes
+        dialogs:
+          dialog_demo_description_html: Els quadres de diàleg, o elements modals, s'implementen a través de l'ajuda de <i>rails</i> <code>decidim_modal</code>.
+          dialogs_description_html: Els quadres de diàleg són una característica <i>JavaScript</i> disponible gràcies a una biblioteca externa anomenada <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component</a>.
+          tips_description: 'Per a poder mostrar un modal complex, que coincideixi amb els estils, afegeix el següent marcador:'
+          tips_description_html: Fixa't en els <i>data-attributes</i> i les <i>Ids</i>. Per exemple, el <code>[data-dialog-title]</code> de l'Id comença per <i>dialog-title</i> més el <i>modal id</i>.
+          title: Quadres de diàleg
+          usage_description: Un quadre de diàleg requereix dos elements
+          usage_description_2_html: 2. Un element modal, on la <code>id</code> coincideix amb el valor dels controls de dades al que es refereix l'activador.
+          usage_description_html: 1. Un element accionable per la participant, amb un atribut de dades <<code>data-dialog-open="example"</code>, on <i>example> és la <code>Id</code> del modal.
+        follow:
+          title: Seguir
+        forms:
+          disabled: Deshabilitat
+          emojis: Emoticones
+          emojis_description: Només funciona a àrees de text
+          errors: Errors
+          errors_description: No es pot seleccionar
+          header_alert: Es mostra aquesta pàgina a partir una vista antiga. El contingut està desactualitzat.
+          help_texts: Text d'ajuda
+          html_regular_inputs: Entrades HTML habituals
+          min_max_length: Longitud Mín/Màx
+          min_max_length_description: Només funcioan en entrades tipus text i àrea de text
+          multiselect: Selecció múltiple
+          multiselect_description_html: Les seleccions múltiples són una característica JavaScript disponibles gràcies a una llibreria externa anomenada <a href="https://tom-select.js.org/" target="_blank" rel="noopener noreferrer">"Tom Select"</a>.
+          regular_inputs_description: 'Només mostra tipus comuns, llista completa disponible: date, datetime-local, email, month, number, password, search, tel, text, time, url, week'
+          textarea_required: àrea de text requerida
+          title: Formularis
+        report:
+          title: Denunciar
+        share:
+          title: Compartir
+        tab_panels:
+          title: Panell de pestanyes
+        tooltips:
+          demo: Demo
+          demo_description: Perquè aquest component funcioni, una participant ha de passar el cursor sobre l'element.
+          description: Un <i>tooltip</i> és un component amb què, en passar el ratolí per sobre, les participants poden tenir informació addicional sobre aquest.
+          github_source_html: Codi font a GitHub %{github_link}
+          title: Descripció emergent
+          usage: Ús
+          usage_p: 'Una descripció emergent necessita fer servir l''ajudant "with_tooltip" amb tres arguments:'
+          usage_p_1_html: 1. Una seqüència de caràcters o frase de la descripció emergent. A l'exemple d'aquesta pàgina és "Hola món".
+          usage_p_2_html: 2. Una classe opcional amb un símbol que es mostrarà a la descripció emergent. Els valors possibles son <code>:top</code>, <code>:bottom</code>, <code>:right</code>, or <code>:left</code>.
+          usage_p_3_html: 3. Un bloc amb seqüència de caràcters o frase per la qual la usuària ha de passar el cursor perquè es mostri.
+      foundations:
+        accessibility:
+          accessibility_labels: Etiquetes d'accessibilitat
+          accessibility_labels_paragraph: En definir els elements, assegura't sempre que tenen sentit pels lectors de pantalla.
+          accessibility_title: Accessibilitat
+          adjacent_links: Enllaços adjacents
+          adjacent_links_header: Enllaços adjacents pel mateix recurs
+          adjacent_links_paragraph: Si el mateix recurs té múltiples enllaços adjacents apuntant-hi, això dificulta que les usuàries puguin mirar a través de la pàgina perquè és possible que les hi calgui passar per diversos enllaços per arribar al següent recurs.
+          color_contrast: Contrast de color
+          color_contrast_paragraph: En crear interfícies d'usuària o modificar els colors, assegura't que no està trencant-se l'accessibilitat amb els teus canvis. Pots fer servir el comprovador de contrast de color per assegurar-se que aquests colors tenen suficients contrasts el color de fons sobre el que es mostren.
+          decidim_follows_html: Decidim segueix les directrius <u>d'Accessibilitat al Contingut Web (WCAG) 2.1</u>
+          dynamic_changes_header: 'Funció dinàmica: canvia el context de la pàgina de forma poc intuïtiva'
+          dynamic_changes_paragraph: Els canvis a les entrades del formulari no haurien de modificar el context de la pàgina automàticament.
+          elements_hidden: Elements amagats
+          elements_hidden_header: Elements amagats de l'API d'accessibilitat
+          elements_hidden_paragraph: Per amagar un element de la tecnologia d'assistència, fes servir l'atribut aria-hidden="true" en aquest.
+          heading_on: Encapçalament a seccions importants
+          here_link: aquí
+          illogical_heading_order: Ordre d'encapçalament il·lògica
+          illogical_heading_paragraph: Totes les pàgines han de tenir un ordre lògic de capçaleres quan facis servir els elements d'encapçalament <h1>, <h2>, <h3>, <h4>, <h5>, i <h6>.
+          important_sections_heading: Encapçalament a seccions importants
+          important_sections_paragraph: És molt important que cada secció de la pàgina tingui un títol per a facilitar la comprensió de les seccions importants de la pàgina simplement navegant pels seus encapçalaments.
+          links_and_buttons: Enllaços i botons
+          links_and_buttons_paragraph: Els punts d'ancoratge (per exemple enllaços) estan pensant per enllaçar a diferents pàgines o a posicions d'ancoratge dins de la pàgina. Si volem que aquest punt obri, per exemple, algun element amagar en aquella pàgina, hauries de fer servir l'element <button> en el seu lloc.
+          see_further_info_html: Veure més informació %{link}
+          unique_h1: H1 únic
+          unique_h1_paragraph: Cada pàgina ha de tenir un únic encapçalament H1
+          use_aria: Fes servir ARIA
+          use_aria_header: Fes servir els atributs ARIA quan sigui possible
+          use_aria_paragraph: Molts elements que proporcionen funcionalitat interactiva al lloc web requereixen atributs ARIA per fer-los accessibles.
+        color:
+          color_header: Color
+          description_p1: Facilitem una paleta base amb pocs colors de manera que és fàcil fer personalitzacions simples. Pots modificar la paleta base, tant des del Taulell d'Administració com des de l'arxiu de configuració Tailwind si necessites una personalització més avançada.
+          description_p2_html: Quan personalitzis els teus colors, has de tenir en compte %{contrast_link}. Pots revisar el contrast de la teva elecció amb %{checker_link} o qualsevol eina similar.
+          wcag_compliant_rations: Relació de contrast compatible amb WCAG 2.1 AA
+          wcag_contrast_checker: Verificador de contrastos WebAIM
+        iconography:
+          description_iconography: Fem servir icones per reforçar el significat de les accions, dels títols, etc.
+          description_iconography_html: 'Fem servir la llibreria de codi obert Remixicon: %{iconography_link}'
+          title: Iconografia
+        layout:
+          breakpoint: Punt d'interrupció
+          breakpoints: Punts d'interrupció
+          centered: Centrat
+          code: Codi
+          columns: Essent el número de columnes 10, 8 o 6.
+          description_layout_p1: Per l'escriptori, Decidim fa servir una graella de 12 columnes amb un nombre limitat de plantilles (configuració de la graella) per diferents tipus de contingut. L'objectiu és que un tipus determinat de contingut (pàgina d'inici, llistat de trobades, element individual) tingui un disseny definit, per a que les usuàries puguin entendre a quin tipus de contingut es troben tan sols per l'aspecte general de la pàgina.
+          description_layout_p2: Aquestes simples regles han de seguir-se en crear nous mòduls o personalitzar els existents, de manera que una instància de Decidim pugui mantenir la seva consistència.
+          desktop: Ordinador d'escriptori
+          full_width: Amplada completa
+          layout_list_1: 'Pàgina d''inici (de la instància, d''un espai de participació): amplada completa'
+          layout_list_2: 'Llista d''elements (d''espais de participació, d''elements dins d''un espai de participació, etc.): al costat esquerre'
+          layout_list_3: 'Element individual (proposta, entrada al blog): centrat, opcionalment al costat dret'
+          left_aside: Al costat esquerre
+          mobile: Mòbil
+          not_required: No és requisit
+          properties: Propietats
+          right_aside: Al costat dret
+          section_p_breakpoints: 'Per gestionar l''ample màxim dels elements al disseny web adaptatiu depenem de la classe Tailwind predeterminada ''container'', que indica els punts d''interrupció següents:'
+          section_p_code: A l'hora d'implementar nous mòduls, disposes d'alguns ajudants que et proporcionen automàticament el codi necessari per a configurar l'estructura HTML. Hauries de fer servir aquests ajudants, en lloc de fer servir directament elements com <div> amb <class>, mantenint així la consistència.
+          section_p_code_html: Pots trobar els dissenys bàsics a %{link_section_code}
+          section_p_desktop: El sistema de graella per als ordinadors d'escriptori, es compon de 12 columnes flexibles amb un espaiat (canal) entre columnes de 16px i un marge esquerre i dret de 48px
+          section_p_mobile: El sistema de graella pel mòbil es compon de 4 columnes flexibles amb un espaiat (canal) entre columnes de 16px i de marge esquerre i dret de 16px. Per a mides inferiors a 320px aquests marges s'estableixen en 8px.
+          section_p_tablet: El sistema de graella per tauletes tàctils, es compon de 8 columnes flexibles amb un espaiat (canal) entre columnes de 16px i un marge esquerre i dret de 24px
+          tablet: Tauleta tàctil
+          title: Disseny (maqueta distribució)
+        typography:
+          description: Aquestes directrius resumeixen com fer servir la tipografia a Decidim, i serveixen com a pauta perquè les dissenyadores puguin dissenyar lliurement amb les millors pràctiques tipogràfiques en ment.
+          headings:
+            characters: Caràcters per línia
+            layout: Dissenys de columnes
+            size: Mida
+          title: Tipografia
+          typefaces_description_1: Decidim fa servir Source Sants Pro com a tipus de lletra primària. Aquest tipus de lletra disposa de totes les variants de caràcters en 310 llengües
+          typefaces_description_2: Aquestes tipografies es troben sota la llicència Open Font
+      helpers:
+        accountability: Seguiment
+        accountability_cards_html: Emprat per les targetes de projectes de <i>Rendició de comptes</i>. Aquesta targeta requereix que els actius del mòdul es mostrin correctament, per exemple, <code>append_stylesheet_pack_tag \"decidim_accountability\"</code>
+        activity: Activitat
+        address_description: La cel·la d'adreça rep un recurs i cerca els atributs geolocalitzables per representar un marcatge específic.
+        address_description_2: Depenent del tipus de contingut, l'adreça pot ser una adreça web. Per a aquests casos, la informació mostrada és força igual, però està modelada per adequar-la.
+        ally_link: a11y-dropdown-component
+        argument: Paràmetre
+        assemblies: Assemblees
+        assembly_g: Assemblea G
+        assembly_s: Assemblea S
+        avatar: Imatge de perfil
+        avatar_description: Es fa servir quan hi ha espais estrets, on l'autoria és una informació secundària.
+        background: Vores i fons
+        base: Base
+        block_text: Fer servir el bloc extra_data
+        blog_cards_html: Emprat a les targetes del <i>Blog</i>
+        blogs: Blog
+        budget_card_html: Emprat per les targetes de projectes de <i>Pressupostos</i>. Aquesta targeta requereix que els actius del mòdul es mostrin correctament, per exemple, <code>append_stylesheet_pack_tag \"decidim_accountability\"</code>
+        budgets: Pressupostos
+        callout_class: Classe de la crida
+        callout_description: Aquest atribut aplica un estat a l'anunci/avís. Per defecte, aplica el color secundari.
+        card_g: Targeta G
+        card_l: Targeta L
+        card_s: Targeta S
+        collaborative_draft_l: Esborrany col·laboratiu L
+        colors: Colors
+        compact: Compacte
+        compact_description: Aquesta versió de l'autoria és la forma més comuna d'identificar a la creadora del recurs.
+        conference_g: Jornada G
+        conference_s: Jornada S
+        conferences: Jornadas
+        context: Context
+        context_description: Aquesta cel·la mostra informació sobre una usuària. És una ajuda visual per identificar la creadora de recursos/continguts.
+        context_description_2: Pels recursos, aquesta cel·la apareix sota l'encapçalament principal. Per altres continguts, apareix al costat del mateix contingut.
+        debate_l: Debat L
+        debate_s: Debat S
+        debates: Debats
+        debates_cards_html: Emprat a les targetes de <i>Debats</i>
+        debates_cards_text: Fer servir una plantilla pel bloc d'imatge
+        default: Per defecte
+        default_description: Crida a la cel·la sense arguments addicionals, sinó a la proposta usuària.
+        demo: Demo
+        demo_text: 'Aquesta cel·la rep un model d''elements de Darrera Activitat i mostra els següents elements:'
+        demo_text_2: Es fa servir a la darrera pàgina d'activitat, en un bloc de contingut i dins dels desplegables.
+        description: Descripció
+        disabled: Deshabilitat
+        dropdowns: Menús desplegables
+        dropdowns_demo_1_description: 'El següent exemple no serà visible a l''escriptori, però al mòbil:'
+        dropdowns_demo_description: Els menús desplegables es fan servir al llarg de l'aplicació per col·lapsar menús grans, menús fàcils de llegir per a dispositius d'escriptori, però massa difícils per a dispositius mòbils.
+        dropdowns_demo_description_html: 'Aquesta característica de JavaScript està millorada amb un petit .css, a través del nom: el contingut ocult HA D''INCLOURE una <code>id</code> que comença amb <i>menú desplegable</i>.'
+        dropdowns_description_html: Els menús desplegables són una característica <i>JavaScript</i> disponible gràcies a una biblioteca externa anomenada %{link}.
+        dropdowns_usage_1_description: 2. Un element modal, la <code>id</code> del qual coincideix amb el valor dels controls de dades a què es refereix l'activador.
+        dropdowns_usage_description: 'Un menú desplegable requereix dos elements:'
+        dropdowns_usage_description_html: 1. Un element accionable pel participant, amb els atributs de dades <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.
+        dummy_description: Descripció del recurs fictici
+        dummy_title: Títol del recurs fictici
+        follow_button: Botó "Seguir"
+        follower_description_html: Assegura't que el <code>decidim/shared/login_moda</code> està present al DOM. Aquest parcial es col·loca al disseny de l'aplicació quan la participant està connectada.
+        form_elements: Elements de formulari
+        generic_cards: Targetes genèriques
+        grid: Graella
+        hex_code: Codi hexadecimal
+        highlight: Destacat
+        highlight_description: Emprat a aquells recursos que permeten ser destacats
+        html_tips: Consell HTML
+        icons: Icones
+        image_and_description: Imatge i Descripció
+        initiative_g: Iniciativa G
+        initiative_s: Iniciativa S
+        initiatives: Iniciatives
+        list: Llista
+        main_colors: Colors principals
+        meeting_l: Trobada L
+        meeting_s: Trobada S
+        meetings: Trobades
+        meetings_html: Emprat a les targetes de <i>Trobades</i>
+        metadata_items: Elements de metadades
+        metadata_text: Cada recurs defineix els seus elements de metadades
+        participatory_process_g: Procés Participatiu G
+        participatory_process_group_g: Grup de processos participatius G
+        participatory_process_group_s: Grup de processos participatius S
+        participatory_process_s: Procés Participatiu S
+        participatory_processes: Processos participatius
+        plain_text: Soc un text pla/simple
+        plain_text_description: Pots proporcionar com a primer argument tant un text pla com un objecte hash
+        plain_text_vs_hash: Text simple vs Hash
+        post_g: Article del blog G
+        post_l: Article del blog L
+        post_s: Article del blog S
+        project_l: Projecte L
+        project_s: Projecte S
+        proposal_l: Proposta L
+        proposal_s: Proposta S
+        proposals: Propostes
+        report_button: Botó "Denunciar"
+        report_usage_description: El botó "Denunciar" obre una finestra emergent per a marcar el recurs actual.
+        result_l: Resultat L
+        rgba_code: Codi RGBA
+        search: Cercar
+        send: Enviar
+        share_button: Botó de "Compartir"
+        share_usage_description_html: Assegura't que el <code>decidim/shared/share_moda</code> està present al DOM. Aquest parcial es col·loca al disseny de l'aplicació.
+        sizes: Mides
+        sortition_l: Sorteig L
+        sortitions: Sortejos
+        source_code: Codi font
+        state: Estat
+        tab_panels_context_description: Aquest component del tauler de pestanyes recull tots els continguts relacionats o altres recursos de l'element principal mostrat, per tal d'estalviar espai vertical. Quan feu clic a la pestanya s'activarà el panell creat per mostrar el contingut.
+        tab_panels_context_description_html: Emprat principalment a <i>layout_item</i> o a <i>layout_center</i>, després del contingut principal del recurs.
+        tab_panels_usage_description: 'Aquest component rep una matriu de <I>hashes</i> i reorganitza la sortida de cada element en una estructura de tauler de pestanyes. Aquestes són les propietats disponibles per a cada panell:'
+        tab_panels_usage_description_arguments_html: "<strong>args</strong>: <i>Array</i>. Paràmetres per a la funció anterior"
+        tab_panels_usage_description_html: "<strong>enabled</strong>: <i>Boolean</i>. Renderitzar condicionalment la pestanya"
+        tab_panels_usage_description_id_html: "<strong>id</strong>: <i>String</i>. Id únic"
+        tab_panels_usage_description_rails_html: "<strong>method</strong>: <i>Symbol</i>. Qualsevol funció que <i>rails</i> entengui"
+        tab_panels_usage_description_remixicon_html: "<strong>icon</strong>: <i>String</i>. Clau Remixicon per a la ícona"
+        tab_panels_usage_description_tab_html: "<strong>text</strong>: <i>String</i>. Títol de la pestaña"
+        tailwind: Nom del Tailwind
+        text: Text
+        transparent: Transparent
+        transparent_description: 'En cas d''un fons més fosc:'
+        types: Tipus
+        typography_texts: Textos i tipografia
+        usage: Ús
+        usage_background_1: Fons lateral
+        usage_background_2: Fons de filtre de barra lateral seleccionat
+        usage_background_3: Color d'icona predeterminat
+        usage_background_4: Línies i separadors
+        usage_background_5: Fons del peu de pàgina
+        usage_background_6: Fons del taulell d'administració
+        usage_base_1: Fons del component de navegació principal\nNav menús a la pàgina d'inici de la plataforma i a la pàgina d'inici de l'espai de participació
+        usage_base_2: Color principal per a enllaços i botons
+        usage_base_3: Ornament gràfics i color d'accent\nAlteració de l'aspexte de targetes i llistes d'elements en pasar el ratolí sobre aquest, encara que no s'hagi seleccionat
+        usage_formelements_1: Fons per defecte dels elements d'entrada
+        usage_formelements_2: Fons dels elements d'entrada deshabilitats
+        usage_state_1: Vora de la notificació d'èxit\nFarcit de la icona de la notificació d'alerta\nFos del botó a la notificació d'èxit
+        usage_state_2: Vora de la nota d'avís
+        usage_state_3: Vora de la nota de avís\nFons de la icona de la nota
+        usage_typography_1: Encapçalaments i títols de secció
+        usage_typography_2: Text en línia
+        usage_typography_3: Text sobre fons fosc
+        usage_typography_4: Enllaços i botons
+        usage_typography_5: Pestanya desactivada
+        value: Valor
+        variations: Variacions
+        variations_cards_description: Cada targeta es veurà diferent d'acord amb les propietats del recurs que es mostri. Pot anul·lar aquest comportament a la cel·la específica.
+        variations_description: Hi ha tres versions diferents d'aquesta cel·la. Cadascuna encaixa millor en el context en què es mostra.
+        variations_text: Pel que fa al tipus d'activitat, la cel·la podria mostrar diferents continguts, informant dels diferents recursos, pertanyin o no a un espai participatiu, tinguin autoria o no.
+      home:
+        index:
+          by_sharing_principles: Compartint els principis, filosofia i els raonaments darrere de les decisions de disseny volem empoderar a la comunitat perquè contribueixin amb consistència per arribar a la millor experiència per a les participants.
+          decidim_guide: La guia per a dissenyar tota mena de coses per Decidim
+          different_ui_components: Al mateix temps, hem documentat les interfícies d'usuària dels diferents components i patrons en ús, que han de ser reutilitzades o ampliades.
+          github_source: Codi font a GitHub
+          home_header: Guia de disseny de Decidim
+          welcome_sentence: Benvinguda a la Guia de Disseny de Decidim (GDD). Aquesta guia és un recurs per a dissenyadores i desenvolupadores que necessitin personalitzar, desenvolupar nous mòduls, i integrar noves funcionalitats.

@@ -10,7 +10,6 @@ ru:
         developer_group: Рабочая группа по продвижению
         domain: Домен
         end_date: Дата окончания
-        hashtag: Хэштег
         hero_image: Изображение главной страницы
         local_area: Участок организации
         meta_scope: Метаданные охвата
@@ -20,8 +19,6 @@ ru:
         promoted: Рекомендуется
         published_at: 'Обнародовано:'
         related_process_ids: Подобные движения
-        scope_id: Охват
-        scopes_enabled: Охваты включены
         short_description: Краткое описание
         slug: Сокращенный веб-адрес
         start_date: Дата начала
@@ -86,10 +83,8 @@ ru:
           attachment_collections: Папки
           attachment_files: Прикрепленные файлы
           attachments: Прикрепленные файлы
-          categories: Категории
           components: Составляющие
           moderations: Действия по модерации
-          private_users: Частные участники
           process_admins: Участники движения
           steps: Шаги
       models:

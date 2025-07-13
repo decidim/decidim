@@ -8,7 +8,7 @@ module Decidim
         # Syntactic sugar to initialize the class and return the queried objects.
         #
         # conference_speakers - the initial ConferenceSpeaker relation that needs to be filtered.
-        # query - query to filter user group names
+        # query - query to filter user names
         def self.for(conference_speakers, query = nil)
           new(conference_speakers, query).query
         end
@@ -16,7 +16,7 @@ module Decidim
         # Initializes the class.
         #
         # conference_speakers - the ConferenceSpeaker relation that need to be filtered
-        # query - query to filter user group names
+        # query - query to filter user names
         def initialize(conference_speakers, query = nil)
           @conference_speakers = conference_speakers
           @query = query
