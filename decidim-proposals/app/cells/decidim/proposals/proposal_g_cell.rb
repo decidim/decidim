@@ -41,7 +41,11 @@ module Decidim
       end
 
       def resource_image_path
-        model.attachments.first&.url
+        return has_image?
+      end
+
+      def has_image?
+        model.attachments.presence&.find_by("content_type LIKE ?", "image/%")&.url
       end
 
       private

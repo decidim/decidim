@@ -43,6 +43,23 @@ module Decidim::Proposals
         end
       end
 
+      context "when the proposal has a pdf" do
+        let!(:attachment) { create(:attachment, :with_pdf, attached_to: proposal) }
+
+        it "renders the proposal with the placeholder image" do
+          expect(subject).to have_css(".card__grid-img svg#ri-proposal-placeholder-card-g")
+        end
+      end
+
+      context "when the proposal has multiple attachments and the first is a pdf" do
+        let!(:pdf_attachment) { create(:attachment, :with_pdf, attached_to: proposal) }
+        let!(:image_attachment) { create(:attachment, :with_image, attached_to: proposal) }
+
+        it "renders the proposal with the attached image" do
+          expect(subject).to have_css("img[src*='city']")
+        end
+      end
+
       context "when the proposal has a custom state" do
         let!(:state) { create(:proposal_state, component:, token: :finished, title: { en: "Finished" }) }
 
