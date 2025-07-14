@@ -485,11 +485,6 @@ module Decidim
       notifier.notify
     end
 
-    def notify_creation
-      notifier = Decidim::Initiatives::StatusChangeNotifier.new(initiative: self)
-      notifier.notify
-    end
-
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)
     [:title, :description].each { |column| ransacker_i18n(column) }
 
