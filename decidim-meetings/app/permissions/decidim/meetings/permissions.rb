@@ -33,19 +33,6 @@ module Decidim
         @question ||= context.fetch(:question, nil)
       end
 
-      def can_leave_meeting?
-        meeting.registrations_enabled?
-      end
-
-      def can_decline_invitation?
-        meeting.registrations_enabled? &&
-          meeting.invites.exists?(user:)
-      end
-
-      def can_create_meetings?
-        (component_settings&.creation_enabled_for_participants? && can_participate?) || initiative_authorship?
-      end
-
       def can_participate?
         context[:current_component].participatory_space.can_participate?(user)
       end
@@ -64,33 +51,6 @@ module Decidim
         return false unless user
 
         participatory_space.participatory_space_private_users.exists?(decidim_user_id: user.id)
-      end
-
-      def can_update_meeting?
-        meeting.authored_by?(user) &&
-          !meeting.closed?
-      end
-
-      def can_withdraw_meeting?
-        meeting.authored_by?(user) &&
-          !meeting.withdrawn? &&
-          !meeting.past?
-      end
-
-      def can_close_meeting?
-        meeting.authored_by?(user) &&
-          meeting.past?
-      end
-
-      def can_register_invitation_meeting?
-        meeting.can_register_invitation?(user) &&
-          authorized?(:register, resource: meeting)
-      end
-
-      def can_reply_poll?
-        meeting.present? &&
-          meeting.poll.present? &&
-          authorized?(:reply_poll, resource: meeting)
       end
     end
   end
