@@ -13,6 +13,16 @@ namespace :decidim_surveys do
           component.save!
         end
       end
+
+      Decidim::ResourcePermission.where(resource_type: "Decidim::Surveys::Survey").find_each do |resource|
+        next if resource.permissions.nil?
+
+        if resource.permissions.is_a?(Hash) && resource.permissions.has_key?("answer")
+          resource.permissions["respond"] = resource.permissions["answer"]
+          resource.permissions.delete("answer")
+          resource.save!
+        end
+      end
     end
   end
 end
