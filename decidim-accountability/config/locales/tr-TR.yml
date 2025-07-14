@@ -17,10 +17,6 @@ tr:
         key: anahtar
         name: isim
         progress: İlerleme
-      timeline_entry:
-        description: Açıklama
-        entry_date: tarih
-        title: Başlik / Unvani 
     models:
       decidim/accountability/proposal_linked_event: Teklif bir sonuca dahil edildi
       decidim/accountability/result_progress_updated_event: Sonuç ilerlemesi güncellendi
@@ -51,9 +47,7 @@ tr:
         import_csv: Sonuçları CSV dosyasından içe aktarın
         new_result: Yeni sonuç
         new_status: Yeni Durum
-        new_timeline_entry: Yeni Zaman çizelgesi Kaydı
         preview: Ön izleme
-        timeline_entries: Proje evrimi
         title: Eylemler
         view_deleted_results: Silinmiş sonuçları görüntüle
       admin:
@@ -161,23 +155,6 @@ tr:
           update:
             invalid: Güncellemede Sorun Oluştu.
             success: Kayıt başarıyla güncellendi.
-        timeline_entries:
-          create:
-            invalid: Bu kaydı oluştururken hata oluştu.
-            success: Giriş basarıyla tamamlandı.
-          destroy:
-            success: Kayıt Başarıyla silindi.
-          edit:
-            title: Girişi düzenle
-            update: Girişi güncelle
-          index:
-            title: Proje zaman çizelgesi girişleri
-          new:
-            create: Giriş oluştur
-            title: Yeni giriş
-          update:
-            invalid: Kayıt güncellenirken hata oluştu.
-            success: Kayıt Başarıyla Güncellendi.
       admin_log:
         result:
           create: "%{user_name} sonuç yaratmıştır %{resource_name} içinde %{space_name}"
@@ -187,10 +164,6 @@ tr:
           create: "48 / 5.000\nÇeviri sonuçları\nÇeviri sonucu\n%{user_name}, %{resource_name} kaydını oluşturdu"
           delete: "%{user_name}, %{resource_name} kaydını sildi"
           update: "%{user_name}, %{resource_name} kaydını Güncelledi"
-        timeline_entry:
-          create: "%{user_name}, %{resource_name} zaman çizelgesi girişini oluşturdu"
-          delete: "%{user_name}, %{resource_name} zaman çizelgesi girişini sildi"
-          update: "%{user_name}, %{resource_name} zaman çizelgesi girişini güncelledi"
         value_types:
           parent_presenter:
             not_found: 'Üst veritabanında bulunamadı (ID: %{id})'
@@ -226,10 +199,6 @@ tr:
             key: anahtar
             name: isim
             progress: İlerleme
-        timeline_entry:
-          fields:
-            entry_date: tarih
-            title: Başlık
       results:
         count:
           results_count:
@@ -243,8 +212,6 @@ tr:
         show:
           stats:
             back_to_resource: Sonuca geri dön
-        timeline:
-          title: Proje gelişimi
     admin:
       filters:
         results:

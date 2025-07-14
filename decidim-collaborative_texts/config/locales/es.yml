@@ -17,6 +17,9 @@ es:
           draft: Borrador
           version_number: Número de versión
   decidim:
+    admin:
+      tooltips:
+        deleted_collaborative_texts_info: No se puede eliminar este documento
     collaborative_texts:
       actions:
         confirm_delete_document: '¿Seguro que quieres eliminar este documento?'

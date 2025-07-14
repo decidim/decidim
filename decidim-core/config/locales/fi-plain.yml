@@ -166,6 +166,13 @@ fi-pl:
       x_seconds:
         one: 1 sekunti
         other: "%{count} sekuntia"
+    widget:
+      label:
+        date: Valitse päivämäärä kohteelle %{label}
+        time: Valitse aika kohteelle %{label}
+      picker:
+        date_button: Avaa kalenterivalitsin kohteelle %{label}
+        time_button: Avaa aikavalitsin kohteelle %{label}
   decidim:
     accessibility:
       external_link: Ulkoinen linkki
@@ -718,6 +725,7 @@ fi-pl:
     doorkeeper:
       authorizations:
         new:
+          api_read: Lukea sisältöä rajapinnan kautta
           authorize: Hyväksyn tietojeni käytön
           by_organization_link_html: '<small class="heading-small">palveluntarjoaja: %{link}</small>'
           cancel: Peruuta
@@ -1600,6 +1608,7 @@ fi-pl:
     searches:
       filters:
         jump_to: 'Siirry kohtaan:'
+        resource: "%{label} kohteesta %{collection}"
         search: Hae
         state:
           active: Aktiiviset
@@ -2136,6 +2145,8 @@ fi-pl:
         profile: Oma käyttäjätili
         public_profile: Oma julkinen profiili
         title: Profiilin linkit
+        unread_conversations: Sinulla on lukemattomia keskusteluja
+        unread_notifications: Sinulla on lukemattomia ilmoituksia
       user_profile:
         account: Käyttäjätili
         authorizations: Varmennukset
