@@ -7,6 +7,9 @@ ja:
         organization_name: 組織
         organization_url: 組織のURL
         redirect_uri: リダイレクトURI
+        refresh_tokens: リフレッシュトークン
+        refresh_tokens_enabled: リフレッシュトークンの有効化
+        scopes: 使用可能なスコープ
       organization:
         address: SMTPホスト名
         from_email: メールアドレス
@@ -38,6 +41,16 @@ ja:
   decidim:
     system:
       actions:
+        api_user:
+          hidden_secret: シークレットは非表示です
+          hide_secret: シークレットを非表示にする
+          secret_can_not_be_shown: API シークレットは作成後にしか閲覧またはコピーできません
+          show_secret: シークレットを表示
+          shown_secret: シークレットを表示
+        api_users:
+          create: 作成
+          new: 新しいAPIユーザー
+          remove: ユーザを削除
         confirm_destroy: 削除してもよろしいですか？
         destroy: 削除
         edit: 編集
