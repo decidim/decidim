@@ -136,6 +136,7 @@ jobs:
         with:
           token: {{secrets.QLTY_COVERAGE_TOKEN}}
           files: coverage/coverage.xml
+          verbose: true
       - uses: codecov/codecov-action@v5
         name: Upload coverage
         with:
