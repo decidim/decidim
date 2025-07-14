@@ -95,3 +95,6 @@ name = "rubocop"
 
 [[plugin]]
 name = "osv-scanner"
+
+[[plugin]]
+name = "stylelint"
