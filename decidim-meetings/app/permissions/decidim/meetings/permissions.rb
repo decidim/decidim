@@ -8,27 +8,13 @@ module Decidim
         return Decidim::Meetings::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
         return permission_action if permission_action.scope != :public
 
-        if subject == :meeting && action == :read
-          toggle_allow(!meeting&.hidden? && meeting&.current_user_can_visit_meeting?(user))
-          return permission_action
-        end
+        return Decidim::Meetings::MeetingPermissions.new(user, permission_action, context).permissions if subject == :meeting
 
         return permission_action unless user
 
         toggle_allow(can_respond_question?) if subject == :response && action == :create
 
         toggle_allow(can_update_question?) if subject == :question && action == :update
-
-        toggle_allow(can_join_meeting?) if subject == :meeting && action == :join
-        toggle_allow(can_join_waitlist?) if subject == :meeting && action == :join_waitlist
-        toggle_allow(can_leave_meeting?) if subject == :meeting && action == :leave
-        toggle_allow(can_decline_invitation?) if subject == :meeting && action == :decline_invitation
-        toggle_allow(can_create_meetings?) if subject == :meeting && action == :create
-        toggle_allow(can_update_meeting?) if subject == :meeting && action == :update
-        toggle_allow(can_withdraw_meeting?) if subject == :meeting && action == :withdraw
-        toggle_allow(can_close_meeting?) if subject == :meeting && action == :close
-        toggle_allow(can_register_invitation_meeting?) if subject == :meeting && action == :register
-        toggle_allow(can_reply_poll?) if subject == :meeting && action == :reply_poll
 
         toggle_allow(can_update_poll?) if subject == :poll && action == :update
 
@@ -43,18 +29,6 @@ module Decidim
 
       def question
         @question ||= context.fetch(:question, nil)
-      end
-
-      def can_join_meeting?
-        meeting.can_be_joined_by?(user) &&
-          authorized?(:join, resource: meeting)
-      end
-
-      def can_join_waitlist?
-        meeting.waitlist_enabled? &&
-          !meeting.has_available_slots? &&
-          !meeting.has_registration_for?(user) &&
-          authorized?(:join_waitlist, resource: meeting)
       end
 
       def can_leave_meeting?
@@ -115,21 +89,6 @@ module Decidim
         meeting.present? &&
           meeting.poll.present? &&
           authorized?(:reply_poll, resource: meeting)
-      end
-
-      def can_update_poll?
-        user.present? &&
-          user.admin? &&
-          meeting.present? &&
-          meeting.poll.present?
-      end
-
-      def can_respond_question?
-        question.present? && user.present? && !question.responded_by?(user)
-      end
-
-      def can_update_question?
-        user.present? && user.admin? && question.present?
       end
     end
   end
