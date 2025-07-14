@@ -61,20 +61,5 @@ module Decidim
         end
       end
     end
-
-    context "when the resource is hashtaggable" do
-      let(:resource) { build(:dummy_resource) }
-
-      before do
-        title = "Proposal with #myhashtag"
-        parsed_title = Decidim::ContentProcessor.parse(title, current_organization: resource.organization)
-        resource.title = parsed_title.rewrite
-      end
-
-      it "returns the text correctly" do
-        expect(subject.resource_title).not_to include("gid://")
-        expect(subject.resource_title).to include("#myhashtag")
-      end
-    end
   end
 end

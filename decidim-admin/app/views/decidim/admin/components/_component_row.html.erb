@@ -1,22 +1,22 @@
 <% if user_role_config.component_is_accessible?(component.manifest_name) %>
   <tr class="draggable-content component-<%= component.id %>" draggable="true" data-record-id="<%= component.id %>">
-    <td class="text-center dragging-handle">
+    <td class="text-center dragging-handle" data-label="">
       <%= icon("draggable", class: "dragger") %>
     </td>
-    <td class="!text-left">
+    <td class="!text-left" data-label="<%= t("index.headers.name", scope: "decidim.admin.components") %>">
       <% if component.manifest.admin_engine %>
         <%= link_to translated_attribute(component.name), manage_component_path(component) %><br>
       <% else %>
         <%= translated_attribute component.name %>
       <% end %>
     </td>
-    <td>
+    <td data-label="<%= t("index.headers.type", scope: "decidim.admin.components") %>">
       <%= t "decidim.components.#{component.manifest.name}.name" %>
     </td>
-    <td>
+    <td data-label="<%= t("index.headers.visibility", scope: "decidim.admin.components") %>">
       <%= render partial: "decidim/admin/components/visibility_label", locals: { component: } %>
     </td>
-    <td class="table-list__actions">
+    <td class="table-list__actions" data-label="<%= t("index.headers.actions", scope: "decidim.admin.components") %>">
       <% if lookup_context.find_all("decidim/#{component.manifest_name}/admin/component/_actions").any? %>
         <%= render partial: "decidim/#{component.manifest_name}/admin/component/actions", locals: { component:, view: } %>
       <% else %>

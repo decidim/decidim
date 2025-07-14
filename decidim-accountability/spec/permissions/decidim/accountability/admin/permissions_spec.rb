@@ -86,11 +86,11 @@ describe Decidim::Accountability::Admin::Permissions do
     it_behaves_like "crud permissions"
   end
 
-  describe "timeline_entry" do
+  describe "milestone" do
     let(:result) { create(:result, component: accountability_component) }
-    let(:resource) { create(:timeline_entry, result:) }
-    let(:action_subject) { :timeline_entry }
-    let(:extra_context) { { timeline_entry: resource } }
+    let(:resource) { create(:milestone, result:) }
+    let(:action_subject) { :milestone }
+    let(:extra_context) { { milestone: resource } }
 
     it_behaves_like "crud permissions"
   end

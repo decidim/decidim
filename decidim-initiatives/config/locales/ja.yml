@@ -74,6 +74,7 @@ ja:
   decidim:
     admin:
       actions:
+        cannot_answer: このイニシアチブに回答できません
         new_initiative_type: 新しいイニシアチブ種別
         new_initiative_type_scope: 新しいイニシアチブ種別のスコープ
       filters:
@@ -91,6 +92,8 @@ ja:
               validating: 技術的検証
           type_id_eq:
             label: タイプ
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: '%{collection} をタイトル、説明、ID、著者名で検索'
       initiatives_settings:
         update:
           error: イニシアチブ設定の更新中に問題が発生しました。
@@ -117,8 +120,12 @@ ja:
             state: ステータス
             supports_count: 署名
             title: イニシアチブ
+        initiatives_committee_member:
+          fields:
+            actions: アクション
         initiatives_type_scope:
           fields:
+            actions: アクション
             scope: スコープ
             supports_required: 必要署名数
           name: イニシアチブ種別のスコープ
@@ -258,6 +265,7 @@ ja:
             success: イニシアチブは技術的な検証に送信されました。
             update: 更新
           form:
+            attachments_title: 添付ファイル
             settings: 設定
             title: 一般情報
           index:
@@ -437,6 +445,11 @@ ja:
           email_outro: '%{author_nickname}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: '%{author_nickname} による新しいイニシアチブの作成'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> イニシアチブは、 <a href="%{author_path}">%{author_name} %{author_nickname}</a> によって作成されました。
+        like_initiative_event:
+          email_intro: "あなたがフォローしている%{author_name} %{author_nickname}は、以下のイニシアチブにいいね！しました。会話に参加したいかもしれません："
+          email_outro: '%{author_nickname}をフォローしているため、この通知を受け取りました。前のリンク先から、通知を停止できます。'
+          email_subject: '%{author_nickname} にいいねされたイニシアチブ'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> イニシアチブは、 <a href="%{author_path}">%{author_name} %{author_nickname}</a> によっていいねされました。
         revoke_membership_request:
           email_intro: "%{author_nickname} は、以下のイニシアチブ %{resource_title} の推進委員会に参加する申請を拒否しました。"
           email_outro: 'この通知を受け取ったのは、イニシアチブ %{resource_title} に応募したためです。'

@@ -11,6 +11,7 @@ describe "Amend Proposal", versioning: true do
   let(:proposal_title) { translated(proposal.title) }
   let(:emendation_title) { translated(emendation.title) }
   let(:emendation_body) { translated(emendation.body) }
+  let(:user) { proposal.creator_author }
 
   let(:active_step_id) { participatory_space.active_step.id }
   let(:emendation_path) { Decidim::ResourceLocatorPresenter.new(emendation).path }
@@ -206,6 +207,7 @@ describe "Amend Proposal", versioning: true do
           let!(:user) { create(:user, :confirmed, organization: component.organization) }
 
           before do
+            switch_to_host(component.organization.host)
             login_as user, scope: :user
             visit proposal_path
             expect(page).to have_content(proposal_title)
@@ -214,8 +216,8 @@ describe "Amend Proposal", versioning: true do
           end
 
           it "is shown the amendment create form" do
+            expect(page).to have_no_css("#loginModal", visible: :visible), "Login modal was shown instead of amendment form"
             expect(page).to have_content("Create your amendment")
-
             within ".new_amendment" do
               expect(page).to have_content("Title")
               expect(page).to have_content("Body")

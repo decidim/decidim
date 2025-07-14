@@ -17,6 +17,9 @@ en:
           draft: Draft
           version_number: Version number
   decidim:
+    admin:
+      tooltips:
+        deleted_collaborative_texts_info: Cannot delete this document
     collaborative_texts:
       actions:
         confirm_delete_document: Are you sure you want to delete this document?

@@ -21,8 +21,8 @@ module Decidim
 
     devise :invitable, :database_authenticatable, :registerable, :confirmable, :timeoutable,
            :recoverable, :trackable, :lockable,
-           :decidim_validatable, :decidim_newsletterable,
-           :omniauthable, omniauth_providers: Decidim::OmniauthProvider.available.keys,
+           :decidim_validatable, :decidim_newsletterable, :jwt_authenticatable,
+           :omniauthable, omniauth_providers: Decidim::OmniauthProvider.available.keys, jwt_revocation_strategy: Decidim::Api::JwtDenylist,
                           request_keys: [:env], reset_password_keys: [:decidim_organization_id, :email],
                           confirmation_keys: [:decidim_organization_id, :email]
     devise :rememberable if Decidim.enable_remember_me

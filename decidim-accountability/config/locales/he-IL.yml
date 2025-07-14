@@ -17,10 +17,6 @@ he:
         key: מפתח
         name: שם
         progress: התקדמות
-      timeline_entry:
-        description: תיאור
-        entry_date: תאריך
-        title: כותרת
     models:
       decidim/accountability/proposal_linked_event: הצעה כלולה בתוצאה
       decidim/accountability/result_progress_updated_event: התקדמות התוצאה עודכנה
@@ -52,9 +48,7 @@ he:
         import_csv: ייבוא תוצאות מקובץ CSV
         new_result: תוצאה חדשה
         new_status: סטאטוס חדש
-        new_timeline_entry: ערך ציר זמן חדש
         preview: תצוגה מקדימה
-        timeline_entries: אבולוציה של הפרויקט
         title: פעולות
         view_deleted_results: לצפייה בתוצאות מחוקות
       admin:
@@ -138,23 +132,6 @@ he:
           update:
             invalid: הייתה בעיה בעדכון סטטוס זה.
             success: הססטוס עודכן בהצלחה.
-        timeline_entries:
-          create:
-            invalid: הייתה בעיה ביצירת רשומה זו.
-            success: הרשומה נוצרה בהצלחה.
-          destroy:
-            success: הרשומה נמחקה בהצלחה.
-          edit:
-            title: עריכת רשומה
-            update: עדכן רשומה
-          index:
-            title: ערכי ציר הזמן של הפרויקט
-          new:
-            create: יצירת רשומה
-            title: רשומה חדשה
-          update:
-            invalid: הייתה בעיה בעדכון רשומה זו.
-            success: הרשומה עודכנה בהצלחה.
       admin_log:
         result:
           create: "%{user_name} תוצאה נוצרה %{resource_name} ב %{space_name}"
@@ -164,10 +141,6 @@ he:
           create: "%{user_name} יצר.ה את %{resource_name} הסטטוס"
           delete: "%{user_name} מחק.ה את %{resource_name} הסטטוס"
           update: "%{user_name} עדכנ.ה את %{resource_name} הסטטוס"
-        timeline_entry:
-          create: "%{user_name} יצר את הערך של ציר הזמן %{resource_name}"
-          delete: "%{user_name} מחק את הערך של ציר הזמן %{resource_name}"
-          update: "%{user_name} יצר את הערך של ציר הזמן %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'ההורה לא נמצא במסד הנתונים (מזהה: %{id})'
@@ -208,10 +181,6 @@ he:
             key: מפתח
             name: שם
             progress: התקדמות
-        timeline_entry:
-          fields:
-            entry_date: תאריך
-            title: כותרת
       results:
         count:
           results_count:
@@ -227,8 +196,6 @@ he:
         show:
           stats:
             back_to_resource: בחזרה לתוצאות
-        timeline:
-          title: אבולוציה של הפרויקט
     admin:
       filters:
         results:

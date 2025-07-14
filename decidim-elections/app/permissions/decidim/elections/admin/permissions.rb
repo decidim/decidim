@@ -10,6 +10,7 @@ module Decidim
 
           allowed_election_action?
           allowed_election_question_action?
+          allowed_elections_census_action?
 
           permission_action
         end
@@ -37,6 +38,17 @@ module Decidim
           case permission_action.action
           when :update, :reorder
             toggle_allow(election.present?) # This logic will be updated once the final election question criteria are defined.
+          end
+        end
+
+        def allowed_elections_census_action?
+          return unless permission_action.subject == :census
+
+          case permission_action.action
+          when :edit
+            allow!
+          when :update
+            toggle_allow(election.present?)
           end
         end
       end

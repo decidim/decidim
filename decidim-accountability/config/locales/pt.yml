@@ -17,10 +17,6 @@ pt:
         key: Chave
         name: Nome
         progress: Progresso
-      timeline_entry:
-        description: Descrição
-        entry_date: Data
-        title: Título
     models:
       decidim/accountability/proposal_linked_event: Proposta incluída em um resultado
       decidim/accountability/result_progress_updated_event: Progresso do resultado atualizado
@@ -48,9 +44,7 @@ pt:
         import_csv: Importar resultados de um CSV
         new_result: Novo resultado
         new_status: Novo estado
-        new_timeline_entry: Nova entrada no cronograma
         preview: Pré-visualizar
-        timeline_entries: Evolução do projeto
         title: Ações
       admin:
         exports:
@@ -85,15 +79,6 @@ pt:
           new:
             create: Criar estado
             title: Novo estado
-        timeline_entries:
-          edit:
-            title: Editar entrada
-            update: Atualizar entrada
-          index:
-            title: Registos do cronograma do projeto
-          new:
-            create: Criar entrada
-            title: Nova entrada
       admin_log:
         result:
           create: "%{user_name} criou o resultado %{resource_name} em %{space_name}"
@@ -132,9 +117,6 @@ pt:
             key: Chave
             name: Nome
             progress: Progresso
-        timeline_entry:
-          fields:
-            entry_date: Data
       results:
         count:
           results_count:
@@ -147,8 +129,6 @@ pt:
         show:
           stats:
             back_to_resource: Retroceder para o resultado
-        timeline:
-          title: Evolução do projeto
     admin:
       filters:
         results:

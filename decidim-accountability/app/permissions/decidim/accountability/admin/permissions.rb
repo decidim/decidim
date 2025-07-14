@@ -9,7 +9,7 @@ module Decidim
 
           permission_action.allow! if can_perform_actions_on?(:result, result)
           permission_action.allow! if can_perform_actions_on?(:status, status)
-          permission_action.allow! if can_perform_actions_on?(:timeline_entry, timeline_entry)
+          permission_action.allow! if can_perform_actions_on?(:milestone, milestone)
           permission_action.allow! if can_perform_actions_on?(:bulk_update, nil)
           permission_action.allow! if can_perform_actions_on?(:import_component, nil)
 
@@ -26,8 +26,8 @@ module Decidim
           @status ||= context.fetch(:status, nil)
         end
 
-        def timeline_entry
-          @timeline_entry ||= context.fetch(:timeline_entry, nil)
+        def milestone
+          @milestone ||= context.fetch(:milestone, nil)
         end
 
         def can_perform_actions_on?(subject, resource)

@@ -70,11 +70,11 @@ Permissions settings could also be set for an specific resources apart from the 
 resource.actions = %w(like vote)
 ----
 
-. Only if this is the first resource action added, edit the proposals admin templates and use the `resource_permissions_link` helper to link the resource permissions page from each resource in the listing.
+. Only if this is the first resource action added, edit the proposals admin templates and use the `dropdown_resource_permissions_link` helper to link the resource permissions page from each resource in the listing.
 
 [source,erb]
 ----
-<%= resource_permissions_link(proposal) %>
+<%= dropdown_resource_permissions_link(proposal) %>
 ----
 
 . In the proposals permission class, pass an extra `resource` named parameter to the calls to the `authorized?` method.
