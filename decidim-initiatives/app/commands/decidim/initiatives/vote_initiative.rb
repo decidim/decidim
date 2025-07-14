@@ -17,7 +17,6 @@ module Decidim
       # - :invalid if the form was not valid and we could not proceed.
       #
       # Returns nothing.
-
       def call
         return broadcast(:invalid) if form.invalid?
 
