@@ -151,7 +151,7 @@ describe "Admin manages global moderations" do
       expect(page).to have_content("Reported content 3")
       click_on "Actions"
       within "#js-bulk-actions-dropdown" do
-        click_on "Unreport"
+        click_on "Undo the report"
       end
       expect(page).to have_content("Unreport selected resources")
       click_on "Unreport selected resources"
@@ -165,7 +165,7 @@ describe "Admin manages global moderations" do
       expect(page).to have_content("Reported content 1")
       click_on "Actions"
       within "#js-bulk-actions-dropdown" do
-        click_on "Unhide"
+        click_on "Undo the hide"
       end
       expect(page).to have_content("Unhide selected resources")
       click_on "Unhide selected resources"
@@ -183,7 +183,7 @@ describe "Admin manages global moderations" do
 
           within "tr", text: "Dummy resource" do
             find("button[data-component='dropdown']").click
-            expect(page).to have_link("Unhide")
+            expect(page).to have_link("Undo the hide")
           end
           within "tr", text: "Comment" do
             find("button[data-component='dropdown']").click

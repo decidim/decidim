@@ -61,7 +61,7 @@ shared_examples "manage conference components" do
       before do
         within "tr", text: translated(attributes[:name]) do
           find("button[data-component='dropdown']").click
-          click_on "Configure"
+          click_on "Edit"
         end
       end
 
@@ -103,7 +103,7 @@ shared_examples "manage conference components" do
     it "updates the component" do
       within ".component-#{component.id}" do
         find("button[data-component='dropdown']").click
-        click_on "Configure"
+        click_on "Edit"
       end
 
       within ".edit_component" do
@@ -129,7 +129,7 @@ shared_examples "manage conference components" do
 
       within "tr", text: translated(attributes[:name]) do
         find("button[data-component='dropdown']").click
-        click_on "Configure"
+        click_on "Edit"
       end
 
       within ".global-settings" do

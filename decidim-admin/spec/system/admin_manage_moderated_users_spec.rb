@@ -138,7 +138,7 @@ describe "Admin manages moderated users" do
     it "user cannot unreport them" do
       within "tr", text: first_user.name, match: :first do
         find("button[data-component='dropdown']").click
-        expect(page).to have_no_css(".button", text: "Unreport")
+        expect(page).to have_no_css(".button", text: "Undo the report")
       end
     end
 

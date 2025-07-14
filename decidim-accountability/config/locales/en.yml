@@ -41,6 +41,8 @@ en:
   decidim:
     accountability:
       actions:
+        add_milestone: Add milestone
+        add_result: Add result
         confirm_delete_result: Are you sure you want to delete this result?
         confirm_destroy: Are you sure you want to delete this %{name}?
         deleted_results_info: Deleted results can be restored from the trash.
@@ -49,8 +51,8 @@ en:
         import: Import results from another component
         import_csv: Import results from CSV file
         milestones: Add milestone
-        new_milestone: Add milestone
-        new_result: Add result
+        new_milestone: New milestone
+        new_result: New result
         new_status: New status
         preview: Preview
         title: Actions

@@ -87,7 +87,7 @@ describe "Admin manages budgets" do
       within "tr", text: translated(budget.title) do
         accept_confirm do
           find("button[data-component='dropdown']").click
-          click_on "Soft delete"
+          click_on "Move to trash"
         end
       end
 

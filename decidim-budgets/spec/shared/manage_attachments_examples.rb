@@ -14,7 +14,7 @@ shared_examples "manage project attachments" do
 
     within "tr", text: translated(project.title) do
       find("button[data-component='dropdown']").click
-      click_on "Attachments"
+      click_on "Add attachment"
     end
   end
 

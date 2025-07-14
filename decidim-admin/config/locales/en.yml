@@ -188,7 +188,6 @@ en:
         export: Export
         export-selection: Export selection
         import: Import
-        manage: Manage
         menu_hidden: Hide from menu
         moderate: Manage moderations
         newsletter:
@@ -714,10 +713,10 @@ en:
               title: Hide
               update_moderation_button: Hide selected resources
             unhide:
-              title: Unhide
+              title: Undo the hide
               update_moderation_button: Unhide selected resources
             unreport:
-              title: Unreport
+              title: Undo the report
               update_moderation_button: Unreport selected resources
           cancel: Cancel
           selected: selected

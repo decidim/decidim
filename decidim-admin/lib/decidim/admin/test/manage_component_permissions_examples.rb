@@ -24,7 +24,7 @@ shared_examples "Managing component permissions" do
     before do
       within ".component-#{component.id}" do
         find("button[data-component='dropdown']").click
-        click_on "Permissions"
+        click_on "Manage permissions"
       end
     end
 
@@ -56,7 +56,7 @@ shared_examples "Managing component permissions" do
       allow_any_instance_of(Decidim::Admin::PermissionsForm).to receive(:valid?).and_return(false)
       within ".component-#{component.id}" do
         find("button[data-component='dropdown']").click
-        click_on "Permissions"
+        click_on "Manage permissions"
       end
       within "#components form" do
         within ".foo-permission" do
@@ -88,7 +88,7 @@ shared_examples "Managing component permissions" do
 
       within ".component-#{component.id}" do
         find("button[data-component='dropdown']").click
-        click_on "Permissions"
+        click_on "Manage permissions"
       end
     end
 
@@ -124,7 +124,7 @@ shared_examples "Managing component permissions" do
 
       within ".component-#{component.id}" do
         find("button[data-component='dropdown']").click
-        click_on "Permissions"
+        click_on "Manage permissions"
       end
     end
 

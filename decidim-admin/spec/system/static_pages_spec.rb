@@ -264,7 +264,7 @@ describe "Content pages" do
         new_window = window_opened_by do
           within "tr", text: translated(decidim_page.title) do
             find("button[data-component='dropdown']").click
-            click_on "View public page"
+            click_on "View"
           end
         end
 
