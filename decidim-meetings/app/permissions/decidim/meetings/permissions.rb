@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative "meeting_permissions"
+
 module Decidim
   module Meetings
     class Permissions < Decidim::DefaultPermissions
