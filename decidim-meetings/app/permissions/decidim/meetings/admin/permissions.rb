@@ -12,7 +12,6 @@ module Decidim
           allowed_meeting_action?
           allowed_agenda_action?
           allowed_poll_action?
-          allowed_export_responses?
 
           permission_action
         end
