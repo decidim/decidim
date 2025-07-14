@@ -12,6 +12,9 @@ ja:
           election_census: センサス
           election_dashboard: ダッシュボード
           election_questions: 質問
+      tooltips:
+        deleted_elections_info: この選挙を削除できません
+        edit_elections_info: この選挙を編集できません
     components:
       elections:
         name: 選挙
@@ -98,6 +101,13 @@ ja:
       admin_log:
         election:
           create: "%{user_name} が %{space_name}で %{resource_name} 選挙を作成しました"
+          publish: "%{user_name} が %{space_name}で %{resource_name} 選挙を作成しました"
+          restore: "%{user_name} が %{space_name}で %{resource_name} 選挙を復元しました"
+          soft_delete: "%{user_name} は %{space_name} スペースでの選挙 %{resource_name} をゴミ箱に移動しました"
+          unpublish: "%{user_name} が %{space_name}で %{resource_name} 選挙を非公開にしました"
+          update: "%{user_name} が %{space_name} の %{resource_name} 選挙を更新しました"
+        question:
+          update: "%{user_name} が %{resource_name} 選挙の質問を更新しました"
       censuses:
         internal_users:
           info_html: |
@@ -112,6 +122,7 @@ ja:
           info_html: |
             CSVフォーマットのファイルは2つのカラムを持つ必要があります。1つはメールアドレス、もう1つはユーザーが投票するために導入しなければならないトークンの値です。
             カラムはセミコロン(;)で区切る必要があります
+          label: トークンが登録されていない参加者（固定）
           remove_before_upload: '新しいセンサスをアップロードする場合、まず既存のセンサスを削除する必要があります '
           upload_file: ファイルをアップロード
           upload_new_census: CSVファイルをアップロードする
