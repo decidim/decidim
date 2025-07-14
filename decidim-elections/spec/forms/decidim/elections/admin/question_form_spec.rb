@@ -9,7 +9,7 @@ module Decidim
       describe QuestionForm do
         let!(:questionable) { create(:election) }
         let!(:position) { 0 }
-        let!(:question_type) { Decidim::Elections::Question::QUESTION_TYPES.first }
+        let!(:question_type) { Decidim::Elections::Question.question_types.first }
         let!(:body_en) { "Body en" }
         let!(:description_en) { "Description en" }
         let!(:response_options) do

@@ -58,7 +58,7 @@ module Decidim
       end
 
       describe "#auto_start?" do
-        it "returns true when start_at is avaiable_questions" do
+        it "returns true when start_at is present" do
           election.start_at = Time.current
           expect(election).to be_auto_start
         end
