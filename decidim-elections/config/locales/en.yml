@@ -13,6 +13,9 @@ en:
           election_census: Census
           election_dashboard: Dashboard
           election_questions: Questions
+      tooltips:
+        deleted_elections_info: Cannot delete this election
+        edit_elections_info: Cannot edit this election
     components:
       elections:
         name: Elections

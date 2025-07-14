@@ -3,6 +3,7 @@ el:
     admin:
       menu:
         elections_menu:
+          election_census: Απογραφή
           election_questions: Ερωτήσεις
     components:
       elections:
@@ -16,6 +17,9 @@ el:
       actions:
         title: Ενέργειες
       admin:
+        census:
+          edit:
+            created_at: Δημιουργήθηκε στις
         elections:
           edit:
             title: Επεξεργασία εκλογής

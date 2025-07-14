@@ -3,8 +3,12 @@
 <%= render layout: "layouts/decidim/shared/layout_center", locals: { columns: 10 } do %>
   <header class="text-center py-10">
     <h1 class="title-decorator inline-block text-left md:mb-12">
-      <%= t("title", scope: "layouts.decidim.user_profile") %>
-      <%= " - #{subtitle}" if subtitle.present? %>
+      <% if content_for?(:profile_title) %>
+        <%= yield :profile_title %>
+      <% else %>
+        <%= t("title", scope: "layouts.decidim.user_profile") %>
+        <%= " - #{subtitle}" if subtitle.present? %>
+      <% end %>
     </h1>
   </header>
 

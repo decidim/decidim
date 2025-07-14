@@ -1,0 +1,74 @@
+<div class="questionnaire-questions form__wrapper">
+  <div class="row column text-center my-4">
+    <% if questionnaire.questions_editable? %>
+      <button class="button button__xs button__transparent-secondary add-question"><%= t(".add_question") %></button>
+    <% end %>
+    <button type="button" class="button button__xs button__transparent-secondary collapse-all"><%= t(".collapse") %></button>
+    <button type="button" class="button button__xs button__transparent-secondary expand-all"><%= t(".expand") %></button>
+  </div>
+
+  <%= fields_for "questions[questions][#{blank_question.to_param}]", blank_question do |question_form| %>
+    <script type="text/template" class="decidim-question-template decidim-template" id="question-template">
+      <%= render "decidim/forms/admin/questionnaires/question",
+                 form: question_form,
+                 id: tabs_id_for_question(blank_question),
+                 editable: questionnaire.questions_editable?,
+                 response_option_template_selector: "#response-option-template-dummy",
+                 display_condition_template_selector: "#display-condition-template-dummy",
+                 matrix_row_template_selector: "#matrix-row-template-dummy" %>
+    </script>
+    <script type="text/template" class="decidim-separator-template decidim-template" id="separator-template">
+      <%= render "decidim/forms/admin/questionnaires/separator",
+                 form: question_form,
+                 id: tabs_id_for_question(blank_question),
+                 editable: questionnaire.questions_editable? %>
+    </script>
+    <script type="text/template" class="decidim-title-and-description-template decidim-template" id="title-and-description-template">
+      <%= render "decidim/forms/admin/questionnaires/title_and_description",
+                 form: question_form,
+                 id: tabs_id_for_question(blank_question),
+                 editable: questionnaire.questions_editable? %>
+    </script>
+    <%= render "decidim/forms/admin/questionnaires/response_option_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "response-option-template-dummy" %>
+    <%= render "decidim/forms/admin/questionnaires/display_condition_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "display-condition-template-dummy" %>
+    <%= render "decidim/forms/admin/questionnaires/matrix_row_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "matrix-row-template-dummy" %>
+  <% end %>
+  <div class="questionnaire-questions-list flex flex-col py-6 gap-6 last:pb-0">
+    <% @form.questions.each_with_index do |question, index| %>
+      <%= fields_for "questions[questions][]", question do |question_form| %>
+        <% if question.separator? %>
+          <%= render "decidim/forms/admin/questionnaires/separator",
+                     form: question_form,
+                     id: tabs_id_for_question(question),
+                     editable: questionnaire.questions_editable? %>
+        <% elsif question.title_and_description? %>
+          <%= render "decidim/forms/admin/questionnaires/title_and_description",
+                     form: question_form,
+                     id: tabs_id_for_question(question),
+                     editable: questionnaire.questions_editable? %>
+        <% else %>
+          <%= render "decidim/forms/admin/questionnaires/question",
+                     form: question_form,
+                     id: tabs_id_for_question(question),
+                     editable: questionnaire.questions_editable?,
+                     display_condition_template_selector: "#display-condition-template-#{index}",
+                     response_option_template_selector: "#response-option-template-#{index}",
+                     matrix_row_template_selector: "#matrix-row-template-#{index}" %>
+          <%= render "decidim/forms/admin/questionnaires/display_condition_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "display-condition-template-#{index}" %>
+          <%= render "decidim/forms/admin/questionnaires/response_option_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "response-option-template-#{index}" %>
+          <%= render "decidim/forms/admin/questionnaires/matrix_row_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "matrix-row-template-#{index}" %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<%= append_javascript_pack_tag "decidim_forms_admin" %>
+
+<% if questionnaire.questions_editable? %>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      window.Decidim.createEditableForm();
+    });
+  </script>
+<% end %>

@@ -1,6 +1,4 @@
 <% add_decidim_page_title(t(".title")) %>
-<% append_stylesheet_pack_tag "decidim_elections_admin" %>
-
 <div class="card">
   <div class="item_show__header">
     <h1 class="item_show__header-title">
@@ -9,7 +7,7 @@
       <%= render partial: "decidim/admin/components/resource_action" %>
     </h1>
   </div>
-  <div class="table-stacked mt-8">
+  <div class="table-stacked">
     <table class="table-list">
       <%= render partial: "elections-thead" %>
       <tbody>
@@ -32,5 +30,4 @@
     </div>
   <% end %>
 </div>
-
 <%= decidim_paginate elections %>

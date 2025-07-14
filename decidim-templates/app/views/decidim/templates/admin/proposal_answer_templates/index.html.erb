@@ -67,7 +67,7 @@
 
                     <% if allowed_to?(:destroy, :template, template: template) %>
                       <li class="dropdown__item">
-                        <%= link_to proposal_answer_template_path(template), method: :delete, data: { confirm: t(".confirm_delete") }, class: "dropdown__button action-icon--remove" do %>
+                        <%= link_to proposal_answer_template_path(template), method: :delete, data: { confirm: t(".confirm_delete") }, class: "dropdown__button" do %>
                           <%= icon "delete-bin-line" %>
                           <%= t("actions.destroy", scope: "decidim.admin") %>
                         <% end %>

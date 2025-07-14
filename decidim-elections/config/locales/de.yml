@@ -3,6 +3,7 @@ de:
     admin:
       menu:
         elections_menu:
+          election_census: Erhebung
           election_questions: Fragen
     components:
       elections:
@@ -16,6 +17,9 @@ de:
       actions:
         title: Aktionen
       admin:
+        census:
+          edit:
+            created_at: Erstellt am
         elections:
           edit:
             title: Wahl bearbeiten

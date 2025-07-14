@@ -147,8 +147,7 @@ module Decidim
         icon_link_to(
           "delete-bin-line",
           url_for(query_params_without(filter)),
-          t("decidim.admin.actions.cancel"),
-          class: "action-icon--remove"
+          t("decidim.admin.actions.cancel")
         )
       end
 
