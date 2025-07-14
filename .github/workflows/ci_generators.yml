@@ -117,6 +117,7 @@ jobs:
           token: ${{secrets.QLTY_COVERAGE_TOKEN}}
           verbose: true
           files: coverage/coverage.xml
+          add-prefix: ${{ env.DECIDIM_MODULE }}
       - uses: codecov/codecov-action@v5
         name: Upload coverage
         with:
