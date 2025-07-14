@@ -15,7 +15,6 @@ module Decidim
                inverse_of: :attached_to,
                as: :attached_to
       # The first attachment that is a photo for this model.
-
       #
       # Returns an Attachment
       def photo
