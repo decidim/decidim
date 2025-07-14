@@ -8,7 +8,6 @@ module Decidim
     module Admin
       describe QuestionForm do
         let!(:questionable) { create(:election) }
-        let!(:position) { 0 }
         let!(:question_type) { Decidim::Elections::Question.question_types.first }
         let!(:body_en) { "Body en" }
         let!(:description_en) { "Description en" }
@@ -24,7 +23,6 @@ module Decidim
             body_en: body_en,
             description_en: description_en,
             question_type: question_type,
-            position: position,
             response_options: response_options
           }
         end
@@ -37,12 +35,6 @@ module Decidim
 
         context "when everything is OK" do
           it { is_expected.to be_valid }
-        end
-
-        context "when the position is not present" do
-          let(:position) { nil }
-
-          it { is_expected.not_to be_valid }
         end
 
         context "when the question_type is not known" do

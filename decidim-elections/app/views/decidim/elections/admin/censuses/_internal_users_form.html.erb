@@ -9,15 +9,9 @@
                                   :description do |builder| %>
     <div class="row">
       <%= builder.label { builder.check_box + builder.text } %>
-      <% if @form.authorization_handlers_names.include? builder.value %>
-        <div id="authorization-handler-<%= builder.value %>" class="authorization-handler my-4 ml-6">
-          <%= render "decidim/elections/admin/censuses/internal_users_options_form", form: form, handler_name: builder.value %>
-        </div>
-      <% else %>
-        <div id="authorization-handler-<%= builder.value %>" class="authorization-handler my-4 ml-6" style="display:none">
-          todo
-        </div>
-      <% end %>
+      <div id="authorization-handler-<%= builder.value %>" class="authorization-handler my-4 ml-6" style="display: <%= form.object.authorization_handlers_names.include?(builder.value) ? 'block' : 'none' %>;">
+        <%= render "decidim/elections/admin/censuses/internal_users_options_form", form: form, handler_name: builder.value %>
+      </div>
     </div>
   <% end %>
 </div>

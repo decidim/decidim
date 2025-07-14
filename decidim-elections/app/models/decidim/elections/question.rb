@@ -13,7 +13,6 @@ module Decidim
       translatable_fields :body, :description
 
       validates :body, presence: true
-      validates :position, uniqueness: { scope: :election_id }
       validate :valid_question_type
 
       scope :enabled, -> { where.not(voting_enabled_at: nil) }
@@ -25,7 +24,7 @@ module Decidim
 
       def self.question_types
         %w(single_option multiple_option).freeze
-           end
+      end
 
       def max_votable_options
         return response_options.size if question_type == "multiple_option"

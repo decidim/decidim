@@ -60,21 +60,6 @@ module Decidim
 
             it { is_expected.not_to be_valid }
           end
-
-          context "when authorization_handlers contains invalid options" do
-            let(:authorization_handlers_options) do
-              {
-                "dummy_authorization_handler" => { "invalid_option" => "value" }
-              }
-
-              it "ignores the option" do
-                expect(subject).to be_valid
-                expect(subject.census_settings).to eq({ authorization_handlers: {
-                                                        "dummy_authorization_handler" => { options: {} }
-                                                      } })
-              end
-            end
-          end
         end
       end
     end

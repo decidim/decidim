@@ -72,7 +72,6 @@ module Decidim
           question = Decidim::Elections::Question.create!(
             election:,
             position:,
-            mandatory: [true, false].sample,
             question_type: %w(single_option multiple_option).sample,
             body: Decidim::Faker::Localized.sentence(word_count: 4),
             description: Decidim::Faker::Localized.paragraph
