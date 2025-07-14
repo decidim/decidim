@@ -38,23 +38,23 @@
 
               <div class="inline-block relative">
                 <ul id="actions-scope-<%= scope.id %>" class="dropdown dropdown__action" aria-hidden="true">
-                  <li class="dropdown__item">
-                    <%= link_to scope_scopes_path(scope), method: :get, class: "dropdown__button" do %>
-                      <%= icon "zoom-in-line" %>
-                      <%= t("actions.browse", scope: "decidim.admin") %>
-                    <% end %>
-                  </li>
-
                   <% if allowed_to? :update, :scope, scope: scope %>
-                    <hr>
-
                     <li class="dropdown__item">
                       <%= link_to [:edit, scope], method: :get, class: "dropdown__button" do %>
                         <%= icon "pencil-line" %>
                         <%= t("actions.edit", scope: "decidim.admin") %>
                       <% end %>
                     </li>
+
+                    <hr>
                   <% end %>
+
+                  <li class="dropdown__item">
+                    <%= link_to scope_scopes_path(scope), method: :get, class: "dropdown__button" do %>
+                      <%= icon "zoom-in-line" %>
+                      <%= t("actions.browse", scope: "decidim.admin") %>
+                    <% end %>
+                  </li>
 
                   <% if allowed_to? :destroy, :scope, scope: scope %>
                     <hr>
