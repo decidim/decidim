@@ -14,25 +14,29 @@ module Decidim
                dependent: :destroy,
                inverse_of: :attached_to,
                as: :attached_to
-
       # The first attachment that is a photo for this model.
+
       #
       # Returns an Attachment
       def photo
-        @photo ||= photos.first
+        @photo ||= photos&.first
       end
 
       # All the attachments that are photos for this model.
       #
       # Returns an Array<Attachment>
       def photos
-        @photos ||= attachments.with_attached_file.order(:weight).select(&:photo?)
+        return if attachments.empty?
+
+        @photos ||= attachments.with_attached_file&.order(:weight)&.select(&:photo?)
       end
 
       # All the attachments that are documents for this model.
       #
       # Returns an Array<Attachment>
       def documents
+        return if attachments.empty?
+
         @documents ||= attachments.with_attached_file.order(:weight).includes(:attachment_collection).select(&:document?)
       end
 
