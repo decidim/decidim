@@ -7,13 +7,21 @@ module Decidim
     describe ResponseOption do
       subject { response_option }
 
-      let(:question) { create(:election_question, with_response_options: false) }
-      let(:response_option) { build(:election_response_option, question:) }
+      let(:question) { create(:election_question) }
+      let(:response_option) { create(:election_response_option, question:) }
 
       it { is_expected.to be_valid }
 
       it "has an association of question" do
         expect(subject.question).to eq(question)
+      end
+
+      describe "validations" do
+        context "when body is missing" do
+          let(:response_option) { build(:election_response_option, question:, body: {}) }
+
+          it { is_expected.not_to be_valid }
+        end
       end
 
       describe "#presenter" do

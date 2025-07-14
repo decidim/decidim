@@ -1,8 +1,9 @@
-<% election_questions.each_with_index do |question, index| %>
+<% election_questions.each do |question| %>
   <div class="card mb-6" id="question_<%= question.id %>">
     <div class="card-divider">
       <h3 class="flex items-center justify-between">
-        <%= "#{index + 1}. #{translated_attribute(question.body)}" %>
+        <%= "#{question.position.next}. #{t("decidim.forms.question_types.#{question.question_type}")} - #{translated_attribute(question.body)}" %>
+
         <% if election.per_question? %>
           <div class="flex gap-4 items-center justify-between">
             <%= enable_question_voting_button(question) %>

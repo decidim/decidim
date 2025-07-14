@@ -15,6 +15,6 @@
       <%= cell "decidim/announcement", t("decidim.elections.admin.dashboard.results.per_question_waiting"), callout_class: "alert" if election.per_question_waiting? %>
     <% end %>
     <%= render partial: "decidim/elections/admin/dashboard/questions_with_results" %>
-    <p class="my-4 text-gray-2"><%= t("decidim.elections.censuses.token_csv.census_size_html", count: census_count(election)) %></p>
+    <p class="my-4 text-gray-2"><%= t("decidim.elections.censuses.census_size_html", count: census_count(election)) %></p>
   </div>
 </div>

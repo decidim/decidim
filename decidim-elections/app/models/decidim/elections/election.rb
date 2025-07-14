@@ -77,25 +77,16 @@ module Decidim
         # If end_at is present and in the past, the election is finished no matter what type of voting
         @vote_finished ||= if end_at.present? && end_at <= Time.current
                              true
+                           elsif per_question? && started?
                              # Per question elections are considered finished if all questions have published results
-                             # as long as there is at least one question enabled
-                           elsif per_question? && questions.enabled.any?
                              questions.all?(&:published_results?)
                            else
                              false
                            end
       end
 
-      def verification_filters
-        verification_types.presence || []
-      end
-
       def census
         @census ||= Decidim::Elections.census_registry.find(census_manifest)
-      end
-
-      def census_status
-        @census_status ||= CsvCensus::Status.new(self)
       end
 
       # syntax sugar to access the census manifest
@@ -106,11 +97,11 @@ module Decidim
       end
 
       def ready_to_publish_results?
-        return false unless published? || results_published?
+        return false unless published?
+        return false if results_published?
+        return false if questions.empty?
 
         return vote_finished? unless per_question?
-
-        return false if questions.empty?
 
         # If per_question, we can publish when there is at least one question enabled
         questions.unpublished_results.any?(&:voting_enabled?)
@@ -122,6 +113,12 @@ module Decidim
 
       def per_question_waiting?
         per_question? && !finished? && questions.unpublished_results.none?(&:voting_enabled?)
+      end
+
+      def available_questions
+        return questions.enabled if per_question?
+
+        questions
       end
 
       def status
@@ -138,7 +135,7 @@ module Decidim
         when "real_time"
           ongoing? || vote_finished? || published_results_at.present?
         when "per_question"
-          questions.enabled.any? && questions.enabled.all?(&:published_results_at)
+          vote_finished? && questions.enabled.any? && questions.enabled.all?(&:published_results_at)
         when "after_end"
           published_results_at.present?
         else

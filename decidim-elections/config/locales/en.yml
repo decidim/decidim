@@ -169,16 +169,16 @@ en:
           update: "%{user_name} updated the questions of the %{resource_name} election"
       censuses:
         internal_users:
+          census_ready_html: The census data is uploaded and prepared for its use in the <b>%{election_title}</b> election.
+          census_size_html:
+            one: There is currently <strong>1</strong> person eligible for voting in this election (this might change on a dynamic census).
+            other: There are currently <strong>%{count}</strong> people eligible for voting in this election (this might change on a dynamic census).
           info_html: |
             You can restrict participation in the election to participants who have an authorization.<br>
             Note that participants will need to fulfill the selected authorizations in  order to vote. Leaving all checkboxes empty will allow to vote anyone registered.
           internal_type_title: Additional required authorizations to vote (optional)
           label: Registered participants (dynamic)
         token_csv:
-          census_ready_html: The census data is uploaded and prepared for its use in the <b>%{election_title}</b> election.
-          census_size_html:
-            one: There is currently <strong>1</strong> person eligible for voting in this election (this might change on a dynamic census).
-            other: There are currently <strong>%{count}</strong> people eligible for voting in this election (this might change on a dynamic census).
           example: |
             email;token
             user@example.org;123456
@@ -195,6 +195,7 @@ en:
       models:
         election:
           fields:
+            census: Census
             end_at: End time
             start_at: Start time
             status: Status

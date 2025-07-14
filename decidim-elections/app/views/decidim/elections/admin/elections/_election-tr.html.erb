@@ -21,6 +21,9 @@
   <td data-label="<%= t("models.election.fields.status", scope: "decidim.elections") %>">
     <%= election_status_with_label(election) %>
   </td>
+  <td>
+    <%= election.census.label %>
+  </td>
   <td data-label="<%= t("actions.title", scope: "decidim.elections") %>" class="table-list__actions">
     <%= render partial: "decidim/elections/admin/elections/actions", locals: { election: election, view: view } %>
   </td>
