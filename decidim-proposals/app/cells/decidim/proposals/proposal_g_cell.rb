@@ -41,11 +41,13 @@ module Decidim
       end
 
       def resource_image_path
-        return has_image?
+        return unless model.photo.present?
+
+        model.photo.url
       end
 
       def has_image?
-        model.attachments.presence&.find_by("content_type LIKE ?", "image/%")&.url
+        model.photo
       end
 
       private
