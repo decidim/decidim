@@ -27,13 +27,13 @@
         <li class="dropdown__item">
           <%= link_to project_attachment_collections_path(project), class: "dropdown__button" do %>
             <%= icon "folder-line" %>
-            <%= t("actions.attachment_collections", scope: "decidim.budgets") %>
+            <%= t("actions.attachment_collections", scope: "decidim.admin") %>
           <% end %>
         </li>
         <li class="dropdown__item">
           <%= link_to project_attachments_path(project), class: "dropdown__button" do %>
             <%= icon "attachment-line" %>
-            <%= t("actions.attachments", scope: "decidim.budgets") %>
+            <%= t("actions.attachments", scope: "decidim.admin") %>
           <% end %>
         </li>
 
