@@ -38,7 +38,7 @@ module Decidim
           let(:another_vote) { build(:election_vote, voter_uid: vote.voter_uid, question:, response_option: other_response_option) }
           let(:other_response_option) { question.response_options.last }
 
-          it "cannot be repeaded" do
+          it "cannot be repeated" do
             expect(another_vote).not_to be_valid
           end
 
