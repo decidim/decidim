@@ -134,6 +134,15 @@ describe "Admin manages election census" do
                                                                                     }
                                                                                   }
                                                                                 })
+        fill_in "Allowed postal codes (separated by commas)", with: "08002, 08003"
+        click_on "Save and continue" # redirects to the dashboard
+        expect(election.reload.census_settings["authorization_handlers"]).to eq({
+                                                                                  "dummy_authorization_handler" => {
+                                                                                    "options" => {
+                                                                                      "allowed_postal_codes" => "08002, 08003"
+                                                                                    }
+                                                                                  }
+                                                                                })
       end
 
       context "when multiple verification handlers are selected" do
