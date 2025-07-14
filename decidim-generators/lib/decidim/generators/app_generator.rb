@@ -129,6 +129,11 @@ module Decidim
                   "# config.action_controller.raise_on_missing_callback_actions = false"
       end
 
+      def patch_development_file
+        gsub_file "config/environments/development.rb", /config\.action_view\.annotate_rendered_view_with_filenames = true$/,
+                  "# config.action_view.annotate_rendered_view_with_filenames = true"
+      end
+
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
       end
