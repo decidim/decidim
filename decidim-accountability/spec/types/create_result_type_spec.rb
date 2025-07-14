@@ -73,23 +73,26 @@ module Decidim::Accountability
     let(:api_response) do
       response["createResult"]
     end
+    let!(:expected_trace_method) { :create! }
 
     context "with admin user" do
-      it_behaves_like "API creatable result" do
-        let!(:user_type) { :admin }
-      end
+      let!(:user_type) { :admin }
+
+      it_behaves_like "create new result"
+      include_examples "common create/update behavior"
+    end
+
+    context "with api user" do
+      let!(:user_type) { :api_user }
+
+      it_behaves_like "create new result"
+      include_examples "common create/update behavior"
     end
 
     context "with normal user" do
       it "returns nil" do
         result = response["createResult"]
         expect(result).to be_nil
-      end
-    end
-
-    context "with api_user" do
-      it_behaves_like "API creatable result" do
-        let!(:user_type) { :api_user }
       end
     end
   end
