@@ -123,8 +123,12 @@ eu:
             state: Estatu
             supports_count: Sinadurak
             title: Ekimenak
+        initiatives_committee_member:
+          fields:
+            actions: Ekintzak
         initiatives_type_scope:
           fields:
+            actions: Ekintzak
             scope: Eremua
             supports_required: Sinadurak behar dira
           name: Ekimen motaren eremua

@@ -3,6 +3,7 @@ gl:
     admin:
       menu:
         elections_menu:
+          election_census: Censo
           election_questions: Preguntas
     elections:
       actions:

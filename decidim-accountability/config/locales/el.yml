@@ -16,10 +16,6 @@ el:
         key: Κλειδί
         name: Όνομα
         progress: Πρόοδος
-      timeline_entry:
-        description: Περιγραφή
-        entry_date: Ημερομηνία
-        title: Τίτλος
     models:
       decidim/accountability/proposal_linked_event: Η πρόταση περιλαμβάνεται σε ένα αποτέλεσμα
       decidim/accountability/result_progress_updated_event: Η πρόοδος των αποτελεσμάτων ενημερώθηκε
@@ -37,7 +33,6 @@ el:
         destroy: Διαγραφή
         edit: Επεξεργασία
         preview: Προεπισκόπηση
-        timeline_entries: Εξέλιξη έργου
         title: Ενέργειες
       admin:
         exports:
@@ -90,23 +85,6 @@ el:
           update:
             invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της κατάστασης.
             success: Η κατάσταση ενημερώθηκε με επιτυχία.
-        timeline_entries:
-          create:
-            invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτής της καταχώρησης.
-            success: Η καταχώρηση δημιουργήθηκε με επιτυχία.
-          destroy:
-            success: Η καταχώριση διαγράφηκε με επιτυχία.
-          edit:
-            title: Επεξεργασία καταχώρησης
-            update: Ενημέρωση καταχώρησης
-          index:
-            title: Καταχωρήσεις χρονοδιαγράμματος έργου
-          new:
-            create: Δημιουργία καταχώρησης
-            title: Νέα καταχώρηση
-          update:
-            invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της καταχώρησης.
-            success: Η καταχώρηση ενημερώθηκε με επιτυχία.
       admin_log:
         result:
           create: "Ο χρήστης %{user_name} δημιούργησε το αποτέλεσμα %{resource_name} στον χώρο %{space_name}"
@@ -116,10 +94,6 @@ el:
           create: "Ο/Η %{user_name} δημιούργησε την κατάσταση %{resource_name}"
           delete: "Ο/Η %{user_name} διέγραψε την κατάσταση %{resource_name}"
           update: "Ο/Η %{user_name} ενημέρωσε την κατάσταση %{resource_name}"
-        timeline_entry:
-          create: "Ο/Η %{user_name} δημιούργησε την καταχώρηση χρονολογίου %{resource_name}"
-          delete: "Ο/Η %{user_name} διέγραψε την καταχώριση χρονολογίου %{resource_name}"
-          update: "Ο/Η %{user_name} ενημέρωσε την καταχώρηση χρονολογίου %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'H γονική διαδικασία δεν βρέθηκε στη βάση δεδομένων (αναγνωριστικό: %{id})'
@@ -158,10 +132,6 @@ el:
             key: Κλειδί
             name: Όνομα
             progress: Πρόοδος
-        timeline_entry:
-          fields:
-            entry_date: Ημερομηνία
-            title: Τίτλος
       results:
         count:
           results_count:
@@ -174,8 +144,6 @@ el:
         show:
           stats:
             back_to_resource: Επιστροφή στο αποτέλεσμα
-        timeline:
-          title: Εξέλιξη έργου
     admin:
       filters:
         results:

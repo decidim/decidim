@@ -17,6 +17,8 @@ ja:
       admin_log:
         changeset:
           posts: 投稿
+      tooltips:
+        deleted_posts_info: この投稿を削除できません
     blogs:
       actions:
         author_id: 次のように投稿を作成
@@ -101,6 +103,7 @@ ja:
           comment: コメント
           create: 作成
           destroy: 削除
+          like: いいね
           update: 更新
         name: ブログ
         settings:
@@ -117,6 +120,8 @@ ja:
           step:
             announcement: お知らせ
             comments_blocked: コメントをブロック
+            likes_blocked: '「いいね」がブロックされました'
+            likes_enabled: いいねを有効にする
     events:
       blogs:
         post_created:
@@ -145,6 +150,7 @@ ja:
           created_at: この投稿の作成日時
           follows_count: 投稿のフォロー数
           id: 投稿の固有ID
+          likes_count: 投稿のいいね数
           participatory_space: この投稿が所属するスペース（参加型プロセス、参加スペースなど）
           published_at: この投稿の公開日時
           title: 投稿のタイトル
