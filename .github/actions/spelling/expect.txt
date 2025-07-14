@@ -381,6 +381,7 @@ gteq
 Gual
 GVzd
 Gyver
+hadolint
 haml
 Hammes
 hashdiff
@@ -754,6 +755,7 @@ publicable
 Pujol
 pwa
 QLiterals
+qlty
 queda
 qux
 railtie
@@ -838,6 +840,7 @@ setseed
 sgid
 shakapacker
 sharedapp
+shellcheckrc
 shellwords
 shs
 sidekiq
