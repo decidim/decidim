@@ -83,3 +83,15 @@ threshold = 20
 [[source]]
 name = "default"
 default = true
+
+[[plugin]]
+name = "brakeman"
+
+[[plugin]]
+name = "markdownlint"
+
+[[plugin]]
+name = "rubocop"
+
+[[plugin]]
+name = "osv-scanner"
