@@ -1,17 +1,14 @@
+# frozen_string_literal: true
+
 require "spec_helper"
 require "decidim/api/test/mutation_context"
 
 module Decidim::Accountability
   describe CreateResultType, type: :graphql do
     include_context "with a graphql class mutation"
+    include_context "when managing result through API"
 
     let(:root_klass) { AccountabilityMutationType }
-    let(:locale) { "en" }
-    let!(:organization) { create(:organization) }
-    let(:participatory_process) { create(:participatory_process, organization:) }
-    let(:component) do
-      create(:component, manifest_name: "accountability", participatory_space: participatory_process)
-    end
     let(:model) { component }
     let(:end_date) { "01.01.2025" }
     let(:external_id) { "dummy_external_id" }
@@ -28,19 +25,7 @@ module Decidim::Accountability
     let(:variables) do
       {
         input: {
-          attributes: {
-            title: { en: title_en },
-            description: { en: description_en },
-            endDate: end_date,
-            externalId: external_id,
-            progress: progress,
-            proposalIds: proposal_ids,
-            projectIds: project_ids,
-            startDate: start_date,
-            taxonomies: taxonomies,
-            weight: weight,
-            decidimAccountabilityStatusId: status_id
-          }
+          attributes: attributes
         }
       }
     end
@@ -74,19 +59,20 @@ module Decidim::Accountability
       response["createResult"]
     end
     let!(:expected_trace_method) { :create! }
+    let(:target) { Decidim::Accountability::Result }
 
     context "with admin user" do
       let!(:user_type) { :admin }
 
       it_behaves_like "create new result"
-      include_examples "common create/update behavior"
+      include_examples "create/update result shared examples"
     end
 
     context "with api user" do
       let!(:user_type) { :api_user }
 
       it_behaves_like "create new result"
-      include_examples "common create/update behavior"
+      include_examples "create/update result shared examples"
     end
 
     context "with normal user" do

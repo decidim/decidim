@@ -9,7 +9,7 @@ module Decidim
       argument :attributes, MilestoneAttributes, description: "input attributes of a milestone", required: true
       argument :id, GraphQL::Types::ID, "The ID of the milestone", required: true
 
-      def resolve(attributes:, id:)
+      def resolve(attributes:, id:) # rubocop:disable Lint/UnusedMethodArgument
         form_attrs = attributes.to_h.reverse_merge(
           decidim_accountability_result_id: object.id,
           title: milestone.title,
@@ -27,7 +27,8 @@ module Decidim
       end
 
       def authorized?(attributes:, id:)
-        super && allowed_to?(:update, :milestone, milestone(id), context, scope: :admin)
+        super && allowed_to?(:update, :milestone, milestone(id), context, scope: :admin) &&
+          user_can_perform_admin_actions?(context[:current_user])
       end
 
       private

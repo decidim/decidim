@@ -10,7 +10,8 @@ module Decidim
       def authorized?(id:)
         milestone = find_resource(id)
 
-        super && allowed_to?(:destroy, :milestone, milestone, context, scope: :admin)
+        super && allowed_to?(:destroy, :milestone, milestone, context, scope: :admin) &&
+          user_can_perform_admin_actions?(context[:current_user])
       end
 
       private

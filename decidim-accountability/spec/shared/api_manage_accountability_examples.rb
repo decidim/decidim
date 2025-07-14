@@ -1,4 +1,6 @@
-shared_examples "return expexted values" do
+# frozen_string_literal: true
+
+shared_examples "return expexted result values" do
   it "returns the result" do
     expect(api_response).to be_present
     result = Decidim::Accountability::Result.last
@@ -19,11 +21,39 @@ shared_examples "return expexted values" do
   end
 end
 
-shared_examples "trace action" do
+shared_examples "return expected milestone values" do
+  it "returns the milestone" do
+    expect(api_response).to be_present
+    result = Decidim::Accountability::Result.last
+    expect(api_response).to include(
+      {
+        "description" => { "translation" => description_en },
+        "title" => { "translation" => title_en },
+        "entryDate" => "2025-01-01",
+        "result" => { "id" => result.id.to_s }
+      }
+    )
+  end
+end
+
+shared_examples "trace result action" do
   it "traces the action", versioning: true do
     expect(Decidim.traceability)
       .to receive(expected_trace_method)
-      .with(Decidim::Accountability::Result, current_user, kind_of(Hash), visibility: "all")
+      .with(target, current_user, kind_of(Hash), { visibility: "all" })
+      .and_call_original
+
+    expect { execute_query(query, variables) }.to change(Decidim::ActionLog, :count)
+    action_log = Decidim::ActionLog.last
+    expect(action_log.version).to be_present
+  end
+end
+
+shared_examples "trace milestone action" do
+  it "traces the action", versioning: true do
+    expect(Decidim.traceability)
+      .to receive(expected_trace_method)
+      .with(target, current_user, kind_of(Hash))
       .and_call_original
 
     expect { execute_query(query, variables) }.to change(Decidim::ActionLog, :count)
@@ -79,6 +109,18 @@ shared_examples "create new result" do
   end
 end
 
+shared_examples "create new milestone" do
+  it "creates the milestone" do
+    expect do
+      execute_query(query, variables)
+    end.to change(Decidim::Accountability::Milestone, :count).by(1)
+    milestone = Decidim::Accountability::Milestone.last
+    expect(milestone.title).to eq({ "en" => title_en })
+    expect(milestone.description).to eq({ "en" => description_en })
+    expect(milestone.decidim_accountability_result_id).to eq(result.id)
+  end
+end
+
 shared_examples "handle linking resources" do
   include_context "with linking resources"
   let!(:proposal_ids) { [1234, foreign_proposal.id, proposal.id] }
@@ -104,9 +146,37 @@ shared_examples "handle linking resources" do
   end
 end
 
-shared_examples "common create/update behavior" do
+shared_examples "create/update result shared examples" do
   it_behaves_like "handle form error"
   it_behaves_like "handle linking resources"
-  it_behaves_like "trace action"
-  it_behaves_like "return expexted values"
+  it_behaves_like "trace result action"
+  it_behaves_like "return expexted result values"
+end
+
+shared_examples "API deletable result" do
+  it "deletes the result" do
+    expect(result.deleted_at).to be_nil
+    expect do
+      execute_query(query, variables)
+    end.to change(Decidim::Accountability::Result, :count).by(-1)
+    expect(result.reload.deleted_at).not_to be_nil
+  end
+end
+
+shared_examples "API deletable milestone" do
+  it "deletes the milestone" do
+    expect do
+      execute_query(query, variables)
+    end.to change(Decidim::Accountability::Milestone, :count).by(-1)
+  end
+
+  it "returns the deleted milestone" do
+    expect(api_response).to eq({ "id" => milestone.id.to_s })
+  end
+end
+
+shared_examples "create/update milestone shared examples" do
+  it_behaves_like "handle form error"
+  it_behaves_like "trace milestone action"
+  it_behaves_like "return expected milestone values"
 end

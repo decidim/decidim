@@ -9,7 +9,7 @@ module Decidim
       argument :attributes, ResultAttributes, description: "input attributes of a result", required: true
       argument :id, GraphQL::Types::ID, "The ID of the budget", required: true
 
-      def resolve(attributes:, id:)
+      def resolve(attributes:, id:) # rubocop:disable Lint/UnusedMethodArgument
         form = form_from_attributes(attributes)
 
         handle_form_submission do

@@ -118,11 +118,18 @@ module Decidim
 
           permissions
         end
+
+        def user_can_perform_admin_actions?(user)
+          Decidim::Admin::Permissions.new(
+            user,
+            Decidim::PermissionAction.new(scope: :admin, action: :read, subject: :admin_dashboard)
+          ).permissions.allowed?
+        end
       end
 
       private
 
-      delegate :allowed_to?, to: :class
+      delegate :allowed_to?, :user_can_perform_admin_actions?, to: :class
 
       attr_reader :action
     end
