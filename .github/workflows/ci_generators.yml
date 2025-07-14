@@ -112,6 +112,10 @@ jobs:
         working-directory: ${{ env.DECIDIM_MODULE }}
         env:
           SIMPLECOV: "true"
+      - uses: qltysh/qlty-action/coverage@v1
+        with:
+          token: {{secrets.QLTY_COVERAGE_TOKEN}}
+          files: coverage/coverage.xml
       - uses: codecov/codecov-action@v5
         name: Upload coverage
         with:
