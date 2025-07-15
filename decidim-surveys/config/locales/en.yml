@@ -29,7 +29,6 @@ en:
       surveys:
         actions:
           respond: Respond
-          response: Respond
         name: Surveys
         settings:
           announcement: Announcement
