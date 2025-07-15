@@ -7,7 +7,6 @@
 
 require:
   - rubocop-rubycw
-  - rubocop-factory_bot
 
 inherit_from:
   - config/rubocop/capybara/configuration.yml

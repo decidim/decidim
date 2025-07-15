@@ -58,7 +58,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rspec-retry", "~> 0.6.2"
   s.add_dependency "rubocop", "~> 1.78.0"
   s.add_dependency "rubocop-capybara", "~> 2.22.0", ">= 2.22.1"
-  s.add_dependency "rubocop-factory_bot", "~> 2.26"
+  s.add_dependency "rubocop-factory_bot", "~> 2.27.0"
   s.add_dependency "rubocop-faker", "~> 1.1"
   s.add_dependency "rubocop-graphql", "~> 1.5"
   s.add_dependency "rubocop-performance", "~> 1.25", ">= 1.25.0"
