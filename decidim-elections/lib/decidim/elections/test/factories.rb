@@ -100,7 +100,6 @@ FactoryBot.define do
     association :election
     body { generate_localized_title(:question_body) }
     description { generate_localized_description(:question_description) }
-    mandatory { false }
     question_type { "multiple_option" }
     sequence(:position) { |n| n }
     published_results_at { nil }

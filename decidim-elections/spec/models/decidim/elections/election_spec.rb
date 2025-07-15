@@ -510,6 +510,17 @@ module Decidim
         end
       end
 
+      describe "#available_questions" do
+        it "returns all questions when per_question is false" do
+          expect(election.available_questions).to eq(election.questions)
+        end
+
+        it "returns enabled questions when per_question is true" do
+          election.update!(results_availability: "per_question")
+          expect(election.available_questions).to eq(election.questions.enabled)
+        end
+      end
+
       describe ".log_presenter_class_for" do
         it "returns the admin log presenter class" do
           expect(described_class.log_presenter_class_for(nil)).to eq(Decidim::Elections::AdminLog::ElectionPresenter)

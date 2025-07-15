@@ -1,0 +1,98 @@
+<% add_decidim_page_title(t(".title", total: @total)) %>
+
+<%= render "decidim/demographics/admin/demographics/tabs_menu" do %>
+  <div>
+    <% if allowed_to? :index, :demographics_responses %>
+      <% if @participants.count.zero? %>
+        <%= link_to t("publish_responses", scope: "decidim.demographics.admin.responses.index"), "#", class: "main-tabs-menu__cta-button", disabled: true %>
+      <% else %>
+        <%= link_to t("publish_responses", scope: "decidim.demographics.admin.responses.index"), publish_responses_path, class: "main-tabs-menu__cta-button" %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @participants.count.zero? %>
+  <%= cell("decidim/announcement", { body: t("decidim.surveys.admin.responses.index.no_responses") }) %>
+<% end %>
+
+<div class="card" id="responses">
+  <div class="item_show__header">
+    <h1 class="item_show__header-title">
+      <%= t ".title", total: @total %>
+    </h1>
+  </div>
+  <div class="table-stacked">
+    <table class="table-list">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th class="!text-left"><%= first_table_th(@participants.first) %></th>
+        <th><%= t("user_status", scope: "decidim.forms.user_responses_serializer") %></th>
+        <th><%= t("ip_hash", scope: "decidim.forms.user_responses_serializer") %></th>
+        <th><%= t("completion", scope: "decidim.forms.user_responses_serializer") %></th>
+        <th><%= t("created_at", scope: "decidim.forms.user_responses_serializer") %></th>
+        <th><%= t("actions.title", scope: "decidim.demographics") %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @participants.each_with_index do |participant, idx| %>
+        <tr>
+          <td data-label="#">
+            <%= idx + 1 + page_offset %>
+          </td>
+          <td class="!text-left" data-label="<%= first_table_th(@participants.first) %>">
+            <% if allowed_to? :show, :questionnaire_responses %>
+              <%= link_to first_table_td(participant), questionnaire_participant_responses_url(participant.session_token) %>
+            <% else %>
+              <%= first_table_td(participant) %></td>
+            <% end %>
+            <td data-label="<%= t("user_status", scope: "decidim.forms.user_responses_serializer") %>">
+              <%= participant.status %>
+            </td>
+            <td data-label="<%= t("ip_hash", scope: "decidim.forms.user_responses_serializer") %>">
+              <%= participant.ip_hash %>
+            </td>
+            <td data-label="<%= t("completion", scope: "decidim.forms.user_responses_serializer") %>">
+              <%= display_percentage(participant.completion) %>
+            </td>
+            <td data-label="<%= t("created_at", scope: "decidim.forms.user_responses_serializer") %>">
+              <%= l participant.responded_at, format: :short %>
+            </td>
+            <td data-label="<%= t("actions.title", scope: "decidim.demographics") %>" class="table-list__actions">
+              <button type="button" data-component="dropdown" data-target="actions-participant-<%= idx %>" aria-label="<%= t("decidim.admin.actions.actions_label") %>">
+                <%= icon "more-fill", class: "text-secondary" %>
+              </button>
+
+              <div class="inline-block relative">
+                <ul id="actions-participant-<%= idx %>" class="dropdown dropdown__action" aria-hidden="true">
+                  <% if allowed_to? :show, :demographics_responses %>
+                    <li class="dropdown__item">
+                      <%= link_to questionnaire_participant_responses_url(participant.session_token), target: "_blank", data: { "external-link": false }, class: "dropdown__button" do %>
+                        <%= icon "eye-line" %>
+                        <%= t("actions.show", scope: "decidim.forms.admin.questionnaires.responses") %>
+                      <% end %>
+                    </li>
+
+                    <hr>
+                  <% end %>
+
+                  <% if allowed_to? :export_response, :demographics_responses %>
+                    <li class="dropdown__item">
+                      <%= link_to questionnaire_export_response_url(participant.session_token), class: "dropdown__button" do %>
+                        <%= icon "download-line" %>
+                        <%= t("actions.export", scope: "decidim.forms.admin.questionnaires.responses") %>
+                      <% end %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%= decidim_paginate @query %>

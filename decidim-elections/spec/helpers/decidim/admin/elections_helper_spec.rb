@@ -22,7 +22,7 @@ module Decidim
 
         shared_examples "returns user presenter" do |helper_method|
           it "wraps voter in presenter" do
-            voter = create(:voter, election:)
+            voter = create(:election_voter, election:)
             allow(election).to receive(:census_ready?).and_return(true) if helper_method == :preview_users
             allow(election.census).to receive(:users).with(election, 0).and_return([voter]) if helper_method == :preview_users
 

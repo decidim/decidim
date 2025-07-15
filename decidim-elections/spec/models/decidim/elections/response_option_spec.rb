@@ -11,7 +11,6 @@ module Decidim
       let(:response_option) { create(:election_response_option, :with_votes, question:) }
 
       it { is_expected.to be_valid }
-      it { is_expected.to be_versioned }
 
       it "has an association of question" do
         expect(subject.question).to eq(question)

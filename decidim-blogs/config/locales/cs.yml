@@ -20,6 +20,8 @@ cs:
       admin_log:
         changeset:
           posts: Příspěvky
+      tooltips:
+        deleted_posts_info: Tento příspěvek nelze odstranit
     blogs:
       actions:
         author_id: Vytvořit příspěvek jako

@@ -3,6 +3,7 @@ zh-TW:
     admin:
       menu:
         elections_menu:
+          election_census: 選民名單
           election_questions: 問題
     components:
       elections:
@@ -16,6 +17,9 @@ zh-TW:
       actions:
         title: 操作
       admin:
+        census:
+          edit:
+            created_at: 建立於
         elections:
           edit:
             title: 編輯選舉

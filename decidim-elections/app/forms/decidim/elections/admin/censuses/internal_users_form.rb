@@ -34,7 +34,7 @@ module Decidim
           end
 
           def authorization_handler_options(handler_name)
-            authorization_handlers_options&.dig(handler_name.to_s) || {}
+            authorization_handlers_options&.dig(handler_name.to_s) || authorization_handlers&.dig(handler_name, "options").presence || {}
           end
 
           def manifest(handler_name)

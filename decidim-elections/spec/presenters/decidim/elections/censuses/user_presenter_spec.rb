@@ -18,7 +18,7 @@ module Decidim
 
         describe "#identifier" do
           context "when user is a Voter with identifier" do
-            let(:user) { create(:voter, data: { email: "voter@example.org" }) }
+            let(:user) { create(:election_voter, data: { email: "voter@example.org" }) }
 
             it "returns the identifier from Voter#identifier" do
               expect(presenter.identifier).to eq("voter@example.org")

@@ -84,7 +84,6 @@
         <%= form.hidden_field :id %>
       <% end %>
 
-      <%= form.hidden_field :position %>
       <%= form.hidden_field :deleted, disabled: !editable %>
 
       <div class="questionnaire-question-response-options<%= question.editable? ? "" : "-disabled" %>" data-template="<%= response_option_template_selector %>">

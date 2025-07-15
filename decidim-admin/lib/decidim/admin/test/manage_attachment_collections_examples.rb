@@ -113,7 +113,8 @@ shared_examples "manage attachment collections examples" do
 
       it "cannot delete it" do
         within "tr", text: translated(attachment_collection.name) do
-          expect(page).to have_no_css("a.action-icon--remove")
+          find("button[data-component='dropdown']").click
+          expect(page).to have_no_css(".button", text: "Delete")
         end
       end
     end

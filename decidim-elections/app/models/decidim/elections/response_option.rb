@@ -3,7 +3,6 @@
 module Decidim
   module Elections
     class ResponseOption < Elections::ApplicationRecord
-      include Decidim::Traceable
       include Decidim::TranslatableResource
 
       belongs_to :question

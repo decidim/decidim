@@ -1,0 +1,25 @@
+<% add_decidim_meta_tags({
+                           title: translated_attribute(questionnaire.title),
+                           description: translated_attribute(questionnaire.description)
+                         }) %>
+
+<%= append_stylesheet_pack_tag "decidim_forms" %>
+<%= append_stylesheet_pack_tag "decidim_demographics" %>
+<%= append_javascript_pack_tag "decidim_forms" %>
+
+<% content_for :profile_title do %>
+  <%= t(".page_title") %>
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
+  <%= t("layouts.decidim.shared.layout_center.alert") %>
+  <%= render partial: "decidim/demographics/demographics/questionnaire" %>
+<% end %>
+
+<script>
+  function setFormFieldValue(field_id, field_to_update) {
+    const element  = document.getElementById(field_id);
+
+    document.querySelector(`input[name='${field_to_update}']`).value = element.options[element.selectedIndex].text;
+  }
+</script>

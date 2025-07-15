@@ -79,6 +79,10 @@ fr-CA:
       decidim/meetings/update_meeting_event: Rencontre mise à jour
   activerecord:
     models:
+      decidim:
+        meetings:
+          meeting:
+            text: 'Discuté lors de cette rencontre : %{link}'
       decidim/meetings/meeting:
         one: Rencontre
         other: Rencontres
@@ -90,6 +94,9 @@ fr-CA:
         other: Inscriptions
   decidim:
     admin:
+      admin_log:
+        changeset:
+          meetings: Rencontres
       filters:
         accepted_at_not_null:
           label: Acceptée
@@ -107,6 +114,8 @@ fr-CA:
             values:
               'false': Passés
               'true': À venir
+          taxonomies_part_of_contains:
+            label: Taxonomie
           with_any_origin:
             label: Origine
             values:
@@ -137,6 +146,16 @@ fr-CA:
         new:
           copy: Copier
           title: Dupliquer une rencontre
+      tooltips:
+        cannot_close_meetings: Impossible de fermer cette réunion car elle a été créée par un participant
+        cannot_duplicate_meetings: Impossible de dupliquer cette réunion car elle a été créée par un participant
+        cannot_edit_meetings: Impossible de modifier cette réunion car elle a été créée par un participant
+        cannot_manage_agenda_meetings: Impossible de gérer l'ordre du jour de cette réunion car elle a été créée par un participant
+        cannot_manage_attachments_meetings: Impossible de gérer les pièces jointes de cette réunion car elle a été créée par un participant
+        cannot_manage_poll_meetings: Impossible de gérer le sondage dans cette réunion car elle a été créée par un participant
+        cannot_manage_registrations_meetings: Impossible de gérer les inscriptions à cette réunion car soit elle est a été créée par un participant, soit les inscriptions sont désactivées, soit ces inscriptions sont externes
+        cannot_mark_attendee: Impossible de marquer comme présent car ça a déjà été marqué
+        deleted_meetings_info: Impossible de supprimer cette réunion car elle a été créée par un participant.
     components:
       meetings:
         actions:
@@ -151,10 +170,13 @@ fr-CA:
             comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
             creation_enabled_for_participants: Les participants peuvent créer des réunions
             default_registration_terms: Conditions d'inscription par défaut
+            define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
             enable_pads_creation: Activer la création de pads
             maps_enabled: Cartes activées
+            no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
             registration_code_enabled: Code d'enregistrement et QR activés
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
+            taxonomy_filters_add: Ajouter un filtre
             terms_and_conditions_url_for_meeting_creators: URL des conditions générales pour les auteurs de rencontres
           step:
             announcement: Annonce
@@ -170,13 +192,15 @@ fr-CA:
           sent_at: La date et l'heure auxquelles cette invitation a été envoyée
           updated_at: La date et l'heure auxquelles cette invitation a été mise à jour
         registrations:
+          code: Le code d'inscription
           created_at: La date et l'heure auxquelles cette inscription a été créée
+          id: L'identifiant unique de l'inscription
           public_participation: Si cette participation était affichée publiquement
           updated_at: La date et l'heure auxquelles cette inscription a été mise à jour
           validated_at: La date et l'heure auxquelles cette inscription a été validée
       show:
-        meeting_comments: Export des commentaires de réunion
-        meetings: Export des réunions
+        meeting_comments: Export des commentaires de rencontre
+        meetings: Export des rencontres
     events:
       meetings:
         meeting_closed:
@@ -204,7 +228,7 @@ fr-CA:
           email_subject: Les places réservées pour la rencontre "%{resource_title}" dépassent %{percentage}%
           notification_title: Les places réservées pour la rencontre <a href="%{resource_path}">%{resource_title}</a> dépassent %{percentage}%.
         meeting_updated:
-          email_intro: 'La réunion "%{resource_title}" a été mise à jour avec les modifications apportées à %{changed_fields}. Vous pouvez lire la nouvelle version sur sa page :'
+          email_intro: 'La rencontre "%{resource_title}" a été mise à jour avec les modifications apportées à %{changed_fields}. Vous pouvez lire la nouvelle version sur sa page :'
           email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
           email_subject: La rencontre "%{resource_title}" a été mise à jour
           field_names:
@@ -252,8 +276,8 @@ fr-CA:
         attachment_collections: Dossiers
         attachments: Documents liés
         close: Clore
-        confirm_delete_meeting: Êtes-vous sûr(e) de vouloir supprimer cette réunion ?
-        deleted_meetings_info: Les réunions supprimées peuvent être restaurées depuis la corbeille.
+        confirm_delete_meeting: Êtes-vous sûr(e) de vouloir supprimer cette rencontre ?
+        deleted_meetings_info: Les rencontres supprimées peuvent être restaurées depuis la corbeille.
         edit: Modifier
         invalid_destroy:
           proposals_count:
@@ -265,7 +289,7 @@ fr-CA:
         preview: Aperçu
         registrations: Inscriptions
         title: Actions
-        view_deleted_meetings: Voir les réunions supprimées
+        view_deleted_meetings: Voir les rencontres supprimées
       admin:
         agenda:
           agenda_item:
@@ -350,18 +374,20 @@ fr-CA:
             select_a_registration_type: Veuillez sélectionner un type d'inscription
             select_an_iframe_access_level: Veuillez sélectionner un niveau d'accès iframe
           index:
-            linked_meeting_warning_html: Cette réunion doit être modifiée à partir de <br><a href="%{href}">%{name}</a>
+            linked_meeting_warning_html: Cette rencontre doit être modifiée à partir de <br><a href="%{href}">%{name}</a>
             title: Rencontres
           linked_spaces:
             assign: Assigner
             link_a_space: Lier un espace
+            private_meeting_warning: Les espaces liés ne seront pas appliqués si la rencontre est privée et non transparente.
+            private_space_warning: Les espaces liés ne seront pas appliqués lorsque la rencontre appartient à un espace privé non transparent.
             select: Sélectionner un espace
             table:
               actions: Actions
               component: Espaces liés
             title: Espaces liés
           manage_trash:
-            title: Réunions supprimées
+            title: Rencontres supprimées
           new:
             create: Créer
             title: Créer une rencontre
@@ -369,7 +395,7 @@ fr-CA:
             invalid: Une erreur s'est produite lors de la publication de la rencontre.
             success: Rencontre publiée avec succès.
           reminders:
-            reminder_enabled: Envoyer un rappel pour cette réunion
+            reminder_enabled: Envoyer un rappel pour cette rencontre
             reminder_message: Contenu de l'email de rappel
             reminder_message_help_text: Personnalisez le message au besoin. Utilisez {{meeting_title}} pour afficher le nom de la réunion.
             send_reminder: E-mail de rappel programmé
@@ -431,6 +457,7 @@ fr-CA:
             validate_registration_code: Valider le code d'inscription
           validate_registration_code:
             invalid: Ce code d'inscription est invalide.
+            success: Code d'inscription validé avec succès.
       admin_log:
         invite:
           create: "%{user_name} a invité %{attendee_name} à rejoindre la réunion %{resource_name} sur l'espace %{space_name}"
@@ -441,6 +468,8 @@ fr-CA:
           create: "%{user_name} a créé la rencontre %{resource_name} sur l'espace %{space_name}"
           delete: "%{user_name} a supprimé la rencontre %{resource_name} sur l'espace %{space_name}"
           export_registrations: "%{user_name} a exporté les inscriptions de la rencontre %{resource_name} sur l'espace %{space_name}"
+          restore: "%{user_name} a restauré la rencontre %{resource_name} dans l'espace %{space_name}"
+          soft_delete: "%{user_name} a déplacé la rencontre %{resource_name} de l'espace %{space_name} vers la corbeille"
           update: "%{user_name} a mis à jour la rencontre %{resource_name} sur l'espace %{space_name}"
           value_types:
             organizer_presenter:
@@ -577,7 +606,7 @@ fr-CA:
         new:
           back: Précédent
           create: Créer
-          title: Créer une nouvelle réunion
+          title: Créer une nouvelle rencontre
         registration_confirm:
           cancel: Annuler
           confirm: Confirmer
@@ -589,7 +618,7 @@ fr-CA:
           leave: Annuler votre inscription
           leave_confirmation: Êtes-vous sûr de vouloir annuler votre inscription à cette rencontre ?
           leave_waitlist: Quitter la liste d'attente
-          leave_waitlist_confirmation: Êtes-vous sûr(e) de vouloir quitter la liste d'attente pour cette réunion ?
+          leave_waitlist_confirmation: Êtes-vous sûr(e) de vouloir quitter la liste d'attente pour cette rencontre ?
           link_available_soon: Lien bientôt disponible
           link_closed: Le lien pour rejoindre la réunion sera disponible quelques minutes avant le début de la réunion
           live_event: Cette réunion se déroule en ce moment
@@ -598,7 +627,7 @@ fr-CA:
           no_slots_available: Il ne reste plus de place
           organizations: Organisations participantes
           pending_address: L'emplacement sera bientôt annoncé.
-          redirect_notice: Cette réunion fait partie d'un autre espace, vous avez donc été redirigé(e) vers %{current_space_name}. <br>Si vous préférez, vous pouvez revenir à <a href="%{previous_space_url}">%{previous_space_name}</a>.
+          redirect_notice: Cette rencontre fait partie d'un autre espace, vous avez donc été redirigé(e) vers %{current_space_name}. <br>Si vous préférez, vous pouvez revenir à <a href="%{previous_space_url}">%{previous_space_name}</a>.
           registration_and_qr_code: Inscription et QR Code
           registration_code: 'Code d''inscription : %{code}'
           registration_code_help_text: Votre inscription et votre QR code
@@ -637,6 +666,7 @@ fr-CA:
             map: Carte
             official_meeting: Réunion officielle
             start_time: Date de début
+            taxonomies: Taxonomies
             title: Titre
         registration:
           actions: Actions
@@ -707,7 +737,7 @@ fr-CA:
           success: Vous avez annulé votre inscription avec succès.
         waitlist:
           invalid: Il y a eu un problème pour rejoindre la liste d'attente.
-          success: Vous avez rejoint la liste d'attente de la réunion avec succès. Vous serez notifié si votre inscription a été sécurisée avec succès.
+          success: Vous avez rejoint la liste d'attente de la rencontre avec succès. Vous serez notifié si votre inscription a été sécurisée avec succès.
       type_of_meeting:
         hybrid: Hybride
         in_person: En présentiel
@@ -722,36 +752,63 @@ fr-CA:
     open_data:
       help:
         meeting_comments:
+          author: Le nom du participant qui a fait ce commentaire
+          body: Le commentaire lui-même
           comments: Les données des commentaires de la réunion
+          created_at: La date de création de ce commentaire
           depth: L'endroit où ce commentaire se trouve dans l'arborescence des commentaires (si c'est une réponse ou une réponse à une réponse)
+          id: L'identifiant de ce commentaire
+          locale: La langue que le participant a utilisé en créant ce commentaire
         meetings:
+          address: L'adresse de la rencontre au cas où elle se déroule en présentiel
+          attachments: Le nombre de pièces jointes dans cette rencontre
+          attendees: Le nombre de personnes participant à cette rencontre
           attending_organizations: Les organisations participant à la réunion
-          audio_url: Enregistrement audio de la réunion
-          author: Les données pour l'auteur de cette réunion
-          available_slots: Le nombre de places disponibles dans une réunion
-          closed_at: La date à laquelle la réunion s'est terminée
-          closing_report: Rapport de la réunion clôturée
-          closing_visible: La clôture de la réunion est visible
-          comments: Les données des commentaires de la réunion
-          created_at: La date de création de la réunion
-          decidim_author_type: Type d'auteur de la réunion
-          follows_count: Le nombre de personnes qui suivent cette réunion
-          iframe_embed_type: Le type d'iframe inclus dans la réunion
-          latitude: La latitude de la réunion
-          location_hints: Un indice de l'endroit où se déroule la réunion
-          longitude: La longitude de la réunion
-          online_meeting_url: L'URL de la réunion en ligne
-          private_meeting: Pour indiquer si la réunion est privée ou non
+          audio_url: Enregistrement audio de la rencontre
+          author: Les données pour l'auteur de cette rencontre
+          available_slots: Le nombre de places disponibles dans une rencontre
+          closed_at: La date à laquelle la rencontre s'est terminée
+          closing_report: Rapport de la rencontre clôturée
+          closing_visible: La clôture de la rencontre est visible
+          comments: Les données des commentaires de la rencontre
+          component: Le composant auquel appartient la rencontre
+          contributions: Le nombre de contributions apportées à cette rencontre par les participants
+          created_at: La date de création de la rencontre
+          customize_registration_email: La possibilité d'autoriser un e-mail personnalisé lors de l'inscription
+          decidim_author_type: Type d'auteur de la rencontre
+          description: La description de la rencontre
+          end_time: La date et l'heure de fin de cette rencontre
+          follows_count: Le nombre de personnes qui suivent cette rencontre
+          id: L'identifiant unique de la rencontre
+          iframe_embed_type: Le type d'iframe inclus dans la rencontre
+          latitude: La latitude de la rencontre
+          location: La localisation de la rencontre
+          location_hints: Un indice de l'endroit où se déroule la rencontre
+          longitude: La longitude de la rencontre
+          online_meeting_url: L'URL de la rencontre en ligne
+          organizations: Les organisations qui participent à cette rencontre
+          participatory_space: 'À quel espace (par exemple : Processus participatif, ou Assemblée) appartient cette rencontre'
+          private_meeting: Pour indiquer si la rencontre est privée ou non
+          published: Quand la rencontre a été publiée
+          reference: L'identifiant unique de la ressource sur cette plateforme
           registration_form_enabled: Si le formulaire d'inscription a été activé ou non
-          registration_terms: Les conditions convenues avant la participation à la réunion
-          registration_type: Le type d'inscription à la réunion
-          registration_url: URL de l'inscription à la réunion
+          registration_terms: Les conditions convenues avant la participation à la rencontre
+          registration_type: Le type d'inscription à la rencontre
+          registration_url: URL de l'inscription à la rencontre
           registrations_enabled: Si les inscriptions ont été autorisées
-          reserved_slots: Le nombre de places réservées pour la réunion
-          type_of_meeting: Le type de réunion
-          updated_at: L'heure à laquelle la réunion a été mise à jour
-          video_url: Enregistrement vidéo de la réunion
-          withdrawn: Si cette réunion a été annulée
+          related_proposals: Les propositions relatives à cette rencontre
+          related_results: Les résultats de cette rencontre
+          reserved_slots: Le nombre de places réservées que la rencontre a
+          start_time: La date et l'heure de début de la rencontre
+          taxonomies: Les taxonomies auxquelles appartient cette rencontre
+          title: Le titre de la rencontre
+          transparent: La visibilité de la rencontre pour les non-membres
+          type_of_meeting: Le type de rencontre
+          updated_at: La date et l'heure auxquelles la rencontre a été mise à jour
+          url: L'URL de la rencontre
+          video_url: Enregistrement vidéo de la rencontre
+          withdrawn: Si cette rencontre a été annulée
+          withdrawn_at: Quand cette rencontre a été retirée
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Rencontres passées
@@ -765,10 +822,10 @@ fr-CA:
         meeting_proposal: 'Propositions créées lors de cette rencontre :'
         proposal_meeting: 'Rencontres associées :'
     statistics:
-      attendees_count: Participants à la réunion
+      attendees_count: Participants à la rencontre
       meetings_count: Rencontres
-      meetings_count_tooltip: Le nombre de réunions qui ont eu lieu, à la fois en ligne et en personne.
-      participatory_space_meetings_count: Réunions
+      meetings_count_tooltip: Le nombre de rencontres qui ont eu lieu, à la fois en ligne et en présentiel.
+      participatory_space_meetings_count: Rencontres
   devise:
     mailer:
       join_meeting:

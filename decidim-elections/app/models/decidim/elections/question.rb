@@ -14,7 +14,6 @@ module Decidim
       translatable_fields :body, :description
 
       validates :body, presence: true
-      validates :position, uniqueness: { scope: :election_id }
       validate :valid_question_type
 
       scope :enabled, -> { where.not(voting_enabled_at: nil) }

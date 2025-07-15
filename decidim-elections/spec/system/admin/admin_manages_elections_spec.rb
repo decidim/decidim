@@ -11,8 +11,8 @@ describe "Admin manages elections" do
   end
 
   let(:participatory_space_manifests) { [participatory_process.manifest.name] }
-  let!(:election) { create(:election, component: current_component) }
-  let!(:published_election) { create(:election, :published, component: current_component) }
+  let!(:election) { create(:election, census_manifest: :token_csv, component: current_component) }
+  let!(:published_election) { create(:election, :published, census_manifest: :internal_users, component: current_component) }
   let!(:finished_election) { create(:election, :published, :finished, component: current_component) }
   let!(:ongoing_election) { create(:election, :published, :ongoing, component: current_component) }
   let!(:results_published_election) { create(:election, :published, :results_published, component: current_component) }
@@ -37,6 +37,8 @@ describe "Admin manages elections" do
     expect(page).to have_content("Published results")
     expect(page).to have_content("Ongoing")
     expect(page).to have_content("Finished")
+    expect(page).to have_content("Registered participants (dynamic)")
+    expect(page).to have_content("Unregistered participants with tokens (fixed)")
     expect(page).to have_content("View deleted elections")
     expect(page).to have_link("New election")
     expect(page).to have_link("View deleted elections")

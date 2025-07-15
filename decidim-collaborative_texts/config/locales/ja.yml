@@ -17,6 +17,9 @@ ja:
           draft: 下書き
           version_number: バージョン番号
   decidim:
+    admin:
+      tooltips:
+        deleted_collaborative_texts_info: このドキュメントを削除できません
     collaborative_texts:
       actions:
         confirm_delete_document: このドキュメントを削除してもよろしいですか？
