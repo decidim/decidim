@@ -25,6 +25,8 @@ describe "Admin manages elections" do
     visit_component_admin
   end
 
+  it_behaves_like "access component permissions form"
+
   it "lists elections" do
     expect(page).to have_content("Elections")
     expect(page).to have_content(translated(election.title))
