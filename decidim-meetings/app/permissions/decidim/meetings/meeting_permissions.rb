@@ -90,6 +90,15 @@ module Decidim
       def can_participate?
         context[:current_component].participatory_space.can_participate?(user)
       end
+
+      def initiative_authorship?
+        return false unless Decidim.module_installed?("initiatives")
+
+        participatory_space = context[:current_component].participatory_space
+
+        participatory_space.is_a?(Decidim::Initiative) &&
+          participatory_space.has_authorship?(user)
+      end
     end
   end
 end

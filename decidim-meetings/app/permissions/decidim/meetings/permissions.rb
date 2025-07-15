@@ -33,15 +33,6 @@ module Decidim
         @question ||= context.fetch(:question, nil)
       end
 
-      def initiative_authorship?
-        return false unless Decidim.module_installed?("initiatives")
-
-        participatory_space = context[:current_component].participatory_space
-
-        participatory_space.is_a?(Decidim::Initiative) &&
-          participatory_space.has_authorship?(user)
-      end
-
       # Neither platform admins, nor space admins should be able to create meetings from the public side.
       def space_member?(participatory_space, user)
         return false unless user
