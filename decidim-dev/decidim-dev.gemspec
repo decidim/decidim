@@ -62,7 +62,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rubocop-faker", "~> 1.1"
   s.add_dependency "rubocop-graphql", "~> 1.5"
   s.add_dependency "rubocop-performance", "~> 1.25", ">= 1.25.0"
-  s.add_dependency "rubocop-rails", "~> 2.25"
+  s.add_dependency "rubocop-rails", "~> 2.32.0", ">= 2.32.0"
   s.add_dependency "rubocop-rspec", "~> 3.0"
   s.add_dependency "rubocop-rspec_rails", "~> 2.30"
   s.add_dependency "rubocop-rubycw", "~> 0.1"

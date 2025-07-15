@@ -26,3 +26,21 @@ Rails/ReversibleMigration:
 
 Rails/PluckInWhere:
   Enabled: false
+
+Rails/ActionOrder:
+  Enabled: false
+
+Rails/Delegate:
+  Enabled: false
+
+Rails/HelperInstanceVariable:
+  Enabled: false
+
+Rails/ActiveRecordCallbacksOrder:
+  Enabled: false
+
+Rails/EnumHash:
+  Enabled: false
+
+Rails/I18nLazyLookup:
+  Enabled: false
