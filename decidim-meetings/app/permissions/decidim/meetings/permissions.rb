@@ -33,10 +33,6 @@ module Decidim
         @question ||= context.fetch(:question, nil)
       end
 
-      def can_participate?
-        context[:current_component].participatory_space.can_participate?(user)
-      end
-
       def initiative_authorship?
         return false unless Decidim.module_installed?("initiatives")
 

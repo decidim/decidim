@@ -86,6 +86,10 @@ module Decidim
           meeting.poll.present? &&
           authorized?(:reply_poll, resource: meeting)
       end
+
+      def can_participate?
+        context[:current_component].participatory_space.can_participate?(user)
+      end
     end
   end
 end
