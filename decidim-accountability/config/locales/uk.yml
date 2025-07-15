@@ -16,9 +16,6 @@ uk:
         key: Ключ
         name: Ім'я
         progress: Перебіг
-      timeline_entry:
-        description: Опис
-        entry_date: Дата
     models:
       decidim/accountability/proposal_linked_event: Пропозиція, включена до підсумку
   activerecord:
@@ -35,7 +32,6 @@ uk:
         destroy: Видалити
         edit: Редагувати
         preview: Попередній перегляд
-        timeline_entries: Розвиток проекту
         title: Дії
       admin:
         exports:
@@ -66,15 +62,6 @@ uk:
           new:
             create: Створити стан
             title: Додати стан
-        timeline_entries:
-          edit:
-            title: Редагувати запис
-            update: Оновити запис
-          index:
-            title: Записи на лінії часу проекту
-          new:
-            create: Створити запис
-            title: Додати запис
       admin_log:
         result:
           create: "%{user_name} створив підсумок %{resource_name} у %{space_name}"
@@ -97,9 +84,6 @@ uk:
             key: Ключ
             name: Назва
             progress: Перебіг
-        timeline_entry:
-          fields:
-            entry_date: Дата
       results:
         count:
           results_count:
@@ -114,8 +98,6 @@ uk:
         show:
           stats:
             back_to_resource: Повернутися до підсумків
-        timeline:
-          title: Розвиток проекту
     components:
       accountability:
         name: Звітність

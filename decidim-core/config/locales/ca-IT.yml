@@ -166,6 +166,13 @@ ca-IT:
       x_seconds:
         one: 1 segon
         other: "%{count} segons"
+    widget:
+      label:
+        date: Seleccionar data per %{label}
+        time: Seleccionar hora per %{label}
+      picker:
+        date_button: Obre el selector de calendari per a %{label}
+        time_button: Obre el selector d'hora per a %{label}
   decidim:
     accessibility:
       external_link: Enllaç extern
@@ -715,6 +722,7 @@ ca-IT:
     doorkeeper:
       authorizations:
         new:
+          api_read: Llegir-ne el contingut a través de l'API
           authorize: Autoritza l'aplicació
           by_organization_link_html: <small class="heading-small">per %{link}</small>
           cancel: Cancel·lar
@@ -1598,6 +1606,7 @@ ca-IT:
     searches:
       filters:
         jump_to: 'Salta a:'
+        resource: "%{label} entre %{collection}"
         search: Cercar
         state:
           active: Actiu
@@ -2136,6 +2145,8 @@ ca-IT:
         profile: El meu compte
         public_profile: El meu perfil públic
         title: Enllaços del perfil
+        unread_conversations: Tens converses sense llegir
+        unread_notifications: Tens notificacions sense llegir
       user_profile:
         account: Compte
         authorizations: Autoritzacions

@@ -382,6 +382,55 @@ fr:
     participatory_processes:
       admin:
         content_blocks:
+          democratic_quality_stats_settings_form:
+            accessibility:
+              languages_count:
+                options:
+                  one: Une langue = 1
+                  two_five: Moins de la moitié des langues parlées dans la communauté = 2.5
+              name: Accessibilité
+              venue_accessibility:
+                options:
+                  five: Oui = 5
+                  two_five: Partiellement = 2,5
+                  zero: Non = 0
+            citizen_influence:
+              citizen_influence_level:
+                options:
+                  one: Consultation = 1
+                  three: Partenariat = 3
+            inclusiveness:
+              cultural_origins_participation:
+                options:
+                  five: 80 - 100% = 5
+                  four: 60 - 80% = 4
+                  one: 0 - 20% = 1
+                  three: 40 - 60% = 3
+                  two: 20 - 40% = 2
+              functional_diversity_invited:
+                options:
+                  five: Oui = 5
+                  zero: Non = 0
+              functional_diversity_participation:
+                options:
+                  five: 80 - 100% = 5
+                  four: 60 - 80% = 4
+                  one: 0 - 20% = 1
+                  three: 40 - 60% = 3
+                  two: 20 - 40% = 2
+              migrant_groups_invited:
+                options:
+                  five: Oui = 5
+                  zero: Non = 0
+            relevance:
+              name: Pertinence
+              relevance_percentage:
+                options:
+                  five: 80 - 100% = 5
+                  four: 60 - 80% = 4
+                  one: 0 - 20% = 1
+                  three: 40 - 60% = 3
+                  two: 20 - 40% = 2
           highlighted_processes:
             active: Actif(s)
             all: Tout
@@ -422,6 +471,17 @@ fr:
             title: Informations générales
             visibility: Visibilité
       content_blocks:
+        democratic_quality_stats:
+          automatic_metrics:
+            description: Ces indicateurs sont obtenus automatiquement à partir des données de la plate-forme.
+          global_score:
+            name: Score global
+            tooltip: Calculée en tant que moyenne de toutes les dimensions
+          name: Qualité de la participation
+          qualitative_metrics:
+            indicators:
+              accessibility: Accessibilité
+              relevance: Pertinence
         extra_data:
           name: Phase & durée
         hero:
@@ -487,6 +547,9 @@ fr:
         belongs_to_group: Cette concertation appartient à
         private_space: Ceci est une concertation privée
         related_processes: Concertations liées
+      static_pages:
+        democratic_quality_indicators:
+          title: Indicateurs de qualité démocratique
     statistics:
       processes_count: Concertations
       processes_count_tooltip: Le nombre de processus participatifs qui sont accessibles au public.

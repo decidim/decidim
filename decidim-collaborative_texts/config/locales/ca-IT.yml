@@ -17,6 +17,9 @@ ca-IT:
           draft: Esborrany
           version_number: Número de versió
   decidim:
+    admin:
+      tooltips:
+        deleted_collaborative_texts_info: No es pot esborrar aquest document
     collaborative_texts:
       actions:
         confirm_delete_document: Segur que vols esborrar aquest document?

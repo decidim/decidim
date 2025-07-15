@@ -17,6 +17,9 @@ sv:
           draft: Utkast
           version_number: Version
   decidim:
+    admin:
+      tooltips:
+        deleted_collaborative_texts_info: Kan inte ta bort detta dokument
     collaborative_texts:
       actions:
         confirm_delete_document: Är du säker på att du vill ta bort det här dokumentet?
