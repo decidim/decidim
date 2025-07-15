@@ -18,6 +18,10 @@ en:
         edit_elections_info: Cannot edit this election
     components:
       elections:
+        actions:
+          create: Create
+          update: Update
+          destroy: Destroy
         name: Elections
         settings:
           global:
