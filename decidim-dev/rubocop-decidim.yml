@@ -5,7 +5,7 @@
 # For further details, see:
 # https://github.com/rubocop/rubocop/issues/4154#issuecomment-316004878
 
-require:
+plugins:
   - rubocop-rubycw
 
 inherit_from:
