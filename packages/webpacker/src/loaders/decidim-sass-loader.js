@@ -16,11 +16,11 @@ const decidimImporter = {
   load(canonicalUrl) {
     const matches = decodeURI(canonicalUrl.toString()).match(/^decidim:style-([^[]+)\[([^\]]+)\]$/);
     if (!matches) {
-      return { contents: "", syntax: "scss" };
+      return { contents: "@mixin styles {}", syntax: "scss" };
     }
 
     if (!stylesheetImports) {
-      return { contents: "", syntax: "scss" };
+      return { contents: "@mixin styles {}", syntax: "scss" };
     }
 
     const type = matches[1];
@@ -29,7 +29,7 @@ const decidimImporter = {
       // If the group is not defined, return an empty configuration because
       // otherwise the importer would continue finding the asset through
       // paths which obviously fails.
-      return { contents: "", syntax: "scss" };
+      return { contents: "@mixin styles {}", syntax: "scss" };
     }
 
     const statements = stylesheetImports[type][group].map((style) => `@include meta.load-css("${style}");`);
