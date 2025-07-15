@@ -35,7 +35,17 @@ exclude_patterns = [
   "**/target/**",
   "**/templates/**",
   "**/testdata/**",
-  "**/vendor/**", "**/vendor/", "decidim-comments/app/assets/javascripts/decidim/comments/bundle.js", "decidim-comments/app/frontend/support/schema.ts", "node_modules/", "development_app/", "spec/decidim_dummy_app/", "coverage/", "webpack.report.html", "decidim_app-design/public/sw.js", "decidim_app-design/public/sw.js.map",
+  "**/vendor/**",
+  "**/vendor/",
+  "decidim-comments/app/assets/javascripts/decidim/comments/bundle.js",
+  "decidim-comments/app/frontend/support/schema.ts",
+  "node_modules/",
+  "development_app/", 
+  "spec/decidim_dummy_app/",
+  "coverage/",
+  "webpack.report.html",
+  "decidim_app-design/public/sw.js",
+  "decidim_app-design/public/sw.js.map",
 ]
 
 test_patterns = [
