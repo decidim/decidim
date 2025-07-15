@@ -13,18 +13,8 @@ describe "Admin manages surveys" do
   let!(:questionnaire) { create(:questionnaire) }
   let!(:survey) { create(:survey, :published, :clean_after_publish, component:, questionnaire:) }
 
-  context "when managing the component" do
-    before do
-      visit Decidim::EngineRouter.admin_proxy(component.participatory_space).components_path
-    end
-
-    it_behaves_like "access permissions form" do
-      let!(:row_text) { translated(component.name) }
-      let!(:permission) { "Respond" }
-    end
-  end
-
   include_context "when managing a component as an admin"
+  it_behaves_like "access component permissions form"
 
   it_behaves_like "manage questionnaires"
   it_behaves_like "manage questionnaire responses"
@@ -68,8 +58,7 @@ describe "Admin manages surveys" do
       let!(:response) { create(:response, question:, questionnaire:) }
 
       it_behaves_like "access permissions form" do
-        let!(:row_text) { decidim_sanitize_translated(survey.title) }
-        let!(:permission) { "Respond" }
+        let!(:row_text) { translated(survey.title) }
       end
 
       it "shows warning message" do
