@@ -7,10 +7,11 @@
 
 require:
   - rubocop-rubycw
-  - rubocop-capybara
   - rubocop-factory_bot
 
 inherit_from:
+  - config/rubocop/capybara/configuration.yml
+  - config/rubocop/capybara/disabled.yml
   - config/rubocop/performance/configuration.yml
   - config/rubocop/performance/disabled.yml
   - config/rubocop/ruby/configuration.yml
