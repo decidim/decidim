@@ -44,3 +44,6 @@ RSpec/MetadataStyle:
 
 RSpec/RemoveConst:
   Enabled: false
+
+RSpec/IncludeExamples:
+  Enabled: false
