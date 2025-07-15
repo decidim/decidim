@@ -15,7 +15,8 @@ module Decidim
       include DisableRedirectionToExternalHost
 
       register_permissions(::Decidim::Api::ApplicationController,
-                           ::Decidim::Permissions)
+                           ::Decidim::Permissions,
+                           ::Decidim::Api::Permissions)
 
       def permission_class_chain
         ::Decidim.permissions_registry.chain_for(::Decidim::Api::ApplicationController)

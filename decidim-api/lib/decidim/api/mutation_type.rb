@@ -12,6 +12,8 @@ module Decidim
         argument :id, GraphQL::Types::ID, "The Comment's unique ID", required: true
       end
 
+      field :delete_blob, mutation: Decidim::Core::DeleteBlobType, description: "Delete a blob"
+
       def component(id:)
         Decidim::Component.find(id)
       end

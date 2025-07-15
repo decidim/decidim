@@ -18,6 +18,8 @@ module Decidim
     autoload :AreaTypeType, "decidim/api/types/area_type_type"
     autoload :AttachmentType, "decidim/api/types/attachment_type"
     autoload :AttachmentCollectionType, "decidim/api/types/attachment_collection_type"
+    autoload :BlobType, "decidim/api/types/blob_type"
+    autoload :DeleteBlobType, "decidim/api/types/mutations/delete_blob_type"
     autoload :CategoryType, "decidim/api/types/category_type"
     autoload :TaxonomyType, "decidim/api/types/taxonomy_type"
     autoload :ComponentType, "decidim/api/types/component_type"
