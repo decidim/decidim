@@ -13,6 +13,18 @@ Decidim.register_component(:blogs) do |component|
     raise StandardError, "Cannot remove this component" if Decidim::Blogs::Post.where(component: instance).any?
   end
 
+  component.on(:publish) do |instance|
+    Decidim::Blogs::Post.where(component: instance).find_each do |post|
+      post.try(:try_update_index_for_search_resource)
+    end
+  end
+
+  component.on(:unpublish) do |instance|
+    Decidim::Blogs::Post.where(component: instance).find_each do |post|
+      post.try(:try_update_index_for_search_resource)
+    end
+  end
+
   component.register_stat :posts_count,
                           primary: true,
                           priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,

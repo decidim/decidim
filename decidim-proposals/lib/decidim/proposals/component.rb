@@ -16,6 +16,18 @@ Decidim.register_component(:proposals) do |component|
     Decidim::Proposals.create_default_states!(instance, admin_user)
   end
 
+  component.on(:publish) do |instance|
+    Decidim::Proposals::Proposal.where(component: instance).find_each do |proposal|
+      proposal.try(:try_update_index_for_search_resource)
+    end
+  end
+
+  component.on(:unpublish) do |instance|
+    Decidim::Proposals::Proposal.where(component: instance).find_each do |proposal|
+      proposal.try(:try_update_index_for_search_resource)
+    end
+  end
+
   component.data_portable_entities = ["Decidim::Proposals::Proposal"]
 
   component.newsletter_participant_entities = ["Decidim::Proposals::Proposal"]

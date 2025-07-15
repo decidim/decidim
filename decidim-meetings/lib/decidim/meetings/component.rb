@@ -18,6 +18,18 @@ Decidim.register_component(:meetings) do |component|
     raise StandardError, "Cannot remove this component" if Decidim::Meetings::Meeting.where(component: instance).any?
   end
 
+  component.on(:publish) do |instance|
+    Decidim::Meetings::Meeting.where(component: instance).find_each do |meeting|
+      meeting.try(:try_update_index_for_search_resource)
+    end
+  end
+
+  component.on(:unpublish) do |instance|
+    Decidim::Meetings::Meeting.where(component: instance).find_each do |meeting|
+      meeting.try(:try_update_index_for_search_resource)
+    end
+  end
+
   component.register_resource(:meeting) do |resource|
     resource.model_class_name = "Decidim::Meetings::Meeting"
     resource.template = "decidim/meetings/meetings/linked_meetings"

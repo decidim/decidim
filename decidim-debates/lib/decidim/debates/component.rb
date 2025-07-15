@@ -16,6 +16,18 @@ Decidim.register_component(:debates) do |component|
     raise StandardError, "Cannot remove this component" if Decidim::Debates::Debate.where(component: instance).any?
   end
 
+  component.on(:publish) do |instance|
+    Decidim::Debates::Debate.where(component: instance).find_each do |debate|
+      debate.try(:try_update_index_for_search_resource)
+    end
+  end
+
+  component.on(:unpublish) do |instance|
+    Decidim::Debates::Debate.where(component: instance).find_each do |debate|
+      debate.try(:try_update_index_for_search_resource)
+    end
+  end
+
   component.settings(:global) do |settings|
     settings.attribute :taxonomy_filters, type: :taxonomy_filters
     settings.attribute :comments_enabled, type: :boolean, default: true

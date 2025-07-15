@@ -174,8 +174,8 @@ module Decidim
                           A: :title,
                           datetime: :published_at
                         },
-                        index_on_create: ->(proposal) { proposal.official? },
-                        index_on_update: ->(proposal) { proposal.visible? })
+                        index_on_create: ->(proposal) { proposal.official? && proposal.component&.published? },
+                        index_on_update: ->(proposal) { proposal.visible? && proposal.component&.published? })
 
       def self.log_presenter_class_for(_log)
         Decidim::Proposals::AdminLog::ProposalPresenter
