@@ -13,7 +13,7 @@ module Decidim
       field :comments_have_alignment, GraphQL::Types::Boolean, "Whether the object comments have alignment or not", method: :comments_have_alignment?, null: false
       field :comments_have_votes, GraphQL::Types::Boolean, "Whether the object comments have votes or not", method: :comments_have_votes?, null: false
       field :total_comments_count, GraphQL::Types::Int, description: "The number of comments in all levels this resource holds", method: :comments_count, null: false
-      field :has_comments, GraphQL::Types::Boolean, "Check if the commentable has comments", null: false
+      field :has_comments, GraphQL::Types::Boolean, "Check if the commentable has comments", method: :has_comments?, null: false
       field :user_allowed_to_comment, GraphQL::Types::Boolean, "Check if the current user can comment", null: false
       field :comments, [Decidim::Comments::CommentType, { null: false }], "The list of replies in this comment", null: false do
         argument :order_by, GraphQL::Types::String, "Order the comments", required: false
@@ -23,12 +23,6 @@ module Decidim
       def comments(order_by: nil, single_comment_id: nil)
         SortedComments.for(object, order_by:, id: single_comment_id).not_hidden
       end
-
-      # rubocop:disable Naming/PredicateName
-      def has_comments
-        object.comment_threads.not_hidden.size.positive?
-      end
-      # rubocop:enable Naming/PredicateName
 
       def user_allowed_to_comment
         object.commentable? && object.user_allowed_to_comment?(context[:current_user])

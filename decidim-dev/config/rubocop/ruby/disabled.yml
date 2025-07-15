@@ -59,3 +59,48 @@ Lint/ConstantDefinitionInBlock:
 # Call super to initialize state of the parent class.
 Lint/MissingSuper:
   Enabled: false
+
+Style/RedundantParentheses:
+  Enabled: false
+
+Naming/PredicateMethod:
+  Enabled: false
+
+Style/CollectionQuerying:
+  Enabled: false
+
+Lint/UselessAccessModifier:
+  Enabled: false
+
+Style/MultipleComparison:
+  Enabled: false
+
+Lint/CopDirectiveSyntax:
+  Enabled: false
+
+Lint/RedundantTypeConversion:
+  Enabled: false
+
+Lint/DuplicateMethods:
+  Enabled: false
+
+Lint/UselessConstantScoping:
+  Enabled: false
+
+Style/RedundantCondition:
+  Enabled: false
+
+Lint/Void:
+  Enabled: false
+
+Style/HashSlice:
+  Enabled: false
+
+Lint/UselessOr:
+  Enabled: false
+
+Style/EmptyStringInsideInterpolation:
+  Enabled: false
+
+Style/ComparableBetween:
+  Enabled: false
