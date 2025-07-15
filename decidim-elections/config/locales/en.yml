@@ -20,8 +20,8 @@ en:
       elections:
         actions:
           create: Create
-          update: Update
           destroy: Destroy
+          update: Update
         name: Elections
         settings:
           global:
