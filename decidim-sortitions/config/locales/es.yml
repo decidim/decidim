@@ -44,6 +44,7 @@ es:
           edit: Editar
           new_sortition: Añadir sorteo
           show: Detalles del sorteo
+          title: Acciones
         models:
           sortition:
             fields:

@@ -223,12 +223,14 @@ eu:
             title: Izenburua
         conference_speaker:
           fields:
+            actions: Ekintzak
             affiliation: Afiliazioa
             full_name: Izen osoa
             position: Kargua
           name: Hizlaria
         conference_user_role:
           fields:
+            actions: Ekintzak
             email: Helbide elektronikoa
             name: Izena
             role: Rola
@@ -240,12 +242,14 @@ eu:
             moderator: Moderatzailea
         media_link:
           fields:
+            actions: Ekintzak
             date: Data
             link: Esteka
             title: Izenburua
           name: Hedabideen lotura
         partner:
           fields:
+            actions: Ekintzak
             link: Lotura
             logo: Logotipoa
             name: Izena
@@ -256,6 +260,7 @@ eu:
             main_promotor: Sustatzaile nagusia
         registration_type:
           fields:
+            actions: Ekintzak
             conference_meetings: Jardunaldiaren topaketak
             price: Prezioa
             registrations_count: Erregistro kopurua
@@ -352,7 +357,7 @@ eu:
       admin:
         conference_copies:
           form:
-            slug_help_html: 'URL slugak erabiltzen dira jardunaldi honetako URLak sortzeko. Soilik onartzen ditu gutunak, zenbakiak eta gidoiak, eta letra batez hasi behar du. Adibidea: % {url}'
+            slug_help_html: 'URL slugak erabiltzen dira jardunaldi honetako URLak sortzeko. Soilik onartzen ditu gutunak, zenbakiak eta gidoiak, eta letra batez hasi behar du. Adibidea: %{url}'
         conference_invites:
           create:
             error: Arazo bat izan da parte-hartzaileak konferentziara sartzeko gonbidatuta.
@@ -389,7 +394,7 @@ eu:
             registrations_count:
               one: Izen-emate 1 egon da.
               other: Dena den, %{count} izen-emateak.
-            slug_help_html: 'URL slugak erabiltzen dira jardunaldi honetako URLak sortzeko. Soilik onartzen ditu gutunak, zenbakiak eta gidoiak, eta letra batez hasi behar du. Adibidea: % {url}'
+            slug_help_html: 'URL slugak erabiltzen dira jardunaldi honetako URLak sortzeko. Soilik onartzen ditu gutunak, zenbakiak eta gidoiak, eta letra batez hasi behar du. Adibidea: %{url}'
             taxonomies: Taxonomiak
         content_blocks:
           highlighted_conferences:
@@ -414,7 +419,7 @@ eu:
             title: Izen-emate motak
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: < a href = " % {url}" >% {title} jardunaldira joan izanaren ziurtagiria aurkituko duzu eranskinetan.
+            diploma_html: < a href = " %{url}" >%{title} jardunaldira joan izanaren ziurtagiria aurkituko duzu eranskinetan.
           diploma_user:
             attendance_verified_by: Bertaratzea nork egiaztatua
             certificate_of_attendance: Parte-hartze ziurtagiria
@@ -515,6 +520,7 @@ eu:
             sent: Bidalia
         conference_registration:
           fields:
+            actions: Ekintzak
             email: Helbide elektronikoa
             name: izena
             registration_type: Izen-emate mota

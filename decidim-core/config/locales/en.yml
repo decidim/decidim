@@ -1614,6 +1614,7 @@ en:
     searches:
       filters:
         jump_to: 'Jump to:'
+        resource: "%{label} among %{collection}"
         search: Search
         state:
           active: Active
@@ -2153,6 +2154,8 @@ en:
         profile: My account
         public_profile: My public profile
         title: Profile links
+        unread_conversations: You have unread conversations
+        unread_notifications: You have unread notifications
       user_profile:
         account: Account
         authorizations: Authorizations

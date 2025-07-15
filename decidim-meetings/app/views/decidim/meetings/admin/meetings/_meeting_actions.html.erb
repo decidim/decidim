@@ -1,17 +1,17 @@
-<% if view == :deleted && allowed_to?(:restore, :meeting, trashable_deleted_resource: meeting) %>
-  <li class="dropdown__item">
-    <%= link_to url_for(action: :restore, id: meeting, controller: "meetings"), method: :patch, class: "dropdown__button" do %>
-      <%= icon "refresh-line" %>
-      <%= t("decidim.admin.actions.restore") %>
-    <% end %>
-  </li>
-<% elsif view != :deleted %>
-  <button type="button" data-component="dropdown" data-target="actions-meeting-<%= meeting.id %>" aria-label="<%= t("actions.actions_label", scope: "decidim.admin") %>">
-    <%= icon "more-fill", class: "text-secondary" %>
-  </button>
+<button type="button" data-component="dropdown" data-target="actions-meeting-<%= meeting.id %>" aria-label="<%= t("actions.actions_label", scope: "decidim.admin") %>">
+  <%= icon "more-fill", class: "text-secondary" %>
+</button>
 
-  <div class="inline-block relative">
-    <ul id="actions-meeting-<%= meeting.id %>" class="dropdown dropdown__action" aria-hidden="true">
+<div class="inline-block relative">
+  <ul id="actions-meeting-<%= meeting.id %>" class="dropdown dropdown__action" aria-hidden="true">
+    <% if view == :deleted && allowed_to?(:restore, :meeting, trashable_deleted_resource: meeting) %>
+      <li class="dropdown__item">
+        <%= link_to url_for(action: :restore, id: meeting, controller: "meetings"), method: :patch, class: "dropdown__button" do %>
+          <%= icon "refresh-line" %>
+          <%= t("decidim.admin.actions.restore") %>
+        <% end %>
+      </li>
+    <% elsif view != :deleted %>
       <li class="dropdown__item">
         <% if allowed_to?(:update, :meeting, meeting: meeting) %>
           <%= link_to edit_meeting_path(meeting), class: "dropdown__button" do %>
