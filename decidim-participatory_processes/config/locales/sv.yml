@@ -135,12 +135,14 @@ sv:
           name: Grupp av processer
         participatory_process_step:
           fields:
+            actions: Handlingar
             end_date: Slutdatum
             start_date: Startdatum
             title: Titel
           name: Steg i process
         participatory_process_user_role:
           fields:
+            actions: Handlingar
             email: E-post
             name: Namn
             role: Roll

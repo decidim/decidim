@@ -21,7 +21,7 @@ shared_examples "manage soft deletable component or space" do |resource_name|
       accept_confirm do
         within("tr", text: title[:en]) do
           # To remove once all the actions are migrated to dropdowns
-          find("button[data-component='dropdown']").click if page.has_css?("button[data-component='dropdown']")
+          find("button[data-component='dropdown']").click
           click_on "Soft delete"
         end
       end
@@ -42,7 +42,7 @@ shared_examples "manage soft deletable component or space" do |resource_name|
     it "does not allow to move it to the trash" do
       within("tr", text: title[:en]) do
         # To remove once all the actions are migrated to dropdowns
-        find("button[data-component='dropdown']").click if page.has_css?("button[data-component='dropdown']")
+        find("button[data-component='dropdown']").click
         have_css(".dropdown__button-disabled span", text: "Soft delete")
       end
     end
@@ -77,7 +77,7 @@ shared_examples "manage soft deletable resource" do |resource_name|
     expect(page).to have_content(title[:en])
 
     within(resource_row) do
-      find("button[data-component='dropdown']").click if page.has_css?("button[data-component='dropdown']")
+      find("button[data-component='dropdown']").click
       accept_confirm { click_on "Soft delete" }
     end
 
@@ -114,7 +114,7 @@ shared_examples "manage trashed resource" do |resource_name|
     it "restores the #{resource_name} from the trash" do
       # To remove once all the actions are migrated to dropdowns
       within("tr", text: title[:en]) do
-        find("button[data-component='dropdown']").click if page.has_css?("button[data-component='dropdown']")
+        find("button[data-component='dropdown']").click
         click_on "Restore"
       end
 

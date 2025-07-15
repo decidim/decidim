@@ -3,6 +3,7 @@ nl:
     admin:
       menu:
         elections_menu:
+          election_census: Kiezerslijst
           election_questions: vragen
     components:
       elections:
@@ -16,6 +17,9 @@ nl:
       actions:
         title: acties
       admin:
+        census:
+          edit:
+            created_at: Aangemaakt op
         elections:
           edit:
             title: Bewerken van verkiezing

@@ -1,9 +1,16 @@
 fr:
+  activemodel:
+    attributes:
+      token_csv:
+        file: Fichier
+        remove_all: Supprimer toutes les données de recensement actuelles
   decidim:
     admin:
       menu:
         elections_menu:
           basic_elections: Principal
+          election_census: Recensement
+          election_dashboard: Tableau de bord
           election_questions: Questions
     components:
       elections:
@@ -22,10 +29,21 @@ fr:
         title: Actions
         view_deleted_elections: Voir les élections supprimées
       admin:
+        census:
+          edit:
+            choose_census: Choisissez le type de recensement que vous souhaitez utiliser pour cette élection
+            created_at: Créée le
+            identifier: Identifiant de l'utilisateur
+            title: Type de recensement
+          update:
+            error: Il y a eu une erreur lors de la génération ou de l'enregistrement du recensement.
+            success: Recensement mis à jour avec succès.
         elections:
           create:
             invalid: Il y a eu un problème lors de la création de l'élection.
             success: Élection créée avec succès.
+          dashboard_page:
+            title: Tableau de bord
           edit:
             title: Modifier l'élection
           form:
@@ -83,6 +101,20 @@ fr:
           update: "%{user_name} a mis à jour l'élection %{resource_name} dans %{space_name}"
         question:
           update: "%{user_name} a mis à jour les questions de l'élection %{resource_name}"
+      censuses:
+        internal_users:
+          internal_type_title: Autorisations supplémentaires requises pour voter (facultatif)
+        token_csv:
+          example: |
+            email;jeton
+            utilisateur@example.org;123456
+            utilisateur2@example.org;ABCXYZ
+          info_html: |
+            Doit être un fichier au format CSV avec deux colonnes, l'une avec l'adresse e-mail et l'autre avec la valeur d'un jeton que l'utilisateur devra fournir pour voter.
+            Les colonnes doivent être séparées par un point-virgule (;)
+          remove_before_upload: 'Si vous voulez déposer un nouveau recensement, vous devez d''abord supprimer l''actuel. '
+          upload_file: Déposer un fichier
+          upload_new_census: Déposer un fichier CSV
       models:
         election:
           fields:

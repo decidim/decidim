@@ -69,7 +69,7 @@ describe "Postal letter management" do
     expect(page).to have_content("Letter successfully marked as sent")
 
     within "table tbody tr", text: letter_not_sent.user.name do
-      expect(page).to have_no_css("td a.action-icon--verify")
+      expect(page).to have_no_css(".button", text: "Mark as sent")
       expect(page).to have_css("td", text: %r{\d+/\d+/\d+ \d+:\d+})
     end
   end

@@ -30,6 +30,12 @@
       <% unread_data = current_user_unread_data %>
       <% if unread_data[:unread_items] %>
         <%= content_tag :span, "", class: "main-bar__notification", data: unread_data %>
+        <% if unread_data[:unread_notifications] %>
+          <%= content_tag :span, t("layouts.decidim.user_menu.unread_notifications"), class: "sr-only" %>
+        <% end %>
+        <% if unread_data[:unread_conversations] %>
+          <%= content_tag :span, t("layouts.decidim.user_menu.unread_conversations"), class: "sr-only" %>
+        <% end %>
       <% end %>
       <% if current_user.avatar.attached? %>
         <span class="main-bar__avatar">
