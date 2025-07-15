@@ -58,7 +58,7 @@ describe "Admin manages surveys" do
       let!(:response) { create(:response, question:, questionnaire:) }
 
       it_behaves_like "access permissions form" do
-        let!(:row_text) { translated(survey.title) }
+        let!(:row_text) { decidim_sanitize_translated(survey.title) }
       end
 
       it "shows warning message" do
