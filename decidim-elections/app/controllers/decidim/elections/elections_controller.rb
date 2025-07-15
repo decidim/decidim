@@ -18,6 +18,14 @@ module Decidim
       def show
         # TODO: permissions
         raise ActionController::RoutingError, "Not Found" unless election
+
+        respond_to do |format|
+          format.html { render :show }
+
+          format.json do
+            render json: election.to_json
+          end
+        end
       end
 
       private

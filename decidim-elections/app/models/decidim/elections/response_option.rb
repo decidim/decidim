@@ -17,6 +17,10 @@ module Decidim
       def presenter
         Decidim::Elections::ResponseOptionPresenter.new(self)
       end
+
+      def votes_percent
+        @votes_percent ||= question.total_votes.positive? ? (votes_count.to_f / question.total_votes * 100) : 0
+      end
     end
   end
 end

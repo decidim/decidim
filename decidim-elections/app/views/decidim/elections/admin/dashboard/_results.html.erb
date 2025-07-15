@@ -2,7 +2,7 @@
   <div class="card-divider my-4">
     <h2 class="card-title flex items-center justify-between">
       <%= t("decidim.elections.admin.dashboard.results.title") %>
-      <% if election.results_availability == "after_end" %>
+      <% if election.ready_to_publish_results? %>
         <%= publish_election_button(election) %>
       <% end %>
     </h2>

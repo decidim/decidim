@@ -30,10 +30,6 @@ module Decidim
                       class: "#{election.status} label")
         end
 
-        def formatted_datetime(datetime)
-          l(datetime, format: :short_with_time)
-        end
-
         def election_status_action_data(election)
           if election.scheduled? && election.manual_start?
             {

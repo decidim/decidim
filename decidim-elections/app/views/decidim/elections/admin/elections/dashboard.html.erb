@@ -10,6 +10,11 @@
                 method: :put,
                 class: "main-tabs-menu__cta-button",
                 data: { confirm: t("publish_confirm", scope: "decidim.elections.admin.dashboard") } %>
+  <% else %>
+    <%= link_to resource_locator(election).path, class: "button button__xs button__transparent-primary", target: :blank, data: { "external-link": false } do %>
+      <%= icon "eye-line" %>
+      <%= t("actions.preview", scope: "decidim.elections") %>
+    <% end %>
   <% end %>
 <% end %>
 

@@ -13,7 +13,7 @@ module Decidim
       # its state.
       def filter_elections_state_values
         %w(scheduled ongoing ended results_published).map { |k| [k, t(k, scope: "decidim.elections.elections.filters.state_values")] }.prepend(
-          ["all", all_filter_text]
+          ["all", t("all", scope: "decidim.elections.elections.filters")]
         )
       end
 
@@ -38,9 +38,10 @@ module Decidim
       end
 
       def question_title(question)
-        content_tag(:h2, class: "h4", id: "title") do
-          concat content_tag(:span, "#{question.position.next} - ")
-          concat translated_attribute(question.body)
+        content_tag(:h2, class: "h4") do
+          concat content_tag(:span, question.position.next, data: { "question-position" => true })
+          concat " - "
+          concat content_tag(:span, translated_attribute(question.body), data: { "question-body" => true })
         end
       end
 
@@ -48,28 +49,9 @@ module Decidim
         session.dig(:votes_buffer, question.id.to_s, "response_option_id")&.to_i
       end
 
-      def visible_questions(election)
-        case election.results_availability
-        when "real_time"
-          election.questions
-        when "after_end"
-          election.vote_finished? ? election.questions : []
-        when "per_question"
-          election.questions.select(&:published_results?)
-        else
-          []
-        end
-      end
-
       def voted_by_current_user?(election)
         voter_uid = session[:voter_uid] || election.census.voter_uid(current_user)
         election.votes.exists?(voter_uid:)
-      end
-
-      private
-
-      def all_filter_text
-        t("all", scope: "decidim.elections.elections.filters")
       end
     end
   end

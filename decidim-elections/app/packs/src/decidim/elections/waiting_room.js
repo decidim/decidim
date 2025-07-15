@@ -1,12 +1,16 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const waiting = document.querySelector('.waiting-room');
-  if (!waiting) return;
+document.addEventListener("DOMContentLoaded", () => {
+  const waiting = document.querySelector(".waiting-room");
+  if (!waiting) {
+    return;
+  }
   const dataUrl = waiting.dataset.url;
-  if (!dataUrl) return;
+  if (!dataUrl) {
+    return;
+  }
 
   const checkStatus = async () => {
     const response = await fetch(dataUrl, {
-      method: 'GET',
+      method: "GET",
       headers: {
         "Accept": "application/json", 
         "Content-Type": "application/json",

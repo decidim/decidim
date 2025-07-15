@@ -92,6 +92,11 @@ en:
             title: Results
           status:
             title: Election status
+            census: "Census:"
+            results_availability:
+              after_end: Results available after the election ends
+              per_question: Results available per question
+              real_time: Results available in real time
         elections:
           create:
             invalid: There was a problem creating the election.
@@ -250,9 +255,9 @@ en:
             other: "%{count} votes"
         vote_statistics:
           subtitle:
-            after_end: Voting results
-            per_question: These are the results of the voting, for each question
-            real_time: Real-time
+            after_end: The election has ended. You can now see the results.
+            per_question: Results are available per question. You can see the results for each question after voting is enabled and results are published.
+            real_time: Results are available in real time. You can see the results while voting is in progress.
           title: Vote statistics
       models:
         election:

@@ -86,6 +86,10 @@ module Decidim
         response_options.where(id: response_ids.take(max_votable_options))
       end
 
+      def total_votes
+        @total_votes ||= response_options.sum(&:votes_count)
+      end
+
       private
 
       def valid_question_type

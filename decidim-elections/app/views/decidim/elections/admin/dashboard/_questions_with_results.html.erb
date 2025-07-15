@@ -1,40 +1,40 @@
-<% election_questions.each do |question| %>
-  <div class="card mb-6" id="question_<%= question.id %>">
-    <div class="card-divider">
-      <h3 class="flex items-center justify-between">
-        <%= "#{question.position.next}. #{t("decidim.forms.question_types.#{question.question_type}")} - #{translated_attribute(question.body)}" %>
+<div data-results-live-update="<%= dashboard_election_path(election) %>">
+  <% election_questions.each do |question| %>
+    <div class="card mb-6" id="question_<%= question.id %>">
+      <div class="card-divider">
+        <h3 class="flex items-center justify-between">
+          <%= "#{question.position.next}. #{t("decidim.forms.question_types.#{question.question_type}")} - #{translated_attribute(question.body)}" %>
 
-        <% if election.per_question? %>
-          <div class="flex gap-4 items-center justify-between">
-            <%= enable_question_voting_button(question) %>
-            <%= publish_question_button(question) %>
-          </div>
-        <% end %>
-      </h3>
-    </div>
-    <div class="row column">
-      <div class="table-scroll mb-4">
-        <table class="table-list">
-          <thead>
-          <tr>
-            <th class="w-1/2"><%= t("decidim.elections.admin.dashboard.questions_table.answer") %></th>
-            <th><%= t("decidim.elections.admin.dashboard.questions_table.votes") %></th>
-            <th><%= t("decidim.elections.admin.dashboard.questions_table.percentage") %></th>
-          </tr>
-          </thead>
-          <tbody>
-          <% total = question.response_options.sum(&:votes_count) %>
-          <% question.response_options.each do |option| %>
-            <% percent = total.positive? ? (option.votes_count.to_f / total * 100).round(1) : 0 %>
-            <tr>
-              <td class="w-2/3"><%= translated_attribute option.body %></td>
-              <td data-votes-counter="0"><%= t("votes_count", scope: "decidim.elections.admin.dashboard.questions_table", count: option.votes_count) %></td>
-              <td data-votes-percentage="0.0"><%= number_to_percentage(percent, precision: 1) %></td>
-            </tr>
+          <% if election.per_question? %>
+            <div class="flex gap-4 items-center justify-between">
+              <%= enable_question_voting_button(question) %>
+              <%= publish_question_button(question) %>
+            </div>
           <% end %>
-          </tbody>
-        </table>
+        </h3>
+      </div>
+      <div class="row column">
+        <div class="table-scroll mb-4">
+          <table class="table-list">
+            <thead>
+            <tr>
+              <th class="w-1/2"><%= t("decidim.elections.admin.dashboard.questions_table.answer") %></th>
+              <th><%= t("decidim.elections.admin.dashboard.questions_table.votes") %></th>
+              <th><%= t("decidim.elections.admin.dashboard.questions_table.percentage") %></th>
+            </tr>
+            </thead>
+            <tbody>
+            <% question.response_options.each do |option| %>
+              <tr>
+                <td class="w-2/3"><%= translated_attribute option.body %></td>
+                <td data-option-votes-count-text="<%= question.id %>,<%= option.id %>"><%= t("votes_count", scope: "decidim.elections.admin.dashboard.questions_table", count: option.votes_count) %></td>
+                <td data-option-votes-percent-text="<%= question.id %>,<%= option.id %>"><%= number_to_percentage(option.votes_percent, precision: 1) %></td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
