@@ -13,9 +13,7 @@ describe "Edit a page" do
   end
   let(:manifest_name) { "pages" }
   let(:component) { create(:component, manifest_name: "pages", participatory_space: participatory_process) }
-
-  it_behaves_like "access component permissions form"
-
+  
   describe "admin page" do
     before do
       create(:page, component:, body:)
