@@ -117,6 +117,7 @@ bin/rails db:migrate
 bin/rails decidim:upgrade:user_groups:remove
 bin/rails decidim:upgrade:fix_nickname_casing
 bin/rails decidim:verifications:revoke:sms
+bin/rails decidim_surveys:upgrade:fix_survey_permissions
 ```
 
 ### 1.6. Follow the steps and commands detailed in these notes
@@ -275,7 +276,19 @@ In the process to extract the old initiatives vote form to a base handler a new 
 
 For more information about the definition of a signature workflow read the documentation of `Decidim::Initiatives::SignatureWorkflowManifest`.
 
-### 2.6. Clean deleted user left behind data `decidim:upgrade:remove_deleted_users_left_data` task
+### 2.6. Permission rename in surveys module
+
+As we have changed the terminology surveys from "answer" to "respond", we need to make sure that your already set permissions are still working.
+
+To ensure that, you just need to run the below task.
+
+```bash
+bin/rails decidim_surveys:upgrade:fix_survey_permissions
+```
+
+You can read more about this change on PR [#14940](https://github.com/decidim/decidim/pull/14940).
+
+### 2.7.  Clean deleted user left behind data `decidim:upgrade:remove_deleted_users_left_data` task
 
 When a user deletes their account and the `Decidim::DestroyAccount` command is executed, certain related data such as authorizations, versions, private exports, access grants, access tokens, notifications, and reminders were left behind. To fix this issue, we've added a new rake task to clean up the leftover data for previously deleted users.
 
@@ -285,7 +298,7 @@ bin/rails decidim:upgrade:remove_deleted_users_left_data
 
 You can read more about this change on PR [#14731](https://github.com/decidim/decidim/pull/14731).
 
-### 2.7. [[TITLE OF THE ACTION]]
+### 2.8. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#xxxx](https://github.com/decidim/decidim/pull/xxx).
 
