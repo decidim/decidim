@@ -163,6 +163,7 @@ en:
         exports:
           registrations: Registrations
         form:
+          duration: Duration
           images: Images
           metadata: Metadata
           registrations: Registrations

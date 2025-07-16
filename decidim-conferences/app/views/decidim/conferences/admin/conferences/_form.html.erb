@@ -35,7 +35,20 @@
       <div class="row column">
         <%= form.translated :editor, :description, aria: { label: :description } %>
       </div>
+    </div>
+  </div>
 
+  <div class="card" data-component="accordion" id="accordion-duration">
+    <div class="card-divider">
+      <button class="card-divider-button" data-open="true" data-controls="panel-duration" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="duration">
+          <%= t("duration", scope: "decidim.admin.conferences.form") %>
+        </h2>
+      </button>
+    </div>
+
+    <div id="panel-duration" class="card-section">
       <div class="row column">
         <%= form.date_field :start_date %>
       </div>
