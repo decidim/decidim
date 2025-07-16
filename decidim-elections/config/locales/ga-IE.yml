@@ -5,6 +5,12 @@ ga:
         elections_menu:
           election_census: Móráireamh
           election_questions: Ceisteanna
+    components:
+      elections:
+        actions:
+          create: Cruthaigh
+          destroy: Scrios
+          update: Nuashonraigh
     elections:
       actions:
         title: Gníomhartha
