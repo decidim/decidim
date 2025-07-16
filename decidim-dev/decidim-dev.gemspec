@@ -60,7 +60,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rubocop-capybara", "~> 2.22.0", ">= 2.22.1"
   s.add_dependency "rubocop-factory_bot", "~> 2.27.0"
   s.add_dependency "rubocop-faker", "~> 1.3", ">= 1.3.0"
-  s.add_dependency "rubocop-graphql", "~> 1.5"
+  s.add_dependency "rubocop-graphql", "~> 1.5", ">= 1.5.6"
   s.add_dependency "rubocop-performance", "~> 1.25", ">= 1.25.0"
   s.add_dependency "rubocop-rails", "~> 2.32.0", ">= 2.32.0"
   s.add_dependency "rubocop-rspec", "~> 3.0", ">= 3.6.0"
