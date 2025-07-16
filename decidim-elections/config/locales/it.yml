@@ -7,6 +7,10 @@ it:
           election_questions: Quesiti
     components:
       elections:
+        actions:
+          create: Crea
+          destroy: Elimina
+          update: Aggiorna
         name: Elezioni
         settings:
           global:
