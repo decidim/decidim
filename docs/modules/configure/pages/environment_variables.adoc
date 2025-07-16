@@ -973,7 +973,7 @@ Note that this only applies to production environments.
 |No
 
 |SLOW_SEEDS
-|If seeding various environment that needs to have more data. Please use `SLOW_SEEDS` environment variable to add additional seed data.
+|If seeding an environment that needs to have more data, please use `SLOW_SEEDS` environment variable to add it.
 |false
 |No
 
