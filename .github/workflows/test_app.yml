@@ -128,7 +128,6 @@ jobs:
           DECIDIM_MACHINE_TRANSLATION_SERVICE: Decidim::Dev::DummyTranslator
           DISPLAY: ":99"
           CI: "true"
-          FAST_SEEDS: "true"
           SIMPLECOV: "true"
           SHAKAPACKER_RUNTIME_COMPILE: "false"
           NODE_ENV: "test"
