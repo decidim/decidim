@@ -137,6 +137,10 @@ es:
           invalid_nodes: Nodos seleccionados inválidos.
     components:
       collaborative_texts:
+        actions:
+          create: Crear
+          destroy: Destruir
+          update: Actualizar
         name: Textos colaborativos
         settings:
           global:
