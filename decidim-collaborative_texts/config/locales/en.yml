@@ -137,6 +137,10 @@ en:
           invalid_nodes: Invalid selected nodes.
     components:
       collaborative_texts:
+        actions:
+          create: Create
+          destroy: Destroy
+          update: Update
         name: Collaborative Texts
         settings:
           global:

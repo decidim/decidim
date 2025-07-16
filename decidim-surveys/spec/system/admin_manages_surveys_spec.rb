@@ -14,6 +14,7 @@ describe "Admin manages surveys" do
   let!(:survey) { create(:survey, :published, :clean_after_publish, component:, questionnaire:) }
 
   include_context "when managing a component as an admin"
+  it_behaves_like "access component permissions form"
 
   it_behaves_like "manage questionnaires"
   it_behaves_like "manage questionnaire responses"
@@ -55,6 +56,10 @@ describe "Admin manages surveys" do
 
     context "when the survey has responses" do
       let!(:response) { create(:response, question:, questionnaire:) }
+
+      it_behaves_like "access permissions form" do
+        let!(:row_text) { decidim_sanitize_translated(survey.title) }
+      end
 
       it "shows warning message" do
         within "tr", text: decidim_sanitize_translated(survey.title) do
