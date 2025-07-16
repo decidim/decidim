@@ -6,6 +6,8 @@
           election_questions: Spørsmål
     components:
       elections:
+        actions:
+          destroy: Ødelegg
         name: Valg
         settings:
           global:
