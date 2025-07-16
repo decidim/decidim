@@ -6,6 +6,8 @@ tr:
           election_questions: Sorular
     components:
       elections:
+        actions:
+          destroy: Yok et
         name: Seçimler
         settings:
           global:
