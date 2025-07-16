@@ -7,6 +7,10 @@ el:
           election_questions: Ερωτήσεις
     components:
       elections:
+        actions:
+          create: Δημιουργία
+          destroy: Καταστροφή
+          update: Ενημέρωση
         name: Εκλογές
         settings:
           global:
