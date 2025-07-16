@@ -9,6 +9,7 @@ describe "Admin manages elections" do
   end
 
   include_context "when managing a component as an admin"
+  it_behaves_like "access component permissions form"
 
   it_behaves_like "manage elections"
 end
