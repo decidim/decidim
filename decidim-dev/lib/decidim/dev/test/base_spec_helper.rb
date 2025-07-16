@@ -11,6 +11,7 @@ ENV["DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE"] ||= "memory"
 ENV["DECIDIM_SPAM_DETECTION_BACKEND_USER"] ||= "memory"
 ENV["DECIDIM_SMS_GATEWAY_SERVICE"] ||= "Decidim::Verifications::Sms::ExampleGateway"
 ENV["DECIDIM_TIMESTAMP_SERVICE"] ||= "Decidim::Initiatives::DummyTimestamp"
+ENV["DECIDIM_PDF_SIGNATURE_SERVICE"] ||= "Decidim::PdfSignatureExample"
 
 engine_spec_dir = File.join(Dir.pwd, "spec")
 
