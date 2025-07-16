@@ -24,8 +24,6 @@ ja:
           settings: 設定
     components:
       surveys:
-        actions:
-          response: 回答
         name: 調査
         settings:
           announcement: お知らせ
