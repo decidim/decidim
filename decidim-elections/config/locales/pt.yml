@@ -7,6 +7,10 @@ pt:
           election_questions: Perguntas
     components:
       elections:
+        actions:
+          create: Criar
+          destroy: Destruir
+          update: Actualizar
         name: Eleições
         settings:
           global:
