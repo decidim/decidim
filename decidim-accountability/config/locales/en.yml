@@ -50,7 +50,6 @@ en:
         edit: Edit
         import: Import results from another component
         import_csv: Import results from CSV file
-        milestones: Add milestone
         new_milestone: New milestone
         new_result: New result
         new_status: New status
