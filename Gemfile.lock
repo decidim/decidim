@@ -36,7 +36,7 @@ PATH
     decidim-api (0.31.0.dev)
       decidim-core (= 0.31.0.dev)
       devise-jwt (~> 0.12.1)
-      graphql (~> 2.4.0)
+      graphql (~> 2.4.0, >= 2.4.17)
       graphql-docs (~> 5.0)
       rack-cors (~> 1.0)
     decidim-assemblies (0.31.0.dev)
