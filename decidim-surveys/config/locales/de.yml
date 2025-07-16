@@ -26,8 +26,6 @@ de:
           settings: Einstellungen
     components:
       surveys:
-        actions:
-          response: Antwort
         name: Umfragen
         settings:
           announcement: Ankündigung
