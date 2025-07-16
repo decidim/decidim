@@ -7,6 +7,10 @@ nl:
           election_questions: vragen
     components:
       elections:
+        actions:
+          create: Creëren
+          destroy: Vernietig
+          update: Bijwerken
         name: Verkiezingen
         settings:
           global:
