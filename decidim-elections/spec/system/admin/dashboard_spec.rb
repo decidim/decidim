@@ -7,9 +7,8 @@ describe "Dashboard" do
   let(:component) { current_component }
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name:) }
-  let!(:election) { create(:election, :with_token_csv_census, component:, published_at:) }
+  let!(:election) { create(:election, :with_token_csv_census, :published, component:) }
   let!(:questions) { create_list(:election_question, 3, election:) }
-  let(:published_at) { Time.current }
 
   include_context "when managing a component as an admin"
 
@@ -37,14 +36,14 @@ describe "Dashboard" do
     it_behaves_like "can only edit election description"
 
     context "when per question results availability" do
-      let!(:election) { create(:election, :with_token_csv_census, :per_question, :started, component:, published_at:) }
+      let!(:election) { create(:election, :with_token_csv_census, :per_question, :published, :started, component:) }
 
       it_behaves_like "can only edit election description"
     end
   end
 
   context "when the election is not published" do
-    let(:published_at) { nil }
+    let!(:election) { create(:election, :with_token_csv_census, component:) }
 
     it "shows publish button" do
       expect(page).to have_content("Publish")
@@ -64,7 +63,7 @@ describe "Dashboard" do
   end
 
   context "when the election with a manual start" do
-    let!(:election) { create(:election, :with_token_csv_census, component:, start_at:, published_at:) }
+    let!(:election) { create(:election, :with_token_csv_census, :published, component:, start_at:) }
     let(:start_at) { nil }
 
     context "and the election is not started" do
@@ -86,19 +85,18 @@ describe "Dashboard" do
   end
 
   context "when the election with autostart" do
-    let!(:election) { create(:election, :with_token_csv_census, component:, start_at:, published_at:) }
-    let(:start_at) { 1.day.from_now }
+    let!(:election) { create(:election, :with_token_csv_census, :scheduled, :published, component:) }
 
     it "shows the election scheduled status" do
       expect(page).to have_content("Scheduled")
       expect(page).to have_no_button("Start election")
-      expected_date = start_at.strftime("%b %-d, %Y, %-I:%M %p")
+      expected_date = election.start_at.strftime("%b %-d, %Y, %-I:%M %p")
       expect(page).to have_content("Start time: #{expected_date}")
     end
   end
 
   context "when results availability is set to real_time" do
-    let!(:election) { create(:election, :with_token_csv_census, :real_time, component:, start_at:, published_at:) }
+    let!(:election) { create(:election, :with_token_csv_census, :real_time, :published, component:, start_at:) }
 
     context "and the election is not started" do
       let(:start_at) { 1.day.from_now }
@@ -123,7 +121,7 @@ describe "Dashboard" do
   end
 
   context "when results availability is set to per_question" do
-    let!(:election) { create(:election, :with_token_csv_census, :per_question, component:, start_at:, published_at:) }
+    let!(:election) { create(:election, :with_token_csv_census, :per_question, :published, component:, start_at:) }
     let!(:questions) { create_list(:election_question, 3, election:, voting_enabled_at: nil) }
     let(:first_question) { election.questions.first }
     let(:second_question) { election.questions.second }
@@ -221,54 +219,42 @@ describe "Dashboard" do
   end
 
   context "when results availability is set to after_end" do
-    let!(:election) { create(:election, :with_token_csv_census, :after_end, component:, start_at:, published_at:) }
+    let!(:election) { create(:election, :with_token_csv_census, :after_end, :published, component:) }
 
-    context "and the election is not started" do
-      let(:start_at) { 1.day.from_now }
-
-      it "shows the election scheduled status" do
-        expect(page).to have_content("Scheduled")
-        expect(page).to have_content("Election has not started yet.")
-      end
+    it "shows the election scheduled status" do
+      expect(page).to have_content("Scheduled")
+      expect(page).to have_content("Election has not started yet.")
     end
 
     context "and the election is started" do
-      let(:start_at) { 1.day.ago }
+      let!(:election) { create(:election, :with_token_csv_census, :after_end, :published, :started, component:) }
 
       it "shows the election as ongoing" do
         expect(page).to have_content("Ongoing")
         expect(page).to have_button("End election")
         expect(page).to have_content("Results")
         expect(page).to have_no_content("Election has not started yet.")
-        expect(page).to have_button("Publish results", count: 1, disabled: true)
+        expect(page).to have_no_button("Publish results")
       end
     end
 
     context "and the election is ended" do
-      let(:start_at) { 2.days.ago }
-
-      before do
-        election.end_at = 1.day.ago
-        election.save!
-        visit election_dashboard_path
-      end
+      let!(:election) { create(:election, :with_token_csv_census, :after_end, :published, :started, :finished, component:) }
 
       it "shows the results message" do
         expect(page).to have_content("Results")
         expect(page).to have_no_content("Election has not started yet.")
-        expect(page).to have_button("Publish results", count: 1, disabled: false)
+        expect(page).to have_button("Publish results")
       end
     end
   end
 
   context "when the election has published results" do
-    let!(:election) { create(:election, :with_token_csv_census, component:, end_at:, published_at:, published_results_at:) }
-    let(:end_at) { 1.day.ago }
-    let(:published_results_at) { 1.hour.ago }
+    let!(:election) { create(:election, :with_token_csv_census, :published, :results_published, :finished, component:) }
 
     it "shows the published results status" do
       expect(page).to have_content("Published results")
-      expect(page).to have_button("Publish results", count: 1, disabled: true)
+      expect(page).to have_no_button("Publish results")
     end
   end
 
