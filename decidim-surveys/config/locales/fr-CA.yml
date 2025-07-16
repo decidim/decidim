@@ -26,8 +26,6 @@ fr-CA:
           settings: Paramètres
     components:
       surveys:
-        actions:
-          response: Réponse
         name: Enquêtes
         settings:
           announcement: Annonce
