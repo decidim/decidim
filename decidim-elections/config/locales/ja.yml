@@ -17,6 +17,10 @@ ja:
         edit_elections_info: この選挙を編集できません
     components:
       elections:
+        actions:
+          create: 作成
+          destroy: 削除
+          update: 更新
         name: 選挙
         settings:
           global:
