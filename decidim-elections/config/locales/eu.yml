@@ -14,6 +14,10 @@ eu:
           election_questions: Galderak
     components:
       elections:
+        actions:
+          create: Sortu
+          destroy: Suntsitu
+          update: Eguneratu
         name: Hauteskundeak
         settings:
           global:
