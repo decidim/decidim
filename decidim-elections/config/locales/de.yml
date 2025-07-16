@@ -7,6 +7,10 @@ de:
           election_questions: Fragen
     components:
       elections:
+        actions:
+          create: Erstellen
+          destroy: Löschen
+          update: Aktualisieren
         name: Wahlen
         settings:
           global:
