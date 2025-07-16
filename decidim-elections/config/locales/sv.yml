@@ -13,6 +13,10 @@ sv:
           election_questions: Frågor
     components:
       elections:
+        actions:
+          create: Skapa
+          destroy: Radera
+          update: Uppdatera
         name: Val
         settings:
           global:
