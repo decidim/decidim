@@ -137,6 +137,10 @@ fi-pl:
           invalid_nodes: Virheellinen valinta.
     components:
       collaborative_texts:
+        actions:
+          create: Luo
+          destroy: Poista
+          update: Päivitä
         name: Yhteistyötekstit
         settings:
           global:
