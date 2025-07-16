@@ -6,6 +6,8 @@ lv:
           election_questions: Jautājumi
     components:
       elections:
+        actions:
+          destroy: Dzēst
         name: Vēlēšanas
         settings:
           global:
