@@ -6,6 +6,8 @@ hu:
           election_questions: Kérdések
     components:
       elections:
+        actions:
+          destroy: Töröl
         name: Választások
         settings:
           global:
