@@ -176,7 +176,7 @@ en:
           title: Deleted conferences
         new:
           create: Create
-          title: Conference
+          title: New conference
         update:
           error: There was a problem updating this conference.
           success: Conference successfully updated.
