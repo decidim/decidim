@@ -12,8 +12,15 @@ fi-pl:
           election_census: Henkilötietorekisteri
           election_dashboard: Hallintapaneeli
           election_questions: Kysymykset
+      tooltips:
+        deleted_elections_info: Tätä vaalia ei voi poistaa
+        edit_elections_info: Tätä vaalia ei voi muokata
     components:
       elections:
+        actions:
+          create: Luo
+          destroy: Tuhoa
+          update: Päivitä
         name: Vaalit
         settings:
           global:
