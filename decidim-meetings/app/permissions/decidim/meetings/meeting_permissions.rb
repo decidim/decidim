@@ -15,6 +15,12 @@ module Decidim
 
         return permission_action unless user
 
+        toggle_allow(can_respond_question?) if subject == :response && action == :create
+
+        toggle_allow(can_update_question?) if subject == :question && action == :update
+
+        toggle_allow(can_update_poll?) if subject == :poll && action == :update
+
         toggle_allow(can_join_meeting?) if action == :join
         toggle_allow(can_join_waitlist?) if action == :join_waitlist
         toggle_allow(can_leave_meeting?) if action == :leave

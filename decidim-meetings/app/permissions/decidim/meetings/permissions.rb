@@ -14,12 +14,6 @@ module Decidim
 
         return permission_action unless user
 
-        toggle_allow(can_respond_question?) if subject == :response && action == :create
-
-        toggle_allow(can_update_question?) if subject == :question && action == :update
-
-        toggle_allow(can_update_poll?) if subject == :poll && action == :update
-
         permission_action
       end
 
