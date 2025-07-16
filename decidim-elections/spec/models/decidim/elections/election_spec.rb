@@ -45,6 +45,21 @@ module Decidim
         it { is_expected.to be_valid }
       end
 
+      context "when votes exist" do
+        let(:election) { create(:election, :with_questions) }
+        let!(:vote) { create(:election_vote, question: election.questions.first, response_option: election.questions.first.response_options.first) }
+
+        it "has many votes" do
+          expect(subject.votes.count).to be_positive
+          expect(subject.votes_count).to eq(subject.votes.count)
+        end
+
+        it "increments the votes count" do
+          expect { create(:election_vote, question: election.questions.first, response_option: election.questions.first.response_options.second) }
+            .to change(subject, :votes_count).by(1)
+        end
+      end
+
       describe "#manual_start?" do
         it "returns true when start_at is nil" do
           election.start_at = nil
@@ -217,7 +232,8 @@ module Decidim
             it { is_expected.not_to be_ready_to_publish_results }
 
             context "when questions" do
-              let(:election) { create(:election, :with_questions, :published, :ongoing, :per_question) }
+              let(:election) { create(:election, :published, :ongoing, :per_question) }
+              let!(:question) { create(:election_question, :with_response_options, election:) }
 
               it { expect(subject).not_to be_ready_to_publish_results }
 

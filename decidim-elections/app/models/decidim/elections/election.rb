@@ -41,7 +41,7 @@ module Decidim
       scope :scheduled, -> { published.where(start_at: Time.current..) }
       scope :ongoing, -> { published.where(start_at: ..Time.current, end_at: Time.current..) }
       scope :finished, -> { published.where(end_at: ..Time.current) }
-      scope :results_published, -> { published.where.not(published_results_at: nil).or(published.finished.where(results_availability: "real_time")) }
+      scope :results_published, -> { published.where.not(published_results_at: nil).or(published.finished.where(results_availability: %w(real_time per_question))) }
 
       searchable_fields(
         A: :title,
@@ -55,6 +55,10 @@ module Decidim
 
       def self.log_presenter_class_for(_log)
         Decidim::Elections::AdminLog::ElectionPresenter
+      end
+
+      def update_votes_count!
+        update(votes_count: votes.count)
       end
 
       def auto_start?
@@ -145,7 +149,7 @@ module Decidim
         when "real_time"
           ongoing? || vote_finished? || published_results_at.present?
         when "per_question"
-          vote_finished? && questions.enabled.any? && questions.enabled.all?(&:published_results_at)
+          vote_finished? && questions.enabled.any? && questions.enabled.any?(&:published_results_at)
         when "after_end"
           published_results_at.present?
         else

@@ -95,12 +95,12 @@ en:
             start_question_button: Enable voting
             title: Results
           status:
-            title: Election status
-            census: "Census:"
+            census: 'Census:'
             results_availability:
               after_end: Results available after the election ends
               per_question: Results available per question
               real_time: Results available in real time
+            title: Election status
         elections:
           create:
             invalid: There was a problem creating the election.
@@ -246,12 +246,12 @@ en:
           subtitle: 'These are the questions fot this voting process:'
           title: Election questions
         show:
-          unpublished: Unpublished
-          scheduled: Scheduled
-          results_published: Results published
           finished: Finished
           not_started: Not started
           ongoing: Ongoing
+          results_published: Results published
+          scheduled: Scheduled
+          unpublished: Unpublished
           vote_button: Start voting
           voted: You have already voted. You can vote again, only your last vote will be counted.
           votes_count:

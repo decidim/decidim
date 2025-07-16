@@ -18,6 +18,8 @@ module Decidim
       # To ensure records cannot be deleted
       before_destroy { |_record| raise ActiveRecord::ReadOnlyRecord }
 
+      after_save :update_election_votes_count
+
       private
 
       def response_belong_to_question
@@ -33,6 +35,10 @@ module Decidim
         return if question.votes.where.not(id: id).where(voter_uid: voter_uid).count < question.max_votable_options
 
         errors.add(:response_option, :invalid)
+      end
+
+      def update_election_votes_count
+        question.election.update_votes_count!
       end
     end
   end

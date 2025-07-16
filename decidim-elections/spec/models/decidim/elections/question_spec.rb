@@ -19,6 +19,21 @@ module Decidim
 
       it "has many response options" do
         expect(subject.response_options.count).to be_positive
+        expect(subject.response_options_count).to be_positive
+      end
+
+      context "when votes exist" do
+        let!(:vote) { create(:election_vote, question:, response_option: question.response_options.first) }
+
+        it "has many votes" do
+          expect(subject.votes.count).to be_positive
+          expect(subject.votes_count).to eq(subject.votes.count)
+        end
+
+        it "increments the votes count" do
+          expect { create(:election_vote, question:, response_option: question.response_options.second) }
+            .to change(subject, :votes_count).by(1)
+        end
       end
 
       describe "validations" do

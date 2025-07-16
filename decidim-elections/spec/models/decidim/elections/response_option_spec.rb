@@ -18,6 +18,7 @@ module Decidim
 
       it "has many votes" do
         expect(subject.votes.count).to be_positive
+        expect(subject.votes_count).to eq(response_option.votes.count)
       end
 
       describe "validations" do
@@ -31,6 +32,12 @@ module Decidim
       describe "#presenter" do
         it "returns a presenter instance" do
           expect(subject.presenter).to be_a(Decidim::Elections::ResponseOptionPresenter)
+        end
+      end
+
+      context "when adding votes" do
+        it "increments the votes count" do
+          expect { create(:election_vote, response_option:, question:) }.to change(response_option, :votes_count).by(1)
         end
       end
 
