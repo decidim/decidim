@@ -7,7 +7,7 @@ module Decidim
 
       field :collection, Decidim::Core::AttachmentCollectionType, "attachment collection", method: :attachment_collection, null: true
       field :description, Decidim::Core::TranslatedFieldType, "The description of this attachment.", null: false
-      field :file_blob, Decidim::Apifiles::BlobType, "The file blob for this attachment", null: true
+      field :file_blob, Decidim::Core::BlobType, "The file blob for this attachment", null: true
       field :id, GraphQL::Types::ID, "The attachment ID", null: true
       field :thumbnail, GraphQL::Types::String, "A thumbnail of this attachment, if it is an image.", method: :thumbnail_url, null: true
       field :title, Decidim::Core::TranslatedFieldType, "The title of this attachment.", null: false

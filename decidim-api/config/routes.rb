@@ -6,6 +6,7 @@ Decidim::Api::Engine.routes.draw do
   get "/docs/*path", to: "documentation#show"
   get "/", to: redirect("/api/docs")
   post "/" => "queries#create", :as => :root
+  resources :blobs, only: [:create, :destroy]
 
   devise_for :api_users,
              class_name: "Decidim::Api::ApiUser",

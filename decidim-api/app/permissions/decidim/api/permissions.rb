@@ -29,6 +29,10 @@ module Decidim
         @blob ||= context.fetch(:blob, nil)
       end
 
+      def user
+        @user ||= context.fetch(:current_user)
+      end
+
       def admin_terms_accepted?
         user&.admin_terms_accepted?
       end
