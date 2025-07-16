@@ -3,7 +3,7 @@ en:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Related Assemblies
+        assemblies_ids: Related assemblies
         available_slots: Available slots
         banner_image: Banner image
         copy_categories: Copy categories
