@@ -119,16 +119,18 @@
 
     <div id="panel-registrations" class="card-section">
       <div class="row column">
-        <%= form.check_box :registrations_enabled %>
+        <%= form.check_box :registrations_enabled, "data-toggle": "registrations_enabled_details" %>
       </div>
 
-      <div class="row column">
-        <p><%= t(".registrations_count", count: current_participatory_space.present? ? current_participatory_space.conference_registrations.count : 0) %></p>
-        <%= form.number_field :available_slots, help_text: t(".available_slots_help") %>
-      </div>
+      <div id="registrations_enabled_details" <%= form.object.registrations_enabled ? nil : "hidden" %>>
+        <div class="row column">
+          <p><%= t(".registrations_count", count: current_participatory_space.present? ? current_participatory_space.conference_registrations.count : 0) %></p>
+          <%= form.number_field :available_slots, help_text: t(".available_slots_help") %>
+        </div>
 
-      <div class="row column" id="conference_registrations_terms">
-        <%= form.translated :editor, :registration_terms, toolbar: :content, aria: { label: :registration_terms } %>
+        <div class="row column" id="conference_registrations_terms">
+          <%= form.translated :editor, :registration_terms, toolbar: :content, aria: { label: :registration_terms } %>
+        </div>
       </div>
     </div>
   </div>
