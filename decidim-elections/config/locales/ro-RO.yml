@@ -6,6 +6,9 @@ ro:
           election_questions: Întrebări
     components:
       elections:
+        actions:
+          create: Creează
+          destroy: Distruge
         name: Alegeri
         settings:
           global:
