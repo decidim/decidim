@@ -17,6 +17,10 @@ fi:
         edit_elections_info: Tätä vaalia ei voi muokata
     components:
       elections:
+        actions:
+          create: Luo
+          destroy: Poista
+          update: Päivitä
         name: Vaalit
         settings:
           global:
