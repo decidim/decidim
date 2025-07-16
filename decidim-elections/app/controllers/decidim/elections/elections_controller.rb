@@ -35,6 +35,10 @@ module Decidim
         @election ||= elections.find_by(id: params[:id])
       end
 
+      def questions
+        @questions ||= election.available_questions.includes(:response_options)
+      end
+
       def search_collection
         Election.where(component: current_component).not_hidden.published
       end

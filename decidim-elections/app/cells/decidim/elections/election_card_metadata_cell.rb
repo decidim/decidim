@@ -28,15 +28,15 @@ module Decidim
       end
 
       def start_date
-        return if election.try(:start_at).blank?
+        return if start_at.blank?
 
-        @start_date ||= election.start_at.to_time
+        @start_date ||= start_at.to_time
       end
 
       def end_date
-        return if election.try(:end_at).blank?
+        return if end_at.blank?
 
-        @end_date ||= election.end_at.to_time
+        @end_date ||= end_at.to_time
       end
     end
   end

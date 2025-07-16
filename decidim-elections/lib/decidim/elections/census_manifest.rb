@@ -98,7 +98,7 @@ module Decidim
       end
 
       def form_instance(data = {}, context = {})
-        return unless voter_form.present?
+        return if voter_form.blank?
 
         form_class = voter_form.constantize
         form_class.from_params(data).with_context(context)

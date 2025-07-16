@@ -8,13 +8,6 @@ module Decidim
     # Note that it inherits from `Decidim::Admin::Components::BaseController`, which
     # override its layout and provide all kinds of useful methods.
     class ApplicationController < Decidim::Components::BaseController
-      def elections
-        Election.where(component: current_component)
-      end
-
-      def questions
-        @questions ||= election.available_questions.includes(:response_options)
-      end
     end
   end
 end
