@@ -7,6 +7,10 @@ lt:
           election_questions: Klausimai
     components:
       elections:
+        actions:
+          create: Sukurti
+          destroy: Sunaikinti
+          update: Atnaujinti
         name: Rinkimai
         settings:
           global:
