@@ -17,6 +17,10 @@ es:
         edit_elections_info: No se puede editar esta elección
     components:
       elections:
+        actions:
+          create: Crear
+          destroy: Eliminar
+          update: Actualizar
         name: Votaciones
         settings:
           global:
