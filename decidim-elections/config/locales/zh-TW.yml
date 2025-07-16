@@ -7,6 +7,10 @@ zh-TW:
           election_questions: 問題
     components:
       elections:
+        actions:
+          create: 創建
+          destroy: 摧毀
+          update: 更新
         name: 選舉
         settings:
           global:
