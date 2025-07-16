@@ -7,6 +7,10 @@ bg:
           election_questions: Въпроси
     components:
       elections:
+        actions:
+          create: Създаване
+          destroy: Унищожи
+          update: Актуализация
         name: Избори
         settings:
           global:
