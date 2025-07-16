@@ -7,6 +7,7 @@ ENV["RAILS_SYSTEM_TESTING_SCREENSHOT_HTML"] ||= "1"
 ENV["DECIDIM_API_JWT_SECRET"] ||= "dummy-api-jwt-secret"
 ENV["DECIDIM_AVAILABLE_LOCALES"] ||= "en,ca,es"
 ENV["DECIDIM_ENABLE_MACHINE_TRANSLATION"] ||= "true"
+ENV["DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE"] ||= "memory"
 
 engine_spec_dir = File.join(Dir.pwd, "spec")
 
