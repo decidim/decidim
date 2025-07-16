@@ -114,6 +114,7 @@ module Decidim
             permissions.unshift(object.participatory_space.manifest.permissions_class) if object.respond_to?(:participatory_space)
             permissions.unshift(object.component.manifest.permissions_class) if object.respond_to?(:component) && object.component.present?
             permissions.unshift(object.result.component.manifest.permissions_class) if object.respond_to?(:result) && object.result.present?
+            # permissions.unshift(Decidim::Api::Permissions) if object.is_a?(ActiveStorage::Blob)
           end
 
           permissions

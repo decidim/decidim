@@ -25,7 +25,6 @@ module Decidim
         end
 
         allow! if user_can_enter_space_area?(require_admin_terms_accepted: true)
-
         read_admin_dashboard_action?
         apply_newsletter_permissions_for_admin!
 
@@ -59,6 +58,7 @@ module Decidim
           allow! if permission_action.subject == :help_sections
           allow! if permission_action.subject == :share_token
           allow! if permission_action.subject == :reminder
+          allow! if permission_action.subject == :blob
 
           if permission_action.action.in? [:manage_trash, :restore, :soft_delete]
             if permission_action.action == :soft_delete

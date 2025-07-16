@@ -9,7 +9,7 @@ module Decidim
 
       def authorized?(id:)
         blob = find_resource(id)
-        super && allowed_to(:delete, :blob, blob, context, scope: :admin)
+        super && allowed_to?(:delete, :blob, blob, context, scope: :admin)
       end
 
       private

@@ -14,7 +14,7 @@ module Decidim
         current_user = context[:current_user]
 
         Decidim::Commands::DestroyResource.call(resource, current_user) do
-          on(:ok) do
+          on(:ok, resource) do
             return resource
           end
         end

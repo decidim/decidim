@@ -16,7 +16,7 @@ module Decidim
           when :create
             allow!
           when :update, :delete
-            object.present?
+            blob.present?
           end
         end
 
@@ -24,6 +24,10 @@ module Decidim
       end
 
       private
+
+      def blob
+        @blob ||= context.fetch(:blob, nil)
+      end
 
       def admin_terms_accepted?
         user&.admin_terms_accepted?
