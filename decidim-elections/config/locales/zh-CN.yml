@@ -6,6 +6,8 @@ zh-CN:
           election_questions: 问 题
     components:
       elections:
+        actions:
+          destroy: 破坏的
         name: 选举
         settings:
           global:
