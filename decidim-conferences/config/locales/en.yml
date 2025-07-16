@@ -163,7 +163,12 @@ en:
         exports:
           registrations: Registrations
         form:
+          images: Images
+          metadata: Metadata
+          registrations: Registrations
+          related_spaces: Related spaces
           title: General Information
+          visibility: Visiblity
         index:
           published: Published
           unpublished: Unpublished
