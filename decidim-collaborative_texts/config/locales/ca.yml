@@ -137,6 +137,10 @@ ca:
           invalid_nodes: Nodes seleccionats invàlids.
     components:
       collaborative_texts:
+        actions:
+          create: Crear
+          destroy: Destruir
+          update: Actualitzar
         name: Textos col·laboratius
         settings:
           global:
