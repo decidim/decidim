@@ -101,6 +101,10 @@ sv:
             title: Titel
     components:
       collaborative_texts:
+        actions:
+          create: Skapa
+          destroy: Radera
+          update: Uppdatera
         name: Kollaborativa texter
         settings:
           global:
