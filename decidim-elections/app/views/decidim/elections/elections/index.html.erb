@@ -7,6 +7,8 @@
      url: elections_url,
      resource: current_component) %>
 
+<% append_stylesheet_pack_tag "decidim_elections", media: "all" %>
+
 <% content_for :aside do %>
   <h1 class="title-decorator"><%= component_name %></h1>
   <%= render layout: "decidim/shared/filters", locals: { filter_sections:, search_variable:, skip_to_id: "elections" } do %>

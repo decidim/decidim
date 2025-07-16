@@ -233,14 +233,13 @@ en:
           all: All
           state: Status
           state_values:
-            ended: Ended
+            finished: Finished
             ongoing: Ongoing
             results_published: Results published
             scheduled: Scheduled
         orders:
           end_at: Ended at
           label: Order by
-          most_voted: Most voted
           random: Random
           recent: Recent
           start_at: Started at
@@ -249,7 +248,10 @@ en:
           subtitle: 'These are the questions fot this voting process:'
           title: Election questions
         show:
-          ended: Ended
+          unpublished: Unpublished
+          scheduled: Scheduled
+          results_published: Results published
+          finished: Finished
           not_started: Not started
           ongoing: Ongoing
           vote_button: Start voting

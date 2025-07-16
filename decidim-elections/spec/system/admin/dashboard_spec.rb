@@ -36,7 +36,7 @@ describe "Dashboard" do
     it_behaves_like "can only edit election description"
 
     context "when per question results availability" do
-      let!(:election) { create(:election, :with_token_csv_census, :per_question, :published, :started, component:) }
+      let!(:election) { create(:election, :with_token_csv_census, :per_question, :published, :ongoing, component:) }
 
       it_behaves_like "can only edit election description"
     end
@@ -227,7 +227,7 @@ describe "Dashboard" do
     end
 
     context "and the election is started" do
-      let!(:election) { create(:election, :with_token_csv_census, :after_end, :published, :started, component:) }
+      let!(:election) { create(:election, :with_token_csv_census, :after_end, :published, :ongoing, component:) }
 
       it "shows the election as ongoing" do
         expect(page).to have_content("Ongoing")
@@ -239,7 +239,7 @@ describe "Dashboard" do
     end
 
     context "and the election is ended" do
-      let!(:election) { create(:election, :with_token_csv_census, :after_end, :published, :started, :finished, component:) }
+      let!(:election) { create(:election, :with_token_csv_census, :after_end, :published, :ongoing, :finished, component:) }
 
       it "shows the results message" do
         expect(page).to have_content("Results")

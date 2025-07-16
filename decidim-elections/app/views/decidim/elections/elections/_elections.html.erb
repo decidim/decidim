@@ -6,7 +6,7 @@
   <%= order_selector available_orders, i18n_scope: "decidim.elections.elections.orders" %>
 
   <div class="card__list-list">
-    <%= render paginated_elections %>
+    <%= render partial: "election", collection: paginated_elections, as: :election %>
   </div>
 
   <%= decidim_paginate paginated_elections %>

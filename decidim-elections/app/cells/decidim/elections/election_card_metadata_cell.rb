@@ -9,7 +9,7 @@ module Decidim
 
       alias election model
 
-      delegate :start_at, :end_and, to: :election
+      delegate :start_at, :end_at, to: :election
 
       def initialize(*)
         super
@@ -18,35 +18,25 @@ module Decidim
       end
 
       def election_items
-        [label]
+        [label, progress_item]
       end
 
       def label
         {
-          text: content_tag("span", t(label_string, scope: "decidim.elections.elections.show"), class: "#{label_class} label")
+          text: content_tag("span", t(election.status, scope: "decidim.elections.elections.show"), class: "#{election.status} label")
         }
       end
 
-      def label_string
-        case election.current_status
-        when :ongoing
-          "ongoing"
-        when :not_started
-          "not_started"
-        else
-          "ended"
-        end
+      def start_date
+        return if election.try(:start_at).blank?
+
+        @start_date ||= election.start_at.to_time
       end
 
-      def label_class
-        case election.current_status
-        when :ongoing
-          "success"
-        when :not_started
-          "warning"
-        else
-          "alert"
-        end
+      def end_date
+        return if election.try(:end_at).blank?
+
+        @end_date ||= election.end_at.to_time
       end
     end
   end

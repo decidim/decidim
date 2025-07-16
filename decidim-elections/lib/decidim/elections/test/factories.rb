@@ -47,11 +47,6 @@ FactoryBot.define do
       end_at { 2.days.from_now }
     end
 
-    trait :started do
-      start_at { 1.day.ago }
-      end_at { 1.day.from_now }
-    end
-
     trait :ongoing do
       start_at { 1.day.ago }
       end_at { 1.day.from_now }

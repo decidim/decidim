@@ -21,7 +21,6 @@ module Decidim
         def possible_orders
           @possible_orders ||= begin
             possible_orders = %w(random recent start_at end_at)
-            possible_orders << "most_voted"
             possible_orders
           end
         end
@@ -32,8 +31,6 @@ module Decidim
 
         def reorder(elections)
           case order
-            # when "most_voted"
-            #   elections.order(election_votes_count: :desc)
           when "random"
             elections.order_randomly(random_seed)
           when "recent"

@@ -18,8 +18,7 @@ module Decidim
       end
 
       def description
-        attribute = model.try(:short_description) || model.try(:body) || model.description
-        text = translated_attribute(attribute)
+        text = translated_attribute(model.description)
 
         decidim_sanitize(html_truncate(text, length: 240), strip_tags: true)
       end

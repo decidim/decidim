@@ -139,7 +139,7 @@ module Decidim
         it { is_expected.not_to be_ongoing }
 
         context "when started" do
-          let(:election) { build(:election, :started) }
+          let(:election) { build(:election, :ongoing) }
 
           it { is_expected.to be_ongoing }
         end

@@ -40,9 +40,10 @@ module Decidim
 
       enum :results_availability, RESULTS_AVAILABILITY_OPTIONS.index_with(&:to_s), prefix: "results"
 
-      scope :upcoming, -> { published.where(start_at: Time.current..) }
+      scope :scheduled, -> { published.where(start_at: Time.current..) }
       scope :ongoing, -> { published.where(start_at: ..Time.current, end_at: Time.current..) }
       scope :finished, -> { published.where(end_at: ..Time.current) }
+      scope :results_published, -> { published.where.not(published_results_at: nil).or(published.finished.where(results_availability: "real_time")) }
 
       searchable_fields(
         A: :title,
@@ -194,7 +195,7 @@ module Decidim
         }
       end
 
-      scope_search_multi :with_any_state, [:ongoing, :ended, :results_published, :scheduled]
+      scope_search_multi :with_any_state, [:ongoing, :finished, :results_published, :scheduled]
 
       # Create i18n ransackers for :title and :description.
       # Create the :search_text ransacker alias for searching from both of these.

@@ -11,12 +11,9 @@ module Decidim
 
       helper_method :elections, :election, :tab_panel_items, :questions, :paginated_elections
 
-      def index
-        # enforce_permission_to :read, :election
-      end
+      def index; end
 
       def show
-        # TODO: permissions
         raise ActionController::RoutingError, "Not Found" unless election
 
         respond_to do |format|
@@ -39,7 +36,7 @@ module Decidim
       end
 
       def search_collection
-        Election.where(component: current_component).not_hidden
+        Election.where(component: current_component).not_hidden.published
       end
 
       def tab_panel_items
