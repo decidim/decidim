@@ -7,6 +7,10 @@ cs:
           election_questions: Otázky
     components:
       elections:
+        actions:
+          create: Vytvořit
+          destroy: Zničit
+          update: Aktualizovat
         name: Volby
         settings:
           global:
