@@ -36,7 +36,7 @@ PATH
     decidim-api (0.31.0.dev)
       decidim-core (= 0.31.0.dev)
       devise-jwt (~> 0.12.1)
-      graphql (~> 2.4.0)
+      graphql (~> 2.4.0, >= 2.4.17)
       graphql-docs (~> 5.0)
       rack-cors (~> 1.0)
     decidim-assemblies (0.31.0.dev)
@@ -447,9 +447,10 @@ GEM
     google-protobuf (4.29.3-x86_64-linux)
       bigdecimal
       rake (>= 13)
-    graphql (2.4.8)
+    graphql (2.4.17)
       base64
       fiber-storage
+      logger
     graphql-docs (5.1.0)
       commonmarker (~> 0.23, >= 0.23.6)
       escape_utils (~> 1.2)
