@@ -1,0 +1,46 @@
+# Disabled rails configurations
+
+Rails/ContentTag:
+  Enabled: false
+
+Rails/CreateTableWithTimestamps:
+  Enabled: false
+
+Rails/InverseOf:
+  Enabled: false
+
+Rails/NotNullColumn:
+  Enabled: false
+
+Rails/OutputSafety:
+  Enabled: false
+
+Rails/Pluck:
+  Enabled: false
+
+Rails/RakeEnvironment:
+  Enabled: false
+
+Rails/ReversibleMigration:
+  Enabled: false
+
+Rails/PluckInWhere:
+  Enabled: false
+
+Rails/ActionOrder:
+  Enabled: false
+
+Rails/Delegate:
+  Enabled: false
+
+Rails/HelperInstanceVariable:
+  Enabled: false
+
+Rails/ActiveRecordCallbacksOrder:
+  Enabled: false
+
+Rails/EnumHash:
+  Enabled: false
+
+Rails/I18nLazyLookup:
+  Enabled: false

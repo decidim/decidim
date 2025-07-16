@@ -18,6 +18,3 @@ GraphQL/ObjectDescription:
     - "**/lib/decidim/api/functions/*"
     - "spec/**/*"
     - "test/**/*"
-
-GraphQL/ExtractType:
-  Enabled: false
