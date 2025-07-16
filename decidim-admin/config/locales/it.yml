@@ -713,10 +713,15 @@ it:
             unreport:
               title: Annulla segnalazione
               update_moderation_button: Annulla segnalazione per le risorse selezionate
+          cancel: Annulla
+          selected: selezionato
+          title: Contenuto segnalato
         report:
           reasons:
             does_not_belong: Non appartiene
+            hidden_during_block: Nascosto durante il blocco dell'utente
             offensive: Offensivo
+            parent_hidden: Il contenuto padre è stato nascosto
             spam: Spam
         reports:
           index:
@@ -866,13 +871,29 @@ it:
           title: Modifica l'organizzazione
           update: Modifica
         form:
+          admin_terms_of_service: Termini di servizio amministrativi
+          basic_configuration: Configurazione di base
+          colors:
+            choose_color: Scegli un colore primario
+            colors_title: Colori dell'organizzazione
+            colors_warning_html: Attenzione! Cambiare questi colori può violare l'accessibilità dei contrasti dei colori. Puoi controllare il contrasto della tua scelta dei colori con <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> o altri strumenti simili.
+            explanation: Questo strumento ti aiuta a scegliere uno schema di colori, composto da tonalità ugualmente distanziate intorno alla gamma dei colori, che saranno utilizzate nel sito web dell'organizzazione.
+            legend_html: I principali colori dell'applicazione, basati sull'algoritmo <a href="https://www.color-meanings.com/triadic-colors/">Triadic</a>. Il colore <i>secondario</i> è calcolato a partire dal colore primario e dalla saturazione che hai scelto.
+            saturation: Saturazione
+            title: Selettore colore
+            update_suggested_colors: Aggiorna i colori suggeriti
+          extra_features: Funzioni aggiuntive
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          logos:
+            organization_logos: Logo organizzazione
+            preview:
           rich_text_editor_in_public_views_help: In alcune aree di testo, i partecipanti saranno in grado di inserire alcuni tag HTML utilizzando l'editor di testo rich text.
           social_handlers: Social networks
           twitter: X
           url: URL
+          welcome_notification: Notifiche di Benvenuto
           youtube: Youtube
         update:
           error: Si è verificato un errore durante la modifica di questa organizzazione.
@@ -887,6 +908,7 @@ it:
           up: Su
         form:
           add: Aggiungi alla lista consentita
+          title: Elenco di domini esterni consentiti
       participatory_space_private_users:
         create:
           error: Si è verificato un errore durante l'aggiunta di un utente privato per questo spazio partecipativo.
@@ -894,16 +916,45 @@ it:
         destroy:
           error: Si è verificato un errore durante l'eliminazione di un utente privato per questo spazio partecipativo.
           success: Accesso utente privato spazio distruttivo distrutto con successo.
+        edit:
+          title: Modifica partecipante privato allo spazio partecipativo.
+          update: Aggiorna
         index:
           import_via_csv: Importa da CSV
+          publish_all: Pubblica tutto
           title: Utente privato dello spazio partecipativo
+          unpublish_all: Annulla la pubblicazione di tutto
         new:
           create: Creare
           title: Nuovo utente privato dello spazio partecipativo.
+        publish_all:
+          error: Si è verificato un errore durante l'aggiunta degli utenti privati per questo spazio partecipativo.
+          success: Ha pubblicato con successo tutti i partecipanti privati per questo spazio partecipativo
+        unpublish_all:
+          error: Si è verificato un problema di annullamento della pubblicazione di tutti i partecipanti privati per questo spazio partecipativo.
+          success: Tutti i partecipanti privati per questo spazio partecipativo sono stati rimossi dalla pubblicazione con successo
+        update:
+          error: Si è verificato un errore durante l'aggiornamento dell'utente privato per questo spazio partecipativo.
+          success: Utente privato dello spazio partecipativo aggiornato con successo
       participatory_space_private_users_csv_imports:
+        create:
+          invalid: Si è verificato un problema durante la lettura del file CSV. Assicurati di aver seguito le istruzioni.
+          success: File CSV caricato con successo, stiamo inviando un'email di invito ai partecipanti. Potrebbe richiedere un po' di tempo.
         new:
           csv_upload:
             title: Carica il tuo file CSV
+          destroy:
+            button: Elimina tutti i partecipanti privati
+            confirm: Sei sicuro di voler eliminare tutti i partecipanti privati? Questa azione non può essere annullata, non sarai in grado di recuperarli.
+            empty: Non hai partecipanti privati.
+            explanation: Hai %{count} partecipanti privati.
+            title: Elimina tutti i partecipanti privati
+          example_file: 'File di esempio:'
+          explanation: 'Carica il file CSV. Il file deve contenere due colonne (e-mail e nome) senza intestazioni: nella prima sono elencati gli indirizzi e-mail degli utenti che si desidera aggiungere allo spazio partecipativo, nella seconda i loro nomi. Evita di usare caratteri non validi come `<>?%&^*#@()[]=+:;"{}\|` nella colonna dei nomi.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
+          title: Importa partecipanti privati tramite CSV
           upload: Carica File
       reminders:
         create:
@@ -914,6 +965,8 @@ it:
         edit:
           submit: Invia
           title: Modifica permessi
+        options_form:
+          ephemeral_warning: Per abilitare questo metodo di autorizzazione, è necessario revocare <a href="%{path}"></a> tutte le autorizzazioni esistenti. Ciò riduce al minimo il rischio di conflitti di verifica. Tutte le autorizzazioni di questo tipo saranno revocate automaticamente nell'organizzazione se si inviano modifiche aggiungendo questo metodo o modificandone la configurazione una volta aggiunta.
         update:
           success: Autorizzazioni aggiornate correttamente.
       scope_types:
@@ -935,6 +988,9 @@ it:
         create:
           error: Si è verificato un errore creando un nuovo ambito.
           success: OK, è stato creato il nuovo àmbito.
+        deprecated: Tenete presente che le aree sono deprecate e saranno rimosse nelle versioni future. Utilizza invece le tassonomie. L'unico modulo che usa le aree è il modulo iniziative.
+        destroy:
+          success: Ambito eliminato correttamente.
         edit:
           title: Modifica l'àmbito
           update: Aggiorna
@@ -947,7 +1003,13 @@ it:
           success: OK, l'àmbito è stato aggiornato.
       share_tokens:
         actions:
+          confirm_destroy: Sei sicuro di voler eliminare questo accesso?
+          copy_link: Copia link
           destroy: Elimina
+          edit: Modifica
+          preview: Anteprima
+        create:
+          invalid: Si è verificato un problema durante la generazione del link di accesso.
         index:
           empty_html: Non ci sono collegamenti di accesso attivi. %{new_token_link}
         update:
@@ -992,6 +1054,73 @@ it:
           without_topic: Pagine senza argomento
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa pagina.
+      taxonomies:
+        edit:
+          description: Gli elementi di questa tassonomia saranno utilizzati per classificare o filtrare le risorse, come gli spazi partecipativi o i componenti. Utilizzare il drag and drop per riordinare l'elenco.
+          new_item: Nuovo elemento
+          no_items: Al momento non ci sono elementi in questa tassonomia. Crea qui un elenco di elementi per classificare o filtrare le risorse, come spazi o componenti partecipativi. Gli elementi possono essere annidati fino a tre livelli.
+          subtitle: Elementi in "%{taxonomy_name}"
+          title: Modifica tassonomia "%{taxonomy_name}"
+          update: Aggiorna
+        filters:
+          search_placeholder: Cerca
+        index:
+          description: Tassonomie e filtri consentono agli amministratori di ordinare e organizzare i contenuti. Ad esempio, aggiungere una tassonomia con i distretti e i quartieri della città e quindi creare filtri solo con i distretti o per un quartiere specifico.
+          new_taxonomy: Nuova tassonomia
+          no_items_found: Nessuna tassonomia trovata corrispondente ai criteri di ricerca.
+        name: Nome
+        new:
+          create: Crea tassonomia
+          title: Nuova tassonomia
+        no_taxonomies: Al momento non ci sono tassonomie. Crea qui un elenco di tassonomie e definisci gli elementi in ciascuna di esse per classificare o filtrare le risorse.
+        table:
+          to_next_page: Trascinare per la pagina successiva
+          to_prev_page: Trascinare sopra per la pagina precedente
+        taxonomy_actions:
+          confirm_destroy: 'Sei sicuro di voler eliminare %{name}? Questo eliminerà anche tutti gli elementi figli. NOTA: Le risorse che stanno usando questa tassonomia non saranno influenzate, ma perderanno il riferimento a questa tassonomia.'
+        total_filters: Filtri
+        total_items: Elementi nella tassonomia
+        update:
+          invalid: Si è verificato un errore durante l'aggiornamento di questa tassonomia.
+          success: Tassonomia aggiornata con successo.
+      taxonomy_filters:
+        actions:
+          new_taxonomy_filter: Nuovo filtro tassonomico
+        breadcrumb:
+          edit: Modifica filtro
+          filters: Filtri
+          new: Nuovo filtro
+        create:
+          error: Si è verificato un errore durante la creazione di questo filtro tassonomico.
+          success: Tassonomia aggiornata con successo.
+        destroy:
+          error: Si è verificato un errore durante la cancellazione di questo filtro tassonomico.
+          success: Filtro tassonomia cancellato.
+        edit:
+          back: Indietro
+          title: Modifica filtro tassonomia
+          update: Aggiorna filtro tassonomia
+        form:
+          all: Tutti
+          name_help: Il titolo del filtro da visualizzare nel frontend.
+          no_items: Nessun elemento disponibile per questa tassonomia. Puoi creare elementi nelle impostazioni di configurazione della tassonomia.
+          space_filter: Disponibile come filtro per
+        index:
+          description: Un filtro tassonomico consente agli amministratori di ordinare e filtrare gli spazi partecipativi in base a una tassonomia. Ad esempio, aggiungi un filtro tassonomico per ordinare i processi per ambito geografico.
+          empty: Al momento non ci sono filtri tassonomici. Crea qui un elenco di filtri tassonomici per ordinare e filtrare gli spazi partecipativi basati su una tassonomia.
+          new_filter: Nuovo filtro
+        new:
+          back: Indietro
+          create: Crea filtro tassonomia
+          title: Nuovo filtro tassonomico
+        table:
+          actions: Azioni
+          components_count: Componenti che utilizzano questo
+          confirm_destroy: 'Sei sicuro di voler eliminare il filtro %{name}? NOTA: Le risorse che stanno usando questo filtro non saranno influenzate, ma perderanno il riferimento a questo filtro.'
+          destroy: Cancella
+          edit: Modifica
+          internal_name: Etichetta interna
+          name: Etichetta
       titles:
         admin_log: Registro di amministrazione
         area_types: Tipi di ambito territoriale
@@ -1047,10 +1176,14 @@ it:
       models:
         moderation:
           fields:
+            deleted_resource: Risorsa eliminata
             hidden_at: Nascosto a
             participatory_space: Spazio partecipativo
+            report_count: Numero di segnalazioni
+            reportable_id: ID
             reportable_type: Tipo
             reported_content_url: URL del contenuto riportato
+            reports: Motivo
             visit_url: Visita URL
         report:
           fields:
@@ -1065,3 +1198,7 @@ it:
       admin:
         global_moderations:
           title: Moderazione globale
+        insights:
+          title: Approfondimenti
+        taxonomy_filters_selector:
+          title: Filtri
