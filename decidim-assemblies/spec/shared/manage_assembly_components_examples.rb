@@ -61,7 +61,7 @@ shared_examples "manage assembly components" do
       before do
         within "tr", text: translated(attributes[:name]) do
           find("button[data-component='dropdown']").click
-          click_on "Edit"
+          click_on "Configure"
         end
       end
 
@@ -103,7 +103,7 @@ shared_examples "manage assembly components" do
     it "updates the component" do
       within ".component-#{component.id}" do
         find("button[data-component='dropdown']").click
-        click_on "Edit"
+        click_on "Configure"
       end
 
       within ".edit_component" do
@@ -129,7 +129,7 @@ shared_examples "manage assembly components" do
 
       within "tr", text: translated(attributes[:name]) do
         find("button[data-component='dropdown']").click
-        click_on "Edit"
+        click_on "Configure"
       end
 
       within ".global-settings" do

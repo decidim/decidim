@@ -6,7 +6,7 @@ shared_examples "access permissions form" do
   it "can view the permissions" do
     within "tr", text: row_text do
       find("button[data-component='dropdown']").click
-      click_on "Permissions"
+      click_on "Manage permissions"
     end
     expect(page).to have_content("Edit permissions")
   end
