@@ -14,6 +14,7 @@ class CreateDecidimElectionsVotes < ActiveRecord::Migration[7.2]
 
     add_column :decidim_elections_response_options, :votes_count, :integer, default: 0, null: false
     add_column :decidim_elections_questions, :votes_count, :integer, default: 0, null: false
+    add_column :decidim_elections_questions, :response_options_count, :integer, default: 0, null: false
     add_column :decidim_elections_elections, :votes_count, :integer, default: 0, null: false
   end
 end

@@ -7,6 +7,10 @@ module Decidim
       class InternalUsersForm < Decidim::Form
         validate :user_authenticated
 
+        def voter_uid
+          @voter_uid ||= election.census.users(election).find_by(id: current_user&.id)&.to_global_id&.to_s
+        end
+
         def election
           @election ||= context.election
         end
@@ -43,7 +47,7 @@ module Decidim
         end
 
         def in_census?
-          election.census.users(election).exists?(id: current_user&.id)
+          voter_uid.present?
         end
 
         private

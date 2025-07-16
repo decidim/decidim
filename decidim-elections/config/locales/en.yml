@@ -238,12 +238,10 @@ en:
             results_published: Results published
             scheduled: Scheduled
         orders:
-          end_at: Ended at
+          end_at: Ending date
           label: Order by
-          random: Random
           recent: Recent
-          start_at: Started at
-          updated: Updated
+          start_at: Starting date
         questions:
           subtitle: 'These are the questions fot this voting process:'
           title: Election questions

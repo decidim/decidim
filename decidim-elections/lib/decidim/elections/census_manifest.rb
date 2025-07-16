@@ -43,7 +43,7 @@ module Decidim
         I18n.t("decidim.elections.censuses.#{name}.label", default: name.to_s.humanize)
       end
 
-      # Instead of individually defining "user_validator", "census_ready_validator", "census_counter" and "user_iterator",
+      # Instead of individually defining "user_validator", "census_ready_validator"  and "user_iterator",
       # if the user list can be obtained by a SQL query, a user_query can be specified and the rest of the methods will be defined automatically.
       # If used, the called block will receive the election object and should return an ActiveRecord::Relation
       def user_query(&block)
@@ -65,35 +65,6 @@ module Decidim
       # a callback that will be called by the method "census_ready?"
       def census_ready_validator(&block)
         @on_census_validation = block
-      end
-
-      # a callback that will be called by the method "count"
-      def census_counter(&block)
-        @on_census_count = block
-      end
-
-      # a callback that will be called by the method "users"
-      def user_iterator(&block)
-        @on_user_iteration = block
-      end
-
-      def form_instance(data = {}, context = {})
-        form_class = voter_form.constantize
-        form_class.from_params(data).with_context(context)
-      end
-
-      # validates the user using the Proc defined by user_validator
-      # Receives the election object and user data (will depend on the census type))
-      def valid_user?(election, data, context = {})
-        if @on_user_validation
-          @on_user_validation.call(election, data)
-        elsif voter_form.present?
-          form_instance(data, context.merge(election:)).valid?
-        elsif @user_query && context.is_a?(Decidim::User)
-          @user_query.call(election).exists?(id: context.id)
-        else
-          false
-        end
       end
 
       # validates the census using the Proc defined by census_ready_validator
@@ -121,6 +92,18 @@ module Decidim
         end
       end
 
+      # a callback that will be called by the method "users"
+      def user_iterator(&block)
+        @on_user_iteration = block
+      end
+
+      def form_instance(data = {}, context = {})
+        return unless voter_form.present?
+
+        form_class = voter_form.constantize
+        form_class.from_params(data).with_context(context)
+      end
+
       def users(election, offset = 0, limit = 5)
         if @on_user_iteration
           @on_user_iteration.call(election, offset, limit)
@@ -133,14 +116,26 @@ module Decidim
       end
 
       # Generates a unique voter identifier based on the provided data
-      def voter_uid(data)
-        if @on_voter_uid_generation
-          @on_voter_uid_generation.call(data)
-        elsif data.respond_to?(:to_global_id)
-          # If the data is a Decidim::User or similar, we can use its global ID
-          Digest::SHA256.hexdigest(data.to_global_id.to_s)
+      # Receives the election object and user data (will depend on the census type))
+      # returns nil if the identifier cannot be generated
+      def voter_uid(election, data, context = {})
+        return @on_voter_uid_generation.call(data) if @on_voter_uid_generation
+
+        if (form = form_instance(data, context.merge(election:)))
+          return unless form.valid?
+
+          return form.voter_uid if form.respond_to?(:voter_uid)
+        end
+        @user_query.call(election).find_by(id: context.id)&.to_global_id if @user_query && context.is_a?(Decidim::User)
+      end
+
+      # validates the user using the Proc defined by user_validator
+      # Receives the same parameters as voter_uid
+      def valid_user?(election, data, context = {})
+        if @on_user_validation
+          @on_user_validation.call(election, data)
         else
-          Digest::SHA256.hexdigest(data.to_s)
+          voter_uid(election, data, context).present?
         end
       end
     end

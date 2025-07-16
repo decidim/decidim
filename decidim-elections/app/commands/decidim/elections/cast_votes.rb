@@ -3,10 +3,10 @@
 module Decidim
   module Elections
     class CastVotes < Decidim::Command
-      def initialize(election, data, credentials)
+      def initialize(election, data, voter_uid)
         @election = election
         @data = data
-        @credentials = credentials
+        @voter_uid = voter_uid
       end
 
       def call
@@ -25,7 +25,7 @@ module Decidim
 
       private
 
-      attr_reader :election, :credentials, :data
+      attr_reader :election, :voter_uid, :data
 
       def voted_questions
         @voted_questions ||= election.available_questions.where(id: data.keys).filter_map do |question|
@@ -37,17 +37,10 @@ module Decidim
       def save_votes!
         voted_questions.each do |question, responses|
           responses.each do |response_option|
-            vote = question.votes.find_or_initialize_by(
-              voter_uid: voter_uid,
-              response_option: response_option
-            )
+            vote = question.votes.find_or_initialize_by(voter_uid:, response_option:)
             vote.save!
           end
         end
-      end
-
-      def voter_uid
-        @voter_uid ||= election.census.voter_uid(credentials)
       end
     end
   end

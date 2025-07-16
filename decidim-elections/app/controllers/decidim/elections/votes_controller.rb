@@ -8,7 +8,7 @@ module Decidim
 
       include Decidim::FormFactory
 
-      helper_method :exit_path, :election, :questions, :question, :response_chosen?, :votes_buffer, :editing?, :session_authenticated?
+      helper_method :exit_path, :election, :questions, :question, :response_chosen?, :votes_buffer, :editing?
 
       delegate :count, to: :questions, prefix: true
 
@@ -32,13 +32,14 @@ module Decidim
         @form = election.census.form_instance({}, election:, current_user:)
       end
 
-      # If the election has a census manifest that requires authentication, create the session credentials
+      # If the election has a census manifest that requires authentication
+      # create the session attributes for subsequent automatic validation
       def create
         enforce_permission_to(:create, :vote, election:)
 
         @form = election.census.form_instance(params, election:, current_user:)
         if @form.valid?
-          session_credentials = @form.attributes # rubocop:disable Lint/UselessAssignment
+          session[:session_attributes] = @form.attributes
           redirect_to question_path(question)
         else
           flash[:alert] = @form.errors.full_messages.join("<br>").presence || t("failed", scope: "decidim.elections.votes.check_census")
@@ -56,9 +57,10 @@ module Decidim
         save_vote!
 
         if election.per_question?
-          CastVotes.call(election, votes_buffer, session_credentials) do
+          vote = { question.id.to_s => params.dig(:response, question.id.to_s) }
+          CastVotes.call(election, vote, voter_uid) do
             on(:ok) do
-              session[:voter_uid] = election.census.voter_uid(session_credentials)
+              session[:voter_uid] = voter_uid
               flash[:notice] = t("votes.cast.success", scope: "decidim.elections")
             end
 
@@ -96,11 +98,11 @@ module Decidim
       # Casts the votes that have been saved in the session and redirects to the receipt page
       # Does not apply to per-question elections, as they cast votes on each question update
       def cast
-        CastVotes.call(election, votes_buffer, session_credentials) do
+        CastVotes.call(election, votes_buffer, voter_uid) do
           on(:ok) do
             votes_buffer.clear
-            session[:voter_uid] = election.census.voter_uid(session_credentials)
-            session_credentials.clear
+            session[:voter_uid] = voter_uid
+            session_attributes.clear
             redirect_to receipt_election_votes_path(election), notice: t("votes.cast.success", scope: "decidim.elections")
           end
 
@@ -117,20 +119,24 @@ module Decidim
 
         @voter_uid = session[:voter_uid]
         votes_buffer.clear
-        session_credentials.clear
+        session_attributes.clear
         redirect_to(exit_path) unless election.votes.exists?(voter_uid: @voter_uid)
       end
 
       private
 
       def session_authenticated?
-        election.census.valid_user?(election, session_credentials, current_user:)
+        @session_authenticated ||= election.census.valid_user?(election, session_attributes, current_user:)
+      end
+
+      def voter_uid
+        @voter_uid ||= election.census.voter_uid(election, session_attributes, current_user:)
       end
 
       def waiting_for_next_question?
         return false unless election.per_question?
 
-        election.per_question_waiting? || questions.disabled.any?
+        election.per_question_waiting? || election.questions.disabled.any?
       end
 
       def exit_path
@@ -179,8 +185,8 @@ module Decidim
         session[:votes_buffer] ||= {}
       end
 
-      def session_credentials
-        session[:session_credentials] ||= {}
+      def session_attributes
+        session[:session_attributes] ||= {}
       end
 
       def editing?

@@ -18,7 +18,6 @@ module Decidim
       include Decidim::Searchable
       include Decidim::Reportable
       include Decidim::FilterableResource
-      include Decidim::Randomable
       include ActionView::Helpers::NumberHelper
 
       RESULTS_AVAILABILITY_OPTIONS = %w(real_time per_question after_end).freeze
@@ -29,8 +28,7 @@ module Decidim
                foreign_key: "decidim_election_id",
                class_name: "Decidim::Elections::Vote",
                through: :questions,
-               dependent: :restrict_with_error,
-               counter_cache: "votes_count"
+               dependent: :restrict_with_error
 
       component_manifest_name "elections"
 
@@ -169,9 +167,10 @@ module Decidim
           id: id,
           ongoing: ongoing?,
           status: status,
-          start_date: start_at,
-          end_date: end_at,
+          start_date: start_at&.iso8601,
+          end_date: end_at.iso8601,
           title: translated_attribute(title),
+          description: translated_attribute(description),
           questions: available_questions.map do |question|
             {
               id: question.id,
@@ -185,7 +184,7 @@ module Decidim
                   next unless admin || result_published_questions.include?(question)
 
                   hash[:votes_count] = option.votes_count
-                  hash[:votes_count_text] = I18n.t("votes_count", scope: "decidim.elections.elections.show", count: option.votes_count + rand(1..10))
+                  hash[:votes_count_text] = I18n.t("votes_count", scope: "decidim.elections.elections.show", count: option.votes_count)
                   hash[:votes_percent_text] = number_to_percentage(option.votes_percent, precision: 1)
                   hash[:votes_percent] = option.votes_percent
                 end

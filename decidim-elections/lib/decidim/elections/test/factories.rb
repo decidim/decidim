@@ -67,7 +67,7 @@ FactoryBot.define do
 
     trait :with_questions do
       after :create do |election, _evaluator|
-        create_list(:election_question, 2, election:)
+        create_list(:election_question, 2, :with_response_options, :voting_enabled, election:)
       end
     end
 

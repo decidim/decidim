@@ -4,8 +4,8 @@ module Decidim
   module Elections
     class Vote < Elections::ApplicationRecord
       include Decidim::Traceable
-      belongs_to :question, class_name: "Decidim::Elections::Question"
-      belongs_to :response_option, class_name: "Decidim::Elections::ResponseOption", counter_cache: true
+      belongs_to :question, class_name: "Decidim::Elections::Question", counter_cache: true, inverse_of: :votes
+      belongs_to :response_option, class_name: "Decidim::Elections::ResponseOption", counter_cache: true, inverse_of: :votes
 
       attr_readonly :voter_uid, :question_id
 
@@ -14,6 +14,7 @@ module Decidim
       validates :response_option, uniqueness: { scope: [:question_id, :voter_uid, :response_option_id] }
       validate :max_votable_options
 
+      delegate :election, to: :question
       # To ensure records cannot be deleted
       before_destroy { |_record| raise ActiveRecord::ReadOnlyRecord }
 

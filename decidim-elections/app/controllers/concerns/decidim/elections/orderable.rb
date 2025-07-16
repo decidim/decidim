@@ -20,19 +20,17 @@ module Decidim
 
         def possible_orders
           @possible_orders ||= begin
-            possible_orders = %w(random recent start_at end_at)
+            possible_orders = %w(recent start_at end_at)
             possible_orders
           end
         end
 
         def default_order
-          "updated"
+          "recent"
         end
 
         def reorder(elections)
           case order
-          when "random"
-            elections.order_randomly(random_seed)
           when "recent"
             elections.order(published_at: :desc)
           when "start_at"
