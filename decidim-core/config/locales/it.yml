@@ -4,10 +4,19 @@ it:
     attributes:
       account:
         delete_reason: Motivo per il quale vuoi eliminare il tuo account
+      attachment:
+        documents: Documenti
+        image: Immagine
+        photos: Foto
       common:
         created_at: Creato il
+      content_block_attachment:
+        background_image: Immagine di sfondo
+        main_image: Immagine principale
       conversation:
         body: Testo
+      editor_image:
+        file: File
       group:
         about: Dettagli
         avatar: Immagine del profilo
@@ -16,35 +25,56 @@ it:
         name: Nome
         nickname: Pseudonimo
         phone: Telefono
+      import:
+        file: File
       message:
         body: Testo
       report:
         details: Ulteriori commenti
       user:
         about: Di
+        avatar: Immagine del profilo
         email: La tua email
+        encrypted_password: Password
+        locale: Localizzazione
         name: Nome utente
         nickname: Nickname
+        old_password: Password corrente
         password: Password
         password_confirmation: Conferma la tua password
         personal_url: Pagina personale
         remove_avatar: Rimuovi avatar
+        tos_agreement: Condizioni contrattuali di servizio
       user_group:
         avatar: Immagine del profilo
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: Il nickname deve essere minuscolo e non contenere spazi
     models:
       decidim/attachment_created_event: Allegato
       decidim/component_published_event: Componente attivo
       decidim/demoted_membership: Non è più un amministratore di gruppo
       decidim/gamification/badge_earned_event: Badge guadagnato
+      decidim/gamification/level_up_event: Hai raggiunto il livello
+      decidim/invited_to_group_event:
       decidim/join_request_accepted_event: Richiesta di adesione accettata
       decidim/join_request_rejected_event: Richiesta di adesione rifiutata
       decidim/profile_updated_event: profilo aggiornato
       decidim/promote_to_admin: Promosso ad amministratore del gruppo
+      decidim/promoted_to_admin_event: Promosso a amministratore di gruppo
       decidim/removed_from_group: Rimosso dal gruppo
       decidim/resource_endorsed_event: Risorsa approvata
+      decidim/resource_hidden_event: Risorsa nascosta
       decidim/user_group_created_event: Gruppo utenti creato
+      decidim/welcome_notification_event: Messaggio di benvenuto
   activerecord:
     attributes:
+      decidim/action_log:
+        created_at: Ora
+        with_participatory_space: Spazio partecipativo
       decidim/user:
         current_password: Password attuale
         email: Email
@@ -74,10 +104,32 @@ it:
       select: Selezionare
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_dashed: "%d-%m-%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+      help:
+        date_format: 'Formato: gg/mm/aaaa'
+      order: d-m-y
+      separator: "/"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: circa 1 ora
+        other: circa %{count} ore
+      half_a_minute: mezzo minuto
+      short:
+        about_x_days: "%{count} giorni"
+        about_x_hours: "%{count} ore"
+        about_x_minutes: "%{count} minuti"
+        about_x_years: "%{count} anni"
+        almost_x_years: "%{count} anni"
+        half_a_minute: 1m
+        less_than_x_minutes: "%{count} minuti"
+        less_than_x_seconds: "%{count} secondi"
+        over_x_years: "%{count} anni"
+        x_days: "%{count} giorni"
   decidim:
     accessibility:
       external_link: Collegamento esterno
@@ -110,11 +162,27 @@ it:
         create: "%{user_name} ha creato l'area %{resource_name}"
         delete: "%{user_name} ha eliminato l'area %{resource_name}"
         update: "%{user_name} ha aggiornato l'area %{resource_name}"
+      attachment_collection:
+        delete: "%{user_name} ha eliminato la collezione di allegati %{resource_name}"
+        update: "%{user_name} ha aggiornato la collezione di allegati %{resource_name}"
+      category:
+        create: "%{user_name} ha aggiunto la categoria %{resource_name} allo spazio %{space_name}"
+        delete: "%{user_name} ha eliminato la categoria %{resource_name} dallo spazio %{space_name}"
+        update: "%{user_name} ha aggiornato la categoria %{resource_name} nello spazio %{space_name}"
       component:
         create: "%{user_name} ha aggiunto il componente %{resource_name} allo spazio %{space_name}"
         delete: "%{user_name} rimosso il componente %{resource_name} dallo spazio %{space_name}"
+        export_component: "%{user_name} ha esportato l' %{resource_name} %{component_name} in %{space_name} come %{format_name}"
         publish: "%{user_name} ha pubblicato il componente %{resource_name} nello spazio %{space_name}"
         unpublish: "%{user_name} non pubblicato il componente %{resource_name} dallo spazio %{space_name}"
+        update_permissions_with_space: "%{user_name} ha aggiornato i permessi di %{resource_name} in %{space_name}"
+      contextual_help_section:
+        update: "%{user_name} ha aggiornato la sezione di aiuto %{resource_name}"
+      helpers:
+        answers: risposte
+        comments: commenti
+        projects: progetti
+        results: resultati
       impersonation_log:
         manage: "%{user_name} è stato moderato %{resource_name} perché %{reason}"
       moderation:
@@ -131,6 +199,7 @@ it:
         update: "%{user_name} ha aggiornato l'applicazione OAuth %{resource_name}"
       organization:
         update: "%{user_name} aggiornato le impostazioni dell'organizzazione"
+        update_external_domain: "%{user_name} ha aggiornato i domini esterni dell'organizzazione"
       participatory_space_private_user:
         create: "%{user_name} invitato %{resource_name} a essere un utente privato"
         create_via_csv: "%{user_name} ha invitato %{resource_name} tramite csv a unirsi come partecipante privato"
@@ -142,6 +211,10 @@ it:
         delete_with_parent: "%{user_name} eliminato l'ambito %{resource_name} all'interno dell'ambito %{parent_scope}"
         update: "%{user_name} ha aggiornato l'ambito %{resource_name}"
         update_with_parent: "%{user_name} ha aggiornato l'ambito %{resource_name} all'interno dell'ambito %{parent_scope}"
+      scope_type:
+        create: "%{user_name} ha creato il tipo d'ambito %{resource_name}"
+        delete: "%{user_name} ha eliminato il tipo di ambito %{resource_name}"
+        update: "%{user_name} ha aggiornato il tipo di ambito %{resource_name}"
       static_page:
         create: "%{user_name} creato il %{resource_name} pagina statica"
         delete: "%{user_name} cancellato il %{resource_name} pagina statica"
@@ -157,11 +230,15 @@ it:
         unblock: "%{user_name} ha sbloccato l'utente %{resource_name}"
         unofficialize: "%{user_name} utente non ufficiale %{resource_name}"
       user_group:
+        block: "%{user_name} ha bloccato il gruppo utente %{resource_name}"
         reject: "%{user_name} respinto il %{resource_name} verifica del gruppo di utenti"
+        unblock: "%{user_name} ha bloccato il gruppo utente %{resource_name}"
         verify: "%{user_name} verificato il %{resource_name} gruppo di utenti"
         verify_via_csv: "%{user_name} verificato il %{resource_name} gruppo di utenti tramite un file CSV"
       user_moderation:
         unreport: "%{user_name} ha de-segnalato un %{resource_type} - %{unreported_user_name}"
+    admin_terms_of_service:
+      default_body: "<h2>TERMINI DI UTILIZZO PER L'AMMINISTRATORE</h2><p>Ci auguriamo che tu abbia ricevuto la usuale raccomandazione dall'amministratore di sistema. Solitamente si riduce a queste tre cose:</p><ol><li>Rispetta la privacy degli altri.</li><li>Pensa prima di cliccare.</li><li>Da grande potenzialità derivano grandi responsabilità.</li></ol>"
     alert:
       dismiss: Rimuovi notifica
     amendments:
@@ -173,6 +250,7 @@ it:
         error: Si è verificato un errore durante la modifica di questa risorsa.
         promote_button: Promuovi a %{model_name}
         promote_confirm_text: Sei sicuro di voler promuovere questa emendazione?
+        promote_help_text: Puoi promuovere questa modifica e pubblicarla come %{model_name} indipendente.
       created:
         error: Si è verificato un errore durante la creazione della proposta di emendamento.
         success: La proposta di emendamento è stata creata con successo.
@@ -658,37 +736,70 @@ it:
     group_admins:
       actions:
         demote_admin: Rimuovi l'amministratore
+      demote:
+        error: Si è verificato un errore durante la rimozione di questo utente dall'elenco degli amministratori.
+        success: Partecipante rimosso correttamente dall'elenco degli amministratori.
       index:
         current_admins: 'Amministratori attuali:'
         manage_admins: Gestisci amministratori
     group_invites:
+      accept:
+        error: Si è verificato un errore durante l'accettazione di questo invito.
+        success: Invito accettato con successo.
       accept_invitation: Accettato
       accept_or_reject_group_invitations: 'I seguenti gruppi ti hanno invitato a unirti a loro. Accetta o rifiuta le loro richieste:'
       index:
         invite: Invitare
         invite_user: Invita un utente
+      invite:
+        error: Si è verificato un problema nell'invitare questo partecipante.
+        success: Partecipante invitato con successo.
+      pending_invitations: Richieste in sospeso
+      reject:
+        error: Si è verificato un errore nel rifiutare questo invito.
+        success: Invito rifiutato con successo.
       reject_invitation: Rifiutato
     group_members:
+      accept:
+        error: Si è verificato un errore accettando questa richiesta di iscrizione.
+        success: Richiesta di iscrizione accettata con successo.
       actions:
         promote_to_admin: Rendere amministratore
         remove_from_group: Rimuovi utente
       index:
         current_members_without_admins: 'Membri attuali (senza amministratori):'
         manage_members: Gestisci i membri
+      promote:
+        error: Si è verificato un errore nel promuovere questo partecipante.
+        success: Partecipante promosso con successo.
+      reject:
+        error: Si è verificato un problema rifiutando questa richiesta di iscrizione.
+        success: Richiesta di iscrizione rifiutata con successo.
+      remove:
+        error: Si è verificato un errore durante la rimozione di questo utente dal gruppo.
+        success: Partecipante rimosso con successo dal gruppo.
     groups:
       actions:
         are_you_sure: Sei sicuro?
+      create:
+        error: Si è verificato un errore durante la creazione del gruppo.
+        success: Gruppo creato con successo.
       edit:
         edit_user_group: Modifica gruppo
         update_user_group: Gruppo di aggiornamento
       form:
+        document_number_help: Non usare trattini né spazi.
         email_help: Email della tua organizzazione, associazione, collettivo, gruppo, ecc.
         fill_in_for_verification: 'Compila questi campi se vuoi che il tuo gruppo sia verificato:'
         name_help: Nome della tua organizzazione, associazione, collettivo, gruppo, ecc.
         nickname_help: Nome utente della propria organizzazione, associazione, collettivo, gruppo, ecc. Non utilizzare spazi né accenti.
+        phone_help: Non usare trattini né spazi.
       join:
+        error: Si è verificato un problema ad unirsi al gruppo.
         success: Richiesta di unione creata con successo. Un amministratore esaminerà la tua richiesta prima di accettarti nel gruppo.
       leave:
+        error: Si è verificato un problema lasciando il gruppo.
+        last_admin: Non puoi rimuovere te stesso da questo gruppo perché sei l'ultimo amministratore. Rendi un altro membro un amministratore per lasciare il gruppo.
         success: Gruppo lasciato con successo.
       members:
         accept_or_reject_join_requests: 'I seguenti utenti hanno chiesto di unirsi a questo gruppo. Accetta o rifiuta le loro richieste:'
@@ -698,9 +809,13 @@ it:
         create_user_group: Crea un gruppo
         new_user_group: Nuovo gruppo
         subtitle: Crea un gruppo e invita altri utenti a partecipare per partecipare a un livello collettivo.
+      no_user_groups: Non appartiene ancora a nessun gruppo.
       roles:
         admin: Amministratore
         member: Membro
+      update:
+        error: Si è verificato un errore durante l'aggiornamento del gruppo.
+        success: Gruppo aggiornato con successo.
     help:
       main_topic:
         default_page:
@@ -746,6 +861,8 @@ it:
       static:
         latlng_text: 'latitudine: %{latitude}, longitudine: %{longitude}'
         map_service_brand: Mappa OpenStreet
+    members:
+      no_members: Questo gruppo non ha ancora membri.
     menu:
       help: Aiuto
       home: Home
@@ -913,6 +1030,7 @@ it:
     profile:
       deleted: Utente eliminato
     profiles:
+      default_officialization_text_for_user_groups: Questo gruppo è verificato pubblicamente, il suo nome è stato verificato per corrispondere al suo vero nome.
       show:
         activity: Attività
         badges: badge
@@ -933,9 +1051,12 @@ it:
           invite_user: Invita utente
           join_user_group: Richiesta di iscrizione al gruppo
           leave_user_group: Lascia il gruppo
+          manage_user_group: Gestisci gruppo
           manage_user_group_admins: Gestisci amministratori
           manage_user_group_users: Gestisci i membri
           resend_email_confirmation_instructions: Rispedire le istruzioni per la conferma dell'email
+        confirmation_instructions_sent: Istruzioni di conferma e-mail inviate.
+        fill_in_email_to_confirm_it: Per favore, inserisci l'email del tuo gruppo per confermarlo.
     reported_mailer:
       report:
         authors: Autori
@@ -1063,6 +1184,7 @@ it:
     user_contact_disabled: Questo partecipante non accetta messaggi diretti.
     user_conversations:
       create:
+        error: Impossibile creare il messaggio. Riprova più tardi.
         existing_error: Il messaggio non può essere creato. La conversazione esiste già, riprova ora.
         success: Conversazione iniziata con successo!
       index:
@@ -1077,6 +1199,8 @@ it:
     user_interests:
       show:
         my_interests: I miei interessi
+        no_scopes: Questa organizzazione non ha ancora alcun scopo!
+        select_your_interests: Seleziona gli argomenti a cui sei interessato per ricevere gli eventi correlati nella scheda Timeline del tuo profilo.
         update_my_interests: Aggiorna i miei interessi
       update:
         error: Si è verificato un errore durante l'aggiornamento dei tuoi interessi.
