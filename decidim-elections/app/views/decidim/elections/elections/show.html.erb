@@ -1,5 +1,5 @@
 <% add_decidim_meta_tags(
-     description: present(election).description,
+     description: decidim_sanitize_translated(election.description),
      title: present(election).title,
      url: election_url(election.id),
      resource: election) %>
@@ -24,10 +24,10 @@
 
   <section class="layout-main__section layout-main__heading">
     <h1 class="h2 decorator">
-      <%= present(election).title %>
+      <%== present(election).title(links: true, html_escape: true) %>
     </h1>
     <div class="editor-content">
-      <p><%= present(election).description %></p>
+      <p><%= decidim_sanitize_editor_admin(translated_attribute(election.description)) %></p>
     </div>
   </section>
 
