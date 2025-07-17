@@ -228,8 +228,8 @@ en:
             one: "%{count} election"
             other: "%{count} elections"
         elections:
-          empty_filters: There are no elections matching your filters.
           empty: There are no elections available.
+          empty_filters: There are no elections matching your filters.
         filters:
           all: All
           state: Status
