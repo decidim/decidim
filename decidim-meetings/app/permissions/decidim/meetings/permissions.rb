@@ -12,6 +12,12 @@ module Decidim
 
         return Decidim::Meetings::MeetingPermissions.new(user, permission_action, context).permissions if subject == :meeting
 
+        toggle_allow(can_respond_question?) if subject == :response && action == :create
+
+        toggle_allow(can_update_question?) if subject == :question && action == :update
+
+        toggle_allow(can_update_poll?) if subject == :poll && action == :update
+
         return permission_action unless user
 
         permission_action
@@ -32,6 +38,21 @@ module Decidim
         return false unless user
 
         participatory_space.participatory_space_private_users.exists?(decidim_user_id: user.id)
+      end
+
+      def can_update_poll?
+        user.present? &&
+          user.admin? &&
+          meeting.present? &&
+          meeting.poll.present?
+      end
+
+      def can_respond_question?
+        question.present? && user.present? && !question.responded_by?(user)
+      end
+
+      def can_update_question?
+        user.present? && user.admin? && question.present?
       end
     end
   end

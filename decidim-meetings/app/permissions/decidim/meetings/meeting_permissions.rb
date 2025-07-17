@@ -15,22 +15,7 @@ module Decidim
 
         return permission_action unless user
 
-        toggle_allow(can_respond_question?) if subject == :response && action == :create
-
-        toggle_allow(can_update_question?) if subject == :question && action == :update
-
-        toggle_allow(can_update_poll?) if subject == :poll && action == :update
-
-        toggle_allow(can_join_meeting?) if action == :join
-        toggle_allow(can_join_waitlist?) if action == :join_waitlist
-        toggle_allow(can_leave_meeting?) if action == :leave
-        toggle_allow(can_decline_invitation?) if action == :decline_invitation
-        toggle_allow(can_create_meetings?) if action == :create
-        toggle_allow(can_update_meeting?) if action == :update
-        toggle_allow(can_withdraw_meeting?) if action == :withdraw
-        toggle_allow(can_close_meeting?) if action == :close
-        toggle_allow(can_register_invitation_meeting?) if action == :register
-        toggle_allow(can_reply_poll?) if action == :reply_poll
+        meeting_actions
 
         permission_action
       end
@@ -39,6 +24,24 @@ module Decidim
 
       def meeting
         @meeting ||= context.fetch(:meeting, nil)
+      end
+
+      def meeting_actions
+        action_permissions = {
+          join: :can_join_meeting?,
+          join_waitlist: :can_join_waitlist?,
+          leave: :can_leave_meeting?,
+          decline_invitation: :can_decline_invitation?,
+          create: :can_create_meetings?,
+          update: :can_update_meeting?,
+          withdraw: :can_withdraw_meeting?,
+          close: :can_close_meeting?,
+          register: :can_register_invitation_meeting?,
+          reply_poll: :can_reply_poll?
+        }
+
+        permission_method = action_permissions[action]
+        toggle_allow(send(permission_method)) if permission_method
       end
 
       def can_join_meeting?
