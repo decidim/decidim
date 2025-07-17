@@ -73,7 +73,7 @@ shared_examples "an uncommentable component" do
       context "when comments are disabled" do
         let(:comments_enabled) { false }
 
-        it "does not display any commment" do
+        it "does not display any comment" do
           expect(page).to have_content("1 results for the search")
 
           within "aside.layout-2col__aside #dropdown-menu-search" do
