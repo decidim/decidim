@@ -12,6 +12,9 @@ eu:
           election_census: Errolda
           election_dashboard: Kontrol-panela
           election_questions: Galderak
+      tooltips:
+        deleted_elections_info: Ezin da ezabatu aukera hau
+        edit_elections_info: Ezin da editatu aukera hau
     components:
       elections:
         actions:
