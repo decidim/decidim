@@ -49,7 +49,8 @@ module Decidim
             # note that this does not necessarily mean that the user is authorized (as the authorization handler may have restricting attributes)
             Decidim::AuthorizedUsers.new(
               organization: election.organization,
-              handlers: election.census_settings["authorization_handlers"]&.keys
+              handlers: election.census_settings["authorization_handlers"]&.keys,
+              strict: true
             ).query
           end
           # census is dynamic, so we do not need to validate it

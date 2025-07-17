@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
       createAdditionalQuestions(data);
       // repeat for ongoing elections only
       if (data.ongoing) {
-        setTimeout(fetchResults, 5000);
+        setTimeout(fetchResults, 4000);
       }
     } catch (error) {
       console.error("Error fetching results:", error);

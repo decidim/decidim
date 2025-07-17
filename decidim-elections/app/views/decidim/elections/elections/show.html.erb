@@ -24,7 +24,7 @@
 
   <section class="layout-main__section layout-main__heading">
     <h1 class="h2 decorator">
-      <%== present(election).title(links: true, html_escape: true) %>
+      <%== present(election).title(html_escape: true) %>
     </h1>
     <div class="editor-content">
       <p><%= decidim_sanitize_editor_admin(translated_attribute(election.description)) %></p>
@@ -36,12 +36,12 @@
   </section>
 
   <section class="layout-main__section">
-    <div><%= render partial: "questions", locals: { questions: } %></div>
+    <div class="questions-list"><%= render partial: "questions", locals: { questions: } %></div>
   </section>
 
   <% if election.result_published_questions.any? %>
     <section class="layout-main__section">
-      <div><%= render partial: "vote_statistics", locals: { questions: election.result_published_questions } %></div>
+      <div class="results-list"><%= render partial: "vote_statistics", locals: { questions: election.result_published_questions } %></div>
     </section>
   <% end %>
 <% end %>

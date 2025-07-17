@@ -18,7 +18,7 @@ module Decidim
         end
 
         def census_user
-          election.census.users(election).where("data->>'email' = ? AND data->>'token' = ?", email.strip.downcase, token.strip)&.first
+          election.census.users(election).where("data->>'email' = ? AND data->>'token' = ?", email&.strip&.downcase, token&.strip)&.first
         end
 
         def election

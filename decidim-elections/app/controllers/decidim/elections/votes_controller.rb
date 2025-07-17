@@ -137,7 +137,7 @@ module Decidim
       def waiting_for_next_question?
         return false unless election.per_question?
 
-        election.per_question_waiting? || election.questions.disabled.any?
+        election.per_question_waiting? && next_pending_question.nil?
       end
 
       def exit_path
@@ -165,7 +165,7 @@ module Decidim
         return question&.next_question if editing?
 
         voted_ids = votes_buffer.present? ? votes_buffer.keys : []
-        questions.where.not(id: voted_ids).first
+        questions.where.not(id: voted_ids)&.first
       end
 
       def question_path(question)

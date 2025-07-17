@@ -116,7 +116,7 @@ module Decidim
         return vote_finished? unless per_question?
 
         # If per_question, we can publish when there is at least one question enabled
-        questions.unpublished_results.any?(&:voting_enabled?)
+        questions.unpublished_results.disabled.any?
       end
 
       def per_question?
@@ -124,7 +124,7 @@ module Decidim
       end
 
       def per_question_waiting?
-        per_question? && !finished? && questions.unpublished_results.none?(&:voting_enabled?)
+        per_question? && !finished? && questions.unpublished_results.disabled.any?
       end
 
       # if per question, only the enabled questions are returned
@@ -161,7 +161,7 @@ module Decidim
       def result_published_questions
         return available_questions if results_published?
 
-        return questions.published_results if results_availability == "per_question"
+        return questions.enabled if results_availability == "per_question"
 
         []
       end

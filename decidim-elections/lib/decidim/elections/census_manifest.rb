@@ -125,8 +125,9 @@ module Decidim
           return unless form.valid?
 
           return form.voter_uid if form.respond_to?(:voter_uid)
+        elsif @user_query && context.is_a?(Decidim::User)
+          @user_query.call(election).find_by(id: context.id)&.to_global_id
         end
-        @user_query.call(election).find_by(id: context.id)&.to_global_id if @user_query && context.is_a?(Decidim::User)
       end
 
       # validates the user using the Proc defined by user_validator

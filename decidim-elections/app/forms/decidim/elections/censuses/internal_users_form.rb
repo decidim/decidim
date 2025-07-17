@@ -24,9 +24,7 @@ module Decidim
         end
 
         def adapters
-          @required_authorizations ||= Decidim::Verifications::Adapter.from_collection(
-            authorization_handlers.keys & current_organization.available_authorizations & Decidim.authorization_workflows.map(&:name)
-          )
+          @required_authorizations ||= Decidim::Verifications::Adapter.from_collection(authorization_handlers.keys)
         end
 
         def authorization_handlers
@@ -56,7 +54,7 @@ module Decidim
           return errors.add(:base, I18n.t("decidim.elections.censuses.internal_users_form.invalid")) unless in_census?
 
           invalid = authorizations.filter_map do |adapter, authorization|
-            if !authorization.granted?
+            if !authorization || !authorization.granted?
               ["not_granted", adapter]
             elsif adapter.authorize(authorization, authorization_handlers.dig(adapter.name, "options"), election.component, election)&.first != :ok
               ["not_authorized", adapter]

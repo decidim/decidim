@@ -15,11 +15,8 @@ describe "Dashboard" do
   let(:authorization_handlers) do
     {}
   end
-  let(:enabled_authorization_handlers) do
-    []
-  end
   let(:elections_path) { Decidim::EngineRouter.main_proxy(election.component).root_path }
-  let(:election_path) { Decidim::EngineRouter.main_proxy(election.component).election_path(election, locale: organization.default_locale) }
+  let(:election_path) { Decidim::EngineRouter.main_proxy(election.component).election_path(election) }
   let(:new_election_vote_path) { Decidim::EngineRouter.main_proxy(election.component).new_election_vote_path(election_id: election.id) }
   let(:waiting_election_votes_path) { Decidim::EngineRouter.main_proxy(election.component).waiting_election_votes_path(election_id: election.id) }
   let(:receipt_election_votes_path) { Decidim::EngineRouter.main_proxy(election.component).receipt_election_votes_path(election_id: election.id) }
@@ -31,7 +28,6 @@ describe "Dashboard" do
   end
 
   before do
-    allow(organization).to receive(:available_authorizations).and_return(enabled_authorization_handlers)
     switch_to_host(organization.host)
   end
 
@@ -57,14 +53,39 @@ describe "Dashboard" do
         {
           "dummy_authorization_handler" => {
             "options" => {
-              "allowed_postal_codes" => ["08002"]
+              "allowed_postal_codes" => "08002"
             }
           }
         }
       end
-      let(:enabled_authorization_handlers) { ["dummy_authorization_handler"] }
 
       it_behaves_like "an internal users verification voter form"
     end
+  end
+
+  context "when the election has token csv census" do
+    let(:election) { create(:election, :published, :ongoing, :with_token_csv_census, :with_questions) }
+    let(:voter_uid) { election.voters.first.to_global_id.to_s }
+
+    before do
+      visit elections_path
+      click_on translated_attribute(election.title)
+    end
+
+    it_behaves_like "a csv token votable election"
+  end
+
+  context "when is a per question election" do
+    let(:election) { create(:election, :published, :ongoing, :with_internal_users_census, :per_question) }
+    let!(:question1) { create(:election_question, :with_response_options, :voting_enabled, election:) }
+    let!(:question2) { create(:election_question, :with_response_options, election:) }
+
+    before do
+      login_as user, scope: :user
+      visit elections_path
+      click_on translated_attribute(election.title)
+    end
+
+    it_behaves_like "a per question votable election"
   end
 end

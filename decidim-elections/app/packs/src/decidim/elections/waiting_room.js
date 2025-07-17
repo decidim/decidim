@@ -23,10 +23,10 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Redirecting to:", result.url);
         window.location.href = result.url;
       } else {
-        setTimeout(checkStatus, 2000);
+        setTimeout(checkStatus, 1000);
       }
     }
   };
 
-  setTimeout(checkStatus, 2000);
+  setTimeout(checkStatus, 1000);
 });
