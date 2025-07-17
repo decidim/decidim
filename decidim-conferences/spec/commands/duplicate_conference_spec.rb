@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Conferences
-  describe Admin::CopyConference do
+  describe Admin::DuplicateConference do
     subject { described_class.new(form, conference) }
 
     let(:organization) { create(:organization) }
@@ -13,16 +13,16 @@ module Decidim::Conferences
     let!(:component) { create(:component, manifest_name: :dummy, participatory_space: conference) }
     let(:form) do
       instance_double(
-        Admin::ConferenceCopyForm,
+        Admin::ConferenceDuplicateForm,
         invalid?: invalid,
         title: { en: "title" },
-        slug: "copied-slug",
-        copy_components?: copy_components
+        slug: "duplicated-slug",
+        duplicate_components?: duplicate_components
       )
     end
 
     let(:invalid) { false }
-    let(:copy_components) { false }
+    let(:duplicate_components) { false }
 
     context "when the form is not valid" do
       let(:invalid) { true }
@@ -39,7 +39,7 @@ module Decidim::Conferences
         old_conference = Decidim::Conference.first
         new_conference = Decidim::Conference.last
 
-        expect(new_conference.slug).to eq("copied-slug")
+        expect(new_conference.slug).to eq("duplicated-slug")
         expect(new_conference.title["en"]).to eq("title")
         expect(new_conference).not_to be_published
         expect(new_conference.organization).to eq(old_conference.organization)
@@ -58,18 +58,18 @@ module Decidim::Conferences
       end
     end
 
-    context "when copy_components exists" do
-      let(:copy_components) { true }
+    context "when duplicate_components exists" do
+      let(:duplicate_components) { true }
 
       it "duplicates a conference and the components" do
         dummy_hook = proc {}
-        component.manifest.on :copy, &dummy_hook
+        component.manifest.on :duplicate, &dummy_hook
         expect(dummy_hook).to receive(:call).with({ new_component: an_instance_of(Decidim::Component), old_component: component })
 
         expect { subject.call }.to change(Decidim::Component, :count).by(1)
 
         last_conference = Decidim::Conference.last
-        last_component = Decidim::Component.all.reorder(:id).last
+        last_component = Decidim::Component.reorder(:id).last
 
         expect(last_component.participatory_space).to eq(last_conference)
         expect(last_component.name).to eq(component.name)

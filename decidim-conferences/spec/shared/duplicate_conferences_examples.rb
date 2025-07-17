@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_examples "copy conferences" do
+shared_examples "duplicate conferences" do
   let!(:conference) { create(:conference, organization:) }
   let!(:component) { create(:component, manifest_name: :dummy, participatory_space: conference) }
 
@@ -17,20 +17,20 @@ shared_examples "copy conferences" do
         click_on "Duplicate"
       end
 
-      within ".copy_conference" do
+      within ".duplicate_conference" do
         fill_in_i18n(
           :conference_title,
           "#conference-title-tabs",
-          en: "Copy conference",
+          en: "Duplicate conference",
           es: "Copia del proceso participativo",
           ca: "Còpia del procés participatiu"
         )
-        fill_in :conference_slug, with: "pp-copy"
-        click_on "Copy"
+        fill_in :conference_slug, with: "pp-duplicate"
+        click_on "Duplicate"
       end
 
       expect(page).to have_content("successfully")
-      expect(page).to have_content("Copy conference")
+      expect(page).to have_content("Duplicate conference")
       expect(page).to have_content("Unpublished")
     end
   end
@@ -42,21 +42,21 @@ shared_examples "copy conferences" do
         click_on "Duplicate"
       end
 
-      within ".copy_conference" do
+      within ".duplicate_conference" do
         fill_in_i18n(
           :conference_title,
           "#conference-title-tabs",
-          en: "Copy conference",
+          en: "Duplicate conference",
           es: "Copia del proceso participativo",
           ca: "Còpia del procés participatiu"
         )
-        fill_in :conference_slug, with: "conference-copy"
+        fill_in :conference_slug, with: "conference-duplicate"
       end
     end
 
     it "copies the conference with components" do
-      page.check("conference[copy_components]")
-      click_on "Copy"
+      page.check("conference[duplicate_components]")
+      click_on "Duplicate"
 
       expect(page).to have_content("successfully")
 
