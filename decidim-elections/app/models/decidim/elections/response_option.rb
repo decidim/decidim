@@ -5,6 +5,7 @@ module Decidim
     class ResponseOption < Elections::ApplicationRecord
       include Decidim::TranslatableResource
 
+      belongs_to :question, class_name: "Decidim::Elections::Question", inverse_of: :response_options
       default_scope { order(arel_table[:id].asc) }
 
       translatable_fields :body
