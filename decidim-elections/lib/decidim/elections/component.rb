@@ -8,7 +8,11 @@ Decidim.register_component(:elections) do |component|
   component.icon_key = "draft-line"
   component.permissions_class_name = "Decidim::Elections::Permissions"
 
-  component.actions = %w(create update destroy)
+  component.actions = %w()
+
+  component.on(:before_destroy) do |instance|
+    raise StandardError, "Cannot remove this component" if Decidim::Elections::Election.where(component: instance).any?
+  end
 
   component.register_stat :elections_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, _start_at, _end_at|
     elections = Decidim::Elections::Election.where(component: components).not_hidden

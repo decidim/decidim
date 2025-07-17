@@ -14,8 +14,11 @@ module Decidim
         validate :data_in_census
 
         def voter_uid
-          @voter_uid ||= election.census.users(election).find_by("data->>'email' = :email, data-->'token' = :token", email: email.strip.downcase,
-                                                                                                                     token: token.strip)&.to_global_id&.to_s
+          @voter_uid ||= census_user&.to_global_id&.to_s
+        end
+
+        def census_user
+          election.census.users(election).where("data->>'email' = ? AND data->>'token' = ?", email.strip.downcase, token.strip)&.first
         end
 
         def election

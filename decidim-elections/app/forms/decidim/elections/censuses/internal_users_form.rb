@@ -58,7 +58,7 @@ module Decidim
           invalid = authorizations.filter_map do |adapter, authorization|
             if !authorization.granted?
               ["not_granted", adapter]
-            elsif !adapter.authorize(authorization, authorization_handlers.dig(adapter.name, "options"), election.component, election)
+            elsif adapter.authorize(authorization, authorization_handlers.dig(adapter.name, "options"), election.component, election)&.first != :ok
               ["not_authorized", adapter]
             end
           end

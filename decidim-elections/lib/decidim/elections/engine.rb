@@ -19,7 +19,7 @@ module Decidim
         scope "/elections" do
           root to: "elections#index"
         end
-        get "/", to: redirect("/elections", status: 301)
+        get "/", to: redirect("elections", status: 301)
       end
 
       initializer "decidim_elections.add_cells_view_paths" do

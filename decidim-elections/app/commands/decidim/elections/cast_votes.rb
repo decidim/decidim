@@ -10,6 +10,8 @@ module Decidim
       end
 
       def call
+        return broadcast(:invalid) unless election.ongoing?
+        return broadcast(:invalid) if voter_uid.blank?
         return broadcast(:invalid) unless election.per_question? || voted_questions.count == election.questions.count
         return broadcast(:invalid) if voted_questions.blank?
 
@@ -37,7 +39,8 @@ module Decidim
       def save_votes!
         voted_questions.each do |question, responses|
           responses.each do |response_option|
-            vote = question.votes.find_or_initialize_by(voter_uid:, response_option:)
+            vote = question.votes.find_or_initialize_by(voter_uid:)
+            vote.response_option = response_option
             vote.save!
           end
         end

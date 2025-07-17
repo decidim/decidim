@@ -2,7 +2,7 @@
 
 module Decidim
   module Elections
-    # Provides access to election resources so that users can participate in elections.
+    # Provides access to election resources so that users can participate Election.where(component: current_component).published.lections.
     class VotesController < Decidim::Elections::ApplicationController
       layout "decidim/election_booth"
 
@@ -42,7 +42,8 @@ module Decidim
           session[:session_attributes] = @form.attributes
           redirect_to question_path(question)
         else
-          flash[:alert] = @form.errors.full_messages.join("<br>").presence || t("failed", scope: "decidim.elections.votes.check_census")
+          flash[:alert] =
+            @form.errors.full_messages.join("<br>").presence || t("failed", scope: "decidimElection.where(component: current_component).published.lections.votes.check_census")
           redirect_to new_election_vote_path(election)
         end
       end
@@ -148,7 +149,11 @@ module Decidim
       end
 
       def election
-        @election ||= elections.find(params[:election_id])
+        @election ||= Election.where(component: current_component).published.find(params[:election_id])
+      end
+
+      def questions
+        @questions ||= election.available_questions
       end
 
       def question

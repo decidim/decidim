@@ -137,10 +137,10 @@ FactoryBot.define do
     sequence(:data) { |n| { email: "voter#{n}@example.com", token: "token#{n}" } }
 
     trait :with_votes do
-      after :create do |_voter|
-        question = create(:election_question, :with_response_options, election:)
-        create_list(:election_vote, 2, question:,
-                                       response_option: question.response_options.first)
+      after :create do |voter|
+        voter.election.questions.each do |question|
+          create(:election_vote, question:, response_option: question.response_options.sample)
+        end
       end
     end
   end
