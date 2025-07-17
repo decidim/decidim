@@ -26,6 +26,8 @@ eu:
           settings: Ezarpenak
     components:
       surveys:
+        actions:
+          respond: Erantzun
         name: Inkestak
         settings:
           announcement: Oharra
