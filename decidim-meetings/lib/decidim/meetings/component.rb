@@ -19,14 +19,14 @@ Decidim.register_component(:meetings) do |component|
   end
 
   component.on(:publish) do |instance|
-    Decidim::Meetings::Meeting.where(component: instance).find_each do |meeting|
-      meeting.try(:try_update_index_for_search_resource)
+    Decidim::Meetings::Meeting.where(component: instance).find_in_batches(batch_size: 100) do |batch|
+      Decidim::UpdateSearchIndexesJob.perform_later(batch)
     end
   end
 
   component.on(:unpublish) do |instance|
-    Decidim::Meetings::Meeting.where(component: instance).find_each do |meeting|
-      meeting.try(:try_update_index_for_search_resource)
+    Decidim::Meetings::Meeting.where(component: instance).find_in_batches(batch_size: 100) do |batch|
+      Decidim::RemoveSearchIndexesJob.perform_later(batch)
     end
   end
 

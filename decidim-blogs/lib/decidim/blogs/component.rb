@@ -14,14 +14,14 @@ Decidim.register_component(:blogs) do |component|
   end
 
   component.on(:publish) do |instance|
-    Decidim::Blogs::Post.where(component: instance).find_each do |post|
-      post.try(:try_update_index_for_search_resource)
+    Decidim::Blogs::Post.where(component: instance).find_in_batches(batch_size: 100) do |batch|
+      Decidim::UpdateSearchIndexesJob.perform_later(batch)
     end
   end
 
   component.on(:unpublish) do |instance|
-    Decidim::Blogs::Post.where(component: instance).find_each do |post|
-      post.try(:try_update_index_for_search_resource)
+    Decidim::Blogs::Post.where(component: instance).find_in_batches(batch_size: 100) do |batch|
+      Decidim::RemoveSearchIndexesJob.perform_later(batch)
     end
   end
 

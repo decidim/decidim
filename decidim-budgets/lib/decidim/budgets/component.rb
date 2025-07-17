@@ -23,19 +23,15 @@ Decidim.register_component(:budgets) do |component|
 
   component.on(:publish) do |instance|
     Decidim::Budgets::Budget.where(component: instance).find_each do |budget|
-      budget.try(:try_update_index_for_search_resource)
-      budget.projects.find_each do |project|
-        project.try(:try_update_index_for_search_resource)
-      end
+      Decidim::UpdateSearchIndexesJob.perform_later([budget])
+      Decidim::UpdateSearchIndexesJob.perform_later(budget.projects)
     end
   end
 
   component.on(:unpublish) do |instance|
     Decidim::Budgets::Budget.where(component: instance).find_each do |budget|
-      budget.try(:try_update_index_for_search_resource)
-      budget.projects.find_each do |project|
-        project.try(:try_update_index_for_search_resource)
-      end
+      Decidim::RemoveSearchIndexesJob.perform_later([budget])
+      Decidim::RemoveSearchIndexesJob.perform_later(budget.projects)
     end
   end
 

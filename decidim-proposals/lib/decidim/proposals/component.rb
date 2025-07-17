@@ -17,14 +17,14 @@ Decidim.register_component(:proposals) do |component|
   end
 
   component.on(:publish) do |instance|
-    Decidim::Proposals::Proposal.where(component: instance).find_each do |proposal|
-      proposal.try(:try_update_index_for_search_resource)
+    Decidim::Proposals::Proposal.where(component: instance).find_in_batches(batch_size: 100) do |batch|
+      Decidim::UpdateSearchIndexesJob.perform_later(batch)
     end
   end
 
   component.on(:unpublish) do |instance|
-    Decidim::Proposals::Proposal.where(component: instance).find_each do |proposal|
-      proposal.try(:try_update_index_for_search_resource)
+    Decidim::Proposals::Proposal.where(component: instance).find_in_batches(batch_size: 100) do |batch|
+      Decidim::RemoveSearchIndexesJob.perform_later(batch)
     end
   end
 
