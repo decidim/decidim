@@ -413,6 +413,85 @@ eu:
     participatory_processes:
       admin:
         content_blocks:
+          democratic_quality_stats_settings_form:
+            accessibility:
+              languages_count:
+                legend: Zenbat hizkuntzatan komunikatu da prozesua?
+                options:
+                  five: Erkidegoan hitz egiten diren hizkuntzen erdia baino gehiago = 5
+                  one: Hizkuntza bat = 1
+                  two_five: Erkidegoan hitz egiten diren hizkuntzen erdia baino gutxiago = 2.5
+              name: Irisgarritasuna
+              venue_accessibility:
+                legend: Aurrez aurreko bileren gelak irisgarriak ziren mugikortasun urriko pertsonentzat?
+                options:
+                  five: Bai = 5
+                  two_five: Partzialki = 2.5
+                  zero: Ez = 0
+            announcement:
+              body_html: |-
+                <ul>
+                <li>Hauek automatikoki kalkulatzen dira Decidim-en datuetatik. Ikusi ahal izango dira edukien blokea argitaratzen duzunean.</li>
+                <li>Zure erantzunetan oinarritzen dira. Ikusi ahal izango dira galdera guztiak erantzuten dituzunean.</li>
+                </ul>
+              title: 'Eduki-multzo honek bi metrika-mota ditu:'
+            citizen_influence:
+              citizen_influence_level:
+                legend: Prozesuaren eragin-maila gaitutako parte-hartze mekanismoen arabera, Sherry Arnsteinek (1969) definitutako parte-hartze eskaileraren araberakoa da.
+                options:
+                  five: Herritarren kontrola = 5
+                  five_description: Parte-hartze maila gorena non herritarrek erabat gobernatzen duten programa edo erakunde bat, politikak, baliabideak eta erabakiak kanpoko interferentziarik gabe kudeatuz.
+                  four: Eskumen eskuordetua = 4
+                  four_description: Prozesu parte-hartzailea, non herritarrek agintea, kontrola edo finantzaketa lortzen duten erakunde batean eragiteko eta kudeatzeko.
+                  one: Kontsulta = 1
+                  one_description: Prozesu parte-hartzailea, non herritarrei iritzia eskatzen zaien, normalean inkesten edo bileren bidez, baina ziurtatu gabe haien ekarpenak erabakietan eragina izango duen.
+                  three: Lankidetza = 3
+                  three_description: Prozesu parte-hartzailea, non herritarrek eta erakundeek erabakiak hartzeko ahalmena partekatzen duten, parte-hartzaileei negoziatzeko, baliabideak esleitzeko eta plangintzan eragiteko aukera emanez, alde bakarretik aldatu ezin diren arauekin. Askotan herritarren mobilizaziotik eta ekintza kolektibotik sortzen da.
+                  two: Parte-hartze sinbolikoa = 2
+                  two_description: Prozesu parte-hartzailea da, non herritarrei eragin mugatua ematen zaien, askotan modu tokenistikoan, hala nola batzarretan edo batzordeetan sartzea, baina benetako botererik gabe, erabakiak hartzea boterearen elite tradizionalak kontrolatzen baitu.
+                  zero: Informatzailea = 0
+                  zero_description: Norabide bakarreko informazio-fluxua — funtzionarioetatik herritarrengana —, atzeraelikadurarik eta negoziaziorako ahalmenik gabe.
+              name: Herritarren eragina
+            inclusiveness:
+              cultural_origins_participation:
+                legend: Jatorri kultural desberdineko zenbat pertsonak hartu dute parte gonbidatuez gain?
+                options:
+                  five: '%80 - 100 = 5'
+                  four: '%60 - 80 = 4'
+                  one: '%0 - 20 = 1'
+                  three: '%40 - 60 = 3'
+                  two: '%20 - 40 = 2'
+              description: Inklusibitatea jatorri kulturalaren eta dibertsitate funtzionalaren arabera.
+              functional_diversity_invited:
+                legend: Dibertsitate funtzionala duten pertsonen taldeak gonbidatu dira parte hartzera?
+                options:
+                  five: Bai = 5
+                  zero: Ez = 0
+              functional_diversity_participation:
+                legend: Dibertsitate funtzionala duten zenbat pertsonak hartu dute parte gonbidatuez artean?
+                options:
+                  five: 80 - 100 = 5
+                  four: '%60 - 80 = 4'
+                  one: '%0 - 20 = 1'
+                  three: '%40 - 60 = 3'
+                  two: '%20 - 40 = 2'
+              migrant_groups_invited:
+                legend: Migratzaileen taldeak gonbidatu dira parte hartzera?
+                options:
+                  five: Bai = 5
+                  zero: Ez = 0
+              name: Inklusibotasuna
+            relevance:
+              description: 'Eraginaren garrantzia, hala nola: erakundearen aurrekontuaren ehunekoa, inplikatutako erakundearen giza baliabideen ehunekoa, edo herritar guztien ehunekoa, prozesuaren emaitzen eragina jasango duena, eta inpaktu horri eskainitako denbora.'
+              name: Garrantzia
+              relevance_percentage:
+                legend: Prozesuaren emaitzek eragingo dioten erakundearen aurrekontuaren, inplikatutako erakundearen giza baliabideen edo biztanleria osoaren ehunekoa.
+                options:
+                  five: '%80 - 100 = 5'
+                  four: '%60 - 80 = 4'
+                  one: '%0 - 20 = 1'
+                  three: '%40 - 60 = 3'
+                  two: '%20 - 40 = 2'
           highlighted_processes:
             active: Aktiboa
             all: Guztiak
@@ -453,6 +532,37 @@ eu:
             title: Informazio orokorra
             visibility: Ikusgarritasuna
       content_blocks:
+        democratic_quality_stats:
+          automatic_metrics:
+            description: Adierazle horiek automatikoki lortzen dira plataforman jasotako datuetatik abiatuta.
+            indicators:
+              hybridization: Hibridizazioa
+              hybridization_tooltip: Adierazle honek prozesuan zehar espazio presentzialen eta digitalen arteko konbinazio-maila neurtzen du
+              influence: Herritarren eragina
+              influence_tooltip: Adierazle honek herritarrek onartutako proposamenetan duten eragin-maila eta prozesuaren emaitzak neurtzen ditu.
+              traceability: Trazabilitatea
+              traceability_tooltip: Adierazle honek parte-hartze prozesuaren gardentasuna eta trazabilitatea neurtzen ditu. Herritarrek proposamenen bilakaera zein erraz jarrai dezaketen eta argitaratutako erregistroen bidez ekintza instituzionalak egiazta ditzaketen adierazten du.
+              transparency: Erantzuteko gaitasuna
+              transparency_tooltip: Adierazle honek erakundeak parte-hartzaileen ekarpenekiko duen erantzun-maila neurtzen du. Haien konpromisoa islatzen du erantzun ofizialen eta hartutako erabakien bidez.
+            name: Metrika automatikoak
+          global_score:
+            description_html: Jarraian, partaidetza-prozesu horren kalitate demokratikoa ebaluatzeko erabiltzen diren adierazleen multzo bat dago. Nola kalkulatzen diren gehiago jakiteko, ikus <a href="%{info_url}">kalitate demokratikoaren adierazleei buruzko informazio-orria</a>.
+            name: Esparru orokorra
+            note: "* Balio adierazleak 1etik 5era bitarteko eskalan neurtzen dira. Eskala horretan, 1 da txikiena eta 5 partaidetza-kalitate handiena duena."
+            tooltip: Dimentsio guztien batezbestekoan kalkulatua
+          name: Parte-hartzearen kalitatea
+          qualitative_metrics:
+            description: Adierazle horiek plataformako administratzaileek betetako autoebaluazioari buruzko inkesta baten erantzunetatik lortzen dira.
+            indicators:
+              accessibility: Irisgarritasuna
+              accessibility_tooltip: Prozesua erkidegoan hitz egiten diren hizkuntzetan komunikatu da, eta egoitzak mugikortasun urriko pertsonentzat eskuragarri egon dira.
+              citizen_influence: Herritarren eragina
+              citizen_influence_tooltip: Parte-hartzaileen eragina erabakiak hartzean neurtzen du.
+              inclusiveness: Inklusibotasuna
+              inclusiveness_tooltip: Hainbat alderdi interesatuk ordezkaritza nahikoa duten ebaluatzen du
+              relevance: Garrantzia
+              relevance_tooltip: 'Eraginaren garrantzia, hala nola: erakundearen aurrekontuaren ehunekoa, inplikatutako erakundearen giza baliabideen ehunekoa, edo herritar guztien ehunekoa, prozesuaren emaitzen eragina jasango duena, eta inpaktu horri eskainitako denbora.'
+            name: Autoebaluazioaren metrikak
         extra_data:
           name: Fasea eta iraupena
         hero:
@@ -518,6 +628,9 @@ eu:
         belongs_to_group: Prozesu hau honi dagokio
         private_space: Prozesu pribatua da
         related_processes: Elkarrekin lotutako prozesuak
+      static_pages:
+        democratic_quality_indicators:
+          title: Kalitate demokratikoaren adierazleak
     statistics:
       processes_count: Prozesuak
       processes_count_tooltip: Publikoki eskuragarri dauden partaidetza-prozesuen kopurua.
