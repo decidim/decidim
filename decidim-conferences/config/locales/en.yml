@@ -6,11 +6,11 @@ en:
         assemblies_ids: Related Assemblies
         available_slots: Available slots
         banner_image: Banner image
+        decidim_scope_id: Scope
+        description: Description
         duplicate_categories: Duplicate categories
         duplicate_components: Duplicate components
         duplicate_features: Duplicate features
-        decidim_scope_id: Scope
-        description: Description
         end_date: End date
         hero_image: Home image
         location: Location
