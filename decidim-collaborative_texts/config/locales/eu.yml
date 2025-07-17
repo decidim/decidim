@@ -137,6 +137,10 @@ eu:
           invalid_nodes: Hautatutako nodoak ez dira baliozkoak.
     components:
       collaborative_texts:
+        actions:
+          create: Sortu
+          destroy: Suntsitu
+          update: Eguneratu
         name: Testu kolaboratiboak
         settings:
           global:
