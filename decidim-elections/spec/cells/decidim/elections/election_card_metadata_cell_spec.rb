@@ -28,11 +28,11 @@ module Decidim::Elections
     end
 
     context "when the election is ongoing" do
-      let(:election) { create(:election, :published, :ongoing) }
+      let(:election) { create(:election, :published, :ongoing, end_at: 1.5.days.from_now) }
 
       it "renders as ongoing" do
         expect(subject.to_s).to include("Ongoing")
-        expect(subject.to_s).to include("1 day remaining")
+        expect(subject.to_s).to include("2 days remaining")
       end
     end
 

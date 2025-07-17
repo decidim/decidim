@@ -47,63 +47,53 @@ module Decidim
           let(:options) { {} }
 
           it "returns the required authorizations" do
-            expect(subject.adapters).to be_blank
+            expect(subject.adapters.map(&:name)).to eq(["dummy_authorization_handler"])
           end
 
-          context "when the organization has available authorizations" do
-            before do
-              allow(organization).to receive(:available_authorizations).and_return(["dummy_authorization_handler"])
+          it { is_expected.not_to be_valid }
+
+          it "voter uid returns nil" do
+            expect(subject.voter_uid).to be_nil
+          end
+
+          context "when the user has the required authorizations" do
+            let!(:authorization) { create(:authorization, :granted, user:, organization:, name: "dummy_authorization_handler") }
+
+            it { is_expected.to be_valid }
+
+            it "voter uid returns the user's global ID" do
+              expect(subject.voter_uid).to eq(user.to_global_id.to_s)
             end
 
-            it "returns the required authorizations" do
-              expect(subject.adapters.map(&:name)).to eq(["dummy_authorization_handler"])
-            end
+            context "when the authorization has options" do
+              let(:options) { { "allowed_postal_codes" => "08002" } }
 
-            it { is_expected.not_to be_valid }
-
-            it "voter uid returns nil" do
-              expect(subject.voter_uid).to be_nil
-            end
-
-            context "when the user has the required authorizations" do
-              let!(:authorization) { create(:authorization, :granted, user:, organization:, name: "dummy_authorization_handler") }
-
-              it { is_expected.to be_valid }
-
-              it "voter uid returns the user's global ID" do
-                expect(subject.voter_uid).to eq(user.to_global_id.to_s)
+              it "returns the options in the census settings" do
+                expect(subject.authorization_handlers["dummy_authorization_handler"]["options"]).to eq(options)
               end
 
-              context "when the authorization has options" do
-                let(:options) { { "allowed_postal_codes" => "08002" } }
+              it { is_expected.not_to be_valid }
 
-                it "returns the options in the census settings" do
-                  expect(subject.authorization_handlers["dummy_authorization_handler"]["options"]).to eq(options)
-                end
+              it "adds an error for the base" do
+                subject.validate
+                expect(subject.errors[:base]).to include(I18n.t("decidim.elections.censuses.internal_users_form.invalid"))
+              end
+
+              context "when the user does not match the options" do
+                let!(:authorization) { create(:authorization, :granted, user:, organization:, name: "dummy_authorization_handler", metadata: { postal_code: "08001" }) }
 
                 it { is_expected.not_to be_valid }
+              end
 
-                it "adds an error for the base" do
-                  subject.validate
-                  expect(subject.errors[:base]).to include(I18n.t("decidim.elections.censuses.internal_users_form.invalid"))
-                end
+              context "when the user matches the options" do
+                let!(:authorization) { create(:authorization, :granted, user:, organization:, name: "dummy_authorization_handler", metadata: { postal_code: "08002" }) }
 
-                context "when the user does not match the options" do
-                  let!(:authorization) { create(:authorization, :granted, user:, organization:, name: "dummy_authorization_handler", metadata: { postal_code: "08001" }) }
-
-                  it { is_expected.not_to be_valid }
-                end
-
-                context "when the user matches the options" do
-                  let!(:authorization) { create(:authorization, :granted, user:, organization:, name: "dummy_authorization_handler", metadata: { postal_code: "08002" }) }
-
-                  it { is_expected.to be_valid }
-                end
+                it { is_expected.to be_valid }
               end
             end
           end
         end
       end
+      end
     end
   end
-end

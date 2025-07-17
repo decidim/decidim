@@ -43,7 +43,7 @@ module Decidim
           redirect_to question_path(question)
         else
           flash[:alert] =
-            @form.errors.full_messages.join("<br>").presence || t("failed", scope: "decidimElection.where(component: current_component).published.lections.votes.check_census")
+            @form.errors.full_messages.join("<br>").presence || t("failed", scope: "decidim.elections.votes.check_census")
           redirect_to new_election_vote_path(election)
         end
       end
@@ -164,8 +164,9 @@ module Decidim
       def next_pending_question
         return question&.next_question if editing?
 
-        voted_ids = votes_buffer.present? ? votes_buffer.keys : []
-        questions.where.not(id: voted_ids)&.first
+        return questions.where.not(id: votes_buffer.keys)&.first if votes_buffer.present?
+
+        questions.where.not(id: election.votes.where(voter_uid: voter_uid).pluck(:question_id)).first
       end
 
       def question_path(question)

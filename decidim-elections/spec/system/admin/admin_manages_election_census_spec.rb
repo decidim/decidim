@@ -8,6 +8,8 @@ describe "Admin manages election census" do
   let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "elections") }
   let!(:election) { create(:election, component: current_component) }
   let!(:questions) { create_list(:election_question, 3) }
+  let(:election_census_path) { Decidim::EngineRouter.admin_proxy(component).election_census_path(election) }
+  let(:dashboard_path) { Decidim::EngineRouter.admin_proxy(component).dashboard_election_path(election) }
 
   include_context "when managing a component as an admin"
 
@@ -77,9 +79,7 @@ describe "Admin manages election census" do
     let!(:users) { create_list(:user, 10, :confirmed, organization:) }
     let(:authorized_users) { create_list(:user, 3, :confirmed, organization:) }
     let(:another_authorized_users) { create_list(:user, 2, :confirmed, organization:) }
-    let(:authorization_handler_name) { "dummy_authorization_handler" }
-    let(:another_authorization_handler_name) { "another_dummy_authorization_handler" }
-    let(:available_authorizations) { [authorization_handler_name, another_authorization_handler_name] }
+    let(:available_authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
 
     before do
       organization.update!(available_authorizations: available_authorizations)
@@ -136,6 +136,7 @@ describe "Admin manages election census" do
                                                                                 })
         fill_in "Allowed postal codes (separated by commas)", with: "08002, 08003"
         click_on "Save and continue" # redirects to the dashboard
+        expect(page).to have_current_path(dashboard_path)
         expect(election.reload.census_settings["authorization_handlers"]).to eq({
                                                                                   "dummy_authorization_handler" => {
                                                                                     "options" => {
@@ -149,8 +150,8 @@ describe "Admin manages election census" do
         let!(:user_with_multiple_authorizations) { create(:user, :confirmed, organization:) }
 
         before do
-          create(:authorization, :granted, user: user_with_multiple_authorizations, name: authorization_handler_name)
-          create(:authorization, :granted, user: user_with_multiple_authorizations, name: another_authorization_handler_name)
+          create(:authorization, :granted, user: user_with_multiple_authorizations, name: "dummy_authorization_handler")
+          create(:authorization, :granted, user: user_with_multiple_authorizations, name: "another_dummy_authorization_handler")
         end
 
         it "shows only users with all selected authorizations" do
@@ -171,11 +172,5 @@ describe "Admin manages election census" do
         end
       end
     end
-  end
-
-  private
-
-  def election_census_path
-    Decidim::EngineRouter.admin_proxy(component).election_census_path(election)
   end
 end

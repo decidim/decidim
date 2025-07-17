@@ -70,8 +70,8 @@ describe "Dashboard" do
 
   context "when the election is per question" do
     let(:election) { create(:election, :published, :ongoing, :per_question, :with_internal_users_census) }
-    let(:question1) { create(:election_question, :with_response_options, :voting_enabled, election:) }
-    let(:question2) { create(:election_question, :with_response_options, election:) }
+    let!(:question1) { create(:election_question, :with_response_options, :voting_enabled, election:) }
+    let!(:question2) { create(:election_question, :with_response_options, election:) }
     let(:option11) { question1.response_options.first }
     let(:option12) { question1.response_options.second }
     let(:option21) { question2.response_options.first }
@@ -83,7 +83,11 @@ describe "Dashboard" do
       click_on translated_attribute(election.title)
     end
 
-    it_behaves_like "shows questions in an election"
+    context "when all questions are enabled" do
+      let!(:question2) { create(:election_question, :with_response_options, :voting_enabled, election:) }
+
+      it_behaves_like "shows questions in an election"
+    end
 
     it "shows the results for each question" do
       within "#question-#{question1.id}" do
@@ -97,10 +101,11 @@ describe "Dashboard" do
       expect_vote_percent(question1, option12, "0.0%")
       expect_vote_count(question1, option12, "0")
 
-      create(:election_vote, question: question1, voter_uid: "voter1", response_option: option11)
       question1.update(published_results_at: Time.current)
       question2.update(voting_enabled_at: Time.current)
+      create(:election_vote, question: question1, voter_uid: "voter1", response_option: option11)
       create(:election_vote, question: question2, voter_uid: "voter1", response_option: option21)
+
       # wait for javascript to refresh the results
       sleep 5
       expect_vote_percent(question1, option11, "100.0%")

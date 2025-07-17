@@ -187,10 +187,19 @@ module Decidim
                 second_question.update(voting_enabled_at: false)
               end
 
-              it "renders the waiting page" do
+              it "redirects to the non voted question" do
                 get :waiting, params: params
-                expect(response).to have_http_status(:ok)
-                expect(subject).to render_template(:waiting)
+                expect(response).to redirect_to(election_vote_path)
+              end
+
+              context "when all non pending questions have been voted" do
+                let!(:vote) { create(:election_vote, voter_uid: user.to_global_id.to_s, question:, response_option: question.response_options.first) }
+
+                it "renders the waiting page" do
+                  get :waiting, params: params
+                  expect(response).to have_http_status(:ok)
+                  expect(subject).to render_template(:waiting)
+                end
               end
             end
           end

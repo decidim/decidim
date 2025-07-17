@@ -14,11 +14,7 @@ module Decidim
       let(:election) do
         create(:election,
                component: component,
-               title: { en: "Test election" },
-               description: {
-                 en: "Test description",
-                 machine_translations: { es: "Descripción de prueba" }
-               })
+               title: { en: "Test election" })
       end
 
       describe "#title" do
@@ -28,30 +24,6 @@ module Decidim
 
         it "returns the translated title when all_locales is true" do
           expect(presenter.title(all_locales: true)).to eq("en" => "Test election")
-        end
-      end
-
-      describe "#description" do
-        it "returns the description in current locale" do
-          expect(presenter.description).to eq("Test description")
-        end
-
-        it "returns all locales if all_locales is true" do
-          expect(presenter.description(all_locales: true)).to eq({
-                                                                   "en" => "Test description",
-                                                                   "machine_translations" => { "es" => "Descripción de prueba" }
-                                                                 })
-        end
-
-        it "strips HTML if strip_tags is true" do
-          election_with_html = create(
-            :election,
-            component: component,
-            description: { en: "<p>Hello world</p>" }
-          )
-          presenter_html = described_class.new(election_with_html)
-
-          expect(presenter_html.description(strip_tags: true).strip).to eq("Hello world")
         end
       end
 
@@ -69,7 +41,6 @@ module Decidim
         let(:presenter) { described_class.new(nil) }
 
         it { expect(presenter.title).to be_nil }
-        it { expect(presenter.description).to be_nil }
         it { expect(presenter.election_path).to be_nil }
       end
     end

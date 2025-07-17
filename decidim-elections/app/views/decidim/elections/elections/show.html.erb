@@ -39,7 +39,7 @@
     <div class="questions-list"><%= render partial: "questions", locals: { questions: } %></div>
   </section>
 
-  <% if election.result_published_questions.any? %>
+  <% if election.result_published_questions.any? || (election.per_question? && election.ongoing?) %>
     <section class="layout-main__section">
       <div class="results-list"><%= render partial: "vote_statistics", locals: { questions: election.result_published_questions } %></div>
     </section>

@@ -31,7 +31,6 @@ module Decidim
 
       def max_votable_options
         return unless question && response_option
-
         return if question.votes.where.not(id: id).where(voter_uid: voter_uid).count < question.max_votable_options
 
         errors.add(:response_option, :invalid)

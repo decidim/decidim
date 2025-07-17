@@ -108,7 +108,8 @@ module Decidim
       end
 
       context "when the election has no questions" do
-        let(:election) { create(:election, :ongoing, :with_questions) }
+        let(:election) { create(:election, :ongoing) }
+        let(:data) { {} }
 
         it "does not allow casting votes" do
           expect { subject.call }.to broadcast(:invalid)
