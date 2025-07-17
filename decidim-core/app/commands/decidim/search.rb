@@ -32,15 +32,18 @@ module Decidim
         results = if filters[:with_resource_type].present? && filters[:with_resource_type] == class_name
                     paginate(klass.order_by_id_list(result_ids))
                   elsif filters[:with_resource_type].present?
+                    results_count = 0
                     ApplicationRecord.none
                   else
                     klass.order_by_id_list(result_ids.take(HIGHLIGHTED_RESULTS_COUNT))
                   end
 
-        uncommentable_resources = uncommentable_resources(results) if results.present?
-        if uncommentable_resources.present?
-          results_count -= uncommentable_resources.count
-          results = Kaminari.paginate_array(results - uncommentable_resources, total_count: results_count).page(page_params[:page]).per(page_params[:per_page])
+        if results&.first.respond_to?(:commentable)
+          hidden_commentable_resources = hidden_commentable_resources(results)
+          if hidden_commentable_resources.present?
+            results_count -= hidden_commentable_resources.count
+            results = Kaminari.paginate_array(results - hidden_commentable_resources, total_count: results_count).page(page_params[:page]).per(page_params[:per_page])
+          end
         end
 
         results_by_type.update(class_name => {
@@ -96,12 +99,12 @@ module Decidim
       query
     end
 
-    def uncommentable_resources(results)
-      results.where(id: results.select { |obj| related_uncommentable_resources?(obj) }.map(&:id))
+    def hidden_commentable_resources(results)
+      results.where(id: results.select { |obj| commentable_hidden?(obj) }.map(&:id))
     end
 
-    def related_uncommentable_resources?(object)
-      object.respond_to?(:commentable) && !object.commentable.commentable?
+    def commentable_hidden?(object)
+      !object.commentable.commentable? || object.try(:hidden?) || object.try(:deleted?)
     end
   end
 end

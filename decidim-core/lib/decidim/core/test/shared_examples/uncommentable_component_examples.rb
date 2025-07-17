@@ -46,6 +46,9 @@ shared_examples "an uncommentable component" do
 
     context "when filtering using :with_resource_type" do
       let(:comments_enabled) { true }
+      let!(:comments) { create_list(:comment, 3, commentable: resources.first, body: "Comment in #{manifest_name}, #{resources.first.title["en"]}") }
+      let!(:deleted_comment) { create(:comment, :deleted, commentable: resources.first, body: "Deleted comment, #{resources.first.title["en"]}") }
+      let!(:moderated_comment) { create(:comment, :moderated, commentable: resources.first, body: "Moderated comment, #{resources.first.title["en"]}") }
 
       before do
         component.update!(settings: { comments_enabled: })
@@ -55,21 +58,29 @@ shared_examples "an uncommentable component" do
           fill_in "term", with: resources.first.title["en"]
           find("input#input-search").native.send_keys :enter
         end
-
-        within "aside.layout-2col__aside" do
-          click_on manifest.name.to_s.humanize
-        end
       end
 
-      it "displays the resource" do
-        expect(page).to have_content("1 Results for the search")
+      it "displays the visible comments" do
+        expect(page).to have_content("4 results for the search")
+
+        within "aside.layout-2col__aside #dropdown-menu-search" do
+          click_on manifest.name.to_s.humanize
+        end
+
+        expect(page).to have_content("1 results for the search")
       end
 
       context "when comments are disabled" do
         let(:comments_enabled) { false }
 
-        it "does not display the resource" do
-          expect(page).to have_content("0 Results for the search")
+        it "does not display any commment" do
+          expect(page).to have_content("1 results for the search")
+
+          within "aside.layout-2col__aside #dropdown-menu-search" do
+            click_on manifest.name.to_s.humanize
+          end
+
+          expect(page).to have_content("1 results for the search")
         end
       end
     end
