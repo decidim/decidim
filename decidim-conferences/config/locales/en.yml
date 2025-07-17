@@ -98,7 +98,7 @@ en:
         new_speaker: New speaker
         send_diplomas: Send certificates of attendance
         view_deleted_conferences: View deleted conferences
-      conference_copies:
+      conference_duplicates:
         new:
           duplicate: Duplicate
           select: Select which data you would like to duplicate
@@ -175,7 +175,7 @@ en:
         update:
           error: There was a problem updating this conference.
           success: Conference successfully updated.
-      conferences_copies:
+      conferences_duplicates:
         create:
           error: There was a problem duplicating this conference.
           success: Conference successfully duplicated.
@@ -356,7 +356,7 @@ en:
         title: Speakers
     conferences:
       admin:
-        conference_copies:
+        conference_duplicates:
           form:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         conference_invites:
