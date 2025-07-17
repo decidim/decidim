@@ -242,11 +242,6 @@ gl:
           type: Tipo
         index_header:
           new_initiative: Nova iniciativa
-        interactions:
-          comments_count:
-            count:
-              one: Comentario
-              other: Comentarios
         orders:
           label: 'Ordenar iniciativas por:'
           most_commented: A maioría comentada

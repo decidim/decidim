@@ -11,7 +11,6 @@ ca-IT:
         decidim_scope_id: Àmbit
         description: Descripció
         end_date: Data de fi
-        hashtag: Hashtag
         hero_image: Imatge de la pàgina d'inici
         location: Ubicació
         main_logo: Logo principal
@@ -218,17 +217,20 @@ ca-IT:
       models:
         conference:
           fields:
+            actions: Accions
             created_at: Creat a
             published: Publicada
             title: Títol
         conference_speaker:
           fields:
+            actions: Accions
             affiliation: Afiliació
             full_name: Nom complet
             position: Càrrec
           name: Ponents de la jornada
         conference_user_role:
           fields:
+            actions: Accions
             email: Correu electrònic
             name: Nom
             role: Rol
@@ -240,12 +242,14 @@ ca-IT:
             moderator: Moderadora
         media_link:
           fields:
+            actions: Accions
             date: Data
             link: Enllaç
             title: Títol
           name: Enllaç multimèdia
         partner:
           fields:
+            actions: Accions
             link: Enllaç
             logo: Logotip
             name: Nom
@@ -256,6 +260,7 @@ ca-IT:
             main_promotor: Promotora principal
         registration_type:
           fields:
+            actions: Accions
             conference_meetings: Trobades de la jornada
             price: Preu
             registrations_count: Nombre d'inscripcions
@@ -515,6 +520,7 @@ ca-IT:
             sent: Enviat
         conference_registration:
           fields:
+            actions: Accions
             email: Correu electrònic
             name: Nom
             registration_type: Tipus d'inscripció
@@ -613,7 +619,6 @@ ca-IT:
           description: Una descripció llarga de la jornada
           end_date: La data en la qual va finalitzar aquesta jornada.
           follows_count: El número d'usuàries que segueixen aquesta jornada
-          hashtag: L'etiqueta que fa servir la jornada a Twitter/X
           id: L'identificador únic de la jornada
           location: El lloc de celebració de la jornada. On es va dur a terme aquesta jornada.
           objectives: Els objectius de la jornada. Quina va ser la meta.

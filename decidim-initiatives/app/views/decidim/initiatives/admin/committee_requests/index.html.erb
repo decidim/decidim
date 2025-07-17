@@ -20,12 +20,12 @@
   </div>
 </div>
 
-<div class="table-scroll mt-4">
+<div class="table-stacked mt-4">
   <table class="table-list">
     <thead>
     <tr>
       <th><%= t "user", scope: "activemodel.attributes.initiatives_committee_member" %></th>
-      <th></th>
+      <th><%= t "actions", scope: "decidim.admin.models.initiatives_committee_member.fields" %></th>
     </tr>
     </thead>
     <tbody>
@@ -38,17 +38,35 @@
 
       <% current_initiative.committee_members.each do |request| %>
         <tr data-id="<%= request.id %>">
-          <td>
+          <td data-label="<%= t "user", scope: "activemodel.attributes.initiatives_committee_member" %>">
             <%= link_to request.user.name, "mailto:#{request.user.email}" %>
           </td>
-          <td class="table-list__actions">
-            <% if allowed_to? :approve, :initiative_committee_member, request: request %>
-              <%= icon_link_to "check-line", approve_initiative_committee_request_path(current_initiative, request), t(".approve"), class: "action-icon--check" %>
-            <% end %>
 
-            <% if allowed_to? :revoke, :initiative_committee_member, request: request %>
-              <%= icon_link_to "delete-bin-line", revoke_initiative_committee_request_path(current_initiative, request), t(".revoke"), class: "action-icon--remove", method: :delete, data: { confirm: t(".confirm_revoke") } %>
-            <% end %>
+          <td class="table-list__actions" data-label="<%= t "actions", scope: "decidim.admin.models.initiatives_committee_member.fields" %>">
+            <button type="button" data-component="dropdown" data-target="actions-initiative-committee-request-<%= request.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: request.user.name) %>">
+              <%= icon "more-fill", class: "text-secondary" %>
+            </button>
+
+            <div class="inline-block relative">
+              <ul id="actions-initiative-committee-request-<%= request.id %>" class="dropdown dropdown__action" aria-hidden="true">
+                <% if allowed_to? :approve, :initiative_committee_member, request: request %>
+                  <li class="dropdown__item">
+                    <%= link_to approve_initiative_committee_request_path(current_initiative, request), class: "dropdown__button" do %> <%= icon "check-line" %>
+                      <%= t(".approve") %>
+                    <% end %>
+                  </li>
+                <% end %>
+
+                <% if allowed_to? :revoke, :initiative_committee_member, request: request %>
+                  <li class="dropdown__item">
+                    <%= link_to revoke_initiative_committee_request_path(current_initiative, request), method: :delete, data: { confirm: t(".confirm_revoke") }, class: "dropdown__button" do %>
+                      <%= icon "delete-bin-line" %>
+                      <%= t(".revoke") %>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
           </td>
         </tr>
       <% end %>

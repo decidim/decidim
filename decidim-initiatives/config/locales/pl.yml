@@ -7,7 +7,6 @@ pl:
         area_id: Obszar
         decidim_scope_id: Zakres
         description: Opis
-        hashtag: Hashtag
         offline_votes: Podpisy na piśmie
         offline_votes_for_scope: Podpisy dla %{scope_name}
         scope_id: Zakres
@@ -447,13 +446,6 @@ pl:
         initiatives:
           closed_initiatives_warning: Obecnie nie ma aktualnych inicjatyw, ale tutaj możesz zobaczyć wszystkie poprzednie inicjatywy.
           no_initiatives_warning: Brak inicjatyw spełniających kryteria wyszukiwania.
-        interactions:
-          comments_count:
-            count:
-              one: Komentarz
-              few: Komentarze
-              many: Komentarze
-              other: Komentarze
         orders:
           label: 'Sortuj inicjatywy według:'
           most_commented: Najczęściej komentowane

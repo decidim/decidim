@@ -1,5 +1,17 @@
 fi-pl:
+  activemodel:
+    attributes:
+      token_csv:
+        file: Tiedosto
+        remove_all: Poista kaikki nykyiset tiedot henkilötietorekisteristä
   decidim:
+    admin:
+      menu:
+        elections_menu:
+          basic_elections: Yleiset asetukset
+          election_census: Henkilötietorekisteri
+          election_dashboard: Hallintapaneeli
+          election_questions: Kysymykset
     components:
       elections:
         name: Vaalit
@@ -10,22 +22,121 @@ fi-pl:
             announcement: Ilmoitus
     elections:
       actions:
+        confirm_delete_election: Haluatko varmasti poistaa tämän vaalin?
+        deleted_election_info: Poistettuja vaaleja ei näytetä listassa. Voit tarkastella niitä painamalla alla olevaa painiketta.
+        edit: Muokkaa vaalia
+        new: Uusi vaali
         title: Toiminnot
+        view_deleted_elections: Näytä poistetut vaalit
       admin:
+        census:
+          edit:
+            choose_census: Valitse henkilötietorekisterin tyyppi, jota haluat käyttää tälle vaalille
+            created_at: Luonnin ajankohta
+            identifier: Käyttäjän tunniste
+            title: Henkilötietorekisterin tyyppi
+          preview:
+            title:
+              one: 'Käyttäjän esikatselu (lista on rajattu %{count} tietueeseen):'
+              other: 'Käyttäjän esikatselu (lista on rajattu %{count} tietueeseen):'
+          update:
+            error: Henkilötietorekisterin luonti tai tallennus epäonnistui.
+            success: Henkilötietorekisterin päivitys onnistui.
         elections:
+          create:
+            invalid: Vaalin luonti epäonnistui.
+            success: Vaalin luonti onnistui.
+          dashboard_page:
+            title: Hallintapaneeli
           edit:
             title: Muokkaa vaalia
-            update: Päivitä vaali
           form:
             add_images: Lisää kuvia
+            attachment_legend: Lisää kuvagalleria (valinnainen)
+            basic_title: Perustiedot
+            calendar: Kalenteri
+            calendar_description: Tarkista, että organisaation aikavyöhyke on oikea organisaation asetuksissa. Nykyinen aikavyöhyke on %{timezone}.
+            edit_attachments: Muokkaa liitteitä
+            end_at: Päättymisaika
+            manual_start: Käynnistä manuaalisesti
+            results_availability:
+              after_end: Vaalien päättymisen jälkeen
+              after_end_help: Näytä tulokset vasta vaalien päätyttyä
+              per_question: Erikseen jokaiselle kysymykselle
+              per_question_help: Näytä tulokset jokaiselle kysymykselle tulosten valmistuttua
+              real_time: Reaaliajassa
+              real_time_help: Näytä tulokset heti ensimmäisen äänen jättämisen jälkeen
+              title: Tulosten näkyvyys
+            save: Tallenna ja jatka
+            start_at: Alkamisaika
           index:
             title: Vaalit
+          manage_trash:
+            title: Poistetut vaalit
           new:
-            create: Luo vaali
             title: Uusi vaali
+          publish:
+            invalid: Vaalin julkaisu epäonnistui.
+            success: Vaalin julkaisu onnistui.
+          unpublish:
+            invalid: Vaalin julkaisun peruminen epäonnistui.
+            success: Vaalin julkaisun peruminen onnistui.
+          update:
+            invalid: Vaalin päivittäminen epäonnistui.
+            success: Vaalin päivittäminen onnistui.
+        questions:
+          edit_questions:
+            new_question: Uusi kysymys
+            remove_question_confirm: Haluatko varmasti poistaa tämän kysymyksen?
+            title: Kysymykset
+          form:
+            errors:
+              at_least_one_question: Vähintään yksi kysymys on määritettävä.
+            form_description: Kysymykseen on saatava vähintään kaksi vastausta, jotta vastaaja voi siirtyä seuraavaan vaiheeseen.
+          update:
+            invalid: Kysymysten päivittäminen epäonnistui.
+            success: Kysymysten päivittäminen onnistui.
+      admin_log:
+        election:
+          create: "%{user_name} loi vaalin %{resource_name} tilaan %{space_name}"
+          publish: "%{user_name} julkaisi vaalin %{resource_name} tilassa %{space_name}"
+          restore: "%{user_name} palautti vaalin %{resource_name} tilaan %{space_name}"
+          soft_delete: "%{user_name} siirsi vaalin %{resource_name} roskakoriin tilassa %{space_name}"
+          unpublish: "%{user_name} perui vaalin %{resource_name} julkaisun tilassa %{space_name}"
+          update: "%{user_name} päivitti vaalia %{resource_name} tilassa %{space_name}"
+        question:
+          update: "%{user_name} päivitti kysymyksiä vaalille %{resource_name}"
+      censuses:
+        internal_users:
+          info_html: |
+            Voit rajata tähän vaaliin osallistumisen osallistujille, jotka ovat vahvistaneet käyttäjätilinsä.<br>
+            Huomioithan, että osallistujien on vahvistettava käyttäjätilinsä äänestääkseen. Äänestys on mahdollista kaikille palveluun rekisteröityneille osallistujille, mikäli kaikki valintaruudut jätetään valitsematta.
+          internal_type_title: Muut vahvistustavat äänestämisen mahdollistamiseksi (vapaaehtoinen)
+          label: Rekisteröityneet osallistujat (dynaaminen)
+        token_csv:
+          example: |
+            email;token
+            kayttaja@example.fi;123456
+            kayttaja@example.fi;ABCXYZ
+          info_html: |
+            Tiedosto on ladattava CSV-muodossa, jossa on kaksi saraketta, yksi sähköpostiosoitteelle (email) ja toinen tunnisteelle (token), jonka osallistujat syöttävät äänestääkseen.
+            Sarakkeet on erotettava puolipisteellä (;)
+          label: Rekisteröitymättömät osallistujat tunnistekoodilla (kiinteä)
+          remove_before_upload: 'Mikäli haluat ladata uuden henkilötietorekisterin, aikaisempi rekisteri on ensin poistettava. '
+          upload_file: Lataa tiedosto
+          upload_new_census: Lataa CSV-tiedosto
+          uploaded_data_html:
+            one: |
+              Henkilötietorekisterin tiedot ladataan ja valmistellaan käytettäväksi vaalissa <b>%{election_title}</b>.
+              <br>Tällä hetkellä <strong>1</strong> henkilö on äänioikeutettu tässä vaalissa (tämä voi muuttua käytettäessä dynaamista henkilötietorekisteriä).
+            other: |
+              Henkilötietorekisterin tiedot ladataan ja valmistellaan käytettäväksi vaalissa <b>%{election_title}</b>.
+              <br>Tällä hetkellä <strong>%{count}</strong> henkilöä ovat äänioikeutettuja tässä vaalissa (tämä voi muuttua käytettäessä dynaamista henkilötietorekisteriä).
       models:
         election:
           fields:
+            end_at: Päättymisaika
+            start_at: Alkamisaika
             title: Otsikko
     statistics:
       elections_count: Vaalia

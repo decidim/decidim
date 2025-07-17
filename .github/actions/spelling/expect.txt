@@ -381,6 +381,7 @@ gteq
 Gual
 GVzd
 Gyver
+hadolint
 haml
 Hammes
 hashdiff
@@ -672,6 +673,7 @@ ORMs
 osallistu
 osm
 oss
+osv
 osx
 otf
 otg
@@ -754,6 +756,7 @@ publicable
 Pujol
 pwa
 QLiterals
+qlty
 queda
 qux
 railtie
@@ -838,6 +841,7 @@ setseed
 sgid
 shakapacker
 sharedapp
+shellcheckrc
 shellwords
 shs
 sidekiq

@@ -147,6 +147,16 @@ en:
         new:
           copy: Copy
           title: Duplicate meeting
+      tooltips:
+        cannot_close_meetings: Cannot close this meeting as it is created by a participant
+        cannot_duplicate_meetings: Cannot duplicate this meeting as it is created by a participant
+        cannot_edit_meetings: Cannt edit this meeting as it is created by a participant
+        cannot_manage_agenda_meetings: Cannot manage agenda in this meeting as it is created by a participant
+        cannot_manage_attachments_meetings: Cannot manage attachments in this meeting as it is created by a participant
+        cannot_manage_poll_meetings: Cannot manage poll in this meeting as it is created by a participant
+        cannot_manage_registrations_meetings: Cannt manage registrations on this meeting as it is created by a participant, it has registrations disabled or these registrations are externals
+        cannot_mark_attendee: Cannot mark as atteendee as it was already marked
+        deleted_meetings_info: Cannot delete this meeting as it is created by a participant.
     components:
       meetings:
         actions:

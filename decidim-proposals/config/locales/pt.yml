@@ -13,13 +13,11 @@ pt:
         address: Endereço
         answer: Responder
         answered_at: Respondido em
-        automatic_hashtags: Hashtags adicionados automaticamente
         body: Corpo
         decidim_scope_id: Âmbito
         has_address: Tem endereço
         scope_id: Âmbito
         state: Estado
-        suggested_hashtags: Hashtags sugeridos
         title: Título
       proposal_answer:
         answer: Responder
@@ -142,7 +140,6 @@ pt:
             amendments_visibility_help: Caso esteja selecionada a opção "As modificações estão apenas visíveis para os respetivos autores", o participante deverá ter a sessão iniciada para ver as alterações efetuadas.
             announcement: Anúncio
             answers_with_costs: Ativar custos nas respostas a propostas
-            automatic_hashtags: Hashtags adicionados a todas as propostas
             comments_blocked: Comentários bloqueados
             default_sort_order: Ordenamento por defeitos das propostas
             default_sort_order_options:
@@ -153,7 +150,6 @@ pt:
               with_more_authors: Com mais autores
             proposal_answering_enabled: Resposta de proposta ativada
             publish_answers_immediately: Publicar as respostas às propostas imediatamente
-            suggested_hashtags: Hashtags sugeridos aos participantes para novas propostas
             votes_blocked: Votos bloqueados
             votes_enabled: Votos ativados
     events:

@@ -13,13 +13,11 @@ nl:
         address: Adres
         answer: Antwoord
         answered_at: Beantwoord op
-        automatic_hashtags: Hashtags worden automatisch toegevoegd
         body: Body
         decidim_scope_id: Scope
         has_address: Heeft adres
         scope_id: Bereik
         state: Status
-        suggested_hashtags: Voorgestelde hashtags
         title: Titel
       proposal_answer:
         answer: Antwoord
@@ -126,7 +124,6 @@ nl:
             amendments_visibility_help: Als de optie "alleen zichtbaar voor de auteurs" wordt geselecteerd, moet een deelnemer aangemeld zijn om de amendementen te zien.
             announcement: Aankondiging
             answers_with_costs: Kosten inschakelen bij antwoorden op voorstel
-            automatic_hashtags: Hashtags toegevoegd aan alle voorstellen
             comments_blocked: Reacties geblokkeerd
             creation_enabled: Gebruikers kunnen voorstellen maken
             default_sort_order: Standaardsortering
@@ -138,7 +135,6 @@ nl:
               with_more_authors: Met meer auteurs
             proposal_answering_enabled: Formeel antwoord op voorstellen toegestaan.
             publish_answers_immediately: Publiceer voorstel antwoorden onmiddellijk
-            suggested_hashtags: Hashtags stelde gebruikers voor nieuwe voorstellen voor
             votes_blocked: Stemmen geblokkeerd
             votes_enabled: Stemmen actief
     events:

@@ -103,7 +103,6 @@
           state: Status
           state_values:
             closed: Lukket
-            open: Åpen
         index:
           new_debate: Ny innspillstråd
         new:
@@ -116,10 +115,8 @@
           recent: Nyeste
           updated: Sist oppdatert
         show:
-          debate_closed: Lukket
           debate_conclusions_are: 'Innspillstråden er avsluttet den %{date}, med denne oppsummeringen:'
           edit_conclusions: Rediger oppsummering
-          open: Åpen debatt
           participants_count: Deltakere
         update:
           invalid: Det oppsto et problem med å oppdatere innspillstråden.

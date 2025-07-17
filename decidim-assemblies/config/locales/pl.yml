@@ -25,7 +25,6 @@ pl:
         duration: Czas trwania
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
         hero_image: Obraz główny
         import_attachments: Importuj załączniki
         import_categories: Importuj kategorie
@@ -170,7 +169,6 @@ pl:
           attachments: Załączniki
           components: Komponenty
           info: O tym zgromadzeniu
-          landing_page: Strona startowa
           moderations: Moderacje
           see_assembly: Zobacz zgromadzenie
       models:

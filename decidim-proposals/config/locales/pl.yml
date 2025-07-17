@@ -13,13 +13,11 @@ pl:
         address: Adres
         answer: Odpowiedź
         answered_at: Odpowiedziano
-        automatic_hashtags: Hashtagi zostały dodane automatycznie
         body: Treść
         decidim_scope_id: Zakres
         has_address: Ma adres
         scope_id: Zakres
         state: Stan
-        suggested_hashtags: Sugerowane hashtagi
         title: Tytuł
       proposal_answer:
         answer: Odpowiedź
@@ -183,7 +181,6 @@ pl:
             amendments_visibility_help: W przypadku zaznaczenia opcji „Poprawki są widoczne tylko dla ich autorów” użytkownik musi być zalogowany, aby zobaczyć wprowadzone poprawki.
             announcement: Ogłoszenie
             answers_with_costs: Zezwalaj na koszty w odpowiedziach na propozycje
-            automatic_hashtags: Hashtagi dodane do wszystkich propozycji
             comments_blocked: Komentarze zablokowane
             creation_enabled: Uczestnicy mogą tworzyć propozycje
             creation_enabled_readonly: To ustawienie jest wyłączone, gdy aktywujesz funkcjonalność tekstów partycypacyjnych. Aby przesłać propozycje jako tekst partycypacyjny, kliknij przycisk "Tekst partycypacyjny" i postępuj zgodnie z instrukcjami.
@@ -200,7 +197,6 @@ pl:
             proposal_answering_enabled: Włączono odpowiadanie na propozycję
             publish_answers_immediately: Natychmiast publikuj odpowiedzi na propozycje
             publish_answers_immediately_help_html: 'Pamiętaj, że jeśli odpowiesz na dowolną propozycję bez włączonej tej opcji, musisz ją opublikować ręcznie, wybierając ją i korzystając z akcji do publikacji. Aby uzyskać więcej informacji na temat tego, jak to działa, zobacz stronę <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">z dokumentacją odpowiedzi na propozycje</a>.'
-            suggested_hashtags: Hashtagi sugerowane użytkownikom dodającym nowe propozycje
             votes_blocked: Głosy zablokowane
             votes_enabled: Głosowanie włączone
             votes_hidden: Ukryte głosy (jeśli głosy są włączone, sprawdzenie to ukryje liczbę głosów)

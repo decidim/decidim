@@ -42,6 +42,8 @@ en:
               'true': Not selected for implementation
           taxonomies_part_of_contains:
             label: Taxonomy
+      tooltips:
+        deleted_projects_info: Cannot delete this project
     budgets:
       actions:
         attachment_collections: Folders

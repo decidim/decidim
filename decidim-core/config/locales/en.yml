@@ -167,6 +167,13 @@ en:
       x_seconds:
         one: 1 second
         other: "%{count} seconds"
+    widget:
+      label:
+        date: Select date for %{label}
+        time: Select time for %{label}
+      picker:
+        date_button: Open calendar picker for %{label}
+        time_button: Open time picker for %{label}
   decidim:
     accessibility:
       external_link: External link
@@ -723,6 +730,7 @@ en:
     doorkeeper:
       authorizations:
         new:
+          api_read: Read content through the API
           authorize: Authorize application
           by_organization_link_html: by %{link}
           cancel: Cancel
@@ -1606,6 +1614,7 @@ en:
     searches:
       filters:
         jump_to: 'Jump to:'
+        resource: "%{label} among %{collection}"
         search: Search
         state:
           active: Active
@@ -2145,6 +2154,8 @@ en:
         profile: My account
         public_profile: My public profile
         title: Profile links
+        unread_conversations: You have unread conversations
+        unread_notifications: You have unread notifications
       user_profile:
         account: Account
         authorizations: Authorizations

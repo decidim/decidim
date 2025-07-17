@@ -7,7 +7,6 @@ hu:
         area_id: Terület
         decidim_scope_id: Hatókör
         description: Leírás
-        hashtag: Kettőskereszt
         offline_votes: Támogatás szemtől szembe
         offline_votes_for_scope: 'Személyesen aláírások erre: %{scope_name}'
         scope_id: Hatáskör
@@ -402,11 +401,6 @@ hu:
         initiatives:
           closed_initiatives_warning: Jelenleg nincs nyitott találkozó, de itt megtalálhatod az összes zárt találkozó listáját.
           no_initiatives_warning: Egyik kezdeményezés sem felel meg a keresési feltételnek.
-        interactions:
-          comments_count:
-            count:
-              one: Megjegyzés
-              other: Hozzászólások
         orders:
           label: 'Kezdeményezések rendezése:'
           most_commented: Legtöbb hozzászólással

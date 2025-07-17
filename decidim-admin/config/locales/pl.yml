@@ -59,13 +59,6 @@ pl:
         header_snippets: Fragmenty nagłówków
         highlight_alternative_color: Wyróżnij (alternatywny kolor)
         highlight_color: Wyróżniony kolor
-        highlighted_content_banner_action_subtitle: Podtytuł przycisku akcji
-        highlighted_content_banner_action_title: Tytuł przycisku akcji
-        highlighted_content_banner_action_url: URL przycisku akcji
-        highlighted_content_banner_enabled: Pokaż podświetlony baner treści
-        highlighted_content_banner_image: Obraz
-        highlighted_content_banner_short_description: Krótki opis
-        highlighted_content_banner_title: Tytuł
         host: Host
         instagram_handler: Handler Instagrama
         logo: Logo
@@ -542,7 +535,6 @@ pl:
         content: Zgłoszona zawartość
         external_domain_allowlist: Dozwolone domeny zewnętrzne
         help_sections: Sekcje pomocy
-        homepage: Strona główna
         impersonations: Podszywanie się pod inne osoby
         manage: Zarządzanie
         moderation: Globalne moderacje
@@ -777,14 +769,6 @@ pl:
         update:
           error: Podczas aktualizowania tej organizacji wystąpił błąd.
           success: Organizacja została pomyślnie zaktualizowana.
-      organization_appearance:
-        edit:
-          update: Aktualizuj
-        form:
-          header_snippets:
-            header_snippets_help_html: Użyj tego pola, aby dodać rzeczy do nagłówka HTML. Najczęstszym zastosowaniem jest integracja usług innych firm, które wymagają dodatkowych JavaScript lub CSS. Możesz także użyć tego aby dodać dodatkowe meta tagi do HTML. Pamiętaj, że będzie to wyświetlane tylko na publicznych stronach, nie w sekcji administratora. Jeśli kod wchodzi w interakcje z zewnętrznymi API lub nie jest zgodny z wytycznymi bezpieczeństwa aplikacji, konieczna będzie zmiana polityki bezpieczeństwa treści. Dowiedz się więcej o <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">na stronie dokumentacji</a>.
-            title: Fragmenty nagłówków HTML
-          homepage_highlighted_content_banner_title: Wyróżniony baner tekstowy
       organization_external_domain_allowlist:
         edit:
           update: Aktualizuj
@@ -938,8 +922,6 @@ pl:
         authorization_workflows: Metody weryfikacji
         dashboard: Panel
         edit_external_domains: Dozwolone domeny zewnętrzne
-        edit_landing_page: Zawartość strony
-        edit_organization_appearance: Edytuj wygląd strony głównej
         impersonatable_users: Zarządzaj użytkownikami
         impersonations: Zarządzanie użytkownikami
         menu: Menu

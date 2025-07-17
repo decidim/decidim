@@ -37,13 +37,6 @@ id:
         favicon: Ikon
         github_handler: GitHub handler
         header_snippets: Cuplikan header
-        highlighted_content_banner_action_subtitle: Subjudul tombol tindakan
-        highlighted_content_banner_action_title: Judul tombol aksi
-        highlighted_content_banner_action_url: URL tombol tindakan
-        highlighted_content_banner_enabled: Tampilkan spanduk konten yang disorot
-        highlighted_content_banner_image: Gambar
-        highlighted_content_banner_short_description: Deskripsi Singkat
-        highlighted_content_banner_title: Judul
         instagram_handler: Pengatur Instagram
         logo: Logo
         name: Nama
@@ -269,7 +262,6 @@ id:
         areas: Area
         configuration: Konfigurasi
         help_sections: Bagian bantuan
-        homepage: Homepage
         impersonations: Peniruan identitas
         manage: Mengelola
         newsletters: Nawala
@@ -404,11 +396,6 @@ id:
         update:
           error: Terjadi kesalahan saat memperbarui organisasi ini.
           success: Organisasi berhasil diperbarui.
-      organization_appearance:
-        edit:
-          update: Memperbarui
-        form:
-          homepage_highlighted_content_banner_title: Spanduk konten berkecepatan tinggi
       participatory_space_private_users:
         create:
           error: Terjadi kesalahan saat menambahkan pengguna pribadi untuk ruang partisipatif ini.

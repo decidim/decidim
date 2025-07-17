@@ -25,7 +25,6 @@ hu:
         duration: Időtartam
         facebook: Facebook
         github: GitHub
-        hashtag: Kettőskereszt
         hero_image: Kezdő kép
         import_attachments: Mellékletek importálása
         import_categories: Kategóriák importálása
@@ -161,7 +160,6 @@ hu:
           attachments: Mellékletek
           components: Elemek
           info: Erről a gyűlésről
-          landing_page: Landing oldal
           moderations: Moderálás
           see_assembly: A gyűlés megtekintése
       models:

@@ -13,7 +13,6 @@ ja:
         document: ドキュメント
         domain: ドメイン
         end_date: 終了日
-        hashtag: ハッシュタグ
         hero_image: ホーム画像
         import_attachments: 添付ファイルをインポート
         import_categories: カテゴリをインポート
@@ -39,7 +38,6 @@ ja:
         description: 説明
         developer_group: プロモーターグループ
         group_url: ウェブサイト
-        hashtag: ハッシュタグ
         hero_image: 画像
         local_area: 組織エリア
         meta_scope: スコープメタデータ
@@ -107,7 +105,7 @@ ja:
         participatory_process_groups: 参加型プロセスグループ
         participatory_process_groups_submenu:
           info: 情報
-          landing_page: ランディングページ
+          landing_page: ランディングページのレイアウト
         participatory_processes: 参加型プロセス
         participatory_processes_submenu:
           attachment_collections: フォルダ
@@ -115,7 +113,7 @@ ja:
           attachments: 添付ファイル
           components: コンポーネント
           info: このプロセスについて
-          landing_page: ランディングページ
+          landing_page: ランディングページのレイアウト
           moderations: モデレーション
           private_users: メンバー
           process_admins: 参加型プロセス管理者
@@ -131,16 +129,19 @@ ja:
           name: 参加型プロセス
         participatory_process_group:
           fields:
+            actions: アクション
             title: タイトル
           name: 参加型プロセスグループ
         participatory_process_step:
           fields:
+            actions: アクション
             end_date: 終了日
             start_date: 開始日
             title: タイトル
           name: プロセスのフェーズ
         participatory_process_user_role:
           fields:
+            actions: アクション
             email: Eメールアドレス
             name: 名前
             role: ロール
@@ -349,7 +350,6 @@ ja:
           developer_group: プロセスの開発者グループ。これはプロセスをプロモートしている組織です
           end_date: プロセスの終了日時
           follows_count: このスペースをフォローしているユーザー数
-          hashtag: Twitter/Xで使用されるプロセスのハッシュタグ
           id: このプロセスの固有ID
           local_area: プロセスのローカルエリア。これはプロセスが行われている組織のエリアです。
           meta_scope: プロセスのスコープメタデータ

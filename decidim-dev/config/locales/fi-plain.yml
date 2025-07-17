@@ -36,6 +36,8 @@ fi-pl:
               baz: Baz
               foo: Foo
           step:
+            likes_blocked: Tykkäykset estetty
+            likes_enabled: Tykkäykset käytössä
             readonly_step_attribute: Vain luku -attribuutti vaiheelle
             test_options:
               bar: Palkki

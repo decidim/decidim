@@ -22,6 +22,10 @@ env:
   NODE_ENV: "test"
   SHAKAPACKER_RUNTIME_COMPILE: "false"
 
+permissions:
+  contents: read
+  pull-requests: read
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
   cancel-in-progress: true

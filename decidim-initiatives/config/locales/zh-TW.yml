@@ -7,7 +7,6 @@ zh-TW:
         area_id: 區域
         decidim_scope_id: 範圍
         description: 說明
-        hashtag: 主題標籤
         offline_votes: 親筆簽名
         offline_votes_for_scope: '%{scope_name} 的親筆簽名'
         scope_id: 範圍
@@ -410,10 +409,6 @@ zh-TW:
         initiatives:
           closed_initiatives_warning: 目前沒有開放中的倡議，但您可以在這裡找到所有已結束的倡議清單。
           no_initiatives_warning: 沒有符合您的搜尋條件的倡議。
-        interactions:
-          comments_count:
-            count:
-              other: 評論
         orders:
           label: '按照以下方式對倡議進行排序：'
           most_commented: 最多評論

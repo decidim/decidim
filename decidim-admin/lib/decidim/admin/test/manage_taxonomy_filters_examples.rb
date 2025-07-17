@@ -16,8 +16,12 @@ shared_examples "manage taxonomy filters in settings" do
     let!(:another_taxonomy_filter) do
       create(:taxonomy_filter, internal_name: { en: "Another filter" }, participatory_space_manifests: [participatory_space.manifest.name], root_taxonomy:)
     end
+
     before do
-      click_on "Configure"
+      within "tr", text: translated_attribute(component.name) do
+        find("button[data-component='dropdown']").click
+        click_on "Configure"
+      end
     end
 
     it "can be added to settings" do
@@ -36,8 +40,9 @@ shared_examples "manage taxonomy filters in settings" do
       within ".js-current-filters" do
         expect(page).to have_css("td", text: "Internal taxonomy filter name")
         expect(page).to have_css("td", text: "Public taxonomy filter name")
-        expect(page).to have_link("Edit")
+        expect(page).to have_css("button[data-component='dropdown']", count: 1)
       end
+
       expect(component.reload.settings.taxonomy_filters).to eq([taxonomy_filter.id.to_s])
 
       click_on "Add filter"
@@ -52,12 +57,15 @@ shared_examples "manage taxonomy filters in settings" do
         expect(page).to have_css("td", text: "Internal taxonomy filter name")
         expect(page).to have_css("td", text: "Public taxonomy filter name")
         expect(page).to have_css("td", text: "Another filter")
-        expect(page).to have_link("Edit", count: 2)
+        expect(page).to have_css("button[data-component='dropdown']", count: 2)
       end
       expect(component.reload.settings.taxonomy_filters).to contain_exactly(taxonomy_filter.id.to_s, another_taxonomy_filter.id.to_s)
 
       click_on "Update"
-      click_on "Configure"
+      within "tr", text: translated(component.name) do
+        find("button[data-component='dropdown']").click
+        click_on "Configure"
+      end
       within ".js-current-filters" do
         expect(page).to have_css("td", text: "Internal taxonomy filter name")
         expect(page).to have_css("td", text: "Public taxonomy filter name")
@@ -69,7 +77,10 @@ shared_examples "manage taxonomy filters in settings" do
     let(:taxonomy_filter_item) { nil }
     let(:taxonomy_filter) { nil }
     before do
-      click_on "Configure"
+      within "tr", text: translated(component.name) do
+        find("button[data-component='dropdown']").click
+        click_on "Configure"
+      end
     end
 
     it "shows a configuration message" do
@@ -83,12 +94,16 @@ shared_examples "manage taxonomy filters in settings" do
 
     before do
       component.update!(settings: { taxonomy_filters: [another_taxonomy_filter.id.to_s, taxonomy_filter.id.to_s] })
-      click_on "Configure"
+      within "tr", text: translated(component.name) do
+        find("button[data-component='dropdown']").click
+        click_on "Configure"
+      end
     end
 
     it "can be removed from settings" do
       within ".js-current-filters" do
         within "tr", text: "Internal taxonomy filter name" do
+          find("button[data-component='dropdown']").click
           click_on "Edit"
         end
       end
@@ -113,11 +128,16 @@ shared_examples "manage taxonomy filters in settings" do
         expect(page).to have_css("td", text: "Another taxonomy filter name")
         expect(page).to have_css("td", text: "Internal taxonomy filter name")
         expect(page).to have_css("td", text: "Public taxonomy filter name")
-        expect(page).to have_link("Edit", count: 2)
+        within "table" do
+          expect(page).to have_css("button[data-component='dropdown']", count: 2)
+        end
       end
 
       click_on "Update"
-      click_on "Configure"
+      within "tr", text: translated(component.name) do
+        find("button[data-component='dropdown']").click
+        click_on "Configure"
+      end
       within ".js-current-filters" do
         expect(page).to have_css("td", text: "Internal taxonomy filter name")
         expect(page).to have_css("td", text: "Public taxonomy filter name")

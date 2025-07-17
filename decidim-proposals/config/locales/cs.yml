@@ -18,7 +18,6 @@ cs:
         address: Adresa
         answer: Odpovědět
         answered_at: Odpovězeno na
-        automatic_hashtags: Hashtagy automaticky přidány
         body: Tělo
         decidim_proposals_proposal_state_id: Stav
         decidim_scope_id: Rozsah
@@ -27,7 +26,6 @@ cs:
         longitude: Zeměpisná délka
         scope_id: Oblast působnosti
         state: Stav
-        suggested_hashtags: Navrhované hashtagy
         title: Titul
       proposal_answer:
         answer: Odpovědět
@@ -237,7 +235,6 @@ cs:
             amendments_visibility_help: Pokud je zvolena možnost "pozměňovací návrhy jsou viditelné pouze jejich autorům", musí být účastník přihlášen, aby se seznámil s provedenými pozměňovacími návrhy.
             announcement: Oznámení
             answers_with_costs: Povolit finanční náklady v odpovědích k návrhu
-            automatic_hashtags: Do všech návrhů byly přidány značky Hashtags
             comments_blocked: Komentáře byly blokovány
             creation_enabled: Účastníci mohou vytvářet návrhy
             creation_enabled_readonly: Toto nastavení je zakázáno, když aktivujete funkci Participativní texty. Chcete-li návrhy nahrát jako participativní text, klikněte na tlačítko Participativní texty a postupujte podle pokynů.
@@ -247,6 +244,7 @@ cs:
               automatic: Automaticky
               most_commented: Nejvíce komentované
               most_followed: Nejvíce sledované
+              most_liked: Nejoblíbenější
               most_voted: Nejvíce hlasovalo
               random: Náhodně
               recent: Nedávné
@@ -256,7 +254,6 @@ cs:
             proposal_answering_enabled: Odpovídání návrhu je povoleno
             publish_answers_immediately: Okamžitě publikovat odpovědi návrhu
             publish_answers_immediately_help_html: 'Mějte na paměti, že pokud odpovíte na jakýkoli návrh bez tohoto povolení, budete je muset publikovat ručně jejich výběrem a použitím publikační akce. Více informací o tom, jak to funguje, naleznete na <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">stránce odpovědi návrhů</a>.'
-            suggested_hashtags: Hashtagy navržené uživatelům pro nové návrhy
             votes_blocked: Hlasy blokovány
             votes_enabled: Hlasování povoleno
             votes_hidden: Skryté hlasy (pokud jsou hlasy povoleny, zaškrtnutím této položky se počet hlasů skryje)

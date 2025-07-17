@@ -1,5 +1,9 @@
 "no":
   decidim:
+    admin:
+      menu:
+        elections_menu:
+          election_questions: Spørsmål
     components:
       elections:
         name: Valg
@@ -15,9 +19,11 @@
         elections:
           edit:
             title: Rediger valg
-            update: Oppdater valg
           index:
             title: Valg
           new:
-            create: Opprett valg
             title: Nytt valg
+        questions:
+          edit_questions:
+            new_question: Nytt spørsmål
+            title: Spørsmål

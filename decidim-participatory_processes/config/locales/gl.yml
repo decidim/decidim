@@ -12,7 +12,6 @@ gl:
         developer_group: Grupo promotor
         domain: Dominio
         end_date: Data de finalización
-        hashtag: Etiqueta
         hero_image: Imaxe na casa
         local_area: Área de organización
         meta_scope: Metadatos de ámbito
@@ -32,7 +31,6 @@ gl:
       participatory_process_group:
         description: Descrición
         group_url: Sitio web
-        hashtag: Cancelo
         hero_image: Imaxe
         participatory_process_ids: Procesos relacionados
         participatory_scope: Que se decide
@@ -87,7 +85,6 @@ gl:
         participatory_process_groups: Grupos de procesos
         participatory_process_groups_submenu:
           info: Información
-          landing_page: Páxina de inicio
         participatory_processes: Procesos
         participatory_processes_submenu:
           attachment_collections: Carpetas

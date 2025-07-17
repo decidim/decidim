@@ -13,7 +13,6 @@ el:
         document: Έγγραφο
         domain: Τομέας
         end_date: Ημερομηνία λήξης
-        hashtag: Hashtag
         hero_image: Εικόνα αρχικής σελίδας
         import_attachments: Εισαγωγή συνημμένων
         import_categories: Εισαγωγή κατηγοριών
@@ -39,7 +38,6 @@ el:
         description: Περιγραφή
         developer_group: Ομάδα προώθησης
         group_url: Ιστοσελίδα
-        hashtag: Hashtag
         hero_image: Εικόνα
         local_area: Περιοχή οργανισμού
         meta_scope: Μεταδεδομένα πεδίου εφαρμογής
@@ -103,7 +101,6 @@ el:
         participatory_process_groups: Ομάδες διαδικασιών
         participatory_process_groups_submenu:
           info: Πληροφορίες
-          landing_page: Σελίδα άφιξης
         participatory_processes: Διαδικασίες
         participatory_processes_submenu:
           attachment_collections: Φάκελοι

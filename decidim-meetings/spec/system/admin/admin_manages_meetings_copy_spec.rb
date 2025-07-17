@@ -27,6 +27,7 @@ describe "Admin copies meetings" do
 
     it "creates a new Online meeting", :slow do
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+        find("button[data-component='dropdown']").click
         click_on "Duplicate"
       end
 
@@ -80,6 +81,7 @@ describe "Admin copies meetings" do
 
     it "creates a new hybrid meeting", :slow do
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+        find("button[data-component='dropdown']").click
         click_on "Duplicate"
       end
 
@@ -141,6 +143,7 @@ describe "Admin copies meetings" do
 
     it "creates a new In person meeting", :slow do
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+        find("button[data-component='dropdown']").click
         click_on "Duplicate"
       end
 

@@ -3,8 +3,6 @@
 module Decidim
   module ContentBlocks
     class ParticipatorySpaceHeroCell < Decidim::ContentBlocks::BaseCell
-      include Decidim::TwitterSearchHelper
-
       delegate :title, :attached_uploader, to: :resource
 
       def cta_text

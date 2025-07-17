@@ -48,13 +48,6 @@ nl:
         header_snippets: Elementen om toe te voegen tussen HTML-tags
         highlight_alternative_color: In de kijker, alternatief
         highlight_color: In de kijker zetten
-        highlighted_content_banner_action_subtitle: Ondertitel actieknop
-        highlighted_content_banner_action_title: Titel actieknop
-        highlighted_content_banner_action_url: URL actieknop
-        highlighted_content_banner_enabled: Toon de uitgelichte inhoudsbanner
-        highlighted_content_banner_image: Beeld
-        highlighted_content_banner_short_description: Korte beschrijving
-        highlighted_content_banner_title: Titel
         host: Host
         instagram_handler: Instagram gebruikersnaam
         logo: Logo
@@ -441,7 +434,6 @@ nl:
         areas: Thema's
         configuration: Configuratie
         help_sections: Helpsecties
-        homepage: Startpagina
         impersonations: Zich voordoen als
         manage: Beheer
         moderation: Algemene moderatie
@@ -654,11 +646,6 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
           success: Organisatie is succesvol bijgewerkt.
-      organization_appearance:
-        edit:
-          update: Bijwerken
-        form:
-          homepage_highlighted_content_banner_title: Uitgelichte inhoudsbanner
       participatory_space_private_users:
         create:
           error: Er is een probleem opgetreden bij het toevoegen van een privédeelnemer aan deze deelruimte.

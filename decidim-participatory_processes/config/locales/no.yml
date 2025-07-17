@@ -13,7 +13,6 @@
         document: Dokument
         domain: Domene
         end_date: Sluttdato
-        hashtag: Emneknagg
         hero_image: Hovedbilde
         import_attachments: Importer vedlegg
         import_categories: Importer kategorier
@@ -39,7 +38,6 @@
         description: Beskrivelse
         developer_group: Promotørgruppe
         group_url: Nettside
-        hashtag: Emneknagg
         hero_image: Bilde
         local_area: Organisasjonsområde
         meta_scope: Tema metadata
@@ -107,7 +105,6 @@
         participatory_process_groups: Prosessgrupper
         participatory_process_groups_submenu:
           info: Informasjon
-          landing_page: Landingsside
         participatory_processes: Prosesser
         participatory_processes_submenu:
           attachment_collections: Mapper
@@ -115,7 +112,6 @@
           attachments: Vedlegg
           components: Komponenter
           info: Om denne prosessen
-          landing_page: Landingsside
           moderations: Moderering
           process_admins: Prosessadministratorer
           steps: Faser

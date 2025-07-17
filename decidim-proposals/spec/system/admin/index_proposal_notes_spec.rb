@@ -27,6 +27,7 @@ describe "Index Proposal Notes" do
 
   before do
     within "tr", text: translated(proposal.title) do
+      find("button[data-component='dropdown']").click
       click_on "Answer proposal"
     end
     click_on "Private notes"

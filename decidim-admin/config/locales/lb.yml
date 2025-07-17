@@ -48,13 +48,6 @@ lb:
         header_snippets: Header-Snippets
         highlight_alternative_color: Hervorhebung, Alternative
         highlight_color: Hervorheben
-        highlighted_content_banner_action_subtitle: Aktion Schaltfläche Untertitel
-        highlighted_content_banner_action_title: Titel der Aktionsschaltfläche
-        highlighted_content_banner_action_url: Aktionsschaltflächen-URL
-        highlighted_content_banner_enabled: Zeigen Sie das hervorgehobene Inhaltsbanner an
-        highlighted_content_banner_image: Bild
-        highlighted_content_banner_short_description: Kurze Beschreibung
-        highlighted_content_banner_title: Titel
         host: Host
         instagram_handler: Instagram-Handler
         logo: Logo
@@ -394,7 +387,6 @@ lb:
         areas: Bereiche
         configuration: Aufbau
         help_sections: Hilfeabschnitte
-        homepage: Startseite
         impersonations: Identitätswechsel
         manage: Verwalten
         moderation: Globale Moderationen
@@ -607,11 +599,6 @@ lb:
         update:
           error: Beim Aktualisieren dieser Organisation ist ein Fehler aufgetreten.
           success: Die Organisation wurde erfolgreich aktualisiert.
-      organization_appearance:
-        edit:
-          update: Aktualisieren
-        form:
-          homepage_highlighted_content_banner_title: Highlighted Inhaltsbanner
       participatory_space_private_users:
         create:
           error: Beim Hinzufügen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.

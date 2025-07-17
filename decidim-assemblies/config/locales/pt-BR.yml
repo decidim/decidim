@@ -25,7 +25,6 @@ pt-BR:
         duration: Duração
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
         hero_image: Imagem inicial
         import_attachments: Importar anexos
         import_categories: Importar categorias
@@ -164,7 +163,6 @@ pt-BR:
           attachments: Anexos
           components: Componentes
           info: Sobre essa assambleia
-          landing_page: Página principal
           moderations: Moderação
           see_assembly: Ver assembleia
       models:

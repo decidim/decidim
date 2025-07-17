@@ -65,10 +65,6 @@ FactoryBot.define do
     "#{Faker::Lorem.characters(number: rand(1..10))}_#{n}".gsub("'", "_")
   end
 
-  sequence(:hashtag_name) do |n|
-    "#{Faker::Lorem.characters(number: rand(1..10))}_#{n}".gsub("'", "_")
-  end
-
   sequence(:email) do |n|
     "user#{n}@example.org"
   end
@@ -131,8 +127,8 @@ FactoryBot.define do
     sequence(:host) { |n| "#{n}.lvh.me" }
     description { generate_localized_description(:organization_description, skip_injection:) }
     favicon { Decidim::Dev.test_file("icon.png", "image/png") }
-    default_locale { Decidim.default_locale }
-    available_locales { Decidim.available_locales }
+    default_locale { "en" }
+    available_locales { %w(en ca es) }
     users_registration_mode { :enabled }
     official_img_footer { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     official_url { Faker::Internet.url }
@@ -810,8 +806,10 @@ FactoryBot.define do
       extra_data { {} }
     end
 
+    user { create(:user) }
     organization { user.organization }
-    user
+    user_id { user.id }
+    user_type { user.class.name }
     participatory_space { build(:participatory_process, organization:, skip_injection:) }
     component { build(:component, participatory_space:, skip_injection:) }
     resource { build(:dummy_resource, component:, skip_injection:) }
@@ -849,7 +847,9 @@ FactoryBot.define do
     organization_url { "http://example.org" }
     organization_logo { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     redirect_uri { "https://app.example.org/oauth" }
-    scopes { "public" }
+    scopes { "profile" }
+    confidential { true }
+    refresh_tokens_enabled { false }
   end
 
   factory :oauth_access_token, class: "Doorkeeper::AccessToken" do
@@ -861,7 +861,7 @@ FactoryBot.define do
     token { SecureRandom.hex(32) }
     expires_in { 1.month.from_now }
     created_at { Time.current }
-    scopes { "public" }
+    scopes { "profile" }
   end
 
   factory :private_export, class: "Decidim::PrivateExport" do
@@ -904,14 +904,6 @@ FactoryBot.define do
       scope_name { :newsletter_template }
       manifest_name { :basic_only_text }
     end
-  end
-
-  factory :hashtag, class: "Decidim::Hashtag" do
-    transient do
-      skip_injection { false }
-    end
-    name { generate(:hashtag_name) }
-    organization
   end
 
   factory :amendment, class: "Decidim::Amendment" do

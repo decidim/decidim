@@ -59,13 +59,6 @@ pt-BR:
         header_snippets: Snippets de cabeçalho
         highlight_alternative_color: Destaque, alternativa
         highlight_color: Destaque
-        highlighted_content_banner_action_subtitle: Legenda do botão de ação
-        highlighted_content_banner_action_title: Título do botão Ação
-        highlighted_content_banner_action_url: URL do botão de ação
-        highlighted_content_banner_enabled: Mostrar o banner de conteúdo destacado
-        highlighted_content_banner_image: Imagem
-        highlighted_content_banner_short_description: Descrição curta
-        highlighted_content_banner_title: Título
         host: Host
         instagram_handler: Manipulador de Instagram
         logo: Logotipo
@@ -536,7 +529,6 @@ pt-BR:
         content: Conteúdo relatado
         external_domain_allowlist: Domínios externos permitidos
         help_sections: Seções de ajuda
-        homepage: Pagina inicial
         impersonations: Imitações
         manage: Gerenciar
         moderation: Moderadores globais
@@ -598,8 +590,11 @@ pt-BR:
             plural: Plural
         share_token:
           fields:
+            actions: Ações
             expires_at: Expira em
+            registered_only: Registrado apenas?
             times_used: Tempo Usado
+            token: Acessar Link
         static_page:
           fields:
             created_at: Criado em
@@ -619,13 +614,27 @@ pt-BR:
         index:
           actions:
             block: Bloquear usuário
+            bulk_actions:
+              actions_dropdown: Ações
+              block:
+                title: Bloquear
+                update_moderated_user_button: Bloquear usuários
+              unblock:
+                title: Desbloquear
+                update_moderated_user_button: Desbloquear usuários
+              unreport:
+                title: Anular denúncia
+            ignore:
+              update_moderated_user_button: Anular denúncias de usuários
             title: Ações
             unblock: Desbloquear usuário
             unreport: Anular denúncia
+          cancel: Cancelar
           name: Nome
           nickname: Apelido
           reason: Motivo
           reports: Número de denúncias
+          selected: Selecionado
           title: Participantes relatados
         report:
           reasons:
@@ -637,12 +646,26 @@ pt-BR:
           unblocked: Não bloqueado
       moderations:
         index:
+          actions:
+            actions_dropdown: Ações
+            hide:
+              title: Ocultar
+              update_moderation_button: Ocultar os recursos selecionados
+            unhide:
+              title: Desocultar
+              update_moderation_button: Desocultar os recursos selecionados
+            unreport:
+              title: Anular denúncia
+              update_moderation_button: Anular denúncia dos recursos selecionados
+          cancel: Cancelar
+          selected: selecionado
           title: Conteúdo relatado
         report:
           reasons:
             does_not_belong: Não pertence
             hidden_during_block: Oculto enquanto bloqueia o usuário
             offensive: Ofensivo
+            parent_hidden: Conteúdo pai foi oculto
             spam: Spam
         reports:
           index:
@@ -659,6 +682,11 @@ pt-BR:
             report_language: Reportar idioma
             report_reason: Motivo
             title: Detalhes da denúncia
+      new_import:
+        accepted_mime_types:
+          csv: CSV
+          json: JSON
+          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: Pré-visualização
@@ -668,6 +696,10 @@ pt-BR:
           preview: 'Pré-visualização de modelo: %{template_name}'
           use_template: Utilizar este modelo
       newsletters:
+        confirm_recipients:
+          email: E-mail
+          name: Nome
+          title: Confirmar destinatários
         create:
           error: Ocorreu um erro ao criar este boletim informativo.
           success: Boletim informativo criado com Sucesso. Por favo, revise o antes de enviar.
@@ -689,9 +721,12 @@ pt-BR:
           has_been_sent_to: 'Foi enviado para: '
           not_sent: Não enviado
           participants: 'participantes '
+          private_members: 'membros privados '
           segmented_to: 'Segmentado para %{subject}: '
           subscribed_count: 'Inscrever-se:'
           title: Newsletters
+          verification_types: 'Tipos de verificação: %{types}'
+          verified_users: Usuários verificados
         new:
           save: Salvar
           title: Novo boletim informativo
@@ -699,13 +734,24 @@ pt-BR:
           all_spaces: Todos
           all_users_help: Enviar newsletter para todos os usuários confirmados.
           confirm_deliver: Deseja mesmo enviar este boletim informativo? Essa ação não pode ser desfeita.
+          confirm_recipients: Confirmar destinatários
           deliver: Entregar boletim informativo
           followers_help: Enviar newsletter para todos os usuários confirmados que seguem quaisquer espaços participativos selecionados na lista.
           participants_help: Enviar newsletter para todos os usuários confirmados que participaram de qualquer um dos espaços participativos selecionados na lista.
+          private_members_help: Envia uma newsletter para todos os usuários confirmados que foram adicionados aos espaços participativos privados selecionados.
           recipients_count: Esta newsletter será enviada para <strong id='recipients_count'>%{count}</strong> usuários.
+          select_assemblies: Escolher assemblies
+          select_conferences: Escolher conferências
+          select_initiatives: Escolher iniciativas
+          select_participatory_processes: Escolher processos participativos
           select_spaces: Selecionar espaços para segmentar a newsletter
+          select_users_for_participatory_space: Enviar boletim informativo para um ou mais espaços participativos
+          select_users_general: Enviar newsletter geral
+          select_verification_types: Escolher métodos de verificação
           send_to_all_users: Enviar para todos os usuários
+          send_to_verified_users: Enviar para usuários verificados
           title: Selecionar destinatários para entregar
+          verified_users_help: Envia uma newsletter para todos os usuários confirmados e verificados por meio de qualquer método de verificação selecionado.
           warning: "<strong>Atenção:</strong> Esta newsletter será enviada apenas para usuários que ativaram <em>quero receber newsletters</em> nas configurações de notificação."
         send:
           no_recipients: Nenhum destinatário para esta seleção.
@@ -721,7 +767,15 @@ pt-BR:
           success: Newsletter atualizada com sucesso. Por favor, reveja-o antes de enviar.
       officializations:
         block:
+          error: Houve um problema ao bloquear o participante.
           success: Participante bloqueado com sucesso.
+        bulk_action:
+          block:
+            invalid: Houve um problema ao bloquear os participantes.
+            success: Participantes bloqueados com sucesso.
+          unblock:
+            invalid: Houve um problema ao desbloquear os participantes.
+            success: Participantes desbloqueados com sucesso.
         create:
           success: Participante oficializado com sucesso.
         destroy:
@@ -754,12 +808,15 @@ pt-BR:
           show: Mostrar
           title: Mostrar endereço de e-mail do participante
         unblock:
+          error: Houve um problema ao desbloquear o participante.
           success: Participante desbloqueado com sucesso.
       organization:
         edit:
           title: Editar organização
           update: Atualizar
         form:
+          admin_terms_of_service: Termos de serviço do administrador
+          basic_configuration: Configuração básica
           facebook: Facebook
           github: GitHub
           instagram: Instagram
@@ -771,14 +828,6 @@ pt-BR:
         update:
           error: Ocorreu um erro ao atualizar essa organização.
           success: Organização atualizada com sucesso.
-      organization_appearance:
-        edit:
-          update: Atualizar
-        form:
-          header_snippets:
-            header_snippets_help_html: Utilize este campo para adicionar coisas à tag head do HTML. O uso mais comum é integrar serviços de terceiros que exigem algum JavaScript ou CSS extra. Além disso, você pode usá-lo para adicionar meta tags extras para o HTML. Observe que isto só será renderizado em páginas públicas, não na seção de administração. Se o código interage com APIs externas ou não cumpre as diretrizes de segurança da aplicação, será necessário alterar a Política de Segurança de Conteúdo. Leia mais sobre <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">na documentação do site</a>.
-            title: Snippets de cabeçalho HTML
-          homepage_highlighted_content_banner_title: Banner de conteúdo elevado
       organization_external_domain_allowlist:
         edit:
           update: Atualizar
@@ -871,7 +920,25 @@ pt-BR:
       share_tokens:
         actions:
           destroy: Excluir
+        index:
+          new_share_token_button: Novo link de acesso
+          share_tokens_help_html: |
+            Crie e compartilhe um link de acesso para permitir que outros visualizem este recurso não publicado.
+            Links de acesso podem ser válidos apenas para participantes registrados ou ter uma data de expiração, se necessário.
+            Para compartilhar um novo link de acesso com alguém, crie-o e, em seguida, copie o link usando o ícone de ação "%{clipboard} clipboard".
+          title: 'Links de acesso para: %{name}'
+        new:
+          create: Criar
+          title: 'Novo link de acesso para: %{name}'
+        update:
+          error: Houve um problema ao atualizar este acesso.
+          success: Link de acesso atualizado com sucesso.
       shared:
+        adjacent_navigation:
+          next: Próximo
+          next_title: Próximo item
+          previous: Anterior
+          previous_title: Item anterior
         gallery:
           add_images: Adicione imagens
           edit_images: Editar imagens
@@ -886,6 +953,7 @@ pt-BR:
           title: Editar tópico
           update: Atualizar tópico
         new:
+          create: Novo tópico
           title: Novo tópico
         update:
           error: Houve um erro ao atualizar este tópico.
@@ -909,6 +977,7 @@ pt-BR:
         index:
           last_notable_change: Última alteração notável
         new:
+          create: Nova página
           title: Nova página
         topic:
           empty: Não há página sob este tópico.
@@ -917,19 +986,67 @@ pt-BR:
           error: Ocorreu um erro ao atualizar esta página.
           success: Página atualizada com sucesso.
       taxonomies:
+        actions:
+          actions: Ações
+          destroy: Excluir taxonomia e itens
+          edit: Editar taxonomia e itens
+          filters: Gerenciar filtros
+        breadcrumb:
+          edit: Editar taxonomia
+          new: Nova taxonomia
+        count: Recursos associados
+        create:
+          invalid: Houve um problema ao criar esta taxonomia.
+          success: Taxonomia criada com sucesso.
+        destroy:
+          invalid: Houve um problema ao destruir esta taxonomia.
+          success: Taxonomia destruída com sucesso.
         edit:
           back: Retornar
+          description: Os itens desta taxonomia serão usados para classificar ou filtrar recursos, como espaços participativos ou componentes. Use arrastar e soltar para reordenar a lista.
           new_item: Novo item
+          no_items: Atualmente não há itens nesta taxonomia. Crie uma lista de itens aqui para classificar ou filtrar recursos, como espaços participativos ou componentes. Itens podem ser aninhados até três níveis.
+          subtitle: Itens em "%{taxonomy_name}"
+          title: Editar taxonomia "%{taxonomy_name}"
+          update: Atualizar
+        filters:
+          search_placeholder: Pesquisar
+        index:
+          description: Taxonomias e filtros permitem que os administradores ordenem e organizem conteúdo. Por exemplo, acrescente uma taxonomia aos distritos e bairros da cidade e depois crie filtros apenas com os distritos ou para um bairro específico.
+          new_taxonomy: Nova taxonomia
+          no_items_found: Nenhuma taxonomia encontrada correspondente ao critério de pesquisa.
+        name: Nome
+        new:
+          create: Criar taxonomia
+          title: Nova taxonomia
+        no_taxonomies: Atualmente não há taxonomias. Crie uma lista de taxonomias aqui e defina itens em cada um deles para classificar ou filtrar recursos.
         table:
           to_next_page: Arraste para a próxima página
           to_prev_page: Arraste sobre a página anterior
+        taxonomy_actions:
+          confirm_destroy: 'Tem certeza que deseja excluir %{name}? Isto também irá excluir todos os itens filhos. NOTA: Os recursos que estão usando esta taxonomia não serão afetados, mas eles perderão a referência a esta taxonomia.'
+        total_filters: Filtros
+        total_items: Itens na taxonomia
+        update:
+          invalid: Houve um problema ao atualizar esta taxonomia.
+          success: Taxonomia atualizada com sucesso.
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Novo filtro de taxonomia
+        breadcrumb:
+          edit: Editar filtro
+          filters: Filtros
+          new: Novo filtro
         create:
+          error: Houve um problema ao criar este filtro de taxonomia.
           success: Filtro de taxonomia criado com sucesso.
+        destroy:
+          error: Houve um problema ao destruir este filtro de taxonomia.
+          success: Filtro de taxonomia destruído com sucesso.
         edit:
           back: Retornar
+          title: Editar filtro de taxonomia
+          update: Atualizar filtro de taxonomia
         new:
           back: Voltar
           create: Criar filtro de taxonomia
@@ -953,8 +1070,6 @@ pt-BR:
         authorization_workflows: Métodos de verificação
         dashboard: painel de controle
         edit_external_domains: Lista de domínios externos permitidos
-        edit_landing_page: Conteúdos da página
-        edit_organization_appearance: Editar aparência da página inicial
         impersonatable_users: Usuários gerenciáveis
         impersonations: Gerenciamento de usuários
         menu: Menu

@@ -6,7 +6,7 @@
       <%= link_to t("actions.new_proposal_state", scope: "decidim.proposals"), new_proposal_state_path, class: "button button__sm button__secondary" if allowed_to? :create, :proposal_state %>
     </h1>
   </div>
-  <div class="table-scroll mt-16">
+  <div class="table-stacked mt-16">
     <table class="table-list">
       <thead>
         <tr>
@@ -22,23 +22,53 @@
       <tbody>
         <% proposal_states.each do |state| %>
           <tr>
-            <td>
+            <td data-label="<%= t("models.proposal_state.title", scope: "decidim.proposals") %>">
               <%= translated_attribute(state.title) %>
             </td>
-            <td>
+            <td data-label="<%= t("models.proposal_state.css_class", scope: "decidim.proposals") %>">
               <strong class="label" style="<%= state.css_style %>">
                 <%= decidim_sanitize_translated(state.token) %>
               </strong>
             </td>
-            <td>
-              <% if allowed_to? :update, :proposal_state, proposal_state: state %>
-                <%= icon_link_to "pencil-line", edit_proposal_state_path(state), t("actions.edit_proposal_state", scope: "decidim.proposals"), class: "action-icon--edit-proposal" %>
-              <% else %>
-                <span class="action-space icon"></span>
-              <% end %>
-              <% if allowed_to?(:destroy, :proposal_state, proposal_state: state) %>
-                <%= icon_link_to "delete-bin-line", proposal_state_path(state), t("actions.destroy", scope: "decidim.proposals"), method: :delete, data: { confirm: t("actions.delete_proposal_state_confirm", scope: "decidim.proposals") }, class: "action-icon--delete-proposal" %>
-              <% end %>
+            <td data-label="<%= t("actions.title", scope: "decidim.proposals") %>" class="table-list__actions">
+              <button type="button" data-component="dropdown" data-target="actions-proposal-state-<%= state.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: translated_attribute(state.title)) %>">
+                <%= icon "more-fill", class: "text-secondary" %>
+              </button>
+
+              <div class="inline-block relative">
+                <ul id="actions-proposal-state-<%= state.id %>" class="dropdown dropdown__action" aria-hidden="true">
+                  <% if allowed_to? :update, :proposal_state, proposal_state: state %>
+                    <li class="dropdown__item">
+                      <%= link_to edit_proposal_state_path(state), class: "dropdown__button" do %>
+                        <%= icon "pencil-line" %>
+                        <%= t("actions.edit_proposal_state", scope: "decidim.proposals") %>
+                      <% end %>
+                    </li>
+                  <% end %>
+
+                  <hr>
+
+                  <% if allowed_to? :destroy, :proposal_state, proposal_state: state %>
+                    <li class="dropdown__item">
+                      <%= link_to proposal_state_path(state), method: :delete, data: { confirm: t("actions.delete_proposal_state_confirm", scope: "decidim.proposals") }, class: "dropdown__button" do %>
+                        <%= icon "delete-bin-line" %>
+                        <%= t("actions.destroy", scope: "decidim.proposals") %>
+                      <% end %>
+                    </li>
+                  <% else %>
+                    <li class="dropdown__item">
+                      <div class="dropdown__button-disabled">
+                        <%= with_tooltip t("tooltips.deleted_proposal_states_info", scope: "decidim.admin") do %>
+                          <%= icon "pencil-line", class: "text-gray" %>
+                          <span>
+                            <%= t("actions.edit_proposal", scope: "decidim.proposals") %>
+                          </span>
+                        <% end %>
+                      </div>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
             </td>
           </tr>
         <% end %>

@@ -59,13 +59,6 @@ bg:
         header_snippets: Части на HTML заглавката
         highlight_alternative_color: Подчертаване, алтернативен
         highlight_color: Акцентирано
-        highlighted_content_banner_action_subtitle: Подзаглавие на бутон за действие
-        highlighted_content_banner_action_title: Надпис на бутон за действие
-        highlighted_content_banner_action_url: Адрес на бутон за действие
-        highlighted_content_banner_enabled: Показвай банер на подчертано съдържание
-        highlighted_content_banner_image: Изображение
-        highlighted_content_banner_short_description: Кратко описание
-        highlighted_content_banner_title: Заглавие
         host: Хост
         instagram_handler: Манипулатор на Instagram
         logo: Лого
@@ -549,7 +542,6 @@ bg:
         content: Докладвано съдържание
         external_domain_allowlist: Лист с позволени външни домейни
         help_sections: Помощни раздели
-        homepage: Начална страница
         impersonations: Имитация
         manage: Управление
         moderation: Глобални модерации
@@ -786,14 +778,6 @@ bg:
         update:
           error: Възникна проблем при актуализирането на тази организация.
           success: Организацията беше актуализирана успешно.
-      organization_appearance:
-        edit:
-          update: Актуализация
-        form:
-          header_snippets:
-            header_snippets_help_html: Използвайте това поле, за да добавите неща към главата на HTML. Най-честата употреба е за интегриране на услуги на трети страни, които изискват допълнителен JavaScript или CSS. Освен това можете да го използвате, за да добавите допълнителни мета тагове към HTML. Имайте предвид, че това ще бъде изобразено само в публични страници, а не в раздела за администриране. Ако кодът взаимодейства с външни API или не отговаря на указанията за сигурност на приложението, ще е необходимо да промените Политиката за сигурност на съдържанието. Прочетете повече за <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">на сайта с документация</a>.
-            title: HTML header snippets
-          homepage_highlighted_content_banner_title: Банер с подчертано съдържание
       organization_external_domain_allowlist:
         edit:
           update: Актуализация
@@ -976,8 +960,6 @@ bg:
         authorization_workflows: Методи за проверка
         dashboard: Контролен панел
         edit_external_domains: Лист с позволени външни домейни
-        edit_landing_page: Съдържание на страницата
-        edit_organization_appearance: Редактиране на външния вид на началната страница
         impersonatable_users: Управляеми участници
         impersonations: Управление на участниците
         menu: Меню

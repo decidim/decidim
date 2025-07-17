@@ -382,11 +382,6 @@ pt-BR:
         initiatives:
           closed_initiatives_warning: Actualmente, não existem iniciativas abertas, mas aqui pode encontrar todas as iniciativas encerradas na lista de iniciativas.
           no_initiatives_warning: Nenhuma iniciativa corresponde aos seus critérios de pesquisa.
-        interactions:
-          comments_count:
-            count:
-              one: Comente
-              other: Comentários
         orders:
           label: 'Ordenar iniciativas por:'
           most_commented: Mais comentado

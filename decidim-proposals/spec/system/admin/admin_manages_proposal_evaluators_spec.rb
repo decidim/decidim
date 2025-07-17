@@ -202,6 +202,7 @@ describe "Admin manages proposals evaluators" do
 
       visit current_path
       within "tr", text: translated(proposal.title) do
+        find("button[data-component='dropdown']").click
         click_on "Answer proposal"
       end
     end

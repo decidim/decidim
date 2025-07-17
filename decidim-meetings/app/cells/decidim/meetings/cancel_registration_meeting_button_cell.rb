@@ -23,6 +23,10 @@ module Decidim
         model.registrations.find_by(user: current_user)&.status
       end
 
+      # i18n-tasks-use t('decidim.meetings.meetings.show.leave')
+      # i18n-tasks-use t('decidim.meetings.meetings.show.leave_confirmation')
+      # i18n-tasks-use t('decidim.meetings.meetings.show.leave_waitlist')
+      # i18n-tasks-use t('decidim.meetings.meetings.show.leave_waitlist_confirmation')
       def action_keys
         if registration_status == "waiting_list"
           {

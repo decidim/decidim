@@ -231,12 +231,14 @@ describe "Admin manages taxonomies" do
 
   def click_delete_taxonomy
     within "tr", text: translated(taxonomy.name) do
+      find("button[data-component='dropdown']").click
       accept_confirm { click_on "Delete" }
     end
   end
 
   def click_edit_taxonomy
     within "tr", text: translated(taxonomy.name) do
+      find("button[data-component='dropdown']").click
       click_on "Edit"
     end
   end

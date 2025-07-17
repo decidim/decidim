@@ -1,29 +1,102 @@
-<% if view == :deleted %>
-  <% if allowed_to? :restore, :result, trashable_deleted_resource: result %>
-    <%= icon_link_to "refresh-line", url_for(action: :restore, id: result, controller: "results"), t("decidim.admin.actions.restore"), method: :patch, class: "action-icon--restore" %>
-  <% end %>
-<% else %>
-  <% if allowed_to? :update, :result, result: result %>
-    <%= icon_link_to "pencil-line", edit_result_path(result), t("actions.edit", scope: "decidim.accountability"), class: "action-icon--edit" %>
-  <% end %>
+<button type="button" data-component="dropdown" data-target="actions-result-<%= result.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: "Result") %>">
+  <%= icon "more-fill", class: "text-secondary" %>
+</button>
 
-  <% if allowed_to? :create_children, :result, result: result %>
-    <%= icon_link_to "add-line", results_path(parent_id: result.id), t("actions.new_result", scope: "decidim.accountability"), class: "action-icon--plus" %>
-  <% end %>
+<div class="inline-block relative">
+  <ul id="actions-result-<%= result.id %>" class="dropdown dropdown__action" aria-hidden="true">
+    <% if view == :deleted %>
+      <% if allowed_to? :restore, :result, trashable_deleted_resource: result %>
+        <li class="dropdown__item">
+          <%= link_to url_for(action: :restore, id: result, controller: "results"), method: :patch, class: "dropdown__button" do %>
+            <%= icon "refresh-line" %>
+            <%= t("decidim.admin.actions.restore") %>
+          <% end %>
+        </li>
+      <% end %>
+    <% else %>
+      <% if allowed_to? :update, :result, result: result %>
+        <li class="dropdown__item">
+          <%= link_to edit_result_path(result), class: "dropdown__button" do %>
+            <%= icon "pencil-line" %>
+            <%= t("actions.edit", scope: "decidim.accountability") %>
+          <% end %>
+        </li>
 
-  <% if allowed_to? :update, :result, result: result %>
-    <%= icon_link_to "time-line", result_timeline_entries_path(result), t("actions.timeline_entries", scope: "decidim.accountability"), class: "action-icon--clock" %>
-    <%= icon_link_to "folder-line", result_attachment_collections_path(result), t("actions.attachment_collections", scope: "decidim.accountability"), class: "action-icon--attachment_collections" %>
-    <%= icon_link_to "attachment-line", result_attachments_path(result), t("actions.attachments", scope: "decidim.accountability"), class: "action-icon--attachments" %>
-  <% end %>
+        <hr>
+      <% end %>
 
-  <%= icon_link_to "eye-line", resource_locator(result).path, t("actions.preview", scope: "decidim.accountability"), class: "action-icon--preview", target: :blank, data: { "external-link": false } %>
+      <% if allowed_to? :create_children, :result, result: result %>
+        <li class="dropdown__item">
+          <%= link_to results_path(parent_id: result.id), class: "dropdown__button" do %>
+            <%= icon "add-line" %>
+            <%= t("actions.new_result", scope: "decidim.accountability") %>
+          <% end %>
+        </li>
+      <% end %>
 
-  <%= resource_permissions_link(result) %>
+      <% if allowed_to? :update, :result, result: result %>
+        <li class="dropdown__item">
+          <%= link_to result_milestones_path(result), class: "dropdown__button" do %>
+            <%= icon "time-line" %>
+            <%= t("actions.milestones", scope: "decidim.accountability") %>
+          <% end %>
+        </li>
 
-  <% if allowed_to? :soft_delete, :result, trashable_deleted_resource: result %>
-    <%= icon_link_to "delete-bin-line", soft_delete_result_path(result), t("actions.soft_delete", scope: "decidim.admin"), method: :patch, class: "action-icon--delete", data: { confirm: t("actions.confirm_delete_result", scope: "decidim.accountability") } %>
-  <% else %>
-    <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.soft_delete", scope: "decidim.admin") %>
-  <% end %>
-<% end %>
+        <hr>
+
+        <li class="dropdown__item">
+          <%= link_to result_attachment_collections_path(result), class: "dropdown__button" do %>
+            <%= icon "folder-line" %>
+            <%= t("actions.attachment_collections", scope: "decidim.accountability") %>
+          <% end %>
+        </li>
+
+        <li class="dropdown__item">
+          <%= link_to result_attachments_path(result), class: "dropdown__button" do %>
+            <%= icon "attachment-line" %>
+            <%= t("actions.attachments", scope: "decidim.accountability") %>
+          <% end %>
+        </li>
+
+        <hr>
+      <% end %>
+
+      <li class="dropdown__item">
+        <%= link_to resource_locator(result).path, target: :blank, data: { "external-link": false }, class: "dropdown__button" do %>
+          <%= icon "eye-line" %>
+          <%= t("actions.preview", scope: "decidim.accountability") %>
+        <% end %>
+      </li>
+
+      <hr>
+
+      <% if dropdown_resource_permissions_link(result) %>
+        <li class="dropdown__item">
+          <%= dropdown_resource_permissions_link(result) %>
+        </li>
+
+        <hr>
+      <% end %>
+
+      <% if allowed_to? :soft_delete, :result, trashable_deleted_resource: result %>
+        <li class="dropdown__item">
+          <%= link_to soft_delete_result_path(result), method: :patch, data: { confirm: t("actions.confirm_delete_result", scope: "decidim.accountability") }, class: "dropdown__button dropdown__button--danger" do %>
+            <%= icon "delete-bin-line" %>
+            <%= t("actions.soft_delete", scope: "decidim.admin") %>
+          <% end %>
+        </li>
+      <% else %>
+        <li class="dropdown__item">
+          <div class="dropdown__button-disabled">
+            <%= with_tooltip t("tooltips.deleted_results_info", scope: "decidim.admin") do %>
+              <%= icon "delete-bin-line", class: "text-gray" %>
+              <span>
+                <%= t("actions.soft_delete", scope: "decidim.admin") %>
+              </span>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

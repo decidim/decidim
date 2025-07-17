@@ -92,7 +92,6 @@ zh-CN:
           state: 状态
           state_values:
             closed: 已关闭
-            open: 打开
         index:
           new_debate: 新的辩论
         new:
@@ -105,7 +104,6 @@ zh-CN:
           recent: 最新的
           updated: 最近更新
         show:
-          debate_closed: 已关闭
           debate_conclusions_are: '辩论在 %{date} 结束后得出以下结论：'
           edit_conclusions: 编辑结论
           participants_count: 参加者

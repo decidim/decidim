@@ -12,7 +12,6 @@ pt:
         developer_group: Grupo promotor
         domain: Domínio
         end_date: Data final
-        hashtag: Hashtag
         hero_image: Imagem inicial
         local_area: Área de organização
         meta_scope: Metadados do âmbito
@@ -33,7 +32,6 @@ pt:
         description: Descrição
         developer_group: Grupo promotor
         group_url: Sítio web
-        hashtag: Hashtag
         hero_image: Imagem
         local_area: Área de organização
         meta_scope: Meta dados do âmbito
@@ -90,7 +88,6 @@ pt:
         participatory_process_groups: Grupos do processo
         participatory_process_groups_submenu:
           info: Informação
-          landing_page: Página de entrada
         participatory_processes: Processos
         participatory_processes_submenu:
           attachment_collections: Pastas

@@ -56,6 +56,7 @@ shared_examples "manage assembly admins examples" do
     it "updates an assembly admin", versioning: true do
       within "#assembly_admins" do
         within "#assembly_admins tr", text: other_user.email do
+          find("button[data-component='dropdown']").click
           click_on "Edit"
         end
       end
@@ -77,6 +78,7 @@ shared_examples "manage assembly admins examples" do
 
     it "deletes an assembly_user_role" do
       within "#assembly_admins tr", text: other_user.email do
+        find("button[data-component='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
 
@@ -105,6 +107,7 @@ shared_examples "manage assembly admins examples" do
 
       it "resends the invitation to the user" do
         within "#assembly_admins tr", text: "test@example.org" do
+          find("button[data-component='dropdown']").click
           click_on "Resend invitation"
         end
 

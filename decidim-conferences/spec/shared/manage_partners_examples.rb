@@ -51,6 +51,7 @@ shared_examples "manage partners examples" do
 
     it "updates a conference partners", versioning: true do
       within "#partners tr", text: conference_partner.name do
+        find("button[data-component='dropdown']").click
         click_on "Edit"
       end
 
@@ -92,7 +93,8 @@ shared_examples "manage partners examples" do
 
     it "deletes the conference partner" do
       within "#partners tr", text: conference_partner.name do
-        accept_confirm { find("a.action-icon--remove").click }
+        find("button[data-component='dropdown']").click
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

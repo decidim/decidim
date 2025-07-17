@@ -1,0 +1,79 @@
+---
+fi:
+  decidim:
+    demographics:
+      actions:
+        title: Toiminnot
+      admin:
+        demographics:
+          tabs_menu:
+            title: Demografiset tiedot
+        demographics_menu:
+          questions: Kysymykset
+          responses: Vastaukset
+          settings: Asetukset
+        publish_responses:
+          index:
+            description: Kuvaus
+            title: Näytä vastaukset
+        questions:
+          edit:
+            save: Tallenna
+            title: Kysymykset
+          questions_form:
+            add_question: Lisää kysymys
+            collapse: Supista kaikki kysymykset
+            expand: Laajenna kaikki kysymykset
+        responses:
+          index:
+            publish_responses: Näytä vastaukset
+            title: "yhteensä %{total} vastausta"
+        settings:
+          show:
+            collect_data: Ota käyttöön demografisten tietojen keräys
+            collect_data_help: Tämän asetuksen avulla käyttäjät voivat lahjoittaa demografisia tietojaan hyödynnettäväksi alustalla.
+            save: Tallenna
+            title: Asetukset
+          update:
+            invalid: Demografisten tietojen tallennus epäonnistui
+            success: Demografisten tietojen tallennus onnistui
+        title: Demografiset tiedot
+      demographics:
+        questionnaire:
+          delete_my_data: Poista tiedot
+          modal_close: Peruuta
+          modal_ok: Ok
+          modal_question: Kaikki demografiset tietosi poistetaan.
+          modal_title: Poista tiedot
+          submit: Tallenna tiedot
+          terms_of_service: käyttöehdot
+          tos_agreement: Osallistumalla hyväksyt %{link}.
+        show:
+          page_title: Demografisten tietojen lahjoittaminen
+      destroy:
+        error: Demografisten tietojen poisto epäonnistui
+        success: Demografisten tietojen poisto onnistui
+      name: Demografisten tietojen lahjoittaminen
+      questions:
+        age:
+          options:
+          - 15-29 vuotta
+          - 30-44 vuotta
+          - 45-64 vuotta
+          - 65 vuotta tai vanhempi
+          question: Kuinka vanha olet?
+        gender:
+          options:
+          - Mies
+          - Nainen
+          - Muunsukupuolinen
+          - Sukupuoltani ei ole valittavana
+          - En halua kertoa
+          question: Mikä seuraavista kuvaa parhaiten sukupuoltasi?
+        postal:
+          question: Mikä on kotiosoitteesi postinumero?
+  layouts:
+    decidim:
+      shared:
+        layout_center:
+          alert: Lahjoittamalla tietosi alustan käytettäväksi osallistut tilastoanalyysiin, joka helpottaa parantamaan osallistumisen laatua. Tietosi kootaan yhteen muiden lahjoittamien tietojen kanssa ja niitä käytetään ainoastaan tutkimustarkoituksiin.

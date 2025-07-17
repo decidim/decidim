@@ -11,7 +11,6 @@ es-PY:
         decidim_scope_id: Alcance
         description: Descripción
         end_date: Fecha de fin
-        hashtag: Etiqueta
         hero_image: Imagen de inicio
         location: Localización
         main_logo: Logo principal
@@ -218,17 +217,20 @@ es-PY:
       models:
         conference:
           fields:
+            actions: Acciones
             created_at: Creado en
             published: Publicado
             title: Título
         conference_speaker:
           fields:
+            actions: Acciones
             affiliation: Afiliación
             full_name: Nombre completo
             position: Posición
           name: Conferenciante
         conference_user_role:
           fields:
+            actions: Acciones
             email: Correo electrònico
             name: Nombre
             role: Papel
@@ -240,12 +242,14 @@ es-PY:
             moderator: Moderador
         media_link:
           fields:
+            actions: Acciones
             date: Fecha
             link: Enlazar
             title: Título
           name: Enlace multimedia
         partner:
           fields:
+            actions: Acciones
             link: Enlazar
             logo: Logotipo
             name: Nombre
@@ -256,6 +260,7 @@ es-PY:
             main_promotor: Promotor principal
         registration_type:
           fields:
+            actions: Acciones
             conference_meetings: Encuentros de la conferencia
             price: Precio
             registrations_count: Número de inscripciones
@@ -515,6 +520,7 @@ es-PY:
             sent: Expedido
         conference_registration:
           fields:
+            actions: Acciones
             email: Correo electrónico
             name: Nombre
             registration_type: Tipo de inscripción
@@ -613,7 +619,6 @@ es-PY:
           description: Una descripción larga de la jornada
           end_date: La fecha en la que finalizó esta jornada.
           follows_count: El número de usuarias que siguen esta jornada
-          hashtag: La etiqueta que utiliza la jornada en Twitter/X
           id: El identificador único de la jornada
           location: El lugar de celebración de la jornada. Donde se llevó a cabo esta jornada.
           objectives: Los objetivos de esta jornada. Cuál fue la meta.
