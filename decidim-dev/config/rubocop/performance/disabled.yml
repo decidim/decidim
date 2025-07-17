@@ -1,4 +1,4 @@
-require: rubocop-performance
+# Disabled performance configurations
 
 Performance:
   Enabled: false
