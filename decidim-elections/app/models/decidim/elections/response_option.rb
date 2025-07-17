@@ -6,6 +6,8 @@ module Decidim
       include Decidim::TranslatableResource
 
       belongs_to :question, class_name: "Decidim::Elections::Question", inverse_of: :response_options
+      has_many :votes, class_name: "Decidim::Elections::Vote", dependent: :restrict_with_error, inverse_of: :response_option
+
       default_scope { order(arel_table[:id].asc) }
 
       translatable_fields :body
