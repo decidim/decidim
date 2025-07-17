@@ -132,6 +132,12 @@ jobs:
           SIMPLECOV: "true"
           SHAKAPACKER_RUNTIME_COMPILE: "false"
           NODE_ENV: "test"
+      - uses: qltysh/qlty-action/coverage@v1
+        with:
+          token: ${{secrets.QLTY_COVERAGE_TOKEN}}
+          files: coverage/coverage.xml
+          verbose: true
+          add-prefix: ${{ env.DECIDIM_MODULE }}
       - uses: codecov/codecov-action@v5
         name: Upload coverage
         with:
