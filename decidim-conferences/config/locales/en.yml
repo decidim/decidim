@@ -6,11 +6,11 @@ en:
         assemblies_ids: Related assemblies
         available_slots: Available slots
         banner_image: Banner image
-        copy_categories: Copy categories
-        copy_components: Copy components
-        copy_features: Copy features
         decidim_scope_id: Scope
         description: Description
+        duplicate_categories: Duplicate categories
+        duplicate_components: Duplicate components
+        duplicate_features: Duplicate features
         end_date: End date
         hero_image: Home image
         location: Location
@@ -98,9 +98,9 @@ en:
         new_speaker: New speaker
         send_diplomas: Send certificates of attendance
         view_deleted_conferences: View deleted conferences
-      conference_copies:
+      conference_duplicates:
         new:
-          copy: Copy
+          duplicate: Duplicate
           select: Select which data you would like to duplicate
           title: Duplicate conference
       conference_publications:
@@ -181,7 +181,7 @@ en:
         update:
           error: There was a problem updating this conference.
           success: Conference successfully updated.
-      conferences_copies:
+      conferences_duplicates:
         create:
           error: There was a problem duplicating this conference.
           success: Conference successfully duplicated.
@@ -362,7 +362,7 @@ en:
         title: Speakers
     conferences:
       admin:
-        conference_copies:
+        conference_duplicates:
           form:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         conference_invites:

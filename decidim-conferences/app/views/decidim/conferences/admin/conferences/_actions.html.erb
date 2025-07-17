@@ -36,7 +36,7 @@
 
       <% if allowed_to? :create, :conference, conference: conference %>
         <li class="dropdown__item">
-          <%= link_to new_conference_copy_path(conference), class: "dropdown__button" do %>
+          <%= link_to new_conference_duplicate_path(conference), class: "dropdown__button" do %>
             <%= icon "file-copy-line" %>
             <%= t("decidim.admin.actions.duplicate") %>
           <% end %>

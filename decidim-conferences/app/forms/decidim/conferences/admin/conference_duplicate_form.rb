@@ -3,10 +3,10 @@
 module Decidim
   module Conferences
     module Admin
-      # A form object used to copy a conferences from the admin
+      # A form object used to duplicate a conferences from the admin
       # dashboard.
       #
-      class ConferenceCopyForm < Form
+      class ConferenceDuplicateForm < Form
         include TranslatableAttributes
 
         translatable_attribute :title, String
@@ -14,7 +14,7 @@ module Decidim
         mimic :conference
 
         attribute :slug, String
-        attribute :copy_components, Boolean
+        attribute :duplicate_components, Boolean
 
         validates :slug, presence: true, format: { with: Decidim::Conference.slug_format }
         validates :title, translatable_presence: true
