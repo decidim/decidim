@@ -1,1 +1,79 @@
+---
 eu:
+  decidim:
+    demographics:
+      actions:
+        title: Ekintzak
+      admin:
+        demographics:
+          tabs_menu:
+            title: Datu demografikoak
+        demographics_menu:
+          questions: Galderak
+          responses: Erantzunak
+          settings: Ezarpenak
+        publish_responses:
+          index:
+            description: Deskribapena
+            title: Erakutsi erantzunak
+        questions:
+          edit:
+            save: Gorde
+            title: Galderak
+          questions_form:
+            add_question: Gehitu galdera
+            collapse: Kolapsatu galdera guztiak
+            expand: Zabaldu galdera guztiak
+        responses:
+          index:
+            publish_responses: Erakutsi erantzunak
+            title: "Guztira, %{guztira} erantzun"
+        settings:
+          show:
+            collect_data: Gaitu datu demografikoen bilketa
+            collect_data_help: Aukera hori gaituz, erabiltzaileek plataforman eman ahal izango dituzte beren datuak.
+            save: Gorde
+            title: Ezarpenak
+          update:
+            invalid: Errorea egon da datu demografikoak gordetzean
+            success: Datu demografikoak zuzen gorde dira
+        title: Datu demografikoak
+      demographics:
+        questionnaire:
+          delete_my_data: Ezabatu datua
+          modal_close: Ezeztatu
+          modal_ok: Ados
+          modal_question: Zure datu demografiko guztiak kendu egingo dira.
+          modal_title: Ezabatu datua
+          submit: Gorde datua
+          terms_of_service: zerbitzuaren baldintzak
+          tos_agreement: Parte hartzean onartzen duzu %{link}.
+        show:
+          page_title: Datu demografikoak uztea
+      destroy:
+        error: Errorea egon da zure datu demografikoak ematean
+        success: Eman dituzun datu demografikoak zuzen ezabatu dira
+      name: Datu demografikoak uztea
+      questions:
+        age:
+          options:
+          - 15-29 urte bitartekoak
+          - 30-44 urte bitartekoak
+          - 45-64 urte bitartekoak
+          - 65 urtekoak edo nagusiagoak
+          question: Zein da zure adina?
+        gender:
+          options:
+          - Gizonezkoa
+          - Emakumezkoa
+          - Ez-binarioa
+          - Nire generoa ez dago zerrendan
+          - Nahiago dut ez esan
+          question: Hauetako zeinek deskribatzen du ondoen zure generoa?
+        postal:
+          question: Zein da zure etxeko posta-kodea?
+  layouts:
+    decidim:
+      shared:
+        layout_center:
+          alert: Informazio hori emanez, laguntzen duzu parte-hartzearen kalitatea hobetzeko laguntzen duen analisi estatistikoa egiten. Zure datuak gehitu egingo dira eta ikerketarako baino ez dira erabiliko.
