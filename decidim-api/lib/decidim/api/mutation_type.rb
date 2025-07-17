@@ -7,16 +7,6 @@ module Decidim
       description "The root mutation of this schema"
 
       required_scopes "api:write"
-
-      field :component, Decidim::Api::ComponentMutationType, "The component of this schema", null: false do
-        argument :id, GraphQL::Types::ID, "The Comment's unique ID", required: true
-      end
-
-      field :delete_blob, mutation: Decidim::Core::DeleteBlobType, description: "Delete a blob"
-
-      def component(id:)
-        Decidim::Component.find(id)
-      end
     end
   end
 end
