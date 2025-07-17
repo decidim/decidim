@@ -1,44 +1,4 @@
-Style/OpenStructUse:
-  Enabled: false
-
-Gemspec/RequireMFA:
-  Enabled: false
-
-Naming/MemoizedInstanceVariableName:
-  Enabled: false
-
-RSpec/VerifiedDoubleReference:
-  Enabled: false
-
-FactoryBot/ExcessiveCreateList:
-  Enabled: false
-
-RSpec/ExampleWording:
-  Enabled: false
-
-Rails/PluckInWhere:
-  Enabled: false
-
-RSpec/ReceiveMessages:
-  Enabled: false
-
-RSpecRails/NegationBeValid:
-  Enabled: false
-
-RSpec/MetadataStyle:
-  Enabled: false
-
-FactoryBot/FactoryAssociationWithStrategy:
-  Enabled: false
-
-RSpec/RemoveConst:
-  Enabled: false
-
-FactoryBot/AssociationStyle:
-  Enabled: false
+# Disabled faker configurations
 
 Rubycw/Rubycw:
-  Enabled: false
-
-Lint/SelfAssignment:
   Enabled: false

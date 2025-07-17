@@ -1,4 +1,4 @@
-require: rubocop-faker
+plugins: rubocop-faker
 
 Faker/DeprecatedArguments:
   Description: 'Checks that Faker arguments style is based on Faker 2.'

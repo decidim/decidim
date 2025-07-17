@@ -1,4 +1,4 @@
-require: rubocop-graphql
+plugins: rubocop-graphql
 
 GraphQL:
   Enabled: true
@@ -18,6 +18,3 @@ GraphQL/ObjectDescription:
     - "**/lib/decidim/api/functions/*"
     - "spec/**/*"
     - "test/**/*"
-
-GraphQL/ExtractType:
-  Enabled: false
