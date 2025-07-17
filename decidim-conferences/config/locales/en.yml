@@ -6,9 +6,9 @@ en:
         assemblies_ids: Related Assemblies
         available_slots: Available slots
         banner_image: Banner image
-        copy_categories: Copy categories
-        copy_components: Copy components
-        copy_features: Copy features
+        duplicate_categories: Duplicate categories
+        duplicate_components: Duplicate components
+        duplicate_features: Duplicate features
         decidim_scope_id: Scope
         description: Description
         end_date: End date
@@ -100,7 +100,7 @@ en:
         view_deleted_conferences: View deleted conferences
       conference_copies:
         new:
-          copy: Copy
+          duplicate: Duplicate
           select: Select which data you would like to duplicate
           title: Duplicate conference
       conference_publications:

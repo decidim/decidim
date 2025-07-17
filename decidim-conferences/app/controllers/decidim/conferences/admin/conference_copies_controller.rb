@@ -10,14 +10,14 @@ module Decidim
 
         def new
           enforce_permission_to :create, :conference
-          @form = form(ConferenceCopyForm).from_model(current_conference)
+          @form = form(ConferenceDuplicateForm).from_model(current_conference)
         end
 
         def create
           enforce_permission_to :create, :conference
-          @form = form(ConferenceCopyForm).from_params(params)
+          @form = form(ConferenceDuplicateForm).from_params(params)
 
-          CopyConference.call(@form, current_conference) do
+          DuplicateConference.call(@form, current_conference) do
             on(:ok) do
               flash[:notice] = I18n.t("conferences_copies.create.success", scope: "decidim.admin")
               redirect_to conferences_path
