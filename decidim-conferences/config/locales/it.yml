@@ -80,8 +80,6 @@ it:
       conference_copies:
         new:
           copy: Copia
-          select: Seleziona i dati che desideri duplicare
-          title: Duplica Conferenza
       conference_publications:
         create:
           error: Si è verificato un errore durante la pubblicazione di questa conferenza.
@@ -140,10 +138,6 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa conferenza.
           success: Conferenza aggiornata con successo.
-      conferences_copies:
-        create:
-          error: Si è verificato un errore durante la duplicazione di questa conferenza.
-          success: Conferenza duplicata con successo.
       media_links:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo collegamento multimediale.
