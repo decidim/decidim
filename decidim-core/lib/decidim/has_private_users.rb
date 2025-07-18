@@ -38,6 +38,7 @@ module Decidim
       end
 
       def can_participate?(user)
+        return false unless published?
         return true unless private_space?
         return false unless user
 
