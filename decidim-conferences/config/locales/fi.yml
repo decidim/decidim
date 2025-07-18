@@ -2,12 +2,8 @@ fi:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Liittyvät ryhmät
         available_slots: Vapaat paikat
         banner_image: Bannerikuva
-        copy_categories: Kopioi aihepiirit
-        copy_components: Kopioi komponentit
-        copy_features: Kopioi ominaisuudet
         decidim_scope_id: Teema
         description: Kuvaus
         end_date: Päättymispäivä
@@ -97,11 +93,6 @@ fi:
         new_speaker: Uusi puhuja
         send_diplomas: Lähetä läsnäolotodistukset
         view_deleted_conferences: Näytä poistetut konferenssit
-      conference_copies:
-        new:
-          copy: Kopioi
-          select: Valitse, mitkä tiedot haluat kopioida
-          title: Kopioi konferenssi
       conference_publications:
         create:
           error: Konferenssin julkaiseminen epäonnistui.
@@ -162,6 +153,7 @@ fi:
         exports:
           registrations: Ilmoittautumiset
         form:
+          images: Kuvat
           title: Yleistä tietoa
         index:
           published: Julkaistu
@@ -170,14 +162,9 @@ fi:
           title: Poistetut konferenssit
         new:
           create: Luo
-          title: Konferenssi
         update:
           error: Konferenssin päivitys epäonnistui.
           success: Konferenssin päivitys onnistui.
-      conferences_copies:
-        create:
-          error: Konferenssin kopiointi epäonnistui.
-          success: Konferenssin kopiointi onnistui.
       media_links:
         create:
           error: Uuden medialinkin luonti epäonnistui.
@@ -355,9 +342,6 @@ fi:
         title: Puhujat
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help_html: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
         conference_invites:
           create:
             error: Käyttäjän kutsuminen konferenssiin epäonnistui.
