@@ -44,8 +44,6 @@ zh-CN:
       conference_copies:
         new:
           copy: 复制
-          select: 选择要重复的数据
-          title: 复制会议
       conference_publications:
         create:
           error: 发布此会议时出现问题。
@@ -103,10 +101,6 @@ zh-CN:
         update:
           error: 更新此会议时出现问题。
           success: 会议已成功更新。
-      conferences_copies:
-        create:
-          error: 复制此会议时出现问题。
-          success: 会议成功重复。
       media_links:
         create:
           error: 创建新媒体链接时出现问题。
