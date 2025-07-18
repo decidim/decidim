@@ -126,6 +126,12 @@ module Decidim
           resource_visible?
       end
 
+      # Checks throughout all its parent hierarchy if this Resource should be visible in the public views for a specific user.
+      def can_participate?(user)
+        (!self.class.try(:belong_to_component?) || (component&.published? && component.participatory_space&.can_participate?(user))) &&
+          resource_visible?
+      end
+
       # Check only the resource visibility not its hierarchy.
       # This method is intended to be overridden by classes that include this module and have the
       # need to impose its own visibility rules.
