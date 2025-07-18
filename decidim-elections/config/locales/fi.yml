@@ -49,12 +49,28 @@ fi:
           update:
             error: Henkilötietorekisterin luonti tai tallennus epäonnistui.
             success: Henkilötietorekisterin päivitys onnistui.
+        dashboard:
+          census:
+            title: Henkilötietorekisteri
+          main:
+            labels:
+              description: Kuvaus
+          questions:
+            labels:
+              answers: Vastaukset
+            title: Kysymykset
+          questions_table:
+            answer: Vastaukset
+            votes: Äänet
+          results:
+            publish_button: Julkaise tulokset
+            title: Tulokset
+          status:
+            title: Vaalin tila
         elections:
           create:
             invalid: Vaalin luonti epäonnistui.
             success: Vaalin luonti onnistui.
-          dashboard_page:
-            title: Hallintapaneeli
           edit:
             title: Muokkaa vaalia
           form:
@@ -66,13 +82,11 @@ fi:
             edit_attachments: Muokkaa liitteitä
             end_at: Päättymisaika
             manual_start: Käynnistä manuaalisesti
+            publish: Julkaise
             results_availability:
               after_end: Vaalien päättymisen jälkeen
-              after_end_help: Näytä tulokset vasta vaalien päätyttyä
               per_question: Erikseen jokaiselle kysymykselle
-              per_question_help: Näytä tulokset jokaiselle kysymykselle tulosten valmistuttua
               real_time: Reaaliajassa
-              real_time_help: Näytä tulokset heti ensimmäisen äänen jättämisen jälkeen
               title: Tulosten näkyvyys
             save: Tallenna ja jatka
             start_at: Alkamisaika
@@ -103,6 +117,9 @@ fi:
           update:
             invalid: Kysymysten päivittäminen epäonnistui.
             success: Kysymysten päivittäminen onnistui.
+        statuses:
+          publish_results:
+            invalid: Tulosten julkaiseminen epäonnistui.
       admin_log:
         election:
           create: "%{user_name} loi vaalin %{resource_name} tilaan %{space_name}"
@@ -129,21 +146,20 @@ fi:
             Tiedosto on ladattava CSV-muodossa, jossa on kaksi saraketta, yksi sähköpostiosoitteelle (email) ja toinen tunnisteelle (token), jonka osallistujat syöttävät äänestääkseen.
             Sarakkeet on erotettava puolipisteellä (;)
           label: Rekisteröitymättömät osallistujat tunnistekoodilla (kiinteä)
-          remove_before_upload: 'Mikäli haluat ladata uuden henkilötietorekisterin, aikaisempi rekisteri on ensin poistettava. '
           upload_file: Lataa tiedosto
           upload_new_census: Lataa CSV-tiedosto
-          uploaded_data_html:
-            one: |
-              Henkilötietorekisterin tiedot ladataan ja valmistellaan käytettäväksi vaalissa <b>%{election_title}</b>.
-              <br>Tällä hetkellä <strong>1</strong> henkilö on äänioikeutettu tässä vaalissa (tämä voi muuttua käytettäessä dynaamista henkilötietorekisteriä).
-            other: |
-              Henkilötietorekisterin tiedot ladataan ja valmistellaan käytettäväksi vaalissa <b>%{election_title}</b>.
-              <br>Tällä hetkellä <strong>%{count}</strong> henkilöä ovat äänioikeutettuja tässä vaalissa (tämä voi muuttua käytettäessä dynaamista henkilötietorekisteriä).
       models:
         election:
           fields:
+            census: Henkilötietorekisteri
             end_at: Päättymisaika
             start_at: Alkamisaika
+            status: Tila
             title: Otsikko
+      status:
+        active: Aktiivinen
+        finished: Valmis
+        ongoing: Käynnissä
+        unpublished: Julkaisematon
     statistics:
       elections_count: Vaalia
