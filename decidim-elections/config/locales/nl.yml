@@ -24,11 +24,29 @@ nl:
         census:
           edit:
             created_at: Aangemaakt op
+        dashboard:
+          census:
+            title: Kiezerslijst
+          main:
+            labels:
+              description: Beschrijving
+          questions:
+            labels:
+              answers: Antwoorden
+            title: vragen
+          questions_table:
+            answer: Antwoorden
+            votes: Stemmen
+          results:
+            title: Resultaten
+          status:
+            title: Verkiezingsstatus
         elections:
           edit:
             title: Bewerken van verkiezing
           form:
             add_images: Afbeeldingen toevoegen
+            publish: Publiceren
           index:
             title: Verkiezingen
           new:
@@ -40,6 +58,8 @@ nl:
       models:
         election:
           fields:
+            census: Kiezerslijst
+            status: Status
             title: Aanspreektitel
     statistics:
       elections_count: Verkiezingen
