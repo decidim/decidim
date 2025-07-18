@@ -18,7 +18,6 @@ module Decidim
     autoload :AreaTypeType, "decidim/api/types/area_type_type"
     autoload :AttachmentType, "decidim/api/types/attachment_type"
     autoload :AttachmentCollectionType, "decidim/api/types/attachment_collection_type"
-    autoload :AttachmentAttributes, "decidim/api/attributes/attachment_attributes"
     autoload :BlobType, "decidim/api/types/blob_type"
     autoload :DeleteBlobType, "decidim/api/mutations/delete_blob_type"
     autoload :CategoryType, "decidim/api/types/category_type"
@@ -29,7 +28,6 @@ module Decidim
     autoload :UpdateAttachmentType, "decidim/api/mutations/update_attachment_type"
     autoload :DeleteAttachmentType, "decidim/api/mutations/delete_attachment_type"
     autoload :DecidimType, "decidim/api/types/decidim_type"
-    autoload :FileAttributes, "decidim/api/attributes/file_attributes"
     autoload :AttachableMutations, "decidim/api/mutations/shared/attachable_mutations"
     autoload :FingerprintType, "decidim/api/types/fingerprint_type"
     autoload :LocalizedStringType, "decidim/api/types/localized_string_type"
@@ -87,5 +85,12 @@ module Decidim
 
     autoload :DateTimeType, "decidim/api/scalars/date_time_type"
     autoload :DateType, "decidim/api/scalars/date_type"
+
+    autoload :AttachmentAttributes, "decidim/api/attributes/attachment_attributes"
+    autoload :AttachmentCollectionAttributes, "decidim/api/attributes/attachment_collection_attributes"
+    autoload :FileAttributes, "decidim/api/attributes/file_attributes"
+
+    autoload :AttachmentCollectionInputObject, "decidim/api/input_objects/attachment_collection_input_object"
+    autoload :FileInputObject, "decidim/api/input_objects/file_input_object"
   end
 end
