@@ -50,7 +50,7 @@
       <small class="form-error max-choices-alert"><%= t(".max_choices_alert") %></small>
     <% end %>
 
-    <% !%w[short_answer long_answer].include?(response&.question&.question_type) && response.errors.full_messages.each do |msg| %>
+    <% %w(short_answer long_answer).exclude?(response&.question&.question_type) && response.errors.full_messages.each do |msg| %>
       <small class="form-error is-visible"><%= msg %></small>
     <% end %>
 
