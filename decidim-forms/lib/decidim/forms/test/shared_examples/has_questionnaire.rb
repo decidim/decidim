@@ -283,8 +283,9 @@ shared_examples_for "has questionnaire" do
         accept_confirm { click_on "Submit" }
       end
 
-      it "shows errors without submitting the form" do
-        expect(page).to have_no_css ".alert.flash"
+      it "submits the form and shows errors" do
+        expect(page).to have_css ".alert.flash"
+        expect(page).to have_admin_callout(callout_failure)
         different_error = I18n.t("decidim.forms.questionnaires.response.max_choices_alert")
         expect(different_error).to eq("There are too many choices selected")
         expect(page).to have_no_content(different_error)
