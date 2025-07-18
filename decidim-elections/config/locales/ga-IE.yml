@@ -15,10 +15,31 @@ ga:
       actions:
         title: Gníomhartha
       admin:
+        dashboard:
+          census:
+            title: Móráireamh
+          questions:
+            labels:
+              answers: Freagraí
+            title: Ceisteanna
+          questions_table:
+            answer: Freagraí
+            votes: Vótaí
+          results:
+            title: Torthaí
+        elections:
+          form:
+            publish: Foilsigh
         questions:
           edit_questions:
             title: Ceisteanna
       models:
         election:
           fields:
+            census: Móráireamh
+            status: Stádas
             title: Teideal
+      status:
+        active: Gníomhach
+        finished: Críochnaithe
+        ongoing: Leanúnach
