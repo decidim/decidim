@@ -18,9 +18,21 @@ zh-CN:
       actions:
         title: 行动
       admin:
+        dashboard:
+          main:
+            labels:
+              description: 描述
+          questions:
+            labels:
+              answers: 答案
+            title: 问 题
+          questions_table:
+            answer: 答案
         elections:
           edit:
             title: 编辑选择
+          form:
+            publish: 发布
           index:
             title: 选举
           new:
@@ -33,3 +45,6 @@ zh-CN:
         election:
           fields:
             title: 标题
+      status:
+        active: 已启用
+        finished: 已完成
