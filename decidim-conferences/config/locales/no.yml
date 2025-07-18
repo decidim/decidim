@@ -80,8 +80,6 @@
       conference_copies:
         new:
           copy: Kopier
-          select: Velg hvilke data du vil duplisere
-          title: Duplisert konferanse
       conference_publications:
         create:
           error: Det oppstod et problem med å publisere denne konferansen.
@@ -139,10 +137,6 @@
         update:
           error: Det oppstod et problem med å oppdatere denne konferansen.
           success: Konferansen ble oppdatert.
-      conferences_copies:
-        create:
-          error: Det oppstod et problem med å duplisere denne konferansen.
-          success: Konferansen ble duplisert.
       media_links:
         create:
           error: Det oppstod et problem med å opprette en ny media lenke.
