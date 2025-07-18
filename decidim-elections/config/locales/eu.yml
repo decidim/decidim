@@ -49,12 +49,28 @@ eu:
           update:
             error: Errore bat egon da errolda sortzean edo gordetzean.
             success: Errolda zuzen eguneratua.
+        dashboard:
+          census:
+            title: Errolda
+          main:
+            labels:
+              description: Deskribapena
+          questions:
+            labels:
+              answers: Erantzunak
+            title: Galderak
+          questions_table:
+            answer: Erantzunak
+            votes: Babesak
+          results:
+            publish_button: Argitaratu emaitzak
+            title: Emaitzak
+          status:
+            title: Aukeraren egoera
         elections:
           create:
             invalid: Arazo bat egon da hauteskunde hau sortzean.
             success: Hauteskundea zuzen sortua.
-          dashboard_page:
-            title: Kontrol-panela
           edit:
             title: Editatu hauteskundea
           form:
@@ -66,13 +82,11 @@ eu:
             edit_attachments: Editatu eranskinak
             end_at: Amaiera-ordua
             manual_start: Eskuz hastea
+            publish: Argitaratu
             results_availability:
               after_end: Hauteskundeak amaitu ostean
-              after_end_help: Erakutsi emaitzak soilik hauteskundeak amaitzen direnean
               per_question: Galderaz galdera
-              per_question_help: Erakutsi emaitzak galderen arabera, amaitu ahala
               real_time: Denbora erreala
-              real_time_help: Erakutsi emaitzak lehen bozketa egin bezain laster
               title: Emaitzak eskuragarri
             save: Gorde eta jarraitu
             start_at: Hasiera-ordua
@@ -103,6 +117,9 @@ eu:
           update:
             invalid: Arazo bat egon da galderak eguneratzean.
             success: Galderak zuzen egiuneratu dira.
+        statuses:
+          publish_results:
+            invalid: Arazo bat egon da emaitzak argitaratzean.
       admin_log:
         election:
           create: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea sortu du %{space_name} espazioan"
@@ -129,21 +146,20 @@ eu:
             CSV formatuko fitxategia izan behar da, bi zutaberekin, bata posta elektronikoko helbidearekin eta bestea erabiltzaileak botoa emateko sartu beharko duen fitxa baten balioarekin.
             Puntu eta koma batez bereizi behar da (;)
           label: Fitxekin erregistratu gabeko parte-hartzaileak (finkoa)
-          remove_before_upload: 'Beste errolda bat igo nahi baduzu, aurretik dagoena kendu behar duzu '
           upload_file: Igo fitxategia
           upload_new_census: Igo CSV fitxategia
-          uploaded_data_html:
-            one: |
-              Erroldako datuak kargatuta daude eta prest daude <b>%{eleccion_title}</b> bozketan erabiltzeko.
-              <br>Gaur egun pertsona <strong>1</strong> dago hautesleku honetan botoa eman dezakeena (hau errolda dinamiko batean alda daiteke).
-            other: |
-              Erroldako datuak kargatuta daude eta prest daude % <b>{eleccion_title}</b> bozketan erabiltzeko.
-              <br>Gaur egun <strong>% {count} </strong> pertsona daude hauetan botoa eman dezaketenak aukera honetan (hau errolda dinamiko batean alda daiteke).
       models:
         election:
           fields:
+            census: Errolda
             end_at: Amaiera-ordua
             start_at: Hasiera-ordua
+            status: Egoera
             title: Izenburua
+      status:
+        active: Aktibo
+        finished: Amaituta
+        ongoing: Bidean
+        unpublished: Argitaratu gabea
     statistics:
       elections_count: Hauteskundeak
