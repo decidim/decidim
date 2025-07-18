@@ -53,8 +53,6 @@ sk:
       conference_copies:
         new:
           copy: Kopírovať
-          select: Označte údaje, ktoré by ste chceli duplikovať
-          title: Duplikovať konferenciu
       conference_publications:
         create:
           error: Vyskytol sa problém s publikovaním konferencie.
@@ -112,10 +110,6 @@ sk:
         update:
           error: Vyskytol sa problém s aktualizáciou tejto konferencie.
           success: Konferencia úspešne aktualizovaná.
-      conferences_copies:
-        create:
-          error: Vyskytol sa problém s duplikáciou tejto konferencie.
-          success: Konferencia úspešne duplikovaná.
       media_links:
         create:
           error: Pri tvorbe mediálneho odkazu nastala chyba.
