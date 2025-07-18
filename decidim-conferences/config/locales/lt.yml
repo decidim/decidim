@@ -97,8 +97,6 @@ lt:
       conference_copies:
         new:
           copy: Kopijuoti
-          select: Pasirinkite, kuriuos duomenis norėtumėte dubliuoti
-          title: Dubliuoti konferenciją
       conference_publications:
         create:
           error: Publikuojant šią konferenciją iškilo problema.
@@ -158,10 +156,6 @@ lt:
         update:
           error: Atnaujinant šią konferenciją iškilo problema.
           success: Konferencija atnaujinta.
-      conferences_copies:
-        create:
-          error: Dubliuojant šią konferenciją iškilo problema.
-          success: Konferencija dubliuota.
       media_links:
         create:
           error: Kuriant naują multimedijos nuorodą iškilo problema.
