@@ -2,12 +2,9 @@ eu:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Erlazionatutako Batzarrak
+        assemblies_ids: Erlazionatutako batzarrak
         available_slots: Leku libreak
         banner_image: Banner irudia
-        copy_categories: Kopiatu kategoriak
-        copy_components: Kopiatu osagaiak
-        copy_features: Kopiatu ezaugarriak
         decidim_scope_id: Esparrua
         description: Deskribapena
         end_date: Amaiera-data
@@ -97,11 +94,6 @@ eu:
         new_speaker: Beste hizlari bat
         send_diplomas: Bidali bertaratze-ziurtagiriak
         view_deleted_conferences: Ikusi ezabatutako jardunaldiak
-      conference_copies:
-        new:
-          copy: Kopiatu
-          select: Hautatu zein datu bikoiztu nahi dituzun
-          title: Bikoiztu jardunaldia
       conference_publications:
         create:
           error: Arazo bat egon da jardunaldi hau argitaratzean.
@@ -162,7 +154,13 @@ eu:
         exports:
           registrations: Izen-emateak
         form:
+          duration: Iraupena
+          images: Argazkiak
+          metadata: Metadatuak
+          registrations: Izen-emateak
+          related_spaces: Honekin lotutako espazioak
           title: Informazio orokorra
+          visibility: Ikusgarritasuna
         index:
           published: Argitaratua
           unpublished: Argitaragabea
@@ -170,13 +168,9 @@ eu:
           title: Ezabatutako jardunaldiak
         new:
           create: Sortu
-          title: Jardunaldia
+          title: Beste jardunaldi bat
         update:
           error: Arazo bat egon da jardunaldi hau eguneratzean.
-          success: Jardunaldia zuzen eguneratua.
-      conferences_copies:
-        create:
-          error: Arazo bat egon da jardunaldi hau bikoiztean.
           success: Jardunaldia zuzen eguneratua.
       media_links:
         create:
@@ -355,9 +349,6 @@ eu:
         title: Hizlariak
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help_html: 'URL slugak erabiltzen dira jardunaldi honetako URLak sortzeko. Soilik onartzen ditu gutunak, zenbakiak eta gidoiak, eta letra batez hasi behar du. Adibidea: %{url}'
         conference_invites:
           create:
             error: Arazo bat izan da parte-hartzaileak konferentziara sartzeko gonbidatuta.
