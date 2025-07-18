@@ -50,8 +50,6 @@ lv:
       conference_copies:
         new:
           copy: Kopēt
-          select: Atlasiet, kurus datus vēlaties dublēt
-          title: Dublēt konferenci
       conference_publications:
         create:
           error: Konferences publicēšanas laikā radās problēma.
@@ -109,10 +107,6 @@ lv:
         update:
           error: Šīs konferences atjaunināšanas laikā radās problēma.
           success: Konference ir veiksmīgi atjaunināta.
-      conferences_copies:
-        create:
-          error: Radās problēma ar šīs konferences dublēšanu.
-          success: Konference ir veiksmīgi dublēta.
       media_links:
         create:
           error: Jaunas mediju saites izveides laikā radās problēma.
