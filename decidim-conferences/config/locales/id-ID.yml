@@ -42,8 +42,6 @@ id:
       conference_copies:
         new:
           copy: Salinan
-          select: Pilih data mana yang ingin Anda gandakan
-          title: Konferensi duplikat
       conference_publications:
         create:
           error: Terjadi kesalahan saat mempublikasikan konferensi ini.
@@ -101,10 +99,6 @@ id:
         update:
           error: Ada kesalahan saat memperbarui konferensi ini.
           success: Konferensi berhasil diperbarui.
-      conferences_copies:
-        create:
-          error: Ada kesalahan saat menduplikasi konferensi ini.
-          success: Konferensi berhasil digandakan.
       media_links:
         create:
           error: Terjadi kesalahan saat membuat tautan media baru.
