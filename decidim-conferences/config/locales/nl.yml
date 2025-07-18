@@ -78,8 +78,6 @@ nl:
       conference_copies:
         new:
           copy: Kopiëren
-          select: Selecteer welke gegevens u wilt dupliceren
-          title: Dubbele conferentie
       conference_publications:
         create:
           error: Er is een fout opgetreden bij het publiceren van deze conferentie.
@@ -137,10 +135,6 @@ nl:
         update:
           error: Er is een probleem opgetreden bij het bijwerken van deze conferentie.
           success: Conferentie succesvol bijgewerkt.
-      conferences_copies:
-        create:
-          error: Er was een probleem bij het dupliceren van deze conferentie.
-          success: Conferentie succesvol gedupliceerd.
       media_links:
         create:
           error: Er is een probleem opgetreden bij het maken van een nieuwe mediakoppeling.
