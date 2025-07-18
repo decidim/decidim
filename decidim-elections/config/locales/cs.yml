@@ -29,6 +29,24 @@ cs:
         census:
           edit:
             created_at: Vytvořeno v
+        dashboard:
+          census:
+            title: Seznam obyvatel
+          main:
+            labels:
+              description: Popis
+          questions:
+            labels:
+              answers: Odpovědi
+            title: Otázky
+          questions_table:
+            answer: Odpovědi
+            votes: Hlasy
+          results:
+            publish_button: Publikovat výsledky
+            title: Výsledky
+          status:
+            title: Stav voleb
         elections:
           create:
             invalid: Při vytváření voleb došlo k chybě.
@@ -43,11 +61,9 @@ cs:
             edit_attachments: Upravit přílohy
             end_at: Čas ukončení
             manual_start: Ruční spuštění
+            publish: Publikovat
             results_availability:
               after_end: Po ukončení voleb
-              after_end_help: Zobrazit výsledky pouze při ukončení voleb
-              per_question_help: Zobrazit výsledky pro každou otázku při dokončení
-              real_time_help: Zobrazit výsledky ihned po prvním hlasování
               title: Dostupnost výsledků
             start_at: Čas zahájení
           index:
@@ -68,6 +84,9 @@ cs:
           edit_questions:
             new_question: Nová otázka
             title: Otázky
+        statuses:
+          publish_results:
+            invalid: Při publikování výsledků došlo k chybě.
       admin_log:
         election:
           create: "%{user_name} vytvořil volby %{resource_name} v %{space_name}"
@@ -77,8 +96,15 @@ cs:
       models:
         election:
           fields:
+            census: Seznam obyvatel
             end_at: Čas ukončení
             start_at: Čas zahájení
+            status: Stav
             title: Název
+      status:
+        active: Aktivní
+        finished: Dokončeno
+        ongoing: Probíhající
+        unpublished: Nezveřejněno
     statistics:
       elections_count: Volby
