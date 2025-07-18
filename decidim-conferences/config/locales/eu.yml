@@ -102,8 +102,6 @@ eu:
       conference_copies:
         new:
           copy: Kopiatu
-          select: Hautatu zein datu bikoiztu nahi dituzun
-          title: Bikoiztu jardunaldia
       conference_publications:
         create:
           error: Arazo bat egon da jardunaldi hau argitaratzean.
@@ -175,10 +173,6 @@ eu:
           title: Jardunaldia
         update:
           error: Arazo bat egon da jardunaldi hau eguneratzean.
-          success: Jardunaldia zuzen eguneratua.
-      conferences_copies:
-        create:
-          error: Arazo bat egon da jardunaldi hau bikoiztean.
           success: Jardunaldia zuzen eguneratua.
       media_links:
         create:
