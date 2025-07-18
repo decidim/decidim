@@ -2,12 +2,8 @@ ja:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: 関連する参加スペース
         available_slots: 利用可能なスロット
         banner_image: バナー画像
-        copy_categories: カテゴリをコピー
-        copy_components: コンポーネントをコピー
-        copy_features: 機能をコピー
         decidim_scope_id: スコープ
         description: 説明
         end_date: 終了日
@@ -94,11 +90,6 @@ ja:
         new_speaker: 新しいスピーカー
         send_diplomas: 出席証明書を送信
         view_deleted_conferences: 削除されたカンファレンスを表示
-      conference_copies:
-        new:
-          copy: コピー
-          select: 複製したいデータを選択してください
-          title: カンファレンスを複製
       conference_publications:
         create:
           error: このカンファレンスを公開する際に問題が発生しました。
@@ -159,6 +150,7 @@ ja:
         exports:
           registrations: 登録
         form:
+          images: 画像
           title: 一般情報
         index:
           published: 公開済み
@@ -167,14 +159,9 @@ ja:
           title: 削除されたカンファレンス
         new:
           create: 作成
-          title: カンファレンス
         update:
           error: このカンファレンスの更新に問題がありました。
           success: カンファレンスを更新しました。
-      conferences_copies:
-        create:
-          error: このカンファレンスの複製に問題が発生しました。
-          success: カンファレンスを複製しました。
       media_links:
         create:
           error: 新しいメディアリンクの作成中に問題が発生しました。
@@ -352,9 +339,6 @@ ja:
         title: スピーカー
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help_html: 'URLスラグは、このカンファレンスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         conference_invites:
           create:
             error: 参加者をカンファレンスに招待する際に問題が発生しました。
