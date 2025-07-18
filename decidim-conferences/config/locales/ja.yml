@@ -99,8 +99,6 @@ ja:
       conference_copies:
         new:
           copy: コピー
-          select: 複製したいデータを選択してください
-          title: カンファレンスを複製
       conference_publications:
         create:
           error: このカンファレンスを公開する際に問題が発生しました。
@@ -171,10 +169,6 @@ ja:
         update:
           error: このカンファレンスの更新に問題がありました。
           success: カンファレンスを更新しました。
-      conferences_copies:
-        create:
-          error: このカンファレンスの複製に問題が発生しました。
-          success: カンファレンスを複製しました。
       media_links:
         create:
           error: 新しいメディアリンクの作成中に問題が発生しました。
