@@ -88,8 +88,6 @@ zh-TW:
       conference_copies:
         new:
           copy: 複製
-          select: 請選擇您想要複製的資料
-          title: 複製研討會
       conference_publications:
         create:
           error: 發布此研討會時出現問題。
@@ -149,10 +147,6 @@ zh-TW:
         update:
           error: 更新此研討會時發生問題。
           success: 研討會更新成功。
-      conferences_copies:
-        create:
-          error: 複製此研討會時發生問題。
-          success: 研討會複製成功。
       media_links:
         create:
           error: 創建新的媒體連結時出現問題。
