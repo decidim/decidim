@@ -2,12 +2,8 @@ cs:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Související shromáždění
         available_slots: Dostupné sloty
         banner_image: Obrázek banneru
-        copy_categories: Kopírovat kategorie
-        copy_components: Kopírování komponent
-        copy_features: Funkce kopírování
         decidim_scope_id: Oblast působnosti
         description: Popis
         end_date: Datum ukončení
@@ -103,11 +99,6 @@ cs:
         new_speaker: Nový mluvčí
         send_diplomas: Odeslání certifikátů o účasti
         view_deleted_conferences: Zobrazit smazané konference
-      conference_copies:
-        new:
-          copy: Kopírovat
-          select: Vyberte, která data chcete duplikovat
-          title: Duplikovat konferenci
       conference_publications:
         create:
           error: Při publikování této konference došlo k chybě.
@@ -168,6 +159,7 @@ cs:
         exports:
           registrations: Registrace
         form:
+          images: Fotky
           title: Obecná informace
         index:
           published: Publikováno
@@ -176,14 +168,9 @@ cs:
           title: Smazané konference
         new:
           create: Vytvořit
-          title: Konference
         update:
           error: Při aktualizaci této konference došlo k chybě.
           success: Konference byla úspěšně aktualizována.
-      conferences_copies:
-        create:
-          error: Při kopírování této konference došlo k chybě.
-          success: Konference byla úspěšně duplikována.
       media_links:
         create:
           error: Při vytváření nového odkazu na média došlo k chybě.
@@ -355,9 +342,6 @@ cs:
         title: Řečníci
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na tuto konferenci. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         conference_invites:
           create:
             error: Při pozvání uživatele do konference došlo k problému.
