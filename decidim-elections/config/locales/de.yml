@@ -24,11 +24,30 @@ de:
         census:
           edit:
             created_at: Erstellt am
+        dashboard:
+          census:
+            title: Erhebung
+          main:
+            labels:
+              description: Beschreibung
+          questions:
+            labels:
+              answers: Antworten
+            title: Fragen
+          questions_table:
+            answer: Antworten
+            votes: Stimmen
+          results:
+            publish_button: Resultate veröffentlichen
+            title: Resultate
+          status:
+            title: Wahlstatus
         elections:
           edit:
             title: Wahl bearbeiten
           form:
             add_images: Bilder hinzufügen
+            publish: Veröffentlichen
           index:
             title: Wahlen
           new:
@@ -37,9 +56,19 @@ de:
           edit_questions:
             new_question: Neue Frage
             title: Fragen
+        statuses:
+          publish_results:
+            invalid: Beim Veröffentlichen der Ergebnisse ist ein Fehler aufgetreten.
       models:
         election:
           fields:
+            census: Erhebung
+            status: Status
             title: Titel
+      status:
+        active: Aktiv
+        finished: Abgeschlossen
+        ongoing: Aktuell
+        unpublished: Nicht veröffentlicht
     statistics:
       elections_count: Wahlen
