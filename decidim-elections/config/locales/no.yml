@@ -18,9 +18,25 @@
       actions:
         title: Handlinger
       admin:
+        dashboard:
+          main:
+            labels:
+              description: Beskrivelse
+          questions:
+            labels:
+              answers: Svar
+            title: Spørsmål
+          questions_table:
+            answer: Svar
+            votes: Stemmer
+          results:
+            publish_button: Publiser resultater
+            title: Resultater
         elections:
           edit:
             title: Rediger valg
+          form:
+            publish: Publiser
           index:
             title: Valg
           new:
@@ -29,3 +45,6 @@
           edit_questions:
             new_question: Nytt spørsmål
             title: Spørsmål
+      status:
+        active: Aktiv
+        finished: Fullført
