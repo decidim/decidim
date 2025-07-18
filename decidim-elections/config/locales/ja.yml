@@ -48,12 +48,28 @@ ja:
           update:
             error: センサスの作成または保存中にエラーが発生しました。
             success: センサスを更新しました。
+        dashboard:
+          census:
+            title: センサス
+          main:
+            labels:
+              description: 説明
+          questions:
+            labels:
+              answers: 回答
+            title: 質問
+          questions_table:
+            answer: 回答
+            votes: 投票
+          results:
+            publish_button: 結果を公開
+            title: 結果
+          status:
+            title: 選挙状況
         elections:
           create:
             invalid: 選挙の作成中に問題がありました。
             success: 選挙を作成しました。
-          dashboard_page:
-            title: ダッシュボード
           edit:
             title: 選挙を編集
           form:
@@ -65,13 +81,11 @@ ja:
             edit_attachments: 添付ファイルを編集
             end_at: 終了日時
             manual_start: 手動の開始
+            publish: 公開
             results_availability:
               after_end: 選挙終了後
-              after_end_help: 選挙が終了したときにのみ結果を表示します
               per_question: 質問ごとの質問
-              per_question_help: 質問ごとに結果を表示する
               real_time: リアルタイム
-              real_time_help: 最初の投票が登録され次第結果を表示する
               title: 検索結果が利用可能です
             save: 保存して続ける
             start_at: 開始日時
@@ -102,6 +116,9 @@ ja:
           update:
             invalid: 質問の更新中に問題が発生しました。
             success: 質問を更新しました。
+        statuses:
+          publish_results:
+            invalid: 結果の公表中に問題が発生しました。
       admin_log:
         election:
           create: "%{user_name} が %{space_name}で %{resource_name} 選挙を作成しました"
@@ -127,17 +144,20 @@ ja:
             CSVフォーマットのファイルは2つのカラムを持つ必要があります。1つはメールアドレス、もう1つはユーザーが投票するために導入しなければならないトークンの値です。
             カラムはセミコロン(;)で区切る必要があります
           label: トークンが登録されていない参加者（固定）
-          remove_before_upload: '新しいセンサスをアップロードする場合、まず既存のセンサスを削除する必要があります '
           upload_file: ファイルをアップロード
           upload_new_census: CSVファイルをアップロードする
-          uploaded_data_html:
-            other: |
-              <b>%{election\_title}</b> 選挙に使用するためのセンサスデータがアップロードされ、準備が完了しました。 <br>現在、この選挙で投票資格がある人は <strong>%{count}</strong> 名です（動的なセンサスの場合は変更される可能性があります）。
       models:
         election:
           fields:
+            census: センサス
             end_at: 終了日時
             start_at: 開始日時
+            status: ステータス：
             title: タイトル
+      status:
+        active: 有効
+        finished: 完了
+        ongoing: 進行中
+        unpublished: 未公開
     statistics:
       elections_count: 選挙
