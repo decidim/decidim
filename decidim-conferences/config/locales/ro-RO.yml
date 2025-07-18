@@ -98,8 +98,6 @@ ro:
       conference_copies:
         new:
           copy: Copiază
-          select: Selectați datele pe care doriți să le duplicați
-          title: Duplică conferinţa
       conference_publications:
         create:
           error: A apărut o problemă la publicarea acestei conferinţe.
@@ -163,10 +161,6 @@ ro:
         update:
           error: A apărut o eroare la actualizarea conferinței.
           success: Conferință actualizată cu succes.
-      conferences_copies:
-        create:
-          error: A apărut o problemă la duplicarea acestei conferinţe.
-          success: Conferință duplicată cu succes.
       media_links:
         create:
           error: A apărut o problemă la crearea unei noi legături media.
