@@ -99,8 +99,6 @@ hu:
       conference_copies:
         new:
           copy: Másolat
-          select: Válassza ki, mely adatokat szeretné megismételni
-          title: Duplikált konferencia
       conference_publications:
         create:
           error: Hiba történt a konferencia közzétételében.
@@ -161,10 +159,6 @@ hu:
         update:
           error: Hiba történt a konferencia frissítésekor.
           success: A konferencia sikeresen frissült.
-      conferences_copies:
-        create:
-          error: Hiba történt a konferencia másolása során.
-          success: A konferencia sikeresen megismétlődött.
       media_links:
         create:
           error: Hiba történt új média link létrehozása közben.
