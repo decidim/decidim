@@ -14,9 +14,26 @@ gl:
       actions:
         title: Accións
       admin:
+        dashboard:
+          census:
+            title: Censo
+          main:
+            labels:
+              description: Descrición
+          questions:
+            labels:
+              answers: Respostas
+            title: Preguntas
+          questions_table:
+            answer: Respostas
+          results:
+            title: Resultados
+          status:
+            title: Estado da elección
         elections:
           form:
             add_images: Engadir imaxes
+            publish: Publicar
           index:
             title: Eleccións
           new:
@@ -28,6 +45,10 @@ gl:
       models:
         election:
           fields:
+            census: Censo
             title: Título
+      status:
+        active: Activa
+        finished: Finalizada
     statistics:
       elections_count: Eleccións
