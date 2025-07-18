@@ -29,7 +29,7 @@ module Decidim
           Decidim::NotificationToMailerPresenter.new(notification)
         end
 
-        mail(to: user.email, subject: @notifications_digest.subject)
+        mail(to: user.email, subject: @notifications_digest.subject) if @notifications.any?
       end
     end
 
