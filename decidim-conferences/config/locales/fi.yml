@@ -102,8 +102,6 @@ fi:
       conference_copies:
         new:
           copy: Kopioi
-          select: Valitse, mitkä tiedot haluat kopioida
-          title: Kopioi konferenssi
       conference_publications:
         create:
           error: Konferenssin julkaiseminen epäonnistui.
@@ -174,10 +172,6 @@ fi:
         update:
           error: Konferenssin päivitys epäonnistui.
           success: Konferenssin päivitys onnistui.
-      conferences_copies:
-        create:
-          error: Konferenssin kopiointi epäonnistui.
-          success: Konferenssin kopiointi onnistui.
       media_links:
         create:
           error: Uuden medialinkin luonti epäonnistui.
