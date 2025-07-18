@@ -78,8 +78,6 @@ pt:
       conference_copies:
         new:
           copy: Copiar
-          select: Selecione os dados que pretende duplicar
-          title: Conferência duplicada
       conference_publications:
         create:
           error: Ocorreu um problema ao publicar esta conferência.
@@ -137,10 +135,6 @@ pt:
         update:
           error: Ocorreu um problema ao atualizar esta conferência.
           success: Conferência atualizada corretamente.
-      conferences_copies:
-        create:
-          error: Ocorreu um problema ao duplicar esta conferência.
-          success: Conferência duplicada com sucesso.
       media_links:
         create:
           error: Ocorreu um problema ao criar uma nova hiperligação de multimédia.
