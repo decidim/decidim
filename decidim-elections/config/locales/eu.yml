@@ -30,6 +30,7 @@ eu:
     elections:
       actions:
         confirm_delete_election: Ziur zaude hauteskundea hau ezabatu nahi duzula?
+        confirm_unpublish_election: Ziur zaude bozketa hau despublikatu nahi duzula?
         deleted_election_info: Ezabatutako hauteskundeak ez dira agertzen zerrendan. Beheko botoia sakatuz ikus ditzakezu.
         edit: Editatu hauteskundea
         new: Beste hauteskunde bat
@@ -50,20 +51,43 @@ eu:
             error: Errore bat egon da errolda sortzean edo gordetzean.
             success: Errolda zuzen eguneratua.
         dashboard:
+          calendar:
+            end_at: 'Amaiera-ordua:'
+            end_election: Bozketaren amaiera
+            manual_start: Eskuzkoa
+            start_at: 'Hasiera-ordua:'
+            start_election: Hasi bozketa
+            title: Egutegia
           census:
             title: Errolda
           main:
             labels:
+              calendar: Egutegia
               description: Deskribapena
+              image: Irudien galeria
+              results: Emaitzak eskuragarri
+              title: Izenburua
+            title: Nagusia
+          publish_confirm: Ziur zaude bozketa hau argitaratu nahi duzula?
           questions:
             labels:
               answers: Erantzunak
+              question_title: '%{number} galdera'
+            limit_info: Bozketa honek galdera gehiago ditu. Aurrebista 3 galderatara mugatzen da.
             title: Galderak
           questions_table:
             answer: Erantzunak
+            percentage: Ehunekoa
             votes: Babesak
           results:
+            not_started: Bozketa oraindik ez da hasi.
+            per_question_waiting: Oraindik ez dago botoa emateko aukerarik. Parte-hartzaileek mezu bat ikusiko dute "Hurrengo galderaren zain", gutxienez bat aktibatu arte.
             publish_button: Argitaratu emaitzak
+            results_availability:
+              after_end: Emaitza guztik argitaratu ditzakezu bozketa amaitu ondoren. Emaitzak ezkutuan egongo dira eskuz argitaratu arte.
+              per_question: Aukera eman behar duzu botoa emateko eta eskuz argitaratzeko galdera bakoitzaren emaitzak.
+              real_time: Emaitzak automatikoki erakusten dira bozketa bitartean.
+            start_question_button: Botoa eman daiteke
             title: Emaitzak
           status:
             title: Aukeraren egoera
@@ -71,6 +95,8 @@ eu:
           create:
             invalid: Arazo bat egon da hauteskunde hau sortzean.
             success: Hauteskundea zuzen sortua.
+          dashboard:
+            title: Kontrol-panela
           edit:
             title: Editatu hauteskundea
           form:
@@ -85,8 +111,11 @@ eu:
             publish: Argitaratu
             results_availability:
               after_end: Hauteskundeak amaitu ostean
+              after_end_help: argitaratu emaitzak bozketa amaitutakoan
               per_question: Galderaz galdera
+              per_question_help: botoa eskuz kudeatzea eta galdera bakoitzaren emaitzak argitaratzea
               real_time: Denbora erreala
+              real_time_help: argitaratu automatikoki emaitzak bozkatzen den bitartean
               title: Emaitzak eskuragarri
             save: Gorde eta jarraitu
             start_at: Hasiera-ordua
@@ -118,8 +147,19 @@ eu:
             invalid: Arazo bat egon da galderak eguneratzean.
             success: Galderak zuzen egiuneratu dira.
         statuses:
+          enable_voting:
+            invalid: Arazo bat egon da bozketa gaitzean.
+            success: Bozketa zuzen gaitua.
+          end:
+            invalid: Arazo bat egon da bozketa hau amaitzean.
+            success: Aukeraketa zuzen amaitua.
           publish_results:
             invalid: Arazo bat egon da emaitzak argitaratzean.
+            success: Emaitzak zuzen argitaratuta.
+          start:
+            invalid: Arazo bat egon da aukeraketa hastean.
+            success: Aukeraketa zuzen hasi da.
+          unknown: Egoera ezezaguna
       admin_log:
         election:
           create: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea sortu du %{space_name} espazioan"
@@ -131,6 +171,10 @@ eu:
         question:
           update: "%{user_name} -k eguneratu ditu %{resource_name} aukerako galderak"
       censuses:
+        census_ready_html: Erroldako datuak kargatuta daude eta prest daude % <b>{eleccion_title}</b> bozketan erabiltzeko.
+        census_size_html:
+          one: Gaur egun <strong>bat</strong> pertsona dago hautesleku honetan botoa jasotzeko gai dena (hau errolda dinamiko batean alda daiteke).
+          other: Gaur egun <strong>bat</strong> pertsona daude hautesleku honetan botoa jasotzeko gai deirnak (hau errolda dinamiko batean alda daiteke).
         internal_users:
           info_html: |
             Bozketan parte hartzea baimen bat duten parte-hartzaileei mugatu diezaiekezu.<br>
@@ -146,6 +190,7 @@ eu:
             CSV formatuko fitxategia izan behar da, bi zutaberekin, bata posta elektronikoko helbidearekin eta bestea erabiltzaileak botoa emateko sartu beharko duen fitxa baten balioarekin.
             Puntu eta koma batez bereizi behar da (;)
           label: Fitxekin erregistratu gabeko parte-hartzaileak (finkoa)
+          remove_before_upload: Errolda berri bat igo nahi baduzu, aurretik dagoena kendu behar duzu.
           upload_file: Igo fitxategia
           upload_new_census: Igo CSV fitxategia
       models:
@@ -160,6 +205,12 @@ eu:
         active: Aktibo
         finished: Amaituta
         ongoing: Bidean
+        results_published: Argitaratutako emaitzak
+        scheduled: Programatuta
         unpublished: Argitaratu gabea
+        voting_enabled: Bozketa martxan
     statistics:
       elections_count: Hauteskundeak
+  time:
+    formats:
+      short_with_time: "%b %-d, %Y, %-I:%M %p"
