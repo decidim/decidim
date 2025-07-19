@@ -120,7 +120,28 @@ bin/rails decidim:verifications:revoke:sms
 bin/rails decidim_surveys:upgrade:fix_survey_permissions
 ```
 
-### 1.6. Follow the steps and commands detailed in these notes
+### 1.6. AWS/Azure/Google Clour assets storage
+
+As of this upgrade, you can avoid the asset caching issue due to the authentication token that expires. The rails team added an extra active storage parameter, `public: true` that you can add it to your s3 configuration in your storage.yml
+
+```yaml
+s3:
+  service: S3
+  public: true
+  access_key_id: <%= Decidim::Env.new("AWS_ACCESS_KEY_ID").to_s %>
+  secret_access_key: <%= Decidim::Env.new("AWS_SECRET_ACCESS_KEY").to_s %>
+  bucket: <%= Decidim::Env.new("AWS_BUCKET").to_s %>
+  <%= "region: #{Decidim::Env.new("AWS_REGION").to_s}" if Decidim::Env.new("AWS_REGION").present? %>
+  <%= "endpoint: #{ Decidim::Env.new("AWS_ENDPOINT").to_s}" if Decidim::Env.new("AWS_ENDPOINT").present? %>
+```
+
+The parameter will actually strip from any asset url the `X-Amz-Credential` parameter, leaving the asset storage url like: `https://BUCKET-NAME.s3.amazonaws.com/ASSET_ID`, making it easier to cache.
+
+To achive that, the Content Security Policy (found in [system panel](https://docs.decidim.org/en/develop/configure/system)) comes to your aid. Populate (or append to) the following fields with the bucket url (ex: https://decidim-bucket.s3.amazonaws.com/): `Default src`, `Img src`, `Media src` and `Connect src`.
+
+Apart of that, you also need to configure your preferred cloud service provider to suppoort this. We recommend you to follow the Rails official guide for [Active Storage configuration](https://guides.rubyonrails.org/v7.0/active_storage_overview.html#setup).
+
+### 1.7. Follow the steps and commands detailed in these notes
 
 ## 2. General notes
 
