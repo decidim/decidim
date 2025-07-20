@@ -137,7 +137,7 @@ s3:
 
 The parameter will actually strip from any asset url the `X-Amz-Credential` parameter, leaving the asset storage url like: `https://BUCKET-NAME.s3.amazonaws.com/ASSET_ID`, making it easier to cache.
 
-To achieve that, the Content Security Policy (found in [system panel](https://docs.decidim.org/en/develop/configure/system)) comes to your aid. Populate (or append to) the following fields with the bucket url (ex: https://decidim-bucket.s3.amazonaws.com/): `Default src`, `Img src`, `Media src` and `Connect src`.
+To achieve that, the Content Security Policy (found in [system panel](https://docs.decidim.org/en/develop/configure/system)) comes to your aid. Populate (or append to) the following fields with the bucket url (ex: <https://decidim-bucket.s3.amazonaws.com/>): `Default src`, `Img src`, `Media src` and `Connect src`.
 
 Apart of that, you also need to configure your preferred cloud service provider to support this. We recommend you to follow the Rails official guide for [Active Storage configuration](https://guides.rubyonrails.org/v7.0/active_storage_overview.html#setup).
 
