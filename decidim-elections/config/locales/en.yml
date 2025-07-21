@@ -236,7 +236,6 @@ en:
           state_values:
             finished: Finished
             ongoing: Ongoing
-            results_published: Results published
             scheduled: Scheduled
         orders:
           end_at: Ending date

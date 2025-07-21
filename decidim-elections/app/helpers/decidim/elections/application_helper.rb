@@ -12,7 +12,7 @@ module Decidim
       # Returns a TreeNode to be used in the list filters to filter elections by
       # its state.
       def filter_elections_state_values
-        %w(scheduled ongoing finished results_published).map { |k| [k, t(k, scope: "decidim.elections.elections.filters.state_values")] }.prepend(
+        %w(scheduled ongoing finished).map { |k| [k, t(k, scope: "decidim.elections.elections.filters.state_values")] }.prepend(
           ["all", t("all", scope: "decidim.elections.elections.filters")]
         )
       end

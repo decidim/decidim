@@ -41,7 +41,6 @@ module Decidim
       scope :scheduled, -> { published.where(start_at: Time.current..).or(published.where(start_at: nil, published_results_at: nil, end_at: Time.current..)) }
       scope :ongoing, -> { published.where(start_at: ..Time.current, end_at: Time.current..) }
       scope :finished, -> { published.where(end_at: ..Time.current) }
-      scope :results_published, -> { published.where.not(published_results_at: nil).or(published.finished.where(results_availability: %w(real_time per_question))) }
 
       searchable_fields(
         A: :title,
@@ -145,13 +144,14 @@ module Decidim
       end
 
       def results_published?
+        return false unless started?
+        return true if published_results_at.present?
+
         case results_availability
         when "real_time"
-          ongoing? || vote_finished? || published_results_at.present?
+          ongoing? || vote_finished?
         when "per_question"
           vote_finished? && questions.enabled.any? && questions.enabled.any?(&:published_results_at)
-        when "after_end"
-          published_results_at.present?
         else
           false
         end
