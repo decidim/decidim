@@ -57,6 +57,7 @@ en:
             end_at: 'End time:'
             end_election: End election
             manual_start: Manual
+            published_results_at: Results published at
             start_at: 'Start time:'
             start_election: Start election
             title: Calendar
@@ -246,12 +247,6 @@ en:
           subtitle: 'These are the questions fot this voting process:'
           title: Election questions
         show:
-          finished: Finished
-          not_started: Not started
-          ongoing: Ongoing
-          results_published: Results published
-          scheduled: Scheduled
-          unpublished: Unpublished
           vote_button: Start voting
           voted: You have already voted. You can vote again, only your last vote will be counted.
           votes_count:
@@ -274,8 +269,9 @@ en:
       status:
         active: Active
         finished: Finished
+        not_started: Not started
         ongoing: Ongoing
-        results_published: Published results
+        published_results: Published results
         scheduled: Scheduled
         unpublished: Unpublished
         voting_enabled: Voting in progress
@@ -307,6 +303,9 @@ en:
           description: You can wait here until the next question is available. You will be automatically redirected to the next question when it is ready.
           exit_button: Exit the waiting room
           title: Waiting for the next question
+    metadata:
+      progress:
+        published_results: 'Results published: %{end_date}'
     statistics:
       elections_count: Elections
   layouts:

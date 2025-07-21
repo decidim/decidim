@@ -68,7 +68,7 @@ module Decidim
 
           if question.published_results?
             return content_tag(:div, class: "status-label") do
-              content_tag(:span, t("decidim.elections.status.results_published"), class: "label success")
+              content_tag(:span, t("decidim.elections.status.published_results"), class: "label success")
             end
           end
 

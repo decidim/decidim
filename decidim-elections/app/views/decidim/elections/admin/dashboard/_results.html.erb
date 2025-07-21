@@ -11,7 +11,7 @@
     <% if election.scheduled? %>
       <%= cell "decidim/announcement", t("decidim.elections.admin.dashboard.results.not_started"), callout_class: "warning" %>
     <% else %>
-      <%= content_tag("p", t("decidim.elections.admin.dashboard.results.results_availability.#{election.results_availability}")) unless election.results_published? %>
+      <%= content_tag("p", t("decidim.elections.admin.dashboard.results.results_availability.#{election.results_availability}")) unless election.published_results? %>
       <%= cell "decidim/announcement", t("decidim.elections.admin.dashboard.results.per_question_waiting"), callout_class: "alert" if election.per_question_waiting? %>
     <% end %>
     <%= render partial: "decidim/elections/admin/dashboard/questions_with_results" %>

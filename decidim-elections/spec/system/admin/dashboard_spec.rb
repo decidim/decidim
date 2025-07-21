@@ -250,7 +250,7 @@ describe "Dashboard" do
   end
 
   context "when the election has published results" do
-    let!(:election) { create(:election, :with_token_csv_census, :published, :results_published, :finished, component:) }
+    let!(:election) { create(:election, :with_token_csv_census, :published, :published_results, :finished, component:) }
 
     it "shows the published results status" do
       expect(page).to have_content("Published results")

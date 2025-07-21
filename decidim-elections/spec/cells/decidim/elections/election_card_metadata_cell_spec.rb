@@ -46,7 +46,7 @@ module Decidim::Elections
     end
 
     context "when the election has results published" do
-      let(:election) { create(:election, :published, :finished, :results_published) }
+      let(:election) { create(:election, :published, :finished, :published_results) }
 
       it "renders as results published" do
         expect(subject.to_s).to include("Results published")

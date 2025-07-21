@@ -15,7 +15,7 @@ describe "Admin manages elections" do
   let!(:published_election) { create(:election, :published, census_manifest: :internal_users, component: current_component) }
   let!(:finished_election) { create(:election, :published, :finished, component: current_component) }
   let!(:ongoing_election) { create(:election, :published, :ongoing, component: current_component) }
-  let!(:results_published_election) { create(:election, :published, :results_published, component: current_component) }
+  let!(:published_results_election) { create(:election, :published, :published_results, component: current_component) }
 
   let(:attributes) { attributes_for(:election, component: current_component) }
   let(:start_time) { Time.current.change(day: 10, hour: 12, min: 50) }
@@ -31,7 +31,7 @@ describe "Admin manages elections" do
     expect(page).to have_content(translated(published_election.title))
     expect(page).to have_content(translated(finished_election.title))
     expect(page).to have_content(translated(ongoing_election.title))
-    expect(page).to have_content(translated(results_published_election.title))
+    expect(page).to have_content(translated(published_results_election.title))
     expect(page).to have_content("Unpublished")
     expect(page).to have_content("Scheduled")
     expect(page).to have_content("Published results")

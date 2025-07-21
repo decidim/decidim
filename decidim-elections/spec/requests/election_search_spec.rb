@@ -18,7 +18,7 @@ RSpec.describe "Election search" do
   let!(:scheduled_election2) { create(:election, :published, description: { en: "A great description" }, component:) }
   let!(:ongoing_election) { create(:election, :published, :ongoing, component:) }
   let!(:finished_election) { create(:election, :published, :finished, component:) }
-  let!(:results_published_election) { create(:election, :published, :results_published, component:) }
+  let!(:published_results_election) { create(:election, :published, :published_results, component:) }
   let!(:real_time_election1) { create(:election, :published, :ongoing, :real_time, component:) }
   let!(:real_time_election2) { create(:election, :published, :finished, :real_time, component:) }
   let!(:per_question_election) { create(:election, :published, :ongoing, :per_question, component:) }
@@ -39,7 +39,7 @@ RSpec.describe "Election search" do
     expect(subject).to include(decidim_escape_translated(scheduled_election2.title))
     expect(subject).to include(decidim_escape_translated(ongoing_election.title))
     expect(subject).to include(decidim_escape_translated(finished_election.title))
-    expect(subject).to include(decidim_escape_translated(results_published_election.title))
+    expect(subject).to include(decidim_escape_translated(published_results_election.title))
     expect(subject).to include(decidim_escape_translated(real_time_election1.title))
     expect(subject).to include(decidim_escape_translated(real_time_election2.title))
     expect(subject).to include(decidim_escape_translated(per_question_election.title))
@@ -62,7 +62,7 @@ RSpec.describe "Election search" do
       expect(subject).not_to include(decidim_escape_translated(scheduled_election2.title))
       expect(subject).not_to include(decidim_escape_translated(ongoing_election.title))
       expect(subject).not_to include(decidim_escape_translated(finished_election.title))
-      expect(subject).not_to include(decidim_escape_translated(results_published_election.title))
+      expect(subject).not_to include(decidim_escape_translated(published_results_election.title))
       expect(subject).not_to include(decidim_escape_translated(real_time_election1.title))
       expect(subject).not_to include(decidim_escape_translated(real_time_election2.title))
       expect(subject).not_to include(decidim_escape_translated(per_question_election.title))
@@ -85,7 +85,7 @@ RSpec.describe "Election search" do
       expect(subject).to include(decidim_escape_translated(scheduled_election2.title))
       expect(subject).not_to include(decidim_escape_translated(ongoing_election.title))
       expect(subject).not_to include(decidim_escape_translated(finished_election.title))
-      expect(subject).not_to include(decidim_escape_translated(results_published_election.title))
+      expect(subject).not_to include(decidim_escape_translated(published_results_election.title))
       expect(subject).not_to include(decidim_escape_translated(real_time_election1.title))
       expect(subject).not_to include(decidim_escape_translated(real_time_election2.title))
       expect(subject).not_to include(decidim_escape_translated(per_question_election.title))
@@ -109,7 +109,7 @@ RSpec.describe "Election search" do
       expect(subject).to include(decidim_escape_translated(scheduled_election2.title))
       expect(subject).not_to include(decidim_escape_translated(ongoing_election.title))
       expect(subject).not_to include(decidim_escape_translated(finished_election.title))
-      expect(subject).not_to include(decidim_escape_translated(results_published_election.title))
+      expect(subject).not_to include(decidim_escape_translated(published_results_election.title))
       expect(subject).not_to include(decidim_escape_translated(real_time_election1.title))
       expect(subject).not_to include(decidim_escape_translated(real_time_election2.title))
       expect(subject).not_to include(decidim_escape_translated(per_question_election.title))
@@ -123,7 +123,7 @@ RSpec.describe "Election search" do
         expect(subject).not_to include(decidim_escape_translated(scheduled_election2.title))
         expect(subject).to include(decidim_escape_translated(ongoing_election.title))
         expect(subject).not_to include(decidim_escape_translated(finished_election.title))
-        expect(subject).not_to include(decidim_escape_translated(results_published_election.title))
+        expect(subject).not_to include(decidim_escape_translated(published_results_election.title))
         expect(subject).to include(decidim_escape_translated(real_time_election1.title))
         expect(subject).not_to include(decidim_escape_translated(real_time_election2.title))
         expect(subject).to include(decidim_escape_translated(per_question_election.title))
@@ -138,22 +138,22 @@ RSpec.describe "Election search" do
         expect(subject).not_to include(decidim_escape_translated(scheduled_election2.title))
         expect(subject).not_to include(decidim_escape_translated(ongoing_election.title))
         expect(subject).to include(decidim_escape_translated(finished_election.title))
-        expect(subject).not_to include(decidim_escape_translated(results_published_election.title))
+        expect(subject).not_to include(decidim_escape_translated(published_results_election.title))
         expect(subject).not_to include(decidim_escape_translated(real_time_election1.title))
         expect(subject).to include(decidim_escape_translated(real_time_election2.title))
         expect(subject).not_to include(decidim_escape_translated(per_question_election.title))
       end
     end
 
-    context "when state is results_published" do
-      let(:state) { ["results_published"] }
+    context "when state is published_results" do
+      let(:state) { ["published_results"] }
 
       it "only returns elections that have results published" do
         expect(subject).not_to include(decidim_escape_translated(scheduled_election1.title))
         expect(subject).not_to include(decidim_escape_translated(scheduled_election2.title))
         expect(subject).not_to include(decidim_escape_translated(ongoing_election.title))
         expect(subject).not_to include(decidim_escape_translated(finished_election.title))
-        expect(subject).to include(decidim_escape_translated(results_published_election.title))
+        expect(subject).to include(decidim_escape_translated(published_results_election.title))
         expect(subject).not_to include(decidim_escape_translated(real_time_election1.title))
         expect(subject).to include(decidim_escape_translated(real_time_election2.title))
         expect(subject).not_to include(decidim_escape_translated(per_question_election.title))

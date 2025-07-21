@@ -1,6 +1,5 @@
 .label {
-  &.finished,
-  &.results_published {
+  &.finished {
     @apply bg-[var(--bg-success)] text-[var(--success)];
   }
 

@@ -23,8 +23,12 @@ module Decidim
 
       def label
         {
-          text: content_tag("span", t(election.status, scope: "decidim.elections.elections.show"), class: "#{election.status} label")
+          text: content_tag("span", t(election.status, scope: "decidim.elections.status"), class: "#{election.status} label")
         }
+      end
+
+      def current_date
+        @current_date ||= Time.current.to_time
       end
 
       def start_date
@@ -37,6 +41,15 @@ module Decidim
         return if end_at.blank?
 
         @end_date ||= end_at.to_time
+      end
+
+      def progress_text
+        if election.published_results? && election.finished?
+          return t("published_results", scope: "decidim.metadata.progress",
+                                        end_date: l(election.results_published_at.to_time, format: :decidim_short))
+        end
+
+        super
       end
     end
   end
