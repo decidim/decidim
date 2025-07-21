@@ -20,7 +20,7 @@ module Decidim
         end
 
         broadcast(:ok)
-      rescue ActiveRecord::RecordInvalid => e
+      rescue ActiveRecord::RecordInvalid, StandardError => e
         Rails.logger.error "#{e.class.name}: #{e.message}"
         broadcast(:invalid)
       end
@@ -38,6 +38,8 @@ module Decidim
 
       def save_votes!
         voted_questions.each do |question, responses|
+          raise StandardError, "No responses for question #{question.id}" if responses.blank?
+
           responses.each do |response_option|
             vote = question.votes.find_or_initialize_by(voter_uid:)
             vote.response_option = response_option

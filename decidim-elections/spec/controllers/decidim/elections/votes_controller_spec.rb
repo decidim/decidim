@@ -14,6 +14,7 @@ module Decidim
 
       let(:params) { { component_id: component.id, election_id: election.id } }
       let(:election_vote_path) { Decidim::EngineRouter.main_proxy(component).election_vote_path(election_id: election.id, id: question.id) }
+      let(:second_election_vote_path) { Decidim::EngineRouter.main_proxy(component).election_vote_path(election_id: election.id, id: second_question.id) }
       let(:new_election_vote_path) { Decidim::EngineRouter.main_proxy(component).new_election_vote_path(election_id: election.id) }
       let(:election_path) { Decidim::EngineRouter.main_proxy(component).election_path(id: election.id) }
       let(:waiting_election_votes_path) { Decidim::EngineRouter.main_proxy(component).waiting_election_votes_path(election_id: election.id) }
@@ -94,6 +95,7 @@ module Decidim
           it "renders the voting form" do
             get :show, params: params
             expect(response).to have_http_status(:ok)
+            expect(controller.helpers.question).to eq(question)
             expect(subject).to render_template(:show)
           end
 
@@ -101,6 +103,23 @@ module Decidim
             allow(controller).to receive(:waiting_for_next_question?).and_return(true)
             get :show, params: params
             expect(response).to redirect_to(waiting_election_votes_path)
+          end
+
+          context "when specific question is requested" do
+            it "renders the voting form for the specific question" do
+              get :show, params: params.merge(id: second_question.id)
+              expect(response).to have_http_status(:ok)
+              expect(controller.helpers.question).to eq(second_question)
+              expect(subject).to render_template(:show)
+            end
+
+            it "shows the next question if not available" do
+              election.update(results_availability: "per_question")
+              question.update(voting_enabled_at: nil)
+              get :show, params: params.merge(id: question.id)
+              expect(response).to have_http_status(:ok)
+              expect(controller.helpers.question).to eq(second_question)
+            end
           end
         end
       end
@@ -151,6 +170,13 @@ module Decidim
               expect(session[:voter_uid]).to eq(user.to_global_id.to_s)
               expect(response).to redirect_to(receipt_election_votes_path)
               expect(flash[:notice]).to eq(I18n.t("votes.cast.success", scope: "decidim.elections"))
+            end
+
+            it "redirects to next question if not available" do
+              question.update(voting_enabled_at: nil)
+              patch :update, params: params.merge(id: question.id, response: { question.id.to_s => [question.response_options.first.id] })
+              expect(session[:voter_uid]).to be_nil
+              expect(response).to redirect_to(election_vote_path)
             end
           end
         end

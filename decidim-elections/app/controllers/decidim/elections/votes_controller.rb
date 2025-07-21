@@ -59,6 +59,7 @@ module Decidim
 
         if election.per_question?
           vote = { question.id.to_s => params.dig(:response, question.id.to_s) }
+
           CastVotes.call(election, vote, voter_uid) do
             on(:ok) do
               session[:voter_uid] = voter_uid
