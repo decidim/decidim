@@ -37,11 +37,9 @@ module Decidim
         (defined?(current_component) && translated_attribute(current_component&.name).presence) || t("decidim.components.elections.name")
       end
 
-      def question_title(question)
-        content_tag(:h2, class: "h4") do
-          concat content_tag(:span, question.position.next, data: { "question-position" => true })
-          concat " - "
-          concat content_tag(:span, translated_attribute(question.body), data: { "question-body" => true })
+      def question_title(question, tag = :h3)
+        content_tag(tag, class: "h4", data: { "question-body" => true }) do
+          translated_attribute(question.body)
         end
       end
 

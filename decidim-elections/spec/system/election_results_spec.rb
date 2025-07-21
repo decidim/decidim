@@ -33,7 +33,7 @@ describe "Dashboard" do
   end
 
   it "shows the results" do
-    expect(page).to have_content("Vote statistics")
+    expect(page).to have_content("Results")
     within "#question-#{question1.id}" do
       expect(page).to have_content(translated_attribute(question1.body))
       expect(page).to have_content(translated_attribute(option11.body))

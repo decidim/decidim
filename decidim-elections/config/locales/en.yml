@@ -191,10 +191,10 @@ en:
           are_you_new?: New participant?
           info_html: |
             You can restrict participation in the election to participants who have an authorization.<br>
-            Note that participants will need to fulfill the selected authorizations in  order to vote. Leaving all checkboxes empty will allow to vote anyone registered.
+            Note that participants will need to fulfill the selected authorizations in order to vote. Leaving all checkboxes empty will allow to vote anyone registered.
           internal_type_title: Additional required authorizations to vote (optional)
           label: Registered participants (dynamic)
-          sign_in_description: Log in to register to vote on this election
+          sign_in_description: Log in to vote on this election
           sign_up_description: Create an account to vote in this election
         internal_users_form:
           authorization_options_invalid: Unfortunately, although you have all the required authorizations, some of them are not valid for this election.
@@ -252,12 +252,12 @@ en:
           votes_count:
             one: 1 vote
             other: "%{count} votes"
-        vote_statistics:
+        vote_results:
           subtitle:
             after_end: The election has ended. You can now see the results.
             per_question: Results are available per question. You can see the results for each question after voting is enabled and results are published.
             real_time: Results are available in real time. You can see the results while voting is in progress.
-          title: Vote statistics
+          title: Results
       models:
         election:
           fields:
@@ -288,7 +288,7 @@ en:
         confirm:
           cast_vote: Cast vote
           edit_vote: Edit your vote
-          not_answered: You have not answered all the questions.
+          not_answered: You have not answered this question.
           title: Confirm your vote
         not_authorized: You are not authorized to vote in this election.
         question:

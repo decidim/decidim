@@ -12,7 +12,7 @@ module Decidim
       def call
         return broadcast(:invalid) unless election.ongoing?
         return broadcast(:invalid) if voter_uid.blank?
-        return broadcast(:invalid) unless election.per_question? || voted_questions.count == election.questions.count
+        return broadcast(:invalid) unless election.per_question? || voted_questions.size == election.questions.size
         return broadcast(:invalid) if voted_questions.blank?
 
         transaction do

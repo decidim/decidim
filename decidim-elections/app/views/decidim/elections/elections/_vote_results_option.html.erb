@@ -1,6 +1,6 @@
-<div class="font-semibold mb-1" data-option-body>
-  <%= "#{index}. #{translated_attribute(option.body)}" %>
-</div>
+<h3 class="font-semibold mb-1" data-option-body>
+  <%= translated_attribute(option.body) %>
+</h3>
 <div class="flex items-center justify-between gap-2 mb-2">
   <div class="percent-bar">
     <div class="percent-bar-width" style="width: <%= option.votes_percent %>%" data-option-votes-width="<%= question.id %>,<%= option.id %>"></div>

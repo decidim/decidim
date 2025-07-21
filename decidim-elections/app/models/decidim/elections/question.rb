@@ -28,7 +28,7 @@ module Decidim
       end
 
       def max_votable_options
-        return response_options.count if question_type == "multiple_option"
+        return response_options.size if question_type == "multiple_option"
 
         1
       end

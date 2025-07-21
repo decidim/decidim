@@ -13,7 +13,7 @@
   <body class="text-black text-md form-defaults<%= yield (:body_class) %>">
   <div class="layout-container">
     <header>
-      <div id="sticky-header-container" data-sticky-header>
+      <div id="elections-header-container">
         <%= render partial: "layouts/decidim/election_votes_header" %>
       </div>
     </header>
@@ -23,7 +23,7 @@
       </div>
     <% end %>
     <main class="layout-1col cols-6">
-      <div class="py-12 space-y-12">
+      <div class="py-8 space-y-8">
         <%= yield %>
       </div>
     </main>

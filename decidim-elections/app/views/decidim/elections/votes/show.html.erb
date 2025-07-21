@@ -1,5 +1,5 @@
 <%= form_with url: election_vote_path(election_id: election, id: question), method: :patch, local: true do %>
-  <%= question_title(question) %>
+  <%= question_title(question, :h1) %>
 
   <div class="question__response-options mt-4 flex flex-col gap-4">
     <% question.response_options.each do |option| %>

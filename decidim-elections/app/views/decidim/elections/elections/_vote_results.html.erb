@@ -1,20 +1,20 @@
-<h4 class="h4 flex gap-2 items-bottom mb-4">
+<h2 class="h4 flex gap-2 items-bottom mb-4">
   <%= icon "bar-chart-2-line", class: "fill-tertiary" %>
   <span><%= t(".title") %></span>
-</h4>
+</h2>
 <div class="mb-4"><%= t(".subtitle.#{election.results_availability}") %></div>
 
 <div data-results-live-update="<%= election_path(election) %>">
   <div data-questions-container>
-    <% questions.each_with_index do |question| %>
-      <div class="question-statistics-card" id="question-<%= question.id %>">
-        <div class="question-statistics-card-header">
+    <% questions.each do |question| %>
+      <div class="question-results-card" id="question-<%= question.id %>">
+        <div class="question-results-card-header">
           <%= question_title(question) %>
         </div>
-        <div class="question-statistics-card-options" data-options-container>
+        <div class="question-results-card-options" data-options-container>
           <% question.response_options.each_with_index do |option, index| %>
             <div class="mb-4">
-              <%= render "decidim/elections/elections/vote_statistics_option", option:, question:, index: index + 1 %>
+              <%= render "decidim/elections/elections/vote_results_option", option:, question:, index: index + 1 %>
             </div>
           <% end %>
         </div>
@@ -22,15 +22,15 @@
     <% end %>
   </div>
 
-  <div class="question-statistics-card hidden" data-question-template>
-    <div class="question-statistics-card-header" data-title-container>
+  <div class="question-results-card hidden" data-question-template>
+    <div class="question-results-card-header" data-title-container>
       <%= question_title(OpenStruct.new(position: 0, body: {})) %>
     </div>
-    <div class="question-statistics-card-options" data-options-container></div>
+    <div class="question-results-card-options" data-options-container></div>
   </div>
 
   <div class="mb-4 hidden" data-option-template>
-    <%= render "decidim/elections/elections/vote_statistics_option", option: OpenStruct.new(id: 0, body: {}, votes_count: 0, votes_percent: 0),
+    <%= render "decidim/elections/elections/vote_results_option", option: OpenStruct.new(id: 0, body: {}, votes_count: 0, votes_percent: 0),
                                                                      question: OpenStruct.new(id: 0),
                                                                      index: 0 %>
   </div>

@@ -56,7 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
       questionElement.id = `question-${question.id}`;
       questionElement.classList.remove("hidden");
       questionElement.removeAttribute("data-question-template");
-      questionElement.querySelector("[data-question-position]").textContent = question.position + 1;
       questionElement.querySelector("[data-question-body]").textContent = question.body;
       const optionsContainer = questionElement.querySelector("[data-options-container]");
       if (!optionsContainer) {

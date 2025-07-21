@@ -217,7 +217,7 @@ module Decidim
         }
       end
 
-      scope_search_multi :with_any_state, [:ongoing, :finished, :publishe_resultsd, :scheduled]
+      scope_search_multi :with_any_state, [:ongoing, :finished, :scheduled]
 
       # Create i18n ransackers for :title and :description.
       # Create the :search_text ransacker alias for searching from both of these.
