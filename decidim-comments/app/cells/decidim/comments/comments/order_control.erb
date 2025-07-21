@@ -2,7 +2,6 @@
   <%= form_with url: "#" do %>
     <div class="md:hidden">
       <select id="order-mobile" aria-label="<%= t("decidim.components.comment.sort_by") %>" data-mobile-order-comment-select="true">
-        <option class="input-hidden" value="" <%= "disabled selected hidden" %>> <%= t("decidim.components.comment.sort_by") %> </option>
         <% available_orders.each do |order_value| %>
           <option
             value="<%= order_value %>"
