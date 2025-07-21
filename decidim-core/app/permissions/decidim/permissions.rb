@@ -104,7 +104,12 @@ module Decidim
         return allow! if component.current_settings.amendment_creation_enabled
       when :accept,
           :reject
-        return allow! if component.current_settings.amendment_reaction_enabled
+        return disallow! unless component.current_settings.amendment_reaction_enabled
+
+        amendable = context.fetch(:amendable, nil)
+        return disallow! unless amendable.authored_by?(user)
+
+        return allow!
       when :promote
         return allow! if component.current_settings.amendment_promotion_enabled
       end
