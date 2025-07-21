@@ -234,5 +234,80 @@ module Decidim
         end
       end
     end
+
+    describe "GET review" do
+      context "when the user is NOT the creator of the resource" do
+        let(:user) { other_user }
+
+        it "does not allow access" do
+          get(:review, params:)
+
+          expect(response).to have_http_status(:redirect)
+          expect(flash[:alert]).to eq("You are not authorized to perform this action.")
+        end
+      end
+
+      context "when the user is the creator of the resource" do
+        let(:user) { amendable.author }
+
+        it "allows access" do
+          get(:review, params:)
+
+          expect(response).to have_http_status(:ok)
+        end
+      end
+    end
+
+    describe "PATCH accept" do
+      let(:emendation_params) { { title: emendation.title, body: emendation.body } }
+
+      context "when the user is NOT the creator of the resource" do
+        let(:user) { other_user }
+
+        it "does not accept the amendment" do
+          patch :accept, params: params.merge(emendation_params:)
+
+          expect(response).to have_http_status(:redirect)
+          expect(flash[:alert]).to eq("You are not authorized to perform this action.")
+        end
+      end
+
+      context "when the user is the creator of the resource" do
+        let(:user) { amendable.author }
+
+        it "accepts the amendment" do
+          patch :accept, params: params.merge(emendation_params:)
+
+          expect(response).to have_http_status(:redirect)
+          expect(flash[:notice]).to eq("The amendment has been accepted successfully.")
+        end
+      end
+    end
+
+    describe "PATCH reject" do
+      let(:emendation_params) { { title: emendation.title, body: emendation.body } }
+
+      context "when the user is NOT the creator of the resource" do
+        let(:user) { other_user }
+
+        it "does not accept the amendment" do
+          patch :reject, params: params.merge(emendation_params:)
+
+          expect(response).to have_http_status(:redirect)
+          expect(flash[:alert]).to eq("You are not authorized to perform this action.")
+        end
+      end
+
+      context "when the user is the creator of the resource" do
+        let(:user) { amendable.author }
+
+        it "accepts the amendment" do
+          patch :reject, params: params.merge(emendation_params:)
+
+          expect(response).to have_http_status(:redirect)
+          expect(flash[:notice]).to eq("The amendment has been successfully rejected.")
+        end
+      end
+    end
   end
 end
