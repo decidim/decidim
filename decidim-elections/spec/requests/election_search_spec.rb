@@ -138,21 +138,6 @@ RSpec.describe "Election search" do
         expect(subject).not_to include(decidim_escape_translated(scheduled_election2.title))
         expect(subject).not_to include(decidim_escape_translated(ongoing_election.title))
         expect(subject).to include(decidim_escape_translated(finished_election.title))
-        expect(subject).not_to include(decidim_escape_translated(published_results_election.title))
-        expect(subject).not_to include(decidim_escape_translated(real_time_election1.title))
-        expect(subject).to include(decidim_escape_translated(real_time_election2.title))
-        expect(subject).not_to include(decidim_escape_translated(per_question_election.title))
-      end
-    end
-
-    context "when state is published_results" do
-      let(:state) { ["published_results"] }
-
-      it "only returns elections that have results published" do
-        expect(subject).not_to include(decidim_escape_translated(scheduled_election1.title))
-        expect(subject).not_to include(decidim_escape_translated(scheduled_election2.title))
-        expect(subject).not_to include(decidim_escape_translated(ongoing_election.title))
-        expect(subject).not_to include(decidim_escape_translated(finished_election.title))
         expect(subject).to include(decidim_escape_translated(published_results_election.title))
         expect(subject).not_to include(decidim_escape_translated(real_time_election1.title))
         expect(subject).to include(decidim_escape_translated(real_time_election2.title))

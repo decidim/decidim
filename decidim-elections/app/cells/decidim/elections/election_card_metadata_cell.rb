@@ -46,7 +46,7 @@ module Decidim
       def progress_text
         if election.published_results? && election.finished?
           return t("published_results", scope: "decidim.metadata.progress",
-                                        end_date: l(election.results_published_at.to_time, format: :decidim_short))
+                                        end_date: l(election.results_at.to_time, format: :decidim_short))
         end
 
         super
