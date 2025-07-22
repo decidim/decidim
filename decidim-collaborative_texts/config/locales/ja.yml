@@ -136,6 +136,10 @@ ja:
           invalid_nodes: 選択されたノードが無効です。
     components:
       collaborative_texts:
+        actions:
+          create: 作成
+          destroy: 破棄
+          update: 更新
         name: 共同テキスト
         settings:
           global:
