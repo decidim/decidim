@@ -56,30 +56,27 @@ module Decidim
       # Saves the vote for the current question and redirect to the next question
       def update
         save_vote!
+        return redirect_to next_vote_step_path unless election.per_question?
 
-        if election.per_question?
-          vote = { question.id.to_s => params.dig(:response, question.id.to_s) }
+        vote = { question.id.to_s => params.dig(:response, question.id.to_s) }
+        CastVotes.call(election, vote, voter_uid) do
+          on(:ok) do
+            session[:voter_uid] = voter_uid
+            flash[:notice] = t("votes.cast.success", scope: "decidim.elections")
+            redirect_to waiting_election_votes_path(election_id: election)
+          end
 
-          CastVotes.call(election, vote, voter_uid) do
-            on(:ok) do
-              session[:voter_uid] = voter_uid
-              flash[:notice] = t("votes.cast.success", scope: "decidim.elections")
-            end
-
-            on(:invalid) do
-              return redirect_to(question_path(question), alert: t("votes.cast.invalid", scope: "decidim.elections"))
-            end
+          on(:invalid) do
+            redirect_to(question_path(question), alert: t("votes.cast.invalid", scope: "decidim.elections"))
           end
         end
-
-        redirect_to question_path(next_pending_question).presence || receipt_election_votes_path(election_id: election)
       end
 
       # If the election is per-question, this action will be called to show the waiting page
       # while the user waits for the next question to be available.
       # If the election is not per-question, this action will redirect to the next question
       def waiting
-        redirect_path = waiting_for_next_question? ? nil : question_path(next_pending_question)
+        redirect_path = waiting_for_next_question? ? nil : next_vote_step_path
 
         respond_to do |format|
           format.html do
@@ -138,7 +135,9 @@ module Decidim
       def waiting_for_next_question?
         return false unless election.per_question?
 
-        election.per_question_waiting? && next_pending_question.nil?
+        pending_questions = election.questions.unpublished_results.where.not(id: election.votes.where(voter_uid: voter_uid).pluck(:question_id))
+
+        pending_questions.any? && pending_questions.enabled.none?
       end
 
       def exit_path
@@ -161,13 +160,15 @@ module Decidim
         @question ||= questions.find_by(id: params[:id]) || questions.first
       end
 
-      # Returns the next question to be answered, or nil if there are no more questions
-      def next_pending_question
-        return question&.next_question if editing?
-
-        return questions.where.not(id: votes_buffer.keys)&.first if votes_buffer.present?
-
-        questions.where.not(id: election.votes.where(voter_uid: voter_uid).pluck(:question_id)).first
+      def next_vote_step_path
+        next_pending_question = if editing?
+                                  question&.next_question
+                                elsif election.per_question?
+                                  questions.where.not(id: election.votes.where(voter_uid: voter_uid).pluck(:question_id)).first
+                                else
+                                  questions.where.not(id: votes_buffer.keys)&.first
+                                end
+        question_path(next_pending_question).presence || receipt_election_votes_path(election_id: election)
       end
 
       def question_path(question)

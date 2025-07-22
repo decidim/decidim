@@ -36,7 +36,7 @@ module Decidim
       end
 
       def questions
-        @questions ||= election.available_questions.includes(:response_options)
+        @questions ||= election.questions.includes(:response_options)
       end
 
       def search_collection

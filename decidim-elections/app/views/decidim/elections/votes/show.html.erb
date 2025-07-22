@@ -4,15 +4,7 @@
   <div class="question__response-options mt-4 flex flex-col gap-4">
     <% question.response_options.each do |option| %>
       <label class="rounded-lg border border-gray p-4">
-        <% if question.question_type == "multiple_option" %>
-          <%= render "decidim/elections/votes/responses/multiple_option",
-                     question: question,
-                     response_option: option %>
-        <% else %>
-          <%= render "decidim/elections/votes/responses/single_option",
-                     question: question,
-                     response_option: option %>
-        <% end %>
+        <%= render "decidim/elections/votes/responses/#{question.question_type}", option: %>
       </label>
     <% end %>
   </div>

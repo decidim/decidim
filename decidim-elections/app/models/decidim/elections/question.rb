@@ -34,7 +34,7 @@ module Decidim
       end
 
       def sibling_questions
-        @sibling_questions ||= election.per_question? ? election.questions.enabled : election.questions
+        @sibling_questions ||= election.per_question? ? election.questions.enabled.unpublished_results : election.questions
       end
 
       def next_question
@@ -64,16 +64,9 @@ module Decidim
       end
 
       def publishable_results?
-        return false if published_results?
+        return false if published_results? || !election.per_question?
 
-        case election.results_availability
-        when "per_question"
-          voting_enabled?
-        when "after_end"
-          election.ready_to_publish_results?
-        else
-          false
-        end
+        voting_enabled?
       end
 
       # returns the selected responses for this question, ensuring that the responses are

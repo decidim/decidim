@@ -1,0 +1,13 @@
+<div class="card-accordion card-accordion-election-results<%= " hidden" if question.id.zero? %>" data-component="accordion" id="question-<%= question.id %>">
+  <div class="card-accordion-divider">
+    <button class="card-accordion-divider-button" data-open="true" data-controls="panel-results-<%= question.id %>">
+      <%= question_title(question, data: { "question-body" => true }) %>
+      <%= icon "arrow-down-s-line" %>
+    </button>
+  </div>
+  <div id="panel-results-<%= question.id %>" class="card-accordion-section" aria-hidden="false" data-options-container>
+    <% question.response_options.each_with_index do |option, index| %>
+      <%= render "decidim/elections/elections/vote_results_option", option: %>
+    <% end %>
+  </div>
+</div>

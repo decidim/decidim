@@ -7,34 +7,10 @@
 <div data-results-live-update="<%= election_path(election) %>">
   <div data-questions-container>
     <% questions.each do |question| %>
-      <div class="card-accordion card-accordion-election-results" data-component="accordion" id="question-<%= question.id %>">
-        <div class="card-accordion-divider">
-          <button class="card-accordion-divider-button" data-open="true" data-controls="panel-results-<%= question.id %>">
-            <%= question_title(question) %>
-            <%= icon "arrow-down-s-line" %>
-          </button>
-        </div>
-        <div id="panel-results-<%= question.id %>" class="card-accordion-section" aria-hidden="false" data-options-container>
-          <% question.response_options.each_with_index do |option, index| %>
-            <div class="mb-4">
-              <%= render "decidim/elections/elections/vote_results_option", option:, question:, index: index + 1 %>
-            </div>
-          <% end %>
-        </div>
-      </div>
+      <%= render "decidim/elections/elections/vote_results_question", question: %>
     <% end %>
   </div>
 
-  <div class="question-results-card hidden" data-question-template>
-    <div class="question-results-card-header" data-title-container>
-      <%= question_title(OpenStruct.new(position: 0, body: {})) %>
-    </div>
-    <div class="question-results-card-options" data-options-container></div>
-  </div>
-
-  <div class="mb-4 hidden" data-option-template>
-    <%= render "decidim/elections/elections/vote_results_option", option: OpenStruct.new(id: 0, body: {}, votes_count: 0, votes_percent: 0),
-                                                                     question: OpenStruct.new(id: 0),
-                                                                     index: 0 %>
-  </div>
+  <%= render "decidim/elections/elections/vote_results_question", question: OpenStruct.new(id: 0, body: {}, response_options: []) %>
+  <%= render "decidim/elections/elections/vote_results_option", option: OpenStruct.new(id: 0, body: {}, votes_count: 0, votes_percent: 0) %>
 </div>

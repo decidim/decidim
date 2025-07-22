@@ -118,12 +118,6 @@ module Decidim
           let(:results_availability) { "after_end" }
 
           it { is_expected.not_to be_publishable_results }
-
-          context "when election is ready to publish results" do
-            before { allow(election).to receive(:ready_to_publish_results?).and_return(true) }
-
-            it { is_expected.to be_publishable_results }
-          end
         end
 
         context "when per_question results availability" do

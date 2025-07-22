@@ -88,4 +88,30 @@ describe "Dashboard" do
 
     it_behaves_like "a per question votable election"
   end
+
+  context "when the user has voted" do
+    let(:election) { create(:election, :published, :ongoing, :with_internal_users_census, :with_questions) }
+    let!(:vote1) { create(:election_vote, voter_uid:, question: election.questions.first, response_option: election.questions.first.response_options.first) }
+    let!(:vote2) { create(:election_vote, voter_uid:, question: election.questions.second, response_option: election.questions.second.response_options.first) }
+
+    before do
+      login_as user, scope: :user
+      visit elections_path
+      click_on translated_attribute(election.title)
+    end
+
+    it "Has the already voted message" do
+      expect(page).to have_link("Start voting")
+      expect(page).to have_content("You have already voted.")
+    end
+
+    context "when the election has finished" do
+      let(:election) { create(:election, :published, :finished, :with_internal_users_census, :with_questions) }
+
+      it "does not allow to vote again" do
+        expect(page).to have_no_link("Start voting")
+        expect(page).to have_no_content("You have already voted.")
+      end
+    end
+  end
 end

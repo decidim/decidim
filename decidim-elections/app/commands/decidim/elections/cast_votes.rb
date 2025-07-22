@@ -40,9 +40,12 @@ module Decidim
         voted_questions.each do |question, responses|
           raise StandardError, "No responses for question #{question.id}" if responses.blank?
 
+          question.votes.where(voter_uid: voter_uid).destroy_all
           responses.each do |response_option|
-            vote = question.votes.find_or_initialize_by(voter_uid:, response_option: response_option)
-            vote.save!
+            question.votes.create!(
+              voter_uid: voter_uid,
+              response_option: response_option
+            )
           end
         end
       end

@@ -120,11 +120,10 @@ module Decidim
       def results_at
         return nil unless published?
         return nil unless started?
-        return published_results_at if published_results_at.present?
-        return questions.enabled.first.published_results_at if per_question? && questions.enabled.any?(&:published_results_at)
+        return questions.published_results.first&.published_results_at if per_question?
         return start_at if real_time?
 
-        nil
+        published_results_at
       end
 
       def census
@@ -138,25 +137,10 @@ module Decidim
         census.ready?(self)
       end
 
-      def ready_to_publish_results?
-        return false unless published?
-        return false if published_results?
-        return false if questions.empty?
-
-        return finished? unless per_question?
-
-        # If per_question, we can publish when there is at least one question enabled
-        questions.unpublished_results.enabled.any?
-      end
-
-      def per_question_waiting?
-        per_question? && !finished? && questions.unpublished_results.disabled.any?
-      end
-
       # if per question, only the enabled questions are returned
       # if not, all questions are returned
       def available_questions
-        return questions.enabled if per_question?
+        return questions.enabled.unpublished_results if per_question?
 
         questions
       end
@@ -178,9 +162,8 @@ module Decidim
 
       # Returns the questions that are available for results.
       def result_published_questions
-        return available_questions if published_results?
-
         return questions.published_results if per_question?
+        return available_questions if published_results?
 
         []
       end
@@ -194,11 +177,13 @@ module Decidim
           end_date: end_at.iso8601,
           title: translated_attribute(title),
           description: translated_attribute(description),
-          questions: available_questions.map do |question|
+          questions: questions.map do |question|
             {
               id: question.id,
               body: translated_attribute(question.body),
               position: question.position,
+              voting_enabled: question.voting_enabled?,
+              published_results: question.published_results?,
               response_options: question.response_options.map do |option|
                 {
                   id: option.id,

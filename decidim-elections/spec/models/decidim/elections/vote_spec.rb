@@ -57,9 +57,21 @@ module Decidim
         end
       end
 
-      it "cannot be destroyed" do
-        expect { subject.destroy! }.to raise_error(ActiveRecord::ReadOnlyRecord)
-        expect(subject.reload).to be_persisted
+      context "when destroying" do
+        it "cannot be destroyed" do
+          expect { subject.destroy! }.to raise_error(ActiveRecord::ReadOnlyRecord)
+          expect(subject.reload).to be_persisted
+        end
+
+        context "when the election is ongoing" do
+          let(:election) { create(:election, :ongoing) }
+          let(:question) { create(:election_question, :with_response_options, election:, question_type:) }
+
+          it "can be destroyed" do
+            expect { subject.destroy! }.not_to raise_error
+            expect(subject).not_to be_persisted
+          end
+        end
       end
 
       describe "validations" do

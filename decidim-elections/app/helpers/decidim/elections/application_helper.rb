@@ -38,7 +38,7 @@ module Decidim
       end
 
       def question_title(question, tag = :h3, **options)
-        content_tag(tag, data: { "question-body" => true }, **options) do
+        content_tag(tag, **options) do
           translated_attribute(question.body)
         end
       end

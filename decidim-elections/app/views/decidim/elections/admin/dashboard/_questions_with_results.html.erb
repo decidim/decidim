@@ -3,7 +3,7 @@
     <div class="card mb-6" id="question_<%= question.id %>">
       <div class="card-divider">
         <h3 class="flex items-center justify-between">
-          <%= "#{question.position.next}. #{t("decidim.forms.question_types.#{question.question_type}")} - #{translated_attribute(question.body)}" %>
+          <%= "#{t("decidim.forms.question_types.#{question.question_type}")} - #{translated_attribute(question.body)}" %>
 
           <% if election.per_question? %>
             <div class="flex gap-4 items-center justify-between">

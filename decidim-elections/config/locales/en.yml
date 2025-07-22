@@ -36,8 +36,8 @@ en:
         edit: Edit election
         new: New election
         preview: Preview
-        view: See election
         title: Actions
+        view: See election
         view_deleted_elections: View deleted elections
       admin:
         census:

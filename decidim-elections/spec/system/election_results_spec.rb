@@ -112,13 +112,17 @@ describe "Dashboard" do
       expect_vote_count(question1, option11, "1")
       expect_vote_percent(question1, option12, "0.0%")
       expect_vote_count(question1, option12, "0")
+      expect(page).to have_no_selector("#question-#{question2.id}")
+
+      question2.update(published_results_at: Time.current)
+      sleep 5
       within "#question-#{question2.id}" do
         expect(page).to have_content(translated_attribute(question2.body))
         expect(page).to have_content(translated_attribute(option21.body))
         expect(page).to have_content(translated_attribute(option22.body))
       end
-      expect_vote_percent(question2, option21, "0.0%")
-      expect_vote_count(question2, option21, "0")
+      expect_vote_percent(question2, option21, "100.0%")
+      expect_vote_count(question2, option21, "1")
       expect_vote_percent(question2, option22, "0.0%")
       expect_vote_count(question2, option22, "0")
     end

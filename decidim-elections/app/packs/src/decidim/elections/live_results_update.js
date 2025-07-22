@@ -1,18 +1,18 @@
 /* eslint-disable max-params */
 document.addEventListener("DOMContentLoaded", () => {
   const watchingDiv = document.querySelector("[data-results-live-update]");
+  const questionsContainer = document.querySelector("[data-questions-container]");
+  const questionTemplate = document.getElementById("question-0");
+  const optionTemplate = document.querySelector("[data-option-template]");
   if (!watchingDiv) {
     return;
   }
 
   const url = watchingDiv.dataset.resultsLiveUpdate;
-  const questionTemplate = document.querySelector("[data-question-template]");
-  const optionTemplate = document.querySelector("[data-option-template]");
-  const questionContainer = document.querySelector("[data-questions-container]");
   const optionVoteCountTexts = () => document.querySelectorAll("[data-option-votes-count-text]");
   const optionVotePercentTexts = () => document.querySelectorAll("[data-option-votes-percent-text]");
   const optionVoteWidths = () => document.querySelectorAll("[data-option-votes-width]");
-
+  
   const animateText = (element, value) => {
     if (element.textContent === value) {
       return;
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
       element.classList.remove("live_results-number_changing");
     }, 1000);
   };
-
+  
   const digOptionValue = (questionId, optionId, data, key) => {
     data.questions = data.questions || [];
     const question = data.questions.find((item) => item.id === parseInt(questionId, 10));
@@ -43,36 +43,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     return null;
   };
-
+  
   const createAdditionalQuestions = (data) => {
-    if (!questionContainer || !questionTemplate || !optionTemplate) {
+    if (!questionTemplate || !questionsContainer || !optionTemplate) {
       return;
     }
-
     const questions = data.questions || [];
-    const additionalQuestions = questions.filter((question) => !document.getElementById(`question-${question.id}`));
+    const additionalQuestions = questions.filter((question) => !document.getElementById(`question-${question.id}`) && question.published_results);
     additionalQuestions.forEach((question) => {
       const questionElement = questionTemplate.cloneNode(true);
       questionElement.id = `question-${question.id}`;
       questionElement.classList.remove("hidden");
-      questionElement.removeAttribute("data-question-template");
       questionElement.querySelector("[data-question-body]").textContent = question.body;
       const optionsContainer = questionElement.querySelector("[data-options-container]");
-      if (!optionsContainer) {
-        console.error("Options container not found in question template");
-        return;
-      }
-      question.response_options.forEach((option, index) => {
+      question.response_options.forEach((option) => {
         const optionElement = optionTemplate.cloneNode(true);
-        optionElement.removeAttribute("data-option-template");
         optionElement.classList.remove("hidden");
-        optionElement.querySelector("[data-option-body]").textContent = `${index + 1}. ${option.body}`;
+        optionElement.querySelector("[data-option-body]").textContent = option.body;
         optionElement.querySelector("[data-option-votes-count-text").dataset.optionVotesCountText = `${question.id},${option.id}`;
         optionElement.querySelector("[data-option-votes-percent-text").dataset.optionVotesPercentText = `${question.id},${option.id}`;
         optionElement.querySelector("[data-option-votes-width").dataset.optionVotesWidth = `${question.id},${option.id}`;
         optionsContainer.appendChild(optionElement);
       });
-      questionContainer.appendChild(questionElement);
+      questionsContainer.appendChild(questionElement);
         
     });
   };
@@ -91,6 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
         throw new Error("Network response was not ok");
       }
       const data = await response.json();
+      createAdditionalQuestions(data);
       optionVoteCountTexts().forEach((el) => {
         const [questionId, optionId] = el.dataset.optionVotesCountText.split(",");
         const val = digOptionValue(questionId, optionId, data, "votes_count_text")
@@ -112,7 +106,6 @@ document.addEventListener("DOMContentLoaded", () => {
           el.style.width = `${val}%`;
         }
       });
-      createAdditionalQuestions(data);
       // repeat for ongoing elections only
       if (data.ongoing) {
         setTimeout(fetchResults, 4000);

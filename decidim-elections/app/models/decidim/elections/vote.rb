@@ -15,8 +15,8 @@ module Decidim
       validate :max_votable_options
 
       delegate :election, to: :question
-      # To ensure records cannot be deleted
-      before_destroy { |_record| raise ActiveRecord::ReadOnlyRecord }
+      # To ensure records cannot be deleted unless election is ongoing
+      before_destroy { |_record| raise ActiveRecord::ReadOnlyRecord unless election&.ongoing? }
 
       after_save :update_election_votes_count
 

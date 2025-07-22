@@ -57,6 +57,59 @@ module Decidim
         end
       end
 
+      context "when multiple votes are cast for the same question" do
+        let(:data) do
+          {
+            election.questions.first.id.to_s => [
+              election.questions.first.response_options.first.id.to_s,
+              election.questions.first.response_options.second.id.to_s
+            ],
+            election.questions.second.id.to_s => [election.questions.second.response_options.first.id.to_s]
+          }
+        end
+
+        it "Cast all votes" do
+          expect { subject.call }.to change { election.votes.count }.by(3)
+          expect(election.votes.pluck(:response_option_id)).to contain_exactly(
+            data[election.questions.first.id.to_s].first.to_i,
+            data[election.questions.first.id.to_s].second.to_i,
+            data[election.questions.second.id.to_s].first.to_i
+          )
+        end
+
+        context "when the question type is single option" do
+          before do
+            election.questions.first.update!(question_type: "single_option")
+          end
+
+          it "does not allow casting multiple votes for the same question" do
+            expect { subject.call }.to change { election.votes.count }.by(2)
+            expect(election.votes.pluck(:response_option_id)).to contain_exactly(data[election.questions.first.id.to_s].first.to_i, data[election.questions.second.id.to_s].first.to_i)
+          end
+        end
+      end
+
+      context "when the voter removes a vote" do
+        let!(:existing_votes) do
+          create(:election_vote, question: election.questions.first, response_option: election.questions.first.response_options.last, voter_uid:)
+          create(:election_vote, question: election.questions.second, response_option: election.questions.second.response_options.last, voter_uid:)
+        end
+        let(:data) do
+          {
+            election.questions.first.id.to_s => [election.questions.first.response_options.first.id.to_s],
+            election.questions.second.id.to_s => []
+          }
+        end
+
+        it "it is not allowed" do
+          expect { subject.call }.to broadcast(:invalid)
+        end
+
+        it "does not change the number of votes" do
+          expect { subject.call }.not_to(change { election.votes.count })
+        end
+      end
+
       context "when the voter has not voted for all questions" do
         let(:data) do
           {

@@ -144,7 +144,7 @@ shared_examples "a per question votable election" do
   it "allows the user to vote" do
     expect(page).to have_content(translated_attribute(election.title))
     expect(page).to have_content(translated_attribute(question1.body))
-    expect(page).to have_no_content(translated_attribute(question2.body))
+    expect(page).to have_content(translated_attribute(question2.body))
     click_on "Start voting"
     fill_in_question_votes(question1)
     expect(page).to have_current_path(waiting_election_votes_path)

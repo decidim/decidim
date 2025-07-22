@@ -13,11 +13,11 @@
     </div>
     <div id="panel-question-<%= question.id %>" class="card-accordion-section" aria-hidden="true">
       <p><%= decidim_sanitize translated_attribute(question.description) %></p>
-      
+
         <% question.response_options.each do |answer| %>
           <h3><%= translated_attribute answer.body %></h3>
         <% end %>
-      
+
     </div>
   </div>
 <% end %>

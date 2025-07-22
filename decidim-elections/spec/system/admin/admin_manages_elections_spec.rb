@@ -12,7 +12,8 @@ describe "Admin manages elections" do
 
   let(:participatory_space_manifests) { [participatory_process.manifest.name] }
   let!(:election) { create(:election, census_manifest: :token_csv, component: current_component) }
-  let!(:published_election) { create(:election, :published, census_manifest: :internal_users, component: current_component) }
+  let!(:scheduled_election) { create(:election, :published, :scheduled, component: current_component) }
+  let!(:published_election) { create(:election, :published, :per_question, :ongoing, census_manifest: :internal_users, component: current_component) }
   let!(:finished_election) { create(:election, :published, :finished, component: current_component) }
   let!(:ongoing_election) { create(:election, :published, :ongoing, component: current_component) }
   let!(:published_results_election) { create(:election, :published, :published_results, component: current_component) }
@@ -34,7 +35,6 @@ describe "Admin manages elections" do
     expect(page).to have_content(translated(published_results_election.title))
     expect(page).to have_content("Unpublished")
     expect(page).to have_content("Scheduled")
-    expect(page).to have_content("Published results")
     expect(page).to have_content("Ongoing")
     expect(page).to have_content("Finished")
     expect(page).to have_content("Registered participants (dynamic)")
@@ -88,6 +88,41 @@ describe "Admin manages elections" do
 
       expect(page).to have_admin_callout "Election updated successfully"
       expect(page).to have_content("Question must have at least two answers in order go to the next step.")
+    end
+  end
+
+  context "when the election is published" do
+    let!(:question1) { create(:election_question, :with_response_options, election: published_election) }
+    let!(:question2) { create(:election_question, :with_response_options, election: published_election) }
+
+    before do
+      within "tr", text: translated(published_election.title) do
+        find("button[data-component='dropdown']").click
+        click_on "Edit election"
+      end
+    end
+
+    it "allows to edit the description and the image only" do
+      within ".edit_election" do
+        expect(page).to have_field("election[title_en]", with: translated(published_election.title), disabled: true)
+        fill_in_i18n_editor(:election_description, "#election-description-tabs", **attributes[:description].except("machine_translations"))
+      end
+      dynamically_attach_file(:election_photos, Decidim::Dev.asset("city2.jpeg"))
+
+      click_on "Save and continue"
+      expect(page).to have_admin_callout "Election updated successfully"
+    end
+
+    it "questions and census cannot be edited" do
+      expect(page).to have_link("Main")
+      expect(page).to have_no_link("Questions")
+      expect(page).to have_no_link("Census")
+      expect(page).to have_link("Dashboard")
+
+      click_on "Dashboard"
+      expect(page).to have_content("Voting is not yet enabled for any questions.")
+      click_on "Enable voting", match: :first
+      expect(page).to have_no_content("Voting is not yet enabled for any questions.")
     end
   end
 end

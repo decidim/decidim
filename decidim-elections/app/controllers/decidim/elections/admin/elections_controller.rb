@@ -9,7 +9,7 @@ module Decidim
         include Decidim::ApplicationHelper
         include Decidim::Elections::Admin::Filterable
 
-        helper_method :elections, :election, :election_questions
+        helper_method :elections, :election, :election_questions, :per_question_waiting?
 
         def index
           enforce_permission_to :read, :election
@@ -123,6 +123,10 @@ module Decidim
         end
 
         private
+
+        def per_question_waiting?
+          @per_question_waiting ||= election.per_question? && !election.finished? && election.questions.unpublished_results.enabled.none?
+        end
 
         def elections
           @elections ||= filtered_collection

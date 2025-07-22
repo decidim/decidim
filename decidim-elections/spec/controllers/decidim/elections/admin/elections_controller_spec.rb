@@ -115,6 +115,8 @@ module Decidim
                   "id" => election_question.id,
                   "body" => translated_attribute(election_question.body),
                   "position" => election_question.position,
+                  "voting_enabled" => false,
+                  "published_results" => false,
                   "response_options" => election_question.response_options.map do |ro|
                     {
                       "id" => ro.id,
