@@ -2,10 +2,14 @@ ja:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: 関連する参加型スペース
         available_slots: 利用可能なスロット
         banner_image: バナー画像
         decidim_scope_id: スコープ
         description: 説明
+        duplicate_categories: カテゴリを複製
+        duplicate_components: コンポーネントを複製
+        duplicate_features: 機能を複製
         end_date: 終了日
         hero_image: ホーム画像
         location: 場所
@@ -90,6 +94,11 @@ ja:
         new_speaker: 新しいスピーカー
         send_diplomas: 出席証明書を送信
         view_deleted_conferences: 削除されたカンファレンスを表示
+      conference_duplicates:
+        new:
+          duplicate: 複製
+          select:
+          title: カンファレンスを複製
       conference_publications:
         create:
           error: このカンファレンスを公開する際に問題が発生しました。
@@ -150,8 +159,13 @@ ja:
         exports:
           registrations: 登録
         form:
+          duration: 期間
           images: 画像
+          metadata: メタデータ
+          registrations: 登録
+          related_spaces: 関連するスペース
           title: 一般情報
+          visibility: 可視性
         index:
           published: 公開済み
           unpublished: 未公開
@@ -159,9 +173,14 @@ ja:
           title: 削除されたカンファレンス
         new:
           create: 作成
+          title: 新しいカンファレンス
         update:
           error: このカンファレンスの更新に問題がありました。
           success: カンファレンスを更新しました。
+      conferences_duplicates:
+        create:
+          error: このカンファレンスの複製に問題が発生しました。
+          success: カンファレンスを複製しました。
       media_links:
         create:
           error: 新しいメディアリンクの作成中に問題が発生しました。
@@ -339,6 +358,9 @@ ja:
         title: スピーカー
     conferences:
       admin:
+        conference_duplicates:
+          form:
+            slug_help_html: 'URLスラグは、このカンファレンスを表すURLを生成するために使用されます。 利用できる文字は英字、数字、ハイフンのみで、先頭は英字で始める必要があります。例: %{url}'
         conference_invites:
           create:
             error: 参加者をカンファレンスに招待する際に問題が発生しました。
