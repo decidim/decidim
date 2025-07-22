@@ -40,7 +40,7 @@ exclude_patterns = [
   "decidim-comments/app/assets/javascripts/decidim/comments/bundle.js",
   "decidim-comments/app/frontend/support/schema.ts",
   "node_modules/",
-  "development_app/", 
+  "development_app/",
   "spec/decidim_dummy_app/",
   "coverage/",
   "webpack.report.html",
@@ -102,12 +102,9 @@ name = "markdownlint"
 
 [[plugin]]
 name = "rubocop"
-version = "1.78.0"
-mode = "disabled"
 
 [[plugin]]
 name = "osv-scanner"
 
 [[plugin]]
 name = "stylelint"
-mode = "disabled"
