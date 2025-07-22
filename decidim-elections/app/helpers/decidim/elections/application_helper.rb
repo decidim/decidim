@@ -37,8 +37,8 @@ module Decidim
         (defined?(current_component) && translated_attribute(current_component&.name).presence) || t("decidim.components.elections.name")
       end
 
-      def question_title(question, tag = :h3)
-        content_tag(tag, class: "h4", data: { "question-body" => true }) do
+      def question_title(question, tag = :h3, **options)
+        content_tag(tag, data: { "question-body" => true }, **options) do
           translated_attribute(question.body)
         end
       end

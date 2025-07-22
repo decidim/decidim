@@ -12,7 +12,7 @@ module Decidim
       def call
         return broadcast(:invalid) unless election.ongoing?
         return broadcast(:invalid) if voter_uid.blank?
-        return broadcast(:invalid) unless election.per_question? || voted_questions.size == election.questions.size
+        return broadcast(:invalid) unless election.per_question? || voted_questions.count == election.questions.count
         return broadcast(:invalid) if voted_questions.blank?
 
         transaction do
@@ -41,8 +41,7 @@ module Decidim
           raise StandardError, "No responses for question #{question.id}" if responses.blank?
 
           responses.each do |response_option|
-            vote = question.votes.find_or_initialize_by(voter_uid:)
-            vote.response_option = response_option
+            vote = question.votes.find_or_initialize_by(voter_uid:, response_option: response_option)
             vote.save!
           end
         end

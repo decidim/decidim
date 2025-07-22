@@ -1,4 +1,4 @@
-<h2 class="h4 flex gap-2 items-bottom mb-4">
+<h2 class="h3 flex gap-2 items-bottom mb-4">
   <%= icon "question-mark", class: "fill-tertiary" %>
   <span><%= t(".title") %></span>
 </h2>
@@ -6,18 +6,18 @@
 <% questions.each do |question| %>
   <div class="card-accordion card-accordion-elections" data-component="accordion">
     <div class="card-accordion-divider">
-      <button class="card-accordion-divider-button" data-open="<%= open_accordion ||= false %>" data-controls="panel-title--<%= question.id %>" type="button">
+      <button class="card-accordion-divider-button" data-open="<%= open_accordion ||= false %>" data-controls="panel-question-<%= question.id %>" type="button">
         <%= question_title(question) %>
         <%= icon "arrow-down-s-line" %>
       </button>
     </div>
-    <div id="panel-title--<%= question.id %>" class="card-accordion-section editor-content mb-0 pb-0" aria-hidden="true">
+    <div id="panel-question-<%= question.id %>" class="card-accordion-section" aria-hidden="true">
       <p><%= decidim_sanitize translated_attribute(question.description) %></p>
-      <ul class="mt-2 mb-0">
+      
         <% question.response_options.each do |answer| %>
-          <li><%= translated_attribute answer.body %></li>
+          <h3><%= translated_attribute answer.body %></h3>
         <% end %>
-      </ul>
+      
     </div>
   </div>
 <% end %>

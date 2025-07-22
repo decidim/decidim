@@ -36,6 +36,7 @@ en:
         edit: Edit election
         new: New election
         preview: Preview
+        view: See election
         title: Actions
         view_deleted_elections: View deleted elections
       admin:

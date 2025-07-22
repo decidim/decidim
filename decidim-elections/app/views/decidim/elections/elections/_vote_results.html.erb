@@ -1,4 +1,4 @@
-<h2 class="h4 flex gap-2 items-bottom mb-4">
+<h2 class="h3 flex gap-2 items-bottom mb-4">
   <%= icon "bar-chart-2-line", class: "fill-tertiary" %>
   <span><%= t(".title") %></span>
 </h2>
@@ -7,11 +7,14 @@
 <div data-results-live-update="<%= election_path(election) %>">
   <div data-questions-container>
     <% questions.each do |question| %>
-      <div class="question-results-card" id="question-<%= question.id %>">
-        <div class="question-results-card-header">
-          <%= question_title(question) %>
+      <div class="card-accordion card-accordion-election-results" data-component="accordion" id="question-<%= question.id %>">
+        <div class="card-accordion-divider">
+          <button class="card-accordion-divider-button" data-open="true" data-controls="panel-results-<%= question.id %>">
+            <%= question_title(question) %>
+            <%= icon "arrow-down-s-line" %>
+          </button>
         </div>
-        <div class="question-results-card-options" data-options-container>
+        <div id="panel-results-<%= question.id %>" class="card-accordion-section" aria-hidden="false" data-options-container>
           <% question.response_options.each_with_index do |option, index| %>
             <div class="mb-4">
               <%= render "decidim/elections/elections/vote_results_option", option:, question:, index: index + 1 %>

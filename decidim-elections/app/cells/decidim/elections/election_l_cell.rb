@@ -7,6 +7,8 @@ module Decidim
     # This cell renders the Search (:s) election card
     # for a given instance of an Election
     class ElectionLCell < Decidim::CardLCell
+      delegate :photo, to: :model
+
       private
 
       def has_description?
@@ -25,6 +27,12 @@ module Decidim
 
       def metadata_cell
         "decidim/elections/election_card_metadata"
+      end
+
+      def resource_image_url
+        return if photo.blank?
+
+        photo.url
       end
     end
   end
