@@ -41,7 +41,7 @@ module Decidim
 
               on(:invalid) do
                 flash.now[:alert] = I18n.t("response.invalid", scope: i18n_flashes_scope)
-                render template: , status: :unprocessable_entity
+                render template:, status: :unprocessable_entity
               end
             end
           end
