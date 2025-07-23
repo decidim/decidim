@@ -1,4 +1,4 @@
-@import "stylesheets/decidim/_buttons.scss";
+@use "stylesheets/decidim/buttons";
 
 .layout-wrapper {
   &.is-nav-open {

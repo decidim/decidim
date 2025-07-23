@@ -4,11 +4,12 @@ module Decidim
   module Elections
     module Admin
       class ElectionsController < Admin::ApplicationController
+        helper Decidim::Elections::Admin::ElectionsHelper
         include Decidim::Admin::HasTrashableResources
         include Decidim::ApplicationHelper
         include Decidim::Elections::Admin::Filterable
 
-        helper_method :elections
+        helper_method :elections, :election, :election_questions
 
         def index
           enforce_permission_to :read, :election
@@ -40,19 +41,19 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to(:update, :election, election:)
+          enforce_permission_to :update, :election, election:
           @form = form(Decidim::Elections::Admin::ElectionForm).from_model(election)
         end
 
         def update
-          enforce_permission_to(:update, :election, election:)
+          enforce_permission_to :update, :election, election: election
 
           @form = form(Decidim::Elections::Admin::ElectionForm).from_params(params, current_component:, election:)
 
           UpdateElection.call(@form, election) do
             on(:ok) do
               flash[:notice] = I18n.t("elections.update.success", scope: "decidim.elections.admin")
-              redirect_to edit_questions_election_path(election)
+              redirect_to election.published? ? dashboard_election_path(election) : edit_questions_election_path(election)
             end
 
             on(:invalid) do
@@ -63,12 +64,12 @@ module Decidim
         end
 
         def publish
-          enforce_permission_to(:update, :election, election:)
+          enforce_permission_to :publish, :election, election: election
 
           PublishElection.call(election, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("elections.publish.success", scope: "decidim.elections.admin")
-              redirect_to elections_path
+              redirect_to dashboard_election_path(election)
             end
 
             on(:invalid) do
@@ -79,7 +80,7 @@ module Decidim
         end
 
         def unpublish
-          enforce_permission_to(:update, :election, election:)
+          enforce_permission_to :unpublish, :election, election: election
 
           Decidim::Elections::Admin::UnpublishElection.call(election, current_user) do
             on(:ok) do
@@ -94,8 +95,24 @@ module Decidim
           end
         end
 
-        def dashboard_page
-          election
+        def dashboard
+          enforce_permission_to :dashboard, :election, election: election
+        end
+
+        def update_status
+          enforce_permission_to :update, :election, election: election
+
+          status_action = params[:status_action]
+          UpdateElectionStatus.call(status_action, election) do
+            on(:ok) do
+              flash[:notice] = I18n.t("statuses.#{status_action}.success", scope: "decidim.elections.admin")
+            end
+
+            on(:invalid) do
+              flash[:alert] = I18n.t("statuses.unknown", scope: "decidim.elections.admin")
+            end
+          end
+          redirect_to dashboard_election_path(election)
         end
 
         private
@@ -122,6 +139,10 @@ module Decidim
 
         def election
           @election ||= elections.find(params[:id])
+        end
+
+        def election_questions
+          @election_questions ||= election.questions.includes(:response_options)
         end
       end
     end

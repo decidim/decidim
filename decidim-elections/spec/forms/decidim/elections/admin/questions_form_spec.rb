@@ -13,7 +13,6 @@ module Decidim
             {
               body: { "en" => "First question" },
               description: { "en" => "First description" },
-              position: 0,
               question_type: "single_option",
               response_options: [
                 { "body" => { "en" => "A" } },
@@ -23,7 +22,6 @@ module Decidim
             {
               body: { "en" => "Second question" },
               description: { "en" => "Second description" },
-              position: 1,
               question_type: "multiple_option",
               response_options: [
                 { "body" => { "en" => "C" } },
@@ -78,7 +76,6 @@ module Decidim
               {
                 body: { "en" => "" }, # invalid: empty body
                 description: { "en" => "Some description" },
-                position: 0,
                 question_type: "single_option",
                 response_options: [
                   { "body" => { "en" => "A" } },

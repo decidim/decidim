@@ -66,7 +66,7 @@ module Decidim
           end
         end
 
-        def copy
+        def duplicate
           enforce_permission_to :create, :conference
         end
 
