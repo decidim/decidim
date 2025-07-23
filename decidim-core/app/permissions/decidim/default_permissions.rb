@@ -15,6 +15,13 @@ module Decidim
     end
 
     def permissions
+      return permission_action if permission_action.scope != target_scope
+
+      return permission_action unless subject == target_subject
+
+      permission_method = "can_#{action}?"
+      toggle_allow(send(permission_method)) if respond_to?(permission_method, true)
+
       permission_action
     end
 
@@ -23,6 +30,12 @@ module Decidim
     attr_reader :user, :permission_action, :context
 
     delegate :subject, :action, to: :permission_action
+
+    def target_scope = ""
+
+    def target_subject
+      raise NotImplementedError "You need to implement target_subject"
+    end
 
     def disallow!
       permission_action.trace(self.class.name, :disallowed)
