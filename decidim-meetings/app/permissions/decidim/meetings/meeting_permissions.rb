@@ -61,6 +61,8 @@ module Decidim
       end
 
       def can_register?
+        return false unless user
+
         meeting.can_register_invitation?(user) &&
           authorized?(:register, resource: meeting)
       end
