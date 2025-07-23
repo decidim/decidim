@@ -52,6 +52,22 @@
         </li>
       <% end %>
 
+      <% if allowed_to? :publish, :conference, conference: conference %>
+        <li class="dropdown__item">
+          <% if conference.published? %>
+            <%= link_to conference_publish_path(conference), method: :delete, class: "dropdown__button" do %>
+              <%= icon "close-circle-line" %>
+              <%= t("actions.unpublish", scope: "decidim.admin") %>
+            <% end %>
+          <% else %>
+            <%= link_to conference_publish_path(conference), method: :post, class: "dropdown__button" do %>
+              <%= icon "check-line" %>
+              <%= t("actions.publish", scope: "decidim.admin") %>
+            <% end %>
+          <% end %>
+        </li>
+      <% end %>
+
       <hr>
 
       <% if allowed_to? :read, :moderation, conference: conference %>
