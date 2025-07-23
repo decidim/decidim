@@ -41,7 +41,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("create.error", scope: "decidim.admin.taxonomy_filters")
-            render :new
+            render :new, status: :unprocessable_entity
           end
         end
       end
@@ -63,7 +63,7 @@ module Decidim
           end
           on(:invalid) do
             flash.now[:alert] = I18n.t("update.error", scope: "decidim.admin.taxonomy_filters")
-            render :edit
+            render :edit, status: :unprocessable_entity
           end
         end
       end
