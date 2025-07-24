@@ -9,7 +9,7 @@
 // </div>
 // ```
 //
-window.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   document.querySelectorAll("input[data-text-copy=true], textarea[data-text-copy=true]").forEach((element) => {
     element.addEventListener("change", (event) => {
       const target = document.querySelector(event.target.dataset.target);
