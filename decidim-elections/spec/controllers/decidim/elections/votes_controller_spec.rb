@@ -22,6 +22,7 @@ module Decidim
       let(:election_vote_path) { Decidim::EngineRouter.main_proxy(component).election_vote_path(election_id: election.id, id: question.id) }
       let(:second_election_vote_path) { Decidim::EngineRouter.main_proxy(component).election_vote_path(election_id: election.id, id: second_question.id) }
       let(:new_election_vote_path) { Decidim::EngineRouter.main_proxy(component).new_election_vote_path(election_id: election.id) }
+      let(:new_election_per_question_vote_path) { Decidim::EngineRouter.main_proxy(component).new_election_per_question_vote_path(election_id: election.id) }
       let(:election_path) { Decidim::EngineRouter.main_proxy(component).election_path(id: election.id) }
       let(:receipt_election_votes_path) { Decidim::EngineRouter.main_proxy(component).receipt_election_votes_path(election_id: election.id) }
       let(:confirm_election_votes_path) { Decidim::EngineRouter.main_proxy(component).confirm_election_votes_path(election_id: election.id) }
@@ -42,38 +43,40 @@ module Decidim
       it_behaves_like "an authenticated vote controller"
 
       describe "GET show" do
-        it "redirects to the election path" do
-          get :show, params: params
-          expect(response).to redirect_to(election_path)
+        it_behaves_like "an unauthenticated vote controller", :show
+      end
+
+      context "when the user is authenticated" do
+        before do
+          sign_in user
         end
 
-        context "when the user is authenticated" do
-          before do
-            sign_in user
-          end
+        it "renders the voting form" do
+          get :show, params: params
+          expect(response).to have_http_status(:ok)
+          expect(controller.helpers.question).to eq(question)
+          expect(subject).to render_template(:show)
+        end
 
-          it "renders the voting form" do
-            get :show, params: params
+        context "when specific question is requested" do
+          it "renders the voting form for the specific question" do
+            get :show, params: params.merge(id: second_question.id)
             expect(response).to have_http_status(:ok)
-            expect(controller.helpers.question).to eq(question)
+            expect(controller.helpers.question).to eq(second_question)
             expect(subject).to render_template(:show)
-          end
-
-          context "when specific question is requested" do
-            it "renders the voting form for the specific question" do
-              get :show, params: params.merge(id: second_question.id)
-              expect(response).to have_http_status(:ok)
-              expect(controller.helpers.question).to eq(second_question)
-              expect(subject).to render_template(:show)
-            end
           end
         end
       end
 
       describe "PATCH update" do
-        it "redirects to the election path" do
-          get :show, params: params
-          expect(response).to redirect_to(election_path)
+        it_behaves_like "an unauthenticated vote controller", :update do
+          let(:params) do
+            {
+              component_id: component.id,
+              election_id: election.id,
+              id: question.id
+            }
+          end
         end
 
         context "when the user is authenticated" do
@@ -97,10 +100,7 @@ module Decidim
       end
 
       describe "GET confirm" do
-        it "redirects to the election path" do
-          get :confirm, params: params
-          expect(response).to redirect_to(election_path)
-        end
+        it_behaves_like "an unauthenticated vote controller", :confirm
 
         context "when the user is authenticated" do
           before do
@@ -116,10 +116,7 @@ module Decidim
       end
 
       describe "PATCH cast" do
-        it "redirects to the election path" do
-          post :cast, params: params
-          expect(response).to redirect_to(election_path)
-        end
+        it_behaves_like "an unauthenticated vote controller", :cast
 
         context "when the user is authenticated" do
           let(:votes_buffer) do
@@ -181,10 +178,7 @@ module Decidim
             session[:voter_uid] = user.to_global_id.to_s
           end
 
-          it "redirects to the election path" do
-            get :receipt, params: params
-            expect(response).to redirect_to(election_path)
-          end
+          it_behaves_like "an unauthenticated vote controller", :receipt
 
           context "when the election has votes for the voter UID" do
             before do

@@ -11,21 +11,18 @@ module Decidim
         helper_method :exit_path, :election, :questions, :question, :response_chosen?, :votes_buffer
 
         before_action except: [:new, :create, :receipt] do
-          next if allowed_to?(:create, :vote, election:) && session_authenticated?
+          next if session_authenticated?
 
-          flash[:alert] = t("votes.not_authorized", scope: "decidim.elections")
-          redirect_to exit_path
+          redirect_to exit_path, alert: t("votes.not_authorized", scope: "decidim.elections")
+        end
+
+        before_action only: :new do
+          redirect_to action: :show, id: question if session_authenticated?
         end
 
         # If the election has a census manifest that a requires authentication, render the auth form
         def new
           enforce_permission_to(:create, :vote, election:)
-          if session_authenticated?
-            return redirect_to(election_vote_path(election, id: question))
-          elsif !election.census.auth_form?
-            flash[:alert] = t("votes.not_authorized", scope: "decidim.elections")
-            return redirect_to exit_path
-          end
 
           @form = election.census.form_instance({}, election:, current_user:)
           render "decidim/elections/votes/new"
@@ -39,13 +36,24 @@ module Decidim
           @form = election.census.form_instance(params, election:, current_user:)
           if @form.valid?
             session[:session_attributes] = @form.attributes
-            redirect_to election_vote_path(election, id: question)
+            redirect_to action: :show, id: question
           else
             flash[:alert] =
               @form.errors.full_messages.join("<br>").presence || t("failed", scope: "decidim.elections.votes.check_census")
             redirect_to action: :new
           end
         end
+      end
+
+      # Shows the receipt page
+      def receipt
+        enforce_permission_to(:create, :vote, election:)
+
+        votes_buffer.clear
+        session_attributes.clear
+        return redirect_to(exit_path) unless election.votes.exists?(voter_uid: session[:voter_uid])
+
+        render "decidim/elections/votes/receipt"
       end
 
       private

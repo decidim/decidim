@@ -50,7 +50,7 @@ module Decidim
       end
 
       def voting_enabled?
-        voting_enabled_at.present?
+        !published_results? && voting_enabled_at.present?
       end
 
       def can_enable_voting?
