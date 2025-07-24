@@ -25,6 +25,8 @@ eu:
       admin_log:
         changeset:
           debates: Eztabaidak
+      tooltips:
+        deleted_debates_info: Ezin da ezabatu eztabaida hau
     components:
       debates:
         actions:

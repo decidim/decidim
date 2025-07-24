@@ -18,11 +18,16 @@ module Decidim
       after_initialize :set_default_salt
 
       attr_accessor :questionnaire_template_id
+      attr_reader :override_edit
 
       # Public: returns whether the questionnaire questions can be modified or not.
       def questions_editable?
         has_component = questionnaire_for.respond_to? :component
-        (has_component && !questionnaire_for.component.published?) || responses.empty?
+        (has_component && !questionnaire_for.component.published?) || override_edit.presence || responses.empty?
+      end
+
+      def override_edit!
+        @override_edit = true
       end
 
       # Public: returns whether the questionnaire is responded by the user or not.

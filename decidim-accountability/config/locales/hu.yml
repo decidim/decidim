@@ -16,10 +16,6 @@ hu:
         key: Kulcs
         name: Név
         progress: Folyamat
-      timeline_entry:
-        description: Leírás
-        entry_date: Dátum
-        title: Cím
     models:
       decidim/accountability/proposal_linked_event: Az eredményhez kapcsolódó javaslat
       decidim/accountability/result_progress_updated_event: Az eredmények frissítve
@@ -39,9 +35,7 @@ hu:
         import_csv: Eredmények importálása CSV-fájlból
         new_result: Új eredmény
         new_status: Új állapot
-        new_timeline_entry: Új idővonal bejegyzés
         preview: Előnézet
-        timeline_entries: Projekt alakulása
         title: Műveletek
       admin:
         exports:
@@ -96,23 +90,6 @@ hu:
           update:
             invalid: Probléma adódott az állapot frissítésével.
             success: Állapot sikeresen frissítve.
-        timeline_entries:
-          create:
-            invalid: Probléma adódott a bejegyzés létrehozásával.
-            success: A bejegyzés sikeresen létrejött.
-          destroy:
-            success: A bejegyzés sikeresen törölve.
-          edit:
-            title: Bejegyzés szerkesztése
-            update: Bejegyzés frissítése
-          index:
-            title: Projekt idővonal bejegyzései
-          new:
-            create: Bejegyzés létrehozása
-            title: Új bejegyzés
-          update:
-            invalid: Probléma adódott a bejegyzés frissítésével.
-            success: A bejegyzés sikeresen frissült.
       admin_log:
         result:
           create: "%{user_name} által létrehozott eredmény: %{resource_name} (itt: %{space_name})"
@@ -122,10 +99,6 @@ hu:
           create: "%{user_name} létrehozta a(z) %{resource_name} állapotot"
           delete: "%{user_name} törölte a(z) %{resource_name} állapotot"
           update: "%{user_name} frissítette a(z) %{resource_name} állapotot"
-        timeline_entry:
-          create: "%{user_name} létrehozta az %{resource_name} idővonal bejegyzést"
-          delete: "%{user_name} törölte a(z) %{resource_name} idővonal bejegyzést"
-          update: "%{user_name} frissítette a %{resource_name} idővonal bejegyzést"
         value_types:
           parent_presenter:
             not_found: 'Nem található az adatbázisban (ID: %{id})'
@@ -164,10 +137,6 @@ hu:
             key: Kulcs
             name: Név
             progress: Folyamat
-        timeline_entry:
-          fields:
-            entry_date: Dátum
-            title: Cím
       results:
         count:
           results_count:
@@ -181,8 +150,6 @@ hu:
         show:
           stats:
             back_to_resource: Vissza az eredményekhez
-        timeline:
-          title: Projekt alakulása
     admin:
       filters:
         results:

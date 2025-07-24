@@ -2,6 +2,29 @@
 
 require "spec_helper"
 
+shared_examples "access permissions form" do
+  it "can view the permissions" do
+    within "tr", text: row_text do
+      find("button[data-component='dropdown']").click
+      click_on "Permissions"
+    end
+    expect(page).to have_content("Edit permissions")
+  end
+end
+
+shared_examples "access component permissions form" do
+  let(:participatory_space_engine) { Decidim::EngineRouter.admin_proxy(participatory_space) }
+  before do
+    switch_to_host(organization.host)
+    login_as user, scope: :user
+    visit participatory_space_engine.components_path(participatory_space)
+  end
+
+  include_examples "access permissions form" do
+    let!(:row_text) { translated(component.name) }
+  end
+end
+
 shared_examples "Managing component permissions" do
   let(:organization) do
     create(
@@ -23,6 +46,7 @@ shared_examples "Managing component permissions" do
   context "when setting permissions" do
     before do
       within ".component-#{component.id}" do
+        find("button[data-component='dropdown']").click
         click_on "Permissions"
       end
     end
@@ -54,6 +78,7 @@ shared_examples "Managing component permissions" do
     before do
       allow_any_instance_of(Decidim::Admin::PermissionsForm).to receive(:valid?).and_return(false)
       within ".component-#{component.id}" do
+        find("button[data-component='dropdown']").click
         click_on "Permissions"
       end
       within "#components form" do
@@ -85,6 +110,7 @@ shared_examples "Managing component permissions" do
       )
 
       within ".component-#{component.id}" do
+        find("button[data-component='dropdown']").click
         click_on "Permissions"
       end
     end
@@ -120,6 +146,7 @@ shared_examples "Managing component permissions" do
       )
 
       within ".component-#{component.id}" do
+        find("button[data-component='dropdown']").click
         click_on "Permissions"
       end
     end

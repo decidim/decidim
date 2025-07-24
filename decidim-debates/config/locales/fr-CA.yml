@@ -25,6 +25,8 @@ fr-CA:
       admin_log:
         changeset:
           debates: Débats
+      tooltips:
+        deleted_debates_info: Impossible de supprimer ce débat
     components:
       debates:
         actions:

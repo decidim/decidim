@@ -105,6 +105,7 @@ ja:
         participatory_process_groups: 参加型プロセスグループ
         participatory_process_groups_submenu:
           info: 情報
+          landing_page: ランディングページのレイアウト
         participatory_processes: 参加型プロセス
         participatory_processes_submenu:
           attachment_collections: フォルダ
@@ -112,6 +113,7 @@ ja:
           attachments: 添付ファイル
           components: コンポーネント
           info: このプロセスについて
+          landing_page: ランディングページのレイアウト
           moderations: モデレーション
           private_users: メンバー
           process_admins: 参加型プロセス管理者
@@ -127,16 +129,19 @@ ja:
           name: 参加型プロセス
         participatory_process_group:
           fields:
+            actions: アクション
             title: タイトル
           name: 参加型プロセスグループ
         participatory_process_step:
           fields:
+            actions: アクション
             end_date: 終了日
             start_date: 開始日
             title: タイトル
           name: プロセスのフェーズ
         participatory_process_user_role:
           fields:
+            actions: アクション
             email: Eメールアドレス
             name: 名前
             role: ロール

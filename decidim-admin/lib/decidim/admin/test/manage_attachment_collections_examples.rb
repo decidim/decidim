@@ -16,6 +16,7 @@ shared_examples "manage attachment collections examples" do
 
   it "can view an attachment collection details" do
     within "#attachment_collections table" do
+      find("button[data-component='dropdown']").click
       click_on "Edit"
     end
 
@@ -56,6 +57,7 @@ shared_examples "manage attachment collections examples" do
   it "can update an attachment collection" do
     within "#attachment_collections" do
       within "tr", text: translated(attachment_collection.name) do
+        find("button[data-component='dropdown']").click
         click_on "Edit"
       end
     end
@@ -90,6 +92,7 @@ shared_examples "manage attachment collections examples" do
 
       it "can delete the attachment collection" do
         within "tr", text: translated(attachment_collection2.name) do
+          find("button[data-component='dropdown']").click
           accept_confirm { click_on "Delete" }
         end
 
@@ -110,7 +113,8 @@ shared_examples "manage attachment collections examples" do
 
       it "cannot delete it" do
         within "tr", text: translated(attachment_collection.name) do
-          expect(page).to have_no_css("a.action-icon--remove")
+          find("button[data-component='dropdown']").click
+          expect(page).to have_no_css(".button", text: "Delete")
         end
       end
     end

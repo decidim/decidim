@@ -1,0 +1,79 @@
+---
+fr:
+  decidim:
+    demographics:
+      actions:
+        title: Actions
+      admin:
+        demographics:
+          tabs_menu:
+            title: Démographiques
+        demographics_menu:
+          questions: Questions
+          responses: Réponses
+          settings: Paramètres
+        publish_responses:
+          index:
+            description: Description
+            title: Afficher les réponses
+        questions:
+          edit:
+            save: Enregistrer
+            title: Questions
+          questions_form:
+            add_question: Ajouter une question
+            collapse: Réduire toutes les questions
+            expand: Développer toutes les questions
+        responses:
+          index:
+            publish_responses: Afficher les réponses
+            title: "%{total} réponses au total"
+        settings:
+          show:
+            collect_data: Activer la collecte de données démographiques
+            collect_data_help: Activer ce paramètre permettra aux utilisateurs de faire don de leurs données à la plate-forme.
+            save: Enregistrer
+            title: Paramètres
+          update:
+            invalid: Une erreur s'est produite lors de l'enregistrement des données démographiques
+            success: Données démographiques enregistrées avec succès
+        title: Démographiques
+      demographics:
+        questionnaire:
+          delete_my_data: Supprimer les données
+          modal_close: Annuler
+          modal_ok: Ok
+          modal_question: Toutes vos données démographiques seront supprimées.
+          modal_title: Supprimer les données
+          submit: Enregistrer les données
+          terms_of_service: conditions d'utilisation
+          tos_agreement: En participant vous acceptez l' %{link}.
+        show:
+          page_title: Don de données démographiques
+      destroy:
+        error: Une erreur s'est produite lors de la suppression des données que vous avez fournies
+        success: Les données que vous avez fournies ont été supprimées avec succès
+      name: Don de données démographiques
+      questions:
+        age:
+          options:
+          - 15 à 29 ans
+          - 30 à 44 ans
+          - 45 à 64 ans
+          - 65 ans et plus
+          question: Quel est votre age ?
+        gender:
+          options:
+          - Homme
+          - Femme
+          - Non-binaire
+          - Mon genre n'est pas répertorié
+          - Je préfère ne pas le dire
+          question: Parmi les énoncés suivants, lequel décrit le mieux votre genre ?
+        postal:
+          question: Quel est le code postal de votre lieu de résidence ?
+  layouts:
+    decidim:
+      shared:
+        layout_center:
+          alert: En fournissant ces informations, vous contribuez à une analyse statistique qui aide à améliorer la qualité de la participation, vos données seront agrégées et utilisées uniquement à des fins de recherche.

@@ -293,6 +293,8 @@ en:
             label: Status
           taxonomies_part_of_contains:
             label: Taxonomy
+      tooltips:
+        deleted_results_info: Cannot delete this result
     components:
       accountability:
         actions:

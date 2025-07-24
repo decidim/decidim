@@ -14,8 +14,10 @@ describe "Admin edits documents" do
 
   it "edits an existing document" do
     expect(document.accepting_suggestions?).to be false
-    expect(page).to have_css(".action-icon--edit")
-    click_on "Edit", match: :first
+    within("tr", text: "This is my document new title") do
+      find("button[data-component='dropdown']").click
+      click_on "Edit"
+    end
     expect(page).to have_content("Edit collaborative texts")
 
     fill_in "Title", with: "This is an edited title test"
@@ -25,7 +27,11 @@ describe "Admin edits documents" do
 
     expect(page).to have_admin_callout "Document successfully updated"
 
-    click_on "Manage"
+    within("tr", text: "This is an edited title test") do
+      find("button[data-component='dropdown']").click
+      click_on "Manage"
+    end
+
     expect(page).to have_content("Configure collaborative texts")
     fill_in_i18n_editor(:document_announcement, "#document-announcement-tabs", { en: "New announcement" })
 
@@ -41,7 +47,10 @@ describe "Admin edits documents" do
 
   context "when title is invalid" do
     before do
-      click_on "Edit", match: :first
+      within("tr", text: "This is my document new title") do
+        find("button[data-component='dropdown']").click
+        click_on "Edit"
+      end
 
       fill_in "Title", with: "this title is invalid"
       fill_in_editor :document_body, with: "a"
@@ -59,7 +68,10 @@ describe "Admin edits documents" do
     let!(:suggestion) { create(:collaborative_text_suggestion, document_version: document.current_version) }
 
     it "does not allow to edit the document the body" do
-      click_on "Edit", match: :first
+      within("tr", text: "This is my document new title") do
+        find("button[data-component='dropdown']").click
+        click_on "Edit"
+      end
       expect(page).to have_content("Edit collaborative texts")
 
       fill_in "Title", with: "This is an edited title test"
@@ -78,7 +90,10 @@ describe "Admin edits documents" do
 
     it "can discard suggestions by creating a new version" do
       expect(document.current_version.suggestions.count).to eq(1)
-      click_on "Edit", match: :first
+      within("tr", text: "This is my document new title") do
+        find("button[data-component='dropdown']").click
+        click_on "Edit"
+      end
       expect(page).to have_content("Edit collaborative texts")
 
       check "Discard suggestions and create a new draft version"
@@ -89,7 +104,10 @@ describe "Admin edits documents" do
       expect(document.reload.document_versions.count).to eq(2)
       expect(document.current_version.suggestions.count).to eq(0)
       expect(document.draft?).to be true
-      click_on "Edit", match: :first
+      within("tr", text: "This is my document new title") do
+        find("button[data-component='dropdown']").click
+        click_on "Edit"
+      end
       expect(page).to have_content("Version 1")
       expect(page).to have_content("Version 2")
       uncheck "Draft version"

@@ -182,12 +182,15 @@ describe "Admin manages global moderations" do
           click_on "Hidden"
 
           within "tr", text: "Dummy resource" do
+            find("button[data-component='dropdown']").click
             expect(page).to have_link("Unhide")
           end
           within "tr", text: "Comment" do
+            find("button[data-component='dropdown']").click
             expect(page).to have_no_link("Unhide")
-            expect(page).to have_css("svg[aria-label='You cannot unhide this resource because its parent is still hidden.']", visible: :all)
           end
+
+          expect(page).to have_css("div.tooltip", text: "You cannot unhide this resource because its parent is still hidden.", visible: :all)
         end
       end
     end

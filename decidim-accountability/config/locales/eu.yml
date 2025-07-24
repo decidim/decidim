@@ -1,6 +1,10 @@
 eu:
   activemodel:
     attributes:
+      milestone:
+        description: Deskribapena
+        entry_date: Data
+        title: Izenburua
       result:
         decidim_accountability_status_id: Egoera
         decidim_category_id: Kategoria
@@ -17,10 +21,6 @@ eu:
         key: Gakoa
         name: Izena
         progress: Aurrerapena
-      timeline_entry:
-        description: Deskribapena
-        entry_date: Data
-        title: Izenburua
     models:
       decidim/accountability/proposal_linked_event: Proposamena emaitza batean dago
       decidim/accountability/result_progress_updated_event: Emaitzen aurrerapena eguneratu da
@@ -49,11 +49,11 @@ eu:
         edit: Editatu
         import: Inportatu proiektuak beste osagai batetik
         import_csv: Inportatu emaitzak CSV fitxategitik
+        milestones: Mugarriak
+        new_milestone: Beste mugarri bat
         new_result: Beste emaitza bat
         new_status: Beste egoera bat
-        new_timeline_entry: Beste denbora-sarrera bat
         preview: Aurreikusi
-        timeline_entries: Proiektuaren bilakaera
         title: Ekintzak
         view_deleted_results: Ikusi ezabatutako emaitzak
       admin:
@@ -111,6 +111,23 @@ eu:
           create:
             invalid: Arazo bat egon da emaitzak inportatzean.
             success: Fitxeroa inportatzen ari da. Hurrengo minutuetan mezu elektroniko bat jasoko duzu inportazioaren emaitzak dituena.
+        milestones:
+          create:
+            invalid: Arazo bat egon da mugarri hau sortzean.
+            success: Mugarria zuzen sortu da.
+          destroy:
+            success: Mugarria zuzen ezabatu da.
+          edit:
+            title: Mugarria editatu
+            update: Mugarria eguneratu
+          index:
+            title: Mugarriak
+          new:
+            create: Mugarria sortu
+            title: Beste mugarri bat
+          update:
+            invalid: Arazo bat egon da mugarri hau eguneratzean.
+            success: Mugarria zuzen eguneratua.
         models:
           result:
             name: Emaitza
@@ -182,38 +199,21 @@ eu:
           update:
             invalid: Arazoren bat gertatu da egoera hau sortzean.
             success: Egoera ondo eguneratu da.
-        timeline_entries:
-          create:
-            invalid: Arazoen bat gertatu da sarrera hau sortzean.
-            success: Sarrera ondo sortu da.
-          destroy:
-            success: Sarrera ondo ezabatu da.
-          edit:
-            title: Editatu sarrera
-            update: Eguneratu sarrera
-          index:
-            title: Proiektuaren bilakaera
-          new:
-            create: Sortu sarrera
-            title: Beste sarrera bat
-          update:
-            invalid: Arazoren bat gertatu da sarrera hau eguneratzean.
-            success: Sarrera ondo sortu da.
       admin_log:
+        milestones:
+          create: "%{user_name} parte-hartzaileak %{resource_name} mugarria sortu du"
+          delete: "%{user_name} parte-hartzaileak %{resource_name} mugarria ezabatu du"
+          update: "%{user_name} parte-hartzaileak %{resource_name} mugarria eguneratu du"
         result:
           create: "%{user_name} parte-hartzaileak %{resource_name} emaitza sortu du %{space_name} espazioan"
           delete: "%{user_name} parte-hartzaileak %{resource_name} emaitza ezabatu du %{space_name} espazioan"
-          restore: "%{user_name} parte-hartzaileak %{baliabide_name}} emaitza berreskuratu du hemen:%{space_name}"
+          restore: "%{user_name} parte-hartzaileak %{resource_name} emaitza berreskuratu du hemen:%{space_name}"
           soft_delete: "%{user_name} parte-hartzaileak %{resource_name} espazioko %{space_name} emaitza zaborretara eraman du"
           update: "%{user_name} parte-hartzaileak %{resource_name} emaitza eguneratu du %{space_name} espazioan"
         status:
           create: "%{user_name} parte-hartzaileak %{resource_name} egoera sortu du"
           delete: "%{user_name} parte-hartzaileak %{resource_name} egoera ezabatu du"
           update: "%{user_name} parte-hartzaileak %{resource_name} egoera eguneratu du"
-        timeline_entry:
-          create: "%{user_name} parte-hartzaileak %{resource_name} sarrera sortu du kronologian"
-          delete: "%{user_name} parte-hartzaileak %{resource_name} sarrera ezabatu du kronologiatik"
-          update: "%{user_name} parte-hartzaileak %{resource_name} sarrera eguneratu du kronologian"
         value_types:
           parent_presenter:
             not_found: 'Nagusia ez zen aurkitu (ID: %{id}) datu-basean'
@@ -246,6 +246,10 @@ eu:
       last_activity:
         new_result: 'Beste emaitza bat:'
       models:
+        milestone:
+          fields:
+            entry_date: Data
+            title: Izenburua
         result:
           fields:
             created_at: Noiz sortua
@@ -262,10 +266,6 @@ eu:
             key: Gakoa
             name: Izena
             progress: Aurrerapena
-        timeline_entry:
-          fields:
-            entry_date: Data
-            title: Izenburua
       results:
         count:
           results_count:
@@ -273,6 +273,8 @@ eu:
             other: "%{count} emaitza"
         home_header:
           global_status: Exekuzio-egoera orokorra
+        milestones:
+          title: Mugarriak
         no_results: Ez dago proiekturik
         root_taxonomies:
           title: 'Ikus:'
@@ -281,8 +283,6 @@ eu:
         show:
           stats:
             back_to_resource: Itzuli emaitzetara
-        timeline:
-          title: Proiektuaren bilakaera
     admin:
       filters:
         results:
@@ -290,6 +290,8 @@ eu:
             label: Egoera
           taxonomies_part_of_contains:
             label: Taxonomia
+      tooltips:
+        deleted_results_info: Ezin da ezabatu emaitza hau
     components:
       accountability:
         actions:

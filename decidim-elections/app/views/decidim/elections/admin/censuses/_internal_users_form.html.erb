@@ -1,0 +1,34 @@
+<div class="row column font-semibold pb-4"><%= t("decidim.elections.censuses.internal_users.internal_type_title") %></div>
+<div class="row column">
+  <p class="mb-2"><%= t("decidim.elections.censuses.internal_users.info_html") %></p>
+</div>
+<div class="mt-4 form__wrapper gap-1">
+  <%= form.collection_check_boxes :authorization_handlers_names,
+                                  @form.available_authorizations,
+                                  :name,
+                                  :description do |builder| %>
+    <div class="row">
+      <%= builder.label { builder.check_box + builder.text } %>
+      <div id="authorization-handler-<%= builder.value %>" class="authorization-handler my-4 ml-6" style="display: <%= form.object.authorization_handlers_names.include?(builder.value) ? "block" : "none" %>;">
+        <%= render "decidim/elections/admin/censuses/internal_users_options_form", form: form, handler_name: builder.value %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const checkboxes = document.querySelectorAll("input[type='checkbox'][id^='internal_users_authorization_handlers_names_']");
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener("change", function() {
+        const handlerId = `authorization-handler-${this.value}`;
+        const handlerElement = document.getElementById(handlerId);
+        if (this.checked) {
+          handlerElement.style.display = "block";
+        } else {
+          handlerElement.style.display = "none";
+        }
+      });
+    });
+  });
+</script>
