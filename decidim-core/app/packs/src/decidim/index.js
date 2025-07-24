@@ -216,13 +216,13 @@ $(() => initializer());
 document.addEventListener("remote-modal:loaded", ({ detail }) => initializer(detail));
 document.addEventListener("ajax:loaded", ({ detail }) => initializer(detail));
 
-document.addEventListener("ajax:success", () => {
-  document.dispatchEvent(new CustomEvent("turbo:load", { detail: { document } }));
-});
-
-document.addEventListener("ajax:error", () => {
-  document.dispatchEvent(new CustomEvent("turbo:load", { detail: { document } }));
-});
+// document.addEventListener("ajax:success", () => {
+//   document.dispatchEvent(new CustomEvent("turbo:load", { detail: { document } }));
+// });
+//
+// document.addEventListener("ajax:error", () => {
+//   document.dispatchEvent(new CustomEvent("turbo:load", { detail: { document } }));
+// });
 
 window.addEventListener("DOMContentLoaded", () => {
   document.dispatchEvent(new CustomEvent("turbo:load", { detail: { document } }));

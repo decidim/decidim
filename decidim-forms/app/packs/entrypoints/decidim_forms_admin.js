@@ -6,5 +6,5 @@ import createPublicableQuestionResponsesButtons from "src/decidim/forms/admin/pu
 window.Decidim.createEditableForm = createEditableForm
 
 document.addEventListener("turbo:load", () => {
-  document.querySelectorAll("[data-publish-question-response-action]").forEach((el) =>  createPublicableQuestionResponsesButtons(el));
+  document.querySelectorAll("[data-publish-question-response-action]").forEach((el) => createPublicableQuestionResponsesButtons(el));
 });

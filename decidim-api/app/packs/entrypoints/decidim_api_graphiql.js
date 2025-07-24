@@ -89,7 +89,7 @@ const graphQLFetcher = function (graphQLParams) {
   });
 };
 
-window.addEventListener("turbo:load", () => {
+window.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("graphiql-container");
 
   const root = createRoot(container);
