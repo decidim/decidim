@@ -207,22 +207,15 @@ const initializer = (element = document) => {
   document.dispatchEvent(new CustomEvent("decidim:loaded", { detail: { element } }));
 }
 
-// If no jQuery is used the Tribute feature used in comments to autocomplete
-// mentions stops working
-// document.addEventListener("DOMContentLoaded", () => {
-$(() => initializer());
+window.addEventListener("DOMContentLoaded", initializer);
 
 // Run initializer action over the new DOM elements
 document.addEventListener("remote-modal:loaded", ({ detail }) => initializer(detail));
 document.addEventListener("ajax:loaded", ({ detail }) => initializer(detail));
 
-// document.addEventListener("ajax:success", () => {
-//   document.dispatchEvent(new CustomEvent("turbo:load", { detail: { document } }));
-// });
-//
-// document.addEventListener("ajax:error", () => {
-//   document.dispatchEvent(new CustomEvent("turbo:load", { detail: { document } }));
-// });
+document.addEventListener("ajax:complete", () => {
+  document.dispatchEvent(new CustomEvent("turbo:load"));
+});
 
 window.addEventListener("DOMContentLoaded", () => {
   document.dispatchEvent(new CustomEvent("turbo:load", { detail: { document } }));
