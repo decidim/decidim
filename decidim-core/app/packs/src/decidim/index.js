@@ -213,10 +213,6 @@ window.addEventListener("DOMContentLoaded", () => initializer());
 document.addEventListener("remote-modal:loaded", ({ detail }) => initializer(detail));
 document.addEventListener("ajax:loaded", ({ detail }) => initializer(detail));
 
-document.addEventListener("ajax:complete", () => {
-  document.dispatchEvent(new CustomEvent("turbo:load"));
-});
-
 window.addEventListener("DOMContentLoaded", () => {
   document.dispatchEvent(new CustomEvent("turbo:load", { detail: { document } }));
 });
