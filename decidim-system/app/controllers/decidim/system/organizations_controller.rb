@@ -24,7 +24,7 @@ module Decidim
 
           on(:invalid_invitation) do
             flash.now[:alert] = t("organizations.create.error_invitation", scope: "decidim.system")
-            render :new
+            render :new, status: :unprocessable_entity
           end
 
           on(:invalid) do
