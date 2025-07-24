@@ -106,6 +106,8 @@
                 <%= t("actions.moderate", scope: "decidim.admin") %>
               <% end %>
             </li>
+
+            <hr>
           <% end %>
 
           <% if allowed_to? :soft_delete, :process, trashable_deleted_resource: process %>
