@@ -207,7 +207,9 @@ const initializer = (element = document) => {
   document.dispatchEvent(new CustomEvent("decidim:loaded", { detail: { element } }));
 }
 
-window.addEventListener("DOMContentLoaded", () => initializer());
+// If no jQuery is used the Tribute feature used in comments to autocomplete
+// mentions stops working
+$(() => initializer());
 
 // Run initializer action over the new DOM elements
 document.addEventListener("remote-modal:loaded", ({ detail }) => initializer(detail));

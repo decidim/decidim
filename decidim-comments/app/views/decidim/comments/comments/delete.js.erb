@@ -21,3 +21,5 @@ document.addEventListener("turbo:load", () => {
 
   $(".comments-count", $(`#${rootCommentableId}`)).text(<%== t("decidim.components.comments.title", count: @comment.root_commentable.comments_count).to_json %>);
 });
+
+document.dispatchEvent(new CustomEvent("turbo:load"));

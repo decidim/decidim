@@ -25,3 +25,5 @@ document.addEventListener("turbo:load", () => {
     commentsIds: [commentId]
   });
 });
+
+document.dispatchEvent(new CustomEvent("turbo:load"));
