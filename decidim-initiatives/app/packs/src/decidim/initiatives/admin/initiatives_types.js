@@ -26,4 +26,4 @@ document.addEventListener("turbo:load", () => {
   $($signatureType).change(() => toggleVisibility());
 
   toggleVisibility();
-})();
+});
