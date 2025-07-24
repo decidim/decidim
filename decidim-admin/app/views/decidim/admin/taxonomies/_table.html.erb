@@ -47,7 +47,7 @@
 <%= decidim_paginate collection %>
 
 <script>
-  window.addEventListener("DOMContentLoaded", () => {
+  window.addEventListener("turbo:load", () => {
     const sortables = document.querySelectorAll(".js-sortable");
     const nextPage = document.querySelector("[data-next-page]");
     const prevPage = document.querySelector("[data-prev-page]");

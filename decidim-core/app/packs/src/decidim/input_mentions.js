@@ -132,4 +132,4 @@ const mentionsInitializer = () => {
   tribute.attach($mentionContainer);
 }
 
-$(() => mentionsInitializer());
+document.addEventListener("turbo:load", () => mentionsInitializer);

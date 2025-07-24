@@ -89,7 +89,7 @@ const initializeOldPasswordToggler = () => {
   }
 }
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   initializeAccountForm();
   initializeDeleteAccount();
   initializeOldPasswordToggler();

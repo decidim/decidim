@@ -1,4 +1,4 @@
-(() => {
+document.addEventListener("turbo:load", () => {
   const getButtons = document.querySelectorAll("button.question--collapse");
 
   setTimeout(() => {

@@ -19,7 +19,7 @@ const closeAddComment = function (addCommentCard) {
   addCommentCard.classList.remove("fullscreen");
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   // Add comment card for mobile
   const addCommentCard = document.getElementById("add-comment-anchor");
   if (addCommentCard) {

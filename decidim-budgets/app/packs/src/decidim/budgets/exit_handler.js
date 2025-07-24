@@ -47,7 +47,7 @@ const allowExitFrom = ($el) => {
   return false;
 }
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   const $exitNotification = $("#exit-notification");
   const $exitLink = $("#exit-notification-link");
   const defaultExitUrl = $exitLink.attr("href");
