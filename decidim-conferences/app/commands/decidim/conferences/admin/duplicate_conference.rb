@@ -3,9 +3,9 @@
 module Decidim
   module Conferences
     module Admin
-      # A command with all the business logic when copying a new participatory
+      # A command with all the business logic when duplicating a new participatory
       # conference in the system.
-      class CopyConference < Decidim::Command
+      class DuplicateConference < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.
@@ -25,20 +25,20 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
 
           Conference.transaction do
-            copy_conference
-            copy_conference_attachments
-            copy_conference_components if @form.copy_components?
+            duplicate_conference
+            duplicate_conference_attachments
+            duplicate_conference_components if @form.duplicate_components?
           end
 
-          broadcast(:ok, @copied_conference)
+          broadcast(:ok, @duplicated_conference)
         end
 
         private
 
         attr_reader :form
 
-        def copy_conference
-          @copied_conference = Conference.create!(
+        def duplicate_conference
+          @duplicated_conference = Conference.create!(
             organization: @conference.organization,
             title: form.title,
             slogan: @conference.slogan,
@@ -54,20 +54,20 @@ module Decidim
           )
         end
 
-        def copy_conference_attachments
+        def duplicate_conference_attachments
           [:hero_image, :banner_image].each do |attribute|
             next unless @conference.attached_uploader(attribute).attached?
 
-            @copied_conference.send(attribute).attach(@conference.send(attribute).blob)
+            @duplicated_conference.send(attribute).attach(@conference.send(attribute).blob)
           end
         end
 
-        def copy_conference_components
+        def duplicate_conference_components
           @conference.components.each do |component|
-            component_copied = component.dup
-            component_copied.participatory_space = @copied_conference
-            component_copied.save
-            component.manifest.run_hooks(:copy, new_component: component_copied, old_component: component)
+            component_duplicated = component.dup
+            component_duplicated.participatory_space = @duplicated_conference
+            component_duplicated.save
+            component.manifest.run_hooks(:duplicate, new_component: component_duplicated, old_component: component)
           end
         end
       end

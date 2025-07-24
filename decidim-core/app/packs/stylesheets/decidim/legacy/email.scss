@@ -1,4 +1,5 @@
-@import "stylesheets/decidim/legacy/variables";
+@use "sass:meta";
+@use "stylesheets/decidim/legacy/variables";
 
 /* Index:
   1 - Foundation settings
@@ -1190,8 +1191,8 @@ table.button {
 table.button table td {
   text-align: left;
   color: #fefefe;
-  background: $primary;
-  border: 2px solid $primary;
+  background: variables.$primary;
+  border: 2px solid variables.$primary;
 }
 
 table.button table td a {
@@ -1201,7 +1202,7 @@ table.button table td a {
   text-decoration: none;
   display: inline-block;
   padding: 8px 16px;
-  border: 0 solid $primary;
+  border: 0 solid variables.$primary;
   border-radius: 3px;
 }
 
@@ -1290,7 +1291,7 @@ table.button.expanded center {
 table.button:hover table td,
 table.button:visited table td,
 table.button:active table td {
-  background: $primary;
+  background: variables.$primary;
   color: #fefefe;
 }
 

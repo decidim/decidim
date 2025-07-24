@@ -61,7 +61,7 @@ describe Decidim::Proposals::Admin::ProposalsController do
           patch(:update, params:)
 
           expect(flash[:alert]).not_to be_empty
-          expect(response).to have_http_status(:ok)
+          expect(response).to have_http_status(:unprocessable_entity)
           expect(subject).to render_template(:edit)
           expect(response.body).to include("There was a problem saving")
         end
