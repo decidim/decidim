@@ -1,5 +1,5 @@
-@import "stylesheets/decidim/conferences/conference.scss";
-@import "stylesheets/decidim/conferences/speaker.scss";
-@import "stylesheets/decidim/conferences/registration.scss";
-@import "stylesheets/decidim/conferences/program.scss";
-@import "stylesheets/decidim/conferences/media.scss";
+@use "stylesheets/decidim/conferences/conference";
+@use "stylesheets/decidim/conferences/speaker";
+@use "stylesheets/decidim/conferences/registration";
+@use "stylesheets/decidim/conferences/program";
+@use "stylesheets/decidim/conferences/media";

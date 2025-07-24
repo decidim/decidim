@@ -17,7 +17,7 @@ shared_examples "manage conferences" do
     %w(description short_description objectives).each do |field|
       it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='conference-#{field}-tabs']", "full"
     end
-    it_behaves_like "having a rich text editor for field", "#conference_registrations_terms", "content"
+    it_behaves_like "having a rich text editor for field", "#conference_short_description_en", "full"
     it_behaves_like "having no taxonomy filters defined"
 
     it "creates a new conference", versioning: true do
@@ -108,7 +108,7 @@ shared_examples "manage conferences" do
     %w(description short_description objectives).each do |field|
       it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='conference-#{field}-tabs']", "full"
     end
-    it_behaves_like "having a rich text editor for field", "#conference_registrations_terms", "content"
+    it_behaves_like "having a rich text editor for field", "#conference_short_description_en", "full"
 
     it "update an conference without images does not delete them" do
       within_admin_sidebar_menu do
