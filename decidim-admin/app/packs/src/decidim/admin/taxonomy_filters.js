@@ -1,5 +1,5 @@
 /* eslint-disable no-use-before-define */
-document.addEventListener("turbo:load", () => {
+document.addEventListener("decidim:loaded", () => {
   document.querySelectorAll(".js-taxonomy-filters-container").forEach((settingsContainer) => {
     const drawer = window.Decidim.currentDialogs[settingsContainer.dataset.drawer];
     const container = drawer.dialog.querySelector(".js-taxonomy-filters-drawer-container");
