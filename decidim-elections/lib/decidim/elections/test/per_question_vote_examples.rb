@@ -22,11 +22,10 @@ end
 def fill_in_votes
   expect(page).to have_current_path(election_vote_path(election.questions.first))
   expect(page).to have_content(translated_attribute(election.questions.first.body))
-  choose translated_attribute(election.questions.first.response_options.first.body)
+  check translated_attribute(election.questions.first.response_options.first.body)
   click_on "Next"
   expect(page).to have_current_path(election_vote_path(election.questions.second))
   expect(page).to have_content(translated_attribute(election.questions.second.body))
-  check translated_attribute(election.questions.second.response_options.first.body)
   check translated_attribute(election.questions.second.response_options.second.body)
   click_on "Next"
   expect(page).to have_current_path(confirm_election_votes_path)
@@ -35,14 +34,21 @@ def fill_in_votes
   expect(page).to have_content(translated_attribute(election.questions.first.response_options.first.body))
   expect(page).to have_no_content(translated_attribute(election.questions.first.response_options.second.body))
   expect(page).to have_content(translated_attribute(election.questions.second.body))
-  expect(page).to have_content(translated_attribute(election.questions.second.response_options.first.body))
+  expect(page).to have_no_content(translated_attribute(election.questions.second.response_options.first.body))
   expect(page).to have_content(translated_attribute(election.questions.second.response_options.second.body))
   click_on "Cast vote"
   expect(page).to have_content("Your vote has been successfully cast.")
   click_on "Exit the voting booth"
   expect(page).to have_current_path(election_path)
   expect(page).to have_content("You have already voted.")
-  expect(election.votes.where(voter_uid: voter_uid).count).to eq(3)
+  expect(election.votes.pluck(:voter_uid)).to include(voter_uid)
+end
+
+def fill_in_question_votes(question)
+  expect(page).to have_current_path(election_vote_path(question))
+  expect(page).to have_content(translated_attribute(question.body))
+  check translated_attribute(question.response_options.first.body)
+  click_on "Cast vote"
 end
 
 shared_examples "a votable election" do
@@ -131,64 +137,11 @@ shared_examples "a csv token votable election" do
     fill_in_votes
     click_on "Start voting"
     expect(page).to have_current_path(new_election_vote_path)
-    fill_in "Email", with: election.voters.first.data["email"]
-    fill_in "Token", with: election.voters.first.data["token"]
-    click_on "Access"
-    expect(page).to have_current_path(election_vote_path(election.questions.first))
-    expect(find("input[value='#{election.questions.first.response_options.first.id}']")).to be_checked
-    expect(find("input[value='#{election.questions.first.response_options.second.id}']")).not_to be_checked
-    choose translated_attribute(election.questions.first.response_options.second.body)
-    click_on "Next"
-    expect(find("input[value='#{election.questions.second.response_options.first.id}']")).to be_checked
-    expect(find("input[value='#{election.questions.second.response_options.second.id}']")).to be_checked
-    uncheck translated_attribute(election.questions.second.response_options.first.body)
-    uncheck translated_attribute(election.questions.second.response_options.second.body)
-    click_on "Next"
-    expect(page).to have_current_path(confirm_election_votes_path)
-    click_on "Cast vote"
-    expect(page).to have_content("There was a problem casting your vote.")
-    click_on "Edit your vote"
-    expect(page).to have_current_path(election_vote_path(election.questions.first))
-    expect(find("input[value='#{election.questions.first.response_options.first.id}']")).not_to be_checked
-    expect(find("input[value='#{election.questions.first.response_options.second.id}']")).to be_checked
-    click_on "Next"
-    expect(find("input[value='#{election.questions.second.response_options.first.id}']")).not_to be_checked
-    expect(find("input[value='#{election.questions.second.response_options.second.id}']")).not_to be_checked
-    check translated_attribute(election.questions.second.response_options.first.body)
-    click_on "Next"
-    click_on "Cast vote"
-    expect(page).to have_content("Your vote has been successfully cast.")
-    click_on "Exit the voting booth"
-    expect(page).to have_current_path(election_path)
-    expect(page).to have_content("You have already voted.")
-    expect(election.votes.where(voter_uid: voter_uid).count).to eq(2)
   end
 end
 
-shared_examples "an editable votable election" do
-  it "Allows the user to edit the vote" do
-    click_on "Start voting"
-    expect(page).to have_current_path(election_vote_path(election.questions.first))
-    expect(find("input[value='#{election.questions.first.response_options.first.id}']")).to be_checked
-    expect(find("input[value='#{election.questions.first.response_options.second.id}']")).not_to be_checked
-    choose translated_attribute(election.questions.first.response_options.second.body)
-    click_on "Next"
-    expect(find("input[value='#{election.questions.second.response_options.first.id}']")).to be_checked
-    expect(find("input[value='#{election.questions.second.response_options.second.id}']")).not_to be_checked
-    check translated_attribute(election.questions.second.response_options.second.body)
-    click_on "Next"
-    expect(page).to have_current_path(confirm_election_votes_path)
-    click_on "Cast vote"
-    expect(page).to have_content("Your vote has been successfully cast.")
-    click_on "Exit the voting booth"
-    expect(page).to have_current_path(election_path)
-    expect(page).to have_content("You have already voted.")
-    expect(election.votes.where(voter_uid: voter_uid).count).to eq(3)
-  end
-end
-
-shared_examples "a csv token editable votable election" do
-  it "Allows the user to edit the vote" do
+shared_examples "a csv token per question votable election" do
+  it "allows the user to vote" do
     click_on "Start voting"
     expect(page).to have_current_path(new_election_vote_path)
     expect(page).to have_content("Verify your identity")
@@ -196,20 +149,56 @@ shared_examples "a csv token editable votable election" do
     fill_in "Token", with: election.voters.first.data["token"]
     click_on "Access"
     expect(page).to have_current_path(election_vote_path(election.questions.first))
-    expect(find("input[value='#{election.questions.first.response_options.first.id}']")).to be_checked
-    expect(find("input[value='#{election.questions.first.response_options.second.id}']")).not_to be_checked
-    choose translated_attribute(election.questions.first.response_options.second.body)
-    click_on "Next"
-    expect(find("input[value='#{election.questions.second.response_options.first.id}']")).to be_checked
-    expect(find("input[value='#{election.questions.second.response_options.second.id}']")).not_to be_checked
-    check translated_attribute(election.questions.second.response_options.second.body)
-    click_on "Next"
-    expect(page).to have_current_path(confirm_election_votes_path)
+    expect(page).to have_content(translated_attribute(election.questions.first.body))
+    check translated_attribute(election.questions.first.response_options.first.body)
     click_on "Cast vote"
+    expect(page).to have_content("Your vote has been successfully cast.")
+    expect(page).to have_link("Exit the waiting room")
+    question2.update!(voting_enabled_at: Time.current)
+    # wait for javascript to update the page
+    sleep 2
+    expect(page).to have_current_path(election_vote_path(question2))
+    fill_in_question_votes(question2)
+    expect(page).to have_current_path(receipt_election_votes_path)
     expect(page).to have_content("Your vote has been successfully cast.")
     click_on "Exit the voting booth"
     expect(page).to have_current_path(election_path)
     expect(page).to have_content("You have already voted.")
-    expect(election.votes.where(voter_uid: voter_uid).count).to eq(3)
+    expect(election.votes.pluck(:voter_uid)).to include(voter_uid)
+  end
+end
+
+shared_examples "a per question votable election" do
+  it "allows the user to vote" do
+    expect(page).to have_content(translated_attribute(election.title))
+    expect(page).to have_content(translated_attribute(question1.body))
+    expect(page).to have_content(translated_attribute(question2.body))
+    click_on "Start voting"
+    fill_in_question_votes(question1)
+    expect(page).to have_current_path(waiting_election_votes_path)
+    expect(page).to have_content("Waiting for the next question")
+    expect(page).to have_link("Exit the waiting room")
+    question2.update!(voting_enabled_at: Time.current)
+    # wait for javascript to update the page
+    sleep 2
+    expect(page).to have_current_path(election_vote_path(question2))
+    fill_in_question_votes(question2)
+    expect(page).to have_current_path(receipt_election_votes_path)
+    expect(page).to have_content("Your vote has been successfully cast.")
+    click_on "Exit the voting booth"
+    expect(page).to have_current_path(election_path)
+    expect(page).to have_content("You have already voted.")
+    expect(election.votes.pluck(:voter_uid)).to include(voter_uid)
+  end
+end
+
+shared_examples "a per question votable election with published results" do
+  it "allows the user to vote and see published results" do
+    expect(page).to have_content(translated_attribute(election.title))
+    expect(page).to have_content(translated_attribute(question1.body))
+    expect(page).to have_content(translated_attribute(question2.body))
+    click_on "Start voting"
+    fill_in_question_votes(question1)
+    expect(page).to have_current_path(waiting_election_votes_path)
   end
 end

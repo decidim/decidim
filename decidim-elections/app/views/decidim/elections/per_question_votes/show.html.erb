@@ -11,14 +11,15 @@
 
   <div class="vote-navigation flex justify-between mt-8">
     <% if question.previous_question %>
-      <%= link_to url_for(action: :show, id: question.previous_question), class: "button button__lg button__secondary" do %>
+      <%= link_to url_for(action: :show, id: question.previous_question, edit: editing?), class: "button button__lg button__secondary" do %>
         <%= icon "arrow-left-line", class: "fill-current" %>
         <%= t("back", scope: "decidim.elections.votes.question") %>
       <% end %>
     <% end %>
 
     <div class="ml-auto">
-      <%= submit_tag t("next", scope: "decidim.elections.votes.question"),
+      <%= hidden_field_tag("edit", true) if editing? %>
+      <%= submit_tag t("cast_vote", scope: "decidim.elections.votes.question"),
                      class: "button button__lg button__secondary" %>
     </div>
   </div>

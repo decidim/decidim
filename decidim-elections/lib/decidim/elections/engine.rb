@@ -9,9 +9,14 @@ module Decidim
         resources :elections, except: [:destroy] do
           resources :votes, except: [:edit, :destroy] do
             collection do
-              get :waiting
               get :confirm
               post :cast
+              get :receipt
+            end
+          end
+          resources :per_question_votes, except: [:edit, :destroy] do
+            collection do
+              get :waiting
               get :receipt
             end
           end

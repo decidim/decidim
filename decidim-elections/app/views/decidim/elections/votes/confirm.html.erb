@@ -19,7 +19,7 @@
   <% end %>
 </div>
 <div class="vote-navigation flex justify-between mt-8">
-  <%= link_to election_vote_path(election_id: election, id: questions.first, edit: true),
+  <%= link_to election_vote_path(election_id: election, id: questions.first),
               class: "button button__lg button__transparent-secondary" do %>
     <%= icon "edit-line", class: "fill-current mr-2" %>
     <%= t(".edit_vote") %>

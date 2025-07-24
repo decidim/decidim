@@ -205,9 +205,17 @@ module Decidim
           it { is_expected.to be_published_results }
 
           context "when per_question" do
-            let(:election) { build(:election, :published, :ongoing, :per_question) }
+            let(:election) { create(:election, :published, :ongoing, :per_question, :with_questions) }
 
-            it { is_expected.to be_published_results }
+            it { is_expected.not_to be_published_results }
+
+            context "when a question has results published" do
+              before do
+                election.questions.first.update(published_results_at: Time.current)
+              end
+
+              it { is_expected.to be_published_results }
+            end
           end
 
           context "when after_end" do

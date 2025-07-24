@@ -300,6 +300,7 @@ en:
           description: Yo can vote again at any time while the voting period is open. Your previous vote will be overwritten by the new one.
           exit_button: Exit the voting booth
           title: Your votes have been cast successfully
+      per_question_votes:
         waiting:
           description: You can wait here until the next question is available. You will be automatically redirected to the next question when it is ready.
           exit_button: Exit the waiting room

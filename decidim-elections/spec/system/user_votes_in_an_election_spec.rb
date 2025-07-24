@@ -5,7 +5,9 @@ require "decidim/elections/test/vote_examples"
 
 describe "Dashboard" do
   let(:user) { create(:user, :confirmed, organization:) }
-  let!(:election) { create(:election, :published, :ongoing, :with_internal_users_census, :with_questions, census_settings:) }
+  let!(:election) { create(:election, :published, :ongoing, :with_internal_users_census, census_settings:) }
+  let!(:question1) { create(:election_question, :with_response_options, election:, question_type: "single_option") }
+  let!(:question2) { create(:election_question, :with_response_options, election:, question_type: "multiple_option") }
   let(:organization) { election.organization }
   let(:census_settings) do
     {
@@ -15,12 +17,12 @@ describe "Dashboard" do
   let(:authorization_handlers) do
     {}
   end
-  let(:elections_path) { Decidim::EngineRouter.main_proxy(election.component).root_path }
   let(:election_path) { Decidim::EngineRouter.main_proxy(election.component).election_path(election) }
   let(:new_election_vote_path) { Decidim::EngineRouter.main_proxy(election.component).new_election_vote_path(election_id: election.id) }
   let(:waiting_election_votes_path) { Decidim::EngineRouter.main_proxy(election.component).waiting_election_votes_path(election_id: election.id) }
   let(:receipt_election_votes_path) { Decidim::EngineRouter.main_proxy(election.component).receipt_election_votes_path(election_id: election.id) }
   let(:confirm_election_votes_path) { Decidim::EngineRouter.main_proxy(election.component).confirm_election_votes_path(election_id: election.id) }
+  let(:new_election_per_question_vote_path) { Decidim::EngineRouter.main_proxy(election.component).new_election_per_question_vote_path(election_id: election.id) }
   let(:voter_uid) { user.to_global_id.to_s }
 
   def election_vote_path(question)
@@ -37,13 +39,26 @@ describe "Dashboard" do
     end
 
     it_behaves_like "an internal users authentication voter form"
+
+    context "and csv token census is enabled" do
+      let(:election) { create(:election, :published, :ongoing, :with_token_csv_census) }
+      let(:voter_uid) { election.voters.first.to_global_id.to_s }
+
+      it_behaves_like "a csv token votable election"
+
+      context "when user has already voted" do
+        let!(:vote1) { create(:election_vote, voter_uid:, question: election.questions.first, response_option: election.questions.first.response_options.first) }
+        let!(:vote2) { create(:election_vote, voter_uid:, question: election.questions.second, response_option: election.questions.second.response_options.first) }
+
+        it_behaves_like "a csv token editable votable election"
+      end
+    end
   end
 
   context "when user is logged in" do
     before do
       login_as user, scope: :user
-      visit elections_path
-      click_on translated_attribute(election.title)
+      visit election_path
     end
 
     it_behaves_like "a votable election"
@@ -63,55 +78,37 @@ describe "Dashboard" do
     end
   end
 
-  context "when the election has token csv census" do
-    let(:election) { create(:election, :published, :ongoing, :with_token_csv_census, :with_questions) }
-    let(:voter_uid) { election.voters.first.to_global_id.to_s }
-
-    before do
-      visit elections_path
-      click_on translated_attribute(election.title)
-    end
-
-    it_behaves_like "a csv token votable election"
-  end
-
-  context "when is a per question election" do
-    let(:election) { create(:election, :published, :ongoing, :with_internal_users_census, :per_question) }
-    let!(:question1) { create(:election_question, :with_response_options, :voting_enabled, election:) }
-    let!(:question2) { create(:election_question, :with_response_options, election:) }
-
-    before do
-      login_as user, scope: :user
-      visit elections_path
-      click_on translated_attribute(election.title)
-    end
-
-    it_behaves_like "a per question votable election"
-  end
-
   context "when the user has voted" do
-    let(:election) { create(:election, :published, :ongoing, :with_internal_users_census, :with_questions) }
+    let(:election) { create(:election, :published, :ongoing, :with_internal_users_census) }
     let!(:vote1) { create(:election_vote, voter_uid:, question: election.questions.first, response_option: election.questions.first.response_options.first) }
     let!(:vote2) { create(:election_vote, voter_uid:, question: election.questions.second, response_option: election.questions.second.response_options.first) }
 
     before do
       login_as user, scope: :user
-      visit elections_path
-      click_on translated_attribute(election.title)
+      visit election_path
     end
 
-    it "Has the already voted message" do
-      expect(page).to have_link("Start voting")
-      expect(page).to have_content("You have already voted.")
-    end
+    it_behaves_like "an editable votable election"
 
     context "when the election has finished" do
-      let(:election) { create(:election, :published, :finished, :with_internal_users_census, :with_questions) }
+      let(:election) { create(:election, :published, :finished, :with_internal_users_census) }
 
-      it "does not allow to vote again" do
+      it "does not allow to vote" do
         expect(page).to have_no_link("Start voting")
         expect(page).to have_no_content("You have already voted.")
+        visit new_election_vote_path
+        expect(page).to have_content("You are not authorized to perform this action.")
+        expect(page).to have_current_path("/")
       end
+    end
+  end
+
+  context "when the election is per_question" do
+    let(:election) { create(:election, :published, :ongoing, :with_internal_users_census, :per_question) }
+
+    it "redirects to the per question vote path" do
+      visit new_election_vote_path
+      expect(page).to have_current_path(new_election_per_question_vote_path)
     end
   end
 end
