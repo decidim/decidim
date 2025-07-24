@@ -207,7 +207,7 @@ const initializer = (element = document) => {
   document.dispatchEvent(new CustomEvent("decidim:loaded", { detail: { element } }));
 }
 
-window.addEventListener("DOMContentLoaded", initializer);
+window.addEventListener("DOMContentLoaded", () => initializer());
 
 // Run initializer action over the new DOM elements
 document.addEventListener("remote-modal:loaded", ({ detail }) => initializer(detail));
