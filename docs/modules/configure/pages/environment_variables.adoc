@@ -972,8 +972,8 @@ Note that this only applies to production environments.
 |5
 |No
 
-|FAST_SEEDS
-|If seeding various environment that needs to be fast (like gitpod). Please use `FAST_SEEDS` environment variable to reduce the seeding time.
+|SLOW_SEEDS
+|If seeding an environment that needs to have more data, please use `SLOW_SEEDS` environment variable to add it.
 |false
 |No
 
