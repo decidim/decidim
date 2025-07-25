@@ -4,7 +4,7 @@
  * reload without this.
  */
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   const $callout = $('.callout[role="alert"]:first');
   if ($callout.length > 0) {
     setTimeout(() => {

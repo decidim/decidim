@@ -1,6 +1,6 @@
 // changes the value "menu" of role attribute set by a11y on div dropdown-menu-account and
 // dropdown-menu-account-mobile which are inappropriate for accessibility
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const dropdownDiv = document.querySelector("#dropdown-menu-account");
   const dropdownMobileDiv = document.querySelector("#dropdown-menu-account-mobile");
   if (dropdownDiv) {

@@ -4,23 +4,23 @@ const path = require("path");
 const { config: { additional_paths: loadPaths, stylesheet_imports: stylesheetImports  } } = require("shakapacker");
 
 const decidimImporter = {
-  canonicalize(importUrl, options) {
-    if (!options.fromImport) {
+  canonicalize(importerUrl, options) {
+    if (options.fromImport) {
       return null;
     }
-    if (!importUrl.startsWith("!decidim-style-")) {
+    if (!importerUrl.startsWith("decidim:")) {
       return null;
     }
-    return new URL(`decidim:${importUrl}`);
+    return new URL(importerUrl);
   },
   load(canonicalUrl) {
-    const matches = decodeURI(canonicalUrl.toString()).match(/^decidim:!decidim-style-([^[]+)\[([^\]]+)\]$/);
+    const matches = decodeURI(canonicalUrl.toString()).match(/^decidim:style-([^[]+)\[([^\]]+)\]$/);
     if (!matches) {
-      return { contents: "", syntax: "scss" };
+      return { contents: "@mixin styles {}", syntax: "scss" };
     }
 
     if (!stylesheetImports) {
-      return { contents: "", syntax: "scss" };
+      return { contents: "@mixin styles {}", syntax: "scss" };
     }
 
     const type = matches[1];
@@ -29,12 +29,19 @@ const decidimImporter = {
       // If the group is not defined, return an empty configuration because
       // otherwise the importer would continue finding the asset through
       // paths which obviously fails.
-      return { contents: "", syntax: "scss" };
+      return { contents: "@mixin styles {}", syntax: "scss" };
     }
 
-    const statements = stylesheetImports[type][group].map((style) => `@import "${style}";`);
+    const statements = stylesheetImports[type][group].map((style) => `@include meta.load-css("${style}");`);
+    const contents = `
+      @use "sass:meta";
 
-    return { contents: statements.join("\n"), syntax: "scss" };
+      @mixin styles {
+        ${statements.join("\n")}
+      }
+    `;
+
+    return { contents, syntax: "scss" };
   }
 };
 
@@ -58,7 +65,7 @@ module.exports = function(content) { // eslint-disable-line no-undef
         sourceMap: true,
         sourceMapIncludeSources: true,
         style: "expanded"
-      },
+      }
     );
   } catch (error) {
     if (error.span && typeof error.span.url !== "undefined") {

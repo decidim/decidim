@@ -21,7 +21,6 @@
             <%= t("actions.edit", scope: "decidim.debates") %>
           <% end %>
         </li>
-        <hr>
       <% end %>
 
       <% if allowed_to? :close, :debate, debate: debate %>
@@ -31,6 +30,7 @@
             <%= t("actions.close", scope: "decidim.debates") %>
           <% end %>
         </li>
+
         <hr>
       <% end %>
 

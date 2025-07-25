@@ -17,7 +17,7 @@
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("turbo:load", function() {
     const checkboxes = document.querySelectorAll("input[type='checkbox'][id^='internal_users_authorization_handlers_names_']");
     checkboxes.forEach(checkbox => {
       checkbox.addEventListener("change", function() {

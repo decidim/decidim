@@ -1,4 +1,4 @@
-$(() => {
+document.addEventListener("turbo:load", () => {
   const $form = $(".edit_meeting_registrations");
 
   if ($form.length > 0) {

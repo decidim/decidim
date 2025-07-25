@@ -29,7 +29,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("update.invalid", scope: "decidim.elections.admin.questions")
-              render :edit_questions
+              render :edit_questions, status: :unprocessable_entity
             end
           end
         end

@@ -11,7 +11,7 @@ shared_examples "manage assemblies" do
     before do
       within("tr", text: translated(assembly.title)) do
         find("button[data-component='dropdown']").click
-        click_on "Configure"
+        click_on "Edit"
       end
     end
 
@@ -68,7 +68,7 @@ shared_examples "manage assemblies" do
     before do
       within("tr", text: translated(assembly.title)) do
         find("button[data-component='dropdown']").click
-        click_on "Configure"
+        click_on "Edit"
       end
     end
 
@@ -145,7 +145,7 @@ shared_examples "manage assemblies" do
     before do
       within("tr", text: translated(assembly.title)) do
         find("button[data-component='dropdown']").click
-        click_on "Configure"
+        click_on "Edit"
       end
     end
 
@@ -166,7 +166,7 @@ shared_examples "manage assemblies" do
     before do
       within("tr", text: translated(assembly.title)) do
         find("button[data-component='dropdown']").click
-        click_on "Configure"
+        click_on "Edit"
       end
     end
 

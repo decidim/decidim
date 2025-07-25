@@ -6,12 +6,12 @@ shared_examples "manage projects attachment collections" do
   before do
     within "tr", text: translated(budget.title) do
       find("button[data-component='dropdown']").click
-      click_on "Manage projects"
+      click_on "Add projects"
     end
 
     within "tr", text: translated(project.title) do
       find("button[data-component='dropdown']").click
-      click_on "Folders"
+      click_on "Add folder"
     end
   end
 

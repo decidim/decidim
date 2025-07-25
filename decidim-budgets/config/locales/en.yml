@@ -46,13 +46,11 @@ en:
         deleted_projects_info: Cannot delete this project
     budgets:
       actions:
-        attachment_collections: Folders
-        attachments: Attachments
         confirm_delete_budget: Are you sure you want to delete this budget?
         confirm_delete_project: Are you sure you want to delete this project?
         deleted_budgets_info: Deleted budgets can be restored from the trash.
         edit: Edit
-        edit_projects: Manage projects
+        edit_projects: Add projects
         import: Import proposals to projects
         new_budget: New budget
         new_project: New project

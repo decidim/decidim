@@ -10,7 +10,7 @@ export default function createSortableList(lists) {
 }
 
 // Once in DOM
-$(() => {
+document.addEventListener("turbo:load", () => {
   const $draggables = $(".draggable-list")
   let draggablesClassNames = []
 
