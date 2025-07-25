@@ -43,13 +43,10 @@ ja:
         deleted_projects_info: このプロジェクトは削除できません
     budgets:
       actions:
-        attachment_collections: フォルダ
-        attachments: 添付ファイル
         confirm_delete_budget: この予算を削除してもよろしいですか？
         confirm_delete_project: このプロジェクトを削除してもよろしいですか？
         deleted_budgets_info: 削除された予算はゴミ箱から復元できます。
         edit: 編集
-        edit_projects: プロジェクトの管理...
         import: プロジェクトへの提案をインポート
         new_budget: 新しい予算
         new_project: 新規プロジェクト
