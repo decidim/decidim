@@ -382,6 +382,10 @@ sk:
             state: Štát
             users_count: Počet účastníkov
       moderations:
+        index:
+          actions:
+            unhide:
+              title: Odkryť
         report:
           reasons:
             does_not_belong: Nehodí sa
