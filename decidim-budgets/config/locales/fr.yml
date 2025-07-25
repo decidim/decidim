@@ -45,13 +45,10 @@ fr:
         deleted_projects_info: Impossible de supprimer ce projet
     budgets:
       actions:
-        attachment_collections: Dossiers
-        attachments: Documents liés
         confirm_delete_budget: Etes-vous sûr(e) de vouloir supprimer ce budget ?
         confirm_delete_project: Êtes-vous sûr(e) de vouloir supprimer ce projet ?
         deleted_budgets_info: Les budgets supprimés peuvent être restaurés à partir de la corbeille.
         edit: Modifier
-        edit_projects: Gérer les projets
         import: Importer des propositions dans des projets
         new_budget: Nouveau budget
         new_project: Nouveau projet
