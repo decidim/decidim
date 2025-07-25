@@ -798,7 +798,7 @@ hu:
           reports: Jelentések
           show_email: E-mail cím megjelenítése
           status: Állapot
-          unblock: Felhasználó tiltásának törlése
+          unblock: Felhasználó feloldása
           unofficialize: Hivatalossá tétel visszavonása
         new:
           badge: A hivatalosság jelvénye
