@@ -22,7 +22,7 @@ shared_examples "manage soft deletable component or space" do |resource_name|
         within("tr", text: title[:en]) do
           # To remove once all the actions are migrated to dropdowns
           find("button[data-component='dropdown']").click
-          click_on "Soft delete"
+          click_on "Move to trash"
         end
       end
 
@@ -43,7 +43,7 @@ shared_examples "manage soft deletable component or space" do |resource_name|
       within("tr", text: title[:en]) do
         # To remove once all the actions are migrated to dropdowns
         find("button[data-component='dropdown']").click
-        have_css(".dropdown__button-disabled span", text: "Soft delete")
+        have_css(".dropdown__button-disabled span", text: "Move to trash")
       end
     end
   end
@@ -78,7 +78,7 @@ shared_examples "manage soft deletable resource" do |resource_name|
 
     within(resource_row) do
       find("button[data-component='dropdown']").click
-      accept_confirm { click_on "Soft delete" }
+      accept_confirm { click_on "Move to trash" }
     end
 
     expect(page).to have_admin_callout("successfully")

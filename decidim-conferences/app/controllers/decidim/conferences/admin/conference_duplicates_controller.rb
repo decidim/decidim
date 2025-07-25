@@ -25,7 +25,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("conferences_duplicates.create.error", scope: "decidim.admin")
-              render :new
+              render :new, status: :unprocessable_entity
             end
           end
         end

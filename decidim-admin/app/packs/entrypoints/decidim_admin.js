@@ -27,6 +27,6 @@ import "src/decidim/admin/taxonomy_filters"
 // CSS
 import "entrypoints/decidim_admin.scss";
 
-window.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   initLanguageChangeSelect(document.querySelectorAll("select.language-change"));
 });

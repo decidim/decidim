@@ -17,7 +17,7 @@ shared_examples "export survey user responses" do
     end
     click_on "Responses"
 
-    click_on "Export all"
+    click_on "Export"
     expect(Decidim::PrivateExport.count).to eq(0)
 
     perform_and_wait_for_enqueued_jobs { click_on "CSV" }
@@ -37,7 +37,7 @@ shared_examples "export survey user responses" do
     end
     click_on "Responses"
 
-    click_on "Export all"
+    click_on "Export"
     expect(Decidim::PrivateExport.count).to eq(0)
 
     perform_and_wait_for_enqueued_jobs { click_on "JSON" }
@@ -57,7 +57,7 @@ shared_examples "export survey user responses" do
     end
     click_on "Responses"
 
-    click_on "Export all"
+    click_on "Export"
     expect(Decidim::PrivateExport.count).to eq(0)
 
     perform_and_wait_for_enqueued_jobs { click_on "PDF" }

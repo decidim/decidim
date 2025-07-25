@@ -2,7 +2,7 @@
 
 shared_examples "export meetings" do
   let!(:meetings) { create_list(:meeting, 3, :published, component: current_component) }
-  let(:export_type) { "Export all" }
+  let(:export_type) { "Export" }
 
   it_behaves_like "export as CSV"
   it_behaves_like "export as JSON"

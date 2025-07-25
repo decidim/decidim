@@ -9,7 +9,7 @@ shared_examples "manage meetings attachments" do
   before do
     within "tr", text: translated(meeting.title) do
       find("button[data-component='dropdown']").click
-      click_on "Attachments"
+      click_on "Add attachment"
     end
   end
 

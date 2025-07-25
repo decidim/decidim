@@ -28,6 +28,8 @@
         <% end %>
       </li>
 
+      <hr>
+
       <li class="dropdown__item">
         <% if allowed_to?(:copy, :meeting, meeting: meeting) %>
           <%= link_to new_meeting_copy_path(meeting), class: "dropdown__button" do %>
@@ -48,15 +50,15 @@
 
       <li class="dropdown__item">
         <% if allowed_to?(:update, :meeting, meeting: meeting) %>
-          <%= link_to meeting_attachment_collections_path(meeting), class: "dropdown__button" do %>
-            <%= icon "folder-line" %>
-            <%= t("actions.attachment_collections", scope: "decidim.meetings") %>
+          <%= link_to meeting_attachments_path(meeting), class: "dropdown__button" do %>
+            <%= icon "attachment-line" %>
+            <%= t("actions.attachments", scope: "decidim.admin") %>
           <% end %>
         <% else %>
           <div class="dropdown__button-disabled">
             <%= with_tooltip t("tooltips.cannot_manage_attachments_meetings", scope: "decidim.admin") do %>
-              <%= icon "folder-line", class: "text-gray" %>
-              <span><%= t("actions.attachment_collections", scope: "decidim.meetings") %></span>
+              <%= icon "attachment-line", class: "text-gray" %>
+              <span><%= t("actions.attachments", scope: "decidim.admin") %></span>
             <% end %>
           </div>
         <% end %>
@@ -64,19 +66,21 @@
 
       <li class="dropdown__item">
         <% if allowed_to?(:update, :meeting, meeting: meeting) %>
-          <%= link_to meeting_attachments_path(meeting), class: "dropdown__button" do %>
-            <%= icon "attachment-line" %>
-            <%= t("actions.attachments", scope: "decidim.meetings") %>
+          <%= link_to meeting_attachment_collections_path(meeting), class: "dropdown__button" do %>
+            <%= icon "folder-line" %>
+            <%= t("actions.attachment_collections", scope: "decidim.admin") %>
           <% end %>
         <% else %>
           <div class="dropdown__button-disabled">
             <%= with_tooltip t("tooltips.cannot_manage_attachments_meetings", scope: "decidim.admin") do %>
-              <%= icon "attachment-line", class: "text-gray" %>
-              <span><%= t("actions.attachments", scope: "decidim.meetings") %></span>
+              <%= icon "folder-line", class: "text-gray" %>
+              <span><%= t("actions.attachment_collections", scope: "decidim.admin") %></span>
             <% end %>
           </div>
         <% end %>
       </li>
+
+      <hr>
 
       <li class="dropdown__item">
         <% if allowed_to?(:update, :meeting, meeting: meeting) && !meeting.registration_disabled? %>
@@ -126,8 +130,6 @@
         <% end %>
       </li>
 
-      <hr>
-
       <li class="dropdown__item">
         <% if allowed_to?(:close, :meeting, meeting: meeting) %>
           <%= link_to edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "dropdown__button" do %>
@@ -143,6 +145,8 @@
           </div>
         <% end %>
       </li>
+
+      <hr>
 
       <li class="dropdown__item">
         <% if allowed_to?(:update, :meeting, meeting: meeting) %>

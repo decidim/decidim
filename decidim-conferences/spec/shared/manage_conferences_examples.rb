@@ -65,7 +65,7 @@ shared_examples "manage conferences" do
     before do
       within "tr", text: translated(conference.title) do
         find("button[data-component='dropdown']").click
-        click_on "Configure"
+        click_on "Edit"
       end
     end
 
@@ -101,7 +101,7 @@ shared_examples "manage conferences" do
     before do
       within "tr", text: translated(conference.title) do
         find("button[data-component='dropdown']").click
-        click_on "Configure"
+        click_on "Edit"
       end
     end
 
@@ -177,7 +177,7 @@ shared_examples "manage conferences" do
     before do
       within "tr", text: translated(conference.title) do
         find("button[data-component='dropdown']").click
-        click_on "Configure"
+        click_on "Edit"
       end
     end
 
@@ -198,7 +198,7 @@ shared_examples "manage conferences" do
     before do
       within "tr", text: translated(conference.title) do
         find("button[data-component='dropdown']").click
-        click_on "Configure"
+        click_on "Edit"
       end
     end
 
