@@ -15,9 +15,8 @@
         <% election_questions.limit(3).each do |question| %>
           <div class="card mb-4">
             <div class="row column">
-              <h3 class="my-2">
-                <span class="h6"><%= t("decidim.elections.admin.dashboard.questions.labels.question_title", number: question.position.next) %></span>
-                <span>(<%= t("decidim.forms.question_types.#{question.question_type}") %>)</span>
+              <h3 class="h6 my-2">
+                <%= t("decidim.forms.question_types.#{question.question_type}") %>
               </h3>
               <p><%= translated_attribute(question.body) %></p>
               <h3 class="h6 mt-4 mb-2"><%= t("decidim.elections.admin.dashboard.questions.labels.answers") %>:</h3>

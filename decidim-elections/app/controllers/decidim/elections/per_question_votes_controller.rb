@@ -60,7 +60,7 @@ module Decidim
           end
 
           format.json do
-            render json: { url: url_for(**redirect_action) }
+            render json: { url: redirect_action ? url_for(**redirect_action) : nil }
           end
         end
       end
