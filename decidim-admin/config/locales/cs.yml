@@ -813,7 +813,7 @@ cs:
         index:
           actions: Akce
           badge: Odznak
-          block: Zablokovat uživatele
+          block: Blokovat uživatele
           created_at: Vytvořeno na
           name: Název
           nickname: Přezdívka
