@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-divider my-4">
-    <h2 class="card-title flex items-center justify-between">
-      <%= t("decidim.elections.admin.dashboard.results.title") %>
+    <h2 class="card-title justify-between">
+        <span class="text-black font-bold"><%= t("decidim.elections.admin.dashboard.results.title") %></span>
       <% if election.after_end? %>
         <%= publish_election_button(election) %>
       <% end %>
@@ -15,6 +15,6 @@
       <%= cell "decidim/announcement", t("decidim.elections.admin.dashboard.results.per_question_waiting"), callout_class: "alert" if per_question_waiting? %>
     <% end %>
     <%= render partial: "decidim/elections/admin/dashboard/questions_with_results" %>
-    <p class="my-4 text-gray-2"><%= t("decidim.elections.censuses.census_size_html", count: census_count(election)) %></p>
+    <p class="my-4 text-gray-2 text-sm"><%= t("decidim.elections.censuses.census_size_html", count: census_count(election)) %></p>
   </div>
 </div>

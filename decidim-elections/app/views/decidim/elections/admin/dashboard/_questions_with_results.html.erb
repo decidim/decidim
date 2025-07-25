@@ -1,6 +1,6 @@
 <div data-results-live-update="<%= dashboard_election_path(election) %>">
   <% election_questions.each do |question| %>
-    <div class="card mb-6" id="question_<%= question.id %>">
+    <div class="card mb-4" id="question_<%= question.id %>">
       <div class="card-divider">
         <h3 class="flex items-center justify-between">
           <%= "#{t("decidim.forms.question_types.#{question.question_type}")} - #{translated_attribute(question.body)}" %>

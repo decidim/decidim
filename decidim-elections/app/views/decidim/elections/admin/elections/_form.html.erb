@@ -1,8 +1,8 @@
 <% disable_fields = @election&.published? %>
 <div class="form__wrapper">
   <div class="card-section election-fields">
-    <div class="card form-basic" data-component="accordion" id="accordion-basic">
-      <div class="row column">
+    <div class="card form-basic my-4 pt-2" data-component="accordion" id="accordion-basic">
+      <div class="row column !mb-0">
         <button type="button" class="card-divider-button" data-controls="panel-basic" data-open="true">
           <%= icon "arrow-right-s-line" %>
           <h2 class="card-title">
@@ -33,8 +33,8 @@
       </div>
     </div>
 
-    <div class="card form-calendar" data-component="accordion" id="accordion-calendar">
-      <div class="row column">
+    <div class="card form-calendar my-4 pt-2" data-component="accordion" id="accordion-calendar">
+      <div class="row column !mb-0">
         <button type="button" class="card-divider-button" data-controls="panel-calendar" data-open="true">
           <%= icon "arrow-right-s-line" %>
           <h2 class="card-title">
@@ -67,8 +67,8 @@
       </div>
     </div>
 
-    <div class="card form-results" data-component="accordion" id="accordion-results">
-      <div class="row column">
+    <div class="card form-results my-4 pt-2" data-component="accordion" id="accordion-results">
+      <div class="row column !mb-0">
         <button type="button" class="card-divider-button" data-controls="panel-results" data-open="true">
           <%= icon "arrow-right-s-line" %>
           <h2 class="card-title">

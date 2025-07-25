@@ -1,26 +1,26 @@
 <div class="form__wrapper">
   <div class="card">
     <div class="card-divider">
-      <h2 class="card-title flex items-center justify-between my-4">
-        <%= t("decidim.elections.admin.dashboard.questions.title") %>
-        <%= link_to edit_questions_election_path(election), class: "flex items-end justify-between gap-x-3" do %>
-          <span class="border-b-2"><%= icon "pencil-line", class: "!w-4 !h-4" %></span>
-          <span class="border-b-2 text-sm"><%= t("actions.edit", scope: "decidim.admin") %></span>
+      <h2 class="card-title justify-between">
+        <span class="text-black font-bold"><%= t("decidim.elections.admin.dashboard.questions.title") %></span>
+        <%= link_to edit_questions_election_path(election), class: "flex items-end justify-between gap-x-3 text-sm" do %>
+          <%= icon "pencil-line", class: "!w-4 !h-4" %>
+          <%= t("actions.edit", scope: "decidim.admin") %>
         <% end %>
       </h2>
     </div>
 
     <div class="card-section">
-      <div class="row column mb-2">
+      <div class="row column my-2">
         <% election_questions.limit(3).each do |question| %>
           <div class="card mb-4">
             <div class="row column">
-              <h6 class="pt-4 mb-2">
-                <span><%= t("decidim.forms.question_types.#{question.question_type}") %></span> -
+              <h3 class="my-2">
                 <span class="h6"><%= t("decidim.elections.admin.dashboard.questions.labels.question_title", number: question.position.next) %></span>
-              </h6>
-              <p class="mb-2"><%= translated_attribute(question.body) %></p>
-              <%= t("decidim.elections.admin.dashboard.questions.labels.answers") %>:
+                <span>(<%= t("decidim.forms.question_types.#{question.question_type}") %>)</span>
+              </h3>
+              <p><%= translated_attribute(question.body) %></p>
+              <h3 class="h6 mt-4 mb-2"><%= t("decidim.elections.admin.dashboard.questions.labels.answers") %>:</h3>
               <ul>
                 <% question.response_options.each_with_index do |option, opt_index| %>
                   <li><%= "#{("a".ord + opt_index).chr})" %> <%= translated_attribute(option.body) %></li>
