@@ -182,10 +182,14 @@ shared_examples "manage conferences" do
     end
 
     it "publishes the conference" do
-      click_on "Publish"
+      within("tr", text: translated_attribute(conference.title)) do
+        find("button[data-component='dropdown']").click
+        find("a", text: "Unpublish", visible: true).click
+      end
+
       expect(page).to have_content("successfully published")
       expect(page).to have_content("Unpublish")
-      expect(page).to have_current_path decidim_admin_conferences.edit_conference_path(conference)
+      expect(page).to have_current_path decidim_admin_conferences.conference_path
 
       conference.reload
       expect(conference).to be_published
@@ -203,10 +207,14 @@ shared_examples "manage conferences" do
     end
 
     it "unpublishes the conference" do
-      click_on "Unpublish"
+      within("tr", text: translated_attribute(conference.title)) do
+        find("button[data-component='dropdown']").click
+        find("a", text: "Unpublish", visible: true).click
+      end
+
       expect(page).to have_content("successfully unpublished")
       expect(page).to have_content("Publish")
-      expect(page).to have_current_path decidim_admin_conferences.edit_conference_path(conference)
+      expect(page).to have_current_path decidim_admin_conferences.conference_path
 
       conference.reload
       expect(conference).not_to be_published
