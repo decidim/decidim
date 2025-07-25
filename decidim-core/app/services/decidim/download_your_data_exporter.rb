@@ -22,14 +22,21 @@ module Decidim
     end
 
     # i18n-tasks-use t("decidim.download_your_data.show.download_your_data")
-    def export
-      user_export = user.private_exports.build
+    def export(retries: 0)
+      data.rewind
+      user_export = user.private_exports.build(file_size: data.length)
       user_export.export_type = name
-      user_export.file.attach(io: data, filename: "#{name}.zip", content_type: "application/zip")
+      user_export.content_type = "application/zip"
       user_export.expires_at = Decidim.download_your_data_expiry_time.from_now
       user_export.metadata = {}
       user_export.save!
-      user_export
+      user_export.file.attach(io: data, filename: "#{name}.zip", content_type: "application/zip")
+
+      return user_export.reload if user_export.reload.file.attached?
+      return user_export.reload if retries >= 3
+
+      user_export.destroy!
+      export(retries: retries + 1)
     end
 
     private
@@ -37,6 +44,10 @@ module Decidim
     attr_reader :user, :export_format, :name
 
     def data
+      @data ||= load_data!
+    end
+
+    def load_data!
       user_data, user_attachments = data_and_attachments_for_user
       buffer = Zip::OutputStream.write_buffer do |out|
         save_user_data(out, user_data)
