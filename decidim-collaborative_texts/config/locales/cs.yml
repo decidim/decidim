@@ -21,7 +21,6 @@ cs:
         confirm_delete_document: Opravdu chcete odstranit tento dokument?
         deleted_document_info: Odstraněný dokument může být obnoven z koše.
         edit: Upravit
-        manage: Spravovat
         new: Nový text
         title: Akce
         view_deleted_documents: Zobrazit odstraněné dokumenty
