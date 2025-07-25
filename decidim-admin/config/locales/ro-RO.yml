@@ -761,7 +761,7 @@ ro:
         index:
           actions: Acțiuni
           badge: Insignă
-          block: Blochează utilizator
+          block: Blochează utilizatorul
           created_at: Creat la
           name: Nume
           nickname: Pseudonim
