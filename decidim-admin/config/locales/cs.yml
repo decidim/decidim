@@ -181,21 +181,17 @@ cs:
             <li class="font-bold">%{resources_count} zdroje</li>
           </ul>
           Pokud změníte názor, můžete ji obnovit později.
-        export: Exportovat vše
+        export: Exportovat
         export-selection: Exportovat výběr
         import: Importovat
-        manage: Spravovat
         newsletter:
           new: Nový zpravodaj
         participatory_space_private_user:
           new: Nový soukromý uživatel participačního prostoru
         per_page: Na stránku
-        permissions: Oprávnění
         restore: Obnovit
         send_me_a_test_email: Pošlete mi testovací e-mail
         share: Sdílet
-        share_tokens: Přístupové odkazy
-        soft_delete: Skrýt
         user:
           new: Nový administrátor
         view_deleted_components: Zobrazit odstraněné komponenty
@@ -686,7 +682,6 @@ cs:
               update_moderated_user_button: Zrušit nahlášení uživatelů
             title: Akce
             unblock: Odblokovat uživatele
-            unreport: Zrušit nahlášení
           cancel: Zrušit
           name: Jméno
           nickname: Přezdívka
@@ -710,10 +705,8 @@ cs:
               title: Skrýt
               update_moderation_button: Skrýt vybrané zdroje
             unhide:
-              title: Zrušit skrytí
               update_moderation_button: Odkrýt vybrané zdroje
             unreport:
-              title: Zrušit nahlášení
               update_moderation_button: Zrušit nahlášení vybraných zdrojů
           cancel: Zrušit
           selected: vybráno
@@ -841,7 +834,6 @@ cs:
         index:
           actions: Akce
           badge: Odznak
-          block: Zablokovat uživatele
           created_at: Vytvořeno na
           name: Název
           nickname: Přezdívka
@@ -850,9 +842,7 @@ cs:
           officialized: Ověřen
           reofficialize: Znovu ověřit
           reports: Hlášení
-          show_email: Zobrazit e-mailovou adresu
           status: Stav
-          unblock: Odblokovat uživatele
           unofficialize: Zrušit ověření
         new:
           badge: Odznak ověření
@@ -1080,8 +1070,6 @@ cs:
           error: Při aktualizaci tohoto tématu došlo k chybě.
           success: Téma bylo úspěšně aktualizováno
       static_pages:
-        actions:
-          view: Zobrazit veřejnou stránku
         create:
           error: Při vytváření nové stránky došlo k chybě.
           success: Stránka úspěšně vytvořena.
@@ -1109,9 +1097,6 @@ cs:
       taxonomies:
         actions:
           actions: Akce
-          destroy: Smazat taxonomii a položky
-          edit: Upravit taxonomii a položky
-          filters: Spravovat filtry
         breadcrumb:
           edit: Upravit taxonomii
           new: Nová taxonomie
@@ -1281,8 +1266,6 @@ cs:
         not_hidden: Neskrytý
         parent_hidden: Nelze odkrýt tento zdroj, protože jeho nadřazená položka je stále skrytá.
         title: Akce
-        unhide: Odkrýt
-        unreport: Zrušit nahlášení
       admin:
         reportable:
           bulk_action:
