@@ -70,7 +70,7 @@ module Decidim
             registration_url: form.registration_url,
             reminder_enabled: form.reminder_enabled,
             send_reminders_before_hours: form.send_reminders_before_hours,
-            reminder_message_custom_content: form.reminder_message_custom_content,
+            reminder_message_custom_content: form.reminder_message_custom_content || meeting.reminder_message_custom_content,
             **fields_from_meeting
           )
         end
