@@ -700,7 +700,7 @@ it:
                 title: Sblocca
                 update_moderated_user_button: Sblocca Utenti
               unreport:
-                title: Annulla segnalazione
+                title: Non inserire
             ignore:
               update_moderated_user_button: Annulla segnalazione utenti
             title: Azioni
@@ -729,10 +729,10 @@ it:
               title: Nascondi
               update_moderation_button: Nascondi le risorse selezionate
             unhide:
-              title: Rivela
+              title: unhide
               update_moderation_button: Nascondi le risorse selezionate
             unreport:
-              title: Annulla segnalazione
+              title: Non inserire
               update_moderation_button: Annulla segnalazione per le risorse selezionate
           cancel: Annulla
           selected: selezionato
