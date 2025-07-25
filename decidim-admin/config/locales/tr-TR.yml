@@ -685,7 +685,7 @@ tr:
                 title: Engelli kaldır
                 update_moderated_user_button: Kullanıcıların Engelini Kaldır
               unreport:
-                title: Şikayeti geri çek
+                title: Bildirilmedi
             ignore:
               update_moderated_user_button: Kullanıcıların şikayetlerini geri çek
             title: Eylemler
@@ -701,6 +701,12 @@ tr:
             offensive: Saldırgan
             spam: İstenmeyen
       moderations:
+        index:
+          actions:
+            unhide:
+              title: unhide
+            unreport:
+              title: Bildirilmedi
         report:
           reasons:
             does_not_belong: Ait değil
