@@ -68,6 +68,7 @@ module Decidim
             comments_end_time: form.comments_end_time,
             registration_type: form.registration_type,
             registration_url: form.registration_url,
+            reminder_message_custom_content: form.reminder_message_custom_content || meeting.reminder_message_custom_content,
             **fields_from_meeting
           )
         end
