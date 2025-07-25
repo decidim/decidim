@@ -37,7 +37,7 @@ describe "Assembly admin accesses admin sections" do
       visit decidim_admin_assemblies.assemblies_path
       within "tr", text: translated(assembly.title) do
         find("button[data-component='dropdown']").click
-        click_on "Configure"
+        click_on "Edit"
       end
     end
 

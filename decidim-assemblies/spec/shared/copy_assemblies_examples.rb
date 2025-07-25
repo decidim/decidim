@@ -62,7 +62,7 @@ shared_examples "copy assemblies" do
 
       within "tr", text: "Copy assembly" do
         find("button[data-component='dropdown']").click
-        click_on "Configure"
+        click_on "Edit"
       end
       within_admin_sidebar_menu do
         click_on "Components"

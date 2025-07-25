@@ -83,7 +83,7 @@ shared_examples "manage moderations" do
     it "user can un-report a resource" do
       within "tr[data-id=\"#{moderation.id}\"]" do
         find("button[data-component='dropdown']").click
-        click_on "Unreport"
+        click_on "Undo the report"
       end
 
       expect(page).to have_admin_callout("Resource successfully unreported")
@@ -193,7 +193,7 @@ shared_examples "manage moderations" do
     it "user cannot unreport them" do
       within "tr[data-id=\"#{hidden_moderations.first.id}\"]" do
         find("button[data-component='dropdown']").click
-        expect(page).to have_no_css("a", text: "Unreport")
+        expect(page).to have_no_css("a", text: "Undo the report")
       end
     end
 
