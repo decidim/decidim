@@ -12,7 +12,6 @@ describe "Admin manages surveys" do
   end
   let!(:questionnaire) { create(:questionnaire) }
   let!(:survey) { create(:survey, :published, :clean_after_publish, component:, questionnaire:) }
-  let(:attributes) { attributes_for(:survey, component:) }
 
   include_context "when managing a component as an admin"
 

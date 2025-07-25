@@ -116,7 +116,6 @@ describe "Admin manages participatory processes", versioning: true do
 
   context "when updating a participatory process" do
     let!(:participatory_process3) { create(:participatory_process, organization:) }
-    let(:attributes) { attributes_for(:participatory_process, organization:) }
 
     before do
       visit decidim_admin_participatory_processes.participatory_processes_path
