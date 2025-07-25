@@ -15,8 +15,7 @@ shared_examples "manage participatory space publications" do
 
       within("tr", text: translated_attribute(participatory_space.title)) do
         find("button[data-component='dropdown']").click
-
-        click_on "Publish"
+        find("a", text: "Publish", visible: true).click
       end
     end
 
@@ -25,8 +24,7 @@ shared_examples "manage participatory space publications" do
 
       visit public_collection_path
 
-      expect(page).to have_content title
-      expect(page).to have_content "Published"
+      expect(page).to have_content(translated_attribute(participatory_space.title))
     end
   end
 

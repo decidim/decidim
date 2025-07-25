@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages participatory process publication" do
+describe "Admin manages participatory process publication" do |_options|
   include_context "when admin administrating a participatory process"
 
   let(:admin_page_path) { decidim_admin_participatory_processes.participatory_processes_path }
@@ -26,7 +26,9 @@ describe "Admin manages participatory process publication" do
       click_on "Publish"
     end
 
+    visit decidim.root_path
     visit decidim.last_activities_path
+
     expect(page).to have_content("New participatory process: #{title}")
 
     within "#filters" do
