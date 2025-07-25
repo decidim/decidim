@@ -65,7 +65,7 @@ describe "Dashboard" do
     let(:election) { create(:election, :published, :ongoing, :with_internal_users_census, :real_time, :with_questions) }
 
     it "redirects to the per question vote path" do
-      visit new_election_per_question_vote_path
+      visit new_election_vote_path
       expect(page).to have_current_path(new_election_normal_vote_path)
     end
   end
@@ -74,7 +74,7 @@ describe "Dashboard" do
     let(:election) { create(:election, :published, :ongoing, :with_internal_users_census, :after_end, :with_questions) }
 
     it "redirects to the per question vote path" do
-      visit new_election_per_question_vote_path
+      visit new_election_vote_path
       expect(page).to have_current_path(new_election_normal_vote_path)
     end
   end

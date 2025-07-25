@@ -53,6 +53,20 @@ module Decidim
             expect(controller.helpers.question).to eq(question)
             expect(subject).to render_template(:show)
           end
+
+          it "redirects to the next question if the current question is not enabled" do
+            question.update(voting_enabled_at: nil)
+            expect(controller).to receive(:redirect_to).with(action: :show, id: second_question)
+            get :show, params: params
+            expect(response).to have_http_status(:ok)
+          end
+
+          it "redirects to the next question if the current question has published results" do
+            question.update(published_results_at: Time.current)
+            expect(controller).to receive(:redirect_to).with(action: :show, id: second_question)
+            get :show, params: params
+            expect(response).to have_http_status(:ok)
+          end
         end
       end
 
@@ -82,6 +96,13 @@ module Decidim
             end
           end
 
+          it "redirects to the next question if the current question has published results" do
+            question.update(published_results_at: Time.current)
+            expect(controller).to receive(:redirect_to).with(action: :show, id: second_question).at_least(:once)
+            patch :update, params: params.merge(id: question.id, response: { question.id.to_s => [question.response_options.first.id] })
+            expect(response).to have_http_status(:no_content)
+          end
+
           it "sets a flash error and redirect to itself if no response is given" do
             expect(controller).to receive(:redirect_to).with(action: :show, id: question)
             patch :update, params: params.merge(id: question.id)
@@ -89,11 +110,10 @@ module Decidim
             expect(response).to have_http_status(:no_content)
           end
 
-          it "sets a flash error and redirect to next question if no response is given and the question is not voting enabled" do
+          it "redirects to next question if no response is given and the question is not voting enabled" do
             question.update(voting_enabled_at: nil)
-            expect(controller).to receive(:redirect_to).with(action: :show, id: second_question)
+            expect(controller).to receive(:redirect_to).with(action: :show, id: second_question).at_least(:once)
             patch :update, params: params.merge(id: question.id)
-            expect(flash[:alert]).to eq(I18n.t("votes.cast.invalid", scope: "decidim.elections"))
             expect(response).to have_http_status(:no_content)
           end
 

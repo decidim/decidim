@@ -79,7 +79,7 @@ module Decidim
       def next_vote_step_action
         return { action: :receipt } unless session_pending_questions.any?
 
-        { action: :show, id: session_pending_questions.first }
+        { action: :show, id: session_pending_questions.enabled.first }
       end
     end
   end
