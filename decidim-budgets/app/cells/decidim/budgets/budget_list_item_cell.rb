@@ -32,7 +32,7 @@ module Decidim
       end
 
       def progress?
-        current_user && status == :progress
+        current_user && status == :progress && voting_open?
       end
 
       def highlighted?
