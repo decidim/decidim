@@ -547,6 +547,9 @@ nl:
         index:
           actions:
             block: Gebruiker blokkeren
+            bulk_actions:
+              unreport:
+                title: Niet langer rapporteren
             title: Acties
             unblock: Deblokkeer gebruiker
             unreport: Niet langer rapporteren
@@ -563,6 +566,12 @@ nl:
           blocked: Geblokkeerd
           unblocked: Niet geblokkeerd
       moderations:
+        index:
+          actions:
+            unhide:
+              title: Zichtbaar maken
+            unreport:
+              title: Niet langer rapporteren
         report:
           reasons:
             does_not_belong: Hoort niet
