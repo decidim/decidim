@@ -93,7 +93,7 @@ const setTheme = (primary, saturation) => {
   (document.getElementById("preview-tertiary") || {}).value = tertiary;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const selector = document.querySelector("#primary-selector")
 
   if (selector) {

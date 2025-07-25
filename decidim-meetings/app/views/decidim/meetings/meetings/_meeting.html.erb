@@ -3,7 +3,7 @@
   <%= render partial: "schema_org_event_meeting" %>
 
   <section class="layout-main__section layout-main__heading">
-      <h1 class="h2 decorator"><%= present(meeting).title(links: true, html_escape: true ) %></h1>
+      <h1 class="h2 decorator"><%= present(meeting).title(html_escape: true ) %></h1>
       <%= cell "decidim/meetings/dates_and_map", meeting %>
       <div class="block md:hidden">
         <%= render partial: "meeting_aside", locals: { hide_modal: true } %>

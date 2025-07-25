@@ -11,11 +11,15 @@ describe "Admin manages posts" do
   let(:author) { create(:user, organization:) }
 
   include_context "when managing a component as an admin"
+  it_behaves_like "access component permissions form"
 
   context "when author is the organization" do
     let(:author) { organization }
 
     it_behaves_like "manage posts"
+    it_behaves_like "access permissions form" do
+      let!(:row_text) { translated(post1.title) }
+    end
   end
 
   context "when author is a user" do

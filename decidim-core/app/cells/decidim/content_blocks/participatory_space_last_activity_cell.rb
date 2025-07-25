@@ -10,7 +10,7 @@ module Decidim
       end
 
       def participants_count
-        @participants_count ||= activities_query.select(:decidim_user_id).distinct.count
+        @participants_count ||= activities_query.select(:user_id).distinct.count
       end
 
       def activities_query
@@ -24,8 +24,8 @@ module Decidim
           Decidim::ParticipatorySpaceLastActivity
           .new(resource).query
           .where.not(user: nil)
-          .select("decidim_user_id, MAX(decidim_action_logs.created_at)")
-          .group("decidim_user_id")
+          .select("user_id, MAX(decidim_action_logs.created_at)")
+          .group("user_id")
           .reorder("MAX(decidim_action_logs.created_at) DESC")
       end
 

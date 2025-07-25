@@ -13,8 +13,15 @@ en:
           election_census: Census
           election_dashboard: Dashboard
           election_questions: Questions
+      tooltips:
+        deleted_elections_info: Cannot delete this election
+        edit_elections_info: Cannot edit this election
     components:
       elections:
+        actions:
+          create: Create
+          destroy: Destroy
+          update: Update
         name: Elections
         settings:
           global:
@@ -24,6 +31,7 @@ en:
     elections:
       actions:
         confirm_delete_election: Are you sure you want to delete this election?
+        confirm_unpublish_election: Are you sure you want to unpublish this election?
         deleted_election_info: Deleted elections are not shown in the list. You can view them by clicking the button below.
         edit: Edit election
         new: New election
@@ -43,11 +51,52 @@ en:
           update:
             error: There was an error while generating or saving the census.
             success: Census updated successfully.
+        dashboard:
+          calendar:
+            end_at: 'End time:'
+            end_election: End election
+            manual_start: Manual
+            start_at: 'Start time:'
+            start_election: Start election
+            title: Calendar
+          census:
+            title: Census
+          main:
+            labels:
+              calendar: Calendar
+              description: Description
+              image: Image gallery
+              results: Results availability
+              title: Title
+            title: Main
+          publish_confirm: Are you sure you want to publish this election?
+          questions:
+            labels:
+              answers: Answers
+              question_title: Question %{number}
+            limit_info: This election has more questions. The preview is limited to 3 questions.
+            title: Questions
+          questions_table:
+            answer: Answers
+            percentage: Percentage
+            votes: Votes
+          results:
+            not_started: Election has not started yet.
+            per_question_waiting: Voting is not yet enabled for any questions. Participants will see a "Waiting for the next question" message until you activate at least one.
+            publish_button: Publish results
+            results_availability:
+              after_end: You can publish all results after the election ends. Results will remain hidden until you publish them manually.
+              per_question: You need to enable voting and manually publish results for each question individually.
+              real_time: Results are displayed automatically during the election.
+            start_question_button: Enable voting
+            title: Results
+          status:
+            title: Election status
         elections:
           create:
             invalid: There was a problem creating the election.
             success: Election created successfully.
-          dashboard_page:
+          dashboard:
             title: Dashboard
           edit:
             title: Edit election
@@ -60,13 +109,14 @@ en:
             edit_attachments: Edit attachments
             end_at: End time
             manual_start: Manual start
+            publish: Publish
             results_availability:
               after_end: After elections end
-              after_end_help: Show results only when the election is ended
+              after_end_help: publish results when the election is finished
               per_question: Question by question
-              per_question_help: Show results per question as they are finalized
+              per_question_help: manually handle voting and publish results for each question
               real_time: Real time
-              real_time_help: Show results as soon as the first vote is submitted
+              real_time_help: automatically publish results during the election while voting
               title: Results availability
             save: Save and continue
             start_at: Start time
@@ -97,6 +147,20 @@ en:
           update:
             invalid: There was a problem updating the questions.
             success: Questions updated successfully.
+        statuses:
+          enable_voting:
+            invalid: There was a problem enabling voting.
+            success: Voting enabled successfully.
+          end:
+            invalid: There was a problem ending the election.
+            success: Election ended successfully.
+          publish_results:
+            invalid: There was a problem publishing the results.
+            success: Results published successfully.
+          start:
+            invalid: There was a problem starting the election.
+            success: Election started successfully.
+          unknown: Unknown status
       admin_log:
         election:
           create: "%{user_name} created the %{resource_name} election in %{space_name}"
@@ -108,6 +172,10 @@ en:
         question:
           update: "%{user_name} updated the questions of the %{resource_name} election"
       censuses:
+        census_ready_html: The census data is uploaded and prepared for its use in the <b>%{election_title}</b> election.
+        census_size_html:
+          one: There is currently <strong>1</strong> person eligible for voting in this election (this might change on a dynamic census).
+          other: There are currently <strong>%{count}</strong> people eligible for voting in this election (this might change on a dynamic census).
         internal_users:
           info_html: |
             You can restrict participation in the election to participants who have an authorization.<br>
@@ -123,23 +191,27 @@ en:
             Must be a file in CSV format with two columns, one with the email address and another with the value of a token that the user will have to introduce in order to vote.
             It must be separated with a semicolon (;)
           label: Unregistered participants with tokens (fixed)
-          remove_before_upload: 'If you want to upload a new census, you must first remove the existing one.
-
-            '
+          remove_before_upload: If you want to upload a new census, you must first remove the existing one.
           upload_file: Upload file
           upload_new_census: Upload a CSV file
-          uploaded_data_html:
-            one: |
-              The census data is uploaded and prepared for its use in the <b>%{election_title}</b> election.
-              <br>There is currently <strong>1</strong> person eligible for voting in this election (this might change on a dynamic census).
-            other: |
-              The census data is uploaded and prepared for its use in the <b>%{election_title}</b> election.
-              <br>There are currently <strong>%{count}</strong> people eligible for voting in this election (this might change on a dynamic census).
       models:
         election:
           fields:
+            census: Census
             end_at: End time
             start_at: Start time
+            status: Status
             title: Title
+      status:
+        active: Active
+        finished: Finished
+        ongoing: Ongoing
+        results_published: Published results
+        scheduled: Scheduled
+        unpublished: Unpublished
+        voting_enabled: Voting in progress
     statistics:
       elections_count: Elections
+  time:
+    formats:
+      short_with_time: "%b %-d, %Y, %-I:%M %p"

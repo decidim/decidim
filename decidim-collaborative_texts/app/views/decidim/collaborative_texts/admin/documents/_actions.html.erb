@@ -16,15 +16,15 @@
     <% else %>
       <% if allowed_to? :update, :collaborative_text, document: document %>
         <li class="dropdown__item">
-          <%= link_to edit_settings_document_path(document), class: "dropdown__button" do %>
-            <%= icon "settings-4-line" %>
-            <%= t("actions.manage", scope: "decidim.collaborative_texts") %>
-          <% end %>
-        </li>
-        <li class="dropdown__item">
           <%= link_to edit_document_path(document), class: "dropdown__button" do %>
             <%= icon "pencil-line" %>
             <%= t("actions.edit", scope: "decidim.collaborative_texts") %>
+          <% end %>
+        </li>
+        <li class="dropdown__item">
+          <%= link_to edit_settings_document_path(document), class: "dropdown__button" do %>
+            <%= icon "settings-4-line" %>
+            <%= t("actions.manage", scope: "decidim.collaborative_texts") %>
           <% end %>
         </li>
       <% end %>

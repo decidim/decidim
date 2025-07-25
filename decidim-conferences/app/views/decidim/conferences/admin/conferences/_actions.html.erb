@@ -18,29 +18,22 @@
         <li class="dropdown__item">
           <%= link_to edit_conference_path(conference), class: "dropdown__button" do %>
             <%= icon "pencil-line" %>
-            <%= t("decidim.admin.actions.configure") %>
+            <%= t("decidim.admin.actions.edit") %>
           <% end %>
         </li>
-      <% end %>
 
-      <% if allowed_to? :read, :share_tokens, current_participatory_space: conference %>
-        <li class="dropdown__item">
-          <%= link_to decidim_admin_conferences.conference_share_tokens_path(conference), class: "dropdown__button" do %>
-            <%= icon "share-line" %>
-            <%= t("actions.share_tokens", scope: "decidim.admin") %>
-          <% end %>
-        </li>
+        <hr>
       <% end %>
-
-      <hr>
 
       <% if allowed_to? :create, :conference, conference: conference %>
         <li class="dropdown__item">
-          <%= link_to new_conference_copy_path(conference), class: "dropdown__button" do %>
+          <%= link_to new_conference_duplicate_path(conference), class: "dropdown__button" do %>
             <%= icon "file-copy-line" %>
             <%= t("decidim.admin.actions.duplicate") %>
           <% end %>
         </li>
+
+        <hr>
       <% end %>
 
       <% if allowed_to? :preview, :conference, conference: conference %>
@@ -52,7 +45,16 @@
         </li>
       <% end %>
 
-      <hr>
+      <% if allowed_to? :read, :share_tokens, current_participatory_space: conference %>
+        <li class="dropdown__item">
+          <%= link_to decidim_admin_conferences.conference_share_tokens_path(conference), class: "dropdown__button" do %>
+            <%= icon "share-line" %>
+            <%= t("actions.share_tokens", scope: "decidim.admin") %>
+          <% end %>
+        </li>
+
+        <hr>
+      <% end %>
 
       <% if allowed_to? :read, :moderation, conference: conference %>
         <li class="dropdown__item">
@@ -61,6 +63,8 @@
             <%= t("decidim.admin.actions.moderate") %>
           <% end %>
         </li>
+
+        <hr>
       <% end %>
 
       <% if allowed_to? :soft_delete, :conference, trashable_deleted_resource: conference %>

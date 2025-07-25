@@ -49,6 +49,7 @@ import "src/decidim/sw"
 import "src/decidim/sticky_header"
 import "src/decidim/sticky_footer"
 import "src/decidim/attachments"
+import "src/decidim/dropdown_menu"
 
 // local deps that require initialization
 import ConfirmDialog, { initializeConfirm } from "src/decidim/confirm"
@@ -208,12 +209,15 @@ const initializer = (element = document) => {
 
 // If no jQuery is used the Tribute feature used in comments to autocomplete
 // mentions stops working
-// document.addEventListener("DOMContentLoaded", () => {
 $(() => initializer());
 
 // Run initializer action over the new DOM elements
 document.addEventListener("remote-modal:loaded", ({ detail }) => initializer(detail));
 document.addEventListener("ajax:loaded", ({ detail }) => initializer(detail));
+
+window.addEventListener("DOMContentLoaded", () => {
+  document.dispatchEvent(new CustomEvent("turbo:load", { detail: { document } }));
+});
 
 // Run initializer action over the new DOM elements (for example after comments polling)
 document.addEventListener("comments:loaded", (event) => {

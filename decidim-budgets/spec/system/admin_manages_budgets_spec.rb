@@ -15,6 +15,7 @@ describe "Admin manages budgets" do
   end
 
   it_behaves_like "manage taxonomy filters in settings"
+  it_behaves_like "access component permissions form"
 
   describe "admin form" do
     before { click_on "New budget" }
@@ -87,7 +88,7 @@ describe "Admin manages budgets" do
       within "tr", text: translated(budget.title) do
         accept_confirm do
           find("button[data-component='dropdown']").click
-          click_on "Soft delete"
+          click_on "Move to trash"
         end
       end
 

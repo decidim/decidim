@@ -172,7 +172,7 @@ describe "Admin manages initiative components" do
     it "soft deletes the component" do
       within ".component-#{component.id}" do
         find("button[data-component='dropdown']").click
-        accept_confirm { click_on("Soft delete") }
+        accept_confirm { click_on("Move to trash") }
       end
 
       expect(page).to have_no_content("My component")

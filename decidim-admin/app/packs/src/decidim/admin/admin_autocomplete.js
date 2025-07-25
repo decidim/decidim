@@ -74,7 +74,7 @@ const autoConfigure = (el) => {
   return ac;
 }
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   const $autocompleteDiv = $("[data-autocomplete]");
   if ($autocompleteDiv.length < 1) {
     return;

@@ -146,6 +146,16 @@ fi:
         new:
           copy: Kopioi
           title: Kopioi tapaaminen
+      tooltips:
+        cannot_close_meetings: Tätä tapaamista ei voi sulkea, koska se on osallistujan luoma
+        cannot_duplicate_meetings: Tätä tapaamista ei voi kopioida, koska se on osallistujan luoma
+        cannot_edit_meetings: Tätä tapaamista ei voi muokata, koska se on osallistujan luoma
+        cannot_manage_agenda_meetings: Tapaamisen esityslistaa ei voida hallita, koska tapaaminen on osallistujan luoma
+        cannot_manage_attachments_meetings: Tapaamisen liitteitä ei voida hallita, koska tapaaminen on osallistujan luoma
+        cannot_manage_poll_meetings: Tapaamisen mielipidetiedustelua ei voida hallita, koska tapaaminen on osallistujan luoma
+        cannot_manage_registrations_meetings: Tapaamisen ilmoittautumisia ei voida hallita, koska tapaaminen on osallistujan luoma, ilmoittautumiset eivät ole sallittu tapaamiselle tai tapaamisen ilmoittautumisen on määritetty tapahtuvan tämän alustan ulkopuolella
+        cannot_mark_attendee: Kyseinen osallistuja on jo merkitty tapaamisen osallistujaksi
+        deleted_meetings_info: Tapaamista ei voida poistaa, koska tapaaminen on osallistujan luoma.
     components:
       meetings:
         actions:

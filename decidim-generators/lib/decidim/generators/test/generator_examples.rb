@@ -48,6 +48,7 @@ shared_examples_for "a new production application" do
       .and match(/^# gem "decidim-templates"/)
       .and match(/^# gem "decidim-collaborative_texts"/)
       .and match(/^# gem "decidim-elections"/)
+      .and match(/^# gem "decidim-demographics"/)
   end
 end
 
@@ -61,6 +62,7 @@ shared_examples_for "a new development application" do
       .and match(/^gem "decidim-templates"/)
       .and match(/^gem "decidim-collaborative_texts"/)
       .and match(/^gem "decidim-elections"/)
+      .and match(/^gem "decidim-demographics"/)
 
     # Checks that every table from a migration is included in the generated schema
     schema = File.read("#{test_app}/db/schema.rb")

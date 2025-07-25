@@ -245,6 +245,7 @@ fr:
           pending_authorizations:
             index:
               address: Adresse
+              already_sent: La lettre postale a déjà été envoyée et ne peut plus être marquée comme envoyée.
               letter_sent_at: Lettre envoyée à
               mark_as_sent: Marquer comme envoyé
               not_yet_sent: Pas encore envoyé
