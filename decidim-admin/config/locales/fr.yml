@@ -174,6 +174,7 @@ fr:
         attachment_collection:
           new: Nouveau dossier
         browse: Parcourir
+        configure: Configurer
         confirm_delete_component: |
           Êtes-vous sûr de vouloir supprimer cette fonctionnalité ?<br>
           Cette fonctionnalité contient :<br>
@@ -181,21 +182,17 @@ fr:
             <li class="font-bold">%{resources_count} ressources</li>
           </ul>
           Si vous changez d'avis, vous pourrez annuler cette action plus tard.
-        export: Tout exporter
+        export: Exporter
         export-selection: Exporter la sélection
         import: Importer
-        manage: Gérer
         newsletter:
           new: Nouvelle newsletter
         participatory_space_private_user:
           new: Nouvel utilisateur privé de l'espace participatif
         per_page: Par page
-        permissions: Autorisations
         restore: Restaurer
         send_me_a_test_email: Envoyez-moi un e-mail de test
         share: Partager
-        share_tokens: Liens d'accès
-        soft_delete: Placer dans la corbeille
         user:
           new: Nouvel administrateur
         view_deleted_components: Voir les composants supprimés
@@ -681,7 +678,6 @@ fr:
               update_moderated_user_button: Annuler les signalements
             title: Actions
             unblock: Débloquer l'utilisateur
-            unreport: Annuler le signalement
           cancel: Annuler
           name: Nom
           nickname: Pseudonyme
@@ -705,10 +701,8 @@ fr:
               title: Masquer
               update_moderation_button: Masquer les ressources sélectionnées
             unhide:
-              title: Afficher
               update_moderation_button: Afficher les ressources sélectionnées
             unreport:
-              title: Annuler le signalement
               update_moderation_button: Annuler le signalement des ressources sélectionnées
           cancel: Annuler
           selected: sélectionné
@@ -836,7 +830,6 @@ fr:
         index:
           actions: Actions
           badge: Badge
-          block: Bloquer l'utilisateur
           created_at: Créée le
           name: Nom
           nickname: Pseudonyme
@@ -845,9 +838,7 @@ fr:
           officialized: Validé
           reofficialize: De nouveau validé
           reports: Signalements
-          show_email: Montrer les adresses e-mail
           status: Statut
-          unblock: Débloquer l'utilisateur
           unofficialize: Invalider
         new:
           badge: Badge de validation
@@ -1073,8 +1064,6 @@ fr:
           error: Une erreur s'est produite lors de la mise à jour de ce sujet.
           success: Sujet mis à jour avec succès
       static_pages:
-        actions:
-          view: Voir la page publique
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle page.
           success: Page créée avec succès.
@@ -1102,9 +1091,6 @@ fr:
       taxonomies:
         actions:
           actions: Actions
-          destroy: Supprimer la taxonomie et les éléments
-          edit: Modifier la taxonomie et les éléments
-          filters: Gérer les filtres
         breadcrumb:
           edit: Modifier la taxonomie
           new: Nouvelle taxonomie
@@ -1209,8 +1195,6 @@ fr:
         not_hidden: Visibles
         parent_hidden: Vous ne pouvez pas rendre visible cette ressource car son parent est toujours caché.
         title: Actions
-        unhide: Afficher
-        unreport: Annuler le signalement
       admin:
         reportable:
           hide:
