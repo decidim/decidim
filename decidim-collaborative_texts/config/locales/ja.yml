@@ -25,7 +25,6 @@ ja:
         confirm_delete_document: このドキュメントを削除してもよろしいですか？
         deleted_document_info: 削除されたドキュメントはゴミ箱から復元できます。
         edit: 編集
-        manage: 管理
         new: 新しいテキスト
         title: アクション
         view_deleted_documents: 削除されたドキュメントを表示
