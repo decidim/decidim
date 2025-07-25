@@ -6,7 +6,7 @@
   }
 
   [data-content] {
-    @apply relative flex flex-col;
+    @apply relative flex flex-col flex-1;
   }
 }
 
