@@ -689,7 +689,7 @@ pt-BR:
               title: Ocultar
               update_moderation_button: Ocultar os recursos selecionados
             unhide:
-              title: Desocultar
+              title: Mostrar
               update_moderation_button: Desocultar os recursos selecionados
             unreport:
               title: Anular denúncia
@@ -831,7 +831,7 @@ pt-BR:
           reports: Denúncias
           show_email: Mostrar endereço de e-mail
           status: Status
-          unblock: Desbloquear Usuário
+          unblock: Desbloquear usuário
           unofficialize: Não oficializar
         new:
           badge: Emblema de oficialização
