@@ -29,7 +29,7 @@ describe "Admin edits documents" do
 
     within("tr", text: "This is an edited title test") do
       find("button[data-component='dropdown']").click
-      click_on "Manage"
+      click_on "Configure"
     end
 
     expect(page).to have_content("Configure collaborative texts")

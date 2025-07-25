@@ -1,4 +1,4 @@
-$(() => {
+document.addEventListener("turbo:load", () => {
   $(".show-more").on("click", function() {
     /* eslint-disable no-invalid-this */
     $(this).hide();

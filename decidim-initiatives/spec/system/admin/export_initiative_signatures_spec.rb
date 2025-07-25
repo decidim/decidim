@@ -17,7 +17,7 @@ describe "Admin export initiatives' signature" do
 
     within("tr", text: translated(initiative.title)) do
       find("button[data-component='dropdown']").click
-      click_on "Configure"
+      click_on "Edit"
     end
 
     click_on "Export PDF of signatures"

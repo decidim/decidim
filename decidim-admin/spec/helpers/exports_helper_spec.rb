@@ -48,7 +48,7 @@ module Decidim
           it "does not create link for selection" do
             expect(subject).to have_css("#export-dropdown")
             expect(subject).to have_no_css("#export-selection-dropdown")
-            expect(subject).to have_content("Export all")
+            expect(subject).to have_content("Export")
             expect(subject).to have_no_content("Export selection")
             expect(helper).to have_received(:render_dropdown).with(component:, resource_id: nil, filters: {}).once
             expect(helper).not_to have_received(:render_dropdown).with(component:, resource_id: nil, filters: { id_in: [1] })
@@ -61,7 +61,7 @@ module Decidim
           it "creates link for selection and all" do
             expect(subject).to have_css("#export-dropdown")
             expect(subject).to have_css("#export-selection-dropdown")
-            expect(subject).to have_content("Export all")
+            expect(subject).to have_content("Export")
             expect(subject).to have_content("Export selection")
             expect(helper).to have_received(:render_dropdown).with(component:, resource_id: nil, filters: { id_in: [1] }).once
             expect(helper).to have_received(:render_dropdown).with(component:, resource_id: nil, filters: {}).once

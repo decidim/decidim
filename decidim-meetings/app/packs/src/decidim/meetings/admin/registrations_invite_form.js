@@ -1,6 +1,6 @@
 import createFieldDependentInputs from "src/decidim/admin/field_dependent_inputs.component"
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   const $attendeeType = $('[name="meeting_registration_invite[existing_user]"');
 
   createFieldDependentInputs({

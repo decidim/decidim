@@ -15,7 +15,6 @@ on:
       - "decidim-generators/**"
 
 env:
-  FAST_SEEDS: "true"
   CI: "true"
   RUBY_VERSION: 3.3.4
   NODE_VERSION: 22.14.0

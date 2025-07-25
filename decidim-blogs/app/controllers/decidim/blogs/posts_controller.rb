@@ -36,7 +36,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("posts.create.invalid", scope: "decidim.blogs.admin")
-            render action: "new"
+            render action: "new", status: :unprocessable_entity
           end
         end
       end
@@ -58,7 +58,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("posts.update.invalid", scope: "decidim.blogs.admin")
-            render action: "edit"
+            render action: "edit", status: :unprocessable_entity
           end
         end
       end
