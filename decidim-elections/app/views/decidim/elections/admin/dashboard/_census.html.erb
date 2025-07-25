@@ -12,12 +12,6 @@
   <div class="card-section">
     <div class="row column">
       <%= render partial: "decidim/elections/admin/census/preview", locals: { election: } %>
-      <p class="mt-4 text-gray-2 text-sm">
-        <%= t("decidim.elections.censuses.census_size_html", count: census_count(election)) %>
-      </p>
-      <p class="text-gray-2 text-sm">
-        <%= t("decidim.elections.admin.census.preview.title", count: 5) %>
-      </p>
     </div>
   </div>
 </div>

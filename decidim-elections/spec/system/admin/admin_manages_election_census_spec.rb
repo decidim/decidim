@@ -18,7 +18,7 @@ describe "Admin manages election census" do
   end
 
   it "opens the census tab" do
-    expect(page).to have_content("Type of census")
+    expect(page).to have_content("Census type")
   end
 
   context "when the admin selects unregistered participants with tokens" do
@@ -30,12 +30,14 @@ describe "Admin manages election census" do
 
         click_on "Save and continue" # redirects to the dashboard
         expect(page).to have_content("Census updated successfully")
-        expect(page).to have_css("h1", text: "Dashboard")
+        within ".main-tabs-menu__tabs li.is-active" do
+          expect(page).to have_content("Dashboard")
+        end
 
         visit election_census_path
 
         expect(page).to have_content("There are currently 2 people")
-        expect(page).to have_content("User preview (the list is limited to 5 records")
+        expect(page).to have_content("The preview list is limited to 5 records.")
         expect(page).to have_content("user1@example.org")
         expect(page).to have_content("user2@example.org")
       end
@@ -48,12 +50,14 @@ describe "Admin manages election census" do
         dynamically_attach_file("token_csv_file", Decidim::Dev.asset("census_with_missing_email.csv")) # has a row with missing email and 1 valid row
 
         click_on "Save and continue" # redirects to the dashboard
-        expect(page).to have_css("h1", text: "Dashboard")
+        within ".main-tabs-menu__tabs li.is-active" do
+          expect(page).to have_content("Dashboard")
+        end
 
         visit election_census_path
 
         expect(page).to have_content("There is currently 1 person")
-        expect(page).to have_content("User preview (the list is limited to 5 records")
+        expect(page).to have_content("The preview list is limited to 5 records.")
       end
     end
 
@@ -64,12 +68,14 @@ describe "Admin manages election census" do
         dynamically_attach_file("token_csv_file", Decidim::Dev.asset("census_duplicate_emails.csv")) # has 3 the same rows
 
         click_on "Save and continue" # redirects to the dashboard
-        expect(page).to have_css("h1", text: "Dashboard")
+        within ".main-tabs-menu__tabs li.is-active" do
+          expect(page).to have_content("Dashboard")
+        end
 
         visit election_census_path
 
         expect(page).to have_content("There is currently 1 person")
-        expect(page).to have_content("User preview (the list is limited to 5 records")
+        expect(page).to have_content("The preview list is limited to 5 records.")
         expect(page).to have_content("user1@example.org")
       end
     end
@@ -91,12 +97,14 @@ describe "Admin manages election census" do
         expect(page).to have_content("Additional required authorizations to vote (optional)")
 
         click_on "Save and continue" # redirects to the dashboard
-        expect(page).to have_css("h1", text: "Dashboard")
+        within ".main-tabs-menu__tabs li.is-active" do
+          expect(page).to have_content("Dashboard")
+        end
 
         visit election_census_path
 
         expect(page).to have_content("There are currently 11 people eligible for voting in this election (this might change on a dynamic census).") # 1 admin + 10 users
-        expect(page).to have_content("User preview (the list is limited to 5 records)")
+        expect(page).to have_content("The preview list is limited to 5 records.")
         expect(page).to have_css("table.table-list tbody tr", count: 5)
       end
     end
@@ -119,13 +127,15 @@ describe "Admin manages election census" do
         check "Example authorization"
         fill_in "Allowed postal codes (separated by commas)", with: "08001, 08002, 08003"
         click_on "Save and continue" # redirects to the dashboard
-        expect(page).to have_css("h1", text: "Dashboard")
+        within ".main-tabs-menu__tabs li.is-active" do
+          expect(page).to have_content("Dashboard")
+        end
 
         visit election_census_path
         expect(page).to have_css("input[value='08001, 08002, 08003']")
 
         expect(page).to have_content("There are currently 3 people eligible for voting in this election (this might change on a dynamic census).")
-        expect(page).to have_content("User preview (the list is limited to 5 records)")
+        expect(page).to have_content("The preview list is limited to 5 records.")
         expect(page).to have_css("table.table-list tbody tr", count: 3)
         expect(election.reload.census_settings["authorization_handlers"]).to eq({
                                                                                   "dummy_authorization_handler" => {
@@ -162,12 +172,14 @@ describe "Admin manages election census" do
           check "Another example authorization"
 
           click_on "Save and continue" # redirects to the dashboard
-          expect(page).to have_css("h1", text: "Dashboard")
+          within ".main-tabs-menu__tabs li.is-active" do
+            expect(page).to have_content("Dashboard")
+          end
 
           visit election_census_path
 
           expect(page).to have_content("There is currently 1 person eligible for voting in this election (this might change on a dynamic census).")
-          expect(page).to have_content("User preview (the list is limited to 5 records)")
+          expect(page).to have_content("The preview list is limited to 5 records.")
           expect(page).to have_css("table.table-list tbody tr", count: 1)
         end
       end
