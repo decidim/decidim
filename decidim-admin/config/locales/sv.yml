@@ -700,7 +700,7 @@ sv:
                 title: Häv blockering
                 update_moderated_user_button: Avblockera användare
               unreport:
-                title: Dra tillbaka rapport
+                title: Ta bort rapport
             ignore:
               update_moderated_user_button: Avrapportera användare
             title: Åtgärder
@@ -732,7 +732,7 @@ sv:
               title: Sluta dölja
               update_moderation_button: Sluta dölja valda resurser
             unreport:
-              title: Avrapportera
+              title: Ta bort rapport
               update_moderation_button: Avrapportera valda resurser
           cancel: Avbryt
           selected: valda
