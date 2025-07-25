@@ -88,15 +88,12 @@ cs:
     admin:
       actions:
         activate: Aktivovat
-        configure: Konfigurovat
         confirm_delete_process: Opravdu chcete odstranit tento proces? Pokud změníte názor, můžete jej obnovit později.
         confirm_destroy: Potvrďte smazání
         destroy: Odstranit
         duplicate: Duplikát
         edit: Upravit
         import_process: Importovat
-        menu_hidden: Skrýt
-        moderate: Moderovat
         new_process: Nový proces
         new_process_group: Nová skupina procesů
         new_process_step: Nový krok
