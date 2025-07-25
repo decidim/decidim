@@ -82,15 +82,12 @@ eu:
     admin:
       actions:
         activate: Aktibatu
-        configure: Konfiguratu
         confirm_delete_process: Ziur zaude prozesu hau ezabatu nahi duzula? Iritziz aldatzen baduzu, geroago berreskuratu ahal izango duzu.
         confirm_destroy: Berretsi ezabatu
         destroy: ezabatu
         duplicate: Bikoiztu
         edit: Editatu
         import_process: Inportatu
-        menu_hidden: Ezkutatu
-        moderate: Moderatu
         new_process: Beste prozesu bat
         new_process_group: Beste prozesu-talde bat
         new_process_step: Beste urrats bat
