@@ -66,22 +66,22 @@
 
                 <div class="inline-block relative">
                   <ul id="actions-private-user-<%= private_user.id %>" class="dropdown dropdown__action" aria-hidden="true">
-                    <% if allowed_to?(:invite, :space_private_user, private_user: private_user) && private_user.user.invited_to_sign_up? %>
+                    <% if allowed_to?(:edit, :space_private_user, private_user: private_user) %>
                       <li class="dropdown__item">
-                        <%= link_to resend_invitation_participatory_space_private_user_path(current_participatory_space, private_user), method: :post, class: "dropdown__button" do %>
-                          <%= icon "refresh-line" %>
-                          <%= t("actions.resend_invitation", scope: "decidim.admin") %>
+                        <%= link_to edit_participatory_space_private_user_path(current_participatory_space, private_user), class: "dropdown__button" do %>
+                          <%= icon "pencil-line" %>
+                          <%= t("actions.edit", scope: "decidim.admin") %>
                         <% end %>
                       </li>
 
                       <hr>
                     <% end %>
 
-                    <% if allowed_to?(:edit, :space_private_user, private_user: private_user) %>
+                    <% if allowed_to?(:invite, :space_private_user, private_user: private_user) && private_user.user.invited_to_sign_up? %>
                       <li class="dropdown__item">
-                        <%= link_to edit_participatory_space_private_user_path(current_participatory_space, private_user), class: "dropdown__button" do %>
-                          <%= icon "pencil-line" %>
-                          <%= t("actions.edit", scope: "decidim.admin") %>
+                        <%= link_to resend_invitation_participatory_space_private_user_path(current_participatory_space, private_user), method: :post, class: "dropdown__button" do %>
+                          <%= icon "refresh-line" %>
+                          <%= t("actions.resend_invitation", scope: "decidim.admin") %>
                         <% end %>
                       </li>
 

@@ -5,7 +5,7 @@ import formatAddress from "src/decidim/geocoding/format_address"
  * For the available address format keys, refer to:
  * https://developer.here.com/documentation/geocoder-autocomplete/dev_guide/topics/resource-type-response-suggest.html
  */
-$(() => {
+document.addEventListener("turbo:load", () => {
   const generateAddressLabel = formatAddress;
 
   $("[data-decidim-geocoding]").each((_i, el) => {

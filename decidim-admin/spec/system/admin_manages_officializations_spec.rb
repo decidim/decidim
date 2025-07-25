@@ -184,7 +184,7 @@ describe "Admin manages officializations" do
     it "redirect to conversation path" do
       within "tr[data-user-id=\"#{user.id}\"]" do
         find("button[data-component='dropdown']").click
-        click_on "Contact"
+        click_on "Send message"
       end
       expect(page).to have_current_path decidim.new_conversation_path(recipient_id: user.id)
     end

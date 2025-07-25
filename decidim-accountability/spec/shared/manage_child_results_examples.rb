@@ -76,14 +76,14 @@ RSpec.shared_examples "manage child results" do
       visit current_path
       within "tr", text: translated(result.title) do
         find("button[data-component='dropdown']").click
-        click_on "New result"
+        click_on "Add result"
       end
     end
 
     it "moves to the trash a result" do
       within "tr", text: translated(child_result.title) do
         find("button[data-component='dropdown']").click
-        accept_confirm { click_on "Soft delete" }
+        accept_confirm { click_on "Move to trash" }
       end
 
       expect(page).to have_admin_callout("successfully")

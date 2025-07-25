@@ -146,14 +146,11 @@ describe "Admin manages taxonomies" do
 
     before do
       visit decidim_admin.taxonomies_path
-      click_delete_taxonomy
     end
 
     it "displays a success message" do
+      click_delete_taxonomy
       expect(page).to have_content("Taxonomy successfully destroyed.")
-    end
-
-    it "deletes the taxonomy" do
       expect(page).to have_no_content(taxonomy.name)
     end
   end
