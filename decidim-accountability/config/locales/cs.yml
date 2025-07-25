@@ -42,8 +42,6 @@ cs:
   decidim:
     accountability:
       actions:
-        attachment_collections: Složky
-        attachments: Přílohy
         confirm_delete_result: Opravdu chcete odstranit tento výsledek?
         confirm_destroy: Opravdu chcete smazat tento %{name}?
         deleted_results_info: Odstraněné výsledky mohou být obnoveny z koše.
@@ -51,7 +49,6 @@ cs:
         edit: Upravit
         import: Importovat výsledky z jiné komponenty
         import_csv: Importovat výsledky z CSV souboru
-        milestones: Milníky
         new_milestone: Nový milník
         new_result: Nový výsledek
         new_status: Nový status
