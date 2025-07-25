@@ -19,7 +19,7 @@ window.initFoundation = (element) => {
   $(element).foundation();
 };
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   window.initFoundation(document);
 
   $(document).on("show.zf.dropdownMenu", function(event, $element) {

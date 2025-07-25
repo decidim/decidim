@@ -89,6 +89,7 @@ const graphQLFetcher = function (graphQLParams) {
   });
 };
 
+// We do not have turbo or decidim_core when this file is loaded, and we need to leave it with old "DOMContentLoaded"
 window.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("graphiql-container");
 
