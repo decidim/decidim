@@ -25,7 +25,7 @@ ca:
         confirm_delete_document: Segur que vols esborrar aquest document?
         deleted_document_info: Els documents eliminats es poden restaurar des de la paperera.
         edit: Editar
-        manage: Gestionar
+        manage: Configurar
         new: Nou text
         title: Accions
         view_deleted_documents: Veure els documents eliminats
