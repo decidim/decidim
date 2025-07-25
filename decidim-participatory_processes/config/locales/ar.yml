@@ -73,7 +73,6 @@ ar:
     admin:
       actions:
         activate: تفعيل
-        configure: تهيئة
         confirm_destroy: تأكيد الحذف
         destroy: حذف
         duplicate: مكرر
