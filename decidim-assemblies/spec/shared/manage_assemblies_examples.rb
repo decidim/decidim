@@ -150,10 +150,14 @@ shared_examples "manage assemblies" do
     end
 
     it "publishes the assembly" do
-      click_on "Publish"
+      within("tr", text: translated_attribute(assembly.title)) do
+        find("button[data-component='dropdown']").click
+        find("a", text: "Publish", visible: true).click
+      end
+
       expect(page).to have_content("successfully published")
       expect(page).to have_content("Unpublish")
-      expect(page).to have_current_path decidim_admin_assemblies.edit_assembly_path(assembly)
+      expect(page).to have_current_path decidim_admin_assemblies.assembly_path
 
       assembly.reload
       expect(assembly).to be_published
@@ -171,10 +175,14 @@ shared_examples "manage assemblies" do
     end
 
     it "unpublishes the assembly" do
-      click_on "Unpublish"
+      within("tr", text: translated_attribute(assembly.title)) do
+        find("button[data-component='dropdown']").click
+        find("a", text: "Unpublish", visible: true).click
+      end
+
       expect(page).to have_content("successfully unpublished")
       expect(page).to have_content("Publish")
-      expect(page).to have_current_path decidim_admin_assemblies.edit_assembly_path(assembly)
+      expect(page).to have_current_path decidim_admin_assemblies.assembly_path
 
       assembly.reload
       expect(assembly).not_to be_published
