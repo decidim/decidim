@@ -551,6 +551,9 @@
         index:
           actions:
             block: Blokker bruker
+            bulk_actions:
+              unreport:
+                title: Opphev rapport
             title: Handlinger
             unblock: Fjern blokkering av bruker
             unreport: Opphev rapport
@@ -567,6 +570,12 @@
           blocked: Blokkert
           unblocked: Ikke blokkert
       moderations:
+        index:
+          actions:
+            unhide:
+              title: Vis
+            unreport:
+              title: Opphev rapport
         report:
           reasons:
             does_not_belong: Tilhører ikke
