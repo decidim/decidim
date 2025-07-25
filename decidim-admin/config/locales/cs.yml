@@ -739,7 +739,7 @@ cs:
               title: Skrýt
               update_moderation_button: Skrýt vybrané zdroje
             unhide:
-              title: Zrušit skrytí
+              title: Odkrýt
               update_moderation_button: Odkrýt vybrané zdroje
             unreport:
               title: Zrušit nahlášení
@@ -870,7 +870,7 @@ cs:
         index:
           actions: Akce
           badge: Odznak
-          block: Zablokovat uživatele
+          block: Blokovat uživatele
           created_at: Vytvořeno na
           name: Název
           nickname: Přezdívka
