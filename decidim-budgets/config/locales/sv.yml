@@ -45,13 +45,10 @@ sv:
         deleted_projects_info: Kan inte ta bort detta projekt
     budgets:
       actions:
-        attachment_collections: Mappar
-        attachments: Bilagor
         confirm_delete_budget: Är du säker på att du vill ta bort budgeten?
         confirm_delete_project: Är du säker på att du vill radera projektet?
         deleted_budgets_info: Raderade budgetar kan återställas från papperskorgen.
         edit: Redigera
-        edit_projects: Hantera projekt
         import: Importera förslag till projekt
         new_budget: Ny budget
         new_project: Nytt projekt
