@@ -13,9 +13,9 @@ describe "Admin manages elections" do
   let(:participatory_space_manifests) { [participatory_process.manifest.name] }
   let!(:election) { create(:election, census_manifest: :token_csv, component: current_component) }
   let!(:scheduled_election) { create(:election, :published, :scheduled, component: current_component) }
-  let!(:published_election) { create(:election, :published, :per_question, :ongoing, census_manifest: :internal_users, component: current_component) }
+  let!(:published_election) { create(:election, :published, :per_question, :ongoing, :with_internal_users_census, component: current_component) }
   let!(:finished_election) { create(:election, :published, :finished, component: current_component) }
-  let!(:ongoing_election) { create(:election, :published, :ongoing, component: current_component) }
+  let!(:ongoing_election) { create(:election, :published, :ongoing, :with_token_csv_census, component: current_component) }
   let!(:published_results_election) { create(:election, :published, :published_results, component: current_component) }
 
   let(:attributes) { attributes_for(:election, component: current_component) }
@@ -123,6 +123,40 @@ describe "Admin manages elections" do
       expect(page).to have_content("Voting is not yet enabled for any questions.")
       click_on "Enable voting", match: :first
       expect(page).to have_no_content("Voting is not yet enabled for any questions.")
+    end
+  end
+
+  context "when the election is ongoing" do
+    let!(:question1) { create(:election_question, :with_response_options, election: ongoing_election) }
+    let!(:question2) { create(:election_question, :with_response_options, election: ongoing_election) }
+
+    before do
+      click_on translated(ongoing_election.title)
+    end
+
+    it "monitors the election" do
+      expect(page).to have_content("Results available after the election ends")
+      within "#question_#{question1.id}" do
+        expect(page).to have_content(translated(question1.body))
+        expect(page).to have_content("0 votes")
+        expect(page).to have_content("0.0%")
+      end
+      create(:election_vote, voter_uid: "user-1", question: question1, response_option: question1.response_options.first)
+      create(:election_vote, voter_uid: "user-2", question: question2, response_option: question2.response_options.first)
+      create(:election_vote, voter_uid: "user-3", question: question2, response_option: question2.response_options.second)
+      create(:election_vote, voter_uid: "user-4", question: question2, response_option: question2.response_options.second)
+      # wait for javascript to update the page
+      sleep 4
+      within "#question_#{question1.id}" do
+        expect(page).to have_content("1 vote")
+        expect(page).to have_content("100.0%")
+      end
+      within "#question_#{question2.id}" do
+        expect(page).to have_content("1 vote")
+        expect(page).to have_content("33.3%")
+        expect(page).to have_content("2 votes")
+        expect(page).to have_content("66.7%")
+      end
     end
   end
 end

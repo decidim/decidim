@@ -93,14 +93,10 @@ module Decidim
       end
 
       def finished?
-        end_at.present? && end_at <= Time.current
-      end
-
-      def finished?
         # If end_at is present and in the past, the election is finished no matter what type of voting
         @finished ||= if end_at.present? && end_at <= Time.current
                         true
-                      elsif per_question? && started?
+                      elsif per_question?
                         # Per question elections are considered finished if all questions have published results
                         questions.all?(&:published_results?)
                       else

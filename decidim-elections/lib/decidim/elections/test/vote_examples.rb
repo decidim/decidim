@@ -42,7 +42,7 @@ def fill_in_votes
   click_on "Exit the voting booth"
   expect(page).to have_current_path(election_path)
   expect(page).to have_content("You have already voted.")
-  expect(election.votes.where(voter_uid: voter_uid).count).to eq(3)
+  expect(election.votes.where(voter_uid: voter_uid).size).to eq(3)
 end
 
 shared_examples "a votable election" do
@@ -161,7 +161,7 @@ shared_examples "a csv token votable election" do
     click_on "Exit the voting booth"
     expect(page).to have_current_path(election_path)
     expect(page).to have_content("You have already voted.")
-    expect(election.votes.where(voter_uid: voter_uid).count).to eq(2)
+    expect(election.votes.where(voter_uid: voter_uid).size).to eq(2)
   end
 end
 
@@ -183,7 +183,7 @@ shared_examples "an editable votable election" do
     click_on "Exit the voting booth"
     expect(page).to have_current_path(election_path)
     expect(page).to have_content("You have already voted.")
-    expect(election.votes.where(voter_uid: voter_uid).count).to eq(3)
+    expect(election.votes.where(voter_uid: voter_uid).size).to eq(3)
   end
 end
 
@@ -210,6 +210,6 @@ shared_examples "a csv token editable votable election" do
     click_on "Exit the voting booth"
     expect(page).to have_current_path(election_path)
     expect(page).to have_content("You have already voted.")
-    expect(election.votes.where(voter_uid: voter_uid).count).to eq(3)
+    expect(election.votes.where(voter_uid: voter_uid).size).to eq(3)
   end
 end

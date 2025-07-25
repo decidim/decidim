@@ -15,6 +15,10 @@ module Decidim
         redirect_to(action: :waiting) if waiting_for_next_question?
       end
 
+      before_action only: [:show, :update] do
+        redirect_to(**next_vote_step_action) unless question.voting_enabled?
+      end
+
       # Show the voting form for the given question
       def show
         enforce_permission_to(:create, :vote, election:)
