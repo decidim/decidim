@@ -605,6 +605,9 @@ zh-TW:
         index:
           actions:
             block: 封鎖使用者
+            bulk_actions:
+              unreport:
+                title: 取消報告
             title: 操作
             unblock: 取消封鎖使用者
             unreport: 取消報告
@@ -623,6 +626,11 @@ zh-TW:
           unblocked: 未封鎖的
       moderations:
         index:
+          actions:
+            unhide:
+              title: 解除隱藏
+            unreport:
+              title: 取消報告
           title: 已檢舉內容
         report:
           reasons:
