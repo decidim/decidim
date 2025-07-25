@@ -42,7 +42,7 @@
       </div>
     <% end %>
 
-    <% if Decidim::Map.available?(:geocoding, :dynamic) && component_settings.geocoding_enabled? && !@focus_mode %>
+    <% if Decidim::Map.available?(:geocoding, :dynamic) && component_settings.geocoding_enabled? %>
       <div class="budget-list__map">
         <%= cell "decidim/map", all_geocoded_projects, metadata_card: "decidim/budgets/project_metadata" %>
       </div>
