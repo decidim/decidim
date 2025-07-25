@@ -567,6 +567,8 @@ ar:
             block: حظر مستخدم
             bulk_actions:
               actions_dropdown: الإجراءات
+              unreport:
+                title: إلغاء التبليغ
             title: الإجراءات
             unblock: إلغاء حظر المستخدم
             unreport: إلغاء التبليغ
@@ -586,6 +588,10 @@ ar:
             actions_dropdown: الإجراءات
             hide:
               title: إخفاء
+            unhide:
+              title: إظهار
+            unreport:
+              title: إلغاء التبليغ
         report:
           reasons:
             does_not_belong: لا ينتمي
