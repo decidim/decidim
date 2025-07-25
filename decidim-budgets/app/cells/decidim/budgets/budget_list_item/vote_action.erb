@@ -1,4 +1,4 @@
-<% if voted? %>
+<% if voted? && voting_open? %>
   <%= link_to(
         budget_order_path(budget),
         method: :delete,
