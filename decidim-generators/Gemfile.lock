@@ -105,7 +105,7 @@ PATH
       rqrcode (~> 2.2.0)
       rubyXL (~> 3.4)
       rubyzip (~> 2.0)
-      shakapacker (~> 8.1.0)
+      shakapacker (~> 8.3.0)
       valid_email2 (~> 7.0)
       web-push (~> 3.0)
       wisper (~> 3.0)
@@ -815,7 +815,7 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     semantic_range (3.1.0)
-    shakapacker (8.1.0)
+    shakapacker (8.3.0)
       activesupport (>= 5.2)
       package_json
       rack-proxy (>= 0.6.1)
