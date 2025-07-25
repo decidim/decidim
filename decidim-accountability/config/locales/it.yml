@@ -40,8 +40,6 @@ it:
   decidim:
     accountability:
       actions:
-        attachment_collections: Cartelle
-        attachments: Allegati
         confirm_delete_result: Sei sicuro di voler cancellare questo risultato?
         confirm_destroy: Sei sicuro di voler eliminare questo %{name}?
         deleted_results_info: I risultati eliminati possono essere ripristinati dal cestino.
@@ -49,7 +47,6 @@ it:
         edit: Modifica
         import: Importa risultati da un altro componente
         import_csv: Importa risultati da file CSV
-        milestones: Traguardi
         new_milestone: Nuovo traguardo
         new_result: Nuovo risultato
         new_status: Nuovo stato
