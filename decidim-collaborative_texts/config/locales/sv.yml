@@ -25,7 +25,6 @@ sv:
         confirm_delete_document: Är du säker på att du vill ta bort det här dokumentet?
         deleted_document_info: Raderat dokument kan återställas från papperskorgen.
         edit: Redigera
-        manage: Hantera
         new: Ny text
         title: Handlingar
         view_deleted_documents: Visa raderade dokument
