@@ -33,8 +33,6 @@ ro:
   decidim:
     accountability:
       actions:
-        attachment_collections: Dosare
-        attachments: Atașamente
         confirm_destroy: Sunteți sigur că doriți să ștergeți %{name}?
         destroy: Ștergeți
         edit: Actualizare
