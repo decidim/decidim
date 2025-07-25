@@ -267,8 +267,6 @@ de:
     meetings:
       actions:
         agenda: Agenda
-        attachment_collections: Ordner
-        attachments: Anhänge
         close: Schließen
         confirm_delete_meeting: Möchten Sie diese Veranstaltung wirklich löschen?
         deleted_meetings_info: Gelöschte Veranstaltungen können aus dem Papierkorb wiederhergestellt werden.
