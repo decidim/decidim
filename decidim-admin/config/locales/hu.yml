@@ -641,6 +641,9 @@ hu:
         index:
           actions:
             block: Felhasználó tiltása
+            bulk_actions:
+              unreport:
+                title: Jelentés visszavonása
             title: Műveletek
             unblock: Felhasználó feloldása
             unreport: Jelentés visszavonása
@@ -659,6 +662,11 @@ hu:
           unblocked: Nincs letiltva
       moderations:
         index:
+          actions:
+            unhide:
+              title: Felfedés
+            unreport:
+              title: Jelentés visszavonása
           title: Jelentett tartalom
         report:
           reasons:
@@ -762,7 +770,7 @@ hu:
           reports: Jelentések
           show_email: E-mail cím megjelenítése
           status: Állapot
-          unblock: Felhasználó tiltásának törlése
+          unblock: Felhasználó feloldása
           unofficialize: Hivatalossá tétel visszavonása
         new:
           badge: A hivatalosság jelvénye
