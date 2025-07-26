@@ -39,6 +39,8 @@ ja:
   decidim:
     accountability:
       actions:
+        add_milestone: マイルストーンを追加
+        add_result: 結果を追加
         confirm_delete_result: この結果を削除してもよろしいですか？
         confirm_destroy: この %{name} を削除してもよろしいですか？
         deleted_results_info: 削除された結果はゴミ箱から復元できます。
