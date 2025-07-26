@@ -51,6 +51,7 @@ cs:
         confirm_delete_project: Opravdu chcete odstranit tento projekt?
         deleted_budgets_info: Smazané rozpočty mohou být obnoveny z koše.
         edit: Upravit
+        edit_projects: Přidat projekty
         import: Importovat návrhy do projektů
         new_budget: Nový rozpočet
         new_project: Nový projekt
