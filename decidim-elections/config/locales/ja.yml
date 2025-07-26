@@ -80,7 +80,12 @@ ja:
             votes: 投票
           results:
             not_started: 選挙はまだ始まっていません。
+            per_question_waiting: 質問に対する投票はまだ有効になっていません。少なくとも一つは有効になるまで「次の質問を待っています」というメッセージが表示されます。
             publish_button: 結果を公開
+            results_availability:
+              after_end: 選挙終了後にすべての結果を公開できます。結果は手動で公開するまで非表示になります。
+              per_question: 投票を有効にし、各質問ごとに結果を手動で公開する必要があります。
+              real_time: 結果は選挙中に自動的に表示されます。
             start_question_button: 投票を有効化
             title: 結果
           status:
