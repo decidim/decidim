@@ -101,6 +101,9 @@ cs:
             email: E-mail
           validations:
             email_uniqueness: jiný admin se stejnou e-mailovou adresou již existuje
+        api_user:
+          fields:
+            key: Klíč
         oauth_application:
           fields:
             created_at: Vytvořeno v
