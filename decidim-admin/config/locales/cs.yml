@@ -173,7 +173,10 @@ cs:
           new: Nová příloha
         attachment_collection:
           new: Nová složka příloh
+        attachment_collections: Přidat složku
+        attachments: Přidat přílohu
         browse: Procházet
+        configure: Konfigurace
         confirm_delete_component: |
           Opravdu chcete odstranit tuto komponentu?<br>
           Tato komponenta obsahuje:<br>
@@ -184,14 +187,19 @@ cs:
         export: Exportovat
         export-selection: Exportovat výběr
         import: Importovat
+        menu_hidden: Skrýt v menu
+        moderate: Spravovat moderace
         newsletter:
           new: Nový zpravodaj
         participatory_space_private_user:
           new: Nový soukromý uživatel participačního prostoru
         per_page: Na stránku
+        permissions: Správa oprávnění
         restore: Obnovit
         send_me_a_test_email: Pošlete mi testovací e-mail
         share: Sdílet
+        share_tokens: Sdílet odkaz
+        soft_delete: Přesunout do koše
         user:
           new: Nový administrátor
         view_deleted_components: Zobrazit odstraněné komponenty
@@ -342,6 +350,8 @@ cs:
       conflicts:
         attempts: Pokusy
         'false': 'Ne'
+        index:
+          text: Hledat podle aktuálního uživatelského e-mailu, jména nebo přezdívky
         managed_user_name: Spravovaný uživatel
         solved: Vyřešeno
         title: Konflikty ověření
@@ -705,6 +715,7 @@ cs:
               title: Skrýt
               update_moderation_button: Skrýt vybrané zdroje
             unhide:
+              title: Vrátit skrytí
               update_moderation_button: Odkrýt vybrané zdroje
             unreport:
               update_moderation_button: Zrušit nahlášení vybraných zdrojů
@@ -834,6 +845,7 @@ cs:
         index:
           actions: Akce
           badge: Odznak
+          block: Blokovat
           created_at: Vytvořeno na
           name: Název
           nickname: Přezdívka
@@ -842,7 +854,10 @@ cs:
           officialized: Ověřen
           reofficialize: Znovu ověřit
           reports: Hlášení
+          send_message: Odeslat zprávu
+          show_email: Zobrazit e-mail
           status: Stav
+          unblock: Odblokovat
           unofficialize: Zrušit ověření
         new:
           badge: Odznak ověření
@@ -1070,6 +1085,8 @@ cs:
           error: Při aktualizaci tohoto tématu došlo k chybě.
           success: Téma bylo úspěšně aktualizováno
       static_pages:
+        actions:
+          view: Zobrazit
         create:
           error: Při vytváření nové stránky došlo k chybě.
           success: Stránka úspěšně vytvořena.
@@ -1097,6 +1114,9 @@ cs:
       taxonomies:
         actions:
           actions: Akce
+          destroy: Smazat
+          edit: Upravit
+          filters: Použít filtry
         breadcrumb:
           edit: Upravit taxonomii
           new: Nová taxonomie
