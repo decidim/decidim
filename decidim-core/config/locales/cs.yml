@@ -2347,6 +2347,7 @@ cs:
         profile: Můj účet
         public_profile: Můj veřejný profil
         title: Profilové odkazy
+        unread_notifications: Máte nepřečtené oznámení
       user_profile:
         account: Účet
         authorizations: Autorizace
