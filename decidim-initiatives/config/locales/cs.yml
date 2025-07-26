@@ -126,8 +126,12 @@ cs:
             state: Stav
             supports_count: Podpisy
             title: Iniciativy
+        initiatives_committee_member:
+          fields:
+            actions: Akce
         initiatives_type_scope:
           fields:
+            actions: Akce
             scope: Rozsah
             supports_required: Vyžadováno podpisů
           name: Rozsah typu iniciativy
@@ -267,6 +271,7 @@ cs:
             success: Iniciativa byla odeslána na technické potvrzení.
             update: Aktualizovat
           form:
+            attachments_title: Přílohy
             settings: Nastavení
             title: Obecná informace
           index:
