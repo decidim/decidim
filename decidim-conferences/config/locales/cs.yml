@@ -99,6 +99,9 @@ cs:
         new_speaker: Nový mluvčí
         send_diplomas: Odeslání certifikátů o účasti
         view_deleted_conferences: Zobrazit smazané konference
+      conference_duplicates:
+        new:
+          duplicate: Duplikovat
       conference_publications:
         create:
           error: Při publikování této konference došlo k chybě.
