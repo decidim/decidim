@@ -433,7 +433,7 @@ GEM
       mime-types
     fog-local (0.8.0)
       fog-core (>= 1.27, < 3.0)
-    formatador (1.1.0)
+    formatador (1.1.1)
     gemoji (3.0.1)
     geocoder (1.8.5)
       base64 (>= 0.1.0)
