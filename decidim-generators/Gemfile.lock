@@ -391,7 +391,7 @@ GEM
       concurrent-ruby (~> 1.0)
       logger
       zeitwerk (~> 2.6)
-    erb (5.0.1)
+    erb (5.0.2)
     erb_lint (0.8.0)
       activesupport
       better_html (>= 2.0.1)
