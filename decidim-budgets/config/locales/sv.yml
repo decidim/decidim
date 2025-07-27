@@ -49,6 +49,7 @@ sv:
         confirm_delete_project: Är du säker på att du vill radera projektet?
         deleted_budgets_info: Raderade budgetar kan återställas från papperskorgen.
         edit: Redigera
+        edit_projects: Lägg till projekt
         import: Importera förslag till projekt
         new_budget: Ny budget
         new_project: Nytt projekt
