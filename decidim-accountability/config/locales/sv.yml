@@ -40,6 +40,8 @@ sv:
   decidim:
     accountability:
       actions:
+        add_milestone: Lägg till milstolpe
+        add_result: Lägg till resultat
         confirm_delete_result: Vill du ta bort det här resultatet?
         confirm_destroy: Vill du radera detta %{name}?
         deleted_results_info: Borttagna resultat kan återställas från papperskorgen.
