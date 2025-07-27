@@ -538,7 +538,7 @@ GEM
       net-pop
       net-smtp
     marcel (1.0.4)
-    matrix (0.4.2)
+    matrix (0.4.3)
     mime-types (3.6.0)
       logger
       mime-types-data (~> 3.2015)
