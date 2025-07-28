@@ -127,7 +127,7 @@ describe "Explore Budgets", :slow do
         end
       end
 
-      context "when an item ha an uncompleted order" do
+      context "when an item has an incomplete order" do
         let!(:order) { create(:order, user:, budget:) }
         let!(:line_item) { create(:line_item, order:, project: projects.first) }
 
@@ -148,6 +148,13 @@ describe "Explore Budgets", :slow do
 
           expect(page).to have_no_content("Remove vote")
           expect(item).to have_content("3 projects")
+        end
+
+        it "shows the progress icon" do
+          visit_component
+
+          expect(item).to have_css("div.card__highlight-text svg.fill-warning")
+          expect(item).to have_content("Incomplete")
         end
       end
 

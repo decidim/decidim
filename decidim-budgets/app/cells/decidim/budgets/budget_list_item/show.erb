@@ -10,6 +10,12 @@
           <span class="text-success font-bold"><%= t("completed", scope: "decidim.budgets.budgets_list") %></span>
         </div>
       <% end %>
+      <% if progress? %>
+        <div class="float-right">
+          <%= icon "progress-2-line", class: "inline-block align-middle fill-warning ml-2 h-[1.5em] w-[1.5em]" %>
+          <span class="text-warning font-bold"><%= t("incomplete", scope: "decidim.budgets.budgets_list") %></span>
+        </div>
+      <% end %>
       <div class="my-2">
         <%= decidim_sanitize html_truncate(translated_attribute(description), length: 70) %>
       </div>
