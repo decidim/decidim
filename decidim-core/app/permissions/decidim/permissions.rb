@@ -107,6 +107,13 @@ module Decidim
         return disallow! unless component.current_settings.amendment_reaction_enabled
 
         amendable = context.fetch(:amendable, nil)
+
+        if amendable.respond_to?(:official?) && amendable.official?
+          return allow! if user.admin?
+
+          return disallow!
+        end
+
         return disallow! unless amendable.authored_by?(user)
 
         return allow!

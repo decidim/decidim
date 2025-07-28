@@ -226,6 +226,18 @@ describe Decidim::Permissions do
 
           it { is_expected.to be true }
         end
+
+        context "with an official amendable" do
+          let(:amendable) { build(:dummy_resource, component:, author: component.organization) }
+
+          it { is_expected.to be false }
+
+          context "and the user is an admin" do
+            let(:user) { create(:user, :confirmed, :admin) }
+
+            it { is_expected.to be true }
+          end
+        end
       end
 
       context "with a reject action" do
@@ -237,6 +249,18 @@ describe Decidim::Permissions do
           before { amendment.amendable.update!(author: user) }
 
           it { is_expected.to be true }
+        end
+
+        context "with an official amendable" do
+          let(:amendable) { build(:dummy_resource, component:, author: component.organization) }
+
+          it { is_expected.to be false }
+
+          context "and the user is an admin" do
+            let(:user) { create(:user, :confirmed, :admin) }
+
+            it { is_expected.to be true }
+          end
         end
       end
 
