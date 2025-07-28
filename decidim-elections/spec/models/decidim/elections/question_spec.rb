@@ -85,7 +85,7 @@ module Decidim
         it { expect(subject.published_results?).to be false }
 
         context "when published_results_at is present" do
-          let(:question) { build(:election_question, :results_published) }
+          let(:question) { build(:election_question, :published_results) }
 
           it { expect(subject.published_results?).to be true }
         end
@@ -117,7 +117,7 @@ module Decidim
           it { is_expected.to be_publishable_results }
 
           context "when already published results" do
-            let(:question) { build(:election_question, :results_published, voting_enabled_at:, election:) }
+            let(:question) { build(:election_question, :published_results, voting_enabled_at:, election:) }
 
             it { is_expected.not_to be_publishable_results }
           end

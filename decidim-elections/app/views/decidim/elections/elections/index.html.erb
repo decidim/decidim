@@ -1,0 +1,25 @@
+<% add_decidim_meta_tags(
+     description: translated_attribute(current_participatory_space.short_description),
+     title: t("decidim.components.pagination.page_title",
+              component_name: component_name,
+              current_page: paginated_elections.current_page,
+              total_pages: paginated_elections.total_pages ),
+     url: elections_url,
+     resource: current_component) %>
+
+<% append_stylesheet_pack_tag "decidim_elections", media: "all" %>
+
+<% content_for :aside do %>
+  <h1 class="title-decorator"><%= component_name %></h1>
+  <%= render layout: "decidim/shared/filters", locals: { filter_sections:, search_variable:, skip_to_id: "elections" } do %>
+    <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
+  <% end %>
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
+  <%= render partial: "decidim/shared/component_announcement" %>
+
+  <section id="elections" class="layout-main__section layout-main__heading">
+    <%= render partial: "elections" %>
+  </section>
+<% end %>
