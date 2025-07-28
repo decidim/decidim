@@ -7,6 +7,7 @@ module Decidim
       graphql_name "ProjectMutation"
 
       include Decidim::Core::AttachableMutations
+      include Decidim::Core::AttachableCollectionMutations
     end
   end
 end
