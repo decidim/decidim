@@ -28,7 +28,7 @@
   <%= form_with url: cast_election_votes_path(election_id: election), method: :post, local: true do %>
     <button type="submit" class="button button__lg button__secondary">
       <%= icon "mail-send-line", class: "fill-current" %>
-      <%= t("decidim.elections.votes.question.cast_vote") %>
+      <%= t(".cast_vote") %>
     </button>
   <% end %>
 </div>
