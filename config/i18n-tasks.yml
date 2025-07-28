@@ -155,6 +155,8 @@ ignore_unused:
   - decidim.elections.admin_log.election.*
   - decidim.elections.admin_log.question.*
   - decidim.elections.admin.statuses.*
+  - decidim.elections.elections.filters.state_values.*
+  - decidim.elections.elections.orders.*
   - decidim.proposals.answers.*
   - decidim.proposals.collaborative_drafts.show.see_other_versions
   - decidim.proposals.collaborative_drafts.wizard_aside.back

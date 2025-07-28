@@ -1,10 +1,5 @@
-.election-fields .card {
-  @apply mb-4 pt-4;
-}
-
 .label {
-  &.finished,
-  &.results_published {
+  &.finished {
     @apply bg-[var(--bg-success)] text-[var(--success)];
   }
 

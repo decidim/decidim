@@ -17,6 +17,8 @@ module Decidim
       include Decidim::Loggable
       include Decidim::Searchable
       include Decidim::Reportable
+      include Decidim::FilterableResource
+      include ActionView::Helpers::NumberHelper
 
       RESULTS_AVAILABILITY_OPTIONS = %w(real_time per_question after_end).freeze
 
@@ -31,7 +33,7 @@ module Decidim
 
       enum :results_availability, RESULTS_AVAILABILITY_OPTIONS.index_with(&:to_s), prefix: "results"
 
-      scope :upcoming, -> { published.where(start_at: Time.current..) }
+      scope :scheduled, -> { published.where(start_at: Time.current..).or(published.where(start_at: nil, published_results_at: nil, end_at: Time.current..)) }
       scope :ongoing, -> { published.where(start_at: ..Time.current, end_at: Time.current..) }
       scope :finished, -> { published.where(end_at: ..Time.current) }
 
@@ -49,6 +51,18 @@ module Decidim
         Decidim::Elections::AdminLog::ElectionPresenter
       end
 
+      def real_time?
+        results_availability == "real_time"
+      end
+
+      def after_end?
+        results_availability == "after_end"
+      end
+
+      def per_question?
+        results_availability == "per_question"
+      end
+
       def auto_start?
         start_at.present?
       end
@@ -58,7 +72,7 @@ module Decidim
       end
 
       def scheduled?
-        published? && !ongoing? && !vote_finished? && !results_published?
+        published? && !ongoing? && !finished? && !published_results?
       end
 
       def started?
@@ -66,23 +80,37 @@ module Decidim
       end
 
       def ongoing?
-        started? && !vote_finished?
+        started? && !finished?
       end
 
       def finished?
-        end_at.present? && end_at <= Time.current
+        # If end_at is present and in the past, the election is finished no matter what type of voting
+        @finished ||= if end_at.present? && end_at <= Time.current
+                        true
+                      elsif per_question?
+                        # Per question elections are considered finished if all questions have published results
+                        questions.all?(&:published_results?)
+                      else
+                        false
+                      end
       end
 
-      def vote_finished?
-        # If end_at is present and in the past, the election is finished no matter what type of voting
-        @vote_finished ||= if end_at.present? && end_at <= Time.current
-                             true
-                           elsif per_question? && started?
-                             # Per question elections are considered finished if all questions have published results
-                             questions.all?(&:published_results?)
-                           else
-                             false
-                           end
+      def published_results?
+        results_at.present?
+      end
+
+      # Date of results publication vary depending on the results_availability
+      # If results_availability is "per_question", the results are published when the first question
+      # has its results published.
+      # If results_availability is "real_time", the results are published as soon as the election has started.
+      # If "after_end", publication is manual
+      def results_at
+        return nil unless published?
+        return nil unless started?
+        return questions.published_results.first&.published_results_at if per_question?
+        return start_at if real_time?
+
+        published_results_at
       end
 
       def census
@@ -96,51 +124,53 @@ module Decidim
         census.ready?(self)
       end
 
-      def ready_to_publish_results?
-        return false unless published?
-        return false if results_published?
-        return false if questions.empty?
-
-        return vote_finished? unless per_question?
-
-        # If per_question, we can publish when there is at least one question enabled
-        questions.unpublished_results.any?(&:voting_enabled?)
-      end
-
-      def per_question?
-        results_availability == "per_question"
-      end
-
-      def per_question_waiting?
-        per_question? && !finished? && questions.unpublished_results.none?(&:voting_enabled?)
-      end
-
+      # if per question, only the enabled questions are returned
+      # if not, all questions are returned
       def available_questions
-        return questions.enabled if per_question?
+        return questions.enabled.unpublished_results if per_question?
 
         questions
       end
 
       def status
-        return :unpublished unless published?
-        return :ongoing if ongoing?
-        return :results_published if results_published?
-        return :finished if vote_finished?
+        return @status if defined?(@status)
 
-        :scheduled
+        @status =
+          if !published?
+            :unpublished
+          elsif ongoing?
+            :ongoing
+          elsif finished?
+            :finished
+          else
+            :scheduled
+          end
       end
 
-      def results_published?
-        case results_availability
-        when "real_time"
-          ongoing? || vote_finished? || published_results_at.present?
-        when "per_question"
-          vote_finished? && questions.enabled.any? && questions.enabled.all?(&:published_results_at)
-        when "after_end"
-          published_results_at.present?
-        else
-          false
-        end
+      # Returns the questions that are available for results.
+      def result_published_questions
+        return questions.published_results if per_question?
+        return available_questions if published_results?
+
+        []
+      end
+
+      scope_search_multi :with_any_state, [:ongoing, :finished, :scheduled]
+
+      # Create i18n ransackers for :title and :description.
+      # Create the :search_text ransacker alias for searching from both of these.
+      ransacker_i18n_multi :search_text, [:title, :description]
+
+      def self.ransackable_scopes(_auth_object = nil)
+        [:with_any_state]
+      end
+
+      def self.ransackable_associations(_auth_object = nil)
+        %w(questions response_options)
+      end
+
+      def self.ransackable_attributes(_auth_object = nil)
+        %w(search_text title description)
       end
     end
   end

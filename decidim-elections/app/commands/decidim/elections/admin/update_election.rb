@@ -9,7 +9,7 @@ module Decidim
 
         def initialize(form, election)
           super
-          @attached_to = election unless election.published?
+          @attached_to = election
         end
 
         private
@@ -43,14 +43,11 @@ module Decidim
         end
 
         def run_after_hooks
-          return if election.published?
-
           create_gallery if process_gallery?
           photo_cleanup!
         end
 
         def run_before_hooks
-          return if election.published?
           return unless process_gallery?
 
           build_gallery
