@@ -7,10 +7,10 @@ module Decidim
       type Decidim::Core::AttachmentType
 
       argument :attributes, AttachmentAttributes, description: "input attributes to update an attachment", required: true
-      argument :id, GraphQL::Types::ID, "The ID of the project", required: true
+      argument :id, GraphQL::Types::ID, "The ID of the attachment", required: true
 
       def resolve(attributes:, id:)
-        return GraphQL::ExecutionError.new(I18n.t("decidim.admin.attachments.update.error")) if attachment(id).nil?
+        return GraphQL::ExecutionError.new(I18n.t("decidim.admin.attachments.update.error")) unless attachment(id)
 
         file_attribute = attributes.file&.blob&.signed_id ||
                          attachment.file&.blob&.signed_id
