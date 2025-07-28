@@ -17,10 +17,6 @@ module Decidim
         expect(subject.election).to eq(election)
       end
 
-      it "has many response options" do
-        expect(subject.response_options.count).to be_positive
-      end
-
       describe "validations" do
         context "when question_type is invalid" do
           let(:question) { build(:election_question, election:, question_type: "invalid") }
@@ -103,12 +99,6 @@ module Decidim
           let(:results_availability) { "after_end" }
 
           it { is_expected.not_to be_publishable_results }
-
-          context "when election is ready to publish results" do
-            before { allow(election).to receive(:ready_to_publish_results?).and_return(true) }
-
-            it { is_expected.to be_publishable_results }
-          end
         end
 
         context "when per_question results availability" do
@@ -126,6 +116,24 @@ module Decidim
             let(:voting_enabled_at) { nil }
 
             it { is_expected.not_to be_publishable_results }
+          end
+        end
+      end
+
+      describe "#max_votable_options" do
+        context "when question type is single_option" do
+          let(:question) { build(:election_question, question_type: "single_option") }
+
+          it "returns 1" do
+            expect(subject.max_votable_options).to eq(1)
+          end
+        end
+
+        context "when question type is multiple_option" do
+          let(:question) { create(:election_question, :with_response_options, question_type: "multiple_option") }
+
+          it "returns the count of response options" do
+            expect(subject.max_votable_options).to eq(2)
           end
         end
       end

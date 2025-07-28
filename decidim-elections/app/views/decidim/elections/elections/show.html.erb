@@ -38,10 +38,4 @@
   <section class="layout-main__section">
     <div class="questions-list"><%= render partial: "questions", locals: { questions: } %></div>
   </section>
-
-  <% if election.published_results? %>
-    <section class="layout-main__section">
-      <div class="results-list"><%= render partial: "vote_results", locals: { questions: election.result_published_questions } %></div>
-    </section>
-  <% end %>
 <% end %>

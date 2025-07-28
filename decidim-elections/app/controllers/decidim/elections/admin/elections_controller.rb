@@ -9,7 +9,7 @@ module Decidim
         include Decidim::ApplicationHelper
         include Decidim::Elections::Admin::Filterable
 
-        helper_method :elections, :election, :election_questions
+        helper_method :elections, :election, :election_questions, :per_question_waiting?
 
         def index
           enforce_permission_to :read, :election
@@ -35,7 +35,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("elections.create.invalid", scope: "decidim.elections.admin")
-              render action: "new", status: :unprocessable_entity
+              render action: "new"
             end
           end
         end
@@ -58,7 +58,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("elections.update.invalid", scope: "decidim.elections.admin")
-              render action: "edit", status: :unprocessable_entity
+              render action: "edit"
             end
           end
         end
@@ -74,7 +74,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("elections.publish.invalid", scope: "decidim.elections.admin")
-              render action: "index", status: :unprocessable_entity
+              render action: "index"
             end
           end
         end
@@ -90,13 +90,17 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("elections.unpublish.invalid", scope: "decidim.elections.admin")
-              render action: "index", status: :unprocessable_entity
+              render action: "index"
             end
           end
         end
 
         def dashboard
           enforce_permission_to :dashboard, :election, election: election
+
+          respond_to do |format|
+            format.html { render :dashboard }
+          end
         end
 
         def update_status
@@ -116,6 +120,10 @@ module Decidim
         end
 
         private
+
+        def per_question_waiting?
+          @per_question_waiting ||= election.per_question? && !election.finished? && election.questions.unpublished_results.enabled.none?
+        end
 
         def elections
           @elections ||= filtered_collection

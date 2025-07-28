@@ -1,1 +1,91 @@
-// Styles
+#elections-header-container {
+  @apply w-full top-0 shadow-lg z-40 bg-white md:relative transition-top duration-300;
+}
+
+.vote-submitted,
+.waiting-room {
+  @apply flex flex-col items-center justify-center text-center h-[50vh];
+
+  .spinner-container::before {
+    @apply w-[72px] h-[72px] ml-[calc(50%-36px)] border-[10px] border-l-success border-y-success border-r-transparent;
+  }
+}
+
+.verification {
+  @apply flex items-center justify-between gap-4 border-[3px] border-background rounded px-4 py-2 cursor-pointer;
+
+  &__no_clickable {
+    @apply cursor-default;
+  }
+
+  &__container {
+    @apply space-y-8;
+  }
+
+  &__icon {
+    @apply flex-none w-8 h-8 text-gray fill-current;
+
+    &.is-granted {
+      @apply text-success;
+    }
+  }
+
+  &__text {
+    @apply grow space-y-2.5;
+
+    span {
+      @apply inline-block text-sm text-gray-2;
+    }
+  }
+
+  &:not(.verification__no_clickable):hover {
+    @apply border-tertiary;
+  }
+
+  &:not(.verification__no_clickable):hover &__text > :first-child {
+    @apply underline;
+  }
+}
+
+.card-accordion {
+  &-elections,
+  &-election-results {
+    @apply border border-gray rounded-lg py-2 px-4;
+
+    h3 {
+      @apply font-semibold text-primary text-lg mb-2 pt-2 pb-1;
+    }
+
+    h4 {
+      @apply font-medium text-gray-2 text-lg mb-1;
+    }
+
+    .card-accordion-divider-button {
+      @apply text-left items-start;
+
+      svg {
+        @apply mt-1;
+      }
+    }
+
+    .card-accordion-section {
+      @apply border-t border-gray mt-2 pt-4 pb-0 text-gray-2;
+
+      ul {
+        @apply list-none m-0 p-0;
+      }
+    }
+  }
+
+  &-election-results {
+    .percent-bar {
+      @apply relative h-3 flex-1 rounded bg-gray-3;
+
+      &-width {
+        @apply absolute h-full top-0 left-0 rounded bg-[var(--primary)];
+
+        transition: width 1s ease-in-out;
+      }
+    }
+  }
+}
