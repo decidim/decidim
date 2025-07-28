@@ -27,6 +27,7 @@ module Decidim
     autoload :CreateAttachmentType, "decidim/api/mutations/create_attachment_type"
     autoload :UpdateAttachmentType, "decidim/api/mutations/update_attachment_type"
     autoload :DeleteAttachmentType, "decidim/api/mutations/delete_attachment_type"
+    autoload :DeleteAttachmentCollectionType, "decidim/api/mutations/delete_attachment_collection_type"
     autoload :CreateAttachmentCollectionType, "decidim/api/mutations/create_attachment_collection_type"
     autoload :UpdateAttachmentCollectionType, "decidim/api/mutations/update_attachment_collection_type"
     autoload :DecidimType, "decidim/api/types/decidim_type"
