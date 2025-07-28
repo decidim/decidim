@@ -175,21 +175,23 @@ shared_examples "manage conferences" do
     let!(:conference) { create(:conference, :unpublished, organization:) }
 
     before do
-      within "tr", text: translated(conference.title) do
-        find("button[data-component='dropdown']").click
-        click_on "Edit"
-      end
+      visit decidim_admin_conferences.conferences_path
     end
 
     it "publishes the conference" do
       within("tr", text: translated_attribute(conference.title)) do
         find("button[data-component='dropdown']").click
-        find("a", text: "Unpublish", visible: true).click
+        find("a", text: "Publish", visible: true).click
       end
 
       expect(page).to have_content("successfully published")
-      expect(page).to have_content("Unpublish")
-      expect(page).to have_current_path decidim_admin_conferences.conference_path
+
+      within("tr", text: translated_attribute(conference.title)) do
+        find("button[data-component='dropdown']").click
+        expect(page).to have_content("Unpublish")
+      end
+
+      expect(page).to have_current_path decidim_admin_conferences.conferences_path
 
       conference.reload
       expect(conference).to be_published
@@ -200,10 +202,7 @@ shared_examples "manage conferences" do
     let!(:conference) { create(:conference, organization:) }
 
     before do
-      within "tr", text: translated(conference.title) do
-        find("button[data-component='dropdown']").click
-        click_on "Edit"
-      end
+      visit decidim_admin_conferences.conferences_path
     end
 
     it "unpublishes the conference" do
@@ -214,7 +213,7 @@ shared_examples "manage conferences" do
 
       expect(page).to have_content("successfully unpublished")
       expect(page).to have_content("Publish")
-      expect(page).to have_current_path decidim_admin_conferences.conference_path
+      expect(page).to have_current_path decidim_admin_conferences.conferences_path
 
       conference.reload
       expect(conference).not_to be_published
