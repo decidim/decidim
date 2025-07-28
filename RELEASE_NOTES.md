@@ -438,7 +438,7 @@ Do not use >= or ~> in your Gemfile for shakapacker without a lockfile.
 Do not use ^ or ~ in your package.json for shakapacker without a lockfile.
 ```
 
-Please check if you have the following file `packages/webpacker/package.json`, and edit the shakapacker version to 8.3.0 like follows:
+Please check if you have the following file `package.json`, and edit the shakapacker version to 8.3.0 like follows:
 
 ```json
     "shakapacker": "~8.3.0",
