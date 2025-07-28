@@ -4,20 +4,20 @@
       class: "main-bar__links-desktop__item",
       "aria-label": t("layouts.decidim.header.back")
   ) do %>
-      <%= icon "arrow-left-line" %>
-      <span class="ml-2"><%= yield(:focus_mode_return_string).presence || t("layouts.decidim.header.back") %></span>
+      <%= icon "arrow-left-line", class: "w-8 h-6 mr-2 fill-current" %>
+      <%= yield(:focus_mode_return_string).presence || t("layouts.decidim.header.back") %>
   <% end %>
 </div>
 
 <div class="main-bar__back-button lg:hidden">
   <%= link_to(
       content_for(:focus_mode_return_path),
-      class: "text-secondary",
+      class: "main-bar__links-desktop__item",
       type: :button,
       "aria-label": t("layouts.decidim.header.back")
     ) do %>
       <span class="flex items-center gap-1">
-        <%= icon "arrow-left-line", class: "w-8 h-6 fill-current" %>
+        <%= icon "arrow-left-line", class: "w-8 h-6 mr-2 fill-current" %>
         <%= t("layouts.decidim.header.back") %>
       </span>
     <% end %>
