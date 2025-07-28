@@ -97,6 +97,22 @@
             </li>
           <% end %>
 
+          <% if allowed_to? :publish, :process, process: process %>
+           <li class="dropdown__item">
+              <% if process.published? %>
+                <%= link_to participatory_process_publish_path(process), method: :delete, class: "dropdown__button" do %>
+                  <%= icon "close-circle-line" %>
+                  <%= t("actions.unpublish", scope: "decidim.admin") %>
+                <% end %>
+              <% else %>
+                <%= link_to participatory_process_publish_path(process), method: :post, class: "dropdown__button" do %>
+                  <%= icon "check-line" %>
+                  <%= t("actions.publish", scope: "decidim.admin") %>
+                <% end %>
+              <% end %>
+            </li>
+          <% end %>
+
           <hr>
 
           <% if allowed_to? :read, :moderation, process: process %>
