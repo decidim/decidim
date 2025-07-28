@@ -179,6 +179,27 @@ en:
           update: "%{user_name} updated the %{resource_name} election in %{space_name}"
         question:
           update: "%{user_name} updated the questions of the %{resource_name} election"
+      censuses:
+        census_ready_html: The census data is uploaded and prepared for its use in the <b>%{election_title}</b> election.
+        census_size_html:
+          one: There is currently <strong>1</strong> person eligible for voting in this election (this might change on a dynamic census).
+          other: There are currently <strong>%{count}</strong> people eligible for voting in this election (this might change on a dynamic census).
+        internal_users:
+          info_html: |
+            You can restrict participation in the election to participants who have an authorization.<br>
+            Note that participants will need to fulfill the selected authorizations in order to vote. Leaving all checkboxes empty will allow to vote anyone registered.
+          internal_type_title: Additional required authorizations to vote (optional)
+        token_csv:
+          example: |
+            email;token
+            user@example.org;123456
+            user2@example.org;ABCXYZ
+          info_html: |
+            Must be a file in CSV format with two columns, one with the email address and another with the value of a token that the user will have to introduce in order to vote.
+            It must be separated with a semicolon (;)
+          remove_before_upload: If you want to upload a new census, you must first remove the existing one.
+          upload_file: Upload file
+          upload_new_census: Upload a CSV file
       elections:
         count:
           elections_count:
