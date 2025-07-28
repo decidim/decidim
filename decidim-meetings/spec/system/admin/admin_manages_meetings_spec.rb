@@ -524,7 +524,7 @@ describe "Admin manages meetings" do
     it "deletes a meeting" do
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting2).title do
         find("button[data-component='dropdown']").click
-        accept_confirm { click_on "Soft delete" }
+        accept_confirm { click_on "Move to trash" }
       end
 
       expect(page).to have_admin_callout("successfully")

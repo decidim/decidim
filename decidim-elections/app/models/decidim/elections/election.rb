@@ -135,6 +135,8 @@ module Decidim
 
       # if per question, only the enabled questions are returned
       # if not, all questions are returned
+            # if per question, only the enabled questions are returned
+      # if not, all questions are returned
       def available_questions
         return questions.enabled.unpublished_results if per_question?
 

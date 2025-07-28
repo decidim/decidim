@@ -62,7 +62,7 @@ shared_examples "duplicate conferences" do
 
       within "tr", text: translated(conference.title) do
         find("button[data-component='dropdown']").click
-        click_on "Configure"
+        click_on "Edit"
       end
 
       within_admin_sidebar_menu do

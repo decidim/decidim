@@ -3,7 +3,7 @@
 shared_examples "export proposals" do
   let!(:proposals) { create_list(:proposal, 3, component: current_component) }
 
-  let(:export_type) { "Export all" }
+  let(:export_type) { "Export" }
 
   it_behaves_like "export as CSV"
   it_behaves_like "export as JSON"

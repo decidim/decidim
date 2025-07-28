@@ -26,16 +26,16 @@
 
         <% if component_settings.attachments_allowed? %>
           <li class="dropdown__item">
-            <%= link_to post_attachment_collections_path(post), class: "dropdown__button" do %>
-              <%= icon "folder-line" %>
-              <%= t("actions.attachment_collections", scope: "decidim.meetings") %>
+            <%= link_to post_attachments_path(post), class: "dropdown__button" do %>
+              <%= icon "attachment-line" %>
+              <%= t("actions.attachments", scope: "decidim.admin") %>
             <% end %>
           </li>
 
           <li class="dropdown__item">
-            <%= link_to post_attachments_path(post), class: "dropdown__button" do %>
-              <%= icon "attachment-line" %>
-              <%= t("actions.attachments", scope: "decidim.meetings") %>
+            <%= link_to post_attachment_collections_path(post), class: "dropdown__button" do %>
+              <%= icon "folder-line" %>
+              <%= t("actions.attachment_collections", scope: "decidim.admin") %>
             <% end %>
           </li>
 

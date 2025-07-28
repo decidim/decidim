@@ -40,7 +40,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = t("error", scope: "decidim.devise.registrations.create")
-            render :new
+            render :new, status: :unprocessable_entity
           end
         end
       end

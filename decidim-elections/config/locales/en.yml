@@ -76,7 +76,6 @@ en:
           questions:
             labels:
               answers: Answers
-              question_title: Question %{number}
             limit_info: This election has more questions. The preview is limited to 3 questions.
             title: Questions
           questions_table:

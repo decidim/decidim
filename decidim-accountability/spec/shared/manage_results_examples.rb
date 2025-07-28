@@ -110,7 +110,7 @@ shared_examples "manage results" do
     it "deletes a result" do
       within "tr", text: translated(result2.title) do
         find("button[data-component='dropdown']").click
-        accept_confirm { click_on "Soft delete" }
+        accept_confirm { click_on "Move to trash" }
       end
 
       expect(page).to have_admin_callout("successfully")
