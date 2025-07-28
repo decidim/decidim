@@ -9,6 +9,7 @@ module Decidim
       translatable_attribute :name, String
       translatable_attribute :description, String
       attribute :weight, Integer, default: 0
+      attribute :key, String
 
       mimic :attachment_collection
 
