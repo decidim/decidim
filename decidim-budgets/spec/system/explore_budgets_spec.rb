@@ -98,9 +98,44 @@ describe "Explore Budgets", :slow do
         expect(item).to have_link(translated(budget.title), href: budget_path(budget))
       end
 
-      context "when an item is bookmarked" do
+      context "without a logged-in user" do
+        before do
+          logout user, scope: :user
+        end
+
+        context "and the voting is open" do
+          it "links to the authorization modal" do
+            expect(item).to have_link(translated(budget.title), href: budget_path(budget))
+            expect(item).to have_css("a[data-dialog-open='loginModal']")
+          end
+        end
+
+        context "and the voting is disabled" do
+          let!(:component) { create(:budgets_component, :with_votes_disabled, manifest:, participatory_space: participatory_process) }
+
+          it "links to the resource" do
+            expect(item).to have_link(translated(budget.title), href: budget_path(budget))
+          end
+        end
+
+        context "and the voting is finished" do
+          let!(:component) { create(:budgets_component, :with_voting_finished, manifest:, participatory_space: participatory_process) }
+
+          it "links to the resource" do
+            expect(item).to have_link(translated(budget.title), href: budget_path(budget))
+          end
+        end
+      end
+
+      context "when an item ha an uncompleted order" do
         let!(:order) { create(:order, user:, budget:) }
         let!(:line_item) { create(:line_item, order:, project: projects.first) }
+
+        it "is identified" do
+          visit_component
+
+          expect(item.native["class"]).to have_content("budget__card__list-budget--progress")
+        end
 
         it "shows a finish voting link" do
           visit_component
@@ -127,10 +162,23 @@ describe "Explore Budgets", :slow do
           order
         end
 
+        it "links to the resource" do
+          visit_component
+
+          expect(item).to have_link(translated(budget.title), href: budget_path(budget))
+        end
+
+        it "is identified" do
+          visit_component
+
+          expect(item.native["class"]).to have_content("budget__card__list-budget--voted")
+        end
+
         it "shows the check icon" do
           visit_component
 
           expect(item).to have_css("div.card__highlight-text svg.fill-success")
+          expect(item).to have_content("Completed")
           expect(item).to have_link("See projects", href: budget_projects_path(budget))
         end
 
@@ -145,6 +193,38 @@ describe "Explore Budgets", :slow do
           within item do
             accept_confirm { click_on "Delete your vote" }
             expect(Decidim::Budgets::Order.where(budget:)).to be_blank
+          end
+        end
+
+        context "and the voting is disabled" do
+          let!(:component) { create(:budgets_component, :with_votes_disabled, manifest:, participatory_space: participatory_process) }
+
+          it "links to the resource" do
+            visit_component
+
+            expect(item).to have_link(translated(budget.title), href: budget_path(budget))
+          end
+
+          it "has no link to remove vote" do
+            visit_component
+
+            expect(item).to have_no_content("Delete your vote")
+          end
+        end
+
+        context "and the voting is finished" do
+          let!(:component) { create(:budgets_component, :with_voting_finished, manifest:, participatory_space: participatory_process) }
+
+          it "links to the resource" do
+            visit_component
+
+            expect(item).to have_link(translated(budget.title), href: budget_path(budget))
+          end
+
+          it "has no link to remove vote" do
+            visit_component
+
+            expect(item).to have_no_content("Delete your vote")
           end
         end
       end

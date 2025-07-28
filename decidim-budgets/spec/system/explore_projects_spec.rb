@@ -170,6 +170,23 @@ describe "Explore projects", :slow do
           within "#projects" do
             expect(page).to have_css(".card__list", count: 1)
             expect(page).to have_content(translated(project.title))
+            expect(page).to have_content("0 votes")
+          end
+        end
+
+        context "and votes are not shown" do
+          let(:active_step_id) { component.participatory_space.active_step.id }
+
+          before do
+            component.update!(step_settings: { active_step_id => { show_votes: false } })
+          end
+
+          it "does not show the votes" do
+            visit_budget
+
+            within "#projects" do
+              expect(page).to have_no_content("0 votes")
+            end
           end
         end
       end
