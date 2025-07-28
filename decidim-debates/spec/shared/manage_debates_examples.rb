@@ -71,7 +71,7 @@ RSpec.shared_examples "manage debates" do
 
     it "throws error when submitting with empty mandatory fields" do
       within "tr", text: translated(debate.title) do
-        page.find(".action-icon--edit").click
+        find('.action-icon--edit').click
       end
 
       within ".edit_debate" do

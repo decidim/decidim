@@ -210,7 +210,7 @@ describe "Admin manages meetings" do
       click_on "Edit"
     end
 
-    within ".edit_meeting" do
+    within "#edit_meeting_#{meeting.id}" do
       fill_in_i18n(:meeting_title, "#meeting-title-tabs", **attributes[:title].except("machine_translations"))
 
       within "#meeting_description_en" do
