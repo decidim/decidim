@@ -444,7 +444,7 @@ Please check if you have the following file `package.json`, and edit the shakapa
     "shakapacker": "~8.3.0",
 ```
 
-If the file does not exist, check and perform the same changes in the `package.json`
+If the file does not exist, check and perform the same changes in the `packages/webpacker/package.json`
 
 See more in the PR: [Bump shakapacker to version 8.3.0](https://github.com/decidim/decidim/pull/15016)
 
