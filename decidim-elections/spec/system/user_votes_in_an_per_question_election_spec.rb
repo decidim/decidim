@@ -21,8 +21,8 @@ describe "Dashboard" do
   let(:receipt_election_votes_path) { Decidim::EngineRouter.main_proxy(election.component).receipt_election_per_question_votes_path(election_id: election.id) }
   let(:confirm_election_votes_path) { Decidim::EngineRouter.main_proxy(election.component).confirm_election_per_question_votes_path(election_id: election.id) }
   let(:new_election_normal_vote_path) { Decidim::EngineRouter.main_proxy(election.component).new_election_vote_path(election_id: election.id) }
-  let!(:question1) { create(:election_question, :with_response_options, :voting_enabled, question_type: "single_option", election:) }
-  let!(:question2) { create(:election_question, :with_response_options, election:) }
+  let!(:question1) { create(:election_question, :with_response_options, :voting_enabled, question_type: "single_option", election:, position: 1) }
+  let!(:question2) { create(:election_question, :with_response_options, election:, position: 2) }
   let(:voter_uid) { user.to_global_id.to_s }
 
   def election_vote_path(question)
@@ -59,6 +59,18 @@ describe "Dashboard" do
 
       it_behaves_like "a per question votable election with published results"
     end
+  end
+
+  context "when navigating through already voted questions" do
+    let!(:question2) { create(:election_question, :with_response_options, :voting_enabled, election:, position: 2) }
+    let!(:question3) { create(:election_question, :with_response_options, election:, position: 3) }
+
+    before do
+      login_as user, scope: :user
+      visit election_path
+    end
+
+    it_behaves_like "a per question votable election with already voted questions"
   end
 
   context "when the election is real time" do

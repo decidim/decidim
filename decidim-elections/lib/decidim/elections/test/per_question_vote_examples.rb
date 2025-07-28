@@ -129,3 +129,36 @@ shared_examples "a per question votable election with published results" do
     expect(page).to have_content("You are not authorized to perform this action.")
   end
 end
+
+shared_examples "a per question votable election with already voted questions" do
+  it "allows the user to vote and see already voted questions" do
+    expect(page).to have_content(translated_attribute(election.title))
+    expect(page).to have_content(translated_attribute(question1.body))
+    expect(page).to have_content(translated_attribute(question2.body))
+    expect(page).to have_content(translated_attribute(question3.body))
+    click_on "Start voting"
+    choose translated_attribute(question1.response_options.first.body)
+    click_on "Cast vote"
+    check translated_attribute(question2.response_options.first.body)
+    click_on "Cast vote"
+    expect(page).to have_current_path(waiting_election_votes_path)
+    click_on "Edit your vote"
+    expect(page).to have_current_path(election_vote_path(question1))
+    expect(find("input[value='#{question1.response_options.first.id}']")).to be_checked
+    choose translated_attribute(question1.response_options.second.body)
+    click_on "Cast vote"
+    expect(page).to have_current_path(election_vote_path(question2))
+    expect(find("input[value='#{question2.response_options.first.id}']")).to be_checked
+    expect(find("input[value='#{question2.response_options.second.id}']")).not_to be_checked
+    check translated_attribute(question2.response_options.second.body)
+    click_on "Cast vote"
+    expect(page).to have_current_path(waiting_election_votes_path)
+    question1.update!(published_results_at: Time.current)
+    click_on "Edit your vote"
+    expect(page).to have_current_path(election_vote_path(question2))
+    question2.update!(published_results_at: Time.current)
+    click_on "Cast vote"
+    expect(page).to have_current_path(waiting_election_votes_path)
+    expect(page).to have_no_content("Edit your vote")
+  end
+end

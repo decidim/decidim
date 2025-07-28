@@ -18,8 +18,10 @@
     <% end %>
 
     <div class="ml-auto">
-      <%= submit_tag t("next", scope: "decidim.elections.votes.question"),
-                     class: "button button__lg button__secondary" %>
+      <button type="submit" class="button button__lg button__secondary">
+        <%= t("next", scope: "decidim.elections.votes.question") %>
+        <%= icon "arrow-right-line", class: "fill-current" %>
+      </button>
     </div>
   </div>
 <% end %>

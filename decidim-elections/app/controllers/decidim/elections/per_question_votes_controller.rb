@@ -11,7 +11,7 @@ module Decidim
         redirect_to Decidim::EngineRouter.main_proxy(current_component).new_election_vote_path(election) unless election.per_question?
       end
 
-      before_action only: [:show, :update, :receipt] do
+      before_action only: :receipt do
         redirect_to(action: :waiting) if waiting_for_next_question?
       end
 
@@ -79,7 +79,10 @@ module Decidim
       def next_vote_step_action
         return { action: :receipt } unless session_pending_questions.any?
 
-        { action: :show, id: session_pending_questions.enabled.first }
+        next_question = session_pending_questions.enabled.first.presence || question.next_question.presence
+        return { action: :waiting } if next_question.blank?
+
+        { action: :show, id: next_question }
       end
     end
   end

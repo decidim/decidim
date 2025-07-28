@@ -270,6 +270,7 @@ en:
       per_question_votes:
         waiting:
           description: You can wait here until the next question is available. You will be automatically redirected to the next question when it is ready.
+          edit_vote: Edit your vote
           exit_button: Exit the waiting room
           title: Waiting for the next question
       status:

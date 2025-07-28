@@ -4,5 +4,18 @@
     <h2 class="h2 text-center mb-6"><%= t(".title") %></h2>
     <p class="text-center"><%= t(".description") %></p>
   </div>
-  <%= link_to t(".exit_button"), exit_path, class: "button button__secondary button__sm w-full mt-12" %>
+  <div class="vote-navigation w-full flex justify-between mt-8">
+    <% if question.sibling_questions.any? %>
+      <%= link_to url_for(action: :show, id: question.sibling_questions.first), class: "button button__lg button__transparent-secondary" do %>
+    <%= icon "edit-line", class: "fill-current mr-2" %>
+    <%= t(".edit_vote") %>
+      <% end %>
+
+      <div class="ml-auto">
+        <%= link_to t(".exit_button"), exit_path, class: "button button__lg button__transparent-secondary" %>
+      </div>
+    <% else %>
+      <%= link_to t(".exit_button"), exit_path, class: "button button__lg button__transparent-secondary w-full" %>
+    <% end %>
+  </div>
 </div>

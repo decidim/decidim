@@ -91,8 +91,9 @@ shared_examples "a redirect to the waiting room" do |action|
   it "redirects to the waiting page if waiting for next question" do
     allow(controller).to receive(:redirect_to).with(action: :show, id: question)
     allow(controller).to receive(:waiting_for_next_question?).and_return(true)
+    election.questions.update_all(voting_enabled_at: nil)
 
-    expect(controller).to receive(:redirect_to).with(action: :waiting)
+    expect(controller).to receive(:redirect_to).with(action: :waiting).at_least(:once)
     do_action(action)
   end
 
