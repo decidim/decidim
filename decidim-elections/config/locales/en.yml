@@ -76,16 +76,12 @@ en:
           questions:
             labels:
               answers: Answers
-              question_title: Question %{number}
             limit_info: This election has more questions. The preview is limited to 3 questions.
             title: Questions
           questions_table:
             answer: Answers
             percentage: Percentage
             votes: Votes
-            votes_count:
-              one: 1 vote
-              other: "%{count} votes"
           results:
             not_started: Election has not started yet.
             per_question_waiting: Voting is not yet enabled for any questions. Participants will see a "Waiting for the next question" message until you activate at least one.
@@ -183,48 +179,6 @@ en:
           update: "%{user_name} updated the %{resource_name} election in %{space_name}"
         question:
           update: "%{user_name} updated the questions of the %{resource_name} election"
-      censuses:
-        census_ready_html: The census data is uploaded and prepared for its use in the <b>%{election_title}</b> election.
-        census_size_html:
-          one: There is currently <strong>1</strong> person eligible for voting in this election (this might change on a dynamic census).
-          other: There are currently <strong>%{count}</strong> people eligible for voting in this election (this might change on a dynamic census).
-        internal_users:
-          already_have_an_account?: Already have an account?
-          are_you_new?: New participant?
-          info_html: |
-            You can restrict participation in the election to participants who have an authorization.<br>
-            Note that participants will need to fulfill the selected authorizations in order to vote. Leaving all checkboxes empty will allow to vote anyone registered.
-          internal_type_title: Additional required authorizations to vote (optional)
-          label: Registered participants (dynamic)
-          sign_in_description: Log in to vote on this election
-          sign_up_description: Create an account to vote in this election
-        internal_users_form:
-          authorization_options_invalid: Unfortunately, although you have all the required authorizations, some of them are not valid for this election.
-          exit_button: Exit the voting booth
-          invalid: You are not authorized to vote in this election.
-          missing: Your user misses some required authorizations. Please check the information and try again.
-          not_authorized: '"%{adapter}" authorization does not match the required conditions.'
-          not_granted: '"%{adapter}" authorization is not granted.'
-          resume_with_method: Resume verification with %{name}
-          verify_with_method: Verify with %{name}
-        token_csv:
-          example: |
-            email;token
-            user@example.org;123456
-            user2@example.org;ABCXYZ
-          info_html: |
-            Must be a file in CSV format with two columns, one with the email address and another with the value of a token that the user will have to introduce in order to vote.
-            It must be separated with a semicolon (;)
-          label: Unregistered participants with tokens (fixed)
-          remove_before_upload: If you want to upload a new census, you must first remove the existing one.
-          upload_file: Upload file
-          upload_new_census: Upload a CSV file
-        token_csv_form:
-          email: Email
-          email_placeholder: Enter the voter's email address
-          invalid: The email or token is not valid. Please check the details and try again.
-          token: Token
-          token_placeholder: Enter the voter's token
       elections:
         count:
           elections_count:
@@ -250,16 +204,6 @@ en:
           title: Election questions
         show:
           vote_button: Start voting
-          voted: You have already voted. You can vote again, only your last vote will be counted.
-          votes_count:
-            one: 1 vote
-            other: "%{count} votes"
-        vote_results:
-          subtitle:
-            after_end: The election has ended. You can now see the results.
-            per_question: Results are available per question. You can see the results for each question after voting is enabled and results are published.
-            real_time: Results are available in real time. You can see the results while voting is in progress.
-          title: Results
       models:
         election:
           fields:
@@ -268,11 +212,6 @@ en:
             start_at: Start time
             status: Status
             title: Title
-      per_question_votes:
-        waiting:
-          description: You can wait here until the next question is available. You will be automatically redirected to the next question when it is ready.
-          exit_button: Exit the waiting room
-          title: Waiting for the next question
       status:
         active: Active
         finished: Finished
@@ -282,39 +221,11 @@ en:
         scheduled: Scheduled
         unpublished: Unpublished
         voting_enabled: Voting in progress
-      votes:
-        cast:
-          invalid: There was a problem casting your vote. Please check the information you provided and try again.
-          success: Your vote has been successfully cast.
-        check_census:
-          access: Access
-          election_not_open: The election is not open yet. Please check the dates and try again.
-          failed: Your identity could not be verified. Please check the information you provided and try again.
-          form_title: Verify your identity
-          invalid: User not found in the census.
-        confirm:
-          cast_vote: Cast vote
-          edit_vote: Edit your vote
-          not_answered: You have not answered this question.
-          title: Confirm your vote
-        not_authorized: You are not authorized to vote in this election.
-        question:
-          back: Back
-          cast_vote: Cast vote
-          next: Next
-        receipt:
-          description: Yo can vote again at any time while the voting period is open. Your previous vote will be overwritten by the new one.
-          exit_button: Exit the voting booth
-          title: Your votes have been cast successfully
     metadata:
       progress:
         published_results: 'Results published: %{end_date}'
     statistics:
       elections_count: Elections
-  layouts:
-    decidim:
-      election_votes_header:
-        exit: Close
   time:
     formats:
       short_with_time: "%b %-d, %Y, %-I:%M %p"

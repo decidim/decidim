@@ -12,11 +12,11 @@
 
     <div class="card-section">
       <div class="row column my-2">
-        <h3 class="h6"><%= t("labels.title", scope: "decidim.elections.admin.dashboard.main") %></h6>
+        <h3 class="h6"><%= t("labels.title", scope: "decidim.elections.admin.dashboard.main") %></h3>
         <div><%= translated_attribute election.title %></div>
       </div>
       <div class="row column my-2">
-        <h3 class="h6"><%= t("labels.description", scope: "decidim.elections.admin.dashboard.main") %></h6>
+        <h3 class="h6"><%= t("labels.description", scope: "decidim.elections.admin.dashboard.main") %></h3>
         <div><%= decidim_sanitize_translated election.description %></div>
       </div>
       <div class="row column my-2">
@@ -25,11 +25,11 @@
         <% end %>
       </div>
       <div class="row column my-2">
-        <h3 class="h6"><%= t("labels.calendar", scope: "decidim.elections.admin.dashboard.main") %></h6>
+        <h3 class="h6"><%= t("labels.calendar", scope: "decidim.elections.admin.dashboard.main") %></h3>
         <div><%= election.manual_start? ? t("decidim.elections.admin.dashboard.calendar.manual_start") : l(election.start_at, format: :decidim_short) %> - <%= l(election.end_at, format: :decidim_short) %></div>
       </div>
       <div class="row column">
-        <h3 class="h6"><%= t("labels.results", scope: "decidim.elections.admin.dashboard.main") %></h6>
+        <h3 class="h6"><%= t("labels.results", scope: "decidim.elections.admin.dashboard.main") %></h3>
         <div>
           <%= t("decidim.elections.admin.elections.form.results_availability.#{election.results_availability}") %>
           (<%= t("decidim.elections.admin.elections.form.results_availability.#{election.results_availability}_help") %>)
