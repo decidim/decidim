@@ -143,10 +143,7 @@ shared_examples "manage assemblies" do
     let!(:assembly) { create(:assembly, :unpublished, organization:, parent: parent_assembly) }
 
     before do
-      within("tr", text: translated(assembly.title)) do
-        find("button[data-component='dropdown']").click
-        click_on "Edit"
-      end
+      visit decidim_admin_assemblies.assemblies_path
     end
 
     it "publishes the assembly" do
@@ -156,8 +153,13 @@ shared_examples "manage assemblies" do
       end
 
       expect(page).to have_content("successfully published")
-      expect(page).to have_content("Unpublish")
-      expect(page).to have_current_path decidim_admin_assemblies.assembly_path
+
+      within("tr", text: translated_attribute(assembly.title)) do
+        find("button[data-component='dropdown']").click
+        expect(page).to have_content("Unpublish")
+      end
+
+      expect(page).to have_current_path decidim_admin_assemblies.assemblies_path
 
       assembly.reload
       expect(assembly).to be_published
@@ -168,10 +170,7 @@ shared_examples "manage assemblies" do
     let!(:assembly) { create(:assembly, organization:, parent: parent_assembly) }
 
     before do
-      within("tr", text: translated(assembly.title)) do
-        find("button[data-component='dropdown']").click
-        click_on "Edit"
-      end
+      visit decidim_admin_assemblies.assemblies_path
     end
 
     it "unpublishes the assembly" do
@@ -182,7 +181,7 @@ shared_examples "manage assemblies" do
 
       expect(page).to have_content("successfully unpublished")
       expect(page).to have_content("Publish")
-      expect(page).to have_current_path decidim_admin_assemblies.assembly_path
+      expect(page).to have_current_path decidim_admin_assemblies.assemblies_path
 
       assembly.reload
       expect(assembly).not_to be_published
