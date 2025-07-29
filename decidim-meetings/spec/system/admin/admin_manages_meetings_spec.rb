@@ -208,8 +208,8 @@ describe "Admin manages meetings" do
   it "throws error when submitting with empty mandatory fields" do
     visit current_path
 
-    within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
-      find(".action-icon--edit").click
+    within ".table-list" do
+      click_link_or_button meeting.title["en"].to_s
     end
 
     within "#edit_meeting_#{meeting.id}" do

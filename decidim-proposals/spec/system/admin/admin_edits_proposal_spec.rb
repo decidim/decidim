@@ -52,7 +52,13 @@ describe "Admin edits proposals" do
     it "throws error when updating with empty mandatory field" do
       visit_component_admin
 
-      find("a.action-icon--edit-proposal").click
+      within ".table-list" do
+        find("#actions-proposal-#{proposal.id}").click
+        within "#actions-proposal-#{proposal.id}" do
+          click_link_or_button "Edit proposal"
+        end
+      end
+
       expect(page).to have_content "Update proposal"
 
       fill_in_i18n :proposal_title, "#proposal-title-tabs", **attributes[:title].except("machine_translations")
