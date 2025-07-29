@@ -113,6 +113,22 @@
             </li>
           <% end %>
 
+          <% if allowed_to? :publish, :assembly, assembly: assembly %>
+            <li class="dropdown__item">
+              <% if assembly.published? %>
+                <%= link_to assembly_publish_path(assembly), method: :delete, class: "dropdown__button" do %>
+                  <%= icon "close-circle-line" %>
+                  <%= t("actions.unpublish", scope: "decidim.admin") %>
+                <% end %>
+              <% else %>
+                <%= link_to assembly_publish_path(assembly), method: :post, class: "dropdown__button" do %>
+                  <%= icon "check-line" %>
+                  <%= t("actions.publish", scope: "decidim.admin") %>
+                <% end %>
+              <% end %>
+            </li>
+          <% end %>
+
           <hr>
 
           <% if allowed_to? :read, :moderation, assembly: assembly %>
