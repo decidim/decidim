@@ -221,7 +221,7 @@ export default class Suggestion {
     this.text = this.item.querySelector(".collaborative-texts-suggestions-box-item-text");
     this.text.innerHTML = this.summary;
     this.boxItems.appendChild(this.item);
-    this.dropdown = this.item.querySelector('[data-component="dropdown"]');
+    this.dropdown = this.item.querySelector('[data-controller="dropdown"]');
     if (this.doc.dataset.collaborativeTextsRolloutUrl) {
       createDropdown(this.dropdown);
     } else {
