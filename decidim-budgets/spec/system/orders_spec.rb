@@ -574,7 +574,7 @@ describe "Orders" do
         visit_budget
 
         within "#project-#{project.id}-item" do
-          expect(page).to have_css(".project-votes", text: "1 vote")
+          expect(page).to have_content("1 vote")
         end
       end
     end

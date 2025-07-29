@@ -12,7 +12,7 @@ module Decidim
       def show
         return unless show_votes_count?
 
-        content_tag :span, content, class: css_class
+        content
       end
 
       private
@@ -31,12 +31,6 @@ module Decidim
 
       def count_label
         content_tag(:span, t("decidim.budgets.projects.project.votes", count: model.confirmed_orders_count))
-      end
-
-      def css_class
-        css = ["project-votes"]
-        css << options[:class] if options[:class]
-        css.join(" ")
       end
     end
   end
