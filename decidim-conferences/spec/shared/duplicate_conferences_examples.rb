@@ -13,7 +13,7 @@ shared_examples "duplicate conferences" do
   context "without any context" do
     it "copies the conference with the basic fields" do
       within "tr", text: translated(conference.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Duplicate"
       end
 
@@ -38,7 +38,7 @@ shared_examples "duplicate conferences" do
   context "with context" do
     before do
       within "tr", text: translated(conference.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Duplicate"
       end
 
@@ -61,7 +61,7 @@ shared_examples "duplicate conferences" do
       expect(page).to have_content("successfully")
 
       within "tr", text: translated(conference.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 

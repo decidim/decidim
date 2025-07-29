@@ -7,7 +7,7 @@ shared_examples "cancel sortitions" do
     before do
       visit_component_admin
       within "tr", text: decidim_escape_translated(sortition.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Cancel the sortition"
       end
     end

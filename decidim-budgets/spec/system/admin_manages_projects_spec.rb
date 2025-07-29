@@ -22,7 +22,7 @@ describe "Admin manages projects" do
     visit_component_admin
 
     within "tr", text: translated(budget.title) do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       click_on "Add projects"
     end
   end

@@ -22,7 +22,7 @@ describe "Admin manages meetings polls" do
     it "shows manage poll action" do
       visit current_path
       within "tr", text: translated(meeting.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Manage poll"
       end
 
