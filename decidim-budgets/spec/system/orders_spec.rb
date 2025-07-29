@@ -51,7 +51,7 @@ describe "Orders" do
       context "when voting by percentage threshold" do
         it "displays description messages" do
           within ".budget-summary", match: :first do
-            expect(page).to have_content("Start adding projects. Assign at least € 70,000,000 to the projects you want and vote according to your preferences.")
+            expect(page).to have_content("Assign at least € 70,000,000 to the projects you want and vote according to your preferences.")
           end
         end
       end
@@ -66,7 +66,7 @@ describe "Orders" do
 
         it "displays description messages" do
           within ".budget-summary", match: :first do
-            expect(page).to have_content("Start adding projects. Select at least 3 projects you want and vote according to your preferences.")
+            expect(page).to have_content("Select at least 3 projects you want and vote according to your preferences.")
           end
         end
       end
@@ -82,7 +82,7 @@ describe "Orders" do
 
         it "displays description messages" do
           within ".budget-summary", match: :first do
-            expect(page).to have_content("Start adding projects. Select up to 6 projects you want and vote according to your preferences.")
+            expect(page).to have_content("Select up to 6 projects you want and vote according to your preferences.")
           end
         end
       end
@@ -97,7 +97,7 @@ describe "Orders" do
 
         it "displays description messages" do
           within ".budget-summary", match: :first do
-            expect(page).to have_content("Start adding projects. Select at least 3 and up to 6 projects you want and vote according to your preferences.")
+            expect(page).to have_content("Select at least 3 and up to 6 projects you want and vote according to your preferences.")
           end
         end
       end
