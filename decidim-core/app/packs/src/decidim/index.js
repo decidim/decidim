@@ -114,7 +114,7 @@ window.initFoundation = (element) => {
   $document.off("click.zf.trigger", window.Foundation.Triggers.Listeners.Basic.openListener);
   $document.on("click.zf.trigger", "[data-open]", (ev, ...restArgs) => {
     // Do not apply for the accordion triggers.
-    const accordion = ev.currentTarget?.closest("[data-component='accordion']");
+    const accordion = ev.currentTarget?.closest("[data-controller='accordion']");
     if (accordion) {
       return;
     }
@@ -182,7 +182,11 @@ const initializer = (element = document) => {
 
   scrollToLastChild(element)
 
-  element.querySelectorAll('[data-component="accordion"]').forEach((component) => createAccordion(component))
+  element.querySelectorAll('[data-controller="accordion"]').forEach((component) => createAccordion(component))
+  element.querySelectorAll('[data-component="accordion"]').forEach(() => {
+    // eslint-disable-next-line no-alert
+    alert(`${window.location.href} Using accordion component`);
+  })
 
   element.querySelectorAll('[data-component="dropdown"]').forEach((component) => createDropdown(component))
 

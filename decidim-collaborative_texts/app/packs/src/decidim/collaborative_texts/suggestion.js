@@ -189,7 +189,7 @@ export default class Suggestion {
   // Because the A11y accordion has not an API to programmatically toggle the
   // accordion, we need to destroy and recreate it to reset the state
   _resetAccordion() {
-    let accordion = this.boxWrapper.querySelector('[data-component="accordion"]');
+    let accordion = this.boxWrapper.querySelector('[data-controller="accordion"]');
     Accordions.destroy(accordion.id);
     createAccordion(accordion);
   }
