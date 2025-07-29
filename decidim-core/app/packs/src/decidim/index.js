@@ -185,8 +185,7 @@ const initializer = (element = document) => {
   element.querySelectorAll('[data-component="accordion"]').forEach((component) => createAccordion(component))
 
 
-  element.querySelectorAll('[data-controller="dropdown"]').forEach((component) => createAccordion(component))
-
+  element.querySelectorAll('[data-controller="dropdown"]').forEach((component) => createDropdown(component))
   element.querySelectorAll('[data-component="dropdown"]').forEach((component) => {
     alert(`${window.location.href} Using dropdwon component`);
   })
