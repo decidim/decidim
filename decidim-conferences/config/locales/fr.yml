@@ -102,6 +102,8 @@ fr:
       conference_copies:
         new:
           copy: Copier
+          select: Sélectionnez les données que vous souhaitez dupliquer
+          title: Dupliquer la conférence
       conference_publications:
         create:
           error: Une erreur s'est produite lors de la publication de cette conférence.
@@ -172,6 +174,10 @@ fr:
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette conférence.
           success: Conférence mise à jour avec succès.
+      conferences_copies:
+        create:
+          error: Un problème est survenu lors de la duplication de cette conférence.
+          success: Conférence dupliquée avec succès.
       media_links:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau lien multimédia.
