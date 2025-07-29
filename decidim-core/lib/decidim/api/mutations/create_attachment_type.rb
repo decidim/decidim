@@ -9,7 +9,11 @@ module Decidim
       argument :attributes, AttachmentAttributes, description: "input attributes to create an attachment", required: true
 
       def resolve(attributes:)
-        form = Admin::AttachmentForm.from_params(attributes.to_h.merge(file: attributes.file.blob.signed_id))
+        form_attrs = attributes.to_h.merge(
+          file: attributes.file.blob.signed_id,
+          attachment_collection_id: attributes.collection&.id_value
+        )
+        form = Admin::AttachmentForm.from_params(form_attrs)
                                     .with_context(
                                       current_component: context[:current_component],
                                       current_organization: context[:current_organization],
