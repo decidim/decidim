@@ -292,13 +292,13 @@ en:
             minimum_reached: You have reached the minimum to be able to vote
           minimum: Minimum
           minimum_projects_rule:
-            description: <b>Select at least %{minimum_number} projects</b> you want and vote according to your preferences.
+            description: "<b>Select at least %{minimum_number} projects</b> you want and vote according to your preferences."
           projects_rule:
-            description: <b>Select at least %{minimum_number} and up to %{maximum_number} projects</b> you want and vote according to your preferences.
+            description: "<b>Select at least %{minimum_number} and up to %{maximum_number} projects</b> you want and vote according to your preferences."
           projects_rule_maximum_only:
-            description: <b>Select up to %{maximum_number} projects</b> you want and vote according to your preferences.
+            description: "<b>Select up to %{maximum_number} projects</b> you want and vote according to your preferences."
           vote_threshold_percent_rule:
-            description: <b>Assign at least %{minimum_budget}</b> to the projects you want and vote according to your preferences.
+            description: "<b>Assign at least %{minimum_budget}</b> to the projects you want and vote according to your preferences."
         orders:
           highest_cost: Highest cost
           label: Order projects by
