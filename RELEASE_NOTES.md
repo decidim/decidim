@@ -110,7 +110,7 @@ You can read more about the Rails upgrade process on the following PRs:
 
 ### 1.5. Run these commands
 
-We are upgrading Shakapacker to the last version, if you encounter issues, refer to section 3.10 if you get any Shakapacker related errors.
+Shakapacker has been upgraded to the latest version. See section 3.10 for troubleshooting errors.
 
 ```console
 bundle update decidim
