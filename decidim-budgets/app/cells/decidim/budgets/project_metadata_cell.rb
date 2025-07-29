@@ -20,7 +20,7 @@ module Decidim
       private
 
       def project_items
-        taxonomy_items + [status_item] + [budget_amount]
+        [status_item] + taxonomy_items + [budget_amount]
       end
 
       def items_for_map
