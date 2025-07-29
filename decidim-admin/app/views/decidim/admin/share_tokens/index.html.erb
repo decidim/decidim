@@ -42,7 +42,7 @@
                 <%= share_token.times_used %>
               </td>
                 <td data-label="<%= t("models.share_token.fields.actions", scope: "decidim.admin") %>" class="table-list__actions">
-                  <button type="button" data-component="dropdown" data-target="actions-share-token-<%= share_token.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: share_token.token) %>">
+                  <button type="button" data-controller="dropdown" data-target="actions-share-token-<%= share_token.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: share_token.token) %>">
                   <%= icon "more-fill", class: "text-secondary" %>
                 </button>
 
