@@ -426,7 +426,7 @@ You can read more about this change on PR [#14803](https://github.com/decidim/de
 
 ### 3.10. Shakapacker upgrade
 
-In our efforts to continuously upgrade the platform, we are upgrading Shakapacker to the latest version available. That is 8.3.0 at the time of this release. If you encounter any error similar to this one:
+In our efforts to continuously upgrade the platform, we are upgrading Shakapacker to the latest version available. That is v8.3.0 at the time of this release. If you encounter any error similar to this one:
 
 ```console
 **ERROR** Shakapacker: Shakapacker gem and node package versions do not match
