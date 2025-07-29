@@ -188,8 +188,7 @@ const initializer = (element = document) => {
     {
       return;
     }
-    // eslint-disable-next-line no-alert
-    alert(`${window.location.href} Using accordion component`);
+    console.error(`${window.location.href} Using accordion component`);
     createAccordion(component);
   })
 
