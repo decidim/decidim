@@ -183,9 +183,14 @@ const initializer = (element = document) => {
   scrollToLastChild(element)
 
   element.querySelectorAll('[data-controller="accordion"]').forEach((component) => createAccordion(component))
-  element.querySelectorAll('[data-component="accordion"]').forEach(() => {
+  element.querySelectorAll('[data-component="accordion"]').forEach((component) => {
+    if (component.hasAttribute("data-controller"))
+    {
+      return;
+    }
     // eslint-disable-next-line no-alert
     alert(`${window.location.href} Using accordion component`);
+    createAccordion(component);
   })
 
   element.querySelectorAll('[data-component="dropdown"]').forEach((component) => createDropdown(component))
