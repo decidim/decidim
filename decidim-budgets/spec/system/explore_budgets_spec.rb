@@ -130,6 +130,7 @@ describe "Explore Budgets", :slow do
       context "when an item has an incomplete order" do
         let!(:order) { create(:order, user:, budget:) }
         let!(:line_item) { create(:line_item, order:, project: projects.first) }
+        let(:item) { page.find("#voted-budgets .card--list__item:first-child") }
 
         it "is identified" do
           visit_component
