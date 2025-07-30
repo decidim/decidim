@@ -12,14 +12,7 @@ module Decidim
       def resolve(attributes:, id:)
         return GraphQL::ExecutionError.new(I18n.t("decidim.admin.attachments.update.error")) unless attachment(id)
 
-        file_attribute = attributes.file&.blob&.signed_id ||
-                         attachment.file&.blob&.signed_id
-        form_params = attributes.to_h.reverse_merge(
-          title: attachment.title,
-          description: attachment.description,
-          weight: attachment.weight,
-          file: file_attribute
-        )
+        form_params = params_from_attritubtes(attributes)
         form = Admin::AttachmentForm.from_params(form_params).with_context(
           current_component: context[:current_component],
           current_organization: context[:current_organization],
@@ -57,6 +50,21 @@ module Decidim
           id ||= arguments[:id]
           object.attachments.find_by(id:)
         end
+      end
+
+      def params_from_attritubtes(attributes)
+        file_attribute = attributes.file&.blob&.signed_id ||
+                         attachment.file&.blob&.signed_id
+        attachment_attribute = attributes.collection&.id_value || attachment.attachment_collection&.id
+        {
+          title: attachment.title,
+          description: attachment.description,
+          weight: attachment.weight,
+          file: file_attribute,
+          attachment_collection_id: attachment_attribute
+        }.merge(
+          attributes.to_h.slice(:title, :description, :weight)
+        )
       end
     end
   end
