@@ -31,6 +31,10 @@ module Decidim
       def workflow_name
         @workflow_name ||= current_component.settings.workflow.to_sym
       end
+
+      def set_focus_mode_if_voting_open
+        @focus_mode = true if voting_open?
+      end
     end
   end
 end

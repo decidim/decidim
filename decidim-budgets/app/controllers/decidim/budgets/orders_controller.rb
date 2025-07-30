@@ -78,10 +78,6 @@ module Decidim
       def pending_to_vote_budgets
         current_workflow.budgets - current_workflow.voted - [current_order.budget]
       end
-
-      def set_focus_mode_if_voting_open
-        @focus_mode = true if voting_open?
-      end
     end
   end
 end

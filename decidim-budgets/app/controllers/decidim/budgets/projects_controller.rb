@@ -100,10 +100,6 @@ module Decidim
           }
         ].select { |item| item[:enabled] }
       end
-
-      def set_focus_mode_if_voting_open
-        @focus_mode = true if voting_open?
-      end
     end
   end
 end
