@@ -1,19 +1,24 @@
 <% add_decidim_page_title(t(".title")) %>
 
-<%= render "decidim/surveys/admin/surveys/tabs_menu" do %>
-  <%= button_tag t("save", scope: "decidim.forms.admin.questionnaires.edit"), class: "main-tabs-menu__cta-button", form: "survey-form" %>
-<% end %>
-
-<div class="item_show__header">
+<div class="item_show__header" style="border-bottom: none;">
   <h1 class="item_show__header-title">
     <%= t(".title") %>
   </h1>
 </div>
 
-<div class="grid-cols-1">
-  <div class="item__edit-form">
+<%= render "decidim/surveys/admin/surveys/tabs_menu" do %>
+<% end %>
+
+<div class="grid-cols-1 2xl:mr-80">
+  <div class="item__edit-form pb-24">
     <%= decidim_form_for(@form, html: { id: "survey-form", class: "form-defaults form edit_questionnaire" }) do |form| %>
       <%= render "decidim/forms/admin/questionnaires/form", form: %>
     <% end %>
+  </div>
+
+  <div class="item__edit-sticky">
+    <div class="item__edit-sticky-container">
+      <%= button_tag t("save", scope: "decidim.forms.admin.questionnaires.edit"), class: "main-tabs-menu__cta-button", form: "survey-form" %>
+    </div>
   </div>
 </div>
