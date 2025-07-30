@@ -9,5 +9,9 @@
     <% voted.each do |budget| %>
       <%= cell("decidim/budgets/budget_list_item", budget) %>
     <% end %>
+
+    <% progress_budgets.each do |budget| %>
+      <%= cell("decidim/budgets/budget_list_item", budget) %>
+    <% end %>
   </div>
 <% end %>
