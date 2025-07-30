@@ -25,12 +25,41 @@ describe "Explore projects", :slow do
     let(:description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
     let(:project) { create(:project, budget:, description:) }
 
-    before do
-      visit_budget
-      click_on translated(project.title)
+    context "when voting is open" do
+      before do
+        visit_budget
+        click_on translated(project.title)
+      end
+
+      it_behaves_like "has embedded video in description", :description
     end
 
-    it_behaves_like "has embedded video in description", :description
+    context "when voting is finished" do
+      let(:active_step_id) { participatory_process.active_step.id }
+
+      before do
+        component.update!(step_settings: { active_step_id => { votes: :finished, show_votes: } })
+
+        visit_budget
+        click_on translated(project.title)
+      end
+
+      context "when 'show votes' setting is disabled" do
+        let(:show_votes) { false }
+
+        it "does not show the votes" do
+          expect(page).to have_no_css("[data-spec-project-votes]", text: 0)
+        end
+      end
+
+      context "when 'show votes' setting is enabled" do
+        let(:show_votes) { true }
+
+        it "shows the votes" do
+          expect(page).to have_css("[data-spec-project-votes]", text: 0)
+        end
+      end
+    end
   end
 
   describe "index" do
