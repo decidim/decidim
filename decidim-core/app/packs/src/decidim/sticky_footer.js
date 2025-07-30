@@ -24,11 +24,6 @@ const adjustCtasButtons = () => {
     return;
   }
 
-  // On focus or ephemeral mode we do not have footer
-  if (!footer) {
-    return;
-  }
-
   if (isScreenSize("md")) {
     footer.style.marginBottom = "0px";
     return;
