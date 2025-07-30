@@ -342,7 +342,7 @@ describe "Orders" do
         budget_projects_path = Decidim::EngineRouter.main_proxy(component).budget_projects_path(budget)
         visit_budget
 
-        page.find("a[data-close-focus-mode]").click
+        click_on "Back to budgets"
 
         expect(page).to have_content("You have not yet voted")
         expect(page).to have_current_path budget_projects_path
