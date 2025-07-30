@@ -11,10 +11,8 @@
 
   <%= render partial: "decidim/templates/admin/questionnaire_templates/choose", locals: { target: questionnaire, form_title: t(".title"), show_buttons: false } %>
 <% else %>
-  <%= render "decidim/surveys/admin/surveys/tabs_menu" %>
-
   <div class="questionnaire-questions">
-    <div class="item_show__header">
+    <div class="item_show__header" style="border-bottom: none;">
       <h1 class="item_show__header-title">
         <%= t(".title") %>
 
@@ -27,8 +25,10 @@
     </div>
   </div>
 
-  <div class="grid-cols-1">
-    <div class="item__edit-form">
+  <%= render "decidim/surveys/admin/surveys/tabs_menu" %>
+
+  <div class="grid-cols-1 2xl:mr-80">
+    <div class="item__edit-form pb-24">
       <%= decidim_form_for(@form, url: update_questions_questions_survey_path(@survey), method: :patch, html: { id: "survey-form", class: "form-defaults form edit_questions_survey" }) do |form| %>
         <%= render partial: "decidim/forms/admin/questionnaires/questions_form", object: form %>
       <% end %>
