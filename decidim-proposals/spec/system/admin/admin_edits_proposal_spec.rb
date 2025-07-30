@@ -58,9 +58,9 @@ describe "Admin edits proposals" do
     it "throws error when updating with empty mandatory field" do
       visit_component_admin
 
-      find("#actions-proposal-#{proposal.id}").click
-      within "#actions-proposal-#{proposal.id}" do
-        click_link_or_button "Edit proposal"
+      within "tr[data-id='#{proposal.id}']" do
+        find("button[data-component='dropdown']").click
+        click_on "Edit proposal"
       end
 
       expect(page).to have_content "Update proposal"
