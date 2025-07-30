@@ -1,6 +1,6 @@
 <%= content_tag :span, class: "author__avatar-container" do %>
   <% if profile_path? %>
-    <%= link_to profile_path do %>
+    <%= link_to profile_path, tabindex: 0 do %>
       <%= render :avatar_image %>
     <% end %>
   <% else %>
