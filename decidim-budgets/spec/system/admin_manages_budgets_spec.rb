@@ -15,6 +15,7 @@ describe "Admin manages budgets" do
   end
 
   it_behaves_like "manage taxonomy filters in settings"
+  it_behaves_like "access component permissions form"
 
   describe "admin form" do
     before { click_on "New budget" }
@@ -48,7 +49,8 @@ describe "Admin manages budgets" do
   describe "updating a budget", versioning: true do
     it "updates a budget" do
       within "tr", text: translated(budget.title) do
-        page.find(".action-icon--edit").click
+        find("button[data-component='dropdown']").click
+        click_on "Edit"
       end
 
       within ".edit_budget" do
@@ -71,8 +73,13 @@ describe "Admin manages budgets" do
 
   describe "previewing budgets" do
     it "links the budget correctly" do
-      link = find("a[title=Preview]")
-      expect(link[:href]).to include(resource_locator(budget).path)
+      within "tr", text: translated(budget.title) do
+        find("button[data-component='dropdown']").click
+        preview_window = window_opened_by { click_on "Preview" }
+        within_window preview_window do
+          expect(page).to have_current_path(Decidim::EngineRouter.main_proxy(budget.component).budget_projects_path(budget))
+        end
+      end
     end
   end
 
@@ -80,7 +87,8 @@ describe "Admin manages budgets" do
     it "moves to the trash a budget" do
       within "tr", text: translated(budget.title) do
         accept_confirm do
-          page.find(".action-icon--remove").click
+          find("button[data-component='dropdown']").click
+          click_on "Move to trash"
         end
       end
 

@@ -44,6 +44,7 @@ ro:
           destroy: Anulează tragerea la sorți
           edit: Editează
           show: Detalii privind tragerea la sorți
+          title: Acțiuni
         models:
           sortition:
             fields:

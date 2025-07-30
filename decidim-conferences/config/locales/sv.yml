@@ -11,7 +11,6 @@ sv:
         decidim_scope_id: Indelning
         description: Beskrivning
         end_date: Slutdatum
-        hashtag: Hashtag
         hero_image: Bild till startsida
         location: Plats
         main_logo: Logotyp
@@ -218,17 +217,20 @@ sv:
       models:
         conference:
           fields:
+            actions: Åtgärder
             created_at: Skapad
             published: Publicerad
             title: Titel
         conference_speaker:
           fields:
+            actions: Handlingar
             affiliation: Anknytning
             full_name: Fullständigt namn
             position: Position
           name: Talare
         conference_user_role:
           fields:
+            actions: Handlingar
             email: E-post
             name: Namn
             role: Roll
@@ -240,12 +242,14 @@ sv:
             moderator: Moderator
         media_link:
           fields:
+            actions: Handlingar
             date: Datum
             link: Länk
             title: Titel
           name: Medialänk
         partner:
           fields:
+            actions: Handlingar
             link: Länk
             logo: Logotyp
             name: Namn
@@ -256,6 +260,7 @@ sv:
             main_promotor: Huvudarrangör
         registration_type:
           fields:
+            actions: Handlingar
             conference_meetings: Konferensmöten
             price: Pris
             registrations_count: Antal registreringar
@@ -515,6 +520,7 @@ sv:
             sent: Skickad
         conference_registration:
           fields:
+            actions: Handlingar
             email: E-post
             name: Namn
             registration_type: Registreringstyp
@@ -613,7 +619,6 @@ sv:
           description: Längre beskrivning av konferensen
           end_date: Det datum då konferens avslutas.
           follows_count: Antal följare
-          hashtag: Konferensens hashtag, används för Twitter/X
           id: Unikt id för konferensen
     statistics:
       conferences_count: Konferenser

@@ -7,7 +7,6 @@ ca:
         area_id: Àrea
         decidim_scope_id: Àmbit
         description: Descripció
-        hashtag: Etiqueta (hashtag)
         offline_votes: Signatures presencials
         offline_votes_for_scope: Signatures presencials per a %{scope_name}
         scope_id: Àmbit
@@ -78,6 +77,7 @@ ca:
   decidim:
     admin:
       actions:
+        cannot_answer: No es pot respondre a aquesta iniciativa
         new_initiative_type: Nou tipus d'iniciativa
         new_initiative_type_scope: Afegir àmbit del tipus d'iniciativa
       filters:
@@ -123,8 +123,12 @@ ca:
             state: Estat
             supports_count: Signatures
             title: Iniciatives
+        initiatives_committee_member:
+          fields:
+            actions: Accions
         initiatives_type_scope:
           fields:
+            actions: Accions
             scope: Àmbit
             supports_required: Signatures necessàries
           name: Àmbit del tipus d'iniciativa
@@ -264,6 +268,7 @@ ca:
             success: La iniciativa s'ha enviat a validació tècnica.
             update: Actualitzar
           form:
+            attachments_title: Fitxers adjunts
             settings: Configuració
             title: Informació general
           index:
@@ -543,11 +548,6 @@ ca:
         initiatives:
           closed_initiatives_warning: Actualment no hi ha iniciatives obertes, però aquí pots trobar el llistat de totes les iniciatives tancades.
           no_initiatives_warning: No hi ha iniciatives que coincideixin amb el teu criteri de cerca.
-        interactions:
-          comments_count:
-            count:
-              one: Comentari
-              other: Comentaris
         orders:
           label: 'Ordena iniciatives per:'
           most_commented: Més comentades
@@ -673,7 +673,6 @@ ca:
           description: La descripció de la iniciativa
           first_progress_notification_at: La data en què es va enviar la primera notificació de progrés
           follows_count: El número d'usuàries que segueixen aquesta iniciativa
-          hashtag: L'etiqueta que fa servir la iniciativa a Twitter/X
           offline_votes: El número de signatures que va recollir aquesta iniciativa presencialment (en paper)
           online_votes: El número de signatures digitals que va recollir aquesta iniciativa (directament a través de la plataforma)
           published_at: La data en què es va publicar aquesta iniciativa

@@ -12,7 +12,6 @@ nl:
         developer_group: Organisator
         domain: Domein
         end_date: Einddatum
-        hashtag: Hashtag
         hero_image: Afbeelding van de startpagina
         local_area: Organisatiegebied
         meta_scope: Omvang metadata
@@ -33,7 +32,6 @@ nl:
         description: Beschrijving
         developer_group: Promoter groep
         group_url: Website
-        hashtag: Hashtag
         hero_image: Afbeelding
         local_area: Organisatiegebied
         meta_scope: Scope metadata
@@ -90,7 +88,6 @@ nl:
         participatory_process_groups: Inspraakproces groepen
         participatory_process_groups_submenu:
           info: Info
-          landing_page: Landingspagina
         participatory_processes: Inspraakprocessen
         participatory_processes_submenu:
           attachment_collections: Mappen

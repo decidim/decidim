@@ -4,7 +4,6 @@ sl:
       conference:
         assemblies_ids: Povezane združbe
         description: Opis
-        hashtag: Ključnik
         published_at: Objavljeno
         short_description: Kratek opis
         show_statistics: Pokaži statistiko

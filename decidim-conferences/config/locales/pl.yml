@@ -11,7 +11,6 @@ pl:
         decidim_scope_id: Zakres
         description: Opis
         end_date: Data zakończenia
-        hashtag: Hashtag
         hero_image: Obraz główny
         location: Miejsce
         main_logo: Główne logo

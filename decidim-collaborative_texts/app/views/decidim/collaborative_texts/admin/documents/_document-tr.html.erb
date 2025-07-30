@@ -1,13 +1,15 @@
 <tr>
-  <td>
+  <td data-label="<%= t("models.collaborative_text.fields.title", scope: "decidim.collaborative_texts") %>">
     <% if allowed_to? :update, :collaborative_text, document: document %>
       <%= link_to translated_attribute(document.title), edit_document_path(document) %><br>
     <% else %>
       <%= translated_attribute(document.title) %><br>
     <% end %>
   </td>
-  <td><%= t("booleans.#{document.accepting_suggestions}") %></td>
-  <td class="table-list__actions">
+  <td data-label="<%= t("models.collaborative_text.fields.suggestions", scope: "decidim.collaborative_texts") %>">
+    <%= t("booleans.#{document.accepting_suggestions}") %>
+  </td>
+  <td class="table-list__actions" data-label="<%= t("actions.title", scope: "decidim.collaborative_texts") %>">
     <%= render partial: "decidim/collaborative_texts/admin/documents/actions", locals: { document:, view: } %>
   </td>
 </tr>

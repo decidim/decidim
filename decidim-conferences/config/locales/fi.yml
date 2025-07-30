@@ -11,7 +11,6 @@ fi:
         decidim_scope_id: Teema
         description: Kuvaus
         end_date: Päättymispäivä
-        hashtag: Aihetunniste (hashtag)
         hero_image: Etusivun kuva
         location: Sijainti
         main_logo: Päälogo
@@ -218,17 +217,20 @@ fi:
       models:
         conference:
           fields:
+            actions: Toiminnot
             created_at: Luonnin ajankohta
             published: Julkaistu
             title: Otsikko
         conference_speaker:
           fields:
+            actions: Toiminnot
             affiliation: Jäsenyys
             full_name: Koko nimi
             position: Asema
           name: Konferenssin puhuja
         conference_user_role:
           fields:
+            actions: Toiminnot
             email: Sähköposti
             name: Nimi
             role: Rooli
@@ -240,12 +242,14 @@ fi:
             moderator: Moderoija
         media_link:
           fields:
+            actions: Toiminnot
             date: Päivämäärä
             link: Linkki
             title: Otsikko
           name: Medialinkki
         partner:
           fields:
+            actions: Toiminnot
             link: Linkki
             logo: Logo
             name: Nimi
@@ -256,6 +260,7 @@ fi:
             main_promotor: Pääpromoottori
         registration_type:
           fields:
+            actions: Toiminnot
             conference_meetings: Konferenssin tapaamiset
             price: Hinta
             registrations_count: Ilmoittautuneiden määrä
@@ -515,6 +520,7 @@ fi:
             sent: Lähetetty
         conference_registration:
           fields:
+            actions: Toiminnot
             email: Sähköposti
             name: Nimi
             registration_type: Ilmoittautumistyyppi
@@ -613,7 +619,6 @@ fi:
           description: Konferenssin pitkä kuvaus
           end_date: Konferenssin päättymispäivä.
           follows_count: Tilaa seuraavien käyttäjien määrä
-          hashtag: Konferenssia vastaava aihetunniste (hashtag), jota käytetään Twitter/X-palvelussa
           id: Konferenssin yksilöivä tunniste
           location: Konferenssin paikka, eli missä konferenssi järjestetään.
           objectives: Konferenssin tavoitteet tai päämäärät.
@@ -634,6 +639,7 @@ fi:
           url: Tilan URL-osoite
     statistics:
       conferences_count: Konferenssia
+      conferences_count_tooltip: Julkaistujen konferenssien lukumäärä.
   devise:
     mailer:
       join_conference:

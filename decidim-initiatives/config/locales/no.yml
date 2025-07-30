@@ -355,11 +355,6 @@
         initiatives:
           closed_initiatives_warning: Det er foreløpig ingen åpne initiativer, men her kan du finne alle tidligere initiativer.
           no_initiatives_warning: Ingen initiativer samsvarer med dine søkekriterier.
-        interactions:
-          comments_count:
-            count:
-              one: Kommentar
-              other: Kommentar
         orders:
           label: 'Sorter initiativer etter:'
           most_commented: Mest kommentert

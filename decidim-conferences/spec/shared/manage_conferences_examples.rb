@@ -17,7 +17,7 @@ shared_examples "manage conferences" do
     %w(description short_description objectives).each do |field|
       it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='conference-#{field}-tabs']", "full"
     end
-    it_behaves_like "having a rich text editor for field", "#conference_registrations_terms", "content"
+    it_behaves_like "having a rich text editor for field", "#conference_short_description_en", "full"
     it_behaves_like "having no taxonomy filters defined"
 
     it "creates a new conference", versioning: true do
@@ -65,7 +65,7 @@ shared_examples "manage conferences" do
     before do
       within "tr", text: translated(conference.title) do
         find("button[data-component='dropdown']").click
-        click_on "Configure"
+        click_on "Edit"
       end
     end
 
@@ -101,14 +101,14 @@ shared_examples "manage conferences" do
     before do
       within "tr", text: translated(conference.title) do
         find("button[data-component='dropdown']").click
-        click_on "Configure"
+        click_on "Edit"
       end
     end
 
     %w(description short_description objectives).each do |field|
       it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='conference-#{field}-tabs']", "full"
     end
-    it_behaves_like "having a rich text editor for field", "#conference_registrations_terms", "content"
+    it_behaves_like "having a rich text editor for field", "#conference_short_description_en", "full"
 
     it "update an conference without images does not delete them" do
       within_admin_sidebar_menu do
@@ -175,17 +175,23 @@ shared_examples "manage conferences" do
     let!(:conference) { create(:conference, :unpublished, organization:) }
 
     before do
-      within "tr", text: translated(conference.title) do
-        find("button[data-component='dropdown']").click
-        click_on "Configure"
-      end
+      visit decidim_admin_conferences.conferences_path
     end
 
     it "publishes the conference" do
-      click_on "Publish"
+      within("tr", text: translated_attribute(conference.title)) do
+        find("button[data-component='dropdown']").click
+        find("a", text: "Publish", visible: true).click
+      end
+
       expect(page).to have_content("successfully published")
-      expect(page).to have_content("Unpublish")
-      expect(page).to have_current_path decidim_admin_conferences.edit_conference_path(conference)
+
+      within("tr", text: translated_attribute(conference.title)) do
+        find("button[data-component='dropdown']").click
+        expect(page).to have_content("Unpublish")
+      end
+
+      expect(page).to have_current_path decidim_admin_conferences.conferences_path
 
       conference.reload
       expect(conference).to be_published
@@ -196,17 +202,18 @@ shared_examples "manage conferences" do
     let!(:conference) { create(:conference, organization:) }
 
     before do
-      within "tr", text: translated(conference.title) do
-        find("button[data-component='dropdown']").click
-        click_on "Configure"
-      end
+      visit decidim_admin_conferences.conferences_path
     end
 
     it "unpublishes the conference" do
-      click_on "Unpublish"
+      within("tr", text: translated_attribute(conference.title)) do
+        find("button[data-component='dropdown']").click
+        find("a", text: "Unpublish", visible: true).click
+      end
+
       expect(page).to have_content("successfully unpublished")
       expect(page).to have_content("Publish")
-      expect(page).to have_current_path decidim_admin_conferences.edit_conference_path(conference)
+      expect(page).to have_current_path decidim_admin_conferences.conferences_path
 
       conference.reload
       expect(conference).not_to be_published

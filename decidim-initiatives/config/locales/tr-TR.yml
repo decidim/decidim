@@ -321,11 +321,6 @@ tr:
         initiatives:
           closed_initiatives_warning: Şu anda açık girişim yok, ancak burada listelenen tüm kapalı girişimleri bulabilirsiniz.
           no_initiatives_warning: Arama kriterlerinizle eşleşen hiçbir girişim yok.
-        interactions:
-          comments_count:
-            count:
-              one: Yorum
-              other: Yorumlar
         orders:
           label: 'Girişimleri şuna göre sırala:'
           most_commented: En çok yorum yapılan

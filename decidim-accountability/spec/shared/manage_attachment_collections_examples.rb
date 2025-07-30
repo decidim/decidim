@@ -5,7 +5,8 @@ shared_examples "manage accountability attachment collections" do
 
   before do
     within "tr", text: translated(result.title) do
-      click_on "Folders"
+      find("button[data-component='dropdown']").click
+      click_on "Add folder"
     end
   end
 

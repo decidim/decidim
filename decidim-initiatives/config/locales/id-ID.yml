@@ -235,10 +235,6 @@ id:
           type: Mengetik
         index_header:
           new_initiative: Inisiatif baru
-        interactions:
-          comments_count:
-            count:
-              other: Komentar
         orders:
           label: 'Urutkan inisiatif dengan:'
           most_commented: Sebagian besar berkomentar

@@ -25,7 +25,6 @@ sq:
         duration: Kohëzgjatja
         facebook: Facebook
         github: Github
-        hashtag: Hashtag
         hero_image: Imazhi kryesor
         import_attachments: Importoni bashkëngjitjet
         import_categories: Importoni kategoritë
@@ -152,7 +151,6 @@ sq:
           attachments: Skedat e bashkëlidhura
           components: Komponentet
           info: Rreth asamblesë
-          landing_page: Faqja hyrëse
           moderations: Moderimet
           see_assembly: Shiko asamblenë
       models:

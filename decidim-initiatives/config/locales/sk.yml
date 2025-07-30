@@ -230,13 +230,6 @@ sk:
           type: Typ
         index_header:
           new_initiative: Nová iniciatíva
-        interactions:
-          comments_count:
-            count:
-              one: Komentár
-              few: Komentáre
-              many: Komentáre
-              other: Komentáre
         orders:
           label: 'Triediť iniciatívy podľa:'
           most_commented: Najviac komentované

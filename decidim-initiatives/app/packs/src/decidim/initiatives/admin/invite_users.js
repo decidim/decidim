@@ -1,6 +1,6 @@
 /* eslint-disable no-empty */
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   let inviteUsersButton = document.querySelector(".invite-users-link");
 
   if (inviteUsersButton !== null) {

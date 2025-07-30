@@ -16,9 +16,6 @@ gl:
         key: Clave
         name: Nome
         progress: Progreso
-      timeline_entry:
-        description: Descrición
-        entry_date: Data
     models:
       decidim/accountability/proposal_linked_event: Proposta incluída nun resultado
       decidim/accountability/result_progress_updated_event: Progreso de resultados actualizado
@@ -36,7 +33,6 @@ gl:
         destroy: Eliminar
         edit: Editar
         preview: Vista previa
-        timeline_entries: Evolución do proxecto
         title: Accións
       admin:
         exports:
@@ -71,15 +67,6 @@ gl:
           new:
             create: Crear estado
             title: Novo estado
-        timeline_entries:
-          edit:
-            title: Editar entrada
-            update: Actualizar a entrada
-          index:
-            title: Entradas da liña de tempo do proxecto
-          new:
-            create: Crear entrada
-            title: Nova entrada
       admin_log:
         result:
           create: "%{user_name} resultado creado %{resource_name} en %{space_name}"
@@ -113,9 +100,6 @@ gl:
             key: Clave
             name: Nome
             progress: Progreso
-        timeline_entry:
-          fields:
-            entry_date: Data
       results:
         count:
           results_count:
@@ -128,8 +112,6 @@ gl:
         show:
           stats:
             back_to_resource: Volver ao resultado
-        timeline:
-          title: Evolución do proxecto
     admin:
       filters:
         results:

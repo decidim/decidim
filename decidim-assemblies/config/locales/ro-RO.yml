@@ -25,7 +25,6 @@ ro:
         duration: Durată
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
         hero_image: Imagine pentru pagina principală
         import_attachments: Importă atașamente
         import_categories: Importă categorii
@@ -153,7 +152,6 @@ ro:
           attachment_files: Fișiere
           attachments: Atașamente
           components: Componente
-          landing_page: Pagina principală
           moderations: Moderări
       models:
         assembly:

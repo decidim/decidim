@@ -56,13 +56,6 @@ zh-TW:
         header_snippets: 頁首片段
         highlight_alternative_color: 高調、替代
         highlight_color: 高調
-        highlighted_content_banner_action_subtitle: 行動按鈕子標題
-        highlighted_content_banner_action_title: 行動按鈕標題
-        highlighted_content_banner_action_url: 行動按鈕網址
-        highlighted_content_banner_enabled: 顯示強調的內容廣告
-        highlighted_content_banner_image: 圖片
-        highlighted_content_banner_short_description: 簡介
-        highlighted_content_banner_title: 標題
         host: 主機
         instagram_handler: Instagram 處理器
         logo: 標誌
@@ -498,7 +491,6 @@ zh-TW:
         configuration: 配置
         content: 被檢舉的內容
         help_sections: 幫助部分
-        homepage: 首頁
         impersonations: 模擬登錄
         manage: 管理
         moderation: 全局審查
@@ -726,11 +718,6 @@ zh-TW:
         update:
           error: 更新此組織時發生問題。
           success: 組織更新成功
-      organization_appearance:
-        edit:
-          update: 更新
-        form:
-          homepage_highlighted_content_banner_title: 重點顯示的內容橫幅
       participatory_space_private_users:
         create:
           error: 在此參與空間中添加私人參與者時出現問題。

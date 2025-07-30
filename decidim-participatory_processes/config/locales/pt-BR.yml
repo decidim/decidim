@@ -12,7 +12,6 @@ pt-BR:
         developer_group: Grupo promotor
         domain: Domínio
         end_date: Data final
-        hashtag: Hashtag
         hero_image: Imagem inicial
         import_categories: Importar categorias
         import_steps: Importar etapas
@@ -35,7 +34,6 @@ pt-BR:
         description: Descrição
         developer_group: Grupo promotor
         group_url: Site
-        hashtag: Hashtag
         hero_image: Imagem
         local_area: Área de organização
         meta_scope: Metadados do escopo
@@ -98,7 +96,6 @@ pt-BR:
         participatory_process_groups: Grupos de processo
         participatory_process_groups_submenu:
           info: Informações
-          landing_page: Página principal
         participatory_processes: Processos
         participatory_processes_submenu:
           attachment_collections: Pastas

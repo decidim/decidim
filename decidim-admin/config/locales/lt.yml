@@ -56,13 +56,6 @@ lt:
         header_snippets: Antraštės fragmentai
         highlight_alternative_color: Paryškinti, alternatyva
         highlight_color: Paryškinimai
-        highlighted_content_banner_action_subtitle: Veiksmo mygtuko paantraštė
-        highlighted_content_banner_action_title: Veiksmo mygtuko pavadinimas
-        highlighted_content_banner_action_url: Veiksmo mygtuko URL
-        highlighted_content_banner_enabled: Rodyti paryškintą turinio reklamjuostę
-        highlighted_content_banner_image: Paveikslėlis
-        highlighted_content_banner_short_description: Trumpas aprašymas
-        highlighted_content_banner_title: Pavadinimas
         host: Šeimininkas
         instagram_handler: '„Instagram“ tvarkyklė'
         logo: Logotipas
@@ -513,7 +506,6 @@ lt:
         configuration: Konfigūracija
         content: Turinys, apie kurį pranešta
         help_sections: Pagalbos skyrius
-        homepage: Pradinis puslapis
         impersonations: Įsikūnyjimai
         manage: Valdyti
         moderation: Globalūs moderavimai
@@ -744,11 +736,6 @@ lt:
         update:
           error: Atnaujinant šią organizaciją iškilo problema.
           success: Organizacija atnaujinta.
-      organization_appearance:
-        edit:
-          update: Atnaujinti
-        form:
-          homepage_highlighted_content_banner_title: Paryškinta turinio juosta
       participatory_space_private_users:
         create:
           error: Pridedant privatų dalyvį į šia dalyvaujamają erdvę kilo problema.
@@ -880,8 +867,6 @@ lt:
         areas: Aplinkos
         authorization_workflows: Verifikacijos metodai
         dashboard: Švieslentė
-        edit_landing_page: Puslapio turinys
-        edit_organization_appearance: Keisti pagrindinio puslapio išvaizdą
         impersonatable_users: Dalyviai, kurių duomenis galima tvarkyti
         impersonations: Dalyvių tvarkymas
         pages: Puslapiai

@@ -138,7 +138,11 @@ shared_examples "manage impersonations examples" do
       travel (Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes / 2) + 1.second
       visit current_path
       expect(page).to have_content("expired")
-      expect(page).to have_link("Impersonate")
+
+      within "tr", text: impersonated_user.name do
+        find("button[data-component='dropdown']").click
+        expect(page).to have_link("Impersonate")
+      end
     end
 
     it "can impersonate again after an impersonation session expiration" do
@@ -146,7 +150,10 @@ shared_examples "manage impersonations examples" do
 
       navigate_to_impersonations_page
 
-      expect(page).to have_link("Impersonate")
+      within "tr", text: impersonated_user.name do
+        find("button[data-component='dropdown']").click
+        expect(page).to have_link("Impersonate")
+      end
     end
   end
 
@@ -248,6 +255,7 @@ shared_examples "manage impersonations examples" do
       navigate_to_impersonations_page
 
       within "tr", text: managed_user.name do
+        find("button[data-component='dropdown']").click
         click_on "Promote"
       end
 
@@ -282,6 +290,7 @@ shared_examples "manage impersonations examples" do
       navigate_to_impersonations_page
 
       within "tr", text: managed_user.name do
+        find("button[data-component='dropdown']").click
         expect(page).to have_no_link("Promote")
       end
     end
@@ -342,6 +351,7 @@ shared_examples "manage impersonations examples" do
     navigate_to_impersonations_page
 
     within "tr", text: user.name do
+      find("button[data-component='dropdown']").click
       click_on "Impersonate"
     end
 
@@ -361,6 +371,7 @@ shared_examples "manage impersonations examples" do
 
   def check_impersonation_logs
     within "tr", text: impersonated_user.name do
+      find("button[data-component='dropdown']").click
       click_on "View logs"
     end
 

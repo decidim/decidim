@@ -269,15 +269,6 @@ ar:
           type: نوع
         index_header:
           new_initiative: مبادرة جديدة
-        interactions:
-          comments_count:
-            count:
-              zero: تعليق
-              one: تعليق
-              two: تعليق
-              few: تعليق
-              many: تعليق
-              other: تعليق
         orders:
           label: 'فرز المبادرات حسب:'
           most_commented: الأكثر تعليقا

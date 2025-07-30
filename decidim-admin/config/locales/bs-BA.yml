@@ -38,13 +38,6 @@ bs:
         favicon: Ikona
         github_handler: Administrator GitHub-a
         header_snippets: Fragmenti zaglavlja
-        highlighted_content_banner_action_subtitle: Podnastlov dugmeta akcije
-        highlighted_content_banner_action_title: Naslov dugmeta akcije
-        highlighted_content_banner_action_url: Link dugmeta akcije
-        highlighted_content_banner_enabled: Prikaži istaknut baner sadržaja
-        highlighted_content_banner_image: Slika
-        highlighted_content_banner_short_description: Kratak opis
-        highlighted_content_banner_title: Naslov
         instagram_handler: Administrator Instagram-a
         logo: Logo
         name: Ime
@@ -288,7 +281,6 @@ bs:
         areas: Oblasti
         configuration: Konfiguracija
         help_sections: Sekcije za pomoć
-        homepage: Početna stranica
         impersonations: Predstavljanja
         manage: Upravljaj
         newsletters: Bilteni
@@ -455,9 +447,6 @@ bs:
         update:
           error: Pojavio se problem pri ažuriranju ove organizacije.
           success: Organizacija je uspešno ažurirana.
-      organization_appearance:
-        edit:
-          update: Ažuriraj
       shared:
         gallery:
           add_images: Dodaj slike

@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-shared_examples "manage participatory space publications" do |_options|
+shared_examples "manage participatory space publications" do
   before do
-    participatory_space.update(title: { en: title })
     switch_to_host(organization.host)
     login_as user, scope: :user
+    visit admin_page_path
   end
 
   context "when the participatory space is unpublished" do
@@ -12,16 +12,19 @@ shared_examples "manage participatory space publications" do |_options|
       participatory_space.unpublish!
       participatory_space.reload
       visit admin_page_path
+
+      within("tr", text: translated_attribute(participatory_space.title)) do
+        find("button[data-component='dropdown']").click
+        find("a", text: "Publish", visible: true).click
+      end
     end
 
     it "publishes it" do
-      click_on "Publish"
-
       expect(page).to have_content("successfully")
 
       visit public_collection_path
 
-      expect(page).to have_content title
+      expect(page).to have_content(translated_attribute(participatory_space.title))
     end
   end
 
@@ -42,7 +45,10 @@ shared_examples "manage participatory space publications" do |_options|
     it "unpublishes it" do
       # we cannot use "a 404 page" shared example as we want to check it
       # inside an example
-      click_on "Unpublish"
+      within("tr", text: translated_attribute(participatory_space.title)) do
+        find("button[data-component='dropdown']").click
+        click_on "Unpublish"
+      end
 
       expect(page).to have_content("successfully")
 

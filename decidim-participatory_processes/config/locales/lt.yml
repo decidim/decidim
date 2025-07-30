@@ -13,7 +13,6 @@ lt:
         document: Dokumentas
         domain: Domenas
         end_date: Pabaigos data
-        hashtag: Grotažymė
         hero_image: Pradžios paveikslėlis
         import_attachments: Importuoti priedus
         import_categories: Importuoti kategorijas
@@ -39,7 +38,6 @@ lt:
         description: Aprašymas
         developer_group: Rėmėjų grupė
         group_url: Tinklalapis
-        hashtag: Grotažymė
         hero_image: Paveikslėlis
         local_area: Organizacijos aplinka
         meta_scope: Srities metaduomenys
@@ -109,14 +107,12 @@ lt:
         participatory_process_groups: Procesų grupės
         participatory_process_groups_submenu:
           info: Informacija
-          landing_page: Pagrindinis puslapis
         participatory_processes: Procesai
         participatory_processes_submenu:
           attachment_collections: Aplankai
           attachment_files: Dokumentai
           attachments: Priedai
           components: Komponentai
-          landing_page: Pagrindinis puslapis
           moderations: Moderavimai
           process_admins: Proceso administratoriai
           steps: Etapai

@@ -9,7 +9,7 @@
       <%= render partial: "decidim/admin/components/resource_action" %>
     </h1>
   </div>
-  <div class="table-scroll">
+  <div class="table-stacked">
     <table class="table-list">
       <thead>
         <tr>
@@ -22,31 +22,62 @@
       <tbody>
         <% sortitions.each do |sortition| %>
         <tr>
-          <td><%= sortition.reference %></td>
-          <td>
+          <td data-label="<%= t("models.sortition.fields.reference", scope: "decidim.sortitions.admin") %>">
+            <%= sortition.reference %>
+          </td>
+          <td data-label="<%= t("models.sortition.fields.title", scope: "decidim.sortitions.admin") %>">
             <% if allowed_to? :update, :sortition, sortition: sortition %>
               <%= link_to decidim_escape_translated(sortition.title), edit_sortition_path(sortition) %>
             <% else %>
               <%= decidim_escape_translated(sortition.title) %>
             <% end %>
           </td>
-          <td><%= l sortition.created_at, format: :short %></td>
-          <td class="table-list__actions">
-            <% if allowed_to? :update, :sortition, sortition: sortition %>
-              <%= icon_link_to "pencil-line", edit_sortition_path(sortition), t("actions.edit", scope: "decidim.sortitions.admin"), class: "action-icon--edit" %>
-            <% else %>
-              <span class="action-space icon"></span>
-            <% end %>
+          <td data-label="<%= t("models.sortition.fields.created_at", scope: "decidim.sortitions.admin") %>">
+            <%= l sortition.created_at, format: :short %>
+          </td>
+          <td class="table-list__actions" data-label="<%= t("actions.title", scope: "decidim.sortitions.admin") %>">
+            <button type="button" data-component="dropdown" data-target="actions-sortition-<%= sortition.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: sortition.title) %>">
+              <%= icon "more-fill", class: "text-secondary" %>
+            </button>
 
-            <%= icon_link_to "fullscreen-line", sortition_path(sortition), t("actions.show", scope: "decidim.sortitions.admin"), class: "action-icon--preview", target: "_blank", data: { "external-link": false } %>
+            <div class="inline-block relative">
+              <ul id="actions-sortition-<%= sortition.id %>" class="dropdown dropdown__action" aria-hidden="true">
+                <% if allowed_to? :update, :sortition, sortition: sortition %>
+                  <li class="dropdown__item">
+                    <%= link_to edit_sortition_path(sortition), class: "dropdown__button" do %>
+                      <%= icon "pencil-line" %>
+                      <%= t("actions.edit", scope: "decidim.sortitions.admin") %>
+                    <% end %>
+                  </li>
 
-            <%= resource_permissions_link(sortition) %>
+                  <hr>
+                <% end %>
 
-            <% if allowed_to? :destroy, :sortition, sortition: sortition %>
-              <%= icon_link_to "delete-bin-line", confirm_destroy_sortition_path(sortition), t("actions.destroy", scope: "decidim.sortitions.admin"), class: "action-icon--remove" %>
-            <% else %>
-               <span class="action-space icon"></span>
-            <% end %>
+                <li class="dropdown__item">
+                  <%= link_to sortition_path(sortition), target: "_blank", data: { "external-link": false }, class: "dropdown__button" do %>
+                    <%= icon "fullscreen-line" %>
+                    <%= t("actions.show", scope: "decidim.sortitions.admin") %>
+                  <% end %>
+                </li>
+
+                <hr>
+
+                <li class="dropdown__item">
+                  <%= dropdown_resource_permissions_link(sortition) %>
+                </li>
+
+                <hr>
+
+                <% if allowed_to? :destroy, :sortition, sortition: sortition %>
+                  <li class="dropdown__item">
+                    <%= link_to confirm_destroy_sortition_path(sortition), class: "dropdown__button" do %>
+                      <%= icon "delete-bin-line" %>
+                      <%= t("actions.destroy", scope: "decidim.sortitions.admin") %>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
           </td>
         </tr>
         <% end %>

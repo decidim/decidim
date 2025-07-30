@@ -37,7 +37,10 @@ describe "Admin creates proposals" do
     dynamically_attach_file(:proposal_documents, document_path)
 
     click_on("Create")
-    find("a.action-icon--edit-proposal").click
+    within "tr", text: translated_attribute(new_title) do
+      find("button[data-component='dropdown']").click
+      click_on "Edit proposal"
+    end
 
     expect(page).to have_content(image_filename)
     expect(page).to have_content(document_filename)

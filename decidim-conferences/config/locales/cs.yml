@@ -11,7 +11,6 @@ cs:
         decidim_scope_id: Oblast působnosti
         description: Popis
         end_date: Datum ukončení
-        hashtag: Hashtag
         hero_image: Obrázek na hlavní stránce
         location: Lokalita
         main_logo: Hlavní logo
@@ -623,7 +622,6 @@ cs:
           description: Dlouhý popis konference
           end_date: Datum, kdy tato konference skončí.
           follows_count: Počet uživatelů sledujících tento prostor
-          hashtag: Hashtag Konference, používaná pro Twitter/X
           id: Jedinečný identifikátor této konference
           location: Místo konference, kde se bude konat.
           objectives: Cíle této konference. Co je cílem.

@@ -13,13 +13,11 @@ el:
         address: Διεύθυνση
         answer: Απάντηση
         answered_at: Απαντήθηκε στις
-        automatic_hashtags: Προστέθηκε αυτόματα hashtag
         body: Σώμα
         decidim_scope_id: Πεδίο εφαρμογής
         has_address: Έχει διεύθυνση
         scope_id: Πεδίο εφαρμογής
         state: Κατάσταση
-        suggested_hashtags: Προτεινόμενα hashtag
         title: Τίτλος
       proposal_answer:
         answer: Απάντηση
@@ -153,7 +151,6 @@ el:
             amendments_visibility_help: Εάν έχει οριστεί η επιλογή «Οι τροποποιήσεις είναι ορατές μόνο στους συντάκτες τους», ο συμμετέχων πρέπει να συνδεθεί για να δει τις τροποποιήσεις που έγιναν.
             announcement: Ανακοίνωση
             answers_with_costs: Ενεργοποιήστε το κόστος στις απαντήσεις της πρότασης
-            automatic_hashtags: Προστέθηκαν hashtag σε όλες τις προτάσεις
             comments_blocked: Τα σχόλια αποκλείστηκαν
             creation_enabled: Οι συμμετέχοντες μπορούν να δημιουργήσουν προτάσεις
             creation_enabled_readonly: Αυτή η ρύθμιση είναι απενεργοποιημένη όταν ενεργοποιείτε τη λειτουργία Συμμετοχικών Κειμένων. Για να ανεβάσετε προτάσεις ως συμμετοχικό κείμενο κάντε κλικ στο κουμπί Συμμετοχικά Κείμενα και ακολουθήστε τις οδηγίες.
@@ -167,7 +164,6 @@ el:
             proposal_answering_enabled: Η απάντηση στην πρόταση ενεργοποιήθηκε
             publish_answers_immediately: Άμεση δημοσίευση των απαντήσεων πρότασης
             publish_answers_immediately_help_html: 'Έχετε υπόψη ότι αν απαντήσετε σε οποιαδήποτε πρόταση χωρίς αυτό ενεργοποιημένο, θα πρέπει να τα δημοσιεύσετε χειροκίνητα επιλέγοντάς τα και χρησιμοποιώντας την ενέργεια για δημοσίευση. Για περισσότερες πληροφορίες σχετικά με το πώς λειτουργεί αυτό, ανατρέξτε στη σελίδα τεκμηρίωσης απαντήσεων <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank"></a>.'
-            suggested_hashtags: Προτάθηκαν hashtag σε συμμετέχοντες για νέες προτάσεις
     events:
       proposals:
         admin:

@@ -1,5 +1,9 @@
 tr:
   decidim:
+    admin:
+      menu:
+        elections_menu:
+          election_questions: Sorular
     components:
       elections:
         name: Seçimler
@@ -15,12 +19,14 @@ tr:
         elections:
           edit:
             title: Seçimi düzenle
-            update: Seçimi güncelle
           index:
             title: Seçimler
           new:
-            create: Seçim oluştur
             title: Yeni seçim
+        questions:
+          edit_questions:
+            new_question: Yeni soru
+            title: Sorular
       models:
         election:
           fields:

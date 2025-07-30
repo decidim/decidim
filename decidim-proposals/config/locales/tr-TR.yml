@@ -13,13 +13,11 @@ tr:
         address: Adres
         answer: Cevap
         answered_at: Yanıtladı
-        automatic_hashtags: Hashtag'ler otomatik olarak eklendi
         body: Vücut
         decidim_scope_id: Kapsam
         has_address: Adresi var
         scope_id: Kapsam
         state: Durum
-        suggested_hashtags: Önerilen Etiketler
         title: Başlık
       proposal_answer:
         answer: Cevap
@@ -136,11 +134,9 @@ tr:
             amendments_visibility_help: '"Değişiklikler sadece yazarları tarafından görülebilir" seçeneği seçilirse, yapılan değişiklikleri görmek için katılımcının oturum açması gerekir.'
             announcement: Duyuru
             answers_with_costs: Teklif yanıtlarında maliyetleri etkinleştirin
-            automatic_hashtags: Tüm tekliflere etiketler eklendi
             comments_blocked: Yorumlar engellendi
             proposal_answering_enabled: Teklif yanıtlama etkin
             publish_answers_immediately: Teklif yanıtlarını hemen yayınlayın
-            suggested_hashtags: Yeni teklifler için katılımcılara önerilen etiketler
     events:
       proposals:
         admin:

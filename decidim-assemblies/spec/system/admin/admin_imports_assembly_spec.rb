@@ -56,7 +56,7 @@ describe "Admin imports assembly" do
 
       within "tr", text: "Import assembly" do
         find("button[data-component='dropdown']").click
-        click_on "Configure"
+        click_on "Edit"
       end
 
       within_admin_sidebar_menu do

@@ -6,23 +6,23 @@ module Decidim
   module Elections
     module Admin
       describe UpdateQuestions do
-        let(:organization) { create(:organization, available_locales: [:en]) }
+        let(:organization) { create(:organization) }
         let(:current_user) { create(:user, :admin, :confirmed, organization:) }
         let(:participatory_process) { create(:participatory_process, organization:) }
         let(:component) { create(:elections_component, participatory_space: participatory_process) }
         let(:election) { create(:election, component:) }
 
         let!(:first_question) do
-          create(:election_question, election:, body: { en: "First Q" }, description: { en: "Desc 1" }, position: 0)
+          create(:election_question, :with_response_options, election:, body: { en: "First Q" }, description: { en: "Desc 1" }, position: 0)
         end
         let!(:second_question) do
-          create(:election_question, election:, body: { en: "Second Q" }, description: { en: "Desc 2" }, position: 1)
+          create(:election_question, :with_response_options, election:, body: { en: "Second Q" }, description: { en: "Desc 2" }, position: 1)
         end
 
-        let(:first_question_first_option) { first_question.response_options[0] }
-        let(:first_question_second_option) { first_question.response_options[1] }
-        let(:second_question_first_option) { second_question.response_options[0] }
-        let(:second_question_second_option) { second_question.response_options[1] }
+        let(:first_question_first_option) { first_question.response_options.first }
+        let(:first_question_second_option) { first_question.response_options.second }
+        let(:second_question_first_option) { second_question.response_options.first }
+        let(:second_question_second_option) { second_question.response_options.second }
 
         let(:context_params) do
           { current_organization: organization, current_user: current_user }
@@ -36,7 +36,6 @@ module Decidim
                   "id" => first_question.id,
                   "body" => { en: "First Q updated" },
                   "description" => { en: "Desc updated" },
-                  "position" => first_question.position,
                   "question_type" => first_question.question_type,
                   "response_options" => [
                     { "id" => first_question_first_option.id, "body" => { en: "Updated Option" } },
@@ -47,7 +46,6 @@ module Decidim
                   "id" => second_question.id,
                   "body" => second_question.body,
                   "description" => second_question.description,
-                  "position" => second_question.position,
                   "question_type" => second_question.question_type,
                   "response_options" => [
                     { "id" => second_question_first_option.id, "body" => second_question_first_option.body },
@@ -75,25 +73,23 @@ module Decidim
             {
               "questions" => [
                 {
-                  "id" => first_question.id,
-                  "body" => first_question.body,
-                  "description" => first_question.description,
-                  "position" => 1,
-                  "question_type" => first_question.question_type,
-                  "response_options" => [
-                    { "id" => first_question_first_option.id, "body" => first_question_first_option.body },
-                    { "id" => first_question_second_option.id, "body" => first_question_second_option.body }
-                  ]
-                },
-                {
                   "id" => second_question.id,
                   "body" => second_question.body,
                   "description" => second_question.description,
-                  "position" => 0,
                   "question_type" => second_question.question_type,
                   "response_options" => [
                     { "id" => second_question_first_option.id, "body" => second_question_first_option.body },
                     { "id" => second_question_second_option.id, "body" => second_question_second_option.body }
+                  ]
+                },
+                {
+                  "id" => first_question.id,
+                  "body" => first_question.body,
+                  "description" => first_question.description,
+                  "question_type" => first_question.question_type,
+                  "response_options" => [
+                    { "id" => first_question_first_option.id, "body" => first_question_first_option.body },
+                    { "id" => first_question_second_option.id, "body" => first_question_second_option.body }
                   ]
                 }
               ]
@@ -118,7 +114,6 @@ module Decidim
                   "id" => first_question.id,
                   "body" => first_question.body,
                   "description" => first_question.description,
-                  "position" => first_question.position,
                   "question_type" => first_question.question_type,
                   "deleted" => true,
                   "response_options" => [
@@ -130,7 +125,6 @@ module Decidim
                   "id" => second_question.id,
                   "body" => second_question.body,
                   "description" => second_question.description,
-                  "position" => second_question.position,
                   "question_type" => second_question.question_type,
                   "response_options" => [
                     { "id" => second_question_first_option.id, "body" => second_question_first_option.body },
@@ -160,7 +154,6 @@ module Decidim
                 {
                   "body" => { en: "Brand new Q" },
                   "description" => { en: "Description" },
-                  "position" => 2,
                   "question_type" => "multiple_option",
                   "response_options" => [
                     { "body" => { en: "First New Option" } },
@@ -205,7 +198,6 @@ module Decidim
                   "id" => first_question.id,
                   "body" => { en: "First Q Updated" },
                   "description" => { en: "Desc Updated" },
-                  "position" => 1,
                   "question_type" => first_question.question_type,
                   "response_options" => [
                     { "id" => first_question_first_option.id, "body" => { en: "First Option Updated" } },

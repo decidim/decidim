@@ -166,6 +166,13 @@ es:
       x_seconds:
         one: 1 segundo
         other: "%{count} segundos"
+    widget:
+      label:
+        date: Seleccionar fecha para %{label}
+        time: Seleccionar hora para %{label}
+      picker:
+        date_button: Abrir el selector de calendario para %{label}
+        time_button: Abrir selector de hora para %{label}
   decidim:
     accessibility:
       external_link: Enlace externo
@@ -591,6 +598,14 @@ es:
         welcome_text: Texto de bienvenida
       highlighted_content_banner:
         name: Banner de contenido destacado
+      highlighted_content_banner_settings_form:
+        action_button_subtitle: Subtítulo del botón de acción
+        action_button_title: Título del botón de acción
+        action_button_url: URL del botón de acción
+        background_image: Imagen de fondo
+        short_description: Breve descripción
+        subtitle: Subtítulo
+        title: Título
       highlighted_elements_settings_form:
         components:
           all: Todos
@@ -707,6 +722,7 @@ es:
     doorkeeper:
       authorizations:
         new:
+          api_read: Leer el contenido a través de la API
           authorize: Autoriza la aplicación
           by_organization_link_html: por %{link}
           cancel: Cancelar
@@ -1590,6 +1606,7 @@ es:
     searches:
       filters:
         jump_to: 'Salta a:'
+        resource: "%{label} entre %{collection}"
         search: Buscar
         state:
           active: Activo
@@ -2128,6 +2145,8 @@ es:
         profile: Mi cuenta
         public_profile: Mi perfil público
         title: Enlaces de perfil
+        unread_conversations: Tienes conversaciones sin leer
+        unread_notifications: Tienes notificaciones sin leer
       user_profile:
         account: Cuenta
         authorizations: Autorizaciones

@@ -1,5 +1,17 @@
 eu:
+  activemodel:
+    attributes:
+      token_csv:
+        file: Fitxategia
+        remove_all: Ezabatu egungo errolda-datu guztiak
   decidim:
+    admin:
+      menu:
+        elections_menu:
+          basic_elections: Nagusia
+          election_census: Errolda
+          election_dashboard: Kontrol-panela
+          election_questions: Galderak
     components:
       elections:
         name: Hauteskundeak
@@ -17,13 +29,27 @@ eu:
         title: Ekintzak
         view_deleted_elections: Ikusi ezabatutako hauteskundeak
       admin:
+        census:
+          edit:
+            choose_census: Aukeratu bozketa honetarako erabili nahi duzun errolda mota
+            created_at: Sortze-data
+            identifier: Parte-hartzailearen identifikatzailea
+            title: Errolda mota
+          preview:
+            title:
+              one: 'Erabiltzailearen aurrebista (zerrenda mugatuta dago %{count} erregistrotara):'
+              other: 'Erabiltzailearen aurrebista (zerrenda mugatuta dago %{count} erregistrotara):'
+          update:
+            error: Errore bat egon da errolda sortzean edo gordetzean.
+            success: Errolda zuzen eguneratua.
         elections:
           create:
             invalid: Arazo bat egon da hauteskunde hau sortzean.
             success: Hauteskundea zuzen sortua.
+          dashboard_page:
+            title: Kontrol-panela
           edit:
             title: Editatu hauteskundea
-            update: Eguneratu hauteskundea
           form:
             add_images: Gehiru irudiak
             attachment_legend: Gehitu irudi-galeria bat (aukerakoa)
@@ -41,13 +67,13 @@ eu:
               real_time: Denbora erreala
               real_time_help: Erakutsi emaitzak lehen bozketa egin bezain laster
               title: Emaitzak eskuragarri
+            save: Gorde eta jarraitu
             start_at: Hasiera-ordua
           index:
             title: Hauteskundeak
           manage_trash:
             title: Ezabatutako hauteskundeak
           new:
-            create: Sortu hauteskundea
             title: Beste hauteskunde bat
           publish:
             invalid: Arazo bat egon da hauteskundea argitaratzean.
@@ -58,6 +84,18 @@ eu:
           update:
             invalid: Arazo bat egon da hauteskundea eguneratzean.
             success: Hauteskundea zuzen eguneratua.
+        questions:
+          edit_questions:
+            new_question: Beste galdera bat
+            remove_question_confirm: Ziur zaude galdera hau ezabatu nahi duzula?
+            title: Galderak
+          form:
+            errors:
+              at_least_one_question: Gutxienez galdera bat eskatzen da.
+            form_description: Galderak gutxienez erantzuteko aukera bi eduki behar ditu, hurrengo urratsera pasatzeko.
+          update:
+            invalid: Arazo bat egon da galderak eguneratzean.
+            success: Galderak zuzen egiuneratu dira.
       admin_log:
         election:
           create: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea sortu du %{space_name} espazioan"
@@ -66,6 +104,34 @@ eu:
           soft_delete: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea %{space_name} espazioan zaborretara eraman du"
           unpublish: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea despublikatu du %{space_name} espazioan"
           update: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea eguneratu du %{space_name} espazioan"
+        question:
+          update: "%{user_name} -k eguneratu ditu %{resource_name} aukerako galderak"
+      censuses:
+        internal_users:
+          info_html: |
+            Bozketan parte hartzea baimen bat duten parte-hartzaileei mugatu diezaiekezu.<br>
+            Kontuan izan parte-hartzaileek aukeratutako baimenak bete beharko dituztela botoa eman ahal izateko. Txeke-kutxa guztiak hutsik uzteak aukera emango du izena ematen duen edonori botoa emateko.
+          internal_type_title: Baimen gehigarriak behar dira botoa emateko (aukerakoa)
+          label: Parte-hartzaile erregistratuak (dinamikoa)
+        token_csv:
+          example: |
+            e-maila: 
+            user@example.org;123456
+            user2@example.org;ABCXYZ
+          info_html: |
+            CSV formatuko fitxategia izan behar da, bi zutaberekin, bata posta elektronikoko helbidearekin eta bestea erabiltzaileak botoa emateko sartu beharko duen fitxa baten balioarekin.
+            Puntu eta koma batez bereizi behar da (;)
+          label: Fitxekin erregistratu gabeko parte-hartzaileak (finkoa)
+          remove_before_upload: 'Beste errolda bat igo nahi baduzu, aurretik dagoena kendu behar duzu '
+          upload_file: Igo fitxategia
+          upload_new_census: Igo CSV fitxategia
+          uploaded_data_html:
+            one: |
+              Erroldako datuak kargatuta daude eta prest daude <b>%{eleccion_title}</b> bozketan erabiltzeko.
+              <br>Gaur egun pertsona <strong>1</strong> dago hautesleku honetan botoa eman dezakeena (hau errolda dinamiko batean alda daiteke).
+            other: |
+              Erroldako datuak kargatuta daude eta prest daude % <b>{eleccion_title}</b> bozketan erabiltzeko.
+              <br>Gaur egun <strong>% {count} </strong> pertsona daude hauetan botoa eman dezaketenak aukera honetan (hau errolda dinamiko batean alda daiteke).
       models:
         election:
           fields:

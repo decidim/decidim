@@ -48,7 +48,8 @@ RSpec.shared_examples "manage debates" do
   describe "updating a debate" do
     it "updates a debate", versioning: true do
       within "tr", text: translated(debate.title) do
-        page.find(".action-icon--edit").click
+        find("button[data-component='dropdown']").click
+        click_on "Edit"
       end
 
       within ".edit_debate" do
@@ -96,7 +97,8 @@ RSpec.shared_examples "manage debates" do
 
       it "cannot edit the debate" do
         within "tr", text: translated(debate.title) do
-          expect(page).to have_no_selector(".action-icon--edit")
+          find("button[data-component='dropdown']").click
+          expect(page).to have_no_content("Edit")
         end
       end
     end
@@ -107,7 +109,8 @@ RSpec.shared_examples "manage debates" do
 
       it "prevents admin from updating debate layout once comments have been posted" do
         within "tr", text: translated(debate.title) do
-          page.find(".action-icon--edit").click
+          find("button[data-component='dropdown']").click
+          click_on "Edit"
         end
 
         within ".edit_debate" do
@@ -126,7 +129,8 @@ RSpec.shared_examples "manage debates" do
   describe "previewing debates" do
     it "links the debate correctly" do
       within "tr", text: translated(debate.title) do
-        link = find("a", class: "action-icon--preview")
+        find("button[data-component='dropdown']").click
+        link = find("a", text: "Preview")
         expect(link[:href]).to include(resource_locator(debate).path)
       end
     end
@@ -266,6 +270,7 @@ RSpec.shared_examples "manage debates" do
         expect(page).to have_admin_callout "Debate successfully created"
 
         within "tr[data-id=\"#{Decidim::Debates::Debate.last.id}\"]" do
+          find("button[data-component='dropdown']").click
           click_on "Edit"
         end
 
@@ -284,6 +289,7 @@ RSpec.shared_examples "manage debates" do
     context "when editing a debate with attachments" do
       before do
         within "tr[data-id=\"#{debate.id}\"]" do
+          find("button[data-component='dropdown']").click
           click_on "Edit"
         end
       end
@@ -305,6 +311,7 @@ RSpec.shared_examples "manage debates" do
         expect(page).to have_admin_callout "Debate successfully updated"
 
         within "tr[data-id=\"#{debate.id}\"]" do
+          find("button[data-component='dropdown']").click
           click_on "Edit"
         end
 
@@ -329,7 +336,8 @@ RSpec.shared_examples "manage debates" do
   describe "closing a debate", versioning: true do
     it "closes a debate" do
       within "tr", text: translated(debate.title) do
-        page.find(".action-icon--close").click
+        find("button[data-component='dropdown']").click
+        click_on "Close"
       end
 
       within ".edit_close_debate" do
@@ -342,8 +350,8 @@ RSpec.shared_examples "manage debates" do
 
       within "table" do
         within "tr", text: translated(debate.title) do
-          expect(page).to have_no_selector(".action-icon--edit")
-          page.find(".action-icon--close").click
+          find("button[data-component='dropdown']").click
+          click_on "Close"
         end
       end
 
@@ -358,7 +366,8 @@ RSpec.shared_examples "manage debates" do
 
       it "cannot close the debate" do
         within "tr", text: translated(debate.title) do
-          expect(page).to have_no_selector(".action-icon--close")
+          find("button[data-component='dropdown']").click
+          expect(page).to have_no_content("Close")
         end
       end
     end

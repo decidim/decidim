@@ -11,7 +11,7 @@ shared_examples "manage diplomas" do
     it "configure the diploma settings" do
       within "tr", text: translated(conference.title) do
         find("button[data-component='dropdown']").click
-        click_on "Configure"
+        click_on "Edit"
       end
 
       within_admin_sidebar_menu do
@@ -42,7 +42,7 @@ shared_examples "manage diplomas" do
         before do
           within "tr", text: translated(conference.title) do
             find("button[data-component='dropdown']").click
-            click_on "Configure"
+            click_on "Edit"
           end
 
           within_admin_sidebar_menu do
@@ -73,7 +73,7 @@ shared_examples "manage diplomas" do
         it "cannot send the diplomas" do
           within "tr", text: translated(conference.title) do
             find("button[data-component='dropdown']").click
-            click_on "Configure"
+            click_on "Edit"
           end
 
           within_admin_sidebar_menu do
@@ -92,7 +92,7 @@ shared_examples "manage diplomas" do
       it "cannot send the diplomas" do
         within "tr", text: translated(conference.title) do
           find("button[data-component='dropdown']").click
-          click_on "Configure"
+          click_on "Edit"
         end
 
         within_admin_sidebar_menu do

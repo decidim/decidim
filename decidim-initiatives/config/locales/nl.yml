@@ -308,11 +308,6 @@ nl:
           new_initiative: Nieuw initiatief
         initiatives:
           no_initiatives_warning: De zoekopdracht heeft geen resultaten opgeleverd.
-        interactions:
-          comments_count:
-            count:
-              one: Commentaar
-              other: Commentaar
         orders:
           label: 'Sorteer initiatieven op:'
           most_commented: Meeste reacties

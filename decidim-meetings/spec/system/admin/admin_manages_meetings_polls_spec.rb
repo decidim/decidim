@@ -22,7 +22,8 @@ describe "Admin manages meetings polls" do
     it "shows manage poll action" do
       visit current_path
       within "tr", text: translated(meeting.title) do
-        page.click_on "Manage poll"
+        find("button[data-component='dropdown']").click
+        click_on "Manage poll"
       end
 
       expect(page).to have_content("Edit poll questionnaire for #{Decidim::Meetings::MeetingPresenter.new(meeting).title}")

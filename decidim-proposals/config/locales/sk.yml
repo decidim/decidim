@@ -12,12 +12,10 @@ sk:
         address: Adresa
         answer: Odpovedať
         answered_at: odpovedané na
-        automatic_hashtags: Hashtagy sa automaticky pridali
         body: Telo
         decidim_scope_id: Rozsah
         has_address: Má adresu
         state: Štát
-        suggested_hashtags: Navrhované hashtags
         title: Titul
       proposal_answer:
         answer: Odpovedať
@@ -103,11 +101,9 @@ sk:
             amendments_visibility_help: Pokiaľ je zvolená možnosť "pozmeňovacie návrhy sú viditeľné len ich autorom", musí byť účastník prihlásený, aby videl pridané pozmeňovacie návrhy.
             announcement: Oznámenie
             answers_with_costs: Povoliť náklady v rámci odpovedí na návrhy
-            automatic_hashtags: Do všetkých návrhov boli pridané značky hashtags
             comments_blocked: Komentáre boli blokované
             proposal_answering_enabled: Odpovedanie na návrh je povolené
             publish_answers_immediately: Publikovať odpovede na návrhy okamžite
-            suggested_hashtags: Hashtagy navrhované užívateľom pre ich nové návrhy
     events:
       proposals:
         collaborative_draft_access_accepted:

@@ -91,7 +91,8 @@ shared_examples "manage agenda" do
     visit_component_admin
 
     within "tr", text: translated(meeting.title) do
-      page.click_on "Agenda"
+      find("button[data-component='dropdown']").click
+      click_on "Agenda"
     end
   end
 end

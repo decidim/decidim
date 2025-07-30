@@ -265,7 +265,8 @@ describe "Admin views proposal details from admin" do
 
   def go_to_admin_proposal_page(proposal)
     within "tr", text: translated(proposal.title) do
-      find("a", class: "action-icon--show-proposal").click
+      find("button[data-component='dropdown']").click
+      click_on "Answer proposal"
     end
   end
 end

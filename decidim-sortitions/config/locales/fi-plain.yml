@@ -44,6 +44,7 @@ fi-pl:
           edit: Muokkaa
           new_sortition: Uusi satunnaisvalinta
           show: Satunnaistamisen yksityiskohdat
+          title: Toiminnot
         models:
           sortition:
             fields:
@@ -142,3 +143,4 @@ fi-pl:
             other: "%{count} satunnaisvalintaa"
     statistics:
       sortitions_count: Satunnaistamista
+      sortitions_count_tooltip: Päätöksentekoa varten tehtyjen satunnaisvalintojen lukumäärä.

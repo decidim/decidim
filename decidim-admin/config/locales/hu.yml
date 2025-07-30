@@ -59,13 +59,6 @@ hu:
         header_snippets: Fejléc részletek
         highlight_alternative_color: Kiemelés, alternatíva
         highlight_color: Kiemelés
-        highlighted_content_banner_action_subtitle: Felhívás gomb alcíme
-        highlighted_content_banner_action_title: Felhívás gomb szövege
-        highlighted_content_banner_action_url: Felhívás gomb URL
-        highlighted_content_banner_enabled: Kiemelt banner megjelenítése
-        highlighted_content_banner_image: Kép
-        highlighted_content_banner_short_description: Rövid leírás
-        highlighted_content_banner_title: Cím
         host: Kiszolgáló
         instagram_handler: Instagram handler
         logo: Logó
@@ -531,7 +524,6 @@ hu:
         content: Jelentett tartalom
         external_domain_allowlist: Engedélyezett külső domainek
         help_sections: Súgó szakaszok
-        homepage: Homepage
         impersonations: Felhatalmazások
         manage: Kezelés
         moderation: Globális moderációk
@@ -766,11 +758,6 @@ hu:
         update:
           error: Hiba történt a szervezet frissítése során.
           success: A szervezet frissítése sikeres volt.
-      organization_appearance:
-        edit:
-          update: Frissítés
-        form:
-          homepage_highlighted_content_banner_title: Kiemelt banner
       organization_external_domain_allowlist:
         edit:
           update: Frissítés
@@ -912,8 +899,6 @@ hu:
         authorization_workflows: Ellenőrzési módszerek
         dashboard: Vezérlőpult
         edit_external_domains: Engedélyezett külső domainek listája
-        edit_landing_page: Az oldal tartalma
-        edit_organization_appearance: Honlap megjelenésének szerkesztése
         impersonatable_users: Kezelhető résztvevők
         impersonations: Résztvevők kezelése
         menu: Menü

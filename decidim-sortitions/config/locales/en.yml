@@ -45,6 +45,7 @@ en:
           edit: Edit
           new_sortition: New sortition
           show: Sortition details
+          title: Actions
         models:
           sortition:
             fields:

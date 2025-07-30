@@ -304,6 +304,7 @@ ca:
           pending_authorizations:
             index:
               address: Adreça
+              already_sent: La carta postal ja s'ha enviat i no es pot tornar a marcar com a enviada.
               letter_sent_at: Carta enviada el
               mark_as_sent: Marca com a enviada
               not_yet_sent: Encara no s'ha enviat

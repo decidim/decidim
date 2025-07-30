@@ -2,10 +2,11 @@
 
 def visit_meeting_invites_page
   within "tr", text: translated(meeting.title) do
-    page.click_on "Registrations"
+    find("button[data-component='dropdown']").click
+    click_on "Registrations"
   end
 
-  page.click_on "Invitations"
+  click_on "Invitations"
 end
 
 def invite_unregistered_user(name:, email:)

@@ -19,7 +19,7 @@ de:
     components:
       sortitions:
         actions:
-          comment: Kommentar
+          comment: Kommentieren
         name: Sortierungen
         settings:
           global:

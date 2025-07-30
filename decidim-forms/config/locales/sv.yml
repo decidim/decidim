@@ -214,7 +214,7 @@ sv:
             sign_in_description: Logga in för att göra enkäten
             sign_up_description: Skapa ett konto för att göra enkäten
             title: Svara på formuläret
-          tos_agreement: Genom att fortsätta godkänner du användarvillkoren
+          tos_agreement: Genom att fortsätta godkänner du villkoren för anmälan
       step_navigation:
         show:
           are_you_sure_edit_guest: Om du vill kunna redigera dina svar efteråt måste du logga in eller skapa ett konto.

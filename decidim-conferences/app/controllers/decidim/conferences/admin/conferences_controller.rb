@@ -35,7 +35,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("conferences.create.error", scope: "decidim.admin")
-              render :new
+              render :new, status: :unprocessable_entity
             end
           end
         end
@@ -61,12 +61,12 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("conferences.update.error", scope: "decidim.admin")
-              render :edit, layout: "decidim/admin/conference"
+              render :edit, layout: "decidim/admin/conference", status: :unprocessable_entity
             end
           end
         end
 
-        def copy
+        def duplicate
           enforce_permission_to :create, :conference
         end
 

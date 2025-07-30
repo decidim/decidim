@@ -28,6 +28,7 @@ describe "Admin manages meetings" do
   describe "linking a meeting" do
     it "creates a new link" do
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+        find("button[data-component='dropdown']").click
         click_on "Edit"
       end
 

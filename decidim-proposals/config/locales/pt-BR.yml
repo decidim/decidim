@@ -13,13 +13,11 @@ pt-BR:
         address: Endereço
         answer: Responda
         answered_at: Respondido em
-        automatic_hashtags: Hashtags adicionados automaticamente
         body: Corpo
         decidim_scope_id: Escopo
         has_address: Tem endereço
         scope_id: Escopo
         state: Estado
-        suggested_hashtags: Hashtags sugeridos
         title: Título
       proposal_answer:
         answer: Responder
@@ -142,7 +140,6 @@ pt-BR:
             amendments_visibility_help: Se for seleccionada a opção "as alterações são visíveis apenas para os seus autores", será necessário registar o registo dos participantes para ver as alterações introduzidas.
             announcement: Anúncio
             answers_with_costs: Ativar custos na resposta da proposta
-            automatic_hashtags: Hashtags adicionados a todas as propostas
             comments_blocked: Comentários bloqueados
             creation_enabled: Os participantes podem criar propostas
             creation_enabled_readonly: Essa configuração é desativada quando você ativa a funcionalidade de textos participativos. Para enviar propostas como texto participativo, clique no botão de textos participativos e siga as instruções.
@@ -150,7 +147,6 @@ pt-BR:
               most_commented: Mais comentado
             proposal_answering_enabled: Resposta de proposta ativada
             publish_answers_immediately: Publicar respostas da proposta imediatamente
-            suggested_hashtags: Hashtags sugeridos aos usuários para novas propostas
             votes_blocked: Votos bloqueados
             votes_enabled: Votos ativados
             votes_hidden: Votos ocultos (se os votos estiverem ativados, verificar isso esconderá o número de votos)

@@ -25,6 +25,8 @@ ca:
       admin_log:
         changeset:
           debates: Debats
+      tooltips:
+        deleted_debates_info: No es pot esborrar aquest debat
     components:
       debates:
         actions:
@@ -145,7 +147,7 @@ ca:
           state: Estat
           state_values:
             closed: Tancat
-            open: Obert
+            ongoing: En curs
         index:
           new_debate: Nou debat
         new:
@@ -160,11 +162,13 @@ ca:
           updated: Recentment actualitzats
         show:
           close_debate: Tancar
-          debate_closed: Tancat
+          closed: Tancat
           debate_conclusions_are: 'El debat es va tancar el %{date} amb aquestes conclusions:'
           edit_conclusions: Editar conclusions
           edit_debate: Editar
-          open: Debat obert
+          not_started: No s'ha iniciat
+          ongoing: En curs
+          open_ended: Indefinit
           participants_count: Participants
         update:
           invalid: S'ha produït un error en actualitzar aquest debat.

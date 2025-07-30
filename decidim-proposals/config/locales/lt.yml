@@ -13,13 +13,11 @@ lt:
         address: Adresas
         answer: Atsakyti
         answered_at: Atsakyta
-        automatic_hashtags: Grotažymės pridėtos automatiškai
         body: Pagrindinė dalis
         decidim_scope_id: Apimtis
         has_address: Turi adresą
         scope_id: Apimtis
         state: Būsena
-        suggested_hashtags: Pasiūlytos grotažymės
         title: Pavadinimas
       proposal_answer:
         answer: Atsakymas
@@ -159,7 +157,6 @@ lt:
             amendments_visibility_help: Jeigu pasirenkama „Pakeitimai matomi tik jų autoriams“, dalyvis turi būti prisijungęs, kad galėtų matyti padarytus pakeitimus.
             announcement: Pranešimas
             answers_with_costs: Įjungti atsakymų į pasiūlymus išlaidų funkciją
-            automatic_hashtags: Grotažymės pridėtos prie visų pasiūlymų
             comments_blocked: Komentarai užblokuoti
             creation_enabled: Dalyviai gali kurti pasiūlymus
             creation_enabled_readonly: Šis nustatymas išjungiamas, kai suaktyvinate Dalyvaujančių Tekstų funkciją. Norėdami įkelti pasiūlymus kaip dalyvaujamąjį tekstą, spustelėkite mygtuką Dalyvaujantys Tekstai ir vadovaukitės instrukcijomis.
@@ -173,7 +170,6 @@ lt:
             proposal_answering_enabled: Atsakymas į pasiūlymą suaktyvintas
             publish_answers_immediately: Skelbti atsakymus į pasiūlymius nedelsiant
             publish_answers_immediately_help_html: 'Atminkite, kad jei atsakysite į bet kurį pasiūlymą neįjungę šio funkcijos, turėsite atsakymus paskelbti rankiniu būdu, pasirinkdami ir naudodami paskelbimo veiksmą. Norėdami gauti daugiau informacijos apie tai, kaip tai veikia, aplankykite <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">pasiūlymų atsakymų dokumentacijos puslapį</a >.'
-            suggested_hashtags: Dalyviams pasiūlytos grotažymės naujiems pasiūlymams
     events:
       proposals:
         admin:

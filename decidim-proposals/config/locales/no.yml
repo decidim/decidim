@@ -13,13 +13,11 @@
         address: Adresse
         answer: Svar
         answered_at: Besvart på
-        automatic_hashtags: Hashtagger ble automatisk lagt til
         body: Tekst
         decidim_scope_id: Tema
         has_address: Har adresse
         scope_id: Tema
         state: Delstat
-        suggested_hashtags: Foreslåtte hashtags
         title: Tittel
       proposal_answer:
         answer: Svar
@@ -142,7 +140,6 @@
             amendments_visibility_help: Hvis alternativet "Endringer er bare synlige for forfatterne" er valgt, må deltaker være logget inn for å se endringene som er gjort.
             announcement: Kunngjøring
             answers_with_costs: Aktiver kostnader på forslag til svar
-            automatic_hashtags: Hashtagger lagt til i alle forslag
             comments_blocked: Kommentarer blokkert
             creation_enabled: Deltakerne kan opprette forslag
             default_sort_order: Standard sortering av forslag
@@ -154,7 +151,6 @@
               with_more_authors: Med flere forfattere
             proposal_answering_enabled: Forslags besvaring aktivert
             publish_answers_immediately: Publiser svar på forslag umiddelbart
-            suggested_hashtags: Hashtagger foreslått til deltakere for nye forslag
     events:
       proposals:
         collaborative_draft_access_accepted:
