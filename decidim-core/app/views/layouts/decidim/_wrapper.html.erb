@@ -39,7 +39,7 @@ end
 
   <footer>
     <% if current_user&.ephemeral? || content_for?(:focus_mode) %>
-      <%= render partial: "layouts/decidim/footer/main_focus" %>
+      <%= render partial: "layouts/decidim/footer/focus_mode_main" %>
     <% else %>
       <%= render partial: "layouts/decidim/footer/main" %>
       <%= render partial: "layouts/decidim/footer/mini" %>
