@@ -248,11 +248,13 @@ en:
           subtitle: 'These are the questions fot this voting process:'
           title: Election questions
         show:
-          vote_button: Start voting
+          active_voting_until: 'Active voting until: %{end_date}'
+          vote_button: Vote
           voted: You have already voted. You can vote again, only your last vote will be counted.
           votes_count:
             one: 1 vote
             other: "%{count} votes"
+          voting_began: 'Voting began on: %{start_date}'
         vote_results:
           subtitle:
             after_end: The election has ended. You can now see the results.

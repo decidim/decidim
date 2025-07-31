@@ -23,6 +23,8 @@
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: elections_path } do %>
 
   <section class="layout-main__section layout-main__heading">
+    <%= render partial: "election_top" %>
+
     <h1 class="h2 decorator">
       <%== present(election).title(html_escape: true) %>
     </h1>
@@ -36,7 +38,7 @@
   </section>
 
   <section class="layout-main__section">
-    <div class="questions-list"><%= render partial: "questions", locals: { questions: } %></div>
+    <div class="questions-list"><%= render partial: "questions" %></div>
   </section>
 
   <% if election.published_results? %>

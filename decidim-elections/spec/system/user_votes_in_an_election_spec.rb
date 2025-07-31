@@ -94,7 +94,7 @@ describe "Dashboard" do
       let(:election) { create(:election, :published, :finished, :with_internal_users_census) }
 
       it "does not allow to vote" do
-        expect(page).to have_no_link("Start voting")
+        expect(page).to have_no_link("Vote")
         expect(page).to have_no_content("You have already voted.")
         visit new_election_vote_path
         expect(page).to have_content("You are not authorized to perform this action.")

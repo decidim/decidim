@@ -4,20 +4,21 @@
 <% append_stylesheet_pack_tag "decidim_elections_admin" %>
 
 <%= render "decidim/elections/admin/elections/tabs_menu" do %>
-  <% if allowed_to?(:publish, :election, election:) %>
-    <%= link_to t("publish", scope: "decidim.elections.admin.elections.form"),
-                publish_election_path(election),
-                method: :put,
-                class: "main-tabs-menu__cta-button",
-                data: { confirm: t("publish_confirm", scope: "decidim.elections.admin.dashboard") } %>
-  <% else %>
+  <div>
+    <% if allowed_to?(:publish, :election, election:) %>
+      <%= link_to publish_election_path(election),
+                  method: :put,
+                  class: "button button__xs button__secondary",
+                  data: { confirm: t("publish_confirm", scope: "decidim.elections.admin.dashboard") } do %>
+                  <%= icon "check-line" %>
+                  <%= t("publish", scope: "decidim.elections.admin.elections.form") %>
+      <% end %>
+    <% end %>
     <%= link_to resource_locator(election).path, class: "button button__xs button__transparent-secondary", target: :blank, data: { "external-link": false } do %>
       <%= icon "eye-line" %>
-      <%# i18n-tasks-use t("decidim.elections.actions.view") %>
-      <%# i18n-tasks-use t("decidim.elections.actions.preview") %>
       <%= t(election.published? ? "view" : "preview", scope: "decidim.elections.actions") %>
     <% end %>
-  <% end %>
+  </div>
 <% end %>
 
 <div class="item__edit-form">
