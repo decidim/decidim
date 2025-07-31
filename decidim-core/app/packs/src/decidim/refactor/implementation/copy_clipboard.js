@@ -95,7 +95,7 @@ export default class ClipboardCopy {
     // Find the target element in the DOM
     const targetElement = document.querySelector(this.targetSelector);
     if (!targetElement) {
-      // Target element doesn't exist, cannot proceed
+      // Target element does not exist, cannot proceed
       return;
     }
 
@@ -147,7 +147,7 @@ export default class ClipboardCopy {
 
   /**
    * Copy text to the clipboard using the legacy execCommand method
-   * Note: Uses execCommand for IE compatibility, though it's deprecated
+   * Note: Uses execCommand for IE compatibility, though it is deprecated
    * @param {string} text - The text to copy to clipboard
    * @returns {boolean} True if copy operation succeeded
    * @private
@@ -157,7 +157,7 @@ export default class ClipboardCopy {
     const tempTextarea = document.createElement("textarea");
     tempTextarea.value = text;
 
-    // Position the textarea off-screen so it's not visible to users
+    // Position the textarea off-screen so it is not visible to users
     tempTextarea.style.cssText = "width: 1px; height: 1px; position: absolute; left: -9999px;";
 
     // Insert the temporary element into the DOM
@@ -169,7 +169,7 @@ export default class ClipboardCopy {
     let success = false;
     try {
       // Use deprecated execCommand for IE compatibility
-      // Modern browsers support the Clipboard API, but IE doesn't
+      // Modern browsers support the Clipboard API, but IE does not
       success = document.execCommand("copy");
     } catch (err) {
       // Copy operation failed, set success to false
@@ -203,7 +203,7 @@ export default class ClipboardCopy {
       clearTimeout(this.labelTimeout);
     }
 
-    // Store the original text only if we haven't already
+    // Store the original text only if we have not already
     if (!this.originalLabel) {
       this.originalLabel = messageElement.innerHTML;
     }
@@ -248,7 +248,7 @@ export default class ClipboardCopy {
       return;
     }
 
-    // Create the screen reader announcement element if it doesn't exist
+    // Create the screen reader announcement element if it does not exist
     if (!this.messageElement) {
       this.messageElement = document.createElement("div");
 
@@ -293,21 +293,5 @@ export default class ClipboardCopy {
 
     // Remove event listener to prevent memory leaks
     this.element.removeEventListener("click", this._handleClick);
-  }
-
-  /**
-   * Static method to initialize clipboard copy functionality for all elements
-   * with the data-clipboard-copy attribute on the page
-   * This prevents duplicate initialization by checking for existing instances
-   * @returns {void}
-   */
-  static initializeAll() {
-    // Find all elements with the clipboard copy data attribute
-    document.querySelectorAll("[data-clipboard-copy]").forEach((element) => {
-      // Only initialize if not already initialized (prevents duplicates)
-      if (!element._clipboardCopy) {
-        element._clipboardCopy = new ClipboardCopy(element);
-      }
-    });
   }
 }

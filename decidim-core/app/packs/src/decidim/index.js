@@ -242,5 +242,10 @@ document.addEventListener("comments:loaded", (event) => {
 });
 
 document.addEventListener("turbo:load", () => {
-  ClipboardCopy.initializeAll();
+  document.querySelectorAll("[data-clipboard-copy]").forEach((element) => {
+    // Only initialize if not already initialized (prevents duplicates)
+    if (!element._clipboardCopy) {
+      element._clipboardCopy = new ClipboardCopy(element);
+    }
+  });
 });

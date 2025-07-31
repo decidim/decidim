@@ -298,7 +298,12 @@ describe("ClipboardCopy", () => {
       document.body.appendChild(button1);
       document.body.appendChild(button2);
 
-      ClipboardCopy.initializeAll();
+      document.querySelectorAll("[data-clipboard-copy]").forEach((element) => {
+        // Only initialize if not already initialized (prevents duplicates)
+        if (!element._clipboardCopy) {
+          element._clipboardCopy = new ClipboardCopy(element);
+        }
+      });
 
       expect(button1._clipboardCopy).toBeInstanceOf(ClipboardCopy);
       expect(button2._clipboardCopy).toBeInstanceOf(ClipboardCopy);
@@ -309,10 +314,20 @@ describe("ClipboardCopy", () => {
       button.dataset.clipboardCopy = "#input1";
       document.body.appendChild(button);
 
-      ClipboardCopy.initializeAll();
+      document.querySelectorAll("[data-clipboard-copy]").forEach((element) => {
+        // Only initialize if not already initialized (prevents duplicates)
+        if (!element._clipboardCopy) {
+          element._clipboardCopy = new ClipboardCopy(element);
+        }
+      });
       const firstInstance = button._clipboardCopy;
 
-      ClipboardCopy.initializeAll();
+      document.querySelectorAll("[data-clipboard-copy]").forEach((element) => {
+        // Only initialize if not already initialized (prevents duplicates)
+        if (!element._clipboardCopy) {
+          element._clipboardCopy = new ClipboardCopy(element);
+        }
+      });
       const secondInstance = button._clipboardCopy;
 
       expect(firstInstance).toBe(secondInstance);
