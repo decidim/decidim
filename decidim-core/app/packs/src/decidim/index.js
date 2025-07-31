@@ -22,6 +22,8 @@ import morphdom from "morphdom"
  * Local dependencies
  */
 
+import ClipboardCopy from "src/decidim/refactor/implementation/copy_clipboard";
+
 // local deps with no initialization
 import "src/decidim/input_tags"
 import "src/decidim/input_mentions"
@@ -29,7 +31,6 @@ import "src/decidim/input_multiple_mentions"
 import "src/decidim/input_autojump"
 import "src/decidim/history"
 import "src/decidim/callout"
-import "src/decidim/clipboard"
 import "src/decidim/append_elements"
 import "src/decidim/user_registrations"
 import "src/decidim/account_form"
@@ -238,4 +239,8 @@ document.addEventListener("comments:loaded", (event) => {
       }
     });
   }
+});
+
+document.addEventListener("turbo:load", () => {
+  ClipboardCopy.initializeAll();
 });
