@@ -1,5 +1,3 @@
-/* eslint-disable max-lines */
-
 /**
  * External dependencies
  */
@@ -192,7 +190,12 @@ const initializer = (element = document) => {
     createAccordion(component);
   })
 
-  element.querySelectorAll('[data-component="dropdown"]').forEach((component) => createDropdown(component))
+
+  element.querySelectorAll('[data-controller="dropdown"]').forEach((component) => createDropdown(component))
+  element.querySelectorAll('[data-component="dropdown"]').forEach((component) => {
+    console.error(`${window.location.href} Using dropdown component`);
+    createDropdown(component);
+  })
 
   element.querySelectorAll("[data-dialog]").forEach((component) => createDialog(component))
 

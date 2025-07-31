@@ -24,7 +24,7 @@ describe "Admin manages surveys" do
   context "with a new survey" do
     before do
       within "tr", text: decidim_sanitize_translated(survey.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Questions"
       end
     end
@@ -63,7 +63,7 @@ describe "Admin manages surveys" do
 
       it "shows warning message" do
         within "tr", text: decidim_sanitize_translated(survey.title) do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Questions"
         end
         expect(page).to have_content("The form is not published")
@@ -71,7 +71,7 @@ describe "Admin manages surveys" do
 
       it "allows editing questions" do
         within "tr", text: decidim_sanitize_translated(survey.title) do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Questions"
         end
         click_on "Expand all"
@@ -81,7 +81,7 @@ describe "Admin manages surveys" do
 
       it "deletes responses after published" do
         within "tr", text: decidim_sanitize_translated(survey.title) do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Questions"
         end
         click_on "Expand all"
@@ -95,13 +95,13 @@ describe "Admin manages surveys" do
         all("a", text: translated_attribute(component.name))[0].click
 
         within "tr", text: decidim_sanitize_translated(survey.title) do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Unpublish"
         end
         expect(page).to have_admin_callout "Survey successfully unpublished"
 
         within "tr", text: decidim_sanitize_translated(survey.title) do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           accept_confirm { click_on("Publish") }
         end
         expect(page).to have_admin_callout "Survey successfully published"
@@ -127,12 +127,12 @@ describe "Admin manages surveys" do
               all("a", text: translated_attribute(component.name))[0].click
 
               within "tr", text: decidim_sanitize_translated(survey.title) do
-                find("button[data-component='dropdown']").click
+                find("button[data-controller='dropdown']").click
                 click_on "Unpublish"
               end
 
               within "tr", text: decidim_sanitize_translated(survey.title) do
-                find("button[data-component='dropdown']").click
+                find("button[data-controller='dropdown']").click
                 click_on "Publish"
               end
 
@@ -145,7 +145,7 @@ describe "Admin manages surveys" do
               all("a", text: translated_attribute(component.name))[0].click
 
               within "tr", text: decidim_sanitize_translated(survey.title) do
-                find("button[data-component='dropdown']").click
+                find("button[data-controller='dropdown']").click
                 click_on "Edit"
               end
 
