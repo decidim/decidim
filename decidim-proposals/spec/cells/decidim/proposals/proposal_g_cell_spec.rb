@@ -40,7 +40,7 @@ module Decidim::Proposals
           expect(subject).to have_css(".card__grid-img svg#ri-proposal-placeholder-card-g")
         end
       end
-      
+
       context "when the proposal has a pdf" do
         let!(:attachment) { create(:attachment, :with_pdf, attached_to: proposal) }
 
