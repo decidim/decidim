@@ -89,7 +89,7 @@ describe("ClipboardCopy", () => {
     });
 
     it("should return early if target element not found", () => {
-      mockElement.dataset.clipboardCopy = "#non-existent";
+      mockElement.dataset.clipboardCopy = "#nonexistent";
       clipboardCopy = new ClipboardCopy(mockElement);
 
       clipboardCopy._handleClick({ preventDefault: jest.fn() });
