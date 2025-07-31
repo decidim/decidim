@@ -1,4 +1,4 @@
-/* eslint max-lines: ["error", 350] */
+/* eslint max-lines: ["error", 370] */
 /* global global, jest */
 
 import ClipboardCopy from "src/decidim/refactor/implementation/copy_clipboard";
@@ -233,7 +233,7 @@ describe("ClipboardCopy", () => {
     it("should create and append screen reader message element", () => {
       clipboardCopy._announceToScreenReader();
 
-      const messageEl = mockElement.querySelector('[role="alert"]');
+      const messageEl = mockElement.querySelector('[aria-role="alert"]');
       expect(messageEl).toBeTruthy();
       expect(messageEl.getAttribute("aria-live")).toBe("assertive");
       expect(messageEl.getAttribute("aria-atomic")).toBe("true");
@@ -244,7 +244,7 @@ describe("ClipboardCopy", () => {
       clipboardCopy._announceToScreenReader();
       clipboardCopy._announceToScreenReader();
 
-      const messageEl = mockElement.querySelector('[role="alert"]');
+      const messageEl = mockElement.querySelector('[aria-role="alert"]');
       expect(messageEl.innerHTML).toContain("&nbsp;");
     });
 
@@ -254,7 +254,7 @@ describe("ClipboardCopy", () => {
 
       clipboardCopy._announceToScreenReader();
 
-      const messageEl = mockElement.querySelector('[role="alert"]');
+      const messageEl = mockElement.querySelector('[aria-role="alert"]');
       expect(messageEl).toBeFalsy();
     });
   });
@@ -270,7 +270,7 @@ describe("ClipboardCopy", () => {
       clipboardCopy._showSuccessMessage(mockTargetElement);
       clipboardCopy._announceToScreenReader();
 
-      const messageEl = mockElement.querySelector('[role="alert"]');
+      const messageEl = mockElement.querySelector('[aria-role="alert"]');
       expect(messageEl).toBeTruthy();
 
       clipboardCopy.destroy();
@@ -348,10 +348,10 @@ describe("ClipboardCopy", () => {
       expect(document.execCommand).toHaveBeenCalledWith("copy");
 
       // Verify success message is shown
-      expect(mockElement.innerHTML).toBe('Copied!<div role="alert" aria-live="assertive" aria-atomic="true" class="sr-only">Text copied to clipboard</div>');
+      expect(mockElement.innerHTML).toBe('Copied!<div aria-role="alert" aria-live="assertive" aria-atomic="true" class="sr-only">Text copied to clipboard</div>');
 
       // Verify screen reader message is added
-      const messageEl = mockElement.querySelector('[role="alert"]');
+      const messageEl = mockElement.querySelector('[aria-role="alert"]');
       expect(messageEl.innerHTML).toBe("Text copied to clipboard");
 
       // Fast forward time and verify reset

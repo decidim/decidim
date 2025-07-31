@@ -253,7 +253,7 @@ export default class ClipboardCopy {
       this.messageElement = document.createElement("div");
 
       // Configure ARIA attributes for proper screen reader announcement
-      this.messageElement.setAttribute("role", "alert");
+      this.messageElement.setAttribute("aria-role", "alert");
       this.messageElement.setAttribute("aria-live", "assertive");
       this.messageElement.setAttribute("aria-atomic", "true");
 
