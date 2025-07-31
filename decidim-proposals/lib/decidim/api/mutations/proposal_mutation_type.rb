@@ -8,6 +8,8 @@ module Decidim
       graphql_name "ProposalMutation"
       description "a proposal which includes its available mutations"
 
+      include Decidim::Core::AttachableMutations
+
       field :answer, mutation: Decidim::Proposals::AnswerProposalType, description: "Answers a proposal"
     end
   end

@@ -1,6 +1,6 @@
 # frozen_string_literal:  true
 
-RSpec.shared_examples "attachable mutations" do
+RSpec.shared_examples "attachable mutations" do |supports_collection:|
   let!(:attached_to) { model }
   let(:other) { create(:participatory_process, organization: model.organization) }
   let!(:attachments) { create_list(:attachment, 2, attached_to:) }
@@ -56,13 +56,13 @@ RSpec.shared_examples "attachable mutations" do
     context "with an admin user" do
       let(:user_type) { :admin }
 
-      include_examples "creatable attachment"
+      include_examples "creatable attachment", supports_collection:
     end
 
     context "with an API user" do
       let(:user_type) { :api_user }
 
-      include_examples "creatable attachment"
+      include_examples "creatable attachment", supports_collection:
     end
   end
 
@@ -105,13 +105,13 @@ RSpec.shared_examples "attachable mutations" do
     context "with an admin user" do
       let(:user_type) { :admin }
 
-      include_examples "updatable attachment"
+      include_examples "updatable attachment", supports_collection:
     end
 
     context "with an API user" do
       let(:user_type) { :api_user }
 
-      include_examples "updatable attachment"
+      include_examples "updatable attachment", supports_collection:
     end
   end
 
@@ -142,7 +142,7 @@ RSpec.shared_examples "attachable mutations" do
   end
 end
 
-shared_examples_for "creatable attachment" do
+shared_examples_for "creatable attachment" do |supports_collection:|
   it "creates an attachment" do
     expect { response }.to change(Decidim::Attachment, :count).by(1)
   end
@@ -158,7 +158,7 @@ shared_examples_for "creatable attachment" do
     expect(attachment.weight).to eq(weight)
     expect(attachment.file.blob).to eq(blob)
     expect(attachment.attached_to).to eq(model)
-    expect(attachment.attachment_collection).to be_nil
+    expect(attachment.attachment_collection).to be_nil if supports_collection
   end
 
   context "when weight is not provided" do
@@ -189,7 +189,78 @@ shared_examples_for "creatable attachment" do
       expect { response }.to raise_error(StandardError)
     end
   end
+  include_examples "create attachment with collection support" if supports_collection
+end
 
+shared_examples_for "updatable attachment" do |supports_collection:|
+  it "updates the existing attachment" do
+    orig_updated_at = attachment.updated_at
+    response
+    expect(attachment.reload.updated_at).to be > orig_updated_at
+  end
+
+  it "creates an action log record" do
+    expect { response }.to change(Decidim::ActionLog, :count).by(1)
+  end
+
+  it "updates all the attributes for the attachment" do
+    response
+    attachment.reload
+    expect(attachment.title.except("machine_translations")).to eq(title)
+    expect(attachment.description.except("machine_translations")).to eq(description)
+    expect(attachment.weight).to eq(weight)
+    expect(attachment.file.blob).to eq(blob)
+    expect(attachment.attachment_collection).to be_nil if supports_collection
+  end
+
+  context "when weight is not provided" do
+    let(:attributes) do
+      {
+        title: title,
+        description: description,
+        file: { blobId: blob.id }
+      }
+    end
+
+    it "sets it to zero" do
+      response
+      attachment.reload
+      expect(attachment.weight).to eq(0)
+    end
+  end
+
+  context "when description is not provided" do
+    let(:attributes) do
+      {
+        title: title,
+        file: { blobId: blob.id }
+      }
+    end
+
+    it "keeps the original description" do
+      original_description = attachment.description
+      response
+      attachment.reload
+      expect(attachment.description).to eq(original_description)
+    end
+  end
+
+  include_examples "update attachment with collection support" if supports_collection
+end
+
+shared_examples_for "deletable attachment" do
+  it "deletes the attachment" do
+    expect do
+      execute_query(query, variables)
+    end.to change(Decidim::Attachment, :count).by(-1)
+  end
+
+  it "returns the deleted attachment" do
+    expect(attachment_response).to eq({ "id" => attachment.id.to_s })
+  end
+end
+
+shared_examples_for "create attachment with collection support" do
   context "when collection is provided using ID" do
     let(:attributes) do
       {
@@ -309,59 +380,7 @@ shared_examples_for "creatable attachment" do
   end
 end
 
-shared_examples_for "updatable attachment" do
-  it "updates the existing attachment" do
-    orig_updated_at = attachment.updated_at
-    response
-    expect(attachment.reload.updated_at).to be > orig_updated_at
-  end
-
-  it "creates an action log record" do
-    expect { response }.to change(Decidim::ActionLog, :count).by(1)
-  end
-
-  it "updates all the attributes for the attachment" do
-    response
-    attachment.reload
-    expect(attachment.title.except("machine_translations")).to eq(title)
-    expect(attachment.description.except("machine_translations")).to eq(description)
-    expect(attachment.weight).to eq(weight)
-    expect(attachment.file.blob).to eq(blob)
-    expect(attachment.attachment_collection).to be_nil
-  end
-
-  context "when weight is not provided" do
-    let(:attributes) do
-      {
-        title: title,
-        description: description,
-        file: { blobId: blob.id }
-      }
-    end
-
-    it "sets it to zero" do
-      response
-      attachment.reload
-      expect(attachment.weight).to eq(0)
-    end
-  end
-
-  context "when description is not provided" do
-    let(:attributes) do
-      {
-        title: title,
-        file: { blobId: blob.id }
-      }
-    end
-
-    it "keeps the original description" do
-      original_description = attachment.description
-      response
-      attachment.reload
-      expect(attachment.description).to eq(original_description)
-    end
-  end
-
+shared_examples_for "update attachment with collection support" do
   context "when collection is provided using ID" do
     let(:collection) { create(:attachment_collection, collection_for: model) }
     let(:attributes) do
@@ -516,17 +535,5 @@ shared_examples_for "updatable attachment" do
     it "does not update the attachment" do
       expect { response }.to raise_error(StandardError)
     end
-  end
-end
-
-shared_examples_for "deletable attachment" do
-  it "deletes the attachment" do
-    expect do
-      execute_query(query, variables)
-    end.to change(Decidim::Attachment, :count).by(-1)
-  end
-
-  it "returns the deleted attachment" do
-    expect(attachment_response).to eq({ "id" => attachment.id.to_s })
   end
 end
