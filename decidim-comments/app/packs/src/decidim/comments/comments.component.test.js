@@ -447,6 +447,7 @@ describe("CommentsComponent", () => {
       spyOnAddComment("on");
       jest.spyOn(orderLinks, "on");
       jest.spyOn($doc, "trigger");
+      jest.spyOn(document, "dispatchEvent");
 
       subject.mountComponent();
     });
@@ -478,10 +479,7 @@ describe("CommentsComponent", () => {
 
     it("attaches the mentions elements to the text fields", () => {
       addComment.each((i) => {
-        expect($doc.trigger).toHaveBeenCalledWith(
-          "attach-mentions-element",
-          [addComment[i].commentTextarea[0]]
-        );
+        expect(document.dispatchEvent).toHaveBeenCalledWith(new CustomEvent("attach-mentions-element", { detail: addComment[i].commentTextarea[0] }));
       });
     });
   });
