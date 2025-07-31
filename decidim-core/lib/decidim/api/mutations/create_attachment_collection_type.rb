@@ -9,7 +9,8 @@ module Decidim
       argument :attributes, AttachmentCollectionAttributes, description: "input attributes to create an attachment collection", required: true
 
       def resolve(attributes:)
-        form = Admin::AttachmentCollectionForm.from_params(attributes.to_h)
+        key = attributes.key || attributes.slug
+        form = Admin::AttachmentCollectionForm.from_params(attributes.to_h.merge(key:))
                                               .with_context(
                                                 current_component: context[:current_component],
                                                 current_organization: context[:current_organization],

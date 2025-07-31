@@ -323,8 +323,8 @@ shared_examples_for "updatable attachment" do
   it "updates all the attributes for the attachment" do
     response
     attachment.reload
-    expect(attachment.title).to eq(title)
-    expect(attachment.description).to eq(description)
+    expect(attachment.title.except("machine_translations")).to eq(title)
+    expect(attachment.description.except("machine_translations")).to eq(description)
     expect(attachment.weight).to eq(weight)
     expect(attachment.file.blob).to eq(blob)
     expect(attachment.attachment_collection).to be_nil

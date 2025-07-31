@@ -43,7 +43,8 @@ module Decidim
         {
           name: form.name,
           weight: form.weight,
-          description: form.description
+          description: form.description,
+          key: form.key
         }
       end
     end

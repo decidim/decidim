@@ -36,4 +36,11 @@ shared_context "with a graphql class mutation" do
       end)
     end
   end
+
+  private
+
+  def generate_localized_title
+    title = super
+    title.except("machine_translations")
+  end
 end

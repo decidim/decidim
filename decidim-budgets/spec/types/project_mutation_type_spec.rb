@@ -12,5 +12,6 @@ module Decidim::Budgets
     let(:organization) { model.organization }
 
     it_behaves_like "attachable mutations"
+    it_behaves_like "attachable collection mutations"
   end
 end
