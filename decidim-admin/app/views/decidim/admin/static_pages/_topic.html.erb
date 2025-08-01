@@ -39,7 +39,7 @@
               </td>
 
               <td data-label="<%= t("decidim.admin.actions.actions") %>" class="table-list__actions">
-                 <button type="button" data-component="dropdown" data-target="actions-static-page-<%= page.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: translated_attribute(page.title)) %>">
+                 <button type="button" data-controller="dropdown" data-target="actions-static-page-<%= page.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: translated_attribute(page.title)) %>">
                   <%= icon "more-fill", class: "text-secondary" %>
                 </button>
 

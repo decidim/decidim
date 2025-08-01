@@ -5,7 +5,7 @@ require "spec_helper"
 shared_examples "access permissions form" do
   it "can view the permissions" do
     within "tr", text: row_text do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       click_on "Manage permissions"
     end
     expect(page).to have_content("Edit permissions")
@@ -46,7 +46,7 @@ shared_examples "Managing component permissions" do
   context "when setting permissions" do
     before do
       within ".component-#{component.id}" do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Manage permissions"
       end
     end
@@ -78,7 +78,7 @@ shared_examples "Managing component permissions" do
     before do
       allow_any_instance_of(Decidim::Admin::PermissionsForm).to receive(:valid?).and_return(false)
       within ".component-#{component.id}" do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Manage permissions"
       end
       within "#components form" do
@@ -110,7 +110,7 @@ shared_examples "Managing component permissions" do
       )
 
       within ".component-#{component.id}" do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Manage permissions"
       end
     end
@@ -146,7 +146,7 @@ shared_examples "Managing component permissions" do
       )
 
       within ".component-#{component.id}" do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Manage permissions"
       end
     end

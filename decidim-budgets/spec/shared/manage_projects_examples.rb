@@ -80,7 +80,7 @@ shared_examples "manage projects" do
 
   it "updates a project" do
     within "tr", text: translated(project.title) do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       click_on "Edit"
     end
 
@@ -106,7 +106,7 @@ shared_examples "manage projects" do
   context "when previewing projects" do
     it "allows the user to preview the project" do
       within "tr", text: translated(project.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         preview_window = window_opened_by { click_on "Preview" }
 
         within_window preview_window do
@@ -175,7 +175,7 @@ shared_examples "manage projects" do
 
     it "deletes a project" do
       within "tr", text: translated(project2.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Move to trash" }
       end
 
@@ -194,7 +194,7 @@ shared_examples "manage projects" do
 
     it "updates a project", versioning: true do
       within "tr", text: translated(project.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
@@ -223,7 +223,7 @@ shared_examples "manage projects" do
       expect(project.linked_resources(:proposals, "included_proposals").count).to eq(5)
 
       within "tr", text: translated(project.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
