@@ -1,0 +1,35 @@
+<% add_decidim_meta_tags({ description: translated_attribute(election.description), title: present(election).title }) %>
+
+<% append_stylesheet_pack_tag "decidim_elections" %>
+<% append_javascript_pack_tag "decidim_elections" %>
+
+<%= render partial: "layouts/decidim/meta_tags_config" %>
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>" dir="<%= rtl_direction %>" class="no-js">
+  <head>
+    <title><%= decidim_page_title %></title>
+    <%= render partial: "layouts/decidim/head" %>
+  </head>
+  <body class="text-black text-md form-defaults<%= yield (:body_class) %>">
+  <div class="layout-container">
+    <header>
+      <div id="elections-header-container">
+        <%= render partial: "layouts/decidim/election_votes_header" %>
+      </div>
+    </header>
+    <% if display_flash_messages.present? %>
+      <div id="flash-messages-container" class="container">
+        <%= display_flash_messages %>
+      </div>
+    <% end %>
+    <main class="layout-1col cols-6">
+      <div class="py-8 space-y-8 lg:py-12 lg:space-y-12">
+        <%= yield %>
+      </div>
+    </main>
+  </div>
+
+  <%= render partial: "decidim/shared/login_modal" unless current_user %>
+  <%= render partial: "layouts/decidim/decidim_javascript" %>
+  </body>
+</html>

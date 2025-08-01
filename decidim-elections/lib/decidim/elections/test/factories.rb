@@ -121,10 +121,30 @@ FactoryBot.define do
   factory :election_response_option, class: "Decidim::Elections::ResponseOption" do
     association :question, factory: :election_question
     body { generate_localized_title(:response_option_body) }
+
+    trait :with_votes do
+      after :create do |response_option, _evaluator|
+        create_list(:election_vote, 2, response_option:, question: response_option.question)
+      end
+    end
+  end
+
+  factory :election_vote, class: "Decidim::Elections::Vote" do
+    association :question, factory: :election_question
+    association :response_option, factory: :election_response_option
+    voter_uid { "voter_#{SecureRandom.hex(4)}" }
   end
 
   factory :election_voter, class: "Decidim::Elections::Voter" do
     association :election
     sequence(:data) { |n| { email: "voter#{n}@example.com", token: "token#{n}" } }
+
+    trait :with_votes do
+      after :create do |voter|
+        voter.election.questions.each do |question|
+          create(:election_vote, question:, response_option: question.response_options.sample)
+        end
+      end
+    end
   end
 end

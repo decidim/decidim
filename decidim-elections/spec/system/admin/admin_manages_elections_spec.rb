@@ -19,8 +19,8 @@ describe "Admin manages elections" do
   let!(:published_results_election) { create(:election, :published, :published_results, component: current_component) }
 
   let(:attributes) { attributes_for(:election, component: current_component) }
-  let(:start_time) { Time.current.change(day: 10, hour: 12, min: 50) }
-  let(:end_time) { Time.current.change(day: 12, hour: 12, min: 50) }
+  let(:start_time) { 1.day.from_now }
+  let(:end_time) { 3.days.from_now }
 
   before do
     visit_component_admin
@@ -138,8 +138,24 @@ describe "Admin manages elections" do
       expect(page).to have_content("Results available after the election ends")
       within "#question_#{question1.id}" do
         expect(page).to have_content(translated(question1.body))
-        expect(page).to have_content("0")
+        expect(page).to have_content("0 votes")
         expect(page).to have_content("0.0%")
+      end
+      create(:election_vote, voter_uid: "user-1", question: question1, response_option: question1.response_options.first)
+      create(:election_vote, voter_uid: "user-2", question: question2, response_option: question2.response_options.first)
+      create(:election_vote, voter_uid: "user-3", question: question2, response_option: question2.response_options.second)
+      create(:election_vote, voter_uid: "user-4", question: question2, response_option: question2.response_options.second)
+      # wait for javascript to update the page
+      sleep 4
+      within "#question_#{question1.id}" do
+        expect(page).to have_content("1 vote")
+        expect(page).to have_content("100.0%")
+      end
+      within "#question_#{question2.id}" do
+        expect(page).to have_content("1 vote")
+        expect(page).to have_content("33.3%")
+        expect(page).to have_content("2 votes")
+        expect(page).to have_content("66.7%")
       end
     end
   end

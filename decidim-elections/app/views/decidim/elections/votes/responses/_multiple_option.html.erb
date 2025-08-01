@@ -1,0 +1,4 @@
+<%= label_tag "response-#{option.question.id}-#{option.id}" , nil, class: "js-collection-input" do %>
+  <%= check_box_tag "response[#{option.question.id}][]", option.id, id: "response-#{option.question.id}-#{option.id}", checked: response_chosen?(option) %>
+  <%= translated_attribute(option.body) %>
+<% end %>

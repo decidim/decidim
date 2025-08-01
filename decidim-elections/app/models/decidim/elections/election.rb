@@ -24,6 +24,11 @@ module Decidim
 
       has_many :voters, class_name: "Decidim::Elections::Voter", inverse_of: :election, dependent: :destroy
       has_many :questions, class_name: "Decidim::Elections::Question", inverse_of: :election, dependent: :destroy
+      has_many :votes,
+               foreign_key: "decidim_election_id",
+               class_name: "Decidim::Elections::Vote",
+               through: :questions,
+               dependent: :restrict_with_error
 
       component_manifest_name "elections"
 
@@ -49,6 +54,10 @@ module Decidim
 
       def self.log_presenter_class_for(_log)
         Decidim::Elections::AdminLog::ElectionPresenter
+      end
+
+      def update_votes_count!
+        update(votes_count: votes.count)
       end
 
       def real_time?
@@ -126,6 +135,8 @@ module Decidim
 
       # if per question, only the enabled questions are returned
       # if not, all questions are returned
+      # if per question, only the enabled questions are returned
+      # if not, all questions are returned
       def available_questions
         return questions.enabled.unpublished_results if per_question?
 
@@ -153,6 +164,40 @@ module Decidim
         return available_questions if published_results?
 
         []
+      end
+
+      def to_json(admin: false)
+        {
+          id: id,
+          ongoing: ongoing?,
+          status: status,
+          start_date: start_at&.iso8601,
+          end_date: end_at.iso8601,
+          title: translated_attribute(title),
+          description: translated_attribute(description),
+          questions: questions.map do |question|
+            {
+              id: question.id,
+              body: translated_attribute(question.body),
+              position: question.position,
+              voting_enabled: question.voting_enabled?,
+              published_results: question.published_results?,
+              response_options: question.response_options.map do |option|
+                {
+                  id: option.id,
+                  body: translated_attribute(option.body)
+                }.tap do |hash|
+                  next unless admin || result_published_questions.include?(question)
+
+                  hash[:votes_count] = option.votes_count
+                  hash[:votes_count_text] = I18n.t("votes_count", scope: "decidim.elections.elections.show", count: option.votes_count)
+                  hash[:votes_percent_text] = number_to_percentage(option.votes_percent, precision: 1)
+                  hash[:votes_percent] = option.votes_percent
+                end
+              end
+            }
+          end
+        }
       end
 
       scope_search_multi :with_any_state, [:ongoing, :finished, :scheduled]

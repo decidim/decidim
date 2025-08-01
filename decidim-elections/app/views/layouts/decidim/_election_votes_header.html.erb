@@ -1,0 +1,14 @@
+<div class="main-bar">
+  <div class="main-bar__logo">
+    <div class="main-bar__logo-desktop">
+      <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
+    </div>
+    <div class="main-bar__logo-mobile">
+      <%= render partial: "layouts/decidim/logo_mobile", locals: { organization: current_organization } %>
+    </div>
+  </div>
+  <%= link_to exit_path, class: "flex flex-col items-center" do %>
+    <%= icon "close-line", role: "img", "aria-hidden": true %>
+    <%= t(".exit") %>
+  <% end %>
+</div>

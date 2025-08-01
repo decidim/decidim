@@ -1,0 +1,15 @@
+<%= decidim_form_for(@form, url: url_for(action: :create), html: { class: "form form-defaults" }) do |f| %>
+  <div class="form__wrapper">
+    <div class="flex justify-center">
+      <h1 class="title-decorator my-12">
+        <%= t("form_title", scope: "decidim.elections.votes.check_census") %>
+      </h1>
+    </div>
+
+    <%= render partial: election.census.voter_form_partial, locals: { form: f } %>
+
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-end">
+      <%= f.submit t("access", scope: "decidim.elections.votes.check_census"), class: "button button__sm md:button__lg button__secondary" %>
+    </div>
+  </div>
+<% end %>

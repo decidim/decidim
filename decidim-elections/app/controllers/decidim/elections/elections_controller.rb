@@ -32,7 +32,7 @@ module Decidim
       end
 
       def election
-        @election ||= elections.find_by(id: params[:id])
+        @election ||= current_user&.admin? ? available_elections.find_by(id: params[:id]) : elections.find_by(id: params[:id])
       end
 
       def questions
@@ -40,7 +40,11 @@ module Decidim
       end
 
       def search_collection
-        Election.where(component: current_component).not_hidden.published
+        available_elections.published
+      end
+
+      def available_elections
+        Election.where(component: current_component).not_hidden
       end
 
       def tab_panel_items

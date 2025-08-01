@@ -100,6 +100,9 @@ module Decidim
 
           respond_to do |format|
             format.html { render :dashboard }
+            format.json do
+              render json: election.to_json(admin: true) # Admins see all votes, not just the published results
+            end
           end
         end
 

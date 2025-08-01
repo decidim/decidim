@@ -1,0 +1,27 @@
+<%= form_with url: url_for(action: :show, id: question), method: :patch, local: true do %>
+  <%= question_title(question, :h1, class: "h4 mb-8") %>
+
+  <div class="question__response-options mt-4 flex flex-col gap-4">
+    <% question.response_options.each do |option| %>
+      <label class="rounded-lg border border-gray p-4">
+        <%= render "decidim/elections/votes/responses/#{question.question_type}", option: %>
+      </label>
+    <% end %>
+  </div>
+
+  <div class="vote-navigation flex justify-between mt-8">
+    <% if question.previous_question %>
+      <%= link_to url_for(action: :show, id: question.previous_question), class: "button button__lg button__transparent-secondary" do %>
+        <%= icon "arrow-left-line", class: "fill-current" %>
+        <%= t("back", scope: "decidim.elections.votes.question") %>
+      <% end %>
+    <% end %>
+
+    <div class="ml-auto">
+      <button type="submit" class="button button__lg button__secondary">
+        <%= icon "mail-send-line", class: "fill-current" %>
+        <%= t("decidim.elections.votes.question.cast_vote") %>
+      </button>
+    </div>
+  </div>
+<% end %>

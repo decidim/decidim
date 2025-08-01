@@ -42,6 +42,21 @@ module Decidim
         it "raises a 404 if the election is not found" do
           expect { get :show, params: params.merge(id: "non-existent") }.to raise_error(ActionController::RoutingError)
         end
+
+        it "returns the election as JSON" do
+          get :show, params: params.merge(id: election.id, format: :json)
+          expect(response).to have_http_status(:ok)
+          expect(JSON.parse(response.body)).to include(
+            "id" => election.id,
+            "title" => translated_attribute(election.title),
+            "description" => translated_attribute(election.description),
+            "start_date" => nil,
+            "end_date" => election.end_at.iso8601,
+            "ongoing" => false,
+            "status" => "scheduled",
+            "questions" => []
+          )
+        end
       end
     end
   end
