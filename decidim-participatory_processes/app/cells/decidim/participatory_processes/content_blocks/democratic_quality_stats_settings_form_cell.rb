@@ -47,18 +47,18 @@ module Decidim
               [t("relevance.relevance_percentage.options.five", scope: option_scope), 5]
             ],
             citizen_influence_level: [
-              [t("citizen_influence.citizen_influence_level.options.zero", scope: option_scope), 0,
-               t("citizen_influence.citizen_influence_level.options.zero_description", scope: option_scope)],
-              [t("citizen_influence.citizen_influence_level.options.one", scope: option_scope), 1,
-               t("citizen_influence.citizen_influence_level.options.one_description", scope: option_scope)],
-              [t("citizen_influence.citizen_influence_level.options.two", scope: option_scope), 2,
-               t("citizen_influence.citizen_influence_level.options.two_description", scope: option_scope)],
-              [t("citizen_influence.citizen_influence_level.options.three", scope: option_scope), 3,
-               t("citizen_influence.citizen_influence_level.options.three_description", scope: option_scope)],
-              [t("citizen_influence.citizen_influence_level.options.four", scope: option_scope), 4,
-               t("citizen_influence.citizen_influence_level.options.four_description", scope: option_scope)],
-              [t("citizen_influence.citizen_influence_level.options.five", scope: option_scope), 5,
-               t("citizen_influence.citizen_influence_level.options.five_description", scope: option_scope)]
+              [t("citizen_influence.citizen_influence_level.options.one", scope: option_scope), 1],
+              [t("citizen_influence.citizen_influence_level.options.two", scope: option_scope), 2],
+              [t("citizen_influence.citizen_influence_level.options.three", scope: option_scope), 3],
+              [t("citizen_influence.citizen_influence_level.options.four", scope: option_scope), 4],
+              [t("citizen_influence.citizen_influence_level.options.five", scope: option_scope), 5]
+            ],
+            citizen_decisional_intervention: [
+              [t("citizen_influence.citizen_decisional_intervention.options.one", scope: option_scope), 1],
+              [t("citizen_influence.citizen_decisional_intervention.options.two", scope: option_scope), 2],
+              [t("citizen_influence.citizen_decisional_intervention.options.three", scope: option_scope), 3],
+              [t("citizen_influence.citizen_decisional_intervention.options.four", scope: option_scope), 4],
+              [t("citizen_influence.citizen_decisional_intervention.options.five", scope: option_scope), 5]
             ],
             languages_count: [
               [t("accessibility.languages_count.options.one", scope: option_scope), 1],

@@ -41,6 +41,7 @@ module Decidim
           settings.functional_diversity_participation != -1 &&
           settings.relevance_percentage != -1 &&
           settings.citizen_influence_level != -1 &&
+          settings.citizen_decisional_intervention != -1 &&
           settings.languages_count != -1 &&
           settings.venue_accessibility != -1
       end
@@ -259,7 +260,7 @@ module Decidim
 
       # @return [Float]
       def calculate_auto_evaluation_citizen_influence
-        settings.citizen_influence_level
+        (settings.citizen_influence_level + settings.citizen_decisional_intervention) / 2.0
       end
 
       # @return [Float]

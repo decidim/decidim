@@ -435,21 +435,22 @@ en:
               title: 'This content block includes two types of metrics:'
             citizen_influence:
               citizen_influence_level:
-                legend: Level of influence of the process according to the participation mechanisms enabled, according to the ladder of participation defined by Sherry Arnstein (1969).
+                legend: This indicator measures the degree of actual citizen power in a process, specifically quantifying the level of decisional and executive authority citizens hold, from simply receiving information to decisively influencing decisions and managing resources.
                 options:
-                  five: Citizen control = 5
-                  five_description: A highest level of participation where citizens fully govern a program or institution, managing policies, resources, and decision-making without external interference.
-                  four: Delegated power = 4
-                  four_description: A participatory process where citizens gain authority, control, or funding to influence and manage an organization.
-                  one: Consultation = 1
-                  one_description: A participatory process where citizens are asked for their opinions, typically through surveys or meetings, but without assurance that their input will influence decisions.
-                  three: Partnership = 3
-                  three_description: A participatory process where citizens and organizations share decision-making power, allowing participants to negotiate, allocate resources, and influence planning, with rules that cannot be changed unilaterally. It often emerges from citizen mobilization and collective action.
-                  two: Placation = 2
-                  two_description: A participatory process where citizens are given limited influence, often in a tokenistic manner, such as inclusion in boards or committees, but without real power, as decision-making remains controlled by the traditional power elite.
-                  zero: Informative = 0
-                  zero_description: One-way flow of information—from officials to citizens—with no channel provided for feedback and no power for negotiation.
+                  five: Participants were involved in the decision-making and the management of resources or the implementation = 5
+                  four: Participants were involved decisively in the decision-making = 4
+                  one: Participants received information from the organisation = 1
+                  three: Participants were involved to share decision-making power = 3
+                  two: Participants were asked in a consultative manner or gave feedback to the organisation = 2
               name: Citizen influence
+              citizen_decisional_intervention:
+                legend: Out of all phases in the process (from selecting issues to supervising execution), in how many does the public have the ability to make decisions or take executive action?
+                options:
+                  five: 80 - 100% = 5
+                  four: 60 - 80% = 4
+                  one: 0 - 20% = 1
+                  three: 40 - 60% = 3
+                  two: 20 - 40% = 2
             inclusiveness:
               cultural_origins_participation:
                 legend: How many people from diverse cultural origins have participated out of the invited?

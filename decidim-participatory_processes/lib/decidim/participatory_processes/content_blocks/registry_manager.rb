@@ -187,6 +187,7 @@ module Decidim
               settings.attribute :functional_diversity_participation, type: :integer, default: -1
               settings.attribute :relevance_percentage, type: :integer, default: -1
               settings.attribute :citizen_influence_level, type: :integer, default: -1
+              settings.attribute :citizen_decisional_intervention, type: :integer, default: -1
               settings.attribute :languages_count, type: :integer, default: -1
               settings.attribute :venue_accessibility, type: :integer, default: -1
             end
