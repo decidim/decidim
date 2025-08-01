@@ -4,21 +4,12 @@ module Decidim
   module Api
     class Permissions < Decidim::DefaultPermissions
       def permissions
-        return permission_action unless permission_action.scope == :admin
+        return permission_action unless user
+        return permission_action unless user.admin?
+        return permission_action if permission_action.scope != :admin
+        return permission_action unless user.admin_terms_accepted?
 
-        unless user || !user.admin? || !admin_terms_accepted?
-          disallow!
-          return permission_action
-        end
-
-        if permission_action.subject == :blob
-          case permission_action.action
-          when :create
-            allow!
-          when :update, :delete
-            blob.present?
-          end
-        end
+        permission_action.allow! if can_perform_actions_on?(:blob, blob)
 
         permission_action
       end
@@ -35,6 +26,19 @@ module Decidim
 
       def admin_terms_accepted?
         user&.admin_terms_accepted?
+      end
+
+      def can_perform_actions_on?(subject, resource)
+        return unless permission_action.subject == subject
+
+        case permission_action.action
+        when :create
+          true
+        when :destroy, :update
+          resource.present?
+        else
+          false
+        end
       end
     end
   end

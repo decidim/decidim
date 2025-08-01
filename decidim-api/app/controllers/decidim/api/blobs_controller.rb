@@ -68,16 +68,22 @@ module Decidim
         Decidim.organization_settings(current_organization).upload_allowed_file_extensions_admin
       end
 
+      # Handles the unauthorized (not signed in) and forbidden (not an admin)
+      # cases for the file upload endpoint.
+      def user_has_no_permission
+        if api_user
+          render body: nil, status: :forbidden
+        else
+          render body: nil, status: :unauthorized
+        end
+      end
+
       def content_type_allowlist
         Decidim.organization_settings(current_organization).upload_allowed_content_types_admin
       end
 
       def permission_scope
         :admin
-      end
-
-      def user
-        super || try(:current_api_user)
       end
     end
   end
