@@ -65,14 +65,14 @@ module Decidim::Accountability
       let!(:user_type) { :admin }
 
       it_behaves_like "create new result"
-      include_examples "create/update result shared examples"
+      include_examples "create/update result shared examples", visible_to_all: true
     end
 
     context "with api user" do
       let!(:user_type) { :api_user }
 
       it_behaves_like "create new result"
-      include_examples "create/update result shared examples"
+      include_examples "create/update result shared examples", visible_to_all: true
     end
 
     context "with normal user" do

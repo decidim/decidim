@@ -38,10 +38,17 @@ end
 
 shared_examples "trace result action" do
   it "traces the action", versioning: true do
-    expect(Decidim.traceability)
-      .to receive(expected_trace_method)
-      .with(target, current_user, kind_of(Hash))
-      .and_call_original
+    if visible_to_all
+      expect(Decidim.traceability)
+        .to receive(expected_trace_method)
+        .with(target, current_user, kind_of(Hash), { visibility: "all" })
+        .and_call_original
+    else
+      expect(Decidim.traceability)
+        .to receive(expected_trace_method)
+        .with(target, current_user, kind_of(Hash))
+        .and_call_original
+    end
 
     expect { execute_query(query, variables) }.to change(Decidim::ActionLog, :count)
     action_log = Decidim::ActionLog.last
@@ -146,7 +153,9 @@ shared_examples "handle linking resources" do
   end
 end
 
-shared_examples "create/update result shared examples" do
+shared_examples "create/update result shared examples" do |visible_to_all:|
+  let(:visible_to_all) { visible_to_all }
+
   it_behaves_like "handle form error"
   it_behaves_like "handle linking resources"
   it_behaves_like "trace result action"
