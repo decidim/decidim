@@ -40,7 +40,7 @@ shared_examples "trace result action" do
   it "traces the action", versioning: true do
     expect(Decidim.traceability)
       .to receive(expected_trace_method)
-      .with(target, current_user, kind_of(Hash), { visibility: "all" })
+      .with(target, current_user, kind_of(Hash))
       .and_call_original
 
     expect { execute_query(query, variables) }.to change(Decidim::ActionLog, :count)
