@@ -8,10 +8,10 @@ module Decidim
       included do
         field :create_attachment, mutation: CreateAttachmentType,
                                   description: "Create attachment for a resource"
-        field :update_attachment, mutation: UpdateAttachmentType,
-                                  description: "Update attachment for a resource"
         field :delete_attachment, mutation: DeleteAttachmentType,
                                   description: "Delete resource attachment"
+        field :update_attachment, mutation: UpdateAttachmentType,
+                                  description: "Update attachment for a resource"
       end
     end
   end
