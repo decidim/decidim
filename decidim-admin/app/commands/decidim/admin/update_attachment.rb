@@ -53,7 +53,7 @@ module Decidim
           attrs[:file] = nil if form.link.present? && form.file.blank?
           attrs[:link] = nil if form.file.present? && form.link.blank?
           # Do not add attachment_collection if not supported(i.e in proposals)
-          attrs[attachment_collection] = form.attachment_collection if @attachment.attached_to.respond_to?(:attachment_collections)
+          attrs[:attachment_collection] = form.attachment_collection if @attachment.attached_to.respond_to?(:attachment_collections)
         end
       end
     end

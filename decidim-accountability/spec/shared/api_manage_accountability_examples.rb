@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_examples "return expexted result values" do
+shared_examples "return expected result values" do
   it "returns the result" do
     expect(api_response).to be_present
     result = Decidim::Accountability::Result.last
@@ -150,7 +150,7 @@ shared_examples "create/update result shared examples" do
   it_behaves_like "handle form error"
   it_behaves_like "handle linking resources"
   it_behaves_like "trace result action"
-  it_behaves_like "return expexted result values"
+  it_behaves_like "return expected result values"
 end
 
 shared_examples "API deletable result" do

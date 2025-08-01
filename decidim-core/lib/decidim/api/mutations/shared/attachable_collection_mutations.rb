@@ -11,7 +11,7 @@ module Decidim
         field :delete_attachment_collection, mutation: DeleteAttachmentCollectionType,
                                              description: "Delete attachment collection from a resource"
         field :update_attachment_collection, mutation: UpdateAttachmentCollectionType,
-                                             description: "Update attachment collection for a resourece"
+                                             description: "Update attachment collection for a resource"
       end
     end
   end

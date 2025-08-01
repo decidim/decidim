@@ -54,7 +54,7 @@ module Decidim
           link: form.file ? nil : form.link
         }
         # Do not add attachment_collection if not supported(i.e in proposals)
-        attrs.merge(attachment_collection: form.attachment_collection) if @attached_to.respond_to?(:attachment_collections)
+        attrs.merge!(attachment_collection: form.attachment_collection) if @attached_to.respond_to?(:attachment_collections)
         @attachment = Attachment.new(**attrs)
       end
 

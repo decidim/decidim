@@ -12,7 +12,7 @@ module Decidim
       def resolve(attributes:, id:)
         return GraphQL::ExecutionError.new(I18n.t("decidim.admin.attachments.update.error")) unless attachment_collection(id)
 
-        form_attrs = params_from_attritubtes(attributes)
+        form_attrs = params_from_attributes(attributes)
 
         form = Admin::AttachmentCollectionForm.from_params(form_attrs)
                                               .with_context(
@@ -52,7 +52,7 @@ module Decidim
         end
       end
 
-      def params_from_attritubtes(attributes)
+      def params_from_attributes(attributes)
         key = attributes[:key].presence || attributes[:slug] || attachment_collection.key
 
         {
