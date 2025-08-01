@@ -35,10 +35,11 @@ module Decidim
 
       # @return [Boolean]
       def finished_survey?
-        settings.migrant_groups_invited != -1 &&
-          settings.cultural_origins_participation != -1 &&
-          settings.functional_diversity_invited != -1 &&
-          settings.functional_diversity_participation != -1 &&
+        settings.functional_diversity_invited != -1 &&
+          settings.languages_communicated != -1 &&
+          settings.mobility_meeting_access != -1 &&
+          settings.participation_scheduling_times != -1 &&
+          settings.digital_support_offered != -1 &&
           settings.relevance_percentage != -1 &&
           settings.citizen_influence_level != -1 &&
           settings.citizen_decisional_intervention != -1 &&
@@ -246,11 +247,12 @@ module Decidim
       # @return [Float]
       def calculate_auto_evaluation_inclusiveness
         [
-          settings.migrant_groups_invited,
-          settings.cultural_origins_participation,
           settings.functional_diversity_invited,
-          settings.functional_diversity_participation
-        ].sum / 4.0
+          settings.languages_communicated,
+          settings.mobility_meeting_access,
+          settings.participation_scheduling_times,
+          settings.digital_support_offered
+        ].sum / 5.0
       end
 
       # @return [Float]

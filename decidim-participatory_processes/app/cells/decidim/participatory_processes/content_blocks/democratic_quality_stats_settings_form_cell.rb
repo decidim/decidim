@@ -17,27 +17,31 @@ module Decidim
 
         def settings_options
           {
-            migrant_groups_invited: [
-              [t("inclusiveness.migrant_groups_invited.options.five", scope: option_scope), 5],
-              [t("inclusiveness.migrant_groups_invited.options.zero", scope: option_scope), 0]
-            ],
-            cultural_origins_participation: [
-              [t("inclusiveness.cultural_origins_participation.options.one", scope: option_scope), 1],
-              [t("inclusiveness.cultural_origins_participation.options.two", scope: option_scope), 2],
-              [t("inclusiveness.cultural_origins_participation.options.three", scope: option_scope), 3],
-              [t("inclusiveness.cultural_origins_participation.options.four", scope: option_scope), 4],
-              [t("inclusiveness.cultural_origins_participation.options.five", scope: option_scope), 5]
-            ],
             functional_diversity_invited: [
-              [t("inclusiveness.functional_diversity_invited.options.five", scope: option_scope), 5],
-              [t("inclusiveness.functional_diversity_invited.options.zero", scope: option_scope), 0]
+              [t("inclusiveness.cultural_origins_participation.options.one", scope: option_scope), 0],
+              [t("inclusiveness.cultural_origins_participation.options.two", scope: option_scope), 1],
+              [t("inclusiveness.cultural_origins_participation.options.three", scope: option_scope), 2.5],
+              [t("inclusiveness.cultural_origins_participation.options.four", scope: option_scope), 5]
             ],
-            functional_diversity_participation: [
-              [t("inclusiveness.functional_diversity_participation.options.one", scope: option_scope), 1],
-              [t("inclusiveness.functional_diversity_participation.options.two", scope: option_scope), 2],
-              [t("inclusiveness.functional_diversity_participation.options.three", scope: option_scope), 3],
-              [t("inclusiveness.functional_diversity_participation.options.four", scope: option_scope), 4],
-              [t("inclusiveness.functional_diversity_participation.options.five", scope: option_scope), 5]
+            languages_communicated: [
+              [t("inclusiveness.cultural_origins_participation.options.one", scope: option_scope), 1],
+              [t("inclusiveness.cultural_origins_participation.options.two", scope: option_scope), 2.5],
+              [t("inclusiveness.cultural_origins_participation.options.three", scope: option_scope), 5]
+            ],
+            mobility_meeting_access: [
+              [t("inclusiveness.varied_participation_times.options.zero", scope: option_scope), 0],
+              [t("inclusiveness.varied_participation_times.options.two_five", scope: option_scope), 2.5],
+              [t("inclusiveness.varied_participation_times.options.five", scope: option_scope), 5]
+            ],
+            participation_scheduling_times: [
+              [t("inclusiveness.varied_participation_times.options.zero", scope: option_scope), 0],
+              [t("inclusiveness.varied_participation_times.options.two_five", scope: option_scope), 2.5],
+              [t("inclusiveness.varied_participation_times.options.five", scope: option_scope), 5]
+            ],
+            digital_support_offered: [
+              [t("inclusiveness.varied_participation_times.options.zero", scope: option_scope), 0],
+              [t("inclusiveness.varied_participation_times.options.two_five", scope: option_scope), 2.5],
+              [t("inclusiveness.varied_participation_times.options.five", scope: option_scope), 5]
             ],
             relevance_percentage: [
               [t("relevance.relevance_percentage.options.one", scope: option_scope), 1],
