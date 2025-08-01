@@ -18,6 +18,7 @@ module Decidim
           functional_diversity_participation: 4.0,
           relevance_percentage: 4.0,
           citizen_influence_level: 3.0,
+          citizen_decisional_intervention: 3.0,
           languages_count: 4.0,
           venue_accessibility: 5.0
         )
@@ -258,6 +259,7 @@ module Decidim
               functional_diversity_participation: 4.0,
               relevance_percentage: 4.0,
               citizen_influence_level: 3.0,
+              citizen_decisional_intervention: 3.0,
               languages_count: 4.0,
               venue_accessibility: 5.0
             )
