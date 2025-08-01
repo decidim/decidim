@@ -19,8 +19,8 @@ describe "Admin manages elections" do
   let!(:published_results_election) { create(:election, :published, :published_results, component: current_component) }
 
   let(:attributes) { attributes_for(:election, component: current_component) }
-  let(:start_time) { Time.current.change(day: 10, hour: 12, min: 50) }
-  let(:end_time) { Time.current.change(day: 12, hour: 12, min: 50) }
+  let(:start_time) { 1.day.from_now }
+  let(:end_time) { 3.days.from_now }
 
   before do
     visit_component_admin
