@@ -7,7 +7,6 @@
               <%= translated_attribute(question.body) %>
               <small class="font-normal ml-4"><%= t("decidim.forms.question_types.#{question.question_type}") %></small>
             </div>
-          </h3>
 
           <% if election.per_question? %>
             <div class="flex gap-4 items-center justify-between">
