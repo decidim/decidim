@@ -9,7 +9,7 @@ module Decidim
         describe TokenCsv do
           subject { described_class.new(form, election) }
 
-          let(:organization) { create(:organization, available_locales: [:en]) }
+          let(:organization) { create(:organization) }
           let(:current_user) { create(:user, :admin, :confirmed, organization:) }
           let(:participatory_process) { create(:participatory_process, organization:) }
           let(:component) { create(:elections_component, participatory_space: participatory_process) }
@@ -48,7 +48,7 @@ module Decidim
               before do
                 election.update!(census_manifest: :token_csv)
                 election.reload
-                create(:voter, election:, data: { email: "user1@example.com", token: "token1" })
+                create(:election_voter, election:, data: { email: "user1@example.com", token: "token1" })
               end
 
               it "deletes all voters" do

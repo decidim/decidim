@@ -23,7 +23,7 @@
 // for example:
 //   strong[data-css-example]:color:#0000ff; strong[data-css-example]:backgroundColor:#eeeeee;
 //
-window.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   document.querySelectorAll("input[data-css-preview=true]").forEach((element) => {
     element.addEventListener("change", (event) => {
       const updateRules = event.target.dataset.cssPreviewUpdates.split(";");

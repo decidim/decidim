@@ -13,8 +13,8 @@ describe "Admin filters, searches, and paginates projects" do
   before do
     visit_component_admin
     within "tr", text: translated_attribute(budget.title) do
-      find("button[data-component='dropdown']").click
-      click_on "Manage projects"
+      find("button[data-controller='dropdown']").click
+      click_on "Add projects"
     end
   end
 

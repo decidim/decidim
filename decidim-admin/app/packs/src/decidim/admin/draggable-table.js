@@ -9,7 +9,7 @@ import createSortList from "src/decidim/admin/sort_list.component"
  * - data-draggable-table: The table that will be draggable.
  * - data-sort-url: The URL where the order will be sent.
  */
-$(() => {
+document.addEventListener("turbo:load", () => {
   createSortList("[data-draggable-table]", {
     onSortUpdate: ($children) => {
       const children = $children.toArray();

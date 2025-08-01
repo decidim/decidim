@@ -42,7 +42,7 @@ describe("SuggestionsList", () => {
       </div>
 
       <script type="text/template" class="decidim-template" id="collaborative-texts-suggestions-box-template">
-        <div data-component="accordion" id="collaborative-texts-box-{{ID}}">
+        <div data-controller="accordion" id="collaborative-texts-box-{{ID}}">
           <button data-controls="panel-box-{{ID}}" aria-label="<%= t("decidim.collaborative_texts.document.toggle") %>" aria-expanded="false">
             <span>
             </span>
@@ -60,7 +60,7 @@ describe("SuggestionsList", () => {
           <div class="relative">
             <button class="collaborative-texts-suggestions-box-item-dropdown"
                     id="dropdown-trigger-{{ID}}"
-                    data-component="dropdown"
+                    data-controller="dropdown"
                     data-target="dropdown-menu-{{ID}}"
                     data-auto-close="true">
             </button>

@@ -106,7 +106,7 @@ const initializeCodeVerificator = (codeElement) => {
   codeInput.value = "------";
 };
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   const codeElement = document.querySelector("[data-check-code]");
   if (codeElement) {
     initializeCodeVerificator(codeElement);

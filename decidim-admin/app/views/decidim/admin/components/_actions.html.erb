@@ -1,4 +1,4 @@
-<button type="button" data-component="dropdown" data-target="actions-component-<%= component.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: component.manifest.name) %>">
+<button type="button" data-controller="dropdown" data-target="actions-component-<%= component.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: component.manifest.name) %>">
   <%= icon "more-fill", class: "text-secondary" %>
 </button>
 
@@ -18,7 +18,7 @@
         <li class="dropdown__item">
           <%= link_to manage_component_path(component), class: "dropdown__button" do %>
             <%= icon "pencil-line" %>
-            <%= t("actions.manage", scope: "decidim.admin") %>
+            <%= t("actions.edit", scope: "decidim.admin") %>
           <% end %>
         </li>
       <% end %>

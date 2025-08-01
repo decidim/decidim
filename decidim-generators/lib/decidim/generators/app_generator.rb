@@ -129,6 +129,13 @@ module Decidim
                   "# config.action_controller.raise_on_missing_callback_actions = false"
       end
 
+      def disable_annotate_rendered_view_on_development
+        gsub_file "config/environments/development.rb", /config\.action_view\.annotate_rendered_view_with_filenames = true$/,
+                  "# Using annotate rendered view breaks rails-ujs functionality
+  # @see https://github.com/decidim/decidim/issues/14912
+  # config.action_view.annotate_rendered_view_with_filenames = true"
+      end
+
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
       end

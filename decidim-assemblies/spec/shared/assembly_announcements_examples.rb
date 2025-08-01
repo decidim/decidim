@@ -3,8 +3,8 @@
 shared_examples "manage assemblies announcements" do
   it "can customize a general announcement for the assembly" do
     within("tr", text: translated(assembly.title)) do
-      find("button[data-component='dropdown']").click
-      click_on "Configure"
+      find("button[data-controller='dropdown']").click
+      click_on "Edit"
     end
 
     fill_in_i18n_editor(
@@ -30,7 +30,7 @@ shared_examples "manage assemblies announcements" do
 
     new_window = window_opened_by do
       within "tr", text: translated(assembly.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Preview"
       end
     end

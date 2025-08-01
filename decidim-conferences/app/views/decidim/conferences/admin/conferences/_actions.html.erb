@@ -1,4 +1,4 @@
-<button type="button" data-component="dropdown" data-target="actions-conference-<%= conference.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: translated_attribute(conference.title)) %>">
+<button type="button" data-controller="dropdown" data-target="actions-conference-<%= conference.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: translated_attribute(conference.title)) %>">
   <%= icon "more-fill", class: "text-secondary" %>
 </button>
 
@@ -18,29 +18,22 @@
         <li class="dropdown__item">
           <%= link_to edit_conference_path(conference), class: "dropdown__button" do %>
             <%= icon "pencil-line" %>
-            <%= t("decidim.admin.actions.configure") %>
+            <%= t("decidim.admin.actions.edit") %>
           <% end %>
         </li>
-      <% end %>
 
-      <% if allowed_to? :read, :share_tokens, current_participatory_space: conference %>
-        <li class="dropdown__item">
-          <%= link_to decidim_admin_conferences.conference_share_tokens_path(conference), class: "dropdown__button" do %>
-            <%= icon "share-line" %>
-            <%= t("actions.share_tokens", scope: "decidim.admin") %>
-          <% end %>
-        </li>
+        <hr>
       <% end %>
-
-      <hr>
 
       <% if allowed_to? :create, :conference, conference: conference %>
         <li class="dropdown__item">
-          <%= link_to new_conference_copy_path(conference), class: "dropdown__button" do %>
+          <%= link_to new_conference_duplicate_path(conference), class: "dropdown__button" do %>
             <%= icon "file-copy-line" %>
             <%= t("decidim.admin.actions.duplicate") %>
           <% end %>
         </li>
+
+        <hr>
       <% end %>
 
       <% if allowed_to? :preview, :conference, conference: conference %>
@@ -52,7 +45,33 @@
         </li>
       <% end %>
 
+      <% if allowed_to? :publish, :conference, conference: conference %>
+        <li class="dropdown__item">
+          <% if conference.published? %>
+            <%= link_to conference_publish_path(conference), method: :delete, class: "dropdown__button" do %>
+              <%= icon "close-circle-line" %>
+              <%= t("actions.unpublish", scope: "decidim.admin") %>
+            <% end %>
+          <% else %>
+            <%= link_to conference_publish_path(conference), method: :post, class: "dropdown__button" do %>
+              <%= icon "check-line" %>
+              <%= t("actions.publish", scope: "decidim.admin") %>
+            <% end %>
+          <% end %>
+        </li>
+      <% end %>
+
       <hr>
+      <% if allowed_to? :read, :share_tokens, current_participatory_space: conference %>
+        <li class="dropdown__item">
+          <%= link_to decidim_admin_conferences.conference_share_tokens_path(conference), class: "dropdown__button" do %>
+            <%= icon "share-line" %>
+            <%= t("actions.share_tokens", scope: "decidim.admin") %>
+          <% end %>
+        </li>
+
+        <hr>
+      <% end %>
 
       <% if allowed_to? :read, :moderation, conference: conference %>
         <li class="dropdown__item">
@@ -61,6 +80,8 @@
             <%= t("decidim.admin.actions.moderate") %>
           <% end %>
         </li>
+
+        <hr>
       <% end %>
 
       <% if allowed_to? :soft_delete, :conference, trashable_deleted_resource: conference %>

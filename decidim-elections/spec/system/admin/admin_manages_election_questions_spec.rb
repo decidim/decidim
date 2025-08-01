@@ -8,34 +8,17 @@ describe "Admin manages elections questions" do
   let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "elections") }
   let(:manifest_name) { "elections" }
   let!(:election) { create(:election, component: current_component) }
-  let(:question) { create(:election_question, election:) }
-  let(:body) do
-    {
-      en: "This is the first question",
-      ca: "Aquesta es la primera pregunta",
-      es: "Esta es la primera pregunta"
-    }
-  end
-  let(:description) do
-    {
-      en: "This is the first question description",
-      ca: "Aquesta es la primera pregunta descripcio",
-      es: "Esta es la primera pregunta descripcion"
-    }
-  end
 
   include_context "when managing a component as an admin"
 
-  before do
-    visit questions_edit_path
-  end
-
   it "opens a questions tab" do
+    visit questions_edit_path
     expect(page).to have_content("Question must have at least two answers in order go to the next step.")
   end
 
   context "when an admin user add a question" do
     it "adds a question with response options" do
+      visit questions_edit_path
       question_body = ["This is the first question", "This is the second question"]
       question_description = ["This is the first question description"]
       response_options_body = [
@@ -43,11 +26,10 @@ describe "Admin manages elections questions" do
         ["This is the Q2 first option", "This is the Q2 second option", "This is the Q2 third option"]
       ]
 
+      click_on "Add question"
+      click_on "Add question"
+      expand_all_questions
       within "form.edit_questions" do
-        click_on "Add question"
-        click_on "Add question"
-        expand_all_questions
-
         page.all(".questionnaire-question").each_with_index do |question, idx|
           within question do
             fill_in find_nested_form_field_locator("body_en"), with: question_body[idx]
@@ -76,7 +58,8 @@ describe "Admin manages elections questions" do
 
       expect(page).to have_admin_callout("successfully")
 
-      visit_questions_edit_path_and_expand_all
+      visit questions_edit_path
+      expand_all_questions
 
       expect(page).to have_css("input[value='This is the first question']")
       expect(page).to have_content("This is the first question description")
@@ -87,6 +70,61 @@ describe "Admin manages elections questions" do
       expect(page).to have_css("input[value='This is the Q2 first option']")
       expect(page).to have_css("input[value='This is the Q2 second option']")
       expect(page).to have_css("input[value='This is the Q2 third option']")
+    end
+  end
+
+  context "when admin user edits and reorders" do
+    let!(:question) { create(:election_question, :with_response_options, election:) }
+    let!(:second_question) { create(:election_question, :with_response_options, election:) }
+
+    it "edits a question with response options" do
+      visit questions_edit_path
+      find("#questionnaire_question_#{question.id}-button").click
+
+      within "#accordion-questionnaire_question_#{question.id}-field" do
+        fill_in find_nested_form_field_locator("body_en"), with: "This is the edited question"
+      end
+
+      click_on "Up"
+
+      click_on "Save and continue"
+
+      expect(page).to have_admin_callout("successfully")
+
+      visit questions_edit_path
+      expand_all_questions
+
+      expect(page).to have_css("input[value='This is the edited question']")
+      expect(election.questions.reload.first).to eq(second_question)
+      expect(election.questions.second).to eq(question)
+    end
+  end
+
+  context "when admin user deletes a question" do
+    let!(:question) { create(:election_question, :with_response_options, body: { en: "first question" }, election:) }
+    let!(:second_question) { create(:election_question, :with_response_options, body: { en: "second question" }, election:) }
+
+    it "deletes a question with response options" do
+      visit questions_edit_path
+      expand_all_questions
+
+      expect(page).to have_css("input[value='first question']")
+      expect(page).to have_css("input[value='second question']")
+      within "#accordion-questionnaire_question_#{question.id}-field" do
+        accept_confirm do
+          click_on "Remove"
+        end
+      end
+
+      click_on "Save and continue"
+
+      expect(page).to have_admin_callout("successfully")
+
+      visit questions_edit_path
+      expand_all_questions
+
+      expect(page).to have_no_css("input[value='first question']")
+      expect(page).to have_css("input[value='second question']")
     end
   end
 
@@ -106,11 +144,6 @@ describe "Admin manages elections questions" do
 
   def expand_all_questions
     click_on "Expand all questions"
-  end
-
-  def visit_questions_edit_path_and_expand_all
-    visit questions_edit_path
-    expand_all_questions
   end
 
   def questions_edit_path

@@ -62,7 +62,7 @@ describe "Postal letter management" do
 
   it "marks letters as sent" do
     within "table tbody tr", text: letter_not_sent.user.name do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       click_on "Mark as sent"
     end
 

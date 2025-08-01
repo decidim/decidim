@@ -1,5 +1,3 @@
-/* eslint-disable max-lines */
-
 /**
  * External dependencies
  */
@@ -114,7 +112,7 @@ window.initFoundation = (element) => {
   $document.off("click.zf.trigger", window.Foundation.Triggers.Listeners.Basic.openListener);
   $document.on("click.zf.trigger", "[data-open]", (ev, ...restArgs) => {
     // Do not apply for the accordion triggers.
-    const accordion = ev.currentTarget?.closest("[data-component='accordion']");
+    const accordion = ev.currentTarget?.closest("[data-controller='accordion']");
     if (accordion) {
       return;
     }
@@ -182,9 +180,22 @@ const initializer = (element = document) => {
 
   scrollToLastChild(element)
 
-  element.querySelectorAll('[data-component="accordion"]').forEach((component) => createAccordion(component))
+  element.querySelectorAll('[data-controller="accordion"]').forEach((component) => createAccordion(component))
+  element.querySelectorAll('[data-component="accordion"]').forEach((component) => {
+    if (component.hasAttribute("data-controller"))
+    {
+      return;
+    }
+    console.error(`${window.location.href} Using accordion component`);
+    createAccordion(component);
+  })
 
-  element.querySelectorAll('[data-component="dropdown"]').forEach((component) => createDropdown(component))
+
+  element.querySelectorAll('[data-controller="dropdown"]').forEach((component) => createDropdown(component))
+  element.querySelectorAll('[data-component="dropdown"]').forEach((component) => {
+    console.error(`${window.location.href} Using dropdown component`);
+    createDropdown(component);
+  })
 
   element.querySelectorAll("[data-dialog]").forEach((component) => createDialog(component))
 
@@ -209,12 +220,15 @@ const initializer = (element = document) => {
 
 // If no jQuery is used the Tribute feature used in comments to autocomplete
 // mentions stops working
-// document.addEventListener("DOMContentLoaded", () => {
 $(() => initializer());
 
 // Run initializer action over the new DOM elements
 document.addEventListener("remote-modal:loaded", ({ detail }) => initializer(detail));
 document.addEventListener("ajax:loaded", ({ detail }) => initializer(detail));
+
+window.addEventListener("DOMContentLoaded", () => {
+  document.dispatchEvent(new CustomEvent("turbo:load", { detail: { document } }));
+});
 
 // Run initializer action over the new DOM elements (for example after comments polling)
 document.addEventListener("comments:loaded", (event) => {

@@ -86,7 +86,7 @@ describe "Conference speakers" do
         click_on "Speakers"
 
         within "tr", text: speaker2.full_name do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           expect(page).to have_link("Publish")
           click_link_or_button "Publish"
         end
@@ -119,7 +119,7 @@ describe "Conference speakers" do
         click_on "Speakers"
 
         within "tr", text: speaker1.full_name do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           expect(page).to have_link("Unpublish")
           click_link_or_button "Unpublish"
         end
