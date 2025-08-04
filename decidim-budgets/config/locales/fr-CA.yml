@@ -49,6 +49,7 @@ fr-CA:
         confirm_delete_project: Êtes-vous sûr(e) de vouloir supprimer ce projet ?
         deleted_budgets_info: Les budgets supprimés peuvent être restaurés à partir de la corbeille.
         edit: Modifier
+        edit_projects: Ajouter des projets
         import: Importer des propositions dans des projets
         new_budget: Nouveau budget
         new_project: Nouveau projet
