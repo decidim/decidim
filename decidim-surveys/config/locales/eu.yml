@@ -98,11 +98,9 @@ eu:
           destroy:
             success: Inkesta behar bezala ezabatua.
           edit:
-            title: Nagusia
+            title: Editatu inkesta
           index:
             title: Inkestak
-          new:
-            title: Nagusia
           publish:
             invalid: Arazo bat egon da inkesta hau argitaratzean.
             success: Inkesta zuzen argitaratua.
