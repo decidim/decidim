@@ -932,7 +932,7 @@ fr:
         external_domain:
           down: Descendre
           external_domain: Domaine externe
-          remove: Retirer
+          remove: Supprimer
           up: Monter
         form:
           add: Ajouter à la liste autorisée
