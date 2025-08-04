@@ -12,10 +12,11 @@ module Decidim
       let(:content_block) { double("content_block", settings: settings) }
       let(:settings) do
         double(
-          migrant_groups_invited: 4.0,
-          cultural_origins_participation: 3.0,
-          functional_diversity_invited: 5.0,
-          functional_diversity_participation: 4.0,
+          functional_diversity_invited: 2.5,
+          languages_communicated: 2.5,
+          mobility_meeting_access: 2.5,
+          participation_scheduling_times: 2.5,
+          digital_support_offered: 2.5,
           relevance_percentage: 4.0,
           citizen_influence_level: 3.0,
           citizen_decisional_intervention: 3.0,
@@ -220,7 +221,7 @@ module Decidim
           let(:auto_evaluation_stats) { subject.stats[:auto_evaluation] }
 
           it "calculates inclusiveness score" do
-            expect(auto_evaluation_stats[:inclusiveness]).to eq(4.0)
+            expect(auto_evaluation_stats[:inclusiveness]).to eq(2.5)
           end
 
           it "calculates relevance score" do
@@ -253,10 +254,11 @@ module Decidim
         context "when some survey fields are not filled" do
           let(:settings) do
             double(
-              migrant_groups_invited: -1,
-              cultural_origins_participation: 3.0,
-              functional_diversity_invited: 5.0,
-              functional_diversity_participation: 4.0,
+              functional_diversity_invited: -1,
+              languages_communicated: 2.5,
+              mobility_meeting_access: 2.5,
+              participation_scheduling_times: 2.5,
+              digital_support_offered: 2.5,
               relevance_percentage: 4.0,
               citizen_influence_level: 3.0,
               citizen_decisional_intervention: 3.0,
