@@ -18,7 +18,7 @@ describe Decidim::Api::BlobsController do
     request.env["decidim.current_organization"] = organization
   end
 
-  shared_examples_for "authorized user examples" do 
+  shared_examples_for "authorized user examples" do
     it "allows uploading a file" do
       expect(response).to have_http_status(:ok)
     end
@@ -90,7 +90,7 @@ describe Decidim::Api::BlobsController do
     end
   end
 
-  context "with normal user" do 
+  context "with normal user" do
     context "when the user is not authenticated" do
       before do
         post :create, params:
@@ -123,8 +123,8 @@ describe Decidim::Api::BlobsController do
       end
     end
   end
-    
-  context "with an api user" do 
+
+  context "with an api user" do
     let(:api_key) { "user_key" }
     let(:api_secret) { "decidim123456789" }
     let(:api_user) { create(:api_user, organization: organization, api_key: api_key, api_secret: api_secret) }
@@ -133,8 +133,8 @@ describe Decidim::Api::BlobsController do
       request.env["devise.mapping"] = Devise.mappings[:api_user]
       request.env[Warden::JWTAuth::Middleware::TokenDispatcher::ENV_KEY] = "warden-jwt_auth.token_dispatcher"
       request.env["decidim.current_organization"] = organization
-      # manually add the token to the request to imitate the sign in process 
-      token, _ = Warden::JWTAuth::UserEncoder.new.call(api_user, :api_user, nil)
+      # manually add the token to the request to imitate the sign in process
+      token, = Warden::JWTAuth::UserEncoder.new.call(api_user, :api_user, nil)
       request.headers["Authorization"] = "Bearer #{token}"
       post :create, params:
     end
