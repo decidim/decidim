@@ -12,6 +12,9 @@ fr-CA:
           election_census: Recensement
           election_dashboard: Tableau de bord
           election_questions: Questions
+      tooltips:
+        deleted_elections_info: Impossible de supprimer cette élection
+        edit_elections_info: Impossible de modifier cette élection
     components:
       elections:
         actions:
