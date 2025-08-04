@@ -173,6 +173,8 @@ fr-CA:
           new: Nouvelle pièce jointe
         attachment_collection:
           new: Nouveau dossier
+        attachment_collections: Ajouter un dossier
+        attachments: Ajouter une pièce jointe
         browse: Parcourir
         configure: Configurer
         confirm_delete_component: |
@@ -185,14 +187,19 @@ fr-CA:
         export: Exporter
         export-selection: Exporter la sélection
         import: Importer
+        menu_hidden: Masquer dans le menu
+        moderate: Gérer les modérations
         newsletter:
           new: Nouvelle newsletter
         participatory_space_private_user:
           new: Nouvel utilisateur privé de l'espace participatif
         per_page: Par page
+        permissions: Gérer les permissions
         restore: Restaurer
         send_me_a_test_email: Envoyez-moi un e-mail de test
         share: Partager
+        share_tokens: Partager le lien
+        soft_delete: Déplacer vers la corbeille
         user:
           new: Nouvel administrateur
         view_deleted_components: Voir les composants supprimés
@@ -467,7 +474,9 @@ fr-CA:
             message_1: Les fichiers CSV, JSON et Excel (.xlsx) sont supportés
             message_2: Pour les fichiers CSV, le séparateur entre les colonnes doit être un point-virgule (";")
           import_csv:
+            explanation: 'Prérequis pour le fichier :'
             message_1: Les fichiers CSV sont pris en charge
+            message_2: "Fichier .csv avec les données des emails"
       help_sections:
         error: Un problème est survenu lors de la mise à jour des sections d’aide.
         form:
@@ -678,6 +687,7 @@ fr-CA:
               update_moderated_user_button: Annuler les signalements
             title: Actions
             unblock: Débloquer l'utilisateur
+            unreport: Annuler le rapport
           cancel: Annuler
           name: Nom
           nickname: Pseudonyme
@@ -701,8 +711,10 @@ fr-CA:
               title: Masquer
               update_moderation_button: Masquer les ressources sélectionnées
             unhide:
+              title: Annuler le masquage
               update_moderation_button: Afficher les ressources sélectionnées
             unreport:
+              title: Annuler le rapport
               update_moderation_button: Annuler le signalement des ressources sélectionnées
           cancel: Annuler
           selected: sélectionné
@@ -830,6 +842,7 @@ fr-CA:
         index:
           actions: Actions
           badge: Badge
+          block: Bloquer
           created_at: Créée le
           name: Nom
           nickname: Pseudonyme
@@ -838,7 +851,10 @@ fr-CA:
           officialized: Validé
           reofficialize: De nouveau validé
           reports: Signalements
+          send_message: Envoyer le message
+          show_email: Afficher l'e-mail
           status: Statut
+          unblock: Débloquer
           unofficialize: Invalider
         new:
           badge: Badge de validation
@@ -892,7 +908,7 @@ fr-CA:
         external_domain:
           down: Descendre
           external_domain: Domaine externe
-          remove: Retirer
+          remove: Supprimer
           up: Monter
         form:
           add: Ajouter à la liste autorisée
@@ -1064,6 +1080,8 @@ fr-CA:
           error: Une erreur s'est produite lors de la mise à jour de ce sujet.
           success: Sujet mis à jour avec succès
       static_pages:
+        actions:
+          view: Afficher
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle page.
           success: Page créée avec succès.
@@ -1091,10 +1109,19 @@ fr-CA:
       taxonomies:
         actions:
           actions: Actions
+          destroy: Supprimer
+          edit: Modifier
+          filters: Appliquer les filtres
         breadcrumb:
           edit: Modifier la taxonomie
           new: Nouvelle taxonomie
         count: Ressources associées
+        edit:
+          update: Mettre à jour
+        filters:
+          search_placeholder: Rechercher
+        index:
+          new_taxonomy: Nouvelle taxonomie
         total_filters: Filtres
       taxonomy_filters:
         breadcrumb:
@@ -1129,6 +1156,7 @@ fr-CA:
           save: Enregistrer
         show:
           items_count: "%{count} éléments"
+          remove: Supprimer
         taxonomies_select:
           filters: Filtres
       titles:
@@ -1195,6 +1223,8 @@ fr-CA:
         not_hidden: Visibles
         parent_hidden: Vous ne pouvez pas rendre visible cette ressource car son parent est toujours caché.
         title: Actions
+        unhide: Annuler le masquage
+        unreport: Annuler le rapport
       admin:
         reportable:
           hide:
