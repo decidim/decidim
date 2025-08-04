@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Commands::Admin::UpdatePage do
+describe Decidim::Pages::Admin::UpdatePage do
   let(:form_klass) { Decidim::Pages::Admin::PageForm }
 
   let(:component) { create(:page_component) }
