@@ -205,7 +205,6 @@ es-MX:
         dropdowns_description_html: Los menús desplegables son una característica <i>JavaScript</i> disponible gracias a una biblioteca externa llamada %{link}.
         dropdowns_usage_1_description: 2. Un elemento modal, cuya <code>id</code> coincide con el valor de los controles de datos al que se refiere el activador.
         dropdowns_usage_description: 'Un menú desplegable requiere dos elementos:'
-        dropdowns_usage_description_html: 1. Un elemento accionable por la participante, con los atributos de datos <code>data-controller="dropdown" data-target="dropdown-menu-element"</code>.
         dummy_description: Descripción del recurso ficticio
         dummy_title: Título del recurso ficticio
         follow_button: Botón "Seguir"
