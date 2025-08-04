@@ -95,11 +95,9 @@ de:
           destroy:
             success: Umfrage erfolgreich gelöscht.
           edit:
-            title: Umfrage
+            title: Umfrage bearbeiten
           index:
             title: Umfragen
-          new:
-            title: Umfrage
           publish:
             invalid: Beim Veröffentlichen dieser Umfrage ist ein Problem aufgetreten.
             success: Umfrage erfolgreich veröffentlicht.
