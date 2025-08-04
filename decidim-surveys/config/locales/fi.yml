@@ -98,11 +98,9 @@ fi:
           destroy:
             success: Kyselyn poisto onnistui.
           edit:
-            title: Kysely
+            title: Muokkaa kyselyä
           index:
             title: Kyselyt
-          new:
-            title: Kysely
           publish:
             invalid: Kyselyn julkaisu epäonnistui.
             success: Kyselyn julkaisu onnistui.
