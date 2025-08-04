@@ -1,0 +1,12 @@
+<div class="card-section">
+  <h3><%= t("labels.image", scope: "decidim.elections.admin.dashboard.main") %></h3>
+  <div id="photos" class="flex flex-col gap-2" data-gallery>
+    <% election.photos.each do |photo| %>
+      <div class="flex justify-center bg-background">
+        <%= link_to photo.big_url, target: "_blank", rel: "noopener" do %>
+          <%= image_tag photo.thumbnail_url, class: "thumbnail", alt: strip_tags(translated_attribute(photo.title)) %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

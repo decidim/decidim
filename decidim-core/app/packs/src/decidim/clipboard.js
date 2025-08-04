@@ -34,7 +34,7 @@ import select from "select";
 // copy.
 const CLIPBOARD_COPY_TIMEOUT = 5000;
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   $(document).on("click", "[data-clipboard-copy]", (ev) => {
     const $el = $(ev.currentTarget);
     if (!$el.data("clipboard-copy") || $el.data("clipboard-copy").length < 1) {

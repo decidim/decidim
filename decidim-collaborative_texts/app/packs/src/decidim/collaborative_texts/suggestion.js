@@ -189,7 +189,7 @@ export default class Suggestion {
   // Because the A11y accordion has not an API to programmatically toggle the
   // accordion, we need to destroy and recreate it to reset the state
   _resetAccordion() {
-    let accordion = this.boxWrapper.querySelector('[data-component="accordion"]');
+    let accordion = this.boxWrapper.querySelector('[data-controller="accordion"]');
     Accordions.destroy(accordion.id);
     createAccordion(accordion);
   }
@@ -221,7 +221,7 @@ export default class Suggestion {
     this.text = this.item.querySelector(".collaborative-texts-suggestions-box-item-text");
     this.text.innerHTML = this.summary;
     this.boxItems.appendChild(this.item);
-    this.dropdown = this.item.querySelector('[data-component="dropdown"]');
+    this.dropdown = this.item.querySelector('[data-controller="dropdown"]');
     if (this.doc.dataset.collaborativeTextsRolloutUrl) {
       createDropdown(this.dropdown);
     } else {

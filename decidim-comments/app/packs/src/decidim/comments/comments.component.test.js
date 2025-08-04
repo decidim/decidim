@@ -233,7 +233,7 @@ describe("CommentsComponent", () => {
         <div class="comment__content">
           <div><p>${content}</p></div>
         </div>
-        <div data-comment-footer data-component="accordion" role="presentation">
+        <div data-comment-footer data-controller="accordion" role="presentation">
           <div class="comment__footer-grid">
             <div class="comment__actions">
               <button class="button button__sm button__text-secondary" data-controls="panel-comment${commentId}-reply" role="button" tabindex="0" aria-controls="panel-comment${commentId}-reply" aria-expanded="false" aria-disabled="false">
@@ -447,6 +447,7 @@ describe("CommentsComponent", () => {
       spyOnAddComment("on");
       jest.spyOn(orderLinks, "on");
       jest.spyOn($doc, "trigger");
+      jest.spyOn(document, "dispatchEvent");
 
       subject.mountComponent();
     });
@@ -478,10 +479,7 @@ describe("CommentsComponent", () => {
 
     it("attaches the mentions elements to the text fields", () => {
       addComment.each((i) => {
-        expect($doc.trigger).toHaveBeenCalledWith(
-          "attach-mentions-element",
-          [addComment[i].commentTextarea[0]]
-        );
+        expect(document.dispatchEvent).toHaveBeenCalledWith(new CustomEvent("attach-mentions-element", { detail: addComment[i].commentTextarea[0] }));
       });
     });
   });
