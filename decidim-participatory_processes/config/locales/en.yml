@@ -412,22 +412,6 @@ en:
       admin:
         content_blocks:
           democratic_quality_stats_settings_form:
-            informativeness:
-              published_information_clarity:
-                legend: Does the published information provide clarity on the decision-making mechanisms? (e.g. voting, consensus, direct negotiations)
-                options:
-                  five: Full clarity
-                  one: Low clarity
-                  two_five: Suficient clarity
-                  zero: No clarity
-              name: Informativeness
-              information_provided:
-                legend: Has information been provided regarding the participants capacity to influence the topic under discussion? (both in the communication of the process and invitations, as well as at the beginning of each debate session)
-                options:
-                  five: Always
-                  two_five: Usually
-                  one: Almost never
-                  zero: Never
             announcement:
               body_html: |-
                 <ul>
@@ -436,6 +420,14 @@ en:
                 </ul>
               title: 'This content block includes two types of metrics:'
             citizen_influence:
+              citizen_decisional_intervention:
+                legend: Out of all phases in the process (from selecting issues to supervising execution), in how many does the public have the ability to make decisions or take executive action?
+                options:
+                  five: 80 - 100%
+                  four: 60 - 80%
+                  one: 0 - 20%
+                  three: 40 - 60%
+                  two: 20 - 40%
               citizen_influence_level:
                 legend: This indicator measures the degree of actual citizen power in a process, specifically quantifying the level of decisional and executive authority citizens hold, from simply receiving information to decisively influencing decisions and managing resources.
                 options:
@@ -445,15 +437,14 @@ en:
                   three: Participants were involved to share decision-making power
                   two: Participants were asked in a consultative manner or gave feedback to the organisation
               name: Citizen influence
-              citizen_decisional_intervention:
-                legend: Out of all phases in the process (from selecting issues to supervising execution), in how many does the public have the ability to make decisions or take executive action?
-                options:
-                  five: 80 - 100%
-                  four: 60 - 80%
-                  one: 0 - 20%
-                  three: 40 - 60%
-                  two: 20 - 40%
             inclusiveness:
+              description: Inclusivity according to cultural origin and functional diversity.
+              digital_support_offered:
+                legend: Has digital support been offered to the participants?
+                options:
+                  five: true
+                  two_five: Partially
+                  zero: false
               functional_diversity_invited:
                 legend: How is the degree of diversity of the agents and participants assessed with respect to the population of reference in the process?
                 options:
@@ -461,32 +452,41 @@ en:
                   one: Low
                   two_five: Sufficient
                   zero: None
-              description: Inclusivity according to cultural origin and functional diversity.
               languages_communicated:
                 legend: How many languages have been used within the process?
                 options:
                   five: More than half of the languages spoken in the community
-                  two_five: Less than half of the languages spoken in the community
                   one: One language
+                  two_five: Less than half of the languages spoken in the community
               mobility_meeting_access:
                 legend: Were the venues of the face-to-face meetings accessible to people with reduced mobility?
                 options:
-                  five: Yes
+                  five: true
                   two_five: Partially
-                  zero: No
+                  zero: false
+              name: Inclusiveness
               participation_scheduling_times:
                 legend: The participation sessions have been scheduled at varied times (morning, midday, afternoon, evening, and weekends).
                 options:
-                  five: Yes
+                  five: true
                   two_five: Partially
-                  zero: No
-              digital_support_offered:
-                legend: Has digital support been offered to the participants?
+                  zero: false
+            informativeness:
+              information_provided:
+                legend: Has information been provided regarding the participants capacity to influence the topic under discussion? (both in the communication of the process and invitations, as well as at the beginning of each debate session)
                 options:
-                  five: Yes
-                  two_five: Partially
-                  zero: No
-              name: Inclusiveness
+                  five: Always
+                  one: Almost never
+                  two_five: Usually
+                  zero: Never
+              name: Informativeness
+              published_information_clarity:
+                legend: Does the published information provide clarity on the decision-making mechanisms? (e.g. voting, consensus, direct negotiations)
+                options:
+                  five: Full clarity
+                  one: Low clarity
+                  two_five: Suficient clarity
+                  zero: No clarity
           highlighted_processes:
             active: Active
             all: All
@@ -549,12 +549,12 @@ en:
           qualitative_metrics:
             description: These indicators are obtained from the answers to a self-assessment survey filled in by the platform's administrators.
             indicators:
-              informativeness: Informativeness
-              informativeness_tooltip: Measures the level of clarity and information provided within the process.
               citizen_influence: Citizen influence
               citizen_influence_tooltip: Measures the level of participant impact on decision-making.
               inclusiveness: Inclusiveness
               inclusiveness_tooltip: Assesses whether diverse interested parties are fairly represented.
+              informativeness: Informativeness
+              informativeness_tooltip: Measures the level of clarity and information provided within the process.
             name: Self-assessment metrics
         extra_data:
           name: Phase & duration
