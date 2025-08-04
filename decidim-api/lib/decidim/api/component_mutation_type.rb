@@ -10,14 +10,11 @@ module Decidim
       #  ::Decidim::Api::Accountability::AccountabilityMutationType
 
       def self.resolve_type(obj, _ctx)
-        case obj.manifest_name
-        when "proposals"
-          Decidim::Proposals::ProposalsMutationType
-          # when "budgets"
-          #   Decidim::Api::Budgets::BudgetsMutationType
-          # when "accountability"
-          #   Decidim::Api::Accountability::AccountabilityMutationType
-        end
+        mod = obj.manifest_name.camelize
+        "Decidim::#{mod}::#{mod}MutationType".constantize
+      rescue NameError
+        Rails.logger.warn("Mutation type not found for #{mod}: #{e.message}")
+        nil
       end
     end
   end
