@@ -98,11 +98,9 @@ ca:
           destroy:
             success: Enquesta eliminada correctament.
           edit:
-            title: Principal
+            title: Editar l'enquesta
           index:
             title: Enquestes
-          new:
-            title: Principal
           publish:
             invalid: S'ha produït un error en publicar aquesta enquesta.
             success: Enquesta publicada correctament.
