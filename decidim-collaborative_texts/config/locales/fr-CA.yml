@@ -24,6 +24,7 @@ fr-CA:
         confirm_delete_document: Êtes-vous sûr(e) de vouloir supprimer ce document ?
         deleted_document_info: Le document supprimé peut être restauré à partir de la corbeille.
         edit: Modifier
+        manage: Configurer
         new: Nouveau texte
         title: Actions
         view_deleted_documents: Voir les documents supprimés
@@ -107,6 +108,10 @@ fr-CA:
           invalid_nodes: Nœuds sélectionnés non valides.
     components:
       collaborative_texts:
+        actions:
+          create: Créer
+          destroy: Détruire
+          update: Mettre à jour
         name: Textes collaboratifs
         settings:
           global:
