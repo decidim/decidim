@@ -40,6 +40,8 @@ fr:
   decidim:
     accountability:
       actions:
+        add_milestone: Ajouter un jalon
+        add_result: Ajouter un résultat
         confirm_delete_result: Êtes-vous sûr(e) de vouloir supprimer ce résultat?
         confirm_destroy: Êtes-vous sûr de vouloir supprimer ce %{name}?
         deleted_results_info: Les résultats supprimés peuvent être restaurés à partir de la corbeille.
