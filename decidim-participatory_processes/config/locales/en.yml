@@ -543,9 +543,9 @@ en:
           global_score:
             description_html: Below is a set of indicators used to assess the democratic quality of this participatory process. For more details on how they are calculated, see the <a href="%{info_url}">information page on democratic quality indicators</a>.
             name: Global score
-            note: "*The indicative values are measured on a scale from 1 to 5, where 1 represents the lowest and 5 the highest participation quality."
+            note: "*The indicative values are measured on a scale from 1 to 5, where 1 represents the lowest and 5 the highest quality indicator."
             tooltip: Calculated as the average of all the dimensions
-          name: Participation quality
+          name: Quality indicator
           qualitative_metrics:
             description: These indicators are obtained from the answers to a self-assessment survey filled in by the platform's administrators.
             indicators:
@@ -626,7 +626,7 @@ en:
       static_pages:
         democratic_quality_indicators:
           content: |-
-            <h2>Indicator system to measure participation quality in Decidim.</h2>
+            <h2>Indicator system to measure quality indicator in Decidim.</h2>
 
             <h3>Introduction</h3>
             <p>Democratic quality is a core principle of Decidim. To uphold this, we have developed a system of indicators that help evaluate the quality of participatory processes on the platform. This article explains how these indicators are calculated.</p>
