@@ -58,16 +58,16 @@ module Decidim
               [t("citizen_influence.citizen_decisional_intervention.options.five", scope: option_scope), 5]
             ],
             published_information_clarity: [
-              [t("Informativeness.published_information_clarity.options.zero", scope: option_scope), 0],
-              [t("Informativeness.published_information_clarity.options.one", scope: option_scope), 1],
-              [t("Informativeness.published_information_clarity.options.two_five", scope: option_scope), 2.5],
-              [t("Informativeness.published_information_clarity.options.five", scope: option_scope), 5]
+              [t("informativeness.published_information_clarity.options.zero", scope: option_scope), 0],
+              [t("informativeness.published_information_clarity.options.one", scope: option_scope), 1],
+              [t("informativeness.published_information_clarity.options.two_five", scope: option_scope), 2.5],
+              [t("informativeness.published_information_clarity.options.five", scope: option_scope), 5]
             ],
             information_provided: [
-              [t("Informativeness.information_provided.options.zero", scope: option_scope), 0],
-              [t("Informativeness.information_provided.options.one", scope: option_scope), 1],
-              [t("Informativeness.information_provided.options.two_five", scope: option_scope), 2.5],
-              [t("Informativeness.information_provided.options.five", scope: option_scope), 5]
+              [t("informativeness.information_provided.options.zero", scope: option_scope), 0],
+              [t("informativeness.information_provided.options.one", scope: option_scope), 1],
+              [t("informativeness.information_provided.options.two_five", scope: option_scope), 2.5],
+              [t("informativeness.information_provided.options.five", scope: option_scope), 5]
             ]
           }
         end
