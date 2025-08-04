@@ -98,8 +98,6 @@ ar:
       conference_copies:
         new:
           copy: نسخ
-          select: حدد البيانات التي ترغب في تكرارها
-          title: مؤتمر مكرر
       conference_publications:
         create:
           error: كانت هناك مشكلة في نشر هذا المؤتمر.
@@ -157,10 +155,6 @@ ar:
         update:
           error: حدثت مشكلة أثناء تحديث هذا المؤتمر.
           success: تم تحديث المؤتمر بنجاح.
-      conferences_copies:
-        create:
-          error: كانت هناك مشكلة في تكرار هذا المؤتمر.
-          success: تم تكرار المؤتمر بنجاح.
       media_links:
         create:
           error: حدثت مشكلة أثناء إنشاء رابط وسائط جديد.

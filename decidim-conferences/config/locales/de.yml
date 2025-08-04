@@ -102,8 +102,6 @@ de:
       conference_copies:
         new:
           copy: Kopieren
-          select: Wählen Sie die Daten aus, die Sie duplizieren möchten
-          title: Doppelte Konferenz
       conference_publications:
         create:
           error: Beim Veröffentlichen dieser Konferenz ist ein Fehler aufgetreten.
@@ -174,10 +172,6 @@ de:
         update:
           error: Beim Aktualisieren dieser Konferenz ist ein Fehler aufgetreten.
           success: Konferenz wurde erfolgreich aktualisiert.
-      conferences_copies:
-        create:
-          error: Beim Duplizieren dieser Konferenz ist ein Fehler aufgetreten.
-          success: Konferenz wurde erfolgreich dupliziert.
       media_links:
         create:
           error: Beim Erstellen einer neuen Medienverknüpfung ist ein Fehler aufgetreten.
@@ -344,7 +338,7 @@ de:
       admin:
         conference_copies:
           form:
-            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Konferenz verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            slug_help_html: 'URL-Slugs werden verwendet, um URLs zu generieren, die auf diese Konferenz verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         conference_invites:
           create:
             error: Beim Einladen des Benutzers zur Teilnahme an der Konferenz ist ein Problem aufgetreten.

@@ -2036,6 +2036,8 @@ es-PY:
         profile: Mi cuenta
         public_profile: Mi perfil público
         title: Enlaces de perfil
+        unread_conversations: Tienes conversaciones sin leer
+        unread_notifications: Tienes notificaciones sin leer
       user_profile:
         account: Cuenta
         authorizations: Autorizaciones

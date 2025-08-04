@@ -103,7 +103,7 @@ ca:
         new:
           copy: Copiar
           select: Selecciona quines dades vols duplicar
-          title: Jornada duplicada
+          title: Duplicar la jornada
       conference_publications:
         create:
           error: S'ha produït un error en publicar aquesta jornada.

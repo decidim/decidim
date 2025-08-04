@@ -1473,6 +1473,7 @@ sv:
     searches:
       filters:
         jump_to: 'Gå till:'
+        resource: "%{label} bland %{collection}"
         search: Sök
         state:
           active: Pågående
@@ -1999,6 +2000,8 @@ sv:
         profile: Mitt konto
         public_profile: Min offentliga profil
         title: Profillänkar
+        unread_conversations: Du har olästa konversationer
+        unread_notifications: Du har olästa meddelanden
       user_profile:
         account: Konto
         authorizations: Auktoriseringar

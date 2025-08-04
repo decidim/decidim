@@ -53,8 +53,6 @@ tr:
       conference_copies:
         new:
           copy: Kopyala
-          select: Çoğaltmak istediğiniz verileri seçin
-          title: Konferansı çoğalt
       conference_publications:
         create:
           error: Bu konferansı yayınlarken bir sorun oluştu.
@@ -112,10 +110,6 @@ tr:
         update:
           error: Bu konferans güncellenirken bir hata oluştu.
           success: Konferans başarıyla güncellendi.
-      conferences_copies:
-        create:
-          error: Bu konferansı çoğaltırken bir hata oluştu.
-          success: Konferans başarıyla kopyalandı.
       media_links:
         create:
           error: Yeni bir medya bağlantısı oluştururken bir hata oluştu.

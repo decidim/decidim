@@ -113,6 +113,8 @@ sr:
             other: "%{count} rezultata"
         filters:
           all: Sve
+        home:
+          subcategories_label: Pod kategorije
         home_header:
           global_status: Sveopšte stanje izvršenja
         nav_breadcrumb:

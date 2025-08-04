@@ -176,8 +176,8 @@ fi-pl:
           success: Konferenssi päivitetty onnistuneesti.
       conferences_copies:
         create:
-          error: Virhe kopioitaessa konferenssia.
-          success: Konferenssi kopioitu onnistuneesti.
+          error: Konferenssin kopioiminen epäonnistui.
+          success: Konferenssin kopioiminen onnistui.
       media_links:
         create:
           error: Luotaessa uutta medialinkkiä tapahtui virhe.

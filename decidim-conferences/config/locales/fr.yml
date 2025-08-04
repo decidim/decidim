@@ -176,7 +176,7 @@ fr:
           success: Conférence mise à jour avec succès.
       conferences_copies:
         create:
-          error: Une erreur s'est produite lors de la duplication de cette conférence.
+          error: Un problème est survenu lors de la duplication de cette conférence.
           success: Conférence dupliquée avec succès.
       media_links:
         create:

@@ -2033,6 +2033,8 @@ ca:
         profile: El meu compte
         public_profile: El meu perfil públic
         title: Enllaços del perfil
+        unread_conversations: Tens converses sense llegir
+        unread_notifications: Tens notificacions sense llegir
       user_profile:
         account: Compte
         authorizations: Autoritzacions

@@ -102,8 +102,6 @@ sv:
       conference_copies:
         new:
           copy: Kopiera
-          select: Välj vilka data som du vill duplicera
-          title: Duplicera konferens
       conference_publications:
         create:
           error: Det gick inte att publicera konferensen.
@@ -174,10 +172,6 @@ sv:
         update:
           error: Det gick inte att uppdatera konferensen.
           success: Konferensen har uppdaterats.
-      conferences_copies:
-        create:
-          error: Det gick inte att duplicera konferensen.
-          success: Konferensen har duplicerats.
       media_links:
         create:
           error: Det gick inte att skapa en ny medialänk.

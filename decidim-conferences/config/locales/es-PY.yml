@@ -102,8 +102,8 @@ es-PY:
       conference_copies:
         new:
           copy: Dupdo
-          select: Seleccione qué datos quiere duplicar
-          title: Conferencia duplicada
+          select: Selecciona qué datos quieres duplicar
+          title: Duplicar la jornada
       conference_publications:
         create:
           error: Hubo un error al publicar esta conferencia.
@@ -176,8 +176,8 @@ es-PY:
           success: Conferencia actualizada con éxito
       conferences_copies:
         create:
-          error: Hubo un error al duplicar esta conferencia.
-          success: Conferencia duplicada con éxito.
+          error: Se ha producido un error al duplicar esta jornada.
+          success: La jornada se ha duplicado correctamente.
       media_links:
         create:
           error: Se ha producido un error al crear un nuevo enlace de medios.
