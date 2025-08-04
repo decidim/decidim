@@ -452,32 +452,37 @@ en:
                   three: 40 - 60% = 3
                   two: 20 - 40% = 2
             inclusiveness:
-              cultural_origins_participation:
-                legend: How many people from diverse cultural origins have participated out of the invited?
-                options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
-              description: Inclusivity according to cultural origin and functional diversity.
               functional_diversity_invited:
-                legend: Have groups of people with functional diversity been invited to participate?
+                legend: How is the degree of diversity of the agents and participants assessed with respect to the population of reference in the process?
+                options:
+                  five: Good = 5
+                  one: Low = 1
+                  two_five: Sufficient  = 2.5
+                  zero: None = 0
+              description: Inclusivity according to cultural origin and functional diversity.
+              languages_communicated:
+                legend: How many languages have been used within the process?
+                options:
+                  five: More than half of the languages spoken in the community = 5
+                  two_five: Less than half of the languages spoken in the community  = 2.5
+                  one: One language = 0
+              mobility_meeting_access:
+                legend: Were the venues of the face-to-face meetings accessible to people with reduced mobility?
                 options:
                   five: Yes = 5
+                  two_five: Partially = 2.5
                   zero: No = 0
-              functional_diversity_participation:
-                legend: How many people with functional diversity have participated out of the invited?
-                options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
-              migrant_groups_invited:
-                legend: Have migrant groups been invited to participate?
+              participation_scheduling_times:
+                legend: The participation sessions have been scheduled at varied times (morning, midday, afternoon, evening, and weekends).
                 options:
                   five: Yes = 5
+                  two_five: Partially = 2.5
+                  zero: No = 0
+              digital_support_offered:
+                legend: Has digital support been offered to the participants?
+                options:
+                  five: Yes = 5
+                  two_five: Partially = 2.5
                   zero: No = 0
               name: Inclusiveness
             relevance:
