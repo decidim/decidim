@@ -26,6 +26,8 @@ fr-CA:
           settings: Paramètres
     components:
       surveys:
+        actions:
+          respond: Répondre
         name: Enquêtes
         settings:
           announcement: Annonce
@@ -90,11 +92,9 @@ fr-CA:
           destroy:
             success: Enquête supprimée avec succès.
           edit:
-            title: Principal
+            title: Modifier l’enquête
           index:
             title: Enquêtes
-          new:
-            title: Principal
           publish:
             invalid: Une erreur s'est produite lors de la publication de cette enquête.
             success: Enquête publiée avec succès.
