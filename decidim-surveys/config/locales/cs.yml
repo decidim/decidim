@@ -84,11 +84,9 @@ cs:
           destroy:
             success: Anketa byla úspěšně odstraněna.
           edit:
-            title: Hlavní
+            title: Upravit anketu
           index:
             title: Ankety
-          new:
-            title: Hlavní
           publish:
             invalid: Při publikování této ankety došlo k chybě.
             success: Anketa byla úspěšně publikována.
