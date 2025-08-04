@@ -356,6 +356,10 @@ id:
             state: Negara
             users_count: Jumlah pengguna
       moderations:
+        index:
+          actions:
+            unhide:
+              title: Tidak terlihat
         report:
           reasons:
             does_not_belong: Bukan milik

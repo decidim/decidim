@@ -361,6 +361,10 @@ ru:
             state: Cостояние
             users_count: Количество участников
       moderations:
+        index:
+          actions:
+            unhide:
+              title: Отобразить
         report:
           reasons:
             does_not_belong: Неприемлемо

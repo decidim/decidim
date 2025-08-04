@@ -932,7 +932,7 @@ fr:
         external_domain:
           down: Descendre
           external_domain: Domaine externe
-          remove: Retirer
+          remove: Supprimer
           up: Monter
         form:
           add: Ajouter à la liste autorisée
@@ -1140,6 +1140,12 @@ fr:
           edit: Modifier la taxonomie
           new: Nouvelle taxonomie
         count: Ressources associées
+        edit:
+          update: Mettre à jour
+        filters:
+          search_placeholder: Rechercher
+        index:
+          new_taxonomy: Nouvelle taxonomie
         total_filters: Filtres
       taxonomy_filters:
         breadcrumb:
@@ -1174,6 +1180,7 @@ fr:
           save: Enregistrer
         show:
           items_count: "%{count} éléments"
+          remove: Supprimer
         taxonomies_select:
           filters: Filtres
       titles:

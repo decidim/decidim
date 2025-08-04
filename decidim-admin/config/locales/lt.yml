@@ -620,6 +620,9 @@ lt:
         index:
           actions:
             block: Blokuoti naudotoją
+            bulk_actions:
+              unreport:
+                title: Naikinti raportavimą
             title: Veiksmai
             unblock: Atblokuoti naudotoją
             unreport: Naikinti raportavimą
@@ -638,6 +641,11 @@ lt:
           unblocked: Neužblokuota
       moderations:
         index:
+          actions:
+            unhide:
+              title: Nebeslėpti
+            unreport:
+              title: Naikinti raportavimą
           title: Turinys, apie kurį pranešta
         report:
           reasons:

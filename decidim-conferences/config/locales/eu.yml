@@ -179,7 +179,7 @@ eu:
       conferences_copies:
         create:
           error: Arazo bat egon da jardunaldi hau bikoiztean.
-          success: Jardunaldia zuzen eguneratua.
+          success: Jardunaldia zuzen bikoiztua.
       media_links:
         create:
           error: Arazo bat egon da beste komunikazio-esteka bat sortzean.

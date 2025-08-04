@@ -729,7 +729,7 @@ fi-pl:
               title: Piilota
               update_moderation_button: Piilota valitut sisällöt
             unhide:
-              title: Poista piilotus
+              title: unhide
               update_moderation_button: Poista valittujen sisältöjen piilotus
             unreport:
               title: Poista ilmoitus

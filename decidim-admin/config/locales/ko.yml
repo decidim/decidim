@@ -550,12 +550,10 @@ ko:
           success: 참가자가 성공적으로 차단되었습니다.
         index:
           badge: 뱃지
-          block: 사용자 차단
           name: 이름
           nickname: 닉네임
           show_email: 이메일 주소 보기
           status: 상태
-          unblock: 사용자 차단 해제
         show_email_modal:
           email_address: 이메일 주소
           full_name: 전체 이름

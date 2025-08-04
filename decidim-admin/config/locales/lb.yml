@@ -499,6 +499,9 @@ lb:
         index:
           actions:
             block: Benutzer blockieren
+            bulk_actions:
+              unreport:
+                title: Meldung Rückgängig machen
             title: Aktionen
             unblock: Blockierung des Benutzers aufheben
             unreport: Meldung Rückgängig machen
@@ -515,6 +518,12 @@ lb:
           blocked: Blockiert
           unblocked: Nicht blockiert
       moderations:
+        index:
+          actions:
+            unhide:
+              title: Einblenden
+            unreport:
+              title: Meldung Rückgängig machen
         report:
           reasons:
             does_not_belong: Gehört nicht
@@ -605,7 +614,7 @@ lb:
           reports: Berichte
           show_email: E-Mail-Adresse anzeigen
           status: Status
-          unblock: Blockierung des Users aufheben
+          unblock: Blockierung des Benutzers aufheben
           unofficialize: Nicht offiziell
         new:
           badge: Offizielles Abzeichen

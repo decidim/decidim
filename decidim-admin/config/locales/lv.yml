@@ -382,6 +382,10 @@ lv:
             state: Stāvoklis
             users_count: Dalībnieku skaits
       moderations:
+        index:
+          actions:
+            unhide:
+              title: Atcelt slēpšanu
         report:
           reasons:
             does_not_belong: Neattiecas

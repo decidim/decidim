@@ -695,7 +695,7 @@ ja:
                 title: ブロック解除
                 update_moderated_user_button: ユーザーのブロックを解除
               unreport:
-                title: 通報を解除
+                title: 報告解除
             ignore:
               update_moderated_user_button: ユーザーの通報を解除
             title: アクション
@@ -727,7 +727,7 @@ ja:
               title: 非表示解除
               update_moderation_button: 選択したリソースの非表示を解除
             unreport:
-              title: 通報を解除
+              title: 報告解除
               update_moderation_button: 選択したリソースの通報を解除
           cancel: キャンセル
           selected: 選択済み

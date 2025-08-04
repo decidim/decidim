@@ -652,6 +652,9 @@ pl:
         index:
           actions:
             block: Zablokuj użytkownika
+            bulk_actions:
+              unreport:
+                title: Cofnij zgłoszenie
             title: Działania
             unblock: Odblokuj użytkownika
             unreport: Cofnij zgłoszenie
@@ -670,6 +673,11 @@ pl:
           unblocked: Niezablokowany
       moderations:
         index:
+          actions:
+            unhide:
+              title: Pokaż
+            unreport:
+              title: Cofnij zgłoszenie
           title: Zgłoszona zawartość
         report:
           reasons:

@@ -700,7 +700,7 @@ ca-IT:
                 title: Desbloquejar
                 update_moderated_user_button: Desbloquejar usuàries
               unreport:
-                title: Desfer la denúncia
+                title: Desfer denúncia
             ignore:
               update_moderated_user_button: Desfer la denúncia a les usuàries
             title: Accions
@@ -732,7 +732,7 @@ ca-IT:
               title: Tornar a mostrar
               update_moderation_button: Tornar a mostrar els continguts seleccionats
             unreport:
-              title: Desfer la denúncia
+              title: Desfer denúncia
               update_moderation_button: Desfer la denúncia dels continguts seleccionats
           cancel: Cancel·lar
           selected: seleccionades

@@ -99,7 +99,7 @@ ja:
       conference_copies:
         new:
           copy: コピー
-          select: 複製したいデータを選択してください
+          select:
           title: カンファレンスを複製
       conference_publications:
         create:

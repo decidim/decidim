@@ -241,6 +241,9 @@ ga:
       moderated_users:
         index:
           actions:
+            bulk_actions:
+              unreport:
+                title: Cuir ar ceal tuairisc
             title: Gníomhartha
             unreport: Cuir ar ceal tuairisc
           name: Ainm
@@ -252,6 +255,12 @@ ga:
         tabs:
           blocked: Blocáilte
       moderations:
+        index:
+          actions:
+            unhide:
+              title: Nocht
+            unreport:
+              title: Cuir ar ceal tuairisc
         report:
           reasons:
             spam: Turscar

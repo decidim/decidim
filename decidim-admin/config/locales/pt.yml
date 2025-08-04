@@ -546,6 +546,12 @@ pt:
           blocked: Bloqueado
           unblocked: Não bloqueado
       moderations:
+        index:
+          actions:
+            unhide:
+              title: Mostrar
+            unreport:
+              title: Remover denúncia
         report:
           reasons:
             does_not_belong: Não pertence

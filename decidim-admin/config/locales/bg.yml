@@ -663,6 +663,9 @@ bg:
         index:
           actions:
             block: Блокиране на потребител
+            bulk_actions:
+              unreport:
+                title: Отмяна на доклада
             title: Активности
             unblock: Разблокирай потребител
             unreport: Отмяна на доклада
@@ -681,6 +684,11 @@ bg:
           unblocked: Не блокирано
       moderations:
         index:
+          actions:
+            unhide:
+              title: Разкриване
+            unreport:
+              title: Отмяна на доклада
           title: Докладвано съдържание
         report:
           reasons:
@@ -784,7 +792,7 @@ bg:
           reports: Доклади
           show_email: Показване на електронната поща
           status: Статус
-          unblock: Разблокирай Потребител
+          unblock: Разблокирай потребител
           unofficialize: Премахване на официализирането
         new:
           badge: Бадж за официализиране

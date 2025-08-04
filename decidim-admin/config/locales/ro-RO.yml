@@ -623,6 +623,9 @@ ro:
         index:
           actions:
             block: Blochează utilizatorul
+            bulk_actions:
+              unreport:
+                title: Anulează raportarea
             title: Acţiuni
             unblock: Deblochează utilizatorul
             unreport: Anulează raportarea
@@ -641,6 +644,11 @@ ro:
           unblocked: Nu este blocat
       moderations:
         index:
+          actions:
+            unhide:
+              title: Anulează ascunderea
+            unreport:
+              title: Anulează raportarea
           title: Conținut raportat
         report:
           reasons:
@@ -731,7 +739,7 @@ ro:
         index:
           actions: Acțiuni
           badge: Insignă
-          block: Blochează utilizator
+          block: Blochează utilizatorul
           created_at: Creat la
           name: Nume
           nickname: Pseudonim

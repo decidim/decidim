@@ -534,6 +534,9 @@ gl:
         index:
           actions:
             block: Bloquear usuario
+            bulk_actions:
+              unreport:
+                title: Desfacer denuncia
             title: Accións
             unblock: Desbloquear usuario
             unreport: Desfacer denuncia
@@ -550,6 +553,12 @@ gl:
           blocked: Bloqueados
           unblocked: Sen bloquear
       moderations:
+        index:
+          actions:
+            unhide:
+              title: Unhide
+            unreport:
+              title: Desfacer denuncia
         report:
           reasons:
             does_not_belong: Non pertence

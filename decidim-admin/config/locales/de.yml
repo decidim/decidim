@@ -700,7 +700,7 @@ de:
                 title: Blockierung aufheben
                 update_moderated_user_button: Blockierung aufheben
               unreport:
-                title: Meldung zurückweisen
+                title: Meldung Rückgängig machen
             ignore:
               update_moderated_user_button: Gemeldete Teilnehmende zurückweisen
             title: Aktionen
@@ -732,7 +732,7 @@ de:
               title: Einblenden
               update_moderation_button: Ausgewählte Ressourcen einblenden
             unreport:
-              title: Meldung zurückweisen
+              title: Meldung Rückgängig machen
               update_moderation_button: Meldung ausgewählter Ressourcen aufheben
           cancel: Abbrechen
           selected: ausgewählt
@@ -871,7 +871,7 @@ de:
           reports: Berichte
           show_email: E-Mail-Adresse anzeigen
           status: Status
-          unblock: Blockierung des Users aufheben
+          unblock: Blockierung des Benutzers aufheben
           unofficialize: Nicht offiziell
         new:
           badge: Offizielles Abzeichen

@@ -860,7 +860,7 @@ eu:
         index:
           actions: Ekintzak
           badge: Garaikurra
-          block: Blokeatu parte-hartzailea
+          block: Blokeatu erabiltzailea
           created_at: Noiz sortua
           name: Izena
           nickname: Ezizena

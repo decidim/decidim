@@ -700,7 +700,7 @@ es-MX:
                 title: Desbloquear
                 update_moderated_user_button: Desbloquear usuarias
               unreport:
-                title: Deshacer la denuncia
+                title: Deshacer denuncia
             ignore:
               update_moderated_user_button: Deshacer la denuncia a las usuarias
             title: Acciones
@@ -729,10 +729,10 @@ es-MX:
               title: Esconder
               update_moderation_button: Ocultar los contenidos seleccionados
             unhide:
-              title: Volver a mostrar
+              title: Ocultar
               update_moderation_button: Volver a mostrar los contenidos seleccionados
             unreport:
-              title: Deshacer la denuncia
+              title: Deshacer denuncia
               update_moderation_button: Deshacer la denuncia de los contenidos seleccionados
           cancel: Cancelar
           selected: seleccionadas

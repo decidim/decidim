@@ -609,6 +609,9 @@ el:
         index:
           actions:
             block: Αποκλεισμός χρήστη
+            bulk_actions:
+              unreport:
+                title: Κατάργηση αναφοράς
             title: Ενέργειες
             unblock: Ξεμπλοκάρισμα χρήστη
             unreport: Κατάργηση αναφοράς
@@ -627,6 +630,11 @@ el:
           unblocked: Δεν έχει μπλοκαριστεί
       moderations:
         index:
+          actions:
+            unhide:
+              title: Επανεμφάνιση
+            unreport:
+              title: Κατάργηση αναφοράς
           title: Περιεχόμενο που αναφέρθηκε
         report:
           reasons:
