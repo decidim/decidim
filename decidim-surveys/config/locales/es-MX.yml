@@ -98,11 +98,9 @@ es-MX:
           destroy:
             success: Encuesta eliminada correctamente.
           edit:
-            title: Principal
+            title: Editar la encuesta
           index:
             title: Encuestas
-          new:
-            title: Principal
           publish:
             invalid: Se ha producido un error al publicar esta encuesta.
             success: Encuesta publicada correctamente.
