@@ -412,20 +412,22 @@ en:
       admin:
         content_blocks:
           democratic_quality_stats_settings_form:
-            accessibility:
-              languages_count:
-                legend: In how many languages has the process been communicated?
+            informativeness:
+              published_information_clarity:
+                legend: Does the published information provide clarity on the decision-making mechanisms? (e.g. voting, consensus, direct negotiations)
                 options:
-                  five: More than half of the languages spoken in the community = 5
-                  one: One language = 1
-                  two_five: Less than half of the languages spoken in the community = 2.5
-              name: Accessibility
-              venue_accessibility:
-                legend: Were the venues of the face-to-face meetings accessible to people with reduced mobility?
+                  five: Full clarity = 5
+                  one: Low clarity = 1
+                  two_five: Suficient clarity = 2.5
+                  zero: No clarity = 0
+              name: Informativeness
+              information_provided:
+                legend: Has information been provided regarding the participants capacity to influence the topic under discussion? (both in the communication of the process and invitations, as well as at the beginning of each debate session)
                 options:
-                  five: Yes = 5
-                  two_five: Partially = 2.5
-                  zero: No = 0
+                  five: Always = 5
+                  two_five: Usually = 2.5
+                  one: Almost never = 1
+                  zero: Never = 0
             announcement:
               body_html: |-
                 <ul>
@@ -485,17 +487,6 @@ en:
                   two_five: Partially = 2.5
                   zero: No = 0
               name: Inclusiveness
-            relevance:
-              description: Impact relevance, as the percentage of the organisation's budget, of the organisation's workforce, or of the total population, that will be affected by the process' result, and the time of such impact.
-              name: Relevance
-              relevance_percentage:
-                legend: Percentage of organisation's budget, workforce or of the total population affected by the process' result.
-                options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
           highlighted_processes:
             active: Active
             all: All

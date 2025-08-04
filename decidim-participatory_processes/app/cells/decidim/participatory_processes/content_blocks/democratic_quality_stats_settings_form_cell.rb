@@ -43,13 +43,6 @@ module Decidim
               [t("inclusiveness.digital_support_offered.options.two_five", scope: option_scope), 2.5],
               [t("inclusiveness.digital_support_offered.options.five", scope: option_scope), 5]
             ],
-            relevance_percentage: [
-              [t("relevance.relevance_percentage.options.one", scope: option_scope), 1],
-              [t("relevance.relevance_percentage.options.two", scope: option_scope), 2],
-              [t("relevance.relevance_percentage.options.three", scope: option_scope), 3],
-              [t("relevance.relevance_percentage.options.four", scope: option_scope), 4],
-              [t("relevance.relevance_percentage.options.five", scope: option_scope), 5]
-            ],
             citizen_influence_level: [
               [t("citizen_influence.citizen_influence_level.options.one", scope: option_scope), 1],
               [t("citizen_influence.citizen_influence_level.options.two", scope: option_scope), 2],
@@ -64,15 +57,17 @@ module Decidim
               [t("citizen_influence.citizen_decisional_intervention.options.four", scope: option_scope), 4],
               [t("citizen_influence.citizen_decisional_intervention.options.five", scope: option_scope), 5]
             ],
-            languages_count: [
-              [t("accessibility.languages_count.options.one", scope: option_scope), 1],
-              [t("accessibility.languages_count.options.two_five", scope: option_scope), 2.5],
-              [t("accessibility.languages_count.options.five", scope: option_scope), 5]
+            published_information_clarity: [
+              [t("Informativeness.published_information_clarity.options.zero", scope: option_scope), 0],
+              [t("Informativeness.published_information_clarity.options.one", scope: option_scope), 1],
+              [t("Informativeness.published_information_clarity.options.two_five", scope: option_scope), 2.5],
+              [t("Informativeness.published_information_clarity.options.five", scope: option_scope), 5]
             ],
-            venue_accessibility: [
-              [t("accessibility.venue_accessibility.options.zero", scope: option_scope), 0],
-              [t("accessibility.venue_accessibility.options.two_five", scope: option_scope), 2.5],
-              [t("accessibility.venue_accessibility.options.five", scope: option_scope), 5]
+            information_provided: [
+              [t("Informativeness.information_provided.options.zero", scope: option_scope), 0],
+              [t("Informativeness.information_provided.options.one", scope: option_scope), 1],
+              [t("Informativeness.information_provided.options.two_five", scope: option_scope), 2.5],
+              [t("Informativeness.information_provided.options.five", scope: option_scope), 5]
             ]
           }
         end

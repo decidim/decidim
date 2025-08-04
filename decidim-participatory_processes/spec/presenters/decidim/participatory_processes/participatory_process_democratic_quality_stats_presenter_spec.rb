@@ -17,11 +17,10 @@ module Decidim
           mobility_meeting_access: 2.5,
           participation_scheduling_times: 2.5,
           digital_support_offered: 2.5,
-          relevance_percentage: 4.0,
           citizen_influence_level: 3.0,
           citizen_decisional_intervention: 3.0,
-          languages_count: 4.0,
-          venue_accessibility: 5.0
+          published_information_clarity: 1.0,
+          information_provided: 5.0
         )
       end
 

@@ -26,9 +26,8 @@ module Decidim
           # Auto-evaluation metrics based on survey responses
           auto_evaluation: {
             inclusiveness: calculate_auto_evaluation_inclusiveness,
-            relevance: calculate_auto_evaluation_relevance,
             citizen_influence: calculate_auto_evaluation_citizen_influence,
-            accessibility: calculate_auto_evaluation_accessibility
+            informativeness: calculate_auto_evaluation_informativeness
           }
         }
       end
@@ -40,11 +39,10 @@ module Decidim
           settings.mobility_meeting_access != -1 &&
           settings.participation_scheduling_times != -1 &&
           settings.digital_support_offered != -1 &&
-          settings.relevance_percentage != -1 &&
           settings.citizen_influence_level != -1 &&
           settings.citizen_decisional_intervention != -1 &&
-          settings.languages_count != -1 &&
-          settings.venue_accessibility != -1
+          settings.published_information_clarity != -1 &&
+          settings.information_provided != -1
       end
 
       private
@@ -63,9 +61,8 @@ module Decidim
         if finished_survey?
           auto_evaluation_metrics = (
             calculate_auto_evaluation_inclusiveness +
-            calculate_auto_evaluation_relevance +
             calculate_auto_evaluation_citizen_influence +
-            calculate_auto_evaluation_accessibility
+            calculate_auto_evaluation_informativeness
           ) / 4.0
 
           (automatic_metrics + auto_evaluation_metrics) / 2.0
@@ -256,18 +253,13 @@ module Decidim
       end
 
       # @return [Float]
-      def calculate_auto_evaluation_relevance
-        settings.relevance_percentage
-      end
-
-      # @return [Float]
       def calculate_auto_evaluation_citizen_influence
         (settings.citizen_influence_level + settings.citizen_decisional_intervention) / 2.0
       end
 
       # @return [Float]
-      def calculate_auto_evaluation_accessibility
-        (settings.venue_accessibility + settings.languages_count) / 2.0
+      def calculate_auto_evaluation_informativeness
+        (settings.published_information_clarity + settings.information_provided) / 2.0
       end
 
       # @return [Float]
