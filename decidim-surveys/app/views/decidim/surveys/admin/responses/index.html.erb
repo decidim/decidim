@@ -1,29 +1,21 @@
 <% add_decidim_page_title(t(".title", total: @total)) %>
 
-<%= render "decidim/surveys/admin/surveys/tabs_menu" do %>
-  <% if allowed_to? :index, :questionnaire_publish_responses, survey: @survey %>
-    <% if @participants.count.zero? %>
-      <%= link_to t("actions.publish_responses", scope: "decidim.forms.admin.questionnaires"), "#", class: "main-tabs-menu__cta-button", disabled: true %>
-    <% else %>
-      <%= link_to t("actions.publish_responses", scope: "decidim.forms.admin.questionnaires"), survey_publish_responses_path(@survey), class: "main-tabs-menu__cta-button" %>
+<div class="item_show__header" style="border-bottom: none;">
+  <h1 class="item_show__header-title">
+    <%= t ".title", total: @total %>
+    <% if @survey.questionnaire.responses.any? %>
+      <%= export_dropdown(current_component, @survey.questionnaire.id) if allowed_to? :export_responses, :questionnaire %>
     <% end %>
-  <% end %>
-<% end %>
+  </h1>
+</div>
+
+<%= render "decidim/surveys/admin/surveys/tabs_menu" %>
 
 <% if @participants.count.zero? %>
   <%= cell("decidim/announcement", { body: t("decidim.surveys.admin.responses.index.no_responses") }) %>
 <% end %>
 
-<div class="card" id="responses">
-  <div class="item_show__header">
-    <h1 class="item_show__header-title">
-      <%= t ".title", total: @total %>
-
-      <% if @survey.questionnaire.responses.any? %>
-        <%= export_dropdown(current_component, @survey.questionnaire.id) if allowed_to? :export_responses, :questionnaire %>
-      <% end %>
-    </h1>
-  </div>
+<div class="card 2xl:mr-80 mt-8" id="responses">
   <div class="table-stacked">
     <table class="table-list">
       <thead>
@@ -96,3 +88,14 @@
   </div>
 </div>
 <%= decidim_paginate @query %>
+<div class="item__edit-sticky">
+  <div class="item__edit-sticky-container">
+    <% if allowed_to? :index, :questionnaire_publish_responses, survey: @survey %>
+      <% if @participants.count.zero? %>
+          <%= link_to t("actions.publish_responses", scope: "decidim.forms.admin.questionnaires"), "#", class: "button button__sm button__secondary", disabled: true %>
+        <% else %>
+          <%= link_to t("actions.publish_responses", scope: "decidim.forms.admin.questionnaires"), survey_publish_responses_path(@survey), class: "button button__sm button__secondary" %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
