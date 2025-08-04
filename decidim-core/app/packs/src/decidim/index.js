@@ -1,5 +1,3 @@
-/* eslint-disable max-lines */
-
 /**
  * External dependencies
  */
@@ -21,12 +19,13 @@ import morphdom from "morphdom"
 /**
  * Local dependencies
  */
+import MentionsComponent from "src/decidim/refactor/implementation/input_mentions";
+
 
 import ClipboardCopy from "src/decidim/refactor/implementation/copy_clipboard";
 
 // local deps with no initialization
 import "src/decidim/input_tags"
-import "src/decidim/input_mentions"
 import "src/decidim/input_multiple_mentions"
 import "src/decidim/input_autojump"
 import "src/decidim/history"
@@ -193,7 +192,12 @@ const initializer = (element = document) => {
     createAccordion(component);
   })
 
-  element.querySelectorAll('[data-component="dropdown"]').forEach((component) => createDropdown(component))
+
+  element.querySelectorAll('[data-controller="dropdown"]').forEach((component) => createDropdown(component))
+  element.querySelectorAll('[data-component="dropdown"]').forEach((component) => {
+    console.error(`${window.location.href} Using dropdown component`);
+    createDropdown(component);
+  })
 
   element.querySelectorAll("[data-dialog]").forEach((component) => createDialog(component))
 
@@ -249,3 +253,22 @@ document.addEventListener("turbo:load", () => {
     }
   });
 });
+
+// Handle external library integration (like React)
+document.addEventListener("attach-mentions-element", (event) => {
+  const instance = new MentionsComponent(event.detail);
+  instance.attachToElement(event.detail);
+});
+
+const initializeMentions = () => {
+  const mentionContainers = document.querySelectorAll(".js-mentions");
+
+  mentionContainers.forEach((container) => {
+    if (!container._mentionContainer) {
+      container._mentionContainer = new MentionsComponent(container);
+    }
+  });
+};
+
+// Initialize on page load
+document.addEventListener("turbo:load", initializeMentions);

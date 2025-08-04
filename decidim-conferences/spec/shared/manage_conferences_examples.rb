@@ -64,7 +64,7 @@ shared_examples "manage conferences" do
 
     before do
       within "tr", text: translated(conference.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
     end
@@ -100,7 +100,7 @@ shared_examples "manage conferences" do
   describe "updating a conference without images" do
     before do
       within "tr", text: translated(conference.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
     end
@@ -138,7 +138,7 @@ shared_examples "manage conferences" do
 
       it "allows the user to preview the unpublished conference" do
         within "tr", text: translated(conference.title) do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Preview"
         end
 
@@ -152,7 +152,7 @@ shared_examples "manage conferences" do
       it "allows the user to preview the unpublished conference" do
         new_window = window_opened_by do
           within "tr", text: translated(conference.title) do
-            find("button[data-component='dropdown']").click
+            find("button[data-controller='dropdown']").click
             click_on "Preview"
           end
         end
@@ -180,14 +180,14 @@ shared_examples "manage conferences" do
 
     it "publishes the conference" do
       within("tr", text: translated_attribute(conference.title)) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         find("a", text: "Publish", visible: true).click
       end
 
       expect(page).to have_content("successfully published")
 
       within("tr", text: translated_attribute(conference.title)) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         expect(page).to have_content("Unpublish")
       end
 
@@ -207,7 +207,7 @@ shared_examples "manage conferences" do
 
     it "unpublishes the conference" do
       within("tr", text: translated_attribute(conference.title)) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         find("a", text: "Unpublish", visible: true).click
       end
 

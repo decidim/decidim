@@ -60,7 +60,7 @@ describe("SuggestionsList", () => {
           <div class="relative">
             <button class="collaborative-texts-suggestions-box-item-dropdown"
                     id="dropdown-trigger-{{ID}}"
-                    data-component="dropdown"
+                    data-controller="dropdown"
                     data-target="dropdown-menu-{{ID}}"
                     data-auto-close="true">
             </button>
