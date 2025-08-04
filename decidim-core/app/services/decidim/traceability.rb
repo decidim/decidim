@@ -127,7 +127,7 @@ module Decidim
     end
 
     def log(action, user, resource, extra_log_info = {})
-      return unless user.is_a?(Decidim::User) || user.is_a?(Decidim::Api::ApiUser)
+      return unless user.is_a?(Decidim::UserBaseEntity)
       # If the record is not valid, it may not yet have an ID causing an
       # exception when trying to save the log record.
       return if resource.nil?
