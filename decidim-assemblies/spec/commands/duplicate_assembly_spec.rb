@@ -133,7 +133,7 @@ module Decidim::Assemblies
       end
     end
 
-    context "when duplicateing a child assembly" do
+    context "when duplicating a child assembly" do
       context "when the form is not valid" do
         let(:invalid) { true }
 
