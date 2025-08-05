@@ -117,6 +117,7 @@ bin/rails db:migrate
 bin/rails decidim:upgrade:user_groups:remove
 bin/rails decidim:upgrade:fix_nickname_casing
 bin/rails decidim:verifications:revoke:sms
+bin/rails decidim_surveys:upgrade:fix_survey_permissions
 ```
 
 ### 1.6. Follow the steps and commands detailed in these notes
@@ -275,7 +276,19 @@ In the process to extract the old initiatives vote form to a base handler a new 
 
 For more information about the definition of a signature workflow read the documentation of `Decidim::Initiatives::SignatureWorkflowManifest`.
 
-### 2.6. [[TITLE OF THE ACTION]]
+### 2.6. Permission rename in surveys module
+
+As we have changed the terminology surveys from "answer" to "respond", we need to make sure that your already set permissions are still working.
+
+To ensure that, you just need to run the below task.
+
+```bash
+bin/rails decidim_surveys:upgrade:fix_survey_permissions
+```
+
+You can read more about this change on PR [#14940](https://github.com/decidim/decidim/pull/14940).
+
+### 2.7. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#xxxx](https://github.com/decidim/decidim/pull/xxx).
 
@@ -400,6 +413,14 @@ We have replaced the terminology of `endorsements` with `likes` throughout the p
 Implementers will notice this transition once they run the needed migrations on the platform. Additionally some of the translation keys have changed, and this may affect your instance.
 
 You can read more about this change on PR [#14666](https://github.com/decidim/decidim/pull/14666).
+
+### 3.9. Removal of Hashtags
+
+We have removed the Hashtags from all modules in the application. Rendering hashtags in the title and description of certain modules will cease to work.
+
+This also includes renderers and parsers which used the hashtag object to render HTML in forms.
+
+You can read more about this change on PR [#14803](https://github.com/decidim/decidim/pull/14803) and [#14868](https://github.com/decidim/decidim/pull/14868)
 
 ### 3.9. [[TITLE OF THE ACTION]]
 

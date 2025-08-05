@@ -1,6 +1,5 @@
 import { Uploader } from "src/decidim/direct_uploads/uploader";
 import icon from "src/decidim/icon";
-import { truncateFilename } from "src/decidim/direct_uploads/upload_utility";
 import { escapeHtml, escapeQuotes } from "src/decidim/utilities/text";
 
 const STATUS = {
@@ -172,13 +171,13 @@ export default class UploadModal {
   createUploadItem(file, errors, opts = {}) {
     const okTemplate = `
       <img src="data:,", role="presentation" />
-      <span>${escapeHtml(truncateFilename(file.name))}</span>
+      <span class="upload-modal__span">${escapeHtml(file.name)}</span>
     `
 
     const errorTemplate = `
       <div>${icon("error-warning-line")}</div>
       <div>
-        <span>${escapeHtml(truncateFilename(file.name))}</span>
+        <span class="upload-modal__span">${escapeHtml(file.name)}</span>
         <span>${this.locales.validation_error}</span>
         <ul>${errors.map((error) => `<li>${error}</li>`).join("\n")}</ul>
       </div>
@@ -189,11 +188,11 @@ export default class UploadModal {
       <div>
         <div>
           <label>${this.locales.filename}</label>
-          <span>${escapeHtml(truncateFilename(file.name))}</span>
+          <span class="upload-modal__span">${escapeHtml(file.name)}</span>
         </div>
         <div>
           <label for="${file.name}">${this.locales.title}</label>
-          <input class="sm" type="text" value="${escapeQuotes(opts.title || truncateFilename(file.name))}" id="${file.name}" />
+          <input class="sm" type="text" value="${escapeQuotes(opts.title || file.name)}" id="${file.name}" />
         </div>
       </div>
     `

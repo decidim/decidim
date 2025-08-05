@@ -24,12 +24,12 @@ module Decidim
 
           on(:invalid_invitation) do
             flash.now[:alert] = t("organizations.create.error_invitation", scope: "decidim.system")
-            render :new
+            render :new, status: :unprocessable_entity
           end
 
           on(:invalid) do
             flash.now[:alert] = t("organizations.create.error", scope: "decidim.system")
-            render :new
+            render :new, status: :unprocessable_entity
           end
         end
       end
@@ -55,7 +55,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("organizations.update.error", scope: "decidim.system")
-            render :edit
+            render :edit, status: :unprocessable_entity
           end
         end
       end

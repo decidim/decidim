@@ -2,6 +2,10 @@
 en:
   activemodel:
     attributes:
+      milestone:
+        description: Description
+        entry_date: Date
+        title: Title
       result:
         decidim_accountability_status_id: Status
         decidim_category_id: Category
@@ -18,10 +22,6 @@ en:
         key: Key
         name: Name
         progress: Progress
-      timeline_entry:
-        description: Description
-        entry_date: Date
-        title: Title
     models:
       decidim/accountability/proposal_linked_event: Proposal included in a result
       decidim/accountability/result_progress_updated_event: Result progress updated
@@ -41,8 +41,8 @@ en:
   decidim:
     accountability:
       actions:
-        attachment_collections: Folders
-        attachments: Attachments
+        add_milestone: Add milestone
+        add_result: Add result
         confirm_delete_result: Are you sure you want to delete this result?
         confirm_destroy: Are you sure you want to delete this %{name}?
         deleted_results_info: Deleted results can be restored from the trash.
@@ -50,11 +50,10 @@ en:
         edit: Edit
         import: Import results from another component
         import_csv: Import results from CSV file
+        new_milestone: New milestone
         new_result: New result
         new_status: New status
-        new_timeline_entry: New timeline entry
         preview: Preview
-        timeline_entries: Project evolution
         title: Actions
         view_deleted_results: View deleted results
       admin:
@@ -114,6 +113,23 @@ en:
           create:
             invalid: There was a problem importing the results.
             success: The file has begun importing. You will receive an email in the next few minutes with the result of the import.
+        milestones:
+          create:
+            invalid: There was a problem creating this milestone.
+            success: Milestone successfully created.
+          destroy:
+            success: Milestone successfully deleted.
+          edit:
+            title: Edit milestone
+            update: Update milestone
+          index:
+            title: Milestones
+          new:
+            create: Create milestone
+            title: New milestone
+          update:
+            invalid: There was a problem updating this milestone.
+            success: Milestone successfully updated.
         models:
           result:
             name: Result
@@ -185,24 +201,11 @@ en:
           update:
             invalid: There was a problem updating this status.
             success: Status successfully updated.
-        timeline_entries:
-          create:
-            invalid: There was a problem creating this entry.
-            success: Entry successfully created.
-          destroy:
-            success: Entry successfully deleted.
-          edit:
-            title: Edit entry
-            update: Update entry
-          index:
-            title: Project timeline entries
-          new:
-            create: Create entry
-            title: New entry
-          update:
-            invalid: There was a problem updating this entry.
-            success: Entry successfully updated.
       admin_log:
+        milestones:
+          create: "%{user_name} created the %{resource_name} milestone"
+          delete: "%{user_name} deleted the %{resource_name} milestone"
+          update: "%{user_name} updated the %{resource_name} milestone"
         result:
           create: "%{user_name} created result %{resource_name} in %{space_name}"
           delete: "%{user_name} deleted the %{resource_name} result in %{space_name}"
@@ -213,10 +216,6 @@ en:
           create: "%{user_name} created the %{resource_name} status"
           delete: "%{user_name} deleted the %{resource_name} status"
           update: "%{user_name} updated the %{resource_name} status"
-        timeline_entry:
-          create: "%{user_name} created the %{resource_name} timeline entry"
-          delete: "%{user_name} deleted the %{resource_name} timeline entry"
-          update: "%{user_name} updated the %{resource_name} timeline entry"
         value_types:
           parent_presenter:
             not_found: 'The parent was not found on the database (ID: %{id})'
@@ -249,6 +248,10 @@ en:
       last_activity:
         new_result: 'New result:'
       models:
+        milestone:
+          fields:
+            entry_date: Date
+            title: Title
         result:
           fields:
             created_at: Created
@@ -265,10 +268,6 @@ en:
             key: Key
             name: Name
             progress: Progress
-        timeline_entry:
-          fields:
-            entry_date: Date
-            title: Title
       results:
         count:
           results_count:
@@ -276,6 +275,8 @@ en:
             other: "%{count} results"
         home_header:
           global_status: Global execution status
+        milestones:
+          title: Milestones
         no_results: There are no projects
         root_taxonomies:
           title: 'View by:'
@@ -284,8 +285,6 @@ en:
         show:
           stats:
             back_to_resource: Go back to result
-        timeline:
-          title: Project evolution
     admin:
       filters:
         results:
@@ -293,6 +292,8 @@ en:
             label: Status
           taxonomies_part_of_contains:
             label: Taxonomy
+      tooltips:
+        deleted_results_info: Cannot delete this result
     components:
       accountability:
         actions:

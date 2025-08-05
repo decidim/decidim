@@ -89,9 +89,11 @@ module Decidim
           end
         end
 
-        attachments["attachment_collections"].map do |collection|
-          Decidim.traceability.perform_action!("create", AttachmentCollection, @user) do
-            create_attachment_collection(collection)
+        unless attachments["attachment_collections"].empty?
+          attachments["attachment_collections"].map do |collection|
+            Decidim.traceability.perform_action!("create", AttachmentCollection, @user) do
+              create_attachment_collection(collection)
+            end
           end
         end
       end

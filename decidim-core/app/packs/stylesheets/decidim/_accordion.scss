@@ -1,13 +1,13 @@
-[data-component="accordion"] [id*="panel"][aria-hidden="true"] {
+[data-controller="accordion"] [id*="panel"][aria-hidden="true"] {
   display: none;
 }
 
-[data-component="accordion"]
+[data-controller="accordion"]
   [id*="comment"][class="comment-reply"][aria-hidden="true"] {
   display: none;
 }
 
-[data-component="accordion"]
+[data-controller="accordion"]
   [id*="comment"][class="comment-reply"][aria-hidden="false"] {
   display: block;
 }
@@ -57,7 +57,7 @@
     @apply mr-4;
   }
 
-  &-section.content-block__description[data-component="accordion"] {
+  &-section.content-block__description[data-controller="accordion"] {
     @apply pb-4 mb-4 text-md;
 
     padding-left: 1.85rem;

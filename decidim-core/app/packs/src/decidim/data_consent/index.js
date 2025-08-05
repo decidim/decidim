@@ -67,7 +67,7 @@ const initDisabledIframes = (manager) => {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const modal = document.querySelector("#dc-modal");
   if (!modal) {
     return;

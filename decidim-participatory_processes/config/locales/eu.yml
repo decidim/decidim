@@ -137,12 +137,14 @@ eu:
           name: Prozesu-taldea
         participatory_process_step:
           fields:
+            actions: Ekintzak
             end_date: Bukaera-data
             start_date: Hasiera-data
             title: Izenburua
           name: Partaidetza-prozesuaren fasea
         participatory_process_user_role:
           fields:
+            actions: Ekintzak
             email: Helbide elektronikoa
             name: Izena
             role: Rola

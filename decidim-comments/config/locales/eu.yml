@@ -123,6 +123,9 @@ eu:
           other: "%{count} iruzkin"
         top_comment_label: Bozkatuenak
       down_vote_button:
+        label:
+          one: Ez dut atsegin botoia. %{count} ez-atsegin
+          other: Ez dut atsegin botoia. %{count} ez-atsegin
         text: Ez nago ados iruzkin honekin
       edit_comment_modal_form:
         close: Itxi
@@ -133,6 +136,9 @@ eu:
           submit: Bidali
         title: Editatu zure iruzkina
       up_vote_button:
+        label:
+          one: Atsegin dut botoia. %{count} atsegin dut
+          other: Atsegin dut botoia. %{count} atsegin dut
         text: Ados nago iruzkin honekin
     download_your_data:
       help:

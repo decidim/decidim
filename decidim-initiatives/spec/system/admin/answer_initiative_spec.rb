@@ -14,7 +14,7 @@ describe "User answers the initiative" do
 
     it "answer is allowed" do
       within("tr", text: translated(initiative.title)) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Answer"
       end
 
@@ -43,7 +43,7 @@ describe "User answers the initiative" do
       context "and signature dates are editable" do
         it "can be edited in answer" do
           within("tr", text: translated(initiative.title)) do
-            find("button[data-component='dropdown']").click
+            find("button[data-controller='dropdown']").click
             click_on "Answer"
           end
 
@@ -71,7 +71,7 @@ describe "User answers the initiative" do
         context "when dates are invalid" do
           it "returns an error message" do
             within("tr", text: translated(initiative.title)) do
-              find("button[data-component='dropdown']").click
+              find("button[data-controller='dropdown']").click
               click_on "Answer"
             end
 
@@ -109,7 +109,7 @@ describe "User answers the initiative" do
 
       it "signature dates are not displayed" do
         within("tr", text: translated(initiative.title)) do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Answer"
         end
 

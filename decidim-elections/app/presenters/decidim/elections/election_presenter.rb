@@ -17,16 +17,16 @@ module Decidim
         Decidim::ResourceLocatorPresenter.new(election).path
       end
 
-      def title(links: false, html_escape: false, all_locales: false)
+      def title(html_escape: false, all_locales: false)
         return unless election
 
-        super(election.title, links, html_escape, all_locales)
+        super(election.title, html_escape, all_locales)
       end
 
-      def description(links: false, extras: true, strip_tags: false, all_locales: false)
+      def description(links: false, strip_tags: false, all_locales: false)
         return unless election
 
-        content_handle_locale(election.description, all_locales, extras, links, strip_tags)
+        content_handle_locale(election.description, all_locales, links, strip_tags)
       end
     end
   end

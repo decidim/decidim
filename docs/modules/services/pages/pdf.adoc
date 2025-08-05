@@ -1,0 +1,33 @@
+= PDF signature service
+
+Used by `decidim-initiatives` and `decidim-budgets`.
+
+Provide a class to process a pdf and return the document including a digital signature. The instances of this class are initialized with a hash containing the :pdf key with the pdf file content as value. The instances respond to a signed_pdf method containing the pdf with the signature.
+
+An example class would be something like:
+
+[source,ruby]
+....
+class MyPDFSignatureService
+  attr_accessor :pdf
+
+  def initialize(args = {})
+    @pdf = args.fetch(:pdf)
+  end
+
+  def signed_pdf
+    # Code to return the pdf signed
+  end
+end
+....
+
+The arguments provided for the initialize method are:
+
+- `pdf` - The document that needs to be signed
+
+Then you will need to configure it with the help of Environment Variables:
+
+[source,bash]
+....
+export DECIDIM_PDF_SIGNATURE_SERVICE="PdfSignatureExample"
+....

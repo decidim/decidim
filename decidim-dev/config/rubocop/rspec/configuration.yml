@@ -1,0 +1,52 @@
+plugins:
+  - rubocop-rspec
+  - rubocop-rspec_rails
+
+#  RSpec:
+#    Patterns:
+#      - "(?:^|/)spec/"
+#      - "(?:^|/)test/"
+
+RSpec/SpecFilePathFormat:
+  CustomTransform:
+    OAuthApplicationPresenter: oauth_application_presenter
+
+RSpec/BeforeAfterAll:
+  Enabled: true
+
+RSpec/ContextWording:
+  Enabled: true
+  Prefixes:
+    - when
+    - with
+    - without
+    - and
+
+RSpec/DescribeClass:
+  Exclude:
+    - spec/gemfiles_spec.rb
+    - spec/gemspecs_spec.rb
+    - spec/webpacker_spec.rb
+    - spec/version_files_spec.rb
+    - spec/spellcheck_spec.rb
+    - spec/i18n_spec.rb
+    - "**/*/spec/**/*_badge_spec.rb"
+    - "**/tasks/**/*"
+
+RSpec/ExampleLength:
+  Max: 49
+
+RSpec/IteratedExpectation:
+  Enabled: true
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 35
+
+RSpec/NestedGroups:
+  Max: 7
+
+RSpec/RepeatedExampleGroupDescription:
+  Enabled: true
+
+RSpec/RepeatedExampleGroupBody:
+  Enabled: true

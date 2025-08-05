@@ -16,6 +16,9 @@ fr:
           draft: Brouillon
           version_number: Numéro de version
   decidim:
+    admin:
+      tooltips:
+        deleted_collaborative_texts_info: Impossible de supprimer ce document
     collaborative_texts:
       actions:
         confirm_delete_document: Êtes-vous sûr(e) de vouloir supprimer ce document ?
@@ -30,6 +33,8 @@ fr:
           create:
             invalid: Un problème est survenu lors de la création du document.
             success: Document créé avec succès.
+          draft_options:
+            accepting_suggestions: Activer les suggestions dans la prochaine version
           edit:
             previous_versions: Versions précédentes
             public_version: Version publique

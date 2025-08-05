@@ -230,22 +230,22 @@ describe "Explore results", :versioning do
         end
       end
 
-      context "with timeline entries" do
-        let!(:timeline_entries) { create_list(:timeline_entry, 3, result:) }
-        let(:timeline_entry) { timeline_entries.first }
+      context "with milestones" do
+        let!(:milestones) { create_list(:milestone, 3, result:) }
+        let(:milestone) { milestones.first }
 
         before do
           visit current_path
         end
 
         it "shows the tab" do
-          expect(page).to have_content("Project evolution")
+          expect(page).to have_content("Milestone")
         end
 
-        it "shows the timeline entry" do
-          expect(page).to have_content(decidim_sanitize_translated(timeline_entry.title))
-          expect(page).to have_content(I18n.l(timeline_entry.entry_date, format: :decidim_short))
-          expect(page).to have_content(decidim_sanitize_translated(timeline_entry.description))
+        it "shows the milestone" do
+          expect(page).to have_content(decidim_sanitize_translated(milestone.title))
+          expect(page).to have_content(I18n.l(milestone.entry_date, format: :decidim_short))
+          expect(page).to have_content(decidim_sanitize_translated(milestone.description))
         end
       end
 

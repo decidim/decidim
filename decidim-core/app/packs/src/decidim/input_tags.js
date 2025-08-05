@@ -2,7 +2,7 @@
 
 import TomSelect from "tom-select/dist/cjs/tom-select.popular";
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const tagContainers = document.querySelectorAll(".js-tags-container");
   const config = {
     plugins: ["remove_button"],

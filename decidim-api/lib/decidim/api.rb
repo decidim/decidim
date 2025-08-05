@@ -44,7 +44,7 @@ module Decidim
     config_accessor :jwt_expires_in do
       Decidim::Env.new(
         "DECIDIM_API_JWT_EXPIRES_IN",
-        Decidim::Env.new("DECIDIM_OAUTH_ACCESS_TOKEN_EXPIRES_IN", "120")
+        Decidim::Env.new("DECIDIM_OAUTH_ACCESS_TOKEN_EXPIRES_IN", "120").value
       ).to_i
     end
 

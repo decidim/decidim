@@ -1,5 +1,3 @@
-/* eslint-disable max-lines */
-
 /**
  * External dependencies
  */
@@ -21,11 +19,11 @@ import morphdom from "morphdom"
 /**
  * Local dependencies
  */
+import MentionsComponent from "src/decidim/refactor/implementation/input_mentions";
+
 
 // local deps with no initialization
 import "src/decidim/input_tags"
-import "src/decidim/input_hashtags"
-import "src/decidim/input_mentions"
 import "src/decidim/input_multiple_mentions"
 import "src/decidim/input_autojump"
 import "src/decidim/history"
@@ -50,6 +48,7 @@ import "src/decidim/sw"
 import "src/decidim/sticky_header"
 import "src/decidim/sticky_footer"
 import "src/decidim/attachments"
+import "src/decidim/dropdown_menu"
 
 // local deps that require initialization
 import ConfirmDialog, { initializeConfirm } from "src/decidim/confirm"
@@ -114,7 +113,7 @@ window.initFoundation = (element) => {
   $document.off("click.zf.trigger", window.Foundation.Triggers.Listeners.Basic.openListener);
   $document.on("click.zf.trigger", "[data-open]", (ev, ...restArgs) => {
     // Do not apply for the accordion triggers.
-    const accordion = ev.currentTarget?.closest("[data-component='accordion']");
+    const accordion = ev.currentTarget?.closest("[data-controller='accordion']");
     if (accordion) {
       return;
     }
@@ -182,9 +181,22 @@ const initializer = (element = document) => {
 
   scrollToLastChild(element)
 
-  element.querySelectorAll('[data-component="accordion"]').forEach((component) => createAccordion(component))
+  element.querySelectorAll('[data-controller="accordion"]').forEach((component) => createAccordion(component))
+  element.querySelectorAll('[data-component="accordion"]').forEach((component) => {
+    if (component.hasAttribute("data-controller"))
+    {
+      return;
+    }
+    console.error(`${window.location.href} Using accordion component`);
+    createAccordion(component);
+  })
 
-  element.querySelectorAll('[data-component="dropdown"]').forEach((component) => createDropdown(component))
+
+  element.querySelectorAll('[data-controller="dropdown"]').forEach((component) => createDropdown(component))
+  element.querySelectorAll('[data-component="dropdown"]').forEach((component) => {
+    console.error(`${window.location.href} Using dropdown component`);
+    createDropdown(component);
+  })
 
   element.querySelectorAll("[data-dialog]").forEach((component) => createDialog(component))
 
@@ -209,12 +221,15 @@ const initializer = (element = document) => {
 
 // If no jQuery is used the Tribute feature used in comments to autocomplete
 // mentions stops working
-// document.addEventListener("DOMContentLoaded", () => {
 $(() => initializer());
 
 // Run initializer action over the new DOM elements
 document.addEventListener("remote-modal:loaded", ({ detail }) => initializer(detail));
 document.addEventListener("ajax:loaded", ({ detail }) => initializer(detail));
+
+window.addEventListener("DOMContentLoaded", () => {
+  document.dispatchEvent(new CustomEvent("turbo:load", { detail: { document } }));
+});
 
 // Run initializer action over the new DOM elements (for example after comments polling)
 document.addEventListener("comments:loaded", (event) => {
@@ -228,3 +243,22 @@ document.addEventListener("comments:loaded", (event) => {
     });
   }
 });
+
+// Handle external library integration (like React)
+document.addEventListener("attach-mentions-element", (event) => {
+  const instance = new MentionsComponent(event.detail);
+  instance.attachToElement(event.detail);
+});
+
+const initializeMentions = () => {
+  const mentionContainers = document.querySelectorAll(".js-mentions");
+
+  mentionContainers.forEach((container) => {
+    if (!container._mentionContainer) {
+      container._mentionContainer = new MentionsComponent(container);
+    }
+  });
+};
+
+// Initialize on page load
+document.addEventListener("turbo:load", initializeMentions);
