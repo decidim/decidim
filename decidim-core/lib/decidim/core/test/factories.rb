@@ -407,6 +407,7 @@ FactoryBot.define do
     name { generate_localized_title(:attachment_collection_name, skip_injection:) }
     description { generate_localized_title(:attachment_collection_description, skip_injection:) }
     weight { Faker::Number.number(digits: 1) }
+    key { Faker::Alphanumeric.alphanumeric }
 
     association :collection_for, factory: :participatory_process
   end

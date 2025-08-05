@@ -33,7 +33,7 @@ module Decidim
       attr_reader :form
 
       def create_attachment_collection
-        Decidim.traceability.create!(
+        @attachment_collection = Decidim.traceability.create!(
           AttachmentCollection,
           current_user,
           attributes
@@ -45,7 +45,8 @@ module Decidim
           name: form.name,
           weight: form.weight,
           description: form.description,
-          collection_for: @collection_for
+          collection_for: @collection_for,
+          key: form.key.presence&.strip
         }
       end
     end
