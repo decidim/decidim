@@ -11,9 +11,9 @@ en:
         closing_date: Closing date
         closing_date_reason: Closing date reason
         composition: Composition
-        copy_categories: Copy categories
-        copy_components: Copy components
-        copy_features: Copy features
+        duplicate_categories: Duplicate categories
+        duplicate_components: Duplicate components
+        duplicate_features: Duplicate features
         created_by: Created by
         created_by_other: Created by other
         creation_date: Date created
@@ -118,7 +118,7 @@ en:
           success: Assembly successfully duplicated.
       assembly_copies:
         new:
-          copy: Copy
+          duplicate: Duplicate
           select: Select which data you would like to duplicate
           title: Duplicate assembly
       assembly_imports:
