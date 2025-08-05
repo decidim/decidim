@@ -76,7 +76,7 @@ shared_examples "duplicate assemblies" do
     end
   end
 
-  context "when duplicateing a child assembly" do
+  context "when duplicating a child assembly" do
     let!(:assembly_parent) { create(:assembly, organization:) }
     let!(:assembly) { create(:assembly, parent: assembly_parent, organization:) }
 
