@@ -88,7 +88,7 @@ module Decidim::Assemblies
         expect { subject.call }.to change(Decidim::Component, :count).by(1)
 
         last_assembly = Decidim::Assembly.last
-        last_component = Decidim::Component.all.reorder(:id).last
+        last_component = Decidim::Component.reorder(:id).last
 
         expect(last_component.participatory_space).to eq(last_assembly)
         expect(last_component.name).to eq(component.name)
