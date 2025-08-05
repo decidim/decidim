@@ -155,8 +155,6 @@ nl:
     meetings:
       actions:
         agenda: Agenda
-        attachment_collections: Mappen
-        attachments: Bijlagen
         close: Sluit
         edit: Bewerk
         invalid_destroy:

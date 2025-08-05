@@ -2,12 +2,8 @@ ro:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Grupuri de lucru asociate
         available_slots: Locuri disponibile
         banner_image: Imagine pentru banner
-        copy_categories: Copiază categoriile
-        copy_components: Copiază componentele
-        copy_features: Copiază funcționalitățile
         decidim_scope_id: Domeniu de interes
         description: Descriere
         end_date: Data de sfârșit
@@ -91,11 +87,6 @@ ro:
       actions:
         confirm: Confirmare
         send_diplomas: Trimite certificate de prezență
-      conference_copies:
-        new:
-          copy: Copiază
-          select: Selectați datele pe care doriți să le duplicați
-          title: Duplică conferinţa
       conference_publications:
         create:
           error: A apărut o problemă la publicarea acestei conferinţe.
@@ -150,19 +141,15 @@ ro:
         exports:
           registrations: Înregistrări
         form:
+          images: Imagini
           title: Informaţii generale
         index:
           published: Publicat
         new:
           create: Creează
-          title: Conferință
         update:
           error: A apărut o eroare la actualizarea conferinței.
           success: Conferință actualizată cu succes.
-      conferences_copies:
-        create:
-          error: A apărut o problemă la duplicarea acestei conferinţe.
-          success: Conferință duplicată cu succes.
       media_links:
         create:
           error: A apărut o problemă la crearea unei noi legături media.

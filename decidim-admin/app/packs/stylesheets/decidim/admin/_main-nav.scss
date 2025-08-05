@@ -149,7 +149,7 @@
         @apply relative inline-block pb-1;
 
         &::after {
-          @apply absolute left-0 -bottom-[0.10rem] h-px w-full bg-secondary;
+          @apply absolute left-0 -bottom-[0.10rem] h-[3px] w-full bg-secondary;
 
           content: "";
         }

@@ -40,8 +40,6 @@ eu:
   decidim:
     accountability:
       actions:
-        attachment_collections: Karpetak
-        attachments: Erantsitako fitxategiak
         confirm_delete_result: Ziur zaude emaitza hau ezabatu nahi duzula?
         confirm_destroy: Ziur zaude emaitza hau ezabatu nahi duzula?
         deleted_results_info: Ezabatutako emaitzak berreskura daitezke zaborrontzitik.
@@ -49,7 +47,6 @@ eu:
         edit: Editatu
         import: Inportatu proiektuak beste osagai batetik
         import_csv: Inportatu emaitzak CSV fitxategitik
-        milestones: Mugarriak
         new_milestone: Beste mugarri bat
         new_result: Beste emaitza bat
         new_status: Beste egoera bat

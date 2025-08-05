@@ -214,8 +214,6 @@ bg:
     meetings:
       actions:
         agenda: Дневен ред
-        attachment_collections: Папки
-        attachments: Прикачени файлове
         close: Затвори
         edit: Редактирай
         invalid_destroy:

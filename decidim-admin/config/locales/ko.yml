@@ -142,7 +142,6 @@ ko:
         attachment_collection:
           new: 새 첨부 폴더
         browse: 찾아보기
-        export: 모두 내보내기
         export-selection: 선택한 항목 내보내기
         import: 가져오기
         newsletter:
@@ -150,7 +149,6 @@ ko:
         participatory_space_private_user:
           new: 새 참여 공간 비공개 사용자
         per_page: 페이지 당
-        permissions: 권한
         send_me_a_test_email: 나에게 테스트 메일 보내기
         share: 공유
         user:
@@ -524,12 +522,9 @@ ko:
           success: 참가자가 성공적으로 차단되었습니다.
         index:
           badge: 뱃지
-          block: 사용자 차단
           name: 이름
           nickname: 닉네임
-          show_email: 이메일 주소 보기
           status: 상태
-          unblock: 사용자 차단 해제
         show_email_modal:
           email_address: 이메일 주소
           full_name: 전체 이름
@@ -587,8 +582,6 @@ ko:
         update:
           success: 주제가 성공적으로 업데이트되었습니다
       static_pages:
-        actions:
-          view: 공개 페이지 보기
         create:
           error: 새 페이지를 생성하는 도중 문제가 생겼습니다.
           success: 페이지가 성공적으로 생성되었습니다.

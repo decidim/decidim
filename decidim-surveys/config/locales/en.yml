@@ -99,11 +99,11 @@ en:
           destroy:
             success: Survey successfully deleted.
           edit:
-            title: Main
+            title: Edit survey
           index:
             title: Surveys
           new:
-            title: Main
+            title: New survey
           publish:
             invalid: There was a problem publishing this survey.
             success: Survey successfully published.

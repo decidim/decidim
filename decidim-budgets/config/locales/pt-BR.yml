@@ -34,10 +34,7 @@ pt-BR:
               'true': Não selecionado para implementação
     budgets:
       actions:
-        attachment_collections: Pastas
-        attachments: Anexos
         edit: Editar
-        edit_projects: Gerenciar projetos
         import: Importar propostas para os projetos
         new_budget: Novo orçamento
         new_project: Novo projeto

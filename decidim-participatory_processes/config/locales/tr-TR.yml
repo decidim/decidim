@@ -69,7 +69,6 @@ tr:
     admin:
       actions:
         activate: etkinleştirmek
-        configure: Yapılandır
         confirm_destroy: Silmeyi onayla
         destroy: silmek
         duplicate: Çift

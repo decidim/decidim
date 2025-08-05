@@ -27,8 +27,6 @@ hu:
   decidim:
     accountability:
       actions:
-        attachment_collections: Mappák
-        attachments: Csatolmányok
         confirm_destroy: 'Biztosan törölni szeretnéd ezt: %{name}?'
         destroy: Törlés
         edit: Szerkesztés

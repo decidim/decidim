@@ -79,13 +79,11 @@ zh-TW:
     admin:
       actions:
         activate: 啟動
-        configure: 配置
         confirm_destroy: 確認刪除
         destroy: 刪除
         duplicate: 重複
         edit: 編輯
         import_process: 匯入
-        moderate: 管理
         new_process: 新的程序
         new_process_group: 新的程序群組
         new_process_step: 新階段

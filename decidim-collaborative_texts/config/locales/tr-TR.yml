@@ -21,7 +21,6 @@ tr:
         confirm_delete_document: Bu belgeyi silmek istediğinize emin misiniz?
         deleted_document_info: Silinen sonuçlar çöp kutusundan geri yüklenebilir.
         edit: Düzenle
-        manage: Yönet
         new: Yeni metin
         title: Eylemler
         view_deleted_documents: Silinmiş belgeleri görüntüle

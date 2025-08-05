@@ -14,8 +14,6 @@ lv:
   decidim:
     budgets:
       actions:
-        attachment_collections: Mapes
-        attachments: Pielikumi
         edit: Labot
         import: Importēt priekšlikumus projektos
         preview: Priekšskatīt
