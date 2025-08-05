@@ -78,7 +78,7 @@
           <% if allowed_to? :duplicate, :assembly, assembly: assembly %>
             <li class="dropdown__item">
               <%= link_to new_assembly_duplicate_path(assembly), class: "dropdown__button" do %>
-                <%= icon "file-duplicate-line" %>
+                <%= icon "file-copy-line" %>
                 <%= t("actions.duplicate", scope: "decidim.admin") %>
               <% end %>
             </li>
