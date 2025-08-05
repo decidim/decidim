@@ -10,14 +10,14 @@ module Decidim
 
         def new
           enforce_permission_to :create, :assembly
-          @form = form(AssemblyCopyForm).from_model(current_assembly)
+          @form = form(AssemblyDuplicateForm).from_model(current_assembly)
         end
 
         def create
           enforce_permission_to :create, :assembly
-          @form = form(AssemblyCopyForm).from_params(params)
+          @form = form(AssemblyDuplicateForm).from_params(params)
 
-          CopyAssembly.call(@form, current_assembly, current_user) do
+          DuplicateAssembly.call(@form, current_assembly, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("assemblies_copies.create.success", scope: "decidim.admin")
               redirect_to assemblies_path
