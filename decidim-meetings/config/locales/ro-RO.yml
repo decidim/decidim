@@ -112,6 +112,11 @@ ro:
         new:
           copy: Copiază
           title: Duplicarea reuniunii
+      tooltips:
+        cannot_close_meetings: Nu se poate închide această întâlnire deoarece este creată de un participant
+        cannot_duplicate_meetings: Nu se poate duplica această întâlnire deoarece este creată de un participant
+        cannot_manage_agenda_meetings: Nu se poate gestiona agenda în această întâlnire deoarece este creată de un participant
+        cannot_manage_attachments_meetings: Nu se pot gestiona atașamentele în această întâlnire deoarece este creat de un participant
     components:
       meetings:
         actions:

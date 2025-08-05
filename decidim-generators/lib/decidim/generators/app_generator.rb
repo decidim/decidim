@@ -129,6 +129,13 @@ module Decidim
                   "# config.action_controller.raise_on_missing_callback_actions = false"
       end
 
+      def disable_annotate_rendered_view_on_development
+        gsub_file "config/environments/development.rb", /config\.action_view\.annotate_rendered_view_with_filenames = true$/,
+                  "# Using annotate rendered view breaks rails-ujs functionality
+  # @see https://github.com/decidim/decidim/issues/14912
+  # config.action_view.annotate_rendered_view_with_filenames = true"
+      end
+
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
       end
@@ -190,7 +197,7 @@ module Decidim
 
         gsub_file "Gemfile", /gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}"
 
-        %w(ai conferences design initiatives templates collaborative_texts elections).each do |component|
+        %w(ai collaborative_texts conferences demographics design elections initiatives templates).each do |component|
           if options[:demo]
             gsub_file "Gemfile", /gem "decidim-#{component}".*/, "gem \"decidim-#{component}\", #{gem_modifier}"
           else

@@ -24,11 +24,14 @@ ja:
       admin_log:
         changeset:
           debates: ディベート
+      tooltips:
+        deleted_debates_info: このディベートを削除できません
     components:
       debates:
         actions:
           comment: コメント
           create: ディベートを作成
+          like: いいね
         name: ディベート
         settings:
           global:
@@ -45,6 +48,8 @@ ja:
             announcement: お知らせ
             comments_blocked: コメントをブロック
             creation_enabled: 参加者はディベートを作成できます
+            likes_blocked: '「いいね」がブロックされました'
+            likes_enabled: いいねを有効にする
     debates:
       actions:
         close: 閉じる
@@ -140,6 +145,7 @@ ja:
           state: ステータス
           state_values:
             closed: 終了
+            ongoing: 進行中
         index:
           new_debate: 新しいディベート
         new:
@@ -154,9 +160,13 @@ ja:
           updated: 更新が新しい順
         show:
           close_debate: 閉じる
+          closed: 終了済
           debate_conclusions_are: 'ディベートは %{date} に、以下の結論を持って終了しました。'
           edit_conclusions: 結論を編集
           edit_debate: 編集
+          not_started: 開始前
+          ongoing: 進行中
+          open_ended: オープンエンド
           participants_count: 参加者
         update:
           invalid: ディベートの更新に問題がありました。
@@ -257,6 +267,7 @@ ja:
           instructions: ディベートにコメントするための指示
           last_comment_at: ディベートが最後にコメントされた日時
           last_comment_by: ディベート内コメントの最終作成日時
+          likes_count: ディベートのいいね数
           participatory_space: このディベートが属するスペース（参加型プロセス、参加スペースなど）
           reference: このプラットフォームでのリソースの固有ID
           start_time: ディベートの開始予定日時（公開討論で時間が限られている場合）

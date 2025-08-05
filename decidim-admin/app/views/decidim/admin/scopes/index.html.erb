@@ -32,29 +32,29 @@
               <%= scope.scope_type ? translated_attribute(scope.scope_type.name) : "-" %>
             </td>
             <td data-label="<%= t("decidim.admin.actions.actions") %>" class="table-list__actions">
-              <button type="button" data-component="dropdown" data-target="actions-scope-<%= scope.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: translated_attribute(scope.name)) %>">
+              <button type="button" data-controller="dropdown" data-target="actions-scope-<%= scope.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: translated_attribute(scope.name)) %>">
                 <%= icon "more-fill", class: "text-secondary" %>
               </button>
 
               <div class="inline-block relative">
                 <ul id="actions-scope-<%= scope.id %>" class="dropdown dropdown__action" aria-hidden="true">
-                  <li class="dropdown__item">
-                    <%= link_to scope_scopes_path(scope), method: :get, class: "dropdown__button" do %>
-                      <%= icon "zoom-in-line" %>
-                      <%= t("actions.browse", scope: "decidim.admin") %>
-                    <% end %>
-                  </li>
-
                   <% if allowed_to? :update, :scope, scope: scope %>
-                    <hr>
-
                     <li class="dropdown__item">
                       <%= link_to [:edit, scope], method: :get, class: "dropdown__button" do %>
                         <%= icon "pencil-line" %>
                         <%= t("actions.edit", scope: "decidim.admin") %>
                       <% end %>
                     </li>
+
+                    <hr>
                   <% end %>
+
+                  <li class="dropdown__item">
+                    <%= link_to scope_scopes_path(scope), method: :get, class: "dropdown__button" do %>
+                      <%= icon "zoom-in-line" %>
+                      <%= t("actions.browse", scope: "decidim.admin") %>
+                    <% end %>
+                  </li>
 
                   <% if allowed_to? :destroy, :scope, scope: scope %>
                     <hr>

@@ -17,7 +17,7 @@
   <section class="layout-main__section layout-main__heading">
     <%= cell("decidim/announcement", t("info-message", scope: "decidim.proposals.collaborative_drafts.show").html_safe) if current_user.nil? || allowed_to?(:request_access, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
 
-    <h1 class="h2 decorator"><%= present(@collaborative_draft).title(links: true, html_escape: true) %></h1>
+    <h1 class="h2 decorator"><%= present(@collaborative_draft).title(html_escape: true) %></h1>
 
     <% if component_settings.geocoding_enabled? %>
       <div class="static-map__container">

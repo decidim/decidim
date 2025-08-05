@@ -28,7 +28,7 @@ shared_context "when inviting participatory space users" do
     visit participatory_space_user_roles_path
 
     within "tr", text: username do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       click_on "Edit"
     end
   end

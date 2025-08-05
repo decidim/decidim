@@ -191,6 +191,7 @@ fr-CA:
             vice_president: Vice président
         assembly_user_role:
           fields:
+            actions: Actions
             email: Email
             name: Nom
             role: Fonction

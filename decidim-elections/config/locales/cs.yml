@@ -3,6 +3,7 @@ cs:
     admin:
       menu:
         elections_menu:
+          election_census: Seznam obyvatel
           election_questions: Otázky
     components:
       elections:
@@ -21,6 +22,9 @@ cs:
         title: Akce
         view_deleted_elections: Zobrazit odstraněné volby
       admin:
+        census:
+          edit:
+            created_at: Vytvořeno v
         elections:
           create:
             invalid: Při vytváření voleb došlo k chybě.

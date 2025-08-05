@@ -37,7 +37,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("assemblies.create.error", scope: "decidim.admin")
-              render :new
+              render :new, status: :unprocessable_entity
             end
           end
         end
@@ -63,7 +63,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("assemblies.update.error", scope: "decidim.admin")
-              render :edit, layout: "decidim/admin/assembly"
+              render :edit, layout: "decidim/admin/assembly", status: :unprocessable_entity
             end
           end
         end

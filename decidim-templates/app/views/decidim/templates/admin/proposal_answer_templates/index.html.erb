@@ -37,7 +37,7 @@
                 <%= l template.created_at, format: :long %>
               </td>
               <td data-label="<%= t("decidim.admin.actions.actions") %>" class="table-list__actions">
-                <button type="button" data-component="dropdown" data-target="actions-proposal-answer-template-<%= template.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: template.name) %>">
+                <button type="button" data-controller="dropdown" data-target="actions-proposal-answer-template-<%= template.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: template.name) %>">
                   <%= icon "more-fill", class: "text-secondary" %>
                 </button>
 
@@ -67,7 +67,7 @@
 
                     <% if allowed_to?(:destroy, :template, template: template) %>
                       <li class="dropdown__item">
-                        <%= link_to proposal_answer_template_path(template), method: :delete, data: { confirm: t(".confirm_delete") }, class: "dropdown__button action-icon--remove" do %>
+                        <%= link_to proposal_answer_template_path(template), method: :delete, data: { confirm: t(".confirm_delete") }, class: "dropdown__button" do %>
                           <%= icon "delete-bin-line" %>
                           <%= t("actions.destroy", scope: "decidim.admin") %>
                         <% end %>

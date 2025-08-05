@@ -15,7 +15,7 @@ const updateSubmitButton = ($fieldContainer, $selectedItems) => {
   }
 }
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   const $fieldContainer = $(".js-multiple-mentions");
   if ($fieldContainer.length < 1) {
     return;

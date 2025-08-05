@@ -214,17 +214,20 @@ ja:
       models:
         conference:
           fields:
+            actions: アクション
             created_at: 作成日時
             published: 公開済み
             title: タイトル
         conference_speaker:
           fields:
+            actions: アクション
             affiliation: 所属
             full_name: フルネーム
             position: ポジション
           name: カンファレンススピーカー
         conference_user_role:
           fields:
+            actions: アクション
             email: Eメールアドレス
             name: 名前
             role: ロール
@@ -236,12 +239,14 @@ ja:
             moderator: モデレーター
         media_link:
           fields:
+            actions: アクション
             date: 日付
             link: リンク
             title: タイトル
           name: メディア リンク
         partner:
           fields:
+            actions: アクション
             link: リンク
             logo: ロゴ
             name: 名前
@@ -252,6 +257,7 @@ ja:
             main_promotor: 主プロモーター（プロモーター）
         registration_type:
           fields:
+            actions: アクション
             conference_meetings: カンファレンスのミーティング
             price: 価格
             registrations_count: 登録数
@@ -509,6 +515,7 @@ ja:
             sent: 送信済み
         conference_registration:
           fields:
+            actions: アクション
             email: Eメールアドレス
             name: 名前
             registration_type: 登録タイプ

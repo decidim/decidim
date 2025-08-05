@@ -175,6 +175,7 @@ cs:
           attachments: Přílohy
           components: Komponenty
           info: O tomto shromáždění
+          landing_page: Rozložení vstupní strany
           moderations: Moderování
           private_users: Členové
           see_assembly: Zobrazit shromáždění
@@ -197,6 +198,7 @@ cs:
             vice_president: Místopředseda
         assembly_user_role:
           fields:
+            actions: Akce
             email: E-mail
             name: Název
             role: Role

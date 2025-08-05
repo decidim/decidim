@@ -19,7 +19,7 @@ shared_examples "manage attachments examples" do
 
     it "can view an attachment details" do
       within "tr", text: translated(attachment.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
@@ -153,7 +153,7 @@ shared_examples "manage attachments examples" do
       within "#attachments" do
         within "tr", text: translated(attachment.title) do
           expect(page).to have_text(translated(attachment_collection.name, locale: :en))
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Edit"
         end
       end
@@ -173,7 +173,7 @@ shared_examples "manage attachments examples" do
 
     it "can delete an attachment from a process" do
       within "tr", text: translated(attachment.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
 
@@ -185,7 +185,7 @@ shared_examples "manage attachments examples" do
     it "can update an attachment" do
       within "#attachments" do
         within "tr", text: translated(attachment.title) do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Edit"
         end
       end

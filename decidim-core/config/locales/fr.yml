@@ -151,6 +151,13 @@ fr:
       x_seconds:
         one: 1 seconde
         other: "%{count} secondes"
+    widget:
+      label:
+        date: Sélectionnez une date pour %{label}
+        time: Sélectionnez l'heure pour %{label}
+      picker:
+        date_button: Ouvrir le sélecteur de date pour %{label}
+        time_button: Ouvrir le sélecteur d'heure pour %{label}
   decidim:
     accessibility:
       external_link: Lien externe
@@ -1440,6 +1447,7 @@ fr:
     searches:
       filters:
         jump_to: 'Aller à:'
+        resource: "%{label} parmi %{collection}"
         search: Rechercher
         state:
           active: actif
@@ -1974,6 +1982,8 @@ fr:
         profile: Mon compte
         public_profile: Mon profil public
         title: Liens du profil
+        unread_conversations: Vous avez des conversations non lues
+        unread_notifications: Vous avez des notifications non lues
       user_profile:
         account: Compte
         authorizations: Autorisations
