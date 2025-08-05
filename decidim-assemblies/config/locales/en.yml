@@ -112,11 +112,11 @@ en:
         update:
           error: There was a problem updating this assembly.
           success: Assembly successfully updated.
-      assemblies_copies:
+      assemblies_duplicates:
         create:
           error: There was a problem duplicating this assembly.
           success: Assembly successfully duplicated.
-      assembly_copies:
+      assembly_duplicates:
         new:
           duplicate: Duplicate
           select: Select which data you would like to duplicate

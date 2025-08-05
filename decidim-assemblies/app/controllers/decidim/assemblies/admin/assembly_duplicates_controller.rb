@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # Controller that allows managing assemblies.
       #
-      class AssemblyCopiesController < Decidim::Assemblies::Admin::ApplicationController
+      class AssemblyDuplicatesController < Decidim::Assemblies::Admin::ApplicationController
         include Concerns::AssemblyAdmin
 
         def new
@@ -19,12 +19,12 @@ module Decidim
 
           DuplicateAssembly.call(@form, current_assembly, current_user) do
             on(:ok) do
-              flash[:notice] = I18n.t("assemblies_copies.create.success", scope: "decidim.admin")
+              flash[:notice] = I18n.t("assemblies_duplicates.create.success", scope: "decidim.admin")
               redirect_to assemblies_path
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("assemblies_copies.create.error", scope: "decidim.admin")
+              flash.now[:alert] = I18n.t("assemblies_duplicates.create.error", scope: "decidim.admin")
               render :new, status: :unprocessable_entity
             end
           end
