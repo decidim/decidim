@@ -260,7 +260,7 @@ en:
             taxonomies: Taxonomies
             title: General Information
             visibility: Visibility
-        assembly_copies:
+        assembly_duplicates:
           form:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         assembly_imports:
