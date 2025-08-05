@@ -724,6 +724,7 @@ eu:
     doorkeeper:
       authorizations:
         new:
+          api_read: Irakurri edukia APIren bitartez
           authorize: Aplikazioa baimentzen du
           by_organization_link_html: '%{link} bidez'
           cancel: Ezeztatu
@@ -1606,6 +1607,7 @@ eu:
     searches:
       filters:
         jump_to: 'Salto egin:'
+        resource: "%{label} %{collection} artean"
         search: Bilatu
         state:
           active: Aktiboak
@@ -2144,6 +2146,8 @@ eu:
         profile: Nire kontua
         public_profile: Nire profil publikoa
         title: Profilaren estekak
+        unread_conversations: Irakurri gabe dituzu elkarrizketak
+        unread_notifications: Irakurri gabe dituzu jakinarazpenak
       user_profile:
         account: Kontua
         authorizations: Baimenak

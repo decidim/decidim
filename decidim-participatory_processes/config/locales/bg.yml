@@ -82,13 +82,11 @@ bg:
     admin:
       actions:
         activate: Активиране
-        configure: Конфигуриране
         confirm_destroy: Потвърждаване за изтриване
         destroy: Изтрий
         duplicate: Дубликирай
         edit: Редактирай
         import_process: Импортиране
-        moderate: Модериране
         new_process: Нов процес
         new_process_group: Нова група на процеса
         new_process_step: Нова фаза

@@ -40,8 +40,6 @@ fi:
   decidim:
     accountability:
       actions:
-        attachment_collections: Kansiot
-        attachments: Liitteet
         confirm_delete_result: Haluatko varmasti poistaa tämän tuloksen?
         confirm_destroy: Oletko varma, että haluat poistaa tämän kohteen nimeltä "%{name}"?
         deleted_results_info: Poistetut tulokset voidaan palauttaa roskakorista.
@@ -49,7 +47,6 @@ fi:
         edit: Muokkaa
         import: Tuo tuloksia toisesta komponentista
         import_csv: Tuo tulokset CSV-tiedostosta
-        milestones: Välitavoitteet
         new_milestone: Uusi välitavoite
         new_result: Uusi tulos
         new_status: Uusi tila

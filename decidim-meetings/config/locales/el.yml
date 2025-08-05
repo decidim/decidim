@@ -191,8 +191,6 @@ el:
     meetings:
       actions:
         agenda: Ημερήσια διάταξη
-        attachment_collections: Φάκελοι
-        attachments: Συνημμένα
         close: Κλείσιμο
         edit: Επεξεργασία
         invalid_destroy:

@@ -18,8 +18,6 @@ si:
   decidim:
     accountability:
       actions:
-        attachment_collections: බහාලුම්
-        attachments: ඇමුණුම්
         edit: සංස්කරණය
         preview: පෙරදසුන
         title: ක්‍රියාමාර්ග

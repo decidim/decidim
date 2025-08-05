@@ -67,7 +67,6 @@ is-IS:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> fundurinn hefur gert skráningu kleift.
     meetings:
       actions:
-        attachments: Viðhengi
         close: Loka
         edit: Breyta
         preview: Preview
