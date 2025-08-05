@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_examples "logable participant details" do
+shared_examples "loggable participant details" do
   it "returns the participant private details" do
     expect(response["participantDetails"]).to include("email" => participant.email)
     expect(response["participantDetails"]).to include("nickname" => participant.nickname)
