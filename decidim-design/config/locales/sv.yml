@@ -2,7 +2,11 @@
 sv:
   decidim:
     design:
+      components:
+        accordions:
+          usage_p_1_html: 1. En wrapper <code>div</code>, med data-attributet <code>data-controller="dragspelsmeny"</code>, över alla tillgängliga rubriker och paneler.
       helpers:
         assembly_g: Samråd G
         assembly_s: Samråd S
         context_description: Denna cell visar information om en användare. Det är en visuell hjälp för att identifiera resurs/innehållsskaparen.
+        dropdowns_usage_description_html: 1. Ett användarvänligt element, med data-attributen <code>data-controller="rullgardin" data-target="rullgardinsmeny-element"</code>.
