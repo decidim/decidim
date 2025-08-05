@@ -11,9 +11,6 @@ en:
         closing_date: Closing date
         closing_date_reason: Closing date reason
         composition: Composition
-        duplicate_categories: Duplicate categories
-        duplicate_components: Duplicate components
-        duplicate_features: Duplicate features
         created_by: Created by
         created_by_other: Created by other
         creation_date: Date created
@@ -23,6 +20,9 @@ en:
         developer_group: Promoter group
         document: Document
         domain: Domain
+        duplicate_categories: Duplicate categories
+        duplicate_components: Duplicate components
+        duplicate_features: Duplicate features
         duration: Duration
         facebook: Facebook
         github: GitHub
