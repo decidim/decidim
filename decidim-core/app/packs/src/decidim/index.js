@@ -270,7 +270,10 @@ document.addEventListener("turbo:load", () => {
   // Initialize new FormValidator for all forms
   document.querySelectorAll("form").forEach((formElement) => {
     if (!formElement.dataset.formValidator) {
-      formElement._Formvalidator = new FormValidator(formElement);
+      formElement._FormValidator = new FormValidator(formElement, {
+        liveValidate: formElement.dataset.liveValidate === "true",
+        validateOnBlur: formElement.dataset.validateOnBlur === "true",
+      });
       formElement.dataset.formValidator = true;
     }
   });

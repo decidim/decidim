@@ -288,6 +288,7 @@ EOTITLE
 eql
 equalcat
 equales
+equalto
 erabaki
 erblint
 ERESOLVE
@@ -334,6 +335,9 @@ formattings
 formelements
 formfield
 forminvalid
+formreset
+formvalid
+formvalidator
 Fpb
 freetext
 Fritsch

@@ -58,7 +58,7 @@ describe("FormValidator", () => {
     it("should throw error for non-existent form", () => {
       expect(() => {
         // eslint-disable-next-line no-new
-        new FormValidator("#non-existent-form");
+        new FormValidator("#nonexistent-form");
       }).toThrow("Form element not found");
     });
 
