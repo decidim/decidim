@@ -55,7 +55,7 @@ describe("FormValidator", () => {
       expect(validatorInstance.formElement).toBe(formElement);
     });
 
-    it("should throw error for non-existent form", () => {
+    it("should throw error for nonexistent form", () => {
       expect(() => {
         // eslint-disable-next-line no-new
         new FormValidator("#nonexistent-form");

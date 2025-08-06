@@ -272,7 +272,7 @@ document.addEventListener("turbo:load", () => {
     if (!formElement.dataset.formValidator) {
       formElement._FormValidator = new FormValidator(formElement, {
         liveValidate: formElement.dataset.liveValidate === "true",
-        validateOnBlur: formElement.dataset.validateOnBlur === "true",
+        validateOnBlur: formElement.dataset.validateOnBlur === "true"
       });
       formElement.dataset.formValidator = true;
     }
