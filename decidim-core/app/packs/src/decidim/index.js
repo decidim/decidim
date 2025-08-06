@@ -20,7 +20,7 @@ import morphdom from "morphdom"
  * Local dependencies
  */
 import MentionsComponent from "src/decidim/refactor/implementation/input_mentions";
-
+import FormValidator from "src/decidim/refactor/implementation/form_validator"
 
 // local deps with no initialization
 import "src/decidim/input_tags"
@@ -60,7 +60,7 @@ import ExternalLink from "src/decidim/external_link"
 import updateExternalDomainLinks from "src/decidim/external_domain_warning"
 import scrollToLastChild from "src/decidim/scroll_to_last_child"
 import InputCharacterCounter, { createCharacterCounter } from "src/decidim/input_character_counter"
-import FormValidator from "src/decidim/form_validator"
+// import FormValidator from "src/decidim/form_validator"
 import FormFilterComponent from "src/decidim/form_filter"
 import addInputEmoji, { EmojiButton } from "src/decidim/input_emoji"
 import FocusGuard from "src/decidim/focus_guard"
@@ -262,3 +262,16 @@ const initializeMentions = () => {
 
 // Initialize on page load
 document.addEventListener("turbo:load", initializeMentions);
+
+/**
+ * Legacy initialization and compatibility for existing Decidim code
+ */
+document.addEventListener("turbo:load", () => {
+  // Initialize new FormValidator for all forms
+  document.querySelectorAll("form").forEach((formElement) => {
+    if (!formElement.dataset.formValidator) {
+      formElement._formValidator = new FormValidator(formElement);
+      formElement.dataset.formValidator = true;
+    }
+  });
+});
