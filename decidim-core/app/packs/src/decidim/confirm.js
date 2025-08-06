@@ -119,7 +119,7 @@ const allowAction = (ev, element) => {
         $(element).is('input[type="submit"]')
       )
     ) {
-      $(element).parents("form").submit();
+      $(element).parents("form").get(0).requestSubmit();
     } else {
       let origEv = ev.originalEvent || ev;
       let newEv = origEv;
