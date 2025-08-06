@@ -78,7 +78,6 @@ pt-BR:
     admin:
       actions:
         activate: Ativar
-        configure: Configurar
         confirm_destroy: Confirmar exclusão
         destroy: Excluir
         duplicate: Duplicar

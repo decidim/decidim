@@ -271,8 +271,6 @@ cs:
     meetings:
       actions:
         agenda: Denní program
-        attachment_collections: Složky
-        attachments: Přílohy
         close: Zavřít
         confirm_delete_meeting: Opravdu chcete smazat tuto schůzi?
         deleted_meetings_info: Smazané schůzky mohou být obnoveny z koše.

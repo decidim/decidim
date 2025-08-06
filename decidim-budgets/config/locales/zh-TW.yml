@@ -30,10 +30,7 @@ zh-TW:
               'true': 未選擇實施
     budgets:
       actions:
-        attachment_collections: 資料夾
-        attachments: 附件
         edit: 編輯
-        edit_projects: 管理專案
         import: 將提案匯入專案
         preview: 預覽
         send_voting_reminders: 發送投票提醒

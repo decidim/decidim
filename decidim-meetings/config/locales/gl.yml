@@ -132,8 +132,6 @@ gl:
     meetings:
       actions:
         agenda: Axenda
-        attachment_collections: Carpetas
-        attachments: Anexos
         close: Pechar
         edit: Editar
         preview: Vista previa

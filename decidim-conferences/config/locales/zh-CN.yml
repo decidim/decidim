@@ -2,11 +2,7 @@ zh-CN:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: 相关程序集
         banner_image: 横幅图像
-        copy_categories: 复制类别
-        copy_components: 复制组件
-        copy_features: 复制功能
         decidim_scope_id: 范围
         description: 描述
         hero_image: 首页图像
@@ -37,11 +33,6 @@ zh-CN:
       actions:
         confirm: 确认
         send_diplomas: 发送出勤证书
-      conference_copies:
-        new:
-          copy: 复制
-          select: 选择要重复的数据
-          title: 复制会议
       conference_publications:
         create:
           error: 发布此会议时出现问题。
@@ -90,19 +81,15 @@ zh-CN:
         exports:
           registrations: 注册
         form:
+          images: 图像
           title: 一般信息
         index:
           published: 已发布
         new:
           create: 创建
-          title: 'Original: ENGLISH'
         update:
           error: 更新此会议时出现问题。
           success: 会议已成功更新。
-      conferences_copies:
-        create:
-          error: 复制此会议时出现问题。
-          success: 会议成功重复。
       media_links:
         create:
           error: 创建新媒体链接时出现问题。

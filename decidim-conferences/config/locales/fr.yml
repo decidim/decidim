@@ -2,14 +2,14 @@ fr:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Assemblées associées
+        assemblies_ids: Assemblées liées
         available_slots: Nombre de places disponibles
         banner_image: Image d'en-tête
-        copy_categories: Copier les catégories
-        copy_components: Copier les fonctionnalités
-        copy_features: Copier les fonctionnalités
         decidim_scope_id: Périmètre
         description: Description
+        duplicate_categories: Dupliquer les catégories
+        duplicate_components: Dupliquer les composants
+        duplicate_features: Dupliquer les fonctionnalités
         end_date: Date de fin
         hero_image: Image de la page d'accueil
         location: Lieu
@@ -97,9 +97,9 @@ fr:
         new_speaker: Nouveau conférencier
         send_diplomas: Envoyer des certificats de présence
         view_deleted_conferences: Voir les conférences supprimées
-      conference_copies:
+      conference_duplicates:
         new:
-          copy: Copier
+          duplicate: Dupliquer
           select: Sélectionnez les données que vous souhaitez dupliquer
           title: Dupliquer la conférence
       conference_publications:
@@ -162,7 +162,13 @@ fr:
         exports:
           registrations: Inscriptions
         form:
+          duration: Durée
+          images: Photos
+          metadata: Métadonnées
+          registrations: Inscriptions
+          related_spaces: Espaces liés
           title: Informations générales
+          visibility: Visibilité
         index:
           published: Publié
           unpublished: Non publié
@@ -170,13 +176,13 @@ fr:
           title: Conférences supprimées
         new:
           create: Créer
-          title: Conférence
+          title: Nouvelle conférence
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette conférence.
           success: Conférence mise à jour avec succès.
-      conferences_copies:
+      conferences_duplicates:
         create:
-          error: Une erreur s'est produite lors de la duplication de cette conférence.
+          error: Un problème est survenu lors de la duplication de cette conférence.
           success: Conférence dupliquée avec succès.
       media_links:
         create:
@@ -353,7 +359,7 @@ fr:
         title: Conférenciers
     conferences:
       admin:
-        conference_copies:
+        conference_duplicates:
           form:
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette conférence. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
         conference_invites:

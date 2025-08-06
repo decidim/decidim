@@ -707,6 +707,7 @@ ja:
     doorkeeper:
       authorizations:
         new:
+          api_read: API経由でコンテンツを読み込む
           authorize: アプリケーションを承認する
           by_organization_link_html: <small class="heading-small">by %{link}</small>
           cancel: キャンセル
@@ -1587,6 +1588,7 @@ ja:
     searches:
       filters:
         jump_to: 'ジャンプ先:'
+        resource: "%{collection} の中の %{label}"
         search: 検索
         state:
           active: アクティブ
@@ -2122,6 +2124,8 @@ ja:
         profile: マイアカウント
         public_profile: 公開プロフィール
         title: プロフィールリンク
+        unread_conversations: 未読の会話があります
+        unread_notifications: 未読の通知があります
       user_profile:
         account: アカウント
         authorizations: 権限

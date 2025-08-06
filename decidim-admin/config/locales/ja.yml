@@ -173,7 +173,10 @@ ja:
           new: 新しい添付ファイル
         attachment_collection:
           new: 新しい添付ファイルフォルダ
+        attachment_collections: フォルダを追加
+        attachments: 添付ファイルを追加
         browse: 検索
+        configure: 設定
         confirm_delete_component: |
           このコンポーネントを削除しますか?<br>
           このコンポーネントが含むもの:<br>
@@ -181,21 +184,22 @@ ja:
             <li class="font-bold">%{resources_count} リソース</li>
           </ul>
           気が変わった場合は、後で元に戻せます。
-        export: 全てエクスポート
+        export: エクスポート
         export-selection: 選択したものをエクスポート
         import: インポート
-        manage: 管理
+        menu_hidden: メニューから隠す
+        moderate: モデレーションの管理
         newsletter:
           new: 新しいニュースレター
         participatory_space_private_user:
           new: 新しい参加型スペースのプライベートユーザー
         per_page: ページごと
-        permissions: アクセス許可
+        permissions: 権限の管理
         restore: 復元
         send_me_a_test_email: テストメールを自分宛てに送信
         share: 共有
-        share_tokens: アクセスリンク
-        soft_delete: 論理削除
+        share_tokens: リンクを共有
+        soft_delete: ゴミ箱に移動
         user:
           new: 新しい管理者
         view_deleted_components: 削除されたコンポーネントを表示
@@ -679,7 +683,7 @@ ja:
               update_moderated_user_button: ユーザーの通報を解除
             title: アクション
             unblock: ユーザーのブロックを解除
-            unreport: 報告解除
+            unreport: 報告を取り消す
           cancel: キャンセル
           name: 名前
           nickname: ニックネーム
@@ -703,10 +707,10 @@ ja:
               title: 非表示
               update_moderation_button: 選択したリソースを非表示
             unhide:
-              title: 非表示解除
+              title: 非表示を取り消す
               update_moderation_button: 選択したリソースの非表示を解除
             unreport:
-              title: 通報を解除
+              title: 報告を取り消す
               update_moderation_button: 選択したリソースの通報を解除
           cancel: キャンセル
           selected: 選択済み
@@ -834,7 +838,7 @@ ja:
         index:
           actions: アクション
           badge: バッジ
-          block: ユーザーをブロック
+          block: ブロック
           created_at: 作成日時
           name: 名前
           nickname: アカウントID
@@ -843,9 +847,10 @@ ja:
           officialized: 公式化済み
           reofficialize: 再公式化
           reports: 報告
+          send_message: メッセージを送信
           show_email: メールアドレスを表示
           status: ステータス
-          unblock: ユーザーのブロックを解除
+          unblock: ブロックを解除
           unofficialize: 非公式化
         new:
           badge: 公式バッジ
@@ -1070,7 +1075,7 @@ ja:
           success: トピックを更新しました
       static_pages:
         actions:
-          view: 公開ページを表示
+          view: 表示
         create:
           error: 新しいページの作成中に問題が発生しました。
           success: ページの作成に成功しました。
@@ -1098,9 +1103,9 @@ ja:
       taxonomies:
         actions:
           actions: アクション
-          destroy: タクソノミーと項目を削除
-          edit: タクソノミーと項目を編集
-          filters: フィルタの管理
+          destroy: 削除
+          edit: 編集
+          filters: フィルターを適用
         breadcrumb:
           edit: タクソノミーを編集
           new: 新しいタクソノミー
@@ -1270,8 +1275,8 @@ ja:
         not_hidden: 表示
         parent_hidden: 親がまだ非表示になっているため、このリソースを表示できません。
         title: アクション
-        unhide: 非表示解除
-        unreport: 報告解除
+        unhide: 非表示を取り消す
+        unreport: 報告を取り消す
       admin:
         reportable:
           bulk_action:

@@ -33,10 +33,7 @@ lt:
               'true': Nepasirinkta įgyvendinimui
     budgets:
       actions:
-        attachment_collections: Aplankai
-        attachments: Priedai
         edit: Redaguoti
-        edit_projects: Valdyti projektus
         import: Importuoti pasiūlymus į projektus
         preview: Peržiūra
         send_voting_reminders: Siųsti balsavimo priminimus

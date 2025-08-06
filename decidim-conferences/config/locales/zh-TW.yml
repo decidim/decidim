@@ -2,12 +2,8 @@ zh-TW:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: 相關大會
         available_slots: 可用時段
         banner_image: 橫幅圖片
-        copy_categories: 複製類別
-        copy_components: 複製組件
-        copy_features: 複製功能
         decidim_scope_id: 範圍
         description: 說明
         end_date: 結束日期
@@ -83,11 +79,6 @@ zh-TW:
       actions:
         confirm: 確認
         send_diplomas: 發送出席證明書
-      conference_copies:
-        new:
-          copy: 複製
-          select: 請選擇您想要複製的資料
-          title: 複製研討會
       conference_publications:
         create:
           error: 發布此研討會時出現問題。
@@ -138,19 +129,15 @@ zh-TW:
         exports:
           registrations: 註冊
         form:
+          images: 圖片
           title: 基本資訊
         index:
           published: 已發佈
         new:
           create: 建立
-          title: 研討會
         update:
           error: 更新此研討會時發生問題。
           success: 研討會更新成功。
-      conferences_copies:
-        create:
-          error: 複製此研討會時發生問題。
-          success: 研討會複製成功。
       media_links:
         create:
           error: 創建新的媒體連結時出現問題。

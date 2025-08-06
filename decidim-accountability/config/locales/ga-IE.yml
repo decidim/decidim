@@ -15,8 +15,6 @@ ga:
   decidim:
     accountability:
       actions:
-        attachment_collections: Fillteáin
-        attachments: Ceangaltáin
         destroy: Scrios
         edit: Eagar
         preview: Réamhamharc

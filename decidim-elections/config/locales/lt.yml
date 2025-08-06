@@ -7,6 +7,10 @@ lt:
           election_questions: Klausimai
     components:
       elections:
+        actions:
+          create: Sukurti
+          destroy: Sunaikinti
+          update: Atnaujinti
         name: Rinkimai
         settings:
           global:
@@ -20,11 +24,30 @@ lt:
         census:
           edit:
             created_at: Sukurta
+        dashboard:
+          census:
+            title: Surašymas
+          main:
+            labels:
+              description: Aprašymas
+          questions:
+            labels:
+              answers: Atsakymai
+            title: Klausimai
+          questions_table:
+            answer: Atsakymai
+            votes: Balsai
+          results:
+            publish_button: Skelbti rezultatus
+            title: Rezultatai
+          status:
+            title: Rinkimų būsena
         elections:
           edit:
             title: Redaguoti rinkimus
           form:
             add_images: Pridėti paveikslėlių
+            publish: Publikuoti
           index:
             title: Rinkimai
           new:
@@ -33,9 +56,18 @@ lt:
           edit_questions:
             new_question: Naujas klausimas
             title: Klausimai
+        statuses:
+          publish_results:
+            invalid: Skelbiant rezultatus iškilo problema.
       models:
         election:
           fields:
+            census: Surašymas
+            status: Būsena
             title: Pavadinimas
+      status:
+        active: Aktyvūs
+        finished: Užbaigta
+        ongoing: Vykstantys
     statistics:
       elections_count: Rinkimai
