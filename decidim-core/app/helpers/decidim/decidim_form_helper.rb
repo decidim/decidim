@@ -12,10 +12,7 @@ module Decidim
     # Returns a String.
     def decidim_form_for(record, options = {}, &)
       options[:data] ||= {}
-      options[:data].update(
-        "live-validate" => true,
-        "validate-on-blur" => true
-      )
+      options[:data].update("live-validate" => true, "validate-on-blur" => true)
 
       options[:html] ||= {}
       options[:html].update(novalidate: true) unless options[:html].has_key?(:novalidate)

@@ -16,9 +16,12 @@ import Rails from "@rails/ujs"
 import svg4everybody from "svg4everybody"
 import morphdom from "morphdom"
 
+
 /**
  * Local dependencies
  */
+import PasswordToggler from "src/decidim/password_toggler";
+import UserRegistrationForm from "src/decidim/refactor/integration/user_registration_form";
 import MentionsComponent from "src/decidim/refactor/implementation/input_mentions";
 import FormValidator from "src/decidim/refactor/implementation/form_validator"
 import ClipboardCopy from "src/decidim/refactor/implementation/copy_clipboard";
@@ -28,7 +31,6 @@ import MultipleMentionsManager from "src/decidim/refactor/implementation/input_m
 import "src/decidim/input_tags"
 import "src/decidim/history"
 import "src/decidim/callout"
-import "src/decidim/user_registrations"
 import "src/decidim/account_form"
 import "src/decidim/append_redirect_url_to_modals"
 import "src/decidim/form_attachments"
@@ -187,7 +189,6 @@ const initializer = (element = document) => {
     createAccordion(component);
   })
 
-
   element.querySelectorAll('[data-controller="dropdown"]').forEach((component) => createDropdown(component))
   element.querySelectorAll('[data-component="dropdown"]').forEach((component) => {
     console.error(`${window.location.href} Using dropdown component`);
@@ -297,4 +298,15 @@ document.addEventListener("turbo:load", () => {
       formElement.dataset.formValidator = true;
     }
   });
+});
+
+document.addEventListener("turbo:load", () => {
+  (new UserRegistrationForm("register-form")).initialize();
+  (new UserRegistrationForm("omniauth-register-form")).initialize();
+
+  const userPassword = document.querySelector(".user-password");
+  // Initialize password toggler if password field exists
+  if (userPassword) {
+    new PasswordToggler(userPassword).init();
+  }
 });
