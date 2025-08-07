@@ -12,8 +12,7 @@ document.addEventListener("turbo:load", () => {
     $userOmniauthRegistrationForm.find(newsletterSelector).prop("checked", check);
     $newsletterModal.data("continue", true);
     window.Decidim.currentDialogs["sign-up-newsletter-modal"].close()
-    $userRegistrationForm.submit();
-    $userOmniauthRegistrationForm.submit();
+    document.querySelector('input[type="checkbox"][name="user[newsletter]"]').closest("form").requestSubmit();
   }
 
   $userRegistrationForm.on("submit", (event) => {
