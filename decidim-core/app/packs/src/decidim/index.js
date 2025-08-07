@@ -26,7 +26,6 @@ import MultipleMentionsManager from "src/decidim/refactor/implementation/input_m
 
 // local deps with no initialization
 import "src/decidim/input_tags"
-import "src/decidim/input_autojump"
 import "src/decidim/history"
 import "src/decidim/callout"
 import "src/decidim/append_elements"
