@@ -28,7 +28,6 @@ import MultipleMentionsManager from "src/decidim/refactor/implementation/input_m
 import "src/decidim/input_tags"
 import "src/decidim/history"
 import "src/decidim/callout"
-import "src/decidim/append_elements"
 import "src/decidim/user_registrations"
 import "src/decidim/account_form"
 import "src/decidim/append_redirect_url_to_modals"
