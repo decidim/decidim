@@ -6,6 +6,8 @@
 #   validates :my_i18n_field, translated_etiquette: true
 class TranslatedEtiquetteValidator < EtiquetteValidator
   def validate_each(record, attribute, _value)
+    return unless Decidim.enable_etiquette_validator
+
     translated_attr = "#{attribute}_#{default_locale_for(record)}".gsub("-", "__")
     translated_value = record.send(translated_attr)
     return if translated_value.blank?
