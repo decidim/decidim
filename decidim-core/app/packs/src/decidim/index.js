@@ -21,12 +21,11 @@ import morphdom from "morphdom"
  */
 import MentionsComponent from "src/decidim/refactor/implementation/input_mentions";
 import FormValidator from "src/decidim/refactor/implementation/form_validator"
-
 import ClipboardCopy from "src/decidim/refactor/implementation/copy_clipboard";
+import MultipleMentionsManager from "src/decidim/refactor/implementation/input_multiple_mentions";
 
 // local deps with no initialization
 import "src/decidim/input_tags"
-import "src/decidim/input_multiple_mentions"
 import "src/decidim/input_autojump"
 import "src/decidim/history"
 import "src/decidim/callout"
@@ -271,7 +270,21 @@ const initializeMentions = () => {
 // Initialize on page load
 document.addEventListener("turbo:load", initializeMentions);
 
+// Event handler setup - outside of the class
+document.addEventListener("turbo:load", () => {
+  document.querySelectorAll(".js-multiple-mentions").forEach((fieldContainer) => {
+    // Initialize the multiple mentions manager
+    const mentionsManager = new MultipleMentionsManager(fieldContainer);
 
+    // Set up the selection event handler outside the class
+    mentionsManager.searchInput.addEventListener("selection", (event) => {
+      const feedback = event.detail;
+      const selection = feedback.selection;
+      mentionsManager.handleSelection(selection);
+    });
+  });
+});
+    
 /**
  * Legacy initialization and compatibility for existing Decidim code
  */
