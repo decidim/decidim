@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Forms::PageForm do
+describe Decidim::Pages::Admin::PageForm do
   subject do
     described_class.from_params(attributes).with_context(
       current_organization: current_organization
