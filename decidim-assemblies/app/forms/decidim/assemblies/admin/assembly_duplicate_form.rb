@@ -3,10 +3,10 @@
 module Decidim
   module Assemblies
     module Admin
-      # A form object used to copy a assemblies from the admin
+      # A form object used to duplicate a assemblies from the admin
       # dashboard.
       #
-      class AssemblyCopyForm < Form
+      class AssemblyDuplicateForm < Form
         include TranslatableAttributes
 
         translatable_attribute :title, String
@@ -14,8 +14,8 @@ module Decidim
         mimic :assembly
 
         attribute :slug, String
-        attribute :copy_components, Boolean
-        attribute :copy_landing_page_blocks, Boolean
+        attribute :duplicate_components, Boolean
+        attribute :duplicate_landing_page_blocks, Boolean
 
         validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
         validates :title, translatable_presence: true
