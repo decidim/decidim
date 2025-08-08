@@ -36,9 +36,7 @@ module Decidim
     # publicly on the platform, such as on their personal profile page, the
     # GraphQL API or other places where the user may appear.
     scope :visible, lambda {
-      profile_published.not_blocked.merge(
-        Decidim::User.tos_accepted.or(Decidim::UserGroup.verified)
-      )
+      profile_published.not_blocked.merge(Decidim::User.tos_accepted)
     }
 
     # User entities (user groups) that have their profile visible on the

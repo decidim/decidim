@@ -49,7 +49,6 @@ module Decidim
 
     def ensure_profile_published
       return if profile_holder&.profile_published?
-      return if profile_holder.is_a?(Decidim::UserGroup) && current_user && profile_holder.accepted_users.include?(current_user)
 
       raise ActionController::RoutingError, "Not Found"
     end
