@@ -110,7 +110,7 @@ module Decidim::ParticipatoryProcesses
         expect { subject.call }.to change(Decidim::Component, :count).by(1)
 
         last_participatory_process = Decidim::ParticipatoryProcess.last
-        last_component = Decidim::Component.all.reorder(:id).last
+        last_component = Decidim::Component.reorder(:id).last
 
         expect(last_component.participatory_space).to eq(last_participatory_process)
         expect(last_component.name).to eq(component.name)
