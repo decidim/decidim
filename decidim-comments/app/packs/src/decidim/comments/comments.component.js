@@ -12,7 +12,7 @@
 // This is necessary for testing purposes
 const $ = window.$;
 
-import changeReportFormBehavior from "src/decidim/change_report_form_behavior";
+import ReportFormManager from "src/decidim/refactor/implementation/report_form_manager";
 import { initializeCommentsDropdown } from "../../decidim/comments/comments_dropdown";
 
 export default class CommentsComponent {
@@ -167,14 +167,12 @@ export default class CommentsComponent {
         this._stopPolling();
       });
 
-      document.querySelectorAll(".new_report").forEach((container) => changeReportFormBehavior(container));
-
       const $dropdown = $add.find("[data-comments-dropdown]");
       if ($dropdown.length > 0) {
         initializeCommentsDropdown($dropdown[0]);
       }
 
-      document.querySelectorAll(".new_report").forEach((container) => changeReportFormBehavior(container))
+      document.querySelectorAll(".new_report").forEach((elem) => new ReportFormManager(elem))
 
       if ($text.length && $text.get(0) !== null) {
         // Attach event to the DOM node, instead of the jQuery object
