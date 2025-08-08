@@ -49,6 +49,8 @@ module Decidim
 
     has_one_attached :download_your_data_file
 
+    scope :tos_accepted, -> { where.not(accepted_tos_version: nil) }
+
     scope :managed, -> { where(managed: true) }
     scope :not_managed, -> { where(managed: false) }
 
