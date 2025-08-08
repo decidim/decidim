@@ -28,6 +28,7 @@ import ClipboardCopy from "src/decidim/refactor/implementation/copy_clipboard";
 import ExternalLink from "src/decidim/refactor/implementation/external_link"
 import Configuration from "src/decidim/refactor/implementation/configuration"
 import MultipleMentionsManager from "src/decidim/refactor/implementation/input_multiple_mentions";
+import setOnboardingAction from "src/decidim/refactor/integration/onboarding_pending_action"
 
 // local deps with no initialization
 import "src/decidim/input_tags"
@@ -75,7 +76,6 @@ import {
   Dialogs
 } from "src/decidim/a11y"
 import changeReportFormBehavior from "src/decidim/change_report_form_behavior"
-import setOnboardingAction from "src/decidim/onboarding_pending_action"
 
 // bad practice: window namespace should avoid be populated as much as possible
 // rails-translations could be referenced through a single Decidim.I18n object
@@ -207,7 +207,12 @@ const initializer = (element = document) => {
 
   element.querySelectorAll(".new_report").forEach((elem) => changeReportFormBehavior(elem))
 
-  element.querySelectorAll("[data-onboarding-action]").forEach((elem) => setOnboardingAction(elem))
+  // https://github.com/tremend-cofe/decidim-js/pull/6
+  element.querySelectorAll("[data-controller='onboarding']").forEach((elem) => setOnboardingAction(elem));
+  element.querySelectorAll("[data-onboarding-action]").forEach((elem) => {
+    console.error(`${window.location.href} Using data-onboarding-action. Please switch to data-controller="onboarding" data-onboarding-action-value="$action".`);
+    setOnboardingAction(elem);
+  })
 
   initializeUploadFields(element.querySelectorAll("button[data-upload]"));
   initializeReverseGeocoding()

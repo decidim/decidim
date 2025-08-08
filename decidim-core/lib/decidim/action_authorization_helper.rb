@@ -160,10 +160,11 @@ module Decidim
       return {} if [resource, permissions_holder].all?(&:blank?)
 
       {
-        "data-onboarding-model" => resource&.to_gid,
-        "data-onboarding-permissions-holder" => permissions_holder&.to_gid,
-        "data-onboarding-action" => action,
-        "data-onboarding-redirect-path" => redirect_path
+        "data-controller" => "onboarding",
+        "data-onboarding-action-value" => action,
+        "data-onboarding-model-value" => resource&.to_gid,
+        "data-onboarding-permissions-holder-value" => permissions_holder&.to_gid,
+        "data-onboarding-redirect-path-value" => redirect_path
       }.compact
     end
 

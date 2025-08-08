@@ -12,10 +12,10 @@ const DATA_KEY = "onboarding";
 export default function setOnboardingAction(element) {
   // the dialog-open data attribute is stealing the click event
   element.addEventListener("mousedown", () => {
-    const action = element.dataset.onboardingAction;
-    const model = element.dataset.onboardingModel;
-    const permissionsHolder = element.dataset.onboardingPermissionsHolder;
-    const redirectPath = element.dataset.onboardingRedirectPath;
+    const action = element.dataset.onboardingActionValue;
+    const model = element.dataset.onboardingModelValue;
+    const permissionsHolder = element.dataset.onboardingPermissionsHolderValue;
+    const redirectPath = element.dataset.onboardingRedirectPathValue;
 
     Cookies.set(DATA_KEY, JSON.stringify({ action, model, permissionsHolder, redirectPath }), {
       expires: ONBOARDING_COOKIE_EXPIRY
