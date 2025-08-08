@@ -1,4 +1,4 @@
-import ExternalDomainLink from "src/decidim/external_domain_warning";
+import ExternalDomainLink from "src/decidim/refactor/implementation/external_domain_warning"
 
 describe("ExternalDomainLink", () => {
   const content = `

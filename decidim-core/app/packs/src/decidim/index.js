@@ -23,6 +23,7 @@ import PasswordToggler from "src/decidim/password_toggler";
 import UserRegistrationForm from "src/decidim/refactor/integration/user_registration_form";
 import MentionsComponent from "src/decidim/refactor/implementation/input_mentions";
 import FormValidator from "src/decidim/refactor/implementation/form_validator"
+import updateExternalDomainLinks from "src/decidim/refactor/implementation/external_domain_warning"
 import ClipboardCopy from "src/decidim/refactor/implementation/copy_clipboard";
 import Configuration from "src/decidim/refactor/implementation/configuration"
 import MultipleMentionsManager from "src/decidim/refactor/implementation/input_multiple_mentions";
@@ -55,7 +56,6 @@ import { initializeUploadFields } from "src/decidim/direct_uploads/upload_field"
 import { initializeReverseGeocoding } from "src/decidim/geocoding/reverse_geocoding"
 import formDatePicker from "src/decidim/datepicker/form_datepicker"
 import ExternalLink from "src/decidim/external_link"
-import updateExternalDomainLinks from "src/decidim/external_domain_warning"
 import scrollToLastChild from "src/decidim/scroll_to_last_child"
 import InputCharacterCounter, { createCharacterCounter } from "src/decidim/input_character_counter"
 import FormFilterComponent from "src/decidim/form_filter"
