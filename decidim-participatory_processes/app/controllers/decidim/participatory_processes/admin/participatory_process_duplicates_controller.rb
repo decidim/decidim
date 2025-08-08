@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # Controller that allows managing participatory processes.
       #
-      class ParticipatoryProcessCopiesController < Decidim::Admin::ApplicationController
+      class ParticipatoryProcessDuplicatesController < Decidim::Admin::ApplicationController
         include Concerns::ParticipatoryProcessAdmin
 
         def new
