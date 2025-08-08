@@ -5,7 +5,26 @@ module Decidim
     # This command is executed when the user creates a Debate from the public
     # views.
     class CreateDebate < Decidim::Commands::CreateResource
-      fetch_form_attributes :category, :scope
+      include ::Decidim::MultipleAttachmentsMethods
+
+      fetch_form_attributes :taxonomizations
+
+      def call
+        return broadcast(:invalid) if invalid?
+
+        if process_attachments?
+          build_attachments
+          return broadcast(:invalid) if attachments_invalid?
+        end
+
+        perform!
+        broadcast(:ok, resource)
+      rescue ActiveRecord::RecordInvalid
+        add_file_attribute_errors!
+        broadcast(:invalid)
+      rescue Decidim::Commands::HookError
+        broadcast(:invalid)
+      end
 
       private
 
@@ -20,6 +39,8 @@ module Decidim
       end
 
       def run_after_hooks
+        @attached_to = resource
+        create_attachments(first_weight: 1) if process_attachments?
         send_notification_to_author_followers
         send_notification_to_space_followers
         follow_debate
@@ -36,12 +57,11 @@ module Decidim
       end
 
       def attributes
-        parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
-        parsed_description = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.description, current_organization: form.current_organization).rewrite
+        parsed_title = Decidim::ContentProcessor.parse(form.title, current_organization: form.current_organization).rewrite
+        parsed_description = Decidim::ContentProcessor.parse_with_processor(:inline_images, form.description, current_organization: form.current_organization).rewrite
 
         super.merge({
                       author: form.current_user,
-                      decidim_user_group_id: form.user_group_id,
                       title: { I18n.locale => parsed_title },
                       description: { I18n.locale => parsed_description },
                       component: form.current_component
@@ -76,7 +96,7 @@ module Decidim
         follow_form = Decidim::FollowForm
                       .from_params(followable_gid: resource.to_signed_global_id.to_s)
                       .with_context(current_user: resource.author)
-        Decidim::CreateFollow.call(follow_form, resource.author)
+        Decidim::CreateFollow.call(follow_form)
       end
     end
   end

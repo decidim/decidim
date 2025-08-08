@@ -54,7 +54,8 @@ module Decidim
           params.merge(commentable: comment.commentable)
         ).with_context(
           current_user:,
-          current_organization:
+          current_organization:,
+          current_component:
         )
 
         Decidim::Comments::UpdateComment.call(comment, form) do

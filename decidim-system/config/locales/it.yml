@@ -166,7 +166,6 @@ it:
           success: OK, l'Organizzazione è stata aggiornata.
         users_registration_mode:
           disabled: L'accesso può essere fatto solo con account esterni
-          enabled: Permetti agli utenti di registrarsi e accedere
       shared:
         notices:
           no_organization_warning_html: È necessario creare un'organizzazione per iniziare. Assicurati di leggere %{guide} prima di procedere.

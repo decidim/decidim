@@ -19,7 +19,6 @@ module Decidim
           {
             description: :i18n,
             developer_group: :i18n,
-            hashtag: :string,
             decidim_area_id: :area,
             local_area: :i18n,
             meta_scope: :i18n,
@@ -38,7 +37,7 @@ module Decidim
 
         def action_string
           case action
-          when "create", "publish", "unpublish", "update", "import", "export", "duplicate"
+          when "create", "publish", "unpublish", "update", "import", "export", "duplicate", "soft_delete", "restore"
             "decidim.admin_log.participatory_process.#{action}"
           else
             super

@@ -7,7 +7,6 @@ ko:
   decidim:
     blogs:
       actions:
-        destroy: 삭제
         edit: 수정
         new: 새 게시물
         title: 작업
@@ -16,8 +15,6 @@ ko:
           create:
             invalid: 게시물을 생성하는 도중 문제가 생겼습니다.
             success: 게시물이 성공적으로 생성되었습니다.
-          destroy:
-            success: 게시물이 성공적으로 삭제되었습니다.
           edit:
             save: 업데이트
       content_blocks:

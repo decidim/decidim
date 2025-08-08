@@ -25,7 +25,7 @@ module Decidim
           end
 
           on(:invalid) do
-            render action: :edit
+            render action: :edit, status: :unprocessable_entity
           end
         end
       end
@@ -87,7 +87,7 @@ module Decidim
       end
 
       def permissions
-        @permissions ||= (resource&.permissions || {})
+        @permissions ||= resource&.permissions || {}
       end
 
       def authorizations_for(action)

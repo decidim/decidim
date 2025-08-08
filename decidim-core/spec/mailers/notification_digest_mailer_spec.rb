@@ -31,6 +31,14 @@ module Decidim
           expect(subject.body).to include("This is a comment")
         end
       end
+
+      context "when the notification does not send emails" do
+        let(:notification) { create(:notification, user:, resource:, event_class: "Decidim::Dev::DummyNotificationOnlyResourceEvent") }
+
+        it "does not include the notification" do
+          expect(subject.body).not_to include("Testing resource")
+        end
+      end
     end
   end
 end

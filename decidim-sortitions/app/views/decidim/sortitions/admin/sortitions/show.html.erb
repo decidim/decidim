@@ -12,7 +12,7 @@
           <th><%= t("models.sortition.fields.request_timestamp", scope: "decidim.sortitions.admin") %></th>
           <th><%= t("models.sortition.fields.dice", scope: "decidim.sortitions.admin") %></th>
           <th><%= t("models.sortition.fields.target_items", scope: "decidim.sortitions.admin") %></th>
-          <th><%= t("models.sortition.fields.category", scope: "decidim.sortitions.admin") %></th>
+          <th><%= t("models.sortition.fields.taxonomies", scope: "decidim.sortitions.admin") %></th>
           <th><%= t("models.sortition.fields.decidim_proposals_component", scope: "decidim.sortitions.admin") %></th>
           <th><%= t("models.sortition.fields.seed", scope: "decidim.sortitions.admin") %></th>
           <th></th>
@@ -23,7 +23,7 @@
           <td><%= l sortition.request_timestamp, format: :long %></td>
           <td><%= sortition.dice %></td>
           <td><%= sortition.target_items %></td>
-          <td><%= sortition_category sortition %></td>
+          <td><%= sortition_taxonomies sortition %></td>
           <td><%= translated_attribute sortition.decidim_proposals_component.name %></td>
           <td><%= sortition.seed %></td>
           <td></td>

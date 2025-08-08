@@ -4,7 +4,10 @@ require "spec_helper"
 
 describe "Admin manages participatory processes", versioning: true do
   include_context "when admin administrating a participatory process"
+  include_context "with taxonomy filters context"
 
+  let(:participatory_space_manifests) { ["participatory_processes"] }
+  let!(:another_taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: another_root_taxonomy, participatory_space_manifests:) }
   let!(:participatory_process_groups) do
     create_list(:participatory_process_group, 3, organization:)
   end
@@ -30,7 +33,7 @@ describe "Admin manages participatory processes", versioning: true do
 
       it "hides the private user menu entry" do
         within_admin_sidebar_menu do
-          expect(page).to have_content("Private participants")
+          expect(page).to have_content("Members")
         end
       end
     end
@@ -40,7 +43,7 @@ describe "Admin manages participatory processes", versioning: true do
 
       it "shows the private user menu entry" do
         within_admin_sidebar_menu do
-          expect(page).to have_no_content("Private participants")
+          expect(page).to have_no_content("Members")
         end
       end
     end
@@ -56,6 +59,7 @@ describe "Admin manages participatory processes", versioning: true do
     let(:image2_filename) { "city2.jpeg" }
     let(:image2_path) { Decidim::Dev.asset(image2_filename) }
     let(:attributes) { attributes_for(:participatory_process, organization:) }
+    let(:last_participatory_process) { Decidim::ParticipatoryProcess.last }
 
     before do
       click_on "New process"
@@ -64,6 +68,7 @@ describe "Admin manages participatory processes", versioning: true do
     %w(short_description description announcement).each do |field|
       it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='participatory_process-#{field}-tabs']", "full"
     end
+    it_behaves_like "having no taxonomy filters defined"
 
     it "creates a new participatory process" do
       within ".new_participatory_process" do
@@ -83,19 +88,20 @@ describe "Admin manages participatory processes", versioning: true do
         group_title = participatory_process_groups.first.title["en"]
         select group_title, from: :participatory_process_participatory_process_group_id
 
+        select(decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}")
+
         fill_in :participatory_process_slug, with: "slug"
-        fill_in :participatory_process_hashtag, with: "#hashtag"
         fill_in :participatory_process_weight, with: 1
       end
 
       dynamically_attach_file(:participatory_process_hero_image, image1_path)
-      dynamically_attach_file(:participatory_process_banner_image, image2_path)
 
       within ".new_participatory_process" do
         find("*[type=submit]").click
       end
 
       expect(page).to have_admin_callout("successfully")
+      expect(last_participatory_process.taxonomies).to contain_exactly(taxonomy)
 
       within "[data-content]" do
         expect(page).to have_current_path decidim_admin_participatory_processes.participatory_process_steps_path(Decidim::ParticipatoryProcess.last)
@@ -124,11 +130,20 @@ describe "Admin manages participatory processes", versioning: true do
         click_on "About this process"
       end
 
+      select(decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}")
+
       click_on "Update"
 
       expect(page).to have_admin_callout("successfully")
-      expect(page).to have_css("img[src*='#{participatory_process3.attached_uploader(:hero_image).path}']")
-      expect(page).to have_css("img[src*='#{participatory_process3.attached_uploader(:banner_image).path}']")
+      expect(page).to have_select("taxonomies-#{taxonomy_filter.id}", selected: decidim_sanitize_translated(taxonomy.name))
+      expect(page).to have_select("taxonomies-#{another_taxonomy_filter.id}", selected: "Please select an option")
+      expect(participatory_process3.reload.taxonomies).to contain_exactly(taxonomy)
+
+      hero_blob = participatory_process3.hero_image.blob
+      within %([data-active-uploads] [data-filename="#{hero_blob.filename}"]) do
+        src = page.find("img")["src"]
+        expect(src).to be_blob_url(hero_blob)
+      end
     end
   end
 end

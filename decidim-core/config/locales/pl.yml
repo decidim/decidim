@@ -45,9 +45,7 @@ pl:
       decidim/promote_to_admin: Awansowano na administratora grupy
       decidim/promoted_to_admin_event: Awansowano na administratora grupy
       decidim/removed_from_group: Usunięto z grupy
-      decidim/resource_endorsed_event: Zasoby zatwierdzone
       decidim/resource_hidden_event: Zasób ukryty
-      decidim/user_group_created_event: Utworzono grupę użytkowników
       decidim/welcome_notification_event: Wiadomość powitalna
   activerecord:
     attributes:
@@ -56,7 +54,6 @@ pl:
         with_participatory_space: Przestrzeń partycypacji
       decidim/user:
         current_password: Obecne hasło
-        email: Adres e-mail
         name: Pseudonim
         password: Hasło
         password_confirmation: Potwierdzenie hasła
@@ -67,21 +64,11 @@ pl:
         few: Poprawki
         many: Poprawki
         other: Poprawki
-      decidim/endorsement:
-        one: Rekomendacja
-        few: Rekomendacje
-        many: Rekomendacje
-        other: Rekomendacje
       decidim/user:
         one: Użytkownik
         few: Użytkownicy
         many: Użytkownicy
         other: Użytkownicy
-      decidim/user_group:
-        one: Grupa użytkowników
-        few: Grupy użytkowników
-        many: Grupy użytkowników
-        other: Grupy użytkowników
   booleans:
     'false': 'Nie'
     'true': 'Tak'
@@ -275,16 +262,14 @@ pl:
       dismiss: Odrzuć powiadomienie
     amendments:
       accepted:
-        error: Wystąpił błąd podczas akceptowania poprawki.
         success: Poprawka została zaakceptowana.
       amendable:
         button: '%{model_name} - popraw'
-        error: Wystąpił błąd podczas wnoszenia poprawki do tego zasobu.
+        error: Wystąpił błąd podczas zmiany tego zasobu.
         promote_button: '%{model_name} - promuj'
         promote_confirm_text: Czy na pewno chcesz promować tę wersję?
         promote_help_text: Możesz promować tę korektę i opublikować ją jako niezależny %{model_name}.
       created:
-        error: Wystąpił błąd podczas tworzenia projektu poprawki.
         success: Projekt poprawki został pomyślnie utworzony.
       destroy_draft:
         error: Wystąpił błąd podczas usuwania szkicu poprawki.
@@ -310,7 +295,6 @@ pl:
             została wycofana przez autora.
       name: Poprawka
       new:
-        amendment_author: Autor poprawki
         send: Utwórz
         title: Utwórz projekt poprawki
       preview_draft:
@@ -334,7 +318,6 @@ pl:
         error: Wystąpił błąd podczas aktualizowania szkicu poprawki.
         success: Szkic poprawki został pomyślnie zaktualizowany.
       withdraw:
-        error: Wystąpił błąd podczas wycofywania poprawki.
         success: Poprawka została pomyślnie wycofana.
       wizard_step_form:
         steps:
@@ -344,7 +327,11 @@ pl:
     application:
       document:
         download: Pobierz plik
+        visit_link: Odwiedź link
       documents:
+        component_documents:
+          dummy: Dokumenty komponentu dummy
+          meetings: Dokumenty spotkań
         documents: Dokumenty
         related_documents: Materiały
       photo:
@@ -360,11 +347,6 @@ pl:
         few: komentarze
         many: komentarze
         other: komentarze
-      endorsements:
-        one: rekomendacja
-        few: rekomendacje
-        many: rekomendacje
-        other: rekomendacje
       official_author: Oficjalny
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -377,10 +359,8 @@ pl:
         explanation: Uzyskaj weryfikację, wprowadzając numer dokumentu kończący się na "X".
         fields:
           allowed_postal_codes: Dozwolone kody pocztowe (oddzielone przecinkami)
-          allowed_scope_id: Dozwolony zakres
           document_number: Numer dokumentu
           postal_code: Kod pocztowy
-          scope_id: Niniejsze rozporządzenie stosuje się od dnia 1 stycznia 2018 r.
         name: Przykładowa autoryzacja
       dummy_authorization_workflow:
         name: Przykładowy proces autoryzacji
@@ -474,8 +454,6 @@ pl:
             dummy_global_translatable_text: Przykładowy tekst do tłumaczenia
             enable_pads_creation: Włącz tworzenie padów
             resources_permissions_enabled: Włączono uprawnienia do zasobów
-            scope_id: Zakres
-            scopes_enabled: Zakresy włączone
           step:
             amendment_creation_enabled: Tworzenie poprawek włączone
             amendment_promotion_enabled: Promowanie poprawek włączone
@@ -530,10 +508,6 @@ pl:
         name: Dane główne
       metadata:
         name: Metadane
-      metrics:
-        name: Partycypacja w liczbach
-      participatory_space_metrics:
-        name: Partycypacja w liczbach
       participatory_space_stats:
         name: Statystyki
       social_networks_metadata:
@@ -555,12 +529,10 @@ pl:
         name: Baner podrzędny
     core:
       actions:
-        login_before_access: Zaloguj się na swoje konto, żeby mieć dostęp.
+        login_before_access: Proszę zalogować się na swoje konto przed uzyskaniem dostępu.
         unauthorized: Nie masz uprawnień do wykonania tej czynności.
       application_helper:
         filter_area_values:
-          all: Wszystkie
-        filter_category_values:
           all: Wszystkie
         filter_scope_values:
           all: Wszystkie
@@ -572,7 +544,7 @@ pl:
           complete_profile: Uzupełnij profil
           nickname_help: Twój pseudonim w %{organization}. Może zawierać tylko litery, cyfry, '-' i '_'.
           sign_up: Proszę uzupełnij swój profil
-          subtitle: Proszę wypełnić poniższy formularz, aby dokończyć rejestrację
+          subtitle: Proszę wypełnić poniższy formularz, aby zakończyć tworzenie konta
           username_help: Publiczne imię wyświetlane przy Twoich wpisach. W celu zagwarantowania anonimowości może być dowolna nazwa.
       registrations:
         create:
@@ -582,18 +554,17 @@ pl:
           log_in: Zaloguj się
           newsletter: Chcę otrzymywać okazjonalne newslettery z istotnymi informacjami
           newsletter_title: Zgoda na subskrybcję
-          sign_up: Zarejestruj się
-          subtitle: Zarejestruj się, aby brać udział w dyskusjach i wspierać propozycje.
+          sign_up: Utwórz konto
+          subtitle: Utwórz konto, aby wziąć udział w platformie.
           terms: warunki świadczenia usług
           tos_agreement: Rejestrując się, zgadzasz się na %{link}.
           tos_title: Warunki korzystania z Platformy
           username_help: Publiczne imię wyświetlane przy Twoich wpisach. W celu zagwarantowania anonimowości może być dowolna nazwa.
       sessions:
         new:
-          are_you_new?: Nowy na platformie?
           register: Utwórz konto
           sign_in_disabled: Możesz uzyskać dostęp za pomocą konta zewnętrznego.
-          sign_up_disabled: Rejestracja jest wyłączona, by uzyskać dostęp, możesz użyć istniejącego konta.
+          sign_up_disabled: Tworzenie konta jest wyłączone, możesz użyć istniejącego konta, aby uzyskać dostęp.
         user:
           timed_out: Zostałeś automatycznie wylogowany z usługi z powodu zbyt długiej nieaktywności. Jeśli chcesz kontynuować korzystanie z usługi, zaloguj się ponownie.
       shared:
@@ -608,8 +579,6 @@ pl:
             uczestnictwa w procesach na platformie.<br>Jeśli mimo wszystko nie chcesz otrzymywać newsletterów, doskonale rozumiemy twoją decyzję.</p>
             <p>Dziękujemy za uwagę!</p>
           title: Powiadomienia newslettera
-        omniauth_buttons:
-          or: Lub
         password_fields:
           hidden_password: Twoje hasło jest ukryte
           hide_password: Ukryj hasło
@@ -634,27 +603,11 @@ pl:
     download_your_data:
       export:
         ready: Gotowy
-      show:
-        download_data: Pobierz dane
-        download_data_description_html: |-
-          Plik zawierający wszystkie informacje związane z twoim kontem zostanie wysłany na adres <strong>%{user_email}</strong>. 
-          W e-mailu znajdziesz plik .zip i hasło potrzebne do otworzenia go.<br/><br/>Aby rozpakować plik, będziesz potrzebować programu <a href="https://www.7-zip.org/">7-Zip</a> (dla systemu Windows) albo <a href="https://www.keka.io/">Keka</a> (dla systemu MacOS).
-          Jeśli korzystasz z systemu Linux, w większości przypadków program będzie zainstalowany domyślnie. Jeśli nie, możesz użyć programu <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> albo <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Poproś o dane
     editor_images:
       create:
         error: Wystąpił błąd podczas przesyłania obrazu.
         success: Obraz przesłany pomyślnie.
       drag_and_drop_help: Dodaj obrazy, przeciągając i upuszczając lub wklejając je.
-    endorsement_buttons_cell:
-      already_endorsed: Nie lubię tego
-      endorse: Lubię to
-    endorsements:
-      identities:
-        done: Gotowe
-        select_identity: Wybierz tożsamość
-    endorsers_list:
-      endorsed_by: Polubione przez…
     errors:
       files:
         file_cannot_be_processed: Plik nie może zostać przetworzony
@@ -750,52 +703,6 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ byłeś aktywny na naszej stronie.
           email_subject: Osiągnąłeś poziom %{current_level} odznaki %{badge_name} !
           notification_title: Gratulacje! Osiągnąłeś poziom %{current_level} odznaki <a href="%{resource_path}">%{badge_name} </a>!
-      groups:
-        demoted_membership:
-          email_intro: Administrator grupy <a href="%{resource_url}">%{user_group_name}</a> cofnął Twoje prawa administratora do tej grupy.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś członkiem tej grupy.
-          email_subject: Nie jesteś już administratorem grupy %{user_group_name}!
-          notification_title: Nie jesteś już administratorem grupy <a href="%{resource_path}">%{user_group_name}</a>.
-        invited_to_group:
-          email_intro: Administrator grupy <a href="%{resource_url}">%{user_group_name}</a> zaprosił Cię do przyłączenia się.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ zostałeś zaproszony do grupy. Sprawdź zakładkę Grupy w swoim profilu, aby ją zatwierdzić.
-          email_subject: Zostałeś zaproszony do dołączenia do grupy %{user_group_name}!
-          notification_title: Zostałeś zaproszony do dołączenia do grupy <a href="%{resource_path}">%{user_group_name}</a>. Sprawdź <a href="%{groups_profile_tab_path}">zakładkę Grupy</a> w swoim profilu, aby przyjąć zaproszenie!
-        join_request_accepted:
-          email_intro: Gratulacje! Administrator grupy <a href="%{resource_url}">%{user_group_name}</a> zaakceptował Twoją prośbę o dołączenie.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ Twoja prośba o dołączenie zostało zaktualizowane.
-          email_subject: Zostałeś przyjęty do grupy %{user_group_name}!
-          notification_title: Zostałeś przyjęty do grupy <a href="%{resource_path}">%{user_group_name}</a>.
-        join_request_created:
-          email_intro: Ktoś poprosił o dołączenie do grupy %{user_group_name}. Możesz zaakceptować lub odrzucić prośbę na <a href="%{resource_url}">stronie członków grupy</a>.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ masz prawa do zarządzania grupą %{user_group_name}.
-          email_subject: Ktoś poprosił o dołączenie do grupy %{user_group_name}!
-          notification_title: Ktoś poprosił o dołączenie do grupy %{user_group_name}. Możesz zaakceptować lub odrzucić prośbę o dołączenie na <a href="%{resource_path}">stronie członków grupy</a>.
-        join_request_rejected:
-          email_intro: Administrator grupy <a href="%{resource_url}">%{user_group_name}</a> odrzucił Twoją prośbę o dołączenie.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ Twoja prośba o dołączenie została zaktualizowana.
-          email_subject: Twoja prośba o dołączenie do grupy %{user_group_name} została odrzucona!
-          notification_title: Twoja prośba o dołączenie do grupy <a href="%{resource_path}">%{user_group_name}</a> została odrzucona.
-        promoted_to_admin:
-          email_intro: Administrator <a href="%{resource_url}">%{user_group_name}</a> przyznał Ci prawa administratora tej grupy.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś członkiem tej grupy.
-          email_subject: Jesteś teraz administratorem grupy %{user_group_name}!
-          notification_title: Jesteś teraz administratorem grupy <a href="%{resource_path}">%{user_group_name}</a>.
-        removed_from_group:
-          email_intro: Administrator <a href="%{resource_url}">%{user_group_name}</a> usunął Cię z tej grupy.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ byłeś członkiem tej grupy.
-          email_subject: Zostałeś usunięty z grupy %{user_group_name}!
-          notification_title: Zostałeś usunięty z grupy <a href="%{resource_path}">%{user_group_name}</a>.
-        user_group_created:
-          email_intro: Utworzono nową grupę użytkowników o nazwie %{user_group_name}. Możesz ją teraz zweryfikować w <a href="%{groups_admin_url}">panelu administratora</a>.
-          email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem platformy.
-          email_subject: Utworzono nową grupę użytkowników
-          notification_title: Utworzono grupę użytkowników %{user_group_name}. Możesz ją teraz zweryfikować w <a href="%{groups_admin_path}">panelu administratora</a>.
-        user_group_updated:
-          email_intro: Grupa użytkowników o nazwie %{user_group_name} zaktualizowała swój profil, pozostawiając go niezweryfikowanym. Możesz go teraz zweryfikować w <a href="%{groups_admin_url}">panelu administratora</a>.
-          email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem platformy.
-          email_subject: Grupa użytkowników zaktualizowała swój profil
-          notification_title: Grupa użytkowników %{user_group_name} zaktualizowała swój profil, pozostawiając go niezweryfikowanym. Możesz go teraz zweryfikować w <a href="%{groups_admin_path}">panelu administratora</a>.
       nickname_event:
         notification_body: Skorygowaliśmy sposób, w jaki używane są pseudonimy, aby nie było duplikatów i dlatego usunęliśmy zasadę uwzględniającą wielkość liter. <br/> Twój pseudonim został utworzony po innym o tej samej nazwie, więc automatycznie zmieniliśmy jego nazwę. Możesz to zmienić z <a href="%{link_to_account_settings}">ustawień konta</a>.
       notification_event:
@@ -808,11 +715,6 @@ pl:
           notification_title: |-
             Administrator usunął %{resource_type}, ponieważ treść została zgłoszona jako %{report_reasons}.</br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, którego śledzisz, właśnie zarekomendował(a) „%{resource_title}” i uważamy, że może Cię to zainteresować. Sprawdź i zadecyduj:'
-        email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz %{endorser_nickname}. Możesz przestać otrzymywać powiadomienia klikając poprzedni link.
-        email_subject: "%{endorser_nickname} zarekomendował(a) nową propozycję"
-        notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> %{resource_type} została zarekomendowana przez <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: Zaktualizowano <a href="%{resource_url}">stronę profilową</a> użytkownika %{name} (%{nickname}), którego obserwujesz.
@@ -826,10 +728,7 @@ pl:
           notification_title: Uczestnik %{name} (%{nickname}) został oficjalnie zarejestrowany.
     export_mailer:
       download_your_data_export:
-        click_button: 'Kliknij poniższy przycisk, aby pobrać swoje dane. <br/>Plik będzie dostępny do %{date}. <br/>Będziesz potrzebował <a href=''''https://www.7-zip.org/''''>7-Zip</a> (Windows), <a href="https://www.keka.io/en/">Keka</a> (MacOS) lub <a href="https://peazip.github.io">PeaZip</a> (Linux) do otwarcia pliku. Hasło: %{password}'
         download: Pobieranie
-      export:
-        ready: Mail zawiera załączony plik eksportu.
       subject: Twój eksport "%{name}" jest gotowy
     filters:
       linked_classes:
@@ -868,6 +767,11 @@ pl:
         button: Przestań obserwować
         error: Nastąpił błąd podczas cofania obserwowania tego zasobu.
     forms:
+      attachment_link:
+        explanation: Wytyczne dotyczące linków do załącznika
+        help_messages:
+          - Akceptowane są tylko poprawne formaty URL.
+          - Pamiętaj, że linki muszą być publiczne, aby wszyscy uczestnicy mieli do nich dostęp.
       errors:
         decidim/user:
           password: Hasło jest za krótkie.
@@ -877,7 +781,6 @@ pl:
         file:
           explanation: 'Wytyczne dotyczące pliku:'
           message_1: Ma być obrazem lub dokumentem.
-          message_2: W przypadku obrazów używaj najlepiej tych o orientacji poziomej, usługa przycina obraz.
         icon:
           explanation: 'Wytyczne dla ikony:'
           message_1: Musi być obrazem kwadratowym.
@@ -903,11 +806,11 @@ pl:
           filename: Nazwa pliku
           remove: Usuń
           replace: Zamień
+          save: Zapisz
           title: Tytuł
           title_required: Tytul jest obowiazkowy!
           uploaded: Przesłano
           validating: Weryfikowanie...
-          validation_error: Błąd walidacji!
         select_file: Wybierz plik
       upload_help:
         dropzone: Upuść pliki tutaj lub użyj przycisku do przesłania
@@ -934,98 +837,18 @@ pl:
       level: Poziom %{level}
       reached_top: Masz najwyższy poziom tej odznaki.
       title: Co to są odznaki?
-    group_admins:
-      actions:
-        are_you_sure: Na pewno? Nie spowoduje to usunięcia uczestnika z grupy.
-        demote_admin: Usuń administratora
-      demote:
-        error: Wystąpił błąd podczas usuwania tego użytkownika z listy administratorów.
-        success: Użytkownik został pomyślnie usunięty z listy administratorów.
-      index:
-        current_admins: 'Obecni administratorzy:'
-        manage_admins: Zarządzaj administratorami
-    group_invites:
-      accept:
-        error: Wystąpił błąd podczas akceptowania tego zaproszenia.
-        success: Zaproszenie zostało zaakceptowane.
-      accept_invitation: Akceptuj
-      accept_or_reject_group_invitations: 'Następujące grupy zaprosiły Cię do dołączenia do nich. Zaakceptuj lub odrzuć ich zaproszenia:'
-      index:
-        invite: Zaproś
-        invite_user: Zaproś użytkownika
-      invite:
-        error: Podczas zapraszania tego użytkownika wystąpił błąd.
-        success: Użytkownik został zaproszony.
-      pending_invitations: Oczekujące prośby
-      reject:
-        error: Wystąpił błąd podczas odrzucania tego zaproszenia.
-        success: Zaproszenie zostało odrzucone.
-      reject_invitation: Odrzuć
-    group_members:
-      accept:
-        error: Wystąpił błąd podczas akceptowania prośby o dołączenie.
-        success: Prośba o dołączenie została zaakceptowana.
-      actions:
-        are_you_sure: Jesteś pewny?
-        promote_to_admin: Uczyń administratorem
-        remove_from_group: Usuń użytkownika
-      index:
-        current_members_without_admins: 'Aktualni członkowie (bez administratorów):'
-        manage_members: Zarządzaj członkami
-      promote:
-        error: Wystąpił błąd podczas awansowania tego użytkownika.
-        success: Użytkownik został pomyślnie awansowany.
-      reject:
-        error: Wystąpił błąd podczas odrzucania tej prośby o dołączenie.
-        success: Prośba o dołączenie została odrzucona.
-      remove:
-        error: Wystąpił błąd podczas usuwania tego użytkownika z grupy.
-        success: Użytkownik został usunięty z grupy.
     groups:
-      actions:
-        are_you_sure: Jesteś pewny?
-      create:
-        error: Podczas tworzenia grupy wystąpił błąd.
-        success: Grupa została utworzona pomyślnie.
-      edit:
-        edit_user_group: Edytuj grupę
-        update_user_group: Zaktualizuj grupę
-      form:
-        document_number_help: Nie używaj myślników ani spacji.
-        email_help: Adres e-mail Twojej organizacji, stowarzyszenia, zrzeszenia, grupy itp.
-        fill_in_for_verification: 'Wypełnij te pola, jeśli chcesz zweryfikować swoją grupę:'
-        name_help: Nazwa organizacji, stowarzyszenia, zrzeszenia, grupy itp.
-        nickname_help: Nazwa użytkownika Twojej organizacji, stowarzyszenia, zrzeszenia, grupy itp. Nie używaj spacji ani polskich znaków.
-        phone_help: Nie używaj myślników ani spacji.
-      join:
-        error: Podczas dołączania do grupy wystąpił błąd.
-        success: Prośba o dołączenie została wysłana. Administrator sprawdzi Twoją aplikację przed zaakceptowaniem Cię do grupy.
-      leave:
-        error: Podczas opuszczania grupy wystąpił błąd.
-        last_admin: Nie możesz usunąć siebie z tej grupy, ponieważ jesteś ostatnim administratorem. Aby opuścić grupę, należy uczynić innego członka administratorem.
-        success: Opuszczono grupę.
-      members:
-        accept_or_reject_join_requests: 'Następujący użytkownicy zgłosili się, aby dołączyć do tej grupy. Zaakceptuj lub odrzuć ich prośby:'
-        accept_request: Zaakceptować
-        reject_request: Odrzuć
-      new:
-        create_user_group: Utwórz grupę
-        new_user_group: Nowa grupa
-        subtitle: Utwórz grupę, zaproś innych użytkowników i działajcie wspólnie.
-      no_user_groups: Nie należy jeszcze do żadnej grupy.
       roles:
         admin: Administrator
         creator: Administrator
         member: Członek
-      update:
-        error: Wystąpił błąd podczas aktualizacji grupy.
-        success: Grupa została zaktualizowana.
     help:
       main_topic:
         default_page:
           content: "<p>W %{organization} możesz brać udział i decydować o różnych tematach, poprzez przestrzenie widoczne w górnym menu: Procesy, Zespoły, Inicjatywy, Konsultacje.</p> <p>W ramach każdego z nich znajdziesz różne opcje uczestnictwa: składanie propozycji - indywidualnie lub wspólnie z innymi osobami - uczestnictwo w debatach, nadawanie priorytetów projektom do realizacji, uczestnictwo w spotkaniach twarzą w twarz i inne działania.</p>\n"
           title: Co mogę zrobić w %{organization}?
         description: Przeczytaj więcej o %{organization}.
+        title: Ogólne
     last_activities:
       all: Wszystkie typy aktywności
       index:
@@ -1073,42 +896,16 @@ pl:
       static:
         latlng_text: 'szerokość geograficzna: %{latitude}, długość geograficzna: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: Ten grupa nie ma jeszcze żadnych członków.
     menu:
       help: Pomoc
       home: Strona główna
     messaging:
       conversation_mailer:
-        comanagers_new_conversation:
-          admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
-          greeting: Cześć, %{recipient}!
-          intro: "%{manager} rozpoczął/rozpoczęła nową konwersację w imieniu %{group}. Kliknij tutaj, aby ją zobaczyć:"
-          outro: Ciesz się platformą!
-          subject: "%{manager} rozpoczął/rozpoczęła nową konwersację jako %{group}"
-        comanagers_new_message:
-          admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
-          greeting: Cześć, %{recipient}!
-          intro: "%{manager} wysłał(a) nową wiadomość w konwersacji w imieniu %{group}. Kliknij tutaj, aby ją zobaczyć:"
-          outro: Ciesz się platformą!
-          subject: "%{manager} wysłał(a) nowe wiadomości jako %{group}"
         new_conversation:
           greeting: Cześć, %{recipient}!
           intro: "%{sender} rozpoczął/rozpoczęła z tobą nową rozmowę. Kliknij tutaj, aby zobaczyć:"
           outro: Ciesz się platformą!
           subject: "%{sender} rozpoczął/rozpoczęła z Tobą rozmowę"
-        new_group_conversation:
-          admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
-          greeting: Cześć, %{recipient}!
-          intro: "%{sender} rozpoczął/rozpoczęła nową konwersację z grupą %{group}. Kliknij tutaj, aby ją zobaczyć:"
-          outro: Ciesz się platformą!
-          subject: "%{sender} rozpoczął/rozpoczęła konwersację z %{group}"
-        new_group_message:
-          admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
-          greeting: Cześć, %{recipient}!
-          intro: "%{sender} wysłał(a) nową wiadomość w konwersacji z grupą %{group}. Kliknij tutaj, aby ją zobaczyć:"
-          outro: Ciesz się platformą!
-          subject: "%{group} ma nowe wiadomości od %{sender}"
         new_message:
           greeting: Cześć, %{recipient}!
           intro: "%{sender} wysłał(a) nową wiadomość w konwersacji. Kliknij tutaj, aby ją zobaczyć:"
@@ -1153,21 +950,6 @@ pl:
         finished: 'Zakończono: %{end_date}'
         not_started: Jeszcze nie rozpoczęto
         remaining: "Pozostało %{time_distance}"
-    metrics:
-      download:
-        csv: Pobierz dane (CSV)
-      followers:
-        description: Liczba użytkowników obserwujących tę przestrzeń partycypacyjną
-        object: obserwujący
-        title: Obserwujący
-      participants:
-        description: Liczba aktywnych użytkowników w organizacji
-        object: użytkownicy
-        title: Użytkownicy
-      users:
-        description: Liczba użytkowników w organizacji
-        object: użytkownicy
-        title: Użytkownicy
     newsletter_mailer:
       newsletter:
         no_reply_notice: Ta wiadomość została wysłana z adresu do powiadomień, który nie akceptuje poczty przychodzącej. Prosimy na nią nie odpowiadać.
@@ -1221,9 +1003,11 @@ pl:
         same_language: Treść została zamieszczona w preferowanym przez Ciebie języku (%{language}), dlatego w tej wiadomości e-mail nie wyświetlono żadnego automatycznego tłumaczenia.
         translated_text: 'Automatycznie przetłumaczony tekst:'
     notifications:
+      action_error: Wystąpił problem z aktualizacją powiadomień.
       no_notifications: Brak powiadomień.
       show:
         missing_event: Ups, to powiadomienie należy do elementu, który nie jest już dostępny. Możesz je odrzucić.
+        moderated: Zawartość moderowana
     notifications_digest_mailer:
       header:
         daily: Podsumowanie codziennych powiadomień
@@ -1292,20 +1076,14 @@ pl:
           participate: Weź udział
           participate_title: Weź udział w procesach platformy
           welcome: Witamy w %{organization}!
-        statistics:
-          headline: Aktualny stan %{organization}
         sub_hero:
           register: Zarejestruj się
-          register_title: Zarejestruj się, aby utworzyć konto
+          register_title: Utwórz konto
       index:
         standalone_pages: Strony
         subheading: '%{name} - zapoznaj się ze stronami pomocy'
         title: Pomoc
         topics: Tematy
-      participatory_space:
-        metrics:
-          headline: Partycypacja w liczbach
-          link: Pokaż wszystkie statystyki
       terms_of_service:
         accept:
           error: Wystąpił błąd podczas akceptowania warunków.
@@ -1331,7 +1109,6 @@ pl:
       deleted: Usunięty użytkownik
       inaccessible_message: Ten profil jest niedostępny z powodu naruszenia regulaminu!
     profiles:
-      default_officialization_text_for_user_groups: Ta grupa użytkowników jest publicznie zweryfikowana, jej nazwa została zweryfikowana, aby odpowiadała jej prawdziwej nazwie.
       default_officialization_text_for_users: Ten uczestnik jest publicznie zweryfikowany, jego/jego nazwisko lub rola zostały zweryfikowane, aby odpowiadały jego/jej prawdziwemu imieniu i roli.
       show:
         activity: Działalność
@@ -1339,47 +1116,15 @@ pl:
         conversations: Konwersacje
         followers: Obserwujący
         following: Obserwowane
-        group_admins: Zarządzaj administratorami
-        group_members: Zarządzaj członkami
-        groups: Grupy
-        members: Członkowie
         officialized: Oficjalny użytkownik
         send_private_message: Wyślij wiadomość prywatną
-      sidebar:
-        badges:
-          info: Odznaki zdobywa się wykonując określoną czynność na platformie.
-          title: Odznaki
       user:
         actions:
-          create_user_group: Utwórz grupę
           disabled_message: Wiadomość
           edit_profile: Edytuj profil
-          edit_user_group: Edytuj profil grupy
-          invite_user: Zaproś uczestnika
-          join_user_group: Poproś o dołączenie do grupy
-          leave_user_group: Opuścić grupę
-          manage_user_group: Zarządzanie grupą
-          manage_user_group_admins: Zarządzaj administratorami
-          manage_user_group_users: Zarządzaj członkami
           message: Wiadomość
           resend_email_confirmation_instructions: Wyślij ponownie instrukcje dotyczące potwierdzenia adresu e-mail
-        confirmation_instructions_sent: Wysłano instrukcje dotyczące potwierdzenia adresu e-mail.
-        create_user_group: Utwórz grupę
-        edit_profile: Edytuj profil
-        edit_user_group: Edytuj profil grupy
-        fill_in_email_to_confirm_it: Podaj adres e-mail grupy, aby go potwierdzić.
-        invite_user: Zaproś użytkownika
-        join_user_group: Poproś o dołączenie do grupy
-        leave_user_group: Opuścić grupę
-        manage_user_group_admins: Zarządzaj administratorami
-        manage_user_group_users: Zarządzaj członkami
-        resend_email_confirmation_instructions: Wyślij ponownie instrukcje dotyczące potwierdzenia adresu e-mail
     reported_mailer:
-      hide:
-        hello: Witaj %{name},
-        manage_moderations: Zarządzaj moderacjami
-        report_html: <p>Poniższa<a href="%{url}">zawartość</a> została ukryta automatycznie.</p>
-        subject: Zasób został ukryty automatycznie
       report:
         authors: Autorzy
         content: Zgłoszona zawartość
@@ -1395,27 +1140,13 @@ pl:
         subject: Zasób został zgłoszony
     reports:
       create:
-        error: Wystąpił błąd podczas tworzenia zgłoszenia. Proszę spróbować ponownie.
         success: Zgłoszenie zostało utworzone z powodzeniem i zostanie zweryfikowane przez administratora.
-    resource_endorsements:
-      create:
-        error: Wystąpił błąd podczas udzielania rekomendacji.
     scopes:
       global: Zakres globalny
-      picker:
-        cancel: Anuluj
-        change: Zmień wybrany zakres
-        choose: Wybierz
-        currently_selected: Aktualnie wybrany zakres
-        title: Wybierz %{field}
       prompt: Wybierz zakres
-      scopes: Zakresy
-      scopes_picker_input:
-        select_scope: 'Wybierz zakres (obecny: %{current})'
     search:
       name: Szukaj
       results: Wyniki wyszukiwania
-      results_found_for_term: '%{count} wyników wyszukiwania dla frazy: "%{term}"'
       term_input_placeholder: Szukaj
     searches:
       filters:
@@ -1428,6 +1159,7 @@ pl:
           past: Przeszły
       filters_small_view:
         filter: Filtr
+        filter_and_search: Filtruj i szukaj
         filter_by: Filtruj według
       results:
         view_all: Zobacz wszystko (%{count})
@@ -1443,9 +1175,6 @@ pl:
         title: Potwierdź
       embed:
         title: Wbudowana zawartość wideo
-      extended_navigation_bar:
-        more: Więcej
-        unfold: Rozwiń
       filter_form_help:
         help: Poniższy formularz filtruje wyniki wyszukiwania na bieżąco po zmianie warunków wyszukiwania.
         skip: Przejdź do wyników
@@ -1464,37 +1193,25 @@ pl:
       flag_user_modal:
         already_reported: Ta treść została już zgłoszona i zostanie sprawdzona przez administratora.
         block: Zablokuj tego uczestnika
-        close: Zamknij
-        description: Jaki jest powód zgłoszenia użytkownika?
         does_not_belong: Zawiera nielegalną aktywność, groźby samobójstwa, dane o charakterze prywatnym lub inne treści, które według Ciebie nie powinny pojawić się w %{organization_name}.
         hide: Ukryj całą zawartość
         offensive: Promuje rasizm, seksizm, kłamstwa, ataki osobiste, groźby śmierci, prośby samobójcze lub jakąkolwiek formę mowy nienawiści.
         report: Zgłoś
         spam: Zawiera clickbaity, reklamy, oszustwa lub skrypty botów.
-        title: Zgłoś użytkownika
       floating_help:
         help: Pomoc
       follow_button:
         log_in_before_follow: Przed wykonaniem czynności należy się zalogować
       login_modal:
         please_log_in: Zaloguj się
-        sign_up: Zarejestruj się
+        sign_up: Utwórz konto
       mentions_modal:
         remove_recipient: Usuń odbiorcę %{name}
-      participatory_space_filters:
-        filters:
-          area: Obszar
-          areas: Kategorie
-          scope: Zakres
-          select_an_area: Wybierz kategorię
       progress: Postęp
       public_participation:
         public_participation: Wyświetl publicznie moje uczestnictwo
       reference:
         reference: 'Odniesienie: %{reference}'
-      represent_user_group:
-        represent_user_group: Reprezentuję grupę
-        select_user_group: Wybierz grupę
       results_per_page:
         label: 'Wyników na stronie:'
         title: Wybierz liczbę wyników na stronie
@@ -1508,16 +1225,12 @@ pl:
         share_to: Udostępnij na %{service}
     statistics:
       comments_count: Komentarze
-      endorsements_count: Rekomendacje
       followers_count: Obserwujący
       headline: Statystyki
       no_stats: Nie ma jeszcze żadnych statystyk.
       pages_count: Stron
       participants_count: Użytkowników
       users_count: Uczestników
-    tags:
-      filter_results_for_category: 'Filtruj wyniki dla kategorii: %{resource}'
-      filter_results_for_scope: 'Filtruj wyniki dla zakresu: %{resource}'
     translation_bar:
       help_text: "<strong>Uwaga:</strong> Zawartość może być tłumaczeniem automatycznym i może nie być w 100% dokładna."
       show_original: Pokaż oryginalny tekst
@@ -1527,28 +1240,8 @@ pl:
         no_activities_warning: Ten uczestnik nie ma jeszcze żadnej aktywności.
     user_contact_disabled: Ten użytkownik nie przyjmuje bezpośrednich wiadomości.
     user_conversations:
-      create:
-        error: Nie udało się utworzyć wiadomości. Spróbuj ponownie później.
-        existing_error: Nie można utworzyć wiadomości. Konwersacja już istnieje, spróbuj ponownie teraz.
-        success: Konwersacja rozpoczęta!
       index:
-        conversations_info: Konwersacje są prywatne. Nikt inny ich nie widzi. Konwersację można rozpocząć z dowolnym użytkownikiem lub grupą zarejestrowanymi na platformie.
-        no_conversations_warning: Brak konwersacji.
         time_ago: "%{time} temu"
-      reply:
-        placeholder: Twoja odpowiedź...
-        send: Wyślij
-      update:
-        error: Wiadomość nie została wysłana. Spróbuj ponownie później
-    user_interests:
-      show:
-        my_interests: Moje zainteresowania
-        no_scopes: Ta organizacja nie ma jeszcze żadnego zakresu!
-        select_your_interests: Wybierz tematy, które Cię interesują, aby widzieć wydarzenia z nimi związane w zakładce Oś czasu na Twoim profilu.
-        update_my_interests: Zaktualizuj moje zainteresowania
-      update:
-        error: Wystąpił błąd podczas aktualizowania Twoich zainteresowań.
-        success: Twoje zainteresowania zostały zaktualizowane.
     user_report_mailer:
       notify:
         body_1: Użytkownik %{user} został zgłoszony przez %{token}
@@ -1605,7 +1298,7 @@ pl:
       locked: Twoje konto jest zablokowane.
       not_found_in_database: 'Nieprawidłowe dane: %{authentication_keys} lub hasło.'
       timeout: Twoja sesja wygasła. Aby kontynuować, zaloguj się ponownie.
-      unauthenticated: Zaloguj się lub zarejestruj, aby kontynuować.
+      unauthenticated: Musisz się zalogować lub utworzyć konto, zanim przejdziesz dalej.
     invitations:
       edit:
         header: Zakończ tworzenie konta
@@ -1693,7 +1386,7 @@ pl:
     registrations:
       destroyed: Twoje konto zostało pomyślnie zawieszone. Mamy nadzieję zobaczyć Cię ponownie wkrótce.
       new:
-        sign_up: Zarejestruj się
+        sign_up: Utwórz konto
       signed_up: Witamy! Zarejestrowałeś się pomyślnie.
       signed_up_but_inactive: Zarejestrowałeś się pomyślnie. Nie możemy Cię jednak zalogować, ponieważ Twoje konto nie zostało jeszcze aktywowane.
       signed_up_but_locked: Zarejestrowałeś się pomyślnie. Nie możemy Cię jednak zalogować, ponieważ Twoje konto jest zablokowane.
@@ -1714,7 +1407,7 @@ pl:
         forgot_your_password: Nie pamiętasz hasła?
         log_in: Zaloguj się
         log_in_with_provider: Zaloguj się z %{provider}
-        sign_up: Zarejestruj się
+        sign_up: Utwórz konto
       minimum_password_length:
         one: "(Minimum%{count} znak)"
         few: "(Minimum%{count} znaków)"
@@ -1830,13 +1523,8 @@ pl:
       long_words: zawiera słowa, które są zbyt długie (powyżej 35 znaków)
       must_start_with_caps: musi zaczynać się od dużej litery
       nesting_too_deep: nie może wchodzić w skład podkategorii
-      not_found: nie został znaleziony. Czy zarejestrowałeś(-aś) się wcześniej?
+      not_found: nie może zostać znaleziony. Czy utworzyłeś(aś) wcześniej konto?
       not_locked: nie był zablokowany
-      not_saved:
-        one: 'Wystąpił błąd podczas przetwarzania Twojego żądania:'
-        few: 'Podczas przetwarzania Twojego żądania wystąpiły błędy:'
-        many: 'Podczas przetwarzania Twojego żądania wystąpiły błędy:'
-        other: 'Podczas przetwarzania Twojego żądania wystąpiły błędy:'
       too_many_marks: używa zbyt wielu kolejnych znaków interpunkcyjnych (np.! i?)
       too_much_caps: używa zbyt dużej liczby wielkich liter (ponad 25% tekstu)
       too_short: jest za krótkie (poniżej %{count} znaków)
@@ -1915,12 +1603,13 @@ pl:
         data_consent_settings: Ustawienia cookies
         decidim_logo: Logo Decidim
         decidim_title: Decidim
-        download_open_data: Pobierz pliki Open Data
         log_in: Zaloguj się
         made_with_open_source: Strona internetowa powstała z użyciem <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
         resources: Zasoby
-        sign_up: Zarejestruj się
+        sign_up: Utwórz konto
+        terms_of_service: Regulamin świadczenia usług
       header:
+        log_in: Zaloguj się
         main_menu: Menu główne
         user_menu: Menu użytkownika
       impersonation_warning:
@@ -1960,11 +1649,9 @@ pl:
         authorizations: Autoryzacje
         delete_my_account: Usuń moje konto
         my_data: Moje dane
-        my_interests: Moje zainteresowania
         notifications_settings: Ustawienia powiadomień
         profile: Profil
         title: Ustawienia użytkownika
-        user_groups: Grupy
   locale:
     name: Polski
     name_with_error: Polski (błąd!)

@@ -4,7 +4,6 @@ ro:
       participatory_process:
         announcement: Anunţ
         area_id: Zonă
-        banner_image: Imagine pentru banner
         copy_categories: Copiază categoriile
         copy_components: Copiază componentele
         copy_steps: Copiază pașii
@@ -14,7 +13,6 @@ ro:
         document: Document
         domain: Domeniu
         end_date: Data de încheiere
-        hashtag: Hashtag
         hero_image: Imagine pentru pagina principală
         import_attachments: Importă atașamente
         import_categories: Importă categorii
@@ -23,19 +21,13 @@ ro:
         local_area: Zona organizației
         meta_scope: Metadate privind domeniul de interes
         participatory_process_group_id: Grupul proceselor
-        participatory_process_type_id: Tip proces
         participatory_scope: Ce se decide
         participatory_structure: Cum se decide
         private_space: Proces privat
         promoted: Promovat
         published_at: Publicat la
         related_process_ids: Procese asociate
-        scope_id: Domeniu de interes
-        scope_type_max_depth_id: Gradul de adâncime al filtrului privind domeniul
-        scopes_enabled: Domenii de interes activate
         short_description: Descriere scurtă
-        show_metrics: Arată indicatori
-        show_statistics: Arată statistici
         slug: URL slug
         start_date: Data de început
         subtitle: Subtitlu
@@ -46,7 +38,6 @@ ro:
         description: Descriere
         developer_group: Grup promotor
         group_url: Pagină web
-        hashtag: Hashtag
         hero_image: Imagine
         local_area: Zona organizației
         meta_scope: Metadate privind domeniul de interes
@@ -62,8 +53,6 @@ ro:
         end_date: Data de încheiere
         short_description: Descriere scurtă
         start_date: Data de început
-        title: Titlu
-      participatory_process_type:
         title: Titlu
       participatory_process_user_role:
         email: E-mail
@@ -96,17 +85,14 @@ ro:
     admin:
       actions:
         activate: Activează
-        configure: Configurează
         confirm_destroy: Confirmă ștergerea
         destroy: Șterge
         duplicate: Duplică
         edit: Editează
         import_process: Importă
-        moderate: Moderează
         new_process: Proces nou
         new_process_group: Grup nou de proces
         new_process_step: Etapă nouă
-        new_process_type: Tip nou de proces
         new_process_user_role: Administrator nou al procesului
         preview: Previzualizează
         publish: Publică
@@ -116,17 +102,13 @@ ro:
         participatory_process_groups: Grupuri ale procesului
         participatory_process_groups_submenu:
           info: Informații
-          landing_page: Pagina principală
-        participatory_process_types: Tipuri de proces
         participatory_processes: Procese participative
         participatory_processes_submenu:
           attachment_collections: Dosare
           attachment_files: Fișiere
           attachments: Atașamente
-          categories: Categorii
           components: Componente
           moderations: Moderări
-          private_users: Participanți privați
           process_admins: Administratori de proces
           steps: Etape
       models:
@@ -147,11 +129,6 @@ ro:
             start_date: Data de început
             title: Titlu
           name: Etapa procesului participativ
-        participatory_process_type:
-          fields:
-            created_at: Creat la
-            title: Titlu
-          name: Tip proces
         participatory_process_user_role:
           fields:
             email: E-mail
@@ -161,8 +138,8 @@ ro:
           roles:
             admin: Administrator
             collaborator: Colaborator
+            evaluator: Evaluator
             moderator: Moderator
-            valuator: Evaluator
         user:
           fields:
             invitation_accepted_at: Invitație acceptată la
@@ -174,7 +151,6 @@ ro:
           title: Duplicarea procesului participativ
       participatory_process_groups:
         destroy:
-          error: A apărut o eroare la eliminarea grupului de proces participativ.
           success: Grupul procesului participativ a fost şters cu succes.
         edit:
           title: Editează grupul procesului
@@ -227,21 +203,6 @@ ro:
         update:
           error: A apărut o problemă la actualizarea acestei etape a procesului participativ.
           success: Etapa procesul participativ a fost actualizată cu succes.
-      participatory_process_types:
-        create:
-          error: A apărut o eroare la crearea unui nou tip de proces.
-          success: Tipul de proces a fost creat.
-        destroy:
-          success: Tipul de proces a fost șters.
-        edit:
-          title: Editează tipul de proces
-          update: Actualizează
-        new:
-          create: Creează
-          title: Tip nou de proces
-        update:
-          error: A apărut o eroare la actualizarea acestui tip de proces.
-          success: Tipul de proces a fost actualizat.
       participatory_process_user_roles:
         create:
           error: A apărut o problemă la adăugarea unui participant pentru acest proces participativ.
@@ -345,11 +306,6 @@ ro:
           not_found: 'Tipul procesului nu a fost găsit în baza de date (ID: %{id}).'
     menu:
       processes: Procese participative
-    metrics:
-      participatory_processes:
-        description: Numărul de procese participative ale acestei organizații
-        object: procese participative
-        title: Procese participative
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -368,6 +324,8 @@ ro:
             one: 1 proces
             few: "%{count} procese"
             other: "%{count} procese"
+      related_processes:
+        help: Toate procesele selectate vor fi atribuite acestui grup, inclusiv celor care sunt deja atribuite altor grupuri.
       show:
         title: Grupuri ale procesului participativ
     participatory_process_steps:
@@ -395,15 +353,11 @@ ro:
           form:
             announcement_help: Textul pe care îl introduci aici va fi afișat utilizatorului chiar sub informațiile procesului.
             duration: Durată
-            filters: Filtre
             images: Imagini
             metadata: Metadate
-            other: Altele
             related_processes: Procese asociate
-            scope_type_max_depth_help: Limitează gradul de adâncime al filtrului privind domeniul; Filtrul afișează de la general la tipul de domeniu selectat.
-            select_an_area: Selectează o zonă
-            select_participatory_process_type: Selectați un tip de proces
             select_process_group: Selectează un grup de proces
+            taxonomies: Taxonomii
             title: Informaţii generale
       content_blocks:
         highlighted_processes:
@@ -411,10 +365,12 @@ ro:
       index:
         title: Procese participative
       last_activity:
-        new_participatory_process: Proces participativ nou
-      participatory_process_steps:
-        index:
-          back_to_process: Înapoi la pagina de proces
+        new_participatory_process: 'Proces participativ nou:'
+      pages:
+        home:
+          highlighted_processes:
+            active_spaces: Procese participative active
+            see_all_spaces: Vedeți tot
       participatory_processes:
         filters:
           all_types: Toate tipurile
@@ -454,6 +410,7 @@ ro:
         related_processes: Procese asociate
     statistics:
       processes_count: Procese
+      processes_count_tooltip: Numărul de procese participative publice.
   layouts:
     decidim:
       participatory_process_groups:

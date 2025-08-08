@@ -1,39 +1,33 @@
 import PasswordToggler from "src/decidim/password_toggler";
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   const $userRegistrationForm = $("#register-form");
-  const $userGroupFields      = $userRegistrationForm.find(".user-group-fields");
+  const $userOmniauthRegistrationForm = $("#omniauth-register-form");
   const userPassword         =  document.querySelector(".user-password");
-  const inputSelector         = 'input[name="user[sign_up_as]"]';
   const newsletterSelector    = 'input[type="checkbox"][name="user[newsletter]"]';
   const $newsletterModal      = $("#sign-up-newsletter-modal");
 
-
-  const setGroupFieldsVisibility = (value) => {
-    if (value === "user") {
-      $userGroupFields.hide();
-    } else {
-      $userGroupFields.show();
-    }
-  }
-
   const checkNewsletter = (check) => {
     $userRegistrationForm.find(newsletterSelector).prop("checked", check);
+    $userOmniauthRegistrationForm.find(newsletterSelector).prop("checked", check);
     $newsletterModal.data("continue", true);
     window.Decidim.currentDialogs["sign-up-newsletter-modal"].close()
     $userRegistrationForm.submit();
+    $userOmniauthRegistrationForm.submit();
   }
-
-  setGroupFieldsVisibility($userRegistrationForm.find(`${inputSelector}:checked`).val());
-
-  $userRegistrationForm.on("change", inputSelector, (event) => {
-    const value = event.target.value;
-
-    setGroupFieldsVisibility(value);
-  });
 
   $userRegistrationForm.on("submit", (event) => {
     const newsletterChecked = $userRegistrationForm.find(newsletterSelector);
+    if (!$newsletterModal.data("continue")) {
+      if (!newsletterChecked.prop("checked")) {
+        event.preventDefault();
+        window.Decidim.currentDialogs["sign-up-newsletter-modal"].open()
+      }
+    }
+  });
+
+  $userOmniauthRegistrationForm.on("submit", (event) => {
+    const newsletterChecked = $userOmniauthRegistrationForm.find(newsletterSelector);
     if (!$newsletterModal.data("continue")) {
       if (!newsletterChecked.prop("checked")) {
         event.preventDefault();

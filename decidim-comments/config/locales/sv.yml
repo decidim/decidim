@@ -3,9 +3,8 @@ sv:
     models:
       decidim/comments/comment_by_followed_user_event: Kommentar
       decidim/comments/comment_created_event: Kommentar
-      decidim/comments/comment_upvoted_event: Kommentar uppröstad
+      decidim/comments/comment_upvoted_event: Uppröstad kommentarer
       decidim/comments/reply_created_event: Svar till en kommentar
-      decidim/comments/user_group_mentioned_event: Nämn
       decidim/comments/user_mentioned_event: Nämn
   activerecord:
     models:
@@ -16,53 +15,75 @@ sv:
         one: Röst
         other: Röster
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Kommentarer
     comments:
       admin:
         shared:
           availability_fields:
-            enabled: Kommentarer aktiverade
-            end_time: Kommentarer aktiverade till
+            enabled: Aktivera kommentarer
+            end_time: Kommentarer aktiverade till och med
             start_time: Kommentarer aktiverade från och med
+      comment_thread:
+        accessibility_label: Kommentartråden startad av %{full_name} den %{date}
       comments:
         create:
           error: Det gick inte att skapa kommentaren.
+        delete:
+          error: Kommentaren kunde inte tas bort.
         update:
           error: Det gick inte att uppdatera kommentaren.
       comments_title: Kommentar
+      last_activity:
+        new_comment: 'Ny kommentar:'
       votes:
         create:
           error: Det gick inte att rösta om kommentaren.
     components:
       add_comment_form:
+        account_message: Logga in eller skapa ett konto för kommentera.
+        add_comment: Kommentera
         form:
           body:
             label: Kommentera
             placeholder: Vad tycker du om detta?
+          form_error: Texten är obligatorisk och får inte vara längre än %{length} tecken.
           submit_reply: Publicera svar
-          user_group_id:
-            label: Kommentera som
+          submit_root_comment: Publicera kommentar
         opinion:
-          label: Din åsikt om detta ämne
+          label: Din åsikt om frågan
           negative: Negativ
-          negative_selected: Din åsikt om detta ämne är negativ
+          negative_selected: Din åsikt om frågan är negativ
           neutral: Neutral
-          neutral_selected: Din åsikt om detta ämne är neutral
+          neutral_selected: Din åsikt om frågan är neutral
           positive: Positiv
-          positive_selected: Din åsikt om detta ämne är positiv
+          positive_selected: Din åsikt om frågan är positiv
         remaining_characters: "%{count} tecken kvar"
         remaining_characters_1: "%{count} tecken kvar"
-        title: Lägg till din kommentar
+        title: Lämna din kommentar
       comment:
         alignment:
           against: Mot
           in_favor: För
-        confirm_destroy: Är du säker på att du vill ta bort denna kommentar?
+        answers:
+          one: "%{count} svar"
+          other: "%{count} svar"
+        cancel_reply: Avbryt svar
+        comment_label: Kommentar %{comment_id}
+        comment_label_reply: Kommentar %{comment_id} (svar på kommentar %{parent_comment_id})
+        confirm_destroy: Är du säker på att du vill ta bort kommentaren?
+        controls_label: Kontroller för kommentarer
         delete: Radera
-        deleted_at: Kommentar borttagen den %{date}
+        deleted_at: Kommentar borttagen %{date}
         deleted_user: Raderad deltagare
         edit: Redigera
         edited: Redigerad
-        moderated_at: Kommentar modererad den %{date}
+        hide_replies:
+          one: Dölj svar
+          other: Dölj %{count} svar
+        moderated_at: Kommentar modererad %{date}
         reply: Svara
         report:
           action: Rapportera
@@ -71,53 +92,72 @@ sv:
           description: Är detta innehåll olämpligt?
           details: Ytterligare kommentarer
           reasons:
-            offensive: Innehåller rasism, sexism, skällsord, personliga attacker, dödshot, uppmaningar att begå självmord eller någon form av hatpropaganda.
-            spam: Innehåller clickbait, reklam, bedrägerier eller skriptrobotar.
+            does_not_belong: Innehåller olaglig information, hot om självmord, personuppgifter eller något annat som inte hör hemma på %{organization_name}.
+            offensive: Innehåller rasism, sexism, personangrepp, mordhot, uppmaning att begå självmord eller hets mot folkgrupp.
+            spam: Innehåller clickbait, reklam, bedrägerier eller botar.
           title: Rapportera olämpligt innehåll
         show_replies:
           one: Visa svar
           other: Visa %{count} svar
         single_comment_link_title: Hämta länk
+        sort_by: 'Sortera efter: '
       comment_order_selector:
         order:
           best_rated: Bästa betyg
           most_discussed: Mest diskuterade
-          older: Äldre
+          older: Äldsta
           recent: Senaste
         title: 'Sortera efter:'
       comments:
+        against: Mot
         blocked_comments_for_unauthorized_user_warning: Du behöver verifiera dig för att kunna kommentera just nu, men du kan läsa tidigare kommentarer.
         blocked_comments_for_user_warning: Du kan inte kommentera just nu, men du kan läsa tidigare kommentarer.
-        blocked_comments_warning: Kommentarer är inaktiverade just nu, men du kan läsa de föregående.
+        blocked_comments_warning: Kommentarer är inaktiverade, endast administratörer kan svara eller skriva nya.
         comment_details_title: Kommentarsdetaljer
+        in_favor: För
         loading: Laddar kommentarer...
         single_comment_warning: <a href="%{url}">Visa alla kommentarer</a>
         single_comment_warning_title: Du visar en enda kommentar
         title:
-          one: "%{count} kommentarer"
+          one: "%{count} kommentar"
           other: "%{count} kommentarer"
+        top_comment_label: Mest stöd
       down_vote_button:
-        text: Jag håller inte med om denna kommentar
+        text: Jag instämmer inte i denna kommentar
       edit_comment_modal_form:
         close: Stäng
         form:
           body:
             label: Kommentar
-            placeholder: Vad tycker du om detta?
+            placeholder: Vad tycker du?
           submit: Skicka
         title: Redigera din kommentar
       up_vote_button:
         text: Jag instämmer i denna kommentar
+    download_your_data:
+      help:
+        comment_votes:
+          comment: Id för kommentaren som gillades
+          created_at: Datum då denna omröstning skapades
+          id: Röstens id
+          updated_at: Datum då rösten senaste uppdaterades
+          weight: Röstens vikt (1 för uppröstning, -1 för nedröstning)
+        comments:
+          alignment: Positiva, negativa eller neutrala kommentarer
+          author: Namn på den som kommenterat
+          body: Kommentaren
+          commentable_id: Kommentarens unika id
+          commentable_type: Vad som kommenterades (resultat, förslag etc)
+          created_at: Datum för kommentaren
+          depth: Kommentarens plats i en hierarki av kommentarer (om den är ett svar på en annan kommentar)
+          id: Id för kommentaren
+          locale: Kommentarförfattarens språk
+          root_commentable_url: URL till innehållet för kommentaren
     events:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} har lämnat en kommentar i %{resource_title}. Du kan läsa den på den här sidan:"
           email_outro: Du har fått den här notisen eftersom du följer %{author_name}. Du kan avfölja den här användaren från deras profilsida.
-          email_subject: Det finns en ny kommentar av %{author_name} i %{resource_title}
-          notification_title: Det finns en ny kommentar av <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>.
-        comment_by_followed_user_group:
-          email_intro: 'Gruppen %{author_name} har lämnat en kommentar i %{resource_title}. Du kan läsa den på denna sida:'
-          email_outro: Du har fått det här meddelandet eftersom du följer %{author_name}. Du kan sluta följa den här gruppen från dess profilsida.
           email_subject: Det finns en ny kommentar av %{author_name} i %{resource_title}
           notification_title: Det finns en ny kommentar av <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
@@ -128,30 +168,23 @@ sv:
         comment_downvoted:
           email_intro: Din kommentar i "%{resource_title}" har blivit nedröstad. Den har nu totalt %{upvotes} uppröster och %{downvotes} nedröster.
           email_outro: Du har fått det här meddelandet eftersom du är författare till denna kommentar.
-          email_subject: Din kommentar i "%{resource_title}" har nedröstats.
-          notification_title: Din <a href="%{resource_path}">kommentar</a> i "%{resource_title}" har nedröstats. Den har nu totalt %{upvotes} uppröster och %{downvotes} nedröster.
+          email_subject: Din kommentar till "%{resource_title}" har röstats ned.
+          notification_title: Din <a href="%{resource_path}">kommentar</a> till "%{resource_title}" har röstats ned. Den har nu totalt %{upvotes} uppröster och %{downvotes} nedröster.
         comment_upvoted:
-          email_intro: Din kommentar i "%{resource_title}" har uppröstats. Den har nu totalt %{upvotes} uppröster och %{downvotes} nedröster.
-          email_outro: Du har fått det här meddelandet eftersom du är författare till denna kommentar.
-          email_subject: Din kommentar i "%{resource_title}" har uppröstats.
-          notification_title: Din <a href="%{resource_path}">kommentar</a> i "%{resource_title}" har uppröstats. Den har nu totalt %{upvotes} uppröster och %{downvotes} nedröster.
+          email_intro: Din kommentar i "%{resource_title}" har röstats upp. Den har nu totalt %{upvotes} uppröster och %{downvotes} nedröster.
+          email_outro: Du har fått det här meddelandet eftersom du är författare till kommentaren.
+          email_subject: Din kommentar till "%{resource_title}" har röstats upp.
+          notification_title: Din <a href="%{resource_path}">kommentar</a> till "%{resource_title}" har röstats upp. Den har nu totalt %{upvotes} uppröster och %{downvotes} nedröster.
         reply_created:
           email_intro: "%{author_name} har svarat din kommentar i %{resource_title}. Du kan läsa den på den här sidan:"
           email_outro: Du har fått denna notis eftersom din kommentar blev besvarad.
           email_subject: "%{author_name} har svarat din kommentar i %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> har svarat din kommentar i <a href="%{resource_path}">%{resource_title}</a>
-        user_group_mentioned:
-          email_intro: En grupp som du tillhör har nämnts
-          email_outro: Du har fått det här meddelandet eftersom du är medlem i gruppen %{group_name} som har nämnts i %{resource_title}.
-          email_subject: Du har nämnts i %{resource_title} som en medlem i %{group_name}
-          notification_title: Du har nämnts i <a href="%{resource_path}">%{resource_title}</a> av <a href="%{author_path}">%{author_name} %{author_nickname}</a> som medlem av <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
           email_intro: Du har nämnts
           email_outro: Du har fått denna notis eftersom du har nämnts i %{resource_title}.
           email_subject: Du har nämnts i %{resource_title}
           notification_title: Du har nämnts i <a href="%{resource_path}">%{resource_title}</a> av <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: Antal kommentarer från deltagare
-        object: kommentarer
-        title: Kommentarer
+  errors:
+    messages:
+      cannot_have_comments: kan inte ha kommentarer

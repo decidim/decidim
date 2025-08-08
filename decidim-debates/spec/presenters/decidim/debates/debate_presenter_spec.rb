@@ -15,10 +15,16 @@ module Decidim::Debates
 
     describe "description" do
       let(:description1) do
-        Decidim::ContentProcessor.parse_with_processor(:hashtag, "Description #description", current_organization: organization).rewrite
+        Decidim::ContentProcessor.parse(
+          "Description description",
+          current_organization: organization
+        ).rewrite
       end
       let(:description2) do
-        Decidim::ContentProcessor.parse_with_processor(:hashtag, "Description in Spanish #description", current_organization: organization).rewrite
+        Decidim::ContentProcessor.parse(
+          "Description in Spanish description",
+          current_organization: organization
+        ).rewrite
       end
       let(:debate) do
         create(
@@ -33,13 +39,10 @@ module Decidim::Debates
         )
       end
 
-      it "parses hashtags in machine translations" do
-        expect(debate.description["en"]).to match(/gid:/)
-        expect(debate.description["machine_translations"]["es"]).to match(/gid:/)
-
+      it "parses the description through machine translations" do
         presented_description = presented_debate.description(all_locales: true)
-        expect(presented_description["en"]).to eq("Description #description")
-        expect(presented_description["machine_translations"]["es"]).to eq("Description in Spanish #description")
+        expect(presented_description["en"]).to eq("Description description")
+        expect(presented_description["machine_translations"]["es"]).to eq("Description in Spanish description")
       end
     end
   end

@@ -3,17 +3,17 @@ import { Extension } from "@tiptap/core";
 import StarterKit from "@tiptap/starter-kit";
 import CodeBlock from "@tiptap/extension-code-block";
 import Underline from "@tiptap/extension-underline";
+import Heading from "@tiptap/extension-heading";
 
 import CharacterCount from "src/decidim/editor/extensions/character_count";
 import Bold from "src/decidim/editor/extensions/bold";
 import Dialog from "src/decidim/editor/extensions/dialog";
-import Hashtag from "src/decidim/editor/extensions/hashtag";
-import Heading from "src/decidim/editor/extensions/heading";
 import OrderedList from "src/decidim/editor/extensions/ordered_list";
 import Image from "src/decidim/editor/extensions/image";
 import Indent from "src/decidim/editor/extensions/indent";
 import Link from "src/decidim/editor/extensions/link";
 import Mention from "src/decidim/editor/extensions/mention";
+import MentionResource from "src/decidim/editor/extensions/mention_resource";
 import VideoEmbed from "src/decidim/editor/extensions/video_embed";
 import Emoji from "src/decidim/editor/extensions/emoji";
 
@@ -31,8 +31,8 @@ export default Extension.create({
         uploadImagesPath: null,
         contentTypes: /^image\/(jpe?g|png|svg|webp)$/i
       },
-      hashtag: false,
       mention: false,
+      mentionResource: false,
       emoji: false
     };
   },
@@ -67,12 +67,12 @@ export default Extension.create({
       extensions.push(Image.configure(this.options.image));
     }
 
-    if (this.options.hashtag !== false) {
-      extensions.push(Hashtag.configure(this.options.hashtag));
-    }
-
     if (this.options.mention !== false) {
       extensions.push(Mention.configure(this.options.mention));
+    }
+
+    if (this.options.mentionResource !== false) {
+      extensions.push(MentionResource.configure(this.options.mentionResource));
     }
 
     if (this.options.emoji !== false) {

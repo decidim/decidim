@@ -11,7 +11,7 @@ module Decidim
       end
 
       def self.generate_checksum(conference)
-        Digest::MD5.hexdigest("#{conference.id}-#{conference.start_date}")
+        Digest::SHA256.hexdigest("#{conference.id}-#{conference.start_date}")
       end
 
       private

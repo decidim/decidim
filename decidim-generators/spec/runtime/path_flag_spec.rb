@@ -41,7 +41,7 @@ module Decidim
           "version" => "0.0.1",
           "description" => "",
           "private" => true,
-          "license" => "AGPL-3.0",
+          "license" => "AGPL-3.0-or-later",
           "scripts" => {
             "lint" => "eslint -c .eslintrc.json --no-error-on-unmatched-pattern --ignore-pattern app/packs/vendor --ext .js app/packs",
             "stylelint" => "stylelint app/packs/**/*.scss"

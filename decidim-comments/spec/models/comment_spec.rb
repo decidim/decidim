@@ -59,9 +59,9 @@ module Decidim
         expect(comment.participatory_space).to eq(component.participatory_space)
       end
 
-      it "is not valid if its parent is a comment and cannot accept new comments" do
-        allow(comment.root_commentable).to receive(:accepts_new_comments?).and_return false
-        expect(replies[0]).not_to be_valid
+      it "is valid if its parent is a comment and can accept new comments" do
+        allow(comment.root_commentable).to receive(:accepts_new_comments?).and_return(true)
+        expect(replies[0]).to be_valid
       end
 
       it "computes its depth before saving the model" do
@@ -319,6 +319,24 @@ module Decidim
           it "does not return them" do
             ids = Decidim::Comments::Comment.user_commentators_ids_in(Decidim::Dev::DummyResource.where(component: commentable.component))
             expect(ids).to contain_exactly(author.id)
+          end
+        end
+      end
+
+      describe "#extra_actions_for" do
+        it "returns blank" do
+          expect(comment.extra_actions_for(author)).to eq([])
+        end
+
+        context "when the root commentable provides actions" do
+          let(:actions) { "Some actions" }
+
+          before do
+            allow(commentable).to receive(:actions_for_comment).with(comment, author).and_return(actions)
+          end
+
+          it "returns the actions" do
+            expect(comment.extra_actions_for(author)).to eq(actions)
           end
         end
       end

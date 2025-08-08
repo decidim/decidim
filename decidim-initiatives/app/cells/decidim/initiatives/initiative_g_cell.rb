@@ -8,19 +8,21 @@ module Decidim
       private
 
       def resource_path
-        Decidim::Initiatives::Engine.routes.url_helpers.initiative_path(model)
-      end
-
-      def has_image?
-        image.present?
+        if resource.state == "created" || resource.state == "validating"
+          Decidim::Initiatives::Engine.routes.url_helpers.load_initiative_draft_create_initiative_index_path(initiative_id: resource.id)
+        else
+          Decidim::Initiatives::Engine.routes.url_helpers.initiative_path(model)
+        end
       end
 
       def image
         @image ||= model.attachments.find(&:image?)
       end
 
-      def resource_image_path
-        image.url if has_image?
+      def resource_image_url
+        return if image.blank?
+
+        image.url
       end
 
       def metadata_cell

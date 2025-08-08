@@ -24,7 +24,7 @@ RSpec.configure do |config|
   config.raise_errors_for_deprecations!
   config.example_status_persistence_file_path = ".rspec-failures"
   config.filter_run_when_matching :focus
-  config.profile_examples = 10
+  config.profile_examples = 10 unless ENV.fetch("CI", false)
   config.default_formatter = "doc" if config.files_to_run.one?
 
   # If you are not using ActiveRecord, or you'd prefer not to run each of your
@@ -44,5 +44,12 @@ RSpec.configure do |config|
       "img-src": %W(https://via.placeholder.com #{Decidim::Dev::Test::MapServer.host}),
       "connect-src": %W(#{Decidim::Dev::Test::MapServer.host})
     }
+  end
+
+  config.before do
+    # Ensure that the current host is not set for any spec in order to test that
+    # the automatic current host definition is working correctly in all
+    # situations.
+    ActiveStorage::Current.url_options = {}
   end
 end

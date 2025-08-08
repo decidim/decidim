@@ -11,15 +11,20 @@ describe "Admin manages proposals" do
   end
 
   include_context "when managing a component as an admin"
+  it_behaves_like "access component permissions form"
+
+  it_behaves_like "access permissions form" do
+    let!(:row_text) { translated(proposal.title) }
+  end
 
   it_behaves_like "manage settings"
+  it_behaves_like "manage taxonomy filters in settings"
   it_behaves_like "manage proposals"
   it_behaves_like "manage moderations"
   it_behaves_like "export proposals"
   it_behaves_like "manage announcements"
   it_behaves_like "manage proposals help texts"
-  it_behaves_like "when managing proposals category as an admin"
-  it_behaves_like "when managing proposals scope as an admin"
+  it_behaves_like "when managing proposals taxonomies as an admin"
   it_behaves_like "import proposals"
   it_behaves_like "manage proposals permissions"
   it_behaves_like "merge proposals"
@@ -27,6 +32,6 @@ describe "Admin manages proposals" do
   it_behaves_like "publish answers"
 
   it_behaves_like "sorted moderations" do
-    let!(:reportables) { create_list(:proposal, 17, component: current_component) }
+    let!(:reportables) { create_list(:proposal, 27, component: current_component) }
   end
 end

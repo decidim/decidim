@@ -63,7 +63,6 @@ module Decidim
           users_registration_mode: form.users_registration_mode,
           force_users_to_authenticate_before_access_organization: form.force_users_to_authenticate_before_access_organization,
           badges_enabled: true,
-          user_groups_enabled: true,
           default_locale: form.default_locale,
           omniauth_settings: form.encrypted_omniauth_settings,
           smtp_settings: form.encrypted_smtp_settings,
@@ -76,10 +75,7 @@ module Decidim
 
       def default_colors
         {
-          alert: "#ec5840",
           primary: "#53bf40",
-          success: "#57d685",
-          warning: "#ffae00",
           tertiary: "#bf4053",
           secondary: "#4053bf"
         }

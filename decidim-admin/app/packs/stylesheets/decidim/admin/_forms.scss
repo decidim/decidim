@@ -16,16 +16,12 @@
     input[type="week"],
     select,
     textarea {
-      @apply mt-0;
+      @apply mt-2;
     }
 
     & label:not(&-checkbox-label),
     &-block label:not(&-checkbox-label) {
       @apply text-sm;
-    }
-
-    .help-text {
-      @apply mt-1;
     }
 
     .row .columns,
@@ -41,11 +37,6 @@
 
     select#component_step_settings_1_default_sort_order {
       @apply block my-2;
-    }
-
-    textarea#component_step_settings_1_automatic_hashtags,
-    textarea#component_step_settings_1_suggested_hashtags {
-      @apply block w-full;
     }
 
     #choose-template label {

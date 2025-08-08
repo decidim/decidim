@@ -98,7 +98,7 @@ shared_examples "update an initiative type" do
       end
 
       it "does not propagate signature type to non-created initiatives" do
-        initiative = create(:initiative, :published, organization:, scoped_type: scope, signature_type: "online")
+        initiative = create(:initiative, organization:, scoped_type: scope, signature_type: "online")
 
         command.call
         initiative.reload

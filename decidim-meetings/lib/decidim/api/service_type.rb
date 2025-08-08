@@ -6,8 +6,11 @@ module Decidim
       graphql_name "MeetingService"
       description "A meeting service"
 
-      field :title, Decidim::Core::TranslatedFieldType, "The title for the service", null: true
+      implements Decidim::Core::TimestampsInterface
+
       field :description, Decidim::Core::TranslatedFieldType, "The description for the service", null: true
+      field :id, GraphQL::Types::ID, "The ID of the service", null: false
+      field :title, Decidim::Core::TranslatedFieldType, "The title for the service", null: true
     end
   end
 end

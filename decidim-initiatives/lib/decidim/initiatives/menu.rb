@@ -10,6 +10,17 @@ module Decidim
                         decidim_initiatives.initiatives_path,
                         position: 2.4,
                         active: %r{^/(initiatives|create_initiative)},
+                        if: Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).any?
+        end
+      end
+
+      def self.register_mobile_menu!
+        Decidim.menu :mobile_menu do |menu|
+          menu.add_item :initiatives,
+                        I18n.t("menu.initiatives", scope: "decidim"),
+                        decidim_initiatives.initiatives_path,
+                        position: 2.4,
+                        active: %r{^/(initiatives|create_initiative)},
                         if: !Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).all.empty?
         end
       end
@@ -21,7 +32,7 @@ module Decidim
                         decidim_initiatives.initiatives_path,
                         position: 30,
                         active: :inclusive,
-                        if: !Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).all.empty?
+                        if: Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).any?
         end
       end
 
@@ -55,6 +66,7 @@ module Decidim
                           active: is_active_link?(manage_component_path(component)) ||
                                   is_active_link?(decidim_admin_initiatives.edit_component_path(current_participatory_space, component)) ||
                                   is_active_link?(decidim_admin_initiatives.edit_component_permissions_path(current_participatory_space, component)) ||
+                                  is_active_link?(decidim_admin_initiatives.component_share_tokens_path(current_participatory_space, component)) ||
                                   participatory_space_active_link?(component),
                           if: component.manifest.admin_engine # && user_role_config.component_is_accessible?(component.manifest_name)
           end
@@ -95,6 +107,13 @@ module Decidim
                         decidim_admin_initiatives.moderations_path(current_participatory_space),
                         icon_name: "flag-line",
                         if: allowed_to?(:read, :moderation)
+
+          menu.add_item :initiatives_share_tokens,
+                        I18n.t("menu.share_tokens", scope: "decidim.admin"),
+                        decidim_admin_initiatives.initiative_share_tokens_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_initiatives.initiative_share_tokens_path(current_participatory_space)),
+                        icon_name: "share-line",
+                        if: allowed_to?(:read, :share_tokens, current_participatory_space:)
         end
       end
 

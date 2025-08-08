@@ -1,0 +1,201 @@
+<button type="button" data-controller="dropdown" data-target="actions-meeting-<%= meeting.id %>" aria-label="<%= t("actions.actions_label", scope: "decidim.admin") %>">
+  <%= icon "more-fill", class: "text-secondary" %>
+</button>
+
+<div class="inline-block relative">
+  <ul id="actions-meeting-<%= meeting.id %>" class="dropdown dropdown__action" aria-hidden="true">
+    <% if view == :deleted && allowed_to?(:restore, :meeting, trashable_deleted_resource: meeting) %>
+      <li class="dropdown__item">
+        <%= link_to url_for(action: :restore, id: meeting, controller: "meetings"), method: :patch, class: "dropdown__button" do %>
+          <%= icon "refresh-line" %>
+          <%= t("decidim.admin.actions.restore") %>
+        <% end %>
+      </li>
+    <% elsif view != :deleted %>
+      <li class="dropdown__item">
+        <% if allowed_to?(:update, :meeting, meeting: meeting) %>
+          <%= link_to edit_meeting_path(meeting), class: "dropdown__button" do %>
+            <%= icon "pencil-line" %>
+            <%= t("actions.edit", scope: "decidim.meetings") %>
+          <% end %>
+        <% else %>
+          <div class="dropdown__button-disabled">
+            <%= with_tooltip t("tooltips.cannot_edit_meetings", scope: "decidim.admin") do %>
+              <%= icon "pencil-line", class: "text-gray" %>
+              <span><%= t("actions.edit", scope: "decidim.meetings") %></span>
+            <% end %>
+          </div>
+        <% end %>
+      </li>
+
+      <hr>
+
+      <li class="dropdown__item">
+        <% if allowed_to?(:copy, :meeting, meeting: meeting) %>
+          <%= link_to new_meeting_copy_path(meeting), class: "dropdown__button" do %>
+            <%= icon "file-copy-line" %>
+            <%= t("actions.duplicate", scope: "decidim.admin") %>
+          <% end %>
+        <% else %>
+          <div class="dropdown__button-disabled">
+            <%= with_tooltip t("tooltips.cannot_duplicate_meetings", scope: "decidim.admin") do %>
+              <%= icon "file-copy-line", class: "text-gray" %>
+              <span><%= t("actions.duplicate", scope: "decidim.admin") %></span>
+            <% end %>
+          </div>
+        <% end %>
+      </li>
+
+      <hr>
+
+      <li class="dropdown__item">
+        <% if allowed_to?(:update, :meeting, meeting: meeting) %>
+          <%= link_to meeting_attachments_path(meeting), class: "dropdown__button" do %>
+            <%= icon "attachment-line" %>
+            <%= t("actions.attachments", scope: "decidim.admin") %>
+          <% end %>
+        <% else %>
+          <div class="dropdown__button-disabled">
+            <%= with_tooltip t("tooltips.cannot_manage_attachments_meetings", scope: "decidim.admin") do %>
+              <%= icon "attachment-line", class: "text-gray" %>
+              <span><%= t("actions.attachments", scope: "decidim.admin") %></span>
+            <% end %>
+          </div>
+        <% end %>
+      </li>
+
+      <li class="dropdown__item">
+        <% if allowed_to?(:update, :meeting, meeting: meeting) %>
+          <%= link_to meeting_attachment_collections_path(meeting), class: "dropdown__button" do %>
+            <%= icon "folder-line" %>
+            <%= t("actions.attachment_collections", scope: "decidim.admin") %>
+          <% end %>
+        <% else %>
+          <div class="dropdown__button-disabled">
+            <%= with_tooltip t("tooltips.cannot_manage_attachments_meetings", scope: "decidim.admin") do %>
+              <%= icon "folder-line", class: "text-gray" %>
+              <span><%= t("actions.attachment_collections", scope: "decidim.admin") %></span>
+            <% end %>
+          </div>
+        <% end %>
+      </li>
+
+      <hr>
+
+      <li class="dropdown__item">
+        <% if allowed_to?(:update, :meeting, meeting: meeting) && !meeting.registration_disabled? %>
+          <%= link_to(meeting.on_this_platform? ? edit_meeting_registrations_path(meeting) : meeting.registration_url, class: "dropdown__button") do %>
+            <%= icon "group-line" %>
+            <%= t("actions.registrations", scope: "decidim.meetings") %>
+          <% end %>
+        <% else %>
+          <div class="dropdown__button-disabled">
+            <%= with_tooltip t("tooltips.cannot_manage_registrations_meetings", scope: "decidim.admin") do %>
+              <%= icon "group-line", class: "text-gray" %>
+              <span><%= t("actions.registrations", scope: "decidim.meetings") %></span>
+            <% end %>
+          </div>
+        <% end %>
+      </li>
+
+      <li class="dropdown__item">
+        <% if allowed_to?(:update, :meeting, meeting: meeting) %>
+          <%= link_to(meeting.agenda.present? ? edit_meeting_agenda_path(meeting, meeting.agenda) : new_meeting_agenda_path(meeting), class: "dropdown__button") do %>
+            <%= icon "calendar-line" %>
+            <%= t("actions.agenda", scope: "decidim.meetings") %>
+          <% end %>
+        <% else %>
+          <div class="dropdown__button-disabled">
+            <%= with_tooltip t("tooltips.cannot_manage_agenda_meetings", scope: "decidim.admin") do %>
+              <%= icon "calendar-line", class: "text-gray" %>
+              <span><%= t("actions.agenda", scope: "decidim.meetings") %></span>
+            <% end %>
+          </div>
+        <% end %>
+      </li>
+
+      <li class="dropdown__item">
+        <% if allowed_to?(:update, :meeting, meeting: meeting) %>
+          <%= link_to edit_meeting_poll_path(meeting), class: "dropdown__button" do %>
+            <%= icon "list-check" %>
+            <%= t("actions.manage_poll", scope: "decidim.meetings") %>
+          <% end %>
+        <% else %>
+          <div class="dropdown__button-disabled">
+            <%= with_tooltip t("tooltips.cannot_manage_poll_meetings", scope: "decidim.admin") do %>
+              <%= icon "list-check", class: "text-gray" %>
+              <span><%= t("actions.manage_poll", scope: "decidim.meetings") %></span>
+            <% end %>
+          </div>
+        <% end %>
+      </li>
+
+      <li class="dropdown__item">
+        <% if allowed_to?(:close, :meeting, meeting: meeting) %>
+          <%= link_to edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "dropdown__button" do %>
+            <%= icon "lock-line" %>
+            <%= t("actions.close", scope: "decidim.meetings") %>
+          <% end %>
+        <% else %>
+          <div class="dropdown__button-disabled">
+            <%= with_tooltip t("tooltips.cannot_close_meetings", scope: "decidim.admin") do %>
+              <%= icon "lock-line", class: "text-gray" %>
+              <span><%= t("actions.close", scope: "decidim.meetings") %></span>
+            <% end %>
+          </div>
+        <% end %>
+      </li>
+
+      <hr>
+
+      <li class="dropdown__item">
+        <% if allowed_to?(:update, :meeting, meeting: meeting) %>
+          <% if meeting.published? %>
+            <%= link_to unpublish_meeting_path(meeting), method: :put, data: { confirm: t("actions.unpublish", scope: "decidim.admin") }, class: "dropdown__button" do %>
+              <%= icon "close-circle-line" %>
+              <%= t("actions.unpublish", scope: "decidim.admin") %>
+            <% end %>
+          <% else %>
+            <%= link_to publish_meeting_path(meeting), method: :put, class: "dropdown__button" do %>
+              <%= icon "check-line" %>
+              <%= t("actions.publish", scope: "decidim.admin") %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </li>
+
+      <hr>
+
+      <li class="dropdown__item">
+        <%= link_to resource_locator(meeting).path, class: "dropdown__button", target: :blank, data: { "external-link": false } do %>
+          <%= icon "eye-line" %>
+          <%= t("actions.preview", scope: "decidim.meetings") %>
+        <% end %>
+      </li>
+
+      <hr>
+
+      <li class="dropdown__item">
+        <%= dropdown_resource_permissions_link(meeting) %>
+      </li>
+
+      <hr>
+
+      <li class="dropdown__item">
+        <% if allowed_to?(:soft_delete, :meeting, trashable_deleted_resource: meeting) %>
+          <%= link_to soft_delete_meeting_path(meeting), method: :patch, data: { confirm: t("actions.confirm_delete_meeting", scope: "decidim.meetings") }, class: "dropdown__button" do %>
+            <%= icon "delete-bin-line" %>
+            <%= t("actions.soft_delete", scope: "decidim.admin") %>
+          <% end %>
+        <% else %>
+          <div class="dropdown__button-disabled">
+            <%= with_tooltip t("tooltips.deleted_meetings_info", scope: "decidim.admin") do %>
+              <%= icon "delete-bin-line", class: "text-gray" %>
+              <span><%= t("actions.soft_delete", scope: "decidim.admin") %></span>
+            <% end %>
+          </div>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+<% end %>

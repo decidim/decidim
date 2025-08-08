@@ -8,8 +8,8 @@ module Decidim
 
       def initialize(args = {})
         @secret = args.fetch(:secret) || "default"
-        @key = ActiveSupport::KeyGenerator.new(secret).generate_key(
-          Rails.application.secrets.secret_key_base, ActiveSupport::MessageEncryptor.key_len
+        @key = ActiveSupport::KeyGenerator.new(secret, hash_digest_class: OpenSSL::Digest::SHA1).generate_key(
+          Rails.application.secret_key_base, ActiveSupport::MessageEncryptor.key_len
         )
         @encryptor = ActiveSupport::MessageEncryptor.new(@key)
       end

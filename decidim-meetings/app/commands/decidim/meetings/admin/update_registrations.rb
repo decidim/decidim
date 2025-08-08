@@ -8,14 +8,16 @@ module Decidim
         fetch_form_attributes :registrations_enabled, :registration_form_enabled
 
         def run_after_hooks
-          return unless resource.previous_changes["registrations_enabled"].present? && resource.registrations_enabled?
+          if resource.previous_changes["registrations_enabled"].present? && resource.registrations_enabled?
+            Decidim::EventsManager.publish(
+              event: "decidim.events.meetings.registrations_enabled",
+              event_class: Decidim::Meetings::MeetingRegistrationsEnabledEvent,
+              resource:,
+              followers: resource.followers
+            )
+          end
 
-          Decidim::EventsManager.publish(
-            event: "decidim.events.meetings.registrations_enabled",
-            event_class: Decidim::Meetings::MeetingRegistrationsEnabledEvent,
-            resource:,
-            followers: resource.followers
-          )
+          promote_from_waitlist!
         end
 
         protected
@@ -32,6 +34,16 @@ module Decidim
             extra_params.merge!(registration_email_custom_content: form.registration_email_custom_content) if form.customize_registration_email
           end
           super.merge(extra_params)
+        end
+
+        def promote_from_waitlist!
+          slot_changes = resource.previous_changes.keys & %w(available_slots reserved_slots)
+          return if slot_changes.empty?
+          return if resource.available_slots.zero?
+          return unless resource.remaining_slots.positive?
+          return unless resource.registrations.on_waiting_list.exists?
+
+          Decidim::Meetings::PromoteFromWaitlistJob.perform_later(resource.id)
         end
       end
     end

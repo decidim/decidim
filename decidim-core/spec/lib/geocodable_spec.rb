@@ -7,7 +7,7 @@ module Decidim
   # will not get broken by the Geocoder gem's updates. The reason for the
   # customization is to pass the record in question for the geocoding searches
   # in order to correctly initialize the geocoding utility.
-  describe Geocodable do
+  describe Geocodable, configures_map: true do
     subject do
       record_class.new(
         organization:,

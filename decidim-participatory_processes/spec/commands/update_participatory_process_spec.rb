@@ -5,7 +5,11 @@ require "spec_helper"
 module Decidim::ParticipatoryProcesses
   describe Admin::UpdateParticipatoryProcess do
     describe "call" do
-      let(:my_process) { create(:participatory_process) }
+      let(:organization) { create(:organization) }
+      let(:my_process) { create(:participatory_process, organization:, taxonomies:) }
+      let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization:) }
+      let(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
+      let(:user) { create(:user, :admin, :confirmed, organization:) }
       let(:params) do
         {
           participatory_process: {
@@ -18,7 +22,6 @@ module Decidim::ParticipatoryProcesses
             subtitle_es: my_process.subtitle,
             weight: my_process.weight,
             slug: my_process.slug,
-            hashtag: my_process.hashtag,
             meta_scope: my_process.meta_scope,
             promoted: my_process.promoted,
             description_en: my_process.description,
@@ -27,28 +30,22 @@ module Decidim::ParticipatoryProcesses
             short_description_en: my_process.short_description,
             short_description_ca: my_process.short_description,
             short_description_es: my_process.short_description,
-            current_organization: my_process.organization,
-            scopes_enabled: my_process.scopes_enabled,
-            scope: my_process.scope,
-            area: my_process.area,
+            current_organization: organization,
             errors: my_process.errors,
             participatory_process_group: my_process.participatory_process_group,
-            show_metrics: my_process.show_metrics,
-            show_statistics: my_process.show_statistics,
-            private_space: my_process.private_space
+            private_space: my_process.private_space,
+            taxonomies: [taxonomy.id, taxonomies.first.id]
           }.merge(attachment_params)
         }
       end
       let(:attachment_params) do
         {
-          hero_image: my_process.hero_image.blob,
-          banner_image: my_process.banner_image.blob
+          hero_image: my_process.hero_image.blob
         }
       end
-      let(:user) { create(:user, :admin, :confirmed, organization: my_process.organization) }
       let(:context) do
         {
-          current_organization: my_process.organization,
+          current_organization: organization,
           current_user: user,
           process_id: my_process.id
         }
@@ -80,7 +77,6 @@ module Decidim::ParticipatoryProcesses
           allow(form).to receive(:invalid?).and_return(false)
           expect(my_process).to receive(:valid?).at_least(:once).and_return(false)
           my_process.errors.add(:hero_image, "File resolution is too large")
-          my_process.errors.add(:banner_image, "File resolution is too large")
         end
 
         it "broadcasts invalid" do
@@ -91,13 +87,18 @@ module Decidim::ParticipatoryProcesses
           command.call
 
           expect(form.errors[:hero_image]).not_to be_empty
-          expect(form.errors[:banner_image]).not_to be_empty
         end
       end
 
       describe "when the form is valid" do
         it "broadcasts ok" do
           expect { command.call }.to broadcast(:ok)
+        end
+
+        it "updates the taxonomizations" do
+          expect(my_process.reload.taxonomies).to match_array(taxonomies)
+          command.call
+          expect(my_process.reload.taxonomies).to contain_exactly(taxonomy, taxonomies.first)
         end
 
         it "updates the participatory process" do
@@ -120,7 +121,7 @@ module Decidim::ParticipatoryProcesses
         end
 
         context "with related processes" do
-          let!(:another_process) { create(:participatory_process, organization: my_process.organization) }
+          let!(:another_process) { create(:participatory_process, organization:) }
 
           it "links related processes" do
             allow(form).to receive(:related_process_ids).and_return([another_process.id])
@@ -128,40 +129,6 @@ module Decidim::ParticipatoryProcesses
 
             linked_processes = my_process.linked_participatory_space_resources(:participatory_process, "related_processes")
             expect(linked_processes).to contain_exactly(another_process)
-          end
-        end
-
-        context "when no homepage image is set" do
-          let(:attachment_params) do
-            {
-              banner_image: my_process.banner_image.blob
-            }
-          end
-
-          it "does not replace the homepage image" do
-            expect(my_process).not_to receive(:hero_image=)
-
-            command.call
-            my_process.reload
-
-            expect(my_process.hero_image.attached?).to be true
-          end
-        end
-
-        context "when no banner image is set" do
-          let(:attachment_params) do
-            {
-              hero_image: my_process.hero_image.blob
-            }
-          end
-
-          it "does not replace the banner image" do
-            expect(my_process).not_to receive(:banner_image=)
-
-            command.call
-            my_process.reload
-
-            expect(my_process.banner_image.attached?).to be true
           end
         end
       end

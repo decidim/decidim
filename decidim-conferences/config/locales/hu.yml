@@ -2,16 +2,11 @@ hu:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Kapcsolódó gyűlések
         available_slots: Rendelkezésre álló időpontok
         banner_image: Banner kép
-        copy_categories: Másolási kategóriák
-        copy_components: Másoljon komponenseket
-        copy_features: Másolási funkciók
         decidim_scope_id: terület
         description: Leírás
         end_date: Befejezés dátuma
-        hashtag: Kettőskereszt
         hero_image: Kezdő kép
         location: Helyszín
         main_logo: Fő logó
@@ -21,8 +16,6 @@ hu:
         published_at: Megjelent a
         registration_terms: Regisztrációs feltételek
         registrations_enabled: Regisztráció engedélyezve
-        scope_id: terület
-        scopes_enabled: A hatókör engedélyezett
         short_description: Rövid leírás
         show_statistics: Statisztikák megjelenítése
         signature: Aláírás
@@ -95,11 +88,6 @@ hu:
         new_registration_type: Új regisztrációtípus
         new_speaker: Új előadó
         send_diplomas: Küldési igazolások küldése
-      conference_copies:
-        new:
-          copy: Másolat
-          select: Válassza ki, mely adatokat szeretné megismételni
-          title: Duplikált konferencia
       conference_publications:
         create:
           error: Hiba történt a konferencia közzétételében.
@@ -118,13 +106,11 @@ hu:
         destroy:
           success: A hangszóró sikeresen törölve lett a konferencia számára.
         edit:
-          title: A konferencia hangszóró frissítése.
           update: frissítés
         index:
           conference_speakers_title: Konferencia hangszórók
         new:
           create: Teremt
-          title: Új konferencia hangszóró.
         update:
           error: Hiba történt a konferencia hangszórójának frissítéséhez.
           success: A hangszóró sikeresen frissült a konferencia számára.
@@ -135,13 +121,11 @@ hu:
         destroy:
           success: A felhasználó sikeresen eltávolította ezt a konferenciát.
         edit:
-          title: A konferencia felhasználó frissítése.
           update: frissítés
         index:
           conference_admins_title: Konferencia adminisztrátorok
         new:
           create: Teremt
-          title: Új konferencia felhasználó.
         update:
           error: Hiba történt a konferencia felhasználójának frissítéséhez.
           success: A felhasználó sikeresen frissítette ezt a konferenciát.
@@ -154,57 +138,40 @@ hu:
         exports:
           registrations: regisztrációk
         form:
+          images: Fotók
           title: Általános információ
         index:
           published: Közzétett
           unpublished: Nem publikált
         new:
           create: Teremt
-          title: konferencia
         update:
           error: Hiba történt a konferencia frissítésekor.
           success: A konferencia sikeresen frissült.
-      conferences_copies:
-        create:
-          error: Hiba történt a konferencia másolása során.
-          success: A konferencia sikeresen megismétlődött.
       media_links:
         create:
           error: Hiba történt új média link létrehozása közben.
-          success: A Media Link sikeresen létrejött.
-        destroy:
-          success: A Media Link sikeresen törölve.
         edit:
-          title: A média link frissítése.
           update: frissítés
-        index:
-          media_links_title: Média linkek
         new:
           create: Létrehozás
-          title: Media Link
         update:
           error: Hiba történt a média link frissítésekor.
-          success: A Media Link sikeresen frissült.
       menu:
         conferences: Konferenciák
         conferences_submenu:
           attachment_collections: mappák
           attachment_files: Files
           attachments: Mellékletek
-          categories: Kategóriák
           components: Alkatrészek
           conference_admins: Konferencia adminisztrátorok
           conference_invites: Meghívottak
           conference_speakers: Előadók
-          diploma: Tanúsítvány a jelenlétről
           info: Erről a konferenciáról
-          media_links: Média linkek
           moderations: moderálások
           partners: Partnerek
-          registration_types: Regisztráció típusok
           registrations: Regisztrációk
           see_conference: Konferencia megtekintése
-          user_registrations: Felhasználói regisztrálások
       models:
         conference:
           fields:
@@ -227,13 +194,11 @@ hu:
             admin: Adminisztrátor
             collaborator: Együttműködő
             moderator: moderátor
-            valuator: Értékelő
         media_link:
           fields:
             date: Dátum
             link: Link
             title: Cím
-          name: Media Link
         partner:
           fields:
             link: Link
@@ -259,7 +224,6 @@ hu:
         destroy:
           success: A partner sikeresen eltávolítva a konferenciáról.
         edit:
-          title: Partner frissítése.
           update: Frissítés
         new:
           create: Létrehozás
@@ -281,7 +245,6 @@ hu:
         destroy:
           success: A regisztrációs típus sikeresen el lett távolítva ebből a konferenciából.
         edit:
-          title: A regisztrációs típus frissítése.
           update: Frissítés
         new:
           create: Létrehozás
@@ -369,7 +332,6 @@ hu:
         diplomas:
           edit:
             save: Mentés
-            title: Tanúsítvány a jelenlétről
         invite_join_conference_mailer:
           invite:
             decline: A "%{conference_title}" meghívása
@@ -389,7 +351,6 @@ hu:
             diploma_html: A mellékletben találja meg a konferencián való részvételi igazolást <a href="%{url}">%{title}</a>.
           diploma_user:
             attendance_verified_by: A részvételt ellenőrizte
-            certificate_of_attendance: Tanúsítvány a részvételről
             certificate_of_attendance_description: Ez azt igazolja, hogy <strong>%{user}</strong> részt vett a <strong>%{title}</strong> című eseményen a <strong>%{location}</strong> címen a követező időpontban, <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Probléma merült fel a konferencia részvételi igazolásainak elküldése közben.

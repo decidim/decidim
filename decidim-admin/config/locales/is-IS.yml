@@ -32,8 +32,6 @@ is-IS:
         alert_color: Viðvörun
         available_authorizations: Möguleg auðkenni
         badges_enabled: Virkja merki
-        cta_button_path: Hringja til aðgerða hnappaslóð
-        cta_button_text: Hringja í aðgerð hnappinn texta
         default_locale: Sjálfgefið tungumál
         description: Lýsing
         enable_omnipresent_banner: Sýna algengasta borði
@@ -43,13 +41,6 @@ is-IS:
         force_users_to_authenticate_before_access_organization: Þvinga notendur í að auðkenna, áður en þeir komast í samtök
         github_handler: GitHub handler
         header_snippets: Header brot
-        highlighted_content_banner_action_subtitle: Aðgerðshnappur texti
-        highlighted_content_banner_action_title: Heiti aðgerðahnappsins
-        highlighted_content_banner_action_url: Vefslóð aðgerðahnappsins
-        highlighted_content_banner_enabled: Sýna auðkenndan innihald borða
-        highlighted_content_banner_image: Mynd
-        highlighted_content_banner_short_description: Stutt lýsing
-        highlighted_content_banner_title: Titill
         host: Gestgjafi
         instagram_handler: Instagram handler
         logo: Merki
@@ -64,7 +55,6 @@ is-IS:
         secondary_color: Til vara
         success_color: Tókst
         time_zone: Tímabelti
-        user_groups_enabled: Virkja hópa
         warning_color: Aðvörun
         youtube_handler: YouTube umsjónarmaður
       scope:
@@ -119,17 +109,12 @@ is-IS:
         attachment:
           new: Nýtt viðhengi
         browse: Skoða
-        category:
-          new: Nýr flokkur
+        export: Útflutningur
         import: Flytja inn
-        manage: Stjórna
         newsletter:
           new: Nýtt fréttabréf
         per_page: Á hveri síðu
-        permissions: Heimildir
-        reject: Hafna
         share: Deila
-        verify: Staðfestu
       area_types:
         create:
           success: Svæði gerð búin til með góðum árangri.
@@ -178,28 +163,14 @@ is-IS:
       autocomplete:
         no_results: Engar niðurstöður fundust
       categories:
-        create:
-          success: Flokkur búin til með góðum árangri.
-        destroy:
-          success: Flokkur eytt með góðum árangri.
-        edit:
-          title: Breyta flokki
-          update: Uppfæra
         index:
           categories_title: Flokkar
-        new:
-          create: Búa til flokk
-          title: Ný flokkur
-        update:
-          success: Flokkur uppfærð með góðum árangri.
       component_permissions:
         update:
           success: Heimildir uppfærðar með góðum árangri.
       components:
         create:
           success: Hluti búin til með góðum árangri.
-        destroy:
-          success: Hluti eytt með góðum árangri.
         edit:
           title: Breyta hlutanum
           update: Uppfæra
@@ -229,8 +200,6 @@ is-IS:
       exports:
         export_as: "%{name} sem %{export_format}"
       filters:
-        category_id_eq:
-          label: Flokkur
         officialized_at_null:
           label: Ríki
           values:
@@ -330,14 +299,6 @@ is-IS:
             role: Hlutverk
             roles:
               admin: Admin
-        user_group:
-          fields:
-            actions: Aðgerðir
-            created_at: Búið til á
-            document_number: Skjal númer
-            name: Nafn
-            phone: Sími
-            state: Ríki
       moderations:
         report:
           reasons:
@@ -398,15 +359,6 @@ is-IS:
           youtube: Youtube
         update:
           success: Skipulag uppfærður með góðum árangri.
-      organization_appearance:
-        edit:
-          update: Uppfæra
-        form:
-          cta_button_text_help: Þú getur skrifað yfirskriftina Hringja til aðgerða hnappatexta á heimasíðunni fyrir hvert tiltækt tungumál í fyrirtækinu þínu. Ef ekki er valið verður sjálfgefið gildi. Hnappurinn Hringja til aðgerða er sýndur á heimasíðunni á milli velkomna textans og lýsingarinnar.
-          homepage_appearance_title: Breyta heimasíðu útliti
-          homepage_highlighted_content_banner_title: Hápunktur efni borði
-          images:
-            layout_appearance_title: Breyta útliti útlits
       participatory_space_private_users:
         new:
           create: Búa til
@@ -439,8 +391,6 @@ is-IS:
         update:
           success: Gildissvið uppfært með góðum árangri
       static_pages:
-        actions:
-          view: Skoðaðu opinbera síðu
         create:
           success: Síða búin til með góðum árangri.
         destroy:
@@ -458,12 +408,6 @@ is-IS:
         dashboard: Mælaborð
         scope_types: Gildissvið
         scopes: Scopes
-      user_groups:
-        index:
-          state:
-            pending: Í bið
-            rejected: Hafnað
-            verified: Staðfest
       users:
         form:
           email: Email
@@ -480,7 +424,6 @@ is-IS:
         hide: Fela
         not_hidden: Ekki falið
         title: Aðgerðir
-        unreport: Unreport
       admin:
         reportable:
           hide:

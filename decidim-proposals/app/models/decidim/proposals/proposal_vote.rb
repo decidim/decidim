@@ -31,6 +31,7 @@ module Decidim
 
       def update_proposal_votes_count
         proposal.update_votes_count
+        proposal.touch # rubocop:disable Rails/SkipsModelValidations
       end
 
       # Private: check if the proposal and the author have the same organization

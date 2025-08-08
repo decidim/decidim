@@ -22,18 +22,17 @@ module Decidim
 
           rand(0..6).times do
             comment1 = create_comment(resource)
-            NewCommentNotificationCreator.new(comment1, [], []).create
+            NewCommentNotificationCreator.new(comment1, []).create
 
             if [true, false].sample
               comment2 = create_comment(comment1, resource)
-              NewCommentNotificationCreator.new(comment2, [], []).create
+              NewCommentNotificationCreator.new(comment2, []).create
             end
 
             next if [true, false].sample
 
-            [comment1, comment2].compact.each do |comment|
-              create_votes(comment)
-            end
+            create_votes(comment1) if comment1
+            create_votes(comment2) if comment2
           end
         end
 
@@ -50,15 +49,13 @@ module Decidim
         #
         # @return [Decidim::Comments::Comment]
         def create_comment(resource, root_commentable = nil)
-          author = user
-          user_group = user_group(author)
+          author = random_user
 
           params = {
             commentable: resource,
             root_commentable: root_commentable || resource,
             body: { en: ::Faker::Lorem.sentence(word_count: 50) },
-            author:,
-            user_group:
+            author:
           }
 
           Decidim.traceability.create!(
@@ -70,7 +67,6 @@ module Decidim
         end
 
         # Creates a random amount of votes for a given comment.
-        # The votes can be from a user or a user group.
         #
         # @private
         #
@@ -79,25 +75,21 @@ module Decidim
         # @return nil
         def create_votes(comment)
           rand(0..12).times do
-            author = user
-            user_group = user_group(author)
+            author = random_user
+            next if CommentVote.where(comment:, author:).any?
 
-            CommentVote.find_or_create_by(
-              comment:,
-              author: [author, user_group].compact.sample,
-              weight: [1, -1].sample
-            )
+            CommentVote.create!(comment:, author:, weight: [1, -1].sample)
           end
 
           nil
+        rescue ActiveRecord::AssociationTypeMismatch
+          nil # in case there is a mismatch, we ignore the error as it is not important for the seeding
         end
 
-        def user
-          Decidim::User.where(organization:).all.sample
-        end
+        def random_user
+          user = Decidim::User.where(organization:).not_deleted.not_blocked.confirmed.sample
 
-        def user_group(user)
-          [true, false].sample ? Decidim::UserGroups::ManageableUserGroups.for(user).verified.sample : nil
+          user.valid? ? user : random_user
         end
       end
     end

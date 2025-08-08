@@ -20,7 +20,6 @@ module Decidim
         translatable_attribute :target, String
 
         attribute :group_url, String
-        attribute :hashtag, String
         attribute :participatory_process_ids, Array[Integer]
 
         attribute :promoted, Boolean

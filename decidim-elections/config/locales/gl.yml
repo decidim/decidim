@@ -1,0 +1,54 @@
+gl:
+  decidim:
+    admin:
+      menu:
+        elections_menu:
+          election_census: Censo
+          election_questions: Preguntas
+    components:
+      elections:
+        actions:
+          create: Crear
+          update: Actualizar
+    elections:
+      actions:
+        title: Accións
+      admin:
+        dashboard:
+          census:
+            title: Censo
+          main:
+            labels:
+              description: Descrición
+          questions:
+            labels:
+              answers: Respostas
+            title: Preguntas
+          questions_table:
+            answer: Respostas
+          results:
+            title: Resultados
+          status:
+            title: Estado da elección
+        elections:
+          form:
+            add_images: Engadir imaxes
+            publish: Publicar
+          index:
+            title: Eleccións
+          new:
+            title: Nova elección
+        questions:
+          edit_questions:
+            new_question: Nova pregunta
+            title: Preguntas
+      models:
+        election:
+          fields:
+            census: Censo
+            title: Título
+      status:
+        active: Activa
+        finished: Finalizada
+    statistics:
+      elections_count: Eleccións

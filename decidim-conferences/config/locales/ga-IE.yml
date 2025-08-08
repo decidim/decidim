@@ -2,13 +2,10 @@ ga:
   activemodel:
     attributes:
       conference:
-        copy_categories: Cóipeáil catagóirí
         decidim_scope_id: Scóip
         end_date: Dáta deiridh
-        hashtag: Haischlib
         location: Suíomh
         participatory_processes_ids: Próisis Rannpháirteacha Ceangailte
-        scope_id: Scóip
         slogan: Mana
         slug: Píosa URL
         title: Teideal
@@ -38,9 +35,6 @@ ga:
     admin:
       actions:
         confirm: Deimhnigh
-      conference_copies:
-        new:
-          copy: Cóipeáil
       conference_speakers:
         edit:
           update: Nuashonraigh
@@ -54,6 +48,8 @@ ga:
       conferences:
         edit:
           update: Nuashonraigh
+        form:
+          images: Íomhánna
         new:
           create: Cruthaigh
       media_links:
@@ -66,7 +62,6 @@ ga:
           attachment_collections: Fillteáin
           attachment_files: Comhaid
           attachments: Ceangaltáin
-          categories: Catagóirí
           conference_invites: Cuirí
           conference_speakers: Cainteoirí
           partners: Comhpháirtithe
@@ -84,7 +79,6 @@ ga:
             role: Ról
           roles:
             admin: Riarthóir
-            valuator: Luachálaí
         media_link:
           fields:
             date: Dáta

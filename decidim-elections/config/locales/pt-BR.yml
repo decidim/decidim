@@ -1,0 +1,73 @@
+pt-BR:
+  decidim:
+    admin:
+      menu:
+        elections_menu:
+          election_census: Censo
+          election_questions: Questões
+    components:
+      elections:
+        actions:
+          create: Criar
+          destroy: Destruir
+          update: Atualizar
+        name: Eleições
+        settings:
+          global:
+            announcement: Anúncio
+          step:
+            announcement: Anúncio
+    elections:
+      actions:
+        title: Ações
+      admin:
+        census:
+          edit:
+            created_at: Criado em
+        dashboard:
+          census:
+            title: Censo
+          main:
+            labels:
+              description: Descrição
+          questions:
+            labels:
+              answers: Respostas
+            title: Questões
+          questions_table:
+            answer: Respostas
+            votes: Votos
+          results:
+            publish_button: Publicar resultados
+            title: Resultados
+          status:
+            title: Status da eleição
+        elections:
+          edit:
+            title: Editar eleição
+          form:
+            add_images: Adicionar imagens
+            publish: Publicar
+          index:
+            title: Eleições
+          new:
+            title: Nova eleição
+        questions:
+          edit_questions:
+            new_question: Nova questão
+            title: Questões
+        statuses:
+          publish_results:
+            invalid: Ocorreu um erro ao publicar os resultados.
+      models:
+        election:
+          fields:
+            census: Censo
+            status: Status
+            title: Título
+      status:
+        active: Ativo
+        finished: Finalizado
+        ongoing: Em andamento
+    statistics:
+      elections_count: Eleições

@@ -68,10 +68,6 @@ This can be done in an initializer (like user does), in a participatory_space ma
         ...
 ```
 
-## Metrics docs
-
-Core adds an implementation to show APP metrics within some pages. You can see specific documentation at [Metrics](https://docs.decidim.org/en/develop/metrics/)
-
 ## Contributing
 
 See [Decidim](https://github.com/decidim/decidim).

@@ -17,7 +17,7 @@ module Decidim
 
         def action_string
           case action
-          when "create", "delete", "update"
+          when "create", "delete", "update", "soft_delete", "restore"
             "decidim.blogs.admin_log.post.#{action}"
           else
             super

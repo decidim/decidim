@@ -14,7 +14,6 @@ ca:
           trigger: Activador
           usage: Ús
           usage_p: Un acordió necessita com a mínim tres elements
-          usage_p_1_html: '1. Un embolcall <code>div</code>, amb l''atribut "data": <code>data-component="accordion"</code>, sobre tots els activadors i panells disponibles.'
           usage_p_2_html: 2. Un element activador, usuària accionable (com un botó), apuntant a l'element plegable a través de <code>data-controls="panel"</code>, on <i>panel</i> és el <code>id</code> del panell.
           usage_p_3_html: 3. Un element ocult, on <code>id</code> coincideix amb el valor dels controls de dades al que es refereix l'activador.
         activities:
@@ -153,7 +152,7 @@ ca:
           typefaces_description_1: Decidim fa servir Source Sants Pro com a tipus de lletra primària. Aquest tipus de lletra disposa de totes les variants de caràcters en 310 llengües
           typefaces_description_2: Aquestes tipografies es troben sota la llicència Open Font
       helpers:
-        accountability:
+        accountability: Seguiment
         accountability_cards_html: Emprat per les targetes de projectes de <i>Rendició de comptes</i>. Aquesta targeta requereix que els actius del mòdul es mostrin correctament, per exemple, <code>append_stylesheet_pack_tag \"decidim_accountability\"</code>
         activity: Activitat
         address_description: La cel·la d'adreça rep un recurs i cerca els atributs geolocalitzables per representar un marcatge específic.
@@ -179,13 +178,13 @@ ca:
         card_s: Targeta S
         collaborative_draft_l: Esborrany col·laboratiu L
         colors: Colors
-        compact:
+        compact: Compacte
         compact_description: Aquesta versió de l'autoria és la forma més comuna d'identificar a la creadora del recurs.
         conference_g: Jornada G
         conference_s: Jornada S
         conferences: Jornadas
         context: Context
-        context_description: Aquesta cel·la mostra informació al voltant d'una usuària. És una ajuda visual per a identificar la creadora d'un recurs/contingut. En passar per sobre el cursor, es mostra una descripció amb més informació i enllaços al seu perfil.
+        context_description: Aquesta cel·la mostra informació sobre una usuària. És una ajuda visual per identificar la creadora de recursos/continguts.
         context_description_2: Pels recursos, aquesta cel·la apareix sota l'encapçalament principal. Per altres continguts, apareix al costat del mateix contingut.
         debate_l: Debat L
         debate_s: Debat S
@@ -206,7 +205,6 @@ ca:
         dropdowns_description_html: Els menús desplegables són una característica <i>JavaScript</i> disponible gràcies a una biblioteca externa anomenada %{link}.
         dropdowns_usage_1_description: 2. Un element modal, la <code>id</code> del qual coincideix amb el valor dels controls de dades a què es refereix l'activador.
         dropdowns_usage_description: 'Un menú desplegable requereix dos elements:'
-        dropdowns_usage_description_html: 1. Un element accionable pel participant, amb els atributs de dades <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.
         dummy_description: Descripció del recurs fictici
         dummy_title: Títol del recurs fictici
         follow_button: Botó "Seguir"
@@ -294,7 +292,8 @@ ca:
         usage_typography_2: Text en línia
         usage_typography_3: Text sobre fons fosc
         usage_typography_4: Enllaços i botons
-        value:
+        usage_typography_5: Pestanya desactivada
+        value: Valor
         variations: Variacions
         variations_cards_description: Cada targeta es veurà diferent d'acord amb les propietats del recurs que es mostri. Pot anul·lar aquest comportament a la cel·la específica.
         variations_description: Hi ha tres versions diferents d'aquesta cel·la. Cadascuna encaixa millor en el context en què es mostra.

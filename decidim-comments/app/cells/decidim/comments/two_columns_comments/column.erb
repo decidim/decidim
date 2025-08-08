@@ -1,0 +1,20 @@
+<div class="comments-section__<%= @title.parameterize %>">
+  <div class="comments-section__header">
+    <%= icon @icon_name, class: "icon" %>
+    <span class="comments-section__title"><%= @title %></span>
+  </div>
+
+  <% if @top_comment.present? %>
+    <div class="top-comment">
+      <%= cell("decidim/comments/comment_thread", @top_comment, order:, top_comment: true) %>
+    </div>
+  <% end %>
+
+  <% if @comments.any? %>
+    <% @comments.each do |comment| %>
+      <%= cell("decidim/comments/comment_thread", comment, order:) %>
+    <% end %>
+  <% else %>
+    <p class="comments-section__no-comments"><%= @no_comments_message %></p>
+  <% end %>
+</div>

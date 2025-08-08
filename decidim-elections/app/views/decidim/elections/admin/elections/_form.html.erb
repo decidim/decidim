@@ -1,0 +1,102 @@
+<% disable_fields = @election&.published? %>
+<div class="form__wrapper">
+  <div class="card-section election-fields">
+    <div class="card form-basic" data-controller="accordion" id="accordion-basic">
+      <div class="row column">
+        <button type="button" class="card-divider-button" data-controls="panel-basic" data-open="true">
+          <%= icon "arrow-right-s-line" %>
+          <h2 class="card-title">
+            <%= t("basic_title", scope: "decidim.elections.admin.elections.form") %>
+          </h2>
+        </button>
+      </div>
+      <div id="panel-basic">
+        <div class="row column">
+          <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true, aria: { label: :title }, disabled: disable_fields %>
+          <%= form.hidden_field :title, value: election.title if disable_fields %>
+        </div>
+
+        <div class="row column">
+          <%= form.translated :editor, :description, resource_mentionable: true, aria: { label: :description } %>
+        </div>
+
+        <div class="row column">
+          <%= form.attachment :photos,
+                              multiple: true,
+                              label: false,
+                              button_label: t("decidim.elections.admin.elections.form.add_images"),
+                              button_edit_label: t("decidim.elections.admin.elections.form.edit_attachments"),
+                              button_class: "button button__sm button__transparent-secondary #{"disabled pointer-events-none" if disable_fields}",
+                              help_i18n_scope: "decidim.forms.file_help.image",
+                              help_text: t("decidim.elections.admin.elections.form.attachment_legend") %>
+        </div>
+      </div>
+    </div>
+
+    <div class="card form-calendar" data-controller="accordion" id="accordion-calendar">
+      <div class="row column">
+        <button type="button" class="card-divider-button" data-controls="panel-calendar" data-open="true">
+          <%= icon "arrow-right-s-line" %>
+          <h2 class="card-title">
+            <%= t("calendar", scope: "decidim.elections.admin.elections.form") %>
+          </h2>
+        </button>
+      </div>
+      <div id="panel-calendar">
+        <div class="row column">
+          <%= cell "decidim/announcement", t("decidim.elections.admin.elections.form.calendar_description",
+                                             timezone: "#{current_organization.time_zone} (#{l(Time.current.in_time_zone(current_organization.time_zone), format: :long)})"
+          ), callout_class: "warning" %>
+        </div>
+        <div class="row column">
+          <%= form.check_box :manual_start, label: t("decidim.elections.admin.elections.form.manual_start"), disabled: disable_fields %>
+          <%= form.hidden_field :manual_start, value: election.manual_start? if disable_fields %>
+        </div>
+        <div class="row column election-fields--time">
+          <div class="md:flex w-100">
+            <div class="row column election_start_time">
+              <%= form.datetime_field :start_at, label: t("decidim.elections.admin.elections.form.start_at") %>
+              <%= form.hidden_field :start_at, value: election.start_at if disable_fields %>
+            </div>
+            <div class="row column">
+              <%= form.datetime_field :end_at, label: t("decidim.elections.admin.elections.form.end_at") %>
+              <%= form.hidden_field :end_at, value: election.end_at if disable_fields %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card form-results" data-controller="accordion" id="accordion-results">
+      <div class="row column">
+        <button type="button" class="card-divider-button" data-controls="panel-results" data-open="true">
+          <%= icon "arrow-right-s-line" %>
+          <h2 class="card-title">
+            <%= t("results_availability.title", scope: "decidim.elections.admin.elections.form") %>
+          </h2>
+        </button>
+      </div>
+      <div id="panel-results">
+        <div class="row column">
+          <%= form.hidden_field :results_availability, value: election.results_availability if disable_fields %>
+          <%= form.collection_radio_buttons :results_availability,
+                                            @form.results_availability_labels,
+                                            :first,
+                                            :last,
+                                            { include_hidden: false }, class: "radio-buttons" do |b| %>
+            <div class="radio-button">
+              <%= b.label do %>
+                <%= b.radio_button(disabled: disable_fields) %>
+                <%= b.text %>
+              <% end %>
+
+              <span class="help-text">
+                <%= t("decidim.elections.admin.elections.form.results_availability.#{b.value}_help") %>
+              </span>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

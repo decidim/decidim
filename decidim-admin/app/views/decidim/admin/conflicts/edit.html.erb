@@ -27,18 +27,28 @@
   </div>
 </div>
 
-<%= decidim_form_for(@form, url: conflict_path, method: :put, html: { class: "form" }) do |f| %>
-  <div class="card">
-    <div class="card-section">
-      <div class="row column">
-        <%= f.text_field :reason, label: t("reason", scope: "decidim.admin.conflicts.transfer") %>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, url: conflict_path, method: :put, html: { class: "form form-defaults" }) do |f| %>
+      <div class="form__wrapper">
+        <div class="card pt-4">
+          <div class="card-section">
+            <div class="row column">
 
-        <%= f.text_field :email, label: t("email", scope: "decidim.admin.conflicts.transfer") %>
+              <%= f.text_field :reason, label: t("reason", scope: "decidim.admin.conflicts.transfer") %>
+            </div>
+
+            <div class="row column">
+
+              <%= f.text_field :email, label: t("email", scope: "decidim.admin.conflicts.transfer") %>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-    <%= f.submit t("title", scope: "decidim.admin.conflicts.transfer"), class: "button button__sm button__secondary" %>
+      <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+        <%= f.submit t("title", scope: "decidim.admin.conflicts.transfer"), class: "button button__sm button__secondary" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

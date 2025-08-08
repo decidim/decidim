@@ -11,14 +11,14 @@ module Decidim
       let!(:admin) { create(:user, :admin, :confirmed, organization:) }
       let!(:admin_no_moderation_mail) { create(:user, :admin, :confirmed, organization:, email_on_moderations: false) }
       let(:user) { create(:user, :confirmed, organization:) }
-      let(:form) { ReportForm.from_params(form_params) }
+      let(:form) { ReportForm.from_params(form_params).with_context(current_user: user) }
       let(:form_params) do
         {
           reason: "spam"
         }
       end
 
-      let(:command) { described_class.new(form, reportable, user) }
+      let(:command) { described_class.new(form, reportable) }
 
       describe "when the form is not valid" do
         before do
@@ -93,7 +93,9 @@ module Decidim
           before do
             expect(form).to receive(:invalid?).at_least(:once).and_return(false)
             (Decidim.max_reports_before_hiding - 1).times do
-              described_class.new(form, reportable, create(:user, organization:)).call
+              current_user = create(:user, organization:)
+              form = ReportForm.from_params(form_params).with_context(current_user:)
+              described_class.new(form, reportable).call
             end
           end
 
@@ -110,11 +112,11 @@ module Decidim
           end
 
           it "sends an email to the admin" do
-            allow(ReportedMailer).to receive(:hide).and_call_original
+            allow(ReportedMailer).to receive(:hidden_automatically).and_call_original
             command.call
             last_report = Report.last
             expect(ReportedMailer)
-              .to have_received(:hide)
+              .to have_received(:hidden_automatically)
               .with(admin, last_report)
           end
         end

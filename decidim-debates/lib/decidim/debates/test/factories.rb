@@ -18,8 +18,21 @@ FactoryBot.define do
     instructions { generate_localized_description(:debate_instructions, skip_injection:) }
     component { build(:debates_component, skip_injection:) }
     author { component.try(:organization) }
+    comments_layout { "single_column" }
+    deleted_at { nil }
 
-    trait :open_ama do
+    trait :with_likes do
+      after :create do |post, evaluator|
+        5.times.collect do
+          create(:like,
+                 resource: post,
+                 skip_injection: evaluator.skip_injection,
+                 author: build(:user, :confirmed, skip_injection: evaluator.skip_injection, organization: post.participatory_space.organization))
+        end
+      end
+    end
+
+    trait :ongoing_ama do
       start_time { 1.day.ago }
       end_time { 1.day.from_now }
     end
@@ -36,13 +49,9 @@ FactoryBot.define do
       author { component.try(:organization) }
     end
 
-    trait :user_group_author do
-      author do
-        create(:user, :confirmed, organization: component.organization, skip_injection:) if component
-      end
-
-      user_group do
-        create(:user_group, :confirmed, :verified, organization: component.organization, users: [author], skip_injection:) if component
+    trait :hidden do
+      after :create do |debate, evaluator|
+        create(:moderation, hidden_at: Time.current, reportable: debate, skip_injection: evaluator.skip_injection)
       end
     end
 
@@ -52,8 +61,8 @@ FactoryBot.define do
     end
 
     after(:build) do |debate|
-      debate.title = Decidim::ContentProcessor.parse_with_processor(:hashtag, debate.title, current_organization: debate.organization).rewrite
-      debate.description = Decidim::ContentProcessor.parse_with_processor(:hashtag, debate.description, current_organization: debate.organization).rewrite
+      debate.title = Decidim::ContentProcessor.parse(debate.title, current_organization: debate.organization).rewrite
+      debate.description = Decidim::ContentProcessor.parse_with_processor(:inline_images, debate.description, current_organization: debate.organization).rewrite
     end
   end
 
@@ -90,32 +99,32 @@ FactoryBot.define do
     end
 
     trait :with_votes_enabled do
-      # Needed for endorsements tests
+      # Needed for likes tests
     end
 
-    trait :with_endorsements_blocked do
+    trait :with_likes_blocked do
       step_settings do
         {
           participatory_space.active_step.id => {
-            endorsements_enabled: true,
-            endorsements_blocked: true
+            likes_enabled: true,
+            likes_blocked: true
           }
         }
       end
     end
 
-    trait :with_endorsements_enabled do
+    trait :with_likes_enabled do
       step_settings do
         {
-          participatory_space.active_step.id => { endorsements_enabled: true }
+          participatory_space.active_step.id => { likes_enabled: true }
         }
       end
     end
 
-    trait :with_endorsements_disabled do
+    trait :with_likes_disabled do
       step_settings do
         {
-          participatory_space.active_step.id => { endorsements_enabled: false }
+          participatory_space.active_step.id => { likes_enabled: false }
         }
       end
     end

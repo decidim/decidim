@@ -183,16 +183,6 @@ describe Decidim::Initiatives::Admin::Permissions do
         context "when initiative is created" do
           let(:initiative) { create(:initiative, :created, organization:) }
 
-          context "when initiative is authored by a user group" do
-            let(:user_group) { create(:user_group, organization: user.organization, users: [user]) }
-
-            before do
-              initiative.update(decidim_user_group_id: user_group.id)
-            end
-
-            it { is_expected.to be true }
-          end
-
           context "when initiative has enough approved members" do
             before do
               allow(initiative).to receive(:enough_committee_members?).and_return(true)
@@ -384,8 +374,8 @@ describe Decidim::Initiatives::Admin::Permissions do
     context "when managing initiatives" do
       let(:action_subject) { :initiative }
 
-      context "when reading" do
-        let(:action_name) { :read }
+      context "when printing" do
+        let(:action_name) { :print }
 
         before do
           allow(Decidim::Initiatives).to receive(:print_enabled).and_return(print_enabled)
@@ -404,11 +394,21 @@ describe Decidim::Initiatives::Admin::Permissions do
         end
       end
 
-      it_behaves_like "checks initiative state", :publish, :validating, :published
-      it_behaves_like "checks initiative state", :unpublish, :published, :validating
-      it_behaves_like "checks initiative state", :discard, :validating, :published
+      context "when reading" do
+        let(:action_name) { :read }
+
+        context "when print is enabled" do
+          let(:print_enabled) { true }
+
+          it { is_expected.to be true }
+        end
+      end
+
+      it_behaves_like "checks initiative state", :publish, :validating, :open
+      it_behaves_like "checks initiative state", :unpublish, :open, :validating
+      it_behaves_like "checks initiative state", :discard, :validating, :open
       it_behaves_like "checks initiative state", :export_votes, :offline, :online
-      it_behaves_like "checks initiative state", :export_pdf_signatures, :published, :validating
+      it_behaves_like "checks initiative state", :export_pdf_signatures, :open, :validating
 
       context "when accepting the initiative" do
         let(:action_name) { :accept }

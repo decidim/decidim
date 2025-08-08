@@ -1,0 +1,22 @@
+<div class="form__wrapper">
+  <label for="mobile_phone_verification_code">
+    <%= t("decidim.initiatives.initiative_signatures.sms_phone_number.your_confirmation_code") %>
+    <div class="flex gap-x-4" data-check-code>
+      <% (0..5).each do |i| %>
+        <input pattern="^[0-9]$" maxlength="1" size="1" type="tel" class="" name="mobile_phone[verification_code][<%= i %>]" data-verification-code="<%= i %>">
+      <% end %>
+      <%= form.hidden_field(:verification_code, data: { check_code_path: sms_code_initiative_signatures_path }) %>
+    </div>
+  </label>
+  <%= cell("decidim/announcement", t("decidim.initiatives.initiative_signatures.sms_phone_number.your_code_is_correct"), callout_class: "success code-correct-announcement hidden") %>
+  <%= cell("decidim/announcement", t("decidim.initiatives.initiative_signatures.sms_phone_number.your_code_is_incorrect"), callout_class: "warning code-incorrect-announcement hidden") %>
+
+  <button type="submit" class="button button__lg button__secondary hidden" disabled data-submit-verification-code>
+    <span><%= t("decidim.initiatives.initiative_signatures.sms_phone_number.continue") %></span>
+    <%= icon "arrow-right-line", class: "fill-current" %>
+  </button>
+</div>
+
+<div class="editor-content" data-resend-code>
+  <%= t("decidim.initiatives.initiative_signatures.sms_phone_number.resend_code_html", new_code_path: sms_phone_number_initiative_signatures_path) %>
+</div>

@@ -14,9 +14,7 @@ describe "Homepage" do
     visit decidim.root_path
   end
 
-  it "display unhidden debates count" do
-    within(".debates_count") do
-      expect(page).to have_content(2)
-    end
+  it "does not display debates stat" do
+    expect(page).to have_no_content("Debates")
   end
 end

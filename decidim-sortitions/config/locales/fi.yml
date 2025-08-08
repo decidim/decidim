@@ -3,7 +3,6 @@ fi:
     attributes:
       sortition:
         additional_info: Satunnaisvalinnan tiedot
-        decidim_category_id: Ehdotusten aihepiirit, joiden perusteella haluat tehdä satunnaisvalinnan
         decidim_proposals_component_id: Ehdotusten joukko
         dice: Noppaheiton tulos. Heitä kuusisivuista noppaa tai etsi toinen tapa luoda satunnaisesti numero 1-6, ja kirjoita tähän tuloksena saatu luku muutamien todistajien edessä. Tämä auttaa takamaan tuloksen satunnaisuuden
         target_items: Valittavien ehdotusten määrä (ilmoittaa niiden ehdotusten lukumäärän, jotka haluat valita arpomalla kustakin aiemmin valitsemastasi ehdotusjoukosta)
@@ -24,8 +23,13 @@ fi:
         name: Satunnaisvalinnat
         settings:
           global:
+            clear_all: Tyhjennä kaikki
             comments_enabled: Kommentointi sallittu
             comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
+            define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
+            no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
+            taxonomy_filters: Valitse suodattimet komponentille
+            taxonomy_filters_add: Lisää suodatin
     events:
       sortitions:
         sortition_created:
@@ -36,14 +40,14 @@ fi:
     sortitions:
       admin:
         actions:
-          destroy: Peruuta satunnaisvalinta
+          destroy: Peru satunnaisvalinta
           edit: Muokkaa
           new_sortition: Uusi satunnaisvalinta
           show: Satunnaisvalinnan tarkemmat tiedot
+          title: Toiminnot
         models:
           sortition:
             fields:
-              category: Luokka
               created_at: Luomispäivä
               decidim_proposals_component: Ehdotusten osa
               dice: Noppa
@@ -51,28 +55,30 @@ fi:
               request_timestamp: Satunnaistamisen aika
               seed: Jako
               target_items: Valittavat kohteet
+              taxonomies: Luokittelut
               title: Otsikko
         sortitions:
           confirm_destroy:
-            confirm_destroy: Haluatko varmasti peruuttaa tämän satunnaisvalinnan?
-            destroy: Peruuta satunnaisvalinta
-            title: Satunnaisvalinnan peruuttaminen
+            confirm_destroy: Haluatko varmasti perua tämän satunnaisvalinnan?
+            destroy: Peru satunnaisvalinta
+            title: Satunnaisvalinnan peruminen
           create:
             error: Uuden satunnaisvalinnan luonti epäonnistui.
             success: Satunnaisvalinnan luonti onnistui.
           destroy:
-            error: Satunnaisvalintaa ei voi peruuttaa.
-            success: Satunnaisvalinnan peruuttaminen onnistui.
+            error: Satunnaisvalintaa ei voi perua.
+            success: Satunnaisvalinnan peruminen onnistui.
           edit:
             title: Päivitä satunnaisvalinnan tiedot
             update: Päivitä
           form:
-            all_categories: Kaikki luokat
+            all_taxonomies: Kaikki luokittelut
             select_proposal_component: Valitse asetetut ehdotukset
+            select_taxonomies: Luokittelut niille ehdotuksille, jotka haluat sisällyttää satunnaisvalintaan. Jätä tyhjäksi, mikäli haluat kaikki ehdotukset kullekin luokittelulle.
           index:
             title: Satunnaisvalinnat
           new:
-            confirm: Kun painat painiketta, palvelin tallentaa päivämäärän ja kellonajan (sekunnin tarkkuudella) ja näitä tietoja käytetään yhdessä nopanheiton kanssa satunnaisen valinnan luomiseen. Toimintoa ei voi peruuttaa. Kun painiketta painetaan, arvonnan tulos julkaistaan tähän lomakkeeseen syötettyjen tietojen kanssa. Tietoja ei voi muuttaa jälkikäteen, joten tarkista sisältö huolellisesti.
+            confirm: Kun painat painiketta, palvelin tallentaa päivämäärän ja kellonajan (sekunnin tarkkuudella) ja näitä tietoja käytetään yhdessä nopanheiton tuloksen kanssa satunnaisen valinnan luomiseen. Toimintoa ei voi perua. Kun painiketta painetaan, arvonnan tulos julkaistaan tähän lomakkeeseen syötettyjen tietojen kanssa. Tietoja ei voi muuttaa jälkikäteen, joten tarkista sisältö huolellisesti.
             create: Luo
             title: Uusi satunnaisvalinta
           show:
@@ -83,7 +89,7 @@ fi:
       admin_log:
         sortition:
           create: "%{user_name} loi satunnaisvalinnan %{resource_name} kohtaan %{space_name}"
-          delete: "%{user_name} peruutti satunnaisvalinnan %{resource_name} kohdassa %{space_name}"
+          delete: "%{user_name} perui satunnaisvalinnan %{resource_name} tilassa %{space_name}"
           update: "%{user_name} päivitti satunnaisvalinnan %{resource_name} kohdassa %{space_name}"
       sortitions:
         count:
@@ -110,16 +116,16 @@ fi:
             other: Valitut ehdotukset
         show:
           algorithm: Satunnaisvalinnan algoritmikoodi
-          any_category: kaikista aihepiireistä
+          any_taxonomy: kaikista luokitteluista
           cancelled: Peruttu satunnaisvalinta
           candidate_proposal_ids: Satunnaisvalinnan ehdotusten järjestys ja tunnukset
-          candidate_proposals_info: 'Satunnaisvalinta tehtiin seuraavien ehdotusten (%{category_label}) välillä, seuraavilla tunnuksilla (lihavoituna valitut ehdotukset)  '
-          category: aihepiiristä %{category}
+          candidate_proposals_info: 'Satunnaisvalinta tehtiin seuraavien ehdotusten (%{taxonomy_labels}) välillä, seuraavilla tunnisteilla (valitut ehdotukset lihavoituna)  '
           dice_result: Nopanheiton tulos
           introduction: 'Tämä sivu sisältää satunnaisvalinnan tulokset %{reference}. Tämän satunnaisvalinnan avulla %{target_items} tulosten määrä on valittu satunnaisesti ja yhtäläisellä todennäköisyysjakaumalla alla esitetyistä ehdotuksista. Yhdessä tulosten kanssa tällä sivulla näkyvät tiedot tarjoavat kaikki tarvittavat tiedot takuiden maksimoimiseksi ja tulosten toisintamiseksi. Tämän järjestelyn laadun avain on kaksinkertainen satunnaisuus, jonka antaa noppan heitto (todistajien todistama) ja täsmällinen ajankohta, joka antaa syötteen algoritmille, joka tuottaa satunnaisen valinnan. Kokoonpanon aika-jako on niin tarkka (sekuntia), että ihmisten on mahdotonta hallita sitä, jolloin saadaan kaksinkertainen "hallitsematon" syöte oikeudenmukaisen tuloksen takaamiseksi.  '
           mathematical_result: Tulos (nopanheitto x satunnaisarvo)
           proposals_selected_by_sortition: Ehdotukset, jotka on valittu satunnaisvalinnassa
           sortition_reproducibility_details: Satunnaisvalinnan toisinnettavuustiedot
+          taxonomies: luokitteluista %{taxonomies}
           time_seed: Aikasyöte
           witnesses: Todistajat
         sortition:
@@ -137,3 +143,4 @@ fi:
             other: "%{count} satunnaisvalintaa"
     statistics:
       sortitions_count: Satunnaisvalintaa
+      sortitions_count_tooltip: Päätöksentekoa varten tehtyjen satunnaisvalintojen lukumäärä.

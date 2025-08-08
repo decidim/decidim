@@ -28,7 +28,7 @@ module Decidim
     end
 
     def participatory_space_floating_help
-      return if help_section.blank?
+      return if help_section.blank? || strip_tags(translated_attribute(help_section).html_safe).blank?
 
       floating_help(help_id) { translated_attribute(help_section).html_safe }
     end

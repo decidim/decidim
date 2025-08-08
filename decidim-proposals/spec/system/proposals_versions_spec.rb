@@ -59,6 +59,15 @@ describe "Explore versions", versioning: true do
     end
   end
 
+  context "when showing a version of a proposal that is hidden" do
+    let!(:proposal) { create(:proposal, :published, body: { en: "One liner body" }, component:) }
+
+    include_examples "a version of a hidden object" do
+      let(:resource_path) { proposal_path }
+      let(:hidden_object) { proposal }
+    end
+  end
+
   context "when showing version" do
     before do
       visit proposal_path
@@ -78,20 +87,20 @@ describe "Explore versions", versioning: true do
     it "shows the changed attributes" do
       expect(page).to have_content("Changes at")
 
-      within "#diff-for-title" do
-        expect(page).to have_content("Title")
+      within "#diff-for-title-english" do
+        expect(page).to have_content("Title (English)")
 
         within ".diff > ul > .del" do
-          expect(page).to have_content(translated(proposal.title).dump)
+          expect(page).to have_content(translated(proposal.title))
         end
 
         within ".diff > ul > .ins" do
-          expect(page).to have_content(translated(emendation.title).dump)
+          expect(page).to have_content(translated(emendation.title))
         end
       end
 
-      within "#diff-for-body" do
-        expect(page).to have_content("Body")
+      within "#diff-for-body-english" do
+        expect(page).to have_content("Body (English)")
 
         within ".diff > ul > .del" do
           expect(page).to have_content(translated(proposal.body))
@@ -99,6 +108,32 @@ describe "Explore versions", versioning: true do
 
         within ".diff > ul > .ins" do
           expect(page).to have_content(translated(emendation.body))
+        end
+      end
+    end
+
+    it "show the correct state" do
+      form_params = {
+        internal_state: "evaluating",
+        answer: { en: "Foo" },
+        cost: 2000,
+        cost_report: { en: "Cost report" },
+        execution_period: { en: "Execution period" }
+      }
+      form = Decidim::Proposals::Admin::ProposalAnswerForm.from_params(form_params).with_context(
+        current_user: proposal.authors.first,
+        current_component: proposal.component,
+        current_organization: proposal.component.organization
+      )
+      Decidim::Proposals::Admin::AnswerProposal.call(form, proposal)
+
+      visit current_path
+      click_on("Version 3 of 3")
+
+      within "#diff-for-state" do
+        expect(page).to have_content("State")
+        within ".diff > ul > .ins" do
+          expect(page).to have_content("Evaluating")
         end
       end
     end

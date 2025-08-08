@@ -17,6 +17,7 @@ module Decidim
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
       include Decidim::ActsAsTree
+      include ActionView::Helpers::TextHelper
 
       # Limit the max depth of a comment tree. If C is a comment and R is a reply:
       # C          (depth 0)
@@ -55,7 +56,6 @@ module Decidim
       validates :depth, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: MAX_DEPTH }
       validates :alignment, inclusion: { in: [0, 1, -1] }
       validate :body_length
-      validate :commentable_can_have_comments
 
       scope :not_deleted, -> { where(deleted_at: nil) }
 
@@ -78,6 +78,10 @@ module Decidim
 
       def self.negative
         where(alignment: -1)
+      end
+
+      def reported_title
+        truncate(translated_attribute(body))
       end
 
       def organization
@@ -141,7 +145,7 @@ module Decidim
         if root_commentable.respond_to?(:polymorphic_resource_url)
           root_commentable.polymorphic_resource_url(url_params)
         else
-          ResourceLocatorPresenter.new(root_commentable).url(url_params)
+          root_commentable.reported_content_url(url_params)
         end
       end
 
@@ -152,7 +156,7 @@ module Decidim
 
       # Public: Overrides the `reported_searchable_content_extras` Reportable concern method.
       def reported_searchable_content_extras
-        [normalized_author.name]
+        [author.name]
       end
 
       def self.export_serializer
@@ -204,7 +208,11 @@ module Decidim
       end
 
       def edited?
-        Decidim::ActionLog.where(resource: self).exists?(["extra @> ?", Arel.sql("{\"edit\":true}")])
+        Decidim::ActionLog.where(resource: self).exists?(["extra @> ?", { edit: true }.to_json])
+      end
+
+      def extra_actions_for(current_user)
+        root_commentable.try(:actions_for_comment, self, current_user)
       end
 
       private
@@ -226,12 +234,6 @@ module Decidim
         return unless component&.settings.respond_to?(:comments_max_length)
 
         component.settings.comments_max_length.positive?
-      end
-
-      # Private: Check if commentable can have comments and if not adds
-      # a validation error to the model
-      def commentable_can_have_comments
-        errors.add(:commentable, :cannot_have_comments) unless root_commentable.accepts_new_comments?
       end
 
       # Private: Compute comment depth inside the current comment tree

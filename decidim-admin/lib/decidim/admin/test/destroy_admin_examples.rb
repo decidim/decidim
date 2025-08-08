@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 shared_examples "destroys participatory space role" do
-  let!(:current_user) { create :user, email: "some_email@example.org", organization: my_process.organization }
-  let!(:user) { create :user, :confirmed, organization: my_process.organization }
+  let!(:current_user) { create(:user, email: "some_email@example.org", organization: my_process.organization) }
+  let!(:user) { create(:user, :confirmed, organization: my_process.organization) }
 
   let(:log_info) do
     {

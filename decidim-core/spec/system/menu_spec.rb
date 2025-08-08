@@ -34,6 +34,26 @@ describe "Menu" do
     end
   end
 
+  context "when the device is mobile" do
+    let!(:participatory_space) { create(:participatory_process, organization:) }
+
+    before do
+      driven_by(:iphone)
+      switch_to_host(organization.host)
+      visit decidim.root_path
+    end
+
+    it "shows the mobile menu" do
+      click_on(id: "main-dropdown-summary-mobile")
+
+      within "#breadcrumb-main-dropdown-mobile" do
+        expect(page).to have_link("Home", href: "/")
+        expect(page).to have_link("Processes", href: "/processes")
+        expect(page).to have_link("Help", href: "/pages")
+      end
+    end
+  end
+
   context "when rendering a component with special characters" do
     let(:component_name) { "Collaborative Drafts & Amendments" }
     let(:participatory_space) { create(:participatory_process, organization:) }
@@ -78,6 +98,24 @@ describe "Menu" do
           expect(page).to have_text(strip_tags(translated(organization.description)))
         end
       end
+    end
+  end
+
+  context "when the admin_insights_menu is displayed" do
+    let(:user) { create(:user, :admin, :confirmed, organization:) }
+
+    before do
+      switch_to_host(organization.host)
+      login_as user, scope: :user
+      visit decidim.root_path
+      click_on "Admin dashboard"
+      click_on "Insights"
+      click_on "Statistics"
+    end
+
+    it "includes the statistics item" do
+      expect(page).to have_content("Statistics")
+      expect(page).to have_css(".statistic__dashboard-container")
     end
   end
 end

@@ -21,11 +21,12 @@ module Decidim
       verify_oauth_signature!
 
       begin
-        if existing_identity
-          user = existing_identity.user
-          verify_user_confirmed(user)
+        if (@identity = existing_identity)
+          @user = existing_identity.user
+          verify_user_confirmed(@user)
 
-          return broadcast(:ok, user)
+          trigger_omniauth_event("decidim.user.omniauth_login")
+          return broadcast(:ok, @user)
         end
         return broadcast(:invalid) if form.invalid?
 
@@ -33,9 +34,11 @@ module Decidim
           create_or_find_user
           @identity = create_identity
         end
-        trigger_omniauth_registration
+        trigger_omniauth_event
 
         broadcast(:ok, @user)
+      rescue NeedTosAcceptance
+        broadcast(:add_tos_errors, @user)
       rescue ActiveRecord::RecordInvalid => e
         broadcast(:error, e.record)
       end
@@ -44,6 +47,8 @@ module Decidim
     private
 
     attr_reader :form, :verified_email
+
+    REGEXP_SANITIZER = /[<>?%&\^*#@()\[\]=+:;"{}\\|]/
 
     def create_or_find_user
       @user = User.find_or_initialize_by(
@@ -55,24 +60,36 @@ module Decidim
         # If user has left the account unconfirmed and later on decides to sign
         # in with omniauth with an already verified account, the account needs
         # to be marked confirmed.
-        @user.skip_confirmation! if !@user.confirmed? && @user.email == verified_email
+        if !@user.confirmed? && @user.email == verified_email
+          @user.skip_confirmation!
+          @user.after_confirmation
+        end
+        @user.tos_agreement = "1"
+        @user.save!
       else
         @user.email = (verified_email || form.email)
-        @user.name = form.name
+        @user.name = form.name.gsub(REGEXP_SANITIZER, "")
         @user.nickname = form.normalized_nickname
         @user.newsletter_notifications_at = nil
         @user.password = SecureRandom.hex
-        if form.avatar_url.present?
-          url = URI.parse(form.avatar_url)
-          filename = File.basename(url.path)
-          file = url.open
-          @user.avatar.attach(io: file, filename:)
-        end
-        @user.skip_confirmation! if verified_email
-      end
+        attach_avatar(form.avatar_url) if form.avatar_url.present?
+        @user.tos_agreement = form.tos_agreement
+        @user.accepted_tos_version = Time.current
+        raise NeedTosAcceptance if @user.tos_agreement.blank?
 
-      @user.tos_agreement = "1"
-      @user.save!
+        @user.skip_confirmation! if verified_email
+        @user.save!
+        @user.after_confirmation if verified_email
+      end
+    end
+
+    def attach_avatar(avatar_url)
+      url = URI.parse(avatar_url)
+      filename = File.basename(url.path)
+      file = url.open
+      @user.avatar.attach(io: file, filename:)
+    rescue OpenURI::HTTPError, Errno::ECONNREFUSED
+      # Do not attach the avatar, as it fails to fetch it.
     end
 
     def create_identity
@@ -112,20 +129,26 @@ module Decidim
       form.oauth_signature == signature
     end
 
-    def trigger_omniauth_registration
+    def trigger_omniauth_event(event_name = "decidim.user.omniauth_registration")
       ActiveSupport::Notifications.publish(
-        "decidim.user.omniauth_registration",
+        event_name,
         user_id: @user.id,
         identity_id: @identity.id,
         provider: form.provider,
         uid: form.uid,
         email: form.email,
-        name: form.name,
+        name: form.name.gsub(REGEXP_SANITIZER, ""),
         nickname: form.normalized_nickname,
         avatar_url: form.avatar_url,
-        raw_data: form.raw_data
+        raw_data: form.raw_data,
+        tos_agreement: form.tos_agreement,
+        newsletter_notifications_at: form.newsletter_at,
+        accepted_tos_version: form.current_organization.tos_version
       )
     end
+  end
+
+  class NeedTosAcceptance < StandardError
   end
 
   class InvalidOauthSignature < StandardError

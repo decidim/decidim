@@ -7,7 +7,7 @@ module Decidim
         private
 
         def stats
-          @stats ||= resource.show_statistics && AssemblyStatsPresenter.new(assembly: resource).collection
+          @stats ||= AssemblyStatsPresenter.new(assembly: resource).collection
         end
       end
     end

@@ -107,9 +107,6 @@ For production environments, you can configure these tasks with `crontab -e`. Fo
 # Remove expired download your data files
 0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:delete_download_your_data_files
 
-# Compute metrics
-1 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:metrics:all
-
 # Compute open data
 2 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:open_data:export
 
@@ -127,6 +124,29 @@ For production environments, you can configure these tasks with `crontab -e`. Fo
 
 # Change active step in participatory processes
 */15 * * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_participatory_processes:change_active_step
+
+# Delete inactive participants accounts
+0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:participants:delete_inactive_participants
+----
+
+=== Scheduled tasks from modules
+
+Additional cron jobs may be available depending on the modules you have installed.
+
+==== Initiatives module
+
+If you have installed the `decidim-initiatives` module, you may want to add to your crontab the following
+
+[source,console]
+----
+# Checks published initiatives and moves to accepted/rejected state depending on the votes collected when the signing period has finished
+30 7 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_initiatives:check_published
+
+# Checks validating initiatives and moves all without changes for a configured time to discarded state
+0 7 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_initiatives:check_validating
+
+# Notifies progress on published initiatives
+0 8 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_initiatives:notify_progress
 ----
 
 === Further configuration
@@ -153,7 +173,7 @@ The command asks for an email and a password. For security, the password will no
 
 This will create a system user with the email and password you provided. We recommend using a random password generator and saving it to a password manager, so you have a more secure credentials.
 
-After this, visit the `/system` panel and login with the email and passwords you just entered and create your organization. Now you are ready to setup your organization and after that you are done! 🎉
+After this, visit the `/system` panel and log in with the email and passwords you just entered and create your organization. Now you are ready to setup your organization and after that you are done! 🎉
 
 === What are organizations?
 
@@ -164,7 +184,7 @@ Note that the system panel admin user you created earlier is also separated from
 * *System admin* - Manages the organizations on the same platform, does not necessarily have to be involved in any organization
 * *Organization admin* - Administers a single organization, i.e. manages its content, sets up processes, adds components, manages user accounts, etc.
 
-You can read the xref:admin:system.adoc[System panel] documentation for more info on what are organizations and how they work.
+You can read the xref:configure:system.adoc[System panel] documentation for more info on what are organizations and how they work.
 
 == Checklist
 

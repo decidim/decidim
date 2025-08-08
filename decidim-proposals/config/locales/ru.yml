@@ -5,12 +5,10 @@ ru:
         answer: Ответить
         answered_at: 'Получен ответ:'
         body: Основной текст
-        category_id: Категория
         has_address: Имеет адрес
         scope_id: Охват
         state: Cостояние
         title: Заголовок
-        user_group_id: Создать предложение в качестве
       proposal_answer:
         answer: Ответить
       proposals_copy:
@@ -24,9 +22,7 @@ ru:
             add_photos:
               needs_to_be_reattached: Необходимо заново прикрепить
     models:
-      decidim/proposals/admin/update_proposal_category_event: Категория предложения изменена
       decidim/proposals/creation_enabled_event: Включена возможность создания предложений
-      decidim/proposals/endorsing_enabled_event: Включена возможность поддерживать предложения
       decidim/proposals/proposal_mentioned_event: Предложение упомянуто
       decidim/proposals/publish_proposal_event: Предложение обнародовано
       decidim/proposals/voting_enabled_event: Включена возможность голосовать по поводу предложений
@@ -51,8 +47,6 @@ ru:
     components:
       proposals:
         actions:
-          create: Внести
-          endorse: Поддержать
           vote: Голосовать
           withdraw: Отозвать
         name: Предложения
@@ -61,11 +55,9 @@ ru:
             announcement: Объявление
             attachments_allowed: Разрешить прикрпеленные файлы
             comments_enabled: Комментарии включены
-            geocoding_enabled: Геокодирование включено
             new_proposal_help_text: Подсказки по созданию нового предложения
             official_proposals_enabled: Включена возможность выдвигать служебные предложения
             proposal_answering_enabled: Включена возможность отвечать на предложения
-            proposal_edit_before_minutes: Предложения могут быть отредактированы авторами до того, как пройдет столько минут
             proposal_length: Предельная длина основного текста предложения
             proposal_limit: Предельное количество предложений от одного участника
             proposal_wizard_step_1_help_text: Справка мастера предложений о шаге "Создать"
@@ -74,8 +66,6 @@ ru:
           step:
             announcement: Объявление
             comments_blocked: Комментарии отключены
-            endorsements_blocked: Возможность выразить поддержку отключена
-            endorsements_enabled: Возможность выразить поддержку включена
             proposal_answering_enabled: Включена возможность отвечать на предложения
             votes_blocked: Голосование отключено
             votes_enabled: Голосование включено
@@ -86,10 +76,6 @@ ru:
           email_intro: 'Теперь вы можете создавать новые предложения в %{participatory_space_title}! Начните со страницы:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: Теперь в %{participatory_space_title} можно вносить предложения
-        endorsing_enabled:
-          email_intro: 'Теперь вы можете поддерживать предложения в %{participatory_space_title}! Начните со страницы:'
-          email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
-          email_subject: В %{participatory_space_title} началось предоставление поддержки предложениям
         proposal_mentioned:
           email_subject: Ваше предложение "%{mentioned_proposal_title}"было упомянуто
           notification_title: Ваше предложение «%{mentioned_proposal_title}» было упомянуто в комментариях <a href="%{resource_path}">в этом пространстве</a>.
@@ -99,13 +85,6 @@ ru:
         proposal_published_for_space:
           email_intro: В "%{participatory_space_title}", за которым вы следите, добавлено предложение "%{resource_title}".
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
-        proposal_update_category:
-          email_intro: 'Администратор обновил категорию вашего предложения «%{resource_title}», проверьте её:'
-          email_outro: Вы получили это уведомление, потому что вы являетесь автором предложения.
-          email_subject: Обновлена категория предложений %{resource_title}
-          notification_title: Категория предложений <a href="%{resource_path}">%{resource_title}</a> была обновлена ​​администратором.
-        proposal_update_scope:
-          email_outro: Вы получили это уведомление, потому что вы являетесь автором предложения.
         voting_enabled:
           email_intro: 'Теперь вы можете голосовать по предложениям в %{participatory_space_title}! Начните со страницы:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
@@ -131,16 +110,11 @@ ru:
           form:
             note: Примечание
             submit: Отправить
-          leave_your_note: Оставьте свое примечание
           title: Частные примечания
         proposals:
-          form:
-            attachment_legend: "(Необязательно) Прикрепить файл"
-            select_a_category: Выберите категорию
           index:
             actions: Действия
             cancel: Отменить
-            change_category: Изменить категорию
             selected: выбранные
             title: Предложения
             update: Обновить
@@ -156,7 +130,6 @@ ru:
       admin_log:
         proposal:
           answer: "%{user_name} ответил на предложение %{resource_name} в пространстве %{space_name}"
-          create: "%{user_name} создал в пространстве %{space_name} предложение %{resource_name} в качестве служебного предложения"
         proposal_note:
           create: "%{user_name} оставил частное примечание по предложению %{resource_name} в пространстве %{space_name}"
       answers:
@@ -179,31 +152,25 @@ ru:
       models:
         proposal:
           fields:
-            category: Категория
             comments: Комментарии
             id: Псевдоним
             notes: Примечания
             official_proposal: Служебное предложение
             published_at: 'Обнародовано:'
-            scope: Охват
             state: Cостояние
             title: Заголовок
             votes: Голоса
       proposals:
         edit:
-          attachment_legend: "(Необязательно) Добавить вложение"
           back: Вернуться
-          select_a_category: Пожалуйста, выберите категорию
           send: Отправить
           title: Редактировать предложение
         edit_draft:
           discard: Отбросить этот черновик
           discard_confirmation: Вы действительно хотите отбросить этот черновик предложения?
           send: Предпросмотр
-          title: Редактировать черновик предложения
         filters:
           all: Все
-          category: Категория
           origin: Источник
           related_to: Связано с
           search: Поиск
@@ -230,17 +197,13 @@ ru:
           title: Обнародуйте свое предложение
         show:
           answer: Ответить
-          edit_proposal: Редактировать предложение
           proposal_accepted_reason: 'Это предложение было принято, поскольку:'
           proposal_in_evaluation_reason: Это предложение сейчас рассматривается
           proposal_rejected_reason: 'Это предложение было отклонено, поскольку:'
-          withdraw_proposal: Снять предложение
         vote_button:
-          already_voted: Уже проголосовали
           maximum_votes_reached: Достигнуто предельное количество голосов
           no_votes_remaining: Больше не осталось голосов
           vote: Голосовать
-          votes_blocked: Голосование отключено
         voting_rules:
           proposal_limit:
             description: Вы можете создать до %{limit} предложений.

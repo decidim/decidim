@@ -203,7 +203,7 @@ module Decidim
           it "redirects to sign in path" do
             get :show
             expect(response).to redirect_to("/users/sign_in")
-            expect(flash[:warning]).to include("Please, login with your account before access")
+            expect(flash[:warning]).to include("Please, log in with your account before access")
           end
         end
       end

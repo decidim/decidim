@@ -10,7 +10,7 @@
         </div>
         <div class="columns">
           <%= form.label :role %>
-          <%= select :participatory_process_user_role, :role, @form.roles, include_blank: false %>
+          <%= select :participatory_process_user_role, :role, options_for_select(@form.roles, @user_role&.role) %>
         </div>
       </div>
     </div>

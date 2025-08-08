@@ -4,6 +4,14 @@ module GeocoderHelpers
   def stub_geocoding(address, coordinates)
     result = coordinates.blank? ? [] : [{ "coordinates" => [latitude, longitude] }]
 
+    unless @stub_geocoding
+      @stub_geocoding = true
+      self.class.after do
+        # Clear the autocomplete stubs
+        Decidim::Map::Provider::Autocomplete::Test.clear_stubs
+      end
+    end
+
     Geocoder::Lookup::Test.add_stub(
       address,
       result
@@ -12,6 +20,19 @@ module GeocoderHelpers
       address,
       coordinates
     )
+  end
+
+  def stub_geocoding_coordinates(coordinates)
+    geocoder_request_url = "https://nominatim.openstreetmap.org/reverse?accept-language=en&addressdetails=1&format=json&lat=#{coordinates[0]}&lon=#{coordinates[1]}"
+    geocoder_response = File.read(Decidim::Dev.asset("geocoder_result_here.json"))
+
+    stub_request(:get, geocoder_request_url).with(
+      headers: {
+        "Accept" => "*/*",
+        "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+        "User-Agent" => "Ruby"
+      }
+    ).to_return(body: geocoder_response)
   end
 
   # Waits for the front-end geocoding request to finish in order to ensure there
@@ -90,6 +111,13 @@ RSpec.configure do |config|
     GeocoderHelpers.configure_maps
   end
 
+  config.before(:each, :configures_map) do
+    # Make sure that every spec starts with the default configuration. Otherwise
+    # this can cause issues with randomized test order.
+    Decidim::Map.reset_utility_configuration!
+    configure_maps
+  end
+
   config.after(:each, :configures_map) do
     # Ensure the initializer is always re-run after the examples because
     # otherwise the utilities could remain unregistered which causes issues with
@@ -102,13 +130,9 @@ RSpec.configure do |config|
     end
 
     # Ensure the utility configuration is reset after each example for it to be
-    # reloaded the next time.
+    # reloaded the next time, as the next test may be outside of the
+    # `configures_map` context.
     Decidim::Map.reset_utility_configuration!
     configure_maps
-  end
-
-  config.before(:each, :serves_geocoding_autocomplete) do
-    # Clear the autocomplete stubs
-    Decidim::Map::Provider::Autocomplete::Test.clear_stubs
   end
 end

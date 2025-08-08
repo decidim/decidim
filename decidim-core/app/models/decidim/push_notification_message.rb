@@ -26,7 +26,7 @@ module Decidim
     end
 
     def url
-      EngineRouter.new("decidim", {}).public_send(:conversation_path, host: organization.host, id: @conversation)
+      EngineRouter.new("decidim", {}).conversation_path(host: organization.host, id: @conversation)
     end
 
     private

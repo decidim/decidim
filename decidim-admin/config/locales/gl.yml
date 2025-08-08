@@ -26,8 +26,6 @@ gl:
         published_at: Publicado en
         weight: Orde de posición
       id: ID
-      import:
-        user_group_id: Importar como
       newsletter:
         body: Corpo
         subject: Asunto
@@ -36,8 +34,6 @@ gl:
         available_authorizations: Autorizacións dispoñíbeis
         badges_enabled: Activar emblemas
         comments_max_length: Lonxitude máxima dos comentarios (0 para valor predefinido)
-        cta_button_path: Camiño do botón de chamada a acción
-        cta_button_text: Texto do botón de chamada a acción
         customize_welcome_notification: Personalizar a notificación de benvida
         default_locale: Configuración predeterminada
         description: Descrición
@@ -51,13 +47,6 @@ gl:
         header_snippets: Fragmentos de cabeceira
         highlight_alternative_color: Realzado, alternativo
         highlight_color: Realzado
-        highlighted_content_banner_action_subtitle: Subtítulo do botón de acción
-        highlighted_content_banner_action_title: Título do botón de acción
-        highlighted_content_banner_action_url: URL do botón de acción
-        highlighted_content_banner_enabled: Mostrar a bandeira de contido resaltada
-        highlighted_content_banner_image: Imaxe
-        highlighted_content_banner_short_description: Descrición curta
-        highlighted_content_banner_title: Título
         host: Host
         instagram_handler: Administrador de Instagram
         logo: Logo
@@ -82,7 +71,6 @@ gl:
         success_color: Éxito
         time_zone: Fuso horario
         tos_version: Versión de condicións de servizo
-        user_groups_enabled: Activar grupos de usuarios
         users_registration_mode: Modo rexistro de usuarios/as
         warning_color: Aviso
         welcome_notification_body: Corpo da notificación de benvida
@@ -144,23 +132,16 @@ gl:
         attachment:
           new: Novo anexo
         browse: Buscar
-        category:
-          new: Nova categoría
-        export: Exportar todo
         export-selection: Exportar selección
         import: Importar
-        manage: Xestionar
         newsletter:
           new: Novo boletín
         participatory_space_private_user:
           new: Novo usuario privado do espazo participativo
         per_page: Por páxina
-        permissions: Permisos
-        reject: Rexeitar
         share: Compartir
         user:
           new: Novo administrador
-        verify: Verifique
       area_types:
         create:
           error: Produciuse un erro ao crear un novo tipo de área.
@@ -230,23 +211,8 @@ gl:
           justification: Xustificante
           title: Bloquear ao usuario %{name}
       categories:
-        create:
-          error: Houbo un erro ao crear esta categoría.
-          success: Categoría creada con éxito.
-        destroy:
-          error: Produciuse un erro ao eliminar esta categoría. Elimina primeiro calquera subcategoría, asegúrate de que outra entidade non pertence a esta categoría e téntao de novo.
-          success: Categoría eliminada con éxito.
-        edit:
-          title: Editar categoría
-          update: Actualización
         index:
           categories_title: Categorías
-        new:
-          create: Crear categoría
-          title: Nova categoría
-        update:
-          error: Produciuse un erro ao actualizar esta categoría.
-          success: A categoría actualizouse con éxito.
       component_permissions:
         update:
           error: Produciuse un problema ao actualizar os permisos deste compoñente.
@@ -255,9 +221,6 @@ gl:
         create:
           error: Produciuse un erro ao crear este compoñente.
           success: Compoñente creado con éxito.
-        destroy:
-          error: Produciuse un erro ao destruír este compoñente.
-          success: Componente eliminado con éxito.
         edit:
           title: Editar compoñente
           update: Actualización
@@ -270,7 +233,6 @@ gl:
           headers:
             actions: Accións
             name: Nome do compoñente
-            scope: Ámbito do compoñente
             type: Tipo de compoñente
         new:
           add: Engadir compoñente
@@ -307,8 +269,6 @@ gl:
           FormPDF: PDF
           JSON: JSON
       filters:
-        category_id_eq:
-          label: Categoría
         filter_label: Filtrar
         invitation_accepted_at_present:
           label: Convite aceptado
@@ -356,15 +316,9 @@ gl:
           values:
             'false': Publicado
             'true': Publicación borrada
-        scope_id_eq:
-          label: Ámbito
         search_label: Busca
         search_placeholder:
-          name_or_nickname_or_email_cont: Procurar %{collection} por correo electrónico, nome ou alcume.
           report_count_eq: Número de denuncias
-          reported_id_string_or_reported_content_cont: Procurar %{collection} por contido ou Id reportábel.
-          title_cont: Procurar %{collection} por título.
-          user_name_or_user_nickname_or_user_email_cont: Pescudar %{collection} por correo, nome ou alcume.
         state_eq:
           label: Estado
           values:
@@ -465,7 +419,6 @@ gl:
         areas: Campos
         configuration: Configuración
         help_sections: Seccións de axuda
-        homepage: Páxina de inicio
         impersonations: Impersonacións
         manage: Xestionar
         moderation: Moderacións globais
@@ -475,11 +428,7 @@ gl:
         scopes: Ámbitos
         settings: Configuración
         static_pages: Páxinas
-        user_groups: Grupos de usuarios
         users: Usuarios
-      metrics:
-        metrics:
-          see_more_metrics: Veer máis métricas
       models:
         area:
           fields:
@@ -528,12 +477,8 @@ gl:
             plural: Plural
         share_token:
           fields:
-            created_at: Creado o
             expires_at: Caduca o
-            last_used_at: Empregado por última vez
             times_used: Veces utilizado
-            token: Token
-            user: Creado por
         static_page:
           fields:
             created_at: Creado en
@@ -548,22 +493,15 @@ gl:
               admin: Admin
               user_manager: Xestor de usuarios
           name: Usuario
-        user_group:
-          fields:
-            actions: Accións
-            created_at: Creado en
-            document_number: Número de documento
-            name: Nome
-            phone: Teléfono
-            state: Estado
-            users_count: Usuarios contan
       moderated_users:
         index:
           actions:
             block: Bloquear usuario
+            bulk_actions:
+              unreport:
+                title: Desfacer denuncia
             title: Accións
             unblock: Desbloquear usuario
-            unreport: Desfacer denuncia
           name: Nome
           nickname: Alcume
           reason: Motivo
@@ -624,7 +562,6 @@ gl:
           confirm_delete: '¿Estás seguro de que queres eliminar este boletín informativo?'
           followers: 'seguidores '
           has_been_sent_to: 'Foi enviado a: '
-          no_scopes: Sen ámbitos
           not_sent: Sen enviar
           participants: 'participantes '
           segmented_to: 'Segmentado para %{subject}: '
@@ -639,13 +576,10 @@ gl:
           confirm_deliver: '¿Estás seguro de que desexas enviar este boletín informativo? Non se pode desfacer esta acción.'
           deliver: Enviar boletín informativo
           followers_help: Enviar boletíns a todos os usuarios confirmados que sigan calquera dos espazos de participación seleccionados na listaxe.
-          none: Ningún
           participants_help: Enviar boletíns a todos os usuarios confirmados que teñan participado en calquera dos espazos de participación seleccionados na listaxe.
           recipients_count: Este boletín enviarase a <strong id='recipients_count'>%{count}</strong> usuarios.
-          scopes_help: Envía o boletín ao usuarios que teñan activado calquera dos ámbitos seleccionados nos axustes "Os meus intereses" das súas contas.
-          select_scopes: Filtrar polos usuarios que teñan activado calquera ámbito seleccionado nos axustes "Os meus intereses" das súas contas.
           select_spaces: Seleccionar espazos para segmentar o boletín
-          select_users: Selecciona a que usuarios queres enviar o boletín
+          send_to_all_users: Enviar a todos os usuarios
           title: Seleccionar os destinatarios
           warning: "<strong>Atención:</strong> Este boletín enviarase só aos usuarios que teñen activado <em>Desexo recibir boletíns</em> nos seus axustes de notificacións."
         show:
@@ -659,7 +593,6 @@ gl:
         index:
           actions: Accións
           badge: Insignia
-          block: Bloquear usuario
           created_at: Creado en
           name: Nome
           nickname: Alcume
@@ -668,9 +601,7 @@ gl:
           officialized: Oficializado
           reofficialize: Reofficializar
           reports: Informes
-          show_email: Amosar enderezo de correo
           status: Estado
-          unblock: Desbloquear usuario
           unofficialize: Non oficializar
         new:
           badge: Insignia de oficialización
@@ -696,20 +627,6 @@ gl:
         update:
           error: Produciuse un erro ao actualizar esta organización.
           success: A organización actualizouse con éxito.
-      organization_appearance:
-        edit:
-          update: Actualización
-        form:
-          colors:
-            colors_title: Cores da organización
-            colors_warning_html: Atención! Mudar estas cores pode estragar ao contrastes de accesibilidade. Podes verificar o contraste da túa elección a través de <a href="%{link}">WebAIM Contrast Checker</a> ou outras ferramentas semellantes.
-          cta_button_text_help: Pode sobrescribir o texto do botón de chamada a acción na páxina de inicio para cada idioma dispoñible na súa organización. Se non se establece, empregarase o valor predeterminado. O botón de chamada a acción amósase na páxina de inicio entre o texto de benvida ea descrición.
-          homepage_appearance_title: Editar o aspecto da páxina de inicio
-          homepage_highlighted_content_banner_title: Banner de contido de alto nivel
-          images:
-            layout_appearance_title: Editar aspecto de deseño
-            preview: Vista Previa
-          omnipresent_banner_appearance_title: Editar o banner omnipresente
       participatory_space_private_users:
         create:
           error: Produciuse un erro engadindo un usuario privado a este espazo participativo.
@@ -725,6 +642,8 @@ gl:
           title: Novo usuario privado do espazo participativo.
       participatory_space_private_users_csv_imports:
         new:
+          csv_upload:
+            title: Carga o teu ficheiro CSV
           upload: Subir
       reminders:
         create:
@@ -740,10 +659,6 @@ gl:
           title: Editar permisos
         update:
           success: Permisos actualizados correctamente.
-      resources:
-        index:
-          headers:
-            scope: Ámbito
       scope_types:
         create:
           error: Produciuse un erro ao crear un novo tipo de alcance.
@@ -775,15 +690,7 @@ gl:
           success: Ámbito actualizado con éxito
       share_tokens:
         actions:
-          confirm_destroy: Estás certo/a de querer eliminar este token?
           destroy: Eliminar
-          share: Compartir
-        destroy:
-          error: Produciuse un problema ao destruír o token.
-          success: Token eliminado con éxito.
-        share_tokens:
-          help: Estes tokens empréganse para compartir publicamente con calquera usuario este recurso non publicado. Ocultaranse cando o recurso sexa publicado. Preme na icona de compartir token para visitar o URL compartíbel.
-          title: Compartir tokens
       shared:
         gallery:
           add_images: Engadir imaxes
@@ -797,14 +704,11 @@ gl:
           title: Editar tema
           update: Actualizar tema
         new:
-          create: Crear tema
           title: Novo tema
         update:
           error: Produciuse un erro ao actualizar este tema.
           success: Tema actualizado correctamente
       static_pages:
-        actions:
-          view: Ver páxina pública
         create:
           error: Produciuse un erro ao crear unha nova páxina.
           success: Páxina creada con éxito.
@@ -818,7 +722,6 @@ gl:
         index:
           last_notable_change: Último cambio notable
         new:
-          create: Crear páxina
           title: Nova páxina
         topic:
           without_topic: Páxinas sen tema
@@ -832,33 +735,11 @@ gl:
         dashboard: Taboleiro de instrumentos
         impersonatable_users: Usuarios xestionables
         impersonations: Xestión dos usuarios
-        metrics: Métricas
         panel: Administrador
         participants: Usuarios
         scope_types: Tipos de alcance
         scopes: Ámbitos
-        statistics: Actividade
-        user_groups: Grupos de usuarios
         users: Administradores
-      user_group:
-        csv_verify:
-          invalid: Produciuse un erro ao ler o ficheiro CSV.
-        reject:
-          invalid: Produciuse un erro ao rexeitar este grupo de usuarios.
-        verify:
-          invalid: Produciuse un erro ao verificar este grupo de usuarios.
-      user_groups:
-        index:
-          state:
-            pending: Pendente
-            rejected: Rexeitado
-            verified: Verificado
-          verify_via_csv: Verifique a través de CSV
-      user_groups_csv_verifications:
-        new:
-          explanation: Carga o teu ficheiro CSV. Debe ter os correos electrónicos oficiais dos grupos de usuarios da súa organización na primeira columna do ficheiro, sen cabeceiras. Só se validarán os grupos de usuarios que confirmaron o seu correo electrónico e que teñen un correo electrónico que aparece no ficheiro CSV.
-          title: Carga o teu ficheiro CSV
-          upload: Cargar
       users:
         create:
           error: Produciuse un erro ao invitar a este usuario.
@@ -880,16 +761,6 @@ gl:
           last_month: O mes pasado
           last_week: A semana pasada
           participants: Participantes
-    metrics:
-      blocked_users:
-        object: usuarias bloqueadas
-        title: Usuarias bloqueadas
-      reported_users:
-        object: usuario/as reportado/as
-        title: Usuario/as reportado/as
-      user_reports:
-        object: informe de usuarios
-        title: Informe de usuarios
     moderations:
       actions:
         expand: Expandir
@@ -897,8 +768,6 @@ gl:
         hide: Ocultar
         not_hidden: Non escondido
         title: Accións
-        unhide: Unhide
-        unreport: Non informar
       admin:
         reportable:
           hide:

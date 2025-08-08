@@ -14,29 +14,25 @@ module Decidim::ParticipatoryProcesses
 
         expect(serialized).to be_a(Hash)
 
-        expect(subject.serialize).to include(id: resource.id)
-        expect(subject.serialize).to include(title: resource.title)
-        expect(subject.serialize).to include(subtitle: resource.subtitle)
-        expect(subject.serialize).to include(slug: resource.slug)
-        expect(subject.serialize).to include(hashtag: resource.hashtag)
-        expect(subject.serialize).to include(short_description: resource.short_description)
-        expect(subject.serialize).to include(description: resource.description)
-        expect(subject.serialize).to include(announcement: resource.announcement)
-        expect(subject.serialize).to include(start_date: resource.start_date)
-        expect(subject.serialize).to include(end_date: resource.end_date)
-        expect(subject.serialize).to include(remote_hero_image_url: Decidim::ParticipatoryProcesses::ParticipatoryProcessPresenter.new(resource).hero_image_url)
-        expect(subject.serialize).to include(remote_banner_image_url: Decidim::ParticipatoryProcesses::ParticipatoryProcessPresenter.new(resource).banner_image_url)
-        expect(subject.serialize).to include(developer_group: resource.developer_group)
-        expect(subject.serialize).to include(local_area: resource.local_area)
-        expect(subject.serialize).to include(meta_scope: resource.meta_scope)
-        expect(subject.serialize).to include(participatory_scope: resource.participatory_scope)
-        expect(subject.serialize).to include(participatory_structure: resource.participatory_structure)
-        expect(subject.serialize).to include(target: resource.target)
-        expect(subject.serialize).to include(private_space: resource.private_space)
-        expect(subject.serialize).to include(promoted: resource.promoted)
-        expect(subject.serialize).to include(scopes_enabled: resource.scopes_enabled)
-        expect(subject.serialize).to include(show_metrics: resource.show_metrics)
-        expect(subject.serialize).to include(show_statistics: resource.show_statistics)
+        expect(serialized).to include(id: resource.id)
+        expect(serialized).to include(title: resource.title)
+        expect(serialized).to include(subtitle: resource.subtitle)
+        expect(serialized).to include(slug: resource.slug)
+        expect(serialized).to include(short_description: resource.short_description)
+        expect(serialized).to include(description: resource.description)
+        expect(serialized).to include(announcement: resource.announcement)
+        expect(serialized).to include(start_date: resource.start_date)
+        expect(serialized).to include(end_date: resource.end_date)
+        expect(serialized[:remote_hero_image_url]).to be_blob_url(resource.hero_image.blob)
+        expect(serialized).to include(developer_group: resource.developer_group)
+        expect(serialized).to include(local_area: resource.local_area)
+        expect(serialized).to include(meta_scope: resource.meta_scope)
+        expect(serialized).to include(participatory_scope: resource.participatory_scope)
+        expect(serialized).to include(participatory_structure: resource.participatory_structure)
+        expect(serialized).to include(target: resource.target)
+        expect(serialized).to include(private_space: resource.private_space)
+        expect(serialized).to include(promoted: resource.promoted)
+        expect(serialized).to include(scopes_enabled: resource.scopes_enabled)
       end
 
       context "when process has area" do
@@ -54,6 +50,21 @@ module Decidim::ParticipatoryProcesses
 
           expect(serialized_area).to include(id: resource.area.id)
           expect(serialized_area).to include(name: resource.area.name)
+        end
+      end
+
+      context "when assembly has taxonomies" do
+        let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization: resource.organization) }
+        let(:serialized_taxonomies) do
+          { ids: taxonomies.pluck(:id) }.merge(taxonomies.to_h { |t| [t.id, t.name] })
+        end
+
+        before do
+          resource.update!(taxonomies:)
+        end
+
+        it "serializes the taxonomies" do
+          expect(subject.serialize[:taxonomies]).to eq(serialized_taxonomies)
         end
       end
 
@@ -109,7 +120,7 @@ module Decidim::ParticipatoryProcesses
           expect(serialized_participatory_process_group).to include(id: resource.participatory_process_group.id)
           expect(serialized_participatory_process_group).to include(title: resource.participatory_process_group.title)
           expect(serialized_participatory_process_group).to include(description: resource.participatory_process_group.description)
-          expect(serialized_participatory_process_group).to include(remote_hero_image_url: Decidim::ParticipatoryProcesses::ParticipatoryProcessGroupPresenter.new(resource.participatory_process_group).hero_image_url)
+          expect(serialized_participatory_process_group[:remote_hero_image_url]).to be_blob_url(resource.participatory_process_group.hero_image.blob)
         end
       end
 
@@ -142,7 +153,7 @@ module Decidim::ParticipatoryProcesses
         let!(:category) { create(:category, participatory_space: resource) }
 
         it "includes the categories" do
-          serialized_participatory_process_categories = subject.serialize[:participatory_process_categories].first
+          serialized_participatory_process_categories = subject.serialize[:categories].first
           expect(serialized_participatory_process_categories).to be_a(Hash)
 
           expect(serialized_participatory_process_categories).to include(id: category.id)
@@ -155,7 +166,7 @@ module Decidim::ParticipatoryProcesses
           let!(:subcategory) { create(:subcategory, parent: category, participatory_space: resource) }
 
           it "includes the categories" do
-            serialized_participatory_process_categories = subject.serialize[:participatory_process_categories].first
+            serialized_participatory_process_categories = subject.serialize[:categories].first
 
             expect(serialized_participatory_process_categories).to be_a(Hash)
 
@@ -180,7 +191,7 @@ module Decidim::ParticipatoryProcesses
           expect(serialized_participatory_process_attachment).to include(title: attachment.title)
           expect(serialized_participatory_process_attachment).to include(weight: attachment.weight)
           expect(serialized_participatory_process_attachment).to include(description: attachment.description)
-          expect(serialized_participatory_process_attachment).to include(remote_file_url: Decidim::AttachmentPresenter.new(resource.attachments.first).attachment_file_url)
+          expect(serialized_participatory_process_attachment[:remote_file_url]).to be_blob_url(resource.attachments.first.file.blob)
         end
       end
     end

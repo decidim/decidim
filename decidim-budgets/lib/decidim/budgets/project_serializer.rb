@@ -16,14 +16,7 @@ module Decidim
       def serialize
         {
           id: project.id,
-          category: {
-            id: project.category.try(:id),
-            name: project.category.try(:name) || empty_translatable
-          },
-          scope: {
-            id: project.scope.try(:id),
-            name: project.scope.try(:name) || empty_translatable
-          },
+          taxonomies:,
           participatory_space: {
             id: project.participatory_space.id,
             url: Decidim::ResourceLocatorPresenter.new(project.participatory_space).url
@@ -31,13 +24,22 @@ module Decidim
           component: { id: component.id },
           title: project.title,
           description: project.description,
-          budget: { id: project.budget.id },
+          budget: { id: project.budget.id,
+                    title: project.budget.title,
+                    url: budget_url },
           budget_amount: project.budget_amount,
-          confirmed_votes: project.confirmed_orders_count,
+          confirmed_votes: (project.confirmed_orders_count if
+            project.component.current_settings.show_votes?),
           comments: project.comments_count,
           created_at: project.created_at,
           url: project.polymorphic_resource_url({}),
           address: project.address,
+          updated_at: project.updated_at,
+          selected_at: project.selected_at,
+          reference: project.reference,
+          follows_count: project.follows_count,
+          latitude: project.latitude,
+          longitude: project.longitude,
           related_proposals:,
           related_proposal_titles:,
           related_proposal_urls:
@@ -48,10 +50,6 @@ module Decidim
 
       attr_reader :project
       alias resource project
-
-      def component
-        project.component
-      end
 
       def related_proposals
         project.linked_resources(:proposals, "included_proposals").map(&:id)
@@ -71,6 +69,10 @@ module Decidim
 
       def url
         Decidim::ResourceLocatorPresenter.new(project).url
+      end
+
+      def budget_url
+        Decidim::EngineRouter.main_proxy(component).budget_url(project.budget)
       end
 
       def empty_translatable(locales = Decidim.available_locales)

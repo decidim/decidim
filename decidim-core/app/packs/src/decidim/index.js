@@ -1,5 +1,3 @@
-/* eslint-disable max-lines */
-
 /**
  * External dependencies
  */
@@ -8,6 +6,7 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 import "jquery"
+import "chartkick/chart.js"
 
 // REDESIGN_PENDING: deprecated
 import "foundation-sites";
@@ -20,16 +19,17 @@ import morphdom from "morphdom"
 /**
  * Local dependencies
  */
+import MentionsComponent from "src/decidim/refactor/implementation/input_mentions";
+
+
+import ClipboardCopy from "src/decidim/refactor/implementation/copy_clipboard";
 
 // local deps with no initialization
 import "src/decidim/input_tags"
-import "src/decidim/input_hashtags"
-import "src/decidim/input_mentions"
 import "src/decidim/input_multiple_mentions"
 import "src/decidim/input_autojump"
 import "src/decidim/history"
 import "src/decidim/callout"
-import "src/decidim/clipboard"
 import "src/decidim/append_elements"
 import "src/decidim/user_registrations"
 import "src/decidim/account_form"
@@ -37,22 +37,24 @@ import "src/decidim/append_redirect_url_to_modals"
 import "src/decidim/form_attachments"
 import "src/decidim/form_remote"
 import "src/decidim/delayed"
-import "src/decidim/vizzs"
 import "src/decidim/responsive_horizontal_tabs"
 import "src/decidim/security/selfxss_warning"
 import "src/decidim/session_timeouter"
-import "src/decidim/confirm"
 import "src/decidim/results_listing"
 import "src/decidim/impersonation"
 import "src/decidim/gallery"
-import "src/decidim/direct_uploads/upload_field"
 import "src/decidim/data_consent"
 import "src/decidim/abide_form_validator_fixer"
 import "src/decidim/sw"
 import "src/decidim/sticky_header"
+import "src/decidim/sticky_footer"
 import "src/decidim/attachments"
+import "src/decidim/dropdown_menu"
 
 // local deps that require initialization
+import ConfirmDialog, { initializeConfirm } from "src/decidim/confirm"
+import { initializeUploadFields } from "src/decidim/direct_uploads/upload_field"
+import { initializeReverseGeocoding } from "src/decidim/geocoding/reverse_geocoding"
 import formDatePicker from "src/decidim/datepicker/form_datepicker"
 import Configuration from "src/decidim/configuration"
 import ExternalLink from "src/decidim/external_link"
@@ -67,7 +69,6 @@ import backToListLink from "src/decidim/back_to_list"
 import markAsReadNotifications from "src/decidim/notifications"
 import handleNotificationActions from "src/decidim/notifications_actions"
 import RemoteModal from "src/decidim/remote_modal"
-import selectActiveIdentity from "src/decidim/identity_selector_dialog"
 import createTooltip from "src/decidim/tooltips"
 import createToggle from "src/decidim/toggle"
 import {
@@ -78,6 +79,7 @@ import {
   Dialogs
 } from "src/decidim/a11y"
 import changeReportFormBehavior from "src/decidim/change_report_form_behavior"
+import setOnboardingAction from "src/decidim/onboarding_pending_action"
 
 // bad practice: window namespace should avoid be populated as much as possible
 // rails-translations could be referenced through a single Decidim.I18n object
@@ -89,6 +91,7 @@ window.Decidim = window.Decidim || {
   addInputEmoji,
   EmojiButton,
   Dialogs,
+  ConfirmDialog,
   announceForScreenReader
 };
 
@@ -111,7 +114,7 @@ window.initFoundation = (element) => {
   $document.off("click.zf.trigger", window.Foundation.Triggers.Listeners.Basic.openListener);
   $document.on("click.zf.trigger", "[data-open]", (ev, ...restArgs) => {
     // Do not apply for the accordion triggers.
-    const accordion = ev.currentTarget?.closest("[data-component='accordion']");
+    const accordion = ev.currentTarget?.closest("[data-controller='accordion']");
     if (accordion) {
       return;
     }
@@ -121,6 +124,8 @@ window.initFoundation = (element) => {
   });
 };
 
+// Confirm initialization needs to happen before Rails.start()
+initializeConfirm();
 Rails.start()
 
 /**
@@ -177,17 +182,27 @@ const initializer = (element = document) => {
 
   scrollToLastChild(element)
 
-  element.querySelectorAll('[data-component="accordion"]').forEach((component) => createAccordion(component))
+  element.querySelectorAll('[data-controller="accordion"]').forEach((component) => createAccordion(component))
+  element.querySelectorAll('[data-component="accordion"]').forEach((component) => {
+    if (component.hasAttribute("data-controller"))
+    {
+      return;
+    }
+    console.error(`${window.location.href} Using accordion component`);
+    createAccordion(component);
+  })
 
-  element.querySelectorAll('[data-component="dropdown"]').forEach((component) => createDropdown(component))
+
+  element.querySelectorAll('[data-controller="dropdown"]').forEach((component) => createDropdown(component))
+  element.querySelectorAll('[data-component="dropdown"]').forEach((component) => {
+    console.error(`${window.location.href} Using dropdown component`);
+    createDropdown(component);
+  })
 
   element.querySelectorAll("[data-dialog]").forEach((component) => createDialog(component))
 
   // Initialize available remote modals (ajax-fetched contents)
   element.querySelectorAll("[data-dialog-remote-url]").forEach((elem) => new RemoteModal(elem))
-
-  // Add event listeners to identity modal
-  element.querySelectorAll("[data-user-identity]").forEach((elem) => selectActiveIdentity(elem))
 
   // Initialize data-tooltips
   element.querySelectorAll("[data-tooltip]").forEach((elem) => createTooltip(elem))
@@ -196,16 +211,26 @@ const initializer = (element = document) => {
   element.querySelectorAll("[data-toggle]").forEach((elem) => createToggle(elem))
 
   element.querySelectorAll(".new_report").forEach((elem) => changeReportFormBehavior(elem))
+
+  element.querySelectorAll("[data-onboarding-action]").forEach((elem) => setOnboardingAction(elem))
+
+  initializeUploadFields(element.querySelectorAll("button[data-upload]"));
+  initializeReverseGeocoding()
+
+  document.dispatchEvent(new CustomEvent("decidim:loaded", { detail: { element } }));
 }
 
 // If no jQuery is used the Tribute feature used in comments to autocomplete
 // mentions stops working
-// document.addEventListener("DOMContentLoaded", () => {
 $(() => initializer());
 
 // Run initializer action over the new DOM elements
 document.addEventListener("remote-modal:loaded", ({ detail }) => initializer(detail));
 document.addEventListener("ajax:loaded", ({ detail }) => initializer(detail));
+
+window.addEventListener("DOMContentLoaded", () => {
+  document.dispatchEvent(new CustomEvent("turbo:load", { detail: { document } }));
+});
 
 // Run initializer action over the new DOM elements (for example after comments polling)
 document.addEventListener("comments:loaded", (event) => {
@@ -219,3 +244,31 @@ document.addEventListener("comments:loaded", (event) => {
     });
   }
 });
+
+document.addEventListener("turbo:load", () => {
+  document.querySelectorAll("[data-clipboard-copy]").forEach((element) => {
+    // Only initialize if not already initialized (prevents duplicates)
+    if (!element._clipboardCopy) {
+      element._clipboardCopy = new ClipboardCopy(element);
+    }
+  });
+});
+
+// Handle external library integration (like React)
+document.addEventListener("attach-mentions-element", (event) => {
+  const instance = new MentionsComponent(event.detail);
+  instance.attachToElement(event.detail);
+});
+
+const initializeMentions = () => {
+  const mentionContainers = document.querySelectorAll(".js-mentions");
+
+  mentionContainers.forEach((container) => {
+    if (!container._mentionContainer) {
+      container._mentionContainer = new MentionsComponent(container);
+    }
+  });
+};
+
+// Initialize on page load
+document.addEventListener("turbo:load", initializeMentions);

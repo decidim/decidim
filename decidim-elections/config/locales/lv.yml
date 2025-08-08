@@ -1,0 +1,45 @@
+lv:
+  decidim:
+    admin:
+      menu:
+        elections_menu:
+          election_questions: Jautājumi
+    components:
+      elections:
+        actions:
+          destroy: Dzēst
+        name: Vēlēšanas
+        settings:
+          global:
+            announcement: Paziņojums
+          step:
+            announcement: Paziņojums
+    elections:
+      actions:
+        title: Darbības
+      admin:
+        dashboard:
+          main:
+            labels:
+              description: Apraksts
+          questions:
+            labels:
+              answers: Atbildes
+            title: Jautājumi
+          questions_table:
+            answer: Atbildes
+        elections:
+          edit:
+            title: Rediģēt vēlēšanas
+          index:
+            title: Vēlēšanas
+          new:
+            title: Jaunas vēlēšanas
+        questions:
+          edit_questions:
+            new_question: Jauns jautājums
+            title: Jautājumi
+      models:
+        election:
+          fields:
+            title: Nosaukums

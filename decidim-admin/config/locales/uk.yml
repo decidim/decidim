@@ -28,8 +28,6 @@ uk:
         body: Основний текст
         subject: Тема
       organization:
-        cta_button_path: Шлях до кнопки "Закликати до дії"
-        cta_button_text: Текст кнопки "Закликати до дії"
         default_locale: Мова за замовчуванням
         description: Опис
         enable_omnipresent_banner: Показувати всюдисущий банер
@@ -37,13 +35,6 @@ uk:
         favicon: Значок
         github_handler: Адреса GitHub
         header_snippets: Сніпети для гіпертекстових заголовків сторінок сайту
-        highlighted_content_banner_action_subtitle: Підзаголовок кнопки дії
-        highlighted_content_banner_action_title: Заголовок кнопки дії
-        highlighted_content_banner_action_url: Веб-адреса кнопки заклику до дії
-        highlighted_content_banner_enabled: Показувати банер висвітленого вмісту
-        highlighted_content_banner_image: Зображення
-        highlighted_content_banner_short_description: Стислий опис
-        highlighted_content_banner_title: Назва
         instagram_handler: Адреса Instagram
         logo: Логотип
         name: Назва
@@ -91,10 +82,7 @@ uk:
       actions:
         add: Додати
         browse: Переглянути
-        manage: Керувати
-        permissions: Права
-        reject: Відхилити
-        verify: Підтвердити
+        configure: Налаштувати
       area_types:
         create:
           error: При спробі додати новий різновид дільниці сталася помилка.
@@ -157,23 +145,8 @@ uk:
       autocomplete:
         no_results: Нічого не знайдено
       categories:
-        create:
-          error: При спробі створити цю категорію сталася помилка.
-          success: Категорію успішно створено.
-        destroy:
-          error: При спробі видалити цю категорію сталася помилка. Спочатку видаліть всі підкатегорії, а потім переконайтеся, що ніщо не належить до цієї категорії, і повторіть спробу.
-          success: Категорію успішно видалено.
-        edit:
-          title: Редагувати категорію
-          update: Оновити
         index:
           categories_title: Категорії
-        new:
-          create: Створити категорію
-          title: Додати категорію
-        update:
-          error: При спробі оновити цю категорію сталася помилка.
-          success: Категорію успішно оновлено.
       component_permissions:
         update:
           success: Права доступу успішно оновлено.
@@ -181,9 +154,6 @@ uk:
         create:
           error: При спробі створити цю складову сталася помилка.
           success: Складову успішно створено.
-        destroy:
-          error: При спробі видалити цю складову сталася помилка.
-          success: Складову успішно видалено.
         edit:
           title: Редагувати складову
           update: Оновити
@@ -214,8 +184,6 @@ uk:
       exports:
         export_as: "%{name} як %{export_format}"
       filters:
-        category_id_eq:
-          label: Категорія
         officialized_at_null:
           label: Стан
           values:
@@ -270,7 +238,6 @@ uk:
         area_types: Різновиди дільниць
         areas: Дільниці
         configuration: Конфігурація
-        homepage: Домашня сторінка
         impersonations: Виступи в ролі учасника
         manage: Керувати
         newsletters: Розсилання новин
@@ -278,7 +245,6 @@ uk:
         scopes: Обсяги
         settings: Налаштування
         static_pages: Сторінки
-        user_groups: Гурти учасників
         users: Учасники
       models:
         area:
@@ -339,15 +305,6 @@ uk:
               admin: Адміністратор
               user_manager: Розпорядник учасників
           name: учасника
-        user_group:
-          fields:
-            actions: Дії
-            created_at: 'Створено:'
-            document_number: Номер документа
-            name: Ім'я
-            phone: Телефон
-            state: Стан
-            users_count: Кількість учасників
       moderations:
         report:
           reasons:
@@ -414,16 +371,6 @@ uk:
         update:
           error: При спробі оновити цю організацію сталася помилка.
           success: Організацію успішно оновлено.
-      organization_appearance:
-        edit:
-          update: Оновити
-        form:
-          cta_button_text_help: Ви можете змінити текст кнопки "Закликати до дії" на головній сторінці для кожної доступної мови вашої організації. Якщо ви не задасте цей текст, буде використане значення за замовчуванням. Кнопка "Закликати до дії" відображається на домашній сторінці між привітальним текстом та описом.
-          homepage_appearance_title: Редагувати вигляд головної сторінки
-          homepage_highlighted_content_banner_title: Банер висвітленого вмісту
-          images:
-            layout_appearance_title: Редагувати зовнішній вигляд шаблону
-          omnipresent_banner_appearance_title: Редагувати всюдисущий банер
       participatory_space_private_users:
         create:
           error: При спробі додати приватного учасника до цього простору співучасті сталася помилка.
@@ -468,8 +415,6 @@ uk:
           error: При спробі оновити цей обсяг сталася помилка.
           success: Обсяг успішно оновлено
       static_pages:
-        actions:
-          view: Переглянути загальнодоступну сторінку
         create:
           error: При спробі створити нову сторінку сталася помилка.
           success: Сторінку успішно створено.
@@ -492,18 +437,6 @@ uk:
         dashboard: Приладна дошка
         scope_types: Різновиди обсягу
         scopes: Обсяги
-        user_groups: Гурти учасників
-      user_group:
-        reject:
-          invalid: При відхиленні цього гурту учасників сталася помилка.
-        verify:
-          invalid: При підтвердженні цього гурту учасників сталася помилка.
-      user_groups:
-        index:
-          state:
-            pending: Очікує на розгляд
-            rejected: Відхилено
-            verified: Перевірено
       users:
         create:
           error: Під час запрошення цього учасника сталася помилка.
@@ -526,7 +459,6 @@ uk:
         hide: Приховати
         not_hidden: Не приховано
         title: Дії
-        unreport: Скасувати скаргу
       admin:
         reportable:
           hide:

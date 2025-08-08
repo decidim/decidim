@@ -1,0 +1,108 @@
+# frozen_string_literal: true
+
+shared_examples "duplicate assemblies" do
+  let!(:assembly) { create(:assembly, organization:) }
+  let!(:component) { create(:component, manifest_name: :dummy, participatory_space: assembly) }
+
+  before do
+    switch_to_host(organization.host)
+    login_as user, scope: :user
+    visit decidim_admin_assemblies.assemblies_path
+  end
+
+  context "without any context" do
+    it "copies the assembly with the basic fields" do
+      within("tr", text: translated_attribute(assembly.title)) do
+        find("button[data-controller='dropdown']").click
+        click_on "Duplicate"
+      end
+
+      within ".duplicate_assembly" do
+        fill_in_i18n(
+          :assembly_title,
+          "#assembly-title-tabs",
+          en: "Duplicate assembly",
+          es: "Copia del proceso participativo",
+          ca: "Còpia del procés participatiu"
+        )
+        fill_in :assembly_slug, with: "pp-duplicate"
+        click_on "Duplicate"
+      end
+
+      expect(page).to have_content("successfully")
+      expect(page).to have_content("Duplicate assembly")
+      expect(page).to have_content("Unpublished")
+    end
+  end
+
+  context "with context" do
+    before do
+      within("tr", text: translated_attribute(assembly.title)) do
+        find("button[data-controller='dropdown']").click
+        click_on "Duplicate"
+      end
+
+      within ".duplicate_assembly" do
+        fill_in_i18n(
+          :assembly_title,
+          "#assembly-title-tabs",
+          en: "Duplicate assembly",
+          es: "Copia del proceso participativo",
+          ca: "Còpia del procés participatiu"
+        )
+        fill_in :assembly_slug, with: "assembly-duplicate"
+      end
+    end
+
+    it "copies the assembly with components" do
+      page.check("assembly[duplicate_components]")
+      click_on "Duplicate"
+
+      expect(page).to have_content("successfully")
+
+      within "tr", text: "Duplicate assembly" do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
+      end
+      within_admin_sidebar_menu do
+        click_on "Components"
+      end
+
+      within ".table-list" do
+        assembly.components.each do |component|
+          expect(page).to have_content(translated(component.name))
+        end
+      end
+    end
+  end
+
+  context "when duplicating a child assembly" do
+    let!(:assembly_parent) { create(:assembly, organization:) }
+    let!(:assembly) { create(:assembly, parent: assembly_parent, organization:) }
+
+    it "copies the child assembly with the basic fields" do
+      click_on "Assemblies", match: :first
+
+      within("tr", text: translated_attribute(assembly_parent.title)) do
+        find("button[data-controller='dropdown']").click
+        click_on "Duplicate"
+      end
+
+      within ".duplicate_assembly" do
+        fill_in_i18n(
+          :assembly_title,
+          "#assembly-title-tabs",
+          en: "Duplicate assembly",
+          es: "Copia del proceso participativo",
+          ca: "Còpia del procés participatiu"
+        )
+        fill_in :assembly_slug, with: "pp-duplicate"
+        click_on "Duplicate"
+      end
+
+      expect(page).to have_content("successfully")
+      expect(page).to have_content("Duplicate assembly")
+      expect(page).to have_content("Unpublished")
+    end
+  end
+end

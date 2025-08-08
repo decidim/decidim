@@ -8,8 +8,8 @@ module Decidim
       class CreateConference < Decidim::Commands::CreateResource
         fetch_file_attributes :hero_image, :banner_image
 
-        fetch_form_attributes :organization, :title, :slogan, :slug, :weight, :hashtag, :description,
-                              :short_description, :objectives, :location, :scopes_enabled, :scope, :start_date, :end_date,
+        fetch_form_attributes :organization, :title, :slogan, :slug, :weight, :description,
+                              :short_description, :objectives, :location, :taxonomizations, :start_date, :end_date,
                               :promoted, :show_statistics, :registrations_enabled, :available_slots, :registration_terms
 
         private
@@ -31,7 +31,7 @@ module Decidim
                      current_user: admin
                    )
 
-            Decidim::CreateFollow.new(form, admin).call
+            Decidim::CreateFollow.new(form).call
           end
         end
 

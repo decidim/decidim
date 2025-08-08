@@ -69,7 +69,7 @@ module Decidim
       end
 
       def amendment_creation_enabled?
-        (current_component.settings.amendments_enabled? && current_settings.amendment_creation_enabled?)
+        current_component.settings.amendments_enabled? && current_settings.amendment_creation_enabled?
       end
 
       def amend_button_disabled?

@@ -1,0 +1,73 @@
+el:
+  decidim:
+    admin:
+      menu:
+        elections_menu:
+          election_census: Απογραφή
+          election_questions: Ερωτήσεις
+    components:
+      elections:
+        actions:
+          create: Δημιουργία
+          destroy: Καταστροφή
+          update: Ενημέρωση
+        name: Εκλογές
+        settings:
+          global:
+            announcement: Ανακοίνωση
+          step:
+            announcement: Ανακοίνωση
+    elections:
+      actions:
+        title: Ενέργειες
+      admin:
+        census:
+          edit:
+            created_at: Δημιουργήθηκε στις
+        dashboard:
+          census:
+            title: Απογραφή
+          main:
+            labels:
+              description: Περιγραφή
+          questions:
+            labels:
+              answers: Απαντήσεις
+            title: Ερωτήσεις
+          questions_table:
+            answer: Απαντήσεις
+            votes: Ψήφοι
+          results:
+            publish_button: Δημοσίευση αποτελεσμάτων
+            title: Αποτελέσματα
+          status:
+            title: Κατάσταση εκλογών
+        elections:
+          edit:
+            title: Επεξεργασία εκλογής
+          form:
+            add_images: Προσθήκη εικόνων
+            publish: Δημοσίευση
+          index:
+            title: Εκλογές
+          new:
+            title: Νέα εκλογή
+        questions:
+          edit_questions:
+            new_question: Νέα ερώτηση
+            title: Ερωτήσεις
+        statuses:
+          publish_results:
+            invalid: Υπήρξε ένα πρόβλημα στη δημοσίευση των αποτελεσμάτων.
+      models:
+        election:
+          fields:
+            census: Απογραφή
+            status: Κατάσταση
+            title: Τίτλος
+      status:
+        active: Ενεργό
+        finished: Ολοκληρώθηκε
+        ongoing: Σε εξέλιξη
+    statistics:
+      elections_count: Εκλογές

@@ -10,7 +10,7 @@ module Decidim
 
         mimic :initiative
 
-        translatable_attribute :answer, String
+        translatable_attribute :answer, Decidim::Attributes::RichText
         attribute :answer_url, String
         attribute :signature_start_date, Decidim::Attributes::LocalizedDate
         attribute :signature_end_date, Decidim::Attributes::LocalizedDate
@@ -21,7 +21,7 @@ module Decidim
         }
 
         def signature_dates_required?
-          @signature_dates_required ||= context.initiative.state == "published"
+          @signature_dates_required ||= context.initiative.state == "open"
         end
       end
     end

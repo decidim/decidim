@@ -16,7 +16,7 @@ describe "Admin manages initiative permissions" do
   let(:participatory_space_engine) { decidim_admin_initiatives }
   let!(:initiative_type) { create(:initiatives_type, :online_signature_enabled, organization:) }
   let!(:scoped_type) { create(:initiatives_type_scope, type: initiative_type) }
-  let(:initiative) { create(:initiative, :published, author:, scoped_type:, organization:) }
+  let(:initiative) { create(:initiative, author:, scoped_type:, organization:) }
   let!(:author) { create(:user, :confirmed, organization:) }
 
   let(:action) { "comment" }

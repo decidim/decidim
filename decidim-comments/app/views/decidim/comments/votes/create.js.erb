@@ -13,11 +13,30 @@
   $upVote.removeClass("is-vote-selected is-vote-notselected").removeAttr("disabled");
   $downVote.removeClass("is-vote-selected is-vote-notselected").removeAttr("disabled");
 
-<% if comment.up_voted_by?(current_user) %>
-  $upVote.addClass("is-vote-selected");
-  $downVote.addClass("is-vote-notselected").attr("disabled", "disabled");
-<% elsif comment.down_voted_by?(current_user) %>
-  $upVote.addClass("is-vote-notselected").attr("disabled", "disabled");
-  $downVote.addClass("is-vote-selected");
-<% end %>
+  function setVoteState($upVote, $downVote, isUpVoted, isDownVoted) {
+    if (isUpVoted) {
+      $upVote.addClass("is-vote-selected").attr("aria-pressed", "true");
+      $downVote.addClass("is-vote-notselected").attr("aria-disabled", "true").attr("tabindex", "-1").removeAttr("disabled").css("cursor", "not-allowed");
+    } else if (isDownVoted) {
+      $upVote.addClass("is-vote-notselected").attr("aria-disabled", "true").attr("tabindex", "-1").removeAttr("disabled").css("cursor", "not-allowed");
+      $downVote.addClass("is-vote-selected").attr("aria-pressed", "true");
+    } else {
+      $upVote.removeClass("is-vote-selected is-vote-notselected cursor-not-allowed").removeAttr("aria-pressed aria-disabled disabled tabindex").css("cursor", "");
+      $downVote.removeClass("is-vote-selected is-vote-notselected cursor-not-allowed").removeAttr("aria-pressed aria-disabled disabled tabindex").css("cursor", "");
+    }
+  }
+
+  setVoteState($upVote, $downVote, <%= comment.up_voted_by?(current_user) %>, <%= comment.down_voted_by?(current_user) %>);
+
+  function handleAriaDisabledClick(e) {
+    const $target = $(e.target).closest('[aria-disabled="true"]');
+    if ($target.length > 0) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      return false;
+    }
+  }
+
+  $(document).on('click mousedown', '[aria-disabled="true"]', handleAriaDisabledClick);
 }());

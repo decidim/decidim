@@ -44,8 +44,8 @@ module Decidim::Proposals
         expect(subject).to have_css(".card__list-metadata [data-author]", text: proposal.authors.first.name)
       end
 
-      it "renders the endorsements count" do
-        expect(subject).to have_css(".card__list-metadata [data-endorsements-count]")
+      it "renders the likes count" do
+        expect(subject).to have_css(".card__list-metadata [data-likes-count]")
       end
 
       it "renders the comments count" do
@@ -85,6 +85,7 @@ module Decidim::Proposals
           old_hash = my_cell.send(:cache_hash)
           allow(I18n).to receive(:locale).and_return(alt_locale)
 
+          my_cell.remove_instance_variable(:@cache_hash)
           expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
         end
       end
@@ -94,15 +95,17 @@ module Decidim::Proposals
           old_hash = my_cell.send(:cache_hash)
           proposal.update!(title: { en: "New title" })
 
+          my_cell.remove_instance_variable(:@cache_hash)
           expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
         end
       end
 
-      context "when new endorsement" do
+      context "when new like" do
         it "generate a different hash" do
           old_hash = my_cell.send(:cache_hash)
-          create(:endorsement, resource: proposal, author: build(:user, :confirmed, organization: proposal.participatory_space.organization))
+          create(:like, resource: proposal, author: build(:user, :confirmed, organization: proposal.participatory_space.organization))
 
+          my_cell.remove_instance_variable(:@cache_hash)
           expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
         end
       end
@@ -113,6 +116,7 @@ module Decidim::Proposals
           create(:proposal_vote, proposal:)
           my_cell.model.reload
 
+          my_cell.remove_instance_variable(:@cache_hash)
           expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
         end
       end
@@ -124,18 +128,9 @@ module Decidim::Proposals
           component.settings = { foo: "bar" }
           component.save!
 
+          my_cell.remove_instance_variable(:@cache_hash)
           expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
-
           component.settings = component_settings
-        end
-      end
-
-      context "when no current user" do
-        it "generate a different hash" do
-          old_hash = my_cell.send(:cache_hash)
-          allow(controller).to receive(:current_user).and_return(nil)
-
-          expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
         end
       end
 
@@ -146,6 +141,7 @@ module Decidim::Proposals
           old_hash = my_cell.send(:cache_hash)
           create(:follow, followable: proposal, user: another_user)
 
+          my_cell.remove_instance_variable(:@cache_hash)
           expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
         end
       end
@@ -155,6 +151,7 @@ module Decidim::Proposals
           old_hash = my_cell.send(:cache_hash)
           create(:follow, followable: proposal, user:)
 
+          my_cell.remove_instance_variable(:@cache_hash)
           expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
         end
       end
@@ -165,6 +162,7 @@ module Decidim::Proposals
             old_hash = my_cell.send(:cache_hash)
             model.add_coauthor(user)
 
+            my_cell.remove_instance_variable(:@cache_hash)
             expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
           end
 
@@ -173,6 +171,7 @@ module Decidim::Proposals
               old_hash = my_cell.send(:cache_hash)
               model.authors.first.update(personal_url: "new personal url")
 
+              my_cell.remove_instance_variable(:@cache_hash)
               expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
             end
           end
@@ -196,6 +195,7 @@ module Decidim::Proposals
           old_hash = my_cell.send(:cache_hash)
           my_cell.context.merge!({ show_space: true })
 
+          my_cell.remove_instance_variable(:@cache_hash)
           expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
         end
       end
@@ -226,6 +226,7 @@ module Decidim::Proposals
             step2.update!(active: true)
             proposal.reload
 
+            my_cell.remove_instance_variable(:@cache_hash)
             expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
           end
         end
@@ -241,6 +242,7 @@ module Decidim::Proposals
             step3.update!(active: true)
             proposal.reload
 
+            my_cell.remove_instance_variable(:@cache_hash)
             expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
           end
         end

@@ -75,7 +75,7 @@ describe "Space admin manages global moderations" do
     end
 
     it_behaves_like "sorted moderations" do
-      let!(:reportables) { create_list(:dummy_resource, 17, component: current_component) }
+      let!(:reportables) { create_list(:dummy_resource, 27, component: current_component) }
       let(:moderations_link_text) { "Global moderations" }
       let(:moderations_link_in_admin_menu) { false }
     end

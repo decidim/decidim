@@ -8,6 +8,8 @@ module Decidim
       include PayloadInfo
       include Headers::HttpCachingDisabler
       include DisableRedirectionToExternalHost
+      include ActiveStorage::SetCurrent
+      include NeedsRtlDirection
 
       protect_from_forgery with: :exception, prepend: true
 

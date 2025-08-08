@@ -5,9 +5,6 @@ module Decidim
     # A command with all the business logic to create the default content blocks
     # for a newly-created organization.
     class CreateDefaultContentBlocks < Decidim::Command
-      DEFAULT_CONTENT_BLOCKS =
-        [:hero, :sub_hero, :highlighted_content_banner, :how_to_participate, :stats, :metrics, :footer_sub_hero].freeze
-
       # Public: Initializes the command.
       #
       # form - A form object with the params.

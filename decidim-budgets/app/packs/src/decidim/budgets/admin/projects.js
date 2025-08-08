@@ -1,5 +1,5 @@
 /* eslint-disable no-invalid-this */
-$(() => {
+document.addEventListener("turbo:load", () => {
   const selectedResourcesCount = () => {
     return $(".table-list .js-check-all-resources:checked").length
   }
@@ -72,7 +72,7 @@ $(() => {
     hideBulkActionForms();
     $("#js-bulk-actions-button").addClass("hide");
 
-    $("#js-bulk-actions-dropdown ul li button").on("click", (event) => {
+    $("#js-bulk-actions-dropdown li button").on("click", (event) => {
       event.preventDefault();
       let action = $(event.target).data("action");
 

@@ -14,6 +14,21 @@ module Decidim
 
       validates :current_user, presence: true
       validates :conflict, presence: true
+      validates :email, presence: true
+      validate :unique_email
+
+      private
+
+      def unique_email
+        return if conflict.blank?
+        return true if Decidim::UserBaseEntity.where(
+          organization: context.current_organization,
+          email:
+        ).where.not(id: [conflict.current_user.id, conflict.managed_user_id]).empty?
+
+        errors.add :email, :taken
+        false
+      end
     end
   end
 end

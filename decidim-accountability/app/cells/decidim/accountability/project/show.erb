@@ -8,4 +8,10 @@
   </div>
 </section>
 
+<% if component_settings.geocoding_enabled? && result.geocoded? %>
+  <div class="static-map__container py-6">
+    <%= render partial: "decidim/shared/static_map", formats: [:html], locals: { icon_name: "proposals", geolocalizable: result } %>
+  </div>
+<% end %>
+
 <%= cell "decidim/tab_panels", tab_panel_items %>

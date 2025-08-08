@@ -14,7 +14,7 @@ module Decidim
       delegate :snippets, to: :controller
 
       def static_map
-        return render :static_map if display_map?
+        return render :static_map
       end
 
       def year
@@ -32,7 +32,7 @@ module Decidim
       end
 
       def display_map?
-        maps_enabled? && !online?
+        maps_enabled? && !online? && model.address.present?
       end
     end
   end

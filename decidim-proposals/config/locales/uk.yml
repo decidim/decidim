@@ -5,12 +5,10 @@ uk:
         answer: Відповісти
         answered_at: 'Отримано відповідь:'
         body: Основний текст
-        category_id: Категорія
         has_address: Має адресу
         scope_id: Обсяг
         state: Стан
         title: Назва
-        user_group_id: Створити пропозицію як
       proposal_answer:
         answer: Відповісти
       proposals_copy:
@@ -24,9 +22,7 @@ uk:
             add_photos:
               needs_to_be_reattached: Необхідно повторно вкласти
     models:
-      decidim/proposals/admin/update_proposal_category_event: Категорію пропозиції змінено
       decidim/proposals/creation_enabled_event: Внесення пропозицій увімкнено
-      decidim/proposals/endorsing_enabled_event: Увімкнене надання підтримки пропозиціям
       decidim/proposals/proposal_mentioned_event: Пропозицію було згадано
       decidim/proposals/publish_proposal_event: Пропозицію оприлюднено
       decidim/proposals/voting_enabled_event: Увімкнене голосування по пропозиціям
@@ -51,8 +47,6 @@ uk:
     components:
       proposals:
         actions:
-          create: Додати
-          endorse: Підтримати
           vote: Голосувати
           withdraw: Відкликати голос
         name: Пропозиції
@@ -61,11 +55,9 @@ uk:
             announcement: Оголошення
             attachments_allowed: Дозволити вкладення
             comments_enabled: Коментарі увімкнено
-            geocoding_enabled: Геокодування увімкнено
             new_proposal_help_text: Підказки зі внесення нової пропозиції
             official_proposals_enabled: Службові пропозиції увімкнено
             proposal_answering_enabled: Увімкнено відповіді на пропозиції
-            proposal_edit_before_minutes: Пропозиції можуть бути відредаговані авторами до того, як пройде стільки хвилин
             proposal_length: Гранична довжина основного тексту пропозиції
             proposal_limit: Гранична кількість пропозицій від одного учасника
             proposal_wizard_step_1_help_text: Довідка майстра пропозицій щодо кроку "Створити"
@@ -74,8 +66,6 @@ uk:
           step:
             announcement: Оголошення
             comments_blocked: Коментарі вимкнено
-            endorsements_blocked: Надання підтримки вимкнене
-            endorsements_enabled: Надання підтримки увімкнено
             proposal_answering_enabled: Відповіді на пропозиції увімкнено
             votes_blocked: Голосування вимкнене
             votes_enabled: Голосування увімкнене
@@ -86,10 +76,6 @@ uk:
           email_intro: 'Тепер в %{participatory_space_title} з''явилась можливість вносити нові пропозиції! Почніть брати участь зі сторінки:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: В %{participatory_space_title} тепер можна вносити пропозиції
-        endorsing_enabled:
-          email_intro: 'Ви можете підтримувати пропозиції у %{participatory_space_title}! Почніть брати участь зі сторінки:'
-          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
-          email_subject: У %{participatory_space_title} почалось надання підтримки пропозиціям
         proposal_mentioned:
           email_subject: Вашу пропозицію "%{mentioned_proposal_title}" було згадано
           notification_title: Вашу пропозицію "%{mentioned_proposal_title}" було згадано в коментарях <a href="%{resource_path}">в цьому просторі</a>.
@@ -99,13 +85,6 @@ uk:
         proposal_published_for_space:
           email_intro: До "%{participatory_space_title}", за яким ви стежите, була додана пропозиція "%{resource_title}".
           email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{participatory_space_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
-        proposal_update_category:
-          email_intro: 'Адміністратор оновив категорію вашої пропозиції "%{resource_title}", перевірте її:'
-          email_outro: Ви отримали це сповіщення, оскільки ви є автором цієї пропозиції.
-          email_subject: Категорію пропозиції %{resource_title} було оновлено
-          notification_title: Адміністратор оновив категорію пропозиції <a href="%{resource_path}">%{resource_title}</a>.
-        proposal_update_scope:
-          email_outro: Ви отримали це сповіщення, оскільки ви є автором цієї пропозиції.
         voting_enabled:
           email_intro: 'Ви можете голосувати щодо пропозицій у %{participatory_space_title}! Почніть брати участь зі сторінки:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
@@ -131,16 +110,11 @@ uk:
           form:
             note: Примітка
             submit: Надіслати
-          leave_your_note: Залиште свою нотатку
           title: Приватні примітки
         proposals:
-          form:
-            attachment_legend: "(Необов'язково) Додати вкладений файл"
-            select_a_category: Оберіть категорію
           index:
             actions: Дії
             cancel: Скасувати
-            change_category: Змінити категорію
             selected: обрані
             title: Пропозиції
             update: Оновити
@@ -156,7 +130,6 @@ uk:
       admin_log:
         proposal:
           answer: "%{user_name} відповів на пропозицію %{resource_name} у просторі %{space_name}"
-          create: "%{user_name} вніс пропозицію %{resource_name} у просторі %{space_name} як службову"
         proposal_note:
           create: "%{user_name} залишив приватну нотатку щодо пропозиції %{resource_name} у просторі %{space_name}"
       answers:
@@ -179,31 +152,25 @@ uk:
       models:
         proposal:
           fields:
-            category: Категорія
             comments: Коментарі
             id: Псевдонім
             notes: Примітки
             official_proposal: Службова пропозиція
             published_at: 'Оприлюднено:'
-            scope: Обсяг
             state: Стан
             title: Назва
             votes: Голоси
       proposals:
         edit:
-          attachment_legend: "(Необов'язково) Додати вкладений файл"
           back: Повернутись
-          select_a_category: Будь ласка, виберіть категорію
           send: Надіслати
           title: Редагувати пропозицію
         edit_draft:
           discard: Відкинути цю чернетку
           discard_confirmation: Ви дійсно бажаєте відкинути чернетку цієї пропозиції?
           send: Попередній перегляд
-          title: Редагувати чернетку пропозиції
         filters:
           all: Усі
-          category: Категорія
           origin: Джерело
           related_to: Пов'язане з
           search: Шукати
@@ -230,17 +197,13 @@ uk:
           title: Оприлюднити свою пропозицію
         show:
           answer: Відповісти
-          edit_proposal: Редагувати пропозицію
           proposal_accepted_reason: 'Ця пропозиція була прийнята, тому що:'
           proposal_in_evaluation_reason: Ця пропозиція розглядається
           proposal_rejected_reason: 'Ця пропозиція була відхилена, оскільки:'
-          withdraw_proposal: Зняти пропозицію
         vote_button:
-          already_voted: Вже проголосували
           maximum_votes_reached: Використано всі голоси
           no_votes_remaining: Не залишилось голосів
           vote: Голосувати
-          votes_blocked: Голосування вимкнене
         voting_rules:
           proposal_limit:
             description: Ви можете висунути до %{limit} пропозицій.

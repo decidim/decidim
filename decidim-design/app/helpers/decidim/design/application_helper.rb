@@ -3,6 +3,7 @@
 module Decidim
   module Design
     module ApplicationHelper
+      include Decidim::ApplicationHelper
       include Decidim::IconHelper
 
       # For the moment keep this as a constant and later decide where to move

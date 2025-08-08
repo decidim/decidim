@@ -6,7 +6,6 @@ require "active_support/all"
 require "devise"
 require "devise-i18n"
 require "decidim/core"
-require "foundation_rails_helper"
 require "doorkeeper"
 require "doorkeeper-i18n"
 require "hashdiff"
@@ -26,6 +25,7 @@ module Decidim
       end
 
       initializer "decidim_admin.register_icons" do |_app|
+        Decidim.icons.register(name: "lock-2-line", icon: "lock-2-line", category: "system", description: "Block user icon", engine: :admin)
         Decidim.icons.register(name: "layout-masonry-line", icon: "layout-masonry-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "service-line", icon: "service-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "fullscreen-line", icon: "fullscreen-line", category: "system", description: "", engine: :admin)
@@ -39,6 +39,9 @@ module Decidim
         Decidim.icons.register(name: "arrow-right-s-line", icon: "arrow-right-s-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "arrow-up-line", icon: "arrow-up-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "arrow-down-line", icon: "arrow-down-line", category: "system", description: "", engine: :admin)
+        Decidim.icons.register(name: "line-chart", icon: "line-chart-line", category: "system", description: "Line chart", engine: :admin)
+        Decidim.icons.register(name: "bar-chart-box-line", icon: "bar-chart-box-line", category: "system", description: "Bar chart box line", engine: :admin)
+        Decidim.icons.register(name: "earth-line", icon: "earth-line", category: "system", description: "Earth line", engine: :admin)
 
         Decidim.icons.register(name: "attachment-2", icon: "attachment-2", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "spy-line", icon: "spy-line", category: "system", description: "", engine: :admin)
@@ -50,6 +53,8 @@ module Decidim
 
         Decidim.icons.register(name: "folder-line", icon: "folder-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "attachment-line", icon: "attachment-line", category: "system", description: "", engine: :admin)
+        Decidim.icons.register(name: "delete-bin-2-line", icon: "delete-bin-2-line", category: "system", description: "", engine: :admin)
+        Decidim.icons.register(name: "filter-line", icon: "filter-line", category: "system", description: "", engine: :admin)
       end
 
       initializer "decidim_admin.mime_types" do |_app|
@@ -62,6 +67,7 @@ module Decidim
         Decidim::Admin::Menu.register_workflows_menu!
         Decidim::Admin::Menu.register_impersonate_menu!
         Decidim::Admin::Menu.register_admin_static_pages_menu!
+        Decidim::Admin::Menu.register_admin_insights_menu!
         Decidim::Admin::Menu.register_admin_user_menu!
         Decidim::Admin::Menu.register_admin_scopes_menu!
         Decidim::Admin::Menu.register_admin_areas_menu!

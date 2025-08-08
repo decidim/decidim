@@ -1,0 +1,37 @@
+<div id="js-bulk-actions-wrapper" class="relative">
+  <button
+    id="js-bulk-actions-button"
+    class="button button__sm button__transparent-secondary"
+    type="button"
+    data-controller="dropdown"
+    data-target="js-bulk-actions-dropdown">
+    <%= t("decidim.admin.moderated_users.index.actions.bulk_actions.actions_dropdown") %>
+    <%= icon "arrow-down-s-line" %>
+    <%= icon "arrow-down-s-line" %>
+  </button>
+
+  <ul
+    id="js-bulk-actions-dropdown"
+    class="dropdown dropdown__bottom"
+    aria-hidden="true">
+
+    <% if params[:blocked] %>
+      <li class="dropdown__item">
+        <button type="button" class="dropdown__button" data-action="unblock-moderated_users">
+          <%= t("decidim.admin.moderated_users.index.actions.bulk_actions.unblock.title") %>
+        </button>
+      </li>
+    <% else %>
+      <li class="dropdown__item">
+        <button type="button" class="dropdown__button" data-action="block-moderated_users">
+          <%= t("decidim.admin.moderated_users.index.actions.bulk_actions.block.title") %>
+        </button>
+      </li>
+      <li class="dropdown__item">
+        <button type="button" class="dropdown__button" data-action="unreport-moderated_users">
+          <%= t("decidim.admin.moderated_users.index.actions.bulk_actions.unreport.title") %>
+        </button>
+      </li>
+    <% end %>
+  </ul>
+</div>

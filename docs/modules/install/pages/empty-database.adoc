@@ -23,12 +23,12 @@ bin/rails decidim_system:create_admin
 bundle exec rails s
 ----
 
-Now, you will be able to login to the system panel with the provided credentials. The application automatically redirects you to the system panel when you do not have any organizations configured and when you enter the system's URL in your browser. The default URL for development is `http://localhost:3000`.
+Now, you will be able to log in to the system panel with the provided credentials. The application automatically redirects you to the system panel when you do not have any organizations configured and when you enter the system's URL in your browser. The default URL for development is `http://localhost:3000`.
 
-After you have configured the organization from the system panel, log out of the system panel and type in the URL of the organization to the browser after which you should see a rather empty home page of your organization. You can now login with the admin user you created when configuring the organization. Note that you will need to set a password for the admin user before being able to login with that user.
+After you have configured the organization from the system panel, log out of the system panel and type in the URL of the organization to the browser after which you should see a rather empty home page of your organization. You can now log in with the admin user you created when configuring the organization. Note that you will need to set a password for the admin user before being able to log in with that user.
 
 At the development environment, you have https://github.com/ryanb/letter_opener[Letter opener] available for viewing the emails that the system sends. You can access it through the `/letter_opener` URL within the domain where your Rails server is running at (typically `http://localhost:3000`).
 
 == Extra notes
 
-Decidim is a https://en.wikipedia.org/wiki/Multitenancy[multitenant] application that allows you to host multiple different Decidim-based websites within the same system. Organizations are isolated from each other and users in those organizations cannot see any data from other organizations. Therefore, creating the organization is a key part of the process when setting up Decidim. To learn more about the system panel and organizations, refer to the xref:admin:system.adoc[System] panel documentation.
+Decidim is a https://en.wikipedia.org/wiki/Multitenancy[multitenant] application that allows you to host multiple different Decidim-based websites within the same system. Organizations are isolated from each other and users in those organizations cannot see any data from other organizations. Therefore, creating the organization is a key part of the process when setting up Decidim. To learn more about the system panel and organizations, refer to the xref:configure:system.adoc[System] panel documentation.

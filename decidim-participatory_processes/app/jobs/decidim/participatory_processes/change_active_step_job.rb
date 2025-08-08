@@ -16,7 +16,7 @@ module Decidim
           active_step = process.steps.find_by(active: true)
           if steps.empty? && active_step
             next_position = active_step.position + 1
-            next_step = process.steps.where("start_date <= ?", Time.zone.now.to_date).find_by(position: next_position)
+            next_step = process.steps.where(start_date: ..Time.zone.now.to_date).find_by(position: next_position)
             if next_step.present?
               active_step.update(active: false)
               next_step.update(active: true)

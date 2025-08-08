@@ -7,24 +7,27 @@ eu:
         organization_name: Antolatzailea
         organization_url: Antolatzailearen URLa
         redirect_uri: Berbideratu URI
+        refresh_tokens: Freskatu fitxak
+        refresh_tokens_enabled: Freskatu fitxa eguneratuak
+        scopes: Esparru erabilgarriak
       organization:
         address: SMTP host-aren izena
-        from_email: Korreo elektronikoaren helbidea
+        from_email: Helbide elektronikoa
         from_label: Etiketa
         password: Pasahitza
         port: Portua
-        user_name: Erabiltzaile-izena
+        user_name: Parte-hartzailearen izena
       organization_file_uploads:
         allowed_content_types:
           admin: Administrazio-panelaren MIME motak
           default: MIME motak, lehenetsita
         allowed_file_extensions:
-          admin: "\nAdministrazio-panelaren artxibo-luzapenak"
-          default: Artxibo-luzapenak, erantsita
+          admin: Administrazio-panelaren fitxategi-luzapenak
+          default: Fitxategi-luzapenak, erantsita
           image: Irudien artxibo-luzapenak
         maximum_file_size:
-          avatar: Avatar-artxiboaren tamaina
-          default: Artxibo-tamaina, lehenetsita
+          avatar: Abatar-fitxategiaren tamaina
+          default: Fitxategi-tamaina, lehenetsita
     errors:
       models:
         oauth_application:
@@ -38,12 +41,28 @@ eu:
   decidim:
     system:
       actions:
+        api_user:
+          hidden_secret: Sekretua ezkutuan dago
+          hide_secret: Ezkutatu sekretua
+          secret_can_not_be_shown: API sekretua sortu ondoren soilik ikus edo kopiatu daiteke
+          show_secret: Erakutsi sekretua
+          shown_secret: Sekretua ikusgai dago
+        api_users:
+          create: Sortu
+          new: APIren beste erabiltzaile bat
+          remove: Kendu erabiltzailea
         confirm_destroy: Ziur zaude hau ezabatu nahi duzula?
+        confirm_refresh_api_secret: Ziur zaude API erabiltzaile honen sekretua freskatu nahi duzula? Freskatu ondoren, sekretu zaharra ez da baliozkoa izango eta ezin izango da gehiago erabili.
+        confirm_remove_api_user: Ziur zaude API erabiltzaile hau ezabatu nahi duzula?
+        copied: Kopiatuta
+        copy_secret: Kopiatu sekretua
+        copy_secret_clarification: Kopiatu sekretua arbelean
         destroy: Ezabatu
         edit: Editatu
         new_admin: Beste administratzaile bat
         new_oauth_application: Beste OAUTH aplikazio bat
         new_organization: Beste erakunde bat
+        refresh_secret: Freskatu sekretua
         save: Gorde
         title: Ekintzak
       admins:
@@ -63,6 +82,25 @@ eu:
         update:
           error: Arazo bat da administratzaile hau eguneratzean.
           success: Administratzailea zuzen eguneratua.
+      api_user:
+        create:
+          error: APIren erabiltzaileen sorkuntzak porrot egin du.
+          success: API erabiltzailea zuzen sortu da. Erabiltzailearentzako sekretua sortu ondoren baino ez da ikusten. Mesedez, kopiatu eta gorde segurtasunez orri hau utzi aurretik!
+        destroy:
+          success: API erabiltzailea zuzen ezabatu da.
+        refresh:
+          error: Zerbait txarto atera da. Mesedez, saiatu berriro geroago.
+          success: Sekretua zuzen freskatu da. Erabiltzailearentzako sekretua sortu ondoren baino ez da ikusten. Mesedez, kopiatu eta gorde segurtasunez orri hau utzi aurretik!
+      api_users:
+        index:
+          explanation_html: |
+            <p>APIren erabiltzaileek integrazio-garatzaileei aukera ematen diete makina administratzaileen erabiltzaile-kontuak sistemara gehitzeko. Makina-erabiltzaile horiek administratzaile gisa jardun dezakete plataforman, administratzaile normalek administrazio-panelaren bidez egingo lituzketen eguneraketak egiteko. Ohiko erabilera-kasu bat kanpoko kudeaketa-plataforma bat da, non gidoi automatizatu batek plataformarekin administrazio-lanak egingo lituzkeen, benetako erabiltzaile batek sistemara autentifikatu beharrik izan gabe. Adibidez, automatizazio-sistema batek proposamenei erantzunak bidali nahiko lizkioke, eta, kasu horretan, integrazio-erabiltzaile bat beharko litzateke plataforma horren barruan lan hori egiteko.</p>
+            <p>Kontu horien eta administrari arrunten arteko desberdintasun nagusia da erabiltzaile horiek makinek erabili behar dituztela eta, beraz, pasahitzaren eskakizunak desberdinak direla. Erabiltzaile horiek ez dute beren pasahitza aldian-aldian eguneratu beharrik, eta kontuaren pasahitza aldatzea modu kudeatuan gerta daiteke behar denean.</p>
+            <p>Kredentzial horiek makinek erabili behar dituzte. <a href="%{oauth_link}"></a></p>
+          manage: Kudeatu APIren erabiltzaileak
+        new:
+          select_organization: Aukeratu zure erakundea
+          title: Sortu APIren beste erabiltzaile bat
       dashboard:
         show:
           admins: Administratzaileak
@@ -71,8 +109,8 @@ eu:
       default_pages:
         placeholders:
           content: Mesedez, gehitu eduki adierazgarria %{page} (a) ren orri estatikoaren administrazio-panelean.
-          summary: Mesedez, gehitu laburpen esanguratsua %{page} orri estatikoari administrazio-panelean.
-          title: 'Izenburu lehenetsia orri honetarako: %{page}'
+          summary: Gehitu laburpen adierazgarri %{page} orri estatikoari administrazio-panelean.
+          title: 'Orri honetarako izenburu lehenetsia: %{page}'
         terms-of-service: Zerbitzu-baldintzak
       devise:
         passwords:
@@ -84,13 +122,14 @@ eu:
             send_me_reset_password_instructions: Bidali jarraibideak pasahitza berrezartzeko
         shared:
           links:
-            did_not_receive_confirmation_instructions?: Ez duzu baieztatzeko instrukziorik jaso?
-            did_not_receive_unlock_instructions?: Ez duzu desblokeatzeko instrukziorik jaso?
+            did_not_receive_confirmation_instructions?: Ez duzu baieztatzeko jarraibiderik jaso?
+            did_not_receive_unlock_instructions?: Ez duzu desblokeatzeko jarraibiderik jaso?
             forgot_your_password?: Pasahitza ahaztu duzu?
             log_in: Hasi saioa
-            sign_up: Erregistratu
+            sign_up: Sortu kontu bat
       menu:
         admins: Administratzaileak
+        api_credentials: APIren kredentzialak
         dashboard: Kontrol-panela
         oauth_applications: OAuth Aplikazioak
         organizations: Erakundeak
@@ -101,6 +140,15 @@ eu:
             email: Helbide elektronikoa
           validations:
             email_uniqueness: beste administratzaile bat dago, helbide elektroniko hauxe bera duena
+        api_user:
+          fields:
+            created_at: Noiz sortua
+            key: Gakoa
+            name: Izena
+            organization: Erakundea
+            secret: Sekretua
+          validations:
+            name_uniqueness: Badago izen hori duen API erabiltzaile bat.
         oauth_application:
           fields:
             created_at: Sortze-data
@@ -127,6 +175,26 @@ eu:
           save: Gorde
           title: Editatu aplikazioa
         form:
+          application_type:
+            confidential:
+              explanation: Baimen-zerbitzariarekin modu seguruan autentifikatzeko gai diren aplikazioak, adibidez, erregistratutako bezero-sekretua salbu mantentzeko gai direnak. Normalean, bezeroaren sekretua gordetzen den zerbitzari batean exekutatzen den aplikazio bat da.
+              name: Konfidentziala
+            public:
+              explanation: Erregistratutako bezeroen sekretuak erabili ezin dituzten aplikazioak, hala nola nabigatzaile batean edo gailu mugikor batean exekutatzen diren aplikazioak.
+              name: Publikoa
+          application_type_help_html: 'OAuth bezero-mota <a href="%{client_type_link}" target="_blank">, RFC 6749, 2.1 sekzioak</a>definitzen duen bezala. Bezero publikoek PKCE fluxua ezarri behar dute <a href="%{pkce_link}" target="_blank">, RFC 7636</a>arauak zehazten duen bezala '
+          refresh_tokens_help_html: 'Freskatzeko fitxak erabilgarriak dira baldin eta fitxak sarbide-fitxari esleitutakoa baino bizialdi luzeagoa behar badu. Kontuan izan <strong>freskatzeko fitxak kontuz erabili behar</strong> direla zure erabiltzaileen segurtasuna ahuldu dezaketelako '
+          scopes_explanation:
+            "api:read": Erabiltzaileari kontsultak egiteko aukera ematen dio API grafikoaren bidez.
+            "api:write": Erabiltzaileari mutazio-eragiketak egiteko aukera ematen dio API grafikoaren bidez.
+            profile: Erabiltzailearen profilaren datuak eskuratzeko aukera ematen du. Irismen hori soilik behar da OAuth aplikazioa identitate hornitzaile edo autentifikazio zerbitzu gisa bakarrik erabiltzen bada.
+            user: 'Gaitasuna GrafoQL APIra egindako deietan erabiltzailearen fitxarekin sinatuta bezala jarduteko. Hau beharrezkoa da api guztientzat: idatzi eragiketak edo api: irakurri egungo erabiltzaileari buruzko informazioa behar duten eragiketak.'
+          scopes_help_html: |
+            Hautatutako eskemak eskuragarri egongo dira konektatutako aplikazioek baimena eskatzeko prozesuan zehar. Baimen-eskaerari buruzko xehetasunak emango zaizkio erabiltzaileari OAuth erabiliz sinatzen duenean.
+            <br>
+            Esparru ezberdinek ezaugarri desberdinak ematen dizkiote baimendutako erabiltzaileari, emandako sarbide-fitxak erabiliz.
+            <br>
+            <strong>Oharra:</strong> Erabiltzaileak kanpoko aplikazioetara autentifikatu behar badituzu, profilaren irismena besterik ez duzu behar. <strong>profila</strong> Decidim APIrekin interakzioan ari diren aplikazioek beste aplikazio batzuk ere behar dituzte.
           select_organization: Aukeratu antolatzaile bat
         index:
           confirm_delete: Ziur zaude aplikazio hau ezabatu nahi duzula?
@@ -181,7 +249,7 @@ eu:
           img_src_hint: |
             img-src direktibak <img>, <image>, <picture> amd <svg> elementuetan kargatu daitezkeen URLak murrizten ditu.
             Plataformak "'self' 'erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.
-          media_src: Media src
+          media_src: Multimedia src
           media_src_hint: |
             media-src ereduko helbideek <video>, <audio> eta <source> elementuetan kargatu daitezkeen URLak murrizten dituzte.
             Plataformak "'self' 'erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.
@@ -200,29 +268,30 @@ eu:
           title: Editatu erakundea
         file_upload_settings:
           content_types:
-            admin_hint: MIME mota horiek baimenduta daude administrazio-paneletik igotzeko. Administratzaileek dokumentuen formatu batzuk igotzean dauden arriskuez jabetu behar dute, eta, beraz, artxiboen igoeretan zuhurragoak izatea espero daiteke.
-            default_hint: MIME mota hauek, lehenetsiz, baimenduta daude erabiltzaile guztientzat.
+            admin_hint: MIME mota horiek baimenduta daude administrazio-paneletik igotzeko. Administratzaileek dokumentuen formatu batzuk igotzean dauden arriskuez jabetu behar dute, eta, beraz, fitxategien igoeretan zuhurragoak izatea espero daiteke.
+            default_hint: MIME mota hauek, lehenetsiz, baimenduta daude parte-hartzaile guztientzat.
             intro_html: 'Gehitu izartxoa duten komodinak MIME motetarako, adibidez: <code>image/*</code>.'
             title: Baimendutako MIME motak
           file_extensions:
-            admin_hint: Artxibo-luzapen hauek baimenduta daude administrazio-paneletik igotzeko. Administratzaileek dokumentuen formatu batzuk igotzean dauden arriskuez jabetu behar dute, eta, beraz, artxiboen igoeretan zuhurragoak izatea espero daiteke.
-            default_hint: Artxibo-luzapen hauek, lehenetsiz, baimenduta daude erabiltzaile guztientzat.
-            image_hint: Artxibo-luzapen hauek baimenduta daude edozein motatako irudi-igoeratarako.
+            admin_hint: Fitxategi-luzapen hauek baimenduta daude administrazio-paneletik igotzeko. Administratzaileek dokumentuen formatu batzuk igotzean dauden arriskuez jabetu behar dute, eta, beraz, artxiboen igoeretan zuhurragoak izatea espero daiteke.
+            default_hint: Fitxategi-luzapen hauek, lehenetsiz, baimenduta daude parte-hartzaile guztientzat.
+            image_hint: Fitxategi-luzapen hauek baimenduta daude edozein motatako irudi-igoeratarako.
             title: Baimendutako fitxategi-luzapenak
           file_sizes:
-            avatar_hint: Megabytes (MB). Fitxategiaren tamainaren muga hori erabiltzen da avatar-irudiak igotzeko.
+            avatar_hint: Megabytes (MB). Fitxategiaren tamainaren muga hori erabiltzen da abatar-irudiak igotzeko.
             default_hint: Megabytes (MB). Fitxategiaren tamainaren muga hori fitxategien igoera guztietarako erabiltzen den lehenetsia da, kontrakoa zehaztu ezean.
             title: Gehieneko fitxategi tamaina
           intro: |
             Mesedez, kontuz ibili doikuntza horiek aldatzean.
             Zenbat eta aukera gutxiago, hobe.
-            Fitxategi espezifikoen luzapenak edo MIME motakoak baimentzeak segurtasun-arriskuen eraginpean jar ditzake sistemaren erabiltzaileak, eta webgunearen irisgarritasunari ere eragin diezaioke.
+            Fitxategi espezifikoen luzapenak edo MIME motakoak baimentzeak segurtasun-arriskuen eraginpean jar ditzake sistemaren parte-hartzaileak, eta webgunearen irisgarritasunari ere eragin diezaioke.
+        header_snippets_help_html: Erabili eremu hau HTML goiburuari gauzak gehitzeko. Erabilera ohikoena da JavaScript edo CSS osagarriak behar dituzten hirugarrenen zerbitzuak integratzea. HTMLri meta-etiketa gehigarriak gehitzeko ere erabil dezakezu. Kontuan izan hori orrialde publikoetan soilik renderizatuko dela, ez administrazio-atalean. Kodeak kanpoko APIekin elkarreragiten badu edo aplikazioaren segurtasun-jarraibideak betetzen ez baditu, Edukiaren Segurtasun Politika aldatu beharko da. Irakurri gehiago honi buruz<a href="https://docs.decidim.org/develop/en/customize/content_security_policy"> dokumentazioaren kokalekuan</a>.
         index:
           title: Erakundeak
         new:
           default: Lehenetsita?
           enabled: Gaituta
-          locale: Tokikoa
+          locale: Tokiko ezarpenak
           organization_admin_email_hint: Mezu elektroniko bat bidaliko dugu helbide honetara, baieztatu eta pasahitza jar dezazun.
           reference_prefix_hint: Erreferentzia-aurrizkia erakunde guztietan baliabideak identifikatzeko erabiltzen da.
           secondary_hosts_hint: Sartu haietako bakoitza beste lerro batean.
@@ -261,8 +330,8 @@ eu:
           success: Erakundea zuzen eguneratu da.
         users_registration_mode:
           disabled: Sarbidea soilik kanpoko kontuekin egin daiteke
-          enabled: Baimendu erabiltzaileei erregistratzea eta saioa hasteko
-          existing: Ez utzi parte-hartzaile gehiagori erregistratzen, baina utzi existitzen diren parte-hartzaileei saioa hasten
+          enabled: Utzi parte-hartzaileei kontu bat sortzen eta saioa hasten
+          existing: Ez utzi parte-hartzaileei kontu bat sortzen, baina utzi existitzen diren parte-hartzaileei saioa hasten
       shared:
         notices:
           no_organization_warning_html: Hasteko erakunde bat sortu behar duzu. Jarraitu aurretik ziurta zaitez %{guide} irakurri duzula.
@@ -273,10 +342,10 @@ eu:
       system_checks:
         active_job_queue:
           decidim_documentation: Dokumentazioa Decidimez
-          error: 'ActiveJob ilara ez dago konfiguratuta. Hau ez da ekoizpenerako gomendatutako muntaia. Irakurri gehiago hemen: % {error_extra}.'
+          error: 'ActiveJob ilara ez dago konfiguratuta. Hau ez da ekoizpenerako gomendatutako muntaia. Irakurri gehiago hemen: %{error_extra}.'
           success: ActiveJob ilara behar bezala konfiguratuta dago.
         secret_key:
-          error: 'Gako sekretua ez dago ondo definituta. Gorde, mesedez, SECRET_KEY_BASE aldagaia eta berrabiarazi zerbitzaria: % {error_extra}'
+          error: 'Gako sekretua ez dago ondo definituta. Gorde, mesedez, SECRET_KEY_BASE aldagaia eta berrabiarazi zerbitzaria: %{error_extra}'
           success: Gako sekretua behar bezala konfiguratuta dago.
       titles:
         dashboard: Kontrol-panela

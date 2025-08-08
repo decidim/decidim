@@ -1,5 +1,4 @@
 import UploadModal from "src/decidim/direct_uploads/upload_modal";
-import { truncateFilename } from "src/decidim/direct_uploads/upload_utility";
 import { escapeHtml, escapeQuotes } from "src/decidim/utilities/text";
 
 const updateModalTitle = (modal) => {
@@ -21,6 +20,7 @@ const updateActiveUploads = (modal) => {
   const files = document.querySelector(`[data-active-uploads=${modal.modal.id}]`)
   const previousId = Array.from(files.querySelectorAll("[type=hidden][id]"))
   const isMultiple = modal.options.multiple
+  const isTitled = modal.options.titled
 
   // fastest way to clean children nodes
   files.textContent = ""
@@ -29,21 +29,31 @@ const updateActiveUploads = (modal) => {
   const [removeFiles, addFiles] = [modal.items.filter(({ removable }) => removable), modal.items.filter(({ removable }) => !removable)]
 
   addFiles.forEach((file, ix) => {
-    let title = truncateFilename(file.name, 19)
+    let title = file.name
 
     let hidden = ""
     if (file.hiddenField) {
       // if there is hiddenField, this file is new
-      const fileField = isMultiple
-        ? `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][file]`
-        : `${modal.options.resourceName}[${modal.options.addAttribute}]`
+      let fileField = null;
+      if (isMultiple) {
+        fileField = `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][file]`
+      } else if (isTitled) {
+        fileField = `${modal.options.resourceName}[${modal.options.addAttribute}][file]`
+      } else {
+        fileField = `${modal.options.resourceName}[${modal.options.addAttribute}]`;
+      }
 
       hidden = `<input type="hidden" name="${fileField}" value="${file.hiddenField}" />`
     } else {
       // otherwise, we keep the attachmentId
-      const fileField = isMultiple
-        ? `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][id]`
-        : `${modal.options.resourceName}[${modal.options.addAttribute}]`
+      let fileField = null;
+      if (isMultiple) {
+        fileField = `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][id]`;
+      } else if (isTitled) {
+        fileField = `${modal.options.resourceName}[${modal.options.addAttribute}][id]`;
+      } else {
+        fileField = `${modal.options.resourceName}[${modal.options.addAttribute}]`;
+      }
 
       // convert all node attributes to string
       const attributes = Array.from(previousId.find(({ id }) => id === file.attachmentId).attributes).reduce((acc, { name, value }) => `${acc} ${name}="${value}"`, "")
@@ -51,10 +61,12 @@ const updateActiveUploads = (modal) => {
       hidden += `<input type="hidden" name="${fileField}" value="${file.attachmentId}" />`
     }
 
-    if (modal.options.titled) {
+    if (isTitled) {
       const titleValue = modal.modal.querySelectorAll('input[type="text"]')[ix].value
       // NOTE - Renaming the attachment is not supported when multiple uploader is disabled
-      const titleField = `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][title]`
+      const titleField = isMultiple
+        ? `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][title]`
+        : `${modal.options.resourceName}[${modal.options.addAttribute}][title]`
       hidden += `<input type="hidden" name="${titleField}" value="${escapeQuotes(titleValue)}" />`
 
       title = titleValue
@@ -66,8 +78,8 @@ const updateActiveUploads = (modal) => {
 
     const template = `
       <div ${attachmentIdOrHiddenField} data-filename="${escapeQuotes(file.name)}" data-title="${escapeQuotes(title)}">
-        ${(/image/).test(file.type) && `<div><img src="data:," alt="${escapeQuotes(file.name)}" /></div>` || ""}
-        <span>${escapeHtml(title)} (${escapeHtml(truncateFilename(file.name))})</span>
+        ${(/image/).test(file.type) && "<div><img src=\"data:,\" role=\"presentation\" /></div>" || ""}
+        <span>${escapeHtml(title)}</span>
         ${hidden}
       </div>
     `
@@ -103,9 +115,7 @@ const resetDropzone = (modal) => {
 
 /* NOTE: all this actions are supposed to work using the modal object,
   so, perhaps, it would be more accurate to move all the inner listeners to the UploadModal class */
-document.addEventListener("DOMContentLoaded", () => {
-  const attachmentButtons = document.querySelectorAll("button[data-upload]");
-
+export const initializeUploadFields = function(attachmentButtons) {
   attachmentButtons.forEach((attachmentButton) => {
     const modal = new UploadModal(attachmentButton);
 
@@ -129,5 +139,5 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.saveButton.addEventListener("click", (event) => event.preventDefault() || updateActiveUploads(modal));
     // remove the uploaded files if cancel button is clicked
     modal.cancelButton.addEventListener("click", (event) => event.preventDefault() || modal.cleanAllFiles());
-  })
-})
+  });
+}

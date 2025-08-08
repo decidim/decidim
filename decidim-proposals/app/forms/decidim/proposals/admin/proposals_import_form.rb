@@ -6,6 +6,7 @@ module Decidim
       # A form object to be used when admin users want to import a collection of proposals
       # from another component.
       class ProposalsImportForm < Decidim::Form
+        include TranslatableAttributes
         mimic :proposals_import
 
         attribute :origin_component_id, Integer
@@ -13,29 +14,20 @@ module Decidim
         attribute :keep_answers, Boolean
         attribute :keep_authors, Boolean
         attribute :states, Array
-        attribute :scope_ids, Array
 
         validates :origin_component_id, :origin_component, :states, :current_component, presence: true
         validates :import_proposals, allow_nil: false, acceptance: true
         validate :valid_states
 
-        VALID_STATES = %w(accepted not_answered evaluating rejected).freeze
-
         def states_collection
-          VALID_STATES.map do |state|
-            OpenStruct.new(
-              name: I18n.t(state, scope: "decidim.proposals.answers"),
-              value: state
-            )
-          end
+          @states_collection ||= ProposalState.where(component: current_component) + [ProposalState.new(token: "not_answered",
+                                                                                                        title: I18n.t(
+                                                                                                          :not_answered, scope: "decidim.proposals.answers"
+                                                                                                        ))]
         end
 
         def states
           super.compact_blank
-        end
-
-        def scopes
-          Decidim::Scope.where(organization: current_organization, id: scope_ids)
         end
 
         def origin_component
@@ -56,7 +48,7 @@ module Decidim
 
         def valid_states
           return if states.all? do |state|
-            VALID_STATES.include?(state)
+            states_collection.pluck(:token).include?(state)
           end
 
           errors.add(:states, :invalid)

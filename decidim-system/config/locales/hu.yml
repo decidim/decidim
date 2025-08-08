@@ -56,7 +56,6 @@ hu:
             did_not_receive_unlock_instructions?: Nem kapta meg a feloldáshoz szükséges instrukciókat?
             forgot_your_password?: Elfelejtett jelszó?
             log_in: Belépés
-            sign_up: Regisztráció
       menu:
         admins: Adminok
         dashboard: Irányítópult
@@ -116,7 +115,6 @@ hu:
           success: Szervezet sikeresen frissítve.
         users_registration_mode:
           disabled: A hozzáférés csak külső fiókokkal végezhető el
-          enabled: Engedélyezi a felhasználók regisztrálását és bejelentkezését
       shared:
         notices:
           no_organization_warning_html: 'A kezdéshez hozz létre egy szervezetet. Mielőtt folytatnád, olvasd el az útmutatót: %{guide}.'

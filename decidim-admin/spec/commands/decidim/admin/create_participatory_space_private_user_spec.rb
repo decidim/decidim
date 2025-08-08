@@ -12,17 +12,21 @@ module Decidim::Admin
     let!(:name) { "Weird Guy" }
     let!(:user) { create(:user, email: "my_email@example.org", organization: privatable_to.organization) }
     let!(:current_user) { create(:user, email: "some_email@example.org", organization: privatable_to.organization) }
+    let(:role) { generate_localized_title(:role) }
     let(:form) do
       double(
         invalid?: invalid,
         delete_current_private_participants?: delete,
         email:,
         current_user:,
-        name:
+        name:,
+        role:,
+        published:
       )
     end
     let(:delete) { false }
     let(:invalid) { false }
+    let(:published) { true }
 
     context "when the form is not valid" do
       let(:invalid) { true }
@@ -111,6 +115,21 @@ module Decidim::Admin
           participatory_space_private_users = Decidim::ParticipatorySpacePrivateUser.where(user:)
 
           expect(participatory_space_private_users.count).to eq 1
+        end
+      end
+
+      context "when email is input with case-insensitive letters" do
+        let!(:admin) { create(:user, :admin, email: "admin@example.org", organization: privatable_to.organization) }
+        let!(:email) { "Admin@example.org" }
+
+        it "still finds the user" do
+          expect { subject.call }.to broadcast(:ok)
+
+          participatory_space_private_users = Decidim::ParticipatorySpacePrivateUser.where(user: admin)
+          participatory_space_admin = Decidim::User.where(email: "admin@example.org")
+
+          expect(participatory_space_private_users.count).to eq 1
+          expect(participatory_space_admin.first.admin?).to be true
         end
       end
 

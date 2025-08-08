@@ -6,7 +6,7 @@ module Decidim
   module Proposals
     describe CreateCollaborativeDraft do
       let(:form_klass) { CollaborativeDraftForm }
-      let(:component) { create(:proposal_component, :with_collaborative_drafts_enabled, :with_extra_hashtags, suggested_hashtags: suggested_hashtags.join(" ")) }
+      let(:component) { create(:proposal_component, :with_collaborative_drafts_enabled) }
       let(:organization) { component.organization }
       let(:user) { create(:user, :confirmed, organization:) }
       let(:form) do
@@ -22,16 +22,11 @@ module Decidim
 
       let(:author) { create(:user, :confirmed, organization:) }
 
-      let(:user_group) do
-        create(:user_group, :confirmed, :verified, organization:, users: [author])
-      end
-
       let(:has_address) { false }
       let(:address) { nil }
       let(:latitude) { 40.1234 }
       let(:longitude) { 2.1234 }
       let(:attachment_params) { nil }
-      let(:suggested_hashtags) { [] }
 
       describe "call" do
         let(:form_params) do
@@ -42,9 +37,7 @@ module Decidim
             has_address:,
             latitude:,
             longitude:,
-            add_documents: attachment_params,
-            user_group_id: user_group.try(:id),
-            suggested_hashtags:
+            add_documents: attachment_params
           }
         end
 
@@ -83,8 +76,6 @@ module Decidim
           end
 
           context "with an author" do
-            let(:user_group) { nil }
-
             it "sets the author" do
               command.call
               collaborative_draft = Decidim::Proposals::CollaborativeDraft.last
@@ -92,28 +83,6 @@ module Decidim
               expect(collaborative_draft.coauthorships.count).to eq(1)
               expect(collaborative_draft.authors.count).to eq(1)
               expect(collaborative_draft.authors.first).to eq(author)
-            end
-          end
-
-          context "with extra hashtags" do
-            let(:suggested_hashtags) { %w(Hashtag1 Hashtag2) }
-
-            it "saves the extra hashtags" do
-              command.call
-              collaborative_draft = Decidim::Proposals::CollaborativeDraft.last
-              expect(collaborative_draft.body).to include("_Hashtag1")
-              expect(collaborative_draft.body).to include("_Hashtag2")
-            end
-          end
-
-          context "with a user group" do
-            it "sets the user group" do
-              command.call
-              collaborative_draft = Decidim::Proposals::CollaborativeDraft.last
-
-              expect(collaborative_draft.coauthorships.count).to eq(1)
-              expect(collaborative_draft.user_groups.count).to eq(1)
-              expect(collaborative_draft.user_groups.first).to eq(user_group)
             end
           end
 

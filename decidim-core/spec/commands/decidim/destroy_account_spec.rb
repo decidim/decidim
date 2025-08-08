@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe DestroyAccount do
-    let(:command) { described_class.new(user, form) }
+    let(:command) { described_class.new(form) }
     let(:user) { create(:user, :confirmed) }
     let!(:identity) { create(:identity, user:) }
     let(:valid) { true }
@@ -17,7 +17,8 @@ module Decidim
     let(:form) do
       form = double(
         delete_reason: data[:delete_reason],
-        valid?: valid
+        valid?: valid,
+        current_user: user
       )
 
       form
@@ -50,11 +51,15 @@ module Decidim
         expect(user.reload.deleted_at).not_to be_nil
       end
 
-      it "set name, nickname and email to blank string" do
+      it "set name, nickname, personal_url, about and email to blank string" do
         command.call
-        expect(user.reload.name).to eq("")
-        expect(user.reload.nickname).to eq("")
-        expect(user.reload.email).to eq("")
+        user.reload
+        expect(user.name).to eq("")
+        expect(user.nickname).to eq("")
+        expect(user.email).to eq("")
+        expect(user.personal_url).to eq("")
+        expect(user.about).to eq("")
+        expect(user.notifications_sending_frequency).to eq("none")
       end
 
       it "destroys the current user avatar" do
@@ -66,15 +71,6 @@ module Decidim
         expect do
           command.call
         end.to change(Identity, :count).by(-1)
-      end
-
-      it "deletes user group memberships" do
-        user_group = create(:user_group)
-        create(:user_group_membership, user_group:, user:)
-
-        expect do
-          command.call
-        end.to change(UserGroupMembership, :count).by(-1)
       end
 
       it "deletes the follows" do

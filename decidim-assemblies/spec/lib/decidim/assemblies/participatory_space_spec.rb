@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe "Assemblies Participatory Space" do
-    let(:command) { Decidim::DestroyAccount.new(user, form) }
+    let(:command) { Decidim::DestroyAccount.new(form) }
 
     let(:user) { create(:user, :confirmed) }
     let(:valid) { true }
@@ -17,7 +17,8 @@ module Decidim
     let(:form) do
       form = double(
         delete_reason: data[:delete_reason],
-        valid?: valid
+        valid?: valid,
+        current_user: user
       )
 
       form
@@ -30,14 +31,6 @@ module Decidim
         expect do
           command.call
         end.to change(AssemblyUserRole, :count).by(-1)
-      end
-
-      it "deletes assembly member" do
-        create(:assembly_member, user:)
-
-        expect do
-          command.call
-        end.to change(AssemblyMember, :count).by(-1)
       end
     end
   end

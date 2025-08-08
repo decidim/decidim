@@ -33,7 +33,7 @@ class PassthruValidator < ActiveModel::EachValidator
       value = dummy.public_send(dummy_attr)
     elsif dummy.respond_to? :file
       dummy.public_send("file=", value)
-      value = dummy.public_send(:file)
+      value = dummy.file
     end
 
     target_validators(attribute).each do |validator|

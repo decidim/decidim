@@ -7,8 +7,8 @@ module Decidim
       description "Represents a particular translation of a LocalizedStringType"
 
       field :locale, GraphQL::Types::String, "The standard locale of this translation.", null: false
-      field :text, GraphQL::Types::String, "The content of this translation.", null: true
       field :machine_translated, GraphQL::Types::Boolean, "Whether this string is machine translated or not.", null: false
+      field :text, GraphQL::Types::String, "The content of this translation.", null: true
 
       def machine_translated
         if object.respond_to?(:machine_translated)

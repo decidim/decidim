@@ -29,7 +29,6 @@ describe "Admin imports participatory process" do
       end
 
       stub_get_request_with_format("http://localhost:3000/uploads/decidim/participatory_process/hero_image/1/city.jpeg", "image/jpeg")
-      stub_get_request_with_format("http://localhost:3000/uploads/decidim/participatory_process/banner_image/1/city2.jpeg", "image/jpeg")
 
       dynamically_attach_file(:participatory_process_document, Decidim::Dev.asset("participatory_processes.json"))
 
@@ -51,15 +50,6 @@ describe "Admin imports participatory process" do
 
       within ".table-list" do
         expect(page).to have_content(translated("Magni."))
-      end
-
-      within_admin_sidebar_menu do
-        click_on "Categories"
-      end
-
-      within ".table-list" do
-        expect(page).to have_content(translated("Illum nesciunt praesentium explicabo qui."))
-        expect(page).to have_content(translated("Expedita sint earum rerum consequatur."))
       end
 
       within_admin_sidebar_menu do

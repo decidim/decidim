@@ -151,6 +151,10 @@
       }
     }
 
+    & > div.success {
+      @apply text-sm text-success;
+    }
+
     [data-author] + [data-author] {
       @apply -ml-4;
     }
@@ -163,6 +167,10 @@
 
     svg {
       @apply flex-none text-gray fill-current;
+    }
+
+    [data-author] {
+      @apply flex first:[&>*]:max-w-40 -mr-8;
     }
   }
 

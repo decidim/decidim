@@ -58,6 +58,7 @@ describe "Organization Areas" do
 
       it "can edit them" do
         within "tr", text: translated(area.name) do
+          find("button[data-controller='dropdown']").click
           click_on "Edit"
         end
 
@@ -71,6 +72,8 @@ describe "Organization Areas" do
         within "table" do
           expect(page).to have_content(translated(attributes[:name]))
         end
+
+        visit decidim_admin.root_path
         expect(page).to have_content("updated the #{translated(attributes[:name])} area")
       end
 
@@ -100,6 +103,7 @@ describe "Organization Areas" do
 
   def click_delete_area
     within "tr", text: translated(area.name) do
+      find("button[data-controller='dropdown']").click
       accept_confirm { click_on "Delete" }
     end
   end

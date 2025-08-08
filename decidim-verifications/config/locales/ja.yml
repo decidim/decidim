@@ -1,6 +1,10 @@
 ja:
   activemodel:
     attributes:
+      authorization:
+        verification_attachment: 検証添付ファイル
+      census_data:
+        file: ファイル
       config:
         available_methods: 利用可能なメソッド
         offline: オフライン
@@ -41,9 +45,9 @@ ja:
           button: すべて取り消し
           button_before: 指定日以前の認証を失効させる
           destroy:
-            confirm: 指定日以前の権限の取り消しはやり直すことができません。続行してもよろしいですか？
+            confirm: 指定日以前の認証の取り消しはやり直すことができません。続行してもよろしいですか？
             confirm_all: すべての権限を取り消すと、元に戻すことができません。本当に続行しますか？
-          destroy_nok: 権限の取り消し中に問題が発生しました。
+          destroy_nok: 認証の取り消し中に問題が発生しました。
           destroy_ok: すべての一致した認証が正常に取り消されました。
           info: '%{count} 人の確認済み参加者がいます。'
           no_data: 検証済みの参加者はいません。
@@ -74,6 +78,12 @@ ja:
             - 開発者が簡単な検証の仕組みを理解するための、認証ハンドラーのサンプルです。
             - 開発者が自身の検証システムを実装する方法を理解できるようにすることを目的としています。
             - '「X」で終わるドキュメント番号を入力して検証します'
+        ephemeral_dummy_authorization_handler:
+          help:
+            - 開発者が簡単な検証の仕組みを理解できるようにするための、一時的な認可ハンドラーの例です。
+            - 開発者が自身の検証システムを実装する方法を理解できるようにすることを目的としています。
+            - Example authorization のコピーです。
+            - '「X」で終わる本人確認書類の番号を導入して認証を受けましょう。'
         id_documents:
           help:
             - ユーザーは自分の身元情報を入力し、自分の文書のコピーをアップロードします。
@@ -112,6 +122,12 @@ ja:
           email_subject: 他の参加者に対する検証の試みに失敗しました
           notification_title: 参加者 <a href="%{resource_path}">%{resource_title}</a> は、別の参加者 (<a href="%{managed_user_path}">%{managed_user_name}</a>) のデータで自分自身を検証しようとしました。
     verifications:
+      admin_log:
+        csv_datum:
+          create: "%{user_name} が新しいセンサスデータレコードを作成しました（メールアドレス: %{resource_email}）"
+          delete: "%{user_name} がメールアドレス %{resource_email} のセンサスデータの記録を削除しました"
+          import: "%{user_name} は %{imported_count} 件のセンサスの記録をインポートしました"
+          update: "%{user_name} がメールアドレス %{resource_email} のセンサスデータの記録を更新しました"
       authorizations:
         authorization_metadata:
           info: 'これは現在の検証のデータです。'
@@ -124,17 +140,6 @@ ja:
         destroy:
           error: 承認の削除中に問題が発生しました。
           success: 承認を削除しました。
-        first_login:
-          actions:
-            another_dummy_authorization_handler: 認証ハンドラーの別の例に対して検証する
-            csv_census: 組織のセンサスに照らして確認
-            dummy_authorization_handler: 認証ハンドラーの例に対して確認する
-            dummy_authorization_workflow: 認証ワークフローの例に対して確認する
-            id_documents: 本人確認書類をアップロードして認証を取得する
-            postal_letter: 郵便物で確認コードを受信して認証する
-            sms: SMS確認コードを受信して認証を取得する
-          title: 本人確認を行う
-          verify_with_these_options: '本人確認には以下のオプションがあります。'
         index:
           expired_verification: 認証の有効期限が切れました
           granted_verification: 許可された検証
@@ -146,6 +151,14 @@ ja:
         new:
           authorize: 送信
           authorize_with: '%{authorizer} で認証'
+          tos_agreement: 本人確認を行うことで、 %{link} に同意したことになります。
+        onboarding_pending:
+          completed_verifications: あなたは正常に承認されました。今、 %{resource_name} で %{action} ができます。
+          granted_verifications: 許可された検証
+          onboarding_message_html: まもなく <strong>%{resource_title}</strong> %{resource_name} で %{action} を行う準備が整います。以下の認証を行ってアカウントを検証してください。
+          pending_admin_approval_verifications: 管理者承認の検証を保留中
+          pending_verifications: 保留中の検証
+          unauthorized: このリソースを %{action} する権限がありません。
         renew_modal:
           cancel: キャンセル
           continue: 続ける
@@ -155,30 +168,62 @@ ja:
         start_exploring: 探索を始めましょう
       csv_census:
         admin:
+          actions:
+            confirm_destroy: このセンサスデータの記録を本当に削除してもよろしいですか？
+            destroy: 破棄
+            edit: 編集
           census:
-            create:
-              error: センサスのインポート中にエラーが発生しました。
-              success: '%{count} 個のアイテム(%{errors} 個のエラー) を正常にインポートしました。'
-            destroy_all:
-              success: すべてのセンサスデータが削除されました。
-          destroy:
-            confirm: すべてのセンサスを削除すると、元に戻すことができません。本当に続行しますか？
-            title: センサスデータをすべて削除する
+            create_import:
+              error: センサスのインポート中に問題が発生しました。
+              no_user: ユーザーが見つかりません
+              success: '%{count} 件のアイテムを正常にインポートしました。データを処理中です。数分後にページを更新して、変更内容をご確認ください。'
+            destroy:
+              success: センサスデータレコードが削除されました。
+            index:
+              empty: センサスデータがありません。CSVファイルをインポートするには %{import_csv} を使用してください。
+              no_sign_in: ログインしたことがありません
+              no_user: ユーザーが見つかりません
+            last_login:
+              no_sign_in: ログインしたことがありません
+              no_user: ユーザーがいません
+            new_import:
+              errors:
+                email_exists: メールアドレス %{email} はすでに組織 %{organization}に存在します。
+              example: |
+                john.doe@example.org
+                jane.doe@example.org
+              info: 'メールアドレスの列が 1 つだけの CSV 形式のファイルである必要があります:'
+              submit: ファイルをアップロード
+              title: センサスデータのインポート
+              upload_new_census: 新しいセンサスをアップロード
+          census_records:
+            create_record:
+              success: センサスデータレコードを正常に追加しました。データを処理中です。数分後にページを更新して、変更内容をご確認ください。
+            edit_record:
+              save: 保存
+              title: センサスレコードを編集
+            form:
+              email: メールアドレス
+            new_record:
+              save: 保存
+              title: 新しいセンサスレコードを追加
+            update_record:
+              invalid: センサスデータのレコードを更新する際に問題が発生しました。
+              success: センサスデータのレコードを更新しました。
           index:
-            data: 合計%{count} 件のレコードが読み込まれました。最後アップロード日は%{due_date} です。
-            empty: センサスデータがありません。CSVファイルを使用してインポートするには、以下のフォームを使用してください。
+            add_new_record_button: 新しいレコードを追加
+            authorized: 承認されているユーザー
+            fields:
+              actions: アクション
+              created_at: 作成日時
+              email: メールアドレス
+              user_authorized: 承認済み？
+            import_csv: CSVをインポート
+            no_authorized: 承認されていないユーザー
             title: 現在のセンサスデータ
           instructions:
             body: これを行うには、システム管理を入力し、csv_census の認証を組織に追加する必要があります。
             title: この組織のCSVセンサス認証を有効にする必要があります
-          new:
-            example: |
-              john.doe@example.org
-              jane.doe@example.org
-            file: "電子メールデータを含む.csvファイル"
-            info: 'メールアドレスの列が 1 つだけの CSV 形式のファイルである必要があります:'
-            submit: ファイルをアップロード
-            title: 新しいセンサスをアップロード
         authorizations:
           new:
             error: お客様のアカウントを確認できませんでした。また、組織のセンサスに入っていない場合もあります。
@@ -187,10 +232,12 @@ ja:
         extra_explanation:
           postal_codes:
             other: '参加者は次の郵便番号のいずれかを持つ参加者に制限されています: %{postal_codes}.'
-          scope: 参加者はスコープ %{scope_name} の参加者に限定されています。
           user_postal_codes:
             other: '参加者は次の郵便番号のいずれかを持つ参加者に制限されています: %{postal_codes}. あなたの郵便番号は %{user_postal_code} です。'
-          user_scope: 参加者はスコープ %{scope_name} を持つ参加者に限定されます。あなたのスコープは %{user_scope_name} です。
+      errors:
+        invalid_emails: '次のメールアドレスが無効です: %{invalid_emails}。'
+        no_emails: ファイルにはメールアドレスが含まれている必要があります
+        wrong_number_columns: "%{expected} 列が期待されていましたが、 %{actual} 列が見つかりました。"
       id_documents:
         admin:
           config:
@@ -255,6 +302,7 @@ ja:
           pending_authorizations:
             index:
               address: 住所
+              already_sent: 郵送物は既に送信されており、送信済みとして再度マークすることはできません。
               letter_sent_at: 送信日時
               mark_as_sent: 送信済みにする
               not_yet_sent: 送信されていません

@@ -8,7 +8,7 @@ module Decidim
 
         mimic :sortition
 
-        translatable_attribute :cancel_reason, String
+        translatable_attribute :cancel_reason, Decidim::Attributes::RichText
 
         validates :cancel_reason, translatable_presence: true
 

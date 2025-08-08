@@ -4,7 +4,6 @@ lb:
       participatory_process:
         announcement: Ukënnegung
         area_id: Bereich
-        banner_image: Banner-Bild
         copy_categories: Kategorien kopieren
         copy_components: Komponenten kopieren
         copy_steps: Phasen kopieren
@@ -13,7 +12,6 @@ lb:
         developer_group: Promoter-Gruppe
         domain: Domäne
         end_date: Enddatum
-        hashtag: Hashtag
         hero_image: Hauptbild
         local_area: Organisationsbereich
         meta_scope: Bereichs-Metadaten
@@ -23,12 +21,7 @@ lb:
         promoted: Hervorgehoben
         published_at: Veröffentlicht unter
         related_process_ids: Ähnliche Beteiligungsprozesse
-        scope_id: Themenbereich
-        scope_type_max_depth_id: Umfang-Filtertiefe
-        scopes_enabled: Themenbereiche aktiviert
         short_description: Kurzbeschreibung
-        show_metrics: Metriken anzeigen
-        show_statistics: Statistiken anzeigen
         slug: URL-Slug
         start_date: Ufanksdatum
         subtitle: Ënnertitel
@@ -39,7 +32,6 @@ lb:
         description: Beschreibung
         developer_group: Gruppe der Unterstützer
         group_url: Website
-        hashtag: Hashtag
         hero_image: Bild
         local_area: Organisationsbereich
         meta_scope: Informationen zum Bereich
@@ -78,7 +70,6 @@ lb:
     admin:
       actions:
         activate: Aktivieren
-        configure: Konfigurieren
         confirm_destroy: Läsche bestätegen
         destroy: Läschen
         duplicate: Duplizieren
@@ -96,16 +87,13 @@ lb:
         participatory_process_groups: Prozessgruppen
         participatory_process_groups_submenu:
           info: Info
-          landing_page: Startseite
         participatory_processes: Beteiligungsprozesse
         participatory_processes_submenu:
           attachment_collections: Dossieren
           attachment_files: Dateien
           attachments: Unhäng
-          categories: Kategorien
           components: Komponenten
           moderations: Moderationen
-          private_users: Private Benutzer
           process_admins: Benutzer verarbeiten
           steps: Phasen
       models:
@@ -136,7 +124,6 @@ lb:
             admin: Administrator
             collaborator: Mitarbeiter
             moderator: Moderator
-            valuator: Schätzer
         user:
           fields:
             invitation_accepted_at: Einladung akzeptiert am
@@ -148,7 +135,6 @@ lb:
           title: Beteiligungsprozess duplizieren
       participatory_process_groups:
         destroy:
-          error: Beim Löschen der Beteiligungsprozessgruppe ist ein Fehler aufgetreten.
           success: Beteiligungsprozess erfolgreich gelöscht.
         edit:
           title: Prozessgruppe bearbeiten
@@ -261,11 +247,6 @@ lb:
           title: Was ist ein partizipativer Prozess?
     menu:
       processes: Bedeelegungsprozesser
-    metrics:
-      participatory_processes:
-        description: Anzahl der Beteiligungsprozesse in dieser Organisation
-        object: Bedeelegungsprozesser
-        title: Bedeelegungsprozesser
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -286,10 +267,7 @@ lb:
       admin:
         participatory_processes:
           form:
-            other: Andere
             related_processes: Ähnliche Beteiligungsprozesse
-            scope_type_max_depth_help: Beschränken Sie die Bereichs-Filtertiefe; der Filter zeigt nur Ergebnisse von Allgemein bis zum ausgewählten Bereichstyp an.
-            select_an_area: Wählen Sie einen Bereich aus
             select_process_group: Wählen Sie eine Prozessgruppe aus
             title: Allgemeine Information
       content_blocks:
@@ -297,11 +275,6 @@ lb:
           name: Hervorgehobene Beteiligungsprozesse
       index:
         title: Bedeelegungsprozesser
-      last_activity:
-        new_participatory_process: Neuer partizipativer Prozess
-      participatory_process_steps:
-        index:
-          back_to_process: Zurück zur Prozessseite
       participatory_processes:
         filters:
           counters:

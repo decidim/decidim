@@ -14,6 +14,7 @@ module Decidim
     include Decidim::HasAttachmentCollections
     include Decidim::Traceable
     include Decidim::Loggable
+    include Decidim::DownloadYourData
     include Decidim::Initiatives::InitiativeSlug
     include Decidim::Resourceable
     include Decidim::HasReference
@@ -24,6 +25,8 @@ module Decidim
     include Decidim::HasResourcePermission
     include Decidim::HasArea
     include Decidim::FilterableResource
+    include Decidim::Reportable
+    include Decidim::ShareableWithToken
 
     translatable_fields :title, :description, :answer
 
@@ -31,6 +34,7 @@ module Decidim
     delegate :document_number_authorization_handler, :promoting_committee_enabled?, :attachments_enabled?,
              :promoting_committee_enabled?, :custom_signature_end_date_enabled?, :area_enabled?, to: :type
     delegate :name, to: :area, prefix: true, allow_nil: true
+    delegate :name, to: :author, prefix: true
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -62,18 +66,16 @@ module Decidim
              dependent: :destroy,
              as: :participatory_space
 
-    enum signature_type: [:online, :offline, :any], _suffix: true
-    enum state: [:created, :validating, :discarded, :published, :rejected, :accepted]
+    enum :signature_type, [:online, :offline, :any], suffix: true
+    enum :state, [:created, :validating, :discarded, :open, :rejected, :accepted]
 
     validates :title, :description, :state, :signature_type, presence: true
-    validates :hashtag,
-              uniqueness: { allow_blank: true, case_sensitive: false }
 
     validate :signature_type_allowed
 
     scope :open, lambda {
-      where.not(state: [:discarded, :rejected, :accepted, :created])
-           .currently_signable
+      where(state: [:open])
+        .currently_signable
     }
     scope :closed, lambda {
       where(state: [:discarded, :rejected, :accepted])
@@ -85,12 +87,12 @@ module Decidim
     scope_search_multi :with_any_state, [:accepted, :rejected, :answered, :open, :closed]
 
     scope :currently_signable, lambda {
-      where("signature_start_date <= ?", Date.current)
-        .where("signature_end_date >= ?", Date.current)
+      where(signature_start_date: ..Date.current)
+        .where(signature_end_date: Date.current..)
     }
     scope :currently_unsignable, lambda {
       where("signature_start_date > ?", Date.current)
-        .or(where("signature_end_date < ?", Date.current))
+        .or(where(signature_end_date: ...Date.current))
     }
 
     scope :answered, -> { where.not(answered_at: nil) }
@@ -143,7 +145,6 @@ module Decidim
 
     before_update :set_offline_votes_total
     after_commit :notify_state_change
-    after_create :notify_creation
 
     searchable_fields({
                         participatory_space: :itself,
@@ -155,8 +156,28 @@ module Decidim
                       # is Resourceable instead of ParticipatorySpaceResourceable so we cannot use `visible?`
                       index_on_update: ->(initiative) { initiative.published? })
 
+    def self.export_serializer
+      Decidim::Initiatives::DownloadYourDataInitiativeSerializer
+    end
+
     def self.log_presenter_class_for(_log)
       Decidim::Initiatives::AdminLog::InitiativePresenter
+    end
+
+    def presenter
+      Decidim::InitiativePresenter.new(self)
+    end
+
+    def self.ransackable_attributes(auth_object = nil)
+      base = %w(search_text title description id id_string supports_count author_name author_nickname)
+
+      return base unless auth_object&.admin?
+
+      base + %w(published_at state decidim_area_id type_id)
+    end
+
+    def self.ransackable_associations(_auth_object = nil)
+      %w(area scope taxonomies)
     end
 
     def self.ransackable_scopes(_auth_object = nil)
@@ -176,40 +197,9 @@ module Decidim
       type.comments_enabled?
     end
 
-    # Public: Check if an initiative has been created by an individual person.
-    # If it is false, then it has been created by an authorized organization.
-    #
-    # Returns a Boolean
-    def created_by_individual?
-      decidim_user_group_id.nil?
-    end
-
-    # Public: check if an initiative is open
-    #
-    # Returns a Boolean
-    def open?
-      !closed?
-    end
-
-    # Public: Checks if an initiative is closed. An initiative is closed when
-    # at least one of the following conditions is true:
-    #
-    # * It has been discarded.
-    # * It has been rejected.
-    # * It has been accepted.
-    # * Signature collection period has finished.
-    #
-    # Returns a Boolean
-    def closed?
-      discarded? || rejected? || accepted? || !votes_enabled?
-    end
-
-    # Public: Returns the author name. If it has been created by an organization it will
-    # return the organization's name. Otherwise it will return author's name.
-    #
-    # Returns a string
-    def author_name
-      user_group&.name || author.name
+    # Public: Overrides the `reported_attributes` Reportable concern method.
+    def reported_attributes
+      [:title, :description]
     end
 
     def votes_enabled?
@@ -254,7 +244,7 @@ module Decidim
 
       update(
         published_at: Time.current,
-        state: "published",
+        state: "open",
         signature_start_date: Date.current,
         signature_end_date: signature_end_date || (Date.current + Decidim::Initiatives.default_signature_time_period_length)
       )
@@ -272,11 +262,6 @@ module Decidim
     # Public: Returns whether the signature interval is already defined or not.
     def has_signature_interval_defined?
       signature_end_date.present? && signature_start_date.present?
-    end
-
-    # Public: Returns the hashtag for the initiative.
-    def hashtag
-      attributes["hashtag"].to_s.delete("#")
     end
 
     # Public: Calculates the number of total current supports.
@@ -465,6 +450,10 @@ module Decidim
       ActionAuthorizer.new(user, "comment", self, nil).authorize.ok?
     end
 
+    def shareable_url(share_token)
+      EngineRouter.main_proxy(self).initiative_url(self, share_token: share_token.token)
+    end
+
     def self.ransack(params = {}, options = {})
       Initiatives::InitiativeSearch.new(self, params, options)
     end
@@ -492,11 +481,6 @@ module Decidim
     def notify_state_change
       return unless saved_change_to_state?
 
-      notifier = Decidim::Initiatives::StatusChangeNotifier.new(initiative: self)
-      notifier.notify
-    end
-
-    def notify_creation
       notifier = Decidim::Initiatives::StatusChangeNotifier.new(initiative: self)
       notifier.notify
     end

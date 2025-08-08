@@ -2,7 +2,6 @@
   {
     "id": 1,
     "slug": "quae-a",
-    "hashtag": "id",
     "decidim_organization_id": 1,
     "title": {
       "ca": "Eius iure laborum hic et.",
@@ -58,7 +57,6 @@
       "en": "Vel qui.",
       "es": "Et molestiae."
     },
-    "show_statistics": false,
     "scopes_enabled": true,
     "private_space": false,
     "reference": "PhD-ASSE-2020-01-1",

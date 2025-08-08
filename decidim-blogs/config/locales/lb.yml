@@ -11,8 +11,6 @@ lb:
     blogs:
       actions:
         author_id: Beitrag erstellen als
-        confirm_destroy: Möchten Sie diesen Beitrag wirklich löschen?
-        destroy: Löschen
         edit: Bearbeiten
         new: Neuer Beitrag
         title: Aktionen
@@ -37,7 +35,6 @@ lb:
       blogs:
         actions:
           comment: Kommentar
-          endorse: Bestätigen
         name: Blog
         settings:
           global:
@@ -47,8 +44,6 @@ lb:
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
-            endorsements_blocked: Unterstützung deaktiviert
-            endorsements_enabled: Unterstützung aktiviert
     events:
       blogs:
         post_created:

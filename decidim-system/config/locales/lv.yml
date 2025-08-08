@@ -95,7 +95,6 @@ lv:
           success: Organizācija ir veiksmīgi atjaunināta.
         users_registration_mode:
           disabled: Piekļuvi var veikt tikai ar ārējiem kontiem
-          enabled: Ļauj dalībniekiem reģistrēties un pierakstīties
       shared:
         notices:
           no_organization_warning_html: Lai sāktu, jums ir jāizveido organizācija. Pirms turpināt, noteikti izlasiet %{guide}.

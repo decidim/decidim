@@ -1,0 +1,50 @@
+"no":
+  decidim:
+    admin:
+      menu:
+        elections_menu:
+          election_questions: Spørsmål
+    components:
+      elections:
+        actions:
+          destroy: Ødelegg
+        name: Valg
+        settings:
+          global:
+            announcement: Kunngjøring
+          step:
+            announcement: Kunngjøring
+    elections:
+      actions:
+        title: Handlinger
+      admin:
+        dashboard:
+          main:
+            labels:
+              description: Beskrivelse
+          questions:
+            labels:
+              answers: Svar
+            title: Spørsmål
+          questions_table:
+            answer: Svar
+            votes: Stemmer
+          results:
+            publish_button: Publiser resultater
+            title: Resultater
+        elections:
+          edit:
+            title: Rediger valg
+          form:
+            publish: Publiser
+          index:
+            title: Valg
+          new:
+            title: Nytt valg
+        questions:
+          edit_questions:
+            new_question: Nytt spørsmål
+            title: Spørsmål
+      status:
+        active: Aktiv
+        finished: Fullført

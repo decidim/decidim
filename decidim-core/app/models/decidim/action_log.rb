@@ -5,15 +5,14 @@ module Decidim
   # for transparency reasons, to log all actions so all other users can
   # see the actions being performed.
   class ActionLog < ApplicationRecord
+    include Decidim::Taxonomizable
     include Decidim::ScopableParticipatorySpace
 
     belongs_to :organization,
                foreign_key: :decidim_organization_id,
                class_name: "Decidim::Organization"
 
-    belongs_to :user,
-               foreign_key: :decidim_user_id,
-               class_name: "Decidim::User"
+    belongs_to :user, class_name: "Decidim::UserBaseEntity"
 
     belongs_to :component,
                foreign_key: :decidim_component_id,
@@ -138,6 +137,7 @@ module Decidim
         Decidim::Proposals::Proposal
         Decidim::Surveys::Survey
         Decidim::Assembly
+        Decidim::Conference
         Decidim::Initiative
         Decidim::ParticipatoryProcess
       ).select do |klass|
@@ -154,7 +154,8 @@ module Decidim
     end
 
     def self.publicable_public_resource_types
-      @publicable_public_resource_types ||= public_resource_types.select { |klass| klass.constantize.column_names.include?("published_at") }
+      @publicable_public_resource_types ||= public_resource_types
+                                            .select { |klass| klass.constantize.column_names.include?("published_at") }
     end
 
     def self.ransackable_scopes(auth_object = nil)
@@ -163,6 +164,16 @@ module Decidim
 
       # Add extra scopes for admins for the admin panel searches
       base + [:with_participatory_space]
+    end
+
+    def self.ransackable_attributes(auth_object = nil)
+      return [] unless auth_object&.admin?
+
+      %w(created_at)
+    end
+
+    def self.ransackable_associations(_auth_object = nil)
+      %w(user)
     end
 
     # Overwrites the method so that records cannot be modified.
@@ -187,7 +198,7 @@ module Decidim
     # Lazy loads the `user` association through BatchLoader, can be used
     # as a regular object.
     def user_lazy(cache: true)
-      self.class.lazy_relation(decidim_user_id, "Decidim::User", cache)
+      self.class.lazy_relation(user_id, user_type, cache)
     end
 
     # Lazy loads the `participatory_space` association through BatchLoader, can be used
@@ -234,7 +245,7 @@ module Decidim
                 elsif klass.reflect_on_association(:organization)
                   scope.where(id: relation_ids).includes(:organization)
                 elsif klass_name == "Decidim::Comments::Comment"
-                  scope.where(id: relation_ids).includes([:moderation, :root_commentable, :user_group])
+                  scope.where(id: relation_ids).includes([:moderation, :root_commentable])
                 else
                   scope
                 end

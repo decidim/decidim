@@ -7,11 +7,9 @@ ar:
         decidim_scope_id: نطاق
         description: وصف
         end_date: تاريخ الانتهاء
-        meetings_ids: الاجتماعات ذات الصلة
         progress: تقدم
-        project_ids: المشاريع المدرجة
-        proposals: المقترحات المدرجة
         start_date: تاريخ البدء
+        subresults: النتائج الفرعية
         title: عنوان
         updated_at: تم التحديث في
       status:
@@ -19,15 +17,19 @@ ar:
         key: مفتاح
         name: اسم
         progress: تقدم
-      timeline_entry:
-        description: وصف
-        entry_date: تاريخ
-        title: العنوان
     models:
       decidim/accountability/proposal_linked_event: الاقتراح المدرج في نتيجة
       decidim/accountability/result_progress_updated_event: النتائج المحدثة
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: هذه النتيجة %{link} كانت متضمنة
+            meetings_ids: 'تم نقاشها في الاجتماع: %{link}'
+            project_ids: 'تم تضمينه في هذا المشروع: %{link}'
+            proposal_ids: 'تم تضمينه في هذا الاقتراح: %{link}'
+            text: 'كانت مضافه في النتيجة: %{link}'
       decidim/accountability/result:
         zero: النتائج
         one: نتيجة
@@ -38,56 +40,93 @@ ar:
   decidim:
     accountability:
       actions:
-        attachment_collections: الحافظات
-        attachments: المرفقات
+        confirm_delete_result: هل تريد بالتأكيد حذف هذه النتيجة؟
         confirm_destroy: هل أنت متأكد أنك تريد حذف هذا %{name}؟
+        deleted_results_info: يمكن استعادة النتائج المحذوفة من سلة المهملات.
         destroy: حذف
         edit: تعديل
+        import_csv: اجلب النتائج من ملف CSV
+        new_result: نتيجة جديدة
+        new_status: حالة جديدة
         preview: معاينة
-        timeline_entries: تطور المشروع
         title: الإجراءات
+        view_deleted_results: عرض النتائج المحذوفة
       admin:
         exports:
           result_comments: التعليقات
           results: النتائج
+        import_components:
+          form:
+            create: استيراد
         import_results:
           new:
             download_export: تحميل التصدير بصيغه CSV
             import: استيراد
+            title: اجلب النتائج من ملف CSV
+        imports:
+          create:
+            invalid: حدثت مشكلة في جلب النتائج.
+            success: لقد بدأ إرسال الملف. سوف تتلقى رسالة بريد إلكتروني في غصون الدقائق القادمة مع نتيجة الاستيراد.
         models:
           result:
             name: نتيجة
           status:
             name: الحالة
-        projects_import:
-          create:
-            invalid: كان هناك مشكله فى استيراد المشاريع إلى النتائج, يرجى اتباع التعليمات بعناية و التأكد من اختيار مشاريع للتنفيذ.
-          new:
-            create: استيراد
-            import_all_selected_projects: استيراد جميع المشاريع المحددة للتنفيذ
-            new_items:
-              zero: "%{count} مشروع محدد سوف يتم إستيراده"
-              one: مشروع واحد محدد سوف يتم إستيراده
-              two: "مشروع واحد محدد سوف يتم إستيراده"
-              few: "مشروع واحد محدد سوف يتم إستيراده"
-              many: "مشروع واحد محدد سوف يتم إستيراده"
-              other: "%{count} مشروع محدد سوف يتم إستيراده"
-            no_components: لا توجد أى مقومات فى الميزانيه فى هذا الحيز لتوريد المشاريع إلى نتائج.
-            origin_component_id: عنصر أساسى
-            select_component: اختيار المكون
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: تغيير التاريخ
+              end_date: تاريخ الانتهاء
+              start_date: تاريخ البدء
+            dropdown:
+              actions: الإجراءات
+              change_dates: تغيير التواريخ
+              change_status: تغيير الحالة
+              change_taxonomies: تغيير التصنيفات
+            status_form:
+              change_status: تغيير الحالة
+              status: الحالة
+            submit_buttons:
+              cancel: إلغاء
+            taxonomies_form:
+              change_taxonomies: تغيير التصنيفات
+          create:
+            invalid: هناك مشكلة في إنشاء هذه النتيجة.
+            success: تم إنشاء النتيجة بنجاح.
           edit:
             title: تحرير النتيجة
             update: تحديث النتيجة
           index:
+            selected: الخيارات المحددة
             title: النتائج
+          manage_trash:
+            title: النتائج المحذوفة
           new:
             create: إنشاء نتيجة
             title: نتيجة جديدة
+          update:
+            invalid: هناك مشكلة في تحديث هذه النتيجة.
+            success: تم تحديث النتيجة بنجاح.
+          update_dates:
+            invalid: حدثت مشكلة في تحديث تواريخ النتائج
+            success: تم تحديث تواريخ النتائج بنجاح
+          update_status:
+            invalid: حدثت مشكلة في تحديث حالة النتائج
+            success: تم تحديث حالة النتائج بنجاح
+          update_taxonomies:
+            invalid: تعذر تحديث التصنيفات %{taxonomies} للنتائج %{results}
+            select_a_result: اختر نتيجة
+            select_a_taxonomy: اختر تصنيفاً
+            success: تم تحديث التصنيفات %{taxonomies} للنتائج %{results} بنجاح
         shared:
           subnav:
             statuses: الحالات
         statuses:
+          create:
+            invalid: هناك مشكلة في إنشاء هذه الحالة.
+            success: تم إنشاء الحالة بنجاح.
+          destroy:
+            success: تم حذف الحالة بنجاح.
           edit:
             title: تحرير الحالة
             update: تحديث الحالة
@@ -96,42 +135,44 @@ ar:
           new:
             create: إنشاء الحالة
             title: حالة جديدة
-        timeline_entries:
-          edit:
-            title: تحرير الإدخال
-            update: تحديث الإدخال
-          index:
-            title: إدخالات الجدول الزمني للمشروع
-          new:
-            create: إنشاء الإدخال
-            title: إدخال جديد
+          update:
+            invalid: هناك مشكلة في تحديث هذه الحالة.
+            success: تم تحديث الحالة بنجاح.
       admin_log:
         result:
           create: "%{user_name} أنشأ النتيجة %{resource_name} في %{space_name}"
           delete: "%{user_name} حذف النتيجة %{resource_name} في %{space_name}"
+          restore: "قام المستخدم %{user_name} باستعادة نتيجة الـ %{resource_name} في %{space_name}"
+          soft_delete: "قام المستخدم %{user_name} بنقل نتيجة الـ %{resource_name} في %{space_name} إلى سلة المحذوفات"
           update: "%{user_name} حدث النتيجة %{resource_name} في %{space_name}"
         status:
           create: "%{user_name} أنشأ حالة %{resource_name}"
           delete: "%{user_name} حذف حالة %{resource_name}"
           update: "%{user_name} حدث حالة %{resource_name}"
-        timeline_entry:
-          create: "%{user_name} أنشأ إدخال الجدول الزمني %{resource_name}"
-          delete: "%{user_name} حذف إدخال الجدول الزمني %{resource_name}"
-          update: "%{user_name} حدث إدخال الجدول الزمني %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'لم يتم العثور على الأصل في قاعدة البيانات (الرقم-المُعرف: %{id})'
       content_blocks:
         highlighted_results:
           results: النتائج
+      creation:
+        text: تم إنشاء هذه النتيجة
       import_mailer:
         import:
           errors: أخطاء
+          errors_present: حدثت مشكلة في استيراد النتائج.
           row_number: الصف
           subject: استيراد النتائج بنجاح
           success: نجاح استيراد النتائج. يمكنك مراجعة النتائج في واجهة الإدارة.
       import_projects_mailer:
         import:
+          added_projects:
+            zero: "لم يتم استيراد أي نتيجة من المشاريع."
+            one: تم استيراد نتيجة واحدة من المشاريع.
+            two: "تم استيراد نتيجتين من المشاريع."
+            few: "تم استيراد عدد %{count} من النتائج من المشاريع."
+            many: "تم استيراد عدد %{count} من النتائج من المشاريع."
+            other: "تم استيراد عدد %{count} من النتائج من المشاريع."
           subject: استيراد المشاريع بنجاح
           success: النتائج المستوردة إلى النتائج في مكون %{component_name}. يمكن معاينة النتائج في واجهة الإدارة.
       last_activity:
@@ -139,14 +180,13 @@ ar:
       models:
         result:
           fields:
-            category: الفئة
             created_at: تم الإنشاء
             end_date: تاريخ الانتهاء
             id: المعرف ID
             progress: تقدم
-            scope: النطاق
             start_date: تاريخ البدء
             status: الحالة
+            taxonomies: التصنيفات
             title: عنوان
         status:
           fields:
@@ -154,44 +194,30 @@ ar:
             key: مفتاح
             name: اسم
             progress: تقدم
-        timeline_entry:
-          fields:
-            entry_date: تاريخ
-            title: العنوان
       results:
         count:
           results_count:
-            zero: "%{count} النتائج"
+            zero: "%{count} نتيجة 1"
             one: نتيجة واحدة
             two: "%{count} النتائج"
             few: "%{count} النتائج"
             many: "%{count} النتائج"
             other: "%{count} النتائج"
-        filters:
-          all: الكل
-        home:
-          categories_label: الفئات
-          subcategories_label: الفئات الفرعية
         home_header:
           global_status: حالة التنفيذ العالمي
-        nav_breadcrumb:
-          global: التنفيذ العالمي
+        no_results: لا يوجد مشاريع
         search:
           search: البحث عن الإجراءات
         show:
           stats:
             back_to_resource: العودة إلى النتيجة
-        timeline:
-          title: تطور المشروع
     admin:
       filters:
         results:
-          category_id_eq:
-            label: الفئة
-          scope_id_eq:
-            label: النطاق
           status_id_eq:
             label: الحالة
+          taxonomies_part_of_contains:
+            label: التصنيف
     components:
       accountability:
         actions:
@@ -199,14 +225,22 @@ ar:
         name: المسائلة
         settings:
           global:
+            clear_all: إمسح الكل
             comments_enabled: تم تمكين التعليقات
             comments_max_length: الحد الأقصى لطول التعليقات (اترك ال0 للقيمة الافتراضية)
+            define_taxonomy_filters: الرجاء تحديد بعض عوامل التصفية لهذه المساحة التشاركية قبل استخدام هذا الإعداد.
             display_progress_enabled: عرض التقدم
+            geocoding_enabled: تم تمكين الخرائط
             intro: مقدمة
-            scope_id: النطاق
-            scopes_enabled: النطاقات مفعلة
+            no_taxonomy_filters_found: لم يتم العثور على عوامل تصفية التصنيف.
+            taxonomy_filters: حدد عوامل تصفية للمكون
+            taxonomy_filters_add: إضافة عامل تصفية
           step:
             comments_blocked: تم حظر التعليقات
+    download_your_data:
+      show:
+        result_comments: تصدير التعليقات الناتجة
+        results: تصدير النتائج
     events:
       accountability:
         proposal_linked:
@@ -219,11 +253,40 @@ ar:
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{proposal_title}" ، ويتم تضمين هذا الاقتراح في النتيجة "%{resource_title}". يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
           email_subject: تحديث حول تقدم %{resource_title}
           notification_title: النتيجة <a href="%{resource_path}">%{resource_title}</a>، التي تتضمن الاقتراح <a href="%{proposal_path}">%{proposal_title}</a>، اكتملت الآن بنسبة %{progress}٪.
-    metrics:
-      results:
-        description: عدد النتائج التي تم توليدها
-        object: النتائج
-        title: النتائج
+    open_data:
+      help:
+        result_comments:
+          alignment: إذا كان هذا التعليق تفضيلا, أو معارضا أو محايدا
+          author: اسم المشارك الذي صنع هذا التعليق
+          body: التعليق نفسه
+          commentable_id: المعرف المميز للتعليق
+          commentable_type: النوع القابل للتعليق (إذا كانت نتيجة, اقتراح, الخ.)
+          created_at: التاريخ الذي تم إنشاء فيه هذا التعليق
+          depth: المكان الذي يوجد فيه هذا التعليق في ثلاث تعليقات (إذا كان إجابة أو إجابة على إجابة)
+          id: معرف هذا التعليق
+          locale: اللغة التي كانت لدى المشارك عندما ترك هذا التعليق
+          root_commentable_url: عنوان URL للمورد الذي يربط بهذا التعليق
+        results:
+          address: عنوان النتيجة (إن وجد)
+          children_count: عدد النتائج الفرعية
+          comments_count: عدد التعليقات التي حصلت عليها هذه النتيجة
+          component: العنصر الذي تنتمي إليه النتيجة
+          created_at: تاريخ إنشاء النتيجة
+          description: وصف النتيجة
+          end_date: تاريخ انتهاء تنفيذ النتيجة وإنهاؤها
+          id: معرّف النتيجة
+          latitude: نطاق النتيجة في حالة وجود موقع مادي لها
+          longitude: طول النتيجة في حالة وجود موقع مادي لها
+          parent: النتيجة الرئيسية (إن وجد) للنتيجة
+          progress: نسبة التنفيذ المئوية للنتيجة
+          proposal_urls: روابط المقترحات المتضمنة في هذه النتيجة
+          reference: المرجع المعرّف للنتيجة
+          start_date: تاريخ بَدْء تنفيذ النتيجة
+          status: الحالة الراهنة لهذه النتيجة
+          taxonomies: تصنيفات النتيجة
+          title: عنوان النتيجة
+          updated_at: تاريخ آخر تحديث لهذه النتيجة
+          url: الرابط حيث يمكن ايجاد هذه النتيجة
     participatory_spaces:
       highlighted_results:
         see_all: عرض كل النتائج (%{count})

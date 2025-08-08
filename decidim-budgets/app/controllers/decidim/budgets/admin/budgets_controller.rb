@@ -5,6 +5,7 @@ module Decidim
     module Admin
       # This controller allows the create or update a budget.
       class BudgetsController < Admin::ApplicationController
+        include Decidim::Admin::HasTrashableResources
         helper_method :budgets, :budget, :finished_orders, :pending_orders,
                       :users_with_pending_orders, :users_with_finished_orders
 
@@ -25,7 +26,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("budgets.create.invalid", scope: "decidim.budgets.admin")
-              render action: "new"
+              render action: "new", status: :unprocessable_entity
             end
           end
         end
@@ -47,35 +48,31 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("budgets.update.invalid", scope: "decidim.budgets.admin")
-              render action: "edit"
+              render action: "edit", status: :unprocessable_entity
             end
           end
-        end
-
-        def destroy
-          enforce_permission_to(:delete, :budget, budget:)
-
-          DestroyBudget.call(budget, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("budgets.destroy.success", scope: "decidim.budgets.admin")
-            end
-
-            on(:invalid) do
-              flash.now[:alert] = I18n.t("budgets.destroy.invalid", scope: "decidim.budgets.admin")
-            end
-          end
-
-          redirect_to budgets_path
         end
 
         private
+
+        def trashable_deleted_resource_type
+          :budget
+        end
+
+        def trashable_deleted_collection
+          @trashable_deleted_collection ||= Budget.where(component: current_component).only_deleted.deleted_at_desc
+        end
 
         def budgets
           @budgets ||= Budget.where(component: current_component).order(weight: :asc)
         end
 
         def budget
-          @budget ||= budgets.find_by(id: params[:id])
+          @budget ||= Budget.where(component: current_component).find_by(id: params[:id])
+        end
+
+        def trashable_deleted_resource
+          @trashable_deleted_resource ||= Budget.with_deleted.find_by(component: current_component, id: params[:id])
         end
 
         def orders

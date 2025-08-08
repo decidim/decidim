@@ -16,8 +16,6 @@ tr:
   decidim:
     blogs:
       actions:
-        confirm_destroy: Bu yayını silmek istediğinize emin misiniz?
-        destroy: silmek
         edit: Düzenle
         new: Yeni posta
         title: Eylemler
@@ -49,8 +47,6 @@ tr:
           step:
             announcement: duyuru
             comments_blocked: Yorumlar engellendi
-            endorsements_blocked: Yorumlar engellendi
-            endorsements_enabled: Yorumlar etkin
     events:
       blogs:
         post_created:

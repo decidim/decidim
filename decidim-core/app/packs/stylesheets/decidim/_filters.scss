@@ -1,5 +1,9 @@
 .filter {
-  @apply flex items-center gap-2 p-1.5 rounded cursor-pointer relative;
+  @apply flex gap-2 p-1.5 relative;
+
+  label {
+    @apply flex items-center gap-2 p-1.5 rounded cursor-pointer relative w-full;
+  }
 
   &-container {
     @apply rounded border-4 border-background md:border-0;
@@ -85,7 +89,7 @@
   }
 
   span {
-    @apply text-sm text-gray-2 truncate whitespace-nowrap first-letter:uppercase;
+    @apply text-sm text-gray-2 first-letter:uppercase;
   }
 
   [data-controls*="panel"] {

@@ -2,15 +2,12 @@ bg:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Обхват
         description: Описание
         title: Заглавие
         total_budget: Общ бюджет
         weight: Подредба на позиция
       project:
         budget_amount: Бюджетна сума
-        decidim_category_id: Категория
-        decidim_scope_id: Сфера
         description: Описание
         proposal_ids: Свързани предложения
         proposals: Предложения
@@ -30,10 +27,6 @@ bg:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Категория
-          scope_id_eq:
-            label: Обхват
           selected_at_null:
             label: Избрани
             values:
@@ -41,12 +34,7 @@ bg:
               'true': Не избран за изпълнение
     budgets:
       actions:
-        attachment_collections: Папки
-        attachments: Прикачени файлове
-        confirm_destroy: Сигурни ли сте, че искате да изтриете този проект?
-        destroy: Изтрий
         edit: Редактирай
-        edit_projects: Обедини проекти
         import: Импортиране на предложения в проекти
         new_budget: Нов бюджет
         new_project: Нов проект
@@ -58,9 +46,6 @@ bg:
           create:
             invalid: Възникна проблем при създаването на този бюджет.
             success: Бюджетът беше създаден успешно.
-          destroy:
-            invalid: Възникна проблем при изтриването на този бюджет.
-            success: Бюджетът беше изтрит успешно.
           edit:
             title: Редактиране на бюджет
             update: Актуализиране на бюджета
@@ -87,8 +72,6 @@ bg:
           create:
             invalid: Възникна проблем при създаването на този проект.
             success: Проектът беше създаден успешно.
-          destroy:
-            success: Проектът беше изтрит успешно.
           edit:
             title: Редактиране на проект
             update: Актуализация
@@ -96,8 +79,6 @@ bg:
             actions: Активности
             cancel: Отказ
             change_budget: Промяна на бюджета
-            change_category: Промяна на категория
-            change_scope: Промяна на обхвата
             change_selected: Промяна на избраното състояние
             deselect_implementation: Премахване на избора от внедряване
             finished_orders: Приключили гласувания
@@ -110,7 +91,6 @@ bg:
             title: Проекти
             update: Актуализация
             update_budget_button: Актуализирайте бюджета на проекта
-            update_scope_button: Актуализиране на обхвата
           new:
             create: Създаване
             title: Нов проект
@@ -118,28 +98,10 @@ bg:
             invalid: Възникна проблем при актуализирането на този проект.
             success: Проектът беше актуализиран успешно.
           update_budget:
-            invalid: 'Тези проекти вече са в същия бюджет или техните бюджети са повече от максимално допустимия: %{projects}.'
             select_a_project: Моля, изберете проект.
-            success: 'Проектите са актуализирани успешно до бюджета %{subject_name}: %{projects}.'
-          update_category:
-            invalid: 'Тези проекти вече имат категория %{subject_name}: %{projects}.'
-            select_a_category: Моля, изберете категория.
-            select_a_project: Моля, изберете проект.
-            success: 'Проектите са актуализирани успешно до категорията %{subject_name}: %{projects}.'
-          update_scope:
-            invalid: 'Тези проекти вече са имали %{subject_name} обхват: %{projects}.'
-            select_a_project: Моля, изберете проект.
-            select_a_scope: Моля, изберете обхват.
-            success: 'Проектите са актуализирани успешно до %{subject_name} обхват: %{projects}.'
           update_selected:
-            invalid:
-              selected: 'Тези проекти вече бяха селектирани за внедряване: %{projects}.'
-              unselected: 'Тези проекти вече бяха премахнати от селекцията за внедряване: %{projects}.'
             select_a_project: Моля, изберете проект.
             select_a_selection: Моля, изберете състояние на внедряване.
-            success:
-              selected: 'Тези проекти бяха успешно селектирани за внедряване: %{projects}.'
-              unselected: 'Тези проекти бяха успешно премахнати от селекцията за внедряване: %{projects}.'
         proposals_imports:
           create:
             invalid: Възникна проблем при импортирането на предложенията в проектите.
@@ -208,16 +170,19 @@ bg:
             total_budget: Общ бюджет
         project:
           fields:
-            category: Категория
             id: ID
             map: Карта
             title: Заглавие
+      order:
+        status:
+          title: Вашият глас е приет успешно
+      order_pdf:
+        title: Вашият глас е приет успешно.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Избраните от Вас проекти са:'
           subject: Гласувахте в пространството за участие %{space_name}
           voted_on_space: Гласувахте за бюджета %{budget_name} за пространството за участие %{space_name}.
-          voted_on_space_with_scope: Гласувахте за бюджета %{budget_name} за пространството за участие %{space_name} в(ъв) %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Ако размислите, може да промените гласа си по-късно.
@@ -236,7 +201,6 @@ bg:
             title: Максималният брой проекти е надвишен
         budget_summary:
           are_you_sure: Сигурен ли сте, че искате да отмените гласа си?
-          cancel_order: изтрийте Вашия глас
           checked_out:
             description: Вие вече гласувахте бюджета. Ако сте променили решението си, можете да изтриете гласа си.
             title: Гласуването за бюджета приключи
@@ -252,8 +216,6 @@ bg:
           message: Вашият глас не е регистриран, защото все още не сте завършили процеса на гласуване. Сигурни ли сте, че искате да излезете от гласуването?
           title: Все още не сте гласували
         filters:
-          category: Категория
-          scope: Обхват
           search: Търсене
           status: Статус
           status_values:
@@ -268,14 +230,6 @@ bg:
             minimum_reached: Достигнахте минимума, за да можете да гласувате
             start_adding_projects: Започнете да добавяте проекти
           minimum: Минимум
-          minimum_projects_rule:
-            description: Изберете поне %{minimum_number} желани от Вас проекта и гласувайте, според предпочитанията си за дефиниране на бюджета.
-          projects_rule:
-            description: Изберете най-малко %{minimum_number}, но не повече от %{maximum_number} желани от Вас проекта и гласувайте, според предпочитанията си за дефиниране на бюджета.
-          projects_rule_maximum_only:
-            description: Изберете не повече от %{maximum_number} желани от Вас проекта и гласувайте, според предпочитанията си за дефиниране на бюджета.
-          vote_threshold_percent_rule:
-            description: Присъеденете поне %{minimum_budget} към желаните от вас проекти и гласувайте, според предпочитанията си за дефиниране на бюджета.
         orders:
           highest_cost: Най-висока стойност
           label: Подреждане на проектите по
@@ -300,7 +254,6 @@ bg:
           added: Добавено
           all: Всички
         projects_for: Проекти за %{name}
-        select_projects: Изберете Проекти
         show:
           budget: Бюджет
       prompt: Изберете бюджет
@@ -328,13 +281,10 @@ bg:
               errors:
                 budget_voting_rule_only_one: Трябва да бъде активирано само едно правило за гласуване.
                 budget_voting_rule_required: Изисква се едно правило за гласуване.
-            geocoding_enabled: Координатите са активирани
             landing_page_content: Целева страница на „Бюджети“
             more_information_modal: Диалогов прозорец за повече информация
             projects_per_page: Проекти на страница
             resources_permissions_enabled: Права за действия могат да се задават за всеки проект
-            scope_id: Обхват
-            scopes_enabled: Обхватите са активирани
             title: Заглавие
             total_budget: Общ бюджет
             vote_minimum_budget_projects_number: Минимален брой проекти за гласуване
@@ -372,8 +322,6 @@ bg:
     orders:
       checkout:
         error: Възникна проблем при обработването на Вашия глас.
-        success_html: <p>Вашият глас беше приет успешно.</p> <p class="text-sm font-normal">Можете да разгледате <a class="text-secondary underline" href="%{rest_of_budgets_link}"> останали бюджети</a>.</p>
-        success_no_left_budgets_html: Вашият глас е приет успешно.
       destroy:
         error: Възникна проблем при отмяната на вашето гласуване.
         success: Вашият глас беше отменен успешно.
@@ -382,6 +330,5 @@ bg:
         project_proposal: Предложения, включени в този проект
     statistics:
       orders_count: Подкрепа
-      projects_count: Проекти
   index:
     confirmed_orders_count: Брой гласове

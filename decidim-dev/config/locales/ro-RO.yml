@@ -8,7 +8,7 @@ ro:
         start_date: Data de început
         title: Titlu
         translatable_text: Text traductibil
-        updated_at: Actualizat la
+        updated_at: Ultima actualizare
   decidim:
     components:
       dummy:
@@ -31,8 +31,6 @@ ro:
               baz: Baz
               foo: Foo
           step:
-            endorsements_blocked: Susțineri blocate
-            endorsements_enabled: Susțineri activate
             readonly_step_attribute: Atribut pas Readonly
             test_options:
               bar: Bară

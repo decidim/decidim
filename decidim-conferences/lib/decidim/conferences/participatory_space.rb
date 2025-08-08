@@ -25,6 +25,20 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
     resource.searchable = true
   end
 
+  participatory_space.register_stat :followers_count,
+                                    priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                                    icon_name: "user-follow-line",
+                                    tooltip_key: "followers_count_tooltip" do
+    Decidim::Conferences::ConferencesStatsFollowersCount.for(participatory_space)
+  end
+
+  participatory_space.register_stat :participants_count,
+                                    priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                                    icon_name: "user-line",
+                                    tooltip_key: "participants_count_tooltip" do
+    Decidim::Conferences::ConferencesStatsParticipantsCount.for(participatory_space)
+  end
+
   participatory_space.context(:public) do |context|
     context.engine = Decidim::Conferences::Engine
     context.layout = "layouts/decidim/conference"
@@ -34,6 +48,19 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
   participatory_space.context(:admin) do |context|
     context.engine = Decidim::Conferences::AdminEngine
     context.layout = "layouts/decidim/admin/conference"
+  end
+
+  participatory_space.exports :conferences do |export|
+    export.collection do
+      Decidim::Conference
+        .public_spaces
+        .includes(:taxonomies, :attachment_collections)
+    end
+
+    export.include_in_open_data = true
+
+    export.serializer Decidim::Conferences::ConferenceSerializer
+    export.open_data_serializer Decidim::Conferences::OpenDataConferenceSerializer
   end
 
   participatory_space.register_on_destroy_account do |user|

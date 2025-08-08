@@ -118,12 +118,6 @@ describe Decidim::Meetings::Admin::Permissions do
       it_behaves_like "action requiring a meeting"
     end
 
-    context "when destroying a meeting" do
-      let(:action_name) { :destroy }
-
-      it_behaves_like "action requiring a meeting"
-    end
-
     context "when exporting registrations a meeting" do
       let(:action_name) { :export_registrations }
 

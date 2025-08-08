@@ -33,8 +33,6 @@ pl:
       help_section:
         content: Zawartość
       id: ID
-      import:
-        user_group_id: Utwórz import jako
       newsletter:
         body: Treść
         send_to_all_users: Wyślij do wszystkich użytkowników
@@ -47,8 +45,6 @@ pl:
         available_authorizations: Dostępne formy uwierzytelniania
         badges_enabled: Włącz odznaki
         comments_max_length: Maksymalna długość komentarza (pozostaw 0 dla wartości domyślnej)
-        cta_button_path: Ścieżka przycisku CTA
-        cta_button_text: Tekst przycisku CTA
         customize_welcome_notification: Dostosuj treść komunikatu powitalnego
         default_locale: Domyślny język
         description: Opis
@@ -63,13 +59,6 @@ pl:
         header_snippets: Fragmenty nagłówków
         highlight_alternative_color: Wyróżnij (alternatywny kolor)
         highlight_color: Wyróżniony kolor
-        highlighted_content_banner_action_subtitle: Podtytuł przycisku akcji
-        highlighted_content_banner_action_title: Tytuł przycisku akcji
-        highlighted_content_banner_action_url: URL przycisku akcji
-        highlighted_content_banner_enabled: Pokaż podświetlony baner treści
-        highlighted_content_banner_image: Obraz
-        highlighted_content_banner_short_description: Krótki opis
-        highlighted_content_banner_title: Tytuł
         host: Host
         instagram_handler: Handler Instagrama
         logo: Logo
@@ -96,7 +85,6 @@ pl:
         time_zone: Strefa czasowa
         tos_version: Warunki korzystania z Platformy
         twitter_handler: X handler
-        user_groups_enabled: Włącz grupy użytkowników
         users_registration_mode: Tryb rejestracji użytkowników
         warning_color: Ostrzeżenie
         welcome_notification_body: Treść komunikatu powitalnego
@@ -182,27 +170,21 @@ pl:
         attachment_collection:
           new: Nowy folder załącznika
         browse: Przeglądaj
-        category:
-          new: Nowa kategoria
-        export: Eksportuj wszystko
+        configure: Skonfiguruj
+        export: Eksport
         export-selection: Eksportuj wybrane
         import: Importuj
-        manage: Zarządzanie
         newsletter:
           new: Nowy newsletter
         participatory_space_private_user:
           new: Nowy użytkownik prywatny
         per_page: Na stronę
-        permissions: Uprawnienia
-        reject: Odrzuć
         send_me_a_test_email: Wyślij mi testowego e-maila
         share: Udostępnij
         user:
           new: Nowy administrator
-        verify: Zweryfikuj
       admin_terms_of_service:
         accept:
-          error: Wystąpił błąd podczas akceptacji warunków użytkowania administratora.
           success: Świetnie! Zaakceptowano warunki użytkowania administratora.
         actions:
           accept: Zgadzam się z warunkami
@@ -293,23 +275,8 @@ pl:
           justification: Uzasadnienie
           title: Zablokuj użytkownika %{name}
       categories:
-        create:
-          error: Podczas tworzenia tej kategorii wystąpił błąd.
-          success: Utworzono kategorię.
-        destroy:
-          error: Podczas usuwania tej kategorii wystąpił błąd. Usuń najpierw podkategorię, upewnij się, że żaden element nie należy do tej kategorii i spróbuj ponownie.
-          success: Kategoria została usunięta.
-        edit:
-          title: Edytuj kategorię
-          update: Aktualizuj
         index:
           categories_title: Kategorie
-        new:
-          create: Utwórz kategorię
-          title: Nowa kategoria
-        update:
-          error: Podczas aktualizowania tej kategorii wystąpił błąd.
-          success: Kategoria została zaktualizowana.
       component_permissions:
         update:
           error: Wystąpił błąd podczas aktualizowania uprawnień dla tego komponentu.
@@ -319,9 +286,6 @@ pl:
           error: Wystąpił błąd podczas tworzenia tego komponentu.
           success: Komponent został pomyślnie utworzony.
           success_landing_page: Komponent został pomyślnie utworzony. Możesz dodać blok zawartości dla tego komponentu w domu przestrzeni. Przejdź do <a href="%{landing_page_path}">strony startowej</a>, aby ją skonfigurować.
-        destroy:
-          error: Wystąpił błąd podczas usuwania tego komponentu.
-          success: Komponent został pomyślnie usunięty.
         edit:
           title: Edytuj komponent
           update: Aktualizuj
@@ -334,7 +298,6 @@ pl:
           headers:
             actions: Działania
             name: Nazwa komponentu
-            scope: Zakres komponentu
             type: Typ komponentu
         new:
           add: Dodaj komponent
@@ -364,7 +327,6 @@ pl:
         user_name: Użytkownik
       content_blocks:
         create:
-          error: Wystąpił błąd podczas tworzenia bloku treści.
           success: Blok treści został utworzony.
         destroy:
           error: Wystąpił problem podczas próby usunięcia tego bloku treści.
@@ -398,8 +360,6 @@ pl:
           JSON: JSON
         notice: Trwa eksportowanie. Po zakończeniu otrzymasz wiadomość e-mail.
       filters:
-        category_id_eq:
-          label: Kategoria
         filter_label: Filtr
         invitation_accepted_at_present:
           label: Zaproszenie zaakceptowane
@@ -447,15 +407,10 @@ pl:
           values:
             'false': Opublikowany
             'true': Nieopublikowany
-        scope_id_eq:
-          label: Zakres
+        remove_all: Usuń wszystkie
         search_label: Szukaj
         search_placeholder:
-          name_or_nickname_or_email_cont: Przeszukaj %{collection} według adresu e-mail, nazwiska lub nazwy użytkownika.
           report_count_eq: Licznik raportów
-          reported_id_string_or_reported_content_cont: Przeszukaj %{collection} według identyfikatora lub treści zgłoszenia.
-          title_cont: Przeszukaj %{collection} według tytułu.
-          user_name_or_user_nickname_or_user_email_cont: Szukaj %{collection} według adresu e-mail, nazwy lub pseudonimu.
         state_eq:
           label: Stan
           values:
@@ -555,7 +510,6 @@ pl:
       logs:
         filters:
           participatory_space: Znajdź przestrzeń partycypacji
-          text: Szukaj według adresu e-mail, nazwy lub pseudonimu.
           user: Użytkownik
         logs_list:
           no_logs_yet: Nie ma jeszcze logów.
@@ -575,11 +529,11 @@ pl:
         appearance: Wygląd
         area_types: Typy kategorii
         areas: Kategorie
+        components: Komponenty
         configuration: Konfiguracja
         content: Zgłoszona zawartość
         external_domain_allowlist: Dozwolone domeny zewnętrzne
         help_sections: Sekcje pomocy
-        homepage: Strona główna
         impersonations: Podszywanie się pod inne osoby
         manage: Zarządzanie
         moderation: Globalne moderacje
@@ -592,11 +546,7 @@ pl:
         settings: Ustawienia
         static_page_topics: Tematy
         static_pages: Strony
-        user_groups: Grupy użytkowników
         users: Użytkownicy
-      metrics:
-        metrics:
-          see_more_metrics: Zobacz więcej danych
       models:
         area:
           fields:
@@ -645,12 +595,8 @@ pl:
             plural: Liczba mnoga
         share_token:
           fields:
-            created_at: Utworzono
             expires_at: Wygasa
-            last_used_at: Ostatnio używane
             times_used: Ilość użyć
-            token: Token
-            user: Utworzony przez
         static_page:
           fields:
             created_at: Utworzono
@@ -666,23 +612,15 @@ pl:
               admin: Admin
               user_manager: Menedżer użytkowników
           name: Użytkownik
-        user_group:
-          fields:
-            actions: Działania
-            created_at: Utworzono
-            document_number: Numer dokumentu
-            name: Nazwa
-            nickname: Pseudonim
-            phone: Telefon
-            state: Stan
-            users_count: Liczba użytkowników
       moderated_users:
         index:
           actions:
             block: Zablokuj użytkownika
+            bulk_actions:
+              unreport:
+                title: Cofnij zgłoszenie
             title: Działania
             unblock: Odblokuj użytkownika
-            unreport: Cofnij zgłoszenie
           name: Imię
           nickname: Pseudonim
           reason: Powód
@@ -748,7 +686,6 @@ pl:
           confirm_delete: Czy na pewno chcesz usunąć ten newsletter?
           followers: 'obserwujący '
           has_been_sent_to: 'Wysłano do: '
-          no_scopes: Brak zakresów
           not_sent: Nie wysłano
           participants: 'użytkownicy '
           segmented_to: 'Podzielone na %{subject}: '
@@ -763,13 +700,10 @@ pl:
           confirm_deliver: Czy na pewno chcesz dostarczyć ten newsletter? Nie można cofnąć tej czynności.
           deliver: Dostarcz newsletter
           followers_help: Wysyła newsletter do wszystkich potwierdzonych użytkowników, którzy obserwują dowolne przestrzenie partycypacyjne z tej listy.
-          none: Żaden
           participants_help: Wysyła newsletter do wszystkich potwierdzonych użytkowników, którzy uczestniczyli w którejkolwiek z przestrzeni partycypacyjnych z tej listy.
           recipients_count: Ten newsletter zostanie wysłany do <strong id='recipients_count'>%{count}</strong> użytkowników.
-          scopes_help: Wysyła newsletter do użytkowników, którzy mają dowolny z wybranych zakresów ustawiony jako aktywny w zakładce konta „Moje zainteresowania”.
-          select_scopes: Filtruj według użytkowników, którzy mają dowolny z wybranych zakresów ustawiony jako aktywny w zakładce konta „Moje zainteresowania”.
           select_spaces: Wybierz przestrzenie, aby podzielić newsletter
-          select_users: Wybierz użytkowników, do których chcesz wysyłać newsletter
+          send_to_all_users: Wyślij do wszystkich użytkowników
           title: Wybierz odbiorców
           warning: "<strong>Uwaga:</strong> Ten newsletter zostanie wysyłany tylko do użytkowników, którzy w ustawieniach powiadomień aktywowali opcję <em>Chcę otrzymywać newsletter</em>."
         send:
@@ -786,7 +720,6 @@ pl:
           success: Newsletter został zaktualizowany. Przeczytaj go przed wysłaniem.
       officializations:
         block:
-          error: Wystąpił błąd podczas blokowania uczestnika.
           success: Uczestnik został zablokowany.
         create:
           success: Potwierdzenie autentyczności uczestnika powiodło się.
@@ -795,7 +728,6 @@ pl:
         index:
           actions: Działania
           badge: Odznaka
-          block: Zablokuj użytkownika
           created_at: Utworzono
           name: Imię
           nickname: Pseudonim
@@ -804,9 +736,7 @@ pl:
           officialized: Oficjalny
           reofficialize: Reoficjalizuj
           reports: Zgłoszenia
-          show_email: Pokaż adres e-mail
           status: Status
-          unblock: Odblokuj użytkownika
           unofficialize: Nieoficjalne
         new:
           badge: Odznaka oficjalności
@@ -820,7 +750,6 @@ pl:
           show: Pokaż
           title: Pokaż adres e-mail uczestnika
         unblock:
-          error: Wystąpił błąd podczas odblokowywania użytkownika.
           success: Odblokowanie uczestnika powiodło się.
       organization:
         edit:
@@ -838,30 +767,6 @@ pl:
         update:
           error: Podczas aktualizowania tej organizacji wystąpił błąd.
           success: Organizacja została pomyślnie zaktualizowana.
-      organization_appearance:
-        edit:
-          update: Aktualizuj
-        form:
-          colors:
-            choose_color: Wybierz kolor podstawowy
-            colors_title: Kolory organizacji
-            colors_warning_html: Uwaga! Zmiana tych kolorów może ograniczyć czytelność. Możesz sprawdzić kontrast wybranych kolorów korzystając z <a href="%{link}">WebAIM Contrast Checker</a> albo innych podobnych narzędzi.
-            explanation: To narzędzie pomaga ci wybrać zestaw kolorów złożony z odcieni równomiernie rozmieszczonych na kole barw, który będzie używany na stronie internetowej organizacji.
-            legend_html: Główne kolory aplikacji, oparte na algorytmie <a href="https://www.color-meanings.com/triadic-colors/">Algorytm trójkowy</a>. <i>drugorzędowy</i> kolor jest obliczany automatycznie na podstawie koloru podstawowego i wybranej przez ciebie saturacji.
-            saturation: Saturacja
-            title: Wybór koloru
-            update_suggested_colors: Zaktualizuj sugerowane kolory
-          cta_button_path_help_html: 'Możesz nadpisać lokalizację, do której prowadzi przycisk CTA na stronie głównej. Użyj częściowych ścieżek adresu, a nie pełnych adresów URL. Można używać liter, cyfr, myślników i ukośników. Należy zacząć od litery. Przycisk CTA znajduje się na stronie głównej pomiędzy tekstem powitalnym a opisem. Przykład: %{url}'
-          cta_button_text_help: Można nadpisać tekst przycisku CTA na stronie głównej dla każdego dostępnego języka organizacji. Jeśli to pole nie zostanie wypełnione, zostanie użyta wartość domyślna. Przycisk CTA zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem.
-          header_snippets:
-            header_snippets_help_html: Użyj tego pola, aby dodać rzeczy do nagłówka HTML. Najczęstszym zastosowaniem jest integracja usług innych firm, które wymagają dodatkowych JavaScript lub CSS. Możesz także użyć tego aby dodać dodatkowe meta tagi do HTML. Pamiętaj, że będzie to wyświetlane tylko na publicznych stronach, nie w sekcji administratora. Jeśli kod wchodzi w interakcje z zewnętrznymi API lub nie jest zgodny z wytycznymi bezpieczeństwa aplikacji, konieczna będzie zmiana polityki bezpieczeństwa treści. Dowiedz się więcej o <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">na stronie dokumentacji</a>.
-            title: Fragmenty nagłówków HTML
-          homepage_appearance_title: Edytuj wygląd strony głównej
-          homepage_highlighted_content_banner_title: Wyróżniony baner tekstowy
-          images:
-            layout_appearance_title: Edytuj wygląd layoutu
-            preview: Podgląd
-          omnipresent_banner_appearance_title: Edytuj stały baner
       organization_external_domain_allowlist:
         edit:
           update: Aktualizuj
@@ -920,12 +825,10 @@ pl:
         edit:
           submit: Zatwierdź
           title: Edytuj uprawnienia
+        options_form:
+          ephemeral_warning: Aby włączyć tę metodę autoryzacji, należy <a href="%{path}">odwołać</a> wszystkie istniejące uprawnienia. Minimalizuje to ryzyko konfliktów weryfikacji. Wszystkie autoryzacje tego typu zostaną automatycznie cofnięte w organizacji w przypadku wprowadzenia zmian dodających tę metodę lub modyfikujących jej konfigurację po dodaniu.
         update:
           success: Uprawnienia zostały pomyślnie zaktualizowane.
-      resources:
-        index:
-          headers:
-            scope: Zakres
       scope_types:
         create:
           error: Podczas tworzenia nowego typu zakresu wystąpił błąd.
@@ -959,17 +862,13 @@ pl:
           success: Zakres został zaktualizowany
       share_tokens:
         actions:
-          confirm_destroy: Czy jesteś pewien, że chcesz usunąć ten token?
           destroy: Usuń
-          share: Udostępnij
-        destroy:
-          error: Wystąpił błąd podczas usuwania tokenu.
-          success: Token został usunięty.
-        share_tokens:
-          empty: Brak aktywnych tokenów.
-          help: Te tokeny są używane do publicznego udostępniania nieopublikowanego zasobu każdemu użytkownikowi. Zostaną one ukryte, gdy zasób zostanie opublikowany. Kliknij na ikonę udostępniania tokenu aby odwiedzić udostępniany adres URL.
-          title: Udostępnij tokeny
       shared:
+        adjacent_navigation:
+          next: Następny
+          next_title: Następny element
+          previous: Poprzedni
+          previous_title: Poprzedni element
         gallery:
           add_images: Dodaj obrazy
           edit_images: Edytuj obrazy
@@ -984,14 +883,11 @@ pl:
           title: Edytuj temat
           update: Zaktualizuj temat
         new:
-          create: Utwórz temat
           title: Nowy temat
         update:
           error: Wystąpił błąd podczas aktualizowania tego tematu.
           success: Temat został zaktualizowany pomyślnie
       static_pages:
-        actions:
-          view: Wyświetl stronę publiczną
         create:
           error: Podczas tworzenia nowej strony wystąpił błąd.
           success: Strona została utworzona pomyślnie.
@@ -1008,7 +904,6 @@ pl:
         index:
           last_notable_change: Ostatnia istotna zmiana
         new:
-          create: Utwórz stronę
           title: Nowa strona
         topic:
           empty: Nie ma żadnych stron w tym wątku.
@@ -1023,47 +918,16 @@ pl:
         authorization_workflows: Metody weryfikacji
         dashboard: Panel
         edit_external_domains: Dozwolone domeny zewnętrzne
-        edit_landing_page: Zawartość strony
-        edit_organization_appearance: Edytuj wygląd strony głównej
         impersonatable_users: Zarządzaj użytkownikami
         impersonations: Zarządzanie użytkownikami
         menu: Menu
-        metrics: Partycypacja w liczbach
         page_topics: Wątki
         pages: Strony
         panel: Administrator
         participants: Użytkownicy
         scope_types: Typy zakresów
         scopes: Zakresy
-        statistics: Aktywność
-        user_groups: Grupy użytkowników
         users: Administratorzy
-      user_group:
-        csv_verify:
-          invalid: Wystąpił błąd podczas odczytu pliku CSV.
-          success: Plik CSV został załadowany pomyślnie. Weryfikujemy grupy odpowiadające kryteriom. To może chwilę potrwać.
-        reject:
-          invalid: Podczas odrzucania tej grupy użytkowników wystąpił błąd.
-          success: Grupa użytkowników została odrzucona.
-        verify:
-          invalid: Podczas weryfikacji tej grupy użytkowników wystąpił błąd.
-          success: Grupa użytkowników została zweryfikowana.
-      user_groups:
-        index:
-          state:
-            pending: Oczekujące
-            rejected: Odrzucone
-            verified: Zweryfikowane
-          verify_via_csv: Zweryfikuj za pomocą CSV
-      user_groups_csv_verifications:
-        new:
-          example_file: 'Przykładowy plik:'
-          explanation: 'Prześlij swój plik CSV. Plik musi zawierać: w pierwszej kolumnie oficjalne adresy e-mail grup w organizacji, bez nagłówków. Tylko grupy, które potwierdziły swój adres e-mail i których adres e-mail znajduje się w pliku CSV, zostaną zweryfikowane.'
-          explanation_example: |
-            acme@przyklad.org
-            bubba.gump@przyklad.org
-          title: Prześlij swój plik CSV
-          upload: Prześlij
       users:
         create:
           error: Podczas zapraszania administratora wystąpił błąd.
@@ -1090,16 +954,6 @@ pl:
       errors:
         impersonate_user:
           reason: Aby zarządzać uczestnikiem niezarządzanym, należy podać przyczynę.
-    metrics:
-      blocked_users:
-        object: zablokowani użytkownicy
-        title: Zablokowani użytkownicy
-      reported_users:
-        object: zgłoszeni użytkownicy
-        title: Zgłoszeni użytkownicy
-      user_reports:
-        object: zgłoszenia użytkownika
-        title: Zgłoszenia użytkownika
     moderations:
       actions:
         expand: Rozwiń
@@ -1107,8 +961,6 @@ pl:
         hide: Ukryj
         not_hidden: Widoczny
         title: Działania
-        unhide: Pokaż
-        unreport: Brak oceny
       admin:
         reportable:
           hide:

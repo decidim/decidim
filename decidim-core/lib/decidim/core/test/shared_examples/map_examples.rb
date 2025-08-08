@@ -14,6 +14,8 @@ shared_context "with frontend map builder" do
 
   let(:template_class) do
     Class.new(ActionView::Base) do
+      include Decidim::LayoutHelper
+
       def protect_against_forgery?
         false
       end
@@ -85,7 +87,7 @@ shared_context "with frontend map elements" do
           <script type="text/javascript">
             // This is just to indicate to Capybara that the page has fully
             // finished loading.
-            document.addEventListener("DOMContentLoaded", function() {
+            document.addEventListener("turbo:load", function() {
               setTimeout(function() {
                 window.$("body").append('<div id="ready_indicator">Document ready</div>');
               }, 1000);
@@ -201,8 +203,8 @@ shared_examples "a record with front-end geocoding address field" do |geocoded_m
     # geocoding should be bypassed in this situation which is why these match
     # what was returned by the front-end geocoding. These values are returned by
     # the dummy test geocoding API defined at
-    # `decidim-dev/lib/decidim/dev/test/rspec_support/geocoder.rb`. Search for
-    # `:serves_geocoding_autocomplete`.
+    # `decidim-dev/lib/decidim/dev/test/map_server.rb`. Search for
+    # `serve_autocomplete`.
     expect(page).to have_content("successfully")
     final = if geocoded_record
               geocoded_model.find(geocoded_record.id)

@@ -22,7 +22,17 @@ module Decidim
         args.compact.keys.each do |key|
           query[key] = args[key]
         end
-        model_class.public_spaces.find_by(query)
+
+        @query =
+          if ctx[:current_user]&.admin?
+            model_class
+          elsif model_class.respond_to?(:visible_for)
+            model_class.visible_for(ctx[:current_user])
+          else
+            model_class.public_spaces
+          end
+
+        @query.find_by(query)
       end
     end
   end

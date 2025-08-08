@@ -12,7 +12,7 @@ module Decidim
       validates :subject, translatable_presence: true
 
       def map_model(content_block)
-        super(content_block)
+        super
         self.subject = newsletter_for(content_block).try(:subject)
       end
 

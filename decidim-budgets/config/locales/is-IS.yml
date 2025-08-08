@@ -2,17 +2,12 @@ is-IS:
   activemodel:
     attributes:
       project:
-        decidim_category_id: Flokkur
-        decidim_scope_id: Umfang
         description: Lýsing
         proposal_ids: Tengdar tillögur
         title: Titill
   decidim:
     budgets:
       actions:
-        attachments: Viðhengi
-        confirm_destroy: Ertu viss um að þú viljir eyða þessu verkefni?
-        destroy: Eyða
         edit: Breyta
         preview: Preview
         title: Aðgerðir
@@ -51,7 +46,6 @@ is-IS:
           ok: Allt í lagi
         budget_summary:
           are_you_sure: Ertu viss um að þú viljir hætta við atkvæði þitt?
-          cancel_order: Eyðu atkvæðagreiðslunni og farðu yfir
           checked_out:
             title: Fjárhagsleg atkvæði lokið
         count:
@@ -59,8 +53,6 @@ is-IS:
             one: 1 verkefni
             other: "%{count} verkefni"
         filters:
-          category: Flokkur
-          scope: Umfang
           search: Leita
         show:
           budget: Fjárhagsáætlun

@@ -1,15 +1,10 @@
-<section style="background-image:url('<%= current_participatory_space.attached_uploader(:banner_image).path %>');" data-conference-hero>
+<section style="background-image:url('<%= current_participatory_space.attached_uploader(:banner_image).url %>');" data-conference-hero>
   <div class="conference__hero">
     <div class="conference__hero-text">
       <h1 class="h1 text-5xl">
         <%= translated_attribute(current_participatory_space.title) %>
       </h1>
       <p class="conference__hero-slogan">
-        <% if current_participatory_space.hashtag.present? %>
-          <span>
-            <%= link_to "##{current_participatory_space.hashtag}", twitter_hashtag_url(current_participatory_space.hashtag), target: "_blank" %>
-          </span>
-        <% end %>
         <%= translated_attribute(current_participatory_space.slogan) %>
       </p>
       <p class="conference__hero-location">

@@ -11,9 +11,11 @@ describe Decidim::Proposals::Permissions do
       current_component: proposal_component,
       current_settings:,
       proposal:,
-      component_settings:
+      component_settings:,
+      coauthor:
     }
   end
+  let(:coauthor) { nil }
   let(:proposal_component) { create(:proposal_component) }
   let(:proposal) { create(:proposal, component: proposal_component) }
   let(:component_settings) do
@@ -228,6 +230,164 @@ describe Decidim::Proposals::Permissions do
       end
 
       it { is_expected.to be true }
+    end
+  end
+
+  context "when inviting coauthor" do
+    let(:action) do
+      { scope: :public, action: :invite, subject: :proposal_coauthor_invites }
+    end
+    let(:coauthor) { create(:user, :confirmed, organization: user.organization) }
+    let!(:comment) { create(:comment, commentable: proposal, author: coauthor) }
+
+    shared_examples "coauthor is invitable" do
+      it { is_expected.to be true }
+
+      context "when already an author" do
+        before do
+          proposal.add_coauthor(coauthor)
+        end
+
+        it { is_expected.to be false }
+      end
+
+      context "when the current user is not the author" do
+        let(:user) { create(:user, :confirmed, organization: proposal.organization) }
+
+        it { is_expected.to be false }
+      end
+
+      context "when no comments" do
+        let!(:comment) { nil }
+
+        it { is_expected.to be false }
+      end
+
+      context "when coauthor not in comments" do
+        let!(:comment) { create(:comment, commentable: proposal) }
+
+        it { is_expected.to be false }
+      end
+
+      context "when coauthor is not confirmed" do
+        let(:coauthor) { create(:user, organization: user.organization) }
+
+        it { is_expected.to be false }
+      end
+
+      context "when coauthor is blocked" do
+        let(:coauthor) { create(:user, :blocked, organization: user.organization) }
+
+        it { is_expected.to be false }
+      end
+
+      context "when coauthor is deleted" do
+        let(:coauthor) { create(:user, :deleted, organization: user.organization) }
+
+        it { is_expected.to be false }
+      end
+    end
+
+    it_behaves_like "coauthor is invitable"
+
+    context "when a notification for the coauthor already exists" do
+      let!(:notification) { create(:notification, :proposal_coauthor_invite, user: coauthor) }
+
+      it { is_expected.to be true }
+    end
+
+    context "when notification exists for the same proposal" do
+      let!(:notification) { create(:notification, :proposal_coauthor_invite, user: coauthor, resource: proposal) }
+
+      it { is_expected.to be false }
+    end
+
+    context "when notification is for another user" do
+      let!(:notification) { create(:notification, :proposal_coauthor_invite, resource: proposal) }
+
+      it { is_expected.to be true }
+    end
+
+    context "when canceling invitation" do
+      let(:action) do
+        { scope: :public, action: :cancel, subject: :proposal_coauthor_invites }
+      end
+      let!(:notification) { create(:notification, :proposal_coauthor_invite, resource: proposal, user: coauthor) }
+
+      it_behaves_like "coauthor is invitable"
+    end
+  end
+
+  context "when coauthor is invited" do
+    let(:action) do
+      { scope: :public, action: :accept, subject: :proposal_coauthor_invites }
+    end
+    let(:user) { create(:user, :confirmed, organization: proposal.organization) }
+    let(:coauthor) { user }
+    let!(:notification) { create(:notification, :proposal_coauthor_invite, resource: proposal, user: coauthor) }
+
+    shared_examples "can accept coauthor" do
+      it { is_expected.to be true }
+
+      context "when already an author" do
+        before do
+          proposal.add_coauthor(coauthor)
+        end
+
+        it { is_expected.to be false }
+      end
+
+      context "when the user is not the coauthor" do
+        let(:coauthor) { create(:user, :confirmed, organization: proposal.organization) }
+
+        it { is_expected.to be false }
+      end
+
+      context "when no invitation" do
+        let!(:notification) { nil }
+
+        it { is_expected.to be false }
+      end
+
+      context "when notification is not for the same proposal" do
+        let!(:notification) { create(:notification, :proposal_coauthor_invite, user: coauthor) }
+
+        it { is_expected.to be false }
+      end
+
+      context "when notification is for another coauthor" do
+        let!(:notification) { create(:notification, :proposal_coauthor_invite, resource: proposal) }
+
+        it { is_expected.to be false }
+      end
+
+      context "when coauthor is blocked" do
+        let(:coauthor) { create(:user, :blocked, organization: proposal.organization) }
+
+        it { is_expected.to be false }
+      end
+
+      context "when coauthor is deleted" do
+        let(:coauthor) { create(:user, :deleted, organization: proposal.organization) }
+
+        it { is_expected.to be false }
+      end
+
+      context "when coauthor is not confirmed" do
+        let(:coauthor) { create(:user, organization: proposal.organization) }
+
+        it { is_expected.to be false }
+      end
+    end
+
+    it_behaves_like "can accept coauthor"
+
+    context "when declining invitation" do
+      let(:action) do
+        { scope: :public, action: :decline, subject: :proposal_coauthor_invites }
+      end
+
+      it_behaves_like "can accept coauthor"
     end
   end
 end

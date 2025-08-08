@@ -10,10 +10,10 @@
       </p>
     </div>
     <div data-dialog-actions>
+      <%= link_to t("exit", scope: "decidim.budgets.projects.exit_modal"), budget_projects_path, id: "exit-notification-link", class: "button button__sm md:button__lg button__transparent-secondary" %>
       <button data-dialog-close="exit-notification" class="button button__sm md:button__lg button__secondary">
         <%= t("cancel", scope: "decidim.budgets.projects.exit_modal") %>
       </button>
-      <%= link_to t("exit", scope: "decidim.budgets.projects.exit_modal"), budget_projects_path, id: "exit-notification-link", class: "button button__sm md:button__lg button__secondary" %>
     </div>
   <% end %>
 <% end %>

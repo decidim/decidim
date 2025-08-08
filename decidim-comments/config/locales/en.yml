@@ -6,7 +6,6 @@ en:
       decidim/comments/comment_created_event: Comment
       decidim/comments/comment_upvoted_event: Comment upvoted
       decidim/comments/reply_created_event: Comment reply
-      decidim/comments/user_group_mentioned_event: Mention
       decidim/comments/user_mentioned_event: Mention
   activerecord:
     models:
@@ -17,6 +16,10 @@ en:
         one: Vote
         other: Votes
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Comments
     comments:
       admin:
         shared:
@@ -24,6 +27,8 @@ en:
             enabled: Comments enabled
             end_time: Comments enabled until
             start_time: Comments enabled from
+      comment_thread:
+        accessibility_label: Comment thread started by %{full_name} on %{date}
       comments:
         create:
           error: There was a problem creating the comment.
@@ -39,7 +44,8 @@ en:
           error: There was a problem voting the comment.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Log in with your account</a> or <a href="%{sign_up_url}">sign up</a> to add your comment.
+        account_message: Log in or create an account to add your comment.
+        add_comment: Add comment
         form:
           body:
             label: Comment
@@ -47,8 +53,6 @@ en:
           form_error: The text is required and it cannot be longer than %{length} characters.
           submit_reply: Publish reply
           submit_root_comment: Publish comment
-          user_group_id:
-            label: Comment as
         opinion:
           label: Your opinion about this topic
           negative: Negative
@@ -64,6 +68,9 @@ en:
         alignment:
           against: Against
           in_favor: In favor
+        answers:
+          one: "%{count} answer"
+          other: "%{count} answers"
         cancel_reply: Cancel reply
         comment_label: Comment %{comment_id}
         comment_label_reply: Comment %{comment_id} (reply to comment %{parent_comment_id})
@@ -94,6 +101,7 @@ en:
           one: Show reply
           other: Show %{count} replies
         single_comment_link_title: Get link
+        sort_by: 'Sort by: '
       comment_order_selector:
         order:
           best_rated: Best rated
@@ -102,17 +110,23 @@ en:
           recent: Recent
         title: 'Order by:'
       comments:
+        against: Against
         blocked_comments_for_unauthorized_user_warning: You need to be verified to comment at this moment, but you can read the previous ones.
         blocked_comments_for_user_warning: You are not able to comment at this moment, but you can read the previous ones.
-        blocked_comments_warning: Comments are disabled at this time, but you can read the previous ones.
+        blocked_comments_warning: Comments are currently disabled, only administrators can reply or post new ones.
         comment_details_title: Comment details
+        in_favor: In Favor
         loading: Loading comments ...
         single_comment_warning: <a href="%{url}">View all comments</a>
         single_comment_warning_title: You are seeing a single comment
         title:
           one: "%{count} comment"
           other: "%{count} comments"
+        top_comment_label: Most upvoted
       down_vote_button:
+        label:
+          one: Dislike button. %{count} dislike
+          other: Dislike button. %{count} dislikes
         text: I disagree with this comment
       edit_comment_modal_form:
         close: Close
@@ -123,17 +137,34 @@ en:
           submit: Send
         title: Edit your comment
       up_vote_button:
+        label:
+          one: Like button. %{count} like
+          other: Like button. %{count} likes
         text: I agree with this comment
+    download_your_data:
+      help:
+        comment_votes:
+          comment: The id of the comment that was voted
+          created_at: The date when this vote was created
+          id: The id of the vote
+          updated_at: The date when this vote was last updated
+          weight: The weight of the vote (1 for upvote, -1 for downvote)
+        comments:
+          alignment: If this comment was a favour, against or neutral
+          author: The name of the participant that made this comment
+          body: The comment itself
+          commentable_id: The unique id of the commentable
+          commentable_type: The type of the commentable (if it was a result, a proposal, etc.)
+          created_at: The date when this comment was created
+          depth: The place where this comment is in the three of comments (if it is an answer or an answer of an answer)
+          id: The id for this comment
+          locale: The locale (language) that the participant had when leaving this comment
+          root_commentable_url: The URL of the resource that ties to this comment
     events:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} has left a comment in %{resource_title}. You can read it in this page:"
           email_outro: You have received this notification because you are following %{author_name}. You can unfollow this user from their profile page.
-          email_subject: There is a new comment by %{author_name} in %{resource_title}
-          notification_title: There is a new comment by <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
-        comment_by_followed_user_group:
-          email_intro: 'The group %{author_name} has left a comment in %{resource_title}. You can read it in this page:'
-          email_outro: You have received this notification because you are following %{author_name}. You can unfollow this group from its profile page.
           email_subject: There is a new comment by %{author_name} in %{resource_title}
           notification_title: There is a new comment by <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
@@ -156,21 +187,11 @@ en:
           email_outro: You have received this notification because your comment was replied.
           email_subject: "%{author_name} has replied your comment in %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> has replied your comment in <a href="%{resource_path}">%{resource_title}</a>
-        user_group_mentioned:
-          email_intro: A group you belong to has been mentioned
-          email_outro: You have received this notification because you are a member of the group %{group_name} that has been mentioned in %{resource_title}.
-          email_subject: You have been mentioned in %{resource_title} as a member of %{group_name}
-          notification_title: You have been mentioned in <a href="%{resource_path}">%{resource_title}</a> by <a href="%{author_path}">%{author_name} %{author_nickname}</a> as a member of <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
           email_intro: You have been mentioned
           email_outro: You have received this notification because you have been mentioned in %{resource_title}.
           email_subject: You have been mentioned in %{resource_title}
           notification_title: You have been mentioned in <a href="%{resource_path}">%{resource_title}</a> by <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-    metrics:
-      comments:
-        description: Number of comments generated by participants
-        object: comments
-        title: Comments
   errors:
     messages:
       cannot_have_comments: cannot have comments

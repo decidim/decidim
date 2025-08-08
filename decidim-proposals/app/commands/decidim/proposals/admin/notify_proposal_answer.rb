@@ -56,11 +56,11 @@ module Decidim
         def increment_score
           if proposal.accepted?
             proposal.coauthorships.find_each do |coauthorship|
-              Decidim::Gamification.increment_score(coauthorship.user_group || coauthorship.author, :accepted_proposals)
+              Decidim::Gamification.increment_score(coauthorship.author, :accepted_proposals)
             end
           elsif initial_state == "accepted"
             proposal.coauthorships.find_each do |coauthorship|
-              Decidim::Gamification.decrement_score(coauthorship.user_group || coauthorship.author, :accepted_proposals)
+              Decidim::Gamification.decrement_score(coauthorship.author, :accepted_proposals)
             end
           end
         end

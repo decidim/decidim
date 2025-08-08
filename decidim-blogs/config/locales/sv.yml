@@ -4,6 +4,7 @@ sv:
       post:
         body: Innehåll
         decidim_author_id: Författare
+        published_at: Publicerad
         title: Titel
     models:
       decidim/blogs/create_post_event: Nytt blogginlägg
@@ -13,28 +14,52 @@ sv:
         one: Inlägg
         other: Inlägg
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          posts: Inlägg
+      tooltips:
+        deleted_posts_info: Kan inte ta bort detta inlägg
     blogs:
       actions:
         author_id: Skapa inlägg som
-        confirm_destroy: Vill du radera inlägget?
-        destroy: Radera
+        confirm_delete_post: Är du säker på att du vill radera inlägget?
+        deleted_posts_info: Raderade inlägg kan återställas från papperskorgen.
         edit: Redigera
         new: Nytt inlägg
         title: Åtgärder
+        view_deleted_posts: Visa raderade inlägg
       admin:
         posts:
+          create:
+            invalid: Det gick inte att skapa inlägget.
+            success: Inlägget har skapats.
+          destroy:
+            success: Inlägget raderades.
           edit:
             save: Uppdatera
             title: Redigera inlägg
           index:
+            not_published_yet: Ej publicerat.
             title: Inlägg
+          manage_trash:
+            title: Raderade inlägg
           new:
             create: Skapa
             title: Skapa inlägg
           update:
             invalid: Det gick inte att spara inlägget.
+            success: Inlägget har sparats.
+      admin_log:
+        post:
+          create: "%{user_name} skapade blogginlägget %{resource_name} i %{space_name}"
+          delete: "%{user_name} raderade blogginlägget %{resource_name} från %{space_name}"
+          restore: "%{user_name} återställde %{resource_name} blogginlägg i %{space_name}"
+          soft_delete: "%{user_name} flyttade blogginlägget %{resource_name} i %{space_name} till papperskorgen"
+          update: "%{user_name} uppdaterade blogginlägget %{resource_name} i %{space_name}"
       content_blocks:
         highlighted_posts:
+          last_published: Senast publicerade
           name: Inlägg
           see_all: Se alla inlägg
       last_activity:
@@ -45,26 +70,60 @@ sv:
             author: Författare
             body: Innehåll
             official_blog_post: Officiellt inlägg
+            published_at: Publicerad
+            taxonomies: Kategorier
             title: Titel
+      posts:
+        edit:
+          add_attachments: Lägg till bilagor
+          attachment_legend: Lägg till ett dokument eller en bild
+          back: Tillbaka till inlägget
+          button: Uppdatera
+          edit_attachments: Redigera bilagor
+          title: Redigera inlägg
+        form:
+          author_id: Författare
+          body: Text
+          title: Titel
+        index:
+          count:
+            one: "%{count} inlägg"
+            other: "%{count} inlägg"
+          empty: Det finns inga inlägg ännu.
+          new_post: Nytt inlägg
+        menu_actions:
+          button_destroy: Ta bort inlägg
+          button_destroy_confirm: Är du säker på att du vill radera inlägget?
+          button_edit: Redigera inlägg
+        new:
+          back: Tillbaka till inlägg
+          button: Skapa
+          title: Skapa nytt inlägg
     components:
       blogs:
         actions:
           comment: Kommentera
           create: Skapa
           destroy: Radera
-          endorse: Instäm
+          like: Gilla
           update: Uppdatera
         name: Blogg
         settings:
           global:
             announcement: Meddelande
-            comments_enabled: Kommentarer aktiverade
-            comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
+            attachments_allowed: Tillåt bilagor
+            comments_enabled: Aktivera kommentarer
+            comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
+            creation_enabled_for_participants: Deltagarna kan skapa inlägg
+            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
+            no_taxonomy_filters_found: Inga filter för kategorier hittades.
+            taxonomy_filters: Välj filter för komponenten
+            taxonomy_filters_add: Lägg till filter
           step:
             announcement: Meddelande
-            comments_blocked: Kommentarer blockerade
-            endorsements_blocked: Instämmanden är blockerade
-            endorsements_enabled: Instämmanden tillåtna
+            comments_blocked: Stäng av kommentarer
+            likes_blocked: Stäng av gilla-markeringar
+            likes_enabled: Aktivera gilla-markeringar
     events:
       blogs:
         post_created:
@@ -72,5 +131,33 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer "%{participatory_space_title}". Du kan sluta att följa det från den föregående länken.
           email_subject: Ett nytt inlägg har publicerats i %{participatory_space_title}
           notification_title: Inlägget <a href="%{resource_path}">%{resource_title}</a> har publicerats i %{participatory_space_title}
+    open_data:
+      help:
+        post_comments:
+          alignment: Positiva, negativa eller neutrala kommentarer
+          author: Namn på den som kommenterat
+          body: Kommentaren
+          commentable_id: Kommentarens unika id
+          commentable_type: Vad som kommenterades (resultat, förslag etc)
+          created_at: Datum för kommentaren
+          depth: Kommentarens plats i en hierarki av kommentarer (om den är ett svar på en annan kommentar)
+          id: Id för kommentaren
+          locale: Kommentarförfattarens språk
+          root_commentable_url: URL till innehållet som är relaterat till kommentaren
+        posts:
+          author: Uppgifter om författaren
+          body: Inläggets text
+          comments_count: Antalet kommentarer till inlägget
+          component: Komponenten som inlägget tillhör
+          created_at: Datum för inlägget
+          follows_count: Antal följare för inlägget
+          id: Unikt id för inlägget
+          likes_count: Antal gilla-markeringar för inlägget
+          participatory_space: Vilket utrymme (deltagandeprocess eller samråd) inlägget tillhör
+          published_at: Publiceringsdatum för inlägget
+          title: Titeln på inlägget
+          updated_at: Senaste datum när inlägget uppdaterades
+          url: URL för inlägget
     statistics:
       posts_count: Inlägg
+      posts_count_tooltip: Antal publicerade uppdateringar eller blogginlägg.

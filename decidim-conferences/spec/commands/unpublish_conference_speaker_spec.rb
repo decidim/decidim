@@ -6,7 +6,7 @@ module Decidim
   module Conferences
     module Admin
       describe UnpublishConferenceSpeaker, type: :command do
-        let(:organization) { create :organization, available_locales: [:en] }
+        let(:organization) { create(:organization, available_locales: [:en]) }
         let(:conference_speaker) { create(:conference_speaker, published_at: Time.current) }
         let(:current_user) { create(:user, :admin, :confirmed, organization:) }
         let(:command) { described_class.new(conference_speaker, current_user) }

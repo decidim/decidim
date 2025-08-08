@@ -82,5 +82,17 @@ module Decidim
         expect(data[5]["serialized_name/es"]).to eq("'-minuses")
       end
     end
+
+    describe "#headers" do
+      it "returns the headers from the collection" do
+        expect(subject.headers).to eq(%w(id serialized_name/ca serialized_name/es other_ids))
+      end
+    end
+
+    describe "#headers_without_locales" do
+      it "returns the headers from the collection" do
+        expect(subject.headers_without_locales).to eq([:id, :serialized_name, :other_ids])
+      end
+    end
   end
 end

@@ -8,7 +8,7 @@ module Decidim
       include Decidim::Meetings::ApplicationHelper
       include Decidim::TranslationsHelper
       include Decidim::ResourceHelper
-      include Decidim::EndorsableHelper
+      include Decidim::LikeableHelper
 
       # Public: truncates the meeting description
       #
@@ -21,6 +21,19 @@ module Decidim
         description = CGI.unescapeHTML present(meeting).description
         tail = "... #{link_to(t("read_more", scope: "decidim.meetings"), link)}".html_safe
         CGI.unescapeHTML html_truncate(description, max_length:, tail:)
+      end
+
+      def waitlist_status_block(registration)
+        return unless registration.waiting_list?
+
+        render layout: "decidim/meetings/layouts/aside_block", locals: { emoji: "ticket-line" } do
+          content_tag(:div) do
+            safe_join([
+                        content_tag(:h3, t("waitlist.status", scope: "decidim.meetings.meetings.show"), class: "meeting__aside-block__title"),
+                        content_tag(:p, t("waitlist.description", scope: "decidim.meetings.meetings.show"), class: "text-sm")
+                      ])
+          end
+        end
       end
 
       # Public: The css class applied based on the meeting type to
@@ -118,10 +131,6 @@ module Decidim
         end
       end
 
-      def current_user_groups?
-        current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any?
-      end
-
       # Public: URL to create an event in Google Calendars based on meeting
       # data.
       #
@@ -141,6 +150,11 @@ module Decidim
         }
         base_url = "https://calendar.google.com/calendar/u/0/r/eventedit"
         "#{base_url}?#{params.to_param}"
+      end
+
+      def render_schema_org_event_meeting(meeting)
+        exported_meeting = Decidim::Exporters::JSON.new([meeting], Decidim::Meetings::SchemaOrgEventMeetingSerializer).export.read
+        JSON.pretty_generate(JSON.parse(exported_meeting).first)
       end
     end
   end

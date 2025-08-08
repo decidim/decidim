@@ -1,6 +1,9 @@
 fi-pl:
   activemodel:
     attributes:
+      dummy:
+        image: Kuva
+      dummy_attribute: Esimerkkitietue
       dummy_resource:
         created_at: Luontiaika
         decidim_scope_id: Teema
@@ -14,6 +17,7 @@ fi-pl:
       dummy:
         settings:
           global:
+            clear_all: Tyhjennä kaikki
             guided: Ohjeistettu syöte
             guided_help: Ohjeteksti
             guided_readonly: Käytöstä poistettu syöte
@@ -22,6 +26,7 @@ fi-pl:
             guided_rich_readonly_html: Käytöstä poistettu HTML <strong>ohjeteksti</strong>
             readonly_attribute: Vain luku -attribuutti
             test: Testi
+            test_add: Lisää testi
             test_choices:
               a: A-valinta
               b: B-valinta
@@ -31,8 +36,8 @@ fi-pl:
               baz: Baz
               foo: Foo
           step:
-            endorsements_blocked: Suositukset estetty
-            endorsements_enabled: Suositukset käytössä
+            likes_blocked: Tykkäykset estetty
+            likes_enabled: Tykkäykset käytössä
             readonly_step_attribute: Vain luku -attribuutti vaiheelle
             test_options:
               bar: Palkki

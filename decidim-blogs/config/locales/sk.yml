@@ -12,8 +12,6 @@ sk:
   decidim:
     blogs:
       actions:
-        confirm_destroy: Naozaj chcete odstrániť tento príspevok?
-        destroy: Odstrániť
         edit: Upraviť
         new: Nový príspevok
         title: Akcie
@@ -43,8 +41,6 @@ sk:
           step:
             announcement: Oznámenie
             comments_blocked: Zablokované komentáre
-            endorsements_blocked: Zablokované schválenia
-            endorsements_enabled: Povolené schválenia
     events:
       blogs:
         post_created:

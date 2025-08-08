@@ -2,15 +2,12 @@ id:
   activemodel:
     attributes:
       debate:
-        category_id: Kategori
-        decidim_category_id: Kategori
         description: Deskripsi
         end_time: Berakhir pada
         information_updates: Pembaruan informasi
         instructions: Instruksi untuk berpartisipasi
         start_time: Mulai dari
         title: Judul
-        user_group_id: Buat debat sebagai
     models:
       decidim/debates/create_debate_event: Perdebatan
       decidim/debates/creation_disabled_event: Debat dinonaktifkan
@@ -21,8 +18,6 @@ id:
   decidim:
     components:
       debates:
-        actions:
-          create: Membuat
         name: Debat
         settings:
           global:
@@ -33,8 +28,6 @@ id:
             comments_blocked: Komentar diblokir
     debates:
       actions:
-        confirm_destroy: Apakah kamu yakin
-        destroy: Menghapus
         edit: Edit
         title: Tindakan
       admin:
@@ -42,8 +35,6 @@ id:
           create:
             invalid: Terjadi masalah saat membuat debat.
             success: Debat berhasil dibuat.
-          destroy:
-            success: Debat berhasil dihapus.
           edit:
             title: Edit debat
             update: Perbarui debat
@@ -73,14 +64,11 @@ id:
           official: Resmi
           origin: Asal
           search: Pencarian
-        form:
-          select_a_category: Silakan pilih kategori
         index:
           new_debate: Debat baru
         new:
           back: Kembali
           create: Membuat
-          title: Debat baru
       models:
         debate:
           fields:
@@ -118,8 +106,3 @@ id:
           name: Debat
           next_level_in: Berpartisipasi dalam %{score} debat lagi untuk mencapai level selanjutnya!
           unearned_another: Peserta ini belum ikut serta dalam debat apa pun.
-    metrics:
-      debates:
-        description: Jumlah perdebatan dibuat
-        object: debat
-        title: Debat

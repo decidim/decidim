@@ -1,0 +1,28 @@
+<tr>
+  <td data-label="<%= t("models.conference.fields.title", scope: "decidim.admin") %>">
+    <% if conference.promoted? %>
+      <%= icon_with_tooltip "star-s-fill", t("models.assembly.fields.promoted", scope: "decidim.admin") %>
+    <% end %>
+
+    <% if allowed_to? :update, :conference, conference: conference %>
+      <%= link_to translated_attribute(conference.title), edit_conference_path(conference) %><br>
+    <% elsif allowed_to? :read, :component, conference: conference %>
+      <%= link_to translated_attribute(conference.title), components_path(conference) %><br>
+    <% else %>
+      <%= translated_attribute(conference.title) %>
+    <% end %>
+  </td>
+  <td data-label="<%= t("models.conference.fields.created_at", scope: "decidim.admin") %>">
+    <%= l conference.created_at, format: :short %>
+  </td>
+  <td class="table-list__state" data-label="<%= t("models.conference.fields.published", scope: "decidim.admin") %>">
+    <% if conference.published? %>
+      <span class="label !text-sm success"><%= t("conferences.index.published", scope: "decidim.admin") %></span>
+    <% else %>
+      <span class="label !text-sm alert"><%= t("conferences.index.unpublished", scope: "decidim.admin") %></span>
+    <% end %>
+  </td>
+  <td class="table-list__actions" data-label="<%= t("models.conference.fields.actions", scope: "decidim.admin") %>">
+    <%= render partial: "decidim/conferences/admin/conferences/actions", locals: { conference:, view: } %>
+  </td>
+</tr>

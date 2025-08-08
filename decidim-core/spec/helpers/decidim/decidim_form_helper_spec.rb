@@ -64,27 +64,5 @@ module Decidim
         end
       end
     end
-
-    describe "scopes_picker_field_tag" do
-      let!(:scope) { create(:scope) }
-
-      it "renders the correct markup" do
-        actual = helper.scopes_picker_field_tag "my_thing[decidim_scope_id]", scope.id do
-          { url: "/my/url", text: "My text" }
-        end
-
-        expected = <<~HTML
-          <div id="my_thing_decidim_scope_id" class="data-picker picker-single" data-picker-name="my_thing[decidim_scope_id]">
-            <div class="picker-values">
-              <div><a href="/my/url" data-picker-value="#{scope.id}">My text</a></div>
-            </div>
-
-            <div class="picker-prompt"><a href="/my/url" role="button" aria-label="Select a scope (currently: My text)">My text</a></div>
-          </div>
-        HTML
-
-        expect(actual).to have_equivalent_markup_to(expected)
-      end
-    end
   end
 end

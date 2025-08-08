@@ -2,7 +2,7 @@
 
 shared_examples "admin manages proposal answer imports" do
   before do
-    page.find(".imports").click
+    click_on "Import"
     click_on "Import answers from a file"
   end
 
@@ -78,7 +78,7 @@ shared_examples "admin manages proposal answer imports" do
     it "provides example downloads" do
       expect(page).to have_content("Download example")
 
-      page.find(".imports-example").click
+      click_on "Download example"
       expect(page).to have_content("Example as CSV")
       expect(page).to have_content("Example as JSON")
       expect(page).to have_content("Example as Excel (.xlsx)")
@@ -86,7 +86,7 @@ shared_examples "admin manages proposal answer imports" do
 
     context "when downloading the examples" do
       before do
-        page.find(".imports-example").click
+        click_on "Download example"
       end
 
       it "downloads a correct CSV example" do

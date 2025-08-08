@@ -9,6 +9,7 @@ module Decidim
     let(:organization) { create(:organization) }
     let(:component) { create(:component, organization:) }
     let(:image) { create(:attachment, attached_to: organization) }
+    let(:image_path) { image.attached_uploader(:file).path }
 
     let(:content) { original_content }
     let(:original_content) do
@@ -46,10 +47,10 @@ module Decidim
         </ul>
         <p>
           Paragraph content with an inline image.
-          <img src="#{image.url}">
+          <img src="#{image_path}">
           And some text after that.
         </p>
-        <p><img src="#{image.url}" alt="This image had an alternative text"></p>
+        <p><img src="#{image_path}" alt="This image had an alternative text"></p>
         <iframe class="ql-video" frameborder="0" allowfullscreen="true" src="https://www.youtube.com/embed/f6JMgJAQ2tc?showinfo=0"></iframe>
         <div><span>Here we had some unrecognized node.</span></div>
         <blockquote>Blockquote element content <br>should be <strong>wrapped inside</strong> a paragraph.</blockquote>
@@ -151,11 +152,11 @@ module Decidim
         </ul>
         <p>Paragraph content with an inline image.</p>
         <div class="editor-content-image" data-image="">
-          <img src="#{image.url}" alt="">
+          <img src="#{image_path}" alt="">
         </div>
         <p>And some text after that.</p>
         <div class="editor-content-image" data-image="">
-          <img src="#{image.url}" alt="This image had an alternative text">
+          <img src="#{image_path}" alt="This image had an alternative text">
         </div>
         <div class="editor-content-videoEmbed" data-video-embed="https://www.youtube.com/embed/f6JMgJAQ2tc?showinfo=0">
           <div>

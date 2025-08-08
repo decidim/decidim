@@ -11,17 +11,24 @@ module Decidim
         facebook: {
           enabled: true,
           app_id: "fake-facebook-app-id",
-          app_secret: "fake-facebook-app-secret"
+          app_secret: "fake-facebook-app-secret",
+          icon: "phone"
         },
         twitter: {
           enabled: true,
           api_key: "fake-twitter-api-key",
-          api_secret: "fake-twitter-api-secret"
+          api_secret: "fake-twitter-api-secret",
+          icon: "phone"
         },
         google_oauth2: {
           enabled: true,
           client_id: nil,
-          client_secret: nil
+          client_secret: nil,
+          icon: "phone"
+        },
+        test: {
+          enabled: true,
+          icon: "tools-line"
         }
       }
     end
@@ -86,6 +93,16 @@ module Decidim
     end
 
     describe "enabled omniauth providers" do
+      let!(:previous_omniauth_secrets) { Decidim.omniauth_providers }
+
+      before do
+        allow(Decidim).to receive(:omniauth_providers).and_return(omniauth_secrets)
+      end
+
+      after do
+        Decidim.omniauth_providers = previous_omniauth_secrets
+      end
+
       subject(:enabled_providers) { organization.enabled_omniauth_providers }
 
       context "when omniauth_settings are nil" do
@@ -96,14 +113,8 @@ module Decidim
         end
 
         context "when providers are not enabled in secrets.yml" do
-          let!(:previous_omniauth_secrets) { Rails.application.secrets[:omniauth] }
-
           before do
-            Rails.application.secrets[:omniauth] = nil
-          end
-
-          after do
-            Rails.application.secrets[:omniauth] = previous_omniauth_secrets
+            allow(Decidim).to receive(:omniauth_providers).and_return({})
           end
 
           it "returns no providers" do
@@ -161,7 +172,7 @@ module Decidim
       end
 
       context "when the favicon variant has been processed" do
-        before { organization.attached_uploader(:favicon).variant(:favicon).process }
+        before { organization.attached_uploader(:favicon).variant(:favicon).processed }
 
         it "returns the variant" do
           expect(subject.favicon_ico).not_to be(subject.favicon)
@@ -183,8 +194,7 @@ module Decidim
       shared_context "with processed variant" do |variant_name|
         let(:variant) do
           variant = uploader.variant(variant_name)
-          variant.process
-          variant.image.blob
+          variant.processed.image.blob
         end
 
         let(:image) do
@@ -264,6 +274,34 @@ module Decidim
         let(:favicon_path) { Decidim::Dev.asset("icon.png") }
 
         it_behaves_like "creates correct favicon variants"
+      end
+    end
+
+    describe "#to_sgid" do
+      subject { sgid }
+
+      let(:organization) { create(:organization) }
+      let(:sgid) { travel_to(5.years.ago) { organization.to_sgid.to_s } }
+
+      it "does not expire" do
+        located = GlobalID::Locator.locate_signed(subject)
+        expect(located).to eq(organization)
+      end
+    end
+
+    describe "#open_data_file_path" do
+      subject(:organization) { build(:organization, host: "example.org") }
+
+      context "without a resource" do
+        it "returns the default file name" do
+          expect(subject.open_data_file_path).to eq("example.org-open-data.zip")
+        end
+      end
+
+      context "with a resource" do
+        it "returns the file name" do
+          expect(subject.open_data_file_path("proposals")).to eq("example.org-open-data-proposals.csv")
+        end
       end
     end
   end

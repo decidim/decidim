@@ -32,18 +32,39 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
 
   participatory_space.register_resource(:initiatives_type) do |resource|
     resource.model_class_name = "Decidim::InitiativesType"
-    resource.actions = %w(vote create)
+    resource.actions = %w(create)
+  end
+
+  participatory_space.register_stat :followers_count,
+                                    priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                                    icon_name: "user-follow-line",
+                                    tooltip_key: "followers_count_tooltip" do
+    Decidim::Initiatives::InitiativesStatsFollowersCount.for(participatory_space)
+  end
+
+  participatory_space.register_stat :participants_count,
+                                    priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                                    icon_name: "user-line",
+                                    tooltip_key: "participants_count_tooltip" do
+    Decidim::Initiatives::InitiativesStatsParticipantsCount.for(participatory_space)
   end
 
   participatory_space.model_class_name = "Decidim::Initiative"
   participatory_space.permissions_class_name = "Decidim::Initiatives::Permissions"
 
+  participatory_space.data_portable_entities = [
+    "Decidim::Initiative"
+  ]
+
   participatory_space.exports :initiatives do |export|
     export.collection do
-      Decidim::Initiative
+      Decidim::Initiative.public_spaces
     end
 
+    export.include_in_open_data = true
+
     export.serializer Decidim::Initiatives::InitiativeSerializer
+    export.open_data_serializer Decidim::Initiatives::OpenDataInitiativeSerializer
   end
 
   participatory_space.seeds do

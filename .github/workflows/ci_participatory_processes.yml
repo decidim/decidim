@@ -17,22 +17,31 @@ on:
       - "decidim-meetings/**"
       - "decidim-participatory_processes/**"
 
+permissions:
+  contents: read
+  pull-requests: read
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
 
 jobs:
-  build_app:
-    uses: ./.github/workflows/build_app.yml
-    secrets: inherit
-    name: Build test application
   main:
-    needs: build_app
-    name: Tests
+    strategy:
+      fail-fast: false
+      matrix:
+        test:
+          - command: bundle exec parallel_test --type rspec --pattern spec/ --exclude-pattern spec/system
+            name: "Unit tests"
+          - command: bundle exec parallel_test --type rspec --pattern spec/system --exclude-pattern spec/system/admin
+            name: "System tests"
+          - command: bundle exec parallel_test --type rspec --pattern spec/system/admin
+            name: "Admin system tests"
+    name: ${{ matrix.test.name }}
     uses: ./.github/workflows/test_app.yml
     secrets: inherit
     with:
       working-directory: "decidim-participatory_processes"
-      test_command: bundle exec parallel_test --type rspec --pattern spec/
+      test_command: ${{ matrix.test.command }}
       bullet_n_plus_one: false
       bullet_unused_eager_loading: false

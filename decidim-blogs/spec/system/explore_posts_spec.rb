@@ -32,7 +32,7 @@ describe "Explore posts" do
 
       before do
         create(:comment, commentable: old_post)
-        create(:endorsement, resource: old_post, author: build(:user, :confirmed, organization: old_post.participatory_space.organization))
+        create(:like, resource: old_post, author: build(:user, :confirmed, organization: old_post.participatory_space.organization))
 
         visit_component
       end
@@ -48,15 +48,15 @@ describe "Explore posts" do
       end
 
       context "when paginating" do
-        let(:collection_size) { 15 }
+        let(:collection_size) { 25 }
         let!(:collection) { create_list(:post, collection_size, component:) }
 
         before do
           visit_component
         end
 
-        it "lists 10 resources per page by default" do
-          expect(page).to have_css("#blogs > a", count: 10)
+        it "lists 25 resources per page by default" do
+          expect(page).to have_css("#blogs > a", count: 25)
           expect(page).to have_css("[data-pages] [data-page]", count: 2)
         end
       end
@@ -89,22 +89,20 @@ describe "Explore posts" do
         end
       end
 
-      context "when author is a user_group" do
-        let(:author) { create(:user_group, :confirmed, :verified, organization:) }
-
-        it "shows user group as the author" do
-          within ".author__name" do
-            expect(page).to have_content(author.name)
-          end
-        end
-      end
-
       context "when author is a user" do
         let(:author) { user }
 
         it "shows user as the author" do
           within ".author__name" do
             expect(page).to have_content(user.name)
+          end
+        end
+
+        context "when participant is deleted" do
+          let(:author) { create(:user, :deleted, organization: component.organization) }
+
+          it "successfully shows the page" do
+            expect(page).to have_content("Deleted participant")
           end
         end
       end

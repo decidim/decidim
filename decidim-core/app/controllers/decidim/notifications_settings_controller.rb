@@ -14,17 +14,17 @@ module Decidim
       enforce_permission_to(:update, :user, current_user:)
       @notifications_settings = form(NotificationsSettingsForm).from_params(params)
 
-      UpdateNotificationsSettings.call(current_user, @notifications_settings) do
+      UpdateNotificationsSettings.call(@notifications_settings) do
         on(:ok) do
           flash.now[:notice] = t("notifications_settings.update.success", scope: "decidim")
+          render action: :show
         end
 
         on(:invalid) do
           flash.now[:alert] = t("notifications_settings.update.error", scope: "decidim")
+          render action: :show, status: :unprocessable_entity
         end
       end
-
-      render action: :show
     end
   end
 end

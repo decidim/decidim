@@ -23,6 +23,7 @@ Locate the bucket, go into the "Permissions" tab and find the section titled "CO
       "*"
     ],
     "AllowedMethods": [
+      "GET"
       "PUT"
     ],
     "AllowedOrigins": [
@@ -57,7 +58,7 @@ Before running that command you need to have a `cors.json` file in the same dire
 [
   {
     "origin": ["https://www.example.com"],
-    "method": ["PUT"],
+    "method": ["GET", "PUT"],
     "responseHeader": ["Origin", "Content-Type", "Content-MD5", "Content-Disposition"],
     "maxAgeSeconds": 3600
   }
@@ -71,7 +72,7 @@ Read more at https://cloud.google.com/storage/docs/configuring-cors[Google Cloud
 Locate the storage account from the Azure Portal and go to the "Resource sharing (CORS)" section under "Settings. Fill in the following configuration options in the "Blob service" tab of that section (replace `https://www.example.com` with the actual domain of your service):
 
 - **Allowed origins**: https://www.example.com
-- **Allowed methods**: PUT
+- **Allowed methods**: GET,PUT
 - **Allowed headers**: *
 - **Exposed headers**: Origin, Content-Type, Content-MD5, x-ms-blob-content-disposition, x-ms-blob-type
 - **Max age**: 3600
@@ -83,7 +84,7 @@ When using the Azure REST API, you can use the `Set Blob Service Properties` ope
 <Cors>
   <CorsRule>
     <AllowedOrigins>https://www.example.com</AllowedOrigins>
-    <AllowedMethods>PUT</AllowedMethods>
+    <AllowedMethods>GET,PUT</AllowedMethods>
     <AllowedHeaders>*</AllowedHeaders>
     <ExposedHeaders>Origin, Content-Type, Content-MD5, x-ms-blob-content-disposition, x-ms-blob-type</ExposedHeaders>
     <MaxAgeInSeconds>3600</MaxAgeInSeconds>

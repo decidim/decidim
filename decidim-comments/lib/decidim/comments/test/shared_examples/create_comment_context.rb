@@ -7,17 +7,15 @@ RSpec.shared_context "when creating a comment" do
   let(:user) { create(:user, :confirmed, organization:) }
   let(:author) { create(:user, :confirmed, organization:) }
   let(:current_user) { author }
-  let(:dummy_resource) { create :dummy_resource, component: }
+  let(:dummy_resource) { create(:dummy_resource, component:) }
   let(:commentable) { dummy_resource }
   let(:body) { Faker::Lorem.paragraph }
   let(:alignment) { 1 }
-  let(:user_group_id) { nil }
   let(:form_params) do
     {
       "comment" => {
         "body" => body,
         "alignment" => alignment,
-        "user_group_id" => user_group_id,
         "commentable" => commentable
       }
     }

@@ -10,7 +10,7 @@ module Decidim
 
         translatable_attribute :position, String
         translatable_attribute :affiliation, String
-        translatable_attribute :short_bio, String
+        translatable_attribute :short_bio, Decidim::Attributes::RichText
 
         mimic :conference_speaker
 

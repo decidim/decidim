@@ -18,10 +18,10 @@ module Decidim
         expect(subject.question).to eq(question)
       end
 
-      it "has an association of answer_options" do
-        subject.answer_options << create(:answer_option, question:)
-        subject.answer_options << create(:answer_option, question:)
-        expect(subject.answer_options.count).to eq(2)
+      it "has an association of response_options" do
+        subject.response_options << create(:response_option, question:)
+        subject.response_options << create(:response_option, question:)
+        expect(subject.response_options.count).to eq(2)
       end
 
       describe "#mandatory" do

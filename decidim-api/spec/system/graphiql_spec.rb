@@ -22,9 +22,9 @@ describe "GraphiQL" do
       )
     end
 
-    it "forces the user to login" do
+    it "forces the user to log in" do
       expect(page).to have_current_path("/users/sign_in")
-      expect(page).to have_content("Please, login with your account before access")
+      expect(page).to have_content("Please, log in with your account before access")
     end
   end
 
@@ -35,6 +35,18 @@ describe "GraphiQL" do
     find(".graphiql-execute-button").click
     within ".result-window" do
       expect(page).to have_content("\"id\": \"#{participatory_process.id}\"")
+    end
+  end
+
+  context "with force_api_authentication enabled" do
+    before do
+      allow(Decidim::Api).to receive(:force_api_authentication).and_return(true)
+      visit decidim_api.graphiql_path
+    end
+
+    it "forces the user to log in" do
+      expect(page).to have_current_path("/users/sign_in")
+      expect(page).to have_content("Please, log in with your account before access")
     end
   end
 end

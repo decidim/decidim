@@ -8,7 +8,7 @@ module Decidim
       subject { question }
 
       let(:questionnaire) { create(:questionnaire) }
-      let(:question_type) { "short_answer" }
+      let(:question_type) { "short_response" }
       let(:question) { build(:questionnaire_question, questionnaire:, question_type:) }
       let(:display_conditions) { create_list(:display_condition, 2, question:) }
 
@@ -22,11 +22,11 @@ module Decidim
         expect(subject.display_conditions).to match_array(display_conditions)
       end
 
-      context "when there are answer_options belonging to this question" do
-        let(:answer_options) { create_list(:answer_option, 3, question:) }
+      context "when there are response_options belonging to this question" do
+        let(:response_options) { create_list(:response_option, 3, question:) }
 
-        it "has an association of answer_options" do
-          expect(subject.answer_options).to match_array(answer_options)
+        it "has an association of response_options" do
+          expect(subject.response_options).to match_array(response_options)
         end
       end
 
@@ -66,6 +66,12 @@ module Decidim
           it "does not include questions that have display conditions" do
             expect(subject.class.not_conditioned).not_to include(question_conditioned)
           end
+        end
+      end
+
+      describe ".log_presenter_class_for" do
+        it "returns the correct presenter class for logs" do
+          expect(described_class.log_presenter_class_for(nil)).to eq(Decidim::Forms::AdminLog::QuestionPresenter)
         end
       end
     end

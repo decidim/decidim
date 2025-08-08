@@ -4,14 +4,14 @@ module Decidim
   module Amendable
     # A command with all the business logic when a user starts amending a resource.
     class CreateDraft < Decidim::Command
+      delegate :current_user, :current_organization, to: :form
+
       # Public: Initializes the command.
       #
-      # form         - A form object with the params.
+      # form - A form object with the params.
       def initialize(form)
         @form = form
         @amendable = form.amendable
-        @current_user = form.current_user
-        @user_group = Decidim::UserGroup.find_by(id: form.user_group_id)
       end
 
       # Executes the command. Broadcasts these events:
@@ -33,7 +33,7 @@ module Decidim
 
       private
 
-      attr_reader :form, :amendable, :current_user, :user_group
+      attr_reader :form, :amendable
 
       # Prevent PaperTrail from creating an additional version
       # in the amendment multi-step creation process (step 1: create)
@@ -52,7 +52,8 @@ module Decidim
             emendation.title = { I18n.locale => form.emendation_params.with_indifferent_access[:title] }
             emendation.body = { I18n.locale => form.emendation_params.with_indifferent_access[:body] }
             emendation.component = amendable.component
-            emendation.add_author(current_user, user_group)
+            emendation.taxonomies = amendable.taxonomies if amendable.respond_to?(:taxonomies)
+            emendation.add_author(current_user)
             emendation.save!
             emendation
           end

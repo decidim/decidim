@@ -9,8 +9,6 @@ zh-CN:
   decidim:
     blogs:
       actions:
-        confirm_destroy: 您确定要删除此帖子？
-        destroy: 删除
         edit: 编辑
         new: 新建帖子
         title: 行动
@@ -41,8 +39,6 @@ zh-CN:
           step:
             announcement: 通 知
             comments_blocked: 评论已阻止
-            endorsements_blocked: 已阻止授权
-            endorsements_enabled: 授权已启用
     events:
       blogs:
         post_created:

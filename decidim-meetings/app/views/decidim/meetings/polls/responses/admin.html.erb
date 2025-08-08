@@ -1,0 +1,34 @@
+<% add_decidim_meta_tags({
+                           title: present(meeting).title,
+                           description: present(meeting).description,
+                           url: meeting_url(meeting.id)
+                         }) %>
+
+<%= append_javascript_pack_tag "decidim_meetings" %>
+<%= append_stylesheet_pack_tag "decidim_meetings" %>
+<%= append_javascript_pack_tag "decidim_forms" %>
+
+<% add_body_classes "meeting-poll__layout" %>
+
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+  <div class="meeting-polls__topbar is-admin">
+    <%= link_to meeting_path(meeting), class: "button button__sm button__text md:button__text-secondary" do %>
+      <%= icon "arrow-left-line" %>
+      <%= t("back_to_meeting", scope: "decidim.meetings.polls.responses.index_admin") %>
+    <% end %>
+
+    <%= action_authorized_link_to :reply_poll, meeting_polls_responses_path(meeting), class: "button button__sm button__secondary", data: { "redirect_url" => meeting_polls_responses_path(meeting) }, resource: meeting do %>
+      <%= t("view_poll", scope: "decidim.meetings.polls.responses.index_admin") %>
+    <% end %>
+  </div>
+
+  <div class="text-center">
+    <h1 class="title-decorator inline-block text-left">
+      <%= t("title", scope: "decidim.meetings.polls.responses.index_admin") %>
+    </h1>
+  </div>
+
+  <div class="meeting-polls" id="admin-meeting-poll" data-decidim-admin-meetings-poll='{"questionsUrl":"<%= meeting_polls_questions_path(meeting, admin: true) %>"}'>
+    <%= render partial: "decidim/meetings/polls/questions/index_admin", locals: { open_question: nil } %>
+  </div>
+<% end %>

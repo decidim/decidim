@@ -31,17 +31,19 @@ module Decidim
 
         apply_global_moderations_permission_for_admin!
 
+        can_use_image_editor?
+
         if user.admin? && admin_terms_accepted?
           allow! if read_admin_log_action?
           allow! if read_user_statistics_action?
-          allow! if read_metrics_action?
+          allow! if read_statistics_action?
           allow! if static_page_action?
           allow! if templates_action?
           allow! if organization_action?
           allow! if user_action?
           allow! if admin_user_action?
+          allow! if moderate_user_action?
 
-          allow! if permission_action.subject == :category
           allow! if permission_action.subject == :component
           allow! if permission_action.subject == :attachment
           allow! if permission_action.subject == :editor_image
@@ -50,21 +52,39 @@ module Decidim
           allow! if permission_action.subject == :scope_type
           allow! if permission_action.subject == :area
           allow! if permission_action.subject == :area_type
-          allow! if permission_action.subject == :user_group
           allow! if permission_action.subject == :officialization
-          allow! if permission_action.subject == :moderate_users
           allow! if permission_action.subject == :authorization
           allow! if permission_action.subject == :authorization_workflow
           allow! if permission_action.subject == :static_page_topic
           allow! if permission_action.subject == :help_sections
           allow! if permission_action.subject == :share_token
           allow! if permission_action.subject == :reminder
+
+          if permission_action.action.in? [:manage_trash, :restore, :soft_delete]
+            if permission_action.action == :soft_delete
+              toggle_allow(trashable_deleted_resource.respond_to?(:deleted?) && !trashable_deleted_resource.deleted?)
+            elsif permission_action.action == :restore
+              toggle_allow(trashable_deleted_resource&.deleted?)
+            else
+              allow!
+            end
+          end
+
+          if permission_action.subject == :taxonomy
+            permission_action.action == :destroy ? allow_destroy_taxonomy? : allow!
+          end
+          allow! if permission_action.subject == :taxonomy_filter
+          allow! if permission_action.subject == :taxonomy_item
         end
 
         permission_action
       end
 
       private
+
+      def trashable_deleted_resource
+        context.fetch(:trashable_deleted_resource, nil)
+      end
 
       def user_manager?
         user && !user.admin? && user.role?("user_manager")
@@ -126,8 +146,8 @@ module Decidim
           permission_action.action == :read
       end
 
-      def read_metrics_action?
-        permission_action.subject == :metrics &&
+      def read_statistics_action?
+        permission_action.subject == :statistics &&
           permission_action.action == :read
       end
 
@@ -214,6 +234,19 @@ module Decidim
         end
       end
 
+      def moderate_user_action?
+        return unless permission_action.subject == :moderate_users
+
+        target_user = context.fetch(:user, nil)
+
+        case permission_action.action
+        when :destroy, :block
+          target_user != user
+        else
+          true
+        end
+      end
+
       def organization
         @organization ||= context.fetch(:organization, nil) || context.fetch(:current_organization, nil)
       end
@@ -252,6 +285,22 @@ module Decidim
 
       def available_authorization_handlers?
         user.organization.available_authorization_handlers.any?
+      end
+
+      def allow_destroy_taxonomy?
+        return unless permission_action.action == :destroy
+
+        taxonomy = context.fetch(:taxonomy, nil)
+
+        toggle_allow(taxonomy&.removable?)
+      end
+
+      def component
+        context.fetch(:component, nil)
+      end
+
+      def can_use_image_editor?
+        allow! if permission_action.subject == :editor_image && user_has_any_role?(user, nil, broad_check: true)
       end
     end
   end

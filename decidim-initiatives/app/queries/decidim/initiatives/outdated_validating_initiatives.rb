@@ -23,7 +23,7 @@ module Decidim
       def query
         Decidim::Initiative
           .where(state: "validating")
-          .where("updated_at < ?", @period_length)
+          .where(updated_at: ...@period_length)
       end
     end
   end

@@ -2,18 +2,14 @@ hu:
   activemodel:
     attributes:
       debate:
-        category_id: Kategória
         closed_at: Lezárva ekkor
         conclusions: Következtetések
-        decidim_category_id: Kategória
         description: Leírás
         end_time: Lejár ekkor
         information_updates: Információ frissítések
         instructions: Útmutató a részvételhez
-        scope_id: Hatókör
         start_time: Kezdődik
         title: Cím
-        user_group_id: Vita létrehozása
     models:
       decidim/debates/close_debate_event: Vita lezárva
       decidim/debates/create_debate_event: Vita
@@ -29,27 +25,19 @@ hu:
       debates:
         actions:
           comment: Megjegyzés
-          create: Létrehozás
-          endorse: Támogat
         name: Viták
         settings:
           global:
             announcement: Közlemény
             comments_enabled: Megjegyzések engedélyezve
             comments_max_length: Kommentek maximális hossza (Hagyjon 0 -t az alapértékhez)
-            scope_id: Hatókör
-            scopes_enabled: A hatókör engedélyezett
           step:
             announcement: Közlemény
             comments_blocked: Megjegyzések letiltva
             creation_enabled: A résztvevők létrehozhatnak vitákat
-            endorsements_blocked: Támogatások letiltva
-            endorsements_enabled: Támogatások engedélyezve
     debates:
       actions:
         close: Bezár
-        confirm_destroy: Biztos vagy benne?
-        destroy: Törlés
         edit: Szerkesztés
         title: Műveletek
       admin:
@@ -61,8 +49,6 @@ hu:
           create:
             invalid: Probléma merült fel a vita létrehozása során.
             success: Vita létrehozása sikeres.
-          destroy:
-            success: Vita törlése sikeres.
           edit:
             title: Vita szerkesztése
             update: Vita frissítése
@@ -78,8 +64,6 @@ hu:
           update:
             invalid: Probléma merült fel a vita frissítése során.
             success: A vita sikeresen frissült.
-        exports:
-          comments: Hozzászólások
       admin_log:
         debate:
           close: "%{user_name} lezárta a(z) %{resource_name} vitát a(z) %{space_name} térben"
@@ -119,15 +103,11 @@ hu:
           state: Állapot
           state_values:
             closed: Lezárva
-            open: Nyitva
-        form:
-          select_a_category: Válassz kategóriát
         index:
           new_debate: Új vita
         new:
           back: Vissza
           create: Létrehozás
-          title: Új vita
         orders:
           commented: Legtöbb hozzászólással
           label: Viták rendezése
@@ -135,13 +115,8 @@ hu:
           recent: Legfrissebb
           updated: Nemrégiben frissítve
         show:
-          close_debate: Vita lezárása
-          debate_closed: Lezárva
           debate_conclusions_are: 'A vitát %{date} -n zárult le az alábbi következtetésekkel:'
           edit_conclusions: Következtetések szerkesztése
-          edit_debate: Vita szerkesztése
-          groups_count: Csoportok
-          open: Nyitott vita
           participants_count: Résztvevők
         update:
           invalid: Hiba történt a vita frissítése során.
@@ -199,10 +174,5 @@ hu:
           next_level_in: Vegyen részt még %{score} vitában, hogy elérje a következő szintet!
           unearned_another: Ez a felhasználó még nem vett részt vitában.
           unearned_own: Még nem vett részt a vitákban.
-    metrics:
-      debates:
-        description: A létrehozott viták száma
-        object: viták
-        title: Viták
     statistics:
       debates_count: Viták

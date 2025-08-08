@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe UpdateAccount do
-    let(:command) { described_class.new(user, form) }
+    let(:command) { described_class.new(form) }
     let(:user) { create(:user, :confirmed, password: user_password) }
     let(:user_password) { "decidim1234567890" }
     let(:data) do
@@ -51,6 +51,9 @@ module Decidim
     end
 
     context "when valid" do
+      it_behaves_like "fires an ActiveSupport::Notification event", "decidim.update_account:before"
+      it_behaves_like "fires an ActiveSupport::Notification event", "decidim.update_account:after"
+
       it "updates the users's name" do
         form.name = "Pepito de los palotes"
         expect { command.call }.to broadcast(:ok)

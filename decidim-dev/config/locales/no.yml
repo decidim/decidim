@@ -25,8 +25,6 @@
               baz: Baz
               foo: Foo
           step:
-            endorsements_blocked: Påtegnelser blokkert
-            endorsements_enabled: Påtegnelser aktivert
             readonly_step_attribute: Skrivebeskyttet trinn-attributt
             test_options:
               bar: Felt

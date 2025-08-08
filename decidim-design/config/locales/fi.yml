@@ -14,7 +14,6 @@ fi:
           trigger: Liipaisin
           usage: Käyttöesimerkki
           usage_p: Haitarielementti tarvitsee vähintään kolme elementtiä
-          usage_p_1_html: 1. Jäsentävä <code>div</code>-elementti, jossa on data-attribuutti <code>data-component="accordion"</code>, joka pitää sisällään kaikki liipaisimet ja paneelit.
           usage_p_2_html: 2. Käyttäjän kohdistettavissa oleva liipaisinelementti (painike), joka viittaa hallinnoitavaan elementtiin attribuutin <code>data-controls="panel"</code> avulla. Kyseisessä attribuutissa <i>panel</i> on viitattavan paneelielementin <code>id</code>-attribuutin arvo.
           usage_p_3_html: 3. Piilotettava tai näytettävä elementti, jonka <code>id</code>-attribuutti vastaa <code>data-controls</code>-attribuutin arvoa haitarielementin liipaisimessa.
         activities:
@@ -170,7 +169,7 @@ fi:
         block_text: Käytä extra_data -lohkoa
         blog_cards_html: Käytetään <i>Blogien</i> korteissa
         blogs: Blogit
-        budget_card_html: 'Käytetään <i>Budjetointihankkeiden</i> korteissa. Tämä kortti vaatii kyseisen moduulin omien tyylitiedostojen sisällyttämisen sivulle, eli seuraavan koodin lisäämistä näkymään: <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>'
+        budget_card_html: 'Käytetään <i>Budjetointiprojektien</i> korteissa. Tämä kortti vaatii kyseisen moduulin omien tyylitiedostojen sisällyttämisen sivulle, eli seuraavan koodin lisäämistä näkymään: <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>'
         budgets: Budjetit
         callout_class: Huomautuselementin luokka
         callout_description: Tämä attribuutti määrittää ilmoituksen tilan. Oletuksena se käyttää toissijaista väriä.
@@ -185,7 +184,7 @@ fi:
         conference_s: Konferenssi S
         conferences: Konferenssit
         context: Asiayhteys
-        context_description: Tämä solu näyttää tietoja käyttäjästä. Se on visuaalinen tapa tunnistaa tietueen sisältöä tai sen laatija. Hiiren osoittaminen elementin päällä näyttää sivun päälle avautuvan työkaluvinkin, jossa on lisätietoa ja linkkejä profiiliin.
+        context_description: Tämä solu näyttää tietoja käyttäjästä. Sitä käytetään visuaalisena vihjeenä, joka auttaa tunnistamaan asian/sisällön luojan.
         context_description_2: Tämä solu näytetään pääotsikon alapuolella tietueille. Muilla sisällöillä se näytetään sisällön vieressä.
         debate_l: Keskustelu L
         debate_s: Keskustelu S
@@ -206,7 +205,6 @@ fi:
         dropdowns_description_html: Pudotusvalikot ovat ulkoisen %{link} -kirjaston tarjoama JavaScript ominaisuus.
         dropdowns_usage_1_description: 2. Piilotettava elementti, jonka <code>id</code>-attribuutti vastaa pudotusvalikkoon viittaavan liipaisinelementin <code>data-target</code>-attribuutin arvoa.
         dropdowns_usage_description: 'Pudotusvalikko tarvitsee kaksi elementtiä:'
-        dropdowns_usage_description_html: 1. Käyttäjän kohdistettavissa oleva elementti, joka sisältää data-attribuutit <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.
         dummy_description: Esimerkkitietueen kuvaus
         dummy_title: Esimerkkitietueen otsikko
         follow_button: Seuraa-painike
@@ -242,8 +240,8 @@ fi:
         post_g: Artikkeli G
         post_l: Artikkeli L
         post_s: Artikkeli S
-        project_l: Hanke L
-        project_s: Hanke S
+        project_l: Projekti L
+        project_s: Projekti S
         proposal_l: Ehdotus L
         proposal_s: Ehdotus S
         proposals: Ehdotukset
@@ -294,6 +292,7 @@ fi:
         usage_typography_2: Leipäteksti
         usage_typography_3: Tumman taustan päällä näytettävän tekstin väri
         usage_typography_4: Linkit ja painikkeet
+        usage_typography_5: Käytöstä poistettu välilehti
         value: Arvo
         variations: Muunnelmat
         variations_cards_description: Jokainen kortti näyttää erilaiselta, riippuen mitä tietueen ominaisuuksia näytetään. Voit ohittaa tämän oletustoiminnallisuuden yksittäisissä soluissa.

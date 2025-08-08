@@ -3,9 +3,7 @@
 module Decidim
   module ContentBlocks
     class ParticipatorySpaceHeroCell < Decidim::ContentBlocks::BaseCell
-      include Decidim::TwitterSearchHelper
-
-      delegate :title, :hashtag, :attached_uploader, to: :resource
+      delegate :title, :attached_uploader, to: :resource
 
       def cta_text
         return unless model
@@ -32,23 +30,13 @@ module Decidim
       # If it is called from the landing page content block, use the background image defined there
       # Else, use the banner image defined in the space (for assemblies)
       def image_path
-        return model.images_container.attached_uploader(:background_image).path if model.respond_to?(:images_container)
+        return model.images_container.attached_uploader(:background_image).url if model.respond_to?(:images_container)
 
-        attached_uploader(:banner_image).path
-      end
-
-      def has_hashtag?
-        @has_hashtag ||= hashtag.present?
+        attached_uploader(:banner_image).url
       end
 
       def has_cta?
         [cta_text, cta_path].all?
-      end
-
-      def escaped_hashtag
-        return unless has_hashtag?
-
-        @escaped_hashtag ||= decidim_html_escape(hashtag)
       end
     end
   end

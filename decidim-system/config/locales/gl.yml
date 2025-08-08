@@ -165,7 +165,6 @@ gl:
           success: A organización actualizouse con éxito.
         users_registration_mode:
           disabled: O acceso só se pode facer con contas externas
-          enabled: Permitir aos usuarios rexistrarse e iniciar sesión
       shared:
         notices:
           no_organization_warning_html: Debes crear unha organización para comezar. Asegúrate de ler %{guide} antes de continuar.

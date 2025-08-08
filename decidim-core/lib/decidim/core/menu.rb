@@ -13,6 +13,22 @@ module Decidim
         end
       end
 
+      def self.register_mobile_menu!
+        Decidim.menu :mobile_menu do |menu|
+          menu.add_item :root,
+                        I18n.t("menu.home", scope: "decidim"),
+                        decidim.root_path,
+                        position: 1,
+                        active: :exclusive
+
+          menu.add_item :help,
+                        I18n.t("menu.help", scope: "decidim"),
+                        decidim.pages_path,
+                        position: 10,
+                        active: :exclusive
+        end
+      end
+
       def self.register_user_menu!
         Decidim.menu :user_menu do |menu|
           menu.add_item :account,
@@ -32,18 +48,6 @@ module Decidim
                           decidim_verifications.authorizations_path,
                           position: 1.2
           end
-
-          if current_organization.user_groups_enabled? && user_groups.any?
-            menu.add_item :own_user_groups,
-                          t("user_groups", scope: "layouts.decidim.user_profile"),
-                          decidim.own_user_groups_path,
-                          position: 1.3
-          end
-
-          menu.add_item :user_interests,
-                        t("my_interests", scope: "layouts.decidim.user_profile"),
-                        decidim.user_interests_path,
-                        position: 1.4
 
           menu.add_item :download_your_data,
                         t("my_data", scope: "layouts.decidim.user_profile"),

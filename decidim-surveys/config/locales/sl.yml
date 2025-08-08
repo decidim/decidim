@@ -1,8 +1,1 @@
 sl:
-  activerecord:
-    models:
-      decidim/surveys/survey_answer:
-        one: Odgovor
-        two: Odgovora
-        few: Odgovorov
-        other: Odgovorov

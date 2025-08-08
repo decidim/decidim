@@ -13,6 +13,10 @@ module Decidim
       routes do
         resources :results, only: [:index, :show] do
           resources :versions, only: [:show]
+
+          collection do
+            get :home
+          end
         end
         root to: "results#home"
       end
@@ -36,18 +40,6 @@ module Decidim
       initializer "decidim_accountability.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Accountability::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Accountability::Engine.root}/app/views")
-      end
-
-      initializer "decidim_accountability.register_metrics" do
-        Decidim.metrics_registry.register(:results) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Accountability::Metrics::ResultsMetricManage"
-
-          metric_registry.settings do |settings|
-            settings.attribute :highlighted, type: :boolean, default: false
-            settings.attribute :scopes, type: :array, default: %w(home)
-            settings.attribute :weight, type: :integer, default: 4
-          end
-        end
       end
 
       initializer "decidim_accountability.webpacker.assets_path" do

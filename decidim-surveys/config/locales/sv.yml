@@ -2,35 +2,24 @@ sv:
   activemodel:
     models:
       decidim/surveys/closed_survey_event: Enkäten avslutades
-      decidim/surveys/opened_survey_event: Enkäten startades
+      decidim/surveys/opened_survey_event: Enkäten startade
   activerecord:
     models:
       decidim/surveys/survey:
         one: Enkät
         other: Enkäter
-      decidim/surveys/survey_answer:
-        one: Svar
-        other: Svar
   decidim:
+    admin:
+      actions:
+        see_survey: Se enkät
     components:
       surveys:
         actions:
-          answer: Svar
-        name: Enkät
+          respond: Besvara
         settings:
           global:
             announcement: Meddelande
-            clean_after_publish: Ta bort svar vid publicering av enkäten
-            ends_at: Svar accepterade tills
-            ends_at_help: Lämna tomt för inget slutdatum
-            scope_id: Omfång
-            scopes_enabled: Omfång aktiverade
-            starts_at: Svar accepterade från
-            starts_at_help: Lämna tomt för inget startdatum
           step:
-            allow_answers: Tillåt svar
-            allow_unregistered: Tillåt ej registrerade användare att besvara enkäten
-            allow_unregistered_help: Om valt krävs det ingen inloggning för att besvara enkäten. Detta kan leda till dåliga eller opålitliga data och det kommer att vara mer sårbart för automatiserade attacker. Använd med försiktighet! Det blir också möjligt för en deltagare att besvara enkäten flera gånger igenom att använda olika webbläsare eller surfa privat.
             announcement: Meddelande
     events:
       surveys:
@@ -44,22 +33,14 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: En ny enkät i %{participatory_space_title}
           notification_title: Enkäten <a href="%{resource_path}">%{resource_title}</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a> är nu öppen.
-    metrics:
-      survey_answers:
-        description: Antal enkäter besvarade av deltagarna
-        object: svar på enkäter
-        title: Svar på enkäter
     statistics:
-      answers_count: Svar
+      responses: 'Svar:'
+      surveys_count_tooltip: Antalet tillgängliga undersökningar och svar som samlats in.
     surveys:
       admin:
-        exports:
-          survey_user_answers: Svar från enkätdeltagarna
         surveys:
           update:
             invalid: Det gick inte att spara enkäten.
             success: Enkäten har sparats.
-      surveys:
-        answer:
-          invalid: Det gick inte att besvara enkäten.
-          success: Enkäten har besvarats.
+      last_activity:
+        new_survey: 'Ny enkät:'

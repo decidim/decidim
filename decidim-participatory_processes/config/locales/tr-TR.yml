@@ -4,7 +4,6 @@ tr:
       participatory_process:
         announcement: duyuru
         area_id: alan
-        banner_image: Banner resmi
         copy_categories: Kategorileri kopyala
         copy_components: Bileşenleri kopyala
         copy_steps: Adımları kopyala
@@ -13,7 +12,6 @@ tr:
         developer_group: Tanıtım grubu
         domain: domain
         end_date: Bitiş tarihi
-        hashtag: Başlık etiketi
         hero_image: Ana resim
         local_area: Organizasyon alanı
         meta_scope: Kapsam meta verileri
@@ -23,12 +21,7 @@ tr:
         promoted: Tanıtılan
         published_at: Yayınlandı
         related_process_ids: İlgili süreçler
-        scope_id: kapsam
-        scope_type_max_depth_id: Kapsam filtre derinliği
-        scopes_enabled: Kapsamlar etkin
         short_description: Kısa Açıklama
-        show_metrics: Bütün istatistikleri göster
-        show_statistics: İstatistikleri göster
         slug: URL özel bilgisi
         start_date: Başlangıç tarihi
         subtitle: Alt yazı
@@ -38,7 +31,6 @@ tr:
         description: Açıklama
         developer_group: Tanıtım grubu
         group_url: Web sitesi
-        hashtag: Etiket
         hero_image: görüntü
         local_area: Organizasyon alanı
         meta_scope: Kapsam meta verileri
@@ -77,7 +69,6 @@ tr:
     admin:
       actions:
         activate: etkinleştirmek
-        configure: Yapılandır
         confirm_destroy: Silmeyi onayla
         destroy: silmek
         duplicate: Çift
@@ -96,17 +87,14 @@ tr:
         participatory_process_groups: Süreç grupları
         participatory_process_groups_submenu:
           info: Bilgi
-          landing_page: Açılış sayfası
         participatory_processes: Süreçler
         participatory_processes_submenu:
           attachment_collections: Klasörler
           attachment_files: Dosyalar
           attachments: Ekler
-          categories: Kategoriler
           components: Bileşenler
           info: Süreç Hakkında
           moderations: Denetimler
-          private_users: Özel Kullanıcılar
           process_admins: İşlemi gerçekleştiren kullanıcılar
           steps: adımlar
       models:
@@ -138,7 +126,6 @@ tr:
             admin: yönetici
             collaborator: işbirlikçi
             moderator: arabulucu
-            valuator: Bilirkişi
         user:
           fields:
             invitation_accepted_at: Davet kabul edildi
@@ -150,7 +137,6 @@ tr:
           title: Yinelenen katılımcı süreç
       participatory_process_groups:
         destroy:
-          error: Katılımcı süreç grubu yok edilirken bir hata oluştu.
           success: Katılımcı süreç grubu başarıyla silindi.
         edit:
           title: İşlem grubunu düzenle
@@ -292,11 +278,6 @@ tr:
           title: Katılımcı bir süreç nedir?
     menu:
       processes: Süreçler
-    metrics:
-      participatory_processes:
-        description: Bu kuruluştaki katılımcı süreçlerin sayısı
-        object: katılımcı süreçler
-        title: Katılımcı süreçler
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -342,13 +323,9 @@ tr:
           form:
             announcement_help: Buraya girdiğiniz metin, işlem bilgilerinin hemen altındaki kullanıcıya gösterilecektir.
             duration: süre
-            filters: Filtreler
             images: Görüntüler
             metadata: Meta veri
-            other: Diğer
             related_processes: İlgili süreçler
-            scope_type_max_depth_help: Kapsam filtresi derinliğini sınırlayın; Filtre genelden seçilen kapsam türüne kadar gösterilecektir.
-            select_an_area: Bir alan seçin
             select_process_group: Bir işlem grubu seçin
             title: Genel bilgi
       content_blocks:
@@ -356,11 +333,6 @@ tr:
           name: Vurgulanan süreçler
       index:
         title: Katılımcı süreçler
-      last_activity:
-        new_participatory_process: Yeni katılımcı süreç
-      participatory_process_steps:
-        index:
-          back_to_process: Süreç sayfasına geri dön
       participatory_processes:
         filters:
           counters:

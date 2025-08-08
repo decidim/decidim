@@ -40,7 +40,7 @@
 
   &__block {
     &-map {
-      @apply aspect-[2/1] md:aspect-[4/1] rounded overflow-hidden [&>*]:h-full;
+      @apply mb-4 aspect-[2/1] md:aspect-[4/1] rounded overflow-hidden [&>*]:h-full;
     }
 
     &-list {

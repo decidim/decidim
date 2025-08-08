@@ -1,0 +1,74 @@
+pl:
+  decidim:
+    admin:
+      menu:
+        elections_menu:
+          election_census: Lista wyborców
+          election_questions: Pytania
+    components:
+      elections:
+        actions:
+          create: Utwórz
+          destroy: Usuń
+          update: Aktualizuj
+        name: Wybory
+        settings:
+          global:
+            announcement: Ogłoszenie
+          step:
+            announcement: Ogłoszenie
+    elections:
+      actions:
+        title: Działania
+      admin:
+        census:
+          edit:
+            created_at: Utworzono
+        dashboard:
+          census:
+            title: Lista wyborców
+          main:
+            labels:
+              description: Opis
+          questions:
+            labels:
+              answers: Odpowiedzi
+            title: Pytania
+          questions_table:
+            answer: Odpowiedzi
+            votes: Głosy
+          results:
+            publish_button: Opublikuj wyniki
+            title: Wyniki głosowania
+          status:
+            title: Status wyborów
+        elections:
+          edit:
+            title: Edytuj wybory
+          form:
+            add_images: Dodaj obrazy
+            publish: Opublikuj
+          index:
+            title: Wybory
+          new:
+            title: Nowe wybory
+        questions:
+          edit_questions:
+            new_question: Nowe pytanie
+            title: Pytania
+        statuses:
+          publish_results:
+            invalid: Wystąpił błąd podczas publikowania wyników.
+      models:
+        election:
+          fields:
+            census: Lista wyborców
+            status: Status
+            title: Tytuł
+      status:
+        active: Aktywne
+        finished: Zakończone
+        ongoing: W toku
+        unpublished: Nieopublikowany
+    statistics:
+      elections_count: Wybory

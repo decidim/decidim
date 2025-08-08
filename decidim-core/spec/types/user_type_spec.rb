@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
+require "decidim/api/test"
 
 module Decidim
   module Core
@@ -9,6 +9,33 @@ module Decidim
       include_context "with a graphql class type"
 
       let(:model) { create(:user, :confirmed) }
+
+      describe "unconfirmed user" do
+        let(:model) { create(:user) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
+
+      describe "deleted user" do
+        let(:model) { create(:user, :confirmed, :deleted) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
+
+      describe "moderated user" do
+        let(:model) { create(:user, :confirmed, :blocked) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
 
       describe "name" do
         let(:query) { "{ name }" }
@@ -50,7 +77,7 @@ module Decidim
         let(:query) { "{ avatarUrl }" }
 
         it "returns the user avatar url (small version)" do
-          expect(response).to include("avatarUrl" => model.attached_uploader(:avatar).path(variant: :thumb))
+          expect(response).to include("avatarUrl" => model.attached_uploader(:avatar).variant_url(:thumb))
         end
       end
 
@@ -65,7 +92,7 @@ module Decidim
           let(:model) { create(:user, :confirmed, :deleted) }
 
           it "returns empty" do
-            expect(response).to include("profilePath" => "/")
+            expect(response).to be_nil
           end
         end
       end
@@ -91,30 +118,6 @@ module Decidim
 
         it "returns the user's organization name" do
           expect(response["organizationName"]["translation"]).to eq(translated(model.organization.name))
-        end
-      end
-
-      describe "groups" do
-        let(:query) { "{ ...on User { groups { id nickname } } }" }
-        let(:model) { membership.user }
-        let(:user_group) { membership.user_group }
-
-        context "when user accepted in the group" do
-          let(:membership) { create(:user_group_membership, role: "member") }
-
-          it "returns the user's groups" do
-            groups = response["groups"]
-            expect(groups).to include("id" => user_group.id.to_s, "nickname" => "@#{user_group.nickname}")
-          end
-        end
-
-        context "when user is not accepted yet in the group" do
-          let(:membership) { create(:user_group_membership, role: "requested") }
-
-          it "returns no groups" do
-            groups = response["groups"]
-            expect(groups).to eq([])
-          end
         end
       end
     end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
+require "decidim/api/test"
 
 module Decidim
   module Conferences
@@ -54,7 +54,7 @@ module Decidim
         let(:query) { "{ logo }" }
 
         it "returns the logo for this partner" do
-          expect(response["logo"]).to eq(model.attached_uploader(:logo).path)
+          expect(response["logo"]).to be_blob_url(model.logo.blob)
         end
       end
 

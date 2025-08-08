@@ -28,7 +28,7 @@ module Decidim
       # Returns nothing.
       def attachments_attribute(name)
         attribute name, Array[Integer]
-        attribute "add_#{name}".to_sym, Array
+        attribute :"add_#{name}", Array
 
         # Define the getter method that fetches the attachment records based on
         # their types. For Strings and Integers, assumes they are IDs and will

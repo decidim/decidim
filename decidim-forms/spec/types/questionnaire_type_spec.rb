@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
-require "decidim/core/test/shared_examples/timestamps_interface_examples"
+require "decidim/api/test"
 
 module Decidim
   module Forms
@@ -25,6 +24,25 @@ module Decidim
 
         it "returns the questionnaire's title" do
           expect(response["title"]["translation"]).to eq(model.title["ca"])
+        end
+      end
+
+      describe "published_at" do
+        let(:query) { "{ publishedAt }" }
+
+        context "when is set" do
+          let(:model) { create(:questionnaire, published_at: Time.current.utc) }
+
+          it "returns the publishedAt field" do
+            expect(response["publishedAt"]).to eq(model.published_at.to_time.iso8601)
+          end
+        end
+
+        context "when is not set" do
+          it "returns the publishedAt field" do
+            expect(response["publishedAt"]).to eq(model.published_at)
+            expect(response["publishedAt"]).to be_nil
+          end
         end
       end
 
@@ -54,14 +72,25 @@ module Decidim
 
       describe "forEntity" do
         let(:query) { "{ forEntity { id } }" }
-        let(:meeting) { create(:meeting) }
 
         before do
           model.update(questionnaire_for: meeting)
         end
 
-        it "returns the questionnaire's entity corresponding to questionnaire_for_id" do
-          expect(response["forEntity"]["id"]).to eq(model.questionnaire_for.id.to_s)
+        context "when meeting is published" do
+          let(:meeting) { create(:meeting, :published) }
+
+          it "returns the questionnaire's entity corresponding to questionnaire_for_id" do
+            expect(response["forEntity"]["id"]).to eq(model.questionnaire_for.id.to_s)
+          end
+        end
+
+        context "when meeting is no published" do
+          let(:meeting) { create(:meeting) }
+
+          it "returns the questionnaire's entity corresponding to questionnaire_for_id" do
+            expect(response["forEntity"]).to be_nil
+          end
         end
       end
     end

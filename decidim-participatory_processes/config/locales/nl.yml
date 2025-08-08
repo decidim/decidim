@@ -4,7 +4,6 @@ nl:
       participatory_process:
         announcement: Aankondiging
         area_id: Onderwerp
-        banner_image: Bannerafbeelding
         copy_categories: Categorieën kopiëren
         copy_components: Kopieer onderdelen
         copy_steps: Kopieer stappen
@@ -13,7 +12,6 @@ nl:
         developer_group: Organisator
         domain: Domein
         end_date: Einddatum
-        hashtag: Hashtag
         hero_image: Afbeelding van de startpagina
         local_area: Organisatiegebied
         meta_scope: Omvang metadata
@@ -23,12 +21,7 @@ nl:
         promoted: Gepromoveerd
         published_at: Gepubliceerd op
         related_process_ids: Verwante thema's
-        scope_id: Scope
-        scope_type_max_depth_id: Scope filterdiepte
-        scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
-        show_metrics: Toon statistieken
-        show_statistics: Toon statistieken
         slug: URL pad
         start_date: Startdatum
         subtitle: Ondertitel
@@ -39,7 +32,6 @@ nl:
         description: Beschrijving
         developer_group: Promoter groep
         group_url: Website
-        hashtag: Hashtag
         hero_image: Afbeelding
         local_area: Organisatiegebied
         meta_scope: Scope metadata
@@ -78,7 +70,6 @@ nl:
     admin:
       actions:
         activate: Activeren
-        configure: Configureren
         confirm_destroy: Bevestig verwijderen
         destroy: Verwijder
         duplicate: Dupliceren
@@ -96,16 +87,13 @@ nl:
         participatory_process_groups: Inspraakproces groepen
         participatory_process_groups_submenu:
           info: Info
-          landing_page: Landingspagina
         participatory_processes: Inspraakprocessen
         participatory_processes_submenu:
           attachment_collections: Mappen
           attachment_files: Bestanden
           attachments: Bijlagen
-          categories: Categorieën
           components: Onderdelen
           moderations: Moderaties
-          private_users: Privégebruikers
           process_admins: Admins van het proces
           steps: Stappen
       models:
@@ -136,7 +124,6 @@ nl:
             admin: Administrator
             collaborator: Medewerker
             moderator: Moderator
-            valuator: Beoordelaar
         user:
           fields:
             invitation_accepted_at: Uitnodiging geaccepteerd op
@@ -148,7 +135,6 @@ nl:
           title: Inspraakproces dupliceren
       participatory_process_groups:
         destroy:
-          error: Er is een fout opgetreden tijdens het vernietigen van de Participatory procesgroep.
           success: Participatieve procesgroep succesvol verwijderd.
         edit:
           title: Bewerk groep
@@ -289,11 +275,6 @@ nl:
           title: Wat is een participatief proces?
     menu:
       processes: Inspraakprocessen
-    metrics:
-      participatory_processes:
-        description: Aantal participatieve processen in deze organisatie
-        object: participatieve processen
-        title: Participatieve processen
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -336,13 +317,9 @@ nl:
           form:
             announcement_help: De tekst die u hier invoert, wordt rechts onder de procesinformatie aan de gebruiker getoond.
             duration: Duur
-            filters: Filters
             images: Afbeeldingen
             metadata: Metadata
-            other: Overige
             related_processes: Verwante thema's
-            scope_type_max_depth_help: Beperk de scope filter diepte; de filter zal uit het algemeen worden weergegeven tot het geselecteerde scope type.
-            select_an_area: Selecteer een onderwerp
             select_process_group: Selecteer een procesgroep
             title: Algemene informatie
       content_blocks:
@@ -350,11 +327,6 @@ nl:
           name: Uitgelichte processen
       index:
         title: Inspraakproces
-      last_activity:
-        new_participatory_process: Nieuw participatief proces
-      participatory_process_steps:
-        index:
-          back_to_process: Terug naar de procespagina
       participatory_processes:
         filters:
           counters:

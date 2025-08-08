@@ -8,21 +8,16 @@ module Decidim
     # zipped file.
     #
     # user        - The user to be notified.
-    # export_name - The name of the export.
-    # export_data - The data containing the result of the export.
+    # private_export - The PrivateExport instance where the export data has been attached.
     #
     # Returns nothing.
-    def export(user, export_name, export_data)
+    def export(user, private_export)
       @user = user
       @organization = user.organization
-
-      filename = export_data.filename(export_name)
-      filename_without_extension = export_data.filename(export_name, extension: false)
-
-      attachments["#{filename_without_extension}.zip"] = FileZipper.new(filename, export_data.read).zip
+      @private_export = private_export
 
       with_user(user) do
-        mail(to: "#{user.name} <#{user.email}>", subject: I18n.t("decidim.export_mailer.subject", name: filename))
+        mail(to: "#{user.name} <#{user.email}>", subject: I18n.t("decidim.export_mailer.subject", name: private_export.export_type))
       end
     end
 
@@ -30,13 +25,13 @@ module Decidim
     # the result of a download_your_data export in a zipped file.
     #
     # user - The user to be notified.
+    # private_export - The PrivateExport instance where the export data has been attached.
     #
     # Returns nothing.
-    def download_your_data_export(user, filename, password)
+    def download_your_data_export(user, private_export)
       @user = user
       @organization = user.organization
-      @filename = filename
-      @password = password
+      @private_export = private_export
 
       with_user(user) do
         mail(to: "#{user.name} <#{user.email}>", subject: I18n.t("decidim.export_mailer.subject", name: user.name))

@@ -19,7 +19,7 @@ module Decidim
       helper Decidim::TranslationsHelper
       helper Decidim::IconHelper
       helper Decidim::ResourceHelper
-      helper Decidim::ScopesHelper
+      helper Decidim::TaxonomiesHelper
       helper Decidim::ActionAuthorizationHelper
       helper Decidim::AttachmentsHelper
       helper Decidim::SanitizeHelper
@@ -30,7 +30,7 @@ module Decidim
                     :current_manifest
 
       before_action do
-        enforce_permission_to :read, :component, component: current_component, share_token:
+        enforce_permission_to :read, :component, component: current_component
       end
 
       before_action :redirect_unless_feature_private
@@ -47,10 +47,6 @@ module Decidim
 
       def current_manifest
         @current_manifest ||= current_component.manifest
-      end
-
-      def share_token
-        params[:share_token]
       end
 
       def permission_scope
@@ -73,7 +69,7 @@ module Decidim
       def set_component_breadcrumb_item
         context_breadcrumb_items << {
           label: current_component.name,
-          url: root_path,
+          url: Decidim::EngineRouter.main_proxy(current_component).root_path,
           active: false,
           resource: current_component
         }

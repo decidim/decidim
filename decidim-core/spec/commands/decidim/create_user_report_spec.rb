@@ -12,7 +12,7 @@ module Decidim
       let!(:admin) { create(:user, :admin, :confirmed, organization: current_organization) }
       let!(:admin_no_moderation_mail) { create(:user, :admin, :confirmed, organization: current_organization, email_on_moderations: false) }
       let(:user) { create(:user, :confirmed, organization: current_organization) }
-      let(:form) { ReportForm.from_params(form_params) }
+      let(:form) { ReportForm.from_params(form_params).with_context(current_user: user) }
       let(:form_params) do
         {
           reason: "spam",
@@ -20,7 +20,7 @@ module Decidim
         }
       end
 
-      let(:command) { described_class.new(form, reportable, user) }
+      let(:command) { described_class.new(form, reportable) }
 
       describe "when the form is not valid" do
         before do
@@ -92,7 +92,9 @@ module Decidim
           before do
             expect(form).to receive(:invalid?).at_least(:once).and_return(false)
             (Decidim.max_reports_before_hiding - 1).times do
-              described_class.new(form, reportable, create(:user, organization: current_organization)).call
+              current_user = create(:user, :confirmed, organization: current_organization)
+              form = ReportForm.from_params(form_params).with_context(current_user:)
+              described_class.new(form, reportable).call
             end
           end
 

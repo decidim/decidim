@@ -36,5 +36,21 @@ module Decidim
                       tsearch: { prefix: true }
                     },
                     order_within_rank: "datetime DESC"
+
+    pg_search_scope :autocomplete_search,
+                    against: :content_a,
+                    using: {
+                      tsearch: { prefix: true }
+                    },
+                    order_within_rank: "datetime DESC"
+
+    # Returns the global ID of the resource.
+    def resource_global_id
+      URI::GID.build(
+        app: GlobalID.app,
+        model_name: resource_type,
+        model_id: resource_id
+      ).to_s
+    end
   end
 end

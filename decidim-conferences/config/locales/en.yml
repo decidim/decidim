@@ -3,16 +3,15 @@ en:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Related Assemblies
+        assemblies_ids: Related assemblies
         available_slots: Available slots
         banner_image: Banner image
-        copy_categories: Copy categories
-        copy_components: Copy components
-        copy_features: Copy features
         decidim_scope_id: Scope
         description: Description
+        duplicate_categories: Duplicate categories
+        duplicate_components: Duplicate components
+        duplicate_features: Duplicate features
         end_date: End date
-        hashtag: Hashtag
         hero_image: Home image
         location: Location
         main_logo: Main logo
@@ -22,8 +21,6 @@ en:
         published_at: Published at
         registration_terms: Registration terms
         registrations_enabled: Registrations enabled
-        scope_id: Scope
-        scopes_enabled: Scopes enabled
         short_description: Short description
         show_statistics: Show statistics
         sign_date: Sign date
@@ -69,6 +66,8 @@ en:
         email: Email
         name: Name
         role: Role
+      partner:
+        logo: Logo
     errors:
       models:
         conference_registration_invite:
@@ -90,6 +89,7 @@ en:
     admin:
       actions:
         confirm: Confirm
+        confirm_delete_conference: Are you sure you want to delete this conference? If you change your mind, you can restore it later.
         new_conference: New conference
         new_conference_user_role: New conference admin
         new_media_link: New media link
@@ -97,9 +97,10 @@ en:
         new_registration_type: New registration type
         new_speaker: New speaker
         send_diplomas: Send certificates of attendance
-      conference_copies:
+        view_deleted_conferences: View deleted conferences
+      conference_duplicates:
         new:
-          copy: Copy
+          duplicate: Duplicate
           select: Select which data you would like to duplicate
           title: Duplicate conference
       conference_publications:
@@ -120,13 +121,13 @@ en:
         destroy:
           success: Conference speaker successfully deleted.
         edit:
-          title: Update conference speaker.
+          title: Update conference speaker
           update: Update
         index:
           conference_speakers_title: Conference speakers
         new:
           create: Create
-          title: New conference speaker.
+          title: New conference speaker
         publish:
           invalid: There was a problem publishing this speaker.
           success: Conference speaker successfully published.
@@ -143,13 +144,13 @@ en:
         destroy:
           success: Conference admin successfully removed.
         edit:
-          title: Update conference admin.
+          title: Update conference admin
           update: Update
         index:
           conference_admins_title: Conference admins
         new:
           create: Create
-          title: New conference admin.
+          title: New conference admin
         update:
           error: There was a problem updating this conference admin.
           success: Conference admin successfully updated.
@@ -162,71 +163,81 @@ en:
         exports:
           registrations: Registrations
         form:
+          duration: Duration
+          images: Images
+          metadata: Metadata
+          registrations: Registrations
+          related_spaces: Related spaces
           title: General Information
+          visibility: Visiblity
         index:
           published: Published
           unpublished: Unpublished
+        manage_trash:
+          title: Deleted conferences
         new:
           create: Create
-          title: Conference
+          title: New conference
         update:
           error: There was a problem updating this conference.
           success: Conference successfully updated.
-      conferences_copies:
+      conferences_duplicates:
         create:
           error: There was a problem duplicating this conference.
           success: Conference successfully duplicated.
       media_links:
         create:
           error: There was a problem creating a new media link.
-          success: Media Link successfully created.
+          success: Media link successfully created.
         destroy:
-          success: Media Link successfully deleted.
+          success: Media link successfully deleted.
         edit:
-          title: Update media link.
+          title: Update media link
           update: Update
         index:
-          media_links_title: Media Links
+          media_links_title: Media links
         new:
           create: Create
-          title: Media Link
+          title: Create media link
         update:
           error: There was a problem updating this media link.
-          success: Media Link successfully updated.
+          success: Media link successfully updated.
       menu:
         conferences: Conferences
         conferences_submenu:
           attachment_collections: Folders
           attachment_files: Files
           attachments: Attachments
-          categories: Categories
           components: Components
           conference_admins: Conference admins
           conference_invites: Invites
           conference_speakers: Speakers
-          diploma: Certificate of Attendance
+          diploma: Certificate of attendance
           info: About this conference
-          media_links: Media Links
+          media_links: Media links
           moderations: Moderations
           partners: Partners
-          registration_types: Registration Types
+          registration_types: Registration types
           registrations: Registrations
           see_conference: See conference
-          user_registrations: User Registrations
+          user_registrations: User registrations
       models:
         conference:
           fields:
+            actions: Actions
             created_at: Created at
             published: Published
             title: Title
         conference_speaker:
           fields:
+            actions: Actions
             affiliation: Affiliation
             full_name: Full name
             position: Position
           name: Conference Speaker
         conference_user_role:
           fields:
+            actions: Actions
             email: Email
             name: Name
             role: Role
@@ -234,16 +245,18 @@ en:
           roles:
             admin: Administrator
             collaborator: Collaborator
+            evaluator: Evaluator
             moderator: Moderator
-            valuator: Valuator
         media_link:
           fields:
+            actions: Actions
             date: Date
             link: Link
             title: Title
-          name: Media Link
+          name: Media link
         partner:
           fields:
+            actions: Actions
             link: Link
             logo: Logo
             name: Name
@@ -254,6 +267,7 @@ en:
             main_promotor: Main promotor
         registration_type:
           fields:
+            actions: Actions
             conference_meetings: Conference meetings
             price: Price
             registrations_count: Registrations count
@@ -267,7 +281,7 @@ en:
         destroy:
           success: Conference partner successfully removed.
         edit:
-          title: Update partner.
+          title: Update partner
           update: Update
         new:
           create: Create
@@ -289,7 +303,7 @@ en:
         destroy:
           success: Conference registration type successfully removed.
         edit:
-          title: Update registration type.
+          title: Update registration type
           update: Update
         new:
           create: Create
@@ -297,13 +311,21 @@ en:
         update:
           error: There was a problem updating a registration type for this conference.
           success: Conference registration type successfully updated.
+      taxonomy_filters:
+        space_filter_for:
+          conferences: All conferences
       titles:
         conferences: Conferences
+        conferences_deleted: Deleted conferences
+      tooltips:
+        deleted_conferences_info: Conferences can only be deleted if status is "Unpublished".
     admin_log:
       conference:
         create: "%{user_name} created the %{resource_name} conference"
         publish: "%{user_name} published the %{resource_name} conference"
+        restore: "%{user_name} restored the %{resource_name} conference"
         send_conference_diplomas: "%{user_name} sent certificates of attendance to the %{resource_name} conference atendees"
+        soft_delete: "%{user_name} moved to trash the %{resource_name} conference"
         unpublish: "%{user_name} unpublished the %{resource_name} conference"
         update: "%{user_name} updated the %{resource_name} conference"
         update_diploma: "%{user_name} updated the certificates of attendance configuration for %{resource_name} conference"
@@ -340,7 +362,7 @@ en:
         title: Speakers
     conferences:
       admin:
-        conference_copies:
+        conference_duplicates:
           form:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         conference_invites:
@@ -374,17 +396,20 @@ en:
         conferences:
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
+            define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
+            no_taxonomy_filters_found: No taxonomy filters found.
             registrations_count:
               one: There has been 1 registration.
-              other: There has been %{count} registrations.
+              other: There have been %{count} registrations.
             slug_help_html: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            taxonomies: Taxonomies
         content_blocks:
           highlighted_conferences:
             max_results: Maximum amount of elements to show
         diplomas:
           edit:
             save: Save
-            title: Certificate of Attendance
+            title: Certificate of attendance
         invite_join_conference_mailer:
           invite:
             decline: Decline invitation '%{conference_title}'
@@ -404,7 +429,7 @@ en:
             diploma_html: You will be find the certificate of attendance for the conference <a href="%{url}">%{title}</a> in the attachments.
           diploma_user:
             attendance_verified_by: Attendance verified by
-            certificate_of_attendance: Certificate of Attendance
+            certificate_of_attendance: Certificate of attendance
             certificate_of_attendance_description: This is to certify that <strong>%{user}</strong> has attended and taken part in the <strong>%{title}</strong> held at the <strong>%{location}</strong> on <strong>%{start} - %{end}</strong>
         send_diploma:
           error: There was a problem sending the conference certificates of attendance.
@@ -474,6 +499,8 @@ en:
           name: Highlighted conferences
       index:
         title: Conferences
+      last_activity:
+        new_conference: 'New conference:'
       mailer:
         conference_registration_mailer:
           confirmation:
@@ -500,6 +527,7 @@ en:
             sent: Sent
         conference_registration:
           fields:
+            actions: Actions
             email: Email
             name: Name
             registration_type: Registration type
@@ -524,6 +552,25 @@ en:
         objectives: Objectives
         related_assemblies: Related assemblies
         related_participatory_processes: Related participatory processes
+    download_your_data:
+      help:
+        conference_invites:
+          accepted_at: The date when the conference invitation was accepted
+          conference: The conference where this invitation was sent
+          confirmed_at: The date when this invitation was confirmed
+          created_at: The date when this invitation was created
+          id: The unique identifier of the conference invitation
+          registration_type: The type of the registration for this conference that was sent
+          rejected_at: The date when the conference invitation was rejected
+          sent_at: The date when this conference invitation was sent
+          updated_at: The date when this invitation was updated for the last time
+        conference_registrations:
+          conference: The conference that this belongs to
+          confirmed_at: The date when this registration was confirmed
+          created_at: The date when this registration was created
+          id: The unique identifier of the conference regisrations
+          registration_type: The type of registration that this belongs to
+          updated_at: The date when this registration was updated for the last time
     events:
       conferences:
         conference_registration_confirmed:
@@ -571,8 +618,35 @@ en:
         title: Media and Links
     menu:
       conferences: Conferences
+    open_data:
+      help:
+        conferences:
+          created_at: The date this space was created
+          decidim_scope_id: The scope of the conference
+          description: A long description of the conference
+          end_date: The date when this conference ends.
+          follows_count: The number of users following this space
+          id: The unique identifier of this conference
+          location: The conference location. Where this conference will take place.
+          objectives: The objectives for this conference. What is the goal.
+          promoted: Wheter the conference is promoted or not
+          published_at: The date this space was published
+          reference: The unique reference of the space
+          remote_banner_image_url: The URL of the conference banner image
+          remote_hero_image_url: The URL of the conference hero image
+          scope: The scope of the conference
+          scopes_enabled: Weather the scopes are enabled or not
+          short_description: A short description of the conference
+          slogan: The slogan for this conference
+          slug: The conference slug (used for identification purposes, for the URL)
+          start_date: The date when this conference starts.
+          taxonomies: The taxonomies of the conference
+          title: The conference title
+          updated_at: The last date this space was updated
+          url: The URL of the space
     statistics:
       conferences_count: Conferences
+      conferences_count_tooltip: The number of published conferences.
   devise:
     mailer:
       join_conference:

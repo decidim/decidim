@@ -1,0 +1,32 @@
+<div class="response-questionnaire__single-option js-radio-button-collection">
+  <% choice = response.choices.first %>
+
+  <% response.question.response_options.each_with_index do |response_option, idx| %>
+    <% choice_id = "#{field_id}_choices_#{idx}" %>
+
+    <div class="js-collection-input">
+      <%= label_tag "#{choice_id}_body" do %>
+        <%= radio_button_tag "questionnaire[responses][#{response_idx}][choices][][body]",
+                             translated_attribute(response_option.body),
+                             response_option.id == choice.try(:response_option_id),
+                             id: "#{choice_id}_body", disabled: %>
+
+        <%= translated_attribute(response_option.body) %>
+
+        <%= hidden_field_tag "questionnaire[responses][#{response_idx}][choices][][response_option_id]",
+                             response_option.id,
+                             id: "#{choice_id}_response_option",
+                             disabled: true %>
+      <% end %>
+
+      <% if response_option.free_text %>
+        <%= text_field_tag "questionnaire[responses][#{response_idx}][choices][][custom_body]",
+                           choice.try(:custom_body),
+                           id: "#{choice_id}_custom_body",
+                           disabled: true,
+                           maxlength:,
+                           class: "w-full" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

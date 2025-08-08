@@ -7,6 +7,9 @@ ja:
         organization_name: 組織
         organization_url: 組織のURL
         redirect_uri: リダイレクトURI
+        refresh_tokens: リフレッシュトークン
+        refresh_tokens_enabled: リフレッシュトークンの有効化
+        scopes: 使用可能なスコープ
       organization:
         address: SMTPホスト名
         from_email: メールアドレス
@@ -38,12 +41,28 @@ ja:
   decidim:
     system:
       actions:
+        api_user:
+          hidden_secret: シークレットは非表示です
+          hide_secret: シークレットを非表示にする
+          secret_can_not_be_shown: API シークレットは作成後にしか閲覧またはコピーできません
+          show_secret: シークレットを表示
+          shown_secret: シークレットを表示
+        api_users:
+          create: 作成
+          new: 新しいAPIユーザー
+          remove: ユーザを削除
         confirm_destroy: 削除してもよろしいですか？
+        confirm_refresh_api_secret: この API ユーザーのシークレットを更新してもよろしいですか？ 更新後、古いシークレットは無効になり、使用できなくなります。
+        confirm_remove_api_user: この API ユーザーを削除してもよろしいですか？
+        copied: コピーしました
+        copy_secret: シークレットをコピー
+        copy_secret_clarification: クリップボードにシークレットをコピー
         destroy: 削除
         edit: 編集
         new_admin: 新しい管理者
         new_oauth_application: 新しいOAUTHアプリケーション
         new_organization: 新しい組織
+        refresh_secret: シークレットを更新
         save: 保存
         title: アクション
       admins:
@@ -63,6 +82,25 @@ ja:
         update:
           error: 管理者の更新中に問題が発生しました。
           success: 管理者が正常に更新されました。
+      api_user:
+        create:
+          error: APIユーザーの作成に失敗しました。
+          success: APIユーザーを作成しました。ユーザーのシークレットは作成後のみ表示されます。このページを離れる前にコピーして安全に保存してください！
+        destroy:
+          success: APIユーザーを削除しました。
+        refresh:
+          error: 問題が発生しました。後ほど改めてお試しください。
+          success: シークレットを更新しました。ユーザーのシークレットは作成後にのみ表示されます。このページを離れる前にコピーして安全に保管してください！
+      api_users:
+        index:
+          explanation_html: |
+            <p>APIユーザーは、インテグレーション開発者が管理用のマシンユーザーアカウントをシステムに追加できるようにするものです。これらのマシンユーザーは、通常の管理者が管理画面から行う操作を、プラットフォーム上で実行できる管理者として機能します。一般的なユースケースとしては、外部の管理プラットフォームから自動スクリプトが管理業務を実行し、実際のユーザーが認証することなくプラットフォーム上で処理を行う、といったものが挙げられます。たとえば、自動化システムが提案への回答を送信したい場合、そのタスクをこのプラットフォーム上で実行するためにインテグレーションユーザーが必要になります。</p>
+            <p>これらのアカウントと通常の管理者アカウントの主な違いは、マシンによる利用を想定しているため、パスワード要件が異なることです。これらのユーザーは定期的にパスワードを変更する必要はなく、必要に応じて管理された方法でパスワードを変更できます。</p>
+            <p>これらの認証情報はマシンによる利用を想定しています。参加者向けのアプリケーションとの連携には、<a href="%{oauth_link}">OAuthアプリケーション</a> をご利用ください。</p>
+          manage: API ユーザーの管理
+        new:
+          select_organization: 組織を選択
+          title: 新しいAPIユーザーを作成
       dashboard:
         show:
           admins: 管理者
@@ -88,9 +126,10 @@ ja:
             did_not_receive_unlock_instructions?: ロック解除メールを受信できませんでしたか？
             forgot_your_password?: パスワードをお忘れですか？
             log_in: ログイン
-            sign_up: 新規登録
+            sign_up: アカウントを作成
       menu:
         admins: 管理者
+        api_credentials: API認証情報
         dashboard: ダッシュボード
         oauth_applications: OAuthアプリケーション
         organizations: 組織
@@ -101,6 +140,15 @@ ja:
             email: Eメールアドレス
           validations:
             email_uniqueness: 同じメールアドレスを持つ別の管理者が既に存在します
+        api_user:
+          fields:
+            created_at: 作成日時
+            key: キー
+            name: 名前
+            organization: 組織
+            secret: シークレット
+          validations:
+            name_uniqueness: この名前のAPIユーザーは既に存在します。
         oauth_application:
           fields:
             created_at: 作成日時
@@ -127,6 +175,25 @@ ja:
           save: 保存
           title: アプリケーションを編集
         form:
+          application_type:
+            confidential:
+              explanation: 認可サーバーに対して安全に認証できるアプリケーション（たとえば、登録されたクライアントシークレットを安全に保持できるアプリケーション）を指します。一般的には、クライアントシークレットを保管しているサーバー上で動作するアプリケーションが該当します。
+              name: コンフィデンシャル
+            public:
+              explanation: ブラウザやモバイルデバイスで動作するアプリケーションなど、登録済みのクライアントシークレットを使用できないアプリケーション。
+              name: パブリック
+          application_type_help_html: 'OAuthクライアントの種別は、<a href="%{client_type_link}" target="_blank">RFC 6749 セクション 2.1</a> で定義されています。パブリッククライアントは、<a href="%{pkce_link}" target="_blank">RFC 7636</a> で定義されている PKCE フローを実装する必要があります。'
+          refresh_tokens_help_html: 'リフレッシュトークンは、アクセストークンに割り当てられた有効期間よりも長い有効期間が必要な場合に便利です。なお、<strong>リフレッシュトークンの利用には注意が必要です</strong>。不適切に扱うと、ユーザーのセキュリティを弱める可能性があります。 '
+          scopes_explanation:
+            "api:read": GraphQL API を使用してクエリ操作を実行できます。
+            "api:write": GraphQL API を介して変更操作を実行できるようになります。
+            profile: ユーザー自身のプロフィール情報へのアクセスを許可します。OAuthアプリケーションをアイデンティティプロバイダーや認証サービスとしてのみ利用する場合は、このスコープだけで十分です。
+            user: "GraphQL API への呼び出し時に、与えられたトークンを使用してサインイン中のユーザーとして操作を行うための権限です。これは、現在のユーザーに関する情報を必要とするすべての api:write 操作や api:read 操作に必要です。\n"
+          scopes_help_html: |
+            選択したスコープは、認可プロセス中に接続されたアプリケーションがリクエストできるようになります。ユーザーが OAuth を利用してサインインする際には、認可リクエストの詳細が表示されます。 <br>
+            スコープによって、付与されたアクセストークンを用いた認証後に利用できる機能が異なります。 <br> 
+            <strong>注意:</strong> 外部アプリケーションでユーザー認証のみを行いたい場合は、<strong>profile</strong> スコープだけで十分です。Decidim API と連携するアプリケーションには、他のスコープも必要になります。
+
           select_organization: 組織を選択
         index:
           confirm_delete: このアプリケーションを削除してもよろしいですか？
@@ -214,6 +281,7 @@ ja:
           intro: |
             これらの設定を変更する場合は、余分に注意してください。許可する数が少ないほど好ましいです。
             特定のファイル拡張子や MIME タイプを許可することは、システムユーザーをセキュリティリスクにさらす可能性があり、ウェブサイトのアクセシビリティにも影響を与える可能性があります。
+        header_snippets_help_html: このフィールドは、HTML の head 内に要素を追加するために使用します。最も一般的な用途は、追加の JavaScript や CSS を必要とするサードパーティサービスの統合です。また、HTML に追加のメタタグを挿入することもできます。なお、この内容は公開ページのみに反映され、管理セクションでは表示されません。もしコードが外部 API と連携したり、アプリケーションのセキュリティガイドラインに準拠していない場合は、Content Security Policy（CSP）の変更が必要になります。詳しくは<a href="https://docs.decidim.org/develop/en/customize/content_security_policy">ドキュメントサイト</a>をご覧ください。
         index:
           title: 組織
         new:
@@ -258,8 +326,8 @@ ja:
           success: 組織が更新されました。
         users_registration_mode:
           disabled: 外部アカウントでのみアクセスできます
-          enabled: 参加者に登録とログインを許可する
-          existing: 参加者が登録することはできませんが、既存の参加者はログインできるようにします
+          enabled: 参加者がアカウントを作成してログインできるようにする
+          existing: 参加者が新しくアカウントを作成することはできませんが、既存の参加者はログインできるようにします
       shared:
         notices:
           no_organization_warning_html: 開始するには組織を作成する必要があります。先に進む前に %{guide} を読んでください。

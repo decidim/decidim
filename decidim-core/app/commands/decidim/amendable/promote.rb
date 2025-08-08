@@ -4,6 +4,8 @@ module Decidim
   module Amendable
     # A command with all the business logic when a user promotes a rejected emendation.
     class Promote < Decidim::Command
+      delegate :current_user, to: :form
+
       # Public: Initializes the command.
       #
       # emendation - The emendation to promote.
@@ -14,7 +16,6 @@ module Decidim
         @emendation = form.emendation
         @amendable = form.amendable
         @amender = form.amender
-        @current_user = form.current_user
       end
 
       # Executes the command. Broadcasts these events:
@@ -37,7 +38,7 @@ module Decidim
 
       private
 
-      attr_reader :form, :amendment, :amender, :current_user
+      attr_reader :form, :amendment, :amender
 
       # The log of this action contains unique information:
       # extra_log_info = { promoted_from: emendation.id }

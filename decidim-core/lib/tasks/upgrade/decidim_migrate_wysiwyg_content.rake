@@ -7,7 +7,7 @@ namespace :decidim do
       # Core
       Decidim::Upgrade::WysiwygMigrator.register_model(
         "Decidim::Organization",
-        [:description, :omnipresent_banner_short_description, :highlighted_content_banner_short_description, :welcome_notification_body, :admin_terms_of_service_body]
+        [:description, :omnipresent_banner_short_description, :welcome_notification_body, :admin_terms_of_service_body]
       )
       Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::Category", [:description])
       Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::ContextualHelpSection", [:content])
@@ -27,7 +27,7 @@ namespace :decidim do
       # Components
       Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::Accountability::Result", [:description])
       Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::Accountability::Status", [:description])
-      Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::Accountability::TimelineEntry", [:description])
+      Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::Accountability::Milestone", [:description])
       Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::Blogs::Post", [:body])
       Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::Budgets::Budget", [:description])
       Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::Budgets::Project", [:description])

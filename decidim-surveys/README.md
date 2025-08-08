@@ -1,12 +1,12 @@
 # Decidim::Surveys
 
-The Surveys module adds one new component to Decidim: defining and answering surveys.
+The Surveys module adds one new component to Decidim: defining and responding surveys.
 
 The main features are:
 
 * Admins can define a Survey.
-* Users can participate on these surveys by answering from the public page.
-* Admins can download the answers by CSV.
+* Users can participate on these surveys by responding from the public page.
+* Admins can download the responses by CSV.
 
 ## Usage
 

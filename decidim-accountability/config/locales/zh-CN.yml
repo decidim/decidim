@@ -8,8 +8,6 @@ zh-CN:
         description: 描述
         end_date: 结束日期
         progress: 进展情况
-        project_ids: 包括项目
-        proposals: 包括的建议
         start_date: 开始日期
         title: 标题
         updated_at: 更新于
@@ -18,9 +16,6 @@ zh-CN:
         key: 关键字
         name: 名称
         progress: 进展情况
-      timeline_entry:
-        description: 描述
-        entry_date: 日期
     models:
       decidim/accountability/proposal_linked_event: 结果中包括的提案
       decidim/accountability/result_progress_updated_event: 结果进度更新
@@ -35,7 +30,6 @@ zh-CN:
         destroy: 删除
         edit: 编辑
         preview: 预览
-        timeline_entries: 项目进化
         title: 行动
       admin:
         exports:
@@ -69,15 +63,6 @@ zh-CN:
           new:
             create: 创建状态
             title: 新状态
-        timeline_entries:
-          edit:
-            title: 编辑条目
-            update: 更新条目
-          index:
-            title: 项目时间表条目
-          new:
-            create: 创建条目
-            title: 新建条目
       admin_log:
         result:
           create: "%{user_name} 在 %{resource_name} 创建了结果 %{space_name}"
@@ -106,29 +91,17 @@ zh-CN:
             key: 关键字
             name: 名称
             progress: 进展情况
-        timeline_entry:
-          fields:
-            entry_date: 日期
       results:
         count:
           results_count:
             other: "%{count} 个结果"
-        filters:
-          all: 所有的
-        home:
-          categories_label: 类别管理
-          subcategories_label: 子类别
         home_header:
           global_status: 全局执行状态
-        nav_breadcrumb:
-          global: 全局执行
         search:
           search: 搜索操作
         show:
           stats:
             back_to_resource: 返回结果
-        timeline:
-          title: 项目进化
     components:
       accountability:
         name: 问责制
@@ -138,8 +111,6 @@ zh-CN:
             comments_max_length: 评论最大长度 (默认值留0)
             display_progress_enabled: 显示进度
             intro: 简介
-            scope_id: 范围
-            scopes_enabled: 范围已启用
           step:
             comments_blocked: 评论已阻止
     events:
@@ -154,11 +125,6 @@ zh-CN:
           email_outro: 您收到此通知是因为您正在关注"%{proposal_title}"，此建议包含在结果"%{resource_title}"中。 您可以停止接收跟随上一个链接的通知。
           email_subject: 更新到 %{resource_title} 进度
           notification_title: 结果 <a href="%{resource_path}">%{resource_title}</a>, 其中包括提议 <a href="%{proposal_path}">%{proposal_title}</a>, 现在已完成 %{progress}%。
-    metrics:
-      results:
-        description: 生成的结果数
-        object: 结果
-        title: 成果
     participatory_spaces:
       highlighted_results:
         see_all: 查看所有结果 (%{count})

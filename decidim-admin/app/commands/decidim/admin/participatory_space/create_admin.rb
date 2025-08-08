@@ -114,7 +114,7 @@ module Decidim
                    current_user: user
                  )
 
-          Decidim::CreateFollow.new(form, user).call
+          Decidim::CreateFollow.new(form).call
         end
 
         def existing_user

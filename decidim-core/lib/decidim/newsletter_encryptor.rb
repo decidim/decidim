@@ -13,8 +13,8 @@ module Decidim
     end
 
     def self.crypt_data
-      key = ActiveSupport::KeyGenerator.new("sent_at").generate_key(
-        Rails.application.secrets.secret_key_base, ActiveSupport::MessageEncryptor.key_len
+      key = ActiveSupport::KeyGenerator.new("sent_at", hash_digest_class: OpenSSL::Digest::SHA1).generate_key(
+        Rails.application.secret_key_base, ActiveSupport::MessageEncryptor.key_len
       )
       ActiveSupport::MessageEncryptor.new(key)
     end

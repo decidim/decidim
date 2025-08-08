@@ -6,8 +6,6 @@ module Decidim
   module Sortitions
     module Admin
       describe SortitionsController do
-        routes { Decidim::Sortitions::AdminEngine.routes }
-
         let(:component) { sortition.component }
         let(:sortition) { create(:sortition) }
         let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }
@@ -46,7 +44,7 @@ module Decidim
         end
 
         describe "create" do
-          let(:decidim_category_id) { nil }
+          let(:decidim_taxonomy_ids) { nil }
           let(:dice) { ::Faker::Number.between(from: 1, to: 6) }
           let(:target_items) { ::Faker::Number.between(from: 1, to: 10) }
           let(:params) do
@@ -54,7 +52,7 @@ module Decidim
               participatory_process_slug: sortition.component.participatory_space.slug,
               sortition: {
                 decidim_proposals_component_id:,
-                decidim_category_id:,
+                decidim_taxonomy_ids:,
                 dice:,
                 target_items:,
                 title: {

@@ -55,15 +55,8 @@ describe "Admin imports assembly" do
       expect(page).to have_content("Unpublished")
 
       within "tr", text: "Import assembly" do
-        click_on "Configure"
-      end
-
-      within_admin_sidebar_menu do
-        click_on "Categories"
-      end
-      within ".table-list" do
-        expect(page).to have_content(translated("Veritatis provident nobis reprehenderit tenetur."))
-        expect(page).to have_content(translated("Quidem aliquid reiciendis incidunt iste."))
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
       end
 
       within_admin_sidebar_menu do

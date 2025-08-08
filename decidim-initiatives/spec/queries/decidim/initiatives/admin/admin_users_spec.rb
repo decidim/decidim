@@ -7,7 +7,7 @@ module Decidim::Initiatives
     subject { described_class.new(initiative) }
 
     let(:organization) { create(:organization) }
-    let!(:initiative) { create(:initiative, :published, organization:) }
+    let!(:initiative) { create(:initiative, organization:) }
     let!(:admin) { create(:user, :admin, :confirmed, organization:) }
     let!(:normal_user) { create(:user, :confirmed, organization:) }
     let!(:other_organization_user) { create(:user, :confirmed) }

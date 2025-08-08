@@ -1,0 +1,213 @@
+ja:
+  activemodel:
+    attributes:
+      token_csv:
+        file: ファイル
+        remove_all: 現在のセンサスデータをすべて削除する
+  decidim:
+    admin:
+      menu:
+        elections_menu:
+          basic_elections: メイン
+          election_census: センサス
+          election_dashboard: ダッシュボード
+          election_questions: 質問
+      tooltips:
+        deleted_elections_info: この選挙を削除できません
+        edit_elections_info: この選挙を編集できません
+    components:
+      elections:
+        actions:
+          create: 作成
+          destroy: 削除
+          update: 更新
+        name: 選挙
+        settings:
+          global:
+            announcement: お知らせ
+          step:
+            announcement: お知らせ
+    elections:
+      actions:
+        confirm_delete_election: この選挙を削除してもよろしいですか？
+        confirm_unpublish_election: この選挙を非公開にしてもよろしいですか？
+        deleted_election_info: 削除された選挙はリストに表示されません。下のボタンをクリックすると表示できます。
+        edit: 選挙を編集
+        new: 新しい選挙
+        title: アクション
+        view_deleted_elections: 削除された選挙を表示
+      admin:
+        census:
+          edit:
+            choose_census: この選挙に使用したいセンサスの種類を選択してください
+            created_at: 作成日時
+            identifier: ユーザーID
+            title: センサスの種類
+          preview:
+            title:
+              other: 'ユーザープレビュー（リストは %{count} レコードに制限されています）：'
+          update:
+            error: センサスの作成または保存中にエラーが発生しました。
+            success: センサスを更新しました。
+        dashboard:
+          calendar:
+            end_at: '終了日時：'
+            end_election: 選挙を終了
+            manual_start: マニュアル
+            start_at: '開始日時：'
+            start_election: 選挙を開始
+            title: カレンダー
+          census:
+            title: センサス
+          main:
+            labels:
+              calendar: カレンダー
+              description: 説明
+              image: 画像ギャラリー
+              results: 検索結果が利用可能です
+              title: タイトル
+            title: メイン
+          publish_confirm: この選挙を公開してもよろしいですか？
+          questions:
+            labels:
+              answers: 回答
+              question_title: 質問 %{number}
+            limit_info: この選挙にはさらに多くの質問があります。プレビューは3つの質問に制限されています。
+            title: 質問
+          questions_table:
+            answer: 回答
+            percentage: パーセンテージ
+            votes: 投票
+          results:
+            not_started: 選挙はまだ始まっていません。
+            per_question_waiting: 質問に対する投票はまだ有効になっていません。少なくとも一つは有効になるまで「次の質問を待っています」というメッセージが表示されます。
+            publish_button: 結果を公開
+            results_availability:
+              after_end: 選挙終了後にすべての結果を公開できます。結果は手動で公開するまで非表示になります。
+              per_question: 投票を有効にし、各質問ごとに結果を手動で公開する必要があります。
+              real_time: 結果は選挙中に自動的に表示されます。
+            start_question_button: 投票を有効化
+            title: 結果
+          status:
+            title: 選挙状況
+        elections:
+          create:
+            invalid: 選挙の作成中に問題がありました。
+            success: 選挙を作成しました。
+          dashboard:
+            title: ダッシュボード
+          edit:
+            title: 選挙を編集
+          form:
+            add_images: 画像を追加
+            attachment_legend: 画像ギャラリーを追加 (オプション)
+            basic_title: 基本情報
+            calendar: カレンダー
+            calendar_description: 組織のタイムゾーンが正しいことを確認してください。現在の設定は %{timezone} です。
+            edit_attachments: 添付ファイルを編集
+            end_at: 終了日時
+            manual_start: 手動の開始
+            publish: 公開
+            results_availability:
+              after_end: 選挙終了後
+              after_end_help: 選挙が終わったら結果を公表する
+              per_question: 質問ごとの質問
+              per_question_help: 投票を手動で処理し、各質問の結果を公開する
+              real_time: リアルタイム
+              real_time_help: 投票中に自動的に結果を表示する
+              title: 検索結果が利用可能です
+            save: 保存して続ける
+            start_at: 開始日時
+          index:
+            title: 選挙
+          manage_trash:
+            title: 削除された選挙
+          new:
+            title: 新しい選挙
+          publish:
+            invalid: 選挙の公表中に問題が発生しました。
+            success: 選挙を公開しました。
+          unpublish:
+            invalid: 選挙の非公表中に問題が発生しました。
+            success: 選挙を非公開にしました。
+          update:
+            invalid: 選挙の更新中に問題が発生しました。
+            success: 選挙を更新しました。
+        questions:
+          edit_questions:
+            new_question: 新しい質問
+            remove_question_confirm: この質問を削除してもよろしいですか？
+            title: 質問
+          form:
+            errors:
+              at_least_one_question: 少なくとも 1 つの質問が必要です。
+            form_description: 次のステップに進むには、質問には少なくとも2つの回答が必要です。
+          update:
+            invalid: 質問の更新中に問題が発生しました。
+            success: 質問を更新しました。
+        statuses:
+          enable_voting:
+            invalid: 投票を有効にする際に問題が発生しました。
+            success: 投票が有効になりました。
+          end:
+            invalid: 選挙の終了中に問題が発生しました。
+            success: 選挙を終了しました。
+          publish_results:
+            invalid: 結果の公表中に問題が発生しました。
+            success: 結果を公開しました。
+          start:
+            invalid: 選挙の開始中に問題が発生しました。
+            success: 選挙を開始しました。
+          unknown: 不明な状態
+      admin_log:
+        election:
+          create: "%{user_name} が %{space_name}で %{resource_name} 選挙を作成しました"
+          publish: "%{user_name} が %{space_name}で %{resource_name} 選挙を作成しました"
+          restore: "%{user_name} が %{space_name}で %{resource_name} 選挙を復元しました"
+          soft_delete: "%{user_name} は %{space_name} スペースでの選挙 %{resource_name} をゴミ箱に移動しました"
+          unpublish: "%{user_name} が %{space_name}で %{resource_name} 選挙を非公開にしました"
+          update: "%{user_name} が %{space_name} の %{resource_name} 選挙を更新しました"
+        question:
+          update: "%{user_name} が %{resource_name} 選挙の質問を更新しました"
+      censuses:
+        census_ready_html: センサスデータはアップロードされ、 <b>%{election_title}</b> 選挙での使用に備えられています。
+        census_size_html:
+          other: 現在、 <strong>%{count}</strong> の投票対象者がこの選挙に参加しています（センサスで変更される可能性があります）。
+        internal_users:
+          info_html: |
+            選挙に参加できるのは認証済みの参加者のみに制限することができます。 <br>参加者が投票するには、選択された認証要件を満たす必要があります。すべてのチェックボックスを空のままにすると、登録済みの人なら誰でも投票できるようになります。
+          internal_type_title: 投票するための追加の必要な権限 (任意)
+          label: 登録済み参加者（動的）
+        token_csv:
+          example: |
+            email;token
+            user@example.org;123456
+            user2@example.org;ABCXYZ
+          info_html: |
+            CSVフォーマットのファイルは2つのカラムを持つ必要があります。1つはメールアドレス、もう1つはユーザーが投票するために導入しなければならないトークンの値です。
+            カラムはセミコロン(;)で区切る必要があります
+          label: トークンが登録されていない参加者（固定）
+          remove_before_upload: 新しいセンサスをアップロードする場合、まず既存のセンサスを削除する必要があります。
+          upload_file: ファイルをアップロード
+          upload_new_census: CSVファイルをアップロードする
+      models:
+        election:
+          fields:
+            census: センサス
+            end_at: 終了日時
+            start_at: 開始日時
+            status: ステータス：
+            title: タイトル
+      status:
+        active: 有効
+        finished: 完了
+        ongoing: 進行中
+        results_published: 公開結果
+        scheduled: スケジュール済み
+        unpublished: 未公開
+        voting_enabled: 投票中
+    statistics:
+      elections_count: 選挙
+  time:
+    formats:
+      short_with_time: "%Y/%m/%d %-H:%M"

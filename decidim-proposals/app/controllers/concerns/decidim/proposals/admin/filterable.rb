@@ -13,49 +13,31 @@ module Decidim
 
           private
 
+          delegate :filters, :dynamically_translated_filters, :filters_with_values, to: :filter_config
+
           # Comment about participatory_texts_enabled.
           def base_query
             return collection.order(:position) if current_component.settings.participatory_texts_enabled?
 
-            accessible_proposals_collection
+            return accessible_proposals_collection unless taxonomy_order_or_search?
+
+            # this is a trick to avoid duplicates when using search in associations as suggested in:
+            # https://activerecord-hackery.github.io/ransack/going-further/other-notes/#problem-with-distinct-selects
+            accessible_proposals_collection.includes(:taxonomies).joins(:taxonomies)
           end
 
           def accessible_proposals_collection
-            return collection if current_participatory_space.user_roles(:valuator).where(user: current_user).empty?
+            return collection if current_participatory_space.user_roles(:evaluator).where(user: current_user).empty?
 
-            collection.with_valuation_assigned_to(current_user, current_participatory_space)
+            collection.with_evaluation_assigned_to(current_user, current_participatory_space)
           end
 
           def search_field_predicate
             :id_string_or_title_cont
           end
 
-          def filters
-            [
-              :is_emendation_true,
-              :state_eq,
-              :with_any_state,
-              :scope_id_eq,
-              :category_id_eq,
-              :valuator_role_ids_has
-            ]
-          end
-
-          def filters_with_values
-            {
-              is_emendation_true: %w(true false),
-              state_eq: state_eq_values,
-              with_any_state: %w(state_published state_not_published),
-              scope_id_eq: scope_ids_hash(scopes.top_level),
-              category_id_eq: category_ids_hash(categories.first_class),
-              valuator_role_ids_has: valuator_role_ids
-            }
-          end
-
-          # Cannot user `super` here, because it does not belong to a superclass
-          # but to a concern.
-          def dynamically_translated_filters
-            [:scope_id_eq, :category_id_eq, :valuator_role_ids_has, :proposal_state_id_eq, :state_eq]
+          def filter_config
+            @filter_config ||= Decidim::AdminFilter.new(:proposals).build_for(self)
           end
 
           def translated_state_eq(state)
@@ -68,12 +50,12 @@ module Decidim
             ProposalState.where(component: current_component).pluck(:token) + ["withdrawn"]
           end
 
-          def valuator_role_ids
-            current_participatory_space.user_roles(:valuator).pluck(:id)
+          def evaluator_role_ids
+            current_participatory_space.user_roles(:evaluator).order_by_name.pluck(:id)
           end
 
-          def translated_valuator_role_ids_has(valuator_role_id)
-            user_role = current_participatory_space.user_roles(:valuator).find_by(id: valuator_role_id)
+          def translated_evaluator_role_ids_has(evaluator_role_id)
+            user_role = current_participatory_space.user_roles(:evaluator).find_by(id: evaluator_role_id)
             user_role&.user&.name
           end
         end

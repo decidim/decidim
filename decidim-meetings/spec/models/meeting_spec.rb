@@ -11,14 +11,17 @@ module Decidim::Meetings
 
     it { is_expected.to be_valid }
     it { is_expected.to be_versioned }
+    it { is_expected.to act_as_paranoid }
 
     include_examples "has component"
-    include_examples "has scope"
-    include_examples "has category"
     include_examples "has reference"
     include_examples "resourceable"
     include_examples "reportable"
     include_examples "has comments availability attributes"
+    context "when it has taxonomies" do
+      subject { create(:meeting) }
+      include_examples "has taxonomies"
+    end
 
     it "has an association with one agenda" do
       subject.agenda = build_stubbed(:agenda)
@@ -464,9 +467,9 @@ module Decidim::Meetings
         expect(subject.authored_proposals.map(&:id)).to match_array(proposals.map(&:id))
       end
 
-      context "when proposal linking is disabled" do
+      context "when the proposal module is not installed" do
         before do
-          allow(Decidim::Meetings).to receive(:enable_proposal_linking).and_return(false)
+          allow(Decidim).to receive(:module_installed?).and_return(false)
         end
 
         it "returns an empty array and does not call authored_proposals" do

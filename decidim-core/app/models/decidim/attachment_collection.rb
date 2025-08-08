@@ -11,6 +11,8 @@ module Decidim
     belongs_to :collection_for, polymorphic: true
     has_many :attachments, class_name: "Decidim::Attachment", dependent: :nullify
 
+    delegate :organization, to: :collection_for
+
     default_scope { order(arel_table[:weight].asc) }
 
     def unused?

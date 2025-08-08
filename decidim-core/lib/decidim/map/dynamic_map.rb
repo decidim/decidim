@@ -71,7 +71,7 @@ module Decidim
           content = template.capture { yield }.html_safe if block_given?
 
           template.content_tag(:div, map_html_options) do
-            (content || "")
+            content || ""
           end
         end
 

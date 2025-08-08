@@ -22,8 +22,8 @@ FactoryBot.define do
     description { generate_localized_description(:participatory_process_description, skip_injection:) }
     organization
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") } # Keep after organization
-    banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") } # Keep after organization
     published_at { Time.current }
+    deleted_at { nil }
     meta_scope { generate_localized_word(:participatory_process_meta_scope, skip_injection:) }
     developer_group { generate_localized_title(:participatory_process_developer_group, skip_injection:) }
     local_area { generate_localized_title(:participatory_process_local_area, skip_injection:) }
@@ -31,8 +31,6 @@ FactoryBot.define do
     participatory_scope { generate_localized_title(:participatory_process_participatory_scope, skip_injection:) }
     participatory_structure { generate_localized_title(:participatory_process_participatory_structure, skip_injection:) }
     announcement { generate_localized_title(:participatory_process_announcement, skip_injection:) }
-    show_metrics { true }
-    show_statistics { true }
     private_space { false }
     start_date { Date.current }
     end_date { 2.months.from_now }
@@ -48,6 +46,10 @@ FactoryBot.define do
 
     trait :published do
       published_at { Time.current }
+    end
+
+    trait :trashed do
+      deleted_at { Time.current }
     end
 
     trait :private do
@@ -83,11 +85,6 @@ FactoryBot.define do
       end_date { 2.weeks.from_now }
     end
 
-    trait :with_scope do
-      scopes_enabled { true }
-      scope { create :scope, organization:, skip_injection: }
-    end
-
     trait :with_content_blocks do
       transient { blocks_manifests { [:hero] } }
 
@@ -114,7 +111,6 @@ FactoryBot.define do
     description { generate_localized_description(:participatory_process_group_description, skip_injection:) }
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     organization
-    hashtag { Faker::Internet.slug }
     group_url { Faker::Internet.url }
     developer_group { generate_localized_title(:participatory_process_group_developer_group, skip_injection:) }
     local_area { generate_localized_title(:participatory_process_group_local_area, skip_injection:) }
@@ -189,10 +185,10 @@ FactoryBot.define do
     admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
-      create :participatory_process_user_role,
+      create(:participatory_process_user_role,
              user:,
              participatory_process: evaluator.participatory_process,
-             role: :admin, skip_injection: evaluator.skip_injection
+             role: :admin, skip_injection: evaluator.skip_injection)
     end
   end
 
@@ -206,10 +202,10 @@ FactoryBot.define do
     admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
-      create :participatory_process_user_role,
+      create(:participatory_process_user_role,
              user:,
              participatory_process: evaluator.participatory_process,
-             role: :collaborator, skip_injection: evaluator.skip_injection
+             role: :collaborator, skip_injection: evaluator.skip_injection)
     end
   end
 
@@ -223,14 +219,14 @@ FactoryBot.define do
     admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
-      create :participatory_process_user_role,
+      create(:participatory_process_user_role,
              user:,
              participatory_process: evaluator.participatory_process,
-             role: :moderator, skip_injection: evaluator.skip_injection
+             role: :moderator, skip_injection: evaluator.skip_injection)
     end
   end
 
-  factory :process_valuator, parent: :user, class: "Decidim::User" do
+  factory :process_evaluator, parent: :user, class: "Decidim::User" do
     transient do
       skip_injection { false }
       participatory_process { create(:participatory_process, skip_injection:) }
@@ -240,10 +236,10 @@ FactoryBot.define do
     admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
-      create :participatory_process_user_role,
+      create(:participatory_process_user_role,
              user:,
              participatory_process: evaluator.participatory_process,
-             role: :valuator, skip_injection: evaluator.skip_injection
+             role: :evaluator, skip_injection: evaluator.skip_injection)
     end
   end
 
@@ -252,7 +248,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     user
-    participatory_process { create :participatory_process, organization: user.organization, skip_injection: }
+    participatory_process { create(:participatory_process, organization: user.organization, skip_injection:) }
     role { "admin" }
   end
 end

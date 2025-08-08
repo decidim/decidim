@@ -12,7 +12,7 @@ module Decidim
       def search_form_for(record, options = {}, &)
         options[:builder] ||= SearchFormBuilder
 
-        super(record, options, &)
+        super
       end
     end
   end

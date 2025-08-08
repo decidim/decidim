@@ -1,0 +1,61 @@
+<% field_id = "questionnaire_responses_#{response_idx}" %>
+
+<% if response.question.separator? %>
+
+  <%= render partial: "decidim/forms/questionnaires/responses/#{response.question.question_type}", locals: { response:, response_form:, response_idx:, field_id:, disabled: } %>
+  <%= response_form.hidden_field :question_id %>
+
+<% elsif response.question.title_and_description? %>
+
+  <div class="response-questionnaire__step-heading">
+    <h3 class="h3"><%= translated_attribute(response.question.body) %></h3>
+    <% if translated_attribute(response.question.description).present? %>
+      <div>
+        <%= decidim_sanitize_editor_admin translated_attribute(response.question.description) %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= render partial: "decidim/forms/questionnaires/responses/#{response.question.question_type}", locals: { response:, response_form:, response_idx:, field_id:, disabled: } %>
+  <%= response_form.hidden_field :question_id %>
+
+<% else %>
+
+  <div class="response-questionnaire__question">
+    <%
+    label_options = {
+      class: "response-questionnaire__question-label questionnaire-question",
+      data: { "response-idx": cleaned_response_idx }
+    }
+    label_options[:for] = nil if %w(matrix_single matrix_multiple single_option multiple_option).include?(response.question.question_type)
+    %>
+
+    <%= label_tag field_id, **label_options do %>
+      <%= translated_attribute(response.question.body) %>
+      <% if response.question.mandatory? %>
+        <%= response_form.send(:required_indicator) %>
+      <% end %>
+      <% if response.question.max_choices %>
+        <%= " (#{response.send(:max_choices_label)})" %>
+      <% end %>
+    <% end %>
+
+    <% if translated_attribute(response.question.description).present? %>
+      <div class="response-questionnaire__question-description">
+        <%= decidim_sanitize_editor_admin translated_attribute(response.question.description) %>
+      </div>
+    <% end %>
+
+    <% if response.question.max_choices %>
+      <small class="form-error max-choices-alert"><%= t(".max_choices_alert") %></small>
+    <% end %>
+
+    <% response.errors.full_messages.each do |msg| %>
+      <small class="form-error is-visible"><%= msg %></small>
+    <% end %>
+
+    <%= render partial: "decidim/forms/questionnaires/responses/#{response.question.question_type}", locals: { response:, response_form:, response_idx:, field_id:, disabled:, maxlength: (response.question.max_characters if response.question.max_characters.positive?) } %>
+    <%= response_form.hidden_field :question_id %>
+  </div>
+
+<% end %>

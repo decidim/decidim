@@ -33,7 +33,7 @@ module Decidim
           single_comment: params.fetch("commentId", nil),
           order: options[:order],
           polymorphic: options[:polymorphic]
-        ).to_s
+        )
       end
     end
   end

@@ -73,8 +73,7 @@
             <% if allowed_to? :export_pdf_signatures, :initiative, initiative: current_initiative %>
               <%= link_to t(".export_pdf_signatures"),
                           export_pdf_signatures_initiative_path(current_initiative, format: :pdf),
-                          class: "button button__sm button__secondary",
-                          data: { confirm: t(".confirm") } %>
+                          class: "button button__sm button__secondary" %>
             <% end %>
        </div>
      </div>

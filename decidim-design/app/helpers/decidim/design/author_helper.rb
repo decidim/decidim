@@ -28,7 +28,7 @@ module Decidim
                 values: section_subtitle(title: t("decidim.design.helpers.default"))
               },
               {
-                values: cell("decidim/author", user_item)
+                values: cell("decidim/author", user_item, demo: true)
               },
               {
                 type: :text,
@@ -38,7 +38,7 @@ module Decidim
                 values: section_subtitle(title: t("decidim.design.helpers.compact"))
               },
               {
-                values: cell("decidim/author", user_item, from: authored_item, context_actions: [:date], layout: :compact)
+                values: cell("decidim/author", user_item, from: authored_item, context_actions: [:date], layout: :compact, demo: true)
               },
               {
                 type: :text,
@@ -48,7 +48,7 @@ module Decidim
                 values: section_subtitle(title: t("decidim.design.helpers.avatar"))
               },
               {
-                values: cell("decidim/author", user_item, layout: :avatar)
+                values: cell("decidim/author", user_item, layout: :avatar, demo: true)
               },
               {
                 type: :text,

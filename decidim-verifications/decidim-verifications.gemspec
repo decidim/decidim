@@ -17,11 +17,11 @@ Gem::Specification.new do |s|
     "homepage_uri" => "https://decidim.org",
     "source_code_uri" => "https://github.com/decidim/decidim"
   }
-  s.required_ruby_version = "~> 3.2.0"
+  s.required_ruby_version = "~> 3.3.0"
 
   s.summary = "Decidim verifications module"
   s.description = "Several verification methods for your decidim instance"
-  s.license = "AGPL-3.0"
+  s.license = "AGPL-3.0-or-later"
 
   s.files = Dir.chdir(__dir__) do
     `git ls-files -z`.split("\x0").select do |f|

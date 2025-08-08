@@ -10,5 +10,6 @@ module Decidim
   # This namespace holds the logic of the `Pages` component. This component
   # allows the admins to create a custom page for a participatory process.
   module Pages
+    autoload :PageSerializer, "decidim/pages/page_serializer"
   end
 end

@@ -59,14 +59,14 @@ export default function createEditor(container) {
     };
   }
 
-  if (container.classList.contains("js-hashtags")) {
-    decidimOptions.hashtag = true;
-  }
   if (container.classList.contains("js-mentions")) {
     decidimOptions.mention = true;
   }
   if (container.classList.contains("js-emojis")) {
     decidimOptions.emoji = true;
+  }
+  if (container.classList.contains("js-resource-mentions")) {
+    decidimOptions.mentionResource = true;
   }
 
   const editor = new Editor({

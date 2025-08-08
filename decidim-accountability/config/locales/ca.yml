@@ -1,17 +1,19 @@
 ca:
   activemodel:
     attributes:
+      milestone:
+        description: Descripció
+        entry_date: Data
+        title: Títol
       result:
         decidim_accountability_status_id: Estat
         decidim_category_id: Categoria
         decidim_scope_id: Àmbit
         description: Descripció
         end_date: Data de finalització
-        meetings_ids: Trobades relacionades
         progress: Progrés
-        project_ids: Projectes inclosos
-        proposals: Propostes incloses
         start_date: Data d'inici
+        subresults: Subresultats
         title: Títol
         updated_at: Actualitzat el
       status:
@@ -19,38 +21,66 @@ ca:
         key: Clau
         name: Nom
         progress: Progrés
-      timeline_entry:
-        description: Descripció
-        entry_date: Data
-        title: Títol
     models:
       decidim/accountability/proposal_linked_event: Proposta inclosa a un resultat
       decidim/accountability/result_progress_updated_event: Progrés del resultat actualitzat
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: S'ha inclòs aquest resultat %{link}
+            meetings_ids: 'Es va debatre a aquesta trobada: %{link}'
+            project_ids: 'Es va incloure en aquest projecte: %{link}'
+            proposal_ids: 'Es va incloure en aquesta proposta: %{link}'
+            text: 'Es va afegir a aquest resultat: %{link}'
       decidim/accountability/result:
         one: Resultat
         other: Resultats
   decidim:
     accountability:
       actions:
-        attachment_collections: Carpetes
-        attachments: Fitxers adjunts
+        add_milestone: Afegir una fita
+        add_result: Afegeix un resultat
+        confirm_delete_result: Segur que voleu suprimir aquest resultat?
         confirm_destroy: Segur que vols suprimir aquest %{name}?
+        deleted_results_info: Els resultats eliminats es poden restaurar des de la paperera.
         destroy: Esborrar
         edit: Editar
-        import: Importar projectes des d'un altre component
+        import: Importar resultats des d'un altre component
         import_csv: Importar resultats des d'un fitxer CSV
+        new_milestone: Nova fita
         new_result: Afegir resultat
         new_status: Afegir estat
-        new_timeline_entry: Afegir entrada de la cronologia
         preview: Previsualitzar
-        timeline_entries: Evolució del projecte
         title: Accions
+        view_deleted_results: Veure els resultats eliminats
       admin:
         exports:
           result_comments: Comentaris
           results: Resultats
+        import_components:
+          create:
+            invalid: Hi ha hagut un problema important els resultats, si us plau, segueix les instruccions amb cura i assegura't de marcar els projectes seleccionats per a la seva implementació.
+          filters:
+            new_items_projects:
+              one: S'importarà 1 projecte seleccionat
+              other: "S'importaran %{count} projectes seleccionats"
+            new_items_proposals:
+              one: S'importarà 1 proposta
+              other: "S'importaran %{count} propostes"
+            proposal_state: Estat de la proposta
+            select_state: Seleccionar estat
+          form:
+            create: Importar
+            no_components: No hi ha component per a importar en aquest espai de participació.
+            origin_component_id: Component d'origen
+            select_component: Selecciona un component
+          new:
+            success:
+              one: Hi ha 1 resultat a la cua per ser importat. Es notificarà per correu electrònic, quan es completi la importació.
+              other: "Hi ha %{count} resultats a la cua per ser importats. Es notificarà per correu electrònic, quan es completi la importació."
+            title: Importar resultats des d'un altre component
         import_results:
           new:
             download_export: Descarregar l'exportació en format CSV
@@ -61,11 +91,11 @@ ca:
               <li><a href='%{link_new_status}' target='_blank'>Crea els estats per als resultats</a> que vulguis afegir</li>
               <li><a href='%{link_new_result}' target='_blank'>Crea com a mínim un resultat manualment</a> a través del taulell d'administració abans d'importar, per a entendre millor el format i com cal omplir-ho.</li>
               <li>%{link_export_csv}</li>
-              <li>Fes els canvis en local. Només pots modificar les següents columnes del CSV:
+              <li>Fes els canvis en local. Només pots modificar les següents columnes del CSV (la resta seran ignorades):
               <ul>
-              <li><b>id category/id:</b> ID per la categoria</li>
-              <li><b>scope/id:</b> ID per a l'àmbit</li>
-              <li><b>parent/id:</b> ID per al pare (per a resultats relacionats). Opcional</li>
+              <li><b>taxonomies/ids:</b> IDs per la taxonomies (si n'hi ha més d'una, separeu-les amb una coma)</li>
+              <li><b>parent/id:</b> ID per al pare (per a resultats relacionats).
+              <br>Opcional</li>
               <li><b>title/I18N:</b> Title en la llengua X</li>
               <li><b>description/I18N:</b> Descripció en la lleguna X </li>
               <li><b>start_date:</b> data en la que s'inicia l'execució del resultat (format YYYY-MM-DD)</li>
@@ -81,44 +111,74 @@ ca:
           create:
             invalid: Hi ha hagut un problema important els resultats.
             success: S'està important el fitxer. Rebràs un correu electrònic en els pròxims minuts amb el resultat de la importació.
+        milestones:
+          create:
+            invalid: S'ha produït un error en crear aquesta fita.
+            success: Fita creada amb èxit.
+          destroy:
+            success: Fita eliminada amb èxit.
+          edit:
+            title: Editar la fita
+            update: Actualitzar la fita
+          index:
+            title: Fites
+          new:
+            create: Crea una fita
+            title: Nova fita
+          update:
+            invalid: S'ha produït un problema en actualitzar aquesta fita.
+            success: Fita actualitzada amb èxit.
         models:
           result:
             name: Resultat
           status:
             name: Estat
-        projects_import:
-          create:
-            invalid: Hi ha hagut un problema important els projectes com a resultats, si us plau, segueix les instruccions amb cura i assegura't de marcar els projectes seleccionats per a la seva implementació.
-          new:
-            create: Importar
-            import_all_selected_projects: Importar tots els projectes seleccionats per a ser implementats
-            new_items:
-              one: S'importarà 1 projecte seleccionat
-              other: "S'importaran %{count} projectes seleccionats"
-            no_components: No hi ha cap component de pressupostos en aquest espai de participació per a poder importar els projectes com a resultats.
-            origin_component_id: Component d'origen
-            select_component: Selecciona un component
-            success:
-              one: Hi ha 1 projecte a la cua per ser importat. Es notificarà per correu electrònic, quan es completi la importació.
-              other: "Hi ha %{count} a la cua per ser importats. Es notificarà per correu electrònic, quan es completi la importació."
-            title: Importar projectes des d'un altre component
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: Canviar data
+              end_date: Data de finalització
+              start_date: Data d'inici
+            dropdown:
+              actions: Accions
+              change_dates: Canviar dates
+              change_status: Canvia estats
+              change_taxonomies: Canviar taxonomies
+            status_form:
+              change_status: Canvia estats
+              status: Estat
+            submit_buttons:
+              cancel: Cancel·lar
+            taxonomies_form:
+              change_taxonomies: Canviar taxonomies
           create:
             invalid: S'ha produït un error en crear aquest resultat.
             success: Resultat creat correctament.
-          destroy:
-            success: Resultat eliminat correctament.
           edit:
             title: Editar resultat
             update: Actualitzar resultat
           index:
+            selected: Seleccionades
             title: Resultats
+          manage_trash:
+            title: Resultats eliminats
           new:
             create: Crear resultat
             title: Nou resultat
           update:
             invalid: S'ha produït un error en actualitzar aquest resultat.
             success: Resultat actualitzat correctament.
+          update_dates:
+            invalid: S'ha produït un error en actualitzar les dates dels resultats
+            success: Les dates dels resultats s'han actualitzat correctament
+          update_status:
+            invalid: S'ha produït un error en actualitzar l'estat dels resultats
+            success: L'estat dels resultats s'han actualitzat correctament
+          update_taxonomies:
+            invalid: No s'ha pogut actualitzar la taxonomia %{taxonomies} pels resultats %{results}
+            select_a_result: Selecciona un resultat
+            select_a_taxonomy: Selecciona una taxonomia
+            success: No s'ha pogut actualitzar la taxonomia %{taxonomies} pels resultats %{results}
         shared:
           subnav:
             statuses: Estats
@@ -139,42 +199,29 @@ ca:
           update:
             invalid: S'ha produït un error en actualitzar aquest estat.
             success: Estat actualitzat correctament.
-        timeline_entries:
-          create:
-            invalid: S'ha produït un error en crear aquesta entrada.
-            success: Entrada creada correctament.
-          destroy:
-            success: Entrada eliminada correctament.
-          edit:
-            title: Editar element
-            update: Actualitzar element
-          index:
-            title: Evolució del projecte
-          new:
-            create: Crear element
-            title: Nou element
-          update:
-            invalid: S'ha produït un error en actualitzar aquesta entrada.
-            success: Entrada actualitzada correctament.
       admin_log:
+        milestones:
+          create: "%{user_name} va crear la fita \"%{resource_name}\""
+          delete: "%{user_name} va esborrar la fita \"%{resource_name}\""
+          update: "%{user_name} va actualizar la fita \"%{resource_name}\""
         result:
           create: "%{user_name} ha creat el resultat %{resource_name} en %{space_name}"
           delete: "%{user_name} ha eliminat el resultat %{resource_name} de l'espai %{space_name}"
+          restore: "%{user_name} ha eliminat el resultat %{resource_name} de l'espai %{space_name}"
+          soft_delete: "%{user_name} ha mogut el resultat %{resource_name} des de %{space_name} a la paperera"
           update: "%{user_name} ha actualitzat el resultat %{resource_name} en %{space_name}"
         status:
           create: "%{user_name} ha creat l'estat %{resource_name}"
           delete: "%{user_name} ha eliminat l'estat %{resource_name}"
           update: "%{user_name} ha actualitzat l'estat %{resource_name}"
-        timeline_entry:
-          create: "%{user_name} ha creat l'entrada %{resource_name} a la línia de temps"
-          delete: "%{user_name} ha eliminat l'entrada %{resource_name} a la línia de temps"
-          update: "%{user_name} ha actualitzat l'entrada %{resource_name} a la línia de temps"
         value_types:
           parent_presenter:
             not_found: 'No s''ha trobat el pare a la base de dades (ID: %{id})'
       content_blocks:
         highlighted_results:
           results: Resultats
+      creation:
+        text: Aquest resultat ha estat creat
       import_mailer:
         import:
           errors: Errors
@@ -189,19 +236,29 @@ ca:
             other: "S'han importat %{count} resultats des de projectes."
           subject: Els projectes s'han importat correctament
           success: Projectes importats com a resultats amb èxit al component %{component_name}. Pots revisar els resultats al taulell d'administració.
+      import_proposals_mailer:
+        import:
+          added_proposals:
+            one: S'ha importat 1 resultat des de propostes.
+            other: "S'han importat %{count} resultats des de propostes."
+          subject: Les propostes s'han importat correctament
+          success: S'han importat amb èxit les propostes com a resultats al component %{component_name}. Podeu revisar els resultats al tauler d'administració.
       last_activity:
         new_result: 'Nou resultat:'
       models:
+        milestone:
+          fields:
+            entry_date: Data
+            title: Títol
         result:
           fields:
-            category: Categoria
             created_at: Creat
             end_date: Fi
             id: ID
             progress: Progrés
-            scope: Àmbit
             start_date: Inici
             status: Estat
+            taxonomies: Taxonomies
             title: Títol
         status:
           fields:
@@ -209,43 +266,32 @@ ca:
             key: Clau
             name: Nom
             progress: Progrés
-        timeline_entry:
-          fields:
-            entry_date: Data
-            title: Títol
       results:
         count:
           results_count:
             one: Un resultat
             other: "%{count} resultats"
-        filters:
-          all: Tots
-        home:
-          categories_label: Categories
-          empty: Encara no hi ha cap resultat.
-          empty_filters: No hi ha cap resultat amb aquest criteri.
-          subcategories_label: Subcategories
         home_header:
           global_status: Estat d'execució global
-        nav_breadcrumb:
-          global: Execució global
+        milestones:
+          title: Fites
         no_results: No hi ha projectes
+        root_taxonomies:
+          title: 'Visualitza per:'
         search:
           search: Cercar actuacions
         show:
           stats:
             back_to_resource: Tornar al resultat
-        timeline:
-          title: Evolució del projecte
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Categoria
-          scope_id_eq:
-            label: Àmbit
           status_id_eq:
             label: Estat
+          taxonomies_part_of_contains:
+            label: Taxonomia
+      tooltips:
+        deleted_results_info: No es pot esborrar aquest resultat
     components:
       accountability:
         actions:
@@ -253,14 +299,25 @@ ca:
         name: Seguiment
         settings:
           global:
+            clear_all: Netejar-ho tot
             comments_enabled: Comentaris habilitats
             comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
+            default_taxonomy: Taxonomia predeterminada
+            default_taxonomy_help: Selecciona quina taxonomia vols mostrar per defecte. Si no se selecciona cap taxonomia, els resultats es mostraran en un format de llista.
+            define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             display_progress_enabled: Mostrar el progrés
+            geocoding_enabled: Mapes habilitats
             intro: Introducció
-            scope_id: Àmbit
-            scopes_enabled: Àmbits habilitats
+            no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
+            taxonomy_filters: Seleccionar filtres pel component
+            taxonomy_filters_add: Afegir un filtre
           step:
             comments_blocked: Comentaris bloquejats
+          visualization: Visualització
+    download_your_data:
+      show:
+        result_comments: Exportar els comentaris als resultats
+        results: Exportar els resultats
     events:
       accountability:
         proposal_linked:
@@ -273,11 +330,40 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint la proposta "%{proposal_title}", i aquesta s'inclou al resultat "%{resource_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Una actualització sobre el progrés de %{resource_title}
           notification_title: El resultat <a href="%{resource_path}">%{resource_title}</a>, que inclou la proposta <a href="%{proposal_path}">%{proposal_title}</a>, s'ha completat en un %{progress}%.
-    metrics:
-      results:
-        description: Nombre de resultats generats
-        object: resultats
-        title: Resultats
+    open_data:
+      help:
+        result_comments:
+          alignment: Si aquest comentari va ser a favor, en contra o neutral
+          author: El nom d'usuària de la participant que va fer el comentari
+          body: El comentari pròpiament
+          commentable_id: L'identificador únic d'allò que es podia comentar
+          commentable_type: La tipologia d'allò sobre el que es va fer el comentari (si va ser un resultat, una proposta, etc.)
+          created_at: La data en què es va crear aquest comentari
+          depth: El lloc on es troba aquest comentari a la terna de comentaris (si és un comentari, una resposta a un comentari, o la resposta d'una resposta)
+          id: L'identificador id d'aquest comentari
+          locale: La configuració regional (idioma) que la participant tenia en deixar aquest comentari
+          root_commentable_url: L'URL (adreça web) del recurs que enllaça amb aquest comentari
+        results:
+          address: La data del resultat (si n'hi ha)
+          children_count: El número de resultats fills (imbricats)
+          comments_count: El número de comentaris que té aquest resultat
+          component: El component al qual pertany aquest resultat
+          created_at: La data en què es va crear aquest resultat
+          description: La descripció del resultat
+          end_date: La data prevista per a la finalització de l'execució del resultat
+          id: L'identificador únic del resultat
+          latitude: La latitud del resultat en cas que aquesta tingui una ubicació física
+          longitude: La latitud del resultat en cas que aquesta tingui una ubicació física
+          parent: El resultat pare (si existeix) del resultat
+          progress: El percentatge d'execució del resultat
+          proposal_urls: Les URL de les propostes que estan incloses en aquest resultat
+          reference: La referència única del resultat
+          start_date: La data en la qual estava previst l'inici de l'execució del resultat
+          status: L'estat actual d'aquest resultat
+          taxonomies: Les taxonomies del resultat
+          title: El títol del resultat
+          updated_at: La data de la darrera actualització d'aquest resultat
+          url: L'URL on es pot trobar aquest resultat
     participatory_spaces:
       highlighted_results:
         see_all: Veure tots els resultats
@@ -288,3 +374,4 @@ ca:
         result_proposal: Propostes incloses en aquest resultat
     statistics:
       results_count: Resultats
+      results_count_tooltip: Nombre d'acords o actuacions resultat d'aquest espai de participació.

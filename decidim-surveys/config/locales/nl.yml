@@ -8,28 +8,13 @@ nl:
       decidim/surveys/survey:
         one: Enquête
         other: onderzoeken
-      decidim/surveys/survey_answer:
-        one: Antwoord
-        other: antwoorden
   decidim:
     components:
       surveys:
-        actions:
-          answer: Antwoorden
-        name: Enquête
         settings:
           global:
             announcement: Aankondiging
-            clean_after_publish: Verwijder antwoorden bij publicatie van de enquête
-            ends_at: Antwoorden geaccepteerd tot
-            ends_at_help: Laat leeg voor geen specifieke datum
-            scope_id: Scope
-            scopes_enabled: Scopes ingeschakeld
-            starts_at: Antwoorden geaccepteerd vanaf
-            starts_at_help: Laat leeg voor geen specifieke datum
           step:
-            allow_answers: Antwoorden toestaan
-            allow_unregistered: Sta niet-geregistreerde gebruikers toe om de enquête te beantwoorden
             announcement: Aankondiging
     events:
       surveys:
@@ -43,22 +28,9 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kan de notificaties uitschakelen door de voorgaande link te volgen.
           email_subject: Een nieuwe enquête in %{participatory_space_title}
           notification_title: De enquête <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> is nu geopend.
-    metrics:
-      survey_answers:
-        description: Aantal enquêtes beantwoord door deelnemers
-        object: antwoorden op enquêtes
-        title: Antwoorden op enquêtes
-    statistics:
-      answers_count: Antwoorden
     surveys:
       admin:
-        exports:
-          survey_user_answers: Antwoorden van de deelnemers aan de enquête
         surveys:
           update:
             invalid: Er is een probleem opgetreden bij het opslaan van de enquête.
             success: Enquête succesvol opgeslagen.
-      surveys:
-        answer:
-          invalid: Er is een fout opgetreden bij het opslaan van de pagina.
-          success: Enquête met succes beantwoord.

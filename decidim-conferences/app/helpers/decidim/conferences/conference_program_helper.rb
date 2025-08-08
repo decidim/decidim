@@ -11,8 +11,10 @@ module Decidim
 
         meetings_by_time = {}
         meetings.each do |meeting|
-          meetings_by_time[start_time: meeting.start_time, end_time: meeting.end_time] ||= []
-          meetings_by_time[start_time: meeting.start_time, end_time: meeting.end_time] << { meeting: }
+          key = { start_time: meeting.start_time, end_time: meeting.end_time }
+
+          meetings_by_time[key] ||= []
+          meetings_by_time[key] << { meeting: }
         end
         meetings_by_time
       end

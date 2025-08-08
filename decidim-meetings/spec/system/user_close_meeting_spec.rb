@@ -12,7 +12,7 @@ describe "User edit meeting" do
     create(:meeting,
            :published,
            :past,
-           title: { en: "Meeting title with #hashtag" },
+           title: { en: "Meeting with a title" },
            description: { en: "Meeting description" },
            author: user,
            component:)
@@ -24,6 +24,7 @@ describe "User edit meeting" do
   end
 
   before do
+    stub_geocoding_coordinates([meeting.latitude, meeting.longitude])
     switch_to_host user.organization.host
   end
 
@@ -39,7 +40,8 @@ describe "User edit meeting" do
       visit_component
 
       click_on translated(meeting.title)
-      click_on "Close meeting"
+      find("#dropdown-trigger-resource-#{meeting.id}").click
+      click_on "Close"
 
       expect(page).to have_content "Close meeting"
 
@@ -58,13 +60,68 @@ describe "User edit meeting" do
       expect(meeting.reload.closed_at).not_to be_nil
     end
 
+    it "updates without any tags" do
+      visit_component
+
+      click_on translated(meeting.title)
+      find("#dropdown-trigger-resource-#{meeting.id}").click
+      click_on "Close"
+
+      expect(page).to have_content "Close meeting"
+
+      within "form.edit_close_meeting" do
+        expect(page).to have_content "Proposals"
+
+        fill_in :close_meeting_closing_report, with: closing_report
+        fill_in :close_meeting_attendees_count, with: 10
+
+        click_on "Close meeting"
+      end
+
+      meeting.reload
+      meeting.update(closing_report: {
+                       en: %(#{closing_report} <img src="https://www.example.org/foobar.png" />),
+                       es: "El encuentro fue genial",
+                       ca: "La trobada va ser genial"
+                     })
+
+      visit current_path
+
+      expect(page).to have_content(closing_report)
+      within ".meeting__agenda-item__description" do
+        expect(page).to have_no_css("img")
+      end
+      expect(page).to have_no_content "Close meeting"
+      expect(page).to have_no_content "Organizations"
+      expect(meeting.reload.closed_at).not_to be_nil
+    end
+
+    context "when there are existing validated registrations" do
+      let!(:not_attended_registrations) { create_list(:registration, 3, meeting:, validated_at: nil) }
+      let!(:attended_registrations) { create_list(:registration, 2, meeting:, validated_at: Time.current) }
+
+      before do
+        visit_component
+
+        click_on translated(meeting.title)
+        find("#dropdown-trigger-resource-#{meeting.id}").click
+        click_on "Close"
+      end
+
+      it "displays by default the number of validated registrations" do
+        within "form.edit_close_meeting" do
+          expect(page).to have_field :close_meeting_attendees_count, with: "2"
+        end
+      end
+    end
+
     context "when updates the meeting report" do
       let!(:meeting) do
         create(:meeting,
                :published,
                :past,
                :closed,
-               title: { en: "Meeting title with #hashtag" },
+               title: { en: "Meeting with a title" },
                description: { en: "Meeting description" },
                author: user,
                attendees_count: nil,
@@ -76,6 +133,7 @@ describe "User edit meeting" do
         visit_component
 
         click_on translated(meeting.title)
+        find("#dropdown-trigger-resource-#{meeting.id}").click
         click_on "Edit meeting report"
 
         expect(page).to have_content "Close meeting"
@@ -96,16 +154,17 @@ describe "User edit meeting" do
       end
     end
 
-    context "when proposal linking is disabled" do
+    context "when the proposal module is not installed" do
       before do
-        allow(Decidim::Meetings).to receive(:enable_proposal_linking).and_return(false)
+        allow(Decidim).to receive(:module_installed?).and_return(false)
       end
 
       it "does not display the proposal picker" do
         visit_component
 
         click_on translated(meeting.title)
-        click_on "Close meeting"
+        find("#dropdown-trigger-resource-#{meeting.id}").click
+        click_on "Close"
 
         expect(page).to have_content "Close meeting"
 

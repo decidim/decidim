@@ -16,14 +16,14 @@ module Decidim
           @form = form(Admin::ProposalsImportForm).from_params(params)
 
           Admin::ImportProposals.call(@form) do
-            on(:ok) do |proposals|
-              flash[:notice] = I18n.t("proposals_imports.create.success", scope: "decidim.proposals.admin", number: proposals.length)
+            on(:ok) do
+              flash[:notice] = I18n.t("proposals_imports.create.success", scope: "decidim.proposals.admin")
               redirect_to EngineRouter.admin_proxy(current_component).root_path
             end
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("proposals_imports.create.invalid", scope: "decidim.proposals.admin")
-              render action: "new"
+              render action: "new", status: :unprocessable_entity
             end
           end
         end

@@ -1,0 +1,22 @@
+<% add_decidim_page_title(t(".title")) %>
+<% add_decidim_meta_tags(
+     title: translated_attribute(current_participatory_space.title),
+     resource: current_participatory_space) %>
+<%
+edit_link(
+  decidim_admin_participatory_processes.participatory_space_private_users_path(current_participatory_space.slug),
+  :update,
+  :process,
+  process: current_participatory_space
+)
+%>
+
+<div class="container py-8">
+  <h3 class="h3 decorator mb-8">
+    <%= t("members", scope: "decidim.assemblies.assembly_members.index") %>
+    <span class="label text-md"><%= collection.size %></span>
+  </h3>
+  <div id="assembly_members-grid" class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-12">
+    <%= render(collection) %>
+  </div>
+</div>

@@ -36,15 +36,19 @@ const initializeTabs = (container) => {
     updateTabsState(container);
   });
 
-  uploadsContainer.addEventListener("DOMSubtreeModified", () => {
-    updateTabsState(container);
-    console.log("DOMSubtreeModified");
+  const observer = new MutationObserver((mutationsList) => {
+    mutationsList.forEach((mutation) => {
+      if (mutation.type === "childList") {
+        updateTabsState(container);
+      }
+    });
   });
+  observer.observe(uploadsContainer, {childList: true, subtree: true});
 
   updateTabsState(container);
 };
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const tabs = document.querySelectorAll(
     "div[data-file-or-link-tabs-controller]"
   );

@@ -40,7 +40,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = t("error", scope: "decidim.devise.registrations.create")
-            render :new
+            render :new, status: :unprocessable_entity
           end
         end
       end
@@ -57,7 +57,7 @@ module Decidim
 
       # Called before resource.save
       def build_resource(hash = nil)
-        super(hash)
+        super
         resource.organization = current_organization
       end
 

@@ -32,7 +32,7 @@ module Decidim
       let(:file) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
       let(:attachment_collection) { create(:attachment_collection, collection_for: attached_to) }
       let(:attachment_collection_id) { attachment_collection.id }
-      let(:organization) { create :organization }
+      let(:organization) { create(:organization) }
 
       let(:attributes) do
         {

@@ -14,30 +14,37 @@ it:
         description: Descrizione
         file: File
         title: Nome dell'allegato o immagine
+        weight: Posizione nell'ordine
       attachment_collection:
         description: Descrizione
         name: Nome
+        weight: Posizione nell'ordine
       category:
         description: Descrizione
         name: Nome
         parent_id: Su
+        weight: Posizione nell'ordine
       component:
         name: Nome
         published_at: Pubblicato il
         weight: Posizionamento
+      external_domain:
+        value: Valore
+      help_section:
+        content: Contenuto
       id: ID
-      import:
-        user_group_id: Importa come
       newsletter:
         body: Testo
+        send_to_all_users: Invia a tutti gli utenti
+        send_to_followers: Invia ai follower
+        send_to_participants: Invia ai partecipanti
         subject: Oggetto
       organization:
+        admin_terms_of_service_body: Testo dei termini di utilizzo per l'amministratore
         alert_color: Notifica
         available_authorizations: Autorizzazioni disponibili
         badges_enabled: Abilita badge
         comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
-        cta_button_path: Percorso del pulsante Call To Action
-        cta_button_text: Testo del pulsante Chiamata all'azione
         customize_welcome_notification: Personalizza la notifica di benvenuto
         default_locale: Lingua predefinita
         description: Descrizione
@@ -52,13 +59,6 @@ it:
         header_snippets: Frammenti di intestazione
         highlight_alternative_color: Evidenziato, alternativa
         highlight_color: In evidenza
-        highlighted_content_banner_action_subtitle: Sottotitolo del pulsante di azione
-        highlighted_content_banner_action_title: Titolo del pulsante di azione
-        highlighted_content_banner_action_url: URL del pulsante di azione
-        highlighted_content_banner_enabled: Mostra il banner dei contenuti evidenziato
-        highlighted_content_banner_image: Immagine
-        highlighted_content_banner_short_description: Breve descrizione
-        highlighted_content_banner_title: Titolo
         host: Host
         instagram_handler: Gestore di Instagram
         logo: Logo
@@ -81,14 +81,20 @@ it:
         secondary_hosts: Host secondari
         send_welcome_notification: Invia notifica di benvenuto
         success_color: Successo
+        tertiary_color: Terziario
         time_zone: Fuso Orario
         tos_version: Termini di versione del servizio
-        user_groups_enabled: Abilita gruppi
+        twitter_handler: X handler
         users_registration_mode: Modalità di registrazione utenti
         warning_color: Attenzione
         welcome_notification_body: Testo del messaggio di Benvenuto
         welcome_notification_subject: Oggetto della mail con messaggio di Benvenuto
         youtube_handler: Gestore di YouTube
+      participatory_space_private_user:
+        email: Email
+        name: Nome
+      participatory_space_private_user_csv_import:
+        file: File
       scope:
         code: Codice
         name: Nome
@@ -110,9 +116,11 @@ it:
         show_in_footer: Mostra nel footer
         slug: URL slug
         title: Titolo
+        topic_id: Argomento
         weight: Ordine di posizionamento
       static_page_topic:
         description: Descrizione
+        name: Nome dell’argomento
         show_in_footer: Mostra nel footer
         title: Titolo
         weight: Ordine di posizionamento
@@ -120,10 +128,27 @@ it:
         file: File
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Selezionare almeno uno spazio partecipativo.
         organization:
           attributes:
             official_img_footer:
               allowed_file_content_types: File immagine non valido
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: File di importazione malformato, leggere attentamente le istruzioni e assicurarsi che il file sia codificato UTF-8.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: File di importazione malformato, leggere attentamente le istruzioni e assicurarsi che il file sia codificato UTF-8.
+      new_import:
+        attributes:
+          file:
+            invalid_file: File fornito non valido, verificare che il file sia formattato correttamente.
+            invalid_mime_type: Tipo MIME non valido.
   activerecord:
     attributes:
       decidim/static_page:
@@ -141,29 +166,56 @@ it:
   decidim:
     admin:
       actions:
+        actions: Azioni
+        actions_label: Azioni per %{resource}
         add: Aggiungi
         attachment:
           new: Nuovo allegato
+        attachment_collection:
+          new: Nuova cartella allegati
         browse: Naviga
-        category:
-          new: Nuova categoria
-        export: Esporta tutto
+        configure: Configura
+        confirm_delete_component: |
+          Sei sicuro di voler eliminare questo componente?<br>
+          Questo componente contiene:<br>
+          <ul class="list-disc ml-6 my-2">
+            <li class="font-bold">%{resources_count} risorse</li>
+          </ul>
+          Se cambi idea, puoi ripristinarlo più tardi.
+        export: Esporta
         export-selection: Esporta selezione
         import: Importazione
-        manage: Gestisci
         newsletter:
           new: Nuova newsletter
         participatory_space_private_user:
           new: Nuovo utente dello spazio partecipativo privato
         per_page: Per pagina
-        permissions: Permessi
-        reject: Rifiuta
+        restore: Ripristina
+        send_me_a_test_email: Inviami una email di prova
         share: Condividi
-        verify: Verifica
+        user:
+          new: Nuovo Amministratore
+        view_deleted_components: Visualizza componenti eliminati
+      admin_terms_of_service:
+        accept:
+          error: Si è verificato un problema durante l'accettazione dei termini di servizio per l'amministratore.
+          success: Ottimo! Hai accettato i termini d'uso per l'amministratrice/tore.
+        actions:
+          accept: Sono d'accordo con i termini
+          are_you_sure: Sei sicuro di voler rifiutare i termini di utilizzo per l'amministratore?
+          refuse: Rifiuta i termini di utilizzo per l'amministratore
+          title: Accetta i termini di servizio
+        required_review:
+          alert: 'Richiesto: rivedi i nostri termini di utilizzo per l''amministratrice/tore'
+          callout: Prenditi un momento per leggere i Termini di utilizzo per l'amministratore. Altrimenti non sarai in grado di amministrare la piattaforma.
+          cta: Rivedili ora.
+        title: Termini di servizio amministrativi
       area_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di area.
           success: Tipo di area creato con successo.
+        destroy:
+          success: Tipo di area eliminato con successo.
         edit:
           title: Modifica il tipo di area
           update: Aggiorna
@@ -172,12 +224,15 @@ it:
           title: Nuovo tipo di area
         update:
           error: Si è verificato un errore durante l'aggiornamento di questo tipo di area.
+          success: Tipo di area aggiornato con successo.
       areas:
         create:
           error: Si è verificato un errore durante la creazione di una nuova area.
           success: Area creata con successo.
+        deprecated: Tenete presente che le aree sono deprecate e saranno rimosse nelle versioni future. Utilizza invece le tassonomie. L'unico modulo che usa le aree è il modulo iniziative.
         destroy:
           has_spaces: Questa area ha spazi correlati. Assicurati che nessuno spazio partecipativo faccia riferimento a questa area prima di eliminarla.
+          success: Area eliminata con successo.
         edit:
           title: Modifica area
           update: Aggiorna
@@ -187,6 +242,7 @@ it:
         no_areas: Nessuna area
         update:
           error: Si è verificato un errore durante l'aggiornamento di quest'area.
+          success: Area aggiornata con successo.
       attachment_collections:
         create:
           error: Si è verificato un errore durante la creazione di una nuova cartella.
@@ -221,32 +277,27 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di questo allegato.
           success: Allegato modificato con successo.
+      attachments_privacy_warning:
+        message: Fai attenzione quando lavori con gli allegati in uno spazio privato. Ogni utente potrebbe condividere questo documento con gli altri.
       autocomplete:
         no_results: Nessun risultato trovato
+        search_prompt: Digitare almeno tre caratteri da cercare.
       block_user:
+        bulk_new:
+          action: Blocca account e invia la motivazione
+          already_reported_html: Continuando con questa azione nasconderai anche tutti i contenuti dei partecipanti.
+          description: Bloccare un utente renderà il suo account inutilizzabile, puoi fornire nelle tue motivazioni e linee guida i modi in cui ritieni di prendere in considerazione lo sblocco dell'utente.
+          justification: Motivazione
+          title: Blocca utenti
         new:
           action: Blocca account e invia la motivazione
+          already_reported_html: Continuando con questa azione nasconderai anche tutti i contenuti dei partecipanti.
           description: Il blocco di un utente renderà quell'account inutilizzabile. È possibile fornire nella propria giustificazione tutte le linee guida su come prendere in considerazione lo sblocco dell'utente.
           justification: Motivazione
           title: Blocca utente %{name}
       categories:
-        create:
-          error: Si è verificato un errore durante la creazione di questa categoria.
-          success: OK, la categoria è stata creata.
-        destroy:
-          error: Si è verificato un errore durante la cancellazione di questa categoria. Assicurarsi di aver cancellato prima di tutto le eventuali sotto-categorie, assicurarsi che nessuna altra entità appartenga questa categoria e provare di nuovo.
-          success: OK, categoria cancellata.
-        edit:
-          title: Modifica categoria
-          update: Aggiorna
         index:
           categories_title: Categorie
-        new:
-          create: Crea nuova categoria
-          title: Nuova categoria
-        update:
-          error: Si è verificato un errore aggiornando questa categoria.
-          success: OK, la categoria è stata aggiornata.
       component_permissions:
         update:
           error: Si è verificato un problema durante l'aggiornamento dei permessi di questo componente.
@@ -255,9 +306,7 @@ it:
         create:
           error: Si è verificato un errore durante la creazione di questo componente.
           success: Componente creato con successo.
-        destroy:
-          error: C'è stato un errore nell'eliminare questo componente.
-          success: Componente cancellato con successo.
+          success_landing_page: Componente creato con successo. È possibile aggiungere un blocco di contenuto per questo componente nella home dello spazio. Vai alla <a href="%{landing_page_path}">Landing page</a> per configurarla.
         edit:
           title: Modifica componente
           update: Aggiorna
@@ -265,13 +314,17 @@ it:
           default_step_settings: Impostazioni della fase predefinite
           global_settings: Impostazioni globali
           step_settings: Impostazioni della fase
+        hide:
+          success: Il componente è stato nascosto correttamente dal menu.
         index:
           add: Aggiungi componente
           headers:
             actions: Azioni
             name: Nome del componente
-            scope: Ambito del componente
             type: Tipo di componente
+            visibility: Visibilità
+        manage_trash:
+          title: Eliminare componenti
         new:
           add: Aggiungi componente
           title: 'Aggiungi componente: %{name}'
@@ -283,23 +336,57 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di questo componente.
           success: Il componente è stato aggiornato correttamente.
+        visibility_label:
+          menu_hidden: Menu nascosto
+          published: Pubblicate
+          unpublished: Non pubblicato
       conflicts:
         attempts: Tentativi
         'false': 'No'
+        index:
+          text: Cerca per email utente, nome o nickname
         managed_user_name: Gestione utente
         solved: Risolto
         title: Verifica dei conflitti
         transfer:
           email: Email
+          error: Si è verificato un problema durante il trasferimento dell'utente corrente al partecipante gestito.
           name: Nome
           reason: Motivazione
           success: Il trasferimento è stato completato con successo.
           title: Trasferimento
         'true': 'Si'
         user_name: Utente
+      content_blocks:
+        create:
+          error: Si è verificato un problema durante la creazione del blocco contenuti.
+          success: Blocco contenuto creato correttamente.
+        destroy:
+          error: Si è verificato un problema cercando di eliminare questo blocco di contenuti.
+          success: Blocco contenuto cancellato con successo.
+        edit:
+          active_content_blocks: Blocchi di contenuti attivi
+          add: Aggiungi blocco di contenuto
+          destroy_confirmation: Sei sicuro di voler eliminare questo blocco di contenuti?
+          inactive_content_blocks: Blocchi di contenuti inattivi
+          title: Contenuti della pagina
+          update: Aggiorna
       dashboard:
+        pending_moderations:
+          announcement:
+            one: C'è %{count} moderazione in sospeso
+            other: Ci sono %{count} moderazioni in sospeso
+          goto_moderation: Vai alle moderazioni globali
+          title: Moderazioni in sospeso
         show:
+          dropdown: Menu a tendina
           view_more_logs: Visualizza più registri
+      domain_allowlist:
+        form:
+          domain_too_short: Dominio troppo corto
+        update:
+          error: Impossibile aggiornare l'elenco dei domini esterni consentiti
+          success: L'elenco di domini esterni consentiti è stata aggiornata correttamente.
       exports:
         export_as: "%{name} esporta come %{export_format}"
         formats:
@@ -307,9 +394,8 @@ it:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
+        notice: L'esportazione è attualmente in corso. Riceverai un'e-mail al termine dell'operazione.
       filters:
-        category_id_eq:
-          label: Categorie
         filter_label: Filtro
         invitation_accepted_at_present:
           label: Invito accettato
@@ -321,6 +407,13 @@ it:
           values:
             'false': 'No'
             'true': 'Sì'
+        moderated_users:
+          reports_reason_eq:
+            label: Motivo della segnalazione
+            values:
+              does_not_belong:
+              offensive: Offensivo
+              spam: Spam
         moderations:
           reportable_type_string_eq:
             label: Tipo
@@ -350,13 +443,14 @@ it:
           values:
             'false': Pubblicato
             'true': Non pubblicato (nascosto)
-        scope_id_eq:
-          label: Ambito tematico
+        remove_all: Rimuovi tutto
         search_label: Ricerca
         search_placeholder:
-          name_or_nickname_or_email_cont: Cerca %{collection} per email, nome o pseudonimo.
-          reported_id_string_or_reported_content_cont: Cerca %{collection} per id o contenuto segnalabile.
-          title_cont: Cerca %{collection} per titolo.
+          name_or_nickname_or_email_cont: Ricerca %{collection} per email, nome o nickname
+          report_count_eq: Conteggio report eq
+          reported_id_string_or_reported_content_cont: Cerca %{collection} per id o contenuto segnalabile
+          title_cont: Cerca %{collection} per titolo
+          user_name_or_user_nickname_or_user_email_cont: Ricerca %{collection} per email, nome o nickname
         state_eq:
           label: Stato
           values:
@@ -364,15 +458,24 @@ it:
             pending: In Sospeso
             rejected: Respinto
             verified: Verificato
+        taxonomies:
+          taxonomy_id_eq:
+            label: Tassonomia
       forms:
         file_help:
           import:
             explanation: 'Guida per il file:'
             message_1: Sono supportati i formsti CSV, JSON e Excel (.xlsx)
             message_2: I separatori delle colonne per il formato CSV devono essere punto e virgola (";")
+          import_csv:
+            explanation: 'Orientamenti per il file:'
+            message_1: I file CSV sono supportati
+            message_2: ".csv file contenente i dati relativi agi indirizzi e-mail"
       help_sections:
+        error: Si è verificato un errore durante l'aggiornamento delle sezioni dell'Aiuto.
         form:
           save: Salva
+        success: Sezioni di Aiuto aggiornate con successo.
       impersonatable_users:
         index:
           filter:
@@ -406,6 +509,31 @@ it:
           impersonate_existing_user: Gestisci partecipante %{name}"
           impersonate_new_managed_user: Gestisci nuovo partecipante
       imports:
+        and: e
+        data_errors:
+          duplicate_headers:
+            detail: Controllare che il file contenga colonne o intestazioni richieste una sola volta.
+            message:
+              one: Colonna duplicata %{columns}.
+              other: Colonne duplicate %{columns}.
+          invalid_indexes:
+            lines:
+              detail: Si prega di controllare che queste righe siano formattate correttamente e contengano record validi.
+              message:
+                one: Trovato un errore nel file di importazione sulla riga %{indexes}.
+                other: Trovati errori nel file di importazione sulle righe %{indexes}.
+            records:
+              detail: Si prega di controllare che questi record siano formattati correttamente e contengano record validi.
+              message:
+                one: Trovato un errore nel file di importazione per i record con i numeri di ordine %{indexes}.
+                other: Trovati errori nel file di importazione per i record con numeri di ordine %{indexes}.
+          missing_headers:
+            detail: Controllare che il file contenga le colonne richieste.
+            message:
+              one: Colonna mancante %{columns}.
+              other: Colonne mancanti %{columns}.
+        error: Si è verificato un errore durante l'importazione.
+        example_error: Si è verificato un problema durante la creazione di un esempio per il tipo specificato.
         new:
           accepted_mime_types:
             csv: csv
@@ -413,8 +541,21 @@ it:
             xlsx: xlsx
           actions:
             back: Indietro
+          download_example: Scarica esempio
+          download_example_format: Esempio come %{name}
           file_legend: Aggiungi un file da importare che verrà analizzato.
           import: Importazione
+        notice: "%{number} %{resource_name} importati con successo."
+      logs:
+        filters:
+          participatory_space: Trova spazio partecipativo
+          text: Ricerca per email, nome o nickname
+          user: Utente
+        logs_list:
+          no_logs_yet: Non ci sono ancora log.
+          no_matching_logs: Non ci sono registri con i filtri di ricerca forniti. Prova a cambiarli e riprovare.
+      manage_trash:
+        deleted_items_warning: Stai visualizzando gli elementi eliminati. Per apportare modifiche o modifiche, devi prima ripristinarli.
       managed_users:
         promotion:
           error: Si è verificato un problema nella promozione del partecipante gestito.
@@ -432,9 +573,12 @@ it:
         areas: Ambiti territoriali
         components: Componenti
         configuration: Configurazione
+        content: Contenuto segnalato
+        external_domain_allowlist: Consenti l'uso di domini esterni
         help_sections: Sezioni di Aiuto
-        homepage: Homepage
+        homepage: Layout della pagina principale
         impersonations: Impersonificazioni
+        insights: Approfondimenti
         manage: Gestisci
         moderation: Moderazione globale
         newsletters: Newsletters
@@ -442,13 +586,15 @@ it:
         reported_users: Partecipanti segnalati
         scope_types: Tipi di ambito
         scopes: Ambito tematico
+        see_site: Vedi sito
         settings: Impostazioni
+        share_tokens: Link di accesso
+        static_page_topics: Argomenti
         static_pages: Pagine
-        user_groups: Gruppi
+        statistics: Statistiche
+        taxonomies: Tassonomie
+        taxonomy_filters: Filtri Tassonomia
         users: Partecipanti
-      metrics:
-        metrics:
-          see_more_metrics: Visualizza Ulteriori Dettagli
       models:
         area:
           fields:
@@ -497,12 +643,11 @@ it:
             plural: Plurale
         share_token:
           fields:
-            created_at: Creato il
+            actions: Azioni
             expires_at: Scade il
-            last_used_at: Ultimo utilizzo
+            registered_only: Solo registrati?
             times_used: Volte usate
-            token: Token
-            user: Creata da
+            token: Link di accesso
         static_page:
           fields:
             created_at: Creato il
@@ -511,32 +656,38 @@ it:
           fields:
             created_at: Data di creazione
             email: E-mail
+            last_sign_in_at: Data dell'ultimo accesso
             name: Nome
             role: Ruolo
             roles:
               admin: Amministratrice/tore
               user_manager: Responsabile del partecipante
           name: Utente
-        user_group:
-          fields:
-            actions: Azioni
-            created_at: Creato il
-            document_number: Numero del documento
-            name: Nome
-            phone: Telefono
-            state: Stato
-            users_count: Conteggio dei partecipanti
       moderated_users:
         index:
           actions:
             block: Blocca Utente
+            bulk_actions:
+              actions_dropdown: Azioni
+              block:
+                title: Blocco
+                update_moderated_user_button: Blocca utenti
+              unblock:
+                title: Sblocca
+                update_moderated_user_button: Sblocca Utenti
+              unreport:
+                title: Annulla segnalazione
+            ignore:
+              update_moderated_user_button: Annulla segnalazione utenti
             title: Azioni
             unblock: Sblocca Utente
-            unreport: Non inserire
+          cancel: Annulla
           name: Nome
           nickname: Nickname
           reason: Motivazione
           reports: Numero di segnalazioni
+          selected: Selezionati
+          title: Partecipanti segnalati
         report:
           reasons:
             does_not_belong: Non appartiene
@@ -546,10 +697,25 @@ it:
           blocked: Bloccato
           unblocked: Non Bloccato
       moderations:
+        index:
+          actions:
+            actions_dropdown: Azioni
+            hide:
+              title: Nascondi
+              update_moderation_button: Nascondi le risorse selezionate
+            unhide:
+              update_moderation_button: Nascondi le risorse selezionate
+            unreport:
+              update_moderation_button: Annulla segnalazione per le risorse selezionate
+          cancel: Annulla
+          selected: selezionato
+          title: Contenuto segnalato
         report:
           reasons:
             does_not_belong: Non appartiene
+            hidden_during_block: Nascosto durante il blocco dell'utente
             offensive: Offensivo
+            parent_hidden: Il contenuto padre è stato nascosto
             spam: Spam
         reports:
           index:
@@ -566,6 +732,11 @@ it:
             report_language: Lingua del report
             report_reason: Motivo
             title: Dettagli del report
+      new_import:
+        accepted_mime_types:
+          csv: CSV
+          json: JSON
+          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: Anteprima
@@ -575,6 +746,10 @@ it:
           preview: 'Anteprima Modello: %{template_name}'
           use_template: Utilizza questo Modello
       newsletters:
+        confirm_recipients:
+          email: Email
+          name: Nome
+          title: Conferma destinatari
         create:
           error: Si è verificato un errore durante la creazione di questa newsletter.
           success: Newsletter creata con successo. Si prega di controllarla prima dell'invio.
@@ -594,12 +769,14 @@ it:
           confirm_delete: Sei sicuro di voler cancellare questa newsletter?
           followers: 'followers '
           has_been_sent_to: 'E'' stata inviata a: '
-          no_scopes: Nessun ambito
           not_sent: Non inviato
           participants: 'partecipanti '
+          private_members: 'membri privati '
           segmented_to: 'Segmentato a %{subject}: '
           subscribed_count: 'Sottoscrittori:'
           title: Newsletters
+          verification_types: 'Tipi di verifica: %{types}'
+          verified_users: Utenti verificati
         new:
           save: Salva
           title: Nuova newsletter
@@ -607,29 +784,55 @@ it:
           all_spaces: Tutti
           all_users_help: Invia newsletter a tutti gli utenti confermati.
           confirm_deliver: Sei certo di voler inviare questa Newsletter?  Questa azione sarà irrevocabile.
+          confirm_recipients: Conferma destinatari
           deliver: Invia la newsletter
           followers_help: Invia newsletter a tutti gli utenti confermati che seguono tutti gli spazi partecipativi selezionati nella lista.
-          none: Nessuno
           participants_help: Invia newsletter a tutti gli utenti confermati che hanno partecipato a uno degli spazi partecipativi selezionati nella lista.
+          private_members_help: Invia una newsletter a tutti gli utenti confermati aggiunti agli spazi partecipativi privati selezionati.
           recipients_count: Questa newsletter verrà inviata agli utenti <strong id='recipients_count'>%{count}</strong>.
-          scopes_help: Invia newsletter agli utenti che hanno uno dei campi selezionati attivati nelle impostazioni "I miei interessi".
-          select_scopes: Filtra per gli utenti che hanno attivato qualsiasi ambito selezionato nelle impostazioni interessi personali del proprio account.
+          select_assemblies: Scegli assemblee
+          select_conferences: Scegli conferenze
+          select_initiatives: Scegli iniziative
+          select_participatory_processes: Scegli i processi partecipativi
           select_spaces: Selezionare gli spazi per segmentare la newsletter
-          select_users: Seleziona gli utenti a cui desideri inviare la newsletter
+          select_users_for_participatory_space: Invia newsletter a uno o più spazi partecipativi
+          select_users_general: Invia newsletter generale
+          select_verification_types: Scegli metodi di verifica
+          send_to_all_users: Invia a tutti gli utenti
+          send_to_verified_users: Invia a utenti verificati
           title: Seleziona destinatari a cui inviare
+          verified_users_help: Invia una newsletter a tutti gli utenti confermati e verificati tramite qualsiasi metodo di verifica selezionato.
           warning: "<strong>Attenzione:</strong> Questa newsletter sarà inviata solo agli utenti che hanno attivato <em>Voglio ricevere newsletter</em> nelle impostazioni delle notifiche."
+        send:
+          no_recipients: Nessun destinatario per questa selezione.
+        send_to_user:
+          sent_successfully: Newsletter inviata con successo a %{email}
         show:
           preview: Anteprima
           select_recipients_to_deliver: Seleziona destinatari a cui inviare
+          send_me_a_test_email: Inviami una email di prova
           subject: Oggetto
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa newsletter.
           success: OK, la Newsletter è stata aggiornata. Conviene controllarla prima di inviarla.
       officializations:
+        block:
+          error: Si è verificato un errore durante il blocco del partecipante.
+          success: Partecipante bloccato con successo.
+        bulk_action:
+          block:
+            invalid: Si è verificato un errore durante il blocco dei partecipanti.
+            success: Partecipanti bloccati con successo.
+          unblock:
+            invalid: Si è verificato un errore durante lo sblocco dei partecipanti.
+            success: Partecipante sbloccato con successo.
+        create:
+          success: Partecipante ufficializzato con successo.
+        destroy:
+          success: Partecipante non ufficializzato con successo.
         index:
           actions: Azioni
           badge: Distintivo
-          block: Blocca Utente
           created_at: Creato a
           name: Nome
           nickname: Nickname
@@ -638,9 +841,7 @@ it:
           officialized: ufficializzato
           reofficialize: Reofficialize
           reports: Report
-          show_email: Mostra indirizzo email
           status: Stato
-          unblock: Sblocca Utente
           unofficialize: Unofficialize
         new:
           badge: Distintivo di ufficializzazione
@@ -653,34 +854,52 @@ it:
           hidden: nascosto
           show: Mostra
           title: Mostra l'indirizzo email del partecipante
+        unblock:
+          error: Si è verificato un errore durante lo sblocco del partecipante.
+          success: Partecipante sbloccato con successo.
       organization:
         edit:
           title: Modifica l'organizzazione
           update: Modifica
         form:
+          admin_terms_of_service: Termini di servizio amministrativi
+          basic_configuration: Configurazione di base
+          colors:
+            choose_color: Scegli un colore primario
+            colors_title: Colori dell'organizzazione
+            colors_warning_html: Attenzione! Cambiare questi colori può violare l'accessibilità dei contrasti dei colori. Puoi controllare il contrasto della tua scelta dei colori con <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> o altri strumenti simili.
+            explanation: Questo strumento ti aiuta a scegliere uno schema di colori, composto da tonalità ugualmente distanziate intorno alla gamma dei colori, che saranno utilizzate nel sito web dell'organizzazione.
+            legend_html: I principali colori dell'applicazione, basati sull'algoritmo <a href="https://www.color-meanings.com/triadic-colors/">Triadic</a>. Il colore <i>secondario</i> è calcolato a partire dal colore primario e dalla saturazione che hai scelto.
+            saturation: Saturazione
+            title: Selettore colore
+            update_suggested_colors: Aggiorna i colori suggeriti
+          extra_features: Funzioni aggiuntive
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          logos:
+            organization_logos: Logo organizzazione
+            preview:
           rich_text_editor_in_public_views_help: In alcune aree di testo, i partecipanti saranno in grado di inserire alcuni tag HTML utilizzando l'editor di testo rich text.
           social_handlers: Social networks
+          twitter: X
           url: URL
+          welcome_notification: Notifiche di Benvenuto
           youtube: Youtube
         update:
           error: Si è verificato un errore durante la modifica di questa organizzazione.
           success: OK, l'organizzazione è stata modificata.
-      organization_appearance:
+      organization_external_domain_allowlist:
         edit:
-          update: Modifica
+          update: Aggiorna
+        external_domain:
+          down: Giù
+          external_domain: Dominio esterno
+          remove: Rimuovi
+          up: Su
         form:
-          colors:
-            colors_title: Colori dell'organizzazione
-          cta_button_text_help: Puoi sovrascrivere il testo del pulsante Chiamata all'azione nella home page per ogni lingua disponibile nell'organizzazione. Se non è impostato, verrà utilizzato il valore predefinito. Il pulsante Chiamata all'azione è mostrato nella homepage tra il testo di benvenuto e la descrizione.
-          homepage_appearance_title: Modifica l'aspetto della home page
-          homepage_highlighted_content_banner_title: Banner con contenuti Highligted
-          images:
-            layout_appearance_title: Modifica aspetto del layout
-            preview: Anteprima
-          omnipresent_banner_appearance_title: Modifica banner onnipresente
+          add: Aggiungi alla lista consentita
+          title: Elenco di domini esterni consentiti
       participatory_space_private_users:
         create:
           error: Si è verificato un errore durante l'aggiunta di un utente privato per questo spazio partecipativo.
@@ -688,14 +907,45 @@ it:
         destroy:
           error: Si è verificato un errore durante l'eliminazione di un utente privato per questo spazio partecipativo.
           success: Accesso utente privato spazio distruttivo distrutto con successo.
+        edit:
+          title: Modifica partecipante privato allo spazio partecipativo.
+          update: Aggiorna
         index:
           import_via_csv: Importa da CSV
+          publish_all: Pubblica tutto
           title: Utente privato dello spazio partecipativo
+          unpublish_all: Annulla la pubblicazione di tutto
         new:
           create: Creare
           title: Nuovo utente privato dello spazio partecipativo.
+        publish_all:
+          error: Si è verificato un errore durante l'aggiunta degli utenti privati per questo spazio partecipativo.
+          success: Ha pubblicato con successo tutti i partecipanti privati per questo spazio partecipativo
+        unpublish_all:
+          error: Si è verificato un problema di annullamento della pubblicazione di tutti i partecipanti privati per questo spazio partecipativo.
+          success: Tutti i partecipanti privati per questo spazio partecipativo sono stati rimossi dalla pubblicazione con successo
+        update:
+          error: Si è verificato un errore durante l'aggiornamento dell'utente privato per questo spazio partecipativo.
+          success: Utente privato dello spazio partecipativo aggiornato con successo
       participatory_space_private_users_csv_imports:
+        create:
+          invalid: Si è verificato un problema durante la lettura del file CSV. Assicurati di aver seguito le istruzioni.
+          success: File CSV caricato con successo, stiamo inviando un'email di invito ai partecipanti. Potrebbe richiedere un po' di tempo.
         new:
+          csv_upload:
+            title: Carica il tuo file CSV
+          destroy:
+            button: Elimina tutti i partecipanti privati
+            confirm: Sei sicuro di voler eliminare tutti i partecipanti privati? Questa azione non può essere annullata, non sarai in grado di recuperarli.
+            empty: Non hai partecipanti privati.
+            explanation: Hai %{count} partecipanti privati.
+            title: Elimina tutti i partecipanti privati
+          example_file: 'File di esempio:'
+          explanation: 'Carica il file CSV. Il file deve contenere due colonne (e-mail e nome) senza intestazioni: nella prima sono elencati gli indirizzi e-mail degli utenti che si desidera aggiungere allo spazio partecipativo, nella seconda i loro nomi. Evita di usare caratteri non validi come `<>?%&^*#@()[]=+:;"{}\|` nella colonna dei nomi.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
+          title: Importa partecipanti privati tramite CSV
           upload: Carica File
       reminders:
         create:
@@ -706,12 +956,10 @@ it:
         edit:
           submit: Invia
           title: Modifica permessi
+        options_form:
+          ephemeral_warning: Per abilitare questo metodo di autorizzazione, è necessario revocare <a href="%{path}"></a> tutte le autorizzazioni esistenti. Ciò riduce al minimo il rischio di conflitti di verifica. Tutte le autorizzazioni di questo tipo saranno revocate automaticamente nell'organizzazione se si inviano modifiche aggiungendo questo metodo o modificandone la configurazione una volta aggiunta.
         update:
           success: Autorizzazioni aggiornate correttamente.
-      resources:
-        index:
-          headers:
-            scope: Ambito
       scope_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di ambito.
@@ -731,6 +979,9 @@ it:
         create:
           error: Si è verificato un errore creando un nuovo ambito.
           success: OK, è stato creato il nuovo àmbito.
+        deprecated: Tenete presente che le aree sono deprecate e saranno rimosse nelle versioni future. Utilizza invece le tassonomie. L'unico modulo che usa le aree è il modulo iniziative.
+        destroy:
+          success: Ambito eliminato correttamente.
         edit:
           title: Modifica l'àmbito
           update: Aggiorna
@@ -743,16 +994,21 @@ it:
           success: OK, l'àmbito è stato aggiornato.
       share_tokens:
         actions:
-          confirm_destroy: Sei sicuro di voler eliminare questo token?
+          confirm_destroy: Sei sicuro di voler eliminare questo accesso?
+          copy_link: Copia link
           destroy: Elimina
-          share: Condividi
-        destroy:
-          error: Si è verificato un problema durante la distruzione del token.
-          success: Token eliminato correttamente.
-        share_tokens:
-          help: Questi token sono utilizzati per condividere pubblicamente questa risorsa non pubblicata con qualsiasi utente. Saranno nascosti al momento della pubblicazione della risorsa. Clicca sull'icona di condivisione del token per visitare l'URL condivisibile.
-          title: Condividi token
+          edit: Modifica
+          preview: Anteprima
+        create:
+          invalid: Si è verificato un problema durante la generazione del link di accesso.
+        index:
+          empty_html: Non ci sono collegamenti di accesso attivi. %{new_token_link}
+        update:
+          success: Link di accesso aggiornato con successo.
       shared:
+        adjacent_navigation:
+          next: Successivo
+          next_title: Articolo successivo
         gallery:
           add_images: Aggiungi immagini
           gallery_legend: Aggiungi una galleria di immagini (opzionale)
@@ -764,14 +1020,11 @@ it:
           title: Modifica argomento
           update: Aggiorna argomento
         new:
-          create: Crea argomento
           title: Nuovo argomento
         update:
           error: Si è verificato un errore durante l'aggiornamento di questo argomento.
           success: Argomento aggiornato correttamente
       static_pages:
-        actions:
-          view: Visualizza la pagina pubblica
         create:
           error: Si è verificato un errore creando una nuova pagina.
           success: OK, la nuova pagina è stata creata.
@@ -785,12 +1038,78 @@ it:
         index:
           last_notable_change: Ultimo cambiamento significativo
         new:
-          create: Crea pagina
           title: Nuova pagina
         topic:
           without_topic: Pagine senza argomento
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa pagina.
+      taxonomies:
+        edit:
+          description: Gli elementi di questa tassonomia saranno utilizzati per classificare o filtrare le risorse, come gli spazi partecipativi o i componenti. Utilizzare il drag and drop per riordinare l'elenco.
+          new_item: Nuovo elemento
+          no_items: Al momento non ci sono elementi in questa tassonomia. Crea qui un elenco di elementi per classificare o filtrare le risorse, come spazi o componenti partecipativi. Gli elementi possono essere annidati fino a tre livelli.
+          subtitle: Elementi in "%{taxonomy_name}"
+          title: Modifica tassonomia "%{taxonomy_name}"
+          update: Aggiorna
+        filters:
+          search_placeholder: Cerca
+        index:
+          description: Tassonomie e filtri consentono agli amministratori di ordinare e organizzare i contenuti. Ad esempio, aggiungere una tassonomia con i distretti e i quartieri della città e quindi creare filtri solo con i distretti o per un quartiere specifico.
+          new_taxonomy: Nuova tassonomia
+          no_items_found: Nessuna tassonomia trovata corrispondente ai criteri di ricerca.
+        name: Nome
+        new:
+          create: Crea tassonomia
+          title: Nuova tassonomia
+        no_taxonomies: Al momento non ci sono tassonomie. Crea qui un elenco di tassonomie e definisci gli elementi in ciascuna di esse per classificare o filtrare le risorse.
+        table:
+          to_next_page: Trascinare per la pagina successiva
+          to_prev_page: Trascinare sopra per la pagina precedente
+        taxonomy_actions:
+          confirm_destroy: 'Sei sicuro di voler eliminare %{name}? Questo eliminerà anche tutti gli elementi figli. NOTA: Le risorse che stanno usando questa tassonomia non saranno influenzate, ma perderanno il riferimento a questa tassonomia.'
+        total_filters: Filtri
+        total_items: Elementi nella tassonomia
+        update:
+          invalid: Si è verificato un errore durante l'aggiornamento di questa tassonomia.
+          success: Tassonomia aggiornata con successo.
+      taxonomy_filters:
+        actions:
+          new_taxonomy_filter: Nuovo filtro tassonomico
+        breadcrumb:
+          edit: Modifica filtro
+          filters: Filtri
+          new: Nuovo filtro
+        create:
+          error: Si è verificato un errore durante la creazione di questo filtro tassonomico.
+          success: Tassonomia aggiornata con successo.
+        destroy:
+          error: Si è verificato un errore durante la cancellazione di questo filtro tassonomico.
+          success: Filtro tassonomia cancellato.
+        edit:
+          back: Indietro
+          title: Modifica filtro tassonomia
+          update: Aggiorna filtro tassonomia
+        form:
+          all: Tutti
+          name_help: Il titolo del filtro da visualizzare nel frontend.
+          no_items: Nessun elemento disponibile per questa tassonomia. Puoi creare elementi nelle impostazioni di configurazione della tassonomia.
+          space_filter: Disponibile come filtro per
+        index:
+          description: Un filtro tassonomico consente agli amministratori di ordinare e filtrare gli spazi partecipativi in base a una tassonomia. Ad esempio, aggiungi un filtro tassonomico per ordinare i processi per ambito geografico.
+          empty: Al momento non ci sono filtri tassonomici. Crea qui un elenco di filtri tassonomici per ordinare e filtrare gli spazi partecipativi basati su una tassonomia.
+          new_filter: Nuovo filtro
+        new:
+          back: Indietro
+          create: Crea filtro tassonomia
+          title: Nuovo filtro tassonomico
+        table:
+          actions: Azioni
+          components_count: Componenti che utilizzano questo
+          confirm_destroy: 'Sei sicuro di voler eliminare il filtro %{name}? NOTA: Le risorse che stanno usando questo filtro non saranno influenzate, ma perderanno il riferimento a questo filtro.'
+          destroy: Cancella
+          edit: Modifica
+          internal_name: Etichetta interna
+          name: Etichetta
       titles:
         admin_log: Registro di amministrazione
         area_types: Tipi di ambito territoriale
@@ -799,32 +1118,10 @@ it:
         dashboard: Cruscotto (Dashboard)
         impersonatable_users: Partecipanti gestibili
         impersonations: Gestione dei partecipanti
-        metrics: Partecipazione in cifre
         panel: Amministratrice/tore
         participants: Partecipanti
         scope_types: Tipi di ambito
         scopes: Ambiti
-        statistics: Attività
-        user_groups: Gruppi di utenti
-      user_group:
-        csv_verify:
-          invalid: Si è verificato un errore durante la lettura del file CSV.
-        reject:
-          invalid: Si è verificato un errore rifiutando questo gruppo di utenti.
-        verify:
-          invalid: Si è verificato un errore durante la verifica di questo gruppo di utenti.
-      user_groups:
-        index:
-          state:
-            pending: in attesa di
-            rejected: Rifiutata
-            verified: Verificato
-          verify_via_csv: Verifica tramite CSV
-      user_groups_csv_verifications:
-        new:
-          explanation: Carica il tuo file CSV. Deve avere le e-mail ufficiali dei gruppi di utenti nella tua organizzazione nella prima colonna del file, senza intestazioni. Verranno convalidati solo i gruppi di utenti che hanno confermato la loro e-mail e che hanno una e-mail che appare nel file CSV.
-          title: Carica il tuo file CSV
-          upload: Caricare
       users:
         create:
           error: Si è verificato un problema durante l'invito a questo amministratore.
@@ -845,16 +1142,6 @@ it:
           last_month: Mese precedente
           last_week: Settimana precedente
           participants: Partecipanti
-    metrics:
-      blocked_users:
-        object: utenti bloccati
-        title: Utenti bloccati
-      reported_users:
-        object: utenti segnalati
-        title: Utenti segnalati
-      user_reports:
-        object: rapporti utenti
-        title: Rapporti utenti
     moderations:
       actions:
         expand: Espandi
@@ -862,8 +1149,6 @@ it:
         hide: Nascondi
         not_hidden: Non nascosto
         title: Azioni
-        unhide: unhide
-        unreport: Non inserire
       admin:
         reportable:
           hide:
@@ -878,10 +1163,14 @@ it:
       models:
         moderation:
           fields:
+            deleted_resource: Risorsa eliminata
             hidden_at: Nascosto a
             participatory_space: Spazio partecipativo
+            report_count: Numero di segnalazioni
+            reportable_id: ID
             reportable_type: Tipo
             reported_content_url: URL del contenuto riportato
+            reports: Motivo
             visit_url: Visita URL
         report:
           fields:
@@ -896,3 +1185,7 @@ it:
       admin:
         global_moderations:
           title: Moderazione globale
+        insights:
+          title: Approfondimenti
+        taxonomy_filters_selector:
+          title: Filtri

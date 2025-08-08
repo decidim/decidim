@@ -223,8 +223,6 @@ group :development do
   gem "faker", "#{Gem.loaded_specs["decidim-dev"].dependencies.select { |a| a.name == "faker" }.first.requirement}"
   gem "letter_opener_web", "#{fetch_gemfile_version("letter_opener_web")}"
   gem "listen", "#{fetch_gemfile_version("listen")}"
-  gem "spring", "#{fetch_gemfile_version("spring")}"
-  gem "spring-watcher-listen", "#{fetch_gemfile_version("spring-watcher-listen")}"
   gem "web-console", "#{fetch_gemfile_version("web-console")}"
 end
 )

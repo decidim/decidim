@@ -6,6 +6,7 @@ module Decidim
     #
     class ScopesController < Decidim::Admin::ApplicationController
       include Decidim::Admin::Concerns::HasTabbedMenu
+      helper Decidim::Admin::ScopesHelper
 
       layout "decidim/admin/settings"
 
@@ -35,7 +36,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("scopes.create.error", scope: "decidim.admin")
-            render :new
+            render :new, status: :unprocessable_entity
           end
         end
       end
@@ -57,7 +58,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("scopes.update.error", scope: "decidim.admin")
-            render :edit
+            render :edit, status: :unprocessable_entity
           end
         end
       end

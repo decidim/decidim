@@ -1,5 +1,5 @@
 var $orderSelectedProjectsCount = $('#order-selected-projects-count');
-var $orderProgress = document.querySelectorAll('[id^=order-progress] .budget-summary__content');
+var $orderProgress = document.querySelectorAll('[data-order-progress-responsive]');
 var $projectItem = $('#project-<%= project.id %>-item');
 var $projectBudgetButton = $('#project-<%= project.id %>-budget-button');
 var $budgetConfirm = $('#budget-confirm');
@@ -8,12 +8,13 @@ $orderProgress.forEach((orderProgress) => {
   var $orderTotalBudget = $(orderProgress).find("[id^=order-total-budget]");
   $orderTotalBudget.html('<%= j(render partial: "decidim/budgets/projects/order_total_budget").strip.html_safe %>');
 
-  if(orderProgress.dataset.orderProgressResponsive) {
-    morphdom(orderProgress, '<%= j(render partial: "decidim/budgets/projects/order_progress_summary_content", locals: { include_heading: true, responsive: true }).strip.html_safe %>');
+  if(orderProgress.dataset.orderProgressResponsive === "true") {
+    morphdom(orderProgress, '<%= j(render partial: "decidim/budgets/projects/order_progress_summary/content_responsive", locals: { focus_mode_origin: @focus_mode_origin }).strip.html_safe %>');
   } else {
-    morphdom(orderProgress, '<%= j(render partial: "decidim/budgets/projects/order_progress_summary_content", locals: { include_heading: true, responsive: false }).strip.html_safe %>');
+    morphdom(orderProgress, '<%= j(render partial: "decidim/budgets/projects/order_progress_summary/content").strip.html_safe %>');
   }
-})
+});
+
 morphdom($budgetConfirm[0], '<%= j(render partial: "decidim/budgets/projects/budget_confirm").strip.html_safe %>')
 if ($orderSelectedProjectsCount.length > 0) {
   morphdom($orderSelectedProjectsCount[0], '<%= j(render partial: "decidim/budgets/projects/projects_count", locals: { count: current_order.projects.size }).strip.html_safe %>')

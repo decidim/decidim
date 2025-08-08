@@ -7,6 +7,7 @@ module Decidim
     mimic :user
 
     attribute :email_on_moderations, Boolean
+    attribute :email_on_assigned_proposals, Boolean
     attribute :newsletter_notifications, Boolean
     attribute :notifications_from_followed, Boolean
     attribute :notifications_from_own_activity, Boolean
@@ -45,7 +46,7 @@ module Decidim
     end
 
     def meet_push_notifications_requirements?
-      Rails.application.secrets.dig(:vapid, :enabled) || false
+      Decidim.vapid_public_key.present?
     end
   end
 end

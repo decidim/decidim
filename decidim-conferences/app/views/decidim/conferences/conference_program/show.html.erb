@@ -1,3 +1,6 @@
+<% add_decidim_meta_tags(
+  title: t("conference_program.index.title", scope: "decidim"),
+  resource: meeting_component) %>
 <%
 if respond_to?(:meeting_component) && meeting_component
   edit_link(
@@ -9,7 +12,6 @@ if respond_to?(:meeting_component) && meeting_component
   )
 end
 %>
-<% add_decidim_meta_tags(title: t("conference_program.index.title", scope: "decidim")) %>
 
 <%# NOTE: this page does not use a regular layout %>
 <main class="container">
@@ -18,7 +20,7 @@ end
     <span class="sr-only"><%= t(".program") %> (<%= translated_attribute current_participatory_space.title %>)</span>
   </h1>
 
-  <div data-component="accordion" data-multiselectable="false" data-collapsible="false">
+  <div data-controller="accordion" data-multiselectable="false" data-collapsible="false">
     <% if meeting_days.any? %>
       <ul class="conference__program-selector">
         <% meeting_days.each_with_index do |day, i| %>

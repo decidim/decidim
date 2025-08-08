@@ -62,13 +62,74 @@
   }
 
   &_notes {
-    &-grid {
-      @apply grid grid-cols-2 gap-4 my-4;
+    .comment,
+    .comment-reply {
+      @apply mt-4 p-4 rounded w-full border border-gray-3 space-y-2;
 
-      .comment {
-        @apply p-4 rounded;
+      background-color: rgba(255, 252, 238, 1);
+    }
 
-        background-color: rgba(255, 252, 238, 1);
+    .comment-reply {
+      @apply bg-white;
+    }
+
+    .comment__content {
+      @apply space-y-4;
+
+      a {
+        @apply text-secondary;
+      }
+    }
+
+    .comment-actions {
+      @apply flex items-center gap-4;
+
+      .button[aria-expanded="false"] {
+        svg:first-of-type {
+          @apply block;
+        }
+
+        svg:last-of-type {
+          @apply hidden;
+        }
+
+        span:first-of-type {
+          @apply block;
+        }
+
+        span:last-of-type {
+          @apply hidden;
+        }
+      }
+
+      .button[aria-expanded="true"] {
+        svg:first-of-type {
+          @apply hidden;
+        }
+
+        svg:last-of-type {
+          @apply block;
+        }
+
+        span:first-of-type {
+          @apply hidden;
+        }
+
+        span:last-of-type {
+          @apply block;
+        }
+      }
+    }
+
+    .form__wrapper {
+      @apply pb-4;
+
+      label {
+        @apply text-gray-2 text-sm;
+      }
+
+      textarea {
+        @apply mt-2;
       }
     }
   }

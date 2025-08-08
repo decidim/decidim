@@ -9,6 +9,8 @@ describe Decidim::ActionLog do
 
   it { is_expected.to be_valid }
 
+  include_examples "has taxonomies"
+
   describe "validations" do
     context "when no user is given" do
       let(:action_log) { build(:action_log, user: nil, organization: build(:organization)) }
@@ -231,6 +233,15 @@ describe Decidim::ActionLog do
 
     it "returns the lazy-loaded user" do
       expect(subject).to be_a(Decidim::User)
+    end
+
+    context "with api user" do
+      let!(:user) { create(:api_user) }
+      let(:action_log) { create(:action_log, user:) }
+
+      it "returns the lazy-loaded user" do
+        expect(subject).to be_a(Decidim::Api::ApiUser)
+      end
     end
   end
 end

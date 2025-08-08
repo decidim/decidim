@@ -1,6 +1,16 @@
 [role="tooltip"] {
   @apply absolute bg-black z-10 px-4 py-2 w-max max-w-xs rounded text-left text-white;
 
+  /*
+    NOTE: the calculated value is the sum of the arrow offset position plus the half of the arrow size:
+    - offset position: 20%
+    - arrow size: 16px
+  */
+  --arrow-offset: 20%;
+  --arrow-size: 16px;
+  --arrow-visible-size: var(--arrow-size) * 0.5;
+  --arrow-margin: var(--arrow-visible-size) * 1.4142135623730951; // due to the rotation, the margin is SQRT2 times the visible size
+
   & > * {
     @apply relative z-20;
   }
@@ -40,16 +50,6 @@
       visibility: hidden;
     }
   }
-
-  /*
-    NOTE: the calculated value is the sum of the arrow offset position plus the half of the arrow size:
-    - offset position: 20%
-    - arrow size: 16px
-  */
-  --arrow-offset: 20%;
-  --arrow-size: 16px;
-  --arrow-visible-size: var(--arrow-size) * 0.5;
-  --arrow-margin: var(--arrow-visible-size) * 1.4142135623730951; // due to the rotation, the margin is SQRT2 times the visible size
 
   &.top {
     @apply -translate-x-[calc(100%-var(--arrow-offset))] -translate-y-[calc(100%+var(--arrow-margin))] before:content-[''] before:absolute before:-z-10 before:right-[calc(var(--arrow-offset)-var(--arrow-visible-size))] before:-bottom-[var(--arrow-visible-size)] before:w-[var(--arrow-size)] before:h-[var(--arrow-size)] before:rotate-45 before:bg-black before:rounded-br;

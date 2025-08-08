@@ -5,6 +5,8 @@ module Decidim
     class ModeratedUsersController < Decidim::Admin::ApplicationController
       include Decidim::ModeratedUsers::Admin::Filterable
 
+      helper_method :moderated_users
+
       layout "decidim/admin/global_moderations"
 
       before_action :set_moderation_breadcrumb_item
@@ -31,10 +33,34 @@ module Decidim
         end
       end
 
+      def bulk_unreport
+        Admin::BulkUnreportUsers.call(current_user, reportables) do
+          on(:ok) do
+            flash[:notice] = I18n.t("reportable.bulk_action.ignore.success", scope: "decidim.moderations.admin")
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("reportable.bulk_action.ignore.invalid", scope: "decidim.moderations.admin")
+          end
+        end
+        redirect_to moderated_users_path
+      end
+
       private
+
+      def moderated_users
+        @moderated_users ||= filtered_collection
+      end
 
       def reportable
         @reportable ||= base_query_finder.find(params[:id]).user
+      end
+
+      def reportables
+        @reportables ||= Decidim::UserBaseEntity.where(
+          id: params[:user_ids],
+          organization: current_organization
+        )
       end
 
       def base_query_finder

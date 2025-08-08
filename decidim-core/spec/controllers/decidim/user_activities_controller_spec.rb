@@ -7,7 +7,7 @@ module Decidim
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }
-    let!(:user) { create(:user, nickname: "Nick", organization:) }
+    let!(:user) { create(:user, nickname: "nick", organization:) }
 
     before do
       request.env["decidim.current_organization"] = organization

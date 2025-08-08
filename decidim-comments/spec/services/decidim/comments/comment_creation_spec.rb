@@ -23,14 +23,14 @@ module Decidim
       end
 
       describe "#subscribe" do
-        let(:block) { proc { |_data| "The block that is expected to be subscribed" } }
+        let(:block) { proc { |_data| raise "The block that is expected to be subscribed" } }
 
         it "subscribes to comment created" do
           allow(ActiveSupport::Notifications)
             .to receive(:subscribe)
             .with(described_class::EVENT_NAME, &block)
 
-          described_class.subscribe(&block)
+          expect { described_class.subscribe(&block) }.to raise_error("The block that is expected to be subscribed")
         end
       end
     end

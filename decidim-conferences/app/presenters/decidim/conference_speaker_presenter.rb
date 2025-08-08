@@ -29,10 +29,6 @@ module Decidim
       user ? true : false
     end
 
-    def has_tooltip?
-      false
-    end
-
     def avatar
       attached_uploader(:avatar)
     end

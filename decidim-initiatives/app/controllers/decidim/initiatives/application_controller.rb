@@ -14,7 +14,7 @@ module Decidim
                            ::Decidim::Permissions)
 
       before_action do
-        if Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).all.empty?
+        if Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).none?
           flash[:alert] = t("index.uninitialized", scope: "decidim.initiatives")
           redirect_to(decidim.root_path)
         end

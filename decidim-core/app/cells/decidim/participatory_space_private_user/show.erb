@@ -1,0 +1,23 @@
+<div class="profile__user">
+  <div class="profile__user-avatar-container">
+    <div class="<%= has_profile? ? "profile__user-avatar" : "profile__user-avatar !border-0" %>">
+      <%= image_tag(has_profile? ? model.avatar_url(:big) : model.non_user_avatar_path, alt: "member-avatar") %>
+    </div>
+  </div>
+  <div>
+    <div class="<%= has_profile? ? "profile__user-name" : "profile__user-name !no-underline" %>">
+      <%= name %>
+    </div>
+    <% if nickname.present? %>
+      <span class="profile__user-nick block">
+        <%= nickname %>
+      </span>
+    <% end %>
+
+    <div class="mt-3">
+      <span class="text-gray-2 capitalize font-semibold">
+        <%= role_translated %>
+      </span>
+    </div>
+  </div>
+</div>

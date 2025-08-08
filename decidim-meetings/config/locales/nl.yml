@@ -16,7 +16,6 @@ nl:
         customize_registration_email: Aanpassen registratie e-mail
         decidim_category_id: Categorie
         decidim_scope_id: Scope
-        decidim_user_group_id: Gebruikers groep
         description: Beschrijving
         id: ID
         location: Plaats
@@ -55,8 +54,6 @@ nl:
     admin:
       filters:
         meetings:
-          category_id_eq:
-            label: Categorie
           closed_at_present:
             label: Status
             values:
@@ -67,14 +64,11 @@ nl:
             values:
               'false': Verleden
               'true': Toekomstige
-          scope_id_eq:
-            label: Scope
           with_any_origin:
             label: Afkomstig van
             values:
               official: Officieel
               participants: Deelnemer
-              user_group: Gebruikersgroepen
           with_any_type:
             label: Type vergadering
             values:
@@ -103,16 +97,12 @@ nl:
             default_registration_terms: Standaard registratievoorwaarden
             enable_pads_creation: Schakel het maken van pads in
             maps_enabled: Kaarten ingeschakeld
-            registration_code_enabled: Inschrijvingsformulier ingeschakeld
             resources_permissions_enabled: Actiemachtigingen kunnen voor elke vergadering worden ingesteld
-            scope_id: Scope
-            scopes_enabled: Scopes ingeschakeld
             terms_and_conditions_url_for_meeting_creators: Algemene voorwaarden URL voor de makers van de vergadering
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
             creation_enabled_for_participants: Aanmaken van vergadering door deelnemers ingeschakeld
-            creation_enabled_for_user_groups: Aanmaken van vergadering door gebruikersgroepen ingeschakeld
     events:
       meetings:
         meeting_closed:
@@ -140,10 +130,8 @@ nl:
           email_subject: Het aantal ingenomen plaatsen voor de vergadering "%{resource_title}" is groter dan %{percentage}%
           notification_title: Het aantal ingenomen plaatsen voor de vergadering <a href="%{resource_path}">%{resource_title}</a> is groter dan %{percentage}%.
         meeting_updated:
-          email_intro: 'Het event "%{resource_title}" is bijgewerkt. Je kan de nieuwe versie hier lezen:'
           email_outro: Je ontvangt deze omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande ink.
           email_subject: De vergadering "%{resource_title}" is bijgewerkt
-          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event is bijgewerkt.
         registration_code_validated:
           email_intro: Uw registratiecode "%{registration_code}" voor de "%{resource_title}" vergadering is gevalideerd.
           email_outro: Je ontvangt deze melding omdat je registratiecode voor de "%{resource_title}" vergadering is gevalideerd.
@@ -154,11 +142,6 @@ nl:
           email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
           email_subject: Het event '%{resource_title}' heeft registraties ingeschakeld.
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event heeft registraties ingeschakeld.
-        upcoming_meeting:
-          email_intro: Het "%{resource_title}"event start in minder dan 48 uur.
-          email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
-          email_subject: Het "%{resource_title}" event start in minder dan 48 uur.
-          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event begint over minder dan 48 uur.
     gamification:
       badges:
         attended_meetings:
@@ -172,11 +155,7 @@ nl:
     meetings:
       actions:
         agenda: Agenda
-        attachment_collections: Mappen
-        attachments: Bijlagen
         close: Sluit
-        confirm_destroy: Weet u zeker dat u deze vergadering wilt verwijderen?
-        destroy: Verwijderen
         edit: Bewerk
         invalid_destroy:
           proposals_count:
@@ -212,7 +191,6 @@ nl:
             create: Aanmaken
             title: Nieuwe agenda
         exports:
-          answers: Antwoorden
           meeting_comments: Reacties
           meetings: Vergaderingen
           registrations: registraties
@@ -242,8 +220,6 @@ nl:
         meetings:
           create:
             success: Vergadering met succes aangemaakt. Merk op dat deze nog niet gepubliceerd is, je moet deze nog handmatig publiceren.
-          destroy:
-            success: Vergadering succesvol verwijderd
           edit:
             title: Vergadering bewerken
             update: Bijwerken
@@ -277,11 +253,10 @@ nl:
         registrations:
           edit:
             save: Opslaan
-            validate: bevestigen
-            validate_registration_code: Valideer de registratiecode
           form:
             available_slots_help: Laat het op 0 indien u onbeperkt beschikbare plaatsen hebt.
             invites: Uitnodigingen
+            manage_questions: Vragen
             recommendation_message: Om privacyredenen raden we je aan dit inschrijvingsformulier te verwijderen als je het niet meer nodig hebt. Standaard is dit 3 maanden na afloop van de vergadering.
             registration_email_help: Deze tekst verschijnt in het midden van de registratie bevestigingsmail, net na de registratiecode.
             registration_form: Registratieformulier
@@ -293,9 +268,6 @@ nl:
           update:
             invalid: Er is een probleem opgetreden bij het opslaan van de registratie-instellingen.
             success: Instellingen bijeenkomst registraties succesvol opgeslagen.
-          validate_registration_code:
-            invalid: Deze registratiecode is ongeldig.
-            success: Registratiecode succesvol gevalideerd.
       admin_log:
         invite:
           create: "%{user_name} heeft %{attendee_name} uitgenodigd om deel te nemen aan %{resource_name} vergadering van %{space_name}"
@@ -313,8 +285,6 @@ nl:
         questionnaire:
           update: "%{user_name} heeft de vragenlijst bijgewerkt voor het %{meeting_name} event"
       application_helper:
-        filter_category_values:
-          all: Alle
         filter_meeting_space_values:
           all: Alle
       calendar_modal:
@@ -405,12 +375,10 @@ nl:
         form:
           address_help: 'Adres: gebruikt door Geocoder om de locatie te vinden'
           available_slots_help: Laat op 0 staan als je onbeperkt aantal tijdsblokken beschikbaar hebt
-          create_as: Maak vergadering als
           location_help: 'Locatie: bericht over de ontmoetingsplek gericht naar de gebruikers'
           location_hints_help: 'Locatie hints: aanvullende informatie. Bijvoorbeeld: de verdieping van het gebouw als het een fysieke vergadering is, of het vergaderwachtwoord als het een online vergadering is met beperkte toegang.'
           online_meeting_url_help: 'Link: laat deelnemers direct verbinding maken met je vergadering'
           registration_url_help: 'Link: verleen deelnemers toegang tot de externe dienst die je gebruikt voor registraties'
-          select_a_category: Selecteer een categorie
           select_a_meeting_type: Selecteer een vergaderingstype
           select_a_registration_type: Selecteer een registratietype
           select_an_iframe_access_level: Selecteer een iframe toegangsniveau
@@ -425,7 +393,6 @@ nl:
         new:
           back: Achterzijde
           create: Aanmaken
-          title: Maak je vergadering
         registration_confirm:
           cancel: Annuleer
           confirm: Bevestigen
@@ -442,7 +409,6 @@ nl:
           micro_camera_permissions_warning: Als je op de knop hieronder klikt, wordt toestemming gevraagd voor het gebruik van je microfoon en/of camera en neem je deel aan de videoconferentie
           no_slots_available: Geen plaatsen beschikbaar
           organizations: Bijwonen van organisaties
-          registration_code_help_text: Jouw registratiecode
           registration_state:
             validated: GOEDGEKEURD
             validation_pending: WACHTEN OP GOEDKEURING
@@ -452,7 +418,6 @@ nl:
           visit_finished: Bekijk voorbije vergadering
           withdraw_btn_hint: Je kunt je vergadering afgelasten indien nodig. De vergadering wordt niet verwijderd, deze verschijnt in de lijst met afgelaste vergaderingen.
           withdraw_confirmation_html: Weet je zeker dat je deze vergadering wil afgelasten? <br><br><strong>Deze actie kan niet worden ongedaan gemaakt</strong>
-          withdraw_meeting: Vergadering afgelasten
         update:
           invalid: Er was een probleem bij het bijwerken van de vergadering.
           success: De vergadering is succesvol bijgewerkt.
@@ -478,13 +443,9 @@ nl:
             title: Titel
       polls:
         questions:
-          index:
-            empty_questions: Tijdens deze vergadering worden er enkele vragen verzonden en je kan ze beantwoorden. Ze zullen hier worden weergegeven.
           index_admin:
             edit: Bewerk in admin
             question: Vraag
-            received_answer: antwoord ontvangen
-            received_answers: ontvangen antwoorden
             results: Resultaten
             send: Verzenden
             sent: Verzonden
@@ -503,7 +464,6 @@ nl:
         confirmation:
           confirmed_html: Uw registratie voor de vergadering <a href="%{url}">%{title}</a> is bevestigd.
           details: In de bijlage vindt u de details van de vergadering.
-          registration_code: Uw registratiecode is %{code}.
       registration_type:
         on_different_platform: Op een ander platform
         on_this_platform: Op dit platform
@@ -525,11 +485,6 @@ nl:
         private_meeting: Privé vergadering
         transparent: Transparant
         withdraw: Afgelasten
-    metrics:
-      meetings:
-        description: Aantal gemaakte vergaderingen
-        object: vergaderingen
-        title: vergaderingen
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Vorige events

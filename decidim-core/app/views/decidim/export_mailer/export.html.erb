@@ -1,3 +1,7 @@
 <p class="email-instructions">
-  <%= t(".ready") %>
+  <%= t(".click_button_html", date: l(@private_export.expires_at, format: :decidim_short) ) %><br>
+</p>
+
+<p class="email-button email-button__cta">
+  <%= link_to t(".download"), download_download_your_data_url(@private_export, host: @organization.host), class: "button expanded hollow button--sc" %>
 </p>

@@ -10,7 +10,7 @@ shared_examples "manage assembly private users examples" do
     login_as user, scope: :user
     visit decidim_admin_assemblies.edit_assembly_path(assembly)
     within_admin_sidebar_menu do
-      click_on "Private users"
+      click_on "Members"
     end
   end
 
@@ -62,6 +62,7 @@ shared_examples "manage assembly private users examples" do
 
     it "deletes an assembly_private_user" do
       within "#private_users tr", text: other_user.email do
+        find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
 
@@ -89,6 +90,7 @@ shared_examples "manage assembly private users examples" do
 
       it "resends the invitation to the user" do
         within "#private_users tr", text: "test@example.org" do
+          find("button[data-controller='dropdown']").click
           click_on "Resend invitation"
         end
 

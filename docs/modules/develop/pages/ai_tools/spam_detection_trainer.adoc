@@ -1,0 +1,83 @@
+= Real-time training
+
+In some instances, there may be the need to add Real-time training of the spam data. To achieve that, Decidim allows you to subscribe to 2 different events. Take into account that if you follow this strategy, you could have lots of false positives, as some spammers are using relevant content provided by participants to "cheat" the system.
+
+== Resource training
+
+In order to enable realtime training for based on your data, you will need to subscribe to the `decidim.admin.hide_resource:after` event by adding to your `config/initializers/ai_tools.rb` file the following content:
+
+```ruby
+Decidim::EventsManager.subscribe("decidim.admin.hide_resource:after") do |_event_name, data|
+  Decidim::MyModule::TrainHiddenResourceDataJob.perform_later(data[:resource])
+end
+```
+
+In this case `data[:resource]` is the actual resource that is being hidden.
+A class that would train / untrain that may look like:
+
+```ruby
+# frozen_string_literal: true
+
+module Decidim
+  module MyModule
+    class TrainHiddenResourceDataJob < ApplicationJob
+      include Decidim::TranslatableAttributes
+
+      def perform(resource)
+        return unless resource.respond_to?(:hidden?)
+
+        resource.reload
+
+        wrapped = Decidim::Ai::SpamDetection.resource_models[resource.class.name].constantize.new
+
+        if resource.hidden?
+          wrapped.fields.each do |field|
+            wrapped.untrain :ham, translated_attribute(resource.send(field))
+            wrapped.train :spam, translated_attribute(resource.send(field))
+          end
+        end
+      end
+    end
+  end
+end
+```
+
+== User training
+As you can do the same as above for the user.
+
+```ruby
+Decidim::EventsManager.subscribe("decidim.admin.block_user:after") do |_event_name, data|
+  Decidim::MyModule::TrainUserDataJob.perform_later(data[:resource])
+end
+```
+
+In this case `data[:resource]` is the actual user that is being hidden.
+A class that would train / untrain that may look like:
+
+```ruby
+# frozen_string_literal: true
+
+module Decidim
+  module MyModule
+    class TrainUserDataJob < ApplicationJob
+      def perform(user)
+        user.reload
+
+        if user.blocked?
+          classifier.untrain :ham, user.about
+          classifier.train :spam, user.about
+        else
+          classifier.untrain :spam, user.about
+          classifier.train :ham, user.about
+        end
+      end
+
+      protected
+
+      def classifier
+        @classifier ||= Decidim::Ai::SpamDetection.user_classifier
+      end
+    end
+  end
+end
+```

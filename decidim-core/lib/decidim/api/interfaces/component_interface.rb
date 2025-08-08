@@ -14,6 +14,12 @@ module Decidim
 
       field :participatory_space, ParticipatorySpaceType, "The participatory space in which this component belongs to.", null: false
 
+      field :url, String, "The URL of this component.", null: false
+
+      def url
+        Decidim::EngineRouter.main_proxy(object).root_url
+      end
+
       def self.resolve_type(obj, _ctx)
         obj.manifest.query_type.constantize
       end

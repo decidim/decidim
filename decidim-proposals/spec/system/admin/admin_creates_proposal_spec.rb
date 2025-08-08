@@ -7,6 +7,10 @@ describe "Admin creates proposals" do
   let(:creation_enabled?) { true }
   let(:new_title) { "This is my proposal new title" }
   let(:new_body) { "This is my proposal new body" }
+  let(:image_filename) { "city2.jpeg" }
+  let(:image_path) { Decidim::Dev.asset(image_filename) }
+  let(:document_filename) { "Exampledocument.pdf" }
+  let(:document_path) { Decidim::Dev.asset(document_filename) }
 
   include_context "when managing a component as an admin" do
     let!(:component) { create(:proposal_component, participatory_space:) }
@@ -29,13 +33,33 @@ describe "Admin creates proposals" do
 
     fill_in_i18n :proposal_title, "#proposal-title-tabs", en: new_title
     fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: new_body
-    fill_in :proposal_attachment_title, with: "FOO BAR"
-    dynamically_attach_file(:proposal_attachment_file, Decidim::Dev.asset("city.jpeg"))
-    click_on("Create")
-    find("a.action-icon--edit-proposal").click
+    dynamically_attach_file(:proposal_documents, image_path)
+    dynamically_attach_file(:proposal_documents, document_path)
 
-    expect(page).to have_content("city.jpeg")
-    expect(page).to have_content("FOO BAR")
+    click_on("Create")
+    within "tr", text: translated_attribute(new_title) do
+      find("button[data-controller='dropdown']").click
+      click_on "Edit proposal"
+    end
+
+    expect(page).to have_content(image_filename)
+    expect(page).to have_content(document_filename)
+  end
+
+  it "displays the correct version link", versioning: true do
+    visit_component_admin
+    click_on("New proposal")
+
+    fill_in_i18n :proposal_title, "#proposal-title-tabs", en: new_title
+    fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: new_body
+    click_on("Create")
+    expect(page).to have_admin_callout("successfully")
+
+    path = resource_locator(Decidim::Proposals::Proposal.last).path
+
+    visit path
+
+    expect(page).to have_link("see other versions", href: "#{path}/versions/1")
   end
 
   describe "validating the form" do

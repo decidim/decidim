@@ -3,13 +3,16 @@ sv:
     attributes:
       oauth_application:
         name: OAuth app namn
-        organization_logo: Organisationslogo (kvadrat)
+        organization_logo: Organisationens logotyp (kvadratisk)
         organization_name: Organisation
         organization_url: Organisationens hemsida
         redirect_uri: Omdirigerings-URI
+        refresh_tokens: Uppdatera tokens
+        refresh_tokens_enabled: Uppdatera tokens är aktiverat
+        scopes: Tillgängliga omfattningar
       organization:
         address: SMTP-värdnamn
-        from_email: Från (e-postadress)
+        from_email: E-postadress
         from_label: Från (namn)
         password: Lösenord
         port: Port
@@ -21,9 +24,9 @@ sv:
         allowed_file_extensions:
           admin: Admin filändelser
           default: Förvalda filändelser
-          image: Bild filändelser
+          image: Filformat för bilder
         maximum_file_size:
-          avatar: Avatarens filstorlek
+          avatar: Filstorlek för profilbild
           default: Standardstorlek för filer
     errors:
       models:
@@ -31,17 +34,41 @@ sv:
           attributes:
             redirect_uri:
               must_be_ssl: Omdirigerings-URI måste vara en SSL URI
+        organization:
+          attributes:
+            password:
+              secret_key: Du behöver definiera variabeln SECRET_KEY_BASE för att kunna spara detta fält
   decidim:
     system:
       actions:
+        api_user:
+          hidden_secret: Hemlighet är dold
+          hide_secret: Dölj hemlighet
+          secret_can_not_be_shown: API:s hemlighet kan bara ses vid skapande eller kopiering
+          show_secret: Visa hemlighet
+        api_users:
+          new: Ny API-användare
+          remove: Ta bort användaren
         confirm_destroy: Vill du radera detta?
+        confirm_refresh_api_secret: Är du säker på att du vill uppdatera hemlighet för denna API-användare? Efter uppdateringen kommer den gamla hemligheten att vara ogiltig och kan inte längre användas.
+        confirm_remove_api_user: Är du säker på att du vill ta bort denna API-användare?
+        copied: Kopierad
+        copy_secret: Kopiera hemlighet
+        copy_secret_clarification: Kopiera hemlighet till urklipp
         destroy: Radera
         edit: Redigera
+        new_admin: Ny administratör
+        new_oauth_application: Ny OAUTH-applikation
+        new_organization: Ny organisation
+        refresh_secret: Uppdatera hemlighet
         save: Spara
         title: Åtgärder
       admins:
         create:
           error: Det gick inte att skapa en ny administratör.
+          success: Administratören har skapats.
+        destroy:
+          success: Administratören har raderats.
         edit:
           title: Redigera administratören
           update: Uppdatera
@@ -52,17 +79,57 @@ sv:
           title: Ny administratör
         update:
           error: Det gick inte att uppdatera administratören.
+          success: Administratören har uppdaterats.
+      api_user:
+        create:
+          error: Skapandet av API-användare misslyckades.
+          success: API-användaren skapades framgångsrikt. Hemligheten för användaren är bara synlig efter skapandet. Kopiera den och lagra den säkert innan du lämnar denna sida!
+        destroy:
+          success: API-användaren har tagits bort.
+        refresh:
+          error: Något gick fel. Vänligen försök igen senare.
+          success: Hemligheten uppdaterades. Hemligheten för användaren är bara synlig efter skapandet. Kopiera den och lagra den säkert innan du lämnar denna sida!
+      api_users:
+        index:
+          explanation_html: |
+            <p>API-användare tillåter integrationsutvecklare att lägga till administrativa konton för maskinanvändare till systemet. Dessa maskinanvändare kan administrera på plattformen för att utföra uppdateringar som vanliga administratörer skulle utföra via administrationspanelen. Ett typiskt användningsfall är en extern dashboard där ett automatiserat skript skulle utföra administrativa uppgifter utan att en verklig användare behöver autentisera mot systemet. Till exempel, ett automationssystem kanske vill skicka svar på förslag ifall vi behöver en integrationsanvändare för att utföra uppgiften på plattformen.</p>
+            <p>Största skillnaden mellan dessa konton och normala administratörskonton är att de är avsedda för maskiner och därför deras lösenordskrav är olika. Dessa användare behöver inte regelbundet uppdatera sitt lösenord och ändra kontolösenordet kan hända på ett hanterat sätt när det behövs.</p>
+            <p>Dessa referenser är avsedda att användas av maskiner. Medverkande applikationer bör integreras med <a href="%{oauth_link}">OAuth applikationer</a>.</p>
+          manage: Hantera API-användare
+        new:
+          select_organization: Välj din organisation
+          title: Skapa ny API-användare
       dashboard:
         show:
+          admins: Administratörer
           current_organizations: Nuvarande organisationer
+          system_checks: Systemkontroller
       default_pages:
         placeholders:
           content: Lägg till relevant innehåll på den statiska sidan %{page} på adminpanelen.
+          summary: Lägg till en relevant sammanfattning på den statiska sidan %{page} i adminpanelen.
           title: Standardtitel för %{page}
+        terms-of-service: Användarvillkor
+      devise:
+        passwords:
+          edit:
+            change_your_password: Ändra ditt lösenord
+            minimum_characters: "(minst %{minimum} tecken)"
+          new:
+            forgot_your_password: Glömt ditt lösenord
+            send_me_reset_password_instructions: Skicka instruktioner för återställning av lösenord
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Fick du inga bekräftelseinstruktioner?
+            did_not_receive_unlock_instructions?: Fick du inga instruktioner om hur du låser upp ditt konto?
+            forgot_your_password?: Glömt ditt lösenord?
+            log_in: Logga in
+            sign_up: Skapa ett konto
       menu:
         admins: Administratörer
+        api_credentials: API-uppgifter
         dashboard: Adminpanel
-        oauth_applications: OAuth appar
+        oauth_applications: OAuth-applikationer
         organizations: Organisationer
       models:
         admin:
@@ -71,15 +138,25 @@ sv:
             email: E-post
           validations:
             email_uniqueness: det finns redan en administratör med samma e-postadress
-        oauth_application:
+        api_user:
           fields:
             created_at: Skapad den
-            name: OAuth app namn
+            key: Nyckel
+            name: Namn
+            organization: Organisation
+            secret: Hemlighet
+          validations:
+            name_uniqueness: En API-användare med detta namn finns redan.
+        oauth_application:
+          fields:
+            created_at: Skapad
+            name: Namn på OAuth-app
             organization_name: Organisation
         organization:
           actions:
             save_and_invite: Skapa organisation och bjud in administratör
           fields:
+            content_security_policy: Säkerhetspolicy för innehåll
             created_at: Skapad
             file_upload_settings: Inställningar för filuppladdning
             name: Namn
@@ -96,6 +173,26 @@ sv:
           save: Spara
           title: Redigera appen
         form:
+          application_type:
+            confidential:
+              explanation: Applikationer som kan autentisera auktoriseringsservern riskfritt, till exempel att kunna hålla sin registrerade klient hemlig och säker. Vanligtvis ett program som körs på en server där klienthemligheten lagras.
+              name: Konfidentiellt
+            public:
+              explanation: Applikationer som inte kan använda registrerade klienthemligheter, till exempel för att de körs i en webbläsare eller på en mobil enhet.
+              name: Offentlig
+          application_type_help_html: 'Klienttypen OAuth enligt definitionen av <a href="%{client_type_link}" target="_blank">RFC 6749 Avsnitt 2.1</a>. Offentliga kunder behöver implementera PKCE-flödet enligt definitionen av <a href="%{pkce_link}" target="_blank">RFC 7636</a>. '
+          refresh_tokens_help_html: 'Uppdatera tokens är användbart om de behöver en längre livstid än vad som tilldelas för åtkomsttoken. Observera att <strong>uppdatera token bör användas varsamt</strong> eftersom de kan försvaga säkerheten för dina användare. '
+          scopes_explanation:
+            "api:read": Tillåter användaren att ställa frågor genom GraphQL API.
+            "api:write": Tillåter användaren att göra mutationer genom GraphQL API.
+            profile: Ger åtkomst till användarens egna profildetaljer. Endast denna omfattning behövs ifall OAuth-applikationen bara används som identitetsleverantör eller autentiseringstjänst.
+            user: Möjlighet att agera som den inloggade användaren med angivet token under samtal till GraphQL API. Detta krävs för alla api:write eller api:read-operationer som behöver information om den aktuella användaren.
+          scopes_help_html: |
+            De valda omfången kommer att vara åtkomliga för de anslutna apparna under auktoriseringsprocessen. Användaren kommer att få detaljer om behörighetsbegäran när de loggar in med OAuth.
+            <br>
+            Autentiserade användare har tillgång till olika funktioner av olika omfattning med hjälp av de beviljade åtkomsttokens.
+            <br>
+            <strong>Obs:</strong> Om du bara behöver autentisera användarna till dina externa applikationer, så behöver du bara <strong>profilens</strong> omfattning. Applikationer som interagerar med Decidim API kräver även andra omfattningar.
           select_organization: Välj en organisation
         index:
           confirm_delete: Vill du ta bort appen?
@@ -112,23 +209,41 @@ sv:
           show: Visa avancerade inställningar
         create:
           error: Det gick inte att skapa en ny organisation.
+          error_invitation: Det gick inte att skapa en ny organisation. Granska organisationens administratörsnamn.
+        csp_settings:
+          connect_src: Connect src
+          default_src: Default src
+          font_src: Font src
+          frame_src: Frame src
+          img_src: Img src
+          media_src: Media src
+          script_src: Script src
+          style_src: Style src
         edit:
+          confirm_resend_invitation: Är du säker på att du vill skicka inbjudan igen?
+          resend_invitation: Skicka inbjudan igen
           secondary_hosts_hint: Ange var och en av dem på en ny rad
+          title: Redigera organisation
         file_upload_settings:
           content_types:
             title: Tillåtna MIME-typer
           file_extensions:
             title: Tillåtna filändelser
           file_sizes:
-            title: Max filstorlekar
+            title: Maximal filstorlek
+        header_snippets_help_html: Använd det här fältet för att göra tillägg till HTML-huvudet. Vanligaste användningen är för att integrera tredjepartstjänster som kräver extra JavaScript eller CSS. Du kan också lägga till extra metataggar till HTML. Observera att detta endast kommer att visas på offentliga sidor, inte i admingränssnittet. Om koden använder externa API:er eller bryter mot webbplatsens riktlinjer behöver du ändra säkerhetspolicyn. Läs mer <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">på dokumentationssidan</a>.
         index:
           title: Organisationer
         new:
+          default: Standard?
+          enabled: Aktiverad
+          locale: Språk
+          secondary_hosts_hint: Ange var och en på en ny rad.
           title: Ny organisation
         omniauth_settings:
           decidim:
-            client_id: Klient ID
-            client_secret: Klient hemlig
+            client_id: Client ID
+            client_secret: Client Secret
             site_url: Webbplatsens URL
           enabled: Aktiverad
           enabled_by_default: Denna leverantör är aktiverad som standard. Den kan redigeras men inte inaktiveras.
@@ -136,28 +251,51 @@ sv:
             app_id: App-ID
             app_secret: App-hemlighet
           google_oauth2:
-            client_id: Klient-ID
-            client_secret: Klient-hemlighet
+            client_id: Client ID
+            client_secret: Client Secret
           icon: Symbol
           icon_path: Sökväg till symbol
           twitter:
             api_key: API-nyckel
             api_secret: API-hemlighet
+        resend_invitation:
+          error: Det gick inte att skicka inbjudan.
+          success: Inbjudan har skickats.
         smtp_settings:
           fieldsets:
             sender: Avsändare
+          instructions:
+            from_label: 'E-postavsändare kommer att vara: "din-organisations-namn <your-organization@example.org>". Lämna tomt för att använda samma namn som ställts in för organisationen.'
           placeholder:
             from_email: your-organization@example.org
-            from_label: din-organisation-namn
+            from_label: din-organisations-namn
         update:
           error: Det gick inte att uppdatera organisationen.
           success: Organisationen har uppdaterats.
         users_registration_mode:
           disabled: Åtkomst kan endast göras med externa konton
-          enabled: Tillåt deltagare att registrera och logga in
+          enabled: Tillåt deltagare att skapa ett konto och logga in
+          existing: Tillåt inte deltagare att skapa ett konto, men låt befintliga deltagare logga in
       shared:
         notices:
           no_organization_warning_html: Kom igång genom att skapa en organisation. Läs %{guide} innan du fortsätter.
           our_getting_started_guide: vår startguide
+        organizations_list:
+          confirm_resend_invitation: Är du säker på att du vill skicka inbjudan igen?
+          resend_invitation: Skicka inbjudan igen
+      system_checks:
+        active_job_queue:
+          decidim_documentation: Decidim Dokumentation
+          error: ActiveJob-kön är inte konfigurerad. Detta är inte en rekommenderad inställning för produktionsläge. Läs mer på %{error_extra}.
+          success: ActiveJob-kön är konfigurerad korrekt.
+        secret_key:
+          error: 'Den hemliga nyckeln är inte korrekt definierad. Spara till variabeln SECRET_KEY_BASE och starta om servern: %{error_extra}'
+          success: Den hemliga nyckeln är korrekt konfigurerad.
       titles:
         dashboard: Adminpanel
+        decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Logga ut

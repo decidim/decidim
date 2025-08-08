@@ -16,18 +16,15 @@ is-IS:
         created_by_other: Búið til af öðrum
         creation_date: Dagsetning búin til
         decidim_area_id: Svæði
-        decidim_assemblies_type_id: Samsetning gerð
         decidim_scope_id: Umfang
         description: Lýsing
         domain: Lén
         duration: Lengd
         facebook: Facebook
         github: GitHub
-        hashtag: Kassamerki
         hero_image: Heimsmynd
         included_at: Innifalið á
         instagram: Instagram
-        internal_organisation: Innri skipulagning
         is_transparent: Er gagnsæ
         meta_scope: Gildissvið lýsigagna
         participatory_scope: Hvað er ákveðið
@@ -35,10 +32,7 @@ is-IS:
         private_space: Einkasvæði
         published_at: Birt á
         purpose_of_action: Tilgangur aðgerða
-        scope_id: Umfang
-        scopes_enabled: Scopes virkt
         short_description: Stutt lýsing
-        show_statistics: Sýna tölfræði
         slug: URL slug
         special_features: Sérstakir eiginleikar
         subtitle: Texti
@@ -71,10 +65,7 @@ is-IS:
       actions:
         import_assembly: Flytja inn
         new_assembly: Nýtt þing
-        new_assembly_type: Ný þing tegund
       assemblies:
-        create:
-          success: Samkoma búin til með góðum árangri.
         edit:
           update: Uppfæra
         index:
@@ -84,9 +75,6 @@ is-IS:
         new:
           create: Búa til
           title: Ný samkoma
-      assemblies_types:
-        new:
-          create: Búa til
       assembly_copies:
         new:
           copy: Afrita
@@ -96,13 +84,6 @@ is-IS:
         new:
           import: Flytja inn
           title: Flytja inn þing
-      assembly_members:
-        edit:
-          update: Uppfæra
-        index:
-          assembly_members_title: Þingmenn
-        new:
-          create: Búa til
       assembly_user_roles:
         edit:
           update: Uppfæra
@@ -111,17 +92,11 @@ is-IS:
       menu:
         assemblies: Þing
         assemblies_submenu:
-          assembly_members: Meðlimir
           attachment_files: Skrár
           attachments: Viðhengi
-          categories: Flokkar
           components: Hluti
           moderations: Moderations
       models:
-        assemblies_types:
-          fields:
-            created_at: Búið til á
-            title: Titill
         assembly:
           fields:
             created_at: Búið til á
@@ -131,11 +106,6 @@ is-IS:
             title: Titill
           name: Þing
         assembly_member:
-          fields:
-            ceased_date: Hættudagur
-            designation_date: Tilnefningardagur
-            full_name: Nafn
-            position: Staða
           name: Meðlimur
           positions:
             other: Annað
@@ -171,16 +141,8 @@ is-IS:
         assemblies:
           form:
             select_a_created_by: Veldu búið til af
-            select_an_area: Veldu svæði
-            select_an_assembly_type: Veldu gerð samsetningar
             social_handlers: Félagsleg
             title: Almennar upplýsingar
-        assemblies_types:
-          form:
-            title: Titill
-        assembly_members:
-          form:
-            select_a_position: Veldu stöðu
       assemblies:
         filters:
           names:
@@ -188,14 +150,6 @@ is-IS:
       assembly_members:
         index:
           members: Meðlimir
-      assembly_types:
-        commission: Nefndin
-        consultative_advisory: Ráðgjafar / ráðgjafar
-        executive: Framkvæmdastjóri
-        government: Ríkisstjórn
-        others: Aðrir
-        participatory: Þátttaka
-        working_group: Vinnuhópur
       created_by:
         city_council: Borgarstjórn
         others: Aðrir
@@ -203,7 +157,6 @@ is-IS:
       index:
         title: Þing
       show:
-        assembly_type: Samsetning gerð
         duration: Lengd
         private_space: Þetta er einkasamkoma
     assembly_members:

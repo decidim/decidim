@@ -17,7 +17,7 @@ module Decidim
           enforce_permission_to(:promote, :managed_user, user:)
           @form = form(ManagedUserPromotionForm).from_params(params)
 
-          PromoteManagedUser.call(@form, user, current_user) do
+          PromoteManagedUser.call(@form, user) do
             on(:ok) do
               flash[:notice] = I18n.t("managed_users.promotion.success", scope: "decidim.admin")
               redirect_to impersonatable_users_path
@@ -25,7 +25,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("managed_users.promotion.error", scope: "decidim.admin")
-              render :new
+              render :new, status: :unprocessable_entity
             end
           end
         end

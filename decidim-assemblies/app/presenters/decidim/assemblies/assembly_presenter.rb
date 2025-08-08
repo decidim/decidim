@@ -6,11 +6,11 @@ module Decidim
       include Decidim::TranslationsHelper
 
       def hero_image_url
-        assembly.attached_uploader(:hero_image).url(host: assembly.organization.host)
+        assembly.attached_uploader(:hero_image).url
       end
 
       def banner_image_url
-        assembly.attached_uploader(:banner_image).url(host: assembly.organization.host)
+        assembly.attached_uploader(:banner_image).url
       end
 
       def area_name
@@ -35,12 +35,6 @@ module Decidim
         return I18n.t("indefinite_duration", scope: "decidim.assemblies.assemblies.description") if (date = assembly.duration).blank?
 
         formatted_date(date)
-      end
-
-      def assembly_type
-        return if assembly.assembly_type.blank?
-
-        translated_attribute(assembly.assembly_type.title)
       end
 
       def formatted_date(date)

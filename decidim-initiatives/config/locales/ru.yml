@@ -2,7 +2,6 @@ ru:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Автор
         description: Описание
         offline_votes: Выражения поддержки на личных встречах
         scope_id: Охват
@@ -126,9 +125,7 @@ ru:
           unpublish: "%{user_name} отбросил почин %{resource_name}"
           update: "%{user_name} обновил почин %{resource_name}"
       admin_states:
-        created: Созданные
         discarded: Отброшенные
-        published: Обнародовано
         validating: Техническая проверка
       application_helper:
         filter_state_values:
@@ -144,36 +141,21 @@ ru:
           name: Рекомендуемые почины
       create_initiative:
         fill_data:
-          back: Вернуться
           continue: Продолжить
-          more_information: "(Дополнительные сведения)"
           select_scope: Выбрать охват
         finish:
           back: Вернуться
-          back_to_initiatives: Вернуться к починам
-          go_to_my_initiatives: Перейти к моим починам
-          more_information: "(Дополнительные сведения)"
         previous_form:
           back: Вернуться
-          continue: Продолжить
-        promotal_committee:
-          more_information: "(Дополнительные сведения)"
         select_initiative_type:
           back: Вернуться
           more_information: (Дополнительные сведения)
-        share_committee_link:
-          invite_to_committee_help: Ссылка для приглашения людей, которые войдут в рабочую группу по продвижению
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, за которым вы следите, создал новый почин. Прочитайте его и внесите свой вклад:"
           email_outro: Вы получили это уведомление, потому что вы следите за «%{author_nickname}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: Новый почин от %{author_nickname}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> предложил почин <a href="%{resource_path}">%{resource_title}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, за которым вы следите, поддержал следующую инициативу. Возможно, вы хотите поучаствовать в разговоре:"
-          email_outro: Вы получили это уведомление, потому что вы следите за «%{author_nickname}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
-          email_subject: Инициатива поддержана %{author_nickname}
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> поддержал почин <a href="%{resource_path}">%{resource_title}</a>.
       initiative_votes:
         create:
           error: При попытке подписаться за этот почин произошли ошибки.
@@ -243,8 +225,6 @@ ru:
     decidim:
       initiative_creation_header:
         fill_data: Создать
-        finish: Закончить
-        promotal_committee: Рабочая группа по продвижению
         select_initiative_type: Выбрать
       initiatives:
         no_initiatives_yet:

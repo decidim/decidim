@@ -1,0 +1,79 @@
+---
+ja:
+  decidim:
+    demographics:
+      actions:
+        title: アクション
+      admin:
+        demographics:
+          tabs_menu:
+            title: デモグラフィック
+        demographics_menu:
+          questions: 質問
+          responses: 回答
+          settings: 設定
+        publish_responses:
+          index:
+            description: 説明
+            title: 回答を表示
+        questions:
+          edit:
+            save: 保存
+            title: 質問
+          questions_form:
+            add_question: 質問を追加
+            collapse: すべての質問を折りたたむ
+            expand: すべての質問を展開
+        responses:
+          index:
+            publish_responses: 回答を表示
+            title: "回答数 %{total} 件"
+        settings:
+          show:
+            collect_data: デモグラフィックデータ収集を有効にする
+            collect_data_help: この設定を有効にすると、ユーザーはデータをプラットフォームに提供できます。
+            save: 保存
+            title: 設定
+          update:
+            invalid: デモグラフィックデータの保存中にエラーが発生しました
+            success: デモグラフィックデータを保存しました
+        title: デモグラフィック
+      demographics:
+        questionnaire:
+          delete_my_data: データを削除
+          modal_close: キャンセル
+          modal_ok: OK
+          modal_question: すべてのデモグラフィックデータが削除されます。
+          modal_title: データを削除
+          submit: データを保存
+          terms_of_service: 利用規約
+          tos_agreement: 参加いただくことで、%{link} に同意したものとみなされます。
+        show:
+          page_title: デモグラフィックデータの提供
+      destroy:
+        error: 提供されたデータの削除中にエラーが発生しました
+        success: 提供されたデータを削除しました
+      name: デモグラフィックデータの提供
+      questions:
+        age:
+          options:
+          - 15歳から29歳
+          - 30歳から44歳
+          - 45歳から64歳
+          - 65歳以上
+          question: あなたの年齢
+        gender:
+          options:
+          - 男性
+          - 女性
+          - その他
+          - 私の性別はリストにありません
+          - 回答を希望しない
+          question: あなたの性別を最もよく表しているのは次のうちどれですか？
+        postal:
+          question: 自宅の郵便番号は何ですか？
+  layouts:
+    decidim:
+      shared:
+        layout_center:
+          alert: この情報を提供することで、参加者の質を向上させる統計分析に貢献します。あなたのデータは、研究目的にのみ集約され、使用されます。

@@ -6,6 +6,7 @@ module Decidim
     # title, description and any other useful information to render a custom result.
     class Result < Accountability::ApplicationRecord
       include Decidim::Resourceable
+      include Decidim::Taxonomizable
       include Decidim::HasAttachments
       include Decidim::HasAttachmentCollections
       include Decidim::HasComponent
@@ -20,6 +21,7 @@ module Decidim
       include Decidim::Searchable
       include Decidim::TranslatableResource
       include Decidim::FilterableResource
+      include Decidim::SoftDeletable
 
       component_manifest_name "accountability"
 
@@ -30,8 +32,8 @@ module Decidim
 
       belongs_to :status, foreign_key: "decidim_accountability_status_id", class_name: "Decidim::Accountability::Status", inverse_of: :results, optional: true
 
-      has_many :timeline_entries, -> { order(:entry_date) }, foreign_key: "decidim_accountability_result_id",
-                                                             class_name: "Decidim::Accountability::TimelineEntry", inverse_of: :result, dependent: :destroy
+      has_many :milestones, -> { order(:entry_date) }, foreign_key: "decidim_accountability_result_id",
+                                                       class_name: "Decidim::Accountability::Milestone", inverse_of: :result, dependent: :destroy
 
       scope :order_by_most_recent, -> { order(created_at: :desc) }
 
@@ -45,8 +47,14 @@ module Decidim
         datetime: :start_date
       )
 
+      geocoded_by :address
+
       def self.log_presenter_class_for(_log)
         Decidim::Accountability::AdminLog::ResultPresenter
+      end
+
+      def presenter
+        Decidim::Accountability::ResultPresenter.new(self)
       end
 
       def update_parent_progress
@@ -83,7 +91,7 @@ module Decidim
       end
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:with_category, :with_scope]
+        [:with_any_taxonomies]
       end
 
       ransacker :id_string do
@@ -93,6 +101,20 @@ module Decidim
       # Create i18n ransackers for :title and :description.
       # Create the :search_text ransacker alias for searching from both of these.
       ransacker_i18n_multi :search_text, [:title, :description]
+
+      def self.ransackable_attributes(auth_object = nil)
+        base = %w(search_text title description)
+
+        return base unless auth_object&.admin?
+
+        base + %w(id_string created_at id progress)
+      end
+
+      def self.ransackable_associations(auth_object = nil)
+        return [] unless auth_object&.admin?
+
+        %w(taxonomies status)
+      end
 
       private
 

@@ -1,0 +1,15 @@
+<p class="email-greeting"><%= t(".greeting", name: @user.name) %></p>
+
+<p class="email-instructions"><%= t(".body_1", group_name: @group_name).html_safe %></p>
+
+<p class="email-instructions"><%= t(".body_2") %></p>
+
+<p class="email-instructions"><%= t(".instructions_title").html_safe %></p>
+
+<p class="email-instructions"><%= t(".instructions_intro") %></p>
+
+<ul class="list-decimal">
+  <li>
+    <%= t(".instructions_1") %>
+  </li>
+</ul>

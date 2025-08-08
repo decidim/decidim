@@ -1,5 +1,5 @@
 <div class="form__wrapper">
-  <div class="card" data-component="accordion" id="accordion-title">
+  <div class="card" data-controller="accordion" id="accordion-title">
     <div class="card-divider">
       <button class="card-divider-button" data-open="true" data-controls="panel-title" type="button">
         <%= icon "arrow-right-s-line" %>
@@ -13,13 +13,10 @@
       <div class="row column">
         <%= form.translated :text_field, :name, autofocus: true, aria: { label: :name } %>
       </div>
-      <div class="row column">
-        <%= form.number_field :weight %>
-      </div>
     </div>
   </div>
   <% if form.object.settings? %>
-    <div class="card" data-component="accordion" id="accordion-global_settings">
+    <div class="card" data-controller="accordion" id="accordion-global_settings">
       <div class="card-divider">
         <button class="card-divider-button" data-open="true" data-controls="panel-global_settings" type="button">
           <%= icon "arrow-right-s-line" %>
@@ -47,7 +44,7 @@
     </div>
   <% end %>
   <% if current_participatory_space.has_steps? %>
-    <div class="card" data-component="accordion" id="accordion-step_settings">
+    <div class="card" data-controller="accordion" id="accordion-step_settings">
       <div class="card-divider">
         <button class="card-divider-button" data-open="true" data-controls="panel-step_settings" type="button">
           <%= icon "arrow-right-s-line" %>
@@ -85,7 +82,7 @@
       </div>
     </div>
   <% elsif form.object.default_step_settings? %>
-    <div class="card" data-component="accordion" id="accordion-default_step_settings">
+    <div class="card" data-controller="accordion" id="accordion-default_step_settings">
       <div class="card-divider">
         <button class="card-divider-button" data-open="true" data-controls="panel-default_step_settings" type="button">
           <%= icon "arrow-right-s-line" %>
@@ -110,15 +107,6 @@
               <% end %>
             </div>
           </fieldset>
-        </div>
-      </div>
-    </div>
-  <% end %>
-  <% if component && component.persisted? && !component.published? %>
-    <div class="card" data-component="accordion" id="accordion-share_tokens">
-      <div id="panel-share_tokens" class="card-section">
-        <div class="row column">
-            <%= render partial: "decidim/admin/share_tokens/share_tokens", locals: { share_tokens: form.object.share_tokens } %>
         </div>
       </div>
     </div>

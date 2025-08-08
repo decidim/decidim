@@ -19,7 +19,8 @@ module Decidim::Proposals
 
     describe "show" do
       it "renders the proposal state item with appropriate class" do
-        expect(subject).to have_css("span.warning", text: "Evaluating")
+        expect(subject).to have_css("span.label", text: "Evaluating")
+        expect(subject).to have_css("span.label", style: "background-color: #FFF1E5; color: #BC4C00; border-color: #BC4C00;")
       end
 
       it "renders the proposal title" do
@@ -39,6 +40,18 @@ module Decidim::Proposals
 
         it "renders a placeholder image" do
           expect(subject).to have_css(".card__grid-img svg#ri-proposal-placeholder-card-g")
+        end
+      end
+
+      context "when the proposal has a custom state" do
+        let!(:state) { create(:proposal_state, component:, token: :finished, title: { en: "Finished" }) }
+
+        before do
+          proposal.update!(proposal_state: state)
+        end
+
+        it "renders the custom state" do
+          expect(subject).to have_content "Finished"
         end
       end
     end

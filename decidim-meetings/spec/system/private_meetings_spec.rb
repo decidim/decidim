@@ -36,6 +36,7 @@ describe "Private meetings" do
             switch_to_host(organization.host)
             login_as user, scope: :user
             visit_component
+            stub_geocoding_coordinates([private_meeting.latitude, private_meeting.longitude])
           end
 
           it "lists all meetings that are transparent" do
@@ -98,6 +99,7 @@ describe "Private meetings" do
             switch_to_host(organization.host)
             login_as other_user, scope: :user
             visit_component
+            stub_geocoding_coordinates([private_meeting.latitude, private_meeting.longitude])
           end
 
           it "lists private meetings" do
@@ -131,9 +133,8 @@ describe "Private meetings" do
           visit resource_locator(private_meeting).path
         end
 
-        it "redirects to index page" do
-          expect(page).to have_current_path main_component_path(component).to_s
-          expect(page).to have_content "You are not allowed to view this meeting"
+        it "declines access to view the meeting" do
+          expect(page).to have_content "You are not authorized to perform this action"
         end
       end
     end

@@ -1,0 +1,9 @@
+<div class="comment-reply">
+  <div class="comment__header">
+    <%= cell "decidim/author", present(proposal_note_reply.author), from: proposal_note_reply, context_actions: [:date], tooltip: false, show_icons: false %>
+  </div>
+
+  <div class="comment__content">
+    <%= simple_format proposal_note_reply.formatted_body %>
+  </div>
+</div>

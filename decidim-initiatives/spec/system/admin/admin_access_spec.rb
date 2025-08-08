@@ -22,7 +22,7 @@ describe "AdminAccess" do
 
   context "when the user is the author of the initiative" do
     let(:user) { create(:user, :confirmed, organization:) }
-    let(:initiative) { create(:initiative, :published, author: user, organization:) }
+    let(:initiative) { create(:initiative, author: user, organization:) }
     let(:unauthorized_path) { "/" }
 
     it_behaves_like "a 404 page" do

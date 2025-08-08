@@ -2,14 +2,11 @@ tr:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Kapsam
         description: Açıklama
         title: Başlık
         total_budget: Toplam bütçe
       project:
         budget_amount: Bütçe tutarı
-        decidim_category_id: Kategori
-        decidim_scope_id: Kapsam
         description: Açıklama
         proposal_ids: İlgili teklifler
         selected: Uygulama için seçildi
@@ -22,12 +19,7 @@ tr:
   decidim:
     budgets:
       actions:
-        attachment_collections: Klasörler
-        attachments: Ekler
-        confirm_destroy: Bu projeyi silmek istediğinize emin misiniz?
-        destroy: Sil
         edit: Düzenle
-        edit_projects: Projeleri Yönet
         import: Teklifleri projelere aktarın
         new_budget: Yeni Bütçe
         new_project: Yeni proje
@@ -101,12 +93,14 @@ tr:
         project:
           fields:
             title: Başlık
+      order:
+        status:
+          title: Oyunuz başarıyla kabul edildi
       order_summary_mailer:
         order_summary:
           selected_projects: 'Seçtiğiniz projeler şunlardır:'
           subject: '%{space_name} katılımcı alanına oy verdiniz'
           voted_on_space: '%{space_name} katılımcı alanı için %{budget_name} bütçesine oy verdiniz.'
-          voted_on_space_with_scope: '%{scope_name} (%{scope_type}) kapsamındaki %{space_name} katılımcı alanı için %{budget_name} bütçesine oy verdiniz.'
       projects:
         budget_confirm:
           are_you_sure: Fikrinizi değiştirirseniz, oyunuzu daha sonra değiştirebilirsiniz.
@@ -122,7 +116,6 @@ tr:
             title: Maksimum proje sınırını aştı
         budget_summary:
           are_you_sure: Oyunuzu iptal etmek istediğinizden emin misiniz?
-          cancel_order: oyunuzu silin ve baştan başlayın
           checked_out:
             title: Bütçe oyu tamamlandı
         count:
@@ -130,8 +123,6 @@ tr:
             one: 1 proje
             other: "%{count} proje"
         filters:
-          category: Kategori
-          scope: Kapsam
           search: Arama
           status: Durum
           status_values:
@@ -170,8 +161,6 @@ tr:
             more_information_modal: Daha fazla bilgi
             projects_per_page: Sayfa başına projeler
             resources_permissions_enabled: Her proje için eylem izinleri ayarlanabilir
-            scope_id: Kapsam
-            scopes_enabled: Kapsamlar etkinleştirildi
             title: Başlık
             total_budget: Toplam bütçe
             vote_minimum_budget_projects_number: Oy verilecek minimum proje sayısı

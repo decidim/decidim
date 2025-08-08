@@ -77,6 +77,7 @@ module Decidim
           form.user.block_id = @current_blocking.id
           form.user.extended_data["user_name"] = form.user.name
           form.user.name = "Blocked user"
+          form.user.notifications_sending_frequency = "none"
           form.user.save!
         end
       end

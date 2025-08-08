@@ -13,14 +13,21 @@ ja:
       decidim/blogs/post:
         other: 投稿
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          posts: 投稿
+      tooltips:
+        deleted_posts_info: この投稿を削除できません
     blogs:
       actions:
         author_id: 次のように投稿を作成
-        confirm_destroy: この投稿を削除してもよろしいですか？
-        destroy: 削除
+        confirm_delete_post: この投稿を削除してもよろしいですか？
+        deleted_posts_info: 削除された投稿はゴミ箱から復元できます。
         edit: 編集
         new: 新規投稿
         title: アクション
+        view_deleted_posts: 削除された投稿を表示
       admin:
         posts:
           create:
@@ -34,6 +41,8 @@ ja:
           index:
             not_published_yet: まだ公開されていません。
             title: 投稿
+          manage_trash:
+            title: 削除された投稿
           new:
             create: 作成
             title: 投稿を作成
@@ -44,6 +53,8 @@ ja:
         post:
           create: "%{user_name} が %{space_name} でブログ投稿 %{resource_name} を作成しました"
           delete: "%{user_name} がブログ投稿 %{resource_name} を %{space_name} から削除しました"
+          restore: "%{user_name} が %{space_name} のブログ投稿 %{resource_name} を復元しました"
+          soft_delete: "%{user_name} は %{space_name} のブログ投稿 %{resource_name} をゴミ箱に移動しました"
           update: "%{user_name} が %{space_name} のブログ投稿 %{resource_name} を更新しました"
       content_blocks:
         highlighted_posts:
@@ -59,31 +70,58 @@ ja:
             body: 本文
             official_blog_post: 公式ポスト
             published_at: 公開時刻
+            taxonomies: タクソノミー
             title: タイトル
       posts:
+        edit:
+          add_attachments: 添付ファイルを追加
+          attachment_legend: ドキュメントまたは画像を追加
+          back: 投稿に戻る
+          button: 更新
+          edit_attachments: 添付ファイルを編集
+          title: 投稿を編集
+        form:
+          author_id: 作成者
+          body: 本文
+          title: タイトル
         index:
           count:
             other: "%{count} 件の投稿"
           empty: 投稿はまだありません。
+          new_post: 新規投稿
+        menu_actions:
+          button_destroy: 投稿の削除
+          button_destroy_confirm: この投稿を削除してもよろしいですか？
+          button_edit: 投稿を編集
+        new:
+          back: 投稿に戻る
+          button: 作成
+          title: 新しい投稿を作成
     components:
       blogs:
         actions:
           comment: コメント
           create: 作成
           destroy: 削除
-          endorse: オススメ
+          like: いいね
           update: 更新
         name: ブログ
         settings:
           global:
             announcement: お知らせ
+            attachments_allowed: 添付ファイルを許可
             comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
+            creation_enabled_for_participants: 参加者は投稿を作成できます
+            define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
+            no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
+            taxonomy_filters: コンポーネントのフィルタを選択
+            taxonomy_filters_add: フィルターを追加
           step:
             announcement: お知らせ
             comments_blocked: コメントをブロック
-            endorsements_blocked: オススメをブロック
-            endorsements_enabled: オススメが有効
+            likes_blocked: '「いいね」がブロックされました'
+            likes_enabled: いいねを有効にする
     events:
       blogs:
         post_created:
@@ -91,5 +129,33 @@ ja:
           email_outro: '「%{participatory_space_title}」をフォローしているため、この通知を受け取りました。前のリンクからこの通知をアンフォローすることができます。'
           email_subject: '%{participatory_space_title} に新しい投稿が公開されました'
           notification_title: '%{participatory_space_title} で投稿 <a href="%{resource_path}">%{resource_title}</a> が公開されました'
+    open_data:
+      help:
+        post_comments:
+          alignment: このコメントが好意的、敵対的、中立的であった場合
+          author: このコメントを作成した参加者の名前
+          body: コメントそのもの
+          commentable_id: コメント対象の固有ID
+          commentable_type: コメント対象の種別 (結果、提案など)
+          created_at: コメントの作成日時
+          depth: コメントがコメントツリーのどこに位置しているか（回答、または回答の回答である場合）
+          id: コメントのID
+          locale: コメントを残した参加者の使っていたロケール（言語）
+          root_commentable_url: コメントに関連するリソースの URL
+        posts:
+          author: 作者の情報
+          body: 投稿の本文
+          comments_count: 投稿のコメント数
+          component: ポストが属するコンポーネント
+          created_at: この投稿の作成日時
+          follows_count: 投稿のフォロー数
+          id: 投稿の固有ID
+          likes_count: 投稿のいいね数
+          participatory_space: この投稿が所属するスペース（参加型プロセス、参加スペースなど）
+          published_at: この投稿の公開日時
+          title: 投稿のタイトル
+          updated_at: この投稿が更新された日時
+          url: この投稿の URL
     statistics:
       posts_count: 投稿
+      posts_count_tooltip: 公開された更新情報やブログ投稿の数です。

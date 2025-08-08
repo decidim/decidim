@@ -9,7 +9,7 @@ module Decidim
         private
 
         def stats
-          @stats ||= resource.show_statistics && ParticipatoryProcessStatsPresenter.new(participatory_process: resource).collection
+          @stats ||= ParticipatoryProcessStatsPresenter.new(participatory_process: resource).collection
         end
       end
     end

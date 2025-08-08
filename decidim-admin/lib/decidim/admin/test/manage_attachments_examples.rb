@@ -18,7 +18,8 @@ shared_examples "manage attachments examples" do
     end
 
     it "can view an attachment details" do
-      within "#attachments table" do
+      within "tr", text: translated(attachment.title) do
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
@@ -26,7 +27,19 @@ shared_examples "manage attachments examples" do
       expect(page).to have_css("input#attachment_description_en[value='#{translated(attachment.description, locale: :en)}']")
       expect(page).to have_css("input#attachment_weight[value='#{attachment.weight}']")
       expect(page).to have_select("attachment_attachment_collection_id", selected: translated(attachment_collection.name, locale: :en))
-      expect(page).to have_css("img[src~='#{attachment.url}']")
+
+      # The image's URL changes every time it is requested because the disk
+      # service generates a unique URL based on the expiry time of the link.
+      # This expiry time is calculated at the time when the URL is requested
+      # which is why it changes every time to different URL. This changes the
+      # JSON encoded file identifier which includes the expiry time as well as
+      # the digest of the URL because the digest is calculated based on the
+      # passed data.
+      filename = attachment.file.blob.filename
+      within %([data-active-uploads] [data-filename="#{filename}"]) do
+        src = page.find("img")["src"]
+        expect(src).to be_blob_url(attachment.file.blob)
+      end
     end
 
     it "can add attachments without a collection to a process" do
@@ -140,6 +153,7 @@ shared_examples "manage attachments examples" do
       within "#attachments" do
         within "tr", text: translated(attachment.title) do
           expect(page).to have_text(translated(attachment_collection.name, locale: :en))
+          find("button[data-controller='dropdown']").click
           click_on "Edit"
         end
       end
@@ -159,6 +173,7 @@ shared_examples "manage attachments examples" do
 
     it "can delete an attachment from a process" do
       within "tr", text: translated(attachment.title) do
+        find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
 
@@ -170,6 +185,7 @@ shared_examples "manage attachments examples" do
     it "can update an attachment" do
       within "#attachments" do
         within "tr", text: translated(attachment.title) do
+          find("button[data-controller='dropdown']").click
           click_on "Edit"
         end
       end

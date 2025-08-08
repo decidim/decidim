@@ -12,5 +12,5 @@ describe "Follow projects" do
 
   let(:followable_path) { resource_locator([budget, followable]).path }
 
-  include_examples "follows with a component"
+  include_examples "followable content for users with a component"
 end

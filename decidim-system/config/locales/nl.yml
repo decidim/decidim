@@ -105,7 +105,6 @@ nl:
           success: Organisatie is succesvol bijgewerkt.
         users_registration_mode:
           disabled: Enkel externe accounts hebben toegang
-          enabled: Sta gebruikers toe zich te registreren en in te loggen
       shared:
         notices:
           no_organization_warning_html: U moet een organisatie aanmaken om te beginnen. Zorg ervoor dat u %{guide} leest voordat u verder gaat.

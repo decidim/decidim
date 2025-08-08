@@ -1,14 +1,14 @@
 {
   "name": "@decidim/prettier-config",
   "description": "The prettier configuration for Decidim",
-  "version": "0.29.0-dev",
+  "version": "0.31.0-dev",
   "repository": {
     "url": "git@github.com:decidim/decidim.git",
     "type": "git",
     "directory": "packages/prettier-config"
   },
   "author": "Decidim Contributors",
-  "license": "AGPL-3.0",
+  "license": "AGPL-3.0-or-later",
   "main": "index.js",
   "peerDependencies": {
     "prettier": "^2.3.2"

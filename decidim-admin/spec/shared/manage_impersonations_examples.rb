@@ -23,16 +23,27 @@ shared_examples "manage impersonations examples" do
   end
 
   shared_examples_for "creating a managed user" do
+    let(:name) { "Rigoberto" }
+
     before do
       navigate_to_impersonations_page
 
       click_on "Manage new participant"
 
-      fill_in_the_impersonation_form(document_number, name: "Rigoberto")
+      fill_in_the_impersonation_form(document_number, name:)
     end
 
     it "shows a success message" do
       expect(page).to have_content("successfully")
+    end
+
+    context "when no name is provided" do
+      let(:name) { "" }
+
+      it "shows a validation error message" do
+        expect(page).to have_no_content("successfully")
+        expect(page).to have_content("There are errors on the form")
+      end
     end
 
     context "when authorization data is invalid" do
@@ -95,10 +106,9 @@ shared_examples "manage impersonations examples" do
       context "and the action not allowed by the handler used to impersonate", :slow do
         let(:authorization_handler) { "another_dummy_authorization_handler" }
 
-        it "shows popup to require verification" do
-          expect(page).to have_content(
-            /In order to perform this action, you need to be authorized with "Another example authorization"/
-          )
+        it "redirects to the authorization form" do
+          expect(page).to have_content("We need to verify your identity")
+          expect(page).to have_content("Verify with Another example authorization")
         end
       end
     end
@@ -128,7 +138,11 @@ shared_examples "manage impersonations examples" do
       travel (Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes / 2) + 1.second
       visit current_path
       expect(page).to have_content("expired")
-      expect(page).to have_link("Impersonate")
+
+      within "tr", text: impersonated_user.name do
+        find("button[data-controller='dropdown']").click
+        expect(page).to have_link("Impersonate")
+      end
     end
 
     it "can impersonate again after an impersonation session expiration" do
@@ -136,7 +150,10 @@ shared_examples "manage impersonations examples" do
 
       navigate_to_impersonations_page
 
-      expect(page).to have_link("Impersonate")
+      within "tr", text: impersonated_user.name do
+        find("button[data-controller='dropdown']").click
+        expect(page).to have_link("Impersonate")
+      end
     end
   end
 
@@ -238,6 +255,7 @@ shared_examples "manage impersonations examples" do
       navigate_to_impersonations_page
 
       within "tr", text: managed_user.name do
+        find("button[data-controller='dropdown']").click
         click_on "Promote"
       end
 
@@ -272,6 +290,7 @@ shared_examples "manage impersonations examples" do
       navigate_to_impersonations_page
 
       within "tr", text: managed_user.name do
+        find("button[data-controller='dropdown']").click
         expect(page).to have_no_link("Promote")
       end
     end
@@ -332,6 +351,7 @@ shared_examples "manage impersonations examples" do
     navigate_to_impersonations_page
 
     within "tr", text: user.name do
+      find("button[data-controller='dropdown']").click
       click_on "Impersonate"
     end
 
@@ -351,6 +371,7 @@ shared_examples "manage impersonations examples" do
 
   def check_impersonation_logs
     within "tr", text: impersonated_user.name do
+      find("button[data-controller='dropdown']").click
       click_on "View logs"
     end
 

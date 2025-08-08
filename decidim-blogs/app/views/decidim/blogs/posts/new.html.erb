@@ -1,0 +1,22 @@
+<% add_decidim_page_title(t("title", scope: "decidim.blogs.posts.new")) %>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+  <div class="text-center py-10">
+    <h1 class="title-decorator inline-block text-left">
+      <%= t("title", scope: "decidim.blogs.posts.new") %>
+    </h1>
+  </div>
+
+  <%= decidim_form_for(@form, html: { class: "form form-defaults new_post" }) do |f| %>
+    <div class="form__wrapper">
+      <%= render partial: "form", object: f %>
+    </div>
+
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+      <%= link_to :back, class: "button button__sm md:button__lg button__text-secondary" do %>
+        <%= icon "arrow-left-line" %>
+        <%= t("back", scope: "decidim.blogs.posts.new") %>
+      <% end %>
+      <%= f.submit t("button", scope: "decidim.blogs.posts.new"), class: "button button__sm md:button__lg button__secondary", data: { disable: true } %>
+    </div>
+  <% end %>
+<% end %>

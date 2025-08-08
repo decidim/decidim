@@ -2,16 +2,11 @@ pt:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Reuniões Relacionadas
         available_slots: Espaços disponíveis
         banner_image: Imagem da faixa
-        copy_categories: Copiar categorias
-        copy_components: Copiar componentes
-        copy_features: Copiar características
         decidim_scope_id: Âmbito
         description: Descrição
         end_date: Data final
-        hashtag: Hashtag
         hero_image: Imagem inicial
         location: Localização
         main_logo: Logo principal
@@ -21,8 +16,6 @@ pt:
         published_at: Publicado em
         registration_terms: Termos de registo
         registrations_enabled: Registos ativados
-        scope_id: Âmbito
-        scopes_enabled: Âmbitos ativados
         short_description: Breve descrição
         show_statistics: Mostrar estatísticas
         sign_date: Data de assinatura
@@ -76,11 +69,6 @@ pt:
       actions:
         confirm: Confirmar
         send_diplomas: Enviar certificados de participação
-      conference_copies:
-        new:
-          copy: Copiar
-          select: Selecione os dados que pretende duplicar
-          title: Conferência duplicada
       conference_publications:
         create:
           error: Ocorreu um problema ao publicar esta conferência.
@@ -99,13 +87,11 @@ pt:
         destroy:
           success: Orador da conferência eliminado corretamente.
         edit:
-          title: Atualizar orador da conferência.
           update: Atualizar
         index:
           conference_speakers_title: Oradores da conferência
         new:
           create: Criar
-          title: Novo orador da conferência.
         update:
           error: Ocorreu um problema ao atualizar o orador desta conferência.
           success: Orador da conferência atualizado corretamente.
@@ -116,11 +102,9 @@ pt:
         destroy:
           success: Administrador da conferência eliminado corretamente.
         edit:
-          title: Atualizar administrador da conferência.
           update: Atualizar
         new:
           create: Criar
-          title: Novo administrador da conferência.
         update:
           error: Ocorreu um problema ao atualizar o administrador desta conferência.
           success: Administrador da conferência atualizado corretamente.
@@ -133,54 +117,37 @@ pt:
         exports:
           registrations: Registos
         form:
+          images: Imagens
           title: Informação geral
         index:
           published: Publicado
         new:
           create: Criar
-          title: Conferência
         update:
           error: Ocorreu um problema ao atualizar esta conferência.
           success: Conferência atualizada corretamente.
-      conferences_copies:
-        create:
-          error: Ocorreu um problema ao duplicar esta conferência.
-          success: Conferência duplicada com sucesso.
       media_links:
         create:
           error: Ocorreu um problema ao criar uma nova hiperligação de multimédia.
-          success: Hiperligação de multimédia criado corretamente.
-        destroy:
-          success: Hiperligação de Multimédia eliminado corretamente.
         edit:
-          title: Atualizar hiperligação de multimédia.
           update: Atualizar
-        index:
-          media_links_title: Hiperligação de Multimédia
         new:
           create: Criar
-          title: Hiperligação de Multimédia
         update:
           error: Ocorreu um problema ao atualizar esta hiperligação de multimédia.
-          success: Hiperligação de multimédia atualizada corretamente.
       menu:
         conferences: Conferências
         conferences_submenu:
           attachment_collections: Pastas
           attachment_files: Ficheiros
           attachments: Anexos
-          categories: Categorias
           components: Componentes
           conference_admins: Administradores da conferência
           conference_invites: Convites
           conference_speakers: Oradores
-          diploma: Certificado de Participação
-          media_links: Hiperligações de Multimédia
           moderations: Moderações
           partners: Parceiros
-          registration_types: Tipos de Registo
           registrations: Registos
-          user_registrations: Registos de Utilizador
       models:
         conference:
           fields:
@@ -203,13 +170,11 @@ pt:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
-            valuator: Avaliador
         media_link:
           fields:
             date: Data
             link: Hiperligação
             title: Título
-          name: Hiperligação de Multimédia
         partner:
           fields:
             link: Hiperligação
@@ -235,7 +200,6 @@ pt:
         destroy:
           success: Parceiro da conferência eliminado corretamente.
         edit:
-          title: Atualizar parceiro.
           update: Atualizar
         new:
           create: Criar
@@ -257,7 +221,6 @@ pt:
         destroy:
           success: Tipo de registo da conferência eliminado corretamente.
         edit:
-          title: Atualizar tipo de registo.
           update: Atualizar
         new:
           create: Criar
@@ -343,7 +306,6 @@ pt:
         diplomas:
           edit:
             save: Guardar
-            title: Certificado de Participação
         invite_join_conference_mailer:
           invite:
             decline: Recusar convite '%{conference_title}'
@@ -362,7 +324,6 @@ pt:
             diploma_html: Encontrará o certificado de participação para a conferência <a href="%{url}">%{title}</a> nos anexos.
           diploma_user:
             attendance_verified_by: Participação verificada por
-            certificate_of_attendance: Certificado de Participação
             certificate_of_attendance_description: Certifica-se que <strong>%{user}</strong> participou e fez parte de <strong>%{title}</strong> que tomou lugar em <strong>%{location}</strong> em <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Ocorreu um problema ao enviar os certificados de participação da conferência.

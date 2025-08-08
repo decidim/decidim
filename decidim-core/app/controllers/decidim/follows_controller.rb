@@ -10,7 +10,7 @@ module Decidim
       @form = form(Decidim::FollowForm).from_params(params)
       enforce_permission_to :delete, :follow, follow: @form.follow
 
-      DeleteFollow.call(@form, current_user) do
+      DeleteFollow.call(@form) do
         on(:ok) do
           render :update_button
         end
@@ -25,7 +25,7 @@ module Decidim
       @form = form(Decidim::FollowForm).from_params(params)
       enforce_permission_to :create, :follow
 
-      CreateFollow.call(@form, current_user) do
+      CreateFollow.call(@form) do
         on(:ok) do
           render :update_button
         end
@@ -47,7 +47,7 @@ module Decidim
     end
 
     def button_cell_mobile
-      @button_cell_mobile ||= cell("decidim/follow_button", resource, **button_options.merge(mobile: true))
+      @button_cell_mobile ||= cell("decidim/follow_button", resource, **button_options, mobile: true)
     end
 
     def button_cell

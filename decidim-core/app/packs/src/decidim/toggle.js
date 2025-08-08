@@ -9,7 +9,7 @@ export default function createToggle(component) {
   const { toggle } = component.dataset
 
   if (!component.id) {
-    // when component has no id, we enforce to have it one
+    // when component has no id, we enforce it to have one
     component.id = `toggle-${Math.random().toString(36).substring(7)}`
   }
 

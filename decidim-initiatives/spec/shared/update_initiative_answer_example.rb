@@ -12,7 +12,7 @@ shared_examples "update an initiative answer" do
     )
   end
   let(:signature_end_date) { Date.current + 500.days }
-  let(:state) { "published" }
+  let(:state) { "open" }
   let(:form_params) do
     {
       signature_start_date: Date.current + 10.days,
@@ -56,7 +56,7 @@ shared_examples "update an initiative answer" do
         expect(initiative.answer_url).to eq(form_params[:answer_url])
       end
 
-      context "when initiative is not published" do
+      context "when initiative is not open" do
         let(:state) { "validating" }
 
         it "voting interval remains unchanged" do
@@ -69,7 +69,7 @@ shared_examples "update an initiative answer" do
         end
       end
 
-      context "when initiative is published" do
+      context "when initiative is open" do
         it "voting interval is updated" do
           command.call
           initiative.reload

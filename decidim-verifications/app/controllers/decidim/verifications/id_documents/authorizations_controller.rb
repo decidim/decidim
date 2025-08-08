@@ -14,7 +14,9 @@ module Decidim
         before_action :load_authorization
 
         def choose
-          return redirect_to action: :new, using: verification_type if available_methods.count == 1
+          url_params = { redirect_url: }.compact
+
+          return redirect_to(action: :new, **url_params.merge(using: verification_type)) if available_methods.count == 1
 
           render :choose
         end
@@ -40,7 +42,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = t("authorizations.create.error", scope: "decidim.verifications.id_documents")
-              render action: :new
+              render action: :new, status: :unprocessable_entity
             end
           end
         end
@@ -70,7 +72,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = t("authorizations.update.error", scope: "decidim.verifications.id_documents")
-              render action: :edit
+              render action: :edit, status: :unprocessable_entity
             end
           end
         end

@@ -30,8 +30,8 @@ module Decidim
               copy_participatory_process
               copy_participatory_process_attachments
               copy_participatory_process_steps if @form.copy_steps?
-              copy_participatory_process_categories if @form.copy_categories?
               copy_participatory_process_components if @form.copy_components?
+              copy_landing_page_blocks if @form.copy_landing_page_blocks?
             end
           end
 
@@ -48,14 +48,11 @@ module Decidim
             title: form.title,
             subtitle: @participatory_process.subtitle,
             slug: form.slug,
-            hashtag: @participatory_process.hashtag,
             description: @participatory_process.description,
             short_description: @participatory_process.short_description,
             promoted: @participatory_process.promoted,
-            scope: @participatory_process.scope,
             developer_group: @participatory_process.developer_group,
             local_area: @participatory_process.local_area,
-            area: @participatory_process.area,
             target: @participatory_process.target,
             participatory_scope: @participatory_process.participatory_scope,
             participatory_structure: @participatory_process.participatory_structure,
@@ -63,16 +60,15 @@ module Decidim
             start_date: @participatory_process.start_date,
             end_date: @participatory_process.end_date,
             participatory_process_group: @participatory_process.participatory_process_group,
-            private_space: @participatory_process.private_space
+            private_space: @participatory_process.private_space,
+            taxonomies: @participatory_process.taxonomies
           )
         end
 
         def copy_participatory_process_attachments
-          [:hero_image, :banner_image].each do |attribute|
-            next unless @participatory_process.attached_uploader(attribute).attached?
+          return unless @participatory_process.attached_uploader(:hero_image).attached?
 
-            @copied_process.send(attribute).attach(@participatory_process.send(attribute).blob)
-          end
+          @copied_process.send(:hero_image).attach(@participatory_process.send(:hero_image).blob)
         end
 
         def copy_participatory_process_steps
@@ -89,25 +85,6 @@ module Decidim
               active: step.active
             )
             @steps_relationship[step.id.to_s] = new_step.id.to_s
-          end
-        end
-
-        def copy_participatory_process_categories
-          @participatory_process.categories.first_class.each do |category|
-            new_category = Category.create!(
-              name: category.name,
-              description: category.description,
-              participatory_space: @copied_process
-            )
-
-            category.descendants.each do |child|
-              Category.create!(
-                name: child.name,
-                description: child.description,
-                participatory_space: @copied_process,
-                parent: new_category
-              )
-            end
           end
         end
 
@@ -129,6 +106,39 @@ module Decidim
         def map_step_settings(step_settings)
           step_settings.each_with_object({}) do |(step_id, settings), acc|
             acc.update(@steps_relationship[step_id.to_s] => settings)
+          end
+        end
+
+        def copy_landing_page_blocks
+          blocks = Decidim::ContentBlock.where(scoped_resource_id: @participatory_process.id, scope_name: "participatory_process_homepage",
+                                               organization: @participatory_process.organization)
+          return if blocks.blank?
+
+          blocks.each do |block|
+            new_block = Decidim::ContentBlock.create!(
+              organization: @copied_process.organization,
+              scope_name: "participatory_process_homepage",
+              scoped_resource_id: @copied_process.id,
+              manifest_name: block.manifest_name,
+              settings: block.settings,
+              weight: block.weight,
+              published_at: block.published_at.present? ? @copied_process.created_at : nil # determine if block is active/inactive
+            )
+            copy_block_attachments(block, new_block) if block.attachments.present?
+          end
+        end
+
+        def copy_block_attachments(block, new_block)
+          block.attachments.map(&:name).each do |name|
+            original_image = block.images_container.send(name).blob
+            next if original_image.blank?
+
+            new_block.images_container.send("#{name}=", ActiveStorage::Blob.create_and_upload!(
+                                                          io: StringIO.new(original_image.download),
+                                                          filename: "image.png",
+                                                          content_type: block.images_container.background_image.blob.content_type
+                                                        ))
+            new_block.save!
           end
         end
       end

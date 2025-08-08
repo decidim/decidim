@@ -3,9 +3,8 @@
 require "spec_helper"
 
 describe "Admin manages accountability" do
-  let(:manifest_name) { "accountability" }
-
   include_context "when managing an accountability component as an admin"
+  let(:manifest_name) { "accountability" }
 
   before do
     switch_to_host(organization.host)
@@ -13,15 +12,28 @@ describe "Admin manages accountability" do
     visit_component_admin
   end
 
+  it_behaves_like "manage taxonomy filters in settings"
+  it_behaves_like "access component permissions form"
+
   describe "results" do
+    let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:, participatory_space_manifests: [participatory_space.manifest.name]) }
+    let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
+    let!(:component) { create(:component, manifest:, participatory_space:, settings: { taxonomy_filters: [taxonomy_filter.id] }) }
+
     it_behaves_like "manage results"
+    it_behaves_like "when managing results bulk actions as an admin"
     it_behaves_like "export results"
+
+    it_behaves_like "access permissions form" do
+      let!(:row_text) { translated(result.title) }
+    end
   end
 
   describe "child results" do
     before do
-      within ".table-list__actions" do
-        click_on "New result"
+      within "tr[data-id='#{result.id}'] .table-list__actions" do
+        find("button[data-controller='dropdown']").click
+        click_on "Add result"
       end
     end
 
@@ -36,16 +48,27 @@ describe "Admin manages accountability" do
     it_behaves_like "manage statuses"
   end
 
-  describe "timeline" do
+  describe "milestone" do
+    let!(:milestone) { create(:milestone, result:) }
+
     before do
       visit_component_admin
       within "tr", text: translated(result.title) do
-        click_on "Project evolution"
+        find("button[data-controller='dropdown']").click
+        click_on "Add milestone"
       end
     end
 
-    let!(:timeline_entry) { create(:timeline_entry, result:) }
+    it_behaves_like "manage milestone"
+  end
 
-    it_behaves_like "manage timeline"
+  describe "soft delete result" do
+    let(:admin_resource_path) { current_path }
+    let(:trash_path) { "#{admin_resource_path}/results/manage_trash" }
+    let(:title) { { en: "My new result" } }
+    let!(:resource) { create(:result, component:, title:) }
+
+    it_behaves_like "manage soft deletable resource", "result"
+    it_behaves_like "manage trashed resource", "result"
   end
 end

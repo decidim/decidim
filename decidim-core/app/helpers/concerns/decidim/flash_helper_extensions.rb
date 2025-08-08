@@ -7,6 +7,17 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
+      DEFAULT_KEY_MATCHING = {
+        alert: :alert,
+        notice: :success,
+        info: :info,
+        secondary: :secondary,
+        success: :success,
+        error: :alert,
+        warning: :warning,
+        primary: :primary
+      }.freeze
+
       # Displays the flash messages found in ActionDispatch's +flash+ hash using
       # FoundationRailsHelper's +callout+ component.
       #
@@ -20,7 +31,7 @@ module Decidim
       #
       # @return [String] the HTML with all the flash messages
       def display_flash_messages(closable: true, key_matching: {})
-        key_matching = FoundationRailsHelper::FlashHelper::DEFAULT_KEY_MATCHING.merge(key_matching)
+        key_matching = DEFAULT_KEY_MATCHING.merge(key_matching)
         key_matching.default = :primary
 
         capture do
@@ -106,12 +117,16 @@ module Decidim
       end
 
       def message(value)
-        return content_tag(:div, value, class: "flash__message flex items-center") unless value.is_a?(Hash)
+        return content_tag(:div, value, class: "flash__message") unless value.is_a?(Hash)
 
         content_tag(:div, class: "flash__message") do
           concat value[:title]
           concat content_tag(:span, value[:body], class: "flash__message-body")
         end
+      end
+
+      def ignored_key?(key)
+        [:timedout].include?(key)
       end
     end
   end

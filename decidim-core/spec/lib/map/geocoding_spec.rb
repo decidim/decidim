@@ -18,10 +18,6 @@ module Decidim
         let(:utility_class) { Provider::Geocoding::Test }
       end
 
-      after do
-        Geocoder::Lookup::Test.reset
-      end
-
       describe "#initialize" do
         let(:config) { { foo: "bar" } }
 
@@ -82,6 +78,11 @@ module Decidim
             query,
             { lookup: :test, language: "en" }.merge(options)
           ).and_return([])
+
+          expect(Geocoder).to receive(:search).with(
+            query,
+            { lookup: :test, language: "en" }.merge(options)
+          )
 
           subject.address(query, options)
         end

@@ -7,11 +7,9 @@ tr:
         decidim_scope_id: kapsam
         description: Açıklama
         end_date: Bitiş tarihi
-        meetings_ids: Görüşmeler
         progress: İlerleme
-        project_ids: Dahil edilen projeler
-        proposals: Dahil edilen teklifler
         start_date: Başlangıç tarihi
+        subresults:
         title: Başlık
         updated_at: Adresinde güncellendi
       status:
@@ -19,63 +17,67 @@ tr:
         key: anahtar
         name: isim
         progress: İlerleme
-      timeline_entry:
-        description: Açıklama
-        entry_date: tarih
-        title: Başlik / Unvani 
     models:
       decidim/accountability/proposal_linked_event: Teklif bir sonuca dahil edildi
       decidim/accountability/result_progress_updated_event: Sonuç ilerlemesi güncellendi
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: Bu sonuç %{link} eklenmiştir
+            meetings_ids: 'Bu toplantıda tartışılmıştır: %{link}'
+            project_ids: 'Bu projeye dahil edilmiştir: %{link}'
+            proposal_ids: 'Bu önergeye dahil edilmiştir: %{link}'
+            text: 'Bu sonuca dahil edilmiştir: %{link}'
       decidim/accountability/result:
         one: Sonuç
         other: Sonuçlar
   decidim:
     accountability:
       actions:
-        attachment_collections: Klasörler 
-        attachments: Ekler 
+        confirm_delete_result: Bu sonucu silmek istediğinizden emin misiniz?
         confirm_destroy: Bu %{name}silmek istediğinize emin misiniz?
+        deleted_results_info: Silinen sonuçlar çöp kutusundan geri yüklenebilir.
         destroy: silmek
         edit: Düzenle
-        import: Başka bir bileşenden proje aktar
+        import: Sonuçları başka bir bileşenden içe aktar
         import_csv: Sonuçları CSV dosyasından içe aktarın
         new_result: Yeni sonuç
         new_status: Yeni Durum
-        new_timeline_entry: Yeni Zaman çizelgesi Kaydı
         preview: Ön izleme
-        timeline_entries: Proje evrimi
         title: Eylemler
+        view_deleted_results: Silinmiş sonuçları görüntüle
       admin:
         exports:
           result_comments: Yorumlar
           results: Sonuçlar
+        import_components:
+          create:
+            invalid: Sonuçların içe aktarılmasında bir sorun oluştu. Lütfen talimatları dikkatlice takip edin ve uygulama için projeleri seçtiğinizden emin olun.
+          filters:
+            new_items_projects:
+              one: Seçilen 1 proje içe aktarılacak
+              other: "Seçilen %{count} proje içe aktarılacak"
+            new_items_proposals:
+              one: 1 önerge içe aktarılacak
+              other: "%{count} önerge içe aktarılacak"
+            proposal_state: Önerge durumu
+            select_state: Durum seç
+          form:
+            create: İçe aktar
+            no_components: Bu katılımcı alanda içe aktaracak bir bileşen bulunmamaktadır.
+            origin_component_id:
+            select_component: Bir bileşen seç
+          new:
+            success:
+              one: 1 sonuç içe aktarılmak üzere sıraya alındı, tamamlandığında e-posta yoluyla bilgilendirileceksiniz.
+              other: "%{count} sonuç içe aktarılmak üzere sıraya alındı, tamamlandığında e-posta yoluyla bilgilendirileceksiniz."
+            title: Sonuçları başka bir bileşenden içe aktar
         import_results:
           new:
             download_export: '  İhracat i CSV formatında indirin '
             import: İçe aktar
-            info: |
-              <p>Şu adımları uygulamanızı öneririz:</p>
-              <ol>
-              <li><a href='%{link_new_status}' target='_blank'>Eklemek istediğiniz Sonuçlar için kayıtları</a></li>
-              Biçimi ve neye ihtiyacınız olacağını daha iyi anlamak için, İçe Aktarmayı kullanmadan önce bu Yönetici paneli aracılığıyla <li><a href='%{link_new_result}' target='_blank'>manuel olarak en az bir Sonuç oluşturun</a> doldurmak için.</li>
-              <li>%{link_export_csv</li>
-              <li>Değişiklikleri yerel olarak yapın. CSV'nin yalnızca aşağıdaki sütunlarını değiştirebilirsiniz:
-                 <ul>
-                 <li><b>kategori/kimlik:</b> Kategorinin kimliği</li>
-                 <li><b>kapsam/kimlik:</b> Kapsamın kimliği</li>
-                 <li><b>ebeveyn/kimlik:</b> Ebeveynin kimliği (ilgili Sonuçlar için). İsteğe bağlı</li>
-                 <li><b>title/en:</b> İngilizce dilindeki başlık. Bu, platform dili yapılandırmanıza bağlı olacaktır.</li>
-                 <li><b>description/tr:</b> İngilizce diliyle ilgili açıklama. Bu, platform dili yapılandırmanıza bağlı olacaktır.</li>
-                 <li><b>başlangıç_tarihi:</b> sonucun yürütülmeye başlayacağı tarih (YYYY-AA-GG biçiminde)</li>
-                 <li><b>bitiş_tarihi:</b> sonucun yürütülmesinin sona erdiği tarih (YYYY-AA-GG biçiminde)</li>
-                 <li><b>durum/kimlik:</b> Bu sonuca ilişkin Durumun kimliği</li>
-                 <li><b>ilerleme:</b> Yürütme yüzdesi (0'dan 100'e kadar)</li>
-                 <li><b>teklifler_kimlikleri:</b> İlgili tekliflerin dahili kimliği (virgülle ayrılmış). Otomatik olarak <span class='attribute-name'>proposal_url</span></li> biçimine dönüştürülür
-                 </ul>
-              </li>
-              </ol>
             title: Sonuçları CSV dosyasından içe aktarın
         imports:
           create:
@@ -86,33 +88,51 @@ tr:
             name: Sonuç
           status:
             name: durum
-        projects_import:
-          create:
-            invalid: Projelerin sonuçlara aktarılmasında bir sorun oluştu. Lütfen talimatları dikkatlice takip edin ve projeleri seçtiğinizden emin olun.
-          new:
-            create: İçe aktar
-            import_all_selected_projects: Seçilen tüm projeleri içe aktarın
-            no_components: Bu katılımcı alanda projeleri sonuçlara dönüştürecek bütçe bileşenleri yoktur.
-            origin_component_id: Asıl bileşen
-            select_component: Bir bileşen seç
-            title: Projeleri başka bir bileşenden içe aktarın
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: Tarihi değiştir
+              end_date: Bitiş tarihi
+              start_date: Başlangıç tarihi
+            dropdown:
+              actions: Eylemler
+              change_dates: Tarihi değiştir
+              change_status: Durumu değiştir
+              change_taxonomies: Sınıflandırmaları değiştir
+            status_form:
+              change_status: Durumu değiştir
+              status: Durum
+            submit_buttons:
+              cancel: İptal Et
+            taxonomies_form:
+              change_taxonomies: Sınıflandırmaları değiştir
           create:
             invalid: Sonuçlar sorgulanırken bir sorun oluştu.
             success: Sonuçlar Başarıyla oluşturuldu.
-          destroy:
-            success: Sonuçlar Başarıyla Silindi.
           edit:
             title: Sonucu düzenle
             update: Sonuç güncelle
           index:
+            selected: Seçilen
             title: Sonuçlar
+          manage_trash:
+            title: Sonuçları sil
           new:
             create: Sonuç oluştur
             title: Yeni sonuç
           update:
             invalid: Sonucu Güncellerken Hata Oluştu.
             success: Sonuçlar başarıyla güncellendi.
+          update_dates:
+            invalid: Sonuçların tarihini güncellerken bir hata oluştu.
+            success: Sonuçların tarihleri başarıyla güncellendi
+          update_status:
+            invalid: Sonuçların durumunu güncellerken bir hata oluştu
+            success:
+          update_taxonomies:
+            invalid: Sonuçlar %{results} için sınıflandırmalar %{taxonomies} seçilemiyor
+            select_a_result: Bir sonuç seç
+            select_a_taxonomy: Bir sınıflandırma seç
         shared:
           subnav:
             statuses: durumlar
@@ -133,23 +153,6 @@ tr:
           update:
             invalid: Güncellemede Sorun Oluştu.
             success: Kayıt başarıyla güncellendi.
-        timeline_entries:
-          create:
-            invalid: Bu kaydı oluştururken hata oluştu.
-            success: Giriş basarıyla tamamlandı.
-          destroy:
-            success: Kayıt Başarıyla silindi.
-          edit:
-            title: Girişi düzenle
-            update: Girişi güncelle
-          index:
-            title: Proje zaman çizelgesi girişleri
-          new:
-            create: Giriş oluştur
-            title: Yeni giriş
-          update:
-            invalid: Kayıt güncellenirken hata oluştu.
-            success: Kayıt Başarıyla Güncellendi.
       admin_log:
         result:
           create: "%{user_name} sonuç yaratmıştır %{resource_name} içinde %{space_name}"
@@ -159,10 +162,6 @@ tr:
           create: "48 / 5.000\nÇeviri sonuçları\nÇeviri sonucu\n%{user_name}, %{resource_name} kaydını oluşturdu"
           delete: "%{user_name}, %{resource_name} kaydını sildi"
           update: "%{user_name}, %{resource_name} kaydını Güncelledi"
-        timeline_entry:
-          create: "%{user_name}, %{resource_name} zaman çizelgesi girişini oluşturdu"
-          delete: "%{user_name}, %{resource_name} zaman çizelgesi girişini sildi"
-          update: "%{user_name}, %{resource_name} zaman çizelgesi girişini güncelledi"
         value_types:
           parent_presenter:
             not_found: 'Üst veritabanında bulunamadı (ID: %{id})'
@@ -185,12 +184,10 @@ tr:
       models:
         result:
           fields:
-            category: Kategori
             created_at: Oluşturuldu
             end_date: Bitiş tarihi
             id: ID
             progress: İlerleme
-            scope: Kapsam
             start_date: Başlangıç tarihi
             status: durum
             title: Başlık
@@ -200,41 +197,22 @@ tr:
             key: anahtar
             name: isim
             progress: İlerleme
-        timeline_entry:
-          fields:
-            entry_date: tarih
-            title: Başlık
       results:
         count:
           results_count:
             one: 1 sonuç
             other: "%{count} sonuç"
-        filters:
-          all: Herşey
-        home:
-          categories_label: Kategoriler
-          empty: Henüz sonuç yok.
-          empty_filters: Bu kriterlere uyan sonuç bulunamamıştır.
-          subcategories_label: Alt Kategoriler
         home_header:
           global_status: Genel yürütme durumu
-        nav_breadcrumb:
-          global: Global yürütme
         no_results: Proje Bulunamadı
         search:
           search: İşlemleri ara
         show:
           stats:
             back_to_resource: Sonuca geri dön
-        timeline:
-          title: Proje gelişimi
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Kategori
-          scope_id_eq:
-            label: Kapsam
           status_id_eq:
             label: Durum
     components:
@@ -248,8 +226,6 @@ tr:
             comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
             display_progress_enabled: İlerlemeyi göster
             intro: Tanıtım
-            scope_id: Kapsam
-            scopes_enabled: Kapsamlar etkinleştirildi
           step:
             comments_blocked: Yorumlar engellendi
     events:
@@ -264,11 +240,10 @@ tr:
           email_outro: '"%{proposal_title}" izlemekte olduğunuz için bu bildirimi aldınız ve bu teklif "%{resource_title}" sonucuna dahil edildi. Önceki bağlantıyı takip ederek bildirim almayı durdurabilirsiniz.'
           email_subject: '%{resource_title} için bir güncelleme'
           notification_title: '<a href="%{proposal_path}">%{proposal_title}</a> teklifini içeren <a href="%{resource_path}">%{resource_title}</a> sonucu: %{progress} tamamlandı.'
-    metrics:
-      results:
-        description: Üretilen sonuç sayısı
-        object: sonuçlar
-        title: Sonuçlar
+    open_data:
+      help:
+        results:
+          created_at: Sonucun oluşturulma tarihi
     participatory_spaces:
       highlighted_results:
         see_all: Tüm sonuçları gör (%{count})

@@ -5,8 +5,6 @@ require "spec_helper"
 module Decidim
   module Proposals
     describe ProposalsController do
-      routes { Decidim::Proposals::Engine.routes }
-
       let(:user) { create(:user, :confirmed, organization: component.organization) }
 
       let(:proposal_params) do
@@ -45,14 +43,14 @@ module Decidim
 
           it "sets two different collections" do
             geocoded_proposals = create_list(:proposal, 10, component:, latitude: 1.1, longitude: 2.2)
-            _non_geocoded_proposals = create_list(:proposal, 2, component:, latitude: nil, longitude: nil)
+            non_geocoded_proposals = create_list(:proposal, 2, component:, latitude: nil, longitude: nil)
 
             get :index
             expect(response).to have_http_status(:ok)
             expect(subject).to render_template(:index)
 
             expect(assigns(:proposals).count).to eq 12
-            expect(assigns(:all_geocoded_proposals)).to match_array(geocoded_proposals)
+            expect(assigns(:proposals)).to match_array(geocoded_proposals + non_geocoded_proposals)
           end
         end
 
@@ -111,7 +109,7 @@ module Decidim
         it "redirects to the login page" do
           get(:new)
           expect(response).to have_http_status(:found)
-          expect(response.body).to have_text("You are being redirected")
+          expect(response).to redirect_to("/users/sign_in")
         end
       end
 
@@ -189,7 +187,7 @@ module Decidim
               patch(:update, params:)
 
               expect(flash[:alert]).not_to be_empty
-              expect(response).to have_http_status(:ok)
+              expect(response).to have_http_status(:unprocessable_entity)
               expect(subject).to render_template(:edit)
               expect(response.body).to include("There was a problem saving")
             end

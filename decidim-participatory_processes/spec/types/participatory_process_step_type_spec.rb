@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
+require "decidim/api/test"
 
 module Decidim
   module ParticipatoryProcesses
@@ -15,6 +15,8 @@ module Decidim
       let(:model) do
         create(:participatory_process_step, participatory_process: process, cta_path: "#link1")
       end
+
+      include_examples "timestamps interface"
 
       describe "id" do
         let(:query) { "{ id }" }

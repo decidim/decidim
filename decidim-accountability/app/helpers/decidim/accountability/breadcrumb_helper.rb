@@ -5,28 +5,24 @@ module Decidim
     # Helpers needed to render the navigation breadcrumbs in results.
     #
     module BreadcrumbHelper
-      def current_scope
-        params[:filter][:with_scope] if params[:filter]
+      def progress_calculator(taxonomy_id)
+        Decidim::Accountability::ResultsCalculator.new(current_component, taxonomy_id).progress
       end
 
-      def progress_calculator(scope_id, category_id)
-        Decidim::Accountability::ResultsCalculator.new(current_component, scope_id, category_id).progress
+      def taxonomy
+        return if (taxonomy_id = params.dig(:filter, :taxonomies_part_of_contains)).blank?
+
+        @taxonomy ||= current_organization.taxonomies.find(taxonomy_id.is_a?(Array) ? taxonomy_id.first : taxonomy_id)
       end
 
-      def category
-        return if (category_id = params.dig(:filter, :with_category)).blank?
+      def parent_taxonomies(taxonomy)
+        return [] if taxonomy&.parent.blank? || taxonomy&.parent&.root?
 
-        @category ||= current_participatory_space.categories.find(category_id.is_a?(Array) ? category_id.first : category_id)
+        [*parent_taxonomies(taxonomy.parent), taxonomy.parent]
       end
 
-      def parent_categories(category)
-        return [] if category&.parent.blank?
-
-        [*parent_categories(category.parent), category.parent]
-      end
-
-      def categories_hierarchy
-        parent_categories(category)
+      def taxonomies_hierarchy
+        parent_taxonomies(taxonomy)
       end
     end
   end

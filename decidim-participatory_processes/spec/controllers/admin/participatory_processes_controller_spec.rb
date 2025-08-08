@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/core/test/shared_examples/softdeleteable_components_examples"
 
 module Decidim
   module ParticipatoryProcesses
@@ -32,8 +33,7 @@ module Decidim
               weight: participatory_process.weight,
               description: participatory_process.description,
               short_description: participatory_process.short_description,
-              slug: participatory_process.slug,
-              scopes_enabled: participatory_process.scopes_enabled
+              slug: participatory_process.slug
             }
           end
 
@@ -45,6 +45,11 @@ module Decidim
             expect(response).to redirect_to(edit_participatory_process_path(participatory_process.slug))
           end
         end
+
+        it_behaves_like "a soft-deletable space",
+                        space_name: :participatory_process,
+                        space_path: :participatory_processes_path,
+                        trash_path: :manage_trash_participatory_processes_path
       end
     end
   end

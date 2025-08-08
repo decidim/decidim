@@ -112,61 +112,61 @@ describe "Admin views proposal details from admin" do
     end
   end
 
-  describe "with endorsements" do
-    context "when there is not any endorsements" do
+  describe "with likes" do
+    context "when there is not any likes" do
       it "does not show the title" do
         go_to_admin_proposal_page(proposal)
 
-        expect(page).to have_no_content "Endorsers"
+        expect(page).to have_no_content "Likers"
       end
     end
 
-    context "when there are endorsements" do
-      let!(:endorsements) do
+    context "when there are likes" do
+      let!(:likes) do
         # We cannot use `create_list`, as it gives a "Validation failed: Resource has already been taken"
         2.times.collect do
-          create(:endorsement, resource: proposal, author: build(:user, :confirmed, organization:))
+          create(:like, resource: proposal, author: build(:user, :confirmed, organization:))
         end
       end
 
-      it "shows the number of endorsements" do
+      it "shows the number of likes" do
         go_to_admin_proposal_page(proposal)
 
-        expect(page).to have_content "Endorsers"
-        expect(page).to have_css("[data-endorsements] [data-count]", text: "2")
+        expect(page).to have_content "Likes"
+        expect(page).to have_css("[data-likes] [data-count]", text: "2")
       end
 
-      it "shows the ranking by endorsements" do
+      it "shows the ranking by likes" do
         another_proposal = create(:proposal, component:)
-        create(:endorsement, resource: another_proposal, author: build(:user, :confirmed, organization:))
+        create(:like, resource: another_proposal, author: build(:user, :confirmed, organization:))
         go_to_admin_proposal_page(proposal)
 
-        expect(page).to have_css("[data-endorsements] [data-ranking]", text: "1 of ")
+        expect(page).to have_css("[data-likes] [data-ranking]", text: "1 of ")
       end
 
-      it "has a link to each endorser profile" do
+      it "has a link to each liker profile" do
         go_to_admin_proposal_page(proposal)
 
-        within "#proposal-endorsers-list" do
-          proposal.endorsements.for_listing.each do |endorsement|
-            endorser = endorsement.normalized_author
-            expect(page).to have_css("a", text: endorser.name)
+        within "#proposal-likes-list" do
+          proposal.likes.for_listing.each do |like|
+            liker = like.author
+            expect(page).to have_css("a", text: liker.name)
           end
         end
       end
 
-      context "with more than 5 endorsements" do
-        let!(:endorsements) do
+      context "with more than 5 likes" do
+        let!(:likes) do
           # We cannot use `create_list`, as it gives a "Validation failed: Resource has already been taken"
           6.times.collect do
-            create(:endorsement, resource: proposal, author: build(:user, :confirmed, organization:))
+            create(:like, resource: proposal, author: build(:user, :confirmed, organization:))
           end
         end
 
-        it "links to the proposal page to check the rest of endorsements" do
+        it "links to the proposal page to check the rest of likes" do
           go_to_admin_proposal_page(proposal)
 
-          within "#proposal-endorsers-list" do
+          within "#proposal-likes-list" do
             expect(page).to have_css("a", text: "and 1 more")
           end
         end
@@ -257,14 +257,16 @@ describe "Admin views proposal details from admin" do
       go_to_admin_proposal_page(proposal)
 
       within "#photos" do
-        expect(page).to have_xpath("//img[@src=\"#{image.thumbnail_url}\"]")
+        img = page.find("img")
+        expect(img["src"]).to be_blob_url(image.file.blob)
       end
     end
   end
 
   def go_to_admin_proposal_page(proposal)
     within "tr", text: translated(proposal.title) do
-      find("a", class: "action-icon--show-proposal").click
+      find("button[data-controller='dropdown']").click
+      click_on "Answer proposal"
     end
   end
 end

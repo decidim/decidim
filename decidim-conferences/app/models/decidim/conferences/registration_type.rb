@@ -20,6 +20,10 @@ module Decidim
 
       alias participatory_space conference
 
+      def visible?
+        conference.registrations_enabled? && published?
+      end
+
       def self.log_presenter_class_for(_log)
         Decidim::Conferences::AdminLog::RegistrationTypePresenter
       end

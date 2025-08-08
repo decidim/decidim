@@ -40,14 +40,6 @@ is-IS:
         name: Kóði með póstbréfi
     verifications:
       authorizations:
-        first_login:
-          actions:
-            dummy_authorization_handler: Staðfestu á móti heimildarmyndinni
-            dummy_authorization_workflow: Staðfestu gegn verkflæðinu fyrir heimildir fyrir heimildir
-            id_documents: Fáðu staðfestinguna með því að hlaða upp skjalið þitt
-            postal_letter: Fáðu staðfestingu með því að fá staðfestingarkóða með pósti
-          title: Staðfestu auðkenni þitt
-          verify_with_these_options: 'Þetta eru tiltækar valkostir til að staðfesta auðkenni þitt:'
         new:
           authorize: Senda
           authorize_with: Staðfestu með %{authorizer}

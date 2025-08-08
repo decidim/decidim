@@ -4,7 +4,7 @@ module Decidim
   module Proposals
     module Admin
       class ProposalStatesController < Admin::ApplicationController
-        include Decidim::Admin::Paginable
+        include Decidim::Paginable
 
         helper_method :proposal_states, :proposal_state
         def index
@@ -30,7 +30,7 @@ module Decidim
             on(:invalid) do
               flash.keep[:alert] = I18n.t("proposal_states.create.error", scope: "decidim.proposals.admin")
 
-              render action: :new
+              render action: :new, status: :unprocessable_entity
             end
           end
         end
@@ -54,7 +54,7 @@ module Decidim
             on(:invalid) do
               flash.now[:alert] = I18n.t("proposal_states.update.error", scope: "decidim.proposals.admin")
 
-              render action: :edit
+              render action: :edit, status: :unprocessable_entity
             end
           end
         end

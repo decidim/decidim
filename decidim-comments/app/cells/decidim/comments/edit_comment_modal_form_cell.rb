@@ -11,7 +11,7 @@ module Decidim
       def cache_hash
         hash = []
         hash.push(I18n.locale)
-        hash.push(model.id)
+        hash.push(model.cache_key_with_version)
         hash.push(current_user.try(:id))
         hash.join(Decidim.cache_key_separator)
       end

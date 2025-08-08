@@ -8,12 +8,13 @@ describe "Admin copies meetings" do
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
   let(:service_titles) { ["This is the first service", "This is the second service"] }
-  let!(:meeting) { create(:meeting, type_of_meeting, :published, scope:, services: [], component: current_component) }
+  let!(:meeting) { create(:meeting, type_of_meeting, :published, taxonomies:, services: [], component: current_component) }
   let(:base_date) { Time.new.utc }
   let(:meeting_start_date) { base_date.strftime("%d/%m/%Y") }
   let(:meeting_start_time) { base_date.utc.strftime("%H:%M") }
   let(:meeting_end_date) { ((base_date + 2.days) + 1.month).strftime("%d/%m/%Y") }
   let(:meeting_end_time) { (base_date + 4.hours).strftime("%H:%M") }
+  let(:taxonomies) { [taxonomy] }
 
   include_context "when managing a component as an admin"
 
@@ -26,6 +27,7 @@ describe "Admin copies meetings" do
 
     it "creates a new Online meeting", :slow do
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+        find("button[data-controller='dropdown']").click
         click_on "Duplicate"
       end
 
@@ -70,15 +72,16 @@ describe "Admin copies meetings" do
     end
   end
 
-  context "when hybrid", serves_geocoding_autocomplete: true, serves_map: true do
+  context "when hybrid" do
     let(:type_of_meeting) { :hybrid }
 
     before do
       stub_geocoding(address, [latitude, longitude])
     end
 
-    it "creates a new hybrid meeting", :serves_geocoding_autocomplete, :slow do
+    it "creates a new hybrid meeting", :slow do
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+        find("button[data-controller='dropdown']").click
         click_on "Duplicate"
       end
 
@@ -131,15 +134,16 @@ describe "Admin copies meetings" do
     end
   end
 
-  context "when in person", serves_geocoding_autocomplete: true, serves_map: true do
+  context "when in person" do
     let(:type_of_meeting) { :in_person }
 
     before do
       stub_geocoding(address, [latitude, longitude])
     end
 
-    it "creates a new In person meeting", :serves_geocoding_autocomplete, :slow do
+    it "creates a new In person meeting", :slow do
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+        find("button[data-controller='dropdown']").click
         click_on "Duplicate"
       end
 

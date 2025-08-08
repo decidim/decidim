@@ -25,7 +25,7 @@ module Decidim
 
           errors.add(
             :code,
-            I18n.t("registrations.validate_registration_code.invalid", scope: "decidim.meetings.admin")
+            I18n.t("registrations_attendees.validate_registration_code.invalid", scope: "decidim.meetings.admin")
           )
         end
       end

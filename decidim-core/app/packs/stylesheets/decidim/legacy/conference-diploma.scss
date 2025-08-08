@@ -37,7 +37,6 @@
 }
 
 .conference-diploma .diploma__logo {
-  border: 1px solid #333;
   padding: 2rem;
 }
 
@@ -47,10 +46,12 @@
     max-height: 100%;
     max-width: 100%;
     margin: 0;
+    padding-top: 10%;
   }
 
   .conference-diploma .diploma__border {
     margin: 0;
+    margin-top: 15%;
     -moz-border-image: url("../images/decidim/pattern.png") 20 repeat;
     -webkit-border-image: url("../images/decidim/pattern.png") 20 repeat;
     -o-border-image: url("../images/decidim/pattern.png") 20 repeat;

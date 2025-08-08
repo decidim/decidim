@@ -5,7 +5,6 @@ fi:
       decidim/comments/comment_created_event: Kommentti
       decidim/comments/comment_upvoted_event: Kommenttia äänestettiin
       decidim/comments/reply_created_event: Vastaus kommentiin
-      decidim/comments/user_group_mentioned_event: Maininta
       decidim/comments/user_mentioned_event: Maininta
   activerecord:
     models:
@@ -16,6 +15,10 @@ fi:
         one: Ääni
         other: Äänet
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Kommentit
     comments:
       admin:
         shared:
@@ -23,9 +26,11 @@ fi:
             enabled: Kommentointi sallittu
             end_time: Kommentointi sallittu aikarajaan saakka
             start_time: Kommentointi sallittu alkaen
+      comment_thread:
+        accessibility_label: Kommenttiketju aloitettu %{date} henkilön %{full_name} toimesta
       comments:
         create:
-          error: Kommentin luotaessa tapahtui virhe.
+          error: Kommentin luonti epäonnistui.
         delete:
           error: Kommenttia ei voitu poistaa.
         update:
@@ -38,7 +43,8 @@ fi:
           error: Kommentin äänestys epäonnistui.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Kirjaudu tilillesi</a> tai <a href="%{sign_up_url}">rekisteröidy</a> kommentoidaksesi.
+        account_message: Kirjaudu sisään tai luo tili kommentoidaksesi.
+        add_comment: Lisää kommentti
         form:
           body:
             label: Kommentti
@@ -46,8 +52,6 @@ fi:
           form_error: Teksti vaaditaan ja se ei voi olla pidempi kuin %{length} merkkiä.
           submit_reply: Julkaise vastaus
           submit_root_comment: Julkaise kommentti
-          user_group_id:
-            label: Kommentoi käyttäjänä
         opinion:
           label: Mielipiteesi tästä aiheesta
           negative: Negatiivinen
@@ -63,6 +67,9 @@ fi:
         alignment:
           against: Vastaan
           in_favor: Puolesta
+        answers:
+          one: "%{count} vastaus"
+          other: "%{count} vastausta"
         cancel_reply: Peruuta vastaus
         comment_label: Kommentti %{comment_id}
         comment_label_reply: Kommentti %{comment_id} (vastauksena kommenttiin %{parent_comment_id})
@@ -88,11 +95,12 @@ fi:
             does_not_belong: Sisältää laitonta toimintaa, itsemurhauhkailua, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan %{organization_name} -palveluun.
             offensive: Sisältää rasismia, seksismiä, haukkumista, henkilökohtaisia hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai muuta vihapuhetta.
             spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
-          title: Ilmoita asiatonta sisältöä
+          title: Ilmoita epäasiallista sisältöä
         show_replies:
           one: Näytä vastaus
           other: Näytä %{count} vastausta
         single_comment_link_title: Linkki kommenttiin
+        sort_by: 'Järjestä: '
       comment_order_selector:
         order:
           best_rated: Parhaiksi arvioidut
@@ -101,17 +109,23 @@ fi:
           recent: Uusimmat
         title: 'Järjestä tulokset:'
       comments:
-        blocked_comments_for_unauthorized_user_warning: Tilisi tulee olla varmennettu, jotta voit kommentoida tällä hetkellä. Voit kuitenkin lukea muiden jättämiä kommentteja.
+        against: Vastaan
+        blocked_comments_for_unauthorized_user_warning: Tilisi tulee olla vahvistettu, jotta voit kommentoida tällä hetkellä. Voit kuitenkin lukea muiden jättämiä kommentteja.
         blocked_comments_for_user_warning: Et voi kommentoida tällä hetkellä, mutta voit lukea aikaisempia kommentteja.
-        blocked_comments_warning: Kommentit on poistettu käytöstä tällä hetkellä, mutta voit lukea aikaisempia kommentteja.
+        blocked_comments_warning: Kommentit on tällä hetkellä pois käytöstä, vain hallintakäyttäjät voivat vastata tai lähettää uusia kommentteja.
         comment_details_title: Kommentin yksityiskohdat
+        in_favor: Puolesta
         loading: Ladataan kommentteja ...
         single_comment_warning: <a href="%{url}">Näytä kaikki kommentit</a>
         single_comment_warning_title: Näet yhden kommentin
         title:
           one: "%{count} kommentti"
           other: "%{count} kommenttia"
+        top_comment_label: Eniten ääniä saaneet ensin
       down_vote_button:
+        label:
+          one: Eri mieltä osoittava painike. %{count} henkilö on asiasta eri mieltä
+          other: Eri mieltä osoittava painike. %{count} henkilöä on asiasta eri mieltä
         text: Olen eri mieltä tämän kommentin kanssa
       edit_comment_modal_form:
         close: Sulje
@@ -122,21 +136,38 @@ fi:
           submit: Lähetä
         title: Muokkaa kommenttiasi
       up_vote_button:
+        label:
+          one: Tykkäyspainike. %{count} tykkäys
+          other: Tykkäyspainike. %{count} tykkäystä
         text: Olen samaa mieltä tämän kommentin kanssa
+    download_your_data:
+      help:
+        comment_votes:
+          comment: Äänestetyn kommentin yksilöivä tunniste (ID)
+          created_at: Äänen antamisen ajankohta
+          id: Äänen yksilöivä tunniste (ID)
+          updated_at: Äänen viimeisimmän päivityksen ajankohta
+          weight: Äänen painoarvo (1 puolesta, -1 vastaan)
+        comments:
+          alignment: Kertoo, oliko tämä kommentti puolesta, vastaan vai neutraali
+          author: Kommentin laatijan nimi
+          body: Kommentin teksti
+          commentable_id: Kommentoitavan asian yksilöivä tunniste
+          commentable_type: Kommentoitavan asian tyyppi (tulos, ehdotus, jne.)
+          created_at: Kommentin laatimisaika
+          depth: Kommentin paikka keskusteluketjussa, eli millä tasolla kommentti oli (oliko se vastaus vai vastauksen vastaus)
+          id: Kommentin yksilöivä tunniste
+          locale: Kommentoijan valitsema kieliasetus sivustolla
+          root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
     events:
       comments:
         comment_by_followed_user:
-          email_intro: "%{author_name} on jättänyt kommentin kohteessa %{resource_title}. Voit lukea sen täältä:"
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat %{author_name}. Voit perua seuraamisen kyseisen käyttäjän profiilisivulta.
-          email_subject: '%{author_name} on jättänyt uuden kommentin kohteessa %{resource_title}'
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on jättänyt uuden kommentin kohteessa <a href="%{resource_path}">%{resource_title}</a>.
-        comment_by_followed_user_group:
-          email_intro: '%{author_name} on jättänyt kommentin kohteessa %{resource_title}. Voit lukea sen täältä:'
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat %{author_name}. Voit perua seuraamisen kyseisen käyttäjän profiilisivulta.
+          email_intro: "%{author_name} on jättänyt kommentin kohteessa %{resource_title}. Voit lukea sen sivulta:"
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat osallistujaa %{author_name}. Voit perua seuraamisen kyseisen osallistujan profiilisivulta.
           email_subject: '%{author_name} on jättänyt uuden kommentin kohteessa %{resource_title}'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on jättänyt uuden kommentin kohteessa <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
-          email_intro: "%{resource_title} on kommentoitu. Voit lukea kommentin tällä sivulla:"
+          email_intro: "%{resource_title} on kommentoitu. Voit lukea kommentin sivulta:"
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat "%{resource_title}" tai sen kirjoittajaa. Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: '%{author_name} on jättänyt uuden kommentin kohteessa %{resource_title}'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a>on jättänyt uuden kommentin kohteessa <a href="%{resource_path}">%{resource_title}</a>
@@ -151,25 +182,15 @@ fi:
           email_subject: Kommenttisi kohteessa "%{resource_title}" sai äänen.
           notification_title: <a href="%{resource_path}">Kommenttisi</a> kohteessa "%{resource_title}" sai äänen. Sillä on yhteensä %{upvotes} ääntä ja %{downvotes} miinusääntä.
         reply_created:
-          email_intro: "%{author_name} on vastannut kommentiisi kohdassa %{resource_title}. Voit lukea sen tällä sivulla:"
+          email_intro: "%{author_name} on vastannut kommentiisi kohdassa %{resource_title}. Voit lukea sen sivulta:"
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska kommenttiisi vastattiin.
           email_subject: "%{author_name} on vastannut kommentiisi %{resource_title}"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on vastannut kommentiisi kohdassa <a href="%{resource_path}">%{resource_title}</a>
-        user_group_mentioned:
-          email_intro: Ryhmä, jonka jäsen olet, on mainittu
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet jäsenenä ryhmässä %{group_name} ja ryhmä on mainittu kohteessa %{resource_title}.
-          email_subject: Sinut on mainittu kohteessa %{resource_title} ryhmän %{group_name} jäsenenä
-          notification_title: Käyttäjä <a href="%{author_path}">%{author_name}%{author_nickname}</a> on maininnut sinut kohteessa <a href="%{resource_path}">%{resource_title}</a> ryhmän <a href="%{group_path}">%{group_name} %{group_nickname}</a> jäsenenä
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on vastannut kommentiisi kohteessa <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Sinut on mainittu
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska sinut on mainittu kohteessa %{resource_title}.
           email_subject: Sinut on mainittu kohdassa %{resource_title}
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on maininnut sinut kohdassa <a href="%{resource_path}">%{resource_title}</a>
-    metrics:
-      comments:
-        description: Käyttäjien kirjoittamien kommenttien määrä
-        object: kommentit
-        title: Kommentit
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on maininnut sinut kohteessa <a href="%{resource_path}">%{resource_title}</a>
   errors:
     messages:
       cannot_have_comments: ei voi sisältää kommentteja

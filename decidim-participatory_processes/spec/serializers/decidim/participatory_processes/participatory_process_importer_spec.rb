@@ -22,7 +22,6 @@ module Decidim::ParticipatoryProcesses
       let(:import_data) do
         {
           "subtitle" => Decidim::Faker::Localized.sentence(word_count: 3),
-          "hashtag" => "hashtag",
           "description" => Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title },
           "short_description" => Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title },
           "promoted" => false,
@@ -36,11 +35,7 @@ module Decidim::ParticipatoryProcesses
           "end_date" => "2023-08-01",
           "announcement" => Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title },
           "private_space" => false,
-          "scopes_enabled" => false,
-          "show_metrics" => false,
-          "show_statistics" => false,
-          "participatory_process_group" => group_data,
-          "participatory_process_type" => type_data
+          "participatory_process_group" => group_data
         }
       end
       let(:group_data) do
@@ -50,19 +45,12 @@ module Decidim::ParticipatoryProcesses
         }
       end
 
-      let(:type_data) do
-        {
-          "title" => generate_localized_title
-        }
-      end
-
       it "imports the process correctly" do
         expect { subject }.to change(Decidim::ParticipatoryProcess, :count).by(1)
 
         expect(subject.title).to eq(options[:title])
         expect(subject.slug).to eq(options[:slug])
         expect(subject.subtitle).to eq(import_data["subtitle"])
-        expect(subject.hashtag).to eq(import_data["hashtag"])
         expect(subject.description).to eq(import_data["description"])
         expect(subject.short_description).to eq(import_data["short_description"])
         expect(subject.promoted).to eq(import_data["promoted"])
@@ -76,8 +64,6 @@ module Decidim::ParticipatoryProcesses
         expect(subject.end_date).to eq(Date.parse(import_data["end_date"]))
         expect(subject.announcement).to eq(import_data["announcement"])
         expect(subject.private_space).to eq(import_data["private_space"])
-        expect(subject.show_metrics).to eq(import_data["show_metrics"])
-        expect(subject.show_statistics).to eq(import_data["show_statistics"])
         expect(subject.participatory_process_group).to be_a(Decidim::ParticipatoryProcessGroup)
       end
 
@@ -119,38 +105,13 @@ module Decidim::ParticipatoryProcesses
         end
       end
 
-      it "imports the process type correctly" do
-        expect { subject }.to change(Decidim::ParticipatoryProcessType, :count).by(1)
-
-        participatory_process_type = subject.participatory_process_type
-        expect(participatory_process_type.organization).to eq(subject.organization)
-        expect(participatory_process_type.title).to eq(type_data["title"])
-      end
-
-      context "when the process type title is defined with the name key" do
-        let(:type_data) do
-          {
-            "title" => generate_localized_title
-          }
+      context "when the process group is nil" do
+        let(:group_data) do
+          nil
         end
 
-        it "imports the process type correctly" do
-          expect { subject }.to change(Decidim::ParticipatoryProcessType, :count).by(1)
-
-          participatory_process_type = subject.participatory_process_type
-          expect(participatory_process_type.title).to eq(type_data["title"])
-        end
-      end
-
-      context "when the process type is empty" do
-        let(:type_data) do
-          {
-            "title" => Decidim::Faker::Localized.localized { "" }
-          }
-        end
-
-        it "does not create a process type" do
-          expect { subject }.not_to change(Decidim::ParticipatoryProcessType, :count)
+        it "imports the process correctly" do
+          expect { subject }.to change(Decidim::ParticipatoryProcess, :count).by(1)
         end
       end
     end

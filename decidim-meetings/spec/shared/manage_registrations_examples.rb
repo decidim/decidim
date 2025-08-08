@@ -2,7 +2,8 @@
 
 def visit_edit_registrations_page
   within "tr", text: translated(meeting.title) do
-    page.click_on "Registrations"
+    find("button[data-controller='dropdown']").click
+    click_on "Registrations"
   end
 end
 
@@ -44,8 +45,7 @@ shared_examples "manage registrations" do
     it "exports a CSV" do
       visit_edit_registrations_page
 
-      find(".exports").click
-
+      click_on "Export"
       click_on "Registrations as CSV"
 
       expect(page.response_headers["Content-Type"]).to eq("text/csv")
@@ -55,42 +55,11 @@ shared_examples "manage registrations" do
     it "exports a JSON" do
       visit_edit_registrations_page
 
-      find(".exports").click
-
+      click_on "Export"
       click_on "Registrations as JSON"
 
       expect(page.response_headers["Content-Type"]).to eq("text/json")
       expect(page.response_headers["Content-Disposition"]).to match(/attachment; filename=.*\.json/)
-    end
-  end
-
-  context "when validating registration codes when registration code is enabled" do
-    before do
-      meeting.component.update!(settings: { registration_code_enabled: true })
-    end
-
-    let!(:registration) { create(:registration, meeting:, code: "QW12ER34") }
-
-    it "can validate a valid registration code" do
-      visit_edit_registrations_page
-
-      within ".validate_meeting_registration_code" do
-        fill_in :validate_registration_code_code, with: "QW12ER34"
-        click_on "Validate"
-      end
-
-      expect(page).to have_admin_callout("Registration code successfully validated")
-    end
-
-    it "cannot validate an invalid registration code" do
-      visit_edit_registrations_page
-
-      within ".validate_meeting_registration_code" do
-        fill_in :validate_registration_code_code, with: "NOT-GOOD"
-        click_on "Validate"
-      end
-
-      expect(page).to have_admin_callout("This registration code is invalid")
     end
   end
 end

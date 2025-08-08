@@ -8,6 +8,8 @@ describe "Admin edits proposals" do
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
   let!(:proposal) { create(:proposal, :official, component:) }
   let(:creation_enabled?) { true }
+  let(:image_filename) { "city.jpeg" }
+  let(:image_path) { Decidim::Dev.asset(image_filename) }
 
   include_context "when managing a component as an admin"
 
@@ -27,18 +29,24 @@ describe "Admin edits proposals" do
     it "can be updated" do
       visit_component_admin
 
-      find("a.action-icon--edit-proposal").click
+      within "tr[data-id='#{proposal.id}']" do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit proposal"
+      end
       expect(page).to have_content "Update proposal"
 
       fill_in_i18n :proposal_title, "#proposal-title-tabs", **attributes[:title].except("machine_translations")
       fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", **attributes[:body].except("machine_translations")
       click_on "Update"
 
-      preview_window = window_opened_by { find("a.action-icon--preview").click }
+      within "tr[data-id='#{proposal.id}']" do
+        find("button[data-controller='dropdown']").click
+        preview_window = window_opened_by { click_on "Preview" }
 
-      within_window preview_window do
-        expect(page).to have_content(translated(attributes[:title]))
-        expect(page).to have_content(strip_tags(translated(attributes[:body])).strip)
+        within_window preview_window do
+          expect(page).to have_content(translated(attributes[:title]))
+          expect(page).to have_content(strip_tags(translated(attributes[:body])).strip)
+        end
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -56,7 +64,10 @@ describe "Admin edits proposals" do
         visit_component_admin
 
         expect(page).to have_content(translated(proposal.title))
-        expect(page).to have_no_css("a.action-icon--edit-proposal")
+        within "tr", text: translated_attribute(proposal.title) do
+          find("button[data-controller='dropdown']").click
+          expect(page).to have_css(".dropdown__button-disabled span", text: "Edit proposal")
+        end
         visit current_path + "proposals/#{proposal.id}/edit"
 
         expect(page).to have_content("not authorized")
@@ -84,8 +95,10 @@ describe "Admin edits proposals" do
 
       it "can be remove attachment" do
         visit_component_admin
-        find("a.action-icon--edit-proposal").click
-        find("input#proposal_attachment_delete_file").set(true)
+        within "tr", text: translated_attribute(proposal.title) do
+          find("button[data-controller='dropdown']").click
+          click_on "Edit proposal"
+        end
         within ".item__edit-form" do
           click_on "Update"
         end
@@ -93,26 +106,35 @@ describe "Admin edits proposals" do
         expect(page).to have_content("Proposal successfully updated.")
 
         visit_component_admin
-        find("a.action-icon--edit-proposal").click
+        within "tr", text: translated_attribute(proposal.title) do
+          find("button[data-controller='dropdown']").click
+          click_on "Edit proposal"
+        end
         expect(page).to have_no_content("Current file")
       end
 
       it "can attach a file" do
         visit_component_admin
-        find("a.action-icon--edit-proposal").click
-        fill_in :proposal_attachment_title, with: "FOO BAR"
+        within "tr", text: translated_attribute(proposal.title) do
+          find("button[data-controller='dropdown']").click
+          click_on "Edit proposal"
+        end
+        dynamically_attach_file(:proposal_documents, image_path)
 
-        find("input#proposal_attachment_delete_file").set(true)
-        click_on("Replace")
-        click_on("Remove")
-        click_on("Next")
-        dynamically_attach_file(:proposal_attachment_file, Decidim::Dev.asset("city.jpeg"))
+        click_on("Edit attachments")
+        within "li[data-filename='#{image_filename}']" do
+          click_on("Remove")
+        end
+        click_on("Save")
 
         click_on("Update")
-        find("a.action-icon--edit-proposal").click
 
-        expect(page).to have_content("city.jpeg")
-        expect(page).to have_content("FOO BAR")
+        within "tr", text: translated_attribute(proposal.title) do
+          find("button[data-controller='dropdown']").click
+          click_on "Edit proposal"
+        end
+
+        expect(page).to have_no_content("city.jpeg")
       end
     end
   end
@@ -124,7 +146,12 @@ describe "Admin edits proposals" do
       visit_component_admin
 
       expect(page).to have_content(translated(proposal.title))
-      expect(page).to have_no_css("a.action-icon--edit-proposal")
+
+      within "tr", text: translated_attribute(proposal.title) do
+        find("button[data-controller='dropdown']").click
+        expect(page).to have_css(".dropdown__button-disabled span", text: "Edit proposal")
+      end
+
       visit current_path + "proposals/#{proposal.id}/edit"
 
       expect(page).to have_content("not authorized")

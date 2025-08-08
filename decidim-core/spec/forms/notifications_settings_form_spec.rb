@@ -10,6 +10,7 @@ module Decidim
         notifications_from_own_activity:,
         notifications_sending_frequency:,
         email_on_moderations:,
+        email_on_assigned_proposals:,
         newsletter_notifications:,
         allow_public_contact:
       ).with_context(
@@ -22,6 +23,7 @@ module Decidim
     let(:notifications_from_followed) { "1" }
     let(:notifications_from_own_activity) { "1" }
     let(:email_on_moderations) { "1" }
+    let(:email_on_assigned_proposals) { "1" }
     let(:newsletter_notifications) { "1" }
     let(:allow_public_contact) { "1" }
     let(:notifications_sending_frequency) { "real_time" }
@@ -176,7 +178,7 @@ module Decidim
     describe "#meet_push_notifications_requirements?" do
       context "when the notifications requirements are met" do
         before do
-          Rails.application.secrets[:vapid] = { enabled: true }
+          allow(Decidim).to receive(:vapid_public_key).and_return("FOO BAR")
         end
 
         it "returns true" do
@@ -186,7 +188,7 @@ module Decidim
 
       context "when vapid secrets are not present" do
         before do
-          Rails.application.secrets.delete(:vapid)
+          allow(Decidim).to receive(:vapid_public_key).and_return("")
         end
 
         it "returns false" do
@@ -196,7 +198,7 @@ module Decidim
 
       context "when the notifications requirements are not met" do
         before do
-          Rails.application.secrets[:vapid] = { enabled: false }
+          allow(Decidim).to receive(:vapid_public_key).and_return(nil)
         end
 
         it "returns false" do

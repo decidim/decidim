@@ -4,7 +4,6 @@ es-MX:
       participatory_process:
         announcement: Anuncio
         area_id: Área
-        banner_image: Imagen de banner
         copy_categories: Copiar categorías
         copy_components: Copiar componentes
         copy_steps: Copiar las fases
@@ -14,7 +13,6 @@ es-MX:
         document: Documento
         domain: Dominio
         end_date: Fecha de finalización
-        hashtag: Hashtag
         hero_image: Imagen de portada
         import_attachments: Importar archivos adjuntos
         import_categories: Importar categorias
@@ -23,19 +21,13 @@ es-MX:
         local_area: Área de organización
         meta_scope: 'Metadatos: ámbito'
         participatory_process_group_id: Grupo de procesos
-        participatory_process_type_id: Tipo de proceso
         participatory_scope: Qué se decide
         participatory_structure: Cómo se decide
         private_space: Proceso privado
         promoted: Destacado
         published_at: Publicado en
         related_process_ids: Procesos relacionados
-        scope_id: Ámbito
-        scope_type_max_depth_id: Profundidad del filtro de ámbito
-        scopes_enabled: Ámbitos habilitados
         short_description: Descripción breve
-        show_metrics: Mostrar métricas
-        show_statistics: Mostrar estadísticas
         slug: Texto corto de URL
         start_date: Fecha de inicio
         subtitle: Subtítulo
@@ -46,7 +38,6 @@ es-MX:
         description: Descripción
         developer_group: Grupo promotor
         group_url: Sitio web
-        hashtag: Hashtag
         hero_image: Imagen
         local_area: Área de la organización
         meta_scope: Metadatos de ámbito
@@ -62,8 +53,6 @@ es-MX:
         end_date: Fecha de finalización
         short_description: Descripción breve
         start_date: Fecha de inicio
-        title: Título
-      participatory_process_type:
         title: Título
       participatory_process_user_role:
         email: Correo electrónico
@@ -93,23 +82,22 @@ es-MX:
     admin:
       actions:
         activate: Activar
-        configure: Configurar
+        confirm_delete_process: '¿Seguro que quieres eliminar este proceso? Si cambias de opinión, puedes restaurarlo más tarde.'
         confirm_destroy: Confirma la supresión.
         destroy: Borrar
         duplicate: Duplicar
         edit: Editar
         import_process: Importar
-        moderate: Moderar
         new_process: Nuevo proceso
         new_process_group: Nuevo grupo de procesos
         new_process_step: Nueva fase
-        new_process_type: Nuevo tipo de proceso
         new_process_user_role: Nuevo usuario de proceso
         preview: Previsualizar
         publish: Publicar
         resend_invitation: Reenviar invitación
         see_process: Ver el proceso
         unpublish: Despublicar
+        view_deleted_processes: Ver los procesos eliminados
       filters:
         decidim_participatory_process_group_id_eq:
           label: Por grupo de procesos
@@ -117,19 +105,17 @@ es-MX:
         participatory_process_groups: Grupos de procesos
         participatory_process_groups_submenu:
           info: Información
-          landing_page: Página de inicio
-        participatory_process_types: Tipo de proceso
+          landing_page: Disposición de la página de aterrizaje
         participatory_processes: Procesos
         participatory_processes_submenu:
           attachment_collections: Carpetas
           attachment_files: Archivos
           attachments: Archivos adjuntos
-          categories: Categorías
           components: Componentes
           info: Acerca de este proceso
-          landing_page: Página de inicio
+          landing_page: Disposición de la página de aterrizaje
           moderations: Moderaciones
-          private_users: Usuarios privados
+          private_users: Miembros
           process_admins: Usuarios del proceso
           steps: Fases del proceso
       models:
@@ -143,21 +129,19 @@ es-MX:
           name: Proceso participativo
         participatory_process_group:
           fields:
+            actions: Acciones
             title: Título
           name: Grupo de procesos
         participatory_process_step:
           fields:
+            actions: Acciones
             end_date: Fecha de finalización
             start_date: Fecha de inicio
             title: Título
           name: Fase de proceso participativo
-        participatory_process_type:
-          fields:
-            created_at: Creado el
-            title: Título
-          name: Tipo de proceso
         participatory_process_user_role:
           fields:
+            actions: Acciones
             email: Correo electrónico
             name: Nombre
             role: Rol
@@ -165,12 +149,13 @@ es-MX:
           roles:
             admin: Administrador
             collaborator: Colaborador
+            evaluator: Evaluadora
             moderator: Moderador
-            valuator: Evaluadora
         user:
           fields:
             invitation_accepted_at: Invitación aceptada el día
             invitation_sent_at: Invitación enviada el día
+            published: Publicados
       participatory_process_copies:
         new:
           copy: Copiar
@@ -223,7 +208,7 @@ es-MX:
             body_html: |-
               La configuración del CTA a través de la Fase del proceso participativo está obsoleta con el nuevo diseño.
               Ahora esto se hace en la <b>Página de Inicio</b>, usando el bloque de contenido <b>Imagen principal y botón de acción</b> .
-              Lo hemos dejado aquí para que migres las CTAs que necesites. Los campos <i>Ruta del acción</i> y
+              Lo hemos dejado aquí para que migres las CTAs que necesites. Los campos <i>Ruta del botón de acción</i> y
               <i>Texto del botón de acción</i> se eliminaran en la próxima versión.
             title: CTA obsoleto
           title: Editar fase de proceso participativo
@@ -238,21 +223,6 @@ es-MX:
         update:
           error: Se ha producido un error en la actualización de esta fase de proceso participativo.
           success: La fase de proceso participativo se ha actualizado correctamente.
-      participatory_process_types:
-        create:
-          error: Se ha producido un error al crear un nuevo tipo de proceso.
-          success: Tipo de proceso creado correctamente.
-        destroy:
-          success: Tipo de proceso eliminado correctamente.
-        edit:
-          title: Editar el tipo de proceso
-          update: Actualizar
-        new:
-          create: Crear
-          title: Nuevo tipo de proceso
-        update:
-          error: Se ha producido un error al actualizar este tipo de proceso.
-          success: Tipo de procés actualizado correctamente.
       participatory_process_user_roles:
         create:
           error: Ha habido un error al agregar un usuario a este proceso participativo.
@@ -281,6 +251,8 @@ es-MX:
           public: Público
           published: Publicada
           unpublished: Despublicado
+        manage_trash:
+          title: Procesos participativos eliminados
         new:
           create: Crear
           title: Nuevo proceso participativo
@@ -295,10 +267,16 @@ es-MX:
         create:
           error: Se ha producido un error al crear este grupo.
           success: Grupo creado correctamente.
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: Todos los procesos participativos
       titles:
         participatory_process_groups: Grupos de procesos participativos
         participatory_process_types: Tipos de procesos participativos
         participatory_processes: Procesos participativos
+        participatory_processes_deleted: Procesos participativos eliminados
+      tooltips:
+        deleted_processes_info: Un proceso solo se pueden eliminar si su estado es 'Despublicado'.
       users:
         resend_invitation:
           error: Hubo un error al volver a enviar la invitación.
@@ -310,10 +288,13 @@ es-MX:
         export: "%{user_name} exportó el proceso participativo %{resource_name}"
         import: "%{user_name} importó el proceso participativo %{resource_name}"
         publish: "%{user_name} publicó el proceso participativo %{resource_name}"
+        restore: "%{user_name} restauró el proceso participativo \"%{resource_name}\""
+        soft_delete: "%{user_name} ha enviado a la papelera el proceso participativo \"%{resource_name}\""
         unpublish: "%{user_name} despublicó el proceso participativo %{resource_name}"
         update: "%{user_name} actualizó el proceso participativo %{resource_name}"
       participatory_process_group:
         create: "%{user_name} creó el grupo de procesos participativos de %{resource_name}"
+        unpublish: "%{user_name} ha despublicado el grupo de procesos participativos: %{resource_name}"
         update: "%{user_name} actualizó el grupo de procesos participativos de %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} activó la fase %{resource_name} en el proceso participativo %{space_name}"
@@ -328,6 +309,9 @@ es-MX:
         create: "%{user_name} invitó al usuario %{resource_name} al proceso participativo %{space_name}"
         delete: "%{user_name} eliminó al usuario %{resource_name} del proceso participativo %{space_name}"
         update: "%{user_name} cambió el rol del usuario %{resource_name} en el proceso participativo %{space_name}"
+    download_your_data:
+      show:
+        participatory_processes: Exportar los procesos participativos
     events:
       participatory_process:
         role_assigned:
@@ -357,11 +341,37 @@ es-MX:
           not_found: 'Este tipo de proceso no se encontró en la base de datos (ID: %{id}).'
     menu:
       processes: Procesos
-    metrics:
-      participatory_processes:
-        description: Número de procesos participativos en esta organización
-        object: procesos participativos
-        title: Procesos participativos
+    open_data:
+      help:
+        participatory_processes:
+          announcement: La información del anuncio/aviso (llamada)
+          area: El área a la que pertenece el proceso
+          created_at: La fecha en la que se creó este proceso participativo
+          description: Una descripción larga del proceso
+          developer_group: El grupo promotor del proceso. Quien está promoviendo el proceso.
+          end_date: La fecha de finalización del proceso
+          follows_count: El número de usuarias que siguen este proceso participativo
+          id: El identificador único del proceso
+          local_area: El área de organización del proceso. Esto es el área de organización de la que depende este proceso.
+          meta_scope: Los metadatos del ámbito territorial del proceso
+          participatory_process_group: El grupo del proceso, si forma parte de alguno
+          participatory_process_type: El tipo del proceso
+          participatory_scope: El ámbito territorial de la participación del proceso
+          participatory_structure: La estructura participativa del proceso. Esto es como se decide en el proceso.
+          promoted: Si el proceso está destacado o no
+          published_at: La fecha en la que se publicó este proceso participativo
+          reference: La referencia única del proceso participativo
+          remote_hero_image_url: La URL de la imagen principal del proceso
+          scope: El ámbito territorial del proceso
+          scopes_enabled: Si el ámbito territorial está habilitado o no
+          short_description: Una breve descripción del proceso
+          slug: El nombre corto del proceso (usado para fines de identificación, para la URL)
+          start_date: La fecha de inicio del proceso
+          subtitle: El subtítulo del proceso
+          target: Las destinatarias del proceso. Quien está llamado a participar en el proceso.
+          title: El título del proceso
+          updated_at: La fecha de la última actualización de este proceso participativo
+          url: La URL del proceso participativo
     participatory_process_groups:
       content_blocks:
         extra_data:
@@ -379,7 +389,7 @@ es-MX:
         html_3:
           name: Tercer bloque HTML
         main_data:
-          name: Titulo y descripción
+          name: Título y descripción
         participatory_processes:
           active: Procesos participativos activos
           name: Procesos participativos
@@ -390,6 +400,8 @@ es-MX:
           participatory_processes:
             one: 1 proceso
             other: "%{count} procesos"
+      related_processes:
+        help: Todos los procesos seleccionados serán asignados a este grupo, incluyendo los que ya están asignados a otros grupos.
       show:
         title: Grupos de procesos participativos
     participatory_process_steps:
@@ -398,6 +410,85 @@ es-MX:
     participatory_processes:
       admin:
         content_blocks:
+          democratic_quality_stats_settings_form:
+            accessibility:
+              languages_count:
+                legend: '¿En cuántos idiomas se ha comunicado el proceso?'
+                options:
+                  five: Más de la mitad de los idiomas hablados en la comunidad = 5
+                  one: Un idioma = 1
+                  two_five: Menos de la mitad de los idiomas hablados en la comunidad = 2.5
+              name: Accesibilidad
+              venue_accessibility:
+                legend: '¿Las salas de los encuentros presenciales eran accesibles para las personas con movilidad reducida?'
+                options:
+                  five: Sí = 5
+                  two_five: Parcialmente = 2.5
+                  zero: No = 0
+            announcement:
+              body_html: |-
+                <ul>
+                <li>Estos cálculos se realizan automáticamente a partir de los datos que constan en Decidim. Éstos serán visibles una vez publiques el bloque de contenido correspondiente.</li>
+                <li>Estos cálculos se calculas a partir de tus respuestas recogidas a través del siguiente formulario. Éstos serán visibles una vez hayas respondido a todas las preguntas.</li>
+                </ul>
+              title: 'Este bloque de contenido incluye dos tipos de métricas:'
+            citizen_influence:
+              citizen_influence_level:
+                legend: Nivel de influencia del proceso teniendo en cuenta los mecanismos de participación habilitados, de acuerdo a la escalera de participación definida por Satin y Arnstein (1969).
+                options:
+                  five: Control ciudadano = 5
+                  five_description: Un nivel de participación más alto donde la ciudadanía gobierna plenamente un programa o institución, gestionan políticas, recursos y toma de decisiones sin interferencia externa.
+                  four: Competencia delegada = 4
+                  four_description: Un proceso participativo en el que la ciudadanía adquiere autoridad, control o financiación para influir en una organización y gestionarla.
+                  one: Consultivo = 1
+                  one_description: Un proceso participativo en el que se pide a la ciudadanía su opinión, normalmente a través de encuestas o reuniones, pero sin garantía de que su aportación influya en las decisiones.
+                  three: Colaborativo = 3
+                  three_description: Un proceso participativo en el que la ciudadanía y el tejido asociativo comparten el poder de decisión, lo que permite a las participantes negociar, asignar recursos e influir en la planificación, con normas que no pueden modificarse unilateralmente. Suele surgir de la movilización ciudadana y la acción colectiva.
+                  two: Participación simbólica = 2
+                  two_description: Un proceso participativo en el que se concede a la ciudadanía una influencia limitada, a menudo de forma simbólica, como la inclusión en juntas o comités, pero sin poder real, ya que la toma de decisiones sigue controlada por la élite de poder tradicional.
+                  zero: Informativo = 0
+                  zero_description: El flujo de información es unidireccional -del personal municipal hacia la ciudadanía- sin canal de retroalimentación ni capacidad de negociación.
+              name: Influencia ciudadana
+            inclusiveness:
+              cultural_origins_participation:
+                legend: '¿Cuántas personas de orígenes culturales diversos han participado al margen de los invitados?'
+                options:
+                  five: 80 - 100% = 5
+                  four: 60 - 80% = 4
+                  one: 0 - 20% = 1
+                  three: 40 - 60% = 3
+                  two: 20 - 40% = 2
+              description: Inclusividad según el origen cultural y la diversidad funcional.
+              functional_diversity_invited:
+                legend: '¿Se ha invitado a grupos de personas con diversidad funcional a participar?'
+                options:
+                  five: Sí = 5
+                  zero: No = 0
+              functional_diversity_participation:
+                legend: '¿Cuántas personas con diversidad funcional han participado al margen de las invitadas?'
+                options:
+                  five: 80 - 100% = 5
+                  four: 60 - 80% = 4
+                  one: 0 - 20% = 1
+                  three: 40 - 60% = 3
+                  two: 20 - 40% = 2
+              migrant_groups_invited:
+                legend: '¿Se ha invitado a participar a personas de orígenes diversos?'
+                options:
+                  five: Sí = 5
+                  zero: No = 0
+              name: Inclusividad
+            relevance:
+              description: 'Relevancia del impacto, tales como: porcentaje del presupuesto de la organización, de los recursos humanos la organización implicados, o del total de la población, que se verá afectada por los resultados del proceso, y el tiempo dedicado a tal impacto.'
+              name: Relevancia
+              relevance_percentage:
+                legend: Porcentaje del presupuesto de la organización, de los recursos humanos la organización implicados, o del total de la población, que se verá afectada por los resultados del proceso.
+                options:
+                  five: 80 - 100% = 5
+                  four: 60 - 80% = 4
+                  one: 0 - 20% = 1
+                  three: 40 - 60% = 3
+                  two: 20 - 40% = 2
           highlighted_processes:
             active: Activos
             all: Todos
@@ -425,20 +516,50 @@ es-MX:
         participatory_processes:
           form:
             announcement_help: El texto que ingreses aquí se mostrará al usuario justo debajo de la información del proceso.
+            define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             duration: Duración
-            filters: Filtros
             images: Imágenes
             metadata: Metadatos
-            other: Otro
+            no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
+            private_notice: Podrás administrar las miembros después de configurar el espacio como privado
             related_processes: Procesos relacionados
-            scope_type_max_depth_help: Restringe la profundidad del filtro de ámbito; se mostrará el filtro desde el ámbito general hasta el seleccionado.
-            select_an_area: Seleccione una área
-            select_participatory_process_type: Selecciona un tipo de proceso
             select_process_group: Seleccione un grupo de proceso
             slug_help_html: 'Los nombres cortos de URL se utilizan para generar las URL que apuntan a esta votación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            taxonomies: Taxonomías
             title: Información general
             visibility: Visibilidad
       content_blocks:
+        democratic_quality_stats:
+          automatic_metrics:
+            description: Estos indicadores se obtienen automáticamente a partir de los datos recogidos en la plataforma.
+            indicators:
+              hybridization: Hibridización
+              hybridization_tooltip: Este indicador mide el nivel de combinación entre espacios presenciales y digitales durante el proceso
+              influence: Influencia ciudadana
+              influence_tooltip: Este indicador mide el nivel de influencia ciudadana en las propuestas aceptadas y los resultados del proceso.
+              traceability: Trazabilidad
+              traceability_tooltip: Este indicador mide la transparencia y trazabilidad del proceso participativo. Refleja con qué facilidad la ciudadanía pueden seguir la evolución de las propuestas y verificar las acciones institucionales a través de los registros publicados.
+              transparency: Capacidad de respuesta
+              transparency_tooltip: Este indicador mide el nivel de respuesta de la organización a las aportaciones de las participantes, y refleja su compromiso a través de respuestas oficiales y decisiones implementadas.
+            name: Métricas automáticas
+          global_score:
+            description_html: A continuación se muestra un conjunto de indicadores utilizados para evaluar la calidad democrática de este proceso participativo. Para más detalles sobre cómo se calculan, consulta la página <a href="%{info_url}">de información sobre los indicadores de calidad democrática</a>.
+            name: Puntuación general
+            note: "*Los indicadores se miden en una escala de 1 a 5, donde 1 representa la menor y 5 la mayor calidad de participación."
+            tooltip: Basada en la media de todas las dimensiones
+          name: Calidad de la participación
+          qualitative_metrics:
+            description: Estos indicadores se obtienen de las respuestas a una encuesta de autoevaluación realizada por las responsables del proceso participativo.
+            indicators:
+              accessibility: Accesibilidad
+              accessibility_tooltip: El proceso ha sido comunicado en los idiomas hablados en la comunidad y los espacios utilizados en los encuentros presenciales han sido accesibles para las personas con movilidad reducida.
+              citizen_influence: Influencia ciudadana
+              citizen_influence_tooltip: Se mide la capacidad de incidencia de las participantes en la toma de decisiones.
+              inclusiveness: Inclusividad
+              inclusiveness_tooltip: Evalúa si las todas las partes interesadas están representadas equitativamente
+              relevance: Relevancia
+              relevance_tooltip: 'Relevancia del impacto, tales como: porcentaje del presupuesto de la organización, de los recursos humanos la organización implicados, o del total de la población, que se verá afectada por los resultados del proceso, y el tiempo dedicado a tal impacto.'
+            name: Métricas de autoevaluación
         extra_data:
           name: Fase y duración
         hero:
@@ -450,15 +571,12 @@ es-MX:
       index:
         title: Procesos participativos
       last_activity:
-        new_participatory_process: Nuevo proceso participativo
+        new_participatory_process: 'Nuevo proceso participativo:'
       pages:
         home:
           highlighted_processes:
             active_spaces: Procesos activos
             see_all_spaces: Ver todos los procesos
-      participatory_process_steps:
-        index:
-          back_to_process: Volver a la página del proceso
       participatory_processes:
         description:
           area_name: Área
@@ -500,12 +618,215 @@ es-MX:
           type: Tipo
         show:
           title: Acerca de este proceso
+      participatory_space_private_users:
+        index:
+          title: Miembros
       show:
         belongs_to_group: Este proceso pertenece a
         private_space: Este es un proceso privado
         related_processes: Procesos relacionados
+      static_pages:
+        democratic_quality_indicators:
+          content: |-
+            <h2>Sistema de indicadores para medir la calidad de la participación en Decidim.</h2>
+
+            <h3>Introducción</h3>
+            <p>La calidad democrática es un principio básico de Decidim. Para mantenerlo, se ha desarrollado un sistema de indicadores que ayudan a evaluar la calidad de los procesos participativos en la plataforma. En este artículo explicamos cómo se calculan estos indicadores.</p>
+
+            <h3>¿Cómo se calculan los indicadores?</h3>
+            <p>Se han definido dos métodos para la recogida de indicadores de calidad:</p> 
+
+            <ol>
+            <li><strong>Métricas automáticas:</strong> Se calculan directamente a partir de los datos de la plataforma Decidim.</li>
+            <li><strong>Métricas de autoevaluación:</strong> Se basan en un formulario que rellena un administrador.</li>
+            </ol>.
+
+            <p>Cada indicador se expresa como un porcentaje (n/total). A continuación, este porcentaje se convierte en una puntuación en una escala de 1 a 5:</p>
+
+            <ul>
+            <li>1 = 0-20%</li>
+            <li>2 = 20-40%</li>
+            <li>3 = 40-60%</li>
+            <li>4 = 60-80%</li>
+            <li>5 = 80-100%</li>
+            </ul>
+
+            <br><br>
+            <h3>Métricas automáticas</h3>
+            <p>Estos indicadores se obtienen automáticamente a partir de los datos recogidos en la plataforma. Se evalúan por cada proceso participativo y pueden ser hechas públicas por las responsables del proceso, para que todas las participantes puedan acceder a ellas.</p>
+
+            <p>Se han definido cuatro indicadores principales: Influencia Ciudadana, Hibridación, Capacidad de Respuesta y Trazabilidad:</p>
+
+            <h3>Influencia ciudadana</h3>
+            <p>Este indicador mide el nivel de influencia ciudadana en las propuestas aceptadas y los resultados del proceso</p>
+
+            <ul>
+            <li>
+            Influencia ciudadana en las propuestas
+            <ul>
+            <li>Porcentaje de propuestas aceptadas (n/total)</li>
+            <li>Porcentaje de propuestas <em>ciudadanas</em> aprobadas sobre el total de propuestas ciudadanas (influencia ciudadana total en propuestas aprobadas)</li>
+            <li>Porcentaje de propuestas ciudadanas aprobadas sobre total de propuestas aprobadas (influencia ciudadana relativa sobre propuesta aprobada)</li>
+            </ul>
+            </li>
+            <li>Influencia ciudadana sobre los resultados
+            <ul>
+            <li>Porcentaje de resultados vinculados a propuestas ciudadanas sobre el total de resultados (influencia ciudadana total sobre resultados)</li>
+            </ul>
+            </li>
+            </ul>
+
+            <h3>Hibridación</h3>
+
+            <p>Este indicador mide el nivel de combinación entre espacios presenciales y digitales durante el proceso.</p> 
+            <ul>
+            <li>¿Hay algún componente de encuentros? (Sí=5, No=0)</li>
+            <li>¿Hay encuentros presenciales? (Sí=5, No=0)</li>
+            <li>¿Hay encuentros online? (Sí=5, No=0)</li>
+            <li>¿Hay encuentros híbridas? (Sí=5, No=0)</li>
+            <li>¿Se crean propuestas a partir de los encuentros? (Sí=5, No=0)</li>
+            </ul>
+
+            <h3>Capacidad de respuesta</h3>
+
+            <p>Este indicador mide el nivel de respuesta de la organización a las aportaciones de las participantes, y refleja su compromiso a través de respuestas oficiales y decisiones implementadas.</p> <p>
+            <ul>
+            <li>Porcentaje de propuestas con respuesta (n/total) - Capacidad de respuesta institucional de la propuesta</li>
+            <li>Porcentaje de resultados completados al 100% (n/total)</li>
+            </ul>
+
+            <h3>Trazabilidad</h3>
+
+            <p>Este indicador mide la transparencia y trazabilidad del proceso participativo. Refleja con qué facilidad la ciudadanía pueden seguir la evolución de las propuestas y verificar las acciones institucionales a través de los registros publicados.</p> 
+            <ul>
+            <li>Número de propuestas con historial (n/total)</li>
+            <li>Porcentaje de resultados vinculados a propuestas (n/total)</li>
+            <li>Porcentaje de encuentros cerrados con acta publicada (n/total)</li>
+            <li>Activación del módulo de datos abiertos (dicotómico: 0 ó 5)</li>
+            <li>Porcentaje de propuestas relacionadas con presupuestos (n/total)</li>
+            </ul>
+
+            <br><br>
+            <h3>Métricas de autoevaluación</h3>
+
+            <p>Además de las métricas automáticas, proponemos el uso de un <strong>formulario de autoevaluación</strong> para valorar las dimensiones cualitativas de cada proceso participativo. Este formulario será rellenado, al finalizar cada proceso participativo, por las responsables de estos, y las respuestas se mostrarán públicamente en el bloque de contenido de indicadores.</p> 
+
+            <p>Estas preguntas pretenden captar aspectos de la calidad democrática que no pueden evaluarse únicamente a través de datos cuantitativos. Es importante tener en cuenta que las respuestas a esta encuesta están sesgadas por la opinión de las responsables del proceso participativo en cuestión.</p> 
+
+            <br><br>
+            <h3>Preguntas de autoevaluación</h3>
+
+            <p>A continuación se exponen las preguntas que componen el formulario de autoevaluación respondidas por las responsables del proceso, así como los valores asociados a cada respuesta.</p> 
+
+            <h4>Inclusividad</h4>
+
+            <p>Inclusividad según el origen cultural y la diversidad funcional.</p>
+
+            <ol>
+            <li>¿Se ha invitado a participar a personas de orígenes diversos?
+            <ul>
+            <li>Sí = 5</li>
+            <li>No = 0</li>
+            </ul>
+            </li>
+            <li>¿Cuántas personas de orígenes culturales diversos han participado al margen de a quien se havia incitado?
+            <ul>
+            <li>0-20% = 1</li>
+            <li>20-40% = 2</li>
+            <li>40-60% = 3</li>
+            <li>60-80% = 4</li>
+            <li>80-100% = 5</li>
+            </ul>
+            </li>
+            <li>¿Se ha invitado a grupos de personas con diversidad funcional a participar?
+            <ul>
+            <li>Sí = 5</li>
+            <li>No = 0</li>
+            </ul>
+            </li>
+            <li>¿Cuántas personas con diversidad funcional han participado al margen de a quien se havia invitado?
+            <ul>
+            <li>0-20% = 1</li>
+            <li>20-40% = 2</li>
+            <li>40-60% = 3</li>
+            <li>60-80% = 4</li>
+            <li>80-100% = 5</li>
+            </ul>
+            </li>
+            </ol>
+
+            <h4>Relevancia</h4>
+
+            <p>Relevancia del impacto, tales como: porcentaje del presupuesto de la organización, de los recursos humanos la organización implicados, o del total de la población, que se verá afectada por los resultados del proceso, y el tiempo dedicado a tal impacto.</p>
+
+            <ol>
+            <li>Porcentaje del presupuesto de la organización, de los recursos humanos la organización implicados, o del total de la población, que se verá afectada por los resultados del proceso.
+            <ul>
+            <li>0-20% = 1</li>
+            <li>20-40% = 2</li>
+            <li>40-60% = 3</li>
+            <li>60-80% = 4</li>
+            <li>80-100% = 5</li>
+            </ul>
+            </li>
+            </ol>
+            <h4>Influencia ciudadana</h4>
+            <ol>
+            <li>Nivel de influencia del proceso teniendo en cuenta los mecanismos de participación habilitados, de acuerdo a la escalera de participación definida por Satin y Arnstein (1969).
+            <ul>
+            <li>Informativo = 0
+            <p>El flujo de información es unidireccional -del personal municipal hacia la ciudadanía- sin canal de retroalimentación ni capacidad de negociación.</p>
+            </li>
+            <li>Consultivo = 1
+            <p>Un proceso participativo en el que se pide a la ciudadanía su opinión, normalmente a través de encuestas o reuniones, pero sin garantía de que su aportación influya en las decisiones.</p>
+            </li>
+            <li>Participación simbólica = 2
+            <p>Un proceso participativo en el que se concede a la ciudadanía una influencia limitada, a menudo de forma simbólica, como la inclusión en juntas o comités, pero sin poder real, ya que la toma de decisiones sigue controlada por la élite de poder tradicional.</p>
+            </li>
+            <li>Colaborativo = 3
+            <p>Un proceso participativo en el que la ciudadanía y el tejido asociativo comparten el poder de decisión, lo que permite a las participantes negociar, asignar recursos e influir en la planificación, con normas que no pueden modificarse unilateralmente. Suele surgir de la movilización ciudadana y la acción colectiva.</p>
+            </li>
+            <li>Competencia delegada = 4
+            <p>Un proceso participativo en el que la ciudadanía adquiere autoridad, control o financiación para influir en una organización y gestionarla.</p>
+            </li>
+            <li>Control ciudadano = 5
+            <p>Un nivel de participación más alto donde la ciudadanía gobierna plenamente un programa o institución, gestionan políticas, recursos y toma de decisiones sin interferencia externa.</p>
+            </li>
+            </ul>
+            </li>
+            <li>Porcentaje de fases con intervención ciudadana en la toma de decisiones (de 0 a 5)
+            <p>De todas las fases del proceso (desde la selección de temas hasta la supervisión de la ejecución), ¿en cuántas de ellas la ciudadanía tiene capacidad para tomar decisiones o emprender acciones ejecutivas?</p>
+            <ul>
+            <li>0-20% = 1</li>
+            <li>20-40% = 2</li>
+            <li>40-60% = 3</li>
+            <li>60-80% = 4</li>
+            <li>80-100% = 5</li>
+            </ul>
+            </li>
+            </ol>
+
+            <h4>Accesibilidad</h4>
+            <ol>
+            <li>¿En cuántos idiomas se ha comunicado el proceso?
+            <ul>
+            <li>Un idioma = 1</li>
+            <li>Menos de la mitad de los idiomas hablados en la comunidad = 2,5</li>
+            <li>Más de la mitad de los idiomas hablados en la comunidad = 5</li>
+            </ul>
+            </li>
+            <li>¿Las salas de los encuentros presenciales: eran accesibles para las personas con movilidad reducida?
+            <ul>
+            <li>No = 0</li>
+            <li>Parcialmente = 2,5</li>
+            <li>Sí = 5</li>
+            </ul>
+            </li>
+            </ol>
+          title: Indicadores de calidad democrática
     statistics:
       processes_count: Procesos
+      processes_count_tooltip: El número de procesos participativos que están disponibles públicamente.
   layouts:
     decidim:
       participatory_process_groups:
@@ -513,6 +834,8 @@ es-MX:
           browse: Explorar
           browse_resource: Explorar el grupo de procesos %{resource_name}
           processes_count: 'Procesos:'
+      participatory_process_navigation:
+        member_menu_item: Miembros
       participatory_processes:
         index:
           promoted_processes: Procesos destacados

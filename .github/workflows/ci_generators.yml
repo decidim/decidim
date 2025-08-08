@@ -16,12 +16,16 @@ on:
 
 env:
   CI: "true"
-  RUBY_VERSION: 3.2.2
-  NODE_VERSION: 18.17.1
+  RUBY_VERSION: 3.3.4
+  NODE_VERSION: 22.14.0
   NODE_ENV: "test"
   DECIDIM_MODULE: decidim-generators
-  CODECOV_TOKEN: bc15b944-6b42-420a-b3f9-a5a8fb214326
   SHAKAPACKER_RUNTIME_COMPILE: "false"
+
+permissions:
+  contents: read
+  pull-requests: read
+
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
@@ -52,9 +56,9 @@ jobs:
           - command: bundle exec parallel_test --type rspec --pattern spec/lib/
             name: Lib
     name: ${{ matrix.test.name }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     if: "!startsWith(github.head_ref, 'chore/l10n')"
-    timeout-minutes: 60
+    timeout-minutes: 90
     services:
       postgres:
         image: postgres:14
@@ -70,7 +74,8 @@ jobs:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
-      RUBYOPT: '-W:no-deprecated'
+      DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE: "memory"
+      DECIDIM_SPAM_DETECTION_BACKEND_USER: "memory"
     steps:
       - uses: actions/checkout@v4
         with:
@@ -106,9 +111,14 @@ jobs:
         working-directory: ${{ env.DECIDIM_MODULE }}
         env:
           SIMPLECOV: "true"
-      - uses: codecov/codecov-action@v4
+      - uses: qltysh/qlty-action/coverage@v1
+        with:
+          token: ${{secrets.QLTY_COVERAGE_TOKEN}}
+          verbose: true
+          files: coverage/coverage.xml
+          add-prefix: ${{ env.DECIDIM_MODULE }}
+      - uses: codecov/codecov-action@v5
         name: Upload coverage
         with:
-          token: ${{ env.CODECOV_TOKEN }}
           name: decidim-generators
           flags: decidim-generators

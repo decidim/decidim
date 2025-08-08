@@ -1,11 +1,10 @@
-import "src/decidim/admin/scope_picker_enabler.component"
 import "src/decidim/admin/proposal_infinite_edit"
 
 import BudgetRuleTogglerComponent from "src/decidim/admin/budget_rule_toggler.component"
 
 // Checks if the form contains fields with special CSS classes added in
 // Decidim::Admin::SettingsHelper and acts accordingly.
-$(() => {
+document.addEventListener("turbo:load", () => {
   const budgetRuleToggler = new BudgetRuleTogglerComponent({
     ruleCheckboxes: $("input[id^='component_settings_vote_rule_']")
   });

@@ -1,0 +1,155 @@
+fr:
+  activemodel:
+    attributes:
+      token_csv:
+        file: Fichier
+        remove_all: Supprimer toutes les données de recensement actuelles
+  decidim:
+    admin:
+      menu:
+        elections_menu:
+          basic_elections: Principal
+          election_census: Recensement
+          election_dashboard: Tableau de bord
+          election_questions: Questions
+      tooltips:
+        deleted_elections_info: Impossible de supprimer cette élection
+        edit_elections_info: Impossible de modifier cette élection
+    components:
+      elections:
+        actions:
+          create: Créer
+          destroy: Détruire
+          update: Mettre à jour
+        name: Élections
+        settings:
+          global:
+            announcement: Annonce
+          step:
+            announcement: Annonce
+    elections:
+      actions:
+        confirm_delete_election: Êtes-vous sûr(e) de vouloir supprimer cette élection ?
+        deleted_election_info: Les élections supprimées ne sont pas affichées dans la liste. Vous pouvez les voir en cliquant sur le bouton ci-dessous.
+        edit: Modifier l'élection
+        new: Nouvelle élection
+        title: Actions
+        view_deleted_elections: Voir les élections supprimées
+      admin:
+        census:
+          edit:
+            choose_census: Choisissez le type de recensement que vous souhaitez utiliser pour cette élection
+            created_at: Créée le
+            identifier: Identifiant de l'utilisateur
+            title: Type de recensement
+          update:
+            error: Il y a eu une erreur lors de la génération ou de l'enregistrement du recensement.
+            success: Recensement mis à jour avec succès.
+        dashboard:
+          census:
+            title: Recensement
+          main:
+            labels:
+              description: Description
+          questions:
+            labels:
+              answers: Réponses
+            title: Questions
+          questions_table:
+            answer: Réponses
+            votes: Votes
+          results:
+            publish_button: Publier les résultats
+            title: Résultats
+          status:
+            title: État actuel de l'élection
+        elections:
+          create:
+            invalid: Il y a eu un problème lors de la création de l'élection.
+            success: Élection créée avec succès.
+          edit:
+            title: Modifier l'élection
+          form:
+            add_images: Ajouter des images
+            attachment_legend: Ajouter une galerie d'images (facultatif)
+            basic_title: Informations de base
+            calendar: Calendrier
+            edit_attachments: Modifier les pièces jointes
+            end_at: Heure de fin
+            manual_start: Démarrage manuel
+            publish: Publier
+            results_availability:
+              after_end: Après la fin des élections
+              per_question: Question par question
+              real_time: Temps réel
+              title: Disponibilité des résultats
+            save: Enregistrer et continuer
+            start_at: Heure de début
+          index:
+            title: Élections
+          manage_trash:
+            title: Élections supprimées
+          new:
+            title: Nouvelle élection
+          publish:
+            invalid: Il y a eu un problème lors de la publication de l'élection.
+            success: Élection publiée avec succès.
+          unpublish:
+            invalid: Il y a eu un problème lors de la dépublication de l'élection.
+            success: Élection dépubliée avec succès.
+          update:
+            invalid: Une erreur s'est produite lors de la mise à jour de l'élection.
+            success: Élection mise à jour avec succès.
+        questions:
+          edit_questions:
+            new_question: Nouvelle question
+            remove_question_confirm: Êtes-vous sûr(e) de vouloir supprimer cette question ?
+            title: Questions
+          form:
+            errors:
+              at_least_one_question: Au moins une question est requise.
+            form_description: La question doit avoir au moins deux réponses pour passer à l'étape suivante.
+          update:
+            invalid: Une erreur s'est produite lors de la mise à jour des questions.
+            success: Questions mises à jour avec succès.
+        statuses:
+          publish_results:
+            invalid: Un problème est survenu lors de la publication des résultats.
+      admin_log:
+        election:
+          create: "%{user_name} a créé l'élection %{resource_name} dans %{space_name}"
+          publish: "%{user_name} a publié l'élection %{resource_name} dans %{space_name}"
+          restore: "%{user_name} a restauré l'élection %{resource_name} dans %{space_name}"
+          soft_delete: "%{user_name} a déplacé l'élection %{resource_name} de %{space_name} vers la corbeille"
+          unpublish: "%{user_name} a dépublié l'élection %{resource_name} dans %{space_name}"
+          update: "%{user_name} a mis à jour l'élection %{resource_name} dans %{space_name}"
+        question:
+          update: "%{user_name} a mis à jour les questions de l'élection %{resource_name}"
+      censuses:
+        internal_users:
+          internal_type_title: Autorisations supplémentaires requises pour voter (facultatif)
+        token_csv:
+          example: |
+            email;jeton
+            utilisateur@example.org;123456
+            utilisateur2@example.org;ABCXYZ
+          info_html: |
+            Doit être un fichier au format CSV avec deux colonnes, l'une avec l'adresse e-mail et l'autre avec la valeur d'un jeton que l'utilisateur devra fournir pour voter.
+            Les colonnes doivent être séparées par un point-virgule (;)
+          upload_file: Déposer un fichier
+          upload_new_census: Déposer un fichier CSV
+      models:
+        election:
+          fields:
+            census: Recensement
+            end_at: Heure de fin
+            start_at: Heure de début
+            status: Statut
+            title: Titre
+      status:
+        active: Active
+        finished: Terminées
+        ongoing: En cours
+        unpublished: Non publié
+    statistics:
+      elections_count: Élections

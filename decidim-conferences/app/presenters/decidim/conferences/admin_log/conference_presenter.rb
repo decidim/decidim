@@ -18,7 +18,6 @@ module Decidim
         def diff_fields_mapping
           {
             description: :i18n,
-            hashtag: :string,
             promoted: :boolean,
             published_at: :date,
             reference: :string,
@@ -41,7 +40,7 @@ module Decidim
 
         def action_string
           case action
-          when "create", "publish", "unpublish", "update", "update_diploma"
+          when "create", "publish", "unpublish", "update", "update_diploma", "soft_delete", "restore"
             "decidim.admin_log.conference.#{action}"
           else
             super

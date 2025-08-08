@@ -9,6 +9,8 @@ module Decidim
         @badges = Decidim::Gamification.badges.sort_by(&:name)
       end
 
+      private
+
       def breadcrumb_item
         {
           label: t("decidim.gamification.badges.index.title"),

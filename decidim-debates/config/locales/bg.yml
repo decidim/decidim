@@ -2,18 +2,14 @@ bg:
   activemodel:
     attributes:
       debate:
-        category_id: Категория
         closed_at: Затворено на
         conclusions: Заключения
-        decidim_category_id: Категория
         description: Описание
         end_time: Завършва на
         information_updates: Актуализации на информацията
         instructions: Инструкции за участие
-        scope_id: Обхват
         start_time: Започва в
         title: Заглавие
-        user_group_id: Създаване на дебат като
     models:
       decidim/debates/close_debate_event: Дебатът е затворен
       decidim/debates/create_debate_event: Дебат
@@ -29,27 +25,19 @@ bg:
       debates:
         actions:
           comment: Коментар
-          create: Създаване
-          endorse: Одобрявам
         name: Дебати
         settings:
           global:
             announcement: Обявление
             comments_enabled: Коментарите са активирани
             comments_max_length: Максимална дължина на коментарите (Оставете 0 за стойност по подразбиране)
-            scope_id: Обхват
-            scopes_enabled: Обхватите са активирани
           step:
             announcement: Обявление
             comments_blocked: Коментарите са блокирани
             creation_enabled: Участниците могат да създават дебати
-            endorsements_blocked: Одобренията са блокирани
-            endorsements_enabled: Одобренията са активирани
     debates:
       actions:
         close: Затвори
-        confirm_destroy: Сигурни ли сте?
-        destroy: Изтрий
         edit: Редактирай
         new: Нов дебат
         title: Активности
@@ -62,8 +50,6 @@ bg:
           create:
             invalid: Възникна проблем при създаването на дебата.
             success: Дебатът беше създаден успешно.
-          destroy:
-            success: Дебатът беше изтрит успешно.
           edit:
             title: Редактиране на дебата
             update: Актуализиране на дебата
@@ -79,8 +65,6 @@ bg:
           update:
             invalid: Възникна проблем при актуализирането на този дебат.
             success: Дебатът беше актуализиран успешно.
-        exports:
-          comments: Коментари
       admin_log:
         debate:
           close: "%{user_name} затвори дебата %{resource_name} в пространството %{space_name}"
@@ -124,16 +108,11 @@ bg:
           state: Статус
           state_values:
             closed: Затворен
-            open: Отворен
-          user_group: Групи
-        form:
-          select_a_category: Моля, изберете категория
         index:
           new_debate: Нов дебат
         new:
           back: Назад
           create: Създаване
-          title: Нов дебат
         orders:
           commented: Най-коментирани
           label: Подреждане на дебатите по
@@ -141,13 +120,8 @@ bg:
           recent: Най-скорошни
           updated: Скоро обновени
         show:
-          close_debate: Затваряне на дебата
-          debate_closed: Затворен
           debate_conclusions_are: 'Дебатът беше затворен на %{date} със следните заключения:'
           edit_conclusions: Редактиране на заключенията
-          edit_debate: Редактиране на дебата
-          groups_count: Групи
-          open: Отворен дебат
           participants_count: Участници
         update:
           invalid: Възникна проблем при актуализирането на дебата.
@@ -214,10 +188,5 @@ bg:
           next_level_in: Участвайте в още %{score} дебата, за да достигнете следващото ниво!
           unearned_another: Този участник все още не е участвал в нито един дебат.
           unearned_own: Все още не сте участвали в нито един дебат.
-    metrics:
-      debates:
-        description: Брой създадени дебати
-        object: дебати
-        title: Дебати
     statistics:
       debates_count: Дебати

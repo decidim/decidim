@@ -92,7 +92,6 @@ sk:
           success: Organizácia úspešne aktualizovaná.
         users_registration_mode:
           disabled: Môžete pristupovať iba pomocou externého účtu
-          enabled: Umožniť účastníkom registráciu a prihlásenie sa
       shared:
         notices:
           no_organization_warning_html: Musíte vytvoriť organizáciu, aby ste mohli začať. Prečítajte si %{guide}, než začnete.

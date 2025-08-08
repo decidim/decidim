@@ -14,7 +14,6 @@ fr-CA:
           trigger: Déclencheur
           usage: Usage
           usage_p: Un accordéon nécessite au moins trois éléments
-          usage_p_1_html: 1. Un wrapper <code>div</code>, avec l'attribut de données <code>data-component="accordion"</code>, sur tous les déclencheurs et panneaux disponibles.
           usage_p_2_html: 2. Un élément de déclencheur utilisable (comme un bouton), pointant vers l'élément pliable à travers <code>data-controls="panel"</code>, où le <i>panneau</i> est l'<code>id</code> du panneau.
           usage_p_3_html: 3. Un élément cachable, dont l' <code>id</code> correspond à la valeur data-controls à laquelle se réfère le déclencheur.
         activities:
@@ -185,7 +184,7 @@ fr-CA:
         conference_s: Conférence S
         conferences: Conférences
         context: Contexte
-        context_description: Cette cellule affiche quelques informations à propos d'un utilisateur. C'est une aide visuelle pour identifier le créateur de ressource/contenu. Survoler avec la souris affiche une info-bulle avec des informations supplémentaires et des liens vers son profil.
+        context_description: Cette cellule affiche quelques informations à propos d'un utilisateur. C'est une aide visuelle pour identifier le créateur de la ressource/du contenu.
         context_description_2: Pour les ressources, cette cellule apparaît sous le titre principal. Pour les autres contenus, elle apparaît à côté du contenu lui-même.
         debate_l: Débat L
         debate_s: Débat S
@@ -206,7 +205,6 @@ fr-CA:
         dropdowns_description_html: Les listes déroulantes sont une fonctionnalité javascript disponible grâce à une bibliothèque externe appelée %{link}.
         dropdowns_usage_1_description: 2. Un élément cachable, dont l' <code>id</code> correspond à la valeur data-taget à laquelle se réfère le déclencheur.
         dropdowns_usage_description: 'Une liste déroulante nécessite deux éléments :'
-        dropdowns_usage_description_html: 1. Un élément utilisable par l'utilisateur, avec les attributs de données <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.
         dummy_description: Description de la ressource factice
         dummy_title: Titre de la ressource factice
         follow_button: Bouton Suivre
@@ -294,6 +292,7 @@ fr-CA:
         usage_typography_2: Texte inline
         usage_typography_3: Texte sur fond sombre
         usage_typography_4: Liens et boutons
+        usage_typography_5: Onglet désactivé
         value: Valeur
         variations: Variantes
         variations_cards_description: Chaque carte sera différente en ce qui concerne les propriétés de la ressource affichée. Vous pouvez remplacer ce comportement dans la cellule spécifique.

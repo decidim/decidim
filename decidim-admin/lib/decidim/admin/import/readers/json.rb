@@ -58,7 +58,7 @@ module Decidim
               data.each do |key, value|
                 if value.is_a?(Hash)
                   flat_hash(value).each do |subkey, subvalue|
-                    final["#{key}/#{subkey}".to_sym] = subvalue
+                    final[:"#{key}/#{subkey}"] = subvalue
                   end
                 else
                   final[key.to_sym] = value

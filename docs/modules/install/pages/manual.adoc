@@ -4,8 +4,8 @@ In order to develop on decidim, you will need:
 
 * *Git* 2.34+
 * *PostgreSQL* 14.5+
-* *Ruby* 3.1.1
-* *NodeJS* 18.17.x
+* *Ruby* 3.3.0
+* *NodeJS* 22.14.x
 * *Npm* 9.6.x
 * *ImageMagick*
 * *Chrome* browser and https://sites.google.com/a/chromium.org/chromedriver/[chromedriver].
@@ -33,8 +33,8 @@ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 source ~/.bashrc
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-rbenv install 3.1.1
-rbenv global 3.1.1
+rbenv install 3.3.0
+rbenv global 3.3.0
 ----
 
 == 2. Installing PostgreSQL

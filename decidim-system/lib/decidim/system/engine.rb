@@ -7,7 +7,6 @@ require "devise"
 require "devise-i18n"
 require "decidim/core"
 require "decidim/system/menu"
-require "foundation_rails_helper"
 
 module Decidim
   module System

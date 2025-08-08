@@ -7,10 +7,7 @@ lt:
         decidim_scope_id: Apimtis
         description: Aprašymas
         end_date: Pabaigos data
-        meetings_ids: Susiję susitikimai
         progress: Progresas
-        project_ids: Įtraukti projektai
-        proposals: Įtraukti pasiūlymai
         start_date: Pradžios data
         title: Pavadinimas
         updated_at: Atnaujinta
@@ -19,10 +16,6 @@ lt:
         key: Raktas
         name: Vardas
         progress: Progresas
-      timeline_entry:
-        description: Aprašymas
-        entry_date: Data
-        title: Pavadinimas
     models:
       decidim/accountability/proposal_linked_event: Pasiūlymas įtrauktas į rezultatą
       decidim/accountability/result_progress_updated_event: Rezultato progresas atnaujintas
@@ -36,13 +29,10 @@ lt:
   decidim:
     accountability:
       actions:
-        attachment_collections: Aplankai
-        attachments: Priedai
         confirm_destroy: Ar tikrai norite pašalinti šį %{name}?
         destroy: Ištrinti
         edit: Redaguoti
         preview: Peržiūra
-        timeline_entries: Projekto raida
         title: Veiksmai
       admin:
         exports:
@@ -52,27 +42,6 @@ lt:
           new:
             download_export: Eksportuoti CSV formatu
             import: Importuoti
-            info: |
-              <p>Rekomenduojame laikytis šių žingsnių:</p>
-              <ol>
-              <li><a href='%{link_new_status}' target='_blank'>Sukurti rezultatų būsenas</a>, kuriuos norite pridėti</li>
-              <li><a href='%{link_new_result}' target='_blank'>Sukurti bent vieną rezultatą rankiniu būdu</a> per šią administratoriaus skydelį prieš naudojantis Importavimu, kad geriau suprastumėte formatą ir tai, ką reikės užpildyti.</li>
-              <li>%{link_export_csv}</li>
-              <li>Atlikite pakeitimus lokaliai. Galite keisti tik šias CSV stulpelių dalis:
-                <ul>
-                <li><b>category/id:</b> Kategorijos ID</li>
-                <li><b>scope/id:</b> Srities ID</li>
-                <li><b>parent/id:</b> Tėvinio ID (susijusiems rezultatams). Pasirinktinai</li>
-                <li><b>title/en:</b> Pavadinimas anglų kalba. Tai priklausys nuo jūsų platformos kalbos konfigūracijos.</li>
-                <li><b>description/en:</b> Aprašymas anglų kalba. Tai priklausys nuo jūsų platformos kalbos konfigūracijos.</li>
-                <li><b>start_date:</b> data, kada prasideda rezultato įgyvendinimas (formatas YYYY-MM-DD)</li>
-                <li><b>end_date:</b> data, kada baigiasi rezultato įgyvendinimas (formatas YYYY-MM-DD)</li>
-                <li><b>status/id:</b> Būsenos ID šiam rezultatui</li>
-                <li><b>progress:</b> Įvykdymo procentas (nuo 0 iki 100)</li>
-                <li><b>proposals_ids:</b> susijusių pasiūlymų vidinis ID (atskirtas kableliais). Automatiškai konvertuojamas į <span class='attribute-name'>proposal_url</span></li>
-                </ul>
-              </li>
-              </ol>
         imports:
           create:
             success: Failas pradėtas importuoti. Po kelių minučių gausite e. laišką su importo rezultatu.
@@ -81,31 +50,10 @@ lt:
             name: Rezultatas
           status:
             name: Statusas
-        projects_import:
-          create:
-            invalid: Importuojant projektus į rezultatus iškilo problema. Atidžiai vykdykite instrukcijas ir įsitikinkite, kad pasirinkote įgyvendinimui skirtus projektus.
-          new:
-            create: Importuoti
-            import_all_selected_projects: Importuoti visus projektus, kurie buvo pasirinkti įgyvendinimui
-            new_items:
-              one: 1 pasirinktas projektas bus importuotas
-              few: "%{count} pasirinkti projektai bus importuoti"
-              many: "%{count} pasirinktų projektų bus importuoti"
-              other: "%{count} pasirinkti projektai bus importuoti"
-            no_components: Šioje dalyvaujamojoje erdvėje nėra biudžeto komponentų, skirtų importuoti į rezultatus.
-            origin_component_id: Pirminis komponentas
-            select_component: Pasirinkite komponentą
-            success:
-              one: 1 projektas įtrauktas į importavimo eilę. Pasibaigus procesui, būsite informuoti el. paštu.
-              few: "%{count} projektai įtraukti į importavimo eilę. Pasibaigus procesui, būsite informuoti el. paštu."
-              many: "%{count} projektų buvo įtraukti į importavimo eilę. Pasibaigus procesui, būsite informuoti el. paštu."
-              other: "%{count} projektai buvo įtraukti į importavimo eilę. Pasibaigus procesui, būsite informuoti el. paštu."
         results:
           create:
             invalid: Kuriant šį rezultatą iškilo problema.
             success: Rezultatas sėkmingai sukurtas.
-          destroy:
-            success: Rezultatas sėkmingai ištrintas.
           edit:
             title: Keisti rezultatą
             update: Atnaujinti rezultatą
@@ -137,23 +85,6 @@ lt:
           update:
             invalid: Atnaujinant šią būseną iškilo problema.
             success: Būsena sėkmingai atnaujinta.
-        timeline_entries:
-          create:
-            invalid: Kuriant šį įrašą iškilo problema.
-            success: Įrašas sėkmingai sukurtas.
-          destroy:
-            success: Įrašas sėkmingai pašalintas.
-          edit:
-            title: Redaguoti įrašą
-            update: Atnaujinti įrašą
-          index:
-            title: Projekto laiko juostos įrašai
-          new:
-            create: Sukurti įrašą
-            title: Naujas įrašas
-          update:
-            invalid: Atnaujinant šį įrašą iškilo problema.
-            success: Įrašas sėkmingai atnaujintas.
       admin_log:
         result:
           create: "%{user_name} sukūrė rezultatą %{resource_name} erdvėje %{space_name}"
@@ -163,10 +94,6 @@ lt:
           create: "%{user_name} sukūrė %{resource_name} būseną"
           delete: "%{user_name} pašalino %{resource_name} būseną"
           update: "%{user_name} atnaujino %{resource_name} būseną"
-        timeline_entry:
-          create: "%{user_name} sukūrė %{resource_name} laiko juostos įrašą"
-          delete: "%{user_name} pašalino %{resource_name} laiko juostos įrašą"
-          update: "%{user_name} atnaujino %{resource_name} laiko juostos įrašą"
         value_types:
           parent_presenter:
             not_found: 'Motininis elementas duomenų bazėje nerastas (ID: %{id})'
@@ -194,12 +121,10 @@ lt:
       models:
         result:
           fields:
-            category: Kategorija
             created_at: Sukurta
             end_date: Pabaigos data
             id: ID
             progress: Progresas
-            scope: Apimtis
             start_date: Pradžios data
             status: Statusas
             title: Pavadinimas
@@ -209,10 +134,6 @@ lt:
             key: Raktas
             name: Pavadinimas
             progress: Progresas
-        timeline_entry:
-          fields:
-            entry_date: Data
-            title: Pavadinimas
       results:
         count:
           results_count:
@@ -220,30 +141,17 @@ lt:
             few: "%{count} rezultatai"
             many: "%{count} rezultatai"
             other: "%{count} rezultatai"
-        filters:
-          all: Visi
-        home:
-          categories_label: Kategorijos
-          subcategories_label: Subkategorijos
         home_header:
           global_status: Bendra vykdymo būsena
-        nav_breadcrumb:
-          global: Bendras vykdymas
         no_results: Projektų nėra
         search:
           search: Ieškoti veiksmų
         show:
           stats:
             back_to_resource: Grįžti į rezultatą
-        timeline:
-          title: Projekto raida
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Kategorija
-          scope_id_eq:
-            label: Apimtis
           status_id_eq:
             label: Būsena
     components:
@@ -257,8 +165,6 @@ lt:
             comments_max_length: Maksimalus komentaro ilgis (įrašyti 0 įprastam ilgiui)
             display_progress_enabled: Rodyti progresą
             intro: Įžanga
-            scope_id: Apimtis
-            scopes_enabled: Apimtys įjungtos
           step:
             comments_blocked: Komentarai užblokuoti
     events:
@@ -273,11 +179,6 @@ lt:
           email_outro: Šį pranešimą gavote dėl to, kad sekate „%{proposal_title}“ ir šis pasiūlymas įtrauktas į rezultatą „%{resource_title}“. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
           email_subject: '%{resource_title} eigos atnaujinimas'
           notification_title: Rezultatas <a href="%{resource_path}">%{resource_title}</a>, kuris įtraukia pasiūlymą <a href="%{proposal_path}">%{proposal_title}</a>, dabar %{progress}% gautas.
-    metrics:
-      results:
-        description: Gautų rezultatų skaičius
-        object: rezultatai
-        title: Rezultatai
     participatory_spaces:
       highlighted_results:
         see_all: Žiūrėti visus rezultatus (%{count})

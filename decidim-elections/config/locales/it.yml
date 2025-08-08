@@ -1,0 +1,71 @@
+it:
+  decidim:
+    admin:
+      menu:
+        elections_menu:
+          election_census: Censimento
+          election_questions: Quesiti
+    components:
+      elections:
+        actions:
+          create: Crea
+          destroy: Elimina
+          update: Aggiorna
+        name: Elezioni
+        settings:
+          global:
+            announcement: Annuncio
+          step:
+            announcement: Annuncio
+    elections:
+      actions:
+        title: Azioni
+      admin:
+        census:
+          edit:
+            created_at: Creato il
+        dashboard:
+          census:
+            title: Censimento
+          main:
+            labels:
+              description: Descrizione
+          questions:
+            labels:
+              answers: Risposte
+            title: Quesiti
+          questions_table:
+            answer: Risposte
+            votes: Voti
+          results:
+            publish_button: Pubblica i risultati
+            title: Risultati
+          status:
+            title: Stato elettorale
+        elections:
+          edit:
+            title: Modifica elezione
+          form:
+            add_images: Aggiungi immagini
+            publish: Pubblica
+          index:
+            title: Elezioni
+          new:
+            title: Nuova elezione
+        questions:
+          edit_questions:
+            new_question: Nuovo quesito
+            title: Quesiti
+      models:
+        election:
+          fields:
+            census: Censimento
+            status: Stato
+            title: Titolo
+      status:
+        active: Attiva
+        finished: Completata
+        ongoing: In corso
+        unpublished: Non pubblicato
+    statistics:
+      elections_count: Elezioni

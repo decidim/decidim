@@ -9,7 +9,7 @@ module Decidim
       def call
         create_content_block!
 
-        3.times do |_n|
+        number_of_records.times do |_n|
           type = create_initiative_type!
 
           organization.top_scopes.each do |scope|
@@ -19,7 +19,6 @@ module Decidim
 
         Decidim::Initiative.states.keys.each do |state|
           Decidim::Initiative.skip_callback(:save, :after, :notify_state_change, raise: false)
-          Decidim::Initiative.skip_callback(:create, :after, :notify_creation, raise: false)
 
           initiative = create_initiative!(state:)
 
@@ -64,6 +63,8 @@ module Decidim
       end
 
       def create_initiative!(state:)
+        published_at = %w(published rejected accepted).include?(state) ? 7.days.ago : nil
+
         params = {
           title: Decidim::Faker::Localized.sentence(word_count: 3),
           description: Decidim::Faker::Localized.sentence(word_count: 25),
@@ -72,7 +73,7 @@ module Decidim
           signature_type: "online",
           signature_start_date: Date.current - 7.days,
           signature_end_date: Date.current + 7.days,
-          published_at: 7.days.ago,
+          published_at:,
           author: Decidim::User.all.sample,
           organization:
         }

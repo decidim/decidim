@@ -6,13 +6,13 @@ module Decidim
       # A command with all the business logic when creating a new participatory
       # process in the system.
       class CreateParticipatoryProcess < Decidim::Commands::CreateResource
-        fetch_file_attributes :hero_image, :banner_image
+        fetch_file_attributes :hero_image
 
-        fetch_form_attributes :organization, :title, :subtitle, :weight, :slug, :hashtag, :description,
-                              :short_description, :promoted, :scopes_enabled, :scope, :show_statistics, :announcement,
-                              :scope_type_max_depth, :private_space, :developer_group, :local_area, :area, :target,
+        fetch_form_attributes :organization, :title, :subtitle, :weight, :slug, :description,
+                              :short_description, :promoted, :taxonomizations, :announcement,
+                              :private_space, :developer_group, :local_area, :target,
                               :participatory_scope, :participatory_structure, :meta_scope, :start_date, :end_date,
-                              :participatory_process_group, :participatory_process_type, :show_metrics
+                              :participatory_process_group
 
         protected
 
@@ -44,7 +44,7 @@ module Decidim
                      current_user: admin
                    )
 
-            Decidim::CreateFollow.new(form, admin).call
+            Decidim::CreateFollow.new(form).call
           end
         end
 

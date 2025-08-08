@@ -213,7 +213,7 @@ describe("CommentsComponent", () => {
             <summary class="button button__sm button__text-secondary" aria-controls="toggle-context-menu-${commentId}">
               <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-more-line" tabindex="-1"></use></svg>
             </summary>
-            <ul id="toggle-context-menu-${commentId}" class="dropdown dropdown__bottom divide-y divide-gray-3 px-4">
+            <ul id="toggle-context-menu-${commentId}" class="dropdown dropdown__bottom divide-y divide-gray-3">
               <li>
                 <button type="button" class="dropdown__item" data-dialog-open="flagModalComment${commentId}" title="Report" aria-controls="flagModalComment${commentId}" aria-haspopup="dialog" tabindex="0">
                   <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-flag-line" tabindex="-1"></use></svg>
@@ -233,7 +233,7 @@ describe("CommentsComponent", () => {
         <div class="comment__content">
           <div><p>${content}</p></div>
         </div>
-        <div data-comment-footer data-component="accordion" role="presentation">
+        <div data-comment-footer data-controller="accordion" role="presentation">
           <div class="comment__footer-grid">
             <div class="comment__actions">
               <button class="button button__sm button__text-secondary" data-controls="panel-comment${commentId}-reply" role="button" tabindex="0" aria-controls="panel-comment${commentId}-reply" aria-expanded="false" aria-disabled="false">
@@ -447,6 +447,7 @@ describe("CommentsComponent", () => {
       spyOnAddComment("on");
       jest.spyOn(orderLinks, "on");
       jest.spyOn($doc, "trigger");
+      jest.spyOn(document, "dispatchEvent");
 
       subject.mountComponent();
     });
@@ -478,10 +479,7 @@ describe("CommentsComponent", () => {
 
     it("attaches the mentions elements to the text fields", () => {
       addComment.each((i) => {
-        expect($doc.trigger).toHaveBeenCalledWith(
-          "attach-mentions-element",
-          [addComment[i].commentTextarea[0]]
-        );
+        expect(document.dispatchEvent).toHaveBeenCalledWith(new CustomEvent("attach-mentions-element", { detail: addComment[i].commentTextarea[0] }));
       });
     });
   });
@@ -616,7 +614,8 @@ describe("CommentsComponent", () => {
           textArea.val("I am writing a new comment...");
 
           const newThread = generateCommentThread(999, "This is a dynamically added comment");
-          subject.addThread(newThread, true);
+          const alignment = null;
+          subject.addThread(newThread, alignment, true);
 
           expect(textArea.val()).toEqual("");
         });

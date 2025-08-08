@@ -1,0 +1,1106 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "An example implementation for the integration between Grafana and Decidim, using the CSV flatfiles from Decidim (the Open Data page).",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 18,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "grafanacloud-infinity"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "columns": [],
+          "csv_options": {
+            "delimiter": ";"
+          },
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "grafanacloud-infinity"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "",
+          "source": "url",
+          "type": "csv",
+          "url": "https://meta.decidim.org/open-data/download/proposals",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Metadecidim proposals evolution (created_at)",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "address": true,
+              "answer/ca": true,
+              "answer/cs": true,
+              "answer/de": true,
+              "answer/en": true,
+              "answer/es": true,
+              "answer/eu": true,
+              "answer/fi": true,
+              "answer/fr": true,
+              "answer/it": true,
+              "answer/ja": true,
+              "answer/nl": true,
+              "answer/pl": true,
+              "answer/pt": true,
+              "answer/ro": true,
+              "answered_at": true,
+              "attachments": true,
+              "author/id": true,
+              "author/name": true,
+              "author/url": true,
+              "body/ca": true,
+              "body/en": true,
+              "body/es": true,
+              "coauthorships_count": true,
+              "comments": true,
+              "component/id": true,
+              "cost": true,
+              "cost_report": true,
+              "created_at": false,
+              "created_in_meeting": true,
+              "endorsements/total_count": true,
+              "endorsements/user_endorsements": true,
+              "execution_period": true,
+              "follows_count": true,
+              "id": true,
+              "is_amend": true,
+              "latitude": true,
+              "longitude": true,
+              "meeting_urls": true,
+              "original_proposal/title": true,
+              "original_proposal/title/en": true,
+              "original_proposal/title/es": true,
+              "original_proposal/url": true,
+              "participatory_space/id": true,
+              "participatory_space/url": true,
+              "published_at": true,
+              "reference": true,
+              "related_proposals": true,
+              "state": true,
+              "state_published_at": true,
+              "taxonomies/840/ca": true,
+              "taxonomies/840/en": true,
+              "taxonomies/840/es": true,
+              "taxonomies/841/ca": true,
+              "taxonomies/841/en": true,
+              "taxonomies/841/es": true,
+              "taxonomies/842/ca": true,
+              "taxonomies/842/en": true,
+              "taxonomies/842/es": true,
+              "taxonomies/843/ca": true,
+              "taxonomies/843/en": true,
+              "taxonomies/843/es": true,
+              "taxonomies/844/ca": true,
+              "taxonomies/844/en": true,
+              "taxonomies/844/es": true,
+              "taxonomies/845/ca": true,
+              "taxonomies/845/en": true,
+              "taxonomies/845/es": true,
+              "taxonomies/851/ca": true,
+              "taxonomies/851/en": true,
+              "taxonomies/851/es": true,
+              "taxonomies/852/ca": true,
+              "taxonomies/852/en": true,
+              "taxonomies/852/es": true,
+              "taxonomies/853/ca": true,
+              "taxonomies/853/en": true,
+              "taxonomies/853/es": true,
+              "taxonomies/ids": true,
+              "title/ca": true,
+              "title/en": true,
+              "title/es": true,
+              "updated_at": true,
+              "url": true,
+              "votes": true,
+              "withdrawn": true,
+              "withdrawn_at": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        },
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": ""
+          },
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "dateFormat": "",
+                "destinationType": "time",
+                "targetField": "created_at"
+              }
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "field": "created_at"
+              }
+            ]
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "count",
+            "mode": "index",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "grafanacloud-infinity"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "columns": [],
+          "csv_options": {
+            "delimiter": ";"
+          },
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "grafanacloud-infinity"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "",
+          "source": "url",
+          "type": "csv",
+          "url": "https://meta.decidim.org/open-data/download/proposals",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Metadecidim proposals evolution (answered_at)",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "address": true,
+              "answer/ca": true,
+              "answer/cs": true,
+              "answer/de": true,
+              "answer/en": true,
+              "answer/es": true,
+              "answer/eu": true,
+              "answer/fi": true,
+              "answer/fr": true,
+              "answer/it": true,
+              "answer/ja": true,
+              "answer/nl": true,
+              "answer/pl": true,
+              "answer/pt": true,
+              "answer/ro": true,
+              "answered_at": false,
+              "attachments": true,
+              "author/id": true,
+              "author/name": true,
+              "author/url": true,
+              "body/ca": true,
+              "body/en": true,
+              "body/es": true,
+              "coauthorships_count": true,
+              "comments": true,
+              "component/id": true,
+              "cost": true,
+              "cost_report": true,
+              "created_at": true,
+              "created_in_meeting": true,
+              "endorsements/total_count": true,
+              "endorsements/user_endorsements": true,
+              "execution_period": true,
+              "follows_count": true,
+              "id": true,
+              "is_amend": true,
+              "latitude": true,
+              "longitude": true,
+              "meeting_urls": true,
+              "original_proposal/title": true,
+              "original_proposal/title/en": true,
+              "original_proposal/title/es": true,
+              "original_proposal/url": true,
+              "participatory_space/id": true,
+              "participatory_space/url": true,
+              "published_at": true,
+              "reference": true,
+              "related_proposals": true,
+              "state": true,
+              "state_published_at": true,
+              "taxonomies/840/ca": true,
+              "taxonomies/840/en": true,
+              "taxonomies/840/es": true,
+              "taxonomies/841/ca": true,
+              "taxonomies/841/en": true,
+              "taxonomies/841/es": true,
+              "taxonomies/842/ca": true,
+              "taxonomies/842/en": true,
+              "taxonomies/842/es": true,
+              "taxonomies/843/ca": true,
+              "taxonomies/843/en": true,
+              "taxonomies/843/es": true,
+              "taxonomies/844/ca": true,
+              "taxonomies/844/en": true,
+              "taxonomies/844/es": true,
+              "taxonomies/845/ca": true,
+              "taxonomies/845/en": true,
+              "taxonomies/845/es": true,
+              "taxonomies/851/ca": true,
+              "taxonomies/851/en": true,
+              "taxonomies/851/es": true,
+              "taxonomies/852/ca": true,
+              "taxonomies/852/en": true,
+              "taxonomies/852/es": true,
+              "taxonomies/853/ca": true,
+              "taxonomies/853/en": true,
+              "taxonomies/853/es": true,
+              "taxonomies/ids": true,
+              "title/ca": true,
+              "title/en": true,
+              "title/es": true,
+              "updated_at": true,
+              "url": true,
+              "votes": true,
+              "withdrawn": true,
+              "withdrawn_at": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        },
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": ""
+          },
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "answered_at"
+              }
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "field": "answered_at"
+              }
+            ]
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "isNotNull",
+                  "options": {}
+                },
+                "fieldName": "answered_at"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "count",
+            "mode": "index",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "grafanacloud-infinity"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "columns": [],
+          "csv_options": {
+            "delimiter": ";"
+          },
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "grafanacloud-infinity"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "",
+          "source": "url",
+          "type": "csv",
+          "url": "https://meta.decidim.org/open-data/download/proposals",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        },
+        {
+          "columns": [],
+          "csv_options": {
+            "delimiter": ";"
+          },
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "grafanacloud-infinity"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "hide": false,
+          "parser": "backend",
+          "refId": "B",
+          "root_selector": "",
+          "source": "url",
+          "type": "csv",
+          "url": "https://meta.decidim.org/open-data/download/proposals",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Metadecidim proposals evolution (answered_at)",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "address": true,
+              "answer/ca": true,
+              "answer/cs": true,
+              "answer/de": true,
+              "answer/en": true,
+              "answer/es": true,
+              "answer/eu": true,
+              "answer/fi": true,
+              "answer/fr": true,
+              "answer/it": true,
+              "answer/ja": true,
+              "answer/nl": true,
+              "answer/pl": true,
+              "answer/pt": true,
+              "answer/ro": true,
+              "answered_at": false,
+              "attachments": true,
+              "author/id": true,
+              "author/name": true,
+              "author/url": true,
+              "body/ca": true,
+              "body/en": true,
+              "body/es": true,
+              "coauthorships_count": true,
+              "comments": true,
+              "component/id": true,
+              "cost": true,
+              "cost_report": true,
+              "created_at": false,
+              "created_in_meeting": true,
+              "endorsements/total_count": true,
+              "endorsements/user_endorsements": true,
+              "execution_period": true,
+              "follows_count": true,
+              "id": true,
+              "is_amend": true,
+              "latitude": true,
+              "longitude": true,
+              "meeting_urls": true,
+              "original_proposal/title": true,
+              "original_proposal/title/en": true,
+              "original_proposal/title/es": true,
+              "original_proposal/url": true,
+              "participatory_space/id": true,
+              "participatory_space/url": true,
+              "published_at": true,
+              "reference": true,
+              "related_proposals": true,
+              "state": true,
+              "state_published_at": true,
+              "taxonomies/840/ca": true,
+              "taxonomies/840/en": true,
+              "taxonomies/840/es": true,
+              "taxonomies/841/ca": true,
+              "taxonomies/841/en": true,
+              "taxonomies/841/es": true,
+              "taxonomies/842/ca": true,
+              "taxonomies/842/en": true,
+              "taxonomies/842/es": true,
+              "taxonomies/843/ca": true,
+              "taxonomies/843/en": true,
+              "taxonomies/843/es": true,
+              "taxonomies/844/ca": true,
+              "taxonomies/844/en": true,
+              "taxonomies/844/es": true,
+              "taxonomies/845/ca": true,
+              "taxonomies/845/en": true,
+              "taxonomies/845/es": true,
+              "taxonomies/851/ca": true,
+              "taxonomies/851/en": true,
+              "taxonomies/851/es": true,
+              "taxonomies/852/ca": true,
+              "taxonomies/852/en": true,
+              "taxonomies/852/es": true,
+              "taxonomies/853/ca": true,
+              "taxonomies/853/en": true,
+              "taxonomies/853/es": true,
+              "taxonomies/ids": true,
+              "title/ca": true,
+              "title/en": true,
+              "title/es": true,
+              "updated_at": true,
+              "url": true,
+              "votes": true,
+              "withdrawn": true,
+              "withdrawn_at": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        },
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": ""
+          },
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "answered_at"
+              },
+              {
+                "destinationType": "time",
+                "targetField": "created_at"
+              }
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "field": "created_at"
+              }
+            ]
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "isNotNull",
+                  "options": {}
+                },
+                "fieldName": "created_at"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "count",
+            "cumulative": {
+              "field": "answered_at",
+              "reducer": "sum"
+            },
+            "mode": "index",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "grafanacloud-infinity"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      },
+      "id": 4,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "columns": [],
+          "csv_options": {
+            "delimiter": ";"
+          },
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "grafanacloud-infinity"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "",
+          "source": "url",
+          "type": "csv",
+          "url": "https://meta.decidim.org/open-data/download/proposals",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Metadecidim proposals states",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "address": true,
+              "answer/ca": true,
+              "answer/cs": true,
+              "answer/de": true,
+              "answer/en": true,
+              "answer/es": true,
+              "answer/eu": true,
+              "answer/fi": true,
+              "answer/fr": true,
+              "answer/it": true,
+              "answer/ja": true,
+              "answer/nl": true,
+              "answer/pl": true,
+              "answer/pt": true,
+              "answer/ro": true,
+              "answered_at": true,
+              "attachments": true,
+              "author/id": true,
+              "author/name": true,
+              "author/url": true,
+              "body/ca": true,
+              "body/en": true,
+              "body/es": true,
+              "coauthorships_count": true,
+              "comments": true,
+              "component/id": true,
+              "cost": true,
+              "cost_report": true,
+              "created_at": true,
+              "created_in_meeting": true,
+              "endorsements/total_count": true,
+              "endorsements/user_endorsements": true,
+              "execution_period": true,
+              "follows_count": true,
+              "id": true,
+              "is_amend": true,
+              "latitude": true,
+              "longitude": true,
+              "meeting_urls": true,
+              "original_proposal/title": true,
+              "original_proposal/title/en": true,
+              "original_proposal/title/es": true,
+              "original_proposal/url": true,
+              "participatory_space/id": true,
+              "participatory_space/url": true,
+              "published_at": true,
+              "reference": true,
+              "related_proposals": true,
+              "state": false,
+              "state_published_at": true,
+              "taxonomies/840/ca": true,
+              "taxonomies/840/en": true,
+              "taxonomies/840/es": true,
+              "taxonomies/841/ca": true,
+              "taxonomies/841/en": true,
+              "taxonomies/841/es": true,
+              "taxonomies/842/ca": true,
+              "taxonomies/842/en": true,
+              "taxonomies/842/es": true,
+              "taxonomies/843/ca": true,
+              "taxonomies/843/en": true,
+              "taxonomies/843/es": true,
+              "taxonomies/844/ca": true,
+              "taxonomies/844/en": true,
+              "taxonomies/844/es": true,
+              "taxonomies/845/ca": true,
+              "taxonomies/845/en": true,
+              "taxonomies/845/es": true,
+              "taxonomies/851/ca": true,
+              "taxonomies/851/en": true,
+              "taxonomies/851/es": true,
+              "taxonomies/852/ca": true,
+              "taxonomies/852/en": true,
+              "taxonomies/852/es": true,
+              "taxonomies/853/ca": true,
+              "taxonomies/853/en": true,
+              "taxonomies/853/es": true,
+              "taxonomies/ids": true,
+              "title/ca": true,
+              "title/en": true,
+              "title/es": true,
+              "updated_at": true,
+              "url": true,
+              "votes": true,
+              "withdrawn": true,
+              "withdrawn_at": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "isNotNull",
+                  "options": {}
+                },
+                "fieldName": "state"
+              },
+              {
+                "config": {
+                  "id": "notEqual",
+                  "options": {
+                    "value": ""
+                  }
+                },
+                "fieldName": "state"
+              }
+            ],
+            "match": "all",
+            "type": "include"
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "binary": {
+              "left": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "state"
+                }
+              },
+              "operator": "/",
+              "right": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "state"
+                }
+              }
+            },
+            "mode": "index",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "Row": {
+                "aggregations": [
+                  "count"
+                ],
+                "operation": "aggregate"
+              },
+              "state": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            }
+          }
+        }
+      ],
+      "type": "barchart"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 41,
+  "tags": [
+    "decidim"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-1y/y",
+    "to": "now-1y/y"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Metadecidim - CSV example",
+  "uid": "aef181rx7yvpcc",
+  "version": 13
+}

@@ -1,0 +1,45 @@
+ga:
+  decidim:
+    admin:
+      menu:
+        elections_menu:
+          election_census: Móráireamh
+          election_questions: Ceisteanna
+    components:
+      elections:
+        actions:
+          create: Cruthaigh
+          destroy: Scrios
+          update: Nuashonraigh
+    elections:
+      actions:
+        title: Gníomhartha
+      admin:
+        dashboard:
+          census:
+            title: Móráireamh
+          questions:
+            labels:
+              answers: Freagraí
+            title: Ceisteanna
+          questions_table:
+            answer: Freagraí
+            votes: Vótaí
+          results:
+            title: Torthaí
+        elections:
+          form:
+            publish: Foilsigh
+        questions:
+          edit_questions:
+            title: Ceisteanna
+      models:
+        election:
+          fields:
+            census: Móráireamh
+            status: Stádas
+            title: Teideal
+      status:
+        active: Gníomhach
+        finished: Críochnaithe
+        ongoing: Leanúnach

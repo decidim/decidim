@@ -1,84 +1,86 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@use "sass:meta";
+@use "tailwindcss/base";
+@use "tailwindcss/components";
+@use "tailwindcss/utilities";
+
+// Datepicker
+@use "stylesheets/decidim/vendor/datepicker_light";
+@use "stylesheets/decidim/datepicker";
+// On the other hand, the following styles match with specific routes
+@use "stylesheets/decidim/header";
+@use "stylesheets/decidim/footer";
+@use "stylesheets/decidim/login";
+@use "stylesheets/decidim/pages";
+@use "stylesheets/decidim/notifications";
+@use "stylesheets/decidim/profile";
+@use "stylesheets/decidim/conversations";
+@use "stylesheets/decidim/versions";
+@use "stylesheets/decidim/home";
+@use "stylesheets/decidim/search";
+@use "stylesheets/decidim/cookies";
+// participatory spaces are quite similar between processes and assemblies (different modules), so their stylesheets are placed in the core
+@use "stylesheets/decidim/participatory_spaces";
+@use "stylesheets/decidim/omnipresent_banner";
+// This imports all the Decidim module stylesheet imports registered at
+// `config/assets.rb` of the module for the "app" group. The import contains
+// a mixing named `styles` which is included at the bottom of this file.
+@use "decidim:style-imports[app]" as extra;
 
 @layer base {
-  @import "stylesheets/decidim/_fonts.scss";
-  @import "stylesheets/decidim/_typography.scss";
+  @include meta.load-css("stylesheets/decidim/fonts");
+  @include meta.load-css("stylesheets/decidim/typography");
   // Keep this in separate file as long as we are maintaining Foundation compatibility
-  @import "stylesheets/decidim/_rich_text.scss";
+  @include meta.load-css("stylesheets/decidim/rich_text");
 }
 
 // The CSS components must work identically all along the application,
 // no matter which view are being displayed in.
 @layer components {
-  @import "stylesheets/decidim/_layout.scss";
-  @import "stylesheets/decidim/_buttons.scss";
-  @import "stylesheets/decidim/_labels.scss";
-  @import "stylesheets/decidim/_forms.scss";
-  @import "stylesheets/decidim/_dropdown.scss";
-  @import "stylesheets/decidim/_login_box.scss";
-  @import "stylesheets/decidim/_callout.scss";
-  @import "stylesheets/decidim/_accordion.scss";
-  @import "stylesheets/decidim/_tos.scss";
-  @import "stylesheets/decidim/_vertical_tabs.scss";
-  @import "stylesheets/decidim/_flash.scss";
-  @import "stylesheets/decidim/_static-map.scss";
-  @import "stylesheets/decidim/_filters.scss";
-  @import "stylesheets/decidim/_tags.scss";
-  @import "stylesheets/decidim/_tabs_x.scss";
-  @import "stylesheets/decidim/_metadata.scss";
-  @import "stylesheets/decidim/_modal.scss";
-  @import "stylesheets/decidim/_modal_share.scss";
-  @import "stylesheets/decidim/_modal_flag.scss";
-  @import "stylesheets/decidim/_modal_identities.scss";
-  @import "stylesheets/decidim/_modal_authorization.scss";
-  @import "stylesheets/decidim/_modal_update.scss";
-  @import "stylesheets/decidim/_modal_tos_refuse.scss";
-  @import "stylesheets/decidim/_modal_fingerprint.scss";
-  @import "stylesheets/decidim/_address.scss";
-  @import "stylesheets/decidim/_statistics.scss";
-  @import "stylesheets/decidim/_content_blocks.scss";
-  @import "stylesheets/decidim/_documents.scss";
-  @import "stylesheets/decidim/_floating_help.scss";
-  @import "stylesheets/decidim/_cards.scss";
-  @import "stylesheets/decidim/_floating_help.scss";
-  @import "stylesheets/decidim/_metrics.scss";
-  @import "stylesheets/decidim/_order-by.scss";
-  @import "stylesheets/decidim/_photos.scss";
-  @import "stylesheets/decidim/_endorsers_list.scss";
-  @import "stylesheets/decidim/_activity.scss";
-  @import "stylesheets/decidim/_tooltip.scss";
-  @import "stylesheets/decidim/_author.scss";
-  @import "stylesheets/decidim/_order-by.scss";
-  @import "stylesheets/decidim/_wizard_steps.scss";
-  @import "stylesheets/decidim/_progress-bar.scss";
-  @import "stylesheets/decidim/_spinner.scss";
-  @import "stylesheets/decidim/_toggle_switch.scss";
-  @import "stylesheets/decidim/_hero.scss";
-  @import "stylesheets/decidim/_actions.scss";
-  @import "stylesheets/decidim/_emoji.scss";
+  @include meta.load-css("stylesheets/decidim/layout");
+  @include meta.load-css("stylesheets/decidim/buttons");
+  @include meta.load-css("stylesheets/decidim/labels");
+  @include meta.load-css("stylesheets/decidim/forms");
+  @include meta.load-css("stylesheets/decidim/dropdown");
+  @include meta.load-css("stylesheets/decidim/login_box");
+  @include meta.load-css("stylesheets/decidim/callout");
+  @include meta.load-css("stylesheets/decidim/accordion");
+  @include meta.load-css("stylesheets/decidim/tos");
+  @include meta.load-css("stylesheets/decidim/vertical_tabs");
+  @include meta.load-css("stylesheets/decidim/flash");
+  @include meta.load-css("stylesheets/decidim/static-map");
+  @include meta.load-css("stylesheets/decidim/filters");
+  @include meta.load-css("stylesheets/decidim/tags");
+  @include meta.load-css("stylesheets/decidim/tabs_x");
+  @include meta.load-css("stylesheets/decidim/metadata");
+  @include meta.load-css("stylesheets/decidim/modal");
+  @include meta.load-css("stylesheets/decidim/modal_share");
+  @include meta.load-css("stylesheets/decidim/modal_flag");
+  @include meta.load-css("stylesheets/decidim/modal_authorization");
+  @include meta.load-css("stylesheets/decidim/modal_update");
+  @include meta.load-css("stylesheets/decidim/modal_tos_refuse");
+  @include meta.load-css("stylesheets/decidim/modal_fingerprint");
+  @include meta.load-css("stylesheets/decidim/address");
+  @include meta.load-css("stylesheets/decidim/statistics");
+  @include meta.load-css("stylesheets/decidim/content_blocks");
+  @include meta.load-css("stylesheets/decidim/documents");
+  @include meta.load-css("stylesheets/decidim/floating_help");
+  @include meta.load-css("stylesheets/decidim/cards");
+  @include meta.load-css("stylesheets/decidim/order-by");
+  @include meta.load-css("stylesheets/decidim/photos");
+  @include meta.load-css("stylesheets/decidim/likes_list");
+  @include meta.load-css("stylesheets/decidim/activity");
+  @include meta.load-css("stylesheets/decidim/tooltip");
+  @include meta.load-css("stylesheets/decidim/author");
+  @include meta.load-css("stylesheets/decidim/address");
+  @include meta.load-css("stylesheets/decidim/wizard_steps");
+  @include meta.load-css("stylesheets/decidim/progress-bar");
+  @include meta.load-css("stylesheets/decidim/spinner");
+  @include meta.load-css("stylesheets/decidim/toggle_switch");
+  @include meta.load-css("stylesheets/decidim/hero");
+  @include meta.load-css("stylesheets/decidim/actions");
+  @include meta.load-css("stylesheets/decidim/emoji");
+  @include meta.load-css("stylesheets/decidim/success_image");
 }
 
-@import "stylesheets/decidim/vendor/datepicker_light.scss";
-@import "stylesheets/decidim/datepicker.scss";
-
-// On the other hand, the following styles match with specific routes
-@import "stylesheets/decidim/_header.scss";
-@import "stylesheets/decidim/_footer.scss";
-@import "stylesheets/decidim/_login.scss";
-@import "stylesheets/decidim/_pages.scss";
-@import "stylesheets/decidim/_notifications.scss";
-@import "stylesheets/decidim/_profile.scss";
-@import "stylesheets/decidim/_conversations.scss";
-@import "stylesheets/decidim/_versions.scss";
-@import "stylesheets/decidim/_home.scss";
-@import "stylesheets/decidim/_search.scss";
-@import "stylesheets/decidim/_cookies.scss";
-// participatory spaces are quite similar between processes and assemblies (different modules), so their stylesheets are placed in the core
-@import "stylesheets/decidim/_participatory_spaces.scss";
-@import "stylesheets/decidim/_omnipresent_banner.scss";
-
-// This imports all the Decidim module stylesheet imports registered at
-// `config/assets.rb` of the module for the "app" group.
-@import "!decidim-style-imports[app]";
+// This applies the custom style imports registered at the application.
+@include extra.styles;

@@ -16,7 +16,6 @@ ar:
         customize_registration_email: تخصيص بريد التسجيل الإلكتروني
         decidim_category_id: الفئة
         decidim_scope_id: نطاق
-        decidim_user_group_id: مجموعة مستخدم
         description: وصف
         end_time: وقت الانتهاء
         id: المعرف ID
@@ -84,8 +83,6 @@ ar:
     admin:
       filters:
         meetings:
-          category_id_eq:
-            label: الفئة
           closed_at_present:
             label: الحالة
             values:
@@ -96,14 +93,11 @@ ar:
             values:
               'false': السابق
               'true': القادم
-          scope_id_eq:
-            label: نطاق
           with_any_origin:
             label: الأصل
             values:
               official: الرسمي
               participants: المشارك
-              user_group: مجموعات المستخدمين
           with_any_type:
             label: نوع الاجتماع
             values:
@@ -132,16 +126,12 @@ ar:
             default_registration_terms: شروط التسجيل الافتراضية
             enable_pads_creation: تمكين إنشاء منصات
             maps_enabled: تم تمكين الخرائط
-            registration_code_enabled: تم تمكين رمز التسجيل
             resources_permissions_enabled: يمكن تعيين أذونات الإجراءات لكل اجتماع
-            scope_id: نطاق
-            scopes_enabled: النطاقات مفعلة
             terms_and_conditions_url_for_meeting_creators: أحكام وشروط عناوين URL لمنشئي الاجتماع
           step:
             announcement: إعلان
             comments_blocked: تم حظر التعليقات
             creation_enabled_for_participants: تم تمكين إنشاء الاجتماع بواسطة المشاركين
-            creation_enabled_for_user_groups: تم تمكين إنشاء الاجتماع بواسطة مجموعات المستخدم
     events:
       meetings:
         meeting_closed:
@@ -169,10 +159,8 @@ ar:
           email_subject: الشقوق المخصصة للاجتماع "%{resource_title}" تتجاوز %{percentage}٪
           notification_title: تتجاوز الفواصل المخصصة للاجتماع <a href="%{resource_path}">%{resource_title}</a> ٪ %{percentage}.
         meeting_updated:
-          email_intro: 'تم تحديث الاجتماع "%{resource_title}". يمكنك قراءة الإصدار الجديد من صفحته:'
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع اجتماع "%{resource_title}". يمكنك إلغاء تتبعه من الرابط السابق.
           email_subject: تم تحديث الاجتماع "%{resource_title}"
-          notification_title: تم تحديث الاجتماع <a href="%{resource_path}">%{resource_title}</a>.
         registration_code_validated:
           email_intro: تم التحقق من صحة رمز التسجيل "%{registration_code}" الخاص باجتماع "%{resource_title}".
           email_outro: لقد تلقيت هذا الإشعار لأنه تم التحقق من صحة رمز التسجيل الخاص بالاجتماع "%{resource_title}".
@@ -183,11 +171,6 @@ ar:
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع اجتماع "%{resource_title}". يمكنك إلغاء تتبعه من الرابط السابق.
           email_subject: لقد مكّن الاجتماع "%{resource_title}" التسجيلات.
           notification_title: لقد مكّن الاجتماع <a href="%{resource_path}">%{resource_title}</a> التسجيلات.
-        upcoming_meeting:
-          email_intro: سيبدأ الاجتماع "%{resource_title}" في أقل من 48 ساعة.
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع اجتماع "%{resource_title}". يمكنك إلغاء تتبعه من الرابط السابق.
-          email_subject: سيبدأ الاجتماع "%{resource_title}" في أقل من 48 ساعة.
-          notification_title: سيبدأ الاجتماع <a href="%{resource_path}">%{resource_title}</a> في أقل من 48 ساعة.
     gamification:
       badges:
         attended_meetings:
@@ -201,11 +184,7 @@ ar:
     meetings:
       actions:
         agenda: جدول أعمال
-        attachment_collections: المجلدات
-        attachments: مرفقات
         close: قريب
-        confirm_destroy: هل أنت متأكد أنك تريد حذف هذا الاجتماع؟
-        destroy: حذف
         edit: تعديل
         invalid_destroy:
           proposals_count:
@@ -245,7 +224,6 @@ ar:
             create: إنشاء
             title: جدول أعمال جديد
         exports:
-          answers: الأجوبة
           meeting_comments: التعليقات
           meetings: اجتماعات
           registrations: التسجيلات
@@ -273,10 +251,10 @@ ar:
             close: قريب
             title: اجتماع قريب
         meetings:
+          component:
+            unlink: إلغاء الربط
           create:
             success: تم إنشاء الاجتماع بنجاح. لاحظ أن هذا غير منشور حتى الآن، تحتاج إلى نشره بنفسك.
-          destroy:
-            success: تم حذف الاجتماع بنجاح
           edit:
             title: تعديل الاجتماعات
             update: تحديث
@@ -290,7 +268,18 @@ ar:
             select_a_registration_type: الرجاء تحديد نوع التسجيل
             select_an_iframe_access_level: الرجاء تحديد مستوى الوصول إلى iframe
           index:
+            linked_meeting_warning_html: يجب تعديل هذا الاجتماع من <br><a href="%{href}">%{name}</a>
             title: اجتماعات
+          linked_spaces:
+            assign: تعيين
+            link_a_space: اربط مساحة
+            private_meeting_warning: لم يتم تطبيق المساحات المربوطة إذا كان الاجتماع خاص وغير شفاف.
+            private_space_warning: لم يتم تطبيق المساحات المربوطة إذا كان الاجتماع ينتمي إلى مساحه خاصة وغير شفافه.
+            select: اختر مساحه
+            table:
+              actions: الإجراءات
+              component: مساحات مربوطة
+            title: مساحات مربوطة
           new:
             create: إنشاء
             title: إنشاء اجتماع
@@ -310,11 +299,10 @@ ar:
         registrations:
           edit:
             save: حفظ
-            validate: التحقق من صحة
-            validate_registration_code: التحقق من صحة رمز التسجيل
           form:
             available_slots_help: اتركه إلى 0 إذا كان لديك فتحات غير محدودة المتاحة.
             invites: دعوات
+            manage_questions: الأسئلة
             recommendation_message: لأسباب تتعلق بالخصوصية، نوصي بحذف نموذج التسجيل هذا حالما انتهيت منه. ويكون هذا تلقائياً بعد ثلاثة أشهر من انتهاء الاجتماع.
             registration_email_help: سيظهر هذا النص في منتصف البريد الإلكتروني الخاص بتأكيد التسجيل مباشرة بعد رمز التسجيل.
             registration_form: إستمارة تسجيل
@@ -330,9 +318,6 @@ ar:
           update:
             invalid: حدثت مشكلة أثناء حفظ إعدادات التسجيل.
             success: تم حفظ إعدادات تسجيل الاجتماع بنجاح.
-          validate_registration_code:
-            invalid: رمز التسجيل هذا غير صالح.
-            success: تم التحقق من صحة رمز التسجيل بنجاح.
       admin_log:
         invite:
           create: "%{user_name} دعا %{attendee_name} للانضمام إلى اجتماع %{resource_name} في الفضاء %{space_name}"
@@ -350,8 +335,6 @@ ar:
         questionnaire:
           update: "قام %{user_name} بتحديث الاستبيان للاجتماع %{meeting_name}"
       application_helper:
-        filter_category_values:
-          all: الكل
         filter_meeting_space_values:
           all: الكل
       calendar_modal:
@@ -449,12 +432,10 @@ ar:
         form:
           address_help: 'العنوان: مستخدم من قبل Geocoder للعثور على الموقع'
           available_slots_help: تركه على 0 إذا كان لديك أعدد غير محدود من الأماكن الشاغرة
-          create_as: إنشاء الاجتماع ك
           location_help: 'الموقع: رسالة موجهة إلى المستخدمين تعني مكان للالتقاء به في'
           location_hints_help: 'توضيح حول الموقع: معلومات إضافية. على سبيل المثال: إدراج طابق المبنى في حال كان الاجتماع شخصيا، أو كلمة مرور الاجتماع إذا كان اجتماعا على الإنترنت يحتوي على تقييد الدخول.'
           online_meeting_url_help: 'الرابط: السماح للمشاركين بالاتصال مباشرة باجتماعك'
           registration_url_help: 'الرابط: يتيح للمشاركين استخدام الخدمة الخارجية التي تستخدمها للتسجيل'
-          select_a_category: يُرجى اختيار فئة
           select_a_meeting_type: الرجاء تحديد نوع الاجتماع
           select_a_registration_type: الرجاء تحديد نوع التسجيل
           select_an_iframe_access_level: الرجاء تحديد مستوى الوصول إلى iframe
@@ -469,7 +450,6 @@ ar:
         new:
           back: العودة
           create: إنشاء
-          title: إنشاء اجتماعك
         registration_confirm:
           cancel: إلغاء
           confirm: تؤكد
@@ -486,7 +466,7 @@ ar:
           micro_camera_permissions_warning: عند النقر على الزر أدناه، سيتم طلب أذونات الميكروفون و/أو الكاميرا، وسوف تنضم إلى مؤتمر الفيديو
           no_slots_available: لا فتحات المتاحة
           organizations: حضور المنظمات
-          registration_code_help_text: رمز التسجيل الخاص بك
+          redirect_notice: هذا الاجتماع جزء من مساحة أخرى، لذلك تم نقلك إلى %{current_space_name}. <br>إذا كنت تفضل، يمكنك العودة إلى <a href="%{previous_space_url}">%{previous_space_name}</a>.
           registration_state:
             validated: التحقق من صحة
             validation_pending: جاري التأكد
@@ -500,7 +480,6 @@ ar:
           visit_finished: عرض الاجتماع السابق
           withdraw_btn_hint: يمكن أن تسحب اجتماعك اذا غيرت رأيك. لا يتم إلغاء الاجتماع بل سيظهر في قائمة الاجتماعات المسحوبة.
           withdraw_confirmation_html: هل أنت متأكد من أنك تريد سحب هذا الاجتماع؟<br><br><strong>لا يمكن إلغاء هذا الإجراء!</strong>
-          withdraw_meeting: سحب الاجتماع
         update:
           invalid: طرأت مشكلة خلال تحديث الاجتماع.
           success: لقد قمت بتحديث الاجتماع بنجاح.
@@ -526,13 +505,9 @@ ar:
             title: عنوان
       polls:
         questions:
-          index:
-            empty_questions: خلال هذا الاجتماع، سيتم إرسال بعض الأسئلة وسوف تتمكن من الإجابة عليها. سيتم عرضها هنا.
           index_admin:
             edit: تحرير في لوحة المدراء
             question: سؤال
-            received_answer: الإجابة المتلقاة
-            received_answers: الإجابات المتلقاة
             results: النتائج
             send: إرسال
             sent: تم الإرسال
@@ -555,7 +530,6 @@ ar:
         confirmation:
           confirmed_html: تم تأكيد تسجيلك للاجتماع <a href="%{url}">%{title}</a>.
           details: ستجد تفاصيل الاجتماع في المرفق.
-          registration_code: رمز التسجيل الخاص بك هو %{code}.
       registration_type:
         on_different_platform: على منصة مختلفة
         on_this_platform: على هذه المنصة
@@ -577,11 +551,6 @@ ar:
         private_meeting: اجتماع خاص
         transparent: شفاف
         withdraw: تم السحب
-    metrics:
-      meetings:
-        description: عدد الاجتماعات التي تم إنشاؤها
-        object: اجتماعات
-        title: اجتماعات
     participatory_spaces:
       highlighted_meetings:
         past_meetings: الاجتماعات السابقة

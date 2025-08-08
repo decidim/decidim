@@ -12,8 +12,8 @@ module Decidim
           "questionnaire_question_#{question.to_param}"
         end
 
-        def tabs_id_for_question_answer_option(question, answer_option)
-          "questionnaire_question_#{question.to_param}_answer_option_#{answer_option.to_param}"
+        def tabs_id_for_question_response_option(question, response_option)
+          "questionnaire_question_#{question.to_param}_response_option_#{response_option.to_param}"
         end
 
         def tabs_id_for_question_display_condition(question, display_condition)

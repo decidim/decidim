@@ -18,7 +18,6 @@ module Decidim
         def diff_fields_mapping
           {
             description: :i18n,
-            hashtag: :string,
             decidim_area_id: :area,
             decidim_scope_id: :scope,
             developer_group: :i18n,
@@ -31,7 +30,6 @@ module Decidim
             reference: :string,
             scopes_enabled: :boolean,
             short_description: :i18n,
-            show_statistics: :boolean,
             slug: :default,
             subtitle: :i18n,
             target: :i18n,
@@ -63,7 +61,7 @@ module Decidim
 
         def action_string
           case action
-          when "create", "publish", "unpublish", "update", "duplicate", "export", "import"
+          when "create", "publish", "unpublish", "update", "duplicate", "export", "import", "soft_delete", "restore"
             "decidim.admin_log.assembly.#{action}"
           else
             super

@@ -2,7 +2,6 @@ is-IS:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Höfundur
         description: Lýsing
         scope_id: Umfang
         signature_type_values:
@@ -87,9 +86,7 @@ is-IS:
           unpublish: "%{user_name} henti %{resource_name} frumkvæði"
           update: "%{user_name} uppfært %{resource_name} frumkvæði"
       admin_states:
-        created: Búið til
         discarded: Fargað
-        published: Published
         validating: Tæknilegar staðfestingar
       application_helper:
         filter_state_values:
@@ -102,20 +99,12 @@ is-IS:
           success: Beiðni þín hefur verið send til frumkvöðull höfundar.
       create_initiative:
         fill_data:
-          back: Til baka
           continue: Haltu áfram
-          more_information: "(Meiri upplýsingar)"
           select_scope: Veldu umfang
         finish:
           back: Til baka
-          back_to_initiatives: Aftur á frumkvæði
-          go_to_my_initiatives: Farið að verkefnum mínum
-          more_information: "(Meiri upplýsingar)"
         previous_form:
           back: Til baka
-          continue: Haltu áfram
-        promotal_committee:
-          more_information: "(Meiri upplýsingar)"
         select_initiative_type:
           back: Til baka
           more_information: (Meiri upplýsingar)
@@ -125,11 +114,6 @@ is-IS:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{author_nickname}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
           email_subject: Nýtt frumkvæði með %{author_nickname}
           notification_title: <a href="%{resource_path}">%{resource_title}</a> frumkvöðull var búin til af <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, sem þú ert að fylgja, hefur samþykkt eftirfarandi frumkvæði, kannski viltu stuðla að samtalinu:"
-          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{author_nickname}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
-          email_subject: Initiative endorsed by %{author_nickname}
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> frumkvæði var samþykkt með <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       initiatives:
         count:
           title:
@@ -169,7 +153,6 @@ is-IS:
     decidim:
       initiative_creation_header:
         fill_data: Búa til
-        finish: Klára
         select_initiative_type: Veldu
       initiatives:
         no_initiatives_yet:

@@ -8,7 +8,11 @@ Decidim.register_component(:meetings) do |component|
   component.permissions_class_name = "Decidim::Meetings::Permissions"
 
   component.query_type = "Decidim::Meetings::MeetingsType"
-  component.data_portable_entities = ["Decidim::Meetings::Registration"]
+  component.data_portable_entities = [
+    "Decidim::Meetings::Registration",
+    "Decidim::Meetings::Invite",
+    "Decidim::Meetings::Meeting"
+  ]
 
   component.on(:before_destroy) do |instance|
     raise StandardError, "Cannot remove this component" if Decidim::Meetings::Meeting.where(component: instance).any?
@@ -23,19 +27,47 @@ Decidim.register_component(:meetings) do |component|
     resource.searchable = true
   end
 
-  component.register_stat :meetings_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
+  component.register_stat :meetings_count,
+                          primary: true,
+                          admin: false,
+                          priority: Decidim::StatsRegistry::HIGH_PRIORITY,
+                          icon_name: "map-pin-line",
+                          tooltip_key: "meetings_count_tooltip" do |components, start_at, end_at|
     meetings = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at).not_withdrawn
     meetings.count
   end
 
-  component.register_stat :followers_count, tag: :followers, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
+  component.register_stat :participatory_space_meetings_count,
+                          priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
+                          icon_name: "map-pin-line",
+                          tooltip_key: "meetings_count_tooltip" do |components, start_at, end_at|
+    meetings = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at).not_withdrawn
+    meetings.count
+  end
+
+  component.register_stat :followers_count,
+                          tag: :followers,
+                          icon_name: "user-follow-line",
+                          tooltip_key: "followers_count_tooltip",
+                          priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
     meetings_ids = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at).pluck(:id)
     Decidim::Follow.where(decidim_followable_type: "Decidim::Meetings::Meeting", decidim_followable_id: meetings_ids).count
   end
 
-  component.register_stat :comments_count, tag: :comments do |components, start_at, end_at|
+  component.register_stat :comments_count,
+                          priority: Decidim::StatsRegistry::HIGH_PRIORITY,
+                          icon_name: "chat-1-line",
+                          tooltip_key: "comments_count",
+                          tag: :comments do |components, start_at, end_at|
     meetings = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at).not_hidden
     meetings.sum(:comments_count)
+  end
+
+  component.register_stat :attendees_count, primary: true, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
+    meetings = Decidim::Meetings::Meeting.closed.not_hidden.published.where(component: components, closing_visible: true)
+    meetings = meetings.where(closed_at: start_at..) if start_at.present?
+    meetings = meetings.where(closed_at: ..end_at) if end_at.present?
+    meetings.sum(:attendees_count)
   end
 
   component.exports :meetings do |exports|
@@ -44,7 +76,7 @@ Decidim.register_component(:meetings) do |component|
         .not_hidden
         .visible
         .where(component: component_instance)
-        .includes(:scope, :category, :attachments, component: { participatory_space: :organization })
+        .includes(:taxonomies, :attachments, component: { participatory_space: :organization })
     end
 
     exports.include_in_open_data = true
@@ -56,7 +88,7 @@ Decidim.register_component(:meetings) do |component|
     exports.collection do |component_instance|
       Decidim::Comments::Export.comments_for_resource(
         Decidim::Meetings::Meeting, component_instance
-      ).includes(:author, :user_group, root_commentable: { component: { participatory_space: :organization } })
+      ).includes(:author, root_commentable: { component: { participatory_space: :organization } })
     end
 
     exports.include_in_open_data = true
@@ -64,21 +96,20 @@ Decidim.register_component(:meetings) do |component|
     exports.serializer Decidim::Comments::CommentSerializer
   end
 
-  component.exports :answers do |exports|
+  component.exports :responses do |exports|
     exports.collection do |_component, _user, resource_id|
-      Decidim::Meetings::QuestionnaireUserAnswers.for(resource_id)
+      Decidim::Meetings::QuestionnaireUserResponses.for(resource_id)
     end
 
     exports.formats %w(CSV JSON Excel FormPDF)
 
-    exports.serializer Decidim::Meetings::UserAnswersSerializer
+    exports.serializer Decidim::Meetings::UserResponsesSerializer
   end
 
   component.actions = %w(join comment)
 
   component.settings(:global) do |settings|
-    settings.attribute :scopes_enabled, type: :boolean, default: false
-    settings.attribute :scope_id, type: :scope
+    settings.attribute :taxonomy_filters, type: :taxonomy_filters
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :default_registration_terms, type: :text, translated: true, editor: true
     settings.attribute :comments_enabled, type: :boolean, default: true

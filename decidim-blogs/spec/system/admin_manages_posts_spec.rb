@@ -11,15 +11,19 @@ describe "Admin manages posts" do
   let(:author) { create(:user, :confirmed, organization:) }
 
   include_context "when managing a component as an admin"
+  it_behaves_like "access component permissions form"
 
   context "when author is the organization" do
     let(:author) { organization }
 
     it_behaves_like "manage posts"
+    it_behaves_like "access permissions form" do
+      let!(:row_text) { translated(post1.title) }
+    end
   end
 
   context "when author is a user" do
-    let(:author) { create(:user, :confirmed, organization:) }
+    let(:author) { user }
 
     it_behaves_like "manage posts"
   end
@@ -31,8 +35,18 @@ describe "Admin manages posts" do
       end
       within "tr", text: translated(post2.title) do
         expect(page).to have_content(two_days_from_now)
-        expect(find("td:nth-child(4) span")).to have_css("[aria-label='Not published yet.']")
+        expect(find("td:nth-child(5) span")).to have_css("[aria-label='Not published yet.']")
       end
     end
+  end
+
+  describe "soft delete post" do
+    let(:admin_resource_path) { current_path }
+    let(:trash_path) { "#{admin_resource_path}/posts/manage_trash" }
+    let(:title) { { en: "My new result" } }
+    let!(:resource) { create(:post, component:, title:) }
+
+    it_behaves_like "manage soft deletable resource", "post"
+    it_behaves_like "manage trashed resource", "post"
   end
 end

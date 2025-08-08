@@ -17,7 +17,3 @@ sl:
         meetings:
           index:
             meetings: Sestanki
-    metrics:
-      meetings:
-        object: sestanki
-        title: Sestanki

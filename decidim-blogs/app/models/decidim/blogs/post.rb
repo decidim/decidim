@@ -9,15 +9,18 @@ module Decidim
       include Decidim::HasAttachments
       include Decidim::HasAttachmentCollections
       include Decidim::HasComponent
+      include Decidim::Taxonomizable
       include Decidim::Authorable
       include Decidim::Comments::CommentableWithComponent
       include Decidim::Searchable
-      include Decidim::Endorsable
+      include Decidim::Likeable
       include Decidim::Followable
       include Decidim::Reportable
+      include Decidim::Publicable
       include Decidim::TranslatableResource
       include Traceable
       include Loggable
+      include Decidim::SoftDeletable
 
       component_manifest_name "blogs"
 
@@ -26,7 +29,7 @@ module Decidim
       validates :title, presence: true
 
       scope :created_at_desc, -> { order(arel_table[:created_at].desc) }
-      scope :published, -> { where("published_at <= ?", Time.current) }
+      scope :published, -> { where(published_at: ..Time.current) }
 
       searchable_fields({
                           participatory_space: { component: :participatory_space },
@@ -47,12 +50,18 @@ module Decidim
         end
       end
 
+      # Returns the presenter for this BlogPost, to be used in the views.
+      # Required by ResourceRenderer.
+      def presenter
+        Decidim::Blogs::PostPresenter.new(self)
+      end
+
       def visible?
         participatory_space.try(:visible?) && component.try(:published?) && published?
       end
 
       def published?
-        published_at <= Time.current
+        super && published_at <= Time.current
       end
 
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.
@@ -74,21 +83,12 @@ module Decidim
         author.is_a?(Decidim::Organization)
       end
 
-      def user_group?
-        author.is_a?(Decidim::UserGroup)
-      end
-
       def users_to_notify_on_comment_created
         followers
       end
 
       def attachment_context
         :admin
-      end
-
-      # Public: Overrides the `reported_content_url` Reportable concern method.
-      def reported_content_url
-        ResourceLocatorPresenter.new(self).url
       end
 
       # Public: Overrides the `reported_attributes` Reportable concern method.
@@ -98,7 +98,7 @@ module Decidim
 
       # Public: Overrides the `reported_searchable_content_extras` Reportable concern method.
       def reported_searchable_content_extras
-        [normalized_author.name]
+        [author.name]
       end
     end
   end

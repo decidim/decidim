@@ -9,22 +9,20 @@ module Decidim
       class ConferenceForm < Form
         include TranslatableAttributes
         include Decidim::HasUploadValidations
+        include Decidim::HasTaxonomyFormAttributes
 
         translatable_attribute :title, String
         translatable_attribute :slogan, String
-        translatable_attribute :short_description, String
-        translatable_attribute :description, String
-        translatable_attribute :objectives, String
-        translatable_attribute :registration_terms, String
+        translatable_attribute :short_description, Decidim::Attributes::RichText
+        translatable_attribute :description, Decidim::Attributes::RichText
+        translatable_attribute :objectives, Decidim::Attributes::RichText
+        translatable_attribute :registration_terms, Decidim::Attributes::RichText
 
         mimic :conference
 
         attribute :slug, String
         attribute :weight, Integer, default: 0
-        attribute :hashtag, String
         attribute :promoted, Boolean
-        attribute :scopes_enabled, Boolean
-        attribute :scope_id, Integer
         attribute :hero_image
         attribute :remove_hero_image, Boolean, default: false
         attribute :banner_image
@@ -52,17 +50,10 @@ module Decidim
         validates :banner_image, passthru: { to: Decidim::Conference }
         validate :available_slots_greater_than_or_equal_to_registrations_count, if: ->(form) { form.registrations_enabled? && form.available_slots.try(:positive?) }
 
-        validates :start_date, presence: true, date: { before_or_equal_to: :end_date }
-        validates :end_date, presence: true, date: { after_or_equal_to: :start_date }
-
         alias organization current_organization
 
-        def map_model(model)
-          self.scope_id = model.decidim_scope_id
-        end
-
-        def scope
-          @scope ||= current_organization.scopes.find_by(id: scope_id)
+        def participatory_space_manifest
+          :conferences
         end
 
         def processes_for_select

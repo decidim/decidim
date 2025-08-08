@@ -1,17 +1,19 @@
 fr-CA:
   activemodel:
     attributes:
+      milestone:
+        description: Description
+        entry_date: Date
+        title: Titre
       result:
         decidim_accountability_status_id: Progression
         decidim_category_id: Catégorie
         decidim_scope_id: Périmètre d'application
         description: Description
         end_date: Date de fin
-        meetings_ids: Rencontres associées
         progress: Avancement
-        project_ids: Projets inclus
-        proposals: Propositions incluses
         start_date: Date de début
+        subresults: Sous-résultats
         title: Titre
         updated_at: Mise à jour à
       status:
@@ -19,38 +21,66 @@ fr-CA:
         key: Clé
         name: Nom
         progress: Avancement
-      timeline_entry:
-        description: Description
-        entry_date: Date
-        title: Titre
     models:
       decidim/accountability/proposal_linked_event: Proposition incluse dans une réalisation
       decidim/accountability/result_progress_updated_event: Résultat du progrès mis à jour
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: Ce résultat %{link} a été inclus
+            meetings_ids: 'Discuté lors de cette réunion : %{link}'
+            project_ids: 'Inclus dans ce projet : %{link}'
+            proposal_ids: 'Inclus dans cette proposition : %{link}'
+            text: 'Ajouté à ce résultat : %{link}'
       decidim/accountability/result:
         one: Réalisation
         other: Réalisations
   decidim:
     accountability:
       actions:
-        attachment_collections: Dossiers
-        attachments: Pièces jointes
+        add_milestone: Ajouter un jalon
+        add_result: Ajouter un résultat
+        confirm_delete_result: Êtes-vous sûr(e) de vouloir supprimer ce résultat?
         confirm_destroy: Êtes-vous sûr de vouloir supprimer ce %{name}?
+        deleted_results_info: Les résultats supprimés peuvent être restaurés à partir de la corbeille.
         destroy: Supprimer
         edit: Modifier
-        import: Importer des projets depuis une autre fonctionnalité
+        import: Importer les résultats d'un autre composant
         import_csv: Importer les résultats depuis un fichier CSV
+        new_milestone: Nouveau Jalon
         new_result: Nouvelle réalisation
         new_status: Nouveau statut
-        new_timeline_entry: Nouvel élément de chronologie
         preview: Aperçu
-        timeline_entries: Évolution de la réalisation
         title: Actions
+        view_deleted_results: Voir les résultats supprimés
       admin:
         exports:
           result_comments: Commentaires
           results: Réalisations
+        import_components:
+          create:
+            invalid: Il y a eu un problème lors de l'importation des résultats, veuillez suivre attentivement les instructions et assurez-vous que vous avez sélectionné les projets à mettre en œuvre.
+          filters:
+            new_items_projects:
+              one: 1 projet sélectionné sera importé
+              other: "%{count} projets sélectionnés seront importés"
+            new_items_proposals:
+              one: 1 proposition sera importée
+              other: "%{count} propositions seront importées"
+            proposal_state: Statut de la proposition
+            select_state: Sélectionnez le statut
+          form:
+            create: Importer
+            no_components: Il n'y a aucun composant dans cet espace participatif à importer.
+            origin_component_id: Composant d'origine
+            select_component: Sélectionnez un composant
+          new:
+            success:
+              one: 1 résultat mis en file d'attente pour être importé. Vous serez notifié par e-mail une fois l'importation terminée.
+              other: "%{count} résultats ont été mis en file d'attente pour être importés. Vous serez notifié par e-mail une fois l'importation terminée."
+            title: Importer les résultats d'un autre composant
         import_results:
           new:
             download_export: Télécharger l'export au format CSV
@@ -81,44 +111,74 @@ fr-CA:
           create:
             invalid: Un problème est survenu lors de l’importation des résultats.
             success: Importation du fichier en cours. Vous receverez un courriel dans les prochaines minutes avec le résultat de l'import.
+        milestones:
+          create:
+            invalid: Il y a eu un problème lors de la création de ce jalon.
+            success: Jalon créé avec succès.
+          destroy:
+            success: Jalon supprimé avec succès.
+          edit:
+            title: Modifier le jalon
+            update: Mettre à jour le jalon
+          index:
+            title: Jalons
+          new:
+            create: Créer un jalon
+            title: Nouveau jalon
+          update:
+            invalid: Une erreur s'est produite lors de la mise à jour de ce jalon.
+            success: Jalon mis à jour avec succès.
         models:
           result:
             name: Réalisation
           status:
             name: Progression
-        projects_import:
-          create:
-            invalid: Il y a eu un problème lors de l'importation des projets, veuillez suivre attentivement les instructions et assurez-vous que vous avez bien sélectionné les projets à mettre en œuvre.
-          new:
-            create: Importer
-            import_all_selected_projects: Importer tous les projets sélectionnés
-            new_items:
-              one: 1 projet sélectionné va être importé
-              other: "%{count} projets sélectionnés vont être importés"
-            no_components: Il n'y a aucune fonctionnalité Budget dans cet espace participatif depuis laquelle importer des projets.
-            origin_component_id: Fonctionnalité d'origine
-            select_component: Sélectionner une fonctionnalité
-            success:
-              one: Projet en attente d'importation. Vous serez notifié par courriel, une fois l'import terminé.
-              other: "%{count} projets en attente d'importation. Vous serez notifié par email une fois l'import terminé."
-            title: Importer des projets depuis une autre fonctionnalité
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: Date de modification
+              end_date: Date de fin
+              start_date: Date de début
+            dropdown:
+              actions: Actions
+              change_dates: Modifier les dates
+              change_status: Modifier l'état
+              change_taxonomies: Modifier les taxonomies
+            status_form:
+              change_status: Modifier l'état
+              status: État
+            submit_buttons:
+              cancel: Annuler
+            taxonomies_form:
+              change_taxonomies: Modifier les taxonomies
           create:
             invalid: Un problème est survenu lors de la création de ce résultat.
             success: La réalisation a été créée avec succès.
-          destroy:
-            success: La réalisation a été supprimée avec succès.
           edit:
             title: Modifier la réalisation
             update: Mise à jour de la réalisation
           index:
+            selected: Sélectionné
             title: Réalisations
+          manage_trash:
+            title: Résultats supprimés
           new:
             create: Créer une réalisation
             title: Nouvelle réalisation
           update:
             invalid: Un problème est survenu lors de la mise à jour de cette réalisation.
             success: Réalisation mise à jour avec succès.
+          update_dates:
+            invalid: Un problème est survenu lors de la mise à jour des dates de résultats
+            success: Les dates des résultats ont été mises à jour avec succès
+          update_status:
+            invalid: Un problème est survenu lors de la mise à jour de l'état des résultats
+            success: Etat des résultats mis à jour avec succès
+          update_taxonomies:
+            invalid: Impossible de mettre à jour les taxonomies %{taxonomies} pour les résultats %{results}
+            select_a_result: Sélectionnez un résultat
+            select_a_taxonomy: Sélectionnez une taxonomie
+            success: Taxonomies %{taxonomies} mises à jour avec succès pour les résultats %{results}
         shared:
           subnav:
             statuses: Progrès
@@ -139,42 +199,29 @@ fr-CA:
           update:
             invalid: Un problème est survenu lors de la création de ce statut.
             success: Le statut a été mis à jour avec succès.
-        timeline_entries:
-          create:
-            invalid: Il y a eu un problème lors de la création de cet élément de chronologie.
-            success: L’élément de chronologie a été mis à jour avec succès.
-          destroy:
-            success: L'élément de chronologie a été supprimé avec succès.
-          edit:
-            title: Modifier l'élément de chronologie
-            update: Mise à jour de l'élément de chronologie
-          index:
-            title: Étapes-clés de la réalisation
-          new:
-            create: Créer un élément de chronologie
-            title: Nouvel élément de chronologie
-          update:
-            invalid: Un problème est survenu lors de la mise à jour de cet élément de chronologie.
-            success: L’élément de chronologie a été mis à jour avec succès.
       admin_log:
+        milestones:
+          create: "%{user_name} a créé le jalon %{resource_name}"
+          delete: "%{user_name} a supprimé le jalon %{resource_name}"
+          update: "%{user_name} a mis à jour le jalon %{resource_name}"
         result:
           create: "%{user_name} a créé la réalisation %{resource_name} dans %{space_name}"
           delete: "%{user_name} a supprimé la réalisation %{resource_name} dans %{space_name}"
+          restore: "%{user_name} a restauré le résultat %{resource_name} dans %{space_name}"
+          soft_delete: "%{user_name} a déplacé le résultat %{resource_name} de %{space_name} vers la corbeille"
           update: "%{user_name} a mis à jour la réalisation %{resource_name} dans %{space_name}"
         status:
           create: "%{user_name} a créé le statut %{resource_name}"
           delete: "%{user_name} a supprimé le statut %{resource_name}"
           update: "%{user_name} a mis à jour le statut %{resource_name}"
-        timeline_entry:
-          create: "%{user_name} a créé l'étape d'évolution de la réalisation %{resource_name}"
-          delete: "%{user_name} a supprimé l'étape d'évolution de la réalisation %{resource_name}"
-          update: "%{user_name} a mis à jour l'étape d'évolution de la réalisation %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'Le parent n''a pas été trouvé dans la base de données (ID: %{id})'
       content_blocks:
         highlighted_results:
           results: Réalisations
+      creation:
+        text: Ce résultat a été créé
       import_mailer:
         import:
           errors: Erreurs
@@ -189,19 +236,29 @@ fr-CA:
             other: "%{count} réalisations ont été importées depuis des projets."
           subject: Importation des projets réalisée avec succès
           success: Projets importés avec succès dans la fonctionnalité %{component_name}. Vous pouvez consulter les réalisations dans l'interface d'administration.
+      import_proposals_mailer:
+        import:
+          added_proposals:
+            one: Un résultat a été importé depuis les propositions
+            other: "%{count} résultats ont été importés depuis les propositions."
+          subject: Importation des propositions réussie
+          success: Propositions importées avec succès dans les résultats du composant %{component_name} . Vous pouvez consulter les résultats dans l'interface d'administration.
       last_activity:
         new_result: 'Nouvelle réalisation :'
       models:
+        milestone:
+          fields:
+            entry_date: Date
+            title: Titre
         result:
           fields:
-            category: Catégorie
             created_at: Créé le
             end_date: Date de fin
             id: ID
             progress: Avancement
-            scope: Secteur
             start_date: Date de début
             status: Statut
+            taxonomies: Taxonomies
             title: Titre
         status:
           fields:
@@ -209,43 +266,32 @@ fr-CA:
             key: Clé
             name: Nom
             progress: Avancement
-        timeline_entry:
-          fields:
-            entry_date: Date
-            title: Titre
       results:
         count:
           results_count:
             one: 1 réalisation
             other: "%{count} réalisations"
-        filters:
-          all: Tous
-        home:
-          categories_label: Catégories
-          empty: Il n'y a aucun résultat pour le moment.
-          empty_filters: Il n'y a aucun résultat avec ces critères.
-          subcategories_label: Sous-catégories
         home_header:
           global_status: État d'exécution global
-        nav_breadcrumb:
-          global: Exécution globale
+        milestones:
+          title: Jalons
         no_results: Il n'y a aucun projet.
+        root_taxonomies:
+          title: 'Visualiser par :'
         search:
           search: Rechercher des réalisations
         show:
           stats:
             back_to_resource: Revenir à la réalisation
-        timeline:
-          title: Évolution du projet
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Catégorie
-          scope_id_eq:
-            label: Secteur
           status_id_eq:
             label: Statut
+          taxonomies_part_of_contains:
+            label: Taxonomie
+      tooltips:
+        deleted_results_info: Impossible de supprimer ce résultat
     components:
       accountability:
         actions:
@@ -253,14 +299,25 @@ fr-CA:
         name: Suivi
         settings:
           global:
+            clear_all: Tout supprimer
             comments_enabled: Activer le module de commentaire
             comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
+            default_taxonomy: Taxonomie par défaut
+            default_taxonomy_help: Sélectionnez la taxonomie que vous voulez afficher par défaut. Si aucune taxonomie n'est sélectionnée, les résultats seront affichés dans un format de liste.
+            define_taxonomy_filters: Pour utiliser ce paramètre, des filtres doivent être définis dans cet espace participatif.
             display_progress_enabled: Afficher les progrès
+            geocoding_enabled: Cartes activées
             intro: Introduction
-            scope_id: Secteur
-            scopes_enabled: Secteurs activés
+            no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
+            taxonomy_filters: Sélectionner les filtres pour la fonctionnalité
+            taxonomy_filters_add: Ajouter un filtre
           step:
             comments_blocked: Bloquer la création de nouveaux commentaires
+          visualization: Visualisation
+    download_your_data:
+      show:
+        result_comments: Export des commentaires des résultats
+        results: Export des résultats
     events:
       accountability:
         proposal_linked:
@@ -273,11 +330,40 @@ fr-CA:
           email_outro: Vous avez reçu cette notification car vous suivez "%{proposal_title}" et cette proposition est incluse dans le résultat "%{resource_title}". Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
           email_subject: Une mise à jour à %{resource_title} progress
           notification_title: Le résultat <a href="%{resource_path}">%{resource_title}</a>, qui inclut la proposition <a href="%{proposal_path}">%{proposal_title}</a>, est désormais achevé à %{progress}%.
-    metrics:
-      results:
-        description: Nombre de résultats générés
-        object: résultats
-        title: Résultats
+    open_data:
+      help:
+        result_comments:
+          alignment: Si ce commentaire était pour, contre ou neutre
+          author: Le nom du participant qui a fait ce commentaire
+          body: Le commentaire lui-même
+          commentable_id: L'identifiant unique de l"élément commenté
+          commentable_type: Le type de l'élément commenté (si c'était un résultat, une proposition, etc.)
+          created_at: La date de création de ce commentaire
+          depth: L'endroit où ce commentaire se trouve dans l'arborescence des commentaires (si c'est une réponse ou une réponse d'une réponse)
+          id: L'identifiant de ce commentaire
+          locale: La langue que le participant a eu en créant ce commentaire
+          root_commentable_url: L'URL de la ressource liée à ce commentaire
+        results:
+          address: L'adresse du résultat (optionnel)
+          children_count: Le nombre de sous-résultats
+          comments_count: Le nombre de commentaires reçu pour ce résultat
+          component: La fonctionnalité à laquelle le résultat appartient
+          created_at: La date de création de ce résultat
+          description: La description du résultat
+          end_date: La date à laquelle le résultat se termine
+          id: L'identifiant unique du résultat
+          latitude: La latitude du projet au cas où il a un emplacement physique
+          longitude: La longitude du projet dans le cas où il a un emplacement physique
+          parent: Le résultat parent (le cas échéant) du résultat
+          progress: Le pourcentage d'exécution du résultat
+          proposal_urls: Les URL des propositions qui sont incluses dans ce résultat
+          reference: La référence unique du résultat
+          start_date: La date de création de ce résultat
+          status: Le statut actuel de ce résultat
+          taxonomies: Les taxonomies du résultat
+          title: Le titre du résultat
+          updated_at: La dernière date de mise à jour de ce résultat
+          url: L'URL où ce résultat peut être trouvé
     participatory_spaces:
       highlighted_results:
         see_all: Voir tous les résultats (%{count})
@@ -288,3 +374,4 @@ fr-CA:
         result_proposal: Propositions incluses dans cette réalisation
     statistics:
       results_count: Résultats
+      results_count_tooltip: Le nombre de décisions ou de résultats générés à partir de cet espace.

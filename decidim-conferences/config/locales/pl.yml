@@ -2,16 +2,11 @@ pl:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Powiązane zespoły
         available_slots: Dostępne terminy
         banner_image: Baner
-        copy_categories: Skopiuj kategorie
-        copy_components: Skopiuj komponenty
-        copy_features: Skopiuj funkcje
         decidim_scope_id: Zakres
         description: Opis
         end_date: Data zakończenia
-        hashtag: Hashtag
         hero_image: Obraz główny
         location: Miejsce
         main_logo: Główne logo
@@ -21,8 +16,6 @@ pl:
         published_at: Opublikowano
         registration_terms: Warunki rejestracji
         registrations_enabled: Rejestracja włączona
-        scope_id: Zakres
-        scopes_enabled: Zakresy dozwolone
         short_description: Krótki opis
         show_statistics: Pokaż statystyki
         sign_date: Data podpisania
@@ -102,11 +95,6 @@ pl:
         new_registration_type: Nowy typ rejestracji
         new_speaker: Nowy mówca
         send_diplomas: Wyślij certyfikaty uczestnictwa
-      conference_copies:
-        new:
-          copy: Kopiuj
-          select: Wybierz dane, które chcesz zduplikować
-          title: Zduplikuj konferencję
       conference_publications:
         create:
           error: Wystąpił błąd podczas publikowania tej konferencji.
@@ -125,15 +113,17 @@ pl:
         destroy:
           success: Prelegent został pomyślnie usunięty z tej konferencji.
         edit:
-          title: Zaktualizuj prelegenta konferencji.
           update: Aktualizuj
         index:
           conference_speakers_title: Prelegenci konferencyjni
         new:
           create: Utwórz
-          title: Nowy prelegent konferencyjny.
         publish:
           invalid: Podczas publikowania tego zespołu wystąpił błąd.
+          success: Opublikowano mówcę konferencyjnego.
+        unpublish:
+          invalid: Wystąpił problem podczas cofania publikacji tego mówcy.
+          success: Usunięto publikację mówcy konferencyjnego.
         update:
           error: Wystąpił błąd podczas aktualizacji prelegenta konferencji.
           success: Prelegent zaktualizowany pomyślnie.
@@ -144,13 +134,11 @@ pl:
         destroy:
           success: Administrator konferencji usunięty pomyślnie.
         edit:
-          title: Zaktualizuj administratora konferencji.
           update: Aktualizuj
         index:
           conference_admins_title: Administratorzy konferencji
         new:
           create: Utwórz
-          title: Nowy administrator konferencji.
         update:
           error: Wystąpił błąd podczas aktualizacji administratora konferencji.
           success: Administrator konferencji zaktualizowany pomyślnie.
@@ -163,57 +151,40 @@ pl:
         exports:
           registrations: Rejestracje
         form:
+          images: Zdjęcia
           title: Informacje ogólne
         index:
           published: Opublikowane
           unpublished: Nieopublikowane
         new:
           create: Utwórz
-          title: Konferencja
         update:
           error: Wystąpił błąd podczas aktualizowania konferencji.
           success: Konferencja została zaktualizowana pomyślnie.
-      conferences_copies:
-        create:
-          error: Wystąpił błąd podczas duplikowania konferencji.
-          success: Konferencja zduplikowana pomyślnie.
       media_links:
         create:
           error: Podczas tworzenia nowego linku do multimediów wystąpił błąd.
-          success: Link do multimediów został utworzony.
-        destroy:
-          success: Link do multimediów został usunięty.
         edit:
-          title: Zaktualizuj link do multimediów.
           update: Aktualizuj
-        index:
-          media_links_title: Linki do multimediów
         new:
           create: Utwórz
-          title: Link do multimediów
         update:
           error: Wystąpił błąd podczas aktualizowania tego linku multimedialnego.
-          success: Link do multimediów został pomyślnie zaktualizowany.
       menu:
         conferences: Konferencje
         conferences_submenu:
           attachment_collections: Foldery
           attachment_files: Pliki
           attachments: Załączniki
-          categories: Kategorie
           components: Komponenty
           conference_admins: Administratorzy konferencji
           conference_invites: Zaprasza
           conference_speakers: Prelegenci
-          diploma: Certyfikat uczestnictwa
           info: O tej konferencji
-          media_links: Linki do multimediów
           moderations: Moderacje
           partners: Partnerzy
-          registration_types: Typ rejestracji
           registrations: Rejestracje
           see_conference: Zobacz konferencję
-          user_registrations: Rejestracje użytkowników
       models:
         conference:
           fields:
@@ -236,13 +207,11 @@ pl:
             admin: Administrator
             collaborator: Współpracownik
             moderator: Moderator
-            valuator: Weryfikator
         media_link:
           fields:
             date: Data
             link: Link
             title: Tytuł
-          name: Link do multimediów
         partner:
           fields:
             link: Link
@@ -268,7 +237,6 @@ pl:
         destroy:
           success: Partner został usunięty z tej konferencji.
         edit:
-          title: Zaktualizuj partnera.
           update: Aktualizuj
         new:
           create: Utwórz
@@ -290,7 +258,6 @@ pl:
         destroy:
           success: Typ rejestracji został usunięty.
         edit:
-          title: Zaktualizuj typ rejestracji.
           update: Aktualizuj
         new:
           create: Utwórz
@@ -341,9 +308,6 @@ pl:
         title: Prelegenci
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help_html: 'Slugi URL wykorzystuje się do generowania adresów URL odsyłających do tej konferencji. Można używać jedynie liter, cyfr i łączników, przy czym należy rozpocząć od litery. Przykład: %{url}'
         conference_invites:
           create:
             error: Podczas zapraszania użytkownika do udziału w konferencji wystąpił błąd.
@@ -387,7 +351,6 @@ pl:
         diplomas:
           edit:
             save: Zapisz
-            title: Certyfikat uczestnictwa
         invite_join_conference_mailer:
           invite:
             decline: Odrzuć zaproszenie "%{conference_title}"
@@ -407,7 +370,6 @@ pl:
             diploma_html: W załącznikach znajdziesz certyfikat uczestnictwa w konferencji <a href="%{url}">%{title}</a>.
           diploma_user:
             attendance_verified_by: Uczestnictwo zweryfikowane przez
-            certificate_of_attendance: Certyfikat uczestnictwa
             certificate_of_attendance_description: 'Zaświadcza się, że <strong>%{user}</strong> wziął/wzięła udział w konferencji <strong>%{title}</strong>, która odbyła się w <strong>%{location}</strong> w terminie: <strong>%{start} - %{end}</strong>'
         send_diploma:
           error: Wystąpił błąd podczas wysyłania certyfikatów uczestnictwa.

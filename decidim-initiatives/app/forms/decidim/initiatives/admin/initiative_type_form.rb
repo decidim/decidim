@@ -12,7 +12,7 @@ module Decidim
         mimic :initiatives_type
 
         translatable_attribute :title, String
-        translatable_attribute :description, String
+        translatable_attribute :description, Decidim::Attributes::RichText
         attribute :banner_image
         attribute :signature_type, String
         attribute :undo_online_signatures_enabled, Boolean
@@ -25,7 +25,7 @@ module Decidim
         attribute :promoting_committee_enabled, Boolean
         attribute :minimum_committee_members, Integer
         attribute :collect_user_extra_fields, Boolean
-        translatable_attribute :extra_fields_legal_information, String
+        translatable_attribute :extra_fields_legal_information, Decidim::Attributes::RichText
         attribute :validate_sms_code_on_votes, Boolean
         attribute :document_number_authorization_handler, String
 

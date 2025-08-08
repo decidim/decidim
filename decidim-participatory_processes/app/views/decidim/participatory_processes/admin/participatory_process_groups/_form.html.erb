@@ -1,5 +1,5 @@
 <div class="form__wrapper">
-  <div class="card" data-component="accordion" id="accordion-title">
+  <div class="card" data-controller="accordion" id="accordion-title">
     <div class="card-divider">
       <button class="card-divider-button" data-open="true" data-controls="panel-title" type="button">
         <%= icon "arrow-right-s-line" %>
@@ -21,6 +21,7 @@
         <% if processes_for_select %>
           <%= form.select :participatory_process_ids, processes_for_select, {}, { multiple: true, class: "chosen-select" } %>
         <% end %>
+        <%= form.label :participatory_process_ids, t("decidim.participatory_process_groups.related_processes.help") %>
       </div>
 
       <div class="row column">
@@ -29,7 +30,7 @@
     </div>
   </div>
 
-  <div class="card" data-component="accordion" id="accordion-metadata">
+  <div class="card" data-controller="accordion" id="accordion-metadata">
     <div class="card-divider">
       <button class="card-divider-button" data-open="true" data-controls="panel-metadata" type="button">
         <%= icon "arrow-right-s-line" %>
@@ -40,10 +41,6 @@
     </div>
 
     <div id="panel-metadata" class="card-section">
-      <div class="row column">
-        <%= form.text_field :hashtag %>
-      </div>
-
       <div class="row column">
         <%= form.text_field :group_url %>
       </div>
@@ -74,7 +71,7 @@
     </div>
   </div>
 
-  <div class="card" data-component="accordion" id="accordion-visibility">
+  <div class="card" data-controller="accordion" id="accordion-visibility">
     <div class="card-divider">
       <button class="card-divider-button" data-open="true" data-controls="panel-visibility" type="button">
         <%= icon "arrow-right-s-line" %>

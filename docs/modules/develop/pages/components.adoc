@@ -140,7 +140,7 @@ Decidim.register_component(:my_component) do |component|
 
   component.settings(:step) do |settings|
     settings.attribute :a_text_setting, type: :text, default: false, required: true, translated: true, editor: true
-    settings.attribute :a_lambda_enum_setting, type: :enum, default: "all", choices: -> { SomeClass.enum_options }
+    settings.attribute :a_lambda_enum_setting, type: :enum, default: "all", choices: ->(_context) { SomeClass.enum_options }
     settings.attribute :a_readonly_setting, type: :string, readonly: ->(context) { SomeClass.readonly?(context[:component]) }
   end
 

@@ -8,8 +8,6 @@ is-IS:
         description: Lýsing
         end_date: Loka dagsetning
         progress: Framfarir
-        project_ids: Innifalið verkefni
-        proposals: Innifalið tillögur
         start_date: Upphafsdagur
         title: Titill
         updated_at: Uppfært á
@@ -18,9 +16,6 @@ is-IS:
         key: Lykill
         name: Nafn
         progress: Framfarir
-      timeline_entry:
-        description: Lýsing
-        entry_date: Dagsetning
     models:
       decidim/accountability/proposal_linked_event: Tillögur innifalnar í þessari niðurstöðu
   activerecord:
@@ -31,13 +26,10 @@ is-IS:
   decidim:
     accountability:
       actions:
-        attachment_collections: Mappa
-        attachments: Viðhengi
         confirm_destroy: Ertu viss um að þú viljir eyða þessu %{name}?
         destroy: Eyða
         edit: Breyta
         preview: Preview
-        timeline_entries: Verkefnisþróun
         title: Aðgerðir
       admin:
         exports:
@@ -72,15 +64,6 @@ is-IS:
           new:
             create: Búa til stöðu
             title: Ný staða
-        timeline_entries:
-          edit:
-            title: Breyta færslu
-            update: Uppfæra færslu
-          index:
-            title: Verkefni tímalína færslur
-          new:
-            create: Búðu til færslu
-            title: Ný færsla
       admin_log:
         result:
           create: "%{user_name} búið til afleiðing %{resource_name} í %{space_name}"
@@ -99,12 +82,10 @@ is-IS:
       models:
         result:
           fields:
-            category: Flokkur
             created_at: Stofnað
             end_date: Loka dagsetning
             id: ID
             progress: Framfarir
-            scope: Gildissvið
             start_date: Upphafsdagur
             status: Staða
             title: Titill
@@ -114,37 +95,21 @@ is-IS:
             key: Lykill
             name: Nafn
             progress: Framfarir
-        timeline_entry:
-          fields:
-            entry_date: Dagsetning
       results:
         count:
           results_count:
             one: 1 niðurstaða
             other: "%{count} niðurstöður"
-        filters:
-          all: Allt
-        home:
-          categories_label: Flokkar
-          subcategories_label: Undirflokka
         home_header:
           global_status: Global framkvæmdastaða
-        nav_breadcrumb:
-          global: Global framkvæmd
         search:
           search: Leitaðu að aðgerðum
         show:
           stats:
             back_to_resource: Fara aftur til niðurstöðu
-        timeline:
-          title: Verkefnisþróun
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Flokkur
-          scope_id_eq:
-            label: Gildissvið
           status_id_eq:
             label: Staða
     components:
@@ -155,8 +120,6 @@ is-IS:
             comments_enabled: Athugasemdir virkt
             display_progress_enabled: Sýna framfarir
             intro: Intro
-            scope_id: Gildissvið
-            scopes_enabled: Umfang virkt
           step:
             comments_blocked: Athugasemdir læst
     events:
@@ -166,10 +129,6 @@ is-IS:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{proposal_title}". Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
           email_subject: Uppfærsla á %{proposal_title}
           notification_title: Tillagan <a href="%{proposal_path}">%{proposal_title}</a> hefur verið innifalinn í <a href="%{resource_path}">%{resource_title}</a> niðurstöðum.
-    metrics:
-      results:
-        object: niðurstöður
-        title: Niðurstöður
     participatory_spaces:
       highlighted_results:
         see_all: Sjá allar niðurstöður (%{count})

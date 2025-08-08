@@ -9,6 +9,7 @@ module Decidim
     module CommentableWithComponent
       extend ActiveSupport::Concern
       include Decidim::Comments::Commentable
+      include Decidim::UserRoleChecker
 
       included do
         # Public: Overrides the `commentable?` Commentable concern method.
@@ -23,7 +24,8 @@ module Decidim
 
         # Public: Whether the object can have new comments or not.
         def user_allowed_to_comment?(user)
-          return unless can_participate?(user)
+          return true if user_has_any_role?(user, component.participatory_space)
+          return false unless can_participate?(user)
 
           ActionAuthorizer.new(user, "comment", component, self).authorize.ok?
         end

@@ -26,15 +26,6 @@ module Decidim
         expect(serialized).to include(uid: resource.uid)
       end
 
-      it "includes the user" do
-        expect(serialized[:user]).to(
-          include(id: resource.user.id)
-        )
-        expect(serialized[:user]).to(
-          include(name: resource.user.name)
-        )
-      end
-
       it "includes the created at" do
         expect(serialized).to include(created_at: resource.created_at)
       end

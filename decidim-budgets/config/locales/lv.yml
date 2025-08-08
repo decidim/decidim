@@ -2,8 +2,6 @@ lv:
   activemodel:
     attributes:
       project:
-        decidim_category_id: Kategorija
-        decidim_scope_id: Darbības tvērums
         description: Apraksts
         proposal_ids: Saistītie priekšlikumi
         title: Nosaukums
@@ -16,10 +14,6 @@ lv:
   decidim:
     budgets:
       actions:
-        attachment_collections: Mapes
-        attachments: Pielikumi
-        confirm_destroy: Vai tiešām vēlaties dzēst šo projektu?
-        destroy: Dzēst
         edit: Labot
         import: Importēt priekšlikumus projektos
         preview: Priekšskatīt
@@ -53,6 +47,9 @@ lv:
         project:
           fields:
             title: Nosaukums
+      order:
+        status:
+          title: Jūsu balsojums ir veiksmīgi pieņemts
       order_summary_mailer:
         order_summary:
           selected_projects: 'Jūsu izvēlētie projekti ir:'
@@ -69,7 +66,6 @@ lv:
           ok: Labi
         budget_summary:
           are_you_sure: Vai tiešām vēlaties atcelt savu balsojumu?
-          cancel_order: izdzēsiet savu balsojumu un sāciet no jauna
           checked_out:
             title: Balsojums par budžetu pabeigts
         count:
@@ -78,8 +74,6 @@ lv:
             one: 1 projekts
             other: "%{count} projekti"
         filters:
-          category: Kategorija
-          scope: Darbības tvērums
           search: Meklēt
         orders:
           highest_cost: Lielākās izmaksas

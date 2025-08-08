@@ -1,0 +1,82 @@
+<button type="button" data-controller="dropdown" data-target="actions-election-<%= election.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: present(election).title(html_escape: true)) %>">
+  <%= icon "more-fill", class: "text-secondary" %>
+</button>
+
+<div class="inline-block relative">
+  <ul id="actions-election-<%= election.id %>" class="dropdown dropdown__action" aria-hidden="true">
+    <% if view == :deleted %>
+      <% if allowed_to? :restore, :election, trashable_deleted_resource: election %>
+        <li class="dropdown__item">
+          <%= link_to url_for(action: :restore, id: election, controller: "elections"), method: :patch, class: "dropdown__button" do %>
+            <%= icon "refresh-line" %>
+            <%= t("actions.restore", scope: "decidim.admin") %>
+          <% end %>
+        </li>
+      <% end %>
+    <% else %>
+      <% if allowed_to? :update, :election, election: election %>
+        <li class="dropdown__item">
+          <%= link_to edit_election_path(election), class: "dropdown__button" do %>
+            <%= icon "pencil-line" %>
+            <%= t("actions.edit", scope: "decidim.elections") %>
+          <% end %>
+        </li>
+
+        <hr>
+
+        <% if election.published? %>
+          <li class="dropdown__item">
+            <%= link_to unpublish_election_path(election), method: :put, data: { confirm: t("actions.confirm_unpublish_election", scope: "decidim.elections") }, class: "dropdown__button" do %>
+              <%= icon "close-circle-line" %>
+              <%= t("actions.unpublish", scope: "decidim.admin") %>
+            <% end %>
+          </li>
+        <% else %>
+          <li class="dropdown__item">
+            <%= link_to publish_election_path(election), method: :put, class: "dropdown__button" do %>
+              <%= icon "check-line" %>
+              <%= t("actions.publish", scope: "decidim.admin") %>
+            <% end %>
+          </li>
+        <% end %>
+      <% else %>
+        <li class="dropdown__item">
+          <div class="dropdown__button-disabled">
+            <%= with_tooltip t("tooltips.edit_elections_info", scope: "decidim.admin") do %>
+              <%= icon "pencil-line", class: "text-gray" %>
+              <span>
+                <%= t("actions.edit", scope: "decidim.elections") %>
+              </span>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+
+      <li class="dropdown__item">
+        <%= dropdown_resource_permissions_link(election) %>
+      </li>
+
+      <hr>
+
+      <% if allowed_to? :soft_delete, :election, trashable_deleted_resource: election %>
+        <li class="dropdown__item">
+          <%= link_to soft_delete_election_path(election), method: :patch, data: { confirm: t("actions.confirm_delete_election", scope: "decidim.elections") }, class: "dropdown__button" do %>
+            <%= icon "delete-bin-line" %>
+            <%= t("actions.soft_delete", scope: "decidim.admin") %>
+          <% end %>
+        </li>
+      <% else %>
+        <li class="dropdown__item">
+          <div class="dropdown__button-disabled">
+            <%= with_tooltip t("tooltips.deleted_elections_info", scope: "decidim.admin") do %>
+              <%= icon "delete-bin-line", class: "text-gray" %>
+              <span>
+                <%= t("actions.soft_delete", scope: "decidim.admin") %>
+              </span>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

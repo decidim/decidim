@@ -12,6 +12,8 @@ module Decidim
         let(:uid) { "12345" }
         let(:oauth_signature) { OmniauthRegistrationForm.create_signature(provider, uid) }
         let(:verified_email) { email }
+        let(:tos_agreement) { true }
+        let(:nickname) { "facebook_user" }
         let(:form_params) do
           {
             "user" => {
@@ -20,9 +22,10 @@ module Decidim
               "email" => email,
               "email_verified" => true,
               "name" => "Facebook User",
-              "nickname" => "facebook_user",
+              "nickname" => nickname,
               "oauth_signature" => oauth_signature,
-              "avatar_url" => "http://www.example.com/foo.jpg"
+              "avatar_url" => "http://www.example.com/foo.jpg",
+              "tos_agreement" => tos_agreement
             }
           }
         end
@@ -45,6 +48,46 @@ module Decidim
 
           it "raises a InvalidOauthSignature exception" do
             expect { command.call }.to raise_error InvalidOauthSignature
+          end
+        end
+
+        describe "when the User name has invalid characters" do
+          let(:test_email) { "test_user@from-facebook.com" }
+          let(:test_form_params) do
+            {
+              "user" => {
+                "provider" => provider,
+                "uid" => uid,
+                "email" => test_email,
+                "email_verified" => true,
+                "name" => "Facebook# User",
+                "nickname" => "facebook_user",
+                "oauth_signature" => oauth_signature,
+                "avatar_url" => "http://www.example.com/foo.jpg",
+                "tos_agreement" => tos_agreement
+              }
+            }
+          end
+
+          let(:test_form) do
+            OmniauthRegistrationForm.from_params(
+              test_form_params
+            ).with_context(
+              current_organization: organization
+            )
+          end
+          let(:command) { described_class.new(test_form, test_email) }
+
+          it "sanitizes the name" do
+            allow(SecureRandom).to receive(:hex).and_return("decidim123456789")
+
+            expect do
+              command.call
+            end.to change(User, :count).by(1)
+
+            user = User.find_by(email: test_form.email)
+            expect(user.email).to eq(test_form.email)
+            expect(user.name).to eq("Facebook User")
           end
         end
 
@@ -85,6 +128,48 @@ module Decidim
             expect(user.valid_password?("decidim123456789")).to be(true)
           end
 
+          it "download and attach the avatar" do
+            stub_request(:get, "http://www.example.com/foo.jpg").to_return(
+              status: 200,
+              body: File.read("spec/assets/avatar.jpg"), headers: { "Content-Type" => "image/jpeg" }
+            )
+            expect { command.call }.to broadcast(:ok)
+            user = User.find_by(email: form.email)
+            expect(user.avatar).to be_attached
+            expect(user.avatar.attachment.filename.to_s).to eq("foo.jpg")
+            expect(user.avatar.attachment.blob.byte_size).to eq(File.open("spec/assets/avatar.jpg").size)
+          end
+
+          context "when avatar URL fetching fails" do
+            it "with a 404 HTTP code, it saves the user without avatar" do
+              stub_request(:get, "http://www.example.com/foo.jpg").to_return(status: 404)
+              expect { command.call }.to broadcast(:ok)
+              user = User.find_by(email: form.email)
+              expect(user.avatar).not_to be_attached
+            end
+
+            it "with a 502 HTTP code, it saves the user without avatar" do
+              stub_request(:get, "http://www.example.com/foo.jpg").to_return(status: 502)
+              expect { command.call }.to broadcast(:ok)
+              user = User.find_by(email: form.email)
+              expect(user.avatar).not_to be_attached
+            end
+
+            it "with a 500 HTTP code, it saves the user without avatar" do
+              stub_request(:get, "http://www.example.com/foo.jpg").to_return(status: 500)
+              expect { command.call }.to broadcast(:ok)
+              user = User.find_by(email: form.email)
+              expect(user.avatar).not_to be_attached
+            end
+
+            it "with a 401 HTTP code, it saves the user without avatar" do
+              stub_request(:get, "http://www.example.com/foo.jpg").to_return(status: 401)
+              expect { command.call }.to broadcast(:ok)
+              user = User.find_by(email: form.email)
+              expect(user.avatar).not_to be_attached
+            end
+          end
+
           # NOTE: This is important so that the users who are only
           # authenticating using omniauth will not need to update their
           # passwords.
@@ -102,6 +187,16 @@ module Decidim
 
             expect(ActiveSupport::Notifications)
               .to receive(:publish)
+              .with("decidim.events.core.welcome_notification",
+                    affected_users: [user],
+                    event_class: "Decidim::WelcomeNotificationEvent",
+                    extra: { force_email: true },
+                    followers: [],
+                    force_send: false,
+                    resource: user)
+
+            expect(ActiveSupport::Notifications)
+              .to receive(:publish)
               .with(
                 "decidim.user.omniauth_registration",
                 user_id: user.id,
@@ -112,7 +207,10 @@ module Decidim
                 name: "Facebook User",
                 nickname: "facebook_user",
                 avatar_url: "http://www.example.com/foo.jpg",
-                raw_data: {}
+                raw_data: {},
+                tos_agreement: true,
+                accepted_tos_version: user.accepted_tos_version,
+                newsletter_notifications_at: user.newsletter_notifications_at
               )
             command.call
           end
@@ -174,22 +272,50 @@ module Decidim
           end
         end
 
-        context "when a user exists with that identity" do
-          before do
-            user = create(:user, email:, organization:)
-            create(:identity, user:, provider:, uid:)
+        context "when the nickname has capital letters" do
+          let(:nickname) { "Facebook_user" }
+
+          it "downcases the nickname" do
+            command.call
+
+            user = User.where(email:).last
+            expect(user.nickname).to eq("facebook_user")
           end
+        end
+
+        context "when a user exists with that identity" do
+          let!(:user) { create(:user, email:, organization:) }
+          let!(:identity) { create(:identity, user:, provider:, uid:) }
 
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
+          end
+
+          it "notifies about login with oauth data" do
+            allow(command).to receive(:create_identity).and_return(identity)
+            expect(ActiveSupport::Notifications)
+              .to receive(:publish)
+              .with("decidim.user.omniauth_login",
+                    user_id: user.id,
+                    identity_id: identity.id,
+                    provider:,
+                    uid:,
+                    email:,
+                    name: "Facebook User",
+                    nickname: "facebook_user",
+                    avatar_url: "http://www.example.com/foo.jpg",
+                    raw_data: {},
+                    tos_agreement: true,
+                    accepted_tos_version: user.accepted_tos_version,
+                    newsletter_notifications_at: user.newsletter_notifications_at)
+            command.call
           end
 
           context "with the same email as reported by the identity" do
             it "confirms the user" do
               command.call
 
-              user = User.find_by(email:)
-              expect(user).to be_confirmed
+              expect(user.reload).to be_confirmed
             end
           end
 
@@ -199,8 +325,7 @@ module Decidim
             it "does not confirm the user" do
               command.call
 
-              user = User.find_by(email:)
-              expect(user).not_to be_confirmed
+              expect(user.reload).not_to be_confirmed
             end
           end
         end

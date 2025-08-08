@@ -10,8 +10,7 @@ module Decidim::ParticipatoryProcesses
 
     subject { cell("decidim/participatory_processes/process_dropdown_metadata", model).call }
 
-    let(:model) { create(:participatory_process, :with_steps, hashtag:) }
-    let(:hashtag) { nil }
+    let(:model) { create(:participatory_process, :with_steps) }
 
     it "renders the current step title" do
       expect(subject).to have_content "Current phase"
@@ -19,6 +18,5 @@ module Decidim::ParticipatoryProcesses
     end
 
     include_examples "participatory space dropdown metadata cell"
-    include_examples "participatory space dropdown metadata cell hashtag"
   end
 end

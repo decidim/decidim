@@ -10,6 +10,7 @@ module Decidim
       include Authorable
       include HasCategory
       include ScopableResource
+      include Taxonomizable
       include Decidim::Comments::Commentable
       include Followable
       include Traceable
@@ -19,10 +20,11 @@ module Decidim
       include Paddable
       include Amendable
       include Decidim::NewsletterParticipant
-      include ::Decidim::Endorsable
+      include ::Decidim::Likeable
       include Decidim::HasAttachments
       include Decidim::ShareableWithToken
       include Decidim::TranslatableResource
+      include Decidim::SoftDeletable
 
       translatable_fields :title
       searchable_fields(
@@ -40,8 +42,8 @@ module Decidim
 
       component_manifest_name "dummy"
 
-      def reported_content_url
-        ResourceLocatorPresenter.new(self).url
+      def presenter
+        Decidim::Dev::DummyResourcePresenter.new(self)
       end
 
       def reported_attributes
@@ -49,7 +51,7 @@ module Decidim
       end
 
       def reported_searchable_content_extras
-        [normalized_author.name]
+        [author.name]
       end
 
       def allow_resource_permissions?

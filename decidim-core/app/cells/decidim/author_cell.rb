@@ -16,7 +16,6 @@ module Decidim
 
     property :profile_path
     property :can_be_contacted?
-    property :has_tooltip?
 
     delegate :current_user, to: :controller, prefix: false
 
@@ -61,12 +60,16 @@ module Decidim
 
     private
 
+    def data
+      @data ||= { author: true }
+    end
+
     def layout
       @layout ||= LAYOUTS.include?(options[:layout]) ? options[:layout] : :default
     end
 
     def show_icons?
-      layout != :compact
+      options[:show_icons] != false && layout != :compact
     end
 
     def context_actions
@@ -74,7 +77,7 @@ module Decidim
         list << :date if creation_date?
         list << :cancelled_on if cancelable?
         list << :comments if commentable?
-        list << :endorsements if endorsable?
+        list << :likes if likeable?
         list << :withdraw if withdrawable?
       end
       return actions unless has_context_actions_options?
@@ -95,7 +98,7 @@ module Decidim
       hash.push(current_user.try(:id))
       hash.push(current_user.present?)
       hash.push(commentable?)
-      hash.push(endorsable?)
+      hash.push(likeable?)
       hash.push(actionable?)
       hash.push(withdrawable?)
       hash.push(profile_path?)
@@ -141,8 +144,8 @@ module Decidim
       from_context && from_context.respond_to?(:cancelled_on)
     end
 
-    def endorsable?
-      from_context && from_context.class.include?(Decidim::Endorsable)
+    def likeable?
+      from_context && from_context.class.include?(Decidim::Likeable)
     end
 
     def actionable?

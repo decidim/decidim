@@ -14,8 +14,7 @@ module Decidim
         @author ||= if official?
                       Decidim::Proposals::OfficialAuthorPresenter.new
                     else
-                      coauthorship = coauthorships.includes(:author, :user_group).first
-                      coauthorship.user_group&.presenter || coauthorship.author&.presenter
+                      coauthorships.includes(:author).first.author.presenter
                     end
       end
 
@@ -33,28 +32,25 @@ module Decidim
 
       # Render the proposal title
       #
-      # links - should render hashtags as links?
-      # extras - should include extra hashtags?
-      #
       # Returns a String.
-      def title(links: false, extras: true, html_escape: false, all_locales: false)
+      def title(html_escape: false, all_locales: false)
         return unless proposal
 
-        super proposal.title, links, html_escape, all_locales, extras:
+        super(proposal.title, html_escape, all_locales)
       end
 
-      def id_and_title(links: false, extras: true, html_escape: false)
-        "##{proposal.id} - #{title(links:, extras:, html_escape:)}"
+      def id_and_title(html_escape: false)
+        "##{proposal.id} - #{title(html_escape:)}"
       end
 
-      def body(links: false, extras: true, strip_tags: false, all_locales: false)
+      def body(links: false, strip_tags: false, all_locales: false)
         return unless proposal
 
-        content_handle_locale(proposal.body, all_locales, extras, links, strip_tags)
+        content_handle_locale(proposal.body, all_locales, links, strip_tags)
       end
 
-      def editor_body(all_locales: false, extras: true)
-        editor_locales(proposal.body, all_locales, extras:)
+      def editor_body(all_locales: false)
+        editor_locales(proposal.body, all_locales)
       end
 
       # Returns the proposal versions, hiding not published answers

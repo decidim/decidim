@@ -10,9 +10,7 @@ ga:
         duration: Fad
         facebook: Facebook
         github: GitHub
-        hashtag: Haischlib
         participatory_processes_ids: Próisis Rannpháirteacha Ceangailte
-        scope_id: Scóip
         slug: Píosa URL
         subtitle: Fotheideal
         title: Teideal
@@ -45,20 +43,12 @@ ga:
           public: Poblach
         new:
           create: Cruthaigh
-      assemblies_types:
-        new:
-          create: Cruthaigh
       assembly_copies:
         new:
           copy: Cóipeáil
       assembly_imports:
         new:
           import: Iompórtáil
-      assembly_members:
-        edit:
-          update: Nuashonraigh
-        new:
-          create: Cruthaigh
       assembly_user_roles:
         edit:
           update: Nuashonraigh
@@ -66,24 +56,16 @@ ga:
           create: Cruthaigh
       menu:
         assemblies_submenu:
-          assembly_members: Baill
           attachment_collections: Fillteáin
           attachment_files: Comhaid
           attachments: Ceangaltáin
-          categories: Catagóirí
       models:
-        assemblies_types:
-          fields:
-            title: Teideal
         assembly:
           fields:
             private: Príobháideach
             title: Teideal
           name: Tionól
         assembly_member:
-          fields:
-            full_name: Ainm
-            position: Céim
           name: Ball
           positions:
             other: Eile
@@ -94,20 +76,15 @@ ga:
             role: Ról
           roles:
             admin: Riarthóir
-            valuator: Luachálaí
     assemblies:
       admin:
         assemblies:
           form:
             duration: Fad
-            filters: Scagairí
             images: Íomhánna
             metadata: Meiteashonraí
             other: Eile
             social_handlers: Sóisialta
-        assemblies_types:
-          form:
-            title: Teideal
         new_import:
           accepted_types:
             json: JSON
@@ -118,8 +95,6 @@ ga:
       assembly_members:
         index:
           members: Baill
-      assembly_types:
-        others: Eile
       created_by:
         others: Eile
         public: Poblach

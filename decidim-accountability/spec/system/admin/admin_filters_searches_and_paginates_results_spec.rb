@@ -9,72 +9,15 @@ describe "Admin filters, searches, and paginates results" do
   let(:manifest_name) { "accountability" }
   let(:resource_controller) { Decidim::Accountability::Admin::ResultsController }
 
-  context "when filtering by scope" do
-    let!(:scope1) do
-      create(:scope, organization: component.organization, name: { "en" => "Scope1" })
-    end
-    let!(:scope2) do
-      create(:scope, organization: component.organization, name: { "en" => "Scope2" })
-    end
-    let!(:result_with_scope1) do
-      create(:result, component: current_component,
-                      title: Decidim::Faker::Localized.localized { generate(:title) },
-                      scope: scope1)
-    end
-    let(:result_with_scope1_title) { translated(result_with_scope1.title) }
-    let!(:result_with_scope2) do
-      create(:result, component: current_component,
-                      title: Decidim::Faker::Localized.localized { generate(:title) },
-                      scope: scope2)
-    end
-    let(:result_with_scope2_title) { translated(result_with_scope2.title) }
-
-    before { visit_component_admin }
-
-    it_behaves_like "a filtered collection", options: "Scope", filter: "Scope1" do
-      let(:in_filter) { result_with_scope1_title }
-      let(:not_in_filter) { result_with_scope2_title }
-    end
-
-    it_behaves_like "a filtered collection", options: "Scope", filter: "Scope2" do
-      let(:in_filter) { result_with_scope2_title }
-      let(:not_in_filter) { result_with_scope1_title }
-    end
-  end
-
-  context "when filtering by category" do
-    let!(:category1) do
-      create(:category, participatory_space:,
-                        name: { "en" => "Category1" })
-    end
-    let!(:category2) do
-      create(:category, participatory_space:,
-                        name: { "en" => "Category2" })
-    end
-    let!(:result_with_category1) do
-      create(:result, component: current_component,
-                      title: Decidim::Faker::Localized.localized { generate(:title) },
-                      category: category1)
-    end
-    let(:result_with_category1_title) { translated(result_with_category1.title) }
-    let!(:result_with_category2) do
-      create(:result, component: current_component,
-                      title: Decidim::Faker::Localized.localized { generate(:title) },
-                      category: category2)
-    end
-    let(:result_with_category2_title) { translated(result_with_category2.title) }
-
-    before { visit_component_admin }
-
-    it_behaves_like "a filtered collection", options: "Category", filter: "Category1" do
-      let(:in_filter) { result_with_category1_title }
-      let(:not_in_filter) { result_with_category2_title }
-    end
-
-    it_behaves_like "a filtered collection", options: "Category", filter: "Category2" do
-      let(:in_filter) { result_with_category2_title }
-      let(:not_in_filter) { result_with_category1_title }
-    end
+  it_behaves_like "a collection filtered by taxonomies" do
+    let!(:result_with_taxonomy11) { create(:result, component: current_component, taxonomies: [taxonomy11]) }
+    let!(:result_with_taxonomy12) { create(:result, component: current_component, taxonomies: [taxonomy12]) }
+    let!(:result_with_taxonomy21) { create(:result, component: current_component, taxonomies: [taxonomy21]) }
+    let!(:result_with_taxonomy22) { create(:result, component: current_component, taxonomies: [taxonomy22]) }
+    let(:resource_with_taxonomy11_title) { translated(result_with_taxonomy11.title) }
+    let(:resource_with_taxonomy12_title) { translated(result_with_taxonomy12.title) }
+    let(:resource_with_taxonomy21_title) { translated(result_with_taxonomy21.title) }
+    let(:resource_with_taxonomy22_title) { translated(result_with_taxonomy22.title) }
   end
 
   context "when filtering by status" do

@@ -7,3 +7,5 @@ line-length: false
 no-bare-urls: false
 
 no-inline-html: false
+
+no-duplicate-header: false

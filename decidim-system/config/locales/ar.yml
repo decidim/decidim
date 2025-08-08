@@ -165,7 +165,6 @@ ar:
           success: تم تحديث المنظمة بنجاح.
         users_registration_mode:
           disabled: يمكن فقط الوصول باستخدام الحسابات الخارجية
-          enabled: السماح للمشاركين بالتسجيل والدخول
       shared:
         notices:
           no_organization_warning_html: يجب عليك إنشاء منظمة للبدء. تأكد من قراءة %{guide} قبل المتابعة.

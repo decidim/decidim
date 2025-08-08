@@ -2,11 +2,22 @@ ro:
   activemodel:
     attributes:
       account:
-        delete_reason: Motivul pentru a-ți șterge contul
+        delete_reason: Motivul pentru care vă ștergeți contul
+      attachment:
+        documents: Documente
+        image: Imagine
+        photos: Fotografii
       common:
         created_at: Creat la
+      component:
+        taxonomy_filters: Filtre taxonomie
+      content_block_attachment:
+        background_image: Imagine de fundal
+        main_image: Imaginea principală
       conversation:
         body: Conținut
+      editor_image:
+        file: Fișier
       group:
         about: Despre
         avatar: Avatar
@@ -15,26 +26,45 @@ ro:
         name: Nume
         nickname: Pseudonim
         phone: Telefon
+      import:
+        file: Fișier
       message:
         body: Conținut
       report:
         details: Detalii
+      taxonomy:
+        name: Denumire taxonomie
+      taxonomy_filter:
+        internal_name: Etichetă internă
+        name: Etichetă
+        root_taxonomy_id: Din taxonomie
+        space_filter: Disponibil ca filtru pentru
       user:
         about: Despre
+        avatar: Fotografie de profil
         email: E-mailul dumneavoastră
+        encrypted_password: Parolă
+        locale: Setări regionale
         name: Numele
         nickname: Pseudonim
+        old_password: Parola curentă
         password: Parolă
         password_confirmation: Confirmați parola
         personal_url: URL personal
-        remove_avatar: Elimină avatar
+        remove_avatar: Eliminați avatar
         tos_agreement: Acordul privind termenii și condițiile
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: Pseudonimul trebuie să conțină litere mici și să nu conțină spații
     models:
       decidim/attachment_created_event: Atașament
       decidim/component_published_event: Componentă activă
-      decidim/demoted_membership: Nu mai este un administrator de grup
+      decidim/demoted_membership: Nu mai sunteți administrator al grupului de utilizatori
       decidim/gamification/badge_earned_event: Insignă câștigată
-      decidim/gamification/level_up_event: Ai crescut în nivel
+      decidim/gamification/level_up_event: Ați crescut în nivel
       decidim/invited_to_group_event: Invitat în grup
       decidim/join_request_accepted_event: Cerere de înscriere acceptată
       decidim/join_request_rejected_event: Cerere de înscriere respinsă
@@ -42,9 +72,7 @@ ro:
       decidim/promote_to_admin: Promovat ca administrator
       decidim/promoted_to_admin_event: Promovat ca administrator
       decidim/removed_from_group: Eliminat din grup
-      decidim/resource_endorsed_event: Resursă susținută
-      decidim/resource_hidden_event: Resursă ascunsă
-      decidim/user_group_created_event: Grup de utilizatori creat
+      decidim/resource_hidden_event: Conținut ascuns
       decidim/welcome_notification_event: Mesaj de întâmpinare
   activerecord:
     attributes:
@@ -53,87 +81,152 @@ ro:
         with_participatory_space: Spaţiu participativ
       decidim/user:
         current_password: Parola curentă
-        email: E-mail
+        email: Adresa de e-mail
         name: Pseudonim
         password: Parolă
         password_confirmation: Confirmare parolă
         remember_me: Ține-mă minte
     models:
+      decidim:
+        history:
+          one: Istoric
+          few: Istoric
+          other: Istoric
       decidim/amendment:
         one: Amendament
         few: Amendamente
         other: Amendamente
-      decidim/endorsement:
-        one: Susținere
-        few: Susținători
-        other: Susțineri
       decidim/user:
         one: Participant
         few: Participanți
         other: Participanți
-      decidim/user_group:
-        one: Grup
-        few: Grupuri
-        other: Grupuri
   booleans:
     'false': 'Nu'
     'true': 'Da'
   date:
+    buttons:
+      close: Închideți
+      select: Selectați
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_dashed: "%d-%m-%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+      help:
+        date_format: 'Format: zz/ll/aaa'
+      order: z-l-a
+      separator: "/"
   datetime:
     distance_in_words:
+      about_x_hours:
+        one: aproximativ o oră
+        few: aproximativ %{count} ore
+        other: aproximativ %{count} ore
+      about_x_months:
+        one: aproximativ o lună
+        few: aproximativ %{count} luni
+        other: aproximativ %{count} luni
       half_a_minute: jumătate de minut
+      less_than_x_minutes:
+        one: mai puțin de un minut
+        few: mai puțin de %{count} minute
+        other: mai puțin de %{count} minute
+      less_than_x_seconds:
+        one: mai puțin de o secundă
+        few: mai puțin de %{count} secunde
+        other: mai puțin de %{count} secunde
+      short:
+        about_x_days: "%{count}z"
+        about_x_hours: "%{count}h"
+        about_x_minutes: "%{count} m"
+        about_x_months: "%{count} mo."
+        about_x_years: "%{count}y"
+        almost_x_years: "%{count}y"
+        half_a_minute: 1m
+        less_than_x_minutes: "%{count} m"
+        less_than_x_seconds: "%{count}s"
+        over_x_years: "%{count}y"
+        x_days: "%{count}d"
+        x_hours: "%{count}h"
+        x_minutes: "%{count} m"
+        x_months: "%{count} mo."
+        x_seconds: "%{count}s"
+        x_years: "%{count}y"
+      x_days:
+        one: 1 zi
+        few: "%{count} zile"
+        other: "%{count} zile"
+      x_hours:
+        one: o oră
+        few: "%{count} ore"
+        other: "%{count} ore"
+      x_minutes:
+        one: un minut
+        few: "%{count} minute"
+        other: "%{count} minute"
+      x_months:
+        one: o lună
+        few: "%{count} luni"
+        other: "%{count} luni"
+      x_seconds:
+        one: 1 secundă
+        few: "%{count} secunde"
+        other: "%{count} secunde"
   decidim:
     accessibility:
       external_link: Link extern
-      front_page_link: Du-te la prima pagină
-      logo: "Sigla oficială a %{organization}"
+      front_page_link: Mergeți la prima pagină
+      logo: "Logo-ul oficial al %{organization}"
+      opens_in_new_tab: Deschideți în tab nou
+      secondary_menu: Meniu secundar
       skip_button: Salt la conținutul principal
     account:
       blocked: Acest cont a fost blocat din cauza încălcării termenilor și condițiilor
       delete:
         alert: Această acțiune nu poate fi anulată. Dacă vă ștergeți contul, nu veți mai putea să vă autentificați cu datele de autentificare. Ștergerea contului dvs. va duce la anonimizarea contribuțiilor dvs. Veți putea crea în continuare un cont nou, dar aceste contribuții nu vor fi asociate cu acesta.
         confirm:
-          close: Închide fereastra
+          close: Închideţi fereastra
           ok: Da, vreau să îmi șterg contul
-          question: Sigur dorești să-ți ștergi contul?
+          question: Sigur doriți să vă ștergeți contul?
           title: Șterge contul meu
-        explanation: Care este motivul pentru care dorești să-ți ștergi (opțional).
-        leaving_authorizations_behind: Unele date asociate autorizării dvs. vor fi salvate pentru securitate. Dacă creați un alt cont și autorizați din nou, aceste date vor fi recuperate în noul dvs. cont.
+        explanation: Vă rugăm, completați motivul pentru care doriți să vă ștergeți contul (opțional).
+        leaving_authorizations_behind: Unele date asociate autorizării dumneavoastră vor fi salvate pentru securitate. Dacă creați un alt cont și autorizați din nou, aceste date vor fi recuperate în noul dvs. cont.
       destroy:
-        error: A apărut o eroare la ștergerea contului tău.
-        success: Contul tău a fost șters cu succes.
+        error: A apărut o problemă la ștergerea contului dumneavoastră.
+        inactive_account_removal_reason: Cont șters după %{inactivity_period} zile de inactivitate
+        success: Contul dumneavoastră a fost șters cu succes.
       download_your_data_export:
+        export_expired: Exportul a expirat. Încercați să generați un nou export.
         file_no_exists: Fișierul nu există
-        notice: Descărcarea datelor dvs. este în curs de desfășurare. Veți primi un e-mail atunci când este completă.
+        notice: Generarea fișierului de export a datelor dumneavoastră este în desfășurare. Veți primi un e-mail atunci când este completă.
       email_change:
-        body1: Am trimis un e-mail către %{unconfirmed_email} pentru a verifica noua ta adresă de e-mail.
-        body2: Ai nevoie să trimitem e-mailul de verificare din nou? %{resend_link} sau %{cancel_link}.
-        cancel: anulare
-        cancel_error: Nu s-a putut anula schimbarea de e-mail.
+        body1: Am trimis un e-mail către %{unconfirmed_email} pentru a verifica noua adresă de e-mail a dumneavoastră.
+        body2: Este nevoie să trimitem e-mailul de verificare din nou? %{resend_link} sau %{cancel_link}.
+        cancel: anulați
+        cancel_error: Nu am putut anula schimbarea de e-mail.
         cancel_successfully: Modificare e-mail anulată cu succes.
         resend_error: Nu s-a putut retrimite e-mailul de confirmare.
-        resend_successfully: E-mail de confirmare retrimis cu succes la %{unconfirmed_email}.
-        send_again: Trimite din nou
-        title: Verificarea adresei de e-mail
+        resend_successfully: E-mail de confirmare retrimis cu succes pentru %{unconfirmed_email}.
+        send_again: Trimiteți din nou
+        title: Verificare adresă de e-mail
       show:
-        available_locales_helper: Alege limba pe care dorești să o utilizezi pentru a naviga și primi notificări din platformă.
-        change_password: Schimbă parola
+        available_locales_helper: Alegeți limba pe care o doriți să o utilizați pentru a naviga și primi notificări din platformă.
+        change_password: Schimbați parola
         update_account: Actualizați contul
       update:
-        error: A apărut o eroare la actualizarea contului tău.
-        success: Contul tău fost actualizat cu succes.
-        success_with_email_confirmation: Contul tău a fost actualizat cu succes. Vei primi un e-mail pentru a confirma noua ta adresă de e-mail.
+        error: A apărut o eroare la actualizarea contului dumneavoastră.
+        success: Contul dumneavoastră fost actualizat cu succes.
+        success_with_email_confirmation: Contul dumneavoastră a fost actualizat cu succes. Veți primi un e-mail pentru a confirma noua dumneavoastră adresă de e-mail.
     activity:
       time_ago: "În urmă cu %{time}"
     admin:
       actions:
-        cancel: Anulează
+        cancel: Anulați
+      password_change:
+        alert: Trebuie să vă schimbați parola pentru a merge mai departe.
+        notification: Utilizatorii cu rol de administrator trebuie să își schimbe parola o dată la %{count} zile.
     admin_log:
       area:
         create: "%{user_name} a creat zona %{resource_name}"
@@ -144,7 +237,7 @@ ro:
         delete: "%{user_name} a șters tipul de zonă %{resource_name}"
         update: "%{user_name} a actualizat tipul de zonă %{resource_name}"
       attachment:
-        create: "%{user_name} a creat ataşamentul %{resource_name}"
+        create: "%{user_name} a creat atașamentul %{resource_name}"
         delete: "%{user_name} a șters atașamentul %{resource_name}"
         update: "%{user_name} a actualizat atașamentul %{resource_name}"
       attachment_collection:
@@ -152,18 +245,20 @@ ro:
         delete: "%{user_name} a șters colecția de atașamente %{resource_name}"
         update: "%{user_name} a actualizat colecția de atașamente %{resource_name}"
       category:
-        create: "%{user_name} a adăugat categoria %{resource_name} în spațiul %{space_name}"
-        delete: "%{user_name} a șters categoria %{resource_name} din spațiul %{space_name}"
-        update: "%{user_name} a actualizat categoria %{resource_name} în spațiul %{space_name}"
+        create: "%{user_name} a adăugat categoria %{resource_name} în spațiul participativ %{space_name}"
+        delete: "%{user_name} a șters categoria %{resource_name} din spațiul participativ %{space_name}"
+        update: "%{user_name} a actualizat categoria %{resource_name} din spațiul participativ %{space_name}"
       component:
-        create: "%{user_name} a adăugat componenta %{resource_name} la spațiul %{space_name}"
-        delete: "%{user_name} a eliminat componenta %{resource_name} din spațiul %{space_name}"
-        export_component: "%{user_name} a exportat %{resource_name} %{component_name} în %{space_name} ca %{format_name}"
-        publish: "%{user_name} a publicat componenta %{resource_name} în spațiul %{space_name}"
-        unpublish: "%{user_name} a anulat publicarea componentei %{resource_name} din spațiul %{space_name}"
-        update_permissions_with_space: "%{user_name} a actualizat permisiunile %{resource_name} în %{space_name}"
+        create: "%{user_name} a adăugat componenta %{resource_name} în spațiul participativ %{space_name}"
+        delete: "%{user_name} a eliminat componenta %{resource_name} din spațiul participativ %{space_name}"
+        export_component: "%{user_name} a exportat ca %{format_name} %{resource_name} %{component_name} din %{space_name}"
+        publish: "%{user_name} a publicat componenta %{resource_name} în spațiul participativ %{space_name}"
+        restore: "%{user_name} a recuperat componenta %{resource_name} în spațiul %{space_name}"
+        soft_delete: "%{user_name} a mutat la gunoi componenta %{resource_name} în spațiul %{space_name}"
+        unpublish: "%{user_name} a anulat publicarea componentei %{resource_name} din spațiul participativ %{space_name}"
+        update_permissions_with_space: "%{user_name} a actualizat permisiunile %{resource_name} din spațiul participativ %{space_name}"
       contextual_help_section:
-        update: "%{user_name} a actualizat secțiunea de ajutor în %{resource_name}"
+        update: "%{user_name} a actualizat secțiunea de ajutor %{resource_name}"
       helpers:
         answers: răspunsuri
         comments: comentarii
@@ -172,13 +267,16 @@ ro:
       impersonation_log:
         manage: "%{user_name} a gestionat %{resource_name} deoarece %{reason}"
       moderation:
-        hide: "%{user_name} a ascuns o resursă de tip %{resource_type} în spațiul %{space_name}"
+        bulk_hide: "%{user_name} a ascuns %{reported_count} resurse"
+        bulk_unhide: "%{user_name} a ascuns %{reported_count} resurse"
+        bulk_unreport: "%{user_name} a ascuns %{reported_count} resurse"
+        hide: "%{user_name} a ascuns o resursă de tip %{resource_type} din spațiul participativ %{space_name}"
         unreport: "%{user_name} nu a raportat o resursă de tip %{resource_type} în spațiul %{space_name}"
       newsletter:
-        create: "%{user_name} a creat buletinul informativ %{resource_name}"
-        delete: "%{user_name} a șters buletinul informativ %{resource_name}"
-        deliver: "%{user_name} a livrat buletinul informativ %{resource_name}"
-        update: "%{user_name} a actualizat buletinul informativ %{resource_name}"
+        create: "%{user_name} a creat newsletterul %{resource_name}"
+        delete: "%{user_name} a șters newsletterul %{resource_name}"
+        deliver: "%{user_name} a livrat newsletterul %{resource_name}"
+        update: "%{user_name} a actualizat newsletterul %{resource_name}"
       oauth_application:
         create: "%{user_name} a creat aplicația OAuth %{resource_name}"
         delete: "%{user_name} a șters aplicația OAuth %{resource_name}"
@@ -188,111 +286,158 @@ ro:
         update_external_domain: "%{user_name} a actualizat domeniile externe ale organizației"
       participatory_space_private_user:
         create: "%{user_name} a invitat pe %{resource_name} să fie un participant privat"
-        create_via_csv: "%{user_name} a invitat pe %{resource_name} prin CSV să fie un participant privat"
-        delete: "%{user_name} a eliminat participantul %{resource_name} ca participant privat"
+        create_via_csv: "%{user_name} a invitat pe %{resource_name} prin upload de CSV să fie un participant privat"
+        delete: "%{user_name} l-a eliminat pe %{resource_name} din lista de participanți privați"
       scope:
         create: "%{user_name} a creat domeniul de interes %{resource_name}"
-        create_with_parent: "%{user_name} a creat subdomeniul %{resource_name} în cadrul domeniului %{parent_scope}"
+        create_with_parent: "%{user_name} a creat subdomeniul de interes %{resource_name} în cadrul domeniului de interes %{parent_scope}"
         delete: "%{user_name} a șters domeniul de interes %{resource_name}"
-        delete_with_parent: "%{user_name} a şters subdomeniul %{resource_name} în cadrul domeniului %{parent_scope}"
+        delete_with_parent: "%{user_name} a șters subdomeniul de interes %{resource_name} în cadrul domeniului de interes %{parent_scope}"
         update: "%{user_name} a actualizat domeniul de interes %{resource_name}"
         update_with_parent: "%{user_name} a actualizat subdomeniul %{resource_name} în cadrul domeniului %{parent_scope}"
       scope_type:
-        create: "%{user_name} a creat tipul de domeniu %{resource_name}"
-        delete: "%{user_name} a șters tipul de domeniu %{resource_name}"
-        update: "%{user_name} a actualizat tipul de domeniu %{resource_name}"
+        create: "%{user_name} a creat tipul de domeniu de interes %{resource_name}"
+        delete: "%{user_name} a șters tipul de domeniu de interes %{resource_name}"
+        update: "%{user_name} a actualizat tipul de domeniu de interes %{resource_name}"
+      share_token:
+        create: "%{user_name} a creat un link de acces în %{space_name}"
+        create_with_space: "%{user_name} a creat un link de acces pentru %{resource_name} din %{space_name}"
+        delete: "%{user_name} a șters un link de acces din %{space_name}"
+        delete_with_space: "%{user_name} a șters un link de acces pentru %{resource_name} din %{space_name}"
+        update: "%{user_name} a actualizat un link de acces din %{space_name}"
+        update_with_space: "%{user_name} a actualizat un link de acces pentru %{resource_name} din %{space_name}"
       static_page:
         create: "%{user_name} a creat pagina statică %{resource_name}"
         delete: "%{user_name} a șters pagina statică %{resource_name}"
         update: "%{user_name} a actualizat pagina statică %{resource_name}"
+      taxonomy:
+        create: "%{user_name} a creat taxonomia %{resource_name}"
+        create_with_parent: "%{user_name} a creat taxonomia %{resource_name} în interiorul taxonomiei %{parent_taxonomy}"
+        delete: "%{user_name} a șters taxonomia %{resource_name}"
+        delete_with_parent: "%{user_name} a șters taxonomia %{resource_name} din cadrul taxonomiei %{parent_taxonomy}"
+        update: "%{user_name} a actualizat taxonomia %{resource_name}"
+        update_with_parent: "%{user_name} a actualizat taxonomia %{resource_name} din cadrul taxonomiei %{parent_taxonomy}"
+      taxonomy_filter:
+        create: "%{user_name} a creat filtrul %{resource_name}"
+        create_with_filter_info: '%{user_name} a creat filtrul %{resource_name} bazat pe taxonomie"%{taxonomy_name}" care are %{filter_items_count} elemente'
+        delete: "%{user_name} a șters filtrul %{resource_name}"
+        delete_with_filter_info: '%{user_name} a șters filtrul %{resource_name} bazat pe taxonomie"%{taxonomy_name}" care are %{filter_items_count} elemente'
+        update: "%{user_name} a actualizat filtrul %{resource_name}"
+        update_with_filter_info: '%{user_name} a creat filtrul %{resource_name} bazat pe taxonomie"%{taxonomy_name}" care are %{filter_items_count} elemente'
       user:
-        block: "%{user_name} utilizator blocat %{resource_name}"
+        block: "%{user_name} a blocat accesul participantului %{resource_name}"
+        bulk_block: "%{user_name} a blocat %{blocked_count} utilizatori"
+        bulk_ignore: "%{user_name} a deblocat %{unreported_users_count} utilizatori"
+        bulk_unblock: "%{user_name} a deblocat %{unblocked_count} utilizatori"
         invite: "%{user_name} a invitat participantul %{resource_name} cu rolul: %{role}"
         officialize: "%{user_name} a validat participantul %{resource_name}"
         promote: "%{user_name} a promovat %{resource_name}"
         remove_from_admin: "%{user_name} a eliminat participantul %{resource_name} cu rolul: %{role}"
-        show_email: "%{user_name} a recuperat e-mailul participantului %{resource_name}"
+        show_email: "%{user_name} a vizualizat e-mailul participantului %{resource_name}"
         transfer: "%{user_name} a transferat participantul %{resource_name}"
-        unblock: "%{user_name} utilizator deblocat %{resource_name}"
+        unblock: "%{user_name} a deblocat accesul participantului %{resource_name}"
         unofficialize: "%{user_name} a revocat validarea pentru participantul %{resource_name}"
       user_group:
         block: "%{user_name} a blocat grupul de utilizatori %{resource_name}"
+        bulk_block: "%{user_name} a blocat %{blocked_count} utilizatori"
+        bulk_ignore: "%{user_name} a deblocat %{unreported_users_count} utilizatori"
+        bulk_unblock: "%{user_name} a deblocat %{unblocked_count} utilizatori"
         reject: "%{user_name} a respins verificarea grupului %{resource_name}"
         unblock: "%{user_name} a deblocat grupul de utilizatori %{resource_name}"
-        verify: "%{user_name} a verificat grupul %{resource_name}"
-        verify_via_csv: "%{user_name} a verificat grupul %{resource_name} printr-un fișier CSV"
+        verify: "%{user_name} a verificat grupul de utilizatori %{resource_name}"
+        verify_via_csv: "%{user_name} a verificat grupul de utilizatori %{resource_name} printr-un upload de fișier CSV"
       user_moderation:
         unreport: "%{user_name} a anulat raportarea pentru %{resource_type} - %{unreported_user_name}"
+    admin_terms_of_service:
+      default_body: "<h2>ADMIN TERMS OF USE</h2><p>Avem încredere că ați primit prelegerea obișnuită de la administratorul local de sistem. De obicei se rezumă la aceste trei lucruri: </p><ol><li>Respectați viața privată a celorlalți. </li><li>Gândiți înainte de a face clic.</li><li>Cu o putere mare vine și o mare responsabilitate.</li></ol>"
     alert:
-      dismiss: Anulare notificare
+      dismiss: Închideți notificare
     amendments:
       accepted:
-        error: S-a produs o eroare în timpul acceptării amendamentului.
+        error: Există o problemă la acceptarea amendamentului.
         success: Amendamentul a fost acceptat cu succes.
       amendable:
-        button: Fă un amendament pentru %{model_name}
-        error: A apărut o eroare la trimiterea unui amendament pentru această resursă.
+        button: Creați amendament pentru %{model_name}
+        error: A apărut o eroare la crearea unui amendament pentru această resursă.
         promote_button: Promovează la %{model_name}
         promote_confirm_text: Sigur dorești să promovezi acest amendament?
+        promote_help_text: Puteți să promovați această ediție și să o publicați ca independent %{model_name}.
+      amendments:
+        title:
+          one: "%{count} amendament"
+          few: "%{count} amendamente"
+          other: "%{count} amendamente"
       created:
-        error: S-a produs o eroare la crearea ciornei de amendament.
-        success: Ciorna de amendament a fost creată cu succes.
+        error: A apărut o problemă la crearea ciornei de amendament.
+        success: Proiectul de amendament a fost creat cu succes.
       destroy_draft:
-        error: A apărut o eroare la ștergerea ciornei de amendament.
-        success: Ciorna de amendament a fost ștearsă cu succes.
+        error: A apărut o eroare la ștergerea proiectului de amendament.
+        success: Proiectul de amendament a fost șters cu succes.
       edit_draft:
-        discard: Renunță la această ciornă
-        send: Previzualizează
-        title: Editează ciorna de amendament
+        discard: Renunțați la acest proiect de amendament
+        send: Previzualizați
+        title: Editați proiectul de amendament
       emendation:
         actions:
-          button_accept: Acceptă
-          button_reject: Respinge
-          help_text: Reexaminează modificările și acceptă-le sau respinge acest amendament. O notificare va fi trimisă autorului(autorilor) său(săi).
+          button_accept: Acceptaţi
+          button_reject: Respingeți
+          help_text: Examinați modificările și acceptați sau respingeți acest amendament. O notificare va fi trimisă autorului (autorilor).
         announcement:
           accepted: |-
-            Aceast amendament pentru %{amendable_type} %{proposal_link} a fost
-            acceptat la data de <strong>%{date}</strong>.
+            Acest amendament pentru %{amendable_type} %{proposal_link} a fost acceptat la data de <strong>%{date}</strong>.
           evaluating: |-
-            Acest amendament pentru %{amendable_type} %{proposal_link}
-            este în curs de evaluare.
+            Acest amendament pentru %{amendable_type} %{proposal_link} este în curs de evaluare.
           promoted: Promovat ca %{amendable_type}.
           rejected: Acest amendament pentru %{amendable_type} %{proposal_link} a fost respins la data de <strong>%{date}</strong>.
           withdrawn: |-
-            Acest amendament pentru %{amendable_type} %{proposal_link}
-            a fost retras de autor.
+            Acest amendament pentru %{amendable_type} %{proposal_link} a fost retras de către autor.
+      name: Amendamente
       new:
-        amendment_author: Autorul modificării
-        send: Crează
-        title: Creează o ciornă de amendament
+        send: Creați
+        title: Creați un proiect de amendament
       preview_draft:
-        modify: Modifică
-        publish: Publică
-        title: Publică ciorna de amendament
+        modify: Modificați
+        publish: Publicați
+        title: Publicați proiectul de amendament
+      promoted:
+        error: A existat o problemă la publicarea amendamentului ca propunere nouă.
+        success: Amendamentul a fost publicat cu succes ca propunere nouă.
       publish_draft:
         error: A apărut o problemă la publicarea amendamentului.
-        success: Amendamentul a fost publicat.
+        success: Amendamentul a fost publicat cu succes.
+      rejected:
+        error: A apărut o eroare la respingerea acestui amendament, vă rugăm să încercați mai târziu.
+        success: Amendamentul a fost respins cu succes.
       review:
         back: Înapoi
-        heading: Revizuiește amendamentul
-        send: Acceptă amendamentul
+        heading: Revizuiți amendamentul
+        send: Acceptați amendamentul
       update_draft:
-        error: A apărut o problemă la actualizarea ciornei de amendament.
-        success: Ciorna de amendament a fost actualizată cu succes.
+        error: A apărut o problemă la actualizarea proiectului de amendament.
+        success: Proiectului de amendament a fost actualizat cu succes.
+      withdraw:
+        error: A apărut o eroare la retragerea amendamentului.
+        success: Amendamentul a fost retras cu succes.
       wizard_step_form:
         steps:
-          '1': Creează-ți un amendament
-          '2': Publică amendamentul tău
+          '1': Creeați un amendament
+          '2': Publicați amendamentul
     anonymous_user: Anonim
     application:
       document:
-        download: Descarcă fișier
+        download: Descarcați fișier
+        visit_link: Accesați link-ul
       documents:
+        component_documents:
+          dummy: Documente componente fictive
+          meetings: Documente ale ședințelor
+        documents: Documente
         related_documents: Documente asociate
       photo:
         alt: Imagine media
         title: Imagine
       photos:
+        photos: Imagini
         related_photos: Imagini asociate
     author:
       avatar: 'Avatar: %{name}'
@@ -300,29 +445,33 @@ ro:
         one: comentariu
         few: comentarii
         other: comentarii
-      endorsements:
-        one: susținere
-        few: susțineri
-        other: susțineri
       official_author: Oficial
     authorization_handlers:
       another_dummy_authorization_handler:
+        explanation: Verifică prin prin introducerea unui număr al pașaportului începând cu „A”.
         fields:
           passport_number: Număr pașaport
           postal_code: Cod poștal
         name: Un alt exemplu de autorizare
       dummy_authorization_handler:
+        explanation: Verifică prin prin introducerea unui număr al pașaportului începând cu „A”.
         fields:
           allowed_postal_codes: Coduri poștale permise (separate prin virgulă)
-          allowed_scope_id: Domeniu de interes permis
           document_number: Număr document
           postal_code: Cod poștal
-          scope_id: Domeniu
         name: Exemplu de autorizare
       dummy_authorization_workflow:
+        explanation: Flux de lucru autorizare fictiv
         name: Flux de lucru test pentru autorizare
+      ephemeral_dummy_authorization_handler:
+        explanation: Verificați-vă prin introducerea unui număr de document începând cu „X”.
+        fields:
+          allowed_postal_codes: Coduri poștale permise (separate prin virgulă)
+          document_number: Număr document
+          postal_code: Cod poștal
+        name: Un alt exemplu de autorizare
       errors:
-        duplicate_authorization: Un participant este deja autorizat cu aceleași date. Un administrator te va contacta pentru a verifica detaliile.
+        duplicate_authorization: Un participant este deja autorizat cu aceleași date. Un administrator vă va contacta pentru a verifica detaliile.
       expired_at: A expirat la %{timestamp}
       expires_at: Expiră la %{timestamp}
       foo_authorization:
@@ -332,48 +481,57 @@ ro:
         name: Autorizare foo
       granted_at: Acordată la %{timestamp}
       sms:
-        explanation: Trimite numărul tău de telefon mobil pentru a-ți putea verifica identitatea.
+        explanation: Introduceți numărul de telefon mobil pentru a vă putea verifica identitatea.
         name: Cod prin SMS
       started_at: Început la %{timestamp}
     authorization_modals:
       content:
         expired:
-          authorize: Reautorizează cu "%{authorization}"
-          explanation: Autorizarea ta expirat. Pentru a efectua această acțiune, trebuie să fii reautorizat cu "%{authorization}".
+          authorize: Reautorizați cu "%{authorization}"
+          explanation: Autorizarea dumneavoastră a expirat. Pentru a efectua această acțiune, trebuie să fiți reautorizat cu "%{authorization}".
           title: Autorizarea a expirat
         incomplete:
-          cancel: Anulează
+          cancel: Anulați
+          explanation: 'Chiar dacă sunteți autorizat în prezent cu "%{authorization}", trebuie să vă reautorizați deoarece ne lipsesc următoarele date:'
           invalid_field: "%{field}"
-          reauthorize: Reautorizează
-          title: Te rugăm să reautorizezi
+          reauthorize: Reautorizați
+          title: Vă rugăm să reautorizați
         missing:
-          authorize: Autorizează cu "%{authorization}"
-          explanation: Pentru a efectua această acțiune, trebuie să fii autorizat cu "%{authorization}".
+          authorize: Autorizați cu "%{authorization}"
+          explanation: Pentru a efectua această acțiune, trebuie să fiți autorizat cu "%{authorization}".
           title: Autorizare necesară
+        ok:
+          title: Ați fost autorizat în timp ce vizitai această pagină. Te rugăm să reîncarci pagina pentru a efectua acțiunea.
         pending:
+          explanation: Pentru a efectua această acțiune, trebuie să fiți autorizat cu "%{authorization}", dar autorizarea dvs. este în curs.
+          resume: Verificați progresul autorizării "%{authorization}"
           title: În proces de autorizare
         unauthorized:
+          explanation: Ne pare rău, nu puteți efectua această acțiune deoarece unele dintre datele tale de autorizare nu se potrivesc.
+          invalid_field: "Valoarea %{field} %{value} nu este validă."
           ok: Ok
-          title: Neautorizat
+          title: Nu este autorizat
         unconfirmed:
-          explanation_html: Pentru a efectua această acțiune, trebuie să fii autorizat, înainte de a face acest lucru, trebuie să confirmi adresa ta de e-mail <strong>%{email}</strong>.
-          request_confirmation_instructions: Cere instrucțiunile de confirmare
-          title: Confirmați e-mailul tău
+          confirmation_instructions: 'Dacă nu aţi primit instrucţiunile de confirmare le puteţi solicita din nou:'
+          explanation_html: Pentru a efectua această acțiune, trebuie să fiți autorizat, înainte de a face acest lucru, trebuie să confirmați adresa dumneavoastră de e-mail <strong>%{email}</strong>.
+          request_confirmation_instructions: Cereți instrucțiunile de confirmare
+          title: Confirmați e-mailul dumnevoastră
     block_user_mailer:
       notify:
-        body_1: Contul tău a fost blocat.
+        body_1: Contul dumneavoastră a fost blocat.
         body_2: 'Motiv: %{justification}'
         greetings: Bună ziua, <br/>%{organization_name} <br/><a href="%{organization_url}">%{organization_url}</a>
-        hello: Salut,
-        subject: Contul tău a fost blocat de %{organization_name}
+        hello: Bună ziua,
+        subject: Contul dumneavoastră a fost blocat de %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: și încă %{count}
         few: și încă %{count}
         other: și încă %{count}
-      see_less: "(vezi mai puţin)"
+      see_less: "(mai puține detalii)"
     components:
       component_order_selector:
+        no_content: Nu am găsit niciun conținut cu aceste criterii.
         order:
           all_types: Toate tipurile
           collaborative_draft: Ciornă colaborativă
@@ -381,6 +539,7 @@ ro:
           debate: Dezbatere
           initiative: Inițiativă
           meeting: Întâlnire
+          order: Votul pentru buget
           post: Postează
           proposal: Propunere
           question: Întrebare
@@ -395,13 +554,14 @@ ro:
             amendments_enabled: Amendamente activate
             comments_enabled: Comentarii activate
             comments_max_length: Lungimea maximă a comentariilor
+            define_taxonomy_filters: Vă rugăm să definiți niște filtre pentru acest spațiu participativ înainte de a utiliza această setare.
             dummy_global_attribute1: Mostră de atribut 1
             dummy_global_attribute2: Mostră de atribut 2
             dummy_global_translatable_text: Text-test traductibil
             enable_pads_creation: Activează crearea de pad-uri
+            no_taxonomy_filters_found: Nici un filtru de taxonomie găsit.
             resources_permissions_enabled: Drepturi pentru resurse activate
-            scope_id: Domeniu de interes
-            scopes_enabled: Domenii activate
+            taxonomy_filters: Selectați filtrele pentru componentă
           step:
             amendment_creation_enabled: Crearea de amendamente activată
             amendment_promotion_enabled: Promovarea amendamentelor activată
@@ -411,150 +571,263 @@ ro:
             dummy_step_attribute1: Atribut fictiv 1
             dummy_step_attribute2: Mostră de atribut 2 al etapei
             dummy_step_translatable_text: Mostră de text traductibil pentru etapă
+      pagination:
+        page_title: "%{component_name} - Pagina %{current_page} din %{total_pages}"
     contact: Contact
     content_blocks:
+      announcement:
+        name: Anunț
       cta:
-        name: Imagine, text și butonul Apel la acțiune
+        name: Imagine, text și butonul acțiune
       cta_settings_form:
         background_image: Imagine de fundal
-        button_text: Textul butonului Apel la acțiune
-        button_url: URL-ul butonului Apel la acțiune
+        button_text: Textul butonului de acțiune
+        button_url: Adresă URL acțiune
         description: Descriere
       footer_sub_hero:
         name: Banner suberou suberou
+      global_menu:
+        name: Meniul global
+      hero:
+        name: Imagine Erou și CTA
       hero_settings_form:
         background_image: Imagine de fundal
-        welcome_text: Text de bun-venit
+        welcome_text: Text de întâmpinare
       highlighted_content_banner:
         name: Banner conținut evidențiat
       highlighted_elements_settings_form:
+        components:
+          all: Toate
+          label: 'Selectați componenta:'
         orders:
-          label: 'Sortează elementele după:'
-          random: Aleatoriu
+          label: 'Sortați elementele după:'
+          random: Aleatorii
           recent: Cele mai recente
       how_to_participate:
-        name: Cum să participi
+        name: Cum să participați
       html:
         html_content: Conținut HTML
         name: Bloc HTML
       last_activity:
         name: Ultima activitate
         title: Ultima activitate
-        view_all: Vezi toate
-      metrics:
-        name: Valorile organizației
+        view_all: Vedeți tot
+      last_activity_settings_form:
+        max_last_activity_users: Numărul maxim de avatare ale utilizatorului cu activitate recentă de afișat
+      main_data:
+        name: Date principale
+      metadata:
+        name: Metadate
+      participatory_space_stats:
+        name: Statistici
+      social_networks_metadata:
+        name: Rețele sociale
       static_page:
         section:
-          name: Secţiune
+          name: Secțiune
           section_content: Conţinut
         summary:
           name: Rezumat
           summary_content: Conţinut
         two_pane_section:
           left_column: Coloana stângă
+          name: Secțiune cu două coloane
           right_column: Coloana dreaptă
       stats:
         name: Statisticile organizației
       sub_hero:
         name: Banner suberoi
+    core:
+      actions:
+        login_before_access: Vă rugăm să vă autentificați înainte de a accesa.
+        unauthorized: Nu sunteți autorizat să efectuați această acțiune.
+      application_helper:
+        filter_area_values:
+          all: Toate
+        filter_scope_values:
+          all: Toate
+        filter_taxonomy_values:
+          all: Toate
     devise:
       omniauth_registrations:
+        create:
+          email_already_exists: Un alt cont folosește aceeași adresă de e-mail.
         new:
-          complete_profile: Profil complet
-          nickname_help: Pseudonimul tău în %{organization}. Poate conține doar litere, numere, '-' și '_'.
-          sign_up: Completează-ţi profilul
+          complete_profile: Completați-vă profilul
+          nickname_help: Pseudonimul dumneavoastră în %{organization}. Poate conține doar litere, numere, '-' și '_'.
+          sign_up: Vă rugăm să completați profilul
           subtitle: Te rugăm să completezi următorul formular pentru a finaliza înregistrarea
-          username_help: Numele public care apare pe posturi. Pentru a garanta anonimitatea, poate fi orice nume.
+          username_help: Numele public care apare pe postări. Pentru a garanta anonimitatea, poate fi orice nume.
+        new_tos_fields:
+          sign_up: Creați un cont
+          sign_up_title: Finalizează crearea contului tău
       registrations:
+        create:
+          error: A apărut o problemă la crearea contului dumneavoastră.
         new:
-          already_have_an_account?: Ai deja un cont?
+          already_have_an_account?: Aveți deja un cont?
           log_in: Autentificare
-          newsletter: Primește un buletin informativ ocazional cu informații relevante
-          newsletter_title: Drepturi privind contactele
-          sign_up: Înscrie-te
-          subtitle: Înscrie-te pentru a participa la discuții și pentru a vota propuneri.
-          tos_agreement: Prin înregistrare ești de acord cu %{link}.
+          newsletter: Primiți un buletin informativ ocazional cu informații relevante
+          newsletter_title: Permisiune de contact
+          sign_up: Creați un cont
+          subtitle: Creați un cont pentru a participa la platformă.
+          terms: condițiile de utilizare
+          tos_agreement: Prin înregistrare sunteți de acord cu %{link}.
           tos_title: Condiții de utilizare
           username_help: Numele public care apare pe postări. Pentru a garanta anonimitatea, poate fi orice nume.
       sessions:
         new:
-          are_you_new?: Nou pe platformă?
-          register: Creează un cont
+          are_you_new?: Nu v-ați înregistrat încă?
+          register: Creați un cont
+          sign_in_disabled: Puteți accesa printr-un cont extern.
+          sign_up_disabled: Înregistrarea este dezactivată, poți folosi un cont existent pentru a accesa.
+        user:
+          ephemeral_session_closed: Sesiunea ta de oaspete s-a terminat
+          timed_out: Ați fost inactiv pentru prea mult timp și ai fost deconectat automat de la serviciu. Dacă dorești să continui să utilizezi serviciul, te rugăm să te conectezi din nou.
       shared:
         newsletter_modal:
           buttons:
-            check: Verifică și continuă
+            check: Verificați și continuați
             uncheck: Mențineți nebifat
+          notice: |-
+            <p>Sigur nu doriți să primiți un buletin informativ?<br>
+            Vă rugăm să bifați din nou caseta din buletinul informativ de mai jos.<br>
+            Este foarte important pentru noi să puteți primi e-mailuri ocazionale
+            pentru a face anunțuri importante, puteți modifica oricând opțiunea pe 
+            pagina cu setări pentru notificări. </p>
+            <p>Dacă nu bifați caseta ați putea rata informații importante
+            despre noi oportunități de participare în cadrul platformei.<br>Dacă, totuși, doriți să evitați primirea de buletine informative, înțelegem
+            perfect decizia dumneavoastră.</p>
+            <p>Vă mulțumim că ați citit acest mesaj!</p>
           title: Notificări newsletter
         omniauth_buttons:
-          or: Sau
+          or: sau
+        password_fields:
+          hidden_password: Parola dvs. este ascunsă
+          hide_password: Ascunde parola
+          show_password: Afişeaza parola
+          shown_password:
+        placeholder_email: hi@exemplu.org
     doorkeeper:
       authorizations:
         new:
-          authorize: Autorizați cererea
+          authorize: Autorizați aplicație
           by_organization_link_html: <small class="heading-small">de %{link}</small>
-          cancel: Anulează
-          publish_content: Publică conținut pentru tine
-          see_email: Vezi e-mailul tău
-          see_name: Vezi numele tău
-          see_username: Vezi pseudonimul tău
+          cancel: Anulați
+          publish_content: Permite publicarea conținutului in numele dumneavoastră
+          see_email: Vedeți e-mailul dumneavoastră
+          see_name: Vedeți numele dumneavoastră
+          see_username: Vedeți pseudonimul dumneavoastră
           this_application_will_be_able_to: 'Această aplicație va putea să:'
           this_application_will_not_be_able_to: 'Această aplicație nu va putea să:'
-          update_profile: Actualizeză-ți profilul
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> vrea să folosească contul tău"
+          update_profile: Actualizați-vă profilul
+          wants_to_use_your_account_html: "%{application_name} vrea să folosească contul dumneavoastră"
     download_your_data:
       export:
-        ready: Gata
+        ready: Pregătit
+      help:
+        identities:
+          created_at: Data și ora la care a fost creată identitatea
+          id: Identificatorul unic al acestei identități
+          provider: Furnizorul acestei identități
+          uid: Identificatorul unic al acestei identități
+          updated_at: Data și ora la care identitatea a fost actualizată ultima dată
+          user: Utilizatorul căruia îi aparține această identitate
+        messaging_conversations:
+          created_at: Data la care a fost creată această conversație
+        participatory_space_private_users:
+          created_at: Data și ora la care a fost creat acest utilizator privat
+          id: Identificatorul unic al acestui utilizator privat
+          privatable_to: Spațiul căruia îi aparține acest utilizator privat
+          published: Daca acest utilizator privat este vizibil sau nu
+          role: Rolul pe care îl are acest utilizator privat
+          updated_at: Data și ora la care acest utilizator privat a fost actualizat ultima dată
+        reports:
+          created_at: Data și ora la care acest raport a fost creat
+          details: Detaliile acestui raport
+          id: Identificatorul unic al acestui raport
+          locale: Limba acestui raport
+          moderation: Moderarea pe care o are acest raport
+          reason: Motivul prezentului raport
+          updated_at: Data și ora la care acest raport a fost actualizat ultima dată
+        users:
+          accepted_tos_version: Data la care termenii de utilizare ai acestei platforme au fost acceptați de către utilizator
+          followers_count: Numărul de participanți care urmăresc acest utilizator
+          following_count: Numărul de participanți pe care acest utilizator îl urmărește
+          password_updated_at: Data la care parola a fost schimbată ultima dată
+          roles: Rolul pe care îl are acest utilizator, dacă are vreun astfel de rol
+          type: Tipul pe care acest utilizator îl are
+          updated_at: Data și ora la care acest raport a fost actualizat ultima dată
       show:
-        download_data: Descarcă datele
-        request_data: Cere date
+        download: Descarcă fișier
+        download_data: Descărcare date
+        download_data_description_1: Aici puteți găsi toate descărcările disponibile pentru contul dvs. Aceste fișiere .zip vor fi disponibile timp de două săptămâni înainte de a fi șterse.
+        download_data_description_2: Puteți solicita un fișier .zip cu conținutul generat, precum și datele dumneavoastră personale.
+        download_your_data: Date personale
+        expiration: Expirare
+        expired: Deja a expirat
+        explanation:
+          body_1: Aceste fișiere sunt seturi de date exportate din activitatea dvs. în cadrul acestei platforme, cum ar fi propuneri sau comentarii. Acestea furnizează date brute, structurate care pot fi utilizate pentru analiză, cercetare sau integrare cu alte instrumente.
+          body_2: Aceste fișiere sunt în format CSV (Valori separate prin virgulă), care este un format de fișier utilizat pe scară largă care poate fi deschis și procesat de o varietate de aplicații software, inclusiv programele de foaie de calcul, editorii de text și instrumentele de analiză a datelor.
+          title: Ce sunt aceste fișiere?
+        files_to_download: Fișiere pentru a descărca
+        request_data: Solicitare
+        type: Tip descărcare
     editor_images:
-      drag_and_drop_help: Adaugă imagini prin tragere & plasare sau lipirea lor.
-    endorsement_buttons_cell:
-      already_endorsed: Nu-mi place
-      endorse: Îmi place
-    endorsements:
-      identities:
-        done: Finalizat
-        select_identity: Selectare identitate
+      create:
+        error: Eroare la încărcarea imaginii.
+        success: Imaginea a fost încărcată cu succes.
+      drag_and_drop_help: Adaugați imagini prin tragere & plasare sau lipirea lor.
+    ephemeral_user: Vizitator
     errors:
+      files:
+        file_cannot_be_processed: Fișierul nu poate fi procesat
+        file_resolution_too_large: Rezoluția fișierului este prea mare
+        not_inside_organization: Fișierul nu este atașat niciunei organizații
       internal_server_error:
         copied: Text copiat!
-        copy_to_clipboard: Copiază în clipboard
+        copy_error_message_clarification: Copiază mesajul de eroare în clipboard
+        copy_to_clipboard: Copiați în clipboard
         date_and_time: Data și ora
+        reference: Referinţa
+        request_method: Metoda de solicitare
         title: A apărut o problemă cu serverul nostru
+        try_later: Te rugăm să încerci mai târziu. Dacă eroarea persistă, vă rugăm să copiați următoarele informații și să le trimiteți către întreținătorii platformei cu orice alte informații pe care poate doriți să le partajați.
         unknown: Necunoscut
+        url: Adresa URL
+        user: ID utilizator
       not_found:
         back_home: Înapoi acasă
         content_doesnt_exist: Această adresă este incorectă sau a fost eliminată.
+        title: Pagina pe care o cauți nu poate fi găsită.
     events:
       amendments:
         amendment_accepted:
           affected_user:
-            email_intro: 'A fost acceptat un amendament pentru %{amendable_title}. Îl poţi vedea de pe această pagină:'
+            email_intro: 'A fost acceptat un amendament pentru %{amendable_title}. Îl puteți vedea de pe această pagină:'
             email_outro: Ați primit această notificare deoarece sunteți un autor al %{amendable_title}.
             email_subject: Amendamentul acceptat pentru %{amendable_title} de la %{emendation_author_nickname}
             notification_title: <a href="%{emendation_path}">Amendamentul</a> creat de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a fost acceptat pentru <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Un amendament a fost acceptat pentru %{amendable_title}. Îl poți vedea de pe această pagină:'
-            email_outro: Ai primit această notificare deoarece urmărești %{amendable_title}. Poți înceta să primești notificări urmând linkul anterior.
-            email_subject: Amendamentul acceptat pentru %{amendable_title} de la %{emendation_author_nickname}
+            email_outro: Ați primit această notificare deoarece urmăriți %{amendable_title}. Puteți înceta să primiți notificări urmând linkul anterior.
+            email_subject: Amendament acceptat pentru %{amendable_title} de la %{emendation_author_nickname}
             notification_title: Amendamentul <a href="%{emendation_path}"></a> creat de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a fost acceptat pentru <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'A fost creat un nou amendament pentru %{amendable_title}. Îl poți vedea de pe această pagină:'
             email_outro: Ai primit această notificare deoarece ești autorul amendamentului %{amendable_title}.
-            email_subject: Nou amendament pentru %{amendable_title}
+            email_subject: Amendament nou pentru %{amendable_title}
             notification_title: A fost creat un nou amendament pentru <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Un nou amendament a fost creat pentru %{amendable_title}. Îl poți vedea de pe această pagină:'
             email_outro: Ai primit această notificare deoarece urmărești %{amendable_title}. Poți înceta să primești notificări urmând linkul anterior.
-            email_subject: Nou amendament pentru %{amendable_title}
+            email_subject: Amendament nou pentru %{amendable_title}
             notification_title: A fost creat un nou amendament pentru <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
             email_intro: 'Un amendament respins pentru %{amendable_title} a fost publicat ca un nou %{amendable_type}. Îl poți vedea de pe această pagină:'
-            email_outro: Ai primit această notificare deoarece ești autorul amendamentului %{amendable_title}.
+            email_outro: Ați primit această notificare deoarece sunteți autorul amendamentului %{amendable_title}.
             email_subject: Un amendament primit de la %{emendation_author_nickname} a fost publicat ca un nou %{amendable_type}
             notification_title: Un <a href="%{emendation_path}">amendament respins</a> pentru <a href="%{amendable_path}">%{amendable_title}</a> a fost publicat ca un nou %{amendable_type} de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
@@ -573,6 +846,9 @@ ro:
             email_outro: Ai primit această notificare deoarece urmărești %{amendable_title}. Poți înceta să primești notificări urmând linkul anterior.
             email_subject: Amendament respins pentru %{amendable_title} de la %{emendation_author_nickname}
             notification_title: <a href="%{emendation_path}">Amendamentul</a> creat de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a fost respins pentru <a href="%{amendable_path}">%{amendable_title}</a>.
+        emendation_promoted:
+          follower:
+            email_outro: Ai primit această notificare deoarece ești autor al propunerii "%{amendable_title}.
       attachments:
         attachment_created:
           email_intro: 'Un nou document a fost adăugat la %{resource_title}. Îl poți vedea de pe această pagină:'
@@ -592,84 +868,54 @@ ro:
         email_subject: O actualizare la %{resource_title}
       gamification:
         badge_earned:
+          email_intro: Felicitări! Ai câștigat <a href="%{resource_path}">%{badge_name} insignă</a> (nivelul %{current_level}).
           email_outro: Ai primit această notificare deoarece ai creat o activitate pe site-ul nostru.
+          email_subject: 'Ai câștigat o insignă nouă: %{badge_name}!'
+          notification_title: Felicitări! Ați câștigat ecusonul<a href="%{resource_path}">%{badge_name} </a> (level %{current_level}).
         level_up:
           email_outro: Ai primit această notificare deoarece ai creat o activitate pe site-ul nostru.
-      groups:
-        demoted_membership:
-          email_intro: Un administrator al grupului <a href="%{resource_url}">%{user_group_name}</a> a eliminat drepturile tale de administrator din acel grup.
-          email_outro: Ai primit această notificare deoarece ești membru al acelui grup.
-          email_subject: Nu mai ești administrator al grupului %{user_group_name}!
-          notification_title: Nu mai ești administrator al grupului <a href="%{resource_path}">%{user_group_name}</a>.
-        invited_to_group:
-          email_intro: Un administrator al grupului <a href="%{resource_url}">%{user_group_name}</a> te-a invitat să te alături.
-          email_outro: Ai primit această notificare deoarece ai fost invitat într-un grup. Te rugăm să verifici fila Grupuri din profilul tău pentru a o aproba.
-          email_subject: Ai fost invitat să te alături grupului %{user_group_name}!
-          notification_title: Ai fost invitat să te alături grupului <a href="%{resource_path}">%{user_group_name}</a>. Verifică pagina <a href="%{groups_profile_tab_path}">Grupuri</a> din profilul tău pentru a o aproba!
-        join_request_accepted:
-          email_intro: Felicitări! Un administrator al grupului <a href="%{resource_url}">%{user_group_name}</a> a acceptat cererea ta de a te alătura.
-          email_outro: Ai primit această notificare deoarece solicitarea ta de aderare a fost actualizată.
-          email_subject: Ai fost acceptat în grupul %{user_group_name}!
-          notification_title: Ați fost acceptat pentru grupul <a href="%{resource_path}">%{user_group_name}</a>.
-        join_request_created:
-          email_intro: Cineva a solicitat să se alăture grupului %{user_group_name}. Îl poți accepta sau respinge de la <a href="%{resource_url}">pagina membrilor grupului</a>.
-          email_outro: Ai primit această notificare, deoarece poți gestiona grupul %{user_group_name}.
-          email_subject: Cineva a solicitat să se alăture grupului %{user_group_name}!
-          notification_title: Cineva a solicitat să se alăture grupului %{user_group_name}. Îl poți accepta sau respinge de la <a href="%{resource_path}">pagina membrilor grupului</a>.
-        join_request_rejected:
-          email_intro: Un administrator al grupului <a href="%{resource_url}">%{user_group_name}</a> a respins cererea ta de a te alătura.
-          email_outro: Ai primit această notificare deoarece solicitarea ta de aderare a fost actualizată.
-          email_subject: Cererea ta de a te alătura grupului %{user_group_name} a fost respinsă!
-          notification_title: Cererea ta de a te alătura grupului <a href="%{resource_path}">%{user_group_name}</a> a fost respinsă.
-        promoted_to_admin:
-          email_intro: Un administrator al grupului <a href="%{resource_url}">%{user_group_name}</a> ți-a acordat drepturi de administrator acelui grup.
-          email_outro: Ai primit această notificare deoarece ești membru al acelui grup.
-          email_subject: Acum ești administrator al grupului %{user_group_name}!
-          notification_title: Acum ești administrator al grupului <a href="%{resource_path}">%{user_group_name}</a>.
-        removed_from_group:
-          email_intro: Un administrator al grupului <a href="%{resource_url}">%{user_group_name}</a> te-a eliminat din el.
-          email_outro: Ai primit această notificare deoarece ai fost membru al acelui grup.
-          email_subject: Ai fost eliminat din grupul %{user_group_name}!
-          notification_title: Ai fost eliminat din grupul <a href="%{resource_path}">%{user_group_name}</a>.
-        user_group_created:
-          email_intro: Un nou grup de utilizatori a fost creat cu numele %{user_group_name}. Acum îl poți verifica în panoul <a href="%{groups_admin_url}">de administratori</a>.
-          email_outro: Ai primit această notificare deoarece ești un administrator al platformei.
-          email_subject: A fost creat un nou grup de utilizatori
-          notification_title: Grupul de utilizatori %{user_group_name} a fost creat. Acum îl poți verifica în panoul <a href="%{groups_admin_path}">de administratori</a>.
-        user_group_updated:
-          email_intro: Un grup de utilizatori cu numele %{user_group_name} și-a actualizat profilul, lăsându-l neverificat. Acum îl poți verifica în panoul <a href="%{groups_admin_url}">de administrare</a>.
-          email_outro: Ai primit această notificare deoarece ești un administrator al platformei.
-          email_subject: Un grup de utilizatori și-a actualizat profilul
-          notification_title: Grupul de utilizatori %{user_group_name} și-a actualizat profilul, lăsând neverificat. Acum îl poți verifica în panoul <a href="%{groups_admin_path}">de administratori</a>.
+      notification_event:
+        notification_title: A apărut un eveniment pentru <a href="%{resource_path}">%{resource_title}</a>.
       reports:
+        parent_hidden:
+          email_intro: |-
+            %{resource_type} nu mai este vizibil.<br>
+            Acest lucru s-a întâmplat deoarece propunerea, reuniunea, dezbaterea sau comentariul la care ați răspuns a fost moderat. Dacă acesta devine disponibil din nou, comentariul dumneavoastră va fi restaurat automat.
+          email_outro: Ați primit această notificare deoarece sunteți un autor al %{resource_type}.
+          email_subject: '%{resource_type} nu mai este vizibil'
+          notification_title: |-
+            %{resource_type} nu mai este vizibil.<br>
+            Acest lucru s-a întâmplat deoarece propunerea, reuniunea, dezbaterea sau comentariul la care ați răspuns a fost moderat. Dacă acesta devine disponibil din nou, comentariul dumneavoastră va fi restaurat automat.
+            <i>%{resource_content}</i>
         resource_hidden:
           email_intro: Un administrator a eliminat %{resource_type} deoarece a fost raportat ca %{report_reasons}.
-          email_outro: Ai primit această notificare deoarece ești un autor al conținutului șters.
+          email_outro: Ați primit această notificare deoarece sunteți un autor al conținutului șters.
           email_subject: '%{resource_type} tău a fost eliminat'
           notification_title: |-
             Un administrator a eliminat %{resource_type} deoarece a fost raportat ca %{report_reasons}.</br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, pe care îl urmărești, tocmai a aprobat „%{resource_title}” și noi credem că ar putea fi interesant pentru tine. Verificați și contribuția:'
-        email_outro: Ai primit această notificare deoarece urmărești %{endorser_nickname}. Poți înceta să primești notificări urmând linkul anterior.
-        email_subject: "%{endorser_nickname} a susținut un conținut nou"
-        notification_title: Inițiativa <a href="%{resource_path}">%{resource_title}</a> %{resource_type} a fost susținută de <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
+      resources:
+        soft_deleted:
+          notification_title: Un administrator a șters "%{resource_type}" "%{resource_title}".
       users:
         profile_updated:
-          email_intro: Pagina de profil <a href="%{resource_url}"></a> din %{name} (%{nickname}), pe care o urmărești, a fost actualizată.
-          email_outro: Ai primit această notificare deoarece urmărești %{nickname}. Poți înceta să primești notificări urmând linkul anterior.
+          email_intro: <a href="%{resource_url}">Pagina de profil</a> din %{name} (%{nickname}), pe care o urmăriți, a fost actualizată.
+          email_outro: Ați primit această notificare deoarece urmăriți activitatea lui %{endorser_nickname}. Puteți înceta să primiți notificări urmând linkul anterior.
           email_subject: "%{nickname} și-a actualizat profilul"
           notification_title: Pagina de profil <a href="%{resource_path}"></a> din %{name} (%{nickname}), pe care o urmărești, a fost actualizată.
+        user_officialized:
+          email_intro: Participantul %{name} (%{nickname}) a fost oficializat.
+          email_outro: Ați primit această notificare deoarece sunteți un administrator al organizației.
     export_mailer:
       download_your_data_export:
-        click_button: 'Dă-i clic pe următorul link pentru a descărca datele.<br/>Fișierul va fi disponibil până la %{date}.<br/>Vei avea nevoie de <a href="https://www.7-zip.org/">7-Zip</a> (pentru Windows), <a href="https://www.keka.io/en/">Keka</a> (pentru MacOS) sau <a href="https://peazip.github.io">PeaZip</a> (pentru Linux) pentru a-l deschide. Parola: %{password}'
         download: Descărcare
       export:
-        ready: Atașat vei găsi o versiune arhivată a exportului.
-      subject: Exportul tău "%{name}este gata
+        download: Descarcă
+      subject: Exportul dumneavoastră „%{name}” este gata
     filters:
       linked_classes:
         all: Toate
+        answer: Răspuns
         collaborative_draft: Ciornă colaborativă
         dummy_resource: Resurse-test
         meeting: Întâlniri
@@ -677,7 +923,8 @@ ro:
         proposal: Propuneri
         result: Rezultate
     fingerprint:
-      check: Verifică amprenta
+      check: Verificați amprenta
+      explanation: Textul de mai jos reprezintă o reprezentare simplificată, hash a acestui conținut. Este util să se asigure faptul că conținutul nu a fost modificat fraudulos, deoarece o singură modificare ar avea ca rezultat o valoare total diferită.
       online_calculator_name: Calculator MD5 online
       replicate_help: Această amprentă este calculată folosind un algoritm de fixare SHA256. Pentru a-l copia singur/ă, poți folosi un %{online_calculator_link} şi copia datele sursă.
       source: Sursa
@@ -693,7 +940,7 @@ ro:
       non_public_followings: Unele dintre resursele urmărite nu sunt publice.
     follows:
       create:
-        button: Urmărește
+        button: Urmăriţi
         error: A apărut o problemă la urmărirea acestei resurse.
       destroy:
         button: Nu doresc să mai urmăresc
@@ -725,11 +972,12 @@ ro:
           filename: Nume fișier
           remove: Șterge
           replace: Înlocuiește
+          save: Salvați
           title: Titlu
           title_required: Titlul este obligatoriu!
         select_file: Selectaţi fişierul
       upload_help:
-        dropzone: Trage fişierele aici sau apasă pe buton pentru a încărca
+        dropzone: Trageți fișierele aici sau apăsați pe buton pentru a încărca
         explanation: Îndrumare pentru %{attribute}
     gamification:
       all_badges_link: Vezi toate insignele disponibile.
@@ -743,57 +991,14 @@ ro:
           name: Urmăritori
           next_level_in: Obțineți încă %{score} urmăritori pentru a atinge următorul nivel!
         index:
-          badge_title: "%{name} insignă"
+          badge_title: "Insignă %{name}"
           how: Cum poți să o câștigi
           page_description: Insignele sunt recunoașterea acțiunilor participanților și progresele înregistrate în cadrul platformei. Pe măsură ce începi să descoperi, să participi și să interacționezi în platformă, vei câștiga diferite insigne. Aici este lista de insigne și câteva modalități prin care le poți câștiga.
           title: Insigne
       description: Insignele sunt recunoașterea acțiunilor participanților și progresele înregistrate în cadrul platformei. Pe măsură ce începi să descoperi, să participi și să interacționezi în platformă, vei câștiga diferite insigne.
       level: Nivelul %{level}
       title: Ce sunt insignele?
-    group_admins:
-      actions:
-        demote_admin: Elimină administratorul
-      index:
-        current_admins: 'Administratori curenți:'
-        manage_admins: Gestionare administratori
-    group_invites:
-      accept_invitation: Acceptă
-      accept_or_reject_group_invitations: 'Următoarele grupuri te-au invitat să te alături. Acceptă sau respinge cererile lor:'
-      index:
-        invite: Invită
-        invite_user: Invită un participant
-      reject_invitation: Respinge
-    group_members:
-      actions:
-        are_you_sure: Sigur dorești asta?
-        promote_to_admin: Setare ca administrator
-        remove_from_group: Eliminare participant
-      index:
-        current_members_without_admins: 'Membrii actuali (fără administratori):'
-        manage_members: Gestionare participanți
     groups:
-      actions:
-        are_you_sure: Sigur dorești asta?
-      edit:
-        edit_user_group: Editează grup
-        update_user_group: Actualizați grupul
-      form:
-        email_help: E-mailul organizației, asocierii, colective, grupului, etc.
-        fill_in_for_verification: 'Completați aceste câmpuri dacă dorești ca grupul tau să fie verificat:'
-        name_help: Numele organizației, asocierii, colectivelor, grupului, etc.
-        nickname_help: Pseudonimul organizaţiei, asocierii, colectivelor, grupului etc. Nu folosi spaţii sau accente.
-      join:
-        success: Cererea de intrare a fost făcută cu succes. Un administrator va revizui cererea ta înainte de a o accepta în grup.
-      leave:
-        success: Grupul a fost abandonat.
-      members:
-        accept_or_reject_join_requests: 'Următorii utilizatori au solicitat să se alăture acestui grup. Acceptă sau respinge cererile lor:'
-        accept_request: Acceptă
-        reject_request: Respinge
-      new:
-        create_user_group: Creează grup
-        new_user_group: Grup nou
-        subtitle: Creează un grup și invită alți participanți să participe.
       roles:
         admin: Administrator
         creator: Administrator
@@ -806,7 +1011,7 @@ ro:
     last_activities:
       all: Toate tipurile de activitate
       index:
-        last_activity: Ultima activitate
+        last_activity: Activitate recentă
     links:
       invalid_url: URL invalid
       warning:
@@ -848,30 +1053,10 @@ ro:
       home: Acasă
     messaging:
       conversation_mailer:
-        comanagers_new_conversation:
-          admin_in_group: Primiți acest lucru deoarece sunteți un administrator în %{group}.
-          greeting: Hi, %{recipient}!
-          intro: "%{manager} a început o nouă conversație în numele lui %{group}. Click aici pentru a o vedea:"
-          subject: "%{manager} a început o nouă conversație ca %{group}"
-        comanagers_new_message:
-          admin_in_group: Primiți acest lucru deoarece sunteți un administrator în %{group}.
-          greeting: Hi, %{recipient}!
-          intro: "%{manager} a postat mesaje noi într-o conversație în numele lui %{group}. Click aici pentru a le vedea:"
-          subject: "%{manager} a trimis mesaje noi ca %{group}"
         new_conversation:
           greeting: Hi, %{recipient}!
           intro: "%{sender} a început o nouă conversație cu tine. Apasă aici pentru a o vedea:"
           subject: "%{sender} a început o conversație cu tine"
-        new_group_conversation:
-          admin_in_group: Primiți acest lucru deoarece sunteți un administrator în %{group}.
-          greeting: Hi, %{recipient}!
-          intro: "%{sender} a început o nouă conversație cu grupul %{group}. Click aici pentru a o vedea:"
-          subject: "%{sender} a început o conversație cu %{group}"
-        new_group_message:
-          admin_in_group: Primiți acest lucru deoarece sunteți un administrator în %{group}.
-          greeting: Hi, %{recipient}!
-          intro: "%{sender} a postat mesaje noi într-o conversație cu grupul %{group}. Click aici pentru a le vedea:"
-          subject: "%{group} au mesaje noi de la %{sender}"
         new_message:
           greeting: Hi, %{recipient}!
           intro: "%{sender} a postat mesaje noi în conversația ta. Apasă aici pentru a le vedea:"
@@ -884,7 +1069,7 @@ ro:
           no_results: Niciun rezultat
         error_modal:
           close: Închidere
-          correct_errors: Te rugăm să remediezi erorile și să încerci din nou.
+          correct_errors: Vă rugăm să remediați erorile și să încercați din nou.
           intro: 'Au existat următoarele erori cu mesajul tău:'
           ok: Ok
         index:
@@ -902,23 +1087,14 @@ ro:
         start:
           placeholder: Mesajul tău...
           send: Trimite
-    metrics:
-      download:
-        csv: Descărcare date (CSV)
-      followers:
-        description: Numărul de participanți care urmăresc acest spațiu de participare
-        object: urmăritori
-        title: Urmăritori
-      participants:
-        description: Numărul de participanți activi în organizație
-        object: participanți
-        title: Participanți
-      users:
-        description: Numărul de participanți în organizație
-        object: participanți
-        title: Participanți
+    metadata:
+      progress:
+        not_started: Încă nu a început
+        remaining: "%{time_distance} ramas"
     newsletter_mailer:
       newsletter:
+        no_reply_notice: Acest e-mail a fost trimis de la o adresă de e-mail de notificare care nu poate accepta e-mailul primit. Nu răspundeți la acest mesaj.
+        see_on_website: Nu se poate vedea corect acest e-mail? Vezi pe site-ul <a href="%{link}" target="_blank" class="see-on-website"></a>.
         unsubscribe: Pentru a renunța la primirea acestui tip de e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Dezabonați-vă</a>.
     newsletter_templates:
       basic_only_text:
@@ -941,9 +1117,14 @@ ro:
         main_image: Imaginea principală
     newsletters:
       unsubscribe:
+        check_subscription: Dacă doriți să vă schimbați preferințele, puteți face acest lucru în <a href="%{link}" target="_blank">pagina de configurare</a>.
+        error: A apărut o eroare la dezabonare.
         success: Sunteți dezabonat cu succes.
         token_error: Link-ul a expirat.
         unsubscribe: Dezabonare
+    newsletters_opt_in:
+      update:
+        error: A apărut o eroare la actualizarea acestui buletin informativ.
     newsletters_opt_in_mailer:
       notify:
         body_1: Prelucrarea datelor cu caracter personal şi protecţia acesteia devin din ce în ce mai importante pentru noi toţi. Prin noul Regulament general privind protecția datelor (RGDP) din 25 mai 2018, persoanele fizice dețin un control mai bun asupra datelor lor cu caracter personal. Din acest motiv avem nevoie de "OK-ul tău" pentru a continua să trimiți informații relevante despre activitățile %{organization_name}.
@@ -972,7 +1153,11 @@ ro:
     notifications_settings:
       show:
         administrators: Administratori
+        allow_public_contact: Permit tuturor să îmi trimită un mesaj direct, chiar dacă nu îi urmăresc.
+        assigned_to_proposal: Vreau să primesc un e-mail atunci când cineva îmi atribuie o propunere pentru evaluare
         direct_messages: Primește mesaje directe de la oricine
+        email_on_moderations: Vreau să primesc un e-mail de fiecare dată când se raportează ceva pentru moderare.
+        evaluators: Evaluatori
         everything_followed: Tot ce urmăresc
         newsletter_notifications: Vreau să primesc buletine informative
         newsletters: Newslettere
@@ -981,10 +1166,11 @@ ro:
           none: Nimic
           real_time: În timp real
           weekly: Săptămânal
+        notifications_sending_frequency: Cât de des doriți să primiți e-mailul de notificări?
         own_activity: Propria mea activitate, ca atunci când cineva comentează în propunerea mea sau mă menționează
         push_notifications: Notificări Instant
         receive_notifications_about: Vreau să primesc notificări despre
-        update_notifications_settings: Salvează modificările
+        update_notifications_settings: Salvați modificările
       update:
         error: A apărut o eroare la actualizarea setărilor notificărilor.
         success: Setările de notificări au fost actualizate cu succes.
@@ -992,6 +1178,13 @@ ro:
       show:
         retry: Încearcă din nou
     open_data:
+      help:
+        core:
+          generated_on_date: Generat la %{date}
+          resources:
+            one: "%{count} rezultat"
+            few: "%{count} rezultate"
+            other: "%{count} rezultate"
       not_available_yet: Fişierele de date deschise nu sunt încă disponibile, vă rugăm să încercaţi din nou în câteva minute.
     pad_iframe:
       disclaimer: Conținutul acestui panou este scris de utilizatori înregistrați și își exprimă opiniile. %{organization} nu poate fi considerat responsabil pentru conținutul său.
@@ -1012,22 +1205,38 @@ ro:
           register: Inregistrare
         hero:
           participate: Participă
-          participate_title: Participă la procesele platformei
+          participate_title: Participați la procesele platformei
           welcome: Bine ai venit la %{organization}!
         statistics:
-          headline: Starea curentă a %{organization}
+          headline: Statistici
         sub_hero:
           register: Inregistrare
-          register_title: Înregistrează-te pentru a crea un cont
+          register_title: Creați un cont
       index:
         standalone_pages: Pagini
         subheading: Navigați prin paginile de ajutor ale %{name}
         title: Ajutor
         topics: Subiecte
-      participatory_space:
-        metrics:
-          headline: Indicatori
-          link: Arată toate măsurătorile
+    participants_account_mailer:
+      inactivity_notification:
+        body_html: |
+          <p>Înregistrările noastre indică faptul că ați creat un cont pe %{organization_name} pe <strong>%{date_account_creation}</strong> și că nu ați fost activ de la <strong>%{date_last_connection}</strong>.</p>
+          <p>Pentru a-ți proteja confidențialitatea, acest cont a fost programat pentru ștergere automată în <strong>%{days} zile</strong>.</p>
+          <p>Dacă doriţi să vă păstraţi contul %{organization_name}, pur și simplu %{login_url} înainte de această dată, iar contul dvs. va fi păstrat.<p>
+        greetings_html: |
+          Cu stimă,<br>
+          %{organization_name}
+        hello_html: Dragă <strong>%{username}</strong>,
+        log_in: autentificare
+        never_logged_in: niciodată autentificat
+        subject: Avertizare cont inactiv
+      removal_notification:
+        body: Contul dumneavoastră din %{organization_name} a fost șters din cauza inactivității.
+        greetings_html: |
+          Cu stimă,<br>
+          %{organization_name}
+        hello: Dragă %{username},
+        subject: Cont inactiv șters
     profile:
       deleted: Participant șters
     profiles:
@@ -1037,35 +1246,18 @@ ro:
         conversations: Conversații
         followers: Urmăritori
         following: Urmăriri
-        groups: Grupuri
-        members: Membri
         officialized: Participant oficial
         send_private_message: Trimite mesaj privat
-      sidebar:
-        badges:
-          info: Insignele sunt câștigate prin desfășurarea de activități specifice pe platformă.
-          title: Insigne
       user:
         actions:
-          create_user_group: Creează grup
-          invite_user: Invită un participant
-          manage_user_group_users: Gestionare participanți
+          edit_profile: Editare profil
           message: Mesaj
-        create_user_group: Creează grup
-        edit_profile: Editare profil
-        edit_user_group: Editează profilul grupului
-        invite_user: Invite participant
-        join_user_group: Cerere de aderare la grup
-        leave_user_group: Părăsește grupul
-        manage_user_group_admins: Gestionează administratorii
-        manage_user_group_users: Gestionează membrii
-        resend_email_confirmation_instructions: Retrimite e-mail instrucțiuni de confirmare
+          resend_email_confirmation_instructions: Retrimite e-mail instrucțiuni de confirmare
+    qr:
+      show:
+        scan: Scanaţi codul QR
+        title: Cod QR pentru %{resource_title}
     reported_mailer:
-      hide:
-        hello: Bună ziua %{name},
-        manage_moderations: Administreaza moderatii
-        report_html: <p>Următorul conţinut <a href="%{url}"></a> a fost ascuns automat.</p>
-        subject: O resursă a fost ascunsă automat
       report:
         authors: Autori
         content: Conținut raportat
@@ -1081,26 +1273,19 @@ ro:
         subject: A fost raportată o resursă
     reports:
       create:
-        error: A apărut o eroare la crearea raportului. Te rugăm să încerci din nou.
         success: Raportul a fost creat cu succes şi va fi revizuit de un administrator.
-    resource_endorsements:
-      create:
-        error: A apărut o problemă în timpul înregistrării susținerii.
+      parent_hidden:
+        report_details: Resursa părinte a fost ascunsă
+    resource:
+      controls_label: Control resursă
+    resource_autocomplete:
+      help: Tastați pentru a căuta propuneri
     scopes:
       global: Domeniul global de interes
-      picker:
-        cancel: Anulează
-        change: Schimbă domeniul selectat
-        choose: Selectare
-        currently_selected: Domeniul selectat în prezent
-        title: Selectează %{field}
       prompt: Selectează un domeniu
-      scopes: Domenii de interes
-      scopes_picker_input:
-        select_scope: 'Selectează un domeniu (actual: %{current})'
     search:
       results: Rezultatele căutării
-      results_found_for_term: '%{count} Rezultate pentru căutare: "%{term}"'
+      results_found_for_term: '%{count} rezultate ale căutării: "%{term}"'
       term_input_placeholder: Caută
     searches:
       filters:
@@ -1119,24 +1304,25 @@ ro:
       selfxss_warning:
         description: Această caracteristică de browser este destinată dezvoltatorilor și nu ar trebui să inserați nimic aici dacă vi s-a cerut să faceți acest lucru. Lipirea conținutului în această fereastră poate compromite intimitatea ta și permite hackerilor să îți acceseze contul.
         title: Opriți!
+    share_widget:
+      download: Download
+      print: Tipăriți afișul
+      qr_code: Cod QR
     shared:
       confirm_modal:
         cancel: Anulează
         close_modal: Închide fereastra
         ok: Ok
         title: Confirmare
-      extended_navigation_bar:
-        more: Mai
-        unfold: Desfășurat
       filter_form_help:
         help: Formularul de mai jos filtrează dinamic rezultatele căutării atunci când condițiile de căutare sunt schimbate.
         skip: Sari la rezultate
       flag_modal:
         already_reported: Acest conținut este deja raportat și va fi revizuit de către un administrator.
-        close: Inchide
+        close: Închideți
         description: Este acest conținut neadecvat?
         hide: Ascunde
-        hide_content: Ascunde conţinutul
+        hide_content: Ascundeți conținutul
         offensive: Conține rasism, sexism, slurbii, atacuri personale, amenințări cu moartea, cereri de sinucidere sau orice formă de discurs de incitare la ură.
         reason: Motiv
         report: Raport
@@ -1144,49 +1330,42 @@ ro:
         title: Raportează o problemă
       flag_user_modal:
         already_reported: Acest conținut este deja raportat și va fi revizuit de către un administrator.
-        close: Inchide
-        description: Ce este nepotrivit pentru utilizator?
+        description: Ce este nepotrivit pentru acest participant?
         offensive: Conține rasism, sexism, insulte, atacuri personale, amenințări cu moartea, cereri de sinucidere sau orice formă de discurs de incitare la ură.
         report: Raportează
         spam: Conține clickbait, publicitate, escrocherii sau roboți script.
-        title: Raportează un utilizator nepotrivit
+        title: Raportează un participant nepotrivit
       floating_help:
         help: Ajutor
       login_modal:
-        sign_up: Înscrie-te
-      participatory_space_filters:
-        filters:
-          areas: Zone
-          select_an_area: Selectează o zonă
+        sign_up: Creați un cont
       public_participation:
         public_participation: Arată public participarea mea
       reference:
-        reference: 'Referinţă: %{reference}'
-      represent_user_group:
-        represent_user_group: Reprezint un grup
-        select_user_group: Selectați un grup
+        reference: 'Referință: %{reference}'
       results_per_page:
         label: 'Rezultate pe pagină:'
-        title: Selectaţi numărul de rezultate pe pagină
+        title: Selectați numărul de rezultate pe pagină
       share_modal:
         copy_share_link: Copiază
         copy_share_link_clarification: Copiază link-ul de partajare în clipboard
         copy_share_link_copied: Copiat!
+        copy_share_link_cta: Sau copiați link-ul
         copy_share_link_message: Link-ul a fost copiat cu succes în clipboard.
         share: Distribuie
         share_link: Distribuie link-ul
     statistics:
       comments_count: Comentarii
-      endorsements_count: Susțineri
+      comments_count_tooltip: Numărul total de comentarii postate în acest spațiu.
       followers_count: Urmăritori
+      followers_count_tooltip: Numărul de utilizatori care urmăresc orice parte a acestui spațiu pentru a rămâne la curent.
       headline: Statistici
       no_stats: Încă nu există statistici.
       pages_count: Pagini
       participants_count: Participanți
+      participants_count_tooltip: Numărul de utilizatori unici care au interacționat în acest spațiu prin prezentarea de propuneri, participarea la întâlniri, votarea sau participarea la discuții.
       users_count: Participanți
-    tags:
-      filter_results_for_category: 'Filtrează rezultatele pentru categoria: %{resource}'
-      filter_results_for_scope: 'Filtrează rezultatele pentru domeniul: %{resource}'
+      users_count_tooltip: Numărul total de utilizatori care s-au înregistrat și și-au confirmat contul prin e-mail.
     translation_bar:
       help_text: "<strong>Avertisment:</strong> Conținutul poate fi tradus automat și nu este 100% exact."
       show_original: Afișați textul original
@@ -1196,25 +1375,15 @@ ro:
         no_activities_warning: Acest participant nu are nicio activitate încă.
     user_contact_disabled: Acest participant nu acceptă mesaje directe.
     user_conversations:
-      create:
-        existing_error: Mesajul nu a putut fi creat. Conversaţia există deja, vă rugăm să încercaţi din nou acum.
-        success: Conversația a început cu succes!
       index:
-        conversations_info: Conversațiile sunt private. nimeni altcineva nu le poate vedea. O conversație poate fi începută cu vreun participant sau grup înregistrat pe platformă.
-        no_conversations_warning: Nu există încă conversații.
         time_ago: "%{time} în urmă"
-      reply:
-        placeholder: Răspunsul tău...
-        send: Trimite
-      update:
-        error: Mesajul nu a fost trimis. Încercați din nou mai târziu
-    user_interests:
-      show:
-        my_interests: Interesele mele
-        update_my_interests: Actualizează-mi interesele
-      update:
-        error: A apărut o eroare la actualizarea intereselor tale.
-        success: Interesele tale au fost actualizate cu succes.
+    user_group_mailer:
+      notify_deprecation_to_member:
+        body_1: 'Vă contactăm pentru a vă informa cu privire la o actualizare importantă a grupului de utilizatori la care sunteți membru <strong>%{group_name}</strong>.'
+        body_2: Ca parte a eforturilor noastre de a simplifica experiența organizațiilor, funcționalitatea "Grupuri de utilizatori" va fi înlăturată. Profilul dvs. de utilizator grup a fost acum convertit într-un profil de participant obișnuit.
+        greeting: Dragă %{name},
+        instructions_1: Dacă aveți acces la acest cont de e-mail, vă rugăm să verificați căsuța poștală pentru instrucțiuni.
+        subject: Grupul de utilizatori din care faceți parte are actualizări importante
     user_report_mailer:
       notify:
         body_1: Utilizatorul %{user} a fost raportat de %{token}
@@ -1261,43 +1430,45 @@ ro:
       not_found_in_database: '%{authentication_keys} sau parolă invalidă.'
     invitations:
       edit:
-        header: Finalizează crearea contului tău
+        header: Finalizați crearea contului dumneavoastră
         submit_button: Salvează
         subtitle: Dacă acceptați invitația, vă rugăm să vă setați porecla și parola.
-      invitation_removed: Invitația ta a fost eliminată.
-      invitation_token_invalid: Tokenul de invitație furnizat nu este valid!
+      invitation_removed: Invitația dumneavoastră a fost eliminată.
+      invitation_token_invalid: Codul de invitație furnizat nu este valid!
       new:
-        header: Trimite invitație
-        submit_button: Trimite o invitație
+        header: Trimiteți invitația
+        submit_button: Trimiteți o invitație
       no_invitations_remaining: Nicio invitație rămasă
       send_instructions: Un e-mail de invitație a fost trimis la %{email}.
-      updated: Parola ta a fost setată cu succes. Acum ești conectat.
-      updated_not_active: Parola ta a fost setată cu succes.
+      updated: Parola dvs. a fost setată cu succes. Acum ești conectat.
+      updated_not_active: Parola dvs. a fost setată cu succes.
     mailer:
       confirmation_instructions:
-        action: Confirmă contul meu
-        greeting: Bine ai venit %{recipient}!
+        action: Confirmaţi contul
+        greeting: Bun venit %{recipient}!
         instruction: 'Puteţi confirma contul de e-mail prin link-ul de mai jos:'
-        subject: Instrucţiuni de confirmare
+        subject: Instrucțiuni de confirmare
       email_changed:
         greeting: Bună ziua %{recipient}!
-        subject: E-mail modificat
+        subject: Adresa e-mai a fost schimbată
       invitation_instructions:
-        accept: Acceptă invitația
-        accept_until: Această invitație va fi scadentă în %{due_date}.
+        accept: Acceptați invitația
+        accept_until: Această invitație va expira la %{due_date}.
         decline: Refuzați invitația
         hello: Bună ziua %{email},
-        invited_you_as_admin: "%{invited_by} te-a invitat ca administrator de %{application}. Poți să îl accepți prin link-ul de mai jos."
-        invited_you_as_private_user: "%{invited_by} te-a invitat ca participant privat de %{application}. Îl poți accepta prin link-ul de mai jos."
-        someone_invited_you: Cineva te-a invitat la %{application}. Îl poți accepta prin link-ul de mai jos.
-        someone_invited_you_as_admin: Cineva te-a invitat ca administrator al %{application}, îl poți accepta prin link-ul de mai jos.
-        someone_invited_you_as_private_user: Cineva te-a invitat ca participant privat la %{application}, îl poți accepta prin link-ul de mai jos.
-        subject: Instrucţiuni de invitaţie
+        invited_you_as_admin: "%{invited_by} v-a invitat ca administrator al %{application}. Îl puteți accepta prin link-ul de mai jos."
+        invited_you_as_private_user: "%{invited_by} v-a invitat ca participant privat la %{application}. Puteți accepta prin linkul de mai jos."
+        someone_invited_you: Cineva v-a invitat la %{application}. Puteți accepta prin linkul de mai jos.
+        someone_invited_you_as_admin: Cineva v-a invitat să administrați %{application}. Puteți accepta prin linkul de mai jos.
+        someone_invited_you_as_private_user: Cineva v-a invitat ca participant privat la %{application}, puteți accepta prin intermediul linkului de mai jos.
+        subject: Instrucțiuni pentru invitație
+      invite_admin:
+        subject: Ați fost invitat să gestionați %{organization}
       password_change:
         greeting: Bună ziua %{recipient}!
-        subject: Parolă schimbată
+        subject: Parola a fost schimbată
       reset_password_instructions:
-        action: Schimbă-mi parola
+        action: Modificați parola mea
         greeting: Bună ziua %{recipient}!
         instruction: Cineva a solicitat un link pentru a vă schimba parola, şi puteţi face acest lucru prin link-ul de mai jos.
         subject: Instrucțiuni resetare parolă
@@ -1307,51 +1478,78 @@ ro:
         instruction: 'Faceți clic pe link-ul de mai jos pentru a vă debloca contul:'
         subject: Instrucțiuni de deblocare
     omniauth_callbacks:
-      failure: Nu te-a putut autentifica de la %{kind} deoarece "%{reason}".
+      failure: Nu ați putut fi autentificat din %{kind} deoarece "%{reason}".
       success: Autentificat cu succes din contul %{kind}.
     passwords:
       edit:
-        change_my_password: Schimbă-mi parola
-        confirm_new_password: Confirmare parolă nouă
+        change_my_password: Modificați parola mea
+        confirm_new_password: Confirmați parola nouă
         new_password: Parola nouă
       new:
-        forgot_your_password: Ți-ai uitat parola?
-        send_me_reset_password_instructions: Trimite-mi instrucțiunile de resetare a parolei
+        forgot_your_password: Ați uitat parola?
+        send_me_reset_password_instructions: Trimiteți-mi instrucțiunile de resetare a parolei
       send_instructions: Veţi primi un e-mail cu instrucţiuni despre cum să resetaţi parola în câteva minute.
-      send_paranoid_instructions: Dacă adresa ta de e-mail există în baza noastră de date, vei primi în câteva minute un link de recuperare a parolei la adresa ta de e-mail.
-      updated: Parola ta a fost schimbată cu succes. Acum ești conectat.
-      updated_not_active: Parola dvs. a fost schimbată cu succes.
+      send_paranoid_instructions: În cazul în care adresa dumneavoastră e-mail există în baza noastră de date, în câteva minute veți primi un link de recuperare a parolei la adresa dvs. e-mail.
+      updated: Parola ta a fost schimbată cu succes. Acum sunteți conectat(ă).
+      updated_not_active: Parola dumneavoastră a fost schimbată cu succes.
     registrations:
-      destroyed: Contul tău a fost anulat cu succes. Sperăm să te revedem în curând.
+      destroyed: Contul dumneavoastră a fost anulat. Sperăm să reveniți în curând.
       new:
-        sign_up: Înscrie-te
+        sign_up: Creați un cont
       signed_up: Bine ați venit! V-ați înregistrat cu succes.
       signed_up_but_inactive: V-ați înregistrat cu succes. Cu toate acestea, nu vă putem conecta deoarece contul dvs. nu este încă activat.
       signed_up_but_locked: V-ați înregistrat cu succes. Cu toate acestea, nu vă putem conecta deoarece contul dvs. este blocat.
-      signed_up_but_unconfirmed: Un mesaj cu un link de confirmare a fost trimis la adresa ta de e-mail. Te rugăm să urmezi link-ul pentru a-ți activa contul.
-      update_needs_confirmation: Ți-ai actualizat contul cu succes, dar trebuie să verificăm noua ta adresă de e-mail. Vă rugăm să verificați adresa de e-mail și să urmați link-ul de confirmare pentru a confirma noua dvs. adresă de e-mail.
-      updated: Contul dvs. a fost actualizat cu succes.
+      signed_up_but_unconfirmed: Un mesaj cu un link de confirmare a fost trimis la adresa dumneavoastră de e-mail. Vă rugăm să urmați link-ul pentru a vă activa contul.
+      update_needs_confirmation: V-ați actualizat contul, însă trebuie să vă verificăm noua adresă de e-mail. Vă rugăm să verificați e-mailul și să urmați linkul de confirmare pentru a vă confirma noua adresă de e-mail.
+      updated: Contul dumneavoastră fost actualizat cu succes.
     sessions:
       new:
         log_in: Autentificare
     shared:
       links:
         back: Înapoi
-        forgot_your_password: Ți-ai uitat parola?
+        forgot_your_password: V-ați uitat parola?
         log_in: Autentificare
-        sign_up: Înscrie-te
+        sign_up: Creați un cont
       minimum_password_length:
-        one: "(minim%{count} caracter)"
-        few: "(minim%{count} caractere)"
-        other: "(minim%{count} caractere)"
+        one: "(minimum %{count} caractere)"
+        few: "(minimum %{count} caractere)"
+        other: "(minimum %{count} caractere)"
     unlocks:
       new:
-        resend_unlock_instructions: Retrimite instrucțiunile de deblocare
-      send_instructions: Veţi primi un e-mail cu instrucţiuni despre cum să vă deblocaţi contul în câteva minute.
+        resend_unlock_instructions: Retrimiteți instrucțiunile de deblocare
+      send_instructions: Veți primi un e-mail cu instrucțiuni despre cum să vă deblocați contul în câteva minute.
       send_paranoid_instructions: Dacă contul tău există, vei primi un e-mail cu instrucțiuni pentru cum să-l deblochezi în câteva minute.
   doorkeeper:
     scopes:
-      public: Informațiile dvs. publice.
+      public: Informațiile dumneavoastră publice.
+  emojis:
+    add_custom: Adaugați emoji personalizat
+    button: Adaugați emoji
+    categories:
+      activity: Activități
+      custom: Personalizat
+      flags: Steaguri
+      foods: Alimente și băuturi
+      frequent: Utilizate frecvent
+      nature: Animale și natură
+      objects: Obiecte
+      people: Emoticoane și oameni
+      places: Călătorii și locuri
+      search: Rezultatele căutării
+      symbols: Simboluri
+    pick: Alegeți un emoji…
+    search: Căutare
+    search_no_results_1: O, nu!
+    search_no_results_2: Acel emoji nu a putut fi găsit
+    skins:
+      '1': Implicit
+      '2': Luminos
+      '3': Mediu-Luminos
+      '4': Mediu
+      '5': Mediu-Întunecat
+      '6': Întunecat
+      choose: Alegeți ton implicit pentru piele
   errors:
     messages:
       confirmation_period_expired: trebuie să fie confirmat în %{period}, vă rugăm să solicitați unul nou
@@ -1361,12 +1559,7 @@ ro:
       invalid_time_zone: nu este un fus orar valid
       long_words: conține cuvinte care sunt prea lungi (peste 35 de caractere)
       must_start_with_caps: trebuie să înceapă cu o majusculă
-      not_found: nu a putut fi găsit. V-ați înscris anterior?
       not_locked: nu a fost blocat
-      not_saved:
-        one: 'A apărut o eroare la procesarea cererii tale:'
-        few: 'Au existat mai multe erori la procesarea cererii dvs.:'
-        other: 'Au existat mai multe erori la procesarea cererii dvs.:'
       too_many_marks: folosește prea multe semne consecutive de punctuație (de ex. ! și ?)
       too_much_caps: utilizează prea multe majuscule (peste 25% din text)
   forms:
@@ -1387,36 +1580,66 @@ ro:
         details:
           columns:
             type: Tip
+          items:
+            _session_id:
+              description: Permite site-urilor web să rețină utilizatorul din cadrul unui site web atunci când se mută între paginile web.
+            decidim-consent:
+              description: Stochează informații despre cookie-urile permise de utilizator pe acest site.
+        dialog:
+          accept_all: Acceptați toate
+          accept_only_essential: Acceptați numai esențiale
+          description: Folosim cookie-uri pe site-ul nostru pentru a îmbunătăți performanța și conținutul site-ului. Cookie-urile ne permit să oferim mai multă experiență individualizată utilizatorilor și pentru rețelele sociale.
+          settings: Setări
+          title: Informații despre cookie-urile utilizate pe site
+        modal:
+          accept_all: Acceptați toate
+          accept_only_essential: Acceptați numai esențiale
+          analytics:
+            description: Aceste cookie-uri sunt utilizate pentru a măsura și analiza publicul site-ului web pentru a ajuta la îmbunătățirea acestuia.
+            title: Analize și statistici
+          essential:
+            title: Esențiale
+          marketing:
+            description: Aceste cookie-uri colectează informații despre modul în care utilizați site-ul și pot fi utilizate pentru a vă oferi experiență de marketing personalizată pe diferitele site-uri pe care le utilizați.
+            title: Marketing
+          preferences:
+            title: Preferințe
+          save_settings: Salvați setările
       edit_link:
         edit: Editare
       footer:
         cc_by_license: Licență Creative Commons
         decidim_logo: Logo decidim
-        download_open_data: Descarcă fișierele de date deschise
         log_in: Autentificare
         made_with_open_source: Site web creat cu <a target="_blank" href="https://github.com/decidim/decidim">software gratuit</a>.
-        sign_up: Înscrie-te
+        resources: Resurse
+        sign_up: Creați un cont
       header:
+        back: Înapoi la listă
+        cancel: Anulați
+        confirm_close_ephemeral_session: Dacă părăsiți pagina, sesiunea temporară va fi închisă. Cu toate acestea, progresul și activitatea dumneavoastră vor fi salvate. Dacă ați terminat activitatea, apăsați Ok.
+        confirm_title_close_ephemeral_session: Înainte de a părăsi această pagină…
+        log_in: Autentificare
         main_menu: Meniul principal
-        user_menu: Meniu utilizator
+        user_menu: Meniu de utilizator
       impersonation_warning:
-        close_session: Închide sesiunea
+        close_session: Închideți sesiunea
         description_html: Gestionați participantul <b>%{user_name}</b>.
-        expire_time_html: Sesiunea dvs. va expira în <b><span class="minutes">%{minutes}</span> minute</b>.
+        expire_time_html: Sesiunea dumneavoastră va expira în <b><span class="minutes">%{minutes}</span> minute</b>.
       language_chooser:
-        choose_language: Alege limba
+        choose_language: Alegeți limba
       notifications_dashboard:
-        mark_all_as_read: Marchează toate ca citite
-        mark_as_read: Marchează ca citit
+        mark_all_as_read: Marcați totul ca fiind citit
+        mark_as_read: Marcați ca fiind citit
       social_media_links:
         facebook: "%{organization} pe Facebook"
         github: "%{organization} pe GitHub"
-        instagram: "%{organization} la Instagram"
+        instagram: "%{organization} pe Instagram"
         youtube: "%{organization} pe YouTube"
       timeout_modal:
-        body: Ai fost inactiv de %{minutes} minute. Dacă continui să fii inactiv, vei fi deconectat automat pentru propria ta securitate.
-        continue_session: Continuă sesiunea
-        title: Vreți să continuați sesiunea?
+        body: Ați fost inactiv pentru %{minutes} minute. Dacă veți continua să fiți inactiv, veți fi deconectat automat pentru propria securitate.
+        continue_session: Continuați sesiunea
+        title: Doriți să continuați sesiunea?
       user_menu:
         account: 'Cont de utilizator: %{name}'
         admin_dashboard: Panou de administrare
@@ -1427,27 +1650,25 @@ ro:
         title: Link-uri profil
       user_profile:
         account: Cont
-        authorizations: Autorizații
-        delete_my_account: Șterge contul meu
+        authorizations: Autorizări
+        delete_my_account: Ștergere cont
         my_data: Datele mele
-        my_interests: Interesele mele
         notifications_settings: Setări notificări
-        title: Setările participantului
-        user_groups: Grupuri
+        title: Setări participant
   locale:
     name: Română
     name_with_error: Română (eroare!)
   password_validator:
-    domain_included_in_password: este prea similar cu acest nume de domeniu
+    domain_included_in_password: este prea asemănător cu acest nume de domeniu
     email_included_in_password: este prea asemănător cu adresa de e-mail
     fallback: nu este valid
-    name_included_in_password: este prea asemănător cu numele tău
-    nickname_included_in_password: este prea similar cu nickname-ul dvs
+    name_included_in_password: este prea asemănător cu numele dumneavoastră
+    nickname_included_in_password: este prea asemănător cu nickname-ul dvs
     not_enough_unique_characters: nu are destule caractere unice
     password_not_allowed: nu este permis
     password_too_common: este prea frecvent
-    password_too_long: este prea lung
-    password_too_short: este prea scurt
+    password_too_long: este prea lungă
+    password_too_short: este prea scurtă
   social_share_button:
     delicious: Delicios
     douban: Dublu
@@ -1456,15 +1677,15 @@ ro:
     google_bookmark: Semn Google
     google_plus: Google+
     hacker_news: Știri hacker
-    linkedin: Linkedin
+    linkedin: LinkedIn
     pinterest: Pinterest
     qq: Qzone
     reddit: Reddit
-    share_to: Distribuie către %{name}
-    telegram: Telegramă
-    tumblr: Tumoră
+    share_to: Distribuiți către %{name}
+    telegram: Telegram
+    tumblr: Tumblr
     twitter: Twitter
-    vkontakte: Contacte
+    vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Deschideți WeChat, faceți clic pe butonul "Descoperire", apoi faceți clic pe meniul "Scan QR Code".
     weibo: Sina Weibo
@@ -1472,6 +1693,8 @@ ro:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: Selectare
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -1494,10 +1717,10 @@ ro:
       right: Adăugări
     dropdown:
       choose_diff_view_html: 'Mod vizualizare HTML:'
-      choose_diff_view_mode: 'Mod comparare vizualizare:'
+      choose_diff_view_mode: 'Modul de vizualizare pentru comparare:'
       option_escaped: Escapat
-      option_split: Side-cu parte
-      option_unescaped: Nescăpat
+      option_split: Alăturat
+      option_unescaped: Necodat (unescaped)
       option_unified: Unificat
   views:
     pagination:

@@ -1,6 +1,5 @@
 import { Uploader } from "src/decidim/direct_uploads/uploader";
 import icon from "src/decidim/icon";
-import { truncateFilename } from "src/decidim/direct_uploads/upload_utility";
 import { escapeHtml, escapeQuotes } from "src/decidim/utilities/text";
 
 const STATUS = {
@@ -42,7 +41,7 @@ export default class UploadModal {
 
     this.emptyItems = this.modal.querySelector("[data-dropzone-no-items]");
     this.uploadItems = this.modal.querySelector("[data-dropzone-items]");
-    this.input = this.dropZone.querySelector("input");
+    this.input = this.dropZone.querySelector("input[type=file]");
     this.items = []
 
     this.attachmentCounter = 0;
@@ -77,6 +76,9 @@ export default class UploadModal {
       uploader.upload.create((error, blob) => {
         if (error) {
           uploader.errors = [error]
+          this.uploadItems.replaceChild(this.createUploadItem(file, [error], { value: 100 }), item);
+          this.updateDropZone();
+
         } else {
           // attach the file hash to submit the form, when the file has been uploaded
           file.hiddenField = blob.signed_id
@@ -154,47 +156,43 @@ export default class UploadModal {
     // Disabled save button when any children have data-state="error"
     this.saveButton.disabled = Array.from(files).filter(({ dataset: { state } }) => state === STATUS.ERROR).length > 0;
 
-    const dataSelectFileButton = this.emptyItems.querySelector("[data-select-file-button]");
-
     // Only allow to continue the upload when the multiple option is true (default: false)
     const continueUpload = !files.length || this.options.multiple
     this.input.disabled = !continueUpload
     if (continueUpload) {
       this.emptyItems.classList.remove("is-disabled");
-      dataSelectFileButton.removeAttribute("disabled");
+      this.emptyItems.querySelector("label").removeAttribute("disabled");
     } else {
       this.emptyItems.classList.add("is-disabled");
-      dataSelectFileButton.disabled = true;
+      this.emptyItems.querySelector("label").disabled = true;
     }
-
-    dataSelectFileButton.addEventListener("click", () => this.input.click());
   }
 
   createUploadItem(file, errors, opts = {}) {
     const okTemplate = `
-      <img src="data:," alt="${escapeQuotes(file.name)}" />
-      <span>${escapeHtml(truncateFilename(file.name))}</span>
+      <img src="data:,", role="presentation" />
+      <span class="upload-modal__span">${escapeHtml(file.name)}</span>
     `
 
     const errorTemplate = `
       <div>${icon("error-warning-line")}</div>
       <div>
-        <span>${escapeHtml(truncateFilename(file.name))}</span>
+        <span class="upload-modal__span">${escapeHtml(file.name)}</span>
         <span>${this.locales.validation_error}</span>
         <ul>${errors.map((error) => `<li>${error}</li>`).join("\n")}</ul>
       </div>
     `
 
     const titleTemplate = `
-      <img src="data:," alt="${escapeQuotes(file.name)}" />
+      <img src="data:," role="presentation" />
       <div>
         <div>
           <label>${this.locales.filename}</label>
-          <span>${escapeHtml(truncateFilename(file.name))}</span>
+          <span class="upload-modal__span">${escapeHtml(file.name)}</span>
         </div>
         <div>
-          <label>${this.locales.title}</label>
-          <input class="sm" type="text" value="${escapeQuotes(opts.title || truncateFilename(file.name))}" />
+          <label for="${file.name}">${this.locales.title}</label>
+          <input class="sm" type="text" value="${escapeQuotes(opts.title || file.name)}" id="${file.name}" />
         </div>
       </div>
     `

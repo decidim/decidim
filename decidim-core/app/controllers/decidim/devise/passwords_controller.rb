@@ -25,8 +25,8 @@ module Decidim
         self.resource = current_user
         @send_path = apply_password_path
 
-        @form = Decidim::PasswordForm.from_params(params["user"])
-        Decidim::UpdatePassword.call(current_user, @form) do
+        @form = Decidim::PasswordForm.from_params(params["user"]).with_context(current_user:)
+        Decidim::UpdatePassword.call(@form) do
           on(:ok) do
             flash[:notice] = t("passwords.update.success", scope: "decidim")
             bypass_sign_in(current_user)
@@ -36,7 +36,7 @@ module Decidim
           on(:invalid) do
             flash.now[:alert] = t("passwords.update.error", scope: "decidim")
             resource.errors.errors.concat(@form.errors.errors)
-            render action: "edit"
+            render action: "edit", status: :unprocessable_entity
           end
         end
       end

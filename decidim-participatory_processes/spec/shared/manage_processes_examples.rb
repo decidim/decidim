@@ -49,7 +49,12 @@ shared_examples "manage processes examples" do
       let!(:participatory_process) { create(:participatory_process, :unpublished, organization:) }
 
       it "allows the user to preview the unpublished process" do
-        new_window = window_opened_by { page.find("tr", text: translated(participatory_process.title)).click_on("Preview") }
+        new_window = window_opened_by do
+          within("tr", text: translated(participatory_process.title)) do
+            find("button[data-controller='dropdown']").click
+            click_on "Preview"
+          end
+        end
 
         page.within_window(new_window) do
           expect(page).to have_css(".participatory-space__container")
@@ -62,11 +67,12 @@ shared_examples "manage processes examples" do
       let!(:participatory_process) { create(:participatory_process, organization:) }
 
       it "allows the user to preview the published process" do
-        within "tr", text: translated(participatory_process.title) do
-          click_on "Preview"
+        new_window = window_opened_by do
+          within("tr", text: translated(participatory_process.title)) do
+            find("button[data-controller='dropdown']").click
+            click_on "Preview"
+          end
         end
-
-        new_window = window_opened_by { page.find("tr", text: translated(participatory_process.title)).click_on("Preview") }
 
         page.within_window(new_window) do
           expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(participatory_process)
@@ -110,7 +116,7 @@ shared_examples "manage processes examples" do
       fill_in_i18n(:participatory_process_participatory_scope, "#participatory_process-participatory_scope-tabs", **attributes[:participatory_scope].except("machine_translations"))
       fill_in_i18n(:participatory_process_participatory_structure, "#participatory_process-participatory_structure-tabs", **attributes[:participatory_structure].except("machine_translations"))
 
-      dynamically_attach_file(:participatory_process_banner_image, image3_path, remove_before: true)
+      dynamically_attach_file(:participatory_process_hero_image, image3_path, remove_before: true)
 
       fill_in_datepicker :participatory_process_end_date_date, with: Time.new.utc.strftime("%d/%m/%Y")
 
@@ -134,20 +140,23 @@ shared_examples "manage processes examples" do
     let!(:participatory_process) { create(:participatory_process, :unpublished, organization:) }
 
     before do
-      within "tr", text: translated(participatory_process.title) do
-        click_on translated(participatory_process.title)
-      end
-
-      within_admin_sidebar_menu do
-        click_on "About this process"
-      end
+      visit decidim_admin_participatory_processes.participatory_processes_path
     end
 
     it "publishes the process" do
-      click_on "Publish"
+      within("tr", text: translated_attribute(participatory_process.title)) do
+        find("button[data-controller='dropdown']").click
+        find("a", text: "Publish", visible: true).click
+      end
+
       expect(page).to have_content("successfully published")
-      expect(page).to have_content("Unpublish")
-      expect(page).to have_current_path decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
+
+      within("tr", text: translated_attribute(participatory_process.title)) do
+        find("button[data-controller='dropdown']").click
+        expect(page).to have_content("Unpublish")
+      end
+
+      expect(page).to have_current_path decidim_admin_participatory_processes.participatory_processes_path
 
       participatory_process.reload
       expect(participatory_process).to be_published
@@ -158,20 +167,18 @@ shared_examples "manage processes examples" do
     let!(:participatory_process) { create(:participatory_process, organization:) }
 
     before do
-      within "tr", text: translated(participatory_process.title) do
-        click_on translated(participatory_process.title)
-      end
-
-      within_admin_sidebar_menu do
-        click_on "About this process"
-      end
+      visit decidim_admin_participatory_processes.participatory_processes_path
     end
 
     it "unpublishes the process" do
-      click_on "Unpublish"
+      within("tr", text: translated_attribute(participatory_process.title)) do
+        find("button[data-controller='dropdown']").click
+        find("a", text: "Unpublish", visible: true).click
+      end
+
       expect(page).to have_content("successfully unpublished")
       expect(page).to have_content("Publish")
-      expect(page).to have_current_path decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
+      expect(page).to have_current_path decidim_admin_participatory_processes.participatory_processes_path
 
       participatory_process.reload
       expect(participatory_process).not_to be_published
@@ -189,34 +196,6 @@ shared_examples "manage processes examples" do
       within "table" do
         expect(page).to have_no_content(external_participatory_process.title["en"])
       end
-    end
-  end
-
-  context "when the process has a scope" do
-    let(:scope) { create(:scope, organization:) }
-
-    before do
-      participatory_process.update!(scopes_enabled: true, scope:)
-    end
-
-    it "disables the scope for a participatory process" do
-      within "tr", text: translated(participatory_process.title) do
-        click_on translated(participatory_process.title)
-      end
-
-      within_admin_sidebar_menu do
-        click_on "About this process"
-      end
-
-      uncheck :participatory_process_scopes_enabled
-
-      expect(page).to have_css("#participatory_process_scope_id[disabled]")
-
-      within ".edit_participatory_process" do
-        find("*[type=submit]").click
-      end
-
-      expect(page).to have_admin_callout("successfully")
     end
   end
 end

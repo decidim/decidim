@@ -2,17 +2,14 @@ tr:
   activemodel:
     attributes:
       debate:
-        category_id: Kategori
         closed_at: Kapandı
         conclusions: Sonuçlar
-        decidim_category_id: Kategori
         description: Açıklama
         end_time: Biter
         information_updates: Bilgi güncellemeleri
         instructions: Katılma talimatları
         start_time: Den başlar
         title: Başlık
-        user_group_id: Olarak tartışma oluştur
     models:
       decidim/debates/close_debate_event: Tartışma kapandı
       decidim/debates/create_debate_event: tartışma
@@ -25,27 +22,18 @@ tr:
   decidim:
     components:
       debates:
-        actions:
-          create: yaratmak
-          endorse: Onayla
         name: Tartışmalar
         settings:
           global:
             announcement: duyuru
             comments_enabled: Yorumlar etkin
             comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
-            scope_id: Kapsam
-            scopes_enabled: Kapsamlar etkinleştirildi
           step:
             announcement: duyuru
             comments_blocked: Yorumlar engellendi
-            endorsements_blocked: Onaylar engellendi
-            endorsements_enabled: Onaylar etkinleştirildi
     debates:
       actions:
         close: Kapat
-        confirm_destroy: Emin misiniz?
-        destroy: Sil
         edit: Düzenle
         new: Yeni Tartışma
         title: Eylemler
@@ -58,8 +46,6 @@ tr:
           create:
             invalid: Tartışmayı oluştururken bir sorun oluştu.
             success: Tartışma başarıyla oluşturuldu.
-          destroy:
-            success: Tartışma başarıyla silindi.
           edit:
             title: Tartışmayı düzenle
             update: Tartışmayı güncelle
@@ -75,8 +61,6 @@ tr:
           update:
             invalid: Bu tartışmayı güncellerken bir sorun oluştu.
             success: Tartışma başarıyla güncellendi.
-        exports:
-          comments: Yorumlar
       admin_log:
         debate:
           close: "%{user_name}, %{space_name} alanındaki %{resource_name} tartışmasını kapattı"
@@ -118,15 +102,11 @@ tr:
           state: Statü
           state_values:
             closed: Kapalı
-            open: Açık
-        form:
-          select_a_category: Lütfen bir kategori seçin
         index:
           new_debate: Yeni tartışma
         new:
           back: Geri
           create: Oluştur
-          title: Yeni tartışma
         orders:
           commented: En çok yorum yapılan
           label: Tartışmaların sıralama ölçütü
@@ -134,13 +114,8 @@ tr:
           recent: En yeni
           updated: Yeni güncellenmiş
         show:
-          close_debate: Tartışmayı kapat
-          debate_closed: Kapalı
           debate_conclusions_are: 'Tartışma bu sonuçlarla %{date} tarihinde kapatıldı:'
           edit_conclusions: Sonuçları düzenleyin
-          edit_debate: Tartışmayı düzenle
-          groups_count: Gruplar
-          open: Açık tartışma
           participants_count: Katılımcılar
         update:
           invalid: Bu tartışmayı güncellerken bir sorun oluştu.
@@ -200,8 +175,3 @@ tr:
           name: Tartışmalar
           next_level_in: Bir sonraki seviyeye ulaşmak için %{score} tartışmaya katılın!
           unearned_another: Bu katılımcı henüz bir tartışmada yer almadı.
-    metrics:
-      debates:
-        description: Oluşturulan tartışmaların sayısı
-        object: tartışmalar
-        title: Tartışmalar

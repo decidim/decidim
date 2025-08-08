@@ -1,0 +1,29 @@
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+  <div class="flex justify-center">
+    <h1 class="title-decorator my-12"><%= t("decidim.devise.omniauth_registrations.new_tos_fields.sign_up_title") %></h1>
+  </div>
+
+  <%= decidim_form_for(@form, namespace: "registration", as: resource_name, url: decidim.omniauth_registrations_path(resource_name), html: { id: "omniauth-register-form" }) do |f| %>
+
+    <div class="form__wrapper">
+      <%= f.hidden_field :name %>
+      <%= f.hidden_field :nickname %>
+      <%= f.hidden_field :email %>
+
+      <%= render partial: "decidim/devise/shared/tos_fields", locals: { form: f, user: :user } %>
+
+      <%= f.hidden_field :uid %>
+      <%= f.hidden_field :provider %>
+      <%= f.hidden_field :oauth_signature %>
+    </div>
+
+    <div class="form__wrapper-block">
+      <button type="submit" class="button button__lg button__secondary">
+        <span><%= t("decidim.devise.omniauth_registrations.new_tos_fields.sign_up") %></span>
+        <%= icon "arrow-right-line", class: "fill-current" %>
+      </button>
+    </div>
+  <% end %>
+<% end %>
+
+<%= render "decidim/devise/shared/newsletter_modal" %>

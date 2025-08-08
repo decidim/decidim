@@ -2,7 +2,6 @@ id:
   activemodel:
     attributes:
       initiative:
-        decidim_user_group_id: Penulis
         description: Deskripsi
         offline_votes: Dukungan tatap muka
         scope_id: Cakupan
@@ -21,7 +20,6 @@ id:
         banner_image: Gambar spanduk
         collect_user_extra_fields: Kumpulkan data pribadi pengguna pada tanda tangan
         description: Deskripsi
-        document_number_authorization_handler: Otorisasi untuk memverifikasi nomor dokumen pada pemungutan suara
         extra_fields_legal_information: Informasi hukum tentang pengumpulan data pribadi
         minimum_committee_members: Minimal anggota komite
         online_signature_enabled: Tanda tangan online diaktifkan
@@ -81,7 +79,6 @@ id:
             initiative_title: Judul inisiatif
             name_and_surname: Nama dan nama keluarga
             postal_code: Kode Pos
-            time_and_date: Waktu dan tanggal
             timestamp: Stempel waktu
       titles:
         initiatives: Inisiatif
@@ -182,9 +179,7 @@ id:
           unpublish: "%{user_name} membuang %{resource_name} inisiatif"
           update: "%{user_name} memperbarui %{resource_name} inisiatif"
       admin_states:
-        created: Dibuat
         discarded: Dibuang
-        published: Diterbitkan
         validating: Validasi teknis
       application_helper:
         filter_state_values:
@@ -200,53 +195,29 @@ id:
           name: Inisiatif yang disorot
       create_initiative:
         fill_data:
-          back: Kembali
           continue: Terus
-          more_information: "(Informasi lebih lanjut)"
           select_scope: Pilih cakupan
         finish:
           back: Kembali
-          back_to_initiatives: Kembali ke inisiatif
-          go_to_my_initiatives: Pergi ke inisiatif saya
-          more_information: "(Informasi lebih lanjut)"
         previous_form:
           back: Kembali
-          continue: Terus
-        promotal_committee:
-          more_information: "(Informasi lebih lanjut)"
         select_initiative_type:
           back: Kembali
           choose_html: Saya ingin membuat <strong>%{title}</strong>
           more_information: (Informasi lebih lanjut)
           select: Saya ingin mempromosikan inisiatif ini
-        share_committee_link:
-          invite_to_committee_help: Tautan untuk mengundang orang yang akan menjadi bagian dari komite promotor
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, siapa yang Anda ikuti, telah membuat inisiatif baru, lihat dan sumbangkan:"
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{author_nickname}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
           email_subject: Inisiatif baru dengan %{author_nickname}
           notification_title: Inisiatif <a href="%{resource_path}">%{resource_title}</a> dibuat oleh <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, siapa yang Anda ikuti, telah mendukung inisiatif berikut, mungkin Anda ingin berkontribusi dalam percakapan:"
-          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{author_nickname}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
-          email_subject: Inisiatif yang didukung oleh %{author_nickname}
-          notification_title: Prakarsa <a href="%{resource_path}">%{resource_title}</a> didukung oleh <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       initiative_signatures:
-        fill_personal_data:
-          continue: Terus
         finish:
           back_to_initiative: Kembali ke inisiatif
-        sms_code:
-          continue: Periksa kode dan lanjutkan
-          help: Periksa SMS yang diterima di ponsel Anda
-        sms_phone_number:
-          continue: Kirimi saya SMS
       initiative_votes:
         create:
           error: Sudah ada kesalahan saat menandatangani inisiatif.
-        personal_data:
-          invalid: Data pribadi tidak konsisten dengan data yang diberikan untuk otorisasi.
         sms_phone:
           invalid: Nomor telepon tidak valid atau menunggu otorisasi. Silakan periksa otorisasi Anda.
       initiatives:
@@ -264,10 +235,6 @@ id:
           type: Mengetik
         index_header:
           new_initiative: Inisiatif baru
-        interactions:
-          comments_count:
-            count:
-              other: Komentar
         orders:
           label: 'Urutkan inisiatif dengan:'
           most_commented: Sebagian besar berkomentar
@@ -282,7 +249,6 @@ id:
           other: " tanda tangan"
         vote_cabin:
           already_voted: Sudah ditandatangani
-          verification_required: Verifikasi akun Anda untuk menandatangani inisiatif
           vote: Tanda
           votes_blocked: Penandatanganan dinonaktifkan
         votes_count:
@@ -309,20 +275,11 @@ id:
       initiatives_type:
         actions:
           title: Tindakan
-          vote: Memilih
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Membuat
-        finish: Selesai
-        promotal_committee: Komite promotor
         select_initiative_type: Memilih
-      initiative_signature_creation_header:
-        fill_personal_data: Lengkapi data Anda
-        finish: Selesai
-        sms_code: Verifikasi kode SMS
-        sms_phone_number: Nomor ponsel
-        title: Tanda %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: Belum ada inisiatif!

@@ -49,7 +49,7 @@ bin/rails decidim_system:create_admin
 You will be asked for an email and a password. For security, the password will not get displayed back at you and you will need to confirm it.
 
 Once you have created your first admin you can access the system dashboard at `/system`. For instance, if you have Decidim running at `https://example.org`, this URL would be `https://example.org/system`.
-You will be able to login with your newly created user.
+You will be able to log in with your newly created user.
 
 From the system dashboard you can add new admins.
 
@@ -73,11 +73,11 @@ system_admin.save
 
 ## Managing organizations
 
-Once you have your system admin setup you can also start managing the organizations in your deploy. To do it, login at the system dashboard and create a new organization
+Once you have your system admin setup you can also start managing the organizations in your deploy. To do it, log in at the system dashboard and create a new organization
 following the form instructions. After creating it, a new admin user will be created and invited to start managing it.
 
 Remember that System admins and regular Admins are completely different users (they do not even share the same database table), so you cannot use your
-system user to login in as an organization admin.
+system user to log in in as an organization admin.
 
 ## Contributing
 

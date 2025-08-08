@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
+require "decidim/api/test"
 
 module Decidim
   module Initiatives
@@ -15,6 +15,54 @@ module Decidim
 
         it "returns the id field" do
           expect(response).to include("id" => model.id.to_s)
+        end
+      end
+
+      describe "attachments_enabled" do
+        let(:query) { "{ attachmentsEnabled }" }
+
+        it "returns the attachments enabled field" do
+          expect(response["attachmentsEnabled"]).to be_truthy
+        end
+
+        context "when the type has attachments disabled" do
+          let(:model) { create(:initiatives_type, :attachments_disabled) }
+
+          it "returns the attachments enabled field" do
+            expect(response["attachmentsEnabled"]).to be_falsey
+          end
+        end
+      end
+
+      describe "comments_enabled" do
+        let(:query) { "{ commentsEnabled }" }
+
+        it "returns the comments enabled field" do
+          expect(response["commentsEnabled"]).to be_truthy
+        end
+
+        context "when the type has comments disabled" do
+          let(:model) { create(:initiatives_type, :with_comments_disabled) }
+
+          it "returns the attachments enabled field" do
+            expect(response["commentsEnabled"]).to be_falsey
+          end
+        end
+      end
+
+      describe "custom_signature_end_date_enabled" do
+        let(:query) { "{ customSignatureEndDateEnabled }" }
+
+        it "returns the custom_signature_end_date_enabled field" do
+          expect(response["customSignatureEndDateEnabled"]).to be_falsey
+        end
+
+        context "when the type has comments disabled" do
+          let(:model) { create(:initiatives_type, :custom_signature_end_date_enabled) }
+
+          it "returns the custom_signature_end_date_enabled enabled field" do
+            expect(response["customSignatureEndDateEnabled"]).to be_truthy
+          end
         end
       end
 
@@ -54,7 +102,7 @@ module Decidim
         let(:query) { "{ bannerImage }" }
 
         it "returns the banner image field" do
-          expect(response["bannerImage"]).to eq(model.attached_uploader(:banner_image).path)
+          expect(response["bannerImage"]).to be_blob_url(model.banner_image.blob)
         end
       end
 
@@ -124,7 +172,8 @@ module Decidim
         end
 
         context "when there are initiatives" do
-          let(:initiatives) { create_list(:initiative, initiatives_type: model, organization: :current_organization) }
+          let(:scoped_type) { create(:initiatives_type_scope, type: model) }
+          let!(:initiatives) { create_list(:initiative, 5, scoped_type:, organization: model.organization) }
 
           it "returns the initiatives" do
             ids = response["initiatives"].map { |item| item["id"] }

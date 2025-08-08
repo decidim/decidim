@@ -2,12 +2,10 @@
 <% if Devise.mappings[:user].omniauthable? && current_organization.enabled_omniauth_providers.any? %>
   <div class="login__omniauth<%= " login__omniauth__horizontal" if is_horizontal %>">
     <%- current_organization.enabled_omniauth_providers.keys.each do |provider| %>
-      <% link_classes = "login__omniauth-button button--#{normalize_provider_name(provider)}" %>
+      <% link_classes = "login__omniauth-button login__omniauth-button--#{normalize_provider_name(provider)}" %>
       <%= link_to decidim.send("user_#{provider}_omniauth_authorize_path"), class: link_classes, method: :post, title: t("devise.shared.links.log_in_with_provider", provider: normalize_provider_name(provider).titleize) do %>
         <%= oauth_icon provider %>
-        <span>
-          <%= normalize_provider_name(provider).titleize %>
-        </span>
+        <span class="sr-only"><%= t("devise.shared.links.log_in_with_provider", provider: normalize_provider_name(provider).titleize) %></span>
       <% end %>
     <% end %>
   </div>

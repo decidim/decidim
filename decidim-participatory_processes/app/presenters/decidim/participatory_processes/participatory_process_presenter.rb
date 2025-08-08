@@ -2,19 +2,49 @@
 
 module Decidim
   module ParticipatoryProcesses
-    class ParticipatoryProcessPresenter < SimpleDelegator
-      def hero_image_url
-        process.attached_uploader(:hero_image).url(host: process.organization.host)
-      end
+    class ParticipatoryProcessPresenter < ResourcePresenter
+      include Decidim::ResourceHelper
+      include ActionView::Helpers::UrlHelper
+      include Decidim::SanitizeHelper
 
-      def banner_image_url
-        process.attached_uploader(:banner_image).url(host: process.organization.host)
+      def hero_image_url
+        process.attached_uploader(:hero_image).url
       end
 
       def area_name
         return if process.area.blank?
 
         Decidim::AreaPresenter.new(process.area).translated_name_with_type
+      end
+
+      def title(html_escape: false, all_locales: false)
+        return unless process
+
+        super(process.title, html_escape, all_locales)
+      end
+
+      def description(links: false, strip_tags: false, all_locales: false)
+        return unless process
+
+        content_handle_locale(process.description, all_locales, links, strip_tags)
+      end
+
+      def editor_description(all_locales: false)
+        return unless process
+
+        editor_locales(process.description, all_locales)
+      end
+
+      def short_description(links: false, strip_tags: false, all_locales: false)
+        return unless process
+
+        content_handle_locale(process.short_description, all_locales, links, strip_tags)
+      end
+
+      def editor_short_description(all_locales: false)
+        return unless process
+
+        editor_locales(process.short_description, all_locales)
       end
 
       def process

@@ -29,7 +29,7 @@ module Decidim
   module Verifications
     include ActiveSupport::Configurable
     config_accessor :document_types do
-      %w(identification_number passport)
+      Decidim::Env.new("VERIFICATIONS_DOCUMENT_TYPES", "identification_number,passport").to_array
     end
   end
 end

@@ -16,6 +16,7 @@ module Decidim
     include NeedsTosAccepted
     include Headers::HttpCachingDisabler
     include Headers::ContentSecurityPolicy
+    include Headers::BrowserFeaturePermissions
     include ActionAuthorization
     include ForceAuthentication
     include SafeRedirect
@@ -24,6 +25,9 @@ module Decidim
     include DisableRedirectionToExternalHost
     include NeedsPasswordChange
     include LinkedResourceReference
+    include ActiveStorage::SetCurrent
+    include OnboardingActionMethods
+    include EphemeralSessionChecker
 
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper
@@ -37,9 +41,9 @@ module Decidim
     helper Decidim::ViewHooksHelper
     helper Decidim::CardHelper
     helper Decidim::SanitizeHelper
-    helper Decidim::TwitterSearchHelper
     helper Decidim::SocialShareButtonHelper
     helper Decidim::FiltersHelper
+    helper Decidim::OnboardingActionHelper
 
     register_permissions(::Decidim::ApplicationController,
                          ::Decidim::Admin::Permissions,
@@ -55,7 +59,15 @@ module Decidim
 
     skip_before_action :disable_http_caching, unless: :user_signed_in?
 
+    def store_share_token
+      session[:share_token] = params[:share_token] if params.has_key?(:share_token)
+
+      session[:share_token].presence
+    end
+
     private
+
+    def allow_browser(**); end
 
     # This overrides Devise's method for extracting the path from the URL. We
     # want to ensure the path to be stored in the cookie is not too long in
