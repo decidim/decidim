@@ -50,6 +50,28 @@ module Decidim
 
     scope :not_deleted, -> { where(deleted_at: nil) }
 
+    def visible?
+      return false if blocked?
+
+      profile_published?
+    end
+
+    # Note that the blocked users have the profile published on purpose for the
+    # admin users to be able access those profiles e.g. for inspecting the
+    # user's activity on the platform.
+    def profile_published?
+      return false if managed?
+      return false if deleted_at.present?
+
+      confirmed_at.present?
+    end
+
+    # This will hide the resource from the search index when the resource is not
+    # public and when the resource is searchable (i.e. `Decidim::User`).
+    def hidden?
+      !visible?
+    end
+
     # Public: Returns a collection with all the public entities this user is following.
     #
     # This cannot be done as with a `has_many :following, through: :following_follows`
