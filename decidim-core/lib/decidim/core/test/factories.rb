@@ -962,18 +962,6 @@ FactoryBot.define do
     author { resource.try(:creator_author) || resource.try(:author) || build(:user, :confirmed, organization: resource.organization, skip_injection:) }
   end
 
-<<<<<<< HEAD
-  factory :user_group_endorsement, class: "Decidim::Endorsement" do
-    transient do
-      skip_injection { false }
-    end
-    resource { build(:dummy_resource, skip_injection:) }
-    author { build(:user, :confirmed, organization: resource.organization, skip_injection:) }
-    user_group { create(:user_group, :confirmed, :verified, organization: resource.organization, users: [author], skip_injection:) }
-  end
-
-=======
->>>>>>> develop
   factory :share_token, class: "Decidim::ShareToken" do
     transient do
       skip_injection { false }
