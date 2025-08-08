@@ -495,7 +495,9 @@ FactoryBot.define do
 
     after(:build) do |collaborative_draft, evaluator|
       if collaborative_draft.component
-        users = evaluator.users || [create(:user, :confirmed, organization: collaborative_draft.component.participatory_space.organization, skip_injection: evaluator.skip_injection)]
+        users = evaluator.users || [
+          create(:user, :confirmed, organization: collaborative_draft.component.participatory_space.organization, skip_injection: evaluator.skip_injection)
+        ]
         users.each do |user|
           collaborative_draft.coauthorships.build(author: user)
         end
