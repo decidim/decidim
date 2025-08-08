@@ -1,0 +1,34 @@
+<div class="form__wrapper">
+  <div class="card pt-4" id="processes">
+    <div class="card-section">
+      <div class="row column">
+        <%= form.translated :text_field, :title, autofocus: true, aria: { label: :title } %>
+      </div>
+      <div class="row column">
+        <%= form.text_field :slug, help_text: t(".slug_help_html", url: decidim_form_slug_url(:processes, form.object.slug)) %>
+      </div>
+      <div class="row column">
+        <div class="card">
+          <div class="card-divider">
+            <legend><%= t("participatory_process_duplicates.new.select", scope: "decidim.admin") %></legend>
+          </div>
+          <div class="card-section">
+            <div class="row">
+              <div class="columns">
+                <%= form.check_box :duplicate_steps %>
+              </div>
+
+              <div class="columns">
+                <%= form.check_box :duplicate_components %>
+              </div>
+
+              <div class="columns">
+                <%= form.check_box :duplicate_landing_page_blocks %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
