@@ -5,26 +5,26 @@ module Decidim
     module Admin
       # Controller that allows managing assemblies.
       #
-      class AssemblyCopiesController < Decidim::Assemblies::Admin::ApplicationController
+      class AssemblyDuplicatesController < Decidim::Assemblies::Admin::ApplicationController
         include Concerns::AssemblyAdmin
 
         def new
           enforce_permission_to :create, :assembly
-          @form = form(AssemblyCopyForm).from_model(current_assembly)
+          @form = form(AssemblyDuplicateForm).from_model(current_assembly)
         end
 
         def create
           enforce_permission_to :create, :assembly
-          @form = form(AssemblyCopyForm).from_params(params)
+          @form = form(AssemblyDuplicateForm).from_params(params)
 
-          CopyAssembly.call(@form, current_assembly, current_user) do
+          DuplicateAssembly.call(@form, current_assembly, current_user) do
             on(:ok) do
-              flash[:notice] = I18n.t("assemblies_copies.create.success", scope: "decidim.admin")
+              flash[:notice] = I18n.t("assemblies_duplicates.create.success", scope: "decidim.admin")
               redirect_to assemblies_path
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("assemblies_copies.create.error", scope: "decidim.admin")
+              flash.now[:alert] = I18n.t("assemblies_duplicates.create.error", scope: "decidim.admin")
               render :new, status: :unprocessable_entity
             end
           end
