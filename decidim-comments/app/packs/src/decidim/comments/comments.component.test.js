@@ -19,7 +19,7 @@ window.Rails = Rails;
 jest.useFakeTimers();
 
 import { createCharacterCounter } from "src/decidim/input_character_counter";
-import Configuration from "src/decidim/configuration";
+import Configuration from "src/decidim/refactor/implementation/configuration";
 // Component is loaded with require because using import loads it before $ has been mocked
 // so tests are not able to check the spied behaviours
 const CommentsComponent = require("./comments.component_for_testing.js");

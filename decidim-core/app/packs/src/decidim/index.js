@@ -24,6 +24,7 @@ import UserRegistrationForm from "src/decidim/refactor/integration/user_registra
 import MentionsComponent from "src/decidim/refactor/implementation/input_mentions";
 import FormValidator from "src/decidim/refactor/implementation/form_validator"
 import ClipboardCopy from "src/decidim/refactor/implementation/copy_clipboard";
+import Configuration from "src/decidim/refactor/implementation/configuration"
 import MultipleMentionsManager from "src/decidim/refactor/implementation/input_multiple_mentions";
 
 // local deps with no initialization
@@ -53,7 +54,6 @@ import ConfirmDialog, { initializeConfirm } from "src/decidim/confirm"
 import { initializeUploadFields } from "src/decidim/direct_uploads/upload_field"
 import { initializeReverseGeocoding } from "src/decidim/geocoding/reverse_geocoding"
 import formDatePicker from "src/decidim/datepicker/form_datepicker"
-import Configuration from "src/decidim/configuration"
 import ExternalLink from "src/decidim/external_link"
 import updateExternalDomainLinks from "src/decidim/external_domain_warning"
 import scrollToLastChild from "src/decidim/scroll_to_last_child"
