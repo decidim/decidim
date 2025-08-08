@@ -29,6 +29,7 @@ import ReportFormManager from "src/decidim/refactor/implementation/report_form_m
 import ExternalLink from "src/decidim/refactor/implementation/external_link"
 import Configuration from "src/decidim/refactor/implementation/configuration"
 import MultipleMentionsManager from "src/decidim/refactor/implementation/input_multiple_mentions";
+import scrollToLastChild from "src/decidim/refactor/implementation/scroll_to_last_child"
 import setOnboardingAction from "src/decidim/refactor/integration/onboarding_pending_action"
 
 // local deps with no initialization
@@ -57,7 +58,6 @@ import ConfirmDialog, { initializeConfirm } from "src/decidim/confirm"
 import { initializeUploadFields } from "src/decidim/direct_uploads/upload_field"
 import { initializeReverseGeocoding } from "src/decidim/geocoding/reverse_geocoding"
 import formDatePicker from "src/decidim/datepicker/form_datepicker"
-import scrollToLastChild from "src/decidim/scroll_to_last_child"
 import InputCharacterCounter, { createCharacterCounter } from "src/decidim/input_character_counter"
 import FormFilterComponent from "src/decidim/form_filter"
 import addInputEmoji, { EmojiButton } from "src/decidim/input_emoji"
