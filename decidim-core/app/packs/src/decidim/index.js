@@ -16,7 +16,6 @@ import Rails from "@rails/ujs"
 import svg4everybody from "svg4everybody"
 import morphdom from "morphdom"
 
-
 /**
  * Local dependencies
  */
@@ -241,36 +240,27 @@ document.addEventListener("comments:loaded", (event) => {
   }
 });
 
-document.addEventListener("turbo:load", () => {
-  document.querySelectorAll("[data-clipboard-copy]").forEach((element) => {
-    // Only initialize if not already initialized (prevents duplicates)
-    if (!element._clipboardCopy) {
-      element._clipboardCopy = new ClipboardCopy(element);
-    }
-  });
-});
-
 // Handle external library integration (like React)
 document.addEventListener("attach-mentions-element", (event) => {
   const instance = new MentionsComponent(event.detail);
   instance.attachToElement(event.detail);
 });
 
-const initializeMentions = () => {
-  const mentionContainers = document.querySelectorAll(".js-mentions");
+document.addEventListener("turbo:load", () => {
 
-  mentionContainers.forEach((container) => {
+  document.querySelectorAll(".js-mentions").forEach((container) => {
     if (!container._mentionContainer) {
       container._mentionContainer = new MentionsComponent(container);
     }
   });
-};
 
-// Initialize on page load
-document.addEventListener("turbo:load", initializeMentions);
+  document.querySelectorAll("[data-clipboard-copy]").forEach((element) => {
+    // Only initialize if not already initialized (prevents duplicates)
+    if (!element._clipboardCopy) {
+      element._clipboardCopy = new ClipboardCopy(element);
+    }
+  });
 
-// Event handler setup - outside of the class
-document.addEventListener("turbo:load", () => {
   document.querySelectorAll(".js-multiple-mentions").forEach((fieldContainer) => {
     // Initialize the multiple mentions manager
     const mentionsManager = new MultipleMentionsManager(fieldContainer);
@@ -282,12 +272,7 @@ document.addEventListener("turbo:load", () => {
       mentionsManager.handleSelection(selection);
     });
   });
-});
-    
-/**
- * Legacy initialization and compatibility for existing Decidim code
- */
-document.addEventListener("turbo:load", () => {
+
   // Initialize new FormValidator for all forms
   document.querySelectorAll("form").forEach((formElement) => {
     if (!formElement.dataset.formValidator) {
@@ -298,9 +283,7 @@ document.addEventListener("turbo:load", () => {
       formElement.dataset.formValidator = true;
     }
   });
-});
 
-document.addEventListener("turbo:load", () => {
   (new UserRegistrationForm("register-form")).initialize();
   (new UserRegistrationForm("omniauth-register-form")).initialize();
 
