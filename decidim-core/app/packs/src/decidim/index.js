@@ -45,7 +45,6 @@ import "src/decidim/security/selfxss_warning"
 import "src/decidim/session_timeouter"
 import "src/decidim/results_listing"
 import "src/decidim/impersonation"
-import "src/decidim/gallery"
 import "src/decidim/data_consent"
 import "src/decidim/sw"
 import "src/decidim/sticky_header"
@@ -277,7 +276,7 @@ document.addEventListener("turbo:load", () => {
       mentionsManager.handleSelection(selection);
     });
   });
-
+  
   // Initialize new FormValidator for all forms
   document.querySelectorAll("form").forEach((formElement) => {
     if (!formElement.dataset.formValidator) {
