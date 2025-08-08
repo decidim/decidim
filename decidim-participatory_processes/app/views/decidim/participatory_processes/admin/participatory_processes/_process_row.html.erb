@@ -61,8 +61,8 @@
 
           <% if allowed_to? :create, :process, process: process %>
             <li class="dropdown__item">
-              <%= link_to new_participatory_process_copy_path(process), class: "dropdown__button" do %>
-                <%= icon "file-copy-line" %>
+              <%= link_to new_participatory_process_duplicate_path(process), class: "dropdown__button" do %>
+                <%= icon "file-duplicate-line" %>
                 <%= t("actions.duplicate", scope: "decidim.admin") %>
               <% end %>
             </li>
