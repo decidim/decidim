@@ -10,9 +10,6 @@ sv:
         closing_date: Slutdatum
         closing_date_reason: Anledning till avslut
         composition: Sammansättning
-        copy_categories: Kopiera kategorier
-        copy_components: Kopiera komponenter
-        copy_features: Kopiera funktioner
         created_by: Skapad av
         created_by_other: Skapad av andra
         creation_date: Skapad datum
@@ -111,15 +108,6 @@ sv:
         update:
           error: Det gick inte att uppdatera samrådet.
           success: Samrådet har uppdaterats.
-      assemblies_copies:
-        create:
-          error: Det gick inte att duplicera samrådet.
-          success: Samrådet har duplicerats.
-      assembly_copies:
-        new:
-          copy: Kopiera
-          select: Välj vilka data som ska dupliceras
-          title: Duplicera samråd
       assembly_imports:
         create:
           error: Det gick inte att importera samrådet.
@@ -258,9 +246,6 @@ sv:
             taxonomies: Kategorier
             title: Allmän information
             visibility: Synlighet
-        assembly_copies:
-          form:
-            slug_help_html: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         assembly_imports:
           form:
             slug_help_html: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
