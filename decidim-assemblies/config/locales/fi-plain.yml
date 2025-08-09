@@ -118,8 +118,8 @@ fi-pl:
           success: Ryhmä päivitettiin onnistuneesti.
       assemblies_copies:
         create:
-          error: Virhe kopioitaessa ryhmää.
-          success: Ryhmä kopioitu onnistuneesti.
+          error: Ryhmän kopioiminen epäonnistui.
+          success: Ryhmän kopioiminen onnistui.
       assemblies_types:
         create:
           error: Uuden ryhmätyypin luonti epäonnistui.
