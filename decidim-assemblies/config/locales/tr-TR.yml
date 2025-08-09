@@ -108,10 +108,6 @@ tr:
         update:
           error: Bu kurul güncellenirken bir hata oluştu.
           success: Kurul başarıyla güncellendi.
-      assemblies_copies:
-        create:
-          error: Bu kurul çoğaltırken bir hata oluştu.
-          success: Kurul başarıyla kopyalandı.
       assemblies_types:
         create:
           error: Yeni bir kurul türü oluşturulurken bir sorun meydana geldi.
@@ -127,8 +123,6 @@ tr:
       assembly_copies:
         new:
           copy: Kopya
-          select: Çoğaltmak istediğiniz verileri seçin
-          title: Kurulu çoğalt
       assembly_imports:
         create:
           error: Bu kurul derlenirken, içeri aktarılırken bir hata oluştu.
