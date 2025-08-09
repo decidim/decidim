@@ -92,15 +92,9 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze groep.
           success: Groep is succesvol bijgewerkt.
-      assemblies_copies:
-        create:
-          error: Er was een fout bij het dupliceren van deze groep.
-          success: Groep succesvol gedupliceerd.
       assembly_copies:
         new:
           copy: Kopiëren
-          select: Selecteer welke gegevens u wilt dupliceren
-          title: Dupliceer bijeenkomst
       assembly_imports:
         create:
           error: Er is een probleem opgetreden bij het importeren van deze groep.
