@@ -10,9 +10,6 @@ es-MX:
         closing_date: Fecha de cierre
         closing_date_reason: Razón de la fecha de cierre
         composition: Composición
-        copy_categories: Copiar categorías
-        copy_components: Copiar componentes
-        copy_features: Copiar funcionalidades
         created_by: Creado por
         created_by_other: Creado por otro
         creation_date: Fecha de creacion
@@ -111,15 +108,6 @@ es-MX:
         update:
           error: Se ha producido un error al actualizar esta asamblea.
           success: La asamblea se ha actualizado correctamente.
-      assemblies_copies:
-        create:
-          error: Se produjo un error al duplicar esta asamblea.
-          success: Asamblea duplicada correctamente.
-      assembly_copies:
-        new:
-          copy: Copiar
-          select: Seleccione los datos que desea duplicar
-          title: Duplicar asamblea
       assembly_imports:
         create:
           error: Ha habido un problema importando esta asamblea.
@@ -259,9 +247,6 @@ es-MX:
             taxonomies: Taxonomías
             title: Información general
             visibility: Visibilidad
-        assembly_copies:
-          form:
-            slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         assembly_imports:
           form:
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
