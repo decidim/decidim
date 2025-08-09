@@ -111,15 +111,9 @@ ar:
         update:
           error: حدثت مشكلة أثناء تحديث هذه الجمعية.
           success: تم تحديث الجمعية بنجاح.
-      assemblies_copies:
-        create:
-          error: حدثت مشكلة في تكرار هذا التجميع.
-          success: الجمعية مكررة بنجاح.
       assembly_copies:
         new:
           copy: نسخ
-          select: حدد البيانات التي ترغب في تكرارها
-          title: نسخ الجمعية
       assembly_imports:
         create:
           error: حدثت مشكلة أثناء استيراد هذه الجمعية.
