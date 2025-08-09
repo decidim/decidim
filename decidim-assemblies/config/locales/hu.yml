@@ -107,15 +107,9 @@ hu:
         update:
           error: Hiba történt a gyűlés frissítése során.
           success: Gyűlés frissítése sikeres.
-      assemblies_copies:
-        create:
-          error: Hiba történt a gyűlés duplikációja során.
-          success: Gyűlés duplikációja sikeres.
       assembly_copies:
         new:
           copy: Másolás
-          select: Válaszd ki, mely adatokat szeretnéd duplikálni
-          title: Gyűlés duplikálása
       assembly_imports:
         create:
           error: Hiba történt a gyűlés importálása során.
