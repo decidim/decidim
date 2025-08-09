@@ -9,9 +9,6 @@ lv:
         closing_date: Aizvēršanas datums
         closing_date_reason: Aizvēršanas datuma iemesls
         composition: Sastāvs
-        copy_categories: Kopēt kategorijas
-        copy_components: Kopēt komponentus
-        copy_features: Kopēt funkcijas
         created_by: Izveidoja
         created_by_other: Izveidojis cits
         creation_date: Izveidošanas datums
@@ -85,15 +82,6 @@ lv:
         update:
           error: Šīs asamblejas atjaunināšanas laikā radās problēma.
           success: Asambleja ir veiksmīgi atjaunināta.
-      assemblies_copies:
-        create:
-          error: Šīs asamblejas dublēšanas laikā radās problēma.
-          success: Asamblejas dublēšana ir veiksmīgi pabeigta.
-      assembly_copies:
-        new:
-          copy: Kopēt
-          select: Atlasiet, kurus datus vēlaties dublēt
-          title: Dublēt asambleju
       assembly_publications:
         create:
           error: Šīs asamblejas publicēšanas laikā radās problēma.
