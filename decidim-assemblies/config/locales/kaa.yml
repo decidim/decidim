@@ -14,9 +14,6 @@ kaa:
           update: Jańalaw
         new:
           create: Jaratıw
-      assembly_copies:
-        new:
-          copy: Kóshirip alıw
       assembly_imports:
         new:
           import: Importlaw
