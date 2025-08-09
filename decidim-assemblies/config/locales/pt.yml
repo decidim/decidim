@@ -10,9 +10,6 @@ pt:
         closing_date: Data de encerramento
         closing_date_reason: Razão da data de encerramento
         composition: Composição
-        copy_categories: Copiar categorias
-        copy_components: Copiar componentes
-        copy_features: Características da cópia
         created_by: Criado por
         created_by_other: Criado por outro
         creation_date: Data de criação
@@ -111,15 +108,6 @@ pt:
         update:
           error: Ocorreu um problema ao atualizar esta reunião.
           success: Reunião atualizada corretamente.
-      assemblies_copies:
-        create:
-          error: Ocorreu um problema ao duplicar esta reunião.
-          success: Reunião duplicada corretamente.
-      assembly_copies:
-        new:
-          copy: Cópia
-          select: Selecione os dados que pretende duplicar
-          title: Duplicar assembléia
       assembly_imports:
         create:
           error: Ocorreu um problema ao atualizar esta reunião.
@@ -256,9 +244,6 @@ pt:
             taxonomies: Taxonomias
             title: Informação geral
             visibility: Visibilidade
-        assembly_copies:
-          form:
-            slug_help_html: 'São usados slugs de URL para gerar URLs que apontam para esta reunião. Aceita apenas letras, números e traços, e deve começar com uma letra. Exemplo: %{url}'
         assembly_imports:
           form:
             slug_help_html: 'São usados slugs de URL para gerar URLs que apontam para esta reunião. Aceita apenas letras, números e traços, e deve começar com uma letra. Exemplo: %{url}'
