@@ -10,9 +10,6 @@ ca-IT:
         closing_date: Data de finalització
         closing_date_reason: Motiu de la data de tancament
         composition: Composició
-        copy_categories: Copia categories
-        copy_components: Copia components
-        copy_features: Copia funcionalitats
         created_by: Creat per
         created_by_other: Creat per una altre
         creation_date: Data de creació
@@ -111,15 +108,6 @@ ca-IT:
         update:
           error: S'ha produït un error en actualitzar aquesta assemblea.
           success: L'assemblea s'ha actualitzat correctament.
-      assemblies_copies:
-        create:
-          error: S'ha produït un error en duplicar aquesta assemblea.
-          success: L'assemblea s'ha duplicat correctament.
-      assembly_copies:
-        new:
-          copy: Còpia
-          select: Selecciona quines dades vols duplicar
-          title: Assemblea duplicada
       assembly_imports:
         create:
           error: Hi ha hagut un problema important aquesta assemblea.
@@ -259,9 +247,6 @@ ca-IT:
             taxonomies: Taxonomies
             title: Informació general
             visibility: Visibilitat
-        assembly_copies:
-          form:
-            slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         assembly_imports:
           form:
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
