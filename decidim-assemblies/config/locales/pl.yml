@@ -113,15 +113,9 @@ pl:
         update:
           error: Podczas aktualizowania tego zespołu wystąpił błąd.
           success: Zespół został zaktualizowany.
-      assemblies_copies:
-        create:
-          error: Podczas duplikowania tego zespołu wystąpił błąd.
-          success: Zespół został zduplikowany.
       assembly_copies:
         new:
           copy: Kopiuj
-          select: Wybierz dane, które chcesz zduplikować
-          title: Zduplikuj zespół
       assembly_imports:
         create:
           error: Wystąpił błąd podczas importowania tego zespołu.
