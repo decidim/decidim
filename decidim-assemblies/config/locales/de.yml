@@ -116,10 +116,6 @@ de:
         update:
           error: Beim Aktualisieren dieses Gremiums ist ein Fehler aufgetreten.
           success: Die Versammlung wurde erfolgreich aktualisiert.
-      assemblies_copies:
-        create:
-          error: Beim Duplizieren dieses Gremiums ist ein Fehler aufgetreten.
-          success: Das Gremium wurde erfolgreich dupliziert.
       assemblies_types:
         create:
           error: Beim Erstellen eines neuen Gremiumtyps ist ein Fehler aufgetreten.
@@ -135,8 +131,6 @@ de:
       assembly_copies:
         new:
           copy: Kopieren
-          select: Wählen Sie die Daten aus, die Sie duplizieren möchten
-          title: Dupliziertes Gremium
       assembly_imports:
         create:
           error: Beim Importieren dieses Gremiums ist ein Fehler aufgetreten.
