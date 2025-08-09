@@ -10,9 +10,6 @@ lt:
         closing_date: Pabaigos data
         closing_date_reason: Pabaigos datos priežastis
         composition: Sudėtis
-        copy_categories: Kopijuoti kategorijas
-        copy_components: Kopijuoti komponentus
-        copy_features: Kopijuoti požymius
         created_by: Sukurta
         created_by_other: Sukurta kito
         creation_date: Sukūrimo data
@@ -108,15 +105,6 @@ lt:
         update:
           error: Atnaujinant šią asamblėją iškilo problema.
           success: Asamblėja atnaujinta.
-      assemblies_copies:
-        create:
-          error: Dubliuojant šią asamblėją iškilo problema.
-          success: Asamblėja dubliuota.
-      assembly_copies:
-        new:
-          copy: Kopijuoti
-          select: Pasirinkite, kuriuos duomenis norėtumėte dubliuoti
-          title: Dublikuoti asamblėją
       assembly_imports:
         create:
           error: Importuojant asamblėją iškilo problema.
