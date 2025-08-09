@@ -113,15 +113,9 @@ ca-IT:
         update:
           error: S'ha produït un error en actualitzar aquesta assemblea.
           success: L'assemblea s'ha actualitzat correctament.
-      assemblies_copies:
-        create:
-          error: S'ha produït un error en duplicar aquesta assemblea.
-          success: L'assemblea s'ha duplicat correctament.
       assembly_copies:
         new:
           copy: Còpia
-          select: Selecciona quines dades vols duplicar
-          title: Assemblea duplicada
       assembly_imports:
         create:
           error: Hi ha hagut un problema important aquesta assemblea.
