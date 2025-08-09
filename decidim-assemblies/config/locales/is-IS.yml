@@ -80,8 +80,6 @@ is:
       assembly_copies:
         new:
           copy: Afrita
-          select: Veldu hvaða gögn þú vilt afrita
-          title: Afrit samkoma
       assembly_imports:
         new:
           import: Flytja inn
