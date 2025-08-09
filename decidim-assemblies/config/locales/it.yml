@@ -10,9 +10,6 @@ it:
         closing_date: Data di chiusura
         closing_date_reason: Motivo della data di chiusura
         composition: Composizione
-        copy_categories: Copia le categorie
-        copy_components: Copia componenti
-        copy_features: Copia le caratteristiche
         created_by: Creato da
         created_by_other: Creato da altri
         creation_date: Data di creazione
@@ -111,15 +108,6 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa assemblea.
           success: L'assemblea è stata aggiornata correttamente.
-      assemblies_copies:
-        create:
-          error: Si è verificato un errore durante la duplicazione di questa assemblea.
-          success: L'assemblea è stata duplicata con successo.
-      assembly_copies:
-        new:
-          copy: Copia
-          select: Scegli quale dato vuoi duplicare
-          title: Duplica l'assemblea
       assembly_imports:
         create:
           error: Si è verificato un errore durante l'aggiornamento di questa assemblea.
@@ -259,9 +247,6 @@ it:
             taxonomies: Categorizzazioni
             title: Informazioni generali
             visibility: Visibilità
-        assembly_copies:
-          form:
-            slug_help_html: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa assemblea. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
         assembly_imports:
           form:
             slug_help_html: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa assemblea. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
