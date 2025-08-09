@@ -118,8 +118,8 @@ fi:
           success: Ryhmän päivitys onnistui.
       assemblies_copies:
         create:
-          error: Ryhmän kopiointi epäonnistui.
-          success: Ryhmän kopiointi onnistui.
+          error: Ryhmän kopioiminen epäonnistui.
+          success: Ryhmän kopioiminen onnistui.
       assemblies_types:
         create:
           error: Uuden ryhmätyypin luonti epäonnistui.
