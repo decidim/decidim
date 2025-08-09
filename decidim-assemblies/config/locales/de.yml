@@ -10,9 +10,6 @@ de:
         closing_date: Auflösungsdatum
         closing_date_reason: Grund der Auflösung
         composition: Zusammensetzung
-        copy_categories: Kategorien kopieren
-        copy_components: Komponenten kopieren
-        copy_features: Funktionen kopieren
         created_by: Erstellt von
         created_by_other: Erstellt von anderen
         creation_date: Gründungsdatum
@@ -111,15 +108,6 @@ de:
         update:
           error: Beim Aktualisieren dieses Gremiums ist ein Fehler aufgetreten.
           success: Die Versammlung wurde erfolgreich aktualisiert.
-      assemblies_copies:
-        create:
-          error: Beim Duplizieren dieses Gremiums ist ein Fehler aufgetreten.
-          success: Das Gremium wurde erfolgreich dupliziert.
-      assembly_copies:
-        new:
-          copy: Kopieren
-          select: Wählen Sie die Daten aus, die Sie duplizieren möchten
-          title: Dupliziertes Gremium
       assembly_imports:
         create:
           error: Beim Importieren dieses Gremiums ist ein Fehler aufgetreten.
@@ -257,9 +245,6 @@ de:
             taxonomies: Klassifizierungen
             title: Allgemeine Information
             visibility: Sichtbarkeit
-        assembly_copies:
-          form:
-            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         assembly_imports:
           form:
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
