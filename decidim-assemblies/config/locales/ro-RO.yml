@@ -115,10 +115,6 @@ ro:
         update:
           error: A apărut o eroare la actualizarea acestui grup de lucru.
           success: Grupul de lucru a fost actualizat cu succes.
-      assemblies_copies:
-        create:
-          error: A apărut o problemă la duplicarea acestui grup de lucru.
-          success: Grupul de lucru a fost duplicat cu succes.
       assemblies_types:
         create:
           error: A apărut o problemă la crearea unui nou tip de grup de lucru.
@@ -134,8 +130,6 @@ ro:
       assembly_copies:
         new:
           copy: Copiază
-          select: Selectați datele pe care doriți să le duplicați
-          title: Duplică grupul de lucru
       assembly_imports:
         create:
           error: A apărut o problemă la importul acestui grup de lucru.
