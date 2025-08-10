@@ -162,8 +162,13 @@ cs:
         exports:
           registrations: Registrace
         form:
+          duration: Doba trvání
           images: Fotky
+          metadata: Metadata
+          registrations: Registrace
+          related_spaces: Související prostory
           title: Obecná informace
+          visibility: Viditelnost
         index:
           published: Publikováno
           unpublished: Nezveřejněno
@@ -171,6 +176,7 @@ cs:
           title: Smazané konference
         new:
           create: Vytvořit
+          title: Nová konference
         update:
           error: Při aktualizaci této konference došlo k chybě.
           success: Konference byla úspěšně aktualizována.
@@ -213,17 +219,20 @@ cs:
       models:
         conference:
           fields:
+            actions: Akce
             created_at: Vytvořeno v
             published: Publikováno
             title: Název
         conference_speaker:
           fields:
+            actions: Akce
             affiliation: Přidružení
             full_name: Celé jméno
             position: Pozice
           name: Řečník Konference
         conference_user_role:
           fields:
+            actions: Akce
             email: E-mail
             name: Název
             role: Role
@@ -235,12 +244,14 @@ cs:
             moderator: Moderátor
         media_link:
           fields:
+            actions: Akce
             date: Datum
             link: Odkaz
             title: Název
           name: Odkaz na média
         partner:
           fields:
+            actions: Akce
             link: Odkaz
             logo: Logo
             name: Název
@@ -251,6 +262,7 @@ cs:
             main_promotor: Hlavní podporovatel
         registration_type:
           fields:
+            actions: Akce
             conference_meetings: Setkání konference
             price: Cena
             registrations_count: Počet registrací
@@ -511,6 +523,7 @@ cs:
             sent: Odeslaná
         conference_registration:
           fields:
+            actions: Akce
             email: E-mail
             name: Název
             registration_type: Typ registrace
