@@ -894,6 +894,7 @@ cs:
         done: Hotovo
         select_identity: Vybrat identitu
     endorsers_list:
+      others: "%{count} dalších"
       title: Toto se líbí
       you: vám
     ephemeral_user: Návštěvník
