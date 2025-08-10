@@ -1,3 +1,4 @@
+/* eslint max-lines: ["error", 370] */
 /**
  * External dependencies
  */
@@ -276,7 +277,7 @@ document.addEventListener("turbo:load", () => {
       mentionsManager.handleSelection(selection);
     });
   });
-  
+
   // Initialize new FormValidator for all forms
   document.querySelectorAll("form").forEach((formElement) => {
     if (!formElement.dataset.formValidator) {
@@ -297,3 +298,14 @@ document.addEventListener("turbo:load", () => {
     new PasswordToggler(userPassword).init();
   }
 });
+
+import { Application } from "@hotwired/stimulus"
+import { definitionsFromContext } from "src/decidim/refactor/support/stimulus"
+
+const application = Application.start()
+application.debug = true
+
+const context = require.context("./controllers", true, /controller\.js$/)
+application.load(definitionsFromContext(context))
+
+window.Stimulus = application

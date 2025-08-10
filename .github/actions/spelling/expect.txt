@@ -71,6 +71,7 @@ backported
 backporter
 backticks
 barcat
+Basecamp
 Basecontroller
 Batchloader
 bayes
@@ -409,6 +410,7 @@ Hodor
 Holas
 honeypots
 hooli
+hotwired
 housenumber
 hsh
 hsts
