@@ -19,7 +19,7 @@ describe("UserRegistrationForm", () => {
     // Mock HTMLFormElement.prototype.submit
     mockFormSubmit = jest.fn();
     if (!HTMLFormElement.prototype.submit.mockImplementation) {
-      Reflect.defineProperty(HTMLFormElement.prototype, "submit", {
+      Reflect.defineProperty(HTMLFormElement.prototype, "requestSubmit", {
         value: mockFormSubmit,
         writable: true,
         configurable: true

@@ -49,8 +49,6 @@ import "src/decidim/results_listing"
 import "src/decidim/impersonation"
 import "src/decidim/data_consent"
 import "src/decidim/sw"
-import "src/decidim/sticky_header"
-import "src/decidim/sticky_footer"
 import "src/decidim/attachments"
 import "src/decidim/dropdown_menu"
 
