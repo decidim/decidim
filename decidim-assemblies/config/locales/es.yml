@@ -113,9 +113,15 @@ es:
         update:
           error: Se ha producido un error al actualizar esta asamblea.
           success: La asamblea se ha actualizado correctamente.
+      assemblies_copies:
+        create:
+          error: Se ha producido un error al duplicar esta asamblea.
+          success: La asamblea se ha duplicado correctamente.
       assembly_copies:
         new:
           copy: Copiar
+          select: Selecciona qué datos quieres duplicar
+          title: Duplicar asamblea
       assembly_imports:
         create:
           error: Ha habido un problema importando esta asamblea.
