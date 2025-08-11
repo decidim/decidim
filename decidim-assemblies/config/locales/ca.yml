@@ -19,6 +19,9 @@ ca:
         developer_group: Grup promotor
         document: Document
         domain: Domini
+        duplicate_categories: Duplicar les categories
+        duplicate_components: Duplicar els components
+        duplicate_features: Duplicar les funcionalitats
         duration: Durada
         facebook: Facebook
         github: GitHub
@@ -108,6 +111,15 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquesta assemblea.
           success: L'assemblea s'ha actualitzat correctament.
+      assemblies_duplicates:
+        create:
+          error: S'ha produït un error en duplicar aquesta assemblea.
+          success: L'assemblea s'ha duplicat correctament.
+      assembly_duplicates:
+        new:
+          duplicate: Duplicar
+          select: Selecciona quines dades vols duplicar
+          title: Assemblea duplicada
       assembly_imports:
         create:
           error: Hi ha hagut un problema important aquesta assemblea.
@@ -247,6 +259,9 @@ ca:
             taxonomies: Taxonomies
             title: Informació general
             visibility: Visibilitat
+        assembly_duplicates:
+          form:
+            slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         assembly_imports:
           form:
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
