@@ -6,6 +6,8 @@ lv:
           election_questions: Jautājumi
     components:
       elections:
+        actions:
+          destroy: Dzēst
         name: Vēlēšanas
         settings:
           global:
@@ -16,6 +18,16 @@ lv:
       actions:
         title: Darbības
       admin:
+        dashboard:
+          main:
+            labels:
+              description: Apraksts
+          questions:
+            labels:
+              answers: Atbildes
+            title: Jautājumi
+          questions_table:
+            answer: Atbildes
         elections:
           edit:
             title: Rediģēt vēlēšanas

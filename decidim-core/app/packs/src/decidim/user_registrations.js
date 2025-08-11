@@ -1,6 +1,6 @@
 import PasswordToggler from "src/decidim/password_toggler";
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   const $userRegistrationForm = $("#register-form");
   const $userOmniauthRegistrationForm = $("#omniauth-register-form");
   const userPassword         =  document.querySelector(".user-password");

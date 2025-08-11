@@ -46,7 +46,7 @@ export default class FormValidator {
   }
 }
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   $("form").each((_i, el) => {
     $(el).data("form-validator", new FormValidator($(el)));
   });

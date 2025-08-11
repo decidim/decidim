@@ -12,6 +12,7 @@ module Decidim
 
       it { is_expected.to be_valid }
       it { is_expected.to act_as_paranoid }
+      it { is_expected.to be_versioned }
 
       include_examples "has component"
       include_examples "resourceable"
@@ -47,32 +48,428 @@ module Decidim
       describe "#manual_start?" do
         it "returns true when start_at is nil" do
           election.start_at = nil
-          expect(election.manual_start?).to be true
+          expect(election).to be_manual_start
         end
 
         it "returns false when start_at is present" do
           election.start_at = Time.current
-          expect(election.manual_start?).to be false
+          expect(election).not_to be_manual_start
         end
       end
 
       describe "#auto_start?" do
         it "returns true when start_at is present" do
           election.start_at = Time.current
-          expect(election.auto_start?).to be true
+          expect(election).to be_auto_start
         end
 
         it "returns false when start_at is nil" do
           election.start_at = nil
-          expect(election.auto_start?).to be false
+          expect(election).not_to be_auto_start
+        end
+      end
+
+      describe "#started?" do
+        it { is_expected.not_to be_started }
+
+        context "when start_at is in the future" do
+          let(:election) { build(:election, :scheduled) }
+
+          it { is_expected.not_to be_started }
+        end
+
+        context "when start_at is in the past" do
+          let(:election) { build(:election, :finished) }
+
+          it { is_expected.to be_started }
+        end
+      end
+
+      describe "#vote_finished?" do
+        it { is_expected.not_to be_vote_finished }
+
+        context "when in the future" do
+          let(:election) { build(:election, :ongoing) }
+
+          it { is_expected.not_to be_vote_finished }
+        end
+
+        context "when in the past" do
+          let(:election) { build(:election, :finished) }
+
+          it { is_expected.to be_vote_finished }
+        end
+
+        context "when question by question" do
+          let(:election) { create(:election, :with_questions, :per_question) }
+
+          it { is_expected.not_to be_vote_finished }
+
+          context "when finished" do
+            let(:election) { create(:election, :with_questions, :per_question, :finished) }
+
+            it { is_expected.to be_vote_finished }
+          end
+
+          context "when ongoing" do
+            let!(:election) { create(:election, :with_questions, :per_question, :ongoing) }
+
+            it { is_expected.not_to be_vote_finished }
+
+            context "when some questions have finished" do
+              before do
+                election.questions.first.update!(published_results_at: 1.day.ago)
+              end
+
+              it { is_expected.not_to be_vote_finished }
+            end
+
+            context "when all questions have finished" do
+              before do
+                election.questions.update_all(published_results_at: 1.day.ago) # rubocop:disable Rails/SkipsModelValidations
+              end
+
+              it { is_expected.to be_vote_finished }
+            end
+          end
+        end
+      end
+
+      describe "#ongoing?" do
+        it { is_expected.not_to be_ongoing }
+
+        context "when started" do
+          let(:election) { build(:election, :started) }
+
+          it { is_expected.to be_ongoing }
+        end
+
+        context "when not started" do
+          let(:election) { build(:election, :scheduled) }
+
+          it { is_expected.not_to be_ongoing }
+        end
+
+        context "when vote finished" do
+          let(:election) { build(:election, :finished) }
+
+          it { is_expected.not_to be_ongoing }
+        end
+      end
+
+      describe "#scheduled?" do
+        it { is_expected.not_to be_scheduled }
+
+        context "when unpublished with dates" do
+          let(:election) { build(:election, :scheduled) }
+
+          it { is_expected.not_to be_scheduled }
+        end
+
+        context "when published" do
+          let(:election) { build(:election, :published, :scheduled) }
+
+          it { is_expected.to be_scheduled }
+        end
+      end
+
+      describe "#ready_to_publish_results?" do
+        it { is_expected.not_to be_ready_to_publish_results }
+
+        context "when already published" do
+          let(:election) { build(:election, :results_published) }
+
+          it { is_expected.not_to be_ready_to_publish_results }
+        end
+
+        context "when not published" do
+          let(:election) { build(:election, :finished) }
+
+          it { is_expected.not_to be_ready_to_publish_results }
+        end
+
+        context "when no questions" do
+          let(:election) { create(:election, :published, :finished) }
+
+          it { expect(subject).not_to be_ready_to_publish_results }
+        end
+
+        context "when published" do
+          let(:election) { create(:election, :with_questions, :published, :finished) }
+
+          it { is_expected.to be_ready_to_publish_results }
+
+          context "when ongoing" do
+            let(:election) { build(:election, :published, :ongoing) }
+
+            it { is_expected.not_to be_ready_to_publish_results }
+          end
+
+          context "when in the future" do
+            let(:election) { build(:election, :published, :scheduled) }
+
+            it { is_expected.not_to be_ready_to_publish_results }
+          end
+
+          context "when question by question" do
+            let(:election) { create(:election, :published, :scheduled, :per_question) }
+
+            it { is_expected.not_to be_ready_to_publish_results }
+
+            context "when questions" do
+              let(:election) { create(:election, :with_questions, :published, :ongoing, :per_question) }
+
+              it { expect(subject).not_to be_ready_to_publish_results }
+
+              context "when some questions enabled" do
+                before do
+                  election.questions.first.update!(voting_enabled_at: Time.current)
+                end
+
+                it { expect(subject).to be_ready_to_publish_results }
+              end
+            end
+          end
+        end
+      end
+
+      describe "#results_published?" do
+        context "when realtime" do
+          let(:election) { build(:election, :real_time) }
+
+          it { is_expected.not_to be_results_published }
+
+          context "when vote ongoing" do
+            let(:election) { build(:election, :ongoing, :real_time) }
+
+            it { is_expected.to be_results_published }
+          end
+
+          context "when vote finished" do
+            let(:election) { build(:election, :finished, :real_time) }
+
+            it { is_expected.to be_results_published }
+          end
+        end
+
+        context "when after_end" do
+          let(:election) { build(:election, :after_end) }
+
+          it { is_expected.not_to be_results_published }
+
+          context "when vote ongoing" do
+            let(:election) { build(:election, :ongoing, :after_end) }
+
+            it { is_expected.not_to be_results_published }
+          end
+
+          context "when vote finished" do
+            let(:election) { build(:election, :finished, :after_end) }
+
+            it { is_expected.not_to be_results_published }
+          end
+
+          context "when results published" do
+            let(:election) { build(:election, :results_published, :after_end) }
+
+            it { is_expected.to be_results_published }
+          end
+        end
+
+        context "when per_question" do
+          let(:election) { create(:election, :with_questions, :per_question) }
+
+          it { is_expected.not_to be_results_published }
+
+          context "when vote scheduled" do
+            let(:election) { create(:election, :scheduled, :per_question) }
+
+            it { is_expected.not_to be_results_published }
+          end
+
+          context "when vote ongoing" do
+            let(:election) { create(:election, :with_questions, :ongoing, :per_question) }
+
+            it { is_expected.not_to be_results_published }
+          end
+
+          context "when some questions have published results" do
+            before do
+              election.questions.first.update!(published_results_at: Time.current)
+            end
+
+            it { is_expected.not_to be_results_published }
+          end
+
+          context "when published questions are not enabled" do
+            before do
+              election.questions.first.update!(voting_enabled_at: nil, published_results_at: Time.current)
+            end
+
+            it { is_expected.not_to be_results_published }
+          end
+        end
+      end
+
+      describe "#status" do
+        it { expect(subject.status).to eq(:unpublished) }
+
+        context "when realtime" do
+          let(:election) { build(:election, :published, :real_time) }
+
+          it { expect(subject.status).to eq(:scheduled) }
+
+          context "when ongoing" do
+            let(:election) { build(:election, :published, :ongoing, :real_time) }
+
+            it { expect(subject.status).to eq(:ongoing) }
+          end
+
+          context "when finished" do
+            let(:election) { build(:election, :published, :finished, :real_time) }
+
+            it { expect(subject.status).to eq(:results_published) }
+          end
+
+          context "when results published" do
+            let(:election) { build(:election, :published, :results_published, :real_time) }
+
+            it { expect(subject.status).to eq(:results_published) }
+          end
+        end
+
+        context "when after_end" do
+          let(:election) { build(:election, :published, :after_end) }
+
+          it { expect(subject.status).to eq(:scheduled) }
+
+          context "when ongoing" do
+            let(:election) { build(:election, :published, :ongoing, :after_end) }
+
+            it { expect(subject.status).to eq(:ongoing) }
+          end
+
+          context "when finished" do
+            let(:election) { build(:election, :published, :finished, :after_end) }
+
+            it { expect(subject.status).to eq(:finished) }
+          end
+
+          context "when results published" do
+            let(:election) { build(:election, :published, :results_published, :after_end) }
+
+            it { expect(subject.status).to eq(:results_published) }
+          end
+        end
+
+        context "when per_question" do
+          let(:election) { create(:election, :published, :with_questions, :per_question) }
+
+          it { expect(subject.status).to eq(:scheduled) }
+
+          context "when ongoing" do
+            let(:election) { create(:election, :published, :with_questions, :ongoing, :per_question) }
+
+            it { expect(subject.status).to eq(:ongoing) }
+          end
+
+          context "when finished" do
+            let(:election) { create(:election, :published, :with_questions, :finished, :per_question) }
+
+            it { expect(subject.status).to eq(:finished) }
+          end
+
+          context "when results published" do
+            let(:election) { create(:election, :published, :with_questions, :results_published, :per_question) }
+
+            it { expect(subject.status).to eq(:scheduled) }
+          end
+
+          context "when some questions are enabled" do
+            before do
+              election.questions.first.update!(voting_enabled_at: Time.current)
+            end
+
+            it { expect(subject.status).to eq(:scheduled) }
+
+            context "when finished" do
+              let(:election) { create(:election, :published, :with_questions, :finished, :per_question) }
+
+              it { expect(subject.status).to eq(:finished) }
+            end
+
+            context "when ongoing" do
+              let(:election) { create(:election, :published, :with_questions, :ongoing, :per_question) }
+
+              it { expect(subject.status).to eq(:ongoing) }
+            end
+          end
+
+          context "when some questions have published results" do
+            before do
+              election.questions.first.update(voting_enabled_at: Time.current, published_results_at: Time.current)
+            end
+
+            it { expect(subject.status).to eq(:scheduled) }
+
+            context "when finished" do
+              let(:election) { create(:election, :published, :with_questions, :finished, :per_question) }
+
+              it { expect(subject.status).to eq(:results_published) }
+            end
+
+            context "when ongoing" do
+              let(:election) { create(:election, :published, :with_questions, :ongoing, :per_question) }
+
+              it { expect(subject.status).to eq(:ongoing) }
+            end
+          end
+
+          context "when all questions have published results" do
+            before do
+              election.questions.update_all(voting_enabled_at: Time.current, published_results_at: Time.current) # rubocop:disable Rails/SkipsModelValidations
+            end
+
+            it { expect(subject.status).to eq(:scheduled) }
+
+            context "when ongoing" do
+              let(:election) { create(:election, :published, :with_questions, :ongoing, :per_question) }
+
+              it { expect(subject.status).to eq(:results_published) }
+            end
+          end
         end
       end
 
       describe "associations" do
         it "has many questions" do
           election.save!
-          create(:election_question, election: election)
+          create(:election_question, election:)
           expect(election.questions.count).to eq(1)
+        end
+
+        it "has many voters" do
+          election.save!
+          create(:election_voter, election:)
+          expect(election.voters.count).to eq(1)
+        end
+
+        context "when destroying" do
+          before do
+            election.save!
+            create(:election_question, :with_response_options, election:)
+            create(:election_voter, election:)
+          end
+
+          it "does not delete questions" do
+            election.destroy!
+            expect(election.questions.count).to eq(0)
+          end
+
+          it "does not delete voters" do
+            election.destroy!
+            expect(election.voters.count).to eq(0)
+          end
         end
       end
 
@@ -95,9 +492,42 @@ module Decidim
         end
       end
 
+      describe "#available_questions" do
+        it "returns all questions when per_question is false" do
+          expect(election.available_questions).to eq(election.questions)
+        end
+
+        it "returns enabled questions when per_question is true" do
+          election.update!(results_availability: "per_question")
+          expect(election.available_questions).to eq(election.questions.enabled)
+        end
+      end
+
       describe ".log_presenter_class_for" do
         it "returns the admin log presenter class" do
           expect(described_class.log_presenter_class_for(nil)).to eq(Decidim::Elections::AdminLog::ElectionPresenter)
+        end
+      end
+
+      describe "questions are ordered by position" do
+        let!(:second_question) { create(:election_question, election:, position: 2) }
+        let!(:first_question) { create(:election_question, election:, position: 1) }
+
+        it "returns questions ordered by position" do
+          expect(election.questions).to eq([first_question, second_question])
+        end
+      end
+
+      describe "#per_question?" do
+        let(:election_with_per_question) { build(:election, :per_question) }
+        let(:election_with_real_time) { build(:election, :real_time) }
+
+        it "returns true when results_availability is per_question" do
+          expect(election_with_per_question).to be_per_question
+        end
+
+        it "returns false when results_availability is not per_question" do
+          expect(election_with_real_time).not_to be_per_question
         end
       end
     end

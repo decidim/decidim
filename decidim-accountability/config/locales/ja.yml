@@ -39,8 +39,8 @@ ja:
   decidim:
     accountability:
       actions:
-        attachment_collections: フォルダー
-        attachments: 添付ファイル
+        add_milestone: マイルストーンを追加
+        add_result: 結果を追加
         confirm_delete_result: この結果を削除してもよろしいですか？
         confirm_destroy: この %{name} を削除してもよろしいですか？
         deleted_results_info: 削除された結果はゴミ箱から復元できます。
@@ -48,7 +48,6 @@ ja:
         edit: 編集
         import: 別のコンポーネントから結果をインポート
         import_csv: CSVファイルから結果をインポート
-        milestones: マイルストーン
         new_milestone: 新しいマイルストーン
         new_result: 新しい結果
         new_status: 新しいステータス

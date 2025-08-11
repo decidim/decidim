@@ -30,7 +30,7 @@ const fixMenuBarContainerMargin = () => {
   menuBarContainer.style.marginTop = `${marginTop}px`;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   fixMenuBarContainerMargin();
 });
 

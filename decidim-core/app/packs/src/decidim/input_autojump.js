@@ -1,4 +1,4 @@
-$(() => {
+document.addEventListener("turbo:load", () => {
   const $inputs = $("input[data-autojump]");
   const DELETE_KEY_CODE = 8;
 

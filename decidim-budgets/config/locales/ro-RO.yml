@@ -32,10 +32,7 @@ ro:
               'true': Implementare refuzată
     budgets:
       actions:
-        attachment_collections: Dosare
-        attachments: Atașamente
         edit: Editare
-        edit_projects: Gestionați proiectele
         import: Importă propuneri în proiecte
         preview: Previzualizare
         send_voting_reminders: Trimite memento-uri de votare

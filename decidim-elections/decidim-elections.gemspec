@@ -32,6 +32,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "decidim-admin", Decidim::Elections.version
   s.add_dependency "decidim-core", Decidim::Elections.version
+  s.add_dependency "decidim-forms", Decidim::Elections.version
 
   s.add_development_dependency "decidim-dev", Decidim::Elections.version
 end

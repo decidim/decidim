@@ -3,6 +3,7 @@
 module Decidim
   module Elections
     class Voter < Elections::ApplicationRecord
+      include Decidim::Traceable
       belongs_to :election, class_name: "Decidim::Elections::Election"
 
       validates :data, presence: true

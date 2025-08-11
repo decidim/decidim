@@ -2,14 +2,14 @@ eu:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Erlazionatutako Batzarrak
+        assemblies_ids: Erlazionatutako batzarrak
         available_slots: Leku libreak
         banner_image: Banner irudia
-        copy_categories: Kopiatu kategoriak
-        copy_components: Kopiatu osagaiak
-        copy_features: Kopiatu ezaugarriak
         decidim_scope_id: Esparrua
         description: Deskribapena
+        duplicate_categories: Bikoiztu kategoriak
+        duplicate_components: Bikoiztu osagaiak
+        duplicate_features: Bikoiztu ezaugarriak
         end_date: Amaiera-data
         hero_image: Orri nagusiko irudia
         location: Kokapena
@@ -97,9 +97,9 @@ eu:
         new_speaker: Beste hizlari bat
         send_diplomas: Bidali bertaratze-ziurtagiriak
         view_deleted_conferences: Ikusi ezabatutako jardunaldiak
-      conference_copies:
+      conference_duplicates:
         new:
-          copy: Kopiatu
+          duplicate: Bikoiztu
           select: Hautatu zein datu bikoiztu nahi dituzun
           title: Bikoiztu jardunaldia
       conference_publications:
@@ -162,7 +162,13 @@ eu:
         exports:
           registrations: Izen-emateak
         form:
+          duration: Iraupena
+          images: Argazkiak
+          metadata: Metadatuak
+          registrations: Izen-emateak
+          related_spaces: Honekin lotutako espazioak
           title: Informazio orokorra
+          visibility: Ikusgarritasuna
         index:
           published: Argitaratua
           unpublished: Argitaragabea
@@ -170,14 +176,14 @@ eu:
           title: Ezabatutako jardunaldiak
         new:
           create: Sortu
-          title: Jardunaldia
+          title: Beste jardunaldi bat
         update:
           error: Arazo bat egon da jardunaldi hau eguneratzean.
           success: Jardunaldia zuzen eguneratua.
-      conferences_copies:
+      conferences_duplicates:
         create:
           error: Arazo bat egon da jardunaldi hau bikoiztean.
-          success: Jardunaldia zuzen eguneratua.
+          success: Jardunaldia zuzen bikoiztua.
       media_links:
         create:
           error: Arazo bat egon da beste komunikazio-esteka bat sortzean.
@@ -355,7 +361,7 @@ eu:
         title: Hizlariak
     conferences:
       admin:
-        conference_copies:
+        conference_duplicates:
           form:
             slug_help_html: 'URL slugak erabiltzen dira jardunaldi honetako URLak sortzeko. Soilik onartzen ditu gutunak, zenbakiak eta gidoiak, eta letra batez hasi behar du. Adibidea: %{url}'
         conference_invites:

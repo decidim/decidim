@@ -45,26 +45,17 @@
             <td class="table-list__date" data-label="<%= t("models.initiatives.fields.created_at", scope: "decidim.admin") %>"><%= l initiative.created_at, format: :short %></td>
             <td class="table-list__date" data-label="<%= t("models.initiatives.fields.published_at", scope: "decidim.admin") %>"><%= initiative.published_at? ? l(initiative.published_at, format: :short) : "" %></td>
             <td class="table-list__actions" data-label="<%= t(".actions_title") %>">
-              <button type="button" data-component="dropdown" data-target="actions-initiative-<%= initiative.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: translated_attribute(initiative.title)) %>">
+              <button type="button" data-controller="dropdown" data-target="actions-initiative-<%= initiative.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: translated_attribute(initiative.title)) %>">
                 <%= icon "more-fill", class: "text-secondary" %>
               </button>
 
               <div class="inline-block relative">
                 <ul id="actions-initiative-<%= initiative.id %>" class="dropdown dropdown__action" aria-hidden="true">
-                  <% if allowed_to? :read, :share_tokens, current_participatory_space: initiative %>
-                    <li class="dropdown__item">
-                      <%= link_to decidim_admin_initiatives.initiative_share_tokens_path(initiative), class: "dropdown__button" do %>
-                        <%= icon "share-line" %>
-                        <%= t("actions.share_tokens", scope: "decidim.admin") %>
-                      <% end %>
-                    </li>
-                  <% end %>
-
                   <% if allowed_to? :edit, :initiative, initiative: initiative %>
                     <li class="dropdown__item">
                       <%= link_to decidim_admin_initiatives.edit_initiative_path(initiative.to_param), class: "dropdown__button" do %>
                         <%= icon "pencil-line" %>
-                        <%= t("actions.configure", scope: "decidim.admin") %>
+                        <%= t("actions.edit", scope: "decidim.admin") %>
                       <% end %>
                     </li>
                   <% end %>
@@ -107,6 +98,17 @@
                         <%= t(".preview") %>
                       <% end %>
                     </li>
+                  <% end %>
+
+                  <% if allowed_to? :read, :share_tokens, current_participatory_space: initiative %>
+                    <li class="dropdown__item">
+                      <%= link_to decidim_admin_initiatives.initiative_share_tokens_path(initiative), class: "dropdown__button" do %>
+                        <%= icon "share-line" %>
+                        <%= t("actions.share_tokens", scope: "decidim.admin") %>
+                      <% end %>
+                    </li>
+
+                    <hr>
                   <% end %>
 
                   <% if (link = free_resource_permissions_link(initiative)) %>

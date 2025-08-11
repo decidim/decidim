@@ -119,8 +119,6 @@ lv:
     meetings:
       actions:
         agenda: Darba kārtība
-        attachment_collections: Mapes
-        attachments: Pielikumi
         close: Aizvērt
         edit: Labot
         preview: Priekšskatīt

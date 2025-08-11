@@ -1,0 +1,26 @@
+<div class="card flex flex-col justify-between h-full my-4">
+  <div class="card-divider">
+    <h2 class="card-title flex items-center justify-between">
+      <%= t("decidim.elections.admin.dashboard.calendar.title") %>
+      <% if (action_data = election_status_action_data(election)) %>
+        <%= form_with url: update_status_election_path(election), method: :put, local: true do %>
+          <%= hidden_field_tag :status_action, action_data[:status_action] %>
+          <%= button_tag action_data[:label], class: "button button__xs button__secondary small" %>
+        <% end %>
+      <% end %>
+    </h2>
+  </div>
+
+  <div class="pb-4">
+    <div class="row column">
+      <div>
+        <span class="font-semibold"><%= t("decidim.elections.admin.dashboard.calendar.start_at") %></span>
+        <span><%= election.manual_start? ? t("decidim.elections.admin.dashboard.calendar.manual_start") : l(election.start_at, format: :short_with_time) %></span>
+      </div>
+      <div>
+        <span class="font-semibold"><%= t("decidim.elections.admin.dashboard.calendar.end_at") %></span>
+        <span><%= l(election.end_at, format: :short_with_time) %></span>
+      </div>
+    </div>
+  </div>
+</div>

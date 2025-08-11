@@ -31,7 +31,7 @@
       <% end %>
 
       <div class="relative ml-auto">
-        <button id="dropdown-trigger-<%= context_menu_id %>" data-component="dropdown" data-target="dropdown-menu-<%= context_menu_id %>" aria-label="<%= t("decidim.components.comment.controls_label") %>">
+        <button id="dropdown-trigger-<%= context_menu_id %>" data-controller="dropdown" data-target="dropdown-menu-<%= context_menu_id %>" aria-label="<%= t("decidim.components.comment.controls_label") %>">
           <%# NOTE: having two times the icon call is intentional, as that is how the `dropdown` CSS code is done %>
           <%= icon "more-fill" %>
           <%= icon "more-fill" %>
@@ -83,7 +83,7 @@
       </div>
     </div>
 
-    <div data-comment-footer data-component="accordion" id="accordion-<%= model.id %>" class="relative">
+    <div data-comment-footer data-controller="accordion" id="accordion-<%= model.id %>" class="relative">
       <div class="comment__footer-grid">
         <div class="comment__votes-actions">
           <%= render :actions %>

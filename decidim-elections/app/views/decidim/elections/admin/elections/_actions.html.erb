@@ -1,4 +1,4 @@
-<button type="button" data-component="dropdown" data-target="actions-election-<%= election.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: present(election).title(html_escape: true)) %>">
+<button type="button" data-controller="dropdown" data-target="actions-election-<%= election.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: present(election).title(html_escape: true)) %>">
   <%= icon "more-fill", class: "text-secondary" %>
 </button>
 
@@ -26,7 +26,7 @@
 
         <% if election.published? %>
           <li class="dropdown__item">
-            <%= link_to unpublish_election_path(election), method: :put, data: { confirm: t("actions.unpublish", scope: "decidim.admin") }, class: "dropdown__button" do %>
+            <%= link_to unpublish_election_path(election), method: :put, data: { confirm: t("actions.confirm_unpublish_election", scope: "decidim.elections") }, class: "dropdown__button" do %>
               <%= icon "close-circle-line" %>
               <%= t("actions.unpublish", scope: "decidim.admin") %>
             <% end %>

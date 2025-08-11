@@ -25,7 +25,6 @@ eu:
         confirm_delete_document: Ziur zaude dokumentu hau ezabatu nahi duzula?
         deleted_document_info: Ezabatutako dokumentua zaborretik berreskura daiteke.
         edit: Editatu
-        manage: Kudeatu
         new: Testu berria
         title: Ekintzak
         view_deleted_documents: Ikusi ezabatutako dokumentuak
@@ -137,6 +136,10 @@ eu:
           invalid_nodes: Hautatutako nodoak ez dira baliozkoak.
     components:
       collaborative_texts:
+        actions:
+          create: Sortu
+          destroy: Suntsitu
+          update: Eguneratu
         name: Testu kolaboratiboak
         settings:
           global:

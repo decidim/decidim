@@ -1,5 +1,8 @@
 <% add_decidim_page_title(t(".title")) %>
 
+<% append_javascript_pack_tag "decidim_elections_admin" %>
+<% append_stylesheet_pack_tag "decidim_elections_admin" %>
+
 <%= render "decidim/elections/admin/elections/tabs_menu" do %>
   <%= button_tag t("save", scope: "decidim.elections.admin.elections.form"), class: "main-tabs-menu__cta-button", form: "basic-election-form-edit" %>
 <% end %>

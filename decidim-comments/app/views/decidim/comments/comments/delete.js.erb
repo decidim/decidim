@@ -1,4 +1,4 @@
-$(() => {
+document.addEventListener("turbo:load", () => {
   const deleteDataHtml = '<%== j(render partial: "delete", locals: { comment: @comment }).strip %>';
   const rootCommentableId = <%== "comments-for-#{@comment.root_commentable.commentable_type.demodulize}-#{@comment.root_commentable.id}".to_json %>;
   const commentId = <%= @comment.id.to_json %>;
@@ -21,3 +21,5 @@ $(() => {
 
   $(".comments-count", $(`#${rootCommentableId}`)).text(<%== t("decidim.components.comments.title", count: @comment.root_commentable.comments_count).to_json %>);
 });
+
+document.dispatchEvent(new CustomEvent("turbo:load"));

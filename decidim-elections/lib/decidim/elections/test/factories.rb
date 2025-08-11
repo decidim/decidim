@@ -27,16 +27,71 @@ FactoryBot.define do
 
     component { create(:elections_component, skip_injection:) }
 
-    published_at { Time.current }
+    published_at { nil }
     deleted_at { nil }
 
-    trait :unpublished do
-      published_at { nil }
+    trait :real_time do
+      results_availability { "real_time" }
+    end
+
+    trait :per_question do
+      results_availability { "per_question" }
+    end
+
+    trait :after_end do
+      results_availability { "after_end" }
+    end
+
+    trait :scheduled do
+      start_at { 1.day.from_now }
+      end_at { 2.days.from_now }
+    end
+
+    trait :started do
+      start_at { 1.day.ago }
+      end_at { 1.day.from_now }
+    end
+
+    trait :ongoing do
+      start_at { 1.day.ago }
+      end_at { 1.day.from_now }
+    end
+
+    trait :finished do
+      start_at { 30.days.ago }
+      end_at { 1.day.ago }
+    end
+
+    trait :published do
+      published_at { Time.current }
+    end
+
+    trait :results_published do
+      published_results_at { Time.current }
+    end
+
+    trait :with_questions do
+      after :create do |election, _evaluator|
+        create_list(:election_question, 2, election:)
+      end
     end
 
     trait :with_image do
       after :create do |election, evaluator|
         election.attachments << create(:attachment, :with_image, attached_to: election, skip_injection: evaluator.skip_injection)
+      end
+    end
+
+    trait :with_internal_users_census do
+      census_manifest { "internal_users" }
+      census_settings { { "verification_handlers" => ["postal_letter"] } }
+    end
+
+    trait :with_token_csv_census do
+      census_manifest { "token_csv" }
+
+      after :create do |election|
+        create_list(:election_voter, 3, election:)
       end
     end
   end
@@ -45,16 +100,23 @@ FactoryBot.define do
     association :election
     body { generate_localized_title(:question_body) }
     description { generate_localized_description(:question_description) }
-    mandatory { false }
     question_type { "multiple_option" }
-    position { 0 }
+    sequence(:position) { |n| n }
+    published_results_at { nil }
+    voting_enabled_at { nil }
 
-    transient do
-      with_response_options { true }
+    trait :results_published do
+      published_results_at { Time.current }
     end
 
-    after :create do |question, evaluator|
-      create_list(:election_response_option, 2, question:) if evaluator.with_response_options
+    trait :voting_enabled do
+      voting_enabled_at { Time.current }
+    end
+
+    trait :with_response_options do
+      after :create do |question, _evaluator|
+        create_list(:election_response_option, 2, question:)
+      end
     end
   end
 
@@ -63,7 +125,7 @@ FactoryBot.define do
     body { generate_localized_title(:response_option_body) }
   end
 
-  factory :voter, class: "Decidim::Elections::Voter" do
+  factory :election_voter, class: "Decidim::Elections::Voter" do
     association :election
     sequence(:data) { |n| { email: "voter#{n}@example.com", token: "token#{n}" } }
   end

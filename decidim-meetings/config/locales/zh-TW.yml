@@ -189,8 +189,6 @@ zh-TW:
     meetings:
       actions:
         agenda: 議程
-        attachment_collections: 資料夾
-        attachments: 附件
         close: 關閉
         edit: 編輯
         invalid_destroy:
