@@ -20,7 +20,7 @@ import morphdom from "morphdom"
 /**
  * Local dependencies
  */
-import PasswordToggler from "src/decidim/password_toggler";
+
 import UserRegistrationForm from "src/decidim/refactor/integration/user_registration_form";
 import MentionsComponent from "src/decidim/refactor/implementation/input_mentions";
 import FormValidator from "src/decidim/refactor/implementation/form_validator"
@@ -274,12 +274,6 @@ document.addEventListener("turbo:load", () => {
 
   (new UserRegistrationForm("register-form")).initialize();
   (new UserRegistrationForm("omniauth-register-form")).initialize();
-
-  const userPassword = document.querySelector(".user-password");
-  // Initialize password toggler if password field exists
-  if (userPassword) {
-    new PasswordToggler(userPassword).init();
-  }
 });
 
 import { Application } from "@hotwired/stimulus"

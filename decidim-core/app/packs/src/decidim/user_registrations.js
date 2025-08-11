@@ -1,4 +1,4 @@
-import PasswordToggler from "src/decidim/password_toggler";
+import PasswordToggler from "src/decidim/controllers/password_toggler/password_toggler";
 
 document.addEventListener("turbo:load", () => {
   const $userRegistrationForm = $("#register-form");

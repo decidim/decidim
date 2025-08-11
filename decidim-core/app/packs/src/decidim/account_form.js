@@ -1,5 +1,3 @@
-import PasswordToggler from "src/decidim/password_toggler";
-
 const initializeAccountForm = () => {
   const newPasswordPanel = document.getElementById("panel-password");
   const oldPasswordPanel = document.getElementById("panel-old-password");
@@ -81,16 +79,7 @@ const initializeDeleteAccount = () => {
   });
 };
 
-const initializeOldPasswordToggler = () => {
-  const oldUserPassword = document.querySelector(".old-user-password");
-
-  if (oldUserPassword) {
-    new PasswordToggler(oldUserPassword).init();
-  }
-}
-
 document.addEventListener("turbo:load", () => {
   initializeAccountForm();
   initializeDeleteAccount();
-  initializeOldPasswordToggler();
 });

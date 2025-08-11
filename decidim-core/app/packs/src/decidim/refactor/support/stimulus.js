@@ -7,7 +7,7 @@
 
 const identifierForContextKey = function(key) {
   const logicalName = (key.match(/^(?:\.\/)?(.+)(?:\/controller\..+?)$/) || [])[1];
-  
+
   if (logicalName) {
     return logicalName.replace(/_/g, "-").replace(/\//g, "--");
   }
