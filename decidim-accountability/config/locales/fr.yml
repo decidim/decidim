@@ -40,8 +40,8 @@ fr:
   decidim:
     accountability:
       actions:
-        attachment_collections: Dossiers
-        attachments: Pièces jointes
+        add_milestone: Ajouter un jalon
+        add_result: Ajouter un résultat
         confirm_delete_result: Êtes-vous sûr(e) de vouloir supprimer ce résultat?
         confirm_destroy: Êtes-vous sûr de vouloir supprimer ce %{name}?
         deleted_results_info: Les résultats supprimés peuvent être restaurés à partir de la corbeille.
@@ -49,7 +49,6 @@ fr:
         edit: Modifier
         import: Importer les résultats d'un autre composant
         import_csv: Importer les résultats depuis un fichier CSV
-        milestones: Jalons
         new_milestone: Nouveau Jalon
         new_result: Nouvelle réalisation
         new_status: Nouveau statut

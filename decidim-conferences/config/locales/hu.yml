@@ -2,12 +2,8 @@ hu:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Kapcsolódó gyűlések
         available_slots: Rendelkezésre álló időpontok
         banner_image: Banner kép
-        copy_categories: Másolási kategóriák
-        copy_components: Másoljon komponenseket
-        copy_features: Másolási funkciók
         decidim_scope_id: terület
         description: Leírás
         end_date: Befejezés dátuma
@@ -92,11 +88,6 @@ hu:
         new_registration_type: Új regisztrációtípus
         new_speaker: Új előadó
         send_diplomas: Küldési igazolások küldése
-      conference_copies:
-        new:
-          copy: Másolat
-          select: Válassza ki, mely adatokat szeretné megismételni
-          title: Duplikált konferencia
       conference_publications:
         create:
           error: Hiba történt a konferencia közzétételében.
@@ -147,20 +138,16 @@ hu:
         exports:
           registrations: regisztrációk
         form:
+          images: Fotók
           title: Általános információ
         index:
           published: Közzétett
           unpublished: Nem publikált
         new:
           create: Teremt
-          title: konferencia
         update:
           error: Hiba történt a konferencia frissítésekor.
           success: A konferencia sikeresen frissült.
-      conferences_copies:
-        create:
-          error: Hiba történt a konferencia másolása során.
-          success: A konferencia sikeresen megismétlődött.
       media_links:
         create:
           error: Hiba történt új média link létrehozása közben.

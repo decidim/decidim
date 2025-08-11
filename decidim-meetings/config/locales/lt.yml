@@ -200,8 +200,6 @@ lt:
     meetings:
       actions:
         agenda: Darbotvarkė
-        attachment_collections: Aplankai
-        attachments: Priedai
         close: Uždaryti
         edit: Redaguoti
         invalid_destroy:

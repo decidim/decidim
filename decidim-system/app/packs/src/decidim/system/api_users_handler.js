@@ -7,6 +7,4 @@ const initializeApiSecretToggler = () => {
   })
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  initializeApiSecretToggler();
-});
+document.addEventListener("turbo:load", initializeApiSecretToggler);

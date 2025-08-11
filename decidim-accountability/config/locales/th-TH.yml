@@ -26,8 +26,6 @@ th:
   decidim:
     accountability:
       actions:
-        attachment_collections: โฟลเดอร์
-        attachments: ไฟล์แนบ
         confirm_destroy: คุณแน่ใจหรือไม่ว่าต้องการลบ %{name} นี้
         destroy: ลบ
         edit: แก้ไข

@@ -31,7 +31,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("share_tokens.create.invalid", scope: "decidim.admin")
-            render action: "new"
+            render action: "new", status: :unprocessable_entity
           end
         end
       end
@@ -53,7 +53,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("share_tokens.update.error", scope: "decidim.admin")
-            render :edit
+            render :edit, status: :unprocessable_entity
           end
         end
       end

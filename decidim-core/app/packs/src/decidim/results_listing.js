@@ -25,7 +25,7 @@ const initializeListingOptionsMenu = (options) => {
   });
 };
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   initializeListingOptionsMenu({
     containerSelector: ".order-by",
     callbackName: "orders",

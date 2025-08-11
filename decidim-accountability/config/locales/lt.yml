@@ -29,8 +29,6 @@ lt:
   decidim:
     accountability:
       actions:
-        attachment_collections: Aplankai
-        attachments: Priedai
         confirm_destroy: Ar tikrai norite pašalinti šį %{name}?
         destroy: Ištrinti
         edit: Redaguoti

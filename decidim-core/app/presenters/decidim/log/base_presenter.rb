@@ -157,7 +157,7 @@ module Decidim
       # Returns an HTML-safe String.
       def present_action_log
         classes = ["logs__log"] + action_log_extra_classes.to_a
-        h.content_tag(:div, id: "accordion-#{h.dom_id(action_log)}", class: classes.join(" "), data: { component: "accordion" }) do
+        h.content_tag(:div, id: "accordion-#{h.dom_id(action_log)}", class: classes.join(" "), data: { controller: "accordion" }) do
           h.concat(present_content)
           h.concat(present_diff)
         end

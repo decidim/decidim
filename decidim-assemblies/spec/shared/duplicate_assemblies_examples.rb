@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_examples "copy assemblies" do
+shared_examples "duplicate assemblies" do
   let!(:assembly) { create(:assembly, organization:) }
   let!(:component) { create(:component, manifest_name: :dummy, participatory_space: assembly) }
 
@@ -13,24 +13,24 @@ shared_examples "copy assemblies" do
   context "without any context" do
     it "copies the assembly with the basic fields" do
       within("tr", text: translated_attribute(assembly.title)) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Duplicate"
       end
 
-      within ".copy_assembly" do
+      within ".duplicate_assembly" do
         fill_in_i18n(
           :assembly_title,
           "#assembly-title-tabs",
-          en: "Copy assembly",
+          en: "Duplicate assembly",
           es: "Copia del proceso participativo",
           ca: "Còpia del procés participatiu"
         )
-        fill_in :assembly_slug, with: "pp-copy"
-        click_on "Copy"
+        fill_in :assembly_slug, with: "pp-duplicate"
+        click_on "Duplicate"
       end
 
       expect(page).to have_content("successfully")
-      expect(page).to have_content("Copy assembly")
+      expect(page).to have_content("Duplicate assembly")
       expect(page).to have_content("Unpublished")
     end
   end
@@ -38,31 +38,31 @@ shared_examples "copy assemblies" do
   context "with context" do
     before do
       within("tr", text: translated_attribute(assembly.title)) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Duplicate"
       end
 
-      within ".copy_assembly" do
+      within ".duplicate_assembly" do
         fill_in_i18n(
           :assembly_title,
           "#assembly-title-tabs",
-          en: "Copy assembly",
+          en: "Duplicate assembly",
           es: "Copia del proceso participativo",
           ca: "Còpia del procés participatiu"
         )
-        fill_in :assembly_slug, with: "assembly-copy"
+        fill_in :assembly_slug, with: "assembly-duplicate"
       end
     end
 
     it "copies the assembly with components" do
-      page.check("assembly[copy_components]")
-      click_on "Copy"
+      page.check("assembly[duplicate_components]")
+      click_on "Duplicate"
 
       expect(page).to have_content("successfully")
 
-      within "tr", text: "Copy assembly" do
-        find("button[data-component='dropdown']").click
-        click_on "Configure"
+      within "tr", text: "Duplicate assembly" do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
       end
       within_admin_sidebar_menu do
         click_on "Components"
@@ -76,7 +76,7 @@ shared_examples "copy assemblies" do
     end
   end
 
-  context "when copying a child assembly" do
+  context "when duplicating a child assembly" do
     let!(:assembly_parent) { create(:assembly, organization:) }
     let!(:assembly) { create(:assembly, parent: assembly_parent, organization:) }
 
@@ -84,24 +84,24 @@ shared_examples "copy assemblies" do
       click_on "Assemblies", match: :first
 
       within("tr", text: translated_attribute(assembly_parent.title)) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Duplicate"
       end
 
-      within ".copy_assembly" do
+      within ".duplicate_assembly" do
         fill_in_i18n(
           :assembly_title,
           "#assembly-title-tabs",
-          en: "Copy assembly",
+          en: "Duplicate assembly",
           es: "Copia del proceso participativo",
           ca: "Còpia del procés participatiu"
         )
-        fill_in :assembly_slug, with: "pp-copy"
-        click_on "Copy"
+        fill_in :assembly_slug, with: "pp-duplicate"
+        click_on "Duplicate"
       end
 
       expect(page).to have_content("successfully")
-      expect(page).to have_content("Copy assembly")
+      expect(page).to have_content("Duplicate assembly")
       expect(page).to have_content("Unpublished")
     end
   end

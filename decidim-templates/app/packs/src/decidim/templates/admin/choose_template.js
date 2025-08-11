@@ -1,6 +1,6 @@
 import { datalistSelect } from "src/decidim/datalist_select";
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   const chooseTemplateForm = document.querySelector("[data-choose-questionnaire-templates]");
   if (!chooseTemplateForm) {
     return;

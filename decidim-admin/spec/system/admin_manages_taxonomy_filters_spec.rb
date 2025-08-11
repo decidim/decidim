@@ -69,7 +69,7 @@ describe "Admin manages taxonomy filters" do
     before do
       visit decidim_admin.taxonomy_filters_path(taxonomy_id: another_root_taxonomy.id)
       within "tr", text: translated(another_taxonomy_filter.name) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
     end
@@ -84,7 +84,7 @@ describe "Admin manages taxonomy filters" do
   context "when editing a taxonomy with items" do
     before do
       within "tr", text: translated(taxonomy_filter.name) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
     end
@@ -114,7 +114,7 @@ describe "Admin manages taxonomy filters" do
   context "when destroying a taxonomy filter" do
     before do
       within "tr", text: translated(taxonomy_filter.name) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
     end
