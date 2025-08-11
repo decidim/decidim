@@ -1464,8 +1464,10 @@ cs:
         fill_in_email_to_confirm_it: Pro potvrzení vyplňte e-mailovou adresu skupiny.
     reported_mailer:
       hidden_automatically:
+        content: Nahlášený obsah
         details: Podrobnosti
         hello: Dobrý den %{name},
+        manage_moderations: Spravovat moderace
         participatory_space: Participativní prostor
         reason: Důvod
         report_html: <p>Následující <a href="%{url}">obsah</a> byl automaticky skryt.</p>
@@ -2062,6 +2064,7 @@ cs:
         profile: Můj účet
         public_profile: Můj veřejný profil
         title: Profilové odkazy
+        unread_conversations: Máte nepřečtené konverzace
         unread_notifications: Máte nepřečtené oznámení
       user_profile:
         account: Účet
