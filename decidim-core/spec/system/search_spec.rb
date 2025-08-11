@@ -34,7 +34,7 @@ describe "Search" do
     end
 
     it "has all the resources to search" do
-      within ".search__filter" do
+      within "#dropdown-menu-search" do
         expect(page).to have_content("All").once
         expect(page).to have_content("Participants").once
         expect(page).to have_content("Participatory processes").once
