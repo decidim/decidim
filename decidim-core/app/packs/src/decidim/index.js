@@ -68,7 +68,6 @@ import createToggle from "src/decidim/toggle"
 import {
   createAccordion,
   createDialog,
-  createDropdown,
   announceForScreenReader,
   Dialogs
 } from "src/decidim/a11y"
@@ -178,12 +177,6 @@ const initializer = (element = document) => {
     }
     console.error(`${window.location.href} Using accordion component`);
     createAccordion(component);
-  })
-
-  element.querySelectorAll('[data-controller="dropdown"]').forEach((component) => createDropdown(component))
-  element.querySelectorAll('[data-component="dropdown"]').forEach((component) => {
-    console.error(`${window.location.href} Using dropdown component`);
-    createDropdown(component);
   })
 
   element.querySelectorAll("[data-dialog]").forEach((component) => createDialog(component))

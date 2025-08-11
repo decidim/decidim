@@ -1,4 +1,4 @@
-import {createDropdown, createAccordion} from "src/decidim/a11y";
+import {createAccordion} from "src/decidim/a11y";
 import Accordions from "a11y-accordion-component";
 export default class Suggestion {
   constructor(suggestionsList, entry) {
@@ -221,11 +221,11 @@ export default class Suggestion {
     this.text = this.item.querySelector(".collaborative-texts-suggestions-box-item-text");
     this.text.innerHTML = this.summary;
     this.boxItems.appendChild(this.item);
-    this.dropdown = this.item.querySelector('[data-controller="dropdown"]');
-    if (this.doc.dataset.collaborativeTextsRolloutUrl) {
-      createDropdown(this.dropdown);
-    } else {
-      this.dropdown.remove();
+    if (!this.doc.dataset.collaborativeTextsRolloutUrl) {
+      this.dropdown = this.item.querySelector('[data-controller="dropdown"]');
+      if (this.dropdown) {
+        this.dropdown.remove();
+      }
     }
     this.itemsCounts.forEach((item) => {
       item.textContent = this.boxItems.childElementCount;
