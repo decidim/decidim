@@ -290,6 +290,7 @@ shared_examples "manage proposals" do
       context "when creation is not enabled" do
         before do
           current_component.update!(
+            settings: { official_proposals_enabled: false },
             step_settings: {
               current_component.participatory_space.active_step.id => {
                 creation_enabled: false
