@@ -1,11 +1,17 @@
-/**
- * ReportFormManager - A vanilla JavaScript class for managing report modal form behavior
- *
- * This class handles the dynamic behavior of report modal forms by changing submit button
- * labels based on checkbox selections. It supports both content reporting and user reporting
- * functionality with hide and block options.
- */
-class ReportFormManager {
+import { Controller } from "@hotwired/stimulus"
+
+export default class extends Controller {
+  initialize() {
+    this.options = {
+      hideSelector: '[data-hide="true"]',
+      blockSelector: '[data-block="true"]',
+      blockAndHideSelector: "#block_and_hide",
+      submitSelector: 'button[type="submit"]'
+    };
+
+    this.isInitialized = false;
+    this.eventListeners = new Map();
+  }
 
   /**
    * Creates a new ReportFormManager instance
@@ -16,30 +22,10 @@ class ReportFormManager {
    * @param {string} options.blockSelector - CSS selector for block checkboxes (default: '[data-block="true"]')
    * @param {string} options.blockAndHideSelector - CSS selector for block and hide element (default: '#block_and_hide')
    * @param {string} options.submitSelector - CSS selector for submit button (default: 'button[type="submit"]')
-   */
-  constructor(container, options = {}) {
-    this.container = container;
-    this.options = {
-      hideSelector: '[data-hide="true"]',
-      blockSelector: '[data-block="true"]',
-      blockAndHideSelector: "#block_and_hide",
-      submitSelector: 'button[type="submit"]',
-      ...options
-    };
-
-    this.isInitialized = false;
-    this.eventListeners = new Map();
-
-    this.initialize();
-  }
-
-  /**
-   * Initializes the report form manager by setting up event listeners
-   *
    * @returns {void}
    */
-  initialize() {
-    if (!this.container || this.isInitialized) {
+  connect() {
+    if (!this.element || this.isInitialized) {
       return;
     }
 
@@ -52,6 +38,26 @@ class ReportFormManager {
     }
   }
 
+  disconnect() {
+    try {
+      // Remove all event listeners
+      this.eventListeners.forEach((listenerInfo, element) => {
+        element.removeEventListener(listenerInfo.event, listenerInfo.handler);
+      });
+
+      // Clear the listeners map
+      this.eventListeners.clear();
+
+      // Reset initialization state
+      this.isInitialized = false;
+
+      // Clear references
+      this.container = null;
+    } catch (error) {
+      console.error("Error during ReportFormManager cleanup:", error);
+    }
+  }
+
   /**
    * Sets up event listeners for hide checkboxes
    * These checkboxes change the submit button label between report and hide actions
@@ -59,7 +65,7 @@ class ReportFormManager {
    * @returns {void}
    */
   setupHideCheckboxes() {
-    const hideCheckboxes = this.container.querySelectorAll(this.options.hideSelector);
+    const hideCheckboxes = this.element.querySelectorAll(this.options.hideSelector);
 
     hideCheckboxes.forEach((checkbox) => {
       const changeHandler = (event) => {
@@ -78,7 +84,7 @@ class ReportFormManager {
    * @returns {void}
    */
   setupBlockCheckboxes() {
-    const blockCheckboxes = this.container.querySelectorAll(this.options.blockSelector);
+    const blockCheckboxes = this.element.querySelectorAll(this.options.blockSelector);
 
     blockCheckboxes.forEach((checkbox) => {
       const changeHandler = (event) => {
@@ -175,43 +181,4 @@ class ReportFormManager {
       console.error("Error toggling block and hide visibility:", error);
     }
   }
-
-  /**
-   * Removes all event listeners and cleans up resources
-   * Should be called when the form manager is no longer needed
-   *
-   * @returns {void}
-   */
-  destroy() {
-    try {
-      // Remove all event listeners
-      this.eventListeners.forEach((listenerInfo, element) => {
-        element.removeEventListener(listenerInfo.event, listenerInfo.handler);
-      });
-
-      // Clear the listeners map
-      this.eventListeners.clear();
-
-      // Reset initialization state
-      this.isInitialized = false;
-
-      // Clear references
-      this.container = null;
-    } catch (error) {
-      console.error("Error during ReportFormManager cleanup:", error);
-    }
-  }
-
-  /**
-   * Static factory method to create and initialize a ReportFormManager for a container
-   *
-   * @param {HTMLElement} container - The container element
-   * @param {Object} options - Configuration options
-   * @returns {ReportFormManager} A new ReportFormManager instance
-   */
-  static create(container, options = {}) {
-    return new ReportFormManager(container, options);
-  }
 }
-
-export default ReportFormManager;

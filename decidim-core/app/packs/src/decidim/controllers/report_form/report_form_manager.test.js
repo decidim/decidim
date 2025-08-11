@@ -3,23 +3,28 @@
 /**
  * @jest-environment jsdom
  */
-
-import ReportFormManager from "src/decidim/refactor/implementation/report_form_manager";
+import { Application } from "@hotwired/stimulus"
+import ReportFormController from "src/decidim/controllers/report_form/controller";
 
 describe("ReportFormManager", () => {
-  let mockContainer = null;
-  let manager = null;
+  let application = null;
+  let controller = null;
+  let formElement = null;
   let consoleErrorSpy = null;
   let consoleWarnSpy = null;
 
   beforeEach(() => {
+    // Set up Stimulus application
+    application = Application.start();
+    application.register("report-form", ReportFormController);
+
     // Mock console methods
     consoleErrorSpy = jest.spyOn(console, "error").mockImplementation(() => {});
     consoleWarnSpy = jest.spyOn(console, "warn").mockImplementation(() => {});
 
     // Create DOM structure based on actual report user modal form
     document.body.innerHTML = `
-      <form class="new_report" action="/report_user" accept-charset="UTF-8" method="post">
+      <form class="new_report" data-controller="report-form" action="/report_user" accept-charset="UTF-8" method="post">
         <input type="hidden" name="authenticity_token" value="test_token" autocomplete="off" />
         <div data-dialog-container>
           <svg width="1em" height="1em" role="img" aria-hidden="true">
@@ -84,94 +89,59 @@ describe("ReportFormManager", () => {
       </form>
     `;
 
-    mockContainer = document.querySelector(".new_report");
+    formElement = document.querySelector('[data-controller="report-form"]');
+    // Wait for the controller to be connected
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        controller = application.getControllerForElementAndIdentifier(formElement, "report-form");
+        resolve();
+      }, 0);
+    });
+
   });
 
   afterEach(() => {
-    if (manager) {
-      manager.destroy();
-      manager = null;
-    }
+    application.stop();
     document.body.innerHTML = "";
     consoleErrorSpy.mockRestore();
     consoleWarnSpy.mockRestore();
+    jest.clearAllMocks();
   });
 
   describe("constructor", () => {
     it("creates instance with default options", () => {
-      manager = new ReportFormManager(mockContainer);
 
-      expect(manager.container).toBe(mockContainer);
-      expect(manager.options.hideSelector).toBe('[data-hide="true"]');
-      expect(manager.options.blockSelector).toBe('[data-block="true"]');
-      expect(manager.options.blockAndHideSelector).toBe("#block_and_hide");
-      expect(manager.options.submitSelector).toBe('button[type="submit"]');
-      expect(manager.isInitialized).toBe(true);
-    });
-
-    it("creates instance with custom options", () => {
-      const customOptions = {
-        hideSelector: '[data-custom-hide="true"]',
-        blockSelector: '[data-custom-block="true"]',
-        blockAndHideSelector: "#custom_block_and_hide",
-        submitSelector: 'input[type="submit"]'
-      };
-
-      manager = new ReportFormManager(mockContainer, customOptions);
-
-      expect(manager.options.hideSelector).toBe('[data-custom-hide="true"]');
-      expect(manager.options.blockSelector).toBe('[data-custom-block="true"]');
-      expect(manager.options.blockAndHideSelector).toBe("#custom_block_and_hide");
-      expect(manager.options.submitSelector).toBe('input[type="submit"]');
-    });
-
-    it("does not initialize when container is null", () => {
-      manager = new ReportFormManager(null);
-
-      expect(manager.container).toBeNull();
-      expect(manager.isInitialized).toBe(false);
+      expect(controller.element).toBe(formElement);
+      expect(controller.options.hideSelector).toBe('[data-hide="true"]');
+      expect(controller.options.blockSelector).toBe('[data-block="true"]');
+      expect(controller.options.blockAndHideSelector).toBe("#block_and_hide");
+      expect(controller.options.submitSelector).toBe('button[type="submit"]');
+      expect(controller.isInitialized).toBe(true);
     });
 
     it("does not initialize twice", () => {
-      manager = new ReportFormManager(mockContainer);
-      const firstInitialized = manager.isInitialized;
+      const firstInitialized = controller.isInitialized;
 
       // Try to initialize again
-      manager.initialize();
+      controller.disconnect();
+      controller.connect();
 
       expect(firstInitialized).toBe(true);
-      expect(manager.isInitialized).toBe(true);
-    });
-
-    it("handles initialization errors gracefully", () => {
-      // Create a container that will cause an error during initialization
-      const badContainer = document.createElement("div");
-      badContainer.querySelectorAll = () => {
-        throw new Error("Query error");
-      };
-
-      manager = new ReportFormManager(badContainer);
-
-      expect(consoleErrorSpy).toHaveBeenCalledWith("Failed to initialize ReportFormManager:", expect.any(Error));
-      expect(manager.isInitialized).toBe(false);
+      expect(controller.isInitialized).toBe(true);
     });
   });
 
   describe("block checkbox functionality", () => {
-    beforeEach(() => {
-      manager = new ReportFormManager(mockContainer);
-    });
-
     it("sets up event listeners for block checkboxes", () => {
-      const blockCheckboxes = mockContainer.querySelectorAll('[data-block="true"]');
+      const blockCheckboxes = document.querySelectorAll('[data-block="true"]');
 
       expect(blockCheckboxes.length).toBe(1);
-      expect(manager.eventListeners.size).toBeGreaterThanOrEqual(1);
+      expect(controller.eventListeners.size).toBeGreaterThanOrEqual(1);
     });
 
     it("changes submit button label when block checkbox is checked", () => {
       const blockCheckbox = document.getElementById("report_block");
-      const submitButton = mockContainer.querySelector("button[type=submit] span");
+      const submitButton = document.querySelector("button[type=submit] span");
 
       expect(submitButton.textContent).toBe("Report");
 
@@ -184,7 +154,7 @@ describe("ReportFormManager", () => {
 
     it("reverts submit button label when block checkbox is unchecked", () => {
       const blockCheckbox = document.getElementById("report_block");
-      const submitButton = mockContainer.querySelector("button[type=submit] span");
+      const submitButton = document.querySelector("button[type=submit] span");
 
       // Check the checkbox first
       blockCheckbox.checked = true;
@@ -220,8 +190,6 @@ describe("ReportFormManager", () => {
 
   describe("hide checkbox functionality", () => {
     beforeEach(() => {
-      manager = new ReportFormManager(mockContainer);
-
       // Add hide checkbox with proper data attributes for testing
       const hideCheckbox = document.createElement("input");
       hideCheckbox.type = "checkbox";
@@ -235,22 +203,22 @@ describe("ReportFormManager", () => {
       hideLabel.appendChild(hideCheckbox);
       hideLabel.appendChild(document.createTextNode("Hide this content"));
 
-      mockContainer.querySelector(".form__wrapper").appendChild(hideLabel);
+      document.querySelector(".form__wrapper").appendChild(hideLabel);
 
       // Re-initialize to pick up the new checkbox
-      manager.destroy();
-      manager = new ReportFormManager(mockContainer);
+      controller.disconnect();
+      controller.connect();
     });
 
     it("sets up event listeners for hide checkboxes", () => {
-      const hideCheckboxes = mockContainer.querySelectorAll('[data-hide="true"]');
+      const hideCheckboxes = document.querySelectorAll('[data-hide="true"]');
 
       expect(hideCheckboxes.length).toBe(1);
     });
 
     it("changes submit button label when hide checkbox is checked", () => {
       const hideCheckbox = document.getElementById("test_hide_checkbox");
-      const submitButton = mockContainer.querySelector("button[type=submit] span");
+      const submitButton = document.querySelector("button[type=submit] span");
 
       expect(submitButton.textContent).toBe("Report");
 
@@ -263,7 +231,7 @@ describe("ReportFormManager", () => {
 
     it("reverts submit button label when hide checkbox is unchecked", () => {
       const hideCheckbox = document.getElementById("test_hide_checkbox");
-      const submitButton = mockContainer.querySelector("button[type=submit] span");
+      const submitButton = document.querySelector("button[type=submit] span");
 
       // Check the checkbox first
       hideCheckbox.checked = true;
@@ -279,13 +247,10 @@ describe("ReportFormManager", () => {
   });
 
   describe("submit button detection", () => {
-    beforeEach(() => {
-      manager = new ReportFormManager(mockContainer);
-    });
 
     it("finds submit button with nested span", () => {
-      const form = mockContainer;
-      const submitElement = manager.findSubmitButton(form);
+      const form = controller.element;
+      const submitElement = controller.findSubmitButton(form);
 
       expect(submitElement.tagName).toBe("SPAN");
       expect(submitElement.textContent).toBe("Report");
@@ -300,7 +265,7 @@ describe("ReportFormManager", () => {
       formWithoutSpan.appendChild(buttonWithoutSpan);
       document.body.appendChild(formWithoutSpan);
 
-      const submitElement = manager.findSubmitButton(formWithoutSpan);
+      const submitElement = controller.findSubmitButton(formWithoutSpan);
 
       expect(submitElement.tagName).toBe("BUTTON");
       expect(submitElement.textContent).toBe("Submit");
@@ -312,17 +277,13 @@ describe("ReportFormManager", () => {
       regularButton.type = "button";
       formWithoutSubmit.appendChild(regularButton);
 
-      const submitElement = manager.findSubmitButton(formWithoutSubmit);
+      const submitElement = controller.findSubmitButton(formWithoutSubmit);
 
       expect(submitElement).toBeNull();
     });
   });
 
   describe("error handling", () => {
-    beforeEach(() => {
-      manager = new ReportFormManager(mockContainer);
-    });
-
     it("handles checkbox outside of form gracefully", () => {
       // Create checkbox outside of form
       const isolatedCheckbox = document.createElement("input");
@@ -332,7 +293,7 @@ describe("ReportFormManager", () => {
       isolatedCheckbox.dataset.labelReport = "Report";
       document.body.appendChild(isolatedCheckbox);
 
-      manager.handleCheckboxChange(isolatedCheckbox);
+      controller.handleCheckboxChange(isolatedCheckbox);
 
       expect(consoleWarnSpy).toHaveBeenCalledWith("Checkbox is not within a form element");
     });
@@ -345,9 +306,9 @@ describe("ReportFormManager", () => {
       checkbox.dataset.labelAction = "Block";
       checkbox.dataset.labelReport = "Report";
       formWithoutSubmit.appendChild(checkbox);
-      mockContainer.appendChild(formWithoutSubmit);
+      controller.element.appendChild(formWithoutSubmit);
 
-      manager.handleCheckboxChange(checkbox);
+      controller.handleCheckboxChange(checkbox);
 
       expect(consoleWarnSpy).toHaveBeenCalledWith("No submit button found in form");
     });
@@ -357,8 +318,8 @@ describe("ReportFormManager", () => {
       Reflect.deleteProperty(checkbox.dataset, "labelAction");
       Reflect.deleteProperty(checkbox.dataset, "labelReport");
 
-      const submitButton = mockContainer.querySelector("button[type=submit] span");
-      manager.updateSubmitButtonLabel(submitButton, checkbox);
+      const submitButton = document.querySelector("button[type=submit] span");
+      controller.updateSubmitButtonLabel(submitButton, checkbox);
 
       expect(consoleWarnSpy).toHaveBeenCalledWith(
         "Checkbox is missing required data attributes (data-label-action, data-label-report)"
@@ -374,7 +335,7 @@ describe("ReportFormManager", () => {
         throw new Error("DOM error");
       };
 
-      manager.handleCheckboxChange(checkbox);
+      controller.handleCheckboxChange(checkbox);
 
       expect(consoleErrorSpy).toHaveBeenCalledWith("Error handling checkbox change:", expect.any(Error));
 
@@ -391,7 +352,7 @@ describe("ReportFormManager", () => {
         throw new Error("DOM error");
       };
 
-      manager.toggleBlockAndHideVisibility(blockCheckbox);
+      controller.toggleBlockAndHideVisibility(blockCheckbox);
 
       expect(consoleErrorSpy).toHaveBeenCalledWith("Error toggling block and hide visibility:", expect.any(Error));
 
@@ -401,79 +362,41 @@ describe("ReportFormManager", () => {
   });
 
   describe("destroy method", () => {
-    beforeEach(() => {
-      manager = new ReportFormManager(mockContainer);
-    });
-
     it("removes all event listeners", () => {
-      const initialListenerCount = manager.eventListeners.size;
+      const initialListenerCount = controller.eventListeners.size;
       expect(initialListenerCount).toBeGreaterThan(0);
 
-      manager.destroy();
+      controller.disconnect();
 
-      expect(manager.eventListeners.size).toBe(0);
+      expect(controller.eventListeners.size).toBe(0);
     });
 
     it("resets initialization state", () => {
-      expect(manager.isInitialized).toBe(true);
+      expect(controller.isInitialized).toBe(true);
 
-      manager.destroy();
+      controller.disconnect();
 
-      expect(manager.isInitialized).toBe(false);
-    });
-
-    it("clears container reference", () => {
-      expect(manager.container).toBe(mockContainer);
-
-      manager.destroy();
-
-      expect(manager.container).toBeNull();
+      expect(controller.isInitialized).toBe(false);
     });
 
     it("handles cleanup errors gracefully", () => {
       // Mock eventListeners.forEach to throw an error
-      manager.eventListeners.forEach = () => {
+      controller.eventListeners.forEach = () => {
         throw new Error("Cleanup error");
       };
 
-      manager.destroy();
+      controller.disconnect();
 
       expect(consoleErrorSpy).toHaveBeenCalledWith("Error during ReportFormManager cleanup:", expect.any(Error));
     });
   });
 
-  describe("static methods", () => {
-    it("creates instance using static create method", () => {
-      const createdManager = ReportFormManager.create(mockContainer);
-
-      expect(createdManager).toBeInstanceOf(ReportFormManager);
-      expect(createdManager.container).toBe(mockContainer);
-      expect(createdManager.isInitialized).toBe(true);
-
-      createdManager.destroy();
-    });
-
-    it("creates instance with options using static create method", () => {
-      const customOptions = {
-        blockSelector: '[data-custom-block="true"]'
-      };
-      const createdManager = ReportFormManager.create(mockContainer, customOptions);
-
-      expect(createdManager.options.blockSelector).toBe('[data-custom-block="true"]');
-
-      createdManager.destroy();
-    });
-  });
-
   describe("real-world scenario tests", () => {
-    beforeEach(() => {
-      manager = new ReportFormManager(mockContainer);
-    });
 
     it("handles the actual report user form structure", () => {
       const blockCheckbox = document.getElementById("report_block");
       const blockAndHideLabel = document.getElementById("block_and_hide");
-      const submitButton = mockContainer.querySelector("button[type=submit] span");
+      const submitButton = document.querySelector("button[type=submit] span");
 
       // Initial state
       expect(submitButton.textContent).toBe("Report");
@@ -497,7 +420,7 @@ describe("ReportFormManager", () => {
     it("works with the radio button form structure (does not interfere)", () => {
       const spamRadio = document.getElementById("spam-flagUserModal");
       const offensiveRadio = document.getElementById("offensive-flagUserModal");
-      const submitButton = mockContainer.querySelector("button[type=submit] span");
+      const submitButton = document.querySelector("button[type=submit] span");
 
       // Radio buttons should not affect submit button label
       expect(submitButton.textContent).toBe("Report");
@@ -530,7 +453,7 @@ describe("ReportFormManager", () => {
     });
 
     it("handles the complex button structure with SVG icon", () => {
-      const submitButton = mockContainer.querySelector("button[type=submit]");
+      const submitButton = document.querySelector("button[type=submit]");
       const submitSpan = submitButton.querySelector("span");
       const submitSvg = submitButton.querySelector("svg");
 
@@ -540,15 +463,12 @@ describe("ReportFormManager", () => {
       expect(submitSpan.textContent).toBe("Report");
 
       // Test that our manager finds the correct element to update
-      const foundSubmitElement = manager.findSubmitButton(mockContainer);
+      const foundSubmitElement = controller.findSubmitButton(document.querySelector("form"));
       expect(foundSubmitElement).toBe(submitSpan);
     });
   });
 
   describe("edge cases", () => {
-    beforeEach(() => {
-      manager = new ReportFormManager(mockContainer);
-    });
 
     it("handles form without block and hide element", () => {
       // Remove block and hide element
@@ -572,19 +492,19 @@ describe("ReportFormManager", () => {
 
       // Should not throw error
       expect(() => {
-        manager.toggleBlockAndHideVisibility(isolatedCheckbox);
+        controller.toggleBlockAndHideVisibility(isolatedCheckbox);
       }).not.toThrow();
     });
 
     it("works with different CSS button classes", () => {
       // The actual form uses multiple CSS classes on the button
-      const submitButton = mockContainer.querySelector("button[type=submit]");
+      const submitButton = document.querySelector("button[type=submit]");
       expect(submitButton.classList.contains("button")).toBe(true);
       expect(submitButton.classList.contains("button__lg")).toBe(true);
       expect(submitButton.classList.contains("button__secondary")).toBe(true);
 
       // Manager should still find and work with this button
-      const foundSubmitElement = manager.findSubmitButton(mockContainer);
+      const foundSubmitElement = controller.findSubmitButton(document.querySelector("form"));
       expect(foundSubmitElement.tagName).toBe("SPAN");
     });
   });

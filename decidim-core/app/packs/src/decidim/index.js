@@ -26,7 +26,6 @@ import MentionsComponent from "src/decidim/refactor/implementation/input_mention
 import FormValidator from "src/decidim/refactor/implementation/form_validator"
 import updateExternalDomainLinks from "src/decidim/refactor/implementation/external_domain_warning"
 import ClipboardCopy from "src/decidim/refactor/implementation/copy_clipboard";
-import ReportFormManager from "src/decidim/refactor/implementation/report_form_manager";
 import ExternalLink from "src/decidim/refactor/implementation/external_link"
 import Configuration from "src/decidim/refactor/implementation/configuration"
 import MultipleMentionsManager from "src/decidim/refactor/implementation/input_multiple_mentions";
@@ -197,8 +196,6 @@ const initializer = (element = document) => {
 
   // Initialize data-toggles
   element.querySelectorAll("[data-toggle]").forEach((elem) => createToggle(elem))
-
-  element.querySelectorAll(".new_report").forEach((elem) => new ReportFormManager(elem))
 
   // https://github.com/tremend-cofe/decidim-js/pull/6
   element.querySelectorAll("[data-controller='onboarding']").forEach((elem) => setOnboardingAction(elem));

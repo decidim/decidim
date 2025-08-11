@@ -12,7 +12,6 @@
 // This is necessary for testing purposes
 const $ = window.$;
 
-import ReportFormManager from "src/decidim/refactor/implementation/report_form_manager";
 import { initializeCommentsDropdown } from "../../decidim/comments/comments_dropdown";
 
 export default class CommentsComponent {
@@ -171,8 +170,6 @@ export default class CommentsComponent {
       if ($dropdown.length > 0) {
         initializeCommentsDropdown($dropdown[0]);
       }
-
-      document.querySelectorAll(".new_report").forEach((elem) => new ReportFormManager(elem))
 
       if ($text.length && $text.get(0) !== null) {
         // Attach event to the DOM node, instead of the jQuery object
