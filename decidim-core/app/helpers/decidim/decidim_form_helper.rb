@@ -56,7 +56,7 @@ module Decidim
         template += label_tag(name, options[:label]) if options[:label] != false
         template += hidden_field_tag(name, value, options)
         template += content_tag(:div, nil, class: "editor-container", data: {
-                                  toolbar: options[:toolbar]
+                                  toolbar: options[:toolbar], controller: "editor"
                                 }, style: "height: #{options[:lines]}rem")
         template.html_safe
       end

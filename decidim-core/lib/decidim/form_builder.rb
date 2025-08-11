@@ -198,6 +198,7 @@ module Decidim
           nil,
           class: editor_options[:editor].delete("class").join(" "),
           data: {
+            controller: :editor,
             toolbar:,
             disabled: options[:disabled],
             options: editor_options[:editor]

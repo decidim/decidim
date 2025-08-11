@@ -139,8 +139,6 @@ const initializer = (element = document) => {
 
   element.querySelectorAll('input[type="datetime-local"],input[type="date"]').forEach((elem) => formDatePicker(elem))
 
-  element.querySelectorAll(".editor-container").forEach((container) => window.createEditor(container));
-
   // initialize character counter
   $("input[type='text'], textarea, .editor>input[type='hidden']", element).each((_i, elem) => {
     const $input = $(elem);
