@@ -30,7 +30,6 @@ import ReportFormManager from "src/decidim/refactor/implementation/report_form_m
 import ExternalLink from "src/decidim/refactor/implementation/external_link"
 import Configuration from "src/decidim/refactor/implementation/configuration"
 import MultipleMentionsManager from "src/decidim/refactor/implementation/input_multiple_mentions";
-import scrollToLastChild from "src/decidim/refactor/implementation/scroll_to_last_child"
 import setOnboardingAction from "src/decidim/refactor/integration/onboarding_pending_action"
 
 // local deps with no initialization
@@ -173,8 +172,6 @@ const initializer = (element = document) => {
 
   markAsReadNotifications(element)
   handleNotificationActions(element)
-
-  scrollToLastChild(element)
 
   element.querySelectorAll('[data-controller="accordion"]').forEach((component) => createAccordion(component))
   element.querySelectorAll('[data-component="accordion"]').forEach((component) => {

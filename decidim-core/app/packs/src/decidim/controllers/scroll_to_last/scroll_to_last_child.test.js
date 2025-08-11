@@ -1,11 +1,16 @@
 /* global global, jest */
-
-import scrollToLastChild from "src/decidim/refactor/implementation/scroll_to_last_child";
+import { Application } from "@hotwired/stimulus"
+import ScrollToLastController from "src/decidim/controllers/scroll_to_last/controller";
 
 describe("scrollToLastChild", () => {
   let mockContainer = null;
+  let application = null;
+  let controller = null;
 
   beforeEach(() => {
+    // Set up Stimulus application
+    application = Application.start();
+    application.register("scroll-to-last", ScrollToLastController);
     // Reset DOM
     document.body.innerHTML = "";
 
@@ -14,8 +19,15 @@ describe("scrollToLastChild", () => {
 
     // Create mock container element
     mockContainer = document.createElement("div");
-    mockContainer.setAttribute("data-scroll-last-child", "");
+    mockContainer.setAttribute("data-controller", "scroll-to-last");
     document.body.appendChild(mockContainer);
+
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        controller = application.getControllerForElementAndIdentifier(mockContainer, "scroll-to-last");
+        resolve();
+      }, 0);
+    });
   });
 
   afterEach(() => {
@@ -38,37 +50,11 @@ describe("scrollToLastChild", () => {
       mockContainer.appendChild(child2);
       mockContainer.appendChild(child3);
 
-      scrollToLastChild();
+      controller.disconnect();
+      controller.connect();
 
       expect(global.window.scrollTo).toHaveBeenCalledWith({
         top: 500,
-        behavior: "smooth"
-      });
-    });
-  });
-
-  describe("when called with a specific node", () => {
-    it("should search within the provided node", () => {
-      const customNode = document.createElement("section");
-      const containerInCustomNode = document.createElement("div");
-      containerInCustomNode.setAttribute("data-scroll-last-child", "");
-
-      const child1 = document.createElement("div");
-      const child2 = document.createElement("div");
-      // Mock offsetTop property for the last child
-      Reflect.defineProperty(child2, "offsetTop", {
-        value: 300,
-        writable: false
-      });
-
-      containerInCustomNode.appendChild(child1);
-      containerInCustomNode.appendChild(child2);
-      customNode.appendChild(containerInCustomNode);
-
-      scrollToLastChild(customNode);
-
-      expect(global.window.scrollTo).toHaveBeenCalledWith({
-        top: 300,
         behavior: "smooth"
       });
     });
@@ -90,7 +76,8 @@ describe("scrollToLastChild", () => {
       mockContainer.appendChild(child2);
       mockContainer.appendChild(child3);
 
-      scrollToLastChild(document);
+      controller.disconnect();
+      controller.connect();
 
       expect(global.window.scrollTo).toHaveBeenCalledWith({
         top: 250,
@@ -99,8 +86,8 @@ describe("scrollToLastChild", () => {
     });
 
     it("should not scroll when no children exist", () => {
-      scrollToLastChild(document);
-
+      controller.disconnect();
+      controller.connect();
       expect(global.window.scrollTo).not.toHaveBeenCalled();
     });
 
@@ -124,7 +111,8 @@ describe("scrollToLastChild", () => {
       mockContainer.appendChild(message2);
       mockContainer.appendChild(message3);
 
-      scrollToLastChild(document);
+      controller.disconnect();
+      controller.connect();
 
       expect(global.window.scrollTo).toHaveBeenCalledWith({
         top: 750,
@@ -142,7 +130,8 @@ describe("scrollToLastChild", () => {
 
       mockContainer.appendChild(child);
 
-      scrollToLastChild(document);
+      controller.disconnect();
+      controller.connect();
 
       expect(global.window.scrollTo).toHaveBeenCalledWith({
         top: 0,
@@ -156,47 +145,9 @@ describe("scrollToLastChild", () => {
       // Remove the element with data-scroll-last-child
       document.body.innerHTML = "";
 
-      scrollToLastChild(document);
-
+      controller.disconnect();
+      controller.connect();
       expect(global.window.scrollTo).not.toHaveBeenCalled();
-    });
-  });
-
-  describe("when multiple elements with data-scroll-last-child exist", () => {
-    it("should only process the first matching element", () => {
-      const container1 = document.createElement("div");
-      container1.setAttribute("data-scroll-last-child", "");
-
-      const container2 = document.createElement("div");
-      container2.setAttribute("data-scroll-last-child", "");
-
-      const child1 = document.createElement("div");
-      Reflect.defineProperty(child1, "offsetTop", {
-        value: 100,
-        writable: false
-      });
-
-      const child2 = document.createElement("div");
-      Reflect.defineProperty(child2, "offsetTop", {
-        value: 200,
-        writable: false
-      });
-
-      container1.appendChild(child1);
-      container2.appendChild(child2);
-
-      document.body.innerHTML = "";
-      document.body.appendChild(container1);
-      document.body.appendChild(container2);
-
-      scrollToLastChild(document);
-
-      // Should scroll to the last child of the first matching container
-      expect(global.window.scrollTo).toHaveBeenCalledWith({
-        top: 100,
-        behavior: "smooth"
-      });
-      expect(global.window.scrollTo).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -215,7 +166,8 @@ describe("scrollToLastChild", () => {
       mockContainer.appendChild(span);
       mockContainer.appendChild(div);
 
-      scrollToLastChild(document);
+      controller.disconnect();
+      controller.connect();
 
       expect(global.window.scrollTo).toHaveBeenCalledWith({
         top: 180,
@@ -234,7 +186,8 @@ describe("scrollToLastChild", () => {
 
       mockContainer.appendChild(singleChild);
 
-      scrollToLastChild(document);
+      controller.disconnect();
+      controller.connect();
 
       expect(global.window.scrollTo).toHaveBeenCalledWith({
         top: 50,
@@ -244,16 +197,11 @@ describe("scrollToLastChild", () => {
 
     it("should not throw error when children collection is empty", () => {
       expect(() => {
-        scrollToLastChild(document);
+        controller.disconnect();
+        controller.connect();
       }).not.toThrow();
 
       expect(global.window.scrollTo).not.toHaveBeenCalled();
-    });
-
-    it("should handle null node parameter gracefully", () => {
-      expect(() => {
-        scrollToLastChild(null);
-      }).toThrow();
     });
 
     it("should handle undefined node parameter by using document", () => {
@@ -265,8 +213,8 @@ describe("scrollToLastChild", () => {
 
       mockContainer.appendChild(child);
 
-      // eslint-disable-next-line no-undefined
-      scrollToLastChild(undefined);
+      controller.disconnect();
+      controller.connect();
 
       expect(global.window.scrollTo).toHaveBeenCalledWith({
         top: 150,
