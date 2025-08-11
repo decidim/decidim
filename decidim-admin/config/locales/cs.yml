@@ -1287,6 +1287,7 @@ cs:
         not_hidden: Neskrytý
         parent_hidden: Nelze odkrýt tento zdroj, protože jeho nadřazená položka je stále skrytá.
         title: Akce
+        unhide: Vrátit skrytí
       admin:
         reportable:
           bulk_action:
