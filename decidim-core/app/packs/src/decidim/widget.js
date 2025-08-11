@@ -8,7 +8,7 @@ window.addEventListener("message", (event) => {
   }
 });
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   // Set target blank for all widget links.
   $("a").attr("target", "_blank");
 });

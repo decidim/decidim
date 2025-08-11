@@ -26,6 +26,8 @@ en:
       admin_log:
         changeset:
           debates: Debates
+      tooltips:
+        deleted_debates_info: Cannot delete this debate
     components:
       debates:
         actions:

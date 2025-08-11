@@ -16,9 +16,6 @@ sl:
         key: Ključ
         name: Ime
         progress: Napredek
-      timeline_entry:
-        description: Opis
-        entry_date: Datum
     models:
       decidim/accountability/proposal_linked_event: Predlog vključen v rezultat
       decidim/accountability/result_progress_updated_event: Posodobljen razvoj postavk
@@ -29,7 +26,6 @@ sl:
         destroy: Izbriši
         edit: Uredi
         preview: Predogled
-        timeline_entries: Razvoj projekta
         title: Dejanja
       admin:
         exports:
@@ -54,12 +50,6 @@ sl:
             update: Posodobi status
           index:
             title: Statusi
-        timeline_entries:
-          edit:
-            title: Uredi vnos
-          new:
-            create: Ustvari nov vnos
-            title: Nov vnos
       admin_log:
         result:
           create: "%{user_name} ustvaril(a) %{resource_name} v %{space_name}"
@@ -81,9 +71,6 @@ sl:
             key: Ključ
             name: Ime
             progress: Napredek
-        timeline_entry:
-          fields:
-            entry_date: Datum
       results:
         search:
           search: Išči dejanja

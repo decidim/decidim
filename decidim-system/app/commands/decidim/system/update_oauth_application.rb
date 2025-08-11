@@ -36,7 +36,10 @@ module Decidim
           decidim_organization_id: @form.decidim_organization_id,
           organization_name: @form.organization_name,
           organization_url: @form.organization_url,
-          redirect_uri: @form.redirect_uri
+          redirect_uri: @form.redirect_uri,
+          scopes: @form.scopes.join(" "),
+          confidential: @form.confidential?,
+          refresh_tokens_enabled: @form.refresh_tokens_enabled?
         }.tap do |attrs|
           attrs[:organization_logo] = @form.organization_logo if @form.organization_logo.present?
         end

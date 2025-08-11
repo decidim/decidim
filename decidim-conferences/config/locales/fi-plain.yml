@@ -5,11 +5,11 @@ fi-pl:
         assemblies_ids: Liittyvät ryhmät
         available_slots: Vapaat paikat
         banner_image: Bannerikuva
-        copy_categories: Kopioi aihepiirit
-        copy_components: Kopioi komponentit
-        copy_features: Kopioi ominaisuudet
         decidim_scope_id: Teema
         description: Kuvaus
+        duplicate_categories: Kopioi aihepiirit
+        duplicate_components: Kopioi komponentit
+        duplicate_features: Kopioi ominaisuudet
         end_date: Päättymispäivä
         hero_image: Etusivun kuva
         location: Sijainti
@@ -97,9 +97,9 @@ fi-pl:
         new_speaker: Uusi puhuja
         send_diplomas: Lähetä läsnäolotodistukset
         view_deleted_conferences: Näytä poistetut konferenssit
-      conference_copies:
+      conference_duplicates:
         new:
-          copy: Kopio
+          duplicate: Kopioi
           select: Valitse, mitkä tiedot haluat kopioida
           title: Kopioi konferenssi
       conference_publications:
@@ -162,7 +162,13 @@ fi-pl:
         exports:
           registrations: Ilmoittautumiset
         form:
+          duration: Kesto
+          images: Kuvat
+          metadata: Metatiedot
+          registrations: Ilmoittautumiset
+          related_spaces: Liittyvät osallistumistilat
           title: Yleistä tietoa
+          visibility: Näkyvyys
         index:
           published: Julkaistu
           unpublished: Julkaisematon
@@ -170,14 +176,14 @@ fi-pl:
           title: Poistetut konferenssit
         new:
           create: Luo
-          title: Konferenssi
+          title: Uusi konferenssi
         update:
           error: Konferenssin päivittämisessä tapahtui virhe.
           success: Konferenssi päivitetty onnistuneesti.
-      conferences_copies:
+      conferences_duplicates:
         create:
-          error: Virhe kopioitaessa konferenssia.
-          success: Konferenssi kopioitu onnistuneesti.
+          error: Konferenssin kopioiminen epäonnistui.
+          success: Konferenssin kopioiminen onnistui.
       media_links:
         create:
           error: Luotaessa uutta medialinkkiä tapahtui virhe.
@@ -223,12 +229,14 @@ fi-pl:
             title: Otsikko
         conference_speaker:
           fields:
+            actions: Toiminnot
             affiliation: Jäsenyys
             full_name: Koko nimi
             position: Asema
           name: Konferenssin puhuja
         conference_user_role:
           fields:
+            actions: Toiminnot
             email: Sähköposti
             name: Nimi
             role: Rooli
@@ -240,12 +248,14 @@ fi-pl:
             moderator: Moderoija
         media_link:
           fields:
+            actions: Toiminnot
             date: Päivämäärä
             link: Linkki
             title: Otsikko
           name: Medialinkki
         partner:
           fields:
+            actions: Toiminnot
             link: Linkki
             logo: Logo
             name: Nimi
@@ -256,6 +266,7 @@ fi-pl:
             main_promotor: Pääpromoottori
         registration_type:
           fields:
+            actions: Toiminnot
             conference_meetings: Konferenssin tapaamiset
             price: Hinta
             registrations_count: Ilmoittautuneiden määrä
@@ -350,7 +361,7 @@ fi-pl:
         title: Puhujat
     conferences:
       admin:
-        conference_copies:
+        conference_duplicates:
           form:
             slug_help_html: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
         conference_invites:
@@ -515,6 +526,7 @@ fi-pl:
             sent: Lähetetty
         conference_registration:
           fields:
+            actions: Toiminnot
             email: Sähköposti
             name: Nimi
             registration_type: Ilmoittautumistyyppi

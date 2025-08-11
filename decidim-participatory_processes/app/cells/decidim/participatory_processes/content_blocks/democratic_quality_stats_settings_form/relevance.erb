@@ -1,0 +1,21 @@
+<div class="row column mt-10">
+  <h2 class="text-xl font-semibold">
+    <%= t("relevance.name", scope: "decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form") %>
+  </h2>
+
+  <p class="text-md text-gray mt-2 font-normal">
+    <%= t("relevance.description", scope: "decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form") %>
+  </p>
+</div>
+
+<div class="row column">
+  <fieldset>
+    <legend class="font-semibold"><%= t("relevance.relevance_percentage.legend", scope: "decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form") %></legend>
+    <% settings_options[:relevance_percentage].each do |label, value| %>
+      <%= label_tag nil, class: "form__wrapper-checkbox-label" do %>
+        <%= radio_button_tag input_name("relevance_percentage"), value, form.object.settings.relevance_percentage == value %>
+        <%= label %>
+      <% end %>
+    <% end %>
+  </fieldset>
+</div>

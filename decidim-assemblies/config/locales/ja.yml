@@ -166,6 +166,7 @@ ja:
           attachments: 添付ファイル
           components: コンポーネント
           info: この参加スペースについて
+          landing_page: ランディングページのレイアウト
           moderations: モデレーション
           private_users: メンバー
           see_assembly: 参加スペースを見る
@@ -188,6 +189,7 @@ ja:
             vice_president: 副代表
         assembly_user_role:
           fields:
+            actions: アクション
             email: Eメールアドレス
             name: 名前
             role: ロール

@@ -1,11 +1,21 @@
 = API
 
-Decidim comes with a powerful API in read-only mode based in the GraphQL specification.
+Decidim comes with a powerful API in read-only mode based on in the https://spec.graphql.org/[GraphQL specification].
 
 Documentation for this API is auto-generated in each instance of Decidim, usually under the URL:
 
 `https://example.org/api/docs`
 
-Accessing that URL will give a full details of all the objects that can be requested and how. It includes the full field types reference.
+Accessing that URL will give a full details of all the objects that can be requested and how. It includes the full field types reference. Note that the API can be slightly different for different Decidim instances and versions.
+
+For example, you can see the Decidim demo application API documentation under the following URL:
+
+`https://try.decidim.org/api/docs`
 
 As an alternative, if you cannot access that URL on your instance you can read about how this work https://github.com/decidim/decidim/blob/develop/decidim-api/docs/usage.md[Using the Decidim GraphQL API].
+
+== Integrating external applications with the API
+
+By default, the GraphQL API in Decidim is publically available for read-only operations and it can also be used by external applications to read data from Decidim. If you want to write data over the API, i.e. perform GraphQL mutations, you need first need to authenticate the API user to perform these operations. Otherwise, it is not possible to perform such operations as most such operations are performed as an actual user in Decidim.
+
+More information regarding implementing the API authentication is available in the API documentation of your Decidim instance.

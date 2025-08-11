@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-divider my-4">
+    <h2 class="card-title flex items-center justify-between">
+      <%= t("decidim.elections.admin.dashboard.results.title") %>
+      <% if election.results_availability == "after_end" %>
+        <%= publish_election_button(election) %>
+      <% end %>
+    </h2>
+  </div>
+  <div class="row column">
+    <% if election.scheduled? %>
+      <%= cell "decidim/announcement", t("decidim.elections.admin.dashboard.results.not_started"), callout_class: "warning" %>
+    <% else %>
+      <%= content_tag("p", t("decidim.elections.admin.dashboard.results.results_availability.#{election.results_availability}")) unless election.results_published? %>
+      <%= cell "decidim/announcement", t("decidim.elections.admin.dashboard.results.per_question_waiting"), callout_class: "alert" if election.per_question_waiting? %>
+    <% end %>
+    <%= render partial: "decidim/elections/admin/dashboard/questions_with_results" %>
+    <p class="my-4 text-gray-2"><%= t("decidim.elections.censuses.census_size_html", count: census_count(election)) %></p>
+  </div>
+</div>

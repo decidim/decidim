@@ -74,6 +74,27 @@ module Decidim
             end
           end
 
+          context "when the election is published" do
+            let(:election) { create(:election, :published, component:) }
+
+            it "does not update the election title or times" do
+              original_title = election.title["en"]
+              original_start_at = election.start_at
+              subject.call
+              election.reload
+
+              expect(election.title["en"]).to eq original_title
+              expect(election.start_at).to eq original_start_at
+            end
+
+            it "updates description from the form" do
+              subject.call
+              election.reload
+
+              expect(election.description["en"]).to eq description[:en]
+            end
+          end
+
           it "traces the action", versioning: true do
             expect(Decidim.traceability)
               .to receive(:update!)

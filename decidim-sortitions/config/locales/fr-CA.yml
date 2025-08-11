@@ -42,6 +42,7 @@ fr-CA:
           edit: Éditer
           new_sortition: Nouveau tirage au sort
           show: Détails du tirage au sort
+          title: Actions
         models:
           sortition:
             fields:

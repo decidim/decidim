@@ -43,6 +43,7 @@ ja:
           edit: 編集
           new_sortition: 新しいソート順
           show: 並べ替えの詳細
+          title: アクション
         models:
           sortition:
             fields:

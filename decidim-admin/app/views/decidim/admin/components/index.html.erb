@@ -7,7 +7,7 @@
 
       <% if allowed_to?(:create, :component) %>
       <div class="relative">
-        <button class="button button__sm button__secondary" data-component="dropdown" data-target="add-component-dropdown">
+        <button class="button button__sm button__secondary" data-controller="dropdown" data-target="add-component-dropdown">
           <%= t "components.index.add", scope: "decidim.admin" %>
           <%= icon "arrow-down-s-line", class: "!fill-white" %>
           <%= icon "arrow-down-s-line", class: "!fill-white" %>

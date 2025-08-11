@@ -10,8 +10,8 @@ shared_examples "manage diplomas" do
   context "when diploma configuration not exists" do
     it "configure the diploma settings" do
       within "tr", text: translated(conference.title) do
-        find("button[data-component='dropdown']").click
-        click_on "Configure"
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
       end
 
       within_admin_sidebar_menu do
@@ -41,8 +41,8 @@ shared_examples "manage diplomas" do
       context "and diplomas has not been sent" do
         before do
           within "tr", text: translated(conference.title) do
-            find("button[data-component='dropdown']").click
-            click_on "Configure"
+            find("button[data-controller='dropdown']").click
+            click_on "Edit"
           end
 
           within_admin_sidebar_menu do
@@ -72,8 +72,8 @@ shared_examples "manage diplomas" do
 
         it "cannot send the diplomas" do
           within "tr", text: translated(conference.title) do
-            find("button[data-component='dropdown']").click
-            click_on "Configure"
+            find("button[data-controller='dropdown']").click
+            click_on "Edit"
           end
 
           within_admin_sidebar_menu do
@@ -91,8 +91,8 @@ shared_examples "manage diplomas" do
 
       it "cannot send the diplomas" do
         within "tr", text: translated(conference.title) do
-          find("button[data-component='dropdown']").click
-          click_on "Configure"
+          find("button[data-controller='dropdown']").click
+          click_on "Edit"
         end
 
         within_admin_sidebar_menu do

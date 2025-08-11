@@ -133,16 +133,15 @@ nl:
         attachment:
           new: Nieuwe bijlage
         browse: Browsen
-        export: Alles exporteren
+        configure: Configureren
+        export: Exporteren
         export-selection: Selectie exporteren
         import: Importeren
-        manage: Beheer
         newsletter:
           new: Nieuwe nieuwsbrief
         participatory_space_private_user:
           new: Nieuwe privégebruiker van de inspraakruimte
         per_page: Per pagina
-        permissions: Permissies
         share: Deel
         user:
           new: Nieuwe admin
@@ -512,9 +511,11 @@ nl:
         index:
           actions:
             block: Gebruiker blokkeren
+            bulk_actions:
+              unreport:
+                title: Niet langer rapporteren
             title: Acties
             unblock: Deblokkeer gebruiker
-            unreport: Niet langer rapporteren
           name: Naam
           nickname: Bijnaam
           reason: Reden
@@ -607,7 +608,6 @@ nl:
         index:
           actions: acties
           badge: badge
-          block: Gebruiker blokkeren
           created_at: Aangemaakt op
           name: Naam
           nickname: Gebruikersnaam
@@ -616,9 +616,7 @@ nl:
           officialized: Gevalideerd
           reofficialize: Hervalideren
           reports: Rapporten
-          show_email: Toon e-mailadres
           status: status
-          unblock: Deblokkeer gebruiker
           unofficialize: Ingetrokken
         new:
           badge: Bevestigings badge
@@ -733,8 +731,6 @@ nl:
           error: Er is een fout opgetreden bij het bijwerken van dit onderwerp.
           success: Onderwerp met succes bijgewerkt
       static_pages:
-        actions:
-          view: Bekijk de openbare pagina
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
           success: Pagina is succesvol gemaakt.
@@ -794,8 +790,6 @@ nl:
         hide: Verbergen
         not_hidden: niet verstopt
         title: Acties
-        unhide: Zichtbaar maken
-        unreport: Onreporteren
       admin:
         reportable:
           hide:

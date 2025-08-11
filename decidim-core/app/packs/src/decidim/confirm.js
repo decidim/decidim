@@ -183,7 +183,7 @@ export const initializeConfirm = () => {
   // Abide registers its own submit click listeners since Foundation 5.6.x
   // which will be handled before the document listeners above. This would
   // break the custom confirm functionality when used with Foundation Abide.
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("turbo:load", function() {
     $(Rails.formInputClickSelector).on("click.confirm", (ev) => {
       handleConfirm(ev, getMatchingEventTarget(ev, Rails.formInputClickSelector));
     });

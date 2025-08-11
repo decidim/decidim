@@ -1,0 +1,36 @@
+<% add_decidim_page_title(t(".title")) %>
+
+<%= render "decidim/demographics/admin/demographics/tabs_menu" do %>
+    <%= link_to t("actions.back", scope: "decidim.forms.admin.questionnaires"), questionnaire_url, class: "main-tabs-menu__cta-button" %>
+<% end %>
+
+<h1 class="item_show__header-title">
+  <%= t(".description") %>
+</h1>
+
+<hr class="border-b border-t-0 border-gray mb-8 pb-4">
+
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <ol class="list-decimal list-inside">
+      <% questionnaire.questions.each do |question| %>
+        <% next if question.question_type == "separator" %>
+        <% next if question.question_type == "title_and_description" %>
+
+        <li class="<%= "text-gray" unless question_response_is_publicable(question.question_type) %> mb-6">
+          <div class="inline">
+            <span><%= translated_attribute question.body %> (<%= I18n.t("decidim.surveys.admin.publish_responses.index.responses", count: question.responses.count) %>)</span>
+          </div>
+
+          <% if question_response_is_publicable(question.question_type) %>
+            <div class="m-4">
+              <%= chart_for_question(question.id) %>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ol>
+  </div>
+</div>
+
+<%= append_javascript_pack_tag "decidim_forms_admin" %>

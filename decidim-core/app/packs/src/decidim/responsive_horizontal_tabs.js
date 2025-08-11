@@ -1,4 +1,4 @@
-$(() => {
+document.addEventListener("turbo:load", () => {
   const $responsiveTabBlock = $(".responsive-tab-block");
 
   $responsiveTabBlock.click((event) => {

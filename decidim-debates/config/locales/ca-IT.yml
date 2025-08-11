@@ -25,6 +25,8 @@ ca-IT:
       admin_log:
         changeset:
           debates: Debats
+      tooltips:
+        deleted_debates_info: No es pot esborrar aquest debat
     components:
       debates:
         actions:

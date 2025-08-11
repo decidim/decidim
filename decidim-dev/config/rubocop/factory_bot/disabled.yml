@@ -1,0 +1,10 @@
+# Disabled factory_bot configurations
+
+FactoryBot/ExcessiveCreateList:
+  Enabled: false
+
+FactoryBot/FactoryAssociationWithStrategy:
+  Enabled: false
+
+FactoryBot/AssociationStyle:
+  Enabled: false

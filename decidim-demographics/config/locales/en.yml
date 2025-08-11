@@ -1,0 +1,79 @@
+---
+en:
+  decidim:
+    demographics:
+      actions:
+        title: Actions
+      admin:
+        demographics:
+          tabs_menu:
+            title: Demographics
+        demographics_menu:
+          questions: Questions
+          responses: Responses
+          settings: Settings
+        publish_responses:
+          index:
+            description: Description
+            title: Show responses
+        questions:
+          edit:
+            save: Save
+            title: Questions
+          questions_form:
+            add_question: Add question
+            collapse: Collapse all questions
+            expand: Expand all questions
+        responses:
+          index:
+            publish_responses: Show responses
+            title: "%{total} total responses"
+        settings:
+          show:
+            collect_data: Enable demographic data collection
+            collect_data_help: Enabling this setting will enable users to donate their data to the platform.
+            save: Save
+            title: Settings
+          update:
+            invalid: There was an error saving demographic data
+            success: Demographic data successfully saved
+        title: Demographics
+      demographics:
+        questionnaire:
+          delete_my_data: Delete data
+          modal_close: Cancel
+          modal_ok: Ok
+          modal_question: All your demographic data will be removed.
+          modal_title: Delete data
+          submit: Save data
+          terms_of_service: terms of service
+          tos_agreement: By participating you accept the %{link}.
+        show:
+          page_title: Demographic data donation
+      destroy:
+        error: There was an error removing your donated data
+        success: Successfully removed your donated data
+      name: Demographic data donation
+      questions:
+        age:
+          options:
+          - 15 to 29 years
+          - 30 to 44 years
+          - 45 to 64 years
+          - 65 years and over
+          question: What is your age?
+        gender:
+          options:
+          - Man
+          - Woman
+          - Non-binary
+          - My gender is not listed
+          - Prefer not to say
+          question: Which of the following best describes your gender?
+        postal:
+          question: What is your home postal code?
+  layouts:
+    decidim:
+      shared:
+        layout_center:
+          alert: By providing this information, you contribute to statistical analysis that helps improve participation quality. Your data will be aggregated and used only for research purposes.

@@ -17,6 +17,7 @@
     <span><%= t("layouts.decidim.user_menu.notifications") %></span>
     <% if unread_data[:unread_notifications] %>
       <%= content_tag :span, "", class: "main-bar__dropdown-notification", data: unread_data %>
+      <%= content_tag :span, t("layouts.decidim.user_menu.unread_notifications"), class: "sr-only" %>
     <% end %>
   <% end %>
 </li>
@@ -26,6 +27,7 @@
     <span><%= t("layouts.decidim.user_menu.conversations") %></span>
     <% if unread_data[:unread_conversations] %>
       <%= content_tag :span, "", class: "main-bar__dropdown-notification", data: unread_data %>
+      <%= content_tag :span, t("layouts.decidim.user_menu.unread_conversations"), class: "sr-only" %>
     <% end %>
   <% end %>
 </li>

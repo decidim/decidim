@@ -1,6 +1,8 @@
-@import "leaflet/dist/leaflet";
-@import "leaflet.markercluster/dist/MarkerCluster";
-@import "leaflet.markercluster/dist/MarkerCluster.Default";
+@use "sass:meta";
+
+@include meta.load-css("leaflet/dist/leaflet");
+@include meta.load-css("leaflet.markercluster/dist/MarkerCluster");
+@include meta.load-css("leaflet.markercluster/dist/MarkerCluster.Default");
 
 /* overwrite leaflet and card styles */
 .leaflet-popup-content-wrapper {

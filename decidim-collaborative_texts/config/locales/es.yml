@@ -17,12 +17,15 @@ es:
           draft: Borrador
           version_number: Número de versión
   decidim:
+    admin:
+      tooltips:
+        deleted_collaborative_texts_info: No se puede eliminar este documento
     collaborative_texts:
       actions:
         confirm_delete_document: '¿Seguro que quieres eliminar este documento?'
         deleted_document_info: Los documentos eliminados se pueden restaurar desde papelera.
         edit: Editar
-        manage: Gestionar
+        manage: Configurar
         new: Nuevo texto
         title: Acciones
         view_deleted_documents: Ver los documentos eliminados
@@ -134,6 +137,10 @@ es:
           invalid_nodes: Nodos seleccionados inválidos.
     components:
       collaborative_texts:
+        actions:
+          create: Crear
+          destroy: Destruir
+          update: Actualizar
         name: Textos colaborativos
         settings:
           global:

@@ -75,13 +75,16 @@ ja:
           attributes:
             base:
               not_official: 公式ではありません
+              voted: 投票またはいいねを獲得しました
         proposals_split:
           attributes:
             base:
               not_official: 公式ではありません
+              voted: 投票またはいいねを獲得しました
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: 提案のタクソノミーが変更されました
       decidim/proposals/creation_enabled_event: 提案の作成を有効にする
+      decidim/proposals/liking_enabled_event: 提案のいいねが有効になりました
       decidim/proposals/proposal_mentioned_event: 提案について述べました
       decidim/proposals/publish_proposal_event: 提案が公開
       decidim/proposals/voting_enabled_event: 提案投票を有効にしました
@@ -138,6 +141,12 @@ ja:
             values:
               state_not_published: 未回答
               state_published: 回答済み
+        search_placeholder:
+          id_string_or_title_cont: '%{collection} をIDまたはタイトルで検索'
+      tooltips:
+        cannot_edit_proposal_info: この提案は参加者によって作成されたか投票されているため編集できません
+        deleted_proposal_states_info: 提案に割り当てられているため、この提案状態は削除できません
+        deleted_proposals_info: この提案は削除できません
     application:
       geocoding:
         not_configured: ジオコーディングが設定されていません
@@ -147,6 +156,7 @@ ja:
           amend: 修正
           comment: コメント
           create: 提案を作成
+          like: いいね
           vote: 投票
           vote_comment: コメントに投票
           withdraw: 撤回する
@@ -170,6 +180,7 @@ ja:
               automatic: 自動
               most_commented: コメントの多い順
               most_followed: フォローの多い順
+              most_liked: いいねが多い順
               most_voted: 得票数順
               random: ランダム
               recent: 新しい順
@@ -230,10 +241,13 @@ ja:
               automatic: 自動
               most_commented: コメントの多い順
               most_followed: フォローの多い順
+              most_liked: いいねが多い順
               most_voted: 得票数順
               random: ランダム
               recent: 新しい順
               with_more_authors: 起案者の多い順
+            likes_blocked: '「いいね」がブロックされました'
+            likes_enabled: いいねを有効にする
             proposal_answering_enabled: 提案への回答を有効にする
             publish_answers_immediately: 提案の回答をすぐに公開
             publish_answers_immediately_help_html: 'これを有効にせずに提案に回答する場合、選択して公開アクションを使用して、手動で公開する必要があります。これがどのように機能するかの詳細については、<a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">提案の回答に関するドキュメントページ</a>を参照してください。'
@@ -316,6 +330,11 @@ ja:
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: '%{participatory_space_title} で現在利用可能な提案'
           notification_title: <a href="%{participatory_space_url}">%{participatory_space_title}</a>において、<a href="%{resource_path}">新しい提案</a>を出すことができます。
+        liking_enabled:
+          email_intro: '%{participatory_space_title}で提案をいいねできます! このページから参加してください：'
+          email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンク先から通知を停止できます。'
+          email_subject: いいねした提案が %{participatory_space_title} で開始されました
+          notification_title: <a href="%{resource_path}">いいねした提案</a> は <a href="%{participatory_space_url}">%{participatory_space_title}</a> で開始できます。
         proposal_mentioned:
           email_intro: あなたの提案 "%{mentioned_proposal_title}" が <a href="%{resource_url}">のコメント欄で</a> に言及されました。
           email_outro: あなたは "%{resource_title}" の作成者であるため、この通知を受け取りました。
@@ -427,6 +446,7 @@ ja:
           id: 提案の固有ID
           is_amend: この提案が別の提案の修正版かどうか
           latitude: 提案に物理的な場所がある場合の提案の緯度
+          likes: この提案の「いいね」の数
           longitude: 提案に物理的な場所がある場合の提案の経度
           meeting_urls: この提案が提出または議論されたミーティングのURL
           original_proposal: 修正版の場合、元の提案の参照
@@ -637,7 +657,11 @@ ja:
             comments_count: コメント数
             documents: ドキュメント
             evaluators: 評価者
+            likes: いいね
+            likes_count: いいね数
             link: 提案を見る
+            n_more_likes:
+              other: 他%{count}件
             photos: 写真
             ranking: "%{ranking} / %{total}"
             related_meetings: 関連するミーティング
@@ -916,6 +940,7 @@ ja:
           label: '提案の並び順：'
           most_commented: コメントの多い順
           most_followed: フォローの多い順
+          most_liked: いいねが多い順
           most_voted: 得票数順
           random: ランダム
           recent: 新しい順
@@ -941,6 +966,8 @@ ja:
           changes_at_title: '「%{title} 」に修正'
           edit_proposal: 編集
           estimated_cost: 推定コスト
+          hidden_likes_count:
+            other: 他 %{count} 人
           link_to_collaborative_draft_help_text: この提案は共同草案の結果です。履歴を確認してください
           link_to_collaborative_draft_text: 共同草案を見る
           link_to_promoted_emendation_help_text: この提案は奨励された提案です

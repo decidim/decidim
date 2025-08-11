@@ -1,6 +1,6 @@
 import AutoComplete from "src/decidim/autocomplete";
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   $("[data-decidim-geocoding]").each((_i, el) => {
     const $input = $(el);
 

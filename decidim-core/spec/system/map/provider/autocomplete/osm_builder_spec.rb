@@ -12,7 +12,7 @@ module Decidim
             let(:html_head) do
               <<~HEAD
                 <script type="text/javascript">
-                  document.addEventListener("DOMContentLoaded", function() {
+                  document.addEventListener("turbo:load", function() {
                     window.$("body").append('<div id="ajax_request"></div>');
                     window.$("body").append('<div id="geocoder_suggested"></div>');
                     window.$("body").append('<div id="geocoder_coordinates"></div>');

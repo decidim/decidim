@@ -65,7 +65,7 @@ const setupTomSelect = () => {
   return null;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   document.querySelectorAll(".js-remove-component").forEach(handleRemoveButton);
   const addButton = document.querySelector(".js-add-component")
 

@@ -17,7 +17,7 @@ shared_examples "manage proposals" do
   context "when previewing proposals" do
     it "allows the user to preview the proposal" do
       within "tr", text: proposal_title do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         preview_window = window_opened_by { click_on "Preview" }
 
         within_window preview_window do
@@ -506,7 +506,7 @@ shared_examples "manage proposals" do
   def go_to_admin_proposal_page(proposal)
     proposal_title = translated(proposal.title)
     within "tr", text: proposal_title do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       click_on "Answer proposal"
     end
   end

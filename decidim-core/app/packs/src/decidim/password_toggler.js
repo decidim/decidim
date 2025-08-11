@@ -23,10 +23,12 @@ export default class PasswordToggler {
     this.button.addEventListener("click", (evt) => {
       this.toggleVisibility(evt);
     });
-    // to prevent browsers trying to use autocomplete, turn the type back to password before submitting
-    this.form.addEventListener("submit", () => {
-      this.hidePassword();
-    });
+    if (this.form) {
+      // to prevent browsers trying to use autocomplete, turn the type back to password before submitting
+      this.form.addEventListener("submit", () => {
+        this.hidePassword();
+      });
+    }
   }
 
   // Call destroy() to switch back to the original password box

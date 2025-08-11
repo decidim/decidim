@@ -29,7 +29,7 @@ describe "Admin applies questionnaire templates" do
     end
 
     click_on "Add component"
-    within ".table-scroll" do
+    within ".table-stacked" do
       click_on "Surveys"
     end
     click_on "New survey"

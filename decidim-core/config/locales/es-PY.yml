@@ -166,6 +166,13 @@ es-PY:
       x_seconds:
         one: 1 segundo
         other: "%{count} segundos"
+    widget:
+      label:
+        date: Seleccionar fecha para %{label}
+        time: Seleccionar hora para %{label}
+      picker:
+        date_button: Abrir el selector de calendario para %{label}
+        time_button: Abrir selector de hora para %{label}
   decidim:
     accessibility:
       external_link: Enlace externo
@@ -718,6 +725,7 @@ es-PY:
     doorkeeper:
       authorizations:
         new:
+          api_read: Leer el contenido a través de la API
           authorize: Autorice la aplicación
           by_organization_link_html: <small class="heading-small">por %{link}</small>
           cancel: Cancelar
@@ -1601,6 +1609,7 @@ es-PY:
     searches:
       filters:
         jump_to: 'Salta a:'
+        resource: "%{label} entre %{collection}"
         search: Buscar
         state:
           active: Activo
@@ -2136,6 +2145,8 @@ es-PY:
         profile: Mi cuenta
         public_profile: Mi perfil público
         title: Enlaces de perfil
+        unread_conversations: Tienes conversaciones sin leer
+        unread_notifications: Tienes notificaciones sin leer
       user_profile:
         account: Cuenta
         authorizations: Autorizaciones

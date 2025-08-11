@@ -19,7 +19,6 @@ module Decidim
 
         Decidim::Initiative.states.keys.each do |state|
           Decidim::Initiative.skip_callback(:save, :after, :notify_state_change, raise: false)
-          Decidim::Initiative.skip_callback(:create, :after, :notify_creation, raise: false)
 
           initiative = create_initiative!(state:)
 

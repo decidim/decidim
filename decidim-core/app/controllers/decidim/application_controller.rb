@@ -41,7 +41,6 @@ module Decidim
     helper Decidim::ViewHooksHelper
     helper Decidim::CardHelper
     helper Decidim::SanitizeHelper
-    helper Decidim::TwitterSearchHelper
     helper Decidim::SocialShareButtonHelper
     helper Decidim::FiltersHelper
     helper Decidim::OnboardingActionHelper

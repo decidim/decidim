@@ -17,7 +17,7 @@ describe "Admin copies participatory process" do
   context "without any context" do
     it "copies the process with the basic fields" do
       within("tr", text: translated(participatory_process.title)) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Duplicate"
       end
 
@@ -42,7 +42,7 @@ describe "Admin copies participatory process" do
   context "with context" do
     before do
       within("tr", text: translated(participatory_process.title)) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Duplicate"
       end
 
