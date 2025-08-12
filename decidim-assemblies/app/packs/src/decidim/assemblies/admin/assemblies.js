@@ -1,4 +1,4 @@
-$(() => {
+document.addEventListener("turbo:load", () => {
   const $assemblyScopeEnabled = $("#assembly_scopes_enabled");
   const $assemblyScopeId = $("#assembly_scope_id");
 

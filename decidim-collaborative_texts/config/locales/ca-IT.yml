@@ -25,7 +25,7 @@ ca-IT:
         confirm_delete_document: Segur que vols esborrar aquest document?
         deleted_document_info: Els documents eliminats es poden restaurar des de la paperera.
         edit: Editar
-        manage: Gestionar
+        manage: Configurar
         new: Nou text
         title: Accions
         view_deleted_documents: Veure els documents eliminats
@@ -137,6 +137,10 @@ ca-IT:
           invalid_nodes: Nodes seleccionats invàlids.
     components:
       collaborative_texts:
+        actions:
+          create: Crear
+          destroy: Destruir
+          update: Actualitzar
         name: Textos col·laboratius
         settings:
           global:

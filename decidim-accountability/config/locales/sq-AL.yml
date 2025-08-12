@@ -27,8 +27,6 @@ sq:
   decidim:
     accountability:
       actions:
-        attachment_collections: Dosjet
-        attachments: Bashkëngjitjet
         confirm_destroy: Je i sigurt që dëshiron ta fshish këtë %{name}?
         destroy: Fshij
         edit: Përpuno

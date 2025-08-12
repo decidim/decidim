@@ -74,7 +74,7 @@
 
 <% if questionnaire.questions_editable? %>
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("turbo:load", function () {
       window.Decidim.createEditableForm();
     });
   </script>

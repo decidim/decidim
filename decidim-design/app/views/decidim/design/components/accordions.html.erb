@@ -17,7 +17,7 @@
 
   <p><%= t(".demo_description") %></p>
 
-  <div data-component="accordion" data-multiselectable="false" id="example-accordion-1">
+  <div data-controller="accordion" data-multiselectable="false" id="example-accordion-1">
     <ul class="tab-x-container">
       <% 3.times do |tab| %>
         <li>
@@ -53,7 +53,7 @@
 
     <code>
       <textarea spellcheck="false" rows="8">
-<div data-component="accordion" id="example-accordion">
+<div data-controller="accordion" id="example-accordion">
   <button id="trigger" data-controls="panel">
     <%= t(".trigger") %>
   </button>

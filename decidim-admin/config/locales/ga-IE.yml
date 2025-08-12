@@ -62,8 +62,8 @@ ga:
       actions:
         add: Cuir leis
         browse: Brabhsáil
+        export: Easpórtáil
         import: Iompórtáil
-        manage: Bainistigh
         per_page: In aghaidh an leathanach
         share: Roinn
       area_types:
@@ -227,8 +227,10 @@ ga:
       moderated_users:
         index:
           actions:
+            bulk_actions:
+              unreport:
+                title: Cuir ar ceal tuairisc
             title: Gníomhartha
-            unreport: Cuir ar ceal tuairisc
           name: Ainm
           nickname: Leasainm
           reason: Cúis
@@ -324,8 +326,6 @@ ga:
         hidden: Ceilte
         hide: Cuir i bhfolach
         title: Gníomhartha
-        unhide: Nocht
-        unreport: Cuir ar ceal tuairisc
       models:
         moderation:
           fields:

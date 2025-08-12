@@ -2,12 +2,8 @@ it:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Assemblee collegate
         available_slots: Slot disponibili
         banner_image: Immagine banner
-        copy_categories: Copia le categorie
-        copy_components: Copia componenti
-        copy_features: Copia le caratteristiche
         decidim_scope_id: Obiettivo
         description: Descrizione
         end_date: Data di fine
@@ -73,11 +69,6 @@ it:
       actions:
         confirm: Confermare
         send_diplomas: Invia certificati di frequenza
-      conference_copies:
-        new:
-          copy: Copia
-          select: Seleziona i dati che desideri duplicare
-          title: Duplica Conferenza
       conference_publications:
         create:
           error: Si è verificato un errore durante la pubblicazione di questa conferenza.
@@ -126,20 +117,16 @@ it:
         exports:
           registrations: Iscrizioni
         form:
+          images: Fotografie
           title: Informazioni Generali
         index:
           published: Pubblicata
           unpublished: Non pubblicato
         new:
           create: Crea
-          title: Conferenza
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa conferenza.
           success: Conferenza aggiornata con successo.
-      conferences_copies:
-        create:
-          error: Si è verificato un errore durante la duplicazione di questa conferenza.
-          success: Conferenza duplicata con successo.
       media_links:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo collegamento multimediale.

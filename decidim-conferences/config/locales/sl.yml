@@ -2,7 +2,6 @@ sl:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Povezane združbe
         description: Opis
         published_at: Objavljeno
         short_description: Kratek opis
@@ -18,9 +17,6 @@ sl:
     admin:
       actions:
         confirm: Potrdi
-      conference_copies:
-        new:
-          copy: Kopiraj
       conference_speakers:
         edit:
           update: Posodobi

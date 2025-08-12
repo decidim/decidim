@@ -105,9 +105,9 @@ lv:
       actions:
         add: Pievienot
         browse: Pārlūkot
-        manage: Pārvaldīt
+        configure: Konfigurēt
+        export: Eksportēt
         per_page: Lapā
-        permissions: Atļaujas
       area_types:
         create:
           error: Jauna jomas veida radīšanas laikā radās problēma.
@@ -421,7 +421,6 @@ lv:
           officialize: Piešķirt oficiālo statusu
           officialized: Piešķirts oficiāls statuss
           reofficialize: Atkal piešķirt oficiālo statusu
-          show_email: Rādīt e-pasta adresi
           status: Statuss
           unofficialize: Noņemt oficiālo statusu
         new:
@@ -512,8 +511,6 @@ lv:
           error: Šīs tēmas atjaunināšanas laikā radās problēma.
           success: Tēma ir veiksmīgi atjaunināta
       static_pages:
-        actions:
-          view: Skatīt publisko lapu
         create:
           error: Jaunas lapas izveides laikā radās problēma.
           success: Lapa ir veiksmīgi izveidota.
@@ -569,8 +566,6 @@ lv:
         hide: Slēpt
         not_hidden: Nav paslēpts
         title: Darbības
-        unhide: Atcelt slēpšanu
-        unreport: Atcelt ziņošanu
       admin:
         reportable:
           hide:

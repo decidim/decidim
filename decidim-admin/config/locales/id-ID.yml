@@ -101,8 +101,6 @@ id:
       actions:
         add: Menambahkan
         browse: Jelajahi
-        manage: Mengelola
-        permissions: Izin
       area_types:
         create:
           error: Terjadi kesalahan saat membuat jenis area baru.
@@ -460,8 +458,6 @@ id:
           error: Ada kesalahan saat memperbarui topik ini.
           success: Topik berhasil diperbarui
       static_pages:
-        actions:
-          view: Lihat halaman publik
         create:
           error: Ada kesalahan saat membuat halaman baru.
           success: Halaman berhasil dibuat.
@@ -514,8 +510,6 @@ id:
         hide: Menyembunyikan
         not_hidden: tidak tersembunyi
         title: Tindakan
-        unhide: Tidak terlihat
-        unreport: Unreport
       admin:
         reportable:
           hide:

@@ -27,8 +27,6 @@
   decidim:
     accountability:
       actions:
-        attachment_collections: Mapper
-        attachments: Vedlegg
         confirm_destroy: Er du sikker på at du vil slette dette %{name}?
         destroy: Slett
         edit: Redigere

@@ -82,15 +82,12 @@ de:
     admin:
       actions:
         activate: Aktivieren
-        configure: Konfigurieren
         confirm_delete_process: Sind Sie sicher, dass Sie diesen Prozess löschen möchten? Wenn Sie Ihre Meinung ändern, können Sie ihn später wiederherstellen.
         confirm_destroy: Löschen bestätigen
         destroy: Löschen
         duplicate: Duplizieren
         edit: Bearbeiten
         import_process: Importieren
-        menu_hidden: Verbergen
-        moderate: Moderieren
         new_process: Neuer Beteiligungsprozess
         new_process_group: Neue Prozessgruppe
         new_process_step: Neue Phase

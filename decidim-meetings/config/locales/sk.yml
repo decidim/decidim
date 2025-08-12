@@ -122,8 +122,6 @@ sk:
     meetings:
       actions:
         agenda: Denný program
-        attachment_collections: Zložky
-        attachments: Prílohy
         close: Zavrieť
         edit: Upraviť
         preview: Náhľad

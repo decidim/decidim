@@ -24,7 +24,7 @@ module Decidim
       def create_component!
         params = {
           name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :elections).i18n_name,
-          published_at: nil,
+          published_at: Time.current,
           manifest_name: :elections,
           participatory_space:
         }
@@ -72,7 +72,6 @@ module Decidim
           question = Decidim::Elections::Question.create!(
             election:,
             position:,
-            mandatory: [true, false].sample,
             question_type: %w(single_option multiple_option).sample,
             body: Decidim::Faker::Localized.sentence(word_count: 4),
             description: Decidim::Faker::Localized.paragraph
