@@ -8,9 +8,12 @@ module Decidim
           return permission_action unless user
           return permission_action unless permission_action.scope == :admin
 
+          return Decidim::Meetings::Admin::AgendaPermissions.new(user, permission_action, context).permissions if subject == :agenda
+
+          toggle_allow(poll.present? && meeting.present?) if subject == :poll && action == :update
+
           allowed_registration_form_action?
           allowed_meeting_action?
-          allowed_agenda_action?
           allowed_poll_action?
 
           permission_action
@@ -20,10 +23,6 @@ module Decidim
 
         def meeting
           @meeting ||= context.fetch(:meeting, nil)
-        end
-
-        def agenda
-          @agenda ||= context.fetch(:agenda, nil)
         end
 
         def poll
@@ -63,26 +62,6 @@ module Decidim
             toggle_allow(registration_form.present?)
           when :export_responses
             permission_action.allow!
-          end
-        end
-
-        def allowed_agenda_action?
-          return unless permission_action.subject == :agenda
-
-          case permission_action.action
-          when :create
-            toggle_allow(meeting.present?)
-          when :update
-            toggle_allow(agenda.present? && meeting.present?)
-          end
-        end
-
-        def allowed_poll_action?
-          return unless permission_action.subject == :poll
-
-          case permission_action.action
-          when :update
-            toggle_allow(poll.present? && meeting.present?)
           end
         end
       end
