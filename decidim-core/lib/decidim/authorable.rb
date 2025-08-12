@@ -42,6 +42,7 @@ module Decidim
       # visible or if the associated record has been destroyed completely.
       def author
         mapped_author = super
+        return mapped_author if mapped_author.is_a?(Decidim::Organization)
         return mapped_author if mapped_author.try(:visible?)
         return mapped_author if mapped_author.try(:deleted?)
         return mapped_author if mapped_author.try(:ephemeral?)
