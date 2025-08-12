@@ -25,7 +25,6 @@ import UserRegistrationForm from "src/decidim/refactor/integration/user_registra
 import MentionsComponent from "src/decidim/refactor/implementation/input_mentions";
 import FormValidator from "src/decidim/refactor/implementation/form_validator"
 import updateExternalDomainLinks from "src/decidim/refactor/implementation/external_domain_warning"
-import ClipboardCopy from "src/decidim/refactor/implementation/copy_clipboard";
 import ExternalLink from "src/decidim/refactor/implementation/external_link"
 import Configuration from "src/decidim/refactor/implementation/configuration"
 import MultipleMentionsManager from "src/decidim/refactor/implementation/input_multiple_mentions";
@@ -239,13 +238,6 @@ document.addEventListener("turbo:load", () => {
   document.querySelectorAll(".js-mentions").forEach((container) => {
     if (!container._mentionContainer) {
       container._mentionContainer = new MentionsComponent(container);
-    }
-  });
-
-  document.querySelectorAll("[data-clipboard-copy]").forEach((element) => {
-    // Only initialize if not already initialized (prevents duplicates)
-    if (!element._clipboardCopy) {
-      element._clipboardCopy = new ClipboardCopy(element);
     }
   });
 
