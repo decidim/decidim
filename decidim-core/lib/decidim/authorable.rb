@@ -43,7 +43,7 @@ module Decidim
       def author
         mapped_author = super
         return mapped_author if mapped_author.try(:visible?)
-        return mapped_author if mapped_author.deleted?
+        return mapped_author if mapped_author.try(:deleted?)
         return mapped_author if mapped_author.try(:ephemeral?)
 
         Decidim::User.new(id: 0, name: "", nickname: "", decidim_organization_id: mapped_author.organization)
