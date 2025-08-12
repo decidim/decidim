@@ -13,7 +13,7 @@ describe Decidim::Ai::SpamDetection::Importer::Database do
 
   shared_examples "resource is being indexed" do
     let(:organization) { create(:organization) }
-    let!(:author) { create(:user, organization:) }
+    let!(:author) { create(:user, :confirmed, organization:) }
     let(:component) { create(:component, participatory_space:, manifest_name:) }
     let(:participatory_space) { create(:participatory_process, organization:) }
     let(:instance) { Decidim::Ai::SpamDetection::Service.new(registry: Decidim::Ai::SpamDetection.resource_registry) }
@@ -32,7 +32,7 @@ describe Decidim::Ai::SpamDetection::Importer::Database do
 
   context "when trained model is Decidim::Initiative" do
     let(:organization) { create(:organization) }
-    let!(:author) { create(:user, organization:) }
+    let!(:author) { create(:user, :confirmed, organization:) }
     let(:training) { 8 }
     let!(:resource_models) { { "Decidim::Initiative" => "Decidim::Ai::SpamDetection::Resource::Initiative" } }
 
@@ -118,7 +118,7 @@ describe Decidim::Ai::SpamDetection::Importer::Database do
     let(:tested) { 3 }
     let(:training) { tested + 1 } # tested + author in shared example
 
-    let!(:user) { create_list(:user, tested, organization:, about: "Something about me") }
+    let!(:user) { create_list(:user, tested, :confirmed, organization:, about: "Something about me") }
     let(:resource_models) { { "Decidim::User" => "Decidim::Ai::SpamDetection::Resource::UserBaseEntity" } }
 
     include_examples "resource is being indexed" do

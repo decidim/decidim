@@ -29,7 +29,7 @@ FactoryBot.define do
       after :create do |resource, evaluator|
         5.times.collect do
           create(:like, resource:, skip_injection: evaluator.skip_injection,
-                        author: build(:user, organization: resource.component.organization, skip_injection: evaluator.skip_injection))
+                        author: build(:user, :confirmed, organization: resource.component.organization, skip_injection: evaluator.skip_injection))
         end
       end
     end
@@ -52,7 +52,7 @@ FactoryBot.define do
   factory :coauthorable_dummy_resource, class: "Decidim::Dev::CoauthorableDummyResource" do
     transient do
       skip_injection { false }
-      authors_list { [create(:user, organization: component.organization, skip_injection:)] }
+      authors_list { [create(:user, :confirmed, organization: component.organization, skip_injection:)] }
     end
     title { generate(:name) }
     component { create(:component, manifest_name: "dummy") }

@@ -5,7 +5,8 @@ require "spec_helper"
 module Decidim
   describe UserPresenter, type: :helper do
     let(:presenter) { described_class.new(user) }
-    let(:user) { build(:user, :confirmed) }
+    let(:organization) { create(:organization) }
+    let(:user) { build(:user, :confirmed, organization:) }
 
     describe "#nickname" do
       subject { presenter.nickname }

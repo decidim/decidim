@@ -34,23 +34,23 @@ module Decidim
         let!(:user) { create(:user, :confirmed, :blocked, nickname: "nick", organization:) }
 
         it "does not return the page" do
-          expect { get :show, params: { nickname: "Nick" } }.to raise_error(ActionController::RoutingError)
+          expect { get :show, params: { nickname: "nick" } }.to raise_error(ActionController::RoutingError)
         end
       end
 
       context "with a user that has not accepted the TOS" do
-        let!(:user) { create(:user, :confirmed, nickname: "Nick", accepted_tos_version: nil, organization:) }
+        let!(:user) { create(:user, :confirmed, nickname: "nick", accepted_tos_version: nil, organization:) }
 
         it "does not return the page" do
-          expect { get :show, params: { nickname: "Nick" } }.to raise_error(ActionController::RoutingError)
+          expect { get :show, params: { nickname: "nick" } }.to raise_error(ActionController::RoutingError)
         end
       end
 
       context "when an unconfirmed user" do
-        let!(:user) { create(:user, nickname: "Nick", organization:) }
+        let!(:user) { create(:user, nickname: "nick", organization:) }
 
         it "does not return the page" do
-          expect { get :show, params: { nickname: "Nick" } }.to raise_error(ActionController::RoutingError)
+          expect { get :show, params: { nickname: "nick" } }.to raise_error(ActionController::RoutingError)
         end
       end
     end

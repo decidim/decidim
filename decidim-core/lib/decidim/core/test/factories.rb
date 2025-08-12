@@ -255,6 +255,7 @@ FactoryBot.define do
 
     trait :ephemeral do
       managed
+      confirmed
       extended_data { { ephemeral: true } }
     end
 

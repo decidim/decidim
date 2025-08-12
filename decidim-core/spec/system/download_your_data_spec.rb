@@ -19,14 +19,14 @@ describe "DownloadYourData" do
   let(:other_user) { create(:user, :confirmed, organization:) }
 
   let!(:other_user_expired_export) do
-    export = Decidim::DownloadYourDataExporter.new(other_resource.author, "download_your_data", Decidim::DownloadYourDataExporter::DEFAULT_EXPORT_FORMAT).export
+    export = Decidim::DownloadYourDataExporter.new(other_user, "download_your_data", Decidim::DownloadYourDataExporter::DEFAULT_EXPORT_FORMAT).export
     export.expires_at = 2.weeks.ago
     export.save!
     export.reload
   end
 
   let!(:other_user_active_export) do
-    Decidim::DownloadYourDataExporter.new(other_resource.author, "download_your_data", Decidim::DownloadYourDataExporter::DEFAULT_EXPORT_FORMAT).export
+    Decidim::DownloadYourDataExporter.new(other_user, "download_your_data", Decidim::DownloadYourDataExporter::DEFAULT_EXPORT_FORMAT).export
   end
 
   around do |example|
@@ -103,11 +103,14 @@ describe "DownloadYourData" do
     describe "Export data" do
       it "exports an archive with all user information" do
         expect(Decidim::PrivateExport.count).to eq(4)
-        perform_enqueued_jobs { click_on "Request" }
+        perform_enqueued_jobs do
+          click_on "Request"
 
-        within_flash_messages do
-          expect(page).to have_content("data is currently in progress")
+          within_flash_messages do
+            expect(page).to have_content("data is currently in progress")
+          end
         end
+
         expect(Decidim::PrivateExport.count).to eq(5)
 
         expect(last_email.subject).to include("Hodor User")
@@ -116,7 +119,7 @@ describe "DownloadYourData" do
   end
 
   context "when user has not yet accepted tos" do
-    let(:user) { create(:user, :confirmed, name: "Hodor User", accepted_tos_version: nil) }
+    before { user.update!(accepted_tos_version: nil) }
 
     include_examples "downloading data"
   end

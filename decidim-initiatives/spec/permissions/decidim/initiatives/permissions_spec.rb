@@ -273,7 +273,7 @@ describe Decidim::Initiatives::Permissions do
       end
 
       context "when user is admin" do
-        let(:user) { create(:user, :admin, organization:) }
+        let(:user) { create(:user, :confirmed, :admin, organization:) }
         let(:initiative) { create(:initiative, :created, author: user, organization:) }
 
         it { is_expected.to be true }

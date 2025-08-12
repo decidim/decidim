@@ -8,8 +8,8 @@ describe "Assembly private users" do
   let(:privatable_to) { assembly }
   let(:blocks_manifests) { [] }
 
-  let(:user) { create(:user, organization: privatable_to.organization) }
-  let(:ceased_user) { create(:user, organization: privatable_to.organization) }
+  let(:user) { create(:user, :confirmed, organization: privatable_to.organization) }
+  let(:ceased_user) { create(:user, :confirmed, organization: privatable_to.organization) }
 
   before do
     switch_to_host(organization.host)

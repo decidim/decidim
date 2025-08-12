@@ -50,7 +50,7 @@ module Decidim
 
       context "when document any author" do
         let(:component) { create(:collaborative_text_component) }
-        let(:user) { create(:user, organization: component.organization) }
+        let(:user) { create(:user, :confirmed, organization: component.organization) }
         let(:document) { create(:collaborative_text_document, users: [user], component:) }
         let(:coauthorable) { document }
 
