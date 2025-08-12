@@ -56,7 +56,6 @@ import { initializeReverseGeocoding } from "src/decidim/geocoding/reverse_geocod
 import formDatePicker from "src/decidim/datepicker/form_datepicker"
 import InputCharacterCounter, { createCharacterCounter } from "src/decidim/input_character_counter"
 import FormFilterComponent from "src/decidim/form_filter"
-import addInputEmoji, { EmojiButton } from "src/decidim/input_emoji"
 import FocusGuard from "src/decidim/focus_guard"
 import backToListLink from "src/decidim/back_to_list"
 import markAsReadNotifications from "src/decidim/notifications"
@@ -78,8 +77,6 @@ window.Decidim = window.Decidim || {
   ExternalLink,
   InputCharacterCounter,
   FormValidator,
-  addInputEmoji,
-  EmojiButton,
   Dialogs,
   ConfirmDialog,
   announceForScreenReader
@@ -160,8 +157,6 @@ const initializer = (element = document) => {
 
     return new ExternalLink(elem)
   })
-
-  addInputEmoji(element)
 
   backToListLink(element.querySelectorAll(".js-back-to-list"));
 
