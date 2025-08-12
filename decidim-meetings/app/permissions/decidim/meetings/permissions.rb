@@ -13,9 +13,7 @@ module Decidim
         return Decidim::Meetings::MeetingPermissions.new(user, permission_action, context).permissions if subject == :meeting
 
         toggle_allow(can_respond_question?) if subject == :response && action == :create
-
         toggle_allow(can_update_question?) if subject == :question && action == :update
-
         toggle_allow(can_update_poll?) if subject == :poll && action == :update
 
         return permission_action unless user
