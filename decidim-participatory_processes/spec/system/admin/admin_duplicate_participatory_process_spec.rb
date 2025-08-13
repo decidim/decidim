@@ -21,20 +21,20 @@ describe "Admin copies participatory process" do
         click_on "Duplicate"
       end
 
-      within ".copy_participatory_process" do
+      within ".duplicate_participatory_process" do
         fill_in_i18n(
           :participatory_process_title,
           "#participatory_process-title-tabs",
-          en: "Copy participatory process",
+          en: "Duplicate participatory process",
           es: "Copia del proceso participativo",
           ca: "Còpia del procés participatiu"
         )
-        fill_in :participatory_process_slug, with: "pp-copy"
-        click_on "Copy"
+        fill_in :participatory_process_slug, with: "pp-duplicate"
+        click_on "Duplicate"
       end
 
       expect(page).to have_content("successfully")
-      expect(page).to have_content("Copy participatory process")
+      expect(page).to have_content("Duplicate participatory process")
       expect(page).to have_content("Unpublished")
     end
   end
@@ -46,26 +46,26 @@ describe "Admin copies participatory process" do
         click_on "Duplicate"
       end
 
-      within ".copy_participatory_process" do
+      within ".duplicate_participatory_process" do
         fill_in_i18n(
           :participatory_process_title,
           "#participatory_process-title-tabs",
-          en: "Copy participatory process",
+          en: "Duplicate participatory process",
           es: "Copia del proceso participativo",
           ca: "Còpia del procés participatiu"
         )
-        fill_in :participatory_process_slug, with: "pp-copy-with-steps"
+        fill_in :participatory_process_slug, with: "pp-duplicate-with-steps"
       end
     end
 
     it "copies the process with steps" do
-      page.check("participatory_process[copy_steps]")
-      click_on "Copy"
+      page.check("participatory_process[duplicate_steps]")
+      click_on "Duplicate"
 
       expect(page).to have_content("successfully")
 
-      within "tr", text: "Copy participatory process" do
-        click_on "Copy participatory process"
+      within "tr", text: "Duplicate participatory process" do
+        click_on "Duplicate participatory process"
       end
 
       within_admin_sidebar_menu do
@@ -80,13 +80,13 @@ describe "Admin copies participatory process" do
     end
 
     it "copies the process with components" do
-      page.check("participatory_process[copy_components]")
-      click_on "Copy"
+      page.check("participatory_process[duplicate_components]")
+      click_on "Duplicate"
 
       expect(page).to have_content("successfully")
 
-      within "tr", text: "Copy participatory process" do
-        click_on "Copy participatory process"
+      within "tr", text: "Duplicate participatory process" do
+        click_on "Duplicate participatory process"
       end
 
       within_admin_sidebar_menu do

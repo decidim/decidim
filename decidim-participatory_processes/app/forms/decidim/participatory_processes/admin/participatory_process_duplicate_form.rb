@@ -3,10 +3,10 @@
 module Decidim
   module ParticipatoryProcesses
     module Admin
-      # A form object used to copy a participatory processes from the admin
+      # A form object used to duplicate a participatory processes from the admin
       # dashboard.
       #
-      class ParticipatoryProcessCopyForm < Form
+      class ParticipatoryProcessDuplicateForm < Form
         include TranslatableAttributes
 
         translatable_attribute :title, String
@@ -14,9 +14,9 @@ module Decidim
         mimic :participatory_process
 
         attribute :slug, String
-        attribute :copy_steps, Boolean
-        attribute :copy_components, Boolean
-        attribute :copy_landing_page_blocks, Boolean
+        attribute :duplicate_steps, Boolean
+        attribute :duplicate_components, Boolean
+        attribute :duplicate_landing_page_blocks, Boolean
 
         validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
         validates :title, translatable_presence: true

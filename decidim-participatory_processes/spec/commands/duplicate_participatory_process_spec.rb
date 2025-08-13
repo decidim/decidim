@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::ParticipatoryProcesses
-  describe Admin::CopyParticipatoryProcess do
+  describe Admin::DuplicateParticipatoryProcess do
     subject { described_class.new(form, participatory_process) }
 
     let(:organization) { create(:organization) }
@@ -16,21 +16,21 @@ module Decidim::ParticipatoryProcesses
     let!(:component) { create(:component, manifest_name: :dummy, participatory_space: participatory_process) }
     let(:form) do
       instance_double(
-        Admin::ParticipatoryProcessCopyForm,
+        Admin::ParticipatoryProcessDuplicateForm,
         invalid?: invalid,
         title: { en: "title" },
         slug: "copied-slug",
-        copy_steps?: copy_steps,
-        copy_components?: copy_components,
-        copy_landing_page_blocks?: copy_landing_page_blocks,
+        duplicate_steps?: duplicate_steps,
+        duplicate_components?: duplicate_components,
+        duplicate_landing_page_blocks?: duplicate_landing_page_blocks,
         current_user:
       )
     end
 
     let(:invalid) { false }
-    let(:copy_steps) { false }
-    let(:copy_components) { false }
-    let(:copy_landing_page_blocks) { false }
+    let(:duplicate_steps) { false }
+    let(:duplicate_components) { false }
+    let(:duplicate_landing_page_blocks) { false }
 
     context "when the form is not valid" do
       let(:invalid) { true }
@@ -82,8 +82,8 @@ module Decidim::ParticipatoryProcesses
       end
     end
 
-    context "when copy_steps exists" do
-      let(:copy_steps) { true }
+    context "when duplicate_steps exists" do
+      let(:duplicate_steps) { true }
 
       it "duplicates a participatory process and the steps" do
         expect { subject.call }.to change(Decidim::ParticipatoryProcessStep, :count).by(1)
@@ -99,18 +99,18 @@ module Decidim::ParticipatoryProcesses
       end
     end
 
-    context "when copy_components exists" do
-      let(:copy_components) { true }
+    context "when duplicate_components exists" do
+      let(:duplicate_components) { true }
 
       it "duplicates a participatory process and the components" do
         dummy_hook = proc {}
-        component.manifest.on :copy, &dummy_hook
+        component.manifest.on :duplicate, &dummy_hook
         expect(dummy_hook).to receive(:call).with({ new_component: an_instance_of(Decidim::Component), old_component: component })
 
         expect { subject.call }.to change(Decidim::Component, :count).by(1)
 
         last_participatory_process = Decidim::ParticipatoryProcess.last
-        last_component = Decidim::Component.all.reorder(:id).last
+        last_component = Decidim::Component.reorder(:id).last
 
         expect(last_component.participatory_space).to eq(last_participatory_process)
         expect(last_component.name).to eq(component.name)
@@ -121,8 +121,8 @@ module Decidim::ParticipatoryProcesses
       end
     end
 
-    context "when copy_landing_page_blocks exists" do
-      let(:copy_landing_page_blocks) { true }
+    context "when duplicate_landing_page_blocks exists" do
+      let(:duplicate_landing_page_blocks) { true }
       let(:original_image) do
         Rack::Test::UploadedFile.new(
           Decidim::Dev.test_file("city.jpeg", "image/jpeg"),

@@ -10,20 +10,20 @@
       <div class="row column">
         <div class="card">
           <div class="card-divider">
-            <legend><%= t("participatory_process_copies.new.select", scope: "decidim.admin") %></legend>
+            <legend><%= t("participatory_process_duplicates.new.select", scope: "decidim.admin") %></legend>
           </div>
           <div class="card-section">
             <div class="row">
               <div class="columns">
-                <%= form.check_box :copy_steps %>
+                <%= form.check_box :duplicate_steps %>
               </div>
 
               <div class="columns">
-                <%= form.check_box :copy_components %>
+                <%= form.check_box :duplicate_components %>
               </div>
 
               <div class="columns">
-                <%= form.check_box :copy_landing_page_blocks %>
+                <%= form.check_box :duplicate_landing_page_blocks %>
               </div>
             </div>
           </div>
