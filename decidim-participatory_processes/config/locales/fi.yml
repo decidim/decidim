@@ -4,9 +4,6 @@ fi:
       participatory_process:
         announcement: Ilmoitus
         area_id: Alue
-        copy_categories: Kopioi aihepiirit
-        copy_components: Kopioi komponentit
-        copy_steps: Kopioi vaiheet
         decidim_area_id: Alue
         description: Kuvaus
         developer_group: Edistäjäryhmä
@@ -156,11 +153,6 @@ fi:
             invitation_accepted_at: Kutsu hyväksytty
             invitation_sent_at: Kutsu on
             published: Julkaistu
-      participatory_process_copies:
-        new:
-          copy: Kopioi
-          select: Valitse, mitkä tiedot haluat kopioida
-          title: Kopioi osallistumisprosessi
       participatory_process_groups:
         destroy:
           error: Osallistumistilojen ryhmän poisto epäonnistui.
@@ -258,10 +250,6 @@ fi:
         update:
           error: Osallistumisprosessin päivitys epäonnistui.
           success: Osallistumisprosessin päivitys onnistui.
-      participatory_processes_copies:
-        create:
-          error: Osallistumisprosessin kopiointi epäonnistui.
-          success: Osallistumisprosessin kopiointi onnistui.
       participatory_processes_group:
         create:
           error: Uuden osallistumisprosessien ryhmän luonti epäonnistui.
@@ -496,9 +484,6 @@ fi:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help_html: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
         participatory_process_groups:
           form:
             metadata: Metatiedot
