@@ -131,8 +131,6 @@ ru:
       participatory_process_copies:
         new:
           copy: Копировать
-          select: Выберите, какие данные вы хотите продублировать
-          title: Создать копию движения соучастия
       participatory_process_groups:
         destroy:
           success: Группа движений соучастия успешно удалена.
@@ -212,10 +210,6 @@ ru:
         update:
           error: При попытке обновить это движение соучастия произошла ошибка.
           success: Движение соучастия успешно обновлено.
-      participatory_processes_copies:
-        create:
-          error: При попытке создать копию этого движения соучастия произошла ошибка.
-          success: Движение соучастия успешно продублировано.
       participatory_processes_group:
         create:
           error: При попытке создать новую группу движений соучастия произошла ошибка.
