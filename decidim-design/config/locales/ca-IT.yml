@@ -14,6 +14,7 @@ ca-IT:
           trigger: Activador
           usage: Ús
           usage_p: Un acordió necessita com a mínim tres elements
+          usage_p_1_html: '1. Un embolcall (wrapper) <code>div</code>, amb l''atribut "data": <code>data-component="accordion"</code>, sobre tots els activadors i panells disponibles.'
           usage_p_2_html: 2. Un element activador, usuària accionable (com un botó), apuntant a l'element plegable a través de <code>data-controls="panel"</code>, on <i>panel</i> és el <code>id</code> del panell.
           usage_p_3_html: 3. Un element ocult, on <code>id</code> coincideix amb el valor dels controls de dades al que es refereix l'activador.
         activities:
@@ -205,6 +206,7 @@ ca-IT:
         dropdowns_description_html: Els menús desplegables són una característica <i>JavaScript</i> disponible gràcies a una biblioteca externa anomenada %{link}.
         dropdowns_usage_1_description: 2. Un element modal, la <code>id</code> del qual coincideix amb el valor dels controls de dades a què es refereix l'activador.
         dropdowns_usage_description: 'Un menú desplegable requereix dos elements:'
+        dropdowns_usage_description_html: 1. Un element accionable per la participant, amb els atributs de dades <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.
         dummy_description: Descripció del recurs fictici
         dummy_title: Títol del recurs fictici
         follow_button: Botó "Seguir"
