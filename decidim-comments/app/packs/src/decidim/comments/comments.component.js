@@ -157,8 +157,6 @@ export default class CommentsComponent {
       $opinionButtons.on("click.decidim-comments", this._onToggleOpinion);
       $text.on("input.decidim-comments", this._onTextInput);
 
-      document.dispatchEvent(new CustomEvent("attach-mentions-element", { detail: $text.get(0) }));
-
       $form.on("submit.decidim-comments", () => {
         const $submit = $("button[type='submit']", $form);
 

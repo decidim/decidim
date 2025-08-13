@@ -4,7 +4,6 @@
  * @jest-environment jsdom
  */
 
-
 // Mock the Tribute library first
 const mockTribute = {
   attach: jest.fn(),
@@ -23,8 +22,8 @@ jest.mock("src/decidim/vendor/tribute", () => {
   return jest.fn().mockImplementation(() => mockTribute);
 });
 
-// Now import the component after mocking
-import MentionsComponent from "src/decidim/refactor/implementation/input_mentions";
+import { Application } from "@hotwired/stimulus"
+import MentionController from "src/decidim/controllers/mention/controller";
 import Tribute from "src/decidim/vendor/tribute";
 
 // Get access to mock methods (pure JavaScript approach)
@@ -42,9 +41,14 @@ global.window.Decidim = {
 
 describe("MentionsComponent", () => {
   let mockElement = null;
-  let component = null;
+  let application = null;
+  let controller = null;
 
   beforeEach(() => {
+    // Set up Stimulus application
+    application = Application.start();
+    application.register("mention", MentionController);
+
     // Reset all mocks
     jest.clearAllMocks();
     mockTribute.attach.mockClear();
@@ -54,12 +58,12 @@ describe("MentionsComponent", () => {
     // Create DOM elements for testing
     document.body.innerHTML = `
       <div class="mention-container">
-        <input class="js-mentions" data-noresults="No users found" />
+        <input data-noresults="No users found" data-controller="mention" />
         <div class="tribute-container"></div>
       </div>
     `;
 
-    mockElement = document.querySelector(".js-mentions");
+    mockElement = document.querySelector("[data-controller='mention']");
 
     // Setup window.Decidim mock
     window.Decidim.config.get.mockReturnValue("http://localhost:3000/api");
@@ -80,44 +84,30 @@ describe("MentionsComponent", () => {
         }
       })
     });
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        controller = application.getControllerForElementAndIdentifier(mockElement, "mention");
+        resolve();
+      }, 0);
+    });
   });
 
   afterEach(() => {
-    if (component) {
-      component.destroy();
-    }
+    controller.disconnect();
     document.body.innerHTML = "";
     jest.restoreAllMocks();
   });
 
   describe("constructor", () => {
     it("creates instance with default options", () => {
-      component = new MentionsComponent(mockElement);
-
-      expect(component.element).toBe(mockElement);
-      expect(component.options.noDataFoundMessage).toBe("No users found");
-      expect(component.options.debounceDelay).toBe(250);
-      expect(component.options.menuItemLimit).toBe(5);
-    });
-
-    it("creates instance with custom options", () => {
-      const customOptions = {
-        noDataFoundMessage: "Custom message",
-        debounceDelay: 500,
-        menuItemLimit: 10
-      };
-
-      component = new MentionsComponent(mockElement, customOptions);
-
-      expect(component.options.noDataFoundMessage).toBe("Custom message");
-      expect(component.options.debounceDelay).toBe(500);
-      expect(component.options.menuItemLimit).toBe(10);
+      expect(controller.element).toBe(mockElement);
+      expect(controller.options.noDataFoundMessage).toBe("No users found");
+      expect(controller.options.debounceDelay).toBe(250);
+      expect(controller.options.menuItemLimit).toBe(5);
     });
 
     it("initializes component when not inside editor", () => {
-      component = new MentionsComponent(mockElement);
-
-      expect(component.initialized).toBe(true);
+      expect(controller.initialized).toBe(true);
       expect(TributeMock).toHaveBeenCalled();
       expect(mockTribute.attach).toHaveBeenCalledWith(mockElement);
     });
@@ -126,21 +116,26 @@ describe("MentionsComponent", () => {
       const editorContainer = document.createElement("div");
       editorContainer.classList.add("editor");
       const editorElement = document.createElement("input");
+      editorElement.setAttribute("data-controller", "mention");
       editorContainer.appendChild(editorElement);
       document.body.appendChild(editorContainer);
 
-      component = new MentionsComponent(editorElement);
+      // Wait for the controller to be connected
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          controller = application.getControllerForElementAndIdentifier(editorElement, "mention");
 
-      expect(component.initialized).toBe(false);
-      expect(TributeMock).not.toHaveBeenCalled();
+          expect(controller.initialized).toBe(false);
+          // Since TributeMock should not be called, we can check that tribute is null
+          expect(controller.tribute).toBeNull();
+
+          resolve();
+        }, 0);
+      });
     });
   });
 
   describe("Tribute configuration", () => {
-    beforeEach(() => {
-      component = new MentionsComponent(mockElement);
-    });
-
     it("configures Tribute with correct options", () => {
       const tributeConfig = TributeMock.mock.calls[0][0];
 
@@ -192,20 +187,27 @@ describe("MentionsComponent", () => {
 
     it("configures null noMatchTemplate when no message provided", () => {
       const elementWithoutMessage = document.createElement("input");
-      const componentWithoutMessage = new MentionsComponent(elementWithoutMessage);
+      elementWithoutMessage.setAttribute("data-controller", "mention");
+      document.body.appendChild(elementWithoutMessage);
 
-      const tributeConfig = TributeMock.mock.calls[1][0];
-      expect(tributeConfig.noMatchTemplate).toEqual(expect.any(Function));
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          controller = application.getControllerForElementAndIdentifier(elementWithoutMessage, "mention");
 
-      componentWithoutMessage.destroy();
+          // Check that the tribute was created and the second call (index [1]) has the expected config
+          const tributeConfig = TributeMock.mock.calls[1][0];
+          expect(tributeConfig.noMatchTemplate).toEqual(expect.any(Function));
+
+          // Clean up
+          controller.disconnect();
+          elementWithoutMessage.remove();
+          resolve();
+        }, 0);
+      });
     });
   });
 
   describe("event handling", () => {
-    beforeEach(() => {
-      component = new MentionsComponent(mockElement);
-    });
-
     it("handles focusin event", () => {
       const event = new Event("focusin");
       Reflect.defineProperty(event, "target", {
@@ -234,17 +236,28 @@ describe("MentionsComponent", () => {
 
     it("handles focusout event when parent does not exist", () => {
       const isolatedElement = document.createElement("input");
-      const isolatedComponent = new MentionsComponent(isolatedElement);
+      isolatedElement.setAttribute("data-controller", "mention");
+      document.body.appendChild(isolatedElement);
 
-      const event = new Event("focusout");
-      Reflect.defineProperty(event, "target", {
-        value: isolatedElement,
-        enumerable: true
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          const isolatedController = application.getControllerForElementAndIdentifier(isolatedElement, "mention");
+
+          const event = new Event("focusout");
+          Reflect.defineProperty(event, "target", {
+            value: isolatedElement,
+            enumerable: true
+          });
+
+          // Test that dispatching the focusout event does not throw when parent is null
+          expect(() => isolatedElement.dispatchEvent(event)).not.toThrow();
+
+          // Clean up
+          isolatedController.disconnect();
+          isolatedElement.remove();
+          resolve();
+        }, 0);
       });
-
-      expect(() => isolatedElement.dispatchEvent(event)).not.toThrow();
-
-      isolatedComponent.destroy();
     });
 
     it("handles input event when tribute is active", () => {
@@ -278,25 +291,32 @@ describe("MentionsComponent", () => {
 
     it("handles input event when parent does not exist", () => {
       const isolatedElement = document.createElement("input");
-      const isolatedComponent = new MentionsComponent(isolatedElement);
+      isolatedElement.setAttribute("data-controller", "mention");
+      document.body.appendChild(isolatedElement);
 
-      const event = new Event("input");
-      Reflect.defineProperty(event, "target", {
-        value: isolatedElement,
-        enumerable: true
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          const isolatedController = application.getControllerForElementAndIdentifier(isolatedElement, "mention");
+
+          const event = new Event("input");
+          Reflect.defineProperty(event, "target", {
+            value: isolatedElement,
+            enumerable: true
+          });
+
+          // Test that dispatching the input event does not throw when parent is null
+          expect(() => isolatedElement.dispatchEvent(event)).not.toThrow();
+
+          // Clean up
+          isolatedController.disconnect();
+          isolatedElement.remove();
+          resolve();
+        }, 0);
       });
-
-      expect(() => isolatedElement.dispatchEvent(event)).not.toThrow();
-
-      isolatedComponent.destroy();
     });
   });
 
   describe("remote search", () => {
-    beforeEach(() => {
-      component = new MentionsComponent(mockElement);
-    });
-
     it("performs remote search successfully", async () => {
       const tributeConfig = TributeMock.mock.calls[0][0];
       const mockCallback = jest.fn();
@@ -383,86 +403,28 @@ describe("MentionsComponent", () => {
     });
   });
 
-  describe("attachToElement", () => {
-    beforeEach(() => {
-      component = new MentionsComponent(mockElement);
-    });
-
-    it("attaches tribute to new element", () => {
-      const newElement = document.createElement("input");
-      document.body.appendChild(newElement);
-
-      component.attachToElement(newElement);
-
-      expect(mockTribute.attach).toHaveBeenCalledWith(newElement);
-    });
-
-    it("handles null element gracefully", () => {
-      component.attachToElement(null);
-
-      // Should not throw error
-      // Only the initial attach
-      expect(mockTribute.attach).toHaveBeenCalledTimes(1);
-    });
-
-    it("handles missing tribute gracefully", () => {
-      component.tribute = null;
-      const newElement = document.createElement("input");
-
-      expect(() => component.attachToElement(newElement)).not.toThrow();
-    });
-
-    it("handles missing tribute menu in DOM", () => {
-      const newElement = document.createElement("input");
-      const mockMenu = document.createElement("div");
-      mockTribute.menu = mockMenu;
-
-      // Mock that menu is not in document body
-      const originalContains = document.body.contains;
-      document.body.contains = jest.fn().mockReturnValue(false);
-      const originalAppendChild = document.body.appendChild;
-      document.body.appendChild = jest.fn();
-
-      component.attachToElement(newElement);
-
-      expect(document.body.appendChild).toHaveBeenCalledWith(mockMenu);
-
-      // Restore original methods
-      document.body.contains = originalContains;
-      document.body.appendChild = originalAppendChild;
-    });
-  });
-
   describe("destroy", () => {
-    beforeEach(() => {
-      component = new MentionsComponent(mockElement);
-    });
-
     it("cleans up resources properly", () => {
-      component.destroy();
+      controller.disconnect();
 
       expect(mockTribute.detach).toHaveBeenCalledWith(mockElement);
-      expect(component.tribute).toBeNull();
-      expect(component.element).toBeNull();
-      expect(component.initialized).toBe(false);
+      expect(controller.tribute).toBeNull();
+      expect(controller.initialized).toBe(false);
     });
 
     it("handles missing tribute gracefully", () => {
-      component.tribute = null;
+      controller.tribute = null;
 
-      expect(() => component.destroy()).not.toThrow();
+      expect(() => controller.disconnect()).not.toThrow();
     });
 
     it("handles missing element gracefully", () => {
-      component.element = null;
-
-      expect(() => component.destroy()).not.toThrow();
+      expect(() => controller.disconnect()).not.toThrow();
     });
   });
 
   describe("debounce functionality", () => {
     beforeEach(() => {
-      component = new MentionsComponent(mockElement);
       jest.useFakeTimers();
     });
 
@@ -472,7 +434,7 @@ describe("MentionsComponent", () => {
 
     it("debounces function calls", () => {
       const mockCallback = jest.fn();
-      const debouncedFunction = component._debounce(mockCallback, 100);
+      const debouncedFunction = controller.debounce(mockCallback, 100);
 
       debouncedFunction("arg1");
       debouncedFunction("arg2");
@@ -488,7 +450,7 @@ describe("MentionsComponent", () => {
 
     it("cancels previous timeout on new call", () => {
       const mockCallback = jest.fn();
-      const debouncedFunction = component._debounce(mockCallback, 100);
+      const debouncedFunction = controller.debounce(mockCallback, 100);
 
       debouncedFunction("arg1");
       jest.advanceTimersByTime(50);
@@ -505,10 +467,6 @@ describe("MentionsComponent", () => {
   });
 
   describe("tribute container adjustment", () => {
-    beforeEach(() => {
-      component = new MentionsComponent(mockElement);
-    });
-
     it("adjusts tribute container when tribute is active", () => {
       const mockParent = document.createElement("div");
       const mockTributeContainer = document.createElement("div");
@@ -518,7 +476,7 @@ describe("MentionsComponent", () => {
 
       mockTribute.current = { element: { parentNode: mockParent } };
 
-      component._adjustTributeContainer();
+      controller.adjustTributeContainer();
 
       expect(mockParent.classList.contains("is-active")).toBe(true);
       expect(mockTributeContainer.getAttribute("style")).toBeNull();
@@ -527,21 +485,17 @@ describe("MentionsComponent", () => {
     it("handles missing tribute current element", () => {
       mockTribute.current = null;
 
-      expect(() => component._adjustTributeContainer()).not.toThrow();
+      expect(() => controller.adjustTributeContainer()).not.toThrow();
     });
 
     it("handles missing parent element", () => {
       mockTribute.current = { element: { parentNode: null } };
 
-      expect(() => component._adjustTributeContainer()).not.toThrow();
+      expect(() => controller.adjustTributeContainer()).not.toThrow();
     });
   });
 
   describe("CSRF token handling", () => {
-    beforeEach(() => {
-      component = new MentionsComponent(mockElement);
-    });
-
     it("includes CSRF token in requests when available", async () => {
       const mockToken = "test-csrf-token";
       const metaElement = document.createElement("meta");

@@ -476,12 +476,6 @@ describe("CommentsComponent", () => {
         );
       });
     });
-
-    it("attaches the mentions elements to the text fields", () => {
-      addComment.each((i) => {
-        expect(document.dispatchEvent).toHaveBeenCalledWith(new CustomEvent("attach-mentions-element", { detail: addComment[i].commentTextarea[0] }));
-      });
-    });
   });
 
   describe("when interacting", () => {

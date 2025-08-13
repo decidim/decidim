@@ -1,47 +1,39 @@
-/* eslint max-lines: ["error", 350] */
+import { Controller } from "@hotwired/stimulus"
 import Tribute from "src/decidim/vendor/tribute";
 
-/**
- * MentionsComponent handles user mentions functionality using the Tribute library.
- * It provides autocomplete suggestions for user mentions triggered by the "@" symbol.
- */
-export default class MentionsComponent {
-
-  /**
-   * Initialize the MentionsComponent
-   * @param {HTMLElement} element - The DOM element to attach mentions to
-   * @param {Object} options - Configuration options
-   */
-  constructor(element, options = {}) {
-    this.element = element;
+export default class extends Controller {
+  connect() {
     this.options = {
-      noDataFoundMessage: element.getAttribute("data-noresults") || "No results found",
+      noDataFoundMessage: this.element.getAttribute("data-noresults") || "No results found",
       debounceDelay: 250,
-      menuItemLimit: 5,
-      ...options
+      menuItemLimit: 5
     };
 
     this.tribute = null;
     this.isInitialized = false;
 
-    this._init();
-  }
-
-  /**
-   * Initialize the component if conditions are met
-   * @returns {void}
-   * @private
-   */
-  _init() {
     // Prevent initialization inside editor components
     if (this.element.parentElement && this.element.parentElement.classList.contains("editor")) {
       return;
     }
 
-    this._createTribute();
-    this._attachTribute();
-    this._setupEventListeners();
+    this.createTribute();
+    this.attachTribute();
+    this.setupEventListeners();
     this.isInitialized = true;
+  }
+
+  disconnect() {
+    if (this.tribute) {
+      this.tribute.detach(this.element);
+    }
+
+    this.element.removeEventListener("focusin", this.handleFocusIn);
+    this.element.removeEventListener("focusout", this.handleFocusOut);
+    this.element.removeEventListener("input", this.handleInput);
+
+    this.tribute = null;
+    this.isInitialized = false;
   }
 
   /**
@@ -49,15 +41,15 @@ export default class MentionsComponent {
    * @returns {void}
    * @private
    */
-  _createTribute() {
+  createTribute() {
     const noMatchTemplate = this.options.noDataFoundMessage
       ? () => `<li>${this.options.noDataFoundMessage}</li>`
       : null;
 
     this.tribute = new Tribute({
       trigger: "@",
-      values: this._debounce((text, callback) => {
-        this._performRemoteSearch(text, callback);
+      values: this.debounce((text, callback) => {
+        this.performRemoteSearch(text, callback);
       }, this.options.debounceDelay),
       positionMenu: true,
       menuContainer: null,
@@ -88,8 +80,12 @@ export default class MentionsComponent {
    * @returns {void}
    * @private
    */
-  _attachTribute() {
-    if (this.tribute && this.element) {
+  attachTribute() {
+    // if (this.element.hasAttribute("data-tribute")) {
+    //   return;
+    // }
+
+    if (this.tribute) {
       this.tribute.attach(this.element);
     }
   }
@@ -99,15 +95,11 @@ export default class MentionsComponent {
    * @returns {void}
    * @private
    */
-  _setupEventListeners() {
-    if (!this.element) {
-      return;
-    }
-
+  setupEventListeners() {
     // Handle focus events to set menu container
-    this.element.addEventListener("focusin", this._handleFocusIn.bind(this));
-    this.element.addEventListener("focusout", this._handleFocusOut.bind(this));
-    this.element.addEventListener("input", this._handleInput.bind(this));
+    this.element.addEventListener("focusin", this.handleFocusIn.bind(this));
+    this.element.addEventListener("focusout", this.handleFocusOut.bind(this));
+    this.element.addEventListener("input", this.handleInput.bind(this));
   }
 
   /**
@@ -116,7 +108,7 @@ export default class MentionsComponent {
    * @returns {void}
    * @private
    */
-  _handleFocusIn(event) {
+  handleFocusIn(event) {
     if (this.tribute) {
       this.tribute.menuContainer = event.target.parentNode;
     }
@@ -128,7 +120,7 @@ export default class MentionsComponent {
    * @returns {void}
    * @private
    */
-  _handleFocusOut(event) {
+  handleFocusOut(event) {
     const parent = event.target.parentNode;
 
     if (parent && parent.classList.contains("is-active")) {
@@ -142,7 +134,7 @@ export default class MentionsComponent {
    * @returns {void}
    * @private
    */
-  _handleInput(event) {
+  handleInput(event) {
     const parent = event.target.parentNode;
 
     if (!parent) {
@@ -169,11 +161,11 @@ export default class MentionsComponent {
    * @returns {void}
    * @private
    */
-  _performRemoteSearch(text, callback) {
+  performRemoteSearch(text, callback) {
     const query = `{users(filter:{wildcard:"${text}"}){nickname,name,avatarUrl,__typename}}`;
     const apiPath = window.Decidim.config.get("api_path");
 
-    this._makeRequest(apiPath, { query }).
+    this.makeRequest(apiPath, { query }).
       then((response) => {
         const data = response.data.users || [];
         callback(data);
@@ -182,7 +174,7 @@ export default class MentionsComponent {
         callback([]);
       }).
       finally(() => {
-        this._adjustTributeContainer();
+        this.adjustTributeContainer();
       });
   }
 
@@ -193,7 +185,7 @@ export default class MentionsComponent {
    * @returns {Promise} The request promise
    * @private
    */
-  _makeRequest(url, data) {
+  makeRequest(url, data) {
     return fetch(url, {
       method: "POST",
       headers: {
@@ -214,7 +206,7 @@ export default class MentionsComponent {
    * @returns {void}
    * @private
    */
-  _adjustTributeContainer() {
+  adjustTributeContainer() {
     if (!this.tribute || !this.tribute.current || !this.tribute.current.element) {
       return;
     }
@@ -238,7 +230,7 @@ export default class MentionsComponent {
    * @returns {Function} The debounced function
    * @private
    */
-  _debounce(callback, wait) {
+  debounce(callback, wait) {
     let timeout = null;
     return (...args) => {
       if (timeout) {
@@ -252,49 +244,6 @@ export default class MentionsComponent {
   }
 
   /**
-   * Attach mentions to a new element
-   * @param {HTMLElement} element - The element to attach mentions to
-   * @returns {void}
-   */
-  attachToElement(element) {
-    if (!element || !this.tribute) {
-      return;
-    }
-
-    this.tribute.attach(element);
-
-    // Handle Tribute bug where menu might be removed from DOM
-    if (this.tribute.menu && !document.body.contains(this.tribute.menu)) {
-      this.tribute.range.getDocument().body.appendChild(this.tribute.menu);
-    }
-
-    // Set up event listeners for the new element
-    element.addEventListener("focusin", this._handleFocusIn.bind(this));
-    element.addEventListener("focusout", this._handleFocusOut.bind(this));
-    element.addEventListener("input", this._handleInput.bind(this));
-  }
-
-  /**
-   * Destroy the component and clean up resources
-   * @returns {void}
-   */
-  destroy() {
-    if (this.tribute) {
-      this.tribute.detach(this.element);
-    }
-
-    if (this.element) {
-      this.element.removeEventListener("focusin", this._handleFocusIn);
-      this.element.removeEventListener("focusout", this._handleFocusOut);
-      this.element.removeEventListener("input", this._handleInput);
-    }
-
-    this.tribute = null;
-    this.element = null;
-    this.isInitialized = false;
-  }
-
-  /**
    * Check if the component is initialized
    * @returns {boolean} True if initialized, false otherwise
    */
@@ -302,5 +251,3 @@ export default class MentionsComponent {
     return this.isInitialized;
   }
 }
-
-

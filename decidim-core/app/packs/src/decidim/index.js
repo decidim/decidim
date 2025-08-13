@@ -22,7 +22,6 @@ import morphdom from "morphdom"
  */
 
 import UserRegistrationForm from "src/decidim/refactor/integration/user_registration_form";
-import MentionsComponent from "src/decidim/refactor/implementation/input_mentions";
 import FormValidator from "src/decidim/refactor/implementation/form_validator"
 import updateExternalDomainLinks from "src/decidim/refactor/implementation/external_domain_warning"
 import ExternalLink from "src/decidim/refactor/implementation/external_link"
@@ -215,19 +214,7 @@ document.addEventListener("comments:loaded", (event) => {
   }
 });
 
-// Handle external library integration (like React)
-document.addEventListener("attach-mentions-element", (event) => {
-  const instance = new MentionsComponent(event.detail);
-  instance.attachToElement(event.detail);
-});
-
 document.addEventListener("turbo:load", () => {
-
-  document.querySelectorAll(".js-mentions").forEach((container) => {
-    if (!container._mentionContainer) {
-      container._mentionContainer = new MentionsComponent(container);
-    }
-  });
 
   document.querySelectorAll(".js-multiple-mentions").forEach((fieldContainer) => {
     // Initialize the multiple mentions manager
