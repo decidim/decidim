@@ -172,8 +172,6 @@ lt:
       participatory_process_copies:
         new:
           copy: Kopijuoti
-          select: Pasirinkite, kuriuos duomenis norėtumėte dubliuoti
-          title: Dubliuoti dalyvaujamąjį procesą
       participatory_process_groups:
         destroy:
           error: Naikinant Dalyvaujamojo proceso grupę įvyko klaida.
@@ -277,10 +275,6 @@ lt:
         update:
           error: Atnaujinant šį dalyvaujamąjį procesą iškilo problema.
           success: Dalyvaujamasis procesas atnaujintas.
-      participatory_processes_copies:
-        create:
-          error: Dubliuojant šį dalyvaujamąjį procesą iškilo problema.
-          success: Dalyvaujamasis procesas dubliuotas.
       participatory_processes_group:
         create:
           error: Kuriant naują dalyvaujamojo proceso grupę iškilo problema.
