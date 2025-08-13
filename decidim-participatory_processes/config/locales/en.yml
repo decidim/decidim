@@ -444,7 +444,7 @@ en:
                 options:
                   five: "Yes"
                   two_five: Partially
-                  zero: false
+                  zero: "No"
               functional_diversity_invited:
                 legend: How is the degree of diversity of the agents and participants assessed with respect to the population of reference in the process?
                 options:
