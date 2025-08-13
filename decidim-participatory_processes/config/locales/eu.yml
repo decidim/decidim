@@ -4,9 +4,6 @@ eu:
       participatory_process:
         announcement: Oharra
         area_id: Arloa
-        copy_categories: Kopiatu kategoriak
-        copy_components: Kopiatu osagaiak
-        copy_steps: Kopiatu faseak
         decidim_area_id: Arloa
         description: Deskribapena
         developer_group: Talde sustatzailea
@@ -156,11 +153,6 @@ eu:
             invitation_accepted_at: Gonbidapena egun honetan onartu zen
             invitation_sent_at: Gonbidapena egun honetan bidali zen
             published: Argitaratua
-      participatory_process_copies:
-        new:
-          copy: Kopiatu
-          select: Aukeratu itzazu kopiatu nahi dituzun datuak
-          title: Bikoiztu partaidetza-prozesua
       participatory_process_groups:
         destroy:
           error: Arazo bat izan da prozesu parte-hartzaile multzoa ezabatzean.
@@ -259,10 +251,6 @@ eu:
         update:
           error: Arazo bat egon da prozesu partaidetza-prozesu hau eguneratzean.
           success: Partaidetza-prozesua zuzen eguneratua.
-      participatory_processes_copies:
-        create:
-          error: Arazo bat egon da partaidetza-prozesu hau bikoiztean.
-          success: Partaidetza-prozesua zuzen kopiatua.
       participatory_processes_group:
         create:
           error: Arazo bat egon da beste partaidetza-prozesuen multzo bat sortzean.
@@ -497,9 +485,6 @@ eu:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadatuak
