@@ -26,7 +26,6 @@ import FormValidator from "src/decidim/refactor/implementation/form_validator"
 import updateExternalDomainLinks from "src/decidim/refactor/implementation/external_domain_warning"
 import ExternalLink from "src/decidim/refactor/implementation/external_link"
 import Configuration from "src/decidim/refactor/implementation/configuration"
-import MultipleMentionsManager from "src/decidim/refactor/implementation/input_multiple_mentions";
 import setOnboardingAction from "src/decidim/refactor/integration/onboarding_pending_action"
 
 // local deps with no initialization
@@ -215,18 +214,6 @@ document.addEventListener("comments:loaded", (event) => {
 });
 
 document.addEventListener("turbo:load", () => {
-
-  document.querySelectorAll(".js-multiple-mentions").forEach((fieldContainer) => {
-    // Initialize the multiple mentions manager
-    const mentionsManager = new MultipleMentionsManager(fieldContainer);
-
-    // Set up the selection event handler outside the class
-    mentionsManager.searchInput.addEventListener("selection", (event) => {
-      const feedback = event.detail;
-      const selection = feedback.selection;
-      mentionsManager.handleSelection(selection);
-    });
-  });
 
   // Initialize new FormValidator for all forms
   document.querySelectorAll("form").forEach((formElement) => {

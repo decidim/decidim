@@ -1,21 +1,12 @@
+import { Controller } from "@hotwired/stimulus"
 import AutoComplete from "src/decidim/autocomplete";
 import icon from "src/decidim/icon";
 
-/**
- * MultipleMentionsManager class handles the functionality for selecting multiple users
- * in a mention system with autocomplete capabilities.
- */
-class MultipleMentionsManager {
-
-  /**
-   * Initialize the MultipleMentionsManager
-   * @param {HTMLElement} fieldContainer - The main container element
-   */
-  constructor(fieldContainer) {
-    this.fieldContainer = fieldContainer;
-    this.searchInput = fieldContainer.querySelector("input");
-    this.selectedItems = fieldContainer.parentNode.querySelector(`ul.${this.getInputDataAttribute("selected")}`);
-    this.options = this.getElementData(fieldContainer);
+export default class extends Controller {
+  connect() {
+    this.searchInput = this.element.querySelector("input");
+    this.selectedItems = this.element.parentNode.querySelector(`ul.${this.getInputDataAttribute("selected")}`);
+    this.options = this.getElementData(this.element);
     this.selected = [];
 
     // Get messages configuration
@@ -25,7 +16,11 @@ class MultipleMentionsManager {
 
     this.initializeEmptyFocusElement();
     this.initializeAutoComplete();
-    this.updateSubmitButton();
+    this.searchInput.addEventListener("selection", (event) => {
+      const feedback = event.detail;
+      const selection = feedback.selection;
+      this.handleSelection(selection);
+    });
   }
 
   /**
@@ -51,12 +46,12 @@ class MultipleMentionsManager {
    * @returns {void}
    */
   initializeEmptyFocusElement() {
-    let emptyFocusElement = this.fieldContainer.querySelector(".empty-list");
+    let emptyFocusElement = this.element.parentNode.querySelector(".empty-list");
     if (!emptyFocusElement) {
       emptyFocusElement = document.createElement("div");
       emptyFocusElement.tabIndex = "-1";
       emptyFocusElement.className = "empty-list";
-      this.fieldContainer.parentNode.append(emptyFocusElement);
+      this.element.parentNode.append(emptyFocusElement);
     }
     this.emptyFocusElement = emptyFocusElement;
   }
@@ -148,14 +143,13 @@ class MultipleMentionsManager {
   handleSelection(selection) {
     const id = selection.value.id;
     // Check if we have reached the maximum limit or if direct messages are disabled
-    if (this.selected.length >= 9 || selection.value.directMessagesEnabled === "false") {
+    if (this.isMaxLimitReached() || selection.value.directMessagesEnabled === "false") {
       return;
     }
 
     this.addSelectedUser(selection, id);
     this.autoComplete.setInput("");
     this.selected.push(id);
-    this.updateSubmitButton();
   }
 
   /**
@@ -198,39 +192,8 @@ class MultipleMentionsManager {
       this.selected = this.selected.filter((identifier) => identifier !== id);
       target.remove();
 
-      this.updateSubmitButton();
       focusElement.focus();
     }
-  }
-
-  /**
-   * Update the submit button state
-   * @returns {void}
-   */
-  updateSubmitButton() {
-    const form = this.fieldContainer.closest("form");
-    if (!form) {
-      return;
-    }
-
-    const submitButton = form.querySelector("button[type='submit']");
-    if (!submitButton) {
-      return;
-    }
-
-    if (this.selectedItems.children.length === 0) {
-      submitButton.disabled = true;
-    } else {
-      submitButton.disabled = false;
-    }
-  }
-
-  /**
-   * Get the currently selected user IDs
-   * @returns {Array<string>} Array of selected user IDs
-   */
-  getSelectedIds() {
-    return [...this.selected];
   }
 
   /**
@@ -240,7 +203,6 @@ class MultipleMentionsManager {
   clearSelection() {
     this.selected = [];
     this.selectedItems.innerHTML = "";
-    this.updateSubmitButton();
   }
 
   /**
@@ -251,5 +213,3 @@ class MultipleMentionsManager {
     return this.selected.length >= 9;
   }
 }
-
-export default MultipleMentionsManager;

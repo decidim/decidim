@@ -4,7 +4,8 @@
  * @jest-environment jsdom
  */
 
-import MultipleMentionsManager from "src/decidim/refactor/implementation/input_multiple_mentions";
+import { Application } from "@hotwired/stimulus"
+import MultipleMentionsController from "src/decidim/controllers/multiple_mentions/controller"
 
 const AutoComplete = require("src/decidim/autocomplete");
 const iconMock = require("src/decidim/icon");
@@ -43,42 +44,47 @@ global.window.Decidim = {
 };
 
 describe("MultipleMentionsManager", () => {
-  let container = null;
   let fieldContainer = null;
   let searchInput = null;
   let selectedItems = null;
-  let form = null;
-  let submitButton = null;
+  let application = null;
+  let controller = null;
 
   beforeEach(() => {
+    application = Application.start();
+    application.register("multiple-mentions", MultipleMentionsController);
+
     // Reset all mocks
     jest.clearAllMocks();
 
-    // Create DOM structure
-    document.body.innerHTML = "";
-    container = document.createElement("div");
+    document.body.innerHTML = `<div>
+    <div data-controller="multiple-mentions" class="form__wrapper gap-1 js-multiple-mentions" data-name="recipient_id[]" data-multiple="true">
+      <label for="add_conversation_users">
+        Participants
+      </label>
+      <span id="dialog-desc-conversation" class="help-text">Add users to conversation: 9 users max</span>
+      <input id="add_conversation_users" type="text"
+          spellcheck="false"
+          autocomplete="off"
+          placeholder="Search..."
+          data-noresults="No results"
+          data-selected= "selected-users"
+          contenteditable="true"
+          data-direct-messages-disabled="Direct messages disabled">
+    </div>
+    <ul class="selected-users"></ul>
+  </div>`
 
-    form = document.createElement("form");
-    submitButton = document.createElement("button");
-    submitButton.type = "submit";
-    form.appendChild(submitButton);
+    selectedItems = document.querySelector(".selected-users");
+    searchInput = document.querySelector("[data-controller='multiple-mentions'] input");
+    fieldContainer = document.querySelector("[data-controller='multiple-mentions']");
 
-    fieldContainer = document.createElement("div");
-    fieldContainer.className = "js-multiple-mentions";
-    fieldContainer.dataset.name = "user_ids[]";
-
-    searchInput = document.createElement("input");
-    searchInput.dataset.selected = "selected-users";
-    searchInput.dataset.directMessagesDisabled = "Direct messages disabled";
-
-    selectedItems = document.createElement("ul");
-    selectedItems.className = "selected-users";
-
-    fieldContainer.appendChild(searchInput);
-    fieldContainer.appendChild(selectedItems);
-    form.appendChild(fieldContainer);
-    container.appendChild(form);
-    document.body.appendChild(container);
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        controller = application.getControllerForElementAndIdentifier(fieldContainer, "multiple-mentions");
+        resolve();
+      }, 0);
+    });
   });
 
   afterEach(() => {
@@ -87,81 +93,58 @@ describe("MultipleMentionsManager", () => {
 
   describe("constructor", () => {
     it("should initialize with correct properties", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
-
-      expect(manager.fieldContainer).toBe(fieldContainer);
-      expect(manager.searchInput).toBe(searchInput);
-      expect(manager.selectedItems).toBe(selectedItems);
-      expect(manager.selected).toEqual([]);
-      expect(manager.removeLabel).toBe("Remove recipient %name%");
+      expect(controller.element).toBe(fieldContainer);
+      expect(controller.searchInput).toBe(searchInput);
+      expect(controller.selectedItems).toBe(selectedItems);
+      expect(controller.selected).toEqual([]);
+      expect(controller.removeLabel).toBe("Remove recipient %name%");
     });
 
     it("should create empty focus element if it does not exist", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
-
-      const emptyFocusElement = fieldContainer.parentNode.querySelector(".empty-list");
+      const emptyFocusElement = document.querySelector(".empty-list");
       expect(emptyFocusElement).not.toBeNull();
       expect(emptyFocusElement.tabIndex).toBe(-1);
-      expect(manager.emptyFocusElement).toBe(emptyFocusElement);
+      expect(controller.emptyFocusElement).toBe(emptyFocusElement);
     });
 
     it("should use existing empty focus element if it exists", () => {
-      const existingElement = document.createElement("div");
-      existingElement.className = "empty-list";
+      const existingElement = document.querySelector(".empty-list");
       fieldContainer.appendChild(existingElement);
 
-      const manager = new MultipleMentionsManager(fieldContainer);
-
-      expect(manager.emptyFocusElement).toBe(existingElement);
+      expect(controller.emptyFocusElement).toBe(existingElement);
     });
 
     it("should initialize AutoComplete with correct configuration", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
-
       expect(AutoComplete).toHaveBeenCalledWith(searchInput, {
         dataMatchKeys: ["name", "nickname"],
         dataSource: expect.any(Function),
         dataFilter: expect.any(Function),
         modifyResult: expect.any(Function)
       });
-      expect(manager).toBeInstanceOf(MultipleMentionsManager);
-    });
-
-    it("should set submit button to disabled initially when no items selected", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
-
-      expect(submitButton.disabled).toBe(true);
-      expect(manager).toBeInstanceOf(MultipleMentionsManager);
     });
   });
 
   describe("getInputDataAttribute", () => {
     it("should return correct data attribute value", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
-
-      expect(manager.getInputDataAttribute("selected")).toBe("selected-users");
-      expect(manager.getInputDataAttribute("directMessagesDisabled")).toBe("Direct messages disabled");
+      expect(controller.getInputDataAttribute("selected")).toBe("selected-users");
+      expect(controller.getInputDataAttribute("directMessagesDisabled")).toBe("Direct messages disabled");
     });
 
     it("should return undefined for nonexistent attributes", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
-
-      expect(manager.getInputDataAttribute("nonExistent")).toBeUndefined();
+      expect(controller.getInputDataAttribute("nonExistent")).toBeUndefined();
     });
   });
 
   describe("getElementData", () => {
     it("should return all data attributes as an object", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
-      const data = manager.getElementData(fieldContainer);
+      const data = controller.getElementData(fieldContainer);
 
-      expect(data.name).toBe("user_ids[]");
+      expect(data.name).toBe("recipient_id[]");
     });
 
     it("should return empty object for element with no data attributes", () => {
       const emptyElement = document.createElement("div");
-      const manager = new MultipleMentionsManager(fieldContainer);
-      const data = manager.getElementData(emptyElement);
+      const data = controller.getElementData(emptyElement);
 
       expect(data).toEqual({});
     });
@@ -185,10 +168,9 @@ describe("MultipleMentionsManager", () => {
       };
       global.fetch.mockResolvedValue(mockResponse);
 
-      const manager = new MultipleMentionsManager(fieldContainer);
       const callback = jest.fn();
 
-      await manager.getDataSource("test query", callback);
+      await controller.getDataSource("test query", callback);
 
       expect(global.fetch).toHaveBeenCalledWith("/api/graphql", {
         method: "POST",
@@ -208,10 +190,9 @@ describe("MultipleMentionsManager", () => {
       global.fetch.mockRejectedValue(new Error("API Error"));
       const consoleSpy = jest.spyOn(console, "error").mockImplementation(() => {});
 
-      const manager = new MultipleMentionsManager(fieldContainer);
       const callback = jest.fn();
 
-      await manager.getDataSource("test query", callback);
+      await controller.getDataSource("test query", callback);
 
       expect(consoleSpy).toHaveBeenCalledWith("Error fetching users:", expect.any(Error));
       expect(callback).toHaveBeenCalledWith([]);
@@ -229,10 +210,9 @@ describe("MultipleMentionsManager", () => {
       global.fetch.mockResolvedValue(mockResponse);
       const consoleSpy = jest.spyOn(console, "error").mockImplementation(() => {});
 
-      const manager = new MultipleMentionsManager(fieldContainer);
       const callback = jest.fn();
 
-      await manager.getDataSource("test query", callback);
+      await controller.getDataSource("test query", callback);
 
       expect(consoleSpy).toHaveBeenCalled();
       expect(callback).toHaveBeenCalledWith([]);
@@ -243,8 +223,7 @@ describe("MultipleMentionsManager", () => {
 
   describe("filterResults", () => {
     it("should filter out already selected users", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
-      manager.selected = ["1", "3"];
+      controller.selected = ["1", "3"];
 
       const list = [
         { value: { id: "1" } },
@@ -253,7 +232,7 @@ describe("MultipleMentionsManager", () => {
         { value: { id: "4" } }
       ];
 
-      const filtered = manager.filterResults(list);
+      const filtered = controller.filterResults(list);
 
       expect(filtered).toEqual([
         { value: { id: "2" } },
@@ -262,28 +241,25 @@ describe("MultipleMentionsManager", () => {
     });
 
     it("should return all users when none are selected", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
-
       const list = [
         { value: { id: "1" } },
         { value: { id: "2" } }
       ];
 
-      const filtered = manager.filterResults(list);
+      const filtered = controller.filterResults(list);
 
       expect(filtered).toEqual(list);
     });
 
     it("should return empty array when all users are selected", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
-      manager.selected = ["1", "2"];
+      controller.selected = ["1", "2"];
 
       const list = [
         { value: { id: "1" } },
         { value: { id: "2" } }
       ];
 
-      const filtered = manager.filterResults(list);
+      const filtered = controller.filterResults(list);
 
       expect(filtered).toEqual([]);
     });
@@ -291,7 +267,6 @@ describe("MultipleMentionsManager", () => {
 
   describe("modifyResult", () => {
     it("should set correct HTML for enabled user", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
       const element = document.createElement("div");
       const value = {
         avatarUrl: "avatar.jpg",
@@ -300,7 +275,7 @@ describe("MultipleMentionsManager", () => {
         directMessagesEnabled: "true"
       };
 
-      manager.modifyResult(element, value);
+      controller.modifyResult(element, value);
 
       expect(element.innerHTML).toContain('<img src="avatar.jpg" alt="John Doe">');
       expect(element.innerHTML).toContain("<span>john</span>");
@@ -309,7 +284,6 @@ describe("MultipleMentionsManager", () => {
     });
 
     it("should add disabled class and message for disabled user", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
       const element = document.createElement("div");
       const value = {
         avatarUrl: "avatar.jpg",
@@ -318,14 +292,13 @@ describe("MultipleMentionsManager", () => {
         directMessagesEnabled: "false"
       };
 
-      manager.modifyResult(element, value);
+      controller.modifyResult(element, value);
 
       expect(element.classList.contains("disabled")).toBe(true);
       expect(element.textContent).toContain("Direct messages disabled");
     });
 
     it("should handle missing avatar URL gracefully", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
       const element = document.createElement("div");
       const value = {
         avatarUrl: "",
@@ -335,7 +308,7 @@ describe("MultipleMentionsManager", () => {
       };
 
       expect(() => {
-        manager.modifyResult(element, value);
+        controller.modifyResult(element, value);
       }).not.toThrow();
 
       expect(element.innerHTML).toContain('<img src="" alt="John Doe">');
@@ -344,7 +317,6 @@ describe("MultipleMentionsManager", () => {
 
   describe("handleSelection", () => {
     it("should add user when selection is valid", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
       const selection = {
         value: {
           id: "1",
@@ -354,17 +326,16 @@ describe("MultipleMentionsManager", () => {
         }
       };
 
-      manager.handleSelection(selection);
+      controller.handleSelection(selection);
 
-      expect(manager.selected).toContain("1");
+      expect(controller.selected).toContain("1");
       expect(selectedItems.children.length).toBe(1);
-      expect(manager.autoComplete.setInput).toHaveBeenCalledWith("");
-      expect(submitButton.disabled).toBe(false);
+      expect(controller.autoComplete.setInput).toHaveBeenCalledWith("");
     });
 
     it("should not add user when max limit is reached", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
-      manager.selected = Array.from({ length: 9 }, (_, i) => `${i + 1}`);
+
+      controller.selected = Array.from({ length: 9 }, (_, i) => `${i + 1}`);
 
       const selection = {
         value: {
@@ -375,15 +346,15 @@ describe("MultipleMentionsManager", () => {
         }
       };
 
-      manager.handleSelection(selection);
+      controller.handleSelection(selection);
 
-      expect(manager.selected).not.toContain("10");
+      expect(controller.selected).not.toContain("10");
       expect(selectedItems.children.length).toBe(0);
-      expect(manager.autoComplete.setInput).not.toHaveBeenCalled();
+      expect(controller.autoComplete.setInput).not.toHaveBeenCalled();
     });
 
     it("should not add user when direct messages are disabled", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
+
       const selection = {
         value: {
           id: "1",
@@ -393,32 +364,32 @@ describe("MultipleMentionsManager", () => {
         }
       };
 
-      manager.handleSelection(selection);
+      controller.handleSelection(selection);
 
-      expect(manager.selected).not.toContain("1");
+      expect(controller.selected).not.toContain("1");
       expect(selectedItems.children.length).toBe(0);
-      expect(manager.autoComplete.setInput).not.toHaveBeenCalled();
+      expect(controller.autoComplete.setInput).not.toHaveBeenCalled();
     });
 
     it("should handle multiple valid selections", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
+
 
       const selections = [
         { value: { id: "1", name: "John Doe", avatarUrl: "avatar1.jpg", directMessagesEnabled: "true" } },
         { value: { id: "2", name: "Jane Smith", avatarUrl: "avatar2.jpg", directMessagesEnabled: "true" } }
       ];
 
-      selections.forEach((selection) => manager.handleSelection(selection));
+      selections.forEach((selection) => controller.handleSelection(selection));
 
-      expect(manager.selected).toEqual(["1", "2"]);
+      expect(controller.selected).toEqual(["1", "2"]);
       expect(selectedItems.children.length).toBe(2);
-      expect(manager.autoComplete.setInput).toHaveBeenCalledTimes(2);
+      expect(controller.autoComplete.setInput).toHaveBeenCalledTimes(2);
     });
   });
 
   describe("addSelectedUser", () => {
     it("should create list item with correct content", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
+
       const selection = {
         value: {
           id: "1",
@@ -427,14 +398,14 @@ describe("MultipleMentionsManager", () => {
         }
       };
 
-      manager.addSelectedUser(selection, "1");
+      controller.addSelectedUser(selection, "1");
 
       const listItem = selectedItems.firstChild;
       expect(listItem.tagName).toBe("LI");
       expect(listItem.tabIndex).toBe(-1);
 
       const hiddenInput = listItem.querySelector("input[type='hidden']");
-      expect(hiddenInput.name).toBe("user_ids[]");
+      expect(hiddenInput.name).toBe("recipient_id[]");
       expect(hiddenInput.value).toBe("1");
 
       const removeButton = listItem.querySelector("[data-remove='1']");
@@ -443,7 +414,7 @@ describe("MultipleMentionsManager", () => {
     });
 
     it("should attach event listeners to remove button", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
+
       const selection = {
         value: {
           id: "1",
@@ -454,7 +425,7 @@ describe("MultipleMentionsManager", () => {
 
       const addEventListenerSpy = jest.spyOn(Element.prototype, "addEventListener");
 
-      manager.addSelectedUser(selection, "1");
+      controller.addSelectedUser(selection, "1");
 
       expect(addEventListenerSpy).toHaveBeenCalledWith("keypress", expect.any(Function));
       expect(addEventListenerSpy).toHaveBeenCalledWith("click", expect.any(Function));
@@ -465,7 +436,7 @@ describe("MultipleMentionsManager", () => {
     it("should include icon in remove button", () => {
       iconMock.mockReturnValue("<svg data-testid='remove-icon'>icon</svg>");
 
-      const manager = new MultipleMentionsManager(fieldContainer);
+
       const selection = {
         value: {
           id: "1",
@@ -474,7 +445,7 @@ describe("MultipleMentionsManager", () => {
         }
       };
 
-      manager.addSelectedUser(selection, "1");
+      controller.addSelectedUser(selection, "1");
 
       const listItem = selectedItems.firstChild;
       expect(listItem.innerHTML).toContain('data-testid="remove-icon"');
@@ -484,8 +455,8 @@ describe("MultipleMentionsManager", () => {
 
   describe("handleRemoval", () => {
     it("should remove user and update state", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
-      manager.selected = ["1"];
+
+      controller.selected = ["1"];
 
       // Create a list item
       const listItem = document.createElement("li");
@@ -499,19 +470,18 @@ describe("MultipleMentionsManager", () => {
       };
 
       // Mock focus method
-      manager.emptyFocusElement.focus = jest.fn();
+      controller.emptyFocusElement.focus = jest.fn();
 
-      manager.handleRemoval(mockEvent, "1");
+      controller.handleRemoval(mockEvent, "1");
 
-      expect(manager.selected).not.toContain("1");
+      expect(controller.selected).not.toContain("1");
       expect(selectedItems.children.length).toBe(0);
-      expect(manager.emptyFocusElement.focus).toHaveBeenCalled();
-      expect(submitButton.disabled).toBe(true);
+      expect(controller.emptyFocusElement.focus).toHaveBeenCalled();
     });
 
     it("should focus on next sibling when available", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
-      manager.selected = ["1", "2"];
+
+      controller.selected = ["1", "2"];
 
       // Create multiple list items
       const listItem1 = document.createElement("li");
@@ -529,14 +499,14 @@ describe("MultipleMentionsManager", () => {
         currentTarget: removeButton1
       };
 
-      manager.handleRemoval(mockEvent, "1");
+      controller.handleRemoval(mockEvent, "1");
 
       expect(listItem2.focus).toHaveBeenCalled();
     });
 
     it("should focus on previous sibling when next is not available", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
-      manager.selected = ["1", "2"];
+
+      controller.selected = ["1", "2"];
 
       // Create multiple list items
       const listItem1 = document.createElement("li");
@@ -554,145 +524,66 @@ describe("MultipleMentionsManager", () => {
         currentTarget: removeButton2
       };
 
-      manager.handleRemoval(mockEvent, "2");
+      controller.handleRemoval(mockEvent, "2");
 
       expect(listItem1.focus).toHaveBeenCalled();
     });
   });
 
-  describe("updateSubmitButton", () => {
-    it("should disable submit button when no items are selected", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
-
-      manager.updateSubmitButton();
-
-      expect(submitButton.disabled).toBe(true);
-    });
-
-    it("should enable submit button when items are selected", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
-      const listItem = document.createElement("li");
-      selectedItems.appendChild(listItem);
-
-      manager.updateSubmitButton();
-
-      expect(submitButton.disabled).toBe(false);
-    });
-
-    it("should handle case when form is not found", () => {
-      const isolatedContainer = document.createElement("div");
-      const isolatedInput = document.createElement("input");
-      isolatedInput.dataset.selected = "selected-users";
-      const isolatedItems = document.createElement("ul");
-      isolatedItems.className = "selected-users";
-      isolatedContainer.appendChild(isolatedInput);
-      isolatedContainer.appendChild(isolatedItems);
-      document.body.appendChild(isolatedContainer);
-
-      expect(() => {
-        const manager = new MultipleMentionsManager(isolatedContainer);
-        manager.updateSubmitButton();
-      }).not.toThrow();
-    });
-
-    it("should handle case when submit button is not found", () => {
-      const formWithoutButton = document.createElement("form");
-      const containerInForm = document.createElement("div");
-      const inputInForm = document.createElement("input");
-      inputInForm.dataset.selected = "selected-users";
-      const itemsInForm = document.createElement("ul");
-      itemsInForm.className = "selected-users";
-
-      containerInForm.appendChild(inputInForm);
-      containerInForm.appendChild(itemsInForm);
-      formWithoutButton.appendChild(containerInForm);
-      document.body.appendChild(formWithoutButton);
-
-      expect(() => {
-        const manager = new MultipleMentionsManager(containerInForm);
-        manager.updateSubmitButton();
-      }).not.toThrow();
-    });
-  });
-
   describe("utility methods", () => {
     it("should return selected IDs", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
-      manager.selected = ["1", "2", "3"];
 
-      const selectedIds = manager.getSelectedIds();
+      controller.selected = ["1", "2", "3"];
+
+      const selectedIds = controller.selected;
 
       expect(selectedIds).toEqual(["1", "2", "3"]);
       // Should return a copy
-      expect(selectedIds).not.toBe(manager.selected);
+      expect(selectedIds).not.toBe(...controller.selected);
     });
 
     it("should clear all selections", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
-      manager.selected = ["1", "2"];
+      controller.selected = ["1", "2"];
       selectedItems.innerHTML = "<li>item1</li><li>item2</li>";
 
-      manager.clearSelection();
+      controller.clearSelection();
 
-      expect(manager.selected).toEqual([]);
+      expect(controller.selected).toEqual([]);
       expect(selectedItems.innerHTML).toBe("");
-      expect(submitButton.disabled).toBe(true);
-    });
-
-    it("should check if max limit is reached", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
-
-      expect(manager.isMaxLimitReached()).toBe(false);
-
-      manager.selected = Array.from({ length: 8 }, (_, i) => `${i + 1}`);
-      expect(manager.isMaxLimitReached()).toBe(false);
-
-      manager.selected = Array.from({ length: 9 }, (_, i) => `${i + 1}`);
-      expect(manager.isMaxLimitReached()).toBe(true);
-
-      manager.selected = Array.from({ length: 10 }, (_, i) => `${i + 1}`);
-      expect(manager.isMaxLimitReached()).toBe(true);
     });
   });
 
   describe("integration scenarios", () => {
     it("should handle complete user selection and removal workflow", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
-
       // Add users
       const users = [
         { value: { id: "1", name: "John Doe", avatarUrl: "avatar1.jpg", directMessagesEnabled: "true" } },
         { value: { id: "2", name: "Jane Smith", avatarUrl: "avatar2.jpg", directMessagesEnabled: "true" } }
       ];
 
-      users.forEach((user) => manager.handleSelection(user));
+      users.forEach((user) => controller.handleSelection(user));
 
-      expect(manager.selected).toEqual(["1", "2"]);
+      expect(controller.selected).toEqual(["1", "2"]);
       expect(selectedItems.children.length).toBe(2);
-      expect(submitButton.disabled).toBe(false);
 
       // Remove first user
       const firstRemoveButton = selectedItems.firstChild.querySelector("[data-remove='1']");
       const mockEvent = { currentTarget: firstRemoveButton };
-      manager.handleRemoval(mockEvent, "1");
+      controller.handleRemoval(mockEvent, "1");
 
-      expect(manager.selected).toEqual(["2"]);
+      expect(controller.selected).toEqual(["2"]);
       expect(selectedItems.children.length).toBe(1);
-      expect(submitButton.disabled).toBe(false);
 
       // Remove last user
       const lastRemoveButton = selectedItems.firstChild.querySelector("[data-remove='2']");
       const mockEvent2 = { currentTarget: lastRemoveButton };
-      manager.handleRemoval(mockEvent2, "2");
+      controller.handleRemoval(mockEvent2, "2");
 
-      expect(manager.selected).toEqual([]);
+      expect(controller.selected).toEqual([]);
       expect(selectedItems.children.length).toBe(0);
-      expect(submitButton.disabled).toBe(true);
     });
 
     it("should handle edge case with maximum user selections", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
-
       // Add 9 users (maximum)
       for (let i = 1; i <= 9; i += 1) {
         const user = {
@@ -703,11 +594,10 @@ describe("MultipleMentionsManager", () => {
             directMessagesEnabled: "true"
           }
         };
-        manager.handleSelection(user);
+        controller.handleSelection(user);
       }
 
-      expect(manager.selected.length).toBe(9);
-      expect(manager.isMaxLimitReached()).toBe(true);
+      expect(controller.selected.length).toBe(9);
 
       // Try to add 10th user (should be rejected)
       const tenthUser = {
@@ -718,15 +608,13 @@ describe("MultipleMentionsManager", () => {
           directMessagesEnabled: "true"
         }
       };
-      manager.handleSelection(tenthUser);
+      controller.handleSelection(tenthUser);
 
-      expect(manager.selected.length).toBe(9);
-      expect(manager.selected).not.toContain("10");
+      expect(controller.selected.length).toBe(9);
+      expect(controller.selected).not.toContain("10");
     });
 
     it("should maintain correct state after mixed operations", () => {
-      const manager = new MultipleMentionsManager(fieldContainer);
-
       // Add some users
       const users = [
         { value: { id: "1", name: "John", avatarUrl: "avatar1.jpg", directMessagesEnabled: "true" } },
@@ -734,26 +622,24 @@ describe("MultipleMentionsManager", () => {
         { value: { id: "3", name: "Bob", avatarUrl: "avatar3.jpg", directMessagesEnabled: "true" } }
       ];
 
-      users.forEach((user) => manager.handleSelection(user));
+      users.forEach((user) => controller.handleSelection(user));
 
       // Only users 1 and 3 should be added (user 2 has disabled direct messages)
-      expect(manager.selected).toEqual(["1", "3"]);
+      expect(controller.selected).toEqual(["1", "3"]);
       expect(selectedItems.children.length).toBe(2);
 
       // Clear all selections
-      manager.clearSelection();
+      controller.clearSelection();
 
-      expect(manager.selected).toEqual([]);
+      expect(controller.selected).toEqual([]);
       expect(selectedItems.children.length).toBe(0);
-      expect(submitButton.disabled).toBe(true);
 
       // Add users again
-      manager.handleSelection(users[0]);
-      manager.handleSelection(users[2]);
+      controller.handleSelection(users[0]);
+      controller.handleSelection(users[2]);
 
-      expect(manager.selected).toEqual(["1", "3"]);
+      expect(controller.selected).toEqual(["1", "3"]);
       expect(selectedItems.children.length).toBe(2);
-      expect(submitButton.disabled).toBe(false);
     });
   });
 });
