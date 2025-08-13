@@ -461,9 +461,9 @@ en:
               mobility_meeting_access:
                 legend: Were the venues of the face-to-face meetings accessible to people with reduced mobility?
                 options:
-                  five: true
+                  five: "Yes"
                   two_five: Partially
-                  zero: false
+                  zero: "No"
               name: Inclusiveness
               participation_scheduling_times:
                 legend: The participation sessions have been scheduled at varied times (morning, midday, afternoon, evening, and weekends).
