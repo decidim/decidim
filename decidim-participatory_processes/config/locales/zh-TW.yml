@@ -148,8 +148,6 @@ zh-TW:
       participatory_process_copies:
         new:
           copy: 複製
-          select: 請選擇您想要複製的資料
-          title: 重複的參與性流程
       participatory_process_groups:
         destroy:
           success: 參與式流程組成功刪除。
@@ -237,10 +235,6 @@ zh-TW:
         update:
           error: 更新此參與程序時出現問題。
           success: 參與程序已成功更新。
-      participatory_processes_copies:
-        create:
-          error: 複製參與流程時發生問題。
-          success: 成功複製參與過程。
       participatory_processes_group:
         create:
           error: 創建新參與程序群組時出現問題。
