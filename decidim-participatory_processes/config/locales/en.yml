@@ -442,7 +442,7 @@ en:
               digital_support_offered:
                 legend: Has digital support been offered to the participants?
                 options:
-                  five: true
+                  five: "Yes"
                   two_five: Partially
                   zero: false
               functional_diversity_invited:
