@@ -3,9 +3,9 @@
 module Decidim
   module ParticipatoryProcesses
     module Admin
-      # A command with all the business logic when copying a new participatory
+      # A command with all the business logic when duplicating a new participatory
       # process in the system.
-      class CopyParticipatoryProcess < Decidim::Command
+      class DuplicateParticipatoryProcess < Decidim::Command
         delegate :current_user, to: :form
         # Public: Initializes the command.
         #
@@ -27,23 +27,23 @@ module Decidim
 
           Decidim.traceability.perform_action!("duplicate", @participatory_process, current_user) do
             ParticipatoryProcess.transaction do
-              copy_participatory_process
-              copy_participatory_process_attachments
-              copy_participatory_process_steps if @form.copy_steps?
-              copy_participatory_process_components if @form.copy_components?
-              copy_landing_page_blocks if @form.copy_landing_page_blocks?
+              duplicate_participatory_process
+              duplicate_participatory_process_attachments
+              duplicate_participatory_process_steps if @form.duplicate_steps?
+              duplicate_participatory_process_components if @form.duplicate_components?
+              duplicate_landing_page_blocks if @form.duplicate_landing_page_blocks?
             end
           end
 
-          broadcast(:ok, @copied_process)
+          broadcast(:ok, @duplicated_process)
         end
 
         private
 
         attr_reader :form
 
-        def copy_participatory_process
-          @copied_process = ParticipatoryProcess.create!(
+        def duplicate_participatory_process
+          @duplicated_process = ParticipatoryProcess.create!(
             organization: @participatory_process.organization,
             title: form.title,
             subtitle: @participatory_process.subtitle,
@@ -65,13 +65,13 @@ module Decidim
           )
         end
 
-        def copy_participatory_process_attachments
+        def duplicate_participatory_process_attachments
           return unless @participatory_process.attached_uploader(:hero_image).attached?
 
-          @copied_process.send(:hero_image).attach(@participatory_process.send(:hero_image).blob)
+          @duplicated_process.send(:hero_image).attach(@participatory_process.send(:hero_image).blob)
         end
 
-        def copy_participatory_process_steps
+        def duplicate_participatory_process_steps
           @steps_relationship = {}
 
           @participatory_process.steps.each do |step|
@@ -80,7 +80,7 @@ module Decidim
               description: step.description,
               start_date: step.start_date,
               end_date: step.end_date,
-              participatory_process: @copied_process,
+              participatory_process: @duplicated_process,
               position: step.position,
               active: step.active
             )
@@ -88,18 +88,18 @@ module Decidim
           end
         end
 
-        def copy_participatory_process_components
+        def duplicate_participatory_process_components
           @participatory_process.components.each do |component|
-            copied_step_settings = @form.copy_steps? ? map_step_settings(component.step_settings) : {}
+            duplicated_step_settings = @form.duplicate_steps? ? map_step_settings(component.step_settings) : {}
             new_component = Component.create!(
               manifest_name: component.manifest_name,
               name: component.name,
-              participatory_space: @copied_process,
+              participatory_space: @duplicated_process,
               settings: component.settings,
-              step_settings: copied_step_settings,
+              step_settings: duplicated_step_settings,
               weight: component.weight
             )
-            component.manifest.run_hooks(:copy, new_component:, old_component: component)
+            component.manifest.run_hooks(:duplicate, new_component:, old_component: component)
           end
         end
 
@@ -109,26 +109,26 @@ module Decidim
           end
         end
 
-        def copy_landing_page_blocks
+        def duplicate_landing_page_blocks
           blocks = Decidim::ContentBlock.where(scoped_resource_id: @participatory_process.id, scope_name: "participatory_process_homepage",
                                                organization: @participatory_process.organization)
           return if blocks.blank?
 
           blocks.each do |block|
             new_block = Decidim::ContentBlock.create!(
-              organization: @copied_process.organization,
+              organization: @duplicated_process.organization,
               scope_name: "participatory_process_homepage",
-              scoped_resource_id: @copied_process.id,
+              scoped_resource_id: @duplicated_process.id,
               manifest_name: block.manifest_name,
               settings: block.settings,
               weight: block.weight,
-              published_at: block.published_at.present? ? @copied_process.created_at : nil # determine if block is active/inactive
+              published_at: block.published_at.present? ? @duplicated_process.created_at : nil # determine if block is active/inactive
             )
-            copy_block_attachments(block, new_block) if block.attachments.present?
+            duplicate_block_attachments(block, new_block) if block.attachments.present?
           end
         end
 
-        def copy_block_attachments(block, new_block)
+        def duplicate_block_attachments(block, new_block)
           block.attachments.map(&:name).each do |name|
             original_image = block.images_container.send(name).blob
             next if original_image.blank?

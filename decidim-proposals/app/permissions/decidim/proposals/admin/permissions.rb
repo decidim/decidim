@@ -98,8 +98,7 @@ module Decidim
         end
 
         def admin_creation_is_enabled?
-          current_settings.try(:creation_enabled?) &&
-            component_settings.try(:official_proposals_enabled)
+          component_settings.try(:official_proposals_enabled)
         end
 
         def admin_edition_is_available?
@@ -131,9 +130,10 @@ module Decidim
         # corresponding setting is enabled.
         # This setting is incompatible with participatory texts.
         def can_create_proposal_from_admin?
-          return disallow! if participatory_texts_are_enabled? && permission_action.subject == :proposal
+          return unless permission_action.subject == :proposal
+          return disallow! if participatory_texts_are_enabled?
 
-          toggle_allow(admin_creation_is_enabled?) if permission_action.subject == :proposal
+          toggle_allow(admin_creation_is_enabled?)
         end
 
         # Proposals can only be answered from the admin when the
