@@ -19,6 +19,9 @@ es-MX:
         developer_group: Grupo promotor
         document: Documento
         domain: Dominio
+        duplicate_categories: Duplicar las categorías
+        duplicate_components: Duplicar los componentes
+        duplicate_features: Duplicar las funcionalidades
         duration: Duración
         facebook: Facebook
         github: GitHub
@@ -108,6 +111,15 @@ es-MX:
         update:
           error: Se ha producido un error al actualizar esta asamblea.
           success: La asamblea se ha actualizado correctamente.
+      assemblies_duplicates:
+        create:
+          error: Se ha producido un error al duplicar esta asamblea.
+          success: La asamblea se ha duplicado correctamente.
+      assembly_duplicates:
+        new:
+          duplicate: Duplicar
+          select: Selecciona qué datos quieres duplicar
+          title: Duplicar asamblea
       assembly_imports:
         create:
           error: Ha habido un problema importando esta asamblea.
@@ -247,6 +259,9 @@ es-MX:
             taxonomies: Taxonomías
             title: Información general
             visibility: Visibilidad
+        assembly_duplicates:
+          form:
+            slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         assembly_imports:
           form:
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
