@@ -64,7 +64,6 @@ import RemoteModal from "src/decidim/remote_modal"
 import createTooltip from "src/decidim/tooltips"
 import createToggle from "src/decidim/toggle"
 import {
-  createAccordion,
   createDialog,
   announceForScreenReader,
   Dialogs
@@ -163,16 +162,6 @@ const initializer = (element = document) => {
   markAsReadNotifications(element)
   handleNotificationActions(element)
 
-  element.querySelectorAll('[data-controller="accordion"]').forEach((component) => createAccordion(component))
-  element.querySelectorAll('[data-component="accordion"]').forEach((component) => {
-    if (component.hasAttribute("data-controller"))
-    {
-      return;
-    }
-    console.error(`${window.location.href} Using accordion component`);
-    createAccordion(component);
-  })
-
   element.querySelectorAll("[data-dialog]").forEach((component) => createDialog(component))
 
   // Initialize available remote modals (ajax-fetched contents)
@@ -193,6 +182,10 @@ const initializer = (element = document) => {
 
   initializeUploadFields(element.querySelectorAll("button[data-upload]"));
   initializeReverseGeocoding()
+
+  element.querySelectorAll("[data-controller='accordion']").forEach((controller) => {
+    controller.dispatchEvent(new CustomEvent("accordion:reconnect"));
+  })
 
   document.dispatchEvent(new CustomEvent("decidim:loaded", { detail: { element } }));
 }

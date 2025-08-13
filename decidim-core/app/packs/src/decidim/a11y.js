@@ -1,51 +1,5 @@
 import Accordions from "a11y-accordion-component";
 import Dialogs from "a11y-dialog-component";
-import { screens } from "tailwindcss/defaultTheme"
-
-/**
- * Checks if a key is in the current viewport
- *
- * @param {('sm'|'md'|'lg'|'xl'|'2xl')} key - The key to check the screen size.
- * @returns {boolean} - Returns true if the screen size corresponds with the key
- */
-const isScreenSize = (key) => {
-  return window.matchMedia(`(min-width: ${screens[key]})`).matches;
-}
-
-/**
- * Create accordion from a component
- *
- * @param {HTMLElement} component - The component to be created
- * @return {void}
- */
-const createAccordion = (component) => {
-  const accordionOptions = {};
-  accordionOptions.isMultiSelectable = component.dataset.multiselectable !== "false";
-  accordionOptions.isCollapsible = component.dataset.collapsible !== "false";
-
-  // This snippet allows to change the OPEN data-attribute based on the current viewport
-  // Just include the breakpoint where the different value will be applied from.
-  // Ex:
-  // data-open="false" data-open-md="true"
-  Object.keys(screens).forEach((key) => {
-    if (!isScreenSize(key)) {
-      return;
-    }
-
-    const elementsToOpen = component.querySelectorAll(`[data-controls][data-open-${key}]`);
-
-    elementsToOpen.forEach((elem) => {
-      (elem.dataset.open = elem.dataset[`open-${key}`.replace(/-([a-z])/g, (str) => str[1].toUpperCase())])
-    })
-  })
-
-  if (!component.id) {
-    // when component has no id, we enforce to have it one
-    component.id = `accordion-${Math.random().toString(36).substring(7)}`
-  }
-
-  Accordions.render(component.id, accordionOptions);
-}
 
 /**
  * Create dialog from a component
@@ -162,7 +116,6 @@ const announceForScreenReader = (message, mode = "assertive") => {
 };
 
 export {
-  createAccordion,
   createDialog,
   announceForScreenReader,
   Accordions,

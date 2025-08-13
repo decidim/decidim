@@ -1,5 +1,3 @@
-import {createAccordion} from "src/decidim/a11y";
-import Accordions from "a11y-accordion-component";
 export default class Suggestion {
   constructor(suggestionsList, entry) {
     this.id = entry.id;
@@ -190,8 +188,8 @@ export default class Suggestion {
   // accordion, we need to destroy and recreate it to reset the state
   _resetAccordion() {
     let accordion = this.boxWrapper.querySelector('[data-controller="accordion"]');
-    Accordions.destroy(accordion.id);
-    createAccordion(accordion);
+
+    accordion.dispatchEvent(new CustomEvent("accordion:reconnect", { detail: { collapse: true } }));
   }
 
   // Create a wrapper for all the suggestions applying to the same nodes
