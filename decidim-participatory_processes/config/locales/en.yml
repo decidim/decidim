@@ -442,9 +442,9 @@ en:
               digital_support_offered:
                 legend: Has digital support been offered to the participants?
                 options:
-                  five: "Yes"
+                  five: 'Yes'
                   two_five: Partially
-                  zero: "No"
+                  zero: 'No'
               functional_diversity_invited:
                 legend: How is the degree of diversity of the agents and participants assessed with respect to the population of reference in the process?
                 options:
@@ -461,16 +461,16 @@ en:
               mobility_meeting_access:
                 legend: Were the venues of the face-to-face meetings accessible to people with reduced mobility?
                 options:
-                  five: "Yes"
+                  five: 'Yes'
                   two_five: Partially
-                  zero: "No"
+                  zero: 'No'
               name: Inclusiveness
               participation_scheduling_times:
                 legend: The participation sessions have been scheduled at varied times (morning, midday, afternoon, evening, and weekends).
                 options:
-                  five: "Yes"
+                  five: 'Yes'
                   two_five: Partially
-                  zero: "No"
+                  zero: 'No'
             informativeness:
               information_provided:
                 legend: Has information been provided regarding the participants capacity to influence the topic under discussion? (both in the communication of the process and invitations, as well as at the beginning of each debate session)
