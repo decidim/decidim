@@ -4,9 +4,6 @@ fr:
       participatory_process:
         announcement: Annonce
         area_id: Périmètre d'assemblée
-        copy_categories: Copier les catégories
-        copy_components: Copier les fonctionnalités
-        copy_steps: Copier les étapes
         decidim_area_id: Périmètre d'assemblée
         description: Description
         developer_group: Organisateur
@@ -154,11 +151,6 @@ fr:
             invitation_accepted_at: Invitation acceptée à
             invitation_sent_at: Invitation envoyée à
             published: Publié
-      participatory_process_copies:
-        new:
-          copy: Copier
-          select: Sélectionnez les données que vous souhaitez dupliquer
-          title: Dupliquer la concertation
       participatory_process_groups:
         destroy:
           error: Une erreur s'est produite lors de la suppression du groupe de concertations.
@@ -256,10 +248,6 @@ fr:
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette concertation.
           success: Concertation mise à jour avec succès.
-      participatory_processes_copies:
-        create:
-          error: Une erreur s'est produite lors de la duplication de cette concertation.
-          success: Concertation dupliquée avec succès.
       participatory_processes_group:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau groupe de concertations.
@@ -436,9 +424,6 @@ fr:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette concertation. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         participatory_process_groups:
           form:
             metadata: Métadonnées
