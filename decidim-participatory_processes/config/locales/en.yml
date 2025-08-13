@@ -468,9 +468,9 @@ en:
               participation_scheduling_times:
                 legend: The participation sessions have been scheduled at varied times (morning, midday, afternoon, evening, and weekends).
                 options:
-                  five: true
+                  five: "Yes"
                   two_five: Partially
-                  zero: false
+                  zero: "No"
             informativeness:
               information_provided:
                 legend: Has information been provided regarding the participants capacity to influence the topic under discussion? (both in the communication of the process and invitations, as well as at the beginning of each debate session)
