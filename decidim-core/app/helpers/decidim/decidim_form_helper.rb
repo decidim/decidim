@@ -11,11 +11,7 @@ module Decidim
     #
     # Returns a String.
     def decidim_form_for(record, options = {}, &)
-      options[:data] ||= {}
-      options[:data].update(:abide => true, "live-validate" => true, "validate-on-blur" => true)
-
-      options[:html] ||= {}
-      options[:html].update(novalidate: true) unless options[:html].has_key?(:novalidate)
+      options = parse_html_options(options)
 
       # Generally called by form_for but we need the :url option generated
       # already before that.
@@ -56,7 +52,7 @@ module Decidim
         template += label_tag(name, options[:label]) if options[:label] != false
         template += hidden_field_tag(name, value, options)
         template += content_tag(:div, nil, class: "editor-container", data: {
-                                  toolbar: options[:toolbar]
+                                  toolbar: options[:toolbar], controller: "editor"
                                 }, style: "height: #{options[:lines]}rem")
         template.html_safe
       end
@@ -190,6 +186,21 @@ module Decidim
       return organization.areas if organization.area_types.all? { |at| at.area_ids.empty? }
 
       organization.area_types
+    end
+
+    private
+
+    def parse_html_options(options)
+      options[:data] ||= {}
+      options[:data].update(live_validate: true, validate_on_blur: true)
+      options[:data].update(controller: "") unless options[:data].has_key?(:controller)
+      options[:data][:controller] += " form-validator"
+      options[:data][:controller].strip!
+
+      options[:html] ||= {}
+      options[:html].update(novalidate: true) unless options[:html].has_key?(:novalidate)
+
+      options
     end
   end
 end

@@ -61,6 +61,7 @@
                       <%= link_to "#",
                                   class: "dropdown__button",
                                   data: {
+                                    "controller": "clipboard-copy",
                                     "clipboard-copy": "#js-token-#{share_token.id}",
                                     "clipboard-content": share_token.url,
                                     "clipboard-copy-label": t(".copied"),

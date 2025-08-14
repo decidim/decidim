@@ -10,9 +10,9 @@ module Decidim
 
         options = {
           data: {
-            :abide => true,
-            "live-validate" => true,
-            "validate-on-blur" => true
+            controller: "form-validator",
+            live_validate: true,
+            validate_on_blur: true
           },
           html: {
             novalidate: true

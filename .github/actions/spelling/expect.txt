@@ -71,6 +71,7 @@ backported
 backporter
 backticks
 barcat
+Basecamp
 Basecontroller
 Batchloader
 bayes
@@ -288,6 +289,7 @@ EOTITLE
 eql
 equalcat
 equales
+equalto
 erabaki
 erblint
 ERESOLVE
@@ -334,6 +336,9 @@ formattings
 formelements
 formfield
 forminvalid
+formreset
+formvalid
+formvalidator
 Fpb
 freetext
 Fritsch
@@ -405,6 +410,7 @@ Hodor
 Holas
 honeypots
 hooli
+hotwired
 housenumber
 hsh
 hsts
@@ -922,6 +928,7 @@ Terica
 Terrassa
 terrats
 territorials
+testid
 testsecret
 teva
 texta
