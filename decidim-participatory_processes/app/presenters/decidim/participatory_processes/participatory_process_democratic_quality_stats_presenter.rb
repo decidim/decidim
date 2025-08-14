@@ -26,23 +26,23 @@ module Decidim
           # Auto-evaluation metrics based on survey responses
           auto_evaluation: {
             inclusiveness: calculate_auto_evaluation_inclusiveness,
-            relevance: calculate_auto_evaluation_relevance,
             citizen_influence: calculate_auto_evaluation_citizen_influence,
-            accessibility: calculate_auto_evaluation_accessibility
+            informativeness: calculate_auto_evaluation_informativeness
           }
         }
       end
 
       # @return [Boolean]
       def finished_survey?
-        settings.migrant_groups_invited != -1 &&
-          settings.cultural_origins_participation != -1 &&
-          settings.functional_diversity_invited != -1 &&
-          settings.functional_diversity_participation != -1 &&
-          settings.relevance_percentage != -1 &&
+        settings.functional_diversity_invited != -1 &&
+          settings.languages_communicated != -1 &&
+          settings.mobility_meeting_access != -1 &&
+          settings.participation_scheduling_times != -1 &&
+          settings.digital_support_offered != -1 &&
           settings.citizen_influence_level != -1 &&
-          settings.languages_count != -1 &&
-          settings.venue_accessibility != -1
+          settings.citizen_decisional_intervention != -1 &&
+          settings.published_information_clarity != -1 &&
+          settings.information_provided != -1
       end
 
       private
@@ -61,9 +61,8 @@ module Decidim
         if finished_survey?
           auto_evaluation_metrics = (
             calculate_auto_evaluation_inclusiveness +
-            calculate_auto_evaluation_relevance +
             calculate_auto_evaluation_citizen_influence +
-            calculate_auto_evaluation_accessibility
+            calculate_auto_evaluation_informativeness
           ) / 4.0
 
           (automatic_metrics + auto_evaluation_metrics) / 2.0
@@ -245,26 +244,22 @@ module Decidim
       # @return [Float]
       def calculate_auto_evaluation_inclusiveness
         [
-          settings.migrant_groups_invited,
-          settings.cultural_origins_participation,
           settings.functional_diversity_invited,
-          settings.functional_diversity_participation
-        ].sum / 4.0
-      end
-
-      # @return [Float]
-      def calculate_auto_evaluation_relevance
-        settings.relevance_percentage
+          settings.languages_communicated,
+          settings.mobility_meeting_access,
+          settings.participation_scheduling_times,
+          settings.digital_support_offered
+        ].sum / 5.0
       end
 
       # @return [Float]
       def calculate_auto_evaluation_citizen_influence
-        settings.citizen_influence_level
+        (settings.citizen_influence_level + settings.citizen_decisional_intervention) / 2.0
       end
 
       # @return [Float]
-      def calculate_auto_evaluation_accessibility
-        (settings.venue_accessibility + settings.languages_count) / 2.0
+      def calculate_auto_evaluation_informativeness
+        (settings.published_information_clarity + settings.information_provided) / 2.0
       end
 
       # @return [Float]
