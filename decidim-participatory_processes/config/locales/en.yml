@@ -5,14 +5,14 @@ en:
       participatory_process:
         announcement: Announcement
         area_id: Area
-        copy_categories: Copy categories
-        copy_components: Copy components
-        copy_steps: Copy steps
         decidim_area_id: Area
         description: Description
         developer_group: Promoter group
         document: Document
         domain: Domain
+        duplicate_categories: Duplicate categories
+        duplicate_components: Duplicate components
+        duplicate_steps: Duplicate steps
         end_date: End date
         hero_image: Home image
         import_attachments: Import attachments
@@ -157,9 +157,9 @@ en:
             invitation_accepted_at: Invitation accepted at
             invitation_sent_at: Invitation sent at
             published: Published
-      participatory_process_copies:
+      participatory_process_duplicates:
         new:
-          copy: Copy
+          duplicate: Duplicate
           select: Select which data you would like to duplicate
           title: Duplicate participatory process
       participatory_process_groups:
@@ -260,7 +260,7 @@ en:
         update:
           error: There was a problem updating this participatory process.
           success: Participatory process successfully updated.
-      participatory_processes_copies:
+      participatory_processes_duplicates:
         create:
           error: There was a problem duplicating this participatory process.
           success: Participatory process successfully duplicated.
@@ -495,7 +495,7 @@ en:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
+        participatory_process_duplicates:
           form:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         participatory_process_groups:

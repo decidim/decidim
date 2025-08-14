@@ -6,6 +6,9 @@ ro:
           election_questions: Întrebări
     components:
       elections:
+        actions:
+          create: Creează
+          destroy: Distruge
         name: Alegeri
         settings:
           global:
@@ -16,9 +19,25 @@ ro:
       actions:
         title: Acțiuni
       admin:
+        dashboard:
+          main:
+            labels:
+              description: Descriere
+          questions:
+            labels:
+              answers: Răspunsuri
+            title: Întrebări
+          questions_table:
+            answer: Răspunsuri
+            votes: Voturi
+          results:
+            publish_button: Publică rezultatele
+            title: Rezultate
         elections:
           edit:
             title: Editează alegeri
+          form:
+            publish: Publică
           index:
             title: Alegeri
           new:
@@ -31,5 +50,8 @@ ro:
         election:
           fields:
             title: Titlu
+      status:
+        active: Activ
+        finished: Terminat
     statistics:
       elections_count: Alegeri

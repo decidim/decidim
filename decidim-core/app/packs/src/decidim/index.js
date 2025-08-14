@@ -22,13 +22,14 @@ import morphdom from "morphdom"
 import MentionsComponent from "src/decidim/refactor/implementation/input_mentions";
 
 
+import ClipboardCopy from "src/decidim/refactor/implementation/copy_clipboard";
+
 // local deps with no initialization
 import "src/decidim/input_tags"
 import "src/decidim/input_multiple_mentions"
 import "src/decidim/input_autojump"
 import "src/decidim/history"
 import "src/decidim/callout"
-import "src/decidim/clipboard"
 import "src/decidim/append_elements"
 import "src/decidim/user_registrations"
 import "src/decidim/account_form"
@@ -242,6 +243,15 @@ document.addEventListener("comments:loaded", (event) => {
       }
     });
   }
+});
+
+document.addEventListener("turbo:load", () => {
+  document.querySelectorAll("[data-clipboard-copy]").forEach((element) => {
+    // Only initialize if not already initialized (prevents duplicates)
+    if (!element._clipboardCopy) {
+      element._clipboardCopy = new ClipboardCopy(element);
+    }
+  });
 });
 
 // Handle external library integration (like React)

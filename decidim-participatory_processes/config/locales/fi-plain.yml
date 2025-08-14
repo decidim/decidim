@@ -82,15 +82,12 @@ fi-pl:
     admin:
       actions:
         activate: Aktivoi
-        configure: Asetukset
         confirm_delete_process: Haluatko varmasti poistaa tämän prosessin? Mikäli muutat mieltäsi, voit palauttaa prosessin myöhemmin.
         confirm_destroy: Vahvista poistaminen
         destroy: Poista
         duplicate: Kopioi
         edit: Muokkaa
         import_process: Tuo
-        menu_hidden: Piilota
-        moderate: Moderoi
         new_process: Uusi prosessi
         new_process_group: Uusi prosessiryhmä
         new_process_step: Uusi vaihe

@@ -12,8 +12,15 @@ fi:
           election_census: Henkilötietorekisteri
           election_dashboard: Hallintapaneeli
           election_questions: Kysymykset
+      tooltips:
+        deleted_elections_info: Tätä vaalia ei voi poistaa
+        edit_elections_info: Tätä vaalia ei voi muokata
     components:
       elections:
+        actions:
+          create: Luo
+          destroy: Poista
+          update: Päivitä
         name: Vaalit
         settings:
           global:
@@ -23,6 +30,7 @@ fi:
     elections:
       actions:
         confirm_delete_election: Haluatko varmasti poistaa tämän vaalin?
+        confirm_unpublish_election: Haluatko varmasti perua tämän vaalin julkaisun?
         deleted_election_info: Poistettuja vaaleja ei näytetä listassa. Voit tarkastella niitä painamalla alla olevaa painiketta.
         edit: Muokkaa vaalia
         new: Uusi vaali
@@ -42,11 +50,52 @@ fi:
           update:
             error: Henkilötietorekisterin luonti tai tallennus epäonnistui.
             success: Henkilötietorekisterin päivitys onnistui.
+        dashboard:
+          calendar:
+            end_at: 'Päättymisaika:'
+            end_election: Päätä vaali
+            manual_start: Manuaalinen
+            start_at: 'Alkamisaika:'
+            start_election: Aloita vaali
+            title: Kalenteri
+          census:
+            title: Henkilötietorekisteri
+          main:
+            labels:
+              calendar: Kalenteri
+              description: Kuvaus
+              image: Kuvagalleria
+              results: Tulosten näkyvyys
+              title: Otsikko
+            title: Pääosio
+          publish_confirm: Haluatko varmasti julkaista tämän vaalin?
+          questions:
+            labels:
+              answers: Vastaukset
+              question_title: Kysymys %{number}
+            limit_info: Tässä vaalissa on lisää kysymyksiä. Esikatselussa kysymysten määrä on rajoitettu kolmeen.
+            title: Kysymykset
+          questions_table:
+            answer: Vastaukset
+            percentage: Prosentti
+            votes: Äänet
+          results:
+            not_started: Vaali ei ole vielä alkanut.
+            per_question_waiting: Yhtään kysymystä ei voi vielä äänestää. Osallistujat näkevät viestin "Odotetaan seuraavaa kysymystä", kunnes aktivoit vähintään yhden kysymyksen.
+            publish_button: Julkaise tulokset
+            results_availability:
+              after_end: Voit julkaista vaalin tulokset sen päättymisen jälkeen. Tuloksia ei näytetä ennen kuin julkaiset ne manuaalisesti.
+              per_question: Äänestys on otettava käyttöön ja jokaisen kysymyksen tulokset on julkaistava yksitellen.
+              real_time: Tulokset näytetään automaattisesti vaalin aikana.
+            start_question_button: Ota äänestys käyttöön
+            title: Tulokset
+          status:
+            title: Vaalin tila
         elections:
           create:
             invalid: Vaalin luonti epäonnistui.
             success: Vaalin luonti onnistui.
-          dashboard_page:
+          dashboard:
             title: Hallintapaneeli
           edit:
             title: Muokkaa vaalia
@@ -59,13 +108,14 @@ fi:
             edit_attachments: Muokkaa liitteitä
             end_at: Päättymisaika
             manual_start: Käynnistä manuaalisesti
+            publish: Julkaise
             results_availability:
               after_end: Vaalien päättymisen jälkeen
-              after_end_help: Näytä tulokset vasta vaalien päätyttyä
+              after_end_help: julkaise tulokset vaalin päätyttyä
               per_question: Erikseen jokaiselle kysymykselle
-              per_question_help: Näytä tulokset jokaiselle kysymykselle tulosten valmistuttua
+              per_question_help: suorita äänestys manuaalisesti ja julkaise tulokset jokaiselle kysymykselle
               real_time: Reaaliajassa
-              real_time_help: Näytä tulokset heti ensimmäisen äänen jättämisen jälkeen
+              real_time_help: julkaise tulokset vaalin äänestyksen aikana
               title: Tulosten näkyvyys
             save: Tallenna ja jatka
             start_at: Alkamisaika
@@ -96,6 +146,20 @@ fi:
           update:
             invalid: Kysymysten päivittäminen epäonnistui.
             success: Kysymysten päivittäminen onnistui.
+        statuses:
+          enable_voting:
+            invalid: Äänestyksen käyttöönotto epäonnistui.
+            success: Äänestyksen käyttöönotto onnistui.
+          end:
+            invalid: Vaalin päättäminen epäonnistui.
+            success: Vaalin päättäminen onnistui.
+          publish_results:
+            invalid: Tulosten julkaiseminen epäonnistui.
+            success: Tulosten julkaisu epäonnistui.
+          start:
+            invalid: Vaalin käynnistäminen epäonnistui.
+            success: Vaalin käynnistäminen onnistui.
+          unknown: Tuntematon tila
       admin_log:
         election:
           create: "%{user_name} loi vaalin %{resource_name} tilaan %{space_name}"
@@ -107,6 +171,10 @@ fi:
         question:
           update: "%{user_name} päivitti kysymyksiä vaalille %{resource_name}"
       censuses:
+        census_ready_html: Henkilötietorekisterin tietoja ladataan ja valmistellaan käytettäväksi vaalissa <b>%{election_title}</b>.
+        census_size_html:
+          one: Tässä vaalissa voi tällä hetkellä äänestää <strong>1</strong> henkilö (tämä voi muuttua käytettäessä dynaamista henkilötietorekisteriä).
+          other: Tässä vaalissa voi tällä hetkellä äänestää <strong>%{count}</strong> henkilöä (tämä voi muuttua käytettäessä dynaamista henkilötietorekisteriä).
         internal_users:
           info_html: |
             Voit rajata tähän vaaliin osallistumisen osallistujille, jotka ovat vahvistaneet käyttäjätilinsä.<br>
@@ -122,21 +190,27 @@ fi:
             Tiedosto on ladattava CSV-muodossa, jossa on kaksi saraketta, yksi sähköpostiosoitteelle (email) ja toinen tunnisteelle (token), jonka osallistujat syöttävät äänestääkseen.
             Sarakkeet on erotettava puolipisteellä (;)
           label: Rekisteröitymättömät osallistujat tunnistekoodilla (kiinteä)
-          remove_before_upload: 'Mikäli haluat ladata uuden henkilötietorekisterin, aikaisempi rekisteri on ensin poistettava. '
+          remove_before_upload: Mikäli haluat ladata uuden henkilötietorekisterin, aikaisempi rekisteri on ensin poistettava.
           upload_file: Lataa tiedosto
           upload_new_census: Lataa CSV-tiedosto
-          uploaded_data_html:
-            one: |
-              Henkilötietorekisterin tiedot ladataan ja valmistellaan käytettäväksi vaalissa <b>%{election_title}</b>.
-              <br>Tällä hetkellä <strong>1</strong> henkilö on äänioikeutettu tässä vaalissa (tämä voi muuttua käytettäessä dynaamista henkilötietorekisteriä).
-            other: |
-              Henkilötietorekisterin tiedot ladataan ja valmistellaan käytettäväksi vaalissa <b>%{election_title}</b>.
-              <br>Tällä hetkellä <strong>%{count}</strong> henkilöä ovat äänioikeutettuja tässä vaalissa (tämä voi muuttua käytettäessä dynaamista henkilötietorekisteriä).
       models:
         election:
           fields:
+            census: Henkilötietorekisteri
             end_at: Päättymisaika
             start_at: Alkamisaika
+            status: Tila
             title: Otsikko
+      status:
+        active: Aktiivinen
+        finished: Valmis
+        ongoing: Käynnissä
+        results_published: Julkaistut tulokset
+        scheduled: Ajastettu
+        unpublished: Julkaisematon
+        voting_enabled: Äänestys on käynnissä
     statistics:
       elections_count: Vaalia
+  time:
+    formats:
+      short_with_time: "%-d.%-m.%Y klo %H:%M"

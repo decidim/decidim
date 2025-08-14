@@ -220,8 +220,6 @@ pl:
     meetings:
       actions:
         agenda: Program
-        attachment_collections: Folder
-        attachments: Załączniki
         close: Zamknij
         edit: Edytuj
         invalid_destroy:

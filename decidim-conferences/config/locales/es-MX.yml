@@ -5,11 +5,11 @@ es-MX:
         assemblies_ids: Asambleas relacionadas
         available_slots: Plazas disponibles
         banner_image: Imagen de banner
-        copy_categories: Copiar categorías
-        copy_components: Copiar componentes
-        copy_features: Copiar funcionalidades
         decidim_scope_id: Ámbito
         description: Descripción
+        duplicate_categories: Duplicar las categorías
+        duplicate_components: Duplicar los componentes
+        duplicate_features: Duplicar las funcionalidades
         end_date: Fecha de fin
         hero_image: Imagen de portada
         location: Localización
@@ -97,11 +97,11 @@ es-MX:
         new_speaker: Añadir ponente
         send_diplomas: Enviar certificados de asistencia.
         view_deleted_conferences: Ver las jornadas eliminadas
-      conference_copies:
+      conference_duplicates:
         new:
-          copy: Copiar
+          duplicate: Duplicar
           select: Selecciona qué datos quieres duplicar
-          title: Conferencia duplicada
+          title: Duplicar la jornada
       conference_publications:
         create:
           error: Hubo un error al publicar esta conferencia.
@@ -162,7 +162,13 @@ es-MX:
         exports:
           registrations: Inscripciones
         form:
+          duration: Duración
+          images: Fotos
+          metadata: Metadatos
+          registrations: Inscripciones
+          related_spaces: Espacios relacionados
           title: Información general
+          visibility: Visibilidad
         index:
           published: Publicado
           unpublished: Despublicada
@@ -170,14 +176,14 @@ es-MX:
           title: Jornadas eliminadas
         new:
           create: Crear
-          title: Conferencia
+          title: Nueva jornada
         update:
           error: Hubo un error al actualizar esta conferencia.
           success: Conferencia actualizada con éxito.
-      conferences_copies:
+      conferences_duplicates:
         create:
-          error: Hubo un error al duplicar esta conferencia.
-          success: Conferencia duplicada con éxito.
+          error: Se ha producido un error al duplicar esta jornada.
+          success: La jornada se ha duplicado correctamente.
       media_links:
         create:
           error: Se ha producido un error al crear un nuevo enlace multimedia.
@@ -355,9 +361,9 @@ es-MX:
         title: Ponentes
     conferences:
       admin:
-        conference_copies:
+        conference_duplicates:
           form:
-            slug_help_html: 'Las URL amigables se utilizan para generar las URL que apuntan a esta conferencia. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            slug_help_html: 'La parte final de la URL tras la última barra inversa (URL slug) se utiliza para generar la URL (dirección web) que apuntan a esta jornada. Esta solo acepta letras, números y guiones, y debe empezar por una letra. Ejemplo: %{url}'
         conference_invites:
           create:
             error: Ha habido un problema al invitar al usuario a unirse a la conferencia.

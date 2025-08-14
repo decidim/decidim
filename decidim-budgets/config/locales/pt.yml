@@ -20,10 +20,7 @@ pt:
   decidim:
     budgets:
       actions:
-        attachment_collections: Pastas
-        attachments: Anexos
         edit: Editar
-        edit_projects: Gerir projectos
         import: Importar propostas para projetos
         preview: Pré-visualização
         title: Ações

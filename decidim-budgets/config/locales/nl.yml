@@ -31,10 +31,7 @@ nl:
               'true': Niet geselecteerd voor implementatie
     budgets:
       actions:
-        attachment_collections: Mappen
-        attachments: Bijlagen
         edit: Bewerk
-        edit_projects: Beheer projecten
         import: Voorstellen importeren in projecten
         preview: Voorbeeld
         title: Acties

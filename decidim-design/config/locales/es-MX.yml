@@ -14,7 +14,6 @@ es-MX:
           trigger: Activador
           usage: Uso
           usage_p: Un acordeón requiere al menos tres elementos
-          usage_p_1_html: '1. Un envoltorio <code>div</code>, con el atributo "data": <code>data-component="accordion"</code>, sobre todos los activadores y paneles disponibles.'
           usage_p_2_html: 2. Un elemento activador, usuaria accionable (como un botón), apuntando al elemento plegable a través de <code>data-controls="panel"</code>, donde <i>panel</i> es la <code>id</code> del panel.
           usage_p_3_html: 3. Un elemento oculto, cuyo <code>id</code> coincide con el valor de los controles de datos al que se refiere el activador.
         activities:
@@ -206,7 +205,6 @@ es-MX:
         dropdowns_description_html: Los menús desplegables son una característica <i>JavaScript</i> disponible gracias a una biblioteca externa llamada %{link}.
         dropdowns_usage_1_description: 2. Un elemento modal, cuya <code>id</code> coincide con el valor de los controles de datos al que se refiere el activador.
         dropdowns_usage_description: 'Un menú desplegable requiere dos elementos:'
-        dropdowns_usage_description_html: 1. Un elemento accionable por la participante, con los atributos de datos <code>data-controller="dropdown" data-target="dropdown-menu-element"</code>.
         dummy_description: Descripción del recurso ficticio
         dummy_title: Título del recurso ficticio
         follow_button: Botón "Seguir"

@@ -3,9 +3,9 @@
 module Decidim
   module Assemblies
     module Admin
-      # A command with all the business logic when copying a new participatory
+      # A command with all the business logic when duplicating a new participatory
       # assembly in the system.
-      class CopyAssembly < Decidim::Command
+      class DuplicateAssembly < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.
@@ -27,22 +27,22 @@ module Decidim
 
           Decidim.traceability.perform_action!("duplicate", @assembly, @user) do
             Assembly.transaction do
-              copy_assembly
-              copy_assembly_attachments
-              copy_assembly_components if @form.copy_components?
-              copy_landing_page_blocks if @form.copy_landing_page_blocks?
+              duplicate_assembly
+              duplicate_assembly_attachments
+              duplicate_assembly_components if @form.duplicate_components?
+              duplicate_landing_page_blocks if @form.duplicate_landing_page_blocks?
             end
           end
 
-          broadcast(:ok, @copied_assembly)
+          broadcast(:ok, @duplicated_assembly)
         end
 
         private
 
         attr_reader :form
 
-        def copy_assembly
-          @copied_assembly = Assembly.create!(
+        def duplicate_assembly
+          @duplicated_assembly = Assembly.create!(
             organization: @assembly.organization,
             title: form.title,
             subtitle: @assembly.subtitle,
@@ -63,47 +63,47 @@ module Decidim
           )
         end
 
-        def copy_assembly_attachments
+        def duplicate_assembly_attachments
           [:hero_image, :banner_image].each do |attribute|
             next unless @assembly.attached_uploader(attribute).attached?
 
-            @copied_assembly.send(attribute).attach(@assembly.send(attribute).blob)
+            @duplicated_assembly.send(attribute).attach(@assembly.send(attribute).blob)
           end
         end
 
-        def copy_assembly_components
+        def duplicate_assembly_components
           @assembly.components.each do |component|
             new_component = Component.create!(
               manifest_name: component.manifest_name,
               name: component.name,
-              participatory_space: @copied_assembly,
+              participatory_space: @duplicated_assembly,
               settings: component.settings,
               step_settings: component.step_settings,
               weight: component.weight
             )
-            component.manifest.run_hooks(:copy, new_component:, old_component: component)
+            component.manifest.run_hooks(:duplicate, new_component:, old_component: component)
           end
         end
 
-        def copy_landing_page_blocks
+        def duplicate_landing_page_blocks
           blocks = Decidim::ContentBlock.where(scoped_resource_id: @assembly.id, scope_name: "assembly_homepage", organization: @assembly.organization)
           return if blocks.blank?
 
           blocks.each do |block|
             new_block = Decidim::ContentBlock.create!(
-              organization: @copied_assembly.organization,
+              organization: @duplicated_assembly.organization,
               scope_name: "assembly_homepage",
-              scoped_resource_id: @copied_assembly.id,
+              scoped_resource_id: @duplicated_assembly.id,
               manifest_name: block.manifest_name,
               settings: block.settings,
               weight: block.weight,
-              published_at: block.published_at.present? ? @copied_assembly.created_at : nil # determine if block is active/inactive
+              published_at: block.published_at.present? ? @duplicated_assembly.created_at : nil # determine if block is active/inactive
             )
-            copy_block_attachments(block, new_block) if block.attachments.present?
+            duplicate_block_attachments(block, new_block) if block.attachments.present?
           end
         end
 
-        def copy_block_attachments(block, new_block)
+        def duplicate_block_attachments(block, new_block)
           block.attachments.map(&:name).each do |name|
             original_image = block.images_container.send(name).blob
             next if original_image.blank?
