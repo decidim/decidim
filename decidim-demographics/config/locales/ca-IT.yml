@@ -72,8 +72,3 @@ ca-IT:
           question: Quina de les opcions següents descriu millor el teu gènere?
         postal:
           question: Quin és el codi postal del teu domicili?
-  layouts:
-    decidim:
-      shared:
-        layout_center:
-          alert: En proporcionar aquesta informació estàs contribuint a l'anàlisi estadística que ajuda a millorar la qualitat de la participació. Les teves dades seran agregades i utilitzades només per a finalitats de recerca.
