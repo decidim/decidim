@@ -40,7 +40,7 @@ exclude_patterns = [
   "decidim-comments/app/assets/javascripts/decidim/comments/bundle.js",
   "decidim-comments/app/frontend/support/schema.ts",
   "node_modules/",
-  "development_app/", 
+  "development_app/",
   "spec/decidim_dummy_app/",
   "coverage/",
   "webpack.report.html",

@@ -170,6 +170,11 @@ Also, be sure to add the line `gem "aws-sdk-s3", require: false` in your Gemfile
 |
 |No
 
+|*AWS_PUBLIC*
+|Whether the AWS assets to be public or not. Default is true, which means that no credential strings would be attached to your AWS stored assets, making it easier for components to be cached.
+|true
+|No
+
 |*AZURE_STORAGE_ACCESS_KEY*
 |If STORAGE_PROVIDER is set to `azure`, define here your AZURE ACCESS KEY with permissions to access the container for the application. Needs to be encoded in Base64.
 
@@ -185,6 +190,11 @@ Also, be sure to add the line `gem "azure-storage-blob", require: false` in your
 |*AZURE_CONTAINER*
 |If STORAGE_PROVIDER is set to `azure`, define here your AZURE CONTAINER used for uploading files and images.
 |
+|No
+
+|*AZURE_PUBLIC*
+|Whether the Azure assets to be public or not. Default is true, which means that no credential strings would be attached to your Azure stored assets, making it easier for components to be cached.
+|true
 |No
 
 |*GCS_PROJECT*
@@ -249,6 +259,11 @@ Also, be sure to add the line `gem "google-cloud-storage", "~> 1.11", require: f
 |GCS_CLIENT_X509_CERT_URL
 |If STORAGE_PROVIDER is set to `gcs`, define here your GOOGLE CLOUD X509 CERT URI (if needed)
 |
+|No
+
+|*GCS_PUBLIC*
+|Whether the Google Cloud Service assets to be public or not. Default is true, which means that no credential strings would be attached to your CGS stored assets, making it easier for components to be cached.
+|true
 |No
 
 |===
