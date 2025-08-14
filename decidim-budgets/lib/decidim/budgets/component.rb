@@ -21,6 +21,20 @@ Decidim.register_component(:budgets) do |component|
     raise StandardError, "Cannot remove this component" if Decidim::Budgets::Budget.where(component: instance).any?
   end
 
+  component.on(:publish) do |instance|
+    Decidim::Budgets::Budget.where(component: instance).find_each do |budget|
+      Decidim::UpdateSearchIndexesJob.perform_later([budget])
+      Decidim::UpdateSearchIndexesJob.perform_later(budget.projects)
+    end
+  end
+
+  component.on(:unpublish) do |instance|
+    Decidim::Budgets::Budget.where(component: instance).find_each do |budget|
+      Decidim::RemoveSearchIndexesJob.perform_later([budget])
+      Decidim::RemoveSearchIndexesJob.perform_later(budget.projects)
+    end
+  end
+
   component.register_resource(:budget) do |resource|
     resource.model_class_name = "Decidim::Budgets::Budget"
     resource.card = "decidim/budgets/budget"
