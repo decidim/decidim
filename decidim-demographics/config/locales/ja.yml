@@ -72,8 +72,3 @@ ja:
           question: あなたの性別を最もよく表しているのは次のうちどれですか？
         postal:
           question: 自宅の郵便番号は何ですか？
-  layouts:
-    decidim:
-      shared:
-        layout_center:
-          alert: この情報を提供することで、参加者の質を向上させる統計分析に貢献します。あなたのデータは、研究目的にのみ集約され、使用されます。
