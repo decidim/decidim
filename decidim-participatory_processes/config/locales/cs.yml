@@ -401,31 +401,6 @@ cs:
     participatory_processes:
       admin:
         content_blocks:
-          democratic_quality_stats_settings_form:
-            inclusiveness:
-              cultural_origins_participation:
-                options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
-              functional_diversity_invited:
-                options:
-                  five: Ano = 5
-                  zero: Ne = 0
-              functional_diversity_participation:
-                options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-            relevance:
-              relevance_percentage:
-                options:
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
           highlighted_processes:
             active: Aktivní
             all: Vše
@@ -473,9 +448,6 @@ cs:
             name: Automatická měření
           global_score:
             name: Globální skóre
-          qualitative_metrics:
-            indicators:
-              relevance: Relevance
         extra_data:
           name: Fáze a doba trvání
         hero:
