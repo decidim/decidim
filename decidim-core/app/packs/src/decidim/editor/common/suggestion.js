@@ -106,7 +106,17 @@ export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => 
       suggestionItem.textContent = label;
       suggestion.append(suggestionItem);
 
-      suggestionItem.addEventListener("click", () => selectItem(idx));
+      suggestionItem.addEventListener("click", (ev) => {
+        ev.preventDefault();
+
+        if (currentRange) {
+          // Increase the current range by 1 since the ENTER key would do the
+          // same when doing the selection through keyboard.
+          currentRange.to += 1;
+        }
+
+        selectItem(idx);
+      });
     });
   }
 
