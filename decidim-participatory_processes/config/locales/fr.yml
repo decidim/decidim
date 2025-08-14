@@ -9,6 +9,9 @@ fr:
         developer_group: Organisateur
         document: Document
         domain: Domaine
+        duplicate_categories: Dupliquer les catégories
+        duplicate_components: Dupliquer les composants
+        duplicate_steps: Dupliquer les étapes
         end_date: Date de fin
         hero_image: Image de la page d'accueil
         import_attachments: Importer les pièces jointes
@@ -151,6 +154,11 @@ fr:
             invitation_accepted_at: Invitation acceptée à
             invitation_sent_at: Invitation envoyée à
             published: Publié
+      participatory_process_duplicates:
+        new:
+          duplicate: Dupliquer
+          select: Sélectionnez les données que vous souhaitez dupliquer
+          title: Dupliquer le processus participatif
       participatory_process_groups:
         destroy:
           error: Une erreur s'est produite lors de la suppression du groupe de concertations.
@@ -248,6 +256,10 @@ fr:
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette concertation.
           success: Concertation mise à jour avec succès.
+      participatory_processes_duplicates:
+        create:
+          error: Un problème est survenu lors de la duplication de ce processus participatif.
+          success: Processus participatif dupliqué avec succès.
       participatory_processes_group:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau groupe de concertations.
@@ -367,55 +379,6 @@ fr:
     participatory_processes:
       admin:
         content_blocks:
-          democratic_quality_stats_settings_form:
-            accessibility:
-              languages_count:
-                options:
-                  one: Une langue = 1
-                  two_five: Moins de la moitié des langues parlées dans la communauté = 2.5
-              name: Accessibilité
-              venue_accessibility:
-                options:
-                  five: Oui = 5
-                  two_five: Partiellement = 2,5
-                  zero: Non = 0
-            citizen_influence:
-              citizen_influence_level:
-                options:
-                  one: Consultation = 1
-                  three: Partenariat = 3
-            inclusiveness:
-              cultural_origins_participation:
-                options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
-              functional_diversity_invited:
-                options:
-                  five: Oui = 5
-                  zero: Non = 0
-              functional_diversity_participation:
-                options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
-              migrant_groups_invited:
-                options:
-                  five: Oui = 5
-                  zero: Non = 0
-            relevance:
-              name: Pertinence
-              relevance_percentage:
-                options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
           highlighted_processes:
             active: Actif(s)
             all: Tout
@@ -424,6 +387,9 @@ fr:
         new_import:
           accepted_types:
             json: JSON
+        participatory_process_duplicates:
+          form:
+            slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers ce processus. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         participatory_process_groups:
           form:
             metadata: Métadonnées
@@ -459,11 +425,6 @@ fr:
           global_score:
             name: Score global
             tooltip: Calculée en tant que moyenne de toutes les dimensions
-          name: Qualité de la participation
-          qualitative_metrics:
-            indicators:
-              accessibility: Accessibilité
-              relevance: Pertinence
         extra_data:
           name: Phase & durée
         hero:
