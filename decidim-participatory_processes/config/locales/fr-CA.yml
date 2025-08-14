@@ -162,6 +162,8 @@ fr-CA:
       participatory_process_copies:
         new:
           copy: Copier
+          select: Sélectionnez les données que vous souhaitez dupliquer
+          title: Dupliquer le processus participatif
       participatory_process_groups:
         destroy:
           error: Une erreur s'est produite lors de la suppression du groupe de concertations.
@@ -259,6 +261,10 @@ fr-CA:
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette concertation.
           success: Concertation mise à jour avec succès.
+      participatory_processes_copies:
+        create:
+          error: Un problème est survenu lors de la duplication de ce processus participatif.
+          success: Processus participatif dupliqué avec succès.
       participatory_processes_group:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau groupe de concertations.
