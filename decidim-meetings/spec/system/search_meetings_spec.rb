@@ -42,7 +42,7 @@ describe "Search meetings" do
     end
 
     context "when searching for indexed searchables" do
-      it "does not contain these searchables" do
+      it "does contain these searchables" do
         within "#form-search_topbar" do
           fill_in "term", with: term
           click_on

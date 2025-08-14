@@ -215,7 +215,7 @@ describe Decidim::Search do
 
               results = results_by_type["Decidim::User"]
               expect(results[:results].count).to eq 0
-              expect(results[:count]).to eq 3
+              expect(results[:count]).to eq 0
             end
             on(:invalid) { raise("Should not happen") }
           end
@@ -230,7 +230,7 @@ describe Decidim::Search do
 
               results = results_by_type["Decidim::User"]
               expect(results[:results].count).to eq 0
-              expect(results[:count]).to eq 3
+              expect(results[:count]).to eq 0
             end
             on(:invalid) { raise("Should not happen") }
           end
