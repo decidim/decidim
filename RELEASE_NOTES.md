@@ -116,6 +116,7 @@ bin/rails decidim:upgrade
 bin/rails db:migrate
 bin/rails decidim:upgrade:user_groups:remove
 bin/rails decidim:upgrade:fix_nickname_casing
+bin/rails decidim:upgrade:fix_deleted_private_follows
 bin/rails decidim:verifications:revoke:sms
 bin/rails decidim_surveys:upgrade:fix_survey_permissions
 ```
@@ -422,7 +423,17 @@ This also includes renderers and parsers which used the hashtag object to render
 
 You can read more about this change on PR [#14803](https://github.com/decidim/decidim/pull/14803) and [#14868](https://github.com/decidim/decidim/pull/14868)
 
-### 3.9. [[TITLE OF THE ACTION]]
+### 3.10. Remove the follows of ex private users
+
+To delete the follows of ex private users of non transparent assemblies or processes, run
+
+```console
+./bin/rails decidim:upgrade:fix_deleted_private_follows
+```
+
+You can read more about this change on PR [#12878](https://github.com/decidim/decidim/pull/12878).
+
+### 3.11. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
