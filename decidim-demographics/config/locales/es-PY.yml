@@ -72,8 +72,3 @@ es-PY:
           question: '¿Cuál de las siguientes opciones describe mejor tu género?'
         postal:
           question: '¿Cuál es el código postal de tu domicilio?'
-  layouts:
-    decidim:
-      shared:
-        layout_center:
-          alert: Al proporcionar esta información estás contribuyendo al análisis estadístico que ayuda a mejorar la calidad de la participación. Tus datos serán agregados y utilizados solo para fines de investigación.
