@@ -1,0 +1,5 @@
+<%= link_to resource_path, id: resource_id, **html_options do %>
+  <%= content_tag :div, class: item_list_class do %>
+    <%= render :content %>
+  <% end %>
+<% end %>
