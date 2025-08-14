@@ -4,7 +4,7 @@
     <h1 class="title-decorator inline-block text-left mb-12"><%= t "devise.invitations.edit.header" %></h1>
 
     <p class="text-lg text-gray-2">
-      <%= t("devise.invitations.edit.subtitle").html_safe %>
+      <%= current_organization.users_registration_mode != "disabled" ? t("devise.invitations.edit.subtitle").html_safe : t("devise.invitations.edit.subtitle_no_password").html_safe %>
     </p>
   </div>
 
@@ -16,7 +16,7 @@
 
       <%= f.text_field :nickname, help_text: t("devise.invitations.edit.nickname_help", organization: current_organization_name), required: "required", autocomplete: "nickname" %>
 
-      <% if f.object.class.require_password_on_accepting %>
+      <% if current_organization.users_registration_mode != "disabled" %>
         <%= render partial: "decidim/account/password_fields", locals: { form: f, user: :user } %>
       <% end %>
     </div>
