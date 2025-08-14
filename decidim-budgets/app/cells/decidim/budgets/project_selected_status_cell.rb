@@ -8,19 +8,9 @@ module Decidim
 
       def show
         if voting_finished? && model.selected?
-          content_tag :span, class: css_class do
+          content_tag :span, class: "label success" do
             t("decidim.budgets.projects.project.selected")
           end
-        end
-      end
-
-      private
-
-      def css_class
-        if options[:as_label] == true
-          "success label project-status"
-        else
-          "success card__text--status"
         end
       end
     end

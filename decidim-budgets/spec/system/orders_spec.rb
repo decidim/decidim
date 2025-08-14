@@ -22,7 +22,9 @@ describe "Orders" do
     let!(:projects) { create_list(:project, 1, budget:, budget_amount: 25_000_000) }
 
     it "is given the option create an ephemeral user" do
-      visit_budget_and_start_voting
+      visit_budget
+
+      click_on "Add"
 
       expect(page).to have_css("#loginModal", visible: :visible)
     end
@@ -37,7 +39,7 @@ describe "Orders" do
 
     context "when visiting budget" do
       before do
-        visit_budget_and_start_voting
+        visit_budget
       end
 
       it "shows a filter to select added projects" do
@@ -49,7 +51,7 @@ describe "Orders" do
       context "when voting by percentage threshold" do
         it "displays description messages" do
           within ".budget-summary", match: :first do
-            expect(page).to have_content("Start adding projects. Assign at least €70,000,000 to the projects you want and vote according to your preferences.")
+            expect(page).to have_content("Assign at least € 70,000,000 to the projects you want and vote according to your preferences.")
           end
         end
       end
@@ -64,7 +66,7 @@ describe "Orders" do
 
         it "displays description messages" do
           within ".budget-summary", match: :first do
-            expect(page).to have_content("Start adding projects. Select at least 3 projects you want and vote according to your preferences.")
+            expect(page).to have_content("Select at least 3 projects you want and vote according to your preferences.")
           end
         end
       end
@@ -80,7 +82,7 @@ describe "Orders" do
 
         it "displays description messages" do
           within ".budget-summary", match: :first do
-            expect(page).to have_content("Start adding projects. Select up to 6 projects you want and vote according to your preferences.")
+            expect(page).to have_content("Select up to 6 projects you want and vote according to your preferences.")
           end
         end
       end
@@ -95,7 +97,7 @@ describe "Orders" do
 
         it "displays description messages" do
           within ".budget-summary", match: :first do
-            expect(page).to have_content("Start adding projects. Select at least 3 and up to 6 projects you want and vote according to your preferences.")
+            expect(page).to have_content("Select at least 3 and up to 6 projects you want and vote according to your preferences.")
           end
         end
       end
@@ -105,7 +107,7 @@ describe "Orders" do
 
         it "displays total budget" do
           within ".budget-summary", match: :first do
-            expect(page).to have_content("€0\nBudget")
+            expect(page).to have_content("€ 0")
           end
         end
       end
@@ -113,7 +115,7 @@ describe "Orders" do
 
     context "and has not a pending order" do
       before do
-        visit_budget_and_start_voting
+        visit_budget
       end
 
       context "when voting by percentage threshold" do
@@ -125,7 +127,7 @@ describe "Orders" do
           expect(page).to have_css ".budget-list__data--added", count: 1
 
           within ".budget-summary__progressbar-marks", match: :first do
-            expect(page).to have_content(/€25,000,000\sAssigned/)
+            expect(page).to have_content(/€ 25,000,000\sAssigned/)
           end
           within ".budget__list--header" do
             expect(page).to have_content(/Added\s1/)
@@ -138,7 +140,7 @@ describe "Orders" do
         end
 
         it "displays total budget" do
-          expect(page).to have_css(".budget-summary__progressbar-marks_right", text: "€100,000,000")
+          expect(page).to have_css(".budget-summary__progressbar-marks_right", text: "€ 100,000,000")
         end
       end
 
@@ -158,7 +160,7 @@ describe "Orders" do
           expect(page).to have_css ".budget-list__data--added", count: 1
 
           within ".budget-summary__progressbar-marks", match: :first do
-            expect(page).to have_content(/€25,000,000\sAssigned/)
+            expect(page).to have_content(/€ 25,000,000\sAssigned/)
           end
           within ".budget__list--header" do
             expect(page).to have_content(/Added\s1/)
@@ -171,7 +173,7 @@ describe "Orders" do
         end
 
         it "displays total budget" do
-          expect(page).to have_css(".budget-summary__progressbar-marks_right", text: "€100,000,000")
+          expect(page).to have_css(".budget-summary__progressbar-marks_right", text: "€ 100,000,000")
         end
       end
 
@@ -257,7 +259,9 @@ describe "Orders" do
         end
 
         it "redirects to the authorization form" do
-          visit_budget_and_start_voting
+          visit_budget
+
+          click_on "Add", match: :first
 
           expect(page).to have_content("We need to verify your identity")
           expect(page).to have_content("Verify with Example authorization")
@@ -279,7 +283,9 @@ describe "Orders" do
         end
 
         it "redirects to pending onboarding authorizations page" do
-          visit_budget_and_start_voting
+          visit_budget
+
+          click_on "Add", match: :first
 
           expect(page).to have_content("You are almost ready to vote")
           expect(page).to have_css("a[data-verification]", count: 2)
@@ -292,10 +298,10 @@ describe "Orders" do
       let!(:line_item) { create(:line_item, order:, project:) }
 
       it "removes a project from the current order" do
-        visit_budget_and_start_voting
+        visit_budget
 
         within ".budget-summary__progressbar-marks", match: :first do
-          expect(page).to have_content(/€25,000,000\sAssigned/)
+          expect(page).to have_content(/€ 25,000,000\sAssigned/)
         end
         within ".budget__list--header" do
           expect(page).to have_content(/Added\s1/)
@@ -306,7 +312,7 @@ describe "Orders" do
         end
 
         within ".budget-summary__progressbar-marks", match: :first do
-          expect(page).to have_content(/€0\sAssigned/)
+          expect(page).to have_content(/€ 0\sAssigned/)
         end
         within ".budget__list--header" do
           expect(page).to have_content(/Added\s0/)
@@ -316,67 +322,40 @@ describe "Orders" do
       end
 
       it "is alerted when trying to leave the component before completing" do
-        budget_focus_projects_path = Decidim::EngineRouter.main_proxy(component).budget_focus_projects_path(budget)
+        budget_projects_path = Decidim::EngineRouter.main_proxy(component).budget_projects_path(budget)
 
-        visit_budget_and_start_voting
+        visit_budget
 
-        expect(page).to have_content "€25,000,000"
+        expect(page).to have_content "€ 25,000,000"
 
-        page.find("header a", text: translated(organization.name)).click
+        click_on "Back to budgets"
 
         expect(page).to have_content "You have not yet voted"
 
         click_on "Return to voting"
 
         expect(page).to have_no_content("You have not yet voted")
-        expect(page).to have_current_path budget_focus_projects_path
-      end
-
-      it "is alerted when trying to leave the focus mode" do
-        budget_projects_path = Decidim::EngineRouter.main_proxy(component).budget_focus_projects_path(budget)
-        visit_budget_and_start_voting
-
-        page.find("a[data-close-focus-mode]").click
-
-        expect(page).to have_content("You have not yet voted")
         expect(page).to have_current_path budget_projects_path
       end
 
-      it "is alerted but can sign out before completing" do
+      it "is alerted when trying to leave the focus mode" do
+        budget_projects_path = Decidim::EngineRouter.main_proxy(component).budget_projects_path(budget)
         visit_budget
 
-        within_user_menu do
-          click_on("Log out")
-        end
+        click_on "Back to budgets"
 
-        expect(page).to have_content "You have not yet voted"
-
-        page.find_by_id("exit-notification-link").click
-        expect(page).to have_content("Logged out successfully")
+        expect(page).to have_content("You have not yet voted")
+        expect(page).to have_current_path budget_projects_path
       end
 
       context "and try to vote a project that exceed the total budget" do
         let!(:expensive_project) { create(:project, budget:, budget_amount: 250_000_000) }
 
         it "cannot add the project" do
-          visit_budget_and_start_voting
+          visit_budget
 
           within "#project-#{expensive_project.id}-item" do
             page.find(".budget-list__action").click
-          end
-
-          expect(page).to have_css("#budget-excess", visible: :visible)
-        end
-      end
-
-      context "and in project show page cannot exceed the budget" do
-        let!(:expensive_project) { create(:project, budget:, budget_amount: 250_000_000) }
-
-        it "cannot add the project" do
-          page.visit Decidim::EngineRouter.main_proxy(component).budget_project_path(budget, expensive_project)
-
-          within "#project-#{expensive_project.id}-budget-button" do
-            click_on
           end
 
           expect(page).to have_css("#budget-excess", visible: :visible)
@@ -387,7 +366,7 @@ describe "Orders" do
         let!(:other_project) { create(:project, budget:, budget_amount: 50_000_000) }
 
         it "can complete the checkout process" do
-          visit_budget_and_start_voting
+          visit_budget
 
           expect(page).to have_css ".budget-list__data--added", count: 1
 
@@ -415,12 +394,12 @@ describe "Orders" do
 
       context "when the voting rule is set to threshold percent" do
         before do
-          visit_budget_and_start_voting
+          visit_budget
         end
 
         it "shows the rule description" do
           within ".budget-summary", match: :first do
-            expect(page).to have_content("Assign at least €70,000,000 to the projects you want and vote")
+            expect(page).to have_content("Assign at least € 70,000,000 to the projects you want and vote")
           end
         end
 
@@ -440,7 +419,7 @@ describe "Orders" do
             order.destroy!
             order_percent.projects << projects
             order_percent.save!
-            visit_budget_and_start_voting
+            visit_budget
           end
 
           it "can vote" do
@@ -492,7 +471,7 @@ describe "Orders" do
         let!(:order_min) { create(:order, user:, budget:) }
 
         it "shows the rule description" do
-          visit_budget_and_start_voting
+          visit_budget
 
           within ".budget-summary", match: :first do
             expect(page).to have_content("Select at least 3 projects you want and vote")
@@ -501,7 +480,7 @@ describe "Orders" do
 
         context "when the order total budget does not reach the minimum" do
           it "cannot vote" do
-            visit_budget_and_start_voting
+            visit_budget
 
             within "#order-progress", match: :first do
               expect(page).to have_button("Vote", disabled: true)
@@ -516,7 +495,7 @@ describe "Orders" do
           end
 
           it "can vote" do
-            visit_budget_and_start_voting
+            visit_budget
 
             within "#order-progress", match: :first do
               expect(page).to have_button("Vote", disabled: false)
@@ -536,7 +515,7 @@ describe "Orders" do
       end
 
       it "can cancel the order" do
-        visit_budget_and_start_voting
+        visit_budget
 
         within ".budget-summary__content", match: :first do
           accept_confirm { page.find(".cancel-order", match: :first).click }
@@ -544,21 +523,19 @@ describe "Orders" do
 
         expect(page).to have_content("successfully")
 
-        click_on "Start voting"
-
         within "#order-progress .budget-summary__content", match: :first do
           expect(page).to have_button(disabled: true)
         end
       end
 
       it "is not alerted when trying to leave the component" do
-        visit_budget_and_start_voting
+        visit_budget
 
         expect(page).to have_content("Budget vote completed")
 
-        page.find("a[href='#{decidim.root_path}']").click
+        click_on "Back to budgets"
 
-        expect(page).to have_current_path decidim.root_path
+        expect(page).to have_current_path Decidim::EngineRouter.main_proxy(component).budgets_path
       end
     end
 
@@ -571,7 +548,7 @@ describe "Orders" do
       end
 
       it "cannot create new orders" do
-        visit_budget_and_start_voting
+        visit_budget
 
         expect(page).to have_no_button(class: "budget-list__action")
       end
@@ -594,10 +571,10 @@ describe "Orders" do
       end
 
       it "displays the number of votes for a project" do
-        visit_budget_and_start_voting
+        visit_budget
 
-        within "#project-#{project.id}-item .card__list" do
-          expect(page).to have_css(".project-votes", text: "1 vote")
+        within "#project-#{project.id}-item" do
+          expect(page).to have_content("1 vote")
         end
       end
     end
@@ -633,7 +610,7 @@ describe "Orders" do
 
       create_list(:project, 2, budget:)
 
-      visit_budget_and_start_voting
+      visit_budget
 
       expect(page).to have_css("div[id^=project-]", count: 1)
     end
@@ -643,7 +620,7 @@ describe "Orders" do
 
       create_list(:project, 2, budget:)
 
-      visit_budget_and_start_voting
+      visit_budget
 
       expect(page).to have_css("div[id^=project-]", count: 2)
     end
@@ -653,7 +630,7 @@ describe "Orders" do
 
       create_list(:project, 2, budget:)
 
-      visit_budget_and_start_voting
+      visit_budget
 
       expect(page).to have_css("div[id^=project-]", count: 2)
     end
@@ -715,12 +692,6 @@ describe "Orders" do
         end
       end
     end
-  end
-
-  def visit_budget_and_start_voting
-    visit_budget
-
-    click_on "Start voting"
   end
 
   def visit_budget

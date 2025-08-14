@@ -1,11 +1,11 @@
 .budget {
   &-list__map {
-    @apply md:-ml-16 -mt-6 md:-mt-12 mb-6 aspect-square md:aspect-[21/9] [&>*]:h-full [&+*]:mt-6 md:[&+*]:mt-12;
+    @apply lg:-ml-16 -mt-6 lg:-mt-12 mb-6 aspect-square lg:aspect-[21/9] [&>*]:h-full [&+*]:mt-6 lg:[&+*]:mt-12;
   }
 
   &-summary {
     &__content {
-      @apply bg-tertiary p-4 md:h-full md:p-0;
+      @apply bg-tertiary p-4 lg:h-full lg:p-0;
     }
 
     &__container {
@@ -33,7 +33,7 @@
     }
 
     &__progressbar {
-      @apply my-0 lg:my-4 relative;
+      @apply my-0 xl:my-4 relative;
 
       .budget-progress {
         @apply bg-white rounded h-2;
@@ -57,44 +57,56 @@
     }
 
     &__progressbar-marks_right {
-      @apply justify-self-end text-left md:text-right;
+      @apply justify-self-end text-left lg:text-right;
     }
 
     &__progressbar-legend {
-      @apply text-xs md:text-sm block;
+      @apply text-xs lg:text-sm block;
     }
 
     &__progressbar-legend-strong {
-      @apply font-semibold block text-[10px] md:text-sm text-nowrap;
+      @apply font-semibold block text-[10px] lg:text-sm text-nowrap;
     }
   }
 
+  &__card__list-budget--highlighted {
+    @apply ring-warning;
+  }
+
+  &__card__list-budget--progress {
+    @apply ring-warning;
+  }
+
+  &__card__list-budget--voted {
+    @apply ring-success;
+  }
+
   &__card__list-project {
-    @apply ml-auto rounded py-3 px-4 bg-background w-[30%] min-w-[120px] flex flex-col justify-center items-center lg:flex-row lg:justify-around lg:place-items-center;
+    @apply ml-auto rounded py-3 px-4 bg-background lg:w-96 flex flex-col justify-center items-center xl:flex-row xl:justify-between xl:place-items-center;
   }
 
   &__card__list-project__amount {
-    @apply font-semibold text-gray-2 text-xl inline-block text-center mb-2 md:mb-0;
+    @apply font-semibold text-gray-2 text-xl inline-block m-auto;
   }
 
   &__card__highlight-vote {
-    @apply justify-center flex flex-col w-full md:w-1/4 bg-background p-4 bg-background font-bold text-gray-2 ml-auto;
+    @apply justify-center flex w-full xl:w-2/5 items-center bg-background p-4 bg-background font-bold text-gray-2 ml-auto;
   }
 
   &__card__highlight-vote__header {
-    @apply place-items-start pb-2;
-  }
-
-  &__card__highlight-vote__text {
-    @apply block text-sm text-gray-2 font-normal;
+    @apply place-items-start w-1/3;
   }
 
   &__card__highlight-vote__number {
     @apply text-xl font-semibold;
+
+    span {
+      @apply text-sm;
+    }
   }
 
   &__card__highlight-vote__button {
-    @apply mt-auto text-left mt-2;
+    @apply mt-auto text-left;
 
     &.button__secondary:hover {
       @apply text-white #{!important};
@@ -114,11 +126,15 @@
   }
 
   &__definition-data__title {
-    @apply text-sm text-gray-2 mt-6 mb-2 block;
+    @apply text-sm text-gray-2 mb-2 block;
   }
 
   &__definition-data__number {
     @apply text-gray-2 font-bold text-3xl bg-background text-center p-2 rounded;
+
+    span {
+      @apply text-2xl;
+    }
   }
 
   &__filter-title {
@@ -155,6 +171,10 @@
 
       .card__list {
         @apply inline-block w-[65%];
+
+        &-metadata span {
+          @apply text-xs;
+        }
       }
 
       + .project-item {
@@ -166,7 +186,7 @@
 
 #budgets-to-vote {
   .card__highlight-text {
-    @apply w-full md:w-[70%] p-0;
+    @apply w-full lg:w-[70%] p-0;
   }
 
   .order-by {
@@ -205,27 +225,27 @@
 }
 
 .budget-summary__progressbox--checked_out {
-  @apply hidden md:block;
+  @apply hidden lg:block;
 }
 
 .budget-summary__content {
-  @apply md:grid md:grid-cols-12 md:items-center md:px-16 pt-4 px-4;
+  @apply lg:grid lg:grid-cols-12 lg:items-center lg:px-16 pt-4 px-4;
 }
 
 .budget-summary__progressbox {
-  @apply md:col-span-8;
+  @apply lg:col-span-8;
 }
 
 .budget-summary__progressbox-buttons {
-  @apply md:col-span-3 md:col-start-10;
+  @apply lg:col-span-3 lg:col-start-10;
 }
 
 .budget-summary__button-modal {
-  @apply hidden lg:text-secondary lg:block lg:col-span-12 lg:mb-4 lg:pb-4;
+  @apply hidden xl:text-secondary xl:block xl:col-span-12 xl:mb-4 xl:pb-4;
 }
 
 .budget-summary__button-dropdown {
-  @apply col-span-12 text-secondary lg:hidden;
+  @apply col-span-12 text-secondary xl:hidden;
 
   &_text {
     @apply flex gap-4 justify-start;
@@ -242,42 +262,42 @@
 
 .progressbox-fixed-wrapper {
   .budget-summary__progressbar {
-    @apply md:pl-32 md:pr-8;
+    @apply lg:pl-32 lg:pr-8;
   }
 
   .budget-summary__progressbox {
-    @apply md:col-span-5 md:col-start-4;
+    @apply lg:col-span-5 lg:col-start-4;
   }
 
   .budget-summary__progressbox-buttons {
-    @apply md:col-start-10 md:col-span-2;
+    @apply lg:col-start-10 lg:col-span-2;
   }
 }
 
 #project-item {
   .budget-summary__content {
-    @apply py-4 md:py-4 md:container md:grid grid-cols-1 md:grid-cols-12 md:items-center;
+    @apply py-4 lg:py-4 lg:container lg:grid grid-cols-1 lg:grid-cols-12 lg:items-center;
   }
 
   .budget-summary__progressbox {
-    @apply md:col-start-2 md:col-span-7 relative;
+    @apply lg:col-start-2 lg:col-span-7 relative;
   }
 
   .budget-summary__progressbox-buttons {
-    @apply md:col-start-10 md:col-span-2;
+    @apply lg:col-start-10 lg:col-span-2;
   }
 
   .budget-summary__button-modal {
-    @apply hidden lg:text-secondary lg:block lg:col-span-10 lg:col-start-2 lg:justify-start;
+    @apply hidden xl:text-secondary xl:block xl:col-span-10 xl:col-start-2 xl:justify-start;
   }
 
   .budget-summary__button-dropdown {
-    @apply block text-secondary col-span-10 col-start-2 justify-start lg:hidden;
+    @apply block text-secondary col-span-10 col-start-2 justify-start xl:hidden;
   }
 
   .progressbox-fixed-wrapper {
     .budget-summary__progressbar {
-      @apply md:col-start-1 md:col-span-7;
+      @apply lg:col-start-1 lg:col-span-7;
     }
   }
 }

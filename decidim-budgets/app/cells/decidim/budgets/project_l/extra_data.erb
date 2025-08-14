@@ -1,8 +1,12 @@
 <div class="budget__card__list-project">
   <span class="budget__card__list-project__amount">
-    <%= budget_to_currency(project.budget_amount) %>
+    <% if show_votes_count? %>
+      <%= cell "decidim/budgets/project_votes_count", project, layout: :with_count_label %>
+    <% else %>
+      <%= budget_to_currency(project.budget_amount) %>
+    <% end %>
   </span>
-  <% unless hide_vote_button? %>
+  <% if voting_open? %>
     <%= cell("decidim/budgets/project_vote_button", project, show_only_added:) %>
   <% end %>
 </div>

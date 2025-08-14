@@ -1,7 +1,6 @@
 <% if @focus_mode %>
   <% content_for :focus_mode, true %>
-  <% content_for :focus_mode_back_button, true %>
-  <% content_for :focus_mode_return_path, budget_focus_projects_path(budget) %>
+  <% content_for :focus_mode_return_path, budget_projects_path(budget) %>
 <% end %>
 
 <% add_decidim_meta_tags(
@@ -26,14 +25,6 @@ edit_link(
 <%= render partial: "exit_modal" %>
 
 <div id="project-item">
-  <%= render partial: "budget_summary", locals: { responsive: true, focus_mode_origin: "show" } %>
-  <% content_for :item_header do %>
-    <% unless voting_finished? %>
-      <%= render partial: "budget_summary", locals: { responsive: false, focus_mode_origin: "show" } %>
-      <%= render partial: "budget_excess" %>
-      <%= render partial: "budget_confirm" %>
-    <% end %>
-  <% end %>
   <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: budget_projects_path(budget) } do %>
     <section class="layout-main__section layout-main__heading">
       <%= cell("decidim/budgets/budget_information_modal", budget) %>
@@ -44,12 +35,12 @@ edit_link(
           <%= render partial: "decidim/shared/static_map", locals: { icon_name: "projects", geolocalizable: project } %>
         </div>
       <% end %>
-      <%= cell("decidim/budgets/project_selected_status", project, as_label: true) %>
+      <%= cell("decidim/budgets/project_selected_status", project) %>
 
       <div class="layout-author">
         <div class="relative flex items-center justify-center w-full">
           <div class="w-10/12 flex items-center gap-4">
-            <h1 class="h1 decorator budget__definition-project__title editor-content">
+            <h1 class="h3 decorator budget__definition-project__title">
               <%= decidim_sanitize translated_attribute project.title %>
             </h1>
           </div>
@@ -95,11 +86,6 @@ edit_link(
     </section>
 
     <% content_for :aside do %>
-      <section class="layout-aside__section layout-aside__buttons hidden md:block">
-        <% if voting_open? %>
-          <%= render partial: "project_budget_button", locals: { project: } %>
-        <% end %>
-      </section>
       <section class="layout-aside__section">
         <span class="budget__definition-data__title">
           <%= t("budget", scope: "decidim.budgets.projects.show") %>
@@ -108,6 +94,17 @@ edit_link(
           <%= budget_to_currency project.budget_amount %>
         </div>
       </section>
+
+      <% if show_votes_count? %>
+        <section class="layout-aside__section">
+          <span class="budget__definition-data__title">
+            <%= t("votes", scope: "decidim.budgets.projects.show") %>
+          </span>
+          <div class="budget__definition-data__number" data-spec-project-votes>
+            <%= cell "decidim/budgets/project_votes_count", project %>
+          </div>
+        </section>
+      <% end %>
     <% end %>
     <% content_for :item_footer do %>
       <%= comments_for project, polymorphic: [project.budget] %>

@@ -11,6 +11,8 @@ module Decidim
 
       helper_method :projects, :project, :budget, :all_geocoded_projects, :tabs, :panels
 
+      before_action :set_focus_mode_if_voting_open
+
       def index
         raise ActionController::RoutingError, "Not Found" unless budget
       end

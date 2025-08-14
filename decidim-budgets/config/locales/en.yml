@@ -84,8 +84,6 @@ en:
         exports:
           projects: Projects
         models:
-          budget:
-            name: Budget
           project:
             name: Project
         projects:
@@ -179,6 +177,7 @@ en:
         cancel_order:
           more_than_one: delete your vote on %{name} and start over
           only_one: delete your vote and start over.
+        completed: Completed
         count:
           one: "%{count} budget"
           other: "%{count} budgets"
@@ -186,6 +185,7 @@ en:
         finished_message: You have finished the voting process. Thanks for participating!
         highlighted_cta: Vote on %{name}
         if_change_opinion: If you have changed your mind, you can
+        incomplete: Incomplete
         orders:
           highest_cost: Highest cost
           label: Order budgets by
@@ -193,6 +193,8 @@ en:
           random: Random order
         progress: Finish voting
         remove_vote: Remove vote
+        see_projects: See projects
+        see_results: See results
         show: See projects
         vote: Vote
         voted_budgets: Voted budgets
@@ -241,6 +243,7 @@ en:
           subject: You have voted on the %{space_name} participatory space
           voted_on_space: You have voted on the %{budget_name} budget for the %{space_name} participatory space.
       projects:
+        back_to_budgets: Back to budgets
         budget_confirm:
           are_you_sure: If you change your mind, you can change your vote later.
           cancel: Cancel
@@ -284,18 +287,16 @@ en:
           assigned: Assigned
           budget: Budget
           dynamic_help:
-            keep_adding_projects: Keep adding projects
             minimum_reached: You have reached the minimum to be able to vote
-            start_adding_projects: Start adding projects
           minimum: Minimum
           minimum_projects_rule:
-            description: Select at least %{minimum_number} projects you want and vote according to your preferences.
+            description: "<b>Select at least %{minimum_number} projects</b> you want and vote according to your preferences."
           projects_rule:
-            description: Select at least %{minimum_number} and up to %{maximum_number} projects you want and vote according to your preferences.
+            description: "<b>Select at least %{minimum_number} and up to %{maximum_number} projects</b> you want and vote according to your preferences."
           projects_rule_maximum_only:
-            description: Select up to %{maximum_number} projects you want and vote according to your preferences.
+            description: "<b>Select up to %{maximum_number} projects</b> you want and vote according to your preferences."
           vote_threshold_percent_rule:
-            description: Assign at least %{minimum_budget} to the projects you want and vote according to your preferences.
+            description: "<b>Assign at least %{minimum_budget}</b> to the projects you want and vote according to your preferences."
         orders:
           highest_cost: Highest cost
           label: Order projects by
@@ -323,7 +324,7 @@ en:
         select_projects: Add projects
         show:
           budget: Budget
-        start_voting: Start voting
+          votes: Votes
       prompt: Select budget
       vote_reminder_mailer:
         vote_reminder:

@@ -45,7 +45,7 @@ module Decidim
       end
 
       def vote_button_classes
-        classes = []
+        classes = ["xl:w-40"]
 
         classes << if resource_added?
                      "success button__secondary budget-list__data--added"
@@ -72,7 +72,7 @@ module Decidim
       end
 
       def authorization_redirect_path
-        options[:authorization_redirect_path] || resource_path
+        budget_projects_path(budget, start_voting: true)
       end
 
       def vote_button_label

@@ -1,12 +1,12 @@
-<% if !voting_finished? && voted? %>
-  <h2 class="h5 md:h3 decorator mb-8">
+<% if voted? || progress? %>
+  <h2 class="h5 md:h3 decorator">
     <%= t("voted_budgets", scope: "decidim.budgets.budgets_list") %>
   </h2>
 
   <%= render :voted %>
 <% end %>
 
-<% if budgets.where.not(id: voted.map(&:id)).exists? %>
+<% if non_voted_budgets.any? %>
   <div id="budgets" class="card__list-list !space-y-5 w-full">
     <%= main_list %>
   </div>
