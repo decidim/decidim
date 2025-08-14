@@ -110,6 +110,8 @@ You can read more about the Rails upgrade process on the following PRs:
 
 ### 1.5. Run these commands
 
+Shakapacker has been upgraded to the latest version. See section 3.10 for troubleshooting errors.
+
 ```console
 bundle update decidim
 bin/rails decidim:upgrade
@@ -422,7 +424,31 @@ This also includes renderers and parsers which used the hashtag object to render
 
 You can read more about this change on PR [#14803](https://github.com/decidim/decidim/pull/14803) and [#14868](https://github.com/decidim/decidim/pull/14868)
 
-### 3.9. [[TITLE OF THE ACTION]]
+### 3.10. Shakapacker upgrade
+
+In our efforts to continuously upgrade the platform, we are upgrading Shakapacker to the latest version available. That is v8.3.0 at the time of this release. If you encounter any error similar to this one:
+
+```console
+**ERROR** Shakapacker: Shakapacker gem and node package versions do not match
+Detected: 7.x.x
+     gem: 8.3.0
+Ensure the installed version of the gem is the same as the version of
+your installed node package.
+Do not use >= or ~> in your Gemfile for shakapacker without a lockfile.
+Do not use ^ or ~ in your package.json for shakapacker without a lockfile.
+```
+
+Please check if you have the following file `package.json`, and edit the version:
+
+```json
+    "shakapacker": "~8.3.0",
+```
+
+If the file does not exist, check and perform the same changes in the `packages/webpacker/package.json`
+
+You can read more about this change on PR [#15016](https://github.com/decidim/decidim/pull/15016).
+
+### 3.11. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 

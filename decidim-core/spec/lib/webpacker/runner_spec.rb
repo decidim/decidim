@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "gem_overrides/shakapacker/runner"
+require "decidim/webpacker/shakapacker"
 
 module Shakapacker
   describe Runner do
