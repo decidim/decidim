@@ -12,6 +12,7 @@ class EtiquetteValidator < ActiveModel::EachValidator
     # remove HTML tags, from WYSIWYG editor
     text_value = clean_value(value)
 
+    validate_empty(record, attribute, text_value)
     validate_caps(record, attribute, text_value)
     validate_marks(record, attribute, text_value)
     validate_caps_first(record, attribute, text_value)
@@ -21,6 +22,12 @@ class EtiquetteValidator < ActiveModel::EachValidator
 
   def clean_value(value)
     ActionController::Base.helpers.strip_tags(value).to_s.strip
+  end
+
+  def validate_empty(record, attribute, value)
+    return if value.present?
+
+    record.errors.add(attribute, options[:message] || :blank)
   end
 
   def validate_caps(record, attribute, value)

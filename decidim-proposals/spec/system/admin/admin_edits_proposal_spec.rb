@@ -55,6 +55,25 @@ describe "Admin edits proposals" do
       expect(page).to have_content("updated the #{translated(attributes[:title])} official proposal")
     end
 
+    it "throws error when updating with empty mandatory field" do
+      visit_component_admin
+
+      within "tr[data-id='#{proposal.id}']" do
+        find("button[data-component='dropdown']").click
+        click_on "Edit proposal"
+      end
+
+      expect(page).to have_content "Update proposal"
+
+      fill_in_i18n :proposal_title, "#proposal-title-tabs", **attributes[:title].except("machine_translations")
+      attributes[:body]["en"].length.times { first(".tiptap.ProseMirror").send_keys(:backspace) }
+      click_on "Update"
+
+      within ".flash__message" do
+        expect(page).to have_content("There was a problem saving the proposal.")
+      end
+    end
+
     context "when the proposal has some votes" do
       before do
         create(:proposal_vote, proposal:)

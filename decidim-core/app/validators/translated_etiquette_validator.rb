@@ -12,6 +12,7 @@ class TranslatedEtiquetteValidator < EtiquetteValidator
 
     text_value = strip_tags(translated_value)
 
+    validate_empty(record, translated_attr, text_value)
     validate_caps(record, translated_attr, text_value)
     validate_marks(record, translated_attr, text_value)
     validate_caps_first(record, translated_attr, text_value)
