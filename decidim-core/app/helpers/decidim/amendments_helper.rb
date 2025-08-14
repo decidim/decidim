@@ -54,15 +54,17 @@ module Decidim
     # Checks if there is a user that can react to an emendation
     def can_react_to_emendation?(emendation)
       return unless current_user && emendation.emendation?
+      return unless current_component.current_settings.amendment_reaction_enabled
 
-      current_component.current_settings.amendment_reaction_enabled
+      allowed_to_accept_and_reject?(emendation)
     end
 
     # Checks if the user can accept and reject the emendation
     def allowed_to_accept_and_reject?(emendation)
       return unless emendation.amendment.evaluating?
+      return current_user.admin? if emendation.amendable.respond_to?(:official?) && emendation.amendable.official?
 
-      emendation.amendable.created_by?(current_user) || current_user.admin?
+      emendation.amendable.created_by?(current_user)
     end
 
     # Checks if the user can promote the emendation
