@@ -22,7 +22,6 @@ import morphdom from "morphdom"
  */
 
 import UserRegistrationForm from "src/decidim/refactor/integration/user_registration_form";
-import FormValidator from "src/decidim/refactor/implementation/form_validator"
 import updateExternalDomainLinks from "src/decidim/refactor/implementation/external_domain_warning"
 import ExternalLink from "src/decidim/refactor/implementation/external_link"
 import Configuration from "src/decidim/refactor/implementation/configuration"
@@ -73,7 +72,6 @@ window.Decidim = window.Decidim || {
   config: new Configuration(),
   ExternalLink,
   InputCharacterCounter,
-  FormValidator,
   Dialogs,
   ConfirmDialog,
   announceForScreenReader
@@ -214,17 +212,6 @@ document.addEventListener("comments:loaded", (event) => {
 });
 
 document.addEventListener("turbo:load", () => {
-
-  // Initialize new FormValidator for all forms
-  document.querySelectorAll("form").forEach((formElement) => {
-    if (!formElement.dataset.formValidator) {
-      formElement._FormValidator = new FormValidator(formElement, {
-        liveValidate: formElement.dataset.liveValidate === "true",
-        validateOnBlur: formElement.dataset.validateOnBlur === "true"
-      });
-      formElement.dataset.formValidator = true;
-    }
-  });
 
   (new UserRegistrationForm("register-form")).initialize();
   (new UserRegistrationForm("omniauth-register-form")).initialize();

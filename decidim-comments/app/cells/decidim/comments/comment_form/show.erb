@@ -1,4 +1,4 @@
-<%= form_for(form_object, url: decidim_comments.comments_path(order:), method: :post, remote: true, html: { id: form_id }) do |form| %>
+<%= decidim_form_for(form_object, url: decidim_comments.comments_path(order:), method: :post, remote: true, html: { id: form_id }) do |form| %>
   <% unless reply? %>
     <div class="comment__form-mobile-banner">
       <p class="font-semibold text-2xl"><%= t("decidim.components.add_comment_form.add_comment") %></p>

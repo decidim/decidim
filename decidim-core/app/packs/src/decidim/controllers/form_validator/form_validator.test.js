@@ -1,10 +1,10 @@
-/* eslint max-lines: ["error", 670] */
+/* eslint max-lines: ["error", 690] */
 /* global jest */
 /**
  * @jest-environment jsdom
  */
 
-import FormValidator from "src/decidim/refactor/implementation/form_validator.js";
+import FormValidator from "src/decidim/controllers/form_validator/form_validator"
 
 describe("FormValidator", () => {
   let formElement = null;
@@ -43,7 +43,7 @@ describe("FormValidator", () => {
     it("should initialize with form element", () => {
       validatorInstance = new FormValidator(formElement);
 
-      expect(validatorInstance.formElement).toBe(formElement);
+      expect(validatorInstance.element).toBe(formElement);
       expect(validatorInstance.validationEnabled).toBe(true);
       expect(validatorInstance.inputElements).toHaveLength(2);
     });
@@ -52,7 +52,7 @@ describe("FormValidator", () => {
       formElement.id = "test-form";
       validatorInstance = new FormValidator("#test-form");
 
-      expect(validatorInstance.formElement).toBe(formElement);
+      expect(validatorInstance.element).toBe(formElement);
     });
 
     it("should throw error for nonexistent form", () => {
@@ -77,11 +77,33 @@ describe("FormValidator", () => {
 
   describe("Static Methods", () => {
     it("should configure global messages", () => {
-      const customMessages = {
-        correctErrors: "Custom error message"
-      };
+      Reflect.defineProperty(window, "Decidim", {
+        writable: true,
+        value: {
+          config: {
+            data: {},
+            set: jest.fn(function(config) {
+              // eslint-disable-next-line no-invalid-this
+              this.data = { ...this.data, ...config };
+            }),
+            get: jest.fn(function(key) {
+              return key
+                // eslint-disable-next-line no-invalid-this
+                ? this.data[key]
+                // eslint-disable-next-line no-invalid-this
+                : this.data;
+            })
+          }
+        }
+      });
 
-      FormValidator.configureMessages(customMessages);
+      window.Decidim.config.set({
+        messages: {
+          forms: {
+            "correct_errors": "Custom error message"
+          }
+        }
+      })
 
       validatorInstance = new FormValidator(formElement);
       validatorInstance.announceFormErrorForScreenReader();

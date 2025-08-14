@@ -1,5 +1,5 @@
 <div class="comment-order-by">
-  <%= form_with url: "#" do %>
+  <%= form_with url: "#", data: { controller: :sort_comments } do %>
     <div class="md:hidden">
       <select id="order-mobile" aria-label="<%= t("decidim.components.comment.sort_by") %>" data-mobile-order-comment-select="true">
         <option class="input-hidden" value="" <%= "disabled selected hidden" %>> <%= t("decidim.components.comment.sort_by") %> </option>

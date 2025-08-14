@@ -1,15 +1,5 @@
 /* eslint max-lines: ["error", 840] */
-/**
- * Default messages used throughout the form validator
- */
-const DEFAULT_MESSAGES = {
-  correctErrors: "There are errors on the form, please correct them."
-};
-
-/**
- * Global messages configuration that can be overridden
- */
-let MESSAGES = DEFAULT_MESSAGES;
+import { getDictionary } from "src/decidim/i18n";
 
 /**
  * FormValidator class provides comprehensive form validation functionality
@@ -18,25 +8,16 @@ let MESSAGES = DEFAULT_MESSAGES;
 class FormValidator {
 
   /**
-   * Configure global messages for all FormValidator instances
-   * @param {Object} messages - Object containing message overrides
-   * @returns {void}
-   */
-  static configureMessages(messages) {
-    MESSAGES = { ...DEFAULT_MESSAGES, ...messages };
-  }
-
-  /**
    * Constructor initializes the FormValidator with form element and options
    * @param {HTMLElement|string} formElement - Form element or CSS selector
    * @param {Object} validationOptions - Configuration options for validation
    */
   constructor(formElement, validationOptions = {}) {
-    this.formElement = typeof formElement === "string"
+    this.element = typeof formElement === "string"
       ? document.querySelector(formElement)
       : formElement;
 
-    if (!this.formElement) {
+    if (!this.element) {
       throw new Error("Form element not found");
     }
 
@@ -74,7 +55,7 @@ class FormValidator {
       ...validationOptions
     };
 
-    this.validationEnabled = true;
+    this.enableValidation()
     this.formnovalidate = null;
     this.validatorInitialized = false;
 
@@ -88,13 +69,13 @@ class FormValidator {
    */
   setupLegacyCompatibility() {
     // Listen for the original form-error.decidim event
-    this.formElement.addEventListener("form-error.decidim", () => {
+    this.element.addEventListener("form-error.decidim", () => {
       this.handleFormError();
     });
 
     // Trigger the legacy event when form validation fails
-    this.formElement.addEventListener("forminvalid.formvalidator", () => {
-      this.formElement.dispatchEvent(new CustomEvent("form-error.decidim"));
+    this.element.addEventListener("forminvalid.formvalidator", () => {
+      this.element.dispatchEvent(new CustomEvent("form-error.decidim"));
     });
   }
 
@@ -106,7 +87,7 @@ class FormValidator {
     this.announceFormErrorForScreenReader();
 
     // Focus on the first invalid input
-    const firstInvalidInput = this.formElement.querySelector(".is-invalid-input");
+    const firstInvalidInput = this.element.querySelector(".is-invalid-input");
     if (firstInvalidInput) {
       firstInvalidInput.focus();
     }
@@ -120,7 +101,7 @@ class FormValidator {
    * @returns {undefined}
    */
   announceFormErrorForScreenReader() {
-    let announceElement = this.formElement.querySelector(".sr-announce");
+    let announceElement = this.element.querySelector(".sr-announce");
 
     if (announceElement) {
       announceElement.remove();
@@ -129,10 +110,10 @@ class FormValidator {
     announceElement = document.createElement("div");
     announceElement.className = "sr-announce sr-only";
     announceElement.setAttribute("aria-live", "assertive");
-    this.formElement.prepend(announceElement);
+    this.element.prepend(announceElement);
 
     setTimeout(() => {
-      announceElement.textContent = MESSAGES.correctErrors;
+      announceElement.textContent = getDictionary("forms.correct_errors");
     }, 100);
   }
 
@@ -141,14 +122,12 @@ class FormValidator {
    * @returns {void}
    */
   initializeValidator() {
-    // Get all input elements except submit buttons
-    this.inputElements = Array.from(this.formElement.querySelectorAll('input:not([type="submit"]), textarea, select'));
-    this.submitElements = Array.from(this.formElement.querySelectorAll('[type="submit"]'));
+    this.inputElements = Array.from(this.element.querySelectorAll('input:not([type="submit"]), textarea, select'));
+    this.submitElements = Array.from(this.element.querySelectorAll('[type="submit"]'));
 
-    // Add accessibility attributes if enabled
     if (this.validationOptions.a11yAttributes) {
       this.inputElements.forEach((inputElement) => this.addAccessibilityAttributes(inputElement));
-      this.formElement.querySelectorAll("[data-form-error]").forEach((errorElement) => this.addGlobalErrorAccessibilityAttributes(errorElement));
+      this.element.querySelectorAll("[data-form-error]").forEach((errorElement) => this.addGlobalErrorAccessibilityAttributes(errorElement));
     }
 
     this.bindFormEvents();
@@ -159,8 +138,7 @@ class FormValidator {
    * @returns {void}
    */
   bindFormEvents() {
-    // Form submission handler
-    this.formElement.addEventListener("submit", (submitEvent) => {
+    this.element.addEventListener("submit", (submitEvent) => {
       if (!this.validateEntireForm()) {
         submitEvent.preventDefault();
         return false;
@@ -168,12 +146,10 @@ class FormValidator {
       return true;
     });
 
-    // Form reset handler
-    this.formElement.addEventListener("reset", () => {
+    this.element.addEventListener("reset", () => {
       this.resetFormValidation();
     });
 
-    // Submit button handlers
     this.submitElements.forEach((submitElement) => {
       submitElement.addEventListener("click", (clickEvent) => {
         this.formnovalidate = clickEvent.target.getAttribute("formnovalidate") !== null;
@@ -186,7 +162,6 @@ class FormValidator {
       });
     });
 
-    // Input validation handlers
     this.inputElements.forEach((inputElement) => {
       if (this.validationOptions.validateOn === "fieldChange") {
         inputElement.addEventListener("change", (changeEvent) => {
@@ -202,6 +177,7 @@ class FormValidator {
 
       if (this.validationOptions.validateOnBlur) {
         inputElement.addEventListener("blur", (blurEvent) => {
+
           this.validateSingleInput(blurEvent.target);
         });
       }
@@ -224,7 +200,6 @@ class FormValidator {
     const failedValidatorNames = [];
     let manageErrorClasses = true;
 
-    // Required check
     if (!this.checkIfInputRequired(inputElement)) {
       failedValidatorNames.push("required");
     }
@@ -240,13 +215,11 @@ class FormValidator {
       if (!this.validateCheckboxGroup(inputElement.name)) {
         failedValidatorNames.push("required");
       }
-      // validateCheckboxGroup handles error classes
       manageErrorClasses = false;
       break;
     case "select":
     case "select-one":
     case "select-multiple":
-      // Required check already handled above
       break;
     default:
       if (!this.validateTextInput(inputElement)) {
@@ -265,7 +238,6 @@ class FormValidator {
       });
     }
 
-    // Equal to validation
     const equalToAttribute = inputElement.getAttribute("data-equalto");
     if (equalToAttribute && !this.validationOptions.validators.equalTo(inputElement)) {
       failedValidatorNames.push("equalTo");
@@ -273,9 +245,8 @@ class FormValidator {
 
     const inputIsValid = failedValidatorNames.length === 0;
 
-    // Handle dependent elements (equalTo)
     if (inputIsValid && inputElement.id) {
-      const dependentElements = this.formElement.querySelectorAll(`[data-equalto="${inputElement.id}"]`);
+      const dependentElements = this.element.querySelectorAll(`[data-equalto="${inputElement.id}"]`);
       dependentElements.forEach((dependentElement) => {
         if (dependentElement.value) {
           this.validateSingleInput(dependentElement);
@@ -283,7 +254,6 @@ class FormValidator {
       });
     }
 
-    // Manage error classes
     if (manageErrorClasses) {
       if (inputIsValid) {
         this.removeInputErrorClasses(inputElement);
@@ -322,7 +292,6 @@ class FormValidator {
     const processedRadioGroups = new Set();
 
     this.inputElements.forEach((inputElement) => {
-      // Only validate one checkbox per group
       if (inputElement.type === "checkbox") {
         if (processedCheckboxGroups.has(inputElement.name)) {
           return;
@@ -342,8 +311,7 @@ class FormValidator {
 
     const formIsValid = !validationResults.includes(false);
 
-    // Handle global error messages
-    this.formElement.querySelectorAll("[data-form-error]").forEach((errorElement) => {
+    this.element.querySelectorAll("[data-form-error]").forEach((errorElement) => {
       if (this.validationOptions.a11yAttributes) {
         this.addGlobalErrorAccessibilityAttributes(errorElement);
       }
@@ -352,12 +320,11 @@ class FormValidator {
         : "block";
     });
 
-    // Trigger form validation events
     const eventName = formIsValid
       ? "formvalid"
       : "forminvalid";
-    this.formElement.dispatchEvent(new CustomEvent(`${eventName}.formvalidator`, {
-      detail: { form: this.formElement, isValid: formIsValid }
+    this.element.dispatchEvent(new CustomEvent(`${eventName}.formvalidator`, {
+      detail: { form: this.element, isValid: formIsValid }
     }));
 
     return formIsValid;
@@ -392,11 +359,10 @@ class FormValidator {
    * @returns {boolean} - True if valid, false otherwise
    */
   validateRadioGroup(groupName) {
-    const radioGroup = this.formElement.querySelectorAll(`input[type="radio"][name="${groupName}"]`);
+    const radioGroup = this.element.querySelectorAll(`input[type="radio"][name="${groupName}"]`);
     let isRequired = false;
     let checkedCount = 0;
 
-    // Check if any radio in group is required
     radioGroup.forEach((radioElement) => {
       if (radioElement.hasAttribute("required")) {
         isRequired = true;
@@ -407,7 +373,6 @@ class FormValidator {
       return true;
     }
 
-    // Check if any radio is checked
     radioGroup.forEach((radioElement) => {
       if (radioElement.checked) {
         checkedCount += 1;
@@ -423,13 +388,12 @@ class FormValidator {
    * @returns {boolean} - True if valid, false otherwise
    */
   validateCheckboxGroup(groupName) {
-    const checkboxGroup = this.formElement.querySelectorAll(`input[type="checkbox"][name="${groupName}"]`);
+    const checkboxGroup = this.element.querySelectorAll(`input[type="checkbox"][name="${groupName}"]`);
     let isRequired = false;
     let isValid = false;
     let minimumRequired = 1;
     let checkedCount = 0;
 
-    // Check requirements and count checked
     checkboxGroup.forEach((checkboxElement) => {
       if (checkboxElement.hasAttribute("required")) {
         isRequired = true;
@@ -450,12 +414,10 @@ class FormValidator {
       isValid = true;
     }
 
-    // Skip validation for multiple required checkboxes before form submission
     if (!this.validatorInitialized && minimumRequired > 1) {
       return true;
     }
 
-    // Update error classes for all checkboxes in group
     checkboxGroup.forEach((checkboxElement) => {
       if (isValid) {
         this.removeInputErrorClasses(checkboxElement);
@@ -520,7 +482,6 @@ class FormValidator {
     inputElement.setAttribute("data-invalid", "");
     inputElement.setAttribute("aria-invalid", "true");
 
-    // Add describedby for visible errors
     const visibleErrorElements = formErrorElements.filter((errorElement) =>
       getComputedStyle(errorElement).display !== "none"
     );
@@ -569,7 +530,7 @@ class FormValidator {
    * @returns {void}
    */
   removeRadioGroupErrorClasses(groupName) {
-    const radioGroup = this.formElement.querySelectorAll(`input[type="radio"][name="${groupName}"]`);
+    const radioGroup = this.element.querySelectorAll(`input[type="radio"][name="${groupName}"]`);
     radioGroup.forEach((radioElement) => {
       const labelElement = this.findInputLabel(radioElement);
       const formErrorElements = this.findFormErrorElements(radioElement);
@@ -591,7 +552,7 @@ class FormValidator {
    * @returns {void}
    */
   removeCheckboxGroupErrorClasses(groupName) {
-    const checkboxGroup = this.formElement.querySelectorAll(`input[type="checkbox"][name="${groupName}"]`);
+    const checkboxGroup = this.element.querySelectorAll(`input[type="checkbox"][name="${groupName}"]`);
     checkboxGroup.forEach((checkboxElement) => {
       const labelElement = this.findInputLabel(checkboxElement);
       const formErrorElements = this.findFormErrorElements(checkboxElement);
@@ -614,7 +575,7 @@ class FormValidator {
    */
   findInputLabel(inputElement) {
     if (inputElement.id) {
-      const labelElement = this.formElement.querySelector(`label[for="${inputElement.id}"]`);
+      const labelElement = this.element.querySelector(`label[for="${inputElement.id}"]`);
       if (labelElement) {
         return labelElement;
       }
@@ -632,23 +593,20 @@ class FormValidator {
     const errorElements = [];
     const inputIdentifier = inputElement.id;
 
-    // Find sibling errors
     const siblingErrorElements = Array.from(inputElement.parentElement.querySelectorAll(this.validationOptions.formErrorSelector));
     errorElements.push(...siblingErrorElements);
 
-    // Find errors by ID reference
     if (inputIdentifier) {
-      const referencedErrorElements = Array.from(this.formElement.querySelectorAll(`[data-form-error-for="${inputIdentifier}"]`));
+      const referencedErrorElements = Array.from(this.element.querySelectorAll(`[data-form-error-for="${inputIdentifier}"]`));
       errorElements.push(...referencedErrorElements);
     }
 
-    // Filter by specific validators if provided
     if (failedValidatorNames.length > 0) {
       const generalErrorElements = errorElements.filter((errorElement) => !errorElement.hasAttribute("data-form-error-on"));
       const specificErrorElements = [];
 
       failedValidatorNames.forEach((validatorName) => {
-        const validatorErrorElements = Array.from(this.formElement.querySelectorAll(`[data-form-error-on="${validatorName}"]`));
+        const validatorErrorElements = Array.from(this.element.querySelectorAll(`[data-form-error-on="${validatorName}"]`));
         specificErrorElements.push(...validatorErrorElements);
       });
 
@@ -674,12 +632,10 @@ class FormValidator {
       this.addAccessibilityErrorDescribe(inputElement, visibleErrorElement);
     }
 
-    // Ensure input has an ID
     if (!inputElement.id) {
       inputElement.id = this.generateUniqueIdentifier("input");
     }
 
-    // Set role=alert on errors
     errorElements.forEach((errorElement) => {
       if (!errorElement.hasAttribute("role")) {
         errorElement.setAttribute("role", "alert");
@@ -721,28 +677,25 @@ class FormValidator {
    * @returns {void}
    */
   resetFormValidation() {
-    // Remove error classes
-    this.formElement.querySelectorAll(`.${this.validationOptions.labelErrorClass}`).forEach((element) => {
+    this.element.querySelectorAll(`.${this.validationOptions.labelErrorClass}`).forEach((element) => {
       element.classList.remove(this.validationOptions.labelErrorClass);
     });
 
-    this.formElement.querySelectorAll(`.${this.validationOptions.inputErrorClass}`).forEach((element) => {
+    this.element.querySelectorAll(`.${this.validationOptions.inputErrorClass}`).forEach((element) => {
       element.classList.remove(this.validationOptions.inputErrorClass);
       element.removeAttribute("data-invalid");
       element.removeAttribute("aria-invalid");
       element.removeAttribute("aria-describedby");
     });
 
-    this.formElement.querySelectorAll(`${this.validationOptions.formErrorSelector}.${this.validationOptions.formErrorClass}`).forEach((element) => {
+    this.element.querySelectorAll(`${this.validationOptions.formErrorSelector}.${this.validationOptions.formErrorClass}`).forEach((element) => {
       element.classList.remove(this.validationOptions.formErrorClass);
     });
 
-    // Hide global errors
-    this.formElement.querySelectorAll("[data-form-error]").forEach((element) => {
+    this.element.querySelectorAll("[data-form-error]").forEach((element) => {
       element.style.display = "none";
     });
 
-    // Reset form values
     this.inputElements.forEach((inputElement) => {
       if (!["button", "submit", "reset", "hidden"].includes(inputElement.type) &&
         !inputElement.hasAttribute("data-validator-ignore")) {
@@ -756,9 +709,8 @@ class FormValidator {
       }
     });
 
-    // Trigger reset event
-    this.formElement.dispatchEvent(new CustomEvent("formreset.formvalidator", {
-      detail: { form: this.formElement }
+    this.element.dispatchEvent(new CustomEvent("formreset.formvalidator", {
+      detail: { form: this.element }
     }));
   }
 
@@ -819,11 +771,11 @@ class FormValidator {
   destroyValidator() {
     // Remove all event listeners by cloning and replacing the form
     // This is a simple way to remove all event listeners
-    this.formElement.removeEventListener("submit", this.validateEntireForm);
-    this.formElement.removeEventListener("reset", this.resetFormValidation);
+    this.element.removeEventListener("submit", this.validateEntireForm);
+    this.element.removeEventListener("reset", this.resetFormValidation);
 
     // Remove error display
-    this.formElement.querySelectorAll("[data-form-error]").forEach((element) => {
+    this.element.querySelectorAll("[data-form-error]").forEach((element) => {
       element.style.display = "none";
     });
 
