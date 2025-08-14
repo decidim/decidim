@@ -72,8 +72,3 @@ fi:
           question: Mikä seuraavista kuvaa parhaiten sukupuoltasi?
         postal:
           question: Mikä on kotiosoitteesi postinumero?
-  layouts:
-    decidim:
-      shared:
-        layout_center:
-          alert: Lahjoittamalla tietosi alustan käytettäväksi osallistut tilastoanalyysiin, joka helpottaa parantamaan osallistumisen laatua. Tietosi kootaan yhteen muiden lahjoittamien tietojen kanssa ja niitä käytetään ainoastaan tutkimustarkoituksiin.
