@@ -19,6 +19,18 @@ module Decidim
 
     delegate :current_user, to: :controller, prefix: false
 
+    def show
+      return unless profile_visible?
+
+      render
+    end
+
+    def profile_minicard
+      return unless profile_visible?
+
+      render
+    end
+
     def author_name
       options[:author_name_text] || model.name
     end
@@ -150,6 +162,13 @@ module Decidim
       return false if options[:skip_profile_link] == true
 
       profile_path.present?
+    end
+
+    def profile_visible?
+      return true if model.respond_to?(:visible?) && model.visible?
+      return true if raw_model.respond_to?(:visible?) && raw_model.visible?
+
+      raw_model.respond_to?(:deleted?) && raw_model.deleted?
     end
 
     def resource_i18n_scope

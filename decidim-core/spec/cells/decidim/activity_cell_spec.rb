@@ -21,7 +21,7 @@ describe Decidim::ActivityCell, type: :cell do
   describe "user" do
     subject { described_class.new(model) }
 
-    let(:author) { create(:user, organization: component.organization) }
+    let(:author) { create(:user, :confirmed, organization: component.organization) }
 
     context "when the author is a user" do
       before do

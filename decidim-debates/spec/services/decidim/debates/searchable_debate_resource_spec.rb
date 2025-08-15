@@ -8,7 +8,7 @@ module Decidim
 
     let(:current_component) { create(:debates_component, manifest_name: "debates") }
     let(:organization) { current_component.organization }
-    let(:author) { create(:user, organization:) }
+    let(:author) { create(:user, :confirmed, organization:) }
     let!(:debate) do
       desc = "Nulla TestCheck accumsan tincidunt description Ow!"
       create(

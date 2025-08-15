@@ -20,7 +20,7 @@ module Decidim
         )
       end
 
-      let(:author) { create(:user, organization:) }
+      let(:author) { create(:user, :confirmed, organization:) }
 
       describe "call" do
         let(:form_params) do

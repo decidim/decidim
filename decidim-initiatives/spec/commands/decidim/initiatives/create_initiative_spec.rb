@@ -47,7 +47,7 @@ module Decidim
         let(:area) { create(:area, organization:) }
         let(:scoped_type) { create(:initiatives_type_scope) }
         let(:organization) { scoped_type.type.organization }
-        let(:author) { create(:user, organization:) }
+        let(:author) { create(:user, :confirmed, organization:) }
         let(:form) do
           form_klass
             .from_params(form_params)
@@ -67,7 +67,7 @@ module Decidim
             area_id: area.id
           }
         end
-        let(:follower) { create(:user, organization:) }
+        let(:follower) { create(:user, :confirmed, organization:) }
         let!(:follow) { create(:follow, followable: author, user: follower) }
 
         it "sets the area" do

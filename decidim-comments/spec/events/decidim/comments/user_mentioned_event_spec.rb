@@ -19,9 +19,9 @@ describe Decidim::Comments::UserMentionedEvent do
   let(:component) { create(:component, participatory_space: participatory_process) }
   let(:commentable) { create(:dummy_resource, component:) }
 
-  let(:author) { create(:user, organization:) }
+  let(:author) { create(:user, :confirmed, organization:) }
   let!(:comment) { create(:comment, body:, author:, commentable:) }
-  let(:user) { create(:user, organization:, locale: "ca") }
+  let(:user) { create(:user, :confirmed, organization:, locale: "ca") }
   let(:notification_title) { "You have been mentioned in <a href=\"#{resource_path}?commentId=#{comment.id}#comment_#{comment.id}\">#{resource_title}</a> by <a href=\"/profiles/#{author.nickname}\">#{author.name} @#{author.nickname}</a>" }
   let(:email_subject) { "You have been mentioned in #{resource_title}" }
   let(:email_intro) { "You have been mentioned" }

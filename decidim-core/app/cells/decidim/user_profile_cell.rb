@@ -20,6 +20,8 @@ module Decidim
     end
 
     def resource_path
+      return "#" unless user.visible?
+
       user.try(:profile_url) || decidim.profile_path(user.nickname)
     end
 

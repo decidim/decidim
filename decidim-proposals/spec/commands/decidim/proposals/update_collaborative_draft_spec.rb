@@ -20,7 +20,7 @@ module Decidim
       end
 
       let!(:collaborative_draft) { create(:collaborative_draft, component:, users: [author]) }
-      let(:author) { create(:user, organization:) }
+      let(:author) { create(:user, :confirmed, organization:) }
 
       let(:has_address) { false }
       let(:address) { nil }

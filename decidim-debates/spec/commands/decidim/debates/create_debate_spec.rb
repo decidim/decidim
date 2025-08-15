@@ -8,7 +8,7 @@ describe Decidim::Debates::CreateDebate do
   let(:organization) { create(:organization, available_locales: [:en, :ca, :es], default_locale: :en) }
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates") }
-  let(:user) { create(:user, organization:) }
+  let(:user) { create(:user, :confirmed, organization:) }
   let(:attachments) { [] }
   let(:taxonomizations) do
     2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
@@ -179,9 +179,9 @@ describe Decidim::Debates::CreateDebate do
   end
 
   describe "events" do
-    let(:author_follower) { create(:user, organization:) }
+    let(:author_follower) { create(:user, :confirmed, organization:) }
     let!(:author_follow) { create(:follow, followable: user, user: author_follower) }
-    let(:space_follower) { create(:user, organization:) }
+    let(:space_follower) { create(:user, :confirmed, organization:) }
     let!(:space_follow) { create(:follow, followable: participatory_process, user: space_follower) }
 
     it "notifies the change to the author followers" do

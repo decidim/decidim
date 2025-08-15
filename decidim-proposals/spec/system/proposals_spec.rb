@@ -626,7 +626,7 @@ describe "Proposals" do
       let!(:most_liked_proposal) { create(:proposal, component:, created_at: 1.month.ago) }
       let!(:likes) do
         3.times.collect do
-          create(:like, resource: most_liked_proposal, author: build(:user, organization:))
+          create(:like, resource: most_liked_proposal, author: build(:user, :confirmed, organization:))
         end
       end
       let!(:less_liked_proposal) { create(:proposal, component:) }

@@ -38,6 +38,19 @@ module Decidim
 
       validate :author_belongs_to_organization
 
+      # Overridden to return a dummy author if the mapped author record is not
+      # visible or if the associated record has been destroyed completely.
+      def author
+        mapped_author = super
+        return unless mapped_author
+        return mapped_author if mapped_author.is_a?(Decidim::Organization)
+        return mapped_author if mapped_author.try(:visible?)
+        return mapped_author if mapped_author.try(:deleted?)
+        return mapped_author if mapped_author.try(:ephemeral?)
+
+        Decidim::User.new(id: 0, name: "", nickname: "", decidim_organization_id: mapped_author.decidim_organization_id)
+      end
+
       # Checks whether the user is author of the given resource
       #
       # user - the user to check for authorship

@@ -453,7 +453,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     proposal { build(:proposal, skip_injection:) }
-    author { build(:user, organization: proposal.organization, skip_injection:) }
+    author { build(:user, :confirmed, organization: proposal.organization, skip_injection:) }
   end
 
   factory :proposal_amendment, class: "Decidim::Amendment" do
@@ -478,7 +478,7 @@ FactoryBot.define do
       end
     end
     proposal { build(:proposal, skip_injection:) }
-    author { build(:user, organization: proposal.organization, skip_injection:) }
+    author { build(:user, :confirmed, organization: proposal.organization, skip_injection:) }
   end
 
   factory :collaborative_draft, class: "Decidim::Proposals::CollaborativeDraft" do
@@ -495,7 +495,9 @@ FactoryBot.define do
 
     after(:build) do |collaborative_draft, evaluator|
       if collaborative_draft.component
-        users = evaluator.users || [create(:user, organization: collaborative_draft.component.participatory_space.organization, skip_injection: evaluator.skip_injection)]
+        users = evaluator.users || [
+          create(:user, :confirmed, organization: collaborative_draft.component.participatory_space.organization, skip_injection: evaluator.skip_injection)
+        ]
         users.each do |user|
           collaborative_draft.coauthorships.build(author: user)
         end
@@ -505,7 +507,7 @@ FactoryBot.define do
     trait :participant_author do
       after :build do |draft, evaluator|
         draft.coauthorships.clear
-        user = build(:user, organization: draft.component.participatory_space.organization, skip_injection: evaluator.skip_injection)
+        user = build(:user, :confirmed, organization: draft.component.participatory_space.organization, skip_injection: evaluator.skip_injection)
         draft.coauthorships.build(author: user)
       end
     end

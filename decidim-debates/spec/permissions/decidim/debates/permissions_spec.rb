@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Debates::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create(:user, organization: debates_component.organization) }
+  let(:user) { create(:user, :confirmed, organization: debates_component.organization) }
   let(:context) do
     {
       current_component: debates_component,

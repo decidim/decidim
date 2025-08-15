@@ -6,8 +6,8 @@ describe Decidim::Meetings::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
   let(:participatory_space) { create(:participatory_process, :with_steps) }
-  let(:user) { create(:user, organization: participatory_space.organization) }
-  let(:admin_user) { create(:user, :admin, organization: participatory_space.organization) }
+  let(:user) { create(:user, :confirmed, organization: participatory_space.organization) }
+  let(:admin_user) { create(:user, :confirmed, :admin, organization: participatory_space.organization) }
   let(:context) do
     {
       current_component: meeting_component,

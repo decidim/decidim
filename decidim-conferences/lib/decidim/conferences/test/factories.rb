@@ -151,7 +151,7 @@ FactoryBot.define do
     end
 
     trait :with_user do
-      user { create(:user, organization: conference.organization, skip_injection:) }
+      user { create(:user, :confirmed, organization: conference.organization, skip_injection:) }
     end
 
     trait :with_meeting do

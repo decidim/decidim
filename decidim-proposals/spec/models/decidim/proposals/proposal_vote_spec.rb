@@ -10,7 +10,7 @@ module Decidim
       let!(:organization) { create(:organization) }
       let!(:component) { create(:component, organization:, manifest_name: "proposals") }
       let!(:participatory_process) { create(:participatory_process, organization:) }
-      let!(:author) { create(:user, organization:) }
+      let!(:author) { create(:user, :confirmed, organization:) }
       let!(:proposal) { create(:proposal, component:, users: [author]) }
       let!(:proposal_vote) { build(:proposal_vote, proposal:, author:) }
 
@@ -50,7 +50,7 @@ module Decidim
       end
 
       context "when proposal and author have different organization" do
-        let(:other_author) { create(:user) }
+        let(:other_author) { create(:user, :confirmed) }
         let(:other_proposal) { create(:proposal) }
 
         it "is invalid" do

@@ -20,7 +20,7 @@ module Decidim
         )
       end
 
-      let(:author) { create(:user, organization:) }
+      let(:author) { create(:user, :confirmed, organization:) }
 
       let(:has_address) { false }
       let(:address) { nil }

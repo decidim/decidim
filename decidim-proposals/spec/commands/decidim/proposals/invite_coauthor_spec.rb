@@ -7,7 +7,7 @@ module Decidim
     describe InviteCoauthor do
       let!(:proposal) { create(:proposal) }
 
-      let(:coauthor) { create(:user, organization: proposal.organization) }
+      let(:coauthor) { create(:user, :confirmed, organization: proposal.organization) }
       let(:command) { described_class.new(proposal, coauthor) }
 
       describe "when the coauthor is valid" do

@@ -8,9 +8,9 @@ module Decidim
       describe "call" do
         let(:component) { create(:proposal_component) }
         let(:organization) { component.organization }
-        let!(:current_user) { create(:user, organization:) }
-        let(:follower) { create(:user, organization:) }
-        let(:other_author) { create(:user, organization:) }
+        let!(:current_user) { create(:user, :confirmed, organization:) }
+        let(:follower) { create(:user, :confirmed, organization:) }
+        let(:other_author) { create(:user, :confirmed, organization:) }
         let(:state) { :open }
         let(:collaborative_draft) { create(:collaborative_draft, component:, state:, users: [current_user, other_author]) }
         let!(:follow) { create(:follow, followable: current_user, user: follower) }

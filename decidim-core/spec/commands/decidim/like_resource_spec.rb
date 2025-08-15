@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   describe LikeResource do
     let(:resource) { create(:dummy_resource) }
-    let!(:current_user) { create(:user, organization: resource.component.organization) }
+    let!(:current_user) { create(:user, :confirmed, organization: resource.component.organization) }
 
     describe "User likes resource" do
       let(:command) { described_class.new(resource, current_user) }

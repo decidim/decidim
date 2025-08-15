@@ -34,7 +34,7 @@ module Decidim
       end
 
       describe "#editable_by?" do
-        let(:author) { create(:user, organization:) }
+        let(:author) { create(:user, :confirmed, organization:) }
 
         context "when user is author" do
           let(:collaborative_draft) do

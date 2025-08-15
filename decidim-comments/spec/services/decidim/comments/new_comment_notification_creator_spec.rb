@@ -10,11 +10,11 @@ describe Decidim::Comments::NewCommentNotificationCreator do
   let(:component) { create(:component, participatory_space: participatory_process) }
   let(:dummy_resource) { create(:dummy_resource, component:, author: commentable_author) }
   let(:commentable) { dummy_resource }
-  let(:mentioned_user) { create(:user, organization:) }
-  let(:another_mentioned_user) { create(:user, organization:) }
-  let(:user_following_comment_author) { create(:user, organization:) }
-  let(:commentable_author) { create(:user, organization:) }
-  let(:commentable_recipient) { create(:user, organization:) }
+  let(:mentioned_user) { create(:user, :confirmed, organization:) }
+  let(:another_mentioned_user) { create(:user, :confirmed, organization:) }
+  let(:user_following_comment_author) { create(:user, :confirmed, organization:) }
+  let(:commentable_author) { create(:user, :confirmed, organization:) }
+  let(:commentable_recipient) { create(:user, :confirmed, organization:) }
 
   let(:mentioned_users) do
     Decidim::User.where(
@@ -40,7 +40,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
   end
 
   describe "when the author is a user" do
-    let(:comment_author) { create(:user, organization:) }
+    let(:comment_author) { create(:user, :confirmed, organization:) }
     let(:comment) { create(:comment, author: comment_author, commentable:, root_commentable: dummy_resource) }
 
     before do
@@ -220,7 +220,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
       end
 
       context "when comment author is not replying to herself" do
-        let(:top_level_comment_author) { create(:user, organization:) }
+        let(:top_level_comment_author) { create(:user, :confirmed, organization:) }
         let(:top_level_comment) { create(:comment, commentable: dummy_resource, author: top_level_comment_author) }
 
         it "notifies the parent comment author" do

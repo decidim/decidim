@@ -20,7 +20,7 @@ module Decidim
       end
 
       describe "deleted user" do
-        let(:model) { create(:user, :deleted) }
+        let(:model) { create(:user, :confirmed, :deleted) }
         let(:query) { "{ id }" }
 
         it "returns nothing" do
@@ -29,7 +29,16 @@ module Decidim
       end
 
       describe "moderated user" do
-        let(:model) { create(:user, :blocked) }
+        let(:model) { create(:user, :confirmed, :blocked) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
+
+      describe "managed user" do
+        let(:model) { create(:user, :confirmed, :managed) }
         let(:query) { "{ id }" }
 
         it "returns nothing" do
@@ -89,7 +98,7 @@ module Decidim
         end
 
         context "when user is deleted" do
-          let(:model) { create(:user, :deleted) }
+          let(:model) { create(:user, :confirmed, :deleted) }
 
           it "returns empty" do
             expect(response).to be_nil

@@ -7,7 +7,7 @@ module Decidim
   describe DownloadYourDataExporter do
     subject { DownloadYourDataExporter.new(user, "download-your-data", "CSV") }
 
-    let(:user) { create(:user, organization:) }
+    let(:user) { create(:user, :confirmed, organization:) }
     let(:organization) { create(:organization) }
     let(:expected_files) do
       # this are the prefixes for the files that could have user generated content

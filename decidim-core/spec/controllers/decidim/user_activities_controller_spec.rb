@@ -7,7 +7,7 @@ module Decidim
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }
-    let!(:user) { create(:user, nickname: "nick", organization:) }
+    let!(:user) { create(:user, :confirmed, nickname: "nick", organization:) }
 
     before do
       request.env["decidim.current_organization"] = organization
@@ -26,6 +26,14 @@ module Decidim
         it "returns the lowercased user" do
           get :index, params: { nickname: "NICK" }
           expect(response).to render_template(:index)
+        end
+      end
+
+      context "with an unconfirmed user" do
+        let!(:user) { create(:user, nickname: "nick", organization:) }
+
+        it "does not return the page" do
+          expect { get :index, params: { nickname: "nick" } }.to raise_error(ActionController::RoutingError, "Profile not published: nick")
         end
       end
     end

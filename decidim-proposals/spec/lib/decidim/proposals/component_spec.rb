@@ -69,10 +69,10 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
 
       before do
         2.times do
-          create(:like, resource: proposal, author: build(:user, organization:))
+          create(:like, resource: proposal, author: build(:user, :confirmed, organization:))
         end
         3.times do
-          create(:like, resource: hidden_proposal, author: build(:user, organization:))
+          create(:like, resource: hidden_proposal, author: build(:user, :confirmed, organization:))
         end
       end
 
@@ -238,7 +238,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
     let(:organization) { participatory_process.organization }
 
     context "when the user is a evaluator" do
-      let!(:user) { create(:user, admin: false, organization:) }
+      let!(:user) { create(:user, :confirmed, admin: false, organization:) }
       let!(:evaluator_role) { create(:participatory_process_user_role, role: :evaluator, user:, participatory_process:) }
 
       before do
@@ -251,7 +251,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
     end
 
     context "when the user is an admin" do
-      let!(:user) { create(:user, admin: true, organization:) }
+      let!(:user) { create(:user, :confirmed, admin: true, organization:) }
 
       it "exports all proposals from the component" do
         expect(subject).to contain_exactly(unassigned_proposal, assigned_proposal)
@@ -261,7 +261,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
     context "when proposal is moderated" do
       let(:hidden_proposal) { create(:proposal, component:) }
       let!(:moderation) { create(:moderation, hidden_at: 6.hours.ago, reportable: hidden_proposal) }
-      let!(:user) { create(:user, admin: true, organization:) }
+      let!(:user) { create(:user, :confirmed, admin: true, organization:) }
 
       it "exports all proposals from the component" do
         expect(subject).to include(unassigned_proposal, assigned_proposal)

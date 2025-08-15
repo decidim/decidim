@@ -7,7 +7,7 @@ FactoryBot.define do
     transient do
       skip_injection { false }
     end
-    author { build(:user, organization: commentable.organization, skip_injection:) }
+    author { build(:user, :confirmed, organization: commentable.organization, skip_injection:) }
     commentable { build(:dummy_resource, :published, skip_injection:) }
     root_commentable { commentable }
     body { Decidim::Faker::Localized.paragraph }
@@ -28,7 +28,7 @@ FactoryBot.define do
     end
 
     trait :comment_on_comment do
-      author { build(:user, organization: root_commentable.organization, skip_injection:) }
+      author { build(:user, :confirmed, organization: root_commentable.organization, skip_injection:) }
       commentable do
         build(
           :comment,
@@ -61,7 +61,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     comment { build(:comment, skip_injection:) }
-    author { build(:user, organization: comment.organization, skip_injection:) }
+    author { build(:user, :confirmed, organization: comment.organization, skip_injection:) }
     weight { [-1, 1].sample }
 
     trait :up_vote do
