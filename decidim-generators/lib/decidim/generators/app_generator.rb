@@ -248,9 +248,10 @@ module Decidim
         RUBY
 
         redis_version = begin
+          require "redis"
           ver = Redis.new.call("INFO").lines(chomp: true).find { |l| l.start_with?("redis_version:") }.split(":", 2).last
           Gem::Version.new(ver)
-        rescue Redis::CannotConnectError
+        rescue LoadError, Redis::CannotConnectError
           # This does not have to be the actual Redis version, it can be
           # anything that is above any of the version checks below to default to
           # the latest Sidekiq version.
