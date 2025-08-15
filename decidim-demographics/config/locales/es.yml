@@ -72,3 +72,8 @@ es:
           question: '¿Cuál de las siguientes opciones describe mejor tu género?'
         postal:
           question: '¿Cuál es el código postal de tu domicilio?'
+  layouts:
+    decidim:
+      shared:
+        layout_center:
+          alert: Al proporcionar esta información, usted contribuye al análisis estadístico que ayuda a mejorar el indicador de calidad. Sus datos serán agregados y utilizados únicamente para fines de investigación.
