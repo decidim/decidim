@@ -418,10 +418,73 @@ fi:
                 </ul>
               title: 'Tämä sisältölohko esittää kahta erityyppistä tilastomittaria:'
             citizen_influence:
+              citizen_decisional_intervention:
+                legend: Kuinka monessa prosessin vaiheista (päätettävien asioiden valinnasta toteutuksen valvontaan) kansalaisilla on mahdollisuus tehdä päätöksiä tai toimeenpanovaltaa?
+                options:
+                  five: 80 - 100%
+                  four: 60 - 80%
+                  one: 0 - 20%
+                  three: 40 - 60%
+                  two: 20 - 40%
+              citizen_influence_level:
+                legend: Tämä tilasto mittaa kansalaisvaikuttamisen todellista tasoa prosessissa mittaamalla erityisesti kansalaisten päätöksenteko- ja toimeenpanovaltaa. Vastakkaisina ääripäinä tässä tilastossa ovat pelkkä tiedonsaanti ja todellinen suora päätöksenteko tai resurssien hallinnoiminen kansalaisten toimesta.
+                options:
+                  five: Osallistujat hallitsevat päätöksentekoprosessia, resursseja sekä päätösten toimeenpanoa
+                  four: Osallistujia huomioitiin päätöksenteossa
+                  one: Osallistujat saivat tietoa organisaatiolta
+                  three: Osallistujat käyttivät päätöksentekovaltaa yhdessä viranhaltijoiden tai päättäjien kanssa
+                  two: Osallistujia kuultiin asioiden käsittelyssä tai he antoivat palautetta organisaatiolle
               name: Kansalaisvaikuttaminen
             inclusiveness:
               description: Inklusiivisuus kulttuurillisen alkuperän tai toiminnallisen monimuotoisuuden perusteella.
+              digital_support_offered:
+                legend: Onko osallistujille tarjottu digitaalista tukea?
+                options:
+                  five: 'Kyllä'
+                  two_five: Osittain
+                  zero: 'Ei'
+              functional_diversity_invited:
+                legend: Onko toimihenkilöiden ja osallistujien monimuotoisuus ollut verrannollinen prosessia koskettavan väestön monimuotoisuuteen?
+                options:
+                  five: Hyvä
+                  one: Matala
+                  two_five: Riittävä
+                  zero: Ei ollenkaan
+              languages_communicated:
+                legend: Kuinka montaa eri kieltä tässä prosessissa on käytetty?
+                options:
+                  five: Yli puolia yhteisön puhumista kielistä
+                  one: Yhtä kieltä
+                  two_five: Alle puolia yhteisön puhumista kielistä
+              mobility_meeting_access:
+                legend: Olivatko tapahtumapaikat kasvokkain järjestetyissä tapaamisissa liikuntarajoitteistan henkilöiden saavutettavissa?
+                options:
+                  five: 'Kyllä'
+                  two_five: Osittain
+                  zero: 'Ei'
               name: Inklusiivisuus
+              participation_scheduling_times:
+                legend: Osallistumistilaisuuksia on järjestetty eri aikoina (aamulla, keskipäivällä, iltapäivällä, iltaisin ja viikonloppuisin).
+                options:
+                  five: 'Kyllä'
+                  two_five: Osittain
+                  zero: 'Ei'
+            informativeness:
+              information_provided:
+                legend: Onko osallistujille annettu tarpeeksi tietoa, millaiset heidän vaikutsmahdollisuutensa ovat keskustelun kohteena olevaan aiheeseen? (prosessista kommunikoitaessa, kutsuissa tilaisuuksiin, sekä jokaisen tilaisuuden alussa ja lopussa)
+                options:
+                  five: Aina
+                  one: En juuri koskaan
+                  two_five: Yleensä
+                  zero: Ei koskaan
+              name: Tiedottaminen
+              published_information_clarity:
+                legend: Selventääkö julkaistu tieto käytettyjä päätöksentekotapoja? (esim. äänestykset, yksimielisyys, suorat neuvottelut)
+                options:
+                  five: Täysi selkeys
+                  one: Vähäinen selkeys
+                  two_five: Riittävä selkeys
+                  zero: Ei ollenkaan
           highlighted_processes:
             active: Aktiiviset
             all: Kaikki
@@ -478,13 +541,18 @@ fi:
           global_score:
             description_html: Tältä sivulta löydät erilaisia tilastoja, joiden avulla voit arvioida osallistumisprosessien demokraattista laatua. Löydät lisää tietoa näiden tilastojen laskennasta <a href="%{info_url}">demokraattisten laatumittareiden tietosivulta</a>.
             name: Yleinen arvosana
+            note: "*Suuntaa-antavat arvot mitataan asteikolla 1-5, jossa 1 edustaa alhaisinta ja 5 korkeinta laatua."
             tooltip: Lasketaan kaikkien mittareiden keskiarvona
+          name: Laatuindikaattori
           qualitative_metrics:
             description: Nämä tilastot saadaan alustan hallintakäyttäjien antamista vastauksista itsearviointikyselyyn.
             indicators:
               citizen_influence: Kansalaisvaikuttaminen
               citizen_influence_tooltip: Mittaa kuinka hyvin osallistujien mielipiteitä on otettu huomioon päätöksenteossa.
               inclusiveness: Inklusiivisuus
+              inclusiveness_tooltip: Arvioi, kuinka monipuolisesti eri ryhmiä edustavat asiasta kiinnostuneet tahot ovat olleet edustettuina.
+              informativeness: Tiedottaminen
+              informativeness_tooltip: Mittaa prosessin aikana jaetun tiedon selkeyden tasoa.
             name: Itsearvioinnin tilastot
         extra_data:
           name: Vaihe ja kesto
@@ -553,6 +621,210 @@ fi:
         related_processes: Liittyvät prosessit
       static_pages:
         democratic_quality_indicators:
+          content: |-
+            <h2>Tilastojärjestelmä osallistumisen laadun mittaamiseen Decidim-alustalla</h2>
+
+            <h3>Johdanto</h3>
+            <p>Demokraattinen laatu on Decidim-alustan ydinperiaate. Ylläpitääksemme tätä, olemme kehittäneet tilastojärjestelmän, jonka avulla alustalla olevien osallistumisprosessien laatua voidaan arvioida. Tämä sivu selventää, kuinka nämä tilastot lasketaan.</p>
+
+            <h3>Kuinka tilastot lasketaan?</h3>
+            <p>Määrittelimme kaksi menetelmää laatuindikaattorien keräämiseksi:</p>
+
+            <ol>
+             <li><strong>Automaattiset tilastot:</strong> nämä lasketaan suoraan Decidim-alustalla olevista tiedoista.</li>
+             <li><strong>Itsearvioinnin kysymykset:</strong> nämä perustuvat hallintakäyttäjien antamiin kyselylomakkeen vastauksiin.</li>
+            </ol>
+
+            <p>Jokainen tilasto esitetään prosentuaalisena arvona (n/kokonaismäärä). Tämä prosentuaalinen osuus pisteytetään asteikolla 1-5 seuraavasti:</p>
+
+            <ul>
+             <li>1 = 0–20%</li>
+             <li>2 = 20–40%</li>
+             <li>3 = 40–60%</li>
+             <li>4 = 60–80%</li>
+             <li>5 = 80–100%</li>
+            </ul>
+
+            <br><br>
+            <h3>Automaattiset tilastot</h3>
+            <p>Nämä tilastot lasketaan automaattisesti Decidim-alustalla olevien tietojen avulla. Tilastot lasketaan erikseen jokaiselle osallistumisprosessille ja hallintakäyttäjät voivat julkaista nämä tiedot osallistujien nähtäväksi.</p>
+
+            <p>Määritimme neljä tilastoa: kansalaisvaikuttaminen, hybridisointi, reaktiivisuus ja seurattavuus.</p>
+
+            <h3>Kansalaisvaikuttaminen</h3>
+
+            <p>Tämä tilasto mittaa kansalaisvaikuttamisen tasoa hyväksyttyjen ehdotusten ja prosessien lopputulosten osalta.</p>
+
+            <ul>
+             <li>
+             Kansalaisvaikuttaminen ehdotusten kautta
+             <ul>
+             <li>Hyväksyttyjen ehdotusten määrä (n/kokonaismäärä)</li>
+             <li>Hyväksyttyjen <em>kansalaisten</em> jättämien ehdotusten prosentuaalinen osuus kaikista kansalaisten jättämien ehdotusten määrästä (kansalaisvaikuttamisen kokonaistaso hyväksyttyihin ehdotuksiin)</li>
+             <li>Hyväksyttyjen kansalaisten jättämien ehdotusten prosentuaalinen osuus kaikkien hyväksyttyjen ehdotusten määrästä (suhteellinen kansalaisten vaikutusvalta hyväksyttyihin ehdotuksiin)</li>
+             </ul>
+             </li>
+             <li>
+             Kansalaisvaikuttaminen johtopäätöksiin tai lopputuloksiin
+             <ul>
+             <li>Ehdotuksiin liitettyjen tulosten prosentuaalinen määrä kaikkien tulosten määrästä (kansalaisvaikuttamisen kokonaistaso lopputuloksiin)</li>
+             </ul>
+             </li>
+            </ul>
+
+            <h3>Hybridisointi</h3>
+
+            <p>Tämä tilasto mittaa verkossa ja verkon ulkopuolella olevien tilojen yhdistämisen tasoa prosessin aikana</p>
+
+            <ul>
+             <li>Onko prosessissa järjestetty tapaamisia? (Kyllä=5, Ei=0)</li>
+             <li>Onko prosessin aikana ollut naamatusten järjestettyjä fyysisiä tapaamisia? (Kyllä=5, Ei=0)</li>
+             <li>Onko prosessin aikana ollut verkkotapaamisia? (Kyllä=5, Ei=0)</li>
+             <li>Onko prosessin aikana ollut hybriditapaamisia? (Kyllä=5, Ei=0)</li>
+             <li>Onko tapaamisten perusteella luotu ehdotuksia? (Kyllä=5, Ei=0)</li>
+            </ul>
+
+            <h3>Reaktiivisuus</h3>
+
+            <p>Tämä tilasto mittaa organisaation reaktiivisuuden tasoa osallistujien aktiivisuuteen nähden. Tilasto kertoo, kuinka hyvin viranhaltijat ovat sitoutuneet antamaan virallisia vastauksia ja toteuttamaan tehtyjä päätöksiä.</p>
+
+            <ul>
+             <li>Vastattujen ehdotusten prosentiaalinen osuus (n/kokonaismäärä) – Viranhaltijoiden reaktiivisuus ehdotuksiin</li>
+             <li>100% valmistuneiden tulosten prosentuaalinen osuus (n/kokonaismäärä)</li>
+            </ul>
+
+            <h3>Seurattavuus</h3>
+
+            <p>Tämä tilasto mittaa osallistumisprosessin läpinäkyvyyttä ja seurattavuutta. Tilasto kertoo, miten helposti osallistujat voivat seurata ehdotusten kehittymistä ja etenemistä sekä tarkastaa viranhaltijoiden suorittamia toimenpiteitä julkaistujen tietojen pohjalta.</p>
+
+            <ul>
+             <li>Muutettujen ehdotusten prosentuaalinen osuus (n/kokonaismäärä)</li>
+             <li>Ehdotuksiin linkattujen tulosten prosentuaalinen osuus (n/kokonaismäärä)</li>
+             <li>Julkaistun tapaamismuistion kanssa suljettujen tapaamisten prosentuaalinen osuus (n/kokonaismäärä)</li>
+             <li>Avoimen datan moduulin aktivoiminen (kahtiajako: 0 tai 5)</li>
+             <li>Budjetteihin liitettyjen ehdotusten prosentuaalinen osuus (n/kokonaismäärä)</li>
+            </ul>
+
+            <br><br>
+            <h3>Itsearvioinnin tilastot</h3>
+
+            <p>Automaattisten tilastojen lisäksi ehdotamme <strong>itsearviointikyselyn</strong> käyttämistä jokaisen osallistumisprosessin laadun arvioinnissa. Hallintakäyttäjät täyttävät tämän lomakkeen jokaisen prosessin lopuksi ja sen vastaukset näytetään julkisesti tilastomittareille tarkoitetun sisältölohkon kautta.</p>
+
+            <p>Näiden kysymysten avulla pyritään keräämään demokraattisen laadun näkokulmia, joita ei voi arvioida ainoastaan määrällisen tilastoanalyysin perusteella. On tärkeää huomioida, että tämän kyselyn vastaukset ovat puolueellisia ja perustuvat hallintakäyttäjien mielipiteisiin.</p>
+
+            <br><br>
+            <h3>Itsearvioinnin kysymykset</h3>
+
+            <p>Hallintakäyttäjien itsearviointiin sisältyvät kysymykset sekä kuhunkin vastaukseen liittyvät arvot on selitetty alla.</p>
+
+            <h4>Inklusiivisuus</h4>
+
+            <p>Inklusiivisuus kulttuurillisen alkuperän tai toiminnallisen monimuotoisuuden perusteella.</p>
+
+            <ol>
+             <li>Onko maahanmuuttajaryhmiä kutsuttu osallistumaan?
+             <ul>
+             <li>Kyllä = 5</li>
+             <li>Ei = 0</li>
+             </ul>
+             </li>
+             <li>Kuinka monta toiminnallisen monimuotoisuuden ryhmiin kuuluvaa ihmistä on osallistunut kutsuttujen joukosta?
+             <ul>
+             <li>0-20% = 1</li>
+             <li>20-40% = 2</li>
+             <li>40-60% = 3</li>
+             <li>60-80% = 4</li>
+             <li>80-100% = 5</li>
+             </ul>
+             </li>
+             <li>Onko toiminnallisen monimuotoisuuden ihmisryhmiä kutsuttu osallistumaan?
+             <ul>
+             <li>Kyllä = 5</li>
+             <li>Ei = 0</li>
+             </ul>
+             </li>
+             <li>Kuinka monta toiminnallisen monimuotoisuuden ryhmiin kuuluvaa ihmistä on osallistunut kutsuttujen joukosta?
+             <ul>
+             <li>0-20% = 1</li>
+             <li>20-40% = 2</li>
+             <li>40-60% = 3</li>
+             <li>60-80% = 4</li>
+             <li>80-100% = 5</li>
+             </ul>
+             </li>
+            </ol>
+
+            <h4>Merkityksellisyys</h4>
+
+            <p>Vaikutuksen merkityksellisyys osuutena organisaation budjetista, työvoimasta tai asukasmäärästä, joihin tämän prosessin tulokset ovat vaikuttaneet sekä vaikutuksen ajankohta.</p>
+
+            <ol>
+             <li>Prosenttiosuus organisaation budjetista, työntekijöistä tai väestömäärästä, joihin tämän prosessin tulokset ovat vaikuttaneet.
+             <ul>
+             <li>0-20% = 1</li>
+             <li>20-40% = 2</li>
+             <li>40-60% = 3</li>
+             <li>60-80% = 4</li>
+             <li>80-100% = 5</li>
+             </ul>
+             </li>
+            </ol>
+
+            <h4>Kansalaisvaikuttaminen</h4>
+
+            <ol>
+             <li>Kansalaisvaikuttamisen taso prosessissa käytössä olevien osallistumistapojen perusteella Sherry Arnsteinin (1969) määrittelemien osallistumisen portaiden mukaisesti.
+             <ul>
+             <li>Informointi = 0
+             <p>Yhdensuuntainen tiedonkulku viranhaltijoilta kansalaisille ilman kuulemista ja neuvottelumahdollisuuksia.</p>
+             </li>
+             <li>Kuuleminen = 1
+             <p>Osallistumisprosessi, jossa kansalaisten mielipiteitä tiedustellaan tyypillisesti kyselyiden tai tapaamisten avulla, mutta ilman varmuutta näiden mielipiteiden vaikutuksista päätöksiin.</p>
+             </li>
+             <li>Kansalaisten mielistely = 2
+             <p>Osallistumisprosessi, jossa kansalaisille annetaan rajoitetut vaikutusmahdollisuudet usein symbolisella tavalla, kuten ottamalla heitä jäseniksi komiteoihin, joissa heillä ei ole päätöksentekovaltaa, koska perinteinen valtaeliitti tekee kaikki päätökset heidän puolestaan.</p>
+             </li>
+             <li>Kansalaisyhteistyö = 3
+             <p>Osallistumisprosessi, jossa kansalaiset ja organisaatiot jakavat päätöksentekovallan mahdollistamalla osallistujien neuvotella, kohdentaa resursseja ja vaikuttaa suunnitteluun sellaisilla säännöillä, joita ei voi yksipuolisesti muuttaa. Tämäntyyppinen osallistuminen syntyy usein kansanliikkeistä ja yhteisöllisen toiminnan kautta.</p>
+             </li>
+             <li>Edustuksellinen tai delegoitu valta = 4
+             <p>Osallistumisprosessi, jossa kansalaisille annetaan vaikutusvaltaa, hallinnointioikeuksia tai rahoitusta organisaation hallinnoimiseksi.</p>
+             </li>
+             <li>Kansalaisten suora päätöksenteko = 5
+             <p>Osallistumisen korkein taso, jossa kansalaiset hallitsevat ohjelmaa tai toimijaa hallinnoimalla sen käytäntöjä, resursseja ja päätöksentekoa ilman ulkopuolista vaikutusta näihin päätöksiin.</p>
+             </li>
+             </ul>
+             </li>
+             <li>Prosentuaalinen osuus vaiheista, joissa kansalaisilla on mahdollisuus tehdä päätöksiä asteikolla 0-5.
+             <p>Kuinka monessa prosessin vaiheista (päätettävien asioiden valinnasta toteutuksen valvontaan) kansalaisilla on mahdollisuus tehdä päätöksiä tai toimeenpanovaltaa?</p>
+             <ul>
+             <li>0-20% = 1</li>
+             <li>20-40% = 2</li>
+             <li>40-60% = 3</li>
+             <li>60-80% = 4</li>
+             <li>80-100% = 5</li>
+             </ul>
+             </li>
+            </ol>
+
+            <h4>Saavutettavuus</h4>
+
+            <ol>
+             <li>Kuinka monella kielellä tästä prosessista on viestitty?
+             <ul>
+             <li>Yhdellä kielellä = 1</li>
+             <li>Alle puolilla yhteisön puhumista kielistä = 2,5</li>
+             <li>Yli puolilla yhteisön puhumista kielistä = 5</li>
+             </ul>
+             </li>
+             <li>Olivatko tapahtumapaikat kasvokkain järjestetyissä tapaamisissa liikuntarajoitteistan henkilöiden saavutettavissa?
+             <ul>
+             <li>Ei = 0</li>
+             <li>Osittain = 2,5</li>
+             <li>Kyllä = 5</li>
+             </ul>
+             </li>
+            </ol>
           title: Demokraattiset laatumittarit
     statistics:
       processes_count: Prosessia
