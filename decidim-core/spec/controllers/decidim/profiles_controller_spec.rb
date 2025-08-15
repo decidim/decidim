@@ -20,6 +20,14 @@ module Decidim
           expect(response).to render_template(:show)
         end
       end
+
+      context "with an unconfirmed user" do
+        let!(:user) { create(:user, nickname: "nick", organization:) }
+
+        it "does not return the page" do
+          expect { get :show, params: { nickname: "nick" } }.to raise_error(ActionController::RoutingError)
+        end
+      end
     end
 
     describe "#show" do
@@ -46,7 +54,7 @@ module Decidim
         end
       end
 
-      context "when an unconfirmed user" do
+      context "with an unconfirmed user" do
         let!(:user) { create(:user, nickname: "nick", organization:) }
 
         it "does not return the page" do
