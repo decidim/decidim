@@ -50,7 +50,7 @@ module Decidim
       end
 
       def self.authorized?(object, context)
-        super && object.confirmed? && !object.blocked? && !object.deleted?
+        super && object.visible?
       end
     end
   end

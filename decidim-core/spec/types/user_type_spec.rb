@@ -37,6 +37,15 @@ module Decidim
         end
       end
 
+      describe "managed user" do
+        let(:model) { create(:user, :confirmed, :managed) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
+
       describe "name" do
         let(:query) { "{ name }" }
 
