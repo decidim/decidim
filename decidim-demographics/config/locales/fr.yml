@@ -72,3 +72,8 @@ fr:
           question: Parmi les énoncés suivants, lequel décrit le mieux votre genre ?
         postal:
           question: Quel est le code postal de votre lieu de résidence ?
+  layouts:
+    decidim:
+      shared:
+        layout_center:
+          alert: En fournissant ces informations, vous contribuez à l'analyse statistique qui aide à améliorer l'indicateur de qualité. Vos données seront agrégées et utilisées uniquement à des fins de recherche.
