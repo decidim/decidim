@@ -258,10 +258,10 @@ module Decidim
           Gem::Version.new("8.0.0")
         end
 
-        if redis_version < Gem::Version("6.2.0")
+        if redis_version < Gem::Version.new("6.2.0")
           # Sidekiq 7.x requires Redis 6.2.0 or newer
           append_file "Gemfile", %(gem "sidekiq", "~> 6.5")
-        elsif redis_version < Gem::Version("7.0.0")
+        elsif redis_version < Gem::Version.new("7.0.0")
           # Sidekiq 8.x requires Redis 7.0.0 or newer
           append_file "Gemfile", %(gem "sidekiq", "~> 7.3")
         else
