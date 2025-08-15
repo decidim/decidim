@@ -348,6 +348,23 @@ pl:
     participatory_processes:
       admin:
         content_blocks:
+          democratic_quality_stats_settings_form:
+            citizen_influence:
+              citizen_decisional_intervention:
+                legend: Ze wszystkich etapów procesu (od wybierania zagadnień do nadzorowania wykonania), w ilu z nich obywatele mają możliwość podejmowania decyzji lub działań wykonawczych?
+                options:
+                  five: 80 - 100%
+                  four: 60 - 80%
+                  one: 0 - 20%
+                  three: 40 - 60%
+                  two: 20 - 40%
+              citizen_influence_level:
+                legend: Ten wskaźnik mierzy stopień siły sprawczości obywateli w danym procesie, w szczególności określając ilościowo poziom uprawnień decyzyjnych i wykonawczych przysługujących obywatelom, począwszy od zwykłego otrzymywania informacji do aktywnego wpływania na decyzje i zarządzania zasobami.
+                options:
+                  five: Uczestnicy byli zaangażowani w proces decyzyjny i zarządzanie zasobami lub w proces wdrażania
+                  four: Uczestnicy byli w zdecydowany sposób zaangażowani w proces podejmowania decyzji
+                  one: Uczestnicy otrzymali informacje od organizacji
+                  three: Uczestnicy byli zaangażowani w dzielenie się uprawnieniami decyzyjnymi
           highlighted_processes:
             active: Aktywny
             all: Wszystkie
