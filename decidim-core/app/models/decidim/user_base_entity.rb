@@ -32,11 +32,15 @@ module Decidim
     scope :confirmed, -> { where.not(confirmed_at: nil) }
     scope :not_confirmed, -> { where(confirmed_at: nil) }
 
-    # Visible user entities (users or groups) are those that should appear
-    # publicly on the platform, such as on their personal profile page, the
-    # GraphQL API or other places where the user may appear.
+    # Visible user entities are those that should appear publicly on the
+    # platform, such as on their personal profile page, the GraphQL API or
+    # other places where the user may appear.
     scope :visible, lambda {
-      profile_published.not_blocked.merge(Decidim::User.tos_accepted)
+      profile_published.not_blocked.merge(
+        Decidim::User.tos_accepted.or(
+          Decidim::UserBaseEntity.where.not(type: "Decidim::User")
+        )
+      )
     }
 
     # User entities (user groups) that have their profile visible on the
