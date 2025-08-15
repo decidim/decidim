@@ -21,6 +21,10 @@ module Decidim
       field :organization_name, Decidim::Core::TranslatedFieldType, "The user's organization name", null: false
       field :profile_path, GraphQL::Types::String, "The user's profile url", null: false
 
+      def name
+        object.presenter.name
+      end
+
       def nickname
         object.presenter.nickname
       end
