@@ -379,6 +379,62 @@ fr:
     participatory_processes:
       admin:
         content_blocks:
+          democratic_quality_stats_settings_form:
+            citizen_influence:
+              citizen_decisional_intervention:
+                options:
+                  five: 80 - 100%
+                  four: 60 - 80%
+                  one: 0 - 20%
+                  three: 40 - 60%
+                  two: 20 - 40%
+            inclusiveness:
+              digital_support_offered:
+                legend: Un accompagnement numérique a-t-il été offert aux participants?
+                options:
+                  five: 'Oui'
+                  two_five: Partiellement
+                  zero: 'Non'
+              functional_diversity_invited:
+                legend: Comment le degré de diversité des agents et des participants est-il évalué par rapport à la population de référence dans le processus?
+                options:
+                  five: Bonne
+                  one: Faible
+                  two_five: Suffisante
+                  zero: Aucune
+              languages_communicated:
+                legend: Combien de langues ont été utilisées au cours du processus ?
+                options:
+                  five: Plus de la moitié des langues parlées dans la communauté
+                  one: Une langue
+                  two_five: Moins de la moitié des langues parlées dans la communauté
+              mobility_meeting_access:
+                legend: Les lieux des réunions en face à face étaient-ils accessibles aux personnes à mobilité réduite?
+                options:
+                  five: 'Oui'
+                  two_five: Partiellement
+                  zero: 'Non'
+              participation_scheduling_times:
+                legend: Les séances de participation ont été organisées à des horaires variés (matin, midi, après-midi, soir et week-end).
+                options:
+                  five: 'Oui'
+                  two_five: Partiellement
+                  zero: 'Non'
+            informativeness:
+              information_provided:
+                options:
+                  five: Toujours
+                  one: Presque jamais
+                  two_five: Généralement
+                  zero: Jamais
+              name: Clarté de l'information
+              published_information_clarity:
+                legend: Est-ce que les informations publiées apportent de la clarté sur les mécanismes de prise de décision? (par exemple vote, consensus, négociations directes)
+                options:
+                  five: Entière clarté
+                  one: Clarté insuffisante
+                  two_five: Clarté suffisante
+                  zero: Aucune clarté
           highlighted_processes:
             active: Actif(s)
             all: Tout
@@ -424,7 +480,13 @@ fr:
             description: Ces indicateurs sont obtenus automatiquement à partir des données de la plate-forme.
           global_score:
             name: Score global
+            note: "*Les valeurs indicatives sont mesurées sur une échelle de 1 à 5, où 1 représente le plus bas et 5 le plus haut indicateur de qualité."
             tooltip: Calculée en tant que moyenne de toutes les dimensions
+          name: Indicateur de qualité
+          qualitative_metrics:
+            indicators:
+              informativeness: Clarté de l'information
+              informativeness_tooltip: Mesure le niveau de clarté et d'information fournis dans le processus.
         extra_data:
           name: Phase & durée
         hero:
