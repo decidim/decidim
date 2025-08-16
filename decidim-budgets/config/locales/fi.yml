@@ -49,6 +49,7 @@ fi:
         confirm_delete_project: Haluatko varmasti poistaa tämän projektin?
         deleted_budgets_info: Poistetut budjetit voidaan palauttaa roskakorista.
         edit: Muokkaa
+        edit_projects: Lisää projekteja
         import: Tuo ehdotuksia projekteiksi
         new_budget: Uusi budjetti
         new_project: Uusi projekti

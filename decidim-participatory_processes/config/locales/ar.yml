@@ -4,9 +4,6 @@ ar:
       participatory_process:
         announcement: إعلان
         area_id: منطقة
-        copy_categories: نسخ الفئات
-        copy_components: نسخ المكونات
-        copy_steps: نسخ الخطوات
         decidim_area_id: منطقة
         description: وصف
         developer_group: مجموعة المروجين
@@ -128,11 +125,6 @@ ar:
           fields:
             invitation_accepted_at: تم قبول الدعوة في
             invitation_sent_at: تم إرسال الدعوة في
-      participatory_process_copies:
-        new:
-          copy: نسخ
-          select: حدد البيانات التي ترغب في تكرارها
-          title: عملية تشاركية مكررة
       participatory_process_groups:
         destroy:
           success: تم حذف مجموعة العملية التشاركية بنجاح.
@@ -211,10 +203,6 @@ ar:
         update:
           error: حدثت مشكلة أثناء تحديث هذه العملية التشاركية.
           success: عملية المشاركة تم تحديثها بنجاح.
-      participatory_processes_copies:
-        create:
-          error: كانت هناك مشكلة في تكرار هذه العملية التشاركية.
-          success: عملية المشاركة تتكرر بنجاح.
       participatory_processes_group:
         create:
           error: كانت هناك مشكلة في إنشاء مجموعة عملية تشاركية جديدة.

@@ -4,9 +4,6 @@ de:
       participatory_process:
         announcement: Ankündigung
         area_id: Bereich
-        copy_categories: Kategorien kopieren
-        copy_components: Komponenten kopieren
-        copy_steps: Phasen kopieren
         decidim_area_id: Bereich
         description: Beschreibung
         developer_group: Promoter-Gruppe
@@ -151,11 +148,6 @@ de:
             invitation_accepted_at: Einladung akzeptiert am
             invitation_sent_at: Einladung gesendet am
             published: Veröffentlicht
-      participatory_process_copies:
-        new:
-          copy: Kopieren
-          select: Wählen Sie aus, welche Daten Sie duplizieren möchten
-          title: Beteiligungsprozess duplizieren
       participatory_process_groups:
         destroy:
           error: Beim Löschen der Beteiligungsprozessgruppe ist ein Fehler aufgetreten.
@@ -254,10 +246,6 @@ de:
         update:
           error: Beim Aktualisieren dieses Beteiligungsprozesses ist ein Fehler aufgetreten.
           success: Participatory-Prozess erfolgreich aktualisiert.
-      participatory_processes_copies:
-        create:
-          error: Beim Duplizieren dieses Beteiligungsprozesses ist ein Fehler aufgetreten.
-          success: Partizipativer Prozess erfolgreich dupliziert.
       participatory_processes_group:
         create:
           error: Beim Erstellen einer neuen partizipativen Prozessgruppe ist ein Fehler aufgetreten.
@@ -413,9 +401,6 @@ de:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadaten

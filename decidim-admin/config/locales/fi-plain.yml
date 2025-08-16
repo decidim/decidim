@@ -173,6 +173,8 @@ fi-pl:
           new: Uusi liite
         attachment_collection:
           new: Uusi kansio
+        attachment_collections: Lisää kansio
+        attachments: Lisää liite
         browse: Selaa
         configure: Asetukset
         confirm_delete_component: |
@@ -185,14 +187,19 @@ fi-pl:
         export: Vie
         export-selection: Vie valitut
         import: Tuo
+        menu_hidden: Piilota valikosta
+        moderate: Moderointien hallinta
         newsletter:
           new: Uusi uutiskirje
         participatory_space_private_user:
           new: Uusi osallistumistilan yksityinen käyttäjä
         per_page: Per sivu
+        permissions: Käyttöoikeuksien hallinta
         restore: Palauta
         send_me_a_test_email: Lähetä minulle testisähköposti
         share: Jaa
+        share_tokens: Jaa linkki
+        soft_delete: Siirrä roskakoriin
         user:
           new: Uusi hallintakäyttäjä
         view_deleted_components: Näytä poistetut komponentit
@@ -681,6 +688,7 @@ fi-pl:
               update_moderated_user_button: Poista käyttäjätilien ilmoitukset
             title: Toiminnot
             unblock: Poista käyttäjän esto
+            unreport: Peruuta ilmoitus
           cancel: Peruuta
           name: Nimi
           nickname: Nimimerkki
@@ -704,8 +712,10 @@ fi-pl:
               title: Piilota
               update_moderation_button: Piilota valitut sisällöt
             unhide:
+              title: Peruuta piilotus
               update_moderation_button: Poista valittujen sisältöjen piilotus
             unreport:
+              title: Peruuta ilmoitus
               update_moderation_button: Poista valittujen sisältöjen ilmoitukset
           cancel: Peruuta
           selected: valittu
@@ -833,6 +843,7 @@ fi-pl:
         index:
           actions: Toiminnot
           badge: Kunniamerkki
+          block: Estä
           created_at: Luontihetki
           name: Nimi
           nickname: Nimimerkki
@@ -841,7 +852,10 @@ fi-pl:
           officialized: Virallistettu
           reofficialize: Virallista uudestaan
           reports: Ilmoitukset
+          send_message: Lähetä viesti
+          show_email: Näytä sähköposti
           status: Tila
+          unblock: Poista esto
           unofficialize: Poista virallistaminen
         new:
           badge: Virallistamismerkki
@@ -1067,6 +1081,8 @@ fi-pl:
           error: Tämän aiheen päivittämisessä tapahtui virhe.
           success: Aihe päivitettiin onnistuneesti
       static_pages:
+        actions:
+          view: Näytä
         create:
           error: Uuden sivun luonnissa tapahtui virhe.
           success: Sivu luotu onnistuneesti.
@@ -1094,6 +1110,9 @@ fi-pl:
       taxonomies:
         actions:
           actions: Toiminnot
+          destroy: Poista
+          edit: Muokkaa
+          filters: Käytä suodattimia
         breadcrumb:
           edit: Muokkaa luokittelua
           new: Uusi luokittelu
@@ -1264,6 +1283,8 @@ fi-pl:
         not_hidden: Näkyvillä
         parent_hidden: Et voi palauttaa tätä kohdetta näkyviin, koska se on liitetty kohteeseen, joka on edelleen piilotettu.
         title: Toiminnot
+        unhide: Peruuta piilotus
+        unreport: Peruuta ilmoitus
       admin:
         reportable:
           bulk_action:

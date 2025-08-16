@@ -4,14 +4,14 @@ ca-IT:
       participatory_process:
         announcement: Avís
         area_id: Àrea
-        copy_categories: Copiar les categories
-        copy_components: Copiar els components
-        copy_steps: Copiar les fases
         decidim_area_id: Àrea
         description: Descripció
         developer_group: Grup promotor
         document: Document
         domain: Àrees municipals
+        duplicate_categories: Duplicar les categories
+        duplicate_components: Duplicar els components
+        duplicate_steps: Duplicar les fases
         end_date: Data de finalització
         hero_image: Imatge de portada
         import_attachments: Importar arxius adjunts
@@ -156,11 +156,11 @@ ca-IT:
             invitation_accepted_at: Invitació acceptada el
             invitation_sent_at: Invitació enviada el
             published: Publicats
-      participatory_process_copies:
+      participatory_process_duplicates:
         new:
-          copy: Còpia
+          duplicate: Duplicar
           select: Selecciona quines dades vols duplicar
-          title: Duplica procés participatiu
+          title: Duplicar el procés participatiu
       participatory_process_groups:
         destroy:
           error: Hi ha hagut un error en eliminar el grup de processos participatius.
@@ -258,9 +258,9 @@ ca-IT:
         update:
           error: S'ha produït un error en actualitzar aquest procés participatiu.
           success: El procés participatiu s'ha actualitzat correctament.
-      participatory_processes_copies:
+      participatory_processes_duplicates:
         create:
-          error: S'ha produït un error en duplicar el procés participatiu.
+          error: S'ha produït un error en duplicar aquest procés participatiu.
           success: El procés participatiu ha estat duplicat correctament.
       participatory_processes_group:
         create:
@@ -410,20 +410,6 @@ ca-IT:
       admin:
         content_blocks:
           democratic_quality_stats_settings_form:
-            accessibility:
-              languages_count:
-                legend: En quants idiomes s'ha comunicat el procés?
-                options:
-                  five: Més de la meitat dels idiomes parlats a la comunitat = 5
-                  one: Un idioma = 1
-                  two_five: Més de la meitat dels idiomes parlats a la comunitat = 2,5
-              name: Accessibilitat
-              venue_accessibility:
-                legend: '¿Les sales de les trobades presencials eren accessibles per a les persones amb mobilitat reduïda?'
-                options:
-                  five: Sí = 5
-                  two_five: Parcialment = 2.5
-                  zero: No = 0
             announcement:
               body_html: |-
                 <ul>
@@ -432,62 +418,10 @@ ca-IT:
                 </ul>
               title: 'Aquest bloc de contingut inclou dos tipus de mètriques:'
             citizen_influence:
-              citizen_influence_level:
-                legend: Nivell d'influència del procés tenint en compte els mecanismes de participació habilitats, segons l'escala de participació definida per Satin i Arnstein (1969).
-                options:
-                  five: Control ciutadà = 5
-                  five_description: Un nivell de participació més alt on la ciutadania governa plenament un programa o institució, gestionen polítiques, recursos i presa de decisions sense interferència externa.
-                  four: Competència delegada = 4
-                  four_description: Un procés participatiu en què la ciutadania adquireix autoritat, control o finançament per influir en una organització i gestionar-la.
-                  one: Consultiu = 1
-                  one_description: Un procés participatiu en què es demana a la ciutadania la seva opinió, normalment mitjançant enquestes o reunions, però sense garantia que la seva aportació influeixi en les decisions.
-                  three: Col·laboratiu = 3
-                  three_description: Un procés participatiu en què la ciutadania i el teixit associatiu comparteixen el poder de decisió, cosa que permet a les participants negociar, assignar recursos i influir en la planificació, amb normes que no es poden modificar unilateralment. Sol sorgir de la mobilització ciutadana i l'acció col·lectiva.
-                  two: Participació simbòlica = 2
-                  two_description: Un procés participatiu en què es concedeix a la ciutadania una influència limitada, sovint de manera simbòlica, com ara la inclusió en juntes o comitès, però sense poder real, ja que la presa de decisions continua controlada per l'elit de poder tradicional.
-                  zero: Informatiu = 0
-                  zero_description: El flux d'informació és unidireccional –del personal municipal cap a la ciutadania– sense canal de retroalimentació ni capacitat de negociació.
               name: Influència ciutadana
             inclusiveness:
-              cultural_origins_participation:
-                legend: Quantes persones d'orígens culturals diversos han participat al marge dels convidats?
-                options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
               description: Inclusió segons l'origen cultural i la diversitat funcional.
-              functional_diversity_invited:
-                legend: S'ha convidat a grups de persones amb diversitat funcional a participar?
-                options:
-                  five: Sí = 5
-                  zero: No = 0
-              functional_diversity_participation:
-                legend: Quantes persones amb diversitat funcional han participat al marge de les convidades?
-                options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
-              migrant_groups_invited:
-                legend: S'ha convidat a participar persones d'orígens diversos?
-                options:
-                  five: Sí = 5
-                  zero: No = 0
               name: Inclusió
-            relevance:
-              description: 'Rellevància de l''impacte, com ara: percentatge del pressupost de l''organització, dels recursos humans l''organització implicats, o del total de la població, que es veurà afectada pels resultats del procés, i el temps dedicat per a tal impacte.'
-              name: Rellevància
-              relevance_percentage:
-                legend: Percentatge del pressupost de l'organització, recursos humans l'organització implicats, o el total de la població, que es veurà afectada pels resultats del procés.
-                options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
           highlighted_processes:
             active: Actius
             all: Tots
@@ -496,9 +430,9 @@ ca-IT:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
+        participatory_process_duplicates:
           form:
-            slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+            slug_help_html: 'Els segments d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadades
@@ -544,20 +478,13 @@ ca-IT:
           global_score:
             description_html: A continuació es mostren un conjunt d'indicadors emprats per avaluar la qualitat democràtica d'aquest procés participatiu. Per a més detalls sobre com es calculen, consulteu la pàgina <a href="%{info_url}">d'informació sobre els indicadors de qualitat democràtica</a>.
             name: Puntuació general
-            note: "*Els indicadors es mesuren en una escala d'1 a 5, on 1 representa la menor i 5 la qualitat de participació més gran."
             tooltip: Basada en la mitjana de totes les dimensions
-          name: Qualitat de la participació
           qualitative_metrics:
             description: Aquests indicadors s'obtenen de les respostes a una enquesta d'autoavaluació feta pels responsables del procés participatiu.
             indicators:
-              accessibility: Accessibilitat
-              accessibility_tooltip: El procés ha estat comunicat en els idiomes parlats a la comunitat i els espais utilitzats en les trobades presencials han estat accessibles per a les persones amb mobilitat reduïda.
               citizen_influence: Influència ciutadana
               citizen_influence_tooltip: Es mesura la capacitat d'incidència de les participants a la presa de decisions.
               inclusiveness: Inclusió
-              inclusiveness_tooltip: Avalua si totes les parts interessades estan representades equitativament
-              relevance: Rellevància
-              relevance_tooltip: 'Rellevància de l''impacte, com ara: percentatge del pressupost de l''organització, dels recursos humans l''organització implicats, o del total de la població, que es veurà afectada pels resultats del procés, i el temps dedicat per a tal impacte.'
             name: Mètriques de l'autoavaluació
         extra_data:
           name: Fase i durada
@@ -626,202 +553,6 @@ ca-IT:
         related_processes: Processos relacionats
       static_pages:
         democratic_quality_indicators:
-          content: |-
-            <h2>Sistema d’indicadors per mesurar la qualitat de la participació a Decidim.</h2>
-
-            <h3>Introducció</h3>
-            <p>La qualitat democràtica és un principi bàsic de Decidim. Per mantenir-lo, s’ha desenvolupat un sistema d’indicadors que ajuden a avaluar la qualitat dels processos participatius a la plataforma. En aquest article expliquem com es calculen aquests indicadors.
-
-            <h3>Com es calculen els indicadors?
-            <p>S'han definit dos mètodes per a la col·lecció d'indicadors de qualitat:</p>
-
-            <ol>
-            <li><strong>Mètriques automàtiques:</strong> es calculen directament a partir de les dades de Dedicim.</li>
-            <li><strong>Mètriques d’autoavaluació:</strong> es basen en un formulari que omple un administrador.</li>
-            </ol>.
-
-            <p>Cada indicador s'expressa com a percentatge (n/total). A continuació, aquest percentatge es converteix en una puntuació en una escala d’1 a 5:</p>
-
-            <ul>
-            <li>1 = 0-20%</li>
-            <li>2 = 20-40%</li>
-            <li>3 = 40-60%</li>
-            <li>4 = 60-80%</li>
-            <li>5 = 80-100%</li>
-            </ul>
-
-            <br> <br>
-            <h3>Mètriques automàtiques</h3>
-            <p>Aquests indicadors s'obtenen automàticament a partir de les dades recollides a la plataforma. S’avaluen per a cada procés participatiu i poden ser públics pels responsables del procés, de manera que totes les participants hi puguin accedir.
-
-            <p>S’han definit quatre indicadors principals: Influència Ciutadana, Hibridació, Capacitat de resposta i Traçabilitat:</p>
-
-            <h3>Influència ciutadana</h3>
-            <p>Aquest indicador mesura el nivell d'influència ciutadana en les propostes acceptades i els resultats del procés</p>
-
-            <ul>
-            <li>
-            Influència ciutadana en les propostes
-            <ul>
-            <li>Percentatge de propostes acceptades (n/total)</li>
-            <li>Percentatge de propostes <em>ciutadanes</em> aprovades sobre el total de propostes ciutadanes (influència ciutadana total en propostes aprovades)</li>
-            <li>Percentatge de propostes ciutadanes aprovades sobre propostes aprovades totals (influència relativa ciutadana en la proposta aprovada)</li>
-            </ul>
-            </li>
-            <li>Influència ciutadana en els resultats
-            <ul>
-            <li>Percentatge de resultats vinculats a les propostes ciutadanes sobre els resultats totals (influència total ciutadana en els resultats)</li>
-            </ul>
-            </li>
-            </ul>
-
-            <h3>Hibridació</h3>
-
-            <p>Aquest indicador mesura el nivell de combinació entre els espais de cara i la cara i els espais digitals durant el procés.</p>
-            <ul>
-            <li>Hi ha algun component de les trobades? (Sí = 5, no = 0)</li>
-            <li>Hi ha trobades de presencials? (Sí = 5, no = 0)</li>
-            <li>Hi ha trobades en línia? (Sí = 5, no = 0)</li>
-            <li>Hi ha trobades híbrides? (Sí = 5, no = 0)</li>
-            <li>Es creen propostes a partir de les trobades? (Sí = 5, no = 0)</li>
-            </ul>
-
-            <h3>Capacitat de resposta</h3>
-
-            <p>Aquest indicador mesura el nivell de resposta de l’organització a les contribucions de les participants i reflecteix el seu compromís mitjançant respostes i decisions oficials implementades.</p><p>
-            <ul>
-            <li>Percentatge de propostes amb resposta (n/total) - Capacitat de resposta institucional de la proposta</li>
-            <li>Percentatge dels resultats completats al 100% (n/total)</li>
-            </ul>
-
-            <h3>Traçabilitat</h3>
-
-            <p>Aquest indicador mesura la transparència i la traçabilitat del procés participatiu. Reflecteix amb el que facilita els ciutadans poden seguir l'evolució de les propostes i verificar les accions institucionals a través dels registres publicats.</p>
-            <ul>
-            <li>Nombre de propostes amb historial (n/total)</li>
-            <li>Percentatge de resultats vinculats a les propostes (n/total)</li>
-            <li>Percentatge de trobades tancades amb l'acte publicat (n/total)</li>
-            <li>Obrir l’activació del mòdul de dades (dicotòmic: 0 o 5)</li>
-            <li>Percentatge de propostes relacionades amb els pressupostos (n/total)</li>
-            </ul>
-
-            <br> <br>
-            <h3>Mètriques d’autoavaluació</h3>
-
-            <p>A més de les mètriques automàtiques, proposem l’ús d’una <strong>forma d’autoavaluació</strong> per avaluar les dimensions qualitatives de cada procés participatiu. Aquest formulari s’omplirà, al final de cada procés participatiu, pels responsables d’aquests, i les respostes es mostraran públicament al bloc de contingut de l’indicador.</p>
-
-            <p>Aquestes preguntes pretenen capturar aspectes de la qualitat democràtica que no es poden avaluar només mitjançant dades quantitatives. És important tenir en compte que les respostes a aquesta enquesta estan esbiaixades per l’opinió dels responsables del procés participatiu en qüestió.</p>
-
-            <br><br>
-            <h3>Preguntes d'autoavaluació</h3>
-
-            <p>A continuació s’exposen les preguntes que formen el formulari d’autoavaluació que responen les responsables del procés, així com els valors associats a cada resposta.</p>
-
-            <h4>Inclusivitat</h4>
-
-            <p>Inclusivitat segons l’origen cultural i la diversitat funcional.</p>
-
-            <ol>
-            <li>S’ha convidat a participar persones d’orígens diversos?
-            <ul>
-            <li>Sí = 5</li>
-            <li>No = 0</li>
-            </ul>
-            </li>
-            <li>Quantes persones d’orígens culturals diversos han participat fora de a qui s’havia convidat?
-            <ul>
-            <li>0-20% = 1</li>
-            <li>20-40% = 2</li>
-            <li>40-60% = 3</li>
-            <li>60-80% = 4</li>
-            <li>80-100% = 5</li>
-            </ul>
-            </li>
-            <li>S'ha convidat a participar grups de persones amb diversitat funcional?
-            <ul>
-            <li>Sí = 5</li>
-            <li>No = 0</li>
-            </ul>
-            </li>
-            <li>Quantes persones amb diversitat funcional han participat de a qui s’havia convidat?
-            <ul>
-            <li>0-20% = 1</li>
-            <li>20-40% = 2</li>
-            <li>40-60% = 3</li>
-            <li>60-80% = 4</li>
-            <li>80-100% = 5</li>
-            </ul>
-            </li>
-            </ol>
-
-            <h4>Rellevància</h4>
-
-            <p>Rellevància de l’impacte, com ara: percentatge del pressupost de l’organització, dels recursos humans que va implicar l’organització o de la població total, que es veurà afectada pels resultats del procés i el temps dedicat a aquest impacte.</p></p>
-
-            <ol>
-            <li>Percentatge del pressupost de l’organització, de recursos humans que va implicar l’organització o de la població total, que es veurà afectada pels resultats del procés.
-            <ul>
-            <li>0-20% = 1</li>
-            <li>20-40% = 2</li>
-            <li>40-60% = 3</li>
-            <li>60-80% = 4</li>
-            <li>80-100% = 5</li>
-            </ul>
-            </li>
-            </ol>
-            <h4> Influència ciutadana </h4>
-            <ol>
-            <li>Nivell d’influència del procés tenint en compte els mecanismes de participació autoritzats, segons l’escala definida per Satin i Arnstein (1969).
-            <ul>
-            <li>Informatiu = 0
-            <p>El flux d'informació és unidireccional, del personal municipal cap a la ciutadania, sense canal de retroalimentació ni capacitat de negociació.
-            </li>
-            <li>Consultiu = 1
-            <p>Un procés participatiu en què es demana als ciutadans la seva opinió, normalment mitjançant enquestes o trobades, però sense garantia que la seva contribució influeixi en les decisions.
-            </li>
-            <li>Participació simbòlica = 2
-            <p>Un procés participatiu en què els ciutadans tenen una influència limitada, sovint simbòlicament, com la inclusió en articulacions o comitès, però sense poder real, ja que la presa de decisions continua controlada per l’elit del poder tradicional.
-            </li>
-            <li>Col·laboratiu = 3
-            <p>Un procés participatiu en què els ciutadans i el teixit associatiu comparteixen el poder de decisió, permetent als participants negociar, assignar recursos i influència, amb normes que no es poden modificar unilateralment. Normalment sorgeix de la mobilització ciutadana i de l’acció col·lectiva.</p>
-            </li>
-            <li>Competència delegada = 4
-            <p>Un procés participatiu en què els ciutadans adquireixen autoritat, control o finançament per influir en una organització i gestionar -la.
-            </li>
-            <li>Control ciutadà = 5
-            <p>Un nivell de participació més alt on els ciutadans governen plenament un programa o una institució, gestionen polítiques, recursos i presa de decisions sense interferències externes.
-            </li>
-            </ul>
-            </li>
-            <li>Percentatge de fases amb intervenció ciutadana en la presa de decisions (de 0 a 5)
-            <p>De totes les fases del procés (des de la selecció de qüestions fins a la supervisió de l’execució), en quantes d’elles els ciutadans tenen la capacitat de prendre decisions o fer accions executives?</p>
-            <ul>
-            <li>0-20% = 1</li>
-            <li>20-40% = 2</li>
-            <li>40-60% = 3</li>
-            <li>60-80% = 4</li>
-            <li>80-100% = 5</li>
-            </ul>
-            </li>
-            </ol>
-
-            <h4>Accessibilitat</h4>
-            <ol>
-            <li>En quants idiomes s’ha comunicat el procés?
-            <ul>
-            <li>Un idioma = 1</li>
-            <li>Menys de la meitat dels idiomes que es parlen a la comunitat = 2,5</li>
-            <li>Més de la meitat dels idiomes parlats a la comunitat = 5</li>
-            </ul>
-            </li>
-            <li>Les sales de les trobades presencials: eren accessibles per a persones amb mobilitat reduïda?
-            <ul>
-            <li>No = 0</li>
-            <li>Parcialment = 2,5</li>
-            <li>Sí = 5</li>
-            </ul>
-            </li>
-            </ol>
           title: Indicadors de qualitat democràtica
     statistics:
       processes_count: Processos

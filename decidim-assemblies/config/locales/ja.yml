@@ -10,9 +10,6 @@ ja:
         closing_date: 終了日
         closing_date_reason: 終了日時の理由
         composition: 構成
-        copy_categories: カテゴリをコピー
-        copy_components: コンポーネントをコピー
-        copy_features: 機能をコピー
         created_by: '作成者:'
         created_by_other: 他によって作成
         creation_date: 作成日
@@ -108,15 +105,6 @@ ja:
         update:
           error: 参加スペースの更新に問題がありました。
           success: 参加スペースを更新しました。
-      assemblies_copies:
-        create:
-          error: この参加スペースの複製中に問題が発生しました。
-          success: 参加スペースを複製しました。
-      assembly_copies:
-        new:
-          copy: コピー
-          select: 複製したいデータを選択してください
-          title: 参加スペースを複製
       assembly_imports:
         create:
           error: この参加スペースのインポート中に問題が発生しました。
@@ -256,9 +244,6 @@ ja:
             taxonomies: タクソノミー
             title: 一般情報
             visibility: 公開範囲
-        assembly_copies:
-          form:
-            slug_help_html: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         assembly_imports:
           form:
             slug_help_html: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'

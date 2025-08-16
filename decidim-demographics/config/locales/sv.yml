@@ -72,8 +72,3 @@ sv:
           question: Vilket av följande beskriver dig bäst?
         postal:
           question: Vad är ditt hempostnummer?
-  layouts:
-    decidim:
-      shared:
-        layout_center:
-          alert: Genom att tillhandahålla denna information bidrar du till statistisk analys som kan förbättra deltagandekvaliteten. Dina data kommer att aggregeras och endast användas för forskningsändamål.

@@ -4,9 +4,6 @@
       participatory_process:
         announcement: Kunngjøring
         area_id: Område
-        copy_categories: Kopier kategorier
-        copy_components: Kopier komponenter
-        copy_steps: Kopier trinn
         decidim_area_id: Område
         description: Beskrivelse
         developer_group: Promotørgruppe
@@ -146,11 +143,6 @@
           fields:
             invitation_accepted_at: Invitasjon godtatt
             invitation_sent_at: Invitasjonen sendt
-      participatory_process_copies:
-        new:
-          copy: Kopier
-          select: Velg hvilke data du vil kopiere
-          title: Kopier deltakende prosess
       participatory_process_groups:
         destroy:
           success: Prosessgruppen ble slettet.
@@ -246,10 +238,6 @@
         update:
           error: Det oppstod et problem med å oppdatere denne prosessen.
           success: Prosessen er oppdatert.
-      participatory_processes_copies:
-        create:
-          error: Det oppstod et problem med å duplisere denne deltaker prosessen.
-          success: Prosessen er kopiert.
       participatory_processes_group:
         create:
           error: Det oppstod et problem med å lage en ny prosessgruppe.

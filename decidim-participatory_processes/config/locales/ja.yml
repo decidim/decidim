@@ -4,9 +4,6 @@ ja:
       participatory_process:
         announcement: お知らせ
         area_id: エリア
-        copy_categories: カテゴリをコピー
-        copy_components: コンポーネントをコピー
-        copy_steps: フェーズをコピー
         decidim_area_id: エリア
         description: 説明
         developer_group: プロモーターグループ
@@ -153,11 +150,6 @@ ja:
             invitation_accepted_at: 招待が承認されました
             invitation_sent_at: 招待状が送信された日時
             published: 公開済み
-      participatory_process_copies:
-        new:
-          copy: コピー
-          select: 複製したいデータを選択してください
-          title: 重複した参加型プロセス
       participatory_process_groups:
         destroy:
           error: 参加型プロセスグループを削除する際に問題が発生しました。
@@ -255,10 +247,6 @@ ja:
         update:
           error: この参加型プロセスの更新に問題がありました。
           success: 参加型プロセスが正常に更新されました。
-      participatory_processes_copies:
-        create:
-          error: この参加型プロセスの複製中に問題が発生しました。
-          success: 参加型プロセスを複製しました。
       participatory_processes_group:
         create:
           error: 新しい参加型プロセスグループの作成中に問題が発生しました。
@@ -406,20 +394,6 @@ ja:
       admin:
         content_blocks:
           democratic_quality_stats_settings_form:
-            accessibility:
-              languages_count:
-                legend: そのプロセスは何ヶ国語で伝えられましたか？
-                options:
-                  five: コミュニティで話されている言語の半分以上= 5
-                  one: 1言語 = 1
-                  two_five: コミュニティで話されている言語の半分以下 = 2.5
-              name: アクセシビリティ
-              venue_accessibility:
-                legend: 対面での会議の会場は、移動が困難な方でも利用できるものでしたか？
-                options:
-                  five: はい = 5
-                  two_five: 部分的に = 2.5
-                  zero: いいえ = 0
             announcement:
               body_html: |-
                 <ul>
@@ -428,62 +402,10 @@ ja:
                 </ul>
               title: 'このコンテンツ ブロックには 2 種類の指標が含まれています：'
             citizen_influence:
-              citizen_influence_level:
-                legend: 有効化されている参加手段に基づく、プロセスの影響力の程度 — Sherry Arnstein（1969年）が提唱した「市民参加のはしご」に従った評価です。
-                options:
-                  five: 市民による運営・意思決定= 5
-                  five_description: 市民がプログラムや機関を完全に運営し、外部からの干渉を受けることなく、方針・リソース・意思決定を管理する、最高レベルの参加形態です。
-                  four: 権限委譲 = 4
-                  four_description: 市民が組織に対して影響を与えたり管理したりするための権限、統制力、または資金を得る参加型プロセスです。
-                  one: 諮問 = 1
-                  one_description: 市民に意見を求める参加型プロセスであり、通常はアンケートや会議を通じて行われますが、その意見が意思決定に反映される保証はありません。
-                  three: パートナーシップ = 3
-                  three_description: 市民や団体が意思決定権を共有する参加型プロセスであり、参加者は交渉・リソース配分・計画への影響を与えることができ、ルールは一方的に変更できないものとなっています。このプロセスは、市民の動員や集団的な行動から生まれることがよくあります。
-                  two: 懐柔 = 2
-                  two_description: 市民が限定的な影響力を与えられる参加型プロセスであり、多くの場合、象徴的な意味合いで委員会や諮問機関などに参加させるものの、実際の権限はなく、意思決定は依然として既存の権力層によって管理されています。
-                  zero: 情報提供 = 0
-                  zero_description: 公的機関から市民への一方向的な情報提供であり、フィードバックの手段も交渉の権限も与えられないものです。
               name: 市民の影響度
             inclusiveness:
-              cultural_origins_participation:
-                legend: 招待した人々のうち、多様な文化的背景を持つ人は何人参加しましたか？
-                options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
               description: 文化的背景および機能的多様性に基づく包摂性。
-              functional_diversity_invited:
-                legend: 機能的多様性のある人々のグループを招待したことはありますか？
-                options:
-                  five: はい = 5
-                  zero: いいえ = 0
-              functional_diversity_participation:
-                legend: 招待された参加者の中で、機能的な多様性を持つ方は何名いますか？
-                options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
-              migrant_groups_invited:
-                legend: 移民グループは参加の招待を受けましたか？
-                options:
-                  five: はい = 5
-                  zero: いいえ = 0
               name: 包摂性
-            relevance:
-              description: プロセスの結果によって影響の重要度 — 組織の予算、組織の人員、または全人口に対する割合 — およびその影響が現れる時期。
-              name: 関連度合い
-              relevance_percentage:
-                legend: プロセスの結果によって影響を受ける、組織の予算・人員・全人口に対する割合。
-                options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
           highlighted_processes:
             active: アクティブ
             all: すべて
@@ -492,9 +414,6 @@ ja:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help_html: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         participatory_process_groups:
           form:
             metadata: メタデータ
@@ -540,20 +459,13 @@ ja:
           global_score:
             description_html: 以下に、この参加型プロセスの民主的質を評価するために用いられる指標セットを示します。各指標の算出方法についての詳細は、<a href="%{info_url}">民主的品質指標に関する説明ページ</a>をご覧ください。
             name: グローバルスコア
-            note: "*評価基準は1から5までの数値で示され、1が最も低い参加品質、5が最も高い参加品質を表します。"
             tooltip: すべての値の平均値として計算されます
-          name: 参加の品質
           qualitative_metrics:
             description: これらの指標は、プラットフォーム管理者が回答した自己評価調査の結果から取得されています。
             indicators:
-              accessibility: アクセシビリティ
-              accessibility_tooltip: このプロセスは、地域で話されている言語で周知されており、会場も移動が困難な方に配慮されたものとなっています。
               citizen_influence: 市民の影響
               citizen_influence_tooltip: 参加者の意思決定への影響のレベルを測定します。
               inclusiveness: 包摂性
-              inclusiveness_tooltip: さまざまな利害関係者が公平に代表されているかどうかを評価します
-              relevance: 関連性
-              relevance_tooltip: プロセスの結果によって受ける影響の重要度 — 組織の予算、組織の人員、または全人口に対する割合 — およびその影響が現れる時期を示します。
             name: 自己評価指標
         extra_data:
           name: フェーズと期間

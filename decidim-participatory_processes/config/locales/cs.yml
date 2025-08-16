@@ -4,9 +4,6 @@ cs:
       participatory_process:
         announcement: Oznámení
         area_id: Oblast
-        copy_categories: Kopírovat kategorie
-        copy_components: Kopírování komponent
-        copy_steps: Kopírování kroků
         decidim_area_id: Oblast
         description: Popis
         developer_group: Skupina promotérů
@@ -157,11 +154,6 @@ cs:
             invitation_accepted_at: Pozvánka byla přijata na
             invitation_sent_at: Pozvánka odeslána na
             published: Publikováno
-      participatory_process_copies:
-        new:
-          copy: Kopírovat
-          select: Vyberte, která data chcete duplikovat
-          title: Duplicitní participační proces
       participatory_process_groups:
         destroy:
           error: Došlo k chybě při zničení skupiny participačních procesů.
@@ -260,10 +252,6 @@ cs:
         update:
           error: Při aktualizaci tohoto participačního procesu došlo k chybě.
           success: Participační proces byl úspěšně aktualizován.
-      participatory_processes_copies:
-        create:
-          error: Při kopírování tohoto participačního procesu došlo k chybě.
-          success: Účastnící proces byl úspěšně zdvojen.
       participatory_processes_group:
         create:
           error: Došlo k chybě při vytváření nové skupiny účastnických procesů.
@@ -413,31 +401,6 @@ cs:
     participatory_processes:
       admin:
         content_blocks:
-          democratic_quality_stats_settings_form:
-            inclusiveness:
-              cultural_origins_participation:
-                options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
-              functional_diversity_invited:
-                options:
-                  five: Ano = 5
-                  zero: Ne = 0
-              functional_diversity_participation:
-                options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-            relevance:
-              relevance_percentage:
-                options:
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
           highlighted_processes:
             active: Aktivní
             all: Vše
@@ -446,9 +409,6 @@ cs:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadata
@@ -488,9 +448,6 @@ cs:
             name: Automatická měření
           global_score:
             name: Globální skóre
-          qualitative_metrics:
-            indicators:
-              relevance: Relevance
         extra_data:
           name: Fáze a doba trvání
         hero:

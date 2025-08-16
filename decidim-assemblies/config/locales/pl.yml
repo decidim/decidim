@@ -10,9 +10,6 @@ pl:
         closing_date: Data zamknięcia
         closing_date_reason: Powód zamknięcia w podanym terminie
         composition: Skład zespołu
-        copy_categories: Skopiuj kategorie
-        copy_components: Skopiuj komponenty
-        copy_features: Skopiuj funkcje
         created_by: Utworzony przez
         created_by_other: Utworzony przez inne
         creation_date: Data utworzenia
@@ -111,15 +108,6 @@ pl:
         update:
           error: Podczas aktualizowania tego zespołu wystąpił błąd.
           success: Zespół został zaktualizowany.
-      assemblies_copies:
-        create:
-          error: Podczas duplikowania tego zespołu wystąpił błąd.
-          success: Zespół został zduplikowany.
-      assembly_copies:
-        new:
-          copy: Kopiuj
-          select: Wybierz dane, które chcesz zduplikować
-          title: Zduplikuj zespół
       assembly_imports:
         create:
           error: Wystąpił błąd podczas importowania tego zespołu.
@@ -243,9 +231,6 @@ pl:
             social_handlers: Profile społecznościowe
             title: Informacje ogólne
             visibility: Widoczność
-        assembly_copies:
-          form:
-            slug_help_html: 'Slugi URL służą do generowania adresów URL kierujących bezpośrednio do tego zgromadzenia. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         assembly_imports:
           form:
             slug_help_html: 'Slugi URL służą do generowania adresów URL kierujących bezpośrednio do tego zgromadzenia. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'

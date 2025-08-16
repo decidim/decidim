@@ -40,6 +40,8 @@ fi-pl:
   decidim:
     accountability:
       actions:
+        add_milestone: Lisää välitavoite
+        add_result: Lisää tulos
         confirm_delete_result: Haluatko varmasti poistaa tämän tuloksen?
         confirm_destroy: Oletko varma, että haluat poistaa tämän tuloksen?
         deleted_results_info: Poistetut tulokset voidaan palauttaa roskakorista.

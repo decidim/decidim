@@ -10,9 +10,6 @@ ro:
         closing_date: Data închiderii
         closing_date_reason: Motivul datei de închidere
         composition: Componență
-        copy_categories: Copiază categoriile
-        copy_components: Copiați componentele
-        copy_features: Copiați funcționalitățile
         created_by: Creat de
         created_by_other: Creat de altcineva
         creation_date: Data creării
@@ -105,15 +102,6 @@ ro:
         update:
           error: A apărut o eroare la actualizarea acestui grup de lucru.
           success: Grupul de lucru a fost actualizat cu succes.
-      assemblies_copies:
-        create:
-          error: A apărut o problemă la duplicarea acestui grup de lucru.
-          success: Grupul de lucru a fost duplicat cu succes.
-      assembly_copies:
-        new:
-          copy: Copiază
-          select: Selectați datele pe care doriți să le duplicați
-          title: Duplică grupul de lucru
       assembly_imports:
         create:
           error: A apărut o problemă la importul acestui grup de lucru.

@@ -10,9 +10,6 @@ cs:
         closing_date: Datum ukončení
         closing_date_reason: Důvod data ukončení
         composition: Složení
-        copy_categories: Kopírovat kategorie
-        copy_components: Kopírovat komponenty
-        copy_features: Kopírovat vlastnosti
         created_by: Vytvořil
         created_by_other: Vytvořeno jinými
         creation_date: Datum vytvoření
@@ -117,15 +114,6 @@ cs:
         update:
           error: Při aktualizaci tohoto shromáždění došlo k chybě.
           success: Shromáždění úspěšně aktualizováno.
-      assemblies_copies:
-        create:
-          error: Při kopírování tohoto shromáždění došlo k chybě.
-          success: Shromáždění úspěšně duplikováno.
-      assembly_copies:
-        new:
-          copy: Kopírovat
-          select: Vyberte, která data chcete duplikovat
-          title: Zduplikovat shromáždění
       assembly_imports:
         create:
           error: Při importu tohoto shromáždění došlo k chybě.
@@ -265,9 +253,6 @@ cs:
             taxonomies: Taxonomie
             title: Obecná informace
             visibility: Viditelnost
-        assembly_copies:
-          form:
-            slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         assembly_imports:
           form:
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'

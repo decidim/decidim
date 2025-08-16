@@ -101,6 +101,8 @@ ca:
             title: Editar l'enquesta
           index:
             title: Enquestes
+          new:
+            title: Nova enquesta
           publish:
             invalid: S'ha produït un error en publicar aquesta enquesta.
             success: Enquesta publicada correctament.
