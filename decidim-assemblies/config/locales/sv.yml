@@ -19,6 +19,9 @@ sv:
         developer_group: Arrangör
         document: Dokument
         domain: Domän
+        duplicate_categories: Duplicera kategorier
+        duplicate_components: Duplicera komponenter
+        duplicate_features: Duplicera funktioner
         duration: Varaktighet
         facebook: Facebook
         github: GitHub
@@ -108,6 +111,15 @@ sv:
         update:
           error: Det gick inte att uppdatera samrådet.
           success: Samrådet har uppdaterats.
+      assemblies_duplicates:
+        create:
+          error: Det gick inte att duplicera samrådet.
+          success: Samrådet har duplicerats.
+      assembly_duplicates:
+        new:
+          duplicate: Duplicera
+          select: Välj vilka data som du vill duplicera
+          title: Duplicera samråd
       assembly_imports:
         create:
           error: Det gick inte att importera samrådet.
@@ -246,6 +258,9 @@ sv:
             taxonomies: Kategorier
             title: Allmän information
             visibility: Synlighet
+        assembly_duplicates:
+          form:
+            slug_help_html: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         assembly_imports:
           form:
             slug_help_html: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
