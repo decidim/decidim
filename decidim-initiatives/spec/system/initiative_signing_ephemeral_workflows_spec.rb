@@ -135,6 +135,7 @@ describe "Initiative signing with ephemeral workflows" do
           end
 
           it "an authorization is created" do
+            sleep 1
             user = Decidim::User.ephemeral.last
             expect do
               click_on "Validate your data"

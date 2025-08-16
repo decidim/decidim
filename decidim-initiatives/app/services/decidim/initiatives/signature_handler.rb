@@ -222,7 +222,7 @@ module Decidim
       end
 
       def encryptor
-        @encryptor ||= DataEncryptor.new(secret: Decidim::Initiatives.signature_handler_encryption_secret)
+        @encryptor ||= Decidim::AttributeEncryptor.new(secret: Decidim::Initiatives.signature_handler_encryption_secret)
       end
 
       def workflow_manifest
