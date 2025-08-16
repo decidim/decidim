@@ -163,8 +163,6 @@ pl:
       participatory_process_copies:
         new:
           copy: Kopiuj
-          select: Wybierz dane, które chcesz zduplikować
-          title: Duplikuj proces partycypacyjny
       participatory_process_groups:
         destroy:
           success: Grupa procesu partycypacyjnego została usunięta.
@@ -260,10 +258,6 @@ pl:
         update:
           error: Wystąpił błąd podczas aktualizowania tego procesu partycypacyjnego.
           success: Proces partycypacyjny został zaktualizowany.
-      participatory_processes_copies:
-        create:
-          error: Podczas duplikowania tego procesu partycypacyjnego wystąpił błąd.
-          success: Proces partycypacyjny został zduplikowany.
       participatory_processes_group:
         create:
           error: Podczas tworzenia nowej grupy procesu partycypacyjnego wystąpił błąd.
@@ -383,7 +377,7 @@ pl:
             json: JSON
         participatory_process_copies:
           form:
-            slug_help_html: 'Slugi URL wykorzystuje się do generowania adresów URL odsyłających do procesu. Można używać jedynie liter, cyfr i łączników, przy czym należy rozpocząć od litery. Przykład: %{url}'
+            slug_help_html: 'Slugi URL wykorzystuje się do generowania adresów URL odsyłających do tego procesu. Można używać jedynie liter, cyfr i łączników, przy czym należy rozpocząć od litery. Przykład: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadane

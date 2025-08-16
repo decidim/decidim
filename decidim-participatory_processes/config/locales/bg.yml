@@ -157,8 +157,6 @@ bg:
       participatory_process_copies:
         new:
           copy: Копиране
-          select: Изберете кои данни искате да дублирате
-          title: Дублиране на процеси на участие
       participatory_process_groups:
         destroy:
           success: Групата на процеса на участие беше изтрита успешно.
@@ -254,10 +252,6 @@ bg:
         update:
           error: Възникна проблем при актуализирането на този процес на участие.
           success: Процесът на участие беше актуализиран успешно.
-      participatory_processes_copies:
-        create:
-          error: Възникна проблем при дублирането на този процес на участие.
-          success: Процесът на участие беше дублиран успешно.
       participatory_processes_group:
         create:
           error: Възникна проблем при създаването на нова група на процеса на участие.

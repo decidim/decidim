@@ -1160,6 +1160,12 @@ de:
       title: Was sind Abzeichen?
     group_admins:
       actions:
+        confirm_modal:
+          ok_add: Neuen Admin hinzufügen
+          ok_remove: Admin entfernen
+          title_add: Neuer Admin bestätigen
+          title_remove: Admin entfernen
+        confirm_remove_from_admin: Sind Sie sicher, dass Sie den Admin dieser Gruppe entfernen möchten?
         demote_admin: Entferne Admin
       demote:
         error: Beim Entfernen dieses Teilnehmers aus der Adminliste ist ein Fehler aufgetreten.
@@ -1189,6 +1195,11 @@ de:
         error: Bei der Annahme dieser Beitrittsanfrage ist ein Fehler aufgetreten.
         success: Beitrittsanfrage erfolgreich angenommen.
       actions:
+        confirm_modal:
+          ok_remove: Mitglied entfernen
+          title_remove: Mitglied entfernen
+        confirm_promote_to_admin: Sind Sie sicher, dass Sie dieses Konto als Admin hinzufügen möchten?
+        confirm_remove_from_group: Sind Sie sicher, dass Sie dieses Konto von der Gruppe entfernen möchten?
         promote_to_admin: Zum Admin ernennen
         remove_from_group: Benutzer entfernen
       index:
