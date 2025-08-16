@@ -172,8 +172,6 @@ sv:
       participatory_process_copies:
         new:
           copy: Kopiera
-          select: Välj vilka data som du vill duplicera
-          title: Duplicera process
       participatory_process_groups:
         destroy:
           error: Det gick inte att radera dialoggruppen.
@@ -284,10 +282,6 @@ sv:
         update:
           error: Det gick inte att uppdatera processen.
           success: Processen har uppdaterats.
-      participatory_processes_copies:
-        create:
-          error: Det gick inte att duplicera processen.
-          success: Processen har duplicerats.
       participatory_processes_group:
         create:
           error: Det gick inte att skapa en ny grupp för processer.

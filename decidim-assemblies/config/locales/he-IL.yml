@@ -114,10 +114,6 @@ he:
         update:
           error: יש בעיה בעדכון אסיפה זו.
           success: האסיפה עודכנה בהצלחה.
-      assemblies_copies:
-        create:
-          error: יש בעיה בשכפול אסיפה זו.
-          success: אסיפה השתכפלה בהצלחה.
       assemblies_types:
         create:
           error: יש בעיה ביצירת סוג אסיפה חדש.
@@ -133,7 +129,6 @@ he:
       assembly_copies:
         new:
           copy: העתקה
-          title: שכפל אסיפה
       assembly_imports:
         create:
           error: הייתה בעיה בייבוא ​​אסיפה זו.

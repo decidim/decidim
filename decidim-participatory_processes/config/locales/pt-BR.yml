@@ -160,8 +160,6 @@ pt-BR:
       participatory_process_copies:
         new:
           copy: cópia de
-          select: Selecione os dados que você gostaria de duplicar
-          title: Duplicar processo participativo
       participatory_process_groups:
         destroy:
           error: Ocorreu um erro ao destruir o grupo de processos participativos.
@@ -261,10 +259,6 @@ pt-BR:
         update:
           error: Ocorreu um erro ao atualizar este processo participativo.
           success: Processo participativo atualizado com sucesso.
-      participatory_processes_copies:
-        create:
-          error: Ocorreu um erro ao duplicar este processo participativo.
-          success: Processo participativo duplicado com sucesso.
       participatory_processes_group:
         create:
           error: Ocorreu um erro ao criar um novo grupo de processos participativos.

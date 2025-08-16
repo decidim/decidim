@@ -94,8 +94,6 @@ is:
       participatory_process_copies:
         new:
           copy: Afrita
-          select: Veldu hvaða gögn þú vilt afrita
-          title: Afrit þátttakandi ferli
       participatory_process_groups:
         edit:
           title: Breyta ferli hópsins

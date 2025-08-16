@@ -118,8 +118,8 @@ es-MX:
           success: La asamblea se ha actualizado correctamente.
       assemblies_copies:
         create:
-          error: Se produjo un error al duplicar esta asamblea.
-          success: Asamblea duplicada correctamente.
+          error: Se ha producido un error al duplicar esta asamblea.
+          success: La asamblea se ha duplicado correctamente.
       assemblies_types:
         create:
           error: Se ha producido un error al crear un nuevo tipo de asamblea.
@@ -135,7 +135,7 @@ es-MX:
       assembly_copies:
         new:
           copy: Copiar
-          select: Seleccione los datos que desea duplicar
+          select: Selecciona qué datos quieres duplicar
           title: Duplicar asamblea
       assembly_imports:
         create:

@@ -115,10 +115,6 @@ pt:
         update:
           error: Ocorreu um problema ao atualizar esta reunião.
           success: Reunião atualizada corretamente.
-      assemblies_copies:
-        create:
-          error: Ocorreu um problema ao duplicar esta reunião.
-          success: Reunião duplicada corretamente.
       assemblies_types:
         create:
           error: Ocorreu um problema ao criar um novo tipo de reunião.
@@ -134,8 +130,6 @@ pt:
       assembly_copies:
         new:
           copy: Cópia
-          select: Selecione os dados que pretende duplicar
-          title: Duplicar assembléia
       assembly_imports:
         create:
           error: Ocorreu um problema ao atualizar esta reunião.

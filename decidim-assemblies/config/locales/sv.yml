@@ -135,7 +135,7 @@ sv:
       assembly_copies:
         new:
           copy: Kopiera
-          select: Välj vilka data som ska dupliceras
+          select: Välj vilka data som du vill duplicera
           title: Duplicera samråd
       assembly_imports:
         create:
