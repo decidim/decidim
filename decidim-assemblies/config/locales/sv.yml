@@ -116,6 +116,10 @@ sv:
         update:
           error: Det gick inte att uppdatera samrådet.
           success: Samrådet har uppdaterats.
+      assemblies_copies:
+        create:
+          error: Det gick inte att duplicera samrådet.
+          success: Samrådet har duplicerats.
       assemblies_types:
         create:
           error: Det gick inte att skapa en ny typ av samråd.
@@ -131,6 +135,8 @@ sv:
       assembly_copies:
         new:
           copy: Kopiera
+          select: Välj vilka data som du vill duplicera
+          title: Duplicera samråd
       assembly_imports:
         create:
           error: Det gick inte att importera samrådet.
