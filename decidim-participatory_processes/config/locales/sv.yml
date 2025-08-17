@@ -162,6 +162,8 @@ sv:
       participatory_process_copies:
         new:
           copy: Kopiera
+          select: Välj vilken data du vill duplicera
+          title: Duplicera deltagarprocess
       participatory_process_groups:
         destroy:
           error: Det gick inte att radera gruppen.
@@ -259,6 +261,10 @@ sv:
         update:
           error: Det gick inte att uppdatera processen.
           success: Processen har uppdaterats.
+      participatory_processes_copies:
+        create:
+          error: Det gick inte att duplicera deltagarprocessen.
+          success: Deltagandeprocessen har duplicerats.
       participatory_processes_group:
         create:
           error: Det gick inte att skapa en ny grupp för processer.
