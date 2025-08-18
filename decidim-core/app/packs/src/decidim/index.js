@@ -52,7 +52,6 @@ import formDatePicker from "src/decidim/datepicker/form_datepicker"
 import InputCharacterCounter, { createCharacterCounter } from "src/decidim/input_character_counter"
 import FormFilterComponent from "src/decidim/form_filter"
 import FocusGuard from "src/decidim/focus_guard"
-import backToListLink from "src/decidim/back_to_list"
 import markAsReadNotifications from "src/decidim/notifications"
 import handleNotificationActions from "src/decidim/notifications_actions"
 import RemoteModal from "src/decidim/remote_modal"
@@ -150,8 +149,6 @@ const initializer = (element = document) => {
 
     return new ExternalLink(elem)
   })
-
-  backToListLink(element.querySelectorAll(".js-back-to-list"));
 
   markAsReadNotifications(element)
   handleNotificationActions(element)
