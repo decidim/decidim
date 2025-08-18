@@ -1,17 +1,17 @@
-= Migrate to Webpacker a Decidim module
+= Migrate to Shakapacker a Decidim module
 
-Decidim modules are included to Decidim apps as gems. Since the introduction of Webpacker to manage and compile assets in Decidim, there are some changes required to make modules compatible with Decidim
+Decidim modules are included to Decidim apps as gems. Since the introduction of Shakapacker to manage and compile assets in Decidim, there are some changes required to make modules compatible with Decidim
 
-== About Webpacker
+== About Shakapacker
 
-It is recommended to understand how Webpacker works. More information:
+It is recommended to understand how Shakapacker works. More information:
 
 * https://github.com/rails/webpacker#usage
 * https://edgeguides.rubyonrails.org/webpacker.html
 
 == Overview
 
-The recommended way to import assets from a gem in a Rails app using Webpacker is to publish a package in npmjs.org and include it in the package.json via `npm install`. Then the assets are available to Webpack via node_modules/ folder
+The recommended way to import assets from a gem in a Rails app using Shakapacker is to publish a package in npmjs.org and include it in the package.json via `npm install`. Then the assets are available to Webpack via node_modules/ folder
 
 Once created, you should update the instructions to install the module and add the step to add the assets with npm.
 
@@ -35,7 +35,7 @@ For images, if they are in `app/packs/images` you could use `image_pack_tag`.
 
 == Asset compilation
 
-As all assets are now compiled using Webpacker without ever loading the Rails or Decidim environment, there are some new conventions how to tell Webpacker about the Decidim module's assets.
+As all assets are now compiled using Shakapacker without ever loading the Rails or Decidim environment, there are some new conventions how to tell Shakapacker about the Decidim module's assets.
 
 To begin with, create a new file named `config/assets.rb` inside your Decidim module.
 
@@ -98,7 +98,7 @@ Decidim.register_component(:your_component) do |component|
 end
 ----
 
-These were automatically included in the main application's stylesheet file and also in the admin panel's stylesheet file. These no longer work with Webpacker as the Decidim environment is not loaded when Webpacker compiles the assets.
+These were automatically included in the main application's stylesheet file and also in the admin panel's stylesheet file. These no longer work with Shakapacker as the Decidim environment is not loaded when Shakapacker compiles the assets.
 
 What you should do instead is to follow the asset compilation migration guide above and migrate these definitions into your module's `config/assets.rb` file as follows:
 
@@ -109,7 +109,7 @@ What you should do instead is to follow the asset compilation migration guide ab
 
 base_path = File.expand_path("..", __dir__)
 
-# Register the additional path for Webpacker in order to make the module's
+# Register the additional path for Shakapacker in order to make the module's
 # stylesheets available for inclusion.
 Decidim::Shakapacker.register_path("#{base_path}/app/packs")
 
@@ -126,7 +126,7 @@ To prevent Zeitwerk issues trying to autoload the non-ruby module folders, modif
 
 [source,ruby]
 ---
-initializer "[module_name].webpacker.assets_path" do
+initializer "[module_name].shakapacker.assets_path" do
   Decidim.register_assets_path File.expand_path("app/packs", root)
 end
 ---

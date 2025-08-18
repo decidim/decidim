@@ -1,8 +1,12 @@
-= Migrate to Webpacker an instance app
+= Migrate to Shakapacker an instance app
 
-In order to migrate an existing Decidim app to Webpacker, there are a few changes your need to run in your code.
+In order to migrate an existing Decidim app to Shakapacker, there are a few changes your need to run in your code.
 
 NOTE: this recipe might not work for all the cases, it tries to cover the generic scenarios. If you find yourself with a complex scenario and want to improve this guide feel free to open a PR to complete the guide.
+
+== About Shakapacker
+
+Shakapacker is a continuation of Webpacker performed by Shakacode.
 
 == About Webpacker
 
@@ -21,7 +25,7 @@ Before starting the migration, please check you have the following dependencies 
 
 == Guide
 
-=== Add Webpacker to the application
+=== Add Shakapacker to the application
 
 Follow these steps. If you want more information you can find it at the https://github.com/rails/webpacker#installation[Webpacker installation guide].
 
@@ -29,23 +33,23 @@ Follow these steps. If you want more information you can find it at the https://
 
 [source,console]
 ----
-bundle exec rails webpacker:install
+bundle exec rails shakapacker:install
 ----
 
-* Install Decidim webpacker custom code
+* Install Decidim shakapacker custom code
 
 [source,console]
 ----
 bundle exec rails decidim:shakapacker:install
 ----
 
-This task do a few steps to allow the Rails instance to have a webpacker instance sharing the code between itself and Decidim gem.
+This task do a few steps to allow the Rails instance to have a shakapacker instance sharing the code between itself and Decidim gem.
 
 This task is automatically performed every time decidim is updated, to get the latest Webpack configuration. This happens when you run the `decidim:upgrade` task.
 
 === Copy Decidim custom CSS and JavaScript
 
-`webpacker:install` task should have created to you the following dirs structure:
+`shakapacker:install` task should have created to you the following dirs structure:
 
 [source,console]
 ----
@@ -133,7 +137,7 @@ RAILS_ENV=production bin/rails decidim:active_storage_migrations:migrate_from_ca
 
 === Optional asset includes
 
-Decidim Webpacker provides a new configuration convention that allows you to add extra configurations for webpacker using a configuration file named `config/assets.rb`. Within this file, you have the following API methods available:
+Decidim Shakapacker provides a new configuration convention that allows you to add extra configurations for shakapacker using a configuration file named `config/assets.rb`. Within this file, you have the following API methods available:
 
 [source,ruby]
 ----
@@ -192,8 +196,8 @@ In the case of Capistrano this can be done with a before hook (can be added at t
 [source,ruby]
 ----
 namespace :deploy do
-  desc "Decidim webpacker configuration"
-  task :decidim_webpacker_install do
+  desc "Decidim shakapacker configuration"
+  task :decidim_shakapacker_install do
     on roles(:all) do
       within release_path do
         execute :npm, "install"
@@ -201,7 +205,7 @@ namespace :deploy do
     end
   end
 
-  before "deploy:assets:precompile", "deploy:decidim_webpacker_install"
+  before "deploy:assets:precompile", "deploy:decidim_shakapacker_install"
 end
 ----
 
