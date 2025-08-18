@@ -2313,6 +2313,8 @@ de:
         profile: Mein Konto
         public_profile: Mein öffentliches Profil
         title: Profil-Links
+        unread_conversations: Sie haben ungelesene Unterhaltungen
+        unread_notifications: Sie haben ungelesene Benachrichtigungen
       user_profile:
         account: Konto
         authorizations: Berechtigungen
