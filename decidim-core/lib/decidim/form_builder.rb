@@ -7,6 +7,7 @@ module Decidim
     include ActionView::Context
     include Decidim::TranslatableAttributes
     include Decidim::Map::Autocomplete::FormBuilder
+    include Decidim::TooltipHelper
 
     # Public: generates a check boxes input from a collection and adds help
     # text and errors.
@@ -684,13 +685,13 @@ module Decidim
         I18n.t("required", scope: "forms"),
         class: "sr-only"
       )
-      content_tag(
-        :span,
-        visible_title + screenreader_title,
-        title: I18n.t("required", scope: "forms"),
-        data: { tooltip: true, disable_hover: false, keep_on_hover: true },
-        class: "label-required"
-      ).html_safe
+      with_tooltip(I18n.t("required", scope: "forms"), options.merge(class: "top")) do
+        content_tag(
+          :span,
+          visible_title + screenreader_title,
+          class: "label-required"
+        )
+      end.html_safe
     end
 
     # Private: Returns the help text and error tags at the end of the field.

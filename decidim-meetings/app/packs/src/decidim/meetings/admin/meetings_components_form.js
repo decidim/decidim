@@ -1,5 +1,4 @@
 import TomSelect from "tom-select/dist/cjs/tom-select.popular";
-import createTooltip from "src/decidim/tooltips"
 
 /**
  * This module manages the Linked Spaces section from the
@@ -39,12 +38,6 @@ const handleAddButton = () => {
   }
 
   body.appendChild(clone);
-
-  const tooltips = body.querySelectorAll("[data-tooltip]")
-
-  if (tooltips.length) {
-    createTooltip(tooltips[tooltips.length - 1]);
-  }
 
   select.value = "";
   table.classList.remove("hidden");

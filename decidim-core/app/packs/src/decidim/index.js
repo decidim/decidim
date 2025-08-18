@@ -55,7 +55,6 @@ import FocusGuard from "src/decidim/focus_guard"
 import markAsReadNotifications from "src/decidim/notifications"
 import handleNotificationActions from "src/decidim/notifications_actions"
 import RemoteModal from "src/decidim/remote_modal"
-import createTooltip from "src/decidim/tooltips"
 import createToggle from "src/decidim/toggle"
 import {
   createDialog,
@@ -157,10 +156,6 @@ const initializer = (element = document) => {
 
   // Initialize available remote modals (ajax-fetched contents)
   element.querySelectorAll("[data-dialog-remote-url]").forEach((elem) => new RemoteModal(elem))
-
-  // Initialize data-tooltips
-  element.querySelectorAll("[data-tooltip]").forEach((elem) => createTooltip(elem))
-
   // Initialize data-toggles
   element.querySelectorAll("[data-toggle]").forEach((elem) => createToggle(elem))
 
