@@ -4,7 +4,7 @@
  * @returns {void}
  */
 export default function(node = document) {
-  const actions = node.querySelectorAll("[data-notification-action]")
+  const actions = node.querySelectorAll('[data-controller="notification-action"]')
   if (!actions.length) {
     return;
   }
