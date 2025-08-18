@@ -7,7 +7,7 @@ module Decidim
   module Conferences
     class ConferenceDiplomaPDF
       include ActionView::Helpers::AssetUrlHelper
-      include Shakapacker::Helper
+      include ::Shakapacker::Helper
       include Decidim::TranslatableAttributes
       include Decidim::SanitizeHelper
 
