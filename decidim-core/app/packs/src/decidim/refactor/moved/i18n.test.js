@@ -1,4 +1,4 @@
-import * as i18n from "src/decidim/i18n";
+import * as i18n from "src/decidim/refactor/moved/i18n";
 
 const config = {
   messages: {

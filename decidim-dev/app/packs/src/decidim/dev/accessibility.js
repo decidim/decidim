@@ -1,5 +1,5 @@
 import axe from "axe-core"
-import icon from "src/decidim/icon"
+import icon from "src/decidim/refactor/moved/icon"
 
 const positionIndicators = () => {
   $(".decidim-accessibility-indicator").each((_i, el) => {

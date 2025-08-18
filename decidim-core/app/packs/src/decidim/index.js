@@ -29,12 +29,12 @@ import setOnboardingAction from "src/decidim/refactor/integration/onboarding_pen
 
 // local deps with no initialization
 import "src/decidim/input_tags"
-import "src/decidim/history"
+import "src/decidim/refactor/moved/history"
 import "src/decidim/account_form"
 import "src/decidim/append_redirect_url_to_modals"
 import "src/decidim/form_attachments"
 import "src/decidim/form_remote"
-import "src/decidim/delayed"
+import "src/decidim/refactor/moved/delayed"
 import "src/decidim/security/selfxss_warning"
 import "src/decidim/session_timeouter"
 import "src/decidim/results_listing"
@@ -51,7 +51,7 @@ import { initializeReverseGeocoding } from "src/decidim/geocoding/reverse_geocod
 import formDatePicker from "src/decidim/datepicker/form_datepicker"
 import InputCharacterCounter, { createCharacterCounter } from "src/decidim/input_character_counter"
 import FormFilterComponent from "src/decidim/form_filter"
-import FocusGuard from "src/decidim/focus_guard"
+import FocusGuard from "src/decidim/refactor/moved/focus_guard"
 import markAsReadNotifications from "src/decidim/notifications"
 import handleNotificationActions from "src/decidim/notifications_actions"
 import RemoteModal from "src/decidim/remote_modal"

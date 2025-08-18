@@ -7,17 +7,17 @@
 import { Application } from "@hotwired/stimulus"
 import MultipleMentionsController from "src/decidim/controllers/multiple_mentions/controller"
 
-const AutoComplete = require("src/decidim/autocomplete");
-const iconMock = require("src/decidim/icon");
+const AutoComplete = require("src/decidim/refactor/moved/autocomplete");
+const iconMock = require("src/decidim/refactor/moved/icon");
 
 // Mock the dependencies
-jest.mock("src/decidim/autocomplete", () => {
+jest.mock("src/decidim/refactor/moved/autocomplete", () => {
   return jest.fn().mockImplementation(() => ({
     setInput: jest.fn()
   }));
 });
 
-jest.mock("src/decidim/icon", () => {
+jest.mock("src/decidim/refactor/moved/icon", () => {
   return jest.fn().mockReturnValue("<svg>icon</svg>");
 });
 

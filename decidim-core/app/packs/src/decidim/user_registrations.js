@@ -1,9 +1,6 @@
-import PasswordToggler from "src/decidim/controllers/password_toggler/password_toggler";
-
 document.addEventListener("turbo:load", () => {
   const $userRegistrationForm = $("#register-form");
   const $userOmniauthRegistrationForm = $("#omniauth-register-form");
-  const userPassword         =  document.querySelector(".user-password");
   const newsletterSelector    = 'input[type="checkbox"][name="user[newsletter]"]';
   const $newsletterModal      = $("#sign-up-newsletter-modal");
 
@@ -38,8 +35,4 @@ document.addEventListener("turbo:load", () => {
   $newsletterModal.find("[data-check]").on("click", (event) => {
     checkNewsletter($(event.target).data("check"));
   });
-
-  if (userPassword) {
-    new PasswordToggler(userPassword).init();
-  }
 });
