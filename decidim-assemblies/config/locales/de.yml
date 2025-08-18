@@ -19,6 +19,9 @@ de:
         developer_group: Promoter-Gruppe
         document: Dokument
         domain: Domain
+        duplicate_categories: Kategorien duplizieren
+        duplicate_components: Komponenten duplizieren
+        duplicate_features: Funktionen duplizieren
         duration: Aktiv bis
         facebook: Facebook
         github: GitHub
@@ -108,6 +111,15 @@ de:
         update:
           error: Beim Aktualisieren dieses Gremiums ist ein Fehler aufgetreten.
           success: Die Versammlung wurde erfolgreich aktualisiert.
+      assemblies_duplicates:
+        create:
+          error: Beim Duplizieren dieses Gremiums ist ein Fehler aufgetreten.
+          success: Das Gremium wurde erfolgreich dupliziert.
+      assembly_duplicates:
+        new:
+          duplicate: Duplizieren
+          select: Wählen Sie, welche Daten Sie duplizieren möchten
+          title: Dupliziertes Gremium
       assembly_imports:
         create:
           error: Beim Importieren dieses Gremiums ist ein Fehler aufgetreten.
@@ -157,6 +169,7 @@ de:
           attachments: Anhänge
           components: Komponenten
           info: Über dieses Gremium
+          landing_page: Startseiten-Layout
           moderations: Moderationen
           private_users: Mitglieder
           see_assembly: Gremium ansehen
@@ -179,6 +192,7 @@ de:
             vice_president: Vizepräsident
         assembly_user_role:
           fields:
+            actions: Aktionen
             email: Email
             name: Name
             role: Rolle
