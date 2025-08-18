@@ -2,6 +2,7 @@
 
 require "shakapacker"
 require "shakapacker/runner"
+require "decidim/shakapacker"
 require "decidim/webpacker"
 
-Shakapacker::Runner.include(Decidim::Webpacker::Runner)
+Shakapacker::Runner.include(Decidim::Shakapacker::Runner)

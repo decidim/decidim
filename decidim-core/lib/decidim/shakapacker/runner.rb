@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Webpacker
+  module Shakapacker
     module Runner
       def self.included(base)
         base.alias_method :original_initialize, :initialize
@@ -22,7 +22,7 @@ module Decidim
         Decidim::Assets::Tailwind.write_runtime_configuration
 
         # Write the runtime configuration and override the configuration
-        ENV["SHAKAPACKER_CONFIG"] = Decidim::Webpacker.configuration.configuration_file
+        ENV["SHAKAPACKER_CONFIG"] = Decidim::Shakapacker.configuration.configuration_file
       end
     end
   end

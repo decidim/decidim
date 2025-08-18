@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Webpacker
+  module Shakapacker
     class Configuration
       attr_reader :additional_paths, :entrypoints, :stylesheet_imports
 

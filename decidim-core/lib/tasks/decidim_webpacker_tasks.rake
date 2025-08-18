@@ -13,10 +13,10 @@ namespace :decidim do
       remove_file_from_application "yarn.lock"
       remove_file_from_application "node_modules/.yarn-integrity"
       # PostCSS configuration
-      copy_file_to_application "decidim-core/lib/decidim/webpacker/postcss.config.js", "postcss.config.js"
+      copy_file_to_application "decidim-core/lib/decidim/shakapacker/postcss.config.js", "postcss.config.js"
 
-      copy_file_to_application "decidim-core/lib/decidim/webpacker/esbuild.config.js", "config/esbuild.config.js"
-      copy_file_to_application "decidim-core/lib/decidim/webpacker/tsconfig.json", "tsconfig.json"
+      copy_file_to_application "decidim-core/lib/decidim/shakapacker/esbuild.config.js", "config/esbuild.config.js"
+      copy_file_to_application "decidim-core/lib/decidim/shakapacker/tsconfig.json", "tsconfig.json"
 
       # Remove the Webpacker config and deploy shakapacker
       migrate_shakapacker
@@ -60,11 +60,11 @@ namespace :decidim do
       remove_file_from_application "bin/yarn"
 
       unless File.exist?(rails_app_path.join("config/esbuild.config.js"))
-        copy_file_to_application "decidim-core/lib/decidim/webpacker/esbuild.config.js",
+        copy_file_to_application "decidim-core/lib/decidim/shakapacker/esbuild.config.js",
                                  "config/esbuild.config.js"
       end
       unless File.exist?(rails_app_path.join("tsconfig.json"))
-        copy_file_to_application "decidim-core/lib/decidim/webpacker/tsconfig.json",
+        copy_file_to_application "decidim-core/lib/decidim/shakapacker/tsconfig.json",
                                  "tsconfig.json"
       end
 
@@ -82,11 +82,11 @@ namespace :decidim do
     remove_file_from_application "bin/webpack-dev-server"
 
     unless File.exist?(rails_app_path.join("config/shakapacker.yml"))
-      copy_file_to_application "decidim-core/lib/decidim/webpacker/shakapacker.yml", "config/shakapacker.yml"
+      copy_file_to_application "decidim-core/lib/decidim/shakapacker/shakapacker.yml", "config/shakapacker.yml"
       remove_folder_from_application "config/webpack"
     end
 
-    copy_folder_to_application "decidim-core/lib/decidim/webpacker/webpack", "config"
+    copy_folder_to_application "decidim-core/lib/decidim/shakapacker/webpack", "config"
 
     system!("bin/rails shakapacker:binstubs") unless File.exist?(rails_app_path.join("bin/shakapacker"))
 
@@ -205,7 +205,7 @@ namespace :decidim do
     contents = ""
     lines.each do |line|
       contents += if line =~ /^require "shakapacker"$/
-                    %(require "decidim/webpacker/shakapacker"\n)
+                    %(require "decidim/shakapacker/shakapacker"\n)
                   else
                     line
                   end
@@ -223,7 +223,7 @@ end
 # configuration file path. This is needed e.g. when `rails assets:precompile` is
 # being run. Otherwise webpacker might not recognize if the assets need to be
 # compiled again (i.e. if the asset hash has been changed).
-if (config_path = Decidim::Webpacker.configuration.configuration_file)
+if (config_path = Decidim::Shakapacker.configuration.configuration_file)
   Shakapacker.instance = Shakapacker::Instance.new(
     config_path: Pathname.new(config_path)
   )

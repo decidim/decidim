@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/webpacker/shakapacker"
+require "decidim/shakapacker/shakapacker"
 
 describe Shakapacker::Compiler do
   subject { described_class.new(webpacker) }
