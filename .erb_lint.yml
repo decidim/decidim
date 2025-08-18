@@ -42,6 +42,7 @@ linters:
           - CodeMirror-rtl
           - CodeMirror-rulers
           - CodeMirror-sided
+          - callout
           - Select
           - Select--multi
           - Select--rtl

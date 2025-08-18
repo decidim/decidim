@@ -30,7 +30,6 @@ import setOnboardingAction from "src/decidim/refactor/integration/onboarding_pen
 // local deps with no initialization
 import "src/decidim/input_tags"
 import "src/decidim/history"
-import "src/decidim/callout"
 import "src/decidim/account_form"
 import "src/decidim/append_redirect_url_to_modals"
 import "src/decidim/form_attachments"
