@@ -3,8 +3,8 @@
 require "decidim/gem_manager"
 
 namespace :decidim do
-  namespace :webpacker do
-    desc "Installs Decidim webpacker files in Rails instance application"
+  namespace :shakapacker do
+    desc "Installs Decidim shakapacker files in Rails instance application"
     task install: :environment do
       raise "Decidim gem is not installed" if decidim_path.nil?
 
@@ -18,15 +18,15 @@ namespace :decidim do
       copy_file_to_application "decidim-core/lib/decidim/shakapacker/esbuild.config.js", "config/esbuild.config.js"
       copy_file_to_application "decidim-core/lib/decidim/shakapacker/tsconfig.json", "tsconfig.json"
 
-      # Remove the Webpacker config and deploy shakapacker
+      # Remove the Shakapacker config and deploy shakapacker
       migrate_shakapacker
 
       # Install JS dependencies
       install_decidim_npm
 
-      # Remove the webpacker dependencies as they come through Decidim dependencies.
+      # Remove the Shakapacker dependencies as they come through Decidim dependencies.
       # This ensures we can control their versions from Decidim dependencies to avoid version conflicts.
-      webpacker_packages = %w(
+      shakapacker_packages = %w(
         @babel/core
         @babel/plugin-transform-runtime
         @babel/preset-env
@@ -45,7 +45,7 @@ namespace :decidim do
         @rails/ujs
         turbolinks
       )
-      system! "npm uninstall #{webpacker_packages.join(" ")}"
+      system! "npm uninstall #{shakapacker_packages.join(" ")}"
 
       # Add the Browserslist configuration to the project
       add_decidim_browserslist_configuration
@@ -53,8 +53,15 @@ namespace :decidim do
   end
 
   namespace :upgrade do
-    desc "Upgrades Decidim webpacker dependencies in Rails instance application"
-    task webpacker: :environment do
+
+    desc "Upgrades the shakapacker required npm package"
+    task :shakapacker_npm do
+      system! "npm uninstall shakapacker"
+      system! "npm install --save-dev shakapacker@#{`bundle list | grep shakapacker | awk -F '[()]' '{print $2}'`}"
+    end
+
+    desc "Upgrades Decidim Shakapacker dependencies in Rails instance application"
+    task shakapacker: :environment do
       raise "Decidim gem is not installed" if decidim_path.nil?
 
       remove_file_from_application "bin/yarn"
@@ -68,7 +75,7 @@ namespace :decidim do
                                  "tsconfig.json"
       end
 
-      # Remove the Webpacker config and deploy shakapacker
+      # Remove the Shakapacker config and deploy shakapacker
       migrate_shakapacker
 
       # Update JS dependencies
@@ -199,7 +206,7 @@ namespace :decidim do
 
     # Skip if the load path is already added
     return if lines.grep(
-      %r{^require "decidim/webpacker/shakapacker"$}
+      %r{^require "decidim/shakapacker/shakapacker"$}
     ).size.positive?
 
     contents = ""
@@ -219,9 +226,9 @@ namespace :decidim do
   end
 end
 
-# Override the Webpacker instance for the rake tasks to correctly assign the
+# Override the Shakapacker instance for the rake tasks to correctly assign the
 # configuration file path. This is needed e.g. when `rails assets:precompile` is
-# being run. Otherwise webpacker might not recognize if the assets need to be
+# being run. Otherwise Shakapacker might not recognize if the assets need to be
 # compiled again (i.e. if the asset hash has been changed).
 if (config_path = Decidim::Shakapacker.configuration.configuration_file)
   Shakapacker.instance = Shakapacker::Instance.new(

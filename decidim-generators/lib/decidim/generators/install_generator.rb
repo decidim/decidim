@@ -96,8 +96,8 @@ module Decidim
 
         rails "shakapacker:binstubs"
 
-        # Run Decidim custom webpacker installation
-        rails "decidim:webpacker:install"
+        # Run Decidim custom shakapacker installation
+        rails "decidim:shakapacker:install"
 
         # Run Decidim custom procfile installation
         rails "decidim:procfile:install"

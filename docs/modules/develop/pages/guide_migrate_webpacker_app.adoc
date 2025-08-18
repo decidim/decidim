@@ -36,7 +36,7 @@ bundle exec rails webpacker:install
 
 [source,console]
 ----
-bundle exec rails decidim:webpacker:install
+bundle exec rails decidim:shakapacker:install
 ----
 
 This task do a few steps to allow the Rails instance to have a webpacker instance sharing the code between itself and Decidim gem.
@@ -214,7 +214,7 @@ Also, in the case of Capistrano it is interesting to add to the shared_paths the
 
 == Troubleshooting
 
-If you have the following exception when executing `bundle exec rails decidim:upgrade` or `bundle exec rails decidim:webpacker:install`
+If you have the following exception when executing `bundle exec rails decidim:upgrade` or `bundle exec rails decidim:shakapacker:install`
 
 [source,console]
 ----
