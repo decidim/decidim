@@ -11,7 +11,7 @@ RSpec.configure do |config|
     node_modules_contents = `ls #{Rails.root.join("node_modules")}`
 
     message = <<~ERROR
-      There was an error during the Webpacker compilation
+      There was an error during the Shakapacker compilation
       #{"=" * 80}
       Node version: #{`node -v`}
       #{"=" * 80}

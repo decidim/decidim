@@ -93,8 +93,8 @@ module Decidim
                              default: false,
                              desc: "Do not add Puma development SSL configuration options"
 
-      # we disable the webpacker installation as we will use shakapacker
-      def webpacker_gemfile_entry
+      # we disable the shakapacker installation as we will use shakapacker
+      def shakapacker_gemfile_entry
         []
       end
 

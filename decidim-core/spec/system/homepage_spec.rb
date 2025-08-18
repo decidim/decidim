@@ -347,7 +347,7 @@ describe "Homepage" do
       describe "decidim link with external icon" do
         before { visit current_path }
 
-        let(:webpacker_helper) do
+        let(:shakapacker_helper) do
           Class.new do
             include ActionView::Helpers::AssetUrlHelper
             include Shakapacker::Helper

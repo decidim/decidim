@@ -75,7 +75,7 @@ module Decidim
         remove_file "Gemfile"
       end
 
-      def install_decidim_webpacker
+      def install_decidim_shakapacker
         # Copy CSS file
         copy_file "decidim_application.scss", "app/packs/stylesheets/decidim/decidim_application.scss"
 
@@ -87,7 +87,7 @@ module Decidim
         # Add a .keep file so directory is included in git when committing
         create_file "app/packs/images/.keep"
 
-        # Regenerate webpacker binstubs
+        # Regenerate shakapacker binstubs
         remove_file "bin/yarn"
         bundle_install
 

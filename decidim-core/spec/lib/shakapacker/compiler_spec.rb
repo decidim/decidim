@@ -4,9 +4,9 @@ require "spec_helper"
 require "decidim/shakapacker/shakapacker"
 
 describe Shakapacker::Compiler do
-  subject { described_class.new(webpacker) }
+  subject { described_class.new(shakapacker) }
 
-  let(:webpacker) { Shakapacker.instance }
+  let(:shakapacker) { Shakapacker.instance }
 
   describe "#fresh?" do
     before { subject.compile }
