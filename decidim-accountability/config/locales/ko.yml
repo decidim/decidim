@@ -26,8 +26,6 @@ ko:
   decidim:
     accountability:
       actions:
-        attachment_collections: 폴더
-        attachments: 첨부 파일
         confirm_destroy: 정말로 %{name} 를 삭제하시겠습니까?
         destroy: 삭제
         edit: 편집

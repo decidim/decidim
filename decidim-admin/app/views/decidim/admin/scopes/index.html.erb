@@ -32,7 +32,7 @@
               <%= scope.scope_type ? translated_attribute(scope.scope_type.name) : "-" %>
             </td>
             <td data-label="<%= t("decidim.admin.actions.actions") %>" class="table-list__actions">
-              <button type="button" data-component="dropdown" data-target="actions-scope-<%= scope.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: translated_attribute(scope.name)) %>">
+              <button type="button" data-controller="dropdown" data-target="actions-scope-<%= scope.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: translated_attribute(scope.name)) %>">
                 <%= icon "more-fill", class: "text-secondary" %>
               </button>
 

@@ -82,13 +82,11 @@ hu:
     admin:
       actions:
         activate: Aktiválás
-        configure: Beállítások
         confirm_destroy: Törlés megerősítése
         destroy: Törlés
         duplicate: Duplikálás
         edit: Szerkesztés
         import_process: Importál
-        moderate: Mérsékelt
         new_process: Új folyamat
         new_process_group: Új folyamat csoport
         new_process_step: Új fázis

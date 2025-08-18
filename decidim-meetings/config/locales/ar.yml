@@ -184,8 +184,6 @@ ar:
     meetings:
       actions:
         agenda: جدول أعمال
-        attachment_collections: المجلدات
-        attachments: مرفقات
         close: قريب
         edit: تعديل
         invalid_destroy:

@@ -44,7 +44,7 @@ describe "Editor" do
               <h1 class="h1 decorator inline-block text-left">Editor test</h1>
             </div>
             <div class="page__container">
-              <form action="/form_action" method="post">
+              <form action="/form_action" method="post" data-controller="test">
                 #{editor_wrapper}
               </form>
             </div>

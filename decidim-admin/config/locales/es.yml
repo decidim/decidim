@@ -173,7 +173,10 @@ es:
           new: Nuevo archivo adjunto
         attachment_collection:
           new: Nueva carpeta de archivos adjuntos
+        attachment_collections: Añadir una carpeta
+        attachments: Añadir un adjunto
         browse: Explorar
+        configure: Configurar
         confirm_delete_component: |
           ¿Seguro que quieres eliminar este componente?<br>
           Este componente contiene:<br>
@@ -181,21 +184,22 @@ es:
             <li class="font-bold">%{resources_count} recursos</li>
           </ul>
           Si cambias de opinión, puedes restaurarlo más tarde.
-        export: Exportar todo
+        export: Exportar
         export-selection: Exportar selección
         import: Importar
-        manage: Gestionar
+        menu_hidden: Ocultar del menú
+        moderate: Gestionar las moderaciones
         newsletter:
           new: Nuevo boletín
         participatory_space_private_user:
           new: Nuevo usuario privado del espacio participativo
         per_page: Por página
-        permissions: Permisos
+        permissions: Gestionar los permisos
         restore: Restaurar
         send_me_a_test_email: Envíame un correo electrónico de prueba
         share: Compartir
-        share_tokens: Enlaces de acceso
-        soft_delete: Enviar a la papelera
+        share_tokens: Compartir el enlace
+        soft_delete: Mover a la papelera
         user:
           new: Nueva administradora
         view_deleted_components: Ver los componentes eliminados
@@ -684,7 +688,7 @@ es:
               update_moderated_user_button: Deshacer la denuncia a las usuarias
             title: Acciones
             unblock: Desbloquear usuaria
-            unreport: Deshacer denuncia
+            unreport: Deshacer la denuncia
           cancel: Cancelar
           name: Nombre
           nickname: Alias
@@ -839,7 +843,7 @@ es:
         index:
           actions: Acciones
           badge: Insignias
-          block: Bloquear usuaria
+          block: Bloquear
           created_at: Creado el
           name: Nombre
           nickname: Alias
@@ -848,9 +852,10 @@ es:
           officialized: Oficializada
           reofficialize: Vuelve a oficializar
           reports: Informes
-          show_email: Mostrar la dirección de correo electrónico
+          send_message: Enviar un mensaje
+          show_email: Mostrar la dirección electrónica
           status: Estado
-          unblock: Desbloquear usuaria
+          unblock: Desbloquear
           unofficialize: Des-oficializar
         new:
           badge: Insignia de oficialización
@@ -1077,7 +1082,7 @@ es:
           success: Tema actualizado correctamente
       static_pages:
         actions:
-          view: Ver la página pública
+          view: Ver
         create:
           error: Se ha producido un error al crear una nueva página.
           success: La página se ha creado correctamente. Sigue ahora con la configuración de las fases.
@@ -1105,9 +1110,9 @@ es:
       taxonomies:
         actions:
           actions: Acciones
-          destroy: Eliminar taxonomía y elementos
-          edit: Editar taxonomía y elementos
-          filters: Administrar filtros
+          destroy: Borrar
+          edit: Editar
+          filters: Aplicar filtros
         breadcrumb:
           edit: Editar taxonomía
           new: Nueva taxonomía
@@ -1278,8 +1283,8 @@ es:
         not_hidden: No ocultas
         parent_hidden: No se puede mostrar este recurso porque está incluido dentro de otro recurso ("padre") que sigue oculto.
         title: Acciones
-        unhide: Vuelve a mostrar
-        unreport: Deshacer denuncia
+        unhide: Volver a mostrar
+        unreport: Deshacer la denuncia
       admin:
         reportable:
           bulk_action:

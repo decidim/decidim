@@ -11,6 +11,7 @@
   "license": "AGPL-3.0-or-later",
   "main": "index.js",
   "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
     "@rails/ujs": "^6.1.7",
     "@tailwindcss/typography": "^0.5.2",
     "autoprefixer": "^10.4.14",

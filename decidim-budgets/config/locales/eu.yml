@@ -45,13 +45,10 @@ eu:
         deleted_projects_info: Ezin da ezabatu proiektu hau
     budgets:
       actions:
-        attachment_collections: Karpetak
-        attachments: Fitxategi erantsiak
         confirm_delete_budget: Ziur zaude aurrekontu hau ezabatu nahi duzula?
         confirm_delete_project: Ziur zaude proiektu hau ezabatu nahi duzula?
         deleted_budgets_info: Ezabatutako aurrekontuak berreskura daitezke zaborrontzitik.
         edit: Editatu
-        edit_projects: Kudeatu proiektuak
         import: Inportatu proiektuetarako proposamenak
         new_budget: Beste aurrekontu bat
         new_project: Beste proiektu bat

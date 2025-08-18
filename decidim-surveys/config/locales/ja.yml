@@ -25,7 +25,7 @@ ja:
     components:
       surveys:
         actions:
-          response: 回答
+          respond: 回答する
         name: 調査
         settings:
           announcement: お知らせ
@@ -95,11 +95,9 @@ ja:
           destroy:
             success: アンケートを削除しました。
           edit:
-            title: メイン
+            title: アンケートを編集
           index:
             title: アンケート
-          new:
-            title: メイン
           publish:
             invalid: このアンケートを公開する際に問題が発生しました。
             success: アンケートを公開しました。

@@ -45,13 +45,11 @@ es-MX:
         deleted_projects_info: No se puede eliminar este proyecto
     budgets:
       actions:
-        attachment_collections: Carpetas
-        attachments: Archivos adjuntos
         confirm_delete_budget: '¿Seguro que deseas eliminar este presupuesto?'
         confirm_delete_project: '¿Seguro que deseas eliminar este proyecto?'
         deleted_budgets_info: Los presupuestos eliminados se pueden restaurar desde papelera.
         edit: Editar
-        edit_projects: Gestionar proyectos
+        edit_projects: Añadir proyectos
         import: Importar propuestas a proyectos
         new_budget: Añadir presupuesto
         new_project: Añadir proyecto

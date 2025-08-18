@@ -11,7 +11,7 @@ describe "Conference admin accesses admin sections" do
     visit decidim_admin_conferences.conferences_path
 
     within("tr", text: translated(conference.title)) do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       click_on "Edit"
     end
   end
