@@ -53,7 +53,6 @@ namespace :decidim do
   end
 
   namespace :upgrade do
-
     desc "Upgrades the shakapacker required npm package"
     task :shakapacker_npm do
       system! "npm uninstall shakapacker"

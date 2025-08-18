@@ -4,7 +4,7 @@ module Decidim
   module Webpacker
     def self.register_path(path, prepend: false)
       deprecator.warn "Decidim::Webpacker.register_path is deprecated. Please use Decidim::Shakapacker.register_path instead."
-      Decidim::Shakapacker.register_path(path, prepend: )
+      Decidim::Shakapacker.register_path(path, prepend:)
     end
 
     def self.register_entrypoints(entrypoints)
@@ -14,9 +14,8 @@ module Decidim
 
     def self.register_stylesheet_import(import, type: :imports, group: :app)
       deprecator.warn "Decidim::Webpacker.register_stylesheet_import is deprecated. Please use Decidim::Shakapacker.register_stylesheet_import instead."
-      Decidim::Shakapacker.register_stylesheet_import(import, type:, group: )
+      Decidim::Shakapacker.register_stylesheet_import(import, type:, group:)
     end
-
 
     def self.deprecator(gem_name: "decidim-core", deprecation_horizon: "0.32")
       require "active_support/deprecation"
