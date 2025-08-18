@@ -17,7 +17,7 @@ describe "User prints the initiative" do
 
       it "Updates published initiative data" do
         within("tr", text: translated(initiative.title)) do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Edit"
         end
 
@@ -37,7 +37,7 @@ describe "User prints the initiative" do
 
       it "updates the initiative" do
         within("tr", text: translated(initiative.title)) do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Edit"
         end
 
@@ -68,7 +68,7 @@ describe "User prints the initiative" do
 
         it "updates type, scope and signature type" do
           within("tr", text: translated(initiative.title)) do
-            find("button[data-component='dropdown']").click
+            find("button[data-controller='dropdown']").click
             click_on "Edit"
           end
 
@@ -87,7 +87,7 @@ describe "User prints the initiative" do
 
         it "displays initiative attachments" do
           within("tr", text: translated(initiative.title)) do
-            find("button[data-component='dropdown']").click
+            find("button[data-controller='dropdown']").click
             click_on "Edit"
           end
 
@@ -103,7 +103,7 @@ describe "User prints the initiative" do
 
         it "updates type, scope and signature type" do
           within("tr", text: translated(initiative.title)) do
-            find("button[data-component='dropdown']").click
+            find("button[data-controller='dropdown']").click
             click_on "Edit"
           end
 
@@ -122,7 +122,7 @@ describe "User prints the initiative" do
 
         it "displays initiative attachments" do
           within("tr", text: translated(initiative.title)) do
-            find("button[data-component='dropdown']").click
+            find("button[data-controller='dropdown']").click
             click_on "Edit"
           end
 
@@ -138,7 +138,7 @@ describe "User prints the initiative" do
 
         it "update of type, scope and signature type are disabled" do
           within("tr", text: translated(initiative.title)) do
-            find("button[data-component='dropdown']").click
+            find("button[data-controller='dropdown']").click
             click_on "Edit"
           end
 
@@ -151,7 +151,7 @@ describe "User prints the initiative" do
 
         it "displays initiative attachments" do
           within("tr", text: translated(initiative.title)) do
-            find("button[data-component='dropdown']").click
+            find("button[data-controller='dropdown']").click
             click_on "Edit"
           end
 
@@ -170,7 +170,7 @@ describe "User prints the initiative" do
 
         it "update of type, scope and signature type are disabled" do
           within("tr", text: translated(initiative.title)) do
-            find("button[data-component='dropdown']").click
+            find("button[data-controller='dropdown']").click
             click_on "Edit"
           end
 

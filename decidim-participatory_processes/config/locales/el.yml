@@ -82,13 +82,11 @@ el:
     admin:
       actions:
         activate: Ενεργοποίηση
-        configure: Διαμόρφωση
         confirm_destroy: Επιβεβαίωση διαγραφής
         destroy: Διαγραφή
         duplicate: Αντιγραφή
         edit: Επεξεργασία
         import_process: Εισαγωγή
-        moderate: Συντονισμός
         new_process: Νέα διαδικασία
         new_process_group: Νέα ομάδα διαδικασιών
         new_process_step: Νέα φάση

@@ -46,14 +46,14 @@ describe "Admin manages meetings" do
       visit current_path
 
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Unpublish" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         expect(page).to have_content("Publish")
       end
 
@@ -64,7 +64,7 @@ describe "Admin manages meetings" do
       expect(page).to have_admin_callout("successfully")
 
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         expect(page).to have_content("Unpublish")
       end
 
@@ -98,7 +98,7 @@ describe "Admin manages meetings" do
   describe "when rendering the text in the update page" do
     before do
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
     end
@@ -170,7 +170,7 @@ describe "Admin manages meetings" do
   it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='meeting-description-tabs']", "full" do
     before do
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
     end
@@ -178,7 +178,7 @@ describe "Admin manages meetings" do
 
   it "updates a meeting" do
     within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       click_on "Edit"
     end
 
@@ -215,7 +215,7 @@ describe "Admin manages meetings" do
 
   it "sets registration enabled to true when registration type is on this platform" do
     within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       click_on "Edit"
     end
 
@@ -231,7 +231,7 @@ describe "Admin manages meetings" do
 
   it "sets registration enabled to false when registration type is not on this platform" do
     within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       click_on "Edit"
     end
 
@@ -247,7 +247,7 @@ describe "Admin manages meetings" do
 
   it "adds a few services to the meeting" do
     within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       click_on "Edit"
     end
 
@@ -263,7 +263,7 @@ describe "Admin manages meetings" do
     expect(page).to have_admin_callout("successfully")
 
     within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       click_on "Edit"
     end
 
@@ -274,7 +274,7 @@ describe "Admin manages meetings" do
   describe "previewing" do
     it "allows the user to preview a published meeting" do
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         preview_window = window_opened_by { click_on "Preview" }
 
         within_window preview_window do
@@ -290,7 +290,7 @@ describe "Admin manages meetings" do
         visit current_path
 
         within "tr", text: Decidim::Meetings::MeetingPresenter.new(unpublished_meeting).title do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           preview_window = window_opened_by { click_on "Preview" }
 
           within_window preview_window do
@@ -523,7 +523,7 @@ describe "Admin manages meetings" do
 
     it "deletes a meeting" do
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting2).title do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Move to trash" }
       end
 
@@ -550,7 +550,7 @@ describe "Admin manages meetings" do
 
     it "updates a meeting" do
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
@@ -650,7 +650,7 @@ describe "Admin manages meetings" do
 
     it "closes a meeting with a report" do
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Close"
       end
 
@@ -704,7 +704,7 @@ describe "Admin manages meetings" do
 
       before do
         within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Close"
         end
       end
@@ -721,7 +721,7 @@ describe "Admin manages meetings" do
 
       it "can update the information" do
         within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Close"
         end
 
@@ -741,7 +741,7 @@ describe "Admin manages meetings" do
 
       it "does not display the proposal picker" do
         within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Close"
         end
 

@@ -33,7 +33,7 @@ module Decidim
         user_can_read_current_assembly?
         user_can_create_assembly?
         user_can_export_assembly?
-        user_can_copy_assembly?
+        user_can_duplicate_assembly?
         user_can_upload_images_in_assembly?
 
         # org admins and space admins can do everything in the admin section
@@ -172,8 +172,8 @@ module Decidim
         toggle_allow(user.admin? || admin_assembly?)
       end
 
-      def user_can_copy_assembly?
-        return unless permission_action.action == :copy &&
+      def user_can_duplicate_assembly?
+        return unless permission_action.action == :duplicate &&
                       permission_action.subject == :assembly
 
         toggle_allow(user.admin? || admin_assembly?)

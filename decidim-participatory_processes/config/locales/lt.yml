@@ -88,13 +88,11 @@ lt:
     admin:
       actions:
         activate: Aktyvuoti
-        configure: Konfigūruoti
         confirm_destroy: Patvirtinti ištrynimą
         destroy: Ištrinti
         duplicate: Sukurti kopiją
         edit: Redaguoti
         import_process: Importuoti
-        moderate: Moderuoti
         new_process: Naujas procesas
         new_process_group: Nauja procesų grupė
         new_process_step: Naujas etapas

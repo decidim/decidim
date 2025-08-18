@@ -26,8 +26,6 @@ zh-TW:
   decidim:
     accountability:
       actions:
-        attachment_collections: 資料夾
-        attachments: 附件
         confirm_destroy: 確定要刪除 %{name} ？
         destroy: 刪除
         edit: 編輯

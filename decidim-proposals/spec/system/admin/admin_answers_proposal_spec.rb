@@ -30,7 +30,7 @@ describe "Admin answers proposals" do
 
     it "when accepting, can submit answer with a text answer" do
       within "tr", text: translated(proposals.first.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Answer proposal"
       end
       find("label[for='proposal_answer_internal_state_accepted']").click
@@ -48,7 +48,7 @@ describe "Admin answers proposals" do
 
       before do
         within "tr", text: translated(proposals.first.title) do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Answer proposal"
         end
         fill_in_i18n_editor(

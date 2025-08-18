@@ -85,13 +85,11 @@ ro:
     admin:
       actions:
         activate: Activează
-        configure: Configurează
         confirm_destroy: Confirmă ștergerea
         destroy: Șterge
         duplicate: Duplică
         edit: Editează
         import_process: Importă
-        moderate: Moderează
         new_process: Proces nou
         new_process_group: Grup nou de proces
         new_process_step: Etapă nouă

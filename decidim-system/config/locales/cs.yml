@@ -101,6 +101,13 @@ cs:
             email: E-mail
           validations:
             email_uniqueness: jiný admin se stejnou e-mailovou adresou již existuje
+        api_user:
+          fields:
+            key: Klíč
+            name: Název
+            organization: Organizace
+          validations:
+            name_uniqueness: Uživatel API s tímto jménem již existuje.
         oauth_application:
           fields:
             created_at: Vytvořeno v
@@ -127,6 +134,9 @@ cs:
           save: Uložit
           title: Upravit žádost
         form:
+          application_type:
+            public:
+              name: Veřejné
           select_organization: Vybrat organizaci
         index:
           confirm_delete: Jste si jisti, že chcete odstranit tuto žádost?

@@ -82,15 +82,12 @@ es-PY:
     admin:
       actions:
         activate: Activar
-        configure: Configurar
         confirm_delete_process: '¿Seguro que quieres eliminar este proceso? Si cambias de opinión, puedes restaurarlo más tarde.'
         confirm_destroy: Confirma la supresión.
         destroy: Borrar
         duplicate: Duplicar
         edit: Editar
         import_process: Importar
-        menu_hidden: Ocultar
-        moderate: Moderar
         new_process: Nuevo proceso
         new_process_group: Nuevo grupo de procesos
         new_process_step: Nueva fase

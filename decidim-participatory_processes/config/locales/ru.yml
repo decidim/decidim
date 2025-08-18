@@ -63,7 +63,6 @@ ru:
     admin:
       actions:
         activate: Начать
-        configure: Настроить
         confirm_destroy: Подтвердите удаление
         destroy: Удалить
         duplicate: Создать копию

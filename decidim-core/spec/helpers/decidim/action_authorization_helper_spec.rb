@@ -46,12 +46,12 @@ module Decidim
               expect(subject).not_to match(path_as_action_or_href)
               expect(subject).not_to include('data-dialog-open="authorizationModal"')
               expect(subject).to include('href="/authorizations/renew_onboarding_data"')
-              expect(subject).to include("data-onboarding-permissions-holder=\"#{component.to_gid}\"")
-              expect(subject).to include("data-onboarding-action=\"#{action}\"")
+              expect(subject).to include("data-onboarding-permissions-holder-value=\"#{component.to_gid}\"")
+              expect(subject).to include("data-onboarding-action-value=\"#{action}\"")
               if params[:includes_redirect_data]
-                expect(subject).to include("data-onboarding-redirect-path=\"#{path}\"")
+                expect(subject).to include("data-onboarding-redirect-path-value=\"#{path}\"")
               else
-                expect(subject).not_to include("data-onboarding-redirect-path=\"#{path}\"")
+                expect(subject).not_to include("data-onboarding-redirect-path-value=\"#{path}\"")
               end
               expect(subject).to match(/\A<a /)
             end
@@ -63,13 +63,13 @@ module Decidim
                 expect(subject).not_to match(path_as_action_or_href)
                 expect(subject).not_to include('data-dialog-open="authorizationModal"')
                 expect(subject).to include('href="/authorizations/renew_onboarding_data"')
-                expect(subject).to include("data-onboarding-model=\"#{resource.to_gid}\"")
-                expect(subject).not_to include("data-onboarding-permissions-holder=\"#{component.to_gid}\"")
-                expect(subject).to include("data-onboarding-action=\"#{action}\"")
+                expect(subject).to include("data-onboarding-model-value=\"#{resource.to_gid}\"")
+                expect(subject).not_to include("data-onboarding-permissions-holder-value=\"#{component.to_gid}\"")
+                expect(subject).to include("data-onboarding-action-value=\"#{action}\"")
                 if params[:includes_redirect_data]
-                  expect(subject).to include("data-onboarding-redirect-path=\"#{path}\"")
+                  expect(subject).to include("data-onboarding-redirect-path-value=\"#{path}\"")
                 else
-                  expect(subject).not_to include("data-onboarding-redirect-path=\"#{path}\"")
+                  expect(subject).not_to include("data-onboarding-redirect-path-value=\"#{path}\"")
                 end
                 expect(subject).to match(/\A<a /)
               end
@@ -84,13 +84,13 @@ module Decidim
                 expect(subject).not_to match(path_as_action_or_href)
                 expect(subject).not_to include('data-dialog-open="authorizationModal"')
                 expect(subject).to include('href="/authorizations/renew_onboarding_data"')
-                expect(subject).to include("data-onboarding-model=\"#{resource.to_gid}\"")
-                expect(subject).to include("data-onboarding-permissions-holder=\"#{resource.to_gid}\"")
-                expect(subject).to include("data-onboarding-action=\"#{action}\"")
+                expect(subject).to include("data-onboarding-model-value=\"#{resource.to_gid}\"")
+                expect(subject).to include("data-onboarding-permissions-holder-value=\"#{resource.to_gid}\"")
+                expect(subject).to include("data-onboarding-action-value=\"#{action}\"")
                 if params[:includes_redirect_data]
-                  expect(subject).to include("data-onboarding-redirect-path=\"#{path}\"")
+                  expect(subject).to include("data-onboarding-redirect-path-value=\"#{path}\"")
                 else
-                  expect(subject).not_to include("data-onboarding-redirect-path=\"#{path}\"")
+                  expect(subject).not_to include("data-onboarding-redirect-path-value=\"#{path}\"")
                 end
                 expect(subject).to match(/\A<a /)
               end
@@ -129,12 +129,12 @@ module Decidim
               expect(subject).not_to match(path_as_action_or_href)
               expect(subject).not_to include('data-dialog-open="authorizationModal"')
               expect(subject).to include('href="/authorizations/renew_onboarding_data"')
-              expect(subject).to include("data-onboarding-permissions-holder=\"#{component.to_gid}\"")
-              expect(subject).to include("data-onboarding-action=\"#{action}\"")
+              expect(subject).to include("data-onboarding-permissions-holder-value=\"#{component.to_gid}\"")
+              expect(subject).to include("data-onboarding-action-value=\"#{action}\"")
               if params[:includes_redirect_data]
-                expect(subject).to include("data-onboarding-redirect-path=\"#{path}\"")
+                expect(subject).to include("data-onboarding-redirect-path-value=\"#{path}\"")
               else
-                expect(subject).not_to include("data-onboarding-redirect-path=\"#{path}\"")
+                expect(subject).not_to include("data-onboarding-redirect-path-value=\"#{path}\"")
               end
               expect(subject).to match(/\A<a /)
             end

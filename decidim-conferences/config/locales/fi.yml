@@ -5,11 +5,11 @@ fi:
         assemblies_ids: Liittyvät ryhmät
         available_slots: Vapaat paikat
         banner_image: Bannerikuva
-        copy_categories: Kopioi aihepiirit
-        copy_components: Kopioi komponentit
-        copy_features: Kopioi ominaisuudet
         decidim_scope_id: Teema
         description: Kuvaus
+        duplicate_categories: Kopioi aihepiirit
+        duplicate_components: Kopioi komponentit
+        duplicate_features: Kopioi ominaisuudet
         end_date: Päättymispäivä
         hero_image: Etusivun kuva
         location: Sijainti
@@ -97,9 +97,9 @@ fi:
         new_speaker: Uusi puhuja
         send_diplomas: Lähetä läsnäolotodistukset
         view_deleted_conferences: Näytä poistetut konferenssit
-      conference_copies:
+      conference_duplicates:
         new:
-          copy: Kopioi
+          duplicate: Kopioi
           select: Valitse, mitkä tiedot haluat kopioida
           title: Kopioi konferenssi
       conference_publications:
@@ -162,7 +162,13 @@ fi:
         exports:
           registrations: Ilmoittautumiset
         form:
+          duration: Kesto
+          images: Kuvat
+          metadata: Metatiedot
+          registrations: Ilmoittautumiset
+          related_spaces: Liittyvät osallistumistilat
           title: Yleistä tietoa
+          visibility: Näkyvyys
         index:
           published: Julkaistu
           unpublished: Julkaisematon
@@ -170,14 +176,14 @@ fi:
           title: Poistetut konferenssit
         new:
           create: Luo
-          title: Konferenssi
+          title: Uusi konferenssi
         update:
           error: Konferenssin päivitys epäonnistui.
           success: Konferenssin päivitys onnistui.
-      conferences_copies:
+      conferences_duplicates:
         create:
-          error: Konferenssin kopiointi epäonnistui.
-          success: Konferenssin kopiointi onnistui.
+          error: Konferenssin kopioiminen epäonnistui.
+          success: Konferenssin kopioiminen onnistui.
       media_links:
         create:
           error: Uuden medialinkin luonti epäonnistui.
@@ -355,7 +361,7 @@ fi:
         title: Puhujat
     conferences:
       admin:
-        conference_copies:
+        conference_duplicates:
           form:
             slug_help_html: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
         conference_invites:
