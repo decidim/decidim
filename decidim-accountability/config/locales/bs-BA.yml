@@ -21,6 +21,7 @@ bs:
         progress: Napredak
       timeline_entry:
         description: Opis
+        entry_date: Datum
         title: Naslov
     models:
       decidim/accountability/proposal_linked_event: Predlog uključen u rezultat
@@ -104,6 +105,7 @@ bs:
             progress: Napredak
         timeline_entry:
           fields:
+            entry_date: Datum
             title: Naslov
       results:
         count:
