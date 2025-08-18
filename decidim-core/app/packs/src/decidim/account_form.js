@@ -49,37 +49,6 @@ const initializeAccountForm = () => {
   });
 };
 
-/**
- * Since the delete account has a modal to confirm it we need to copy the content of the
- * reason field to the hidden field in the form inside the modal.
- *
- * @return {void}
- */
-const initializeDeleteAccount = () => {
-  const $deleteAccountForm = $(".delete-account");
-  const $deleteAccountModalForm = $(".delete-account-modal");
-
-  if ($deleteAccountForm.length < 1) {
-    return;
-  }
-
-  const $openModalButton = $(".open-modal-button");
-
-  $openModalButton.on("click", (event) => {
-    try {
-      const reasonValue = $deleteAccountForm.find("textarea#delete_account_delete_reason").val();
-      $deleteAccountModalForm.find("input#delete_account_delete_reason").val(reasonValue);
-    } catch (error) {
-      console.error(error); // eslint-disable-line no-console
-    }
-
-    event.preventDefault();
-    event.stopPropagation();
-    return false;
-  });
-};
-
 document.addEventListener("turbo:load", () => {
   initializeAccountForm();
-  initializeDeleteAccount();
 });
