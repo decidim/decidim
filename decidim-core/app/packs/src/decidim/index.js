@@ -26,7 +26,6 @@ import Configuration from "src/decidim/refactor/implementation/configuration"
 import setOnboardingAction from "src/decidim/refactor/integration/onboarding_pending_action"
 
 // local deps with no initialization
-import "src/decidim/input_tags"
 import "src/decidim/refactor/moved/history"
 import "src/decidim/account_form"
 import "src/decidim/append_redirect_url_to_modals"
