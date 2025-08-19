@@ -852,6 +852,8 @@ de:
       identities:
         done: Erledigt
         select_identity: Identität auswählen
+    endorsers_list:
+      title: Geliked von
     ephemeral_user: Gast
     errors:
       files:
