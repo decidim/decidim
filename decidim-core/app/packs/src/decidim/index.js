@@ -1,4 +1,3 @@
-/* eslint max-lines: ["error", 370] */
 /**
  * External dependencies
  */
@@ -21,7 +20,6 @@ import morphdom from "morphdom"
  * Local dependencies
  */
 
-import UserRegistrationForm from "src/decidim/refactor/integration/user_registration_form";
 import updateExternalDomainLinks from "src/decidim/refactor/implementation/external_domain_warning"
 import ExternalLink from "src/decidim/refactor/implementation/external_link"
 import Configuration from "src/decidim/refactor/implementation/configuration"
@@ -169,9 +167,9 @@ const initializer = (element = document) => {
   initializeUploadFields(element.querySelectorAll("button[data-upload]"));
   initializeReverseGeocoding()
 
-  element.querySelectorAll("[data-controller='accordion']").forEach((controller) => {
-    controller.dispatchEvent(new CustomEvent("accordion:reconnect"));
-  })
+  element.querySelectorAll("[data-controller='accordion']").forEach((accordion) => {
+    accordion.dispatchEvent(new CustomEvent("accordion:reconnect", { detail: { collapse: true } }));
+  });
 
   document.dispatchEvent(new CustomEvent("decidim:loaded", { detail: { element } }));
 }
@@ -203,8 +201,6 @@ document.addEventListener("comments:loaded", (event) => {
 
 document.addEventListener("turbo:load", () => {
 
-  (new UserRegistrationForm("register-form")).initialize();
-  (new UserRegistrationForm("omniauth-register-form")).initialize();
 });
 
 import { Application } from "@hotwired/stimulus"

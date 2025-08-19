@@ -1,33 +1,12 @@
-/**
- * Handles standard user registration form functionality.
- * Extends BaseRegistrationForm with standard registration specific behavior.
- */
-class UserRegistrationForm {
+import { Controller } from "@hotwired/stimulus"
 
-  /**
-   * Creates a new BaseRegistrationForm instance
-   * @param {HTMLElement} formElement - The form element to manage
-   * @param {String} modalSelector - The newsletter modal selector element
-   */
-  constructor(formElement, modalSelector = "sign-up-newsletter-modal") {
-    this.formElement =  document.getElementById(formElement);
-    this.modal = document.getElementById(modalSelector);
+export default class extends Controller {
+  connect() {
+    this.modal = document.getElementById("sign-up-newsletter-modal");
     this.newsletterSelector = 'input[type="checkbox"][name="user[newsletter]"]';
-    this.isInitialized = false;
-  }
-
-  /**
-   * Initializes the form by setting up event listeners
-   * @returns {void}
-   */
-  initialize() {
-    if (this.isInitialized || !this.exists()) {
-      return;
-    }
 
     this.setupFormEventListeners();
     this.setupModalEventListeners();
-    this.isInitialized = true;
   }
 
   /**
@@ -36,11 +15,9 @@ class UserRegistrationForm {
    * @returns {void}
    */
   setupFormEventListeners() {
-    if (this.exists()) {
-      this.formElement.addEventListener("submit", (event) => {
-        this.handleFormSubmission(event);
-      });
-    }
+    this.element.addEventListener("submit", (event) => {
+      this.handleFormSubmission(event);
+    });
   }
 
   /**
@@ -100,7 +77,7 @@ class UserRegistrationForm {
    * @returns {HTMLElement|null} The newsletter checkbox element
    */
   getNewsletterCheckbox() {
-    return this.formElement.querySelector(this.newsletterSelector);
+    return this.element.querySelector(this.newsletterSelector);
   }
 
   /**
@@ -132,9 +109,7 @@ class UserRegistrationForm {
    * @returns {void}
    */
   submit() {
-    if (this.exists()) {
-      this.formElement.requestSubmit();
-    }
+    this.element.requestSubmit();
   }
 
   /**
@@ -182,15 +157,4 @@ class UserRegistrationForm {
       window.Decidim.currentDialogs["sign-up-newsletter-modal"].close();
     }
   }
-
-  /**
-   * Checks if the form exists and is valid
-   * @returns {boolean} Whether the form exists
-   */
-  exists() {
-    return this.formElement !== null;
-  }
-
 }
-
-export default UserRegistrationForm;
