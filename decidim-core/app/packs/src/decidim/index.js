@@ -26,7 +26,6 @@ import setOnboardingAction from "src/decidim/refactor/integration/onboarding_pen
 
 // local deps with no initialization
 import "src/decidim/refactor/moved/history"
-import "src/decidim/account_form"
 import "src/decidim/append_redirect_url_to_modals"
 import "src/decidim/form_attachments"
 import "src/decidim/form_remote"

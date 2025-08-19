@@ -22,7 +22,7 @@
     </div>
   <% end %>
 
-  <%= decidim_form_for(@account, url: account_path, method: :put, html: { autocomplete: "on", class: "form-defaults edit_user" }) do |f| %>
+  <%= decidim_form_for(@account, url: account_path, method: :put, data: { controller: "account-form" }, html: { autocomplete: "on", class: "form-defaults edit_user" }) do |f| %>
     <div class="form__wrapper pt-0">
       <%= f.upload :avatar, button_class: "button button__lg button__transparent-secondary w-full" %>
 
