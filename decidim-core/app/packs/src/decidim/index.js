@@ -19,7 +19,6 @@ import morphdom from "morphdom"
 /**
  * Local dependencies
  */
-
 import updateExternalDomainLinks from "src/decidim/refactor/implementation/external_domain_warning"
 import ExternalLink from "src/decidim/refactor/implementation/external_link"
 import Configuration from "src/decidim/refactor/implementation/configuration"
@@ -35,7 +34,6 @@ import "src/decidim/refactor/moved/delayed"
 import "src/decidim/security/selfxss_warning"
 import "src/decidim/session_timeouter"
 import "src/decidim/results_listing"
-import "src/decidim/impersonation"
 import "src/decidim/data_consent"
 import "src/decidim/sw"
 import "src/decidim/attachments"
