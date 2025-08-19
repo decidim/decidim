@@ -388,6 +388,8 @@ de:
           publish:
             invalid: Beim Veröffentlichen dieser Veranstaltung ist ein Fehler aufgetreten.
             success: Veranstaltung erfolgreich veröffentlicht.
+          reminders:
+            title: Erinnerungen
           service:
             description: Beschreibung
             down: Nach unten
