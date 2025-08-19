@@ -52,7 +52,6 @@ import FocusGuard from "src/decidim/refactor/moved/focus_guard"
 import markAsReadNotifications from "src/decidim/notifications"
 import handleNotificationActions from "src/decidim/notifications_actions"
 import RemoteModal from "src/decidim/remote_modal"
-import createToggle from "src/decidim/toggle"
 import {
   createDialog,
   announceForScreenReader,
@@ -153,8 +152,6 @@ const initializer = (element = document) => {
 
   // Initialize available remote modals (ajax-fetched contents)
   element.querySelectorAll("[data-dialog-remote-url]").forEach((elem) => new RemoteModal(elem))
-  // Initialize data-toggles
-  element.querySelectorAll("[data-toggle]").forEach((elem) => createToggle(elem))
 
   // https://github.com/tremend-cofe/decidim-js/pull/6
   element.querySelectorAll("[data-controller='onboarding']").forEach((elem) => setOnboardingAction(elem));

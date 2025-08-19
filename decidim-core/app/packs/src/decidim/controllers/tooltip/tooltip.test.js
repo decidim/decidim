@@ -28,7 +28,6 @@ describe("TooltipController", () => {
     application.register("tooltip", TooltipController)
 
     element = document.getElementById("tooltip-trigger")
-    //
 
     // Wait for the controller to be connected
     return new Promise((resolve) => {
