@@ -42,7 +42,7 @@ describe "DownloadYourData", download: true do
       end
 
       it "displays only links from current_user" do
-        [expired_export, active_export,other_user_expired_export,other_user_active_export ].each(&:reload)
+        [expired_export, active_export, other_user_expired_export, other_user_active_export].each(&:reload)
 
         expect(page).to have_css("form[action=\"#{decidim.download_download_your_data_path(uuid: expired_export.uuid)}\"]")
         within "form[action=\"#{decidim.download_download_your_data_path(uuid: expired_export.uuid)}\"]" do
