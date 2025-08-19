@@ -9,32 +9,19 @@ describe "DownloadYourData", download: true do
 
   let(:user) { create(:user, :confirmed, name: "Hodor User") }
   let(:organization) { user.organization }
-  let!(:expired_export) do
-    export = private_export_for(resource.author)
-    export.update!(expires_at: 2.weeks.ago)
-    export.reload
-  end
-  let!(:active_export) { private_export_for(resource.author) }
+
+  let!(:expired_export) { create(:private_export, :expired, attached_to: user, organization:) }
+  let!(:active_export) { create(:private_export, attached_to: user, organization:) }
+
   let(:other_user) { create(:user, :confirmed, organization:) }
-
-  let!(:other_user_expired_export) do
-    export = private_export_for(other_resource.author)
-    export.update!(expires_at: 2.weeks.ago)
-    export.reload
-  end
-
-  let!(:other_user_active_export) { private_export_for(other_resource.author) }
-
-  def private_export_for(author)
-    Decidim::DownloadYourDataExporter.new(author,
-                                          "download_your_data",
-                                          Decidim::DownloadYourDataExporter::DEFAULT_EXPORT_FORMAT).export
-  end
+  let!(:other_user_expired_export) { create(:private_export, :expired, attached_to: other_resource.author, organization:) }
+  let!(:other_user_active_export) { create(:private_export, attached_to: other_resource.author, organization:) }
 
   around do |example|
     previous = Capybara.raise_server_errors
 
     Capybara.raise_server_errors = false
+    clear_enqueued_jobs
     example.run
     Capybara.raise_server_errors = previous
   end
@@ -42,13 +29,10 @@ describe "DownloadYourData", download: true do
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
+    visit decidim.download_your_data_path
   end
 
   shared_examples_for "downloading data" do
-    before do
-      visit decidim.download_your_data_path
-    end
-
     describe "show button export data" do
       it "export the user's data" do
         within ".download-your-data" do
@@ -58,43 +42,44 @@ describe "DownloadYourData", download: true do
       end
 
       it "displays only links from current_user" do
-        expect(page).to have_css("form[action=\"#{decidim.download_download_your_data_path(expired_export)}\"]")
-        within "form[action=\"#{decidim.download_download_your_data_path(expired_export)}\"]" do
+        [expired_export, active_export,other_user_expired_export,other_user_active_export ].each(&:reload)
+
+        expect(page).to have_css("form[action=\"#{decidim.download_download_your_data_path(uuid: expired_export.uuid)}\"]")
+        within "form[action=\"#{decidim.download_download_your_data_path(uuid: expired_export.uuid)}\"]" do
           expect(page).to have_button("Download", disabled: true)
         end
-        expect(page).to have_css("form[action=\"#{decidim.download_download_your_data_path(active_export)}\"]")
-        within "form[action=\"#{decidim.download_download_your_data_path(active_export)}\"]" do
+        expect(page).to have_css("form[action=\"#{decidim.download_download_your_data_path(uuid: active_export.uuid)}\"]")
+        within "form[action=\"#{decidim.download_download_your_data_path(uuid: active_export.uuid)}\"]" do
           expect(page).to have_button("Download", disabled: false)
         end
-        expect(page).to have_no_css("form[action=\"#{decidim.download_download_your_data_path(other_user_expired_export)}\"]")
-        expect(page).to have_no_css("form[action=\"#{decidim.download_download_your_data_path(other_user_active_export)}\"]")
+        expect(page).to have_no_css("form[action=\"#{decidim.download_download_your_data_path(uuid: other_user_expired_export.uuid)}\"]")
+        expect(page).to have_no_css("form[action=\"#{decidim.download_download_your_data_path(uuid: other_user_active_export.uuid)}\"]")
       end
     end
 
     describe "downloading attachments" do
       it "when requesting the file of other user's data" do
-        visit decidim.download_download_your_data_path(other_user_active_export)
+        visit decidim.download_download_your_data_path(uuid: other_user_active_export.uuid)
 
         expect(page).to have_content(ActiveRecord::RecordNotFound)
       end
 
       it "when requesting the expired file of other user's data" do
-        visit decidim.download_download_your_data_path(other_user_expired_export)
+        visit decidim.download_download_your_data_path(uuid: other_user_expired_export.uuid)
 
         expect(page).to have_content(ActiveRecord::RecordNotFound)
       end
 
       it "when requesting current user's expired file" do
-        visit decidim.download_download_your_data_path(expired_export)
+        visit decidim.download_download_your_data_path(uuid: expired_export.uuid)
 
         expect(page).to have_content("The export has expired. Try to generate a new export.")
       end
 
       it "when requesting current user's active file", :slow do
-        expect(active_export.reload.file).to be_attached
         expect(downloads("*.zip").length).to eq(0)
 
-        visit decidim.download_download_your_data_path(active_export)
+        visit decidim.download_download_your_data_path(uuid: active_export.uuid)
         wait_for_download
 
         expect(downloads("*.zip").length).to eq(1)

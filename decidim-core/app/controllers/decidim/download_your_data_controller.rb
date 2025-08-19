@@ -57,7 +57,7 @@ module Decidim
     private
 
     def private_export
-      @private_export ||= current_user.private_exports.find(params[:uuid])
+      @private_export ||= current_user.private_exports.where(uuid: params[:uuid]).first!
     end
 
     def help_definitions
