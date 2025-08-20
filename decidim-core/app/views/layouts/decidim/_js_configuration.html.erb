@@ -14,10 +14,10 @@ js_configs = {
     time: I18n.t("time"),
     forms: {
       correct_errors: t("forms.correct_errors")
+    },
+    notifications: {
+      action_error: I18n.t("decidim.notifications.action_error")
     }
-  },
-  notifications: {
-    action_error: I18n.t("decidim.notifications.action_error")
   },
   external_domain_allowlist: [current_organization.host] + current_organization.external_domain_allowlist,
   consent_cookie_name: Decidim.consent_cookie_name,
