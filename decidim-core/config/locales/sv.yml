@@ -1496,6 +1496,7 @@ sv:
         close_modal: Stäng fönster
         ok: Ok
         title: Bekräfta
+      confirm_unload: Denna sida innehåller osparade ändringar. Är du säker på att du vill lämna denna sida?
       embed:
         title: Inbäddat videoinnehåll
       extended_navigation_bar:
