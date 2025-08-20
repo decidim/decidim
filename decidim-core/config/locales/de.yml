@@ -189,7 +189,7 @@ de:
           close: Fenster schließen
           ok: Ja, ich möchte mein Konto löschen
           question: Sind Sie sicher, dass Sie Ihr Konto löschen möchten?
-          title: Mein Konto löschen
+          title: Konto löschen
         explanation: Bitte geben Sie den Grund an, warum Sie Ihr Konto löschen möchten (optional).
         leaving_authorizations_behind: Einige Daten, die an Ihre Autorisierung gebunden sind, werden aus Sicherheitsgründen gespeichert. Wenn Sie ein anderes Konto erstellen und erneut autorisieren, werden diese Daten auf Ihr neues Konto wiederhergestellt.
       destroy:
@@ -2320,7 +2320,7 @@ de:
       user_profile:
         account: Konto
         authorizations: Berechtigungen
-        delete_my_account: Löschen Sie mein Konto
+        delete_my_account: Konto löschen
         my_data: Meine Daten
         notifications_settings: Benachrichtigungseinstellungen
         profile: Profil
