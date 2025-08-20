@@ -18,5 +18,4 @@ document.addEventListener("turbo:load", () => {
     // that the alert content has changed and needs to be announced.
     callout.innerHTML += "&nbsp;";
   }, 500);
-
 });
