@@ -1524,6 +1524,7 @@ eu:
         close_modal: Itxi leihoa
         ok: Ados
         title: Baieztatu
+      confirm_unload: Orrialde honetan gorde gabeko aldaketak daude. Ziur zaude orri hau utzi nahi duzula?
       embed:
         title: Bideo-eduki txertatuak
       extended_navigation_bar:
