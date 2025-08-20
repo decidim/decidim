@@ -2119,7 +2119,6 @@ cs:
       impersonation_warning:
         close_session: Zavřít sezení
         description_html: Spravujete účastníka <b>%{user_name}</b>.
-        expire_time_html: Platnost vaší relace vyprší za <b><span class="minutes">%{minutes}</span></b>.
       language_chooser:
         choose_language: Vyberte jazyk
       navigation:
