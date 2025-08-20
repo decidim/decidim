@@ -1547,6 +1547,7 @@ cs:
         close_modal: Zavřít okno
         ok: OK
         title: Potvrdit
+      confirm_unload: Tato stránka obsahuje neuložené změny. Opravdu chcete opustit tuto stránku?
       embed:
         title: Vložený obsah videa
       extended_navigation_bar:
