@@ -59,6 +59,7 @@ module Decidim
   autoload :AdminFilter, "decidim/admin_filter"
   autoload :AdminFiltersRegistry, "decidim/admin_filters_registry"
   autoload :ManifestRegistry, "decidim/manifest_registry"
+  autoload :MutationRegistry, "decidim/mutation_registry"
   autoload :AssetRouter, "decidim/asset_router"
   autoload :EngineRouter, "decidim/engine_router"
   autoload :UrlOptionResolver, "decidim/url_option_resolver"

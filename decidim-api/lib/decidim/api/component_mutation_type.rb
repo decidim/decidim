@@ -5,9 +5,7 @@ module Decidim
     class ComponentMutationType < GraphQL::Schema::Union
       description "A component mutation."
 
-      possible_types Decidim::Proposals::ProposalsMutationType # ,
-      #  ::Decidim::Api::Budgets::BudgetsMutationType,
-      #  ::Decidim::Api::Accountability::AccountabilityMutationType
+      possible_types(*Decidim::MutationRegistry.instance.mutation_types)
 
       def self.resolve_type(obj, _ctx)
         mod = obj.manifest_name.camelize
