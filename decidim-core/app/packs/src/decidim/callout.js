@@ -10,9 +10,6 @@ document.addEventListener("turbo:load", () => {
     return;
   }
 
-  const message = callout.querySelector(".flash__message");
-
-  callout.setAttribute("tabindex", "0");
   setTimeout(() => {
     callout.setAttribute("tabindex", "0");
     callout.focus();
