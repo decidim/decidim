@@ -41,7 +41,6 @@ import "src/decidim/vizzs"
 import "src/decidim/responsive_horizontal_tabs"
 import "src/decidim/security/selfxss_warning"
 import "src/decidim/session_timeouter"
-import "src/decidim/confirm"
 import "src/decidim/results_listing"
 import "src/decidim/impersonation"
 import "src/decidim/gallery"
@@ -54,6 +53,7 @@ import "src/decidim/attachments"
 import "src/decidim/dropdown_menu"
 
 // local deps that require initialization
+import ConfirmDialog, { initializeConfirm } from "src/decidim/confirm"
 import formDatePicker from "src/decidim/datepicker/form_datepicker"
 import Configuration from "src/decidim/configuration"
 import ExternalLink from "src/decidim/external_link"
@@ -92,6 +92,7 @@ window.Decidim = window.Decidim || {
   addInputEmoji,
   EmojiButton,
   Dialogs,
+  ConfirmDialog,
   announceForScreenReader
 };
 
@@ -124,6 +125,8 @@ window.initFoundation = (element) => {
   });
 };
 
+// Confirm initialization needs to happen before Rails.start()
+initializeConfirm();
 Rails.start()
 
 /**
