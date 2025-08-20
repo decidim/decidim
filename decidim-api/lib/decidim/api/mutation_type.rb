@@ -13,7 +13,10 @@ module Decidim
       end
 
       def component(id:)
-        Decidim::Component.find(id)
+        Decidim::Component
+          .where(id:).select do |component|
+            component.organization == context[:current_organization]
+          end.first
       end
     end
   end
