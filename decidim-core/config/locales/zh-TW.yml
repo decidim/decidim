@@ -1371,7 +1371,6 @@ zh-TW:
       impersonation_warning:
         close_session: 關閉階段
         description_html: 您正在管理參與者 <b>%{user_name}</b>。
-        expire_time_html: 您的會話將在 <b><span class="minutes">%{minutes}</span> 分鐘內過期</b>。
       language_chooser:
         choose_language: 選擇語言
       notifications_dashboard:
