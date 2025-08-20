@@ -259,6 +259,7 @@ export default class extends Controller {
         this.tooltip.setAttribute("aria-hidden", false)
       })
       this.tooltip.addEventListener("mouseleave", () => this.hideTooltip())
+      this.element.addEventListener("click", (event) => this.toggleTooltip(event))
     }
   }
 
