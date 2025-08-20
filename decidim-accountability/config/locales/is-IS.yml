@@ -26,8 +26,6 @@ is-IS:
   decidim:
     accountability:
       actions:
-        attachment_collections: Mappa
-        attachments: Viðhengi
         confirm_destroy: Ertu viss um að þú viljir eyða þessu %{name}?
         destroy: Eyða
         edit: Breyta

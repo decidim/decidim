@@ -35,6 +35,17 @@ describe Decidim::Traceability, versioning: true do
       subject.create(klass, user, params)
     end
 
+    context "with an api user" do
+      let!(:user) { create(:api_user, organization:) }
+
+      it "logs the action" do
+        expect(Decidim::ActionLogger)
+          .to receive(:log)
+          .with(:create, user, a_kind_of(klass), kind_of(Integer), kind_of(Hash))
+        subject.create(klass, user, params)
+      end
+    end
+
     context "when the created record is not valid" do
       it "does not log the action" do
         allow(klass).to receive(:create).with(params).and_return(dummy_resource)
@@ -70,6 +81,17 @@ describe Decidim::Traceability, versioning: true do
       subject.create!(klass, user, params)
     end
 
+    context "with an api user" do
+      let!(:user) { create(:api_user, organization:) }
+
+      it "logs the action" do
+        expect(Decidim::ActionLogger)
+          .to receive(:log)
+          .with(:create, user, a_kind_of(klass), a_kind_of(Integer), a_kind_of(Hash))
+        subject.create!(klass, user, params)
+      end
+    end
+
     context "when the created record is not valid" do
       it "does not log the action" do
         allow(klass).to receive(:create!).with(params).and_return(dummy_resource)
@@ -103,6 +125,17 @@ describe Decidim::Traceability, versioning: true do
         .to receive(:log)
         .with(:update, user, dummy_resource, a_kind_of(Integer), a_kind_of(Hash))
       subject.update!(dummy_resource, user, params)
+    end
+
+    context "with an api user" do
+      let!(:user) { create(:api_user, organization:) }
+
+      it "logs the action" do
+        expect(Decidim::ActionLogger)
+          .to receive(:log)
+          .with(:update, user, dummy_resource, a_kind_of(Integer), a_kind_of(Hash))
+        subject.update!(dummy_resource, user, params)
+      end
     end
   end
 

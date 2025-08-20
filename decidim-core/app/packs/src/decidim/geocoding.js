@@ -1,4 +1,4 @@
-import AutoComplete from "src/decidim/autocomplete";
+import AutoComplete from "src/decidim/refactor/moved/autocomplete";
 
 document.addEventListener("turbo:load", () => {
   $("[data-decidim-geocoding]").each((_i, el) => {

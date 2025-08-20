@@ -24,7 +24,7 @@ module Decidim
           end
           resources :participatory_processes, param: :slug, except: [:show, :destroy] do
             resource :publish, controller: "participatory_process_publications", only: [:create, :destroy]
-            resources :copies, controller: "participatory_process_copies", only: [:new, :create]
+            resources :duplicates, controller: "participatory_process_duplicates", only: [:new, :create]
 
             member do
               patch :soft_delete

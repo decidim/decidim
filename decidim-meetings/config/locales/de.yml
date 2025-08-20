@@ -249,6 +249,8 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Veranstaltung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Die Veranstaltung "%{resource_title}" hat Registrierungen aktiviert.
           notification_title: Die Veranstaltung <a href="%{resource_path}">%{resource_title}</a> hat Registrierungen aktiviert.
+        upcoming_meeting:
+          default_body: Die Sitzung "{{meeting_title}}" beginnt in weniger als {{before_hours}} Stunden.
     forms:
       meetings:
         attendees_count_help_text: Vergessen Sie nicht, die Gesamtzahl der Teilnehmenden an Ihrer Veranstaltung anzugeben, egal ob sie persönlich, online oder hybrid stattgefunden hat.
@@ -267,8 +269,6 @@ de:
     meetings:
       actions:
         agenda: Agenda
-        attachment_collections: Ordner
-        attachments: Anhänge
         close: Schließen
         confirm_delete_meeting: Möchten Sie diese Veranstaltung wirklich löschen?
         deleted_meetings_info: Gelöschte Veranstaltungen können aus dem Papierkorb wiederhergestellt werden.

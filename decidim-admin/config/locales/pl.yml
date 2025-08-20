@@ -170,16 +170,15 @@ pl:
         attachment_collection:
           new: Nowy folder załącznika
         browse: Przeglądaj
-        export: Eksportuj wszystko
+        configure: Skonfiguruj
+        export: Eksport
         export-selection: Eksportuj wybrane
         import: Importuj
-        manage: Zarządzanie
         newsletter:
           new: Nowy newsletter
         participatory_space_private_user:
           new: Nowy użytkownik prywatny
         per_page: Na stronę
-        permissions: Uprawnienia
         send_me_a_test_email: Wyślij mi testowego e-maila
         share: Udostępnij
         user:
@@ -617,9 +616,11 @@ pl:
         index:
           actions:
             block: Zablokuj użytkownika
+            bulk_actions:
+              unreport:
+                title: Cofnij zgłoszenie
             title: Działania
             unblock: Odblokuj użytkownika
-            unreport: Cofnij zgłoszenie
           name: Imię
           nickname: Pseudonim
           reason: Powód
@@ -727,7 +728,6 @@ pl:
         index:
           actions: Działania
           badge: Odznaka
-          block: Zablokuj użytkownika
           created_at: Utworzono
           name: Imię
           nickname: Pseudonim
@@ -736,9 +736,7 @@ pl:
           officialized: Oficjalny
           reofficialize: Reoficjalizuj
           reports: Zgłoszenia
-          show_email: Pokaż adres e-mail
           status: Status
-          unblock: Odblokuj użytkownika
           unofficialize: Nieoficjalne
         new:
           badge: Odznaka oficjalności
@@ -890,8 +888,6 @@ pl:
           error: Wystąpił błąd podczas aktualizowania tego tematu.
           success: Temat został zaktualizowany pomyślnie
       static_pages:
-        actions:
-          view: Wyświetl stronę publiczną
         create:
           error: Podczas tworzenia nowej strony wystąpił błąd.
           success: Strona została utworzona pomyślnie.
@@ -965,8 +961,6 @@ pl:
         hide: Ukryj
         not_hidden: Widoczny
         title: Działania
-        unhide: Pokaż
-        unreport: Brak oceny
       admin:
         reportable:
           hide:

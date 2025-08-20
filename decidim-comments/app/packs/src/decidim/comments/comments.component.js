@@ -12,7 +12,6 @@
 // This is necessary for testing purposes
 const $ = window.$;
 
-import changeReportFormBehavior from "src/decidim/change_report_form_behavior";
 import { initializeCommentsDropdown } from "../../decidim/comments/comments_dropdown";
 
 export default class CommentsComponent {
@@ -158,8 +157,6 @@ export default class CommentsComponent {
       $opinionButtons.on("click.decidim-comments", this._onToggleOpinion);
       $text.on("input.decidim-comments", this._onTextInput);
 
-      document.dispatchEvent(new CustomEvent("attach-mentions-element", { detail: $text.get(0) }));
-
       $form.on("submit.decidim-comments", () => {
         const $submit = $("button[type='submit']", $form);
 
@@ -167,14 +164,10 @@ export default class CommentsComponent {
         this._stopPolling();
       });
 
-      document.querySelectorAll(".new_report").forEach((container) => changeReportFormBehavior(container));
-
       const $dropdown = $add.find("[data-comments-dropdown]");
       if ($dropdown.length > 0) {
         initializeCommentsDropdown($dropdown[0]);
       }
-
-      document.querySelectorAll(".new_report").forEach((container) => changeReportFormBehavior(container))
 
       if ($text.length && $text.get(0) !== null) {
         // Attach event to the DOM node, instead of the jQuery object

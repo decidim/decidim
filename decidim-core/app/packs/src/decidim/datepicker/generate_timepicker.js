@@ -1,8 +1,8 @@
 /* eslint-disable require-jsdoc */
-import icon from "src/decidim/icon"
+import icon from "src/decidim/refactor/moved/icon"
 import { changeHourDisplay, changeMinuteDisplay, formatDate, hourDisplay, minuteDisplay, formatTime, setHour, setMinute, updateTimeValue, updateInputValue } from "src/decidim/datepicker/datepicker_functions"
 import { timeKeyDownListener, timeBeforeInputListener } from "src/decidim/datepicker/datepicker_listeners";
-import { getDictionary } from "src/decidim/i18n";
+import { getDictionary } from "src/decidim/refactor/moved/i18n";
 
 export default function generateTimePicker(input, row, formats) {
   const i18n = getDictionary("time.buttons");

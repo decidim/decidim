@@ -2,7 +2,7 @@
   <%= icon "question-answer-line" %>
   <h2 id="dialog-title-conversation" tabindex="-1" data-dialog-title><%= t("modal_title", scope: "decidim.messaging.conversations.add_conversation_users") %></h2>
   <div>
-    <div class="form__wrapper gap-1 js-multiple-mentions" data-name="recipient_id[]" data-multiple="true">
+    <div data-controller="multiple-mentions" class="form__wrapper gap-1" data-name="recipient_id[]" data-multiple="true">
       <label for="add_conversation_users">
         <%= t("participants.title", scope: "decidim.messaging.conversations.add_conversation_users") %>
       </label>

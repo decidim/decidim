@@ -133,6 +133,7 @@ module Decidim
   autoload :ActionAuthorizationHelper, "decidim/action_authorization_helper"
   autoload :ApiResponseHelper, "decidim/api_response_helper"
   autoload :ResourceHelper, "decidim/resource_helper"
+  autoload :TooltipHelper, "decidim/tooltip_helper"
 
   module Commands
     autoload :CreateResource, "decidim/commands/create_resource"

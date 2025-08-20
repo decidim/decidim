@@ -172,6 +172,7 @@ de:
         attachment_collection:
           new: Neuer Ordner für Dateianhänge
         browse: Durchsuchen
+        configure: Konfigurieren
         confirm_delete_component: |
           Sind Sie sicher, dass Sie diese Komponente löschen möchten?<br>
           Diese Komponente enthält:<br>
@@ -179,21 +180,16 @@ de:
             <li class="font-bold">%{resources_count} Ressourcen</li>
           </ul>
           Wenn Sie Ihre Meinung ändern, können Sie es später wiederherstellen.
-        export: Alles exportieren
         export-selection: Auswahl exportieren
         import: Importieren
-        manage: Verwalten
         newsletter:
           new: Neuer Newsletter
         participatory_space_private_user:
           new: Neuer privater Benutzer
         per_page: Pro Seite
-        permissions: Berechtigungen
         restore: Wiederherstellen
         send_me_a_test_email: Mir eine Test-E-Mail senden
         share: Teilen
-        share_tokens: Zugangslinks
-        soft_delete: Vorläufiges Löschen
         user:
           new: Neuer Administrator
         view_deleted_components: Gelöschte Komponenten ansehen
@@ -674,7 +670,6 @@ de:
               update_moderated_user_button: Gemeldete Teilnehmende zurückweisen
             title: Aktionen
             unblock: Blockierung des Benutzers aufheben
-            unreport: Meldung Rückgängig machen
           cancel: Abbrechen
           name: Name
           nickname: Spitzname
@@ -698,10 +693,8 @@ de:
               title: Verbergen
               update_moderation_button: Ausgewählte Ressourcen verbergen
             unhide:
-              title: Einblenden
               update_moderation_button: Ausgewählte Ressourcen einblenden
             unreport:
-              title: Meldung zurückweisen
               update_moderation_button: Meldung ausgewählter Ressourcen aufheben
           cancel: Abbrechen
           selected: ausgewählt
@@ -829,7 +822,6 @@ de:
         index:
           actions: Aktionen
           badge: Abzeichen
-          block: Benutzer blockieren
           created_at: Erstellt am
           name: Name
           nickname: Spitzname
@@ -838,9 +830,7 @@ de:
           officialized: Offizialisiert
           reofficialize: Reoffizialisieren
           reports: Berichte
-          show_email: E-Mail-Adresse anzeigen
           status: Status
-          unblock: Blockierung des Users aufheben
           unofficialize: Nicht offiziell
         new:
           badge: Offizielles Abzeichen
@@ -1066,8 +1056,6 @@ de:
           error: Beim Aktualisieren dieses Themas ist ein Fehler aufgetreten.
           success: Thema erfolgreich aktualisiert
       static_pages:
-        actions:
-          view: Öffentliche Seite anzeigen
         create:
           error: Beim Erstellen einer neuen Seite ist ein Fehler aufgetreten.
           success: Seite erfolgreich erstellt
@@ -1095,9 +1083,6 @@ de:
       taxonomies:
         actions:
           actions: Aktionen
-          destroy: Klassifizierung & Elemente löschen
-          edit: Klassifizierung & Elemente bearbeiten
-          filters: Filter verwalten
         breadcrumb:
           edit: Klassifizierung bearbeiten
           new: Neue Klassifizierung
@@ -1265,8 +1250,6 @@ de:
         not_hidden: Nicht versteckt
         parent_hidden: Sie können diese Ressource nicht anzeigen, da die übergeordnete Ressource ausgeblendet ist.
         title: Aktionen
-        unhide: Einblenden
-        unreport: Nicht melden
       admin:
         reportable:
           bulk_action:

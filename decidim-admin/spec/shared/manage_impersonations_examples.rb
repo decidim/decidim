@@ -10,6 +10,7 @@ shared_examples "manage impersonations examples" do
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
+    clear_enqueued_jobs
   end
 
   context "when the organization does not have any authorization available" do
@@ -42,7 +43,7 @@ shared_examples "manage impersonations examples" do
 
       it "shows a validation error message" do
         expect(page).to have_no_content("successfully")
-        expect(page).to have_content("There are errors on the form")
+        expect(page).to have_content("There is an error in this field")
       end
     end
 

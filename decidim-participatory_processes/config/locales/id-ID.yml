@@ -58,7 +58,6 @@ id:
     admin:
       actions:
         activate: Mengaktifkan
-        configure: Konfigurasikan
         confirm_destroy: Konfirmasikan penghapusan
         destroy: Menghapus
         duplicate: Duplikat

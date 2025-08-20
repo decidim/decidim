@@ -67,7 +67,6 @@ sk:
     admin:
       actions:
         activate: Aktivovať
-        configure: Konfigurovať
         confirm_destroy: Potvrďte zmazanie
         destroy: Odstrániť
         duplicate: Duplikát

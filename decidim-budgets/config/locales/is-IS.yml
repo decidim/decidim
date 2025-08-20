@@ -8,7 +8,6 @@ is-IS:
   decidim:
     budgets:
       actions:
-        attachments: Viðhengi
         edit: Breyta
         preview: Preview
         title: Aðgerðir

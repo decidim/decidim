@@ -5,14 +5,14 @@ en:
       participatory_process:
         announcement: Announcement
         area_id: Area
-        copy_categories: Copy categories
-        copy_components: Copy components
-        copy_steps: Copy steps
         decidim_area_id: Area
         description: Description
         developer_group: Promoter group
         document: Document
         domain: Domain
+        duplicate_categories: Duplicate categories
+        duplicate_components: Duplicate components
+        duplicate_steps: Duplicate steps
         end_date: End date
         hero_image: Home image
         import_attachments: Import attachments
@@ -157,9 +157,9 @@ en:
             invitation_accepted_at: Invitation accepted at
             invitation_sent_at: Invitation sent at
             published: Published
-      participatory_process_copies:
+      participatory_process_duplicates:
         new:
-          copy: Copy
+          duplicate: Duplicate
           select: Select which data you would like to duplicate
           title: Duplicate participatory process
       participatory_process_groups:
@@ -260,7 +260,7 @@ en:
         update:
           error: There was a problem updating this participatory process.
           success: Participatory process successfully updated.
-      participatory_processes_copies:
+      participatory_processes_duplicates:
         create:
           error: There was a problem duplicating this participatory process.
           success: Participatory process successfully duplicated.
@@ -412,20 +412,6 @@ en:
       admin:
         content_blocks:
           democratic_quality_stats_settings_form:
-            accessibility:
-              languages_count:
-                legend: In how many languages has the process been communicated?
-                options:
-                  five: More than half of the languages spoken in the community = 5
-                  one: One language = 1
-                  two_five: Less than half of the languages spoken in the community = 2.5
-              name: Accessibility
-              venue_accessibility:
-                legend: Were the venues of the face-to-face meetings accessible to people with reduced mobility?
-                options:
-                  five: Yes = 5
-                  two_five: Partially = 2.5
-                  zero: No = 0
             announcement:
               body_html: |-
                 <ul>
@@ -434,62 +420,73 @@ en:
                 </ul>
               title: 'This content block includes two types of metrics:'
             citizen_influence:
-              citizen_influence_level:
-                legend: Level of influence of the process according to the participation mechanisms enabled, according to the ladder of participation defined by Sherry Arnstein (1969).
+              citizen_decisional_intervention:
+                legend: Out of all phases in the process (from selecting issues to supervising execution), in how many does the public have the ability to make decisions or take executive action?
                 options:
-                  five: Citizen control = 5
-                  five_description: A highest level of participation where citizens fully govern a program or institution, managing policies, resources, and decision-making without external interference.
-                  four: Delegated power = 4
-                  four_description: A participatory process where citizens gain authority, control, or funding to influence and manage an organization.
-                  one: Consultation = 1
-                  one_description: A participatory process where citizens are asked for their opinions, typically through surveys or meetings, but without assurance that their input will influence decisions.
-                  three: Partnership = 3
-                  three_description: A participatory process where citizens and organizations share decision-making power, allowing participants to negotiate, allocate resources, and influence planning, with rules that cannot be changed unilaterally. It often emerges from citizen mobilization and collective action.
-                  two: Placation = 2
-                  two_description: A participatory process where citizens are given limited influence, often in a tokenistic manner, such as inclusion in boards or committees, but without real power, as decision-making remains controlled by the traditional power elite.
-                  zero: Informative = 0
-                  zero_description: One-way flow of information—from officials to citizens—with no channel provided for feedback and no power for negotiation.
+                  five: 80 - 100%
+                  four: 60 - 80%
+                  one: 0 - 20%
+                  three: 40 - 60%
+                  two: 20 - 40%
+              citizen_influence_level:
+                legend: This indicator measures the degree of actual citizen power in a process, specifically quantifying the level of decisional and executive authority citizens hold, from simply receiving information to decisively influencing decisions and managing resources.
+                options:
+                  five: Participants were involved in the decision-making and the management of resources or the implementation
+                  four: Participants were involved decisively in the decision-making
+                  one: Participants received information from the organisation
+                  three: Participants were involved to share decision-making power
+                  two: Participants were asked in a consultative manner or gave feedback to the organisation
               name: Citizen influence
             inclusiveness:
-              cultural_origins_participation:
-                legend: How many people from diverse cultural origins have participated out of the invited?
-                options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
               description: Inclusivity according to cultural origin and functional diversity.
+              digital_support_offered:
+                legend: Has digital support been offered to the participants?
+                options:
+                  five: 'Yes'
+                  two_five: Partially
+                  zero: 'No'
               functional_diversity_invited:
-                legend: Have groups of people with functional diversity been invited to participate?
+                legend: How is the degree of diversity of the agents and participants assessed with respect to the population of reference in the process?
                 options:
-                  five: Yes = 5
-                  zero: No = 0
-              functional_diversity_participation:
-                legend: How many people with functional diversity have participated out of the invited?
+                  five: Good
+                  one: Low
+                  two_five: Sufficient
+                  zero: None
+              languages_communicated:
+                legend: How many languages have been used within the process?
                 options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
-              migrant_groups_invited:
-                legend: Have migrant groups been invited to participate?
+                  five: More than half of the languages spoken in the community
+                  one: One language
+                  two_five: Less than half of the languages spoken in the community
+              mobility_meeting_access:
+                legend: Were the venues of the face-to-face meetings accessible to people with reduced mobility?
                 options:
-                  five: Yes = 5
-                  zero: No = 0
+                  five: 'Yes'
+                  two_five: Partially
+                  zero: 'No'
               name: Inclusiveness
-            relevance:
-              description: Impact relevance, as the percentage of the organisation's budget, of the organisation's workforce, or of the total population, that will be affected by the process' result, and the time of such impact.
-              name: Relevance
-              relevance_percentage:
-                legend: Percentage of organisation's budget, workforce or of the total population affected by the process' result.
+              participation_scheduling_times:
+                legend: The participation sessions have been scheduled at varied times (morning, midday, afternoon, evening, and weekends).
                 options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
+                  five: 'Yes'
+                  two_five: Partially
+                  zero: 'No'
+            informativeness:
+              information_provided:
+                legend: Has information been provided regarding the participants capacity to influence the topic under discussion? (both in the communication of the process and invitations, as well as at the beginning of each debate session)
+                options:
+                  five: Always
+                  one: Almost never
+                  two_five: Usually
+                  zero: Never
+              name: Informativeness
+              published_information_clarity:
+                legend: Does the published information provide clarity on the decision-making mechanisms? (e.g. voting, consensus, direct negotiations)
+                options:
+                  five: Full clarity
+                  one: Low clarity
+                  two_five: Suficient clarity
+                  zero: No clarity
           highlighted_processes:
             active: Active
             all: All
@@ -498,7 +495,7 @@ en:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
+        participatory_process_duplicates:
           form:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         participatory_process_groups:
@@ -546,20 +543,18 @@ en:
           global_score:
             description_html: Below is a set of indicators used to assess the democratic quality of this participatory process. For more details on how they are calculated, see the <a href="%{info_url}">information page on democratic quality indicators</a>.
             name: Global score
-            note: "*The indicative values are measured on a scale from 1 to 5, where 1 represents the lowest and 5 the highest participation quality."
+            note: "*The indicative values are measured on a scale from 1 to 5, where 1 represents the lowest and 5 the highest quality indicator."
             tooltip: Calculated as the average of all the dimensions
-          name: Participation quality
+          name: Quality indicator
           qualitative_metrics:
             description: These indicators are obtained from the answers to a self-assessment survey filled in by the platform's administrators.
             indicators:
-              accessibility: Accessibility
-              accessibility_tooltip: The process has been communicated in the languages spoken in the community and the venues have been accessible to people with reduced mobility.
               citizen_influence: Citizen influence
               citizen_influence_tooltip: Measures the level of participant impact on decision-making.
               inclusiveness: Inclusiveness
-              inclusiveness_tooltip: Assesses whether diverse interested parties are fairly represented
-              relevance: Relevance
-              relevance_tooltip: Impact relevance, as the percentage of the organisation's budget, of the organisation's workforce, or of the total population, that will be affected by the process' result, and the time of such impact.
+              inclusiveness_tooltip: Assesses whether diverse interested parties are fairly represented.
+              informativeness: Informativeness
+              informativeness_tooltip: Measures the level of clarity and information provided within the process.
             name: Self-assessment metrics
         extra_data:
           name: Phase & duration
@@ -629,7 +624,7 @@ en:
       static_pages:
         democratic_quality_indicators:
           content: |-
-            <h2>Indicator system to measure participation quality in Decidim.</h2>
+            <h2>Indicator system to measure quality indicator in Decidim.</h2>
 
             <h3>Introduction</h3>
             <p>Democratic quality is a core principle of Decidim. To uphold this, we have developed a system of indicators that help evaluate the quality of participatory processes on the platform. This article explains how these indicators are calculated.</p>

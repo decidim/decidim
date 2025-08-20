@@ -45,13 +45,10 @@ fi-pl:
         deleted_projects_info: Tätä projektia ei voi poistaa
     budgets:
       actions:
-        attachment_collections: Kansiot
-        attachments: Liitteet
         confirm_delete_budget: Haluatko varmasti poistaa tämän budjetin?
         confirm_delete_project: Haluatko varmasti poistaa tämän projektin?
         deleted_budgets_info: Poistetut budjetit voidaan palauttaa roskakorista.
         edit: Muokkaa
-        edit_projects: Hallinnoi projekteja
         import: Tuo ehdotuksia suunnitelmiin
         new_budget: Uusi budjetti
         new_project: Uusi projekti

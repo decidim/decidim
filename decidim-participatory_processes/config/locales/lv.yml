@@ -64,7 +64,6 @@ lv:
     admin:
       actions:
         activate: Aktivizēt
-        configure: Konfigurēt
         confirm_destroy: Apstiprināt dzēšanu
         destroy: Dzēst
         duplicate: Dublēt

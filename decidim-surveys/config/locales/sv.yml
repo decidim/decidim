@@ -14,6 +14,8 @@ sv:
         see_survey: Se enkät
     components:
       surveys:
+        actions:
+          respond: Besvara
         settings:
           global:
             announcement: Meddelande

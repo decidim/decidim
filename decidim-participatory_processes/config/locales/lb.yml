@@ -70,7 +70,6 @@ lb:
     admin:
       actions:
         activate: Aktivieren
-        configure: Konfigurieren
         confirm_destroy: Läsche bestätegen
         destroy: Läschen
         duplicate: Duplizieren
