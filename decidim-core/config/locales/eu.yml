@@ -2115,7 +2115,6 @@ eu:
       impersonation_warning:
         close_session: Itxi saioa
         description_html: <b>%{user_name}</b> parte-hartzailea kudeatzen ari zara.
-        expire_time_html: Zure saioa iraungiko da <b><span class="minutes">%{minutes}</span>minutu barru</b>.
       language_chooser:
         choose_language: Aukeratu hizkuntza
       navigation:
