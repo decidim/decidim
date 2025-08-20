@@ -1371,6 +1371,7 @@ pt-BR:
         close_modal: Fechar modal
         ok: OK
         title: Confirmar
+      confirm_unload: Esta página contém alterações não salvas. Tem certeza que deseja sair desta página?
       extended_navigation_bar:
         more: Mais
         unfold: Desdobrar
