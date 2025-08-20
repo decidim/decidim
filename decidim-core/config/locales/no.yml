@@ -1019,7 +1019,6 @@
       impersonation_warning:
         close_session: Lukk økt
         description_html: Du administrerer deltakeren <b>%{user_name}</b>.
-        expire_time_html: Økten din går ut om <b><span class="minutes">%{minutes}</span> minutter</b>.
       language_chooser:
         choose_language: Velg språk
       notifications_dashboard:
