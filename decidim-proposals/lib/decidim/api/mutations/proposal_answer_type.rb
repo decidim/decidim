@@ -25,8 +25,8 @@ module Decidim
           params
         ).with_context(
           current_component: object.component,
-          current_organization: object.organization,
-          current_user: context[:current_user]
+          current_user:,
+          current_organization: current_user.organization
         )
 
         Admin::AnswerProposal.call(form, object) do
@@ -47,6 +47,10 @@ module Decidim
 
       def authorized?(attributes:)
         super && allowed_to?(:create, :proposal_answer, object, context, scope: :admin)
+      end
+
+      def current_user 
+        context[:current_user]
       end
     end
   end
