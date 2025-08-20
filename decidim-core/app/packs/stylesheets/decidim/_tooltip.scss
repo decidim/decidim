@@ -6,7 +6,7 @@
     - offset position: 20%
     - arrow size: 16px
   */
-  --arrow-offset: 20%;
+  --arrow-offset: 50%;
   --arrow-size: 16px;
   --arrow-visible-size: var(--arrow-size) * 0.5;
   --arrow-margin: var(--arrow-visible-size) * 1.4142135623730951; // due to the rotation, the margin is SQRT2 times the visible size
