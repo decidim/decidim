@@ -170,16 +170,14 @@ bg:
         attachment_collection:
           new: Нова прикачена папка
         browse: Разглеждане
-        export: Експорт на всички
+        configure: Конфигуриране
         export-selection: Експорт на селекцията
         import: Импортиране
-        manage: Управление
         newsletter:
           new: Нов бюлетин
         participatory_space_private_user:
           new: Нов частен потребител на пространство за участие
         per_page: За страница
-        permissions: Разрешения
         send_me_a_test_email: Изпратете ми тестов e-mail
         share: Сподели
         user:
@@ -626,9 +624,11 @@ bg:
         index:
           actions:
             block: Блокиране на потребител
+            bulk_actions:
+              unreport:
+                title: Отмяна на доклада
             title: Активности
             unblock: Разблокирай потребител
-            unreport: Отмяна на доклада
           name: Име
           nickname: Псевдоним
           reason: Причина
@@ -736,7 +736,6 @@ bg:
         index:
           actions: Активности
           badge: Бадж
-          block: Блокиране на потребител
           created_at: Създадено на
           name: Име
           nickname: Псевдоним
@@ -745,9 +744,7 @@ bg:
           officialized: Официализирано
           reofficialize: Повторно официализиране
           reports: Доклади
-          show_email: Показване на електронната поща
           status: Статус
-          unblock: Разблокирай Потребител
           unofficialize: Премахване на официализирането
         new:
           badge: Бадж за официализиране
@@ -895,8 +892,6 @@ bg:
           error: Възникна проблем при актуализирането на тази тема.
           success: Темата беше актуализирана успешно
       static_pages:
-        actions:
-          view: Преглед на публичната страница
         create:
           error: Възникна проблем при създаването на нова страница.
           success: Страницата беше създадена успешно.
@@ -1003,8 +998,6 @@ bg:
         hide: Скриване
         not_hidden: Не скрито
         title: Активности
-        unhide: Разкриване
-        unreport: Отмяна на доклада
       admin:
         reportable:
           hide:

@@ -1004,7 +1004,6 @@ pt:
       impersonation_warning:
         close_session: Terminar sessão
         description_html: Está a gerir o participante <b>%{user_name}</b>.
-        expire_time_html: A sua sessão irá expirar em <b><span class="minutes">%{minutes}</span> minutos</b>.
       language_chooser:
         choose_language: Escolher idioma
       notifications_dashboard:

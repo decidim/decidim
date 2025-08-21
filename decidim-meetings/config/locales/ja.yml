@@ -280,8 +280,6 @@ ja:
     meetings:
       actions:
         agenda: 予定
-        attachment_collections: フォルダ
-        attachments: 添付ファイル
         close: 閉じる
         confirm_delete_meeting: このミーティングを削除してもよろしいですか？
         deleted_meetings_info: 削除されたミーティングはゴミ箱から復元できます。

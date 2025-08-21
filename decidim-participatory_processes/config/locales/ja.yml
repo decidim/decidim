@@ -4,9 +4,6 @@ ja:
       participatory_process:
         announcement: お知らせ
         area_id: エリア
-        copy_categories: カテゴリをコピー
-        copy_components: コンポーネントをコピー
-        copy_steps: フェーズをコピー
         decidim_area_id: エリア
         description: 説明
         developer_group: プロモーターグループ
@@ -79,15 +76,12 @@ ja:
     admin:
       actions:
         activate: 有効にする
-        configure: 設定
         confirm_delete_process: このプロセスを削除してもよろしいですか？気が変わった場合は、後で復元できます。
         confirm_destroy: 削除の確認
         destroy: 削除
         duplicate: 複製
         edit: 編集
         import_process: インポート
-        menu_hidden: 隠す
-        moderate: モデレート
         new_process: 新規参加型プロセス
         new_process_group: 新規参加型プロセスグループ
         new_process_step: 新しいフェーズ
@@ -156,11 +150,6 @@ ja:
             invitation_accepted_at: 招待が承認されました
             invitation_sent_at: 招待状が送信された日時
             published: 公開済み
-      participatory_process_copies:
-        new:
-          copy: コピー
-          select: 複製したいデータを選択してください
-          title: 重複した参加型プロセス
       participatory_process_groups:
         destroy:
           error: 参加型プロセスグループを削除する際に問題が発生しました。
@@ -258,10 +247,6 @@ ja:
         update:
           error: この参加型プロセスの更新に問題がありました。
           success: 参加型プロセスが正常に更新されました。
-      participatory_processes_copies:
-        create:
-          error: この参加型プロセスの複製中に問題が発生しました。
-          success: 参加型プロセスを複製しました。
       participatory_processes_group:
         create:
           error: 新しい参加型プロセスグループの作成中に問題が発生しました。
@@ -408,6 +393,19 @@ ja:
     participatory_processes:
       admin:
         content_blocks:
+          democratic_quality_stats_settings_form:
+            announcement:
+              body_html: |-
+                <ul>
+                <li>これらは Decidim のデータから自動的に算出されます。コンテンツブロックを公開すると表示されます。</li>
+                <li>これらは、以下のフォームでのあなたの回答に基づいて表示されます。すべての質問に回答すると表示されます。</li>
+                </ul>
+              title: 'このコンテンツ ブロックには 2 種類の指標が含まれています：'
+            citizen_influence:
+              name: 市民の影響度
+            inclusiveness:
+              description: 文化的背景および機能的多様性に基づく包摂性。
+              name: 包摂性
           highlighted_processes:
             active: アクティブ
             all: すべて
@@ -416,9 +414,6 @@ ja:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help_html: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         participatory_process_groups:
           form:
             metadata: メタデータ
@@ -448,6 +443,30 @@ ja:
             title: 一般情報
             visibility: 公開範囲
       content_blocks:
+        democratic_quality_stats:
+          automatic_metrics:
+            description: これらの指標は、プラットフォームデータから自動的に取得されます。
+            indicators:
+              hybridization: ハイブリッド化
+              hybridization_tooltip: プロセス中のオンラインスペースとオフラインスペースの組み合わせレベルを測定します
+              influence: 市民の影響度
+              influence_tooltip: この指標は、受け入れられた提案とプロセスの結果に対する市民の影響のレベルを測定します。
+              traceability: トレーサビリティ
+              traceability_tooltip: この指標は、参加型プロセスの透明性とトレーサビリティを測るものです。参加者が提案の進展をどれだけ容易に追跡できるか、また公的な記録を通じて制度的な対応を検証できるかを示します。
+              transparency: 応答性
+              transparency_tooltip: この指標は、参加者からの意見に対する組織の応答度を測定します。公式の回答と実施された決定を通じて、組織の関与の程度を示します。
+            name: 自動指標
+          global_score:
+            description_html: 以下に、この参加型プロセスの民主的質を評価するために用いられる指標セットを示します。各指標の算出方法についての詳細は、<a href="%{info_url}">民主的品質指標に関する説明ページ</a>をご覧ください。
+            name: グローバルスコア
+            tooltip: すべての値の平均値として計算されます
+          qualitative_metrics:
+            description: これらの指標は、プラットフォーム管理者が回答した自己評価調査の結果から取得されています。
+            indicators:
+              citizen_influence: 市民の影響
+              citizen_influence_tooltip: 参加者の意思決定への影響のレベルを測定します。
+              inclusiveness: 包摂性
+            name: 自己評価指標
         extra_data:
           name: フェーズと期間
         hero:
@@ -509,6 +528,9 @@ ja:
         belongs_to_group: このプロセスの所属グループ
         private_space: これはプライベートな参加型プロセスです
         related_processes: 関連する参加型プロセス
+      static_pages:
+        democratic_quality_indicators:
+          title: 民主的品質指標
     statistics:
       processes_count: プロセス
       processes_count_tooltip: 公開されている参加型プロセスの数です。

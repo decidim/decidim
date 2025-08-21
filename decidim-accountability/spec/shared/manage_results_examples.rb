@@ -29,7 +29,7 @@ shared_examples "manage results" do
 
     it "updates a result" do
       within "tr", text: translated(result.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
@@ -90,7 +90,7 @@ shared_examples "manage results" do
 
   it "allows the user to preview the result" do
     within "tr", text: translated(result.title) do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       preview_window = window_opened_by { click_on "Preview" }
 
       within_window preview_window do
@@ -109,7 +109,7 @@ shared_examples "manage results" do
 
     it "deletes a result" do
       within "tr", text: translated(result2.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Move to trash" }
       end
 

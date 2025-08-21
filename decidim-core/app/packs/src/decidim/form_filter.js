@@ -7,9 +7,9 @@
  * @augments Component
  */
 
-import delayed from "src/decidim/delayed"
-import CheckBoxesTree from "src/decidim/check_boxes_tree"
-import { registerCallback, unregisterCallback, pushState, replaceState, state } from "src/decidim/history"
+import delayed from "src/decidim/refactor/moved/delayed"
+import CheckBoxesTree from "src/decidim/refactor/moved/check_boxes_tree"
+import { registerCallback, unregisterCallback, pushState, replaceState, state } from "src/decidim/refactor/moved/history"
 
 export default class FormFilterComponent {
   constructor($form) {

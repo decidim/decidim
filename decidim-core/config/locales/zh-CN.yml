@@ -883,7 +883,6 @@ zh-CN:
       impersonation_warning:
         close_session: 关闭会话
         description_html: 您正在管理参与者 <b>%{user_name}</b>
-        expire_time_html: 您的会话将在 <b><span class="minutes">%{minutes}</span> 分钟</b> 中过期。
       language_chooser:
         choose_language: 选择语言
       notifications_dashboard:

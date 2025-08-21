@@ -17,10 +17,7 @@ zh-CN:
   decidim:
     budgets:
       actions:
-        attachment_collections: 文件夹
-        attachments: 附件
         edit: 编辑
-        edit_projects: 管理项目
         import: 导入提案到项目
         preview: 预览
         title: 行动

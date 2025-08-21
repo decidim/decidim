@@ -155,8 +155,6 @@ hu:
     meetings:
       actions:
         agenda: Napirend
-        attachment_collections: Mappák
-        attachments: Mellékletek
         close: Bezárás
         edit: Szerkesztés
         invalid_destroy:

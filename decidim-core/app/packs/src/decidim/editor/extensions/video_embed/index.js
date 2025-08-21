@@ -1,7 +1,7 @@
 import { Node, nodePasteRule, mergeAttributes } from "@tiptap/core";
 import { Plugin } from "prosemirror-state";
 
-import { getDictionary } from "src/decidim/i18n";
+import { getDictionary } from "src/decidim/refactor/moved/i18n";
 import InputDialog from "src/decidim/editor/common/input_dialog";
 
 const YOUTUBE_REGEX = /^(https?:\/\/)?(www\.|music\.)?(youtube\.com|youtu\.be)(.+)?$/;

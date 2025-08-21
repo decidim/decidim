@@ -38,7 +38,7 @@ describe "Admin creates proposals" do
 
     click_on("Create")
     within "tr", text: translated_attribute(new_title) do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       click_on "Edit proposal"
     end
 
