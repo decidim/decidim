@@ -140,8 +140,6 @@ tr:
       participatory_process_copies:
         new:
           copy: kopya
-          select: Çoğaltmak istediğiniz verileri seçin
-          title: Yinelenen katılımcı süreç
       participatory_process_groups:
         destroy:
           success: Katılımcı süreç grubu başarıyla silindi.
@@ -227,10 +225,6 @@ tr:
         update:
           error: Bu katılımcı süreci güncellerken bir hata oluştu.
           success: Katılımcı süreç başarıyla güncellendi.
-      participatory_processes_copies:
-        create:
-          error: Bu katılımcı süreci çoğaltırken bir hata oluştu.
-          success: Katılımcı süreç başarıyla kopyalandı.
       participatory_processes_group:
         create:
           error: Yeni bir katılımcı süreç grubu oluştururken bir hata oluştu.

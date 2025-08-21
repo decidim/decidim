@@ -92,15 +92,9 @@
         update:
           error: Det oppstod et problem med å oppdatere denne forsamlingen.
           success: Forsamlingen ble oppdatert.
-      assemblies_copies:
-        create:
-          error: Det oppstod et problem med å publisere denne forsamlingen.
-          success: Forsamlingen ble duplisert.
       assembly_copies:
         new:
           copy: Kopier
-          select: Velg hvilke data du vil duplisere
-          title: Dupliser forsamling
       assembly_imports:
         create:
           error: Det oppstod et problem med å importere denne forsamlingen.

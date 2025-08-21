@@ -86,15 +86,9 @@ zh-CN:
         update:
           error: 更新这个组件时出现问题。
           success: 程序更新成功。
-      assemblies_copies:
-        create:
-          error: 复制这个组件时出现问题。
-          success: 已成功复制组合。
       assembly_copies:
         new:
           copy: 复制
-          select: 选择要重复的数据
-          title: 复制程序集
       assembly_imports:
         create:
           error: 导入此组件时出现问题。

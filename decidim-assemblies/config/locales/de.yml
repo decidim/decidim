@@ -120,7 +120,7 @@ de:
       assembly_copies:
         new:
           copy: Kopieren
-          select: Wählen Sie die Daten aus, die Sie duplizieren möchten
+          select: Wählen Sie, welche Daten Sie duplizieren möchten
           title: Dupliziertes Gremium
       assembly_imports:
         create:

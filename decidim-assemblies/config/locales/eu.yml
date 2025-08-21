@@ -113,15 +113,9 @@ eu:
         update:
           error: Arazo bat egon da batzar hau eguneratzean.
           success: Batzarra zuzen eguneratua.
-      assemblies_copies:
-        create:
-          error: Arazo bat egon da batzar hau bikoiztean.
-          success: Batzarra zuzen bikoiztua.
       assembly_copies:
         new:
           copy: Kopiatu
-          select: Hautatu bikoiztu nahi dituzun datuak
-          title: Kopiatu batzarra
       assembly_imports:
         create:
           error: Arazo bat egon da batzar hau inportatzean.

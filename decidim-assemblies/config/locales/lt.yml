@@ -110,15 +110,9 @@ lt:
         update:
           error: Atnaujinant šią asamblėją iškilo problema.
           success: Asamblėja atnaujinta.
-      assemblies_copies:
-        create:
-          error: Dubliuojant šią asamblėją iškilo problema.
-          success: Asamblėja dubliuota.
       assembly_copies:
         new:
           copy: Kopijuoti
-          select: Pasirinkite, kuriuos duomenis norėtumėte dubliuoti
-          title: Dublikuoti asamblėją
       assembly_imports:
         create:
           error: Importuojant asamblėją iškilo problema.

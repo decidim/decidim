@@ -128,8 +128,6 @@ sk:
       participatory_process_copies:
         new:
           copy: kopírovať
-          select: Vyberte, ktoré dáta chcete duplikovať
-          title: Duplicitné participačné proces
       participatory_process_groups:
         destroy:
           success: Zúčastňujú skupina procesov bola úspešne zmazaná.
@@ -214,10 +212,6 @@ sk:
         update:
           error: Pri aktualizácii tohto participatívneho procesu došlo k chybe.
           success: Participatívne proces bol úspešne aktualizovaný.
-      participatory_processes_copies:
-        create:
-          error: Pri kopírovaní tohto participatívneho procesu došlo k chybe.
-          success: Účastníci proces bol úspešne zdvojený.
       participatory_processes_group:
         create:
           error: Došlo k chybe pri vytváraní novej skupiny účastníckych procesov.

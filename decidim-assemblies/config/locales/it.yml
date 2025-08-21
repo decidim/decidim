@@ -113,15 +113,9 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa assemblea.
           success: L'assemblea è stata aggiornata correttamente.
-      assemblies_copies:
-        create:
-          error: Si è verificato un errore durante la duplicazione di questa assemblea.
-          success: L'assemblea è stata duplicata con successo.
       assembly_copies:
         new:
           copy: Copia
-          select: Scegli quale dato vuoi duplicare
-          title: Duplica l'assemblea
       assembly_imports:
         create:
           error: Si è verificato un errore durante l'aggiornamento di questa assemblea.

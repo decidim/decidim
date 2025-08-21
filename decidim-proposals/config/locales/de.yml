@@ -458,7 +458,7 @@ de:
           cost: Die Gesamtkosten des Vorschlags
           cost_report: Ein Kostenbericht für den Vorschlag
           created_at: Erstellungsdatum dieses Vorschlags
-          created_in_meeting: Ob der Vorschlag in einer Sitzung erstellt wurde
+          created_in_meeting: Ob der Vorschlag in einer Veranstaltung erstellt wurde
           endorsements: Die Anzahl Unterstützungen dieses Vorschlags
           execution_period: Der Zeitraum, in dem der Vorschlag von Anfang bis Ende lief
           follows_count: Die Anzahl Folgende dieses Vorschlags
@@ -466,7 +466,7 @@ de:
           is_amend: Ob dieser Vorschlag einen anderen Vorschlag ändert
           latitude: Der Breitengrad des Vorschlags, falls es einen verortet wurde
           longitude: Der Längengrad des Vorschlags, falls er verortet wurde
-          meeting_urls: Die URLs der Sitzungen, an denen dieser Vorschlag vorgestellt oder diskutiert wurde
+          meeting_urls: Die URLs der Veranstaltungen, an denen dieser Vorschlag vorgestellt oder diskutiert wurde
           original_proposal: Referenz des ursprünglichen Vorschlags, falls es sich um einen Änderungsantrag handelt
           participatory_space: Zu welchem Bereich dieser Vorschlag gehört (z.B. Partizipationsprozesse oder Gremien)
           published_at: Das Datum, an dem dieser Vorschlag veröffentlicht wurde

@@ -163,7 +163,7 @@ ca:
         new:
           copy: Còpia
           select: Selecciona quines dades vols duplicar
-          title: Duplica procés participatiu
+          title: Duplicar el procés participatiu
       participatory_process_groups:
         destroy:
           error: Hi ha hagut un error en eliminar el grup de processos participatius.
@@ -263,7 +263,7 @@ ca:
           success: El procés participatiu s'ha actualitzat correctament.
       participatory_processes_copies:
         create:
-          error: S'ha produït un error en duplicar el procés participatiu.
+          error: S'ha produït un error en duplicar aquest procés participatiu.
           success: El procés participatiu ha estat duplicat correctament.
       participatory_processes_group:
         create:

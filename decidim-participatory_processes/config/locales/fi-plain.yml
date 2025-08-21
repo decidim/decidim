@@ -163,7 +163,7 @@ fi-pl:
         new:
           copy: Kopio
           select: Valitse, mitkä tiedot haluat kopioida
-          title: Kopioi osallisuusprosessi
+          title: Kopioi osallistumisprosessi
       participatory_process_groups:
         destroy:
           error: Osallistumistilojen ryhmän poisto epäonnistui.
@@ -263,8 +263,8 @@ fi-pl:
           success: Osallisuusprosessi päivitetty onnistuneesti.
       participatory_processes_copies:
         create:
-          error: Tämän osallisuusprosessin kopioinnissa tapahtui virhe.
-          success: Osallisuusprosessi kopioitu onnistuneesti.
+          error: Osallistumisprosessin kopiointi epäonnistui.
+          success: Osallistumisprosessin kopiointi onnistui.
       participatory_processes_group:
         create:
           error: Uuden osallisuusprosessiryhmän luonnissa tapahtui virhe.

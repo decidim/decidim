@@ -87,15 +87,9 @@ lv:
         update:
           error: Šīs asamblejas atjaunināšanas laikā radās problēma.
           success: Asambleja ir veiksmīgi atjaunināta.
-      assemblies_copies:
-        create:
-          error: Šīs asamblejas dublēšanas laikā radās problēma.
-          success: Asamblejas dublēšana ir veiksmīgi pabeigta.
       assembly_copies:
         new:
           copy: Kopēt
-          select: Atlasiet, kurus datus vēlaties dublēt
-          title: Dublēt asambleju
       assembly_publications:
         create:
           error: Šīs asamblejas publicēšanas laikā radās problēma.

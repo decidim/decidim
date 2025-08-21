@@ -91,15 +91,9 @@ sl:
         update:
           error: Pojavila se je težava pri urejanju združbe.
           success: Združba uspešno posodobljena.
-      assemblies_copies:
-        create:
-          error: Pojavila se je težava pri podvajanju združbe.
-          success: Združba uspešno podvojena.
       assembly_copies:
         new:
           copy: Kopiraj
-          select: Izberi, katere podatke želiš podvojiti
-          title: Podvoji združbo
       assembly_imports:
         create:
           error: Pojavila se je težava pri uvozu te združbe.
