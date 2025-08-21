@@ -39,7 +39,7 @@ module Decidim
           expect(subject).to render_template(:show)
         end
 
-        context "when non existent" do
+        context "when no election" do
           render_views
           it "returns a 404 status if the election is not found" do
             expect { get :show, params: params.merge(id: "non-existent") }.to raise_error(ActionView::Template::Error)
