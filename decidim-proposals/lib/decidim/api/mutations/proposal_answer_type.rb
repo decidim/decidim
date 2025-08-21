@@ -49,7 +49,7 @@ module Decidim
         super && allowed_to?(:create, :proposal_answer, object, context, scope: :admin)
       end
 
-      def current_user 
+      def current_user
         context[:current_user]
       end
     end
