@@ -63,9 +63,7 @@ module Decidim
       end
 
       def publishable_results?
-        return false if published_results? || !election.per_question?
-
-        voting_enabled?
+        !published_results? && election.per_question? && voting_enabled?
       end
 
       # returns the selected responses for this question, ensuring that the responses are

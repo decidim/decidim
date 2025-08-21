@@ -31,7 +31,7 @@ module Decidim
 
       validates :title, presence: true
 
-      enum :results_availability, RESULTS_AVAILABILITY_OPTIONS.index_with(&:to_s), prefix: "results"
+      enum :results_availability, RESULTS_AVAILABILITY_OPTIONS.index_with(&:to_s)
 
       scope :scheduled, -> { published.where(start_at: Time.current..).or(published.where(start_at: nil, published_results_at: nil, end_at: Time.current..)) }
       scope :ongoing, -> { published.where(start_at: ..Time.current, end_at: Time.current..) }
@@ -49,18 +49,6 @@ module Decidim
 
       def self.log_presenter_class_for(_log)
         Decidim::Elections::AdminLog::ElectionPresenter
-      end
-
-      def real_time?
-        results_availability == "real_time"
-      end
-
-      def after_end?
-        results_availability == "after_end"
-      end
-
-      def per_question?
-        results_availability == "per_question"
       end
 
       def auto_start?

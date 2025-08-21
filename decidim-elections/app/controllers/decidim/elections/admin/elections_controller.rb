@@ -35,7 +35,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("elections.create.invalid", scope: "decidim.elections.admin")
-              render action: "new"
+              render action: "new", status: :unprocessable_entity
             end
           end
         end
@@ -58,7 +58,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("elections.update.invalid", scope: "decidim.elections.admin")
-              render action: "edit"
+              render action: "edit", status: :unprocessable_entity
             end
           end
         end
@@ -74,7 +74,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("elections.publish.invalid", scope: "decidim.elections.admin")
-              render action: "index"
+              render action: "index", status: :unprocessable_entity
             end
           end
         end
@@ -90,7 +90,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("elections.unpublish.invalid", scope: "decidim.elections.admin")
-              render action: "index"
+              render action: "index", status: :unprocessable_entity
             end
           end
         end
