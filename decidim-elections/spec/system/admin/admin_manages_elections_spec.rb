@@ -97,7 +97,7 @@ describe "Admin manages elections" do
 
     before do
       within "tr", text: translated(published_election.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Edit election"
       end
     end
