@@ -2117,6 +2117,7 @@ fi:
       impersonation_warning:
         close_session: Sulje istunto
         description_html: Esiinnyt käyttäjänä <b>%{user_name}</b>.
+        expire_time_html: Istuntosi vanhenee <b><span data-impersonation-warning-target="minutes">%{minutes}</span> minuutin kuluttua</b>.
       language_chooser:
         choose_language: Valitse kieli
       navigation:
