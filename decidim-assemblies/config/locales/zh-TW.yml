@@ -109,10 +109,6 @@ zh-TW:
         update:
           error: 更新此大會時出現問題
           success: 此大會成功更新
-      assemblies_copies:
-        create:
-          error: 複製此大會時出現問題
-          success: 大會已成功複製
       assemblies_types:
         create:
           error: 創建新大會類型時出現問題
@@ -128,8 +124,6 @@ zh-TW:
       assembly_copies:
         new:
           copy: 複製
-          select: 請選擇您想要複製的資料
-          title: 複製大會
       assembly_imports:
         create:
           error: 這個大會匯入時發生了問題

@@ -149,8 +149,6 @@ lb:
       participatory_process_copies:
         new:
           copy: Kopieren
-          select: Wählen Sie aus, welche Daten Sie duplizieren möchten
-          title: Beteiligungsprozess duplizieren
       participatory_process_groups:
         destroy:
           error: Beim Löschen der Beteiligungsprozessgruppe ist ein Fehler aufgetreten.

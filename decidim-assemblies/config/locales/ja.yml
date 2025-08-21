@@ -113,10 +113,6 @@ ja:
         update:
           error: 参加スペースの更新に問題がありました。
           success: 参加スペースを更新しました。
-      assemblies_copies:
-        create:
-          error: この参加スペースの複製中に問題が発生しました。
-          success: 参加スペースを複製しました。
       assemblies_types:
         create:
           error: 新しい参加スペース種別の作成に問題がありました。
@@ -132,8 +128,6 @@ ja:
       assembly_copies:
         new:
           copy: コピー
-          select: 複製したいデータを選択してください
-          title: 参加スペースを複製
       assembly_imports:
         create:
           error: この参加スペースのインポート中に問題が発生しました。

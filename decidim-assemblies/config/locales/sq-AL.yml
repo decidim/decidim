@@ -104,10 +104,6 @@ sq:
         update:
           error: Ndodhi një gabim gjatë përditësimit të asamblesë.
           success: Asambleja u përditësua me sukses.
-      assemblies_copies:
-        create:
-          error: Ndodhi një gabim gjatë duplikimit të asamblesë.
-          success: Asambleja e duplikua me sukses.
       assemblies_types:
         create:
           error: Ndodhi një gabim gjatë krijimit të tipit të ri të asamblesë.
@@ -123,8 +119,6 @@ sq:
       assembly_copies:
         new:
           copy: Kopjo
-          select: Zgjidh cilën të dhënë dëshiron të duplikosh
-          title: Dupliko asamblenë
       assembly_imports:
         create:
           error: Ndodhi një gabim gjatë importimit të asamblesë.

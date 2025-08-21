@@ -126,8 +126,6 @@ id:
       participatory_process_copies:
         new:
           copy: Salinan
-          select: Pilih data mana yang ingin Anda gandakan
-          title: Proses partisipatif duplikat
       participatory_process_groups:
         destroy:
           success: Kelompok proses partisipatif berhasil dihapus.
@@ -207,10 +205,6 @@ id:
         update:
           error: Ada kesalahan saat memperbarui proses partisipatif ini.
           success: Proses partisipatif berhasil diperbarui.
-      participatory_processes_copies:
-        create:
-          error: Ada kesalahan saat menduplikasi proses partisipatif ini.
-          success: Proses partisipatif berhasil digandakan.
       participatory_processes_group:
         create:
           error: Terjadi kesalahan saat membuat grup proses partisipatif baru.

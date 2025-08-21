@@ -174,8 +174,8 @@ de:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Ihre Sitzung "%{resource_title}" wurde geschlossen. Sie können die Ergebnisse auf dieser Seite lesen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Sitzung "%{resource_title}" organisiert haben.
+            email_intro: 'Ihre Veranstaltung "%{resource_title}" wurde geschlossen. Sie können die Ergebnisse auf dieser Seite lesen:'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Veranstaltung "%{resource_title}" organisiert haben.
             email_subject: Die Veranstaltung "%{resource_title}" wurde geschlossen
             notification_title: Die Veranstaltung <a href="%{resource_path}">%{resource_title}</a> wurde geschlossen.
           follower:
@@ -214,7 +214,7 @@ de:
         upcoming_meeting:
           email_intro: Die Veranstaltung "%{resource_title}" beginnt in weniger als 48 Stunden.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Veranstaltung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-          email_subject: Die Sitzung "%{resource_title}" beginnt in weniger als 48 Stunden.
+          email_subject: Die Veranstaltung "%{resource_title}" beginnt in weniger als 48 Stunden.
           notification_title: Die Veranstaltung <a href="%{resource_path}">%{resource_title}</a> beginnt in weniger als 48 Stunden.
     forms:
       meetings:
@@ -315,7 +315,7 @@ de:
             success: Veranstaltung erfolgreich abgeschlossen.
           create:
             invalid: Beim Erstellen dieser Veranstaltung ist ein Problem aufgetreten.
-            success: Sitzung erfolgreich erstellt. Beachten Sie, dass dies noch nicht veröffentlicht wurde. Sie müssen es manuell veröffentlichen.
+            success: Veranstaltung erfolgreich erstellt. Beachten Sie, dass dies noch nicht veröffentlicht wurde. Sie müssen es manuell veröffentlichen.
           destroy:
             invalid:
               proposals_count:
@@ -330,7 +330,7 @@ de:
             disclaimer: 'Haftungsausschluss: Durch Verwendung eines externen Registrierungssystems ist Ihnen bewusst, dass die Organisatoren von %{organization} nicht für die Daten verantwortlich sind, welche die Benutzenden dem externen Dienst zur Verfügung stellen.'
             iframe_embed_type_html: 'Folgende Dienste erlauben das Einbetten einer Veranstaltung oder eines Livestreams: %{domains}'
             location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
-            location_hints_help: 'Hinweise zum Standort: Zusätzliche Informationen. Beispiel: das Stockwerk im Gebäude wenn es eine Sitzung vor Ort ist, oder das Passwort wenn es eine Online-Sitzung mit eingeschränktem Zugriff ist.'
+            location_hints_help: 'Hinweise zum Standort: Zusätzliche Informationen. Beispiel: das Stockwerk im Gebäude, wenn es eine Veranstaltung vor Ort ist, oder das Passwort wenn es eine Online-Sitzung mit eingeschränktem Zugriff ist.'
             online_meeting_url_help: 'Link: Erlaubt Teilnehmenden, sich direkt mit Ihrer Veranstaltung zu verbinden'
             registration_url_help: 'Link: Erlaubt den Teilnehmern den externen Service zu nutzen, den Sie für die Registrierung verwenden'
             select_a_meeting_type: Bitte einen Veranstaltungstyp auswählen
@@ -355,11 +355,11 @@ de:
             add_service: Dienst hinzufügen
             services: Dienstleistungen
           unpublish:
-            invalid: Beim Zurückziehen der Veröffentlichung dieser Sitzung ist ein Fehler aufgetreten.
-            success: Veröffentlichung der Sitzung erfolgreich rückgängig gemacht.
+            invalid: Beim Zurückziehen der Veröffentlichung dieser Veranstaltung ist ein Fehler aufgetreten.
+            success: Veröffentlichung der Veranstaltung erfolgreich rückgängig gemacht.
           update:
-            invalid: Beim Aktualisieren dieser Sitzung ist ein Problem aufgetreten.
-            success: Sitzung erfolgreich aktualisiert.
+            invalid: Beim Aktualisieren dieser Veranstaltung ist ein Problem aufgetreten.
+            success: Veranstaltung erfolgreich aktualisiert.
         meetings_poll:
           form:
             title: Fragebogen für %{questionnaire_for} bearbeiten
@@ -686,7 +686,7 @@ de:
         meeting_proposal: 'Ähnliche Vorschläge:'
         proposal_meeting: 'Ähnliche Veranstaltungen:'
     statistics:
-      meetings_count: Sitzungen
+      meetings_count: Veranstaltungen
   devise:
     mailer:
       join_meeting:

@@ -172,8 +172,6 @@
       participatory_process_copies:
         new:
           copy: Kopier
-          select: Velg hvilke data du vil kopiere
-          title: Kopier deltakende prosess
       participatory_process_groups:
         destroy:
           error: Det oppstod en feil under slettingen av prosessgruppen.
@@ -285,10 +283,6 @@
         update:
           error: Det oppstod et problem med å oppdatere denne prosessen.
           success: Prosessen er oppdatert.
-      participatory_processes_copies:
-        create:
-          error: Det oppstod et problem med å duplisere denne deltaker prosessen.
-          success: Prosessen er kopiert.
       participatory_processes_group:
         create:
           error: Det oppstod et problem med å lage en ny prosessgruppe.

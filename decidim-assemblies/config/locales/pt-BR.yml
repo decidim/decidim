@@ -116,10 +116,6 @@ pt-BR:
         update:
           error: Ocorreu um erro ao atualizar esta assembleia.
           success: Assembleia atualizada com sucesso.
-      assemblies_copies:
-        create:
-          error: Ocorreu um erro ao duplicar esta assembleia.
-          success: Assembleia duplicada com sucesso.
       assemblies_types:
         create:
           error: Ocorreu um erro ao criar um novo tipo de assembleia.
@@ -135,8 +131,6 @@ pt-BR:
       assembly_copies:
         new:
           copy: Cópia
-          select: Selecione os dados que você gostaria de duplicar
-          title: Duplicar assembleia
       assembly_imports:
         create:
           error: Ocorreu um erro ao importar esta assembleia.

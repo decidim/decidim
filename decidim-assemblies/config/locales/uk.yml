@@ -100,18 +100,12 @@ uk:
         update:
           error: При спробі оновити ці збори сталася помилка.
           success: Збори успішно оновлено.
-      assemblies_copies:
-        create:
-          error: При спробі створити копію цих зборів сталася помилка.
-          success: Успішно створено копію зборів.
       assemblies_types:
         new:
           create: Додати
       assembly_copies:
         new:
           copy: Скопіювати
-          select: Оберіть відомості, копію яких ви хотіли б створити
-          title: Створити копію зборів
       assembly_members:
         create:
           error: При спробі додати члена президії цих зборів сталася помилка.

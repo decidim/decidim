@@ -144,8 +144,6 @@ gl:
       participatory_process_copies:
         new:
           copy: Copiar
-          select: Seleccione os datos que desexa duplicar
-          title: Duplicar o proceso participativo
       participatory_process_groups:
         destroy:
           success: Grupo de proceso participativo eliminado con éxito.
@@ -229,10 +227,6 @@ gl:
         update:
           error: Produciuse un erro ao actualizar este proceso participativo.
           success: Proceso participativo actualizado con éxito.
-      participatory_processes_copies:
-        create:
-          error: Produciuse un erro ao duplicar este proceso participativo.
-          success: O proceso participativo duplicouse con éxito.
       participatory_processes_group:
         create:
           error: Produciuse un erro ao crear un novo grupo de procesos participativos.

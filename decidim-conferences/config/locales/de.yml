@@ -102,6 +102,7 @@ de:
       conference_copies:
         new:
           copy: Kopieren
+          title: Konferenz duplizieren
       conference_publications:
         create:
           error: Beim Veröffentlichen dieser Konferenz ist ein Fehler aufgetreten.
@@ -172,6 +173,10 @@ de:
         update:
           error: Beim Aktualisieren dieser Konferenz ist ein Fehler aufgetreten.
           success: Konferenz wurde erfolgreich aktualisiert.
+      conferences_copies:
+        create:
+          error: Beim Duplizieren dieser Konferenz ist ein Fehler aufgetreten.
+          success: Konferenz wurde erfolgreich dupliziert.
       media_links:
         create:
           error: Beim Erstellen einer neuen Medienverknüpfung ist ein Fehler aufgetreten.

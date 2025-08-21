@@ -100,10 +100,6 @@ gl:
         update:
           error: Produciuse un erro ao actualizar este conxunto.
           success: Asemblea actualizouse con éxito.
-      assemblies_copies:
-        create:
-          error: Produciuse un erro ao duplicar este conxunto.
-          success: Asemblea duplicouse con éxito.
       assemblies_types:
         create:
           error: Produciuse un problema ao crear un novo tipo de xuntanza.
@@ -119,8 +115,6 @@ gl:
       assembly_copies:
         new:
           copy: Copiar
-          select: Seleccione os datos que desexa duplicar
-          title: Conxunto duplicado
       assembly_imports:
         create:
           error: Produciuse un problema ao importar esta xuntanza.

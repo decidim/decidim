@@ -135,8 +135,6 @@ lv:
       participatory_process_copies:
         new:
           copy: Kopēt
-          select: Atlasiet, kurus datus vēlaties dublēt
-          title: Dublēt līdzdalības procesu
       participatory_process_groups:
         destroy:
           error: Līdzdalības procesa grupas dzēšanas laikā radās kļūda.
@@ -227,10 +225,6 @@ lv:
         update:
           error: Šī līdzdalības procesa atjaunināšanas laikā radās problēma.
           success: Līdzdalības process ir veiksmīgi atjaunināts.
-      participatory_processes_copies:
-        create:
-          error: Dublējot šo līdzdalības procesu, radās problēma.
-          success: Līdzdalības process ir veiksmīgi dublēts.
       participatory_processes_group:
         create:
           error: Jaunas līdzdalības procesa grupas izveides laikā radās problēma.

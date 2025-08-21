@@ -119,7 +119,7 @@ es:
       assemblies_copies:
         create:
           error: Se ha producido un error al duplicar esta asamblea.
-          success: Asamblea duplicada correctamente.
+          success: La asamblea se ha duplicado correctamente.
       assemblies_types:
         create:
           error: Se ha producido un error al crear un nuevo tipo de asamblea.

@@ -166,8 +166,6 @@ hu:
       participatory_process_copies:
         new:
           copy: Másolás
-          select: Válaszd ki, mely adatokat szeretnéd duplikálni
-          title: Részvételi folyamat duplikálása
       participatory_process_groups:
         destroy:
           error: Hiba történt a részvételi folyamatcsoport törlése során.
@@ -271,10 +269,6 @@ hu:
         update:
           error: Hiba történt a részvételi folyamat frissítése során.
           success: Részvételi folyamat frissítése sikeres.
-      participatory_processes_copies:
-        create:
-          error: Hiba történt a részvételi folyamat duplikációja során.
-          success: Részvételi folyamat duplikálása sikeres.
       participatory_processes_group:
         create:
           error: Hiba történt egy új részvételi folyamat csoport létrehozása során.

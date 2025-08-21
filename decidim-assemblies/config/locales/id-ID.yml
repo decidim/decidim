@@ -92,18 +92,12 @@ id:
         update:
           error: Ada kesalahan saat memperbarui perakitan ini.
           success: Majelis berhasil diperbarui.
-      assemblies_copies:
-        create:
-          error: Ada kesalahan saat menduplikasi majelis ini.
-          success: Majelis berhasil digandakan.
       assemblies_types:
         new:
           create: Membuat
       assembly_copies:
         new:
           copy: Salinan
-          select: Pilih data mana yang ingin Anda gandakan
-          title: Rakitan duplikat
       assembly_members:
         create:
           error: Terjadi kesalahan saat menambahkan anggota untuk majelis ini.
