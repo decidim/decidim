@@ -1615,7 +1615,6 @@ pl:
       impersonation_warning:
         close_session: Zakończ sesję
         description_html: Zarządzasz uczestnikiem <b>%{user_name}</b>.
-        expire_time_html: Sesja wygasa za <b><span class="minutes">%{minutes}</span> minut</b>.
       language_chooser:
         choose_language: Wybierz język
       notifications_dashboard:

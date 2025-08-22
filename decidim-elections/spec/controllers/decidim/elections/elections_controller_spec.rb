@@ -39,8 +39,11 @@ module Decidim
           expect(subject).to render_template(:show)
         end
 
-        it "raises a 404 if the election is not found" do
-          expect { get :show, params: params.merge(id: "non-existent") }.to raise_error(ActionController::RoutingError)
+        context "when no election" do
+          render_views
+          it "returns a 404 status if the election is not found" do
+            expect { get :show, params: params.merge(id: "non-existent") }.to raise_error(ActionView::Template::Error)
+          end
         end
 
         it "returns the election as JSON" do

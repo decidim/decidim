@@ -9,9 +9,6 @@ nl:
         closing_date: Einddatum
         closing_date_reason: Reden sluitingsdatum
         composition: Samenstelling
-        copy_categories: Categorieën kopiëren
-        copy_components: Kopieer onderdelen
-        copy_features: Functionaliteiten kopiëren
         created_by: Aangemaakt door
         created_by_other: Aangemaakt door iemand anders
         creation_date: Gemaakt op
@@ -90,15 +87,6 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze groep.
           success: Groep is succesvol bijgewerkt.
-      assemblies_copies:
-        create:
-          error: Er was een fout bij het dupliceren van deze groep.
-          success: Groep succesvol gedupliceerd.
-      assembly_copies:
-        new:
-          copy: Kopiëren
-          select: Selecteer welke gegevens u wilt dupliceren
-          title: Dupliceer bijeenkomst
       assembly_imports:
         create:
           error: Er is een probleem opgetreden bij het importeren van deze groep.

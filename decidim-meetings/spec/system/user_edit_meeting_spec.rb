@@ -97,7 +97,7 @@ describe "User edit meeting" do
           click_on "Update"
         end
 
-        expect(page).to have_content("problem updating")
+        expect(page).to have_content("There is an error in this field.")
       end
     end
 

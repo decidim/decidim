@@ -31,10 +31,7 @@ sq:
               'true': Nuk është përzgjedhur për zbatim
     budgets:
       actions:
-        attachment_collections: Dosjet
-        attachments: Bashkëngjitjet
         edit: Përpuno
-        edit_projects: Menaxho projektet
         import: Importo propozimet ne projekte
         new_budget: Buxhet i ri
         new_project: Projekt i ri

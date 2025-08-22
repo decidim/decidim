@@ -45,13 +45,11 @@ ca:
         deleted_projects_info: No podeu eliminar aquest projecte
     budgets:
       actions:
-        attachment_collections: Carpetes
-        attachments: Adjunts
         confirm_delete_budget: Segur que vols suprimir aquest pressupost?
         confirm_delete_project: Segur que vols eliminar aquest projecte?
         deleted_budgets_info: Els pressupostos eliminats es poden restaurar des de la paperera.
         edit: Editar
-        edit_projects: Gestionar projectes
+        edit_projects: Afegir projectes
         import: Importa propostes a projectes
         new_budget: Afegir pressupost
         new_project: Afegir projecte

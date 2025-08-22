@@ -33,10 +33,7 @@ pl:
               'true': Nie wybrano do implementacji
     budgets:
       actions:
-        attachment_collections: Foldery
-        attachments: Załączniki
         edit: Edytuj
-        edit_projects: Zarządzaj budżetem
         import: Importuj propozycje do projektów
         new_budget: Nowy budżet
         new_project: Nowy projekt

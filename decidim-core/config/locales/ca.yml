@@ -2114,7 +2114,6 @@ ca:
       impersonation_warning:
         close_session: Tanca la sessió
         description_html: Estàs gestionant la participant <b>%{user_name}</b>.
-        expire_time_html: La vostra sessió caducarà en <b><span class="minutes">%{minutes}</span> minutes</b>.
       language_chooser:
         choose_language: Triar la llengua
       navigation:

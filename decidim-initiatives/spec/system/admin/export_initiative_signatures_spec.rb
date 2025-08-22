@@ -16,7 +16,7 @@ describe "Admin export initiatives' signature" do
     visit decidim_admin_initiatives.initiatives_path
 
     within("tr", text: translated(initiative.title)) do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       click_on "Edit"
     end
 

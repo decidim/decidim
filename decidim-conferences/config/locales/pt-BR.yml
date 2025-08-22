@@ -2,12 +2,8 @@ pt-BR:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Assembleias Relacionadas
         available_slots: Vagas disponíveis
         banner_image: Imagem de banner
-        copy_categories: Copiar categorias
-        copy_components: Copiar componentes
-        copy_features: Copiar recursos
         decidim_scope_id: Escopo
         description: Descrição
         end_date: Data final
@@ -92,11 +88,6 @@ pt-BR:
         new_registration_type: Novo tipo de registro
         new_speaker: Novo Pregador
         send_diplomas: Envie certificados de participação
-      conference_copies:
-        new:
-          copy: cópia de
-          select: Selecione quais dados você gostaria de duplicar
-          title: Conferência duplicada
       conference_publications:
         create:
           error: Ocorreu um erro ao publicar esta conferência.
@@ -153,20 +144,16 @@ pt-BR:
         exports:
           registrations: Inscrições
         form:
+          images: Fotos
           title: Informação geral
         index:
           published: Publicados
           unpublished: Despublicado
         new:
           create: Crio
-          title: Conferência
         update:
           error: Houve um erro ao atualizar esta conferência.
           success: Conferência atualizada com sucesso.
-      conferences_copies:
-        create:
-          error: Houve um erro ao duplicar esta conferência.
-          success: Conferência duplicada com sucesso.
       media_links:
         create:
           error: Ocorreu um erro ao criar um novo link de mídia.
@@ -313,9 +300,6 @@ pt-BR:
         title: caixas de som
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help_html: 'Os slugs de URL são usados ​​para gerar as URLs que apontam para esta conferência. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
         conference_invites:
           create:
             error: Houve um problema ao convidar o usuário para participar da conferência.

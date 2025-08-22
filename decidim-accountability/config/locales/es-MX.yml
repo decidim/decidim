@@ -40,8 +40,8 @@ es-MX:
   decidim:
     accountability:
       actions:
-        attachment_collections: Carpetas
-        attachments: Archivos adjuntos
+        add_milestone: Agregar un hito
+        add_result: Añadir un resultado
         confirm_delete_result: '¿Seguro que quieres eliminar este resultado?'
         confirm_destroy: '¿Está seguro de que quiere eliminar este %{name}?'
         deleted_results_info: Los resultados eliminados se pueden restaurar desde papelera.
@@ -49,7 +49,6 @@ es-MX:
         edit: Editar
         import: Importar resultados desde otro componente
         import_csv: Importar resultados desde un archivo CSV
-        milestones: Hitos
         new_milestone: Nuevo hito
         new_result: Nuevo resultado
         new_status: Nuevo estado

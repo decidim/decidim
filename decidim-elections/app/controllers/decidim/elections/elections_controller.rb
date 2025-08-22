@@ -14,8 +14,6 @@ module Decidim
       def index; end
 
       def show
-        raise ActionController::RoutingError, "Not Found" unless election
-
         respond_to do |format|
           format.html { render :show }
 
@@ -32,7 +30,7 @@ module Decidim
       end
 
       def election
-        @election ||= current_user&.admin? ? available_elections.find_by(id: params[:id]) : elections.find_by(id: params[:id])
+        @election ||= current_user&.admin? ? available_elections.find(params[:id]) : elections.find(params[:id])
       end
 
       def questions

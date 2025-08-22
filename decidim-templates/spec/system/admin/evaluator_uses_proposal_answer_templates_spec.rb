@@ -23,7 +23,7 @@ describe "Evaluator uses proposal answer templates" do
     login_as user, scope: :user
     visit Decidim::EngineRouter.admin_proxy(templatable).root_path
     within "tr", text: translated_attribute(proposal.title) do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       click_on "Answer proposal"
     end
   end
@@ -51,7 +51,7 @@ describe "Evaluator uses proposal answer templates" do
       template.destroy!
       visit Decidim::EngineRouter.admin_proxy(templatable).root_path
       within "tr", text: translated_attribute(proposal.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Answer proposal"
       end
     end

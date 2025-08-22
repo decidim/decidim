@@ -18,7 +18,7 @@
             <%= taxonomy_filter.translated_internal_name %>
           </td>
           <td data-label="<%= t("decidim.admin.taxonomy_filters.table.actions") %>" class="table-list__actions">
-            <button type="button" data-component="dropdown" data-target="taxonomy-filter-actions-<%= taxonomy_filter.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: taxonomy_filter.translated_name ) %>">
+            <button type="button" data-controller="dropdown" data-target="taxonomy-filter-actions-<%= taxonomy_filter.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: taxonomy_filter.translated_name ) %>">
               <%= icon "more-fill", class: "text-secondary" %>
             </button>
 

@@ -16,7 +16,6 @@ ro:
         confirm_delete_document: Sigur doriți să ștergeți acest document?
         deleted_document_info: Documentul șters poate fi restaurat din gunoi.
         edit: Modificați
-        manage: Administrați
         new: Text nou
         title: Acțiuni
         view_deleted_documents: Vizualizați documentele șterse

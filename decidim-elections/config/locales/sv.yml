@@ -13,6 +13,10 @@ sv:
           election_questions: Frågor
     components:
       elections:
+        actions:
+          create: Skapa
+          destroy: Radera
+          update: Uppdatera
         name: Val
         settings:
           global:
@@ -41,12 +45,26 @@ sv:
           update:
             error: Ett fel uppstod när folkräkningen skulle skapas eller sparas.
             success: Folkräkningen har uppdaterats.
+        dashboard:
+          census:
+            title: Census
+          main:
+            labels:
+              description: Beskrivning
+          questions:
+            labels:
+              answers: Svar
+            title: Frågor
+          questions_table:
+            answer: Svar
+            votes: Röster
+          results:
+            publish_button: Publicera resultat
+            title: Resultat
         elections:
           create:
             invalid: Det gick inte att skapa valet.
             success: Valet skapades framgångsrikt.
-          dashboard_page:
-            title: Kontrollpanel
           edit:
             title: Redigera val
           form:
@@ -58,13 +76,11 @@ sv:
             edit_attachments: Redigera bilagor
             end_at: Sluttid
             manual_start: Manuell Start
+            publish: Publicera
             results_availability:
               after_end: Efter valets slut
-              after_end_help: Visa endast resultat när valet är avslutat
               per_question: Fråga för fråga
-              per_question_help: Visa resultat per fråga när de har avslutats
               real_time: Direkt
-              real_time_help: Visa resultat så snart den första omröstningen är inskickad
               title: Resultat tillgängliga
             start_at: Starttid
           index:
@@ -110,14 +126,19 @@ sv:
             Måste vara en fil i CSV-format med två kolumner, en med e-postadressen och en annan med värdet av en token som användaren måste införa för att kunna rösta.
             De måste separeras med en semikolon (;)
           label: Oregistrerade deltagare med tokens (fixerade)
-          remove_before_upload: 'Om du vill ladda upp en ny folkräkning måste du först ta bort den befintliga. '
           upload_file: Ladda upp fil
           upload_new_census: Ladda upp en CSV-fil
       models:
         election:
           fields:
+            census: Census
             end_at: Sluttid
             start_at: Starttid
+            status: Status
             title: Titel
+      status:
+        active: Pågående
+        finished: Avslutad
+        ongoing: Pågående
     statistics:
       elections_count: Omröstningar

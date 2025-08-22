@@ -55,7 +55,7 @@ describe "Admin imports assembly" do
       expect(page).to have_content("Unpublished")
 
       within "tr", text: "Import assembly" do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
