@@ -98,6 +98,8 @@ ja:
             title: アンケートを編集
           index:
             title: アンケート
+          new:
+            title: 新しいアンケート
           publish:
             invalid: このアンケートを公開する際に問題が発生しました。
             success: アンケートを公開しました。
