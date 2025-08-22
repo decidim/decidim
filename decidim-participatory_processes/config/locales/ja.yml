@@ -261,6 +261,7 @@ ja:
       participatory_processes_copies:
         create:
           error: 参加型プロセスの複製中に問題が発生しました。
+          success: 参加型プロセスを複製しました。
       participatory_processes_group:
         create:
           error: 新しい参加型プロセスグループの作成中に問題が発生しました。
