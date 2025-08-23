@@ -1880,6 +1880,7 @@ sv:
       impersonation_warning:
         close_session: Stäng session
         description_html: Du hanterar deltagaren <b>%{user_name}</b>.
+        expire_time_html: Din session löper ut om <b><span data-impersonation-warning-target="minutes">%{minutes}</span> minuter</b>.
       language_chooser:
         choose_language: Välj språk
       notifications_dashboard:
