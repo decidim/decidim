@@ -577,6 +577,213 @@ sv:
         belongs_to_group: Den här processen tillhör
         private_space: Det här är en privat process
         related_processes: Relaterade processer
+      static_pages:
+        democratic_quality_indicators:
+          content: |-
+            <h2>System för att mäta kvalitetsindikatorer i Decidim.</h2>
+
+            <h3>Introduktion</h3>
+            <p>Demokratisk kvalitet är en kärnprincip i Decidim. För att hålla kvaliteten uppe har vi utvecklat ett system med indikatorer som utvärderar deltagandeprocessen på plattformen. Denna artikel förklarar hur dessa indikatorer beräknas.</p>
+
+            <h3>Hur beräknas indikatorerna?</h3>
+            <p>Vi har definierat två metoder för att samla kvalitetsindikatorer:</p>
+
+            <ol>
+            <li><strong>Automatisk mätning:</strong> Poängen beräknas direkt från Decidims data på plattformen.</li>
+            <li><strong>Frågor för självutvärdering:</strong> Dessa bygger på ett formulär som är ifyllt av en administratör.</li>
+            </ol>
+
+            <p>Varje indikator uttrycks som en procentuell andel (n/totalt). Denna andel översätts sedan till en femgradig skala:</p>
+
+            <ul>
+            <li>1 = 0–20%</li>
+            <li>2 = 20–40%</li>
+            <li>3 = 40–60%</li>
+            <li>4 = 60–80%</li>
+            <li>5 = 80–100%</li>
+            </ul>
+
+            <br><br>
+            <h3>Automatisk mätning</h3>
+            <p>Dessa mått beräknas automatiskt från data tillgänglig i Decidim. De utvärderas för varje deltagande process och kan göras offentliga av administatörerna, så att alla deltagare kan få tillgång till dem.</p>
+
+            <p>Vi har definierat fyra huvudsakliga indikatorer: medborgarinflytande, sammansmältning, lyhördhet och spårbarhet:</p>
+
+            <h3>Medborgarinflytande</h3>
+
+            <p>Denna indikator mäter nivån av medborgarinflytande på de antagna förslagen och processens slutliga resultat.</p>
+
+            <ul>
+            <li>
+            Medborgarinflytande på förslag
+            <ul>
+            <li>Andelen accepterade förslag (n/totalt)</li>
+            <li>Andelen accepterade <em>medborgar</em> förslag jämfört med det totala antalet medborgarförslag (totalt medborgarinflytande över accepterade förslag)</li>
+            <li>Andelen accepterade medborgarförslag jämfört med totala antalet accepterade förslag (relativt medborgarinflytande på accepterade förslag)</li>
+            </ul>
+            </li>
+            <li>
+            Medborgarinflytande på resultat
+            <ul>
+            <li>Andelen resultat kopplade till medborgarförslag jämfört med totalt antal resultat (totalt metborgarinflytande på resultaten)</li>
+            </ul>
+            </li>
+            </ul>
+
+            <h3>Sammansmältning</h3>
+
+            <p>Denna indikator mäter nivån av sammansmältning mellan arbete online och fysiska träffar under arbetsprocessen.</p>
+
+            <ul>
+            <li>Finns det en aktiv möteskomponent? (Ja=5, Nej=0)</li>
+            <li>Finns det träffar ansikte mot ansikte? (Ja=5, Nej=0)</li>
+            <li>Finns det onlinemöten? (Ja=5, Nej=0)</li>
+            <li>Finns det kombinationsmöten (online/offline)? (Ja=5, Nej=0)</li>
+            <li>Finns det förslag som har skapats på mötena? (Ja=5, Nej=0)</li>
+            </ul>
+
+            <h3>Lyhördhet</h3>
+
+            <p>Denna indikator mäter organisationens lyhördhet för deltagarnas synpunkter. Den återspeglar deras engagemang genom officiella svar och genomförda beslut.</p>
+
+            <ul>
+            <li>Andel förslag med svar (n/totalt) – Institutionell lyhördhet för förslag</li>
+            <li>Andel resultat slutförda till 100 % (n/totalt)</li>
+            </ul>
+
+            <h3>Spårbarhet</h3>
+
+            <p>Denna indikator mäter deltagandeprocessens transparens och spårbarhet. Den återspeglar hur enkelt deltagare kan följa förslagens utveckling och verifiera institutionella åtgärder genom publicerade protokoll.</p>
+
+            <ul>
+            <li>Antal förslag med historik (n/totalt)</li>
+            <li>Andel resultat kopplade till förslag (n/totalt)</li>
+            <li>Andel möten avslutade med publicerat protokoll (n/totalt)</li>
+            <li>Aktivering av modulen för öppen data (dikotom: 0 eller 5)</li>
+            <li>Andel förslag relaterade till budgetar (n/totalt)</li>
+            </ul>
+
+            <br><br>
+            <h3>Mätning av självutvärdering</h3>
+
+            <p>Utöver automatiska mätetal föreslår vi användningen av ett <strong>självutvärderingsformulär </strong> för att bedöma de kvalitativa dimensionerna i varje deltagandeprocess. Detta formulär kommer att fyllas i av plattformsadministratörer i slutet av varje process, och svaren kommer att visas offentligt i innehållsblocket för indikatorer.</p>
+
+            <p>Dessa frågor syftar till att fånga aspekter av demokratisk kvalitet som inte kan bedömas enbart genom kvantitativa data. Det är viktigt att notera att svaren på denna enkät är färgade av plattformsadministratörernas åsikter.</p>
+
+            <br><br>
+            <h3>Frågor för självutvärdering</h3>
+
+            <p>Frågorna i självutvärderingsformuläret som besvaras av administratörerna, samt de värden som är kopplade till varje svar, presenteras nedan.</p>
+
+            <h4>Inkludering</h4>
+
+            <p>Inkludering med avseende på kulturellt ursprung och funktionsvariation.</p>
+
+            <ol>
+            <li>Har invandrargrupper bjudits in att delta?
+            <ul>
+            <li>Ja = 5</li>
+            <li>Nej = 0</li>
+            </ul>
+            </li>
+            <li>Hur stor andel av de inbjudna med olika kulturellt ursprung har deltagit?
+            <ul>
+            <li>0-20% = 1</li>
+            <li>20-40% = 2</li>
+            <li>40-60% = 3</li>
+            <li>60-80% = 4</li>
+            <li>80-100% = 5</li>
+            </ul>
+            </li>
+            <li>Har grupper av personer med funktionsvariation bjudits in att delta?
+            <ul>
+            <li>Ja = 5</li>
+            <li>Nej = 0</li>
+            </ul>
+            </li>
+            <li>Hur stor andel av de inbjudna med funktionsvariation har deltagit?
+            <ul>
+            <li>0-20% = 1</li>
+            <li>20-40% = 2</li>
+            <li>40-60% = 3</li>
+            <li>60-80% = 4</li>
+            <li>80-100% = 5</li>
+            </ul>
+            </li>
+            </ol>
+
+            <h4>Relevans</h4>
+
+            <p>Påverkansrelevans, som andelen av organisationens budget, personalstyrka eller totala befolkning som kommer att påverkas av processens resultat, samt tidpunkten för denna påverkan.</p>
+
+            <ol>
+            <li>Andel av organisationens budget, personalstyrka eller av den totala befolkningen som påverkas av processens resultat.
+            <ul>
+            <li>0-20% = 1</li>
+            <li>20-40% = 2</li>
+            <li>40-60% = 3</li>
+            <li>60-80% = 4</li>
+            <li>80-100% = 5</li>
+            </ul>
+            </li>
+            </ol>
+
+            <h4>Medborgarinflytande</h4>
+
+            <ol>
+            <li>Inflytandenivå i processen enligt de mekanismer för medverkan som möjliggjorts, i enlighet med deltagandestegen definierad av Sherry Arnstein (1969).
+            <ul>
+            <li>Informativ = 0
+            <p>Ett enkelriktat informationsflöde – från tjänstemän till medborgare – utan kanal för återkoppling och utan makt att förhandla.</p>
+            </li>
+            <li>Samråd = 1
+            <p>En deltagandeprocess där medborgare tillfrågas om sina åsikter, vanligtvis genom enkäter eller möten, men utan garantier för att deras inspel kommer att påverka besluten.</p>
+            </li>
+            <li>Skenbart inflytande = 2
+            <p>En deltagandeprocess där medborgare ges begränsat inflytande, ofta på ett symboliskt sätt, såsom inkludering i styrelser eller kommittéer, men utan verklig makt, då beslutsfattandet förblir kontrollerat av den traditionella makteliten.</p>
+            </li>
+            <li>Partnerskap = 3
+            <p>En deltagandeprocess där medborgare och organisationer delar på beslutsmakten, vilket gör det möjligt för deltagare att förhandla, fördela resurser och påverka planering, med regler som inte kan ändras ensidigt. Det uppstår ofta ur medborgarmobilisering och kollektiv handling.</p>
+            </li>
+            <li>Delegerad makt = 4
+            <p>En deltagandeprocess där medborgare får befogenhet, kontroll eller finansiering för att påverka och hantera en organisation.</p>
+            </li>
+            <li>Medborgarstyre = 5
+            <p>Den högsta nivån av deltagande där medborgarna helt styr ett program eller en institution och hanterar policyer, resurser och beslutsfattande utan extern inblandning.
+            </p>
+            </li>
+            </ul>
+            </li>
+            <li>Andel faser med 0-5 medborgerligt beslutsfattande.
+            <p>Av alla faser i processen (från val av frågor till övervakning av genomförande), i hur många har allmänheten möjlighet att fatta beslut eller vidta verkställande åtgärder?</p>
+            <ul>
+            <li>0-20% = 1</li>
+            <li>20-40% = 2</li>
+            <li>40-60% = 3</li>
+            <li>60-80% = 4</li>
+            <li>80-100% = 5</li>
+            </ul>
+            </li>
+            </ol>
+
+            <h4>Tillgänglighet</h4>
+
+            <ol>
+            <li>På hur många språk har processen kommunicerats?
+            <ul>
+            <li>Ett språk = 1</li>
+            <li>Mindre än hälften av de språk som talas i samhället = 2,5</li>
+            <li>Mer än hälften av de språk som talas i samhället = 5</li>
+            </ul>
+            </li>
+            <li>Var lokalerna för de fysiska mötena tillgängliga för personer med nedsatt rörlighet?
+            <ul>
+            <li>Nej = 0</li>
+            <li>Delvis = 2,5</li>
+            <li>Ja = 5</li>
+            </ul>
+            </li>
+            </ol>
     statistics:
       processes_count: Processer
       processes_count_tooltip: Antalet deltagande processer som är allmänt tillgängliga.
