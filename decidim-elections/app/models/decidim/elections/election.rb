@@ -127,6 +127,7 @@ module Decidim
       # if not, all questions are returned
       def available_questions
         return questions.enabled.unpublished_results if per_question?
+      end
 
       # Create i18n ransackers for :title and :description.
       # Create the :search_text ransacker alias for searching from both of these.
