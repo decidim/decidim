@@ -30,7 +30,7 @@ module Decidim
       end
 
       def election
-        @election ||= current_user&.admin? ? available_elections.find_by(id: params[:id]) : elections.find_by(id: params[:id])
+        @election ||= current_user&.admin? ? available_elections.find(params[:id]) : elections.find(params[:id])
       end
 
       def questions
