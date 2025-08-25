@@ -48,7 +48,6 @@ import InputCharacterCounter, { createCharacterCounter } from "src/decidim/input
 import FormFilterComponent from "src/decidim/form_filter"
 import FocusGuard from "src/decidim/refactor/moved/focus_guard"
 import markAsReadNotifications from "src/decidim/notifications"
-import handleNotificationActions from "src/decidim/notifications_actions"
 import RemoteModal from "src/decidim/remote_modal"
 import {
   createDialog,
@@ -68,6 +67,78 @@ window.Decidim = window.Decidim || {
 };
 
 window.morphdom = morphdom
+
+// eslint-disable-next-line max-params
+const deprecate = (element, targetController, oldSyntax, newSyntax) => {
+  if (element.hasAttribute("data-controller") && element.getAttribute("data-controller").includes(targetController)) {
+    return;
+  }
+
+  console.warn(`[Decidim] ${oldSyntax} is deprecated. Please use the new version of this component - ${newSyntax}`)
+  // eslint-disable-next-line no-alert
+  alert(`[Decidim] ${oldSyntax} is deprecated. Please use the new version of this component - ${newSyntax}`)
+}
+// eslint-disable-next-line max-params
+const deprecationMessage = (element, oldSyntax, newSyntax) => {
+  console.warn(`[Decidim] ${oldSyntax} is deprecated. Please use the new version of this component - ${newSyntax}`)
+  // eslint-disable-next-line no-alert
+  alert(`[Decidim] ${oldSyntax} is deprecated. Please use the new version of this component - ${newSyntax}`)
+}
+
+window.deprecate = deprecate;
+window.deprecationMessage = deprecationMessage;
+
+document.addEventListener("turbo:load", () => {
+  document.querySelectorAll("[data-sticky-buttons]").forEach((container) =>
+    deprecate(container, "sticky-buttons", "[data-sticky-buttons]", 'data-controller="sticky-buttons"'));
+  document.querySelectorAll("[data-clipboard-copy]").forEach((container) =>
+    deprecate(container, "clipboard", "[data-clipboard-copy]", "data-controller='clipboard'"));
+  document.querySelectorAll('[data-component="accordion"]').forEach((container) =>
+    deprecate(container, "accordion", "data-component='accordion'", "data-controller='accordion'"));
+  document.querySelectorAll('[data-component="dropdown"]').forEach((container) =>
+    deprecate(container, "dropdown", "data-component='dropdown'", "data-controller='dropdown'"));
+  document.querySelectorAll("[data-scroll-last-child]").forEach((container) =>
+    deprecate(container, "scroll-to-last", "data-scroll-last-child", "data-controller='scroll-to-last'"));
+  document.querySelectorAll(".editor-container").forEach((container) =>
+    deprecate(container, "editor", ".editor-container", "data-controller='editor'"));
+  document.querySelectorAll(".new_report").forEach((container) =>
+    deprecate(container, "report-form", ".new_report", "data-controller='report-form'"));
+  document.querySelectorAll(".user-password").forEach((container) =>
+    deprecate(container, "password-toggler", ".user-password", "data-controller='password-toggler'"));
+  document.querySelectorAll(".api-user-secret").forEach((container) =>
+    deprecate(container, "password-toggler", ".api-user-secret", "data-controller='password-toggler'"));
+  document.querySelectorAll("[data-input-emoji]").forEach((container) =>
+    deprecate(container, "emoji", "[data-input-emoji]", "data-controller='emoji'"));
+  document.querySelectorAll(".js-mentions").forEach((container) =>
+    deprecate(container, "mention", ".js-mentions", "data-controller='mention'"));
+  document.querySelectorAll(".js-multiple-mentions").forEach((container) =>
+    deprecate(container, "multiple-mentions", ".js-multiple-mentions", "data-controller='multiple-mentions'"));
+  document.querySelectorAll("[data-tooltip]").forEach((elem) =>
+    deprecate(elem, "tooltip", "[data-tooltip]", "data-controller='tooltip'"))
+  document.querySelectorAll(".delete-account").forEach((container) =>
+    deprecate(container, "delete-account-form", ".delete-account", "data-controller='delete-account-form'"))
+  document.querySelectorAll("[data-notification-action]").forEach((elem) =>
+    deprecate(elem, "notification-action", "[data-notification-action]", "data-controller='notification-action'"))
+  document.querySelectorAll("#register-from").forEach((elem) =>
+    deprecate(elem, "user-registration-form", "#register-from", "data-controller='user-registration-form'"))
+  document.querySelectorAll("#omniauth-register-from").forEach((elem) =>
+    deprecate(elem, "user-registration-form", "#omniauth-register-from", "data-controller='user-registration-form'"))
+  document.querySelectorAll(".js-tags-container").forEach((container) =>
+    deprecate(container, "input-tags", ".js-tags-container", "data-controller='input-tags'"))
+  document.querySelectorAll("[data-toggle]").forEach((elem) =>
+    deprecate(elem, "toggle", "[data-toggle]", "data-controller='toggle'"))
+  document.querySelectorAll("[data-impersonation-warning]").forEach((container) =>
+    deprecate(container, "impersonation-warning", "[data-impersonation-warning]", "data-controller='impersonation-warning'"))
+  document.querySelectorAll("#panel-password.user-password").forEach((container) =>
+    deprecate(container, "account-form", "#panel-password", "data-controller='account-form'"))
+
+  document.querySelectorAll(".responsive-tab-block").forEach((container) =>
+    deprecationMessage(container, ".responsive-tab-block", "NEEDS TO BE REMOVED"));
+  document.querySelectorAll('.callout[role="alert"]').forEach((container) =>
+    deprecationMessage(container, '.callout[role="alert"]', '.flash[role="alert"]'));
+  document.querySelectorAll(".js-back-to-list").forEach((container) =>
+    deprecationMessage(container, ".js-back-to-list", "NEEDS TO BE REMOVED"));
+})
 
 // REDESIGN_PENDING: deprecated
 window.initFoundation = (element) => {
@@ -144,7 +215,6 @@ const initializer = (element = document) => {
   })
 
   markAsReadNotifications(element)
-  handleNotificationActions(element)
 
   element.querySelectorAll("[data-dialog]").forEach((component) => createDialog(component))
 
@@ -191,10 +261,6 @@ document.addEventListener("comments:loaded", (event) => {
       }
     });
   }
-});
-
-document.addEventListener("turbo:load", () => {
-
 });
 
 import { Application } from "@hotwired/stimulus"
