@@ -4,9 +4,6 @@ el:
       participatory_process:
         announcement: Ανακοίνωση
         area_id: Τομέας
-        copy_categories: Αντιγραφή κατηγοριών
-        copy_components: Αντιγραφή στοιχείων
-        copy_steps: Αντιγραφή βημάτων
         decidim_area_id: Τομέας
         description: Περιγραφή
         developer_group: Ομάδα προώθησης
@@ -140,11 +137,6 @@ el:
           fields:
             invitation_accepted_at: Η πρόσκληση έγινε αποδεκτή στις
             invitation_sent_at: Η πρόσκληση στάλθηκε στις
-      participatory_process_copies:
-        new:
-          copy: Αντιγραφή
-          select: Επιλέξτε ποια δεδομένα θέλετε να αντιγράψετε
-          title: Αντιγραφή διαδικασίας συμμετοχής
       participatory_process_groups:
         destroy:
           success: Η ομάδα διαδικασιών συμμετοχής διαγράφηκε με επιτυχία.
@@ -232,10 +224,6 @@ el:
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της διαδικασίας συμμετοχής.
           success: Η διαδικασία συμμετοχής ενημερώθηκε με επιτυχία.
-      participatory_processes_copies:
-        create:
-          error: Υπήρξε ένα πρόβλημα κατά την αντιγραφή αυτής της διαδικασίας συμμετοχής.
-          success: Η διαδικασία συμμετοχής αντιγράφτηκε με επιτυχία.
       participatory_processes_group:
         create:
           error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία μιας νέας ομάδας διαδικασίας συμμετοχής.

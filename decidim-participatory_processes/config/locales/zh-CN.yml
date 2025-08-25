@@ -4,9 +4,6 @@ zh-CN:
       participatory_process:
         announcement: 通 知
         area_id: 区域
-        copy_categories: 复制类别
-        copy_components: 复制组件
-        copy_steps: 复制步骤
         decidim_area_id: 区域
         description: 描述
         developer_group: 促销者组
@@ -112,11 +109,6 @@ zh-CN:
           fields:
             invitation_accepted_at: 邀请接受于
             invitation_sent_at: 邀请发送于
-      participatory_process_copies:
-        new:
-          copy: 复制
-          select: 选择要重复的数据
-          title: 重复的参与进程
       participatory_process_groups:
         destroy:
           success: 参与进程组已成功删除。
@@ -201,10 +193,6 @@ zh-CN:
         update:
           error: 在更新这一参与进程方面存在问题。
           success: 参与进程已成功更新。
-      participatory_processes_copies:
-        create:
-          error: 出现了重复这一参与进程的问题。
-          success: 参与进程成功地重复。
       participatory_processes_group:
         create:
           error: 建立一个新的参与性进程小组存在问题。

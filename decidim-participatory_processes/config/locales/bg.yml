@@ -4,9 +4,6 @@ bg:
       participatory_process:
         announcement: Обявление
         area_id: Район
-        copy_categories: Копирай категории
-        copy_components: Копирай компоненти
-        copy_steps: Копирай стъпки
         decidim_area_id: Район
         description: Описание
         developer_group: Група за популяризиране
@@ -146,11 +143,6 @@ bg:
           fields:
             invitation_accepted_at: 'Поканата е приета на:'
             invitation_sent_at: Поканата е изпратена на
-      participatory_process_copies:
-        new:
-          copy: Копиране
-          select: Изберете кои данни искате да дублирате
-          title: Дублиране на процеси на участие
       participatory_process_groups:
         destroy:
           success: Групата на процеса на участие беше изтрита успешно.
@@ -246,10 +238,6 @@ bg:
         update:
           error: Възникна проблем при актуализирането на този процес на участие.
           success: Процесът на участие беше актуализиран успешно.
-      participatory_processes_copies:
-        create:
-          error: Възникна проблем при дублирането на този процес на участие.
-          success: Процесът на участие беше дублиран успешно.
       participatory_processes_group:
         create:
           error: Възникна проблем при създаването на нова група на процеса на участие.
@@ -360,9 +348,6 @@ bg:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help_html: 'Съкратените URL се използват за генериране на URL адреси, които сочат към този процес. Приема само букви, цифри и тирета и трябва да започва с буква. Пример: %{url}'
         participatory_process_groups:
           form:
             metadata: Метаданни

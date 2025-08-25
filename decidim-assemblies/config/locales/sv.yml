@@ -10,9 +10,6 @@ sv:
         closing_date: Slutdatum
         closing_date_reason: Anledning till avslut
         composition: Sammansättning
-        copy_categories: Kopiera kategorier
-        copy_components: Kopiera komponenter
-        copy_features: Kopiera funktioner
         created_by: Skapad av
         created_by_other: Skapad av andra
         creation_date: Skapad datum
@@ -22,6 +19,9 @@ sv:
         developer_group: Arrangör
         document: Dokument
         domain: Domän
+        duplicate_categories: Duplicera kategorier
+        duplicate_components: Duplicera komponenter
+        duplicate_features: Duplicera funktioner
         duration: Varaktighet
         facebook: Facebook
         github: GitHub
@@ -111,14 +111,14 @@ sv:
         update:
           error: Det gick inte att uppdatera samrådet.
           success: Samrådet har uppdaterats.
-      assemblies_copies:
+      assemblies_duplicates:
         create:
           error: Det gick inte att duplicera samrådet.
           success: Samrådet har duplicerats.
-      assembly_copies:
+      assembly_duplicates:
         new:
-          copy: Kopiera
-          select: Välj vilka data som ska dupliceras
+          duplicate: Duplicera
+          select: Välj vilka data som du vill duplicera
           title: Duplicera samråd
       assembly_imports:
         create:
@@ -258,7 +258,7 @@ sv:
             taxonomies: Kategorier
             title: Allmän information
             visibility: Synlighet
-        assembly_copies:
+        assembly_duplicates:
           form:
             slug_help_html: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         assembly_imports:

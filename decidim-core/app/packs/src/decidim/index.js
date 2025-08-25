@@ -37,6 +37,7 @@ import "src/decidim/data_consent"
 import "src/decidim/sw"
 import "src/decidim/attachments"
 import "src/decidim/dropdown_menu"
+import "src/decidim/callout"
 
 // local deps that require initialization
 import ConfirmDialog, { initializeConfirm } from "src/decidim/confirm"

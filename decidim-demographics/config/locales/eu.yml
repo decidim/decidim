@@ -72,8 +72,3 @@ eu:
           question: Hauetako zeinek deskribatzen du ondoen zure generoa?
         postal:
           question: Zein da zure etxeko posta-kodea?
-  layouts:
-    decidim:
-      shared:
-        layout_center:
-          alert: Informazio hori emanez, laguntzen duzu parte-hartzearen kalitatea hobetzeko laguntzen duen analisi estatistikoa egiten. Zure datuak gehitu egingo dira eta ikerketarako baino ez dira erabiliko.

@@ -4,9 +4,6 @@ lb:
       participatory_process:
         announcement: Ukënnegung
         area_id: Bereich
-        copy_categories: Kategorien kopieren
-        copy_components: Komponenten kopieren
-        copy_steps: Phasen kopieren
         decidim_area_id: Bereich
         description: Beschreibung
         developer_group: Promoter-Gruppe
@@ -128,11 +125,6 @@ lb:
           fields:
             invitation_accepted_at: Einladung akzeptiert am
             invitation_sent_at: Einladung gesendet am
-      participatory_process_copies:
-        new:
-          copy: Kopieren
-          select: Wählen Sie aus, welche Daten Sie duplizieren möchten
-          title: Beteiligungsprozess duplizieren
       participatory_process_groups:
         destroy:
           success: Beteiligungsprozess erfolgreich gelöscht.

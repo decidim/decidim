@@ -837,7 +837,6 @@ sk:
       impersonation_warning:
         close_session: Zatvoriť sedenie
         description_html: Spravujete účastníka <b>%{user_name} </ b>.
-        expire_time_html: Platnosť vašej relácie vyprší za <b> <span class = "minutes">%{minutes} </ span> </ b>.
       notifications_dashboard:
         mark_all_as_read: Označiť všetko ako prečítané
       user_menu:

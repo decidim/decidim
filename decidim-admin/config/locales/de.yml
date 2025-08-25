@@ -166,11 +166,15 @@ de:
   decidim:
     admin:
       actions:
+        actions: Aktionen
+        actions_label: Aktionen für %{resource}
         add: Hinzufügen
         attachment:
           new: Neuer Anhang
         attachment_collection:
           new: Neuer Ordner für Dateianhänge
+        attachment_collections: Ordner hinzufügen
+        attachments: Anhang hinzufügen
         browse: Durchsuchen
         configure: Konfigurieren
         confirm_delete_component: |
@@ -180,16 +184,22 @@ de:
             <li class="font-bold">%{resources_count} Ressourcen</li>
           </ul>
           Wenn Sie Ihre Meinung ändern, können Sie es später wiederherstellen.
+        export: Exportieren
         export-selection: Auswahl exportieren
         import: Importieren
+        menu_hidden: Im Menü ausblenden
+        moderate: Moderationen verwalten
         newsletter:
           new: Neuer Newsletter
         participatory_space_private_user:
           new: Neuer privater Benutzer
         per_page: Pro Seite
+        permissions: Berechtigungen verwalten
         restore: Wiederherstellen
         send_me_a_test_email: Mir eine Test-E-Mail senden
         share: Teilen
+        share_tokens: Linkfreigabe
+        soft_delete: In Papierkorb verschieben
         user:
           new: Neuer Administrator
         view_deleted_components: Gelöschte Komponenten ansehen
@@ -340,6 +350,8 @@ de:
       conflicts:
         attempts: Versuche
         'false': 'Nein'
+        index:
+          text: Duchsuche nach aktueller E-Mail-Adresse, Name oder Spitzname
         managed_user_name: Verwalteter Benutzer
         solved: Gelöst
         title: Überprüfungskonflikte
@@ -441,7 +453,11 @@ de:
         remove_all: Alle entfernen
         search_label: Suche
         search_placeholder:
+          name_or_nickname_or_email_cont: Durchsuche %{collection} nach E-Mail, Name oder Spitzname
           report_count_eq: Anzahl Meldungen
+          reported_id_string_or_reported_content_cont: Durchsuche %{collection} nach gemoldener ID oder Inhalt
+          title_cont: Duchsuche %{collection} nach Titel
+          user_name_or_user_nickname_or_user_email_cont: Duchsuche %{collection} nach E-Mail-Adresse, Name oder Spitzname
         state_eq:
           label: Status
           values:
@@ -540,6 +556,7 @@ de:
       logs:
         filters:
           participatory_space: Partizipativen Raum finden
+          text: Duchsuche nach E-Mail-Adresse, Name oder Spitzname
           user: Benutzer*in
         logs_list:
           no_logs_yet: Es gibt noch keine Protokolle.
@@ -566,6 +583,7 @@ de:
         content: Gemeldeter Inhalt
         external_domain_allowlist: Erlaubte externe Domains
         help_sections: Hilfeabschnitte
+        homepage: Homepage-Layout
         impersonations: Identitätswechsel
         insights: Einblicke
         manage: Verwalten
@@ -670,6 +688,7 @@ de:
               update_moderated_user_button: Gemeldete Teilnehmende zurückweisen
             title: Aktionen
             unblock: Blockierung des Benutzers aufheben
+            unreport: Meldung rückgängig machen
           cancel: Abbrechen
           name: Name
           nickname: Spitzname
@@ -693,8 +712,10 @@ de:
               title: Verbergen
               update_moderation_button: Ausgewählte Ressourcen verbergen
             unhide:
+              title: Erneut einblenden
               update_moderation_button: Ausgewählte Ressourcen einblenden
             unreport:
+              title: Meldung rückgängig machen
               update_moderation_button: Meldung ausgewählter Ressourcen aufheben
           cancel: Abbrechen
           selected: ausgewählt
@@ -822,6 +843,7 @@ de:
         index:
           actions: Aktionen
           badge: Abzeichen
+          block: Blockieren
           created_at: Erstellt am
           name: Name
           nickname: Spitzname
@@ -830,7 +852,10 @@ de:
           officialized: Offizialisiert
           reofficialize: Reoffizialisieren
           reports: Berichte
+          send_message: Nachricht senden
+          show_email: E-Mail-Adresse anzeigen
           status: Status
+          unblock: Blockierung aufheben
           unofficialize: Nicht offiziell
         new:
           badge: Offizielles Abzeichen
@@ -1056,6 +1081,8 @@ de:
           error: Beim Aktualisieren dieses Themas ist ein Fehler aufgetreten.
           success: Thema erfolgreich aktualisiert
       static_pages:
+        actions:
+          view: Anzeigen
         create:
           error: Beim Erstellen einer neuen Seite ist ein Fehler aufgetreten.
           success: Seite erfolgreich erstellt
@@ -1083,6 +1110,9 @@ de:
       taxonomies:
         actions:
           actions: Aktionen
+          destroy: Löschen
+          edit: Bearbeiten
+          filters: Filter anwenden
         breadcrumb:
           edit: Klassifizierung bearbeiten
           new: Neue Klassifizierung
@@ -1208,6 +1238,9 @@ de:
         taxonomy_filters: Klassifizierungsfilter für "%{taxonomy}"
         users: Administratoren
       tooltips:
+        cannot_destroy_taxonomy_filter: Klassifizierungsfilter kann nicht gelöscht werden
+        cannot_edit_taxonomy_filter: Klassifizierungsfilter kann nicht bearbeitet werden
+        deleted_attachment_collections_info: Dieser Ordner kann nicht gelöscht werden, da er Anhänge hat.
         deleted_component_info: Diese Komponente kann nur gelöscht werden, wenn der Status 'Nicht veröffentlicht' ist.
       trash_management:
         restore:
@@ -1250,6 +1283,8 @@ de:
         not_hidden: Nicht versteckt
         parent_hidden: Sie können diese Ressource nicht anzeigen, da die übergeordnete Ressource ausgeblendet ist.
         title: Aktionen
+        unhide: Erneut einblenden
+        unreport: Meldung rückgängig machen
       admin:
         reportable:
           bulk_action:

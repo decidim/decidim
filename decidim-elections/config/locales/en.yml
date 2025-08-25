@@ -35,19 +35,21 @@ en:
         deleted_election_info: Deleted elections are not shown in the list. You can view them by clicking the button below.
         edit: Edit election
         new: New election
+        preview: Preview
         title: Actions
+        view: See election
         view_deleted_elections: View deleted elections
       admin:
         census:
           edit:
-            choose_census: Choose the type of census you want to use for this election
+            choose_census: Choose the census type you want to use for this election
             created_at: Created at
             identifier: User identifier
-            title: Type of census
+            title: Census type
           preview:
             title:
-              one: 'User preview (the list is limited to %{count} record):'
-              other: 'User preview (the list is limited to %{count} records):'
+              one: The preview list is limited to %{count} record.
+              other: The preview list is limited to %{count} records.
           update:
             error: There was an error while generating or saving the census.
             success: Census updated successfully.
@@ -56,6 +58,7 @@ en:
             end_at: 'End time:'
             end_election: End election
             manual_start: Manual
+            published_results_at: Results published at
             start_at: 'Start time:'
             start_election: Start election
             title: Calendar
@@ -73,7 +76,6 @@ en:
           questions:
             labels:
               answers: Answers
-              question_title: Question %{number}
             limit_info: This election has more questions. The preview is limited to 3 questions.
             title: Questions
           questions_table:
@@ -91,12 +93,18 @@ en:
             start_question_button: Enable voting
             title: Results
           status:
+            census: 'Census:'
+            results_availability:
+              after_end: Results available after the election ends
+              per_question: Results available per question
+              real_time: Results available in real time
             title: Election status
         elections:
           create:
             invalid: There was a problem creating the election.
             success: Election created successfully.
           dashboard:
+            subtitle: 'Final step: Review your details. Edits can still be made before publishing. Once published, you''ll still be able to update the description of the election.'
             title: Dashboard
           edit:
             title: Edit election
@@ -179,7 +187,7 @@ en:
         internal_users:
           info_html: |
             You can restrict participation in the election to participants who have an authorization.<br>
-            Note that participants will need to fulfill the selected authorizations in  order to vote. Leaving all checkboxes empty will allow to vote anyone registered.
+            Note that participants will need to fulfill the selected authorizations in order to vote. Leaving all checkboxes empty will allow to vote anyone registered.
           internal_type_title: Additional required authorizations to vote (optional)
           label: Registered participants (dynamic)
         token_csv:
@@ -194,6 +202,31 @@ en:
           remove_before_upload: If you want to upload a new census, you must first remove the existing one.
           upload_file: Upload file
           upload_new_census: Upload a CSV file
+      elections:
+        count:
+          elections_count:
+            one: "%{count} election"
+            other: "%{count} elections"
+        elections:
+          empty: There are no elections available.
+          empty_filters: There are no elections matching your filters.
+        filters:
+          all: All
+          state: Status
+          state_values:
+            finished: Finished
+            ongoing: Ongoing
+            scheduled: Scheduled
+        orders:
+          end_at: Ending date
+          label: Order by
+          recent: Recent
+          start_at: Starting date
+        questions:
+          subtitle: 'These are the questions fot this voting process:'
+          title: Election questions
+        show:
+          vote_button: Start voting
       models:
         election:
           fields:
@@ -205,11 +238,15 @@ en:
       status:
         active: Active
         finished: Finished
+        not_started: Not started
         ongoing: Ongoing
-        results_published: Published results
+        published_results: Published results
         scheduled: Scheduled
         unpublished: Unpublished
         voting_enabled: Voting in progress
+    metadata:
+      progress:
+        published_results: 'Results published: %{end_date}'
     statistics:
       elections_count: Elections
   time:

@@ -834,7 +834,6 @@ lv:
       impersonation_warning:
         close_session: Aizvērt sesiju
         description_html: Jūs pārvaldāt dalībnieku <b>%{user_name}</b>.
-        expire_time_html: Jūsu sesija beigsies pēc <b><span class="minutes">%{minutes}</span> minūtēm</b>.
       notifications_dashboard:
         mark_all_as_read: Atzīmēt visu kā izlasītu
       user_menu:
