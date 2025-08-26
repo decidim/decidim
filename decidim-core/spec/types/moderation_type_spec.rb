@@ -8,7 +8,7 @@ module Decidim
     describe ModerationType do
       include_context "with a graphql class type"
 
-      let(:model) { create(:moderation, :hidden, report_count: 1) }
+      let(:model) { create(:moderation, :hidden, report_count: 1, reported_content: "This is the content") }
       let!(:report) { create(:report, moderation: model) }
 
       include_examples "timestamps interface"
@@ -38,7 +38,7 @@ module Decidim
       end
 
       describe "reportedContent" do
-        let(:query) { '{ reportedContent { translation(locale: "en")} }' }
+        let(:query) { "{ reportedContent }" }
 
         it "returns the content reported" do
           expect(response).to eq("reportedContent" => translated(model.reported_content))

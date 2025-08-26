@@ -44,8 +44,8 @@ module Decidim
       type.field :static_pages, type: [Decidim::Core::StaticPageType], null: true,
                                 description: "The static pages for the current organization"
 
-      type.field :static_page_topic, type: Decidim::Core::StaticPageTopicType, null: true,
-                                     description: "The static page topic for the current organization"
+      type.field :static_page_topics, type: [Decidim::Core::StaticPageTopicType], null: true,
+                                      description: "The static page topic for the current organization"
     end
 
     def component(id: {})
@@ -85,8 +85,8 @@ module Decidim
       Decidim::StaticPage.accessible_for(context[:current_organization], context[:current_user])
     end
 
-    def static_page_topic
-      context[:current_organization].static_page_topics.accessible_pages_for(context[:current_user])
+    def static_page_topics
+      static_pages.collect(&:topic).uniq.compact_blank
     end
   end
 end
