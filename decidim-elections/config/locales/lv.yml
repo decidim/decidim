@@ -16,6 +16,7 @@ lv:
             announcement: Paziņojums
     elections:
       actions:
+        preview: Priekšskatīt
         title: Darbības
       admin:
         dashboard:
