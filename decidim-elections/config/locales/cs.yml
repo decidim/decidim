@@ -23,6 +23,7 @@ cs:
         deleted_election_info: Smazané volby nejsou zobrazeny v seznamu. Můžete je zobrazit kliknutím na tlačítko níže.
         edit: Upravit volby
         new: Nové volby
+        preview: Náhled
         title: Akce
         view_deleted_elections: Zobrazit odstraněné volby
       admin:
@@ -93,6 +94,25 @@ cs:
           publish: "%{user_name} zveřejnil volby %{resource_name} v %{space_name}"
           restore: "%{user_name} obnovil volby %{resource_name} v %{space_name}"
           update: "%{user_name} aktualizoval volby %{resource_name} v %{space_name}"
+      elections:
+        count:
+          elections_count:
+            one: "%{count} zvolení"
+            few: "%{count} zvolení"
+            many: "%{count} zvolení"
+            other: "%{count} voleb"
+        filters:
+          all: Vše
+          state: Stav
+          state_values:
+            finished: Dokončeno
+            ongoing: Probíhající
+        orders:
+          recent: Nedávné
+        questions:
+          title: Volební otázky
+        show:
+          vote_button: Zahájit hlasování
       models:
         election:
           fields:
@@ -104,6 +124,7 @@ cs:
       status:
         active: Aktivní
         finished: Dokončeno
+        not_started: Nezahájeno
         ongoing: Probíhající
         unpublished: Nezveřejněno
     statistics:
