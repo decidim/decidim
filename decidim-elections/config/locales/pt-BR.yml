@@ -19,6 +19,7 @@ pt-BR:
             announcement: Anúncio
     elections:
       actions:
+        preview: Pré-visualização
         title: Ações
       admin:
         census:
@@ -59,6 +60,23 @@ pt-BR:
         statuses:
           publish_results:
             invalid: Ocorreu um erro ao publicar os resultados.
+      elections:
+        count:
+          elections_count:
+            one: "%{count} eleição"
+            other: "%{count} eleições"
+        filters:
+          all: Todos
+          state: Status
+          state_values:
+            finished: Finalizado
+            ongoing: Em andamento
+        orders:
+          recent: Recente
+        questions:
+          title: Perguntas eleitorais
+        show:
+          vote_button: Começar a votar
       models:
         election:
           fields:
@@ -68,6 +86,7 @@ pt-BR:
       status:
         active: Ativo
         finished: Finalizado
+        not_started: Não Iniciado
         ongoing: Em andamento
     statistics:
       elections_count: Eleições
