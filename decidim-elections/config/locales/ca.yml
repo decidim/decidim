@@ -34,19 +34,14 @@ ca:
         deleted_election_info: 'Les eleccions eliminades no es mostren al llistat. Les pots veure fent clic al botó: "Veure les eleccions eliminades" que trobaràs més avall.'
         edit: Editar l'elecció
         new: Nova elecció
+        preview: Previsualitzar
         title: Accions
         view_deleted_elections: Veure les eleccions eliminades
       admin:
         census:
           edit:
-            choose_census: Tria el tipus de cens que vols vincular a aquesta elecció
             created_at: Creada el
             identifier: Identificador d'usuària
-            title: Tipus de cens
-          preview:
-            title:
-              one: 'Vista prèvia d''usuàries (el llistat està limitat a %{count} registre):'
-              other: 'Vista prèvia d''usuàries (el llistat està limitat a %{count} registres):'
           update:
             error: S'ha produït un error en generar o desar el cens.
             success: Cens actualitzat correctament.
@@ -72,7 +67,6 @@ ca:
           questions:
             labels:
               answers: Respostes
-              question_title: Pregunta %{number}
             limit_info: Aquesta elecció té més preguntes. La previsualització està limitada a 3 preguntes.
             title: Preguntes
           questions_table:
@@ -176,8 +170,6 @@ ca:
           one: Actualment hi ha <strong>1</strong> persona amb dret a vot en aquestes eleccions (això podria canviar en un cens dinàmic).
           other: Actualment hi ha <strong>%{count}</strong> persones amb dret a vot en aquestes eleccions (això podria canviar en un cens dinàmic).
         internal_users:
-          info_html: |
-            Pots restringir la participació en l'elecció a les participants que tinguin una autorització. <br>Tingues en compte que les participants obtenir l'autorització seleccionada per poder votar. Si deixes totes les caselles de verificació buides, qualsevol persona registrada podrà votar.
           internal_type_title: Autoritzacions addicionals necessàries per votar (opcional)
           label: Participants registrades (dinàmic)
         token_csv:
@@ -191,6 +183,23 @@ ca:
           remove_before_upload: Si vols pujar un nou cens, primer has d'eliminar el que ja existeix.
           upload_file: Puja arxiu
           upload_new_census: Carregar un arxiu CSV
+      elections:
+        count:
+          elections_count:
+            one: "%{count} votació"
+            other: "%{count} votacions"
+        filters:
+          all: Totes
+          state: Estat
+          state_values:
+            finished: Acabada
+            ongoing: En curs
+        orders:
+          recent: Recent
+        questions:
+          title: Preguntes de l'elecció
+        show:
+          vote_button: Començar a votar
       models:
         election:
           fields:
@@ -202,8 +211,8 @@ ca:
       status:
         active: Activa
         finished: Acabada
+        not_started: No s'ha iniciat
         ongoing: En curs
-        results_published: Resultats publicats
         scheduled: Programada
         unpublished: Despublicada
         voting_enabled: Votació en curs
