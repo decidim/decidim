@@ -22,7 +22,7 @@ describe "Admin manages conference publication" do
     visit admin_page_path
 
     within("tr", text: translated_attribute(participatory_space.title)) do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       click_on "Publish"
     end
 

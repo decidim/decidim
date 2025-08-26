@@ -1951,7 +1951,7 @@ fr:
       impersonation_warning:
         close_session: Fermer la session
         description_html: Vous agissez en tant que l'utilisateur <b>%{user_name}</b>.
-        expire_time_html: Votre session expirera dans <b><span class="minutes">%{minutes}</span> minutes</b>.
+        expire_time_html: Votre session expirera dans <b><span data-impersonation-warning-target="minutes">%{minutes}</span> minutes</b>.
       language_chooser:
         choose_language: Choisir la langue
       navigation:

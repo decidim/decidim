@@ -31,7 +31,7 @@
               </strong>
             </td>
             <td data-label="<%= t("actions.title", scope: "decidim.proposals") %>" class="table-list__actions">
-              <button type="button" data-component="dropdown" data-target="actions-proposal-state-<%= state.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: translated_attribute(state.title)) %>">
+              <button type="button" data-controller="dropdown" data-target="actions-proposal-state-<%= state.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: translated_attribute(state.title)) %>">
                 <%= icon "more-fill", class: "text-secondary" %>
               </button>
 

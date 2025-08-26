@@ -165,16 +165,14 @@ lt:
         attachment_collection:
           new: Naujas priedų aplankas
         browse: Naršyti
-        export: Eksportuoti viską
+        configure: Konfigūruoti
         export-selection: Eksportuoti pasirinktą
         import: Importuoti
-        manage: Valdyti
         newsletter:
           new: Naujas naujienlaiškis
         participatory_space_private_user:
           new: Naujas dalyvaujamosios erdvės privatus naudotojas
         per_page: Per puslapį
-        permissions: Leidimai
         send_me_a_test_email: Siųsti man bandomąjį el. laišką
         share: Dalintis
         user:
@@ -585,9 +583,11 @@ lt:
         index:
           actions:
             block: Blokuoti naudotoją
+            bulk_actions:
+              unreport:
+                title: Naikinti raportavimą
             title: Veiksmai
             unblock: Atblokuoti naudotoją
-            unreport: Naikinti raportavimą
           name: Vardas
           nickname: Slapyvardis
           reason: Priežastis
@@ -695,7 +695,6 @@ lt:
         index:
           actions: Veiksmai
           badge: Ženkliukas
-          block: Blokuoti naudotoją
           created_at: Sukurta
           name: Vardas
           nickname: Slapyvardis
@@ -704,9 +703,7 @@ lt:
           officialized: Oficializuotas
           reofficialize: Vėl oficializuoti
           reports: Pranešimai
-          show_email: Rodyti el. pašto adresą
           status: Būsena
-          unblock: Atblokuoti naudotoją
           unofficialize: Nebe oficializuoti
         new:
           badge: Oficializacijos ženklas
@@ -838,8 +835,6 @@ lt:
           error: Atnaujinant šią temą iškilo problema.
           success: Tema atnaujinta
       static_pages:
-        actions:
-          view: Peržiūrėti viešą puslapį
         create:
           error: Kuriant naują puslapį iškilo problema.
           success: Puslapis sukurtas.
@@ -908,8 +903,6 @@ lt:
         hide: Slėpti
         not_hidden: Nepaslėpta
         title: Veiksmai
-        unhide: Nebeslėpti
-        unreport: Panaikinti raportavimą
       admin:
         reportable:
           hide:

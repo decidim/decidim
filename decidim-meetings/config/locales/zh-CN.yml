@@ -117,8 +117,6 @@ zh-CN:
     meetings:
       actions:
         agenda: 议程项目
-        attachment_collections: 文件夹
-        attachments: 附件
         close: 关闭
         edit: 编辑
         invalid_destroy:

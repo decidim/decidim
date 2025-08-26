@@ -10,7 +10,7 @@ shared_examples "manage assemblies" do
 
     before do
       within("tr", text: translated(assembly.title)) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
     end
@@ -67,7 +67,7 @@ shared_examples "manage assemblies" do
   describe "updating an assembly without images" do
     before do
       within("tr", text: translated(assembly.title)) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
     end
@@ -101,7 +101,7 @@ shared_examples "manage assemblies" do
       it "allows the user to preview the unpublished assembly" do
         new_window = window_opened_by do
           within("tr", text: translated(assembly.title)) do
-            find("button[data-component='dropdown']").click
+            find("button[data-controller='dropdown']").click
             click_on "Preview"
           end
         end
@@ -120,7 +120,7 @@ shared_examples "manage assemblies" do
       it "allows the user to preview the unpublished assembly" do
         new_window = window_opened_by do
           within("tr", text: translated(assembly.title)) do
-            find("button[data-component='dropdown']").click
+            find("button[data-controller='dropdown']").click
             click_on "Preview"
           end
         end
@@ -148,14 +148,14 @@ shared_examples "manage assemblies" do
 
     it "publishes the assembly" do
       within("tr", text: translated_attribute(assembly.title)) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         find("a", text: "Publish", visible: true).click
       end
 
       expect(page).to have_content("successfully published")
 
       within("tr", text: translated_attribute(assembly.title)) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         expect(page).to have_content("Unpublish")
       end
 
@@ -175,7 +175,7 @@ shared_examples "manage assemblies" do
 
     it "unpublishes the assembly" do
       within("tr", text: translated_attribute(assembly.title)) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         find("a", text: "Unpublish", visible: true).click
       end
 

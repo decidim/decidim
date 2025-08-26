@@ -60,7 +60,7 @@
                 <% end %>
               </td>
               <td data-label="<%= t("decidim.admin.actions.actions") %>" class="table-list__actions">
-                <button type="button" data-component="dropdown" data-target="actions-private-user-<%= private_user.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: private_user.user.name) %>">
+                <button type="button" data-controller="dropdown" data-target="actions-private-user-<%= private_user.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: private_user.user.name) %>">
                   <%= icon "more-fill", class: "text-secondary" %>
                 </button>
 

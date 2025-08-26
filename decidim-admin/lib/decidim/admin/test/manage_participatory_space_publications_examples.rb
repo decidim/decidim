@@ -14,7 +14,7 @@ shared_examples "manage participatory space publications" do
       visit admin_page_path
 
       within("tr", text: translated_attribute(participatory_space.title)) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         find("a", text: "Publish", visible: true).click
       end
     end
@@ -46,7 +46,7 @@ shared_examples "manage participatory space publications" do
       # we cannot use "a 404 page" shared example as we want to check it
       # inside an example
       within("tr", text: translated_attribute(participatory_space.title)) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Unpublish"
       end
 

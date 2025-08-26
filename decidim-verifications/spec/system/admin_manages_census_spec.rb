@@ -66,7 +66,7 @@ describe "Admin manages census" do
         expect(page).to have_content("this_email_does_not_exist@example.org")
 
         within "tr", text: "this_email_does_not_exist@example.org" do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Edit"
         end
 
@@ -80,7 +80,7 @@ describe "Admin manages census" do
 
       it "deletes the added census record" do
         within "tr", text: "this_email_does_not_exist@example.org" do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           accept_confirm { click_on "Destroy" }
         end
         expect(page).to have_content("Census data record have been deleted.")

@@ -1,6 +1,6 @@
 import Dialog from "a11y-dialog-component";
 
-import { getDictionary } from "src/decidim/i18n";
+import { getDictionary } from "src/decidim/refactor/moved/i18n";
 import { uniqueId } from "src/decidim/editor/common/helpers";
 
 export default class InputDialog {

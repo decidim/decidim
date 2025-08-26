@@ -120,8 +120,12 @@ de:
             state: Status
             supports_count: Unterschriften
             title: Initiativen
+        initiatives_committee_member:
+          fields:
+            actions: Aktionen
         initiatives_type_scope:
           fields:
+            actions: Aktionen
             scope: Umfang
             supports_required: Unterstützungen erforderlich
           name: Typ der Initiative

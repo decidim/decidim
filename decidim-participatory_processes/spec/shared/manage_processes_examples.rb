@@ -51,7 +51,7 @@ shared_examples "manage processes examples" do
       it "allows the user to preview the unpublished process" do
         new_window = window_opened_by do
           within("tr", text: translated(participatory_process.title)) do
-            find("button[data-component='dropdown']").click
+            find("button[data-controller='dropdown']").click
             click_on "Preview"
           end
         end
@@ -69,7 +69,7 @@ shared_examples "manage processes examples" do
       it "allows the user to preview the published process" do
         new_window = window_opened_by do
           within("tr", text: translated(participatory_process.title)) do
-            find("button[data-component='dropdown']").click
+            find("button[data-controller='dropdown']").click
             click_on "Preview"
           end
         end
@@ -145,14 +145,14 @@ shared_examples "manage processes examples" do
 
     it "publishes the process" do
       within("tr", text: translated_attribute(participatory_process.title)) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         find("a", text: "Publish", visible: true).click
       end
 
       expect(page).to have_content("successfully published")
 
       within("tr", text: translated_attribute(participatory_process.title)) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         expect(page).to have_content("Unpublish")
       end
 
@@ -172,7 +172,7 @@ shared_examples "manage processes examples" do
 
     it "unpublishes the process" do
       within("tr", text: translated_attribute(participatory_process.title)) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         find("a", text: "Unpublish", visible: true).click
       end
 

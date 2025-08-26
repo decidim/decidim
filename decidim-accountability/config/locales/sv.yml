@@ -40,8 +40,8 @@ sv:
   decidim:
     accountability:
       actions:
-        attachment_collections: Mappar
-        attachments: Bifogade filer
+        add_milestone: Lägg till milstolpe
+        add_result: Lägg till resultat
         confirm_delete_result: Vill du ta bort det här resultatet?
         confirm_destroy: Vill du radera detta %{name}?
         deleted_results_info: Borttagna resultat kan återställas från papperskorgen.
@@ -49,7 +49,6 @@ sv:
         edit: Redigera
         import: Importera resultat från en annan komponent
         import_csv: Importera resultat från CSV-fil
-        milestones: Milstolpar
         new_milestone: Ny milstolpe
         new_result: Nytt resultat
         new_status: Ny status

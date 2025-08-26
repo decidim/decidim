@@ -1,4 +1,4 @@
-<button type="button" data-component="dropdown" data-target="actions-conference-<%= conference.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: translated_attribute(conference.title)) %>">
+<button type="button" data-controller="dropdown" data-target="actions-conference-<%= conference.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: translated_attribute(conference.title)) %>">
   <%= icon "more-fill", class: "text-secondary" %>
 </button>
 
@@ -62,7 +62,7 @@
       <% end %>
 
       <hr>
-      <% if allowed_to? :read, :share_tokens, current_participatory_space: conference %>
+      <% if allowed_to? :read, :share_token, current_participatory_space: conference %>
         <li class="dropdown__item">
           <%= link_to decidim_admin_conferences.conference_share_tokens_path(conference), class: "dropdown__button" do %>
             <%= icon "share-line" %>

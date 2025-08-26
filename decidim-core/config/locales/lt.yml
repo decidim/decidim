@@ -1553,7 +1553,6 @@ lt:
       impersonation_warning:
         close_session: Uždaryti seansą
         description_html: Jūs administruojate dalyvį <b>%{user_name}</b>.
-        expire_time_html: Jūsų seansas baigsis po <b><span class="minutes">%{minutes}</span> minučių</b>.
       language_chooser:
         choose_language: Pasirinkti kalbą
       notifications_dashboard:
