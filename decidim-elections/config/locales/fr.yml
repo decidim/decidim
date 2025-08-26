@@ -33,19 +33,21 @@ fr:
         deleted_election_info: Les élections supprimées ne sont pas affichées dans la liste. Vous pouvez les voir en cliquant sur le bouton ci-dessous.
         edit: Modifier l'élection
         new: Nouvelle élection
+        preview: Aperçu
         title: Actions
+        view: Voir l'élection
         view_deleted_elections: Voir les élections supprimées
       admin:
         census:
           edit:
-            choose_census: Choisissez le type de recensement que vous souhaitez utiliser pour cette élection
             created_at: Créée le
             identifier: Identifiant de l'utilisateur
-            title: Type de recensement
           update:
             error: Il y a eu une erreur lors de la génération ou de l'enregistrement du recensement.
             success: Recensement mis à jour avec succès.
         dashboard:
+          calendar:
+            published_results_at: Résultats publiés à
           census:
             title: Recensement
           main:
@@ -62,6 +64,10 @@ fr:
             publish_button: Publier les résultats
             title: Résultats
           status:
+            results_availability:
+              after_end: Résultats disponibles après la fin de l'élection
+              per_question: Résultats disponibles par question
+              real_time: Résultats disponibles en temps réel
             title: État actuel de l'élection
         elections:
           create:
@@ -138,6 +144,30 @@ fr:
             Les colonnes doivent être séparées par un point-virgule (;)
           upload_file: Déposer un fichier
           upload_new_census: Déposer un fichier CSV
+      elections:
+        count:
+          elections_count:
+            one: "%{count} élection"
+            other: "%{count} élections"
+        elections:
+          empty: Il n'y a pas d'élection disponible.
+          empty_filters: Il n'y a aucune élection correspondant à vos filtres.
+        filters:
+          all: Toutes
+          state: Statut
+          state_values:
+            finished: Terminées
+            ongoing: En cours
+        orders:
+          end_at: Date de fin
+          label: Trier par
+          recent: Les plus récents
+          start_at: Date de début
+        questions:
+          subtitle: 'Voici les questions pour ce processus de vote:'
+          title: Questions de l'élection
+        show:
+          vote_button: Commencer à voter
       models:
         election:
           fields:
@@ -149,7 +179,12 @@ fr:
       status:
         active: Active
         finished: Terminées
+        not_started: Non démarré
         ongoing: En cours
+        published_results: Résultats publiés
         unpublished: Non publié
+    metadata:
+      progress:
+        published_results: 'Résultats publiés : %{end_date}'
     statistics:
       elections_count: Élections
