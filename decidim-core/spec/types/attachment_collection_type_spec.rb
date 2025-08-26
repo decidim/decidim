@@ -30,7 +30,7 @@ module Decidim
         let(:query) { "{ weight }" }
 
         it "returns the attachment's collection weight" do
-          expect(response).to eq("weight" => model.weight.to_s)
+          expect(response).to eq("weight" => model.weight)
         end
       end
 
