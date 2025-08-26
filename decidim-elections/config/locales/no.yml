@@ -16,6 +16,7 @@
             announcement: Kunngjøring
     elections:
       actions:
+        preview: Forhåndsvis
         title: Handlinger
       admin:
         dashboard:
@@ -45,6 +46,18 @@
           edit_questions:
             new_question: Nytt spørsmål
             title: Spørsmål
+      elections:
+        count:
+          elections_count:
+            one: "%{count} valg"
+            other: "%{count} valg"
+        filters:
+          all: Alt
+          state_values:
+            finished: Fullført
+        show:
+          vote_button: Start avstemning
       status:
         active: Aktiv
         finished: Fullført
+        not_started: Ikke påbegynt
