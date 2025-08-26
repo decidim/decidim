@@ -34,6 +34,12 @@ module Decidim
         argument :order, Decidim::Core::UserEntityInputSort, "Provides several methods to order the results", required: false
         argument :filter, Decidim::Core::UserEntityInputFilter, "Provides several methods to filter the results", required: false
       end
+
+      type.field :moderated_users, type: [Decidim::Core::UserModerationType], null: true,
+                 description: "The moderated users for the current organization"
+
+      type.field :moderations, type: [Decidim::Core::ModerationType], null: true,
+                 description: "The moderation for the current organization"
     end
 
     def component(id: {})
@@ -59,6 +65,14 @@ module Decidim
 
     def users(filter: {}, order: {})
       Core::UserEntityList.new.call(object, { filter:, order: }, context)
+    end
+
+    def moderated_users
+      Decidim::UserModeration.joins(:user).where(decidim_users: { decidim_organization_id: context[:current_organization]&.id }).where.not(decidim_users: { blocked_at: nil })
+    end
+
+    def moderations
+      Decidim::Moderation.where(participatory_space: context[:current_organization].participatory_spaces).includes(:reports).hidden
     end
   end
 end

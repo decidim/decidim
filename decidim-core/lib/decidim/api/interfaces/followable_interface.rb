@@ -7,7 +7,12 @@ module Decidim
       include Decidim::Api::Types::BaseInterface
       description "An interface that can be used in followable objects."
 
+      field :followers, [Decidim::Core::AuthorInterface, { null: true }], "The followers of this object.", null: false
       field :follows_count, GraphQL::Types::Int, "The number of followers of the resource", null: true
+
+      def followers
+        object.followers.map(&:user)
+      end
     end
   end
 end
