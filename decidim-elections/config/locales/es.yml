@@ -34,19 +34,14 @@ es:
         deleted_election_info: Las elecciones eliminadas no se muestran en la lista. Puedes verlas haciendo clic en el botón "Ver las elecciones eliminadas" que encontrarás más abajo.
         edit: Editar la elección
         new: Nueva elección
+        preview: Previsualizar
         title: Acciones
         view_deleted_elections: Ver las elecciones eliminadas
       admin:
         census:
           edit:
-            choose_census: Elige el tipo de censo que quieres vincular esta elección
             created_at: Creado el
             identifier: Identificador de usuaria
-            title: Tipo de censo
-          preview:
-            title:
-              one: 'Vista previa de usuarias (la lista está limitada a %{count} registro):'
-              other: 'Vista previa del usuario (la lista está limitada a %{count} registros):'
           update:
             error: Hubo un error al generar o guardar el censo.
             success: Censo actualizado correctamente.
@@ -72,7 +67,6 @@ es:
           questions:
             labels:
               answers: Respuestas
-              question_title: Pregunta %{number}
             limit_info: Esta elección tiene más preguntas. La vista previa se limita a 3 preguntas.
             title: Preguntas
           questions_table:
@@ -176,8 +170,6 @@ es:
           one: Actualmente hay <strong>1</strong> persona con derecho a voto en estas elecciones (esto podría cambiar en un censo dinámico).
           other: Actualmente hay <strong>%{count}</strong> personas con derecho a voto en estas elecciones (esto podría cambiar en un censo dinámico).
         internal_users:
-          info_html: |
-            Puedes restringir la participación en la elección a las participantes que tengan una autorización. <br>Ten en cuenta que las participantes obtener la autorización seleccionada para poder votar. Si dejas todas las casillas de verificación vacías, cualquier persona registrada podrá votar.
           internal_type_title: Autorizaciones adicionales requeridas para votar (opcional)
           label: Participantes registradas (dinámico)
         token_csv:
@@ -191,6 +183,23 @@ es:
           remove_before_upload: Si quieres subir un nuevo censo, primero tienes que eliminar el que ya existe.
           upload_file: Subir un archivo
           upload_new_census: Cargar un archivo CSV
+      elections:
+        count:
+          elections_count:
+            one: "%{count} votación"
+            other: "%{count} votaciones"
+        filters:
+          all: Todas
+          state: Estado
+          state_values:
+            finished: Finalizada
+            ongoing: En curso
+        orders:
+          recent: Reciente
+        questions:
+          title: Preguntas de la elección
+        show:
+          vote_button: Empezar a votar
       models:
         election:
           fields:
@@ -202,8 +211,8 @@ es:
       status:
         active: Activa
         finished: Finalizada
+        not_started: No iniciado
         ongoing: En curso
-        results_published: Resultados publicados
         scheduled: Programada
         unpublished: Despublicada
         voting_enabled: Votación en curso
