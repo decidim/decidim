@@ -40,6 +40,8 @@ module Decidim
     autoload :ModerationType, "decidim/api/types/moderation_type"
     autoload :ReportableUserType, "decidim/api/types/reportable_user_type"
     autoload :ReportableType, "decidim/api/types/reportable_type"
+    autoload :StaticPageType, "decidim/api/types/static_page_type"
+    autoload :StaticPageTopicType, "decidim/api/types/static_page_topic_type"
 
     autoload :BaseInputFilter, "decidim/api/input_filters/base_input_filter"
     autoload :CategoryInputFilter, "decidim/api/input_filters/category_input_filter"

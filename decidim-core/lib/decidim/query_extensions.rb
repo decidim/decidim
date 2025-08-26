@@ -40,6 +40,12 @@ module Decidim
 
       type.field :moderations, type: [Decidim::Core::ModerationType], null: true,
                  description: "The moderation for the current organization"
+
+      type.field :static_pages, type: [Decidim::Core::StaticPageType], null: true,
+                 description: "The static pages for the current organization"
+
+      type.field :static_page_topic, type: Decidim::Core::StaticPageTopicType, null: true,
+                 description: "The static page topic for the current organization"
     end
 
     def component(id: {})
@@ -73,6 +79,14 @@ module Decidim
 
     def moderations
       Decidim::Moderation.where(participatory_space: context[:current_organization].participatory_spaces).includes(:reports).hidden
+    end
+
+    def static_pages
+      Decidim::StaticPage.accessible_for(context[:current_organization], context[:current_user])
+    end
+
+    def static_page_topic
+      context[:current_organization].static_page_topics.accessible_pages_for(context[:current_user])
     end
   end
 end
