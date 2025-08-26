@@ -34,19 +34,14 @@ fi-pl:
         deleted_election_info: Poistettuja vaaleja ei näytetä listassa. Voit tarkastella niitä painamalla alla olevaa painiketta.
         edit: Muokkaa vaalia
         new: Uusi vaali
+        preview: Esikatsele
         title: Toiminnot
         view_deleted_elections: Näytä poistetut vaalit
       admin:
         census:
           edit:
-            choose_census: Valitse henkilötietorekisterin tyyppi, jota haluat käyttää tälle vaalille
             created_at: Luonnin ajankohta
             identifier: Käyttäjän tunniste
-            title: Henkilötietorekisterin tyyppi
-          preview:
-            title:
-              one: 'Käyttäjän esikatselu (lista on rajattu %{count} tietueeseen):'
-              other: 'Käyttäjän esikatselu (lista on rajattu %{count} tietueeseen):'
           update:
             error: Henkilötietorekisterin luonti tai tallennus epäonnistui.
             success: Henkilötietorekisterin päivitys onnistui.
@@ -72,7 +67,6 @@ fi-pl:
           questions:
             labels:
               answers: Vastaukset
-              question_title: Kysymys %{number}
             limit_info: Tässä vaalissa on lisää kysymyksiä. Esikatselussa kysymysten määrä on rajoitettu kolmeen.
             title: Kysymykset
           questions_table:
@@ -176,9 +170,6 @@ fi-pl:
           one: Tässä vaalissa voi tällä hetkellä äänestää <strong>1</strong> henkilö (tämä voi muuttua käytettäessä dynaamista henkilötietorekisteriä).
           other: Tässä vaalissa voi tällä hetkellä äänestää <strong>%{count}</strong> henkilöä (tämä voi muuttua käytettäessä dynaamista henkilötietorekisteriä).
         internal_users:
-          info_html: |
-            Voit rajata tähän vaaliin osallistumisen osallistujille, jotka ovat vahvistaneet käyttäjätilinsä.<br>
-            Huomioithan, että osallistujien on vahvistettava käyttäjätilinsä äänestääkseen. Äänestys on mahdollista kaikille palveluun rekisteröityneille osallistujille, mikäli kaikki valintaruudut jätetään valitsematta.
           internal_type_title: Muut vahvistustavat äänestämisen mahdollistamiseksi (vapaaehtoinen)
           label: Rekisteröityneet osallistujat (dynaaminen)
         token_csv:
@@ -193,6 +184,23 @@ fi-pl:
           remove_before_upload: Mikäli haluat ladata uuden henkilötietorekisterin, aikaisempi rekisteri on ensin poistettava.
           upload_file: Lataa tiedosto
           upload_new_census: Lataa CSV-tiedosto
+      elections:
+        count:
+          elections_count:
+            one: "%{count} vaali"
+            other: "%{count} vaalia"
+        filters:
+          all: Kaikki
+          state: Tila
+          state_values:
+            finished: Valmis
+            ongoing: Käynnissä
+        orders:
+          recent: Uusimmat
+        questions:
+          title: Vaaliin liittyvät kysymykset
+        show:
+          vote_button: Aloita äänestys
       models:
         election:
           fields:
@@ -204,8 +212,8 @@ fi-pl:
       status:
         active: Aktiivinen
         finished: Valmis
+        not_started: Ei aloitettu
         ongoing: Käynnissä
-        results_published: Julkaistut tulokset
         scheduled: Ajastettu
         unpublished: Julkaisematon
         voting_enabled: Äänestys on käynnissä
