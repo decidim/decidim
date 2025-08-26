@@ -19,6 +19,7 @@ de:
             announcement: Ankündigung
     elections:
       actions:
+        preview: Vorschau
         title: Aktionen
       admin:
         census:
@@ -59,6 +60,23 @@ de:
         statuses:
           publish_results:
             invalid: Beim Veröffentlichen der Ergebnisse ist ein Fehler aufgetreten.
+      elections:
+        count:
+          elections_count:
+            one: "%{count} Wahlen"
+            other: "%{count} Wahlen"
+        filters:
+          all: Alle
+          state: Status
+          state_values:
+            finished: Abgeschlossen
+            ongoing: Aktuell
+        orders:
+          recent: Kürzlich hinzugefügt
+        questions:
+          title: Wahlfragen
+        show:
+          vote_button: Jetzt abstimmen
       models:
         election:
           fields:
@@ -68,6 +86,7 @@ de:
       status:
         active: Aktiv
         finished: Abgeschlossen
+        not_started: Nicht begonnen
         ongoing: Aktuell
         unpublished: Nicht veröffentlicht
     statistics:
