@@ -34,19 +34,14 @@ eu:
         deleted_election_info: Ezabatutako hauteskundeak ez dira agertzen zerrendan. Beheko botoia sakatuz ikus ditzakezu.
         edit: Editatu hauteskundea
         new: Beste hauteskunde bat
+        preview: Aurrebistaratu
         title: Ekintzak
         view_deleted_elections: Ikusi ezabatutako hauteskundeak
       admin:
         census:
           edit:
-            choose_census: Aukeratu bozketa honetarako erabili nahi duzun errolda mota
             created_at: Sortze-data
             identifier: Parte-hartzailearen identifikatzailea
-            title: Errolda mota
-          preview:
-            title:
-              one: 'Erabiltzailearen aurrebista (zerrenda mugatuta dago %{count} erregistrotara):'
-              other: 'Erabiltzailearen aurrebista (zerrenda mugatuta dago %{count} erregistrotara):'
           update:
             error: Errore bat egon da errolda sortzean edo gordetzean.
             success: Errolda zuzen eguneratua.
@@ -72,7 +67,6 @@ eu:
           questions:
             labels:
               answers: Erantzunak
-              question_title: '%{number} galdera'
             limit_info: Bozketa honek galdera gehiago ditu. Aurrebista 3 galderatara mugatzen da.
             title: Galderak
           questions_table:
@@ -176,9 +170,6 @@ eu:
           one: Gaur egun <strong>bat</strong> pertsona dago hautesleku honetan botoa jasotzeko gai dena (hau errolda dinamiko batean alda daiteke).
           other: Gaur egun <strong>bat</strong> pertsona daude hautesleku honetan botoa jasotzeko gai deirnak (hau errolda dinamiko batean alda daiteke).
         internal_users:
-          info_html: |
-            Bozketan parte hartzea baimen bat duten parte-hartzaileei mugatu diezaiekezu.<br>
-            Kontuan izan parte-hartzaileek aukeratutako baimenak bete beharko dituztela botoa eman ahal izateko. Txeke-kutxa guztiak hutsik uzteak aukera emango du izena ematen duen edonori botoa emateko.
           internal_type_title: Baimen gehigarriak behar dira botoa emateko (aukerakoa)
           label: Parte-hartzaile erregistratuak (dinamikoa)
         token_csv:
@@ -193,6 +184,23 @@ eu:
           remove_before_upload: Errolda berri bat igo nahi baduzu, aurretik dagoena kendu behar duzu.
           upload_file: Igo fitxategia
           upload_new_census: Igo CSV fitxategia
+      elections:
+        count:
+          elections_count:
+            one: "Bozketa bat"
+            other: "Bozketa %{count}"
+        filters:
+          all: Guztiak
+          state: Egoera
+          state_values:
+            finished: Amaituta
+            ongoing: Bidean
+        orders:
+          recent: Berrienetatik zaharrenetara
+        questions:
+          title: Aukeraketaren galderak
+        show:
+          vote_button: Babesa ematen hasi
       models:
         election:
           fields:
@@ -204,8 +212,8 @@ eu:
       status:
         active: Aktibo
         finished: Amaituta
+        not_started: Hasi gabe
         ongoing: Bidean
-        results_published: Argitaratutako emaitzak
         scheduled: Programatuta
         unpublished: Argitaratu gabea
         voting_enabled: Bozketa martxan
