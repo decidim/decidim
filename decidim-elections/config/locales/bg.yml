@@ -19,6 +19,7 @@ bg:
             announcement: Обявление
     elections:
       actions:
+        preview: Преглед
         title: Активности
       admin:
         census:
@@ -59,6 +60,23 @@ bg:
         statuses:
           publish_results:
             invalid: Възникна проблем при публикуването на резултатите.
+      elections:
+        count:
+          elections_count:
+            one: "%{count} избор"
+            other: "%{count} избора"
+        filters:
+          all: Всички
+          state: Статус
+          state_values:
+            finished: Завършено
+            ongoing: В момента
+        orders:
+          recent: Скорошни
+        questions:
+          title: Изборни въпроси
+        show:
+          vote_button: Започнете гласуването
       models:
         election:
           fields:
@@ -68,6 +86,7 @@ bg:
       status:
         active: Активно
         finished: Завършено
+        not_started: Не е започнало
         ongoing: В момента
         unpublished: Непубликувано
     statistics:
