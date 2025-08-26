@@ -42,6 +42,13 @@ gl:
           edit_questions:
             new_question: Nova pregunta
             title: Preguntas
+      elections:
+        filters:
+          all: Todas
+          state_values:
+            finished: Finalizada
+        show:
+          vote_button: Comezar votación
       models:
         election:
           fields:
@@ -50,5 +57,6 @@ gl:
       status:
         active: Activa
         finished: Finalizada
+        not_started: Sen iniciar
     statistics:
       elections_count: Eleccións
