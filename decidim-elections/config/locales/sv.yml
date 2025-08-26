@@ -29,7 +29,9 @@ sv:
         deleted_election_info: Borttagna val visas inte i listan. Du kan se dem genom att klicka på knappen nedan.
         edit: Redigera val
         new: Nytt val
+        preview: Förhandsgranska
         title: Åtgärder
+        view: Se val
         view_deleted_elections: Visa raderade val
       admin:
         census:
@@ -40,12 +42,14 @@ sv:
             title: Typ av folkräkning
           preview:
             title:
-              one: 'Användarförhandsgranskning (listan är begränsad till %{count} post):'
-              other: 'Användarförhandsgranskning (listan är begränsad till %{count} poster):'
+              one: Förhandsgranskningen är begränsad till %{count} post.
+              other: Förhandsgranskningen är begränsad till %{count} poster.
           update:
             error: Ett fel uppstod när folkräkningen skulle skapas eller sparas.
             success: Folkräkningen har uppdaterats.
         dashboard:
+          calendar:
+            published_results_at: Resultat publicerade vid
           census:
             title: Census
           main:
@@ -61,10 +65,18 @@ sv:
           results:
             publish_button: Publicera resultat
             title: Resultat
+          status:
+            census: 'Folkräkning:'
+            results_availability:
+              after_end: Resultat tillgängliga efter valets slut
+              per_question: Resultat tillgängliga per fråga
+              real_time: Resultat tillgängliga i realtid
         elections:
           create:
             invalid: Det gick inte att skapa valet.
             success: Valet skapades framgångsrikt.
+          dashboard:
+            subtitle: 'Slutligt steg: Granska dina detaljer. Redigeringar kan fortfarande göras innan de publiceras. När de är publicerade kommer du fortfarande att kunna uppdatera beskrivningen av valet.'
           edit:
             title: Redigera val
           form:
@@ -113,8 +125,8 @@ sv:
       censuses:
         internal_users:
           info_html: |
-            Du kan begränsa kandidaterna i valet till deltagare som har behörighet.<br>
-            Observera att deltagarna måste uppfylla valda behörigheter för att kunna rösta. Genom att lämna alla kryssrutor tomma kan man rösta på alla registrerade.
+            Du kan begränsa deltagandet i valet till deltagare som har behörighet.<br>
+            Observera att deltagarna måste uppfylla valda behörigheter för att kunna rösta. Genom att lämnar alla kryssrutor tomma kan man rösta på alla registrerade.
           internal_type_title: Ytterligare behörigheter som krävs för att få rösta (valfritt)
           label: Registrerade deltagare (dynamisk)
         token_csv:
@@ -128,6 +140,30 @@ sv:
           label: Oregistrerade deltagare med tokens (fixerade)
           upload_file: Ladda upp fil
           upload_new_census: Ladda upp en CSV-fil
+      elections:
+        count:
+          elections_count:
+            one: "%{count} val"
+            other: "%{count} val"
+        elections:
+          empty: Det finns inga val.
+          empty_filters: Det finns inga val som matchar dina filter.
+        filters:
+          all: Allt
+          state: Status
+          state_values:
+            finished: Avslutad
+            ongoing: Pågående
+            scheduled: Schemalagd
+        orders:
+          end_at: Slutdatum
+          label: Sortera efter
+          recent: Senaste
+          start_at: Startdatum
+        questions:
+          subtitle: 'Detta är frågorna för denna omröstningsprocess:'
+        show:
+          vote_button: Starta omröstningen
       models:
         election:
           fields:
@@ -139,6 +175,11 @@ sv:
       status:
         active: Pågående
         finished: Avslutad
+        not_started: Inte påbörjad
         ongoing: Pågående
+        published_results: Publicerade resultat
+    metadata:
+      progress:
+        published_results: 'Resultaten publicerades: %{end_date}'
     statistics:
       elections_count: Omröstningar
