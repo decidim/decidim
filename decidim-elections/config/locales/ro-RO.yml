@@ -17,6 +17,7 @@ ro:
             announcement: Anunţ
     elections:
       actions:
+        preview: Previzualizare
         title: Acțiuni
       admin:
         dashboard:
@@ -46,6 +47,22 @@ ro:
           edit_questions:
             new_question: Întrebare nouă
             title: Întrebări
+      elections:
+        count:
+          elections_count:
+            one: "%{count} alegeri"
+            few: "%{count} alegeri"
+            other: "%{count} alegeri"
+        filters:
+          all: Toate
+          state_values:
+            finished: Terminat
+        orders:
+          recent: Recente
+        questions:
+          title: Întrebări aferente alegerilor
+        show:
+          vote_button: Începe să votezi
       models:
         election:
           fields:
@@ -53,5 +70,6 @@ ro:
       status:
         active: Activ
         finished: Terminat
+        not_started: Nu a început
     statistics:
       elections_count: Alegeri
