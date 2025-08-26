@@ -313,9 +313,9 @@ sv:
         related_assemblies:
           name: Relaterade samråd
       created_by:
-        city_council: Stadsfullmäktige
+        city_council: Staden
         others: Övriga
-        public: Offentligt
+        public: Medborgare
       filter:
         all: Alla typer
         commission: Kommission
