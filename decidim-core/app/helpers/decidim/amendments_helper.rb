@@ -54,9 +54,8 @@ module Decidim
     # Checks if there is a user that can react to an emendation
     def can_react_to_emendation?(emendation)
       return unless current_user && emendation.emendation?
-      return unless current_component.current_settings.amendment_reaction_enabled
 
-      allowed_to_accept_and_reject?(emendation)
+      current_component.current_settings.amendment_reaction_enabled
     end
 
     # Checks if the user can accept and reject the emendation
