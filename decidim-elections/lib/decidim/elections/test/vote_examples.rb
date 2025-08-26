@@ -78,7 +78,7 @@ shared_examples "an internal users authentication voter form" do
     expect(page).to have_button("Log in")
     expect(page).to have_link("Create an account")
     click_on "Create an account"
-    within "#register-form" do
+    within "#registration_new_user" do
       fill_in "Your name", with: "John Doe"
       fill_in "Your email", with: "john@example.org"
       fill_in "Password", with: "decidim123456789"
