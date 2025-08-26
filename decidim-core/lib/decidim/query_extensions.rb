@@ -36,16 +36,16 @@ module Decidim
       end
 
       type.field :moderated_users, type: [Decidim::Core::UserModerationType], null: true,
-                 description: "The moderated users for the current organization"
+                                   description: "The moderated users for the current organization"
 
       type.field :moderations, type: [Decidim::Core::ModerationType], null: true,
-                 description: "The moderation for the current organization"
+                               description: "The moderation for the current organization"
 
       type.field :static_pages, type: [Decidim::Core::StaticPageType], null: true,
-                 description: "The static pages for the current organization"
+                                description: "The static pages for the current organization"
 
       type.field :static_page_topic, type: Decidim::Core::StaticPageTopicType, null: true,
-                 description: "The static page topic for the current organization"
+                                     description: "The static page topic for the current organization"
     end
 
     def component(id: {})

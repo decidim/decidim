@@ -10,7 +10,6 @@ module Decidim
 
       let(:model) { create(:attachment_collection) }
 
-
       describe "name" do
         let(:query) { '{ name { translation(locale: "en")}}' }
 
@@ -42,7 +41,6 @@ module Decidim
           expect(response).to eq("id" => model.id.to_s)
         end
       end
-
     end
   end
 end

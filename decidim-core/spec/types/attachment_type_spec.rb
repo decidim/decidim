@@ -12,11 +12,11 @@ module Decidim
 
       include_examples "timestamps interface"
 
-      describe "title" do
-        let(:query) { '{ title { translation(locale: "en")}}' }
+      describe "content_type" do
+        let(:query) { "{ contentType }" }
 
         it "returns the attachment's title" do
-          expect(response["title"]["translation"]).to eq(translated(model.title))
+          expect(response["contentType"]).to eq(model.content_type)
         end
       end
 
@@ -28,11 +28,11 @@ module Decidim
         end
       end
 
-      describe "url" do
-        let(:query) { "{ url }" }
+      describe "file_size" do
+        let(:query) { "{ fileSize }" }
 
-        it "returns the attachment's url" do
-          expect(response).to eq("url" => model.url)
+        it "returns the attachment's title" do
+          expect(response["fileSize"]).to eq(model.file_size)
         end
       end
 
@@ -44,19 +44,20 @@ module Decidim
         end
       end
 
-      describe "weight" do
-        let(:query) { "{ weight }" }
+      describe "link" do
+        let(:query) { "{ link }" }
+        let(:model) { create(:attachment, :with_link) }
 
-        it "returns the attachment's weight" do
-          expect(response).to eq("weight" => model.weight.to_s)
+        it "returns the attachment's link" do
+          expect(response).to eq("link" => model.link)
         end
-      end
 
-      describe "type" do
-        let(:query) { "{ type }" }
+        context "when not available" do
+          let(:model) { create(:attachment, :with_pdf) }
 
-        it "returns the attachment's type" do
-          expect(response).to eq("type" => model.file_type)
+          it "returns nil" do
+            expect(response).to eq("link" => nil)
+          end
         end
       end
 
@@ -76,20 +77,35 @@ module Decidim
         end
       end
 
-      describe "link" do
-        let(:query) { "{ link }" }
-        let(:model) { create(:attachment, :with_link) }
+      describe "title" do
+        let(:query) { '{ title { translation(locale: "en")}}' }
 
-        it "returns the attachment's link" do
-          expect(response).to eq("link" => model.link)
+        it "returns the attachment's title" do
+          expect(response["title"]["translation"]).to eq(translated(model.title))
         end
+      end
 
-        context "when not available" do
-          let(:model) { create(:attachment, :with_pdf) }
+      describe "type" do
+        let(:query) { "{ type }" }
 
-          it "returns nil" do
-            expect(response).to eq("link" => nil)
-          end
+        it "returns the attachment's type" do
+          expect(response).to eq("type" => model.file_type)
+        end
+      end
+
+      describe "url" do
+        let(:query) { "{ url }" }
+
+        it "returns the attachment's url" do
+          expect(response).to eq("url" => model.url)
+        end
+      end
+
+      describe "weight" do
+        let(:query) { "{ weight }" }
+
+        it "returns the attachment's weight" do
+          expect(response).to eq("weight" => model.weight)
         end
       end
     end

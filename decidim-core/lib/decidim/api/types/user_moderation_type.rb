@@ -13,8 +13,8 @@ module Decidim
       field :blocked_at, Decidim::Core::DateTimeType, "The date at which the user was blocked", null: true
       field :blocking_user, UserType, "The user who blocked the user", null: true
       field :id, GraphQL::Types::ID, "The ID of the moderation", null: false
-      field :user_id, GraphQL::Types::ID, "The user's id", null: false, method: :decidim_user_id
       field :reports, [Decidim::Core::ReportableUserType, { null: true }], "The reports for this user", null: true
+      field :user_id, GraphQL::Types::ID, "The user's id", null: false, method: :decidim_user_id
 
       def about
         object.user.presenter.about

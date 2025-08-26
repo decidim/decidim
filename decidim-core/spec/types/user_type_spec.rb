@@ -8,9 +8,9 @@ module Decidim
     describe UserType, type: :graphql do
       include_context "with a graphql class type"
 
-      include_examples "timestamps interface"
-
       let(:model) { create(:user, :confirmed) }
+
+      include_examples "timestamps interface"
 
       describe "unconfirmed user" do
         let(:model) { create(:user) }
