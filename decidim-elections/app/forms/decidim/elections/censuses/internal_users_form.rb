@@ -7,20 +7,10 @@ module Decidim
       class InternalUsersForm < Decidim::Form
         validate :user_authenticated
 
+        delegate :election, :current_user, :current_organization, to: :context
+
         def voter_uid
           @voter_uid ||= election.census.users(election).find_by(id: current_user&.id)&.to_global_id&.to_s
-        end
-
-        def election
-          @election ||= context.election
-        end
-
-        def current_user
-          @current_user ||= context.current_user
-        end
-
-        def current_organization
-          @current_organization ||= election.organization
         end
 
         def adapters
