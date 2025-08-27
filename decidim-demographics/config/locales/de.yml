@@ -1,5 +1,15 @@
 ---
 de:
+  decidim:
+    demographics:
+      questions:
+        gender:
+          options:
+          - 
+          - 
+          - Nicht-binär
+          - Mein Geschlecht ist nicht aufgeführt
+          - 
   layouts:
     decidim:
       shared:
