@@ -146,6 +146,8 @@ de:
         new:
           copy: Kopieren
           title: Veranstaltung duplizieren
+      tooltips:
+        cannot_duplicate_meetings: Dieses Meeting kann nicht dupliziert werden, da es von einem Teilnehmenden erstellt wurde
     components:
       meetings:
         actions:
