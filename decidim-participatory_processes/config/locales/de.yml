@@ -9,6 +9,9 @@ de:
         developer_group: Promoter-Gruppe
         document: Dokument
         domain: Domäne
+        duplicate_categories: Kategorien duplizieren
+        duplicate_components: Komponenten duplizieren
+        duplicate_steps: Schritte duplizieren
         end_date: Enddatum
         hero_image: Hauptbild
         import_attachments: Anhänge importieren
@@ -155,6 +158,8 @@ de:
             published: Veröffentlicht
       participatory_process_duplicates:
         new:
+          duplicate: Duplizieren
+          select: Zu duplizierende Daten auswählen
           title: Beteiligungsprozess duplizieren
       participatory_process_groups:
         destroy:
@@ -254,6 +259,10 @@ de:
         update:
           error: Beim Aktualisieren dieses Beteiligungsprozesses ist ein Fehler aufgetreten.
           success: Beteiligungsprozess erfolgreich aktualisiert.
+      participatory_processes_duplicates:
+        create:
+          error: Beim Duplizieren dieses Beteiligungsprozesses ist ein Fehler aufgetreten.
+          success: Beteiligungsprozess erfolgreich dupliziert.
       participatory_processes_group:
         create:
           error: Beim Erstellen einer neuen partizipativen Prozessgruppe ist ein Fehler aufgetreten.
@@ -422,8 +431,16 @@ de:
                   one: Tief
                   two_five: Ausreichend
                   zero: Keine
+              mobility_meeting_access:
+                options:
+                  five: 'Ja'
+                  two_five: Teilweise
+                  zero: 'Nein'
+              name: Inklusion
               participation_scheduling_times:
                 options:
+                  five: 'Ja'
+                  two_five:
                   zero: 'Nein'
             informativeness:
               information_provided:
@@ -449,6 +466,9 @@ de:
         new_import:
           accepted_types:
             json: JSON
+        participatory_process_duplicates:
+          form:
+            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und sie müssen mit einem Buchstaben beginnen. Beispiel: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadaten
