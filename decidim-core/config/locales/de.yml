@@ -160,6 +160,13 @@ de:
       x_seconds:
         one: 1 Sekunde
         other: "%{count} Sekunden"
+    widget:
+      label:
+        date: Datum für %{label} auswählen
+        time: Zeit für %{label} auswählen
+      picker:
+        date_button: Kalenderauswahl für %{label} öffnen
+        time_button: Öffne Zeitauswahl für %{label}
   decidim:
     accessibility:
       external_link: Externer Link
@@ -687,13 +694,14 @@ de:
         success: Bild erfolgreich hochgeladen.
       drag_and_drop_help: Sie können Bilder per Drag & Drop hinzufügen oder per Copy & Paste.
     endorsement_buttons_cell:
-      already_endorsed: Gefällt mir nicht
+      already_endorsed: Nicht unterstützen
+      endorse: Unterstützen
     endorsements:
       identities:
         done: Erledigt
         select_identity: Identität auswählen
     endorsers_list:
-      endorsed_by: Gefällt…
+      endorsed_by: Unterstützt von…
     errors:
       files:
         file_cannot_be_processed: Datei konnte nicht verarbeitet werden
