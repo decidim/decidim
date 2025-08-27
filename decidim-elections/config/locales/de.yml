@@ -48,6 +48,7 @@ de:
             title: Wahl bearbeiten
           form:
             add_images: Bilder hinzufügen
+            edit_attachments: Anhänge bearbeiten
             publish: Veröffentlichen
           index:
             title: Wahlen
