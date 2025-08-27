@@ -82,6 +82,8 @@ de:
         replace_html: <span class="type">Ersetzen:</span> <span class="text">%{text}</span>
     components:
       collaborative_texts:
+        actions:
+          create: Erstellen
         name: Kollaborative Texte
         settings:
           global:
