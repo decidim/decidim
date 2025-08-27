@@ -166,6 +166,13 @@ de:
       x_seconds:
         one: 1 Sekunde
         other: "%{count} Sekunden"
+    widget:
+      label:
+        date: Datum für %{label} auswählen
+        time: Zeit für %{label} auswählen
+      picker:
+        date_button: Kalenderauswahl für %{label} öffnen
+        time_button: Öffne Zeitauswahl für %{label}
   decidim:
     accessibility:
       external_link: Externer Link
@@ -960,6 +967,11 @@ de:
           notification_title: |-
             Ein Administrator hat Ihr/e %{resource_type} entfernt, weil es als %{report_reasons} gemeldet wurde.</br>
             <i>%{resource_content}</i>
+      resource_liked:
+        email_intro: '%{liker_name} %{liker_nickname}, dem Sie folgen, hat gerade "%{resource_title}" unterstützt. Wir denken, das könnte interessant für Sie sein. Jetzt anschauen und mitreden:'
+        email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{liker_nickname} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den angegebenen Link.
+        email_subject: "%{liker_nickname} etwas Neues unterstützt"
+        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} wurde von <a href="%{liker_path}">%{liker_name} %{liker_nickname}</a> unterstützt.
       resources:
         soft_deleted:
           notification_title: Ein Admin hat Ihre "%{resource_type}" "%{resource_title} " gelöscht.
@@ -1110,8 +1122,16 @@ de:
         last_activity: Letzte Aktivität
       name: Letzte Aktivitäten
       no_activities_warning: Es gibt keine anzuzeigende Einträge für diesen Aktivitätstyp.
+    like_buttons_cell:
+      already_liked: Unterstützung zurückziehen
+      like: Unterstützen
     likes_list:
+      liked_by:
+        one: Unterstützt von %{visible}
+        other: Unterstützt von %{visible} und anderen
+      others: "%{count} weiteren"
       title: Geliked von
+      you: dir
     linked_resource_from:
       included_in: Enthalten in
     links:
@@ -1572,6 +1592,9 @@ de:
       controls_label: Ressourcensteuerung
     resource_autocomplete:
       help: Tippen, um Vorschläge zu durchsuchen
+    resource_likes:
+      create:
+        error: Beim Unterstützen ist ein Fehler aufgetreten.
     scopes:
       global: Globaler Umfang
       prompt: Wählen Sie einen Bereich aus
@@ -1669,6 +1692,7 @@ de:
       followers_count: Follower
       followers_count_tooltip: Die Anzahl der Nutzenden, die einen beliebigen Teil dieses Bereichs folgen, um auf dem Laufenden zu bleiben.
       headline: Statistik
+      likes_count: Unterstützungen
       no_stats: Es gibt noch keine Statistiken.
       pages_count: Seiten
       participants_count: Teilnehmer
