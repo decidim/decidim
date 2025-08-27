@@ -172,6 +172,7 @@ de:
       participatory_process_copies:
         new:
           copy: Kopieren
+          select: Zu duplizierende Daten auswählen
           title: Beteiligungsprozess duplizieren
       participatory_process_groups:
         destroy:
@@ -284,6 +285,10 @@ de:
         update:
           error: Beim Aktualisieren dieses Beteiligungsprozesses ist ein Fehler aufgetreten.
           success: Beteiligungsprozess erfolgreich aktualisiert.
+      participatory_processes_copies:
+        create:
+          error: Beim Duplizieren dieses Beteiligungsprozesses ist ein Fehler aufgetreten.
+          success: Beteiligungsprozess erfolgreich dupliziert.
       participatory_processes_group:
         create:
           error: Beim Erstellen einer neuen partizipativen Prozessgruppe ist ein Fehler aufgetreten.
