@@ -1,33 +1,40 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/proposals/test/factories"
 
 describe TranslatedEtiquetteValidator do
-  subject { form }
+  subject { validatable.new(body:, current_organization:) }
 
-  let(:organization) { create(:organization, available_locales: %w(en es)) }
-  let(:participatory_space) { create(:participatory_process, :with_steps, organization:) }
-  let(:component) { create(:proposal_component, participatory_space:) }
+  let(:validatable) do
+    Class.new do
+      def self.model_name
+        ActiveModel::Name.new(self, nil, "Validatable")
+      end
 
-  let(:form) do
-    Decidim::Proposals::Admin::ProposalForm.from_params(params).with_context(
-      current_component: component,
-      current_organization: organization,
-      current_participatory_space: participatory_space
-    )
+      def self.translatable_fields(*fields)
+        @translatable_fields = fields
+      end
+
+      include Decidim::AttributeObject::Model
+      include ActiveModel::Validations
+
+      attribute :body
+      attribute :current_organization
+
+      translatable_fields :body
+
+      validates :body, translated_etiquette: true
+
+      # Add accessor for translated fields
+      def body_en
+        body[:en]
+      end
+    end
   end
 
-  let(:params) do
-    {
-      title: {
-        en: "A SCREAMING TITLE WITH TOO MANY CAPS"
-      },
-      body: {
-        en: "<p>This is a body with too many marks!!?</p>"
-      }
-    }
-  end
+  let(:current_organization) { create(:organization, default_locale: :en) }
+
+  let(:body) { { en: "A SCREAMING BODY WITH TOO MANY CAPS" } }
 
   context "when Decidim.enable_etiquette_validator is false" do
     before do
@@ -44,12 +51,19 @@ describe TranslatedEtiquetteValidator do
       allow(Decidim).to receive(:enable_etiquette_validator).and_return(true)
     end
 
-    it "performs validation on translatable fields" do
-      expect(subject).not_to be_valid
+    context "with invalid content" do
+      it "performs validation on translatable fields" do
+        expect(subject).not_to be_valid
+        expect(subject.errors[:body_en]).not_to be_empty
+      end
+    end
 
-      # Check that errors are added for the default locale
-      expect(subject.errors[:title_en]).not_to be_empty
-      expect(subject.errors[:body_en]).not_to be_empty
+    context "with valid content" do
+      let(:body) { { en: "This is a reasonable body with proper capitalization" } }
+
+      it "allows valid content" do
+        expect(subject).to be_valid
+      end
     end
   end
 end
