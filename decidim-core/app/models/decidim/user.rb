@@ -21,8 +21,8 @@ module Decidim
 
     devise :invitable, :database_authenticatable, :registerable, :confirmable, :timeoutable,
            :recoverable, :trackable, :lockable,
-           :decidim_validatable, :decidim_newsletterable,
-           :omniauthable, omniauth_providers: Decidim::OmniauthProvider.available.keys,
+           :decidim_validatable, :decidim_newsletterable, :jwt_authenticatable,
+           :omniauthable, omniauth_providers: Decidim::OmniauthProvider.available.keys, jwt_revocation_strategy: Decidim::Api::JwtDenylist,
                           request_keys: [:env], reset_password_keys: [:decidim_organization_id, :email],
                           confirmation_keys: [:decidim_organization_id, :email]
     devise :rememberable if Decidim.enable_remember_me
@@ -57,7 +57,7 @@ module Decidim
 
     scope :org_admins_except_me, ->(user) { where(organization: user.organization, admin: true).where.not(id: user.id) }
 
-    scope :ephemeral, -> { where("extended_data @> ?", Arel.sql({ ephemeral: true }.to_json)) }
+    scope :ephemeral, -> { where("extended_data @> ?", { ephemeral: true }.to_json) }
 
     scope :with_inactivity_notification, lambda {
       where("extended_data ? 'inactivity_notification'")

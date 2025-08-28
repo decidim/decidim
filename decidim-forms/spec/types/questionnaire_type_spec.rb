@@ -27,6 +27,25 @@ module Decidim
         end
       end
 
+      describe "published_at" do
+        let(:query) { "{ publishedAt }" }
+
+        context "when is set" do
+          let(:model) { create(:questionnaire, published_at: Time.current.utc) }
+
+          it "returns the publishedAt field" do
+            expect(response["publishedAt"]).to eq(model.published_at.to_time.iso8601)
+          end
+        end
+
+        context "when is not set" do
+          it "returns the publishedAt field" do
+            expect(response["publishedAt"]).to eq(model.published_at)
+            expect(response["publishedAt"]).to be_nil
+          end
+        end
+      end
+
       describe "description" do
         let(:query) { "{ description { translation(locale: \"ca\") } }" }
 

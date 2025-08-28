@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="item_show__header">
+    <h1 class="item_show__header-title">
+      <%= t "decidim.admin.titles.statistics" %>
+    </h1>
+  </div>
+
+  <div class="statistic__dashboard-container">
+    <% if statistics_presenter.highlighted.present? %>
+      <%= cell("decidim/statistic", collection: statistics_presenter.highlighted) %>
+    <% end %>
+  </div>
+</div>

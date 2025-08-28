@@ -10,16 +10,16 @@ module Decidim
         helper_method :documents, :document
 
         def index
-          enforce_permission_to :read, :document
+          enforce_permission_to :read, :collaborative_text
         end
 
         def new
-          enforce_permission_to :create, :document
+          enforce_permission_to :create, :collaborative_text
           @form = form(DocumentForm).instance
         end
 
         def create
-          enforce_permission_to :create, :document
+          enforce_permission_to :create, :collaborative_text
           @form = form(DocumentForm).from_params(params)
 
           CreateDocument.call(@form) do
@@ -30,18 +30,18 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("documents.create.invalid", scope: "decidim.collaborative_texts.admin")
-              render action: "new"
+              render action: "new", status: :unprocessable_entity
             end
           end
         end
 
         def edit
-          enforce_permission_to(:update, :document, document:)
+          enforce_permission_to(:update, :collaborative_text, document:)
           @form = form(DocumentForm).from_model(document)
         end
 
         def update
-          enforce_permission_to(:update, :document, document:)
+          enforce_permission_to(:update, :collaborative_text, document:)
           @form = form(DocumentForm).from_params(params)
 
           UpdateDocument.call(@form, document) do
@@ -52,18 +52,20 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("documents.update.invalid", scope: "decidim.collaborative_texts.admin")
-              render action: "edit"
+              # This is a safe-guard in case there is no body coming from the POST request (as this attribute is read-only in certain cases)
+              @form.body = document.body if @form.body.blank?
+              render action: "edit", status: :unprocessable_entity
             end
           end
         end
 
         def edit_settings
-          enforce_permission_to(:update, :document, document:)
+          enforce_permission_to(:update, :collaborative_text, document:)
           @form = form(Admin::DocumentForm).from_model(document)
         end
 
         def update_settings
-          enforce_permission_to(:update, :document, document:)
+          enforce_permission_to(:update, :collaborative_text, document:)
           @form = form(Admin::DocumentForm).from_params(params)
 
           UpdateDocumentSettings.call(@form, document) do
@@ -74,13 +76,13 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("documents.update_settings.invalid", scope: "decidim.collaborative_texts.admin")
-              render action: "edit_settings"
+              render action: "edit_settings", status: :unprocessable_entity
             end
           end
         end
 
         def publish
-          enforce_permission_to(:update, :document, document:)
+          enforce_permission_to(:update, :collaborative_text, document:)
           Decidim::CollaborativeTexts::Admin::PublishDocument.call(document, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("documents.publish.success", scope: "decidim.collaborative_texts.admin")
@@ -89,13 +91,13 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("documents.publish.invalid", scope: "decidim.collaborative_texts.admin")
-              render action: "index"
+              render action: "index", status: :unprocessable_entity
             end
           end
         end
 
         def unpublish
-          enforce_permission_to(:update, :document, document:)
+          enforce_permission_to(:update, :collaborative_text, document:)
           Decidim::CollaborativeTexts::Admin::UnpublishDocument.call(document, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("documents.unpublish.success", scope: "decidim.collaborative_texts.admin")
@@ -104,7 +106,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("documents.unpublish.invalid", scope: "decidim.collaborative_texts.admin")
-              render action: "index"
+              render action: "index", status: :unprocessable_entity
             end
           end
         end

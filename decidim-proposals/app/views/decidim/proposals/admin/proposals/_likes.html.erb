@@ -1,0 +1,25 @@
+<div class="card-section">
+  <div class="row column">
+    <span class="component__show-title"><%= t "likes", scope: "decidim.proposals.admin.proposals.show" %></span>
+    <ul id="proposal-likes-list">
+      <% presented_likes.first(5).each do |presented_liker| %>
+        <li>
+          <%= link_to_if(
+                presented_liker.profile_path.present?,
+                presented_liker.name,
+                presented_liker.profile_path,
+                target: :blank
+              ) %>
+        </li>
+      <% end %>
+      <% if presented_likes.count > 5 %>
+        <li>
+          <%= link_to(
+                t("n_more_likes", scope: "decidim.proposals.admin.proposals.show", count: presented_likes.count - 5),
+                resource_locator(proposal).path
+              ) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

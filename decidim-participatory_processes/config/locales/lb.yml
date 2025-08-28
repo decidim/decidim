@@ -4,15 +4,11 @@ lb:
       participatory_process:
         announcement: Ukënnegung
         area_id: Bereich
-        copy_categories: Kategorien kopieren
-        copy_components: Komponenten kopieren
-        copy_steps: Phasen kopieren
         decidim_area_id: Bereich
         description: Beschreibung
         developer_group: Promoter-Gruppe
         domain: Domäne
         end_date: Enddatum
-        hashtag: Hashtag
         hero_image: Hauptbild
         local_area: Organisationsbereich
         meta_scope: Bereichs-Metadaten
@@ -33,7 +29,6 @@ lb:
         description: Beschreibung
         developer_group: Gruppe der Unterstützer
         group_url: Website
-        hashtag: Hashtag
         hero_image: Bild
         local_area: Organisationsbereich
         meta_scope: Informationen zum Bereich
@@ -72,7 +67,6 @@ lb:
     admin:
       actions:
         activate: Aktivieren
-        configure: Konfigurieren
         confirm_destroy: Läsche bestätegen
         destroy: Läschen
         duplicate: Duplizieren
@@ -90,7 +84,6 @@ lb:
         participatory_process_groups: Prozessgruppen
         participatory_process_groups_submenu:
           info: Info
-          landing_page: Startseite
         participatory_processes: Beteiligungsprozesse
         participatory_processes_submenu:
           attachment_collections: Dossieren
@@ -132,11 +125,6 @@ lb:
           fields:
             invitation_accepted_at: Einladung akzeptiert am
             invitation_sent_at: Einladung gesendet am
-      participatory_process_copies:
-        new:
-          copy: Kopieren
-          select: Wählen Sie aus, welche Daten Sie duplizieren möchten
-          title: Beteiligungsprozess duplizieren
       participatory_process_groups:
         destroy:
           success: Beteiligungsprozess erfolgreich gelöscht.

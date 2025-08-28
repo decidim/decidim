@@ -134,6 +134,22 @@ module Decidim
         JS
       )
     end
+
+    def select_text(selector)
+      page.execute_script(
+        <<~JS
+          var selection = document.getSelection();
+          var range = document.createRange();
+          var element = document.querySelector("#{selector}");
+
+          range.selectNodeContents(element);
+          selection.removeAllRanges();
+          selection.addRange(range);
+          document.dispatchEvent(new MouseEvent("selectstart"));
+          document.dispatchEvent(new MouseEvent("mouseup"));
+        JS
+      )
+    end
   end
 
   module FrontEndFileTestHelpers

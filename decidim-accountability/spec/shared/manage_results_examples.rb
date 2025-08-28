@@ -7,22 +7,18 @@ shared_examples "manage results" do
     before { click_on "New result", match: :first }
 
     it_behaves_like "having a rich text editor", "new_result", "full"
+  end
 
-    it "displays the proposals picker" do
-      expect(page).to have_content("Proposals")
+  context "when the proposal module is not installed" do
+    before do
+      allow(Decidim).to receive(:module_installed?).and_return(false)
+
+      # Reload the page with the updated settings
+      visit current_path
     end
 
-    context "when proposal linking is disabled" do
-      before do
-        allow(Decidim::Accountability).to receive(:enable_proposal_linking).and_return(false)
-
-        # Reload the page with the updated settings
-        visit current_path
-      end
-
-      it "does not display the proposal picker" do
-        expect(page).to have_no_content "Choose proposals"
-      end
+    it "does not display the proposal picker" do
+      expect(page).to have_no_content "Choose proposals"
     end
   end
 
@@ -33,6 +29,7 @@ shared_examples "manage results" do
 
     it "updates a result" do
       within "tr", text: translated(result.title) do
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
@@ -57,7 +54,7 @@ shared_examples "manage results" do
     end
 
     it "creates a new result", :slow do
-      click_on "New result", match: :first
+      click_on "New result"
 
       within ".new_result" do
         fill_in_i18n(:result_title, "#result-title-tabs", **attributes[:title].except("machine_translations"))
@@ -93,13 +90,13 @@ shared_examples "manage results" do
 
   it "allows the user to preview the result" do
     within "tr", text: translated(result.title) do
-      klass = "action-icon--preview"
-      href = resource_locator(result).path
-      target = "blank"
+      find("button[data-controller='dropdown']").click
+      preview_window = window_opened_by { click_on "Preview" }
 
-      expect(page).to have_xpath(
-        "//a[contains(@class,'#{klass}')][@href='#{href}'][@target='#{target}']"
-      )
+      within_window preview_window do
+        expect(page).to have_content translated(result.title)
+        expect(page).to have_content "Progress"
+      end
     end
   end
 
@@ -112,7 +109,8 @@ shared_examples "manage results" do
 
     it "deletes a result" do
       within "tr", text: translated(result2.title) do
-        accept_confirm { click_on "Soft delete" }
+        find("button[data-controller='dropdown']").click
+        accept_confirm { click_on "Move to trash" }
       end
 
       expect(page).to have_admin_callout("successfully")

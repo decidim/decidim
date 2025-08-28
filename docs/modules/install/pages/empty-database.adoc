@@ -31,4 +31,4 @@ At the development environment, you have https://github.com/ryanb/letter_opener[
 
 == Extra notes
 
-Decidim is a https://en.wikipedia.org/wiki/Multitenancy[multitenant] application that allows you to host multiple different Decidim-based websites within the same system. Organizations are isolated from each other and users in those organizations cannot see any data from other organizations. Therefore, creating the organization is a key part of the process when setting up Decidim. To learn more about the system panel and organizations, refer to the xref:admin:system.adoc[System] panel documentation.
+Decidim is a https://en.wikipedia.org/wiki/Multitenancy[multitenant] application that allows you to host multiple different Decidim-based websites within the same system. Organizations are isolated from each other and users in those organizations cannot see any data from other organizations. Therefore, creating the organization is a key part of the process when setting up Decidim. To learn more about the system panel and organizations, refer to the xref:configure:system.adoc[System] panel documentation.

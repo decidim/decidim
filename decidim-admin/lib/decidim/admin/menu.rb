@@ -74,6 +74,17 @@ module Decidim
         end
       end
 
+      def self.register_admin_insights_menu!
+        Decidim.menu :admin_insights_menu do |menu|
+          menu.add_item :statistics,
+                        I18n.t("menu.statistics", scope: "decidim.admin"),
+                        decidim_admin.statistics_path,
+                        icon_name: "bar-chart-box-line",
+                        position: 1,
+                        active: is_active_link?(decidim_admin.statistics_path)
+        end
+      end
+
       def self.register_admin_user_menu!
         Decidim.menu :admin_user_menu do |menu|
           menu.add_item :users,
@@ -144,19 +155,16 @@ module Decidim
                         icon_name: "pencil-line",
                         if: allowed_to?(:update, :organization, organization: current_organization)
 
-          menu.add_item :edit_organization_appearance,
-                        I18n.t("menu.appearance", scope: "decidim.admin"),
-                        decidim_admin.edit_organization_appearance_path,
-                        position: 1.1,
-                        icon_name: "tools-line",
-                        if: allowed_to?(:update, :organization, organization: current_organization)
-
           menu.add_item :edit_organization_homepage,
                         I18n.t("menu.homepage", scope: "decidim.admin"),
                         decidim_admin.edit_organization_homepage_path,
                         position: 1.2,
-                        icon_name: "home-gear-line",
-                        if: allowed_to?(:update, :organization, organization: current_organization)
+                        icon_name: "layout-masonry-line",
+                        if: allowed_to?(:update, :organization, organization: current_organization),
+                        active: [%w(
+                          decidim/admin/organization_homepage
+                          decidim/admin/organization_homepage_content_blocks
+                        ), []]
 
           menu.add_item :taxonomies,
                         I18n.t("menu.taxonomies", scope: "decidim.admin"),
@@ -284,6 +292,21 @@ module Decidim
                         position: 10,
                         active: [%w(decidim/admin/logs), []],
                         if: allowed_to?(:read, :admin_log)
+          menu.add_item :insights,
+                        I18n.t("menu.insights", scope: "decidim.admin"),
+                        decidim_admin.statistics_path,
+                        icon_name: "line-chart",
+                        position: 11,
+                        if: allowed_to?(:read, :statistics),
+                        active: [
+                          %w(
+                            decidim/admin/statistics
+                            decidim/demographics/admin/settings
+                            decidim/demographics/admin/questions
+                            decidim/demographics/admin/responses
+                            decidim/demographics/admin/publish_responses
+                          ), []
+                        ]
         end
       end
     end

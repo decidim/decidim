@@ -123,10 +123,6 @@ module Decidim
       published? && (!private_space? || (private_space? && is_transparent?))
     end
 
-    def hashtag
-      attributes["hashtag"].to_s.delete("#")
-    end
-
     def to_param
       slug
     end

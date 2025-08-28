@@ -48,6 +48,7 @@ shared_examples_for "a new production application" do
       .and match(/^# gem "decidim-templates"/)
       .and match(/^# gem "decidim-collaborative_texts"/)
       .and match(/^# gem "decidim-elections"/)
+      .and match(/^# gem "decidim-demographics"/)
   end
 end
 
@@ -61,6 +62,7 @@ shared_examples_for "a new development application" do
       .and match(/^gem "decidim-templates"/)
       .and match(/^gem "decidim-collaborative_texts"/)
       .and match(/^gem "decidim-elections"/)
+      .and match(/^gem "decidim-demographics"/)
 
     # Checks that every table from a migration is included in the generated schema
     schema = File.read("#{test_app}/db/schema.rb")
@@ -125,11 +127,10 @@ shared_context "with application env vars" do
       "DECIDIM_ADMIN_PASSWORD_REPETITION_TIMES" => "",
       "DECIDIM_ADMIN_PASSWORD_STRONG" => "",
       "DECIDIM_DELETE_INACTIVE_USERS_AFTER_DAYS" => "",
-      "DECIDIM_MINIMUM_INACTIVITY_PERIOD" => "",
+      "DECIDIM_MINIMUM_INACTIVITY_PERIOD_IN_DAYS" => "",
       "DECIDIM_DELETE_INACTIVE_USERS_FIRST_WARNING_DAYS_BEFORE" => "",
       "DECIDIM_DELETE_INACTIVE_USERS_LAST_WARNING_DAYS_BEFORE" => "",
       "DECIDIM_SERVICE_WORKER_ENABLED" => "",
-      "RAILS_LOG_LEVEL" => "nonsense",
       "STORAGE_PROVIDER" => ""
     }
   end
@@ -218,7 +219,7 @@ shared_context "with application env vars" do
       "DECIDIM_ADMIN_PASSWORD_REPETITION_TIMES" => "8",
       "DECIDIM_ADMIN_PASSWORD_STRONG" => "false",
       "DECIDIM_DELETE_INACTIVE_USERS_AFTER_DAYS" => "365",
-      "DECIDIM_MINIMUM_INACTIVITY_PERIOD" => "30",
+      "DECIDIM_MINIMUM_INACTIVITY_PERIOD_IN_DAYS" => "30",
       "DECIDIM_DELETE_INACTIVE_USERS_FIRST_WARNING_DAYS_BEFORE" => "30",
       "DECIDIM_DELETE_INACTIVE_USERS_LAST_WARNING_DAYS_BEFORE" => "7",
       "RAILS_LOG_LEVEL" => "fatal",
@@ -238,11 +239,8 @@ shared_context "with application env vars" do
       "PROPOSALS_PARTICIPATORY_SPACE_HIGHLIGHTED_PROPOSALS_LIMIT" => "6",
       "PROPOSALS_PROCESS_GROUP_HIGHLIGHTED_PROPOSALS_LIMIT" => "5",
       "MEETINGS_UPCOMING_MEETING_NOTIFICATION" => "3",
-      "MEETINGS_ENABLE_PROPOSAL_LINKING" => "false",
       "MEETINGS_WAITING_LIST_ENABLED" => "true",
       "MEETINGS_EMBEDDABLE_SERVICES" => "www.youtube.com www.twitch.tv meet.jit.si 8x8.vc",
-      "BUDGETS_ENABLE_PROPOSAL_LINKING" => "false",
-      "ACCOUNTABILITY_ENABLE_PROPOSAL_LINKING" => "false",
       "INITIATIVES_CREATION_ENABLED" => "false",
       "INITIATIVES_SIMILARITY_THRESHOLD" => "0.99",
       "INITIATIVES_SIMILARITY_LIMIT" => "10",
@@ -295,7 +293,8 @@ shared_examples_for "an application with configurable env vars" do
       %w(omniauth google_oauth2 enabled) => false,
       %w(decidim application_name) => "My Application Name",
       %w(decidim mailer_sender) => "change-me@example.org",
-      %w(decidim available_locales) => %w(ca cs de en es eu fi fr it ja nl pl pt ro),
+      %w(decidim available_locales) => %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fa fi-pl fi fr fr-CA ga gl hr hu
+                                          id is it ja ko lb lt lv mt nl no pl pt pt-BR ro ru sk sl sr sv tr uk vi zh-CN zh-TW),
       %w(decidim default_locale) => "en",
       %w(decidim force_ssl) => "auto",
       %w(decidim enable_html_header_snippets) => false,
@@ -353,10 +352,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim proposals participatory_space_highlighted_proposals_limit) => 4,
       %w(decidim proposals process_group_highlighted_proposals_limit) => 3,
       %w(decidim meetings upcoming_meeting_notification) => 2,
-      %w(decidim meetings enable_proposal_linking) => "auto",
       %w(decidim meetings embeddable_services) => [],
-      %w(decidim budgets enable_proposal_linking) => "auto",
-      %w(decidim accountability enable_proposal_linking) => "auto",
       %w(decidim initiatives creation_enabled) => "auto",
       %w(decidim initiatives minimum_committee_members) => 2,
       %w(decidim initiatives default_signature_time_period_length) => 120,
@@ -449,10 +445,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim proposals participatory_space_highlighted_proposals_limit) => 6,
       %w(decidim proposals process_group_highlighted_proposals_limit) => 5,
       %w(decidim meetings upcoming_meeting_notification) => 3,
-      %w(decidim meetings enable_proposal_linking) => false,
       %w(decidim meetings embeddable_services) => %w(www.youtube.com www.twitch.tv meet.jit.si 8x8.vc),
-      %w(decidim budgets enable_proposal_linking) => false,
-      %w(decidim accountability enable_proposal_linking) => false,
       %w(decidim initiatives creation_enabled) => false,
       %w(decidim initiatives minimum_committee_members) => 3,
       %w(decidim initiatives default_signature_time_period_length) => 133,
@@ -470,7 +463,8 @@ shared_examples_for "an application with configurable env vars" do
     {
       "application_name" => "My Application Name",
       "mailer_sender" => "change-me@example.org",
-      "available_locales" => %w(ca cs de en es eu fi fr it ja nl pl pt ro),
+      "available_locales" => %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fa fi-pl fi fr fr-CA ga gl hr hu id is it
+                                ja ko lb lt lv mt nl no pl pt pt-BR ro ru sk sl sr sv tr uk vi zh-CN zh-TW),
       "default_locale" => "en",
       "force_ssl" => true,
       "enable_html_header_snippets" => false,
@@ -643,7 +637,6 @@ shared_examples_for "an application with configurable env vars" do
   let(:meetings_initializer_off) do
     {
       "upcoming_meeting_notification" => 172_800, # 2.days
-      "enable_proposal_linking" => true,
       "embeddable_services" => %w(www.youtube.com www.twitch.tv meet.jit.si)
     }
   end
@@ -651,32 +644,7 @@ shared_examples_for "an application with configurable env vars" do
   let(:meetings_initializer_on) do
     {
       "upcoming_meeting_notification" => 259_200, # 3.days
-      "enable_proposal_linking" => false,
       "embeddable_services" => %w(www.youtube.com www.twitch.tv meet.jit.si 8x8.vc)
-    }
-  end
-
-  let(:budgets_initializer_off) do
-    {
-      "enable_proposal_linking" => true
-    }
-  end
-
-  let(:budgets_initializer_on) do
-    {
-      "enable_proposal_linking" => false
-    }
-  end
-
-  let(:accountability_initializer_off) do
-    {
-      "enable_proposal_linking" => true
-    }
-  end
-
-  let(:accountability_initializer_on) do
-    {
-      "enable_proposal_linking" => false
     }
   end
 
@@ -784,34 +752,6 @@ shared_examples_for "an application with configurable env vars" do
     meetings_initializer_on.each do |key, value|
       current = json_on[key]
       expect(current).to eq(value), "Meetings Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
-    end
-
-    # Test onto the initializer with ENV vars OFF for the Budgets module
-    json_off = initializer_config_for(test_app, env_off, "Decidim::Budgets")
-    budgets_initializer_off.each do |key, value|
-      current = json_off[key]
-      expect(current).to eq(value), "Budgets Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
-    end
-
-    # Test onto the initializer with ENV vars ON for the Budgets module
-    json_on = initializer_config_for(test_app, env_on, "Decidim::Budgets")
-    budgets_initializer_on.each do |key, value|
-      current = json_on[key]
-      expect(current).to eq(value), "Budgets Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
-    end
-
-    # Test onto the initializer with ENV vars OFF for the Accountability module
-    json_off = initializer_config_for(test_app, env_off, "Decidim::Accountability")
-    accountability_initializer_off.each do |key, value|
-      current = json_off[key]
-      expect(current).to eq(value), "Accountability Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
-    end
-
-    # Test onto the initializer with ENV vars ON for the Accountability module
-    json_on = initializer_config_for(test_app, env_on, "Decidim::Accountability")
-    accountability_initializer_on.each do |key, value|
-      current = json_on[key]
-      expect(current).to eq(value), "Accountability Initializer (#{key}) = (#{current}) expected to match Env (#{value})"
     end
 
     # Test onto some extra Rails configs when ENV vars are empty or undefined

@@ -25,10 +25,10 @@ module Decidim
         include_examples "connection has input sort", "posts", "updatedAt"
       end
 
-      context "when sorting by endorsement_count" do
-        let!(:most_endorsed) { create(:post, :with_endorsements, component: model) }
+      context "when sorting by like_count" do
+        let!(:most_liked) { create(:post, :with_likes, component: model) }
 
-        include_examples "connection has endorsement_count sort", "posts"
+        include_examples "connection has like_count sort", "posts"
       end
     end
   end

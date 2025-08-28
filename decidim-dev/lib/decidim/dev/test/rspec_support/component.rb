@@ -18,7 +18,7 @@ RSpec.configure do |config|
           t.datetime :published_at
           t.datetime :deleted_at
           t.integer :coauthorships_count, null: false, default: 0
-          t.integer :endorsements_count, null: false, default: 0
+          t.integer :likes_count, null: false, default: 0
           t.integer :comments_count, null: false, default: 0
           t.integer :follows_count, null: false, default: 0
 
@@ -53,7 +53,7 @@ RSpec.configure do |config|
           t.datetime :published_at
           t.datetime :deleted_at
           t.integer :coauthorships_count, null: false, default: 0
-          t.integer :endorsements_count, null: false, default: 0
+          t.integer :likes_count, null: false, default: 0
           t.integer :comments_count, null: false, default: 0
 
           t.references :decidim_component, index: false

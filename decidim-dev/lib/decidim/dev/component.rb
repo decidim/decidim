@@ -33,8 +33,8 @@ Decidim.register_component(:dummy) do |component|
     settings.attribute :amendment_reaction_enabled, type: :boolean, default: true
     settings.attribute :amendment_promotion_enabled, type: :boolean, default: true
     settings.attribute :amendments_visibility, type: :string, default: "all"
-    settings.attribute :endorsements_enabled, type: :boolean, default: false
-    settings.attribute :endorsements_blocked, type: :boolean, default: false
+    settings.attribute :likes_enabled, type: :boolean, default: false
+    settings.attribute :likes_blocked, type: :boolean, default: false
   end
 
   component.register_resource(:dummy_resource) do |resource|

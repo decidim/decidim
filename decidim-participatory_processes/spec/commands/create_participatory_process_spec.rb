@@ -25,7 +25,6 @@ module Decidim::ParticipatoryProcesses
         subtitle: { en: "subtitle" },
         weight:,
         slug: "slug",
-        hashtag: "hashtag",
         meta_scope: { en: "meta scope" },
         hero_image:,
         promoted: nil,

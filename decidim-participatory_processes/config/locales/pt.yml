@@ -4,15 +4,11 @@ pt:
       participatory_process:
         announcement: Anúncio
         area_id: Área
-        copy_categories: Copiar categorias
-        copy_components: Copiar componentes
-        copy_steps: Copiar passos
         decidim_area_id: Área
         description: Descrição
         developer_group: Grupo promotor
         domain: Domínio
         end_date: Data final
-        hashtag: Hashtag
         hero_image: Imagem inicial
         local_area: Área de organização
         meta_scope: Metadados do âmbito
@@ -33,7 +29,6 @@ pt:
         description: Descrição
         developer_group: Grupo promotor
         group_url: Sítio web
-        hashtag: Hashtag
         hero_image: Imagem
         local_area: Área de organização
         meta_scope: Meta dados do âmbito
@@ -72,7 +67,6 @@ pt:
     admin:
       actions:
         activate: Ativar
-        configure: Configurar
         confirm_destroy: Confirmar eliminação
         destroy: Eliminar
         duplicate: Duplicar
@@ -90,7 +84,6 @@ pt:
         participatory_process_groups: Grupos do processo
         participatory_process_groups_submenu:
           info: Informação
-          landing_page: Página de entrada
         participatory_processes: Processos
         participatory_processes_submenu:
           attachment_collections: Pastas
@@ -133,11 +126,6 @@ pt:
           fields:
             invitation_accepted_at: Convite aceite em
             invitation_sent_at: Convite enviado em
-      participatory_process_copies:
-        new:
-          copy: Copiar
-          select: Selecione os dados que pretende duplicar
-          title: Duplicar processo participativo
       participatory_process_groups:
         destroy:
           success: Grupo do processo participativo eliminado corretamente.
@@ -222,10 +210,6 @@ pt:
         update:
           error: Ocorreu um problema ao atualizar este processo participativo.
           success: Processo participativo atualizado corretamente.
-      participatory_processes_copies:
-        create:
-          error: Ocorreu um problema ao duplicar este processo participativo.
-          success: Processo participativo duplicado corretamente.
       participatory_processes_group:
         create:
           error: Ocorreu um problema ao criar um novo grupo de processo participativo.

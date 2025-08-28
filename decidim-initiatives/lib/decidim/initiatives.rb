@@ -78,13 +78,17 @@ module Decidim
     # attribute is the name of a class whose instances are
     # initialized with a string containing the data to be
     # timestamped and respond to a timestamp method
-    config_accessor :timestamp_service
+    config_accessor :timestamp_service do
+      Decidim::Env.new("DECIDIM_TIMESTAMP_SERVICE", nil).value
+    end
 
     # Set a service to add a signature to pdf of signatures.
     # The attribute is the name of a class whose instances are
     # initialized with the document to be signed and respond to a
     # signed_pdf method with the signature added
-    config_accessor :pdf_signature_service
+    config_accessor :pdf_signature_service do
+      Decidim::Env.new("DECIDIM_PDF_SIGNATURE_SERVICE", nil).value
+    end
 
     # This flag allows creating authorizations to unauthorized users.
     config_accessor :do_not_require_authorization do

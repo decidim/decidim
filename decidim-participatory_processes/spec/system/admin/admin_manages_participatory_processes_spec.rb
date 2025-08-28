@@ -91,7 +91,6 @@ describe "Admin manages participatory processes", versioning: true do
         select(decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}")
 
         fill_in :participatory_process_slug, with: "slug"
-        fill_in :participatory_process_hashtag, with: "#hashtag"
         fill_in :participatory_process_weight, with: 1
       end
 

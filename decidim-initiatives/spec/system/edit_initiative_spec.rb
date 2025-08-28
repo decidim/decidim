@@ -74,6 +74,8 @@ describe "Edit initiative" do
         click_on "Update"
       end
 
+      perform_enqueued_jobs
+
       expect(initiative.reload.documents.count).to eq(1)
       expect(initiative.photos.count).to eq(1)
       expect(initiative.attachments.count).to eq(2)

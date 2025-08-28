@@ -12,7 +12,7 @@ describe "User edit meeting" do
     create(:meeting,
            :published,
            :past,
-           title: { en: "Meeting title with #hashtag" },
+           title: { en: "Meeting with a title" },
            description: { en: "Meeting description" },
            author: user,
            component:)
@@ -121,7 +121,7 @@ describe "User edit meeting" do
                :published,
                :past,
                :closed,
-               title: { en: "Meeting title with #hashtag" },
+               title: { en: "Meeting with a title" },
                description: { en: "Meeting description" },
                author: user,
                attendees_count: nil,
@@ -154,9 +154,9 @@ describe "User edit meeting" do
       end
     end
 
-    context "when proposal linking is disabled" do
+    context "when the proposal module is not installed" do
       before do
-        allow(Decidim::Meetings).to receive(:enable_proposal_linking).and_return(false)
+        allow(Decidim).to receive(:module_installed?).and_return(false)
       end
 
       it "does not display the proposal picker" do

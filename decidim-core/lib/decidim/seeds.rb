@@ -9,6 +9,14 @@ module Decidim
   class Seeds
     protected
 
+    def slow_seeds?
+      Decidim::Env.new("SLOW_SEEDS").present?
+    end
+
+    def number_of_records
+      slow_seeds? ? rand(3..5) : 1
+    end
+
     def organization
       @organization ||= Decidim::Organization.first
     end

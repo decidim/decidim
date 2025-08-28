@@ -17,8 +17,6 @@ sk:
               bar: Stĺpec
               foo: Test
           step:
-            endorsements_blocked: Zablokovanie podpory
-            endorsements_enabled: Povolenie podpory
             test_options:
               bar: Stĺpec
               foo: Test

@@ -20,6 +20,8 @@ module Decidim
       private
 
       def serialize_responses
+        return [] unless resource.meeting.questionnaire
+
         Decidim::Forms::UserResponsesSerializer.new(
           resource.meeting.questionnaire.responses.where(user: resource.user)
         ).serialize

@@ -114,11 +114,6 @@ is-IS:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{author_nickname}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
           email_subject: Nýtt frumkvæði með %{author_nickname}
           notification_title: <a href="%{resource_path}">%{resource_title}</a> frumkvöðull var búin til af <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, sem þú ert að fylgja, hefur samþykkt eftirfarandi frumkvæði, kannski viltu stuðla að samtalinu:"
-          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{author_nickname}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
-          email_subject: Initiative endorsed by %{author_nickname}
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> frumkvæði var samþykkt með <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       initiatives:
         count:
           title:

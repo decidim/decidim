@@ -237,6 +237,14 @@ module Decidim
           expect(response).to include("alreadyReported" => true)
         end
       end
+
+      describe "url" do
+        let(:query) { "{ url }" }
+
+        it "returns all the required fields" do
+          expect(response["url"]).to eq(model.reported_content_url)
+        end
+      end
     end
   end
 end

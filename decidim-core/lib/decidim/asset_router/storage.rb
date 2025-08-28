@@ -255,7 +255,7 @@ module Decidim
           # it has been uploaded to the storage service yet. Likely a bug in
           # ActiveStorage but to be sure that the asset is uploaded to the
           # storage service, we also check that.
-          asset.url(**options) if asset.processed?
+          asset.processed.url(**options)
         else # ActiveStorage::Variant
           # Check whether the variant exists at the storage service before
           # returning its URL. Otherwise the URL would be returned even when the

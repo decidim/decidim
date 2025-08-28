@@ -10,10 +10,8 @@ module Decidim::Assemblies
 
     subject { cell("decidim/assemblies/assembly_dropdown_metadata", model).call }
 
-    let(:model) { create(:assembly, hashtag:) }
-    let(:hashtag) { nil }
+    let(:model) { create(:assembly) }
 
     include_examples "participatory space dropdown metadata cell"
-    include_examples "participatory space dropdown metadata cell hashtag"
   end
 end

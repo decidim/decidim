@@ -8,8 +8,11 @@ module Decidim
       graphql_name "InitiativeType"
       description "An initiative type"
 
+      field :attachments_enabled, GraphQL::Types::Boolean, "Enable attachments on initiative types", null: true
       field :banner_image, GraphQL::Types::String, "Banner image", null: true
       field :collect_user_extra_fields, GraphQL::Types::Boolean, "Collect participant personal data on signature", null: true
+      field :comments_enabled, GraphQL::Types::Boolean, "Enable comments on initiative types", null: true
+      field :custom_signature_end_date_enabled, GraphQL::Types::Boolean, "Enable participants to set custom signature end date", null: true
       field :description, Decidim::Core::TranslatedFieldType, "This is the initiative type description", null: true
       field :extra_fields_legal_information, GraphQL::Types::String, "Legal information about the collection of personal data", null: true
       field :id, GraphQL::Types::ID, "The internal ID for this initiative type", null: false

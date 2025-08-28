@@ -111,7 +111,6 @@ FactoryBot.define do
     description { generate_localized_description(:participatory_process_group_description, skip_injection:) }
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     organization
-    hashtag { Faker::Internet.slug }
     group_url { Faker::Internet.url }
     developer_group { generate_localized_title(:participatory_process_group_developer_group, skip_injection:) }
     local_area { generate_localized_title(:participatory_process_group_local_area, skip_injection:) }

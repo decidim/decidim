@@ -5,7 +5,6 @@ import "src/decidim/admin/tab_focus"
 import initLanguageChangeSelect from "src/decidim/admin/choose_language"
 import "src/decidim/admin/application"
 import "src/decidim/admin/resources_permissions"
-import "src/decidim/admin/welcome_notification"
 import "src/decidim/admin/newsletters"
 import "src/decidim/admin/form"
 import "src/decidim/admin/external_domain_allowlist"
@@ -28,6 +27,6 @@ import "src/decidim/admin/taxonomy_filters"
 // CSS
 import "entrypoints/decidim_admin.scss";
 
-window.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   initLanguageChangeSelect(document.querySelectorAll("select.language-change"));
 });

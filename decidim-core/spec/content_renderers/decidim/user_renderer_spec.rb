@@ -64,7 +64,7 @@ module Decidim
       let(:mention) { "@#{user.nickname}" }
       let(:label) { "#{mention} (#{CGI.escapeHTML(user.name)})" }
 
-      it "renders the hashtag wrapper for the editor" do
+      it "renders the mention wrapper for the editor" do
         expect(renderer.render(editor: true)).to eq(
           %(This text contains a valid Decidim::User Global ID: <span data-type="mention" data-id="#{mention}" data-label="#{label}">#{label}</span>)
         )

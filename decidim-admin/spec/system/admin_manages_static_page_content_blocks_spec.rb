@@ -20,7 +20,7 @@ describe "Admin manages static page content blocks" do
 
       within ".edit_content_blocks" do
         click_on "Add content block"
-        within ".add-components" do
+        within "#add-content-block-dropdown" do
           find("a", text: "Summary").click
         end
       end
@@ -38,7 +38,7 @@ describe "Admin manages static page content blocks" do
         number_of_content_blocks.times do
           within ".edit_content_blocks" do
             click_on "Add content block"
-            within ".add-components" do
+            within "#add-content-block-dropdown" do
               find("a", text: "Section").click
             end
           end

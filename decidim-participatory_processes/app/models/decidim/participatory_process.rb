@@ -177,10 +177,6 @@ module Decidim
       past?
     end
 
-    def hashtag
-      attributes["hashtag"].to_s.delete("#")
-    end
-
     def to_param
       slug
     end

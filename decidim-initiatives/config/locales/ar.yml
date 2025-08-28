@@ -232,11 +232,6 @@ ar:
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{author_nickname}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
           email_subject: مبادرة جديدة بنسبة %{author_nickname}
           notification_title: تم إنشاء مبادرة <a href="%{resource_path}">%{resource_title}</a> بواسطة <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        endorse_initiative_event:
-          email_intro: "أيد %{author_name} %{author_nickname}، الذي تتابعه ، المبادرة التالية ، ربما تريد المساهمة في المحادثة:"
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{author_nickname}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-          email_subject: المبادرة التي أقرتها %{author_nickname}
-          notification_title: تمت الموافقة على مبادرة <a href="%{resource_path}">%{resource_title}</a> من قبل <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       form:
         add_attachments: إضافة مرفقات
         attachment_legend: إضافة مستند أو صورة
@@ -274,15 +269,6 @@ ar:
           type: نوع
         index_header:
           new_initiative: مبادرة جديدة
-        interactions:
-          comments_count:
-            count:
-              zero: تعليق
-              one: تعليق
-              two: تعليق
-              few: تعليق
-              many: تعليق
-              other: تعليق
         orders:
           label: 'فرز المبادرات حسب:'
           most_commented: الأكثر تعليقا

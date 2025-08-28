@@ -57,7 +57,6 @@ zh-TW:
           comment: 評論
           create: 建立
           destroy: 刪除
-          endorse: 支持
           update: 更新
         name: 部落格
         settings:
@@ -68,8 +67,6 @@ zh-TW:
           step:
             announcement: 公告
             comments_blocked: 留言已封鎖
-            endorsements_blocked: 背書已封鎖
-            endorsements_enabled: 背書已啟用
     events:
       blogs:
         post_created:

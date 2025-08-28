@@ -11,9 +11,6 @@ en:
         closing_date: Closing date
         closing_date_reason: Closing date reason
         composition: Composition
-        copy_categories: Copy categories
-        copy_components: Copy components
-        copy_features: Copy features
         created_by: Created by
         created_by_other: Created by other
         creation_date: Date created
@@ -23,10 +20,12 @@ en:
         developer_group: Promoter group
         document: Document
         domain: Domain
+        duplicate_categories: Duplicate categories
+        duplicate_components: Duplicate components
+        duplicate_features: Duplicate features
         duration: Duration
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
         hero_image: Home image
         import_attachments: Import attachments
         import_categories: Import categories
@@ -113,13 +112,13 @@ en:
         update:
           error: There was a problem updating this assembly.
           success: Assembly successfully updated.
-      assemblies_copies:
+      assemblies_duplicates:
         create:
           error: There was a problem duplicating this assembly.
           success: Assembly successfully duplicated.
-      assembly_copies:
+      assembly_duplicates:
         new:
-          copy: Copy
+          duplicate: Duplicate
           select: Select which data you would like to duplicate
           title: Duplicate assembly
       assembly_imports:
@@ -171,7 +170,7 @@ en:
           attachments: Attachments
           components: Components
           info: About this assembly
-          landing_page: Landing page
+          landing_page: Landing page layout
           moderations: Moderations
           private_users: Members
           see_assembly: See assembly
@@ -194,6 +193,7 @@ en:
             vice_president: Vice president
         assembly_user_role:
           fields:
+            actions: Actions
             email: Email
             name: Name
             role: Role
@@ -260,7 +260,7 @@ en:
             taxonomies: Taxonomies
             title: General Information
             visibility: Visibility
-        assembly_copies:
+        assembly_duplicates:
           form:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         assembly_imports:
@@ -397,7 +397,6 @@ en:
           facebook_handler: Social media handler for Facebook
           follows_count: The number of users following this space
           github_handler: Social media handler for GitHub
-          hashtag: The assembly hashtag, used for Twitter/X
           id: The unique identifier of this assembly
           included_at: The date when the assembly was included
           instagram_handler: Social media handler for Instagram
@@ -431,6 +430,7 @@ en:
         related_assemblies: Related assemblies
     statistics:
       assemblies_count: Assemblies
+      assemblies_count_tooltip: The number of public assemblies where collective decisions are made.
   layouts:
     decidim:
       assemblies:

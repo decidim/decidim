@@ -20,10 +20,7 @@ it:
   decidim:
     budgets:
       actions:
-        attachment_collections: Cartelle
-        attachments: Allegati
         edit: Modifica
-        edit_projects: Gestisci progetti
         import: Importa proposte nei progetti
         preview: Anteprima
         title: Azioni
@@ -214,6 +211,5 @@ it:
         project_proposal: Proposte incluse in questo progetto
     statistics:
       orders_count: Supporti
-      projects_count: Progetti
   index:
     confirmed_orders_count: Computo dei voti

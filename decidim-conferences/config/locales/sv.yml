@@ -5,13 +5,9 @@ sv:
         assemblies_ids: Relaterade samråd
         available_slots: Tillgängliga platser
         banner_image: Bannerbild
-        copy_categories: Kopiera kategorier
-        copy_components: Kopiera komponenter
-        copy_features: Kopiera funktioner
         decidim_scope_id: Indelning
         description: Beskrivning
         end_date: Slutdatum
-        hashtag: Hashtag
         hero_image: Bild till startsida
         location: Plats
         main_logo: Logotyp
@@ -45,7 +41,7 @@ sv:
       conference_registration_invite:
         email: E-post
         name: Namn
-        registration_type_id: Typ av registrering
+        registration_type_id: Typ av anmälan
         user_id: Användare
       conference_registration_type:
         description: Beskrivning
@@ -98,11 +94,6 @@ sv:
         new_speaker: Ny talare
         send_diplomas: Skicka deltagarbevis
         view_deleted_conferences: Visa raderade konferenser
-      conference_copies:
-        new:
-          copy: Kopiera
-          select: Välj vilka data som du vill duplicera
-          title: Duplicera konferens
       conference_publications:
         create:
           error: Det gick inte att publicera konferensen.
@@ -163,7 +154,13 @@ sv:
         exports:
           registrations: Registreringar
         form:
+          duration: Tid
+          images: Bilder
+          metadata: Metadata
+          registrations: Anmälningar
+          related_spaces: Relaterade utrymmen
           title: Allmän information
+          visibility: Synlighet
         index:
           published: Publicerad
           unpublished: Ej publicerad
@@ -171,14 +168,10 @@ sv:
           title: Borttagna konferenser
         new:
           create: Skapa
-          title: Konferens
+          title: Ny konferens
         update:
           error: Det gick inte att uppdatera konferensen.
           success: Konferensen har uppdaterats.
-      conferences_copies:
-        create:
-          error: Det gick inte att duplicera konferensen.
-          success: Konferensen har duplicerats.
       media_links:
         create:
           error: Det gick inte att skapa en ny medialänk.
@@ -211,24 +204,27 @@ sv:
           media_links: Medialänkar
           moderations: Moderering
           partners: Partners
-          registration_types: Typer av registrering
+          registration_types: Typer av anmälan
           registrations: Registreringar
           see_conference: Visa konferens
           user_registrations: Användarregistreringar
       models:
         conference:
           fields:
+            actions: Åtgärder
             created_at: Skapad
             published: Publicerad
             title: Titel
         conference_speaker:
           fields:
+            actions: Handlingar
             affiliation: Anknytning
             full_name: Fullständigt namn
             position: Position
           name: Talare
         conference_user_role:
           fields:
+            actions: Handlingar
             email: E-post
             name: Namn
             role: Roll
@@ -240,12 +236,14 @@ sv:
             moderator: Moderator
         media_link:
           fields:
+            actions: Handlingar
             date: Datum
             link: Länk
             title: Titel
           name: Medialänk
         partner:
           fields:
+            actions: Handlingar
             link: Länk
             logo: Logotyp
             name: Namn
@@ -256,6 +254,7 @@ sv:
             main_promotor: Huvudarrangör
         registration_type:
           fields:
+            actions: Handlingar
             conference_meetings: Konferensmöten
             price: Pris
             registrations_count: Antal registreringar
@@ -350,9 +349,6 @@ sv:
         title: Talare
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help_html: 'URL-slugs används till att generera URL:er till konferensen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         conference_invites:
           create:
             error: Det gick inte att bjuda in deltagaren till konferensen.
@@ -436,11 +432,11 @@ sv:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Din registrering för konferensen <a href="%{url}">%{title}</a> har bekräftats.
-          details_1: 'Du är registrerad till konferensen med registreringstypen %{registration_type}. Det kostar %{price} och du kan delta i följande arrangemang:'
+          details_1: 'Du är anmäld till konferensen med anmälningstyp %{registration_type}. Det kostar %{price} och du kan delta i följande arrangemang:'
           details_2: Du hittar konferensens detaljer i bilagan.
         pending_validation:
           confirmation_pending: Du kommer snart att få bekräftelsen
-          details: 'Du har registrerat dig med registreringstypen %{registration_type} till en kostnad av %{price} och du kan delta i följande arrangemang:'
+          details: 'Du har anmält dig med %{registration_type} till en kostnad av %{price} och du kan delta i följande arrangemang:'
           pending_html: Väntar på bekräftelse för din registrering till konferensen <a href="%{url}">%{title}</a>.
       conference_registrations:
         create:
@@ -479,7 +475,7 @@ sv:
           login_as: Du är inloggad som %{name} <%{email}>
           make_conference_registration: Anmäl dig till konferensen
           manage_registration: Hantera anmälan
-          register: Registrering
+          register: Anmälan
           sign_in_description: Logga in för att anmäla dig till konferensen
           sign_up_description: Skapa ett konto för att anmäla dig till konferensen
       content_blocks:
@@ -515,6 +511,7 @@ sv:
             sent: Skickad
         conference_registration:
           fields:
+            actions: Handlingar
             email: E-post
             name: Namn
             registration_type: Registreringstyp
@@ -531,7 +528,7 @@ sv:
         index:
           choose_an_option: 'Välj registreringsalternativ:'
           no_registrations: Inga anmälningar
-          register: Registrera
+          register: Anmälan
           title: Registreringstyper
       show:
         details: Detaljer
@@ -575,7 +572,7 @@ sv:
           email_subject: Konferensen "%{resource_title}" har uppdaterats
           notification_title: Konferensen <a href="%{resource_path}">%{resource_title}</a> har uppdaterats.
         registrations_enabled:
-          email_intro: 'Konferensen "%{resource_title}" har tar nu emot registreringar. Du kan själv registrera dig på denna sida:'
+          email_intro: 'Konferensen "%{resource_title}" har tar nu emot anmälningar. Du kan själv anmäla dig på den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer konferensen "%{resource_title}". Du kan sluta att följa den via föregående länk.
           email_subject: Konferensen "%{resource_title}" tar nu emot registreringar.
           notification_title: Konferensen <a href="%{resource_path}">%{resource_title}</a> tar nu emot registreringar.
@@ -613,10 +610,10 @@ sv:
           description: Längre beskrivning av konferensen
           end_date: Det datum då konferens avslutas.
           follows_count: Antal följare
-          hashtag: Konferensens hashtag, används för Twitter/X
           id: Unikt id för konferensen
     statistics:
       conferences_count: Konferenser
+      conferences_count_tooltip: Antalet publicerade konferenser.
   devise:
     mailer:
       join_conference:
@@ -624,7 +621,7 @@ sv:
   layouts:
     decidim:
       conference_hero:
-        register: Registrera
+        register: Anmäl dig
       conferences:
         conference:
           more_info: Mer information

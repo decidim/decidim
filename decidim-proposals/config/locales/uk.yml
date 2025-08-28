@@ -23,7 +23,6 @@ uk:
               needs_to_be_reattached: Необхідно повторно вкласти
     models:
       decidim/proposals/creation_enabled_event: Внесення пропозицій увімкнено
-      decidim/proposals/endorsing_enabled_event: Увімкнене надання підтримки пропозиціям
       decidim/proposals/proposal_mentioned_event: Пропозицію було згадано
       decidim/proposals/publish_proposal_event: Пропозицію оприлюднено
       decidim/proposals/voting_enabled_event: Увімкнене голосування по пропозиціям
@@ -48,7 +47,6 @@ uk:
     components:
       proposals:
         actions:
-          endorse: Підтримати
           vote: Голосувати
           withdraw: Відкликати голос
         name: Пропозиції
@@ -68,8 +66,6 @@ uk:
           step:
             announcement: Оголошення
             comments_blocked: Коментарі вимкнено
-            endorsements_blocked: Надання підтримки вимкнене
-            endorsements_enabled: Надання підтримки увімкнено
             proposal_answering_enabled: Відповіді на пропозиції увімкнено
             votes_blocked: Голосування вимкнене
             votes_enabled: Голосування увімкнене
@@ -80,10 +76,6 @@ uk:
           email_intro: 'Тепер в %{participatory_space_title} з''явилась можливість вносити нові пропозиції! Почніть брати участь зі сторінки:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: В %{participatory_space_title} тепер можна вносити пропозиції
-        endorsing_enabled:
-          email_intro: 'Ви можете підтримувати пропозиції у %{participatory_space_title}! Почніть брати участь зі сторінки:'
-          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
-          email_subject: У %{participatory_space_title} почалось надання підтримки пропозиціям
         proposal_mentioned:
           email_subject: Вашу пропозицію "%{mentioned_proposal_title}" було згадано
           notification_title: Вашу пропозицію "%{mentioned_proposal_title}" було згадано в коментарях <a href="%{resource_path}">в цьому просторі</a>.

@@ -10,9 +10,6 @@ ca-IT:
         closing_date: Data de finalització
         closing_date_reason: Motiu de la data de tancament
         composition: Composició
-        copy_categories: Copia categories
-        copy_components: Copia components
-        copy_features: Copia funcionalitats
         created_by: Creat per
         created_by_other: Creat per una altre
         creation_date: Data de creació
@@ -22,10 +19,12 @@ ca-IT:
         developer_group: Grup promotor
         document: Document
         domain: Domini
+        duplicate_categories: Duplicar les categories
+        duplicate_components: Duplicar els components
+        duplicate_features: Duplicar les funcionalitats
         duration: Durada
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
         hero_image: Imatge de portada
         import_attachments: Importar arxius adjunts
         import_categories: Importar categories
@@ -112,13 +111,13 @@ ca-IT:
         update:
           error: S'ha produït un error en actualitzar aquesta assemblea.
           success: L'assemblea s'ha actualitzat correctament.
-      assemblies_copies:
+      assemblies_duplicates:
         create:
           error: S'ha produït un error en duplicar aquesta assemblea.
           success: L'assemblea s'ha duplicat correctament.
-      assembly_copies:
+      assembly_duplicates:
         new:
-          copy: Còpia
+          duplicate: Duplicar
           select: Selecciona quines dades vols duplicar
           title: Assemblea duplicada
       assembly_imports:
@@ -170,7 +169,7 @@ ca-IT:
           attachments: Adjunts
           components: Components
           info: Quant a aquesta assemblea
-          landing_page: Pàgina d'inici
+          landing_page: Disposició de la pàgina de destinació
           moderations: Moderacions
           private_users: Membres
           see_assembly: Veure l'assemblea
@@ -193,6 +192,7 @@ ca-IT:
             vice_president: Vicepresidència
         assembly_user_role:
           fields:
+            actions: Accions
             email: Correu electrònic
             name: Nom
             role: Rol
@@ -259,7 +259,7 @@ ca-IT:
             taxonomies: Taxonomies
             title: Informació general
             visibility: Visibilitat
-        assembly_copies:
+        assembly_duplicates:
           form:
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         assembly_imports:
@@ -396,7 +396,6 @@ ca-IT:
           facebook_handler: Controlador de xarxes socials per a Facebook
           follows_count: El número d'usuàries que segueixen aquesta assemblea
           github_handler: Controlador de xarxes socials per a GitHub
-          hashtag: L'etiqueta que fa servir l'assemblea a Twitter/X
           id: L'identificador únic del resultat
           included_at: La data en què l'assemblea es va incloure a la plataforma
           instagram_handler: Controlador de xarxes socials per a Instagram
@@ -430,6 +429,7 @@ ca-IT:
         related_assemblies: Assemblees relacionades
     statistics:
       assemblies_count: Assemblees
+      assemblies_count_tooltip: El número d'assemblees públiques on es prenen les decisions col·lectives.
   layouts:
     decidim:
       assemblies:

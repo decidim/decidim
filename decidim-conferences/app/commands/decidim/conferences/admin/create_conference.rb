@@ -8,7 +8,7 @@ module Decidim
       class CreateConference < Decidim::Commands::CreateResource
         fetch_file_attributes :hero_image, :banner_image
 
-        fetch_form_attributes :organization, :title, :slogan, :slug, :weight, :hashtag, :description,
+        fetch_form_attributes :organization, :title, :slogan, :slug, :weight, :description,
                               :short_description, :objectives, :location, :taxonomizations, :start_date, :end_date,
                               :promoted, :show_statistics, :registrations_enabled, :available_slots, :registration_terms
 

@@ -5,7 +5,6 @@ module Decidim
     # A command with all the business logic when a user updates a proposal.
     class UpdateProposal < Decidim::Command
       include ::Decidim::MultipleAttachmentsMethods
-      include HashtagsMethods
 
       # Public: Initializes the command.
       #
@@ -93,10 +92,10 @@ module Decidim
       def attributes
         {
           title: {
-            I18n.locale => title_with_hashtags
+            I18n.locale => Decidim::ContentProcessor.parse(form.title, current_organization: form.current_organization).rewrite
           },
           body: {
-            I18n.locale => body_with_hashtags
+            I18n.locale => Decidim::ContentProcessor.parse_with_processor(:inline_images, form.body, current_organization: form.current_organization).rewrite
           },
           taxonomizations: form.taxonomizations,
           address: form.address,

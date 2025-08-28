@@ -164,6 +164,12 @@ module Decidim
           end
         end
       end
+
+      initializer "decidim_proposals.register_mutations", before: "decidim_api.graphiql" do
+        Decidim::MutationRegistry.instance.register(
+          Decidim::Proposals::ProposalsMutationType
+        )
+      end
     end
   end
 end

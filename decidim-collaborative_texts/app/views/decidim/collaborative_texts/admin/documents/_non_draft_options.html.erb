@@ -1,0 +1,9 @@
+<% if document.has_suggestions? %>
+  <div class="row column">
+    <%= form.check_box :draft, help_text: t(".draft_help_html"), label: t(".create_draft") %>
+  </div>
+<% end %>
+
+<div class="row column">
+  <%= form.check_box :accepting_suggestions, help_text: t(".enable_suggestions_help"), label: t(".enable_suggestions") %>
+</div>

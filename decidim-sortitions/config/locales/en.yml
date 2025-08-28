@@ -45,6 +45,7 @@ en:
           edit: Edit
           new_sortition: New sortition
           show: Sortition details
+          title: Actions
         models:
           sortition:
             fields:
@@ -143,3 +144,4 @@ en:
             other: "%{count} sortitions"
     statistics:
       sortitions_count: Sortitions
+      sortitions_count_tooltip: The number of random selections carried out for decision-making.

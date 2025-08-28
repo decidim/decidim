@@ -16,6 +16,9 @@ env:
   NODE_VERSION: 22.14.0
   SHAKAPACKER_RUNTIME_COMPILE: "false"
 
+permissions:
+  contents: read
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
   cancel-in-progress: true

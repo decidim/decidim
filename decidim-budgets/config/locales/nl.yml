@@ -31,10 +31,7 @@ nl:
               'true': Niet geselecteerd voor implementatie
     budgets:
       actions:
-        attachment_collections: Mappen
-        attachments: Bijlagen
         edit: Bewerk
-        edit_projects: Beheer projecten
         import: Voorstellen importeren in projecten
         preview: Voorbeeld
         title: Acties
@@ -244,6 +241,5 @@ nl:
         project_proposal: Voorstellen opgenomen in dit project
     statistics:
       orders_count: Aantal keer gesteund
-      projects_count: Projecten
   index:
     confirmed_orders_count: Aantal stemmen

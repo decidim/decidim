@@ -4,16 +4,12 @@ el:
       participatory_process:
         announcement: Ανακοίνωση
         area_id: Τομέας
-        copy_categories: Αντιγραφή κατηγοριών
-        copy_components: Αντιγραφή στοιχείων
-        copy_steps: Αντιγραφή βημάτων
         decidim_area_id: Τομέας
         description: Περιγραφή
         developer_group: Ομάδα προώθησης
         document: Έγγραφο
         domain: Τομέας
         end_date: Ημερομηνία λήξης
-        hashtag: Hashtag
         hero_image: Εικόνα αρχικής σελίδας
         import_attachments: Εισαγωγή συνημμένων
         import_categories: Εισαγωγή κατηγοριών
@@ -39,7 +35,6 @@ el:
         description: Περιγραφή
         developer_group: Ομάδα προώθησης
         group_url: Ιστοσελίδα
-        hashtag: Hashtag
         hero_image: Εικόνα
         local_area: Περιοχή οργανισμού
         meta_scope: Μεταδεδομένα πεδίου εφαρμογής
@@ -84,13 +79,11 @@ el:
     admin:
       actions:
         activate: Ενεργοποίηση
-        configure: Διαμόρφωση
         confirm_destroy: Επιβεβαίωση διαγραφής
         destroy: Διαγραφή
         duplicate: Αντιγραφή
         edit: Επεξεργασία
         import_process: Εισαγωγή
-        moderate: Συντονισμός
         new_process: Νέα διαδικασία
         new_process_group: Νέα ομάδα διαδικασιών
         new_process_step: Νέα φάση
@@ -103,7 +96,6 @@ el:
         participatory_process_groups: Ομάδες διαδικασιών
         participatory_process_groups_submenu:
           info: Πληροφορίες
-          landing_page: Σελίδα άφιξης
         participatory_processes: Διαδικασίες
         participatory_processes_submenu:
           attachment_collections: Φάκελοι
@@ -145,11 +137,6 @@ el:
           fields:
             invitation_accepted_at: Η πρόσκληση έγινε αποδεκτή στις
             invitation_sent_at: Η πρόσκληση στάλθηκε στις
-      participatory_process_copies:
-        new:
-          copy: Αντιγραφή
-          select: Επιλέξτε ποια δεδομένα θέλετε να αντιγράψετε
-          title: Αντιγραφή διαδικασίας συμμετοχής
       participatory_process_groups:
         destroy:
           success: Η ομάδα διαδικασιών συμμετοχής διαγράφηκε με επιτυχία.
@@ -237,10 +224,6 @@ el:
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της διαδικασίας συμμετοχής.
           success: Η διαδικασία συμμετοχής ενημερώθηκε με επιτυχία.
-      participatory_processes_copies:
-        create:
-          error: Υπήρξε ένα πρόβλημα κατά την αντιγραφή αυτής της διαδικασίας συμμετοχής.
-          success: Η διαδικασία συμμετοχής αντιγράφτηκε με επιτυχία.
       participatory_processes_group:
         create:
           error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία μιας νέας ομάδας διαδικασίας συμμετοχής.

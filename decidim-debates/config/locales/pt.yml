@@ -30,7 +30,6 @@ pt:
         actions:
           comment: Comentários
           create: Criar debate
-          endorse: Apoiar
         name: Debates
         settings:
           global:
@@ -47,8 +46,6 @@ pt:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
             creation_enabled: Os participantes podem criar debates
-            endorsements_blocked: Apoios bloqueados
-            endorsements_enabled: Endossamentos ativados
     debates:
       actions:
         close: Fechar
@@ -145,7 +142,6 @@ pt:
           state: Estado
           state_values:
             closed: Fechar
-            open: Abertas
         index:
           new_debate: Novo debate
         new:
@@ -159,11 +155,9 @@ pt:
           updated: Actualizado recentemente
         show:
           close_debate: Fechar
-          debate_closed: Fechar
           debate_conclusions_are: 'O debate foi fechado em %{date} com as seguintes conclusões:'
           edit_conclusions: Editar conclusões
           edit_debate: Editar
-          open: Abrir debate
           participants_count: Participantes
         update:
           invalid: Ocorreu um problema ao atualizar o debate.
@@ -258,7 +252,6 @@ pt:
           created_at: A data e a hora em que o debate foi criado
           description: Descrição do debate
           end_time: Quando este debate termina, se for um debate aberto e tiver um tempo limitado
-          endorsements_count: O número de recomendações que este debate tem
           follows_count: O número de seguidores que este debate tem
           id: O identificador único do debate
           information_updates: As atualizações que o autor fez no debate

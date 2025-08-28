@@ -13,6 +13,8 @@ fi-pl:
         other: Vastaukset
   decidim:
     admin:
+      actions:
+        see_survey: Näytä kysely
       admin_log:
         changeset:
           surveys: kyselyt
@@ -25,7 +27,7 @@ fi-pl:
     components:
       surveys:
         actions:
-          response: Vastaus
+          respond: Vastaa
         name: Kyselyt
         settings:
           announcement: Ilmoitus
@@ -46,7 +48,9 @@ fi-pl:
           email_subject: Uusi kysely kohteessa %{participatory_space_title}
           notification_title: Kysely <a href="%{resource_path}">%{resource_title}</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a> on nyt auki.
     statistics:
+      responses: 'Vastaukset:'
       responses_count: Vastauksia
+      surveys_count_tooltip: Kyselyiden ja niiden keräämien vastausten lukumäärä.
     surveys:
       actions:
         confirm_destroy: Haluatko varmasti poistaa tämän?
@@ -94,11 +98,11 @@ fi-pl:
           destroy:
             success: Kyselyn poisto onnistui.
           edit:
-            title: Kysely
+            title: Muokkaa kyselyä
           index:
             title: Kyselyt
           new:
-            title: Kysely
+            title: Uusi kysely
           publish:
             invalid: Kyselyn julkaisu epäonnistui.
             success: Kyselyn julkaisu onnistui.

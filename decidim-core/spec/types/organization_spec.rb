@@ -12,11 +12,18 @@ describe "Decidim::Api::QueryType" do
   let(:query) do
     %(
       query {
-        organization{
+        organization {
           name { translation(locale: "#{locale}") }
-          stats{
-            name
+          stats {
+            key
+            name { translation(locale: "#{locale}") }
             value
+            description {
+              translations {
+                text
+                locale
+              }
+            }
           }
         }
       }
@@ -33,20 +40,40 @@ describe "Decidim::Api::QueryType" do
     end
 
     it "displays the admin in the stats" do
-      expect(response["organization"]["stats"].select { |hash| hash["name"] == "users_count" }).to eq(["name" => "users_count", "value" => 1])
+      expect(response["organization"]["stats"].select { |hash| hash["key"] == "users_count" })
+        .to eq([{
+                 "key" => "users_count",
+                 "name" => { "translation" => "Participants" },
+                 "value" => 1,
+                 "description" => {
+                   "translations" => [
+                     { "locale" => "en", "text" => "The total number of users who have signed up and confirmed their account via email." },
+                     { "locale" => "ca", "text" => "El nombre total d'usuàries que s'han registrat i confirmat el vostre compte per correu electrònic." },
+                     { "locale" => "es", "text" => "El número total de usuarias que se han registrado y confirmado su cuenta por correo electrónico." }
+                   ]
+                 }
+               }])
     end
 
-    %w(
-      processes_count
-      comments_count
-      assemblies_count
-      conferences_count
-      followers_count
-      participants_count
-    ).each do |stat|
-      it {
-        expect(response["organization"]["stats"].select { |hash| hash["name"] == stat }).to eq(["name" => stat, "value" => 0])
-      }
+    TRANSLATION_MAP = {
+      "users_count" => "Participants"
+    }.freeze
+
+    %w(users_count)
+      .each do |stat|
+      it "displays the stat for #{stat}" do
+        stats = response["organization"]["stats"].select { |hash| hash["key"] == stat }
+
+        stats.each { |s| s.delete("description") }
+
+        expected_stat = {
+          "key" => stat,
+          "name" => { "translation" => TRANSLATION_MAP.fetch(stat, stat.capitalize.tr("_", " ")) },
+          "value" => stats.first["value"]
+        }
+
+        expect(stats).to eq([expected_stat])
+      end
     end
   end
 end

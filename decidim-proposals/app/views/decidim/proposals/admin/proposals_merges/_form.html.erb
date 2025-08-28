@@ -8,7 +8,7 @@
         <%= bulk_components_select((current_component.siblings + [current_component])) %>
       </div>
       <div class="row column pt-4">
-        <%= form.translated :text_field, :title, class: "js-hashtags", aria: { label: :title } %>
+        <%= form.translated :text_field, :title, aria: { label: :title } %>
       </div>
       <div class="row column pt-4">
         <%= form.translated :editor, :body, lines: 12, html: { style: "height: 10rem;" }, aria: { label: :body } %>

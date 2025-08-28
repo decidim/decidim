@@ -33,7 +33,7 @@ module Decidim
 
         it "breadcrumbs are set" do
           get :index
-          expect(controller.helpers.breadcrumb_items).to eq([label: "Taxonomies", url: "/admin#{taxonomies_path}"])
+          expect(controller.helpers.breadcrumb_items).to eq([label: "Taxonomies", url: taxonomies_path])
         end
       end
 
@@ -53,8 +53,8 @@ module Decidim
         it "breadcrumbs are set" do
           get :new
           expect(controller.helpers.breadcrumb_items).to eq([
-                                                              { label: "Taxonomies", url: "/admin#{taxonomies_path}" },
-                                                              { label: "New taxonomy", url: "/admin#{new_taxonomy_path}" }
+                                                              { label: "Taxonomies", url: taxonomies_path },
+                                                              { label: "New taxonomy", url: new_taxonomy_path }
                                                             ])
         end
       end
@@ -108,8 +108,8 @@ module Decidim
         it "breadcrumbs are set" do
           get :edit, params: { id: taxonomy.id }
           expect(controller.helpers.breadcrumb_items).to eq([
-                                                              { label: "Taxonomies", url: "/admin#{taxonomies_path}" },
-                                                              { label: "Edit taxonomy", url: "/admin#{edit_taxonomy_path(taxonomy)}" }
+                                                              { label: "Taxonomies", url: taxonomies_path },
+                                                              { label: "Edit taxonomy", url: edit_taxonomy_path(taxonomy) }
                                                             ])
         end
       end

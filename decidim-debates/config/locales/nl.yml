@@ -92,7 +92,6 @@ nl:
           state: Status
           state_values:
             closed: Gesloten
-            open: Open
         index:
           new_debate: Nieuw debat
         new:
@@ -104,8 +103,6 @@ nl:
           random: Willekeurige volgorde
           recent: Meest recent
           updated: Onlangs bijgewerkt
-        show:
-          open: Debat openen
         update:
           invalid: Er is een fout opgetreden bij het bijwerken van het debat.
           success: Debat succesvol bijgewerkt.

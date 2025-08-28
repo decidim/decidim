@@ -36,7 +36,6 @@ module Decidim
         attribute :created_by, String
         attribute :facebook_handler, String
         attribute :github_handler, String
-        attribute :hashtag, String
         attribute :instagram_handler, String
         attribute :slug, String
         attribute :twitter_handler, String

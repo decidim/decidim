@@ -1,0 +1,9 @@
+<div>
+    <%= button_tag(t("decidim.collaborative_texts.document.rollout.new"), class:"button button__lg button__primary", data: { collaborative_texts_manager_rollout: true }) %>
+    <%= button_tag(t("decidim.collaborative_texts.document.consolidate.new"), class:"button button__lg button__transparent-primary", data: { collaborative_texts_manager_consolidate: true }) %>
+    <%= button_tag(t("decidim.collaborative_texts.document.cancel"), class:"button button__lg button__transparent-primary", data: { collaborative_texts_manager_cancel: true }) %>
+</div>
+<% %w(draft_counter consolidate_counter).each do |key| %>
+  <p class="help-text"><%= t("decidim.collaborative_texts.document.#{key}", applied: '<span class="collaborative-texts-manager-applied"></span>',
+                                                                            pending: '<span class="collaborative-texts-manager-pending"></span>' ).html_safe %></p>
+<% end %>

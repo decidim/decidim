@@ -7,7 +7,6 @@ hu:
         area_id: Terület
         decidim_scope_id: Hatókör
         description: Leírás
-        hashtag: Kettőskereszt
         offline_votes: Támogatás szemtől szembe
         offline_votes_for_scope: 'Személyesen aláírások erre: %{scope_name}'
         scope_id: Hatáskör
@@ -88,8 +87,6 @@ hu:
               validating: Technikai érvényesítés
           type_id_eq:
             label: Típus
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Keresés a(z) %{collection} elemei között cím, leírás, azonosító vagy szerző alapján.
       initiatives_settings:
         update:
           success: A kezdeményezés beállítása sikeres.
@@ -360,11 +357,6 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{author_nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: '%{author_nickname} új kezdeményezést indított'
           notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a>kezdeményezés létrejött itt, általa: <a href="%{author_path}">%{author_name} %{author_nickname}</a>.'
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname} (akit követsz) támogatta a következő kezdeményezést, nézd meg és tegyél hozzá te is valamit a beszélgetéshez:"
-          email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{author_nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
-          email_subject: '%{author_nickname} támogatta a kezdeményezést'
-          notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a>kezdeményezést támogatta: <a href="%{author_path}">%{author_name} %{author_nickname}</a>.'
         revoke_membership_request:
           email_intro: "%{author_nickname} visszautasította a jelentkezésedet, hogy részt vegyél a %{resource_title} kezdeményezést előterjesztő bizottságban."
           email_outro: 'Ezt az értesítést azért kaptad, mert jelentkeztél a %{resource_title} kezdeményezéshez.'
@@ -409,11 +401,6 @@ hu:
         initiatives:
           closed_initiatives_warning: Jelenleg nincs nyitott találkozó, de itt megtalálhatod az összes zárt találkozó listáját.
           no_initiatives_warning: Egyik kezdeményezés sem felel meg a keresési feltételnek.
-        interactions:
-          comments_count:
-            count:
-              one: Megjegyzés
-              other: Hozzászólások
         orders:
           label: 'Kezdeményezések rendezése:'
           most_commented: Legtöbb hozzászólással

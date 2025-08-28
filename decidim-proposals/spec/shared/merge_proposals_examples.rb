@@ -108,11 +108,11 @@ shared_examples "merge proposals" do
             let!(:proposal_ids) { proposals.map(&:id) }
 
             context "when the proposals cannot be merged" do
-              let!(:proposals) { create_list(:proposal, 3, :with_endorsements, :with_votes, component: current_component) }
+              let!(:proposals) { create_list(:proposal, 3, :with_likes, :with_votes, component: current_component) }
 
               it "does not create a new proposal and displays a validation fail message" do
                 expect(page).to have_css(".table-list tbody tr", count: 3)
-                expect(page).to have_content("Have received votes or endorsements")
+                expect(page).to have_content("Have received votes or likes")
               end
             end
 

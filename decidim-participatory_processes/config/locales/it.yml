@@ -4,15 +4,11 @@ it:
       participatory_process:
         announcement: Avviso
         area_id: Area
-        copy_categories: Copia le categorie
-        copy_components: Copia le componenti
-        copy_steps: Copia le fasi
         decidim_area_id: Area
         description: Descrizione
         developer_group: Promotore
         domain: Dominio
         end_date: Data di fine
-        hashtag: Hashtag
         hero_image: Immagine della Home Page
         local_area: Area organizzativa
         meta_scope: Metadati di ambito
@@ -33,7 +29,6 @@ it:
         description: Descrizione
         developer_group: Gruppo promotore
         group_url: Sito web
-        hashtag: Hashtag
         hero_image: Immagine
         local_area: Area di organizzazione
         meta_scope: Ambito metadati
@@ -72,7 +67,6 @@ it:
     admin:
       actions:
         activate: Attiva
-        configure: Configura
         confirm_destroy: Conferma cancellazione
         destroy: Elimina
         duplicate: Duplica
@@ -90,7 +84,6 @@ it:
         participatory_process_groups: Gruppo di processi
         participatory_process_groups_submenu:
           info: Informazioni
-          landing_page: Pagina di destinazione
         participatory_processes: Processi
         participatory_processes_submenu:
           attachment_collections: Cartelle
@@ -132,11 +125,6 @@ it:
           fields:
             invitation_accepted_at: Invito accettato su
             invitation_sent_at: Invito inviato a
-      participatory_process_copies:
-        new:
-          copy: Copia
-          select: Scegli quale dato vuoi duplicare
-          title: Duplica il processo partecipativo
       participatory_process_groups:
         destroy:
           success: Gruppo di processi partecipativi cancellato con successo.
@@ -221,10 +209,6 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di questo processo partecipativo.
           success: OK, il processo partecipativo è stato aggiornato.
-      participatory_processes_copies:
-        create:
-          error: Si è verificato un errore cercando di duplicare questo processo partecipativo.
-          success: OK, il processo partecipativo è stato duplicato.
       participatory_processes_group:
         create:
           error: Si è verificato un errore cercando di creare il nuovo gruppo di processi partecipativi.

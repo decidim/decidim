@@ -3,7 +3,6 @@ pl:
     attributes:
       sortition:
         additional_info: Informacje o wyborze losowym
-        decidim_category_id: Kategorie zestawu propozycji, z którego chcesz losować
         decidim_proposals_component_id: Zestaw propozycji
         dice: Wynik rzutu kostką. Rzuć kostką 6-ścienną lub poszukaj innego losowego sposobu na wygenerowanie liczby od 1 do 6, a następnie wprowadź liczbę, która była wynikiem losowania w obecności świadków. Daje to gwarancję jakości i bezstronności wyniku losowości
         target_items: Liczba wniosków, które mają zostać wybrane (wskazuje liczbę propozycji, które mają zostać wybrane spośród wskazanych wcześniej propozycji)
@@ -45,7 +44,6 @@ pl:
         models:
           sortition:
             fields:
-              category: Kategoria
               created_at: Data utworzenia
               decidim_proposals_component: Komponent propozycji
               dice: Kostka do gry
@@ -69,7 +67,6 @@ pl:
             title: Zaktualizuj informacje o wyborze losowym
             update: Aktualizuj
           form:
-            all_categories: Wszystkie kategorie
             select_proposal_component: Wybierz zestaw propozycji
           index:
             title: Wybór losowy
@@ -116,11 +113,8 @@ pl:
             other: wybranych propozycji
         show:
           algorithm: Kod algorytmu wyboru losowego
-          any_category: ze wszystkich kategorii
           cancelled: Anulowane wybory losowe
           candidate_proposal_ids: Kolejność i identyfikatory propozycji wyboru losowego
-          candidate_proposals_info: 'Wybór losowy został przeprowadzony wśród następujących propozycji (%{category_label}), z następującymi identyfikatorami (wybrane propozycje zostały pogrubione)  '
-          category: z kategorii %{category}
           dice_result: (1) Wynik rzutu kością
           introduction: 'Ta strona zawiera %{reference} wyniki wyboru losowego. Za pomocą tego losowania wybrano %{target_items} wyników w sposób losowy i z równym prawdopodobieństwem spośród propozycji przedstawionych poniżej. Wraz z wynikami, informacje wyświetlane na tej stronie stanowią zestaw kompletnych informacji wymagane do zmaksymalizowania gwarancji losowości i możliwości odtworzenia wyników. Kluczem do jakości tego wyboru losowego jest podwójna losowość zapewniona przez rzut kością (zweryfikowany przez świadków) i dokładny czas utworzenia wyboru losowego, który zapewnia dane wejściowe dla algorytmu generującego losowy selekcję. Ziarno czasu wyboru losowego jest tak dokładne (sekundy), że jego wygenerowanie nie podlega kontroli człowieka, zapewniając w ten sposób podwójne "niekontrolowane" dane wejściowe w celu zagwarantowania sprawiedliwego wyniku.  '
           mathematical_result: Wynik (1) x (2)

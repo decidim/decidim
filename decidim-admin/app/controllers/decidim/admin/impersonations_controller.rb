@@ -46,7 +46,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("impersonations.create.error", scope: "decidim.admin")
-            render :new
+            render :new, status: :unprocessable_entity
           end
         end
       end
@@ -99,7 +99,7 @@ module Decidim
           managed: true,
           name: params.dig(:impersonate_user, :name)
         ) do |u|
-          u.nickname = Decidim::UserBaseEntity.nicknamize(u.name, organization: current_organization)
+          u.nickname = Decidim::UserBaseEntity.nicknamize(u.name, current_organization.id)
           u.admin = false
           u.tos_agreement = true
         end

@@ -34,7 +34,7 @@ module Decidim
 
       STATES = { open: 0, published: 10, withdrawn: -1 }.freeze
 
-      enum state: STATES, _default: "open"
+      enum :state, STATES, default: "open"
       scope :except_withdrawn, -> { not_withdrawn.or(where(state: nil)) }
 
       scope_search_multi :with_any_state, [:open, :published, :withdrawn]

@@ -178,18 +178,29 @@ module Decidim
 
       describe "#editor_body" do
         let(:organization) { create(:organization) }
+        let(:html) do
+          <<~HTML
+            <p>Paragraph with a user mention #{user.to_global_id} and another user mention #{user2.to_global_id}</p>
+          HTML
+        end
+
+        let(:editor_html) do
+          <<~HTML
+            <p>Paragraph with a user mention #{html_mention(user)} and another user mention #{html_mention(user2)}</p>
+          HTML
+        end
         let(:content) { html }
 
-        include_context "with editor content containing hashtags and mentions"
+        include_context "with editor content containing mentions"
 
-        it "converts the hashtags and mentions to WYSIWYG editor ready elements" do
+        it "converts the mentions to WYSIWYG editor ready elements" do
           expect(subject.editor_body).to eq(editor_html)
         end
 
         context "when modifying all locales" do
           let(:content) { { en: html, es: html } }
 
-          it "converts the hashtags and mentions to WYSIWYG editor ready elements" do
+          it "converts the mentions to WYSIWYG editor ready elements" do
             expect(subject.editor_body(all_locales: true)).to eq("en" => editor_html, "es" => editor_html)
           end
         end

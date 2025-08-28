@@ -120,6 +120,22 @@ module Decidim
         gsub_file "config/environments/production.rb", /config\.assets.*$/, ""
       end
 
+      def patch_test_file
+        gsub_file "config/environments/test.rb", /config\.action_mailer\.default_url_options = { host: "www.example.com" }$/,
+                  "# config.action_mailer.default_url_options = { host: \"www.example.com\" }"
+        gsub_file "config/environments/test.rb", /config\.action_controller\.raise_on_missing_callback_actions = true$/,
+                  "# config.action_controller.raise_on_missing_callback_actions = false"
+        gsub_file "config/environments/development.rb", /config\.action_controller\.raise_on_missing_callback_actions = true$/,
+                  "# config.action_controller.raise_on_missing_callback_actions = false"
+      end
+
+      def disable_annotate_rendered_view_on_development
+        gsub_file "config/environments/development.rb", /config\.action_view\.annotate_rendered_view_with_filenames = true$/,
+                  "# Using annotate rendered view breaks rails-ujs functionality
+  # @see https://github.com/decidim/decidim/issues/14912
+  # config.action_view.annotate_rendered_view_with_filenames = true"
+      end
+
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
       end
@@ -129,7 +145,7 @@ module Decidim
       end
 
       def docker
-        template "Dockerfile.erb", "Dockerfile"
+        template "Dockerfile.erb", "Dockerfile", force: true
         template "docker-compose.yml.erb", "docker-compose.yml"
       end
 
@@ -150,7 +166,7 @@ module Decidim
       end
 
       def rubocop
-        copy_file ".rubocop.yml", ".rubocop.yml"
+        copy_file ".rubocop.yml", ".rubocop.yml", force: true
       end
 
       def ruby_version
@@ -181,7 +197,7 @@ module Decidim
 
         gsub_file "Gemfile", /gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}"
 
-        %w(ai conferences design initiatives templates collaborative_texts elections).each do |component|
+        %w(ai collaborative_texts conferences demographics design elections initiatives templates).each do |component|
           if options[:demo]
             gsub_file "Gemfile", /gem "decidim-#{component}".*/, "gem \"decidim-#{component}\", #{gem_modifier}"
           else
@@ -220,7 +236,7 @@ module Decidim
                   /Rails.application.configure do/,
                   "Rails.application.configure do\n  config.active_job.queue_adapter = :sidekiq\n"
         gsub_file "config/environments/production.rb",
-                  /# config.active_job.queue_adapter     = :resque/,
+                  /# config.active_job.queue_adapter = :resque/,
                   "config.active_job.queue_adapter = ENV['QUEUE_ADAPTER'] if ENV['QUEUE_ADAPTER'].present?"
 
         prepend_file "config/routes.rb", "require \"sidekiq/web\"\n\n"
@@ -231,7 +247,27 @@ module Decidim
           end
         RUBY
 
-        append_file "Gemfile", %(gem "sidekiq")
+        redis_version = begin
+          require "redis"
+          ver = Redis.new.call("INFO").lines(chomp: true).find { |l| l.start_with?("redis_version:") }.split(":", 2).last
+          Gem::Version.new(ver)
+        rescue LoadError, Redis::CannotConnectError
+          # This does not have to be the actual Redis version, it can be
+          # anything that is above any of the version checks below to default to
+          # the latest Sidekiq version.
+          Gem::Version.new("8.0.0")
+        end
+
+        if redis_version < Gem::Version.new("6.2.0")
+          # Sidekiq 7.x requires Redis 6.2.0 or newer
+          append_file "Gemfile", %(gem "sidekiq", "~> 6.5")
+        elsif redis_version < Gem::Version.new("7.0.0")
+          # Sidekiq 8.x requires Redis 7.0.0 or newer
+          append_file "Gemfile", %(gem "sidekiq", "~> 7.3")
+        else
+          # Assume latest
+          append_file "Gemfile", %(gem "sidekiq")
+        end
       end
 
       def add_production_gems(&block)
@@ -245,12 +281,6 @@ module Decidim
             @production_gems.map(&:call)
           end
         end
-      end
-
-      def load_defaults_rails61
-        gsub_file "config/application.rb",
-                  /config.load_defaults 7.0/,
-                  "config.load_defaults 6.1"
       end
 
       def tweak_csp_initializer
@@ -315,9 +345,7 @@ module Decidim
         remove_file "public/favicon.ico"
       end
 
-      def decidim_initializer
-        copy_file "initializer.rb", "config/initializers/decidim.rb"
-
+      def production_environment
         gsub_file "config/environments/production.rb",
                   /config.log_level = :info/,
                   "config.log_level = %w(debug info warn error fatal).include?(ENV['RAILS_LOG_LEVEL']) ? ENV['RAILS_LOG_LEVEL'] : :info"
@@ -325,20 +353,13 @@ module Decidim
         gsub_file "config/environments/production.rb",
                   %r{# config.asset_host = "http://assets.example.com"},
                   "config.asset_host = ENV['RAILS_ASSET_HOST'] if ENV['RAILS_ASSET_HOST'].present?"
-
-        if options[:force_ssl] == "false"
-          gsub_file "config/initializers/decidim.rb",
-                    /# config.force_ssl = true/,
-                    "config.force_ssl = false"
-        end
-        return if options[:locales].blank?
-
-        gsub_file "config/initializers/decidim.rb",
-                  /#{Regexp.escape("# config.available_locales = %w(en ca es)")}/,
-                  "config.available_locales = %w(#{options[:locales].gsub(",", " ")})"
-        gsub_file "config/initializers/decidim.rb",
-                  /#{Regexp.escape("config.available_locales = Decidim::Env.new(\"DECIDIM_AVAILABLE_LOCALES\", \"ca,cs,de,en,es,eu,fi,fr,it,ja,nl,pl,pt,ro\").to_array.to_json")}/,
-                  "# config.available_locales = Decidim::Env.new(\"DECIDIM_AVAILABLE_LOCALES\", \"ca,cs,de,en,es,eu,fi,fr,it,ja,nl,pl,pt,ro\").to_array.to_json"
+        gsub_file "config/environments/production.rb", /# Log to STDOUT by default\n((.*)\n){3}/, <<~CONFIG
+          if ENV["RAILS_LOG_TO_STDOUT"].present?
+            config.logger = ActiveSupport::Logger.new(STDOUT)
+              .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
+              .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
+          end
+        CONFIG
       end
 
       def dev_performance_config
@@ -370,14 +391,6 @@ module Decidim
         copy_file "verifications_initializer.rb", "config/initializers/decidim_verifications.rb"
       end
 
-      def sms_gateway
-        return unless options[:demo]
-
-        gsub_file "config/initializers/decidim.rb",
-                  /# config.sms_gateway_service = "MySMSGatewayService"/,
-                  "config.sms_gateway_service = 'Decidim::Verifications::Sms::ExampleGateway'"
-      end
-
       def budgets_workflows
         return unless options[:demo]
 
@@ -385,6 +398,12 @@ module Decidim
         copy_file "budgets_workflow_random.en.yml", "config/locales/budgets_workflow_random.en.yml"
 
         copy_file "budgets_initializer.rb", "config/initializers/decidim_budgets.rb"
+      end
+
+      def elections_census_manifest
+        return unless options[:demo]
+
+        copy_file "elections_initializer.rb", "config/initializers/decidim_elections.rb"
       end
 
       def initiative_signatures_workflows
@@ -396,36 +415,6 @@ module Decidim
         copy_file "dummy_signature_handler_form.html.erb", "app/views/decidim/initiatives/initiative_signatures/dummy_signature_with_personal_data/_form.html.erb"
         copy_file "dummy_sms_mobile_phone_validator.rb", "app/services/dummy_sms_mobile_phone_validator.rb"
         copy_file "initiatives_initializer.rb", "config/initializers/decidim_initiatives.rb"
-      end
-
-      def ai_toolkit
-        return unless options[:demo]
-
-        copy_file "ai_initializer.rb", "config/initializers/decidim_ai.rb"
-      end
-
-      def timestamp_service
-        return unless options[:demo]
-
-        gsub_file "config/initializers/decidim.rb",
-                  /# config.timestamp_service = "MyTimestampService"/,
-                  "config.timestamp_service = \"Decidim::Initiatives::DummyTimestamp\""
-      end
-
-      def pdf_signature_service
-        return unless options[:demo]
-
-        gsub_file "config/initializers/decidim.rb",
-                  /# config.pdf_signature_service = "MyPDFSignatureService"/,
-                  "config.pdf_signature_service = \"Decidim::PdfSignatureExample\""
-      end
-
-      def machine_translation_service
-        return unless options[:demo]
-
-        gsub_file "config/initializers/decidim.rb",
-                  /# config.machine_translation_service = "MyTranslationService"/,
-                  "config.machine_translation_service = 'Decidim::Dev::DummyTranslator'"
       end
 
       def install

@@ -18,6 +18,8 @@ fr-CA:
       admin_log:
         changeset:
           posts: Articles
+      tooltips:
+        deleted_posts_info: Impossible de supprimer cet article
     blogs:
       actions:
         author_id: Créer un article comme
@@ -103,7 +105,6 @@ fr-CA:
           comment: Commenter
           create: Créer
           destroy: Supprimer
-          endorse: Soutenir
           update: Mettre à jour
         name: Actualités
         settings:
@@ -120,8 +121,6 @@ fr-CA:
           step:
             announcement: Annonce
             comments_blocked: Commentaires désactivés
-            endorsements_blocked: Soutiens bloqués
-            endorsements_enabled: Soutiens activés
     events:
       blogs:
         post_created:
@@ -140,3 +139,4 @@ fr-CA:
           id: L'id de ce commentaire
     statistics:
       posts_count: Publications
+      posts_count_tooltip: Le nombre de mises à jour ou d'articles de blog publiés.

@@ -1,4 +1,4 @@
-@import "tom-select/dist/scss/tom-select";
+@use "tom-select/dist/scss/tom-select";
 
 .proposal-list {
   &__aside {
@@ -83,6 +83,10 @@
 
     svg {
       @apply inline-block w-5 h-5;
+
+      &.view-icon {
+        @apply border border-black border-solid;
+      }
 
       &.view-icon--disabled {
         @apply fill-gray;
@@ -426,6 +430,12 @@
     &-block label:not(&-checkbox-label) {
       @apply font-normal text-sm;
     }
+  }
+}
+
+.proposal__aside-vote {
+  button[disabled] {
+    @apply bg-[var(--secondary)] opacity-50 text-white border-current cursor-not-allowed;
   }
 }
 

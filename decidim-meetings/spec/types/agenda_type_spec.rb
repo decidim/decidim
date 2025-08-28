@@ -7,7 +7,10 @@ module Decidim
   module Meetings
     describe AgendaType, type: :graphql do
       include_context "with a graphql class type"
+
       let(:model) { create(:agenda, :with_agenda_items) }
+
+      include_examples "timestamps interface"
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -34,19 +37,13 @@ module Decidim
         end
       end
 
-      describe "createdAt" do
-        let(:query) { "{ createdAt }" }
+      describe "visible" do
+        let(:query) { "{ id }" }
 
-        it "returns when was this query created at" do
-          expect(response["createdAt"]).to eq(model.created_at.to_time.iso8601)
-        end
-      end
+        let(:model) { create(:agenda, :with_agenda_items, visible: false) }
 
-      describe "updatedAt" do
-        let(:query) { "{ updatedAt }" }
-
-        it "returns when was this query updated at" do
-          expect(response["updatedAt"]).to eq(model.updated_at.to_time.iso8601)
+        it "returns the agenda's id" do
+          expect(response).to be_nil
         end
       end
     end

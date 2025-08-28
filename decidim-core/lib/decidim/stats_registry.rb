@@ -3,8 +3,8 @@
 module Decidim
   # This class stores different stats computations and resolves them given a context.
   class StatsRegistry
-    HIGH_PRIORITY = 1
-    MEDIUM_PRIORITY = 2
+    HIGH_PRIORITY = 1 # The priority of the stat used for render organization level stats.
+    MEDIUM_PRIORITY = 2 # The priority of the stat used for render participatory space level stats.
     LOW_PRIORITY = 3
 
     attr_reader :stats
@@ -28,12 +28,17 @@ module Decidim
       raise StandardError, "Stats '#{name}' is already registered." if stat.present?
 
       options[:primary] ||= false
+      options[:admin] = true unless options.has_key?(:admin)
       options[:priority] ||= LOW_PRIORITY
 
       @stats.push(name:,
                   primary: options[:primary],
                   priority: options[:priority],
                   tag: options[:tag],
+                  icon_name: options[:icon_name],
+                  tooltip_key: options[:tooltip_key],
+                  sub_title: options[:sub_title],
+                  admin: options[:admin],
                   block:)
     end
 
@@ -62,7 +67,14 @@ module Decidim
     def with_context(context, start_at = nil, end_at = nil)
       Enumerator.new do |yielder|
         @stats.each do |stat|
-          yielder << [stat[:name], resolve(stat[:name], context, start_at, end_at)]
+          yielder << {
+            name: stat[:name],
+            data: resolve(stat[:name], context, start_at, end_at),
+            icon_name: stat[:icon_name],
+            tooltip_key: stat[:tooltip_key],
+            sub_title: stat[:sub_title],
+            admin: stat[:admin]
+          }
         end
       end
     end

@@ -66,7 +66,6 @@ hu:
           comment: Hozzászólás
           create: Létrehozás
           destroy: Törlés
-          endorse: Jóváhagy
           update: Frissítés
         name: Blog
         settings:
@@ -77,8 +76,6 @@ hu:
           step:
             announcement: Közlemény
             comments_blocked: Megjegyzések letiltva
-            endorsements_blocked: Támogatások letiltva
-            endorsements_enabled: Támogatások engedélyezve
     events:
       blogs:
         post_created:

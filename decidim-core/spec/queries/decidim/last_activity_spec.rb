@@ -10,8 +10,13 @@ describe Decidim::LastActivity do
 
   let(:commentable) { create(:dummy_resource, component:) }
   let(:comment) { create(:comment, commentable:) }
+  let!(:proposal_component) { create(:proposal_component) }
+  let!(:withdrawn_proposal) { create(:proposal, :withdrawn, component: proposal_component) }
   let!(:action_log) do
     create(:action_log, created_at: 1.day.ago, action: "create", visibility: "public-only", resource: comment, organization:)
+  end
+  let!(:action_log_for_withdrawn_proposal) do
+    create(:action_log, created_at: 1.day.ago, action: "create", visibility: "public-only", resource: withdrawn_proposal, organization:)
   end
 
   let(:component) do
@@ -33,6 +38,7 @@ describe Decidim::LastActivity do
     allow(Decidim::ActionLog).to receive(:public_resource_types).and_return(
       %w(
         Decidim::Comments::Comment
+        Decidim::Proposals::Proposal
         Decidim::Dev::DummyResource
       )
     )
@@ -44,6 +50,7 @@ describe Decidim::LastActivity do
   describe "#query" do
     it "returns the activities" do
       expect(subject.count).to eq(3)
+      expect(subject).not_to include(action_log_for_withdrawn_proposal)
     end
   end
 end

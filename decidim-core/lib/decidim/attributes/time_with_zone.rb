@@ -33,7 +33,7 @@ module Decidim
         return fallback unless fallback.is_a?(Time)
         return Time.zone.parse(fallback.strftime("%F %T")) if ISO_DATETIME_WITHOUT_TIMEZONE.match?(value)
 
-        ActiveSupport::TimeWithZone.new(fallback, Time.zone)
+        fallback
       end
     end
   end

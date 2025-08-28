@@ -4,16 +4,12 @@ bg:
       participatory_process:
         announcement: Обявление
         area_id: Район
-        copy_categories: Копирай категории
-        copy_components: Копирай компоненти
-        copy_steps: Копирай стъпки
         decidim_area_id: Район
         description: Описание
         developer_group: Група за популяризиране
         document: Документ
         domain: Домейн
         end_date: Крайна дата
-        hashtag: Хаштаг
         hero_image: Изображение за начална страница
         import_attachments: Импортиране на прикачени файлове
         import_categories: Импортиране на категории
@@ -39,7 +35,6 @@ bg:
         description: Описание
         developer_group: Група за популяризиране
         group_url: Уебсайт
-        hashtag: Хаштаг
         hero_image: Изображение
         local_area: Област на организацията
         meta_scope: Метаданни за обхвата
@@ -84,13 +79,11 @@ bg:
     admin:
       actions:
         activate: Активиране
-        configure: Конфигуриране
         confirm_destroy: Потвърждаване за изтриване
         destroy: Изтрий
         duplicate: Дубликирай
         edit: Редактирай
         import_process: Импортиране
-        moderate: Модериране
         new_process: Нов процес
         new_process_group: Нова група на процеса
         new_process_step: Нова фаза
@@ -107,7 +100,6 @@ bg:
         participatory_process_groups: Групи процеси
         participatory_process_groups_submenu:
           info: Информация
-          landing_page: Целева страница
         participatory_processes: Процеси
         participatory_processes_submenu:
           attachment_collections: Папки
@@ -115,7 +107,6 @@ bg:
           attachments: Прикачени файлове
           components: Компоненти
           info: Относно този процес
-          landing_page: Целева страница
           moderations: Модерации
           process_admins: Администратори на процеси
           steps: Фази
@@ -152,11 +143,6 @@ bg:
           fields:
             invitation_accepted_at: 'Поканата е приета на:'
             invitation_sent_at: Поканата е изпратена на
-      participatory_process_copies:
-        new:
-          copy: Копиране
-          select: Изберете кои данни искате да дублирате
-          title: Дублиране на процеси на участие
       participatory_process_groups:
         destroy:
           success: Групата на процеса на участие беше изтрита успешно.
@@ -252,10 +238,6 @@ bg:
         update:
           error: Възникна проблем при актуализирането на този процес на участие.
           success: Процесът на участие беше актуализиран успешно.
-      participatory_processes_copies:
-        create:
-          error: Възникна проблем при дублирането на този процес на участие.
-          success: Процесът на участие беше дублиран успешно.
       participatory_processes_group:
         create:
           error: Възникна проблем при създаването на нова група на процеса на участие.
@@ -366,9 +348,6 @@ bg:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help_html: 'Съкратените URL се използват за генериране на URL адреси, които сочат към този процес. Приема само букви, цифри и тирета и трябва да започва с буква. Пример: %{url}'
         participatory_process_groups:
           form:
             metadata: Метаданни

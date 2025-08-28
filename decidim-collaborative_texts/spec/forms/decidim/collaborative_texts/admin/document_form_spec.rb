@@ -58,6 +58,12 @@ module Decidim
 
           it { is_expected.not_to be_valid }
         end
+
+        describe "when body is short" do
+          let(:body) { "a" }
+
+          it { is_expected.to be_valid }
+        end
       end
     end
   end

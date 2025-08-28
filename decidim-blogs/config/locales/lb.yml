@@ -35,7 +35,6 @@ lb:
       blogs:
         actions:
           comment: Kommentar
-          endorse: Bestätigen
         name: Blog
         settings:
           global:
@@ -45,8 +44,6 @@ lb:
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
-            endorsements_blocked: Unterstützung deaktiviert
-            endorsements_enabled: Unterstützung aktiviert
     events:
       blogs:
         post_created:

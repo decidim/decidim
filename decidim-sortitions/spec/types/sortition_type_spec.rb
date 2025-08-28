@@ -40,7 +40,16 @@ module Decidim
         let(:query) { "{ requestTimestamp }" }
 
         it "returns when the sortition was created" do
-          expect(response["requestTimestamp"]).to eq(model.request_timestamp.to_date.iso8601)
+          expect(response["requestTimestamp"]).to eq(model.request_timestamp.to_time.iso8601)
+        end
+      end
+
+      describe "proposals" do
+        let(:query) { "{ proposals { id } }" }
+
+        it "returns all the required fields" do
+          response_ids = response["proposals"].map { |selected_proposal| selected_proposal }
+          expect(response_ids).to eq(model.proposals.map { |s| { "id" => s.id.to_s } })
         end
       end
 
@@ -98,6 +107,14 @@ module Decidim
 
         it "returns when the sortition was updated" do
           expect(response["updatedAt"]).to eq(model.updated_at.to_time.iso8601)
+        end
+      end
+
+      describe "url" do
+        let(:query) { "{ url }" }
+
+        it "returns all the required fields" do
+          expect(response["url"]).to eq(Decidim::ResourceLocatorPresenter.new(model).url)
         end
       end
 

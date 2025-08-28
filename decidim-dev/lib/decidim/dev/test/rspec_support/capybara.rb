@@ -30,28 +30,21 @@ module Decidim
   end
 end
 
-1.step do
-  port = rand(5000..6999)
+# Expected values: "", "2", "3", etc. (see parallel_tests documentation)
+parallel_run_idx = ENV.fetch("TEST_ENV_NUMBER", "").to_i
+parallel_run_idx -= 1 if parallel_run_idx.positive?
+Capybara.server_port = 1.step do |num|
+  port = 4999 + num + (100 * parallel_run_idx)
+  next if port == 5432 # Reserved for PostgreSQL
   next if port == 6379 # Reserved for Redis
 
+  # Make sure the port is not reserved by any other application.
   begin
-    redis = Redis.new
-    reserved_ports = (redis.get("decidim_test_capybara_reserved_ports") || "").split(",").map(&:to_i)
-    unless reserved_ports.include?(port)
-      reserved_ports << port
-      if ParallelTests.last_process?
-        redis.del("decidim_test_capybara_reserved_ports")
-      else
-        redis.set("decidim_test_capybara_reserved_ports", reserved_ports.sort.join(","))
-      end
-      break
-    end
-  rescue Redis::CannotConnectError
-    # Redis is not available
-    break
+    Socket.tcp("127.0.0.1", port, connect_timeout: 5).close
+    warn "Port #{port} is already in use, trying another one."
+  rescue Errno::ECONNREFUSED
+    break port
   end
-ensure
-  Capybara.server_port = port
 end
 
 Capybara.register_driver :headless_chrome do |app|

@@ -51,9 +51,9 @@
           </div>
         </div>
 
-        <% presented_endorsers = endorsers_presenters_for(proposal) %>
-        <% if presented_endorsers.any? %>
-          <%= render partial: "decidim/proposals/admin/proposals/endorsers", locals: { presented_endorsers:, proposal: } %>
+        <% presented_likes = likes_presenters_for(proposal) %>
+        <% if presented_likes.any? %>
+          <%= render partial: "decidim/proposals/admin/proposals/likes", locals: { presented_likes:, proposal: } %>
         <% end %>
 
         <% if proposal.documents.any? %>
@@ -118,17 +118,17 @@
         </div>
 
         <div class="card-section">
-          <div class="row column" data-endorsements>
-            <span class="component__show-title"><%= t ".endorsements_count" %></span>
+          <div class="row column" data-likes>
+            <span class="component__show-title"><%= t ".likes_count" %></span>
             <div class="flex items-center gap-x-2 mt-2">
               <%= icon "like", class: "fill-gray" %>
               <p class="component__show-icon-text" data-count>
-                <%= proposal.endorsements_count %>
+                <%= proposal.likes_count %>
               </p>
               <div class="flex items-center gap-x-2 border-l border-gray pl-2">
                 <%= icon "bar-chart-2-line", class: "fill-gray" %>
                 <p class="component__show-icon-text" data-ranking>
-                  <%= i18n_endorsements_ranking_for(proposal) %>
+                  <%= i18n_likes_ranking_for(proposal) %>
                 </p>
               </div>
             </div>

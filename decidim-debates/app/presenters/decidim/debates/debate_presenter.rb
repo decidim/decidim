@@ -23,16 +23,16 @@ module Decidim
                     end
       end
 
-      def title(links: false, all_locales: false, html_escape: false)
+      def title(html_escape: false, all_locales: false)
         return unless debate
 
-        super(debate.title, links, html_escape, all_locales)
+        super(debate.title, html_escape, all_locales)
       end
 
-      def description(strip_tags: false, extras: true, links: false, all_locales: false)
+      def description(links: false, strip_tags: false, all_locales: false)
         return unless debate
 
-        content_handle_locale(debate.description, all_locales, extras, links, strip_tags)
+        content_handle_locale(debate.description, all_locales, links, strip_tags)
       end
 
       def last_comment_at

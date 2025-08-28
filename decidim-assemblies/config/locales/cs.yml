@@ -10,9 +10,6 @@ cs:
         closing_date: Datum ukončení
         closing_date_reason: Důvod data ukončení
         composition: Složení
-        copy_categories: Kopírovat kategorie
-        copy_components: Kopírovat komponenty
-        copy_features: Kopírovat vlastnosti
         created_by: Vytvořil
         created_by_other: Vytvořeno jinými
         creation_date: Datum vytvoření
@@ -25,7 +22,6 @@ cs:
         duration: Doba trvání
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
         hero_image: Obrázek na hlavní stránce
         import_attachments: Importovat přílohy
         import_categories: Importovat kategorie
@@ -118,15 +114,6 @@ cs:
         update:
           error: Při aktualizaci tohoto shromáždění došlo k chybě.
           success: Shromáždění úspěšně aktualizováno.
-      assemblies_copies:
-        create:
-          error: Při kopírování tohoto shromáždění došlo k chybě.
-          success: Shromáždění úspěšně duplikováno.
-      assembly_copies:
-        new:
-          copy: Kopírovat
-          select: Vyberte, která data chcete duplikovat
-          title: Zduplikovat shromáždění
       assembly_imports:
         create:
           error: Při importu tohoto shromáždění došlo k chybě.
@@ -176,7 +163,7 @@ cs:
           attachments: Přílohy
           components: Komponenty
           info: O tomto shromáždění
-          landing_page: Úvodní stránka
+          landing_page: Rozložení vstupní strany
           moderations: Moderování
           private_users: Členové
           see_assembly: Zobrazit shromáždění
@@ -199,6 +186,7 @@ cs:
             vice_president: Místopředseda
         assembly_user_role:
           fields:
+            actions: Akce
             email: E-mail
             name: Název
             role: Role
@@ -265,9 +253,6 @@ cs:
             taxonomies: Taxonomie
             title: Obecná informace
             visibility: Viditelnost
-        assembly_copies:
-          form:
-            slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         assembly_imports:
           form:
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
@@ -402,7 +387,6 @@ cs:
           facebook_handler: Handler sociálních médií pro Facebook
           follows_count: Počet uživatelů sledujících tento prostor
           github_handler: Handler sociálních médií pro GitHub
-          hashtag: Hashtag Shromáždění, používaný pro Twitter/X
           id: Jedinečný identifikátor ttohoto shromáždění
           included_at: Datum, kdy bylo shromáždění zahrnuto
           instagram_handler: Handler sociálních médií pro Instagram
@@ -436,6 +420,7 @@ cs:
         related_assemblies: Související shromáždění
     statistics:
       assemblies_count: Shromáždění
+      assemblies_count_tooltip: Počet veřejných shromáždění, kde jsou přijímána kolektivní rozhodnutí.
   layouts:
     decidim:
       assemblies:

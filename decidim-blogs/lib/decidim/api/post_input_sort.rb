@@ -4,7 +4,7 @@ module Decidim
   module Blogs
     class PostInputSort < Decidim::Core::BaseInputSort
       include Decidim::Core::HasTimestampInputSort
-      include Decidim::Core::HasEndorsableInputSort
+      include Decidim::Core::HasLikeableInputSort
 
       graphql_name "PostSort"
       description "A type used for sorting blog posts"

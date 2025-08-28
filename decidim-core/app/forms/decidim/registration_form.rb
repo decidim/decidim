@@ -37,7 +37,7 @@ module Decidim
     end
 
     def generate_nickname(name, organization)
-      Decidim::UserBaseEntity.nicknamize(name, organization:)
+      Decidim::UserBaseEntity.nicknamize(name, organization.id)
     end
 
     def valid_users

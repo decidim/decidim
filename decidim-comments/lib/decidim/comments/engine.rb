@@ -35,9 +35,12 @@ module Decidim
       end
 
       initializer "decidim_comments.stats" do
-        Decidim.stats.register :comments_count, priority: StatsRegistry::MEDIUM_PRIORITY do |organization|
+        Decidim.stats.register :comments_count,
+                               priority: StatsRegistry::HIGH_PRIORITY,
+                               icon_name: "chat-1-line",
+                               tooltip_key: "comments_count" do |organization|
           Decidim.component_manifests.sum do |component|
-            component.stats.filter(tag: :comments).with_context(organization.published_components).map { |_name, value| value }.sum
+            component.stats.filter(tag: :comments).with_context(organization.published_components).map { |_name, value| value }.compact_blank.sum
           end
         end
       end

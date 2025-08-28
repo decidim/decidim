@@ -1,6 +1,6 @@
 import dayjs from "dayjs"
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   const $impersonationWarning = $("[data-impersonation-warning]");
   if ($impersonationWarning.length) {
     const endsAt = dayjs($impersonationWarning.data("session-ends-at"));

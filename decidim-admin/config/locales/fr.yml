@@ -45,8 +45,6 @@ fr:
         available_authorizations: Autorisations disponibles
         badges_enabled: Activer les badges
         comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
-        cta_button_path: Chemin du bouton d'action
-        cta_button_text: Texte du bouton d'action
         customize_welcome_notification: Personnaliser le mail de bienvenue
         default_locale: Langue par défaut
         description: Description
@@ -61,13 +59,6 @@ fr:
         header_snippets: Éléments à ajouter entre les balises HTML
         highlight_alternative_color: Surbrillance alternative
         highlight_color: Surbrillance
-        highlighted_content_banner_action_subtitle: Sous-titre du bouton d'action
-        highlighted_content_banner_action_title: Titre du bouton d'action
-        highlighted_content_banner_action_url: URL du bouton d'action
-        highlighted_content_banner_enabled: Afficher la bannière de contenu mis en valeur
-        highlighted_content_banner_image: Image
-        highlighted_content_banner_short_description: Brève description
-        highlighted_content_banner_title: Titre
         host: Host
         instagram_handler: Gestionnaire Instagram
         logo: Logo
@@ -175,12 +166,17 @@ fr:
   decidim:
     admin:
       actions:
+        actions: Actions
+        actions_label: Actions pour %{resource}
         add: Ajouter
         attachment:
           new: Nouvelle pièce jointe
         attachment_collection:
           new: Nouveau dossier
+        attachment_collections: Ajouter un dossier
+        attachments: Ajouter une pièce jointe
         browse: Parcourir
+        configure: Configurer
         confirm_delete_component: |
           Êtes-vous sûr de vouloir supprimer cette fonctionnalité ?<br>
           Cette fonctionnalité contient :<br>
@@ -188,21 +184,22 @@ fr:
             <li class="font-bold">%{resources_count} ressources</li>
           </ul>
           Si vous changez d'avis, vous pourrez annuler cette action plus tard.
-        export: Tout exporter
+        export: Exporter
         export-selection: Exporter la sélection
         import: Importer
-        manage: Gérer
+        menu_hidden: Masquer dans le menu
+        moderate: Gérer les modérations
         newsletter:
           new: Nouvelle newsletter
         participatory_space_private_user:
           new: Nouvel utilisateur privé de l'espace participatif
         per_page: Par page
-        permissions: Autorisations
+        permissions: Gérer les permissions
         restore: Restaurer
         send_me_a_test_email: Envoyez-moi un e-mail de test
         share: Partager
-        share_tokens: Liens d'accès
-        soft_delete: Placer dans la corbeille
+        share_tokens: Partager le lien
+        soft_delete: Déplacer vers la corbeille
         user:
           new: Nouvel administrateur
         view_deleted_components: Voir les composants supprimés
@@ -353,7 +350,7 @@ fr:
         attempts: Tentatives
         'false': 'Non'
         index:
-          text: Recherche par adresse e-mail, nom ou pseudonyme.
+          text: Recherche par email, nom ou pseudo de l'utilisateur actuel
         managed_user_name: Utilisateur représenté
         solved: Résolu
         title: Conflits de vérification
@@ -455,11 +452,11 @@ fr:
         remove_all: Tout supprimer
         search_label: Rechercher
         search_placeholder:
-          name_or_nickname_or_email_cont: Rechercher les %{collection} par e-mail, nom ou pseudo.
+          name_or_nickname_or_email_cont: Rechercher %{collection} par e-mail, nom ou pseudo
           report_count_eq: Nombre de signalement
-          reported_id_string_or_reported_content_cont: Rechercher %{collection} par Id ou par contenu.
-          title_cont: Rechercher %{collection} par titre.
-          user_name_or_user_nickname_or_user_email_cont: Rechercher les %{collection} par e-mail, nom ou pseudo.
+          reported_id_string_or_reported_content_cont: Rechercher %{collection} par id ou contenu signalable
+          title_cont: Rechercher %{collection} par titre
+          user_name_or_user_nickname_or_user_email_cont: Rechercher %{collection} par e-mail, nom ou pseudo
         state_eq:
           label: État
           values:
@@ -477,7 +474,9 @@ fr:
             message_1: Les fichiers CSV, JSON et Excel (.xlsx) sont supportés
             message_2: Pour les fichiers CSV, le séparateur entre les colonnes doit être un point-virgule (";")
           import_csv:
+            explanation: 'Prérequis pour le fichier :'
             message_1: Les fichiers CSV sont pris en charge
+            message_2: "Fichier .csv avec les données des emails"
       help_sections:
         error: Un problème est survenu lors de la mise à jour des sections d’aide.
         form:
@@ -556,7 +555,7 @@ fr:
       logs:
         filters:
           participatory_space: Trouver un espace participatif
-          text: Recherche par adresse e-mail, nom ou pseudonyme.
+          text: Recherche par e-mail, nom ou pseudo
           user: Utilisateur
         logs_list:
           no_logs_yet: Il n'y a pas encore de journaux d'activité. 
@@ -583,8 +582,9 @@ fr:
         content: Contenu signalé
         external_domain_allowlist: Domaines externes autorisés
         help_sections: Sections d'aide
-        homepage: Page d'accueil
+        homepage: Mise en page de la page d'accueil
         impersonations: Utilisateurs représentés
+        insights: Aperçus
         manage: Gérer
         moderation: Modération globale
         newsletters: Bulletins d'information (newsletter)
@@ -597,6 +597,7 @@ fr:
         share_tokens: Liens d'accès
         static_page_topics: Sujets
         static_pages: Pages
+        statistics: Statistiques
         taxonomies: Taxonomies
         taxonomy_filters: Filtres de taxonomie
         users: Utilisateurs
@@ -686,7 +687,7 @@ fr:
               update_moderated_user_button: Annuler les signalements
             title: Actions
             unblock: Débloquer l'utilisateur
-            unreport: Annuler le signalement
+            unreport: Annuler le rapport
           cancel: Annuler
           name: Nom
           nickname: Pseudonyme
@@ -710,10 +711,10 @@ fr:
               title: Masquer
               update_moderation_button: Masquer les ressources sélectionnées
             unhide:
-              title: Afficher
+              title: Annuler le masquage
               update_moderation_button: Afficher les ressources sélectionnées
             unreport:
-              title: Annuler le signalement
+              title: Annuler le rapport
               update_moderation_button: Annuler le signalement des ressources sélectionnées
           cancel: Annuler
           selected: sélectionné
@@ -841,7 +842,7 @@ fr:
         index:
           actions: Actions
           badge: Badge
-          block: Bloquer l'utilisateur
+          block: Bloquer
           created_at: Créée le
           name: Nom
           nickname: Pseudonyme
@@ -850,9 +851,10 @@ fr:
           officialized: Validé
           reofficialize: De nouveau validé
           reports: Signalements
-          show_email: Montrer les adresses e-mail
+          send_message: Envoyer le message
+          show_email: Afficher l'e-mail
           status: Statut
-          unblock: Débloquer l'utilisateur
+          unblock: Débloquer
           unofficialize: Invalider
         new:
           badge: Badge de validation
@@ -873,48 +875,40 @@ fr:
           title: Modifier l'organisation
           update: Mettre à jour
         form:
-          facebook: Facebook
-          github: GitHub
-          instagram: Instagram
-          rich_text_editor_in_public_views_help: Dans certains champs textuels, les participants pourront insérer des balises HTML en utilisant l'éditeur de texte avancé.
-          social_handlers: Liens des réseaux sociaux
-          twitter: X
-          url: URL
-          youtube: YouTube
-        update:
-          error: Erreur lors de la mise à jour de cette organisation.
-          success: Organisation mise à jour avec succès.
-      organization_appearance:
-        edit:
-          update: Mettre à jour
-        form:
+          admin_terms_of_service: Conditions d'utilisation administrateur
+          basic_configuration: Configuration de base
           colors:
             choose_color: Choisir une couleur primaire
             colors_title: Couleurs de l'organisation
-            colors_warning_html: Attention ! La modification de ces couleurs peut contrevenir aux règles d'accessibilité sur les taux de contraste. Vous pouvez vérifier le taux de contraste de votre choix avec <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> ou d'autres outils similaires.
-            explanation: Cet outil vous aide à choisir une palette de couleurs, composée de teintes placées à égale distance autour de la roue de couleur, qui seront utilisés sur la plateforme.
+            colors_warning_html: Attention ! La modification de ces couleurs peut contrevenir aux règles d'accessibilité sur les taux de contraste. Vous pouvez vérifier le taux de contraste choisi avec <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> ou d'autres outils similaires.
+            explanation: Cet outil vous aide à choisir une palette de couleurs, composée de teintes placées à égale distance autour de la roue des couleurs, qui seront utilisées sur la plateforme.
             legend_html: Couleurs principales de l'application, basées sur <a href="https://www.color-meanings.com/triadic-colors/">l'algorithme triadique</a>. La couleur <i>secondaire</i> est automatiquement calculée à partir de la couleur primaire et de la saturation que vous avez choisies.
             saturation: Saturation
             title: Sélecteur de couleurs
             update_suggested_colors: Mettre à jour les couleurs suggérées
-          cta_button_path_help_html: 'Vous pouvez remplacer le lien du bouton d''appel à l''action de la page d''accueil. Utilisez des chemins partiels, pas des URL complètes ici. Accepte les lettres, chiffres, tirets et barres obliques, et doit commencer par une lettre. Le bouton d''appel à l''action est affiché sur la page d''accueil entre le texte de bienvenue et la description. Exemple : %{url}'
-          cta_button_text_help: Vous pouvez remplacer le texte du bouton dans la page d'accueil pour chaque langue disponible dans votre organisation. Si elle n'est pas définie, la valeur par défaut sera utilisée. Le bouton apparaît sur la page d'accueil entre le texte de bienvenue et la description.
-          header_snippets:
-            header_snippets_help_html: Utilisez ce champ pour ajouter des éléments à l'en-tête "head" HTML. L’utilisation la plus courante est d’intégrer des services tiers qui nécessitent du JavaScript ou du CSS supplémentaires. De plus, vous pouvez l'utiliser pour ajouter des balises méta supplémentaires au HTML. Notez que cela ne sera rendu que dans les pages publiques, pas dans la section admin. Si le code interagit avec des API externes ou ne respecte pas les directives de sécurité de l'application, il sera nécessaire de modifier la politique de sécurité du contenu. En savoir plus <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">sur le site de documentation</a>.
-            title: Éléments à ajouter à l'en-tête "head" HTML
-          homepage_appearance_title: Modifier l'apparence de la page d'accueil
-          homepage_highlighted_content_banner_title: Bannière de contenu mis en valeur
-          images:
-            layout_appearance_title: Modifier l’aspect de la mise en page
+          extra_features: Fonctionnalités supplémentaires
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          logos:
+            organization_logos: Logos de l'organisation
             preview: Aperçu
-          omnipresent_banner_appearance_title: Modifier la bannière permanente
+          rich_text_editor_in_public_views_help: Dans certains champs textuels, les participants pourront insérer des balises HTML en utilisant l'éditeur de texte avancé.
+          social_handlers: Liens des réseaux sociaux
+          twitter: X
+          url: URL
+          welcome_notification: Notification de bienvenue
+          youtube: YouTube
+        update:
+          error: Erreur lors de la mise à jour de cette organisation.
+          success: Organisation mise à jour avec succès.
       organization_external_domain_allowlist:
         edit:
           update: Mettre à jour
         external_domain:
           down: Descendre
           external_domain: Domaine externe
-          remove: Retirer
+          remove: Supprimer
           up: Monter
         form:
           add: Ajouter à la liste autorisée
@@ -1087,7 +1081,7 @@ fr:
           success: Sujet mis à jour avec succès
       static_pages:
         actions:
-          view: Voir la page publique
+          view: Afficher
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle page.
           success: Page créée avec succès.
@@ -1115,13 +1109,19 @@ fr:
       taxonomies:
         actions:
           actions: Actions
-          destroy: Supprimer la taxonomie et les éléments
-          edit: Modifier la taxonomie et les éléments
-          filters: Gérer les filtres
+          destroy: Supprimer
+          edit: Modifier
+          filters: Appliquer les filtres
         breadcrumb:
           edit: Modifier la taxonomie
           new: Nouvelle taxonomie
         count: Ressources associées
+        edit:
+          update: Mettre à jour
+        filters:
+          search_placeholder: Rechercher
+        index:
+          new_taxonomy: Nouvelle taxonomie
         total_filters: Filtres
       taxonomy_filters:
         breadcrumb:
@@ -1156,6 +1156,7 @@ fr:
           save: Enregistrer
         show:
           items_count: "%{count} éléments"
+          remove: Supprimer
         taxonomies_select:
           filters: Filtres
       titles:
@@ -1165,8 +1166,6 @@ fr:
         authorization_workflows: Méthodes de vérification
         dashboard: Tableau de bord
         edit_external_domains: Liste des domaines externes autorisés
-        edit_landing_page: Contenus de la page
-        edit_organization_appearance: Modifier l'apparence de la page d'accueil
         impersonatable_users: Utilisateurs pouvant être représentés
         impersonations: Gestion des utilisateurs
         menu: Menu
@@ -1176,9 +1175,12 @@ fr:
         participants: Utilisateurs
         scope_types: Types de secteur
         scopes: Secteurs
-        statistics: Activité
+        statistics: Statistiques
         users: Administrateurs
       tooltips:
+        cannot_destroy_taxonomy_filter: Impossible de détruire ce filtre de taxonomie
+        cannot_edit_taxonomy_filter: Impossible de modifier ce filtre de taxonomie
+        deleted_attachment_collections_info: Impossible de supprimer ce dossier car il contient des pièces jointes.
         deleted_component_info: Ce composant ne peut être supprimé que si son statut est 'non publié'.
       trash_management:
         restore:
@@ -1221,8 +1223,8 @@ fr:
         not_hidden: Visibles
         parent_hidden: Vous ne pouvez pas rendre visible cette ressource car son parent est toujours caché.
         title: Actions
-        unhide: Afficher
-        unreport: Annuler le signalement
+        unhide: Annuler le masquage
+        unreport: Annuler le rapport
       admin:
         reportable:
           hide:
@@ -1261,5 +1263,7 @@ fr:
       admin:
         global_moderations:
           title: Modération globale
+        insights:
+          title: Aperçus
         taxonomy_filters_selector:
           title:

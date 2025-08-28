@@ -20,23 +20,22 @@ describe "Decidim::Api::QueryType" do
       "categories" => [],
       "children" => [],
       "childrenCount" => 0,
-      "closingDate" => assembly.closing_date.to_date.to_s,
+      "closingDate" => assembly.closing_date.iso8601,
       "closingDateReason" => { "translation" => assembly.closing_date_reason[locale] },
       "components" => [],
       "composition" => { "translation" => assembly.composition[locale] },
       "createdAt" => assembly.created_at.to_time.iso8601,
       "createdBy" => assembly.created_by,
       "createdByOther" => { "translation" => assembly.created_by_other[locale] },
-      "creationDate" => assembly.creation_date.to_date.to_s,
+      "creationDate" => assembly.creation_date.iso8601,
       "description" => { "translation" => assembly.description[locale] },
       "developerGroup" => { "translation" => assembly.developer_group[locale] },
       "duration" => assembly.duration.to_s,
       "facebookHandler" => assembly.facebook_handler,
       "followsCount" => 3,
       "githubHandler" => assembly.github_handler,
-      "hashtag" => assembly.hashtag,
       "id" => assembly.id.to_s,
-      "includedAt" => assembly.included_at.to_date.to_s,
+      "includedAt" => assembly.included_at.iso8601,
       "instagramHandler" => assembly.instagram_handler,
       "internalOrganisation" => { "translation" => assembly.internal_organisation[locale] },
       "isTransparent" => assembly.is_transparent?,
@@ -112,7 +111,6 @@ describe "Decidim::Api::QueryType" do
         facebookHandler
         followsCount
         githubHandler
-        hashtag
         heroImage
         id
         includedAt
@@ -210,7 +208,7 @@ describe "Decidim::Api::QueryType" do
         %(
           assemblies{
             stats{
-              name
+              name { translation(locale: "en") }
               value
             }
           }
@@ -266,7 +264,6 @@ describe "Decidim::Api::QueryType" do
         facebookHandler
         followsCount
         githubHandler
-        hashtag
         heroImage
         id
         includedAt
@@ -353,15 +350,15 @@ describe "Decidim::Api::QueryType" do
     it_behaves_like "implements stats type" do
       let(:assemblies) do
         %(
-          assembly(id: #{assembly.id}){
+          assemblies {
             stats{
-              name
+              name { translation(locale: "#{locale}") }
               value
             }
           }
         )
       end
-      let(:stats_response) { response["assembly"]["stats"] }
+      let(:stats_response) { response["assemblies"].first["stats"] }
     end
   end
 end

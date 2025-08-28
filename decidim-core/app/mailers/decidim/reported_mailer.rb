@@ -21,14 +21,29 @@ module Decidim
       end
     end
 
-    def hide(user, report)
+    # This is used when a user with special rights (like an administrator, a space administrator or a moderator) hides a resource
+    def hidden_manually(user, report, current_user)
       with_user(user) do
         @report = report
         @participatory_space = @report.moderation.participatory_space
         @reportable = @report.moderation.reportable
         @organization = user.organization
         @user = user
-        subject = I18n.t("hide.subject", scope: "decidim.reported_mailer")
+        @moderator = current_user
+        subject = I18n.t("hidden_manually.subject", scope: "decidim.reported_mailer", moderator: @moderator.name)
+        mail(to: user.email, subject:)
+      end
+    end
+
+    # This is meant to be used when a resource is hidden by an algorithm, such as the `decidim-ai` module, or the `Decidim.max_reports_before_hiding` feature.
+    def hidden_automatically(user, report)
+      with_user(user) do
+        @report = report
+        @participatory_space = @report.moderation.participatory_space
+        @reportable = @report.moderation.reportable
+        @organization = user.organization
+        @user = user
+        subject = I18n.t("hidden_automatically.subject", scope: "decidim.reported_mailer")
         mail(to: user.email, subject:)
       end
     end

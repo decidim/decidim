@@ -10,9 +10,6 @@ es:
         closing_date: Fecha de cierre
         closing_date_reason: Razón de la fecha de cierre
         composition: Composición
-        copy_categories: Copiar categorías
-        copy_components: Copiar componentes
-        copy_features: Copiar funcionalidades
         created_by: Creado por
         created_by_other: Creado por otra
         creation_date: Fecha de creacion
@@ -22,10 +19,12 @@ es:
         developer_group: Grupo promotor
         document: Documento
         domain: Dominio
+        duplicate_categories: Duplicar las categorías
+        duplicate_components: Duplicar los componentes
+        duplicate_features: Duplicar las funcionalidades
         duration: Duración
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
         hero_image: Imagen de portada
         import_attachments: Importar archivos adjuntos
         import_categories: Importar categorias
@@ -112,13 +111,13 @@ es:
         update:
           error: Se ha producido un error al actualizar esta asamblea.
           success: La asamblea se ha actualizado correctamente.
-      assemblies_copies:
+      assemblies_duplicates:
         create:
           error: Se ha producido un error al duplicar esta asamblea.
-          success: Asamblea duplicada correctamente.
-      assembly_copies:
+          success: La asamblea se ha duplicado correctamente.
+      assembly_duplicates:
         new:
-          copy: Copiar
+          duplicate: Duplicar
           select: Selecciona qué datos quieres duplicar
           title: Duplicar asamblea
       assembly_imports:
@@ -170,7 +169,7 @@ es:
           attachments: Adjuntos
           components: Componentes
           info: Acerca de esta asamblea
-          landing_page: Página de inicio
+          landing_page: Disposición de la página de aterrizaje
           moderations: Moderaciones
           private_users: Miembros
           see_assembly: Ver la asamblea
@@ -193,6 +192,7 @@ es:
             vice_president: Vicepresidencia
         assembly_user_role:
           fields:
+            actions: Acciones
             email: Correo electrónico
             name: Nombre
             role: Rol
@@ -259,9 +259,9 @@ es:
             taxonomies: Taxonomías
             title: Información general
             visibility: Visibilidad
-        assembly_copies:
+        assembly_duplicates:
           form:
-            slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         assembly_imports:
           form:
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
@@ -396,7 +396,6 @@ es:
           facebook_handler: Controlador de redes sociales para Facebook
           follows_count: El número de usuarias que siguen esta asamblea
           github_handler: Controlador de redes sociales para GitHub
-          hashtag: La etiqueta que utiliza la asamblea en Twitter/X
           id: El identificador único del resultado
           included_at: La fecha en que la asamblea fue incluida en la plataforma
           instagram_handler: Controlador de redes sociales para Instagram
@@ -430,6 +429,7 @@ es:
         related_assemblies: Asambleas relacionadas
     statistics:
       assemblies_count: Asambleas
+      assemblies_count_tooltip: El número de asambleas públicas donde se toman las decisiones colectivas.
   layouts:
     decidim:
       assemblies:

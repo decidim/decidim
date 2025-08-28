@@ -325,9 +325,9 @@ describe Decidim::Assemblies::Permissions do
     )
   end
 
-  context "when copying an assembly" do
+  context "when duplicating an assembly" do
     let(:action) do
-      { scope: :admin, action: :copy, subject: :assembly }
+      { scope: :admin, action: :duplicate, subject: :assembly }
     end
 
     it_behaves_like(
@@ -531,8 +531,8 @@ describe Decidim::Assemblies::Permissions do
 
   describe "when acting with assemblies admins and children assemblies" do
     let!(:user) { create(:assembly_admin, assembly: mother_assembly) }
-    let(:mother_assembly) { create(:assembly, parent: assembly, organization:, hashtag: "mother") }
-    let(:child_assembly) { create(:assembly, parent: mother_assembly, organization:, hashtag: "child") }
+    let(:mother_assembly) { create(:assembly, parent: assembly, organization:) }
+    let(:child_assembly) { create(:assembly, parent: mother_assembly, organization:) }
 
     context "when assembly is a grandmother assembly" do
       let(:context) { { assembly: } }
@@ -553,9 +553,9 @@ describe Decidim::Assemblies::Permissions do
         it { is_expected.to be(false) }
       end
 
-      context "and action is :copy" do
+      context "and action is :duplicate" do
         let(:action) do
-          { scope: :admin, action: :copy, subject: :assembly }
+          { scope: :admin, action: :duplicate, subject: :assembly }
         end
 
         it { is_expected.to be(false) }
@@ -581,9 +581,9 @@ describe Decidim::Assemblies::Permissions do
         it { is_expected.to be(true) }
       end
 
-      context "and action is :copy" do
+      context "and action is :duplicate" do
         let(:action) do
-          { scope: :admin, action: :copy, subject: :assembly }
+          { scope: :admin, action: :duplicate, subject: :assembly }
         end
 
         it { is_expected.to be(true) }
@@ -609,9 +609,9 @@ describe Decidim::Assemblies::Permissions do
         it { is_expected.to be(true) }
       end
 
-      context "and action is :copy" do
+      context "and action is :duplicate" do
         let(:action) do
-          { scope: :admin, action: :copy, subject: :assembly }
+          { scope: :admin, action: :duplicate, subject: :assembly }
         end
 
         it { is_expected.to be(true) }

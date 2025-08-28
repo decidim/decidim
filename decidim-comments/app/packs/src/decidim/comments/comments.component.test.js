@@ -19,7 +19,7 @@ window.Rails = Rails;
 jest.useFakeTimers();
 
 import { createCharacterCounter } from "src/decidim/input_character_counter";
-import Configuration from "src/decidim/configuration";
+import Configuration from "src/decidim/refactor/implementation/configuration";
 // Component is loaded with require because using import loads it before $ has been mocked
 // so tests are not able to check the spied behaviours
 const CommentsComponent = require("./comments.component_for_testing.js");
@@ -213,7 +213,7 @@ describe("CommentsComponent", () => {
             <summary class="button button__sm button__text-secondary" aria-controls="toggle-context-menu-${commentId}">
               <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-more-line" tabindex="-1"></use></svg>
             </summary>
-            <ul id="toggle-context-menu-${commentId}" class="dropdown dropdown__bottom divide-y divide-gray-3 px-4">
+            <ul id="toggle-context-menu-${commentId}" class="dropdown dropdown__bottom divide-y divide-gray-3">
               <li>
                 <button type="button" class="dropdown__item" data-dialog-open="flagModalComment${commentId}" title="Report" aria-controls="flagModalComment${commentId}" aria-haspopup="dialog" tabindex="0">
                   <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-flag-line" tabindex="-1"></use></svg>
@@ -233,7 +233,7 @@ describe("CommentsComponent", () => {
         <div class="comment__content">
           <div><p>${content}</p></div>
         </div>
-        <div data-comment-footer data-component="accordion" role="presentation">
+        <div data-comment-footer data-controller="accordion" role="presentation">
           <div class="comment__footer-grid">
             <div class="comment__actions">
               <button class="button button__sm button__text-secondary" data-controls="panel-comment${commentId}-reply" role="button" tabindex="0" aria-controls="panel-comment${commentId}-reply" aria-expanded="false" aria-disabled="false">
@@ -447,6 +447,7 @@ describe("CommentsComponent", () => {
       spyOnAddComment("on");
       jest.spyOn(orderLinks, "on");
       jest.spyOn($doc, "trigger");
+      jest.spyOn(document, "dispatchEvent");
 
       subject.mountComponent();
     });
@@ -472,15 +473,6 @@ describe("CommentsComponent", () => {
         expect(addComment[i].commentForm.on).toHaveBeenCalledWith(
           "submit.decidim-comments",
           expect.any(Function)
-        );
-      });
-    });
-
-    it("attaches the mentions elements to the text fields", () => {
-      addComment.each((i) => {
-        expect($doc.trigger).toHaveBeenCalledWith(
-          "attach-mentions-element",
-          [addComment[i].commentTextarea[0]]
         );
       });
     });

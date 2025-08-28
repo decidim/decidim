@@ -145,12 +145,18 @@ ignore_unused:
   - decidim.components.*
   - decidim.collaborative_texts.admin_log.document.*
   - decidim.collaborative_texts.admin_log.version.*
+  - decidim.collaborative_texts.admin_log.suggestion.*
   - decidim.filters.linked_classes.*
   - decidim.shared.participatory_space_filters.filters.*
   - decidim.follows.create.participatory_space
   - decidim.forms.errors.*
   - decidim.forms.file_help.*
   - decidim.forms.admin_log.questionnaire.update
+  - decidim.elections.admin_log.election.*
+  - decidim.elections.admin_log.question.*
+  - decidim.elections.admin.statuses.*
+  - decidim.elections.elections.filters.state_values.*
+  - decidim.elections.elections.orders.*
   - decidim.proposals.answers.*
   - decidim.proposals.collaborative_drafts.show.see_other_versions
   - decidim.proposals.collaborative_drafts.wizard_aside.back
@@ -159,9 +165,9 @@ ignore_unused:
   - decidim.proposals.collaborative_drafts.wizard_aside.back_from_step_2
   - decidim.proposals.collaborative_drafts.wizard_aside.back_from_step_3
   - decidim.proposals.collaborative_drafts.wizard_aside.back_from_step_4
-  - decidim.proposals.proposal_endorsements_helper.endorsements_count_title
+  - decidim.proposals.proposal_likes_helper.likes_count_title
   - decidim.proposals.proposals.orders.*
-  - decidim.proposals.proposals.endorsements_card_row.comments_title
+  - decidim.proposals.proposals.likes_card_row.comments_title
   - decidim.proposals.proposals.wizard_aside.back
   - decidim.proposals.proposals.wizard_aside.back_from_step_1
   - decidim.proposals.proposals.wizard_aside.back_from_step_2
@@ -233,7 +239,7 @@ ignore_unused:
   - decidim.events.*
   - doorkeeper.scopes.*
   - decidim.proposals.proposals.votes_count.count.*
-  - decidim.proposals.proposals.show.hidden_endorsers_count.*
+  - decidim.proposals.proposals.show.hidden_likes_count.*
   - decidim.admin.taxonomies.breadcrumb.*
   - decidim.admin.taxonomy_filters.breadcrumb.*
   - decidim.admin.models.*.name
@@ -364,6 +370,8 @@ ignore_unused:
   - decidim.authorization_handlers.admin.{another_dummy_authorization_handler,csv_census,dummy_authorization_handler,ephemeral_dummy_authorization_handler,id_documents,postal_letter,sms}.help
   - time.buttons.*
   - decidim.profiles.show.members
+  - decidim.participatory_processes.static_pages.democratic_quality_indicators.*
+  - decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

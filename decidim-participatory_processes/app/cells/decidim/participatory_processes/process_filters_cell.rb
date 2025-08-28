@@ -18,6 +18,8 @@ module Decidim
 
       def get_filter(filter_name, default = nil)
         params&.dig(:filter, filter_name) || default
+      rescue ActionController::InvalidParameterKey
+        default
       end
 
       def get_filter_in(filter_name, options, default = nil)

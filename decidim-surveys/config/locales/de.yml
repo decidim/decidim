@@ -13,6 +13,8 @@ de:
         other: Antworten
   decidim:
     admin:
+      actions:
+        see_survey: Umfrage anzeigen
       admin_log:
         changeset:
           surveys: Umfragen
@@ -24,8 +26,6 @@ de:
           settings: Einstellungen
     components:
       surveys:
-        actions:
-          response: Antwort
         name: Umfragen
         settings:
           announcement: Ankündigung
@@ -47,6 +47,7 @@ de:
           notification_title: Die Umfrage <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> ist jetzt geöffnet.
     statistics:
       responses_count: Antworten
+      surveys_count_tooltip: Die Anzahl der verfügbaren Umfragen und abgegebenen Antworten.
     surveys:
       actions:
         confirm_destroy: Möchten Sie fortfahren und die Antworten löschen?
@@ -94,11 +95,11 @@ de:
           destroy:
             success: Umfrage erfolgreich gelöscht.
           edit:
-            title: Umfrage
+            title: Umfrage bearbeiten
           index:
             title: Umfragen
           new:
-            title: Umfrage
+            title: Neue Umfrage
           publish:
             invalid: Beim Veröffentlichen dieser Umfrage ist ein Problem aufgetreten.
             success: Umfrage erfolgreich veröffentlicht.

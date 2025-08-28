@@ -1,30 +1,3 @@
 <%= content_tag :div, id: node_id, data: { decidim_comments: comments_data } do %>
-  <div id="comments">
-    <div class="comments">
-      <div class="comments__header">
-        <h2 class="h4">
-          <% if single_comment? %>
-            <%= t("decidim.components.comments.comment_details_title") %>
-          <% else %>
-            <%= icon "chat-1-line", class: "fill-tertiary w-6 h-6 inline-block align-middle" %>
-            <span class="comments-count inline-block align-middle">
-              <%= t("decidim.components.comments.title", count: comments_count) %>
-            </span>
-          <% end %>
-        </h2>
-        <%= render :order_control unless two_columns_layout? %>
-      </div>
-      <%= single_comment_warning %>
-      <%= blocked_comments_warning %>
-      <%= render_comments %>
-      <% if user_signed_in? %>
-        <button class="button button__lg button__secondary flex md:hidden w-full h-9 text-sm add-comment-mobile">
-          <%= t("add_comment", scope: "decidim.components.add_comment_form") %>
-        </button>
-      <% end %>
-      <%= add_comment %>
-      <%= user_comments_blocked_warning %>
-    </div>
-    <%= cell("decidim/announcement", t("decidim.components.comments.loading"), callout_class: "primary loading-comments hidden") %>
-  </div>
+  <%= render :inline %>
 <% end %>

@@ -25,7 +25,7 @@ describe "Decidim::Api::QueryType" do
           commentsHaveAlignment
           commentsHaveVotes
           createdAt
-          endorsements {
+          likes {
             id
             avatarUrl
             badge
@@ -36,7 +36,7 @@ describe "Decidim::Api::QueryType" do
             profilePath
             __typename
           }
-          endorsementsCount
+          likesCount
           followsCount
           hasComments
           id
@@ -64,7 +64,7 @@ describe "Decidim::Api::QueryType" do
   end
   let(:component_type) { "Blogs" }
   let!(:current_component) { create(:post_component, participatory_space: participatory_process) }
-  let!(:post) { create(:post, :with_endorsements, component: current_component, published_at: 2.days.ago) }
+  let!(:post) { create(:post, :with_likes, component: current_component, published_at: 2.days.ago) }
   let!(:follows) { create_list(:follow, 3, followable: post) }
 
   let(:post_single_result) do
@@ -77,7 +77,7 @@ describe "Decidim::Api::QueryType" do
       "commentsHaveAlignment" => true,
       "commentsHaveVotes" => true,
       "createdAt" => post.created_at.to_time.iso8601,
-      "endorsements" => post.endorsements.map do |endo|
+      "likes" => post.likes.map do |endo|
         {
           "__typename" => "User",
           "avatarUrl" => endo.author.attached_uploader(:avatar).variant_url(:thumb),
@@ -90,7 +90,7 @@ describe "Decidim::Api::QueryType" do
           "profilePath" => "/profiles/#{endo.author.nickname}"
         }
       end,
-      "endorsementsCount" => 5,
+      "likesCount" => 5,
       "followsCount" => 3,
       "hasComments" => false,
       "id" => post.id.to_s,
@@ -123,6 +123,7 @@ describe "Decidim::Api::QueryType" do
           "startCursor" => "MQ"
         }
       },
+      "url" => Decidim::EngineRouter.main_proxy(current_component).root_url,
       "weight" => 0
     }
   end
@@ -170,7 +171,7 @@ describe "Decidim::Api::QueryType" do
               commentsHaveAlignment
               commentsHaveVotes
               createdAt
-              endorsements {
+              likes {
                 id
                 avatarUrl
                 badge
@@ -181,7 +182,7 @@ describe "Decidim::Api::QueryType" do
                 profilePath
                 __typename
               }
-              endorsementsCount
+              likesCount
               followsCount
               hasComments
               id
@@ -275,8 +276,8 @@ describe "Decidim::Api::QueryType" do
           }
         end
 
-        context "with endorsementCount" do
-          let(:criteria) { "order: { endorsementCount: \"asc\" }" }
+        context "with likeCount" do
+          let(:criteria) { "order: { likeCount: \"asc\" }" }
 
           it { expect(edges).to eq([{ "node" => { "id" => other_post.id.to_s } }, { "node" => { "id" => post.id.to_s } }]) }
         end

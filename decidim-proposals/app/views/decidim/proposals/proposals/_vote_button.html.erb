@@ -11,7 +11,7 @@
             <%= t("decidim.proposals.proposals.vote_button.votes_blocked") %>
           <% end %>
         <% else %>
-          <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list:), resource: proposal, class: button_classes, data: { "proposal-vote-button": true, disable: true, "redirect-url": proposal_path(proposal) } do %>
+          <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list:), resource: proposal, class: button_classes, data: { "proposal-vote-button": true, "redirect-url": proposal_path(proposal) } do %>
             <%= t("decidim.proposals.proposals.vote_button.vote") %>
             <span class="sr-only"><%= decidim_html_escape(present(proposal).title) %></span>
           <% end %>
@@ -25,12 +25,12 @@
             method: :delete,
             remote: true,
             data: {
-              disable: true,
               original: t("decidim.proposals.proposals.vote_button.already_voted"),
               replace: t("decidim.proposals.proposals.vote_button.already_voted_hover"),
               "proposal-vote-button": true,
               "redirect-url": proposal_path(proposal)
             },
+            disabled: current_settings.votes_blocked?,
             class: "#{button_classes}",
             id: "vote_button-#{proposal.id}"
           ) do %>
@@ -47,7 +47,7 @@
             <% elsif current_settings.votes_blocked? || !current_component.participatory_space.can_participate?(current_user) %>
               <%= content_tag :button, t("decidim.proposals.proposals.vote_button.votes_blocked"), class: button_classes, data: { "proposal-vote-button": true }, disabled: true %>
             <% else %>
-             <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list:), resource: proposal, remote: true, data: { "proposal-vote-button": true, disable: true, "redirect-url": proposal_path(proposal) }, class: button_classes do %>
+             <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list:), resource: proposal, remote: true, data: { "proposal-vote-button": true, "redirect-url": proposal_path(proposal) }, class: button_classes do %>
                 <%= t("decidim.proposals.proposals.vote_button.vote") %>
                 <span class="sr-only"><%= decidim_html_escape(present(proposal).title) %></span>
               <% end %>

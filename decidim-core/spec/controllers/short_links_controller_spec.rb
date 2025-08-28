@@ -6,7 +6,7 @@ module Decidim
   describe ShortLinksController do
     routes { Decidim::Core::Engine.routes }
 
-    let(:organization) { create(:organization) }
+    let(:organization) { create(:organization, host: "test.host") }
     let(:component) { create(:component, organization:) }
 
     before do

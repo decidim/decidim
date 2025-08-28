@@ -18,13 +18,14 @@ module Decidim
 
         it "renders the default main menu" do
           expect(default_main_menu).to \
-            have_css("li", count: 7) &
+            have_css("li", count: 8) &
             have_link("Global moderation", href: "/admin/moderations") &
             have_link("Pages", href: "/admin/static_pages") &
             have_link("Participants", href: "/admin/users") &
             have_link("Newsletters", href: "/admin/newsletters") &
             have_link("Settings", href: "/admin/organization/edit") &
             have_link("Admin activity log", href: "/admin/logs") &
+            have_link("Insights", href: "/admin/statistics") &
             have_link("Templates", href: "/admin/templates/questionnaire_templates")
         end
 

@@ -37,6 +37,9 @@ FactoryBot.define do
     longitude { Faker::Address.longitude }
     start_time { 1.day.from_now }
     end_time { start_time.advance(hours: 2) }
+    reminder_enabled { true }
+    send_reminders_before_hours { 48 }
+    reminder_message_custom_content { generate_localized_description(:meeting_reminder_message, skip_injection:) }
     private_meeting { false }
     transparent { true }
     questionnaire { build(:questionnaire) }

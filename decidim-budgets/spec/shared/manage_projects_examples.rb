@@ -14,7 +14,7 @@ shared_examples "manage projects" do
       expect(page).to have_content("Proposals")
     end
 
-    context "when geocoding is enabled", :serves_geocoding_autocomplete do
+    context "when geocoding is enabled" do
       let(:address) { "Some address" }
       let(:latitude) { 40.1234 }
       let(:longitude) { 2.1234 }
@@ -64,9 +64,9 @@ shared_examples "manage projects" do
       end
     end
 
-    context "when proposal linking is disabled" do
+    context "when the proposal module is not installed" do
       before do
-        allow(Decidim::Budgets).to receive(:enable_proposal_linking).and_return(false)
+        allow(Decidim).to receive(:module_installed?).and_return(false)
 
         # Reload the page with the updated settings
         visit current_path
@@ -80,6 +80,7 @@ shared_examples "manage projects" do
 
   it "updates a project" do
     within "tr", text: translated(project.title) do
+      find("button[data-controller='dropdown']").click
       click_on "Edit"
     end
 
@@ -105,13 +106,12 @@ shared_examples "manage projects" do
   context "when previewing projects" do
     it "allows the user to preview the project" do
       within "tr", text: translated(project.title) do
-        klass = "action-icon--preview"
-        href = resource_locator([project.budget, project]).path
-        target = "blank"
+        find("button[data-controller='dropdown']").click
+        preview_window = window_opened_by { click_on "Preview" }
 
-        expect(page).to have_xpath(
-          "//a[contains(@class,'#{klass}')][@href='#{href}'][@target='#{target}']"
-        )
+        within_window preview_window do
+          expect(page).to have_current_path resource_locator(project).path
+        end
       end
     end
   end
@@ -142,7 +142,7 @@ shared_examples "manage projects" do
   let(:attributes) { attributes_for(:project) }
 
   it "creates a new project", versioning: true do
-    within ".bulk-actions-budgets" do
+    within ".item_show__header-title" do
       click_on "New project"
     end
 
@@ -175,7 +175,8 @@ shared_examples "manage projects" do
 
     it "deletes a project" do
       within "tr", text: translated(project2.title) do
-        accept_confirm { click_on "Soft delete" }
+        find("button[data-controller='dropdown']").click
+        accept_confirm { click_on "Move to trash" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -193,6 +194,7 @@ shared_examples "manage projects" do
 
     it "updates a project", versioning: true do
       within "tr", text: translated(project.title) do
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
@@ -221,6 +223,7 @@ shared_examples "manage projects" do
       expect(project.linked_resources(:proposals, "included_proposals").count).to eq(5)
 
       within "tr", text: translated(project.title) do
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
@@ -236,7 +239,7 @@ shared_examples "manage projects" do
     end
 
     it "creates a new project" do
-      within ".bulk-actions-budgets" do
+      within ".item_show__header-title" do
         click_on "New project"
       end
 

@@ -50,13 +50,13 @@ FactoryBot.define do
     longitude { Faker::Address.longitude }
   end
 
-  factory :timeline_entry, class: "Decidim::Accountability::TimelineEntry" do
+  factory :milestone, class: "Decidim::Accountability::Milestone" do
     transient do
       skip_injection { false }
     end
     result { create(:result, skip_injection:) }
     entry_date { "12/7/2017" }
-    title { generate_localized_title(:timeline_entry_title, skip_injection:) }
-    description { generate_localized_title(:timeline_entry_description, skip_injection:) }
+    title { generate_localized_title(:milestone_title, skip_injection:) }
+    description { generate_localized_title(:milestone_description, skip_injection:) }
   end
 end

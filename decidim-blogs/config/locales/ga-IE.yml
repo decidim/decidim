@@ -32,11 +32,6 @@ ga:
       blogs:
         actions:
           comment: Tabhair Trácht
-          endorse: Formhuinigh
         name: Blag
-        settings:
-          step:
-            endorsements_blocked: Formhuinithe blocáilte
-            endorsements_enabled: Formhuinithe cumasaithe
     statistics:
       posts_count: Postálacha

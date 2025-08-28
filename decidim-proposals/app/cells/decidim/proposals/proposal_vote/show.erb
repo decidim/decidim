@@ -41,7 +41,6 @@
                 remote: true,
                 data: {
                   "proposal-vote-button": true,
-                  disable: true,
                   original: t("decidim.proposals.proposals.vote_button.already_voted"),
                   replace: t("decidim.proposals.proposals.vote_button.already_voted_hover"),
                   "redirect-url": proposal_path(resource)
@@ -59,7 +58,7 @@
             <%= content_tag :button, t("decidim.proposals.proposals.vote_button.maximum_votes_reached"), class: button_classes, disabled: true, data: { "proposal-vote-button": true } %>
           <% else %>
             <% if vote_limit_enabled? && remaining_votes_count_for_user == 0 %>
-              <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: resource, from_proposals_list:), resource: , remote: true, disabled: true, data: { "proposal-vote-button": true, disable: true, "redirect-url": proposal_path(resource) }, class: button_classes do %>
+              <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: resource, from_proposals_list:), resource: , remote: true, disabled: true, data: { "proposal-vote-button": true, "redirect-url": proposal_path(resource) }, class: button_classes do %>
                 <%= t("decidim.proposals.proposals.vote_button.vote") %>
                 <span class="sr-only"><%= decidim_html_escape(present(resource).title) %></span>
               <% end %>

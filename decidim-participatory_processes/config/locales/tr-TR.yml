@@ -4,15 +4,11 @@ tr:
       participatory_process:
         announcement: duyuru
         area_id: alan
-        copy_categories: Kategorileri kopyala
-        copy_components: Bileşenleri kopyala
-        copy_steps: Adımları kopyala
         decidim_area_id: alan
         description: Açıklama
         developer_group: Tanıtım grubu
         domain: domain
         end_date: Bitiş tarihi
-        hashtag: Başlık etiketi
         hero_image: Ana resim
         local_area: Organizasyon alanı
         meta_scope: Kapsam meta verileri
@@ -32,7 +28,6 @@ tr:
         description: Açıklama
         developer_group: Tanıtım grubu
         group_url: Web sitesi
-        hashtag: Etiket
         hero_image: görüntü
         local_area: Organizasyon alanı
         meta_scope: Kapsam meta verileri
@@ -71,7 +66,6 @@ tr:
     admin:
       actions:
         activate: etkinleştirmek
-        configure: Yapılandır
         confirm_destroy: Silmeyi onayla
         destroy: silmek
         duplicate: Çift
@@ -90,7 +84,6 @@ tr:
         participatory_process_groups: Süreç grupları
         participatory_process_groups_submenu:
           info: Bilgi
-          landing_page: Açılış sayfası
         participatory_processes: Süreçler
         participatory_processes_submenu:
           attachment_collections: Klasörler
@@ -134,11 +127,6 @@ tr:
           fields:
             invitation_accepted_at: Davet kabul edildi
             invitation_sent_at: Davetiye gönderildi
-      participatory_process_copies:
-        new:
-          copy: kopya
-          select: Çoğaltmak istediğiniz verileri seçin
-          title: Yinelenen katılımcı süreç
       participatory_process_groups:
         destroy:
           success: Katılımcı süreç grubu başarıyla silindi.
@@ -224,10 +212,6 @@ tr:
         update:
           error: Bu katılımcı süreci güncellerken bir hata oluştu.
           success: Katılımcı süreç başarıyla güncellendi.
-      participatory_processes_copies:
-        create:
-          error: Bu katılımcı süreci çoğaltırken bir hata oluştu.
-          success: Katılımcı süreç başarıyla kopyalandı.
       participatory_processes_group:
         create:
           error: Yeni bir katılımcı süreç grubu oluştururken bir hata oluştu.

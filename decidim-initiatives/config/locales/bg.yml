@@ -7,7 +7,6 @@ bg:
         area_id: Област
         decidim_scope_id: Обхват
         description: Описание
-        hashtag: Хаштаг
         offline_votes: Лични подписи
         offline_votes_for_scope: Лични подписи за %{scope_name}
         scope_id: Обхват
@@ -92,8 +91,6 @@ bg:
               validating: Техническа проверка
           type_id_eq:
             label: Тип
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Търсете в %{collection} по заглавие, описание, идент. № или име на автора.
       initiatives_settings:
         update:
           success: Настройките на инициативите са актуализирани успешно.
@@ -372,11 +369,6 @@ bg:
           email_outro: Получихте това известие, защото следвате %{author_nickname}. Можете да спрете да получавате известия, като последвате предходния линк.
           email_subject: Нова инициатива на %{author_nickname}
           notification_title: Инициативата <a href="%{resource_path}">%{resource_title}</a> беше създадена от <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, когото следвате, подкрепи следната инициатива; може би бихте искали да допринесете към дискусията:"
-          email_outro: Получихте това известие, защото следвате %{author_nickname}. Можете да спрете да получавате известия, като последвате предходния линк.
-          email_subject: Инициативата е подкрепена от %{author_nickname}
-          notification_title: Инициативата <a href="%{resource_path}">%{resource_title}</a> беше подкрепена от <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} отхвърли кандидатурата ви да станете част от комитета на промоторите за следната инициатива %{resource_title}."
           email_outro: 'Получихте това известие, защото кандидатствахте за тази инициатива: %{resource_title}.'
@@ -438,11 +430,6 @@ bg:
         initiatives:
           closed_initiatives_warning: В момента няма отворени инициативи, но тук можете да намерите всички изброени затворени инициативи.
           no_initiatives_warning: Няма инициативи, които да съответстват на критериите Ви за търсене.
-        interactions:
-          comments_count:
-            count:
-              one: Коментар
-              other: Коментари
         orders:
           label: 'Сортиране на инициативите по:'
           most_commented: Най-коментирани

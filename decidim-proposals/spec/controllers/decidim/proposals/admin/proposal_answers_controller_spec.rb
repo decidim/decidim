@@ -40,7 +40,7 @@ module Decidim
         end
 
         describe "PUT update" do
-          let(:proposals_path) { "decidim/proposals/admin/proposals/index" }
+          let(:proposals_path) { "/decidim/proposals/admin/proposals/index" }
           let(:params) do
             {
               id: proposal1.id,

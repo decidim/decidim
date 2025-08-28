@@ -36,8 +36,8 @@ sv:
               baz: Baz
               foo: Foo
           step:
-            endorsements_blocked: Blockera gilla-markeringar
-            endorsements_enabled: Aktivera gilla-markeringar
+            likes_blocked: Gilla är blockerat
+            likes_enabled: Gilla är aktiverat
             readonly_step_attribute: Attribut för skrivskyddat steg
             test_options:
               bar: Bar

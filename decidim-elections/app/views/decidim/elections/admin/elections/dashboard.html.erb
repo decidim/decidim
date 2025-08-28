@@ -1,0 +1,36 @@
+<% add_decidim_page_title(t(".title")) %>
+
+<% append_javascript_pack_tag "decidim_elections_admin" %>
+<% append_stylesheet_pack_tag "decidim_elections_admin" %>
+
+<%= render "decidim/elections/admin/elections/tabs_menu" do %>
+  <% if allowed_to?(:publish, :election, election:) %>
+    <%= link_to t("publish", scope: "decidim.elections.admin.elections.form"),
+                publish_election_path(election),
+                method: :put,
+                class: "main-tabs-menu__cta-button",
+                data: { confirm: t("publish_confirm", scope: "decidim.elections.admin.dashboard") } %>
+  <% else %>
+    <%= link_to resource_locator(election).path, class: "button button__xs button__transparent-secondary", target: :blank, data: { "external-link": false } do %>
+      <%= icon "eye-line" %>
+      <%# i18n-tasks-use t("decidim.elections.actions.view") %>
+      <%# i18n-tasks-use t("decidim.elections.actions.preview") %>
+      <%= t(election.published? ? "view" : "preview", scope: "decidim.elections.actions") %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<div class="item__edit-form">
+  <% if election.published? %>
+    <div class="flex flex-col md:flex-row gap-4 w-full mb-10">
+      <div class="flex-1"><%= render partial: "decidim/elections/admin/dashboard/status" %></div>
+      <div class="flex-1"><%= render partial: "decidim/elections/admin/dashboard/calendar" %></div>
+    </div>
+    <%= render partial: "decidim/elections/admin/dashboard/results" %>
+  <% else %>
+    <p class="mb-4"><%= t(".subtitle") %></p>
+    <%= render partial: "decidim/elections/admin/dashboard/main" %>
+    <%= render partial: "decidim/elections/admin/dashboard/questions" %>
+    <%= render partial: "decidim/elections/admin/dashboard/census" %>
+  <% end %>
+</div>

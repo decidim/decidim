@@ -27,7 +27,6 @@ lt:
       debates:
         actions:
           comment: Komentaras
-          endorse: Pritarti
         name: Diskusijos
         settings:
           global:
@@ -38,8 +37,6 @@ lt:
             announcement: Pranešimas
             comments_blocked: Komentarai užblokuoti
             creation_enabled: Dalyviai gali sukurti diskusijas
-            endorsements_blocked: Pritarimai užblokuoti
-            endorsements_enabled: Pritarimai aktyvuoti
     debates:
       actions:
         close: Uždaryti
@@ -111,7 +108,6 @@ lt:
           state: Būsena
           state_values:
             closed: Uždaryta
-            open: Atidaryta
         index:
           new_debate: Nauja diskusija
         new:
@@ -124,10 +120,8 @@ lt:
           recent: Naujausia
           updated: Neseniai atnaujinta
         show:
-          debate_closed: Uždaryta
           debate_conclusions_are: 'Diskusija uždaryta %{date} ir padarytos šios išvados:'
           edit_conclusions: Keisti išvadas
-          open: Atverti diskusiją
           participants_count: Dalyviai
         update:
           invalid: Atnaujinant diskusiją iškilo problema.

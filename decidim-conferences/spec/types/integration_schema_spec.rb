@@ -24,7 +24,6 @@ describe "Decidim::Api::QueryType" do
       "description" => { "translation" => conference.description[locale] },
       "endDate" => conference.end_date.to_s,
       "followsCount" => 3,
-      "hashtag" => conference.hashtag,
       "id" => conference.id.to_s,
       "location" => conference.location,
       "mediaLinks" => [],
@@ -41,7 +40,7 @@ describe "Decidim::Api::QueryType" do
       "slogan" => { "translation" => conference.slogan[locale] },
       "slug" => conference.slug,
       "speakers" => conference.speakers.map { |s| { "id" => s.id.to_s } },
-      "startDate" => conference.start_date.to_date.to_s,
+      "startDate" => conference.start_date.iso8601,
       "title" => { "translation" => conference.title[locale] },
       "type" => conference.class.name,
       "updatedAt" => conference.updated_at.to_time.iso8601,
@@ -70,7 +69,6 @@ describe "Decidim::Api::QueryType" do
         }
         endDate
         followsCount
-        hashtag
         heroImage
         id
         location
@@ -150,7 +148,7 @@ describe "Decidim::Api::QueryType" do
         %(
           conferences {
             stats{
-              name
+              name { translation(locale: "#{locale}") }
               value
             }
           }
@@ -181,7 +179,6 @@ describe "Decidim::Api::QueryType" do
         }
         endDate
         followsCount
-        hashtag
         heroImage
         id
         location
@@ -252,7 +249,7 @@ describe "Decidim::Api::QueryType" do
         %(
           conference(id: #{conference.id}){
             stats{
-              name
+              name { translation(locale: "en") }
               value
             }
           }

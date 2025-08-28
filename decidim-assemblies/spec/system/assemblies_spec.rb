@@ -185,7 +185,6 @@ describe "Assemblies" do
             expect(page).to have_content(translated(assembly.subtitle, locale: :en))
             expect(page).to have_content(translated(assembly.short_description, locale: :en))
             expect(page).to have_content(translated(assembly.meta_scope, locale: :en))
-            expect(page).to have_content(assembly.hashtag)
             expect(page).to have_content(translated(assembly.developer_group, locale: :en))
             expect(page).to have_content(translated(assembly.local_area, locale: :en))
             expect(page).to have_content(translated(assembly.target, locale: :en))
@@ -263,7 +262,7 @@ describe "Assemblies" do
         let(:blocks_manifests) { [:stats] }
 
         it "renders the stats for those components are visible" do
-          within "[data-statistic]" do
+          within "[data-statistic][class*=proposals]" do
             expect(page).to have_css(".statistic__title", text: "Proposals")
             expect(page).to have_css(".statistic__number", text: "3")
             expect(page).to have_no_css(".statistic__title", text: "Meetings")

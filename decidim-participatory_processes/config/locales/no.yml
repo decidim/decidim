@@ -4,16 +4,12 @@
       participatory_process:
         announcement: Kunngjøring
         area_id: Område
-        copy_categories: Kopier kategorier
-        copy_components: Kopier komponenter
-        copy_steps: Kopier trinn
         decidim_area_id: Område
         description: Beskrivelse
         developer_group: Promotørgruppe
         document: Dokument
         domain: Domene
         end_date: Sluttdato
-        hashtag: Emneknagg
         hero_image: Hovedbilde
         import_attachments: Importer vedlegg
         import_categories: Importer kategorier
@@ -39,7 +35,6 @@
         description: Beskrivelse
         developer_group: Promotørgruppe
         group_url: Nettside
-        hashtag: Emneknagg
         hero_image: Bilde
         local_area: Organisasjonsområde
         meta_scope: Tema metadata
@@ -84,13 +79,11 @@
     admin:
       actions:
         activate: Aktiver
-        configure: Konfigurer
         confirm_destroy: Bekreft sletting
         destroy: Slett
         duplicate: Kopier
         edit: Rediger
         import_process: Importer
-        moderate: Moderér
         new_process: Ny prosess
         new_process_group: Ny prosessgruppe
         new_process_step: Ny medvirkningsfase
@@ -107,7 +100,6 @@
         participatory_process_groups: Prosessgrupper
         participatory_process_groups_submenu:
           info: Informasjon
-          landing_page: Landingsside
         participatory_processes: Prosesser
         participatory_processes_submenu:
           attachment_collections: Mapper
@@ -115,7 +107,6 @@
           attachments: Vedlegg
           components: Komponenter
           info: Om denne prosessen
-          landing_page: Landingsside
           moderations: Moderering
           process_admins: Prosessadministratorer
           steps: Faser
@@ -152,11 +143,6 @@
           fields:
             invitation_accepted_at: Invitasjon godtatt
             invitation_sent_at: Invitasjonen sendt
-      participatory_process_copies:
-        new:
-          copy: Kopier
-          select: Velg hvilke data du vil kopiere
-          title: Kopier deltakende prosess
       participatory_process_groups:
         destroy:
           success: Prosessgruppen ble slettet.
@@ -252,10 +238,6 @@
         update:
           error: Det oppstod et problem med å oppdatere denne prosessen.
           success: Prosessen er oppdatert.
-      participatory_processes_copies:
-        create:
-          error: Det oppstod et problem med å duplisere denne deltaker prosessen.
-          success: Prosessen er kopiert.
       participatory_processes_group:
         create:
           error: Det oppstod et problem med å lage en ny prosessgruppe.

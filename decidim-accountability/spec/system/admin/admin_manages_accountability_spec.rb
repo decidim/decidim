@@ -13,6 +13,7 @@ describe "Admin manages accountability" do
   end
 
   it_behaves_like "manage taxonomy filters in settings"
+  it_behaves_like "access component permissions form"
 
   describe "results" do
     let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:, participatory_space_manifests: [participatory_space.manifest.name]) }
@@ -22,12 +23,17 @@ describe "Admin manages accountability" do
     it_behaves_like "manage results"
     it_behaves_like "when managing results bulk actions as an admin"
     it_behaves_like "export results"
+
+    it_behaves_like "access permissions form" do
+      let!(:row_text) { translated(result.title) }
+    end
   end
 
   describe "child results" do
     before do
       within "tr[data-id='#{result.id}'] .table-list__actions" do
-        click_on "New result"
+        find("button[data-controller='dropdown']").click
+        click_on "Add result"
       end
     end
 
@@ -42,17 +48,18 @@ describe "Admin manages accountability" do
     it_behaves_like "manage statuses"
   end
 
-  describe "timeline" do
+  describe "milestone" do
+    let!(:milestone) { create(:milestone, result:) }
+
     before do
       visit_component_admin
       within "tr", text: translated(result.title) do
-        click_on "Project evolution"
+        find("button[data-controller='dropdown']").click
+        click_on "Add milestone"
       end
     end
 
-    let!(:timeline_entry) { create(:timeline_entry, result:) }
-
-    it_behaves_like "manage timeline"
+    it_behaves_like "manage milestone"
   end
 
   describe "soft delete result" do

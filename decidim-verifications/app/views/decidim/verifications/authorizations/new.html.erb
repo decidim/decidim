@@ -32,7 +32,7 @@
 
   <% unless onboarding_manager.ephemeral? %>
     <p class="prose prose-a:text-secondary">
-      <%= t("decidim.verifications.authorizations.skip_verification", link: link_to(t("decidim.verifications.authorizations.start_exploring"), cta_button_path).html_safe).html_safe %>.
+      <%= t("decidim.verifications.authorizations.skip_verification", link: link_to(t("decidim.verifications.authorizations.start_exploring"), decidim.root_path).html_safe).html_safe %>.
     </p>
   <% end %>
 <% end %>

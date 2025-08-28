@@ -100,4 +100,22 @@ describe "Menu" do
       end
     end
   end
+
+  context "when the admin_insights_menu is displayed" do
+    let(:user) { create(:user, :admin, :confirmed, organization:) }
+
+    before do
+      switch_to_host(organization.host)
+      login_as user, scope: :user
+      visit decidim.root_path
+      click_on "Admin dashboard"
+      click_on "Insights"
+      click_on "Statistics"
+    end
+
+    it "includes the statistics item" do
+      expect(page).to have_content("Statistics")
+      expect(page).to have_css(".statistic__dashboard-container")
+    end
+  end
 end

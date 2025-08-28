@@ -102,7 +102,7 @@ the https://github.com/decidim/decidim/network/dependents[dependency graph]. See
   . Generate logs on Admin panel if admins can operate on it
   . GraphQL API
   . Download your data
-  . Endorsable
+  . Likeable
   . Followable
   . Embeddable
   . Notifications

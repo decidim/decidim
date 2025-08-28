@@ -87,6 +87,13 @@ module Decidim
           expect(controller.helpers.collection)
             .to match_array(published + organization_groups)
         end
+
+        it "orders processes by weight" do
+          process1 = create(:participatory_process, :published, organization:, weight: 2)
+          process2 = create(:participatory_process, :published, organization:, weight: 1)
+
+          expect(controller.helpers.collection).to eq([process2, process1])
+        end
       end
 
       describe "default_date_filter" do

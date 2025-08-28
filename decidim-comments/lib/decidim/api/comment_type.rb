@@ -22,6 +22,7 @@ module Decidim
       field :sgid, GraphQL::Types::String, "The Comment's signed global id", null: false
       field :up_voted, GraphQL::Types::Boolean, "Check if the current user has upvoted the comment", null: false
       field :up_votes, GraphQL::Types::Int, "The number of comment's upVotes", null: false, method: :up_votes_count
+      field :url, GraphQL::Types::String, "The URL for this meeting", null: false, method: :reported_content_url
       field :user_allowed_to_comment, GraphQL::Types::Boolean, "Check if the current user can comment", null: false
 
       def sgid

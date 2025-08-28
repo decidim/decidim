@@ -25,7 +25,6 @@ shared_examples "a proposal form" do |options|
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
   let(:address) { nil }
-  let(:suggested_hashtags) { [] }
   let(:attachment_params) { nil }
   let(:meeting_as_author) { false }
   let(:taxonomies) { [] }
@@ -39,8 +38,7 @@ shared_examples "a proposal form" do |options|
       author:,
       address:,
       meeting_as_author:,
-      attachment: attachment_params,
-      suggested_hashtags:
+      attachment: attachment_params
     }
   end
 
@@ -209,7 +207,6 @@ shared_examples "a proposal form" do |options|
         :taxonomies => taxonomies,
         :address => address,
         :meeting_as_author => meeting_as_author,
-        :suggested_hashtags => suggested_hashtags,
         attachments_key => [Decidim::Dev.test_file("city.jpeg", "image/jpeg")]
       }
     end
@@ -231,52 +228,6 @@ shared_examples "a proposal form" do |options|
           expect(subject.errors.attribute_names).to contain_exactly(:title)
         end
       end
-    end
-  end
-
-  describe "#extra_hashtags" do
-    subject { form.extra_hashtags }
-
-    let(:component) do
-      create(
-        :proposal_component,
-        :with_extra_hashtags,
-        participatory_space:,
-        suggested_hashtags: component_suggested_hashtags,
-        automatic_hashtags: component_automatic_hashtags
-      )
-    end
-    let(:component_automatic_hashtags) { "" }
-    let(:component_suggested_hashtags) { "" }
-
-    it { is_expected.to eq([]) }
-
-    context "when there are auto hashtags" do
-      let(:component_automatic_hashtags) { "HashtagAuto1 HashtagAuto2" }
-
-      it { is_expected.to eq(%w(HashtagAuto1 HashtagAuto2)) }
-    end
-
-    context "when there are some suggested hashtags checked" do
-      let(:component_suggested_hashtags) { "HashtagSuggested1 HashtagSuggested2 HashtagSuggested3" }
-      let(:suggested_hashtags) { %w(HashtagSuggested1 HashtagSuggested2) }
-
-      it { is_expected.to eq(%w(HashtagSuggested1 HashtagSuggested2)) }
-    end
-
-    context "when there are invalid suggested hashtags checked" do
-      let(:component_suggested_hashtags) { "HashtagSuggested1 HashtagSuggested2" }
-      let(:suggested_hashtags) { %w(HashtagSuggested1 HashtagSuggested3) }
-
-      it { is_expected.to eq(%w(HashtagSuggested1)) }
-    end
-
-    context "when there are both suggested and auto hashtags" do
-      let(:component_automatic_hashtags) { "HashtagAuto1 HashtagAuto2" }
-      let(:component_suggested_hashtags) { "HashtagSuggested1 HashtagSuggested2" }
-      let(:suggested_hashtags) { %w(HashtagSuggested2) }
-
-      it { is_expected.to eq(%w(HashtagAuto1 HashtagAuto2 HashtagSuggested2)) }
     end
   end
 end

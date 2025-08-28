@@ -4,16 +4,15 @@ sv:
       participatory_process:
         announcement: Meddelande
         area_id: Område
-        copy_categories: Kopiera kategorier
-        copy_components: Kopiera komponenter
-        copy_steps: Kopiera steg
         decidim_area_id: Område
         description: Beskrivning
         developer_group: Arrangör
         document: Dokument
         domain: Domän
+        duplicate_categories: Duplicera kategorier
+        duplicate_components: Duplicera komponenter
+        duplicate_steps: Duplicera steg
         end_date: Slutdatum
-        hashtag: Hashtag
         hero_image: Startbild
         import_attachments: Importera bilagor
         import_categories: Importera kategorier
@@ -39,7 +38,6 @@ sv:
         description: Beskrivning
         developer_group: Arrangör
         group_url: Webbplats
-        hashtag: Hashtag
         hero_image: Bild
         local_area: Område
         meta_scope: Omfattning
@@ -49,7 +47,7 @@ sv:
         target: Vem deltar
         title: Titel
       participatory_process_step:
-        cta_path: Sökväg för knapp
+        cta_path: Knappens länk
         cta_text: Text till knapp
         description: Beskrivning
         end_date: Slutdatum
@@ -84,15 +82,12 @@ sv:
     admin:
       actions:
         activate: Aktivera
-        configure: Konfigurera
         confirm_delete_process: Är du säker på att du vill ta bort den här processen? Om du ändrar dig kan du återställa den senare.
         confirm_destroy: Bekräfta radering
         destroy: Radera
         duplicate: Duplicera
         edit: Redigera
         import_process: Importera
-        menu_hidden: Dölj
-        moderate: Moderera
         new_process: Ny process
         new_process_group: Ny grupp av processer
         new_process_step: Nytt steg
@@ -110,7 +105,6 @@ sv:
         participatory_process_groups: Grupper för processer
         participatory_process_groups_submenu:
           info: Info
-          landing_page: Landningssida
         participatory_processes: Processer
         participatory_processes_submenu:
           attachment_collections: Mappar
@@ -118,7 +112,6 @@ sv:
           attachments: Bilagor
           components: Komponenter
           info: Om processen
-          landing_page: Landningssida
           moderations: Moderering
           private_users: Medlemmar
           process_admins: Administratörer för process
@@ -134,16 +127,19 @@ sv:
           name: Deltagandeprocess
         participatory_process_group:
           fields:
+            actions: Åtgärder
             title: Titel
           name: Grupp av processer
         participatory_process_step:
           fields:
+            actions: Handlingar
             end_date: Slutdatum
             start_date: Startdatum
             title: Titel
           name: Steg i process
         participatory_process_user_role:
           fields:
+            actions: Handlingar
             email: E-post
             name: Namn
             role: Roll
@@ -158,11 +154,11 @@ sv:
             invitation_accepted_at: Inbjudan godkänd
             invitation_sent_at: Inbjudan skickad
             published: Publicerad
-      participatory_process_copies:
+      participatory_process_duplicates:
         new:
-          copy: Kopiera
-          select: Välj vilka data som du vill duplicera
-          title: Duplicera process
+          duplicate: Duplicera
+          select: Välj vilken data du vill duplicera
+          title: Duplicera deltagarprocess
       participatory_process_groups:
         destroy:
           error: Det gick inte att radera gruppen.
@@ -260,10 +256,10 @@ sv:
         update:
           error: Det gick inte att uppdatera processen.
           success: Processen har uppdaterats.
-      participatory_processes_copies:
+      participatory_processes_duplicates:
         create:
-          error: Det gick inte att duplicera processen.
-          success: Processen har duplicerats.
+          error: Det gick inte att duplicera deltagarprocessen.
+          success: Deltagandeprocessen har duplicerats.
       participatory_processes_group:
         create:
           error: Det gick inte att skapa en ny grupp för processer.
@@ -352,7 +348,6 @@ sv:
           developer_group: Ansvariga för processen. Organisation eller grupp som står bakom processen.
           end_date: Slutdatum för processen
           follows_count: Antal följare
-          hashtag: Processens hashtag, används för Twitter/X
           id: Unikt id för processen
           local_area: Geografiskt område för processen. Det område där processen genomförs.
           participatory_process_group: Grupp av processer, om tillämpbart
@@ -410,7 +405,7 @@ sv:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
+        participatory_process_duplicates:
           form:
             slug_help_html: 'URL-slugs används till att generera URL:er till processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         participatory_process_groups:
@@ -509,6 +504,7 @@ sv:
         related_processes: Relaterade processer
     statistics:
       processes_count: Processer
+      processes_count_tooltip: Antalet deltagande processer som är allmänt tillgängliga.
   layouts:
     decidim:
       participatory_process_groups:

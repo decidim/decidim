@@ -150,6 +150,10 @@
   }
 }
 
+.input-group {
+  @apply border border-neutral-200 outline outline-1 outline-transparent rounded bg-background-2 text-black font-normal placeholder:text-gray;
+}
+
 .input-group__password {
   @apply w-full relative;
 

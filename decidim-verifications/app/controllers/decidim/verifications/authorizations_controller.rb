@@ -15,7 +15,6 @@ module Decidim
       include Decidim::HtmlSafeFlash
       include Decidim::Verifications::Renewable
       helper Decidim::DecidimFormHelper
-      helper Decidim::CtaButtonHelper
       helper Decidim::AuthorizationFormHelper
       helper Decidim::TranslationsHelper
 
@@ -87,7 +86,7 @@ module Decidim
 
           on(:invalid) do
             flash[:alert] = t("authorizations.create.error", scope: "decidim.verifications")
-            render action: :new
+            render action: :new, status: :unprocessable_entity
           end
         end
       end

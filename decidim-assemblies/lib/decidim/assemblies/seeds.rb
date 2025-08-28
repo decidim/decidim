@@ -9,7 +9,7 @@ module Decidim
         create_content_block!
 
         taxonomy = create_taxonomy!(name: "Assembly Types", parent: nil)
-        2.times do
+        number_of_records.times do
           create_taxonomy!(name: ::Faker::Lorem.word, parent: taxonomy)
         end
         # filters for assemblies only
@@ -17,7 +17,7 @@ module Decidim
                                 taxonomies: taxonomy.all_children,
                                 participatory_space_manifests: [:assemblies])
 
-        2.times do |_n|
+        number_of_records.times do |_n|
           assembly = create_assembly!
 
           create_assembly_user_roles!(assembly:)
@@ -52,7 +52,6 @@ module Decidim
           title: Decidim::Faker::Localized.sentence(word_count: 5),
           slug: Decidim::Faker::Internet.unique.slug(words: nil, glue: "-"),
           subtitle: Decidim::Faker::Localized.sentence(word_count: 2),
-          hashtag: "##{::Faker::Lorem.word}",
           short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.sentence(word_count: 3)
           end,

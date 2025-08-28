@@ -2,10 +2,8 @@ ga:
   activemodel:
     attributes:
       conference:
-        copy_categories: Cóipeáil catagóirí
         decidim_scope_id: Scóip
         end_date: Dáta deiridh
-        hashtag: Haischlib
         location: Suíomh
         participatory_processes_ids: Próisis Rannpháirteacha Ceangailte
         slogan: Mana
@@ -37,9 +35,6 @@ ga:
     admin:
       actions:
         confirm: Deimhnigh
-      conference_copies:
-        new:
-          copy: Cóipeáil
       conference_speakers:
         edit:
           update: Nuashonraigh
@@ -53,6 +48,8 @@ ga:
       conferences:
         edit:
           update: Nuashonraigh
+        form:
+          images: Íomhánna
         new:
           create: Cruthaigh
       media_links:

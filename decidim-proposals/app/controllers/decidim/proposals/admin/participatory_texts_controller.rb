@@ -32,12 +32,12 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("participatory_texts.import.invalid", scope: "decidim.proposals.admin")
-              render action: "new_import"
+              render action: "new_import", status: :unprocessable_entity
             end
 
             on(:invalid_file) do
               flash.now[:alert] = I18n.t("participatory_texts.import.invalid_file", scope: "decidim.proposals.admin")
-              render action: "new_import"
+              render action: "new_import", status: :unprocessable_entity
             end
           end
         end
@@ -47,8 +47,8 @@ module Decidim
         def update
           enforce_permission_to :manage, :participatory_texts
 
-          form_params = params.require(:preview_participatory_text)
-          @preview_form = form(Admin::PreviewParticipatoryTextForm).from_params(proposals: form_params[:proposals_attributes]&.values)
+          form_params = params.require(:preview_participatory_text).fetch(:proposals_attributes).to_unsafe_h
+          @preview_form = form(Admin::PreviewParticipatoryTextForm).from_params(proposals: form_params)
 
           if params.has_key?("save_draft")
             UpdateParticipatoryText.call(@preview_form) do
@@ -62,7 +62,7 @@ module Decidim
                 failures.each_pair { |id, msg| alert_msg << "ID:[#{id}] #{msg}" }
                 flash.now[:alert] = alert_msg.join("<br/>").html_safe
                 index
-                render action: "index"
+                render action: "index", status: :unprocessable_entity
               end
             end
           else
@@ -77,7 +77,7 @@ module Decidim
                 failures.each_pair { |id, msg| alert_msg << "ID:[#{id}] #{msg}" }
                 flash.now[:alert] = alert_msg.join("<br/>").html_safe
                 index
-                render action: "index"
+                render action: "index", status: :unprocessable_entity
               end
             end
           end

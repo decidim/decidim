@@ -4,7 +4,7 @@ module Decidim
   module Proposals
     class ProposalInputSort < Decidim::Core::BaseInputSort
       include Decidim::Core::HasPublishableInputSort
-      include Decidim::Core::HasEndorsableInputSort
+      include Decidim::Core::HasLikeableInputSort
 
       graphql_name "ProposalSort"
       description "A type used for sorting proposals"

@@ -22,7 +22,6 @@ module Decidim::ParticipatoryProcesses
       let(:import_data) do
         {
           "subtitle" => Decidim::Faker::Localized.sentence(word_count: 3),
-          "hashtag" => "hashtag",
           "description" => Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title },
           "short_description" => Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title },
           "promoted" => false,
@@ -52,7 +51,6 @@ module Decidim::ParticipatoryProcesses
         expect(subject.title).to eq(options[:title])
         expect(subject.slug).to eq(options[:slug])
         expect(subject.subtitle).to eq(import_data["subtitle"])
-        expect(subject.hashtag).to eq(import_data["hashtag"])
         expect(subject.description).to eq(import_data["description"])
         expect(subject.short_description).to eq(import_data["short_description"])
         expect(subject.promoted).to eq(import_data["promoted"])
@@ -104,6 +102,16 @@ module Decidim::ParticipatoryProcesses
 
         it "does not create a process group" do
           expect { subject }.not_to change(Decidim::ParticipatoryProcessGroup, :count)
+        end
+      end
+
+      context "when the process group is nil" do
+        let(:group_data) do
+          nil
+        end
+
+        it "imports the process correctly" do
+          expect { subject }.to change(Decidim::ParticipatoryProcess, :count).by(1)
         end
       end
     end

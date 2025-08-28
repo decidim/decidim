@@ -25,7 +25,7 @@ module Decidim
       include Decidim::Searchable
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
-      include Decidim::Endorsable
+      include Decidim::Likeable
       include Decidim::Randomable
       include Decidim::FilterableResource
       include Decidim::SoftDeletable
@@ -47,7 +47,8 @@ module Decidim
 
       scope :updated_at_desc, -> { order(arel_table[:updated_at].desc) }
       scope :open, -> { where(closed_at: nil) }
-      scope :closed, -> { where.not(closed_at: nil) }
+      scope :closed, -> { where.not(closed_at: nil).or(where(end_time: ..Time.current)) }
+      scope :ongoing, -> { open.where(start_time: ..Time.current, end_time: Time.current..).or(open.where(start_time: nil, end_time: nil)) }
       scope :authored_by, ->(author) { where(author:) }
       scope :commented_by, lambda { |author|
         joins(:comments).where(
@@ -58,7 +59,7 @@ module Decidim
           }
         )
       }
-      scope_search_multi :with_any_state, [:open, :closed]
+      scope_search_multi :with_any_state, [:ongoing, :closed]
 
       # Returns the presenter for this debate, to be used in the views.
       # Required by ResourceRenderer.
@@ -98,23 +99,44 @@ module Decidim
         start_time.present? && end_time.present?
       end
 
-      # Public: Checks whether the debate is an AMA-styled one and is open.
+      # Public: Checks whether the debate is an AMA-styled one and is ongoing.
       #
       # Returns a boolean.
-      def open_ama?
+      def ongoing_ama?
         ama? && Time.current.between?(start_time, end_time)
       end
 
-      # Public: Checks if the debate is open or not.
+      # Public: Checks if the debate is ongoing or not.
       #
       # Returns a boolean.
-      def open?
-        (ama? && open_ama?) || !ama?
+      def ongoing?
+        (ama? && ongoing_ama?) || !ama?
+      end
+
+      def not_started?
+        start_time.present? && start_time > Time.current
+      end
+
+      # Note that a debate can be finished even if it is not closed (meaning it has no conclusions).
+      def finished?
+        end_time.present? && end_time < Time.current
+      end
+
+      def state
+        if closed?
+          :closed
+        elsif ongoing?
+          :ongoing
+        elsif not_started?
+          :not_started
+        else
+          :finished
+        end
       end
 
       # Public: Overrides the `accepts_new_comments?` CommentableWithComponent concern method.
       def accepts_new_comments?
-        return false unless open?
+        return false unless ongoing?
         return false if closed?
 
         commentable? && !comments_blocked? && comments_allowed?

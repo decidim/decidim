@@ -25,7 +25,7 @@ module Decidim
             helper Decidim::Forms::Admin::QuestionnaireResponsesHelper
 
             def index
-              enforce_permission_to :index, :questionnaire_responses
+              enforce_permission_to :index, permission_subject
 
               @query = paginate(collection)
               @participants = participants(@query)
@@ -35,7 +35,7 @@ module Decidim
             end
 
             def show
-              enforce_permission_to :show, :questionnaire_responses
+              enforce_permission_to :show, permission_subject
 
               @participant = participant(participants_query.participant(params[:id]))
 
@@ -43,15 +43,17 @@ module Decidim
             end
 
             def export_response
-              enforce_permission_to :export_response, :questionnaire_responses
+              enforce_permission_to :export_response, permission_subject
 
               session_token = params[:id]
               responses = QuestionnaireUserResponses.for(questionnaire)
 
               # i18n-tasks-use t("decidim.forms.admin.questionnaires.responses.export_response.title")
-              title = t("export_response.title", scope: i18n_scope, token: session_token)
+              file_name = t("export_response.title", scope: i18n_scope, token: session_token)
 
-              Decidim::Forms::ExportQuestionnaireResponsesJob.perform_later(current_user, title, responses.select { |a| a.first.session_token == session_token })
+              selected_response = responses.select { |a| a.first.session_token == session_token }
+
+              Decidim::Forms::ExportQuestionnaireResponsesJob.perform_later(current_user, file_name, selected_response, :survey_user_responses)
 
               flash[:notice] = t("decidim.admin.exports.notice")
 
@@ -65,6 +67,10 @@ module Decidim
             end
 
             private
+
+            def permission_subject
+              :questionnaire_responses
+            end
 
             def i18n_scope
               "decidim.forms.admin.questionnaires.responses"

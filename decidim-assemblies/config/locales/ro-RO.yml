@@ -10,9 +10,6 @@ ro:
         closing_date: Data închiderii
         closing_date_reason: Motivul datei de închidere
         composition: Componență
-        copy_categories: Copiază categoriile
-        copy_components: Copiați componentele
-        copy_features: Copiați funcționalitățile
         created_by: Creat de
         created_by_other: Creat de altcineva
         creation_date: Data creării
@@ -25,7 +22,6 @@ ro:
         duration: Durată
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
         hero_image: Imagine pentru pagina principală
         import_attachments: Importă atașamente
         import_categories: Importă categorii
@@ -106,15 +102,6 @@ ro:
         update:
           error: A apărut o eroare la actualizarea acestui grup de lucru.
           success: Grupul de lucru a fost actualizat cu succes.
-      assemblies_copies:
-        create:
-          error: A apărut o problemă la duplicarea acestui grup de lucru.
-          success: Grupul de lucru a fost duplicat cu succes.
-      assembly_copies:
-        new:
-          copy: Copiază
-          select: Selectați datele pe care doriți să le duplicați
-          title: Duplică grupul de lucru
       assembly_imports:
         create:
           error: A apărut o problemă la importul acestui grup de lucru.
@@ -153,7 +140,6 @@ ro:
           attachment_files: Fișiere
           attachments: Atașamente
           components: Componente
-          landing_page: Pagina principală
           moderations: Moderări
       models:
         assembly:
@@ -326,6 +312,7 @@ ro:
         related_assemblies: Grupuri de lucru asociate
     statistics:
       assemblies_count: Grupuri de lucru
+      assemblies_count_tooltip: Numărul adunărilor publice în care se iau decizii colective.
   layouts:
     decidim:
       assemblies:

@@ -4,15 +4,11 @@ nl:
       participatory_process:
         announcement: Aankondiging
         area_id: Onderwerp
-        copy_categories: Categorieën kopiëren
-        copy_components: Kopieer onderdelen
-        copy_steps: Kopieer stappen
         decidim_area_id: Onderwerp
         description: Beschrijving
         developer_group: Organisator
         domain: Domein
         end_date: Einddatum
-        hashtag: Hashtag
         hero_image: Afbeelding van de startpagina
         local_area: Organisatiegebied
         meta_scope: Omvang metadata
@@ -33,7 +29,6 @@ nl:
         description: Beschrijving
         developer_group: Promoter groep
         group_url: Website
-        hashtag: Hashtag
         hero_image: Afbeelding
         local_area: Organisatiegebied
         meta_scope: Scope metadata
@@ -72,7 +67,6 @@ nl:
     admin:
       actions:
         activate: Activeren
-        configure: Configureren
         confirm_destroy: Bevestig verwijderen
         destroy: Verwijder
         duplicate: Dupliceren
@@ -90,7 +84,6 @@ nl:
         participatory_process_groups: Inspraakproces groepen
         participatory_process_groups_submenu:
           info: Info
-          landing_page: Landingspagina
         participatory_processes: Inspraakprocessen
         participatory_processes_submenu:
           attachment_collections: Mappen
@@ -132,11 +125,6 @@ nl:
           fields:
             invitation_accepted_at: Uitnodiging geaccepteerd op
             invitation_sent_at: Uitnodiging verzonden op
-      participatory_process_copies:
-        new:
-          copy: Kopiëren
-          select: Selecteer welke gegevens u wilt dupliceren
-          title: Inspraakproces dupliceren
       participatory_process_groups:
         destroy:
           success: Participatieve procesgroep succesvol verwijderd.
@@ -221,10 +209,6 @@ nl:
         update:
           error: Er was een probleem bij het bijwerken van dit participatief proces.
           success: Participatief proces succesvol bijgewerkt.
-      participatory_processes_copies:
-        create:
-          error: Er is een fout opgetreden bij het dupliceren van dit participatief proces.
-          success: Participatief proces is succesvol gedupliceerd.
       participatory_processes_group:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe groep voor participatieve processen.

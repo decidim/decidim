@@ -36,7 +36,7 @@ shared_examples "import proposals" do
 
   describe "import proposals" do
     before do
-      find(".imports").click
+      click_on "Import"
       click_on "Import proposals from a file"
     end
 
@@ -68,7 +68,7 @@ shared_examples "import proposals" do
   end
 
   def fill_form(keep_authors: false)
-    find(".imports").click
+    click_on "Import"
     click_on "Import proposals from another component"
 
     within ".import_proposals" do

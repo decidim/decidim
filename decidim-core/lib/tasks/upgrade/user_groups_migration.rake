@@ -52,7 +52,7 @@ namespace :decidim do
           Decidim::Proposals::CollaborativeDraft
         )
         authorable_models = %w(
-          Decidim::Endorsement
+          Decidim::Like
           Decidim::Initiative
           Decidim::Blogs::Post
           Decidim::Comments::Comment

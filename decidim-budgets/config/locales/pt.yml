@@ -20,10 +20,7 @@ pt:
   decidim:
     budgets:
       actions:
-        attachment_collections: Pastas
-        attachments: Anexos
         edit: Editar
-        edit_projects: Gerir projectos
         import: Importar propostas para projetos
         preview: Pré-visualização
         title: Ações
@@ -204,6 +201,5 @@ pt:
         project_proposal: Propostas incluídas neste projecto
     statistics:
       orders_count: Suportes
-      projects_count: Projectos
   index:
     confirmed_orders_count: Contagem de votos

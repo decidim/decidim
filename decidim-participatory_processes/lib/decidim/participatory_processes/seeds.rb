@@ -10,7 +10,7 @@ module Decidim
         create_content_block!
 
         process_groups = []
-        2.times do
+        number_of_records.times do
           process_groups << create_process_group!
         end
 
@@ -19,7 +19,7 @@ module Decidim
         end
 
         taxonomy = create_taxonomy!(name: "Process Types", parent: nil)
-        2.times do
+        number_of_records.times do
           create_taxonomy!(name: ::Faker::Lorem.word, parent: taxonomy)
         end
         # filters for processes only
@@ -27,7 +27,7 @@ module Decidim
                                 taxonomies: taxonomy.all_children,
                                 participatory_space_manifests: [:participatory_processes])
 
-        2.times do |_n|
+        number_of_records.times do |_n|
           process = create_process!(process_group: process_groups.sample)
 
           create_follow!(Decidim::User.where(organization:, admin: true).first, process)
@@ -61,7 +61,6 @@ module Decidim
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,
-          hashtag: ::Faker::Internet.slug,
           group_url: ::Faker::Internet.url,
           organization:,
           hero_image: ::Faker::Boolean.boolean(true_ratio: 0.5) ? hero_image : nil, # Keep after organization
@@ -80,7 +79,6 @@ module Decidim
           title: Decidim::Faker::Localized.sentence(word_count: 5),
           slug: Decidim::Faker::Internet.unique.slug(words: nil, glue: "-"),
           subtitle: Decidim::Faker::Localized.sentence(word_count: 2),
-          hashtag: "##{::Faker::Lorem.word}",
           short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.sentence(word_count: 3)
           end,

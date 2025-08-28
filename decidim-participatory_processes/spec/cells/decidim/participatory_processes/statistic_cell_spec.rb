@@ -9,7 +9,7 @@ module Decidim::ParticipatoryProcesses
     subject { cell("decidim/statistic", model).call }
 
     context "when rendering participants count" do
-      let(:model) { { stat_title: :participants_count, stat_number: 123 } }
+      let(:model) { { name: :participants_count, data: [123] } }
 
       it "renders the stat wrapper" do
         expect(subject).to have_css("[data-statistic]")
@@ -25,7 +25,7 @@ module Decidim::ParticipatoryProcesses
     end
 
     context "when rendering comments count" do
-      let(:model) { { stat_title: :comments_count, stat_number: 50 } }
+      let(:model) { { name: :comments_count, data: [50] } }
 
       it "renders the stat wrapper" do
         expect(subject).to have_css("[data-statistic]")

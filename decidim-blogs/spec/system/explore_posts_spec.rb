@@ -32,7 +32,7 @@ describe "Explore posts" do
 
       before do
         create(:comment, commentable: old_post)
-        create(:endorsement, resource: old_post, author: build(:user, organization: old_post.participatory_space.organization))
+        create(:like, resource: old_post, author: build(:user, organization: old_post.participatory_space.organization))
 
         visit_component
       end

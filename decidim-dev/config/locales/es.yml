@@ -36,8 +36,8 @@ es:
               baz: Baz
               foo: Foo
           step:
-            endorsements_blocked: Adhesiones bloqueadas
-            endorsements_enabled: Adhesiones habilitadas
+            likes_blocked: '"Me gusta" desactivados'
+            likes_enabled: '"Me gusta" activados'
             readonly_step_attribute: Atributo de sólo lectura
             test_options:
               bar: Barra

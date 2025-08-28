@@ -35,7 +35,6 @@ it:
       blogs:
         actions:
           comment: Commento
-          endorse: Appoggia
         name: blog
         settings:
           global:
@@ -45,8 +44,6 @@ it:
           step:
             announcement: Annuncio
             comments_blocked: Commenti bloccati
-            endorsements_blocked: Appoggi bloccati
-            endorsements_enabled: Appoggi abilitati
     events:
       blogs:
         post_created:

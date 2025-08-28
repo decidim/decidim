@@ -1,6 +1,6 @@
 import TomSelect from "tom-select/dist/cjs/tom-select.popular";
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const tagContainers = document.querySelectorAll("#proposals_list");
   tagContainers.forEach((container) => {
     const { tmName, tmItems, tmNoResults } = container.dataset

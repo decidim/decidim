@@ -1,0 +1,7 @@
+# Disabled capybara configurations
+
+Capybara/NegationMatcherAfterVisit:
+  Enabled: false
+
+Capybara/FindAllFirst:
+  Enabled: false

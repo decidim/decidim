@@ -8,7 +8,7 @@ paginator:     the paginator that renders the pagination tags inside -%>
 
 <% if total_pages > 1 %>
   <nav aria-label="<%= t("views.pagination.pagination") %>">
-    <ul class="flex items-center text-sm text-secondary" data-pages>
+    <ul class="flex flex-wrap items-center text-sm text-secondary gap-x-1" data-pages>
       <%= paginator.prev_page_tag unless current_page.first? %>
 
       <% paginator.each_page do |page| -%>

@@ -1,6 +1,6 @@
 import TomSelect from "tom-select/dist/cjs/tom-select.popular";
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const isOnSelectRecipientsPage = window.location.pathname.includes("/select_recipients_to_deliver");
 
   const selectors = {

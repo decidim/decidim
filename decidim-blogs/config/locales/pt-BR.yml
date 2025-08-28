@@ -69,7 +69,6 @@ pt-BR:
           comment: Comentário
           create: Criar
           destroy: Excluir
-          endorse: Endossar
           update: Atualizar
         name: Blog
         settings:
@@ -80,8 +79,6 @@ pt-BR:
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
-            endorsements_blocked: Endossos bloqueados
-            endorsements_enabled: Endossos ativados
     events:
       blogs:
         post_created:

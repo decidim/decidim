@@ -18,7 +18,6 @@ module Decidim
         )
       end
       let(:signature_type) { "online" }
-      let(:hashtag) { nil }
       let(:attachment) { nil }
       let(:uploaded_files) { [] }
       let(:current_files) { [] }

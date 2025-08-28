@@ -172,7 +172,7 @@ module Decidim
                         decidim_admin_participatory_processes.participatory_process_share_tokens_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_participatory_processes.participatory_process_share_tokens_path(current_participatory_space)),
                         icon_name: "share-line",
-                        if: allowed_to?(:read, :share_tokens, current_participatory_space:)
+                        if: allowed_to?(:read, :share_token, current_participatory_space:)
         end
       end
 

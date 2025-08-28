@@ -3,7 +3,6 @@ id:
     attributes:
       sortition:
         additional_info: Informasi penyortiran
-        decidim_category_id: Kategori set proposal tempat Anda ingin menerapkan undian
         decidim_proposals_component_id: Proposal ditetapkan
         dice: Hasil die roll. Gulung dadu 6 sisi, atau cari cara acak lain untuk menghasilkan angka dari 1 hingga 6, dan masukkan di sini angka yang dihasilkan di depan beberapa saksi. Ini berkontribusi pada kualitas dan jaminan keacakan hasil
         target_items: Jumlah proposal yang akan dipilih (menunjukkan jumlah proposal yang ingin Anda pilih dengan menggambar banyak kelompok proposal yang telah Anda pilih sebelumnya)
@@ -38,7 +37,6 @@ id:
         models:
           sortition:
             fields:
-              category: Kategori
               created_at: Tanggal pembuatan
               decidim_proposals_component: Komponen proposal
               dice: Dadu
@@ -58,7 +56,6 @@ id:
             title: Perbarui informasi tentang penyortiran
             update: Memperbarui
           form:
-            all_categories: Semua Kategori
             select_proposal_component: Pilih set proposal
           index:
             title: Sortasi
@@ -95,11 +92,8 @@ id:
             other: proposal yang dipilih
         show:
           algorithm: Kode algoritma penyortiran
-          any_category: dari semua kategori
           cancelled: Pengurutan yang dibatalkan
           candidate_proposal_ids: Urutan proposal pengurutan dan ID
-          candidate_proposals_info: 'Penyortiran dilakukan di antara proposal berikut (%{category_label}), dengan ID berikut (dalam huruf tebal proposal yang dipilih)  '
-          category: dari kategori %{category}
           dice_result: (1) Hasil dadu
           introduction: 'Halaman ini berisi hasil sortasi %{reference}. Melalui penyortiran ini, %{target_items} jumlah hasil telah dipilih secara acak dan dengan distribusi probabilitas yang sama dari sekumpulan proposal yang ditampilkan di bawah. Bersama dengan hasilnya, informasi yang ditampilkan pada halaman ini memberikan semua informasi yang diperlukan untuk memaksimalkan jaminan dan mereproduksi hasil. Kunci kualitas penyortiran ini adalah keacakan ganda yang diberikan oleh pengguliran dadu (diverifikasi oleh saksi) dan waktu penyisihan yang tepat yang memberikan input untuk suatu algoritma yang menghasilkan seleksi acak. Benih waktu untuk penyortiran sangat akurat (detik) sehingga tidak mungkin dikendalikan oleh manusia sehingga memberikan input ganda "tidak terkendali" untuk menjamin hasil yang adil.  '
           mathematical_result: Hasil (1) x (2)

@@ -34,10 +34,7 @@ bg:
               'true': Не избран за изпълнение
     budgets:
       actions:
-        attachment_collections: Папки
-        attachments: Прикачени файлове
         edit: Редактирай
-        edit_projects: Обедини проекти
         import: Импортиране на предложения в проекти
         new_budget: Нов бюджет
         new_project: Нов проект
@@ -333,6 +330,5 @@ bg:
         project_proposal: Предложения, включени в този проект
     statistics:
       orders_count: Подкрепа
-      projects_count: Проекти
   index:
     confirmed_orders_count: Брой гласове

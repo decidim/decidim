@@ -31,7 +31,11 @@ module Decidim
         help_definition[entity] = {}
 
         headers.each do |header|
-          help_definition[entity][header] = I18n.t("decidim.open_data.help.#{entity}.#{header}", default: I18n.t("decidim.download_your_data.help.#{entity}.#{header}"))
+          help_definition[entity][header] = begin
+            I18n.t("decidim.open_data.help.#{entity}.#{header}")
+          rescue StandardError
+            I18n.t("decidim.download_your_data.help.#{entity}.#{header}")
+          end
         end
       end
 

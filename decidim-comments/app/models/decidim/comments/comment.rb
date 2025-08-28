@@ -208,7 +208,7 @@ module Decidim
       end
 
       def edited?
-        Decidim::ActionLog.where(resource: self).exists?(["extra @> ?", Arel.sql("{\"edit\":true}")])
+        Decidim::ActionLog.where(resource: self).exists?(["extra @> ?", { edit: true }.to_json])
       end
 
       def extra_actions_for(current_user)

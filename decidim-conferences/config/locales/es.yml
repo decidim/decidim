@@ -5,13 +5,12 @@ es:
         assemblies_ids: Asambleas relacionadas
         available_slots: Plazas disponibles
         banner_image: Imagen de banner
-        copy_categories: Copiar categorías
-        copy_components: Copiar componentes
-        copy_features: Copiar funcionalidades
         decidim_scope_id: Ámbito
         description: Descripción
+        duplicate_categories: Duplicar las categorías
+        duplicate_components: Duplicar los componentes
+        duplicate_features: Duplicar las funcionalidades
         end_date: Fecha de fin
-        hashtag: Hashtag
         hero_image: Imagen de la pagina de inicio
         location: Localización
         main_logo: Logo principal
@@ -98,11 +97,11 @@ es:
         new_speaker: Añadir ponente
         send_diplomas: Enviar certificados de asistencia
         view_deleted_conferences: Ver las jornadas eliminadas
-      conference_copies:
+      conference_duplicates:
         new:
-          copy: Copiar
+          duplicate: Duplicar
           select: Selecciona qué datos quieres duplicar
-          title: Jornada duplicada
+          title: Duplicar la jornada
       conference_publications:
         create:
           error: Se ha producido un error al publicar esta jornada.
@@ -163,7 +162,13 @@ es:
         exports:
           registrations: Inscripciones
         form:
+          duration: Duración
+          images: Imágenes
+          metadata: Metadatos
+          registrations: Inscripciones
+          related_spaces: Espacios relacionados
           title: Información general
+          visibility: Visibilidad
         index:
           published: Publicado
           unpublished: Despublicada
@@ -171,14 +176,14 @@ es:
           title: Jornadas eliminadas
         new:
           create: Crear
-          title: Conferencia
+          title: Nueva jornada
         update:
           error: Se ha producido un error al actualizar esta jornada.
           success: Jornada actualizada correctamente.
-      conferences_copies:
+      conferences_duplicates:
         create:
           error: Se ha producido un error al duplicar esta jornada.
-          success: Jornada duplicada correctamente.
+          success: La jornada se ha duplicado correctamente.
       media_links:
         create:
           error: Se ha producido un error al crear un nuevo enlace multimedia.
@@ -218,17 +223,20 @@ es:
       models:
         conference:
           fields:
+            actions: Acciones
             created_at: Creada en
             published: Publicada
             title: Título
         conference_speaker:
           fields:
+            actions: Acciones
             affiliation: Afiliación
             full_name: Nombre completo
             position: Cargo
           name: Ponente de la conferencia
         conference_user_role:
           fields:
+            actions: Acciones
             email: Correo electrónico
             name: Nombre
             role: Rol
@@ -240,12 +248,14 @@ es:
             moderator: Moderadora
         media_link:
           fields:
+            actions: Acciones
             date: Fecha
             link: Enlace
             title: Título
           name: Enlace multimedia
         partner:
           fields:
+            actions: Acciones
             link: Enlace
             logo: Logotipo
             name: Nombre
@@ -256,6 +266,7 @@ es:
             main_promotor: Promotora principal
         registration_type:
           fields:
+            actions: Acciones
             conference_meetings: Encuentros de la conferencia
             price: Precio
             registrations_count: Número de inscripciones
@@ -350,9 +361,9 @@ es:
         title: Ponentes
     conferences:
       admin:
-        conference_copies:
+        conference_duplicates:
           form:
-            slug_help_html: 'Las URL amigables se utilizan para generar las URL que apuntan a esta conferencia. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            slug_help_html: 'La parte final de la URL tras la última barra inversa (URL slug) se utiliza para generar la URL (dirección web) que apuntan a esta jornada. Esta solo acepta letras, números y guiones, y debe empezar por una letra. Ejemplo: %{url}'
         conference_invites:
           create:
             error: Se ha producido un error al invitar a esta participante a unirse a la jornada.
@@ -515,6 +526,7 @@ es:
             sent: Enviado
         conference_registration:
           fields:
+            actions: Acciones
             email: Correo electrónico
             name: Nombre
             registration_type: Tipo de inscripción
@@ -613,7 +625,6 @@ es:
           description: Una descripción larga de la jornada
           end_date: La fecha en la que finalizó esta jornada.
           follows_count: El número de usuarias que siguen esta jornada
-          hashtag: La etiqueta que utiliza la jornada en Twitter/X
           id: El identificador único de la jornada
           location: El lugar de celebración de la jornada. Donde se llevó a cabo esta jornada.
           objectives: Los objetivos de esta jornada. Cuál fue la meta.
@@ -634,6 +645,7 @@ es:
           url: La URL de la jornada
     statistics:
       conferences_count: Jornadas
+      conferences_count_tooltip: El número de jornadas publicadas.
   devise:
     mailer:
       join_conference:

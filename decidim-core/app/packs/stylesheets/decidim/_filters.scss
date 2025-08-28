@@ -89,7 +89,7 @@
   }
 
   span {
-    @apply text-sm text-gray-2 truncate whitespace-nowrap first-letter:uppercase;
+    @apply text-sm text-gray-2 first-letter:uppercase;
   }
 
   [data-controls*="panel"] {

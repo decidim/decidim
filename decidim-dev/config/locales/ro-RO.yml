@@ -31,8 +31,6 @@ ro:
               baz: Baz
               foo: Foo
           step:
-            endorsements_blocked: Susțineri blocate
-            endorsements_enabled: Susțineri activate
             readonly_step_attribute: Atribut pas Readonly
             test_options:
               bar: Bară

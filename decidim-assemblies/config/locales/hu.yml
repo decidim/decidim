@@ -10,9 +10,6 @@ hu:
         closing_date: Határidő
         closing_date_reason: Határidő indoklás
         composition: Összetétel
-        copy_categories: Kategóriák másolása
-        copy_components: Elemek másolása
-        copy_features: Másolási funkciók
         created_by: Készítette
         created_by_other: Más által létrehozott
         creation_date: Létrehozás dátuma
@@ -25,7 +22,6 @@ hu:
         duration: Időtartam
         facebook: Facebook
         github: GitHub
-        hashtag: Kettőskereszt
         hero_image: Kezdő kép
         import_attachments: Mellékletek importálása
         import_categories: Kategóriák importálása
@@ -106,15 +102,6 @@ hu:
         update:
           error: Hiba történt a gyűlés frissítése során.
           success: Gyűlés frissítése sikeres.
-      assemblies_copies:
-        create:
-          error: Hiba történt a gyűlés duplikációja során.
-          success: Gyűlés duplikációja sikeres.
-      assembly_copies:
-        new:
-          copy: Másolás
-          select: Válaszd ki, mely adatokat szeretnéd duplikálni
-          title: Gyűlés duplikálása
       assembly_imports:
         create:
           error: Hiba történt a gyűlés importálása során.
@@ -161,7 +148,6 @@ hu:
           attachments: Mellékletek
           components: Elemek
           info: Erről a gyűlésről
-          landing_page: Landing oldal
           moderations: Moderálás
           see_assembly: A gyűlés megtekintése
       models:

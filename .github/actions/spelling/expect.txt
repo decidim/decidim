@@ -29,6 +29,7 @@ Ajuntamentde
 alabs
 alecslupu
 Alexandru
+amagat
 amd
 amendables
 AMR
@@ -60,6 +61,7 @@ auths
 autocorrection
 autocorrects
 autojump
+autoloaded
 automatisms
 autosort
 autotranslated
@@ -69,6 +71,7 @@ backported
 backporter
 backticks
 barcat
+Basecamp
 Basecontroller
 Batchloader
 bayes
@@ -152,6 +155,8 @@ commentvotes
 conferenceinvites
 conferenceregistrations
 confirmada
+confirmado
+confirmat
 Consolas
 constantized
 contingut
@@ -262,7 +267,7 @@ Emph
 encryptable
 encryptor
 endo
-endorsables
+likeables
 endr
 enduml
 enquestes
@@ -284,6 +289,7 @@ EOTITLE
 eql
 equalcat
 equales
+equalto
 erabaki
 erblint
 ERESOLVE
@@ -330,6 +336,9 @@ formattings
 formelements
 formfield
 forminvalid
+formreset
+formvalid
+formvalidator
 Fpb
 freetext
 Fritsch
@@ -366,6 +375,7 @@ gotchas
 gpg
 gpu
 gql
+grafana
 Graphi
 graphiql
 Gruhier
@@ -376,6 +386,7 @@ gteq
 Gual
 GVzd
 Gyver
+hadolint
 haml
 Hammes
 hashdiff
@@ -399,6 +410,7 @@ Hodor
 Holas
 honeypots
 hooli
+hotwired
 housenumber
 hsh
 hsts
@@ -487,6 +499,7 @@ libicu
 libpq
 libreadline
 libreoffice
+libvips
 libyaml
 Liddel
 lighthouserc
@@ -576,6 +589,7 @@ mpassid
 mqa
 mrc
 mri
+msgpack
 mso
 msword
 multichoice
@@ -615,6 +629,7 @@ nodistro
 nodoc
 nok
 nomargin
+nombre
 nominatim
 noopen
 nopadding
@@ -664,6 +679,7 @@ ORMs
 osallistu
 osm
 oss
+osv
 osx
 otf
 otg
@@ -746,6 +762,7 @@ publicable
 Pujol
 pwa
 QLiterals
+qlty
 queda
 qux
 railtie
@@ -765,6 +782,8 @@ reddit
 refactorings
 regexes
 regexps
+registrado
+registrat
 reivindicate
 relogin
 remindable
@@ -786,6 +805,8 @@ riseup
 rlt
 roadmap
 Rojman
+roundtrippable
+roundtripping
 routable
 rowchart
 rowdata
@@ -826,6 +847,7 @@ setseed
 sgid
 shakapacker
 sharedapp
+shellcheckrc
 shellwords
 shs
 sidekiq
@@ -854,6 +876,7 @@ spammer
 spos
 spreadsheetml
 sqbracket
+sqlcommenter
 ssb
 sss
 Stabby
@@ -905,6 +928,7 @@ Terica
 Terrassa
 terrats
 territorials
+testid
 testsecret
 teva
 texta
@@ -959,8 +983,8 @@ uncollapse
 uncollapsing
 uncommentable
 undefines
-unendorse
-unendorsing
+unlike
+unliking
 unfollow
 unhides
 Uninstalls
@@ -990,6 +1014,7 @@ uploaders
 upvoted
 upvotes
 upvoting
+usuarias
 usecase
 usename
 usergroup
@@ -1018,6 +1043,7 @@ vkontakte
 vml
 vnd
 voner
+vostre
 votar
 votings
 VPAGQ
@@ -1057,6 +1083,7 @@ XXXXXXXY
 yardopts
 yarnkey
 ydd
+yjit
 yieldparam
 yieldreturn
 yoda

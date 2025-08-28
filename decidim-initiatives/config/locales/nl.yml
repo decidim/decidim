@@ -58,9 +58,6 @@ nl:
     admin:
       actions:
         new_initiative_type: Nieuw initiatiefstype
-      filters:
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Zoek %{collection} op titel, beschrijving, ID of auteur naam.
       menu:
         attachments: Bijlagen
         committee_members: Commissieleden
@@ -273,11 +270,6 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname} volgt. Je kunt stoppen met het ontvangen van notificaties door te klikken op de voorgaande link.
           email_subject: Nieuw initiatief van %{author_nickname}
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> initiatief is gemaakt door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, die je volgt, heeft het volgende initiatief onderschreven, misschien wil je een bijdrage leveren aan het gesprek:"
-          email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname}volgt. Je kunt stoppen met het ontvangen van meldingen via deze link.
-          email_subject: Initiatief goedgekeurd door %{author_nickname}
-          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> initiatief werd goedgekeurd door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} heeft je aanvraag om deel uit te maken van de promotiecommissie voor het volgende initiatief %{resource_title} aanvaard."
           email_subject: "%{author_nickname} heeft je aanvraag voor de promotiecommissie afgewezen"
@@ -316,11 +308,6 @@ nl:
           new_initiative: Nieuw initiatief
         initiatives:
           no_initiatives_warning: De zoekopdracht heeft geen resultaten opgeleverd.
-        interactions:
-          comments_count:
-            count:
-              one: Commentaar
-              other: Commentaar
         orders:
           label: 'Sorteer initiatieven op:'
           most_commented: Meeste reacties

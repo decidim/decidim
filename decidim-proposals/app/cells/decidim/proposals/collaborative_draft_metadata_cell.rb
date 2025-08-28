@@ -17,7 +17,7 @@ module Decidim
       private
 
       def collaborative_draft_items
-        [coauthors_item, comments_count_item, endorsements_count_item, state_item]
+        [coauthors_item, comments_count_item, likes_count_item, state_item]
       end
 
       def state_item

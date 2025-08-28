@@ -53,7 +53,7 @@ module Decidim
     }
 
     scope :part_of, lambda { |id|
-      where("part_of @> ARRAY[?]", id.to_i)
+      where("part_of @> ARRAY[?]::integer[]", id.to_i)
     }
 
     def self.log_presenter_class_for(_log)
@@ -113,6 +113,7 @@ module Decidim
 
     def forbid_cycles
       return unless parent_id
+      return if parent.part_of.compact_blank.empty?
 
       errors.add(:parent_id, :invalid) if parent.part_of.include?(id)
     end

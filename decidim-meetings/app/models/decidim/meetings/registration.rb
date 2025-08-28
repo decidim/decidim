@@ -15,7 +15,7 @@ module Decidim
 
       before_validation :generate_code, on: :create
 
-      enum status: { registered: "registered", waiting_list: "waiting_list" }
+      enum :status, { registered: "registered", waiting_list: "waiting_list" }
 
       scope :on_waiting_list, -> { waiting_list.order(:created_at) }
       scope :public_participant, -> { where(public_participation: true) }

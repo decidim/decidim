@@ -1,7 +1,7 @@
 import attachGeocoding from "src/decidim/geocoding/attach_input"
 import createFieldDependentInputs from "src/decidim/admin/field_dependent_inputs.component"
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   // Adds the latitude/longitude inputs after the geocoding is done
   const $meetingAddress = $("#meeting_address");
   if ($meetingAddress.length > 0) {

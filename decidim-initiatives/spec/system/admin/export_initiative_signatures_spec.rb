@@ -15,8 +15,9 @@ describe "Admin export initiatives' signature" do
   it "downloads the PDF file", :download do
     visit decidim_admin_initiatives.initiatives_path(locale: I18n.locale)
 
-    within "tr", text: translated(initiative.title) do
-      page.find(".action-icon--edit").click
+    within("tr", text: translated(initiative.title)) do
+      find("button[data-controller='dropdown']").click
+      click_on "Edit"
     end
 
     click_on "Export PDF of signatures"

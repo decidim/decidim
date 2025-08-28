@@ -64,7 +64,6 @@ ru:
           comment: Комментарий
           create: Создать
           destroy: Удалить
-          endorse: Поддержать
           update: Обновить
         name: Блог
         settings:
@@ -75,8 +74,6 @@ ru:
           step:
             announcement: Объявление
             comments_blocked: Комментарии отключены
-            endorsements_blocked: Возможность выразить поддержку отключена
-            endorsements_enabled: Возможность выразить поддержку включена
     events:
       blogs:
         post_created:

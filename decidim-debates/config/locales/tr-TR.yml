@@ -22,8 +22,6 @@ tr:
   decidim:
     components:
       debates:
-        actions:
-          endorse: Onayla
         name: Tartışmalar
         settings:
           global:
@@ -33,8 +31,6 @@ tr:
           step:
             announcement: duyuru
             comments_blocked: Yorumlar engellendi
-            endorsements_blocked: Onaylar engellendi
-            endorsements_enabled: Onaylar etkinleştirildi
     debates:
       actions:
         close: Kapat
@@ -106,7 +102,6 @@ tr:
           state: Statü
           state_values:
             closed: Kapalı
-            open: Açık
         index:
           new_debate: Yeni tartışma
         new:
@@ -119,10 +114,8 @@ tr:
           recent: En yeni
           updated: Yeni güncellenmiş
         show:
-          debate_closed: Kapalı
           debate_conclusions_are: 'Tartışma bu sonuçlarla %{date} tarihinde kapatıldı:'
           edit_conclusions: Sonuçları düzenleyin
-          open: Açık tartışma
           participants_count: Katılımcılar
         update:
           invalid: Bu tartışmayı güncellerken bir sorun oluştu.

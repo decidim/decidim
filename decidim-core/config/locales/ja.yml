@@ -72,8 +72,8 @@ ja:
       decidim/promote_to_admin: グループ管理者に昇格しました
       decidim/promoted_to_admin_event: グループ管理者に昇格しました
       decidim/removed_from_group: グループから削除しました
-      decidim/resource_endorsed_event: オススメされた
       decidim/resource_hidden_event: リソースを非表示
+      decidim/resource_liked_event: いいねされたリソース
       decidim/welcome_notification_event: ウェルカムメッセージ
   activerecord:
     attributes:
@@ -93,8 +93,8 @@ ja:
           other: 履歴
       decidim/amendment:
         other: 修正
-      decidim/endorsement:
-        other: オススメ
+      decidim/like:
+        other: いいね
       decidim/user:
         other: 参加者
   booleans:
@@ -153,6 +153,13 @@ ja:
         other: "%{count} ヶ月"
       x_seconds:
         other: "%{count} 秒"
+    widget:
+      label:
+        date: '%{label} の日付を選択'
+        time: '%{label} の時間を選択'
+      picker:
+        date_button: '%{label}のカレンダーピッカーを開く'
+        time_button: '%{label} のタイムピッカーを開く'
   decidim:
     accessibility:
       external_link: 外部リンク
@@ -423,8 +430,8 @@ ja:
       avatar: 'アバター: %{name}'
       comments:
         other: コメント
-      endorsements:
-        other: オススメ
+      likes:
+        other: いいね
       official_author: 公式
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -570,9 +577,21 @@ ja:
         name: ヒーローイメージと CTA
       hero_settings_form:
         background_image: 背景画像
+        cta_button_path: Call To Action ボタンURL
+        cta_button_path_help: 'ホームページの Call To Action ボタンのリンク先は上書き設定できます。ここではフル URL ではなく部分的なパスを使用してください。文字、数字、ハイフン、スラッシュのみを受け付け、先頭は文字で始まる必要があります。Call To Action ボタンはウェルカムテキストと説明文の間に表示されます。例: %{url}'
+        cta_button_text: Call To Action ボタンのテキスト
+        cta_button_text_help: ホームページの Call To Action ボタンのテキストは、組織で利用可能な各言語ごとに上書き設定できます。設定しない場合は、デフォルトの値が使用されます。Call To Action ボタンは、ホームページのウェルカムテキストと説明文の間に表示されます。
         welcome_text: ウェルカムテキスト
       highlighted_content_banner:
         name: 強調表示されたコンテンツバナー
+      highlighted_content_banner_settings_form:
+        action_button_subtitle: アクションボタンのサブタイトル
+        action_button_title: アクションボタンのタイトル
+        action_button_url: アクションボタンのURL
+        background_image: 背景画像
+        short_description: 短い説明
+        subtitle: サブタイトル
+        title: タイトル
       highlighted_elements_settings_form:
         components:
           all: すべて
@@ -688,6 +707,7 @@ ja:
     doorkeeper:
       authorizations:
         new:
+          api_read: API経由でコンテンツを読み込む
           authorize: アプリケーションを承認する
           by_organization_link_html: <small class="heading-small">by %{link}</small>
           cancel: キャンセル
@@ -809,15 +829,6 @@ ja:
         error: 画像のアップロードに失敗しました。
         success: 画像が正常にアップロードされました。
       drag_and_drop_help: ドラッグ&ドロップまたは貼り付けることで画像を追加できます。
-    endorsement_buttons_cell:
-      already_endorsed: オススメの取り消し
-      endorse: オススメ
-    endorsers_list:
-      endorsed_by:
-        other: '%{visible} によるオススメ'
-      others: "%{count} 以上"
-      title: オススメ
-      you: あなた
     ephemeral_user: 訪問者
     errors:
       files:
@@ -943,11 +954,11 @@ ja:
           notification_title: |-
             %{resource_type} として報告されたため、管理者が %{report_reasons} を削除しました。</br>
             <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: 'あなたがフォローしている%{endorser_name} %{endorser_nickname} は、「%{resource_title}」をオススメしました。私たちはあなたにとって興味深いことかもしれません。 チェックアウトして貢献：'
-        email_outro: '%{endorser_nickname}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
-        email_subject: "%{endorser_nickname} が新しいオススメを行いました"
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} は <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>によってオススメされました。
+      resource_liked:
+        email_intro: 'あなたがフォローしている%{liker_name} %{liker_nickname}が「%{resource_title}」をいいねしました。興味深いかもしれないので、ぜひチェックしてご参加ください：'
+        email_outro: '%{liker_nickname}をフォローしているため、この通知を受信しました。前のリンク先から、通知の受信を停止できます。'
+        email_subject: "%{liker_nickname} が新しいいいねを実行しました"
+        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} は <a href="%{liker_path}">%{liker_name} %{liker_nickname}</a>によっていいねされました。
       resources:
         soft_deleted:
           notification_title: 管理者があなたの "%{resource_type}" " "%{resource_title}" を削除しました。
@@ -1096,6 +1107,15 @@ ja:
         last_activity: 最近のアクティビティ
       name: 最近のアクティビティ
       no_activities_warning: このアクティビティ種別に表示するエントリがありません。
+    like_buttons_cell:
+      already_liked: いいねの取り消し
+      like: いいね
+    likes_list:
+      liked_by:
+        other: '%{visible} によるいいね'
+      others: "%{count} 以上"
+      title: いいねした人
+      you: あなた
     linked_resource_from:
       included_in: 含まれるリスト
     links:
@@ -1265,8 +1285,8 @@ ja:
       hello: こんにちは %{name} さん、
       intro:
         daily: 'あなたがフォローしているアクティビティに基づいた最終日以降の通知です:'
-        real_time: 'これらはあなたが以下のアクティビティについての通知です：'
-        weekly: 'これらは、あなたがフォローしているアクティビティに基づいた先週以降の通知です:'
+        real_time: 'あなたがフォローしているアクティビティに基づいた通知です:'
+        weekly: 'あなたがフォローしているアクティビティに基づいた先週以降の通知です:'
       outro: このコンテンツまたは著者をフォローしているため、これらの通知を受け取りました。それぞれのページからフォローを解除できます。
       see_more: 他の通知を見る
       subject: あなたのメールダイジェストです
@@ -1438,7 +1458,7 @@ ja:
           participate_title: プラットフォームのプロセスに参加する
           welcome: '%{organization} へようこそ！'
         statistics:
-          headline: '%{organization} の現在の状態'
+          headline: 統計情報
         sub_hero:
           register: 登録
           register_title: アカウントを作成
@@ -1511,15 +1531,24 @@ ja:
         scan: QRコードをスキャン
         title: '%{resource_title} の QR コード'
     reported_mailer:
-      hide:
+      hidden_automatically:
         content: 通報されたコンテンツ
         details: 詳細
-        hello: こんにちは、 %{name} さん。
+        hello: こんにちは %{name} さん、
         manage_moderations: モデレーションの管理
         participatory_space: 参加型スペース
         reason: 理由
-        report_html: <p>次の <a href="%{url}">コンテンツ</a> が自動的に非表示になりました。</p>
+        report_html: <p>以下の<a href="%{url}">コンテンツ</a>は自動的に非表示にされました。</p>
         subject: リソースは自動的に非表示になりました
+      hidden_manually:
+        content: 通報されたコンテンツ
+        details: 詳細
+        hello: こんにちは %{name} さん、
+        manage_moderations: モデレーションの管理
+        participatory_space: 参加型スペース
+        reason: 理由
+        report_html: <p>以下の<a href="%{url}">コンテンツ</a>は %{moderator} によって非表示にされました。</p>
+        subject: リソースは%{moderator}によって非表示にされました
       report:
         authors: 著者
         content: 報告されたコンテンツ
@@ -1537,15 +1566,17 @@ ja:
       create:
         error: レポートの作成中に問題が発生しました。もう一度やり直してください。
         success: レポートは正常に作成され、管理者によってレビューされます。
+      hide:
+        success: このリソースは非表示になっています。
       parent_hidden:
         report_details: 親リソースは非表示
     resource:
       controls_label: リソースコントロール
     resource_autocomplete:
       help: 提案を検索するには入力してください
-    resource_endorsements:
+    resource_likes:
       create:
-        error: オススメする際に問題がありました。
+        error: いいねする際に問題がありました。
     scopes:
       global: グローバルスコープ
       prompt: スコープを選択
@@ -1557,6 +1588,7 @@ ja:
     searches:
       filters:
         jump_to: 'ジャンプ先:'
+        resource: "%{collection} の中の %{label}"
         search: 検索
         state:
           active: アクティブ
@@ -1586,9 +1618,6 @@ ja:
       confirm_unload: このページには保存されていない変更が含まれています。このページから移動してもよいですか？
       embed:
         title: 埋め込み動画コンテンツ
-      extended_navigation_bar:
-        more: もっと見る
-        unfold: 展開する
       filter_form_help:
         help: 以下のフォームは、検索条件が変更されたときに検索結果を動的にフィルタリングします。
         skip: 結果にスキップ
@@ -1642,14 +1671,18 @@ ja:
         share_to: '%{service} に共有'
     statistics:
       comments_count: コメント
-      endorsements_count: オススメ
+      comments_count_tooltip: このスペースに投稿されたコメントの合計数。
       followers_count: フォロワー
+      followers_count_tooltip: このスペースのいずれかの部分をフォローしているユーザー数が更新されます。
       headline: 統計情報
+      likes_count: いいね
       no_stats: 統計情報はまだありません。
       pages_count: ページ
       participants_count: 参加者
+      participants_count_tooltip: 提案の提出、会議への参加、投票、ディスカッションへの参加などを通じて、このスペースで何らかのやり取りを行ったユニークユーザーの数です。
       surveys_count: 調査
       users_count: 参加者
+      users_count_tooltip: メールでアカウントを確認してサインアップを完了したユーザーの総数です。
     tags:
       filter_results_for_taxonomy: '%{resource} の検索結果'
     taxonomies:
@@ -2060,7 +2093,6 @@ ja:
       impersonation_warning:
         close_session: セッションを閉じる
         description_html: 参加者 <b>%{user_name}</b> を管理しています。
-        expire_time_html: このログインセッションは <b><span class="minutes">%{minutes}</span> 分後に無効になります。</b>.
       language_chooser:
         choose_language: 言語を選択
       navigation:
@@ -2091,6 +2123,8 @@ ja:
         profile: マイアカウント
         public_profile: 公開プロフィール
         title: プロフィールリンク
+        unread_conversations: 未読の会話があります
+        unread_notifications: 未読の通知があります
       user_profile:
         account: アカウント
         authorizations: 権限

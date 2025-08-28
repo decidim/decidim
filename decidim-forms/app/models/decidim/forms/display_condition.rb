@@ -10,7 +10,7 @@ module Decidim
     # if the selected response option is ("equal") or is not ("not_equal") a given one, or whether
     # the text value of the response matches a string ("match").
     class DisplayCondition < Forms::ApplicationRecord
-      enum condition_type: [:responded, :not_responded, :equal, :not_equal, :match], _prefix: true
+      enum :condition_type, [:responded, :not_responded, :equal, :not_equal, :match], prefix: true
 
       # Question which will be displayed or hidden
       belongs_to :question,

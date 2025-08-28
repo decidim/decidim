@@ -3,8 +3,6 @@
 module Decidim
   module Conferences
     class Permissions < Decidim::DefaultPermissions
-      include Decidim::UserRoleChecker
-
       def permissions
         user_can_enter_space_area?
 
@@ -280,7 +278,7 @@ module Decidim
           :media_link,
           :registration_type,
           :conference_invite,
-          :share_tokens
+          :share_token
         ].include?(permission_action.subject)
         allow! if is_allowed
       end
@@ -303,7 +301,7 @@ module Decidim
           :registration_type,
           :read_conference_registrations,
           :export_conference_registrations,
-          :share_tokens
+          :share_token
         ].include?(permission_action.subject)
         allow! if is_allowed
       end

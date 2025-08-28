@@ -1,10 +1,4 @@
 sr:
-  activerecord:
-    models:
-      decidim/endorsement:
-        one: Podržavanje
-        few: Podržavanja
-        other: Podržavanja
   decidim:
     accessibility:
       logo: "Zvanični logo %{organization}"
@@ -15,23 +9,12 @@ sr:
     application:
       document:
         download: Preuzmi datoteku
-    author:
-      endorsements:
-        one: podržavanje
-        few: podržavanja
-        other: podržavanja
     content_blocks:
       hero_settings_form:
         background_image: Pozadinska slika
         welcome_text: Tekst dobrodošlice
       stats:
         name: Statistika organizacije
-    events:
-      resource_endorsed:
-        email_intro: '%{endorser_name}%{endorser_nickname}, koga pratite, je podržao %{resource_title} i mislimo da bi vas to možda interesovalo. Pogledajte i doprinesite:'
-        email_outro: Dobili ste ovo obaveštenje jer pratite %{endorser_nickname}. Možete da prestanete da dobijate obaveštenja, ukoliko pratite prethodni link.
-        email_subject: "%{endorser_nickname} je podržao nešto"
-        notification_title: <a href="%{endorser_path}">%{endorser_name}%{endorser_nickname}</a> je podržao <a href="%{resource_path}">%{resource_title}</a>%{resource_type}.
     messaging:
       conversations:
         add_conversation_users:
@@ -64,9 +47,6 @@ sr:
     notifications_settings:
       show:
         direct_messages: Primaj direktne poruke od svih bez ograničenja
-    resource_endorsements:
-      create:
-        error: Nastao je problem pri podržavanju.
     shared:
       results_per_page:
         title: Izaberite broj rezultata po stranici

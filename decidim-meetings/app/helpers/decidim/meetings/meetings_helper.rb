@@ -8,7 +8,7 @@ module Decidim
       include Decidim::Meetings::ApplicationHelper
       include Decidim::TranslationsHelper
       include Decidim::ResourceHelper
-      include Decidim::EndorsableHelper
+      include Decidim::LikeableHelper
 
       # Public: truncates the meeting description
       #

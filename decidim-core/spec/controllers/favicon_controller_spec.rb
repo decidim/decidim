@@ -86,7 +86,7 @@ module Decidim
         context "and the variant has been processed" do
           let(:favicon_path) { Decidim::Dev.asset("icon.png") }
 
-          before { organization.attached_uploader(:favicon).variant(:favicon).process }
+          before { organization.attached_uploader(:favicon).variant(:favicon).processed }
 
           it "renders the favicon" do
             get :show

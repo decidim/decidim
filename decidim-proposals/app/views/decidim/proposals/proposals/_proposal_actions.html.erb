@@ -1,6 +1,6 @@
 <% if @proposal.amendable? && allowed_to?(:edit, :proposal, proposal: @proposal) %>
-  <li role="menuitem">
-    <%= link_to edit_proposal_path(@proposal), class: "button button__sm button__text button__text-secondary" do %>
+  <li role="menuitem" class="dropdown__item">
+    <%= link_to edit_proposal_path(@proposal), class: "dropdown__button" do %>
       <span><%= t("edit_proposal", scope: "decidim.proposals.proposals.show") %></span>
       <%= icon "pencil-line" %>
     <% end %>
@@ -10,8 +10,8 @@
 <% end %>
 
 <% if @proposal.withdrawable_by?(current_user) %>
-  <li role="menuitem">
-    <%= action_authorized_link_to :withdraw, withdraw_proposal_path(@proposal), resource: @proposal, method: :put, class: "button button__sm button__text button__text-secondary", title: t("withdraw_btn_hint", scope: "decidim.proposals.proposals.show" ), data: { confirm: t("withdraw_confirmation_html", scope: "decidim.proposals.proposals.show" ) } do %>
+  <li role="menuitem" class="dropdown__item">
+    <%= action_authorized_link_to :withdraw, withdraw_proposal_path(@proposal), resource: @proposal, method: :put, class: "dropdown__button", title: t("withdraw_btn_hint", scope: "decidim.proposals.proposals.show" ), data: { confirm: t("withdraw_confirmation_html", scope: "decidim.proposals.proposals.show" ) } do %>
       <span><%= t("withdraw_proposal", scope: "decidim.proposals.proposals.show") %></span>
       <%= icon "arrow-go-back-line" %>
     <% end %>

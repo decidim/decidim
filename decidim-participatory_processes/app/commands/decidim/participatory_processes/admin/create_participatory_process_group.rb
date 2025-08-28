@@ -8,7 +8,7 @@ module Decidim
       class CreateParticipatoryProcessGroup < Decidim::Commands::CreateResource
         fetch_file_attributes :hero_image
 
-        fetch_form_attributes :organization, :title, :description, :hashtag, :group_url, :target, :promoted,
+        fetch_form_attributes :organization, :title, :description, :group_url, :target, :promoted,
                               :developer_group, :local_area, :meta_scope, :participatory_scope, :participatory_structure
 
         protected

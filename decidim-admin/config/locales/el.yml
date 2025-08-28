@@ -42,8 +42,6 @@ el:
         available_authorizations: Διαθέσιμες εγκρίσεις
         badges_enabled: Ενεργοποίηση εμβλημάτων
         comments_max_length: Μέγιστο μέγεθος σχολίων (Αφήστε το 0 για το προκαθορισμένο μέγεθος)
-        cta_button_path: Διαδρομή κουμπιού «Call To Action»
-        cta_button_text: Κείμενο κουμπιού «Call To Action»
         customize_welcome_notification: Προσαρμογή ειδοποίησης καλωσορίσματος
         default_locale: Προεπιλεγμένες τοπικές ρυθμίσεις
         description: Περιγραφή
@@ -58,13 +56,6 @@ el:
         header_snippets: Τμήματα κεφαλίδας
         highlight_alternative_color: Επισήμαση, εναλλακτική
         highlight_color: Επισήμανση
-        highlighted_content_banner_action_subtitle: Υπότιτλος κουμπιού ενέργειας
-        highlighted_content_banner_action_title: Τίτλος κουμπιού ενέργειας
-        highlighted_content_banner_action_url: Διεύθυνση URL κουμπιού ενέργειας
-        highlighted_content_banner_enabled: Εμφάνιση του επισημασμένου πλαισίου περιεχομένου
-        highlighted_content_banner_image: Εικόνα
-        highlighted_content_banner_short_description: Σύντομη περιγραφή
-        highlighted_content_banner_title: Τίτλος
         host: Διοργανωτής
         instagram_handler: Πρόγραμμα χειρισμού Instagram
         logo: Λογότυπο
@@ -174,16 +165,15 @@ el:
         attachment_collection:
           new: Νέος φάκελος συνημμένων
         browse: Αναζήτηση
-        export: Εξαγωγή όλων
+        configure: Διαμόρφωση
+        export: Εξαγωγή
         export-selection: Εξαγωγή επιλογής
         import: Εισαγωγή
-        manage: Διαχείριση
         newsletter:
           new: Νέο ενημερωτικό δελτίο
         participatory_space_private_user:
           new: Νέος ιδιωτικός χρήστης συμμετοχικού χώρου
         per_page: Ανά σελίδα
-        permissions: Δικαιώματα
         share: Κοινοποίηση
         user:
           new: Νέος διαχειριστής
@@ -390,11 +380,7 @@ el:
             'true': Η δημοσίευση καταργήθηκε
         search_label: Αναζήτηση
         search_placeholder:
-          name_or_nickname_or_email_cont: Αναζήτηση συλλογής %{collection} με βάση το email, όνομα ή ψευδώνυμο.
           report_count_eq: Αναφορά μετρητή eq
-          reported_id_string_or_reported_content_cont: Αναζήτηση %{collection} με αναγνωριστικό ή περιεχόμενο προς αναφορά.
-          title_cont: Αναζήτηση συλλογής %{collection} με βάση τον τίτλο.
-          user_name_or_user_nickname_or_user_email_cont: Αναζήτηση %{collection} με email, όνομα ή ψευδώνυμο.
         state_eq:
           label: Κατάσταση
           values:
@@ -486,7 +472,6 @@ el:
       logs:
         filters:
           participatory_space: Βρείτε συμμετοχικό χώρο
-          text: Αναζήτηση με email, όνομα ή ψευδώνυμο.
           user: Χρήστης
         logs_list:
           no_logs_yet: Δεν υπάρχουν ακόμη αρχεία καταγραφής.
@@ -509,7 +494,6 @@ el:
         configuration: Διαμόρφωση
         content: Περιεχόμενο που αναφέρθηκε
         help_sections: Ενότητες βοήθειας
-        homepage: Αρχική σελίδα
         impersonations: Αναπαραστάσεις
         manage: Διαχείριση
         moderation: Καθολικές εποπτεύσεις
@@ -589,9 +573,11 @@ el:
         index:
           actions:
             block: Αποκλεισμός χρήστη
+            bulk_actions:
+              unreport:
+                title: Κατάργηση αναφοράς
             title: Ενέργειες
             unblock: Ξεμπλοκάρισμα χρήστη
-            unreport: Κατάργηση αναφοράς
           name: Όνομα
           nickname: Ψευδώνυμο
           reason: Αιτία
@@ -696,7 +682,6 @@ el:
         index:
           actions: Ενέργειες
           badge: Έμβλημα
-          block: Αποκλεισμός χρήστη
           created_at: Δημιουργήθηκε στις
           name: Όνομα
           nickname: Ψευδώνυμο
@@ -705,9 +690,7 @@ el:
           officialized: Επισημοποιήθηκε
           reofficialize: Εκ νέου επισημοποίηση
           reports: Αναφορές
-          show_email: Εμφάνιση διεύθυνσης email
           status: Κατάσταση
-          unblock: Ξεμπλοκάρισμα χρήστη
           unofficialize: Κατάργηση επισημοποίησης
         new:
           badge: Έμβλημα επισημοποίησης
@@ -737,26 +720,6 @@ el:
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του οργανισμού.
           success: Ο οργανισμός ενημερώθηκε με επιτυχία.
-      organization_appearance:
-        edit:
-          update: Ενημέρωση
-        form:
-          colors:
-            choose_color: Επιλέξτε ένα πρωτεύον χρώμα
-            colors_title: Χρώματα οργανισμού
-            colors_warning_html: Προσοχή! Η αλλαγή αυτών των χρωμάτων μπορεί να σπάσει τις αντιθέσεις προσβασιμότητας. Μπορείτε να ελέγξετε την αντίθεση της επιλογής σας με <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> ή άλλα παρόμοια εργαλεία.
-            explanation: Αυτό το εργαλείο σας βοηθά να επιλέξετε ένα συνδυασμό χρωμάτων, που αποτελείται από αποχρώσεις εξίσου τοποθετημένες γύρω από τον τροχό χρωμάτων, που θα χρησιμοποιηθούν στην ιστοσελίδα του οργανισμού.
-            legend_html: Κύρια χρώματα εφαρμογής, με βάση τον <a href="https://www.color-meanings.com/triadic-colors/">τριαδικό αλγόριθμο</a>. Το <i>δευτερεύον</i> χρώμα υπολογίζεται αυτόματα από το πρωτεύον χρώμα και τον κορεσμό που επιλέξατε.
-            saturation: Κορεσμός
-            title: Επιλογέας χρωμάτων
-            update_suggested_colors: Ενημέρωση προτεινόμενων χρωμάτων
-          cta_button_text_help: Μπορείτε να αντικαταστήσετε το κείμενο του κουμπιού «Call To Action» στην αρχική σελίδα για κάθε διαθέσιμη γλώσσα στον οργανισμό σας. Εάν δεν έχει οριστεί, θα χρησιμοποιηθεί η προεπιλεγμένη τιμή. Το κουμπί «Call To Action» εμφανίζεται στην αρχική σελίδα μεταξύ του κειμένου καλωσορίσματος και της περιγραφής.
-          homepage_appearance_title: Επεξεργασία εμφάνισης αρχικής σελίδας
-          homepage_highlighted_content_banner_title: Επισημασμένο πλαίσιο περιεχομένου
-          images:
-            layout_appearance_title: Επεξεργασία εμφάνισης διάταξης
-            preview: Προεπισκόπηση
-          omnipresent_banner_appearance_title: Επεξεργασία διαφημιστικού πλαισίου omnipresent
       participatory_space_private_users:
         create:
           error: Υπήρξε ένα πρόβλημα κατά την προσθήκη ενός ιδιωτικού συμμετέχοντα για αυτόν τον χώρο συμμετοχής.
@@ -841,8 +804,6 @@ el:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του θέματος.
           success: Το θέμα ενημερώθηκε με επιτυχία
       static_pages:
-        actions:
-          view: Προβολή δημόσιας σελίδας
         create:
           error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία μιας νέας σελίδας.
           success: Η σελίδα δημιουργήθηκε με επιτυχία.
@@ -876,7 +837,6 @@ el:
         participants: Συμμετέχοντες
         scope_types: Τύποι πεδίου εφαρμογής
         scopes: Πεδία εφαρμογής
-        statistics: Δραστηριότητα
         users: Διαχειριστές
       users:
         create:
@@ -911,8 +871,6 @@ el:
         hide: Απόκρυψη
         not_hidden: Δεν είναι κρυφό
         title: Ενέργειες
-        unhide: Επανεμφάνιση
-        unreport: Κατάργηση αναφοράς
       admin:
         reportable:
           hide:

@@ -8,8 +8,9 @@ describe "Admin creates documents" do
   let(:body) { Faker::HTML.paragraph }
 
   include_context "when managing a component as an admin" do
-    let!(:component) { create(:collaborative_texts_component, participatory_space:) }
+    let!(:component) { create(:collaborative_text_component, participatory_space:) }
   end
+  it_behaves_like "access component permissions form"
 
   it "creates a new document" do
     click_on "New text"

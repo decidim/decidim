@@ -9,7 +9,7 @@ module Decidim
       def call
         create_content_block!
 
-        3.times do |_n|
+        number_of_records.times do |_n|
           type = create_initiative_type!
 
           organization.top_scopes.each do |scope|
@@ -19,7 +19,6 @@ module Decidim
 
         Decidim::Initiative.states.keys.each do |state|
           Decidim::Initiative.skip_callback(:save, :after, :notify_state_change, raise: false)
-          Decidim::Initiative.skip_callback(:create, :after, :notify_creation, raise: false)
 
           initiative = create_initiative!(state:)
 

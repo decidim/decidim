@@ -23,7 +23,6 @@ ru:
               needs_to_be_reattached: Необходимо заново прикрепить
     models:
       decidim/proposals/creation_enabled_event: Включена возможность создания предложений
-      decidim/proposals/endorsing_enabled_event: Включена возможность поддерживать предложения
       decidim/proposals/proposal_mentioned_event: Предложение упомянуто
       decidim/proposals/publish_proposal_event: Предложение обнародовано
       decidim/proposals/voting_enabled_event: Включена возможность голосовать по поводу предложений
@@ -48,7 +47,6 @@ ru:
     components:
       proposals:
         actions:
-          endorse: Поддержать
           vote: Голосовать
           withdraw: Отозвать
         name: Предложения
@@ -68,8 +66,6 @@ ru:
           step:
             announcement: Объявление
             comments_blocked: Комментарии отключены
-            endorsements_blocked: Возможность выразить поддержку отключена
-            endorsements_enabled: Возможность выразить поддержку включена
             proposal_answering_enabled: Включена возможность отвечать на предложения
             votes_blocked: Голосование отключено
             votes_enabled: Голосование включено
@@ -80,10 +76,6 @@ ru:
           email_intro: 'Теперь вы можете создавать новые предложения в %{participatory_space_title}! Начните со страницы:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: Теперь в %{participatory_space_title} можно вносить предложения
-        endorsing_enabled:
-          email_intro: 'Теперь вы можете поддерживать предложения в %{participatory_space_title}! Начните со страницы:'
-          email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
-          email_subject: В %{participatory_space_title} началось предоставление поддержки предложениям
         proposal_mentioned:
           email_subject: Ваше предложение "%{mentioned_proposal_title}"было упомянуто
           notification_title: Ваше предложение «%{mentioned_proposal_title}» было упомянуто в комментариях <a href="%{resource_path}">в этом пространстве</a>.

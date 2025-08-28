@@ -3,7 +3,7 @@
 require "spec_helper"
 require "decidim/dev/test/rspec_support/tom_select"
 
-describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_map: true do
+describe "Admin manages meetings" do
   let(:manifest_name) { "meetings" }
   let!(:meeting) { create(:meeting, :published, services: [], component: current_component, start_time: base_date + 1.day, end_time: base_date + 26.hours) }
   let(:address) { "Some address" }
@@ -46,13 +46,15 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       visit current_path
 
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+        find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Unpublish" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
-        expect(page).to have_css(".action-icon--publish")
+        find("button[data-controller='dropdown']").click
+        expect(page).to have_content("Publish")
       end
 
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
@@ -62,7 +64,8 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       expect(page).to have_admin_callout("successfully")
 
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
-        expect(page).to have_css(".action-icon--unpublish")
+        find("button[data-controller='dropdown']").click
+        expect(page).to have_content("Unpublish")
       end
 
       visit decidim.last_activities_path
@@ -94,7 +97,10 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
   describe "when rendering the text in the update page" do
     before do
-      click_on "Edit"
+      within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
+      end
     end
 
     it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='meeting-description-tabs']", "full"
@@ -146,7 +152,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       let(:component) { create(:component, manifest_name:, organization:) }
       let!(:meeting) do
         create(:meeting, services: [], component:,
-                         title: { en: "Title" }, description: { en: "Description" })
+                         title: { en: "Title for the meeting" }, description: { en: "Description" })
       end
 
       it "shows the title correctly" do
@@ -164,13 +170,15 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
   it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='meeting-description-tabs']", "full" do
     before do
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
     end
   end
 
-  it "updates a meeting", :serves_geocoding_autocomplete do
+  it "updates a meeting" do
     within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+      find("button[data-controller='dropdown']").click
       click_on "Edit"
     end
 
@@ -207,6 +215,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
   it "sets registration enabled to true when registration type is on this platform" do
     within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+      find("button[data-controller='dropdown']").click
       click_on "Edit"
     end
 
@@ -222,6 +231,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
   it "sets registration enabled to false when registration type is not on this platform" do
     within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+      find("button[data-controller='dropdown']").click
       click_on "Edit"
     end
 
@@ -235,8 +245,9 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     expect(meeting.reload.registrations_enabled).to be false
   end
 
-  it "adds a few services to the meeting", :serves_geocoding_autocomplete do
+  it "adds a few services to the meeting" do
     within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+      find("button[data-controller='dropdown']").click
       click_on "Edit"
     end
 
@@ -252,6 +263,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     expect(page).to have_admin_callout("successfully")
 
     within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+      find("button[data-controller='dropdown']").click
       click_on "Edit"
     end
 
@@ -259,44 +271,37 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     expect(page).to have_css("input[value='This is the second service']")
   end
 
-  it "allows the user to preview a published meeting" do
-    meeting_path = resource_locator(meeting).path
+  describe "previewing" do
+    it "allows the user to preview a published meeting" do
+      within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+        find("button[data-controller='dropdown']").click
+        preview_window = window_opened_by { click_on "Preview" }
 
-    within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
-      klass = "action-icon--preview"
-
-      expect(page).to have_xpath(
-        "//a[contains(@class,'#{klass}')][@href='#{meeting_path}'][@target='blank']"
-      )
+        within_window preview_window do
+          expect(page).to have_current_path(resource_locator(meeting).path)
+        end
+      end
     end
 
-    # Visit the meeting
-    page.visit meeting_path
+    describe "with an unpublished meeting" do
+      let!(:unpublished_meeting) { create(:meeting, services: [], component: current_component) }
 
-    expect(page).to have_current_path(meeting_path)
-  end
+      it "allows the user to preview it" do
+        visit current_path
 
-  it "allows the user to preview an unpublished meeting" do
-    unpublished_meeting = create(:meeting, services: [], component: current_component)
-    visit current_path
+        within "tr", text: Decidim::Meetings::MeetingPresenter.new(unpublished_meeting).title do
+          find("button[data-controller='dropdown']").click
+          preview_window = window_opened_by { click_on "Preview" }
 
-    meeting_path = resource_locator(unpublished_meeting).path
-
-    within "tr", text: Decidim::Meetings::MeetingPresenter.new(unpublished_meeting).title do
-      klass = "action-icon--preview"
-
-      expect(page).to have_xpath(
-        "//a[contains(@class,'#{klass}')][@href='#{meeting_path}'][@target='blank']"
-      )
+          within_window preview_window do
+            expect(page).to have_current_path(resource_locator(unpublished_meeting).path)
+          end
+        end
+      end
     end
-
-    # Visit the unpublished meeting
-    page.visit meeting_path
-
-    expect(page).to have_current_path(meeting_path)
   end
 
-  it "creates a new meeting", :serves_geocoding_autocomplete do
+  it "creates a new meeting" do
     click_on "New meeting"
 
     fill_in_i18n(:meeting_title, "#meeting-title-tabs", **attributes[:title].except("machine_translations"))
@@ -316,6 +321,19 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     fill_in_timepicker :meeting_start_time_time, with: meeting_start_time
     fill_in_datepicker :meeting_end_time_date, with: meeting_end_date
     fill_in_timepicker :meeting_end_time_time, with: meeting_end_time
+
+    expect(page).to have_content("Send a reminder for this meeting")
+    expect(page).to have_content("Scheduled reminder email")
+    expect(page).to have_content("Reminder email content")
+
+    fill_in :meeting_send_reminders_before_hours, with: 24
+    fill_in_i18n(
+      :meeting_reminder_message_custom_content,
+      "#meeting-reminder_message_custom_content-tabs",
+      en: "Custom message for the {{meeting_title}} meeting",
+      es: "Custom message for the {{meeting_title}} meeting",
+      ca: "Custom message for the {{meeting_title}} meeting"
+    )
 
     select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
 
@@ -399,7 +417,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     end
   end
 
-  context "when using the front-end geocoder", :serves_geocoding_autocomplete do
+  context "when using the front-end geocoder" do
     it_behaves_like(
       "a record with front-end geocoding address field",
       Decidim::Meetings::Meeting,
@@ -505,7 +523,8 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
     it "deletes a meeting" do
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting2).title do
-        accept_confirm { click_on "Soft delete" }
+        find("button[data-controller='dropdown']").click
+        accept_confirm { click_on "Move to trash" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -531,6 +550,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
     it "updates a meeting" do
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
@@ -630,7 +650,8 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
     it "closes a meeting with a report" do
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
-        page.click_on "Close"
+        find("button[data-controller='dropdown']").click
+        click_on "Close"
       end
 
       within ".edit_close_meeting" do
@@ -684,7 +705,8 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
       before do
         within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
-          page.click_on "Close"
+          find("button[data-controller='dropdown']").click
+          click_on "Close"
         end
       end
 
@@ -700,7 +722,8 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
       it "can update the information" do
         within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
-          page.click_on "Close"
+          find("button[data-controller='dropdown']").click
+          click_on "Close"
         end
 
         within ".edit_close_meeting" do
@@ -712,14 +735,15 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       end
     end
 
-    context "when proposal linking is disabled" do
+    context "when the proposal module is not installed" do
       before do
-        allow(Decidim::Meetings).to receive(:enable_proposal_linking).and_return(false)
+        allow(Decidim).to receive(:module_installed?).and_return(false)
       end
 
       it "does not display the proposal picker" do
         within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
-          page.click_on "Close"
+          find("button[data-controller='dropdown']").click
+          click_on "Close"
         end
 
         expect(page).to have_content "Close meeting"

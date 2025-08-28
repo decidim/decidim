@@ -17,6 +17,14 @@ module Decidim
           expect(response["name"]["translation"]).to eq(model.name["en"])
         end
       end
+
+      describe "url" do
+        let(:query) { "{ url }" }
+
+        it "returns all the required fields" do
+          expect(response["url"]).to eq(Decidim::EngineRouter.main_proxy(model).root_url)
+        end
+      end
     end
   end
 end

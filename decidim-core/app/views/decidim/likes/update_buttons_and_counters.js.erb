@@ -1,0 +1,21 @@
+updateLikeBlock();
+function updateLikeBlock() {
+  var $likeBlock = document.getElementById('resource-<%= resource.reload.id %>-like-block');
+  var $likeButton = document.getElementById('resource-<%= resource.id %>-like-button');
+  var $likeListGrid = document.getElementById('liker-list-<%= resource.id %>');
+
+  var $likesModal = document.getElementById('likesModal-<%= resource.id %>');
+
+  if ($likesModal !== null) {
+    $likesModal.remove();
+  }
+
+  $likeListGrid.outerHTML = '<%= j(cell("decidim/likers_list", resource)).strip.html_safe %>';
+
+  $likeButton.outerHTML = '<%= j(cell("decidim/like_buttons", resource).show).strip.html_safe %>';
+
+  $likeListGrid = document.getElementById('liker-list-<%= resource.id %>');
+
+  document.dispatchEvent(new CustomEvent("ajax:loaded", { detail: $likeBlock }));
+  document.dispatchEvent(new CustomEvent("ajax:loaded", { detail: $likeListGrid }));
+}

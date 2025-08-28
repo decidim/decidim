@@ -8,7 +8,7 @@ module Decidim
       class UpdateAssembly < Decidim::Commands::UpdateResource
         fetch_file_attributes :hero_image, :banner_image
 
-        fetch_form_attributes :title, :subtitle, :slug, :hashtag, :promoted, :description, :short_description,
+        fetch_form_attributes :title, :subtitle, :slug, :promoted, :description, :short_description,
                               :taxonomizations, :parent, :private_space, :developer_group, :local_area,
                               :target, :participatory_scope, :participatory_structure, :meta_scope,
                               :purpose_of_action, :composition, :creation_date, :created_by,

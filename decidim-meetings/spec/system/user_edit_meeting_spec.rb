@@ -8,7 +8,7 @@ describe "User edit meeting" do
 
   let!(:user) { create(:user, :confirmed, organization: participatory_process.organization) }
   let!(:another_user) { create(:user, :confirmed, organization: participatory_process.organization) }
-  let!(:meeting) { create(:meeting, :published, title: { en: "Meeting title with #hashtag" }, description: { en: "Meeting description" }, author: user, component:) }
+  let!(:meeting) { create(:meeting, :published, title: { en: "Meeting with a title" }, description: { en: "Meeting description" }, author: user, component:) }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
   let(:component) do
@@ -58,7 +58,7 @@ describe "User edit meeting" do
       expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
     end
 
-    context "when using the front-end geocoder", :serves_geocoding_autocomplete do
+    context "when using the front-end geocoder" do
       it_behaves_like(
         "a record with front-end geocoding address field",
         Decidim::Meetings::Meeting,
@@ -97,7 +97,7 @@ describe "User edit meeting" do
           click_on "Update"
         end
 
-        expect(page).to have_content("problem updating")
+        expect(page).to have_content("There is an error in this field.")
       end
     end
 

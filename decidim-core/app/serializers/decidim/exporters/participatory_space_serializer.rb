@@ -25,7 +25,6 @@ module Decidim
           updated_at: resource.updated_at,
           published_at: resource.published_at,
           follows_count: resource.follows_count,
-          hashtag: resource.hashtag,
           short_description: resource.short_description,
           description: resource.description,
           promoted: resource.promoted

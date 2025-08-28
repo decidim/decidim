@@ -21,13 +21,13 @@ module Decidim
       def import(attributes, _user, opts)
         title = opts[:title]
         slug = opts[:slug]
+        process_group = import_process_group(attributes["participatory_process_group"]) unless attributes["participatory_process_group"].nil?
         Decidim.traceability.perform_action!(:create, ParticipatoryProcess, @user, visibility: "all") do
           @imported_process = ParticipatoryProcess.new(
             organization: @organization,
             title:,
             slug:,
             subtitle: attributes["subtitle"],
-            hashtag: attributes["hashtag"],
             description: attributes["description"],
             short_description: attributes["short_description"],
             promoted: attributes["promoted"],
@@ -41,7 +41,7 @@ module Decidim
             end_date: attributes["end_date"],
             announcement: attributes["announcement"],
             private_space: attributes["private_space"],
-            participatory_process_group: import_process_group(attributes["participatory_process_group"])
+            participatory_process_group: process_group
           )
           @imported_process.attached_uploader(:hero_image).remote_url = attributes["remote_hero_image_url"] if attributes["remote_hero_image_url"].present?
 
@@ -111,9 +111,11 @@ module Decidim
           end
         end
 
-        attachments["attachment_collections"].map do |collection|
-          Decidim.traceability.perform_action!("create", AttachmentCollection, @user) do
-            create_attachment_collection(collection)
+        unless attachments["attachment_collections"].empty?
+          attachments["attachment_collections"].map do |collection|
+            Decidim.traceability.perform_action!("create", AttachmentCollection, @user) do
+              create_attachment_collection(collection)
+            end
           end
         end
       end

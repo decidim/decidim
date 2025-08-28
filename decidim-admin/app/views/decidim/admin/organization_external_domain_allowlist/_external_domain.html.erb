@@ -5,17 +5,19 @@
       <span><%= t(".external_domain") %></span>
 
       <div class="flex items-center ml-auto gap-x-4">
-        <button class="button button__sm button__transparent-secondary small alert move-up-question button--title">
-          <%== "#{icon("arrow-up-line")} #{t(".up")}" %>
+        <button class="button button__xs button__transparent-secondary small alert move-up-question button--title">
+          <%= icon("arrow-up-line") %>
+          <span class="hidden md:block"><%= t(".up") %></span>
         </button>
 
-        <button class="button button__sm button__transparent-secondary small alert move-down-question button--title">
-          <%== "#{icon("arrow-down-line")} #{t(".down")}" %>
+        <button class="button button__xs button__transparent-secondary small alert move-down-question button--title">
+          <%= icon("arrow-down-line") %>
+          <span class="hidden md:block"><%= t(".down") %></span>
         </button>
 
-        <button class="button button__sm button__transparent-secondary small alert remove-external-domain button--title">
+        <button class="button button__xs button__transparent-secondary small alert remove-external-domain button--title">
           <%= icon("delete-bin-line") %>
-          <%= t(".remove") %>
+          <span class="hidden md:block"><%= t(".remove") %></span>
         </button>
       </div>
     </h2>

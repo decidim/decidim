@@ -1,7 +1,7 @@
 <%= display_flash_messages %>
 
 <div class="row column">
-  <%= form.translated :text_field, :item_name, autofocus: true, class: "js-hashtags", hashtaggable: true, aria: { label: :name } %>
+  <%= form.translated :text_field, :item_name, autofocus: true, aria: { label: :name } %>
 </div>
 <div class="row column">
   <%= form.select :parent_id, options_for_select(parent_options, selected: selected_parent_id), {} %>

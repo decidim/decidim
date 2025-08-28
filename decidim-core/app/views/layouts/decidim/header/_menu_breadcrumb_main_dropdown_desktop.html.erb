@@ -1,16 +1,10 @@
 <div id="<%= id %>" class="menu-bar__main-dropdown">
-  <div class="menu-bar__main-dropdown__top">
-    <div class="menu-bar__main-dropdown__top-left">
+  <div class="menu-bar__main-dropdown__left">
+    <div class="menu-bar__main-dropdown__left-top">
       <%= render partial: "layouts/decidim/header/menu_breadcrumb_main_dropdown_top_left" %>
     </div>
-    <%= breadcrumb_root_menu.render %>
+    <%= cell("decidim/highlighted_participatory_process", menu_highlighted_participatory_process) %>
+    <%= cell "decidim/content_blocks/menu_breadcrumb_last_activity", current_organization %>
   </div>
-  <div class="menu-bar__main-dropdown__bottom">
-    <div class="menu-bar__main-dropdown__bottom-left">
-      <%= cell("decidim/highlighted_participatory_process", menu_highlighted_participatory_process) %>
-    </div>
-    <div class="menu-bar__main-dropdown__bottom-right">
-      <%= cell "decidim/content_blocks/menu_breadcrumb_last_activity", current_organization %>
-    </div>
-  </div>
+  <%= breadcrumb_root_menu.render %>
 </div>

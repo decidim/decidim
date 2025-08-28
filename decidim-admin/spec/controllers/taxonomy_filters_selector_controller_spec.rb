@@ -44,7 +44,7 @@ module Decidim
           get(action, params:)
 
           expect(response).to have_http_status(:redirect)
-          expect(subject).to redirect_to("/taxonomy_filters_selector?component_id=#{component_id}")
+          expect(subject).to redirect_to("/admin/taxonomy_filters_selector?component_id=#{component_id}")
         end
       end
 
@@ -53,7 +53,7 @@ module Decidim
           get(action, params:)
 
           expect(response).to have_http_status(:redirect)
-          expect(subject).to redirect_to("/taxonomy_filters_selector/new?component_id=#{component_id}&taxonomy_id=#{taxonomy_id}")
+          expect(subject).to redirect_to("/admin/taxonomy_filters_selector/new?component_id=#{component_id}&taxonomy_id=#{taxonomy_id}")
         end
       end
 

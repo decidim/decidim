@@ -21,11 +21,12 @@ module Decidim
       verify_oauth_signature!
 
       begin
-        if existing_identity
-          user = existing_identity.user
-          verify_user_confirmed(user)
+        if (@identity = existing_identity)
+          @user = existing_identity.user
+          verify_user_confirmed(@user)
 
-          return broadcast(:ok, user)
+          trigger_omniauth_event("decidim.user.omniauth_login")
+          return broadcast(:ok, @user)
         end
         return broadcast(:invalid) if form.invalid?
 
@@ -33,7 +34,7 @@ module Decidim
           create_or_find_user
           @identity = create_identity
         end
-        trigger_omniauth_registration
+        trigger_omniauth_event
 
         broadcast(:ok, @user)
       rescue NeedTosAcceptance
@@ -69,7 +70,7 @@ module Decidim
         @user.email = (verified_email || form.email)
         @user.name = form.name.gsub(REGEXP_SANITIZER, "")
         @user.nickname = form.normalized_nickname
-        @user.newsletter_notifications_at = nil
+        @user.newsletter_notifications_at = form.newsletter_at
         @user.password = SecureRandom.hex
         attach_avatar(form.avatar_url) if form.avatar_url.present?
         @user.tos_agreement = form.tos_agreement
@@ -128,9 +129,9 @@ module Decidim
       form.oauth_signature == signature
     end
 
-    def trigger_omniauth_registration
+    def trigger_omniauth_event(event_name = "decidim.user.omniauth_registration")
       ActiveSupport::Notifications.publish(
-        "decidim.user.omniauth_registration",
+        event_name,
         user_id: @user.id,
         identity_id: @identity.id,
         provider: form.provider,

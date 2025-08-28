@@ -105,7 +105,6 @@ ro:
           comment: Comentați
           create: Creați
           destroy: Ștergeți
-          endorse: Susțineți
           update: Actualizați
         name: Blog
         settings:
@@ -122,8 +121,6 @@ ro:
           step:
             announcement: Anunț
             comments_blocked: Comentarii blocate
-            endorsements_blocked: Susțineri dezactivate
-            endorsements_enabled: Susțineri activate
     events:
       blogs:
         post_created:
@@ -150,7 +147,6 @@ ro:
           comments_count: Numărul de comentarii pe care le are această postare
           component: Componenta căreia îi aparține postarea
           created_at: Data la care acestă postare a fost creată
-          endorsements_count: Numărul de aprobări pe care această postare le-a primit
           follows_count: Numărul de urmăritori al acestei postări
           id: Identificatorul unic al acestei postări
           participatory_space: Cărui spațiu (de exemplu, proces participativ sau adunare) aparține această postare
@@ -160,3 +156,4 @@ ro:
           url: URL-ul pentru această postare
     statistics:
       posts_count: Postări
+      posts_count_tooltip: Numărul de actualizări publicate sau postări de blog.

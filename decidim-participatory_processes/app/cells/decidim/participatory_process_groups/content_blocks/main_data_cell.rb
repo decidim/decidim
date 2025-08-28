@@ -5,9 +5,8 @@ module Decidim
     module ContentBlocks
       class MainDataCell < Decidim::ContentBlocks::ParticipatorySpaceMainDataCell
         include Decidim::SanitizeHelper
-        include Decidim::TwitterSearchHelper
 
-        delegate :title, :description, :hashtag, :group_url, :meta_scope, to: :resource
+        delegate :title, :description, :group_url, :meta_scope, to: :resource
 
         private
 
@@ -21,15 +20,6 @@ module Decidim
 
         def description_text
           decidim_sanitize_editor_admin translated_attribute(description)
-        end
-
-        def hashtag_item
-          return if hashtag_text.blank?
-
-          {
-            icon: "twitter-x-line",
-            text: link_to("##{hashtag_text}", twitter_hashtag_url(hashtag_text), target: "_blank", rel: "noopener")
-          }
         end
 
         def processes_count_item
@@ -58,10 +48,6 @@ module Decidim
             icon: "globe-line",
             text: "<strong>#{t("decidim.participatory_process_groups.content_blocks.title.meta_scope")}</strong> #{scope_text}"
           }
-        end
-
-        def hashtag_text
-          @hashtag_text ||= decidim_html_escape(hashtag || "")
         end
 
         def group_url_text

@@ -28,7 +28,7 @@ describe "Decidim::Api::QueryType" do
           description {
             translation(locale: "#{locale}")
           }
-          endorsementsCount
+          likesCount
           endTime
           followsCount
           hasComments
@@ -66,7 +66,7 @@ describe "Decidim::Api::QueryType" do
   let(:author) { build(:user, :confirmed, organization: current_component.organization) }
   let(:last_comment_by) { create(:user, :confirmed, name: "User") }
   let!(:debate) do
-    create(:debate, :closed, :with_endorsements, :participant_author,
+    create(:debate, :closed, :with_likes, :participant_author,
            author:,
            component: current_component,
            taxonomies:,
@@ -89,7 +89,7 @@ describe "Decidim::Api::QueryType" do
       "conclusions" => { "translation" => translated(debate.conclusions) },
       "createdAt" => debate.created_at.to_time.iso8601,
       "description" => { "translation" => debate.description[locale] },
-      "endorsementsCount" => 5,
+      "likesCount" => 5,
       "endTime" => debate.end_time,
       "followsCount" => 3,
       "hasComments" => debate.comment_threads.size.positive?,
@@ -123,6 +123,7 @@ describe "Decidim::Api::QueryType" do
           }
         ]
       },
+      "url" => Decidim::EngineRouter.main_proxy(current_component).root_url,
       "weight" => 0
     }
   end
@@ -173,7 +174,7 @@ describe "Decidim::Api::QueryType" do
               description {
                 translation(locale: "#{locale}")
               }
-              endorsementsCount
+              likesCount
               endTime
               followsCount
               hasComments

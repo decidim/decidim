@@ -8,7 +8,7 @@ module Decidim
       include PaginateHelper
       include Decidim::Comments::CommentsHelper
       include Decidim::RichTextEditorHelper
-      include Decidim::EndorsableHelper
+      include Decidim::LikeableHelper
       include Decidim::FollowableHelper
       include Decidim::CheckBoxesTreeHelper
       include Decidim::DateRangeHelper
@@ -59,7 +59,7 @@ module Decidim
       # Returns a TreeNode to be used in the list filters to filter debates by
       # its state.
       def filter_debates_state_values
-        %w(open closed).map { |k| [k, t(k, scope: "decidim.debates.debates.filters.state_values")] }.prepend(
+        %w(ongoing closed).map { |k| [k, t(k, scope: "decidim.debates.debates.filters.state_values")] }.prepend(
           ["all", all_filter_text]
         )
       end
@@ -73,7 +73,7 @@ module Decidim
           items = [{
             method: :with_any_state,
             collection: filter_debates_state_values,
-            label: t("decidim.meetings.meetings.filters.date"),
+            label: t("decidim.debates.debates.filters.state"),
             id: "date",
             type: :radio_buttons
           }]

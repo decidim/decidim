@@ -33,7 +33,7 @@ describe "User creates meeting" do
     switch_to_host(organization.host)
   end
 
-  context "when creating a new meeting", :serves_geocoding_autocomplete do
+  context "when creating a new meeting" do
     let(:user) { create(:user, :confirmed, organization:) }
 
     context "when the user is not logged in" do

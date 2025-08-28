@@ -10,10 +10,8 @@ module Decidim::Conferences
 
     subject { cell("decidim/conferences/conference_dropdown_metadata", model).call }
 
-    let(:model) { create(:conference, hashtag:) }
-    let(:hashtag) { nil }
+    let(:model) { create(:conference) }
 
     include_examples "participatory space dropdown metadata cell"
-    include_examples "participatory space dropdown metadata cell hashtag"
   end
 end

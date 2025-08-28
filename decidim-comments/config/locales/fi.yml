@@ -26,6 +26,8 @@ fi:
             enabled: Kommentointi sallittu
             end_time: Kommentointi sallittu aikarajaan saakka
             start_time: Kommentointi sallittu alkaen
+      comment_thread:
+        accessibility_label: Kommenttiketju aloitettu %{date} henkilön %{full_name} toimesta
       comments:
         create:
           error: Kommentin luonti epäonnistui.
@@ -121,6 +123,9 @@ fi:
           other: "%{count} kommenttia"
         top_comment_label: Eniten ääniä saaneet ensin
       down_vote_button:
+        label:
+          one: Eri mieltä osoittava painike. %{count} henkilö on asiasta eri mieltä
+          other: Eri mieltä osoittava painike. %{count} henkilöä on asiasta eri mieltä
         text: Olen eri mieltä tämän kommentin kanssa
       edit_comment_modal_form:
         close: Sulje
@@ -131,6 +136,9 @@ fi:
           submit: Lähetä
         title: Muokkaa kommenttiasi
       up_vote_button:
+        label:
+          one: Tykkäyspainike. %{count} tykkäys
+          other: Tykkäyspainike. %{count} tykkäystä
         text: Olen samaa mieltä tämän kommentin kanssa
     download_your_data:
       help:

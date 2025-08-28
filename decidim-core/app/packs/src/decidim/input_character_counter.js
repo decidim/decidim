@@ -93,7 +93,7 @@ export default class InputCharacterCounter {
       this.$srTarget = $(`#${screenReaderId}`);
       if (!this.$srTarget.length) {
         this.$srTarget = $(
-          `<span role="status" id="${screenReaderId}" class="sr-only remaining-character-count-sr" />`
+          `<span role="status" id="${screenReaderId}" class="sr-only remaining-character-count-sr" aria-hidden="true"/>`
         );
         this.$target.before(this.$srTarget);
       }

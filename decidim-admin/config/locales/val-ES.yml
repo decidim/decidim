@@ -11,4 +11,3 @@ val:
               spam: Spam
         search_placeholder:
           report_count_eq: Número de denúncies
-          user_name_or_user_nickname_or_user_email_cont: Cerca %{collection} per correu electrònic, nom, o sobrenom.

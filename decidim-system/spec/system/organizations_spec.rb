@@ -204,6 +204,30 @@ describe "Organizations" do
           expect(page).to have_content("You need to define the SECRET_KEY_BASE environment variable to be able to save this field")
         end
       end
+
+      context "when the HTML header snippets feature is enabled" do
+        before do
+          allow(Decidim).to receive(:enable_html_header_snippets).and_return(true)
+        end
+
+        it "shows the HTML header snippet form field" do
+          visit current_path
+
+          expect(page).to have_field(:update_organization_header_snippets)
+        end
+      end
+
+      context "when the HTML header snippets feature is disabled" do
+        before do
+          allow(Decidim).to receive(:enable_html_header_snippets).and_return(false)
+        end
+
+        it "does not show the HTML header snippet form field" do
+          visit current_path
+
+          expect(page).to have_no_field(:update_organization_header_snippets)
+        end
+      end
     end
 
     describe "editing an organization with disabled OmniAuth provider" do

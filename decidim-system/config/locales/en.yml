@@ -8,6 +8,9 @@ en:
         organization_name: Organization
         organization_url: Organization URL
         redirect_uri: Redirect URI
+        refresh_tokens: Refresh tokens
+        refresh_tokens_enabled: Refresh tokens enabled
+        scopes: Available scopes
       organization:
         address: SMTP hostname
         from_email: Email address
@@ -39,12 +42,28 @@ en:
   decidim:
     system:
       actions:
+        api_user:
+          hidden_secret: Secret is hidden
+          hide_secret: Hide Secret
+          secret_can_not_be_shown: the API secret can be only seen or copied after creation
+          show_secret: Show secret
+          shown_secret: Secret is shown
+        api_users:
+          create: Create
+          new: New API user
+          remove: Remove user
         confirm_destroy: Are you sure you want to delete this?
+        confirm_refresh_api_secret: Are you sure you want to refresh the secret for this API user? After the refresh, the old secret will be invalid and can no longer be used.
+        confirm_remove_api_user: Are you sure you want to remove this API user?
+        copied: Copied
+        copy_secret: Copy secret
+        copy_secret_clarification: Copy secret to the clipboard
         destroy: Delete
         edit: Edit
         new_admin: New admin
         new_oauth_application: New OAUTH application
         new_organization: New organization
+        refresh_secret: Refresh secret
         save: Save
         title: Actions
       admins:
@@ -64,6 +83,25 @@ en:
         update:
           error: There was a problem updating this admin.
           success: Admin successfully updated.
+      api_user:
+        create:
+          error: API user creation failed.
+          success: API user created successfully. The secret for the user is only visible after creation. Please copy it and store it safely before leaving this page!
+        destroy:
+          success: API user successfully deleted.
+        refresh:
+          error: Something went wrong! Please try again later.
+          success: Secret refreshed successfully. The secret for the user is only visible after creation. Please copy it and store it safely before leaving this page!
+      api_users:
+        index:
+          explanation_html: |
+            <p>API users allow integration developers to add administrative machine user accounts to the system. These machine users can act as administrators on the platform to perform updates that normal administrators would perform through the administration panel. A typical use case is an external management platform where an automated script would perform administrative tasks with the platform without a real user having to authenticate to the system. For example, an automation system might want to send answers to proposals in which case we need an integration user to perform this task within this platform.</p>
+            <p>The main difference between these accounts and normal administrator accounts is that these users are meant to be used by machines and therefore their password requirements are different. These users do not need to regularly update their password and changing the account password can happen in a managed way when needed.</p>
+            <p>These credentials are meant to be used by machines. Participant-facing applications should be integrated with <a href="%{oauth_link}">OAuth applications</a>.</p>
+          manage: Manage API users
+        new:
+          select_organization: Select your organization
+          title: Create new API user
       dashboard:
         show:
           admins: Admins
@@ -92,6 +130,7 @@ en:
             sign_up: Create an account
       menu:
         admins: Admins
+        api_credentials: API credentials
         dashboard: Dashboard
         oauth_applications: OAuth applications
         organizations: Organizations
@@ -102,6 +141,15 @@ en:
             email: Email
           validations:
             email_uniqueness: another admin with the same email already exists
+        api_user:
+          fields:
+            created_at: Created at
+            key: Key
+            name: Name
+            organization: Organization
+            secret: Secret
+          validations:
+            name_uniqueness: An API user with this name already exists.
         oauth_application:
           fields:
             created_at: Created at
@@ -128,6 +176,30 @@ en:
           save: Save
           title: Edit application
         form:
+          application_type:
+            confidential:
+              explanation: Applications that are able to securely authenticate with the authorization server, for example being able to keep their registered client secret safe. Typically an application running on a server where the client secret is stored.
+              name: Confidential
+            public:
+              explanation: Applications that are unable to use registered client secrets, such as applications running in a browser or on a mobile device.
+              name: Public
+          application_type_help_html: 'The OAuth client type as defined by <a href="%{client_type_link}" target="_blank">RFC 6749 Section 2.1</a>. Public clients need to implement the PKCE flow as defined by <a href="%{pkce_link}" target="_blank">RFC 7636</a>.
+
+            '
+          refresh_tokens_help_html: 'Refresh tokens are useful in case the token needs a longer lifetime than what is assigned for the access token. Note that <strong>refresh tokens should be used carefully</strong> because they can weaken the security of your users.
+
+            '
+          scopes_explanation:
+            api:read: Allows the user to perform query operations through the GraphQL API.
+            api:write: Allows the user to perform mutation operations through the GraphQL API.
+            profile: Provides access to the user's own profile details. Only this scope is needed in case the OAuth application is only used as an identity provider or an authentication service.
+            user: Ability to act as the signed in user with the given token during calls to the GraphQL API. This is required for all api:write operations or api:read operations that need information about the current user.
+          scopes_help_html: |
+            The selected scopes will be available for the connected applications to request during the authorization process. The user will be presented details about the authorization request when they sign in using OAuth.
+            <br>
+            Different scopes provide different features for the authenticated user using the granted access tokens.
+            <br>
+            <strong>Note:</strong> If you only need to authenticate the users to your external applications, you only need the <strong>profile</strong> scope. Applications interacting with the Decidim API require other scopes as well.
           select_organization: Select an organization
         index:
           confirm_delete: Are you sure you want to delete this application?
@@ -217,6 +289,7 @@ en:
           intro: |
             Please be extra cautious when considering to change these settings. The less you allow, the better.
             Allowing specific file extensions or MIME types can expose the system users to security risks and it can also affect the accessibility of the website.
+        header_snippets_help_html: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section. If the code interacts with external APIs or does not comply with the application security guidelines, it will be necessary to change the Content Security Policy. Read more about <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">on the documentation site</a> .
         index:
           title: Organizations
         new:

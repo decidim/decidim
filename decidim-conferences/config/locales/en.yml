@@ -3,16 +3,15 @@ en:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Related Assemblies
+        assemblies_ids: Related assemblies
         available_slots: Available slots
         banner_image: Banner image
-        copy_categories: Copy categories
-        copy_components: Copy components
-        copy_features: Copy features
         decidim_scope_id: Scope
         description: Description
+        duplicate_categories: Duplicate categories
+        duplicate_components: Duplicate components
+        duplicate_features: Duplicate features
         end_date: End date
-        hashtag: Hashtag
         hero_image: Home image
         location: Location
         main_logo: Main logo
@@ -99,9 +98,9 @@ en:
         new_speaker: New speaker
         send_diplomas: Send certificates of attendance
         view_deleted_conferences: View deleted conferences
-      conference_copies:
+      conference_duplicates:
         new:
-          copy: Copy
+          duplicate: Duplicate
           select: Select which data you would like to duplicate
           title: Duplicate conference
       conference_publications:
@@ -164,7 +163,13 @@ en:
         exports:
           registrations: Registrations
         form:
+          duration: Duration
+          images: Images
+          metadata: Metadata
+          registrations: Registrations
+          related_spaces: Related spaces
           title: General Information
+          visibility: Visiblity
         index:
           published: Published
           unpublished: Unpublished
@@ -172,11 +177,11 @@ en:
           title: Deleted conferences
         new:
           create: Create
-          title: Conference
+          title: New conference
         update:
           error: There was a problem updating this conference.
           success: Conference successfully updated.
-      conferences_copies:
+      conferences_duplicates:
         create:
           error: There was a problem duplicating this conference.
           success: Conference successfully duplicated.
@@ -219,17 +224,20 @@ en:
       models:
         conference:
           fields:
+            actions: Actions
             created_at: Created at
             published: Published
             title: Title
         conference_speaker:
           fields:
+            actions: Actions
             affiliation: Affiliation
             full_name: Full name
             position: Position
           name: Conference Speaker
         conference_user_role:
           fields:
+            actions: Actions
             email: Email
             name: Name
             role: Role
@@ -241,12 +249,14 @@ en:
             moderator: Moderator
         media_link:
           fields:
+            actions: Actions
             date: Date
             link: Link
             title: Title
           name: Media link
         partner:
           fields:
+            actions: Actions
             link: Link
             logo: Logo
             name: Name
@@ -257,6 +267,7 @@ en:
             main_promotor: Main promotor
         registration_type:
           fields:
+            actions: Actions
             conference_meetings: Conference meetings
             price: Price
             registrations_count: Registrations count
@@ -351,7 +362,7 @@ en:
         title: Speakers
     conferences:
       admin:
-        conference_copies:
+        conference_duplicates:
           form:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         conference_invites:
@@ -389,7 +400,7 @@ en:
             no_taxonomy_filters_found: No taxonomy filters found.
             registrations_count:
               one: There has been 1 registration.
-              other: There has been %{count} registrations.
+              other: There have been %{count} registrations.
             slug_help_html: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             taxonomies: Taxonomies
         content_blocks:
@@ -516,6 +527,7 @@ en:
             sent: Sent
         conference_registration:
           fields:
+            actions: Actions
             email: Email
             name: Name
             registration_type: Registration type
@@ -614,7 +626,6 @@ en:
           description: A long description of the conference
           end_date: The date when this conference ends.
           follows_count: The number of users following this space
-          hashtag: The conference hashtag, used for Twitter/X
           id: The unique identifier of this conference
           location: The conference location. Where this conference will take place.
           objectives: The objectives for this conference. What is the goal.
@@ -635,6 +646,7 @@ en:
           url: The URL of the space
     statistics:
       conferences_count: Conferences
+      conferences_count_tooltip: The number of published conferences.
   devise:
     mailer:
       join_conference:

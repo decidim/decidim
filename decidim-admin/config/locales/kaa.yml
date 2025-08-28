@@ -11,7 +11,6 @@ kaa:
       component:
         name: Ataması
       organization:
-        highlighted_content_banner_image: Súwret
         name: Ataması
       participatory_space_private_user:
         email: Elektron pochta
@@ -145,12 +144,6 @@ kaa:
           instagram: Instagram
           url: URL
           youtube: YouTube
-      organization_appearance:
-        edit:
-          update: Jańalaw
-        form:
-          images:
-            preview: Aldınnan kóriw
       participatory_space_private_users:
         new:
           create: Jaratıw

@@ -6,7 +6,6 @@ module Decidim
     layout "layouts/decidim/application"
 
     helper_method :page, :pages, :page_content_blocks
-    helper CtaButtonHelper
     helper Decidim::SanitizeHelper
 
     before_action :legacy_redirect, :set_default_request_format

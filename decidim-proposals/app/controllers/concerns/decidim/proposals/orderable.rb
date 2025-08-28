@@ -22,7 +22,7 @@ module Decidim
           @possible_orders ||= begin
             possible_orders = %w(random recent)
             possible_orders << "most_voted" if most_voted_order_available?
-            possible_orders << "most_endorsed" if current_settings.endorsements_enabled?
+            possible_orders << "most_liked" if current_settings.likes_enabled?
             possible_orders << "most_commented" if component_settings.comments_enabled?
             possible_orders << "most_followed" << "with_more_authors"
             possible_orders
@@ -60,8 +60,8 @@ module Decidim
           case order
           when "most_commented"
             proposals.order(comments_count: :desc)
-          when "most_endorsed"
-            proposals.order(endorsements_count: :desc)
+          when "most_liked"
+            proposals.order(likes_count: :desc)
           when "most_followed"
             proposals.order(follows_count: :desc)
           when "most_voted"

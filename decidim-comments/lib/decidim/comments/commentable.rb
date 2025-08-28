@@ -17,6 +17,10 @@ module Decidim
           true
         end
 
+        def has_comments?
+          comment_threads.not_hidden.size.positive?
+        end
+
         # Public: Whether the object can have new comments or not.
         def accepts_new_comments?
           true

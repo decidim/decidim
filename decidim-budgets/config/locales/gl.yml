@@ -27,10 +27,7 @@ gl:
               'true': Sen seleccionar para implementación
     budgets:
       actions:
-        attachment_collections: Carpetas
-        attachments: Anexos
         edit: Editar
-        edit_projects: Xestionar proxectos
         import: Importa propostas a proxectos
         preview: Vista previa
         title: Accións
@@ -196,6 +193,5 @@ gl:
         project_proposal: Propostas incluídas neste proxecto
     statistics:
       orders_count: Apoios
-      projects_count: Proxectos
   index:
     confirmed_orders_count: Reconto de votos

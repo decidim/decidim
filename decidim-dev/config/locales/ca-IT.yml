@@ -36,8 +36,8 @@ ca-IT:
               baz: Baz
               foo: Foo
           step:
-            endorsements_blocked: Adhesions bloquejades
-            endorsements_enabled: Adhesions habilitades
+            likes_blocked: '"M''agrada" desactivats'
+            likes_enabled: '"M''agrada" activats'
             readonly_step_attribute: Atribut de només lectura
             test_options:
               bar: Barra

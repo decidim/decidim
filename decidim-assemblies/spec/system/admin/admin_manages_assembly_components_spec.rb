@@ -7,7 +7,7 @@ describe "Admin manages assembly components" do
 
   it_behaves_like "manage assembly components"
 
-  describe "Soft delete" do
+  describe "Move to trash" do
     let(:admin_resource_path) { decidim_admin_assemblies.components_path(assembly) }
     let(:trash_path) { decidim_admin_assemblies.manage_trash_components_path(assembly) }
     let(:title) { { en: "My component" } }

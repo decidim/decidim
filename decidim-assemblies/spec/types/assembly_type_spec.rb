@@ -51,14 +51,6 @@ module Decidim
         end
       end
 
-      describe "hashtag" do
-        let(:query) { "{ hashtag }" }
-
-        it "returns the Assembly' hashtag" do
-          expect(response["hashtag"]).to eq(model.hashtag)
-        end
-      end
-
       describe "weight" do
         let(:query) { "{ weight }" }
 

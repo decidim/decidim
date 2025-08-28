@@ -2,16 +2,15 @@ eu:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Erlazionatutako Batzarrak
+        assemblies_ids: Erlazionatutako batzarrak
         available_slots: Leku libreak
         banner_image: Banner irudia
-        copy_categories: Kopiatu kategoriak
-        copy_components: Kopiatu osagaiak
-        copy_features: Kopiatu ezaugarriak
         decidim_scope_id: Esparrua
         description: Deskribapena
+        duplicate_categories: Bikoiztu kategoriak
+        duplicate_components: Bikoiztu osagaiak
+        duplicate_features: Bikoiztu ezaugarriak
         end_date: Amaiera-data
-        hashtag: Traola
         hero_image: Orri nagusiko irudia
         location: Kokapena
         main_logo: Logo nagusia
@@ -98,9 +97,9 @@ eu:
         new_speaker: Beste hizlari bat
         send_diplomas: Bidali bertaratze-ziurtagiriak
         view_deleted_conferences: Ikusi ezabatutako jardunaldiak
-      conference_copies:
+      conference_duplicates:
         new:
-          copy: Kopiatu
+          duplicate: Bikoiztu
           select: Hautatu zein datu bikoiztu nahi dituzun
           title: Bikoiztu jardunaldia
       conference_publications:
@@ -163,7 +162,13 @@ eu:
         exports:
           registrations: Izen-emateak
         form:
+          duration: Iraupena
+          images: Argazkiak
+          metadata: Metadatuak
+          registrations: Izen-emateak
+          related_spaces: Honekin lotutako espazioak
           title: Informazio orokorra
+          visibility: Ikusgarritasuna
         index:
           published: Argitaratua
           unpublished: Argitaragabea
@@ -171,14 +176,14 @@ eu:
           title: Ezabatutako jardunaldiak
         new:
           create: Sortu
-          title: Jardunaldia
+          title: Beste jardunaldi bat
         update:
           error: Arazo bat egon da jardunaldi hau eguneratzean.
           success: Jardunaldia zuzen eguneratua.
-      conferences_copies:
+      conferences_duplicates:
         create:
           error: Arazo bat egon da jardunaldi hau bikoiztean.
-          success: Jardunaldia zuzen eguneratua.
+          success: Jardunaldia zuzen bikoiztua.
       media_links:
         create:
           error: Arazo bat egon da beste komunikazio-esteka bat sortzean.
@@ -218,17 +223,20 @@ eu:
       models:
         conference:
           fields:
+            actions: Ekintzak
             created_at: Noiz sortua
             published: Argitaratua
             title: Izenburua
         conference_speaker:
           fields:
+            actions: Ekintzak
             affiliation: Afiliazioa
             full_name: Izen osoa
             position: Kargua
           name: Hizlaria
         conference_user_role:
           fields:
+            actions: Ekintzak
             email: Helbide elektronikoa
             name: Izena
             role: Rola
@@ -240,12 +248,14 @@ eu:
             moderator: Moderatzailea
         media_link:
           fields:
+            actions: Ekintzak
             date: Data
             link: Esteka
             title: Izenburua
           name: Hedabideen lotura
         partner:
           fields:
+            actions: Ekintzak
             link: Lotura
             logo: Logotipoa
             name: Izena
@@ -256,6 +266,7 @@ eu:
             main_promotor: Sustatzaile nagusia
         registration_type:
           fields:
+            actions: Ekintzak
             conference_meetings: Jardunaldiaren topaketak
             price: Prezioa
             registrations_count: Erregistro kopurua
@@ -350,9 +361,9 @@ eu:
         title: Hizlariak
     conferences:
       admin:
-        conference_copies:
+        conference_duplicates:
           form:
-            slug_help_html: 'URL slugak erabiltzen dira jardunaldi honetako URLak sortzeko. Soilik onartzen ditu gutunak, zenbakiak eta gidoiak, eta letra batez hasi behar du. Adibidea: % {url}'
+            slug_help_html: 'URL slugak erabiltzen dira jardunaldi honetako URLak sortzeko. Soilik onartzen ditu gutunak, zenbakiak eta gidoiak, eta letra batez hasi behar du. Adibidea: %{url}'
         conference_invites:
           create:
             error: Arazo bat izan da parte-hartzaileak konferentziara sartzeko gonbidatuta.
@@ -389,7 +400,7 @@ eu:
             registrations_count:
               one: Izen-emate 1 egon da.
               other: Dena den, %{count} izen-emateak.
-            slug_help_html: 'URL slugak erabiltzen dira jardunaldi honetako URLak sortzeko. Soilik onartzen ditu gutunak, zenbakiak eta gidoiak, eta letra batez hasi behar du. Adibidea: % {url}'
+            slug_help_html: 'URL slugak erabiltzen dira jardunaldi honetako URLak sortzeko. Soilik onartzen ditu gutunak, zenbakiak eta gidoiak, eta letra batez hasi behar du. Adibidea: %{url}'
             taxonomies: Taxonomiak
         content_blocks:
           highlighted_conferences:
@@ -414,7 +425,7 @@ eu:
             title: Izen-emate motak
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: < a href = " % {url}" >% {title} jardunaldira joan izanaren ziurtagiria aurkituko duzu eranskinetan.
+            diploma_html: < a href = " %{url}" >%{title} jardunaldira joan izanaren ziurtagiria aurkituko duzu eranskinetan.
           diploma_user:
             attendance_verified_by: Bertaratzea nork egiaztatua
             certificate_of_attendance: Parte-hartze ziurtagiria
@@ -515,6 +526,7 @@ eu:
             sent: Bidalia
         conference_registration:
           fields:
+            actions: Ekintzak
             email: Helbide elektronikoa
             name: izena
             registration_type: Izen-emate mota
@@ -613,7 +625,6 @@ eu:
           description: Jardunaldiaren deskribapen luzea
           end_date: Zein datatan amaitu zen jardunaldi hau.
           follows_count: Espazio hau zenbat parte-hartzaileek jarraitzen duten
-          hashtag: Jardunaldiaren traola, Twitter/Xerako erabilia
           id: Jardunaldi honen identifikatzaile bakarra
           location: Jardunaldiaren kokalekua. Non egingo da hitzaldi hau.
           objectives: Jardunaldi honen helburuak. Zein da helburua.
@@ -634,6 +645,7 @@ eu:
           url: Espazioaren URLa
     statistics:
       conferences_count: Jardunaldiak
+      conferences_count_tooltip: Argitaratutako hitzaldien kopurua.
   devise:
     mailer:
       join_conference:

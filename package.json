@@ -41,7 +41,8 @@
     ],
     "moduleDirectories": [
       "node_modules",
-      "decidim-core/app/packs"
+      "decidim-core/app/packs",
+      "decidim-collaborative_texts/app/packs"
     ],
     "moduleNameMapper": {
       "\\.(scss|css|less)$": "identity-obj-proxy"

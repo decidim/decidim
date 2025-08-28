@@ -49,6 +49,14 @@ module Decidim
           expect(response["updatedAt"]).to eq(model.updated_at.to_time.iso8601)
         end
       end
+
+      describe "url" do
+        let(:query) { "{ url }" }
+
+        it "returns all the required fields" do
+          expect(response["url"]).to eq(Decidim::ResourceLocatorPresenter.new(model).url)
+        end
+      end
     end
   end
 end

@@ -1,25 +1,25 @@
 <tr data-id="<%= debate.id %>">
-  <td>
+  <td data-label="<%= t("models.debate.fields.title", scope: "decidim.debates") %>">
     <% if allowed_to? :update, :debate, debate: debate %>
       <%= link_to present(debate).title(html_escape: true), edit_debate_path(debate) %>
     <% else %>
       <%= present(debate).title(html_escape: true) %><br>
     <% end %>
   </td>
-  <td>
+  <td data-label="<%= t("models.debate.fields.start_time", scope: "decidim.debates") %>">
     <% if debate.start_time %>
       <%= l debate.start_time, format: :long %>
     <% end %>
   </td>
-  <td>
+  <td data-label="<%= t("models.debate.fields.end_time", scope: "decidim.debates") %>">
     <% if debate.end_time %>
       <%= l debate.end_time, format: :long %>
     <% end %>
   </td>
-  <td>
+  <td data-label="<%= t("models.debate.fields.taxonomies", scope: "decidim.debates") %>">
     <%= debate.taxonomies.map { |taxonomy| decidim_sanitize_translated(taxonomy.name) }.join(", ") %>
   </td>
-  <td class="table-list__actions">
+  <td class="table-list__actions" data-label="<%= t("actions.title", scope: "decidim.debates") %>">
     <%= render partial: "decidim/debates/admin/debates/actions", locals: { debate:, view: } %>
   </td>
 </tr>

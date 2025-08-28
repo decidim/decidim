@@ -13,6 +13,9 @@ module Decidim
     # @option options [String] :element_class
     #         The CSS class to be used for the item
     #
+    # @option options [String] :element_wrapper_class
+    #         The CSS class to be used for the wrapper of the item
+    #
     # @option options [String] :active_class
     #         The CSS class to be used for the active item
     #
@@ -49,17 +52,21 @@ module Decidim
         { aria: { current: "page" } }
       else
         {}
-      end
+      end.merge({ class: link_classes })
     end
 
     def composed_label
       icon_name.present? ? icon(icon_name) + label : label
     end
 
-    def link_wrapper_classes
-      return @options.element_class unless is_active_link?(url, active)
+    def link_classes
+      @options.element_class.nil? ? "" : @options.element_class
+    end
 
-      [@options.element_class, active_class].compact.join(" ")
+    def link_wrapper_classes
+      return @options.element_wrapper_class unless is_active_link?(url, active)
+
+      [@options.element_wrapper_class, active_class].compact.join(" ")
     end
 
     def active_class

@@ -31,8 +31,7 @@ Gem::Specification.new do |s|
     end
   end
 
-  # Lock Temporarily as it is failing in 0.29 branch. More info: https://github.com/rails/rails/pull/54264
-  s.add_dependency "concurrent-ruby", "= 1.3.4"
+  s.add_dependency "concurrent-ruby", "~> 1.3.0"
 
   s.add_dependency "active_link_to", "~> 1.0"
   s.add_dependency "acts_as_list", "~> 1.0"
@@ -73,7 +72,7 @@ Gem::Specification.new do |s|
   s.add_dependency "premailer-rails", "~> 1.10"
   s.add_dependency "rack", "~> 2.2", ">= 2.2.8.1"
   s.add_dependency "rack-attack", "~> 6.0"
-  s.add_dependency "rails", "~> 7.0.8"
+  s.add_dependency "rails", "~> 7.2.0"
   s.add_dependency "rails-i18n", "~> 7.0"
   s.add_dependency "ransack", "~> 4.2.0"
   s.add_dependency "redis", "~> 4.1"

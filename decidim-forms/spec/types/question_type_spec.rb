@@ -68,6 +68,18 @@ module Decidim
           expect(ids).to include(*model.response_options.map(&:id).map(&:to_s))
         end
       end
+
+      describe "matrixRows" do
+        let(:query) { "{ matrixRows { id } }" }
+        let!(:model) { create(:questionnaire_question, question_type: "matrix_multiple") }
+        let!(:matrixmultiple_response_options) { create_list(:response_option, 3, question: model) }
+        let!(:matrixmultiple_rows) { create_list(:question_matrix_row, 3, question: model) }
+
+        it "returns the question's response options corresponding to question_for_id" do
+          ids = response["matrixRows"].map { |item| item["id"] }
+          expect(ids).to include(*model.matrix_rows.map(&:id).map(&:to_s))
+        end
+      end
     end
   end
 end

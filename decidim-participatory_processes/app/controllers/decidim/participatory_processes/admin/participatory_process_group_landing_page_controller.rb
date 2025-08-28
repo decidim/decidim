@@ -43,6 +43,10 @@ module Decidim
 
         alias participatory_process_group scoped_resource
 
+        def content_blocks_title
+          t("decidim.admin.menu.participatory_process_groups_submenu.landing_page")
+        end
+
         private
 
         def collection

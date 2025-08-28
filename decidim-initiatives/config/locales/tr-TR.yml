@@ -75,8 +75,6 @@ tr:
               validating: Teknik doğrulama
           type_id_eq:
             label: Tür
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: '%{collection} ''ı başlık, açıklama, kimlik veya yazar adına göre arayın.'
       menu:
         information: Bilgi
         initiatives: Girişimler
@@ -289,11 +287,6 @@ tr:
           email_outro: Bu bildirimi, %{author_nickname}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
           email_subject: '%{author_nickname} tarafından yeni girişim'
           notification_title: <a href="%{resource_path}">%{resource_title} </a> girişimi <a href="%{author_path}">%{author_name} %{author_nickname} </a> tarafından oluşturuldu.
-        endorse_initiative_event:
-          email_intro: "Takip ettiğiniz %{author_name} %{author_nickname} aşağıdaki girişimi onayladı, belki sohbete katkıda bulunmak istersiniz:"
-          email_outro: Bu bildirimi %{author_nickname} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
-          email_subject: Girişim %{author_nickname} tarafından onaylandı
-          notification_title: <a href="%{resource_path}">%{resource_title} </a> girişimi <a href="%{author_path}">%{author_name} %{author_nickname} </a> tarafından onaylandı.
       initiative_signatures:
         finish:
           back_to_initiative: Girişime geri dön
@@ -328,11 +321,6 @@ tr:
         initiatives:
           closed_initiatives_warning: Şu anda açık girişim yok, ancak burada listelenen tüm kapalı girişimleri bulabilirsiniz.
           no_initiatives_warning: Arama kriterlerinizle eşleşen hiçbir girişim yok.
-        interactions:
-          comments_count:
-            count:
-              one: Yorum
-              other: Yorumlar
         orders:
           label: 'Girişimleri şuna göre sırala:'
           most_commented: En çok yorum yapılan

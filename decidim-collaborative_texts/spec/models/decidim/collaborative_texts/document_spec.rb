@@ -7,13 +7,12 @@ module Decidim
     describe Document do
       subject { document }
 
-      let(:document) { build(:collaborative_text_document, :with_versions) }
+      let!(:document) { build(:collaborative_text_document, :with_versions) }
       let(:organization) { document.component.organization }
 
       it { is_expected.to be_valid }
       it { is_expected.to act_as_paranoid }
 
-      include_examples "has component"
       include_examples "resourceable"
 
       context "without a title" do
@@ -36,6 +35,7 @@ module Decidim
         document.save!
         version = create(:collaborative_text_version, created_at: 1.second.from_now, document: document)
         expect(document.reload.document_versions.count).to eq(4)
+        expect(document.document_versions_count).to eq(4)
         expect(document.current_version).to eq(version)
       end
 
@@ -48,12 +48,25 @@ module Decidim
         end
       end
 
+      context "when document any author" do
+        let(:component) { create(:collaborative_text_component) }
+        let(:user) { create(:user, organization: component.organization) }
+        let(:document) { create(:collaborative_text_document, users: [user], component:) }
+        let(:coauthorable) { document }
+
+        include_examples "coauthorable"
+      end
+
       context "when document exists" do
         let(:document) { create(:collaborative_text_document, :with_body) }
+        let!(:suggestions) { create_list(:collaborative_text_suggestion, 3, document_version: document.current_version) }
+
+        include_examples "has component"
 
         it "returns the body of the current version" do
           expect(document.body).to eq(document.current_version.body)
           expect(document.document_versions.count).to eq(1)
+          expect(document.document_versions_count).to eq(1)
         end
 
         it "updates the body of the current version" do
@@ -62,6 +75,7 @@ module Decidim
           expect(document.body).to eq("New body")
           expect(document.current_version.body).to eq("New body")
           expect(document.document_versions.reload.count).to eq(1)
+          expect(document.reload.document_versions_count).to eq(1)
         end
 
         context "when versions exists" do
@@ -93,6 +107,13 @@ module Decidim
             end
           end
         end
+
+        it "returns the current suggestions" do
+          expect(document.suggestions).to all(be_a(Decidim::CollaborativeTexts::Suggestion))
+          expect(document.suggestions.count).to eq(3)
+          expect(document.document_versions.count).to eq(1)
+          expect(document.document_versions_count).to eq(1)
+        end
       end
 
       context "when creating a new version" do
@@ -100,22 +121,26 @@ module Decidim
 
         it "creates a new version" do
           expect(document.document_versions.count).to eq(1)
+          expect(document.document_versions_count).to eq(1)
           expect(document.body).to eq("My first version")
 
           expect { document.document_versions.create(body: "My first amended version", draft: true) }.to change { document.document_versions.count }.by(1)
           expect(document.body).to eq("My first amended version")
           expect(document.consolidated_body).to eq("My first version")
           expect(document.document_versions.count).to eq(2)
+          expect(document.document_versions_count).to eq(2)
 
           expect { document.document_versions.last.update(body: "My second version") }.not_to(change { document.document_versions.count })
           expect(document.body).to eq("My second version")
           expect(document.consolidated_body).to eq("My first version")
           expect(document.document_versions.count).to eq(2)
+          expect(document.document_versions_count).to eq(2)
 
           expect { document.document_versions.last.update(draft: false) }.not_to(change { document.document_versions.count })
           expect(document.body).to eq("My second version")
           expect(document.consolidated_body).to eq("My second version")
           expect(document.document_versions.count).to eq(2)
+          expect(document.document_versions_count).to eq(2)
         end
       end
     end
