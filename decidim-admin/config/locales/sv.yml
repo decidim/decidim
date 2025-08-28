@@ -166,6 +166,7 @@ sv:
   decidim:
     admin:
       actions:
+        actions: Åtgärder
         actions_label: Åtgärder för %{resource}
         add: Lägg till
         attachment:
