@@ -1,14 +1,14 @@
 <div class="activity" data-activity>
-  <div class="activity__time">
+  <p class="activity__time">
     <%= created_at %>
-  </div>
+  </p>
   <div class="activity__content">
     <span>
       <% if title.present? %>
-        <span>
+        <p class="inline-block">
           <%= title_icon %>
           <%= title %>
-        </span>
+        </p>
       <% end %>
       <a href="<%= resource_link_path %>">
         <%= html_truncate decidim_sanitize(resource_link_text, strip_tags: true), length: 80 %>
