@@ -1249,7 +1249,7 @@ describe "Editor" do
 
       find(".editor-suggestions-item", text: "nature").click
 
-      expect_value(%(<p><span data-type="hashtag" data-label="#nature">#nature</span> a</p>))
+      expect_value(%(<p><span data-type="hashtag" data-label="#nature">#nature</span> </p>))
     end
 
     it "allows selecting mentions" do
@@ -1261,7 +1261,7 @@ describe "Editor" do
 
       find(".editor-suggestions-item", text: "@doe_john (John Doe)").click
 
-      expect_value(%(<p><span data-type="mention" data-id="@doe_john" data-label="@doe_john (John Doe)">@doe_john (John Doe)</span> e</p>))
+      expect_value(%(<p><span data-type="mention" data-id="@doe_john" data-label="@doe_john (John Doe)">@doe_john (John Doe)</span> </p>))
     end
 
     it "allows selecting emojis" do
