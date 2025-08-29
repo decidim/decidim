@@ -2093,14 +2093,17 @@ fi-pl:
         edit: Muokkaa
       footer:
         cc_by_license: Creative Commons -lisenssi
+        current_organization_img: "%{organization} (Siirry etusivulle)"
         data_consent_settings: Evästeasetukset
         decidim_logo: Decidim-logo
         decidim_title: Decidim
+        help: Ohjeet
         log_in: Kirjaudu sisään
         made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">vapaan ohjelmiston</a> avulla.
         open_data: Avoin data
         resources: Resurssit
         sign_up: Luo tili
+        social_media: Sosiaalinen media
         terms_of_service: Käyttöehdot
       header:
         back: Takaisin listaan
