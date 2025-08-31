@@ -18,6 +18,29 @@ describe "Orders" do
   end
   let(:budget) { create(:budget, component:) }
 
+  shared_examples_for "voting button on mobile" do |should_be|
+    context "and the device is mobile" do
+      before do
+        driven_by(:iphone)
+      end
+
+      example_description = should_be == :visible ? "can vote" : "cannot vote"
+
+      it example_description do
+        visit_budget
+        click_on "Accept all"
+
+        within "[data-order-progress-responsive='true']" do
+          if should_be == :visible
+            expect(page).to have_button("Vote budget")
+          else
+            expect(page).to have_no_button("Vote budget")
+          end
+        end
+      end
+    end
+  end
+
   context "when the user is not logged in" do
     let!(:projects) { create_list(:project, 1, budget:, budget_amount: 25_000_000) }
 
@@ -141,6 +164,46 @@ describe "Orders" do
 
         it "displays total budget" do
           expect(page).to have_css(".budget-summary__progressbar-marks_right", text: "€ 100,000,000")
+        end
+
+        context "and the device is mobile" do
+          it "adds a project to the current order" do
+            login_as user, scope: :user # This does not work with mobile devices (i.e. iphone), so we need to do log in manually too
+            driven_by(:iphone)
+            visit_budget
+
+            click_on "Accept all"
+
+            within "#project-#{project.id}-item" do
+              page.find(".budget-list__action").click
+            end
+
+            fill_in "Email", with: user.email
+            fill_in "Password", with: user.password
+            click_on "Log in"
+
+            within "#project-#{project.id}-item" do
+              page.find(".budget-list__action").click
+            end
+
+            expect(page).to have_css ".budget-list__data--added", count: 1
+
+            within ".budget-summary__progressbar-marks", match: :first do
+              expect(page).to have_content(/€ 25,000,000\sAssigned/)
+            end
+            within ".budget__list--header" do
+              expect(page).to have_content(/Added\s1/)
+            end
+
+            within ".budget-summary__content", match: :first do
+              expect(page).to have_css ".budget-summary__progressbar--meter", style: "width: 25%"
+              expect(page).to have_no_button(text: "Vote budget")
+            end
+          end
+
+          it "displays total budget" do
+            expect(page).to have_css(".budget-summary__progressbar-marks_right", text: "€ 100,000,000")
+          end
         end
       end
 
@@ -409,6 +472,8 @@ describe "Orders" do
               expect(page).to have_button("Vote", disabled: true)
             end
           end
+
+          it_behaves_like "voting button on mobile", :not_visible
         end
 
         context "when the order total budget exceeds the threshold" do
@@ -486,6 +551,8 @@ describe "Orders" do
               expect(page).to have_button("Vote", disabled: true)
             end
           end
+
+          it_behaves_like "voting button on mobile", :not_visible
         end
 
         context "when the order total budget exceeds the minimum" do
@@ -501,6 +568,8 @@ describe "Orders" do
               expect(page).to have_button("Vote", disabled: false)
             end
           end
+
+          it_behaves_like "voting button on mobile", :visible
         end
       end
     end
