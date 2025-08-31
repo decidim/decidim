@@ -113,8 +113,6 @@ id:
     meetings:
       actions:
         agenda: Jadwal acara
-        attachment_collections: Folder
-        attachments: Lampiran
         close: Dekat
         edit: Edit
         preview: Preview

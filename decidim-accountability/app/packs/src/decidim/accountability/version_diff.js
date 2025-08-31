@@ -1,6 +1,6 @@
 /* global JsDiff */
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   $(".diff-i18n_html, .diff-i18n").each(function(_index, element) {
     const diffElement = $(element);
     const valueElement = diffElement.find(".diff__value");

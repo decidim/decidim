@@ -148,8 +148,6 @@ it:
     meetings:
       actions:
         agenda: ordine del giorno
-        attachment_collections: Cartelle
-        attachments: Allegati
         close: Chiuso
         edit: Modifica
         invalid_destroy:

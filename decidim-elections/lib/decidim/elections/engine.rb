@@ -10,7 +10,12 @@ module Decidim
         scope "/elections" do
           root to: "elections#index"
         end
-        get "/", to: redirect("/elections", status: 301)
+        get "/", to: redirect("elections", status: 301)
+      end
+
+      initializer "decidim_elections.add_cells_view_paths" do
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Elections::Engine.root}/app/cells")
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Elections::Engine.root}/app/views") # for partials
       end
 
       initializer "decidim.elections.default_censuses" do |_app|

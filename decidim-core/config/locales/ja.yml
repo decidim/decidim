@@ -707,6 +707,7 @@ ja:
     doorkeeper:
       authorizations:
         new:
+          api_read: API経由でコンテンツを読み込む
           authorize: アプリケーションを承認する
           by_organization_link_html: <small class="heading-small">by %{link}</small>
           cancel: キャンセル
@@ -1587,6 +1588,7 @@ ja:
     searches:
       filters:
         jump_to: 'ジャンプ先:'
+        resource: "%{collection} の中の %{label}"
         search: 検索
         state:
           active: アクティブ
@@ -2091,7 +2093,6 @@ ja:
       impersonation_warning:
         close_session: セッションを閉じる
         description_html: 参加者 <b>%{user_name}</b> を管理しています。
-        expire_time_html: このログインセッションは <b><span class="minutes">%{minutes}</span> 分後に無効になります。</b>.
       language_chooser:
         choose_language: 言語を選択
       navigation:
@@ -2122,6 +2123,8 @@ ja:
         profile: マイアカウント
         public_profile: 公開プロフィール
         title: プロフィールリンク
+        unread_conversations: 未読の会話があります
+        unread_notifications: 未読の通知があります
       user_profile:
         account: アカウント
         authorizations: 権限

@@ -2,12 +2,8 @@ nl:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Gerelateerde bijeenkomsten
         available_slots: Beschikbare plaatsen
         banner_image: Banner afbeelding
-        copy_categories: Categorieën kopiëren
-        copy_components: Kopieer componenten
-        copy_features: Functies kopiëren
         decidim_scope_id: Scope
         description: Beschrijving
         end_date: Einddatum
@@ -73,11 +69,6 @@ nl:
       actions:
         confirm: Bevestigen
         send_diplomas: Stuur certificaten van deelname
-      conference_copies:
-        new:
-          copy: Kopiëren
-          select: Selecteer welke gegevens u wilt dupliceren
-          title: Dubbele conferentie
       conference_publications:
         create:
           error: Er is een fout opgetreden bij het publiceren van deze conferentie.
@@ -126,19 +117,15 @@ nl:
         exports:
           registrations: Inschrijvingen
         form:
+          images: Afbeeldingen
           title: Algemene informatie
         index:
           published: Gepubliceerd
         new:
           create: Creëren
-          title: Conferentie
         update:
           error: Er is een probleem opgetreden bij het bijwerken van deze conferentie.
           success: Conferentie succesvol bijgewerkt.
-      conferences_copies:
-        create:
-          error: Er was een probleem bij het dupliceren van deze conferentie.
-          success: Conferentie succesvol gedupliceerd.
       media_links:
         create:
           error: Er is een probleem opgetreden bij het maken van een nieuwe mediakoppeling.

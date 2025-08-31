@@ -6,7 +6,7 @@ const allowExitFrom = (el) => {
   return false;
 };
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const exitNotification = document.getElementById("exit-proposal-notification");
   const exitLink = document.getElementById("exit-proposal-notification-link");
   if (!exitLink) {

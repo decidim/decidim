@@ -1,5 +1,5 @@
 import { Uploader } from "src/decidim/direct_uploads/uploader";
-import icon from "src/decidim/icon";
+import icon from "src/decidim/refactor/moved/icon";
 import { escapeHtml, escapeQuotes } from "src/decidim/utilities/text";
 
 const STATUS = {

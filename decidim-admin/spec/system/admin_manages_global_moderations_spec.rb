@@ -151,7 +151,7 @@ describe "Admin manages global moderations" do
       expect(page).to have_content("Reported content 3")
       click_on "Actions"
       within "#js-bulk-actions-dropdown" do
-        click_on "Unreport"
+        click_on "Undo the report"
       end
       expect(page).to have_content("Unreport selected resources")
       click_on "Unreport selected resources"
@@ -165,7 +165,7 @@ describe "Admin manages global moderations" do
       expect(page).to have_content("Reported content 1")
       click_on "Actions"
       within "#js-bulk-actions-dropdown" do
-        click_on "Unhide"
+        click_on "Undo the hide"
       end
       expect(page).to have_content("Unhide selected resources")
       click_on "Unhide selected resources"
@@ -182,15 +182,17 @@ describe "Admin manages global moderations" do
           click_on "Hidden"
 
           within "tr", text: "Dummy resource" do
-            find("button[data-component='dropdown']").click
-            expect(page).to have_link("Unhide")
+            find("button[data-controller='dropdown']").click
+            expect(page).to have_link("Undo the hide")
           end
           within "tr", text: "Comment" do
-            find("button[data-component='dropdown']").click
+            find("button[data-controller='dropdown']").click
             expect(page).to have_no_link("Unhide")
           end
 
-          expect(page).to have_css("div.tooltip", text: "You cannot unhide this resource because its parent is still hidden.", visible: :all)
+          find(".dropdown__button-disabled").hover
+
+          expect(page).to have_css("p", text: "You cannot unhide this resource because its parent is still hidden.", visible: :all)
         end
       end
     end

@@ -3,7 +3,7 @@ import { defineCustomElements } from "wc-datepicker/dist/loader";
 import generateDatePicker from "src/decidim/datepicker/generate_datepicker";
 import generateTimePicker from "src/decidim/datepicker/generate_timepicker";
 import { formatInputDate, formatInputTime } from "src/decidim/datepicker/datepicker_functions";
-import { getDictionary } from "src/decidim/i18n";
+import { getDictionary } from "src/decidim/refactor/moved/i18n";
 
 export default function formDatePicker(input) {
 

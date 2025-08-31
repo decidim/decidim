@@ -4,7 +4,7 @@ shared_examples "export results" do
   include_context "when managing an accountability component as an admin"
 
   let!(:results) { create_list(:result, 3, component: current_component) }
-  let(:export_type) { "Export all" }
+  let(:export_type) { "Export" }
 
   it_behaves_like "export as CSV"
   it_behaves_like "export as JSON"

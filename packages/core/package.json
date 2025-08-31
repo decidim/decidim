@@ -40,7 +40,6 @@
     "@tiptap/pm": "2.1.13",
     "@tiptap/starter-kit": "2.1.13",
     "@tiptap/suggestion": "2.1.13",
-    "@zeitiger/appendaround": "^1.0.0",
     "a11y-accordion-component": "^1.2.6",
     "a11y-dialog-component": "^5.5.1",
     "a11y-dropdown-component": "^1.2.0",

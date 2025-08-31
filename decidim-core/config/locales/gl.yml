@@ -801,7 +801,6 @@ gl:
       impersonation_warning:
         close_session: Pechar sesión
         description_html: Estás a suplantar o usuario <b>%{user_name}</b>.
-        expire_time_html: A túa sesión caducará en <b><span class="minutes">%{minutes}</span> minutos</b>.
       notifications_dashboard:
         mark_all_as_read: Marca todo como lido
       user_menu:

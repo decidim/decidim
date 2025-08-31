@@ -716,7 +716,6 @@ id:
       impersonation_warning:
         close_session: Tutup sesi
         description_html: Anda meniru identitas pengguna <b>%{user_name}</b>.
-        expire_time_html: Sesi Anda akan berakhir dalam <b><span class="minutes">%{minutes}</span> menit</b>.
       notifications_dashboard:
         mark_all_as_read: tandai semua telah dibaca
       user_menu:

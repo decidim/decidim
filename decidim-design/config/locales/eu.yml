@@ -14,7 +14,6 @@ eu:
           trigger: Eragin
           usage: Erabilera
           usage_p: Akordeoiak gutxienez hiru elementu behar ditu
-          usage_p_1_html: 1. <code>div</code> bilgarri bat, <code>data-component="accordion"</code>, data-atributuarekin, eskuragarri dauden trigger eta panel guztien gainean.
           usage_p_2_html: 2. Elementu aktibatzaile bat, parte-hartzaile jardugarria (botoi gisa), elementu kolapsagarria adierazten duena <code>data-controls="panel"</code>, where <i>panel</i> is the <code>id</code> panelaren identifikatzailea.
           usage_p_3_html: 3. Elementu ezkutagarria, zeinaren <code>id</code> datu-kontrolek bat egiten duten eragileari dagokion balioarekin.
         activities:
@@ -206,7 +205,6 @@ eu:
         dropdowns_description_html: Goitibeherako zerrendak javascript ezaugarriak dira, %{link} izeneko kanpoko liburutegi bati esker.
         dropdowns_usage_1_description: 2. Elementu modala, zeinaren <code>id</code> datu-kontrolek bat egiten duten eragileari dagokion balioarekin.
         dropdowns_usage_description: 'Goitibeherako zerrenda batek bi elementu eskatzen ditu:'
-        dropdowns_usage_description_html: 1. Partaide-elementu prozesagarria, datu-osagaia = "dropdown" data-target = "dropdown-menu-element" datu-atributuak dituena.
         dummy_description: Baliabideen balizko deskribapena
         dummy_title: Baliabideen balizko izenburua
         follow_button: Jarraitu Botoiari

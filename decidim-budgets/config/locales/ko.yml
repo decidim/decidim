@@ -22,9 +22,6 @@ ko:
           selected_at_null:
             label: 선택됨
     budgets:
-      actions:
-        attachment_collections: 폴더
-        attachments: 첨부 파일
       admin:
         projects:
           create:

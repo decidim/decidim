@@ -82,8 +82,7 @@ uk:
       actions:
         add: Додати
         browse: Переглянути
-        manage: Керувати
-        permissions: Права
+        configure: Налаштувати
       area_types:
         create:
           error: При спробі додати новий різновид дільниці сталася помилка.
@@ -416,8 +415,6 @@ uk:
           error: При спробі оновити цей обсяг сталася помилка.
           success: Обсяг успішно оновлено
       static_pages:
-        actions:
-          view: Переглянути загальнодоступну сторінку
         create:
           error: При спробі створити нову сторінку сталася помилка.
           success: Сторінку успішно створено.
@@ -462,7 +459,6 @@ uk:
         hide: Приховати
         not_hidden: Не приховано
         title: Дії
-        unreport: Скасувати скаргу
       admin:
         reportable:
           hide:

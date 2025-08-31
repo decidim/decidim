@@ -12,14 +12,15 @@ module Decidim
       let(:content_block) { double("content_block", settings: settings) }
       let(:settings) do
         double(
-          migrant_groups_invited: 4.0,
-          cultural_origins_participation: 3.0,
-          functional_diversity_invited: 5.0,
-          functional_diversity_participation: 4.0,
-          relevance_percentage: 4.0,
+          functional_diversity_invited: 2.5,
+          languages_communicated: 2.5,
+          mobility_meeting_access: 2.5,
+          participation_scheduling_times: 2.5,
+          digital_support_offered: 2.5,
           citizen_influence_level: 3.0,
-          languages_count: 4.0,
-          venue_accessibility: 5.0
+          citizen_decisional_intervention: 3.0,
+          published_information_clarity: 1.0,
+          information_provided: 5.0
         )
       end
 
@@ -219,19 +220,15 @@ module Decidim
           let(:auto_evaluation_stats) { subject.stats[:auto_evaluation] }
 
           it "calculates inclusiveness score" do
-            expect(auto_evaluation_stats[:inclusiveness]).to eq(4.0)
-          end
-
-          it "calculates relevance score" do
-            expect(auto_evaluation_stats[:relevance]).to eq(4.0)
+            expect(auto_evaluation_stats[:inclusiveness]).to eq(2.5)
           end
 
           it "calculates citizen influence score" do
             expect(auto_evaluation_stats[:citizen_influence]).to eq(3.0)
           end
 
-          it "calculates accessibility score" do
-            expect(auto_evaluation_stats[:accessibility]).to eq(4.5)
+          it "calculates informativeness score" do
+            expect(auto_evaluation_stats[:informativeness]).to eq(3.0)
           end
         end
 
@@ -252,14 +249,15 @@ module Decidim
         context "when some survey fields are not filled" do
           let(:settings) do
             double(
-              migrant_groups_invited: -1,
-              cultural_origins_participation: 3.0,
-              functional_diversity_invited: 5.0,
-              functional_diversity_participation: 4.0,
-              relevance_percentage: 4.0,
+              functional_diversity_invited: -1,
+              languages_communicated: 2.5,
+              mobility_meeting_access: 2.5,
+              participation_scheduling_times: 2.5,
+              digital_support_offered: 2.5,
               citizen_influence_level: 3.0,
-              languages_count: 4.0,
-              venue_accessibility: 5.0
+              citizen_decisional_intervention: 3.0,
+              published_information_clarity: 1.0,
+              information_provided: 5.0
             )
           end
 

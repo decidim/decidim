@@ -1,6 +1,6 @@
 import attachGeocoding from "src/decidim/geocoding/attach_input"
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   const $form = $(".proposal_form_admin");
 
   if ($form.length > 0) {

@@ -4,7 +4,7 @@
 
 import TomSelect from "tom-select/dist/cjs/tom-select.popular";
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   let isMergeProposalsClicked = false;
   $('button[data-action="merge-proposals"]').on("click", function() {
     isMergeProposalsClicked = true;
@@ -195,7 +195,7 @@ $(() => {
   }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const evaluatorMultiselectContainers = document.querySelectorAll(
     ".js-evaluator-multiselect"
   );

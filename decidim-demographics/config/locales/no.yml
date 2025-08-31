@@ -1,1 +1,8 @@
+---
 "no":
+  decidim:
+    demographics:
+      admin:
+        demographics:
+          tabs_menu:
+            title: Demografi
