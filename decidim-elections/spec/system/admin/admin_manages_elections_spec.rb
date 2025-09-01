@@ -109,7 +109,6 @@ describe "Admin manages elections" do
   end
 
   describe "updating an election" do
-
     it "updates an election" do
       within "tr", text: translated(election.title) do
         find("button[data-controller='dropdown']").click
