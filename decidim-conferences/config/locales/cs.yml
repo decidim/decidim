@@ -2,6 +2,7 @@ cs:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Související shromáždění
         available_slots: Dostupné sloty
         banner_image: Obrázek banneru
         decidim_scope_id: Oblast působnosti
@@ -102,6 +103,7 @@ cs:
       conference_duplicates:
         new:
           duplicate: Duplikovat
+          title: Duplikovat konferenci
       conference_publications:
         create:
           error: Při publikování této konference došlo k chybě.
@@ -180,6 +182,9 @@ cs:
         update:
           error: Při aktualizaci této konference došlo k chybě.
           success: Konference byla úspěšně aktualizována.
+      conferences_duplicates:
+        create:
+          error: Při kopírování této konference došlo k chybě.
       media_links:
         create:
           error: Při vytváření nového odkazu na média došlo k chybě.
