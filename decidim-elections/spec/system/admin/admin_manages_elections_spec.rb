@@ -21,8 +21,9 @@ describe "Admin manages elections" do
   let!(:unpublished_election_with_votes) { create(:election, component: current_component) }
 
   let(:attributes) { attributes_for(:election, component: current_component) }
-  let(:start_time) { 1.day.from_now }
-  let(:end_time) { 3.days.from_now }
+  let(:start_time) { Time.current }
+  let(:end_time) { Time.current.change(day: 12, hour: 12, min: 50) }
+
 
   before do
     visit_component_admin
@@ -108,6 +109,7 @@ describe "Admin manages elections" do
   end
 
   describe "updating an election" do
+
     it "updates an election" do
       within "tr", text: translated(election.title) do
         find("button[data-controller='dropdown']").click
