@@ -45,6 +45,8 @@ cs:
               'true': Nevybráno pro implementaci
           taxonomies_part_of_contains:
             label: Taxonomie
+      tooltips:
+        deleted_projects_info: Tento projekt nelze odstranit
     budgets:
       actions:
         confirm_delete_budget: Opravdu chcete odstranit tento rozpočet?
