@@ -168,6 +168,7 @@ cs:
       participatory_process_copies:
         new:
           copy: Kopírovat
+          select: Vyberte, která data chcete duplikovat
       participatory_process_groups:
         destroy:
           error: Došlo k chybě při zničení skupiny participačních procesů.
