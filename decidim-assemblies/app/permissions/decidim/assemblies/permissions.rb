@@ -250,7 +250,7 @@ module Decidim
           :assembly,
           :assembly_user_role,
           :export_space,
-          :share_tokens,
+          :share_token,
           :import
         ].include?(permission_action.subject)
         allow! if is_allowed
@@ -268,7 +268,7 @@ module Decidim
           :assembly,
           :assembly_user_role,
           :export_space,
-          :share_tokens,
+          :share_token,
           :import
         ].include?(permission_action.subject)
         allow! if is_allowed
