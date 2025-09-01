@@ -91,7 +91,7 @@ edit_link(
           <%= t("budget", scope: "decidim.budgets.projects.show") %>
         </span>
         <div class="budget__definition-data__number">
-          <%= budget_to_currency project.budget_amount %>
+          <%= budget_to_currency_with_html project.budget_amount %>
         </div>
       </section>
 

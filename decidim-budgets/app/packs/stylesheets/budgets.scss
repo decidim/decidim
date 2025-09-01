@@ -87,6 +87,10 @@
 
   &__card__list-project__amount {
     @apply font-semibold text-gray-2 text-xl inline-block m-auto;
+
+    span {
+      @apply text-md;
+    }
   }
 
   &__card__highlight-vote {

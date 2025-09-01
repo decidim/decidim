@@ -14,6 +14,13 @@ module Decidim
         number_to_currency budget, unit: Decidim.currency_unit, precision: 0
       end
 
+      # Render a budget as a currency with the HTML format
+      #
+      # budget - A integer to represent a budget
+      def budget_to_currency_with_html(budget)
+        number_to_currency(budget, unit: Decidim.currency_unit, precision: 0, format: t("number.currency.format.format_html"))
+      end
+
       # Return a percentage of the current order budget from the total budget
       def current_order_budget_percent
         current_order&.budget_percent.to_f.floor

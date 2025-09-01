@@ -63,7 +63,8 @@ en:
   number:
     currency:
       format:
-        format: "<span>%u</span> %n"
+        format: "%u %n"
+        html_format: "<span>%u</span> %n"
 ```
 
 Some examples:
@@ -71,4 +72,4 @@ Some examples:
 - "%u %n" -> Shows it as € 999
 - "%n%u"-> Shows it as 999€
 
-Adding the value in a `span` element, will make it look better.
+The `html_format` key is used in the budgets component to style better the unit.

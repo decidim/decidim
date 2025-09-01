@@ -42,7 +42,7 @@ shared_examples "manage proposal mutation examples" do
             "answer" => {
               "translation" => answer_content[:en]
             },
-            "cost" => "€1,234.00",
+            "cost" => "€ 1,234.00",
             "costReport" => {
               "translation" => cost_report[:en]
             },
