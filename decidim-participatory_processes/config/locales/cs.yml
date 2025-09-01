@@ -9,6 +9,8 @@ cs:
         developer_group: Skupina promotérů
         document: Dokument
         domain: Doména
+        duplicate_categories: Duplikovat kategorie
+        duplicate_components: Duplikovat komponenty
         end_date: Datum ukončení
         hero_image: Domácí obrázek
         import_attachments: Importovat přílohy
@@ -108,6 +110,7 @@ cs:
         participatory_process_groups: Skupiny procesů
         participatory_process_groups_submenu:
           info: Info
+          landing_page: Rozložení vstupní strany
         participatory_processes: Procesy
         participatory_processes_submenu:
           attachment_collections: Složky
@@ -115,6 +118,7 @@ cs:
           attachments: Přílohy
           components: Komponenty
           info: O tomto procesu
+          landing_page: Rozložení vstupní strany
           moderations: Moderování
           private_users: Členové
           process_admins: Administrátoři procesu
@@ -130,16 +134,19 @@ cs:
           name: Participační proces
         participatory_process_group:
           fields:
+            actions: Akce
             title: Název
           name: Skupina procesů
         participatory_process_step:
           fields:
+            actions: Akce
             end_date: Datum ukončení
             start_date: Datum zahájení
             title: Titul
           name: Participační krok procesu
         participatory_process_user_role:
           fields:
+            actions: Akce
             email: E-mailem
             name: Název
             role: Role
@@ -154,6 +161,10 @@ cs:
             invitation_accepted_at: Pozvánka byla přijata na
             invitation_sent_at: Pozvánka odeslána na
             published: Publikováno
+      participatory_process_duplicates:
+        new:
+          duplicate: Duplikovat
+          select: Vyberte, která data chcete duplikovat
       participatory_process_groups:
         destroy:
           error: Došlo k chybě při zničení skupiny participačních procesů.
