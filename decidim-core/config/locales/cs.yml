@@ -627,6 +627,9 @@ cs:
       highlighted_content_banner:
         name: Zvýrazněný obsahový pruh
       highlighted_content_banner_settings_form:
+        action_button_subtitle: Podnadpis tlačítka Akce
+        action_button_title: Název tlačítka akce
+        action_button_url: URL tlačítka akce
         background_image: Obrázek pozadí
         short_description: Stručný popis
         subtitle: Podnadpis
@@ -2101,11 +2104,13 @@ cs:
         data_consent_settings: Nastavení cookies
         decidim_logo: Logo Decidim
         decidim_title: Decidim
+        help: Nápověda
         log_in: Přihlásit
         made_with_open_source: Webová stránka vytvořená s <a target="_blank" href="https://github.com/decidim/decidim">svobodným softwarem</a>.
         open_data: Otevřená data
         resources: Zdroje
         sign_up: Vytvořit účet
+        social_media: Sociální sítě
         terms_of_service: Podmínky služby
       header:
         back: Zpět na seznam
