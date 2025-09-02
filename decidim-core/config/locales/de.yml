@@ -1996,10 +1996,12 @@ de:
         decidim_logo: Decidim-Logo
         decidim_title: Decidim
         download_open_data: Open Data Dateien herunterladen
+        help: Hilfe
         log_in: Anmelden
         made_with_open_source: Website mit <a target="_blank" href="https://github.com/decidim/decidim">freier Software erstellt</a>.
         resources: Ressourcen
         sign_up: Konto erstellen
+        social_media: Social Media
         terms_of_service: Nutzungsbedingungen
       header:
         log_in: Anmelden
