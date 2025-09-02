@@ -9,9 +9,6 @@ ru:
         closing_date: Дата закрытия
         closing_date_reason: Причина даты закрытия
         composition: Состав
-        copy_categories: Скопировать категории
-        copy_components: Копировать составляющие
-        copy_features: Копировать составляющие
         created_by: 'Автор:'
         created_by_other: Создано кем-то еще
         creation_date: Дата создания
@@ -91,15 +88,6 @@ ru:
         update:
           error: При попытке обновить это собрание произошла ошибка.
           success: Собрание успешно обновлено.
-      assemblies_copies:
-        create:
-          error: При попытке создать копию этого собрания произошла ошибка.
-          success: Успешно создана копия собрания.
-      assembly_copies:
-        new:
-          copy: Копировать
-          select: Выберите, какие данные вы хотите продублировать
-          title: Создать копию собрания
       assembly_publications:
         create:
           error: При обнародовании этого собрания произошла ошибка.

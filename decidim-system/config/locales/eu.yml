@@ -7,6 +7,9 @@ eu:
         organization_name: Antolatzailea
         organization_url: Antolatzailearen URLa
         redirect_uri: Berbideratu URI
+        refresh_tokens: Freskatu fitxak
+        refresh_tokens_enabled: Freskatu fitxa eguneratuak
+        scopes: Esparru erabilgarriak
       organization:
         address: SMTP host-aren izena
         from_email: Helbide elektronikoa
@@ -38,12 +41,28 @@ eu:
   decidim:
     system:
       actions:
+        api_user:
+          hidden_secret: Sekretua ezkutuan dago
+          hide_secret: Ezkutatu sekretua
+          secret_can_not_be_shown: API sekretua sortu ondoren soilik ikus edo kopiatu daiteke
+          show_secret: Erakutsi sekretua
+          shown_secret: Sekretua ikusgai dago
+        api_users:
+          create: Sortu
+          new: APIren beste erabiltzaile bat
+          remove: Kendu erabiltzailea
         confirm_destroy: Ziur zaude hau ezabatu nahi duzula?
+        confirm_refresh_api_secret: Ziur zaude API erabiltzaile honen sekretua freskatu nahi duzula? Freskatu ondoren, sekretu zaharra ez da baliozkoa izango eta ezin izango da gehiago erabili.
+        confirm_remove_api_user: Ziur zaude API erabiltzaile hau ezabatu nahi duzula?
+        copied: Kopiatuta
+        copy_secret: Kopiatu sekretua
+        copy_secret_clarification: Kopiatu sekretua arbelean
         destroy: Ezabatu
         edit: Editatu
         new_admin: Beste administratzaile bat
         new_oauth_application: Beste OAUTH aplikazio bat
         new_organization: Beste erakunde bat
+        refresh_secret: Freskatu sekretua
         save: Gorde
         title: Ekintzak
       admins:
@@ -63,6 +82,25 @@ eu:
         update:
           error: Arazo bat da administratzaile hau eguneratzean.
           success: Administratzailea zuzen eguneratua.
+      api_user:
+        create:
+          error: APIren erabiltzaileen sorkuntzak porrot egin du.
+          success: API erabiltzailea zuzen sortu da. Erabiltzailearentzako sekretua sortu ondoren baino ez da ikusten. Mesedez, kopiatu eta gorde segurtasunez orri hau utzi aurretik!
+        destroy:
+          success: API erabiltzailea zuzen ezabatu da.
+        refresh:
+          error: Zerbait txarto atera da. Mesedez, saiatu berriro geroago.
+          success: Sekretua zuzen freskatu da. Erabiltzailearentzako sekretua sortu ondoren baino ez da ikusten. Mesedez, kopiatu eta gorde segurtasunez orri hau utzi aurretik!
+      api_users:
+        index:
+          explanation_html: |
+            <p>APIren erabiltzaileek integrazio-garatzaileei aukera ematen diete makina administratzaileen erabiltzaile-kontuak sistemara gehitzeko. Makina-erabiltzaile horiek administratzaile gisa jardun dezakete plataforman, administratzaile normalek administrazio-panelaren bidez egingo lituzketen eguneraketak egiteko. Ohiko erabilera-kasu bat kanpoko kudeaketa-plataforma bat da, non gidoi automatizatu batek plataformarekin administrazio-lanak egingo lituzkeen, benetako erabiltzaile batek sistemara autentifikatu beharrik izan gabe. Adibidez, automatizazio-sistema batek proposamenei erantzunak bidali nahiko lizkioke, eta, kasu horretan, integrazio-erabiltzaile bat beharko litzateke plataforma horren barruan lan hori egiteko.</p>
+            <p>Kontu horien eta administrari arrunten arteko desberdintasun nagusia da erabiltzaile horiek makinek erabili behar dituztela eta, beraz, pasahitzaren eskakizunak desberdinak direla. Erabiltzaile horiek ez dute beren pasahitza aldian-aldian eguneratu beharrik, eta kontuaren pasahitza aldatzea modu kudeatuan gerta daiteke behar denean.</p>
+            <p>Kredentzial horiek makinek erabili behar dituzte. <a href="%{oauth_link}"></a></p>
+          manage: Kudeatu APIren erabiltzaileak
+        new:
+          select_organization: Aukeratu zure erakundea
+          title: Sortu APIren beste erabiltzaile bat
       dashboard:
         show:
           admins: Administratzaileak
@@ -91,6 +129,7 @@ eu:
             sign_up: Sortu kontu bat
       menu:
         admins: Administratzaileak
+        api_credentials: APIren kredentzialak
         dashboard: Kontrol-panela
         oauth_applications: OAuth Aplikazioak
         organizations: Erakundeak
@@ -101,6 +140,15 @@ eu:
             email: Helbide elektronikoa
           validations:
             email_uniqueness: beste administratzaile bat dago, helbide elektroniko hauxe bera duena
+        api_user:
+          fields:
+            created_at: Noiz sortua
+            key: Gakoa
+            name: Izena
+            organization: Erakundea
+            secret: Sekretua
+          validations:
+            name_uniqueness: Badago izen hori duen API erabiltzaile bat.
         oauth_application:
           fields:
             created_at: Sortze-data
@@ -127,6 +175,26 @@ eu:
           save: Gorde
           title: Editatu aplikazioa
         form:
+          application_type:
+            confidential:
+              explanation: Baimen-zerbitzariarekin modu seguruan autentifikatzeko gai diren aplikazioak, adibidez, erregistratutako bezero-sekretua salbu mantentzeko gai direnak. Normalean, bezeroaren sekretua gordetzen den zerbitzari batean exekutatzen den aplikazio bat da.
+              name: Konfidentziala
+            public:
+              explanation: Erregistratutako bezeroen sekretuak erabili ezin dituzten aplikazioak, hala nola nabigatzaile batean edo gailu mugikor batean exekutatzen diren aplikazioak.
+              name: Publikoa
+          application_type_help_html: 'OAuth bezero-mota <a href="%{client_type_link}" target="_blank">, RFC 6749, 2.1 sekzioak</a>definitzen duen bezala. Bezero publikoek PKCE fluxua ezarri behar dute <a href="%{pkce_link}" target="_blank">, RFC 7636</a>arauak zehazten duen bezala '
+          refresh_tokens_help_html: 'Freskatzeko fitxak erabilgarriak dira baldin eta fitxak sarbide-fitxari esleitutakoa baino bizialdi luzeagoa behar badu. Kontuan izan <strong>freskatzeko fitxak kontuz erabili behar</strong> direla zure erabiltzaileen segurtasuna ahuldu dezaketelako '
+          scopes_explanation:
+            "api:read": Erabiltzaileari kontsultak egiteko aukera ematen dio API grafikoaren bidez.
+            "api:write": Erabiltzaileari mutazio-eragiketak egiteko aukera ematen dio API grafikoaren bidez.
+            profile: Erabiltzailearen profilaren datuak eskuratzeko aukera ematen du. Irismen hori soilik behar da OAuth aplikazioa identitate hornitzaile edo autentifikazio zerbitzu gisa bakarrik erabiltzen bada.
+            user: 'Gaitasuna GrafoQL APIra egindako deietan erabiltzailearen fitxarekin sinatuta bezala jarduteko. Hau beharrezkoa da api guztientzat: idatzi eragiketak edo api: irakurri egungo erabiltzaileari buruzko informazioa behar duten eragiketak.'
+          scopes_help_html: |
+            Hautatutako eskemak eskuragarri egongo dira konektatutako aplikazioek baimena eskatzeko prozesuan zehar. Baimen-eskaerari buruzko xehetasunak emango zaizkio erabiltzaileari OAuth erabiliz sinatzen duenean.
+            <br>
+            Esparru ezberdinek ezaugarri desberdinak ematen dizkiote baimendutako erabiltzaileari, emandako sarbide-fitxak erabiliz.
+            <br>
+            <strong>Oharra:</strong> Erabiltzaileak kanpoko aplikazioetara autentifikatu behar badituzu, profilaren irismena besterik ez duzu behar. <strong>profila</strong> Decidim APIrekin interakzioan ari diren aplikazioek beste aplikazio batzuk ere behar dituzte.
           select_organization: Aukeratu antolatzaile bat
         index:
           confirm_delete: Ziur zaude aplikazio hau ezabatu nahi duzula?

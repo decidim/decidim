@@ -146,14 +146,11 @@ describe "Admin manages taxonomies" do
 
     before do
       visit decidim_admin.taxonomies_path
-      click_delete_taxonomy
     end
 
     it "displays a success message" do
+      click_delete_taxonomy
       expect(page).to have_content("Taxonomy successfully destroyed.")
-    end
-
-    it "deletes the taxonomy" do
       expect(page).to have_no_content(taxonomy.name)
     end
   end
@@ -231,14 +228,14 @@ describe "Admin manages taxonomies" do
 
   def click_delete_taxonomy
     within "tr", text: translated(taxonomy.name) do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       accept_confirm { click_on "Delete" }
     end
   end
 
   def click_edit_taxonomy
     within "tr", text: translated(taxonomy.name) do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       click_on "Edit"
     end
   end

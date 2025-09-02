@@ -64,7 +64,7 @@ shared_examples "manage process steps examples" do
   it "updates a participatory_process_step", versioning: true do
     within "#steps" do
       within "tr", text: translated(process_step.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
     end
@@ -97,7 +97,7 @@ shared_examples "manage process steps examples" do
 
     it "deletes a participatory_process_step" do
       within "tr", text: translated(process_step2.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
 
@@ -112,7 +112,7 @@ shared_examples "manage process steps examples" do
   context "when activating a step" do
     it "activates a step" do
       within "tr", text: translated(process_step.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Activate"
       end
 

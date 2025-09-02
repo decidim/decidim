@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const censusManifestSelector = document.getElementById("census-manifest-selector");
 
   if (censusManifestSelector) {

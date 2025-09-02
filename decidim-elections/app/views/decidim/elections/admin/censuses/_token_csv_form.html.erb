@@ -1,4 +1,4 @@
-<% if census_count.positive? %>
+<% if census_count(election).positive? %>
   <div class="row column mb-4 font-semibold border p-4 rounded w-1/2">
     <%= form.check_box :remove_all, help_text: t("decidim.elections.censuses.token_csv.remove_before_upload") %>
   </div>

@@ -107,9 +107,9 @@ sk:
       actions:
         add: Pridať
         browse: Prechádzať
-        manage: Správa
+        configure: Konfigurovať
+        export: Exportovať
         per_page: Na stranu
-        permissions: Práva
       area_types:
         create:
           error: Pri tvorbe nového typu oblasti nastala chyba.
@@ -421,7 +421,6 @@ sk:
           officialize: Oficializovať
           officialized: Oficializovaní
           reofficialize: Znovu oficializovať
-          show_email: Ukázať e-mailovú adresu
           status: Stav
           unofficialize: Zneoficiálniť
         new:
@@ -516,8 +515,6 @@ sk:
           error: Pri aktualizácii témy nastala chyba.
           success: Téma úspešne aktualizovaná
       static_pages:
-        actions:
-          view: Zobraziť verejnú stránku
         create:
           error: Pri tvorbe novej stránky nastala chyba.
           success: Nová stránka úspešne vytvorená.
@@ -573,8 +570,6 @@ sk:
         hide: Skryť
         not_hidden: Neskryté
         title: Akcie
-        unhide: Odkryť
-        unreport: Zrušiť nahlásenie
       admin:
         reportable:
           hide:

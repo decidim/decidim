@@ -1093,7 +1093,6 @@ el:
       impersonation_warning:
         close_session: Κλείσιμο συνεδρίας
         description_html: Διαχειρίζεστε τον συμμετέχοντα <b>%{user_name}</b>.
-        expire_time_html: Η συνεδρία σας θα λήξει σε <b><span class="minutes">%{minutes}</span> λεπτά</b>.
       language_chooser:
         choose_language: Επιλογή γλώσσας
       notifications_dashboard:

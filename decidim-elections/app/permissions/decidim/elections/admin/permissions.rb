@@ -29,6 +29,12 @@ module Decidim
             allow!
           when :update
             toggle_allow(election.present?)
+          when :publish
+            toggle_allow(election&.questions&.exists? && election&.census_ready? && !election&.published?)
+          when :unpublish
+            toggle_allow(election.present? && election.published? && !election.ongoing?)
+          when :dashboard
+            toggle_allow(election.present? && election.census_ready?)
           end
         end
 
@@ -37,7 +43,9 @@ module Decidim
 
           case permission_action.action
           when :update, :reorder
-            toggle_allow(election.present?) # This logic will be updated once the final election question criteria are defined.
+            toggle_allow(election.present? && !election.published?)
+          when :update_status
+            toggle_allow(election.present? && election.published? && election.questions.exists?)
           end
         end
 
@@ -48,7 +56,7 @@ module Decidim
           when :edit
             allow!
           when :update
-            toggle_allow(election.present?)
+            toggle_allow(election.present? && !election.published?)
           end
         end
       end

@@ -9,9 +9,6 @@ lb:
         closing_date: Einsendeschluss
         closing_date_reason: Schlussdatums Grund
         composition: Zusammensetzung
-        copy_categories: Kategorien kopieren
-        copy_components: Komponenten kopieren
-        copy_features: Funktionen kopieren
         created_by: Erstellt von
         created_by_other: Erstellt von anderen
         creation_date: Datum erstellt
@@ -90,15 +87,6 @@ lb:
         update:
           error: Beim Aktualisieren dieses Gremiums ist ein Fehler aufgetreten.
           success: Das Gremium wurde erfolgreich aktualisiert.
-      assemblies_copies:
-        create:
-          error: Beim Duplizieren dieses Gremiums ist ein Fehler aufgetreten.
-          success: Das Gremium wurde erfolgreich dupliziert.
-      assembly_copies:
-        new:
-          copy: Kopieren
-          select: Wählen Sie die Daten aus, die Sie duplizieren möchten
-          title: Doppelte Montage
       assembly_imports:
         create:
           error: Beim Importieren dieses Gremiums ist ein Fehler aufgetreten.

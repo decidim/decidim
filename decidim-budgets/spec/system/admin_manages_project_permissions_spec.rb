@@ -14,12 +14,12 @@ describe "Admin manages project permissions" do
     login_as user, scope: :user
     visit_component_admin
     within "tr", text: translated(budget.title) do
-      find("button[data-component='dropdown']").click
-      click_on "Manage projects"
+      find("button[data-controller='dropdown']").click
+      click_on "Add projects"
     end
     within "tr", text: translated(project.title) do
-      find("button[data-component='dropdown']").click
-      click_on "Permissions"
+      find("button[data-controller='dropdown']").click
+      click_on "Manage permissions"
     end
   end
 
@@ -32,12 +32,12 @@ describe "Admin manages project permissions" do
     click_on "Submit"
     expect(page).to have_content("Permissions updated successfully")
     within "tr", text: translated(budget.title) do
-      find("button[data-component='dropdown']").click
-      click_on "Manage projects"
+      find("button[data-controller='dropdown']").click
+      click_on "Add projects"
     end
     within "tr", text: translated(project.title) do
-      find("button[data-component='dropdown']").click
-      click_on "Permissions"
+      find("button[data-controller='dropdown']").click
+      click_on "Manage permissions"
     end
     within "fieldset", text: "Vote" do
       expect(page).to have_checked_field("Example authorization (Direct)")

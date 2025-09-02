@@ -27,7 +27,7 @@ module Decidim
 
           on(:invalid) do
             flash[:alert] = I18n.t("officializations.block.error", scope: "decidim.admin")
-            render :new
+            render :new, status: :unprocessable_entity
           end
         end
       end
@@ -65,7 +65,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("officializations.bulk_action.block.invalid", scope: "decidim.admin")
-            render :bulk_new
+            render :bulk_new, status: :unprocessable_entity
           end
         end
       end

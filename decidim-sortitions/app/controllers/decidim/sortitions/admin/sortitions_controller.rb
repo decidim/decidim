@@ -33,7 +33,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("sortitions.update.error", scope: "decidim.sortitions.admin")
-              render :edit
+              render :edit, status: :unprocessable_entity
             end
           end
         end
@@ -56,7 +56,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("sortitions.create.error", scope: "decidim.sortitions.admin")
-              render :new
+              render :new, status: :unprocessable_entity
             end
           end
         end
@@ -79,7 +79,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("sortitions.destroy.error", scope: "decidim.sortitions.admin")
-              render :confirm_destroy
+              render :confirm_destroy, status: :unprocessable_entity
             end
           end
         end

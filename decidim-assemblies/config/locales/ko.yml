@@ -29,9 +29,6 @@ ko:
         role: 역할
   decidim:
     admin:
-      assembly_copies:
-        new:
-          copy: 복사
       assembly_imports:
         new:
           import: 가져오기

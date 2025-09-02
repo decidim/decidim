@@ -1,4 +1,4 @@
-(() => {
+document.addEventListener("turbo:load", () => {
   const $scope = $("#promoting-committee-details");
 
   const $promotingCommitteeCheckbox = $(
@@ -26,4 +26,4 @@
   $($signatureType).change(() => toggleVisibility());
 
   toggleVisibility();
-})();
+});

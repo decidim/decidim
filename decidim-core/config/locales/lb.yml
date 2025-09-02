@@ -995,7 +995,6 @@ lb:
       impersonation_warning:
         close_session: Sëtzung zoumaachen
         description_html: Du verwalts den Benotzer <b>%{user_name}</b>.
-        expire_time_html: Deng Sëtzung wäert an <b><span class="minutes">%{minutes}</span> Minuten</b>oflafen.
       language_chooser:
         choose_language: Sprooch wielen
       notifications_dashboard:

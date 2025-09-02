@@ -30,8 +30,6 @@ pl:
   decidim:
     accountability:
       actions:
-        attachment_collections: Foldery
-        attachments: Załączniki
         confirm_destroy: Czy na pewno chcesz usunąć %{name}?
         destroy: Usuń
         edit: Edytuj

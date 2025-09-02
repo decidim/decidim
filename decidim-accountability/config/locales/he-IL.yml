@@ -38,8 +38,6 @@ he:
   decidim:
     accountability:
       actions:
-        attachment_collections: תיקיות
-        attachments: צרופות
         confirm_delete_result: אתה בטוח שאתה רוצה למחוק כלל זה?
         confirm_destroy: האם את/ה בטוח/ה שברצונך למחוק את {name}?
         deleted_results_info: תוצאות מחוקות ניתן לאחזר מסל המחזור.

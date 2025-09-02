@@ -2114,7 +2114,6 @@ es-PY:
       impersonation_warning:
         close_session: Cerrar la sesión
         description_html: Te estás haciendo pasar por el usuario <b>%{user_name}</b>.
-        expire_time_html: Su sesión expirará en <b><span class="minutes">%{minutes}</span> minutos</b>.
       language_chooser:
         choose_language: Elegir el idioma
       navigation:

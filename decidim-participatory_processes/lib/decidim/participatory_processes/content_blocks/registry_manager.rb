@@ -181,14 +181,15 @@ module Decidim
             content_block.public_name_key = "decidim.participatory_processes.content_blocks.democratic_quality_stats.name"
             content_block.settings_form_cell = "decidim/participatory_processes/content_blocks/democratic_quality_stats_settings_form"
             content_block.settings do |settings|
-              settings.attribute :migrant_groups_invited, type: :integer, default: -1
-              settings.attribute :cultural_origins_participation, type: :integer, default: -1
               settings.attribute :functional_diversity_invited, type: :integer, default: -1
-              settings.attribute :functional_diversity_participation, type: :integer, default: -1
-              settings.attribute :relevance_percentage, type: :integer, default: -1
+              settings.attribute :languages_communicated, type: :integer, default: -1
+              settings.attribute :mobility_meeting_access, type: :integer, default: -1
+              settings.attribute :participation_scheduling_times, type: :integer, default: -1
+              settings.attribute :digital_support_offered, type: :integer, default: -1
               settings.attribute :citizen_influence_level, type: :integer, default: -1
-              settings.attribute :languages_count, type: :integer, default: -1
-              settings.attribute :venue_accessibility, type: :integer, default: -1
+              settings.attribute :citizen_decisional_intervention, type: :integer, default: -1
+              settings.attribute :published_information_clarity, type: :integer, default: -1
+              settings.attribute :information_provided, type: :integer, default: -1
             end
           end
         end

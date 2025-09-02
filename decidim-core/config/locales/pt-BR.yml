@@ -1532,7 +1532,6 @@ pt-BR:
       impersonation_warning:
         close_session: Fechar sessão
         description_html: Você está representando o usuário <b>%{user_name}</b>.
-        expire_time_html: Sua sessão expirará em <b><span class="minutes">%{minutes}</span> minutos</b>.
       language_chooser:
         choose_language: Escolher idioma
       notifications_dashboard:

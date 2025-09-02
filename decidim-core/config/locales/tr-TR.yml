@@ -1005,7 +1005,6 @@ tr:
       impersonation_warning:
         close_session: Oturumu kapat
         description_html: Kullanıcının kimliğine bürünüyorsunuz <b>%{user_name}</b>.
-        expire_time_html: Seansınız <b><span class="minutes">%{minutes}</span> dakika</b>bitecek.
       language_chooser:
         choose_language: Dil seçin
       notifications_dashboard:

@@ -2,7 +2,6 @@ kaa:
   decidim:
     budgets:
       actions:
-        attachment_collections: Papkalar
         edit: Ózgeris kirgiziw
       admin:
         projects:

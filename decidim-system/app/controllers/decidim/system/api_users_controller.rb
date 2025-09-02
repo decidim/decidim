@@ -51,7 +51,7 @@ module Decidim
 
           on(:invalid) do
             flash[:error] = I18n.t("api_user.create.error", scope: "decidim.system")
-            render :new
+            render :new, status: :unprocessable_entity
           end
         end
       end

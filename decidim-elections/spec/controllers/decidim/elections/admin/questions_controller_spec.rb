@@ -13,11 +13,13 @@ module Decidim
         let!(:question) { create(:election_question, election:, body: { "en" => "Question 1" }, question_type: "multiple_option") }
         let!(:response_option1) { create(:election_response_option, question:, body: { "en" => "Option 1" }) }
         let!(:response_option2) { create(:election_response_option, question:, body: { "en" => "Option 2" }) }
+        let(:election_census_path) { Decidim::EngineRouter.admin_proxy(component).election_census_path(election) }
 
         before do
           request.env["decidim.current_organization"] = organization
           request.env["decidim.current_participatory_space"] = component.participatory_space
           request.env["decidim.current_component"] = component
+          allow(controller).to receive(:election_census_path).with(election).and_return(election_census_path)
           sign_in current_user
         end
 
@@ -60,12 +62,8 @@ module Decidim
           end
 
           it "updates the questions and redirects with notice" do
-            edit_questions_election_path = Decidim::EngineRouter.admin_proxy(component).edit_questions_election_path(election)
-
-            allow(controller).to receive(:edit_questions_election_path).and_return(edit_questions_election_path)
-
             patch :update, params: { id: election.id, questions: valid_questions_params }
-            expect(response).to redirect_to(edit_questions_election_path)
+            expect(response).to redirect_to(election_census_path)
             expect(flash[:notice]).to be_present
           end
 
