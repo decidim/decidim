@@ -2022,10 +2022,12 @@ cs:
         decidim_logo: Logo Decidim
         decidim_title: Decidim
         download_open_data: Stáhněte si soubory s otevřenými daty
+        help: Nápověda
         log_in: Přihlásit
         made_with_open_source: Webová stránka vytvořená s <a target="_blank" href="https://github.com/decidim/decidim">svobodným softwarem</a>.
         resources: Zdroje
         sign_up: Vytvořit účet
+        social_media: Sociální sítě
         terms_of_service: Podmínky služby
       header:
         log_in: Přihlásit
