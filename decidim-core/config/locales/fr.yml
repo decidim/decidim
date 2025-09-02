@@ -1989,14 +1989,17 @@ fr:
         edit: Modifier
       footer:
         cc_by_license: Licence Creative Commons
+        current_organization_img: "%{organization} (Retour à l'accueil)"
         data_consent_settings: Paramètres des cookies
         decidim_logo: Decidim.org (ouverture dans une nouvelle fenêtre)
         decidim_title: Decidim
         download_open_data: Télécharger les fichiers Open Data
+        help: Aide
         log_in: Se connecter
         made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
         resources: Ressources
         sign_up: Créer un compte
+        social_media: Réseaux sociaux
         terms_of_service: Conditions d'utilisation
       header:
         log_in: Se connecter
