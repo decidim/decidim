@@ -3,9 +3,9 @@
     <%= created_at %>
   </p>
   <div class="activity__content">
-    <span>
+    <div>
       <% if title.present? %>
-        <p class="inline-block">
+        <p class="activity__content-p">
           <%= title_icon %>
           <%= title %>
         </p>
@@ -13,7 +13,7 @@
       <a href="<%= resource_link_path %>">
         <%= html_truncate decidim_sanitize(resource_link_text, strip_tags: true), length: 80 %>
       </a>
-    </span>
+    </div>
     <% unless hide_participatory_space? %>
       <span>
         <%= participatory_space_link %>
