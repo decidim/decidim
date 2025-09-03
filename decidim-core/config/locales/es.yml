@@ -1987,14 +1987,17 @@ es:
         edit: Edita
       footer:
         cc_by_license: Con licencia Creative Commons
+        current_organization_img: "%{organization} (Ir a la página principal)"
         data_consent_settings: Configuración de cookies
         decidim_logo: Logo Decidim
         decidim_title: Decidim
         download_open_data: Descargar ficheros de datos abiertos
+        help: Ayuda
         log_in: Entra
         made_with_open_source: Web creada con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
         resources: Recursos
         sign_up: Crea una cuenta
+        social_media: Redes Sociales
         terms_of_service: Términos y condiciones de uso
       header:
         log_in: Entra
