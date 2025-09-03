@@ -823,6 +823,7 @@ de:
     statistics:
       attendees_count: Verantstaltungsteilnehmende
       meetings_count: Veranstaltungen
+      participatory_space_meetings_count: Veranstaltungen
   devise:
     mailer:
       join_meeting:
