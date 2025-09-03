@@ -68,4 +68,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "bundler", "~> 2.2", ">= 2.2.18"
   s.add_development_dependency "rake", "~> 12.0"
   s.add_development_dependency "rspec", "~> 3.0"
+  s.add_dependency "rails", "~> 7.2.0", ">= 7.2.2.2"
 end
