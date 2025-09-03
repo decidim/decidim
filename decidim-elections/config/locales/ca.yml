@@ -36,12 +36,19 @@ ca:
         new: Nova elecció
         preview: Previsualitzar
         title: Accions
+        view: Veure elecció
         view_deleted_elections: Veure les eleccions eliminades
       admin:
         census:
           edit:
+            choose_census: Tria el tipus de cens que vols vincular a aquesta elecció
             created_at: Creada el
             identifier: Identificador d'usuària
+            title: Tipus de cens
+          preview:
+            title:
+              one: La vista prèvia de la llista està limitada a %{count} registre.
+              other: La vista prèvia de la llista està limitada a %{count} registres.
           update:
             error: S'ha produït un error en generar o desar el cens.
             success: Cens actualitzat correctament.
@@ -50,6 +57,7 @@ ca:
             end_at: 'Dia i hora de finalització:'
             end_election: Finalitzar l'elecció
             manual_start: Manual
+            published_results_at: Resultats publicats el
             start_at: 'Dia i hora d''inici:'
             start_election: Iniciar l'elecció
             title: Calendari
@@ -84,12 +92,18 @@ ca:
             start_question_button: Activar la votació
             title: Resultats
           status:
+            census: 'Cens:'
+            results_availability:
+              after_end: Resultats disponibles després de la finalització de les eleccions
+              per_question: Resultats disponibles per cada pregunta
+              real_time: Resultats disponibles en temps real
             title: Estat de l'elecció
         elections:
           create:
             invalid: S'ha produït un error en crear l'elecció.
             success: Elecció creada correctament.
           dashboard:
+            subtitle: 'Darrer pas: revisa les dades! Encara pots fer modificacions abans de publicar. Un cop publicada, només podreu continuar actualitzant la descripció de l''elecció.'
             title: Tauler de control
           edit:
             title: Editar la votació
@@ -170,6 +184,8 @@ ca:
           one: Actualment hi ha <strong>1</strong> persona amb dret a vot en aquestes eleccions (això podria canviar en un cens dinàmic).
           other: Actualment hi ha <strong>%{count}</strong> persones amb dret a vot en aquestes eleccions (això podria canviar en un cens dinàmic).
         internal_users:
+          info_html: |
+            Pots restringir la participació en l'elecció a les participants que tinguin una autorització. <br>Tingues en compte que les participants obtenir l'autorització seleccionada per poder votar. Si deixes totes les caselles de verificació buides, qualsevol persona registrada podrà votar.
           internal_type_title: Autoritzacions addicionals necessàries per votar (opcional)
           label: Participants registrades (dinàmic)
         token_csv:
@@ -188,15 +204,23 @@ ca:
           elections_count:
             one: "%{count} votació"
             other: "%{count} votacions"
+        elections:
+          empty: No hi ha eleccions disponibles.
+          empty_filters: No hi ha eleccions que coincideixin amb els teus filtres.
         filters:
           all: Totes
           state: Estat
           state_values:
             finished: Acabada
             ongoing: En curs
+            scheduled: Programada
         orders:
+          end_at: Data de finalització
+          label: Ordenar per
           recent: Recent
+          start_at: Data d'inici
         questions:
+          subtitle: 'Aquestes són les preguntes per aquest procés de votació:'
           title: Preguntes de l'elecció
         show:
           vote_button: Començar a votar
@@ -213,9 +237,13 @@ ca:
         finished: Acabada
         not_started: No s'ha iniciat
         ongoing: En curs
+        published_results: Resultats publicats
         scheduled: Programada
         unpublished: Despublicada
         voting_enabled: Votació en curs
+    metadata:
+      progress:
+        published_results: 'Resultats publicats: %{end_date}'
     statistics:
       elections_count: Eleccions
   time:
