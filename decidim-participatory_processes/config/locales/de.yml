@@ -431,6 +431,9 @@ de:
                   one: Tief
                   two_five: Ausreichend
                   zero: Keine
+              languages_communicated:
+                options:
+                  one: Eine Sprache
               mobility_meeting_access:
                 options:
                   five: 'Ja'
