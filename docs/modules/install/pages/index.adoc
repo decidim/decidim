@@ -32,7 +32,7 @@ You can see the xref:install:manual.adoc[official manual installation tutorial] 
 
 === B. Docker / docker-compose
 
-If you are proeficient with Docker you can use the docker-compose.yml file that we provide as an example. The main limitation that you will have is that you cannot use modules with this image, only the official ones. It can be a good starting point if you want to check out Decidim locally quickly and before going to the manual installation approach.
+If you are proficient with Docker you can use the docker-compose.yml file that we provide as an example. The main limitation that you will have is that you cannot use modules with this image, only the official ones. It can be a good starting point if you want to check out Decidim locally quickly and before going to the manual installation approach.
 
 You can see the docker instructions at the https://github.com/decidim/docker/[Docker repository].
 
