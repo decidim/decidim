@@ -18,8 +18,8 @@ namespace :decidim do
       copy_file_to_application "decidim-core/lib/decidim/shakapacker/esbuild.config.js", "config/esbuild.config.js"
       copy_file_to_application "decidim-core/lib/decidim/shakapacker/tsconfig.json", "tsconfig.json"
 
-      # Remove the Shakapacker config and deploy shakapacker
-      migrate_shakapacker
+      # Install shakapacker
+     install_or_migrate_shakapacker
 
       # Install JS dependencies
       install_decidim_npm
@@ -55,8 +55,9 @@ namespace :decidim do
   namespace :upgrade do
     desc "Upgrades the shakapacker required npm package"
     task :shakapacker_npm do
+      require "shakapacker"
       system! "npm uninstall shakapacker"
-      system! "npm install --save-dev shakapacker@#{`bundle list | grep shakapacker | awk -F '[()]' '{print $2}'`}"
+      system! "npm install --save-dev shakapacker@#{Shakapacker::VERSION}"
     end
 
     desc "Upgrades Decidim Shakapacker dependencies in Rails instance application"
@@ -75,18 +76,14 @@ namespace :decidim do
       end
 
       # Remove the Shakapacker config and deploy shakapacker
-      migrate_shakapacker
+      install_or_migrate_shakapacker
 
       # Update JS dependencies
       install_decidim_npm
     end
   end
 
-  def migrate_shakapacker
-    remove_file_from_application "config/webpacker.yml"
-    remove_file_from_application "bin/webpack"
-    remove_file_from_application "bin/webpack-dev-server"
-
+  def install_or_migrate_shakapacker
     unless File.exist?(rails_app_path.join("config/shakapacker.yml"))
       copy_file_to_application "decidim-core/lib/decidim/shakapacker/shakapacker.yml", "config/shakapacker.yml"
       remove_folder_from_application "config/webpack"
