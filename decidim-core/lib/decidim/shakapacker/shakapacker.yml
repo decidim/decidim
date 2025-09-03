@@ -1,5 +1,5 @@
 # File written by Decidim generator
-# Note: You must restart bin/webpack-dev-server for changes to take effect
+# Note: You must restart bin/shakapacker-dev-server for changes to take effect
 
 default: &default
   source_path: app/packs
