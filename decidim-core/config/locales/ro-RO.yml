@@ -1625,7 +1625,6 @@ ro:
       impersonation_warning:
         close_session: Închideți sesiunea
         description_html: Gestionați participantul <b>%{user_name}</b>.
-        expire_time_html: Sesiunea dumneavoastră va expira în <b><span class="minutes">%{minutes}</span> minute</b>.
       language_chooser:
         choose_language: Alegeți limba
       notifications_dashboard:

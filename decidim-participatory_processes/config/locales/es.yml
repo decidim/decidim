@@ -4,14 +4,14 @@ es:
       participatory_process:
         announcement: Aviso
         area_id: Área
-        copy_categories: Copiar categorías
-        copy_components: Copiar componentes
-        copy_steps: Copiar las fases
         decidim_area_id: Área
         description: Descripción
         developer_group: Grupo promotor
         document: Documento
         domain: Dominio
+        duplicate_categories: Duplicar las categorías
+        duplicate_components: Duplicar los componentes
+        duplicate_steps: Duplicar las fases
         end_date: Fecha de finalización
         hero_image: Imagen de portada
         import_attachments: Importar archivos adjuntos
@@ -156,11 +156,11 @@ es:
             invitation_accepted_at: Invitación aceptada el
             invitation_sent_at: Invitación enviada el
             published: Publicados
-      participatory_process_copies:
+      participatory_process_duplicates:
         new:
-          copy: Copiar
-          select: Selecciona los datos que deseas duplicar
-          title: Duplicar proceso participativo
+          duplicate: Duplicar
+          select: Selecciona qué datos quieres duplicar
+          title: Duplicar el proceso participativo
       participatory_process_groups:
         destroy:
           error: Se ha producido un error al eliminar el grupo de procesos participativos.
@@ -259,7 +259,7 @@ es:
         update:
           error: Se ha producido un error al actualizar este proceso participativo.
           success: El proceso participativo se ha actualizado correctamente.
-      participatory_processes_copies:
+      participatory_processes_duplicates:
         create:
           error: Se ha producido un error al duplicar este proceso participativo.
           success: El proceso participativo se ha duplicado correctamente.
@@ -411,20 +411,6 @@ es:
       admin:
         content_blocks:
           democratic_quality_stats_settings_form:
-            accessibility:
-              languages_count:
-                legend: '¿En cuántos idiomas se ha comunicado el proceso?'
-                options:
-                  five: Más de la mitad de los idiomas hablados en la comunidad = 5
-                  one: Un idioma = 1
-                  two_five: Menos de la mitad de los idiomas hablados en la comunidad = 2.5
-              name: Accesibilidad
-              venue_accessibility:
-                legend: '¿Las salas de los encuentros presenciales eran accesibles para las personas con movilidad reducida?'
-                options:
-                  five: Sí = 5
-                  two_five: Parcialmente = 2.5
-                  zero: No = 0
             announcement:
               body_html: |-
                 <ul>
@@ -433,62 +419,73 @@ es:
                 </ul>
               title: 'Este bloque de contenido incluye dos tipos de métricas:'
             citizen_influence:
-              citizen_influence_level:
-                legend: Nivel de influencia del proceso teniendo en cuenta los mecanismos de participación habilitados, de acuerdo a la escalera de participación definida por Satin y Arnstein (1969).
+              citizen_decisional_intervention:
+                legend: De todas las fases del proceso (desde la selección de las propuestas hasta el seguimiento de su ejecución) ¿en cuántas ha tenido la ciudadanía la capacidad de tomar decisiones o emprender acciones ejecutivas?
                 options:
-                  five: Control ciudadano = 5
-                  five_description: Un nivel de participación más alto donde la ciudadanía gobierna plenamente un programa o institución, gestionan políticas, recursos y toma de decisiones sin interferencia externa.
-                  four: Competencia delegada = 4
-                  four_description: Un proceso participativo en el que la ciudadanía adquiere autoridad, control o financiación para influir en una organización y gestionarla.
-                  one: Consultivo = 1
-                  one_description: Un proceso participativo en el que se pide a la ciudadanía su opinión, normalmente a través de encuestas o reuniones, pero sin garantía de que su aportación influya en las decisiones.
-                  three: Colaborativo = 3
-                  three_description: Un proceso participativo en el que la ciudadanía y el tejido asociativo comparten el poder de decisión, lo que permite a las participantes negociar, asignar recursos e influir en la planificación, con normas que no pueden modificarse unilateralmente. Suele surgir de la movilización ciudadana y la acción colectiva.
-                  two: Participación simbólica = 2
-                  two_description: Un proceso participativo en el que se concede a la ciudadanía una influencia limitada, a menudo de forma simbólica, como la inclusión en juntas o comités, pero sin poder real, ya que la toma de decisiones sigue controlada por la élite de poder tradicional.
-                  zero: Informativo = 0
-                  zero_description: El flujo de información es unidireccional -del personal municipal hacia la ciudadanía- sin canal de retroalimentación ni capacidad de negociación.
+                  five: 80 - 100%
+                  four: 60 - 80%
+                  one: 0 - 20%
+                  three: 40 - 60%
+                  two: 20 - 40%
+              citizen_influence_level:
+                legend: Este indicador mide el grado de capacidad real de incidencia de la ciudadanía en un proceso, específicamente cuantificando su capacidad de decidir y de ejecutar, desde la simple recepción de información hasta la influencia en la toma decisiones y la posterior gestión de los recursos.
+                options:
+                  five: Las participantes estuvieron involucradas en la toma de decisiones y en la gestión de los recursos o en la implementación
+                  four: La ciudadanía participó decisivamente en la toma de decisiones
+                  one: Las participantes recibieron información por parte de la organización
+                  three: Las participantes participaron para compartir el poder decisión
+                  two: Se pidió a las participantes que dieran su opinión de manera consultiva o que proporcionaran comentarios a la organización
               name: Influencia ciudadana
             inclusiveness:
-              cultural_origins_participation:
-                legend: '¿Cuántas personas de orígenes culturales diversos han participado al margen de los invitados?'
-                options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
               description: Inclusividad según el origen cultural y la diversidad funcional.
+              digital_support_offered:
+                legend: '¿Se ha ofrecido apoyo digital a las participantes?'
+                options:
+                  five: 'Sí'
+                  two_five: Parcialmente
+                  zero: 'No'
               functional_diversity_invited:
-                legend: '¿Se ha invitado a grupos de personas con diversidad funcional a participar?'
+                legend: '¿Cómo se evalúa el grado de diversidad de agentes y participantes con respecto a la población de referencia en el proceso?'
                 options:
-                  five: Sí = 5
-                  zero: No = 0
-              functional_diversity_participation:
-                legend: '¿Cuántas personas con diversidad funcional han participado al margen de las invitadas?'
+                  five: Bien
+                  one: Bajo
+                  two_five: Suficiente
+                  zero: Ninguno
+              languages_communicated:
+                legend: '¿Cuántos idiomas se han utilizado en el proceso?'
                 options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
-              migrant_groups_invited:
-                legend: '¿Se ha invitado a participar a personas de orígenes diversos?'
+                  five: Más de la mitad de los idiomas hablados en la comunidad
+                  one: Un idioma
+                  two_five: Menos de la mitad de los idiomas hablados en la comunidad
+              mobility_meeting_access:
+                legend: '¿Las salas de los encuentros presenciales eran accesibles para las personas con movilidad reducida?'
                 options:
-                  five: Sí = 5
-                  zero: No = 0
+                  five: 'Sí'
+                  two_five: Parcialmente
+                  zero: 'No'
               name: Inclusividad
-            relevance:
-              description: 'Relevancia del impacto, tales como: porcentaje del presupuesto de la organización, de los recursos humanos la organización implicados, o del total de la población, que se verá afectada por los resultados del proceso, y el tiempo dedicado a tal impacto.'
-              name: Relevancia
-              relevance_percentage:
-                legend: Porcentaje del presupuesto de la organización, de los recursos humanos la organización implicados, o del total de la población, que se verá afectada por los resultados del proceso.
+              participation_scheduling_times:
+                legend: Las sesiones de participación se han programado en diferentes horarios (mañana, mediodía, tarde, noche y fines de semana).
                 options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
+                  five: 'Sí'
+                  two_five: Parcialmente
+                  zero: 'No'
+            informativeness:
+              information_provided:
+                legend: '¿Se ha facilitado información a las participantes sobre cuál era su capacidad de influencia en el tema que se debatía? (tanto en la comunicación del proceso y las invitaciones, como al inicio de cada sesión de debate)'
+                options:
+                  five: Siempre
+                  one: Casi nunca
+                  two_five: De manera general
+                  zero: Nunca
+              name: Informativo
+              published_information_clarity:
+                legend: '¿Se ha facilitado y/o publicado información clara sobre los mecanismos de toma de decisiones? (por ejemplo, votación, consenso, negociaciones directas)'
+                options:
+                  five: Con total claridad
+                  one: Con poca claridad
+                  two_five: Con claridad suficiente
+                  zero: Ninguna claridad
           highlighted_processes:
             active: Activos
             all: Todos
@@ -497,9 +494,9 @@ es:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
+        participatory_process_duplicates:
           form:
-            slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            slug_help_html: 'Los segmentos de URL se utilizan para generar las URLs que apuntan a este proceso. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadatos
@@ -545,20 +542,18 @@ es:
           global_score:
             description_html: A continuación se muestra un conjunto de indicadores utilizados para evaluar la calidad democrática de este proceso participativo. Para más detalles sobre cómo se calculan, consulta la página <a href="%{info_url}">de información sobre los indicadores de calidad democrática</a>.
             name: Puntuación general
-            note: "*Los indicadores se miden en una escala de 1 a 5, donde 1 representa la menor y 5 la mayor calidad de participación."
+            note: "*Los indicadores se miden en una escala de 1 a 5, donde 1 representa el menor y 5 el mayor indicador de calidad de participación."
             tooltip: Basada en la media de todas las dimensiones
-          name: Calidad de la participación
+          name: Indicador de calidad
           qualitative_metrics:
             description: Estos indicadores se obtienen de las respuestas a una encuesta de autoevaluación realizada por las responsables del proceso participativo.
             indicators:
-              accessibility: Accesibilidad
-              accessibility_tooltip: El proceso ha sido comunicado en los idiomas hablados en la comunidad y los espacios utilizados en los encuentros presenciales han sido accesibles para las personas con movilidad reducida.
               citizen_influence: Influencia ciudadana
               citizen_influence_tooltip: Se mide la capacidad de incidencia de las participantes en la toma de decisiones.
               inclusiveness: Inclusividad
-              inclusiveness_tooltip: Evalúa si las todas las partes interesadas están representadas equitativamente
-              relevance: Relevancia
-              relevance_tooltip: 'Relevancia del impacto, tales como: porcentaje del presupuesto de la organización, de los recursos humanos la organización implicados, o del total de la población, que se verá afectada por los resultados del proceso, y el tiempo dedicado a tal impacto.'
+              inclusiveness_tooltip: Evalúa si las todas las partes interesadas están representadas equitativamente.
+              informativeness: Grado de información
+              informativeness_tooltip: Mide el nivel de claridad y la información proporcionada dentro del proceso.
             name: Métricas de autoevaluación
         extra_data:
           name: Fase y duración

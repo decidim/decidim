@@ -4,14 +4,14 @@ ca:
       participatory_process:
         announcement: Avís
         area_id: Àrea
-        copy_categories: Copiar les categories
-        copy_components: Copiar els components
-        copy_steps: Copiar les fases
         decidim_area_id: Àrea
         description: Descripció
         developer_group: Grup promotor
         document: Document
         domain: Àrees municipals
+        duplicate_categories: Duplicar les categories
+        duplicate_components: Duplicar els components
+        duplicate_steps: Duplicar les fases
         end_date: Data de finalització
         hero_image: Imatge de portada
         import_attachments: Importar arxius adjunts
@@ -156,11 +156,11 @@ ca:
             invitation_accepted_at: Invitació acceptada el
             invitation_sent_at: Invitació enviada el
             published: Publicats
-      participatory_process_copies:
+      participatory_process_duplicates:
         new:
-          copy: Còpia
+          duplicate: Duplicar
           select: Selecciona quines dades vols duplicar
-          title: Duplica procés participatiu
+          title: Duplicar el procés participatiu
       participatory_process_groups:
         destroy:
           error: Hi ha hagut un error en eliminar el grup de processos participatius.
@@ -258,9 +258,9 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquest procés participatiu.
           success: El procés participatiu s'ha actualitzat correctament.
-      participatory_processes_copies:
+      participatory_processes_duplicates:
         create:
-          error: S'ha produït un error en duplicar el procés participatiu.
+          error: S'ha produït un error en duplicar aquest procés participatiu.
           success: El procés participatiu ha estat duplicat correctament.
       participatory_processes_group:
         create:
@@ -410,20 +410,6 @@ ca:
       admin:
         content_blocks:
           democratic_quality_stats_settings_form:
-            accessibility:
-              languages_count:
-                legend: En quants idiomes s'ha comunicat el procés?
-                options:
-                  five: Més de la meitat dels idiomes parlats a la comunitat = 5
-                  one: Un idioma = 1
-                  two_five: Més de la meitat dels idiomes parlats a la comunitat = 2,5
-              name: Accessibilitat
-              venue_accessibility:
-                legend: '¿Les sales de les trobades presencials eren accessibles per a les persones amb mobilitat reduïda?'
-                options:
-                  five: Sí = 5
-                  two_five: Parcialment = 2.5
-                  zero: No = 0
             announcement:
               body_html: |-
                 <ul>
@@ -432,62 +418,73 @@ ca:
                 </ul>
               title: 'Aquest bloc de contingut inclou dos tipus de mètriques:'
             citizen_influence:
-              citizen_influence_level:
-                legend: Nivell d'influència del procés tenint en compte els mecanismes de participació habilitats, segons l'escala de participació definida per Satin i Arnstein (1969).
+              citizen_decisional_intervention:
+                legend: De totes les fases del procés (des de la selecció de les propostes fins al seguiment de la seva execució), en quantes ha tingut la ciutadania la capacitat de prendre decisions o emprendre accions executives?
                 options:
-                  five: Control ciutadà = 5
-                  five_description: Un nivell de participació més alt on la ciutadania governa plenament un programa o institució, gestionen polítiques, recursos i presa de decisions sense interferència externa.
-                  four: Competència delegada = 4
-                  four_description: Un procés participatiu en què la ciutadania adquireix autoritat, control o finançament per influir en una organització i gestionar-la.
-                  one: Consultiu = 1
-                  one_description: Un procés participatiu en què es demana a la ciutadania la seva opinió, normalment mitjançant enquestes o reunions, però sense garantia que la seva aportació influeixi en les decisions.
-                  three: Col·laboratiu = 3
-                  three_description: Un procés participatiu en què la ciutadania i el teixit associatiu comparteixen el poder de decisió, cosa que permet a les participants negociar, assignar recursos i influir en la planificació, amb normes que no es poden modificar unilateralment. Sol sorgir de la mobilització ciutadana i l'acció col·lectiva.
-                  two: Participació simbòlica = 2
-                  two_description: Un procés participatiu en què es concedeix a la ciutadania una influència limitada, sovint de manera simbòlica, com ara la inclusió en juntes o comitès, però sense poder real, ja que la presa de decisions continua controlada per l'elit de poder tradicional.
-                  zero: Informatiu = 0
-                  zero_description: El flux d'informació és unidireccional –del personal municipal cap a la ciutadania– sense canal de retroalimentació ni capacitat de negociació.
+                  five: 80 - 100%
+                  four: 60 - 80%
+                  one: 0 - 20%
+                  three: 40 - 60%
+                  two: 20 - 40%
+              citizen_influence_level:
+                legend: Aquest indicador mesura el grau de capacitat real d'incidència de la ciutadania en un procés, específicament quantificant la seva capacitat de decidir i executar, des de la simple recepció d'informació fins a la influència en la presa decisions i la posterior gestió dels recursos.
+                options:
+                  five: Les participants van estar involucrades en la presa de decisions i en la gestió dels recursos o en la implementació
+                  four: Les participants van estar involucrades decisivament en la presa de decisions
+                  one: Les participants van rebre informació de l'organització
+                  three: Les participants van participar per compartir el poder decisió
+                  two: Es va demanar a les participants que donessin la seva opinió de manera consultiva o que proporcionessin comentaris a l'organització
               name: Influència ciutadana
             inclusiveness:
-              cultural_origins_participation:
-                legend: Quantes persones d'orígens culturals diversos han participat al marge dels convidats?
-                options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
               description: Inclusió segons l'origen cultural i la diversitat funcional.
+              digital_support_offered:
+                legend: S'ha ofert suport digital a les participants?
+                options:
+                  five: 'Sí'
+                  two_five: Parcialment
+                  zero: 'No'
               functional_diversity_invited:
-                legend: S'ha convidat a grups de persones amb diversitat funcional a participar?
+                legend: Com s'avalua el grau de diversitat d'agents i participants pel que fa a la població de referència en el procés?
                 options:
-                  five: Sí = 5
-                  zero: No = 0
-              functional_diversity_participation:
-                legend: Quantes persones amb diversitat funcional han participat al marge de les convidades?
+                  five: Bé
+                  one: Baix
+                  two_five: Suficient
+                  zero: Cap
+              languages_communicated:
+                legend: Quants idiomes s'han fet servir en el procés?
                 options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
-              migrant_groups_invited:
-                legend: S'ha convidat a participar persones d'orígens diversos?
+                  five: Més de la meitat dels idiomes parlats a la comunitat
+                  one: Un idioma
+                  two_five: Menys de la meitat dels idiomes parlats a la comunitat
+              mobility_meeting_access:
+                legend: '¿Les sales de les trobades presencials eren accessibles per a les persones amb mobilitat reduïda?'
                 options:
-                  five: Sí = 5
-                  zero: No = 0
+                  five: 'Sí'
+                  two_five: Parcialment
+                  zero: 'No'
               name: Inclusió
-            relevance:
-              description: 'Rellevància de l''impacte, com ara: percentatge del pressupost de l''organització, dels recursos humans l''organització implicats, o del total de la població, que es veurà afectada pels resultats del procés, i el temps dedicat per a tal impacte.'
-              name: Rellevància
-              relevance_percentage:
-                legend: Percentatge del pressupost de l'organització, recursos humans l'organització implicats, o el total de la població, que es veurà afectada pels resultats del procés.
+              participation_scheduling_times:
+                legend: Les sessions de participació s'han programat en diferents horaris (matí, migdia, tarda, nit i caps de setmana).
                 options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
+                  five: 'Sí'
+                  two_five: Parcialment
+                  zero: 'No'
+            informativeness:
+              information_provided:
+                legend: S'ha facilitat informació a les participants sobre quina era la capacitat d'influència que tenia en el tema que es debatia? (tant a la comunicació del procés i les invitacions, com a l'inici de cada sessió de debat)
+                options:
+                  five: Sempre
+                  one: Gairebé mai
+                  two_five: De manera general
+                  zero: Mai
+              name: Informatiu
+              published_information_clarity:
+                legend: S'ha facilitat i/o publicat informació clara sobre els mecanismes de presa de decisions? (per exemple, votació, consens, negociacions directes)
+                options:
+                  five: Amb total claredat
+                  one: Amb poca claredat
+                  two_five: Amb prou claredat
+                  zero: Cap mena de claredat
           highlighted_processes:
             active: Actius
             all: Tots
@@ -496,9 +493,9 @@ ca:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
+        participatory_process_duplicates:
           form:
-            slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+            slug_help_html: 'Els segments d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadades
@@ -544,20 +541,18 @@ ca:
           global_score:
             description_html: A continuació es mostren un conjunt d'indicadors emprats per avaluar la qualitat democràtica d'aquest procés participatiu. Per a més detalls sobre com es calculen, consulteu la pàgina <a href="%{info_url}">d'informació sobre els indicadors de qualitat democràtica</a>.
             name: Puntuació general
-            note: "*Els indicadors es mesuren en una escala d'1 a 5, on 1 representa la menor i 5 la qualitat de participació més gran."
+            note: "*Els indicadors es mesuren en una escala d'1 a 5, on 1 representa el menor i 5 l'indicador més alt de qualitat de participació."
             tooltip: Basada en la mitjana de totes les dimensions
-          name: Qualitat de la participació
+          name: Indicador de qualitat
           qualitative_metrics:
             description: Aquests indicadors s'obtenen de les respostes a una enquesta d'autoavaluació feta pels responsables del procés participatiu.
             indicators:
-              accessibility: Accessibilitat
-              accessibility_tooltip: El procés ha estat comunicat en els idiomes parlats a la comunitat i els espais utilitzats en les trobades presencials han estat accessibles per a les persones amb mobilitat reduïda.
               citizen_influence: Influència ciutadana
               citizen_influence_tooltip: Es mesura la capacitat d'incidència de les participants a la presa de decisions.
               inclusiveness: Inclusió
-              inclusiveness_tooltip: Avalua si totes les parts interessades estan representades equitativament
-              relevance: Rellevància
-              relevance_tooltip: 'Rellevància de l''impacte, com ara: percentatge del pressupost de l''organització, dels recursos humans l''organització implicats, o del total de la població, que es veurà afectada pels resultats del procés, i el temps dedicat per a tal impacte.'
+              inclusiveness_tooltip: Avalua si totes les parts interessades estan representades equitativament.
+              informativeness: Grau d'informació
+              informativeness_tooltip: Mesura el nivell de claredat i la informació proporcionada dins del procés.
             name: Mètriques de l'autoavaluació
         extra_data:
           name: Fase i durada

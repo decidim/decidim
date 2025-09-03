@@ -4,9 +4,6 @@ id:
       participatory_process:
         announcement: Pengumuman
         area_id: Daerah
-        copy_categories: Salin kategori
-        copy_components: Salin komponen
-        copy_steps: Salin langkah
         decidim_area_id: Daerah
         description: Deskripsi
         developer_group: Grup promotor
@@ -111,11 +108,6 @@ id:
           fields:
             invitation_accepted_at: Undangan diterima di
             invitation_sent_at: Undangan dikirim pada
-      participatory_process_copies:
-        new:
-          copy: Salinan
-          select: Pilih data mana yang ingin Anda gandakan
-          title: Proses partisipatif duplikat
       participatory_process_groups:
         destroy:
           success: Kelompok proses partisipatif berhasil dihapus.
@@ -190,10 +182,6 @@ id:
         update:
           error: Ada kesalahan saat memperbarui proses partisipatif ini.
           success: Proses partisipatif berhasil diperbarui.
-      participatory_processes_copies:
-        create:
-          error: Ada kesalahan saat menduplikasi proses partisipatif ini.
-          success: Proses partisipatif berhasil digandakan.
       participatory_processes_group:
         create:
           error: Terjadi kesalahan saat membuat grup proses partisipatif baru.

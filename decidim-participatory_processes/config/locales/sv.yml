@@ -4,14 +4,14 @@ sv:
       participatory_process:
         announcement: Meddelande
         area_id: Område
-        copy_categories: Kopiera kategorier
-        copy_components: Kopiera komponenter
-        copy_steps: Kopiera steg
         decidim_area_id: Område
         description: Beskrivning
         developer_group: Arrangör
         document: Dokument
         domain: Domän
+        duplicate_categories: Duplicera kategorier
+        duplicate_components: Duplicera komponenter
+        duplicate_steps: Duplicera steg
         end_date: Slutdatum
         hero_image: Startbild
         import_attachments: Importera bilagor
@@ -154,11 +154,11 @@ sv:
             invitation_accepted_at: Inbjudan godkänd
             invitation_sent_at: Inbjudan skickad
             published: Publicerad
-      participatory_process_copies:
+      participatory_process_duplicates:
         new:
-          copy: Kopiera
-          select: Välj vilka data som du vill duplicera
-          title: Duplicera process
+          duplicate: Duplicera
+          select: Välj vilken data du vill duplicera
+          title: Duplicera deltagarprocess
       participatory_process_groups:
         destroy:
           error: Det gick inte att radera gruppen.
@@ -256,10 +256,10 @@ sv:
         update:
           error: Det gick inte att uppdatera processen.
           success: Processen har uppdaterats.
-      participatory_processes_copies:
+      participatory_processes_duplicates:
         create:
-          error: Det gick inte att duplicera processen.
-          success: Processen har duplicerats.
+          error: Det gick inte att duplicera deltagarprocessen.
+          success: Deltagandeprocessen har duplicerats.
       participatory_processes_group:
         create:
           error: Det gick inte att skapa en ny grupp för processer.
@@ -405,7 +405,7 @@ sv:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
+        participatory_process_duplicates:
           form:
             slug_help_html: 'URL-slugs används till att generera URL:er till processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         participatory_process_groups:

@@ -455,6 +455,7 @@ cs:
         remove_all: Odebrat vše
         search_label: Hledat
         search_placeholder:
+          name_or_nickname_or_email_cont: Hledat %{collection} podle e-mailu, jména nebo přezdívky
           report_count_eq: Počet nahlášení
         state_eq:
           label: Stav
@@ -1286,6 +1287,7 @@ cs:
         not_hidden: Neskrytý
         parent_hidden: Nelze odkrýt tento zdroj, protože jeho nadřazená položka je stále skrytá.
         title: Akce
+        unhide: Vrátit skrytí
       admin:
         reportable:
           bulk_action:

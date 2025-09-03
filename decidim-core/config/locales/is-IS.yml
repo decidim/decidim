@@ -296,7 +296,6 @@ is-IS:
         made_with_open_source: Website gert með <a target="_blank" href="https://github.com/decidim/decidim">ókeypis hugbúnaði</a>.
       impersonation_warning:
         close_session: Loka fundi
-        expire_time_html: Session þín rennur út í <b><span class="minutes">%{minutes}</span> mínútur</b>.
       notifications_dashboard:
         mark_all_as_read: merkja allt sem lesið
       user_menu:
