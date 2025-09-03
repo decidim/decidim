@@ -19,7 +19,7 @@ namespace :decidim do
       copy_file_to_application "decidim-core/lib/decidim/shakapacker/tsconfig.json", "tsconfig.json"
 
       # Install shakapacker
-     install_or_migrate_shakapacker
+      install_or_migrate_shakapacker
 
       # Install JS dependencies
       install_decidim_npm
