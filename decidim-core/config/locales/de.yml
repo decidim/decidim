@@ -595,6 +595,8 @@ de:
       hero_settings_form:
         background_image: Hintergrundbild
         cta_button_path: URL des Call-to-Action Buttons
+        cta_button_path_help: 'Sie können das Ziel des «Call To Action»-Buttons auf der Homepage anpassen. Verwenden Sie hier Teilpfade, nicht die vollständige URL. Buchstaben, Zahlen, Bindestriche und Schrägstriche sind erlaubt; an der ersten Stelle ist ein Buchstabe erforderlich. Der «Call To Action»-Button wird auf der Startseite zwischen dem Begrüßungstext und der Beschreibung angezeigt. Beispiel: %{url}'
+        cta_button_text: Text des «Call To Action»-Buttons
         welcome_text: Willkommenstext
       highlighted_content_banner:
         name: Hervorgehobenes Inhaltsbanner
