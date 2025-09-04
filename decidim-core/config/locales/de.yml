@@ -182,7 +182,7 @@ de:
           close: Fenster schließen
           ok: Ja, ich möchte mein Konto löschen
           question: Sind Sie sicher, dass Sie Ihr Konto löschen möchten?
-          title: Mein Konto löschen
+          title: Konto löschen
         explanation: Bitte geben Sie den Grund an, warum Sie Ihr Konto löschen möchten (optional).
         leaving_authorizations_behind: Einige Daten, die an Ihre Autorisierung gebunden sind, werden aus Sicherheitsgründen gespeichert. Wenn Sie ein anderes Konto erstellen und erneut autorisieren, werden diese Daten auf Ihr neues Konto wiederhergestellt.
       destroy:
@@ -591,6 +591,10 @@ de:
         welcome_text: Willkommenstext
       highlighted_content_banner:
         name: Hervorgehobenes Inhaltsbanner
+      highlighted_content_banner_settings_form:
+        short_description: Kurzbeschreibung
+        subtitle: Untertitel
+        title: Titel
       highlighted_elements_settings_form:
         components:
           all: Alle
@@ -1106,6 +1110,8 @@ de:
         last_activity: Letzte Aktivität
       name: Letzte Aktivitäten
       no_activities_warning: Es gibt keine anzuzeigende Einträge für diesen Aktivitätstyp.
+    likes_list:
+      title: Geliked von
     linked_resource_from:
       included_in: Enthalten in
     links:
@@ -2082,7 +2088,6 @@ de:
       impersonation_warning:
         close_session: Sitzung schließen
         description_html: Sie geben sich als Benutzer <b>%{user_name}</b>.
-        expire_time_html: Ihre Sitzung wird in <b><span class="minutes">%{minutes}</span> Minuten</b>ablaufen.
       language_chooser:
         choose_language: Sprache wählen
       navigation:
@@ -2113,10 +2118,12 @@ de:
         profile: Mein Konto
         public_profile: Mein öffentliches Profil
         title: Profil-Links
+        unread_conversations: Sie haben ungelesene Unterhaltungen
+        unread_notifications: Sie haben ungelesene Benachrichtigungen
       user_profile:
         account: Konto
         authorizations: Berechtigungen
-        delete_my_account: Löschen Sie mein Konto
+        delete_my_account: Konto löschen
         my_data: Meine Daten
         notifications_settings: Benachrichtigungseinstellungen
         profile: Profil

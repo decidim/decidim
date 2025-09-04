@@ -4,9 +4,6 @@ gl:
       participatory_process:
         announcement: Anuncio
         area_id: Área
-        copy_categories: Copiar categorías
-        copy_components: Copiar compoñentes
-        copy_steps: Copiar os pasos
         decidim_area_id: Área
         description: Descrición
         developer_group: Grupo promotor
@@ -125,11 +122,6 @@ gl:
           fields:
             invitation_accepted_at: Invitación aceptada no
             invitation_sent_at: Invitación enviada a
-      participatory_process_copies:
-        new:
-          copy: Copiar
-          select: Seleccione os datos que desexa duplicar
-          title: Duplicar o proceso participativo
       participatory_process_groups:
         destroy:
           success: Grupo de proceso participativo eliminado con éxito.
@@ -208,10 +200,6 @@ gl:
         update:
           error: Produciuse un erro ao actualizar este proceso participativo.
           success: Proceso participativo actualizado con éxito.
-      participatory_processes_copies:
-        create:
-          error: Produciuse un erro ao duplicar este proceso participativo.
-          success: O proceso participativo duplicouse con éxito.
       participatory_processes_group:
         create:
           error: Produciuse un erro ao crear un novo grupo de procesos participativos.

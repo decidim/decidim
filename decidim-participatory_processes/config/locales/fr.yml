@@ -4,14 +4,14 @@ fr:
       participatory_process:
         announcement: Annonce
         area_id: Périmètre d'assemblée
-        copy_categories: Copier les catégories
-        copy_components: Copier les fonctionnalités
-        copy_steps: Copier les étapes
         decidim_area_id: Périmètre d'assemblée
         description: Description
         developer_group: Organisateur
         document: Document
         domain: Domaine
+        duplicate_categories: Dupliquer les catégories
+        duplicate_components: Dupliquer les composants
+        duplicate_steps: Dupliquer les étapes
         end_date: Date de fin
         hero_image: Image de la page d'accueil
         import_attachments: Importer les pièces jointes
@@ -154,11 +154,11 @@ fr:
             invitation_accepted_at: Invitation acceptée à
             invitation_sent_at: Invitation envoyée à
             published: Publié
-      participatory_process_copies:
+      participatory_process_duplicates:
         new:
-          copy: Copier
+          duplicate: Dupliquer
           select: Sélectionnez les données que vous souhaitez dupliquer
-          title: Dupliquer la concertation
+          title: Dupliquer le processus participatif
       participatory_process_groups:
         destroy:
           error: Une erreur s'est produite lors de la suppression du groupe de concertations.
@@ -256,10 +256,10 @@ fr:
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette concertation.
           success: Concertation mise à jour avec succès.
-      participatory_processes_copies:
+      participatory_processes_duplicates:
         create:
-          error: Une erreur s'est produite lors de la duplication de cette concertation.
-          success: Concertation dupliquée avec succès.
+          error: Un problème est survenu lors de la duplication de ce processus participatif.
+          success: Processus participatif dupliqué avec succès.
       participatory_processes_group:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau groupe de concertations.
@@ -380,54 +380,61 @@ fr:
       admin:
         content_blocks:
           democratic_quality_stats_settings_form:
-            accessibility:
-              languages_count:
-                options:
-                  one: Une langue = 1
-                  two_five: Moins de la moitié des langues parlées dans la communauté = 2.5
-              name: Accessibilité
-              venue_accessibility:
-                options:
-                  five: Oui = 5
-                  two_five: Partiellement = 2,5
-                  zero: Non = 0
             citizen_influence:
-              citizen_influence_level:
+              citizen_decisional_intervention:
                 options:
-                  one: Consultation = 1
-                  three: Partenariat = 3
+                  five: 80 - 100%
+                  four: 60 - 80%
+                  one: 0 - 20%
+                  three: 40 - 60%
+                  two: 20 - 40%
             inclusiveness:
-              cultural_origins_participation:
+              digital_support_offered:
+                legend: Un accompagnement numérique a-t-il été offert aux participants?
                 options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
+                  five: 'Oui'
+                  two_five: Partiellement
+                  zero: 'Non'
               functional_diversity_invited:
+                legend: Comment le degré de diversité des agents et des participants est-il évalué par rapport à la population de référence dans le processus?
                 options:
-                  five: Oui = 5
-                  zero: Non = 0
-              functional_diversity_participation:
+                  five: Bonne
+                  one: Faible
+                  two_five: Suffisante
+                  zero: Aucune
+              languages_communicated:
+                legend: Combien de langues ont été utilisées au cours du processus ?
                 options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
-              migrant_groups_invited:
+                  five: Plus de la moitié des langues parlées dans la communauté
+                  one: Une langue
+                  two_five: Moins de la moitié des langues parlées dans la communauté
+              mobility_meeting_access:
+                legend: Les lieux des réunions en face à face étaient-ils accessibles aux personnes à mobilité réduite?
                 options:
-                  five: Oui = 5
-                  zero: Non = 0
-            relevance:
-              name: Pertinence
-              relevance_percentage:
+                  five: 'Oui'
+                  two_five: Partiellement
+                  zero: 'Non'
+              participation_scheduling_times:
+                legend: Les séances de participation ont été organisées à des horaires variés (matin, midi, après-midi, soir et week-end).
                 options:
-                  five: 80 - 100% = 5
-                  four: 60 - 80% = 4
-                  one: 0 - 20% = 1
-                  three: 40 - 60% = 3
-                  two: 20 - 40% = 2
+                  five: 'Oui'
+                  two_five: Partiellement
+                  zero: 'Non'
+            informativeness:
+              information_provided:
+                options:
+                  five: Toujours
+                  one: Presque jamais
+                  two_five: Généralement
+                  zero: Jamais
+              name: Clarté de l'information
+              published_information_clarity:
+                legend: Est-ce que les informations publiées apportent de la clarté sur les mécanismes de prise de décision? (par exemple vote, consensus, négociations directes)
+                options:
+                  five: Entière clarté
+                  one: Clarté insuffisante
+                  two_five: Clarté suffisante
+                  zero: Aucune clarté
           highlighted_processes:
             active: Actif(s)
             all: Tout
@@ -436,9 +443,9 @@ fr:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
+        participatory_process_duplicates:
           form:
-            slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette concertation. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers ce processus. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         participatory_process_groups:
           form:
             metadata: Métadonnées
@@ -473,12 +480,13 @@ fr:
             description: Ces indicateurs sont obtenus automatiquement à partir des données de la plate-forme.
           global_score:
             name: Score global
+            note: "*Les valeurs indicatives sont mesurées sur une échelle de 1 à 5, où 1 représente le plus bas et 5 le plus haut indicateur de qualité."
             tooltip: Calculée en tant que moyenne de toutes les dimensions
-          name: Qualité de la participation
+          name: Indicateur de qualité
           qualitative_metrics:
             indicators:
-              accessibility: Accessibilité
-              relevance: Pertinence
+              informativeness: Clarté de l'information
+              informativeness_tooltip: Mesure le niveau de clarté et d'information fournis dans le processus.
         extra_data:
           name: Phase & durée
         hero:

@@ -98,6 +98,8 @@ de:
             title: Umfrage bearbeiten
           index:
             title: Umfragen
+          new:
+            title: Neue Umfrage
           publish:
             invalid: Beim Veröffentlichen dieser Umfrage ist ein Problem aufgetreten.
             success: Umfrage erfolgreich veröffentlicht.

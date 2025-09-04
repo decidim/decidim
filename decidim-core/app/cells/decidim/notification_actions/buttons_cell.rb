@@ -19,7 +19,7 @@ module Decidim
             {
               class: "button button__sm #{class_for(item)}",
               remote: true,
-              data: { "notification-action" => "button" }
+              data: { controller: "notification-action", action: "click->notification-action#click" }
             }
           ].tap do |button|
             button[2][:method] = item[:method] if item[:method].in?(%w(get patch put delete post))

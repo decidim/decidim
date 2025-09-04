@@ -23,7 +23,7 @@ FactoryBot.define do
     title { generate_localized_title(:election_title, skip_injection:) }
     description { generate_localized_description(:election_description, skip_injection:) }
     start_at { nil }
-    end_at { 30.days.from_now }
+    end_at { 2.days.from_now }
 
     component { create(:elections_component, skip_injection:) }
 
@@ -47,18 +47,13 @@ FactoryBot.define do
       end_at { 2.days.from_now }
     end
 
-    trait :started do
-      start_at { 1.day.ago }
-      end_at { 1.day.from_now }
-    end
-
     trait :ongoing do
       start_at { 1.day.ago }
       end_at { 1.day.from_now }
     end
 
     trait :finished do
-      start_at { 30.days.ago }
+      start_at { 2.days.ago }
       end_at { 1.day.ago }
     end
 
@@ -66,13 +61,16 @@ FactoryBot.define do
       published_at { Time.current }
     end
 
-    trait :results_published do
+    trait :published_results do
+      published_at { 2.days.ago }
+      start_at { 2.days.ago }
+      end_at { 1.day.ago }
       published_results_at { Time.current }
     end
 
     trait :with_questions do
       after :create do |election, _evaluator|
-        create_list(:election_question, 2, election:)
+        create_list(:election_question, 2, :with_response_options, :voting_enabled, election:)
       end
     end
 
@@ -105,7 +103,7 @@ FactoryBot.define do
     published_results_at { nil }
     voting_enabled_at { nil }
 
-    trait :results_published do
+    trait :published_results do
       published_results_at { Time.current }
     end
 

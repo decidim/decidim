@@ -1,1 +1,7 @@
+---
 de:
+  layouts:
+    decidim:
+      shared:
+        layout_center:
+          alert: Durch die Bereitstellung dieser Informationen tragen Sie zu statistischen Analysen bei, und verbessern damit den Qualitätsindikator. Ihre Daten werden nur für Forschungszwecke in zusammengefasster Form genutzt.

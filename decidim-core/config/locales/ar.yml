@@ -1339,7 +1339,6 @@ ar:
       impersonation_warning:
         close_session: اغلق الموسم
         description_html: أنت تدير المشارك <b>%{user_name}</b>.
-        expire_time_html: سوف تنتهي جلستك في <b><span class="minutes">%{minutes}</span> دقائق</b>.
       language_chooser:
         choose_language: اختر اللغة
       notifications_dashboard:

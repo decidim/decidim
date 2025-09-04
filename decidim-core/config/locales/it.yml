@@ -1140,7 +1140,6 @@ it:
       impersonation_warning:
         close_session: Chiudere la sessione
         description_html: Stai impersonando l'utente <b>%{user_name}</b>.
-        expire_time_html: La sessione scadrà in <b><span class="minutes">%{minutes}</span> minuti</b>.
       language_chooser:
         choose_language: Scegli la lingua
       notifications_dashboard:

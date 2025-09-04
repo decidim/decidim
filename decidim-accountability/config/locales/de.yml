@@ -40,6 +40,8 @@ de:
   decidim:
     accountability:
       actions:
+        add_milestone: Meilenstein hinzufügen
+        add_result: Ergebnis hinzufügen
         confirm_delete_result: Sind Sie sicher, dass Sie dieses Ergebnis löschen wollen?
         confirm_destroy: Sind Sie sicher, dass Sie diese %{name}löschen möchten?
         deleted_results_info: Gelöschte Ergebnisse können aus dem Papierkorb wiederhergestellt werden.
@@ -111,6 +113,20 @@ de:
         milestones:
           create:
             invalid: Beim Erstellen dieses Meilensteins ist ein Problem aufgetreten.
+            success: Meilenstein erfolgreich erstellt.
+          destroy:
+            success: Meilenstein erfolgreich gelöscht.
+          edit:
+            title: Meilenstein bearbeiten
+            update: Meilenstein aktualisieren
+          index:
+            title: Meilensteine
+          new:
+            create: Meilenstein erstellen
+            title: Neuer Meilenstein
+          update:
+            invalid: Beim Aktualisieren dieses Meilensteins ist ein Problem aufgetreten.
+            success: Meilenstein erfolgreich aktualisiert.
         models:
           result:
             name: Ergebnis
@@ -183,6 +199,10 @@ de:
             invalid: Beim Aktualisieren dieses Status ist ein Problem aufgetreten.
             success: Status erfolgreich aktualisiert.
       admin_log:
+        milestones:
+          create: "%{user_name} hat den Meilenstein %{resource_name} erstellt"
+          delete: "%{user_name} hat den Meilenstein %{resource_name} gelöscht"
+          update: "%{user_name} hat den Meilenstein %{resource_name} aktualisiert"
         result:
           create: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} erstellt"
           delete: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} gelöscht"
@@ -225,6 +245,10 @@ de:
       last_activity:
         new_result: 'Neues Ergebnis:'
       models:
+        milestone:
+          fields:
+            entry_date: Datum
+            title: Titel
         result:
           fields:
             created_at: Erstellt am
@@ -248,6 +272,8 @@ de:
             other: "%{count} Ergebnisse"
         home_header:
           global_status: Globaler Umsetzungsstatus
+        milestones:
+          title: Meilensteine
         no_results: Es gibt keine Projekte
         root_taxonomies:
           title: 'Anzeigen nach:'
@@ -263,6 +289,8 @@ de:
             label: Status
           taxonomies_part_of_contains:
             label: Klassifizierung
+      tooltips:
+        deleted_results_info: Dieses Ergebnis kann nicht gelöscht werden
     components:
       accountability:
         actions:

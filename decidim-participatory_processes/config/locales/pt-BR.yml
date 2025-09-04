@@ -4,9 +4,6 @@ pt-BR:
       participatory_process:
         announcement: Anúncio
         area_id: Área
-        copy_categories: Copiar categorias
-        copy_components: Copiar componentes
-        copy_steps: Copiar etapas
         decidim_area_id: Área
         description: Descrição
         developer_group: Grupo promotor
@@ -137,11 +134,6 @@ pt-BR:
           fields:
             invitation_accepted_at: Convite aceito em
             invitation_sent_at: Convite enviado em
-      participatory_process_copies:
-        new:
-          copy: cópia de
-          select: Selecione os dados que você gostaria de duplicar
-          title: Duplicar processo participativo
       participatory_process_groups:
         destroy:
           success: Grupo de processos participativo excluído com sucesso.
@@ -226,10 +218,6 @@ pt-BR:
         update:
           error: Ocorreu um erro ao atualizar este processo participativo.
           success: Processo participativo atualizado com sucesso.
-      participatory_processes_copies:
-        create:
-          error: Ocorreu um erro ao duplicar este processo participativo.
-          success: Processo participativo duplicado com sucesso.
       participatory_processes_group:
         create:
           error: Ocorreu um erro ao criar um novo grupo de processos participativos.
@@ -329,9 +317,6 @@ pt-BR:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help_html: 'Os slugs de URL são usados para gerar os URLs que apontam para este processo. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadados

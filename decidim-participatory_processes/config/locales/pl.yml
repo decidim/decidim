@@ -4,9 +4,6 @@ pl:
       participatory_process:
         announcement: Ogłoszenie
         area_id: Kategoria
-        copy_categories: Kopiuj kategorie
-        copy_components: Kopiuj komponenty
-        copy_steps: Skopiuj etapy
         decidim_area_id: Kategoria
         description: Opis
         developer_group: Grupa inicjatorów
@@ -152,11 +149,6 @@ pl:
           fields:
             invitation_accepted_at: Zaproszenie przyjęli w
             invitation_sent_at: Zaproszenie wysłano
-      participatory_process_copies:
-        new:
-          copy: Kopiuj
-          select: Wybierz dane, które chcesz zduplikować
-          title: Duplikuj proces partycypacyjny
       participatory_process_groups:
         destroy:
           success: Grupa procesu partycypacyjnego została usunięta.
@@ -252,10 +244,6 @@ pl:
         update:
           error: Wystąpił błąd podczas aktualizowania tego procesu partycypacyjnego.
           success: Proces partycypacyjny został zaktualizowany.
-      participatory_processes_copies:
-        create:
-          error: Podczas duplikowania tego procesu partycypacyjnego wystąpił błąd.
-          success: Proces partycypacyjny został zduplikowany.
       participatory_processes_group:
         create:
           error: Podczas tworzenia nowej grupy procesu partycypacyjnego wystąpił błąd.
@@ -360,6 +348,23 @@ pl:
     participatory_processes:
       admin:
         content_blocks:
+          democratic_quality_stats_settings_form:
+            citizen_influence:
+              citizen_decisional_intervention:
+                legend: Ze wszystkich etapów procesu (od wybierania zagadnień do nadzorowania wykonania), w ilu z nich obywatele mają możliwość podejmowania decyzji lub działań wykonawczych?
+                options:
+                  five: 80 - 100%
+                  four: 60 - 80%
+                  one: 0 - 20%
+                  three: 40 - 60%
+                  two: 20 - 40%
+              citizen_influence_level:
+                legend: Ten wskaźnik mierzy stopień siły sprawczości obywateli w danym procesie, w szczególności określając ilościowo poziom uprawnień decyzyjnych i wykonawczych przysługujących obywatelom, począwszy od zwykłego otrzymywania informacji do aktywnego wpływania na decyzje i zarządzania zasobami.
+                options:
+                  five: Uczestnicy byli zaangażowani w proces decyzyjny i zarządzanie zasobami lub w proces wdrażania
+                  four: Uczestnicy byli w zdecydowany sposób zaangażowani w proces podejmowania decyzji
+                  one: Uczestnicy otrzymali informacje od organizacji
+                  three: Uczestnicy byli zaangażowani w dzielenie się uprawnieniami decyzyjnymi
           highlighted_processes:
             active: Aktywny
             all: Wszystkie
@@ -368,9 +373,6 @@ pl:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help_html: 'Slugi URL wykorzystuje się do generowania adresów URL odsyłających do procesu. Można używać jedynie liter, cyfr i łączników, przy czym należy rozpocząć od litery. Przykład: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadane

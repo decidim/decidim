@@ -4,9 +4,6 @@ de:
       participatory_process:
         announcement: Ankündigung
         area_id: Bereich
-        copy_categories: Kategorien kopieren
-        copy_components: Komponenten kopieren
-        copy_steps: Phasen kopieren
         decidim_area_id: Bereich
         description: Beschreibung
         developer_group: Promoter-Gruppe
@@ -105,6 +102,7 @@ de:
         participatory_process_groups: Prozessgruppen
         participatory_process_groups_submenu:
           info: Info
+          landing_page: Startseiten-Layout
         participatory_processes: Beteiligungsprozesse
         participatory_processes_submenu:
           attachment_collections: Ordner
@@ -112,6 +110,7 @@ de:
           attachments: Anhänge
           components: Komponenten
           info: Über diesen Prozess
+          landing_page: Startseiten-Layout
           moderations: Moderationen
           private_users: Mitglieder
           process_admins: Benutzer verarbeiten
@@ -127,16 +126,19 @@ de:
           name: Beteiligungsprozess
         participatory_process_group:
           fields:
+            actions: Aktionen
             title: Titel
           name: Prozessgruppe
         participatory_process_step:
           fields:
+            actions: Aktionen
             end_date: Enddatum
             start_date: Anfangsdatum
             title: Titel
           name: Partizipativer Prozessschritt
         participatory_process_user_role:
           fields:
+            actions: Aktionen
             email: Email
             name: Name
             role: Rolle
@@ -151,10 +153,8 @@ de:
             invitation_accepted_at: Einladung akzeptiert am
             invitation_sent_at: Einladung gesendet am
             published: Veröffentlicht
-      participatory_process_copies:
+      participatory_process_duplicates:
         new:
-          copy: Kopieren
-          select: Wählen Sie aus, welche Daten Sie duplizieren möchten
           title: Beteiligungsprozess duplizieren
       participatory_process_groups:
         destroy:
@@ -238,7 +238,7 @@ de:
       participatory_processes:
         create:
           error: Beim Erstellen eines neuen Beteiligungsprozesses ist ein Fehler aufgetreten.
-          success: Partizipativer Prozess erfolgreich erstellt. Konfigurieren Sie jetzt seine Schritte.
+          success: Beteiligungsprozess erfolgreich erstellt. Konfigurieren Sie als nächstes die Phasen.
         edit:
           update: Aktualisieren
         index:
@@ -250,14 +250,10 @@ de:
           title: Gelöschte Beteiligungsprozesse
         new:
           create: Erstellen
-          title: Neuer partizipativer Prozess
+          title: Neuer Beteiligungsprozess
         update:
           error: Beim Aktualisieren dieses Beteiligungsprozesses ist ein Fehler aufgetreten.
           success: Participatory-Prozess erfolgreich aktualisiert.
-      participatory_processes_copies:
-        create:
-          error: Beim Duplizieren dieses Beteiligungsprozesses ist ein Fehler aufgetreten.
-          success: Partizipativer Prozess erfolgreich dupliziert.
       participatory_processes_group:
         create:
           error: Beim Erstellen einer neuen partizipativen Prozessgruppe ist ein Fehler aufgetreten.
@@ -329,7 +325,7 @@ de:
         participatory_processes:
           contextual: "<p>Ein <strong>Partizipationsprozess</strong> ist eine Folge von Partizipations-Aktivitäten (z.B. zuerst eine Umfrage ausfüllen, dann Vorschläge machen, diese face-to-face oder an virtuellen Sitzungen diskutieren, und sie schließlich zu priorisieren) mit dem Ziel, ein bestimmtes Thema zu definieren und Entscheidungen dazu zu treffen.</p> <p>Beispiele für partizipatorische Prozesse sind: ein Verfahren zur Wahl von Ausschussmitgliedern (bei dem die Kandidaturen zuerst präsentiert und anschließend debattiert werden, und schließlich eine Kandidatur ausgewählt wird), die partizipative Budgets (bei denen Vorschläge gemacht und wirtschaftlich bewertet werden und über das verfügbare Geld abgestimmt wird), ein strategischer Planungsprozess, die gemeinschaftliche Ausarbeitung einer Vorschrift oder Norm, die Gestaltung eines städtischen Raums oder die Erstellung einer öffentlichen Strategie.</p>\n"
           page: "<p>Ein <strong>Partizipationsprozess</strong> ist eine Folge von Partizipations-Aktivitäten (z.B. zuerst eine Umfrage ausfüllen, dann Vorschläge machen, diese face-to-face oder an virtuellen Sitzungen diskutieren, und sie schließlich zu priorisieren) mit dem Ziel, ein bestimmtes Thema zu definieren und Entscheidungen dazu zu treffen.</p> <p>Beispiele für partizipatorische Prozesse sind: ein Verfahren zur Wahl von Ausschussmitgliedern (bei dem die Kandidaturen zuerst präsentiert und anschließend debattiert werden, und schließlich eine Kandidatur ausgewählt wird), die partizipative Budgets (bei denen Vorschläge gemacht und wirtschaftlich bewertet werden und über das verfügbare Geld abgestimmt wird), ein strategischer Planungsprozess, die gemeinschaftliche Ausarbeitung einer Vorschrift oder Norm, die Gestaltung eines städtischen Raums oder die Erstellung einer öffentlichen Strategie.</p>\n"
-          title: Was ist ein partizipativer Prozess?
+          title: Was ist ein Beteiligungsprozess?
     log:
       value_types:
         participatory_process_type_presenter:
@@ -405,6 +401,46 @@ de:
     participatory_processes:
       admin:
         content_blocks:
+          democratic_quality_stats_settings_form:
+            citizen_influence:
+              citizen_decisional_intervention:
+                options:
+                  five: 80 - 100%
+                  four: 60 - 80%
+                  one: 0 - 20%
+                  three: 40 - 60%
+                  two: 20 - 40%
+            inclusiveness:
+              digital_support_offered:
+                options:
+                  five: 'Ja'
+                  two_five: Teilweise
+                  zero: 'Nein'
+              functional_diversity_invited:
+                options:
+                  five: Gut
+                  one: Tief
+                  two_five: Ausreichend
+                  zero: Keine
+              participation_scheduling_times:
+                options:
+                  zero: 'Nein'
+            informativeness:
+              information_provided:
+                legend: Gibt es Informationen darüber, inwiefern die Teilnehmenden das diskutierte Thema beeinflussen können? (sowohl in der Kommunikation des Prozesses und den Einladungen dazu, als auch zu Beginn jeder Debatte)
+                options:
+                  five: Immer
+                  one: Fast nie
+                  two_five: Normalerweise
+                  zero: Nie
+              name: Informationsgehalt
+              published_information_clarity:
+                legend: Bieten die veröffentlichten Informationen Klarheit über die Entscheidungsmechanismen? (z.B. Abstimmung, Konsens, direkte Verhandlungen)
+                options:
+                  five: Volle Klarheit
+                  one: Geringe Klarheit
+                  two_five: Ausreichende Klarheit
+                  zero: Keine Klarheit
           highlighted_processes:
             active: Aktiv
             all: Alle
@@ -413,9 +449,6 @@ de:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadaten
@@ -445,6 +478,18 @@ de:
             title: Allgemeine Information
             visibility: Sichtbarkeit
       content_blocks:
+        democratic_quality_stats:
+          automatic_metrics:
+            indicators:
+              hybridization: Hybridisierung
+              hybridization_tooltip: Dieser Indikator misst den Kombinationsgrad der Online- und Offline-Bestandteile des Prozesses
+              traceability: Nachvollziehbarkeit
+              transparency: Antwortverhalten
+          name: Qualitätsindikator
+          qualitative_metrics:
+            indicators:
+              inclusiveness: Inklusion
+              informativeness: Informationsgehalt
         extra_data:
           name: Phase & Dauer
         hero:
@@ -456,7 +501,7 @@ de:
       index:
         title: Beteiligungsprozesse
       last_activity:
-        new_participatory_process: 'Neuer partizipativer Prozess:'
+        new_participatory_process: 'Neuer Beteiligungsprozess:'
       pages:
         home:
           highlighted_processes:
