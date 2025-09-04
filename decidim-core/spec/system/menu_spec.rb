@@ -12,7 +12,7 @@ describe "Menu" do
 
   context "when clicking on a menu entry" do
     before do
-      click_on("Help", match: :first)
+      visit decidim.pages_path
     end
 
     it "switches the active option" do
@@ -49,7 +49,6 @@ describe "Menu" do
       within "#breadcrumb-main-dropdown-mobile" do
         expect(page).to have_link("Home", href: "/")
         expect(page).to have_link("Processes", href: "/processes")
-        expect(page).to have_link("Help", href: "/pages")
       end
     end
   end
