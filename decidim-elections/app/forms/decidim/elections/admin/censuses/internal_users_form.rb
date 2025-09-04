@@ -53,7 +53,7 @@ module Decidim
           # Helper for the view, at this point, ephemeral authorizations are not supported in the elections module.
           def available_authorizations
             Decidim.authorization_workflows.filter do |workflow|
-              current_organization.available_authorizations.include?(workflow.name) && !workflow.ephemeral?
+              organization_authorizations.include?(workflow.name) && !workflow.ephemeral?
             end
           end
 
@@ -66,10 +66,13 @@ module Decidim
           def authorization_is_valid
             return if authorization_handlers_names.blank?
 
-            valid_types = context.current_organization.available_authorizations
-            invalid_types = (authorization_handlers_names - valid_types).compact_blank
+            invalid_types = (authorization_handlers_names - organization_authorizations).compact_blank
 
             errors.add(:base, :invalid) if invalid_types.present?
+          end
+
+          def organization_authorizations
+            context.current_organization.available_authorizations
           end
         end
       end
