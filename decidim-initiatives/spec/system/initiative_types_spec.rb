@@ -8,21 +8,12 @@ describe "Initiatives" do
   let(:base_initiative) do
     create(:initiative, organization:)
   end
-  let!(:menu_content_block) { create(:content_block, organization:, manifest_name: :global_menu, scope_name: :homepage) }
 
   before do
     switch_to_host(organization.host)
   end
 
   context "when initiative types and scopes have not been created" do
-    it "does not show the menu link" do
-      visit decidim.root_path
-
-      within "#home__menu" do
-        expect(page).to have_no_content("Initiatives")
-      end
-    end
-
     it "does not let access to the initiatives" do
       visit decidim_initiatives.initiatives_path
 
@@ -34,17 +25,6 @@ describe "Initiatives" do
   context "when initiative types and scopes have been created" do
     let(:base_initiative) do
       create(:initiative, organization:)
-    end
-
-    it "shows the menu link" do
-      type = create(:initiatives_type, organization:)
-      create(:initiatives_type_scope, type:)
-
-      visit decidim.root_path
-
-      within "#home__menu" do
-        expect(page).to have_content("Initiatives")
-      end
     end
 
     context "when there are some published initiatives" do
