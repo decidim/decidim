@@ -1,7 +1,5 @@
 = Updating Decidim
 
-IMPORTANT: This section was initially copied from https://platoniq.github.io/decidim-install/decidim-update/[Platoniq's Guide]
-
 Because Decidim is a gem in our system, to update it we will have to edit our `Gemfile` and specify the new version number.
 
 To keep our system up to date, we can visit the page https://github.com/decidim/decidim/releases[Releases] and compare with our `Gemfile`. See if the lines specifying the gem called "decidim-something" are followed by the number corresponding to the latest release:
