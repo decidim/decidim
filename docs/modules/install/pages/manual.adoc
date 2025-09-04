@@ -76,25 +76,18 @@ Then we can create an application with the `decidim` executable, where `decidim_
 [source,bash]
 ----
 decidim decidim_application
-cd decidim_application
-----
-
-We recommend that you save it all on Git.
-
-[source,bash]
-----
-git add .
-git commit -m "Initial commit. Generated with Decidim https://decidim.org"
 ----
 
 == 5. Configure the database
 
-Modify your secrets (see `config/database.yml`). For this you can use https://github.com/laserlemon/figaro[figaro], https://github.com/bkeepers/dotenv[dotenv] or https://github.com/rbenv/rbenv-vars[rbenv-vars]. You
-should always be careful of not uploading your plain secrets on git or your version control system. You can also upload the encrypted secrets, using the sekrets gem or if you are on Ruby on Rails greater than 5.1 you can do it natively.
+For configuring the database and other parts of Decidim, we use xref:configure:environment_variables.adoc[Environment variables]. We recommend using https://github.com/rbenv/rbenv-vars[rbenv-vars].
 
-For a development environment, and if you are using rbenv, we strongly recommend you to use the https://github.com/rbenv/rbenv-vars[rbenv-vars] to facilitate the edition of ENV vars.
+[NOTE]
+====
+Be careful with your `.rbenv-vars` file, as if you put it in the same folder of your decidim generated application you could publish it without you noticing and there will be secrets there. We strongly recommend adding it to other directory
+====
 
-First you will need to install the rbenv-vars plugin:
+For installing `rbenv-vars`:
 
 [source,bash]
 ----
@@ -112,14 +105,16 @@ DATABASE_PASSWORD=thepassword
 EOF
 ----
 
-Be careful where you put the `.rbenv-vars` file, as if you put it in the same folder of your decidim generated application, and if you use a version control system (like `git`, which we strongly recommend), then you should ignore this file (ie with the `.gitignore` file).
+== 6. Initializing your app for local development
+
+At this point we recommend that you save it all on Git.
 
 [source,bash]
 ----
-echo -e "\n\n# Ignore environment variables\n.rbenv-vars" >> .gitignore
+cd decidim_application
+git add .
+git commit -m "Initial commit. Generated with Decidim https://decidim.org"
 ----
-
-== 6. Initializing your app for local development
 
 [NOTE]
 ====
