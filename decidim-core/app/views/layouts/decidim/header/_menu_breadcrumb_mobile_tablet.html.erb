@@ -1,33 +1,25 @@
-<% dropdown_item = breadcrumb_items.select { |item| item[:dropdown_cell].present? }.last %>
+<% previous_item = breadcrumb_items[-2] if breadcrumb_items.size > 1 %>
 <div class="menu-bar__breadcrumb-mobile__dropdown-trigger">
   <span class="inline-block w-full overflow-hidden text-ellipsis align-middle">
-    <% breadcrumb_items.last(2).each_with_index do |item, idx| %>
-      <% item_label = decidim_escape_translated(item[:label]) %>
-      <% if idx.positive? %>
-        <span>/</span>
-      <% end %>
-      <span class="cursor-pointer truncate" <%== 'aria-current="page"' if item[:active] %>>
-        <% if item[:url].present? && !is_active_link?(item[:url], :exclusive) %>
-          <%= link_to(item_label, item[:url]) %>
+      <span class="cursor-pointer truncate flex items-center gap-x-2">
+        <span aria-hidden="true"><%= icon "arrow-left-s-line" %></span>
+        <% if previous_item %>
+          <% item_label = decidim_escape_translated(previous_item[:label]) %>
+          <% if previous_item[:url].present? && !is_active_link?(previous_item[:url], :exclusive) %>
+            <%= link_to(item_label, previous_item[:url], class: "menu-bar__breadcrumb-item") %>
+          <% else %>
+            <span class="menu-bar__breadcrumb-item"><%= item_label %></span>
+          <% end %>
         <% else %>
-          <%= item_label %>
+          <%= link_to decidim.root_url, class: "menu-bar__breadcrumb-item" do %>
+            <span class=""><%= t("decidim.menu.home") %></span>
+          <% end %>
         <% end %>
       </span>
-    <% end %>
   </span>
-  <% if dropdown_item.present? %>
-    <button id="secondary-dropdown-trigger-mobile" data-controller="dropdown" data-hover="true" data-target="secondary-dropdown-menu-mobile">
-      <%= icon "arrow-down-s-line", class: "flex-none w-6 h-6 fill-current" %><span class="sr-only"><%= t("layouts.decidim.header.main_menu") %></span>
-    </button>
-  <% end %>
   <% if content_for?(:participatory_space_mobile_actions) %>
     <div class="menu-bar__actions-mobile">
       <%= content_for :participatory_space_mobile_actions %>
     </div>
   <% end %>
 </div>
-<% if dropdown_item.present? %>
-  <div id="secondary-dropdown-menu-mobile" aria-hidden="true">
-    <%= cell dropdown_item[:dropdown_cell], dropdown_item[:resource], mobile: true %>
-  </div>
-<% end %>

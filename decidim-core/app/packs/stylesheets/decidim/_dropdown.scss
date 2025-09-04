@@ -33,6 +33,12 @@
   }
 }
 
+[data-target="dropdown-menu-main-desktop"] {
+  > span:first-of-type {
+    @apply block;
+  }
+}
+
 [data-target="dropdown-menu-participatory-space"],
 [data-target="dropdown-menu-order"],
 [data-target="dropdown-menu-resource"],

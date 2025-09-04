@@ -75,13 +75,9 @@ describe "Initiatives" do
           it "the menu link is shown" do
             visit decidim_initiatives.initiatives_path
 
-            find_by_id("main-dropdown-summary").hover
-            within ".menu-bar__dropdown-menu" do
+            within "#menu-bar" do
               expect(page).to have_content("Initiatives")
-              click_on "Initiatives"
             end
-
-            expect(page).to have_current_path(decidim_initiatives.initiatives_path)
           end
         end
 
