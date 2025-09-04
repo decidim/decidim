@@ -133,7 +133,7 @@ RAILS_ENV=production bin/rails decidim:active_storage_migrations:migrate_from_ca
 
 === Optional asset includes
 
-Decidim Webpacker provides a new configuration convention that allows you to add extra configurations for shakapacker using a configuration file named `config/assets.rb`. Within this file, you have the following API methods available:
+Decidim Webpacker provides a new configuration convention that allows you to add extra configurations for Webpacker using a configuration file named `config/assets.rb`. Within this file, you have the following API methods available:
 
 [source,ruby]
 ----
