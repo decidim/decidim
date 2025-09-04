@@ -28,17 +28,14 @@ gem install decidim
 decidim decidim_application
 ----
 
-You can see the xref:install:manual.adoc[official manual installation tutorial], and also you have https://platoniq.github.io/decidim-install/[another manual installation tutorial] made by the nice people of http://www.platoniq.net/[Platoniq].
+You can see the xref:install:manual.adoc[official manual installation tutorial] for all the instructions on how to install Decidim.
 
-=== B. Installation script [experimental]
+=== B. Docker / docker-compose
 
-There is also an installation script made by http://www.platoniq.net/[Platoniq] that allows you to install Decidim automatically. You can even check it on a Vagrant virtual machine if you want to. https://platoniq.github.io/decidim-install/script/[More information].
+If you are proficient with Docker you can use the docker-compose.yml file that we provide as an example. The main limitation that you will have is that you cannot use modules with this image, only the official ones. It can be a good starting point if you want to check out Decidim locally quickly and before going to the manual installation approach.
 
-[source,console]
-----
-wget -O install-decidim.sh https://raw.githubusercontent.com/Platoniq/decidim-install/master/script/install-decidim.sh
-chmod +x install-decidim.sh
-./install-decidim.sh decidim_application
+You can see the docker instructions at the https://github.com/decidim/docker/[Docker repository].
+
 ----
 
 == Initializing your application for local development
