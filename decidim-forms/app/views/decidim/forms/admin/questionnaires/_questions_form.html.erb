@@ -83,7 +83,7 @@
       let draggedElement = null;
 
       function makeDragHandlesActive(container) {
-        // Find all drag icons (SVG elements with drag-move-2-fill)
+        // Find all drag icons
         const dragIcons = container.querySelectorAll('svg use[href*="drag-move-2-fill"]');
 
         dragIcons.forEach(dragIcon => {
@@ -94,19 +94,17 @@
             console.log('Initializing drag for question item via icon:', questionItem);
 
             questionItem.setAttribute('data-drag-initialized', 'true');
-            questionItem.setAttribute('draggable', 'true'); // Make the question item draggable
+            questionItem.setAttribute('draggable', 'true');
 
-            // Style the icon to show it's a drag handle
             svg.style.cursor = 'move';
             svg.style.transition = 'color 0.2s ease';
 
-            // Add drag event listeners to the question item (not the SVG)
+            // Add drag event listeners to the question item
             questionItem.addEventListener('dragstart', handleDragStart);
             questionItem.addEventListener('dragend', handleDragEnd);
             questionItem.addEventListener('dragover', handleDragOver);
             questionItem.addEventListener('drop', handleDrop);
 
-            // Add hover effects to the icon only
             svg.addEventListener('mouseenter', function() {
               this.style.color = '#007bff';
             });
@@ -119,7 +117,7 @@
       }
 
       function handleDragStart(e) {
-        draggedElement = this; // 'this' is the questionnaire-question element
+        draggedElement = this;
         this.style.opacity = '0.5';
         this.classList.add('dragging');
         e.dataTransfer.effectAllowed = 'move';
@@ -166,7 +164,6 @@
           draggedElement = null;
         }
 
-        // Remove all drag-over classes
         document.querySelectorAll('.drag-over').forEach(el => {
           el.classList.remove('drag-over');
         });
@@ -176,7 +173,6 @@
         const items = document.querySelectorAll('.questionnaire-question');
 
         items.forEach((item, index) => {
-          // Update form field names
           const inputs = item.querySelectorAll('input, select, textarea');
           inputs.forEach(input => {
             if (input.name && input.name.includes('questions[questions]')) {
@@ -204,7 +200,7 @@
         makeDragHandlesActive(questionsList);
       }
 
-      // Watch for dynamically added items
+      //  Watches for items added dynamically like new questions etc
       if (questionsList) {
         const observer = new MutationObserver(function(mutations) {
           mutations.forEach(function(mutation) {
