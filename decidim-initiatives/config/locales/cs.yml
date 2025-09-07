@@ -83,6 +83,7 @@ cs:
   decidim:
     admin:
       actions:
+        cannot_answer: Na tuto iniciativu nelze odpovědět
         new_initiative_type: Nový typ iniciativy
         new_initiative_type_scope: Nový typ rozsahu iniciativy
       filters:
