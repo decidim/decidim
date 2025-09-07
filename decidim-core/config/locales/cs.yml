@@ -191,6 +191,12 @@ cs:
         few: "%{count} sekundy"
         many: "%{count} sekund"
         other: "%{count} sekund"
+    widget:
+      label:
+        date: Vyberte datum pro %{label}
+        time: Vyberte čas pro %{label}
+      picker:
+        time_button: Otevřít výběr času pro %{label}
   decidim:
     accessibility:
       external_link: Externí odkaz
