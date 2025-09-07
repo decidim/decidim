@@ -412,6 +412,16 @@ cs:
     participatory_processes:
       admin:
         content_blocks:
+          democratic_quality_stats_settings_form:
+            citizen_influence:
+              citizen_decisional_intervention:
+                options:
+                  five: 80 - 100%
+                  four: 60 - 80%
+                  one: 0 - 20%
+                  three: 40 - 60%
+                  two: 20 - 40%
+              name: Vliv občanů
           highlighted_processes:
             active: Aktivní
             all: Vše
