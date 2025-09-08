@@ -199,7 +199,7 @@
 }
 
 .verification-modal .card__list .budget__card__list-project {
-  @apply inline-block w-[25%] text-center;
+  @apply inline-block w-80 sm:w-48 text-center;
 }
 
 #budgets.card__highlight-container {
