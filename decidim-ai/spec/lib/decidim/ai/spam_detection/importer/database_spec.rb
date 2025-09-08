@@ -80,16 +80,9 @@ describe Decidim::Ai::SpamDetection::Importer::Database do
     let(:manifest_name) { "meetings" }
     let(:training) { 20 }
 
-    let!(:reportable) do
-      create(:meeting, component:, author:,
-                       title: { en: "Hidden resource" },
-                       description: { en: "Thew body for the hidden meeting." })
-    end
-    let!(:resources) do
-      create_list(:meeting, 3, component:, author:,
-                               title: { en: "Some proposal that is not blocked" },
-                               description: { en: "The body for the meeting." })
-    end
+    let!(:reportable) { create(:meeting, component:, author:, title: { en: "Hidden resource" }) }
+    let!(:resources) { create_list(:meeting, 3, component:, author:) }
+
     let(:resource_models) { { "Decidim::Meetings::Meeting" => "Decidim::Ai::SpamDetection::Resource::Meeting" } }
 
     include_examples "resource is being indexed"
@@ -102,22 +95,8 @@ describe Decidim::Ai::SpamDetection::Importer::Database do
     let(:manifest_name) { "proposals" }
     let(:training) { 8 }
 
-    let!(:reportable) do
-      create(:proposal,
-             :published,
-             component:,
-             users: [author],
-             title: { en: "Hidden resource" },
-             body: "The body for the proposal.")
-    end
-    let!(:resources) do
-      create_list(:proposal, 3,
-                  :published,
-                  component:,
-                  users: [author],
-                  title: "Some proposal that is not blocked",
-                  body: "The body for the proposal.")
-    end
+    let!(:reportable) { create(:proposal, :published, component:, users: [author], title: { en: "Hidden resource" }) }
+    let!(:resources) { create_list(:proposal, 3, :published, component:, users: [author]) }
     let(:resource_models) { { "Decidim::Proposals::Proposal" => "Decidim::Ai::SpamDetection::Resource::Proposal" } }
 
     include_examples "resource is being indexed"
@@ -128,20 +107,8 @@ describe Decidim::Ai::SpamDetection::Importer::Database do
     let(:manifest_name) { "proposals" }
     let(:training) { 8 }
 
-    let!(:reportable) do
-      create(:collaborative_draft,
-             component:,
-             users: [author],
-             title: "Hidden resource",
-             body: "The body for the proposal.")
-    end
-    let!(:resources) do
-      create_list(:collaborative_draft, 3,
-                  component:,
-                  users: [author],
-                  title: "Some draft that is not blocked",
-                  body: "The body for the proposal.")
-    end
+    let!(:reportable) { create(:collaborative_draft, component:, users: [author], title: "Hidden resource") }
+    let!(:resources) { create_list(:collaborative_draft, 3, component:, users: [author]) }
     let(:resource_models) { { "Decidim::Proposals::CollaborativeDraft" => "Decidim::Ai::SpamDetection::Resource::CollaborativeDraft" } }
 
     include_examples "resource is being indexed"
