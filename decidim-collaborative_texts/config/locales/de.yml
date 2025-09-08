@@ -84,6 +84,8 @@ de:
       collaborative_texts:
         actions:
           create: Erstellen
+          destroy: Löschen
+          update: Aktualisieren
         name: Kollaborative Texte
         settings:
           global:
@@ -92,4 +94,6 @@ de:
           step:
             announcement: Ankündigung
     statistics:
+      all_collaborative_texts_count: Alle kollaborative Texte
       collaborative_texts_count: Kollaborative Texte
+      collaborative_texts_count_tooltip: Anzahl der kollaborativen Texte
