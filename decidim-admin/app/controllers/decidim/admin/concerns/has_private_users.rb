@@ -51,7 +51,7 @@ module Decidim
 
               on(:invalid) do
                 flash.now[:alert] = I18n.t("participatory_space_private_users.update.error", scope: "decidim.admin")
-                render template: "decidim/admin/participatory_space_private_users/edit"
+                render template: "decidim/admin/participatory_space_private_users/edit", status: :unprocessable_entity
               end
             end
           end
@@ -68,7 +68,7 @@ module Decidim
 
               on(:invalid) do
                 flash.now[:alert] = I18n.t("participatory_space_private_users.create.error", scope: "decidim.admin")
-                render template: "decidim/admin/participatory_space_private_users/new"
+                render template: "decidim/admin/participatory_space_private_users/new", status: :unprocessable_entity
               end
             end
           end
@@ -84,7 +84,7 @@ module Decidim
 
               on(:invalid) do
                 flash.now[:alert] = I18n.t("participatory_space_private_users.destroy.error", scope: "decidim.admin")
-                render template: "decidim/admin/participatory_space_private_users/index"
+                render template: "decidim/admin/participatory_space_private_users/index", status: :unprocessable_entity
               end
             end
           end

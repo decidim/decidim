@@ -71,7 +71,7 @@ const loadMap = (mapId, markersData) => {
   return map;
 };
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   const $map = $("#map");
   if ($map.length > 0) {
     loadMap($map.attr("id"), $map.data("markers-data"));

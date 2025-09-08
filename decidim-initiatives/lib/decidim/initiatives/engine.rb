@@ -143,7 +143,7 @@ module Decidim
         Decidim::Api::QueryType.include QueryExtensions
       end
 
-      initializer "decidim_initiatives.webpacker.assets_path" do
+      initializer "decidim_initiatives.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 

@@ -174,6 +174,7 @@ eu:
         attachment_collection:
           new: Beste eranskin-bilduma bat
         browse: Arakatu
+        configure: Konfiguratu
         confirm_delete_component: |
           Ziur zaude osagai hau ezabatu nahi duzula?
           Osagai honek honako hauek ditu: 
@@ -181,21 +182,17 @@ eu:
            <li class="font-bold">%{resources_count}  resources</li>
           </ul>
           Iritziz aldatzen baduzu, geroago berreskuratu ahal izango duzu.na
-        export: Esportatu dena
+        export: Esportatu
         export-selection: Esportatu hautaketa
         import: Inportatu
-        manage: Kudeatu
         newsletter:
           new: Beste buletin bat
         participatory_space_private_user:
           new: Partaidetza-espazio berria, erabiltzaile pribatua
         per_page: Orrialdeko
-        permissions: Baimenak
         restore: Berreskuratu
         send_me_a_test_email: Bidali proba-posta elektronikoa
         share: Partekatu
-        share_tokens: Sarbide-estekak
-        soft_delete: Ezabatze biguna
         user:
           new: Beste administratzaile bat
         view_deleted_components: Ikusi ezabatutako osagaiak
@@ -684,7 +681,6 @@ eu:
               update_moderated_user_button: Ez erreportatu parte-hartzaileak
             title: Ekintzak
             unblock: Desblokeatu parte-hartzailea
-            unreport: Ez erreportatu
           cancel: Ezeztatu
           name: Izena
           nickname: Ezizena
@@ -708,10 +704,8 @@ eu:
               title: Ezkutatu
               update_moderation_button: Ezkutatu hautatutako edukiak
             unhide:
-              title: Erakutsi berriro
               update_moderation_button: Erakutsi berriro hautatutako edukiak
             unreport:
-              title: Ez erreportatu
               update_moderation_button: Ez erreportatu hautatutako edukiak
           cancel: Ezeztatu
           selected: hautatua
@@ -839,7 +833,6 @@ eu:
         index:
           actions: Ekintzak
           badge: Garaikurra
-          block: Blokeatu parte-hartzailea
           created_at: Noiz sortua
           name: Izena
           nickname: Ezizena
@@ -848,9 +841,7 @@ eu:
           officialized: Ofizializatua
           reofficialize: Berriro ofizializatzen du
           reports: Txostenak
-          show_email: Erakutsi korreo elektronikoaren helbidea
           status: Egoera
-          unblock: Desblokeatu parte-hartzailea
           unofficialize: Ez ofizializatua
         new:
           badge: Ofizializazio-garaikurra
@@ -1076,8 +1067,6 @@ eu:
           error: Arazo bat egon da gai hau eguneratzean.
           success: Gaia zuzen eguneratua
       static_pages:
-        actions:
-          view: Ikusi orri publikoa
         create:
           error: Arazo bat egon da beste orri bat sortzean.
           success: Orria zuzen eguneratua.
@@ -1105,9 +1094,6 @@ eu:
       taxonomies:
         actions:
           actions: Ekintzak
-          destroy: Ezabatu taxonomia eta elementuak
-          edit: Editatu taxonomia eta elementuak
-          filters: Kudeatu iragazkiak
         breadcrumb:
           edit: Editatu taxonomia
           new: Beste taxonomia bat
@@ -1278,8 +1264,6 @@ eu:
         not_hidden: Ezkutatu gabe
         parent_hidden: Ezin duzu baliabide hori askatu ezkutuan jarraitzen duen beste baliabide baten barruan ("nagusi") dagoelako.
         title: Ekintzak
-        unhide: Erakutsi berriro
-        unreport: Ez erreportatu
       admin:
         reportable:
           bulk_action:

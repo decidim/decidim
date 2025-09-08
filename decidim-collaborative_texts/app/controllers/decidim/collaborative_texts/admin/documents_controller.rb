@@ -30,7 +30,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("documents.create.invalid", scope: "decidim.collaborative_texts.admin")
-              render action: "new"
+              render action: "new", status: :unprocessable_entity
             end
           end
         end
@@ -54,7 +54,7 @@ module Decidim
               flash.now[:alert] = I18n.t("documents.update.invalid", scope: "decidim.collaborative_texts.admin")
               # This is a safe-guard in case there is no body coming from the POST request (as this attribute is read-only in certain cases)
               @form.body = document.body if @form.body.blank?
-              render action: "edit"
+              render action: "edit", status: :unprocessable_entity
             end
           end
         end
@@ -76,7 +76,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("documents.update_settings.invalid", scope: "decidim.collaborative_texts.admin")
-              render action: "edit_settings"
+              render action: "edit_settings", status: :unprocessable_entity
             end
           end
         end
@@ -91,7 +91,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("documents.publish.invalid", scope: "decidim.collaborative_texts.admin")
-              render action: "index"
+              render action: "index", status: :unprocessable_entity
             end
           end
         end
@@ -106,7 +106,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("documents.unpublish.invalid", scope: "decidim.collaborative_texts.admin")
-              render action: "index"
+              render action: "index", status: :unprocessable_entity
             end
           end
         end

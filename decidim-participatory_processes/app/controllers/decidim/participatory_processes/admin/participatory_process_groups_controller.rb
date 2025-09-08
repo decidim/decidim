@@ -36,7 +36,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("participatory_processes_group.create.error", scope: "decidim.admin")
-              render :new
+              render :new, status: :unprocessable_entity
             end
           end
         end
@@ -61,7 +61,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("participatory_process_groups.update.error", scope: "decidim.admin")
-              render :edit, layout: "decidim/admin/participatory_process_group"
+              render :edit, layout: "decidim/admin/participatory_process_group", status: :unprocessable_entity
             end
           end
         end
@@ -78,7 +78,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("participatory_process_groups.destroy.error", scope: "decidim.admin")
-              render :index
+              render :index, status: :unprocessable_entity
             end
           end
         end

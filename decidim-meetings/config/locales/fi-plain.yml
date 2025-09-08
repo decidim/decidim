@@ -283,8 +283,6 @@ fi-pl:
     meetings:
       actions:
         agenda: Esityslista
-        attachment_collections: Kansiot
-        attachments: Liitteet
         close: Sulje
         confirm_delete_meeting: Haluatko varmasti poistaa tämän tapaamisen?
         deleted_meetings_info: Poistetut tapaamiset voidaan palauttaa roskakorista.

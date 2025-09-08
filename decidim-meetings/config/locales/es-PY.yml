@@ -283,8 +283,6 @@ es-PY:
     meetings:
       actions:
         agenda: Orden del día
-        attachment_collections: Carpetas
-        attachments: Archivos adjuntos
         close: Cerrar
         confirm_delete_meeting: '¿Seguro que quiere eliminar este encuentro?'
         deleted_meetings_info: Los encuentros eliminados se pueden restaurar desde papelera.

@@ -5,9 +5,6 @@ sv:
         assemblies_ids: Relaterade samråd
         available_slots: Tillgängliga platser
         banner_image: Bannerbild
-        copy_categories: Kopiera kategorier
-        copy_components: Kopiera komponenter
-        copy_features: Kopiera funktioner
         decidim_scope_id: Indelning
         description: Beskrivning
         end_date: Slutdatum
@@ -97,11 +94,6 @@ sv:
         new_speaker: Ny talare
         send_diplomas: Skicka deltagarbevis
         view_deleted_conferences: Visa raderade konferenser
-      conference_copies:
-        new:
-          copy: Kopiera
-          select: Välj vilka data som du vill duplicera
-          title: Duplicera konferens
       conference_publications:
         create:
           error: Det gick inte att publicera konferensen.
@@ -162,7 +154,13 @@ sv:
         exports:
           registrations: Registreringar
         form:
+          duration: Tid
+          images: Bilder
+          metadata: Metadata
+          registrations: Anmälningar
+          related_spaces: Relaterade utrymmen
           title: Allmän information
+          visibility: Synlighet
         index:
           published: Publicerad
           unpublished: Ej publicerad
@@ -170,14 +168,10 @@ sv:
           title: Borttagna konferenser
         new:
           create: Skapa
-          title: Konferens
+          title: Ny konferens
         update:
           error: Det gick inte att uppdatera konferensen.
           success: Konferensen har uppdaterats.
-      conferences_copies:
-        create:
-          error: Det gick inte att duplicera konferensen.
-          success: Konferensen har duplicerats.
       media_links:
         create:
           error: Det gick inte att skapa en ny medialänk.
@@ -355,9 +349,6 @@ sv:
         title: Talare
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help_html: 'URL-slugs används till att generera URL:er till konferensen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         conference_invites:
           create:
             error: Det gick inte att bjuda in deltagaren till konferensen.

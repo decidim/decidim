@@ -39,7 +39,7 @@ module Decidim
           initiative_export_action?
           initiatives_settings_action?
           moderator_action?
-          share_tokens_action?
+          share_token_action?
           allow! if permission_action.subject == :attachment
 
           permission_action
@@ -180,8 +180,8 @@ module Decidim
           allow!
         end
 
-        def share_tokens_action?
-          return unless permission_action.subject == :share_tokens
+        def share_token_action?
+          return unless permission_action.subject == :share_token
 
           allow!
         end

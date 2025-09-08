@@ -2,14 +2,14 @@ de:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Ähnliche Assemblies
+        assemblies_ids: Ähnliche Gremien
         available_slots: Verfügbare Plätze
         banner_image: Banner-Bild
-        copy_categories: Kategorien kopieren
-        copy_components: Kopieren Sie Komponenten
-        copy_features: Funktionen kopieren
         decidim_scope_id: Umfang
         description: Beschreibung
+        duplicate_categories: Kategorien duplizieren
+        duplicate_components: Komponenten duplizieren
+        duplicate_features: Funktionen duplizieren
         end_date: Enddatum
         hero_image: Hauptbild
         location: Ort
@@ -97,11 +97,10 @@ de:
         new_speaker: Neuer Redner
         send_diplomas: Senden Sie eine Teilnahmebestätigung
         view_deleted_conferences: Gelöschte Konferenzen anzeigen
-      conference_copies:
+      conference_duplicates:
         new:
-          copy: Kopieren
-          select: Wählen Sie die Daten aus, die Sie duplizieren möchten
-          title: Doppelte Konferenz
+          duplicate: Duplizieren
+          title: Konferenz duplizieren
       conference_publications:
         create:
           error: Beim Veröffentlichen dieser Konferenz ist ein Fehler aufgetreten.
@@ -162,7 +161,13 @@ de:
         exports:
           registrations: Anmeldungen
         form:
+          duration: Dauer
+          images: Bilder
+          metadata: Metadaten
+          registrations: Registrierungen
+          related_spaces: Ähnliche Bereiche
           title: Allgemeine Information
+          visibility: Sichtbarkeit
         index:
           published: Veröffentlicht
           unpublished: Nicht veröffentlicht
@@ -170,11 +175,11 @@ de:
           title: Gelöschte Konferenzen
         new:
           create: Erstellen
-          title: Konferenz
+          title: Neue Konferenz
         update:
           error: Beim Aktualisieren dieser Konferenz ist ein Fehler aufgetreten.
           success: Konferenz wurde erfolgreich aktualisiert.
-      conferences_copies:
+      conferences_duplicates:
         create:
           error: Beim Duplizieren dieser Konferenz ist ein Fehler aufgetreten.
           success: Konferenz wurde erfolgreich dupliziert.
@@ -217,17 +222,20 @@ de:
       models:
         conference:
           fields:
+            actions: Aktionen
             created_at: Erstellt am
             published: Veröffentlicht
             title: Titel
         conference_speaker:
           fields:
+            actions: Aktionen
             affiliation: Zugehörigkeit
             full_name: Vollständiger Name
             position: Position
           name: Konferenzsprecher
         conference_user_role:
           fields:
+            actions: Aktionen
             email: Email
             name: Name
             role: Rolle
@@ -239,12 +247,14 @@ de:
             moderator: Moderator
         media_link:
           fields:
+            actions: Aktionen
             date: Datum
             link: Verknüpfung
             title: Titel
           name: Medienlink
         partner:
           fields:
+            actions: Aktionen
             link: Verknüpfung
             logo: Logo
             name: Name
@@ -255,6 +265,7 @@ de:
             main_promotor: Hauptförderer
         registration_type:
           fields:
+            actions: Aktionen
             conference_meetings: Veranstaltungen der Konferenz
             price: Preis
             registrations_count: Registrierungen zählen
@@ -349,9 +360,6 @@ de:
         title: Lautsprecher
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Konferenz verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         conference_invites:
           create:
             error: Beim Einladen des Benutzers zur Teilnahme an der Konferenz ist ein Problem aufgetreten.
@@ -514,6 +522,7 @@ de:
             sent: Geschickt
         conference_registration:
           fields:
+            actions: Aktionen
             email: Email
             name: Name
             registration_type: Registrierungstyp

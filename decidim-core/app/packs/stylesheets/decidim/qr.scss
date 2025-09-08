@@ -1,12 +1,13 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@use "sass:meta";
+@use "tailwindcss/base";
+@use "tailwindcss/components";
+@use "tailwindcss/utilities";
 
 @layer base {
-  @import "stylesheets/decidim/_fonts.scss";
-  @import "stylesheets/decidim/_typography.scss";
+  @include meta.load-css("stylesheets/decidim/fonts");
+  @include meta.load-css("stylesheets/decidim/typography");
   // Keep this in separate file as long as we are maintaining Foundation compatibility
-  @import "stylesheets/decidim/_rich_text.scss";
+  @include meta.load-css("stylesheets/decidim/rich_text");
 }
 
 body {

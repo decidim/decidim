@@ -283,8 +283,6 @@ ca-IT:
     meetings:
       actions:
         agenda: Ordre del dia
-        attachment_collections: Carpetes
-        attachments: Adjunts
         close: Tancar
         confirm_delete_meeting: Segur que vols suprimir aquesta trobada?
         deleted_meetings_info: Les trobades eliminades es poden restaurar des de la paperera.

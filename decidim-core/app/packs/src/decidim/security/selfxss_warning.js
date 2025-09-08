@@ -1,6 +1,6 @@
 /* eslint-disable no-console, no-process-env, no-undef */
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   if (!console) {
     return;
   }

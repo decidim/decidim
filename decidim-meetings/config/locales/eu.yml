@@ -283,8 +283,6 @@ eu:
     meetings:
       actions:
         agenda: Agenda
-        attachment_collections: Karpetak
-        attachments: Eranskinak
         close: Itxi
         confirm_delete_meeting: Ziur zaude topaketa hau ezabatu nahi duzula?
         deleted_meetings_info: Ezabatutako topaketak zaborretik berreskura daitezke.

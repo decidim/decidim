@@ -269,8 +269,6 @@ sv:
     meetings:
       actions:
         agenda: Dagordning
-        attachment_collections: Mappar
-        attachments: Bifogade filer
         close: Avsluta
         confirm_delete_meeting: Är du säker på att du vill radera mötet?
         deleted_meetings_info: Borttagna möten kan återställas från papperskorgen.

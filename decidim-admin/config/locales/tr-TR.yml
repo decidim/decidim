@@ -180,20 +180,16 @@ tr:
            <li class="font-bold"> %{resources_count} kaynakları </li> 
           </ul>
           Fikrinizi değiştirirseniz daha sonra yeniden yükleyebilirsiniz.
-        export: Tümünü dışa aktar
         export-selection: Seçimi dışa aktar
         import: İçe aktar
-        manage: yönetme
         newsletter:
           new: Yeni bülten
         participatory_space_private_user:
           new: Yeni katılımcı alanı özel kullanıcısı
         per_page: Sayfa başına
-        permissions: İzinler
         restore: Geri yükle
         send_me_a_test_email: Bana bir test e-postası gönder
         share: Paylaş
-        share_tokens: Bağlantılara eriş
         user:
           new: Yeni yönetici
         view_deleted_components: Silinmiş bileşenleri görüntüle
@@ -662,7 +658,6 @@ tr:
               update_moderated_user_button: Kullanıcıların şikayetlerini geri çek
             title: Eylemler
             unblock: Kullanıcının Engelini Kaldır
-            unreport: Bildirilmedi
           cancel: İptal
           name: Adı
           nickname: Rumuz
@@ -770,7 +765,6 @@ tr:
         index:
           actions: Eylemler
           badge: rozet
-          block: Kullanıcıyı Engelle
           created_at: At düzenlendi
           name: isim
           nickname: Takma ad
@@ -779,9 +773,7 @@ tr:
           officialized: resmileştirilmiş
           reofficialize: Reofficialize
           reports: Raporlar
-          show_email: E-posta adresini göster
           status: durum
-          unblock: Kullanıcının Engelini Kaldır
           unofficialize: Unofficialize
         new:
           badge: Resmi görevlendirme rozeti
@@ -923,8 +915,6 @@ tr:
           error: Bu konu güncellenirken bir hata oluştu.
           success: Konu başarıyla güncellendi
       static_pages:
-        actions:
-          view: Genel sayfayı görüntüle
         create:
           error: Yeni bir sayfa oluşturulurken bir hata oluştu.
           success: Sayfa başarıyla oluşturuldu.
@@ -983,8 +973,6 @@ tr:
         hide: Saklamak
         not_hidden: Gizli değil
         title: Eylemler
-        unhide: unhide
-        unreport: Bildir
       admin:
         reportable:
           hide:

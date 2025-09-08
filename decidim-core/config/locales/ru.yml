@@ -592,7 +592,6 @@ ru:
       impersonation_warning:
         close_session: Закрыть сеанс
         description_html: Вы выступаете в роли участника <b>%{user_name}</b>.
-        expire_time_html: Срок действия вашего сеанса истекает через <b><span class="minutes">%{minutes}</span> минут</b>.
       notifications_dashboard:
         mark_all_as_read: Отметить все как прочитанные
       user_menu:
