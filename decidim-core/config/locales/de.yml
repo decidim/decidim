@@ -601,6 +601,7 @@ de:
       highlighted_content_banner:
         name: Hervorgehobenes Inhaltsbanner
       highlighted_content_banner_settings_form:
+        background_image: Hintergrundbild
         short_description: Kurzbeschreibung
         subtitle: Untertitel
         title: Titel
@@ -1608,6 +1609,7 @@ de:
     searches:
       filters:
         jump_to: 'Springen zu:'
+        resource: "%{label} nach %{collection}"
         search: Suchen
         state:
           active: Aktiv
