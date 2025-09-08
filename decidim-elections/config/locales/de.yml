@@ -48,10 +48,23 @@ de:
             title: Wahl bearbeiten
           form:
             add_images: Bilder hinzufügen
+            basic_title: Hauptinformation
+            calendar: Kalender
+            calendar_description: Überprüfen Sie, ob die Zeitzone in den Organisationseinstellungen korrekt ist. Die aktuelle Konfiguration ist %{timezone}.
             edit_attachments: Anhänge bearbeiten
+            end_at: Ende
+            manual_start: Manueller Start
             publish: Veröffentlichen
+            results_availability:
+              per_question: Frage nach Frage
+              real_time: In Echtzeit
+              title: Verfügbarkeit der Ergebnisse
+            save: Speichern und fortfahren
+            start_at: Startzeit
           index:
             title: Wahlen
+          manage_trash:
+            title: Gelöschte Wahlen
           new:
             title: Neue Wahl
         questions:
