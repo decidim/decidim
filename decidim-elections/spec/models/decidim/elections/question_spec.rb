@@ -20,6 +20,7 @@ module Decidim
       it "has many response options" do
         expect(subject.response_options.count).to be_positive
         expect(subject.response_options_count).to be_positive
+        expect(subject.response_options_count).to eq(subject.response_options.count)
       end
 
       context "when votes exist" do
