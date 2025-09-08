@@ -147,7 +147,15 @@ de:
           copy: Kopieren
           title: Veranstaltung duplizieren
       tooltips:
+        cannot_close_meetings: Diese Veranstaltung kann nicht abgeschlossen werden, da sie von einem Teilnehmenden erstellt wurde
         cannot_duplicate_meetings: Dieses Meeting kann nicht dupliziert werden, da es von einem Teilnehmenden erstellt wurde
+        cannot_edit_meetings: Diese Veranstaltung kann nicht bearbeitet werden, da sie von einem Teilnehmenden erstellt wurde
+        cannot_manage_agenda_meetings: Die Traktanden dieser Veranstaltung können nicht verwaltet werden, da sie von einem Teilnehmenden erstellt wurden
+        cannot_manage_attachments_meetings: Die Anhänge dieser Veranstaltung können nicht verwaltet werden, da sie von einem Teilnehmenden erstellt wurden
+        cannot_manage_poll_meetings: Die Umfragen in dieser Veranstaltung können nicht verwaltet werden, da sie von einem Teilnehmenden erstellt wurden
+        cannot_manage_registrations_meetings: Anmeldungen zu dieser Veranstaltung können nicht verwaltet werden, da die Veranstaltung entweder von einem Teilnehmenden erstellt wurde oder die Anmeldungen entweder deaktiviert sind oder extern stattfinden.
+        cannot_mark_attendee: Der Teilnehmende konnte nicht ausgewählt werden, weil er bereits zuvor ausgewählt wurde.
+        deleted_meetings_info: Diese Veranstaltung kann nicht gelöscht werden, da sie von einem Teilnehmenden erstellt wurde.
     components:
       meetings:
         actions:
@@ -248,11 +256,15 @@ de:
           notification_title: Bei Ihrer Anmeldung für die Veranstaltung <a href="%{resource_path}">%{resource_title}</a> wurde Ihre Teilnahme bestätigt.
         registrations_enabled:
           email_intro: 'Die Veranstaltung "%{resource_title}" hat Registrierungen aktiviert. Sie können sich auf der Veranstaltungsseite registrieren:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Veranstaltung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den angegebenenbenen Link.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Veranstaltung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den angegebenen Link.
           email_subject: Die Veranstaltung "%{resource_title}" hat Registrierungen aktiviert.
           notification_title: Die Veranstaltung <a href="%{resource_path}">%{resource_title}</a> hat Registrierungen aktiviert.
         upcoming_meeting:
           default_body: Die Veranstaltung "{{meeting_title}}" beginnt in weniger als {{before_hours}} Stunden.
+          email_intro: Die Veranstaltung "%{resource_title}" beginnt in weniger als %{reminders_before_hours} Stunden.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Veranstaltung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den angegebenenLink.
+          email_subject: Die Veranstaltung "%{resource_title}" beginnt in weniger als %{reminders_before_hours} Stunden.
+          notification_title: Die Veranstaltung <a href="%{resource_path}">%{resource_title}</a> beginnt in weniger als %{reminders_before_hours} Stunden.
     forms:
       meetings:
         attendees_count_help_text: Vergessen Sie nicht, die Gesamtzahl der Teilnehmenden an Ihrer Veranstaltung anzugeben, egal ob sie persönlich, online oder hybrid stattgefunden hat.
