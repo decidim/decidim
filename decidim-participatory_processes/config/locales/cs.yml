@@ -422,6 +422,25 @@ cs:
                   three: 40 - 60%
                   two: 20 - 40%
               name: Vliv občanů
+            inclusiveness:
+              mobility_meeting_access:
+                options:
+                  five: 'Ano'
+                  two_five: Částečně
+                  zero: 'Ne'
+              name: Inkluzivita
+              participation_scheduling_times:
+                options:
+                  five: 'Ano'
+                  two_five: Částečně
+                  zero: 'Ne'
+            informativeness:
+              information_provided:
+                options:
+                  five: Vždy
+                  one: Téměř nikdy
+                  two_five: Obvykle
+                  zero: Nikdy
           highlighted_processes:
             active: Aktivní
             all: Vše
@@ -461,9 +480,12 @@ cs:
       content_blocks:
         democratic_quality_stats:
           automatic_metrics:
+            description: Tyto ukazatele se získávají automaticky z dat platformy.
             indicators:
               hybridization: Hybridizace
+              hybridization_tooltip: Tento ukazatel měří úroveň kombinace online a offline prostor během procesu
               influence: Vliv občanů
+              influence_tooltip: Tento ukazatel měří míru vlivu občanů na přijaté návrhy a výsledky procesu.
               traceability: Sledovatelnost
               transparency: Odezva
             name: Automatická měření
