@@ -429,7 +429,7 @@ en:
                   three: 40 - 60%
                   two: 20 - 40%
               citizen_influence_level:
-                legend: This indicator measures the degree of actual citizen power in a process, specifically quantifying the level of decisional and executive authority citizens hold, from simply receiving information to decisively influencing decisions and managing resources.
+                legend: To what extent do citizens hold decisional authority in this process, ranging from simply receiving information to decisively influencing decisions and managing resources?
                 options:
                   five: Participants were involved in the decision-making and the management of resources or the implementation
                   four: Participants were involved decisively in the decision-making
