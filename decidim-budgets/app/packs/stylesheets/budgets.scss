@@ -82,7 +82,7 @@
   }
 
   &__card__list-project {
-    @apply ml-auto rounded py-3 px-4 bg-background lg:w-96 flex flex-col justify-center items-center xl:flex-row xl:justify-between xl:place-items-center;
+    @apply ml-auto rounded py-3 px-4 bg-background w-64 md:w-96 flex flex-col justify-center items-center xl:flex-row xl:justify-between xl:place-items-center;
   }
 
   &__card__list-project__amount {
