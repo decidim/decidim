@@ -49,47 +49,48 @@
   }
 }
 
-.questionnaire-question {
-  transition: all 0.2s ease;
+.questionnaire-questions {
+  .questionnaire-question {
+    transition: all 0.2s ease;
 
-  &.dragging {
-    opacity: 0.5;
-    transform: rotate(2deg);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  }
-
-  &.drag-over {
-    border-left: 3px solid #007bff;
-    background-color: rgba(0, 123, 255, 0.1);
-  }
-
-  // Style the drag handle SVG
-  svg[draggable="true"] {
-    cursor: move !important;
-    transition: color 0.2s ease;
-
-    &:hover {
-      color: #007bff !important;
-    }
-  }
-
-  button[aria-expanded="true"] {
-    .icon-collapse {
-      @apply block;
+    &.dragging {
+      opacity: 0.5;
+      transform: rotate(2deg);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     }
 
-    .icon-expand {
-      @apply hidden;
-    }
-  }
-
-  button[aria-expanded="false"] {
-    .icon-collapse {
-      @apply hidden;
+    &.drag-over {
+      border-left: 3px solid #007bff;
+      background-color: rgba(0, 123, 255, 0.1);
     }
 
-    .icon-expand {
-      @apply block;
+    svg[draggable="true"] {
+      cursor: move !important;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #007bff !important;
+      }
+    }
+
+    button[aria-expanded="true"] {
+      .icon-collapse {
+        @apply block;
+      }
+
+      .icon-expand {
+        @apply hidden;
+      }
+    }
+
+    button[aria-expanded="false"] {
+      .icon-collapse {
+        @apply hidden;
+      }
+
+      .icon-expand {
+        @apply block;
+      }
     }
   }
 }
