@@ -6,7 +6,7 @@ namespace :decidim_initiatives do
       Decidim::InitiativesVote.find_each do |vote|
         next if vote.encrypted_metadata.blank?
 
-        encryptor = a.send(:encryptor)
+        encryptor = vote.send(:encryptor)
 
         vote.encrypted_metadata = encryptor.encrypt(vote.decrypted_metadata)
         vote.save!

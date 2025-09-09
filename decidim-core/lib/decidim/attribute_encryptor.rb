@@ -30,6 +30,9 @@ module Decidim
       encryptor.decrypt_and_verify(string_encrypted)
     rescue ActiveSupport::MessageEncryptor::InvalidMessage => e
       # Since we have migrated from SHA1 to SHA256, we need to ensure that any encrypted string not migrated is still being decrypted successfully.
+      # There are some resources that are still using SHA1, so we need to retry with the legacy encryptor.
+      # Some of those resources are:
+      #  - Newsletter unsubscribe links (being sent to users via email)
       raise e if is_retry
 
       legacy_encryptor.decrypt(string_encrypted)
