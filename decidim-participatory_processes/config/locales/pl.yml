@@ -359,7 +359,6 @@ pl:
                   three: 40 - 60%
                   two: 20 - 40%
               citizen_influence_level:
-                legend: Ten wskaźnik mierzy stopień siły sprawczości obywateli w danym procesie, w szczególności określając ilościowo poziom uprawnień decyzyjnych i wykonawczych przysługujących obywatelom, począwszy od zwykłego otrzymywania informacji do aktywnego wpływania na decyzje i zarządzania zasobami.
                 options:
                   five: Uczestnicy byli zaangażowani w proces decyzyjny i zarządzanie zasobami lub w proces wdrażania
                   four: Uczestnicy byli w zdecydowany sposób zaangażowani w proces podejmowania decyzji
