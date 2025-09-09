@@ -36,8 +36,6 @@ If you are proficient with Docker you can use the docker-compose.yml file that w
 
 You can see the docker instructions at the https://github.com/decidim/docker/[Docker repository].
 
-----
-
 == Initializing your application for local development
 
 [NOTE]

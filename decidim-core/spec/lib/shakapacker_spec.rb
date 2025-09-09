@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/webpacker"
+require "decidim/shakapacker"
 
 module Decidim
-  describe Webpacker do
+  describe Shakapacker do
     before do
       # Use a local configuration object for easier testing
       allow(subject).to receive(:configuration).and_return(
-        Decidim::Webpacker::Configuration.new
+        Decidim::Shakapacker::Configuration.new
       )
     end
 
     describe ".configuration" do
       it "returns the configuration object" do
-        expect(subject.configuration).to be_a(Decidim::Webpacker::Configuration)
+        expect(subject.configuration).to be_a(Decidim::Shakapacker::Configuration)
       end
     end
 
@@ -26,7 +26,7 @@ module Decidim
         )
       end
 
-      it "registers additional path for webpacker" do
+      it "registers additional path for shakapacker" do
         described_class.register_path("test")
 
         expect(described_class.configuration.additional_paths).to eq(%w(test))

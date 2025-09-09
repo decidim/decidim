@@ -845,6 +845,7 @@ sereneinserenade
 serializeds
 setseed
 sgid
+Shakacode
 shakapacker
 sharedapp
 shellcheckrc

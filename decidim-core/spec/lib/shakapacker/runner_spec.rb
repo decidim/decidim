@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "gem_overrides/shakapacker/runner"
+require "decidim/shakapacker/shakapacker"
 
 module Shakapacker
   describe Runner do
@@ -12,7 +12,7 @@ module Shakapacker
 
     describe ".initialize" do
       let(:runtime_config_path) do
-        Rails.application.root.join("tmp/webpacker_runtime.yml")
+        Rails.application.root.join("tmp/shakapacker_runtime.yml")
       end
       let(:runtime_config) { YAML.load_file(runtime_config_path, aliases: true) }
 
