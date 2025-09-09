@@ -2274,14 +2274,17 @@ ca-IT:
         edit: Edita
       footer:
         cc_by_license: Amb llicència Creative Commons
+        current_organization_img: "%{organization} (Anar a la pàgina d'inici)"
         data_consent_settings: Configuració de les galetes
         decidim_logo: Logo Decidim
         decidim_title: Decidim
+        help: Ajuda
         log_in: Entra
         made_with_open_source: Web creada amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.
         open_data: Dades obertes
         resources: Recursos
         sign_up: Crea un compte
+        social_media: Xarxes socials
         terms_of_service: Termes i condicions d'ús
       header:
         close: Tancar
