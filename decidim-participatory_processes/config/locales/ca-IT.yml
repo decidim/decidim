@@ -427,7 +427,7 @@ ca-IT:
                   three: 40 - 60%
                   two: 20 - 40%
               citizen_influence_level:
-                legend: Aquest indicador mesura el grau de capacitat real d'incidència de la ciutadania en un procés, específicament quantificant la seva capacitat de decidir i executar, des de la simple recepció d'informació fins a la influència en la presa decisions i la posterior gestió dels recursos.
+                legend: Fins a quin punt la ciutadania té autoritat decisòria en aquest procés, des de la recepció d'informació fins a la influència decisiva en les decisions i en la gestió de recursos?
                 options:
                   five: Les participants van estar involucrades en la presa de decisions i en la gestió dels recursos o en la implementació
                   four: Les participants van estar involucrades decisivament en la presa de decisions
