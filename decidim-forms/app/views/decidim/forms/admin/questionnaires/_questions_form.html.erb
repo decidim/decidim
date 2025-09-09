@@ -73,7 +73,6 @@
   </div>
 </div>
 
-<%= append_javascript_pack_tag "decidim_admin" %>
 <%= append_javascript_pack_tag "decidim_forms_admin" %>
 
 <% if questionnaire.questions_editable? %>
@@ -81,61 +80,14 @@
     document.addEventListener("turbo:load", function () {
       window.Decidim.createEditableForm();
 
-      // Import and use the same sortable system as draggable-table
-      import('/packs/js/decidim_admin.js').then(() => {
-        if (window.createSortList) {
-          console.log('Creating sort list...');
+      setTimeout(() => {
+        console.log('Available Decidim modules:', Object.keys(window.Decidim || {}));
+        console.log('Available global functions:', Object.keys(window).filter(k => k.toLowerCase().includes('sort')));
 
-          window.createSortList("#questionnaire-questions-list", {
-            onSortUpdate: ($children) => {
-              console.log('Sort update triggered!', $children);
-              updateQuestionOrder();
-            }
-          });
-        } else {
-          console.log('createSortList not available, trying alternative...');
-
-          // Fallback to the component directly
-          const sortList = require('src/decidim/admin/sort_list.component');
-          if (sortList.default) {
-            sortList.default("#questionnaire-questions-list", {
-              onSortUpdate: ($children) => {
-                console.log('Sort update triggered!', $children);
-                updateQuestionOrder();
-              }
-            });
-          }
-        }
-      }).catch(e => {
-        console.error('Could not load sort system:', e);
-      });
+        // Check if draggable-table auto-initialized
+        const draggableTable = document.querySelector('[data-draggable-table]');
+        console.log('Draggable table initialized:', !!draggableTable?.getAttribute('aria-dropeffect'));
+      }, 1000);
     });
-
-    function updateQuestionOrder() {
-      const items = document.querySelectorAll('#questionnaire-questions-list > .card');
-
-      items.forEach((item, index) => {
-        const inputs = item.querySelectorAll('input, select, textarea');
-        inputs.forEach(input => {
-          if (input.name && input.name.includes('questions[questions]')) {
-            input.name = input.name.replace(/questions\[questions\]\[\d+\]/, `questions[questions][${index}]`);
-          }
-        });
-
-        // Update question titles with numbers (only for actual questions)
-        if (item.classList.contains('questionnaire-question')) {
-          const titleElement = item.querySelector('.question-title-statement');
-          if (titleElement) {
-            let titleText = titleElement.textContent || titleElement.innerText;
-            if (titleText && titleText.trim() !== '') {
-              titleText = titleText.replace(/^\d+\.\s*/, '').trim();
-              if (titleText) {
-                titleElement.textContent = `${index + 1}. ${titleText}`;
-              }
-            }
-          }
-        }
-      });
-    }
   </script>
 <% end %>
