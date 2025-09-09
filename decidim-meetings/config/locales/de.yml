@@ -208,7 +208,7 @@ de:
           notification_title: Ihr Registrierungscode "%{registration_code}" für die Veranstaltung <a href="%{resource_path}">%{resource_title}</a> wurde bestätigt.
         registrations_enabled:
           email_intro: 'Die Veranstaltung "%{resource_title}" hat Registrierungen aktiviert. Sie können sich auf der Veranstaltungsseite registrieren:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Veranstaltung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den angegebenenbenen Link.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Veranstaltung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den angegebenen Link.
           email_subject: Die Veranstaltung "%{resource_title}" hat Registrierungen aktiviert.
           notification_title: Die Veranstaltung <a href="%{resource_path}">%{resource_title}</a> hat Registrierungen aktiviert.
         upcoming_meeting:
