@@ -9,6 +9,9 @@ eu:
         developer_group: Talde sustatzailea
         document: Dokumentua
         domain: Domeinua
+        duplicate_categories: Bikoiztu kategoriak
+        duplicate_components: Bikoiztu osagaiak
+        duplicate_steps: Bikoiztu urratsak
         end_date: Bukaera-data
         hero_image: Orri nagusiko irudia
         import_attachments: Inportatu eranskinak
@@ -153,6 +156,11 @@ eu:
             invitation_accepted_at: Gonbidapena egun honetan onartu zen
             invitation_sent_at: Gonbidapena egun honetan bidali zen
             published: Argitaratua
+      participatory_process_duplicates:
+        new:
+          duplicate: Bikoiztu
+          select: Hautatu zein datu bikoiztu nahi dituzun
+          title: Bikoiztu partaidetza-prozesua
       participatory_process_groups:
         destroy:
           error: Arazo bat izan da prozesu parte-hartzaile multzoa ezabatzean.
@@ -251,6 +259,10 @@ eu:
         update:
           error: Arazo bat egon da prozesu partaidetza-prozesu hau eguneratzean.
           success: Partaidetza-prozesua zuzen eguneratua.
+      participatory_processes_duplicates:
+        create:
+          error: Arazo bat egon da partaidetza-prozesu hau bikoiztean.
+          success: Partaidetza-prozesua zuzen kopiatua.
       participatory_processes_group:
         create:
           error: Arazo bat egon da beste partaidetza-prozesuen multzo bat sortzean.
@@ -407,6 +419,16 @@ eu:
                 </ul>
               title: 'Eduki-multzo honek bi metrika-mota ditu:'
             citizen_influence:
+              citizen_decisional_intervention:
+                legend: Prozesuaren fase guztietatik kanpo (gaiak hautatzetik exekuzioa gainbegiratzeraino), zenbatek dute gaitasuna erabakiak hartzeko edo ekintza exekutiboa egiteko?
+                options:
+                  five: '%80 - 100 ='
+                  four: '%60 - 80 ='
+                  one: '%0 - 20 ='
+                  three: '%40 - 60 ='
+                  two: '%20 - 40 ='
+              citizen_influence_level:
+                legend: Zein neurritan dute herritarrek erabakitzeko ahalmena prozesu honetan, informazioa jasotze hutsetik erabakietan eta baliabideen kudeaketan eragin erabakigarrira?
               name: Herritarren eragina
             inclusiveness:
               description: Inklusibitatea jatorri kulturalaren eta dibertsitate funtzionalaren arabera.
