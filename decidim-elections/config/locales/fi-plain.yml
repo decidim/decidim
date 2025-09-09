@@ -36,12 +36,19 @@ fi-pl:
         new: Uusi vaali
         preview: Esikatsele
         title: Toiminnot
+        view: Näytä vaali
         view_deleted_elections: Näytä poistetut vaalit
       admin:
         census:
           edit:
+            choose_census: Valitse henkilötietorekisterin tyyppi, jota haluat käyttää tälle vaalille
             created_at: Luonnin ajankohta
             identifier: Käyttäjän tunniste
+            title: Henkilötietorekisterin tyyppi
+          preview:
+            title:
+              one: Esikatselulista on rajattu %{count} tietueeseen.
+              other: Esikatselulista on rajattu %{count} tietueeseen.
           update:
             error: Henkilötietorekisterin luonti tai tallennus epäonnistui.
             success: Henkilötietorekisterin päivitys onnistui.
@@ -50,6 +57,7 @@ fi-pl:
             end_at: 'Päättymisaika:'
             end_election: Päätä vaali
             manual_start: Manuaalinen
+            published_results_at: Tulosten julkaisuaika
             start_at: 'Alkamisaika:'
             start_election: Aloita vaali
             title: Kalenteri
@@ -84,12 +92,18 @@ fi-pl:
             start_question_button: Ota äänestys käyttöön
             title: Tulokset
           status:
+            census: 'Henkilötietorekisteri:'
+            results_availability:
+              after_end: Tulokset ovat saatavilla vaalin päätyttyä
+              per_question: Tulokset ovat saatavilla jokaiselle kysymykselle erikseen
+              real_time: Tulokset ovat saatavilla reaaliajassa
             title: Vaalin tila
         elections:
           create:
             invalid: Vaalin luonti epäonnistui.
             success: Vaalin luonti onnistui.
           dashboard:
+            subtitle: 'Viimeinen vaihe: tarkasta tiedot. Voit edelleen muokata tietoja ennen niiden julkaisua. Julkaisun jälkeen voit muokata vaalin kuvausta.'
             title: Hallintapaneeli
           edit:
             title: Muokkaa vaalia
@@ -170,6 +184,9 @@ fi-pl:
           one: Tässä vaalissa voi tällä hetkellä äänestää <strong>1</strong> henkilö (tämä voi muuttua käytettäessä dynaamista henkilötietorekisteriä).
           other: Tässä vaalissa voi tällä hetkellä äänestää <strong>%{count}</strong> henkilöä (tämä voi muuttua käytettäessä dynaamista henkilötietorekisteriä).
         internal_users:
+          info_html: |
+            Voit rajata tähän vaaliin osallistumisen osallistujille, jotka ovat vahvistaneet käyttäjätilinsä.<br>
+            Huomioithan, että osallistujien on vahvistettava käyttäjätilinsä äänestääkseen. Äänestys on mahdollista kaikille palveluun rekisteröityneille osallistujille, mikäli kaikki valintaruudut jätetään valitsematta.
           internal_type_title: Muut vahvistustavat äänestämisen mahdollistamiseksi (vapaaehtoinen)
           label: Rekisteröityneet osallistujat (dynaaminen)
         token_csv:
@@ -189,15 +206,23 @@ fi-pl:
           elections_count:
             one: "%{count} vaali"
             other: "%{count} vaalia"
+        elections:
+          empty: Vaaleja ei ole saatavilla.
+          empty_filters: Hakuehtoja vastaavia vaaleja ei löytynyt.
         filters:
           all: Kaikki
           state: Tila
           state_values:
             finished: Valmis
             ongoing: Käynnissä
+            scheduled: Ajastettu
         orders:
+          end_at: Päättymisaika
+          label: Järjestä tulokset
           recent: Uusimmat
+          start_at: Alkamisaika
         questions:
+          subtitle: 'Nämä kysymykset esitetään äänestyksen yhteydessä:'
           title: Vaaliin liittyvät kysymykset
         show:
           vote_button: Aloita äänestys
@@ -214,9 +239,13 @@ fi-pl:
         finished: Valmis
         not_started: Ei aloitettu
         ongoing: Käynnissä
+        published_results: Julkaistut tulokset
         scheduled: Ajastettu
         unpublished: Julkaisematon
         voting_enabled: Äänestys on käynnissä
+    metadata:
+      progress:
+        published_results: 'Tulosten julkaisuaika: %{end_date}'
     statistics:
       elections_count: Vaalia
   time:
