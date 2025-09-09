@@ -49,6 +49,7 @@ eu:
         confirm_delete_project: Ziur zaude proiektu hau ezabatu nahi duzula?
         deleted_budgets_info: Ezabatutako aurrekontuak berreskura daitezke zaborrontzitik.
         edit: Editatu
+        edit_projects: Gehitu proiektuak
         import: Inportatu proiektuetarako proposamenak
         new_budget: Beste aurrekontu bat
         new_project: Beste proiektu bat
