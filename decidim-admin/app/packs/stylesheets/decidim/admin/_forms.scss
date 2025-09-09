@@ -56,12 +56,7 @@
     svg[role="img"] {
       cursor: default !important;
       transition: color 0.2s ease;
-
-      &:hover {
-        color: #007bff !important;
-      }
     }
-
 
     button[aria-expanded="true"] {
       .icon-collapse {
