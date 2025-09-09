@@ -40,7 +40,10 @@
     <%= cell("decidim/announcement", t(".already_responded_warning"), callout_class: "warning" ) %>
   <% end %>
 
-  <div class="questionnaire-questions-list flex flex-col py-6 gap-6 last:pb-0">
+  <div class="questionnaire-questions-list flex flex-col py-6 gap-6 last:pb-0"
+       data-draggable-table
+       data-sort-url="#"
+       id="questionnaire-questions-list">
     <% @form.questions.each_with_index do |question, index| %>
       <%= fields_for "questions[questions][]", question do |question_form| %>
         <% if question.separator? %>
@@ -70,156 +73,69 @@
   </div>
 </div>
 
+<%= append_javascript_pack_tag "decidim_admin" %>
 <%= append_javascript_pack_tag "decidim_forms_admin" %>
 
 <% if questionnaire.questions_editable? %>
   <script>
     document.addEventListener("turbo:load", function () {
       window.Decidim.createEditableForm();
-      initializeDragAndDrop();
-    });
 
-    function initializeDragAndDrop() {
-      let draggedElement = null;
+      // Import and use the same sortable system as draggable-table
+      import('/packs/js/decidim_admin.js').then(() => {
+        if (window.createSortList) {
+          console.log('Creating sort list...');
 
-      function makeDragHandlesActive(container) {
-        // Find all drag icons
-        const dragIcons = container.querySelectorAll('svg use[href*="drag-move-2-fill"]');
-
-        dragIcons.forEach(dragIcon => {
-          const svg = dragIcon.closest('svg');
-          const questionItem = svg.closest('.questionnaire-question');
-
-          if (svg && questionItem && !questionItem.hasAttribute('data-drag-initialized')) {
-            console.log('Initializing drag for question item via icon:', questionItem);
-
-            questionItem.setAttribute('data-drag-initialized', 'true');
-            questionItem.setAttribute('draggable', 'true');
-
-            svg.style.cursor = 'move';
-            svg.style.transition = 'color 0.2s ease';
-
-            // Add drag event listeners to the question item
-            questionItem.addEventListener('dragstart', handleDragStart);
-            questionItem.addEventListener('dragend', handleDragEnd);
-            questionItem.addEventListener('dragover', handleDragOver);
-            questionItem.addEventListener('drop', handleDrop);
-
-            svg.addEventListener('mouseenter', function() {
-              this.style.color = '#007bff';
-            });
-
-            svg.addEventListener('mouseleave', function() {
-              this.style.color = '';
-            });
-          }
-        });
-      }
-
-      function handleDragStart(e) {
-        draggedElement = this;
-        this.style.opacity = '0.5';
-        this.classList.add('dragging');
-        e.dataTransfer.effectAllowed = 'move';
-        e.dataTransfer.setData('text/plain', '');
-        console.log('Drag started for:', draggedElement);
-      }
-
-      function handleDragOver(e) {
-        e.preventDefault();
-        e.dataTransfer.dropEffect = 'move';
-
-        if (this !== draggedElement) {
-          this.classList.add('drag-over');
-        }
-      }
-
-      function handleDrop(e) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        this.classList.remove('drag-over');
-
-        if (draggedElement === this || !draggedElement) return;
-
-        console.log('Drop detected on:', this);
-
-        const rect = this.getBoundingClientRect();
-        const midpoint = rect.top + rect.height / 2;
-        const container = this.parentNode;
-
-        if (e.clientY < midpoint) {
-          container.insertBefore(draggedElement, this);
-        } else {
-          container.insertBefore(draggedElement, this.nextSibling);
-        }
-
-        updateQuestionOrder();
-      }
-
-      function handleDragEnd(e) {
-        if (draggedElement) {
-          draggedElement.style.opacity = '';
-          draggedElement.classList.remove('dragging');
-          draggedElement = null;
-        }
-
-        document.querySelectorAll('.drag-over').forEach(el => {
-          el.classList.remove('drag-over');
-        });
-      }
-
-      function updateQuestionOrder() {
-        const items = document.querySelectorAll('.questionnaire-question');
-
-        items.forEach((item, index) => {
-          const inputs = item.querySelectorAll('input, select, textarea');
-          inputs.forEach(input => {
-            if (input.name && input.name.includes('questions[questions]')) {
-              input.name = input.name.replace(/questions\[questions\]\[\d+\]/, `questions[questions][${index}]`);
+          window.createSortList("#questionnaire-questions-list", {
+            onSortUpdate: ($children) => {
+              console.log('Sort update triggered!', $children);
+              updateQuestionOrder();
             }
           });
+        } else {
+          console.log('createSortList not available, trying alternative...');
 
-          // Update question titles with numbers (skip separators and titles)
+          // Fallback to the component directly
+          const sortList = require('src/decidim/admin/sort_list.component');
+          if (sortList.default) {
+            sortList.default("#questionnaire-questions-list", {
+              onSortUpdate: ($children) => {
+                console.log('Sort update triggered!', $children);
+                updateQuestionOrder();
+              }
+            });
+          }
+        }
+      }).catch(e => {
+        console.error('Could not load sort system:', e);
+      });
+    });
+
+    function updateQuestionOrder() {
+      const items = document.querySelectorAll('#questionnaire-questions-list > .card');
+
+      items.forEach((item, index) => {
+        const inputs = item.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+          if (input.name && input.name.includes('questions[questions]')) {
+            input.name = input.name.replace(/questions\[questions\]\[\d+\]/, `questions[questions][${index}]`);
+          }
+        });
+
+        // Update question titles with numbers (only for actual questions)
+        if (item.classList.contains('questionnaire-question')) {
           const titleElement = item.querySelector('.question-title-statement');
           if (titleElement) {
             let titleText = titleElement.textContent || titleElement.innerText;
-            if (titleText && titleText.trim() !== '' && !titleText.toLowerCase().includes('separator')) {
+            if (titleText && titleText.trim() !== '') {
               titleText = titleText.replace(/^\d+\.\s*/, '').trim();
               if (titleText) {
                 titleElement.textContent = `${index + 1}. ${titleText}`;
               }
             }
           }
-        });
-      }
-
-      // Initialize existing items
-      const questionsList = document.querySelector('.questionnaire-questions-list');
-      if (questionsList) {
-        makeDragHandlesActive(questionsList);
-      }
-
-      //  Watches for items added dynamically like new questions etc
-      if (questionsList) {
-        const observer = new MutationObserver(function(mutations) {
-          mutations.forEach(function(mutation) {
-            if (mutation.type === 'childList') {
-              mutation.addedNodes.forEach(function(node) {
-                if (node.nodeType === 1 && node.classList.contains('questionnaire-question')) {
-                  console.log('New questionnaire item detected, adding drag handles');
-                  setTimeout(() => makeDragHandlesActive(node.parentNode), 100);
-                }
-              });
-            }
-          });
-        });
-
-        observer.observe(questionsList, {
-          childList: true,
-          subtree: false
-        });
-      }
+        }
+      });
     }
   </script>
 <% end %>
