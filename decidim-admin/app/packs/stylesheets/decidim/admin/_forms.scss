@@ -53,18 +53,19 @@
   .questionnaire-question {
     transition: all 0.2s ease;
 
-    &.dragging {
+    // html5sortable classes
+    &.sortable-chosen {
       opacity: 0.5;
       transform: rotate(2deg);
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     }
 
-    &.drag-over {
-      border-left: 3px solid #007bff;
-      background-color: rgba(0, 123, 255, 0.1);
+    &.sortable-ghost {
+      opacity: 0.3;
     }
 
-    svg[draggable="true"] {
+    // Make the drag handle cursor show as move
+    svg[role="img"] {
       cursor: move !important;
       transition: color 0.2s ease;
 
