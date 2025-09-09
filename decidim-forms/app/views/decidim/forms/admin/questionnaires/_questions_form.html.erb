@@ -40,10 +40,7 @@
     <%= cell("decidim/announcement", t(".already_responded_warning"), callout_class: "warning" ) %>
   <% end %>
 
-  <div class="questionnaire-questions-list flex flex-col py-6 gap-6 last:pb-0"
-       data-draggable-table
-       data-sort-url="#"
-       id="questionnaire-questions-list">
+  <div class="questionnaire-questions-list flex flex-col py-6 gap-6 last:pb-0" data-draggable-table data-sort-url="#" id="questionnaire-questions-list">
     <% @form.questions.each_with_index do |question, index| %>
       <%= fields_for "questions[questions][]", question do |question_form| %>
         <% if question.separator? %>
@@ -81,13 +78,8 @@
       window.Decidim.createEditableForm();
 
       setTimeout(() => {
-        console.log('Available Decidim modules:', Object.keys(window.Decidim || {}));
-        console.log('Available global functions:', Object.keys(window).filter(k => k.toLowerCase().includes('sort')));
-
-        // Check if draggable-table auto-initialized
         const draggableTable = document.querySelector('[data-draggable-table]');
-        console.log('Draggable table initialized:', !!draggableTable?.getAttribute('aria-dropeffect'));
-      }, 1000);
+      },);
     });
   </script>
 <% end %>

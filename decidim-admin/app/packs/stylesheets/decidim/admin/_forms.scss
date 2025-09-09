@@ -53,25 +53,9 @@
   .questionnaire-question {
     transition: all 0.2s ease;
 
-    // html5sortable classes
-    &.sortable-chosen {
-      opacity: 0.5;
-      transform: rotate(2deg);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    }
-
-    &.sortable-ghost {
-      opacity: 0.3;
-    }
-
-    // Make the drag handle cursor show as move
     svg[role="img"] {
-      cursor: move !important;
+      cursor: default !important;
       transition: color 0.2s ease;
-
-      &:hover {
-        color: #007bff !important;
-      }
     }
 
     button[aria-expanded="true"] {
