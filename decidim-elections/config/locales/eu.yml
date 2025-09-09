@@ -50,6 +50,7 @@ eu:
             end_at: 'Amaiera-ordua:'
             end_election: Bozketaren amaiera
             manual_start: Eskuzkoa
+            published_results_at: Emaitzak noiz argitaratuak
             start_at: 'Hasiera-ordua:'
             start_election: Hasi bozketa
             title: Egutegia
@@ -84,12 +85,18 @@ eu:
             start_question_button: Botoa eman daiteke
             title: Emaitzak
           status:
+            census: 'Errolda:'
+            results_availability:
+              after_end: Emaitzak eskuragarri bozketak amaitu ondoren
+              per_question: Emaitzak eskuragarri galderaren arabera
+              real_time: Emaitzak eskuragarri denbora errealean
             title: Aukeraren egoera
         elections:
           create:
             invalid: Arazo bat egon da hauteskunde hau sortzean.
             success: Hauteskundea zuzen sortua.
           dashboard:
+            subtitle: 'Azken urratsa: berrikusi zure xehetasunak. Editatu egin daitezke argitaratu aurretik. Argitaratu ondoren, aukeraketen deskribapena eguneratu ahal izango duzu.'
             title: Kontrol-panela
           edit:
             title: Editatu hauteskundea
@@ -170,6 +177,9 @@ eu:
           one: Gaur egun <strong>bat</strong> pertsona dago hautesleku honetan botoa jasotzeko gai dena (hau errolda dinamiko batean alda daiteke).
           other: Gaur egun <strong>bat</strong> pertsona daude hautesleku honetan botoa jasotzeko gai deirnak (hau errolda dinamiko batean alda daiteke).
         internal_users:
+          info_html: |
+            Bozketan parte hartzea baimen bat duten parte-hartzaileei mugatu diezaiekezu.<br>
+            Kontuan izan parte-hartzaileek aukeratutako baimenak bete beharko dituztela botoa eman ahal izateko. Txeke-kutxa guztiak hutsik uzteak aukera emango du izena ematen duen edonori botoa emateko.
           internal_type_title: Baimen gehigarriak behar dira botoa emateko (aukerakoa)
           label: Parte-hartzaile erregistratuak (dinamikoa)
         token_csv:
@@ -189,15 +199,23 @@ eu:
           elections_count:
             one: "Bozketa bat"
             other: "Bozketa %{count}"
+        elections:
+          empty: Ez dago bozketa eskuragarri.
+          empty_filters: Ez dago zure irgazkiekin bat datorren bozketarik.
         filters:
           all: Guztiak
           state: Egoera
           state_values:
             finished: Amaituta
             ongoing: Bidean
+            scheduled: Programatuta
         orders:
+          end_at: Amaiera-data
+          label: Ordenatu honen arabera
           recent: Berrienetatik zaharrenetara
+          start_at: Hasiera-data
         questions:
+          subtitle: 'Bozketa-prozesu honetarako galdera hauek daude:'
           title: Aukeraketaren galderak
         show:
           vote_button: Babesa ematen hasi
@@ -214,9 +232,13 @@ eu:
         finished: Amaituta
         not_started: Hasi gabe
         ongoing: Bidean
+        published_results: Argitaratutako emaitzak
         scheduled: Programatuta
         unpublished: Argitaratu gabea
         voting_enabled: Bozketa martxan
+    metadata:
+      progress:
+        published_results: 'Argitaratutako emaitzak: %{end_date}'
     statistics:
       elections_count: Hauteskundeak
   time:
