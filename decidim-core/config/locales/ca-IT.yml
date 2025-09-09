@@ -2093,14 +2093,17 @@ ca-IT:
         edit: Edita
       footer:
         cc_by_license: Amb llicència Creative Commons
+        current_organization_img: "%{organization} (Anar a la pàgina d'inici)"
         data_consent_settings: Configuració de les galetes
         decidim_logo: Logo Decidim
         decidim_title: Decidim
+        help: Ajuda
         log_in: Entra
         made_with_open_source: Web creada amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.
         open_data: Dades obertes
         resources: Recursos
         sign_up: Crea un compte
+        social_media: Xarxes socials
         terms_of_service: Termes i condicions d'ús
       header:
         back: Tornar al llistat
@@ -2114,7 +2117,7 @@ ca-IT:
       impersonation_warning:
         close_session: Tanca la sessió
         description_html: Estàs gestionant la participant <b>%{user_name}</b>.
-        expire_time_html: La vostra sessió caducarà en <b><span data-impersonation-warning-target="minutes">%{minutes}</span> minutes</b>.
+        expire_time_html: La teva sessió caducarà en <b><span data-impersonation-warning-target="minutes">%{minutes}</span> minuts</b>.
       language_chooser:
         choose_language: Triar la llengua
       navigation:
