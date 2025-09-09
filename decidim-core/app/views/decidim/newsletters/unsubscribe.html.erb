@@ -5,11 +5,11 @@
   <div class="page__container">
     <div class="editor-content">
       <div class="rich-text-display">
-        <%== t ".check_subscription", link: decidim.notifications_settings_path %>
+        <%== t ".subscription_preferences", organization_name: translated_attribute(current_organization.name) %>
       </div>
       <br>
       <div class="rich-text-display">
-        <%== t ".subscription_preferences", organization_name: translated_attribute(current_organization.name) %>
+        <%== t ".check_subscription", link: decidim.notifications_settings_path %>
       </div>
     </div>
   </div>
