@@ -78,8 +78,15 @@
       window.Decidim.createEditableForm();
 
       setTimeout(() => {
-        const draggableTable = document.querySelector('[data-draggable-table]');
-      },);
+        const draggableTable = document.querySelector("[data-draggable-table]");
+        draggableTable.addEventListener("sortupdate", function () {
+
+          // Condition to keep the first WYSIWYM editor and removes the duplicated one on each drag and drop
+          document.querySelectorAll('.editor-toolbar').forEach((toolbar, index) => {
+            if (index > 0) toolbar.remove();
+          });
+        });
+      });
     });
   </script>
 <% end %>
