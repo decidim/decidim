@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Webpacker
+  module Shakapacker
     class Configuration
       attr_reader :additional_paths, :entrypoints, :stylesheet_imports
 
@@ -12,7 +12,7 @@ module Decidim
       end
 
       def configuration_file
-        # Before webpacker is installed, the original configuration file may not
+        # Before shakapacker is installed, the original configuration file may not
         # be available yet.
         return unless File.exist?(original_configuration_file_path)
         return configuration_file_path if configurations_loaded?
@@ -58,13 +58,13 @@ module Decidim
           if defined?(Rails)
             Rails.application.root
           else
-            # This is used when Rails is not available from the webpacker binstubs
+            # This is used when Rails is not available from the shakapacker binstubs
             File.expand_path(".", Dir.pwd)
           end
       end
 
       def configuration_file_path
-        @configuration_file_path ||= File.join(app_path, "tmp/webpacker_runtime.yml")
+        @configuration_file_path ||= File.join(app_path, "tmp/shakapacker_runtime.yml")
       end
 
       def original_configuration_file_path

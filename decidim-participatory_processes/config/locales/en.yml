@@ -429,7 +429,7 @@ en:
                   three: 40 - 60%
                   two: 20 - 40%
               citizen_influence_level:
-                legend: This indicator measures the degree of actual citizen power in a process, specifically quantifying the level of decisional and executive authority citizens hold, from simply receiving information to decisively influencing decisions and managing resources.
+                legend: To what extent do citizens hold decisional authority in this process, ranging from simply receiving information to decisively influencing decisions and managing resources?
                 options:
                   five: Participants were involved in the decision-making and the management of resources or the implementation
                   four: Participants were involved decisively in the decision-making
@@ -719,55 +719,23 @@ en:
 
             <p>The questions that make up the self-assessment form answered by the administrators, as well as the values associated with each answer, are set out below.</p>
 
-            <h4>Inclusiveness</h4>
-
-            <p>Inclusivity according to cultural origin and functional diversity.</p>
+            <h4>Informativeness</h4>
 
             <ol>
-              <li>Have migrant groups been invited to participate?
+              <li>Does the published information provide clarity on the decision-making mechanisms (e.g., voting, consensus, direct negotiations)?
                 <ul>
-                  <li>Yes = 5</li>
-                  <li>No = 0</li>
+                  <li>No clarity = 0</li>
+                  <li>Low clarity = 1</li>
+                  <li>Sufficient clarity = 2,5</li>
+                  <li>Full clarity = 5</li>
                 </ul>
               </li>
-              <li>How many people from diverse cultural origins have participated out of the invited?
+              <li>Has information been provided regarding the participants' capacity to influence the topic under discussion (both in the communication of the process and invitations, as well as at the beginning of each debate session)?
                 <ul>
-                  <li>0-20% = 1</li>
-                  <li>20-40% = 2</li>
-                  <li>40-60% = 3</li>
-                  <li>60-80% = 4</li>
-                  <li>80-100% = 5</li>
-                </ul>
-              </li>
-              <li>Have groups of people with functional diversity been invited to participate?
-                <ul>
-                  <li>Yes = 5</li>
-                  <li>No = 0</li>
-                </ul>
-              </li>
-              <li>How many people with functional diversity have participated out of the invited?
-                <ul>
-                  <li>0-20% = 1</li>
-                  <li>20-40% = 2</li>
-                  <li>40-60% = 3</li>
-                  <li>60-80% = 4</li>
-                  <li>80-100% = 5</li>
-                </ul>
-              </li>
-            </ol>
-
-            <h4>Relevance</h4>
-
-            <p>Impact relevance, as the percentage of the organisation's budget, of the organisation's workforce, or of the total population, that will be affected by the process' result, and the time of such impact.</p>
-
-            <ol>
-              <li>Percentage of organisation's budget, workforce or of the total population affected by the process' result.
-                <ul>
-                  <li>0-20% = 1</li>
-                  <li>20-40% = 2</li>
-                  <li>40-60% = 3</li>
-                  <li>60-80% = 4</li>
-                  <li>80-100% = 5</li>
+                  <li>Never = 0</li>
+                  <li>Almost never = 1</li>
+                  <li>Usually = 2,5</li>
+                  <li>Always = 5</li>
                 </ul>
               </li>
             </ol>
@@ -775,26 +743,13 @@ en:
             <h4>Citizens influence</h4>
 
             <ol>
-              <li>Level of influence of the process according to the participation mechanisms enabled, according to the ladder of participation defined by Sherry Arnstein (1969).
+              <li>Assessment of the degree of participation in the process
                 <ul>
-                  <li>Informative = 0
-                    <p>One-way flow of information—from officials to citizens—with no channel provided for feedback and no power for negotiation.</p>
-                  </li>
-                  <li>Consultation = 1
-                    <p>A participatory process where citizens are asked for their opinions, typically through surveys or meetings, but without assurance that their input will influence decisions.</p>
-                  </li>
-                  <li>Placation = 2
-                    <p>A participatory process where citizens are given limited influence, often in a tokenistic manner, such as inclusion in boards or committees, but without real power, as decision-making remains controlled by the traditional power elite.</p>
-                  </li>
-                  <li>Partnership = 3
-                    <p>A participatory process where citizens and organizations share decision-making power, allowing participants to negotiate, allocate resources, and influence planning, with rules that cannot be changed unilaterally. It often emerges from citizen mobilization and collective action.</p>
-                  </li>
-                  <li>Delegated power = 4
-                    <p>A participatory process where citizens gain authority, control, or funding to influence and manage an organization.</p>
-                  </li>
-                  <li>Citizen control = 5
-                    <p>A highest level of participation where citizens fully govern a program or institution, managing policies, resources, and decision-making without external interference.</p>
-                  </li>
+                  <li>Participants received information from the organisation. = 1</li>
+                  <li>Participants were asked in a consultative manner or gave feedback to the organisation. = 2</li>
+                  <li>Participants were involved to share decision-making power. = 3</li>
+                  <li>Participants were involved decisively in the decision-making. = 4</li>
+                  <li>Participants were involved in the decision-making and the management of resources or the implementation. = 5</li>
                 </ul>
               </li>
               <li>Percentage of phases with 0-5 citizen decisional intervention.
@@ -809,9 +764,17 @@ en:
               </li>
             </ol>
 
-            <h4>Accessibility</h4>
+            <h4>Inclusiveness</h4>
 
             <ol>
+              <li>How is the degree of diversity of the agents and participants assessed with respect to the population of reference in the process?
+                <ul>
+                  <li>None = 0</li>
+                  <li>Low = 1</li>
+                  <li>Sufficient = 2,5</li>
+                  <li>Good = 5</li>
+                </ul>
+              </li>
               <li>In how many languages has the process been communicated?
                 <ul>
                   <li>One language = 1</li>
@@ -820,6 +783,20 @@ en:
                 </ul>
               </li>
               <li>Were the venues of the face-to-face meetings accessible to people with reduced mobility?
+                <ul>
+                  <li>No = 0</li>
+                  <li>Partially = 2,5</li>
+                  <li>Yes = 5</li>
+                </ul>
+              </li>
+              <li>The participation sessions have been scheduled at varied times (morning, midday, afternoon, evening, and weekends).
+                <ul>
+                  <li>No = 0</li>
+                  <li>Partially = 2,5</li>
+                  <li>Yes = 5</li>
+                </ul>
+              </li>
+              <li>Has digital support been offered to the participants?
                 <ul>
                   <li>No = 0</li>
                   <li>Partially = 2,5</li>

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "rake decidim:webpacker:install", type: :task do
+describe "rake decidim:shakapacker:install", type: :task do
   it "preloads the Rails environment" do
     expect(task.prerequisites).to include "environment"
   end

@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "gem_overrides/shakapacker/runner"
+require "decidim/shakapacker/shakapacker"
 
 module Decidim
-  module Webpacker
+  module Shakapacker
     describe Configuration do
       before do
-        # When the asset configurations are called through Decidim::Webpacker,
+        # When the asset configurations are called through Decidim::Shakapacker,
         # return always the subject being tested.
-        allow(Decidim::Webpacker).to receive(:configuration).and_return(subject)
+        allow(Decidim::Shakapacker).to receive(:configuration).and_return(subject)
       end
 
       describe "#configuration_file" do
         let(:runtime_config_path) do
-          Rails.application.root.join("tmp/webpacker_runtime.yml")
+          Rails.application.root.join("tmp/shakapacker_runtime.yml")
         end
         let(:runtime_config) { YAML.load_file(runtime_config_path, aliases: true) }
         let(:core_path) do
@@ -27,13 +27,13 @@ module Decidim
           expect(config_file).to eq(runtime_config_path.to_s)
         end
 
-        it "adds the core additional paths to the webpacker runtime configuration" do
+        it "adds the core additional paths to the shakapacker runtime configuration" do
           expect(runtime_config["default"]["additional_paths"]).to include("node_modules")
           expect(runtime_config["default"]["additional_paths"]).to include("app/packs")
           expect(runtime_config["default"]["additional_paths"]).to include("#{core_path}/app/packs")
         end
 
-        it "adds the core entrypoints to the webpacker runtime configuration" do
+        it "adds the core entrypoints to the shakapacker runtime configuration" do
           expect(runtime_config["default"]["entrypoints"]).to include(
             "decidim_core" => "#{core_path}/app/packs/entrypoints/decidim_core.js",
             "decidim_sw" => "#{core_path}/app/packs/entrypoints/decidim_sw.js",
