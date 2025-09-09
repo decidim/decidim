@@ -2093,14 +2093,17 @@ es-PY:
         edit: Editar
       footer:
         cc_by_license: Con licencia Creative Commons
+        current_organization_img: "%{organization} (Ir a la página principal)"
         data_consent_settings: Configuración de cookies
         decidim_logo: Logo Decidim
         decidim_title: Decidim
+        help: Ayuda
         log_in: Entra
         made_with_open_source: Sitio web creado con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
         open_data: Datos abiertos
         resources: Recursos
         sign_up: Crea una cuenta
+        social_media: Redes Sociales
         terms_of_service: Términos y condiciones de uso
       header:
         back: Volver al listado
@@ -2114,6 +2117,7 @@ es-PY:
       impersonation_warning:
         close_session: Cerrar la sesión
         description_html: Te estás haciendo pasar por el usuario <b>%{user_name}</b>.
+        expire_time_html: Tu sesión caducará en <b><span data-impersonation-warning-target="minutes">%{minutes}</span> minutos</b>.
       language_chooser:
         choose_language: Elegir el idioma
       navigation:
