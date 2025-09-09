@@ -36,12 +36,19 @@ es-MX:
         new: Nueva elección
         preview: Vista previa
         title: Acciones
+        view: Ver elección
         view_deleted_elections: Ver las elecciones eliminadas
       admin:
         census:
           edit:
+            choose_census: Elige el tipo de censo que quieres vincular esta elección
             created_at: Creado el
             identifier: Identificador de usuaria
+            title: Tipo de censo
+          preview:
+            title:
+              one: La vista previa de la lista está limitada a %{count} registro.
+              other: La vista previa de la lista está limitada a %{count} registros.
           update:
             error: Hubo un error al generar o guardar el censo.
             success: Censo actualizado correctamente.
@@ -50,6 +57,7 @@ es-MX:
             end_at: 'Día y hora de finalización:'
             end_election: Finalizar la elección
             manual_start: Manual
+            published_results_at: Resultados publicados el
             start_at: 'Día y hora de inicio:'
             start_election: Empezar la elección
             title: Calendario
@@ -84,12 +92,18 @@ es-MX:
             start_question_button: Activar la votación
             title: Resultados
           status:
+            census: 'Censo:'
+            results_availability:
+              after_end: Resultados disponibles tras la finalización de las elecciones
+              per_question: Resultados disponibles por pregunta
+              real_time: Resultados disponibles en tiempo real
             title: Estado de la elección
         elections:
           create:
             invalid: Se ha producido un error al crear la elección.
             success: Elección creada correctamente.
           dashboard:
+            subtitle: 'Último paso: ¡revisa los datos! Todavía puedes realizar modificaciones antes de publicar. Una vez publicada, solo podrás seguir actualizando la descripción de la elección.'
             title: Panel de control
           edit:
             title: Editar la votación
@@ -170,6 +184,8 @@ es-MX:
           one: Actualmente hay <strong>1</strong> persona con derecho a voto en estas elecciones (esto podría cambiar en un censo dinámico).
           other: Actualmente hay <strong>%{count}</strong> personas con derecho a voto en estas elecciones (esto podría cambiar en un censo dinámico).
         internal_users:
+          info_html: |
+            Puedes restringir la participación en la elección a las participantes que tengan una autorización. <br>Ten en cuenta que las participantes obtener la autorización seleccionada para poder votar. Si dejas todas las casillas de verificación vacías, cualquier persona registrada podrá votar.
           internal_type_title: Autorizaciones adicionales requeridas para votar (opcional)
           label: Participantes registradas (dinámico)
         token_csv:
@@ -188,15 +204,23 @@ es-MX:
           elections_count:
             one: "%{count} votación"
             other: "%{count} votaciones"
+        elections:
+          empty: No hay elecciones disponibles.
+          empty_filters: No hay elecciones que coincidan con tus filtros.
         filters:
           all: Todas
           state: Estado
           state_values:
             finished: Finalizada
             ongoing: En curso
+            scheduled: Programada
         orders:
+          end_at: Fecha de finalización
+          label: Ordenar por
           recent: Reciente
+          start_at: Fecha de inicio
         questions:
+          subtitle: 'Estas son las preguntas para este proceso de votación:'
           title: Preguntas de la elección
         show:
           vote_button: Empezar a votar
@@ -213,9 +237,13 @@ es-MX:
         finished: Finalizada
         not_started: No iniciado
         ongoing: En curso
+        published_results: Resultados publicados
         scheduled: Programada
         unpublished: Despublicada
         voting_enabled: Votación en curso
+    metadata:
+      progress:
+        published_results: 'Resultados publicados: %{end_date}'
     statistics:
       elections_count: Elecciones
   time:
