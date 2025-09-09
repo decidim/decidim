@@ -1270,10 +1270,10 @@ en:
         main_image: Main image
     newsletters:
       unsubscribe:
-        check_subscription: If you'd like to start receiving them again, you can re-enable your subscription anytime from the <a href="%{link}" target="_blank">configuration page</a>.
+        check_subscription: If you'd like to start receiving them again, you can re-enable your subscription anytime from the <a href="%{link}" target="_blank">settings page</a>.
         error: There was a problem unsubscribing.
         success: You are unsubscribed successfully.
-        subscription_preferences: We've updated your subscription preferences, and you will no longer receive newsletters from %{organization_name}.
+        subscription_preferences: We have updated your subscription preferences, and you will no longer receive newsletters from %{organization_name}.
         token_error: The link has expired.
         unsubscribe: Unsubscribe from newsletter
     newsletters_opt_in:
