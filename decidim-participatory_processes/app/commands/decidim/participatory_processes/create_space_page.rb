@@ -5,15 +5,14 @@ module Decidim
     class CreateSpacePage < Decidim::Command
       # Public: Initializes the command.
       #
-      # organization - A object with the params.
+      # organization - A Decidim::Organization instance.
       def initialize(organization)
         @organization = organization
       end
 
-      # Executes the command.
-      # i18n-tasks-use t('decidim.system.default_pages.terms-of-service')
+      # Executes the command that creates the required static page.
       #
-      # Returns nothing.
+      # Returns a Decidim::StaticPage instance.
       def call
         StaticPage.find_or_create_by!(organization:, slug: "democratic-quality-indicators") do |page|
           page.decidim_organization_id = organization.id

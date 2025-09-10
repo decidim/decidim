@@ -44,6 +44,9 @@ module Decidim
             Decidim::OrganizationSettings.default(:upload)
           end
 
+          it_behaves_like "fires an ActiveSupport::Notification event", "decidim.system.create_organization:before"
+          it_behaves_like "fires an ActiveSupport::Notification event", "decidim.system.create_organization:after"
+
           it "returns a valid response" do
             expect { command.call }.to broadcast(:ok)
           end
