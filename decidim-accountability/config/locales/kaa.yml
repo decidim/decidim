@@ -6,8 +6,6 @@ kaa:
         decidim_category_id: Kategoriya
       status:
         name: Ataması
-      timeline_entry:
-        entry_date: Sáne
   activerecord:
     models:
       decidim/accountability/result:
@@ -16,7 +14,6 @@ kaa:
   decidim:
     accountability:
       actions:
-        attachment_collections: Papkalar
         destroy: Óshiriw
         edit: Ózgeris kirgiziw
         preview: Aldınnan kóriw
@@ -76,9 +73,6 @@ kaa:
           fields:
             created_at: Jaratıldı
             status: Jaǵday
-        timeline_entry:
-          fields:
-            entry_date: Sáne
       results:
         count:
           results_count:

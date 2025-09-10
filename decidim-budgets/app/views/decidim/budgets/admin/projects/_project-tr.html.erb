@@ -2,23 +2,23 @@
   <td>
     <%= check_box_tag "project_ids_s[]", project.id, false, class: "js-check-all-resources js-project-list-check js-resource-id-#{project.id}" %><br>
   </td>
-  <td>
+  <td data-label="<%= t("models.project.fields.id", scope: "decidim.budgets") %>">
     <%= project.id %><br>
   </td>
-  <td class="!text-left">
+  <td class="!text-left" data-label="<%= t("models.project.fields.title", scope: "decidim.budgets") %>">
     <% if allowed_to? :update, :project, project: project %>
       <%= link_to translated_attribute(project.title), resource_locator([budget, project]).edit %><br>
     <% else %>
       <%= translated_attribute(project.title) %><br>
     <% end %>
   </td>
-  <td>
+  <td data-label="<%= t("models.project.fields.taxonomies", scope: "decidim.budgets") %>">
     <%= project.taxonomies.map { |taxonomy| decidim_sanitize_translated(taxonomy.name) }.join(", ") %>
   </td>
-  <td>
+  <td data-label="<%= t("index.confirmed_orders_count") %>">
     <%= project.confirmed_orders_count %>
   </td>
-  <td>
+  <td data-label="<%= t("projects.index.selected", scope: "decidim.budgets.admin") %>">
     <% if project.selected? %>
       <%= content_tag :strong, t("yes", scope: "decidim.budgets.admin.projects.index.selected_options"), class: "label success" %>
     <% else %>
@@ -26,11 +26,11 @@
     <% end %>
   </td>
   <% if maps_enabled? && Decidim::Map.available?(:static, :geocoding) %>
-    <td>
+    <td data-label="<%= t("models.project.fields.map", scope: "decidim.budgets") %>">
       <%= static_map_link(project, {}, { class: "static-map__admin" }) %>
     </td>
   <% end %>
-  <td class="table-list__actions">
+  <td class="table-list__actions" data-label="<%= t("actions.title", scope: "decidim.budgets") %>">
     <%= render partial: "decidim/budgets/admin/projects/actions", locals: { project:, view: } %>
   </td>
 </tr>

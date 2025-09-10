@@ -26,21 +26,21 @@ module Decidim
         Decidim::ResourceLocatorPresenter.new(post).path
       end
 
-      def title(links: false, html_escape: false, all_locales: false)
+      def title(html_escape: false, all_locales: false)
         return unless post
 
-        super(post.title, links, html_escape, all_locales)
+        super(post.title, html_escape, all_locales)
       end
 
-      def body(links: false, extras: true, strip_tags: false, all_locales: false)
+      def body(links: false, strip_tags: false, all_locales: false)
         return unless post
 
-        content_handle_locale(post.body, all_locales, extras, links, strip_tags)
+        content_handle_locale(post.body, all_locales, links, strip_tags)
       end
 
       def taxonomy_names(html_escape: false, all_locales: false)
         post.taxonomies.map do |taxonomy|
-          taxonomy.presenter.title(links: false, html_escape:, all_locales:)
+          taxonomy.presenter.title(html_escape:, all_locales:)
         end
       end
     end

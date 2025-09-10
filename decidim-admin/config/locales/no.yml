@@ -133,16 +133,15 @@
         attachment:
           new: Nytt vedlegg
         browse: Bla gjennom
-        export: Eksporter alt
+        configure: Konfigurer
+        export: Eksport
         export-selection: Eksporter valg
         import: Importer
-        manage: Administrer
         newsletter:
           new: Nytt nyhetsbrev
         participatory_space_private_user:
           new: Nytt deltakerområde for privat bruker
         per_page: Per side
-        permissions: Tillatelser
         share: Del
         user:
           new: Ny admin
@@ -517,9 +516,11 @@
         index:
           actions:
             block: Blokker bruker
+            bulk_actions:
+              unreport:
+                title: Opphev rapport
             title: Handlinger
             unblock: Fjern blokkering av bruker
-            unreport: Opphev rapport
           name: Navn
           nickname: Kallenavn
           reason: Årsak
@@ -612,7 +613,6 @@
         index:
           actions: Handlinger
           badge: Merke
-          block: Blokker bruker
           created_at: Opprette På
           name: Navn
           nickname: Kallenavn
@@ -621,9 +621,7 @@
           officialized: Offisialisert
           reofficialize: Offisialiser igjen
           reports: Rapporter
-          show_email: Vis e-postadresse
           status: Status
-          unblock: Fjern blokkering av bruker
           unofficialize: Uoffisialisert
         new:
           badge: Offisialiserings merke
@@ -738,8 +736,6 @@
           error: Det oppstod et problem med å oppdatere dette emnet.
           success: Emnet ble oppdatert
       static_pages:
-        actions:
-          view: Vis offentlig side
         create:
           error: Det oppstod et problem med å opprette en ny side.
           success: Siden ble opprettet.
@@ -800,8 +796,6 @@
         hide: Skjul
         not_hidden: Ikke skjult
         title: Handlinger
-        unhide: Vis
-        unreport: Urapporter
       admin:
         reportable:
           hide:

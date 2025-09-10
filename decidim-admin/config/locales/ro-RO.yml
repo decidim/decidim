@@ -168,16 +168,14 @@ ro:
         attachment_collection:
           new: Foldere pentru atașamente
         browse: Caută
-        export: Exportă tot
+        configure: Configurează
         export-selection: Exportă selecția
         import: Importă
-        manage: Gestionează
         newsletter:
           new: Buletin informativ nou
         participatory_space_private_user:
           new: Nou utilizator privat al spațiului participativ
         per_page: Pe pagină
-        permissions: Drepturi
         send_me_a_test_email: Trimite-mi un e-mail de test
         share: Distribuie
         user:
@@ -592,9 +590,11 @@ ro:
         index:
           actions:
             block: Blochează utilizatorul
+            bulk_actions:
+              unreport:
+                title: Anulează raportarea
             title: Acţiuni
             unblock: Deblochează utilizatorul
-            unreport: Anulează raportarea
           name: Nume
           nickname: Pseudonim
           reason: Motiv
@@ -700,7 +700,6 @@ ro:
         index:
           actions: Acțiuni
           badge: Insignă
-          block: Blochează utilizator
           created_at: Creat la
           name: Nume
           nickname: Pseudonim
@@ -709,9 +708,7 @@ ro:
           officialized: Validat
           reofficialize: Revalidează
           reports: Rapoarte
-          show_email: Arată adresa de e-mail
           status: Stadiu
-          unblock: Deblochează utilizatorul
           unofficialize: Retrage validarea
         new:
           badge: Insignă de validare
@@ -847,8 +844,6 @@ ro:
           error: A apărut o eroare la actualizarea acestui subiect.
           success: Subiectul actualizat cu succes
       static_pages:
-        actions:
-          view: Vezi pagina publică
         create:
           error: A apărut o eroare la crearea unei pagini noi.
           success: Pagina a fost creată cu succes.
@@ -946,8 +941,6 @@ ro:
         not_hidden: Neascuns
         parent_hidden: Nu puteți afișa această resursă deoarece părintele său este încă ascuns.
         title: Acțiuni
-        unhide: Anulează ascunderea
-        unreport: Anulează raportarea
       admin:
         reportable:
           hide:

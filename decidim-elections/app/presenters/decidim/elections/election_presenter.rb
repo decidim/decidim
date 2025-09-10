@@ -17,16 +17,47 @@ module Decidim
         Decidim::ResourceLocatorPresenter.new(election).path
       end
 
-      def title(links: false, html_escape: false, all_locales: false)
+      def title(html_escape: false, all_locales: false)
         return unless election
 
-        super(election.title, links, html_escape, all_locales)
+        super(election.title, html_escape, all_locales)
       end
 
-      def description(links: false, extras: true, strip_tags: false, all_locales: false)
-        return unless election
+      # A JSON representation of the election, including its questions and response options.
+      # Suitable for rendering results in real time.
+      # Unless `admin: true` is passed, only results for questions with published results are included.
+      def to_json(admin: false)
+        {
+          id: election.id,
+          ongoing: election.ongoing?,
+          status: election.status,
+          start_date: election.start_at&.iso8601,
+          end_date: election.end_at.iso8601,
+          title: election.translated_attribute(title),
+          description: election.translated_attribute(description),
+          questions: questions.map do |question|
+            {
+              id: question.id,
+              body: translated_attribute(question.body),
+              position: question.position,
+              voting_enabled: question.voting_enabled?,
+              published_results: question.published_results?,
+              response_options: question.response_options.map do |option|
+                {
+                  id: option.id,
+                  body: translated_attribute(option.body)
+                }.tap do |hash|
+                  next unless admin || result_published_questions.include?(question)
 
-        content_handle_locale(election.description, all_locales, extras, links, strip_tags)
+                  hash[:votes_count] = option.votes_count
+                  hash[:votes_count_text] = I18n.t("votes_count", scope: "decidim.elections.elections.show", count: option.votes_count)
+                  hash[:votes_percent_text] = number_to_percentage(option.votes_percent, precision: 1)
+                  hash[:votes_percent] = option.votes_percent
+                end
+              end
+            }
+          end
+        }
       end
     end
   end

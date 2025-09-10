@@ -16,9 +16,6 @@ zh-CN:
         key: 关键字
         name: 名称
         progress: 进展情况
-      timeline_entry:
-        description: 描述
-        entry_date: 日期
     models:
       decidim/accountability/proposal_linked_event: 结果中包括的提案
       decidim/accountability/result_progress_updated_event: 结果进度更新
@@ -33,7 +30,6 @@ zh-CN:
         destroy: 删除
         edit: 编辑
         preview: 预览
-        timeline_entries: 项目进化
         title: 行动
       admin:
         exports:
@@ -67,15 +63,6 @@ zh-CN:
           new:
             create: 创建状态
             title: 新状态
-        timeline_entries:
-          edit:
-            title: 编辑条目
-            update: 更新条目
-          index:
-            title: 项目时间表条目
-          new:
-            create: 创建条目
-            title: 新建条目
       admin_log:
         result:
           create: "%{user_name} 在 %{resource_name} 创建了结果 %{space_name}"
@@ -104,9 +91,6 @@ zh-CN:
             key: 关键字
             name: 名称
             progress: 进展情况
-        timeline_entry:
-          fields:
-            entry_date: 日期
       results:
         count:
           results_count:
@@ -118,8 +102,6 @@ zh-CN:
         show:
           stats:
             back_to_resource: 返回结果
-        timeline:
-          title: 项目进化
     components:
       accountability:
         name: 问责制

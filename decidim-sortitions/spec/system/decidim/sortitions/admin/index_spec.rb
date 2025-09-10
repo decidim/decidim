@@ -4,13 +4,14 @@ require "spec_helper"
 
 describe "index" do
   include_context "when managing a component as an admin"
-
-  let(:manifest_name) { "sortitions" }
   let!(:sortition) { create(:sortition, component: current_component) }
+  let(:manifest_name) { "sortitions" }
 
   before do
     visit_component_admin
   end
+
+  it_behaves_like "access component permissions form"
 
   it "Contains a new button" do
     expect(page).to have_link("New")
@@ -18,7 +19,7 @@ describe "index" do
 
   it "Contains a button that shows sortition details" do
     within "tr", text: decidim_escape_translated(sortition.title) do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       expect(page).to have_link("Sortition details")
     end
   end

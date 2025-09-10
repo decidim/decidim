@@ -12,11 +12,12 @@ module Decidim
         def call
           return broadcast(:invalid) if @form.invalid?
 
-          @form.questions.each do |question_form|
+          current_position = @election.questions.count || 0
+          @form.questions.each_with_index do |question_form, index|
             if question_form.deleted?
               delete_question(question_form)
             else
-              update_question(question_form)
+              update_question(question_form, index + current_position)
             end
           end
 
@@ -39,15 +40,14 @@ module Decidim
           end
         end
 
-        def update_question(question_form)
+        def update_question(question_form, index)
           question = find_or_build_question(question_form)
 
           question.assign_attributes(
             body: question_form.body,
             description: question_form.description,
             question_type: question_form.question_type,
-            position: question_form.position.to_i,
-            mandatory: question_form.mandatory
+            position: index
           )
 
           Decidim.traceability.perform_action!(

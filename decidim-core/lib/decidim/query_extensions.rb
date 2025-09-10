@@ -21,10 +21,6 @@ module Decidim
 
       type.field :organization, Core::OrganizationType, "The current organization", null: true
 
-      type.field :hashtags, [Core::HashtagType], null: true, description: "The hashtags for current organization" do
-        argument :name, GraphQL::Types::String, "The name of the hashtag", required: false
-      end
-
       type.field :user,
                  type: Core::AuthorInterface, null: true,
                  description: "A participant (user or group) in the current organization" do
@@ -55,10 +51,6 @@ module Decidim
 
     def organization
       context[:current_organization]
-    end
-
-    def hashtags(name: nil)
-      Decidim::HashtagsResolver.new(context[:current_organization], name).hashtags
     end
 
     def user(id: nil, nickname: nil)

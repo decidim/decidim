@@ -4,9 +4,6 @@ eu:
       participatory_process:
         announcement: Oharra
         area_id: Arloa
-        copy_categories: Kopiatu kategoriak
-        copy_components: Kopiatu osagaiak
-        copy_steps: Kopiatu faseak
         decidim_area_id: Arloa
         description: Deskribapena
         developer_group: Talde sustatzailea
@@ -82,15 +79,12 @@ eu:
     admin:
       actions:
         activate: Aktibatu
-        configure: Konfiguratu
         confirm_delete_process: Ziur zaude prozesu hau ezabatu nahi duzula? Iritziz aldatzen baduzu, geroago berreskuratu ahal izango duzu.
         confirm_destroy: Berretsi ezabatu
         destroy: ezabatu
         duplicate: Bikoiztu
         edit: Editatu
         import_process: Inportatu
-        menu_hidden: Ezkutatu
-        moderate: Moderatu
         new_process: Beste prozesu bat
         new_process_group: Beste prozesu-talde bat
         new_process_step: Beste urrats bat
@@ -137,12 +131,14 @@ eu:
           name: Prozesu-taldea
         participatory_process_step:
           fields:
+            actions: Ekintzak
             end_date: Bukaera-data
             start_date: Hasiera-data
             title: Izenburua
           name: Partaidetza-prozesuaren fasea
         participatory_process_user_role:
           fields:
+            actions: Ekintzak
             email: Helbide elektronikoa
             name: Izena
             role: Rola
@@ -157,11 +153,6 @@ eu:
             invitation_accepted_at: Gonbidapena egun honetan onartu zen
             invitation_sent_at: Gonbidapena egun honetan bidali zen
             published: Argitaratua
-      participatory_process_copies:
-        new:
-          copy: Kopiatu
-          select: Aukeratu itzazu kopiatu nahi dituzun datuak
-          title: Bikoiztu partaidetza-prozesua
       participatory_process_groups:
         destroy:
           error: Arazo bat izan da prozesu parte-hartzaile multzoa ezabatzean.
@@ -260,10 +251,6 @@ eu:
         update:
           error: Arazo bat egon da prozesu partaidetza-prozesu hau eguneratzean.
           success: Partaidetza-prozesua zuzen eguneratua.
-      participatory_processes_copies:
-        create:
-          error: Arazo bat egon da partaidetza-prozesu hau bikoiztean.
-          success: Partaidetza-prozesua zuzen kopiatua.
       participatory_processes_group:
         create:
           error: Arazo bat egon da beste partaidetza-prozesuen multzo bat sortzean.
@@ -411,6 +398,19 @@ eu:
     participatory_processes:
       admin:
         content_blocks:
+          democratic_quality_stats_settings_form:
+            announcement:
+              body_html: |-
+                <ul>
+                <li>Hauek automatikoki kalkulatzen dira Decidim-en datuetatik. Ikusi ahal izango dira edukien blokea argitaratzen duzunean.</li>
+                <li>Zure erantzunetan oinarritzen dira. Ikusi ahal izango dira galdera guztiak erantzuten dituzunean.</li>
+                </ul>
+              title: 'Eduki-multzo honek bi metrika-mota ditu:'
+            citizen_influence:
+              name: Herritarren eragina
+            inclusiveness:
+              description: Inklusibitatea jatorri kulturalaren eta dibertsitate funtzionalaren arabera.
+              name: Inklusibotasuna
           highlighted_processes:
             active: Aktiboa
             all: Guztiak
@@ -419,9 +419,6 @@ eu:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadatuak
@@ -451,6 +448,30 @@ eu:
             title: Informazio orokorra
             visibility: Ikusgarritasuna
       content_blocks:
+        democratic_quality_stats:
+          automatic_metrics:
+            description: Adierazle horiek automatikoki lortzen dira plataforman jasotako datuetatik abiatuta.
+            indicators:
+              hybridization: Hibridizazioa
+              hybridization_tooltip: Adierazle honek prozesuan zehar espazio presentzialen eta digitalen arteko konbinazio-maila neurtzen du
+              influence: Herritarren eragina
+              influence_tooltip: Adierazle honek herritarrek onartutako proposamenetan duten eragin-maila eta prozesuaren emaitzak neurtzen ditu.
+              traceability: Trazabilitatea
+              traceability_tooltip: Adierazle honek parte-hartze prozesuaren gardentasuna eta trazabilitatea neurtzen ditu. Herritarrek proposamenen bilakaera zein erraz jarrai dezaketen eta argitaratutako erregistroen bidez ekintza instituzionalak egiazta ditzaketen adierazten du.
+              transparency: Erantzuteko gaitasuna
+              transparency_tooltip: Adierazle honek erakundeak parte-hartzaileen ekarpenekiko duen erantzun-maila neurtzen du. Haien konpromisoa islatzen du erantzun ofizialen eta hartutako erabakien bidez.
+            name: Metrika automatikoak
+          global_score:
+            description_html: Jarraian, partaidetza-prozesu horren kalitate demokratikoa ebaluatzeko erabiltzen diren adierazleen multzo bat dago. Nola kalkulatzen diren gehiago jakiteko, ikus <a href="%{info_url}">kalitate demokratikoaren adierazleei buruzko informazio-orria</a>.
+            name: Esparru orokorra
+            tooltip: Dimentsio guztien batezbestekoan kalkulatua
+          qualitative_metrics:
+            description: Adierazle horiek plataformako administratzaileek betetako autoebaluazioari buruzko inkesta baten erantzunetatik lortzen dira.
+            indicators:
+              citizen_influence: Herritarren eragina
+              citizen_influence_tooltip: Parte-hartzaileen eragina erabakiak hartzean neurtzen du.
+              inclusiveness: Inklusibotasuna
+            name: Autoebaluazioaren metrikak
         extra_data:
           name: Fasea eta iraupena
         hero:
@@ -516,6 +537,9 @@ eu:
         belongs_to_group: Prozesu hau honi dagokio
         private_space: Prozesu pribatua da
         related_processes: Elkarrekin lotutako prozesuak
+      static_pages:
+        democratic_quality_indicators:
+          title: Kalitate demokratikoaren adierazleak
     statistics:
       processes_count: Prozesuak
       processes_count_tooltip: Publikoki eskuragarri dauden partaidetza-prozesuen kopurua.

@@ -27,7 +27,7 @@ module Decidim
         app.config.middleware.insert_before 0, Rack::Cors do
           allow do
             origins "*"
-            resource "/api", headers: :any, methods: [:post, :options]
+            resource "/api/*", headers: :any, methods: [:post, :options]
           end
         end
       end
@@ -41,7 +41,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_api.webpacker.assets_path" do
+      initializer "decidim_api.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
     end

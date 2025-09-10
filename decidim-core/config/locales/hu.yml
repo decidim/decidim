@@ -1487,7 +1487,6 @@ hu:
       impersonation_warning:
         close_session: Munkamenet bezárása
         description_html: <b>%{user_name}</b> felhasználó menedzselése.
-        expire_time_html: A munkamenet <b><span class="minutes">%{minutes}</span> perc múlva lejár</b>.
       language_chooser:
         choose_language: Válassz nyelvet
       notifications_dashboard:

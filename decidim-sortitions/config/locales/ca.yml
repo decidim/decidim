@@ -44,6 +44,7 @@ ca:
           edit: Edita
           new_sortition: Afegir sorteig
           show: Detalls del sorteig
+          title: Accions
         models:
           sortition:
             fields:

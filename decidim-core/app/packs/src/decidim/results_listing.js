@@ -1,4 +1,4 @@
-import { pushState, registerCallback } from "src/decidim/history"
+import { pushState, registerCallback } from "src/decidim/refactor/moved/history"
 
 const initializeListingOptionsMenu = (options) => {
   $(document).on("click", `${options.containerSelector} a`, (event) => {
@@ -25,7 +25,7 @@ const initializeListingOptionsMenu = (options) => {
   });
 };
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   initializeListingOptionsMenu({
     containerSelector: ".order-by",
     callbackName: "orders",

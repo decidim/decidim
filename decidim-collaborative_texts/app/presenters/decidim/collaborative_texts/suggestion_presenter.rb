@@ -30,12 +30,9 @@ module Decidim
 
       # Render the suggestion title
       #
-      # links - should render hashtags as links?
-      # extras - should include extra hashtags?
-      #
       # Returns a String.
-      def title(links: false, extras: true, html_escape: false, all_locales: false)
-        super(suggestion.document.title, links, html_escape, all_locales, extras:)
+      def title(html_escape: false, all_locales: false)
+        super(suggestion.document.title, html_escape, all_locales)
       end
 
       def type

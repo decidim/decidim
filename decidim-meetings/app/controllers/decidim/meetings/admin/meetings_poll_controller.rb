@@ -47,7 +47,7 @@ module Decidim
             on(:invalid) do
               # i18n-tasks-use t("decidim.forms.admin.questionnaires.update.invalid")
               flash.now[:alert] = I18n.t("update.invalid", scope: "decidim.meetings.admin.meetings_poll")
-              render template: "decidim/meetings/admin/poll/edit"
+              render template: "decidim/meetings/admin/poll/edit", status: :unprocessable_entity
             end
           end
         end

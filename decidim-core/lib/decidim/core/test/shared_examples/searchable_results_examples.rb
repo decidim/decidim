@@ -25,19 +25,6 @@ shared_examples "searchable results" do
       expect(page.find("#search-count h2").text.to_i).to be_positive
     end
 
-    it "finds content by hashtag" do
-      if respond_to?(:hashtag)
-        fill_in "term", with: hashtag
-        find(search_input_selector).native.send_keys :enter
-
-        expect(page.find("#search-count h2").text.to_i).to be_positive
-
-        within "#results" do
-          expect(page).to have_content(hashtag)
-        end
-      end
-    end
-
     context "when moderation is involved" do
       it "not contains these searchables" do
         expect(searchables).not_to be_empty
@@ -85,19 +72,6 @@ shared_examples "searchable results" do
           expect(page).to have_content(%(results for the search: "#{term}"))
           expect(page).to have_css(".filter-search.filter-container")
           expect(page.find("#search-count h2").text.to_i).not_to be_positive
-        end
-
-        it "does not find content by hashtag" do
-          if respond_to?(:hashtag)
-            fill_in "term", with: hashtag
-            find(search_input_selector).native.send_keys :enter
-
-            expect(page.find("#search-count h2").text.to_i).not_to be_positive
-
-            within "#results" do
-              expect(page).to have_no_content(hashtag)
-            end
-          end
         end
       end
 

@@ -19,6 +19,8 @@ en:
       admin_log:
         changeset:
           posts: Posts
+      tooltips:
+        deleted_posts_info: Cannot delete this post
     blogs:
       actions:
         author_id: Create post as

@@ -999,7 +999,6 @@ nl:
       impersonation_warning:
         close_session: Sluit sessie
         description_html: U beheert de gebruiker <b>%{user_name}</b>.
-        expire_time_html: Uw sessie vervalt in <b><span class="minutes">%{minutes}</span> minuten</b>.
       language_chooser:
         choose_language: Taal kiezen
       notifications_dashboard:

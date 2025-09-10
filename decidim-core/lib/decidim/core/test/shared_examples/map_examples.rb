@@ -87,7 +87,7 @@ shared_context "with frontend map elements" do
           <script type="text/javascript">
             // This is just to indicate to Capybara that the page has fully
             // finished loading.
-            document.addEventListener("DOMContentLoaded", function() {
+            document.addEventListener("turbo:load", function() {
               setTimeout(function() {
                 window.$("body").append('<div id="ready_indicator">Document ready</div>');
               }, 1000);

@@ -1,7 +1,7 @@
 import MeetingsPollComponent from "src/decidim/meetings/poll.component"
 const OPEN_CLASS = "is-open";
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   // Mount polls component for users
   const $container = $("[data-decidim-meetings-poll]");
   const $counter = $("#visible-questions-count");

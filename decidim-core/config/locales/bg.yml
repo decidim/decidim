@@ -1616,7 +1616,6 @@ bg:
       impersonation_warning:
         close_session: Затвори сесия
         description_html: Вие управлявате участника <b>%{user_name}</b>.
-        expire_time_html: Вашата сесия изтича след <b><span class="minutes">%{minutes}</span> минути</b>.
       language_chooser:
         choose_language: Избери език
       notifications_dashboard:

@@ -3,15 +3,33 @@
   <td role="cell">
     <ul class="taxonomy">
       <% if taxonomy.root? %>
-        <li><%= link_to translated_attribute(taxonomy.name), edit_taxonomy_path(taxonomy), class: "js-drawer-editor" %></li>
-        <li><%= taxonomy.all_children.count %></li>
-        <li><%= taxonomy.filters_count %></li>
+        <li>
+          <span class="md:hidden"><%= t("decidim.admin.taxonomies.name") %>: </span>
+          <%= link_to translated_attribute(taxonomy.name), edit_taxonomy_path(taxonomy), class: "js-drawer-editor" %>
+        </li>
+        <li>
+          <span class="md:hidden"><%= t("decidim.admin.taxonomies.total_items") %>: </span>
+          <%= taxonomy.all_children.count %>
+        </li>
+        <li>
+          <span class="md:hidden"><%= t("decidim.admin.taxonomies.total_filters") %>: </span>
+          <%= taxonomy.filters_count %>
+        </li>
       <% else %>
-        <li><%= link_to translated_attribute(taxonomy.name), edit_taxonomy_item_path(taxonomy_id: taxonomy.root_taxonomy.id, id: taxonomy.id), class: "js-drawer-editor" %></li>
-        <li><%= taxonomy.taxonomizations_count %></li>
+        <li>
+          <span class="md:hidden"><%= t("decidim.admin.taxonomies.name") %>: </span>
+          <%= link_to translated_attribute(taxonomy.name), edit_taxonomy_item_path(taxonomy_id: taxonomy.root_taxonomy.id, id: taxonomy.id), class: "js-drawer-editor" %>
+        </li>
+        <li>
+          <span class="md:hidden"><%= t("decidim.admin.taxonomies.count") %>: </span>
+          <%= taxonomy.taxonomizations_count %>
+        </li>
       <% end %>
 
-      <li class="taxonomy-list__actions"><%= render "taxonomy_actions", taxonomy: %></li>
+      <li class="taxonomy-list__actions">
+        <span class="md:hidden !ml-0"><%= t("decidim.admin.taxonomies.actions.actions") %>: </span>
+        <%= render "taxonomy_actions", taxonomy: %>
+      </li>
     </ul>
     <% if with_children && taxonomy.children.any? %>
       <div class="js-sortable js-draggable-<%= taxonomy.id %>"

@@ -56,7 +56,7 @@ module Decidim
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Verifications::Engine.root}/app/cells")
       end
 
-      initializer "decidim_verifications.webpacker.assets_path" do
+      initializer "decidim_verifications.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 

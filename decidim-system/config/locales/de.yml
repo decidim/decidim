@@ -7,6 +7,7 @@ de:
         organization_name: Organisation
         organization_url: URL der Organisation
         redirect_uri: Weiterleitungs-URI
+        refresh_tokens: Token aktualisieren
       organization:
         address: SMTP Hostname
         from_email: E-Mail-Adresse
@@ -39,11 +40,15 @@ de:
     system:
       actions:
         confirm_destroy: Möchtest du das wirklich löschen?
+        copied: Kopiert
+        copy_secret: Geheimnis kopieren
+        copy_secret_clarification: Geheimnis in die Zwischenablage kopieren
         destroy: Löschen
         edit: Bearbeiten
         new_admin: Neuer Admin
         new_oauth_application: Neue OAUTH-Anwendung
         new_organization: Neue Organisation
+        refresh_secret: Geheimnis aktualisieren
         save: Speichern
         title: Aktionen
       admins:
@@ -63,6 +68,9 @@ de:
         update:
           error: Beim Aktualisieren dieses Administrators ist ein Fehler aufgetreten.
           success: Admin erfolgreich aktualisiert.
+      api_user:
+        create:
+          error: API-Benutzer konnte nicht erstellt werden.
       dashboard:
         show:
           admins: Admins

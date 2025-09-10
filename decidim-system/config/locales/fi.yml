@@ -7,6 +7,9 @@ fi:
         organization_name: Organisaatio
         organization_url: Organisaation URL-osoite
         redirect_uri: Uudelleenohjauksen osoite (URI)
+        refresh_tokens: Päivitettävät rajapinta-avaimet (refresh tokens)
+        refresh_tokens_enabled: Päivitettävät rajapinta-avaimet käytössä
+        scopes: Tarjolla olevat rajapintatoiminnot
       organization:
         address: SMTP-palvelimen osoite
         from_email: Sähköpostiosoite
@@ -38,12 +41,28 @@ fi:
   decidim:
     system:
       actions:
+        api_user:
+          hidden_secret: Rajapintasalasana on piilotettu
+          hide_secret: Piilota rajapintasalasana
+          secret_can_not_be_shown: rajapintasalasana näytetään ja sen voi kopioida ainoastaan sen luonnin jälkeen
+          show_secret: Näytä rajapintasalasana
+          shown_secret: Rajapintasalasana näytetään
+        api_users:
+          create: Luo
+          new: Uusi rajapintakäyttäjä
+          remove: Poista käyttäjä
         confirm_destroy: Haluatko varmasti poistaa tämän?
+        confirm_refresh_api_secret: Haluatko varmasti päivittää rajapintasalasanan tälle rajapintakäyttäjälle? Päivittämisen jälkeen vanha salasana mitätöidään, eikä sitä voi enää käyttää.
+        confirm_remove_api_user: Haluatko varmasti poistaa tämän rajapintakäyttäjän?
+        copied: Kopioitu
+        copy_secret: Kopioi rajapintasalasana
+        copy_secret_clarification: Kopioi rajapintasalasana leikepöydälle
         destroy: Poista
         edit: Muokkaa
         new_admin: Uusi hallintakäyttäjä
         new_oauth_application: Uusi OAuth-Sovellus
         new_organization: Uusi organisaatio
+        refresh_secret: Päivitä rajapintasalasana
         save: Tallenna
         title: Toiminnot
       admins:
@@ -63,6 +82,25 @@ fi:
         update:
           error: Hallintakäyttäjän päivitys epäonnistui.
           success: Hallintakäyttäjän päivitys onnistui.
+      api_user:
+        create:
+          error: Rajapintakäyttäjän luonti epäonnistui.
+          success: Rajapintakäyttäjän luonti onnistui. Käyttäjän rajapintasalasana näytetään ainoastaan sen luonnin jälkeen. Kopioi avain talteen ja tallenna se turvalliseen paikkaan ennen kuin poistut tältä sivulta!
+        destroy:
+          success: Rajapintakäyttäjän poisto onnistui.
+        refresh:
+          error: Jokin meni vikaan. Yritä myöhemmin uudelleen.
+          success: Rajapintasalasanan päivittäminen onnistui. Käyttäjän rajapintasalasana näytetään ainoastaan sen luonnin jälkeen. Kopioi avain talteen ja tallenna se turvalliseen paikkaan ennen kuin poistut tältä sivulta!
+      api_users:
+        index:
+          explanation_html: |
+            <p>Rajapintakäyttäjät mahdollistavat ulkoisille integraatiokehittäjille uusien koneelliseen käyttöön tarkoitettujen hallintakäyttäjätilien luonnin järjestelmään. Nämä koneelliset käyttäjät voivat toimia alustan hallintakäyttäjinä ja suorittaa kaikkia niitä hallintakäyttäjän toimintoja, joita normaalit hallintakäyttäjät voisivat suorittaa hallintapaneelin kautta. Tyypillinen käyttötapaus on ulkoiset hallinnointialustat, joissa automaattinen ohjelmallinen työkalu suorittaa hallintakäyttäjän tehtäviä ilman, että oikea käyttäjä kirjautuu alustalle sisään. Esimerkiksi automaatiojärjestelmä voisi lähettää vastauksia ehdotuksiin, jolloin tarvitaan integraatiokäyttäjä, jolla on oikeudet suorittaa tämä toiminto tällä alustalla.</p>
+            <p>Näiden käyttäjien ja normaalien hallintakäyttäjien suurin ero on, että nämä rajapintakäyttäjät on tarkoitettu koneiden käytettäväksi ja siten niiden salasanavaatimukset ovat erilaiset. Rajapintakäyttäjiltä ei vaadita salasanan päivittämistä tasaisin väliajoin ja salasanan vaihtaminen voidaan toteuttaa hallitusti, kun se on tarpeen.</p>
+            <p>Nämä tunnukset on tarkoitettu koneiden käytettäväksi. Osallistujille suunnatut sovellukset tulisi integroida <a href="%{oauth_link}">OAuth-sovellusten avulla</a>.</p>
+          manage: Hallitse rajapintakäyttäjiä
+        new:
+          select_organization: Valitse organisaatio
+          title: Luo uusi rajapintakäyttäjä
       dashboard:
         show:
           admins: Hallintakäyttäjät
@@ -91,6 +129,7 @@ fi:
             sign_up: Luo tili
       menu:
         admins: Hallinnoijat
+        api_credentials: Rajapintatunnukset
         dashboard: Hallintapaneeli
         oauth_applications: OAuth-sovellukset
         organizations: Organisaatiot
@@ -101,6 +140,15 @@ fi:
             email: Sähköposti
           validations:
             email_uniqueness: toinen hallintakäyttäjä on jo olemassa samalla sähköpostilla
+        api_user:
+          fields:
+            created_at: Luonnin ajankohta
+            key: Rajapintakäyttäjän avain
+            name: Nimi
+            organization: Organisaatio
+            secret: Salasana
+          validations:
+            name_uniqueness: Samanniminen rajapintakäyttäjä on jo olemassa.
         oauth_application:
           fields:
             created_at: Luontiaika
@@ -127,6 +175,26 @@ fi:
           save: Tallenna
           title: Muokkaa sovellusta
         form:
+          application_type:
+            confidential:
+              explanation: Sovellukset, jotka voivat turvallisesti tunnistautua tunnistautumispalvelimelle ja jotka voivat tallentaa niiden rajapintasalasanan turvallisesti käyttäjien ulottumattomiin. Tyypillisesti tämäntyyppiset sovellukset ajetaan palvelimella, johon asiakasohjelmiston salasana tallennetaan.
+              name: Luottamuksellinen
+            public:
+              explanation: Sovellukset, jotka eivät voi turvallisesti tallentaa asiakasohjelmiston salasanoja, kuten selaimessa tai mobiililaitteessa ajettava ohjelmisto.
+              name: Julkinen
+          application_type_help_html: 'OAuth-sovelluksen tyyppi <a href="%{client_type_link}" target="_blank">RFC 6749 osion 2.1</a> mukaisesti. Julkisten asiakasohjelmistojen on toteutettava PKCE-tunnistustapa, joka on määritelty <a href="%{pkce_link}" target="_blank">RFC 7636:ssa</a>. '
+          refresh_tokens_help_html: 'Päivitettävät rajapintatunnukset ovat hyödyllisiä, mikäli rajapintatunnusten on oltava voimassa pidempään kuin pääsytunnusten oletusarvoinen voimassaoloaika. Huomioithan, että <strong>päivitettäviä rajapintatunnuksia tulisi käyttää varovasti</strong>, koska ne voivat heikentää loppukäyttäjien tietoturvaa. '
+          scopes_explanation:
+            "api:read": Mahdollistaa käyttäjille rajapintakyselyiden (query) tekemisen GraphQL-rajapinnan kautta.
+            "api:write": Mahdollistaa käyttäjille rajapintapäivitysten (mutation) tekemisen GraphQL-rajapinnan kautta.
+            profile: Antaa pääsyn käyttäjän oman profiilin tietoihin. Ainoastaan tämä rajapintatoiminto tarvitaan, mikäli OAuth sovellusta käytetään ainoastaan käyttäjien tunnistamiseen tai kirjautumistoimintojen tarjoamiseen.
+            user: Mahdollistaa käyttäjien esiintymisen itsenään rajapintatunnuksen avulla tehdessään kyselyitä GraphQL-rajapintaan. Tätä rajapintatoimintoa tarvitaan kaikkiin api:write -operaatioihin tai api:read -operaatioihin, jotka tarvitsevat tietoa kirjautuneesta käyttäjästä.
+          scopes_help_html: |
+            Valitut rajapintatoiminnot ovat saataville yhdistävien sovellusten pyydettäviksi kirjautumisprosessin aikana. Käyttäjälle esitetään tietoja kirjautumispyynnöstä OAuth-kirjautumisen yhteydessä.
+            <br>
+            Eri toiminnot tarjoavat erilaisia ominaisuuksia tunnistautuneille käyttäjille heidän käyttäessään rajapintatunnuksiaan.
+            <br>
+            <strong>Huomioithan:</strong> Mikäli haluat ainoastaan tunnistaa käyttäjät tai tarjota heille OAuth-kirjautumisen ulkoiseen sovellukseen, tarvitset ainoastaan rajapintatoiminnon <strong>profile</strong>. Sovellukset, jotka hyödyntävät Decidim-sovelluksen rajapintaa, tarvitsevat myös muita rajapintatoimintoja.
           select_organization: Valitse organisaatio
         index:
           confirm_delete: Haluatko varmasti poistaa tämän sovelluksen?

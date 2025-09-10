@@ -38,58 +38,6 @@ describe Decidim do
     end
   end
 
-  describe ".force_ssl" do
-    let!(:orig_force_ssl) { described_class.force_ssl }
-    let(:rails_env) { "test" }
-    let(:env) { ActiveSupport::EnvironmentInquirer.new(rails_env) }
-
-    before do
-      allow(Rails).to receive(:env).and_return(env)
-      load "#{Decidim::Core::Engine.root}/lib/decidim/core.rb"
-    end
-
-    after do
-      described_class.force_ssl = orig_force_ssl
-      load "#{Rails.application.root}/config/initializers/decidim.rb"
-    end
-
-    it "returns false for the test environment" do
-      expect(described_class.force_ssl).to be(false)
-    end
-
-    context "when the Rails.env is set to production" do
-      let(:rails_env) { "production" }
-
-      it "returns true" do
-        expect(described_class.force_ssl).to be(true)
-      end
-    end
-
-    context "when the Rails.env is set to production_foo" do
-      let(:rails_env) { "production_foo" }
-
-      it "returns true" do
-        expect(described_class.force_ssl).to be(true)
-      end
-    end
-
-    context "when the Rails.env is set to staging" do
-      let(:rails_env) { "staging" }
-
-      it "returns true" do
-        expect(described_class.force_ssl).to be(true)
-      end
-    end
-
-    context "when the Rails.env is set to staging_foo" do
-      let(:rails_env) { "staging_foo" }
-
-      it "returns true" do
-        expect(described_class.force_ssl).to be(true)
-      end
-    end
-  end
-
   describe ".component_manifests" do
     subject { described_class.component_manifests }
 

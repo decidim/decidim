@@ -145,6 +145,10 @@ sv:
               state_published: Besvarade
         search_placeholder:
           id_string_or_title_cont: Sök %{collection} efter ID eller titel
+      tooltips:
+        cannot_edit_proposal_info: Kan inte redigera detta förslag eftersom det är skapat av en deltagare eller redan har fått någon röst
+        deleted_proposal_states_info: Kan inte ta bort detta tillstånd eftersom det finns förslag som är kopplade till det
+        deleted_proposals_info: Kan inte ta bort detta förslag
     application:
       geocoding:
         not_configured: Kartvisning är inte konfigurerad!

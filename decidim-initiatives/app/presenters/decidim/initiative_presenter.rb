@@ -13,10 +13,10 @@ module Decidim
       __getobj__
     end
 
-    def title(links: false, html_escape: false, all_locales: false)
+    def title(html_escape: false, all_locales: false)
       return unless initiative
 
-      super(initiative.title, links, html_escape, all_locales)
+      super(initiative.title, html_escape, all_locales)
     end
   end
 end

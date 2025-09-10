@@ -44,6 +44,7 @@ eu:
           edit: Editatu
           new_sortition: Beste zozketa bat
           show: Zozketaren xehetasunak
+          title: Ekintzak
         models:
           sortition:
             fields:

@@ -1,4 +1,4 @@
-$(() => {
+document.addEventListener("turbo:load", () => {
   var rootCommentableId = <%== "comments-for-#{@commentable.class.name.demodulize}-#{@commentable.id}".to_json %>;
   var $comments = $("#" + rootCommentableId);
   var config = $comments.data("decidim-comments");
@@ -25,3 +25,5 @@ $(() => {
     commentsIds: [commentId]
   });
 });
+
+document.dispatchEvent(new CustomEvent("turbo:load"));
