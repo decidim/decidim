@@ -959,6 +959,7 @@ it:
         main_image: Immagine principale
     newsletters:
       unsubscribe:
+        check_subscription: .
         success: Hai annullato l'iscrizione.
         token_error: Il link è scaduto.
         unsubscribe: Annulla l'iscrizione
