@@ -94,6 +94,9 @@ cs:
           publish: "%{user_name} zveřejnil volby %{resource_name} v %{space_name}"
           restore: "%{user_name} obnovil volby %{resource_name} v %{space_name}"
           update: "%{user_name} aktualizoval volby %{resource_name} v %{space_name}"
+      censuses:
+        token_csv_form:
+          email: E-mail
       elections:
         count:
           elections_count:
@@ -112,7 +115,9 @@ cs:
         questions:
           title: Volební otázky
         show:
-          vote_button: Zahájit hlasování
+          vote_button: Hlasovat
+        vote_results:
+          title: Výsledky
       models:
         election:
           fields:
@@ -127,5 +132,15 @@ cs:
         not_started: Nezahájeno
         ongoing: Probíhající
         unpublished: Nezveřejněno
+      votes:
+        confirm:
+          title: Potvrďte svůj hlas
+        question:
+          back: Zpět
+          next: Další
     statistics:
       elections_count: Volby
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Zavřít
