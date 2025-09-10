@@ -57,6 +57,9 @@ it:
           edit_questions:
             new_question: Nuovo quesito
             title: Quesiti
+      censuses:
+        token_csv_form:
+          email: Email
       elections:
         count:
           elections_count:
@@ -73,7 +76,9 @@ it:
         questions:
           title: Domande elettorali
         show:
-          vote_button: Inizia a votare
+          vote_button: Vota
+        vote_results:
+          title: Risultati
       models:
         election:
           fields:
@@ -86,5 +91,15 @@ it:
         not_started: Non iniziate
         ongoing: In corso
         unpublished: Non pubblicato
+      votes:
+        confirm:
+          title: Conferma il tuo voto
+        question:
+          back: Indietro
+          next: Successivo
     statistics:
       elections_count: Elezioni
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Chiuso
