@@ -52,6 +52,8 @@ zh-CN:
             finished: 已完成
         orders:
           recent: 最近的
+        show:
+          vote_button: 投票
       models:
         election:
           fields:
@@ -59,3 +61,12 @@ zh-CN:
       status:
         active: 已启用
         finished: 已完成
+      votes:
+        confirm:
+          title: 确认您的投票
+        question:
+          next: 下一个
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: 关闭
