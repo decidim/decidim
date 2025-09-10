@@ -213,6 +213,26 @@ describe "Admin manages meetings" do
     expect(page).to have_content("updated the #{decidim_sanitize_translated(attributes[:title])} meeting on the")
   end
 
+  it "throws error when submitting with empty mandatory fields" do
+    visit current_path
+
+    within ".table-list" do
+      click_link_or_button meeting.title["en"].to_s
+    end
+
+    within "#edit_meeting_#{meeting.id}" do
+      fill_in_i18n(:meeting_title, "#meeting-title-tabs", **attributes[:title].except("machine_translations"))
+
+      within "#meeting_description_en" do
+        attributes[:description]["en"].length.times { first(".tiptap.ProseMirror").send_keys(:backspace) }
+      end
+      click_link_or_button "Update"
+    end
+    within ".flash__message" do
+      expect(page).to have_content("There was a problem updating this meeting.")
+    end
+  end
+
   it "sets registration enabled to true when registration type is on this platform" do
     within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
       find("button[data-controller='dropdown']").click

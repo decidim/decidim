@@ -38,7 +38,7 @@ Gem::Specification.new do |s|
                         package-lock.json
                         packages/
                         babel.config.json
-                        decidim-core/lib/decidim/webpacker/
+                        decidim-core/lib/decidim/shakapacker/
                       ))
     end
   end

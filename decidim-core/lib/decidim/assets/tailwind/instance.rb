@@ -47,7 +47,7 @@ module Decidim
             if defined?(Rails)
               Rails.application.root
             else
-              # This is used when Rails is not available from the webpacker binstubs
+              # This is used when Rails is not available from the shakapacker binstubs
               File.expand_path(".", Dir.pwd)
             end
         end
