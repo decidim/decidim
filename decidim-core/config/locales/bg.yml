@@ -990,11 +990,9 @@ bg:
         main_image: Основно изображение
     newsletters:
       unsubscribe:
-        check_subscription: За да зададете предпочитанията си, отидете в страницата <a href="%{link}" target="_blank">настройки</a>.
         error: Възникна проблем при прекратяването на абонамента.
         success: Отписахте се успешно.
         token_error: Срокът на връзката е изтекъл.
-        unsubscribe: Отписване
     newsletters_opt_in:
       unauthorized: Съжаляваме, този линк вече не е активен.
       update:
