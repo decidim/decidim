@@ -206,6 +206,8 @@ describe "Amend Proposal", versioning: true do
           let!(:user_group) { create(:user_group, :verified, organization: user.organization, users: [user]) }
 
           before do
+            expect(page).to have_content("Log in")
+            switch_to_host(component.organization.host)
             login_as user, scope: :user
             visit proposal_path
             expect(page).to have_content(proposal_title)
