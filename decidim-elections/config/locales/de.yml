@@ -74,6 +74,9 @@ de:
         statuses:
           publish_results:
             invalid: Beim Veröffentlichen der Ergebnisse ist ein Fehler aufgetreten.
+      censuses:
+        token_csv_form:
+          email: E-Mail
       elections:
         count:
           elections_count:
@@ -90,7 +93,9 @@ de:
         questions:
           title: Wahlfragen
         show:
-          vote_button: Jetzt abstimmen
+          vote_button: Abstimmung
+        vote_results:
+          title: Resultate
       models:
         election:
           fields:
@@ -103,5 +108,15 @@ de:
         not_started: Nicht begonnen
         ongoing: Aktuell
         unpublished: Nicht veröffentlicht
+      votes:
+        confirm:
+          title: Bestätige deine Stimme
+        question:
+          back: Zurück
+          next: Weiter
     statistics:
       elections_count: Wahlen
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Schließen
