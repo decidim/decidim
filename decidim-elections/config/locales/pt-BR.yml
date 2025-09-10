@@ -60,6 +60,9 @@ pt-BR:
         statuses:
           publish_results:
             invalid: Ocorreu um erro ao publicar os resultados.
+      censuses:
+        token_csv_form:
+          email: E-mail
       elections:
         count:
           elections_count:
@@ -76,7 +79,9 @@ pt-BR:
         questions:
           title: Perguntas eleitorais
         show:
-          vote_button: Começar a votar
+          vote_button: Voto
+        vote_results:
+          title: Resultados
       models:
         election:
           fields:
@@ -88,5 +93,15 @@ pt-BR:
         finished: Finalizado
         not_started: Não Iniciado
         ongoing: Em andamento
+      votes:
+        confirm:
+          title: Confirme seu voto
+        question:
+          back: Voltar
+          next: Próxima
     statistics:
       elections_count: Eleições
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Fechado
