@@ -183,7 +183,7 @@ describe Decidim::OpenDataExporter do
         let(:file_data) { zip_contents.glob("README.md").first.get_input_stream.read }
 
         it "includes the help description for all the entities" do
-          expect(file_data).to include("## users (15 resources)")
+          expect(file_data).to include("## users (17 resources)")
           expect(file_data).to include("## proposals (15 resources)")
           expect(file_data).to include("## proposal_comments (1 resource)")
           expect(file_data).to include("## results (1 resource)")
