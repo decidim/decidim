@@ -61,8 +61,8 @@ shared_examples_for "commentable interface" do
           expect(subcomment["comments"]).to be_a(Array)
           expect(subcomment["comments"].count).to eq(1)
 
-          subsubcomments = subcomments_level2.select { |c| c.commentable.id == subcomment["id"].to_i }
-          expect(subcomment["comments"].map { |c| c["id"].to_i }).to match_array(subsubcomments.map(&:id))
+          subcomments2 = subcomments_level2.select { |c| c.commentable.id == subcomment["id"].to_i }
+          expect(subcomment["comments"].map { |c| c["id"].to_i }).to match_array(subcomments2.map(&:id))
         end
       end
     end
