@@ -1262,11 +1262,9 @@ ca:
         main_image: Imatge principal
     newsletters:
       unsubscribe:
-        check_subscription: Si vols canviar les teves preferències, pots fer-ho a la <a href="%{link}" target="_blank">pàgina de configuració</a>.
         error: S'ha produït un error en cancel·lar la subscripció.
         success: Has cancel·lat la subscripció correctament.
         token_error: L'enllaç ha caducat.
-        unsubscribe: Anul·la la subscripció
     newsletters_opt_in:
       unauthorized: Ho sentim, aquest enllaç ja no està disponible.
       update:
