@@ -60,6 +60,9 @@ pl:
         statuses:
           publish_results:
             invalid: Wystąpił błąd podczas publikowania wyników.
+      censuses:
+        token_csv_form:
+          email: E-mail
       elections:
         count:
           elections_count:
@@ -78,7 +81,9 @@ pl:
         questions:
           title: Pytania wyborcze
         show:
-          vote_button: Rozpocznij głosowanie
+          vote_button: Głosowanie
+        vote_results:
+          title: Wyniki głosowania
       models:
         election:
           fields:
@@ -91,5 +96,15 @@ pl:
         not_started: Nie rozpoczął się
         ongoing: W toku
         unpublished: Nieopublikowany
+      votes:
+        confirm:
+          title: Potwierdź swój głos
+        question:
+          back: Wróć
+          next: Dalej
     statistics:
       elections_count: Wybory
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Zamknij
