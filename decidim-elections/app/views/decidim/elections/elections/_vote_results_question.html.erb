@@ -1,4 +1,4 @@
-<div class="card-accordion card-accordion-election-results<%= " hidden" if question.id.zero? %>" data-component="accordion" id="question-<%= question.id %>">
+<div class="card-accordion card-accordion-election-results<%= " hidden" if question.id.zero? %>" data-controller="accordion" id="question-<%= question.id %>">
   <div class="card-accordion-divider">
     <button class="card-accordion-divider-button" data-open="true" data-controls="panel-results-<%= question.id %>">
       <%= question_title(question, data: { "question-body" => true }) %>
