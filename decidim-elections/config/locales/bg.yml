@@ -60,6 +60,9 @@ bg:
         statuses:
           publish_results:
             invalid: Възникна проблем при публикуването на резултатите.
+      censuses:
+        token_csv_form:
+          email: Имейл
       elections:
         count:
           elections_count:
@@ -76,7 +79,9 @@ bg:
         questions:
           title: Изборни въпроси
         show:
-          vote_button: Започнете гласуването
+          vote_button: Глас
+        vote_results:
+          title: Резултати
       models:
         election:
           fields:
@@ -89,5 +94,15 @@ bg:
         not_started: Не е започнало
         ongoing: В момента
         unpublished: Непубликувано
+      votes:
+        confirm:
+          title: Потвърдете гласа си
+        question:
+          back: Назад
+          next: Напред
     statistics:
       elections_count: Избори
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Затвори
