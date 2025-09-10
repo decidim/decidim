@@ -432,7 +432,19 @@ eu:
               name: Herritarren eragina
             inclusiveness:
               description: Inklusibitatea jatorri kulturalaren eta dibertsitate funtzionalaren arabera.
+              digital_support_offered:
+                options:
+                  five: 'Bai'
+                  zero: 'Ez'
+              mobility_meeting_access:
+                options:
+                  five: 'Bai'
+                  zero: 'Ez'
               name: Inklusibotasuna
+              participation_scheduling_times:
+                options:
+                  five: 'Bai'
+                  zero: 'Ez'
           highlighted_processes:
             active: Aktiboa
             all: Guztiak
@@ -561,6 +573,187 @@ eu:
         related_processes: Elkarrekin lotutako prozesuak
       static_pages:
         democratic_quality_indicators:
+          content: |-
+            <h2> Adierazle-sistema Decidimen kalitate-adierazlea neurtzeko.</h2>
+
+            <h3>Sarrera</h3>
+            <p>Kalitate demokratikoa Decidimen oinarrizko printzipio bat da. Horri eusteko, plataforman parte hartzeko prozesuen kalitatea ebaluatzen laguntzen duten adierazleen sistema bat garatu dugu. Artikulu honetan azaltzen da nola kalkulatzen diren adierazle horiek.</p>
+
+            <h3> Nola kalkulatzen dira adierazleak? </h3>
+            <p> Bi metodo zehaztu ditugu kalitate-adierazleak biltzeko:</p>
+
+            <ol>
+            <li><strong>Metrika automatikoak:</strong> Horiek zuzenean kalkulatzen dira Decidim plataformaren datuetatik. <li>
+            <li><strong>Auto-Ebaluaziorako Galderak:</strong> Hauek administratzaile batek betetako inprimaki batean oinarritzen dira.</li>
+            </ol>
+
+            <p> Adierazle bakoitza ehunekotan adierazten da. (zk./guztira). Ehuneko hori puntuazio bihurtzen da 1etik 5era eskalan.:</p>
+
+            <ul>
+            <li>1 = 0–20%</li>
+            <li>2 = 20–40%</li>
+            <li>3 = 40–60%</li>
+            <li>4 = 60–80%</li>
+            <li>5 = 80–100%</li>
+            </ul>
+
+            <br><br>
+            <h3>Metrika Automatikoak</h3>
+            <p> Metrika horiek automatikoki kalkulatzen dira Decidimen dauden datuetatik abiatuta. Prozesu parte-hartzaile bidez ebaluatzen dira, eta administratzaileek publiko egin ditzakete, parte-hartzaile guztiak sartu ahal izateko.</p>
+
+            <p> Lau adierazle nagusi zehaztu ditugu: Herritarren Eragina, Hibridazioa, Erantzuteko gaitasuna eta Trazabilitatea:</p>
+
+            <h3>Herritarren Eragina</h3>
+
+            <p> Adierazle honek herritarren eragin-maila neurtzen du onartutako proposamenetan eta prozesuaren emaitzetan.</p>
+
+            <ul>
+            <li>
+            Herritarren Eragina proposamenetan
+            <ul>
+            <li>Onartutako proposamenen ehunekoa (zk./guztira)</li>
+            <li> Onartutako proposamenen ehunekoa < em>herritarra </em>, herritarren proposamen guztiekiko (herritarrek onartutako proposamenetan duten eragin osoa) < /onartutako proposamenen ehunekoa</li>
+            <li> Onartutako herritarren proposamenen ehunekoa, onartutako proposamenen guztizkoaren aldean (onartutako proposamenarekiko herritarren eragin erlatiboa)</li>
+            </ul>
+            </li>
+            <li>
+            Herritarren eragina produktuetan/emaitzetan
+            <ul>
+            <li> Herritarren proposamenekin lotutako emaitzen ehunekoa, emaitza guztiekiko (herritarren eragina, guztira, produktuetan)</li>
+            </ul>
+            </li>
+            </ul>
+
+            <h3>Hibridazioa</h3>
+
+            <p> Adierazle honek lineako eta lineaz kanpoko espazioen arteko konbinazio-maila neurtzen du prozesuan zehar. </p>
+
+            <ul>
+            <li>Bilera-osagai bat aktibo dago? (Bai=5, Ez=0)</li>
+            <li>Ba al dago aurrez aurreko bilerarik? (Bai=5, Ez=0)</li>
+            <li>Ba al dago online bilerarik? (Bai=5, Ez=0)</li>
+            <li>Ba al dago bilera hibridorik? (Bai=5, Ez=0)</li>
+            <li>Ba al dago bileretatik sorturiko proposamenik? (Bai=5, Ez=0)</li>
+            </ul>
+
+            <h3>Erantzuteko gaitasuna</h3>
+
+            <p> Adierazle honek erakundeak parte-hartzaileen ekarpenekiko duen erantzun-maila neurtzen du. Haien konpromisoa islatzen du erantzun ofizialen eta hartutako erabakien bidez.</p>
+
+            <ul>
+            <li>Erantzuna duten proposamenen ehunekoa (zk./guztira) – Erakundeen erantzun-gaitasuna proposatzea </li>
+            <li>%100 osatutako emaitzen ehunekoa (zk./guztira)</li>
+            </ul>
+
+            <h3>Trazabilitatea</h3>
+
+            <p>Adierazle honek prozesu parte-hartzailearen gardentasuna eta trazabilitatea neurtzen ditu. Parte-hartzaileek proposamenen bilakaera zein erraz jarrai dezaketen islatzen du eta ekintza instituzionalak egiaztatzen ditu argitaratutako erregistroen bidez.</p>
+
+            <ul>
+            <li>Historia duten proposamen kopurua (zk./guztira)</li>
+            <li>Proposamenei lotutako emaitzen ehunekoa (zk./guztira)</li>
+            <li>Minutuak argitaratuta itxitako bileren ehunekoa (zk./guztira)</li>
+            <li> Open data modulua aktibatzea (dikotomikoa: 0 edo 5)</li>
+            <li> Aurrekontuekin zerikusia duten proposamenen ehunekoa (zk./guztira)</li>
+            </ul>
+
+            <br><br>
+            <h3>Autoebaluaziorako Metrikak</h3>
+
+            <p> Metrika automatikoez gain, <strong>parte</strong> hartze prozesu bakoitzaren dimentsio kualitatiboak ebaluatzeko autoebaluazio modu bat erabiltzea proposatzen dugu. Inprimaki hori plataformaren administratzaileek beteko dute prozesu bakoitzaren amaieran, eta erantzunak jendaurrean erakutsiko dira adierazleen eduki-blokean.</p>
+
+            <p>Galdera horiek kalitate demokratikoko alderdiak atzematea dute helburu, datu kuantitatiboen bidez bakarrik ebaluatu ezin daitezkeenak. Garrantzitsua da azpimarratzea inkesta honen erantzunen partziala plataformaren administratzaileen iritzia dela.</p>
+
+            <br><br>
+            <h3>Autoebaluaziorako galderak</h3>
+
+            <p>Ondoren, administratzaileek erantzun duten autoebaluazioko formularioa osatzen duten galderak azaltzen dira, bai eta erantzun bakoitzari lotutako balioak ere.</p>
+
+            <h4>Informatzeko gaitasuna</h4>
+
+            <ol>
+            <li> Argitaratutako informazioak erabakiak hartzeko mekanismoei buruzko argitasuna ematen al du (adibidez, botoa, adostasuna, zuzeneko negoziazioak)?
+            <ul>
+            <li>Ez oso argi = 0</li>
+            <li>Ez argi = 1</li>
+            <li>Nahiko argi = 2,5</li>
+            <li>Erabat argi = 5</li>
+            </ul>
+            </li>
+            <li> Eman al da informaziorik parte-hartzaileek eztabaidagai den gaian eragiteko duten gaitasunari buruz (bai prozesuaren komunikazioan, bai deialdietan, bai eztabaida-saio bakoitzaren hasieran)?
+            <ul>
+            <li>Inoiz ez = 0</li>
+            <li>Ia inoiz ez = 1</li>
+            <li>Batzuetan = 2,5</li>
+            <li>Beti = 5</li>
+            </ul>
+            </li>
+            </ol>
+
+            <h4>Herritarren Eragina</h4>
+
+            <ol>
+            <li>Prozesuan izandako parte-hartze mailaren balorazioa
+            <ul>
+            <li> Parte hartzaileek erakundearen informazioa jaso dute. = 1</li>
+            <li> Parte hartzaileei kontsulta egin zaie edo erakundeari feedbacka eman diote. = 2</li>
+            <li> Parte-hartzaileek parte hartu dute erabakitzeko ahalmena partekatzeko. = 3</li>
+            <li>Parte-hartzaileak erabakigarriak izan dira erabakiak hartzeko. = 4</li>
+            <li> Parte hartzaileek parte hartu dute erabakiak hartzen eta baliabideak kudeatzen edo ezartzen. = 5</li>
+            </ul>
+            </li>
+            <li> Faseen ehunekoa, 0-5 herritarren esku-hartze erabakitzailearekin.
+            <p> Prozesuaren fase guztietatik kanpo (gaiak hautatzetik exekuzioa gainbegiratzeraino), zenbatek dute erabakiak hartzeko edo ekintza exekutiboa egiteko gaitasuna?</p>
+            <ul>
+            <li>%0-20 = 1</li>
+            <li>%20-40 = 2</li>
+            <li>%40-60 = 3</li>
+            <li>%60-80 = 4</li>
+            <li>%80-100 = 5</li>
+            </ul>
+            </li>
+            </ol>
+
+            <h4>Informatzeko gaitasuna</h4>
+
+            <ol>
+            <li>Nola ebaluatzen da eragileen eta parte-hartzaileen aniztasun-maila prozesuan erreferentziazko biztanleriari dagokionez?
+            <ul>
+            <li>Ezertxo ere ez = 0</li>
+            <li>Gutxi = 1</li>
+            <li>Nahiko = 2,5</li>
+            <li>Ondo = 5</li>
+            </ul>
+            </li>
+            <li> Zenbat hizkuntzatan jakinarazi da prozesua?
+            <ul>
+            <li>Hizkuntza bat = 1</li>
+            <li>Erkidegoan erabiltzen diren hizkuntzetan baino gutxiagotan = 2,5</li>
+            <li> Erkidegoan erabiltzen diren hizkuntzetan baino gehiagotan = 5</li>
+            </ul>
+            </li>
+            <li> Aurrez aurreko bileren egoitzak irisgarriak al ziren mugikortasun urriko pertsonentzat?
+            <ul>
+            <li>Ez = 0</li>
+            <li>Partzialki = 2,5</li>
+            <li>Bai = 5</li>
+            </ul>
+            </li>
+            <li> Parte hartzeko saioak hainbat ordutan antolatu dira (goizez, eguerdiz, arratsaldez, arratsaldez eta asteburuetan).
+            <ul>
+            <li>Ez = 0</li>
+            <li>Partzialki = 2,5</li>
+            <li>Bai = 5</li>
+            </ul>
+            </li>
+            <li>Laguntza digitala eskaini zaie parte-hartzaileei?
+            <ul>
+            <li>Ez = 0</li>
+            <li>Partzialki = 2,5</li>
+            <li>Bai = 5</li>
+            </ul>
+            </li>
+            </ol>
           title: Kalitate demokratikoaren adierazleak
     statistics:
       processes_count: Prozesuak
