@@ -194,6 +194,8 @@ eu:
           remove_before_upload: Errolda berri bat igo nahi baduzu, aurretik dagoena kendu behar duzu.
           upload_file: Igo fitxategia
           upload_new_census: Igo CSV fitxategia
+        token_csv_form:
+          email: Helbide elektronikoa
       elections:
         count:
           elections_count:
@@ -218,7 +220,9 @@ eu:
           subtitle: 'Bozketa-prozesu honetarako galdera hauek daude:'
           title: Aukeraketaren galderak
         show:
-          vote_button: Babesa ematen hasi
+          vote_button: Eman babesa
+        vote_results:
+          title: Emaitzak
       models:
         election:
           fields:
@@ -236,11 +240,21 @@ eu:
         scheduled: Programatuta
         unpublished: Argitaratu gabea
         voting_enabled: Bozketa martxan
+      votes:
+        confirm:
+          title: Baieztatu babesa
+        question:
+          back: Atzera
+          next: Hurrengoa
     metadata:
       progress:
         published_results: 'Argitaratutako emaitzak: %{end_date}'
     statistics:
       elections_count: Hauteskundeak
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Itxi
   time:
     formats:
       short_with_time: "%b %-d, %Y, %-I:%M %p"
