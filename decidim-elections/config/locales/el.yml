@@ -60,6 +60,9 @@ el:
         statuses:
           publish_results:
             invalid: Υπήρξε ένα πρόβλημα στη δημοσίευση των αποτελεσμάτων.
+      censuses:
+        token_csv_form:
+          email: Email
       elections:
         count:
           elections_count:
@@ -76,7 +79,9 @@ el:
         questions:
           title: Ερωτήσεις εκλογών
         show:
-          vote_button: Αρχίστε να ψηφίζετε
+          vote_button: Ψήφος
+        vote_results:
+          title: Αποτελέσματα
       models:
         election:
           fields:
@@ -88,5 +93,15 @@ el:
         finished: Ολοκληρώθηκε
         not_started: Δεν ξεκίνησε
         ongoing: Σε εξέλιξη
+      votes:
+        confirm:
+          title: Επιβεβαιώστε την ψήφο σας
+        question:
+          back: Πίσω
+          next: Επόμενο
     statistics:
       elections_count: Εκλογές
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Κλείσιμο
