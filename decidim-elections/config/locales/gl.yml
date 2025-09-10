@@ -48,7 +48,9 @@ gl:
           state_values:
             finished: Finalizada
         show:
-          vote_button: Comezar votación
+          vote_button: Votar
+        vote_results:
+          title: Resultados
       models:
         election:
           fields:
@@ -58,5 +60,12 @@ gl:
         active: Activa
         finished: Finalizada
         not_started: Sen iniciar
+      votes:
+        question:
+          back: Volver
     statistics:
       elections_count: Eleccións
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Pechar
