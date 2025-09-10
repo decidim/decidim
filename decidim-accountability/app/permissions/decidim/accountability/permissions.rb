@@ -4,12 +4,7 @@ module Decidim
   module Accountability
     class Permissions < Decidim::DefaultPermissions
       def permissions
-        if permission_action.scope == :public
-          public_read_result_action?
-
-          return permission_action
-        end
-
+        return permission_action if permission_action.scope == :public && public_read_result_action?
         return permission_action unless user
 
         # Delegate the admin permission checks to the admin permissions class
