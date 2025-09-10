@@ -56,8 +56,19 @@
           state_values:
             finished: Fullført
         show:
-          vote_button: Start avstemning
+          vote_button: Stem
+        vote_results:
+          title: Resultater
       status:
         active: Aktiv
         finished: Fullført
         not_started: Ikke påbegynt
+      votes:
+        confirm:
+          title: Bekreft stemmen din
+        question:
+          next: Neste
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Lukk
