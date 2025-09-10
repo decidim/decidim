@@ -667,7 +667,6 @@ tr:
       unsubscribe:
         success: Abonelikten başarıyla çıktınız.
         token_error: Bağlantının süresi doldu.
-        unsubscribe: Abonelikten ayrıl
     newsletters_opt_in_mailer:
       notify:
         body_1: Kişisel verilerin işlenmesi ve korunması, hepimiz için giderek daha önemli hale gelmektedir. 25 Mayıs 2018 tarihli yeni Genel Veri Koruma Yönetmeliği (GDPR) ile bireyler kişisel verileri üzerinde daha iyi bir kontrole sahiptir. Bu nedenle, %{organization_name}faaliyetleri hakkında ilgili bilgileri göndermeye devam etmek için "OK" e ihtiyacımız var.
