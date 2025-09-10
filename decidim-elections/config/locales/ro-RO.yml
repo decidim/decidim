@@ -47,6 +47,9 @@ ro:
           edit_questions:
             new_question: Întrebare nouă
             title: Întrebări
+      censuses:
+        token_csv_form:
+          email: E-mail
       elections:
         count:
           elections_count:
@@ -62,7 +65,9 @@ ro:
         questions:
           title: Întrebări aferente alegerilor
         show:
-          vote_button: Începe să votezi
+          vote_button: Votează
+        vote_results:
+          title: Rezultate
       models:
         election:
           fields:
@@ -71,5 +76,14 @@ ro:
         active: Activ
         finished: Terminat
         not_started: Nu a început
+      votes:
+        confirm:
+          title: Confirmă votul tău
+        question:
+          next: Următoarea
     statistics:
       elections_count: Alegeri
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Inchide
