@@ -1265,11 +1265,9 @@ es-PY:
         main_image: Imagen principal
     newsletters:
       unsubscribe:
-        check_subscription: Si quieres cambiar tus preferencias, puedes hacerlo en la <a href="%{link}" target="_blank">página de configuración</a>.
         error: Se ha producido un error al cancelar la suscripción.
         success: Te has dado de baja exitosamente.
         token_error: El enlace ha expirado.
-        unsubscribe: Darse de baja
     newsletters_opt_in:
       unauthorized: Lo sentimos, este enlace ya no está disponible.
       update:
