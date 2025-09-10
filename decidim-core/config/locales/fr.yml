@@ -1135,11 +1135,9 @@ fr:
         main_image: Image principale
     newsletters:
       unsubscribe:
-        check_subscription: Si vous souhaitez modifier vos préférences, vous pouvez le faire dans la page des <a href="%{link}" target="_blank">paramètres des notifications</a>.
         error: Un problème est survenu lors de la désinscription.
         success: Vous vous êtes désabonné avec succès.
         token_error: Le lien a expiré.
-        unsubscribe: Se désabonner
     newsletters_opt_in:
       unauthorized: Désolé, ce lien n'est plus disponible.
       update:
