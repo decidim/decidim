@@ -42,4 +42,7 @@ hu:
             title: Kérdések
       elections:
         show:
-          vote_button: Szavazás kezdete
+          vote_button: Szavazás
+      votes:
+        question:
+          next: Következő
