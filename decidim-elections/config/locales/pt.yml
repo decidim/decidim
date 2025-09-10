@@ -57,6 +57,9 @@ pt:
           edit_questions:
             new_question: Nova pergunta
             title: Perguntas
+      censuses:
+        token_csv_form:
+          email: E-Mail
       elections:
         count:
           elections_count:
@@ -73,7 +76,9 @@ pt:
         questions:
           title: Questões da eleição
         show:
-          vote_button: Começar votação
+          vote_button: Votar
+        vote_results:
+          title: Resultado
       models:
         election:
           fields:
@@ -85,5 +90,15 @@ pt:
         finished: Terminado
         not_started: Não iniciado
         ongoing: Em andamento
+      votes:
+        confirm:
+          title: Confirmar o seu voto
+        question:
+          back: Recuar
+          next: Seguinte
     statistics:
       elections_count: Eleições
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Fechar
