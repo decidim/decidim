@@ -81,7 +81,7 @@ header {
       }
 
       button[type="submit"] {
-        @apply absolute ltr:right-4 rtl:left-4 inset-y-2;
+        @apply absolute ltr:left-4 rtl:right-4 inset-y-2;
 
         svg {
           @apply fill-gray-8;
@@ -126,11 +126,11 @@ header {
       }
 
       &__dropdown {
-        @apply flex items-end absolute top-full right-0 z-30;
+        @apply flex items-end absolute top-0 right-0 z-30 h-screen;
 
         .menu-bar {
           &__main-dropdown {
-            @apply hidden lg:flex flex-col;
+            @apply hidden lg:flex flex-col h-full md:p-8;
 
             &__left {
               @apply w-full;
@@ -141,9 +141,17 @@ header {
             @apply w-full;
 
             li {
-              @apply border-none;
+              @apply py-3 md:py-3.5 border-b last:border-0 border-gray-3;
+
+              a {
+                @apply no-underline;
+              }
             }
           }
+        }
+
+        #main-dropdown-summary-desktop-close {
+          @apply self-end;
         }
       }
 
@@ -321,14 +329,14 @@ header {
     }
 
     &__breadcrumb-desktop {
-      @apply hidden lg:flex justify-between items-center [&>*]:text-md [&>*]:text-black;
+      @apply hidden lg:flex justify-between items-center [&>*]:text-md [&>*]:text-black gap-x-2;
 
       .no-interactive {
-        @apply font-normal px-2;
+        @apply font-normal px-0;
       }
 
       &__dropdown-trigger {
-        @apply flex rounded py-1 z-20 pr-2 font-semibold;
+        @apply flex rounded py-1 z-20 font-semibold;
 
         &:hover {
           @apply z-10 relative before:content-[''] before:absolute before:w-[calc(100%+3rem+1px)] before:min-w-[10rem] before:h-40 before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/4 before:-z-10;
@@ -499,7 +507,7 @@ header {
     }
 
     &__dropdown-menu {
-      @apply w-full md:w-1/4 px-4 md:px-8 pt-0 pb-3 md:py-3 divide-y divide-gray-3 text-[var(--secondary)];
+      @apply w-full md:w-1/4 px-4 md:px-0 pt-0 pb-3 md:py-3 divide-y divide-gray-3 text-[var(--secondary)];
 
       > * {
         @apply py-3 md:py-3.5 md:px-2;
@@ -530,7 +538,7 @@ header {
       @apply bg-white flex flex-row rounded-b shadow-lg text-black w-full lg:w-[530px] h-screen md:h-auto;
 
       &__left {
-        @apply p-4 md:p-8 space-y-5 hidden md:block md:w-3/4;
+        @apply p-4 md:py-8 md:px-0 space-y-5 hidden md:block md:w-3/4;
 
         &-top {
           @apply border-b-4 border-gray-3 pb-3;
