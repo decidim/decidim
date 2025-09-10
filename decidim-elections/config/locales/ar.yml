@@ -11,3 +11,6 @@ ar:
               description: الوصف
           results:
             title: النتائج
+      elections:
+        vote_results:
+          title: النتائج
