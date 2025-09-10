@@ -45,6 +45,12 @@ module Decidim
           end
         end
       end
+
+      initializer "decidim_dev.graphql_api" do
+        next unless Decidim.module_installed?(:api)
+
+        Decidim::Api.add_orphan_type Decidim::Dev::DummyResourceType
+      end
     end
   end
 end
