@@ -1290,11 +1290,9 @@ cs:
         main_image: Hlavní obrázek
     newsletters:
       unsubscribe:
-        check_subscription: Pokud chcete změnit své předvolby, můžete tak učinit na <a href="%{link}" target="_blank">konfigurační stránce</a>.
         error: Při odhlášení došlo k chybě.
         success: Úspěšně jste odhlášeni.
         token_error: Platnost odkazu vypršela.
-        unsubscribe: Odhlásit odběr
     newsletters_opt_in:
       unauthorized: Je nám líto, tento odkaz již není k dispozici.
       update:
