@@ -1265,11 +1265,9 @@ de:
         main_image: Hauptbild
     newsletters:
       unsubscribe:
-        check_subscription: Wenn Sie Ihre Einstellungen ändern möchten, können Sie dies auf der <a href="%{link}" target="_blank">Konfigurationsseite</a> tun.
         error: Es gab ein Problem beim Kündigen des Abonnements.
         success: Sie haben sich erfolgreich abgemeldet.
         token_error: Der Link ist abgelaufen.
-        unsubscribe: Abmelden
     newsletters_opt_in:
       unauthorized: Entschuldigung, dieser Link ist nicht mehr verfügbar.
       update:
