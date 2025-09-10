@@ -1262,11 +1262,9 @@ es:
         main_image: Imagen principal
     newsletters:
       unsubscribe:
-        check_subscription: Si quieres cambiar tus preferencias, puedes hacerlo en la <a href="%{link}" target="_blank">página de configuración</a>.
         error: Se ha producido un error al cancelar la suscripción.
         success: Has cancelado la subscripción correctamente.
         token_error: El enlace ha caducado.
-        unsubscribe: Anula la subscripción
     newsletters_opt_in:
       unauthorized: Lo sentimos, este enlace ya no está disponible.
       update:
