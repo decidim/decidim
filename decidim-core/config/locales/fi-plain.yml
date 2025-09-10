@@ -1264,11 +1264,9 @@ fi-pl:
         main_image: Pääkuva
     newsletters:
       unsubscribe:
-        check_subscription: Jos haluat muuttaa asetuksiasi, voit tehdä sen <a href="%{link}" target="_blank">asetussivulla</a>.
         error: Tilauksen peruuttaminen epäonnistui.
         success: Tilauksen peruuttaminen onnistui.
         token_error: Linkki on vanhentunut.
-        unsubscribe: Peruuta tilaus
     newsletters_opt_in:
       unauthorized: Valitettavasti tämä linkki ei ole enää käytettävissä.
       update:
