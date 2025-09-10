@@ -81,6 +81,9 @@ fi:
             answer: Vastaukset
             percentage: Prosentti
             votes: Äänet
+            votes_count:
+              one: 1 ääni
+              other: "%{count} ääntä"
           results:
             not_started: Vaali ei ole vielä alkanut.
             per_question_waiting: Yhtään kysymystä ei voi vielä äänestää. Osallistujat näkevät viestin "Odotetaan seuraavaa kysymystä", kunnes aktivoit vähintään yhden kysymyksen.
@@ -184,11 +187,24 @@ fi:
           one: Tässä vaalissa voi tällä hetkellä äänestää <strong>1</strong> henkilö (tämä voi muuttua käytettäessä dynaamista henkilötietorekisteriä).
           other: Tässä vaalissa voi tällä hetkellä äänestää <strong>%{count}</strong> henkilöä (tämä voi muuttua käytettäessä dynaamista henkilötietorekisteriä).
         internal_users:
+          already_have_an_account?: Onko sinulla jo käyttäjätili?
+          are_you_new?: Oletko uusi osallistuja?
           info_html: |
             Voit rajata tähän vaaliin osallistumisen osallistujille, jotka ovat vahvistaneet käyttäjätilinsä.<br>
             Huomioithan, että osallistujien on vahvistettava käyttäjätilinsä äänestääkseen. Äänestys on mahdollista kaikille palveluun rekisteröityneille osallistujille, mikäli kaikki valintaruudut jätetään valitsematta.
           internal_type_title: Muut vahvistustavat äänestämisen mahdollistamiseksi (vapaaehtoinen)
           label: Rekisteröityneet osallistujat (dynaaminen)
+          sign_in_description: Kirjaudu sisään äänestääksesi näissä vaaleissa
+          sign_up_description: Luo tili äänestääksesi näissä vaaleissa
+        internal_users_form:
+          authorization_options_invalid: Valitettavasti osa käyttäjätilisi vahvistuksista eivät täsmää näiden vaalien vaatimusten kanssa.
+          exit_button: Poistu äänestyskopista
+          invalid: Tiliäsi ei ole vahvistettu äänestääksesi näissä vaaleissa.
+          missing: Käyttäjätililtäsi puuttuu osa vaadituista vahvistuksista. Ole hyvä ja tarkasta tiedot, minkä jälkeen voit yrittää uudestaan.
+          not_authorized: '"%{adapter}" -vahvistus ei täsmää vaatimusten kanssa.'
+          not_granted: '"%{adapter}" -vahvistusta ei ole myönnetty.'
+          resume_with_method: Jatka vahvistusta %{name}
+          verify_with_method: Vahvista palvelun %{name} avulla
         token_csv:
           example: |
             email;token
@@ -201,6 +217,12 @@ fi:
           remove_before_upload: Mikäli haluat ladata uuden henkilötietorekisterin, aikaisempi rekisteri on ensin poistettava.
           upload_file: Lataa tiedosto
           upload_new_census: Lataa CSV-tiedosto
+        token_csv_form:
+          email: Sähköposti
+          email_placeholder: Syötä äänestäjän sähköpostiosoite
+          invalid: Sähköpostiosoite tai vahvistustunnus on virheellinen. Tarkasta tiedot ja yritä uudestaan.
+          token: Vahvistustunnus
+          token_placeholder: Syötä äänestäjän vahvistustunnus
       elections:
         count:
           elections_count:
@@ -225,7 +247,19 @@ fi:
           subtitle: 'Nämä kysymykset esitetään äänestyksen yhteydessä:'
           title: Vaaliin liittyvät kysymykset
         show:
-          vote_button: Aloita äänestys
+          active_voting_until: 'Äänestysaika päättyy: %{end_date}'
+          vote_button: Äänestä
+          voted: Olet jo äänestänyt. Voit äänestää uudestaan, ainoastaan viimeinen äänesi otetaan huomioon ääntenlaskennassa.
+          votes_count:
+            one: 1 ääni
+            other: "%{count} ääntä"
+          voting_began: 'Äänestys alkoi: %{start_date}'
+        vote_results:
+          subtitle:
+            after_end: Vaalit ovat päättyneet. Voit nyt nähdä tulokset.
+            per_question: Tulokset ovat saatavilla kutakin kysymystä kohden. Näet kunkin kysymyksen tulokset, kun äänestys päättyy ja tulokset julkaistaan.
+            real_time: Tulokset näkyvät reaaliaikaisesti. Näet tulokset äänestyksen aikana.
+          title: Tulokset
       models:
         election:
           fields:
@@ -234,6 +268,12 @@ fi:
             start_at: Alkamisaika
             status: Tila
             title: Otsikko
+      per_question_votes:
+        waiting:
+          description: Voit odottaa, kunnes seuraava kysymys on käytettävissä. Sinut ohjataan automaattisesti seuraavaan kysymykseen sen valmistuttua.
+          edit_vote: Muokkaa ääntäsi
+          exit_button: Poistu odotushuoneesta
+          title: Odotetaan seuraavaa kysymystä
       status:
         active: Aktiivinen
         finished: Valmis
@@ -243,11 +283,39 @@ fi:
         scheduled: Ajastettu
         unpublished: Julkaisematon
         voting_enabled: Äänestys on käynnissä
+      votes:
+        cast:
+          invalid: Äänen jättäminen epäonnistui. Tarkasta antamasi tiedot ja yritä uudestaan.
+          success: Äänesi kirjaaminen onnistui.
+        check_census:
+          access: Oikeudet
+          election_not_open: Nämä vaalit eivät ole vielä auki. Tarkasta äänestyksen päivämäärät ja yritä uudestaan.
+          failed: Henkilöllisyyttäsi ei voitu vahvistaa. Tarkasta antamasi tiedot ja yritä uudestaan.
+          form_title: Vahvista henkilöllisyytesi
+          invalid: Käyttäjää ei löytynyt henkilötietorekisteristä.
+        confirm:
+          cast_vote: Lähetä ääni
+          edit_vote: Muokkaa ääntäsi
+          not_answered: Et ole vastannut tähän kysymykseen.
+          title: Vahvista äänesi
+        not_authorized: Tiliäsi ei ole vahvistettu äänestääksesi näissä vaaleissa.
+        question:
+          back: Takaisin
+          cast_vote: Lähetä ääni
+          next: Seuraava
+        receipt:
+          description: Voit äänestää uudestaan äänestyksen ollessa auki. Aikaisempi äänesi mitätöidään ja korvataan antamallasi uudella äänellä.
+          exit_button: Poistu äänestyskopista
+          title: Äänesi kirjaaminen onnistui
     metadata:
       progress:
         published_results: 'Tulosten julkaisuaika: %{end_date}'
     statistics:
       elections_count: Vaalia
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Sulje
   time:
     formats:
       short_with_time: "%-d.%-m.%Y klo %H:%M"
