@@ -34,6 +34,9 @@ ga:
         questions:
           edit_questions:
             title: Ceisteanna
+      censuses:
+        token_csv_form:
+          email: Seoladh ríomhphoist
       elections:
         filters:
           all: Uile
@@ -44,7 +47,9 @@ ga:
         orders:
           recent: Is Déanaí
         show:
-          vote_button: Tosaigh ag vótáil
+          vote_button: Vótáil
+        vote_results:
+          title: Torthaí
       models:
         election:
           fields:
@@ -55,3 +60,11 @@ ga:
         active: Gníomhach
         finished: Críochnaithe
         ongoing: Leanúnach
+      votes:
+        question:
+          back: Ar Ais
+          next: I ndiaidh
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Dún
