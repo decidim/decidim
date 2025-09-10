@@ -183,6 +183,8 @@ ja:
           remove_before_upload: 新しいセンサスをアップロードする場合、まず既存のセンサスを削除する必要があります。
           upload_file: ファイルをアップロード
           upload_new_census: CSVファイルをアップロードする
+        token_csv_form:
+          email: Eメールアドレス
       elections:
         count:
           elections_count:
@@ -198,7 +200,9 @@ ja:
         questions:
           title: 選挙の質問
         show:
-          vote_button: 投票の開始
+          vote_button: 投票
+        vote_results:
+          title: 結果
       models:
         election:
           fields:
@@ -215,8 +219,18 @@ ja:
         scheduled: スケジュール済み
         unpublished: 未公開
         voting_enabled: 投票中
+      votes:
+        confirm:
+          title: 投票を確定
+        question:
+          back: 戻る
+          next: 次へ
     statistics:
       elections_count: 選挙
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: 閉じる
   time:
     formats:
       short_with_time: "%Y/%m/%d %-H:%M"
