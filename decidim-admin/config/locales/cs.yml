@@ -591,6 +591,7 @@ cs:
         help_sections: Sekce nápovědy
         homepage: Rozložení domovské stránky
         impersonations: V zastoupení
+        insights: Přehledy
         manage: Spravovat
         moderation: Globální moderace
         newsletters: Zpravodaje
@@ -1342,5 +1343,7 @@ cs:
       admin:
         global_moderations:
           title: Globální moderace
+        insights:
+          title: Přehledy
         taxonomy_filters_selector:
           title: Filtry
