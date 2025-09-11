@@ -7,9 +7,9 @@ eu:
         file: Fitxategia
       config:
         available_methods: Metodo erabilgarriak
-        offline: Offline
-        offline_explanation: Lineaz kanpoko egiaztapenaren jarraibideak
-        online: Online
+        offline: Off-line
+        offline_explanation: Off-line egiaztapenaren jarraibideak
+        online: On-line
       confirmation:
         verification_code: Egiaztapen kodea
       id_document_information:
@@ -203,7 +203,7 @@ eu:
               save: Gorde
               title: Editatu errolda-erregistroa
             form:
-              email: Helbide elektronkoa
+              email: Helbide elektronikoa
             new_record:
               save: Gorde
               title: Gehitu beste errolda-erregistro bat
@@ -216,7 +216,7 @@ eu:
             fields:
               actions: Ekintzak
               created_at: Noiz sortua
-              email: Helbide elektronkoa
+              email: Helbide elektronikoa
               user_authorized: Parte-hartzailea baimendua?
             import_csv: Inportatu CSV
             no_authorized: Parte-hartzailea ez baimendua
@@ -268,8 +268,8 @@ eu:
           pending_authorizations:
             index:
               config: config
-              offline_verification: Lineaz kanpoko egiaztapena
-              title: Onlineko egiaztapenak zain
+              offline_verification: Off-line egiaztapena
+              title: On-line egiaztapenak zain
               verification_number: 'Egiaztapena # %{n}'
           rejections:
             create:
@@ -277,16 +277,16 @@ eu:
         authorizations:
           choose:
             choose_a_type: 'Hautatu nola egiaztatu nahi duzun:'
-            offline: Offline
-            online: Online
+            offline: Off-line
+            online: On-line
             title: Egiaztatu zure identifikazio dokumentua erabiliz
           create:
             error: Arazo bat egon da zure dokumentua igotzean.
             success: Dokumentua ondo igota.
           edit:
             being_reviewed: Zure dokumentuak berrikusten ari gara. Laster egiaztatuko zaituzte.
-            offline: Erabili lineaz kanpoko egiaztapena
-            online: Erabili lineako egiaztapena
+            offline: Erabili off-line egiaztapena
+            online: Erabili on-line egiaztapena
             rejection_clarity: Ziurtatu informazioa argi eta garbi ageri dela kargatutako irudian.
             rejection_correctness: Ziurtatu sartu duzun informazioa zuzena dela.
             rejection_notice: Arazo bat egon da zure egiaztapenarekin. Mesedez, saiatu berriro.
