@@ -15,7 +15,6 @@ import "src/decidim/admin/managed_moderated_users"
 import "src/decidim/admin/moderations"
 import "src/decidim/admin/global_moderations"
 import "src/decidim/admin/officializations"
-import "src/decidim/slug_form"
 import "src/decidim/admin/admin_autocomplete"
 import "src/decidim/admin/triadic_color_picker"
 import "src/decidim/admin/participatory_space_search"
@@ -30,3 +29,4 @@ import "entrypoints/decidim_admin.scss";
 document.addEventListener("turbo:load", () => {
   initLanguageChangeSelect(document.querySelectorAll("select.language-change"));
 });
+

@@ -16,6 +16,11 @@ window.Decidim.managedUsersForm = managedUsersForm;
 window.Decidim.config = new Configuration();
 window.Decidim.InputCharacterCounter = InputCharacterCounter;
 
+
+const context = require.context("./controllers", true, /controller\.js$/)
+window.Stimulus.load(window.definitionsFromContext(context))
+
+
 // REDESIGN_PENDING: deprecated
 window.initFoundation = (element) => {
   $(element).foundation();

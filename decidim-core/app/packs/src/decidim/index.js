@@ -131,6 +131,8 @@ document.addEventListener("turbo:load", () => {
     deprecate(container, "impersonation-warning", "[data-impersonation-warning]", "data-controller='impersonation-warning'"))
   document.querySelectorAll("#panel-password.user-password").forEach((container) =>
     deprecate(container, "account-form", "#panel-password", "data-controller='account-form'"))
+  document.querySelectorAll(".slug").forEach((container) =>
+    deprecate(container, ".slug", "slug", 'data-controller="slug"'))
 
   document.querySelectorAll(".responsive-tab-block").forEach((container) =>
     deprecationMessage(container, ".responsive-tab-block", "NEEDS TO BE REMOVED"));
@@ -272,4 +274,5 @@ application.debug = true
 const context = require.context("./controllers", true, /controller\.js$/)
 application.load(definitionsFromContext(context))
 
+window.definitionsFromContext = definitionsFromContext
 window.Stimulus = application
