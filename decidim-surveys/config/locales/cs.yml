@@ -87,6 +87,8 @@ cs:
             title: Upravit anketu
           index:
             title: Ankety
+          new:
+            title: Nový průzkum
           publish:
             invalid: Při publikování této ankety došlo k chybě.
             success: Anketa byla úspěšně publikována.
