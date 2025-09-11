@@ -90,7 +90,7 @@ eu:
             edit: Editatu
             empty: Oraindik ez dago galderarik.
             questionnaire: Galdetegia
-            title: Editatu galdetegiaren txantiloia
+            title: Galdetegiaren txantiloia editatu
           form:
             title: '%{questionnaire_for}% galdetegiaren txantiloia'
           index:
