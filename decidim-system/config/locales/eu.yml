@@ -136,7 +136,7 @@ eu:
       models:
         admin:
           fields:
-            created_at: Tan sortua
+            created_at: Noiz sortua
             email: Helbide elektronikoa
           validations:
             email_uniqueness: beste administratzaile bat dago, helbide elektroniko hauxe bera duena
