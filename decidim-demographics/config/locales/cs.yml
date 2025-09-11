@@ -1,1 +1,55 @@
+---
 cs:
+  decidim:
+    demographics:
+      actions:
+        title: Akce
+      admin:
+        demographics:
+          tabs_menu:
+            title: Demografie
+        demographics_menu:
+          questions: Otázky
+          responses: Odpovědi
+          settings: Nastavení
+        publish_responses:
+          index:
+            description: Popis
+            title: Zobrazit odpovědi
+        settings:
+          show:
+            title: Nastavení
+          update:
+            invalid: Došlo k chybě při ukládání demografických dat
+            success: Demografická data byla úspěšně uložena
+        title: Demografie
+      demographics:
+        questionnaire:
+          delete_my_data: Smazat data
+          modal_close: Zrušit
+          modal_ok: Ok
+          modal_question: Všechny vaše demografické údaje budou odstraněny.
+          modal_title: Smazat data
+      questions:
+        age:
+          options:
+          - 15 až 29 let
+          - 30 až 44 let
+          - 45 až 64 let
+          - 65 let a více
+          question: Jaký je váš věk?
+        gender:
+          options:
+          - Muž
+          - Žena
+          - Nebinární
+          - Mé pohlaví není uvedeno
+          - Nechci uvádět
+          question: Který z následujících nejlépe popisuje vaše pohlaví?
+        postal:
+          question: Jaké je poštovní směrovací číslo vašeho domova?
+  layouts:
+    decidim:
+      shared:
+        layout_center:
+          alert: Poskytnutím těchto informací přispějete ke statistické analýze, která pomáhá zlepšit ukazatel kvality. Vaše údaje budou agregovány a použity pouze pro výzkumné účely.
