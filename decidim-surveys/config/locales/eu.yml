@@ -14,7 +14,7 @@ eu:
   decidim:
     admin:
       actions:
-        see_survey: Ikusi inkesta
+        see_survey: Inkesta ikusi
       admin_log:
         changeset:
           surveys: inkestak
@@ -71,7 +71,7 @@ eu:
               Argitaratu nahi dituzun erantzunak hauta ditzakezu galdera bakoitzaren ondoan dagoen laukitxoan klik eginez.
               Galdera mota hauek baino ezin dira argitaratu: "Aukera bakarra", "Aukera anitza", "Matrizea (aukera bakarra)", "Matrizea (aukera anitza)" eta "Sailkapena".
             responses:
-              one: "%{count} erantzun"
+              one: "Erantzun %{count}"
               other: "%{count} erantzun"
             status:
               not_published: Argitaratu gabe
@@ -101,6 +101,8 @@ eu:
             title: Editatu inkesta
           index:
             title: Inkestak
+          new:
+            title: Beste inkesta bat
           publish:
             invalid: Arazo bat egon da inkesta hau argitaratzean.
             success: Inkesta zuzen argitaratua.
