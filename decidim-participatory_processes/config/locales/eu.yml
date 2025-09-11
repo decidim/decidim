@@ -9,7 +9,7 @@ eu:
         developer_group: Talde sustatzailea
         document: Dokumentua
         domain: Domeinua
-        duplicate_categories: Bikoiztu kategoriak
+        duplicate_categories: Kategoriak bikoiztu
         duplicate_components: Bikoiztu osagaiak
         duplicate_steps: Bikoiztu urratsak
         end_date: Bukaera-data
@@ -429,22 +429,63 @@ eu:
                   two: '%20 - 40 ='
               citizen_influence_level:
                 legend: Zein neurritan dute herritarrek erabakitzeko ahalmena prozesu honetan, informazioa jasotze hutsetik erabakietan eta baliabideen kudeaketan eragin erabakigarrira?
+                options:
+                  five: Parte-hartzaileek erabakiak hartzen eta baliabideak kudeatzen edo ezartzen parte hartzen dute
+                  four: Parte-hartzaileek erabakitasunez parte hartu dute erabakiak hartzerakoan
+                  one: Antolatzaileen informazioa jaso dute parte-hartzaileek
+                  three: Parte-hartzaileak inplikatu dira erabakitzeko ahalmena partekatzeko
+                  two: Parte-hartzaileei kontsulta moduan galdetu zitzaien edo antolakuntzari iritzia eman zitzaion
               name: Herritarren eragina
             inclusiveness:
               description: Inklusibitatea jatorri kulturalaren eta dibertsitate funtzionalaren arabera.
               digital_support_offered:
+                legend: Parte-hartzaileei bozka digitala eskaini zaie?
                 options:
                   five: 'Bai'
+                  two_five: Partzialki
                   zero: 'Ez'
+              functional_diversity_invited:
+                legend: Nola baloratzen da eragileen eta parte-hartzaileen dibertsitate maila prozesuan erreferentzia den biztanleriarekiko?
+                options:
+                  five: Ona
+                  one: Baxu
+                  two_five: Nahiko
+                  zero: Bat ere ez
+              languages_communicated:
+                legend: Zenbat hizkuntza erabili dira prozesuaren barruan?
+                options:
+                  five: Komunitatean hitz egiten diren hizkuntzen erdia baino gehiago
+                  one: Hizkuntza bat
+                  two_five: Komunitatean hitz egiten diren hizkuntzen erdia baino gutxiago
               mobility_meeting_access:
+                legend: Aurrez aurreko bileretako lekuak irisgarriak al ziren mugikortasun urriko pertsonentzat?
                 options:
                   five: 'Bai'
+                  two_five: Partzialki
                   zero: 'Ez'
               name: Inklusibotasuna
               participation_scheduling_times:
+                legend: Partaidetza-saioek hainbat mugimendutan (goizean, eguerdian, arratsaldean, gauean eta asteburuetan) dute eragina.
                 options:
                   five: 'Bai'
+                  two_five: Partzialki
                   zero: 'Ez'
+            informativeness:
+              information_provided:
+                legend: Eztabaidagai den gaian eragiteko parte-hartzaileen gaitasunari buruzko informaziorik eman al da? (bai prozesuaren komunikazioan, bai gonbidapenetan, bai eztabaida-saio bakoitzaren hasieran)
+                options:
+                  five: Beti
+                  one: Ia inoiz ez
+                  two_five: Normalean
+                  zero: Inoiz ez
+              name: Informatiboa
+              published_information_clarity:
+                legend: Argitaratutako informazioak argitasuna ematen du erabakiak hartzeko mekanismoei buruz? (adib. bozketa, adostasuna, zuzeneko negoziazioak)
+                options:
+                  five: Argitasun osoa
+                  one: Argitasun txikia
+                  two_five: Argitasun nahikoa
+                  zero: Argitasunik ez
           highlighted_processes:
             active: Aktiboa
             all: Guztiak
@@ -453,6 +494,9 @@ eu:
         new_import:
           accepted_types:
             json: JSON
+        participatory_process_duplicates:
+          form:
+            slug_help_html: 'URL Slugs erabiltzen da prozesu hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak bakarrik onartzen ditu, eta letra batekin hasi behar da. Adibidea: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadatuak
@@ -497,14 +541,19 @@ eu:
             name: Metrika automatikoak
           global_score:
             description_html: Jarraian, partaidetza-prozesu horren kalitate demokratikoa ebaluatzeko erabiltzen diren adierazleen multzo bat dago. Nola kalkulatzen diren gehiago jakiteko, ikus <a href="%{info_url}">kalitate demokratikoaren adierazleei buruzko informazio-orria</a>.
-            name: Esparru orokorra
+            name: Espzio orokorra
+            note: "*Balio adierazleak 1etik 5erako eskalan neurtzen dira, non 1ek baxuena adierazten duen eta 5ek kalitate adierazle altuena."
             tooltip: Dimentsio guztien batezbestekoan kalkulatua
+          name: Kalitate-adierazlea
           qualitative_metrics:
             description: Adierazle horiek plataformako administratzaileek betetako autoebaluazioari buruzko inkesta baten erantzunetatik lortzen dira.
             indicators:
               citizen_influence: Herritarren eragina
               citizen_influence_tooltip: Parte-hartzaileen eragina erabakiak hartzean neurtzen du.
               inclusiveness: Inklusibotasuna
+              inclusiveness_tooltip: Interesatu desberdinek bidezko ordezkaritza duten ebaluatzen du.
+              informativeness: Informatiboa
+              informativeness_tooltip: Prozesuaren barruan emandako argitasun- eta informazio-maila neurtzen du.
             name: Autoebaluazioaren metrikak
         extra_data:
           name: Fasea eta iraupena
@@ -568,7 +617,7 @@ eu:
         index:
           title: Kideak
       show:
-        belongs_to_group: Prozesu hau honi dagokio
+        belongs_to_group: Prozesu hau nori dagokio
         private_space: Prozesu pribatua da
         related_processes: Elkarrekin lotutako prozesuak
       static_pages:
