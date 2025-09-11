@@ -351,7 +351,7 @@ eu:
         attempts: Saiakerak
         'false': 'Ez'
         index:
-          text: Bilatu gaur egungo erabiltzailearen posta elektronikoaren, izenren edo ezizenaren bidez
+          text: Bilatu gaur egungo parte-hartzailearen posta elektronikoaren, izenren edo ezizenaren bidez
         managed_user_name: Parte-hartzailearen kudeatua
         solved: Ebatzita
         title: Egiaztapen-arazoak
