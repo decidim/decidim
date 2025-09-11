@@ -78,7 +78,7 @@ eu:
             select_condition_type: Hautatu baldintza mota bat
           edit:
             save: Gorde
-            title: Editatu galdetegia
+            title: Galdetegia editau
           form:
             add_question: Gehitu galdera
             add_separator: Gehitu banatzailea
