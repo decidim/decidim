@@ -7,6 +7,9 @@ cs:
         banner_image: Obrázek banneru
         decidim_scope_id: Oblast působnosti
         description: Popis
+        duplicate_categories: Duplikovat kategorie
+        duplicate_components: Duplikovat komponenty
+        duplicate_features: Duplikovat funkce
         end_date: Datum ukončení
         hero_image: Obrázek na hlavní stránce
         location: Lokalita
@@ -103,6 +106,7 @@ cs:
       conference_duplicates:
         new:
           duplicate: Duplikovat
+          select: Vyberte, která data chcete duplikovat
           title: Duplikovat konferenci
       conference_publications:
         create:
@@ -185,6 +189,7 @@ cs:
       conferences_duplicates:
         create:
           error: Při kopírování této konference došlo k chybě.
+          success: Konference byla úspěšně duplikována.
       media_links:
         create:
           error: Při vytváření nového odkazu na média došlo k chybě.
