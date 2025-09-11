@@ -7,9 +7,9 @@ eu:
         banner_image: Banner irudia
         decidim_scope_id: Esparrua
         description: Deskribapena
-        duplicate_categories: Bikoiztu kategoriak
-        duplicate_components: Bikoiztu osagaiak
-        duplicate_features: Bikoiztu ezaugarriak
+        duplicate_categories: Kategoriak bikoiztu
+        duplicate_components: Osagaiak bikoiuztu
+        duplicate_features: Ezaugarriak bikoiztu
         end_date: Amaiera-data
         hero_image: Orri nagusiko irudia
         location: Kokapena
@@ -101,7 +101,7 @@ eu:
         new:
           duplicate: Bikoiztu
           select: Hautatu zein datu bikoiztu nahi dituzun
-          title: Bikoiztu jardunaldia
+          title: Jardunaldia bikoiztu
       conference_publications:
         create:
           error: Arazo bat egon da jardunaldi hau argitaratzean.
@@ -163,7 +163,7 @@ eu:
           registrations: Izen-emateak
         form:
           duration: Iraupena
-          images: Argazkiak
+          images: Irudiak
           metadata: Metadatuak
           registrations: Izen-emateak
           related_spaces: Honekin lotutako espazioak
@@ -451,7 +451,7 @@ eu:
           details_2: Jardunaldiaren xehetasunak eranskinean aurkituko dituzu.
         pending_validation:
           confirmation_pending: Berrespena jasoko duzu laster
-          details: 'To You erregistratu %{registration_type} motako kostua batekin %{price} eta ondorengo gertaerak joateko daiteke:'
+          details: '%{registration_type} motako %{price} tasan erregistratu zara, eta gertaera hauei erantzun diezaiekezu:'
           pending_html: <a href="%{url}">%{title}</a> jardunaldirako zure izen-ematea zain dago berresteko.
       conference_registrations:
         create:
@@ -515,7 +515,7 @@ eu:
       models:
         conference_invite:
           fields:
-            email: Helbide elektronkoa
+            email: Helbide elektronikoa
             name: izena
             registration_type: Izen-emate mota
             sent_at: Bidalita
