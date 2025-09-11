@@ -444,6 +444,7 @@ cs:
           id: Jedinečný identifikátor návrhu
           is_amend: Zda je tento návrh změnou jiného návrhu
           latitude: Zeměpisná šířka návrhu v případě, že má fyzické umístění
+          likes: Počet líbí se mi ("lajků"), které tento návrh získal
           longitude: Zeměpisná délka návrhu v případě, že má fyzické umístění
           meeting_urls: URL schůzek v nichž byl tento návrh předložen nebo projednán
           original_proposal: Odkaz na původní návrh, pokud se jedná o pozměňovací návrh
@@ -486,6 +487,13 @@ cs:
           deleted_proposals_info: Smazané návrhy mohou být obnoveny z koše.
           preview: Náhled
           view_deleted_proposals: Zobrazit smazané návrhy
+        evaluation_assignments:
+          create:
+            invalid: Při přiřazování návrhů hodnotiteli došlo k chybě.
+            success: Návrhy byly úspěšně přiřazené hodnotiteli.
+          delete:
+            invalid: Při odebírání návrhů od hodnotitele došlo k chybě.
+            success: Hodnotitel byl úspěšně odebrán z návrhů.
         exports:
           proposal_comments: Komentáře
           proposals: Návrhy
@@ -651,6 +659,7 @@ cs:
             documents: Dokumenty
             evaluators: Hodnotitelé
             likes: Líbí se mi
+            likes_count: Počet líbí se mi
             link: Zobrazit návrh
             photos: Fotky
             ranking: "%{ranking} z %{total}"
@@ -1049,5 +1058,6 @@ cs:
       participatory_space_proposals_count: Návrhy
       proposals_accepted: Přijaté návrhy
       proposals_count: Návrhy
+      proposals_count_tooltip: Celkový počet předložených návrhů a odevzdaných hlasů.
       votes: 'Hlasy:'
       votes_count: Hlasy
