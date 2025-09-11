@@ -46,6 +46,7 @@ cs:
           edit: Upravit
           new_sortition: Nové losování
           show: Detaily losování
+          title: Akce
         models:
           sortition:
             fields:
