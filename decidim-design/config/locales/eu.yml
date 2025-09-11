@@ -157,7 +157,7 @@ eu:
         accountability_cards_html: <i>Proiektuen erantzukizuna</i> txartelek erabilia. Txartel honek moduluko aktiboak behar bezala erakustea eskatzen du, hau da, <code>append_stylesheet_pack_tag \"decidim_contabilidad\"<code>
         activity: Jarduera
         address_description: Helbide-gelaxkak baliabide bat jasotzen du eta atributu geolokalizagarriak bilatzen ditu markaketa zehatz bat egiteko.
-        address_description_2: Eduki motaren arabera, helbidea online url bat izan daiteke. Kasu horietarako, erakutsitako informazioa berdina da, baina egokitzeko modukoa.
+        address_description_2: Eduki motaren arabera, helbidea on-line url bat izan daiteke. Kasu horietarako, erakutsitako informazioa berdina da, baina egokitzeko modukoa.
         ally_link: a11y- goitibeherako zerrendaren osagaia
         argument: Argumentua
         assemblies: Batzarrak
