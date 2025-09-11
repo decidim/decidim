@@ -477,8 +477,8 @@ eu:
         cancel_coauthor_invitation_confirm: Ziur zaude egilekide-gonbidapena ezeztatu nahi duzula?
         delete_proposal_state_confirm: Ziur zaude egoera hau ezabatu nahi duzula?
         destroy: Ezabatu egoera
-        edit_proposal: Editatu proposamena
-        edit_proposal_state: Editatu egoera
+        edit_proposal: Proposamena editatu
+        edit_proposal_state: Egoera editaru
         import: Inportatu proposamenak beste osagai batetik
         mark_as_coauthor: Markatu egilekide gisa
         mark_as_coauthor_confirm: Ziur zaude parte-hartzaile hau egilekide gisa markatu nahi duzula? Parte-hartzaileak jakinarazpena jasoko du gonbidapena onartzeko edo baztertzeko.
@@ -549,7 +549,7 @@ eu:
           bulk-actions:
             are_you_sure: Ziur al zaude parte hartzailearen testu-zirriborroa baztertu nahi duzula?
             discard_all: Baztertu guztiak
-            import_doc: Inportatu dokumentua
+            import_doc: Dokumentua inportatu
           discard:
             success: Parte-hartzaileen testu-zirriborro guztiak baztertu egin dira.
           import:
@@ -622,11 +622,11 @@ eu:
             invalid: Arazo bat izan da proposamen hau sortzean.
             success: Proposamena zuzen sortua.
           edit:
-            title: Eguneratu proposamena
+            title: Proposamena eguneratu
             update: Eguneratu
           form:
             created_in_meeting: Proposamen hau bilera batetik dator
-            select_a_meeting: Hautatu topaketa bat
+            select_a_meeting: Topaketa bat hautatu
           index:
             actions: Ekintzak
             apply_answer_template: Erabili erantzuteko txantiloia
@@ -697,7 +697,7 @@ eu:
             success: Proposamen berri batean sartu dira.
           form:
             created_in_meeting: Proposamen hau bilera batetik dator
-            select_a_meeting: Hautatu topaketa bat
+            select_a_meeting: Topaketa bat hautatu
           new:
             title: Bat egin berri batekin
         proposals_splits:
@@ -943,7 +943,7 @@ eu:
           new_proposal: Beste proposamen bat
           see_all: Ikusi proposamen guztiak
           see_all_withdrawn: Ikusi erretiratutako proposamen guztiak
-          text_banner: Ikusten ari zara egileek bertan behera utzitako proposamenak %{go_back_link}.
+          text_banner: Egileek erretiratutako proposamenen zerrenda ikusten ari zara. %{go_back_link}.
         new:
           send: Jarraitu
           title: Sortu beste proposamen bat
