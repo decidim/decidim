@@ -1262,9 +1262,12 @@ ca:
         main_image: Imatge principal
     newsletters:
       unsubscribe:
+        check_subscription_html: Si els vols tornar a rebre, pots tornar a activar la teva subscripció en qualsevol moment des de la <a href="%{link}" target="_blank">pàgina de configuració</a>.
         error: S'ha produït un error en cancel·lar la subscripció.
+        subscription_preferences: Hem actualitzat les teves preferències de subscripció i ja no rebràs butlletins informatius de %{organization_name}.
         success: Has cancel·lat la subscripció correctament.
         token_error: L'enllaç ha caducat.
+        unsubscribe: Cancel·lar la subscripció al butlletí informatiu
     newsletters_opt_in:
       unauthorized: Ho sentim, aquest enllaç ja no està disponible.
       update:
