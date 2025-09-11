@@ -124,6 +124,7 @@ cs:
           success: Shromáždění úspěšně aktualizováno.
       assemblies_copies:
         create:
+          error: Při kopírování tohoto shromáždění došlo k chybě.
           success: Shromáždění úspěšně duplikováno.
       assemblies_types:
         create:
@@ -140,6 +141,7 @@ cs:
       assembly_copies:
         new:
           copy: Kopírovat
+          select: Vyberte, která data chcete duplikovat
           title: Duplikovat shromáždění
       assembly_imports:
         create:
