@@ -1264,9 +1264,12 @@ fi:
         main_image: Pääkuva
     newsletters:
       unsubscribe:
+        check_subscription_html: Mikäli haluat saada uutiskirjeitä jälleen tulevaisuudessa, voit tilata ne uudestaan <a href="%{link}" target="_blank">profiilisi asetuksista</a>.
         error: Tilauksen peruminen epäonnistui.
+        subscription_preferences: Olemme päivittäneet uutiskirjeitä koskevia asetuksiasi, etkä enää saa uutiskirjeitä palvelusta %{organization_name}.
         success: Tilauksen peruminen onnistui.
         token_error: Linkki on vanhentunut.
+        unsubscribe: Peruuta uutiskirjeen tilaus
     newsletters_opt_in:
       unauthorized: Valitettavasti tämä linkki ei ole enää käytettävissä.
       update:
