@@ -152,6 +152,9 @@ cs:
         new:
           copy: Kopírovat
           title: Duplicitní schůzka
+      tooltips:
+        cannot_manage_attachments_meetings: Nelze spravovat přílohy v této schůzce, protože jsou vytvořeny uživatelem
+        cannot_manage_poll_meetings: Nelze spravovat anketu na této schůzce, protože je vytvořena účastníkem
     components:
       meetings:
         actions:
