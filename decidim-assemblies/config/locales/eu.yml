@@ -19,9 +19,9 @@ eu:
         developer_group: Talde sustatzailea
         document: Dokumentua
         domain: Domeinua
-        duplicate_categories: Bikoiztu kategoriak
-        duplicate_components: Bikoiztu osagaiak
-        duplicate_features: Bikoiztu ezaugarriak
+        duplicate_categories: Kategoriak bikoiztu
+        duplicate_components: Osagaiak bikoiztu
+        duplicate_features: Ezaugarriak bikoiztu
         duration: Iraupena
         facebook: Facebook
         github: GitHub
@@ -119,7 +119,7 @@ eu:
         new:
           duplicate: Bikoiztu
           select: Hautatu zein datu bikoiztu nahi dituzun
-          title: Bikoiztu batzarra
+          title: Batzarra bikoiuztu
       assembly_imports:
         create:
           error: Arazo bat egon da batzar hau inportatzean.
