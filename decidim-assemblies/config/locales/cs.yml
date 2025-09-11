@@ -119,10 +119,12 @@ cs:
           success: Shromáždění úspěšně aktualizováno.
       assemblies_duplicates:
         create:
+          error: Při kopírování tohoto shromáždění došlo k chybě.
           success: Shromáždění úspěšně duplikováno.
       assembly_duplicates:
         new:
           duplicate: Duplikovat
+          select: Vyberte, která data chcete duplikovat
           title: Duplikovat shromáždění
       assembly_imports:
         create:
@@ -263,6 +265,9 @@ cs:
             taxonomies: Taxonomie
             title: Obecná informace
             visibility: Viditelnost
+        assembly_duplicates:
+          form:
+            slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         assembly_imports:
           form:
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
