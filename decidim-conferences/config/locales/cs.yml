@@ -108,6 +108,7 @@ cs:
       conference_copies:
         new:
           copy: Kopírovat
+          select: Vyberte, která data chcete duplikovat
           title: Duplikovat konferenci
       conference_publications:
         create:
@@ -184,6 +185,7 @@ cs:
       conferences_copies:
         create:
           error: Při kopírování této konference došlo k chybě.
+          success: Konference byla úspěšně duplikována.
       media_links:
         create:
           error: Při vytváření nového odkazu na média došlo k chybě.
