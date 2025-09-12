@@ -606,6 +606,20 @@ describe "Orders" do
 
         expect(page).to have_current_path Decidim::EngineRouter.main_proxy(component).budgets_path
       end
+
+      it "has the 'You voted for this' message" do
+        visit_budget
+
+        expect(page).to have_content("You voted for this")
+      end
+
+      context "when visiting the show page" do
+        it "has the 'You voted for this' message" do
+          visit resource_locator([budget, project]).path
+
+          expect(page).to have_content("You voted for this")
+        end
+      end
     end
 
     context "and votes are disabled" do
