@@ -90,14 +90,16 @@ Decidim.register_component(:budgets) do |component|
     settings.attribute :taxonomy_filters, type: :taxonomy_filters
     settings.attribute :workflow, type: :enum, default: "one", choices: ->(_context) { Decidim::Budgets.workflows.keys.map(&:to_s) }
     settings.attribute :projects_per_page, type: :integer, default: 12
-    settings.attribute :vote_rule_threshold_percent_enabled, type: :boolean, default: true
+    settings.attribute :voting_rule, type: :enum, default: "threshold_percent", choices: %w(threshold_percent minimum_projects selected_projects)
+
     settings.attribute :vote_threshold_percent, type: :integer, default: 70
     settings.attribute :vote_threshold_percent, type: :integer, default: 70
-    settings.attribute :vote_rule_minimum_budget_projects_enabled, type: :boolean, default: false
+
     settings.attribute :vote_minimum_budget_projects_number, type: :integer, default: 1
-    settings.attribute :vote_rule_selected_projects_enabled, type: :boolean, default: false
+
     settings.attribute :vote_selected_projects_minimum, type: :integer, default: 0
     settings.attribute :vote_selected_projects_maximum, type: :integer, default: 1
+
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :comments_max_length, type: :integer, required: true
     settings.attribute :geocoding_enabled, type: :boolean, default: false
