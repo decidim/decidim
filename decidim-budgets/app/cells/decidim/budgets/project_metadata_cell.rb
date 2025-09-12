@@ -7,7 +7,7 @@ module Decidim
       include Decidim::Budgets::ProjectsHelper
 
       delegate :selected?, to: :model
-      delegate :show_votes_count?, to: :controller
+      delegate :show_votes_count?, :resource_added?, to: :controller
 
       alias project model
 
@@ -35,7 +35,7 @@ module Decidim
       def voted_item_for_map
         {
           text: "#{model.confirmed_orders_count} #{t("decidim.budgets.projects.project.votes", count: model.confirmed_orders_count)}",
-          icon: current_order_checked_out? && resource_added? ? "check-double-line" : "check-line"
+          icon: current_order_checked_out? && resource_added?(model) ? "check-double-line" : "check-line"
         }
       end
 
@@ -60,10 +60,6 @@ module Decidim
 
       def current_order
         @current_order ||= controller.try(:current_order)
-      end
-
-      def resource_added?
-        current_order && current_order.projects.include?(model)
       end
 
       def current_order_checked_out?

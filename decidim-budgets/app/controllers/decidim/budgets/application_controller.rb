@@ -26,6 +26,10 @@ module Decidim
         current_settings.show_votes?
       end
 
+      def resource_added?(project)
+        current_order && current_order.projects.include?(project)
+      end
+
       private
 
       def workflow_name
