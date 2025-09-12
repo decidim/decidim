@@ -43,9 +43,6 @@ import "src/decidim/callout"
 import ConfirmDialog, { initializeConfirm } from "src/decidim/confirm"
 import { initializeUploadFields } from "src/decidim/direct_uploads/upload_field"
 import { initializeReverseGeocoding } from "src/decidim/geocoding/reverse_geocoding"
-import formDatePicker from "src/decidim/datepicker/form_datepicker"
-import InputCharacterCounter, { createCharacterCounter } from "src/decidim/input_character_counter"
-import FormFilterComponent from "src/decidim/form_filter"
 import FocusGuard from "src/decidim/refactor/moved/focus_guard"
 import markAsReadNotifications from "src/decidim/notifications"
 import RemoteModal from "src/decidim/remote_modal"
@@ -60,7 +57,6 @@ import {
 window.Decidim = window.Decidim || {
   config: new Configuration(),
   ExternalLink,
-  InputCharacterCounter,
   Dialogs,
   ConfirmDialog,
   announceForScreenReader
@@ -69,16 +65,17 @@ window.Decidim = window.Decidim || {
 window.morphdom = morphdom
 
 // eslint-disable-next-line max-params
-const deprecate = (element, targetController, oldSyntax, newSyntax) => {
+const deprecate = (element, targetController, oldSyntax) => {
   if (element.hasAttribute("data-controller") && element.getAttribute("data-controller").includes(targetController)) {
     return;
   }
 
-  console.warn(`[Decidim] ${oldSyntax} is deprecated. Please use the new version of this component - ${newSyntax}`)
+  console.warn(element)
+  console.warn(`[Decidim] ${oldSyntax} is deprecated. Please use the new version of this component - data-controller="${targetController}" - ${window.location.href}`)
   // eslint-disable-next-line no-alert
-  alert(`[Decidim] ${oldSyntax} is deprecated. Please use the new version of this component - ${newSyntax}`)
+  alert(`[Decidim] ${oldSyntax} is deprecated. Please use the new version of this component - data-controller="${targetController}"`)
 }
-// eslint-disable-next-line max-params
+
 const deprecationMessage = (element, oldSyntax, newSyntax) => {
   console.warn(`[Decidim] ${oldSyntax} is deprecated. Please use the new version of this component - ${newSyntax}`)
   // eslint-disable-next-line no-alert
@@ -90,49 +87,63 @@ window.deprecationMessage = deprecationMessage;
 
 document.addEventListener("turbo:load", () => {
   document.querySelectorAll("[data-sticky-buttons]").forEach((container) =>
-    deprecate(container, "sticky-buttons", "[data-sticky-buttons]", 'data-controller="sticky-buttons"'));
+    deprecate(container, "sticky-buttons", "[data-sticky-buttons]"));
   document.querySelectorAll("[data-clipboard-copy]").forEach((container) =>
-    deprecate(container, "clipboard", "[data-clipboard-copy]", "data-controller='clipboard'"));
+    deprecate(container, "clipboard", "[data-clipboard-copy]"));
   document.querySelectorAll('[data-component="accordion"]').forEach((container) =>
-    deprecate(container, "accordion", "data-component='accordion'", "data-controller='accordion'"));
+    deprecate(container, "accordion", "data-component='accordion'"));
   document.querySelectorAll('[data-component="dropdown"]').forEach((container) =>
-    deprecate(container, "dropdown", "data-component='dropdown'", "data-controller='dropdown'"));
+    deprecate(container, "dropdown", "data-component='dropdown'"));
   document.querySelectorAll("[data-scroll-last-child]").forEach((container) =>
-    deprecate(container, "scroll-to-last", "data-scroll-last-child", "data-controller='scroll-to-last'"));
+    deprecate(container, "scroll-to-last", "data-scroll-last-child"));
   document.querySelectorAll(".editor-container").forEach((container) =>
-    deprecate(container, "editor", ".editor-container", "data-controller='editor'"));
+    deprecate(container, "editor", ".editor-container"));
   document.querySelectorAll(".new_report").forEach((container) =>
-    deprecate(container, "report-form", ".new_report", "data-controller='report-form'"));
+    deprecate(container, "report-form", ".new_report"));
   document.querySelectorAll(".user-password").forEach((container) =>
-    deprecate(container, "password-toggler", ".user-password", "data-controller='password-toggler'"));
+    deprecate(container, "password-toggler", ".user-password"));
   document.querySelectorAll(".api-user-secret").forEach((container) =>
-    deprecate(container, "password-toggler", ".api-user-secret", "data-controller='password-toggler'"));
+    deprecate(container, "password-toggler", ".api-user-secret"));
   document.querySelectorAll("[data-input-emoji]").forEach((container) =>
-    deprecate(container, "emoji", "[data-input-emoji]", "data-controller='emoji'"));
+    deprecate(container, "emoji", "[data-input-emoji]"));
   document.querySelectorAll(".js-mentions").forEach((container) =>
-    deprecate(container, "mention", ".js-mentions", "data-controller='mention'"));
+    deprecate(container, "mention", ".js-mentions"));
   document.querySelectorAll(".js-multiple-mentions").forEach((container) =>
-    deprecate(container, "multiple-mentions", ".js-multiple-mentions", "data-controller='multiple-mentions'"));
+    deprecate(container, "multiple-mentions", ".js-multiple-mentions"))
   document.querySelectorAll("[data-tooltip]").forEach((elem) =>
-    deprecate(elem, "tooltip", "[data-tooltip]", "data-controller='tooltip'"))
+    deprecate(elem, "tooltip", "[data-tooltip]"))
   document.querySelectorAll(".delete-account").forEach((container) =>
-    deprecate(container, "delete-account-form", ".delete-account", "data-controller='delete-account-form'"))
+    deprecate(container, "delete-account-form", ".delete-account"))
   document.querySelectorAll("[data-notification-action]").forEach((elem) =>
-    deprecate(elem, "notification-action", "[data-notification-action]", "data-controller='notification-action'"))
+    deprecate(elem, "notification-action", "[data-notification-action]"))
   document.querySelectorAll("#register-from").forEach((elem) =>
-    deprecate(elem, "user-registration-form", "#register-from", "data-controller='user-registration-form'"))
+    deprecate(elem, "user-registration-form", "#register-from"))
   document.querySelectorAll("#omniauth-register-from").forEach((elem) =>
-    deprecate(elem, "user-registration-form", "#omniauth-register-from", "data-controller='user-registration-form'"))
+    deprecate(elem, "user-registration-form", "#omniauth-register-from"))
   document.querySelectorAll(".js-tags-container").forEach((container) =>
-    deprecate(container, "input-tags", ".js-tags-container", "data-controller='input-tags'"))
+    deprecate(container, "input-tags", ".js-tags-container"))
   document.querySelectorAll("[data-toggle]").forEach((elem) =>
-    deprecate(elem, "toggle", "[data-toggle]", "data-controller='toggle'"))
+    deprecate(elem, "toggle", "[data-toggle]"))
   document.querySelectorAll("[data-impersonation-warning]").forEach((container) =>
-    deprecate(container, "impersonation-warning", "[data-impersonation-warning]", "data-controller='impersonation-warning'"))
+    deprecate(container, "impersonation-warning", "[data-impersonation-warning]"))
   document.querySelectorAll("#panel-password.user-password").forEach((container) =>
-    deprecate(container, "account-form", "#panel-password", "data-controller='account-form'"))
+    deprecate(container, "account-form", "#panel-password"))
   document.querySelectorAll(".slug").forEach((container) =>
-    deprecate(container, ".slug", "slug", 'data-controller="slug"'))
+    deprecate(container, ".slug", "slug"))
+  document.querySelectorAll("textarea[maxlength], textarea[minlength]").forEach((container) =>
+    deprecate(container, "character-counter", "textarea[maxlength], textarea[minlength]"))
+  document.querySelectorAll("input[type='text'][maxlength], input[type='text'][minlength]").forEach((container) =>
+    deprecate(container, "character-counter", "input[type='text'][maxlength], input[type='text'][minlength]"))
+  document.querySelectorAll(".editor>input[type='hidden'][maxlength], .editor>input[type='hidden'][minlength]").forEach((container) =>
+    deprecate(container, "character-counter", ".editor>input[type='hidden'][maxlength], .editor>input[type='hidden'][minlength]"))
+
+  document.querySelectorAll('input[type="datetime-local"]').forEach((container) =>
+    deprecate(container, "date-picker", 'input[type="datetime-local"]'));
+  document.querySelectorAll('input[type="date"]').forEach((container) =>
+    deprecate(container, "date-picker", 'input[type="date"]'));
+
+  document.querySelectorAll("form.new_filter").forEach((container) =>
+    deprecate(container, "form-filter", "form.new_filter"))
 
   document.querySelectorAll(".responsive-tab-block").forEach((container) =>
     deprecationMessage(container, ".responsive-tab-block", "NEEDS TO BE REMOVED"));
@@ -188,26 +199,6 @@ const initializer = (element = document) => {
   window.initFoundation(element);
 
   svg4everybody();
-
-  element.querySelectorAll('input[type="datetime-local"],input[type="date"]').forEach((elem) => formDatePicker(elem))
-
-  // initialize character counter
-  $("input[type='text'], textarea, .editor>input[type='hidden']", element).each((_i, elem) => {
-    const $input = $(elem);
-
-    if (!$input.is("[minlength]") && !$input.is("[maxlength]")) {
-      return;
-    }
-
-    createCharacterCounter($input);
-  });
-
-  $("form.new_filter", element).each(function () {
-    // eslint-disable-next-line no-invalid-this
-    const formFilter = new FormFilterComponent($(this));
-
-    formFilter.mountComponent();
-  })
 
   element.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => {
     // both functions (updateExternalDomainLinks and ExternalLink) are related, so if we disable one, the other also

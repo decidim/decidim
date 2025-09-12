@@ -180,7 +180,7 @@ module Decidim
       help_text = options.delete(:help_text)
       editor_image = Decidim::EditorImage.new
       editor_options = editor_options(editor_image, options)
-      hidden_options = extract_validations(name, options).merge(options)
+      hidden_options = editor_hidden_options(name, options)
 
       @template.append_stylesheet_pack_tag "decidim_editor"
       @template.append_javascript_pack_tag "decidim_editor", defer: false
@@ -445,6 +445,16 @@ module Decidim
     end
 
     private
+
+    def editor_hidden_options(name, options)
+      hidden_options = extract_validations(name, options).merge(options)
+      if hidden_options[:minlength] || hidden_options[:maxlength]
+        hidden_options[:data] ||= {}
+        hidden_options[:data][:controller] ||= ""
+        hidden_options[:data][:controller] += " character-counter"
+      end
+      hidden_options
+    end
 
     # Private: Override from FoundationRailsHelper in order to render
     # inputs inside the label and to automatically inject validations

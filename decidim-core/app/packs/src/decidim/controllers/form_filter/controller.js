@@ -1,20 +1,20 @@
 /* eslint-disable no-div-regex, no-useless-escape, no-param-reassign, id-length */
 /* eslint max-lines: ["error", {"max": 350, "skipBlankLines": true}] */
 
-/**
- * A plain JavaScript component that handles the form filter.
- * @class
- * @augments Component
- */
-
+import { Controller } from "@hotwired/stimulus"
 import delayed from "src/decidim/refactor/moved/delayed"
 import CheckBoxesTree from "src/decidim/refactor/moved/check_boxes_tree"
 import { registerCallback, unregisterCallback, pushState, replaceState, state } from "src/decidim/refactor/moved/history"
 
-export default class FormFilterComponent {
-  constructor($form) {
-    this.$form = $form;
-    this.id = this.$form.attr("id") || this._getUID();
+/**
+ * A Stimulus controller that handles the form filter.
+ * @class
+ * @augments Controller
+ */
+export default class extends Controller {
+
+  connect() {
+    this.id = this.element.id || this._getUID();
     this.mounted = false;
     this.changeEvents = true;
     this.theCheckBoxesTree = new CheckBoxesTree();
@@ -29,6 +29,8 @@ export default class FormFilterComponent {
       this.popStateSubmitter = true;
       window.Decidim.PopStateHandler = this.id;
     }
+
+    this.mountComponent()
   }
 
   /**
@@ -36,13 +38,12 @@ export default class FormFilterComponent {
    * @public
    * @returns {Void} - Returns nothing
    */
-  unmountComponent() {
-    if (this.mounted) {
-      this.mounted = false;
-      this.$form.off("change", "input, select", this._onFormChange);
+  disconnect() {
+    this.element.querySelectorAll("input, select").forEach((element) => {
+      element.removeEventListener("change", this._onFormChange);
+    });
 
-      unregisterCallback(`filters-${this.id}`)
-    }
+    unregisterCallback(`filters-${this.id}`)
   }
 
   /**
@@ -51,44 +52,48 @@ export default class FormFilterComponent {
    * @returns {Void} - Returns nothing
    */
   mountComponent() {
-    if (this.$form.length > 0 && !this.mounted) {
+    if (this.element.length > 0 && !this.mounted) {
       this.mounted = true;
       let queue = 0;
 
-      let contentContainer = $("main");
-      if (contentContainer.length === 0 && this.$form.data("remoteFill")) {
-        contentContainer = this.$form.data("remoteFill");
+      let contentContainer = document.querySelector("main");
+      if (contentContainer.length === 0 && this.element.dataset.remoteFill) {
+        contentContainer = this.element.dataset.remoteFill;
       }
-      this.$form.on("change", "input:not([data-disable-dynamic-change]), select:not([data-disable-dynamic-change])", this._onFormChange);
+
+      this.element.querySelectorAll("input:not([data-disable-dynamic-change]), select:not([data-disable-dynamic-change])").forEach((element) => {
+        element.addEventListener("change", this._onFormChange);
+      })
 
       this.currentFormRequest = null;
-      this.$form.on("ajax:beforeSend", (e) => {
+
+      this.element.addEventListener("ajax:beforeSend", (e) => {
         if (this.currentFormRequest) {
           this.currentFormRequest.abort();
         }
-        this.currentFormRequest = e.originalEvent.detail[0];
+        this.currentFormRequest = e.detail[0];
         queue += 1;
-        if (queue > 0 && contentContainer.length > 0 && !contentContainer.hasClass("spinner-container")) {
-          contentContainer.addClass("spinner-container");
+        if (queue > 0 && contentContainer.length > 0 && !contentContainer.classList.contains("spinner-container")) {
+          contentContainer.classList.add("spinner-container");
         }
       });
 
-      $(document).on("ajax:success", () => {
+      document.addEventListener("ajax:success", () => {
+        queue -= 1;
+        if (queue <= 0 && contentContainer.length > 0) {
+          contentContainer.classList.remove("spinner-container");
+        }
+      });
+
+      document.addEventListener("ajax:error", () => {
         queue -= 1;
         if (queue <= 0 && contentContainer.length > 0) {
           contentContainer.removeClass("spinner-container");
+          contentContainer.classlist.add("hide");
         }
       });
 
-      $(document).on("ajax:error", () => {
-        queue -= 1;
-        if (queue <= 0 && contentContainer.length > 0) {
-          contentContainer.removeClass("spinner-container");
-        }
-        this.$form.find(".spinner-container").addClass("hide");
-      });
-
-      this.theCheckBoxesTree.setContainerForm(this.$form);
+      this.theCheckBoxesTree.setContainerForm(this.element);
 
       registerCallback(`filters-${this.id}`, (currentState) => {
         this._onPopState(currentState);
@@ -168,11 +173,15 @@ export default class FormFilterComponent {
   _parseLocationOrderValue() {
     const url = this._getLocation();
     const match = url.match(/order=([^&]*)/);
-    const $orderMenu = this.$form.find(".order-by .menu");
-    let order = $orderMenu.find(".menu a:first").data("order");
+    const orderMenu = this.element.querySelector(".order-by .menu");
+    let order = null;
 
-    if (match) {
-      order = match[1];
+    if (orderMenu) {
+      order = orderMenu.querySelector(".menu a").dataset.order;
+
+      if (match) {
+        order = match[1];
+      }
     }
 
     return order;
@@ -184,17 +193,15 @@ export default class FormFilterComponent {
    * @returns {Void} - Returns nothing.
    */
   _clearForm() {
-    this.$form.find("input[type=checkbox]").each((index, element) => {
+    this.element.querySelectorAll("input[type=checkbox]").forEach((element) => {
       element.checked = element.indeterminate = false;
     });
-    this.$form.find("input[type=radio]").attr("checked", false);
-
-    // This ensure the form is reset in a valid state where a fieldset of
-    // radio buttons has the first selected.
-    this.$form.find("fieldset input[type=radio]:first").each(function () {
-      // I need the this to iterate a jQuery collection
-      $(this)[0].checked = true; // eslint-disable-line no-invalid-this
-    });
+    this.element.querySelectorAll("input[type=radio]").forEach((element) => {
+      element.checked = false;
+    })
+    if (this.element.querySelector("fieldset input[type=radio]")) {
+      this.element.querySelector("fieldset input[type=radio]").checked = true;
+    }
   }
 
   /**
@@ -209,7 +216,10 @@ export default class FormFilterComponent {
     const filterParams = this._parseLocationFilterValues();
     const currentOrder = this._parseLocationOrderValue();
 
-    this.$form.find("input.order_filter").val(currentOrder);
+    const orderFilter = this.element.querySelector("input.order_filter");
+    if (orderFilter) {
+      orderFilter.value = currentOrder;
+    }
 
     if (filterParams) {
       const fieldIds = Object.keys(filterParams);
@@ -219,10 +229,10 @@ export default class FormFilterComponent {
         let value = filterParams[fieldName];
 
         if (Array.isArray(value)) {
-          let checkboxes = this.$form.find(`input[type=checkbox][name="filter[${fieldName}][]"]`);
+          let checkboxes = this.element.querySelectorAll(`input[type=checkbox][name="filter[${fieldName}][]"]`);
           this.theCheckBoxesTree.updateChecked(checkboxes, value);
         } else {
-          this.$form.find(`*[name="filter[${fieldName}]"]`).each((index, element) => {
+          this.element.querySelectorAll(`*[name="filter[${fieldName}]"]`).forEach((element) => {
             switch (element.type) {
             case "hidden":
               break;
@@ -240,7 +250,7 @@ export default class FormFilterComponent {
 
     // Only one instance should submit the form on browser history navigation
     if (this.popStateSubmitter) {
-      Rails.fire(this.$form[0], "submit");
+      Rails.fire(this.element, "submit");
     }
 
     this.changeEvents = true;
@@ -263,7 +273,7 @@ export default class FormFilterComponent {
       return;
     }
 
-    Rails.fire(this.$form[0], "submit");
+    Rails.fire(this.element, "submit");
     pushState(newPath, newState);
     this._saveFilters(newPath);
   }
@@ -274,8 +284,15 @@ export default class FormFilterComponent {
    * @returns {Array} - Returns an array with the path and the state for the current filters state.
    */
   _currentStateAndPath() {
-    const formAction = this.$form.attr("action");
-    const params = this.$form.find("input:not(.ignore-filter)").serialize();
+    const formAction = this.element.action;
+    const inputs = this.element.querySelectorAll("input:not(.ignore-filter)");
+    const formData = new FormData();
+    inputs.forEach((input) => {
+      if (input.name && (input.type !== "checkbox" && input.type !== "radio" || input.checked)) {
+        formData.append(input.name, input.value);
+      }
+    });
+    const params = new URLSearchParams(formData).toString();
 
     let path = "";
     let currentState = {};
@@ -309,7 +326,7 @@ export default class FormFilterComponent {
       return;
     }
 
-    const pathName = this.$form.attr("action");
+    const pathName = this.element.action;
     sessionStorage.setItem("filteredParams", JSON.stringify({[pathName]: pathWithQueryStrings}));
   }
 
