@@ -31,7 +31,6 @@ Decidim.register_component(:budgets) do |component|
     resource.model_class_name = "Decidim::Budgets::Project"
     resource.template = "decidim/budgets/projects/linked_projects"
     resource.card = "decidim/budgets/project"
-    resource.actions = %w(vote comment)
     resource.searchable = true
   end
 
