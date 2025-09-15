@@ -75,11 +75,79 @@
 <% if questionnaire.questions_editable? %>
   <script>
     document.addEventListener("turbo:load", function () {
+      // Store reference to original function
+      const originalCreateSortableList = window.Decidim?.createSortableList;
+
+      // Override createSortableList to prevent premature initialization
+      if (originalCreateSortableList) {
+        window.Decidim.createSortableList = function(selector) {
+          // Only allow sortable on questions list when DOM is ready
+          if (selector === "#questionnaire-questions-list" || selector.includes("questionnaire-questions-list")) {
+            const element = document.querySelector(selector);
+            if (element && element.children.length > 0) {
+              return originalCreateSortableList.call(this, selector);
+            }
+            return null;
+          }
+          // Allow other sortable lists to work normally
+          return originalCreateSortableList.call(this, selector);
+        };
+      }
+
+      // Initialize the form
       window.Decidim.createEditableForm();
 
-      setTimeout(() => {
-        const draggableTable = document.querySelector("[data-draggable-table]");
-      },);
+      // Reinitialize draggable when new questions are added
+      function reinitializeDraggable() {
+        const draggableTable = document.querySelector("#questionnaire-questions-list");
+        const questionCards = draggableTable?.querySelectorAll('.card.questionnaire-question');
+
+        if (!draggableTable || !questionCards?.length) return;
+
+        try {
+          // Set draggable attributes on all question cards
+          questionCards.forEach(card => {
+            card.setAttribute('draggable', 'true');
+            card.setAttribute('role', 'option');
+            card.setAttribute('aria-grabbed', 'false');
+          });
+
+          // Reinitialize sortable using original function
+          if (originalCreateSortableList) {
+            originalCreateSortableList.call(window.Decidim, "#questionnaire-questions-list");
+          }
+        } catch (error) {
+          console.error('Error reinitializing draggable:', error);
+        }
+      }
+
+      // Watch for new question elements
+      const questionsContainer = document.querySelector("#questionnaire-questions-list");
+      if (questionsContainer) {
+        let debounceTimer;
+
+        const observer = new MutationObserver(function(mutations) {
+          const hasNewQuestions = mutations.some(mutation =>
+            mutation.type === 'childList' &&
+            Array.from(mutation.addedNodes).some(node =>
+              node.nodeType === 1 && (
+                node.classList?.contains('card') ||
+                node.classList?.contains('questionnaire-question')
+              )
+            )
+          );
+
+          if (hasNewQuestions) {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(reinitializeDraggable, 800);
+          }
+        });
+
+        observer.observe(questionsContainer, {
+          childList: true,
+          subtree: true
+        });
+      }
     });
   </script>
 <% end %>
