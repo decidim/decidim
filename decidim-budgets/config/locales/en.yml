@@ -370,9 +370,9 @@ en:
             vote_threshold_percent: Vote threshold percent
             voting_rule: Voting rule
             voting_rule_choices:
-              threshold_percent: Minimum budget percentage
               minimum_projects: Minimum number of projects to be voted on
               selected_projects: Minimum and maximum number of projects to be voted on
+              threshold_percent: Minimum budget percentage
             workflow: Workflow
             workflow_choices:
               all: 'Vote in all: allows participants to vote in all budgets.'
