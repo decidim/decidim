@@ -5,14 +5,22 @@
  * based on the selected radio option.
  */
 export default class BudgetRuleTogglerComponent {
+
   /**
-   * @param {Object} options
+   * @param {Object} options - Configuration options
    * @param {HTMLInputElement[]} options.ruleRadios - Array of radio inputs controlling the rules
    * @param {Record<string, string[]>} options.mapping - Mapping from radio values to selectors of containers to show
    */
   constructor(options = {}) {
     this.ruleRadios = options.ruleRadios;
     this.mapping = options.mapping || {};
+  }
+
+  /**
+   * Initialize the component (bind events + run initial state).
+   * @returns {void}
+   */
+  init() {
     this._bindEvents();
     this._runInitial();
   }
@@ -20,6 +28,7 @@ export default class BudgetRuleTogglerComponent {
   /**
    * Bind change events on all radios
    * @private
+   * @returns {void}
    */
   _bindEvents() {
     this.ruleRadios.forEach((radio) => {
@@ -32,6 +41,7 @@ export default class BudgetRuleTogglerComponent {
   /**
    * Run toggler logic on page load
    * @private
+   * @returns {void}
    */
   _runInitial() {
     const checked = this.ruleRadios.find((radio) => radio.checked);
@@ -46,12 +56,16 @@ export default class BudgetRuleTogglerComponent {
    * Show the containers associated with the selected radio
    * @param {HTMLInputElement} target - The radio input that triggered the change
    * @private
+   * @returns {void}
    */
   _run(target) {
     this._hideAll();
 
-    const value = target.value;
-    const selectors = this.mapping[value] || [];
+    // Normalize radio value (snake_case → camelCase)
+    const rawValue = target.value;
+    const camelValue = rawValue.replace(/_([a-z])/g, (_match, letter) => letter.toUpperCase());
+
+    const selectors = this.mapping[camelValue] || [];
 
     selectors.forEach((selector) => this._show(selector));
   }
@@ -59,12 +73,15 @@ export default class BudgetRuleTogglerComponent {
   /**
    * Hide all containers referenced in the mapping
    * @private
+   * @returns {void}
    */
   _hideAll() {
     const allSelectors = Object.values(this.mapping).flat();
     allSelectors.forEach((selector) => {
       const el = document.querySelector(selector);
-      if (el) el.style.display = "none";
+      if (el) {
+        el.style.display = "none";
+      }
     });
   }
 
@@ -72,9 +89,12 @@ export default class BudgetRuleTogglerComponent {
    * Show a container by selector
    * @param {string} selector - CSS selector of the container to show
    * @private
+   * @returns {void}
    */
   _show(selector) {
     const el = document.querySelector(selector);
-    if (el) el.style.display = "";
+    if (el) {
+      el.style.display = "";
+    }
   }
 }

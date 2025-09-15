@@ -7,22 +7,26 @@ import BudgetRuleTogglerComponent from "src/decidim/admin/budget_rule_toggler.co
 document.addEventListener("turbo:load", () => {
 
   const budgetTogglerRadios = Array.from(
-    document.querySelectorAll("input[type='radio'][name='component[settings][voting_rule]']")
+    document.querySelectorAll(
+      "input[type='radio'][name='component[settings][voting_rule]']"
+    )
   );
 
   const budgetTogglerMapping = {
-    threshold_percent: [".vote_threshold_percent_container"],
-    minimum_projects: [".vote_minimum_budget_projects_number_container"],
-    selected_projects: [
+    thresholdPercent: [".vote_threshold_percent_container"],
+    minimumProjects: [".vote_minimum_budget_projects_number_container"],
+    selectedProjects: [
       ".vote_selected_projects_minimum_container",
       ".vote_selected_projects_maximum_container"
     ]
   };
 
-  new BudgetRuleTogglerComponent({
+  const budgetToggler = new BudgetRuleTogglerComponent({
     ruleRadios: budgetTogglerRadios,
     mapping: budgetTogglerMapping
   });
+
+  budgetToggler.init();
 
   // Prevents readonly containers from being modified.
   const $readonlyContainer = $(".readonly_container input");
