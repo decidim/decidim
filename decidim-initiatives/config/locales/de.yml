@@ -693,6 +693,7 @@ de:
           title: Aktionen
     statistics:
       initiatives_count: Initiativen
+      initiatives_count_tooltip: Die Anzahl der veröffentlichten Volksinitiativen.
   layouts:
     decidim:
       initiative_creation_header:
