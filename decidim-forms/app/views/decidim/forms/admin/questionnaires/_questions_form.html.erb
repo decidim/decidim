@@ -75,13 +75,11 @@
 <% if questionnaire.questions_editable? %>
   <script>
     document.addEventListener("turbo:load", function () {
-      // Store reference to original function
       const originalCreateSortableList = window.Decidim?.createSortableList;
 
-      // Override createSortableList to prevent premature initialization
+      // Override createSortableList to prevent premature initialization and allow sortable on questions list on DOM
       if (originalCreateSortableList) {
         window.Decidim.createSortableList = function(selector) {
-          // Only allow sortable on questions list when DOM is ready
           if (selector === "#questionnaire-questions-list" || selector.includes("questionnaire-questions-list")) {
             const element = document.querySelector(selector);
             if (element && element.children.length > 0) {
@@ -94,22 +92,21 @@
         };
       }
 
-      // Initialize the form
+      // Initialize and reinitialize draggable when new questions are added
       window.Decidim.createEditableForm();
 
-      // Reinitialize draggable when new questions are added
       function reinitializeDraggable() {
         const draggableTable = document.querySelector("#questionnaire-questions-list");
-        const questionCards = draggableTable?.querySelectorAll('.card.questionnaire-question');
+        const questionCards = draggableTable?.querySelectorAll(".card.questionnaire-question");
 
         if (!draggableTable || !questionCards?.length) return;
 
         try {
           // Set draggable attributes on all question cards
           questionCards.forEach(card => {
-            card.setAttribute('draggable', 'true');
-            card.setAttribute('role', 'option');
-            card.setAttribute('aria-grabbed', 'false');
+            card.setAttribute("draggable", "true");
+            card.setAttribute("role", "option");
+            card.setAttribute("aria-grabbed", "false");
           });
 
           // Reinitialize sortable using original function
@@ -117,7 +114,7 @@
             originalCreateSortableList.call(window.Decidim, "#questionnaire-questions-list");
           }
         } catch (error) {
-          console.error('Error reinitializing draggable:', error);
+          console.error("Error reinitializing draggable:", error);
         }
       }
 
@@ -128,11 +125,11 @@
 
         const observer = new MutationObserver(function(mutations) {
           const hasNewQuestions = mutations.some(mutation =>
-            mutation.type === 'childList' &&
+            mutation.type === "childList" &&
             Array.from(mutation.addedNodes).some(node =>
               node.nodeType === 1 && (
-                node.classList?.contains('card') ||
-                node.classList?.contains('questionnaire-question')
+                node.classList?.contains("card") ||
+                node.classList?.contains("questionnaire-question")
               )
             )
           );
