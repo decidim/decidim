@@ -40,6 +40,16 @@ module Decidim
 
       component_manifest_name "dummy"
 
+      alias creator_author author
+
+      def creator
+        self
+      end
+
+      def authors
+        [author]
+      end
+
       def presenter
         Decidim::Dev::DummyResourcePresenter.new(self)
       end
