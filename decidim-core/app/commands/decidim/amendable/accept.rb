@@ -62,7 +62,7 @@ module Decidim
           @amendable.save!
           @amendable
         end
-        
+
         @amendable.add_coauthor(@amender, user_group: @user_group) if @amendable.is_a?(Decidim::Coauthorable)
       end
 

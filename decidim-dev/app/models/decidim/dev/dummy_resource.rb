@@ -42,6 +42,10 @@ module Decidim
 
       alias creator_author author
 
+      def creator
+        self
+      end
+
       def authors
         [author]
       end
