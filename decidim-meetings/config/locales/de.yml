@@ -403,6 +403,11 @@ de:
             invalid: Beim Veröffentlichen dieser Veranstaltung ist ein Fehler aufgetreten.
             success: Veranstaltung erfolgreich veröffentlicht.
           reminders:
+            reminder_enabled: Eine Erinnerung für diese Veranstaltung senden
+            reminder_message: Erinnerungsnachricht
+            reminder_message_help_text: Passen Sie die Nachricht nach Bedarf an. Verwenden Sie {{meeting_title}}, um den Veranstaltungssnamen anzuzeigen.
+            send_reminder: Geplante Erinnerungs-E-Mail
+            send_reminder_help_text: Erinnerungszeit in Stunden vor der Veranstaltung.
             title: Erinnerungen
           service:
             description: Beschreibung
@@ -835,6 +840,7 @@ de:
     statistics:
       attendees_count: Verantstaltungsteilnehmende
       meetings_count: Veranstaltungen
+      meetings_count_tooltip: Die Anzahl der stattgefundenen Veranstaltungen, sowohl online als auch physisch.
       participatory_space_meetings_count: Veranstaltungen
   devise:
     mailer:
