@@ -49,6 +49,7 @@ en:
         customize_welcome_notification: Customize welcome notification
         default_locale: Default locale
         description: Description
+        enable_machine_translations: Enable machine translations
         enable_omnipresent_banner: Show omnipresent banner
         enable_participatory_space_filters: Enable participatory space filters
         facebook_handler: Facebook handler
