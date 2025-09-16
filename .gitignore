@@ -36,3 +36,6 @@ decidim-packs
 packages/**/package-lock.json
 
 temporary_changelog.md
+vendor/
+ruby-3.3.4*
+decidim_test_app/
