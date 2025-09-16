@@ -73,77 +73,37 @@
 <%= append_javascript_pack_tag "decidim_forms_admin" %>
 
 <% if questionnaire.questions_editable? %>
-  <script>
+   <script>
     document.addEventListener("turbo:load", function () {
-      const originalCreateSortableList = window.Decidim?.createSortableList;
-
-      // Override createSortableList to prevent premature initialization and allow sortable on questions list on DOM
-      if (originalCreateSortableList) {
-        window.Decidim.createSortableList = function(selector) {
-          if (selector === "#questionnaire-questions-list" || selector.includes("questionnaire-questions-list")) {
-            const element = document.querySelector(selector);
-            if (element && element.children.length > 0) {
-              return originalCreateSortableList.call(this, selector);
-            }
-            return null;
-          }
-          // Allow other sortable lists to work normally
-          return originalCreateSortableList.call(this, selector);
-        };
-      }
-
-      // Initialize and reinitialize draggable when new questions are added
       window.Decidim.createEditableForm();
 
-      function reinitializeDraggable() {
-        const draggableTable = document.querySelector("#questionnaire-questions-list");
-        const questionCards = draggableTable?.querySelectorAll(".card.questionnaire-question");
+      // Function to initialize the sortable functionality
+      function initializeSortable() {
+        const container = document.querySelector("#questionnaire-questions-list");
+        const questionCards = container?.querySelectorAll(".card.questionnaire-question");
 
-        if (!draggableTable || !questionCards?.length) return;
+        if (!container || !questionCards?.length) return;
 
-        try {
-          // Set draggable attributes on all question cards
-          questionCards.forEach(card => {
-            card.setAttribute("draggable", "true");
-            card.setAttribute("role", "option");
-            card.setAttribute("aria-grabbed", "false");
-          });
+        questionCards.forEach(card => {
+          card.setAttribute("draggable", "true");
+          card.setAttribute("role", "option");
+          card.setAttribute("aria-grabbed", "false");
+        });
 
-          // Reinitialize sortable using original function
-          if (originalCreateSortableList) {
-            originalCreateSortableList.call(window.Decidim, "#questionnaire-questions-list");
-          }
-        } catch (error) {
-          console.error("Error reinitializing draggable:", error);
-        }
+        window.Decidim?.createSortableList?.("#questionnaire-questions-list");
       }
 
-      // Watch for new question elements
-      const questionsContainer = document.querySelector("#questionnaire-questions-list");
-      if (questionsContainer) {
-        let debounceTimer;
+      // Initialize on load and when new options such as questions etc are added
+      initializeSortable();
 
-        const observer = new MutationObserver(function(mutations) {
-          const hasNewQuestions = mutations.some(mutation =>
-            mutation.type === "childList" &&
-            Array.from(mutation.addedNodes).some(node =>
-              node.nodeType === 1 && (
-                node.classList?.contains("card") ||
-                node.classList?.contains("questionnaire-question")
-              )
-            )
-          );
+      const observer = new MutationObserver(() => {
+        clearTimeout(observer.timer);
+        observer.timer = setTimeout(initializeSortable, 500);
+      });
 
-          if (hasNewQuestions) {
-            clearTimeout(debounceTimer);
-            debounceTimer = setTimeout(reinitializeDraggable, 800);
-          }
-        });
-
-        observer.observe(questionsContainer, {
-          childList: true,
-          subtree: true
-        });
+      const container = document.querySelector("#questionnaire-questions-list");
+      if (container) {
+        observer.observe(container, { childList: true, subtree: true });
       }
     });
   </script>
