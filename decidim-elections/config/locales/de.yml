@@ -120,3 +120,6 @@ de:
     decidim:
       election_votes_header:
         exit: Schließen
+  time:
+    formats:
+      short_with_time: "%b %-d, %Y, %-I:%M %p"
