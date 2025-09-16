@@ -30,6 +30,7 @@ en:
         title: Actions
         view_deleted_documents: View deleted documents
       admin:
+        deprecation_warning: "⚠️ **Deprecation Notice**: The Collaborative Drafts module will be removed in Decidim v0.32. Please plan accordingly and consider alternative solutions for collaborative content creation."
         documents:
           create:
             invalid: There was a problem creating the document.

@@ -40,6 +40,7 @@ en:
           notification_title: The sortition <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
     sortitions:
       admin:
+        deprecation_warning: "⚠️ **Deprecation Notice**: The Sortitions module will be removed in Decidim v0.32. Please plan accordingly and consider alternative solutions for participant or proposal selection."
         actions:
           destroy: Cancel the sortition
           edit: Edit

@@ -7,6 +7,8 @@
       <%= render partial: "decidim/admin/components/resource_action" %>
     </h1>
   </div>
+
+  <div class="flash warning"><%= t("deprecation_warning", scope: "decidim.collaborative_texts.admin") %></div>
   <div class="table-stacked">
     <table class="table-list">
       <%= render partial: "documents-thead" %>

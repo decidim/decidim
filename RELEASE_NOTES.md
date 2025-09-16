@@ -290,9 +290,23 @@ bin/rails decidim_surveys:upgrade:fix_survey_permissions
 
 You can read more about this change on PR [#14940](https://github.com/decidim/decidim/pull/14940).
 
-### 2.7. [[TITLE OF THE ACTION]]
+### 2.7. Module deprecations
 
-You can read more about this change on PR [#xxxx](https://github.com/decidim/decidim/pull/xxx).
+As part of our ongoing efforts to improve and streamline Decidim, the following modules will be **deprecated** in this version (v0.31) and **removed** in the next major version (v0.32):
+
+#### Collaborative Drafts (decidim-collaborative_texts)
+
+The Collaborative Drafts module will be removed in v0.32. This module allowed participants to collaboratively edit texts within proposals. Organizations using this feature should plan to migrate to alternative approaches for collaborative content creation.
+
+#### Sortitions (decidim-sortitions)
+
+The Sortitions module will be removed in v0.32. This module provided functionality to randomly select participants or proposals. Organizations relying on this feature should consider implementing alternative selection mechanisms.
+
+#### Polls in Meetings (decidim-meetings polls functionality)
+
+The polls functionality within the Meetings module will be removed in v0.32. This feature allowed meeting organizers to create polls during meetings. Organizations using meeting polls should plan to use external polling tools or migrate to other survey mechanisms available in Decidim.
+
+**Action Required**: If your organization relies on any of these features, please plan accordingly and consider alternative solutions before upgrading to v0.32.
 
 ## 3. One time actions
 
