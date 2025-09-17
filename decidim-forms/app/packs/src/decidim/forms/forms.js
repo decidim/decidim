@@ -36,10 +36,6 @@ document.addEventListener("turbo:load", () => {
   });
 
   document.querySelectorAll(".js-sortable-check-box-collection").forEach((el) =>  {
-    const dragonDrop = new DragonDrop(el, {
-      handle: false,
-      item: ".js-collection-input"
-    });
 
     /**
     * Due to a bug reported in https://github.com/decidim/decidim/issues/15191
@@ -47,17 +43,24 @@ document.addEventListener("turbo:load", () => {
     * and enabling it back again after it.
     */
 
-    const preventScroll = function(event) {
+    let preventScroll = function(event) {
       event.preventDefault();
     }
 
-    dragonDrop.dragula.on("drag", () => {
-      document.addEventListener("touchmove", preventScroll, { passive: false });
+    el.addEventListener("touchmove", (event) => {
+      preventScroll(event);
+    }, { passive: false });
+
+    el.addEventListener("touchend", () => {
+      el.removeEventListener("touchmove", preventScroll)
     });
 
-    dragonDrop.dragula.on("dragend", () => {
-      document.removeEventListener("touchmove", preventScroll, { passive: false });
+    return new DragonDrop(el, {
+      handle: false,
+      item: ".js-collection-input"
     });
+
+
   });
 
   $(".response-questionnaire .question[data-conditioned='true']").each((idx, el) => {
