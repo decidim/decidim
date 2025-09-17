@@ -404,13 +404,6 @@ en:
           updated_at: The date and time when the order was updated
       show:
         projects: Projects export
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'The %{resource_title} budget is now active for %{participatory_space_title}. You can see it from this page:'
-          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-          email_subject: The %{resource_title} budget is now active for %{participatory_space_title}.
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> budget is now active for %{participatory_space_title}.
     open_data:
       help:
         projects:
