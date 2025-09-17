@@ -1205,11 +1205,9 @@ pl:
         main_image: Obraz główny
     newsletters:
       unsubscribe:
-        check_subscription: Jeśli chcesz zmienić swoje preferencje, możesz to zrobić na <a href="%{link}" target="_blank">stronie konfiguracji</a>.
         error: Wystąpił błąd podczas anulowania subskrypcji.
         success: Subskrypcja została anulowana.
         token_error: Link wygasł.
-        unsubscribe: Anuluj subskrypcję
     newsletters_opt_in:
       unauthorized: Przepraszamy, ten link nie jest już dostępny.
       update:
