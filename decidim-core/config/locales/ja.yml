@@ -2080,8 +2080,6 @@ ja:
         sign_up: アカウントを作成
         terms_of_service: 利用規約
       header:
-        back: リストに戻る
-        cancel: キャンセル
         close: 閉じる
         confirm_close_ephemeral_session: この画面から移動すると、一時セッションは終了します。ただし、進捗状況やアクティビティはすべて保存されます。アクティビティが完了している場合は「Ok」をクリックしてください。
         confirm_title_close_ephemeral_session: このページから離れる前に…
