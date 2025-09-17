@@ -26,6 +26,8 @@ sk:
         title: Akcie
       admin:
         models:
+          budget:
+            name: Rozpočet
           project:
             name: Projekt
         projects:
