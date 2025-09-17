@@ -1262,9 +1262,12 @@ ca-IT:
         main_image: Imatge principal
     newsletters:
       unsubscribe:
+        check_subscription_html: Si els vols tornar a rebre, pots tornar a activar la teva subscripció en qualsevol moment des de la <a href="%{link}" target="_blank">pàgina de configuració</a>.
         error: S'ha produït un error en cancel·lar la subscripció.
+        subscription_preferences: Hem actualitzat les teves preferències de subscripció i ja no rebràs butlletins informatius de %{organization_name}.
         success: Has cancel·lat la subscripció correctament.
         token_error: L'enllaç ha caducat.
+        unsubscribe: Cancel·lar la subscripció al butlletí informatiu
     newsletters_opt_in:
       unauthorized: Ho sentim, aquest enllaç ja no està disponible.
       update:
@@ -2104,8 +2107,7 @@ ca-IT:
         social_media: Xarxes socials
         terms_of_service: Termes i condicions d'ús
       header:
-        back: Tornar al llistat
-        cancel: Cancel·lar
+        back: Enrere
         close: Tancar
         confirm_close_ephemeral_session: Si abandones la navegació, es tancarà la sessió temporal. Tot el teu progrés i activitat, però, es guardaran. Si has acabat la teva activitat, fes clic a Ok.
         confirm_title_close_ephemeral_session: Abans de sortir d'aquesta pàgina…
@@ -2159,6 +2161,11 @@ ca-IT:
   locale:
     name: Català
     name_with_error: Català (error!)
+  number:
+    currency:
+      format:
+        format: "%u %n"
+        format_html: "<span>%u</span> %n"
   password_validator:
     denied: no és vàlid
     domain_included_in_password: és massa semblant a aquest nom de domini
