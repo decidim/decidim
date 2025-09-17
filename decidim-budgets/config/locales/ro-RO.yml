@@ -54,8 +54,6 @@ ro:
         exports:
           projects: Proiecte
         models:
-          budget:
-            name: Buget
           project:
             name: Proiect
         projects:
@@ -159,15 +157,6 @@ ro:
             all: Toate
             not_selected: Neselectate
             selected: Selectate
-        order_progress:
-          minimum_projects_rule:
-            description: Selectați cel puțin %{minimum_number} proiecte pe care le doriți și votați în funcție de preferințele dvs.
-          projects_rule:
-            description: Selectați cel puțin %{minimum_number} și până la %{maximum_number} proiectele pe care le doriți și votați în funcție de preferințele dvs.
-          projects_rule_maximum_only:
-            description: Selectați până la %{maximum_number} proiecte pe care le doriți și votați în funcție de preferințele dvs.
-          vote_threshold_percent_rule:
-            description: Atribuiți cel puțin %{minimum_budget} proiectelor pe care le doriți și votați în funcție de preferințele dvs.
         orders:
           highest_cost: Cel mai mare cost
           label: Ordonează proiectele după
@@ -188,7 +177,6 @@ ro:
         select_projects: Adaugați proiecte
         show:
           budget: Buget
-        start_voting: Începeți să votați
     components:
       budgets:
         actions:
