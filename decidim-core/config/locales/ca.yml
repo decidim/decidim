@@ -2107,8 +2107,7 @@ ca:
         social_media: Xarxes socials
         terms_of_service: Termes i condicions d'ús
       header:
-        back: Tornar al llistat
-        cancel: Cancel·lar
+        back: Enrere
         close: Tancar
         confirm_close_ephemeral_session: Si abandones la navegació, es tancarà la sessió temporal. Tot el teu progrés i activitat, però, es guardaran. Si has acabat la teva activitat, fes clic a Ok.
         confirm_title_close_ephemeral_session: Abans de sortir d'aquesta pàgina…
@@ -2162,6 +2161,11 @@ ca:
   locale:
     name: Català
     name_with_error: Català (error!)
+  number:
+    currency:
+      format:
+        format: "%u %n"
+        format_html: "<span>%u</span> %n"
   password_validator:
     denied: no és vàlid
     domain_included_in_password: és massa semblant a aquest nom de domini
