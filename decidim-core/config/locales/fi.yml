@@ -2110,8 +2110,7 @@ fi:
         social_media: Sosiaalinen media
         terms_of_service: Käyttöehdot
       header:
-        back: Takaisin listaan
-        cancel: Peruuta
+        back: Takaisin
         close: Sulje
         confirm_close_ephemeral_session: Mikäli poistut tältä sivulta, väliaikainen istuntosi suljetaan. Kaikki tekemäsi toimet kuitenkin tallentuvat tilillesi. Mikäli olet suorittanut tarvittavat toimet loppuun, paina OK-painiketta.
         confirm_title_close_ephemeral_session: Ennen kuin poistut tältä sivulta…
@@ -2165,6 +2164,11 @@ fi:
   locale:
     name: Suomi
     name_with_error: Suomi (virhe!)
+  number:
+    currency:
+      format:
+        format: "%n %u"
+        format_html: "%n <span>%u</span>"
   password_validator:
     denied: ei ole sallittu
     domain_included_in_password: liian samankaltainen palvelun verkko-osoitteen kanssa
