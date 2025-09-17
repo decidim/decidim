@@ -25,6 +25,8 @@ lv:
         title: Darbības
       admin:
         models:
+          budget:
+            name: Budžets
           project:
             name: Projekts
         projects:
