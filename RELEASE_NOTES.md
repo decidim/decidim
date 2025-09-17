@@ -108,7 +108,37 @@ You can read more about the Rails upgrade process on the following PRs:
 * [Change framework defaults from Rails v7.1 to v7.2](https://github.com/decidim/decidim/pull/14829)
 * [Rails official documentation about secret change for development and test environments](https://guides.rubyonrails.org/upgrading_ruby_on_rails.html#development-and-test-environments-secret-key-base-file-changed)
 
-### 1.5. Run these commands
+### 1.5. Fix SMTP STARTTLS Configuration
+
+⚠ **Important**: If you are using SMTP for email delivery and have a custom configuration in `config/environments/production.rb`, you may need to update your SMTP settings.
+
+Previous versions of the Decidim generator created SMTP configurations that could cause errors with some mail servers due to incorrect boolean value handling for the `:enable_starttls_auto` setting.
+
+If your `config/environments/production.rb` contains an SMTP configuration like this:
+
+```ruby
+config.action_mailer.smtp_settings = {
+  # ... other settings ...
+  :enable_starttls_auto => Decidim::Env.new("SMTP_STARTTLS_AUTO").to_boolean_string,
+  # ... other settings ...
+}
+```
+
+You should update it to:
+
+```ruby
+config.action_mailer.smtp_settings = {
+  # ... other settings ...
+  :enable_starttls_auto => Decidim::Env.new("SMTP_STARTTLS_AUTO", true).present?,
+  # ... other settings ...
+}
+```
+
+This change ensures that the mail library receives a proper boolean value instead of a string, preventing potential SMTP connection errors.
+
+**Note**: This fix only affects installations that use custom SMTP configurations. If you are using the default mail configuration or a different mail delivery method, no action is required.
+
+### 1.6. Run these commands
 
 Shakapacker has been upgraded to the latest version. See section 3.10 for troubleshooting errors.
 
@@ -122,7 +152,7 @@ bin/rails decidim:verifications:revoke:sms
 bin/rails decidim_surveys:upgrade:fix_survey_permissions
 ```
 
-### 1.6. Follow the steps and commands detailed in these notes
+### 1.7. Follow the steps and commands detailed in these notes
 
 ## 2. General notes
 
