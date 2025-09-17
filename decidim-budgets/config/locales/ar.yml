@@ -33,8 +33,6 @@ ar:
         exports:
           projects: المشاريع
         models:
-          budget:
-            name: الميزانية
           project:
             name: مشروع
         projects:
