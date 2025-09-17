@@ -1265,9 +1265,12 @@ es-PY:
         main_image: Imagen principal
     newsletters:
       unsubscribe:
+        check_subscription_html: Si quieres volver a recibirlos, puedes volver a activar tu suscripción en cualquier momento desde la <a href="%{link}" target="_blank">página de configuración</a>.
         error: Se ha producido un error al cancelar la suscripción.
+        subscription_preferences: Hemos actualizado tus preferencias de suscripción y ya no recibirás boletines informativos de %{organization_name}.
         success: Te has dado de baja exitosamente.
         token_error: El enlace ha expirado.
+        unsubscribe: Cancelar la suscripción al boletín informativo
     newsletters_opt_in:
       unauthorized: Lo sentimos, este enlace ya no está disponible.
       update:
@@ -2104,8 +2107,7 @@ es-PY:
         social_media: Redes Sociales
         terms_of_service: Términos y condiciones de uso
       header:
-        back: Volver al listado
-        cancel: Cancelar
+        back: Atrás
         close: Cerrar
         confirm_close_ephemeral_session: Si abandonas la navegación, se cerrará tu sesión temporal. Sin embargo, todo tu progreso y actividad se guardarán. Si has terminado tu actividad, haz clic en Ok.
         confirm_title_close_ephemeral_session: Antes de salir de esta página…
@@ -2159,6 +2161,11 @@ es-PY:
   locale:
     name: Castellano
     name_with_error: Castellano (¡error!)
+  number:
+    currency:
+      format:
+        format: "%u %n"
+        format_html: "<span>%u</span> %n"
   password_validator:
     denied: no es válido
     domain_included_in_password: Es muy similar a este nombre de dominio
