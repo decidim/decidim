@@ -35,10 +35,25 @@ document.addEventListener("turbo:load", () => {
     }
   });
 
-  document.querySelectorAll(".js-sortable-check-box-collection").forEach((el) => new DragonDrop(el, {
-    handle: false,
-    item: ".js-collection-input"
-  }));
+  document.querySelectorAll(".js-sortable-check-box-collection").forEach((el) =>  {
+    const dragonDrop = new DragonDrop(el, {
+      handle: false,
+      item: ".js-collection-input"
+    });
+
+    /**
+    * Due to a bug reported in https://github.com/decidim/decidim/issues/15191
+    * we have to listen to the `drag` event and prevent the scrolling
+    * and enabling it back again after it.
+    */
+    dragonDrop.dragula.on("drag", () => {
+      document.addEventListener("touchmove", function(e) { e.preventDefault(); }, { passive: false });
+    });
+
+    dragonDrop.dragula.on("dragend", () => {
+      document.removeEventListener("touchmove", function(e) { e.preventDefault(); }, { passive: false });
+    });
+  });
 
   $(".response-questionnaire .question[data-conditioned='true']").each((idx, el) => {
     createDisplayConditions({
