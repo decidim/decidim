@@ -1174,11 +1174,9 @@ lt:
         main_image: Pagrindinis atvaizdas
     newsletters:
       unsubscribe:
-        check_subscription: Jei norite pakeisti savo parinktis, galite tai padaryti <a href="%{link}" target="_blank">konfigūracijos puslapyje</a>.
         error: Atsisakant prenumeratos iškilo problema.
         success: Jūs atsisakėte prenumeratos.
         token_error: Nuorodos galiojimo laikas baigėsi.
-        unsubscribe: Atsisakyti prenumeratos
     newsletters_opt_in:
       update:
         error: Išsaugant naujienlaiškių nuostatas iškilo problema.
