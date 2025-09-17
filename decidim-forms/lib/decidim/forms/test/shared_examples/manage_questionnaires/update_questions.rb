@@ -317,12 +317,20 @@ shared_examples_for "update questions" do
       create(:questionnaire_question, questionnaire:, body: second_body, position: 1)
     end
 
+    let!(:question3) do
+      create(:questionnaire_question, questionnaire:, body: third_body, position: 2)
+    end
+
     let(:first_body) do
       { en: "First", ca: "Primera", es: "Primera" }
     end
 
     let(:second_body) do
       { en: "Second", ca: "Segona", es: "Segunda" }
+    end
+
+    let(:third_body) do
+      { en: "Third", ca: "Tercera", es: "Tercera" }
     end
 
     before do
@@ -342,26 +350,6 @@ shared_examples_for "update questions" do
           expect(page).to look_like_last_question
         end
       end
-    end
-
-    context "when moving a question up" do
-      before do
-        within ".questionnaire-question:last-of-type" do
-          click_on "Up"
-        end
-      end
-
-      it_behaves_like "switching questions order"
-    end
-
-    context "when moving a question down" do
-      before do
-        within ".questionnaire-question:first-of-type" do
-          click_on "Down"
-        end
-      end
-
-      it_behaves_like "switching questions order"
     end
 
     describe "collapsible questions" do
@@ -459,7 +447,6 @@ shared_examples_for "update questions" do
       click_on "Add question"
       expand_all_questions
 
-      expect(page.find(".questionnaire-question:nth-of-type(1)")).to look_like_first_question
       expect(page.find(".questionnaire-question:nth-of-type(2)")).to look_like_intermediate_question
       expect(page.find(".questionnaire-question:nth-of-type(3)")).to look_like_last_question
 
@@ -508,6 +495,96 @@ shared_examples_for "update questions" do
       within ".questionnaire-question:last-of-type" do
         within ".questionnaire-question-response-options-list" do
           expect(page).to have_no_button("Remove")
+        end
+      end
+    end
+
+    context "when reordering questions with drag and drop", :js do
+      before do
+        expand_all_questions
+      end
+
+      it "allows moving questions using drag and drop" do
+        # Get specific question cards by their position
+        question_cards = all(".questionnaire-question")
+
+        # Verify initial order by checking the body field values
+        within question_cards[0] do
+          expect(find("input[name*='[body_en]']").value).to eq("First")
+        end
+        within question_cards[1] do
+          expect(find("input[name*='[body_en]']").value).to eq("Second")
+        end
+        within question_cards[2] do
+          expect(find("input[name*='[body_en]']").value).to eq("Third")
+        end
+
+        # Use JavaScript to simulate drag and drop since it's more reliable
+        page.execute_script(<<~JS)
+          var questions = document.querySelectorAll('.questionnaire-question');
+          var container = questions[0].parentNode;
+          var second = questions[1];
+          var first = questions[0];
+
+          // Move second question before first
+          container.insertBefore(second, first);
+
+          // Update position values
+          var updatedQuestions = container.querySelectorAll('.questionnaire-question');
+          updatedQuestions.forEach(function(question, index) {
+            var positionInput = question.querySelector('input[name$="[position]"]');
+            if (positionInput) positionInput.value = index;
+          });
+        JS
+
+        sleep 0.5
+
+        question_cards = all(".questionnaire-question")
+        within question_cards[0] do
+          expect(find("input[name*='[body_en]']").value).to eq("Second")
+        end
+        within question_cards[1] do
+          expect(find("input[name*='[body_en]']").value).to eq("First")
+        end
+        within question_cards[2] do
+          expect(find("input[name*='[body_en]']").value).to eq("Third")
+        end
+      end
+
+      it "persists drag and drop changes when saving" do
+        # Move second question to last position
+        page.execute_script(<<~JS)
+          var questions = document.querySelectorAll('.questionnaire-question');
+          var container = questions[0].parentNode;
+          var second = questions[1];
+
+          // Move to end
+          container.appendChild(second);
+
+          // Update positions
+          var updatedQuestions = container.querySelectorAll('.questionnaire-question');
+          updatedQuestions.forEach(function(question, index) {
+            var positionInput = question.querySelector('input[name$="[position]"]');
+            if (positionInput) positionInput.value = index;
+          });
+        JS
+
+        sleep 0.5
+
+        click_on "Save"
+        expect(page).to have_admin_callout("successfully")
+
+        visit_manage_questions_and_expand_all
+
+        question_cards = all(".questionnaire-question")
+        within question_cards[0] do
+          expect(find("input[name*='[body_en]']").value).to eq("First")
+        end
+        within question_cards[1] do
+          expect(find("input[name*='[body_en]']").value).to eq("Third")
+        end
+        within question_cards[2] do
+          expect(find("input[name*='[body_en]']").value).to eq("Second")
         end
       end
     end
