@@ -26,6 +26,8 @@ ru:
         title: Действия
       admin:
         models:
+          budget:
+            name: Бюджет
           project:
             name: Проект
         projects:
