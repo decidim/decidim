@@ -83,8 +83,6 @@ de:
         exports:
           projects: Projekte
         models:
-          budget:
-            name: Budget
           project:
             name: Projekt
         projects:
@@ -283,18 +281,8 @@ de:
           assigned: Zugewiesen
           budget: Budget
           dynamic_help:
-            keep_adding_projects: Weitere Projekte hinzufügen
             minimum_reached: Sie haben das Minimum erreicht, um abstimmen zu können
-            start_adding_projects: Mit dem Hinzufügen von Projekten beginnen
           minimum: Minimum
-          minimum_projects_rule:
-            description: Wählen Sie mindestens %{minimum_number} Projekte aus und stimmen Sie entsprechend Ihren Wünschen ab.
-          projects_rule:
-            description: Wählen Sie zwischen %{minimum_number} und %{maximum_number} Projekte aus und stimmen Sie entsprechend Ihren Wünschen ab.
-          projects_rule_maximum_only:
-            description: Wählen Sie bis zu %{maximum_number} Projekte aus und stimmen Sie entsprechend Ihren Wünschen ab.
-          vote_threshold_percent_rule:
-            description: Weisen Sie mindestens %{minimum_budget} den Projekten hinzu und stimmen Sie entsprechend Ihren Wünschen ab.
         orders:
           highest_cost: Höchste Kosten
           label: Projekte sortieren nach
@@ -322,7 +310,6 @@ de:
         select_projects: Projekt hinzufügen
         show:
           budget: Budget
-        start_voting: Abstimmung beginnen
       prompt: Budget auswählen
       vote_reminder_mailer:
         vote_reminder:
