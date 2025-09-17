@@ -38,8 +38,6 @@ tr:
         exports:
           projects: Projeler
         models:
-          budget:
-            name: Bütçe
           project:
             name: proje
         projects:
