@@ -1155,7 +1155,6 @@ pt-BR:
         error: Ocorreu um erro ao se desinscrever.
         success: Você está inscrito com sucesso.
         token_error: O link expirou.
-        unsubscribe: Cancelar subscrição
     newsletters_opt_in:
       unauthorized: Desculpe, este link não está mais disponível.
       update:
