@@ -11,7 +11,7 @@ Decidim is a Ruby on Rails application with JavaScript frontend components, supp
 - **CRITICAL**: Node.js **22.14.0** (NOT 20.x - specified in .node-version)
 - PostgreSQL (any recent version)
 - Redis server (required for background jobs)
-- Build tools (build-essential, git, etc.)
+- Build tools (installed automatically by rbenv)
 
 ### Bootstrap, Build, and Test Commands
 
@@ -35,15 +35,14 @@ Run these commands in sequence from the repository root:
 
 2. **Install correct Ruby 3.3.4 (CRITICAL):**
    ```bash
-   # Download and build Ruby 3.3.4 from source
-   wget https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.4.tar.gz
-   tar xzf ruby-3.3.4.tar.gz
-   cd ruby-3.3.4
-   sudo apt-get install -y build-essential zlib1g-dev libssl-dev libreadline-dev libyaml-dev libffi-dev
-   ./configure --prefix=/usr/local
-   make -j4
-   sudo make install
-   cd ..
+   # Install rbenv and Ruby 3.3.4
+   curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
+   echo 'eval "$(~/.rbenv/bin/rbenv init - bash)"' >> ~/.bashrc
+   export PATH="$HOME/.rbenv/bin:$PATH"
+   eval "$(rbenv init - bash)"
+   rbenv install 3.3.4
+   rbenv global 3.3.4
+   rbenv rehash
    ```
 
 3. **Install correct Node.js 22.14.0 (CRITICAL):**
@@ -59,8 +58,6 @@ Run these commands in sequence from the repository root:
 4. **Install Ruby dependencies (1 minute 11 seconds):**
    ```bash
    gem install bundler
-   export PATH="$HOME/.local/share/gem/ruby/3.3.0/bin:$PATH"
-   bundle config set --local path 'vendor/bundle'
    bundle install
    # Expected time: ~71 seconds
    ```
@@ -257,7 +254,7 @@ npm run test      # JavaScript tests (13s)
 
 **Asset compilation errors:** Ensure Node 22.14.0 is active and npm dependencies installed.
 
-**Permission errors during gem installs:** Use `bundle config set --local path 'vendor/bundle'` for local installs.
+**Permission errors during gem installs:** Ensure rbenv is properly installed and configured. Run `rbenv rehash` after installing new gems.
 
 **Database connection errors:** Set `DATABASE_USERNAME` and `DATABASE_PASSWORD` environment variables.
 
