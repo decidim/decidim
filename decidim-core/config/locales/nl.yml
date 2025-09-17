@@ -829,7 +829,6 @@ nl:
       unsubscribe:
         success: Je bent succesvol uitgeschreven.
         token_error: De link is verlopen.
-        unsubscribe: Uitschrijven
     newsletters_opt_in_mailer:
       notify:
         body_1: De verwerking van persoonlijke gegevens en de bescherming ervan worden steeds belangrijker voor ons allemaal. Met de nieuwe Algemene Verordening Gegevensbescherming (GDPR) van 25 mei 2018 hebben individuen betere controle over hun persoonlijke gegevens. Om deze reden hebben we uw "OK" nodig om relevante informatie over de activiteiten van de %{organization_name}te blijven verzenden.
