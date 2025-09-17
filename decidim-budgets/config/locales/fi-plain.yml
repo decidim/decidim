@@ -83,8 +83,6 @@ fi-pl:
         exports:
           projects: Suunnitelmat
         models:
-          budget:
-            name: Budjetti
           project:
             name: Suunnitelma
         projects:
@@ -178,6 +176,7 @@ fi-pl:
         cancel_order:
           more_than_one: poista äänesi budjetista %{name} ja aloita alusta
           only_one: poista äänesi ja aloita alusta.
+        completed: Valmistunut
         count:
           one: "%{count} budjetti"
           other: "%{count} budjettia"
@@ -185,6 +184,7 @@ fi-pl:
         finished_message: Olet äänestänyt. Kiitos osallistumisestasi!
         highlighted_cta: Äänestä budjetista %{name}
         if_change_opinion: Jos olet muuttanut mieltäsi, voit
+        incomplete: Keskeneräinen
         orders:
           highest_cost: Kallein ensin
           label: Järjestä budjetit
@@ -192,6 +192,8 @@ fi-pl:
           random: Satunnainen järjestys
         progress: Viimeistele äänestys
         remove_vote: Poista ääni
+        see_projects: Näytä projektit
+        see_results: Näytä tulokset
         show: Näytä projektit
         vote: Äänestä
         voted_budgets: Äänestetyt budjetit
@@ -240,6 +242,7 @@ fi-pl:
           subject: Olet äänestänyt osallistumistilassa %{space_name}
           voted_on_space: Olet äänestänyt budjetista %{budget_name} osallistumistilassa %{space_name}.
       projects:
+        back_to_budgets: Takaisin kaikkiin budjetteihin
         budget_confirm:
           are_you_sure: Jos muutat mieltäsi, voit muuttaa ääntäsi myöhemmin.
           cancel: Peruuta
@@ -283,18 +286,16 @@ fi-pl:
           assigned: Varattu
           budget: Budjetti
           dynamic_help:
-            keep_adding_projects: Jatka projektien valitsemista
             minimum_reached: Olet saavuttanut äänestystä varten vaaditun vähimmäismäärän
-            start_adding_projects: Aloita valitsemalla projekteja
           minimum: Vähintään
           minimum_projects_rule:
-            description: Valitse vähintään %{minimum_number} haluamaasi projektia äänestääksesi mieltymystesi mukaisesti.
+            description: "<b>Valitse vähintään %{minimum_number} haluamaasi projektia</b> äänestääksesi mieltymystesi mukaisesti."
           projects_rule:
-            description: Valitse vähintään %{minimum_number} ja enintään %{maximum_number} haluamaasi projektia äänestääksesi mieltymystesi mukaisesti.
+            description: "<b>Valitse vähintään %{minimum_number} ja enintään %{maximum_number} haluamaasi projektia</b> äänestääksesi mieltymystesi mukaisesti."
           projects_rule_maximum_only:
-            description: Valitse enintään %{maximum_number} haluamaasi projektia äänestääksesi mieltymystesi mukaisesti.
+            description: "<b>Valitse enintään %{maximum_number} haluamaasi projektia</b> äänestääksesi mieltymystesi mukaisesti."
           vote_threshold_percent_rule:
-            description: Varaa vähintään %{minimum_budget} projekteille äänestääksesi mieltymystesi mukaisesti.
+            description: "<b>Varaa vähintään %{minimum_budget}</b> projekteille äänestääksesi mieltymystesi mukaisesti."
         orders:
           highest_cost: Kallein ensin
           label: Järjestä suunnitelmat
@@ -322,7 +323,7 @@ fi-pl:
         select_projects: Valitse projektit
         show:
           budget: Budjetti
-        start_voting: Aloita äänestys
+          votes: Äänet
       prompt: Valitse budjetti
       vote_reminder_mailer:
         vote_reminder:
@@ -367,6 +368,11 @@ fi-pl:
             vote_selected_projects_maximum: Valittavien suunnitelmien enimmäismäärä
             vote_selected_projects_minimum: Valittavien suunnitelmien vähimmäismäärä
             vote_threshold_percent: Äänestyksen kynnysprosentti
+            voting_rule: Äänestystapa
+            voting_rule_choices:
+              minimum_projects: Valittavien projektien vähimmäismäärä
+              selected_projects: Valittavien projektien enimmäis- ja vähimmäismäärä
+              threshold_percent: Kokonaisbudjetin prosentuaalinen vähimmäismäärä
             workflow: Työnkulku
             workflow_choices:
               all: 'Äänestä kaikissa: sallii osallistujien äänestää kaikissa budjeteissa.'
