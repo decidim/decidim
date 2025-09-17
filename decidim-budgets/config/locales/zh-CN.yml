@@ -32,8 +32,6 @@ zh-CN:
             create: 创建预算
             title: 新预算
         models:
-          budget:
-            name: 三. 预算
           project:
             name: 项目
         projects:
