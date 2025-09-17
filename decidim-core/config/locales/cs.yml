@@ -2124,8 +2124,6 @@ cs:
         social_media: Sociální sítě
         terms_of_service: Podmínky služby
       header:
-        back: Zpět na seznam
-        cancel: Zrušit
         close: Zavřít‏
         confirm_close_ephemeral_session: Pokud odejdete, vaše dočasná relace bude ukončena. Nicméně veškerý váš pokrok a aktivita budou uloženy. Pokud jste svou aktivitu dokončili, klikněte na tlačítko Ok.
         confirm_title_close_ephemeral_session: Před opuštěním této stránky…
