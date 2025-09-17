@@ -210,5 +210,62 @@ module Decidim
         it_behaves_like "empty array or default"
       end
     end
+
+    describe "boolean conversion methods" do
+      context "when testing SMTP boolean settings" do
+        let(:name) { "SMTP_STARTTLS_AUTO" }
+        let(:default) { true }
+
+        after do
+          ENV.delete(name)
+        end
+
+        context "when ENV var is not set and has default" do
+          it "present? returns the default boolean value" do
+            expect(subject.present?).to be(true)
+            expect(subject.present?).to be_a(TrueClass)
+          end
+        end
+
+        context "when ENV var is set to truthy value" do
+          before { ENV[name] = "true" }
+
+          it "present? returns true as boolean" do
+            expect(subject.present?).to be(true)
+            expect(subject.present?).to be_a(TrueClass)
+          end
+        end
+
+        context "when ENV var is set to falsy value" do
+          before { ENV[name] = "false" }
+
+          it "present? returns false as boolean" do
+            expect(subject.present?).to be(false)
+            expect(subject.present?).to be_a(FalseClass)
+          end
+        end
+
+        context "when ENV var is set to '0'" do
+          before { ENV[name] = "0" }
+
+          it "present? returns false as boolean for falsy value" do
+            expect(subject.present?).to be(false)
+            expect(subject.present?).to be_a(FalseClass)
+          end
+        end
+
+        it "demonstrates difference between present? and to_boolean_string" do
+          ENV[name] = "true"
+          
+          # present? returns actual boolean
+          expect(subject.present?).to be(true)
+          expect(subject.present?).to be_a(TrueClass)
+          
+          # to_boolean_string returns string representation
+          expect(subject.to_boolean_string).to eq("true")
+          expect(subject.to_boolean_string).to be_a(String)
+        end
+      end
+    end
   end
 end
