@@ -1249,11 +1249,9 @@ ja:
         main_image: メイン画像
     newsletters:
       unsubscribe:
-        check_subscription: 設定を変更したい場合は、 <a href="%{link}" target="_blank">設定ページ</a> で設定できます。
         error: 購読解除中に問題が発生しました。
         success: 購読解除に成功しました。
         token_error: リンクの有効期限が切れました。
-        unsubscribe: 購読解除
     newsletters_opt_in:
       unauthorized: 申し訳ありませんが、このリンクは使用できなくなりました。
       update:
