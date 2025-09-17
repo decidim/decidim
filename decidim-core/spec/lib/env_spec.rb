@@ -223,7 +223,6 @@ module Decidim
         context "when ENV var is not set and has default" do
           it "present? returns the default boolean value" do
             expect(subject.present?).to be(true)
-            expect(subject.present?).to be_a(TrueClass)
           end
         end
 
@@ -232,7 +231,6 @@ module Decidim
 
           it "present? returns true as boolean" do
             expect(subject.present?).to be(true)
-            expect(subject.present?).to be_a(TrueClass)
           end
         end
 
@@ -241,7 +239,6 @@ module Decidim
 
           it "present? returns false as boolean" do
             expect(subject.present?).to be(false)
-            expect(subject.present?).to be_a(FalseClass)
           end
         end
 
@@ -250,17 +247,15 @@ module Decidim
 
           it "present? returns false as boolean for falsy value" do
             expect(subject.present?).to be(false)
-            expect(subject.present?).to be_a(FalseClass)
           end
         end
 
         it "demonstrates difference between present? and to_boolean_string" do
           ENV[name] = "true"
-          
+
           # present? returns actual boolean
           expect(subject.present?).to be(true)
-          expect(subject.present?).to be_a(TrueClass)
-          
+
           # to_boolean_string returns string representation
           expect(subject.to_boolean_string).to eq("true")
           expect(subject.to_boolean_string).to be_a(String)

@@ -110,9 +110,11 @@ You can read more about the Rails upgrade process on the following PRs:
 
 ### 1.5. Fix SMTP STARTTLS Configuration
 
-⚠ **Important**: If you are using SMTP for email delivery and have a custom configuration in `config/environments/production.rb`, you may need to update your SMTP settings.
+⚠ **Important**: If you are using SMTP for email delivery and have a custom configuration in
+`config/environments/production.rb`, you may need to update your SMTP settings.
 
-Previous versions of the Decidim generator created SMTP configurations that could cause errors with some mail servers due to incorrect boolean value handling for the `:enable_starttls_auto` setting.
+Previous versions of the Decidim generator created SMTP configurations that could cause errors with some
+mail servers due to incorrect boolean value handling for the `:enable_starttls_auto` setting.
 
 If your `config/environments/production.rb` contains an SMTP configuration like this:
 
@@ -134,9 +136,11 @@ config.action_mailer.smtp_settings = {
 }
 ```
 
-This change ensures that the mail library receives a proper boolean value instead of a string, preventing potential SMTP connection errors.
+This change ensures that the mail library receives a proper boolean value instead of a string,
+preventing potential SMTP connection errors.
 
-**Note**: This fix only affects installations that use custom SMTP configurations. If you are using the default mail configuration or a different mail delivery method, no action is required.
+**Note**: This fix only affects installations that use custom SMTP configurations. If you are using
+the default mail configuration or a different mail delivery method, no action is required.
 
 ### 1.6. Run these commands
 
