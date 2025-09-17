@@ -47,11 +47,15 @@ document.addEventListener("turbo:load", () => {
     * and enabling it back again after it.
     */
     dragonDrop.dragula.on("drag", () => {
-      document.addEventListener("touchmove", function(e) { e.preventDefault(); }, { passive: false });
+      document.addEventListener("touchmove", function(event) {
+        event.preventDefault();
+      }, { passive: false });
     });
 
     dragonDrop.dragula.on("dragend", () => {
-      document.removeEventListener("touchmove", function(e) { e.preventDefault(); }, { passive: false });
+      document.removeEventListener("touchmove", function(event) {
+        event.preventDefault();
+      }, { passive: false });
     });
   });
 
