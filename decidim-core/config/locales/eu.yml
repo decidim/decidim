@@ -1452,11 +1452,12 @@ eu:
         main_image: Irudi nagusia
     newsletters:
       unsubscribe:
-        check_subscription: 'Zure lehentasunak aldatu nahi badituzu, hemen egin dezakezu: <a href="%{link}" target="_blank">ezarpenen orrialdea</a>.'
+        check_subscription_html: <a href="%{link}" target="_blank">ezarpenak</a> orrialdean, berriz hasi nahi baduzu jasotzen, edozein unetan aktiba dezakezu harpidetza.</a>.
         error: Arazo bat egon da harpidetza ezeztatzean.
+        subscription_preferences: Zure harpidetzaren hobespenak eguneratu ditugu, eta dagoeneko ez duzu %{organization_name}(r) en buletinik jasoko.
         success: Harpidetza zuzen ezeztatua.
         token_error: Esteka iraungi da.
-        unsubscribe: Baja eman
+        unsubscribe: Buletinean baja ematea
     newsletters_opt_in:
       unauthorized: Sentitzen dut, esteka hau ez dago eskuragarri.
       update:
