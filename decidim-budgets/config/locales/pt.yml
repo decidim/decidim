@@ -41,8 +41,6 @@ pt:
         exports:
           projects: Projectos
         models:
-          budget:
-            name: Orçamento
           project:
             name: Projeto
         projects:
