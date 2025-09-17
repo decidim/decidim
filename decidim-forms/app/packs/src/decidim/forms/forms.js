@@ -59,8 +59,6 @@ document.addEventListener("turbo:load", () => {
       handle: false,
       item: ".js-collection-input"
     });
-
-
   });
 
   $(".response-questionnaire .question[data-conditioned='true']").each((idx, el) => {
