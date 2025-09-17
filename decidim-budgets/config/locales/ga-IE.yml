@@ -19,8 +19,6 @@ ga:
         exports:
           projects: Tionscadail
         models:
-          budget:
-            name: Buiséad
           project:
             name: Tionscadal
         projects:
