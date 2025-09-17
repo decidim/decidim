@@ -635,7 +635,6 @@ gl:
       unsubscribe:
         success: Estás desubscrito con éxito.
         token_error: A ligazón caducou.
-        unsubscribe: Anular a suscripción
     newsletters_opt_in_mailer:
       notify:
         body_1: O procesamento de datos persoais ea súa protección é cada vez máis importante para todos. Coa nova norma xeral de protección de datos (GDPR) do 25 de maio de 2018, os individuos teñen un mellor control sobre os seus datos persoais. Por este motivo necesitamos o "OK" para seguir enviando información relevante sobre as actividades do %{organization_name}.
