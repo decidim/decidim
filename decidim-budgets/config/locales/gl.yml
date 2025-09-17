@@ -46,8 +46,6 @@ gl:
         exports:
           projects: Proxectos
         models:
-          budget:
-            name: Orzamento
           project:
             name: Proxecto
         projects:
