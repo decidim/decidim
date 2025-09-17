@@ -46,16 +46,17 @@ document.addEventListener("turbo:load", () => {
     * we have to listen to the `drag` event and prevent the scrolling
     * and enabling it back again after it.
     */
+
+    const preventScroll = function(event) {
+      event.preventDefault();
+    }
+
     dragonDrop.dragula.on("drag", () => {
-      document.addEventListener("touchmove", function(event) {
-        event.preventDefault();
-      }, { passive: false });
+      document.addEventListener("touchmove", preventScroll, { passive: false });
     });
 
     dragonDrop.dragula.on("dragend", () => {
-      document.removeEventListener("touchmove", function(event) {
-        event.preventDefault();
-      }, { passive: false });
+      document.removeEventListener("touchmove", preventScroll, { passive: false });
     });
   });
 
