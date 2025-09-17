@@ -1945,8 +1945,7 @@ fr:
         social_media: Réseaux sociaux
         terms_of_service: Conditions d'utilisation
       header:
-        back: Retour à la liste
-        cancel: Annuler
+        back: Retour
         close: Fermer
         confirm_title_close_ephemeral_session: Avant de quitter cette page…
         log_in: Se connecter
@@ -1999,6 +1998,11 @@ fr:
   locale:
     name: Français
     name_with_error: Français (erreur !)
+  number:
+    currency:
+      format:
+        format: "%u %n"
+        format_html: "<span>%u</span> %n"
   password_validator:
     denied: est refusé
     domain_included_in_password: est trop similaire au nom de domaine de cette plateforme
