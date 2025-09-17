@@ -81,8 +81,6 @@ ja:
         exports:
           projects: プロジェクト
         models:
-          budget:
-            name: 予算
           project:
             name: プロジェクト
         projects:
@@ -275,18 +273,8 @@ ja:
           assigned: 割り当て済み
           budget: 予算
           dynamic_help:
-            keep_adding_projects: プロジェクトを追加したままにする
             minimum_reached: 投票できる最小値に達しました
-            start_adding_projects: プロジェクトの追加を開始
           minimum: 最小
-          minimum_projects_rule:
-            description: 少なくとも%{minimum_number}件のプロジェクトを選び、あなたの希望に沿って投票してください。
-          projects_rule:
-            description: 少なくとも%{minimum_number}件、最大で%{maximum_number}件のプロジェクトを選び、あなたの希望に沿って投票してください。
-          projects_rule_maximum_only:
-            description: 最大で%{maximum_number}件までプロジェクトを選び、あなたの希望に沿って投票してください。
-          vote_threshold_percent_rule:
-            description: 少なくとも%{minimum_budget}の予算をプロジェクトに割り当て、あなたの希望に沿って投票してください。
         orders:
           highest_cost: 最高コスト
           label: 'プロジェクトを注文:'
@@ -313,7 +301,6 @@ ja:
         select_projects: プロジェクトを追加
         show:
           budget: 予算
-        start_voting: 投票を開始
       prompt: 予算を選択
       vote_reminder_mailer:
         vote_reminder:
