@@ -1079,11 +1079,9 @@ zh-TW:
         main_image: 主圖片
     newsletters:
       unsubscribe:
-        check_subscription: 如果您想更改您的偏好設定，您可以在<a href="%{link}" target="_blank">配置頁面</a>進行更改。
         error: 取消訂閱時發生問題.
         success: 你已經成功取消訂閱
         token_error: 該連結已過期。
-        unsubscribe: 取消訂閱
     newsletters_opt_in:
       update:
         error: 儲存通訊設定時出現問題。
