@@ -44,23 +44,20 @@ module Decidim
       # @param options The options for the URL that are the normal route options
       #   Rails route helpers accept
       # @return [String] The URL of the asset
-      def url(options = {})
+      def url(**options)
         case asset
         when ActiveStorage::Attached
           ensure_current_host(asset.record, **options)
-          options.delete_if { |key, _value| key == :host }
-          blob_url(**options)
+          blob_url(**options.except(:host))
         when ActiveStorage::Blob
           blob_url(**options)
         else # ActiveStorage::VariantWithRecord, ActiveStorage::Variant
           if blob && blob.attachments.any?
             ensure_current_host(blob.attachments.first&.record, **options)
-            options.delete_if { |key, _value| key == :host }
-            representation_url(**options)
+            representation_url(**options.except(:host))
           else
             ensure_current_host(nil, **options)
-            options.delete_if { |key, _value| key == :host }
-            representation_url(**options, only_path: true)
+            representation_url(**options.except(:host), only_path: true)
           end
         end
       end
