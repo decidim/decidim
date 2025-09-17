@@ -61,8 +61,6 @@ lt:
         exports:
           projects: Projektai
         models:
-          budget:
-            name: Biudžetas
           project:
             name: Projektas
         projects:
@@ -207,9 +205,7 @@ lt:
           assigned: Priskirta
           budget: Biudžetas
           dynamic_help:
-            keep_adding_projects: Pridėkite daugiau projektų
             minimum_reached: Pasiekėte minimalų projektų kiekį balsavimui
-            start_adding_projects: Pradėktie balsavimą
           minimum: Mažiausiai
         orders:
           highest_cost: Didžiausia kaina
