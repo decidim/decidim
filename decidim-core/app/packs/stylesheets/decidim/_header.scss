@@ -43,6 +43,10 @@ header {
 
     &--focus-mode-back-button {
       @apply h-16 lg:h-24;
+
+      .main-bar__links-desktop__item {
+        @apply flex-row;
+      }
     }
 
     &__container {

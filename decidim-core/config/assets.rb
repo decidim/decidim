@@ -2,8 +2,8 @@
 
 base_path = File.expand_path("..", __dir__)
 
-Decidim::Webpacker.register_path("#{base_path}/app/packs")
-Decidim::Webpacker.register_entrypoints(
+Decidim::Shakapacker.register_path("#{base_path}/app/packs")
+Decidim::Shakapacker.register_entrypoints(
   decidim_overrides: "#{base_path}/app/packs/entrypoints/decidim_overrides.scss",
   decidim_core: "#{base_path}/app/packs/entrypoints/decidim_core.js",
   decidim_sw: "#{base_path}/app/packs/entrypoints/decidim_sw.js",
@@ -15,7 +15,6 @@ Decidim::Webpacker.register_entrypoints(
   decidim_geocoding_provider_here: "#{base_path}/app/packs/entrypoints/decidim_geocoding_provider_here.js",
   decidim_map_provider_default: "#{base_path}/app/packs/entrypoints/decidim_map_provider_default.js",
   decidim_map_provider_here: "#{base_path}/app/packs/entrypoints/decidim_map_provider_here.js",
-  decidim_widget: "#{base_path}/app/packs/entrypoints/decidim_widget.js",
   decidim_qr: "#{base_path}/app/packs/entrypoints/decidim_qr.js",
   decidim_geocoding: "#{base_path}/app/packs/entrypoints/decidim_geocoding.js"
 )

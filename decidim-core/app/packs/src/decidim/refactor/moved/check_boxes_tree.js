@@ -22,12 +22,18 @@ export default class CheckBoxesTree {
   /**
    * Set checkboxes as checked if included in given values
    * @public
-   * @param {Array} checkboxes - array of checkboxes to check
+   * @param {NodeList|Array|HTMLElement[]} checkboxes - array of checkboxes to check
    * @param {Array} values - values of checkboxes that should be checked
    * @returns {Void} - Returns nothing.
    */
   updateChecked(checkboxes, values) {
-    checkboxes.each((_idx, checkbox) => {
+    // Handle both NodeList/Array and jQuery-like objects
+    // eslint-disable-next-line no-undefined
+    const checkboxArray = checkboxes.length === undefined
+      ? [checkboxes]
+      : Array.from(checkboxes);
+
+    checkboxArray.forEach((checkbox) => {
       if ((checkbox.value === "" && values.length === 1) || (checkbox.value !== "" && values.includes(checkbox.value))) {
         checkbox.checked = true;
         this.checkTheCheckBoxes(checkbox);
@@ -39,21 +45,30 @@ export default class CheckBoxesTree {
   /**
    * Set the container form(s) for the component, to disable ignored filters before submitting them
    * @public
-   * @param {query} theForm - form or forms where the component will be used
+   * @param {HTMLElement} theForm - form element where the component will be used
    * @returns {Void} - Returns nothing.
    */
   setContainerForm(theForm) {
-    theForm.on("submit ajax:before", () => {
-      theForm.find(".ignore-filters input, input.ignore-filter").each((_idx, elem) => {
+    // Handle both jQuery objects and DOM elements
+    const form = theForm;
+
+    const handleBeforeSubmit = () => {
+      const ignoredInputs = form.querySelectorAll(".ignore-filters input, input.ignore-filter");
+      ignoredInputs.forEach((elem) => {
         elem.disabled = true;
       });
-    });
+    };
 
-    theForm.on("ajax:send", () => {
-      theForm.find(".ignore-filters input, input.ignore-filter").each((_idx, elem) => {
+    const handleAfterSubmit = () => {
+      const ignoredInputs = form.querySelectorAll(".ignore-filters input, input.ignore-filter");
+      ignoredInputs.forEach((elem) => {
         elem.disabled = false;
       });
-    });
+    };
+
+    form.addEventListener("submit", handleBeforeSubmit);
+    form.addEventListener("ajax:before", handleBeforeSubmit);
+    form.addEventListener("ajax:send", handleAfterSubmit);
   }
 
   /**

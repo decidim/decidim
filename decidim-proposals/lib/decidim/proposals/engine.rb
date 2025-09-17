@@ -145,7 +145,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_proposals.webpacker.assets_path" do
+      initializer "decidim_proposals.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 
@@ -163,6 +163,12 @@ module Decidim
             Decidim::Proposals::HideAllCreatedByAuthorJob.perform_later(**data)
           end
         end
+      end
+
+      initializer "decidim_proposals.register_mutations", before: "decidim_api.graphiql" do
+        Decidim::MutationRegistry.instance.register(
+          Decidim::Proposals::ProposalsMutationType
+        )
       end
     end
   end

@@ -14,6 +14,13 @@ module Decidim
         number_to_currency budget, unit: Decidim.currency_unit, precision: 0
       end
 
+      # Render a budget as a currency with the HTML format
+      #
+      # budget - A integer to represent a budget
+      def budget_to_currency_with_html(budget)
+        number_to_currency(budget, unit: Decidim.currency_unit, precision: 0, format: t("number.currency.format.format_html"))
+      end
+
       # Return a percentage of the current order budget from the total budget
       def current_order_budget_percent
         current_order&.budget_percent.to_f.floor
@@ -56,13 +63,7 @@ module Decidim
       def current_rule_call_for_action_text
         return "" unless current_order
 
-        if current_order_minimum_reached?
-          t("minimum_reached", scope: "decidim.budgets.projects.order_progress.dynamic_help")
-        elsif current_order.projects.empty?
-          t("start_adding_projects", scope: "decidim.budgets.projects.order_progress.dynamic_help")
-        else
-          t("keep_adding_projects", scope: "decidim.budgets.projects.order_progress.dynamic_help")
-        end
+        t("minimum_reached", scope: "decidim.budgets.projects.order_progress.dynamic_help") if current_order_minimum_reached?
       end
 
       def current_rule_description
@@ -98,6 +99,9 @@ module Decidim
                         minimum_budget: budget_to_currency(current_order.minimum_budget)
                       )
                     end
+
+        return rule_text.html_safe if current_rule_call_for_action_text.nil?
+
         %(<strong>#{current_rule_call_for_action_text}</strong>. #{rule_text}).html_safe
       end
 

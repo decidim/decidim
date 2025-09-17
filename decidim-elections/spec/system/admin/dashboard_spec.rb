@@ -90,7 +90,7 @@ describe "Dashboard" do
     it "shows the election scheduled status" do
       expect(page).to have_content("Scheduled")
       expect(page).to have_no_button("Start election")
-      expected_date = election.start_at.strftime("%b %-d, %Y, %-I:%M %p")
+      expected_date = election.start_at.strftime("%d/%m/%Y %H:%M")
       expect(page).to have_content("Start time: #{expected_date}")
     end
   end

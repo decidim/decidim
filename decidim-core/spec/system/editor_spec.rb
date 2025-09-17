@@ -31,7 +31,17 @@ describe "Editor" do
       api_path: "/api",
       messages: {
         editor: I18n.t("editor"),
-        selfxssWarning: I18n.t("decidim.security.selfxss_warning")
+        selfxssWarning: I18n.t("decidim.security.selfxss_warning"),
+        characterCounter: {
+          charactersAtLeast: {
+            one: I18n.t("forms.length_validator.minimum.one", count: "%count%", default: "forms.length_validator.minimum.other"),
+            other: I18n.t("forms.length_validator.minimum.other", count: "%count%")
+          },
+          charactersLeft: {
+            one: I18n.t("decidim.components.add_comment_form.remaining_characters_1", count: "%count%"),
+            other: I18n.t("decidim.components.add_comment_form.remaining_characters", count: "%count%")
+          }
+        }
       }
     }
     editor_wrapper = form.editor(:body, toolbar: features, **editor_options)
@@ -66,6 +76,7 @@ describe "Editor" do
           <meta name="csrf-token" content="abcdef0123456789">
           #{meta_context}
           #{stylesheet_pack_tag "decidim_core", media: "all"}
+          #{javascript_pack_tag "decidim_core", defer: false}
         </head>
         <body>
           <header>
@@ -73,7 +84,6 @@ describe "Editor" do
           </header>
           #{content_wrapper}
           <footer>Decidim</footer>
-          #{javascript_pack_tag "decidim_core", defer: false}
           <script>
             Decidim.config.set(#{js_configs.to_json});
             window.isTestEnvironment = true;

@@ -91,12 +91,45 @@ module Decidim
         end
 
         describe "GET #dashboard" do
-          let!(:election) { create(:election, :with_token_csv_census, component:) }
-          let!(:election_question) { create(:election_question, election:) }
+          let!(:election) { create(:election, :published, :with_token_csv_census, component:) }
+          let!(:election_question) { create(:election_question, :with_response_options, election:) }
 
           it "renders dashboard page" do
             get :dashboard, params: { id: election.id }
             expect(response).to render_template(:dashboard)
+          end
+
+          it "returns the election as JSON" do
+            get :dashboard, params: { id: election.id, format: :json }
+            expect(response).to have_http_status(:ok)
+            expect(JSON.parse(response.body)).to include(
+              "id" => election.id,
+              "title" => translated_attribute(election.title),
+              "description" => translated_attribute(election.description),
+              "start_date" => nil,
+              "end_date" => election.end_at.iso8601,
+              "ongoing" => false,
+              "status" => "scheduled",
+              "questions" => [
+                {
+                  "id" => election_question.id,
+                  "body" => translated_attribute(election_question.body),
+                  "position" => election_question.position,
+                  "voting_enabled" => false,
+                  "published_results" => false,
+                  "response_options" => election_question.response_options.map do |ro|
+                    {
+                      "id" => ro.id,
+                      "body" => translated_attribute(ro.body),
+                      "votes_count" => 0,
+                      "votes_count_text" => "0 votes",
+                      "votes_percent" => 0,
+                      "votes_percent_text" => "0.0%"
+                    }
+                  end
+                }
+              ]
+            )
           end
         end
 
