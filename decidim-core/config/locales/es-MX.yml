@@ -1454,11 +1454,12 @@ es-MX:
         main_image: Imagen principal
     newsletters:
       unsubscribe:
-        check_subscription: Si quieres cambiar tus preferencias, puedes hacerlo en la <a href="%{link}" target="_blank">página de configuración</a>.
+        check_subscription_html: Si quieres volver a recibirlos, puedes volver a activar tu suscripción en cualquier momento desde la <a href="%{link}" target="_blank">página de configuración</a>.
         error: Se ha producido un error al cancelar la suscripción.
+        subscription_preferences: Hemos actualizado tus preferencias de suscripción y ya no recibirás boletines informativos de %{organization_name}.
         success: Te has dado de baja exitosamente.
         token_error: El enlace ha expirado.
-        unsubscribe: Darse de baja
+        unsubscribe: Cancelar la suscripción al boletín informativo
     newsletters_opt_in:
       unauthorized: Lo sentimos, este enlace ya no está disponible.
       update:
