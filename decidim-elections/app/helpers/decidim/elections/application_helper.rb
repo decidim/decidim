@@ -42,6 +42,15 @@ module Decidim
           translated_attribute(question.body)
         end
       end
+
+      def selected_response_option_id(question)
+        session.dig(:votes_buffer, question.id.to_s, "response_option_id")&.to_i
+      end
+
+      def voted_by_current_user?(election)
+        voter_uid = session[:voter_uid] || election.census.voter_uid(election, {}, current_user:)
+        election.votes.exists?(voter_uid:)
+      end
     end
   end
 end

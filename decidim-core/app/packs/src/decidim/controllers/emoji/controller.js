@@ -2,11 +2,16 @@ import { Controller } from "@hotwired/stimulus"
 import { EmojiButton } from "src/decidim/controllers/emoji/emoji"
 
 export default class extends Controller {
+
+  /**
+   * There is a problem that I could not identify here, but it seems that if we do not remove the emoji controller
+   * from an element, we will have an endless load of the emoji object. Therefore, we are filtering through the existing
+   *  controllers and removing the emoji. If there is no other element, we remove the data-attribute.
+   * @returns {void}
+   */
   connect() {
-    // Get current controllers
     let controllers = this.element.dataset.controller.split(" ");
 
-    // Remove 'foo' controller
     controllers = controllers.filter((controller) => controller !== "emoji");
 
     // Update the attribute

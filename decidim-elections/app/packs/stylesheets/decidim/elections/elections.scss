@@ -53,18 +53,18 @@
     @apply border border-gray rounded-lg py-2 px-4;
 
     h3 {
-      @apply font-semibold text-primary text-lg mb-2 pt-2 pb-1;
+      @apply font-bold text-secondary text-lg mb-2 pt-2 pb-1;
     }
 
     h4 {
-      @apply font-medium text-gray-2 text-lg mb-1;
+      @apply font-semibold text-gray-2 text-lg mb-1;
     }
 
     .card-accordion-divider-button {
       @apply text-left items-start;
 
       svg {
-        @apply mt-1;
+        @apply mt-1 fill-secondary;
       }
     }
 
@@ -82,7 +82,7 @@
       @apply relative h-3 flex-1 rounded bg-gray-3;
 
       &-width {
-        @apply absolute h-full top-0 left-0 rounded bg-[var(--primary)];
+        @apply absolute h-full top-0 left-0 rounded bg-[var(--secondary)];
 
         transition: width 1s ease-in-out;
       }

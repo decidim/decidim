@@ -15,16 +15,16 @@
     <div class="row column">
       <div>
         <span class="font-semibold"><%= t("decidim.elections.admin.dashboard.calendar.start_at") %></span>
-        <span><%= election.manual_start? ? t("decidim.elections.admin.dashboard.calendar.manual_start") : l(election.start_at, format: :short_with_time) %></span>
+        <span><%= election.manual_start? ? t("decidim.elections.admin.dashboard.calendar.manual_start") : l(election.start_at, format: :decidim_short) %></span>
       </div>
       <div>
         <span class="font-semibold"><%= t("decidim.elections.admin.dashboard.calendar.end_at") %></span>
-        <span><%= l(election.end_at, format: :short_with_time) %></span>
+        <span><%= l(election.end_at, format: :decidim_short) %></span>
       </div>
       <% if election.published_results? %>
         <div>
           <span class="font-semibold"><%= t("decidim.elections.admin.dashboard.calendar.published_results_at") %></span>
-          <span><%= l(election.published_results_at.presence || election.end_at, format: :short_with_time) %></span>
+          <span><%= l(election.published_results_at.presence || election.end_at, format: :decidim_short) %></span>
         </div>
       <% end %>
     </div>

@@ -6,7 +6,7 @@
       </div>
 
       <% if allowed_to? :update_slug, :static_page, static_page: form.object %>
-        <div class="row column slug">
+        <div class="row column" data-controller="slug">
           <div>
             <%= form.label :slug %>
           </div>

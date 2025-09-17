@@ -37,6 +37,14 @@ module Decidim
             "<p>#{::Faker::Lorem.paragraph}</p>"
         end
 
+        step_settings = if participatory_space.allows_steps?
+                          { participatory_space.active_step.id => {
+                            votes: %w(enabled disabled finished).sample
+                          } }
+                        else
+                          {}
+                        end
+
         params = {
           name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :budgets).i18n_name,
           manifest_name: :budgets,
@@ -47,7 +55,8 @@ module Decidim
             landing_page_content:,
             more_information_modal: Decidim::Faker::Localized.paragraph(sentence_count: 4),
             workflow: Decidim::Budgets.workflows.keys.sample
-          }
+          },
+          step_settings:
         }
 
         Decidim.traceability.perform_action!(
@@ -72,19 +81,21 @@ module Decidim
             description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
               Decidim::Faker::Localized.paragraph(sentence_count: 3)
             end,
-            total_budget: ::Faker::Number.number(digits: 8)
+            total_budget: ::Faker::Number.number(digits: 7)
           )
         end
       end
 
       def create_project!(budget:)
+        minimum_amount = Integer(budget.total_budget * 0.1)
+        maximum_amount = Integer(budget.total_budget * 0.5)
         params = {
           budget:,
           title: Decidim::Faker::Localized.sentence(word_count: 2),
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,
-          budget_amount: ::Faker::Number.between(from: Integer(budget.total_budget * 0.7), to: budget.total_budget)
+          budget_amount: ::Faker::Number.between(from: minimum_amount, to: maximum_amount)
         }
 
         if budget.component.settings.geocoding_enabled?

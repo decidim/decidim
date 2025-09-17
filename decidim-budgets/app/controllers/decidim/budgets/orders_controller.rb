@@ -8,6 +8,8 @@ module Decidim
 
       helper_method :pending_to_vote_budgets
 
+      before_action :set_focus_mode_if_voting_open
+
       def checkout
         enforce_permission_to :vote, :project, order: current_order, budget:, workflow: current_workflow
 

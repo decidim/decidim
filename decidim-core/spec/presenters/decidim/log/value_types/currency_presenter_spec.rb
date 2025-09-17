@@ -9,7 +9,7 @@ describe Decidim::Log::ValueTypes::CurrencyPresenter, type: :helper do
 
   describe "#present" do
     it "renders the value as a currency" do
-      expect(subject.present).to eq "€1,123.40"
+      expect(subject.present).to eq "€ 1,123.40"
     end
   end
 end
