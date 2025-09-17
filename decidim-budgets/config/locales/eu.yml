@@ -171,7 +171,7 @@ eu:
           update: "%{user_name} parte-hartzaileak %{resource_name} proiektua %{space_name} espazioan sortu da"
       budget_information_modal:
         back_to: Itzuli %{component_name} osagaira
-        close_modal: Itxi modala
+        close_modal: Itxi leihoa
         continue: Jarraitu
         more_information: Informazio gehiago aurrekontuari buruz
       budgets_list:
@@ -348,7 +348,7 @@ eu:
                 budget_voting_rule_required: Bozketarako arau bat behar da.
             geocoding_enabled: Mapak gaituta
             landing_page_content: Aurrekontuen hasierako orria
-            more_information_modal: '"Informazio gehiago"ren modala'
+            more_information_modal: '"Informazio gehiago" leihoa'
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             projects_per_page: Orrialde bakoitzeko proiektuak
             resources_permissions_enabled: Ekintza-baimenak ezarri ahal dira proiektu bakoitzerako
@@ -373,7 +373,7 @@ eu:
             highlighted_heading: Goiburu nabarmendua
             landing_page_content: Aurrekontuen hasierako orrialdea
             list_heading: Zerrendaren izenburua
-            more_information_modal: '"Informazio gehiago"ren modala'
+            more_information_modal: '"Informazio gehiago" leihoa'
             show_votes: Erakutsi babesak
             title: Izenburua
             votes: Bozketa
