@@ -1161,11 +1161,9 @@ ro:
         main_image: Imaginea principală
     newsletters:
       unsubscribe:
-        check_subscription: Dacă doriți să vă schimbați preferințele, puteți face acest lucru în <a href="%{link}" target="_blank">pagina de configurare</a>.
         error: A apărut o eroare la dezabonare.
         success: Sunteți dezabonat cu succes.
         token_error: Link-ul a expirat.
-        unsubscribe: Dezabonare
     newsletters_opt_in:
       update:
         error: A apărut o eroare la actualizarea acestui buletin informativ.
