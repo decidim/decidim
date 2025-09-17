@@ -809,7 +809,6 @@ pt:
       unsubscribe:
         success: Subscrição cancelada corretamente.
         token_error: A hiperligação expirou.
-        unsubscribe: Cancelar subscrição
     newsletters_opt_in_mailer:
       notify:
         body_1: O processamento de dados pessoais e a sua proteção estão a tornar-se cada vez mais importantes para todos nós. Com o novo Regulamento Geral de Proteção de Dados (GDPR) de 25 de maio de 2018, os indivíduos têm melhor controlo sobre os seus dados pessoais. Por este motivo, precisamos do seu "OK" para continuar a enviar informações relevantes sobre as atividades de %{organization_name}.
