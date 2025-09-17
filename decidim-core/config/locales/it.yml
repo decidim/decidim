@@ -959,10 +959,8 @@ it:
         main_image: Immagine principale
     newsletters:
       unsubscribe:
-        check_subscription: .
         success: Hai annullato l'iscrizione.
         token_error: Il link è scaduto.
-        unsubscribe: Annulla l'iscrizione
     newsletters_opt_in_mailer:
       notify:
         body_1: Il trattamento dei dati personali e la sua protezione stanno diventando sempre più importanti per tutti noi. Con il nuovo regolamento generale sulla protezione dei dati (GDPR) del 25 maggio 2018, gli individui hanno un migliore controllo sui propri dati personali. Per questo motivo abbiamo bisogno del tuo "OK" per continuare a inviare informazioni rilevanti sulle attività di %{organization_name}.
