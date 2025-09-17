@@ -59,8 +59,6 @@ el:
         exports:
           projects: Έργα
         models:
-          budget:
-            name: Προϋπολογισμός
           project:
             name: Έργο
         projects:
