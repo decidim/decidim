@@ -2115,8 +2115,6 @@ de:
         social_media: Social Media
         terms_of_service: Nutzungsbedingungen
       header:
-        back: Zurück zur Liste
-        cancel: Abbrechen
         close: Schliessen
         confirm_close_ephemeral_session: Wenn Sie wegnavigieren, wird Ihre temporäre Sitzung geschlossen. Allerdings werden alle Fortschritte und Aktivitäten gespeichert. Wenn Sie Ihre Aktivität beendet haben, klicken Sie auf OK.
         confirm_title_close_ephemeral_session: Vor Verlassen dieser Seite…
