@@ -749,7 +749,6 @@ zh-CN:
       unsubscribe:
         success: 您已成功取消订阅。
         token_error: 链接已过期。
-        unsubscribe: 取消订阅
     newsletters_opt_in_mailer:
       notify:
         body_1: 个人数据的处理和对数据的保护对我们大家都越来越重要。 根据2018年5月25日新的《一般数据保护条例》，个人可以更好地控制自己的个人数据。 为此原因，我们需要您的“确定”继续发送有关 %{organization_name} 活动的信息。
