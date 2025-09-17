@@ -83,8 +83,6 @@ ca-IT:
         exports:
           projects: Projectes
         models:
-          budget:
-            name: Pressupost
           project:
             name: Projecte
         projects:
@@ -178,6 +176,7 @@ ca-IT:
         cancel_order:
           more_than_one: eliminar el teu vot a %{name} i començar de nou
           only_one: eliminar el teu vot i començar de nou.
+        completed: Completat
         count:
           one: "%{count} pressupost"
           other: "%{count} pressupostos"
@@ -185,6 +184,7 @@ ca-IT:
         finished_message: Has finalitzat el procés de votació. Gràcies per participar-hi!
         highlighted_cta: Votar a %{name}
         if_change_opinion: Si has canviat d'opinió, pots
+        incomplete: Incomplet
         orders:
           highest_cost: Cost més elevat
           label: Ordenar projectes per
@@ -192,6 +192,8 @@ ca-IT:
           random: Ordre aleatori
         progress: Acaba la votació
         remove_vote: Eliminar el vot
+        see_projects: Mostra els projectes
+        see_results: Veure els resultats
         show: Mostra els projectes
         vote: Vota
         voted_budgets: Pressupostos votats
@@ -240,6 +242,7 @@ ca-IT:
           subject: Has votat a l'espai de participació %{space_name}
           voted_on_space: Has votat al pressupost %{budget_name} de l'espai de participació %{space_name}.
       projects:
+        back_to_budgets: Tornar als pressupostos
         budget_confirm:
           are_you_sure: Si canvies d'opinió, pots modificar el teu vot més tard.
           cancel: Cancel·lar
@@ -283,18 +286,16 @@ ca-IT:
           assigned: Assignat
           budget: Pressupost
           dynamic_help:
-            keep_adding_projects: Seguir afegint projectes
             minimum_reached: Has arribat al mínim per a poder votar
-            start_adding_projects: Començar a afegir projectes
           minimum: Mínim
           minimum_projects_rule:
-            description: Selecciona com a mínim %{minimum_number} projectes que vulguis i vota segons les teves preferències.
+            description: "<b>Selecciona com a mínim %{minimum_number} projectes</b> que vulguis i vota segons les teves preferències."
           projects_rule:
-            description: Selecciona entre %{minimum_number} i %{maximum_number} projectes que vulguis i vota segons les teves preferències per a definir el pressupost.
+            description: "<b>Selecciona entre %{minimum_number} i %{maximum_number} projectes</b> que vulguis i vota segons les teves preferències per a definir el pressupost."
           projects_rule_maximum_only:
-            description: Selecciona fins a %{maximum_number} projectes que vulguis i vota segons les teves preferències.
+            description: "<b>Selecciona fins a %{maximum_number} projectes</b> que vulguis i vota segons les teves preferències."
           vote_threshold_percent_rule:
-            description: Selecciona els projectes que vulguis fins com a mínim el %{minimum_budget} del total del pressupost i vota segons les teves preferències.
+            description: "Selecciona els projectes que vulguis <b>fins com a mínim el %{minimum_budget} del total del pressupost</b> i vota segons les teves preferències."
         orders:
           highest_cost: Major cost
           label: Ordenar projectes per
@@ -322,7 +323,7 @@ ca-IT:
         select_projects: Afegeix projectes
         show:
           budget: Pressupost
-        start_voting: Començar a votar
+          votes: Vots
       prompt: Seleccionar pressupost
       vote_reminder_mailer:
         vote_reminder:
@@ -367,6 +368,11 @@ ca-IT:
             vote_selected_projects_maximum: Número màxim de projectes a seleccionar
             vote_selected_projects_minimum: Número màxim de projectes a seleccionar
             vote_threshold_percent: Percentatge del pressupost mínim per fer el vot
+            voting_rule: Normes per a la votació
+            voting_rule_choices:
+              minimum_projects: Número mínim de projectes a votar
+              selected_projects: Número mínim i màxim de projectes a votar
+              threshold_percent: Percentatge mínim del pressupost a invertir
             workflow: Workflow
             workflow_choices:
               all: 'Votar a tots: permet a les participants votar a tots els pressupostos.'
