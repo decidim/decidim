@@ -595,7 +595,6 @@ id:
       unsubscribe:
         success: Anda berhasil berhenti berlangganan.
         token_error: Tautan telah kedaluwarsa.
-        unsubscribe: Berhenti berlangganan
     newsletters_opt_in_mailer:
       notify:
         body_1: Pengolahan data pribadi dan perlindungannya menjadi semakin penting bagi kita semua. Dengan Peraturan Perlindungan Data Umum yang baru (GDPR) 25 Mei 2018, individu memiliki kontrol yang lebih baik atas data pribadi mereka. Untuk alasan ini kami memerlukan "OK" Anda untuk terus mengirim informasi yang relevan tentang kegiatan %{organization_name}.
