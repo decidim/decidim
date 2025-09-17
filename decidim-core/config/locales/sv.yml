@@ -1876,8 +1876,7 @@ sv:
         social_media: Sociala medier
         terms_of_service: Användarvillkor
       header:
-        back: Tillbaka till listan
-        cancel: Avbryt
+        back: Tillbaka
         log_in: Logga in
         main_menu: Huvudmeny
         user_menu: Användarmeny
@@ -1926,6 +1925,11 @@ sv:
   locale:
     name: Svenska
     name_with_error: Svenska (fel!)
+  number:
+    currency:
+      format:
+        format: "%u %n"
+        format_html: "<span>%u</span> %n"
   password_validator:
     denied: nekas
     domain_included_in_password: är för likt detta domännamn
