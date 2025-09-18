@@ -1247,8 +1247,10 @@ ja:
     newsletters:
       unsubscribe:
         error: 購読解除中に問題が発生しました。
+        subscription_preferences: サブスクリプションの設定を更新しました。 %{organization_name} からニュースレターを受け取ることはできなくなりました。
         success: 購読解除に成功しました。
         token_error: リンクの有効期限が切れました。
+        unsubscribe: ニュースレターの購読を解除
     newsletters_opt_in:
       unauthorized: 申し訳ありませんが、このリンクは使用できなくなりました。
       update:
@@ -2070,16 +2072,20 @@ ja:
         edit: 編集
       footer:
         cc_by_license: クリエイティブコモンズライセンス
+        current_organization_img: "%{organization} (Home)"
         data_consent_settings: Cookieの設定
         decidim_logo: Decidim ロゴ
         decidim_title: Decidim
+        help: ヘルプ
         log_in: ログイン
         made_with_open_source: このサイトは <a target="_blank" href="https://github.com/decidim/decidim">フリーソフトウェア</a>で作られています。
         open_data: オープンデータ
         resources: リソース
         sign_up: アカウントを作成
+        social_media: ソーシャルメディア
         terms_of_service: 利用規約
       header:
+        back: 戻る
         close: 閉じる
         confirm_close_ephemeral_session: この画面から移動すると、一時セッションは終了します。ただし、進捗状況やアクティビティはすべて保存されます。アクティビティが完了している場合は「Ok」をクリックしてください。
         confirm_title_close_ephemeral_session: このページから離れる前に…
@@ -2133,6 +2139,11 @@ ja:
   locale:
     name: 日本語
     name_with_error: 日本語 (エラー!)
+  number:
+    currency:
+      format:
+        format: "%u %n"
+        format_html: "<span>%u</span> %n"
   password_validator:
     denied: 拒否されました
     domain_included_in_password: このドメイン名に似ています
