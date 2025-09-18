@@ -36,6 +36,7 @@ ja:
         new: 新しい選挙
         preview: プレビュー
         title: アクション
+        view: 選挙を表示
         view_deleted_elections: 削除された選挙を表示
       admin:
         census:
@@ -201,6 +202,8 @@ ja:
           title: 選挙の質問
         show:
           vote_button: 投票
+          votes_count:
+            other: "%{count}票"
         vote_results:
           title: 結果
       models:
