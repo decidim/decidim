@@ -447,15 +447,37 @@ shared_examples_for "update questions" do
       click_on "Add question"
       expand_all_questions
 
-      expect(page.find(".questionnaire-question:nth-of-type(2)")).to look_like_intermediate_question
-      expect(page.find(".questionnaire-question:nth-of-type(3)")).to look_like_last_question
+      question_cards = page.all(".questionnaire-question")
+      expect(question_cards.size).to eq(4)
+
+      within question_cards[1] do
+        expect(find("input[name*='[body_en]']").value).to eq("Second")
+      end
+      within question_cards[2] do
+        expect(find("input[name*='[body_en]']").value).to eq("Third")
+      end
 
       within ".questionnaire-question:first-of-type" do
         click_on "Remove"
       end
 
-      expect(page.all(".questionnaire-question").first).to look_like_first_question
-      expect(page.all(".questionnaire-question").last).to look_like_last_question
+      remaining_cards = page.all(".questionnaire-question")
+      expect(remaining_cards.size).to eq(3)
+
+      # Check that the first question is now what was previously the second
+      within remaining_cards.first do
+        expect(find("input[name*='[body_en]']").value).to eq("Second")
+      end
+
+      # Check that the second question is now what was previously the third
+      within remaining_cards[1] do
+        expect(find("input[name*='[body_en]']").value).to eq("Third")
+      end
+
+      # The last question should be the new empty question
+      within remaining_cards.last do
+        expect(find("input[name*='[body_en]']").value).to eq("")
+      end
     end
 
     it "does not duplicate editors when adding new questions" do
