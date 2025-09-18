@@ -541,7 +541,7 @@ shared_examples_for "update questions" do
           expect(find("input[name*='[body_en]']").value).to eq("Third")
         end
 
-        # Use JavaScript to simulate drag and drop since it's more reliable
+        # JavaScript to simulate drag and drop.
         page.execute_script(<<~JS)
           var questions = document.querySelectorAll('.questionnaire-question');
           var container = questions[0].parentNode;
@@ -580,10 +580,9 @@ shared_examples_for "update questions" do
           var container = questions[0].parentNode;
           var second = questions[1];
 
-          // Move to end
           container.appendChild(second);
 
-          // Update positions
+          // Update the positions of questions
           var updatedQuestions = container.querySelectorAll('.questionnaire-question');
           updatedQuestions.forEach(function(question, index) {
             var positionInput = question.querySelector('input[name$="[position]"]');
