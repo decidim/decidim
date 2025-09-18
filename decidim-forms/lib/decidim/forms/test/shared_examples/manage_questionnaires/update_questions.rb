@@ -527,7 +527,6 @@ shared_examples_for "update questions" do
       end
 
       it "allows moving questions using drag and drop" do
-        # Get specific question cards by their position
         question_cards = all(".questionnaire-question")
 
         # Verify initial order by checking the body field values
