@@ -320,12 +320,12 @@ de:
           email_subject: Sie wurden als %{role} für "%{resource_title}" ausgewählt.
           notification_title: Sie wurden als %{role} für den Beteiligungsprozess <a href="%{resource_url}">%{resource_title}</a> ausgewählt.
         step_activated:
-          email_intro: 'Der Prozessschritt %{resource_title} ist jetzt aktiv in %{participatory_space_title}. Sie können das auf dieser Seite sehen:'
+          email_intro: 'Der Prozessschritt %{resource_title} ist jetzt aktiv in %{participatory_space_title}. Sehen Sie es sich auf dieser Seite an:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Eine Aktualisierung auf %{participatory_space_title}
           notification_title: Der Prozessschritt %{resource_title} ist jetzt aktiv in <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'Die Daten für den Schritt %{resource_title} bei %{participatory_space_title} wurden aktualisiert. Sie können das auf dieser Seite sehen:'
+          email_intro: 'Die Daten für den Schritt %{resource_title} bei %{participatory_space_title} wurden aktualisiert. Sehen Sie es sich auf dieser Seite an:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Eine Aktualisierung auf %{participatory_space_title}
           notification_title: Die Daten für den Prozessschritt <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> wurden aktualisiert.
