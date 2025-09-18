@@ -134,11 +134,11 @@ Run these commands in sequence from the repository root:
 ## Development Workflow
 
 ### Creating a Development App
-**WARNING**: Development app creation has bundle permission issues. Use the test app instead:
 
 ```bash
-# Use the test app created by `rake test_app` for development
-cd spec/decidim_dummy_app
+# Create development app for active development
+bundle exec rake development_app
+cd development_app
 bin/dev  # Starts Rails server with webpack dev server
 ```
 
@@ -168,7 +168,7 @@ bin/dev  # Starts Rails server with webpack dev server
 
 **Running the development server:**
 ```bash
-cd spec/decidim_dummy_app
+cd development_app
 bin/dev  # Starts Rails + webpack dev server
 # Access at http://localhost:3000
 # Admin panel: http://localhost:3000/admin (after creating admin user)
@@ -176,7 +176,7 @@ bin/dev  # Starts Rails + webpack dev server
 
 **Database operations:**
 ```bash
-cd spec/decidim_dummy_app
+cd development_app
 bin/rails db:create     # Create database
 bin/rails db:migrate    # Run migrations  
 bin/rails db:seed       # Load sample data
@@ -185,7 +185,7 @@ bin/rails db:reset      # Reset and reseed database
 
 **Asset compilation:**
 ```bash
-cd spec/decidim_dummy_app
+cd development_app
 bin/rails assets:precompile
 ```
 
@@ -195,7 +195,7 @@ bin/rails assets:precompile
 
 ### User Registration and Login Flow
 ```bash
-cd spec/decidim_dummy_app
+cd development_app
 bin/dev
 # 1. Visit http://localhost:3000
 # 2. Click "Sign up"
@@ -207,7 +207,7 @@ bin/dev
 
 ### Admin Panel Access
 ```bash
-cd spec/decidim_dummy_app
+cd development_app
 bin/rails console
 # Create admin user:
 user = Decidim::User.create!(
@@ -262,6 +262,7 @@ npm run test      # JavaScript tests (13s)
 
 - **NEVER CANCEL** builds or tests that take more than 2 minutes - builds can take 3+ minutes, full test suites 15+ minutes
 - Always use the exact Ruby (3.3.4) and Node (22.14.0) versions specified
-- The test app (`rake test_app`) is the primary way to create a working Decidim application for development
+- The development app (`rake development_app`) is the primary way to create a working Decidim application for development
 - Each `decidim-*` directory is an independent gem with its own tests and dependencies
 - Always run full validation scenarios after making changes to ensure functionality works end-to-end
+- **Changes to decidim-generator**: When making changes to `decidim-generators` that affect application configuration (files like `config/application.rb`, `config/environments/*`, etc) or other generated files, also document these changes in `RELEASE_NOTES.md`
