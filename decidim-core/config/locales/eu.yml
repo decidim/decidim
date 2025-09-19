@@ -184,7 +184,7 @@ eu:
     accessibility:
       external_link: Kanpoko esteka
       front_page_link: Zoaz orri nagusira
-      logo: "%{organization} aren logo ofiziala"
+      logo: "%{organization} erakundaren logo ofiziala"
       opens_in_new_tab: Ireki beste fitxa batean
       secondary_menu: Bigarren mailako menua
       skip_button: Eduki nagusira joan
@@ -195,7 +195,7 @@ eu:
         confirm:
           close: Itxi leihoa
           ok: Bai, nire kontua ezabatu nahi dut
-          question: Ziur zure kontua ezabatu nahi duzula?
+          question: Ziur zaude zure kontua ezabatu nahi duzula?
           title: Ezabatu nire kontua
         explanation: Mesedez, azaldu arrazoia zure kontua ezabatu nahi izateko (aukerakoa).
         leaving_authorizations_behind: Egiaztatze-prozesu honetako hainbat datu gorde egingo dira segurtasunagatik. Beste kontu bat sortu eta, berriz ere, egiaztatzeko prozesuari ekin nahi badiozu, datu horiek berreskuratu egingo dira.
@@ -205,9 +205,9 @@ eu:
       download_your_data_export:
         export_expired: Esportazioa amaitu da. Saiatu beste esportazio bat sortzen.
         file_no_exists: Fitxategia ez dago
-        notice: Zure datuen deskarga aurrera doa. Posta elektroniko bat jasoko duzu osorik dagoenean.
+        notice: Une honetan zure datuak deskargatzen ari dira. Mezu elektroniko bat jasoko duzu amaitutakoan.
       email_change:
-        body1: Mezu elektroniko bat bidali dugu %{unconfirmed_email} postara zure helbide elektroniko berria egiaztatzeko.
+        body1: Mezu elektroniko bat bidali dizugu %{unconfirmed_email} helbidera zure helbide elektroniko berria egiaztatzeko.
         body2: Birbidali behar dizugu egiaztatzeko helbide elektronikoa? %{resend_link} edo %{cancel_link}.
         cancel: ezeztatu
         cancel_error: Ezin izan da ezeztatu helbide elektronikoaren aldaketa.
@@ -411,7 +411,7 @@ eu:
         success: Zuzenketa zuzen argitaratu da beste proposamen bat gisa.
       publish_draft:
         error: Arazo bat egon da zuzenketa argitaratzean.
-        success: Zuzenketa zuzen argitaratu da.
+        success: Zuzenketa behar bezala argitaratu da.
       rejected:
         error: Arazo bat egon da zuzenketa hau ukatzean. Mesedez, saiatu berriro geroago.
         success: Zuzenketa behar bezala ukatu da.
@@ -800,7 +800,7 @@ eu:
           delete_reason: Parte-hartzaile hau ezabatzeko arrazoia
           deleted_at: Zein datatan eta zein ordutan ezabatu zen parte-hartzaile hau
           email: Parte-hartzaile honen helbide elektronikoa
-          followers_count: Parte-hartzaile honi jarraitzen dioten parte-hartzaileen kopurua
+          followers_count: Parte-hartzaile honi jarraitzen ari zaion parte-hartzaile kopurua
           following_count: Parte-hartzaile hau jarraitzen ari den parte-hartzaileen kopurua
           id: Parte-hartzaile honen identifikatzaile bakarra
           invitation_accepted_at: Zein datatan eta zein ordutan onartu zen gonbidapena
