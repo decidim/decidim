@@ -171,7 +171,7 @@ eu:
     accessibility:
       external_link: Kanpoko esteka
       front_page_link: Zoaz orri nagusira
-      logo: "%{organization} aren logo ofiziala"
+      logo: "%{organization} erakundaren logo ofiziala"
       opens_in_new_tab: Ireki beste fitxa batean
       secondary_menu: Bigarren mailako menua
       skip_button: Eduki nagusira joan
@@ -182,7 +182,7 @@ eu:
         confirm:
           close: Itxi leihoa
           ok: Bai, nire kontua ezabatu nahi dut
-          question: Ziur zure kontua ezabatu nahi duzula?
+          question: Ziur zaude zure kontua ezabatu nahi duzula?
           title: Ezabatu nire kontua
         explanation: Mesedez, azaldu arrazoia zure kontua ezabatu nahi izateko (aukerakoa).
         leaving_authorizations_behind: Egiaztatze-prozesu honetako hainbat datu gorde egingo dira segurtasunagatik. Beste kontu bat sortu eta, berriz ere, egiaztatzeko prozesuari ekin nahi badiozu, datu horiek berreskuratu egingo dira.
@@ -191,9 +191,9 @@ eu:
         success: Zure kontua ezabatu egin da.
       download_your_data_export:
         file_no_exists: Fitxategia ez dago
-        notice: Zure datuen deskarga aurrera doa. Posta elektroniko bat jasoko duzu osorik dagoenean.
+        notice: Une honetan zure datuak deskargatzen ari dira. Mezu elektroniko bat jasoko duzu amaitutakoan.
       email_change:
-        body1: Mezu elektroniko bat bidali dugu %{unconfirmed_email} postara zure helbide elektroniko berria egiaztatzeko.
+        body1: Mezu elektroniko bat bidali dizugu %{unconfirmed_email} helbidera zure helbide elektroniko berria egiaztatzeko.
         body2: Birbidali behar dizugu egiaztatzeko helbide elektronikoa? %{resend_link} edo %{cancel_link}.
         cancel: ezeztatu
         cancel_error: Ezin izan da ezeztatu helbide elektronikoaren aldaketa.
@@ -365,7 +365,7 @@ eu:
         success: Zuzenketa zuzen argitaratu da beste proposamen bat gisa.
       publish_draft:
         error: Arazo bat egon da zuzenketa argitaratzean.
-        success: Zuzenketa zuzen argitaratu da.
+        success: Zuzenketa behar bezala argitaratu da.
       rejected:
         error: Arazo bat egon da zuzenketa hau ukatzean. Mesedez, saiatu berriro geroago.
         success: Zuzenketa behar bezala ukatu da.
