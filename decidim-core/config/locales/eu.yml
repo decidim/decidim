@@ -1465,7 +1465,7 @@ eu:
         success: Buletinaren ezarpenak zuzen eguneratuak.
     newsletters_opt_in_mailer:
       notify:
-        body_1: Datu pertsonalen tratamendua eta babesak gero eta garrantzi handiagoa hartzen ari dira guztiontzat. 2018ko maiatzaren 25eko Datuen Babeserako Datu Orokor berriak (GDPR) datu pertsonalak hobeto kontrolatzen ditu. Horregatik, zure adostasuna behar dugu, %{organization_name} jardueren inguruko informazio garrantzitsua bidaltzen jarraitzeko.
+        body_1: Datu pertsonalen tratamendua eta babesa gero eta garrantzitsuagoa da guztiontzat. 2018ko maiatzaren 25eko Datuak Babesteko Erregelamendu Orokorrarekin (DBEO), pertsonek hobeto kontrolatzen dituzte beren datu pertsonalak. Hori dela eta, zure "adostasuna" behar dugu %{organization_name} jardueraren gaineko informazio garrantzitsua bidaltzen jarraitu ahal izateko.
         body_2: 'Nola eman ahal diguzu baimena? Egin klik botoi honetan:'
         body_3: Baimen honekin plataformako zerbitzuei buruzko informazioa jasotzen jarraitu ahal izango duzu. Aitzitik, zure baieztapena jasotzen ez badugu, gure mezuak bidaltzeari utziko diogu. Informatuta egon nahi duzula baieztatzen baduzu, edozein unetan ezeztatzeko aukera izango duzu.
         button: Bai, informazio garrantzitsua jasotzen jarraitu nahi dut
