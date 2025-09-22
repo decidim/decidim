@@ -974,7 +974,7 @@ es-PY:
         email_intro: '%{liker_name} %{liker_nickname}, a quien sigues, le acaba de gustar: "%{resource_title}", que puede ser interesante para ti, compruébalo y contribuye:'
         email_outro: Has recibido esta notificación porque estás siguiendo la iniciativa "%{liker_nickname}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
         email_subject: "%{liker_nickname} ha realizado un nuevo \"me gusta\""
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} le ha gustado a <a href="%{liker_path}">%{liker_nickname}</a>.
+        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} le ha gustado a <a href="%{liker_path}">%{liker_name} %{liker_nickname}</a>.
       resources:
         soft_deleted:
           notification_title: 'Una administradora ha eliminado tu %{resource_type}: "%{resource_title}".'
