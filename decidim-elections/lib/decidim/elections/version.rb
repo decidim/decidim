@@ -3,7 +3,7 @@
 module Decidim
   module Elections
     def self.version
-      "0.31.0.dev"
+      "0.31.0.rc1"
     end
   end
 end
