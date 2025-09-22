@@ -24,7 +24,7 @@ module Decidim
       end
 
       def statuses
-        Status.where(component: object)
+        Status.where(component: object).order(:progress, :key, :id)
       end
 
       def status(id:)
