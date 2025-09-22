@@ -25,7 +25,7 @@ Nothing.
 - **decidim-core**: Backport 'Fix flaky spec in announcements' to v0.29 [\#14839](https://github.com/decidim/decidim/pull/14839)
 - **decidim-proposals**: Backport 'Prevent importing withdrawn or moderated proposals to another component' to v0.29 [\#14840](https://github.com/decidim/decidim/pull/14840)
 - **decidim-comments**: Backport 'Fix opinion buttons on comments for accessibility' to v0.29 [\#14841](https://github.com/decidim/decidim/pull/14841)
--  Fix specs for multiple_file_field_include_hidden [\#14873](https://github.com/decidim/decidim/pull/14873)
+- Fix specs for multiple_file_field_include_hidden [\#14873](https://github.com/decidim/decidim/pull/14873)
 - **decidim-core**: Backport 'Fix report modals to improve accessibility' to v0.29 [\#14877](https://github.com/decidim/decidim/pull/14877)
 - **decidim-comments**: Backport 'Fix Accessibility Like/Dislike Buttons on Comments' to v0.29 [\#14879](https://github.com/decidim/decidim/pull/14879)
 - **decidim-conferences**: Backport 'Fix grammar in conference admin registration count info' to v0.29 [\#14893](https://github.com/decidim/decidim/pull/14893)
