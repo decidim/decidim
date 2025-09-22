@@ -391,6 +391,7 @@ haml
 Hammes
 hashdiff
 hashtag
+hashtags
 hashtaggable
 hashtagging
 hastaggable
