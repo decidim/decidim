@@ -592,6 +592,10 @@ fr:
         title: Médias et liens
     menu:
       conferences: Conférences
+    open_data:
+      help:
+        conferences:
+          hashtag: Le hashtag de la conférence, utilisé par Twitter/X
     statistics:
       conferences_count: Conférences
   devise:

@@ -41,7 +41,7 @@ lb:
           projects: Projekte
         models:
           budget:
-            name: Bugdet
+            name: Budget
           project:
             name: Projekt
         projects:

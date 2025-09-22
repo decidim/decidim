@@ -1451,11 +1451,12 @@ es:
         main_image: Imagen principal
     newsletters:
       unsubscribe:
-        check_subscription: Si quieres cambiar tus preferencias, puedes hacerlo en la <a href="%{link}" target="_blank">página de configuración</a>.
+        check_subscription_html: Si quieres volver a recibirlos, puedes volver a activar tu suscripción en cualquier momento desde la <a href="%{link}" target="_blank">página de configuración</a>.
         error: Se ha producido un error al cancelar la suscripción.
+        subscription_preferences: Hemos actualizado tus preferencias de suscripción y ya no recibirás boletines informativos de %{organization_name}.
         success: Has cancelado la subscripción correctamente.
         token_error: El enlace ha caducado.
-        unsubscribe: Anula la subscripción
+        unsubscribe: Cancelar la suscripción al boletín informativo
     newsletters_opt_in:
       unauthorized: Lo sentimos, este enlace ya no está disponible.
       update:
@@ -1463,7 +1464,7 @@ es:
         success: La configuración del boletín de noticias se ha actualizado correctamente.
     newsletters_opt_in_mailer:
       notify:
-        body_1: El procesamiento de datos personales y su protección es cada vez más importante para todas nosotras. Con el nuevo Reglamento General de Protección de Datos (RGPD) del 25 de mayo de 2018, las personas tienen un mayor control sobre sus datos personales. Por este motivo, necesitamos tu autorización para seguir enviándote información relevante sobre las actividades del %{organization_name}.
+        body_1: El procesamiento de datos personales y su protección es cada vez más importante para todas nosotras. Con el Reglamento General de Protección de Datos (RGPD) del 25 de mayo de 2018, las personas tienen un mayor control sobre sus datos personales. Por este motivo, necesitamos tu autorización para seguir enviándote información relevante sobre las actividades del %{organization_name}.
         body_2: '¿Cómo puedes darnos tu consentimiento? Simplemente haz clic en el siguiente botón:'
         body_3: Con este consentimiento, podrás continuar recibiendo información sobre los servicios de la plataforma. Si, por el contrario, no recibimos una confirmación positiva de tu parte, dejaremos de enviarte nuestros mensajes. Si confirmas que deseas mantenerte informada, siempre tendrás la opción de cancelar en cualquier momento.
         button: Sí, quiero continuar recibiendo información relevante
@@ -2274,14 +2275,17 @@ es:
         edit: Edita
       footer:
         cc_by_license: Con licencia Creative Commons
+        current_organization_img: "%{organization} (Ir a la página principal)"
         data_consent_settings: Configuración de cookies
         decidim_logo: Logo Decidim
         decidim_title: Decidim
+        help: Ayuda
         log_in: Entra
         made_with_open_source: Web creada con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
         open_data: Datos abiertos
         resources: Recursos
         sign_up: Crea una cuenta
+        social_media: Redes Sociales
         terms_of_service: Términos y condiciones de uso
       header:
         close: Cerrar
