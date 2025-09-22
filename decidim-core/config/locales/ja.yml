@@ -1246,11 +1246,11 @@ ja:
         main_image: メイン画像
     newsletters:
       unsubscribe:
-        check_subscription: 設定を変更したい場合は、 <a href="%{link}" target="_blank">設定ページ</a> で設定できます。
         error: 購読解除中に問題が発生しました。
+        subscription_preferences: サブスクリプションの設定を更新しました。 %{organization_name} からニュースレターを受け取ることはできなくなりました。
         success: 購読解除に成功しました。
         token_error: リンクの有効期限が切れました。
-        unsubscribe: 購読解除
+        unsubscribe: ニュースレターの購読を解除
     newsletters_opt_in:
       unauthorized: 申し訳ありませんが、このリンクは使用できなくなりました。
       update:
@@ -1258,7 +1258,7 @@ ja:
         success: ニュースレター設定を更新しました。
     newsletters_opt_in_mailer:
       notify:
-        body_1: 個人データの処理とその保護は、私たち全員にとってますます重要になっています。 2018年5月25日の新しい一般データ保護規則(GDPR)により、個人は個人データをより良く管理できます。 このため、 %{organization_name} の活動に関する関連情報を送信し続けるには、お客様の "OK" が必要です。
+        body_1: 個人データの処理とその保護は、私たち全員にとってますます重要な課題となっています。2018年5月25日に施行された一般データ保護規則（GDPR）により、個人は自分の個人データに対する管理権限を強化しました。このため、%{organization_name}の活動に関する関連情報の提供を継続するため、お客様の「同意」が必要です。
         body_2: 'どのように私たちにあなたの同意を与えることができますか? ただ、以下のボタンをクリックしてください:'
         body_3: この同意があれば、プラットフォームのサービスに関する情報を引き続き受け取ることができます。 逆に、お客様の確認を受けていない場合、当社は当社のメッセージの送信を停止します。 通知を受け続けることを確認した場合は、いつでもキャンセルすることができます。
         button: はい、関連情報を引き続き受信します。
@@ -2072,18 +2072,20 @@ ja:
         edit: 編集
       footer:
         cc_by_license: クリエイティブコモンズライセンス
+        current_organization_img: "%{organization} (Home)"
         data_consent_settings: Cookieの設定
         decidim_logo: Decidim ロゴ
         decidim_title: Decidim
+        help: ヘルプ
         log_in: ログイン
         made_with_open_source: このサイトは <a target="_blank" href="https://github.com/decidim/decidim">フリーソフトウェア</a>で作られています。
         open_data: オープンデータ
         resources: リソース
         sign_up: アカウントを作成
+        social_media: ソーシャルメディア
         terms_of_service: 利用規約
       header:
-        back: リストに戻る
-        cancel: キャンセル
+        back: 戻る
         close: 閉じる
         confirm_close_ephemeral_session: この画面から移動すると、一時セッションは終了します。ただし、進捗状況やアクティビティはすべて保存されます。アクティビティが完了している場合は「Ok」をクリックしてください。
         confirm_title_close_ephemeral_session: このページから離れる前に…
@@ -2093,6 +2095,7 @@ ja:
       impersonation_warning:
         close_session: セッションを閉じる
         description_html: 参加者 <b>%{user_name}</b> を管理しています。
+        expire_time_html: このログインセッションは <b><span data-impersonation-warning-target="minutes">%{minutes}</span> 分後に無効になります。</b>。
       language_chooser:
         choose_language: 言語を選択
       navigation:
@@ -2136,6 +2139,11 @@ ja:
   locale:
     name: 日本語
     name_with_error: 日本語 (エラー!)
+  number:
+    currency:
+      format:
+        format: "%u %n"
+        format_html: "<span>%u</span> %n"
   password_validator:
     denied: 拒否されました
     domain_included_in_password: このドメイン名に似ています

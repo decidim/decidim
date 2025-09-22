@@ -1262,11 +1262,12 @@ ca:
         main_image: Imatge principal
     newsletters:
       unsubscribe:
-        check_subscription: Si vols canviar les teves preferències, pots fer-ho a la <a href="%{link}" target="_blank">pàgina de configuració</a>.
+        check_subscription_html: Si els vols tornar a rebre, pots tornar a activar la teva subscripció en qualsevol moment des de la <a href="%{link}" target="_blank">pàgina de configuració</a>.
         error: S'ha produït un error en cancel·lar la subscripció.
+        subscription_preferences: Hem actualitzat les teves preferències de subscripció i ja no rebràs butlletins informatius de %{organization_name}.
         success: Has cancel·lat la subscripció correctament.
         token_error: L'enllaç ha caducat.
-        unsubscribe: Anul·la la subscripció
+        unsubscribe: Cancel·lar la subscripció al butlletí informatiu
     newsletters_opt_in:
       unauthorized: Ho sentim, aquest enllaç ja no està disponible.
       update:
@@ -1274,7 +1275,7 @@ ca:
         success: La configuració del butlletí de notícies s'ha actualitzat correctament.
     newsletters_opt_in_mailer:
       notify:
-        body_1: El processament de les dades personals i la seva protecció cada vegada és més important per a totes nosaltres. Amb el nou Reglament General de Protecció de Dades (GDPR) del 25 de maig de 2018, les persones tenen un major control sobre les seves dades personals. Per aquest motiu, necessitem la teva autorització per continuar enviant informació rellevant sobre les activitats del %{organization_name}.
+        body_1: El processament de les dades personals i la seva protecció cada vegada és més important per a totes nosaltres. Amb el Reglament General de Protecció de Dades (GDPR) del 25 de maig de 2018, les persones tenen un major control sobre les seves dades personals. Per aquest motiu, necessitem la teva autorització per continuar enviant informació rellevant sobre les activitats del %{organization_name}.
         body_2: 'Com ens pots donar el teu consentiment? Només cal que facis clic al botó següent:'
         body_3: Donant consentiment podràs continuar rebent informació sobre els serveis de la plataforma. Si, al contrari, no rebem una confirmació positiva de la teva part, deixarem d'enviar-te els nostres missatges. Si confirmes que vols mantenir-te informada, sempre tindràs l'opció de cancel·lar en qualsevol moment.
         button: Sí, vull continuar rebent informació rellevant
@@ -2093,18 +2094,20 @@ ca:
         edit: Edita
       footer:
         cc_by_license: Amb llicència Creative Commons
+        current_organization_img: "%{organization} (Anar a la pàgina d'inici)"
         data_consent_settings: Configuració de les galetes
         decidim_logo: Logo Decidim
         decidim_title: Decidim
+        help: Ajuda
         log_in: Entra
         made_with_open_source: Web creada amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.
         open_data: Dades obertes
         resources: Recursos
         sign_up: Crea un compte
+        social_media: Xarxes socials
         terms_of_service: Termes i condicions d'ús
       header:
-        back: Tornar al llistat
-        cancel: Cancel·lar
+        back: Enrere
         close: Tancar
         confirm_close_ephemeral_session: Si abandones la navegació, es tancarà la sessió temporal. Tot el teu progrés i activitat, però, es guardaran. Si has acabat la teva activitat, fes clic a Ok.
         confirm_title_close_ephemeral_session: Abans de sortir d'aquesta pàgina…
@@ -2114,6 +2117,7 @@ ca:
       impersonation_warning:
         close_session: Tanca la sessió
         description_html: Estàs gestionant la participant <b>%{user_name}</b>.
+        expire_time_html: La teva sessió caducarà en <b><span data-impersonation-warning-target="minutes">%{minutes}</span> minuts</b>.
       language_chooser:
         choose_language: Triar la llengua
       navigation:
@@ -2157,6 +2161,11 @@ ca:
   locale:
     name: Català
     name_with_error: Català (error!)
+  number:
+    currency:
+      format:
+        format: "%u %n"
+        format_html: "<span>%u</span> %n"
   password_validator:
     denied: no és vàlid
     domain_included_in_password: és massa semblant a aquest nom de domini

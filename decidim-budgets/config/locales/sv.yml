@@ -83,8 +83,6 @@ sv:
         exports:
           projects: Projekt
         models:
-          budget:
-            name: Budget
           project:
             name: Projekt
         projects:
@@ -178,6 +176,7 @@ sv:
         cancel_order:
           more_than_one: dra tillbaka din röst på %{name} och börja om
           only_one: dra tillbaka din röst och börja om.
+        completed: Slutförd
         count:
           one: "%{count} budget"
           other: "%{count} budgetar"
@@ -185,6 +184,7 @@ sv:
         finished_message: Du har avslutat omröstningen. Tack för ditt deltagande!
         highlighted_cta: Rösta på %{name}
         if_change_opinion: Om du har ändrat dig kan du
+        incomplete: Ofullständig
         orders:
           highest_cost: Högst kostnad
           label: Sortera budgetar efter
@@ -192,6 +192,8 @@ sv:
           random: Slumpvis ordning
         progress: Avsluta omröstning
         remove_vote: Ta bort röst
+        see_projects: Visa projekt
+        see_results: Visa resultat
         show: Visa projekt
         vote: Rösta
         voted_budgets: Budgetar som röstats i
@@ -240,6 +242,7 @@ sv:
           subject: Du har röstat i %{space_name}
           voted_on_space: Du har röstat på budgeten %{budget_name} i %{space_name}.
       projects:
+        back_to_budgets: Tillbaka till budgetar
         budget_confirm:
           are_you_sure: Om du ändrar dig kan du ändra rösten senare.
           cancel: Avbryt
@@ -283,18 +286,16 @@ sv:
           assigned: Valda
           budget: Budget
           dynamic_help:
-            keep_adding_projects: Fortsätt lägga till projekt
             minimum_reached: Du har uppnått den lägsta gränsen för att kunna rösta
-            start_adding_projects: Börja lägga till projekt
           minimum: Minst
           minimum_projects_rule:
-            description: Välj minst %{minimum_number} projekt att rösta på.
+            description: "<b>Välj minst %{minimum_number} projekt</b> som du vill rösta på."
           projects_rule:
-            description: Välj minst %{minimum_number} och som mest %{maximum_number} projekt att rösta på.
+            description: "<b>Välj minst %{minimum_number} och som mest %{maximum_number} projekt</b> som du vill rösta på."
           projects_rule_maximum_only:
-            description: Välj upp till %{maximum_number} projekt att rösta på.
+            description: "Välj upp till %{maximum_number} projekt</b> som du vill rösta på."
           vote_threshold_percent_rule:
-            description: Välj projekt för minst %{minimum_budget} att rösta på.
+            description: "<b>Tilldela minst %{minimum_budget}</b> åt de projekt du vill rösta på inom budgeten."
         orders:
           highest_cost: Högst kostnad
           label: Sortera projekt efter
@@ -322,7 +323,7 @@ sv:
         select_projects: Välj projekt
         show:
           budget: Budget
-        start_voting: Börja rösta
+          votes: Röster
       prompt: Välj budget
       vote_reminder_mailer:
         vote_reminder:
@@ -367,6 +368,11 @@ sv:
             vote_selected_projects_maximum: Maximalt antal projekt att välja
             vote_selected_projects_minimum: Minsta antal projekt att välja
             vote_threshold_percent: Tröskelvärde för röster i procent
+            voting_rule: Omröstningsregel
+            voting_rule_choices:
+              minimum_projects: Minsta antal projekt att rösta på
+              selected_projects: Minsta och högsta antal projekt som ska röstas på
+              threshold_percent: Minsta del av budgeten i procent
             workflow: Arbetsflöde
             workflow_choices:
               all: 'Rösta på alla: låt deltagare att rösta i alla budgetar.'

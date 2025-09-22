@@ -34,18 +34,15 @@ ja:
         deleted_election_info: 削除された選挙はリストに表示されません。下のボタンをクリックすると表示できます。
         edit: 選挙を編集
         new: 新しい選挙
+        preview: プレビュー
         title: アクション
+        view: 選挙を表示
         view_deleted_elections: 削除された選挙を表示
       admin:
         census:
           edit:
-            choose_census: この選挙に使用したいセンサスの種類を選択してください
             created_at: 作成日時
             identifier: ユーザーID
-            title: センサスの種類
-          preview:
-            title:
-              other: 'ユーザープレビュー（リストは %{count} レコードに制限されています）：'
           update:
             error: センサスの作成または保存中にエラーが発生しました。
             success: センサスを更新しました。
@@ -71,7 +68,6 @@ ja:
           questions:
             labels:
               answers: 回答
-              question_title: 質問 %{number}
             limit_info: この選挙にはさらに多くの質問があります。プレビューは3つの質問に制限されています。
             title: 質問
           questions_table:
@@ -174,8 +170,6 @@ ja:
         census_size_html:
           other: 現在、 <strong>%{count}</strong> の投票対象者がこの選挙に参加しています（センサスで変更される可能性があります）。
         internal_users:
-          info_html: |
-            選挙に参加できるのは認証済みの参加者のみに制限することができます。 <br>参加者が投票するには、選択された認証要件を満たす必要があります。すべてのチェックボックスを空のままにすると、登録済みの人なら誰でも投票できるようになります。
           internal_type_title: 投票するための追加の必要な権限 (任意)
           label: 登録済み参加者（動的）
         token_csv:
@@ -190,6 +184,28 @@ ja:
           remove_before_upload: 新しいセンサスをアップロードする場合、まず既存のセンサスを削除する必要があります。
           upload_file: ファイルをアップロード
           upload_new_census: CSVファイルをアップロードする
+        token_csv_form:
+          email: Eメールアドレス
+      elections:
+        count:
+          elections_count:
+            other: "%{count} 選挙"
+        filters:
+          all: 全て
+          state: ステータス：
+          state_values:
+            finished: 完了
+            ongoing: 進行中
+        orders:
+          recent: 新しい
+        questions:
+          title: 選挙の質問
+        show:
+          vote_button: 投票
+          votes_count:
+            other: "%{count}票"
+        vote_results:
+          title: 結果
       models:
         election:
           fields:
@@ -201,13 +217,23 @@ ja:
       status:
         active: 有効
         finished: 完了
+        not_started: 開始前
         ongoing: 進行中
-        results_published: 公開結果
         scheduled: スケジュール済み
         unpublished: 未公開
         voting_enabled: 投票中
+      votes:
+        confirm:
+          title: 投票を確定
+        question:
+          back: 戻る
+          next: 次へ
     statistics:
       elections_count: 選挙
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: 閉じる
   time:
     formats:
       short_with_time: "%Y/%m/%d %-H:%M"

@@ -26,6 +26,8 @@ de:
           settings: Einstellungen
     components:
       surveys:
+        actions:
+          respond: Antworten
         name: Umfragen
         settings:
           announcement: Ankündigung
@@ -46,6 +48,7 @@ de:
           email_subject: Eine neue Umfrage in %{participatory_space_title}
           notification_title: Die Umfrage <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> ist jetzt geöffnet.
     statistics:
+      responses: 'Antworten:'
       responses_count: Antworten
       surveys_count_tooltip: Die Anzahl der verfügbaren Umfragen und abgegebenen Antworten.
     surveys:

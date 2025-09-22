@@ -232,7 +232,6 @@ is-IS:
       unsubscribe:
         success: Þú ert með áskrift að góðum árangri.
         token_error: Tengillinn er liðinn.
-        unsubscribe: Afskráðu þig
     notifications_settings:
       show:
         newsletter_notifications: Ég vil fá fréttabréf

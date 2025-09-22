@@ -64,8 +64,6 @@ bg:
         exports:
           projects: Проекти
         models:
-          budget:
-            name: Бюджет
           project:
             name: Проект
         projects:
@@ -226,9 +224,7 @@ bg:
           assigned: Възложен
           budget: Бюджет
           dynamic_help:
-            keep_adding_projects: Продължете да добавяте проекти
             minimum_reached: Достигнахте минимума, за да можете да гласувате
-            start_adding_projects: Започнете да добавяте проекти
           minimum: Минимум
         orders:
           highest_cost: Най-висока стойност

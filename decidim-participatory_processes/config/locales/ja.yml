@@ -9,6 +9,9 @@ ja:
         developer_group: プロモーターグループ
         document: ドキュメント
         domain: ドメイン
+        duplicate_categories: カテゴリを複製
+        duplicate_components: コンポーネントを複製
+        duplicate_steps: ステップを複製
         end_date: 終了日
         hero_image: ホーム画像
         import_attachments: 添付ファイルをインポート
@@ -150,6 +153,11 @@ ja:
             invitation_accepted_at: 招待が承認されました
             invitation_sent_at: 招待状が送信された日時
             published: 公開済み
+      participatory_process_duplicates:
+        new:
+          duplicate: 複製
+          select: 複製したいデータを選択してください
+          title: 参加型プロセスを複製
       participatory_process_groups:
         destroy:
           error: 参加型プロセスグループを削除する際に問題が発生しました。
@@ -247,6 +255,10 @@ ja:
         update:
           error: この参加型プロセスの更新に問題がありました。
           success: 参加型プロセスが正常に更新されました。
+      participatory_processes_duplicates:
+        create:
+          error: 参加型プロセスの複製中に問題が発生しました。
+          success: 参加型プロセスを複製しました。
       participatory_processes_group:
         create:
           error: 新しい参加型プロセスグループの作成中に問題が発生しました。
@@ -402,10 +414,72 @@ ja:
                 </ul>
               title: 'このコンテンツ ブロックには 2 種類の指標が含まれています：'
             citizen_influence:
+              citizen_decisional_intervention:
+                legend: プロセスのすべてのフェーズ（課題の選定から実行の監督まで）のうち、どのくらいのフェーズで市民が意思決定や実行的な行動を行う権限を持っていますか？
+                options:
+                  five: 80 - 100%
+                  four: 60 - 80%
+                  one: 0 - 20%
+                  three: 40 - 60%
+                  two: 20 - 40%
+              citizen_influence_level:
+                options:
+                  five: 参加者は、意思決定やリソースの管理、または実施に関与しました
+                  four: 参加者は、意思決定において決定的に関与しました
+                  one: 参加者は、組織から情報を受け取りました
+                  three: 参加者は、意思決定権を共有する形で関与しました
+                  two: 参加者は、諮問的に意見を求められるか、組織にフィードバックを提供しました
               name: 市民の影響度
             inclusiveness:
               description: 文化的背景および機能的多様性に基づく包摂性。
+              digital_support_offered:
+                legend: デジタルサポートは参加者に提供されていますか？
+                options:
+                  five: 'はい'
+                  two_five: 部分的に
+                  zero: 'いいえ'
+              functional_diversity_invited:
+                legend: プロセスにおいて、参照される母集団に対して、関係者および参加者の多様性の程度はどのように評価されますか？
+                options:
+                  five: 良い
+                  one: 物足りない
+                  two_five: 十分
+                  zero: なし
+              languages_communicated:
+                legend: このプロセスで使用されている言語は何ヶ国語ですか？
+                options:
+                  five: コミュニティで話されている言語の半分以上
+                  one: 1言語
+                  two_five: コミュニティで話されている言語の半分以下
+              mobility_meeting_access:
+                legend: 対面でのミーティングの会場は、移動が困難な方でも利用できるものでしたか？
+                options:
+                  five: 'はい'
+                  two_five: 部分的に
+                  zero: 'いいえ'
               name: 包摂性
+              participation_scheduling_times:
+                legend: 参加セッションは様々な時間(朝、真昼、午後、夕方、週末)に予定されています。
+                options:
+                  five: 'はい'
+                  two_five: 部分的に
+                  zero: 'いいえ'
+            informativeness:
+              information_provided:
+                legend: 参加者が議題に影響を与える能力についての情報は提供されていますか？（プロセスやイニシアチブでの伝達、および各ディベートセッションの冒頭において）
+                options:
+                  five: 常にある
+                  one: ほとんどない
+                  two_five: 通常ある
+                  zero: まったくない
+              name: 情報量
+              published_information_clarity:
+                legend: 公開された情報は、意思決定の仕組みについて明確に示していますか？（例：投票、合意形成、直接交渉）
+                options:
+                  five: 完全に明かされている
+                  one: あまり明かされていない
+                  two_five: 十分に明かされている
+                  zero: まったく明かされていない
           highlighted_processes:
             active: アクティブ
             all: すべて
@@ -414,6 +488,9 @@ ja:
         new_import:
           accepted_types:
             json: JSON
+        participatory_process_duplicates:
+          form:
+            slug_help_html: 'URLスラグは、このプロセスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         participatory_process_groups:
           form:
             metadata: メタデータ
@@ -459,13 +536,18 @@ ja:
           global_score:
             description_html: 以下に、この参加型プロセスの民主的質を評価するために用いられる指標セットを示します。各指標の算出方法についての詳細は、<a href="%{info_url}">民主的品質指標に関する説明ページ</a>をご覧ください。
             name: グローバルスコア
+            note: "*評価基準は1から5までの数値で示され、1が最も低い参加指標、5が最も高い参加指標を表します。"
             tooltip: すべての値の平均値として計算されます
+          name: 品質指標
           qualitative_metrics:
             description: これらの指標は、プラットフォーム管理者が回答した自己評価調査の結果から取得されています。
             indicators:
               citizen_influence: 市民の影響
               citizen_influence_tooltip: 参加者の意思決定への影響のレベルを測定します。
               inclusiveness: 包摂性
+              inclusiveness_tooltip: さまざまな利害関係者が公平に代表されているかどうかを評価します。
+              informativeness: 情報量
+              informativeness_tooltip: プロセス内で提供される明確さと情報のレベルを測定します。
             name: 自己評価指標
         extra_data:
           name: フェーズと期間
