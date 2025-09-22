@@ -1,8 +1,14 @@
 /* eslint-disable require-jsdoc */
 import icon from "src/decidim/refactor/moved/icon"
-import { dateToPicker, formatDate, displayDate, formatTime, calculateDatepickerPos } from "src/decidim/datepicker/datepicker_functions"
-import { dateKeyDownListener, dateBeforeInputListener } from "src/decidim/datepicker/datepicker_listeners"
-import { getDictionary } from "src/decidim/refactor/moved/i18n"
+import {
+  dateToPicker,
+  formatDate,
+  displayDate,
+  formatTime,
+  calculateDatepickerPos
+} from "src/decidim/datepicker/datepicker_functions"
+import {dateKeyDownListener, dateBeforeInputListener} from "src/decidim/datepicker/datepicker_listeners"
+import {getDictionary} from "src/decidim/refactor/moved/i18n"
 
 export default function generateDatePicker(input, row, formats) {
   const i18n = getDictionary("date.buttons");
@@ -57,6 +63,36 @@ export default function generateDatePicker(input, row, formats) {
 
   dateColumn.appendChild(datePickerContainer);
 
+  const durationDiv = document.getElementById("accordion-duration");
+
+  const checkCalendarPosition = (inputCalender, calendarContainer) => {
+    const inputRect = inputCalender.getBoundingClientRect();
+    const containerRect = durationDiv.getBoundingClientRect();
+    const calendarHeight = calendarContainer.offsetHeight;
+
+    // space available below the input
+    const spaceBelow = containerRect.bottom - inputRect.bottom;
+
+    // calendar inputs ids
+    const containerIds = [
+      "participatory_process_start_date_date",
+      "conference_end_date_date",
+      "assembly_creation_date_date"
+    ];
+
+    if (calendarHeight > spaceBelow) {
+      calendarContainer.style.bottom = "100%";
+
+      const container = containerIds.map((id) => document.getElementById(id)).find((el) => el);
+
+      datePickerContainer.style.left = container
+        ? `${container.offsetWidth - datePickerContainer.offsetWidth}px`
+        : "0px";
+    } else {
+      calendarContainer.style.bottom = "auto";
+    }
+  }
+
   let prevDate = null;
   let defaultTime = input.getAttribute("default_time") || "00:00"
 
@@ -64,7 +100,7 @@ export default function generateDatePicker(input, row, formats) {
     if (!dateColumn.contains(event.target)) {
       datePickerContainer.style.display = "none";
       document.removeEventListener("click", datePickerDisplay)
-    };
+    }
   };
 
   dateKeyDownListener(date);
@@ -80,8 +116,10 @@ export default function generateDatePicker(input, row, formats) {
         input.value = `${formatDate(date.value, formats)}`;
       } else if (input.type === "datetime-local") {
         input.value = `${formatDate(date.value, formats)}T${formatTime(document.querySelector(`#${input.id}_time`).value, formats.time, input.id) || defaultTime}`;
-      };
-    };
+      }
+
+    }
+
   });
 
   date.addEventListener("focus", () => {
@@ -96,8 +134,10 @@ export default function generateDatePicker(input, row, formats) {
         input.value = `${formatDate(date.value, formats)}`;
       } else if (input.type === "datetime-local") {
         input.value = `${formatDate(date.value, formats)}T${formatTime(document.querySelector(`#${input.id}_time`).value, formats.time, input.id) || defaultTime}`;
-      };
-    };
+      }
+
+    }
+
   });
 
   let pickedDate = null;
@@ -116,7 +156,8 @@ export default function generateDatePicker(input, row, formats) {
       input.value = `${pickedDate}`;
     } else if (input.type === "datetime-local") {
       input.value = `${pickedDate}T${formatTime(document.querySelector(`#${input.id}_time`).value, formats.time, input.id) || defaultTime}`;
-    };
+    }
+
     datePickerContainer.style.display = "none";
   });
 
@@ -128,14 +169,28 @@ export default function generateDatePicker(input, row, formats) {
         prevDate = input.value;
       } else if (input.type === "datetime-local") {
         prevDate = input.value.split("T")[0];
-      };
-    };
+      }
+
+    }
+
 
     if (prevDate !== null && new Date(prevDate).toString() !== "Invalid Date") {
       datePicker.value = new Date(prevDate);
-    };
+    }
+
     pickedDate = null;
     datePickerContainer.style.display = "block";
+
+    const isLast = durationDiv === durationDiv.parentElement.querySelector(".card:last-of-type");
+    const calendarRow = document.querySelector(`#${calendar.parentElement.parentElement.id}`);
+
+    if (isLast) {
+      const inputCalendar = calendarRow && calendarRow.querySelector("input");
+
+      if (inputCalendar) {
+        checkCalendarPosition(inputCalendar, datePickerContainer);
+      }
+    }
 
     document.addEventListener("click", datePickerDisplay);
 
@@ -145,8 +200,10 @@ export default function generateDatePicker(input, row, formats) {
         const layoutWrapper = document.querySelector(".layout-wrapper");
 
         layoutWrapper.style.height = `${layoutWrapper.clientHeight - datePickerPos}px`
-      };
-    };
+      }
+
+    }
+
   });
 
   closeCalendar.addEventListener("click", (event) => {
