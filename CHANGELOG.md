@@ -301,7 +301,7 @@ Nothing.
 - Ignore rule 'no duplicate header' for markdown linter [\#14206](https://github.com/decidim/decidim/pull/14206)
 - **decidim-accountability**, **decidim-admin**, **decidim-ai**, **decidim-api**, **decidim-assemblies**, **decidim-blogs**, **decidim-budgets**, **decidim-collaborative_texts**, **decidim-comments**, **decidim-conferences**, **decidim-core**, **decidim-debates**, **decidim-design**, **decidim-dev**, **decidim-forms**, **decidim-generators**, **decidim-initiatives**, **decidim-meetings**, **decidim-pages**, **decidim-participatory processes**, **decidim-proposals**, **decidim-sortitions**, **decidim-surveys**, **decidim-system**, **decidim-templates**, **decidim-verifications**: Add tests for private participatory spaces [\#13854](https://github.com/decidim/decidim/pull/13854)
 - **decidim-generators**: Update node version from v18 to v22 [\#14224](https://github.com/decidim/decidim/pull/14224)
-- Add well known file needed from https://decidim.org/funding.json [\#14243](https://github.com/decidim/decidim/pull/14243)
+- Add well known file needed from <https://decidim.org/funding.json> [\#14243](https://github.com/decidim/decidim/pull/14243)
 - **decidim-proposals**: Add more configurations on proposals with seeds [\#14268](https://github.com/decidim/decidim/pull/14268)
 - Make backporter trigger when unlabeling PRs [\#14292](https://github.com/decidim/decidim/pull/14292)
 - Add `publiccode.yml` standard file [\#14367](https://github.com/decidim/decidim/pull/14367)
