@@ -19,7 +19,7 @@ eu:
         signature_type_values:
           any: Mistoa
           offline: Aurrez aurrekoa
-          online: Digitala
+          online: On-line
         state: Egoera
         title: Izenburua
         type_id: Mota
@@ -73,10 +73,10 @@ eu:
         other: Ekimenak
       decidim/initiative_comittee:
         one: Batzordea
-        other: Comittees
+        other: Batzordeak
       decidim/initiative_vote:
         one: Sinadura
-        other: sinadurak
+        other: Sinadurak
   decidim:
     admin:
       actions:
@@ -89,7 +89,7 @@ eu:
           state_eq:
             label: Egoera
             values:
-              accepted: Beharrezko sinadurekin
+              accepted: Enough signatures
               created: Sortua
               discarded: Baztertua
               published: Argitaratua
@@ -101,16 +101,16 @@ eu:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Bilatu %{collection} izenburuaren, deskribapenaren, IDaren edo egiletzaren arabera.
       initiatives_settings:
         update:
-          error: Errore bat egon da.
+          error: Akats bat egon da.
           success: Ekimenen ezarpenak zuzen eguneratu dira.
       menu:
         attachments: Eranskinak
         committee_members: Batzorde-kideak
-        information: informazioa
+        information: Informazioa
         initiative_type_scopes: Ekimen motaren eremuak
         initiatives: Ekimenak
         initiatives_menu:
-          see_initiative: Ikusi ekimena 
+          see_initiative: Ekimena ikusi
         initiatives_settings: Ezarpenak
         initiatives_submenu:
           info: Ekimen honi buruz
@@ -120,9 +120,9 @@ eu:
         initiatives:
           fields:
             created_at: Sortze-data
-            id: NAN
+            id: ID
             published_at: Argitaratze-data
-            state: Estatu
+            state: Egoera
             supports_count: Sinadurak
             title: Ekimenak
         initiatives_type_scope:
@@ -132,16 +132,16 @@ eu:
           name: Ekimen motaren eremua
         initiatives_types:
           fields:
-            created_at: Sortutako at
+            created_at: Noiz sortua
             title: Ekimen motak
           name: Ekimen mota
         initiatives_votes:
           fields:
             date_of_birth: Jaioteguna
             document_number: Dokumentuaren zenbakia
-            hash: hash
+            hash: Hash
             initiative_end_date: Amaiera data
-            initiative_id: Initiative ID
+            initiative_id: Ekimenaren ID-a
             initiative_signatures_count: Sinadura kopurua
             initiative_start_date: Hasiera data
             initiative_title: Ekimenaren izenburua
@@ -215,11 +215,11 @@ eu:
             answer: Erantzuna
             title: '%{title} erantzun'
           info_initiative:
-            created_at: Sortutako at
+            created_at: Noiz sortua
             description: Deskribapena
             initiative_votes_count: Babesen zenbaketa
             initiatives: Ekimenak
-            state: Estatu
+            state: Egoera
         committee_requests:
           index:
             approve: Onartu
@@ -276,7 +276,7 @@ eu:
           unpublish:
             success: Ekimena zuzen desargitaratu da.
           update:
-            error: Errore bat egon da.
+            error: Akats bat egon da.
             success: Ekimena zuzen eguneratu da.
         initiatives_settings:
           edit:
@@ -301,12 +301,12 @@ eu:
             create: Sortu
             title: Ekimen-eremu mota sortu
           update:
-            error: Errore bat egon da.
+            error: Akats bat egon da.
             success: Eremua zuzen eguneratu da.
         initiatives_types:
           create:
             error: Errore bat egon da.
-            success: Beste ekimen mota bat zuzen sortua. Ekimen mota honetarako gutxienez eremu bat definitu behar duzu, egin ahal izateko.
+            success: Ongi sortu da ekimen-mota berri bat. Gutxienez eremu bat zehaztu behar duzu ekimen mota honetarako, erabili ahal izateko.
           destroy:
             success: Ekimen mota zuzen kendu da.
           edit:
@@ -322,7 +322,7 @@ eu:
             create: Sortu
             title: Beste ekimen mota bat
           update:
-            error: Errore bat egon da.
+            error: Akats bat egon da.
             success: Ekimen mota zuzen eguneratu da.
       admin_log:
         initiative:
@@ -407,9 +407,9 @@ eu:
         confirm: Ziur zaude?
         discard: Kendu ekimena
         export_pdf_signatures: Esportatu sinaduren PDF
-        export_votes: Esportatu sinadurak
+        export_votes: Sinadurak esportatu
         reject: Ukatu ekimena
-        title: Editatu ekimena
+        title: Ekimena editatu
         update: Eguneratu
       events:
         approve_membership_request:
@@ -439,7 +439,7 @@ eu:
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> k eskatu du <a href="%{resource_url}">%{resource_title}</a> zure ekimenaren batzorde bultzatzailearekin bat egitea. Eskaera onartzeko edo ukatzeko, egin klik hemen <a href="%{resource_url}/edit">aquí</a>.
       form:
         add_documents: Gehitu dokumentuak
-        add_image: Gehitu irudia
+        add_image: Irudia gehitu
         attachment_legend: "(Aukerakoa) Gehitu eranskina"
         edit_documents: Editatu dokumentuak
         edit_image: Editatu irudia
@@ -493,7 +493,7 @@ eu:
           author: Egilea
           myself: Nire ekimenak
           scope: Esparrua
-          state: Estatu
+          state: Egoera
           type: Mota
         index_header:
           new_initiative: Beste ekimen bat
@@ -597,7 +597,7 @@ eu:
         expired: iraungi
       unavailable_scope: Eremua ez dago erabilgarri
       update:
-        error: Errore bat egon da.
+        error: Akats bat egon da.
         success: Ekimena zuzen eguneratu da.
     menu:
       initiatives: Ekimenak

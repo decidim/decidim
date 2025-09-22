@@ -115,7 +115,7 @@ eu:
           activity: Nire jarduera
           all: Guztiak
           category: Kategoria
-          category_prompt: Aukeratu kategoria bat
+          category_prompt: Kategoria bat aukeratu
           commented: Iruzkina eginda
           my_debates: Nire eztabaidak
           official: Ofiziala
@@ -145,7 +145,7 @@ eu:
           close_debate: Itxi eztabaida
           debate_closed: Itxita
           debate_conclusions_are: 'Eztabaida %{date} espazioan itxi da ondorio hauekin:'
-          edit_conclusions: Editatu ondorioak
+          edit_conclusions: Ondorioak editatu
           edit_debate: Editatu eztabaida
           groups_count: Taldeak
           open: Eztabaida irekita

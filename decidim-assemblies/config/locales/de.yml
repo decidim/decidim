@@ -255,7 +255,7 @@ de:
     admin_log:
       assembly:
         create: "%{user_name} hat das Gremium %{resource_name} erstellt"
-        duplicate: "%{user_name} hat das Gremium %{resource_name} aktualisiert"
+        duplicate: "%{user_name} hat das Gremium %{resource_name} dupliziert"
         export: "%{user_name} hat das Gremium %{resource_name} exportiert"
         import: "%{user_name} hat das Gremium %{resource_name} importiert"
         publish: "%{user_name} hat das Gremium %{resource_name} veröffentlicht"

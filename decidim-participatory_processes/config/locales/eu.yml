@@ -172,6 +172,8 @@ eu:
       participatory_process_copies:
         new:
           copy: Kopiatu
+          select: Hautatu zein datu bikoiztu nahi dituzun
+          title: Bikoiztu partaidetza-prozesua
       participatory_process_groups:
         destroy:
           error: Arazo bat izan da partaidetza-prozesu multzoa ezabatzean.
@@ -283,6 +285,10 @@ eu:
         update:
           error: Arazo bat egon da prozesu partaidetza-prozesu hau eguneratzean.
           success: Partaidetza-prozesua zuzen eguneratua.
+      participatory_processes_copies:
+        create:
+          error: Arazo bat egon da partaidetza-prozesu hau bikoiztean.
+          success: Partaidetza-prozesua zuzen kopiatua.
       participatory_processes_group:
         create:
           error: Arazo bat egon da beste partaidetza-prozesuen multzo bat sortzean.
@@ -496,7 +502,7 @@ eu:
         show:
           title: Prozesu honi buruz
       show:
-        belongs_to_group: Prozesu hau honi dagokio
+        belongs_to_group: Prozesu hau nori dagokio
         private_space: Prozesu pribatua da
         related_processes: Elkarrekin lotutako prozesuak
     statistics:

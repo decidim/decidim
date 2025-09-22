@@ -17,6 +17,8 @@ is:
         title: Aðgerðir
       admin:
         models:
+          budget:
+            name: Fjárhagsáætlun
           project:
             name: Verkefni
         projects:

@@ -65,7 +65,7 @@ nl:
           projects: Projecten
         models:
           budget:
-            name: Budget
+            name: Begroting
           project:
             name: Project
         projects:

@@ -23,6 +23,8 @@ id:
         title: Tindakan
       admin:
         models:
+          budget:
+            name: Anggaran
           project:
             name: Proyek
         projects:

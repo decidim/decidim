@@ -45,7 +45,7 @@ ar:
           projects: المشاريع
         models:
           budget:
-            name: الميزانية
+            name: ميزانية
           project:
             name: مشروع
         projects:

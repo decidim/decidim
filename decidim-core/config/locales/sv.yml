@@ -1244,11 +1244,12 @@ sv:
         main_image: Huvudbild
     newsletters:
       unsubscribe:
-        check_subscription: Om du vill ändra dina inställningar kan du göra det på <a href="%{link}" target="_blank">inställningssidan</a>.
+        check_subscription_html: Om du vill börja ta emot dem igen, kan du återaktivera din prenumeration när som helst från <a href="%{link}" target="_blank">inställningssidan</a>.
         error: Det gick inte att avsluta prenumerationen.
+        subscription_preferences: Vi har uppdaterat dina prenumerationsinställningar, och du får inte längre nyhetsbrev från %{organization_name}.
         success: Prenumerationen har avslutats.
         token_error: Länken är inte längre giltig.
-        unsubscribe: Avprenumerera
+        unsubscribe: Avregistrera dig från nyhetsbrev
     newsletters_opt_in:
       unauthorized: Länken är tyvärr inte längre tillgänglig.
       update:
@@ -1956,14 +1957,17 @@ sv:
         edit: Redigera
       footer:
         cc_by_license: Creative Commons-licens
+        current_organization_img: "%{organization} (hemma)"
         data_consent_settings: Inställningar för cookies
         decidim_logo: Decidims logotyp
         decidim_title: Decidim
         download_open_data: Hämta öppna datafiler
+        help: Hjälp
         log_in: Logga in
         made_with_open_source: Webbplats skapad med <a target="_blank" href="https://github.com/decidim/decidim">fri programvara</a>.
         resources: Innehåll
         sign_up: Skapa ett konto
+        social_media: Sociala medier
         terms_of_service: Användarvillkor
       header:
         log_in: Logga in

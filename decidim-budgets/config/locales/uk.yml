@@ -26,6 +26,8 @@ uk:
         title: Дії
       admin:
         models:
+          budget:
+            name: Бюджет
           project:
             name: Проект
         projects:

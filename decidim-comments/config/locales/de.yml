@@ -115,6 +115,9 @@ de:
           one: "%{count} Kommentar"
           other: "%{count} Kommentare"
       down_vote_button:
+        label:
+          one: Button «Nicht unterstützen». %{count} unterstützt nicht
+          other: Button «Nicht unterstützen». %{count} unterstützen nicht
         text: Ich bin mit diesem Kommentar nicht einverstanden
       edit_comment_modal_form:
         close: Schliessen
@@ -125,6 +128,9 @@ de:
           submit: Senden
         title: Kommentar bearbeiten
       up_vote_button:
+        label:
+          one: Button «Unterstützen». %{count} Unterstützung
+          other: Button «Unterstützen». %{count} Unterstützungen
         text: Ich stimme diesem Kommentar zu
     events:
       comments:

@@ -178,6 +178,8 @@ cs:
       participatory_process_copies:
         new:
           copy: Kopírovat
+          select: Vyberte, která data chcete duplikovat
+          title: Duplikovat participativní proces
       participatory_process_groups:
         destroy:
           error: Došlo k chybě při zrušení skupiny účastnických procesů.
@@ -289,6 +291,10 @@ cs:
         update:
           error: Při aktualizaci tohoto participačního procesu došlo k chybě.
           success: Participační proces byl úspěšně aktualizován.
+      participatory_processes_copies:
+        create:
+          error: Při duplikaci tohoto participativního procesu došlo k problému.
+          success: Participativní proces byl úspěšně duplikován.
       participatory_processes_group:
         create:
           error: Došlo k chybě při vytváření nové skupiny účastnických procesů.
