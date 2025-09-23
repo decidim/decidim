@@ -11,6 +11,7 @@ ca-IT:
         domain: Àrees municipals
         duplicate_categories: Duplicar les categories
         duplicate_components: Duplicar els components
+        duplicate_landing_page_blocks: Duplicar els blocs de contingut de la pàgina d'inici
         duplicate_steps: Duplicar les fases
         end_date: Data de finalització
         hero_image: Imatge de portada
