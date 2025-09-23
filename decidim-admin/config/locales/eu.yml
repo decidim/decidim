@@ -173,6 +173,8 @@ eu:
           new: Beste eranskin bat
         attachment_collection:
           new: Beste eranskin-bilduma bat
+        attachment_collections: Gehitu karpeta
+        attachments: Gehitu eranskina
         browse: Arakatu
         configure: Konfiguratu
         confirm_delete_component: |
@@ -185,14 +187,19 @@ eu:
         export: Esportatu
         export-selection: Esportatu hautaketa
         import: Inportatu
+        menu_hidden: Ezkutatu menutik
+        moderate: Kudeatu moderazioak
         newsletter:
           new: Beste buletin bat
         participatory_space_private_user:
           new: Partaidetza-espazio berria, erabiltzaile pribatua
         per_page: Orrialdeko
+        permissions: Kudeatu baimenak
         restore: Berreskuratu
         send_me_a_test_email: Bidali proba-posta elektronikoa
         share: Partekatu
+        share_tokens: Partekatu esteka
+        soft_delete: Mugitu zakarrontzira
         user:
           new: Beste administratzaile bat
         view_deleted_components: Ikusi ezabatutako osagaiak
@@ -344,7 +351,7 @@ eu:
         attempts: Saiakerak
         'false': 'Ez'
         index:
-          text: Bilatu gaur egungo erabiltzailearen posta elektronikoaren, izenren edo ezizenaren bidez
+          text: Bilatu gaur egungo parte-hartzailearen posta elektronikoaren, izenren edo ezizenaren bidez
         managed_user_name: Parte-hartzailearen kudeatua
         solved: Ebatzita
         title: Egiaztapen-arazoak
@@ -681,6 +688,7 @@ eu:
               update_moderated_user_button: Ez erreportatu parte-hartzaileak
             title: Ekintzak
             unblock: Desblokeatu parte-hartzailea
+            unreport: Desegin salaketa
           cancel: Ezeztatu
           name: Izena
           nickname: Ezizena
@@ -704,8 +712,10 @@ eu:
               title: Ezkutatu
               update_moderation_button: Ezkutatu hautatutako edukiak
             unhide:
+              title: Desegin ezkutua
               update_moderation_button: Erakutsi berriro hautatutako edukiak
             unreport:
+              title: Desegin salaketa
               update_moderation_button: Ez erreportatu hautatutako edukiak
           cancel: Ezeztatu
           selected: hautatua
@@ -833,6 +843,7 @@ eu:
         index:
           actions: Ekintzak
           badge: Garaikurra
+          block: Blokeatu
           created_at: Noiz sortua
           name: Izena
           nickname: Ezizena
@@ -841,7 +852,10 @@ eu:
           officialized: Ofizializatua
           reofficialize: Berriro ofizializatzen du
           reports: Txostenak
+          send_message: Bidali mezua
+          show_email: Erakutsi mezu elektronikoa
           status: Egoera
+          unblock: Desblokeatu
           unofficialize: Ez ofizializatua
         new:
           badge: Ofizializazio-garaikurra
@@ -1067,6 +1081,8 @@ eu:
           error: Arazo bat egon da gai hau eguneratzean.
           success: Gaia zuzen eguneratua
       static_pages:
+        actions:
+          view: Bistaratu
         create:
           error: Arazo bat egon da beste orri bat sortzean.
           success: Orria zuzen eguneratua.
@@ -1094,6 +1110,9 @@ eu:
       taxonomies:
         actions:
           actions: Ekintzak
+          destroy: Ezabatu
+          edit: Editatu
+          filters: Jarri iragazkiak
         breadcrumb:
           edit: Editatu taxonomia
           new: Beste taxonomia bat
@@ -1264,6 +1283,8 @@ eu:
         not_hidden: Ezkutatu gabe
         parent_hidden: Ezin duzu baliabide hori askatu ezkutuan jarraitzen duen beste baliabide baten barruan ("nagusi") dagoelako.
         title: Ekintzak
+        unhide: Desegin ezkutua
+        unreport: Desegin salaketa
       admin:
         reportable:
           bulk_action:

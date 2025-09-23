@@ -58,8 +58,6 @@ zh-TW:
         exports:
           projects: 專案
         models:
-          budget:
-            name: 預算
           project:
             name: 專案
         projects:

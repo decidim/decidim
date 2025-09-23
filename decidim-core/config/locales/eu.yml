@@ -177,10 +177,10 @@ eu:
     accessibility:
       external_link: Kanpoko esteka
       front_page_link: Zoaz orri nagusira
-      logo: "%{organization} aren logo ofiziala"
+      logo: "%{organization} erakundaren logo ofiziala"
       opens_in_new_tab: Ireki beste fitxa batean
       secondary_menu: Bigarren mailako menua
-      skip_button: Joan eduki nagusira
+      skip_button: Eduki nagusira joan
     account:
       blocked: Kontu hau blokeatu egin da erabilera-terminoak eta -baldintzak urratu direlako
       delete:
@@ -188,7 +188,7 @@ eu:
         confirm:
           close: Itxi leihoa
           ok: Bai, nire kontua ezabatu nahi dut
-          question: Ziur zure kontua ezabatu nahi duzula?
+          question: Ziur zaude zure kontua ezabatu nahi duzula?
           title: Ezabatu nire kontua
         explanation: Mesedez, azaldu arrazoia zure kontua ezabatu nahi izateko (aukerakoa).
         leaving_authorizations_behind: Egiaztatze-prozesu honetako hainbat datu gorde egingo dira segurtasunagatik. Beste kontu bat sortu eta, berriz ere, egiaztatzeko prozesuari ekin nahi badiozu, datu horiek berreskuratu egingo dira.
@@ -199,9 +199,9 @@ eu:
       download_your_data_export:
         export_expired: Esportazioa amaitu da. Saiatu beste esportazio bat sortzen.
         file_no_exists: Fitxategia ez dago
-        notice: Zure datuen deskarga aurrera doa. Posta elektroniko bat jasoko duzu osorik dagoenean.
+        notice: Une honetan zure datuak deskargatzen ari dira. Mezu elektroniko bat jasoko duzu amaitutakoan.
       email_change:
-        body1: Mezu elektroniko bat bidali dugu %{unconfirmed_email} postara zure helbide elektroniko berria egiaztatzeko.
+        body1: Mezu elektroniko bat bidali dizugu %{unconfirmed_email} helbidera zure helbide elektroniko berria egiaztatzeko.
         body2: Birbidali behar dizugu egiaztatzeko helbide elektronikoa? %{resend_link} edo %{cancel_link}.
         cancel: ezeztatu
         cancel_error: Ezin izan da ezeztatu helbide elektronikoaren aldaketa.
@@ -404,7 +404,7 @@ eu:
         success: Zuzenketa zuzen argitaratu da beste proposamen bat gisa.
       publish_draft:
         error: Arazo bat egon da zuzenketa argitaratzean.
-        success: Zuzenketa zuzen argitaratu da.
+        success: Zuzenketa behar bezala argitaratu da.
       rejected:
         error: Arazo bat egon da zuzenketa hau ukatzean. Mesedez, saiatu berriro geroago.
         success: Zuzenketa behar bezala ukatu da.
@@ -478,7 +478,7 @@ eu:
       expires_at: '%{timestamp} iraungitzen da'
       foo_authorization:
         fields:
-          bar: Bar
+          bar: Barra
           foo: foo
         name: foo baimena
       granted_at: Onartua %{timestamp}
@@ -547,7 +547,7 @@ eu:
         title: 'Erakutsi:'
       dummy:
         actions:
-          bar: Bar
+          bar: Barra
           foo: foo
         name: Balizko osagaia
         settings:
@@ -569,9 +569,9 @@ eu:
             amendment_reaction_enabled: Zuzenketaren erreakzioa aktibatuta
             amendments_visibility: Zuzenketaren ikusgarritasuna
             comments_blocked: Iruzkinak blokeatuta
-            dummy_step_attribute1: Balizko Faseko atributua 1
-            dummy_step_attribute2: Balizko Faseko atributua 2
-            dummy_step_translatable_text: Itzul daitekeen testuaren balizko fasea
+            dummy_step_attribute1: Proba-fasearen 1 atributua
+            dummy_step_attribute2: Proba-fasearen 2 atributua
+            dummy_step_translatable_text: Frogazko fasearen testua
       pagination:
         page_title: "%{component_name} - %{total_pages} tik %{current_page} orrialde"
     contact: Harremanetarako
@@ -604,7 +604,7 @@ eu:
         action_button_subtitle: Ekintza-botoiaren azpititulua
         action_button_title: Ekintza-botoiaren izenburua
         action_button_url: Ekintza-botoiaren URLa
-        background_image: Atzeko planoko irudia
+        background_image: Atzeko irudia
         short_description: Deskribapen laburra
         subtitle: Azpititulua
         title: Izenburua
@@ -796,7 +796,7 @@ eu:
           delete_reason: Parte-hartzaile hau ezabatzeko arrazoia
           deleted_at: Zein datatan eta zein ordutan ezabatu zen parte-hartzaile hau
           email: Parte-hartzaile honen helbide elektronikoa
-          followers_count: Parte-hartzaile honi jarraitzen dioten parte-hartzaileen kopurua
+          followers_count: Parte-hartzaile honi jarraitzen ari zaion parte-hartzaile kopurua
           following_count: Parte-hartzaile hau jarraitzen ari den parte-hartzaileen kopurua
           id: Parte-hartzaile honen identifikatzaile bakarra
           invitation_accepted_at: Zein datatan eta zein ordutan onartu zen gonbidapena
@@ -1008,7 +1008,7 @@ eu:
     fingerprint:
       check: Egiaztatu hatz-marka
       explanation: Beheko testu-zatia eduki honen irudikapen laburtua da. Baliagarria da edukia ez dela aldatu ziurtatzeko, eraldaketa bakar batek balio guztiz ezberdina emango bailuke.
-      online_calculator_name: MD5 kalkulagailua linean
+      online_calculator_name: MD5 on-line kalkulagailua
       replicate_help: Hatz-marka hori SHA256 hashing algoritmo baten bidez kalkulatzen da. Zeure buruari errepikatu ahal izateko, %{online_calculator_link} erabil dezakezu eta kopiatu iturriaren datuak itsatsi.
       source: Jatorria
       title: Hatz-marka
@@ -1229,7 +1229,7 @@ eu:
           placeholder: Zure mezua...
           send: Bidali
         update:
-          error: Mezua ez da bidali errore batengatik.
+          error: Mezua ez da bidali akats batengatik.
     metadata:
       progress:
         active: Aktibo
@@ -1263,11 +1263,12 @@ eu:
         main_image: Irudi nagusia
     newsletters:
       unsubscribe:
-        check_subscription: 'Zure lehentasunak aldatu nahi badituzu, hemen egin dezakezu: <a href="%{link}" target="_blank">ezarpenen orrialdea</a>.'
+        check_subscription_html: <a href="%{link}" target="_blank">ezarpenak</a> orrialdean, berriz hasi nahi baduzu jasotzen, edozein unetan aktiba dezakezu harpidetza.</a>.
         error: Arazo bat egon da harpidetza ezeztatzean.
+        subscription_preferences: Zure harpidetzaren hobespenak eguneratu ditugu, eta dagoeneko ez duzu %{organization_name}(r) en buletinik jasoko.
         success: Harpidetza zuzen ezeztatua.
         token_error: Esteka iraungi da.
-        unsubscribe: Baja eman
+        unsubscribe: Buletinean baja ematea
     newsletters_opt_in:
       unauthorized: Sentitzen dut, esteka hau ez dago eskuragarri.
       update:
@@ -1275,7 +1276,7 @@ eu:
         success: Buletinaren ezarpenak zuzen eguneratuak.
     newsletters_opt_in_mailer:
       notify:
-        body_1: Datu pertsonalen tratamendua eta babesak gero eta garrantzi handiagoa hartzen ari dira guztiontzat. 2018ko maiatzaren 25eko Datuen Babeserako Datu Orokor berriak (GDPR) datu pertsonalak hobeto kontrolatzen ditu. Horregatik, zure adostasuna behar dugu, %{organization_name} jardueren inguruko informazio garrantzitsua bidaltzen jarraitzeko.
+        body_1: Datu pertsonalen tratamendua eta babesa gero eta garrantzitsuagoa da guztiontzat. 2018ko maiatzaren 25eko Datuak Babesteko Erregelamendu Orokorrarekin (DBEO), pertsonek hobeto kontrolatzen dituzte beren datu pertsonalak. Hori dela eta, zure "adostasuna" behar dugu %{organization_name} jardueraren gaineko informazio garrantzitsua bidaltzen jarraitu ahal izateko.
         body_2: 'Nola eman ahal diguzu baimena? Egin klik botoi honetan:'
         body_3: Baimen honekin plataformako zerbitzuei buruzko informazioa jasotzen jarraitu ahal izango duzu. Aitzitik, zure baieztapena jasotzen ez badugu, gure mezuak bidaltzeari utziko diogu. Informatuta egon nahi duzula baieztatzen baduzu, edozein unetan ezeztatzeko aukera izango duzu.
         button: Bai, informazio garrantzitsua jasotzen jarraitu nahi dut
@@ -1301,8 +1302,8 @@ eu:
         weekly: Jakinarazpenen asteko laburpena
       hello: Kaixo %{name},
       intro:
-        daily: 'Hauek dira azken eguneko jakinarazpenak, jarraitzen ari zaren jardueran oinarrituta:'
-        real_time: 'Jarraitzen ari zaren jarduerari buruzko jakinarazpena dago:'
+        daily: 'Hona hemen aktibitatean oinarritutako azken egunetako jakinarazpenak:'
+        real_time: 'Hone hemen jarduera honen berri:'
         weekly: 'Hauek dira azken asteko jakinarazpenak, jarraitzen ari zaren jardueran oinarrituta:'
       outro: Jakinarazpen hau jaso duzu eduki hau edo bere egileak jarraitzen dituzulako. Jarraitzeari utzi ahal diozu euren orrialdeetan.
       see_more: Ikusi jakinarazpen gehiago
@@ -1314,7 +1315,7 @@ eu:
         allow_push_notifications: Bidali mezuak plataforman ez zaudenean zer gertatzen den jakiteko. Nahi duzunean desgaitu ditzakezu.
         assigned_to_proposal: Mezu elektroniko bat jaso nahi dut norbaitek ebaluatzeko proposamen bat ematen didanean
         direct_messages: Jaso edonoren mezu zuzenak
-        email_on_moderations: Mezu elektroniko bat jaso nahi dut zerbait neurriz erreportatzen den bakoitzean.
+        email_on_moderations: Mezu elektroniko bat jaso nahi dut, edozein ordutan, edo bat moderaziorako bidaltzen da.
         evaluators: Ebaluatzaileak
         everything_followed: Jarraitzen dudan guztia
         newsletter_notifications: Buletinak jaso nahi ditut
@@ -1357,9 +1358,9 @@ eu:
           components: Osagaiak
           description: ZIP fitxategi honetan fitxategiak daude plataforma prte-hartzaile hau aztertu eta ikertzeko.
           generated_on_date: 'Noiz sortua: %{date}'
-          main: Mamia
+          main: Nukleoa
           resources:
-            one: "%{count} emaitza"
+            one: "Emaitza %{count}"
             other: "%{count} emaitza"
           spaces: Espazioak
           title: Open Data fitxategiak %{organization} erakunderako
@@ -1413,7 +1414,7 @@ eu:
           title: Espediente bakoitzaren azalpen zehatza
         download:
           components: Osagaiak
-          core: Mamia
+          core: Nukleoa
           spaces: Partaidetza-espazioak
           title: Deskargatu baliabideak
         download_open_data: Deskargatu Open Data fitxategi guztiak
@@ -1478,7 +1479,7 @@ eu:
         statistics:
           headline: Estatistikak
         sub_hero:
-          register: Erregistroa
+          register: Alta eman
           register_title: Sortu kontu bat
       index:
         standalone_pages: Orrialdeak
@@ -1538,7 +1539,7 @@ eu:
         followers: Jarraitzaileak
         following: Jarraitzen
         officialized: Parte-hartzaile ofiziala
-        send_private_message: Bidali mezu pribatua
+        send_private_message: Mezu pribatua bidali
       user:
         actions:
           disabled_message: Mezua
@@ -1564,7 +1565,7 @@ eu:
         details: Xehetasunak
         hello: 'Kaixo, %{name}:'
         manage_moderations: Kudeatu moderazioak
-        participatory_space: Espazio parte-hartzailea
+        participatory_space: Partaidetza espazioa
         reason: Arrazoia
         report_html: <p>Hurrengo <a href="%{url}">edukia</a>automatikoki ezkutatu da</p>
         subject: '%{moderator} -k baliabidea ezkutatu du'
@@ -1615,7 +1616,7 @@ eu:
           future: Etorkizuna
           past: Iragana
       filters_small_view:
-        filter: Filter
+        filter: Iragazi
         filter_and_search: Iragazi eta bilatu
         filter_by: Iragazi arabera
       results:
@@ -1661,7 +1662,7 @@ eu:
         offensive: Bertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
         report: Jakinarazi
         spam: Bertan badago clickbait-ik, publizitaterik edo gidoi-robotik.
-        title: Salatu erabiltzaile desegokia
+        title: Salatu parte-hartzaile desegokia
       floating_help:
         help: Laguntza
       follow_button:
@@ -1692,16 +1693,16 @@ eu:
       comments_count: Iruzkinak
       comments_count_tooltip: Espazio honetan dauden iruzkin guztiak.
       followers_count: Jarraitzaileak
-      followers_count_tooltip: Zenbat erabiltzailek jarraitzen duten espazio honen parteren bat eguneratuta egoteko.
+      followers_count_tooltip: Zenbat parte-hartzaileek jarraitzen duten espazio honen parteren bat eguneratuta egoteko.
       headline: Estatistikak
       likes_count: Likeak
       no_stats: Oraindik ez dago estatistikarik.
       pages_count: Orrialdeak
       participants_count: Parte-hartzaileak
-      participants_count_tooltip: Espazio honetan proposamenak aurkeztuz, bileretara joanez, bozkatuz edo eztabaidetan parte hartuz elkarreragin duten erabiltzaile bakarren kopurua.
+      participants_count_tooltip: Espazio honetan proposamenak aurkeztuz, bileretara joanez, bozkatuz edo eztabaidetan parte hartuz elkarreragin duten parte-hartzaile bakarren kopurua.
       surveys_count: Inkestak
       users_count: Parte-hartzaileak
-      users_count_tooltip: Posta elektronikoz izena eman eta kontua baieztatu duten erabiltzaileen kopurua.
+      users_count_tooltip: Posta elektronikoz izena eman eta kontua baieztatu duten parte-hartzaileen kopurua.
     tags:
       filter_results_for_taxonomy: '%{resource} hautaketaren emaitzak'
     taxonomies:
@@ -1727,7 +1728,7 @@ eu:
         instructions_title: "<strong>Zer esan nahi du honek zuretzat?</strong>"
         subject: Eguneratze garrantzitsuko kide zaren erabiltzaile-taldea
       notify_deprecation_to_owner:
-        body_1: Zurekin harremanetan jartzen gara eguneratze garrantzitsu bati buruz informatzeko, parte zaren %{organization_name} erabiltzaile-taldeari dagokionez.
+        body_1: '%{organization_name} (e) n duzun taldearen profilari buruzko eguneraketa garrantzitsu baten berri ematera gatozkizu.'
         body_2: 'Zurea bezalako erakundeen esperientzia sinplifikatzeko gure ahaleginen zati gisa, orain arte ezagutzen dugun "Erabiltzaile Taldeak" funtzioa zaharkituta geratuko da. Taldearen profila: <strong>%{name}</strong>, ohiko parte-hartzailearen profil bihurtu da.'
         body_3: Zure kontuan sartzen jarraitzeko, pasahitz bat jartzea behar dugu.
         greeting: '%{name}, agurgarria:'
@@ -1736,7 +1737,7 @@ eu:
         instructions_3: Kontsultatu zure sarrera-erretiluan bilatzeko zure pasahitz berria ezartzeko jarraibideak dituen mezu elektroniko bat.
         instructions_title: "<strong>Zer egin behar duzu?</strong>"
         set_password: Hasi pasahitza konfiguratzeko prozesua
-        subject: Erabiltzaile-taldearen eguneratze garrantzitsua
+        subject: Parte hartzaileen taldearen eguneratze garrantzitsua
     user_report_mailer:
       notify:
         body_1: '%{user} parte-hartzailea %{token}-ek erreportatu du'
@@ -1852,10 +1853,10 @@ eu:
         instruction_3: Zure pasahitza ez da aldatuko aurreko estekara sartu eta beste bat sortu arte.
         subject: Berrezarri pasahitzaren argibideak
       unlock_instructions:
-        action: Desblokeatu nire kontua
+        action: Nire kontua desbloqueatu
         greeting: Kaixo %{recipient}!
         instruction: 'Egin klik beheko estekan zure kontua desblokeatzeko:'
-        message: Kontua blokeatu zaizu gehiegitan saitu zarelako, lortu gabe, saioa hasten.
+        message: Zure kontua blokeatu egin da saiakeretan izandako gehiegizko saio porrokatuengatik.
         subject: Desblokeatu argibideak
     omniauth_callbacks:
       add_tos_errors: Zerbitzuaren baldintzak onartu behar dira kontu bat sortzeko.
@@ -1873,7 +1874,7 @@ eu:
       new:
         forgot_your_password: Pasahitza ahaztu duzu?
         send_me_reset_password_instructions: Bidali pasahitza berrezartzeko argibideak
-      no_token: Ezin zara orrialde honetara sartu pasahitza berrezartzeko posta elektronikotik ez bazatoz. Pasahitza berrezartzeko mezu elektroniko batetik bazatoz, ziurtatu emandako URL osoa erabili duzula.
+      no_token: Ezin zara orri honetara sartu pasahitza berrezartzeko mezu elektroniko batetik etorri gabe. Pasahitza berrezartzeko mezu elektroniko batetik baldin badator, ziurtatu emandako URL osoa erabili duzula.
       send_instructions: Mezu elektroniko bat jasoko duzu pasahitza berrezartzeko argibideekin minutu gutxian.
       send_paranoid_instructions: Datu-basean zure helbide elektronikoa badugu, minutu gutxi barru pasahitza berreskuratzeko esteka bat jasoko duzu.
       updated: Pasahitza ondo aldatu da. Saioa hasi duzu.
@@ -1947,7 +1948,7 @@ eu:
         cancel: Ezeztatu
         remove: Kendu
         save: Gorde
-      close: Itxi modala
+      close: Itxi leihoa
     toolbar:
       control:
         blockquote: Aipu blokea
@@ -2017,7 +2018,7 @@ eu:
       must_start_with_caps: letra larriz hasi behartu
       nesting_too_deep: ezin da egon azpikategoria batean
       not_found: ezin izan da aurkitu. Lehenago konturik sortu duzu?
-      not_locked: ez zen blokeatuta
+      not_locked: ez dago itxita
       not_saved:
         one: 'Errore bat izan da zure eskaera prozesatzean:'
         other: 'Errore batzuk egon dira zure eskaera prozesatzean:'
@@ -2069,11 +2070,11 @@ eu:
           title: Informazioa webgunean erabiltzen diren cookiei buruz
         modal:
           accept_all: Onartu dena
-          accept_only_essential: Funtsezkoak soiik onartu.
+          accept_only_essential: Funtsezkoak soiik onartu
           analytics:
             description: Cookie hauek erabiltzen dira webguneko ikusleak neurtzeko eta analizatzeko, webgunea hobetzen laguntzeko helburuaz.
             title: Analitikak eta estatistikak
-          description: Cookieak erabiltzen ditugu webgunearen oinarrizko funtzioak bermatzeko eta zure online esperientzia hobetzeko. Cookien erabilera konfiguratu eta onartu ahal duzu eta nahi duzunean aldatu haiek onesteko aukerak.
+          description: Cookieak erabiltzen ditugu webgunearen oinarrizko funtzioak bermatzeko eta zure on-line esperientzia hobetzeko. Cookien erabilera konfiguratu eta onartu ahal duzu eta nahi duzunean aldatu haiek onesteko aukerak.
           essential:
             description: Cookie horiek webgunearen funtsezko funtzionaltasuna ahalbidetzen dute eta parte-hartzaileak seguru mantentzen laguntzen dute. Automatikoki gordetzen dira nabigatzailean eta ezin dira desaktibatu.
             title: Funtsezkoak
@@ -2089,23 +2090,25 @@ eu:
         warning:
           all_categories: cookie guztiak
           change_settings: Aldatu cookien konfigurazioa
-          consent_required: '%{categories} gaitu behar d(it) uzu eduki hau ikusi ahal izateko.'
+          consent_required: '%{categories} aktibatu behar duzu eduki hau ikusi ahal izateko.'
       edit_link:
         edit: Editatu
       footer:
         cc_by_license: Creative Commons lizentziaduna
+        current_organization_img: "%{organization} (joan orrialde nagusira)"
         data_consent_settings: Cookien konfigurazioa
         decidim_logo: Decidim-en logoa
         decidim_title: Decidim
+        help: Laguntza
         log_in: Hasi saioa
         made_with_open_source: Gune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software librea</a> erabili da.
         open_data: Datu Irekiak
         resources: Baliabideak
         sign_up: Sortu kontu bat
+        social_media: Sare Sozialak
         terms_of_service: Zerbitzuaren baldintzak
       header:
-        back: Itzuli zerrendara
-        cancel: Utzi
+        back: Itzuli
         close: Itxi
         confirm_close_ephemeral_session: Nabigatzeari uzten badiozu, zure behin-behineko saioa itxita egongo da. Hala ere, zure aurrerapen eta jarduera guztiak salbatuko dira. Jarduera amaitu baduzu, egin klik Ok botoian.
         confirm_title_close_ephemeral_session: Orri honetatik irten baino lehen…
@@ -2115,6 +2118,7 @@ eu:
       impersonation_warning:
         close_session: Itxi saioa
         description_html: <b>%{user_name}</b> parte-hartzailea kudeatzen ari zara.
+        expire_time_html: Zure saioa <b><span data-impersonation-warning-target="minutes">%{minutes}</span> minutu</b> iraungiko da.
       language_chooser:
         choose_language: Aukeratu hizkuntza
       navigation:
@@ -2123,7 +2127,7 @@ eu:
         mark_all_as_read: Markatu dena irakurritako gisa
         mark_as_read: Markatu irakurrita bezala
       offline_banner:
-        cache_version_page: Kontuz! Lineaz kanpo lan egiten ari zara. Bisitatzen ari zaren orriaren cache bertsioa da hau, agian edukia ez dago eguneratuta.
+        cache_version_page: Kontuz! Off-line lan egiten ari zara. Bisitatzen ari zaren orriaren cache bertsioa da hau, agian edukia ez dago eguneratuta.
       social_media_links:
         facebook: "%{organization} Facebooken"
         github: "%{organization} GitHuben"
@@ -2158,6 +2162,11 @@ eu:
   locale:
     name: Euskara
     name_with_error: Euskera (akatsa!)
+  number:
+    currency:
+      format:
+        format: "%u %n"
+        format_html: "<span>%u</span> %n"
   password_validator:
     denied: ukatu egin da
     domain_included_in_password: domeinu izen honen antzekoa da
@@ -2221,7 +2230,7 @@ eu:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       help:
-        time_format: 'Formatua: hh:mm'
+        time_format: 'Formatua: oo:mm'
       long: "%B, %d %Y %H:%M"
       long_dashed: "%Y-%m-%d, %H:%M:%S"
       long_with_particles: "%B%d, %Y% H:%M etan"

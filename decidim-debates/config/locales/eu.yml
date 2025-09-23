@@ -78,7 +78,7 @@ eu:
             comments_visualization: Iruzkinak bistaratzea
             comments_warning: Lehen iruzkina argitaratu ondoren, ezin da aldatu aukeratutako bistaratze-aukera.
             debate_type: Eztabaida mota
-            edit_attachments: Editatu eranskinak
+            edit_attachments: Eranskinak editatu
             errors:
               comments_layout_locked: Iruzkinen planoa ezin da aldatu iruzkinak argitaratu ondoren.
             finite: Amaiera (hasiera- eta amaiera-ordua)
@@ -137,7 +137,7 @@ eu:
           activity: Nire jarduera
           all: Guztiak
           category: Kategoria
-          category_prompt: Aukeratu kategoria bat
+          category_prompt: Kategoria bat aukeratu
           commented: Iruzkina eginda
           my_debates: Nire eztabaidak
           official: Ofiziala
@@ -164,7 +164,7 @@ eu:
           close_debate: Itxi
           closed: Itxita
           debate_conclusions_are: 'Eztabaida %{date} espazioan itxi da ondorio hauekin:'
-          edit_conclusions: Editatu ondorioak
+          edit_conclusions: Ondorioak editatu
           edit_debate: Editatu
           not_started: Hasi gabe
           ongoing: Abian

@@ -260,8 +260,8 @@ ca-IT:
           email_subject: La trobada de "%{resource_title}" ha obert les inscripcions.
           notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> ha obert les inscripcions.
         upcoming_meeting:
-          default_body: La trobada "%{meeting_title}" començarà en menys de {{before_hours}}h.
-          email_intro: La trobada "%{meeting_title}" començarà en menys de %{reminders_before_hours}h.
+          default_body: La trobada "{{meeting_title}}" començarà en menys de {{before_hours}}h.
+          email_intro: La trobada "%{resource_title}" començarà en menys de %{reminders_before_hours}h.
           email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar de seguir-la des de l'enllaç anterior.
           email_subject: La trobada "%{resource_title}" començarà en menys de %{reminders_before_hours}h.
           notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> començarà en menys de %{reminders_before_hours}h.
