@@ -82,6 +82,7 @@ beforeinput
 beforeinstallprompt
 belighted
 bem
+bfd
 bfrozen
 bgset
 Biblioteca
@@ -125,6 +126,8 @@ CCORP
 ccv
 cdn
 cdp
+ceba
+cec
 cellphone
 centerblock
 changeme
@@ -157,6 +160,7 @@ conferenceregistrations
 confirmada
 confirmado
 confirmat
+consistents
 Consolas
 constantized
 contingut
@@ -195,6 +199,7 @@ dataviz
 Daunou
 dayjs
 daysy
+dbe
 DDG
 ddmm
 deauthorizes
@@ -227,6 +232,7 @@ digidemlab
 dilema
 Disableable
 displaycondition
+distrbuted
 django
 dni
 dockerflow
@@ -259,6 +265,7 @@ editlabel
 editorlabel
 edu
 eeny
+efcbc
 elina
 emoji
 emojiable
@@ -266,6 +273,7 @@ emojidata
 Emph
 encryptable
 encryptor
+enhacements
 endo
 likeables
 endr
@@ -319,6 +327,7 @@ fingerprintable
 Firefox
 flaggable
 flamegraph
+flatfiles
 flexbugs
 Flickr
 flt
@@ -533,6 +542,7 @@ lvh
 lvml
 magick
 mainio
+maintance
 Malgrat
 Mandaliya
 mangosteens
@@ -567,6 +577,7 @@ Milhouse
 millor
 Millora
 minicard
+minimun
 mintimeout
 minuscat
 misogi
@@ -612,6 +623,7 @@ NEWCODE
 newsletterable
 newusermanager
 newwindow
+NGI
 ngrams
 nicknamizable
 nicknamize
@@ -759,6 +771,7 @@ Propuesta
 prosemirror
 protonmail
 publicable
+publiccode
 Pujol
 pwa
 QLiterals
@@ -782,6 +795,7 @@ reddit
 refactorings
 regexes
 regexps
+registations
 registrado
 registrat
 reivindicate
@@ -913,6 +927,7 @@ Superkalifragilistic
 superklass
 superprocess
 sustainability
+Suvery
 swc
 szr
 szw
@@ -984,6 +999,7 @@ uncollapse
 uncollapsing
 uncommentable
 undefines
+unlabeling
 unlike
 unliking
 unfollow
