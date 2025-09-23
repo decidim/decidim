@@ -11,6 +11,7 @@ fi-pl:
         domain: Toimintaympäristö
         duplicate_categories: Kopioi aihepiirit
         duplicate_components: Kopioi komponentit
+        duplicate_landing_page_blocks: Kopioi laskeutumissivun sisältölohkot
         duplicate_steps: Kopioi vaiheet
         end_date: Päättymispäivä
         hero_image: Etusivun kuva
