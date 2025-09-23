@@ -2,6 +2,87 @@
 
 # Changelog
 
+## [0.29.5](https://github.com/decidim/decidim/tree/0.29.5)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-core**: Backport 'Fix accessibility on filters label' to v0.29 [\#14816](https://github.com/decidim/decidim/pull/14816)
+- **decidim-core**: Backport 'Fix background color of default avatar image for accessibility' to v0.29 [\#14820](https://github.com/decidim/decidim/pull/14820)
+- **decidim-core**, **decidim-proposals**: Backport 'Fix get rid of preview alt' to v0.29 [\#14818](https://github.com/decidim/decidim/pull/14818)
+- **decidim-core**: Backport 'Fix missing for attribute on label and id on input' to v0.29 [\#14813](https://github.com/decidim/decidim/pull/14813)
+- **decidim-core**, **decidim-debates**, **decidim-proposals**: Backport 'Fix view mode active icon in proposals for accessibility' to v0.29 [\#14825](https://github.com/decidim/decidim/pull/14825)
+- **decidim-core**: Backport 'Fix accessibility on svg in card metadata cell' to v0.29 [\#14822](https://github.com/decidim/decidim/pull/14822)
+- **decidim-core**: Backport 'Hide empty announcement block when no text is present' to v0.29 [\#14827](https://github.com/decidim/decidim/pull/14827)
+- Backport 'Fix CORS instructions for cloud providers' to v0.29 [\#14843](https://github.com/decidim/decidim/pull/14843)
+- **decidim-core**: Backport 'Fix flaky spec in announcements' to v0.29 [\#14839](https://github.com/decidim/decidim/pull/14839)
+- **decidim-proposals**: Backport 'Prevent importing withdrawn or moderated proposals to another component' to v0.29 [\#14840](https://github.com/decidim/decidim/pull/14840)
+- **decidim-comments**: Backport 'Fix opinion buttons on comments for accessibility' to v0.29 [\#14841](https://github.com/decidim/decidim/pull/14841)
+- Fix specs for multiple_file_field_include_hidden [\#14873](https://github.com/decidim/decidim/pull/14873)
+- **decidim-core**: Backport 'Fix report modals to improve accessibility' to v0.29 [\#14877](https://github.com/decidim/decidim/pull/14877)
+- **decidim-comments**: Backport 'Fix Accessibility Like/Dislike Buttons on Comments' to v0.29 [\#14879](https://github.com/decidim/decidim/pull/14879)
+- **decidim-conferences**: Backport 'Fix grammar in conference admin registration count info' to v0.29 [\#14893](https://github.com/decidim/decidim/pull/14893)
+- **decidim-core**: Backport 'Fix aria label in date pickers of meetings form' to v0.29 [\#14918](https://github.com/decidim/decidim/pull/14918)
+- **decidim-core**: Backport 'Re enable the localized specs' to v0.29 [\#14922](https://github.com/decidim/decidim/pull/14922)
+- **decidim-core**: Backport 'Fix structure of search page's filters' to v0.29 [\#14924](https://github.com/decidim/decidim/pull/14924)
+- **decidim-comments**: Backport 'Add aria labels for comment 'like' and 'dislike' buttons' to v0.29 [\#14926](https://github.com/decidim/decidim/pull/14926)
+- **decidim-core**: Backport 'Fix hidden content in "More information"' to v0.29 [\#14927](https://github.com/decidim/decidim/pull/14927)
+- **decidim-core**: Backport 'Fix truncated document name' to v0.29 [\#14930](https://github.com/decidim/decidim/pull/14930)
+- Backport 'Fix UX modal for the admin to a group' to v0.29 [\#14932](https://github.com/decidim/decidim/pull/14932)
+- **decidim-core**: Backport 'Fix search filter area for accessibility' to v0.29 [\#14954](https://github.com/decidim/decidim/pull/14954)
+- **decidim-core**: Backport 'Fix main bar dropdown container fo accessibility' to v0.29 [\#14958](https://github.com/decidim/decidim/pull/14958)
+- **decidim-assemblies**, **decidim-participatory processes**: Backport 'Fix importing attachments collections for processes and assemblies' to v0.29 [\#14956](https://github.com/decidim/decidim/pull/14956)
+- **decidim-core**: Backport 'Breadcrumb mobile responsiveness nitpicks' to v0.29 [\#14964](https://github.com/decidim/decidim/pull/14964)
+- **decidim-blogs**, **decidim-core**, **decidim-participatory processes**: Backport 'Participatory process card & blog post author fix' to v0.29 [\#15004](https://github.com/decidim/decidim/pull/15004)
+- **decidim-core**: Backport 'Sticky footer 404 page' to v0.29 [\#15015](https://github.com/decidim/decidim/pull/15015)
+- **decidim-proposals**: Backport 'Fixed proposal creation in admin when "Participants can create proposals" to v0.29 [\#15050](https://github.com/decidim/decidim/pull/15050)
+- Backport 'Upgrade Chrome and ChromeDriver to 139.0.7258.66' to v0.29 [\#15072](https://github.com/decidim/decidim/pull/15072)
+- **decidim-core**: Backport 'Fix specs running on local development environments' to v0.29 [\#15069](https://github.com/decidim/decidim/pull/15069)
+- **decidim-core**: Backport 'Change minimun_characters to minimum_characters' to v0.29 [\#15078](https://github.com/decidim/decidim/pull/15078)
+- **decidim-core**: Backport 'Fix aria-current on active filter in search page' to v0.29 [\#15110](https://github.com/decidim/decidim/pull/15110)
+- **decidim-core**: Backport 'Fix editor mention selection range when selecting item with mouse' to v0.29 [\#15095](https://github.com/decidim/decidim/pull/15095)
+- **decidim-forms**: Backport 'Error saving survey with empty mandatory fields' to v0.29 [\#15099](https://github.com/decidim/decidim/pull/15099)
+- **decidim-core**: Backport 'Fix callout/flash message announcement to the screen reader' to v0.29 [\#15098](https://github.com/decidim/decidim/pull/15098)
+- **decidim-surveys**: Backport 'Previewing questionnaires as a process admin' to v0.29 [\#15103](https://github.com/decidim/decidim/pull/15103)
+- **decidim-core**: Backport 'Fix accessibility in header ' to v0.29 [\#15102](https://github.com/decidim/decidim/pull/15102)
+- **decidim-core**, **decidim-proposals**: Backport 'Fix accessibility in footer' to v0.29 [\#15113](https://github.com/decidim/decidim/pull/15113)
+- Backport 'Remove `Platoniq/decidim-install` references' to v0.29 [\#15137](https://github.com/decidim/decidim/pull/15137)
+- **decidim-generators**: Backport 'Define the generated app's sidekiq version based on the redis version' to v0.29 [\#15139](https://github.com/decidim/decidim/pull/15139)
+- Backport 'Fixed formatting error in documentation' to v0.29 [\#15153](https://github.com/decidim/decidim/pull/15153)
+- **decidim-proposals**: Backport 'Fix proposal cards render alt-text when PDF attached' to v0.29 [\#15150](https://github.com/decidim/decidim/pull/15150)
+- **decidim-core**: Backport 'Fix accessibility in breadcrumb_menu by replacing div and span by p' to v0.29 [\#15161](https://github.com/decidim/decidim/pull/15161)
+- **decidim-core**, **decidim-newsletters**: Backport 'Unsubscribed page redesign  ' to v0.29 [\#15166](https://github.com/decidim/decidim/pull/15166)
+- **decidim-core**, **decidim-dev**, **decidim-proposals**: Backport 'Refactor amendment permissions' to v0.29 [\#15169](https://github.com/decidim/decidim/pull/15169)
+- **decidim-core**: Backport 'Remove the word "new" in front of GDPR from the newsletter opt-in mail' to v0.29 [\#15203](https://github.com/decidim/decidim/pull/15203)
+- **decidim-core**: Backport 'Fix 'Skip to main content' button visualization' to v0.29 [\#15205](https://github.com/decidim/decidim/pull/15205)
+- **decidim-core**: Backport 'Fix size of the search button and contrast of the search form' to v0.29 [\#15207](https://github.com/decidim/decidim/pull/15207)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+- Backport 'Fix specs running on local development environments' to v0.29 [\#15069](https://github.com/decidim/decidim/pull/15069)
+- Backport 'Refactor amendment permissions' to v0.29 [\#15169](https://github.com/decidim/decidim/pull/15169)
+
+### Internal
+
+- **decidim-core**: Backport 'Fix flaky spec in announcements' to v0.29 [\#14839](https://github.com/decidim/decidim/pull/14839)
+- **decidim-conferences**: Backport 'Fix grammar in conference admin registration count info' to v0.29 [\#14893](https://github.com/decidim/decidim/pull/14893)
+- Update Releases Notes after v0.29.4 [\#14946](https://github.com/decidim/decidim/pull/14946)
+- Backport 'Upgrade Chrome and ChromeDriver to 139.0.7258.66' to v0.29 [\#15072](https://github.com/decidim/decidim/pull/15072)
+- **decidim-core**: Backport 'Fix specs running on local development environments' to v0.29 [\#15069](https://github.com/decidim/decidim/pull/15069)
+- **decidim-core**: Backport 'Remove the word "new" in front of GDPR from the newsletter opt-in mail' to v0.29 [\#15203](https://github.com/decidim/decidim/pull/15203)
+- Bump charlock_holmes to v0.7.9 [\#15208](https://github.com/decidim/decidim/pull/15208)
+
 ## [0.29.4](https://github.com/decidim/decidim/tree/0.29.4)
 
 ### Added
