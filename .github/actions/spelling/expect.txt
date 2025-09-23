@@ -390,11 +390,10 @@ hadolint
 haml
 Hammes
 hashdiff
-hashtag
-hashtags
 hashtaggable
 hashtagging
 hastaggable
+hashtags
 heighta
 heightb
 hereapi
