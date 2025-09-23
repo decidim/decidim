@@ -336,7 +336,7 @@ Nothing.
 - **decidim-core**, **decidim-generators**: Use Rails 7.2 defaults [\#14851](https://github.com/decidim/decidim/pull/14851)
 - **decidim-generators**: Update codecov-action from v4 to v5 [\#14860](https://github.com/decidim/decidim/pull/14860)
 - **decidim-dev**: Disable rspec's profile examples in CI [\#14867](https://github.com/decidim/decidim/pull/14867)
-- **decidim-design**: Fix Github action pipelines [\#14882](https://github.com/decidim/decidim/pull/14882)
+- **decidim-design**: Fix GH Action pipelines [\#14882](https://github.com/decidim/decidim/pull/14882)
 - **decidim-core**, **decidim-generators**, **decidim-meetings**: Update patch versions of gem dependencies [\#14850](https://github.com/decidim/decidim/pull/14850)
 - **decidim-conferences**: Fix grammar in conference admin registration count info [\#14891](https://github.com/decidim/decidim/pull/14891)
 - **decidim-accountability**, **decidim-admin**, **decidim-ai**, **decidim-api**, **decidim-assemblies**, **decidim-blogs**, **decidim-collaborative_texts**, **decidim-comments**, **decidim-conferences**, **decidim-core**, **decidim-debates**, **decidim-dev**, **decidim-elections**, **decidim-forms**, **decidim-generators**, **decidim-initiatives**, **decidim-meetings**, **decidim-participatory processes**, **decidim-proposals**, **decidim-system**, **decidim-verifications**: No longer generate the initializer files [\#14832](https://github.com/decidim/decidim/pull/14832)
