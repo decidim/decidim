@@ -1285,6 +1285,7 @@ de:
         success: Newslettereinstellungen wurden erfolgreich aktualisiert.
     newsletters_opt_in_mailer:
       notify:
+        body_1: Die Verarbeitung personenbezogener Daten und deren Schutz wird für uns alle immer wichtiger. Mit der Datenschutz-Grundverordnung (DSGV) vom 25. Mai 2018 haben Einzelpersonen eine bessere Kontrolle über ihre personenbezogenen Daten. Aus diesem Grund benötigen wir Ihr "OK" um weiterhin relevante Informationen über die Aktivitäten von %{organization_name} zu senden.
         body_2: 'Wie können Sie uns Ihre Zustimmung geben? Klicken Sie einfach auf den folgenden Knopf:'
         body_3: Mit dieser Zustimmung können Sie weiterhin Informationen über die Dienste der Plattform erhalten. Wenn wir im Gegenteil keine positive Bestätigung von Ihnen erhalten, werden wir Ihnen keine Nachrichten mehr senden. Wenn Sie bestätigen, dass Sie weiterhin informiert werden möchten, haben Sie jederzeit die Möglichkeit, den Vorgang abzubrechen.
         button: Ja, ich möchte weiterhin relevante Informationen erhalten
