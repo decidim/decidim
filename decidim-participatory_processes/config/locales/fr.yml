@@ -11,6 +11,7 @@ fr:
         domain: Domaine
         duplicate_categories: Dupliquer les catégories
         duplicate_components: Dupliquer les composants
+        duplicate_landing_page_blocks: Dupliquer les blocs de page d'accueil
         duplicate_steps: Dupliquer les étapes
         end_date: Date de fin
         hero_image: Image de la page d'accueil
