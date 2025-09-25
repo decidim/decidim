@@ -147,14 +147,6 @@ module Decidim
         end
       end
 
-      describe "officialized" do
-        let(:query) { "{ officialized }" }
-
-        it "returns the user's officialized status" do
-          expect(response).to include("officialized" => model.officialized?)
-        end
-      end
-
       describe "about" do
         let(:query) { "{ about }" }
 

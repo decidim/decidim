@@ -12,6 +12,7 @@ module Decidim
       field :about, GraphQL::Types::String, "The user's about data", null: true
       field :avatar_url, GraphQL::Types::String, "The user's avatar url", null: false
       field :badge, GraphQL::Types::String, "A badge for the user", null: false
+      field :badges, [Decidim::Core::BadgeScoreType, { null: true }], "The user's badges", null: true
       field :deleted, GraphQL::Types::Boolean, "Whether the user's account has been deleted or not", null: false
       field :direct_messages_enabled, GraphQL::Types::String,
             null: false,
@@ -23,7 +24,6 @@ module Decidim
       field :id, GraphQL::Types::ID, "The user's id", null: false
       field :name, GraphQL::Types::String, "The user's name", null: false
       field :nickname, GraphQL::Types::String, "The user's nickname", null: false
-      field :officialized, GraphQL::Types::Boolean, "Whether the user is officialized or not", null: false, method: :officialized?
       field :organization_name, Decidim::Core::TranslatedFieldType, "The user's organization name", null: false
       field :personal_url, GraphQL::Types::String, "The user's personal url", null: true
       field :profile_path, GraphQL::Types::String, "The user's profile url", null: false
@@ -54,6 +54,12 @@ module Decidim
 
       def badge
         object.presenter.badge
+      end
+
+      def badges
+        return [] unless object.organization.badges_enabled?
+
+        Decidim::Gamification::BadgeScore.where(user_id: object.id)
       end
 
       def self.authorized?(object, context)
