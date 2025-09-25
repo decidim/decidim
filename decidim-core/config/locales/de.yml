@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -107,7 +108,7 @@ de:
   date:
     buttons:
       close: Schliessen
-      select: Auswählen
+      select: Wählen
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%d-%m-%Y"
@@ -1042,8 +1043,8 @@ de:
       attachment_link:
         explanation: Anleitung für Anhang-Links
         help_messages:
-          - Nur korrekte URL-Formate werden akzeptiert.
-          - Bitte beachten Sie, dass die Links öffentlich sein müssen, damit alle Teilnehmer auf sie zugreifen können.
+        - Nur korrekte URL-Formate werden akzeptiert.
+        - Bitte beachten Sie, dass die Links öffentlich sein müssen, damit alle Teilnehmer auf sie zugreifen können.
       errors:
         decidim/user:
           password: Das Passwort ist zu kurz.
@@ -1094,7 +1095,7 @@ de:
       badges:
         followers:
           conditions:
-            - Aktiv zu sein und anderen Menschen zu folgen, wird sicherlich andere Menschen dazu bringen, dir zu folgen.
+          - Aktiv zu sein und anderen Menschen zu folgen, wird sicherlich andere Menschen dazu bringen, dir zu folgen.
           description: Dieses Abzeichen wird gewährt, wenn Sie eine bestimmte Anzahl von Followern erreichen. %{organization_name} ist ein soziales und politisches Netzwerk, weben Sie Ihr Web, um mit anderen Menschen auf der Plattform zu kommunizieren.
           description_another: Diese*r Benutzer*in hat %{score} Follower.
           description_own: "%{score} Benutzer*innen folgen dir."
@@ -1282,6 +1283,7 @@ de:
         success: Newslettereinstellungen wurden erfolgreich aktualisiert.
     newsletters_opt_in_mailer:
       notify:
+        body_1: Die Verarbeitung personenbezogener Daten und deren Schutz wird für uns alle immer wichtiger. Mit der Datenschutz-Grundverordnung (DSGV) vom 25. Mai 2018 haben Einzelpersonen eine bessere Kontrolle über ihre personenbezogenen Daten. Aus diesem Grund benötigen wir Ihr "OK" um weiterhin relevante Informationen über die Aktivitäten von %{organization_name} zu senden.
         body_2: 'Wie können Sie uns Ihre Zustimmung geben? Klicken Sie einfach auf den folgenden Knopf:'
         body_3: Mit dieser Zustimmung können Sie weiterhin Informationen über die Dienste der Plattform erhalten. Wenn wir im Gegenteil keine positive Bestätigung von Ihnen erhalten, werden wir Ihnen keine Nachrichten mehr senden. Wenn Sie bestätigen, dass Sie weiterhin informiert werden möchten, haben Sie jederzeit die Möglichkeit, den Vorgang abzubrechen.
         button: Ja, ich möchte weiterhin relevante Informationen erhalten
@@ -1533,7 +1535,7 @@ de:
         error: Es gab ein Problem bei der Aktualisierung des Passwortes.
         success: Passwort erfolgreich aktualisiert.
     profile:
-      deleted: Gelöschter Teilnehmer
+      deleted: Gelöschter Benutzer
       inaccessible_message: Dieses Profil ist wegen Verletzung der Nutzungsbedingungen nicht zugänglich!
     profiles:
       default_officialization_text_for_users: Dieser Teilnehmer ist öffentlich verifiziert, sein/ihr Name oder seine/ihre Rolle wurde auf Übereinstimmung mit dem wirklichen Namen und der wirklichen Rolle überprüft.
@@ -1550,7 +1552,7 @@ de:
           disabled_message: Nachricht
           edit_profile: Profil bearbeiten
           message: Nachricht
-          resend_email_confirmation_instructions: E-Mail-Bestätigungsanweisungen erneut versenden
+          resend_email_confirmation_instructions: Senden Sie die E-Mail-Bestätigungsanweisungen erneut
     qr:
       show:
         scan: QR-Code scannen
@@ -2220,7 +2222,7 @@ de:
     buttons:
       close: Schliessen
       reset: Zurücksetzen
-      select: Auswählen
+      select: Wählen
     formats:
       day_of_month: "%d. %b"
       day_of_week: "%a"
