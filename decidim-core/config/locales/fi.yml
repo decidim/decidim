@@ -1082,7 +1082,7 @@ fi:
           validation_error: Virhe tiedoston tarkastamisessa! Varmista, että tiedostopääte ja tiedoston koko vastaavat palvelun asettamia rajoituksia.
         select_file: Valitse tiedosto
       upload_help:
-        dropzone: Pudota tiedostot tähän tai paina viereistä nappia ladataksesi tiedostoja
+        dropzone: Pudota tiedostot tähän tai paina viereistä painiketta ladataksesi tiedostoja
         explanation: Ohjeita %{attribute} varten
     gamification:
       all_badges_link: Kaikki saatavilla olevat kunniamerkit.
@@ -1264,11 +1264,12 @@ fi:
         main_image: Pääkuva
     newsletters:
       unsubscribe:
-        check_subscription: Jos haluat muuttaa asetuksiasi, voit tehdä sen <a href="%{link}" target="_blank">asetussivulla</a>.
+        check_subscription_html: Mikäli haluat saada uutiskirjeitä jälleen tulevaisuudessa, voit tilata ne uudestaan <a href="%{link}" target="_blank">profiilisi asetuksista</a>.
         error: Tilauksen peruminen epäonnistui.
+        subscription_preferences: Olemme päivittäneet uutiskirjeitä koskevia asetuksiasi, etkä enää saa uutiskirjeitä palvelusta %{organization_name}.
         success: Tilauksen peruminen onnistui.
         token_error: Linkki on vanhentunut.
-        unsubscribe: Peruuta tilaus
+        unsubscribe: Peruuta uutiskirjeen tilaus
     newsletters_opt_in:
       unauthorized: Valitettavasti tämä linkki ei ole enää käytettävissä.
       update:
@@ -1276,7 +1277,7 @@ fi:
         success: Uutiskirjeasetusten päivitys onnistui.
     newsletters_opt_in_mailer:
       notify:
-        body_1: Henkilötietojen käsittely ja niiden suojaaminen ovat yhä tärkeämpiä meille kaikille. Uuden yleisen tietosuoja-asetuksen (GDPR) 25.5.2018 voimaan tultua yksilöillä on paremmat mahdollisuudet hallinnoida henkilötietojaan. Tästä syystä tarvitsemme suostumuksesi lähettääksemme sinulle olennaista tietoa koskien organisaatiota %{organization_name}.
+        body_1: Henkilötietojen käsittely ja niiden suojaaminen ovat yhä tärkeämpiä meille kaikille. Yleisen tietosuoja-asetuksen (GDPR) 25.5.2018 voimaan tultua yksilöillä on paremmat mahdollisuudet hallinnoida henkilötietojaan. Tästä syystä tarvitsemme suostumuksesi lähettääksemme sinulle olennaista tietoa koskien palvelua %{organization_name}.
         body_2: 'Kuinka voit antaa meille suostumuksesi? Napsauta vain seuraavaa painiketta:'
         body_3: Tämän suostumuksen avulla voit edelleen vastaanottaa tietoja palvelusta. Jos emme saa lupaasi, lopetamme viestien lähettämisen sinulle. Jos vahvistat, että haluat edelleen pysyä ajan tasalla palvelusta, sinulla on mahdollisuus perua tilaus milloin tahansa.
         button: Kyllä, haluan jatkaa olennaisten tietojen vastaanottoa
@@ -2096,18 +2097,20 @@ fi:
         edit: Muokkaa
       footer:
         cc_by_license: Creative Commons -lisenssi
+        current_organization_img: "%{organization} (Siirry etusivulle)"
         data_consent_settings: Evästeasetukset
         decidim_logo: Decidim-logo
         decidim_title: Decidim
+        help: Ohjeet
         log_in: Kirjaudu sisään
         made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">vapaan ohjelmiston</a> avulla.
         open_data: Avoin data
         resources: Resurssit
         sign_up: Luo tili
+        social_media: Sosiaalinen media
         terms_of_service: Käyttöehdot
       header:
-        back: Takaisin listaan
-        cancel: Peruuta
+        back: Takaisin
         close: Sulje
         confirm_close_ephemeral_session: Mikäli poistut tältä sivulta, väliaikainen istuntosi suljetaan. Kaikki tekemäsi toimet kuitenkin tallentuvat tilillesi. Mikäli olet suorittanut tarvittavat toimet loppuun, paina OK-painiketta.
         confirm_title_close_ephemeral_session: Ennen kuin poistut tältä sivulta…
@@ -2117,6 +2120,7 @@ fi:
       impersonation_warning:
         close_session: Sulje istunto
         description_html: Esiinnyt käyttäjänä <b>%{user_name}</b>.
+        expire_time_html: Istuntosi vanhenee <b><span data-impersonation-warning-target="minutes">%{minutes}</span> minuutin kuluttua</b>.
       language_chooser:
         choose_language: Valitse kieli
       navigation:
@@ -2160,6 +2164,11 @@ fi:
   locale:
     name: Suomi
     name_with_error: Suomi (virhe!)
+  number:
+    currency:
+      format:
+        format: "%n %u"
+        format_html: "%n <span>%u</span>"
   password_validator:
     denied: ei ole sallittu
     domain_included_in_password: liian samankaltainen palvelun verkko-osoitteen kanssa

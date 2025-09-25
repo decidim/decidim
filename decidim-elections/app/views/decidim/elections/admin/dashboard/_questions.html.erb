@@ -16,9 +16,9 @@
           <div class="card mb-4">
             <div class="row column">
               <h3 class="h6 my-2">
-                <%= t("decidim.forms.question_types.#{question.question_type}") %>
+                <%= translated_attribute(question.body) %>
+                <small class="font-normal ml-4"><%= t("decidim.forms.question_types.#{question.question_type}") %></small>
               </h3>
-              <p><%= translated_attribute(question.body) %></p>
               <h3 class="h6 mt-4 mb-2"><%= t("decidim.elections.admin.dashboard.questions.labels.answers") %>:</h3>
               <ul>
                 <% question.response_options.each_with_index do |option, opt_index| %>

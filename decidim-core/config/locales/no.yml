@@ -670,10 +670,8 @@
       unsubscribe:
         success: Du har avsluttet ditt abonnement.
         token_error: Lenken er utløpt.
-        unsubscribe: Avslutt abonnement
     newsletters_opt_in_mailer:
       notify:
-        body_1: Behandlingen av personopplysninger og deres beskyttelse blir stadig viktigere for oss alle. Med den nye General Data Protection Regulation (GDPR) av 25. mai 2018, har enkeltpersoner bedre kontroll over personopplysningene sine. Av denne grunn trenger vi din "OK" for å fortsette å sende relevant informasjon om aktivitetene til %{organization_name}.
         body_2: 'Hvordan kan du gi oss ditt samtykke? Bare klikk på følgende knapp:'
         body_3: Med dette samtykket vil du kunne fortsette å motta informasjon om tjenestene til plattformen. Hvis vi ikke mottar en positiv bekreftelse fra din side, vil vi slutte å sende deg meldingene våre. Hvis du bekrefter at du ønsker å bli informert, har du alltid muligheten til å kansellere når som helst.
         button: Ja, jeg vil fortsette å motta relevant informasjon

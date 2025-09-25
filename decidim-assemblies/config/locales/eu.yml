@@ -19,6 +19,9 @@ eu:
         developer_group: Talde sustatzailea
         document: Dokumentua
         domain: Domeinua
+        duplicate_categories: Kategoriak bikoiztu
+        duplicate_components: Osagaiak bikoiztu
+        duplicate_features: Ezaugarriak bikoiztu
         duration: Iraupena
         facebook: Facebook
         github: GitHub
@@ -108,6 +111,15 @@ eu:
         update:
           error: Arazo bat egon da batzar hau eguneratzean.
           success: Batzarra zuzen eguneratua.
+      assemblies_duplicates:
+        create:
+          error: Arazo bat egon da batzar hau bikoiztean.
+          success: Batzarra zuzen bikoiztua.
+      assembly_duplicates:
+        new:
+          duplicate: Bikoiztu
+          select: Hautatu zein datu bikoiztu nahi dituzun
+          title: Batzarra bikoiuztu
       assembly_imports:
         create:
           error: Arazo bat egon da batzar hau inportatzean.
@@ -247,6 +259,9 @@ eu:
             taxonomies: Taxonomiak
             title: Informazio orokorra
             visibility: Ikusgarritasuna
+        assembly_duplicates:
+          form:
+            slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
         assembly_imports:
           form:
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'

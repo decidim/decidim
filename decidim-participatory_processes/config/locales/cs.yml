@@ -9,6 +9,9 @@ cs:
         developer_group: Skupina promotérů
         document: Dokument
         domain: Doména
+        duplicate_categories: Duplikovat kategorie
+        duplicate_components: Duplikovat komponenty
+        duplicate_steps: Duplikovat kroky
         end_date: Datum ukončení
         hero_image: Domácí obrázek
         import_attachments: Importovat přílohy
@@ -108,6 +111,7 @@ cs:
         participatory_process_groups: Skupiny procesů
         participatory_process_groups_submenu:
           info: Info
+          landing_page: Rozložení vstupní strany
         participatory_processes: Procesy
         participatory_processes_submenu:
           attachment_collections: Složky
@@ -115,6 +119,7 @@ cs:
           attachments: Přílohy
           components: Komponenty
           info: O tomto procesu
+          landing_page: Rozložení vstupní strany
           moderations: Moderování
           private_users: Členové
           process_admins: Administrátoři procesu
@@ -130,16 +135,19 @@ cs:
           name: Participační proces
         participatory_process_group:
           fields:
+            actions: Akce
             title: Název
           name: Skupina procesů
         participatory_process_step:
           fields:
+            actions: Akce
             end_date: Datum ukončení
             start_date: Datum zahájení
             title: Titul
           name: Participační krok procesu
         participatory_process_user_role:
           fields:
+            actions: Akce
             email: E-mailem
             name: Název
             role: Role
@@ -154,6 +162,11 @@ cs:
             invitation_accepted_at: Pozvánka byla přijata na
             invitation_sent_at: Pozvánka odeslána na
             published: Publikováno
+      participatory_process_duplicates:
+        new:
+          duplicate: Duplikovat
+          select: Vyberte, která data chcete duplikovat
+          title: Duplikovat participativní proces
       participatory_process_groups:
         destroy:
           error: Došlo k chybě při zničení skupiny participačních procesů.
@@ -252,6 +265,10 @@ cs:
         update:
           error: Při aktualizaci tohoto participačního procesu došlo k chybě.
           success: Participační proces byl úspěšně aktualizován.
+      participatory_processes_duplicates:
+        create:
+          error: Při duplikaci tohoto participativního procesu došlo k problému.
+          success: Participativní proces byl úspěšně duplikován.
       participatory_processes_group:
         create:
           error: Došlo k chybě při vytváření nové skupiny účastnických procesů.
@@ -401,6 +418,73 @@ cs:
     participatory_processes:
       admin:
         content_blocks:
+          democratic_quality_stats_settings_form:
+            announcement:
+              body_html: |-
+                <ul>
+                <li>Ty jsou automaticky počítány z dat Decidim. Jakmile publikujete blok obsahu, budou viditelné.</li>
+                <li>Ty jsou založeny na vašich odpovědích v následujícím formuláři. Budou viditelné, jakmile odpovíte na všechny otázky.</li>
+                </ul>
+              title: 'Tento blok obsahu obsahuje dva typy metrik:'
+            citizen_influence:
+              citizen_decisional_intervention:
+                options:
+                  five: 80 - 100%
+                  four: 60 - 80%
+                  one: 0 - 20%
+                  three: 40 - 60%
+                  two: 20 - 40%
+              citizen_influence_level:
+                legend: Do jaké míry mají občané v tomto procesu rozhodovací pravomoc, od pouhého přijímání informací až po rozhodný vliv na rozhodování a řízení zdrojů?
+                options:
+                  five: Účastníci byli zapojeni do rozhodování a správy zdrojů nebo implementace
+                  four: Účastníci byli rozhodujícím způsobem zapojeni do rozhodování
+                  one: Účastníci obdrželi informace od organizace
+              name: Vliv občanů
+            inclusiveness:
+              digital_support_offered:
+                options:
+                  five: 'Ano'
+                  two_five: Částečně
+                  zero: 'Ne'
+              functional_diversity_invited:
+                options:
+                  five: Dobrý
+                  one: Nízký
+                  two_five: Dostatečný
+                  zero: Žádný
+              languages_communicated:
+                legend: Kolik jazyků bylo použito v rámci procesu?
+                options:
+                  five: Více než polovina jazyků, jimiž se hovoří v komunitě
+                  one: Jeden jazyk
+                  two_five: Méně než polovina jazyků, jimiž se hovoří v komunitě
+              mobility_meeting_access:
+                legend: Byla místa konání osobních setkání přístupná lidem se sníženou pohyblivostí?
+                options:
+                  five: 'Ano'
+                  two_five: Částečně
+                  zero: 'Ne'
+              name: Inkluzivita
+              participation_scheduling_times:
+                options:
+                  five: 'Ano'
+                  two_five: Částečně
+                  zero: 'Ne'
+            informativeness:
+              information_provided:
+                options:
+                  five: Vždy
+                  one: Téměř nikdy
+                  two_five: Obvykle
+                  zero: Nikdy
+              name: Informativita
+              published_information_clarity:
+                legend: Poskytují zveřejněné informace jasné informace o rozhodovacích mechanismech? (např. hlasování, konsensus, přímá jednání)
+                options:
+                  five: Úpln jasné
+                  one: Málo jasné
+                  two_five: Dostatečně jasné
           highlighted_processes:
             active: Aktivní
             all: Vše
@@ -440,9 +524,12 @@ cs:
       content_blocks:
         democratic_quality_stats:
           automatic_metrics:
+            description: Tyto ukazatele se získávají automaticky z dat platformy.
             indicators:
               hybridization: Hybridizace
+              hybridization_tooltip: Tento ukazatel měří úroveň kombinace online a offline prostor během procesu
               influence: Vliv občanů
+              influence_tooltip: Tento ukazatel měří míru vlivu občanů na přijaté návrhy a výsledky procesu.
               traceability: Sledovatelnost
               transparency: Odezva
             name: Automatická měření

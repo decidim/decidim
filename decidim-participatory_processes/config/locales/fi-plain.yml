@@ -427,7 +427,7 @@ fi-pl:
                   three: 40 - 60%
                   two: 20 - 40%
               citizen_influence_level:
-                legend: Tämä tilasto mittaa kansalaisvaikuttamisen todellista tasoa prosessissa mittaamalla erityisesti kansalaisten päätöksenteko- ja toimeenpanovaltaa. Vastakkaisina ääripäinä tässä tilastossa ovat pelkkä tiedonsaanti ja todellinen suora päätöksenteko tai resurssien hallinnoiminen kansalaisten toimesta.
+                legend: Missä määrin kansalaisilla on tässä prosessissa päätösvaltaa? Tämä voi esimerkiksi ulottua ainoastaan pelkkään tiedon saamiseen tai todelliseen päätöksentekovaltaan ja resurssien hallinnointiin kansalaisten toimesta.
                 options:
                   five: Osallistujat hallitsevat päätöksentekoprosessia, resursseja sekä päätösten toimeenpanoa
                   four: Osallistujia huomioitiin päätöksenteossa
@@ -717,55 +717,23 @@ fi-pl:
 
             <p>Hallintakäyttäjien itsearviointiin sisältyvät kysymykset sekä kuhunkin vastaukseen liittyvät arvot on selitetty alla.</p>
 
-            <h4>Inklusiivisuus</h4>
-
-            <p>Inklusiivisuus kulttuurillisen alkuperän tai toiminnallisen monimuotoisuuden perusteella.</p>
+            <h4>Informatiivisuus</h4>
 
             <ol>
-             <li>Onko maahanmuuttajaryhmiä kutsuttu osallistumaan?
+             <li>Selventääkö julkaistu tieto päätöksenteon tapoja (esim. äänestys, yhteisymmärrys, suorat neuvottelut)?
              <ul>
-             <li>Kyllä = 5</li>
-             <li>Ei = 0</li>
+             <li>Ei selkeyttä = 0</li>
+             <li>Matalan tason selkeys = 1</li>
+             <li>Riittävä selkeys = 2,5</li>
+             <li>Täysi selkeys = 5</li>
              </ul>
              </li>
-             <li>Kuinka monta toiminnallisen monimuotoisuuden ryhmiin kuuluvaa ihmistä on osallistunut kutsuttujen joukosta?
+             <li>Onko osallistujille tarjottu tietoa heidän vaikutusmahdollisuuksistaan käsiteltävään asiaan (prosessin viestinnässä, kutsuissa ja jokaisen keskustelutilaisuuden alussa)?
              <ul>
-             <li>0-20% = 1</li>
-             <li>20-40% = 2</li>
-             <li>40-60% = 3</li>
-             <li>60-80% = 4</li>
-             <li>80-100% = 5</li>
-             </ul>
-             </li>
-             <li>Onko toiminnallisen monimuotoisuuden ihmisryhmiä kutsuttu osallistumaan?
-             <ul>
-             <li>Kyllä = 5</li>
-             <li>Ei = 0</li>
-             </ul>
-             </li>
-             <li>Kuinka monta toiminnallisen monimuotoisuuden ryhmiin kuuluvaa ihmistä on osallistunut kutsuttujen joukosta?
-             <ul>
-             <li>0-20% = 1</li>
-             <li>20-40% = 2</li>
-             <li>40-60% = 3</li>
-             <li>60-80% = 4</li>
-             <li>80-100% = 5</li>
-             </ul>
-             </li>
-            </ol>
-
-            <h4>Merkityksellisyys</h4>
-
-            <p>Vaikutuksen merkityksellisyys osuutena organisaation budjetista, työvoimasta tai asukasmäärästä, joihin tämän prosessin tulokset ovat vaikuttaneet sekä vaikutuksen ajankohta.</p>
-
-            <ol>
-             <li>Prosenttiosuus organisaation budjetista, työntekijöistä tai väestömäärästä, joihin tämän prosessin tulokset ovat vaikuttaneet.
-             <ul>
-             <li>0-20% = 1</li>
-             <li>20-40% = 2</li>
-             <li>40-60% = 3</li>
-             <li>60-80% = 4</li>
-             <li>80-100% = 5</li>
+             <li>Ei koskaan = 0</li>
+             <li>Ei miltei koskaan = 1</li>
+             <li>Yleensä = 2,5</li>
+             <li>Aina = 5</li>
              </ul>
              </li>
             </ol>
@@ -773,30 +741,17 @@ fi-pl:
             <h4>Kansalaisvaikuttaminen</h4>
 
             <ol>
-             <li>Kansalaisvaikuttamisen taso prosessissa käytössä olevien osallistumistapojen perusteella Sherry Arnsteinin (1969) määrittelemien osallistumisen portaiden mukaisesti.
+             <li>Prosessin osallistumismahdollisuuksien arviointi
              <ul>
-             <li>Informointi = 0
-             <p>Yhdensuuntainen tiedonkulku viranhaltijoilta kansalaisille ilman kuulemista ja neuvottelumahdollisuuksia.</p>
-             </li>
-             <li>Kuuleminen = 1
-             <p>Osallistumisprosessi, jossa kansalaisten mielipiteitä tiedustellaan tyypillisesti kyselyiden tai tapaamisten avulla, mutta ilman varmuutta näiden mielipiteiden vaikutuksista päätöksiin.</p>
-             </li>
-             <li>Kansalaisten mielistely = 2
-             <p>Osallistumisprosessi, jossa kansalaisille annetaan rajoitetut vaikutusmahdollisuudet usein symbolisella tavalla, kuten ottamalla heitä jäseniksi komiteoihin, joissa heillä ei ole päätöksentekovaltaa, koska perinteinen valtaeliitti tekee kaikki päätökset heidän puolestaan.</p>
-             </li>
-             <li>Kansalaisyhteistyö = 3
-             <p>Osallistumisprosessi, jossa kansalaiset ja organisaatiot jakavat päätöksentekovallan mahdollistamalla osallistujien neuvotella, kohdentaa resursseja ja vaikuttaa suunnitteluun sellaisilla säännöillä, joita ei voi yksipuolisesti muuttaa. Tämäntyyppinen osallistuminen syntyy usein kansanliikkeistä ja yhteisöllisen toiminnan kautta.</p>
-             </li>
-             <li>Edustuksellinen tai delegoitu valta = 4
-             <p>Osallistumisprosessi, jossa kansalaisille annetaan vaikutusvaltaa, hallinnointioikeuksia tai rahoitusta organisaation hallinnoimiseksi.</p>
-             </li>
-             <li>Kansalaisten suora päätöksenteko = 5
-             <p>Osallistumisen korkein taso, jossa kansalaiset hallitsevat ohjelmaa tai toimijaa hallinnoimalla sen käytäntöjä, resursseja ja päätöksentekoa ilman ulkopuolista vaikutusta näihin päätöksiin.</p>
-             </li>
+             <li>Osallistujille on annettu tietoa organisaation puolesta = 1</li>
+             <li>Osallistujat ovat osallistuneet kuulemisiin aktiivisesti tai antaneet palautetta organisaatiolle = 2</li>
+             <li>Osallistujille on annettu päätöksentekovaltaa = 3</li>
+             <li>Osallistujat on otettu määrätietoisesti mukaan päätöksentekoon = 4</li>
+             <li>Osallistujat ovat olleet osana päätöksentekoa ja hallinnoineet toteutusten resursseja = 5</li>
              </ul>
              </li>
-             <li>Prosentuaalinen osuus vaiheista, joissa kansalaisilla on mahdollisuus tehdä päätöksiä asteikolla 0-5.
-             <p>Kuinka monessa prosessin vaiheista (päätettävien asioiden valinnasta toteutuksen valvontaan) kansalaisilla on mahdollisuus tehdä päätöksiä tai toimeenpanovaltaa?</p>
+             <li>Prosessin vaiheiden arviointi asteikolla 0-5 kansalaisten päätöksenteon mahdollisuuksista.
+             <p>Kaikista prosessn vaiheista (asioiden valinnasta toimeenpanon valvontaan), monessa vaiheessa osallistujilla on ollut päätöksenteko- tai toimeenpanovaltaa?</p>
              <ul>
              <li>0-20% = 1</li>
              <li>20-40% = 2</li>
@@ -807,10 +762,18 @@ fi-pl:
              </li>
             </ol>
 
-            <h4>Saavutettavuus</h4>
+            <h4>Inklusiivisuus</h4>
 
             <ol>
-             <li>Kuinka monella kielellä tästä prosessista on viestitty?
+             <li>Miten toimijoiden ja osallistujien monimuotoisuutta on arvioitu päätöksenteon kohteena olevien asukkaiden kohderyhmään suhteutettuna?
+             <ul>
+             <li>Ei mitenkään = 0</li>
+             <li>Hieman = 1</li>
+             <li>Riittävästi = 2,5</li>
+             <li>Hyvällä tasolla = 5</li>
+             </ul>
+             </li>
+             <li>Kuinka monella kielellä prosessista on viestitty?
              <ul>
              <li>Yhdellä kielellä = 1</li>
              <li>Alle puolilla yhteisön puhumista kielistä = 2,5</li>
@@ -818,6 +781,20 @@ fi-pl:
              </ul>
              </li>
              <li>Olivatko tapahtumapaikat kasvokkain järjestetyissä tapaamisissa liikuntarajoitteistan henkilöiden saavutettavissa?
+             <ul>
+             <li>Eivät = 0</li>
+             <li>Osittain = 2,5</li>
+             <li>Kyllä = 5</li>
+             </ul>
+             </li>
+             <li>Onko osallistumistilaisuuksia on järjestetty eri aikoina (aamulla, keskipäivällä, iltapäivällä, iltaisin ja viikonloppuisin)?
+             <ul>
+             <li>Ei = 0</li>
+             <li>Osittain = 2,5</li>
+             <li>Kyllä = 5</li>
+             </ul>
+             </li>
+             <li>Onko osallistujille tarjottu digitaalista tukea?
              <ul>
              <li>Ei = 0</li>
              <li>Osittain = 2,5</li>

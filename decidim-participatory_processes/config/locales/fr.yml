@@ -388,6 +388,8 @@ fr:
                   one: 0 - 20%
                   three: 40 - 60%
                   two: 20 - 40%
+              citizen_influence_level:
+                legend: Dans quelle mesure les citoyens détiennent-ils un pouvoir décisionnel dans ce processus, allant de la simple réception d’informations jusqu’à l’influence décisive sur les décisions et la gestion des ressources ?
             inclusiveness:
               digital_support_offered:
                 legend: Un accompagnement numérique a-t-il été offert aux participants?

@@ -77,7 +77,7 @@ eu:
             select_response_option: Hautatu erantzuteko aukera
           edit:
             save: Gorde
-            title: Editatu galdetegia
+            title: Galdetegia editau
           edit_questions:
             add_question: Gehitu galdera
             add_separator: Gehitu banatzailea

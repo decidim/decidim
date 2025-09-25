@@ -40,6 +40,8 @@ eu:
   decidim:
     accountability:
       actions:
+        add_milestone: Gehitu mugarria
+        add_result: Gehitu emaitza
         confirm_delete_result: Ziur zaude emaitza hau ezabatu nahi duzula?
         confirm_destroy: Ziur zaude emaitza hau ezabatu nahi duzula?
         deleted_results_info: Ezabatutako emaitzak berreskura daitezke zaborrontzitik.
