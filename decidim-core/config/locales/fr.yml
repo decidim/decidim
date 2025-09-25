@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -920,8 +921,8 @@ fr:
     forms:
       attachment_link:
         help_messages:
-          - Seuls les formats d'URL corrects sont acceptés.
-          - Veuillez noter que les liens doivent être publics pour que tous les participants puissent y accéder.
+        - Seuls les formats d'URL corrects sont acceptés.
+        - Veuillez noter que les liens doivent être publics pour que tous les participants puissent y accéder.
       errors:
         decidim/user:
           password: Le mot de passe est trop court.
@@ -972,7 +973,7 @@ fr:
       badges:
         followers:
           conditions:
-            - Être actif et suivre les autres incitera sûrement les autres à vous suivre.
+          - Être actif et suivre les autres incitera sûrement les autres à vous suivre.
           description: Ce badge est attribué lorsque vous atteignez un certain nombre d'adeptes. %{organization_name} est un réseau social et politique, tissez votre site Web pour communiquer avec les autres personnes de la plate-forme.
           description_another: Cet utilisateur a %{score} abonnés.
           description_own: "%{score} utilisateurs vous suivent."
@@ -1373,7 +1374,7 @@ fr:
         error: Il y a eu un problème lors de la mise à jour de votre mot de passe.
         success: Mot de passe mis à jour avec succès.
     profile:
-      deleted: Utilisateur supprimé
+      deleted: Utilisateur ayant supprimé son compte
       inaccessible_message: Ce profil est inaccessible en raison d'une violation des conditions d'utilisation !
     profiles:
       default_officialization_text_for_users: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel.
@@ -1388,7 +1389,7 @@ fr:
       user:
         actions:
           disabled_message: Message
-          edit_profile: Modifier le profil
+          edit_profile: Mettre à jour le profil
           message: Message
           resend_email_confirmation_instructions: Renvoyer les instructions de confirmation par courrier électronique
     qr:
@@ -2050,7 +2051,7 @@ fr:
     buttons:
       close: Fermer
       reset: Réinitialiser
-      select:
+      select: Sélectionner
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
