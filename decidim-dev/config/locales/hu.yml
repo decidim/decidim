@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -30,7 +31,7 @@ hu:
       badges:
         test:
           conditions:
-            - Használjon teszt környezetet a decidim számára.
+          - Használjon teszt környezetet a decidim számára.
           description: A résztvevők ezt a jelvényt tesztek létrehozásával kapják meg.
           description_another: Ez a résztvevő %{score} tesztet hozott létre.
           description_own: Létrehoztad a(z) %{score} teszteket.
