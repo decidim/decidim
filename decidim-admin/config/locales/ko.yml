@@ -1,3 +1,4 @@
+---
 ko:
   activemodel:
     attributes:
@@ -536,8 +537,6 @@ ko:
           create: 생성
       participatory_space_private_users_csv_imports:
         new:
-          csv_upload:
-            title: CSV 파일 업로드
           destroy:
             button: 모든 비공개 참가자 삭제
             confirm: 모든 비공개 참가자를 삭제하시겠습니까? 이 작업은 취소할 수 없습니다. 복구할 수 없습니다.
