@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -683,7 +684,7 @@ es:
                 title: Desbloquear
                 update_moderated_user_button: Desbloquear usuarias
               unreport:
-                title: Deshacer la denuncia
+                title: Deshacer denuncia
             ignore:
               update_moderated_user_button: Deshacer la denuncia a las usuarias
             title: Acciones
