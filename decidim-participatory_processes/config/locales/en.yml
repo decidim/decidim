@@ -12,6 +12,7 @@ en:
         domain: Domain
         duplicate_categories: Duplicate categories
         duplicate_components: Duplicate components
+        duplicate_landing_page_blocks: Duplicate landing page blocks
         duplicate_steps: Duplicate steps
         end_date: End date
         hero_image: Home image
