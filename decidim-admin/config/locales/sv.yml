@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -682,7 +683,7 @@ sv:
                 title: Häv blockering
                 update_moderated_user_button: Avblockera användare
               unreport:
-                title: Dra tillbaka rapport
+                title: Ta bort rapport
             ignore:
               update_moderated_user_button: Avrapportera användare
             title: Åtgärder
@@ -946,7 +947,7 @@ sv:
           success: CSV-filen har laddats upp och vi skickar en inbjudan med e-post till deltagarna. Det kan ta en stund.
         new:
           csv_upload:
-            title: Ladda upp din CSV-fil
+            title: Skicka CSV-fil
           destroy:
             button: Radera alla privata deltagare
             confirm: Är du säker på att du vill radera alla privata deltagare? Den här åtgärden kan inte ångras.
