@@ -1,3 +1,4 @@
+---
 pt:
   activemodel:
     attributes:
@@ -38,7 +39,7 @@ pt:
       badges:
         test:
           conditions:
-            - Utilize um ambiente de teste para decidim.
+          - Utilize um ambiente de teste para decidim.
           description: Os participantes obtêm este distintivo ao criarem testes.
           description_another: Este participante criou %{score} testes.
           description_own: Criou %{score} testes.
