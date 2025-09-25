@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -1035,8 +1036,8 @@ es:
       attachment_link:
         explanation: Guía para enlaces adjuntos
         help_messages:
-          - Solo se aceptan formatos de URL correctos.
-          - Por favor, ten en cuenta que los enlaces deben ser públicos para que todas las participantes puedan acceder a ellos.
+        - Solo se aceptan formatos de URL correctos.
+        - Por favor, ten en cuenta que los enlaces deben ser públicos para que todas las participantes puedan acceder a ellos.
       errors:
         decidim/user:
           password: La contraseña es demasiado corta.
@@ -1087,7 +1088,7 @@ es:
       badges:
         followers:
           conditions:
-            - Estar activo y seguir a otras personas seguramente hará que otras personas te sigan.
+          - Estar activo y seguir a otras personas seguramente hará que otras personas te sigan.
           description: Este distintivo se otorga cuando alcanzas un cierto número de seguidores. %{organization_name} es una red social y política, teje tu web para comunicarte con otras personas en la plataforma.
           description_another: Esta participante tiene %{score} seguidores.
           description_own: "%{score} personas te están siguiendo."
@@ -1542,9 +1543,9 @@ es:
       user:
         actions:
           disabled_message: Mensaje
-          edit_profile: Editar el perfil
+          edit_profile: Edita el perfil
           message: Mensaje
-          resend_email_confirmation_instructions: Reenvía un correo electrónico con las instrucciones de confirmación
+          resend_email_confirmation_instructions: Reenvia un correo electrónico con las instrucciones de confirmación
     qr:
       show:
         scan: Escanea el código QR
