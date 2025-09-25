@@ -1,3 +1,4 @@
+---
 fr-CA:
   activemodel:
     attributes:
@@ -920,8 +921,8 @@ fr-CA:
     forms:
       attachment_link:
         help_messages:
-          - Seuls les formats d'URL corrects sont acceptés.
-          - Veuillez noter que les liens doivent être publics pour que tous les participants puissent y accéder.
+        - Seuls les formats d'URL corrects sont acceptés.
+        - Veuillez noter que les liens doivent être publics pour que tous les participants puissent y accéder.
       errors:
         decidim/user:
           password: Le mot de passe est trop court.
@@ -972,7 +973,7 @@ fr-CA:
       badges:
         followers:
           conditions:
-            - Être actif et suivre les autres incitera sûrement les autres à vous suivre.
+          - Être actif et suivre les autres incitera sûrement les autres à vous suivre.
           description: Ce badge est attribué lorsque vous atteignez un certain nombre d'adeptes. %{organization_name} est un réseau social et politique, tissez votre site Web pour communiquer avec les autres personnes de la plate-forme.
           description_another: Cet utilisateur a %{score} abonnés.
           description_own: "%{score} utilisateurs vous suivent."
@@ -1388,7 +1389,7 @@ fr-CA:
       user:
         actions:
           disabled_message: Message
-          edit_profile: Modifier le profil
+          edit_profile: Mettre à jour le profil
           message: Message
           resend_email_confirmation_instructions: Renvoyer les instructions de confirmation par courrier électronique
     qr:

@@ -1,4 +1,5 @@
-is-IS:
+---
+is:
   activemodel:
     attributes:
       id_document_information:
@@ -20,16 +21,16 @@ is-IS:
       admin:
         id_documents:
           help:
-            - Notendur fylla inn upplýsingar um auðkenni þeirra og senda afrit af skjalinu sínu.
-            - Þú fyllir inn upplýsingar sem eru til staðar í myndinni sem hlaðið var upp.
-            - Upplýsingarnar ættu að passa hvað sem notandinn hefur fyllt inn.
-            - 
+          - Notendur fylla inn upplýsingar um auðkenni þeirra og senda afrit af skjalinu sínu.
+          - Þú fyllir inn upplýsingar sem eru til staðar í myndinni sem hlaðið var upp.
+          - Upplýsingarnar ættu að passa hvað sem notandinn hefur fyllt inn.
+          - 
         postal_letter:
           help:
-            - 
-            - Þú sendir bréfið á heimilisfangið með staðfestingarkóðanum.
-            - Þú merkir stafinn sem sendur er.
-            - 
+          - 
+          - Þú sendir bréfið á heimilisfangið með staðfestingarkóðanum.
+          - Þú merkir stafinn sem sendur er.
+          - 
       direct: Bein
       help: Hjálp
       id_documents:

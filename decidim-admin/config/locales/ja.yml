@@ -1,3 +1,4 @@
+---
 ja:
   activemodel:
     attributes:
@@ -678,7 +679,7 @@ ja:
                 title: ブロック解除
                 update_moderated_user_button: ユーザーのブロックを解除
               unreport:
-                title: 通報を解除
+                title: 報告解除
             ignore:
               update_moderated_user_button: ユーザーの通報を解除
             title: アクション

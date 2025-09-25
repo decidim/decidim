@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -683,7 +684,7 @@ de:
                 title: Blockierung aufheben
                 update_moderated_user_button: Blockierung aufheben
               unreport:
-                title: Meldung zurückweisen
+                title: Meldung Rückgängig machen
             ignore:
               update_moderated_user_button: Gemeldete Teilnehmende zurückweisen
             title: Aktionen
@@ -947,7 +948,7 @@ de:
           success: CSV-Datei wurde erfolgreich hochgeladen, wir senden eine Einladungs-E-Mail an die Teilnehmenden. Dies kann eine Weile dauern.
         new:
           csv_upload:
-            title: CSV-Datei hochladen
+            title: Laden Sie Ihre CSV-Datei hoch
           destroy:
             button: Alle private Teilnehmende auswählen
             confirm: Sind Sie sicher, dass Sie alle private Teilnehmende entfernen möchten? Diese Aktion kann nicht rückgängig gemacht werden. Sie werden sie nicht wiederherstellen können.

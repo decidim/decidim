@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -960,8 +961,8 @@ sv:
       attachment_link:
         explanation: Instruktioner för bifogade länkar
         help_messages:
-          - Endast korrekta URL-format accepteras.
-          - Observera att länkarna måste vara offentliga så att alla deltagare kan komma åt dem.
+        - Endast korrekta URL-format accepteras.
+        - Observera att länkarna måste vara offentliga så att alla deltagare kan komma åt dem.
       errors:
         decidim/user:
           password: Lösenordet är för kort.
@@ -1010,7 +1011,7 @@ sv:
       badges:
         followers:
           conditions:
-            - Bästa sättet att få andra att följa dig är att vara aktiv och följa andra människor.
+          - Bästa sättet att få andra att följa dig är att vara aktiv och följa andra människor.
           description: Du får detta märke när du når ett visst antal följare. %{organization_name} är ett socialt och politiskt nätverk, spinn ditt nät genom att kommunicera med andra personer på plattformen.
           description_another: Deltagaren har %{score} följare.
           description_own: "%{score} personer följer dig."
@@ -1357,7 +1358,7 @@ sv:
           disabled_message: Meddelande
           edit_profile: Redigera profil
           message: Meddelande
-          resend_email_confirmation_instructions: Skicka e-postmeddelande med bekräftelseinstruktioner igen
+          resend_email_confirmation_instructions: Skicka anvisningarna om bekräftelse om e-post igen
     reported_mailer:
       hidden_automatically:
         content: Rapporterat innehåll

@@ -1,3 +1,4 @@
+---
 tr:
   activemodel:
     attributes:
@@ -653,7 +654,7 @@ tr:
                 title: Engelli kaldır
                 update_moderated_user_button: Kullanıcıların Engelini Kaldır
               unreport:
-                title: Şikayeti geri çek
+                title: Bildirilmedi
             ignore:
               update_moderated_user_button: Kullanıcıların şikayetlerini geri çek
             title: Eylemler

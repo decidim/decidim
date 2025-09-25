@@ -1,3 +1,4 @@
+---
 ja:
   activemodel:
     attributes:
@@ -1020,8 +1021,8 @@ ja:
       attachment_link:
         explanation: 添付ファイルへのリンクのガイド
         help_messages:
-          - 正しいURL形式のみ入力できます
-          - リンクは公開されているものでなければならないので、すべての参加者がアクセスできるようにしてください。
+        - 正しいURL形式のみ入力できます
+        - リンクは公開されているものでなければならないので、すべての参加者がアクセスできるようにしてください。
       errors:
         decidim/user:
           password: パスワードが短すぎます。
@@ -1072,7 +1073,7 @@ ja:
       badges:
         followers:
           conditions:
-            - 積極的に他人に従うことは、きっと他人を従わせることになります。
+          - 積極的に他人に従うことは、きっと他人を従わせることになります。
           description: このバッジは、一定数のフォロワーに達したときに付与されます。 %{organization_name} はソーシャル、政治的なネットワークで、プラットフォーム内の他の人と通信するためにウェブを織ります。
           description_another: この参加者には %{score} 人のフォロワーがいます。
           description_own: "%{score} 人があなたをフォローしています。"
@@ -1509,7 +1510,7 @@ ja:
         error: パスワードの更新中に問題が発生しました。
         success: パスワードを更新しました。
     profile:
-      deleted: 参加者を削除しました
+      deleted: 削除された参加者
       inaccessible_message: このプロフィールは利用規約違反のためアクセスできません！
     profiles:
       default_officialization_text_for_users: この参加者は公的に検証されます。彼/彼女の名前または役割が実名・実際の役割に対応していることが確認されています。
@@ -1526,7 +1527,7 @@ ja:
           disabled_message: メッセージ
           edit_profile: プロフィールを編集
           message: メッセージ
-          resend_email_confirmation_instructions: 確認メールを再送する
+          resend_email_confirmation_instructions: 確認メールを再送信する
     qr:
       show:
         scan: QRコードをスキャン
@@ -2026,7 +2027,7 @@ ja:
             description: 説明
             name: 名前
             service: サービス
-            type: 種別
+            type: タイプ
           items:
             _session_id:
               description: ウェブページ間を移動したときにウェブサイト内のユーザーをウェブサイトが記憶できるようにします。

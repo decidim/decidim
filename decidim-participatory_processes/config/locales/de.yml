@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -546,9 +547,15 @@ de:
             tooltip: Berechnet als Durchschnitt aller Dimensionen
           name: Qualitätsindikator
           qualitative_metrics:
+            description: Diese Indikatoren stammen von den Antworten auf eine von den Verwaltern der Plattform ausgefüllte Selbstbeurteilungsbefragung.
             indicators:
+              citizen_influence: Volkseinfluss
+              citizen_influence_tooltip: Misst die Auswirkungen der Teilnehmenden auf die Entscheidungsfindung.
               inclusiveness: Inklusion
+              inclusiveness_tooltip: Bewertet, ob verschiedene Interessengruppen fair vertreten sind.
               informativeness: Informationsgehalt
+              informativeness_tooltip: Misst den Grad an Klarheit und Information innerhalb des Prozesses.
+            name: Kennzahlen der Selbsteinschätzung
         extra_data:
           name: Phase & Dauer
         hero:
@@ -614,8 +621,12 @@ de:
         belongs_to_group: Dieser Prozess gehört zu
         private_space: Dies ist ein privater Prozess
         related_processes: Ähnliche Beteiligungsprozesse
+      static_pages:
+        democratic_quality_indicators:
+          title: Demokratische Qualitätsindikatoren
     statistics:
       processes_count: Beteiligungsprozesse
+      processes_count_tooltip: Die Anzahl der Beteiligungsprozesse, die öffentlich zugänglich sind.
   layouts:
     decidim:
       participatory_process_groups:

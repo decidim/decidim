@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -115,7 +116,7 @@ gl:
       badges:
         commented_debates:
           conditions:
-            - Escolle un debate aberto para participar
+          - Escolle un debate aberto para participar
           description: Este distintivo é concedido cando participas activamente nos diferentes debates deixando os teus comentarios.
           description_another: Este usuario participou en %{score} debates.
           description_own: Participaches en %{score} debates.
