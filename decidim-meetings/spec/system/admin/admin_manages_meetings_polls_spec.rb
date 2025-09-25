@@ -326,7 +326,7 @@ describe "Admin manages meetings polls" do
       end
     end
 
-    context "when re-ording questions" do
+    context "when re-ordering questions" do
       it "allows the use of drag & drop sorting" do
         visit questionnaire_edit_path
         expand_all_questions
