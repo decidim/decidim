@@ -41,8 +41,6 @@ it:
         exports:
           projects: Progetti
         models:
-          budget:
-            name: Budget
           project:
             name: Progetto
         projects:

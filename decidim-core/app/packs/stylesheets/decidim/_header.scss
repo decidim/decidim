@@ -69,7 +69,7 @@ header {
       @apply hidden md:block col-span-2 col-start-5 xl:col-start-4;
 
       form {
-        @apply block relative rounded text-md bg-background;
+        @apply block relative rounded text-md border border-neutral-200 outline outline-1 outline-transparent rounded bg-background-2 leading-relaxed;
       }
 
       input[type="text"] {
@@ -77,7 +77,7 @@ header {
       }
 
       button[type="submit"] {
-        @apply absolute ltr:right-2 rtl:left-2 inset-y-2 text-secondary;
+        @apply absolute ltr:right-2 rtl:left-2 inset-y-0 text-secondary px-2;
       }
     }
 

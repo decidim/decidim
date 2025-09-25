@@ -25,6 +25,7 @@ eu:
         confirm_delete_document: Ziur zaude dokumentu hau ezabatu nahi duzula?
         deleted_document_info: Ezabatutako dokumentua zaborretik berreskura daiteke.
         edit: Editatu
+        manage: Konfiguratu
         new: Testu berria
         title: Ekintzak
         view_deleted_documents: Ikusi ezabatutako dokumentuak
@@ -52,7 +53,7 @@ eu:
           index:
             title: Testu kolaboratzaileak
           manage_trash:
-            title: Dokumentuak ezabatuta
+            title: Ezabatutako dokumentuak
           new:
             create: Sortu
             title: Sortu testu kolaboratzaileak
@@ -83,7 +84,7 @@ eu:
           unpublish: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboa argitaratzeari utzi dio %{space_name} espazioan"
           update: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboa aldatu du %{space_name} espazioan"
         suggestion:
-          create: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboan aldaketak iradoki ditu %{space_name} espazioan"
+          create: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboan aldaketak iradoki ditu %{space_name} partaidetza espazioan"
         version:
           delete: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboaren bertsioa ezabatu du %{space_name} espazioan"
           update: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboaren bertsioa aldatu du %{space_name} espazioan"
