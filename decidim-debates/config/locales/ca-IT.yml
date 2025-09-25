@@ -1,3 +1,4 @@
+---
 ca-IT:
   activemodel:
     attributes:
@@ -232,7 +233,7 @@ ca-IT:
       badges:
         commented_debates:
           conditions:
-            - Tria un debat obert per participar
+          - Tria un debat obert per participar
           description: Aquest distintiu es desbloqueja quan participes activament en els diferents debats deixant els teus comentaris.
           description_another: Aquesta participant ha pres part en %{score} debats.
           description_own: Has participat en %{score} debats.
