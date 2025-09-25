@@ -519,7 +519,7 @@ de:
         and: und
         data_errors:
           duplicate_headers:
-            detail: Bitte überprüfen Sie, dass die Datei benötigte Spalten oder Kopfzeilen nur einmal enthält.
+            detail: Bitte überprüfen Sie, dass die Datei die benötigten Spalten oder Kopfzeilen nur einmal enthält.
             message:
               one: Spalte %{columns} duplizieren.
               other: Spalten %{columns} duplizieren.
@@ -917,7 +917,7 @@ de:
       participatory_space_private_users:
         create:
           error: Beim Hinzufügen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
-          success: Participatory Space Privater Benutzerzugriff erfolgreich erstellt.
+          success: Ein privater Zugriff für diesen Beteiligungsbereich wurde erfolgreich für das Konto erstellt.
         destroy:
           error: Beim Löschen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
           success: Privater Zugriff zum partizipativen Raum erfolgreich gelöscht.

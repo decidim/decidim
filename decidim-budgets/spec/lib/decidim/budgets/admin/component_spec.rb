@@ -23,22 +23,17 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
       ).with_context(current_organization: organization, current_user:)
     end
 
-    let(:percent_enabled) { false }
+    let(:voting_rule) { "" }
     let(:percent) { 70 }
-    let(:minimum_enabled) { false }
-    let(:projects_enabled) { false }
     let(:geocoding_enabled) { false }
     let(:minimum_number) { 3 }
     let(:maximum_number) { 6 }
-
     let(:settings) do
       {
         total_budget: 100_000_000,
-        vote_rule_threshold_percent_enabled: percent_enabled,
+        voting_rule:,
         vote_threshold_percent: percent,
-        vote_rule_minimum_budget_projects_enabled: minimum_enabled,
         vote_minimum_budget_projects_number: minimum_number,
-        vote_rule_selected_projects_enabled: projects_enabled,
         vote_selected_projects_minimum: minimum_number,
         vote_selected_projects_maximum: maximum_number,
         geocoding_enabled:
@@ -52,7 +47,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
     describe "with maps enabled" do
       let(:geocoding_enabled) { true }
       # One budget rule must me activated
-      let(:percent_enabled) { true }
+      let(:voting_rule) { "threshold_percent" }
 
       it "updates the component" do
         expect do
@@ -62,7 +57,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
     end
 
     describe "with minimum projects number to vote" do
-      let(:minimum_enabled) { true }
+      let(:voting_rule) { "minimum_projects" }
 
       context "when the minimum projects number is valid" do
         it "updates the component" do
@@ -84,7 +79,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
     end
 
     describe "with projects rule enabled" do
-      let(:projects_enabled) { true }
+      let(:voting_rule) { "selected_projects" }
 
       context "when the projects rule is valid" do
         it "updates the component" do
@@ -126,7 +121,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
     end
 
     describe "with threshold percent enabled" do
-      let(:percent_enabled) { true }
+      let(:voting_rule) { "threshold_percent" }
 
       context "when the threshold percent number is valid" do
         it "updates the component" do
@@ -147,10 +142,8 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
       end
     end
 
-    describe "with more than one voting rule enabled" do
-      let(:percent_enabled) { true }
-      let(:minimum_enabled) { true }
-      let(:projects_enabled) { true }
+    describe "with an invalid voting rule" do
+      let(:voting_rule) { "invalid" }
 
       it "does NOT update the component" do
         expect do
@@ -160,9 +153,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
     end
 
     describe "with no voting rule enabled" do
-      let(:percent_enabled) { false }
-      let(:minimum_enabled) { false }
-      let(:projects_enabled) { false }
+      let(:voting_rule) { "" }
 
       it "does NOT update the component" do
         expect do
@@ -191,9 +182,9 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
         it_behaves_like "has mandatory config setting", :comments_max_length
       end
 
-      context "when minimum projects rule is checked" do
+      context "when minimum projects rule is selected" do
         before do
-          check "Enable rule: Minimum number of projects to be voted on"
+          choose "Minimum number of projects to be voted on"
         end
 
         it "is shown the number input" do
@@ -214,9 +205,9 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
         end
       end
 
-      context "when projects rule is checked" do
+      context "when projects rule is selected" do
         before do
-          check "Enable rule: Minimum and maximum number of projects to be voted on"
+          choose "Minimum and maximum number of projects to be voted on"
         end
 
         it "is shown the number input" do
@@ -237,9 +228,9 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
         end
       end
 
-      context "when threshold percent rule is checked" do
+      context "when threshold percent rule is selected" do
         before do
-          check "Enable rule: Minimum budget percentage"
+          choose "Minimum budget percentage"
         end
 
         it "is shown the percent input" do

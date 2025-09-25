@@ -191,6 +191,12 @@ cs:
         few: "%{count} sekundy"
         many: "%{count} sekund"
         other: "%{count} sekund"
+    widget:
+      label:
+        date: Vyberte datum pro %{label}
+        time: Vyberte čas pro %{label}
+      picker:
+        time_button: Otevřít výběr času pro %{label}
   decidim:
     accessibility:
       external_link: Externí odkaz
@@ -627,6 +633,9 @@ cs:
       highlighted_content_banner:
         name: Zvýrazněný obsahový pruh
       highlighted_content_banner_settings_form:
+        action_button_subtitle: Podnadpis tlačítka Akce
+        action_button_title: Název tlačítka akce
+        action_button_url: URL tlačítka akce
         background_image: Obrázek pozadí
         short_description: Stručný popis
         subtitle: Podnadpis
@@ -1281,11 +1290,10 @@ cs:
         main_image: Hlavní obrázek
     newsletters:
       unsubscribe:
-        check_subscription: Pokud chcete změnit své předvolby, můžete tak učinit na <a href="%{link}" target="_blank">konfigurační stránce</a>.
         error: Při odhlášení došlo k chybě.
         success: Úspěšně jste odhlášeni.
         token_error: Platnost odkazu vypršela.
-        unsubscribe: Odhlásit odběr
+        unsubscribe: Odhlásit odběr zpravodaje
     newsletters_opt_in:
       unauthorized: Je nám líto, tento odkaz již není k dispozici.
       update:
@@ -1293,7 +1301,6 @@ cs:
         success: Nastavení Zpravodaje bylo úspěšně aktualizováno.
     newsletters_opt_in_mailer:
       notify:
-        body_1: Zpracování osobních údajů a jejich ochrana jsou pro nás všechny stále důležitější. S novým obecným nařízením o ochraně osobních údajů (GDPR) ze dne 25. května 2018 mají jednotlivci lepší kontrolu nad svými osobními údaji. Z tohoto důvodu potřebujeme vaše "OK" pro pokračování v zasílání relevantních informací o aktivitách %{organization_name}.
         body_2: 'Jak nám můžete dát svůj souhlas? Stačí kliknout na následující tlačítko:'
         body_3: S tímto souhlasem budete moci pokračovat v přijímání informací o službách platformy. Pokud naopak nedostaneme pozitivní potvrzení z vašeho hlediska, přestaneme vám posílat naše zprávy. Pokud potvrdíte, že chcete být stále informováni, máte vždy možnost kdykoli zrušit.
         button: Ano, chci i nadále přijímat relevantní informace
@@ -1519,6 +1526,10 @@ cs:
           title: 'Povinné: Přečtěte si aktualizaci našich podmínek poskytování služeb'
     participants_account_mailer:
       inactivity_notification:
+        body_html: |
+          <p>Naše záznamy naznačují, že jste vytvořili účet %{organization_name} na <strong>%{date_account_creation}</strong> a nejsou aktivní od <strong>%{date_last_connection}</strong></p>
+          <p>Pro ochranu vašeho soukromí, tento účet byl naplánován pro automatické smazání za <strong>%{days} dní</strong>.</p>
+          <p>Pokud si přejete ponechat účet %{organization_name}, jednoduše klikněte na %{login_url} před touto dobou a váš účet bude zachován.<p>
         greetings_html: |
           S pozdravem,<br>
           %{organization_name}
@@ -1610,6 +1621,7 @@ cs:
     search:
       name: Hledat
       results: Výsledky hledání
+      results_found_for_term: '%{count} výsledků vyhledávání: "%{term}"'
       term_input_placeholder: Vyhledávání
     searches:
       filters:
@@ -1729,6 +1741,7 @@ cs:
         instructions_intro: Poslali jsme pokyny na e-mail přidružený k účtu pro nastavení nového hesla k profilu.
         instructions_title: "<strong>Co to pro vás znamená</strong>"
       notify_deprecation_to_owner:
+        body_3: Abyste mohli pokračovat v přístupu k vašemu účtu, musíte nastavit heslo.
         greeting: Dobrý den %{name},
         instructions_1: 'Klikněte na odkaz níže pro spuštění procesu nastavení hesla:'
         instructions_title: "<strong>Co potřebujete udělat</strong>"
@@ -2101,15 +2114,15 @@ cs:
         data_consent_settings: Nastavení cookies
         decidim_logo: Logo Decidim
         decidim_title: Decidim
+        help: Nápověda
         log_in: Přihlásit
         made_with_open_source: Webová stránka vytvořená s <a target="_blank" href="https://github.com/decidim/decidim">svobodným softwarem</a>.
         open_data: Otevřená data
         resources: Zdroje
         sign_up: Vytvořit účet
+        social_media: Sociální sítě
         terms_of_service: Podmínky služby
       header:
-        back: Zpět na seznam
-        cancel: Zrušit
         close: Zavřít‏
         confirm_close_ephemeral_session: Pokud odejdete, vaše dočasná relace bude ukončena. Nicméně veškerý váš pokrok a aktivita budou uloženy. Pokud jste svou aktivitu dokončili, klikněte na tlačítko Ok.
         confirm_title_close_ephemeral_session: Před opuštěním této stránky…

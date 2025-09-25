@@ -1,5 +1,77 @@
 ---
 de:
+  decidim:
+    demographics:
+      actions:
+        title: Aktionen
+      admin:
+        demographics:
+          tabs_menu:
+            title: Demografisches
+        demographics_menu:
+          questions: Fragen
+          responses: Antworten
+          settings: Einstellungen
+        publish_responses:
+          index:
+            description: Beschreibung
+            title: Antworten anzeigen
+        questions:
+          edit:
+            save: Speichern
+            title: Fragen
+          questions_form:
+            add_question: Frage hinzufügen
+            collapse: Alle Fragen einklappen
+            expand: Alle Fragen ausklappen
+        responses:
+          index:
+            publish_responses: Antworten anzeigen
+            title: "%{total} Antworten insgesamt"
+        settings:
+          show:
+            collect_data: Demographische Datenerfassung aktivieren
+            collect_data_help: Durch das Aktivieren dieser Einstellung können Nutzende ihre Daten an die Plattform spenden.
+            save: Speichern
+            title: Einstellungen
+          update:
+            invalid: Beim Speichern der demografischen Daten ist ein Fehler aufgetreten
+            success: Demografische Daten erfolgreich gespeichert
+        title: Demografisches
+      demographics:
+        questionnaire:
+          delete_my_data: Daten löschen
+          modal_close: Abbrechen
+          modal_ok: OK
+          modal_question: Alle demographischen Daten werden entfernt.
+          modal_title: Daten löschen
+          submit: Daten speichern
+          terms_of_service: Nutzungsbedingungen
+          tos_agreement: Durch die Teilnahme akzeptieren Sie die %{link}.
+        show:
+          page_title: Demografische Datenspende
+      destroy:
+        error: Es gab einen Fehler beim Entfernen Ihrer gespendeten Daten
+        success: Gespendete Daten erfolgreich gelöscht
+      name: Demografische Datenspende
+      questions:
+        age:
+          options:
+          - 15 bis 29 Jahre
+          - 30 bis 44 Jahre
+          - 45 bis 64 Jahre
+          - 65 Jahre und älter
+          question: Wie alt sind Sie?
+        gender:
+          options:
+          - Mann
+          - Frau
+          - Nicht-binär
+          - Mein Geschlecht ist nicht aufgeführt
+          - Keine Angabe
+          question: Welches der folgenden beschreibt Ihr Geschlecht am besten?
+        postal:
+          question: Was ist Ihre Postleitzahl?
   layouts:
     decidim:
       shared:
