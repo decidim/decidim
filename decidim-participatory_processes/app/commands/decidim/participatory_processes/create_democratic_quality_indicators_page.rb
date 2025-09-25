@@ -2,7 +2,7 @@
 
 module Decidim
   module ParticipatoryProcesses
-    class CreateSpacePage < Decidim::Command
+    class CreateDemocraticQualityIndicatorsPage < Decidim::Command
       # Public: Initializes the command.
       #
       # organization - A Decidim::Organization instance.
