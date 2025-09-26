@@ -87,26 +87,26 @@ ca:
           adjacent_links_paragraph: Si el mateix recurs té múltiples enllaços adjacents apuntant-hi, això dificulta que les usuàries puguin mirar a través de la pàgina perquè és possible que les hi calgui passar per diversos enllaços per arribar al següent recurs.
           color_contrast: Contrast de color
           color_contrast_paragraph: En crear interfícies d'usuària o modificar els colors, assegura't que no està trencant-se l'accessibilitat amb els teus canvis. Pots fer servir el comprovador de contrast de color per assegurar-se que aquests colors tenen suficients contrasts el color de fons sobre el que es mostren.
-          decidim_follows_html: Decidim segueix les directrius <u>d'Accessibilitat al Contingut Web (WCAG) 2.1</u>
+          decidim_follows_html: Decidim segueix %{link}
           dynamic_changes_header: 'Funció dinàmica: canvia el context de la pàgina de forma poc intuïtiva'
           dynamic_changes_paragraph: Els canvis a les entrades del formulari no haurien de modificar el context de la pàgina automàticament.
           elements_hidden: Elements amagats
           elements_hidden_header: Elements amagats de l'API d'accessibilitat
           elements_hidden_paragraph: Per amagar un element de la tecnologia d'assistència, fes servir l'atribut aria-hidden="true" en aquest.
           heading_on: Encapçalament a seccions importants
-          here_link: aquí
           illogical_heading_order: Ordre d'encapçalament il·lògica
           illogical_heading_paragraph: Totes les pàgines han de tenir un ordre lògic de capçaleres quan facis servir els elements d'encapçalament <h1>, <h2>, <h3>, <h4>, <h5>, i <h6>.
           important_sections_heading: Encapçalament a seccions importants
           important_sections_paragraph: És molt important que cada secció de la pàgina tingui un títol per a facilitar la comprensió de les seccions importants de la pàgina simplement navegant pels seus encapçalaments.
+          learn_more_about_html: Més informació sobre %{link}
           links_and_buttons: Enllaços i botons
           links_and_buttons_paragraph: Els punts d'ancoratge (per exemple enllaços) estan pensant per enllaçar a diferents pàgines o a posicions d'ancoratge dins de la pàgina. Si volem que aquest punt obri, per exemple, algun element amagar en aquella pàgina, hauries de fer servir l'element <button> en el seu lloc.
-          see_further_info_html: Veure més informació %{link}
           unique_h1: H1 únic
           unique_h1_paragraph: Cada pàgina ha de tenir un únic encapçalament H1
           use_aria: Fes servir ARIA
           use_aria_header: Fes servir els atributs ARIA quan sigui possible
           use_aria_paragraph: Molts elements que proporcionen funcionalitat interactiva al lloc web requereixen atributs ARIA per fer-los accessibles.
+          wcag_guidelines: Pautes d'Accessibilitat al Contingut a la Web (WCAG)
         color:
           color_header: Color
           description_p1: Facilitem una paleta base amb pocs colors de manera que és fàcil fer personalitzacions simples. Pots modificar la paleta base, tant des del Taulell d'Administració com des de l'arxiu de configuració Tailwind si necessites una personalització més avançada.
