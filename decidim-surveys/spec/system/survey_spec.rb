@@ -176,6 +176,14 @@ describe "Respond a survey" do
       end
 
       it_behaves_like "has questionnaire"
+
+      context "and the device is mobile" do
+        before do
+          driven_by(:iphone)
+        end
+
+        it_behaves_like "has questionnaire"
+      end
     end
 
     context "when displaying questionnaire rich content" do
