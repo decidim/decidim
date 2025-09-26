@@ -216,7 +216,7 @@ eu:
       actions:
         cancel: Ezeztatu
       password_change:
-        alert: Pasahitza aldatu behar duzu aurrera jarraitu ahal izateko.
+        alert: Aurrera jarraitu ahal izateko pasahitza aldatu behar duzu.
         notification: Administratzaile rola duten parte-hartzaileek pasahitza aldatu behar dute %{days} egunik behin.
     admin_log:
       area:
@@ -462,7 +462,7 @@ eu:
         pending:
           explanation: Ekintza hau burutzeko, "%{authorization}" baimena eduki behar duzu, baina zure baimena oraindik garatzen ari da.
           resume: Egiaztatu zure %{authorization} baimenaren garapena.
-          title: Baimena oraindik ere egiten ari da
+          title: Baimena oraindik gaizatzen ari da
         unauthorized:
           explanation: Sentitzen dugu, baina ezin diozu heldu ekintza honi, zure baimen-datuetako batzuk ez datozelako bat.
           invalid_field: "%{field} datu-eremuaren balioa %{value} ez da baliozkoa."
@@ -484,7 +484,7 @@ eu:
       hidden_elements_count:
         one: eta bat gehiago
         other: eta %{count} gehiago
-      see_less: "(ikusi gutxiago)"
+      see_less: "(gutxiago ikusi)"
     components:
       component_order_selector:
         no_content: Ezin izan dugu aurkitu irizpide hau duen edukirik.
@@ -706,7 +706,7 @@ eu:
         not_inside_organization: Fitxategia ez dago erakunde batekin erlazionatuta
       internal_server_error:
         copied: Testua kopiatuta!
-        copy_error_message_clarification: Errore-mezua arbelean kopiatuta
+        copy_error_message_clarification: Kopiatu errore-mezua arbelean
         copy_to_clipboard: Kopiatu arbelera
         date_and_time: Data eta ordua
         reference: Erreferentzia
