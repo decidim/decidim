@@ -403,13 +403,6 @@ sv:
           updated_at: Datum och tid för när omröstningen uppdaterades
       show:
         projects: Projektexport
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'Budgeten %{resource_title} för %{participatory_space_title} är nu aktiv. Du kan se den från den här sidan:'
-          email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
-          email_subject: Budgeten %{resource_title} för %{participatory_space_title} är nu aktiv.
-          notification_title: Budgeten <a href="%{resource_path}">%{resource_title}</a> för %{participatory_space_title} är nu aktiv.
     open_data:
       help:
         projects:
