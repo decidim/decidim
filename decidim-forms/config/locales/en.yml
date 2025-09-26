@@ -108,19 +108,15 @@ en:
             statement: Statement
             up: Up
           separator:
-            down: Down
             remove: Remove
             separator: Separator
-            up: Up
           title_and_description:
             collapse: Collapse
             description: Description
-            down: Down
             expand: Expand
             remove: Remove
             title: Title
             title_and_description: Title and description
-            up: Up
           update:
             invalid: There was a problem saving the form.
             success: Form successfully saved.
