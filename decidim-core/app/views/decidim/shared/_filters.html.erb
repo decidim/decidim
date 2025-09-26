@@ -14,7 +14,7 @@
 
     <div id="dropdown-menu-filters">
       <% if local_assigns.has_key?(:skip_to_id) %>
-        <%= link_to t("skip", scope: "decidim.shared.filter_form_help"), "##{skip_to_id}", class: "filter-skip", role: "menuitem" %>
+        <%= link_to t("skip", scope: "decidim.shared.filter_form_help"), "##{skip_to_id}", class: "filter-skip", role: "menuitem", "data-skip-to-content": true %>
       <% end %>
 
       <p id="filter-help-text" class="filter-help" role="menuitem" aria-disabled="true"><%= t("help", scope: "decidim.shared.filter_form_help") %></p>
