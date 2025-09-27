@@ -37,6 +37,12 @@ sk:
             remove: Odstrániť
             statement: Prehlásenie
             up: Hore
+          separator:
+            down: Nadol
+            up: Hore
+          title_and_description:
+            down: Nadol
+            up: Hore
           update:
             invalid: Vyskytol sa problém s ukladaním formulára.
       question_types:
