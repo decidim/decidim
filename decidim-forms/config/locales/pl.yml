@@ -90,7 +90,7 @@ pl:
           title_and_description:
             collapse: Zwiń
             description: Opis
-            down: W dół
+            down: Na dół
             expand: Rozwiń
             remove: Usuń
             title: Tytuł
