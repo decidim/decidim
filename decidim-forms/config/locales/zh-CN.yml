@@ -81,6 +81,9 @@ zh-CN:
             remove: 删除
             separator: 分隔符
             up: 上移
+          title_and_description:
+            down: 向下
+            up: 上移
           update:
             invalid: 保存表单时出错。
             success: 表单保存成功。
