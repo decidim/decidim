@@ -41,6 +41,9 @@ hu:
             remove: Eltávolít
             statement: Nyilatkozat
             up: Fel
+          separator:
+            down: Le
+            up: Fel
           title_and_description:
             collapse: Összecsuk
             description: Leírás
