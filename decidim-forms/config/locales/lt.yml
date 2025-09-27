@@ -95,7 +95,7 @@ lt:
             remove: Pašalinti
             title: Pavadinimas
             title_and_description: Pavadinimas ir aprašymas
-            up: Aukštyn
+            up: Į viršų
           update:
             invalid: Išsaugant šią formą iškilo problema.
             success: Forma sėkmingai išsaugota.
