@@ -138,19 +138,15 @@ cs:
             show:
               title: 'Odpověď č.%{number}'
           separator:
-            down: Dolů
             remove: Odebrat
             separator: Oddělovač
-            up: Nahoru
           title_and_description:
             collapse: Sbalit
             description: Popis
-            down: Dolů
             expand: Rozbalit
             remove: Odebrat
             title: Název
             title_and_description: Název a popis
-            up: Nahoru
           update:
             invalid: Při ukládání dotazníku došlo k chybám.
             success: Formulář byl úspěšně uložen.
