@@ -83,14 +83,14 @@ bg:
             statement: Изявление
             up: Горе
           separator:
-            down: Долу
+            down: Надолу
             remove: Премахни
             separator: Разделител
             up: Горе
           title_and_description:
             collapse: Свий
             description: Описание
-            down: Долу
+            down: Надолу
             expand: Разтваряне
             remove: Премахни
             title: Заглавие
