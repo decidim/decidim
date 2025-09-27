@@ -37,6 +37,12 @@ id:
             remove: Menghapus
             statement: Pernyataan
             up: Naik
+          separator:
+            down: Turun
+            up: Naik
+          title_and_description:
+            down: Turun
+            up: Naik
           update:
             invalid: Terjadi masalah saat menyimpan formulir.
       question_types:
