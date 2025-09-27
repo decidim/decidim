@@ -61,10 +61,8 @@ lb:
             actions:
               show: Antworten anzeigen
           separator:
-            down: Runter
             remove: Löschen
             separator: Trennzeichen
-            up: Hoch
           update:
             invalid: Beim Speichern des Fragebogens sind Fehler aufgetreten.
             success: Formular erfolgreich gespeichert.
