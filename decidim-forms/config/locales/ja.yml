@@ -115,7 +115,7 @@ ja:
           title_and_description:
             collapse: 折りたたむ
             description: 説明
-            down: 下へ
+            down: 下
             expand: 展開する
             remove: 削除
             title: タイトル
