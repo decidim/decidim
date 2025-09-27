@@ -108,19 +108,19 @@ es-PY:
             statement: Declaración
             up: Arriba
           separator:
-            down: Bajar
+            down: Abajo
             remove: Eliminar
             separator: Separador
-            up: Subir
+            up: Arriba
           title_and_description:
             collapse: Contraer
             description: Descripción
-            down: Bajar
+            down: Abajo
             expand: Expandir
             remove: Eliminar
             title: Título
             title_and_description: Título y descripción
-            up: Subir
+            up: Arriba
           update:
             invalid: Ha habido errores al guardar el cuestionario.
             success: Formulario guardado correctamente.
