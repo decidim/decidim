@@ -138,19 +138,15 @@ ca-IT:
             show:
               title: 'Resposta #%{number}'
           separator:
-            down: Baixar
             remove: Eliminar
             separator: Separador
-            up: Pujar
           title_and_description:
             collapse: Replegar
             description: Descripció
-            down: Baixar
             expand: Expandir
             remove: Esborrar
             title: Títol
             title_and_description: Títol i descripció
-            up: Pujar
           update:
             invalid: S'ha produït un error en desar el formulari.
             success: Formulari desat correctament.
