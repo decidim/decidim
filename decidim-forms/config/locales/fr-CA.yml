@@ -131,10 +131,10 @@ fr-CA:
             update:
               success: Les questions de l'enquête ont été sauvegardées avec succès.
           separator:
-            down: Bas
+            down: Descendre
             remove: Retirer
             separator: Séparateur
-            up: Haut
+            up: Monter
           title_and_description:
             collapse: Réduire
             description: Description
@@ -143,7 +143,7 @@ fr-CA:
             remove: Supprimer
             title: Titre
             title_and_description: Titre et description
-            up: Vers le haut
+            up: Monter
           update:
             invalid: Il y a eu des erreurs lors de la sauvegarde du questionnaire.
             success: Le formulaire a bien été sauvegardé.
