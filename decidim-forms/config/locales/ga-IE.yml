@@ -33,9 +33,12 @@ ga:
             remove: Bain as
             up: Thuas
           separator:
-            down: Ísligh
+            down: Síos
             remove: Bain as
-            up: Ardaigh
+            up: Thuas
+          title_and_description:
+            down: Síos
+            up: Thuas
       question_types:
         files: Comhaid
         sorting: Sórtáil
