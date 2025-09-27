@@ -24,6 +24,12 @@ ru:
             question: Вопрос
             remove: Удалить
             up: Вверх
+          separator:
+            down: Вниз
+            up: Вверх
+          title_and_description:
+            down: Вниз
+            up: Вверх
           update:
             invalid: При попытке сохранить форму произошли ошибки.
       question_types:
