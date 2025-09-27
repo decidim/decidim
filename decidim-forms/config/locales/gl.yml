@@ -37,10 +37,13 @@ gl:
             remove: Quitar
             statement: Declaración
             up: Arriba
+          separator:
+            down: Baixo
+            up: Arriba
           title_and_description:
             collapse: Contraer
             description: Descrición
-            down: Abaixo
+            down: Baixo
             expand: Expandir
             remove: Eliminar
             title: Título
