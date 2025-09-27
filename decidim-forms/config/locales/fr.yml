@@ -136,10 +136,10 @@ fr:
             show:
               title: 'Réponse #%{number}'
           separator:
-            down: Bas
+            down: Descendre
             remove: Retirer
             separator: Séparateur
-            up: Haut
+            up: Monter
           title_and_description:
             collapse: Réduire
             description: Description
