@@ -77,19 +77,19 @@ nl:
             statement: Uitspraak
             up: omhoog
           separator:
-            down: Omlaag
+            down: naar beneden
             remove: Verwijderen
             separator: Scheidingsteken
-            up: Omhoog
+            up: omhoog
           title_and_description:
             collapse: Inklappen
             description: Beschrijving
-            down: Naar beneden
+            down: naar beneden
             expand: Uitklappen
             remove: Verwijderen
             title: Titel
             title_and_description: Titel en beschrijving
-            up: Naar boven
+            up: omhoog
           update:
             invalid: Er zijn fouten opgetreden bij het opslaan van de vragenlijst.
             success: Formulier succesvol opgeslagen.
