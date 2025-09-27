@@ -138,19 +138,15 @@ sv:
             show:
               title: 'Svar #%{number}'
           separator:
-            down: Ner
             remove: Ta bort
             separator: Avgränsare
-            up: Upp
           title_and_description:
             collapse: Dölj
             description: Beskrivning
-            down: Ner
             expand: Visa
             remove: Ta bort
             title: Titel
             title_and_description: Titel och beskrivning
-            up: Upp
           update:
             invalid: Det gick inte att spara formuläret.
             success: Formuläret har sparats.
