@@ -108,19 +108,19 @@ de:
             statement: Aussage
             up: Oben
           separator:
-            down: Runter
+            down: Nach unten
             remove: Löschen
             separator: Trennzeichen
-            up: Nach oben
+            up: Oben
           title_and_description:
             collapse: Einklappen
             description: Beschreibung
-            down: Runter
+            down: Nach unten
             expand: Ausklappen
             remove: Entfernen
             title: Titel
             title_and_description: Titel und Beschreibung
-            up: Hinauf
+            up: Oben
           update:
             invalid: Beim Speichern des Fragebogens sind Fehler aufgetreten.
             success: Formular erfolgreich gespeichert.
