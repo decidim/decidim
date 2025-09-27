@@ -81,7 +81,10 @@ tr:
             down: Aşağı
             remove: Kaldır
             separator: Ayraç
-            up: Yukarı
+            up: yukarı
+          title_and_description:
+            down: Aşağı
+            up: yukarı
           update:
             invalid: Formu kaydederken bir sorun oluştu.
             success: Başarıyla kaydedildi.
