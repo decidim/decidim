@@ -62,14 +62,14 @@ pt-BR:
             actions:
               show: Mostrar respostas
           separator:
-            down: Para Baixo
+            down: Baixa
             remove: Remover
             separator: Separador
-            up: Para Cima
+            up: Acima
           title_and_description:
             collapse: Recolher
             description: Descrição
-            down: Abaixo
+            down: Baixa
             expand: Expandir
             remove: Excluir
             title: Título
