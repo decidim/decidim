@@ -28,9 +28,7 @@ ga:
             remove: Bain as
             up: Thuas
           separator:
-            down: Ísligh
             remove: Bain as
-            up: Ardaigh
       question_types:
         files: Comhaid
         sorting: Sórtáil
