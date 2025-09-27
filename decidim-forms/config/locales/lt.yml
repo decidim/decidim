@@ -61,19 +61,15 @@ lt:
             actions:
               show: Rodyti atsakymus
           separator:
-            down: Žemyn
             remove: Pašalinti
             separator: Skirtukas
-            up: Į viršų
           title_and_description:
             collapse: Suskleisti
             description: Aprašymas
-            down: Žemyn
             expand: Išplėsti
             remove: Pašalinti
             title: Pavadinimas
             title_and_description: Pavadinimas ir aprašymas
-            up: Aukštyn
           update:
             invalid: Išsaugant šią formą iškilo problema.
             success: Forma sėkmingai išsaugota.
