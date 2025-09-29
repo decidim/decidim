@@ -130,9 +130,13 @@ en:
         survey:
           fields:
             questions: Questions
+            published: Published
             responses: Responses
             status: Status
             title: Title
+          published:
+            published: Published
+            unpublished: Unpublished
           status:
             closed: Closed
             open: Open
