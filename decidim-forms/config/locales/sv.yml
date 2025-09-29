@@ -106,12 +106,10 @@ sv:
             any: Valfritt
             collapse: Dölj
             description: Beskrivning
-            down: Ner
             expand: Visa
             question: Fråga
             remove: Ta bort
             statement: Titel
-            up: Upp
           questions_form:
             already_answered_warning: Frågeformuläret har redan besvarats av användare och du kan inte längre ändra frågorna.
             collapse: Dölj alla frågor
@@ -119,19 +117,15 @@ sv:
             update:
               success: Enkäten har sparats.
           separator:
-            down: Ner
             remove: Ta bort
             separator: Avgränsare
-            up: Upp
           title_and_description:
             collapse: Dölj
             description: Beskrivning
-            down: Ner
             expand: Visa
             remove: Ta bort
             title: Titel
             title_and_description: Titel och beskrivning
-            up: Upp
           update:
             invalid: Det gick inte att spara formuläret.
             success: Formuläret har sparats.
