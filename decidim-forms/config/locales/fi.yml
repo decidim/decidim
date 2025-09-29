@@ -43,7 +43,7 @@ fi:
             allow_editing_responses: Salli rekisteröityneiden käyttäjien muokata omia kyselyvastauksiaan
             allow_responses: Salli vastaukset
             allow_unregistered: Salli rekisteröitymättömien käyttäjien vastata tähän kyselyyn
-            allow_unregistered_help: Jos asetus on käytössä, sisäänkirjautumista ei vaadita kyselyyn vastaamista varten. Tämä voi johtaa heikkotasoiseen tai epäluotettavaan tietoon ja se on alttiimpi automatisoiduille hyökkäyksille. Käytä varoen! Muista, että osallistuja voisi vastata samaan kyselyyn useita kertoja, käyttämällä eri selaimia tai selaimen "yksityisen selauksen" ominaisuutta.
+            allow_unregistered_help: Jos asetus on käytössä, sisäänkirjautumista ei vaadita kyselyyn vastaamista varten. Tämä voi johtaa heikkotasoiseen tai epäluotettavaan tietoon ja se on alttiimpi automatisoiduille hyökkäyksille. Käytä varoen! Muista, että osallistuja voisi vastata samaan kyselyyn useita kertoja, käyttämällä eri selaimia tai selaimen "näkymättömyystilan" tai "yksityisen selauksen" avulla.
             announcement: Ilmoitus
             clean_after_publish: Poista vastaukset kyselyn julkaisun yhteydessä
             description: Kuvaus
