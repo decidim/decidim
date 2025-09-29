@@ -23,7 +23,7 @@
         <% surveys.each do |survey| %>
           <tr>
             <td data-label="<%= t("models.survey.fields.title", scope: "decidim.surveys") %>">
-              <%= decidim_sanitize_translated(survey.title) %>
+              <%= link_to decidim_sanitize_translated(survey.title), edit_survey_path(survey) %>
             </td>
             <td data-label="<%= t("models.survey.fields.questions", scope: "decidim.surveys") %>">
               <%= survey.questionnaire.questions.size %>
