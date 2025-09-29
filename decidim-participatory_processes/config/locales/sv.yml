@@ -7,6 +7,7 @@ sv:
         area_id: Område
         copy_categories: Kopiera kategorier
         copy_components: Kopiera komponenter
+        copy_landing_page_blocks: Kopiera elementen från landningssidan
         copy_steps: Kopiera steg
         decidim_area_id: Område
         description: Beskrivning
