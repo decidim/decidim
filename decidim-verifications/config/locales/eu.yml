@@ -130,7 +130,7 @@ eu:
         first_login:
           actions:
             another_dummy_authorization_handler: Egiaztatu baimenen kudeatzailearen beste adibide baten aurka
-            csv_census: Egiaztatu erakundearen zentsuaren aurka
+            csv_census: Egiaztatu erakundearen erroldaren bidez
             dummy_authorization_handler: Egiaztatu adibide-baimenaren kudeatzailearen aurka
             dummy_authorization_workflow: Egiaztatu baimenen laneko fluxuaren aurka
             id_documents: Egiaztatu zure identifikazio dokumentua kargatzen
