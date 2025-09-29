@@ -125,12 +125,10 @@ eu:
             any: Edozein
             collapse: Bildu
             description: Deskribapena
-            down: Behera
             expand: Zabaldu
             question: Galdera
             remove: Kendu
             statement: Adierazpena
-            up: Gora
           questions_form:
             already_answered_warning: Formularioa parte-hartzaile batzuek erantzuten dute dagoeneko; beraz, ezin dituzu galderak aldatu.
             collapse: Kolapsatu galdera guztiak
@@ -139,19 +137,15 @@ eu:
             update:
               success: Inkestaren galderak zuzen gordeta.
           separator:
-            down: Behera
             remove: Kendu
             separator: Bereizlea
-            up: Gora
           title_and_description:
             collapse: Kolapsoa
             description: Deskribapena
-            down: Behera
             expand: Zabaldu
             remove: Kendu
             title: Izenburua
             title_and_description: Izenburua eta deskribapena
-            up: Gora
           update:
             invalid: Arazo bat egon da inprimakia gordetzean.
             success: Galdetegia zuzen gorde da.
