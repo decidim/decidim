@@ -26,8 +26,8 @@ module Decidim
 
       private
 
-      attr_reader :responses
-      alias resource responses
+      attr_reader :survey_user_responses
+      alias resource survey_user_responses
 
       def normalize_body(response)
         normalize_choices(response.choices)
