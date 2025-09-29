@@ -66,8 +66,6 @@ Decidim.register_component(:surveys) do |component|
       Decidim::Forms::QuestionnaireUserResponses.for(survey.questionnaire)
     end
 
-    exports.include_in_open_data = true
-
     exports.formats %w(CSV JSON Excel FormPDF)
 
     exports.serializer Decidim::Forms::UserResponsesSerializer
