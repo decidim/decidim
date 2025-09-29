@@ -76,7 +76,7 @@ header {
         @apply block bg-transparent w-full px-4 py-2 h-full;
 
         &::placeholder {
-          @apply text-gray-8 text-sm ltr:pl-6 rtl:pr-6;
+          @apply text-gray-8 text-sm ltr:pl-0 rtl:pr-0;
         }
       }
 
