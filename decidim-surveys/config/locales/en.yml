@@ -15,6 +15,7 @@ en:
   decidim:
     admin:
       actions:
+        confirm_unpublish_survey: Are you sure you want to unpublish this survey?
         see_survey: See survey
       admin_log:
         changeset:

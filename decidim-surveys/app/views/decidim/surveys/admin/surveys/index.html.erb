@@ -71,7 +71,7 @@
                   <% if allowed_to?(:update, :questionnaire) %>
                     <% if survey.published? %>
                       <li class="dropdown__item">
-                        <%= link_to unpublish_survey_path(survey), method: :put, class: "dropdown__button" do %>
+                        <%= link_to unpublish_survey_path(survey), method: :put, data: { confirm: t("actions.confirm_unpublish_survey", scope: "decidim.admin") }, class: "dropdown__button" do %>
                           <%= icon "close-circle-line" %>
                           <%= t("actions.unpublish", scope: "decidim.admin") %>
                         <% end %>
