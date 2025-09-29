@@ -42,6 +42,16 @@ describe "Admin manages meetings" do
       expect(page).to have_css("tbody tr:last-child", text: Decidim::Meetings::MeetingPresenter.new(old_meeting).title)
     end
 
+    it "shows the unpublish modal" do
+      visit current_path
+
+      within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+        find("button[data-controller='dropdown']").click
+        click_on "Unpublish"
+        expect(accept_confirm).to eq("Are you sure you want to unpublish this meeting?")
+      end
+    end
+
     it "allows to publish/unpublish meetings" do
       visit current_path
 
