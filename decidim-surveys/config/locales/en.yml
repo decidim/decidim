@@ -130,8 +130,8 @@ en:
       models:
         survey:
           fields:
-            questions: Questions
             published: Published
+            questions: Questions
             responses: Responses
             status: Status
             title: Title
