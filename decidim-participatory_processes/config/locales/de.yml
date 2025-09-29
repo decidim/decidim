@@ -7,6 +7,7 @@ de:
         area_id: Bereich
         copy_categories: Kategorien kopieren
         copy_components: Komponenten kopieren
+        copy_landing_page_blocks: Startseiten-Blöcke duplizieren
         copy_steps: Phasen kopieren
         decidim_area_id: Bereich
         description: Beschreibung
