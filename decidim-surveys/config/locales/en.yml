@@ -52,9 +52,8 @@ en:
     open_data:
       help:
         survey_user_responses:
-          key1: "Response 1"
-          key2: "Response 2"
-    page_titles:
+          key1: Response 1
+          key2: Response 2
     statistics:
       responses: 'Responses:'
       responses_count: Responses
