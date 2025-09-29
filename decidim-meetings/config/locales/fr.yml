@@ -275,6 +275,7 @@ fr:
         agenda: Ordre du jour
         close: Clore
         confirm_delete_meeting: Êtes-vous sûr(e) de vouloir supprimer cette rencontre ?
+        confirm_unpublish_meeting: Êtes-vous sûr(e) de vouloir annuler la publication de cette réunion ?
         deleted_meetings_info: Les rencontres supprimées peuvent être restaurées depuis la corbeille.
         edit: Modifier
         invalid_destroy:
