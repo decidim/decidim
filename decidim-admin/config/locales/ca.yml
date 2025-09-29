@@ -802,7 +802,7 @@ ca:
           success: S'ha retirat correctament l'oficialització de la participant.
         index:
           actions: Accions
-          badge: Insígnia
+          badge: Ensenya
           block: Bloquejar usuària
           created_at: Creat el
           name: Nom
