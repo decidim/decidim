@@ -473,7 +473,7 @@ eu:
           form:
             fields:
               date_of_birth:
-                label: Jaiotze-data
+                label: Jaioteguna
               document_number:
                 placeholder: Agiri zenbakia
               document_type:
