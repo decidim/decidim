@@ -125,12 +125,10 @@ fi-pl:
             any: Minkä tahansa
             collapse: Sulje
             description: Kuvaus
-            down: Alas
             expand: Avaa
             question: Kysymys
             remove: Poista
             statement: Selite
-            up: Ylös
           questions_form:
             already_answered_warning: Jotkut käyttäjät ovat jo vastanneet lomakkeeseen, joten et voi muokata sen kysymyksiä.
             collapse: Supista kaikki kysymykset
@@ -139,19 +137,15 @@ fi-pl:
             update:
               success: Kyselyn kysymysten tallentaminen onnistui.
           separator:
-            down: Alas
             remove: Poista
             separator: Erotin
-            up: Ylös
           title_and_description:
             collapse: Pienennä
             description: Kuvaus
-            down: Alas
             expand: Laajenna
             remove: Poista
             title: Otsikko
             title_and_description: Otsikko ja kuvaus
-            up: Ylös
           update:
             invalid: Kyselylomakkeiden tallentamisessa on tapahtunut virheitä.
             success: Lomake tallennettu onnistuneesti.
