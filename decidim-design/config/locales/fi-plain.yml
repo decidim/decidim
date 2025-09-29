@@ -87,6 +87,7 @@ fi-pl:
           adjacent_links_paragraph: Jos samaan kohteeseen on useita vierekkäisiä linkkejä, se hankaloittaa sivun ymmärtämistä avustavien teknologioiden käyttäjille, koska kyseisten käyttäjien tulee siirtää kohdistusta useaan otteeseen päästäkseen seuraavaan kohteeseen.
           color_contrast: Värien kontrasti
           color_contrast_paragraph: Luodessasi käyttöliittymiä tai muuttaessasi värimäärityksiä, varmista, että et riko sivun saavutettavuutta näillä muutoksilla. Voit käyttää värien kontrastiarvon tarkastustyökalua varmistaaksesi, että väreillä on tarpeeksi kontrastia niiden taustaväriin verrattuna.
+          decidim_follows_html: Decidim seuraa %{link}
           dynamic_changes_header: Sivujen dynaamiset toiminnot muuttavat sivun kontekstia epäjohdonmukaisesti
           dynamic_changes_paragraph: Lomakekenttien muutosten ei tulisi muuttaa sivun kontekstia automaattisesti.
           elements_hidden: Piilotetut elementit
@@ -97,6 +98,7 @@ fi-pl:
           illogical_heading_paragraph: Jokaisen sivun on noudatettava johdonmukaista otsikoiden järjestystä käytettäessä <h1>, <h2>, <h3>, <h4>, <h5> ja <h6> otsikkoelementtejä.
           important_sections_heading: Tärkeiden osioiden otsikointi
           important_sections_paragraph: On erityisen tärkeää, että jokaisella sivun tärkeällä osiolla on otsikko, jotta sivun rakenne on helppo ymmärtää selaamalla pelkästään sivun otsikot.
+          learn_more_about_html: Lisätietoja aiheesta %{link}
           links_and_buttons: Linkit ja painikkeet
           links_and_buttons_paragraph: Ankkurielementit (eli linkit) on tarkoitettu linkittämään eri sivuille tai saman sivun eri osioihin. Mikäli elementin on tarkoitus avata esimerkiksi piilotettua sisältöä samalla sivulla muuttamatta sivun kontekstia, toteutuksessa tulisi käyttää <button>-elementtiä ankkurin sijaan.
           unique_h1: Yksilölliset H1-tason otsikot
@@ -104,6 +106,7 @@ fi-pl:
           use_aria: Hyödynnä ARIA-attribuutteja
           use_aria_header: Hyödynnä ARIA-attribuutteja mahdollisuuksien mukaan
           use_aria_paragraph: Monet dynaamisia toimintoja tarjoavat elementit tarvitsevat ARIA-attribuuttimäärityksiä toimiakseen saavutettavasti ja ollakseen yhteensopivia avustavien teknologioiden kanssa.
+          wcag_guidelines: Verkkosisällön saavutettavuusohjeita (WCAG)
         color:
           color_header: Värit
           description_p1: Tarjoamme oletusväripaletin muutamilla esimääritetyillä väreillä, jotta värimaailman muuttaminen olisi helppoa. Voit muokata väripalettia joko hallintapaneelista tai muuttamalla Tailwind-asetustiedostoa, mikäli haluat muokata useampia asioita.
