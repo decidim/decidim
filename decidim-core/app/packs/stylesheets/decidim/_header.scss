@@ -81,7 +81,7 @@ header {
       }
 
       button[type="submit"] {
-        @apply absolute ltr:left-4 rtl:right-4 inset-y-2;
+        @apply absolute ltr:left-4 rtl:right-4 inset-y-0 text-secondary px-2;
 
         svg {
           @apply fill-gray-8;
