@@ -75,9 +75,10 @@ describe "Admin manages officializations" do
       end
     end
 
-    it "cannot be officialized" do
+    it "has no user link" do
       within "tr[data-user-id=\"#{user.id}\"]" do
-        expect(page).to have_no_link("Officialize")
+        expect(page).to have_content(user.name)
+        expect(page).to have_no_link(user.name)
       end
     end
   end
