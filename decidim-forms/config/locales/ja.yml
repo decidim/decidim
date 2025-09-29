@@ -42,8 +42,6 @@ ja:
           components:
             allow_editing_responses: 登録ユーザーが自分のアンケート応答を編集できるようにする
             allow_responses: 応答を許可
-            allow_unregistered: 未登録ユーザーがアンケートに応答できるようにする
-            allow_unregistered_help: 有効にした場合、アンケートへの回答にログインは必要ありません。 これは、データが貧弱または信頼性が低下する可能性があり、自動化された攻撃に対してより脆弱になります。 注意して使用してください。参加者は、異なるブラウザまたは彼女のWebブラウザの「プライベートブラウジング」機能を使用することで、同じアンケートに複数回応答できることに留意してください。
             announcement: お知らせ
             clean_after_publish: アンケートを公開するときに回答を削除する
             description: 説明
