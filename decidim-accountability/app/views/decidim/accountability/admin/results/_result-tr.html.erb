@@ -18,7 +18,7 @@
     <% end %>
   </td>
   <td data-label="<%= t("models.result.fields.progress", scope: "decidim.accountability") %>">
-    <%= result.progress&.to_i %>
+    <%= result.progress.nil? ? 0 : result.progress&.to_i %>%
   </td>
   <td data-label="<%= t("models.result.fields.created_at", scope: "decidim.accountability") %>">
     <%= l result.created_at, format: :decidim_short %>
