@@ -4,7 +4,6 @@
 <% append_stylesheet_pack_tag "decidim_elections_admin" %>
 
 <%= render "decidim/elections/admin/elections/tabs_menu" do %>
-  <%= button_tag t("save", scope: "decidim.elections.admin.elections.form"), class: "main-tabs-menu__cta-button", form: "basic-election-form-edit" %>
 <% end %>
 
 <div class="item__edit item__edit-1col">
@@ -13,4 +12,10 @@
       <%= render partial: "form", object: f %>
     <% end %>
   </div>
+
+  <div class="item__edit-sticky">
+      <div class="item__edit-sticky-container">
+        <%= button_tag t("save", scope: "decidim.elections.admin.elections.form"), class: "main-tabs-menu__cta-button", form: "basic-election-form-edit" %>
+      </div>
+    </div>
 </div>
