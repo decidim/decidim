@@ -224,6 +224,24 @@ describe "Homepage" do
                 href: "/pages/#{static_page_topic2_page2.slug}"
               )
             end
+
+            context "with an admin user" do
+              let(:user) { create(:user, :admin, :confirmed, organization:) }
+
+              before do
+                login_as user, scope: :user if user
+              end
+
+              describe "the edit button" do
+                let(:edit_path) { decidim_admin.edit_organization_homepage_path }
+
+                it "shows the admin bar with the Edit button" do
+                  within "#admin-bar" do
+                    expect(page).to have_link("Edit", href: edit_path)
+                  end
+                end
+              end
+            end
           end
         end
       end
