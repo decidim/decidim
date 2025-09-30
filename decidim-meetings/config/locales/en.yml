@@ -385,7 +385,9 @@ en:
             select_an_iframe_access_level: Please select an iframe access level
           index:
             linked_meeting_warning_html: This meeting must be edited from <br><a href="%{href}">%{name}</a>
+            published: Published
             title: Meetings
+            unpublished: Unpublished
           linked_spaces:
             assign: Assign
             link_a_space: Link a space
@@ -678,6 +680,7 @@ en:
             id: ID
             map: Map
             official_meeting: Official meeting
+            published: Published
             start_time: Start date
             taxonomies: Taxonomies
             title: Title
