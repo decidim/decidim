@@ -286,6 +286,7 @@ ca:
         agenda: Ordre del dia
         close: Tancar
         confirm_delete_meeting: Segur que vols suprimir aquesta trobada?
+        confirm_unpublish_meeting: Segur que vols despublicar aquesta trobada?
         deleted_meetings_info: Les trobades eliminades es poden restaurar des de la paperera.
         edit: Edita
         invalid_destroy:
