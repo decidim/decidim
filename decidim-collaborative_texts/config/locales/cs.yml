@@ -16,11 +16,15 @@ cs:
           draft: Koncept
           version_number: Číslo verze
   decidim:
+    admin:
+      tooltips:
+        deleted_collaborative_texts_info: Tento dokument nelze odstranit
     collaborative_texts:
       actions:
         confirm_delete_document: Opravdu chcete odstranit tento dokument?
         deleted_document_info: Odstraněný dokument může být obnoven z koše.
         edit: Upravit
+        manage: Konfigurace
         new: Nový text
         title: Akce
         view_deleted_documents: Zobrazit odstraněné dokumenty
