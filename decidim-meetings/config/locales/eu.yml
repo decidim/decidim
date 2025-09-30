@@ -286,6 +286,7 @@ eu:
         agenda: Agenda
         close: Itxi
         confirm_delete_meeting: Ziur zaude topaketa hau ezabatu nahi duzula?
+        confirm_unpublish_meeting: Ziur zaude topaketa hau despublikatu nahi duzula?
         deleted_meetings_info: Ezabatutako topaketak zaborretik berreskura daitezke.
         edit: Editatu
         invalid_destroy:
