@@ -71,6 +71,30 @@ module Decidim
             expect(html).to include("Ongoing")
             expect(html).to include("ongoing label")
           end
+
+          it "renders unpublished status with correct CSS class" do
+            allow(election).to receive(:status).and_return(:unpublished)
+            html = helper.election_status_with_label(election)
+
+            expect(html).to include("Unpublished")
+            expect(html).to include("alert unpublished label")
+          end
+
+          it "renders scheduled status with correct CSS class" do
+            allow(election).to receive(:status).and_return(:scheduled)
+            html = helper.election_status_with_label(election)
+
+            expect(html).to include("Scheduled")
+            expect(html).to include("warning scheduled label")
+          end
+
+          it "renders finished status with correct CSS class" do
+            allow(election).to receive(:status).and_return(:finished)
+            html = helper.election_status_with_label(election)
+
+            expect(html).to include("Finished")
+            expect(html).to include("success finished label")
+          end
         end
 
         describe "#enable_question_voting_button" do

@@ -38,7 +38,7 @@ module Decidim
 
           content_tag(:span,
                       I18n.t("decidim.elections.status.#{election.status}"),
-                      class: "#{css_class} label")
+                      class: "#{css_class} #{election.status} label")
         end
 
         def election_status_action_data(election)
