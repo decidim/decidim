@@ -25,9 +25,20 @@ module Decidim
         end
 
         def election_status_with_label(election)
+          css_class = case election.status
+                      when :scheduled
+                        "warning"
+                      when :unpublished
+                        "alert"
+                      when :finished
+                        "success"
+                      else
+                        ""
+                      end
+
           content_tag(:span,
                       I18n.t("decidim.elections.status.#{election.status}"),
-                      class: "#{election.status} label")
+                      class: "#{css_class} label")
         end
 
         def election_status_action_data(election)
