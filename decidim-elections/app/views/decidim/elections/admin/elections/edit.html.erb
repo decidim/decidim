@@ -3,6 +3,12 @@
 <% append_javascript_pack_tag "decidim_elections_admin" %>
 <% append_stylesheet_pack_tag "decidim_elections_admin" %>
 
+<div class="item_show__header" style="border-bottom: none;">
+    <h1 class="item_show__header-title">
+      <%= t(".title") %>
+    </h1>
+</div>
+
 <%= render "decidim/elections/admin/elections/tabs_menu" %>
 
 <div class="item__edit item__edit-1col">
