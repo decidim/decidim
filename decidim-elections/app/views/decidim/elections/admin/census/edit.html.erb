@@ -20,7 +20,7 @@
    %>
     <%= cell "decidim/announcement", "#{census_ready}<br>#{census_count}", callout_class: "success" %>
    <% end %>
-<div class="card-section census-form form-defaults">
+<div class="card-section census-form form-defaults 2xl:mr-80">
   <% if @form && election.census&.admin_form_partial %>
     <%= decidim_form_for(@form, url: election_census_path(election, manifest: election.census&.name), method: :patch, multipart: true, html: { id: "census-election-form" }) do |f| %>
       <%= render partial: election.census.admin_form_partial, locals: { form: f } %>
