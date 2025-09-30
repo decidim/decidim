@@ -285,6 +285,7 @@ fi:
         agenda: Esityslista
         close: Sulje
         confirm_delete_meeting: Haluatko varmasti poistaa tämän tapaamisen?
+        confirm_unpublish_meeting: Haluatko varmasti perua tämän tapaamisen julkaisun?
         deleted_meetings_info: Poistetut tapaamiset voidaan palauttaa roskakorista.
         edit: Muokkaa
         invalid_destroy:
