@@ -1,9 +1,5 @@
 <%= append_javascript_pack_tag "decidim_elections_admin" %>
 
-<%= render "decidim/elections/admin/elections/tabs_menu" do %>
-  <%= button_tag t("save", scope: "decidim.elections.admin.elections.form"), class: "main-tabs-menu__cta-button #{"hide" unless election.census}", form: "census-election-form" %>
-<% end %>
-
 <div class="item_show__header form-defaults">
   <h1 class="item_show__header-title">
     <%= t(".title") %>
@@ -14,6 +10,9 @@
                  id: "census-manifest-selector" %>
 
 </div>
+
+<%= render "decidim/elections/admin/elections/tabs_menu" %>
+
   <% if election.census_ready? %>
    <%
     census_ready = t("decidim.elections.censuses.census_ready_html", election_title: decidim_sanitize_translated(election.title))
@@ -29,5 +28,11 @@
   <% end %>
   <div class="border-t border-gray-3 my-4">
     <%= render partial: "decidim/elections/admin/census/preview", locals: { election: } if preview_users(election).present? %>
+  </div>
+</div>
+
+<div class="item__edit-sticky">
+  <div class="item__edit-sticky-container">
+    <%= button_tag t("save", scope: "decidim.elections.admin.elections.form"), class: "button button__sm button__secondary #{"hide" unless election.census}", form: "census-election-form" %>
   </div>
 </div>
