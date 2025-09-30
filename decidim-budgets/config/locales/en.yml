@@ -339,6 +339,7 @@ en:
       budgets:
         actions:
           comment: Comment
+          vote_comment: Vote comment
           vote: Vote
         name: Budgets
         settings:

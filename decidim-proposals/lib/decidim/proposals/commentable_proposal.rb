@@ -25,11 +25,6 @@ module Decidim
           followers
         end
 
-        def user_allowed_to_vote_comment?(user)
-          return unless can_participate_in_space?(user)
-
-          ActionAuthorizer.new(user, "vote_comment", component, self).authorize.ok?
-        end
       end
     end
   end
