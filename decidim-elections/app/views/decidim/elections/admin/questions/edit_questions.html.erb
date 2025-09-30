@@ -16,13 +16,14 @@
 
   <div class="grid-cols-1 2xl:mr-80">
     <div class="item__edit-form">
-    <%= decidim_form_for(@form, url: update_url, method: :put, html: { id: "questions-election-form", class: "form-defaults form edit_questions" }) do |form| %>
-      <%= render partial: "decidim/elections/admin/questions/form", object: form %>
-    <% end %>
+      <%= decidim_form_for(@form, url: update_url, method: :put, html: { id: "questions-election-form", class: "form-defaults form edit_questions" }) do |form| %>
+        <%= render partial: "decidim/elections/admin/questions/form", object: form %>
+      <% end %>
 
-    <div class="item__edit-sticky">
-      <div class="item__edit-sticky-container">
-        <%= button_tag t("save", scope: "decidim.elections.admin.elections.form"), class: "button button__sm button__secondary", form: "questions-election-form" %>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= button_tag t("save", scope: "decidim.elections.admin.elections.form"), class: "button button__sm button__secondary", form: "questions-election-form" %>
+        </div>
       </div>
     </div>
   </div>
