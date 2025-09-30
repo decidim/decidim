@@ -1032,6 +1032,8 @@ cs:
       title: Jaké jsou odznaky?
     group_admins:
       actions:
+        confirm_modal:
+          ok_add: Přidat administrátora
         demote_admin: Odstranit admin
       demote:
         error: Při odebrání tohoto účastníka ze seznamu administrátorů došlo k chybě.
@@ -1061,6 +1063,9 @@ cs:
         error: Při přijímání této žádosti o připojení došlo k chybě.
         success: Žádost o připojení byla úspěšně přijata.
       actions:
+        confirm_modal:
+          ok_remove: Odebrat člena
+          title_remove: Odebrat člena
         promote_to_admin: Udělat adminem
         remove_from_group: Odstranit uživatele
       index:
