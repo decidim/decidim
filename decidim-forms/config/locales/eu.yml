@@ -42,6 +42,8 @@ eu:
           components:
             allow_editing_responses: Eman aukera erregistratutako parte-hartzaileei inkestako erantzunak editatzeko
             allow_responses: Baimendu erantzunak
+            allow_unregistered: Ahalbidetu erregistratu gabeko erabiltzaileek inkestari erantzun diezaioten
+            allow_unregistered_help: Aktibatuta badago, ez da beharrezkoa saioa hastea inkesta erantzuteko. Horrek datu txarrak edo fidagarriak ez direnak ekar ditzake, eta eraso automatizatuen aurrean ahulagoa izango da. Kontuz ibili! Kontuan izan parte-hartzaile batek inkesta berari hainbat aldiz erantzun ahal izango liokeela, hainbat nabigatzaile erabiliz edo bere web nabigatzailearen "nabigazio pribatua" ezaugarria erabiliz.
             announcement: Oharra
             clean_after_publish: Ezabatu erantzunak inkesta argitaratzean
             description: Deskribapena
