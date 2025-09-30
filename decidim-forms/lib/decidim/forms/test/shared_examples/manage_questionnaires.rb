@@ -116,4 +116,9 @@ shared_examples_for "manage questionnaires" do
     visit questionnaire_edit_path
     expand_all_questions
   end
+
+  def visit_manage_questions_and_expand_all
+    visit questionnaire_edit_path
+    expand_all_questions
+  end
 end
