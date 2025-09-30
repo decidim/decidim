@@ -10,12 +10,12 @@
   </td>
   <td data-label="<%= t("models.meeting.fields.start_time", scope: "decidim.meetings") %>">
     <% if meeting.start_time %>
-      <%= l meeting.start_time, format: :long %>
+      <%= l meeting.start_time, format: :decidim_short %>
     <% end %>
   </td>
   <td data-label="<%= t("models.meeting.fields.end_time", scope: "decidim.meetings") %>">
     <% if meeting.end_time %>
-      <%= l meeting.end_time, format: :long %>
+      <%= l meeting.end_time, format: :decidim_short %>
     <% end %>
   </td>
   <td data-label="<%= t("models.meeting.fields.closed", scope: "decidim.meetings") %>">

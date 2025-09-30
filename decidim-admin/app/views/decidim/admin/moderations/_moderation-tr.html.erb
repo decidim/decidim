@@ -33,7 +33,7 @@
   </td>
 
   <td data-label="<%= t("models.moderation.fields.created_at", scope: "decidim.moderations") %>">
-    <%= l moderation.created_at, format: :long %>
+    <%= l moderation.created_at, format: :decidim_short %>
   </td>
 
   <td data-label="<%= t("models.moderation.fields.report_count", scope: "decidim.moderations") %>">
@@ -42,7 +42,7 @@
 
   <% if params[:hidden] %>
     <td data-label="<%= t("models.moderation.fields.hidden_at", scope: "decidim.moderations") %>">
-      <%= l(moderation.hidden_at, format: :long) if moderation.hidden_at.present? %>
+      <%= l(moderation.hidden_at, format: :decidim_short) if moderation.hidden_at.present? %>
     </td>
   <% end %>
 
