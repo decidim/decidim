@@ -286,6 +286,7 @@ es:
         agenda: Orden del día
         close: Cerrar
         confirm_delete_meeting: '¿Seguro que quiere eliminar este encuentro?'
+        confirm_unpublish_meeting: '¿Seguro que quieres despublicar este encuentro?'
         deleted_meetings_info: Los encuentros eliminados se pueden restaurar desde papelera.
         edit: Editar
         invalid_destroy:
