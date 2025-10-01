@@ -146,7 +146,7 @@ describe "Admin manages surveys" do
 
               within "tr", text: decidim_sanitize_translated(survey.title) do
                 find("button[data-controller='dropdown']").click
-                click_on "Unpublish"
+                accept_confirm { click_on "Unpublish" }
               end
 
               within "tr", text: decidim_sanitize_translated(survey.title) do
