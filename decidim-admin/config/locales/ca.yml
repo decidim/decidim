@@ -817,7 +817,7 @@ ca:
           unblock: Desbloquejar usuària
           unofficialize: Des-oficialitzar
         new:
-          badge: Insígnia d'oficialització
+          badge: Ensenya d'oficialització
           officialize: Oficialitza
           title: Oficialitza la participant "%{name}"
         show_email_modal:
