@@ -39,7 +39,7 @@ Decidim.register_component(:meetings) do |component|
   component.register_stat :admin_meetings_count,
                           primary: true,
                           admin: false do |components, start_at, end_at|
-    meetings = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at).not_withdrawn
+    meetings = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at)
     meetings.count
   end
 
