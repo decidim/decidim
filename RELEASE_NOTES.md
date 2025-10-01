@@ -41,6 +41,12 @@ bin/rails db:migrate
 
 ## 2. General notes
 
+### 2.1. Old private exports are now expired
+
+Due to some data consistency issues with the private exports, we have decided to expire all the previously generated files. Users are able to request and receive a new private export file.
+
+You can read more about this change on PR [#15020](https://github.com/decidim/decidim/pull/15020).
+
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.
