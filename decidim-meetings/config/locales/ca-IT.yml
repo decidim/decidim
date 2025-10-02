@@ -254,7 +254,7 @@ ca-IT:
         attended_meetings:
           conditions:
           - Inscriu-te a les trobades a les que vols assistir
-          description: Aquest distintiu s'aconsegueix assistint a diverses reunions presencials.
+          description: Aquesta ensenya s'aconsegueix assistint a diverses reunions presencials.
           description_another: Aquesta participant ha assistit a %{score} trobades.
           description_own: Has assistit a %{score} trobades.
           name: Trobades a les que has assistit
