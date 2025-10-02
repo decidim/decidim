@@ -376,6 +376,7 @@ cs:
             select_an_iframe_access_level: Vyberte prosím úroveň přístupu iframe
           index:
             linked_meeting_warning_html: Tato schůzka musí být upravena od <br><a href="%{href}">%{name}</a>
+            published: Publikováno
             title: Setkání
           linked_spaces:
             assign: Přiřadit
