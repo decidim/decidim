@@ -151,6 +151,7 @@ PATH
       rubocop-rspec (~> 3.0, >= 3.6.0)
       rubocop-rspec_rails (~> 2.31.0)
       rubocop-rubycw (~> 0.2.0)
+      rubocop-yard (~> 1.0.0)
       selenium-webdriver (~> 4.9)
       simplecov (~> 0.22.0)
       simplecov-cobertura (~> 2.1.0)
@@ -797,6 +798,10 @@ GEM
     rubocop-rubycw (0.2.2)
       lint_roller (~> 1.1)
       rubocop (~> 1.72, >= 1.72.1)
+    rubocop-yard (1.0.0)
+      lint_roller
+      rubocop (~> 1.72)
+      yard
     ruby-progressbar (1.13.0)
     ruby-vips (2.2.4)
       ffi (~> 1.12)
@@ -897,6 +902,7 @@ GEM
     wisper-rspec (1.1.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
+    yard (0.9.37)
     zeitwerk (2.7.3)
 
 PLATFORMS
