@@ -335,7 +335,7 @@ ca-IT:
           conditions:
             - Tria l'espai de participació del teu interès amb la creació de propostes activada
             - Intenta fer propostes que es puguin dur a terme. D'aquesta manera és més probable que s'acceptin.
-          description: Aquest distintiu es concedeix quan participes activament amb noves propostes i aquestes són acceptades.
+          description: Aquesta ensenya es concedeix quan participes activament amb noves propostes i aquestes són acceptades.
           description_another: Aquesta participant ha aconseguit %{score} propostes acceptades.
           description_own: '%{score} de les teves propostes han estat acceptades.'
           name: Propostes acceptades
@@ -357,7 +357,7 @@ ca-IT:
           conditions:
             - Tria un espai de participació amb la creació de propostes habilitada que sigui del teu interès
             - Crea una proposta nova
-          description: Aquest distintiu es concedeix quan participes activament amb noves propostes.
+          description: Aquesta ensenya es concedeix quan participes activament amb noves propostes.
           description_another: Aquesta participant ha creat %{score} propostes.
           description_own: Has creat %{score} propostes.
           name: Propostes
