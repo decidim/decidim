@@ -1246,6 +1246,7 @@ ja:
         main_image: メイン画像
     newsletters:
       unsubscribe:
+        check_subscription_html: 配信を再開したい場合は、<a href="%{link}" target="_blank">設定ページ</a>からいつでもサブスクリプションを再開できます。
         error: 購読解除中に問題が発生しました。
         subscription_preferences: サブスクリプションの設定を更新しました。 %{organization_name} からニュースレターを受け取ることはできなくなりました。
         success: 購読解除に成功しました。

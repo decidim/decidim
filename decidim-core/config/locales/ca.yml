@@ -971,7 +971,7 @@ ca:
         email_intro: '%{liker_name} %{liker_nickname}, a qui segueixes, li acaba d''agradar: "%{resource_title}", que et pot resultar interessant, revisa-la i contribueix:'
         email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{liker_nickname}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
         email_subject: "%{liker_nickname} ha realitzat un nou \"m'agrada\""
-        notification_title: '"<a href="%{resource_path}">%{resource_type} </a> %{resource_type}" li ha agradat a <a href="%{liker_path}">%{liker_nickname}</a>.'
+        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} li ha agradat a <a href="%{liker_path}">%{liker_name} %{liker_nickname}</a>.
       resources:
         soft_deleted:
           notification_title: 'Una administradora ha eliminado tu %{resource_type}: "%{resource_title}".'
@@ -1505,7 +1505,7 @@ ca:
     participants_account_mailer:
       inactivity_notification:
         body_html: |
-          <p>Els nostres registres indiquen que vas crear un compte %{organization_name} a <strong>%{date_account_creation}</strong> que no ha estat actiu des de <strong>%{date_last_connection</strong></p>}.
+          <p>Els nostres registres indiquen que vas crear un compte %{organization_name} a <strong>%{date_account_creation}</strong> que no ha estat actiu des de <strong>%{date_last_connection}</strong></p>.
           <p>Per protegir la teva privacitat, l'eliminació automàtica d'aquest compte s'ha programat en <strong>%{days} dies</strong>.</p>
           <p>Si vols conservar el teu compte %{organization_name}, simplement inicia sessió %{login_url} abans d'aquest termini, i el teu compte es conservarà.<p>
         greetings_html: |

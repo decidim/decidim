@@ -41,8 +41,13 @@ ja:
       admin:
         census:
           edit:
+            choose_census: この選挙に使用したいセンサスの種類を選択してください
             created_at: 作成日時
             identifier: ユーザーID
+            title: センサスの種類
+          preview:
+            title:
+              other: プレビューリストは %{count} レコードに制限されています。
           update:
             error: センサスの作成または保存中にエラーが発生しました。
             success: センサスを更新しました。
@@ -51,6 +56,7 @@ ja:
             end_at: '終了日時：'
             end_election: 選挙を終了
             manual_start: マニュアル
+            published_results_at: 結果の発行日時
             start_at: '開始日時：'
             start_election: 選挙を開始
             title: カレンダー
@@ -74,6 +80,8 @@ ja:
             answer: 回答
             percentage: パーセンテージ
             votes: 投票
+            votes_count:
+              other: "%{count} 票"
           results:
             not_started: 選挙はまだ始まっていません。
             per_question_waiting: 質問に対する投票はまだ有効になっていません。少なくとも一つは有効になるまで「次の質問を待っています」というメッセージが表示されます。
@@ -85,6 +93,11 @@ ja:
             start_question_button: 投票を有効化
             title: 結果
           status:
+            census: 'センサス：'
+            results_availability:
+              after_end: 選挙終了後に利用可能な結果
+              per_question: 質問ごとに利用可能な結果
+              real_time: リアルタイムで利用可能な結果
             title: 選挙状況
         elections:
           create:
