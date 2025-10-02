@@ -38,6 +38,17 @@ module Decidim
     end
 
     class UnregisteredVerificationManifest < StandardError
+      def initialize(name:)
+        msg = <<~MSG.squish
+          The verification workflow manifest `#{name}` is not defined. Please
+          verify your verification configuration and check your initializers to
+          ensure that the workflow is configured. Note that in some occasions a
+          successful configuration may require configuring some environment
+          variables.
+        MSG
+
+        super(msg)
+      end
     end
 
     #
@@ -54,7 +65,7 @@ module Decidim
       def self.from_element(element)
         manifest = Verifications.find_workflow_manifest(element)
 
-        raise UnregisteredVerificationManifest unless manifest
+        raise UnregisteredVerificationManifest.new(name: element) unless manifest
 
         new(manifest)
       end

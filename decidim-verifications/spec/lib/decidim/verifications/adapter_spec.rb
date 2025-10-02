@@ -29,6 +29,17 @@ describe Decidim::Verifications::Adapter do
         expect(wrapper.renew_path).to eq("/dummy_authorization_workflow/renew_authorization")
       end
     end
+
+    context "with an unexisting verification workflow name" do
+      let(:wrapper) { described_class.from_element("unexisting_foobar") }
+
+      it "throws an exception" do
+        expect { wrapper }.to raise_error(
+          Decidim::Verifications::UnregisteredVerificationManifest,
+          /`unexisting_foobar`/
+        )
+      end
+    end
   end
 
   describe ".from_collection", with_authorization_workflows: %w(dummy_authorization_handler dummy_authorization_workflow) do
