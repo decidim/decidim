@@ -74,6 +74,9 @@ sv:
           update_settings:
             invalid: Det gick inte att uppdatera dokumentet.
             success: Dokumentet har uppdaterats.
+        index:
+          published: Publicerad
+          unpublished: Opublicerad
       admin_log:
         document:
           create: "%{user_name} Skapade samarbetsprojektet %{resource_name} i %{space_name}"
@@ -97,6 +100,7 @@ sv:
       models:
         collaborative_text:
           fields:
+            published: Publicerad
             suggestions: Acceptera förslag
             title: Titel
     components:
