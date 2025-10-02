@@ -2124,6 +2124,7 @@ cs:
         social_media: Sociální sítě
         terms_of_service: Podmínky služby
       header:
+        back: Zpět
         close: Zavřít‏
         confirm_close_ephemeral_session: Pokud odejdete, vaše dočasná relace bude ukončena. Nicméně veškerý váš pokrok a aktivita budou uloženy. Pokud jste svou aktivitu dokončili, klikněte na tlačítko Ok.
         confirm_title_close_ephemeral_session: Před opuštěním této stránky…
@@ -2176,6 +2177,11 @@ cs:
   locale:
     name: Čeština
     name_with_error: Čeština (chyba!)
+  number:
+    currency:
+      format:
+        format: "%u %n"
+        format_html: "<span>%u</span> %n"
   password_validator:
     denied: je odepřen
     domain_included_in_password: je příliš podobné tomuto názvu domény
