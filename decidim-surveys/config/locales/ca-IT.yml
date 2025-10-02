@@ -15,6 +15,7 @@ ca-IT:
   decidim:
     admin:
       actions:
+        confirm_unpublish_survey: Segur que vols despublicar aquesta enquesta?
         see_survey: Veure enquesta
       admin_log:
         changeset:
@@ -129,10 +130,14 @@ ca-IT:
       models:
         survey:
           fields:
+            published: Publicada
             questions: Preguntes
             responses: Respostes
             status: Estat
             title: Títol
+          published:
+            published: Publicada
+            unpublished: Despublicada
           status:
             closed: Tancada
             open: Oberta
