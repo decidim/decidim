@@ -30,10 +30,6 @@ module Decidim
                       class: "#{election.status} label")
         end
 
-        def formatted_datetime(datetime)
-          l(datetime, format: :short_with_time)
-        end
-
         def election_status_action_data(election)
           if election.scheduled? && election.manual_start?
             {
@@ -72,7 +68,7 @@ module Decidim
 
           if question.published_results?
             return content_tag(:div, class: "status-label") do
-              content_tag(:span, t("decidim.elections.status.results_published"), class: "label success")
+              content_tag(:span, t("decidim.elections.status.published_results"), class: "label success")
             end
           end
 

@@ -156,6 +156,7 @@ cs:
           created_at: Datum, kdy byl příspěvek vytvořen
           follows_count: Počet sledujících tohoto příspěvku
           id: Jedinečný identifikátor tohoto příspěvku
+          likes_count: Počet líbí se mi pro tento příspevek
           participatory_space: Do kterého prostoru (např. účastnický proces nebo Shromáždění) patří tento příspěvek
           published_at: Datum zveřejnění tohoto příspěvku
           title: Název příspěvku

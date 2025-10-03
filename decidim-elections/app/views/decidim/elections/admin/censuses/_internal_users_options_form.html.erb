@@ -2,6 +2,8 @@
   handler_name = local_assigns[:handler_name]
   schema = form.object.options_schema(handler_name)
   attributes = form.object.options_attributes(handler_name)
+  # this variable is send as a context in the settings_attribute_input helper
+  @component = current_component
 %>
 
 <%= form.fields_for(:authorization_handlers_options) do |options_form| %>

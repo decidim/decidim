@@ -4,9 +4,6 @@ hu:
       participatory_process:
         announcement: Közlemény
         area_id: Terület
-        copy_categories: Kategóriák másolása
-        copy_components: Elemek másolása
-        copy_steps: Lépések másolása
         decidim_area_id: Terület
         description: Leírás
         developer_group: Kezdeményező csoport
@@ -140,11 +137,6 @@ hu:
           fields:
             invitation_accepted_at: Meghívó elfogadva
             invitation_sent_at: Meghívó elküldve
-      participatory_process_copies:
-        new:
-          copy: Másolás
-          select: Válaszd ki, mely adatokat szeretnéd duplikálni
-          title: Részvételi folyamat duplikálása
       participatory_process_groups:
         destroy:
           success: Részvételi folyamat csoport törlése sikeres.
@@ -232,10 +224,6 @@ hu:
         update:
           error: Hiba történt a részvételi folyamat frissítése során.
           success: Részvételi folyamat frissítése sikeres.
-      participatory_processes_copies:
-        create:
-          error: Hiba történt a részvételi folyamat duplikációja során.
-          success: Részvételi folyamat duplikálása sikeres.
       participatory_processes_group:
         create:
           error: Hiba történt egy új részvételi folyamat csoport létrehozása során.

@@ -43,7 +43,7 @@ shared_examples "proposals wizards" do |options|
 
       context "when the back button is clicked" do
         before do
-          click_on "Back"
+          click_on "Back to proposals"
         end
 
         it "redirects to proposals_path" do

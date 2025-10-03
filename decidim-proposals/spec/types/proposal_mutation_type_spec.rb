@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test"
+require "decidim/api/test/mutation_context"
 
 module Decidim
   module Proposals
@@ -13,77 +13,72 @@ module Decidim
       let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
       let(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
       let!(:model) { create(:proposal, component: proposal_component) }
-
-      describe "#answer" do
-        let(:state) { %w(accepted evaluating rejected).sample }
-        let(:answer_content) { Decidim::Faker::Localized.sentence(word_count: 3) }
-        let(:proposal_answering_enabled) { false }
-        let(:proposal_answers_with_costs?) { false }
-        let(:cost_report) { Decidim::Faker::Localized.sentence(word_count: 3) }
-        let(:component) { model.component }
-        let(:execution_period) { Decidim::Faker::Localized.sentence(word_count: 3) }
-        let(:cost) { 123_4 }
-        let(:variables) do
-          {
-            input: {
-              attributes: {
-                state: state,
-                answerContent: answer_content,
-                cost: cost,
-                costReport: cost_report,
-                executionPeriod: execution_period
-              }
+      let(:state) { %w(accepted evaluating rejected).sample }
+      let(:answer_content) { Decidim::Faker::Localized.sentence(word_count: 3) }
+      let(:proposal_answering_enabled) { false }
+      let(:proposal_answers_with_costs?) { false }
+      let(:cost_report) { Decidim::Faker::Localized.sentence(word_count: 3) }
+      let(:component) { model.component }
+      let(:execution_period) { Decidim::Faker::Localized.sentence(word_count: 3) }
+      let(:cost) { 123_4 }
+      let(:variables) do
+        {
+          input: {
+            attributes: {
+              state: state,
+              answerContent: answer_content,
+              cost: cost,
+              costReport: cost_report,
+              executionPeriod: execution_period
             }
           }
-        end
-        let(:query) do
-          <<~GRAPHQL
-            mutation($input: AnswerInput!) {
-              answer(input: $input) {
-                id
-                answer { translation(locale: "en") }
-                state
-                cost
-                costReport { translation(locale: "en") }
-                executionPeriod { translation(locale: "en") }
-                answeredAt
-              }
+        }
+      end
+      let(:query) do
+        <<~GRAPHQL
+          mutation($input: AnswerInput!) {
+            answer(input: $input) {
+              id
+              answer { translation(locale: "en") }
+              state
+              cost
+              costReport { translation(locale: "en") }
+              executionPeriod { translation(locale: "en") }
+              answeredAt
             }
-          GRAPHQL
-        end
+          }
+        GRAPHQL
+      end
 
-        before do
-          component.update!(
-            settings: { proposal_answering_enabled: proposal_answering_enabled },
-            step_settings: {
-              component.participatory_space.active_step.id => {
-                proposal_answering_enabled: proposal_answering_enabled,
-                answers_with_costs: proposal_answers_with_costs?
-              }
+      before do
+        component.update!(
+          settings: { proposal_answering_enabled: proposal_answering_enabled },
+          step_settings: {
+            component.participatory_space.active_step.id => {
+              proposal_answering_enabled: proposal_answering_enabled,
+              answers_with_costs: proposal_answers_with_costs?
             }
-          )
-        end
+          }
+        )
+      end
 
-        context "with admin user" do
-          it_behaves_like "manage proposal mutation examples" do
-            let!(:user_type) { :admin }
-          end
-        end
-
-        context "with normal user" do
-          it "returns nil" do
-            expect(response["answer"]).to be_nil
-          end
-        end
-
-        context "with api_user" do
-          it_behaves_like "manage proposal mutation examples" do
-            let!(:user_type) { :api_user }
-          end
+      context "with admin user" do
+        it_behaves_like "manage proposal mutation examples" do
+          let!(:user_type) { :admin }
         end
       end
 
-      it_behaves_like "attachable mutations", supports_collection: false
+      context "with normal user" do
+        it "returns nil" do
+          expect(response["answer"]).to be_nil
+        end
+      end
+
+      context "with api_user" do
+        it_behaves_like "manage proposal mutation examples" do
+          let!(:user_type) { :api_user }
+        end
+      end
     end
   end
 end

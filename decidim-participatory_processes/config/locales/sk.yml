@@ -4,9 +4,6 @@ sk:
       participatory_process:
         announcement: Oznámenie
         area_id: Plocha
-        copy_categories: Kopírovať kategórie
-        copy_components: Kopírovanie komponentov
-        copy_steps: Kopírovanie krokov
         decidim_area_id: Plocha
         description: Popis
         developer_group: Skupina promotérov
@@ -121,11 +118,6 @@ sk:
           fields:
             invitation_accepted_at: Pozvánka bola prijatá na
             invitation_sent_at: Pozvánka odoslaná na
-      participatory_process_copies:
-        new:
-          copy: kopírovať
-          select: Vyberte, ktoré dáta chcete duplikovať
-          title: Duplicitné participačné proces
       participatory_process_groups:
         destroy:
           success: Zúčastňujú skupina procesov bola úspešne zmazaná.
@@ -210,10 +202,6 @@ sk:
         update:
           error: Pri aktualizácii tohto participatívneho procesu došlo k chybe.
           success: Participatívne proces bol úspešne aktualizovaný.
-      participatory_processes_copies:
-        create:
-          error: Pri kopírovaní tohto participatívneho procesu došlo k chybe.
-          success: Účastníci proces bol úspešne zdvojený.
       participatory_processes_group:
         create:
           error: Došlo k chybe pri vytváraní novej skupiny účastníckych procesov.

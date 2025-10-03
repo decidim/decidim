@@ -101,6 +101,8 @@ fi-pl:
             title: Muokkaa kyselyä
           index:
             title: Kyselyt
+          new:
+            title: Uusi kysely
           publish:
             invalid: Kyselyn julkaisu epäonnistui.
             success: Kyselyn julkaisu onnistui.

@@ -80,6 +80,7 @@ module Decidim
           registration_terms: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,
+          send_reminders_before_hours: 48,
           published_at: ::Faker::Boolean.boolean(true_ratio: 0.8) ? Time.current : nil
         }
 

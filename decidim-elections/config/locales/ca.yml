@@ -34,7 +34,9 @@ ca:
         deleted_election_info: 'Les eleccions eliminades no es mostren al llistat. Les pots veure fent clic al botó: "Veure les eleccions eliminades" que trobaràs més avall.'
         edit: Editar l'elecció
         new: Nova elecció
+        preview: Previsualitzar
         title: Accions
+        view: Veure elecció
         view_deleted_elections: Veure les eleccions eliminades
       admin:
         census:
@@ -45,8 +47,8 @@ ca:
             title: Tipus de cens
           preview:
             title:
-              one: 'Vista prèvia d''usuàries (el llistat està limitat a %{count} registre):'
-              other: 'Vista prèvia d''usuàries (el llistat està limitat a %{count} registres):'
+              one: La vista prèvia de la llista està limitada a %{count} registre.
+              other: La vista prèvia de la llista està limitada a %{count} registres.
           update:
             error: S'ha produït un error en generar o desar el cens.
             success: Cens actualitzat correctament.
@@ -55,6 +57,7 @@ ca:
             end_at: 'Dia i hora de finalització:'
             end_election: Finalitzar l'elecció
             manual_start: Manual
+            published_results_at: Resultats publicats el
             start_at: 'Dia i hora d''inici:'
             start_election: Iniciar l'elecció
             title: Calendari
@@ -72,13 +75,15 @@ ca:
           questions:
             labels:
               answers: Respostes
-              question_title: Pregunta %{number}
             limit_info: Aquesta elecció té més preguntes. La previsualització està limitada a 3 preguntes.
             title: Preguntes
           questions_table:
             answer: Respostes
             percentage: Percentatge
             votes: Vots
+            votes_count:
+              one: 1 vot
+              other: "%{count} vots"
           results:
             not_started: L'elecció encara no ha començat.
             per_question_waiting: L'elecció encara no està habilitada per a cap pregunta. Les participants veuran un missatge "Esperant la pregunta següent" fins que s'activi almenys una pregunta.
@@ -90,12 +95,18 @@ ca:
             start_question_button: Activar la votació
             title: Resultats
           status:
+            census: 'Cens:'
+            results_availability:
+              after_end: Resultats disponibles després de la finalització de les eleccions
+              per_question: Resultats disponibles per cada pregunta
+              real_time: Resultats disponibles en temps real
             title: Estat de l'elecció
         elections:
           create:
             invalid: S'ha produït un error en crear l'elecció.
             success: Elecció creada correctament.
           dashboard:
+            subtitle: 'Darrer pas: revisa les dades! Encara pots fer modificacions abans de publicar. Un cop publicada, només podreu continuar actualitzant la descripció de l''elecció.'
             title: Tauler de control
           edit:
             title: Editar la votació
@@ -176,10 +187,23 @@ ca:
           one: Actualment hi ha <strong>1</strong> persona amb dret a vot en aquestes eleccions (això podria canviar en un cens dinàmic).
           other: Actualment hi ha <strong>%{count}</strong> persones amb dret a vot en aquestes eleccions (això podria canviar en un cens dinàmic).
         internal_users:
+          already_have_an_account?: Ja tens un compte?
+          are_you_new?: Encara no ets participant?
           info_html: |
             Pots restringir la participació en l'elecció a les participants que tinguin una autorització. <br>Tingues en compte que les participants obtenir l'autorització seleccionada per poder votar. Si deixes totes les caselles de verificació buides, qualsevol persona registrada podrà votar.
           internal_type_title: Autoritzacions addicionals necessàries per votar (opcional)
           label: Participants registrades (dinàmic)
+          sign_in_description: Inicia la teva sessió per a votar en aquestes eleccions
+          sign_up_description: Crear un compte per votar en aquestes eleccions
+        internal_users_form:
+          authorization_options_invalid: Malauradament, tot i que tens totes les autoritzacions necessàries, algunes no són vàlides per a aquestes eleccions.
+          exit_button: Sortir de la cabina de votació
+          invalid: No tens autorització per votar en aquestes eleccions.
+          missing: El vostre compte d'usuària no disposa d'algunes de les autoritzacions necessàries. Revisa la informació i torna-ho a provar.
+          not_authorized: 'L''autorització de "%{adapter}" no coincideix amb les condicions necessàries.'
+          not_granted: 'L''autorització de "%{adapter}" no està concedida.'
+          resume_with_method: Reprendre la verificació amb %{name}
+          verify_with_method: Verificar amb %{name}
         token_csv:
           example: |
             email;token
@@ -191,6 +215,49 @@ ca:
           remove_before_upload: Si vols pujar un nou cens, primer has d'eliminar el que ja existeix.
           upload_file: Puja arxiu
           upload_new_census: Carregar un arxiu CSV
+        token_csv_form:
+          email: Correu electrònic
+          email_placeholder: Introdueix l'adreça electrònica de la votant
+          invalid: El correu electrònic o l'identificador (token) no és vàlid. Si us plau, comprova els detalls i torna a intentar-ho.
+          token: Identificador (token)
+          token_placeholder: Introdueix l'identificador (token) de la votant
+      elections:
+        count:
+          elections_count:
+            one: "%{count} votació"
+            other: "%{count} votacions"
+        elections:
+          empty: No hi ha eleccions disponibles.
+          empty_filters: No hi ha eleccions que coincideixin amb els teus filtres.
+        filters:
+          all: Totes
+          state: Estat
+          state_values:
+            finished: Acabada
+            ongoing: En curs
+            scheduled: Programada
+        orders:
+          end_at: Data de finalització
+          label: Ordenar per
+          recent: Recent
+          start_at: Data d'inici
+        questions:
+          subtitle: 'Aquestes són les preguntes per aquest procés de votació:'
+          title: Preguntes de l'elecció
+        show:
+          active_voting_until: 'Votació activa fins: %{end_date}'
+          vote_button: Votar
+          voted: Ja has votat. Pots tornar a votar, això esborrarà el teu vot anterior i, només s'explicarà la teva última votació.
+          votes_count:
+            one: 1 vot
+            other: "%{count} vots"
+          voting_began: 'La votació es va iniciar el %{start_date}'
+        vote_results:
+          subtitle:
+            after_end: Les eleccions han finalitzat. Ara pot veure'n els resultats.
+            per_question: Els resultats estan disponibles per pregunta. Pots veure els resultats de cada pregunta una vegada que s'habiliti la votació i es publiquin els resultats.
+            real_time: Els resultats estan disponibles a temps real. Podeu veure els resultats mentre la votació està en curs.
+          title: Resultats
       models:
         election:
           fields:
@@ -199,16 +266,54 @@ ca:
             start_at: Dia i hora d'inici
             status: Estat
             title: Títol
+      per_question_votes:
+        waiting:
+          description: Pots esperar fins que la pregunta següent estigui disponible. Seràs redirigit automàticament a la següent pregunta quan estigui a punt.
+          edit_vote: Edita el teu vot
+          exit_button: Sortir de la sala d'espera
+          title: Esperant a la següent pregunta
       status:
         active: Activa
         finished: Acabada
+        not_started: No s'ha iniciat
         ongoing: En curs
-        results_published: Resultats publicats
+        published_results: Resultats publicats
         scheduled: Programada
         unpublished: Despublicada
         voting_enabled: Votació en curs
+      votes:
+        cast:
+          invalid: Hi ha hagut un problema en emetre el teu vot. Si us plau, comprova la informació que vas proporcionar i intenta-ho de nou.
+          success: El teu vot s'ha emès correctament.
+        check_census:
+          access: Accedir
+          election_not_open: Les eleccions encara no són obertes. Comprova les dates i torna-ho a provar.
+          failed: No s'ha pogut verificar la teva identitat. Si us plau, comprova la informació que vas proporcionar i intenta-ho de nou.
+          form_title: Verificar la teva identitat
+          invalid: No s'ha trobat aquesta usuària al cens.
+        confirm:
+          cast_vote: Enviar el vot
+          edit_vote: Edita el teu vot
+          not_answered: No has respost a aquesta pregunta.
+          title: Confirmar el teu vot
+        not_authorized: No tens autorització per votar en aquestes eleccions.
+        question:
+          back: Tornar
+          cast_vote: Enviar el vot
+          next: Següent
+        receipt:
+          description: Pots tornar a votar en qualsevol moment mentre el període de votació estigui obert. El teu vot anterior serà substituït pel nou.
+          exit_button: Sortir de la cabina de votació
+          title: El teu vot s'ha emès correctament
+    metadata:
+      progress:
+        published_results: 'Resultats publicats: %{end_date}'
     statistics:
       elections_count: Eleccions
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Tancar
   time:
     formats:
       short_with_time: "%b %-d, %Y, %-I:%M %p"

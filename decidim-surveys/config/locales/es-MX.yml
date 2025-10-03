@@ -101,6 +101,8 @@ es-MX:
             title: Editar la encuesta
           index:
             title: Encuestas
+          new:
+            title: Nueva encuesta
           publish:
             invalid: Se ha producido un error al publicar esta encuesta.
             success: Encuesta publicada correctamente.

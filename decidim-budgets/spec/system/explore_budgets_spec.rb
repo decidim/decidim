@@ -26,10 +26,25 @@ describe "Explore Budgets", :slow do
   context "with only one budget" do
     let!(:budgets) { create_list(:budget, 1, component:) }
 
-    it "redirects to the only budget details" do
+    before do
       visit_component
+    end
 
-      expect(page).to have_content("Projects for #{translated(budgets.first.title)}")
+    it "shows the component name in the sidebar" do
+      within("aside") do
+        expect(page).to have_content(translated(component.name))
+      end
+    end
+
+    it "list the budget" do
+      expect(page).to have_css(".card--list__item", count: 1)
+
+      budgets.each do |budget|
+        expect(page).to have_content(translated(budget.title))
+        expect(page).to have_content(strip_tags(number_to_currency(budget.total_budget, unit: Decidim.currency_unit, precision: 0)))
+      end
+      expect(page).to have_no_content("Remove vote")
+      expect(page).to have_content("0 projects")
     end
   end
 
@@ -39,6 +54,7 @@ describe "Explore Budgets", :slow do
     end
 
     before do
+      allow(Decidim).to receive(:currency_unit).and_return("€")
       visit_component
     end
 
@@ -53,7 +69,7 @@ describe "Explore Budgets", :slow do
 
       budgets.each do |budget|
         expect(page).to have_content(translated(budget.title))
-        expect(page).to have_content(number_to_currency(budget.total_budget, unit: Decidim.currency_unit, precision: 0))
+        expect(page).to have_content(strip_tags(number_to_currency(budget.total_budget, unit: Decidim.currency_unit, precision: 0)))
       end
       expect(page).to have_no_content("Remove vote")
       expect(page).to have_content("0 projects")
@@ -82,14 +98,50 @@ describe "Explore Budgets", :slow do
         expect(item).to have_link(translated(budget.title), href: budget_path(budget))
       end
 
-      context "when an item is bookmarked" do
+      context "without a logged-in user" do
+        before do
+          logout user, scope: :user
+        end
+
+        context "and the voting is open" do
+          it "links to the authorization modal" do
+            expect(item).to have_link(translated(budget.title), href: budget_path(budget))
+            expect(item).to have_css("a[data-dialog-open='loginModal']")
+          end
+        end
+
+        context "and the voting is disabled" do
+          let!(:component) { create(:budgets_component, :with_votes_disabled, manifest:, participatory_space: participatory_process) }
+
+          it "links to the resource" do
+            expect(item).to have_link(translated(budget.title), href: budget_path(budget))
+          end
+        end
+
+        context "and the voting is finished" do
+          let!(:component) { create(:budgets_component, :with_voting_finished, manifest:, participatory_space: participatory_process) }
+
+          it "links to the resource" do
+            expect(item).to have_link(translated(budget.title), href: budget_path(budget))
+          end
+        end
+      end
+
+      context "when an item has an incomplete order" do
         let!(:order) { create(:order, user:, budget:) }
         let!(:line_item) { create(:line_item, order:, project: projects.first) }
+        let(:item) { page.find("#voted-budgets .card--list__item:first-child") }
+
+        it "is identified" do
+          visit_component
+
+          expect(item.native["class"]).to have_content("budget__card__list-budget--progress")
+        end
 
         it "shows a finish voting link" do
           visit_component
 
-          expect(item).to have_link("Finish voting", href: budget_path(budget))
+          expect(item).to have_link("Finish voting", href: budget_projects_path(budget))
         end
 
         it "shows the projects count and it has no remove vote link" do
@@ -97,6 +149,13 @@ describe "Explore Budgets", :slow do
 
           expect(page).to have_no_content("Remove vote")
           expect(item).to have_content("3 projects")
+        end
+
+        it "shows the progress icon" do
+          visit_component
+
+          expect(item).to have_css("div.card__highlight-text svg.fill-warning")
+          expect(item).to have_content("Incomplete")
         end
       end
 
@@ -111,11 +170,24 @@ describe "Explore Budgets", :slow do
           order
         end
 
+        it "links to the resource" do
+          visit_component
+
+          expect(item).to have_link(translated(budget.title), href: budget_path(budget))
+        end
+
+        it "is identified" do
+          visit_component
+
+          expect(item.native["class"]).to have_content("budget__card__list-budget--voted")
+        end
+
         it "shows the check icon" do
           visit_component
 
           expect(item).to have_css("div.card__highlight-text svg.fill-success")
-          expect(item).to have_link("See projects", href: budget_path(budget))
+          expect(item).to have_content("Completed")
+          expect(item).to have_link("See projects", href: budget_projects_path(budget))
         end
 
         it "shows the projects count" do
@@ -131,6 +203,38 @@ describe "Explore Budgets", :slow do
             expect(Decidim::Budgets::Order.where(budget:)).to be_blank
           end
         end
+
+        context "and the voting is disabled" do
+          let!(:component) { create(:budgets_component, :with_votes_disabled, manifest:, participatory_space: participatory_process) }
+
+          it "links to the resource" do
+            visit_component
+
+            expect(item).to have_link(translated(budget.title), href: budget_path(budget))
+          end
+
+          it "has no link to remove vote" do
+            visit_component
+
+            expect(item).to have_no_content("Delete your vote")
+          end
+        end
+
+        context "and the voting is finished" do
+          let!(:component) { create(:budgets_component, :with_voting_finished, manifest:, participatory_space: participatory_process) }
+
+          it "links to the resource" do
+            visit_component
+
+            expect(item).to have_link(translated(budget.title), href: budget_path(budget))
+          end
+
+          it "has no link to remove vote" do
+            visit_component
+
+            expect(item).to have_no_content("Delete your vote")
+          end
+        end
       end
     end
   end
@@ -143,5 +247,9 @@ describe "Explore Budgets", :slow do
 
   def budget_path(budget)
     Decidim::EngineRouter.main_proxy(component).budget_path(budget.id)
+  end
+
+  def budget_projects_path(budget)
+    Decidim::EngineRouter.main_proxy(component).budget_projects_path(budget.id, start_voting: true)
   end
 end

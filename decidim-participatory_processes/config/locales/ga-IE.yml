@@ -3,7 +3,6 @@ ga:
     attributes:
       participatory_process:
         area_id: Ceantar
-        copy_categories: Cóipeáil catagóirí
         decidim_area_id: Ceantar
         domain: Fearann
         end_date: Dáta deiridh
@@ -70,9 +69,6 @@ ga:
           name: Riarachán próisis rannpháirtíochta
           roles:
             admin: Riarthóir
-      participatory_process_copies:
-        new:
-          copy: Cóipeáil
       participatory_process_groups:
         edit:
           update: Nuashonraigh

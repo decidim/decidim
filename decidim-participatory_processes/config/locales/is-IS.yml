@@ -3,9 +3,6 @@ is-IS:
     attributes:
       participatory_process:
         announcement: Tilkynning
-        copy_categories: Afrita flokka
-        copy_components: Afrita hluti
-        copy_steps: Afrita skref
         description: Lýsing
         domain: Lén
         end_date: Loka dagsetning
@@ -80,11 +77,6 @@ is-IS:
           fields:
             invitation_accepted_at: Boð samþykkt á
             invitation_sent_at: Boð sendur á
-      participatory_process_copies:
-        new:
-          copy: Afrita
-          select: Veldu hvaða gögn þú vilt afrita
-          title: Afrit þátttakandi ferli
       participatory_process_groups:
         edit:
           title: Breyta ferli hópsins

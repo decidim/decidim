@@ -16,6 +16,7 @@ zh-CN:
             announcement: 通 知
     elections:
       actions:
+        preview: 预览
         title: 行动
       admin:
         dashboard:
@@ -41,6 +42,18 @@ zh-CN:
           edit_questions:
             new_question: 新问题
             title: 问 题
+      elections:
+        count:
+          elections_count:
+            other: "%{count} 次选择"
+        filters:
+          all: 所有的
+          state_values:
+            finished: 已完成
+        orders:
+          recent: 最近的
+        show:
+          vote_button: 投票
       models:
         election:
           fields:
@@ -48,3 +61,12 @@ zh-CN:
       status:
         active: 已启用
         finished: 已完成
+      votes:
+        confirm:
+          title: 确认您的投票
+        question:
+          next: 下一个
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: 关闭

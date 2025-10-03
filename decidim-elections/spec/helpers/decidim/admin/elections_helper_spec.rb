@@ -165,7 +165,7 @@ module Decidim
               html = helper.publish_question_button(question)
 
               expect(html).to include("status-label")
-              expect(html).to include(I18n.t("decidim.elections.status.results_published"))
+              expect(html).to include(I18n.t("decidim.elections.status.published_results"))
             end
           end
         end

@@ -10,9 +10,6 @@ ca:
         closing_date: Data de finalització
         closing_date_reason: Motiu de la data de tancament
         composition: Composició
-        copy_categories: Copia categories
-        copy_components: Copia components
-        copy_features: Copia funcionalitats
         created_by: Creat per
         created_by_other: Creat per una altre
         creation_date: Data de creació
@@ -22,6 +19,9 @@ ca:
         developer_group: Grup promotor
         document: Document
         domain: Domini
+        duplicate_categories: Duplicar les categories
+        duplicate_components: Duplicar els components
+        duplicate_features: Duplicar les funcionalitats
         duration: Durada
         facebook: Facebook
         github: GitHub
@@ -111,13 +111,13 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquesta assemblea.
           success: L'assemblea s'ha actualitzat correctament.
-      assemblies_copies:
+      assemblies_duplicates:
         create:
           error: S'ha produït un error en duplicar aquesta assemblea.
           success: L'assemblea s'ha duplicat correctament.
-      assembly_copies:
+      assembly_duplicates:
         new:
-          copy: Còpia
+          duplicate: Duplicar
           select: Selecciona quines dades vols duplicar
           title: Assemblea duplicada
       assembly_imports:
@@ -259,7 +259,7 @@ ca:
             taxonomies: Taxonomies
             title: Informació general
             visibility: Visibilitat
-        assembly_copies:
+        assembly_duplicates:
           form:
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         assembly_imports:

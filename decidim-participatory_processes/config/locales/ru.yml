@@ -3,9 +3,6 @@ ru:
     attributes:
       participatory_process:
         announcement: Объявление
-        copy_categories: Скопировать категории
-        copy_components: Копировать составляющие
-        copy_steps: Копировать шаги
         description: Описание
         developer_group: Рабочая группа по продвижению
         domain: Домен
@@ -116,11 +113,6 @@ ru:
           fields:
             invitation_accepted_at: 'Приглашение принято:'
             invitation_sent_at: 'Приглашение отправлено:'
-      participatory_process_copies:
-        new:
-          copy: Копировать
-          select: Выберите, какие данные вы хотите продублировать
-          title: Создать копию движения соучастия
       participatory_process_groups:
         destroy:
           success: Группа движений соучастия успешно удалена.
@@ -195,10 +187,6 @@ ru:
         update:
           error: При попытке обновить это движение соучастия произошла ошибка.
           success: Движение соучастия успешно обновлено.
-      participatory_processes_copies:
-        create:
-          error: При попытке создать копию этого движения соучастия произошла ошибка.
-          success: Движение соучастия успешно продублировано.
       participatory_processes_group:
         create:
           error: При попытке создать новую группу движений соучастия произошла ошибка.

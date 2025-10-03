@@ -10,9 +10,6 @@ zh-TW:
         closing_date: 截止日期
         closing_date_reason: 截止日期原因
         composition: 組成
-        copy_categories: 複製類別
-        copy_components: 複製組件
-        copy_features: 複製功能
         created_by: 創建者
         created_by_other: 由其他人創建
         creation_date: 創建日期
@@ -99,15 +96,6 @@ zh-TW:
         update:
           error: 更新此大會時出現問題
           success: 此大會成功更新
-      assemblies_copies:
-        create:
-          error: 複製此大會時出現問題
-          success: 大會已成功複製
-      assembly_copies:
-        new:
-          copy: 複製
-          select: 請選擇您想要複製的資料
-          title: 複製大會
       assembly_imports:
         create:
           error: 這個大會匯入時發生了問題

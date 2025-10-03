@@ -81,7 +81,7 @@ module Decidim
 
       help = content_tag(:div, class: "map__skip-container") do
         sr_content = content_tag(:p, t("screen_reader_explanation", scope: "decidim.map.dynamic"), class: "sr-only")
-        link = link_to(t("skip_button", scope: "decidim.map.dynamic"), "##{bottom_id}", class: "map__skip")
+        link = link_to(t("skip_button", scope: "decidim.map.dynamic"), "##{bottom_id}", class: "map__skip", "data-skip-to-content": true)
 
         sr_content + link
       end
