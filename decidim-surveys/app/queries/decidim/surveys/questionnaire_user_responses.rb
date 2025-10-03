@@ -17,38 +17,12 @@ module Decidim
 
       # Returns grouped user responses for published surveys only
       def query
-        survey = @questionnaire.questionnaire_for
+        responses = Response.not_separator
+                            .not_title_and_description
+                            .joins(:question)
+                            .where(questionnaire: @questionnaire)
 
-        return [] if survey&.published_at.blank? || survey&.allow_responses
-
-        responses = Decidim::Forms::Response.joins(:question)
-                                            .where(questionnaire: @questionnaire)
-                                            .includes(:question, :user)
-                                            .order("decidim_forms_questions.position")
-
-        UserResponseCollection.new(responses.group_by(&:user).values)
-      end
-    end
-
-    class UserResponseCollection
-      include Enumerable
-
-      def initialize(grouped_responses)
-        @grouped_responses = grouped_responses
-      end
-
-      def each(&)
-        @grouped_responses.each(&)
-      end
-
-      def find_in_batches(batch_size: 1000)
-        @grouped_responses.each_slice(batch_size) do |batch|
-          yield batch
-        end
-      end
-
-      def find_each(&)
-        @grouped_responses.each(&)
+        responses.sort_by { |response| response.question.position.to_i }.group_by { |a| a.user || a.session_token }.values
       end
     end
   end
