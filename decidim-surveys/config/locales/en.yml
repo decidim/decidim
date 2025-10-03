@@ -51,12 +51,12 @@ en:
           notification_title: The survey <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> is now open.
     forms:
       user_responses_serializer:
-        created_at: Created at
-        id: Response ID
-        question: Question
-        registered: Registered
-        unregistered: Unregistered
-        user_status: User status
+        id: "Response ID"
+        created_at: "Responded on"
+        ip_hash: "IP Hash"
+        user_status: "User status"
+        registered: "Registered"
+        unregistered: "Unregistered"
     open_data:
       help:
         survey_user_responses:
