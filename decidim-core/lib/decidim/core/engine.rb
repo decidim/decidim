@@ -360,8 +360,6 @@ module Decidim
 
       initializer "decidim_core.graphql_api" do
         Decidim::Api::QueryType.include Decidim::QueryExtensions
-        Decidim::Api::MutationType.include Decidim::MutationExtensions
-
         Decidim::Api.add_orphan_type Decidim::Core::UserType
       end
 
