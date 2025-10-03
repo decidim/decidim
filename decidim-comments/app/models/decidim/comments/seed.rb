@@ -73,6 +73,7 @@ module Decidim
         # @param [Decidim::Comments::Comment]
         #
         # @return nil
+        # @param [Object] comment
         def create_votes(comment)
           rand(0..12).times do
             author = random_user

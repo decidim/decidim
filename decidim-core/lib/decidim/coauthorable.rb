@@ -140,6 +140,8 @@ module Decidim
       #
       # @param author: The new coauthor.
       # @extra_attrs: Extra
+      # @param [Object] author
+      # @param [Hash{Symbol => Object}] extra_attributes
       def add_coauthor(author, extra_attributes = {})
         return if coauthorships.exists?(decidim_author_id: author.id, decidim_author_type: author.class.base_class.name)
 

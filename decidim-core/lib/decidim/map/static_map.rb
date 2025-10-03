@@ -21,6 +21,9 @@ module Decidim
       #   * zoom: A number to represent the zoom value of the map (default 17)
       #
       # @return [String] The link where the static map images link to.
+      # @param [Object] latitude
+      # @param [Object] longitude
+      # @param [Hash{Symbol => Object}] options
       def link(latitude:, longitude:, options: {})
         zoom = options.fetch(:zoom, 17)
         base_url = configuration.fetch(
@@ -56,6 +59,9 @@ module Decidim
       #     (default 300)
       #
       # @return [String] The URL to request for the static map image.
+      # @param [Object] latitude
+      # @param [Object] longitude
+      # @param [Hash{Symbol => Object}] options
       def url(latitude:, longitude:, options: {})
         map_url = configuration.fetch(:url, nil)
         return unless map_url

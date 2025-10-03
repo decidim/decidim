@@ -28,6 +28,7 @@ module Decidim
       #
       # @param [ActiveStorage::Attached, ActiveStorage::Blob] The asset to route
       #   to
+      # @param [Object] asset
       def initialize(asset)
         @asset = asset
         @blob =

@@ -14,6 +14,7 @@ module Capybara
     #
     # @example tom_select("#select_id", option_id: "2")
     # @example tom_select("#select_id", option_id: ["2", "10"]) # `multiple` input.
+    # @param [Object] select_selector
     def tom_select(select_selector, option_id:)
       js_str = %(document.querySelector("#{select_selector}").tomselect.setValue(#{option_id.inspect}))
       execute_script(js_str)

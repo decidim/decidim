@@ -95,6 +95,7 @@ module Decidim
     # @example
     #
     #   menu.remove_item :root
+    # @param [Object] item
     def remove_item(item)
       @removed_items << item
     end

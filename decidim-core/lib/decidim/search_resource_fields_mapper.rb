@@ -25,6 +25,7 @@ module Decidim
     # D: [:description, :address],
     # datetime: :start_time}
     #
+    # @param [Object] declared_fields
     def initialize(declared_fields)
       @declared_fields = declared_fields.with_indifferent_access
       @conditions = { create: true, update: true }

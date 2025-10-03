@@ -28,6 +28,7 @@ module Decidim
     #   availability for.
     # @return [Boolean] A boolean indicating if the category of mapping services
     #   is available.
+    # @param [Array<Object>] categories
     def self.available?(*categories)
       categories.all? { |category| utility_class(category).present? }
     end
@@ -58,7 +59,7 @@ module Decidim
     # map utilities. The configured utility class (through Decidim.maps) is
     # should be under these namespaces.
     #
-    # @return [Hash<Symbol, Module>] The modules within which the utility
+    # @return [Hash{Symbol => Module}] The modules within which the utility
     #   classes should be defined in.
     def self.utility_modules
       @utility_modules ||= {}
