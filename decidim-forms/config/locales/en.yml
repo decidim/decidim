@@ -221,11 +221,5 @@ en:
       user_responses_serializer:
         body: Response
         completion: Completion
-        created_at: Responded on
-        id: Response ID
         ip_hash: IP Hash
-        question: Question
-        registered: Registered
         session_token: User identifier
-        unregistered: Unregistered
-        user_status: User status

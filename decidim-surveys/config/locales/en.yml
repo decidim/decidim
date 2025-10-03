@@ -51,18 +51,18 @@ en:
           notification_title: The survey <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> is now open.
     forms:
       user_responses_serializer:
-        id: "Response ID"
-        created_at: "Created at"
-        user_status: "User status"
-        registered: "Registered"
-        unregistered: "Unregistered"
-        question: "Question"
+        created_at: Created at
+        id: Response ID
+        question: Question
+        registered: Registered
+        unregistered: Unregistered
+        user_status: User status
     open_data:
       help:
         survey_user_responses:
-          "Response ID": "Unique identifier for each survey response"
-          "Created at": "Date and time when the response was submitted"
-          "User status": "Whether the respondent was registered or unregistered"
+          Created at: Date and time when the response was submitted
+          Response ID: Unique identifier for each survey response
+          User status: Whether the respondent was registered or unregistered
     statistics:
       responses: 'Responses:'
       responses_count: Responses
