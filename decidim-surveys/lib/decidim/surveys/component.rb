@@ -63,10 +63,14 @@ Decidim.register_component(:surveys) do |component|
   component.exports :survey_user_responses do |exports|
     exports.collection do |f|
       survey = Decidim::Surveys::Survey.find_by(component: f)
-      Decidim::Forms::QuestionnaireUserResponses.for(survey.questionnaire)
+      questionnaire_responses = Decidim::Forms::QuestionnaireUserResponses.for(survey.questionnaire)
+
+      questionnaire_responses.select(&:public?)
     end
 
     exports.formats %w(CSV JSON Excel FormPDF)
+
+    exports.include_in_open_data = true
 
     exports.serializer Decidim::Forms::UserResponsesSerializer
   end
