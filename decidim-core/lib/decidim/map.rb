@@ -24,11 +24,10 @@ module Decidim
     # Public: Returns a boolean indicating if the category of mapping services
     # is available for this instance that the provided key represents.
     #
-    # @param *categories [Symbol] The utility category key to check the
+    # @param categories [Array<Symbol>] The utility category key to check the
     #   availability for.
     # @return [Boolean] A boolean indicating if the category of mapping services
     #   is available.
-    # @param [Array<Object>] categories
     def self.available?(*categories)
       categories.all? { |category| utility_class(category).present? }
     end

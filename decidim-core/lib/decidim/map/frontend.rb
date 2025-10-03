@@ -68,12 +68,11 @@ module Decidim
         # Converts a hash with Ruby-style key names (snake_case) to JS-style key
         # names (camelCase).
         #
-        # @param [Hash] The original hash with Ruby-style hash keys in
+        # @param hash [Hash] The original hash with Ruby-style hash keys in
         #   snake_case format.
         #
         # @return [Hash] The resulting hash with JS-style hash keys in camelCase
         #   format.
-        # @param [Object] hash
         def hash_to_js(hash)
           hash.to_h do |key, value|
             value = hash_to_js(value) if value.is_a?(Hash)

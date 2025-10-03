@@ -11,19 +11,12 @@ module Decidim
       # Creates a link for the static maps. This will point to an external map
       # service where the user can further explore the given location.
       #
-      # @param params [Hash] The parameters for the static map URL
-      # @option params [Float, String] :latitude The latitude of the map
-      #   position to be linked to
-      # @option params [Float, String] :longitude The longitude of the map
-      #   position to be linked to
-      # @option params [Hash] :options Extra options that can be provided to the
-      #   map URL containing the following keys:
-      #   * zoom: A number to represent the zoom value of the map (default 17)
+      # @param latitude [Float, String] The latitude of the map position to be linked to
+      # @param longitude [Float, String] The longitude of the map position to be linked to
+      # @param options [Hash{Symbol => Object}] The parameters for the static map URL
+      # @option options [Integer] :zoom A number to represent the zoom value of the map (default 17)
       #
       # @return [String] The link where the static map images link to.
-      # @param [Object] latitude
-      # @param [Object] longitude
-      # @param [Hash{Symbol => Object}] options
       def link(latitude:, longitude:, options: {})
         zoom = options.fetch(:zoom, 17)
         base_url = configuration.fetch(
@@ -43,25 +36,14 @@ module Decidim
       # Creates a URL that generates a static map image for the given map
       # location with the given options.
       #
-      # @param params [Hash] The parameters for the static map URL
-      # @option params [Float, String] :latitude The latitude of the map
-      #   position
-      # @option params [Float, String] :longitude The longitude of the map
-      #   position
-      # @option params [Hash] :options Extra options that can be provided to
-      #   the underlying map service to generate the image with containing the
-      #   following keys:
-      #   * zoom: A number to represent the zoom value of the map image (default
-      #     15)
-      #   * width: A number to represent the pixel width of the map image
-      #     (default 300)
-      #   * height: A number to represent the pixel height of the map image
-      #     (default 300)
+      # @param latitude [Float, String] :latitude The latitude of the map position
+      # @param longitude [Float, String] The longitude of the map position
+      # @param options [Hash] Extra options for the static map URL
+      # @option options [Integer] :zoom Zoom level of the map image (default 15)
+      # @option options [Integer] :width Pixel width of the map image (default 300)
+      # @option options [Integer] :height Pixel height of the map image (default 300)
       #
       # @return [String] The URL to request for the static map image.
-      # @param [Object] latitude
-      # @param [Object] longitude
-      # @param [Hash{Symbol => Object}] options
       def url(latitude:, longitude:, options: {})
         map_url = configuration.fetch(:url, nil)
         return unless map_url

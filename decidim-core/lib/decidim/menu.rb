@@ -90,12 +90,11 @@ module Decidim
 
     # Public: Registers a new item for the menu
     #
-    # @param identifier [String, Symbol] A compulsory label for the menu item
+    # @param item [String, Symbol] A compulsory label for the menu item
     #
     # @example
     #
     #   menu.remove_item :root
-    # @param [Object] item
     def remove_item(item)
       @removed_items << item
     end
