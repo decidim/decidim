@@ -66,7 +66,11 @@ Decidim.register_component(:surveys) do |component|
 
       return [] if survey&.published_at.blank?
 
-      Decidim::Forms::QuestionnaireUserResponses.for(survey.questionnaire)
+      all_responses = Decidim::Forms::QuestionnaireUserResponses.for(survey.questionnaire)
+
+      published_responses = all_responses.select(&:published?)
+
+      published_responses
     end
 
     exports.formats %w(CSV JSON Excel FormPDF)
