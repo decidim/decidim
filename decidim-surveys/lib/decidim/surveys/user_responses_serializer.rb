@@ -19,7 +19,7 @@ module Decidim
             response_translated_attribute_name(:id) => [response.id, response.user&.id].join("_"),
             response_translated_attribute_name(:created_at) => response.created_at,
             response_translated_attribute_name(:user_status) => response_translated_attribute_name(response.decidim_user_id.present? ? "registered" : "unregistered"),
-            response_translated_attribute_name("question_#{idx + 1}") => normalize_body(response)
+            "#{I18n.t(:question, scope: "decidim.forms.user_responses_serializer")} #{idx + 1}" => normalize_body(response)
           )
         end
       end

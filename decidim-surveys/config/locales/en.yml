@@ -56,32 +56,13 @@ en:
         user_status: "User status"
         registered: "Registered"
         unregistered: "Unregistered"
-        question_1: "Question 1"
-        question_2: "Question 2"
-        question_3: "Question 3"
-        question_4: "Question 4"
-        question_5: "Question 5"
-        question_6: "Question 6"
-        question_7: "Question 7"
-        question_8: "Question 8"
-        question_9: "Question 9"
-        question_10: "Question 10"
+        question: "Question"
     open_data:
       help:
         survey_user_responses:
           "Response ID": "Unique identifier for each survey response"
           "Created at": "Date and time when the response was submitted"
           "User status": "Whether the respondent was registered or unregistered"
-          "Question 1": "Response to question 1"
-          "Question 2": "Response to question 2"
-          "Question 3": "Response to question 3"
-          "Question 4": "Response to question 4"
-          "Question 5": "Response to question 5"
-          "Question 6": "Response to question 6"
-          "Question 7": "Response to question 7"
-          "Question 8": "Response to question 8"
-          "Question 9": "Response to question 9"
-          "Question 10": "Response to question 10"
     statistics:
       responses: 'Responses:'
       responses_count: Responses
