@@ -61,23 +61,17 @@ Decidim.register_component(:surveys) do |component|
   end
 
   component.exports :survey_user_responses do |exports|
-    exports.collection do |f|
-      survey = Decidim::Surveys::Survey.find_by(component: f)
+    exports.collection do |component_instance|
+      survey = Decidim::Surveys::Survey.find_by(component: component_instance)
 
-      return [] if survey&.published_at.blank?
-
-      all_responses = Decidim::Forms::QuestionnaireUserResponses.for(survey.questionnaire)
-
-      published_responses = all_responses.select(&:published?)
-
-      published_responses
+      Decidim::Surveys::QuestionnaireUserResponses.for(survey&.questionnaire)
     end
 
     exports.formats %w(CSV JSON Excel FormPDF)
 
     exports.include_in_open_data = true
 
-    exports.serializer Decidim::Forms::UserResponsesSerializer
+    exports.serializer Decidim::Surveys::UserResponsesSerializer
   end
 
   component.seeds do |participatory_space|

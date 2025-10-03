@@ -16,10 +16,10 @@ module Decidim
       def serialize
         @responses.each_with_index.inject({}) do |serialized, (response, idx)|
           serialized.update(
-            response_translated_attribute_name(:id) => [response.id, response.user.id].join("_"),
+            response_translated_attribute_name(:id) => [response.id, response.user&.id].join("_"),
             response_translated_attribute_name(:created_at) => response.created_at,
             response_translated_attribute_name(:user_status) => response_translated_attribute_name(response.decidim_user_id.present? ? "registered" : "unregistered"),
-            "#{idx + 1}. #{translated_attribute(response.question.body)}" => normalize_body(response)
+            response_translated_attribute_name("question_#{idx + 1}") => normalize_body(response)
           )
         end
       end
@@ -36,7 +36,7 @@ module Decidim
       def normalize_choices(choices)
         choices.map do |choice|
           choice.try(:body)
-        end
+        end.join(", ")
       end
 
       def response_translated_attribute_name(attribute)
