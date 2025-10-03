@@ -4,9 +4,6 @@ module Decidim
   module Surveys
     # A class used to collect user responses for a questionnaire
     class QuestionnaireUserResponses < Decidim::Query
-      # Syntactic sugar to initialize the class and return the queried objects.
-      #
-      # questionnaire - a Questionnaire object
       def self.for(questionnaire)
         new(questionnaire).query
       end
@@ -23,16 +20,14 @@ module Decidim
         return [] unless @questionnaire.questionnaire_for&.published_at.present?
 
         responses = Decidim::Forms::Response.joins(:question)
-                                           .where(questionnaire: @questionnaire)
-                                           .includes(:question, :user)
-                                           .order("decidim_forms_questions.position")
+                                            .where(questionnaire: @questionnaire)
+                                            .includes(:question, :user)
+                                            .order("decidim_forms_questions.position")
 
-        # Group by user and return as an enumerable that supports find_in_batches
         UserResponseCollection.new(responses.group_by(&:user).values)
       end
     end
 
-    # A wrapper class to make grouped responses work with ActiveRecord batch processing
     class UserResponseCollection
       include Enumerable
 
@@ -40,8 +35,8 @@ module Decidim
         @grouped_responses = grouped_responses
       end
 
-      def each(&block)
-        @grouped_responses.each(&block)
+      def each(&)
+        @grouped_responses.each(&)
       end
 
       def find_in_batches(batch_size: 1000)
@@ -50,8 +45,8 @@ module Decidim
         end
       end
 
-      def find_each(&block)
-        @grouped_responses.each(&block)
+      def find_each(&)
+        @grouped_responses.each(&)
       end
     end
   end
