@@ -15,10 +15,7 @@ lb:
   decidim:
     budgets:
       actions:
-        attachment_collections: Ordner
-        attachments: Anhänge
         edit: Bearbeiten
-        edit_projects: Projekte verwalten
         import: Vorschläge in Projekte importieren
         preview: Vorschau
         title: Aktionen

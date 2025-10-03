@@ -82,13 +82,11 @@
     admin:
       actions:
         activate: Aktiver
-        configure: Konfigurer
         confirm_destroy: Bekreft sletting
         destroy: Slett
         duplicate: Kopier
         edit: Rediger
         import_process: Importer
-        moderate: Moderér
         new_process: Ny prosess
         new_process_group: Ny prosessgruppe
         new_process_step: Ny medvirkningsfase

@@ -70,7 +70,7 @@
       </table>
     </div>
   <% else %>
-    <p><%= t(".empty", import_csv: link_to(t("index.import_csv", scope: "decidim.verifications.csv_census.admin"), new_import_census_logs_path, class: "underline decoration-solid decoration-secondary font-semibold text-secondary").html_safe).html_safe %></p>
+    <p><%= t(".empty", import_csv: link_to(t("index.import_csv", scope: "decidim.verifications.csv_census.admin"), new_import_census_logs_path, class: " decoration-solid decoration-secondary font-semibold text-secondary").html_safe).html_safe %></p>
   <% end %>
 </div>
 <%= decidim_paginate csv_census_data %>

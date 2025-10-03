@@ -88,13 +88,11 @@ pl:
     admin:
       actions:
         activate: Aktywuj
-        configure: Skonfiguruj
         confirm_destroy: Potwierdź usunięcie
         destroy: Usuń
         duplicate: Duplikuj
         edit: Edytuj
         import_process: Importuj
-        moderate: Moderuj
         new_process: Nowy proces
         new_process_group: Nowa grupa procesu
         new_process_step: Nowy etap

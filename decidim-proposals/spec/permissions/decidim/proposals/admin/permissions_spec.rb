@@ -118,8 +118,16 @@ describe Decidim::Proposals::Admin::Permissions do
 
     context "when creation is disabled" do
       let(:creation_enabled?) { false }
+      let(:official_proposals_enabled?) { false }
 
       it { is_expected.to be false }
+    end
+
+    context "when official proposals are enabled and participants can create proposals is disabled" do
+      let(:official_proposals_enabled?) { true }
+      let(:creation_enabled?) { false }
+
+      it { is_expected.to be true }
     end
 
     context "when official proposals are disabled" do

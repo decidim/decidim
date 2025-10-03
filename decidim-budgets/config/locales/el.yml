@@ -31,10 +31,7 @@ el:
               'true': Δεν επιλέχθηκε για υλοποίηση
     budgets:
       actions:
-        attachment_collections: Φάκελοι
-        attachments: Συνημμένα
         edit: Επεξεργασία
-        edit_projects: Διαχείριση έργων
         import: Εισαγωγή προτάσεων σε έργα
         preview: Προεπισκόπηση
         send_voting_reminders: Αποστολή υπενθυμίσεων ψήφου

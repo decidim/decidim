@@ -81,7 +81,7 @@ shared_examples_for "has questionnaire" do
         see_questionnaire_questions
         within "label.response-questionnaire__question-label" do
           expect(page).to have_content(translated_attribute(question.body).to_s)
-          within "span.label-required.has-tip" do
+          within "span.label-required" do
             expect(page).to have_content("*")
             expect(page).to have_content("Required field")
           end

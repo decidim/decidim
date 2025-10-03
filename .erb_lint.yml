@@ -36,11 +36,13 @@ linters:
         suggestion: "Foundation classes are deprecated."
       - suggestion: "Please use the new class instead"
         deprecated:
+          - responsive-tab-block
           - CodeMirror-fullscreen
           - CodeMirror-placeholder
           - CodeMirror-rtl
           - CodeMirror-rulers
           - CodeMirror-sided
+          - callout
           - Select
           - Select--multi
           - Select--rtl

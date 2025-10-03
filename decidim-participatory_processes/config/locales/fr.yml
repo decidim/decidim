@@ -82,15 +82,12 @@ fr:
     admin:
       actions:
         activate: Activer
-        configure: Configurer
         confirm_delete_process: Êtes-vous sûr(e) de vouloir supprimer ce processus ? Si vous changez d'avis, vous pourrez le restaurer plus tard.
         confirm_destroy: Confirmez la suppression
         destroy: Supprimer
         duplicate: Dupliquer
         edit: Modifier
         import_process: Importer
-        menu_hidden: Masquer
-        moderate: Modérer
         new_process: Nouvelle concertation
         new_process_group: Nouveau groupe de concertations
         new_process_step: Nouvelle étape

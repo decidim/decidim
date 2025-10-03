@@ -247,7 +247,27 @@ module Decidim
           end
         RUBY
 
-        append_file "Gemfile", %(gem "sidekiq")
+        redis_version = begin
+          require "redis"
+          ver = Redis.new.call("INFO").lines(chomp: true).find { |l| l.start_with?("redis_version:") }.split(":", 2).last
+          Gem::Version.new(ver)
+        rescue LoadError, Redis::CannotConnectError
+          # This does not have to be the actual Redis version, it can be
+          # anything that is above any of the version checks below to default to
+          # the latest Sidekiq version.
+          Gem::Version.new("8.0.0")
+        end
+
+        if redis_version < Gem::Version.new("6.2.0")
+          # Sidekiq 7.x requires Redis 6.2.0 or newer
+          append_file "Gemfile", %(gem "sidekiq", "~> 6.5")
+        elsif redis_version < Gem::Version.new("7.0.0")
+          # Sidekiq 8.x requires Redis 7.0.0 or newer
+          append_file "Gemfile", %(gem "sidekiq", "~> 7.3")
+        else
+          # Assume latest
+          append_file "Gemfile", %(gem "sidekiq")
+        end
       end
 
       def add_production_gems(&block)

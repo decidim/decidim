@@ -14,7 +14,6 @@ de:
           trigger: Auslöser
           usage: Nutzung
           usage_p: Ein Akkordeon benötigt mindestens drei Elemente
-          usage_p_1_html: 1. Ein Wrapper <code>div</code>, mit dem Data-Attribut <code>data-component="accordion"</code>, über alle verfügbaren Trigger und Panels.
           usage_p_2_html: 2. Ein Triggerelement, fremdbedienbar (als Button), das auf das zusammenklappbare Element durch <code>data-controls="Panel"</code>zeigt, wobei das <i>panel</i> durch die <code>id</code> des Panels angesteuert wird.
           usage_p_3_html: 3. Ein versteckbares Element, dessen <code>id</code> mit dem Wert der Datensteuerung übereinstimmt, auf den sich der Trigger bezieht.
         activities:
@@ -206,7 +205,6 @@ de:
         dropdowns_description_html: Dropdowns sind eine Javascript-Funktion, die dank einer externen Bibliothek namens %{link} verfügbar ist.
         dropdowns_usage_1_description: 2. Ein versteckbares Element, dessen <code>ID</code> mit dem Datenzielwert übereinstimmt, auf den der Trigger verweist.
         dropdowns_usage_description: 'Ein Dropdown erfordert zwei Elemente:'
-        dropdowns_usage_description_html: 1. Ein benutzerdefinierbares Element, mit den Datenattributen <code>Datenkomponent="Dropdown" data-target="dropdown-menu-element"</code>.
         dummy_description: Beschreibung der Dummy Ressource
         dummy_title: Dummy Ressourcentitel
         follow_button: Folgen-Button

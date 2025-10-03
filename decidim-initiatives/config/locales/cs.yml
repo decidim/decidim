@@ -126,8 +126,12 @@ cs:
             state: Stav
             supports_count: Podpisy
             title: Iniciativy
+        initiatives_committee_member:
+          fields:
+            actions: Akce
         initiatives_type_scope:
           fields:
+            actions: Akce
             scope: Rozsah
             supports_required: Vyžadováno podpisů
           name: Rozsah typu iniciativy
@@ -267,6 +271,7 @@ cs:
             success: Iniciativa byla odeslána na technické potvrzení.
             update: Aktualizovat
           form:
+            attachments_title: Přílohy
             settings: Nastavení
             title: Obecná informace
           index:
@@ -446,9 +451,6 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{author_nickname}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Nová iniciativa od %{author_nickname}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> vytvořil Iniciativu <a href="%{resource_path}">%{resource_title}</a>.
-        like_initiative_event:
-          email_outro: Toto oznámení jste obdrželi, protože sledujete %{author_nickname}. Na předchozím odkazu můžete zrušit přijem oznámení.
-          notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> se líbí <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} odmítl vaši nabídku k členství funkcionáře ve výboru propagace pro tuto iniciativu %{resource_title}."
           email_outro: 'Obdrželi jste toto oznámení, protože jste podali žádost o tuto iniciativu: %{resource_title}.'

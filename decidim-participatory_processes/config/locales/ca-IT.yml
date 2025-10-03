@@ -82,15 +82,12 @@ ca-IT:
     admin:
       actions:
         activate: Activar
-        configure: Configurar
         confirm_delete_process: Segur que vols esborrar aquest procés? Si canvies d'opinió, el pots restaurar més endavant.
         confirm_destroy: Confirma l'eliminació
         destroy: Suprimeix
         duplicate: Duplicar
         edit: Editar
         import_process: Importar
-        menu_hidden: Amagar
-        moderate: Moderar
         new_process: Nou procés
         new_process_group: Nou grup de processos
         new_process_step: Nova fase

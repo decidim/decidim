@@ -9,7 +9,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 
 import { GraphiQL } from "graphiql"; // eslint-disable-line no-unused-vars
-import Configuration from "src/decidim/configuration";
+import Configuration from "src/decidim/refactor/implementation/configuration"
 
 window.Decidim = window.Decidim || {};
 window.Decidim.config = new Configuration();

@@ -40,8 +40,6 @@ de:
   decidim:
     accountability:
       actions:
-        attachment_collections: Ordner
-        attachments: Anhänge
         confirm_delete_result: Sind Sie sicher, dass Sie dieses Ergebnis löschen wollen?
         confirm_destroy: Sind Sie sicher, dass Sie diese %{name}löschen möchten?
         deleted_results_info: Gelöschte Ergebnisse können aus dem Papierkorb wiederhergestellt werden.
@@ -49,7 +47,6 @@ de:
         edit: Bearbeiten
         import: Ergebnisse aus einer anderen Komponente importieren
         import_csv: Ergebnisse aus CSV importieren
-        milestones: Meilensteine
         new_milestone: Neuer Meilenstein
         new_result: Neues Ergebnis
         new_status: Neuer Status

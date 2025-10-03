@@ -58,7 +58,6 @@ zh-CN:
     admin:
       actions:
         activate: 激活
-        configure: 配置
         confirm_destroy: 确认删除
         destroy: 删除
         duplicate: Duplicate

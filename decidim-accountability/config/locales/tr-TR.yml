@@ -36,8 +36,6 @@ tr:
   decidim:
     accountability:
       actions:
-        attachment_collections: Klasörler 
-        attachments: Ekler 
         confirm_delete_result: Bu sonucu silmek istediğinizden emin misiniz?
         confirm_destroy: Bu %{name}silmek istediğinize emin misiniz?
         deleted_results_info: Silinen sonuçlar çöp kutusundan geri yüklenebilir.

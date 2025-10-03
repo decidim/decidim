@@ -15,8 +15,6 @@ uk:
   decidim:
     budgets:
       actions:
-        attachment_collections: Теки
-        attachments: Вкладені файли
         edit: Редагувати
         import: Внести до проектів запозичені пропозиції
         preview: Попередній перегляд

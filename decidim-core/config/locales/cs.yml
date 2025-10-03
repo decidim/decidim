@@ -626,6 +626,11 @@ cs:
         welcome_text: Uvítací text
       highlighted_content_banner:
         name: Zvýrazněný obsahový pruh
+      highlighted_content_banner_settings_form:
+        background_image: Obrázek pozadí
+        short_description: Stručný popis
+        subtitle: Podnadpis
+        title: Název
       highlighted_elements_settings_form:
         components:
           all: Vše
@@ -1691,9 +1696,11 @@ cs:
       comments_count_tooltip: Celkový počet komentářů zveřejněných v tomto prostoru.
       followers_count: Sledující
       headline: Statistiky
+      likes_count: Líbí se mi
       no_stats: Zatím nejsou žádné statistiky.
       pages_count: Stránky
       participants_count: Účastníci
+      participants_count_tooltip: Počet jedinečných uživatelů, kteří v této oblasti spolupracovali předložením návrhů, účastí na zasedáních, hlasováním nebo připojením k diskusím.
       surveys_count: Průzkumy
       users_count: Účastníci
     tags:
@@ -1855,7 +1862,7 @@ cs:
         confirm_new_password: Potvrďte nové heslo
         new_password: Nové heslo
         old_password_help: Chcete-li potvrdit změny vašeho účtu, zadejte prosím své aktuální heslo.
-        password_help: "minimální počet znaků je %{minimun_characters}, nesmí být příliš obvyklý (např. 123456) a musí se lišit od vašeho uživatelského jména a e-mailu."
+        password_help: "minimální počet znaků je %{minimum_characters}, nesmí být příliš obvyklý (např. 123456) a musí se lišit od vašeho uživatelského jména a e-mailu."
         password_help_admin: "minimální počet znaků je %{minimum_characters}, nesmí být příliš časté (např. 123456), musí se lišit od vaší přezdívky a e-mailu a musí se lišit od vašich starých hesel."
         title: Změna hesla
       new:
@@ -2140,6 +2147,7 @@ cs:
         profile: Můj účet
         public_profile: Můj veřejný profil
         title: Profilové odkazy
+        unread_notifications: Máte nepřečtené oznámení
       user_profile:
         account: Účet
         authorizations: Autorizace

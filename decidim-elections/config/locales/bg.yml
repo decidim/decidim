@@ -7,6 +7,10 @@ bg:
           election_questions: Въпроси
     components:
       elections:
+        actions:
+          create: Създаване
+          destroy: Унищожи
+          update: Актуализация
         name: Избори
         settings:
           global:
@@ -20,11 +24,30 @@ bg:
         census:
           edit:
             created_at: Създадено на
+        dashboard:
+          census:
+            title: Преброяване
+          main:
+            labels:
+              description: Описание
+          questions:
+            labels:
+              answers: Отговори
+            title: Въпроси
+          questions_table:
+            answer: Отговори
+            votes: Гласове
+          results:
+            publish_button: Публикуване на резултатите
+            title: Резултати
+          status:
+            title: Статус на изборите
         elections:
           edit:
             title: Редактиране на избора
           form:
             add_images: Добави изображения
+            publish: Публикувай
           index:
             title: Избори
           new:
@@ -33,9 +56,19 @@ bg:
           edit_questions:
             new_question: Нов въпрос
             title: Въпроси
+        statuses:
+          publish_results:
+            invalid: Възникна проблем при публикуването на резултатите.
       models:
         election:
           fields:
+            census: Преброяване
+            status: Статус
             title: Заглавие
+      status:
+        active: Активно
+        finished: Завършено
+        ongoing: В момента
+        unpublished: Непубликувано
     statistics:
       elections_count: Избори

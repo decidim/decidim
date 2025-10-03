@@ -6,6 +6,8 @@ hu:
           election_questions: Kérdések
     components:
       elections:
+        actions:
+          destroy: Töröl
         name: Választások
         settings:
           global:
@@ -16,7 +18,19 @@ hu:
       actions:
         title: Műveletek
       admin:
+        dashboard:
+          main:
+            labels:
+              description: Leírás
+          questions:
+            labels:
+              answers: Válaszok
+            title: Kérdések
+          questions_table:
+            answer: Válaszok
         elections:
+          form:
+            publish: Közzétesz
           index:
             title: Választások
           new:

@@ -70,7 +70,6 @@ it:
     admin:
       actions:
         activate: Attiva
-        configure: Configura
         confirm_destroy: Conferma cancellazione
         destroy: Elimina
         duplicate: Duplica

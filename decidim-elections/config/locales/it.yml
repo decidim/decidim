@@ -7,6 +7,10 @@ it:
           election_questions: Quesiti
     components:
       elections:
+        actions:
+          create: Crea
+          destroy: Elimina
+          update: Aggiorna
         name: Elezioni
         settings:
           global:
@@ -20,11 +24,30 @@ it:
         census:
           edit:
             created_at: Creato il
+        dashboard:
+          census:
+            title: Censimento
+          main:
+            labels:
+              description: Descrizione
+          questions:
+            labels:
+              answers: Risposte
+            title: Quesiti
+          questions_table:
+            answer: Risposte
+            votes: Voti
+          results:
+            publish_button: Pubblica i risultati
+            title: Risultati
+          status:
+            title: Stato elettorale
         elections:
           edit:
             title: Modifica elezione
           form:
             add_images: Aggiungi immagini
+            publish: Pubblica
           index:
             title: Elezioni
           new:
@@ -36,6 +59,13 @@ it:
       models:
         election:
           fields:
+            census: Censimento
+            status: Stato
             title: Titolo
+      status:
+        active: Attiva
+        finished: Completata
+        ongoing: In corso
+        unpublished: Non pubblicato
     statistics:
       elections_count: Elezioni

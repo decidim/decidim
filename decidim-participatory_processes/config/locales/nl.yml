@@ -70,7 +70,6 @@ nl:
     admin:
       actions:
         activate: Activeren
-        configure: Configureren
         confirm_destroy: Bevestig verwijderen
         destroy: Verwijder
         duplicate: Dupliceren

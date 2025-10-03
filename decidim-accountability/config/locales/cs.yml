@@ -42,8 +42,8 @@ cs:
   decidim:
     accountability:
       actions:
-        attachment_collections: Složky
-        attachments: Přílohy
+        add_milestone: Přidat milník
+        add_result: Přidat výsledek
         confirm_delete_result: Opravdu chcete odstranit tento výsledek?
         confirm_destroy: Opravdu chcete smazat tento %{name}?
         deleted_results_info: Odstraněné výsledky mohou být obnoveny z koše.
@@ -51,7 +51,6 @@ cs:
         edit: Upravit
         import: Importovat výsledky z jiné komponenty
         import_csv: Importovat výsledky z CSV souboru
-        milestones: Milníky
         new_milestone: Nový milník
         new_result: Nový výsledek
         new_status: Nový status
@@ -208,6 +207,10 @@ cs:
             invalid: Při aktualizaci tohoto stavu došlo k chybě.
             success: Stav byl úspěšně aktualizován.
       admin_log:
+        milestones:
+          create: "%{user_name} vytvořil milník %{resource_name}"
+          delete: "%{user_name} odstranil milník %{resource_name}"
+          update: "%{user_name} aktualizoval milník %{resource_name}"
         result:
           create: "%{user_name} vytvořen výsledek %{resource_name} v %{space_name}"
           delete: "%{user_name} odstranil %{resource_name} výsledek v %{space_name}"

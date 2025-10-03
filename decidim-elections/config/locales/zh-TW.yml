@@ -7,6 +7,10 @@ zh-TW:
           election_questions: 問題
     components:
       elections:
+        actions:
+          create: 創建
+          destroy: 摧毀
+          update: 更新
         name: 選舉
         settings:
           global:
@@ -20,11 +24,30 @@ zh-TW:
         census:
           edit:
             created_at: 建立於
+        dashboard:
+          census:
+            title: 選民名單
+          main:
+            labels:
+              description: 說明
+          questions:
+            labels:
+              answers: 回答
+            title: 問題
+          questions_table:
+            answer: 回答
+            votes: 投票
+          results:
+            publish_button: 發佈結果
+            title: 結果
+          status:
+            title: 選舉狀態
         elections:
           edit:
             title: 編輯選舉
           form:
             add_images: 添加圖案
+            publish: 發布
           index:
             title: 選舉
           new:
@@ -33,9 +56,18 @@ zh-TW:
           edit_questions:
             new_question: 新問題
             title: 問題
+        statuses:
+          publish_results:
+            invalid: 發布結果時出現問題.
       models:
         election:
           fields:
+            census: 選民名單
+            status: 狀態
             title: 標題
+      status:
+        active: 生效
+        finished: 已完成
+        ongoing: 進行中
     statistics:
       elections_count: 選舉

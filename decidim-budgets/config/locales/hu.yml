@@ -31,10 +31,7 @@ hu:
               'true': Nem került kiválasztva megvalósításra
     budgets:
       actions:
-        attachment_collections: Mappák
-        attachments: Mellékletek
         edit: Szerkesztés
-        edit_projects: Projektek kezelése
         import: Javaslatok importálása projektekhez
         new_budget: Új költségvetés
         new_project: Új projekt

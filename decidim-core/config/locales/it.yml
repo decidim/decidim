@@ -3,10 +3,21 @@ it:
     attributes:
       account:
         delete_reason: Motivo per il quale vuoi eliminare il tuo account
+      attachment:
+        documents: Documenti
+        image: Immagine
+        photos: Foto
       common:
         created_at: Creato il
+      component:
+        taxonomy_filters: Filtri Tassonomia
+      content_block_attachment:
+        background_image: Immagine di sfondo
+        main_image: Immagine principale
       conversation:
         body: Testo
+      editor_image:
+        file: File
       group:
         about: Dettagli
         avatar: Immagine del profilo
@@ -15,33 +26,63 @@ it:
         name: Nome
         nickname: Pseudonimo
         phone: Telefono
+      import:
+        file: File
       message:
         body: Testo
       report:
         details: Ulteriori commenti
+      taxonomy:
+        name: Nome della tassonomia
+      taxonomy_filter:
+        internal_name: Etichetta interna
+        name: Etichetta
+        root_taxonomy_id: Dalla tassonomia
+        space_filter: Disponibile come filtro per
       user:
         about: Di
+        avatar: Immagine del profilo
         email: La tua email
+        encrypted_password: Password
+        locale: Localizzazione
         name: Nome utente
         nickname: Nickname
+        old_password: Password corrente
         password: Password
         password_confirmation: Conferma la tua password
         personal_url: Pagina personale
         remove_avatar: Rimuovi avatar
+        tos_agreement: Condizioni contrattuali di servizio
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              format: Il nickname deve essere minuscolo e non contenere spazi
     models:
       decidim/attachment_created_event: Allegato
       decidim/component_published_event: Componente attivo
       decidim/demoted_membership: Non è più un amministratore di gruppo
       decidim/gamification/badge_earned_event: Badge guadagnato
+      decidim/gamification/level_up_event: Hai raggiunto il livello
+      decidim/invited_to_group_event:
       decidim/join_request_accepted_event: Richiesta di adesione accettata
       decidim/join_request_rejected_event: Richiesta di adesione rifiutata
       decidim/profile_updated_event: profilo aggiornato
       decidim/promote_to_admin: Promosso ad amministratore del gruppo
+      decidim/promoted_to_admin_event: Promosso a amministratore di gruppo
       decidim/removed_from_group: Rimosso dal gruppo
+      decidim/resource_hidden_event: Risorsa nascosta
+      decidim/resource_liked_event: Risorsa apprezzata
+      decidim/welcome_notification_event: Messaggio di benvenuto
   activerecord:
     attributes:
+      decidim/action_log:
+        created_at: Ora
+        with_participatory_space: Spazio partecipativo
       decidim/user:
         current_password: Password attuale
+        email: Indirizzo email
         name: Nickname
         password: Password
         password_confirmation: Conferma della password
@@ -62,10 +103,32 @@ it:
       select: Seleziona
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_dashed: "%d-%m-%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+      help:
+        date_format: 'Formato: gg/mm/aaaa'
+      order: d-m-y
+      separator: "/"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: circa 1 ora
+        other: circa %{count} ore
+      half_a_minute: mezzo minuto
+      short:
+        about_x_days: "%{count} giorni"
+        about_x_hours: "%{count} ore"
+        about_x_minutes: "%{count} minuti"
+        about_x_years: "%{count} anni"
+        almost_x_years: "%{count} anni"
+        half_a_minute: 1m
+        less_than_x_minutes: "%{count} minuti"
+        less_than_x_seconds: "%{count} secondi"
+        over_x_years: "%{count} anni"
+        x_days: "%{count} giorni"
   decidim:
     accessibility:
       external_link: Collegamento esterno
@@ -98,14 +161,35 @@ it:
         create: "%{user_name} ha creato l'area %{resource_name}"
         delete: "%{user_name} ha eliminato l'area %{resource_name}"
         update: "%{user_name} ha aggiornato l'area %{resource_name}"
+      attachment_collection:
+        delete: "%{user_name} ha eliminato la collezione di allegati %{resource_name}"
+        update: "%{user_name} ha aggiornato la collezione di allegati %{resource_name}"
+      category:
+        create: "%{user_name} ha aggiunto la categoria %{resource_name} allo spazio %{space_name}"
+        delete: "%{user_name} ha eliminato la categoria %{resource_name} dallo spazio %{space_name}"
+        update: "%{user_name} ha aggiornato la categoria %{resource_name} nello spazio %{space_name}"
       component:
         create: "%{user_name} ha aggiunto il componente %{resource_name} allo spazio %{space_name}"
         delete: "%{user_name} rimosso il componente %{resource_name} dallo spazio %{space_name}"
+        export_component: "%{user_name} ha esportato l' %{resource_name} %{component_name} in %{space_name} come %{format_name}"
         publish: "%{user_name} ha pubblicato il componente %{resource_name} nello spazio %{space_name}"
+        restore: "%{user_name} ha ripristinato il componente %{resource_name} nello spazio %{space_name}"
+        soft_delete: "%{user_name} spostato nel cestino del componente %{resource_name} nello spazio %{space_name}"
         unpublish: "%{user_name} non pubblicato il componente %{resource_name} dallo spazio %{space_name}"
+        update_permissions_with_space: "%{user_name} ha aggiornato i permessi di %{resource_name} in %{space_name}"
+      contextual_help_section:
+        update: "%{user_name} ha aggiornato la sezione di aiuto %{resource_name}"
+      helpers:
+        answers: risposte
+        comments: commenti
+        projects: progetti
+        results: resultati
       impersonation_log:
         manage: "%{user_name} è stato moderato %{resource_name} perché %{reason}"
       moderation:
+        bulk_hide: "%{user_name} ha nascosto %{reported_count} risorse"
+        bulk_unhide: "%{user_name} ripristinato %{reported_count} risorse"
+        bulk_unreport: "%{user_name} tolto la segnalazione da %{reported_count} risorse"
         hide: "%{user_name} nascosto una risorsa di tipo %{resource_type} nel %{space_name} spazio"
         unreport: "%{user_name} non segnalata una risorsa di tipo %{resource_type} nel %{space_name} spazio"
       newsletter:
@@ -119,6 +203,7 @@ it:
         update: "%{user_name} ha aggiornato l'applicazione OAuth %{resource_name}"
       organization:
         update: "%{user_name} aggiornato le impostazioni dell'organizzazione"
+        update_external_domain: "%{user_name} ha aggiornato i domini esterni dell'organizzazione"
       participatory_space_private_user:
         create: "%{user_name} invitato %{resource_name} a essere un utente privato"
         create_via_csv: "%{user_name} ha invitato %{resource_name} tramite csv a unirsi come partecipante privato"
@@ -130,12 +215,40 @@ it:
         delete_with_parent: "%{user_name} eliminato l'ambito %{resource_name} all'interno dell'ambito %{parent_scope}"
         update: "%{user_name} ha aggiornato l'ambito %{resource_name}"
         update_with_parent: "%{user_name} ha aggiornato l'ambito %{resource_name} all'interno dell'ambito %{parent_scope}"
+      scope_type:
+        create: "%{user_name} ha creato il tipo d'ambito %{resource_name}"
+        delete: "%{user_name} ha eliminato il tipo di ambito %{resource_name}"
+        update: "%{user_name} ha aggiornato il tipo di ambito %{resource_name}"
+      share_token:
+        create: "%{user_name} ha creato un link di accesso in %{space_name}"
+        create_with_space: "%{user_name} ha creato il link di accesso per %{resource_name} in %{space_name}"
+        delete: "%{user_name} ha eliminato un link di accesso in %{space_name}"
+        delete_with_space: "%{user_name} ha eliminato un link di accesso per %{resource_name} in %{space_name}"
+        update: "%{user_name} ha aggiornato un link di accesso in %{space_name}"
+        update_with_space: "%{user_name} ha aggiornato un link di accesso per %{resource_name} in %{space_name}"
       static_page:
         create: "%{user_name} creato il %{resource_name} pagina statica"
         delete: "%{user_name} cancellato il %{resource_name} pagina statica"
         update: "%{user_name} aggiornato il %{resource_name} pagina statica"
+      taxonomy:
+        create: "%{user_name} ha creato la tassonomia %{resource_name}"
+        create_with_parent: "%{user_name} ha creato la tassonomia %{resource_name} all'interno della tassonomia %{parent_taxonomy}"
+        delete: "%{user_name} ha eliminato la tassonomia %{resource_name}"
+        delete_with_parent: "%{user_name} ha eliminato la tassonomia %{resource_name} all'interno della tassonomia %{parent_taxonomy}"
+        update: "%{user_name} ha aggiornato la tassonomia %{resource_name}"
+        update_with_parent: "%{user_name} ha aggiornato la tassonomia %{resource_name} all'interno della tassonomia %{parent_taxonomy}"
+      taxonomy_filter:
+        create: "%{user_name} ha creato il filtro %{resource_name}"
+        create_with_filter_info: '%{user_name} ha creato il filtro %{resource_name} basato sulla tassonomia "%{taxonomy_name}" con elementi %{filter_items_count}'
+        delete: "%{user_name} ha eliminato il filtro %{resource_name}"
+        delete_with_filter_info: '%{user_name} ha eliminato il filtro %{resource_name} basato sulla tassonomia "%{taxonomy_name}" con elementi %{filter_items_count}'
+        update: "%{user_name} ha aggiornato il filtro %{resource_name}"
+        update_with_filter_info: '%{user_name} ha aggiornato il filtro %{resource_name} basato sulla tassonomia "%{taxonomy_name}" con elementi %{filter_items_count}'
       user:
         block: "%{user_name} ha bloccato l'utente %{resource_name}"
+        bulk_block: "%{user_name} ha bloccato %{blocked_count} utenti"
+        bulk_ignore: "%{user_name} ha rimosso il report da %{unreported_users_count} utenti"
+        bulk_unblock: "%{user_name} ha sbloccato %{unblocked_count} utenti"
         invite: "%{user_name} ha invitato l'utente %{resource_name} con ruolo: %{role}"
         officialize: "%{user_name} ha ufficializzato l'utente %{resource_name}"
         promote: "%{user_name} ha promosso %{resource_name}"
@@ -145,21 +258,30 @@ it:
         unblock: "%{user_name} ha sbloccato l'utente %{resource_name}"
         unofficialize: "%{user_name} utente non ufficiale %{resource_name}"
       user_group:
+        block: "%{user_name} ha bloccato il gruppo utente %{resource_name}"
+        bulk_block: "%{user_name} ha bloccato gli utenti %{blocked_count}"
+        bulk_ignore: "%{user_name} ha rimosso il report per %{unreported_users_count} utenti"
+        bulk_unblock: "%{user_name} ha sbloccato %{unblocked_count} utenti"
         reject: "%{user_name} respinto il %{resource_name} verifica del gruppo di utenti"
+        unblock: "%{user_name} ha bloccato il gruppo utente %{resource_name}"
         verify: "%{user_name} verificato il %{resource_name} gruppo di utenti"
         verify_via_csv: "%{user_name} verificato il %{resource_name} gruppo di utenti tramite un file CSV"
       user_moderation:
         unreport: "%{user_name} ha de-segnalato un %{resource_type} - %{unreported_user_name}"
+    admin_terms_of_service:
+      default_body: "<h2>TERMINI DI UTILIZZO PER L'AMMINISTRATORE</h2><p>Ci auguriamo che tu abbia ricevuto la usuale raccomandazione dall'amministratore di sistema. Solitamente si riduce a queste tre cose:</p><ol><li>Rispetta la privacy degli altri.</li><li>Pensa prima di cliccare.</li><li>Da grande potenzialità derivano grandi responsabilità.</li></ol>"
     alert:
       dismiss: Rimuovi notifica
     amendments:
       accepted:
+        error: Si è verificato un problema accettando l'emendamento.
         success: L'emendamento è stato accettato con successo.
       amendable:
         button: Modificare %{model_name}
         error: Si è verificato un errore durante la modifica di questa risorsa.
         promote_button: Promuovi a %{model_name}
         promote_confirm_text: Sei sicuro di voler promuovere questa emendazione?
+        promote_help_text: Puoi promuovere questa modifica e pubblicarla come %{model_name} indipendente.
       created:
         success: La proposta di emendamento è stata creata con successo.
       destroy_draft:

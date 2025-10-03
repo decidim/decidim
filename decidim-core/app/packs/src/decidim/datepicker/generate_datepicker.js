@@ -1,8 +1,8 @@
 /* eslint-disable require-jsdoc */
-import icon from "src/decidim/icon"
+import icon from "src/decidim/refactor/moved/icon"
 import { dateToPicker, formatDate, displayDate, formatTime, calculateDatepickerPos } from "src/decidim/datepicker/datepicker_functions"
 import { dateKeyDownListener, dateBeforeInputListener } from "src/decidim/datepicker/datepicker_listeners"
-import { getDictionary } from "src/decidim/i18n"
+import { getDictionary } from "src/decidim/refactor/moved/i18n"
 
 export default function generateDatePicker(input, row, formats) {
   const i18n = getDictionary("date.buttons");

@@ -27,8 +27,6 @@ gl:
   decidim:
     accountability:
       actions:
-        attachment_collections: Cartafoles
-        attachments: Ficheiros anexos
         confirm_destroy: Estás seguro de que queres eliminar este %{name}?
         destroy: Eliminar
         edit: Editar

@@ -11,9 +11,6 @@ en:
         closing_date: Closing date
         closing_date_reason: Closing date reason
         composition: Composition
-        copy_categories: Copy categories
-        copy_components: Copy components
-        copy_features: Copy features
         created_by: Created by
         created_by_other: Created by other
         creation_date: Date created
@@ -23,6 +20,9 @@ en:
         developer_group: Promoter group
         document: Document
         domain: Domain
+        duplicate_categories: Duplicate categories
+        duplicate_components: Duplicate components
+        duplicate_features: Duplicate features
         duration: Duration
         facebook: Facebook
         github: GitHub
@@ -112,13 +112,13 @@ en:
         update:
           error: There was a problem updating this assembly.
           success: Assembly successfully updated.
-      assemblies_copies:
+      assemblies_duplicates:
         create:
           error: There was a problem duplicating this assembly.
           success: Assembly successfully duplicated.
-      assembly_copies:
+      assembly_duplicates:
         new:
-          copy: Copy
+          duplicate: Duplicate
           select: Select which data you would like to duplicate
           title: Duplicate assembly
       assembly_imports:
@@ -260,7 +260,7 @@ en:
             taxonomies: Taxonomies
             title: General Information
             visibility: Visibility
-        assembly_copies:
+        assembly_duplicates:
           form:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         assembly_imports:

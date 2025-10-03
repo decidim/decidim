@@ -82,15 +82,12 @@ sv:
     admin:
       actions:
         activate: Aktivera
-        configure: Konfigurera
         confirm_delete_process: Är du säker på att du vill ta bort den här processen? Om du ändrar dig kan du återställa den senare.
         confirm_destroy: Bekräfta radering
         destroy: Radera
         duplicate: Duplicera
         edit: Redigera
         import_process: Importera
-        menu_hidden: Dölj
-        moderate: Moderera
         new_process: Ny process
         new_process_group: Ny grupp av processer
         new_process_step: Nytt steg

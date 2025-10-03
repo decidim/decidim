@@ -14,7 +14,6 @@ bg:
           trigger: Задействане
           usage: Употреба
           usage_p: '"Акордеонът" изисква поне три елемента'
-          usage_p_1_html: 1. Обвивка <code>div</code>, с атрибута на данните <code>data-component="accordion"</code>, над всички налични задействащи елементи и панели.
           usage_p_2_html: 2. Задействащ елемент, с който потребителят може да действа (като бутон), сочещ към сгъваемия елемент чрез <code>data-controls="panel"</code>, където <i>panel</i> е <code>id </code> на панела.
           usage_p_3_html: 3. Елемент с възможност за скриване, чийто <code>id</code> съвпада със стойността на контролите на данните, към която препраща задействащия елемент.
         activities:
@@ -205,7 +204,6 @@ bg:
         dropdowns_description_html: Падащите менюта са функция на javascript, достъпна благодарение на външна библиотека, наречена %{link}.
         dropdowns_usage_1_description: 2. Елемент с възможност за скриване, чийто <code>id</code> съвпада с целевата стойност на данните, към която препраща тригерът.
         dropdowns_usage_description: 'Падащото меню изисква два елемента:'
-        dropdowns_usage_description_html: 1. Елемент с възможност за действие от страна на потребителя с атрибутите на данни <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.
         dummy_description: Упростено описание на ресурса
         dummy_title: Упростено заглавие на ресурса
         follow_button: Бутон за следване

@@ -40,8 +40,8 @@ ca:
   decidim:
     accountability:
       actions:
-        attachment_collections: Carpetes
-        attachments: Fitxers adjunts
+        add_milestone: Afegir una fita
+        add_result: Afegeix un resultat
         confirm_delete_result: Segur que voleu suprimir aquest resultat?
         confirm_destroy: Segur que vols suprimir aquest %{name}?
         deleted_results_info: Els resultats eliminats es poden restaurar des de la paperera.
@@ -49,7 +49,6 @@ ca:
         edit: Editar
         import: Importar resultats des d'un altre component
         import_csv: Importar resultats des d'un fitxer CSV
-        milestones: Fites
         new_milestone: Nova fita
         new_result: Afegir resultat
         new_status: Afegir estat

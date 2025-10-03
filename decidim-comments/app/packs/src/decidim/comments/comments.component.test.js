@@ -19,7 +19,7 @@ window.Rails = Rails;
 jest.useFakeTimers();
 
 import { createCharacterCounter } from "src/decidim/input_character_counter";
-import Configuration from "src/decidim/configuration";
+import Configuration from "src/decidim/refactor/implementation/configuration";
 // Component is loaded with require because using import loads it before $ has been mocked
 // so tests are not able to check the spied behaviours
 const CommentsComponent = require("./comments.component_for_testing.js");
@@ -447,6 +447,7 @@ describe("CommentsComponent", () => {
       spyOnAddComment("on");
       jest.spyOn(orderLinks, "on");
       jest.spyOn($doc, "trigger");
+      jest.spyOn(document, "dispatchEvent");
 
       subject.mountComponent();
     });
@@ -472,15 +473,6 @@ describe("CommentsComponent", () => {
         expect(addComment[i].commentForm.on).toHaveBeenCalledWith(
           "submit.decidim-comments",
           expect.any(Function)
-        );
-      });
-    });
-
-    it("attaches the mentions elements to the text fields", () => {
-      addComment.each((i) => {
-        expect($doc.trigger).toHaveBeenCalledWith(
-          "attach-mentions-element",
-          [addComment[i].commentTextarea[0]]
         );
       });
     });

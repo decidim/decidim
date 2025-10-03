@@ -38,7 +38,6 @@ is-IS:
     admin:
       actions:
         activate: Virkja
-        configure: Stilla
         duplicate: Afrit
         edit: Breyta
         preview: Preview
