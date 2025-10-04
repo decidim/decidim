@@ -3,7 +3,7 @@
 module Decidim
   module Verifications
     class InvalidVerificationRoute < StandardError
-      def new(route:)
+      def initialize(route:)
         msg = <<~MSG
           You specified a direct handler but you are trying to use `#{route}`
           which is only available for multi-step authorization workflows. Change
@@ -15,7 +15,7 @@ module Decidim
     end
 
     class MissingVerificationRoute < StandardError
-      def new(handler:, route:, action:)
+      def initialize(handler:, route:, action:)
         msg = <<~MSG
           The authorization handler `#{handler}` does not define the route
           `#{route}`. If you want to enable `#{action}` for `#{handler}`, change
@@ -27,7 +27,7 @@ module Decidim
     end
 
     class MissingEngine < StandardError
-      def new(handler:, engine:)
+      def initialize(handler:, engine:)
         msg = <<~MSG
           The authorization handler `#{handler}` does not define the `#{engine}`
           engine. Please define the engine in the workflow configuration.
