@@ -148,7 +148,7 @@ eu:
           success: Topaketa zuzen bikoiztu da.
         new:
           copy: Kopiatu
-          title: Bikoiztu topaketa
+          title: Topaketa bikoiztu
     components:
       meetings:
         actions:
@@ -214,7 +214,7 @@ eu:
             email_subject: '"%{resource_title}" topaketa itxi egin da'
             notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxi egin da.
         meeting_created:
-          button_text: Eman izena bileran
+          button_text: Eman izena topaketan
           email_intro: '"%{resource_title}" topaketa jarraitzen duzun "%{participatory_space_title}" espazioan gehitu da.'
           email_outro: Jakinarazpen hau jaso duzu "%{participatory_space_title}" prozesua jarraitzen ari zarelako. Aureko estekan utzi ahal diozu jarraitzeari.
           email_subject: 'Beste topaketa bat gehituta honi: %{participatory_space_title}'
@@ -339,7 +339,7 @@ eu:
         meeting_closes:
           edit:
             close: Itxi
-            title: Itxi topaketa
+            title: Topaketa itxi
         meetings:
           close:
             invalid: Arazo bat egon da topaketa hau ixtean.
@@ -350,7 +350,7 @@ eu:
             invalid: Arazo bat egon da topaketa hau sortzean.
             success: Topaketa zuzen sortu da. Kontuan hartu oraindik ez dela argitaratu, eskuz argitaratu beharko duzu.
           edit:
-            title: Editatu bilera
+            title: Topaketa editatu
             update: Eguneratu
           form:
             address_help: 'Helbidea: Geocoderrek erabiltzen du kokapena aurkitzeko'
@@ -472,7 +472,7 @@ eu:
         export_calendar: Esportatu egutegia
       close_meeting_reminder_mailer:
         close_meeting_reminder:
-          body: <a href="%{meeting_path}">"%{meeting_title}"</a> bilera ixteko dago. Mesedez, gehitu bilerari buruzko txosten bat "Itxi bilera" botoia erabiliz.
+          body: <a href="%{meeting_path}">"%{meeting_title}"</a> topaketa ixteko dago. Mesedez, gehitu topaketari buruzko txosten bat "Itxi topaketa" botoia erabiliz.
           greetings: Agur, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Kaixo %{username},
           subject: Zuk orain "%{meeting_title}" topaketa itxi ahal duzu txosten batekin
@@ -732,7 +732,7 @@ eu:
           user_group: Iruzkin hau egin duen parte-hartzaile taldearen izena (hala badagokio)
         meetings:
           address: Topaketaren helbidea, baldin eta aurrez aurre badago eta kokapen fisikoa badu
-          attachments: Bilera honetako atxikipen kopurua
+          attachments: Topaketa honetako atxikipen kopurua
           attendees: Zenbat jende bildu da topaketa honetan?
           attending_organizations: Topaketan izan diren erakundeak
           audio_url: Topaketaren audiograbazioa
