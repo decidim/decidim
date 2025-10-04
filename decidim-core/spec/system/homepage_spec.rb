@@ -347,13 +347,6 @@ describe "Homepage" do
       describe "decidim link with external icon" do
         before { visit current_path }
 
-        let(:webpacker_helper) do
-          Class.new do
-            include ActionView::Helpers::AssetUrlHelper
-            include Shakapacker::Helper
-          end.new
-        end
-
         it "displays the decidim link with external link indicator" do
           within "footer" do
             expect(page).to have_css("a[target='_blank'][href='https://github.com/decidim/decidim']")

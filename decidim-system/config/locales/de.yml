@@ -39,6 +39,8 @@ de:
   decidim:
     system:
       actions:
+        api_users:
+          create: Erstellen
         confirm_destroy: Möchtest du das wirklich löschen?
         copied: Kopiert
         copy_secret: Geheimnis kopieren

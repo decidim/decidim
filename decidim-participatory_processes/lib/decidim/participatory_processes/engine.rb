@@ -105,8 +105,16 @@ module Decidim
         end
       end
 
-      initializer "decidim_participatory_processes.webpacker.assets_path" do
+      initializer "decidim_participatory_processes.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
+
+      initializer "decidim_participatory_processes.static_pages" do
+        config.to_prepare do
+          Decidim::EventsManager.subscribe("decidim.system.create_organization:after") do |_event_name, data|
+            Decidim::ParticipatoryProcesses::CreateDemocraticQualityIndicatorsPage.call(data[:organization])
+          end
+        end
       end
     end
   end

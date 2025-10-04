@@ -9,6 +9,13 @@
   <td data-label="<%= t("models.collaborative_text.fields.suggestions", scope: "decidim.collaborative_texts") %>">
     <%= t("booleans.#{document.accepting_suggestions}") %>
   </td>
+  <td data-label="<%= t("models.collaborative_text.fields.published", scope: "decidim.collaborative_texts") %>">
+    <% if document.published? %>
+      <span class="label success !text-sm"><%= t("admin.index.published", scope: "decidim.collaborative_texts") %></span>
+    <% else %>
+      <span class="label alert !text-sm"><%= t("admin.index.unpublished", scope: "decidim.collaborative_texts") %></span>
+    <% end %>
+  </td>
   <td class="table-list__actions" data-label="<%= t("actions.title", scope: "decidim.collaborative_texts") %>">
     <%= render partial: "decidim/collaborative_texts/admin/documents/actions", locals: { document:, view: } %>
   </td>

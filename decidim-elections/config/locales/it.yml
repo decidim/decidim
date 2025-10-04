@@ -19,6 +19,7 @@ it:
             announcement: Annuncio
     elections:
       actions:
+        preview: Anteprima
         title: Azioni
       admin:
         census:
@@ -56,6 +57,28 @@ it:
           edit_questions:
             new_question: Nuovo quesito
             title: Quesiti
+      censuses:
+        token_csv_form:
+          email: Email
+      elections:
+        count:
+          elections_count:
+            one: "%{count} elezione"
+            other: "%{count} elezioni"
+        filters:
+          all: Tutti
+          state: Stato
+          state_values:
+            finished: Completata
+            ongoing: In corso
+        orders:
+          recent: Recenti
+        questions:
+          title: Domande elettorali
+        show:
+          vote_button: Vota
+        vote_results:
+          title: Risultati
       models:
         election:
           fields:
@@ -65,7 +88,18 @@ it:
       status:
         active: Attiva
         finished: Completata
+        not_started: Non iniziate
         ongoing: In corso
         unpublished: Non pubblicato
+      votes:
+        confirm:
+          title: Conferma il tuo voto
+        question:
+          back: Indietro
+          next: Successivo
     statistics:
       elections_count: Elezioni
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Chiuso

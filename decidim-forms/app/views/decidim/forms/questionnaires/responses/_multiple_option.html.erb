@@ -17,6 +17,7 @@
         <%= text_field_tag "questionnaire[responses][#{response_idx}][choices][#{idx}][custom_body]",
                            choice.try(:custom_body),
                            disabled: true,
+                           data: { controller: "character-counter" },
                            maxlength:,
                            class: "w-full" %>
       <% end %>

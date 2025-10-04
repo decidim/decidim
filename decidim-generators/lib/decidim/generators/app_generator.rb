@@ -93,11 +93,6 @@ module Decidim
                              default: false,
                              desc: "Do not add Puma development SSL configuration options"
 
-      # we disable the webpacker installation as we will use shakapacker
-      def webpacker_gemfile_entry
-        []
-      end
-
       def remove_old_assets
         remove_file "config/initializers/assets.rb"
         remove_dir("app/assets")
