@@ -155,6 +155,22 @@ describe "Filter Participatory Processes" do
           expect(page).to have_content(translated(process_without_taxonomy.title))
         end
       end
+
+      it "collapses the accordions on click" do
+        within ".layout-2col__aside" do
+          expect(page).to have_content "Upcoming"
+          expect(page).to have_content "A great taxonomy"
+        end
+
+        click_on "Date"
+        click_on decidim_sanitize_translated taxonomy_filter.root_taxonomy.name
+
+        within ".layout-2col__aside" do
+          expect(page).to have_no_content "Upcoming"
+          expect(page).to have_no_content "A great taxonomy"
+        end
+        take_screenshot
+      end
     end
   end
 end
