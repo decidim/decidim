@@ -47,7 +47,7 @@ As part of our ongoing efforts to improve and make simpler Decidim, the followin
 
 #### Collaborative Drafts and Participatory Texts
 
-The Collaborative Drafts and Participatory Texts features in the Proposals module (`decidim-proposals`) will be removed in v0.32. These features allowed participants to collaboratively edit texts within proposals. Organizations using this feature should plan to migrate to the `decidim-collaborative_texts` module.
+The Collaborative Drafts feature in the Proposals module (`decidim-proposals`) will be removed in v0.32. Organizations using this feature can switch to the new proposal co-authorship feature.
 
 #### Sortitions (decidim-sortitions)
 
