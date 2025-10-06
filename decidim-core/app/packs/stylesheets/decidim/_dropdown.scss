@@ -2,7 +2,7 @@
   @apply flex flex-col py-0 mx-3.5 md:mx-0 border-t-0 border-gray-3 cursor-pointer;
 
   &[aria-hidden="true"] {
-    @apply hidden;
+    @apply hidden md:flex;
   }
 }
 
