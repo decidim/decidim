@@ -659,10 +659,8 @@ pt:
       unsubscribe:
         success: Subscrição cancelada corretamente.
         token_error: A hiperligação expirou.
-        unsubscribe: Cancelar subscrição
     newsletters_opt_in_mailer:
       notify:
-        body_1: O processamento de dados pessoais e a sua proteção estão a tornar-se cada vez mais importantes para todos nós. Com o novo Regulamento Geral de Proteção de Dados (GDPR) de 25 de maio de 2018, os indivíduos têm melhor controlo sobre os seus dados pessoais. Por este motivo, precisamos do seu "OK" para continuar a enviar informações relevantes sobre as atividades de %{organization_name}.
         body_2: 'Como pode dar-nos o seu consentimento? Basta clicar no seguinte botão:'
         body_3: Com este consentimento, poderá continuar a receber informações sobre os serviços da plataforma. Se, pelo contrário, não recebermos uma confirmação positiva da sua parte, deixaremos de lhe enviar as nossas mensagens. Se confirmar que deseja continuar a ser informado, terá sempre a opção de cancelar a qualquer momento.
         button: Sim, quero continuar a receber informações relevantes

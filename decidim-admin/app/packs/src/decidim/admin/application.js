@@ -5,8 +5,6 @@ import Configuration from "src/decidim/refactor/implementation/configuration"
 
 import toggleNav from "src/decidim/admin/toggle_nav";
 import createSortList from "src/decidim/admin/sort_list.component";
-import FormFilterComponent from "src/decidim/form_filter";
-import InputCharacterCounter from "src/decidim/input_character_counter";
 import managedUsersForm from "src/decidim/admin/managed_users";
 
 import "chartkick/chart.js";
@@ -14,7 +12,11 @@ import "chartkick/chart.js";
 window.Decidim = window.Decidim || {};
 window.Decidim.managedUsersForm = managedUsersForm;
 window.Decidim.config = new Configuration();
-window.Decidim.InputCharacterCounter = InputCharacterCounter;
+
+
+const context = require.context("./controllers", true, /controller\.js$/)
+window.Stimulus.load(window.definitionsFromContext(context))
+
 
 // REDESIGN_PENDING: deprecated
 window.initFoundation = (element) => {
@@ -53,9 +55,6 @@ document.addEventListener("turbo:load", () => {
     }
   });
 
-  $("form.new_filter").each(function () {
-    const formFilter = new FormFilterComponent($(this));
-
-    formFilter.mountComponent();
-  });
+  document.querySelectorAll("form.new_filter").forEach((container) =>
+    window.deprecate(container, "form-filter", "form.new_filter"))
 });

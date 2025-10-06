@@ -33,19 +33,21 @@ fr-CA:
         deleted_election_info: Les élections supprimées ne sont pas affichées dans la liste. Vous pouvez les voir en cliquant sur le bouton ci-dessous.
         edit: Modifier l'élection
         new: Nouvelle élection
+        preview: Aperçu
         title: Actions
+        view: Voir l'élection
         view_deleted_elections: Voir les élections supprimées
       admin:
         census:
           edit:
-            choose_census: Choisissez le type de recensement que vous souhaitez utiliser pour cette élection
             created_at: Créée le
             identifier: Identifiant de l'utilisateur
-            title: Type de recensement
           update:
             error: Il y a eu une erreur lors de la génération ou de l'enregistrement du recensement.
             success: Recensement mis à jour avec succès.
         dashboard:
+          calendar:
+            published_results_at: Résultats publiés à
           census:
             title: Recensement
           main:
@@ -58,10 +60,17 @@ fr-CA:
           questions_table:
             answer: Réponses
             votes: Votes
+            votes_count:
+              one: 1 vote
+              other: "%{count} votes"
           results:
             publish_button: Publier les résultats
             title: Résultats
           status:
+            results_availability:
+              after_end: Résultats disponibles après la fin de l'élection
+              per_question: Résultats disponibles par question
+              real_time: Résultats disponibles en temps réel
             title: État actuel de l'élection
         elections:
           create:
@@ -127,7 +136,20 @@ fr-CA:
           update: "%{user_name} a mis à jour les questions de l'élection %{resource_name}"
       censuses:
         internal_users:
+          already_have_an_account?: Vous avez déjà un compte?
+          are_you_new?: Nouveau participant ?
           internal_type_title: Autorisations supplémentaires requises pour voter (facultatif)
+          sign_in_description: Connectez-vous pour voter durant cette élection
+          sign_up_description: Créer un compte pour voter durant cette élection
+        internal_users_form:
+          authorization_options_invalid: Malheureusement, bien que vous ayez toutes les autorisations requises, certaines d'entre elles ne sont pas valides pour cette élection.
+          exit_button: Quitter l'isoloir
+          invalid: Vous n'êtes pas autorisé(e) à voter pour cette élection.
+          missing: Votre compte utilisateur ne présente pas certaines autorisations requises. Veuillez vérifier les informations et réessayer.
+          not_authorized: 'L''autorisation "%{adapter}" ne correspond pas aux conditions requises.'
+          not_granted: 'L''autorisation "%{adapter}" n''est pas accordée.'
+          resume_with_method: Reprendre la vérification avec %{name}
+          verify_with_method: Vérifier avec %{name}
         token_csv:
           example: |
             email;jeton
@@ -138,6 +160,48 @@ fr-CA:
             Les colonnes doivent être séparées par un point-virgule (;)
           upload_file: Déposer un fichier
           upload_new_census: Déposer un fichier CSV
+        token_csv_form:
+          email: Email
+          email_placeholder: Entrez l'adresse e-mail de l'électeur
+          invalid: L'email ou le jeton n'est pas valide. Veuillez vérifier les détails et réessayer.
+          token: Jeton
+          token_placeholder: Entrez le jeton du votant
+      elections:
+        count:
+          elections_count:
+            one: "%{count} élection"
+            other: "%{count} élections"
+        elections:
+          empty: Il n'y a pas d'élection disponible.
+          empty_filters: Il n'y a aucune élection correspondant à vos filtres.
+        filters:
+          all: Toutes
+          state: Statut
+          state_values:
+            finished: Terminées
+            ongoing: En cours
+        orders:
+          end_at: Date de fin
+          label: Trier par
+          recent: Les plus récents
+          start_at: Date de début
+        questions:
+          subtitle: 'Voici les questions pour ce processus de vote:'
+          title: Questions de l'élection
+        show:
+          active_voting_until: 'Vote actif jusqu''au : %{end_date}'
+          vote_button: Voter
+          voted: Vous avez déjà voté. Vous pouvez voter à nouveau, seul votre dernier vote sera prise en compte.
+          votes_count:
+            one: 1 vote
+            other: "%{count} votes"
+          voting_began: 'Le vote commence le: %{start_date}'
+        vote_results:
+          subtitle:
+            after_end: L'élection est terminée. Vous pouvez maintenant voir les résultats.
+            per_question: Les résultats sont disponibles par question. Vous pouvez voir les résultats pour chaque question après que le vote soit activé et que les résultats soient publiés.
+            real_time: Les résultats sont disponibles en temps réel. Vous pouvez voir les résultats en cours de vote.
+          title: Résultats
       models:
         election:
           fields:
@@ -146,10 +210,49 @@ fr-CA:
             start_at: Heure de début
             status: Statut
             title: Titre
+      per_question_votes:
+        waiting:
+          description: Vous pouvez attendre ici jusqu'à ce que la question suivante soit disponible. Vous serez automatiquement redirigé(e) vers la question suivante quand elle sera prête.
+          edit_vote: Modifier votre vote
+          exit_button: Quitter la salle d'attente
+          title: En attente de la question suivante
       status:
         active: Active
         finished: Terminées
+        not_started: Non démarré
         ongoing: En cours
+        published_results: Résultats publiés
         unpublished: Non publié
+      votes:
+        cast:
+          invalid: Il y a eu un problème lors de votre vote. Veuillez vérifier les informations que vous avez fournies et réessayer.
+          success: Votre vote a bien été exprimé.
+        check_census:
+          access: Accèder
+          election_not_open: L'élection n'est pas encore ouverte. Veuillez vérifier les dates et réessayer.
+          failed: Votre identité n'a pas pu être vérifiée. Veuillez vérifier les informations que vous avez fournies et réessayez.
+          form_title: Vérifiez votre identité
+          invalid: Utilisateur introuvable dans le recensement.
+        confirm:
+          cast_vote: Exprimer votre vote
+          edit_vote: Modifier votre vote
+          not_answered: Vous n'avez pas répondu à cette question.
+          title: Confirmer votre vote
+        not_authorized: Vous n'êtes pas autorisé(e) à voter pour cette élection.
+        question:
+          back: Retour
+          cast_vote: Exprimer votre vote
+          next: Suivant
+        receipt:
+          description: Vous pouvez voter à nouveau à tout moment tant que la période de vote est ouverte. Votre vote précédent sera écrasé par le nouveau.
+          exit_button: Quitter l'isoloir
+          title: Vos votes ont été exprimés avec succès
+    metadata:
+      progress:
+        published_results: 'Résultats publiés : %{end_date}'
     statistics:
       elections_count: Élections
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Fermer

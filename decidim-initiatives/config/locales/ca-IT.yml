@@ -406,7 +406,7 @@ ca-IT:
           promoters_committee_help_html: Abans d'enviar la teva iniciativa de validació tècnica, necessites afegir al Comissió Promotora a %{committee_members_left} persones més. Actualment hi ha <strong>%{committee_members_count}/%{committee_size}</strong> a la comissió.
           promoters_committee_title: Comissió Promotora
         return_to_initiatives_button:
-          return_initiatives_html: Ometre ara i <a href="%{initiatives path}">tornar a les iniciatives</a>
+          return_initiatives_html: Ometre ara i <a href="%{initiatives_path}">tornar a les iniciatives</a>
         select_initiative_type:
           back: Torna
           choose_html: Vull <strong>%{title}</strong>

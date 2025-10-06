@@ -655,10 +655,8 @@ lb:
       unsubscribe:
         success: Du bass ofgemellt.
         token_error: De Link ass ofgelaf.
-        unsubscribe: Ofbestellen
     newsletters_opt_in_mailer:
       notify:
-        body_1: D'Verschaffen vun perséinlechen Daten an hire Schutz, ginn fir ons all ëmmer méi wichteg. Mat der neier RGPD Reglementatioun hunn Eenzelpersounen eng besser Kontroll iwwer hir perséinlech Daten. Aus dem Grond brauchen mir däin "OK" fir dir weiderhin relevant Informatiounen vun %{organization_name} zoukommen ze loossen.
         body_2: 'Wéi kanns du zoustëmmen? Klick einfach op den Knäppchen hei:'
         body_3: Mat denger Zoustëmmung erhëls du weiderhin Informatiounen iwwert Déngschter vun dëser Plattform. Sollten mir, am Géigenzuch, keng Zoustëmmung vun dir erhalen, wäerten mir dir och keng Noriichten méi schécken. Och am Fall vun enger Zoustëmmung, kanns du zu all Moment dës Optioun ofzewielen.
         button: Ja, ich möchte weiterhin relevante Informationen erhalten
