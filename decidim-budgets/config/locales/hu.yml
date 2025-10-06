@@ -61,8 +61,6 @@ hu:
         exports:
           projects: Projektek
         models:
-          budget:
-            name: Költségvetés
           project:
             name: Projekt
         projects:
@@ -212,9 +210,7 @@ hu:
           assigned: Hozzárendelt
           budget: Költségvetés
           dynamic_help:
-            keep_adding_projects: További projektek hozzáadása
             minimum_reached: Elérted a minimumot a szavazáshoz
-            start_adding_projects: Kezdj el projekteket hozzáadni
           minimum: Minimum
         orders:
           highest_cost: Legmagasabb költség

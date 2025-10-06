@@ -1135,11 +1135,12 @@ fr-CA:
         main_image: Image principale
     newsletters:
       unsubscribe:
-        check_subscription: Si vous souhaitez modifier vos préférences, vous pouvez le faire dans la page des <a href="%{link}" target="_blank">paramètres des notifications</a>.
+        check_subscription_html: Si vous souhaitez recommencer à les recevoir, vous pouvez réactiver votre abonnement à tout moment à partir de la <a href="%{link}" target="_blank">page des paramètres</a>.
         error: Un problème est survenu lors de la désinscription.
+        subscription_preferences: Nous avons mis à jour vos préférences d'abonnement, et vous ne recevrez plus de newsletters de %{organization_name}.
         success: Vous vous êtes désabonné avec succès.
         token_error: Le lien a expiré.
-        unsubscribe: Se désabonner
+        unsubscribe: Se désabonner de la newsletter
     newsletters_opt_in:
       unauthorized: Désolé, ce lien n'est plus disponible.
       update:
@@ -1147,7 +1148,7 @@ fr-CA:
         success: Les paramètres de la newsletter ont été mis à jour avec succès.
     newsletters_opt_in_mailer:
       notify:
-        body_1: Le traitement des données personnelles et leur protection deviennent de plus en plus importants pour nous tous. Avec le nouveau règlement général sur la protection des données (RGPD) du 25 mai 2018, les individus contrôlent mieux leurs données personnelles. Pour cette raison, nous avons besoin de votre accord pour continuer à vous envoyer des informations pertinentes sur les activités de %{organization_name}.
+        body_1: Le traitement des données personnelles et leur protection deviennent de plus en plus importants pour nous tous. Avec le nouveau Règlement Général sur la Protection des Données (RGPD) du 25 mai 2018, les individus contrôlent mieux leurs données personnelles. Pour cette raison, nous avons besoin de votre consentement pour continuer à vous envoyer des informations pertinentes sur les activités de %{organization_name}.
         body_2: 'Comment pouvez-vous nous donner votre consentement ? Cliquez simplement sur le bouton suivant :'
         body_3: Avec votre consentement, vous serez en mesure de continuer à recevoir des informations sur les services de la plateforme. Si, au contraire, nous ne recevons pas une confirmation positive de votre part, nous cesserons de vous envoyer des messages. Si vous confirmez que vous souhaitez rester informé, vous aurez toujours la possibilité d'annuler ce choix par la suite.
         button: Oui, je veux continuer à recevoir des informations pertinentes
@@ -1928,18 +1929,20 @@ fr-CA:
         edit: Modifier
       footer:
         cc_by_license: Licence Creative Commons
+        current_organization_img: "%{organization} (Retour à l'accueil)"
         data_consent_settings: Paramètres des cookies
         decidim_logo: Logo Decidim
         decidim_title: Decidim
+        help: Aide
         log_in: Se connecter
         made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
         open_data: Données ouvertes
         resources: Ressources
         sign_up: Créer un compte
+        social_media: Réseaux sociaux
         terms_of_service: Conditions d'utilisation
       header:
-        back: Retour à la liste
-        cancel: Annuler
+        back: Retour
         close: Fermer
         confirm_title_close_ephemeral_session: Avant de quitter cette page…
         log_in: Se connecter
@@ -1992,6 +1995,11 @@ fr-CA:
   locale:
     name: Français canadien
     name_with_error: Français canadien (erreur !)
+  number:
+    currency:
+      format:
+        format: "%u %n"
+        format_html: "<span>%u</span> %n"
   password_validator:
     denied: est refusé
     domain_included_in_password: est trop similaire au nom de domaine de cette plateforme

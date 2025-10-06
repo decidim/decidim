@@ -24,6 +24,11 @@ module Decidim
 
       has_many :voters, class_name: "Decidim::Elections::Voter", inverse_of: :election, dependent: :destroy
       has_many :questions, class_name: "Decidim::Elections::Question", inverse_of: :election, dependent: :destroy
+      has_many :votes,
+               foreign_key: "decidim_election_id",
+               class_name: "Decidim::Elections::Vote",
+               through: :questions,
+               dependent: :restrict_with_error
 
       component_manifest_name "elections"
 
@@ -49,6 +54,10 @@ module Decidim
 
       def self.log_presenter_class_for(_log)
         Decidim::Elections::AdminLog::ElectionPresenter
+      end
+
+      def update_votes_count!
+        update(votes_count: votes.count)
       end
 
       def auto_start?
@@ -114,10 +123,20 @@ module Decidim
 
       # if per question, only the enabled questions are returned
       # if not, all questions are returned
+      # if per question, only the enabled questions are returned
+      # if not, all questions are returned
       def available_questions
         return questions.enabled.unpublished_results if per_question?
 
         questions
+      end
+
+      # Create i18n ransackers for :title and :description.
+      # Create the :search_text ransacker alias for searching from both of these.
+      ransacker_i18n_multi :search_text, [:title, :description]
+
+      def self.ransackable_scopes(_auth_object = nil)
+        [:with_any_state]
       end
 
       def status

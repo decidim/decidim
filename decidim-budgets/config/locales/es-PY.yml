@@ -83,8 +83,6 @@ es-PY:
         exports:
           projects: Proyectos
         models:
-          budget:
-            name: Presupuesto
           project:
             name: Proyecto
         projects:
@@ -178,6 +176,7 @@ es-PY:
         cancel_order:
           more_than_one: eliminar tu voto en %{name} y empezar de nuevo
           only_one: eliminar tu voto y empezar de nuevo.
+        completed: Completado
         count:
           one: "%{count} presupuesto"
           other: "%{count} presupuestos"
@@ -185,6 +184,7 @@ es-PY:
         finished_message: Has terminado el proceso de votación. ¡Gracias por participar!
         highlighted_cta: Votar en %{name}
         if_change_opinion: Si has cambiado de opinión, puedes %{cancel_link}.
+        incomplete: Incompleto
         orders:
           highest_cost: Coste más elevado
           label: Ordenar proyectos por
@@ -192,6 +192,8 @@ es-PY:
           random: Orden aleatorio
         progress: Finalizar votación
         remove_vote: Eliminar el voto
+        see_projects: Ver los proyectos
+        see_results: Ver los resultados
         show: Ver proyectos
         vote: Votar
         voted_budgets: Presupuestos votados
@@ -240,6 +242,7 @@ es-PY:
           subject: Has votado en el espacio de participación %{space_name}
           voted_on_space: Has votado en el presupuesto %{budget_name} para el espacio participativo %{space_name}.
       projects:
+        back_to_budgets: Volver a los presupuestos
         budget_confirm:
           are_you_sure: Si cambias de opinión, puedes cambiar tu voto más tarde.
           cancel: Cancelar
@@ -283,18 +286,16 @@ es-PY:
           assigned: Asignado
           budget: Presupuesto
           dynamic_help:
-            keep_adding_projects: Seguir añadiendo proyectos
             minimum_reached: Has alcanzado el mínimo para poder votar
-            start_adding_projects: Empezar a añadir proyectos
           minimum: Mínimo
           minimum_projects_rule:
-            description: Selecciona al menos %{minimum_number} proyectos que quieras y vota de acuerdo a tus preferencias.
+            description: "<b>Selecciona al menos %{minimum_number} proyectos</b> que quieras y vota de acuerdo a tus preferencias."
           projects_rule:
-            description: Selecciona al menos %{minimum_number} y hasta %{maximum_number} proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.
+            description: "<b>Selecciona al menos %{minimum_number} y hasta %{maximum_number}</b> proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto."
           projects_rule_maximum_only:
-            description: Selecciona hasta %{maximum_number} proyectos que quieras y vota de acuerdo a tus preferencias.
+            description: "<b>Selecciona hasta %{maximum_number} proyectos</b> que quieras y vota de acuerdo a tus preferencias."
           vote_threshold_percent_rule:
-            description: Selecciona los proyectos que quieras hasta al menos el %{minimum_budget} del total del presupuesto y vota según tus preferencias.
+            description: "Selecciona los proyectos que quieras <b>hasta al menos el %{minimum_budget} del total del presupuesto</b> y vota según tus preferencias."
         orders:
           highest_cost: Mayor coste
           label: Ordenar proyectos por
@@ -322,7 +323,7 @@ es-PY:
         select_projects: Añadir proyectos
         show:
           budget: Presupuesto
-        start_voting: Empezar a votar
+          votes: Votos
       prompt: Seleccionar presupuesto
       vote_reminder_mailer:
         vote_reminder:
@@ -367,6 +368,11 @@ es-PY:
             vote_selected_projects_maximum: Cantidad máxima de proyectos a seleccionar
             vote_selected_projects_minimum: Cantidad mínima de proyectos a seleccionar
             vote_threshold_percent: Porcentaje de votos
+            voting_rule: Normas para la votación
+            voting_rule_choices:
+              minimum_projects: Número mínimo de proyectos a votar
+              selected_projects: Número mínimo y máximo de proyectos a votar
+              threshold_percent: Porcentaje mínimo del presupuesto a invertir
             workflow: Workflow
             workflow_choices:
               all: 'Votar en todos: permitir a las participantes votar en todos los presupuestos.'
