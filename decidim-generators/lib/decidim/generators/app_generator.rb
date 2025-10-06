@@ -379,6 +379,7 @@ module Decidim
 
       def authorization_handler
         return unless options[:demo]
+        return unless module_available?("decidim-verifications")
 
         copy_file "dummy_authorization_handler.rb", "app/services/dummy_authorization_handler.rb"
         copy_file "ephemeral_dummy_authorization_handler.rb", "app/services/ephemeral_dummy_authorization_handler.rb"
@@ -388,6 +389,7 @@ module Decidim
 
       def budgets_workflows
         return unless options[:demo]
+        return unless module_available?("decidim-budgets")
 
         copy_file "budgets_workflow_random.rb", "lib/budgets_workflow_random.rb"
         copy_file "budgets_workflow_random.en.yml", "config/locales/budgets_workflow_random.en.yml"
@@ -397,12 +399,14 @@ module Decidim
 
       def elections_census_manifest
         return unless options[:demo]
+        return unless module_available?("decidim-elections")
 
         copy_file "elections_initializer.rb", "config/initializers/decidim_elections.rb"
       end
 
       def initiative_signatures_workflows
         return unless options[:demo]
+        return unless module_available?("decidim-initiatives")
 
         copy_file "dummy_signature_handler.rb", "app/services/dummy_signature_handler.rb"
         copy_file "dummy_signature_handler_form.html.erb", "app/views/decidim/initiatives/initiative_signatures/dummy_signature/_form.html.erb"
@@ -425,6 +429,10 @@ module Decidim
       end
 
       private
+
+      def module_available?(module_name)
+        Bundler.definition.locked_gems.specs.find { |s| s.name == module_name }.present?
+      end
 
       def gem_modifier
         @gem_modifier ||= if options[:path]
