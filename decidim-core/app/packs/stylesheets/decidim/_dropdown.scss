@@ -46,7 +46,7 @@
 [data-target="dropdown-menu-main-desktop"] {
   > span,
   > svg {
-    @apply hidden md:block #{!important};
+    @apply hidden md:block;
   }
 }
 

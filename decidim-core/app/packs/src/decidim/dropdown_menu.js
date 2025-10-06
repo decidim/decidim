@@ -17,7 +17,6 @@ document.addEventListener("turbo:load", () => {
   }
 });
 
-
 const setMenuOpacity = (opacity) => {
   const content = document.getElementById("content");
   const footer = document.querySelector("footer");
