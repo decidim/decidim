@@ -1,6 +1,8 @@
 <div class="budget__list--header">
   <div>
-    <%= render partial: "addition_selector" %>
+    <% if voting_open? %>
+      <%= render partial: "addition_selector" %>
+    <% end %>
   </div>
 
   <div data-collection-sort-controls>

@@ -7,6 +7,9 @@ cs:
         organization_name: Organizace
         organization_url: URL organizace
         redirect_uri: Přesměrovací URI
+        refresh_tokens: Obnovit tokeny
+        refresh_tokens_enabled: Obnovení tokenů povoleno
+        scopes: Dostupné rozsahy
       organization:
         address: SMTP hostname
         from_email: E-mailová adresa
@@ -38,12 +41,24 @@ cs:
   decidim:
     system:
       actions:
+        api_user:
+          hide_secret: Skrýt tajný klíč
+          show_secret: Zobrazit tajný klíč
+          shown_secret: Tajný klíč je zobrazen
+        api_users:
+          create: Vytvořit
+          new: Nový uživatel API
+          remove: Odebrat uživatele
         confirm_destroy: Opravdu to chcete smazat?
+        copied: Zkopírováno
+        copy_secret: Kopírovat tajný klíč
+        copy_secret_clarification: Zkopírovat tajný klíč do schránky
         destroy: Smazat
         edit: Upravit
         new_admin: Nový administrátor
         new_oauth_application: Nová aplikace OAuth
         new_organization: Nová organizace
+        refresh_secret: Aktualizovat tajný klíč
         save: Uložit
         title: Akce
       admins:
@@ -63,6 +78,15 @@ cs:
         update:
           error: Při aktualizaci tohoto administrátora došlo k chybě.
           success: Správce byl úspěšně aktualizován.
+      api_user:
+        create:
+          error: Vytvoření uživatele API se nezdařilo.
+          success: Uživatel API byl úspěšně vytvořen. Tajný klíč pro uživatele je viditelný pouze po vytvoření. Prosím, zkopírujte jej a uložte ho bezpečně před opuštěním této stránky!
+        destroy:
+          success: Uživatel API byl úspěšně smazán.
+        refresh:
+          error: Něco se pokazilo! Zkuste to prosím znovu později.
+          success: Tajný klíč byl úspěšně obnoven. Tajný klíč pro uživatele je viditelný pouze po vytvoření. Zkopírujte jej a uložte jej bezpečně před opuštěním této stránky!
       dashboard:
         show:
           admins: Administrátoři

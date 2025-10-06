@@ -105,6 +105,10 @@ cs:
           invalid_nodes: Neplatné vybrané uzly.
     components:
       collaborative_texts:
+        actions:
+          create: Vytvořit
+          destroy: Vymazat
+          update: Aktualizovat
         name: Kolaborativní texty
         settings:
           global:

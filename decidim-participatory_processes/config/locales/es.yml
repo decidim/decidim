@@ -428,7 +428,7 @@ es:
                   three: 40 - 60%
                   two: 20 - 40%
               citizen_influence_level:
-                legend: Este indicador mide el grado de capacidad real de incidencia de la ciudadanía en un proceso, específicamente cuantificando su capacidad de decidir y de ejecutar, desde la simple recepción de información hasta la influencia en la toma decisiones y la posterior gestión de los recursos.
+                legend: '¿Hasta qué punto la ciudadanía tiene autoridad decisoria en este proceso, desde la simple recepción de información hasta la influencia decisiva en las decisiones y en la gestión de recursos?'
                 options:
                   five: Las participantes estuvieron involucradas en la toma de decisiones y en la gestión de los recursos o en la implementación
                   four: La ciudadanía participó decisivamente en la toma de decisiones

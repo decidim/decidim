@@ -52,8 +52,6 @@ nl:
         exports:
           projects: Projecten
         models:
-          budget:
-            name: Budget
           project:
             name: Project
         projects:

@@ -978,18 +978,15 @@ lt:
         main_image: Pagrindinis atvaizdas
     newsletters:
       unsubscribe:
-        check_subscription: Jei norite pakeisti savo parinktis, galite tai padaryti <a href="%{link}" target="_blank">konfigūracijos puslapyje</a>.
         error: Atsisakant prenumeratos iškilo problema.
         success: Jūs atsisakėte prenumeratos.
         token_error: Nuorodos galiojimo laikas baigėsi.
-        unsubscribe: Atsisakyti prenumeratos
     newsletters_opt_in:
       update:
         error: Išsaugant naujienlaiškių nuostatas iškilo problema.
         success: Naujienlaiškio nuostatos atnaujintos.
     newsletters_opt_in_mailer:
       notify:
-        body_1: Asmens duomenų tvarkymas ir jų apsauga mums visiems tampa vis svarbesni. 2018 m. gegužės 25 d. priėmus naują Bendrąjį duomenų apsaugos reglamentą (BDAR), asmenys geriau kontroliuoja savo asmens duomenis. Dėl šios priežasties jums reikia spustelėti „Gerai“, kad galėtume ir toliau siųsti reikiamą informaciją apie %{organization_name} veiklą.
         body_2: 'Kaip duoti sutikimą? Spustelkite ant šio mygtuko:'
         body_3: Davę šį sutikimą galėsite ir toliau gauti informaciją apie platformos paslaugas. Kita vertus, jeigu negausime Jūsų sutikimo, Jums nebesiųsime pranešimų. Patvirtinę, kad norite ir toliau gauti informaciją, visada turėsite galimybę bet kuriuo metu sutikimą atšaukti.
         button: Taip, aš noriu ir toliau gauti aktualią informaciją

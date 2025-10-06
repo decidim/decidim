@@ -75,10 +75,12 @@ de:
           attributes:
             base:
               not_official: Sind nicht offiziell
+              voted: Haben Stimmen oder Unterstützung erhalten
         proposals_split:
           attributes:
             base:
               not_official: Sind nicht offiziell
+              voted: Haben Stimmen oder Unterstützung erhalten
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: Klassifizierung des Vorschlags geändert
       decidim/proposals/creation_enabled_event: Vorschlagserstellung aktiviert
@@ -149,6 +151,7 @@ de:
           amend: Änderungsvorschlag
           comment: Kommentieren
           create: Einen Vorschlag erstellen
+          like: Unterstützen
           vote: Abstimmen
           vote_comment: Kommentar bewerten
           withdraw: Zurückziehen
@@ -172,6 +175,7 @@ de:
               automatic: Automatisch
               most_commented: Am häufigsten kommentiert
               most_followed: Am häufigsten gefolgt
+              most_liked: Am häufigsten unterstützt
               most_voted: Am meisten gewählt
               random: Zufällig
               recent: Neueste
@@ -232,10 +236,13 @@ de:
               automatic: Automatisch
               most_commented: Am meisten kommentiert
               most_followed: Am häufigsten gefolgt
+              most_liked: Am häufigsten unterstützt
               most_voted: Am meisten gewählt
               random: Zufällig
               recent: Neueste
               with_more_authors: Mit mehr Autoren
+            likes_blocked: Unterstützungsfunktion gesperrt
+            likes_enabled: Unterstützungsfunktion aktiviert
             proposal_answering_enabled: Vorschlagsantworten aktiviert
             publish_answers_immediately: Vorschlagsantworten sofort veröffentlichten
             publish_answers_immediately_help_html: 'Wenn Sie einen Vorschlag ohne diese Option beantworten, müssen Sie die Antwort manuell veröffentlichen, indem Sie den Vorschlag auswählen und über «Aktionen» im Menü veröffentlichen. Weitere Informationen darüber finden Sie auf der <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">Dokumentationsseite zur Vorschlagsbeantwortung</a>.'
@@ -318,6 +325,8 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: In %{participatory_space_title} sind jetzt Vorschläge verfügbar
           notification_title: Sie können jetzt <a href="%{resource_path}">neue Vorschläge</a> auf <a href="%{participatory_space_url}">%{participatory_space_title}</a> erfassen.
+        liking_enabled:
+          email_intro: 'Sie können ab jetzt Vorschläge auf %{participatory_space_title} unterstützen! Jetzt auf dieser Seite mitmachen:'
         proposal_mentioned:
           email_intro: Ihr Vorschlag "%{mentioned_proposal_title}" wurde <a href="%{resource_url}">hier</a> in den Kommentaren erwähnt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
@@ -429,6 +438,7 @@ de:
           id: Die eindeutige Bezeichnung des Vorschlags
           is_amend: Ob dieser Vorschlag einen anderen Vorschlag ändert
           latitude: Der Breitengrad des Vorschlags, falls es einen verortet wurde
+          likes: Die Anzahl Unterstützungen dieses Vorschlags
           longitude: Der Längengrad des Vorschlags, falls er verortet wurde
           meeting_urls: Die URLs der Veranstaltungen, an denen dieser Vorschlag vorgestellt oder diskutiert wurde
           original_proposal: Referenz des ursprünglichen Vorschlags, falls es sich um einen Änderungsantrag handelt
@@ -642,7 +652,12 @@ de:
             comments_count: Anzahl der Kommentare
             documents: Unterlagen
             evaluators: Bewertende Personen
+            likes: Unterstützungen
+            likes_count: Anzahl Unterstützungen
             link: Vorschlag anzeigen
+            n_more_likes:
+              one: und 1 mehr
+              other: und %{count} mehr
             photos: Fotos
             ranking: "%{ranking} von %{total}"
             related_meetings: Ähnliche Veranstaltungen
@@ -924,6 +939,7 @@ de:
           label: 'Vorschläge sortieren nach:'
           most_commented: Am meisten kommentiert
           most_followed: Am meisten gefolgt
+          most_liked: Am häufigsten unterstützt
           most_voted: Am meisten gewählt
           random: Zufällig
           recent: Kürzlich hinzugefügt
@@ -950,6 +966,9 @@ de:
           changes_at_title: Ergänzung zu „%{title}“
           edit_proposal: Bearbeiten
           estimated_cost: Geschätzte Kosten
+          hidden_likes_count:
+            one: und %{count} weitere Person
+            other: und %{count} weitere Personen
           link_to_collaborative_draft_help_text: Dieser Vorschlag ist das Ergebnis eines gemeinsamen Entwurfs. Überprüfen Sie die Geschichte
           link_to_collaborative_draft_text: Gemeinsamen Entwurf anzeigen
           link_to_promoted_emendation_help_text: Dieser Vorschlag hat eine markierte Berichtigung
@@ -1031,6 +1050,9 @@ de:
         proposal_project: 'Vorschlag, der in diesen Projekten erscheint:'
         proposal_result: 'Vorschlag erscheint in diesen Ergebnissen:'
     statistics:
+      participatory_space_proposals_count: Vorschläge
       proposals_accepted: Akzeptierte Vorschläge
       proposals_count: Vorschläge
+      proposals_count_tooltip: Die Gesamtzahl der eingereichten Vorschläge und die abgegebenen Stimmen.
+      votes: 'Stimmen:'
       votes_count: Stimmen

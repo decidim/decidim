@@ -180,7 +180,7 @@ module Decidim
       help_text = options.delete(:help_text)
       editor_image = Decidim::EditorImage.new
       editor_options = editor_options(editor_image, options)
-      hidden_options = extract_validations(name, options).merge(options)
+      hidden_options = editor_hidden_options(name, options)
 
       @template.append_stylesheet_pack_tag "decidim_editor"
       @template.append_javascript_pack_tag "decidim_editor", defer: false
@@ -445,6 +445,16 @@ module Decidim
     end
 
     private
+
+    def editor_hidden_options(name, options)
+      hidden_options = extract_validations(name, options).merge(options)
+      if hidden_options[:minlength] || hidden_options[:maxlength]
+        hidden_options[:data] ||= {}
+        hidden_options[:data][:controller] ||= ""
+        hidden_options[:data][:controller] += " character-counter"
+      end
+      hidden_options
+    end
 
     # Private: Override from FoundationRailsHelper in order to render
     # inputs inside the label and to automatically inject validations
@@ -804,13 +814,9 @@ module Decidim
       upload_options = options.delete(:image_upload) || {}
       upload_options[:modal_id] ||= "upload_#{SecureRandom.uuid}"
 
-      mentionable = options.delete(:mentionable)
-      emojiable = options.delete(:emojiable)
       resource_mentionable = options.delete(:resource_mentionable)
 
       editor_classes = ["editor-container"]
-      editor_classes << "js-mentions" if mentionable
-      editor_classes << "js-emojis" if emojiable
       editor_classes << "js-resource-mentions" if resource_mentionable
 
       editor_options = {
@@ -823,6 +829,9 @@ module Decidim
         drag_and_drop_help_text: I18n.t("drag_and_drop_help", scope: "decidim.editor_images"),
         upload_dialog_selector: "##{upload_options[:modal_id]}"
       }.transform_keys { |key| key.to_s.camelize(:lower) }
+
+      editor_options[:mention] = options.delete(:mentionable)
+      editor_options[:emoji] = options.delete(:emojiable)
 
       { editor: editor_options, upload: upload_options }
     end

@@ -45,6 +45,8 @@ cs:
               'true': Nevybráno pro implementaci
           taxonomies_part_of_contains:
             label: Taxonomie
+      tooltips:
+        deleted_projects_info: Tento projekt nelze odstranit
     budgets:
       actions:
         confirm_delete_budget: Opravdu chcete odstranit tento rozpočet?
@@ -85,8 +87,6 @@ cs:
         exports:
           projects: Projekty
         models:
-          budget:
-            name: Rozpočet
           project:
             name: Projekt
         projects:
@@ -297,18 +297,8 @@ cs:
           assigned: Přiřazeno
           budget: Rozpočet
           dynamic_help:
-            keep_adding_projects: Pokračovat v přidávání projektů
             minimum_reached: Dosáhli jste minima, abyste mohli hlasovat
-            start_adding_projects: Začít přidávat projekty
           minimum: Minimum
-          minimum_projects_rule:
-            description: Vyberte alespoň %{minimum_number} projekty, které chcete a hlasujte podle vašich preferencí.
-          projects_rule:
-            description: Vyberte alespoň %{minimum_number} a až %{maximum_number} projektů, které chcete a hlasujete podle vašich preferencí.
-          projects_rule_maximum_only:
-            description: Vyberte až %{maximum_number} projektů, které chcete a hlasujte podle vašich preferencí.
-          vote_threshold_percent_rule:
-            description: Přiřaďte alespoň %{minimum_budget} k projektům, které chcete, a hlasujte podle vašich preferencí.
         orders:
           highest_cost: Nejvyšší náklady
           label: Seřadit projekty podle
@@ -338,7 +328,6 @@ cs:
         select_projects: Přidat projekty
         show:
           budget: Rozpočet
-        start_voting: Zahájit hlasování
       prompt: Vybrat rozpočet
       vote_reminder_mailer:
         vote_reminder:
