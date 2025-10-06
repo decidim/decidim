@@ -205,7 +205,7 @@ en:
             no_taxonomy_filters_found: No taxonomy filters found.
             official_proposals_enabled: Official proposals enabled
             participatory_texts_enabled: Participatory texts enabled
-            participatory_texts_enabled_readonly: The Participatory Texts feature will be removed in Decidim v0.32. Organizations using this feature should plan to migrate to the "decidim-collaborative_texts" module. Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.
+            participatory_texts_enabled_readonly: Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.
             proposal_answering_enabled: Proposal answering enabled
             proposal_edit_time: Proposal editing
             proposal_edit_time_choices:
