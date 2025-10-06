@@ -26,8 +26,8 @@ module Decidim
 
       private
 
-      attr_reader :responses
-      alias resource responses
+      attr_reader :survey_user_responses
+      alias resource survey_user_responses
 
       def hash_for(response)
         {
@@ -45,17 +45,10 @@ module Decidim
         questions = Decidim::Forms::Question.where(decidim_questionnaire_id: questionnaire_id).order(:position)
         return {} if questions.none?
 
-        questions.each_with_object({}) do |question, serialized|
-          if question.matrix?
-            question.matrix_rows.each do |matrix_row|
-              question.response_options.each do |response_option|
-                key = "#{question.position + 1}. #{translated_attribute(question.body)}/#{translated_attribute(matrix_row.body)}/#{translated_attribute(response_option.body)}"
-                serialized[key] = ""
-              end
-            end
-          else
-            serialized[translated_question_key(question.position, question.body)] = ""
-          end
+        questions.each.inject({}) do |serialized, question|
+          serialized.update(
+            translated_question_key(question.position, question.body) => ""
+          )
         end
       end
 
