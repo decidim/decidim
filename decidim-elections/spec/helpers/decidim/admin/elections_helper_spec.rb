@@ -69,7 +69,7 @@ module Decidim
             html = helper.election_status_with_label(election)
 
             expect(html).to include("Ongoing")
-            expect(html).to include("ongoing label")
+            expect(html).to include("warning label")
           end
 
           it "renders unpublished status with correct CSS class" do
@@ -77,7 +77,7 @@ module Decidim
             html = helper.election_status_with_label(election)
 
             expect(html).to include("Unpublished")
-            expect(html).to include("alert unpublished label")
+            expect(html).to include("alert label")
           end
 
           it "renders scheduled status with correct CSS class" do
@@ -85,7 +85,7 @@ module Decidim
             html = helper.election_status_with_label(election)
 
             expect(html).to include("Scheduled")
-            expect(html).to include("warning scheduled label")
+            expect(html).to include("reverse label")
           end
 
           it "renders finished status with correct CSS class" do
@@ -93,7 +93,7 @@ module Decidim
             html = helper.election_status_with_label(election)
 
             expect(html).to include("Finished")
-            expect(html).to include("success finished label")
+            expect(html).to include("success label")
           end
         end
 
