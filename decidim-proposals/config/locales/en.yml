@@ -177,7 +177,7 @@ en:
             can_accumulate_votes_beyond_threshold: Can accumulate votes beyond threshold
             clear_all: Clear all
             collaborative_drafts_enabled: Collaborative drafts enabled
-            collaborative_drafts_enabled_help: The Collaborative Drafts feature will be removed in Decidim v0.32. Organizations using this feature should plan to migrate to the "decidim-collaborative_texts" module.
+            collaborative_drafts_enabled_help: The Collaborative Drafts feature will be removed in Decidim v0.32. Organizations using it can switch to the new proposal co-authorship feature.
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
             default_sort_order: Default proposal sorting
