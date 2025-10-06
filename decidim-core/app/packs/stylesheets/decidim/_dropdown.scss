@@ -34,7 +34,6 @@
 }
 
 [data-target="dropdown-menu-main-mobile"] {
-
   &[aria-expanded="true"] > span {
     @apply hidden;
   }
