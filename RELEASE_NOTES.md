@@ -45,7 +45,7 @@ bin/rails db:migrate
 
 As part of our ongoing efforts to improve and make simpler Decidim, the following modules will be **deprecated** in this version (v0.31) and **removed** in the next major version (v0.32):
 
-#### Collaborative Drafts and Participatory Texts
+#### Collaborative Drafts
 
 The Collaborative Drafts feature in the Proposals module (`decidim-proposals`) will be removed in v0.32. Organizations using this feature can switch to the new proposal co-authorship feature.
 
