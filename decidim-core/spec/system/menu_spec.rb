@@ -69,37 +69,6 @@ describe "Menu" do
     end
   end
 
-  describe "header message in desktop" do
-    let(:participatory_space) { create(:participatory_process, organization:) }
-    let(:component) { create(:proposal_component, participatory_space:) }
-    let(:proposal) { create(:proposal, component:) }
-    let(:proposal_path) { Decidim::ResourceLocatorPresenter.new(proposal).path }
-
-    before do
-      visit proposal_path
-      find_by_id("main-dropdown-summary").hover
-    end
-
-    context "when the organization does not have a description" do
-      let(:organization) { create(:organization, description: { en: nil }) }
-
-      it "shows the default message" do
-        within "#breadcrumb-main-dropdown-desktop" do
-          expect(page).to have_text("Let's build a more open, transparent and collaborative society.")
-        end
-      end
-    end
-
-    context "when the organization has a description" do
-      it "shows the organization description" do
-        within "#breadcrumb-main-dropdown-desktop" do
-          expect(page).to have_no_text("Let's build a more open, transparent and collaborative society.")
-          expect(page).to have_text(strip_tags(translated(organization.description)))
-        end
-      end
-    end
-  end
-
   context "when the admin_insights_menu is displayed" do
     let(:user) { create(:user, :admin, :confirmed, organization:) }
 

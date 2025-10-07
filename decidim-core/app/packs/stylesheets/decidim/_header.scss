@@ -35,11 +35,11 @@ header {
   }
 
   #sticky-header-container {
-    @apply fixed w-full top-0 shadow-lg z-40 bg-white md:relative transition-top duration-300;
+    @apply fixed w-full top-0 z-40 bg-white md:relative transition-top duration-300;
   }
 
   .main-bar {
-    @apply container grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-4 items-center py-5 h-24;
+    @apply container flex justify-between gap-4 items-center py-5 h-20;
 
     &--focus-mode-back-button {
       @apply h-16 lg:h-24;
@@ -50,7 +50,7 @@ header {
     }
 
     &__container {
-      @apply relative w-full;
+      @apply relative w-full flex justify-between;
     }
 
     &__logo {
@@ -73,7 +73,11 @@ header {
       }
 
       input[type="text"] {
-        @apply block bg-transparent w-full px-4 py-1.5;
+        @apply block bg-transparent w-full px-4 py-2 h-full;
+
+        &::placeholder {
+          @apply text-gray-8 text-sm ltr:pl-6 rtl:pr-6;
+        }
       }
 
       button[type="submit"] {
@@ -90,7 +94,7 @@ header {
     }
 
     &__menu-mobile {
-      @apply lg:hidden flex flex-row-reverse items-center;
+      @apply lg:hidden flex flex-row-reverse items-center gap-x-3;
     }
 
     &__links-desktop,
@@ -123,7 +127,7 @@ header {
       }
 
       svg + span {
-        @apply text-sm first-letter:uppercase;
+        @apply text-md leading-[22px] first-letter:uppercase font-semibold;
       }
     }
 
@@ -131,7 +135,7 @@ header {
       @apply fixed bottom-0 left-0 z-40 bg-white w-full px-4 py-3 flex justify-between text-secondary shadow-[0_-4px_6px_rgba(198,198,198,0.25)];
 
       &__trigger {
-        @apply flex flex-col items-center text-secondary cursor-pointer md:pl-4 md:border-l border-gray-3;
+        @apply flex items-center text-secondary cursor-pointer justify-evenly gap-x-1 px-2 py-1;
 
         svg {
           @apply w-6 h-6 fill-current;
@@ -144,10 +148,6 @@ header {
 
       &__dropdown {
         @apply absolute top-full left-0 z-30 bg-white;
-      }
-
-      &__dropdown-before {
-        @apply before:block before:absolute before:-top-10 before:right-12 before:content-[""] before:bg-white before:w-24 before:h-12 before:-mt-8;
       }
 
       &__account {
@@ -198,7 +198,7 @@ header {
         }
 
         svg + span {
-          @apply text-sm first-letter:uppercase w-auto;
+          @apply w-auto text-md leading-[22px] first-letter:uppercase font-semibold;
 
           flex-shrink: 0;
         }
@@ -255,14 +255,18 @@ header {
     @apply container h-full flex justify-between items-center lg:relative last-of-type:[&>svg]:hidden;
 
     &__container {
-      @apply bg-primary relative h-14;
+      @apply bg-white relative h-14 flex justify-between;
     }
 
     &__breadcrumb-desktop {
-      @apply hidden lg:flex justify-between items-center gap-2.5 [&>*]:text-lg [&>*]:text-white;
+      @apply hidden lg:flex justify-between items-center [&>*]:text-md [&>*]:text-black;
+
+      .no-interactive {
+        @apply font-normal px-2;
+      }
 
       &__dropdown-trigger {
-        @apply flex rounded px-2 py-1 z-20;
+        @apply flex rounded py-1 z-20 pr-2 font-semibold;
 
         &:hover {
           @apply z-10 relative before:content-[''] before:absolute before:w-[calc(100%+3rem+1px)] before:min-w-[10rem] before:h-40 before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/4 before:-z-10;
@@ -274,7 +278,7 @@ header {
       }
 
       &__dropdown-wrapper {
-        @apply flex items-center cursor-pointer rounded hover:backdrop-brightness-75 focus:backdrop-brightness-75 focus:outline-none;
+        @apply flex items-center cursor-pointer underline focus:backdrop-brightness-75 focus:outline-none;
       }
 
       &__dropdown-content {
@@ -348,11 +352,15 @@ header {
       @apply block lg:hidden w-full z-20;
 
       &__dropdown-trigger {
-        @apply flex items-center justify-between text-white;
+        @apply flex items-center justify-between text-black;
 
         svg {
           @apply w-6 h-6 fill-current;
         }
+      }
+
+      .menu-bar__breadcrumb-item {
+        @apply font-semibold underline;
       }
 
       /* overwrite default dropdown styles */
