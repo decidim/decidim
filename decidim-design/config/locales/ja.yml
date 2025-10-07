@@ -87,6 +87,7 @@ ja:
           adjacent_links_paragraph: 同じリソースに複数の隣接するリンクが指している場合、ユーザーがページを素早く確認するのが困難になることがあります。なぜなら、次のリソースに進むために複数のリンクをたどる必要があるかもしれないためです。
           color_contrast: 色のコントラスト
           color_contrast_paragraph: ユーザーインターフェイスを作成したり、色を変更したりするときは、変更によってアクセシビリティが損なわれていないことを常に確認してください。カラーコントラストチェッカーを使うと、表示色が背景色に対して十分なコントラストがあることを確認できます。
+          decidim_follows_html: Decidimは %{link} に従います
           dynamic_changes_header: 動的な機能は直感に反してページのコンテキストを変更します。
           dynamic_changes_paragraph: フォーム入力の変更は、ページのコンテキストを自動的に変更してはなりません。
           elements_hidden: 要素の非表示
@@ -97,6 +98,7 @@ ja:
           illogical_heading_paragraph: <h1>, <h2>, <h3>, <h4>, <h5>, <h6> の見出し要素を使用する場合、すべてのページは論理的な見出し順序を持つ必要があります。
           important_sections_heading: 重要なセクションの見出し
           important_sections_paragraph: ページの重要なセクションごとに見出しがあることが非常に重要です。これにより、見出しを流し読みするだけでページ内にどのような重要なセクションがあるのかが分かりやすくなります。
+          learn_more_about_html: '%{link} についてもっと知る'
           links_and_buttons: リンクとボタン
           links_and_buttons_paragraph: アンカー要素（つまりリンク）は、異なるページへのリンクやページ内の特定の位置へのアンカーとして機能します。例えばその要素がページ上で何か隠された項目を表示するような場合は、<button>要素を使用するべきです。
           unique_h1: ただ一つのH1
@@ -104,6 +106,7 @@ ja:
           use_aria: ARIA を使用する
           use_aria_header: 可能な場合はARIA属性を使用する
           use_aria_paragraph: ウェブサイト上でインタラクティブ機能を提供する多くの要素には、それらにアクセシブルにするために ARIA 属性が必要です。
+          wcag_guidelines: Web Content Accessibility Guidelines (WCAG)
         color:
           color_header: 色
           description_p1: シンプルなカスタマイズが簡単にできるように、少数の色で構成される基本パレットを提供しています。より高度なカスタマイズが必要な場合は、管理画面のエリアまたはTailwindの設定ファイルのいずれかで基本パレットを変更することができます。
