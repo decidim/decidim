@@ -2,8 +2,7 @@
 
 module Decidim
   module Elections
-    # Custom helpers, scoped to the elections engine.
-    #
+    # Helpers to render the states as labels on Elections (ongoing, finished, unpublished)
     module LabelHelper
       def election_status_with_label(election)
         css_class = case election.status
