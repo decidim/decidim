@@ -13,6 +13,7 @@ module Decidim
       end
 
       field :delete_blob, mutation: Decidim::Core::DeleteBlobType, description: "Delete a blob"
+      field :upload_file, mutation: Decidim::Core::UploadFileType, description: "Upload a file"
 
       def component(id:)
         context[:current_organization]&.published_components&.find(id)

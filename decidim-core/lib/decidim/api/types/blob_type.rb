@@ -52,7 +52,7 @@ module Decidim
 
       def remote_storage_options
         @remote_storage_options ||= {
-          host: Rails.application.secrets.dig(:storage, :cdn_host)
+          host: Rails.application.credentials.dig(:storage, :cdn_host)
         }.compact
       end
     end
