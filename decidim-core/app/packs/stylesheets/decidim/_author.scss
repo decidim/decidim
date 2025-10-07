@@ -14,6 +14,10 @@
 
     &-container {
       @apply rounded-full overflow-hidden inline-block w-6 h-6 align-top;
+
+      &:focus-within {
+        @apply ring-2 ring-primary;
+      }
     }
 
     &-counter {
