@@ -414,6 +414,30 @@ describe "Explore meetings", :slow do
 
         expect(page).to have_css(meetings_selector, count: 1)
       end
+
+      it "collapses the accordions on click" do
+        visit_component
+
+        within ".layout-2col__aside" do
+          expect(page).to have_content "Upcoming"
+          expect(page).to have_content "Online"
+        end
+
+        click_on "Date"
+        click_on "Type"
+
+        within ".layout-2col__aside" do
+          expect(page).to have_no_content "Upcoming"
+          expect(page).to have_no_content "Online"
+        end
+
+        click_on "Type"
+
+        within ".layout-2col__aside" do
+          expect(page).to have_no_content "Upcoming"
+          expect(page).to have_content "Online"
+        end
+      end
     end
 
     context "when no upcoming meetings scheduled" do

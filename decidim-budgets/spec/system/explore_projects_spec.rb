@@ -14,7 +14,11 @@ describe "Explore projects", :slow do
   let(:taxonomy) { create(:taxonomy, :with_parent, skip_injection: true, organization:) }
   let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: taxonomy.parent) }
   let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
-  let(:taxonomy_filter_ids) { [taxonomy_filter.id] }
+
+  let(:second_taxonomy) { create(:taxonomy, :with_parent, skip_injection: true, organization:) }
+  let(:second_taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: second_taxonomy.parent) }
+  let!(:second_taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter: second_taxonomy_filter, taxonomy_item: second_taxonomy) }
+  let(:taxonomy_filter_ids) { [taxonomy_filter.id, second_taxonomy_filter.id] }
 
   before do
     component_settings = component["settings"]["global"].merge!(taxonomy_filters: taxonomy_filter_ids)
@@ -160,6 +164,30 @@ describe "Explore projects", :slow do
 
         filter_params = CGI.parse(URI.parse(page.current_url).query)
         expect(filter_params["filter[search_text_cont]"]).to eq(["foobar"])
+      end
+
+      it "collapses the accordions on click" do
+        visit_budget
+
+        within "#panel-dropdown-menu-taxonomy-#{second_taxonomy_filter.root_taxonomy_id}" do
+          expect(page).to have_content "All"
+          expect(page).to have_content decidim_sanitize_translated(second_taxonomy.name)
+        end
+
+        click_on decidim_sanitize_translated(second_taxonomy_filter.root_taxonomy.name)
+        click_on decidim_sanitize_translated(taxonomy_filter.root_taxonomy.name)
+
+        within ".layout-2col__aside" do
+          expect(page).to have_no_content decidim_sanitize_translated(taxonomy.name)
+          expect(page).to have_no_content decidim_sanitize_translated(second_taxonomy.name)
+        end
+
+        click_on decidim_sanitize_translated(second_taxonomy_filter.root_taxonomy.name)
+
+        within ".layout-2col__aside" do
+          expect(page).to have_no_content decidim_sanitize_translated(taxonomy.name)
+          expect(page).to have_content decidim_sanitize_translated(second_taxonomy.name)
+        end
       end
 
       it "allows filtering by taxonomy" do
