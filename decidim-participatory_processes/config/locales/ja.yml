@@ -7,6 +7,7 @@ ja:
         area_id: エリア
         copy_categories: カテゴリをコピー
         copy_components: コンポーネントをコピー
+        copy_landing_page_blocks: ランディングページブロックを複製
         copy_steps: フェーズをコピー
         decidim_area_id: エリア
         description: 説明
