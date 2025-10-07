@@ -1,5 +1,9 @@
 <% if profile_path? %>
   <%= link_to display_name, profile_path, class: "author__name underline" %>
+
+  <%= render :badge if show_badge? %>
 <% else %>
   <%= content_tag :span, display_name, class: "author__name" %>
+
+  <%= render :badge if show_badge? %>
 <% end %>
