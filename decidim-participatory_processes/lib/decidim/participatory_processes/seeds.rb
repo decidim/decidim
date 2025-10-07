@@ -7,6 +7,8 @@ module Decidim
   module ParticipatoryProcesses
     class Seeds < Decidim::Seeds
       def call
+        Decidim::ParticipatoryProcesses::CreateDemocraticQualityIndicatorsPage.call(organization)
+
         create_content_block!
 
         process_groups = []
