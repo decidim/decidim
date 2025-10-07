@@ -1,5 +1,11 @@
 .author {
-  @apply flex items-center [&>*:not(:first-child)]:pl-5 [&>*:not(:last-child)]:pr-6 divide-gray-3 divide-x text-sm text-gray-2;
+  @apply flex items-center divide-gray-3 divide-x text-sm text-gray-2;
+
+  a.author__container {
+    .author__name {
+      @apply underline text-secondary font-bold;
+    }
+  }
 
   &__container {
     @apply flex items-center gap-2.5 first:[&>*]:flex-none;
