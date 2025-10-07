@@ -12,6 +12,7 @@ ja:
         domain: ドメイン
         duplicate_categories: カテゴリを複製
         duplicate_components: コンポーネントを複製
+        duplicate_landing_page_blocks: ランディングページブロックを複製
         duplicate_steps: ステップを複製
         end_date: 終了日
         hero_image: ホーム画像
