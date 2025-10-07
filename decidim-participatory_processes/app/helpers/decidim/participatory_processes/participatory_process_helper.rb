@@ -22,17 +22,6 @@ module Decidim
         dates.map { |date| date ? l(date.to_date, format: :decidim_short) : "?" }.join(" - ")
       end
 
-      # Public: Returns the path for the participatory process cta button
-      #
-      # Returns a String with path.
-      def participatory_process_cta_path(process)
-        return participatory_process_path(process) if process.active_step&.cta_path.blank?
-
-        path, params = participatory_process_path(process).split("?")
-
-        "#{path}/#{process.active_step.cta_path}" + (params.present? ? "?#{params}" : "")
-      end
-
       # Public: Returns the settings of a cta content block associated if
       # exists
       #
