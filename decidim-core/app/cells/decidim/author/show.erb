@@ -6,7 +6,10 @@
         <%= render :avatar %>
 
         <span>
-          <%= render :name %>
+          <span class="flex gap-2">
+            <%= render :name %>
+            <%= render :badge %>
+          </span>
 
           <% context_actions.each do |action| %>
             <%= render action %>
@@ -34,11 +37,13 @@
         <%= render :avatar %>
 
         <%= render :name %>
+        <%= render :badge %>
       <% end %>
     <% else %>
       <%= content_tag :span, class: "author__container" do %>
         <%= render :avatar %>
         <%= render :name %>
+        <%= render :badge %>
       <% end %>
     <% end %>
   <% end %>

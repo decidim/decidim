@@ -39,7 +39,7 @@
     @apply text-secondary font-semibold;
   }
 
-  &__container &__container-badge svg {
+  &__badge svg {
     @apply grid overflow-hidden place-items-center bg-primary border border-white rounded-full w-4 h-4 text-white fill-current;
   }
 
