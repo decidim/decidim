@@ -113,6 +113,30 @@ describe "Filter Proposals", :slow do
     end
   end
 
+  it "collapses the accordions on click" do
+    visit_component
+
+    within ".layout-2col__aside" do
+      expect(page).to have_content "Not answered"
+      expect(page).to have_content "Official"
+    end
+
+    click_on "Status"
+    click_on "Origin"
+
+    within ".layout-2col__aside" do
+      expect(page).to have_no_content "Not answered"
+      expect(page).to have_no_content "Official"
+    end
+
+    click_on "Origin"
+
+    within ".layout-2col__aside" do
+      expect(page).to have_no_content "Not answered"
+      expect(page).to have_content "Official"
+    end
+  end
+
   context "when filtering proposals by TAXONOMY" do
     let!(:taxonomy2) { create(:taxonomy, skip_injection: true, name: { en: "Taxonomy name" }, parent: root_taxonomy, organization:) }
     let!(:taxonomy_filter_item2) { create(:taxonomy_filter_item, taxonomy_item: taxonomy2, taxonomy_filter:) }
