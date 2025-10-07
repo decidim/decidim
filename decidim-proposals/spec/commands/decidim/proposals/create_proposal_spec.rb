@@ -149,7 +149,7 @@ module Decidim
             {
               title: "A reasonable proposal title",
               body: "A reasonable proposal body",
-              address: "Carrer de Balmes, 132, Barcelona",
+              address: "Barcelona",
               latitude: 41.394897,
               longitude: 2.153088
             }
