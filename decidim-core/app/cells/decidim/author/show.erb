@@ -1,26 +1,53 @@
 <%= content_tag(:p, class: :author, data: ) do %>
-  <%= content_tag :span, class: "author__container#{" is-compact" if layout == :compact}" do %>
-    <% if layout == :compact %>
-      <%= render :avatar %>
+  <% if layout == :compact %>
 
-      <span>
-        <%= render :name %>
+    <% if profile_path? %>
+      <%= link_to profile_path, class: "author__container is-compact" do %>
+        <%= render :avatar %>
 
-        <% context_actions.each do |action| %>
-          <%= render action %>
-        <% end %>
-      </span>
-    <% elsif layout == :avatar %>
-      <%= render :avatar %>
+        <span>
+          <%= render :name %>
+
+          <% context_actions.each do |action| %>
+            <%= render action %>
+          <% end %>
+        </span>
+      <% end %>
     <% else %>
-      <%= render :avatar %>
-      <%= render :name %>
+      <%= content_tag :span, class: "author__container is-compact" do %>
+        <%= render :avatar %>
+
+        <span>
+          <%= render :name %>
+
+          <% context_actions.each do |action| %>
+            <%= render action %>
+          <% end %>
+        </span>
+      <% end %>
+    <% end %>
+  <% elsif layout == :avatar %>
+    <%= render :avatar %>
+  <% else %>
+    <% if profile_path? %>
+      <%= link_to profile_path, class: "author__container" do %>
+        <%= render :avatar %>
+
+        <%= render :name %>
+      <% end %>
+    <% else %>
+      <%= content_tag :span, class: "author__container" do %>
+        <%= render :avatar %>
+        <%= render :name %>
+      <% end %>
     <% end %>
   <% end %>
 
   <% if layout == :default %>
-    <% context_actions.each do |action| %>
-      <%= render action %>
+    <%= content_tag :span, class: "author__container" do %>
+      <% context_actions.each do |action| %>
+        <%= render action %>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>
