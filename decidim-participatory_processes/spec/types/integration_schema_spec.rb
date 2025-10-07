@@ -134,10 +134,6 @@ describe "Decidim::Api::QueryType" do
         startDate
         steps {
           active
-          callToActionPath
-          callToActionText{
-            translation(locale: "#{locale}")
-          }
           createdAt
           description{
             translation(locale: "#{locale}")

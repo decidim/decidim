@@ -11,7 +11,6 @@ module Decidim
 
         translatable_attribute :title, String
         translatable_attribute :description, String
-        translatable_attribute :cta_text, String
 
         mimic :participatory_process_step
 
