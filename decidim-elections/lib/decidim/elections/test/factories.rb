@@ -95,9 +95,13 @@ FactoryBot.define do
   end
 
   factory :election_question, class: "Decidim::Elections::Question" do
+    transient do
+      skip_injection { false }
+    end
+
     association :election
-    body { generate_localized_title(:question_body) }
-    description { generate_localized_description(:question_description) }
+    body { generate_localized_title(:question_body, skip_injection:) }
+    description { generate_localized_description(:question_description, skip_injection:) }
     question_type { "multiple_option" }
     sequence(:position) { |n| n }
     published_results_at { nil }
@@ -119,8 +123,12 @@ FactoryBot.define do
   end
 
   factory :election_response_option, class: "Decidim::Elections::ResponseOption" do
+    transient do
+      skip_injection { false }
+    end
+
     association :question, factory: :election_question
-    body { generate_localized_title(:response_option_body) }
+    body { generate_localized_title(:response_option_body, skip_injection:) }
 
     trait :with_votes do
       after :create do |response_option, _evaluator|

@@ -1,5 +1,8 @@
 document.addEventListener("turbo:load", () => {
   const responseContainers = document.querySelectorAll(".response[data-max-choices]");
+  if (!responseContainers.length) {
+    return;
+  }
 
   responseContainers.forEach((container) => {
     const maxChoices = parseInt(container.dataset.maxChoices, 10);
