@@ -330,6 +330,7 @@ eu:
           update:
             invalid: Arazo bat egon da agenda hau eguneratzean.
             success: Agenda ondo eguneratua.
+        deprecation_warning_polls_html: "⚠️<b>Deprezazioaren oharra.<b> Inkesten ezaugarria etorkizuneko bertsio batean ezabatuko da (zehazteke). Bilera-inkestak erabiltzen dituzten erakundeek pentsatu behar dute kanpoko hauteskunde-tresnak erabiltzea (adibidez, Jitsiren bidez) edo Decidimen dauden beste bozketa-mekanismoetara migratzea, hala nola Hauteskundeen modulu berrira (hauteskunde sindikalak)."
         exports:
           meeting_comments: Iruzkinak
           meetings: Topaketak
