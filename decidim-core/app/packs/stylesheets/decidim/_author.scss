@@ -40,7 +40,7 @@
   }
 
   &__badge svg {
-    @apply grid overflow-hidden place-items-center bg-primary border border-white rounded-full w-4 h-4 text-white fill-current;
+    @apply grid overflow-hidden place-items-center bg-primary rounded-full w-4 h-4 text-white fill-current;
   }
 
   &__metadata {
