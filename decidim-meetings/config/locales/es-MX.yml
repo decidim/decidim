@@ -331,6 +331,7 @@ es-MX:
           update:
             invalid: Se ha producido un error al actualizar este orden del día.
             success: El orden del día se ha actualizado correctamente.
+        deprecation_warning_polls_html: "⚠️ <b>Aviso de Desuso/Obsolescencia.</b> La función de sondeos/votaciones se eliminará en una versión futura (por determinar). Las organizaciones que utilizan sondeos/votaciones de reuniones deben planear utilizar herramientas de sondeos/votaciones externas (por ejemplo, a través de Jitsi) o migrar a otros mecanismos de votación disponibles en Decidim, como el nuevo componente de Elecciones (`decidim-eleccions`)."
         exports:
           meeting_comments: Comentarios
           meetings: Reuniones
