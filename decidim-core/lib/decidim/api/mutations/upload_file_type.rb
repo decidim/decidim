@@ -7,14 +7,14 @@ module Decidim
 
       description "Upload a file from a server path"
 
-      argument :file_path, String, required: true
+      argument :file_path, GraphQL::Types::String, description: "Path to the file location", required: true
 
-      field :blob, Decidim::Core::BlobType, null: true
+      field :blob, Decidim::Core::BlobType, description: "Blob object of added file", null: true
 
       def resolve(file_path:)
         file_path = File.expand_path(file_path)
         errors = validate_file(file_path)
-        
+
         return GraphQL::ExecutionError.new(errors.join(",")) unless errors.empty?
 
         blob = ActiveStorage::Blob.create_and_upload!(

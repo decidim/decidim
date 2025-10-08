@@ -53,9 +53,9 @@ shared_examples "handle form error" do
     it "uploads the file and returns the blob" do
       result = nil
 
-      expect {
+      expect do
         result = execute_query(query, variables)
-      }.to change(ActiveStorage::Blob, :count).by(1)
+      end.to change(ActiveStorage::Blob, :count).by(1)
 
       blob = ActiveStorage::Blob.last
 
