@@ -429,8 +429,8 @@ en:
       file_upload:
         errors:
           file_no_exists: File does not exist.
-          file_ext_not_supported: File extension is not suppoerted.
-          type_not_suppoerted: File type is not supported.
+          file_ext_not_supported: File extension is not supported.
+          type_not_supported: File type is not supported.
           error: File upload failed
     application:
       document:

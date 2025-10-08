@@ -25,7 +25,7 @@ shared_examples "handle form error" do
     it "raises execution error" do
       expect do
         execute_query(query, variables)
-      end.to raise_error(StandardError, match(/File extension is not suppoerted./))
+      end.to raise_error(StandardError, match(/File extension is not supported./))
     end
   end
 

@@ -36,7 +36,7 @@ module Decidim
         errors = []
         errors << I18n.t("decidim.api.file_upload.errors.file_no_exists") unless File.exist?(file_path)
         errors << I18n.t("decidim.api.file_upload.errors.file_ext_not_supported") unless extension_allowed?(file_path)
-        errors << I18n.t("decidim.api.file_upload.errors.type_not_suppoerted") unless content_type_allowed?(file_path)
+        errors << I18n.t("decidim.api.file_upload.errors.type_not_supported") unless content_type_allowed?(file_path)
 
         errors
       end
