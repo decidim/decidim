@@ -331,6 +331,7 @@ ca-IT:
           update:
             invalid: S'ha produït un error en actualitzar aquest ordre del dia.
             success: L'ordre del dia s'ha actualitzat correctament.
+        deprecation_warning_polls_html: "⚠️ <b>Avís de Desús/Obsolescència.</b> La funció de sondejos/votacions s'eliminarà en una versió futura (per determinar). Les organitzacions que utilitzen sondejos/votacions en viu a les reunions han de planejar-se fer servir eines de sondejos/votacions externes (per exemple, a través de Jitsi) o migrar a altres mecanismes de votació disponibles a Decidim, com el nou component d'Eleccions (`decidim-eleccions`)."
         exports:
           meeting_comments: Comentaris
           meetings: Trobades
