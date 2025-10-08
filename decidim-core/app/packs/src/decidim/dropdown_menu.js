@@ -52,6 +52,18 @@ if (menuButton && menuContainer) {
 }
 
 if (menuContainer) {
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      const isOpen = menuContainer.getAttribute("aria-hidden") === "true";
+
+      if (isOpen) {
+        menuContainer.setAttribute("aria-hidden", "true");
+        setMenuOpacity("1");
+        document.body.style.overflow = "scroll";
+      }
+    }
+  })
+
   document.addEventListener("click", function (event) {
     const isOpen = menuContainer.getAttribute("aria-hidden") === "false";
     const closeMenuButton = document.getElementById("main-dropdown-summary-desktop-close");

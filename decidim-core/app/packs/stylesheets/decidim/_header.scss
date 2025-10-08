@@ -471,7 +471,7 @@ header {
           & > span,
           & > svg:first-of-type {
             @apply text-gray-8;
-            @apply block #{!important};
+            display: block !important;
           }
 
           & > span {
@@ -480,7 +480,7 @@ header {
 
           & > svg:last-of-type {
             @apply text-gray-2  ml-1;
-            @apply block #{!important};
+            display: block !important;
           }
         }
 
