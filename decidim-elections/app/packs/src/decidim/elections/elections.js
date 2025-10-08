@@ -3,7 +3,9 @@ document.addEventListener("turbo:load", () => {
 
   responseContainers.forEach((container) => {
     const maxChoices = parseInt(container.dataset.maxChoices, 10);
-    if (!maxChoices) return;
+    if (!maxChoices) {
+      return;
+    }
 
     const checkboxes = container.querySelectorAll("input[type=checkbox]");
     const alertElement = container.querySelector(".max-choices-alert");
