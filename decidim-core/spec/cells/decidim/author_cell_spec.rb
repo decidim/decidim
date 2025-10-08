@@ -16,6 +16,14 @@ describe Decidim::AuthorCell, type: :cell do
     it "renders a User author card" do
       expect(subject).to have_css("[data-author]")
     end
+
+    context "and when this user is officialized" do
+      let(:user) { create(:user, :confirmed, :officialized, organization:) }
+
+      it "shows the officialization badge" do
+        expect(subject).to have_xpath("//svg/use[contains(@href, 'ri-star-s-fill')]")
+      end
+    end
   end
 
   context "when rendering an official author card" do

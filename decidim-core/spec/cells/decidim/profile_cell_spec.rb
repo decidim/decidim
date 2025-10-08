@@ -34,4 +34,16 @@ describe Decidim::ProfileCell, type: :cell do
       end
     end
   end
+
+  context "when the user displayed is officialized" do
+    let(:user) { build(:user, :officialized, organization:) }
+
+    it "shows the officialization badge" do
+      expect(subject).to have_xpath("//svg/use[contains(@href, 'ri-star-s-fill')]")
+    end
+
+    it "shows the officialization name" do
+      expect(subject).to have_content(decidim_sanitize_translated(user.officialized_as))
+    end
+  end
 end
