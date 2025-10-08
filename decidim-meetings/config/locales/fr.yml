@@ -321,6 +321,7 @@ fr:
           update:
             invalid: Un problème est survenu lors de la mise à jour de cet ordre du jour.
             success: Ordre du jour mis à jour avec succès.
+        deprecation_warning_polls_html: "⚠️ <b>Avis de dépréciation.</b> La fonctionnalité des sondages sera supprimée dans une version future (à déterminer). Les organisations utilisant des sondages de réunion devraient planifier d'utiliser des outils de sondage externes (par exemple, via Jitsi) ou migrer vers d'autres mécanismes de vote disponibles dans Decidim, comme le nouveau module Elections (`decidim-elections`)."
         exports:
           meeting_comments: Commentaires
           meetings: Rencontres
