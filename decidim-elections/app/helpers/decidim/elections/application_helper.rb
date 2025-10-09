@@ -43,6 +43,15 @@ module Decidim
         end
       end
 
+      def question_description(question, tag = :p, **options)
+        description = translated_attribute(question.description)
+        return if description.blank?
+
+        content_tag(tag, **options) do
+          decidim_sanitize(description)
+        end
+      end
+
       def selected_response_option_id(question)
         session.dig(:votes_buffer, question.id.to_s, "response_option_id")&.to_i
       end
