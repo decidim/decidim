@@ -4,7 +4,7 @@ require "spec_helper"
 require "decidim/elections/test/vote_examples"
 
 describe "Dashboard" do
-  let(:election) { create(:election, :published, :ongoing, :real_time, :with_internal_users_census, :with_questions) }
+  let(:election) { create(:election, :published, :ongoing, :real_time, :with_internal_users_census, :with_questions, skip_injection: true) }
   let(:question1) { election.questions.first }
   let(:question2) { election.questions.second }
   let(:option11) { question1.response_options.first }
@@ -70,8 +70,8 @@ describe "Dashboard" do
 
   context "when the election is per question" do
     let(:election) { create(:election, :published, :ongoing, :per_question, :with_internal_users_census) }
-    let!(:question1) { create(:election_question, :with_response_options, :voting_enabled, election:) }
-    let!(:question2) { create(:election_question, :with_response_options, election:) }
+    let!(:question1) { create(:election_question, :with_response_options, :voting_enabled, election:, skip_injection: true) }
+    let!(:question2) { create(:election_question, :with_response_options, election:, skip_injection: true) }
     let(:option11) { question1.response_options.first }
     let(:option12) { question1.response_options.second }
     let(:option21) { question2.response_options.first }
@@ -84,7 +84,7 @@ describe "Dashboard" do
     end
 
     context "when all questions are enabled" do
-      let!(:question2) { create(:election_question, :with_response_options, :voting_enabled, election:) }
+      let!(:question2) { create(:election_question, :with_response_options, :voting_enabled, election:, skip_injection: true) }
 
       it_behaves_like "shows questions in an election"
     end
