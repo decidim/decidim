@@ -262,6 +262,17 @@ describe "Explore projects", :slow do
     end
   end
 
+  describe "search" do
+    before do
+      switch_to_host(organization.host)
+      visit decidim.search_path
+    end
+
+    it "shows the project" do
+      expect(page).to have_content(translated_attribute(projects.last.title))
+    end
+  end
+
   private
 
   def decidim_budgets
