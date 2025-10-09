@@ -39,6 +39,10 @@
     @apply text-secondary font-semibold;
   }
 
+  &__badge svg {
+    @apply grid overflow-hidden place-items-center bg-primary rounded-full w-4 h-4 text-white fill-current;
+  }
+
   &__metadata {
     @apply flex items-center gap-1 text-gray-2 text-sm;
 
