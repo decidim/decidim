@@ -186,5 +186,15 @@ module Decidim
 
       model.has_tooltip?
     end
+
+    def show_badge?
+      return false unless model.respond_to? :officialized?
+
+      model.officialized?
+    end
+
+    def officialization_text
+      translated_attribute(model.officialized_as).presence || t("decidim.profiles.show.officialized")
+    end
   end
 end
