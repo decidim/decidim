@@ -211,13 +211,6 @@ cs:
             last_step: Nelze odstranit poslední fázi procesu.
           success: Úspěšný krok procesu byl úspěšně smazán.
         edit:
-          cta_deprecated:
-            body_html: |-
-              Konfigurace CTA prostřednictvím fáze participativního procesu je s novým designem zastaralá.
-              Nyní se to děje na <b>vstupní stránce</b> pomocí bloku obsahu <b>Hero mapa a obrázek</b>.
-              Nechali jsme zde pro vás migraci CTA, které potřebujete. Pole <i>Cesta výzvy k akci</i> a
-              <i>Text výzvy k akci</i> bude v příští verzi odstraněn.
-            title: Zastaralá CTA
           title: Úprava kroku procesu participace
           update: Aktualizace
         index:
@@ -511,10 +504,6 @@ cs:
           form:
             document_legend: Přidat dokument
             slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
-        participatory_process_steps:
-          form:
-            cta_path_help_html: 'Zde použijte částečné cesty, nikoli úplné adresy URL. Jsou povolena písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Příklad: %{url}'
-            cta_text_help: Není-li nastaveno, tlačítko se nezobrazí.
         participatory_processes:
           form:
             announcement_help: Text, který zde zadáte, se uživateli zobrazí přímo pod informacemi o procesu.
