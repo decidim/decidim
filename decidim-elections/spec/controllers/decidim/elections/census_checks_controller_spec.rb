@@ -85,21 +85,6 @@ module Decidim
           end
         end
       end
-
-      context "when census is not ready" do
-        let(:election) { create(:election, :published, :scheduled, component:, census_manifest: nil) }
-
-        before do
-          allow(controller).to receive(:exit_path).and_return(election_path)
-        end
-
-        it "redirects to the election page" do
-          get :new, params: params
-
-          expect(response).to redirect_to(election_path)
-          expect(flash[:alert]).to eq(I18n.t("decidim.elections.census_checks.not_ready"))
-        end
-      end
     end
   end
 end

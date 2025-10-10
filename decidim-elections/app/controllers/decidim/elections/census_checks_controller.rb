@@ -8,14 +8,13 @@ module Decidim
 
       layout "decidim/election_booth"
 
-      before_action :ensure_census_available!
       before_action :redirect_if_authenticated, only: :new
       before_action :ensure_session_authenticated!, only: :show
 
       def new
         enforce_permission_to(:create, :census_check, election:)
 
-        @form = build_form
+        @form = election.census.form_instance({}, election:, current_user:)
         render "decidim/elections/votes/new"
       end
 
@@ -23,16 +22,11 @@ module Decidim
         enforce_permission_to(:create, :census_check, election:)
 
         @form = election.census.form_instance(params, election:, current_user:)
-        if @form&.valid?
+        if @form.valid?
           session[:session_attributes] = @form.attributes
           redirect_to election_census_check_path(election)
         else
-          error_messages = @form&.errors&.full_messages
-          flash[:alert] = if error_messages.present?
-                            error_messages.join("<br>")
-                          else
-                            t("decidim.elections.votes.check_census.failed")
-                          end
+          flash[:alert] = @form.errors.full_messages.join("<br>").presence || t("failed", scope: "decidim.elections.votes.check_census")
           redirect_to new_election_census_check_path(election)
         end
       end
@@ -42,16 +36,6 @@ module Decidim
       end
 
       private
-
-      def build_form
-        election.census.form_instance({}, election:, current_user:)
-      end
-
-      def ensure_census_available!
-        return if election.census&.auth_form? && election.census_ready?
-
-        redirect_to exit_path, alert: t("decidim.elections.census_checks.not_ready")
-      end
 
       def redirect_if_authenticated
         redirect_to election_census_check_path(election) if session_authenticated?

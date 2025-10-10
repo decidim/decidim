@@ -30,12 +30,65 @@ describe "Election census check" do
       click_button "Access"
 
       expect(page).to have_current_path(census_check_path)
-      expect(page).to have_content("You can vote in this election")
-      expect(page).to have_content("You are included in the census and will be able to vote once the election starts.")
+      expect(page).to have_content("You have been successfully verified")
+      expect(page).to have_content("This means that, once the election starts, you can vote in it.")
 
-      click_link "Exit"
+      click_link "Exit the census check"
 
       expect(page).to have_current_path(election_path)
+    end
+  end
+
+  context "when the election uses the internal users census" do
+    let(:authorization_handlers) { { "dummy_authorization_handler" => { "options" => { "allowed_postal_codes" => "08002" } } } }
+    let(:election) { create(:election, :published, :scheduled, component:, census_manifest: "internal_users", census_settings: { "authorization_handlers" => authorization_handlers }) }
+    let(:election_path) { Decidim::EngineRouter.main_proxy(component).election_path(election) }
+    let(:new_census_check_path) { Decidim::EngineRouter.main_proxy(component).new_election_census_check_path(election) }
+    let(:census_check_path) { Decidim::EngineRouter.main_proxy(component).election_census_check_path(election) }
+
+    context "with an authorized participant" do
+      let(:user) { create(:user, :confirmed, organization:) }
+
+      before do
+        create(:authorization, user:, name: "dummy_authorization_handler", metadata: { "postal_code" => "08002" })
+        login_as user, scope: :user
+      end
+
+      it "confirms they will be able to vote" do
+        visit election_path
+
+        click_link "Check if I can vote"
+
+        expect(page).to have_current_path(census_check_path)
+        expect(page).to have_content("You have been successfully verified")
+        expect(page).to have_content("This means that, once the election starts, you can vote in it.")
+
+        click_link "Exit the census check"
+
+        expect(page).to have_current_path(election_path)
+      end
+    end
+
+    context "with a participant without the required authorizations" do
+      let(:user) { create(:user, :confirmed, organization:) }
+
+      before do
+        login_as user, scope: :user
+      end
+
+      it "blocks the access" do
+        visit election_path
+
+        click_link "Check if I can vote"
+
+        expect(page).to have_current_path(new_census_check_path)
+        expect(page).to have_content("Verify your identity")
+
+        click_button "Access"
+
+        expect(page).to have_current_path(new_census_check_path)
+        expect(page).to have_content("You are not authorized to vote in this election.")
+      end
     end
   end
 
