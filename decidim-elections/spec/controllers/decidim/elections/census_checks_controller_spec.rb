@@ -55,7 +55,7 @@ module Decidim
           expect(response).to redirect_to(census_check_path)
         end
 
-        it "redisplays the form when the data is invalid" do
+        it "displays the form when the data is invalid" do
           post :create, params: params.merge(token_csv: { email: "wrong@example.com", token: "invalid" })
 
           expect(session[:session_attributes]).to be_blank

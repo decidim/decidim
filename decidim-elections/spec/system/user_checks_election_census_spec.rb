@@ -20,20 +20,20 @@ describe "Election census check" do
     it "allows the user to validate they are in the census" do
       visit election_path
 
-      expect(page).to have_link(I18n.t("decidim.elections.elections.show.check_census_button"), href: new_census_check_path)
-      click_link I18n.t("decidim.elections.elections.show.check_census_button")
+      expect(page).to have_link("Check if you can vote")
+      click_link "Check if you can vote"
 
       expect(page).to have_current_path(new_census_check_path)
 
-      fill_in I18n.t("decidim.elections.censuses.token_csv_form.email"), with: voter_data["email"]
-      fill_in I18n.t("decidim.elections.censuses.token_csv_form.token"), with: voter_data["token"]
-      click_button I18n.t("decidim.elections.votes.check_census.access")
+      fill_in "Email", with: voter_data["email"]
+      fill_in "Token", with: voter_data["token"]
+      click_button "Access"
 
       expect(page).to have_current_path(census_check_path)
-      expect(page).to have_content(I18n.t("decidim.elections.census_checks.show.title"))
-      expect(page).to have_content(I18n.t("decidim.elections.census_checks.show.description"))
+      expect(page).to have_content("You can vote in this election")
+      expect(page).to have_content("You are included in the census and will be able to vote once the election starts.")
 
-      click_link I18n.t("decidim.elections.census_checks.show.exit_button")
+      click_link "Exit"
 
       expect(page).to have_current_path(election_path)
     end
@@ -46,7 +46,7 @@ describe "Election census check" do
     it "does not display the census check button" do
       visit election_path
 
-      expect(page).to have_no_link(I18n.t("decidim.elections.elections.show.check_census_button"))
+      expect(page).to have_no_link("Check if you can vote")
     end
   end
 end
