@@ -249,7 +249,7 @@ en:
           title: Election questions
         show:
           active_voting_until: 'Active voting until: %{end_date}'
-          check_census_button: Check if you can vote
+          check_census_button: Check if I can vote
           check_census_explanation: You can verify now whether you are eligible to vote when the election begins.
           vote_button: Vote
           voted: You have already voted. You can vote again, only your last vote will be counted.

@@ -20,8 +20,8 @@ describe "Election census check" do
     it "allows the user to validate they are in the census" do
       visit election_path
 
-      expect(page).to have_link("Check if you can vote")
-      click_link "Check if you can vote"
+      expect(page).to have_link("Check if I can vote")
+      click_link "Check if I can vote"
 
       expect(page).to have_current_path(new_census_check_path)
 
@@ -46,7 +46,7 @@ describe "Election census check" do
     it "does not display the census check button" do
       visit election_path
 
-      expect(page).to have_no_link("Check if you can vote")
+      expect(page).to have_no_link("Check if I can vote")
     end
   end
 end

@@ -4,7 +4,7 @@ module Decidim
   module Elections
     # Allows participants to verify they belong to an election census before voting starts.
     class CensusChecksController < Decidim::Elections::ApplicationController
-      include UsesCensusBooth
+      include UsesCensusAccess
 
       layout "decidim/election_booth"
 

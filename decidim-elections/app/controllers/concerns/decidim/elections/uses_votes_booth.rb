@@ -7,7 +7,7 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-        include UsesCensusBooth
+        include UsesCensusAccess
 
         layout "decidim/election_booth"
         helper_method :questions, :question, :response_chosen?, :votes_buffer
@@ -66,10 +66,6 @@ module Decidim
 
       def question
         @question ||= questions.find_by(id: params[:id]) || questions.first
-      end
-
-      def session_authenticated?
-        super
       end
 
       def votes_buffer

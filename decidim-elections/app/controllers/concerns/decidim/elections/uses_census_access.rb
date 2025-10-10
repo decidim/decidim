@@ -2,8 +2,7 @@
 
 module Decidim
   module Elections
-    # Shared helpers for controllers that rely on the election booth census flow.
-    module UsesCensusBooth
+    module UsesCensusAccess
       extend ActiveSupport::Concern
 
       included do
