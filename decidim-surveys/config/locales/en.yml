@@ -64,9 +64,17 @@ en:
     open_data:
       help:
         survey_user_responses:
-          Created at: Date and time when the response was submitted
-          Response ID: Unique identifier for each survey response
-          User status: Whether the respondent was registered or unregistered
+          id: "Unique identifier for each survey response"
+          body: "The response content or type"
+          decidim_user_id: "ID of the user who responded"
+          decidim_questionnaire_id: "ID of the questionnaire"
+          decidim_question_id: "ID of the question"
+          created_at: "Date and time when the response was submitted"
+          updated_at: "Date and time when the response was last updated"
+          session_token: "User session token"
+          ip_hash: "Hashed IP address of the respondent"
+          user_status: User status
+          question: "The question being answered"
     statistics:
       responses: 'Responses:'
       responses_count: Responses

@@ -2,41 +2,29 @@
 
 module Decidim
   module Surveys
-    # This class serializes a Survey so can be exported to CSV, JSON or other
-    # formats.
+    # This class serializes a Survey so it can be exported to CSV, JSON or other formats.
     class UserResponsesSerializer < Decidim::Exporters::Serializer
       include Decidim::TranslationsHelper
 
-      # Public: Initializes the serializer with a collection of Responses.
-      def initialize(responses)
-        @responses = responses
-      end
-
-      # Public: Exports a hash with the serialized data for the user responses.
+      # Public: Exports a hash with the serialized data for the user response.
       def serialize
-        @responses.each_with_index.inject({}) do |serialized, (response, idx)|
-          serialized.update(
-            response_translated_attribute_name(:id) => [response.id, response.user.id].join("_"),
-            response_translated_attribute_name(:created_at) => response.created_at,
-            response_translated_attribute_name(:user_status) => response_translated_attribute_name(response.decidim_user_id.present? ? "registered" : "unregistered"),
-            "#{idx + 1}. #{translated_attribute(response.question.body)}" => normalize_body(response)
-          )
-        end
+        {
+          id: [resource.id, resource.user&.id].compact.join("_"),
+          created_at: resource.created_at,
+          user_status: resource.decidim_user_id.present? ? "Registered" : "Unregistered",
+          question: translated_attribute(resource.question.body),
+          body: normalize_body(resource)
+        }
       end
 
       private
-
-      attr_reader :responses
-      alias resource responses
 
       def normalize_body(response)
         normalize_choices(response.choices)
       end
 
       def normalize_choices(choices)
-        choices.map do |choice|
-          choice.try(:body)
-        end
+        choices.map { |choice| choice.try(:body) }.compact.join(", ")
       end
 
       def response_translated_attribute_name(attribute)

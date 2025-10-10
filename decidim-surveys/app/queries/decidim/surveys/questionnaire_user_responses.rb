@@ -17,12 +17,10 @@ module Decidim
 
       # Returns grouped user responses for published surveys only
       def query
-        responses = Response.not_separator
-                            .not_title_and_description
-                            .joins(:question)
-                            .where(questionnaire: @questionnaire)
-
-        responses.sort_by { |response| response.question.position.to_i }.group_by { |a| a.user || a.session_token }.values
+        Decidim::Forms::Response
+          .joins(:question)
+          .where(questionnaire: @questionnaire)
+          .where.not(decidim_forms_questions: { question_type: %w(separator title_and_description) })
       end
     end
   end
