@@ -205,13 +205,6 @@ eu:
             last_step: Ezin da ezabatu prozesuaren azken fasea.
           success: Partaidetza-prozesuaren fasea ondo ezabatua.
         edit:
-          cta_deprecated:
-            body_html: |-
-              CTAren konfigurazioa, partaidetza-prozesuaren fasearen bidez, zaharkituta dago diseinu berriarekin.
-              Orain, <b>Hasierako orrian</b> egiten da hori, <b>Irudi nagusia</b> eduki-blokea eta ekintza-botoia erabilita.
-              Hemen utzi dugu behar dituzun CTAak egin ditzazun. <i>Ekintzaren ibilbidea</i> eta
-              <i>Ekintza botoiaren</i> testuak hurrengo bertsioan ezabatuko dira.
-            title: CTA zaharkituta
           title: Editatu partaidetza-prozesuaren fasea
           update: Eguneratu
         index:
@@ -507,10 +500,6 @@ eu:
           form:
             document_legend: Dokumentu bat atxikitu
             slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
-        participatory_process_steps:
-          form:
-            cta_path_help_html: 'Erabili ibilbide partzialak, ez dira URL osoak hemen. Letrak, zenbakiak, gidoiak eta barrak onartzen ditu, eta letra batez hasi behar du. Bestela, ez da erakutsiko botoia. Adibidea: %{url}'
-            cta_text_help: Ezartzen bada, botoia ez da agertuko.
         participatory_processes:
           form:
             announcement_help: Hemen sartzen duzun testua parte-hartzaileari erakutsiko zaio, prozesuaren informazioaren azpian.
