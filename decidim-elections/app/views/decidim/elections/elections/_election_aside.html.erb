@@ -8,6 +8,9 @@
           <span><%= t("decidim.elections.elections.show.voted") %></span>
         </div>
       <% end %>
+    <% elsif election.scheduled? && election.census_ready? %>
+      <p class="text-sm text-gray-2 mb-4"><%= t("decidim.elections.elections.show.check_census_explanation") %></p>
+      <%= link_to t("decidim.elections.elections.show.check_census_button"), new_election_census_check_path(election), class: "button button__secondary button__lg" %>
     <% end %>
   </div>
 </section>

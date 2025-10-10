@@ -249,6 +249,8 @@ en:
           title: Election questions
         show:
           active_voting_until: 'Active voting until: %{end_date}'
+          check_census_button: Check if you can vote
+          check_census_explanation: You can verify now whether you are eligible to vote when the election begins.
           vote_button: Vote
           voted: You have already voted. You can vote again, only your last vote will be counted.
           votes_count:
@@ -308,6 +310,12 @@ en:
           description: Yo can vote again at any time while the voting period is open. Your previous vote will be overwritten by the new one.
           exit_button: Exit the voting booth
           title: Your votes have been cast successfully
+      census_checks:
+        not_ready: The census is not ready yet. Please try again later.
+        show:
+          description: You are included in the census and will be able to vote once the election starts.
+          exit_button: Exit
+          title: You can vote in this election
     metadata:
       progress:
         published_results: 'Results published: %{end_date}'
