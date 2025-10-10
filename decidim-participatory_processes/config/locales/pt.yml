@@ -302,9 +302,6 @@ pt:
         participatory_process_imports:
           form:
             document_legend: Adicionar um documento
-        participatory_process_steps:
-          form:
-            cta_text_help: Se não estiver definido, o botão não será mostrado.
         participatory_processes:
           form:
             announcement_help: O texto que insere aqui será mostrado ao utilizador logo abaixo das informações do processo.
