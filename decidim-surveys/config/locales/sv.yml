@@ -14,6 +14,8 @@ sv:
         see_survey: Se enkät
     components:
       surveys:
+        actions:
+          respond: Besvara
         settings:
           global:
             announcement: Meddelande
@@ -37,6 +39,8 @@ sv:
     surveys:
       admin:
         surveys:
+          new:
+            title: Ny undersökning
           update:
             invalid: Det gick inte att spara enkäten.
             success: Enkäten har sparats.

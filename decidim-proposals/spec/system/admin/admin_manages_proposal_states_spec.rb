@@ -128,7 +128,7 @@ describe "Admin manages proposals states" do
 
     it "updates a proposal state" do
       within "tr", text: translated(proposal_state.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
@@ -161,7 +161,7 @@ describe "Admin manages proposals states" do
 
     it "updates the label and announcement previews" do
       within "tr", text: translated(proposal_state.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
@@ -210,7 +210,7 @@ describe "Admin manages proposals states" do
 
     it "deletes the proposal state" do
       within "tr", text: translated(state.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
       expect(page).to have_admin_callout("successfully")

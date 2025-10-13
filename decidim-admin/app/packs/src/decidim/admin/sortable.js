@@ -10,7 +10,7 @@ import sortable from "html5sortable/dist/html5sortable.es";
     console.log('The new order is:', event.target.children);
   });
 */
-window.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const draggables = document.querySelectorAll(".js-sortable");
 
   if (draggables) {

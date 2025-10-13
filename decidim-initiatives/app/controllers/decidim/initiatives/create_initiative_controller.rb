@@ -104,7 +104,7 @@ module Decidim
           end
 
           on(:invalid) do
-            render :fill_data
+            render :fill_data, status: :unprocessable_entity
           end
         end
       end
@@ -119,7 +119,7 @@ module Decidim
           end
 
           on(:invalid) do
-            render :fill_data
+            render :fill_data, status: :unprocessable_entity
           end
         end
       end

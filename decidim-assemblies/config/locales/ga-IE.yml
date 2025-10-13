@@ -3,7 +3,6 @@ ga:
     attributes:
       assembly:
         area_id: Ceantar
-        copy_categories: Cóipeáil catagóirí
         decidim_area_id: Ceantar
         decidim_scope_id: Scóip
         domain: Fearann
@@ -43,9 +42,6 @@ ga:
           public: Poblach
         new:
           create: Cruthaigh
-      assembly_copies:
-        new:
-          copy: Cóipeáil
       assembly_imports:
         new:
           import: Iompórtáil

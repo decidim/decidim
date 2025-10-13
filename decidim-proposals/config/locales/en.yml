@@ -177,6 +177,7 @@ en:
             can_accumulate_votes_beyond_threshold: Can accumulate votes beyond threshold
             clear_all: Clear all
             collaborative_drafts_enabled: Collaborative drafts enabled
+            collaborative_drafts_enabled_help: The Collaborative Drafts feature will be removed in Decidim v0.32. Organizations using it can switch to the new proposal co-authorship feature.
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
             default_sort_order: Default proposal sorting
@@ -494,6 +495,7 @@ en:
           deleted_proposals_info: Deleted proposals can be restored from the trash.
           preview: Preview
           view_deleted_proposals: View deleted proposals
+        deprecation_warning_collaborative_drafts_html: "⚠️ <b>Deprecation Notice.</b> The Collaborative Drafts feature will be removed in Decidim v0.32. Organizations using it can switch to the new proposal co-authorship feature."
         evaluation_assignments:
           create:
             invalid: There was a problem assigning proposals to a evaluator.

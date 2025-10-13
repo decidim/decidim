@@ -14,7 +14,6 @@ pl:
           trigger: Wyzwalacz
           usage: Użycie
           usage_p: Akordion wymaga co najmniej trzech elementów
-          usage_p_1_html: 1. Wrapper <code>div</code>, z atrybutem data-attribute <code>data-component="accordion"</code>, na wszystkich dostępnych wyzwalaczach i panelach.
           usage_p_2_html: 2. Element wyzwalający, z którego może skorzystać użytkownik (jak przez przycisk), wskazujący na zwijany element przez <code>data-controls="panel"</code>, gdzie <i>panel</i> jest <code>id</code> panelu.
           usage_p_3_html: 3. Ukrywany element, którego <code>id</code> odpowiada wartości data-controls, do której odnosi się wyzwalacz.
         activities:
@@ -205,7 +204,6 @@ pl:
         dropdowns_description_html: Listy rozwijane są funkcją javascript dostępną dzięki bibliotece zewnętrznej o nazwie %{link}.
         dropdowns_usage_1_description: 2. Element ukryty, którego <code>id</code> odpowiada wartości docelowej danych, do której odnosi się wyzwalacz.
         dropdowns_usage_description: 'Lista rozwijana wymaga dwóch elementów:'
-        dropdowns_usage_description_html: 1. Element wywoływany przez użytkownika, z atrybutami danych <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.
         dummy_description: Opis zasobu Dummy
         dummy_title: Tytuł zasobu Dummy
         follow_button: Przycisk podążania

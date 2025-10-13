@@ -575,10 +575,8 @@ sk:
       unsubscribe:
         success: Úspešne ste odhlásení.
         token_error: Platnosť odkazu vypršala.
-        unsubscribe: Odhlásiť odber
     newsletters_opt_in_mailer:
       notify:
-        body_1: Spracovanie osobných údajov a ich ochrana sú pre nás všetkých stále dôležitejšie. S novým všeobecným nariadením o ochrane osobných údajov (GDPR) z 25. mája 2018 majú jednotlivci lepšiu kontrolu nad svojimi osobnými údajmi. Z tohto dôvodu potrebujeme vaše "OK" pre pokračovanie v zasielanie relevantných informácií o aktivitách%{organization_name}.
         body_2: 'Ako nám môžete dať svoj súhlas? Stačí kliknúť na nasledujúce tlačidlo: '
         body_3: S týmto súhlasom budete môcť pokračovať v prijímaní informácií o službách platformy. Pokiaľ naopak nedostaneme pozitívne potvrdenie z vášho hľadiska, prestaneme vám posielať naše správy. Ak potvrdíte, že chcete byť stále informovaný, máte vždy možnosť kedykoľvek zrušiť.
         button: Áno, chcem aj naďalej prijímať relevantné informácie
@@ -766,6 +764,8 @@ sk:
         change_my_password: Zmeňte heslo
         confirm_new_password: Potvrďte nové heslo
         new_password: Nové heslo
+        password_help: "%{minimum_characters} je minimum znakov, nesmie byť príliš bežné (napr. 123456) a musí byť iné ako vaše prezývka a váš e-mail."
+        password_help_admin: "%{minimum_characters} je minimum znakov, nesmie byť príliš bežné (napr. 123456) a musí byť iné ako vaše prezývka a váš e-mail."
       new:
         forgot_your_password: Zabudli ste heslo?
         send_me_reset_password_instructions: Pošlite mi pokyny na resetovanie hesla
@@ -835,7 +835,6 @@ sk:
       impersonation_warning:
         close_session: Zatvoriť sedenie
         description_html: Spravujete účastníka <b>%{user_name} </ b>.
-        expire_time_html: Platnosť vašej relácie vyprší za <b> <span class = "minutes">%{minutes} </ span> </ b>.
       notifications_dashboard:
         mark_all_as_read: Označiť všetko ako prečítané
       user_menu:

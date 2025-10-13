@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const manualStart = document.getElementById("election_manual_start");
   const datepickerRow = document.querySelector(".election_start_time");
   const availabilityRadios = document.querySelectorAll(

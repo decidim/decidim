@@ -27,10 +27,7 @@ gl:
               'true': Sen seleccionar para implementación
     budgets:
       actions:
-        attachment_collections: Carpetas
-        attachments: Anexos
         edit: Editar
-        edit_projects: Xestionar proxectos
         import: Importa propostas a proxectos
         preview: Vista previa
         title: Accións
@@ -49,8 +46,6 @@ gl:
         exports:
           projects: Proxectos
         models:
-          budget:
-            name: Orzamento
           project:
             name: Proxecto
         projects:

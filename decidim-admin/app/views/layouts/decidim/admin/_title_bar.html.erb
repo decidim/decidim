@@ -10,7 +10,7 @@
       <% end %>
       <% if available_locales.length > 1 %>
         <div class="language-choose relative">
-          <%= button_tag id: "admin-menu-trigger", data: { component: "dropdown", target: "admin-dropdown-menu-language" }, class: "dropdown__trigger" do %>
+          <%= button_tag id: "admin-menu-trigger", data: { controller: "dropdown", target: "admin-dropdown-menu-language" }, class: "dropdown__trigger" do %>
               <%= t("name", scope: "locale") %>
               <%= icon "arrow-down-s-line" %>
           <% end %>
@@ -28,7 +28,7 @@
       <% end %>
 
       <div class="user-login relative">
-        <%= button_tag current_user.email, id: "admin-dropdown-menu-login-trigger", data: { component: "dropdown", target: "admin-dropdown-menu-login" } , class: "dropdown__trigger" do %>
+        <%= button_tag current_user.email, id: "admin-dropdown-menu-login-trigger", data: { controller: "dropdown", target: "admin-dropdown-menu-login" } , class: "dropdown__trigger" do %>
           <%= current_user.email %>
           <%= icon "arrow-down-s-line" %>
         <% end %>

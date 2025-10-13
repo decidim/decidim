@@ -36,7 +36,7 @@ module Decidim
 
             on(:invalid) do
               flash[:alert] = I18n.t("conference_speakers.create.error", scope: "decidim.admin")
-              render :new
+              render :new, status: :unprocessable_entity
             end
           end
         end
@@ -58,7 +58,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("conference_speakers.update.error", scope: "decidim.admin")
-              render :edit
+              render :edit, status: :unprocessable_entity
             end
           end
         end
@@ -85,7 +85,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("conference_speakers.publish.invalid", scope: "decidim.admin")
-              render action: "index"
+              render action: "index", status: :unprocessable_entity
             end
           end
         end
@@ -101,7 +101,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("conference_speakers.unpublish.invalid", scope: "decidim.admin")
-              render action: "index"
+              render action: "index", status: :unprocessable_entity
             end
           end
         end

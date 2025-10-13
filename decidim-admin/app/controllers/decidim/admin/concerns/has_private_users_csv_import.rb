@@ -34,7 +34,7 @@ module Decidim
 
               on(:invalid) do
                 flash[:alert] = I18n.t("participatory_space_private_users_csv_imports.create.invalid", scope: "decidim.admin")
-                render template: "decidim/admin/participatory_space_private_users_csv_imports/new"
+                render template: "decidim/admin/participatory_space_private_users_csv_imports/new", status: :unprocessable_entity
               end
             end
           end

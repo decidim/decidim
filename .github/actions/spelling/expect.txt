@@ -72,6 +72,7 @@ backported
 backporter
 backticks
 barcat
+Basecamp
 Basecontroller
 Batchloader
 bayes
@@ -289,6 +290,7 @@ EOTITLE
 eql
 equalcat
 equales
+equalto
 erabaki
 erblint
 ERESOLVE
@@ -335,6 +337,9 @@ formattings
 formelements
 formfield
 forminvalid
+formreset
+formvalid
+formvalidator
 Fpb
 freetext
 Fritsch
@@ -386,10 +391,10 @@ hadolint
 haml
 Hammes
 hashdiff
-hashtag
 hashtaggable
 hashtagging
 hastaggable
+hashtags
 heighta
 heightb
 hereapi
@@ -406,6 +411,7 @@ Hodor
 Holas
 honeypots
 hooli
+hotwired
 housenumber
 hsh
 hsts
@@ -454,6 +460,7 @@ Jeet
 Jenae
 Jfcm
 jfif
+Jitsi
 jkl
 JKR
 joannadoe
@@ -840,6 +847,7 @@ sereneinserenade
 serializeds
 setseed
 sgid
+Shakacode
 shakapacker
 sharedapp
 shellcheckrc
@@ -923,6 +931,7 @@ Terica
 Terrassa
 terrats
 territorials
+testid
 testsecret
 teva
 texta

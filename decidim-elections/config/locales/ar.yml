@@ -3,3 +3,14 @@ ar:
     components:
       elections:
         name: الانتخابات
+    elections:
+      admin:
+        dashboard:
+          main:
+            labels:
+              description: الوصف
+          results:
+            title: النتائج
+      elections:
+        vote_results:
+          title: النتائج

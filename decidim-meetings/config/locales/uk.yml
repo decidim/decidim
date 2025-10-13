@@ -103,8 +103,6 @@ uk:
     meetings:
       actions:
         agenda: Порядок денний
-        attachment_collections: Теки
-        attachments: Вкладені файли
         close: Закрити
         edit: Редагувати
         preview: Попередній перегляд

@@ -13,7 +13,7 @@ import createDisplayConditions from "src/decidim/forms/display_conditions.compon
 import createMaxChoicesAlertComponent from "src/decidim/forms/max_choices_alert.component"
 import { preventUnload } from "src/decidim/utilities/dom"
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   $(".js-radio-button-collection, .js-check-box-collection").each((idx, el) => {
     createOptionAttachedInputs({
       wrapperField: $(el),

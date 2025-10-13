@@ -9,7 +9,7 @@ shared_examples "manage settings" do
     end
 
     within "tr", text: translated(component.name) do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       click_on "Configure"
     end
   end

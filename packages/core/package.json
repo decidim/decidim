@@ -1,7 +1,7 @@
 {
   "name": "@decidim/core",
   "description": "The core dependencies for Decidim",
-  "version": "0.31.0-dev",
+  "version": "0.32.0-dev",
   "repository": {
     "url": "git@github.com:decidim/decidim.git",
     "type": "git",
@@ -40,7 +40,6 @@
     "@tiptap/pm": "2.1.13",
     "@tiptap/starter-kit": "2.1.13",
     "@tiptap/suggestion": "2.1.13",
-    "@zeitiger/appendaround": "^1.0.0",
     "a11y-accordion-component": "^1.2.6",
     "a11y-dialog-component": "^5.5.1",
     "a11y-dropdown-component": "^1.2.0",

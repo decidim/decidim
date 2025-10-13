@@ -170,16 +170,15 @@ pt-BR:
         attachment_collection:
           new: Nova pasta de anexos
         browse: Navegar
-        export: Exportar tudo
+        configure: Configurar
+        export: Exportar
         export-selection: Exportar selecionado
         import: Importar
-        manage: Gerenciar
         newsletter:
           new: Novo Boletim Informativo
         participatory_space_private_user:
           new: Novo espaço participativo de usuário privado
         per_page: Por página
-        permissions: Permissões
         send_me_a_test_email: Enviar um e-mail de teste
         share: Compartilhar
         user:
@@ -628,7 +627,6 @@ pt-BR:
               update_moderated_user_button: Anular denúncias de usuários
             title: Ações
             unblock: Desbloquear usuário
-            unreport: Anular denúncia
           cancel: Cancelar
           name: Nome
           nickname: Apelido
@@ -652,10 +650,8 @@ pt-BR:
               title: Ocultar
               update_moderation_button: Ocultar os recursos selecionados
             unhide:
-              title: Desocultar
               update_moderation_button: Desocultar os recursos selecionados
             unreport:
-              title: Anular denúncia
               update_moderation_button: Anular denúncia dos recursos selecionados
           cancel: Cancelar
           selected: selecionado
@@ -783,7 +779,6 @@ pt-BR:
         index:
           actions: Ações
           badge: Selo
-          block: Bloquear usuário
           created_at: Criado em
           name: Nome
           nickname: Apelido
@@ -792,9 +787,7 @@ pt-BR:
           officialized: Oficializado
           reofficialize: Reorientar
           reports: Denúncias
-          show_email: Mostrar endereço de e-mail
           status: Status
-          unblock: Desbloquear Usuário
           unofficialize: Não oficializar
         new:
           badge: Emblema de oficialização
@@ -959,8 +952,6 @@ pt-BR:
           error: Houve um erro ao atualizar este tópico.
           success: Tópico atualizado com sucesso
       static_pages:
-        actions:
-          view: Ver página pública
         create:
           error: Ocorreu um erro ao criar uma nova página.
           success: Página criada com sucesso.
@@ -988,9 +979,6 @@ pt-BR:
       taxonomies:
         actions:
           actions: Ações
-          destroy: Excluir taxonomia e itens
-          edit: Editar taxonomia e itens
-          filters: Gerenciar filtros
         breadcrumb:
           edit: Editar taxonomia
           new: Nova taxonomia
@@ -1113,8 +1101,6 @@ pt-BR:
         hide: Ocultar
         not_hidden: Não oculto
         title: Ações
-        unhide: Mostrar
-        unreport: Anular denúncia
       admin:
         reportable:
           hide:

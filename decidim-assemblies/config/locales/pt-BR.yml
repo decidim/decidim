@@ -10,9 +10,6 @@ pt-BR:
         closing_date: Data de finalização
         closing_date_reason: Razão da data de finalização
         composition: Composição
-        copy_categories: Copiar categorias
-        copy_components: Copiar componentes
-        copy_features: Recursos de cópia
         created_by: Criado por
         created_by_other: Criado por outro
         creation_date: Data de criação
@@ -105,15 +102,6 @@ pt-BR:
         update:
           error: Ocorreu um erro ao atualizar esta assembleia.
           success: Assembleia atualizada com sucesso.
-      assemblies_copies:
-        create:
-          error: Ocorreu um erro ao duplicar esta assembleia.
-          success: Assembleia duplicada com sucesso.
-      assembly_copies:
-        new:
-          copy: Cópia
-          select: Selecione os dados que você gostaria de duplicar
-          title: Duplicar assembleia
       assembly_imports:
         create:
           error: Ocorreu um erro ao importar esta assembleia.
@@ -236,9 +224,6 @@ pt-BR:
             slug_help_html: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
             social_handlers: Social
             title: Informação geral
-        assembly_copies:
-          form:
-            slug_help_html: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
         assembly_imports:
           form:
             slug_help_html: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'

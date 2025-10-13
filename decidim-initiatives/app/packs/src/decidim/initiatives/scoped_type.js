@@ -27,7 +27,7 @@ const controlSelector = function (source, prefix, currentValueKey) {
   }
 };
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   let typeSelector = $("[data-scope-selector]");
   controlSelector(typeSelector, "scope", "scope-id");
   controlSelector(typeSelector, "signature-types", "signature-type");

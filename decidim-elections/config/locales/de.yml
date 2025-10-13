@@ -7,6 +7,10 @@ de:
           election_questions: Fragen
     components:
       elections:
+        actions:
+          create: Erstellen
+          destroy: Löschen
+          update: Aktualisieren
         name: Wahlen
         settings:
           global:
@@ -15,27 +19,107 @@ de:
             announcement: Ankündigung
     elections:
       actions:
+        preview: Vorschau
         title: Aktionen
       admin:
         census:
           edit:
             created_at: Erstellt am
+        dashboard:
+          census:
+            title: Erhebung
+          main:
+            labels:
+              description: Beschreibung
+          questions:
+            labels:
+              answers: Antworten
+            title: Fragen
+          questions_table:
+            answer: Antworten
+            votes: Stimmen
+          results:
+            publish_button: Resultate veröffentlichen
+            title: Resultate
+          status:
+            title: Wahlstatus
         elections:
           edit:
             title: Wahl bearbeiten
           form:
             add_images: Bilder hinzufügen
+            basic_title: Hauptinformation
+            calendar: Kalender
+            calendar_description: Überprüfen Sie, ob die Zeitzone in den Organisationseinstellungen korrekt ist. Die aktuelle Konfiguration ist %{timezone}.
+            edit_attachments: Anhänge bearbeiten
+            end_at: Ende
+            manual_start: Manueller Start
+            publish: Veröffentlichen
+            results_availability:
+              per_question: Frage nach Frage
+              real_time: In Echtzeit
+              title: Verfügbarkeit der Ergebnisse
+            save: Speichern und fortfahren
+            start_at: Startzeit
           index:
             title: Wahlen
+          manage_trash:
+            title: Gelöschte Wahlen
           new:
             title: Neue Wahl
         questions:
           edit_questions:
             new_question: Neue Frage
             title: Fragen
+        statuses:
+          publish_results:
+            invalid: Beim Veröffentlichen der Ergebnisse ist ein Fehler aufgetreten.
+      censuses:
+        token_csv_form:
+          email: E-Mail
+      elections:
+        count:
+          elections_count:
+            one: "%{count} Wahlen"
+            other: "%{count} Wahlen"
+        filters:
+          all: Alle
+          state: Status
+          state_values:
+            finished: Abgeschlossen
+            ongoing: Aktuell
+        orders:
+          recent: Kürzlich hinzugefügt
+        questions:
+          title: Wahlfragen
+        show:
+          vote_button: Abstimmung
+        vote_results:
+          title: Resultate
       models:
         election:
           fields:
+            census: Erhebung
+            status: Status
             title: Titel
+      status:
+        active: Aktiv
+        finished: Abgeschlossen
+        not_started: Nicht begonnen
+        ongoing: Aktuell
+        unpublished: Nicht veröffentlicht
+      votes:
+        confirm:
+          title: Bestätige deine Stimme
+        question:
+          back: Zurück
+          next: Weiter
     statistics:
       elections_count: Wahlen
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Schließen
+  time:
+    formats:
+      short_with_time: "%b %-d, %Y, %-I:%M %p"

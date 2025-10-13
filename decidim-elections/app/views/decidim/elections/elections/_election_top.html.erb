@@ -1,0 +1,15 @@
+<% if election.started? %>
+  <div class="flash flex-col mt-0" data-announcement>
+    <div class="flash__message">
+    <p><%= t("decidim.elections.elections.show.voting_began", start_date: l(election.start_at, format: :decidim_short)) %></p>
+    <p><%= t("decidim.elections.elections.show.active_voting_until", end_date: l(election.end_at, format: :decidim_short)) %></p>
+    </div>
+  </div>
+<% end %>
+
+<% if voted_by_current_user?(election) %>
+  <div class="election__aside-voted lg:hidden">
+    <span><%= icon "check-line", class: "fill-success inline mr-2" %></span>
+    <span><%= t("decidim.elections.elections.show.voted") %></span>
+  </div>
+<% end %>

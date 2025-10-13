@@ -1,4 +1,4 @@
-<button type="button" data-component="dropdown" data-target="actions-election-<%= election.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: present(election).title(html_escape: true)) %>">
+<button type="button" data-controller="dropdown" data-target="actions-election-<%= election.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: present(election).title(html_escape: true)) %>">
   <%= icon "more-fill", class: "text-secondary" %>
 </button>
 
@@ -54,6 +54,15 @@
 
       <li class="dropdown__item">
         <%= dropdown_resource_permissions_link(election) %>
+      </li>
+
+      <hr>
+
+      <li class="dropdown__item">
+        <%= link_to resource_locator(election).path, class: "dropdown__button", target: :blank, data: { "external-link": false } do %>
+          <%= icon "eye-line" %>
+          <%= t("actions.preview", scope: "decidim.elections") %>
+        <% end %>
       </li>
 
       <hr>

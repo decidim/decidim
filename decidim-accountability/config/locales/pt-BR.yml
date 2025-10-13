@@ -40,8 +40,6 @@ pt-BR:
   decidim:
     accountability:
       actions:
-        attachment_collections: Pastas
-        attachments: Anexos
         confirm_delete_result: Você tem certeza que quer deletar este resultado?
         confirm_destroy: Deseja mesmo excluir %{name}?
         deleted_results_info: Os resultados deletados podem ser restaurados da lixeira.
@@ -49,7 +47,6 @@ pt-BR:
         edit: Editar
         import: Importar resultados de outro componente
         import_csv: Importar resultados de arquivo CSV
-        milestones: Marcos
         new_milestone: Novo marco
         new_result: Novo resultado
         new_status: Novo status

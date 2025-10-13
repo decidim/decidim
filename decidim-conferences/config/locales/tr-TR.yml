@@ -2,11 +2,7 @@ tr:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: İlgili kurullar
         banner_image: Banner resmi
-        copy_categories: Kategorileri kopyala
-        copy_components: Bileşenleri kopyala
-        copy_features: Özellikleri kopyala
         decidim_scope_id: Kapsam
         description: Açıklama
         hero_image: Ana resim
@@ -46,11 +42,6 @@ tr:
         new_registration_type: Yeni kayıt türü
         new_speaker: Yeni Konuşmacı
         send_diplomas: Katılım sertifikaları gönder
-      conference_copies:
-        new:
-          copy: Kopyala
-          select: Çoğaltmak istediğiniz verileri seçin
-          title: Konferansı çoğalt
       conference_publications:
         create:
           error: Bu konferansı yayınlarken bir sorun oluştu.
@@ -99,19 +90,15 @@ tr:
         exports:
           registrations: Kayıtlar
         form:
+          images: Fotoğraflar
           title: Genel bilgi
         index:
           published: Yayınlandı
         new:
           create: Oluştur
-          title: Konferans
         update:
           error: Bu konferans güncellenirken bir hata oluştu.
           success: Konferans başarıyla güncellendi.
-      conferences_copies:
-        create:
-          error: Bu konferansı çoğaltırken bir hata oluştu.
-          success: Konferans başarıyla kopyalandı.
       media_links:
         create:
           error: Yeni bir medya bağlantısı oluştururken bir hata oluştu.

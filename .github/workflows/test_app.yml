@@ -36,7 +36,7 @@ on:
       chrome_version:
         description: 'Chrome & Chromedriver version'
         required: false
-        default: "136.0.7103.92"
+        default: "139.0.7258.66"
         type: string
 
 jobs:
@@ -53,7 +53,7 @@ jobs:
       DECIDIM_SPAM_DETECTION_BACKEND_USER: "memory"
     services:
       validator:
-        image: ghcr.io/validator/validator:latest
+        image: ghcr.io/validator/validator@sha256:28bd490412bb5abf1cf23eae0e3c197e9fbbda43cb9d23239b9ce859dc585db0
         ports: ["8888:8888"]
       postgres:
         image: postgres:14
@@ -122,7 +122,6 @@ jobs:
           DECIDIM_BULLET_UNUSED_EAGER: ${{ inputs.bullet_unused_eager_loading }}
           DISPLAY: ":99"
           CI: "true"
-          FAST_SEEDS: "true"
           SIMPLECOV: "true"
           SHAKAPACKER_RUNTIME_COMPILE: "false"
           NODE_ENV: "test"

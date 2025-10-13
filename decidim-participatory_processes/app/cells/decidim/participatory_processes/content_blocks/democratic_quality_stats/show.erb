@@ -59,19 +59,14 @@
                    metric_tooltip: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.qualitative_metrics.indicators.inclusiveness_tooltip") %>
           <%= cell "decidim/participatory_processes/indicator",
                    nil,
-                   metric_name: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.qualitative_metrics.indicators.relevance"),
-                   metric_value: stats[:auto_evaluation][:relevance],
-                   metric_tooltip: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.qualitative_metrics.indicators.relevance_tooltip") %>
-          <%= cell "decidim/participatory_processes/indicator",
-                   nil,
                    metric_name: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.qualitative_metrics.indicators.citizen_influence"),
                    metric_value: stats[:auto_evaluation][:citizen_influence],
                    metric_tooltip: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.qualitative_metrics.indicators.citizen_influence_tooltip") %>
           <%= cell "decidim/participatory_processes/indicator",
                    nil,
-                   metric_name: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.qualitative_metrics.indicators.accessibility"),
-                   metric_value: stats[:auto_evaluation][:accessibility],
-                   metric_tooltip: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.qualitative_metrics.indicators.accessibility_tooltip") %>
+                   metric_name: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.qualitative_metrics.indicators.informativeness"),
+                   metric_value: stats[:auto_evaluation][:informativeness],
+                   metric_tooltip: t("decidim.participatory_processes.content_blocks.democratic_quality_stats.qualitative_metrics.indicators.informativeness_tooltip") %>
         </div>
       </div>
     <% end %>
