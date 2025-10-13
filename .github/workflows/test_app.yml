@@ -53,7 +53,7 @@ jobs:
       DECIDIM_SPAM_DETECTION_BACKEND_USER: "memory"
     services:
       validator:
-        image: ghcr.io/validator/validator:latest
+        image: ghcr.io/validator/validator@sha256:28bd490412bb5abf1cf23eae0e3c197e9fbbda43cb9d23239b9ce859dc585db0
         ports: ["8888:8888"]
       postgres:
         image: postgres:14
