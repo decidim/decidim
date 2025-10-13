@@ -431,7 +431,8 @@ en:
           file_no_exists: File does not exist.
           file_ext_not_supported: File extension is not supported.
           type_not_supported: File type is not supported.
-          error: File upload failed
+          error: File upload failed.
+          file_too_large: File is too large.
     application:
       document:
         download: Download file

@@ -21,6 +21,7 @@ module Decidim
       autoload :BaseObject, "decidim/api/types/base_object"
       autoload :BaseScalar, "decidim/api/types/base_scalar"
       autoload :BaseUnion, "decidim/api/types/base_union"
+      autoload :BaseUpload, "decidim/api/types/base_upload"
     end
   end
 end
