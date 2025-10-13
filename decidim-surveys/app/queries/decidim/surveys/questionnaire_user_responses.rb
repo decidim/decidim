@@ -17,6 +17,9 @@ module Decidim
 
       # Returns grouped user responses for published surveys only
       def query
+        survey = @questionnaire.questionnaire_for
+        return Decidim::Forms::Response.none if survey.blank? || survey.published_at.blank?
+
         Decidim::Forms::Response
           .joins(:question)
           .where(questionnaire: @questionnaire)
