@@ -59,7 +59,7 @@ module Decidim
         raise "Uploaded file missing in params[#{file_key}]" unless file
 
         paths.each do |path|
-          keys = path.split(".") 
+          keys = path.split(".")
           last_key = keys.pop
 
           parent = operations

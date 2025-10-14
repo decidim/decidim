@@ -5,7 +5,7 @@ require "tempfile"
 shared_examples "API uploadable file" do
   context "when file extension is not supported" do
     let!(:tempfile) { Tempfile.create(["foo", ".xyz"]) }
-    let(:file) do 
+    let(:file) do
       Rack::Multipart::UploadedFile.new(
         tempfile.path,
         "application/jpeg",
@@ -22,7 +22,7 @@ shared_examples "API uploadable file" do
 
   context "when content type is not supported" do
     let!(:tempfile) { Tempfile.create(["foo", ".jpg"]) }
-    let(:file) do 
+    let(:file) do
       Rack::Multipart::UploadedFile.new(
         tempfile.path,
         "application/octet-stream",
@@ -39,7 +39,7 @@ shared_examples "API uploadable file" do
 
   context "when everything is ok" do
     let!(:tempfile) { Tempfile.create(["foo", ".jpg"]) }
-    let(:file) do 
+    let(:file) do
       Rack::Multipart::UploadedFile.new(
         tempfile.path,
         "image/jpg",
@@ -60,8 +60,7 @@ shared_examples "API uploadable file" do
         "filename" => blob.filename,
         "checksum" => blob.checksum,
         "signedId" => blob.signed_id,
-        "byteSize" => blob.byte_size,
-
+        "byteSize" => blob.byte_size
       )
     end
   end
