@@ -26,6 +26,7 @@ require "decidim/api/test"
 
 require_relative "rspec_support/component"
 require_relative "rspec_support/authorization"
+require_relative "rspec_support/shakapacker_patch"
 
 require "#{Decidim::Dev.dummy_app_path}/config/environment"
 
