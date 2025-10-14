@@ -496,7 +496,7 @@ eu:
     authorization_modals:
       content:
         expired:
-          authorize: Errebokatu "%{authorization}" rekin
+          authorize: Baimendu berriro "%{authorization}" sakatuta
           explanation: Zure baimena iraungi da. Ekintza hau burutzeko, "%{authorization}" berrantolatu behar duzu.
           title: Baimena iraungi egin da
         incomplete:
@@ -677,7 +677,7 @@ eu:
         create:
           error: Arazo bat izan da kontua sortzean.
         new:
-          already_have_an_account?: Baduzu kontu bat?
+          already_have_an_account?: Ba al duzu konturen bat?
           log_in: Hasi saioa
           newsletter: Jaso nahi dut informazio garrantzitsua biltzen duen aldizkako buletina
           newsletter_title: Harremanetarako baimena
@@ -692,7 +692,7 @@ eu:
           are_you_new?: Oraindik erregistratu gabe?
           register: Sortu zure kontua
           sign_in_disabled: Kanpoko kontu batez sartu ahal zara.
-          sign_up_disabled: Kontuak sortzea desgaituta dago, sartzeko lehendik dagoen kontu bat erabil dezakezu.
+          sign_up_disabled: Kontu-sorkuntza desgaituta dago. Ohar bat erabil dezakezu atzipenerako.
         user:
           ephemeral_session_closed: Amaitu da zure gonbidatuen saioa
           timed_out: Denbora luzeegi egon zara jarduerarik gabe, eta zure saioa automatikoki itxi da. Parte hartzen jarraitu nahi baduzu, hasi saioa berriro.
@@ -878,7 +878,7 @@ eu:
         reference: Erreferentzia
         request_method: Eskaera-metodoa
         title: Arazo bat egon da gure zerbitzarian
-        try_later: Mesedez, saiatu berriro geroago. Erroreak jarraitzen badu, mesedez, kopiatu ondoko informazio hau eta bidali plataformaren mantentzaileei partekatu nahi duzun bestelako informazioarekin batera.
+        try_later: Mesedez, geroago saiatu berriro. Erroreak jarraitzen badu, mesedez, kopiatu ondoko informazio hau eta bidali plataformaren mantentzaileei partekatu nahi duzun bestelako informazioarekin batera.
         unknown: Ezezaguna
         url: URL
         user: Parte-hartzailearen ID
@@ -1081,7 +1081,7 @@ eu:
       followers_count:
         one: "Jarraitzaile %{count}"
         other: "%{count} jarraitzaile"
-      no_followers: Ez da jarraitzailerik oraindik.
+      no_followers: Oraindik ez dago jarraitzailerik.
     following:
       following_count:
         one: "batek jarraitzaitzen du"
@@ -1113,7 +1113,7 @@ eu:
           message_1: Irudi bat edo dokumentu bat izan behar da.
           message_2: Irudia bada, ahal dela, paisaia-irudia, testurik ez duena izan dadila. Zerbitzuak irudia lantzen du.
         icon:
-          explanation: 'Jarraibideak irudirako:'
+          explanation: 'Irudirako jarraibideak:'
           message_1: Irudi karratua izan behar da.
           message_2: Irudi honetarako gomendatzen den tamaina da 512x512.
         image:
@@ -1560,7 +1560,7 @@ eu:
           blocked_at: Zein egunetan eta ordutan blokeatu den parte-hartzailea
           blocking_user: Blokeoa egin duen parte-hartzailearen izena
           details: Txostenen xehetasunak
-          reasons: Profilaren berri emateko arrazoien zerrenda
+          reasons: Erabiltzailearen profilaren berri emateko arrazoien zerrenda
           user_id: Salatutako parte-hartzailearen ID bakarra
         moderations:
           hidden_at: Zein egunetan eta ordutan ezkutatu den edukia
@@ -1656,7 +1656,7 @@ eu:
     pad_iframe:
       disclaimer: Ohar-blok honen edukiak erregistratutako parte-hartzaileek idatzi dituzte eta euren iritziak adierazi dituzte. %{organization} erakundea ezin da bere edukien erantzule izan.
       explanation: Erabili ohar-blok hau topaketan zehar oharrak modu kolaboratiboan hartzeko, gero akta idaztea errazagoa izan dadin.
-      pad: pad
+      pad: Pad
     pages:
       home:
         extended:
@@ -1696,7 +1696,7 @@ eu:
           success: Bikain! Onartu dituzu zerbitzuaren baldintzak.
         form:
           agreement: Ados nago baldintza hauekin
-          legend: Adostu zerbitzuaren baldintzak
+          legend: Zerbitzuaren baldintzak onartzen ditut
         refuse:
           modal_body: Onartzen ez baduzu, ezin izango duzu plataforman parte hartu, <a href="%{download_your_data_path}">zure datuak deskargatu ahal dituzu</a> eta/edo <a href="%{delete_path}">zure kontua ezabatu</a>.
           modal_btn_continue: Onartu baldintzak eta jarraitu
@@ -1704,9 +1704,9 @@ eu:
           modal_button: Ez onartu baldintzak
           modal_title: Benetan ez dituzu onartzen zerbitzuaren baldintza eguneratuak?
         required_review:
-          alert: "Gure zerbitzu baldintzak eguneratu ditugu., berrikusi, mesedez.\n"
+          alert: Gure zerbitzu baldintzak eguneratu ditugu, berrikusi, mesedez.
           body: Mesedez, hartu tarte bat erabilerarako gure baldintzak eta irizpideak berrikusteko. Bestela, ezin izango duzu plataforman parte hartu.
-          title: 'Eskatuta: berrikusi eguneraketak gure zerbitzuaren baldintzetan'
+          title: 'Beharrezkoa: berrikusi eguneratzeak gure erabilera-baldintzetan'
     passwords:
       update:
         error: Arazo bat egon da pasahitza eguneratzean.
@@ -1759,7 +1759,7 @@ eu:
         content: Erreportatutako edukia
         details: Xehetasunak
         hello: 'Kaixo, %{name}:'
-        manage_moderations: Kudeatu moderazioak
+        manage_moderations: Moderazioak kudeatu
         participatory_space: Partaidetza espazioa
         reason: Arrazoia
         report_html: <p>Hurrengo <a href="%{url}">edukia</a>automatikoki ezkutatu da</p>
@@ -2015,16 +2015,16 @@ eu:
         someone_invited_you_as_private_user: Norbaitek %{application} ko parte-hartzaile pribatu gisa gonbidatu zaitu, beheko estekan onar dezakezu.
         subject: Gonbidapenaren argibideak
       invite_admin:
-        subject: Gonbita jaso duzu %{organization} kudeatzeko
+        subject: '%{organization} kudeatzeko gonbita jaso duzu'
       invite_collaborator:
         subject: 'Gonbita jaso duzu erakunde honekin lankidetzan aritzeko: %{organization}'
       invite_private_user:
         subject: Gonbidatu zaituzte partaidetza-prozesu pribatu batean %{organization} erakundean
       organization_admin_invitation_instructions:
-        subject: Gonbita jaso duzu %{organization} kudeatzeko
+        subject: '%{organization} erakundea kudeatzeko gonbita jaso duzu'
       password_change:
         greeting: Kaixo, %{recipient}!
-        message: Zuregana jotzen dugu jakinarazteko zure pasahitza zuzen aldatu dela.
+        message: Zuregana jotzen dugu zure pasahitza zuzen aldatu dela jakinarazteko.
         subject: Pasahitza aldatu da
       reset_password_instructions:
         action: Nire pasahitza aldatu
@@ -2304,7 +2304,7 @@ eu:
         aria_label: '%{title} Nabigazio-menua'
       notifications_dashboard:
         mark_all_as_read: Markatu dena irakurritako gisa
-        mark_as_read: Markatu irakurrita bezala
+        mark_as_read: Irakurrita bezala markatu
       offline_banner:
         cache_version_page: Kontuz! Off-line lan egiten ari zara. Bisitatzen ari zaren orriaren cache bertsioa da hau, agian edukia ez dago eguneratuta.
       social_media_links:
@@ -2315,7 +2315,7 @@ eu:
         youtube: "%{organization} YouTuben"
       timeout_modal:
         body: Jarduerarik gabe egon zara %{minutes} minututan. Aktibatu gabe jarraitzen baduzu, deskonektatuko zaitugu zure segurtasunerako.
-        continue_session: Jarraitu saioa
+        continue_session: Saioa jarraitu
         log_out: Amaitu saioa
         title: Saioan jarraitu nahi duzu?
       user_menu:
