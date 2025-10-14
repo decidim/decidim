@@ -59,12 +59,13 @@ export default function createEditor(container) {
     };
   }
 
-  if (container.classList.contains("js-mentions")) {
+  if (options.mention) {
     decidimOptions.mention = true;
   }
-  if (container.classList.contains("js-emojis")) {
+  if (options.emoji) {
     decidimOptions.emoji = true;
   }
+
   if (container.classList.contains("js-resource-mentions")) {
     decidimOptions.mentionResource = true;
   }

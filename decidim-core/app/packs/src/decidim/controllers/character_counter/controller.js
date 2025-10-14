@@ -1,4 +1,7 @@
-/* eslint max-lines: ["error", {"max": 350, "skipBlankLines": true}] */
+/* eslint max-lines: ["error", 310] */
+
+import { Controller } from "@hotwired/stimulus"
+import * as i18n from "src/decidim/refactor/moved/i18n";
 
 const COUNT_KEY = "%count%";
 // How often SR announces the message in relation to maximum characters. E.g.
@@ -11,29 +14,17 @@ const COUNT_KEY = "%count%";
 const SR_ANNOUNCE_THRESHOLD_RATIO = 0.1;
 // The number of characters left after which every keystroke will be announced.
 const SR_ANNOUNCE_EVERY_THRESHOLD = 10;
-const DEFAULT_MESSAGES = {
-  charactersAtLeast: {
-    one: `at least ${COUNT_KEY} character`,
-    other: `at least ${COUNT_KEY} characters`
-  },
-  charactersLeft: {
-    one: `${COUNT_KEY} character left`,
-    other: `${COUNT_KEY} characters left`
-  }
-};
-let MESSAGES = DEFAULT_MESSAGES;
 
-export default class InputCharacterCounter {
-  static configureMessages(messages) {
-    MESSAGES = $.extend(DEFAULT_MESSAGES, messages);
-  }
+export default class extends Controller {
+  connect() {
+    const targetSelector = this.element.dataset.remainingCharacters;
 
-  constructor(input) {
-    this.$input = input;
-    this.$target = $(this.$input.data("remaining-characters"));
-    this.minCharacters = parseInt(this.$input.attr("minlength"), 10);
-    this.maxCharacters = parseInt(this.$input.attr("maxlength"), 10);
-    this.describeByCounter = this.$input.attr("type") !== "hidden" && typeof this.$input.attr("aria-describedby") === "undefined";
+    this.target = targetSelector
+      ? document.querySelector(targetSelector)
+      : null;
+    this.minCharacters = parseInt(this.element.getAttribute("minlength"), 10);
+    this.maxCharacters = parseInt(this.element.getAttribute("maxlength"), 10);
+    this.describeByCounter = this.element.type !== "hidden" && typeof this.element.getAttribute("aria-describedby") === "undefined";
 
     // Define the closest length for the input "gaps" defined by the threshold.
     if (this.maxCharacters > 10) {
@@ -50,72 +41,75 @@ export default class InputCharacterCounter {
       this.announceEveryThreshold = 1;
     }
 
-    let targetId = this.$target.attr("id");
+    let targetId = this.target?.getAttribute("id");
     if (typeof targetId === "undefined") {
-      if (this.$input.attr("id") && this.$input.attr("id").length > 0) {
-        targetId = `${this.$input.attr("id")}_characters`;
+      if (this.element.getAttribute("id") && this.element.getAttribute("id").length > 0) {
+        targetId = `${this.element.getAttribute("id")}_characters`;
       } else {
         targetId = `characters_${Math.random().toString(36).substr(2, 9)}`;
       }
     }
 
-    if (this.$target.length > 0) {
-      this.$target.attr("id", targetId)
+    if (this.target) {
+      this.target.setAttribute("id", targetId);
     } else {
-      const span = document.createElement("span")
-      span.id = targetId
-      span.className = "input-character-counter__text"
+      const span = document.createElement("span");
+      span.id = targetId;
+      span.className = "input-character-counter__text";
 
-      this.$target = $(span)
+      this.target = span;
 
-      const container = document.createElement("span")
-      container.className = "input-character-counter__container"
-      container.appendChild(span)
+      this.container = document.createElement("span");
+      this.container.className = "input-character-counter__container";
+      this.container.appendChild(span);
 
       // If input is a hidden for WYSIWYG editor add it at the end
-      if (this.$input.parent().is(".editor")) {
-        this.$input.parent().append(container);
+      if (this.element.parentElement.classList.contains("editor")) {
+        this.element.parentElement.appendChild(this.container);
       } else {
-        const wrapper = document.createElement("span")
-        wrapper.className = "input-character-counter"
-
-        // The form errors need to be in the same container with the field they
-        // belong to for Foundation Abide to show them automatically.
-        this.$input.next(".form-error").addBack().wrapAll(wrapper)
-        this.$input.after(container);
+        this.element.after(this.container);
       }
     }
 
-    if (this.$target.length > 0 && (this.maxCharacters > 0 || this.minCharacters > 0)) {
+    if (this.target && (this.maxCharacters > 0 || this.minCharacters > 0)) {
       // Create the screen reader target element. We do not want to constantly
       // announce every change to screen reader, only occasionally.
       const screenReaderId = `${targetId}_sr`;
-      this.$srTarget = $(`#${screenReaderId}`);
-      if (!this.$srTarget.length) {
-        this.$srTarget = $(
-          `<span role="status" id="${screenReaderId}" class="sr-only remaining-character-count-sr" aria-hidden="true"/>`
-        );
-        this.$target.before(this.$srTarget);
+      this.srTarget = document.getElementById(screenReaderId);
+      if (!this.srTarget) {
+        this.srTarget = document.createElement("span");
+        this.srTarget.setAttribute("role", "status");
+        this.srTarget.id = screenReaderId;
+        this.srTarget.className = "sr-only remaining-character-count-sr";
+        this.srTarget.setAttribute("aria-hidden", "true");
+
+        this.target.parentNode.insertBefore(this.srTarget, this.target);
       }
-      this.$target.attr("aria-hidden", "true");
-      this.$userInput = this.$input;
+      this.target.setAttribute("aria-hidden", "true");
+      this.userInput = this.element;
 
       // In WYSIWYG editors (TipTap) we need to find the active editor from the
       // DOM node.
-      if (this.$input.parent().is(".editor")) {
+      if (this.element.parentElement.classList.contains("editor")) {
         // Wait until the next javascript loop so WYSIWYG editors are created
         setTimeout(() => {
-          this.editor = this.$input.siblings(".editor-container")[0].querySelector(".ProseMirror").editor;
-          this.$userInput = $(this.editor.view.dom);
-          this.initialize();
+          const editorContainer = this.element.parentElement.querySelector(".editor-container");
+          if (editorContainer) {
+            const proseMirror = editorContainer.querySelector(".ProseMirror");
+            if (proseMirror) {
+              this.editor = proseMirror.editor;
+              this.userInput = proseMirror;
+            }
+          }
+          this.initializeCounter();
         });
       } else {
-        this.initialize();
+        this.initializeCounter();
       }
     }
   }
 
-  initialize() {
+  initializeCounter() {
     this.updateInputLength();
     this.previousInputLength = this.inputLength;
 
@@ -129,37 +123,29 @@ export default class InputCharacterCounter {
     }
 
     if (active) {
-      this.$userInput.attr("aria-describedby", this.$srTarget.attr("id"));
+      this.userInput.setAttribute("aria-describedby", this.srTarget.getAttribute("id"));
     } else {
-      this.$userInput.removeAttr("aria-describedby");
+      this.userInput.removeAttribute("aria-describedby");
     }
   }
 
   bindEvents() {
     if (this.editor) {
-      this.editor.on("update", () => {
-        this.handleInput();
-      });
+      this.editor.on("update", () => this.handleInput());
     } else {
-      this.$userInput.on("input", () => {
-        this.handleInput();
-      });
+      this.userInput.addEventListener("input", () => this.handleInput());
     }
 
-    this.$userInput.on("keyup", () => {
-      this.updateStatus();
-    });
-    this.$userInput.on("focus", () => {
-      this.updateScreenReaderStatus();
-    });
-    this.$userInput.on("blur", () => {
+    this.userInput.addEventListener("keyup", () => this.updateStatus());
+    this.userInput.addEventListener("focus", () => this.updateScreenReaderStatus());
+
+    this.userInput.addEventListener("blur", () => {
       this.updateScreenReaderStatus();
       this.setDescribedBy(true);
     });
-    if (this.$userInput.get(0) !== null) {
-      this.$userInput.get(0).addEventListener("emoji.added", () => {
-        this.updateStatus();
-      });
+
+    if (this.userInput) {
+      this.userInput.addEventListener("emoji.added", () => this.updateStatus());
     }
     this.updateStatus();
     this.updateScreenReaderStatus();
@@ -174,7 +160,7 @@ export default class InputCharacterCounter {
     if (this.editor) {
       this.inputLength = this.editor.storage.characterCount.characters();
     } else {
-      this.inputLength = this.$input.val().length;
+      this.inputLength = this.element.value.length;
     }
   }
 
@@ -226,24 +212,24 @@ export default class InputCharacterCounter {
       // length, it will be always announced.
       if (srLength === currentLength) {
         return srLength;
-      // The second branch checks that if we are at the final threshold, we
-      // should not announce "0 characters left" when the user deletes more than
-      // the "announce after every stroke" limit (this.announceEveryThreshold).
+        // The second branch checks that if we are at the final threshold, we
+        // should not announce "0 characters left" when the user deletes more than
+        // the "announce after every stroke" limit (this.announceEveryThreshold).
       } else if (this.maxCharacters - srLength === this.announceThreshold) {
         return this.announcedAt || currentLength;
-      // The third branch checks that when deleting characters, we should
-      // announce the next threshold to get accurate announcement. E.g. when we
-      // have 750 characters left and the user deletes 100 characters at once,
-      // we should announce "700 characters left" after that deletion.
+        // The third branch checks that when deleting characters, we should
+        // announce the next threshold to get accurate announcement. E.g. when we
+        // have 750 characters left and the user deletes 100 characters at once,
+        // we should announce "700 characters left" after that deletion.
       } else if (srLength < currentLength) {
         return srLength + this.announceThreshold;
       }
-    // This fixes an issue in the following situation:
-    // 1. 750 characters left
-    // 2. Delete 100 characters in a row
-    // 3. SR: "800 characters left" (actual 850)
-    // 4. Type one additional character
-    // 5. Without this, SR would announce "900 characters left" = confusing
+      // This fixes an issue in the following situation:
+      // 1. 750 characters left
+      // 2. Delete 100 characters in a row
+      // 3. SR: "800 characters left" (actual 850)
+      // 4. Type one additional character
+      // 5. Without this, SR would announce "900 characters left" = confusing
     } else if (srLength < this.announcedAt) {
       return this.announcedAt;
     }
@@ -259,20 +245,20 @@ export default class InputCharacterCounter {
     }
 
     if (this.minCharacters > 0) {
-      let message = MESSAGES.charactersAtLeast.other;
+      let message = i18n.getMessages("characterCounter.charactersAtLeast.other");
       if (this.minCharacters === 1) {
-        message = MESSAGES.charactersAtLeast.one;
+        message = i18n.getMessages("characterCounter.charactersAtLeast.one");
       }
       showMessages.push(message.replace(COUNT_KEY, this.minCharacters));
     }
 
     if (this.maxCharacters > 0) {
       const remaining = this.maxCharacters - inputLength;
-      let message = MESSAGES.charactersLeft.other;
+      let message = i18n.getMessages("characterCounter.charactersLeft.other");
       if (remaining === 1) {
-        message = MESSAGES.charactersLeft.one;
+        message = i18n.getMessages("characterCounter.charactersLeft.one");
       }
-      this.$userInput[0].dispatchEvent(
+      this.userInput.dispatchEvent(
         new CustomEvent("characterCounter", {detail: {remaining: remaining}})
       );
       showMessages.push(message.replace(COUNT_KEY, remaining));
@@ -281,8 +267,14 @@ export default class InputCharacterCounter {
     return showMessages;
   }
 
+  disconnect() {
+    if (this.container) {
+      this.container.remove();
+    }
+  }
+
   updateStatus() {
-    this.$target.text(this.getMessages().join(", "));
+    this.target.textContent = this.getMessages().join(", ");
   }
 
   checkScreenReaderUpdate() {
@@ -300,14 +292,6 @@ export default class InputCharacterCounter {
   }
 
   updateScreenReaderStatus(currentLength = null) {
-    this.$srTarget.text(this.getMessages(currentLength).join(", "));
+    this.srTarget.textContent = this.getMessages(currentLength).join(", ");
   }
 }
-
-const createCharacterCounter = ($input) => {
-  if (typeof $input !== "undefined" && $input.length) {
-    $input.data("remaining-characters-counter", new InputCharacterCounter($input));
-  }
-}
-
-export {InputCharacterCounter, createCharacterCounter};

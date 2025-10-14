@@ -19,6 +19,7 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) if invalid_order?
+        return broadcast(:invalid) unless voting_open?
 
         cancel_order!
         broadcast(:ok, @order)
@@ -32,6 +33,10 @@ module Decidim
 
       def cancel_order!
         @order.destroy!
+      end
+
+      def voting_open?
+        @order.budget.component.current_settings.votes == "enabled"
       end
     end
   end

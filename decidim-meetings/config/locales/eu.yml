@@ -24,7 +24,7 @@ eu:
         iframe_embed_type_html: Zerbitzu gutxi batzuek bakarrik ematen dute aukera "Bileraren orrian sartzeko" edo "Ekitaldiaren orrian zuzenean irekitzeko". Kontuan izan telefono mugikorretan "Sartu bilera-orrian" aukerarekin, pantailak hainbat dimentsio heredatzen baititu, benetan "Ireki ekitaldiaren orrian zuzenean" gisa funtzionatuko duela.
         location: Kokapena
         location_hints: Kokapen-argibideak
-        online_meeting_url: Lineako topaketaren URL helbidea
+        online_meeting_url: On-line topaketaren URL helbidea
         organizer_gid: Sortze-data
         organizer_id: Antolatzailea
         private_meeting: Topaketa pribatua
@@ -50,7 +50,7 @@ eu:
         email: Helbide elektronikoa
         name: Izena
       response:
-        add_documents: Gehitu dokumentuak
+        add_documents: Dokumentuak gehitu
       validate_registration_code:
         code: Kodea
     errors:
@@ -126,7 +126,7 @@ eu:
             values:
               hybrid: Hibridoa
               in_person: Aurrez aurre
-              online: Lineakoa
+              online: On-line
         rejected_at_not_null:
           label: Baztertua
           values:
@@ -205,7 +205,7 @@ eu:
           validated_at: Zein datatan eta zein ordutan balidatu zen erregistro hau
       show:
         meeting_comments: Esportatu topaketen iruzkinak
-        meetings: Esportatu topaketak
+        meetings: Topaketak esportatu
     events:
       meetings:
         meeting_closed:
@@ -267,7 +267,7 @@ eu:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa %{reminders_before_hours} ordu baino lehen hasiko da.
     forms:
       meetings:
-        attendees_count_help_text: Ez ahaztu tokapetara bertaratutakoen kopuru osoa sartzea, aurrez aurre, online edo hibridoan.
+        attendees_count_help_text: Ez ahaztu tokapetara bertaratutakoen kopuru osoa sartzea, aurrez aurre, on-line edo hibridoan.
     gamification:
       badges:
         attended_meetings:
@@ -316,7 +316,7 @@ eu:
             invalid: Arazo bat egon da agenda hau sortzean.
             success: Agenda ondo sortua.
           edit:
-            title: Editatu agenda
+            title: Agenda editau
             update: Eguneratu
           form:
             add_agenda_item: Gehitu agendako itema
@@ -375,7 +375,7 @@ eu:
             disclaimer: 'Erantzukizun-deskargua: Kanpoko inskripzio-sistema bat erabiliz, onartzen duzu %{organization} ko antolatzaileak ez direla kanpo-zerbitzuko parte-hartzaileek emandako datuen erantzule.'
             iframe_embed_type_html: 'Zerbitzu gutxi batzuek baino ez dute uzten topaketan edo zuzeneko gertakarietan txertatzen honako domeinu hauetatik:%{domains}'
             location_help: 'Kokapena: parte-hartzaileentzako mezua, non bildu behar dugun adierazten duena'
-            location_hints_help: 'Kokapen-aholkuak: informazio gehigarria. Adibidez: eraikinaren solairua, aurrez aurreko topaketa bat bada, edo topaketarako pasahitza, sarbide mugatuko online topaketa bat bada.'
+            location_hints_help: 'Kokapen-aholkuak: informazio gehigarria. Adibidez: eraikinaren solairua, aurrez aurreko topaketa bat bada, edo topaketarako pasahitza, sarbide mugatuko on-line topaketa bat bada.'
             online_meeting_url_help: 'Esteka: Utzi parte-hartzaileei zuzenean konektatzen zure topaketara'
             registration_url_help: 'Esteka: parte-hartzaileei aukera ematea izena emateko erabiltzen ari zaren kanpoko zerbitzura joateko'
             select_a_meeting_type: Mesedez, hautatu topaketa mota bat
@@ -544,15 +544,15 @@ eu:
       meeting_closes:
         edit:
           back: Atzera
-          close: Itxi topaketa
-          title: Itxi topaketa
+          close: Topaketa itxi
+          title: Topaketa itxi
       meetings:
         calendar_modal:
-          add_to_calendar: Gehitu egutegira
-          apple: Gehitu Appleren egutegira
+          add_to_calendar: Egutegira gehitu
+          apple: Apple-ren egutegira gehitu
           full_details_html: Xehetasun guztiak edukitzeko, zoaz hona %{link}
-          google: Gehitu Googleren egutegira
-          outlook: Gehitu Outlooken egutegira
+          google: Google-ren egutegira gehitu
+          outlook: Outlook-en egutegira gehitu
         count:
           meetings_count:
             one: "topaketa 1"
@@ -585,14 +585,14 @@ eu:
             all: Denak
             hybrid: Hibridoa
             in_person: Aurrez aurre
-            online: Online
+            online: On-line
         form:
           address_help: 'Helbidea: Geocoderrek erabilia kokapena aurkitzeko'
           available_slots_help: Déjalo a 0 si tienes espacio ilimitado disponible
           disclaimer: 'Erantzukizun-deskargua: Kanpoko inskripzio-sistema bat erabiliz, onartzen duzu %{organization} ko antolatzaileak ez direla kanpo-zerbitzuko parte-hartzaileek emandako datuen erantzule.'
           iframe_embed_type_html: 'Zerbitzu gutxi batzuek baino ez dute uzten topaketan edo zuzeneko gertakarietan txertatzen honako domeinu hauetatik:%{domains}'
           location_help: 'Kokapena: mezua parte-hartzaileei zuzendua biltzeko lekua adieraziz'
-          location_hints_help: 'Kokapen-aholkuak: informazio gehigarria. Adibidea: eraikinaren solairua, aurrez aurreko topaketa bada, edo aretoaren pasahitza, sarrera mugatua duen online topaketa bada.'
+          location_hints_help: 'Kokapen-aholkuak: informazio gehigarria. Adibidea: eraikinaren solairua, aurrez aurreko topaketa bada, edo aretoaren pasahitza, sarrera mugatua duen on-line topaketa bada.'
           online_meeting_url_help: 'Lotura: Utzi parte-hartzaileei zuzenean konektatzen zure topaketara'
           registration_url_help: 'Esteka: parte-hartzaileei aukera ematea izena emateko erabiltzen ari zaren kanpoko zerbitzura joateko'
           select_a_meeting_type: Mesedez, hautatu topaketa mota bat
@@ -603,7 +603,7 @@ eu:
           new_meeting: Beste topaketa bat
           see_all: Ikusi topaketa guztiak
           see_all_withdrawn: Ikusi bertan behera utzitako topaketa guztiak
-          text_banner: Ikusten ari zara egileek bertan behera utzitako topaketak %{go_back_link}.
+          text_banner: Egileek erretiratutako bileren zerrenda ikusten ari zara. %{go_back_link}.
         meeting:
           close_meeting: Itxi
           edit_close_meeting: Editatu topaketaren txostena
@@ -682,7 +682,7 @@ eu:
         registration:
           actions: Ekintzak
           fields:
-            email: Helbide elektronkoa
+            email: Helbide elektronikoa
             name: Izena
             status: Egoera
           status:
@@ -752,7 +752,7 @@ eu:
       type_of_meeting:
         hybrid: Hibridoa
         in_person: Aurrez aurre
-        online: Online
+        online: On-line
       types:
         private_meeting: Topaketa pribatua
         transparent: Gardena
@@ -801,7 +801,7 @@ eu:
           location: Topaketaren kokapena
           location_hints: Kokapenaren xehetasuna, topaketa egin zen lekuaren barruan
           longitude: Topaketaren luzera
-          online_meeting_url: Online topaketaren URLa
+          online_meeting_url: On-line topaketaren URLa
           organizations: Zein erakundek hartu du parte topaketa honetan?
           participatory_space: Zein espaziotakoa datopaketa hau (adibidez, Partaidetza-prozesu edo Batzarra)
           private_meeting: Topaketa pribatua izan zen ala ez adierazteko
@@ -840,7 +840,7 @@ eu:
     statistics:
       attendees_count: Topaketara bertaratuak
       meetings_count: Topaketak
-      meetings_count_tooltip: Zenbat topaketa egin diren, online zein aurrez aurre.
+      meetings_count_tooltip: Zenbat topaketa egin diren, on-line zein aurrez aurre.
       participatory_space_meetings_count: Topaketak
   devise:
     mailer:

@@ -19,7 +19,7 @@ de:
         promoted: Gefördert
         published_at: Veröffentlicht am
         registration_terms: Registrierungsbedingungen
-        registrations_enabled: Registrierungen aktiviert
+        registrations_enabled: Anmeldungen aktiviert
         short_description: Kurze Beschreibung
         show_statistics: Zeige Statistiken
         sign_date: Unterzeichnungsdatum
@@ -100,6 +100,7 @@ de:
       conference_duplicates:
         new:
           duplicate: Duplizieren
+          select: Zu duplizierende Daten auswählen
           title: Konferenz duplizieren
       conference_publications:
         create:
@@ -360,6 +361,9 @@ de:
         title: Lautsprecher
     conferences:
       admin:
+        conference_duplicates:
+          form:
+            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Konferenz verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und sie müssen mit einem Buchstaben beginnen. Beispiel: %{url}'
         conference_invites:
           create:
             error: Beim Einladen des Benutzers zur Teilnahme an der Konferenz ist ein Problem aufgetreten.
@@ -421,7 +425,7 @@ de:
             title: Registrierungsarten
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: Die Teilnahmebescheinigung für die Konferenz <a href="%{url}">%{title}</a> finden Sie in den Anhängen.
+            diploma_html: Die Teilnahmebestätigung für die Konferenz <a href="%{url}">%{title}</a> finden Sie in den Anhängen.
           diploma_user:
             attendance_verified_by: Anwesenheit überprüft durch
             certificate_of_attendance: Teilnahmebestätigung
@@ -583,10 +587,10 @@ de:
           email_subject: Die Konferenz "%{resource_title}" wurde aktualisiert
           notification_title: Die Konferenz <a href="%{resource_path}">%{resource_title}</a> wurde aktualisiert.
         registrations_enabled:
-          email_intro: 'Die Konferenz "%{resource_title}" hat Registrierungen aktiviert. Sie können sich auf der Konferenz-Seite registrieren:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Konferenz "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-          email_subject: Die Konferenz "%{resource_title}" hat Registrierungen aktiviert.
-          notification_title: Die Konferenz <a href="%{resource_path}">%{resource_title}</a> hat Registrierungen aktiviert.
+          email_intro: 'Für die Konferenz "%{resource_title}" wurde die Anmeldung aktiviert. Sie können sich auf dieser Seite anmelden:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Konferenz "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den angegebenen Link.
+          email_subject: Die Konferenz "%{resource_title}" hat die Anmeldung aktiviert.
+          notification_title: Die Konferenz <a href="%{resource_path}">%{resource_title}</a> hat die Anmeldung aktiviert.
         role_assigned:
           email_intro: Sie wurden als %{role} für die Konferenz "%{resource_title}" ausgewählt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein %{role} der Konferenz "%{resource_title}" sind.

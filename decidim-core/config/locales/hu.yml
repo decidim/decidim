@@ -893,11 +893,9 @@ hu:
         main_image: Fő kép
     newsletters:
       unsubscribe:
-        check_subscription: Ha szeretné módosítani a beállításokat, akkor a <a href="%{link}" target="_blank">konfigurációs oldalon</a> teheti meg.
         error: Hiba történt a leiratkozás során.
         success: A leiratkozásod sikeres volt.
         token_error: A link sajnos lejárt.
-        unsubscribe: Leiratkozás
     newsletters_opt_in:
       unauthorized: Sajnos ez a link már nem elérhető.
       update:
@@ -905,7 +903,6 @@ hu:
         success: Hírlevél beállításainak frissítése sikeres.
     newsletters_opt_in_mailer:
       notify:
-        body_1: A személyes adatok védelme és feldolgozása egyre fontosabbá válik mindannyiunk számára. A 2018. május 25-én kiadott új általános adatvédelmi rendelet (GDPR) lehetővé teszi, hogy személyes adatainkat jobban ellenőrizhessük. Emiatt van szükségünk a jóváhagyásodra a %{organization_name} nevű szervezettel kapcsolatban.
         body_2: 'Hogyan tudsz beleegyezni? Egyszerűen kattints erre a gombra:'
         body_3: Amennyiben beleegyezel, akkor továbbra is elküldjük neked a platform szolgáltatásaival kapcsolatos fontos információkat. Ha nem értesz egyet, akkor többé nem küldünk ilyen üzeneteket. Jóllehet, miután megerősítetted a szándékod, hogy továbbra is szeretnél tájékoztatást kapni, bármikor visszavonhatod a döntésed.
         button: Igen, továbbra is szeretnék fontos információkat kapni

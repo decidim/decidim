@@ -397,6 +397,71 @@ sv:
     participatory_processes:
       admin:
         content_blocks:
+          democratic_quality_stats_settings_form:
+            citizen_influence:
+              citizen_decisional_intervention:
+                legend: Av alla faser i processen (från att välja frågor till att övervaka genomförande), hur många har allmänheten möjlighet att besluta eller utföra handlingar i?
+                options:
+                  five: 80 - 100%
+                  four: 60 - 80%
+                  one: 0 - 20%
+                  three: 40 - 60%
+                  two: 20 - 40%
+              citizen_influence_level:
+                options:
+                  five: Deltagarna deltog i beslutsfattandet samt i hanteringen av resurserna eller i genomförandet
+                  four: Deltagarna hade en beslutsfattande roll
+                  one: Deltagare fick information från organisationen
+                  three: Deltagarna deltog genom att fördela beslutsfattande makt
+                  two: Deltagarna tillfrågades på ett rådgivande sätt eller gav feedback till organisationen
+            inclusiveness:
+              digital_support_offered:
+                legend: Har deltagarna erbjudits digitalt stöd?
+                options:
+                  five: 'Ja'
+                  two_five: Delvis
+                  zero: 'Nej'
+              functional_diversity_invited:
+                legend: Hur är graden av mångfald hos processens agenter och deltagare i relation till mångfalden hos de som påverkas av beslutet?
+                options:
+                  five: Bra
+                  one: Låg
+                  two_five: Tillräcklig
+                  zero: Ingen
+              languages_communicated:
+                legend: Hur många språk har använts inom processen?
+                options:
+                  five: Mer än hälften av de språk som talas i samhället
+                  one: Ett språk
+                  two_five: Mindre än hälften av de språk som talas i samhället
+              mobility_meeting_access:
+                legend: Var mötesplatserna för möten ansikte mot ansikte tillgängliga för personer med nedsatt rörlighet?
+                options:
+                  five: 'Ja'
+                  two_five: Delvis
+                  zero: 'Nej'
+              participation_scheduling_times:
+                legend: Deltagarsessionerna har schemalagts vid olika tidpunkter (morgon, middag, eftermiddag, kväll och helger).
+                options:
+                  five: 'Ja'
+                  two_five: Delvis
+                  zero: 'Nej'
+            informativeness:
+              information_provided:
+                legend: Har information lämnats om deltagarnas möjligheter att påverka ämnet som diskuteras? (både i kommunikationen av processen och inbjudningarna, liksom i början av varje debattsession)
+                options:
+                  five: Alltid
+                  one: Nästan aldrig
+                  two_five: Vanligtvis
+                  zero: Aldrig
+              name: Informationsförmåga
+              published_information_clarity:
+                legend: Är den publicerade informationen tydlig med beslutsmekanismerna? (t.ex. omröstning, konsensus, direkta förhandlingar)
+                options:
+                  five: Full klarhet
+                  one: Låg tydlighet
+                  two_five: Tillfällig tydlighet
+                  zero: Ingen klarhet
           highlighted_processes:
             active: Pågående
             all: Alla
@@ -437,6 +502,15 @@ sv:
             title: Allmän information
             visibility: Synlighet
       content_blocks:
+        democratic_quality_stats:
+          global_score:
+            note: "*De indikativa värdena mäts på en skala från 1 till 5, där 1 representerar den lägsta och 5 den högsta kvalitetsmätaren."
+          name: Kvalitetsindikator
+          qualitative_metrics:
+            indicators:
+              inclusiveness_tooltip: Bedömer om olika berörda parter är rättvist representerade.
+              informativeness: Informationsförmåga
+              informativeness_tooltip: Mäter graden av tydlighet och information som tillhandahålls i processen.
         extra_data:
           name: Steg & varaktighet
         hero:

@@ -166,6 +166,13 @@ de:
       x_seconds:
         one: 1 Sekunde
         other: "%{count} Sekunden"
+    widget:
+      label:
+        date: Datum für %{label} auswählen
+        time: Zeit für %{label} auswählen
+      picker:
+        date_button: Kalenderauswahl für %{label} öffnen
+        time_button: Öffne Zeitauswahl für %{label}
   decidim:
     accessibility:
       external_link: Externer Link
@@ -588,10 +595,17 @@ de:
       hero_settings_form:
         background_image: Hintergrundbild
         cta_button_path: URL des Call-to-Action Buttons
+        cta_button_path_help: 'Sie können das Ziel des «Call To Action»-Buttons auf der Homepage anpassen. Verwenden Sie hier Teilpfade, nicht die vollständige URL. Buchstaben, Zahlen, Bindestriche und Schrägstriche sind erlaubt; an der ersten Stelle ist ein Buchstabe erforderlich. Der «Call To Action»-Button wird auf der Startseite zwischen dem Begrüßungstext und der Beschreibung angezeigt. Beispiel: %{url}'
+        cta_button_text: Text des «Call To Action»-Buttons
+        cta_button_text_help: Sie können den "Call To Action"-Buttontext auf der Homepage für jede verfügbare Sprache in Ihrer Organisation überschreiben. Wenn nicht gesetzt, wird der Standardwert verwendet. Der "Call To Action" Button wird auf der Homepage zwischen Willkommenstext und Beschreibung angezeigt.
         welcome_text: Willkommenstext
       highlighted_content_banner:
         name: Hervorgehobenes Inhaltsbanner
       highlighted_content_banner_settings_form:
+        action_button_subtitle: Untertitel des Aktionsbuttons
+        action_button_title: Titel des Aktionsbuttons
+        action_button_url: URL des Aktionsbuttons
+        background_image: Hintergrundbild
         short_description: Kurzbeschreibung
         subtitle: Untertitel
         title: Titel
@@ -863,68 +877,68 @@ de:
       amendments:
         amendment_accepted:
           affected_user:
-            email_intro: 'Eine Änderung an %{amendable_title} wurde akzeptiert. Sie können das auf dieser Seite sehen:'
+            email_intro: 'Eine Änderung an %{amendable_title} wurde akzeptiert. Sehen Sie es sich auf dieser Seite an:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title} sind.
             email_subject: Akzeptierte Änderung für %{amendable_title} von %{emendation_author_nickname}
             notification_title: Die <a href="%{emendation_path}">Änderung</a> von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde angenommen.
           follower:
-            email_intro: 'Eine Änderung für %{amendable_title} wurde akzeptiert. Sie können das auf dieser Seite sehen:'
+            email_intro: 'Eine Änderung für %{amendable_title} wurde akzeptiert. Sehen Sie es sich auf dieser Seite an:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
             email_subject: Akzeptierte Änderung für %{amendable_title} von %{emendation_author_nickname}
             notification_title: Die <a href="%{emendation_path}">Änderung</a> von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde akzeptiert.
         amendment_created:
           affected_user:
-            email_intro: 'Eine neue Änderung wurde für %{amendable_title} vorgeschlagen. Sie können das auf dieser Seite sehen:'
+            email_intro: 'Eine neue Änderung wurde für %{amendable_title} vorgeschlagen. Sehen Sie es sich auf dieser Seite an:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title} sind.
             email_subject: Neuer Änderungsantrag für %{amendable_title}
             notification_title: Neue Änderung für <a href="%{amendable_path}">%{amendable_title}</a> erstellt.
           follower:
-            email_intro: 'Eine neue Änderung für %{amendable_title} wurde erstellt. Sie können das auf dieser Seite sehen:'
+            email_intro: 'Eine neue Änderung für %{amendable_title} wurde erstellt. Sehen Sie es sich auf dieser Seite an:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
             email_subject: Neuer Änderungsantrag für %{amendable_title}
             notification_title: Eine neue Änderung für <a href="%{amendable_path}">%{amendable_title}</a> wurde erstellt.
         amendment_promoted:
           affected_user:
-            email_intro: 'Eine abgelehnte Änderung an %{amendable_title} wurde als neue/n %{amendable_type} veröffentlicht. Sie können das auf dieser Seite sehen:'
+            email_intro: 'Eine abgelehnte Änderung an %{amendable_title} wurde als neue/n %{amendable_type} veröffentlicht. Sehen Sie es sich auf dieser Seite an:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title} sind.
             email_subject: Eine Änderung von %{emendation_author_nickname} wurde als neue/n %{amendable_type} veröffentlicht
             notification_title: Die <a href="%{emendation_path}">abgelehnte Änderung</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> als neue/n %{amendable_type} veröffentlicht.
           follower:
-            email_intro: 'Eine abgelehnte Änderung für %{amendable_title} wurde als neue/n %{amendable_type} veröffentlicht. Sie können das auf dieser Seite sehen:'
+            email_intro: 'Eine abgelehnte Änderung für %{amendable_title} wurde als neue/n %{amendable_type} veröffentlicht. Sehen Sie es sich auf dieser Seite an:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
             email_subject: Eine Änderung von %{emendation_author_nickname} wurde als neue/n/s %{amendable_type} veröffentlicht
             notification_title: Eine <a href="%{emendation_path}">abgelehnte Änderung</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> als neue/n/s %{amendable_type} veröffentlicht.
         amendment_rejected:
           affected_user:
-            email_intro: 'Eine Änderung an %{amendable_title} wurde abgelehnt. Sie können das auf dieser Seite sehen:'
+            email_intro: 'Eine Änderung an %{amendable_title} wurde abgelehnt. Sehen Sie es sich auf dieser Seite an:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title} sind.
             email_subject: Abgelehnter Änderungsantrag für %{amendable_title} von %{emendation_author_nickname}
             notification_title: Die <a href="%{emendation_path}">Änderung</a> von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde abgelehnt.
           follower:
-            email_intro: 'Eine Änderung für %{amendable_title} wurde abgelehnt. Sie können das auf dieser Seite sehen:'
+            email_intro: 'Eine Änderung für %{amendable_title} wurde abgelehnt. Sehen Sie es sich auf dieser Seite an:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title}. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
             email_subject: Abgelehnte Änderung für %{amendable_title} von %{emendation_author_nickname}
             notification_title: Die <a href="%{emendation_path}">Änderung</a> für <a href="%{amendable_path}">%{amendable_title}</a> von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> wurde abgelehnt.
         emendation_promoted:
           follower:
-            email_intro: 'Eine Änderung wurde für %{amendable_title} abgelehnt. Sie können es auf dieser Seite sehen:'
+            email_intro: 'Eine Änderung wurde für %{amendable_title} abgelehnt. Sehen Sie es sich auf dieser Seite an:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title} mitverfasst haben.
             email_subject: Eine Änderung von %{emendation_author_nickname} ist als neuer %{amendable_type} veröffentlicht worden
       attachments:
         attachment_created:
-          email_intro: 'Ein neues Dokument wurde zu %{resource_title} hinzugefügt. Sie können es auf dieser Seite sehen:'
+          email_intro: 'Ein neues Dokument wurde zu %{resource_title} hinzugefügt. Sehen Sie es sich auf dieser Seite an:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Eine Aktualisierung auf %{resource_title}
           notification_title: Ein <a href="%{resource_path}">neues Dokument</a> wurde zu <a href="%{attached_to_url}">%{resource_title}</a>hinzugefügt
       components:
         component_published:
-          email_intro: 'Die Komponente %{resource_title} ist jetzt für %{participatory_space_title} aktiv. Sie können das auf dieser Seite sehen:'
+          email_intro: 'Die Komponente %{resource_title} ist jetzt für %{participatory_space_title} aktiv. Sehen Sie es sich auf dieser Seite an:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Eine Aktualisierung auf %{participatory_space_title}
           notification_title: Die Komponente %{resource_title} ist jetzt für <a href="%{resource_path}">%{participatory_space_title}</a> aktiv
       email_event:
         email_greeting: Hallo %{user_name},
-        email_intro: 'Es wurde ein Update auf "%{resource_title}" vorgenommen. Sie können das auf dieser Seite sehen:'
+        email_intro: 'Es wurde ein Update auf "%{resource_title}" vorgenommen. Sehen Sie es sich auf dieser Seite an:'
         email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
         email_subject: Eine Aktualisierung auf %{resource_title}
       gamification:
@@ -960,6 +974,11 @@ de:
           notification_title: |-
             Ein Administrator hat Ihr/e %{resource_type} entfernt, weil es als %{report_reasons} gemeldet wurde.</br>
             <i>%{resource_content}</i>
+      resource_liked:
+        email_intro: '%{liker_name} %{liker_nickname}, dem Sie folgen, hat gerade "%{resource_title}" unterstützt. Wir denken, das könnte interessant für Sie sein. Jetzt anschauen und mitreden:'
+        email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{liker_nickname} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den angegebenen Link.
+        email_subject: "%{liker_nickname} etwas Neues unterstützt"
+        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} wurde von <a href="%{liker_path}">%{liker_name} %{liker_nickname}</a> unterstützt.
       resources:
         soft_deleted:
           notification_title: Ein Admin hat Ihre "%{resource_type}" "%{resource_title} " gelöscht.
@@ -1110,8 +1129,16 @@ de:
         last_activity: Letzte Aktivität
       name: Letzte Aktivitäten
       no_activities_warning: Es gibt keine anzuzeigende Einträge für diesen Aktivitätstyp.
+    like_buttons_cell:
+      already_liked: Unterstützung zurückziehen
+      like: Unterstützen
     likes_list:
+      liked_by:
+        one: Unterstützt von %{visible}
+        other: Unterstützt von %{visible} und anderen
+      others: "%{count} weiteren"
       title: Geliked von
+      you: dir
     linked_resource_from:
       included_in: Enthalten in
     links:
@@ -1242,11 +1269,12 @@ de:
         main_image: Hauptbild
     newsletters:
       unsubscribe:
-        check_subscription: Wenn Sie Ihre Einstellungen ändern möchten, können Sie dies auf der <a href="%{link}" target="_blank">Konfigurationsseite</a> tun.
+        check_subscription_html: Wenn Sie diese wieder erhalten möchten, können Sie Ihr Abonnement jederzeit auf der <a href="%{link}" target="_blank">Einstellungsseite</a> wieder aktivieren.
         error: Es gab ein Problem beim Kündigen des Abonnements.
+        subscription_preferences: Wir haben Ihre Abonnement-Einstellungen aktualisiert und Sie erhalten keine Newsletter mehr von %{organization_name}.
         success: Sie haben sich erfolgreich abgemeldet.
         token_error: Der Link ist abgelaufen.
-        unsubscribe: Abmelden
+        unsubscribe: Newsletter kündigen
     newsletters_opt_in:
       unauthorized: Entschuldigung, dieser Link ist nicht mehr verfügbar.
       update:
@@ -1254,7 +1282,6 @@ de:
         success: Newslettereinstellungen wurden erfolgreich aktualisiert.
     newsletters_opt_in_mailer:
       notify:
-        body_1: Die Verarbeitung personenbezogener Daten und deren Schutz wird für uns alle immer wichtiger. Mit der neuen Datenschutz-Grundverordnung (DSGV) vom 25. Mai 2018 haben Einzelpersonen eine bessere Kontrolle über ihre personenbezogenen Daten. Aus diesem Grund benötigen wir Ihr "OK" um weiterhin relevante Informationen über die Aktivitäten der %{organization_name}zu senden.
         body_2: 'Wie können Sie uns Ihre Zustimmung geben? Klicken Sie einfach auf den folgenden Knopf:'
         body_3: Mit dieser Zustimmung können Sie weiterhin Informationen über die Dienste der Plattform erhalten. Wenn wir im Gegenteil keine positive Bestätigung von Ihnen erhalten, werden wir Ihnen keine Nachrichten mehr senden. Wenn Sie bestätigen, dass Sie weiterhin informiert werden möchten, haben Sie jederzeit die Möglichkeit, den Vorgang abzubrechen.
         button: Ja, ich möchte weiterhin relevante Informationen erhalten
@@ -1572,6 +1599,9 @@ de:
       controls_label: Ressourcensteuerung
     resource_autocomplete:
       help: Tippen, um Vorschläge zu durchsuchen
+    resource_likes:
+      create:
+        error: Beim Unterstützen ist ein Fehler aufgetreten.
     scopes:
       global: Globaler Umfang
       prompt: Wählen Sie einen Bereich aus
@@ -1583,6 +1613,7 @@ de:
     searches:
       filters:
         jump_to: 'Springen zu:'
+        resource: "%{label} nach %{collection}"
         search: Suchen
         state:
           active: Aktiv
@@ -1669,11 +1700,14 @@ de:
       followers_count: Follower
       followers_count_tooltip: Die Anzahl der Nutzenden, die einen beliebigen Teil dieses Bereichs folgen, um auf dem Laufenden zu bleiben.
       headline: Statistik
+      likes_count: Unterstützungen
       no_stats: Es gibt noch keine Statistiken.
       pages_count: Seiten
       participants_count: Teilnehmer
+      participants_count_tooltip: Die Anzahl der eindeutigen Benutzenden, die sich innerhalb dieses Raums eingebracht haben, indem sie Vorschläge eingereicht oder an Meetings, Abstimmungen oder Diskussionen teilgenommen haben.
       surveys_count: Umfragen
       users_count: Benutzer
+      users_count_tooltip: Die Gesamtzahl der Benutzenden, die sich angemeldet und ihr Konto per E-Mail bestätigt haben.
     tags:
       filter_results_for_taxonomy: 'Ergebnisse filtern nach: %{resource}'
     taxonomies:
@@ -2067,18 +2101,20 @@ de:
         edit: Bearbeiten
       footer:
         cc_by_license: Creative Commons Lizenz
+        current_organization_img: "%{organization} (zur Startseite)"
         data_consent_settings: Cookie Einstellungen
         decidim_logo: Decidim-Logo
         decidim_title: Decidim
+        help: Hilfe
         log_in: Anmelden
         made_with_open_source: Website mit <a target="_blank" href="https://github.com/decidim/decidim">freier Software erstellt</a>.
         open_data: Offene Daten
         resources: Ressourcen
         sign_up: Konto erstellen
+        social_media: Social Media
         terms_of_service: Nutzungsbedingungen
       header:
-        back: Zurück zur Liste
-        cancel: Abbrechen
+        back: Zurück
         close: Schliessen
         confirm_close_ephemeral_session: Wenn Sie wegnavigieren, wird Ihre temporäre Sitzung geschlossen. Allerdings werden alle Fortschritte und Aktivitäten gespeichert. Wenn Sie Ihre Aktivität beendet haben, klicken Sie auf OK.
         confirm_title_close_ephemeral_session: Vor Verlassen dieser Seite…
@@ -2088,6 +2124,7 @@ de:
       impersonation_warning:
         close_session: Sitzung schließen
         description_html: Sie geben sich als Benutzer <b>%{user_name}</b>.
+        expire_time_html: Ihre Sitzung läuft in <b><span data-impersonation-warning-target="minutes">%{minutes}</span> Minuten</b> ab.
       language_chooser:
         choose_language: Sprache wählen
       navigation:
@@ -2131,6 +2168,11 @@ de:
   locale:
     name: Deutsch
     name_with_error: Deutsch (Fehler!)
+  number:
+    currency:
+      format:
+        format: "%u %n"
+        format_html: "<span>%u</span> %n"
   password_validator:
     denied: wurde abgelehnt
     domain_included_in_password: ist diesem Domainnamen zu ähnlich

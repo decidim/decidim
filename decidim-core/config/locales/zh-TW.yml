@@ -868,18 +868,15 @@ zh-TW:
         main_image: 主圖片
     newsletters:
       unsubscribe:
-        check_subscription: 如果您想更改您的偏好設定，您可以在<a href="%{link}" target="_blank">配置頁面</a>進行更改。
         error: 取消訂閱時發生問題.
         success: 你已經成功取消訂閱
         token_error: 該連結已過期。
-        unsubscribe: 取消訂閱
     newsletters_opt_in:
       update:
         error: 儲存通訊設定時出現問題。
         success: 成功更新電子報設定.
     newsletters_opt_in_mailer:
       notify:
-        body_1: 個人資料的處理和保護對我們所有人來說變得越來越重要。隨著2018年5月25日新的《通用數據保護條例》（GDPR）的出台，個人對其個人資料擁有更好的控制權。因此，我們需要您的「確認」，以繼續向您發送有關 %{organization_name} 活動的相關資訊。
         body_2: '您如何給予我們您的同意？只需點擊下面的按鈕：'
         body_3: 通過此同意，您將能夠繼續接收有關平台服務的資訊。如果您沒有給予積極的確認，我們將停止向您發送訊息。如果您確認希望繼續收到資訊，您隨時可以選擇取消訂閱。
         button: 是的，我希望繼續接收相關資訊。
