@@ -1,20 +1,97 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "tempfile"
+require "decidim/api/test"
 
-RSpec.describe "API file upload" do
-  subject { response.body }
-
-  let(:request_path) { Decidim::Core::Engine.routes.url_helpers.user_session_path }
-
+RSpec.describe "UploadFile Mutation", type: :request do
+  let(:sign_in_path) { "/api/sign_in" }
+  let(:sign_out_path) { "/api/sign_out" }
+  let(:api_path) { "/api"}
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, :confirmed, email: "user@example.org", password: "decidim123456789", organization:) }
+  let(:query) do
+    <<~GRAPHQL
+      mutation($input: UploadFileInput!) { 
+        uploadFile(input: $input) { 
+          blob { id filename byteSize signedId checksum } 
+        } 
+      }
+    GRAPHQL
+  end
 
-  it "sets the correct SameSite flag for the cookie" do
-    # post(
-    #   request_path,
-    #   params: { user: { email: "user@example.org", password: "decidim123456789" } },
-    #   headers: { "HOST" => organization.host }
-    # )
+  let(:tempfile) { Tempfile.create(["foo", ".jpg"]) }
+  let(:file) do
+    Rack::Test::UploadedFile.new(tempfile.path, "image/jpg")
+  end
+  let(:operations) do
+    {
+      query: query,
+      variables: variables
+    }.to_json
+  end
+  let(:map) do
+    { "0" => ["variables.input.file"] }.to_json
+  end
+
+  let(:variables) do
+    { input: { file: nil } }
+  end
+
+  before do
+    host! organization.host
+  end
+
+  context "with an API user" do
+    let(:key) { "dummykey123456" }
+    let(:secret) { "decidim123456789" }
+    let!(:user) { create(:api_user, organization: organization, api_key: key, api_secret: secret) }
+    let(:params) do
+      {
+        api_user: {
+          key: key,
+          secret: secret
+        }
+      }
+    end
+    before do
+      post sign_in_path, params: params
+      @authorization = response.headers["Authorization"]
+    end
+
+    it "uploads the file successfully" do
+      post api_path, 
+        params: { 
+          operations: operations,
+          map: map,
+          "0" => file }, 
+        headers: {
+          "Authorization" => @authorization
+        }
+      json = JSON.parse(response.body)
+      puts json.inspect
+      blob_data = json.dig("data", "uploadFile", "blob")
+      blob = ActiveStorage::Blob.last
+      expect(blob_data).to include(
+        "id" => blob.id.to_s,
+        "filename" => blob.filename,
+        "checksum" => blob.checksum,
+        "signedId" => blob.signed_id,
+        "byteSize" => blob.byte_size,
+      )
+    end
+  end
+
+  it "does not upload for unauthorized user" do
+    post api_path, 
+      params: { 
+        operations: operations,
+        map: map,
+        "0" => file }, 
+      headers: {
+        "Authorization" => "Bearer Fake Authorization"
+      }
+    json = JSON.parse(response.body)
+    blob_data = json.dig("data", "uploadFile", "blob")
+    expect(blob_data).to be_nil
   end
 end
