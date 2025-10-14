@@ -19,6 +19,7 @@ describe "Order comments" do
 
   before do
     switch_to_host(organization.host)
+    visit resource_path
   end
 
   after do
@@ -27,8 +28,6 @@ describe "Order comments" do
 
   context "when accessing a resource page" do
     it "\"Older\" value is the default sorting criteria" do
-      visit resource_path
-
       within ".comments__header" do
         expect(page).to have_css("div.comment-order-by")
         expect(page).to have_select("order", selected: "Older")
@@ -40,42 +39,40 @@ describe "Order comments" do
       end
     end
 
-    it "user selects \"Best rated\" as sorting criteria", :js do
-      visit resource_path
-
+    it "user selects \"Best rated\" as sorting criteria", :js, :slow do
       within ".comment-order-by" do
         select "Best rated", from: "order"
       end
 
-      expect(page).to have_select("order", selected: "Best rated", wait: 5)
-
       within(".comment-threads", wait: 5) do
         expect(page).to have_css("div:first-child#comment_#{best_rated_comment.id}", wait: 5)
       end
+
+      expect(page).to have_select("order", selected: "Best rated", wait: 5)
     end
 
-    it "user selects \"Most discussed\" as sorting criteria", :js do
-      visit resource_path
+    it "user selects \"Most discussed\" as sorting criteria", :js, :slow do
       within ".comment-order-by" do
         select "Most discussed", from: "order"
       end
 
-      expect(page).to have_select("order", selected: "Most discussed", wait: 5)
       within(".comment-threads", wait: 5) do
         expect(page).to have_css("div:first-child#comment_#{most_discussed_comment.id}", wait: 5)
       end
+
+      expect(page).to have_select("order", selected: "Most discussed", wait: 5)
     end
 
-    it "user selects \"Recent\" as sorting criteria", :js do
-      visit resource_path
+    it "user selects \"Recent\" as sorting criteria", :js, :slow do
       within ".comment-order-by" do
         select "Recent", from: "order"
       end
 
-      expect(page).to have_select("order", selected: "Recent", wait: 5)
       within(".comment-threads", wait: 5) do
         expect(page).to have_css("div:first-child#comment_#{recent_comment.id}", wait: 5)
       end
+
+      expect(page).to have_select("order", selected: "Recent", wait: 5)
     end
   end
 end
