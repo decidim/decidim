@@ -21,12 +21,12 @@ module Decidim
 
       let(:query) do
         <<~GRAPHQL
-            mutation($input: UploadFileInput!) { 
-              uploadFile(input: $input) { 
-                blob { id filename byteSize signedId checksum } 
-              } 
-            }
-         GRAPHQL
+          mutation($input: UploadFileInput!) {#{" "}
+            uploadFile(input: $input) {#{" "}
+              blob { id filename byteSize signedId checksum }#{" "}
+            }#{" "}
+          }
+        GRAPHQL
       end
 
       context "with an api user" do
@@ -40,16 +40,17 @@ module Decidim
           let!(:user_type) { :admin }
         end
       end
+
       context "with unauthorized user" do
         let!(:tempfile) { Tempfile.create(["foo", ".jpg"]) }
-        let(:file) do 
+        let(:file) do
           Rack::Multipart::UploadedFile.new(
             tempfile.path,
             "image/jpg",
             filename: "foo.jpg"
           )
         end
-        
+
         it "does not upload file" do
           expect(api_response).to be_nil
         end

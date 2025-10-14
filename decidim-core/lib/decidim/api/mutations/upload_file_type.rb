@@ -7,9 +7,9 @@ module Decidim
 
       description "Upload a file via multipart form"
 
-      argument :file, Decidim::Api::Types::BaseUpload, required: true
+      argument :file, Decidim::Api::Types::BaseUpload, description: "File being uploaded", required: true
 
-      field :blob, Decidim::Core::BlobType, null: true
+      field :blob, Decidim::Core::BlobType, description: "Blob of the uploaded file", null: true
 
       def resolve(file:)
         errors = validate_file(file)
@@ -33,9 +33,10 @@ module Decidim
 
       private
 
+      # rubocop:disable Metrics/CyclomaticComplexity
       def validate_file(file)
         errors = []
-        return [I18n.t("decidim.api.file_upload.errors.file_no_exists")] unless file.present? 
+        return [I18n.t("decidim.api.file_upload.errors.file_no_exists")] if file.blank?
 
         filename = file.original_filename
         ext = File.extname(filename).delete_prefix(".").downcase
@@ -44,17 +45,14 @@ module Decidim
 
         content_type = file.content_type || Marcel::MimeType.for(file.tempfile, filename: filename)
         allowed_types = Decidim.organization_settings(context[:current_organization]).upload_allowed_content_types_admin || []
-        unless allowed_types.any? { |t| (t.is_a?(Regexp) ? t.match?(content_type) : t.to_s == content_type) }
-          errors << I18n.t("decidim.api.file_upload.errors.type_not_supported")
-        end
+        errors << I18n.t("decidim.api.file_upload.errors.type_not_supported") unless allowed_types.any? { |t| (t.is_a?(Regexp) ? t.match?(content_type) : t.to_s == content_type) }
 
         max_bytes = Decidim.organization_settings(context[:current_organization]).upload.maximum_file_size.default.megabytes
-        if file.size > max_bytes
-          errors << I18n.t("decidim.api.file_upload.errors.file_too_large")
-        end
+        errors << I18n.t("decidim.api.file_upload.errors.file_too_large") if file.size > max_bytes
 
         errors
       end
+      # rubocop:enable Metrics/CyclomaticComplexity
     end
   end
 end

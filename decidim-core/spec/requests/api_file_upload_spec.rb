@@ -4,17 +4,17 @@ require "spec_helper"
 require "tempfile"
 require "decidim/api/test"
 
-RSpec.describe "UploadFile Mutation", type: :request do
+RSpec.describe "UploadFile Mutation" do
   let(:sign_in_path) { "/api/sign_in" }
   let(:sign_out_path) { "/api/sign_out" }
-  let(:api_path) { "/api"}
+  let(:api_path) { "/api" }
   let(:organization) { create(:organization) }
   let(:query) do
     <<~GRAPHQL
-      mutation($input: UploadFileInput!) { 
-        uploadFile(input: $input) { 
-          blob { id filename byteSize signedId checksum } 
-        } 
+      mutation($input: UploadFileInput!) {#{" "}
+        uploadFile(input: $input) {#{" "}
+          blob { id filename byteSize signedId checksum }#{" "}
+        }#{" "}
       }
     GRAPHQL
   end
@@ -53,22 +53,23 @@ RSpec.describe "UploadFile Mutation", type: :request do
         }
       }
     end
-    before do
+
+    let(:authorization) do
       post sign_in_path, params: params
-      @authorization = response.headers["Authorization"]
+      response.headers["Authorization"]
     end
 
     it "uploads the file successfully" do
-      post api_path, 
-        params: { 
-          operations: operations,
-          map: map,
-          "0" => file }, 
-        headers: {
-          "Authorization" => @authorization
-        }
+      post api_path,
+           params: {
+             :operations => operations,
+             :map => map,
+             "0" => file
+           },
+           headers: {
+             "Authorization" => authorization
+           }
       json = JSON.parse(response.body)
-      puts json.inspect
       blob_data = json.dig("data", "uploadFile", "blob")
       blob = ActiveStorage::Blob.last
       expect(blob_data).to include(
@@ -76,20 +77,21 @@ RSpec.describe "UploadFile Mutation", type: :request do
         "filename" => blob.filename,
         "checksum" => blob.checksum,
         "signedId" => blob.signed_id,
-        "byteSize" => blob.byte_size,
+        "byteSize" => blob.byte_size
       )
     end
   end
 
   it "does not upload for unauthorized user" do
-    post api_path, 
-      params: { 
-        operations: operations,
-        map: map,
-        "0" => file }, 
-      headers: {
-        "Authorization" => "Bearer Fake Authorization"
-      }
+    post api_path,
+         params: {
+           :operations => operations,
+           :map => map,
+           "0" => file
+         },
+         headers: {
+           "Authorization" => "Bearer Fake Authorization"
+         }
     json = JSON.parse(response.body)
     blob_data = json.dig("data", "uploadFile", "blob")
     expect(blob_data).to be_nil
