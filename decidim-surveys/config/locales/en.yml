@@ -51,30 +51,13 @@ en:
           notification_title: The survey <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> is now open.
     forms:
       user_responses_serializer:
-        body: Response
-        completion: Completion
-        ip_hash: IP Hash
-        question: Question
-        registered: Registered
-        session_token: User identifier
-        unregistered: Unregistered
+        body: Response of the question
+        question: Question corriponding to the response
+        registered: Whether the user was registered or not
+        unregistered: Survey responded by nregistered
         user_status: User status
-        created_at: Created at
-        response_id: Response ID
-    open_data:
-      help:
-        survey_user_responses:
-          id: "Unique identifier for each survey response"
-          body: "The response content or type"
-          decidim_user_id: "ID of the user who responded"
-          decidim_questionnaire_id: "ID of the questionnaire"
-          decidim_question_id: "ID of the question"
-          created_at: "Date and time when the response was submitted"
-          updated_at: "Date and time when the response was last updated"
-          session_token: "User session token"
-          ip_hash: "Hashed IP address of the respondent"
-          user_status: User status
-          question: "The question being answered"
+        created_at: Date of creation
+        id: ID of response
     statistics:
       responses: 'Responses:'
       responses_count: Responses
