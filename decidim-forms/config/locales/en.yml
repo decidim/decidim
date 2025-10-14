@@ -35,7 +35,6 @@ en:
           response: The response to the question
           user: The user who responded the questionnaire
       show:
-        responses: Responses export
         survey_user_responses: Survey user responses
     forms:
       admin:
@@ -221,5 +220,11 @@ en:
       user_responses_serializer:
         body: Response
         completion: Completion
+        created_at: Responded on
+        id: Response ID
         ip_hash: IP Hash
+        question: Question
+        registered: Registered
         session_token: User identifier
+        unregistered: Unregistered
+        user_status: User status

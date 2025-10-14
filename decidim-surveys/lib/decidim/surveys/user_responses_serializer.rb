@@ -28,7 +28,7 @@ module Decidim
       end
 
       def response_translated_attribute_name(attribute)
-        I18n.t(attribute.to_sym, scope: "decidim.forms.user_responses_serializer")
+        I18n.t(attribute.to_sym, scope: "decidim.surveys.user_responses_serializer")
       end
     end
   end
