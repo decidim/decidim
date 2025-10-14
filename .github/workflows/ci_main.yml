@@ -13,6 +13,7 @@ env:
   CI: "true"
   RUBY_VERSION: 3.3.4
   NODE_VERSION: 22.14.0
+  NODE_ENV: "development"
   SHAKAPACKER_RUNTIME_COMPILE: "false"
 
 permissions:
