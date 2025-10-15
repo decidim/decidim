@@ -326,6 +326,7 @@ ja:
           update:
             invalid: アジェンダの更新に問題がありました。
             success: アジェンダが正常に更新されました。
+        deprecation_warning_polls_html: "⚠️ <b>非推奨通知</b>: 投票機能は将来のバージョンで削除される予定です（時期は未定）。会議用投票機能をご利用の組織は、Jitsiなどの外部投票ツールを使用するか、Decidimの新しい選挙モジュール（`decidim-elections`）などの代替投票システムへの移行を計画してください。"
         exports:
           meeting_comments: コメント
           meetings: ミーティング
