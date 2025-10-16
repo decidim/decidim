@@ -68,8 +68,8 @@ module Decidim
       @menu_highlighted_participatory_process ||= (
         # The queries already include the order by weight
         Decidim::ParticipatoryProcesses::OrganizationParticipatoryProcesses.new(current_organization) |
-        Decidim::ParticipatoryProcesses::PromotedParticipatoryProcesses.new
-      ).first
+          Decidim::ParticipatoryProcesses::PromotedParticipatoryProcesses.new
+      ).select(&:published?)&.first
     end
 
     def home_content_block_menu
