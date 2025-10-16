@@ -56,8 +56,8 @@ describe "Admin manages elections" do
       expect(page).to have_field("election_start_at_date")
       expect(page).to have_field("election_start_at_time")
       check "Manual start"
-      expect(page).not_to have_field("election_start_at_date")
-      expect(page).not_to have_field("election_start_at_time")
+      expect(page).to have_no_field("election_start_at_date")
+      expect(page).to have_no_field("election_start_at_time")
 
       choose "Real time"
     end
@@ -112,8 +112,8 @@ describe "Admin manages elections" do
       within ".edit_election" do
         expect(page).to have_field("election[title_en]", with: translated(published_election.title), disabled: true)
         fill_in_i18n_editor(:election_description, "#election-description-tabs", **attributes[:description].except("machine_translations"))
-        expect(page).not_to have_field("election_start_at_date")
-        expect(page).not_to have_field("election_start_at_time")
+        expect(page).to have_no_field("election_start_at_date")
+        expect(page).to have_no_field("election_start_at_time")
         expect(page).to have_field("election_end_at_date", disabled: true)
         expect(page).to have_field("election_end_at_time", disabled: true)
       end
