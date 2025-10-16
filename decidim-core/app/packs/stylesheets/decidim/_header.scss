@@ -81,7 +81,7 @@ header {
       }
 
       button[type="submit"] {
-        @apply absolute ltr:left-4 rtl:right-4 inset-y-0 text-secondary px-2;
+        @apply absolute rtl:left-2 ltr:right-2 inset-y-0 text-secondary px-2;
 
         svg {
           @apply fill-gray-8;
@@ -490,14 +490,14 @@ header {
           @apply absolute top-full bg-white shadow-[1px_4px_8px_3px_rgba(0,0,0,0.15)] p-2;
 
           ul {
-            @apply grid grid-cols-3;
+            @apply flex flex-col space-y-2;
 
             li:hover {
               @apply rounded;
             }
 
             .is-active {
-              @apply bg-[#fc9292] rounded;
+              @apply bg-neutral-200 rounded;
 
               &:hover {
                 @apply bg-[var(--secondary)];
