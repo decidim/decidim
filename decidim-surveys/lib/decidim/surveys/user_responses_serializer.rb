@@ -9,17 +9,18 @@ module Decidim
       # Public: Exports a hash with the serialized data for the user response.
       def serialize
         {
-          id: [resource.id, resource.user&.id].compact.join("_"),
-          created_at: resource.created_at,
-          user_status: resource.decidim_user_id.present? ? "Registered" : "Unregistered",
-          question: translated_attribute(resource.question.body),
-          body: normalize_body(resource)
+          response_translated_attribute_name(:id) => [resource.id, resource.user&.id].compact.join("_"),
+          response_translated_attribute_name(:created_at) => resource.created_at,
+          response_translated_attribute_name(:user_status) => response_translated_attribute_name(resource.decidim_user_id.present? ? "registered" : "unregistered"),
+          response_translated_attribute_name(:body) => normalize_body(resource)
         }
       end
 
       private
 
       def normalize_body(response)
+        return response.body if response.body.present?
+
         normalize_choices(response.choices)
       end
 
@@ -28,7 +29,7 @@ module Decidim
       end
 
       def response_translated_attribute_name(attribute)
-        I18n.t(attribute.to_sym, scope: "decidim.surveys.user_responses_serializer")
+        I18n.t(attribute.to_sym, scope: "decidim.open_data.help.survey_user_responses")
       end
     end
   end

@@ -64,14 +64,23 @@ Decidim.register_component(:surveys) do |component|
     exports.collection do |f|
       survey = Decidim::Surveys::Survey.find_by(component: f)
 
-      Decidim::Forms::QuestionnaireUserResponses.for(survey.questionnaire)
+      # Use custom query for open data, existing for admin
+      if exports.include_in_open_data
+        Decidim::Surveys::QuestionnaireUserResponses.for(survey.questionnaire)
+      else
+        Decidim::Forms::QuestionnaireUserResponses.for(survey.questionnaire)
+      end
     end
 
     exports.formats %w(CSV JSON Excel FormPDF)
-
     exports.include_in_open_data = true
 
-    exports.serializer Decidim::Surveys::UserResponsesSerializer
+    # Use custom serializer for open data, existing for admin
+    if exports.include_in_open_data
+      exports.serializer Decidim::Surveys::UserResponsesSerializer
+    else
+      exports.serializer Decidim::Forms::UserResponsesSerializer
+    end
   end
 
   component.seeds do |participatory_space|

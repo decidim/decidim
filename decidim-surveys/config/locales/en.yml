@@ -52,12 +52,12 @@ en:
     open_data:
       help:
         survey_user_responses:
-          body: Response of the question
-          question: Question corriponding to the response
+          body: Response to question
+          question: Survey question
           registered: Whether the user was registered or not
           unregistered: Survey responded by nregistered
           user_status: User status
-          created_at: Date of creation
+          created_at: Responded on
           id: ID of response & user ID
     statistics:
       responses: 'Responses:'
