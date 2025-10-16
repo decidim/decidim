@@ -32,7 +32,7 @@
     <p class="help-text">
       <%= t("instructions", scope: "decidim.proposals.proposals.dynamic_map_instructions") %> <%= t("description", scope: "decidim.proposals.proposals.dynamic_map_instructions") %>
     </p>
-    <%= dynamic_map_for proposal_preview_data_for_map(@proposal) unless new_proposal %>
+    <%= dynamic_map_for proposal_preview_data_for_map(@form.to_h) %>
   </div>
 <% end %>
 
