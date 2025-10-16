@@ -11,6 +11,7 @@ module Decidim
       let(:model) { create(:user, :confirmed) }
 
       include_examples "timestamps interface"
+      include_examples "followable interface"
 
       describe "unconfirmed user" do
         let(:model) { create(:user) }

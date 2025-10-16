@@ -7,6 +7,7 @@ module Decidim
       description "A user"
 
       implements Decidim::Core::AuthorInterface
+      implements Decidim::Core::FollowableInterface
       implements Decidim::Core::TimestampsInterface
 
       field :about, GraphQL::Types::String, "The user's about data", null: true
@@ -20,7 +21,6 @@ module Decidim
                           " It will return false for non-logged requests."].join
       field :followers_count, GraphQL::Types::Int, "The number of users following this user", null: true
       field :following_count, GraphQL::Types::Int, "The number of users this user is following", null: true
-      field :follows_count, GraphQL::Types::Int, "The number of users this user follows", null: true
       field :id, GraphQL::Types::ID, "The user's id", null: false
       field :name, GraphQL::Types::String, "The user's name", null: false
       field :nickname, GraphQL::Types::String, "The user's nickname", null: false
