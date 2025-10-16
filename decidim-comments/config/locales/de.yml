@@ -65,7 +65,7 @@ de:
       comment:
         alignment:
           against: Gegen
-          in_favor: Zugunsten
+          in_favor: Dafür
         cancel_reply: Antwort abbrechen
         comment_label: Kommentar %{comment_id}
         comment_label_reply: Kommentar %{comment_id} (Antwort auf Kommentar %{parent_comment_id})
