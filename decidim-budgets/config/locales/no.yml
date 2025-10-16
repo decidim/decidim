@@ -49,8 +49,6 @@
         exports:
           projects: Prosjekter
         models:
-          budget:
-            name: Budsjett
           project:
             name: Prosjekt
         projects:

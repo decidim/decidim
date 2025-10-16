@@ -1,7 +1,4 @@
-<div class="flex items-center gap-x-8">
-  <div class="menu-bar__language-chooser-desktop">
-    <%= render partial: "layouts/decidim/footer/main_language_chooser" %>
-  </div>
+<div class="flex">
   <% if !current_user %>
     <div>
       <%= link_to decidim.new_user_session_path, class: "main-bar__links-desktop__item", "aria-label": t("layouts.decidim.header.log_in") do %>
@@ -47,7 +44,6 @@
           data-controller="dropdown"
           data-target="dropdown-menu-main-desktop">
     <%= icon "menu-line" %><span><%= t("menu", scope: "decidim.admin.titles") %></span>
-    <%= icon "close-line" %><span><%= t("close", scope: "layouts.decidim.header") %></span>
   </button>
 
   <div id="dropdown-menu-main-desktop" class="main-bar__links-desktop__dropdown main-bar__links-desktop__dropdown-before" aria-hidden="true">

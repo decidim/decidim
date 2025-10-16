@@ -345,7 +345,7 @@ ca:
           email_subject: S'ha mencionat la teva proposta "%{mentioned_proposal_title}"
           notification_title: La teva proposta "%{mentioned_proposal_title}" ha estat esmentada <a href="%{resource_path}">en aquest espai</a> als comentaris.
         proposal_merged:
-          email_intro: 'Una administradora ha fusionat la teva proposta "%{resource title}" amb una altra, ho pots comprovar en aquesta pàgina:'
+          email_intro: 'Una administradora ha fusionat la teva proposta "%{resource_title}" amb una altra, ho pots comprovar en aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè ets l'autora de la proposta.
           email_subject: La proposta "%{resource_title}" s'ha fusionat amb una altra
           notification_title: Una administradora ha fusionat la proposta "<a href="%{resource_path}">%{resource_title}</a> amb una altra.

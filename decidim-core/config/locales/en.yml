@@ -589,8 +589,6 @@ en:
         description: Description
       footer_sub_hero:
         name: Footer sub hero banner
-      global_menu:
-        name: Global menu
       hero:
         name: Hero image and CTA
       hero_settings_form:
@@ -1269,11 +1267,12 @@ en:
         main_image: Main image
     newsletters:
       unsubscribe:
-        check_subscription: If you want to change your preferences, you can do so in the <a href="%{link}" target="_blank">configuration page</a>.
+        check_subscription_html: If you'd like to start receiving them again, you can re-enable your subscription anytime from the <a href="%{link}" target="_blank">settings page</a>.
         error: There was a problem unsubscribing.
+        subscription_preferences: We have updated your subscription preferences, and you will no longer receive newsletters from %{organization_name}.
         success: You are unsubscribed successfully.
         token_error: The link has expired.
-        unsubscribe: Unsubscribe
+        unsubscribe: Unsubscribe from newsletter
     newsletters_opt_in:
       unauthorized: Sorry, this link is no longer available.
       update:
@@ -1281,7 +1280,7 @@ en:
         success: Newsletter settings successfully updated.
     newsletters_opt_in_mailer:
       notify:
-        body_1: The processing of personal data and its protection is becoming increasingly important for all of us. With the new General Data Protection Regulation (GDPR) of May 25, 2018, individuals have better control over their personal data. For this reason we need your "OK" to continue sending relevant information about the activities of the %{organization_name}.
+        body_1: The processing of personal data and its protection is becoming increasingly important for all of us. With the General Data Protection Regulation (GDPR) of May 25, 2018, individuals have better control over their personal data. For this reason we need your "OK" to continue sending relevant information about the activities of the %{organization_name}.
         body_2: 'How can you give us your consent? Just click the following button:'
         body_3: With this consent you will be able to continue receiving information about the services of the platform. If, on the contrary, we do not receive a positive confirmation on your part we will stop sending you our messages. If you confirm that you want to keep being informed, you will always have the option to cancel at any time.
         button: Yes, I want to continue receiving relevant information
@@ -2114,8 +2113,7 @@ en:
         social_media: Social media
         terms_of_service: Terms of Service
       header:
-        back: Back to list
-        cancel: Cancel
+        back: Back
         close: Close
         confirm_close_ephemeral_session: If you navigate away, your temporary session will be closed. However, all your progress and activity will be saved. If you have finished your activity, click Ok.
         confirm_title_close_ephemeral_session: Before leaving this page…
@@ -2169,6 +2167,11 @@ en:
   locale:
     name: English
     name_with_error: English (error!)
+  number:
+    currency:
+      format:
+        format: "%u %n"
+        format_html: "<span>%u</span> %n"
   password_validator:
     denied: is denied
     domain_included_in_password: is too similar to this domain name

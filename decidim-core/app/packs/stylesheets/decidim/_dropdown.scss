@@ -33,16 +33,20 @@
   }
 }
 
-[data-target="dropdown-menu-main-desktop"],
 [data-target="dropdown-menu-main-mobile"] {
-  > span:first-of-type {
+  &[aria-expanded="true"] > span {
+    @apply hidden;
+  }
+
+  &[aria-expanded="false"] > span {
     @apply block;
   }
 }
 
 [data-target="dropdown-menu-main-desktop"] {
-  > span:first-of-type {
-    @apply block;
+  > span,
+  > svg {
+    @apply hidden md:block;
   }
 }
 
@@ -77,7 +81,7 @@
   }
 
   > svg {
-    @apply w-5 h-6 flex-none text-xs font-normal text-black fill-current;
+    @apply w-fit h-6 flex-none text-xs font-normal text-black fill-current px-2;
   }
 
   & > ul {

@@ -9,7 +9,9 @@ module Decidim
       include Decidim::Budgets::Orderable
       include Decidim::IconHelper
 
-      helper_method :projects, :project, :budget, :all_geocoded_projects, :tabs, :panels
+      helper_method :projects, :project, :budget, :all_geocoded_projects, :tabs, :panels, :resource_added?
+
+      before_action :set_focus_mode_if_voting_open
 
       def index
         raise ActionController::RoutingError, "Not Found" unless budget

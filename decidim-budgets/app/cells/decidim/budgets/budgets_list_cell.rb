@@ -26,12 +26,34 @@ module Decidim
 
       private
 
+      def progress?
+        current_user && voting_open? && progress_budgets.any?
+      end
+
+      def progress_budgets
+        budgets.select { |budget| current_workflow.status(budget) == :progress }
+      end
+
+      def non_voted_budgets
+        budgets.where.not(id: voted.map(&:id))
+      end
+
       def highlighted?
         current_user && highlighted.any?
       end
 
       def voted?
         current_user && voted.any?
+      end
+
+      def non_highlighted
+        budgets_to_exclude = if voting_finished?
+                               highlighted + voted
+                             else
+                               highlighted + voted + progress_budgets
+                             end
+
+        reorder(budgets).where.not(id: budgets_to_exclude.map(&:id))
       end
 
       def finished?

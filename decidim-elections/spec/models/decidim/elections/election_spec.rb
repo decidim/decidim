@@ -45,6 +45,21 @@ module Decidim
         it { is_expected.to be_valid }
       end
 
+      context "when votes exist" do
+        let(:election) { create(:election, :with_questions) }
+        let!(:vote) { create(:election_vote, question: election.questions.first, response_option: election.questions.first.response_options.first) }
+
+        it "has many votes" do
+          expect(subject.votes.count).to be_positive
+          expect(subject.votes_count).to eq(subject.votes.count)
+        end
+
+        it "increments the votes count" do
+          expect { create(:election_vote, question: election.questions.first, response_option: election.questions.first.response_options.second) }
+            .to change(subject, :votes_count).by(1)
+        end
+      end
+
       describe "#manual_start?" do
         it "returns true when start_at is nil" do
           election.start_at = nil
@@ -312,6 +327,13 @@ module Decidim
           expect(election.voters.count).to eq(1)
         end
 
+        it "has many votes" do
+          election.save!
+          question = create(:election_question, :with_response_options, election:)
+          create(:election_vote, question:, response_option: question.response_options.first)
+          expect(election.votes.count).to eq(1)
+        end
+
         context "when destroying" do
           before do
             election.save!
@@ -327,6 +349,17 @@ module Decidim
           it "does not delete voters" do
             election.destroy!
             expect(election.voters.count).to eq(0)
+          end
+
+          context "when votes exist" do
+            before do
+              create(:election_vote, question: election.questions.first, response_option: election.questions.first.response_options.first)
+            end
+
+            it "restricts deletion with error" do
+              expect { election.destroy! }.to raise_error(ActiveRecord::RecordNotDestroyed)
+              expect(election.reload).to be_persisted
+            end
           end
         end
       end

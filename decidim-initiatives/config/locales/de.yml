@@ -77,6 +77,7 @@ de:
   decidim:
     admin:
       actions:
+        cannot_answer: Initiative kann nicht beantwortet werden
         new_initiative_type: Neuer Initiativentyp
         new_initiative_type_scope: Neuer Initiativentyp
       filters:
@@ -94,6 +95,8 @@ de:
               validating: Technische Validierung
           type_id_eq:
             label: Typ
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Suche in %{collection} nach Titel, Beschreibung, ID oder Autoren
       initiatives_settings:
         update:
           error: Beim Aktualisieren der Initiativeneinstellungen ist ein Fehler aufgetreten.
@@ -265,6 +268,7 @@ de:
             success: Die Initiative wurde an die technische Validierung gesendet.
             update: Aktualisieren
           form:
+            attachments_title: Anhänge
             settings: Einstellungen
             title: Allgemeine Information
           index:
@@ -687,6 +691,9 @@ de:
         actions:
           create: Initiative erstellen
           title: Aktionen
+    statistics:
+      initiatives_count: Initiativen
+      initiatives_count_tooltip: Die Anzahl der veröffentlichten Volksinitiativen.
   layouts:
     decidim:
       initiative_creation_header:

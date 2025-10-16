@@ -106,7 +106,7 @@ module Decidim
     end
 
     def reject
-      enforce_permission_to :reject, :amendment, current_component: amendable.component
+      enforce_permission_to :reject, :amendment, amendable:, current_component: amendable.component
 
       @form = form(Decidim::Amendable::RejectForm).from_model(amendment)
 
@@ -142,13 +142,13 @@ module Decidim
     end
 
     def review
-      enforce_permission_to :accept, :amendment, current_component: amendable.component
+      enforce_permission_to :accept, :amendment, amendable:, current_component: amendable.component
 
       @form = form(Decidim::Amendable::ReviewForm).from_params(params)
     end
 
     def accept
-      enforce_permission_to :accept, :amendment, current_component: amendable.component
+      enforce_permission_to :accept, :amendment, amendable:, current_component: amendable.component
 
       @form = form(Decidim::Amendable::ReviewForm).from_params(params)
 

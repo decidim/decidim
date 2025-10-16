@@ -26,17 +26,12 @@ FactoryBot.define do
 
     trait :with_vote_threshold_percent do
       transient do
-        vote_rule_threshold_percent_enabled { true }
-        vote_rule_minimum_budget_projects_enabled { false }
-        vote_rule_projects_enabled { false }
         vote_threshold_percent { 70 }
       end
 
       settings do
         {
-          vote_rule_threshold_percent_enabled:,
-          vote_rule_minimum_budget_projects_enabled:,
-          vote_rule_selected_projects_enabled: vote_rule_projects_enabled,
+          voting_rule: "threshold_percent",
           vote_threshold_percent:
         }
       end
@@ -44,17 +39,12 @@ FactoryBot.define do
 
     trait :with_minimum_budget_projects do
       transient do
-        vote_rule_threshold_percent_enabled { false }
-        vote_rule_minimum_budget_projects_enabled { true }
-        vote_rule_projects_enabled { false }
         vote_minimum_budget_projects_number { 3 }
       end
 
       settings do
         {
-          vote_rule_threshold_percent_enabled:,
-          vote_rule_minimum_budget_projects_enabled:,
-          vote_rule_selected_projects_enabled: vote_rule_projects_enabled,
+          voting_rule: "minimum_projects",
           vote_minimum_budget_projects_number:
         }
       end
@@ -62,18 +52,13 @@ FactoryBot.define do
 
     trait :with_budget_projects_range do
       transient do
-        vote_rule_threshold_percent_enabled { false }
-        vote_rule_minimum_budget_projects_enabled { false }
-        vote_rule_projects_enabled { true }
         vote_minimum_budget_projects_number { 3 }
         vote_maximum_budget_projects_number { 6 }
       end
 
       settings do
         {
-          vote_rule_threshold_percent_enabled:,
-          vote_rule_minimum_budget_projects_enabled:,
-          vote_rule_selected_projects_enabled: vote_rule_projects_enabled,
+          voting_rule: "selected_projects",
           vote_selected_projects_minimum: vote_minimum_budget_projects_number,
           vote_selected_projects_maximum: vote_maximum_budget_projects_number
         }
