@@ -81,8 +81,6 @@ ja:
         exports:
           projects: プロジェクト
         models:
-          budget:
-            name: 予算
           project:
             name: プロジェクト
         projects:
@@ -175,12 +173,14 @@ ja:
         cancel_order:
           more_than_one: '%{name} への投票を削除してからやり直してください'
           only_one: 投票を削除してやり直してください
+        completed: 完了
         count:
           other: "%{count} 件の予算"
         empty: 予算はまだありません
         finished_message: 投票プロセスが終了しました。ご参加ありがとうございます！
         highlighted_cta: '%{name} に投票'
         if_change_opinion: 'もし気が変わった場合は、以下を行うことができます:'
+        incomplete: 未完
         orders:
           highest_cost: 価格が高い順
           label: 予算の並び順
@@ -188,6 +188,8 @@ ja:
           random: ランダム
         progress: 投票を終了
         remove_vote: 投票を削除
+        see_projects: プロジェクトを表示
+        see_results: 結果を表示
         show: プロジェクトを表示
         vote: 投票
         voted_budgets: 投票された予算
@@ -233,6 +235,7 @@ ja:
           subject: 参加型スペース%{space_name} に投票しました
           voted_on_space: '%{budget_name} 参加型スペースの %{space_name} 予算に投票しました。'
       projects:
+        back_to_budgets: 予算に戻る
         budget_confirm:
           are_you_sure: 気が変わった場合は、後で投票を変更できます。
           cancel: キャンセル
@@ -275,18 +278,16 @@ ja:
           assigned: 割り当て済み
           budget: 予算
           dynamic_help:
-            keep_adding_projects: プロジェクトを追加したままにする
             minimum_reached: 投票できる最小値に達しました
-            start_adding_projects: プロジェクトの追加を開始
           minimum: 最小
           minimum_projects_rule:
-            description: 少なくとも%{minimum_number}件のプロジェクトを選び、あなたの希望に沿って投票してください。
+            description: "<b>少なくとも%{minimum_number}件のプロジェクトを選び</b>、あなたの希望に沿って投票してください。"
           projects_rule:
-            description: 少なくとも%{minimum_number}件、最大で%{maximum_number}件のプロジェクトを選び、あなたの希望に沿って投票してください。
+            description: "<b>最小%{minimum_number}件、最大で%{maximum_number}件のプロジェクトを選び</b>、あなたの希望に沿って投票してください。"
           projects_rule_maximum_only:
-            description: 最大で%{maximum_number}件までプロジェクトを選び、あなたの希望に沿って投票してください。
+            description: "<b>最大%{maximum_number}件までプロジェクトを選び</b>、あなたの希望に沿って投票してください。"
           vote_threshold_percent_rule:
-            description: 少なくとも%{minimum_budget}の予算をプロジェクトに割り当て、あなたの希望に沿って投票してください。
+            description: "<b>少なくとも%{minimum_budget}の予算をプロジェクトに割り当て</b>、あなたの希望に沿って投票してください。"
         orders:
           highest_cost: 最高コスト
           label: 'プロジェクトを注文:'
@@ -313,7 +314,7 @@ ja:
         select_projects: プロジェクトを追加
         show:
           budget: 予算
-        start_voting: 投票を開始
+          votes: 投票
       prompt: 予算を選択
       vote_reminder_mailer:
         vote_reminder:
@@ -357,6 +358,11 @@ ja:
             vote_selected_projects_maximum: 選択するプロジェクトの上限
             vote_selected_projects_minimum: 選択するプロジェクトの下限
             vote_threshold_percent: 投票しきい値パーセント
+            voting_rule: 投票ルール
+            voting_rule_choices:
+              minimum_projects: 投票するプロジェクトの最小数
+              selected_projects: 投票するプロジェクトの最小数と最大数
+              threshold_percent: 予算の最小割合
             workflow: ワークフロー
             workflow_choices:
               all: '全てに投票: 参加者はすべての予算に投票できます。'

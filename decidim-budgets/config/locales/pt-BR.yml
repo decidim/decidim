@@ -64,8 +64,6 @@ pt-BR:
         exports:
           projects: Projetos
         models:
-          budget:
-            name: Orçamento
           project:
             name: Projeto
         projects:
@@ -226,9 +224,7 @@ pt-BR:
           assigned: Atribuído
           budget: Orçamento
           dynamic_help:
-            keep_adding_projects: Continuar adicionando projetos
             minimum_reached: Você atingiu o mínimo para poder votar
-            start_adding_projects: Começar a adicionar projetos
           minimum: Mínimo
         orders:
           highest_cost: Custo mais alto

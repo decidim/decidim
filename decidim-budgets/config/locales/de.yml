@@ -83,8 +83,6 @@ de:
         exports:
           projects: Projekte
         models:
-          budget:
-            name: Budget
           project:
             name: Projekt
         projects:
@@ -178,6 +176,7 @@ de:
         cancel_order:
           more_than_one: lösche deine Stimme am %{name} und beginne neu
           only_one: Löschen Sie Ihre Stimme und beginnen Sie von vorne.
+        completed: Abgeschlossen
         count:
           one: "%{count} Budget"
           other: "%{count} Budgets"
@@ -185,6 +184,7 @@ de:
         finished_message: Sie haben den Abstimmungsprozess beendet. Vielen Dank für Ihre Teilnahme!
         highlighted_cta: Über %{name} abstimmen
         if_change_opinion: Wenn Sie ihr Meinung geändert haben, können Sie
+        incomplete: Nicht abgeschlossen
         orders:
           highest_cost: Höchste Kosten
           label: Budgets sortieren nach
@@ -192,6 +192,8 @@ de:
           random: Zufällige Reihenfolge
         progress: Abstimmung beenden
         remove_vote: Stimme entfernen
+        see_projects: Projekte anzeigen
+        see_results: Ergebnisse anzeigen
         show: Projekte ansehen
         vote: Abstimmen
         voted_budgets: Gewählte Budgets
@@ -240,6 +242,7 @@ de:
           subject: Sie haben im Beteiligungsbereich %{space_name} abgestimmt
           voted_on_space: Sie haben für das %{budget_name} Budget for the %{space_name} abgestimmt.
       projects:
+        back_to_budgets: Zurück zu den Budgets
         budget_confirm:
           are_you_sure: Wenn Sie Ihre Meinung ändern, können Sie Ihre Stimme nachträglich ändern.
           cancel: Abbrechen
@@ -283,18 +286,16 @@ de:
           assigned: Zugewiesen
           budget: Budget
           dynamic_help:
-            keep_adding_projects: Weitere Projekte hinzufügen
             minimum_reached: Sie haben das Minimum erreicht, um abstimmen zu können
-            start_adding_projects: Mit dem Hinzufügen von Projekten beginnen
           minimum: Minimum
           minimum_projects_rule:
-            description: Wählen Sie mindestens %{minimum_number} Projekte aus und stimmen Sie entsprechend Ihren Wünschen ab.
+            description: "<b>Wählen Sie mindestens %{minimum_number} Projekte aus</b> und stimmen Sie entsprechend Ihren Wünschen ab."
           projects_rule:
-            description: Wählen Sie zwischen %{minimum_number} und %{maximum_number} Projekte aus und stimmen Sie entsprechend Ihren Wünschen ab.
+            description: "<b>Wählen Sie zwischen %{minimum_number} und %{maximum_number} Projekten aus</b> und stimmen Sie entsprechend Ihren Wünschen ab."
           projects_rule_maximum_only:
-            description: Wählen Sie bis zu %{maximum_number} Projekte aus und stimmen Sie entsprechend Ihren Wünschen ab.
+            description: "<b>Wählen Sie bis zu %{maximum_number} Projekte aus</b> und stimmen Sie entsprechend Ihren Wünschen ab."
           vote_threshold_percent_rule:
-            description: Weisen Sie mindestens %{minimum_budget} den Projekten hinzu und stimmen Sie entsprechend Ihren Wünschen ab.
+            description: "<b>Weisen Sie mindestens %{minimum_budget}</b> den Projekten zu und stimmen Sie entsprechend Ihren Wünschen ab."
         orders:
           highest_cost: Höchste Kosten
           label: Projekte sortieren nach
@@ -322,7 +323,7 @@ de:
         select_projects: Projekt hinzufügen
         show:
           budget: Budget
-        start_voting: Abstimmung beginnen
+          votes: Stimmen
       prompt: Budget auswählen
       vote_reminder_mailer:
         vote_reminder:
@@ -367,6 +368,11 @@ de:
             vote_selected_projects_maximum: Maximale Anzahl auszuwählender Projekte
             vote_selected_projects_minimum: Minimale Anzahl auszuwählender Projekte
             vote_threshold_percent: Abstimmungsschwelle in Prozent
+            voting_rule: Abstimmungsregel
+            voting_rule_choices:
+              minimum_projects: Mindestanzahl der abzustimmenden Projekte
+              selected_projects: Mindest- und Maximalzahl der abzustimmenden Projekte
+              threshold_percent: Minimaler Budgetanteil
             workflow: Workflow
             workflow_choices:
               all: 'Gesamthaft abstimmen: erlaubt es den Teilnehmern, in allen Budget‘s abzustimmen.'
@@ -400,7 +406,7 @@ de:
     events:
       budgets:
         budget_published:
-          email_intro: 'Das Budget %{resource_title} ist jetzt für %{participatory_space_title} aktiv. Sie können es auf dieser Seite ansehen:'
+          email_intro: 'Das Budget %{resource_title} ist jetzt für %{participatory_space_title} aktiv. Sehen Sie es sich auf dieser Seite an:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Das Budget %{resource_title} ist jetzt für %{participatory_space_title} aktiv.
           notification_title: Das Budget <a href="%{resource_path}">%{resource_title}</a> ist jetzt aktiv für %{participatory_space_title}.

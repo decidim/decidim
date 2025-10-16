@@ -9,6 +9,9 @@ de:
         developer_group: Promoter-Gruppe
         document: Dokument
         domain: Domäne
+        duplicate_categories: Kategorien duplizieren
+        duplicate_components: Komponenten duplizieren
+        duplicate_steps: Schritte duplizieren
         end_date: Enddatum
         hero_image: Hauptbild
         import_attachments: Anhänge importieren
@@ -155,6 +158,8 @@ de:
             published: Veröffentlicht
       participatory_process_duplicates:
         new:
+          duplicate: Duplizieren
+          select: Zu duplizierende Daten auswählen
           title: Beteiligungsprozess duplizieren
       participatory_process_groups:
         destroy:
@@ -197,7 +202,7 @@ de:
           error:
             active_step: Der aktive Schritt kann nicht gelöscht werden.
             last_step: Der letzte Schritt eines Prozesses kann nicht gelöscht werden.
-          success: Participatory-Prozessschritt erfolgreich gelöscht
+          success: Beteiligungsprozessschritt erfolgreich gelöscht.
         edit:
           cta_deprecated:
             body_html: |-
@@ -253,7 +258,11 @@ de:
           title: Neuer Beteiligungsprozess
         update:
           error: Beim Aktualisieren dieses Beteiligungsprozesses ist ein Fehler aufgetreten.
-          success: Participatory-Prozess erfolgreich aktualisiert.
+          success: Beteiligungsprozess erfolgreich aktualisiert.
+      participatory_processes_duplicates:
+        create:
+          error: Beim Duplizieren dieses Beteiligungsprozesses ist ein Fehler aufgetreten.
+          success: Beteiligungsprozess erfolgreich dupliziert.
       participatory_processes_group:
         create:
           error: Beim Erstellen einer neuen partizipativen Prozessgruppe ist ein Fehler aufgetreten.
@@ -311,19 +320,19 @@ de:
           email_subject: Sie wurden als %{role} für "%{resource_title}" ausgewählt.
           notification_title: Sie wurden als %{role} für den Beteiligungsprozess <a href="%{resource_url}">%{resource_title}</a> ausgewählt.
         step_activated:
-          email_intro: 'Der Prozessschritt %{resource_title} ist jetzt aktiv in %{participatory_space_title}. Sie können das auf dieser Seite sehen:'
+          email_intro: 'Der Prozessschritt %{resource_title} ist jetzt aktiv in %{participatory_space_title}. Sehen Sie es sich auf dieser Seite an:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Eine Aktualisierung auf %{participatory_space_title}
           notification_title: Der Prozessschritt %{resource_title} ist jetzt aktiv in <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'Die Daten für den Schritt %{resource_title} bei %{participatory_space_title} wurden aktualisiert. Sie können das auf dieser Seite sehen:'
+          email_intro: 'Die Daten für den Schritt %{resource_title} bei %{participatory_space_title} wurden aktualisiert. Sehen Sie es sich auf dieser Seite an:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Eine Aktualisierung auf %{participatory_space_title}
           notification_title: Die Daten für den Prozessschritt <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> wurden aktualisiert.
     help:
       participatory_spaces:
         participatory_processes:
-          contextual: "<p>Ein <strong>Partizipationsprozess</strong> ist eine Folge von Partizipations-Aktivitäten (z.B. zuerst eine Umfrage ausfüllen, dann Vorschläge machen, diese face-to-face oder an virtuellen Sitzungen diskutieren, und sie schließlich zu priorisieren) mit dem Ziel, ein bestimmtes Thema zu definieren und Entscheidungen dazu zu treffen.</p> <p>Beispiele für partizipatorische Prozesse sind: ein Verfahren zur Wahl von Ausschussmitgliedern (bei dem die Kandidaturen zuerst präsentiert und anschließend debattiert werden, und schließlich eine Kandidatur ausgewählt wird), die partizipative Budgets (bei denen Vorschläge gemacht und wirtschaftlich bewertet werden und über das verfügbare Geld abgestimmt wird), ein strategischer Planungsprozess, die gemeinschaftliche Ausarbeitung einer Vorschrift oder Norm, die Gestaltung eines städtischen Raums oder die Erstellung einer öffentlichen Strategie.</p>\n"
+          contextual: "<p>Ein <strong>Beteiligungsprozess</strong> ist eine Abfolge von partizipativen Aktivitäten (z.B. zuerst eine Umfrage ausfüllen, dann Vorschläge machen, diese an physischen oder virtuellen Veranstaltungen zu diskutieren, und sie schließlich zu priorisieren) mit dem Ziel, ein bestimmtes Thema zu definieren und Entscheidungen dazu zu treffen.</p> <p>Beispiele für Beteiligungsprozesse sind: ein Verfahren zur Wahl von Ausschussmitgliedern (bei dem die Kandidaturen zuerst präsentiert und anschließend debattiert werden, und schließlich eine Kandidatur ausgewählt wird), partizipative Budgets (bei denen Vorschläge gemacht und wirtschaftlich bewertet werden und über das verfügbare Geld abgestimmt wird), ein strategischer Planungsprozess, die gemeinschaftliche Ausarbeitung einer Vorschrift oder Norm, die Gestaltung eines städtischen Raums oder die Erstellung einer öffentlichen Strategie.</p>\n"
           page: "<p>Ein <strong>Partizipationsprozess</strong> ist eine Folge von Partizipations-Aktivitäten (z.B. zuerst eine Umfrage ausfüllen, dann Vorschläge machen, diese face-to-face oder an virtuellen Sitzungen diskutieren, und sie schließlich zu priorisieren) mit dem Ziel, ein bestimmtes Thema zu definieren und Entscheidungen dazu zu treffen.</p> <p>Beispiele für partizipatorische Prozesse sind: ein Verfahren zur Wahl von Ausschussmitgliedern (bei dem die Kandidaturen zuerst präsentiert und anschließend debattiert werden, und schließlich eine Kandidatur ausgewählt wird), die partizipative Budgets (bei denen Vorschläge gemacht und wirtschaftlich bewertet werden und über das verfügbare Geld abgestimmt wird), ein strategischer Planungsprozess, die gemeinschaftliche Ausarbeitung einer Vorschrift oder Norm, die Gestaltung eines städtischen Raums oder die Erstellung einer öffentlichen Strategie.</p>\n"
           title: Was ist ein Beteiligungsprozess?
     log:
@@ -402,28 +411,64 @@ de:
       admin:
         content_blocks:
           democratic_quality_stats_settings_form:
+            announcement:
+              body_html: |-
+                <ul>
+                <li>Diese werden automatisch aus Decidim-Daten berechnet. Sie werden sichtbar, sobald Sie den Inhaltsblock veröffentlichen.</li>
+                <li>Diese basieren auf Ihren Antworten im folgenden Formular. Sie werden angezeigt, sobald Sie alle Fragen beantwortet haben.</li>
+                </ul>
+              title: 'Dieser Inhaltsblock enthält zwei Arten von Kennzahlen:'
             citizen_influence:
               citizen_decisional_intervention:
+                legend: In wie vielen Prozessphasen (von der Problemidentifikation bis zum Monitoring der Ausführung) hatte die Öffentlichkeit die Möglichkeit, Entscheidungen zu treffen oder exekutive Massnahmen zu ergreifen?
                 options:
                   five: 80 - 100%
                   four: 60 - 80%
                   one: 0 - 20%
                   three: 40 - 60%
                   two: 20 - 40%
+              citizen_influence_level:
+                legend: Inwieweit hat das Volk die Entscheidungsbefugnis in diesem Prozess, von der einfachen Information bis hin zur entscheidenden Beeinflussung von Entscheidungen und der Ressourcenverwaltung?
+                options:
+                  five: Teilnehmende waren an der Entscheidungsfindung und der Verwaltung der Ressourcen oder der Umsetzung beteiligt
+                  four: Teilnehmende waren massgeblich an der Entscheidungsfindung beteiligt
+                  one: Teilnehmende haben Informationen von der Organisation erhalten
+                  three: Teilnehmende waren an der Entscheidungsbefugnis mitbeteiligt
+                  two: Teilnehmende wurden beratend gefragt oder haben Feedback an die Organisation gegeben
+              name: Volkseinfluss
             inclusiveness:
+              description: Inklusion nach kultureller Herkunft und funktionaler Vielfalt.
               digital_support_offered:
+                legend: Wurde den Teilnehmenden digitale Unterstützung angeboten?
                 options:
                   five: 'Ja'
                   two_five: Teilweise
                   zero: 'Nein'
               functional_diversity_invited:
+                legend: Wie wird die Vielfalt der Akteuren und Teilnehmenden in Bezug auf die Referenzbevölkerung in diesem Prozess bewertet?
                 options:
                   five: Gut
                   one: Tief
                   two_five: Ausreichend
                   zero: Keine
-              participation_scheduling_times:
+              languages_communicated:
+                legend: Wie viele Sprachen wurden innerhalb des Prozesses verwendet?
                 options:
+                  five: Mehr als die Hälfte der in der Gemeinschaft gesprochenen Sprachen
+                  one: Eine Sprache
+                  two_five: Weniger als die Hälfte der in der Gemeinschaft gesprochenen Sprachen
+              mobility_meeting_access:
+                legend: Waren die Veranstaltungsorte der physischen Veranstaltungen für Menschen mit eingeschränkter Mobilität zugänglich?
+                options:
+                  five: 'Ja'
+                  two_five: Teilweise
+                  zero: 'Nein'
+              name: Inklusion
+              participation_scheduling_times:
+                legend: Die Teilnahme war zu verschiedenen Zeiten geplant (morgens, mittags, nachmittags, abends oder am Wochenende).
+                options:
+                  five: 'Ja'
+                  two_five:
                   zero: 'Nein'
             informativeness:
               information_provided:
@@ -449,6 +494,9 @@ de:
         new_import:
           accepted_types:
             json: JSON
+        participatory_process_duplicates:
+          form:
+            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und sie müssen mit einem Buchstaben beginnen. Beispiel: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadaten
@@ -480,11 +528,22 @@ de:
       content_blocks:
         democratic_quality_stats:
           automatic_metrics:
+            description: Diese Indikatoren werden automatisch von den Plattformdaten abgerufen.
             indicators:
               hybridization: Hybridisierung
               hybridization_tooltip: Dieser Indikator misst den Kombinationsgrad der Online- und Offline-Bestandteile des Prozesses
+              influence: Volkseinfluss
+              influence_tooltip: Dieser Indikator misst den Einfluss der Bürger auf die akzeptierten Vorschläge und die Ergebnisse des Prozesses.
               traceability: Nachvollziehbarkeit
+              traceability_tooltip: Dieser Indikator misst die Transparenz und Rückverfolgbarkeit des Partizipationprozesses. Er zeigt, wie einfach die Teilnehmenden der Entwicklung der Vorschläge verfolgen und institutionelle Massnahmen durch veröffentlichte Belege überprüfen können.
               transparency: Antwortverhalten
+              transparency_tooltip: Dieser Indikator misst die Reaktionsfähigkeit der Organisation auf die Teilnehmendeneingaben und spiegelt ihr Engagement durch offizielle Reaktionen und umgesetzte Entscheidungen wider.
+            name: Automatische Kennzahlen
+          global_score:
+            description_html: Unten finden Sie eine Reihe von Indikatoren, mit denen die demokratische Qualität dieses partizipatorischen Prozesses beurteilt werden kann. Weitere Details zur Berechnung finden Sie auf der <a href="%{info_url}">Informationsseite zu den demokratischen Qualitätsindikatoren</a>.
+            name: Globale Punktzahl
+            note: "*Die Richtwerte werden auf einer Skala von 1 bis 5 gemessen, wobei 1 den niedrigsten und 5 den höchsten Qualitätsindikator darstellt."
+            tooltip: Berechnet als Durchschnitt aller Dimensionen
           name: Qualitätsindikator
           qualitative_metrics:
             indicators:

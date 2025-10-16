@@ -16,6 +16,7 @@ hu:
             announcement: Közlemény
     elections:
       actions:
+        preview: Előnézet
         title: Műveletek
       admin:
         dashboard:
@@ -39,3 +40,9 @@ hu:
           edit_questions:
             new_question: Új kérdés
             title: Kérdések
+      elections:
+        show:
+          vote_button: Szavazás
+      votes:
+        question:
+          next: Következő

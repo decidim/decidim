@@ -1,9 +1,14 @@
 cs:
+  activemodel:
+    attributes:
+      token_csv:
+        file: Soubor
   decidim:
     admin:
       menu:
         elections_menu:
           election_census: Seznam obyvatel
+          election_dashboard: Ovládací panel
           election_questions: Otázky
     components:
       elections:
@@ -23,6 +28,7 @@ cs:
         deleted_election_info: Smazané volby nejsou zobrazeny v seznamu. Můžete je zobrazit kliknutím na tlačítko níže.
         edit: Upravit volby
         new: Nové volby
+        preview: Náhled
         title: Akce
         view_deleted_elections: Zobrazit odstraněné volby
       admin:
@@ -30,19 +36,31 @@ cs:
           edit:
             created_at: Vytvořeno v
         dashboard:
+          calendar:
+            end_at: 'Čas ukončení:'
+            start_at: 'Čas zahájení:'
+            title: Kalendář
           census:
             title: Seznam obyvatel
           main:
             labels:
+              calendar: Kalendář
               description: Popis
+              image: Galerie obrázků
+              results: Dostupnost výsledků
+              title: Název
+            title: Hlavní
+          publish_confirm: Opravdu chcete publikovat tuto volbu?
           questions:
             labels:
               answers: Odpovědi
             title: Otázky
           questions_table:
             answer: Odpovědi
+            percentage: Procenta
             votes: Hlasy
           results:
+            not_started: Volba ještě nezačala.
             publish_button: Publikovat výsledky
             title: Výsledky
           status:
@@ -51,6 +69,8 @@ cs:
           create:
             invalid: Při vytváření voleb došlo k chybě.
             success: Volba byla úspěšně vytvořena.
+          dashboard:
+            title: Ovládací panel
           edit:
             title: Upravit volbu
           form:
@@ -87,12 +107,49 @@ cs:
         statuses:
           publish_results:
             invalid: Při publikování výsledků došlo k chybě.
+          unknown: Neznámý stav
       admin_log:
         election:
           create: "%{user_name} vytvořil volby %{resource_name} v %{space_name}"
           publish: "%{user_name} zveřejnil volby %{resource_name} v %{space_name}"
           restore: "%{user_name} obnovil volby %{resource_name} v %{space_name}"
           update: "%{user_name} aktualizoval volby %{resource_name} v %{space_name}"
+      censuses:
+        internal_users:
+          already_have_an_account?: Již máte účet?
+          are_you_new?: Nový účastník?
+        token_csv:
+          upload_file: Nahrát soubor
+          upload_new_census: Nahrát CSV soubor
+        token_csv_form:
+          email: E-mail
+          email_placeholder: Zadejte e-mailovou adresu voliče
+          invalid: E-mail nebo token není platný. Zkontrolujte podrobnosti a zkuste to znovu.
+          token: Token
+          token_placeholder: Vložte token voliče
+      elections:
+        count:
+          elections_count:
+            one: "%{count} zvolení"
+            few: "%{count} zvolení"
+            many: "%{count} zvolení"
+            other: "%{count} voleb"
+        elections:
+          empty: Nejsou k dispozici žádné volby.
+        filters:
+          all: Vše
+          state: Stav
+          state_values:
+            finished: Dokončeno
+            ongoing: Probíhající
+        orders:
+          recent: Nedávné
+        questions:
+          title: Volební otázky
+        show:
+          vote_button: Hlasovat
+        vote_results:
+          title: Výsledky
       models:
         election:
           fields:
@@ -104,7 +161,18 @@ cs:
       status:
         active: Aktivní
         finished: Dokončeno
+        not_started: Nezahájeno
         ongoing: Probíhající
         unpublished: Nezveřejněno
+      votes:
+        confirm:
+          title: Potvrďte svůj hlas
+        question:
+          back: Zpět
+          next: Další
     statistics:
       elections_count: Volby
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Zavřít

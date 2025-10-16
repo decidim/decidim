@@ -564,10 +564,8 @@ lv:
       unsubscribe:
         success: Jūsu abonements ir veiksmīgi anulēts.
         token_error: Saitei ir beidzies derīguma termiņš.
-        unsubscribe: Anulēt abonementu
     newsletters_opt_in_mailer:
       notify:
-        body_1: Personas datu apstrāde un to aizsardzība kļūst arvien nozīmīgāka mums visiem. Ievērojot jauno Vispārīgo datu aizsardzības regulu (VDAR) (2018. gada 25. maijs), indivīdi var efektīvāk kontrolēt savu personas datu izmantošanu. Šī iemesla dēļ mums ir nepieciešams jūsu „OK”, lai turpinātu sūtīt būtisku informāciju par %{organisation_name} darbībām.
         body_2: 'Kā jūs varat dot mums savu piekrišanu? Vienkārši noklikšķiniet uz šīs pogas:'
         body_3: Piekrītot jūs varēsiet turpināt saņemt informāciju par platformas pakalpojumiem. Pretējā gadījumā, ja mēs nesaņemsim no jums pozitīvu apstiprinājumu, mēs pārtrauksim jums sūtīt ziņas. Ja jūs apstiprināsiet, ka vēlaties saņemt informāciju, jums vienmēr būs iespēja šo piekrišanu atcelt jebkurā laikā.
         button: Jā, es vēlos turpināt saņemt būtisku informāciju

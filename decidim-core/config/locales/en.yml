@@ -1283,7 +1283,7 @@ en:
         success: Newsletter settings successfully updated.
     newsletters_opt_in_mailer:
       notify:
-        body_1: The processing of personal data and its protection is becoming increasingly important for all of us. With the new General Data Protection Regulation (GDPR) of May 25, 2018, individuals have better control over their personal data. For this reason we need your "OK" to continue sending relevant information about the activities of the %{organization_name}.
+        body_1: The processing of personal data and its protection is becoming increasingly important for all of us. With the General Data Protection Regulation (GDPR) of May 25, 2018, individuals have better control over their personal data. For this reason we need your "OK" to continue sending relevant information about the activities of the %{organization_name}.
         body_2: 'How can you give us your consent? Just click the following button:'
         body_3: With this consent you will be able to continue receiving information about the services of the platform. If, on the contrary, we do not receive a positive confirmation on your part we will stop sending you our messages. If you confirm that you want to keep being informed, you will always have the option to cancel at any time.
         button: Yes, I want to continue receiving relevant information
@@ -2116,8 +2116,7 @@ en:
         social_media: Social media
         terms_of_service: Terms of Service
       header:
-        back: Back to list
-        cancel: Cancel
+        back: Back
         close: Close
         confirm_close_ephemeral_session: If you navigate away, your temporary session will be closed. However, all your progress and activity will be saved. If you have finished your activity, click Ok.
         confirm_title_close_ephemeral_session: Before leaving this page…
@@ -2171,6 +2170,11 @@ en:
   locale:
     name: English
     name_with_error: English (error!)
+  number:
+    currency:
+      format:
+        format: "%u %n"
+        format_html: "<span>%u</span> %n"
   password_validator:
     denied: is denied
     domain_included_in_password: is too similar to this domain name

@@ -3,17 +3,12 @@
 <% append_javascript_pack_tag "decidim_elections_admin" %>
 <% append_stylesheet_pack_tag "decidim_elections_admin" %>
 
-<%= render "decidim/elections/admin/elections/tabs_menu" do %>
+<div class="item_show__header" style="border-bottom: none;">
+  <h1 class="item_show__header-title">
+    <%= t(".title") %>
+  </h1>
+
   <div>
-    <% if allowed_to?(:publish, :election, election:) %>
-      <%= link_to publish_election_path(election),
-                  method: :put,
-                  class: "button button__xs button__secondary",
-                  data: { confirm: t("publish_confirm", scope: "decidim.elections.admin.dashboard") } do %>
-                  <%= icon "check-line" %>
-                  <%= t("publish", scope: "decidim.elections.admin.elections.form") %>
-      <% end %>
-    <% end %>
     <%= link_to resource_locator(election).path, class: "button button__xs button__transparent-secondary", target: :blank, data: { "external-link": false } do %>
       <%= icon "eye-line" %>
       <%# i18n-tasks-use t("decidim.elections.actions.view") %>
@@ -21,9 +16,11 @@
       <%= t(election.published? ? "view" : "preview", scope: "decidim.elections.actions") %>
     <% end %>
   </div>
-<% end %>
+</div>
 
-<div class="item__edit-form">
+<%= render "decidim/elections/admin/elections/tabs_menu" %>
+
+<div class="item__edit-form 2xl:mr-80">
   <% if election.published? %>
     <div class="flex flex-col md:flex-row gap-4 w-full mb-10">
       <div class="flex-1"><%= render partial: "decidim/elections/admin/dashboard/status" %></div>
@@ -36,4 +33,18 @@
     <%= render partial: "decidim/elections/admin/dashboard/questions" %>
     <%= render partial: "decidim/elections/admin/dashboard/census" %>
   <% end %>
+
+  <div class="item__edit-sticky">
+    <div class="item__edit-sticky-container">
+      <% if allowed_to?(:publish, :election, election:) %>
+        <%= link_to publish_election_path(election),
+                    method: :put,
+                    class: "button button__sm button__secondary",
+                    data: { confirm: t("publish_confirm", scope: "decidim.elections.admin.dashboard") } do %>
+                    <%= icon "check-line" %>
+                    <%= t("publish", scope: "decidim.elections.admin.elections.form") %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>

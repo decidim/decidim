@@ -43,8 +43,8 @@ en:
           components:
             allow_editing_responses: Allow registered users to edit own survey responses
             allow_responses: Allow responses
-            allow_unregistered: Allow unregistered users to response the survey
-            allow_unregistered_help: If active, no login will be required in order to response the survey. This may lead to poor or unreliable data and it will be more vulnerable to automated attacks. Use with caution! Mind that a participant could response the same survey multiple times, by using different browsers or the "private browsing" feature of her web browser.
+            allow_unregistered: Allow unregistered users to respond to the survey
+            allow_unregistered_help: If active, no login will be required in order to respond to the survey. This may lead to poor or unreliable data and it will be more vulnerable to automated attacks. Use with caution! Mind that a participant could response the same survey multiple times, by using different browsers or the "private browsing" feature of her web browser.
             announcement: Announcement
             clean_after_publish: Delete responses when publishing the survey
             description: Description
@@ -55,7 +55,7 @@ en:
             tos: Terms of service
         questionnaires:
           actions:
-            back: Back to questions
+            back: Back to responses
             publish_responses: Publish responses
             show: Responses
           display_condition:
@@ -139,19 +139,15 @@ en:
             show:
               title: 'Response #%{number}'
           separator:
-            down: Down
             remove: Remove
             separator: Separator
-            up: Up
           title_and_description:
             collapse: Collapse
             description: Description
-            down: Down
             expand: Expand
             remove: Remove
             title: Title
             title_and_description: Title and description
-            up: Up
           update:
             invalid: There was a problem saving the form.
             success: Form successfully saved.
