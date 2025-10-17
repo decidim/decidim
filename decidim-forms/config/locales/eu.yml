@@ -54,7 +54,7 @@ eu:
             tos: Zerbitzu-baldintzak
         questionnaires:
           actions:
-            back: Itzuli galderetara
+            back: Itzuli erantzunetara
             publish_responses: Argitaratu erantzunak
             show: Erantzunak
           display_condition:
