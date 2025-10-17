@@ -1,10 +1,15 @@
+<%# If the options hash has the demo key it means we are in the decidim-design engine, so it is not a real-world scenario with actual users %>
+<% tooltip = options.has_key?(:demo) ? { tooltip: render(:profile_minicard).html_safe } : nil %>
 <%= content_tag(:p, class: :author, data: ) do %>
-  <%= content_tag :span, class: "author__container#{" is-compact" if layout == :compact}" do %>
+  <%= content_tag :span, class: "author__container#{" is-compact" if layout == :compact}", data: tooltip do %>
     <% if layout == :compact %>
       <%= render :avatar %>
 
       <span>
-        <%= render :name %>
+        <span class="flex gap-2">
+          <%= render :name %>
+          <%= render :badge %>
+        </span>
 
         <% context_actions.each do |action| %>
           <%= render action %>
@@ -15,6 +20,7 @@
     <% else %>
       <%= render :avatar %>
       <%= render :name %>
+      <%= render :badge %>
     <% end %>
   <% end %>
 
