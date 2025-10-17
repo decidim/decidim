@@ -61,7 +61,19 @@ The Polls feature within the Meetings module (`decidim-meetings`) will be remove
 
 These are one time actions that need to be done after the code is updated in the production database.
 
-### 3.1. [[TITLE OF THE ACTION]]
+### 3.1. Fix incorrect ActionLog entries
+
+The action of hiding a component from a menu was being stored as a public action. These can lead to crashing the application if some related participatory space is removed. 
+
+In order to correct the existing entries you should run the following rake task:
+
+```bash
+bin/rails decidim:upgrade:fix_action_log
+```
+
+You can read more about this change on PR [#15390](https://github.com/decidim/decidim/pull/15390).
+
+### 3.2. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
