@@ -38,6 +38,25 @@ describe "Homepage" do
         visit decidim.root_path
       end
 
+      context "with an admin user" do
+        let(:user) { create(:user, :admin, :confirmed, organization:) }
+
+        before do
+          login_as user, scope: :user if user
+          visit current_path
+        end
+
+        describe "the edit button" do
+          let(:edit_path) { decidim_admin.edit_organization_homepage_path }
+
+          it "shows the admin bar with the Edit button" do
+            within "#admin-bar" do
+              expect(page).to have_link("Edit", href: edit_path)
+            end
+          end
+        end
+      end
+
       context "when having homepage anchors" do
         %w(hero sub_hero how_to_participate footer_sub_hero).each do |anchor|
           it { expect(page).to have_css("[id^=#{anchor}]", visible: :all) }

@@ -59,7 +59,11 @@
     }
 
     &-title {
-      @apply h4 text-secondary;
+      @apply h4;
+    }
+
+    a &-title {
+      @apply text-secondary;
 
       overflow: hidden;
       display: -webkit-box;
