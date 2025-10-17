@@ -14,8 +14,6 @@ nl:
             description: Omschrijving
             tos: Servicevoorwaarden
         questionnaires:
-          actions:
-            back: Terug naar vragen
           display_condition:
             condition_question: Vraag
             condition_type: Voorwaarde
