@@ -16,8 +16,6 @@
             description: Beskrivelse
             tos: Tjenestevilkår
         questionnaires:
-          actions:
-            back: Tilbake til spørsmål
           display_condition:
             condition_question: Spørsmål
             condition_type: Betingelse
