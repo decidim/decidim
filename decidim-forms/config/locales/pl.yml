@@ -16,8 +16,6 @@ pl:
             description: Opis
             tos: Warunki uczestnictwa
         questionnaires:
-          actions:
-            back: Powrót do pytań
           display_condition:
             condition_question: Pytanie
             condition_type: Warunek
