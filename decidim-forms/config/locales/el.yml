@@ -15,8 +15,6 @@ el:
             description: Περιγραφή
             tos: Όροι χρήσης υπηρεσίας
         questionnaires:
-          actions:
-            back: Επιστροφή στις ερωτήσεις
           display_condition:
             condition_question: Ερώτηση
             condition_type: Συνθήκη
