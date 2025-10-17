@@ -54,7 +54,6 @@ ca-IT:
             tos: Termes del servei
         questionnaires:
           actions:
-            back: Tornar a les preguntes
             publish_responses: Publicar les respostes
             show: Respostes
           display_condition:
