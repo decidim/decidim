@@ -2153,7 +2153,6 @@ ja:
     name_included_in_password: あなたの名前に似ています
     nickname_included_in_password: ニックネームに類似しすぎています
     not_enough_unique_characters: ユニークな文字が十分ではありません
-    password_not_allowed: は許可されていません
     password_repeated: 古いパスワードは再利用できません
     password_too_common: あまりにも一般的です
     password_too_long: 長すぎます
