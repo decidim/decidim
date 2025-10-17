@@ -54,7 +54,7 @@ sv:
             tos: Användarvillkor
         questionnaires:
           actions:
-            back: Tillbaka till frågor
+            back: Tillbaka till svar
             publish_responses: Publicera svar
             show: Svar
           display_condition:
