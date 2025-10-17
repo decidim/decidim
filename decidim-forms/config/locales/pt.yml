@@ -15,8 +15,6 @@ pt:
             description: Descrição
             tos: Termos de serviço
         questionnaires:
-          actions:
-            back: Retroceder às perguntas
           display_condition:
             condition_question: Pergunta
             condition_type: Condição
