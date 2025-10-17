@@ -16,8 +16,6 @@ zh-TW:
             description: 說明
             tos: 服務條款
         questionnaires:
-          actions:
-            back: 返回問題
           display_condition:
             condition_question: 問題
             condition_type: 條件
