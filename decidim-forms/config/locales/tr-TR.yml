@@ -15,8 +15,6 @@ tr:
             description: Açıklama
             tos: Kullanım Şartları
         questionnaires:
-          actions:
-            back: Sorulara geri dön
           display_condition:
             condition_question: Soru
             condition_type: Durum
