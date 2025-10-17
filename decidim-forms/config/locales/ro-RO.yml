@@ -32,7 +32,6 @@ ro:
             tos: Termenii serviciului
         questionnaires:
           actions:
-            back: Înapoi la întrebări
             show: Răspunsuri
           display_condition:
             condition_question: Întrebare
