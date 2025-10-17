@@ -55,7 +55,7 @@ fr:
             tos: Conditions d'utilisation
         questionnaires:
           actions:
-            back: Retour aux questions
+            back: Retour aux réponses
             publish_responses: Publier les réponses
             show: Réponses
           display_condition:
