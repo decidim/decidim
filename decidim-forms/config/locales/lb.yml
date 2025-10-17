@@ -15,8 +15,6 @@ lb:
             description: Beschreibung
             tos: Nutzungsbedingungen
         questionnaires:
-          actions:
-            back: Zurück zu Fragen
           display_condition:
             condition_question: Frage
             condition_type: Bedingung
