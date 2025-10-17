@@ -16,8 +16,6 @@ lt:
             description: Aprašymas
             tos: Paslaugų teikimo sąlygos
         questionnaires:
-          actions:
-            back: Grįžti į klausimus
           display_condition:
             condition_question: Klausimas
             condition_type: Sąlyga
