@@ -2174,7 +2174,6 @@ fi-pl:
     name_included_in_password: liian samankaltainen nimesi kanssa
     nickname_included_in_password: liian samankaltainen nimesi kanssa
     not_enough_unique_characters: ei sisällä tarpeeksi yksilöllisiä merkkejä
-    password_not_allowed: ei ole sallittu
     password_repeated: et voi uudelleenkäyttää vanhaa salasanaa
     password_too_common: liian yleinen
     password_too_long: liian pitkä
