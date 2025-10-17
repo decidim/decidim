@@ -55,7 +55,6 @@ fi-pl:
             tos: Käyttöehdot
         questionnaires:
           actions:
-            back: Takaisin kysymyksiin
             publish_responses: Julkaise vastaukset
             show: Vastaukset
           display_condition:
