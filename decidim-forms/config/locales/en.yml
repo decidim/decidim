@@ -36,6 +36,7 @@ en:
           user: The user who responded the questionnaire
       show:
         survey_user_responses: Survey user responses
+        responses: Responses
     forms:
       admin:
         models:
