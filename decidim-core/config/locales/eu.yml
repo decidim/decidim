@@ -2175,7 +2175,6 @@ eu:
     name_included_in_password: zure izenaren antzekoa da
     nickname_included_in_password: zure ezizenaren antzekoegia da
     not_enough_unique_characters: ez da nahikoa karaktere berezirik
-    password_not_allowed: ez da onartzen
     password_repeated: Ezin da erabili pasahitz zaharra
     password_too_common: oso ohikoa da
     password_too_long: luzeegia da
