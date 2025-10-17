@@ -6,8 +6,8 @@ describe Decidim::ProfileCell, type: :cell do
   controller Decidim::ProfilesController
   subject { my_cell.call }
 
-  let(:organization) { create(:organization) }
-  let(:user) { create(:user, :managed, organization:, blocked: false) }
+  let(:organization) { build(:organization) }
+  let(:user) { build(:user, :managed, organization:, blocked: false) }
   let(:context) { { content_cell: "decidim/badges" } }
   let(:my_cell) { cell("decidim/profile", user, context:) }
 
@@ -19,7 +19,7 @@ describe Decidim::ProfileCell, type: :cell do
 
   context "when the user displayed is blocked" do
     context "and is an admin" do
-      let(:user) { create(:user, :managed, organization:, blocked: true, admin: true) }
+      let(:user) { build(:user, :managed, organization:, blocked: true, admin: true) }
 
       it "shows the user profile" do
         expect(subject).to have_no_text("This profile is inaccessible due to terms of service violation!")
@@ -27,11 +27,23 @@ describe Decidim::ProfileCell, type: :cell do
     end
 
     context "and is not an admin" do
-      let(:user) { create(:user, :managed, organization:, blocked: true, admin: false) }
+      let(:user) { build(:user, :managed, organization:, blocked: true, admin: false) }
 
       it "shows the inaccessible profile alert" do
         expect(subject).to have_text("This profile is inaccessible due to terms of service violation!")
       end
+    end
+  end
+
+  context "when the user displayed is officialized" do
+    let(:user) { build(:user, :officialized, organization:) }
+
+    it "shows the officialization badge" do
+      expect(subject).to have_xpath("//svg/use[contains(@href, 'ri-star-s-fill')]")
+    end
+
+    it "shows the officialization name" do
+      expect(subject).to have_content(decidim_sanitize_translated(user.officialized_as))
     end
   end
 end

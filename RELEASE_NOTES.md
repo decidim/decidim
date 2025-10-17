@@ -41,7 +41,23 @@ bin/rails db:migrate
 
 ## 2. General notes
 
-### 2.1. Old private exports are now expired
+### 2.1. Module deprecations
+
+As part of our ongoing efforts to improve and make simpler Decidim, the following modules will be **deprecated** in this version (v0.31) and **removed** in the next major version (v0.32):
+
+#### Collaborative Drafts
+
+The Collaborative Drafts feature in the Proposals module (`decidim-proposals`) will be removed in v0.32. Organizations using this feature can switch to the new proposal co-authorship feature.
+
+#### Sortitions (decidim-sortitions)
+
+The Sortitions module (`decidim-sortitions`) will be removed in v0.32. This module provided functionality to randomly select participants or proposals. Organizations relying on this feature should consider implementing alternative selection mechanisms.
+
+#### Polls in Meetings (decidim-meetings polls functionality)
+
+The Polls feature within the Meetings module (`decidim-meetings`) will be removed in a future version (to be determined). This feature allowed meeting organizers to create polls during meetings. Organizations using meeting polls should plan to use external polling tools (for instance, through Jitsi) or migrate to other voting mechanisms available in Decidim, such as the new Elections module (`decidim-elections`).
+
+### 2.2. Old private exports are now expired
 
 Due to some data consistency issues with the private exports, we have decided to expire all the previously generated files. Users are able to request and receive a new private export file.
 

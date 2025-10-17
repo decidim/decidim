@@ -55,7 +55,7 @@ en:
             tos: Terms of service
         questionnaires:
           actions:
-            back: Back to questions
+            back: Back to responses
             publish_responses: Publish responses
             show: Responses
           display_condition:
