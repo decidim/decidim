@@ -16,8 +16,6 @@ bg:
             description: Описание
             tos: Условия за ползване
         questionnaires:
-          actions:
-            back: Назад към въпросите
           display_condition:
             condition_question: Въпрос
             condition_type: Условие
