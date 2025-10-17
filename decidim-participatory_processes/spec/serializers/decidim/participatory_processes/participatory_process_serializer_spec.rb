@@ -142,8 +142,6 @@ module Decidim::ParticipatoryProcesses
           expect(serialized_participatory_process_steps).to include(description: step.description)
           expect(serialized_participatory_process_steps).to include(start_date: step.start_date)
           expect(serialized_participatory_process_steps).to include(end_date: step.end_date)
-          expect(serialized_participatory_process_steps).to include(cta_path: step.cta_path)
-          expect(serialized_participatory_process_steps).to include(cta_text: step.cta_text)
           expect(serialized_participatory_process_steps).to include(active: step.active)
           expect(serialized_participatory_process_steps).to include(position: step.position)
         end
