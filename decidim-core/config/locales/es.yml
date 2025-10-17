@@ -2174,7 +2174,6 @@ es:
     name_included_in_password: es demasiado similar a tu nombre
     nickname_included_in_password: es demasiado similar a tu alias
     not_enough_unique_characters: no tiene suficientes caracteres únicos
-    password_not_allowed: no está permitido
     password_repeated: no puedes reutilizar una contraseña antigua
     password_too_common: es demasiado común
     password_too_long: es demasiado largo
