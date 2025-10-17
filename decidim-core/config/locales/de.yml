@@ -2182,7 +2182,6 @@ de:
     name_included_in_password: ist Ihrem Namen zu ähnlich
     nickname_included_in_password: ist Ihrem Nicknamen zu ähnlich
     not_enough_unique_characters: hat nicht genug eindeutige Zeichen
-    password_not_allowed: ist nicht erlaubt
     password_repeated: ein früheres Passwort kann nicht wieder verwendet werden
     password_too_common: ist zu allgemein
     password_too_long: es ist zu lang
