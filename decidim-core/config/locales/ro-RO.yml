@@ -1659,7 +1659,6 @@ ro:
     name_included_in_password: este prea asemănător cu numele dumneavoastră
     nickname_included_in_password: este prea asemănător cu nickname-ul dvs
     not_enough_unique_characters: nu are destule caractere unice
-    password_not_allowed: nu este permis
     password_too_common: este prea frecvent
     password_too_long: este prea lungă
     password_too_short: este prea scurtă
