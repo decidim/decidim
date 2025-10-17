@@ -54,7 +54,6 @@ es:
             tos: Términos y condiciones de uso
         questionnaires:
           actions:
-            back: Volver a las preguntas
             publish_responses: Publicar las respuestas
             show: Respuestas
           display_condition:
