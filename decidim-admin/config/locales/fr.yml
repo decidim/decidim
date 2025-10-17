@@ -48,7 +48,6 @@ fr:
         customize_welcome_notification: Personnaliser le mail de bienvenue
         default_locale: Langue par défaut
         description: Description
-        enable_machine_translations: Activer la traduction automatique
         enable_omnipresent_banner: Activer la bannière permanente
         enable_participatory_space_filters: Activer les filtres d'espace participatif
         facebook_handler: Gestionnaire Facebook
