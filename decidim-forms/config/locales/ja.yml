@@ -55,6 +55,7 @@ ja:
             tos: 利用規約
         questionnaires:
           actions:
+            back: 回答に戻る
             publish_responses: 応答を公開
             show: 応答
           display_condition:
