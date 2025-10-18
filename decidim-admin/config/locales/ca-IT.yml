@@ -49,6 +49,7 @@ ca-IT:
         customize_welcome_notification: Personalitza la notificació de benvinguda
         default_locale: Idioma per defecte
         description: Descripció
+        enable_machine_translations: Habilitar traduccions automàtiques
         enable_omnipresent_banner: Mostrar el banner omnipresent
         enable_participatory_space_filters: Habilitar els filtres a l'espai de participació
         facebook_handler: Nom d'usuari de Facebook
