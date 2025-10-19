@@ -40,8 +40,11 @@ cs:
         dashboard:
           calendar:
             end_at: 'Čas ukončení:'
+            end_election: Ukončit volby
             manual_start: Ručně
+            published_results_at: Výsledky zveřejněny na
             start_at: 'Čas zahájení:'
+            start_election: Zahájit volbu
             title: Kalendář
           census:
             title: Seznam obyvatel
@@ -57,6 +60,7 @@ cs:
           questions:
             labels:
               answers: Odpovědi
+            limit_info: Tyto volby mají více otázek. Náhled je omezen na 3 otázky.
             title: Otázky
           questions_table:
             answer: Odpovědi
@@ -65,6 +69,7 @@ cs:
           results:
             not_started: Volba ještě nezačala.
             publish_button: Publikovat výsledky
+            start_question_button: Povolit hlasování
             title: Výsledky
           status:
             title: Stav voleb
@@ -87,7 +92,9 @@ cs:
             publish: Publikovat
             results_availability:
               after_end: Po ukončení voleb
+              real_time: V reálném čase
               title: Dostupnost výsledků
+            save: Uložit a pokračovat
             start_at: Čas zahájení
           index:
             title: Volby
@@ -121,6 +128,7 @@ cs:
         internal_users:
           already_have_an_account?: Již máte účet?
           are_you_new?: Nový účastník?
+          sign_in_description: Přihlaste se k hlasování v těchto volbách
         token_csv:
           upload_file: Nahrát soubor
           upload_new_census: Nahrát CSV soubor
@@ -165,6 +173,9 @@ cs:
             start_at: Čas zahájení
             status: Stav
             title: Název
+      per_question_votes:
+        waiting:
+          edit_vote: Upravte svůj hlas
       status:
         active: Aktivní
         finished: Dokončeno
