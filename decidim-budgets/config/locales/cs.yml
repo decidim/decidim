@@ -334,6 +334,7 @@ cs:
         select_projects: Přidat projekty
         show:
           budget: Rozpočet
+          votes: Hlasy
       prompt: Vybrat rozpočet
       vote_reminder_mailer:
         vote_reminder:
