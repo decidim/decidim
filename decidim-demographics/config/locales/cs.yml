@@ -48,9 +48,12 @@ cs:
           submit: Uložit data
           terms_of_service: podmínky služby
           tos_agreement: Zúčastněním souhlasíte s %{link}.
+        show:
+          page_title: Demografická data darování
       destroy:
         error: Při odstraňování darovaných dat došlo k chybě
         success: Vaše darovaná data byla úspěšně odstraněna
+      name: Demografická data darování
       questions:
         age:
           options:
