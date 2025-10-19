@@ -87,6 +87,7 @@ cs:
           new: Navrhnout novou verzi
         save: Navrhnout změny
         status:
+          draft: Tento dokument je v současné době přezkoumáván správci. Návrhy nejsou v tuto chvíli povoleny, ale můžete zobrazit návrhy jiných účastníků.
           not_accepting_suggestions: Návrhy nejsou v tuto chvíli povoleny.
         suggestions_count: "%{count} návrhů"
         toggle: Zobrazit/skrýt návrhy
@@ -98,6 +99,7 @@ cs:
       models:
         collaborative_text:
           fields:
+            published: Zveřejněno
             suggestions: Přijmout návrhy
             title: Název
       suggestions:
