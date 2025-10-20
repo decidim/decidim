@@ -24,7 +24,6 @@ module Decidim
 
           followers
         end
-
       end
     end
   end
