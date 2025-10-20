@@ -69,7 +69,13 @@ module Decidim
         # The queries already include the order by weight
         Decidim::ParticipatoryProcesses::OrganizationParticipatoryProcesses.new(current_organization) |
           Decidim::ParticipatoryProcesses::PromotedParticipatoryProcesses.new
-      ).select(&:published?)&.first
+      ).select(&:published?).map { |process| remove_private_space_if_not_private_user(process) }&.compact&.first
+    end
+
+    def remove_private_space_if_not_private_user(process)
+      return nil if process.private_space == true && !process.can_participate?(current_user)
+
+      process
     end
 
     def home_content_block_menu
