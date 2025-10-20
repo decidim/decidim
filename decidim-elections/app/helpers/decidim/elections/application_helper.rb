@@ -37,18 +37,21 @@ module Decidim
         (defined?(current_component) && translated_attribute(current_component&.name).presence) || t("decidim.components.elections.name")
       end
 
-      def question_title(question, tag = :h3, **options)
+      def question_title(question, tag, **options)
         content_tag(tag, **options) do
           translated_attribute(question.body)
         end
       end
 
-      def question_description(question, tag = :p, **options)
+      def render_question_description(question)
         description = translated_attribute(question.description)
         return if description.blank?
 
-        content_tag(tag, **options) do
-          decidim_sanitize(description)
+        sanitized = decidim_sanitize_admin(description)
+        if rich_text_editor_in_public_views?
+          Decidim::ContentProcessor.render_without_format(sanitized).html_safe
+        else
+          Decidim::ContentProcessor.render(sanitized, "div")
         end
       end
 
