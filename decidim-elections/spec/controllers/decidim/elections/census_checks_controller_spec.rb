@@ -7,7 +7,7 @@ module Decidim
     describe CensusChecksController do
       let(:component) { create(:elections_component) }
       let(:organization) { component.organization }
-      let(:election) { create(:election, :published, :scheduled, :with_token_csv_census, component:) }
+      let(:election) { create(:election, :published, :scheduled, :with_token_csv_census, component:, allow_census_check_before_start: true) }
       let(:params) { { component_id: component.id, election_id: election.id } }
       let(:main_proxy) { Decidim::EngineRouter.main_proxy(component) }
       let(:new_census_check_path) { main_proxy.new_election_census_check_path(election) }

@@ -96,6 +96,7 @@ en:
             start_question_button: Enable voting
             title: Results
           status:
+            allow_census_check_before_start: Allow users to check if they can vote before the election starts
             census: 'Census:'
             results_availability:
               after_end: Results available after the election ends

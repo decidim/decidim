@@ -24,17 +24,19 @@ module Decidim
       end
 
       # A JSON representation of the election, including its questions and response options.
-      # Suitable for rendering results in real time.
       # Unless `admin: true` is passed, only results for questions with published results are included.
       def to_json(admin: false)
         {
           id: election.id,
           ongoing: election.ongoing?,
+          scheduled: election.scheduled?,
           status: election.status,
           start_date: election.start_at&.iso8601,
           end_date: election.end_at.iso8601,
           title: election.translated_attribute(title),
           description: election.translated_attribute(description),
+          allow_census_check_before_start: election.allow_census_check_before_start,
+          census_ready: election.census_ready?,
           questions: questions.map do |question|
             {
               id: question.id,

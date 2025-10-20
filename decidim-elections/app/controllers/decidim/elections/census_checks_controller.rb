@@ -37,6 +37,13 @@ module Decidim
 
       private
 
+      # Allows admins to access unpublished elections for preview.
+      def election
+        @election ||= Election.where(component: current_component)
+                              .then { |scope| current_user&.admin? ? scope : scope.published }
+                              .find(params[:election_id])
+      end
+
       def redirect_if_authenticated
         redirect_to election_census_check_path(election) if session_authenticated?
       end
