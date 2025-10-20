@@ -63,7 +63,7 @@ These are one time actions that need to be done after the code is updated in the
 
 ### 3.1. Fix incorrect ActionLog entries
 
-The action of hiding a component from a menu was being stored as a public action. These can lead to crashing the application if some related participatory space is removed. 
+The action of hiding a component from a menu was being stored as a public action. These can lead to crashing the application if some related participatory space is removed.
 
 In order to correct the existing entries you should run the following rake task:
 
