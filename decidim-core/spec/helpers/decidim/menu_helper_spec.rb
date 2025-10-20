@@ -54,13 +54,35 @@ module Decidim
         end
       end
 
-      context "when there are 2 promoted processes but the one with minimum weight is not published" do
-        before do
-          process_two.update!(promoted: true, published_at: nil)
+      context "when there are 2 promoted processes" do
+        context "and the one with minimum weight is not published" do
+          before do
+            process_two.update!(promoted: true, published_at: nil)
+          end
+
+          it "returns the other published promoted process" do
+            expect(helper.menu_highlighted_participatory_process).to eq(process_three)
+          end
         end
 
-        it "returns the other published promoted process" do
-          expect(helper.menu_highlighted_participatory_process).to eq(process_three)
+        context "and the promoted published process with minimum weight is private" do
+          before do
+            process_two.update!(promoted: true, private_space: true)
+          end
+
+          context "and current_user is private user of that process" do
+            let!(:participatory_space_private_user) { create(:participatory_space_private_user, privatable_to: process_two, user:) }
+
+            it "returns the private process" do
+              expect(helper.menu_highlighted_participatory_process).to eq(process_two)
+            end
+          end
+
+          context "and current_user is not private user of that process" do
+            it "returns the other published promoted process" do
+              expect(helper.menu_highlighted_participatory_process).to eq(process_three)
+            end
+          end
         end
       end
     end
