@@ -9,10 +9,7 @@
   </h1>
 
   <div>
-    <%= link_to resource_locator(election).path,
-            class: "button button__xs button__transparent-secondary flex flex-row items-center gap-2",
-            target: :blank,
-            data: { "external-link": false } do %>
+    <%= link_to resource_locator(election).path, class: "button button__xs button__transparent-secondary flex flex-row items-center gap-2", target: :blank, data: { "external-link": false } do %>
       <%= icon "eye-line", class: "inline-block" %>
       <%# i18n-tasks-use t("decidim.elections.actions.view") %>
       <%# i18n-tasks-use t("decidim.elections.actions.preview") %>
