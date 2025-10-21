@@ -26,9 +26,8 @@
       <%= render partial: election.census.admin_form_partial, locals: { form: f } %>
     <% end %>
   <% end %>
-  <div class="border-t border-gray-3 my-4">
-    <%= render partial: "decidim/elections/admin/census/preview", locals: { election: } if preview_users(election).present? %>
-  </div>
+
+  <%= render partial: "decidim/elections/admin/census/preview", locals: { election: } if preview_users(election).present? %>
 </div>
 
 <div class="item__edit-sticky">
