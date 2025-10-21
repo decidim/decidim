@@ -1,5 +1,5 @@
 <%= form_with url: url_for(action: :show, id: question), method: :patch, local: true do %>
-  <%= question_title(question, :h3, class: "vote_booth-question_title") %>
+  <%= question_title(question, :h1, class: "vote_booth-question_title") %>
   <div class="editor-content">
     <%= render_question_description(question) %>
   </div>
