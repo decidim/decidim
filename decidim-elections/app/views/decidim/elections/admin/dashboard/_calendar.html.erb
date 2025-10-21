@@ -24,8 +24,8 @@
     </div>
   </div>
 </div>
-<div class="fixed bottom-0 left-0 w-full bg-[rgb(62,76,92)] z-50">
-  <div class="flex justify-end p-4">
+<div class="item__edit-sticky">
+  <div class="item__edit-sticky-container">
     <% if (action_data = election_status_action_data(election)) %>
       <%= form_with url: update_status_election_path(election), method: :put, local: true do %>
         <%= hidden_field_tag :status_action, action_data[:status_action] %>
