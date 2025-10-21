@@ -31,7 +31,7 @@ class EtiquetteValidator < ActiveModel::EachValidator
   end
 
   def validate_caps(record, attribute, value)
-    number_of_caps = value.scan(/[A-Z]/).length
+    number_of_caps = value.scan(/[[:upper:]]/).length
     return if number_of_caps.zero? || number_of_caps < value.length / 2 # 50%
 
     record.errors.add(attribute, options[:message] || :too_much_caps)
@@ -44,7 +44,7 @@ class EtiquetteValidator < ActiveModel::EachValidator
   end
 
   def validate_caps_first(record, attribute, value)
-    return if value.scan(/\A[a-z]{1}/).empty?
+    return if value.scan(/\A[[:lower:]]{1}/).empty?
 
     record.errors.add(attribute, options[:message] || :must_start_with_caps)
   end
