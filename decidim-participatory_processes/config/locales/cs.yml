@@ -441,6 +441,7 @@ cs:
             inclusiveness:
               description: Inkluzivita podle kulturního původu a funkční rozmanitosti.
               digital_support_offered:
+                legend: Byla účastníkům nabídnuta digitální podpora?
                 options:
                   five: 'Ano'
                   two_five: Částečně
@@ -465,6 +466,7 @@ cs:
                   zero: 'Ne'
               name: Inkluzivita
               participation_scheduling_times:
+                legend: Zasedání o účasti byla naplánována v různých časech (ranní, poledne, odpoledne, večer a víkendy).
                 options:
                   five: 'Ano'
                   two_five: Částečně
