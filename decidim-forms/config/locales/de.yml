@@ -43,6 +43,7 @@ de:
           components:
             allow_editing_responses: Registrierten Benutzern die Bearbeitung eigener Umfrageantworten ermöglichen
             allow_responses: Antworten erlauben
+            allow_unregistered: Teilnahme an der Umfrage ohne Registrierung erlauben
             announcement: Ankündigung
             clean_after_publish: Antworten beim Veröffentlichen der Umfrage löschen
             description: Beschreibung
