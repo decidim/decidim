@@ -2183,7 +2183,6 @@ en:
     name_included_in_password: is too similar to your name
     nickname_included_in_password: is too similar to your nickname
     not_enough_unique_characters: does not have enough unique characters
-    password_not_allowed: is not allowed
     password_repeated: cannot reuse old password
     password_too_common: is too common
     password_too_long: is too long
