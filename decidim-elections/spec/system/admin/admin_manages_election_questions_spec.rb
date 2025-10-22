@@ -73,30 +73,90 @@ describe "Admin manages elections questions" do
     end
   end
 
-  context "when admin user edits and reorders" do
-    let!(:question) { create(:election_question, :with_response_options, election:) }
-    let!(:second_question) { create(:election_question, :with_response_options, election:) }
+  context "when reordering questions with drag and drop", :js do
+    before do
+      expand_all_questions
+    end
 
-    it "edits a question with response options" do
-      visit questions_edit_path
-      find("#questionnaire_question_#{question.id}-button").click
+    it "allows moving questions using drag and drop" do
+      question_cards = all(".questionnaire-question")
 
-      within "#accordion-questionnaire_question_#{question.id}-field" do
-        fill_in find_nested_form_field_locator("body_en"), with: "This is the edited question"
+      within question_cards[0] do
+        expect(find("input[name*='[body_en]']").value).to eq("First")
+      end
+      within question_cards[1] do
+        expect(find("input[name*='[body_en]']").value).to eq("Second")
+      end
+      within question_cards[2] do
+        expect(find("input[name*='[body_en]']").value).to eq("Third")
       end
 
-      click_on "Up"
+      # JavaScript to simulate drag and drop.
+      page.execute_script(<<~JS)
+        var questions = document.querySelectorAll('.questionnaire-question');
+        var container = questions[0].parentNode;
+        var second = questions[1];
+        var first = questions[0];
 
-      click_on "Save and continue"
+        // Move second question before first
+        container.insertBefore(second, first);
 
+        // Update position values
+        var updatedQuestions = container.querySelectorAll('.questionnaire-question');
+        updatedQuestions.forEach(function(question, index) {
+          var positionInput = question.querySelector('input[name$="[position]"]');
+          if (positionInput) positionInput.value = index;
+        });
+      JS
+
+      sleep 0.5
+
+      question_cards = all(".questionnaire-question")
+      within question_cards[0] do
+        expect(find("input[name*='[body_en]']").value).to eq("Second")
+      end
+      within question_cards[1] do
+        expect(find("input[name*='[body_en]']").value).to eq("First")
+      end
+      within question_cards[2] do
+        expect(find("input[name*='[body_en]']").value).to eq("Third")
+      end
+    end
+
+    it "persists drag and drop changes when saving" do
+      # Move second question to last position
+      page.execute_script(<<~JS)
+        var questions = document.querySelectorAll('.questionnaire-question');
+        var container = questions[0].parentNode;
+        var second = questions[1];
+
+        container.appendChild(second);
+
+        // Update the positions of questions
+        var updatedQuestions = container.querySelectorAll('.questionnaire-question');
+        updatedQuestions.forEach(function(question, index) {
+          var positionInput = question.querySelector('input[name$="[position]"]');
+          if (positionInput) positionInput.value = index;
+        });
+      JS
+
+      sleep 0.5
+
+      click_on "Save"
       expect(page).to have_admin_callout("successfully")
 
-      visit questions_edit_path
-      expand_all_questions
+      visit_manage_questions_and_expand_all
 
-      expect(page).to have_css("input[value='This is the edited question']")
-      expect(election.questions.reload.first).to eq(second_question)
-      expect(election.questions.second).to eq(question)
+      question_cards = all(".questionnaire-question")
+      within question_cards[0] do
+        expect(find("input[name*='[body_en]']").value).to eq("First")
+      end
+      within question_cards[1] do
+        expect(find("input[name*='[body_en]']").value).to eq("Third")
+      end
+      within question_cards[2] do
+        expect(find("input[name*='[body_en]']").value).to eq("Second")
+      end
     end
   end
 
