@@ -112,17 +112,14 @@ describe "Admin manages elections questions" do
         expect(card.find("input[name='questions[#{question_id}][body_en]']").value).to be_present
       end
 
-      # JavaScript to simulate drag and drop.
       page.execute_script(<<~JS)
         var questions = document.querySelectorAll('.questionnaire-question');
         var container = questions[0].parentNode;
         var second = questions[1];
         var first = questions[0];
 
-        // Move second question before first
         container.insertBefore(second, first);
 
-        // Update position values
         var updatedQuestions = container.querySelectorAll('.questionnaire-question');
         updatedQuestions.forEach(function(question, index) {
           var positionInput = question.querySelector('input[name$="[position]"]');
@@ -142,7 +139,8 @@ describe "Admin manages elections questions" do
     it "persists drag and drop changes when saving" do
       response_options_body = [
         ["This is the Q1 first option", "This is the Q1 second option", "This is the Q1 third option"],
-        ["This is the Q2 first option", "This is the Q2 second option", "This is the Q2 third option"]
+        ["This is the Q2 first option", "This is the Q2 second option", "This is the Q2 third option"],
+        ["This is the Q3 first option", "This is the Q3 second option", "This is the Q3 third option"]
       ]
 
       page.all(".questionnaire-question").each do |question|
@@ -159,7 +157,6 @@ describe "Admin manages elections questions" do
         end
       end
 
-      # Move second question to last position
       page.execute_script(<<~JS)
         var questions = document.querySelectorAll('.questionnaire-question');
         var container = questions[0].parentNode;
@@ -167,7 +164,6 @@ describe "Admin manages elections questions" do
 
         container.appendChild(second);
 
-        // Update the positions of questions
         var updatedQuestions = container.querySelectorAll('.questionnaire-question');
         updatedQuestions.forEach(function(question, index) {
           var positionInput = question.querySelector('input[name$="[position]"]');
@@ -178,19 +174,24 @@ describe "Admin manages elections questions" do
       sleep 0.5
 
       click_on "Save"
-      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("Questions updated successfully")
 
-      visit_manage_questions_and_expand_all
+      visit questions_edit_path
+      expand_all_questions
 
       question_cards = all(".questionnaire-question")
+
       within question_cards[0] do
-        expect(find("input[name*='[body_en]']").value).to eq("First")
+        question_id = question_cards[0][:id].split("_").last.gsub("-field", "")
+        expect(find("input[name='questions[#{question_id}][body_en]']").value).to eq("First")
       end
       within question_cards[1] do
-        expect(find("input[name*='[body_en]']").value).to eq("Third")
+        question_id = question_cards[1][:id].split("_").last.gsub("-field", "")
+        expect(find("input[name='questions[#{question_id}][body_en]']").value).to eq("Third")
       end
       within question_cards[2] do
-        expect(find("input[name*='[body_en]']").value).to eq("Second")
+        question_id = question_cards[2][:id].split("_").last.gsub("-field", "")
+        expect(find("input[name='questions[#{question_id}][body_en]']").value).to eq("Second")
       end
     end
   end
