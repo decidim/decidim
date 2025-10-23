@@ -55,7 +55,7 @@ cs:
             tos: Podmínky služby
         questionnaires:
           actions:
-            back: Zpět na otázky
+            back: Zpět k reakcím
             publish_answers: Zveřejnit odpovědi
             show: Zobrazit odpovědi
           answer_option:
