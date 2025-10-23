@@ -55,7 +55,7 @@ ja:
             tos: 利用規約
         questionnaires:
           actions:
-            back: 質問に戻る
+            back: 回答に戻る
             publish_answers: 回答を公開
             show: 回答を表示
           answer_option:
