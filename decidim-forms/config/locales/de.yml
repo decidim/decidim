@@ -55,7 +55,6 @@ de:
             tos: Nutzungsbedingungen
         questionnaires:
           actions:
-            back: Zurück zu Fragen
             publish_answers: Antworten veröffentlichen
             show: Antworten anzeigen
           answer_option:
