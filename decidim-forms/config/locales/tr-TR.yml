@@ -18,7 +18,6 @@ tr:
             tos: Kullanım Şartları
         questionnaires:
           actions:
-            back: Sorulara geri dön
             show: Yanıtları göster
           answer_option:
             answer_option: Cevap seçeneği
