@@ -76,6 +76,36 @@ module Decidim
         end
       end
 
+      describe "badges" do
+        let(:query) { "{ badges { name } }" }
+
+        context "when the gamification is disabled" do
+          let(:organization) { create(:organization, badges_enabled: false) }
+          let(:model) { create(:user, :confirmed, organization:) }
+
+          it "returns empty" do
+            expect(response["badges"]).to be_empty
+          end
+        end
+
+        context "when the gamification is enabled" do
+          context "when the user has no badges" do
+            it "returns empty" do
+              expect(response["badges"]).to be_empty
+            end
+          end
+
+          context "when the user has badges" do
+            let!(:badge) { create(:badge_score, user: model) }
+
+            it "returns empty" do
+              expect(response["badges"]).to be_present
+              expect(response["badges"][0]["name"]).to eq("followers")
+            end
+          end
+        end
+      end
+
       describe "avatarUrl" do
         let(:query) { "{ avatarUrl }" }
 

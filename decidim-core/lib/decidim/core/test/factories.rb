@@ -271,6 +271,12 @@ FactoryBot.define do
     end
   end
 
+  factory :badge_score, class: "Decidim::Gamification::BadgeScore" do
+    user
+    badge_name { "followers" }
+    value { 1 }
+  end
+
   factory :participatory_space_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
     transient do
       skip_injection { false }
