@@ -19,7 +19,6 @@ zh-TW:
             tos: 服務條款
         questionnaires:
           actions:
-            back: 返回問題
             show: 顯示回應
           answer_option:
             answer_option: 答案選項：
