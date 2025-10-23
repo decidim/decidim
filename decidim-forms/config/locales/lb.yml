@@ -19,7 +19,6 @@ lb:
             tos: Nutzungsbedingungen
         questionnaires:
           actions:
-            back: Zurück zu Fragen
             show: Antworten anzeigen
           answer_option:
             answer_option: Antwortoption
