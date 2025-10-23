@@ -15,6 +15,17 @@ module Decidim
       isolate_namespace Decidim::Conferences
 
       routes do
+        get "/conferences", to: redirect { |params, request|
+          locale = params[:locale] || request.session[:user_locale] || I18n.locale
+          "/#{locale}/conferences"
+        }
+
+        get "/conferences/*rest", to: redirect { |params, request|
+          locale = params[:locale] || request.session[:user_locale] || I18n.locale
+
+          "/#{locale}/conferences/#{params[:rest]}"
+        }
+
         scope "/:locale", constraints: { locale: Regexp.union(I18n.available_locales.map(&:to_s)) } do
           get "conferences/:conference_id", to: redirect { |params, _request|
             conference = Decidim::Conference.find(params[:conference_id])
