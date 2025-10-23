@@ -33,7 +33,8 @@
     <%= render partial: "decidim/elections/admin/dashboard/questions" %>
     <%= render partial: "decidim/elections/admin/dashboard/census" %>
   <% end %>
-
+</div>
+<% unless election.published? %>
   <div class="item__edit-sticky">
     <div class="item__edit-sticky-container">
       <% if allowed_to?(:publish, :election, election:) %>
@@ -47,4 +48,4 @@
       <% end %>
     </div>
   </div>
-</div>
+<% end %>
