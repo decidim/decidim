@@ -176,6 +176,7 @@ describe "Admin manages elections questions" do
       click_on "Save"
       expect(page).to have_admin_callout("Questions updated successfully")
 
+      # Returned to the saved questions to see their different positions
       visit questions_edit_path
       expand_all_questions
 
