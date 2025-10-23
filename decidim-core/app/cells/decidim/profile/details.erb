@@ -1,7 +1,8 @@
 <div class="profile__details">
-  <h1 class="h3">
+  <h1 class="h3 flex gap-2">
     <%= presented_profile.name %>
     <span class="sr-only"><%= user_tabs.find { |tab_item| is_active_link?(tab_item[:path]) }&.dig(:text) %> (<%= presented_profile.name %>)</span>
+    <%= render :badge if show_badge? %>
   </h1>
   <div class="profile__details-data">
     <% details_items.each do |detail| %>

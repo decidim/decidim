@@ -46,6 +46,7 @@ en:
           new_sortition: New sortition
           show: Sortition details
           title: Actions
+        deprecation_warning_html: "⚠️ <b>Deprecation Notice.</b> The Sortitions module will be removed in Decidim v0.32. Please plan accordingly and consider alternative solutions for participant or proposal selection."
         models:
           sortition:
             fields:

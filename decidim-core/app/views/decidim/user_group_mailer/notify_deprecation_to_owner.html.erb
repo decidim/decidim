@@ -14,9 +14,6 @@
     <p class="email-button email-button__cta"><%= link_to t(".set_password"), new_password_url(:user, host: @organization.host) %></p>
   </li>
   <li>
-    <%= t(".instructions_2") %>
-  </li>
-  <li>
-    <%= t(".instructions_3") %>
+    <%= t(".instructions_2", email: @group_email) %>
   </li>
 </ol>

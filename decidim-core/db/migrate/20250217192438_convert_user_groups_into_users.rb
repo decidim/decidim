@@ -5,7 +5,7 @@ class ConvertUserGroupsIntoUsers < ActiveRecord::Migration[7.0]
     self.table_name = "decidim_users"
     self.inheritance_column = nil
 
-    scope :new_group, -> { where("extended_data @> ?", Arel.sql({ group: true }.to_json)) }
+    scope :new_group, -> { where("extended_data @> ?", { group: true }.to_json) }
     scope :old_group, -> { where(type: "Decidim::UserGroup") }
 
     def verified_at

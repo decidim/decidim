@@ -262,6 +262,29 @@ describe "Explore debates" do
 
           expect(page).to have_css("a.card__list", count: 1)
         end
+
+        it "collapses the accordions on click" do
+          within ".layout-2col__aside" do
+            expect(page).to have_content "Ongoing"
+            expect(page).to have_content "Official"
+          end
+
+          click_on "Status"
+          click_on "The name for regular users"
+          click_on "Origin"
+
+          within ".layout-2col__aside" do
+            expect(page).to have_no_content "Ongoing"
+            expect(page).to have_no_content "Official"
+          end
+
+          click_on "Origin"
+
+          within ".layout-2col__aside" do
+            expect(page).to have_no_content "Ongoing"
+            expect(page).to have_content "Official"
+          end
+        end
       end
     end
 

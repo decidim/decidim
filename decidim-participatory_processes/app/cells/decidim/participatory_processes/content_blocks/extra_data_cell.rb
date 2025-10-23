@@ -11,7 +11,7 @@ module Decidim
         private
 
         def extra_data_items
-          [step_item, dates_item, group_item].compact
+          [dates_item, step_item, group_item].compact
         end
 
         def active_step_name
