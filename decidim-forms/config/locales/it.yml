@@ -19,7 +19,6 @@ it:
             tos: Termini di servizio
         questionnaires:
           actions:
-            back: Torna alle domande
             show: Mostra risposte
           answer_option:
             answer_option: Opzione di risposta
