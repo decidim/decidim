@@ -16,10 +16,12 @@ module Decidim
     attribute :phone
 
     validates :name, presence: true
+    validates :name, format: { with: Decidim::UserBaseEntity::REGEXP_NAME }
     validates :email, presence: true, "valid_email_2/email": { disposable: true }
     validates :nickname, presence: true
 
     validates :nickname, length: { maximum: Decidim::User.nickname_max_length, allow_blank: true }
+    validates :nickname, format: { with: Decidim::UserBaseEntity::REGEXP_NICKNAME }
     validates :avatar, passthru: { to: Decidim::UserGroup }
 
     validate :unique_document_number
