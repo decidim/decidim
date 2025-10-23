@@ -18,7 +18,6 @@ nl:
             tos: Servicevoorwaarden
         questionnaires:
           actions:
-            back: Terug naar vragen
             show: Antwoorden tonen
           answer_option:
             answer_option: Antwoord optie
