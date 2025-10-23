@@ -30,7 +30,6 @@ ro:
             tos: Termenii serviciului
         questionnaires:
           actions:
-            back: Înapoi la întrebări
             show: Afișați răspunsurile
           answer_option:
             answer_option: Opțiune de răspuns
