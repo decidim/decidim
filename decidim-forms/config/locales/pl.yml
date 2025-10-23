@@ -19,7 +19,6 @@ pl:
             tos: Warunki uczestnictwa
         questionnaires:
           actions:
-            back: Powrót do pytań
             show: Pokaż odpowiedzi
           answer_option:
             answer_option: Opcja odpowiedzi
