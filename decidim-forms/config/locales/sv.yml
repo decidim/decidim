@@ -37,7 +37,7 @@ sv:
             tos: Användarvillkor
         questionnaires:
           actions:
-            back: Tillbaka till frågor
+            back: Tillbaka till svar
             show: Visa svar
           answer_option:
             answer_option: Svarsalternativ
