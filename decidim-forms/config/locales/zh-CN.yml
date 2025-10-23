@@ -18,7 +18,6 @@ zh-CN:
             tos: 服务条款
         questionnaires:
           actions:
-            back: 返回问题
             show: 显示回复
           answer_option:
             answer_option: 答案选项
