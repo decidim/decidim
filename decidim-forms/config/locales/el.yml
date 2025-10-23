@@ -19,7 +19,6 @@ el:
             tos: Όροι χρήσης υπηρεσίας
         questionnaires:
           actions:
-            back: Επιστροφή στις ερωτήσεις
             show: Εμφάνιση απαντήσεων
           answer_option:
             answer_option: Επιλογή απάντησης
