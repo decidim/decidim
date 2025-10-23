@@ -365,7 +365,9 @@ eu:
             select_an_iframe_access_level: Mesedez, hautatu iframe maila bat
           index:
             linked_meeting_warning_html: 'Topaketa hau hemendik editatu behar da: <br><a href="%{href}">%{name}</a>'
+            published: Argitaratua
             title: Topaketa-zerrenda
+            unpublished: Desargitaratua
           linked_spaces:
             assign: Esleitu
             link_a_space: Lotu espazioa
@@ -637,6 +639,7 @@ eu:
             id: ID
             map: Mapa
             official_meeting: Topaketa ofiziala
+            published: Argitaratua
             start_time: Hasiera-data
             taxonomies: Taxonomiak
             title: Titulua
