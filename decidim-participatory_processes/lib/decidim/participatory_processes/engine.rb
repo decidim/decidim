@@ -15,22 +15,6 @@ module Decidim
       isolate_namespace Decidim::ParticipatoryProcesses
 
       routes do
-        get "/participatory_process_groups/*rest", to: redirect { |params, request|
-          locale = params[:locale] || request.session[:user_locale] || I18n.locale
-          "/#{locale}/processes_groups/#{params[:rest]}"
-        }
-
-        get "/processes", to: redirect { |params, request|
-          locale = params[:locale] || request.session[:user_locale] || I18n.locale
-          "/#{locale}/processes"
-        }
-
-        get "/processes/*rest", to: redirect { |params, request|
-          locale = params[:locale] || request.session[:user_locale] || I18n.locale
-
-          "/#{locale}/processes/#{params[:rest]}"
-        }
-
         scope "/:locale", constraints: { locale: Regexp.union(I18n.available_locales.map(&:to_s)) } do
           get "processes/:process_id", to: redirect { |params, _request|
             process = Decidim::ParticipatoryProcess.find(params[:process_id])
@@ -57,6 +41,22 @@ module Decidim
             end
           end
         end
+
+        get "/participatory_process_groups/*rest", to: redirect { |params, request|
+          locale = params[:locale] || request.session[:user_locale] || I18n.locale
+          "/#{locale}/processes_groups/#{params[:rest]}"
+        }
+
+        get "/processes", to: redirect { |params, request|
+          locale = params[:locale] || request.session[:user_locale] || I18n.locale
+          "/#{locale}/processes"
+        }
+
+        get "/processes/*rest", to: redirect { |params, request|
+          locale = params[:locale] || request.session[:user_locale] || I18n.locale
+
+          "/#{locale}/processes/#{params[:rest]}"
+        }
       end
 
       initializer "decidim_participatory_processes.mount_routes" do
