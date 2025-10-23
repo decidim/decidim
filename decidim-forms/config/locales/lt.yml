@@ -19,7 +19,6 @@ lt:
             tos: Paslaugų teikimo sąlygos
         questionnaires:
           actions:
-            back: Grįžti į klausimus
             show: Rodyti atsakymus
           answer_option:
             answer_option: Atsakymo variantas
