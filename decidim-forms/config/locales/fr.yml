@@ -47,7 +47,7 @@ fr:
             tos: Conditions d'utilisation
         questionnaires:
           actions:
-            back: Retour aux questions
+            back: Retour aux réponses
             publish_answers: Publier les réponses
             show: Afficher les réponses
           answer_option:
