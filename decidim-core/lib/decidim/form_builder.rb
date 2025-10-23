@@ -204,7 +204,7 @@ module Decidim
             disabled: options[:disabled],
             options: editor_options[:editor]
           }
-        ) { content_tag(:div, nil, class: "editor-input", style: "height: #{lines}rem") }
+        ) { content_tag(:div, nil, class: "editor-input", style: "min-height: #{lines}rem") }
         template += error_for(name, options) if error?(name)
         template += editor_upload(editor_image, editor_options[:upload])
         template.html_safe
