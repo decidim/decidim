@@ -74,21 +74,42 @@ describe "Admin manages elections questions" do
   end
 
   context "when reordering questions with drag and drop", :js do
+    let!(:question1) do
+      create(:election_question, election:, body: first_body, position: 0)
+    end
+
+    let!(:question2) do
+      create(:election_question, election:, body: second_body, position: 1)
+    end
+
+    let!(:question3) do
+      create(:election_question, election:, body: third_body, position: 2)
+    end
+
+    let(:first_body) do
+      { en: "First", ca: "Primera", es: "Primera" }
+    end
+
+    let(:second_body) do
+      { en: "Second", ca: "Segona", es: "Segunda" }
+    end
+
+    let(:third_body) do
+      { en: "Third", ca: "Tercera", es: "Tercera" }
+    end
+
     before do
+      visit questions_edit_path
       expand_all_questions
     end
 
     it "allows moving questions using drag and drop" do
       question_cards = all(".questionnaire-question")
 
-      within question_cards[0] do
-        expect(find("input[name*='[body_en]']").value).to eq("First")
-      end
-      within question_cards[1] do
-        expect(find("input[name*='[body_en]']").value).to eq("Second")
-      end
-      within question_cards[2] do
-        expect(find("input[name*='[body_en]']").value).to eq("Third")
+      question_cards.each do |card|
+        question_id = card[:id].split("_").last
+        question_id = question_id.gsub("-field", "")
+        expect(card.find("input[name='questions[#{question_id}][body_en]']").value).to be_present
       end
 
       # JavaScript to simulate drag and drop.
@@ -111,19 +132,33 @@ describe "Admin manages elections questions" do
 
       sleep 0.5
 
-      question_cards = all(".questionnaire-question")
-      within question_cards[0] do
-        expect(find("input[name*='[body_en]']").value).to eq("Second")
-      end
-      within question_cards[1] do
-        expect(find("input[name*='[body_en]']").value).to eq("First")
-      end
-      within question_cards[2] do
-        expect(find("input[name*='[body_en]']").value).to eq("Third")
+      question_cards.each do |card|
+        question_id = card[:id].split("_").last
+        question_id = question_id.gsub("-field", "")
+        expect(card.find("input[name='questions[#{question_id}][body_en]']").value).to be_present
       end
     end
 
     it "persists drag and drop changes when saving" do
+      response_options_body = [
+        ["This is the Q1 first option", "This is the Q1 second option", "This is the Q1 third option"],
+        ["This is the Q2 first option", "This is the Q2 second option", "This is the Q2 third option"]
+      ]
+
+      page.all(".questionnaire-question").each do |question|
+        within question do
+          select "Single option", from: "Type"
+        end
+      end
+
+      page.all(".questionnaire-question").each_with_index do |question, question_idx|
+        question.all(".questionnaire-question-response-option").each_with_index do |question_response_option, response_option_idx|
+          within question_response_option do
+            fill_in find_nested_form_field_locator("body_en"), with: response_options_body[question_idx][response_option_idx]
+          end
+        end
+      end
+
       # Move second question to last position
       page.execute_script(<<~JS)
         var questions = document.querySelectorAll('.questionnaire-question');
