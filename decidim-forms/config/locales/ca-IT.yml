@@ -103,12 +103,10 @@ ca-IT:
             any: Cap
             collapse: Redueix
             description: Descripció
-            down: Avall
             expand: Expandeix
             question: Pregunta
             remove: Eliminar
             statement: Declaració
-            up: Amunt
           questions_form:
             already_responded_warning: L'enquesta ja està contestada per algunes usuàries i per tant no pots modificar les seves preguntes.
             collapse: Replega totes les preguntes
