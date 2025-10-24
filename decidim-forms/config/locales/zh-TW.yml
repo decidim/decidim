@@ -50,12 +50,10 @@ zh-TW:
             any: 任何
             collapse: 收回
             description: 說明
-            down: 向下
             expand: 展開
             question: 問題
             remove: 移除
             statement: 聲明
-            up: 往上
           responses:
             actions:
               show: 顯示回應
