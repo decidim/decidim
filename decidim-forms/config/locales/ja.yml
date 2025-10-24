@@ -103,12 +103,10 @@ ja:
             any: 任意の
             collapse: 折りたたむ
             description: 説明
-            down: 下
             expand: 展開
             question: 質問
             remove: 削除
             statement: ステートメント
-            up: 上へ
           questions_form:
             already_responded_warning: このフォームはすでに応答しているユーザーがいるため、質問を修正することはできません。
             collapse: すべての質問を閉じる
