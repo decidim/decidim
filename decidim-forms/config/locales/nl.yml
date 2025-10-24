@@ -48,12 +48,10 @@ nl:
             any: Ieder
             collapse: Samenvouwen
             description: Omschrijving
-            down: naar beneden
             expand: Uitklappen
             question: Vraag
             remove: Verwijderen
             statement: Uitspraak
-            up: omhoog
           responses:
             actions:
               show: Antwoorden tonen
