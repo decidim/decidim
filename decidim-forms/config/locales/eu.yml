@@ -102,12 +102,10 @@ eu:
             any: Edozein
             collapse: Bildu
             description: Deskribapena
-            down: Behera
             expand: Zabaldu
             question: Galdera
             remove: Kendu
             statement: Adierazpena
-            up: Gora
           questions_form:
             already_responded_warning: Formularioa parte-hartzaile batzuek erantzuten dute dagoeneko; beraz, ezin dituzu galderak aldatu.
             collapse: Kolapsatu galdera guztiak
