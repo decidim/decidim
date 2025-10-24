@@ -49,12 +49,10 @@ el:
             any: Οποιαδήποτε
             collapse: Σύμπτυξη
             description: Περιγραφή
-            down: Κάτω
             expand: Ανάπτυξη
             question: Ερώτηση
             remove: Κατάργηση
             statement: Δήλωση
-            up: Επάνω
           responses:
             actions:
               show: Εμφάνιση απαντήσεων
