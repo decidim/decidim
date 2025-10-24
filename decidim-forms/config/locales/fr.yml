@@ -102,12 +102,10 @@ fr:
             any: Tout
             collapse: Réduire
             description: Description
-            down: Descendre
             expand: Déveloper
             question: Question
             remove: Retirer
             statement: Déclaration
-            up: Monter
           questions_form:
             already_responded_warning: Certains utilisateurs ont déjà répondu au questionnaire, vous ne pouvez donc pas modifier ses questions.
             collapse: Replier toutes les questions
