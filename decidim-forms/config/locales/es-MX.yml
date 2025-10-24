@@ -103,12 +103,10 @@ es-MX:
             any: Alguna
             collapse: Contraer
             description: Descripción
-            down: Abajo
             expand: Expandir
             question: Pregunta
             remove: Borrar
             statement: Declaración
-            up: Arriba
           questions_form:
             already_responded_warning: La encuesta ya está contestada por algunas usuarias, así que no puedes modificar sus preguntas.
             collapse: Contraer todas las preguntas
