@@ -22,11 +22,9 @@ ga:
           question:
             add_matrix_row: Suimigh ró
             any: Ar Bith
-            down: Síos
             expand: Méadaigh
             question: Ceist
             remove: Bain as
-            up: Thuas
           separator:
             remove: Bain as
       question_types:
