@@ -331,6 +331,7 @@ en:
           update:
             invalid: There was a problem updating this agenda.
             success: Agenda successfully updated.
+        deprecation_warning_polls_html: "⚠️ <b>Deprecation Notice.</b> The Polls feature will be removed in a future version (to be determined). Organizations using meeting polls should plan to use external polling tools (for instance, through Jitsi) or migrate to other voting mechanisms available in Decidim, such as the new Elections module (`decidim-elections`)."
         exports:
           meeting_comments: Comments
           meetings: Meetings
