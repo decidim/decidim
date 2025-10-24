@@ -25,11 +25,9 @@ gl:
           question:
             any: Calquera
             description: Descrición
-            down: Baixo
             question: Pregunta
             remove: Quitar
             statement: Declaración
-            up: Arriba
           title_and_description:
             collapse: Contraer
             description: Descrición
