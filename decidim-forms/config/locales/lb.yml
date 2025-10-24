@@ -50,12 +50,10 @@ lb:
             any: Irgendein
             collapse: Zouklappen
             description: Beschreiwung
-            down: Runter
             expand: Ausklappen
             question: Fro
             remove: Löschen
             statement: Aussage
-            up: Hoch
           responses:
             actions:
               show: Antworten anzeigen
