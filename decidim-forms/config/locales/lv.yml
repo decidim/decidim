@@ -30,12 +30,10 @@ lv:
             any: Jebkura
             collapse: Sakļaut
             description: Apraksts
-            down: Lejup
             expand: Izvērst
             question: Jautājums
             remove: Noņemt
             statement: Paziņojums
-            up: Augšup
           separator:
             remove: Noņemt
             separator: Atdalītājs
