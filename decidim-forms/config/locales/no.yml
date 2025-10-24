@@ -49,12 +49,10 @@
             any: Alle
             collapse: Skjul
             description: Beskrivelse
-            down: Ned
             expand: Utvid
             question: Spørsmål
             remove: Fjern
             statement: Uttalelse
-            up: Opp
           responses:
             actions:
               show: Vis svar
