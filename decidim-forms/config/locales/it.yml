@@ -49,12 +49,10 @@ it:
             any: Qualunque
             collapse: Comprimi
             description: Descrizione
-            down: Giù
             expand: Espandi
             question: Domanda
             remove: Rimuovere
             statement: dichiarazione
-            up: Su
           responses:
             actions:
               show: Mostra risposte
