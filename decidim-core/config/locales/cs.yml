@@ -1739,15 +1739,8 @@ cs:
         body_1: 'Kontaktujeme vás, abychom vás informovali o důležité aktualizaci uživatelské skupiny, kterou jste členem: <strong>%{group_name}</strong>.'
         greeting: Dobrý den %{name},
         instructions_1: Pokud máte přístup k tomuto e-mailovému účtu, zkontrolujte prosím svou doručenou poštu pro pokyny.
-        instructions_intro: Poslali jsme pokyny na e-mail přidružený k účtu pro nastavení nového hesla k profilu.
-        instructions_title: "<strong>Co to pro vás znamená</strong>"
       notify_deprecation_to_owner:
-        body_3: Abyste mohli pokračovat v přístupu k vašemu účtu, musíte nastavit heslo.
         greeting: Dobrý den %{name},
-        instructions_1: 'Klikněte na odkaz níže pro spuštění procesu nastavení hesla:'
-        instructions_title: "<strong>Co potřebujete udělat</strong>"
-        set_password: Začít proces nastavení hesla
-        subject: Důležitá aktualizace uživatelské skupiny
     user_report_mailer:
       notify:
         body_1: Uživatel %{user} byl nahlášen od %{token}
