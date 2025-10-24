@@ -66,12 +66,10 @@ ro:
             any: Oricare
             collapse: Restrângeți
             description: Descriere
-            down: Mergi în jos
             expand: Extindeți
             question: Întrebare
             remove: Eliminați
             statement: Declarație
-            up: Mergi în sus
           response_option:
             free_text: Text liber
             remove: Eliminați
