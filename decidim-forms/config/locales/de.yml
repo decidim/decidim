@@ -101,12 +101,10 @@ de:
             any: Irgendein
             collapse: Einklappen
             description: Beschreibung
-            down: Nach unten
             expand: Ausklappen
             question: Frage
             remove: Löschen
             statement: Aussage
-            up: Oben
           questions_form:
             already_responded_warning: Das Formular wird von einigen Benutzern bereits beantwortet, weshalb Sie die Fragen nicht mehr ändern können.
             collapse: Alle Fragen einklappen
