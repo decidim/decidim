@@ -49,12 +49,10 @@ bg:
             any: Някой
             collapse: Свий
             description: Описание
-            down: Надолу
             expand: Разтваряне
             question: Въпрос
             remove: Премахни
             statement: Изявление
-            up: Горе
           responses:
             actions:
               show: Показване на отговорите
