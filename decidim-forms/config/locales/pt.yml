@@ -50,12 +50,10 @@ pt:
             any: Qualquer
             collapse: Colapsar
             description: Descrição
-            down: Abaixo
             expand: Expandir
             question: Questão
             remove: Remover
             statement: Declaração
-            up: Acima
           responses:
             actions:
               show: Mostrar respostas
