@@ -103,12 +103,10 @@ cs:
             any: Žádný
             collapse: Sbalit
             description: Popis
-            down: Dolů
             expand: Rozbalit
             question: Otázka
             remove: Odstranit
             statement: Prohlášení
-            up: Nahoru
           questions_form:
             already_responded_warning: Formulář už obsahuje odpovědi od některých uživatelů, takže nemůžete upravovat jeho otázky.
             collapse: Sbalit všechny otázky
