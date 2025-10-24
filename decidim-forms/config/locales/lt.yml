@@ -50,12 +50,10 @@ lt:
             any: Bet koks
             collapse: Suskleisti
             description: Aprašymas
-            down: Žemyn
             expand: Išplėsti
             question: Klausimas
             remove: Pašalinti
             statement: Pareiškimas
-            up: Į viršų
           responses:
             actions:
               show: Rodyti atsakymus
