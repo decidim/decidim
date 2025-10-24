@@ -81,7 +81,7 @@ Decidim.register_component(:dummy) do |component|
       msg.set(:label) { "Import dummies from a file" }
     end
 
-    imports.creator DummyCreator
+    imports.creator Decidim::Dev::DummyCreator
     imports.example do |import_component|
       locales = import_component.organization.available_locales
       translated = ->(name) { locales.map { |l| "#{name}/#{l}" } }
