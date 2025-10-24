@@ -50,12 +50,10 @@ pl:
             any: Dowolny
             collapse: Zwiń
             description: Opis
-            down: Na dół
             expand: Rozwiń
             question: Pytanie
             remove: Usuń
             statement: Komunikat
-            up: W górę
           responses:
             actions:
               show: Pokaż odpowiedzi
