@@ -48,12 +48,10 @@ tr:
             any: herhangi
             collapse: Daralt
             description: Açıklama
-            down: Aşağı
             expand: Genişlet
             question: Soru
             remove: Kaldır
             statement: Beyan
-            up: yukarı
           responses:
             actions:
               show: Yanıtları göster
