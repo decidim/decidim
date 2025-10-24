@@ -28,12 +28,10 @@ hu:
             any: Bármilyen
             collapse: Összecsukás
             description: Leírás
-            down: Le
             expand: Kibontás
             question: Kérdés
             remove: Eltávolít
             statement: Nyilatkozat
-            up: Fel
           title_and_description:
             collapse: Összecsuk
             description: Leírás
