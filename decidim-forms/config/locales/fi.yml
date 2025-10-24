@@ -103,12 +103,10 @@ fi:
             any: Minkä tahansa
             collapse: Sulje
             description: Kuvaus
-            down: Alas
             expand: Avaa
             question: Kysymys
             remove: Poista
             statement: Selite
-            up: Ylös
           questions_form:
             already_responded_warning: Jotkut käyttäjät ovat jo vastanneet lomakkeeseen, joten et voi muokata sen kysymyksiä.
             collapse: Supista kaikki kysymykset
