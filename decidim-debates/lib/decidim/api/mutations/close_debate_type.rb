@@ -12,13 +12,7 @@ module Decidim
 
       def resolve(attributes:)
         conclusions_hash = attributes.to_h.fetch(:conclusions, {})
-        # Extract conclusions text for the current locale
-        # The form expects a string, but the database stores a hash
-        conclusions_text = if conclusions_hash.is_a?(Hash)
-                             conclusions_hash[I18n.locale.to_s] || conclusions_hash[I18n.locale.to_sym] || conclusions_hash.values.first
-                           else
-                             conclusions_hash
-                           end
+        conclusions_text = extract_conclusions_text(conclusions_hash)
 
         params = {
           id: object.id,
@@ -55,6 +49,22 @@ module Decidim
 
       def current_user
         context[:current_user]
+      end
+
+      private
+
+      # Extract conclusions text for the current locale from a hash or string
+      # @param conclusions_hash [Hash, String] The conclusions data
+      # @return [String] The conclusions text for the current locale
+      def extract_conclusions_text(conclusions_hash)
+        return conclusions_hash unless conclusions_hash.is_a?(Hash)
+        return "" if conclusions_hash.empty?
+
+        # Try to find conclusions for the current locale
+        conclusions_hash[I18n.locale.to_s] ||
+          conclusions_hash[I18n.locale.to_sym] ||
+          conclusions_hash.values.first ||
+          ""
       end
     end
   end

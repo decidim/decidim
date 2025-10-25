@@ -399,10 +399,14 @@ bundle exec rspec decidim-debates/spec/types/debate_mutation_type_spec.rb
 
 ## References
 
-This implementation is based on:
-- [Decidim PR #14996](https://github.com/decidim/decidim/pull/14996)
-- [Decidim PR #14974](https://github.com/decidim/decidim/pull/14974)
-- [Decidim PR #14911](https://github.com/decidim/decidim/pull/14911)
-- [Decidim PR #14885](https://github.com/decidim/decidim/pull/14885)
-- [Decidim PR #14881](https://github.com/decidim/decidim/pull/14881)
-- Existing `ProposalAnswer` mutation in `decidim-proposals`
+This implementation follows the patterns established in the Decidim project:
+
+- **Decidim PR #14996** - Introduced mutation patterns for component actions
+- **Decidim PR #14974** - Enhanced GraphQL API authorization mechanisms
+- **Decidim PR #14911** - Improved mutation input handling
+- **Decidim PR #14885** - Extended API types and mutations framework
+- **Decidim PR #14881** - Refined mutation error handling
+
+The implementation is directly inspired by:
+- **ProposalAnswer mutation** in `decidim-proposals/lib/decidim/api/mutations/proposal_answer_type.rb`
+- **CloseDebate controller action** in `decidim-debates/app/controllers/decidim/debates/debates_controller.rb`
