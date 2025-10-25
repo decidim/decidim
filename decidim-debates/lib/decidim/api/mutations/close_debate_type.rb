@@ -11,10 +11,18 @@ module Decidim
       argument :attributes, CloseDebateAttributes, description: "input attributes for closing a debate", required: true
 
       def resolve(attributes:)
-        conclusions = attributes.to_h.fetch(:conclusions, {})
+        conclusions_hash = attributes.to_h.fetch(:conclusions, {})
+        # Extract conclusions text for the current locale
+        # The form expects a string, but the database stores a hash
+        conclusions_text = if conclusions_hash.is_a?(Hash)
+                             conclusions_hash[I18n.locale.to_s] || conclusions_hash[I18n.locale.to_sym] || conclusions_hash.values.first
+                           else
+                             conclusions_hash
+                           end
+
         params = {
           id: object.id,
-          conclusions: conclusions
+          conclusions: conclusions_text
         }
 
         form = Decidim::Debates::CloseDebateForm.from_params(
