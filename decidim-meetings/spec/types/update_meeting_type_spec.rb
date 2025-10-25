@@ -9,16 +9,15 @@ module Decidim
       include_context "with a graphql class mutation"
 
       let(:root_klass) { MeetingMutationType }
-      let(:organization) { create(:organization, available_locales: [:en]) }
-      let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
+      let(:current_organization) { create(:organization, available_locales: [:en]) }
+      let(:participatory_process) { create(:participatory_process, :with_steps, organization: current_organization) }
       let(:meeting_component) { create(:meeting_component, participatory_space: participatory_process) }
-      let!(:model) { create(:meeting, component: meeting_component, author: user) }
+      let!(:model) { create(:meeting, component: meeting_component, author: current_user) }
       let(:title) { { en: "Updated Meeting Title" } }
       let(:description) { { en: "Updated meeting description" } }
       let(:location) { { en: "Updated location" } }
       let(:start_time) { 2.days.from_now }
       let(:end_time) { 2.days.from_now + 2.hours }
-      let(:component) { model.component }
       let(:address) { "Updated address, 123" }
       let(:latitude) { 41.1234 }
       let(:longitude) { 2.5678 }
@@ -86,8 +85,8 @@ module Decidim
       end
 
       context "with user who does not own the meeting" do
-        let(:other_user) { create(:user, :confirmed, organization:) }
-        let(:user) { other_user }
+        let(:other_user) { create(:user, :confirmed, organization: current_organization) }
+        let!(:model) { create(:meeting, component: meeting_component, author: other_user) }
 
         it "returns nil" do
           expect(response["update"]).to be_nil
