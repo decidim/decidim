@@ -60,7 +60,7 @@ module Decidim
       end
 
       def authorized?(attributes:)
-        super && allowed_to?(:update, :meeting, { meeting: object }, context)
+        super && allowed_to?(:update, :meeting, object, context)
       end
 
       def current_user
