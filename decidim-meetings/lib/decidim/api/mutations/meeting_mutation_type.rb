@@ -1,0 +1,14 @@
+# frozen_string_literal: true
+
+module Decidim
+  module Meetings
+    class MeetingMutationType < Decidim::Api::Types::BaseObject
+      include Decidim::ApiResponseHelper
+
+      graphql_name "MeetingMutation"
+      description "A meeting which includes its available mutations"
+
+      field :update, mutation: Decidim::Meetings::UpdateMeetingType, description: "Updates a meeting"
+    end
+  end
+end
