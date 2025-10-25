@@ -14,10 +14,10 @@ module Decidim
         title = attributes.to_h.fetch(:title, object.title.values.first)
         description = attributes.to_h.fetch(:description, object.description.values.first)
         taxonomy_ids = attributes.to_h.fetch(:taxonomy_ids, object.taxonomies.map(&:id))
-        
+
         # Convert taxonomy IDs to taxonomy objects
         taxonomies = taxonomy_ids.present? ? Decidim::Taxonomy.where(id: taxonomy_ids).to_a : []
-        
+
         params = {
           title:,
           description:,
