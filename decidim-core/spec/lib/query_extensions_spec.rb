@@ -2,6 +2,7 @@
 
 require "spec_helper"
 require "decidim/api/test"
+require "decidim/api/test/mutation_context"
 
 module Decidim
   module Core
@@ -137,10 +138,22 @@ module Decidim
       end
 
       describe "participant_details" do
-        include_context "with a graphql type and authenticated user"
+        include_context "with a graphql class type"
 
         let!(:participant) { create(:user, :confirmed, organization: current_organization) }
         let(:query) { %({ participantDetails(id: #{participant.id}){email name nickname}} ) }
+        let(:user_type) { :user }
+
+        let!(:current_user) do
+          case user_type
+          when :admin
+            create(:user, :admin, :confirmed, organization: current_organization)
+          when :api_user
+            create(:api_user, organization: current_organization)
+          else
+            create(:user, :confirmed, organization: current_organization)
+          end
+        end
 
         context "with unauthorized user" do
           it "does not show participant details" do
