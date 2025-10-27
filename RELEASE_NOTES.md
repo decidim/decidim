@@ -66,7 +66,7 @@ bin/rails decidim:upgrade:user_groups:remove # see "3.6. User Groups removal"
 ```
 
 Update your shakapacker version in your `package.json` file for "2.3 Shakapacker upgrade"
-Change your crontab and your sidekig configuration for "4.1. Automatic deletion of inactive accounts"
+Change your crontab and your sidekiq configuration for "4.1. Automatic deletion of inactive accounts"
 Change your crontab and your sidekiq configuration for "4.2. Removal of Metrics"
 
 In cases where you have done some developments, please check out these particular sections:
@@ -79,7 +79,7 @@ In cases where you have done some developments, please check out these particula
   * 5.5. API users for machine-to-machine integrations
   * 5.6. Possibility to force API authentication
   * 5.7. JWT token based API authentication
-* If you use the Inititatives module, we have some improvements in the Signature workflow. Read more about it at:
+* If you use the Initiatives module, we have some improvements in the Signature workflow. Read more about it at:
   * 5.8 Initiatives digital signature process change
   * 5.9. Migrate signature configuration of initiatives types
 
