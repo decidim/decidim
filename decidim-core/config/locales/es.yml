@@ -1745,7 +1745,7 @@ es:
         greeting: Estimado/a %{name},
         instructions_1_html: 'Utiliza las siguientes credenciales temporales para iniciar sesión: <br><br> Nombre de usuario: <strong>%{email}</strong> <br> Contraseña: <strong>%{password}</strong><br><br>'
         instructions_2_html: Establece una nueva dirección de correo electrónico y contraseña.
-        instructions_3_html: Comparte las credenciales de acceso elegidas con tus compañeros para que todo el grupo pueda seguir accediendo a la cuenta.
+        instructions_3_html: Comparte las credenciales de acceso elegidas con tus compañeras para que todo el grupo pueda seguir accediendo a la cuenta.
         instructions_title_html: "<strong>¿Qué necesitas hacer?</strong>"
         subject: Actualización importante con respecto al perfil de tu grupo de usuarias
     user_report_mailer:
