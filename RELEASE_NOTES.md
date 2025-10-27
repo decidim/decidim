@@ -11,7 +11,7 @@ As usual, we recommend that you have a full backup, of the database, application
 
 To update, follow these steps:
 
-### 1.1. Update your ruby version and node versions
+### 1.1. Update your ruby and node versions
 
 If you're using rbenv, this is done with the following commands:
 
