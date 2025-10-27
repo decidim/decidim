@@ -96,14 +96,14 @@ Shakapacker has been upgraded to the latest version. See section 3.10 for trou
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
-bin/rails decidim:upgrade:user_groups:remove
-bin/rails decidim:upgrade:fix_nickname_casing
-bin/rails decidim:verifications:revoke:sms
-bin/rails decidim_surveys:upgrade:fix_survey_permissions
+bin/rails decidim:upgrade:user_groups:remove # see "2.1. User Groups removal"
+bin/rails decidim:upgrade:fix_nickname_casing # see "3.3. Convert nicknames to lowercase"
+bin/rails decidim:verifications:revoke:sms # see "2.4. SMS authorization changes"
+bin/rails decidim_surveys:upgrade:fix_survey_permissions # see "2.6. Permission rename in surveys module"
 
-bin/rails decidim:upgrade:decidim_update_valuators
-bin/rails decidim:upgrade:decidim_action_log_valuation_assignment
-bin/rails decidim:upgrade:decidim_paper_trail_valuation_assignment
+bin/rails decidim:upgrade:decidim_update_valuators # see "3.2. Change of Valuator for Evaluator"
+bin/rails decidim:upgrade:decidim_action_log_valuation_assignment # see "3.2. Change of Valuator for Evaluator"
+bin/rails decidim:upgrade:decidim_paper_trail_valuation_assignment # see "3.2. Change of Valuator for Evaluator"
 ```
 
 ### 1.6. Follow the steps and commands detailed in these notes
