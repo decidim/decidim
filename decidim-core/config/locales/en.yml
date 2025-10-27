@@ -1745,6 +1745,16 @@ en:
         instructions_title: "<strong>What you need to do</strong>"
         set_password: Set Your Password
         subject: Important update regarding your Group profile
+      notify_user_group_patched:
+        body_1_html: We are reaching out to inform you about an important update regarding your Group profile on %{organization_name}.
+        body_2_html: As part of our efforts to simplify and improve the experience for organizations like yours, we are deprecating the "User Groups" feature. Your Group, <strong>%{name}</strong>, has been converted into a regular account.
+        body_3_html: To continue accessing your account and share access, we need you to set a new email and password. Please note that each member of your group will receive this email. To ensure continued access, you will need to agree internally on the shared credentials (email and password) that everyone will use.
+        greeting: Dear %{name},
+        instructions_1_html: 'Use the following temporary credentials to log in: <br><br> Username: <strong>%{email}</strong> <br> Password: <strong>%{password}</strong><br><br>'
+        instructions_2_html: Set a new email address and password.
+        instructions_3_html: Share the chosen login credentials with your colleagues so the entire group can continue accessing the account.
+        instructions_title_html: "<strong>What You Need to Do</strong>"
+        subject: Important update regarding your Group profile
     user_report_mailer:
       notify:
         body_1: User %{user} has been reported by %{token}
