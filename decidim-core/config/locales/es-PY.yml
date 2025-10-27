@@ -1740,6 +1740,16 @@ es-PY:
         instructions_title: "<strong>¿Qué necesitas hacer?</strong>"
         set_password: Establece tu contraseña
         subject: Actualización importante con respecto al perfil de tu grupo de usuarias
+      notify_user_group_patched:
+        body_1_html: Nos ponemos en contacto contigo para informarte sobre una importante actualización respecto al Grupo de usuarias %{organization_name} del que formas parte.
+        body_2_html: 'Como parte de nuestros esfuerzos por simplificar la experiencia de las organizaciones como la tuya, la función "Grupos de Usuarias" tal y como la conocemos hasta ahora quedará obsoleta. El perfil del Grupo: <strong>%{name}</strong>, se ha convertido en un perfil de participante al uso.'
+        body_3_html: Para continuar accediendo a tu cuenta y compartir el acceso, necesitamos que establezcas un nuevo correo electrónico y contraseña. Ten en cuenta que cada miembro de su grupo recibirá este correo electrónico. Para asegurar el acceso continuo, tendréis que acordar internamente las credenciales compartidas (correo electrónico y contraseña) que todos usarán.
+        greeting: Estimado/a %{name},
+        instructions_1_html: 'Utiliza las siguientes credenciales temporales para iniciar sesión: <br><br> Nombre de usuario: <strong>%{email}</strong> <br> Contraseña: <strong>%{password}</strong><br><br>'
+        instructions_2_html: Establece una nueva dirección de correo electrónico y contraseña.
+        instructions_3_html: Comparte las credenciales de acceso elegidas con tus compañeras para que todo el grupo pueda seguir accediendo a la cuenta.
+        instructions_title_html: "<strong>¿Qué necesitas hacer?</strong>"
+        subject: Actualización importante con respecto al perfil de tu grupo de usuarias
     user_report_mailer:
       notify:
         body_1: La usuaria %{user} ha sido reportada por %{token}
