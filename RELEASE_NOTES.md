@@ -83,7 +83,7 @@ In cases where you have done some developments, please check out these particula
   - 5.8 Initiatives digital signature process change
   - 5.9. Migrate signature configuration of initiatives types
 
-### 1.6. Follow the steps and commands detailed in these notes
+### 1.4. Follow the steps and commands detailed in these notes
 
 ## 2. General notes
 
