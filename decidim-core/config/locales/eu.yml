@@ -1730,6 +1730,12 @@ eu:
         body_1: '%{organization_name} (e) n duzun taldearen profilari buruzko eguneraketa garrantzitsu baten berri ematera gatozkizu.'
         body_2: 'Zurea bezalako erakundeen esperientzia sinplifikatzeko gure ahaleginen zati gisa, orain arte ezagutzen dugun "Erabiltzaile Taldeak" funtzioa zaharkituta geratuko da. Taldearen profila: <strong>%{name}</strong>, ohiko parte-hartzailearen profil bihurtu da.'
         greeting: '%{name}, agurgarria:'
+      notify_user_group_patched:
+        body_1_html: 'Zure taldearen profilari buruzko eguneratze garrantzitsu baten berri emango dizugu hemen: %{organization_name}.'
+        body_2_html: 'Zurea bezalako erakundeen esperientzia sinplifikatzeko gure ahaleginen zati gisa, orain arte ezagutzen dugun "Erabiltzaile Taldeak" funtzioa zaharkituta geratuko da. Taldearen profila: <strong>%{name}</strong>, ohiko parte-hartzailearen profil bihurtu da.'
+        body_3_html: Zure kontuan sartzen jarraitzeko eta sarbidea partekatzeko, mezu elektroniko eta pasahitz berri bat ezar ditzazun behar dugu. Mesedez, kontuan izan zure taldeko kide bakoitzak mezu hau jasoko duela. Sarbide jarraitua bermatzeko, denek erabiliko dituzten kredentzial partekatuak (posta elektronikoa eta pasahitza) adostu beharko dituzu.
+        greeting: '%{name}, agurgarria:'
+        instructions_1_html: 'Erabili behin-behineko kredentzial hauek saioa hasteko: <br><br> Erabiltzailea: <strong>% {email}</strong> <br> Pasahitza: <strong>% {password}</strong> <br><br>'
     user_report_mailer:
       notify:
         body_1: '%{user} parte-hartzailea %{token}-ek erreportatu du'
