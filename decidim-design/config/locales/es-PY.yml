@@ -87,26 +87,26 @@ es-PY:
           adjacent_links_paragraph: Si el mismo recurso tiene múltiples enlaces adyacentes apuntando a él, hace difícil que las usuarias puedan mirar a través de la página porque tal vez necesiten pasar por varios enlaces para llegar al siguiente recurso.
           color_contrast: Contraste de color
           color_contrast_paragraph: Al crear interfaces de usuaria o modificar los colores, asegúrate siempre de que no se está rompiendo la accesibilidad con estos cambios. Puedes utilizar el comprobador de contraste de color para asegurarte de que estos colores tienen suficiente contraste contra el color de fondo en el que se muestran.
-          decidim_follows_html: Decidim sigue las directrices <u>de Accesibilidad al Contenido Web (WCAG) 2.1</u>
+          decidim_follows_html: Decidim sigue %{link}
           dynamic_changes_header: 'Función dinámica: cambia el contexto de la página de forma poco intuitiva'
           dynamic_changes_paragraph: Los cambios en las entradas del formulario no deberían cambiar el contexto de la página automáticamente.
           elements_hidden: Elementos ocultos
           elements_hidden_header: Elementos ocultos de la API de accesibilidad
           elements_hidden_paragraph: Para ocultar un elemento de las tecnologías de asistencia, utiliza el atributo aria-hidden="true" en él.
           heading_on: Encabezado en secciones importantes
-          here_link: aquí
           illogical_heading_order: Orden de encabezado ilógico
           illogical_heading_paragraph: Cada página debe tener un orden de encabezado lógico cuando utilices los elementos de encabezamiento <h1>, <h2>, <h3>, <h4>, <h5> y <h6>.
           important_sections_heading: Encabezado en secciones importantes
           important_sections_paragraph: Es muy importante que cada sección relevante de la página tenga un título para facilitar la comprensión de las secciones de la página simplemente navegando por sus encabezados.
+          learn_more_about_html: Más información sobre %{link}
           links_and_buttons: Enlaces y botones
           links_and_buttons_paragraph: Los elementos de anclaje (es decir, enlaces) están destinados a enlazar a diferentes páginas o a posiciones de anclaje dentro de la página. Si queremos que el elemento abra, por ejemplo, algún elemento oculto en esa página, deberías utilizar el elemento <button> en su lugar.
-          see_further_info_html: Ver más información %{link}
           unique_h1: H1 único
           unique_h1_paragraph: Cada página debe tener un único encabezado H1
           use_aria: Utiliza ARIA
           use_aria_header: Utiliza los atributos ARIA cuando sea posible
           use_aria_paragraph: Muchos elementos que proporcionan funcionalidad interactiva en el sitio web requieren atributos ARIA para hacerlos accesibles.
+          wcag_guidelines: Pautas de Accesibilidad al Contenido en la Web (WCAG)
         color:
           color_header: Color
           description_p1: Proporcionamos una paleta base con pocos colores para facilitar personalizaciones simples. Puedes modificar la paleta Base ya sea en el área de Administración o en el archivo de configuración Tailwind si necesitas una personalización más avanzada.
