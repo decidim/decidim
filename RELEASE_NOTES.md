@@ -26,7 +26,6 @@ If not, you need to adapt it to your environment, for instance by changing the d
 
 For node, if you're using nvm, this is done with the following commands:
 
-
 ```console
 nvm install 22.14.0
 nvm use 22.14.0
@@ -71,17 +70,17 @@ Change your crontab and your sidekiq configuration for "4.2. Removal of Metrics"
 
 In cases where you have done some developments, please check out these particular sections:
 
-* If you call to `Decidim::UserBaseEntity.nicknamize`, you need to update your code
-* If you want to do external integrations using the GraphQL API, read about these changes at:
-  * 5.1. Add force_api_authentication configuration options
-  * 5.3. Extended OAuth application capabilities for integrating external participant-facing applications
-  * 5.4. Changed scopes for OAuth authorization requests
-  * 5.5. API users for machine-to-machine integrations
-  * 5.6. Possibility to force API authentication
-  * 5.7. JWT token based API authentication
-* If you use the Initiatives module, we have some improvements in the Signature workflow. Read more about it at:
-  * 5.8 Initiatives digital signature process change
-  * 5.9. Migrate signature configuration of initiatives types
+- If you call to `Decidim::UserBaseEntity.nicknamize`, you need to update your code
+- If you want to do external integrations using the GraphQL API, read about these changes at:
+  - 5.1. Add force_api_authentication configuration options
+  - 5.3. Extended OAuth application capabilities for integrating external participant-facing applications
+  - 5.4. Changed scopes for OAuth authorization requests
+  - 5.5. API users for machine-to-machine integrations
+  - 5.6. Possibility to force API authentication
+  - 5.7. JWT token based API authentication
+- If you use the Initiatives module, we have some improvements in the Signature workflow. Read more about it at:
+  - 5.8 Initiatives digital signature process change
+  - 5.9. Migrate signature configuration of initiatives types
 
 ### 1.6. Follow the steps and commands detailed in these notes
 
@@ -103,15 +102,15 @@ Besides of what is already mentioned, you may encounter some encryption-related 
 
 In the previous Rails versions the `secret_key_base` for local development was stored in a local file `tmp/development_secret.txt`, which has been remove starting Rails 7.1.
 Depending on your environment setup, you will need to define an environment variable named `SECRET_KEY_BASE`, or you can rename the file `tmp/development_secret.txt` to `tmp/local_secret.txt` so that you can continue the same secret.
-If you see errors related to encryption changes (like `ActiveSupport::MessageEncryptor::InvalidMessage` exceptions), is probably related to this change (see [#15405](https://github.com/decidim/decidim/issues/15405) for more details). 
+If you see errors related to encryption changes (like `ActiveSupport::MessageEncryptor::InvalidMessage` exceptions), is probably related to this change (see [#15405](https://github.com/decidim/decidim/issues/15405) for more details).
 
 You can read more about the Rails upgrade process on the following PRs:
 
-* [Change framework defaults from Rails v6.1 to v7.0](https://github.com/decidim/decidim/pull/13267).
-* [Update Rails to v7.1](https://github.com/decidim/decidim/pull/13267)
-* [Update Rails to v7.2](https://github.com/decidim/decidim/pull/14784)
-* [Change framework defaults from Rails v7.1 to v7.2](https://github.com/decidim/decidim/pull/14829)
-* [Rails official documentation about secret change for development and test environments](https://guides.rubyonrails.org/upgrading_ruby_on_rails.html#development-and-test-environments-secret-key-base-file-changed)
+- [Change framework defaults from Rails v6.1 to v7.0](https://github.com/decidim/decidim/pull/13267).
+- [Update Rails to v7.1](https://github.com/decidim/decidim/pull/13267)
+- [Update Rails to v7.2](https://github.com/decidim/decidim/pull/14784)
+- [Change framework defaults from Rails v7.1 to v7.2](https://github.com/decidim/decidim/pull/14829)
+- [Rails official documentation about secret change for development and test environments](https://guides.rubyonrails.org/upgrading_ruby_on_rails.html#development-and-test-environments-secret-key-base-file-changed)
 
 ### 2.2. Deprecation of `Rails.application.secrets`
 
@@ -249,7 +248,6 @@ The tasks can also be executed one by one:
 
 You can read more about this change on PR [#14130](https://github.com/decidim/decidim/pull/14130).
 
-
 ## 4. Scheduled tasks
 
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples
@@ -261,8 +259,8 @@ To reduce database clutter and automatically manage inactive user accounts, we h
 
 Before deletion, the system will send two notification emails:
 
-* The first email is sent **30 days** before the scheduled deletion.
-* The second email is sent **7 days** before the deletion deadline.
+- The first email is sent **30 days** before the scheduled deletion.
+- The second email is sent **7 days** before the deletion deadline.
 
 Participants can prevent their account from being deleted by logging in before the deadline. A final email will be sent to inform the user once their account has been permanently deleted.
 
@@ -357,10 +355,10 @@ automatically assigned as the default scope in case it is not defined within the
 Additionally, the following OAuth scopes have been introduced in order to allow external applications to represent the
 user through the API:
 
-* `user` - The authenticated user is able to perform actions within Decidim representing themselves when authenticated
+- `user` - The authenticated user is able to perform actions within Decidim representing themselves when authenticated
   with the API.
-* `api:read` - The authenticated user is able to read data through the Decidim API when authenticated with the API.
-* `api:write` - The authenticated user is able to write data through the Decidim API when authenticated with the API.
+- `api:read` - The authenticated user is able to read data through the Decidim API when authenticated with the API.
+- `api:write` - The authenticated user is able to write data through the Decidim API when authenticated with the API.
 
 Note that for the `api:write` scope to work, you additionally need to request the `user` scope as well in order to
 represent the user which is necessary for most writing operations within Decidim. It is also highly recommended to
