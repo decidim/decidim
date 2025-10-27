@@ -78,6 +78,7 @@ Besides of what is already mentioned, you may encounter some encryption-related 
 
 In the previous Rails versions the `secret_key_base` for local development was stored in a local file `tmp/development_secret.txt`, which has been remove starting Rails 7.1.
 Depending on your environment setup, you will need to define an environment variable named `SECRET_KEY_BASE`, or you can rename the file `tmp/development_secret.txt` to `tmp/local_secret.txt` so that you can continue the same secret.
+If you see errors related to encryption changes (like `ActiveSupport::MessageEncryptor::InvalidMessage` exceptions), is probably related to this change (see [#15405](https://github.com/decidim/decidim/issues/15405) for more details). 
 
 You can read more about the Rails upgrade process on the following PRs:
 
