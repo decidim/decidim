@@ -1736,6 +1736,10 @@ eu:
         body_3_html: Zure kontuan sartzen jarraitzeko eta sarbidea partekatzeko, mezu elektroniko eta pasahitz berri bat ezar ditzazun behar dugu. Mesedez, kontuan izan zure taldeko kide bakoitzak mezu hau jasoko duela. Sarbide jarraitua bermatzeko, denek erabiliko dituzten kredentzial partekatuak (posta elektronikoa eta pasahitza) adostu beharko dituzu.
         greeting: '%{name}, agurgarria:'
         instructions_1_html: 'Erabili behin-behineko kredentzial hauek saioa hasteko: <br><br> Erabiltzailea: <strong>% {email}</strong> <br> Pasahitza: <strong>% {password}</strong> <br><br>'
+        instructions_2_html: Jarri helbide elektroniko berria eta pasahitza.
+        instructions_3_html: Partekatu zure lankideekin aukeratutako sarrera-kredentzialak, talde osoak kontura sartzen jarraitu ahal izateko.
+        instructions_title_html: "<strong>Zer egin behar duzu?</strong>"
+        subject: Zure taldearen profilari buruzko eguneratze garrantzitsua
     user_report_mailer:
       notify:
         body_1: '%{user} parte-hartzailea %{token}-ek erreportatu du'
