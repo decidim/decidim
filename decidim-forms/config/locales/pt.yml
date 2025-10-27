@@ -72,17 +72,13 @@ pt:
             any: Qualquer
             collapse: Colapsar
             description: Descrição
-            down: Abaixo
             expand: Expandir
             question: Questão
             remove: Remover
             statement: Declaração
-            up: Acima
           separator:
-            down: Abaixo
             remove: Remover
             separator: Separador
-            up: Acima
           update:
             invalid: Ocorreu um problema ao guardar o questionário.
             success: Formulário guardado com êxito

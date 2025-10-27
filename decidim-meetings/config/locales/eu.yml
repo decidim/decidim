@@ -143,7 +143,7 @@ eu:
           success: Topaketa zuzen bikoiztu da.
         new:
           copy: Kopiatu
-          title: Bikoiztu topaketa
+          title: Topaketa bikoiztu
     components:
       meetings:
         actions:
@@ -184,7 +184,7 @@ eu:
             email_subject: '"%{resource_title}" topaketa itxi egin da'
             notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxi egin da.
         meeting_created:
-          button_text: Eman izena bileran
+          button_text: Eman izena topaketan
           email_intro: '"%{resource_title}" topaketa jarraitzen duzun "%{participatory_space_title}" espazioan gehitu da.'
           email_outro: Jakinarazpen hau jaso duzu "%{participatory_space_title}" prozesua jarraitzen ari zarelako. Aureko estekan utzi ahal diozu jarraitzeari.
           email_subject: 'Beste topaketa bat gehituta honi: %{participatory_space_title}'
@@ -288,7 +288,7 @@ eu:
         invite_join_meeting_mailer:
           invite:
             decline: Deuseztatu gonbidapena
-            invited_you_to_join_a_meeting: "%{invited_by}-k gonbidatu zaitu %{application} topaketan parte hartzera. Beheko estekan onartu dezakezu."
+            invited_you_to_join_a_meeting: "%{invited_by} k %{application} topaketan parte hartzera gonbidatu zaitu. Beheko estekan onar dezakezu gobidapena."
             join: Erregistratu '%{meeting_title}' topaketa
         invites:
           create:
@@ -308,7 +308,7 @@ eu:
         meeting_closes:
           edit:
             close: Itxi
-            title: Itxi topaketa
+            title: Topaketa itxi
         meetings:
           close:
             invalid: Arazo bat egon da topaketa hau ixtean.
@@ -323,7 +323,7 @@ eu:
                 other: Topaketa ezin da suntsitu, berari lotutako %{count} proposamen dituelako.
             success: Topaketa zuzen ezabatu da.
           edit:
-            title: Editatu bilera
+            title: Topaketa editatu
             update: Eguneratu
           form:
             address_help: 'Helbidea: Geocoderrek erabiltzen du kokapena aurkitzeko'
@@ -431,7 +431,7 @@ eu:
         export_calendar: Esportatu egutegia
       close_meeting_reminder_mailer:
         close_meeting_reminder:
-          body: <a href="%{meeting_path}">"%{meeting_title}"</a> bilera ixteko dago. Mesedez, gehitu bilerari buruzko txosten bat "Itxi bilera" botoia erabiliz.
+          body: <a href="%{meeting_path}">"%{meeting_title}"</a> topaketa ixteko dago. Mesedez, gehitu topaketari buruzko txosten bat "Itxi topaketa" botoia erabiliz.
           greetings: Agur, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Kaixo %{username},
           subject: Zuk orain "%{meeting_title}" topaketa itxi ahal duzu txosten batekin
@@ -535,9 +535,9 @@ eu:
           see_all_withdrawn: Ikusi bertan behera utzitako topaketa guztiak
           text_banner: Egileek erretiratutako bileren zerrenda ikusten ari zara. %{go_back_link}.
         meeting:
-          close_meeting: Itxi topaketa
+          close_meeting: Topaketa itxi
           edit_close_meeting: Editatu topaketaren txostena
-          edit_meeting: Editatu bilera
+          edit_meeting: Topaketa editatu
           join_meeting: Izena eman
           reply_poll: Erantzun inkesta
           view_poll: Ikusi inkesta

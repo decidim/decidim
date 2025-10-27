@@ -101,26 +101,20 @@ ja:
             any: 任意の
             collapse: 折りたたむ
             description: 説明
-            down: 下
             expand: 展開
             question: 質問
             remove: 削除
             statement: ステートメント
-            up: 上へ
           separator:
-            down: 下
             remove: 削除
             separator: 区切り記号
-            up: 上へ
           title_and_description:
             collapse: 折りたたむ
             description: 説明
-            down: 下へ
             expand: 展開する
             remove: 削除
             title: タイトル
             title_and_description: タイトルと説明
-            up: 上へ
           update:
             invalid: フォームの保存に失敗しました。
             success: フォームを保存しました。

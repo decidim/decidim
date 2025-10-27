@@ -16,7 +16,7 @@ eu:
         document_type: Dokumentu mota
       id_document_upload:
         document_number: Dokumentuaren zenbakia (letraz)
-        document_type: Zure dokumentuaren mota
+        document_type: Dokumentuaren mota
         user: Parte-hartzaileak
         verification_attachment: Zure dokumentuaren eskaneatutako kopia
       mobile_phone:
@@ -130,7 +130,7 @@ eu:
         first_login:
           actions:
             another_dummy_authorization_handler: Egiaztatu baimenen kudeatzailearen beste adibide baten aurka
-            csv_census: Egiaztatu erakundearen zentsuaren aurka
+            csv_census: Egiaztatu erakundearen erroldaren bidez
             dummy_authorization_handler: Egiaztatu adibide-baimenaren kudeatzailearen aurka
             dummy_authorization_workflow: Egiaztatu baimenen laneko fluxuaren aurka
             id_documents: Egiaztatu zure identifikazio dokumentua kargatzen
@@ -223,7 +223,7 @@ eu:
               verify: Ziurtatu
           pending_authorizations:
             index:
-              config: config
+              config: Konfiguratu
               offline_verification: Off-line egiaztapena
               title: On-line egiaztapenak zain
               verification_number: 'Egiaztapena # %{n}'
@@ -248,7 +248,7 @@ eu:
             rejection_notice: Arazo bat egon da zure egiaztapenarekin. Mesedez, saiatu berriro.
             send: Eskatu egiaztapena berriro
           new:
-            send: Eskatu egiaztapena
+            send: Egiaztapena eskatu
             title: Igo zure identifikazio agiria
           update:
             error: Arazo bat egon da zure dokumentua berriro igotzean.
@@ -280,7 +280,7 @@ eu:
             waiting_for_letter: Laster gutun bat bidaliko dugu zure helbidera zure egiaztapen-kodearekin.
           new:
             send: Bidali iezadazu gutun bat
-            title: Eskatu egiaztapen-kodea
+            title: Egiaztapen-kodea eskatu
           update:
             error: Zure egiaztapen-kodea ez dator bat gurearekin. Mesedez, begiratu berriro bidali dizugun gutuna.
             success: Zorionak! Zuzen egiaztatu zara.

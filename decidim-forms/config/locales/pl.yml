@@ -76,26 +76,20 @@ pl:
             any: Dowolny
             collapse: Zwiń
             description: Opis
-            down: Na dół
             expand: Rozwiń
             question: Pytanie
             remove: Usuń
             statement: Komunikat
-            up: W górę
           separator:
-            down: Na dół
             remove: Usuń
             separator: Separator
-            up: W górę
           title_and_description:
             collapse: Zwiń
             description: Opis
-            down: W dół
             expand: Rozwiń
             remove: Usuń
             title: Tytuł
             title_and_description: Tytuł i opis
-            up: W górę
           update:
             invalid: Podczas zapisywania formularza wystąpił błąd.
             success: Formularz został zapisany.

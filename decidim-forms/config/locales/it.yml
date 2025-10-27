@@ -74,17 +74,13 @@ it:
             any: Qualunque
             collapse: Comprimi
             description: Descrizione
-            down: Giù
             expand: Espandi
             question: Domanda
             remove: Rimuovere
             statement: dichiarazione
-            up: Su
           separator:
-            down: Giù
             remove: Elimina
             separator: Separatore
-            up: Su
           update:
             invalid: Si sono verificati errori durante il salvataggio del questionario.
             success: Modulo salvato correttamente.

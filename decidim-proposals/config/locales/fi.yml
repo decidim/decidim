@@ -238,7 +238,7 @@ fi:
             suggested_hashtags: Käyttäjille ehdotettavat aihetunnisteet (hashtag) uusille ehdotuksille
             votes_blocked: Äänestys estetty
             votes_enabled: Äänet käytössä
-            votes_hidden: Piilotetut äänet (jos äänet ovat käytössä, tämä valitseminen piilottaa äänimäärän)
+            votes_hidden: Piilotetut äänet (jos äänet ovat käytössä, tämän valitseminen piilottaa äänimäärän)
     events:
       proposals:
         admin:

@@ -72,17 +72,13 @@ lb:
             any: Irgendein
             collapse: Zouklappen
             description: Beschreiwung
-            down: Runter
             expand: Ausklappen
             question: Fro
             remove: Löschen
             statement: Aussage
-            up: Hoch
           separator:
-            down: Runter
             remove: Löschen
             separator: Trennzeichen
-            up: Hoch
           update:
             invalid: Beim Speichern des Fragebogens sind Fehler aufgetreten.
             success: Formular erfolgreich gespeichert.

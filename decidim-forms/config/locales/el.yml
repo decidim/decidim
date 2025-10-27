@@ -76,26 +76,20 @@ el:
             any: Οποιαδήποτε
             collapse: Σύμπτυξη
             description: Περιγραφή
-            down: Κάτω
             expand: Ανάπτυξη
             question: Ερώτηση
             remove: Κατάργηση
             statement: Δήλωση
-            up: Επάνω
           separator:
-            down: Κάτω
             remove: Κατάργηση
             separator: Διαχωριστικό
-            up: Επάνω
           title_and_description:
             collapse: Σύμπτυξη
             description: Περιγραφή
-            down: Κάτω
             expand: Ανάπτυξη
             remove: Αφαίρεση
             title: Τίτλος
             title_and_description: Τίτλος και περιγραφή
-            up: Πάνω
           update:
             invalid: Υπήρξε ένα πρόβλημα κατά την αποθήκευση της φόρμας.
             success: Η φόρμα αποθηκεύτηκε επιτυχώς.

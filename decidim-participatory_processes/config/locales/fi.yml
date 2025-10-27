@@ -7,6 +7,7 @@ fi:
         area_id: Alue
         copy_categories: Kopioi aihepiirit
         copy_components: Kopioi komponentit
+        copy_landing_page_blocks: Kopioi laskeutumissivun sisältölohkot
         copy_steps: Kopioi vaiheet
         decidim_area_id: Alue
         description: Kuvaus
@@ -480,8 +481,8 @@ fi:
               one: 1 prosessi
               other: "%{count} prosessia"
             past:
-              one: 1 aikaisempi prosessi
-              other: "%{count} aikaisempaa prosessia"
+              one: 1 päättynyt prosessi
+              other: "%{count} päättynyttä prosessia"
             upcoming:
               one: 1 tuleva prosessi
               other: "%{count} tulevaa prosessia"
@@ -494,7 +495,7 @@ fi:
           names:
             active: Aktiiviset
             all: Kaikki
-            past: Menneet
+            past: Päättyneet
             upcoming: Tulevat
           see: Näytä
           type: Tyyppi

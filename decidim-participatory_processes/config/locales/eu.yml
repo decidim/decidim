@@ -7,6 +7,7 @@ eu:
         area_id: Arloa
         copy_categories: Kopiatu kategoriak
         copy_components: Kopiatu osagaiak
+        copy_landing_page_blocks: Bikoiztu lurreratze-orrien blokeak
         copy_steps: Kopiatu faseak
         decidim_area_id: Arloa
         description: Deskribapena
@@ -372,7 +373,7 @@ eu:
         html:
           name: HTML blokea
         html_1:
-          name: Lehen HTML blokea
+          name: Aurreneko HTML blokea
         html_2:
           name: Bigarren HTML blokea
         html_3:
@@ -390,7 +391,7 @@ eu:
             one: Prozesu bat
             other: "Prozesu bat"
       related_processes:
-        help: Hautatutako prozesu guztiak talde horri esleituko zaizkio, beste talde batzuei esleituta daudenak barne.
+        help: Hautatutako prozesu guztiak talde honi esleituko zaizkio, beste talde batzuei esleitutakoak barne.
       show:
         title: Partaidetza-prozesuen taldeak
     participatory_process_steps:
@@ -417,7 +418,7 @@ eu:
             visibility: Ikusgarritasuna
         participatory_process_imports:
           form:
-            document_legend: Gehitu dokumentu bat
+            document_legend: Dokumentu bat atxikitu
             slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
         participatory_process_steps:
           form:
@@ -435,7 +436,7 @@ eu:
             scope_type_max_depth_help: Murriztu eremu-iragazkiaren sakonera; iragazkia eremu orokorretik hautatutakora erakutsiko da.
             select_an_area: Hautatu arlo bat
             select_participatory_process_type: Aukeratu prozesu-mota bat
-            select_process_group: Hautatu prozesu-talde bat
+            select_process_group: Prozesu-talde bat hautatu
             slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
             title: Informazio orokorra
             visibility: Ikusgarritasuna

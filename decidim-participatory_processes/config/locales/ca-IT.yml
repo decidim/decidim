@@ -7,6 +7,7 @@ ca-IT:
         area_id: Àrea
         copy_categories: Copiar les categories
         copy_components: Copiar els components
+        copy_landing_page_blocks: Duplicar els blocs de contingut de la pàgina d'inici
         copy_steps: Copiar les fases
         decidim_area_id: Àrea
         description: Descripció

@@ -7,6 +7,7 @@ cs:
         area_id: Oblast
         copy_categories: Kopírovat kategorie
         copy_components: Kopírování komponent
+        copy_landing_page_blocks: Duplikovat bloky vstupní strany
         copy_steps: Kopírování kroků
         decidim_area_id: Oblast
         description: Popis

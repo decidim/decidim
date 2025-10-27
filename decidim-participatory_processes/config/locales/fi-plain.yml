@@ -7,6 +7,7 @@ fi-pl:
         area_id: Alue
         copy_categories: Kopioi aihepiirit
         copy_components: Kopioi komponentit
+        copy_landing_page_blocks: Kopioi laskeutumissivun sisältölohkot
         copy_steps: Kopioi vaiheet
         decidim_area_id: Alue
         description: Kuvaus
