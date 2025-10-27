@@ -61,47 +61,13 @@ gem "decidim-dev", github: "decidim/decidim"
 
 ### 1.4. Rails upgrade
 
-This particular release is deploying a new Rails version 7.2. As a result you need to update your application configuration. Before that, you need to run the following commands:
+This particular release is deploying a new Rails version 7.2. As a result you need to update your application configuration. You need to run the following commands:
 
 ```console
 bundle update decidim
 bin/rails decidim:upgrade
-```
-
-After that, you will have to patch your `config/environments/production.rb`, and change the logger with:
-
-```ruby
-if ENV["RAILS_LOG_TO_STDOUT"].present?
-  config.logger = ActiveSupport::Logger.new(STDOUT)
-    .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
-    .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
-end
-```
-
-As of this version, we are changing Rails's settings from 6.1 to 7.1. In order to upgrade your app, you will need to patch your `config/application.rb` to load the 7.1 defaults.
-
-```diff
-module DevelopDevelopmentApp
-  class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
--    config.load_defaults 6.1
-+    config.load_defaults 7.1
-    # ....
-  end
-end
-```
-
-After you have validated that your application still works as expected, you will need to do the next change, to fully finalize the upgrade. You need to change again the `config/application.rb` to load the 7.2 defaults.
-
-```diff
-module DevelopDevelopmentApp
-  class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
--    config.load_defaults 7.1
-+    config.load_defaults 7.2
-    # ....
-  end
-end
+sed -i "s/config\.load_defaults 6\.1/config\.load_defaults 7.2/g" config/application.rb # change framework defaults from Rails v6.1 to v7.2
+wget https://github.com/decidim/decidim/releases/download/v0.31.0.rc1/production.rb -O config/environments/production.rb # change production.rb so it does not use the deprecated secrets API
 ```
 
 We are recommending to follow the proposed steps, as you may have installed other decidim modules that are not yet ready to be used with 7.2
