@@ -19,7 +19,6 @@ it:
             tos: Termini di servizio
         questionnaires:
           actions:
-            back: Torna alle domande
             show: Mostra risposte
           answer_option:
             answer_option: Opzione di risposta
@@ -72,20 +71,16 @@ it:
             any: Qualunque
             collapse: Comprimi
             description: Descrizione
-            down: Giù
             expand: Espandi
             question: Domanda
             remove: Rimuovere
             statement: dichiarazione
-            up: Su
           questions_form:
             already_answered_warning: Alcuni utenti hanno già risposto al modulo, per cui non è possibile modificarne i quesiti.
             unpublished_warning: Il modulo non è pubblicato. Puoi modificare le sue domande, ma in questo modo cancellerai le risposte correnti.
           separator:
-            down: Giù
             remove: Elimina
             separator: Separatore
-            up: Su
           update:
             invalid: Si sono verificati errori durante il salvataggio del questionario.
             success: Modulo salvato correttamente.

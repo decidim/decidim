@@ -55,7 +55,6 @@ de:
             tos: Nutzungsbedingungen
         questionnaires:
           actions:
-            back: Zurück zu Fragen
             publish_answers: Antworten veröffentlichen
             show: Antworten anzeigen
           answer_option:
@@ -125,12 +124,10 @@ de:
             any: Irgendein
             collapse: Einklappen
             description: Beschreibung
-            down: Nach unten
             expand: Ausklappen
             question: Frage
             remove: Löschen
             statement: Aussage
-            up: Oben
           questions_form:
             already_answered_warning: Der Fragebogen wird bereits von einigen Benutzern beantwortet, sodass Sie die Fragen nicht ändern können.
             collapse: Alle Fragen einklappen
@@ -139,19 +136,15 @@ de:
             update:
               success: Umfrage erfolgreich gespeichert.
           separator:
-            down: Runter
             remove: Löschen
             separator: Trennzeichen
-            up: Nach oben
           title_and_description:
             collapse: Einklappen
             description: Beschreibung
-            down: Runter
             expand: Ausklappen
             remove: Entfernen
             title: Titel
             title_and_description: Titel und Beschreibung
-            up: Hinauf
           update:
             invalid: Beim Speichern des Fragebogens sind Fehler aufgetreten.
             success: Formular erfolgreich gespeichert.

@@ -98,7 +98,9 @@ de:
       decidim:
         proposals:
           proposal:
+            budget_text: Der Vorschlag <span class="resource-link">%{link}</span> wurde erstellt
             import_from_proposal_text: 'Es wurde zu diesem Vorschlag: %{link}'
+            import_to_proposal_text: Der Vorschlag <span class="resource-link">%{link}</span> wurde erstellt
             merge_from_proposal_text: 'Es wurde zu diesem Vorschlag: %{link}'
             merge_to_proposal_text: 'Dieser Vorschlag wurde erstellt: %{link}'
             split_from_proposal_text: 'Es wurde zu diesem Vorschlag: %{link}'

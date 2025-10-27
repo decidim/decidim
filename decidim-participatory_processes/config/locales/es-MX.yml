@@ -7,6 +7,7 @@ es-MX:
         area_id: Área
         copy_categories: Copiar categorías
         copy_components: Copiar componentes
+        copy_landing_page_blocks: Duplicar los bloques de contenido de la página de inicio
         copy_steps: Copiar las fases
         decidim_area_id: Área
         description: Descripción

@@ -18,7 +18,6 @@ tr:
             tos: Kullanım Şartları
         questionnaires:
           actions:
-            back: Sorulara geri dön
             show: Yanıtları göster
           answer_option:
             answer_option: Cevap seçeneği
@@ -71,17 +70,13 @@ tr:
             any: herhangi
             collapse: Daralt
             description: Açıklama
-            down: Aşağı
             expand: Genişlet
             question: Soru
             remove: Kaldır
             statement: Beyan
-            up: yukarı
           separator:
-            down: Aşağı
             remove: Kaldır
             separator: Ayraç
-            up: Yukarı
           update:
             invalid: Formu kaydederken bir sorun oluştu.
             success: Başarıyla kaydedildi.

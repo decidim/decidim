@@ -7,6 +7,7 @@ fr-CA:
         area_id: Périmètre d'assemblée
         copy_categories: Copier les catégories
         copy_components: Copier les fonctionnalités
+        copy_landing_page_blocks: Dupliquer les blocs de page d'accueil
         copy_steps: Copier les étapes
         decidim_area_id: Périmètre d'assemblée
         description: Description

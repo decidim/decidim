@@ -360,7 +360,9 @@ fr:
             select_an_iframe_access_level: Veuillez sélectionner un niveau d'accès iframe
           index:
             linked_meeting_warning_html: Cette rencontre doit être modifiée à partir de <br><a href="%{href}">%{name}</a>
+            published: Publiée
             title: Rencontres
+            unpublished: Non publiées
           linked_spaces:
             assign: Assigner
             link_a_space: Lier un espace
@@ -632,6 +634,7 @@ fr:
             id: ID
             map: Carte
             official_meeting: Rencontre officielle
+            published: Publiée
             start_time: Date de début
             taxonomies: Taxonomies
             title: Titre

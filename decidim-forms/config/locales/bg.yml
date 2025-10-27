@@ -19,7 +19,6 @@ bg:
             tos: Условия за ползване
         questionnaires:
           actions:
-            back: Назад към въпросите
             show: Показване на отговорите
           answer_option:
             answer_option: Възможност за отговор
@@ -72,26 +71,20 @@ bg:
             any: Някой
             collapse: Свий
             description: Описание
-            down: Надолу
             expand: Разтваряне
             question: Въпрос
             remove: Премахни
             statement: Изявление
-            up: Горе
           separator:
-            down: Долу
             remove: Премахни
             separator: Разделител
-            up: Горе
           title_and_description:
             collapse: Свий
             description: Описание
-            down: Долу
             expand: Разтваряне
             remove: Премахни
             title: Заглавие
             title_and_description: Заглавие и описание
-            up: Горе
           update:
             invalid: Възникна проблем при запазването на формуляра.
             success: Формулярите бяха запазени успешно.

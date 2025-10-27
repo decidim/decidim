@@ -55,7 +55,7 @@ es:
             tos: Términos y condiciones de uso
         questionnaires:
           actions:
-            back: Volver a las preguntas
+            back: Volver a las respuestas
             publish_answers: Publicar respuestas
             show: Mostrar las respuestas
           answer_option:
@@ -125,12 +125,10 @@ es:
             any: Alguna
             collapse: Contraer
             description: Descripción
-            down: Abajo
             expand: Expandir
             question: Pregunta
             remove: Eliminar
             statement: Declaración
-            up: Arriba
           questions_form:
             already_answered_warning: No puedes modificar las preguntas porque algunas participantes ya han respondido el formulario.
             collapse: Contraer todas las preguntas
@@ -139,19 +137,15 @@ es:
             update:
               success: Pregunta/s añadida/s correctamente a la encuesta.
           separator:
-            down: Bajar
             remove: Eliminar
             separator: Separador
-            up: Subir
           title_and_description:
             collapse: Contraer
             description: Descripción
-            down: Bajar
             expand: Expandir
             remove: Eliminar
             title: Título
             title_and_description: Título y descripción
-            up: Subir
           update:
             invalid: Se ha producido un error al guardar el formulario.
             success: Formulario guardado correctamente.

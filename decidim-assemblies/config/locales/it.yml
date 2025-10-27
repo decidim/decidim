@@ -63,7 +63,7 @@ it:
         gender: Genere
         non_user_avatar: Avatar
         position: Posizione
-        user_id: Utente
+        user_id: Utente o gruppo
         weight: Posizione nell'elenco
       assembly_user_role:
         email: E-mail
@@ -130,7 +130,7 @@ it:
           success: L'Assemblea è stata pubblicata con successo.
         destroy:
           error: Si è verificato un errore durante la pubblicazione di questo assembly.
-          success: Assemblea cancellata con successo.
+          success: Assemblea non pubblicata con successo.
       assembly_user_roles:
         create:
           error: Si è verificato un errore durante l'aggiunta di un utente per questa assemblea.
@@ -138,7 +138,7 @@ it:
         destroy:
           success: Utente rimosso con successo da questa assemblea.
         edit:
-          title: Aggiorna gli amministratori dello spazio
+          title: Aggiorna gli amministratori dell'assemblea
           update: Aggiorna
         index:
           assembly_admins_title: Amministratori dell'assemblea
@@ -165,7 +165,7 @@ it:
           attachments: Allegati
           components: Componenti
           info: Info su questo spazio
-          landing_page: Pagina iniziale
+          landing_page: Pagina di atterraggio
           moderations: Moderazione
           private_users: Membri
           see_assembly: Guarda l'assemblea
@@ -183,7 +183,7 @@ it:
           name: Membro
           positions:
             other: Altro
-            president: Presidentessa/Presidente
+            president: Presidente
             secretary: Segretario
             vice_president: Vicepresidente
         assembly_user_role:

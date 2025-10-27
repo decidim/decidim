@@ -365,7 +365,9 @@ fi-pl:
             select_an_iframe_access_level: Valitse iframe-upotusten käyttöoikeustaso
           index:
             linked_meeting_warning_html: Tätä tapaamista tulee muokata kohteesta <br><a href="%{href}">%{name}</a>
+            published: Julkaistu
             title: Tapahtumat
+            unpublished: Julkaisematon
           linked_spaces:
             assign: Määritä
             link_a_space: Liitä osallistumistila
@@ -637,6 +639,7 @@ fi-pl:
             id: ID
             map: Kartta
             official_meeting: Virallinen tapahtuma
+            published: Julkaistu
             start_time: Alkamispäivä
             taxonomies: Luokittelut
             title: Otsikko
