@@ -3,7 +3,7 @@
 NOTE: This is the draft for the releases notes. If you are an implementer or someone that is upgrading a Decidim installation, you need to follow
 the instructions for all the patch releases in GitHub:
 
-- https://github.com/decidim/decidim/releases/tag/v0.31.0.rc1
+- <https://github.com/decidim/decidim/releases/tag/v0.31.0.rc1>
 
 ## 1. Upgrade notes
 
