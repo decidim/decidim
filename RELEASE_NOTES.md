@@ -6,18 +6,26 @@ As usual, we recommend that you have a full backup, of the database, application
 
 To update, follow these steps:
 
-### 1.1. Update your ruby version
+### 1.1. Update your ruby version and node versions
 
 If you're using rbenv, this is done with the following commands:
 
 ```console
-rbenv install 3.x.x
-rbenv local 3.x.x
+rbenv install 3.3.4
+rbenv local 3.3.4
 ```
 
 You may need to change your `.ruby-version` file too.
 
-If not, you need to adapt it to your environment, for instance by changing the decidim docker image to use ruby:3.x.x.
+If not, you need to adapt it to your environment, for instance by changing the decidim docker image to use ruby:3.3.4.
+
+For node, if you're using nvm, this is done with the following commands:
+
+
+```console
+nvm install 22.14.0
+nvm use 22.14.0
+```
 
 ### 1.2. Update your application configuration
 
@@ -120,6 +128,10 @@ bin/rails decidim:upgrade:user_groups:remove
 bin/rails decidim:upgrade:fix_nickname_casing
 bin/rails decidim:verifications:revoke:sms
 bin/rails decidim_surveys:upgrade:fix_survey_permissions
+
+bin/rails decidim:upgrade:decidim_update_valuators
+bin/rails decidim:upgrade:decidim_action_log_valuation_assignment
+bin/rails decidim:upgrade:decidim_paper_trail_valuation_assignment
 ```
 
 ### 1.6. Follow the steps and commands detailed in these notes
@@ -290,28 +302,6 @@ bin/rails decidim_surveys:upgrade:fix_survey_permissions
 
 You can read more about this change on PR [#14940](https://github.com/decidim/decidim/pull/14940).
 
-### 2.7. Module deprecations
-
-As part of our ongoing efforts to improve and make simpler Decidim, the following modules will be **deprecated** in this version (v0.31) and **removed** in the next major version (v0.32):
-
-#### Collaborative Drafts
-
-The Collaborative Drafts feature in the Proposals module (`decidim-proposals`) will be removed in v0.32. Organizations using this feature can switch to the new proposal co-authorship feature.
-
-#### Sortitions (decidim-sortitions)
-
-The Sortitions module (`decidim-sortitions`) will be removed in v0.32. This module provided functionality to randomly select participants or proposals. Organizations relying on this feature should consider implementing alternative selection mechanisms.
-
-#### Polls in Meetings (decidim-meetings polls functionality)
-
-The Polls feature within the Meetings module (`decidim-meetings`) will be removed in a future version (to be determined). This feature allowed meeting organizers to create polls during meetings. Organizations using meeting polls should plan to use external polling tools (for instance, through Jitsi) or migrate to other voting mechanisms available in Decidim, such as the new Elections module (`decidim-elections`).
-
-You can read more about this change on PR [#15298](https://github.com/decidim/decidim/pull/15298).
-
-### 2.8. [[TITLE OF THE ACTION]]
-
-You can read more about this change on PR [#xxxx](https://github.com/decidim/decidim/pull/xxx).
-
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.
@@ -466,22 +456,14 @@ If the file does not exist, check and perform the same changes in the `packages/
 
 You can read more about this change on PR [#15016](https://github.com/decidim/decidim/pull/15016).
 
-### 3.11. [[TITLE OF THE ACTION]]
-
-You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
-
 ## 4. Scheduled tasks
 
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples
 with `crontab`, although alternatively you could use `whenever` gem or the scheduled jobs of your hosting provider.
 
-### 4.1. [[TITLE OF THE TASK]]
+### 4.1. Automatic deletion of inactive accounts
 
-```bash
-4 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rails decidim:TASK
-```
-
-You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+See section 2.2. of this guide.
 
 ## 5. Changes in APIs
 
@@ -600,21 +582,3 @@ bundle exec rails secret
 ```
 
 You can read more about this change on PR [#14225](https://github.com/decidim/decidim/pull/14225).
-
-### 5.8. [[TITLE OF THE CHANGE]]
-
-In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
-
-If you have used code as such:
-
-```ruby
-# Explain the usage of the API as it was in the previous version
-result = 1 + 1 if before
-```
-
-```ruby
-# Explain the usage of the API as it is in the new version
-result = 1 + 1 if after
-```
-
-You can read more about this change on PR [#xxxx](https://github.com/decidim/decidim/pull/xxxxx).
