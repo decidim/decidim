@@ -32,32 +32,60 @@ nvm install 22.14.0
 nvm use 22.14.0
 ```
 
-### 1.2. Update your application configuration
-
-In this version, we are changing Decidim’s underlying configuration engine. To update your application, make sure to review the changes related to environment variables. (See section 3.4: "Deprecation of Rails.application.secrets" for details.)
-
-Your code and configuration must be updated to remove all references to the `Rails.application.secrets` object.
-
-⚠ **Important**: If you have customized any of the following files:
-
-* config/secrets.yml
-* config/initializers/decidim.rb
-* config/storage.yml
-
-You will need to adjust your environment to provide the necessary configurations through environment variables.
-
-```bash
-git rm config/secrets.yml
-git rm config/initializers/decidim.rb
-wget https://raw.githubusercontent.com/decidim/decidim/refs/heads/develop/decidim-generators/lib/decidim/generators/app_templates/storage.yml -O config/storage.yml
-```
-
-### 1.3. Update your Gemfile
+### 1.2. Update your Gemfile
 
 ```ruby
 gem "decidim", github: "decidim/decidim"
 gem "decidim-dev", github: "decidim/decidim"
 ```
+
+### 1.3. Run these commands
+
+Note that there were several big updates in this version, most notably Rails and Shakapacker.
+
+```console
+git rm config/secrets.yml # see "2.2. Deprecation of `Rails.application.secrets`"
+git rm config/initializers/decidim.rb # see "2.2. Deprecation of `Rails.application.secrets`"
+wget https://raw.githubusercontent.com/decidim/decidim/refs/heads/develop/decidim-generators/lib/decidim/generators/app_templates/storage.yml -O config/storage.yml  # see "2.2. Deprecation of `Rails.application.secrets`"
+wget https://github.com/decidim/decidim/releases/download/v0.31.0.rc1/production.rb -O config/environments/production.rb # see "2.2. Deprecation of `Rails.application.secrets`"
+
+bundle update decidim
+bin/rails decidim:upgrade
+bin/rails db:migrate
+
+sed -i "s/config\.load_defaults 6\.1/config\.load_defaults 7.2/g" config/application.rb # see "2.1. Ruby on Rails update to 7.2"
+
+bin/rails decidim:upgrade:decidim_update_valuators # see "3.1. Change of Valuator for Evaluator"
+bin/rails decidim:upgrade:decidim_action_log_valuation_assignment # see "3.1. Change of Valuator for Evaluator"
+bin/rails decidim:upgrade:decidim_paper_trail_valuation_assignment # see "3.1. Change of Valuator for Evaluator"
+bin/rails decidim:upgrade:fix_nickname_casing # see "3.2. Convert nicknames to lowercase"
+bin/rails decidim:upgrade:clean:invalid_private_exports # see "3.3 Removal of invalid user exports"
+bin/rails decidim:verifications:revoke:sms # see "3.4. SMS authorization changes"
+bin/rails decidim_surveys:upgrade:fix_survey_permissions # see "3.5. Permission rename in surveys module"
+bin/rails decidim:upgrade:user_groups:remove # see "3.6. User Groups removal"
+```
+
+Update your shakapacker version in your `package.json` file for "2.3 Shakapacker upgrade"
+Change your crontab and your sidekig configuration for "4.1. Automatic deletion of inactive accounts"
+Change your crontab and your sidekiq configuration for "4.2. Removal of Metrics"
+
+In cases where you have done some developments, please check out these particular sections:
+
+* If you call to `Decidim::UserBaseEntity.nicknamize`, you need to update your code
+* If you want to do external integrations using the GraphQL API, read about these changes at:
+  * 5.1. Add force_api_authentication configuration options
+  * 5.3. Extended OAuth application capabilities for integrating external participant-facing applications
+  * 5.4. Changed scopes for OAuth authorization requests
+  * 5.5. API users for machine-to-machine integrations
+  * 5.6. Possibility to force API authentication
+  * 5.7. JWT token based API authentication
+* If you use the Inititatives module, we have some improvements in the Signature workflow. Read more about it at:
+  * 5.8 Initiatives digital signature process change
+  * 5.9. Migrate signature configuration of initiatives types
+
+### 1.6. Follow the steps and commands detailed in these notes
+
+## 2. General notes
 
 ### 1.4. Rails upgrade
 
