@@ -235,7 +235,6 @@ bin/rails decidim:upgrade:user_groups:remove
 
 The tasks can also be executed one by one:
 
-|------|------|
 |Task  | Description |
 |------|------|
 | `bin/rails decidim:upgrade:user_groups:send_reset_password_instructions` | An email will be sent to the email address associated with the User Group, informing them of the deprecation of User Groups and instructing them to define a password for the newly converted profile. |
@@ -243,7 +242,6 @@ The tasks can also be executed one by one:
 | `bin/rails decidim:upgrade:user_groups:transfer_user_groups_authorships` | To migrate the authorships and coauthorships of the old groups and assign to the new regular users |
 | `bin/rails decidim:upgrade:user_groups:fix_user_groups_action_logs` | To avoid exceptions accessing to the activities log in the admin panel displaying activities associated with user groups |
 | `bin/rails decidim:upgrade:user_groups:remove_groups_notifications` | To avoid exceptions trying to display notifications associated with deprecated groups events |
-|------|------|
 
 You can read more about this change on PR [#14130](https://github.com/decidim/decidim/pull/14130).
 
