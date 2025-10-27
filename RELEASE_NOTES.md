@@ -65,6 +65,7 @@ bin/rails decidim:upgrade:user_groups:remove # see "3.6. User Groups removal"
 ```
 
 Update your shakapacker version in your `package.json` file for "2.3 Shakapacker upgrade"
+Change your cloud assets storage configuration if you are using one for "3.7. AWS/Azure/Google Cloud assets storage"
 Change your crontab and your sidekiq configuration for "4.1. Automatic deletion of inactive accounts"
 Change your crontab and your sidekiq configuration for "4.2. Removal of Metrics"
 
@@ -115,8 +116,6 @@ You can read more about the Rails upgrade process on the following PRs:
 ### 2.2. Deprecation of `Rails.application.secrets`
 
 In this version, we are changing Decidim’s underlying configuration engine. To update your application, make sure to review the changes related to environment variables.
-
-Your code and configuration must be updated to remove all references to the `Rails.application.secrets` object.
 
 If you were already using the Environment Variables for the configuration of your application, then you can remove both the config/secrets.yml and also the decidim initializer:
 If you are not using the ENV system, you will need to adjust your application settings to use it.
@@ -247,6 +246,16 @@ The tasks can also be executed one by one:
 |------|------|
 
 You can read more about this change on PR [#14130](https://github.com/decidim/decidim/pull/14130).
+
+### 3.7. AWS/Azure/Google Cloud assets storage
+
+There is a bug related to the cache expiration using Active Storage (assets, such as images). For fixing this issue, the Rails team added an extra active storage parameter, `public: true` that you can add it to your storage configuration. If you followed the step `2.2. Deprecation of Rails.application.secrets` and changed your `config/storage.yml` file you don't need to do anything else.
+
+This will also change the URL that is used, so you will need to update your [Content Security Policy](https://docs.decidim.org/en/develop/customize/content_security_policy.html), adding the new URL in the policies "default-src", "img-src", "media-src", and "connect-src". For instance, in the case of S3 with AWS, the format of the URL is the following:  `https://BUCKET-NAME.s3.amazonaws.com/ASSET_ID`.
+
+Apart of that, you also need to configure your preferred cloud service provider to support this. We recommend you to follow the Rails official guide for [Active Storage configuration](https://guides.rubyonrails.org/v7.0/active_storage_overview.html#setup).
+
+You can read more about this change on PR [#15005](https://github.com/decidim/decidim/pull/15005/).
 
 ## 4. Scheduled tasks
 
