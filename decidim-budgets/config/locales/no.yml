@@ -28,10 +28,7 @@
               'true': Ikke valgt for implementering
     budgets:
       actions:
-        attachment_collections: Mapper
-        attachments: Vedlegg
         edit: Editar
-        edit_projects: Administrer prosjekter
         import: Importer forslag til prosjekter
         preview: Forhåndsvis
         title: Handlinger
@@ -52,8 +49,6 @@
         exports:
           projects: Prosjekter
         models:
-          budget:
-            name: Budsjett
           project:
             name: Prosjekt
         projects:

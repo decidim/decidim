@@ -34,10 +34,7 @@ pt-BR:
               'true': Não selecionado para implementação
     budgets:
       actions:
-        attachment_collections: Pastas
-        attachments: Anexos
         edit: Editar
-        edit_projects: Gerenciar projetos
         import: Importar propostas para os projetos
         new_budget: Novo orçamento
         new_project: Novo projeto
@@ -67,8 +64,6 @@ pt-BR:
         exports:
           projects: Projetos
         models:
-          budget:
-            name: Orçamento
           project:
             name: Projeto
         projects:
@@ -229,9 +224,7 @@ pt-BR:
           assigned: Atribuído
           budget: Orçamento
           dynamic_help:
-            keep_adding_projects: Continuar adicionando projetos
             minimum_reached: Você atingiu o mínimo para poder votar
-            start_adding_projects: Começar a adicionar projetos
           minimum: Mínimo
         orders:
           highest_cost: Custo mais alto

@@ -203,7 +203,7 @@
       @apply flex items-center justify-between;
     }
 
-    [data-component="accordion"] {
+    [data-controller="accordion"] {
       @apply relative bg-gray-5;
 
       > button {

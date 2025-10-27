@@ -44,6 +44,7 @@ de:
           edit: Bearbeiten
           new_sortition: Neue Sortierung
           show: Sortierdetails
+          title: Aktionen
         models:
           sortition:
             fields:

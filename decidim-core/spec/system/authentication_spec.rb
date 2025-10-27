@@ -138,6 +138,7 @@ describe "Authentication" do
 
           expect(page).to have_content("Successfully")
           expect_user_logged
+          expect(Decidim::Identity.where(provider: :facebook, uid: "123545").first.user.newsletter_notifications_at).not_to be_present
         end
       end
 
@@ -164,13 +165,13 @@ describe "Authentication" do
       end
 
       context "when user did not fill one of the fields" do
-        let!(:omniauth_hash) do
+        let(:omniauth_hash) do
           OmniAuth::AuthHash.new(
-            provider: "developer",
+            provider: "facebook",
             uid: "123545",
             info: {
-              nickname: "developer_user",
-              name: "Developer User"
+              nickname: "facebook_user",
+              name: "Facebook User"
             }
           )
         end
@@ -190,6 +191,7 @@ describe "Authentication" do
           click_on "Complete profile"
 
           expect(page).to have_content("A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.")
+          expect(Decidim::Identity.where(provider: :facebook, uid: "123545").first.user.newsletter_notifications_at).to be_present
         end
       end
     end

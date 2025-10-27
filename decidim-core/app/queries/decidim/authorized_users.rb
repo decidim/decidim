@@ -4,10 +4,10 @@ module Decidim
   # This query counts registered users from a collection of organizations
   # in an optional interval of time.
   class AuthorizedUsers < Decidim::Query
-    def initialize(organization:, handlers: [])
+    def initialize(organization:, handlers: [], strict: false)
       @organization = organization
       @valid_types = organization.available_authorizations
-      @handlers = handlers&.select { |type| @valid_types.include?(type) } || []
+      @handlers = strict ? handlers : handlers&.select { |type| @valid_types.include?(type) } || []
       @users = organization.users.not_deleted.not_blocked.confirmed
     end
 

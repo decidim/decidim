@@ -173,7 +173,10 @@ ca:
           new: Nou arxiu adjunt
         attachment_collection:
           new: Nova col·lecció d'arxius adjunts
+        attachment_collections: Afegeix una carpeta
+        attachments: Afegir un adjunt
         browse: Explorar
+        configure: Configurar
         confirm_delete_component: |
           ¿Segur que vols eliminar aquest component?<br>
           Aquest component conté:<br>
@@ -181,21 +184,22 @@ ca:
             <li class="font-bold">%{resources_count} recursos</li>
           </ul>
           Si canvies d'opinió, el pots restaurar més endavant.
-        export: Exportar tot
+        export: Exporta
         export-selection: Exportar selecció
         import: Importar
-        manage: Gestionar
+        menu_hidden: Amaga del menú
+        moderate: Gestionar les moderacions
         newsletter:
           new: Nou butlletí
         participatory_space_private_user:
           new: Nou usuari privat de l'espai participatiu
         per_page: Per pàgina
-        permissions: Permisos
+        permissions: Gestionar els permisos
         restore: Restaurar
         send_me_a_test_email: Envia'm un correu electrònic de prova
         share: Compartir
-        share_tokens: Enllaços d'accés
-        soft_delete: Enviar a la paperera
+        share_tokens: Compartir l'enllaç
+        soft_delete: Moure a la paperera
         user:
           new: Nova administradora
         view_deleted_components: Veure els components eliminats
@@ -684,7 +688,7 @@ ca:
               update_moderated_user_button: Desfer la denúncia a les usuàries
             title: Accions
             unblock: Desbloquejar usuària
-            unreport: Desfer denúncia
+            unreport: Desfer la denúncia
           cancel: Cancel·lar
           name: Nom
           nickname: Àlies
@@ -839,7 +843,7 @@ ca:
         index:
           actions: Accions
           badge: Insígnia
-          block: Bloquejar usuària
+          block: Bloquejar
           created_at: Creat el
           name: Nom
           nickname: Àlies
@@ -848,9 +852,10 @@ ca:
           officialized: Oficialitzada
           reofficialize: Torna a oficialitzar
           reports: Informes
-          show_email: Mostra l'adreça de correu
+          send_message: Envia un missatge
+          show_email: Mostra l'adreça electrònica
           status: Estat
-          unblock: Desbloquejar usuària
+          unblock: Desbloquejar
           unofficialize: Des-oficialitzar
         new:
           badge: Insígnia d'oficialització
@@ -1077,7 +1082,7 @@ ca:
           success: S'ha actualitzat el tema correctament
       static_pages:
         actions:
-          view: Visualitzar la pàgina pública
+          view: Veure
         create:
           error: S'ha produït un error en crear una nova pàgina.
           success: La pàgina s'ha creat correctament.
@@ -1105,9 +1110,9 @@ ca:
       taxonomies:
         actions:
           actions: Accions
-          destroy: Eliminar taxonomia i elements
-          edit: Editar taxonomia i elements
-          filters: Administrar filtres
+          destroy: Esborrar
+          edit: Editar
+          filters: Aplicar filtres
         breadcrumb:
           edit: Editar taxonomia
           new: Nova taxonomia
@@ -1279,7 +1284,7 @@ ca:
         parent_hidden: No es pot mostrar aquest recurs perquè està inclòs dins un altre recurs ("pare") que segueix ocult.
         title: Accions
         unhide: Tornar a mostrar
-        unreport: Desfer denúncia
+        unreport: Desfer la denúncia
       admin:
         reportable:
           bulk_action:

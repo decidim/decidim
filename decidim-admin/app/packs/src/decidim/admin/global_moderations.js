@@ -2,7 +2,7 @@
 /* eslint no-unused-vars: 0 */
 /* eslint id-length: ["error", { "exceptions": ["e"] }] */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const selectedModerationsCount = () => {
     return document.querySelectorAll(".table-list .js-check-all-moderations:checked").length;
   };

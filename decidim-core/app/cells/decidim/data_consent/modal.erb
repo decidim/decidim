@@ -5,7 +5,7 @@
       <p id="dialog-desc-dc-modal">
         <%= t("layouts.decidim.data_consent.modal.description") %>
       </p>
-      <div class="mt-8" data-component="accordion" data-multiselectable="false">
+      <div class="mt-8" data-controller="accordion" data-multiselectable="false">
         <% categories.each do |category| %>
           <%= render(
             {

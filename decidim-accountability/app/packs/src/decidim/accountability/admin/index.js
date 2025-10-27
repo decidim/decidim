@@ -4,7 +4,7 @@ import ActionForm from "src/decidim/accountability/admin/index/action_form";
 import ActionSelector from "src/decidim/accountability/admin/index/action_selector";
 import SelectAll from "src/decidim/accountability/admin/index/select_all";
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   const counter = new Counter();
   const actionButton = new ActionButton(counter);
   const actionForm = new ActionForm(counter);
@@ -17,3 +17,6 @@ $(() => {
   actionSelector.init();
   selectAll.init();
 })
+
+const context = require.context("../controllers", true, /controller\.js$/)
+window.Stimulus.load(window.definitionsFromContext(context))

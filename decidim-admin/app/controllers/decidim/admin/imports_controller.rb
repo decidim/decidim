@@ -39,7 +39,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = t("decidim.admin.imports.error")
-            render :new
+            render :new, status: :unprocessable_entity
           end
         end
       end

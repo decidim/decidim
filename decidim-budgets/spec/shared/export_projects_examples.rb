@@ -2,7 +2,7 @@
 
 shared_examples "export projects" do
   let!(:projects) { create_list(:project, 5, budget:) }
-  let(:export_type) { "Export all" }
+  let(:export_type) { "Export" }
 
   it_behaves_like "export as CSV"
   it_behaves_like "export as JSON"

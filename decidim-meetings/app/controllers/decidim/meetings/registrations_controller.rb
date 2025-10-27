@@ -22,12 +22,12 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t(joining_waitlist ? "registrations.waitlist.invalid" : "registrations.create.invalid", scope: "decidim.meetings")
-            render template: "decidim/forms/questionnaires/show"
+            render template: "decidim/forms/questionnaires/show", status: :unprocessable_entity
           end
 
           on(:invalid_form) do
             flash.now[:alert] = I18n.t("response.invalid", scope: i18n_flashes_scope)
-            render template: "decidim/forms/questionnaires/show"
+            render template: "decidim/forms/questionnaires/show", status: :unprocessable_entity
           end
         end
       end

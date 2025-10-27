@@ -183,9 +183,9 @@ describe "Admin manages assemblies" do
 
         # Opens actions dropdown in children
         find("button[data-target='actions-assembly-#{child_assembly.id}']").click
-        expect(page).to have_content("Configure")
-        expect(page).to have_content("Access links")
-        expect(page).to have_content("Export all")
+        expect(page).to have_content("Edit")
+        expect(page).to have_content("Share link")
+        expect(page).to have_content("Export")
 
         # Remove children
         within "tr", text: translated(parent_assembly.title) do

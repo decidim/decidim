@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable Rails/HelperInstanceVariable
 module Decidim
   # An authorization transfer object is created when the user authorizes
   # themselves with the same unique ID as some other user had used in the past.

@@ -15,7 +15,6 @@ on:
       - "decidim-generators/**"
 
 env:
-  FAST_SEEDS: "true"
   CI: "true"
   RUBY_VERSION: 3.3.4
   NODE_VERSION: 22.14.0
@@ -112,6 +111,12 @@ jobs:
         working-directory: ${{ env.DECIDIM_MODULE }}
         env:
           SIMPLECOV: "true"
+      - uses: qltysh/qlty-action/coverage@v1
+        with:
+          token: ${{secrets.QLTY_COVERAGE_TOKEN}}
+          verbose: true
+          files: coverage/coverage.xml
+          add-prefix: ${{ env.DECIDIM_MODULE }}
       - uses: codecov/codecov-action@v5
         name: Upload coverage
         with:

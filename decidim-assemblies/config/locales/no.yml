@@ -9,9 +9,6 @@
         closing_date: Lukkings dato
         closing_date_reason: Lukkings dato begrunnelse
         composition: Sammensetning
-        copy_categories: Kopier kategorier
-        copy_components: Kopier komponenter
-        copy_features: Kopier funksjoner
         created_by: Opprettet av
         created_by_other: Opprettet av annet
         creation_date: Dato opprettet
@@ -90,15 +87,6 @@
         update:
           error: Det oppstod et problem med å oppdatere denne forsamlingen.
           success: Forsamlingen ble oppdatert.
-      assemblies_copies:
-        create:
-          error: Det oppstod et problem med å publisere denne forsamlingen.
-          success: Forsamlingen ble duplisert.
-      assembly_copies:
-        new:
-          copy: Kopier
-          select: Velg hvilke data du vil duplisere
-          title: Dupliser forsamling
       assembly_imports:
         create:
           error: Det oppstod et problem med å importere denne forsamlingen.

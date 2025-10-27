@@ -1,0 +1,29 @@
+<div class="row column mt-10">
+  <h2 class="text-xl font-semibold">
+    <%= t("informativeness.name", scope: "decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form") %>
+  </h2>
+</div>
+
+<div class="row column">
+  <fieldset>
+    <legend class="font-semibold"><%= t("informativeness.published_information_clarity.legend", scope: "decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form") %></legend>
+    <% settings_options[:published_information_clarity].each do |label, value| %>
+      <%= label_tag nil, class: "form__wrapper-checkbox-label" do %>
+        <%= radio_button_tag input_name("published_information_clarity"), value, form.object.settings.published_information_clarity == value %>
+        <%= label %>
+      <% end %>
+    <% end %>
+  </fieldset>
+</div>
+
+<div class="row column">
+  <fieldset>
+    <legend class="font-semibold"><%= t("informativeness.information_provided.legend", scope: "decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form") %></legend>
+    <% settings_options[:information_provided].each do |label, value| %>
+      <%= label_tag nil, class: "form__wrapper-checkbox-label" do %>
+        <%= radio_button_tag input_name("information_provided"), value, form.object.settings.information_provided == value %>
+        <%= label %>
+      <% end %>
+    <% end %>
+  </fieldset>
+</div>

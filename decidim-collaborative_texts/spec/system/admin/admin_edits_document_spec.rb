@@ -15,7 +15,7 @@ describe "Admin edits documents" do
   it "edits an existing document" do
     expect(document.accepting_suggestions?).to be false
     within("tr", text: "This is my document new title") do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       click_on "Edit"
     end
     expect(page).to have_content("Edit collaborative texts")
@@ -28,8 +28,8 @@ describe "Admin edits documents" do
     expect(page).to have_admin_callout "Document successfully updated"
 
     within("tr", text: "This is an edited title test") do
-      find("button[data-component='dropdown']").click
-      click_on "Manage"
+      find("button[data-controller='dropdown']").click
+      click_on "Configure"
     end
 
     expect(page).to have_content("Configure collaborative texts")
@@ -48,7 +48,7 @@ describe "Admin edits documents" do
   context "when title is invalid" do
     before do
       within("tr", text: "This is my document new title") do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
@@ -69,7 +69,7 @@ describe "Admin edits documents" do
 
     it "does not allow to edit the document the body" do
       within("tr", text: "This is my document new title") do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
       expect(page).to have_content("Edit collaborative texts")
@@ -91,7 +91,7 @@ describe "Admin edits documents" do
     it "can discard suggestions by creating a new version" do
       expect(document.current_version.suggestions.count).to eq(1)
       within("tr", text: "This is my document new title") do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
       expect(page).to have_content("Edit collaborative texts")
@@ -105,7 +105,7 @@ describe "Admin edits documents" do
       expect(document.current_version.suggestions.count).to eq(0)
       expect(document.draft?).to be true
       within("tr", text: "This is my document new title") do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
       expect(page).to have_content("Version 1")

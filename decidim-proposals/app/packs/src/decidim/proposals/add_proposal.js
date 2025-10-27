@@ -1,7 +1,7 @@
 import attachGeocoding from "src/decidim/geocoding/attach_input"
 import getCoordinateInputName from "src/decidim/geocoding/coordinate_input";
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   const $map = $("#address_map");
   const $addressInputField = $("[data-decidim-geocoding]");
 

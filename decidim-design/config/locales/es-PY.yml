@@ -14,7 +14,7 @@ es-PY:
           trigger: Activador
           usage: Uso
           usage_p: Un acordeón requiere al menos tres elementos
-          usage_p_1_html: '1. Un envoltorio <code>div</code>, con el atributo "data": <code>data-component="accordion"</code>, sobre todos los activadores y paneles disponibles.'
+          usage_p_1_html: '1. Un envoltorio (wrapper) <code>div</code>, con el atributo "data": <code>data-component="accordion"</code>, sobre todos los activadores y paneles disponibles.'
           usage_p_2_html: 2. Un elemento activador, usuaria accionable (como un botón), apuntando al elemento plegable a través de <code>data-controls="panel"</code>, donde <i>panel</i> es la <code>id</code> del panel.
           usage_p_3_html: 3. Un elemento oculto, cuyo <code>id</code> coincide con el valor de los controles de datos al que se refiere el activador.
         activities:
