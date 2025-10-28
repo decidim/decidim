@@ -12,6 +12,7 @@ de:
         domain: Domäne
         duplicate_categories: Kategorien duplizieren
         duplicate_components: Komponenten duplizieren
+        duplicate_landing_page_blocks: Startseiten-Blöcke duplizieren
         duplicate_steps: Schritte duplizieren
         end_date: Enddatum
         hero_image: Hauptbild

@@ -15,6 +15,7 @@ es:
   decidim:
     admin:
       actions:
+        confirm_unpublish_survey: '¿Seguro que quieres despublicar esta encuesta?'
         see_survey: Ver encuesta
       admin_log:
         changeset:
@@ -129,10 +130,14 @@ es:
       models:
         survey:
           fields:
+            published: Publicada
             questions: Preguntas
             responses: Respuestas
             status: Estado
             title: Título
+          published:
+            published: Publicada
+            unpublished: Despublicada
           status:
             closed: Cerrada
             open: Abierta
