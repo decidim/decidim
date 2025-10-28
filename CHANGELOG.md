@@ -2,6 +2,50 @@
 
 # Changelog
 
+## [0.29.6](https://github.com/decidim/decidim/tree/0.29.6)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-design**: Backport 'Fix some accessibility violations in design's a11y page' to v0.29 [\#15232](https://github.com/decidim/decidim/pull/15232)
+- **decidim-core**: Backport 'Prevent reload on filters when the 'Skip to' links are clicked' to v0.29 [\#15243](https://github.com/decidim/decidim/pull/15243)
+- **decidim-participatory processes**: Backport 'Fix translation missing for duplicate landing blocks' to v0.29 [\#15250](https://github.com/decidim/decidim/pull/15250)
+- **decidim-accountability**, **decidim-admin**, **decidim-assemblies**, **decidim-conferences**, **decidim-core**, **decidim-demographics**, **decidim-design**, **decidim-elections**, **decidim-forms**, **decidim-meetings**, **decidim-participatory processes**, **decidim-surveys**: Backport 'Fix drag and drop sorting for questionnaires' to v0.29 [\#15248](https://github.com/decidim/decidim/pull/15248)
+- **decidim-verifications**: Backport 'Fix incorrectly named initialize methods in `decidim-verifications`' to v0.29 [\#15294](https://github.com/decidim/decidim/pull/15294)
+- **decidim-admin**: Backport 'Fix officialization view for users without nickname' to v0.29 [\#15246](https://github.com/decidim/decidim/pull/15246)
+- **decidim-core**: Backport 'Fix focus with tab navigation on small avatar images' to v0.29 [\#15304](https://github.com/decidim/decidim/pull/15304)
+- **decidim-core**, **decidim-proposals**: Backport 'Fix adjacent links in the related documents/attachments links' to v0.29 [\#15332](https://github.com/decidim/decidim/pull/15332)
+- Backport 'Fix w3c validator CI pipeline (NuValidator json errors)' to v0.29 [\#15344](https://github.com/decidim/decidim/pull/15344)
+- **decidim-core**: Backport 'Allow password validator to use the fallback translation' to v0.29 [\#15335](https://github.com/decidim/decidim/pull/15335)
+- **decidim-core**: Backport 'Fix error unexpected value at params[:host]' to v0.29 [\#15338](https://github.com/decidim/decidim/pull/15338)
+- Fix displaying the map for new proposals for v0.29 [\#15363](https://github.com/decidim/decidim/pull/15363)
+- **decidim-core**: Backport 'Make the WYSIWYG editor vertical resizable' to v0.29 [\#15372](https://github.com/decidim/decidim/pull/15372)
+- **decidim-core**: Backport 'Fix deleted comments on public profile' to v0.29 [\#15378](https://github.com/decidim/decidim/pull/15378)
+- **decidim-core**: Backport 'Show badges next to user nicknames' to v0.29 [\#15351](https://github.com/decidim/decidim/pull/15351)
+- Revert "Fix w3c validator CI pipeline (#15344)"  [\#15382](https://github.com/decidim/decidim/pull/15382)
+- **decidim-forms**: Backport 'Fix drag_and_drop on mobile without scrolling' to v0.29 [\#15389](https://github.com/decidim/decidim/pull/15389)
+- **decidim-core**: Backport "Add format validation for name in UserGroup" (#15368) [\#15391](https://github.com/decidim/decidim/pull/15391)
+- **decidim-admin**: Backport 'Add missing translation key for enable machine translation' to v0.29 [\#15386](https://github.com/decidim/decidim/pull/15386)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
+### Internal
+
+Nothing.
+
 ## [0.29.5](https://github.com/decidim/decidim/tree/0.29.5)
 
 ### Added
