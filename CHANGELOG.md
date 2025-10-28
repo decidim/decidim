@@ -1,5 +1,58 @@
 # Changelog
 
+## [0.30.3](https://github.com/decidim/decidim/tree/0.30.3)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-design**: Backport 'Fix some accessibility violations in design's a11y page' to v0.30 [\#15231](https://github.com/decidim/decidim/pull/15231)
+- **decidim-participatory processes**: Backport 'Fix translation missing for duplicate landing blocks' to v0.30 [\#15249](https://github.com/decidim/decidim/pull/15249)
+- **decidim-accountability**, **decidim-admin**, **decidim-assemblies**, **decidim-conferences**, **decidim-core**, **decidim-demographics**, **decidim-design**, **decidim-elections**, **decidim-forms**, **decidim-meetings**, **decidim-participatory processes**, **decidim-surveys**: Backport 'Fix drag and drop sorting for questionnaires' to v0.30 [\#15247](https://github.com/decidim/decidim/pull/15247)
+- **decidim-core**: Backport 'Prevent reload on filters when the 'Skip to' links are clicked' to v0.30 [\#15242](https://github.com/decidim/decidim/pull/15242)
+- **decidim-admin**: Backport 'Fix officialization view for users without nickname' to v0.30 [\#15245](https://github.com/decidim/decidim/pull/15245)
+- **decidim-verifications**: Backport 'Fix incorrectly named initialize methods in `decidim-verifications`' to v0.30 [\#15293](https://github.com/decidim/decidim/pull/15293)
+- **decidim-core**: Backport 'Fix focus with tab navigation on small avatar images' to v0.30 [\#15303](https://github.com/decidim/decidim/pull/15303)
+- **decidim-core**, **decidim-proposals**: Backport 'Fix adjacent links in the related documents/attachments links' to v0.30 [\#15331](https://github.com/decidim/decidim/pull/15331)
+- **decidim-comments**, **decidim-debates**: Backport 'Change user links in Comments and Debates' to v0.30 [\#15328](https://github.com/decidim/decidim/pull/15328)
+- Backport 'Fix w3c validator CI pipeline (NuValidator json errors)' to v0.30 [\#15343](https://github.com/decidim/decidim/pull/15343)
+- **decidim-core**: Backport 'Fix error unexpected value at params[:host]' to v0.30 [\#15337](https://github.com/decidim/decidim/pull/15337)
+- **decidim-core**: Backport 'Allow password validator to use the fallback translation' to v0.30 [\#15334](https://github.com/decidim/decidim/pull/15334)
+- **decidim-core**: Backport 'Make the WYSIWYG editor vertical resizable' to v0.30 [\#15371](https://github.com/decidim/decidim/pull/15371)
+- **decidim-core**: Backport 'Fix deleted comments on public profile' to v0.30 [\#15377](https://github.com/decidim/decidim/pull/15377)
+- **decidim-core**: Backport 'Show badges next to user nicknames' to v0.30 [\#15350](https://github.com/decidim/decidim/pull/15350)
+- Revert "Fix w3c validator CI pipeline (#15343)"  [\#15381](https://github.com/decidim/decidim/pull/15381)
+- **decidim-core**: Add format validation for name and nickname in UserGroupForm [\#15368](https://github.com/decidim/decidim/pull/15368)
+- **decidim-forms**: Backport 'Fix drag_and_drop on mobile without scrolling' to v0.30 [\#15388](https://github.com/decidim/decidim/pull/15388)
+- **decidim-admin**: Backport 'Add missing translation key for enable machine translation' to v0.30 [\#15385](https://github.com/decidim/decidim/pull/15385)
+- **decidim-core**: Backport 'Fix Regex expression in Etiquette Validator' to v0.30 [\#15395](https://github.com/decidim/decidim/pull/15395)
+- Backport 'Add notes for configuring CSP with ActiveStorage' to v0.30 [\#15409](https://github.com/decidim/decidim/pull/15409)
+- **decidim-dev**: Backport 'Remove the `parallel_tests/tasks` from `common_rake`' to v0.30 [\#15408](https://github.com/decidim/decidim/pull/15408)
+- **decidim-participatory processes**: Backport 'Fix phase and date order in "Phase & duration" block ' to v0.30 [\#15402](https://github.com/decidim/decidim/pull/15402)
+- **decidim-admin**, **decidim-forms**, **decidim-surveys**: Backport 'Back to responses button in surveys' to v0.30 [\#15412](https://github.com/decidim/decidim/pull/15412)
+- **decidim-proposals**: Backport 'Fix saving geocoding data when present in proposals' to v0.30 [\#15413](https://github.com/decidim/decidim/pull/15413)
+- **decidim-meetings**: Backport 'Add published/unpublished state in the Meetings' admin index page' to v0.30 [\#15411](https://github.com/decidim/decidim/pull/15411)
+- **decidim-core**: Backport 'Fix highlight card displaying unpublished process' to v0.30 [\#15416](https://github.com/decidim/decidim/pull/15416)
+- **decidim-comments**: Backport 'Fix for comment sort by dropdown' to v0.30 [\#15426](https://github.com/decidim/decidim/pull/15426)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
+### Internal
+
+- **decidim-dev**: Backport 'Remove the `parallel_tests/tasks` from `common_rake`' to v0.30 [\#15408](https://github.com/decidim/decidim/pull/15408)
+
 ## [0.30.2](https://github.com/decidim/decidim/tree/0.30.2)
 
 ### Added
