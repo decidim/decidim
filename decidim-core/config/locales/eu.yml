@@ -826,7 +826,7 @@ eu:
           reset_password_sent_at: Zein datatan eta zein ordutan bidali zen pasahitza berriro
           roles: Parte-hartzaile honek duen rola, baldin badute
           sign_in_count: Zenbat aldiz hasi duen saioa parte-hartzaile honek
-          type: Parte-hartzaile honek zer mota duen
+          type: Erabiltzaile honek dituen aukerak
           unconfirmed_email: Parte-hartzaile honek oraindik baieztatu ez duen helbide elektronikoa
           updated_at: Zein datatan eta zein ordutan eguneratu zen parte-hartzaile hau azken aldiz
       show:
