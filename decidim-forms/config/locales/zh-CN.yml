@@ -14,8 +14,6 @@ zh-CN:
             description: 描述
             tos: 服务条款
         questionnaires:
-          actions:
-            back: 返回问题
           display_condition:
             condition_question: 问
             condition_type: 条件
@@ -49,20 +47,16 @@ zh-CN:
             any: 任何
             collapse: 收起
             description: 描述
-            down: 向下
             expand: 扩展
             question: 问
             remove: 删除
             statement: 声明
-            up: 上移
           responses:
             actions:
               show: 显示回复
           separator:
-            down: 向下
             remove: 删除
             separator: 分隔符
-            up: 上移
           update:
             invalid: 保存表单时出错。
             success: 表单保存成功。

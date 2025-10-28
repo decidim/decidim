@@ -21,7 +21,7 @@ es:
           create: Crear
           destroy: Eliminar
           update: Actualizar
-        name: Votaciones
+        name: Elecciones
         settings:
           global:
             announcement: Aviso

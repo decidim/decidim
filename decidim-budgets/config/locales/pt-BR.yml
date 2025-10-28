@@ -309,13 +309,6 @@ pt-BR:
               disabled: Votação desativada
               enabled: Votação habilitada
               finished: Votação finalizada
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'O orçamento %{resource_title} agora está ativo para %{participatory_space_title}. Você pode vê-lo a partir desta página:'
-          email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
-          email_subject: O orçamento %{resource_title} agora está ativo para %{participatory_space_title}.
-          notification_title: O orçamento <a href="%{resource_path}">%{resource_title}</a> agora está ativo para %{participatory_space_title}.
     orders:
       checkout:
         error: Ocorreu um erro ao processar seu voto.

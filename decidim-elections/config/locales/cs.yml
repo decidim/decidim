@@ -7,6 +7,7 @@ cs:
     admin:
       menu:
         elections_menu:
+          basic_elections: Hlavní
           election_census: Seznam obyvatel
           election_dashboard: Ovládací panel
           election_questions: Otázky
@@ -38,7 +39,11 @@ cs:
         dashboard:
           calendar:
             end_at: 'Čas ukončení:'
+            end_election: Ukončit volby
+            manual_start: Ručně
+            published_results_at: Výsledky zveřejněny na
             start_at: 'Čas zahájení:'
+            start_election: Zahájit volbu
             title: Kalendář
           census:
             title: Seznam obyvatel
@@ -54,6 +59,7 @@ cs:
           questions:
             labels:
               answers: Odpovědi
+            limit_info: Tyto volby mají více otázek. Náhled je omezen na 3 otázky.
             title: Otázky
           questions_table:
             answer: Odpovědi
@@ -62,6 +68,7 @@ cs:
           results:
             not_started: Volba ještě nezačala.
             publish_button: Publikovat výsledky
+            start_question_button: Povolit hlasování
             title: Výsledky
           status:
             title: Stav voleb
@@ -84,7 +91,9 @@ cs:
             publish: Publikovat
             results_availability:
               after_end: Po ukončení voleb
+              real_time: V reálném čase
               title: Dostupnost výsledků
+            save: Uložit a pokračovat
             start_at: Čas zahájení
           index:
             title: Volby
@@ -118,6 +127,7 @@ cs:
         internal_users:
           already_have_an_account?: Již máte účet?
           are_you_new?: Nový účastník?
+          sign_in_description: Přihlaste se k hlasování v těchto volbách
         token_csv:
           upload_file: Nahrát soubor
           upload_new_census: Nahrát CSV soubor
@@ -142,8 +152,12 @@ cs:
           state_values:
             finished: Dokončeno
             ongoing: Probíhající
+            scheduled: Naplánováno
         orders:
+          end_at: Datum ukončení
+          label: Seřadit podle
           recent: Nedávné
+          start_at: Datum zahájení
         questions:
           title: Volební otázky
         show:
@@ -158,15 +172,29 @@ cs:
             start_at: Čas zahájení
             status: Stav
             title: Název
+      per_question_votes:
+        waiting:
+          edit_vote: Upravte svůj hlas
       status:
         active: Aktivní
         finished: Dokončeno
         not_started: Nezahájeno
         ongoing: Probíhající
+        scheduled: Naplánováno
         unpublished: Nezveřejněno
+        voting_enabled: Probíhá hlasování
       votes:
+        cast:
+          invalid: Při odesílání vašeho hlasu došlo k chybě. Zkontrolujte zadané údaje a zkuste to znovu.
+          success: Váš hlas byl úspěšně odeslán.
+        check_census:
+          access: Přístup
+          failed: Vaši identitu nelze ověřit. Zkontrolujte zadané informace a zkuste to znovu.
+          form_title: Ověřte svou identitu
         confirm:
+          not_answered: Na tuto otázku jste neodpověděl.
           title: Potvrďte svůj hlas
+        not_authorized: V těchto volbách nemáte oprávnění volit.
         question:
           back: Zpět
           next: Další

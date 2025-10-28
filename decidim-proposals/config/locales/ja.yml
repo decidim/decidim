@@ -172,6 +172,7 @@ ja:
             can_accumulate_votes_beyond_threshold: しきい値以上の票を集めることができます
             clear_all: すべてクリア
             collaborative_drafts_enabled: 共同草稿を有効にする
+            collaborative_drafts_enabled_help: 共同草案機能は Decidim v0.32 で廃止されます。この機能を現在使用している組織は、新しい提案共同作成機能に移行することができます。
             comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
             default_sort_order: デフォルトの提案の並べ替え
@@ -489,6 +490,7 @@ ja:
           deleted_proposals_info: 削除された提案はゴミ箱から復元することができます。
           preview: プレビュー
           view_deleted_proposals: 削除された提案を表示
+        deprecation_warning_collaborative_drafts_html: "⚠️ <b>非推奨通知</b> 共同草案機能は Decidim v0.32 で廃止されます。この機能を現在使用している組織は、新しい提案共同作成機能に移行することができます。"
         evaluation_assignments:
           create:
             invalid: 評価者に提案を割り当てる際に問題が発生しました。

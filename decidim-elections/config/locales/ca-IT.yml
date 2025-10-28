@@ -21,7 +21,7 @@ ca-IT:
           create: Crear
           destroy: Destruir
           update: Actualitzar
-        name: Votacions
+        name: Eleccions
         settings:
           global:
             announcement: Avís
@@ -131,7 +131,7 @@ ca-IT:
             save: Desa i continua
             start_at: Dia i hora d'inici
           index:
-            title: Votacions
+            title: Eleccions
           manage_trash:
             title: Eleccions eliminades
           new:

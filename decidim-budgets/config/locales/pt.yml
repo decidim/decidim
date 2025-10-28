@@ -187,13 +187,6 @@ pt:
               disabled: Votação desactivada
               enabled: Votação habilitada
               finished: Votação terminada
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'A Orçamento %{resource_title} está agora activo para %{participatory_space_title}. Pode vê-lo a partir desta página:'
-          email_outro: Recebeu esta notificação porque segue %{participatory_space_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
-          email_subject: A orçamento %{resource_title} está agora activo para %{participatory_space_title}.
-          notification_title: O orçamento <a href="%{resource_path}”>%%{resource_title}</a> está agora activo para %{participatory_space_title}.
     resource_links:
       included_proposals:
         project_proposal: Propostas incluídas neste projecto

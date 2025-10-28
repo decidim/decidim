@@ -1594,7 +1594,6 @@ lt:
     name_included_in_password: per daug panašus į jūsų vardą, pavardę
     nickname_included_in_password: yra per daug panašus į jūsų slapyvardį
     not_enough_unique_characters: neturi pakankamai unikalių simbolių
-    password_not_allowed: draudžiama
     password_repeated: seno slaptažodžio naudoti negalima
     password_too_common: per daug įprastas
     password_too_long: per ilgas
