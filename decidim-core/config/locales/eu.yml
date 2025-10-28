@@ -724,7 +724,7 @@ eu:
     doorkeeper:
       authorizations:
         new:
-          api_read: Irakurri edukia APIren bitartez
+          api_read: APIren bitartez edukia irakurri
           authorize: Aplikazioa baimentzen du
           by_organization_link_html: '%{link} bidez'
           cancel: Ezeztatu
@@ -822,7 +822,7 @@ eu:
           reset_password_sent_at: Zein datatan eta zein ordutan bidali zen pasahitza berriro
           roles: Parte-hartzaile honek duen rola, baldin badute
           sign_in_count: Zenbat aldiz hasi duen saioa parte-hartzaile honek
-          type: Parte-hartzaile honek zer mota duen
+          type: Erabiltzaile honek dituen aukerak
           unconfirmed_email: Parte-hartzaile honek oraindik baieztatu ez duen helbide elektronikoa
           updated_at: Zein datatan eta zein ordutan eguneratu zen parte-hartzaile hau azken aldiz
       show:
@@ -1725,18 +1725,27 @@ eu:
         greeting: "%{name}, agurgarria:\n"
         instructions_1: Sarbidea baduzu posta elektronikoko kontu horretarako, mesedez, kontsultatu zure sarrera-erretilua argibideetarako.
         instructions_2: Horrela ez bada, zure lankideetako batek, pasahitza duenak, jarri beharko du eta kredentzialak zurekin partekatu.
+        instructions_intro: Taldeko kideek profil horretarako sarbidea partekatuko dute orain, saio-hasierako egiaztagiri partekatuak erabiliz (posta elektronikoa eta pasahitza). %{email}(e) ra jarraibideak bidali ditugu profilaren pasahitz berria ezartzeko.
+        instructions_title: "<strong>Zer esan nahi du horrek zuretzat</strong>"
+        subject: Taldearen profilari dagokionez, eguneraketa garrantzitsua
       notify_deprecation_to_owner:
         body_1: '%{organization_name} (e) n duzun taldearen profilari buruzko eguneraketa garrantzitsu baten berri ematera gatozkizu.'
         body_2: 'Zurea bezalako erakundeen esperientzia sinplifikatzeko gure ahaleginen zati gisa, orain arte ezagutzen dugun "Erabiltzaile Taldeak" funtzioa zaharkituta geratuko da. Taldearen profila: <strong>%{name}</strong>, ohiko parte-hartzailearen profil bihurtu da.'
+        body_3: Zure kontuan sartzen jarraitzeko eta sarbidea partekatzeko, pasahitz bat ezartzea behar dugu. Behin ezarrita, saioa hasteko kredentzialak (posta elektronikoa eta pasahitza) edozeinekin parteka ditzakezu.
         greeting: '%{name}, agurgarria:'
+        instructions_1: 'Egin klik beheko estekan zure pasahitza ezartzeko:'
+        instructions_2: 'Partekatu saioa hasteko kredentzialak (posta elektronikoa: %{email} eta pasahitz berria) zure lankideekin.'
+        instructions_title: "<strong>Egin beharrekoa</strong>"
+        set_password: Idatzi zure pasahitza
+        subject: Zure taldearen profilari buruzko eguneratze garrantzitsua
       notify_user_group_patched:
         body_1_html: 'Zure taldearen profilari buruzko eguneratze garrantzitsu baten berri emango dizugu hemen: %{organization_name}.'
         body_2_html: 'Zurea bezalako erakundeen esperientzia sinplifikatzeko gure ahaleginen zati gisa, orain arte ezagutzen dugun "Erabiltzaile Taldeak" funtzioa zaharkituta geratuko da. Taldearen profila: <strong>%{name}</strong>, ohiko parte-hartzailearen profil bihurtu da.'
         body_3_html: Zure kontuan sartzen jarraitzeko eta sarbidea partekatzeko, mezu elektroniko eta pasahitz berri bat ezar ditzazun behar dugu. Mesedez, kontuan izan zure taldeko kide bakoitzak mezu hau jasoko duela. Sarbide jarraitua bermatzeko, denek erabiliko dituzten kredentzial partekatuak (posta elektronikoa eta pasahitza) adostu beharko dituzu.
         greeting: '%{name}, agurgarria:'
         instructions_1_html: 'Erabili behin-behineko kredentzial hauek saioa hasteko: <br><br> Erabiltzailea: <strong>% {email}</strong> <br> Pasahitza: <strong>% {password}</strong> <br><br>'
-        instructions_2_html: Jarri helbide elektroniko berria eta pasahitza.
-        instructions_3_html: Partekatu zure lankideekin aukeratutako sarrera-kredentzialak, talde osoak kontura sartzen jarraitu ahal izateko.
+        instructions_2_html: Helbide elektroniko berria eta pasahitza jarri.
+        instructions_3_html: Zure lankideekin aukeratutako sarrera-kredentzialak partekatu, talde osoak kontura sartzen jarraitu ahal izateko.
         instructions_title_html: "<strong>Zer egin behar duzu?</strong>"
         subject: Zure taldearen profilari buruzko eguneratze garrantzitsua
     user_report_mailer:
