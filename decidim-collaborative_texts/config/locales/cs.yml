@@ -71,6 +71,9 @@ cs:
           update_settings:
             invalid: Při aktualizaci dokumentu došlo k chybě.
             success: Dokument byl úspěšně aktualizován.
+        index:
+          published: Zveřejněno
+          unpublished: Zneveřejněno
       admin_log:
         document:
           create: "%{user_name} vytvořil kolaborativní text %{resource_name} v %{space_name}"
