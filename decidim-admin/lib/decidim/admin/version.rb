@@ -4,7 +4,7 @@ module Decidim
   # This holds the decidim-admin version.
   module Admin
     def self.version
-      "0.29.5"
+      "0.29.6"
     end
   end
 end
