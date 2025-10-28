@@ -64,10 +64,10 @@ bin/rails decidim_surveys:upgrade:fix_survey_permissions # see "3.5. Permission 
 bin/rails decidim:upgrade:user_groups:remove # see "3.6. User Groups removal"
 ```
 
-Update your shakapacker version in your `package.json` file for "2.3 Shakapacker upgrade"
-Change your cloud assets storage configuration if you are using one for "3.7. AWS/Azure/Google Cloud assets storage"
-Change your crontab and your sidekiq configuration for "4.1. Automatic deletion of inactive accounts"
-Change your crontab and your sidekiq configuration for "4.2. Removal of Metrics"
+Update your shakapacker version in your `package.json` file for "2.3 Shakapacker upgrade".<br>
+Change your cloud assets storage configuration if you are using one for "3.7. AWS/Azure/Google Cloud assets storage".<br>
+Change your crontab and your sidekiq configuration for "4.1. Automatic deletion of inactive accounts".<br>
+Change your crontab and your sidekiq configuration for "4.2. Removal of Metrics".
 
 In cases where you have done some developments, please check out these particular sections:
 
