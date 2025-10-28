@@ -141,7 +141,7 @@ header {
             @apply w-full;
 
             li {
-              @apply py-3 md:py-3.5 border-b last:border-0 border-gray-3;
+              @apply py-3 md:py-3.5 border-b border-t-0 last:border-0 border-gray-3 #{!important};
 
               a {
                 @apply no-underline;

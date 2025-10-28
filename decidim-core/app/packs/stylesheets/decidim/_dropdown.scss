@@ -34,18 +34,20 @@
 }
 
 [data-target="dropdown-menu-main-mobile"] {
-  &[aria-expanded="true"] > span {
+  &[aria-expanded="false"] > span:last-of-type,
+  &[aria-expanded="true"] > span:first-of-type {
     @apply hidden;
   }
 
-  &[aria-expanded="false"] > span {
+  &[aria-expanded="true"] > span:last-of-type,
+  &[aria-expanded="false"] > span:first-of-type {
     @apply block;
   }
 }
 
-[data-target="dropdown-menu-main-desktop"],
-[data-target="dropdown-menu-main-mobile"] {
-  > span:first-of-type {
+[data-target="dropdown-menu-main-desktop"] {
+  > span:first-of-type,
+  > svg:first-of-type {
     @apply block;
   }
 }
