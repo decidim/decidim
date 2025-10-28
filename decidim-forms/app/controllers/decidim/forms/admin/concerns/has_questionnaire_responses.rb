@@ -25,7 +25,7 @@ module Decidim
             helper Decidim::Forms::Admin::QuestionnaireResponsesHelper
 
             def index
-              enforce_permission_to :index, :questionnaire_responses
+              enforce_permission_to :index, permission_subject
 
               @query = paginate(collection)
               @participants = participants(@query)
@@ -35,7 +35,7 @@ module Decidim
             end
 
             def show
-              enforce_permission_to :show, :questionnaire_responses
+              enforce_permission_to :show, permission_subject
 
               @participant = participant(participants_query.participant(params[:id]))
 
@@ -43,7 +43,7 @@ module Decidim
             end
 
             def export_response
-              enforce_permission_to :export_response, :questionnaire_responses
+              enforce_permission_to :export_response, permission_subject
 
               session_token = params[:id]
               responses = QuestionnaireUserResponses.for(questionnaire)
@@ -67,6 +67,10 @@ module Decidim
             end
 
             private
+
+            def permission_subject
+              :questionnaire_responses
+            end
 
             def i18n_scope
               "decidim.forms.admin.questionnaires.responses"

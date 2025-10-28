@@ -17,12 +17,15 @@ fi-pl:
           draft: Luonnos
           version_number: Versionumero
   decidim:
+    admin:
+      tooltips:
+        deleted_collaborative_texts_info: Tätä asiakirjaa ei voi poistaa
     collaborative_texts:
       actions:
         confirm_delete_document: Haluatko varmasti poistaa tämän asiakirjan?
         deleted_document_info: Poistetut asiakirjat voidaan palauttaa roskakorista.
         edit: Muokkaa
-        manage: Hallinnoi
+        manage: Asetukset
         new: Uusi teksti
         title: Toiminnot
         view_deleted_documents: Näytä poistetut asiakirjat
@@ -71,6 +74,9 @@ fi-pl:
           update_settings:
             invalid: Asiakirjan päivittäminen epäonnistui.
             success: Asiakirjan päivittäminen onnistui.
+        index:
+          published: Julkaistu
+          unpublished: Julkaisematon
       admin_log:
         document:
           create: "%{user_name} loi yhteistyötekstin %{resource_name} tilassa %{space_name}"
@@ -119,6 +125,7 @@ fi-pl:
       models:
         collaborative_text:
           fields:
+            published: Julkaistu
             suggestions: Hyväksy muutosehdotus
             title: Otsikko
       suggestion:
@@ -134,6 +141,10 @@ fi-pl:
           invalid_nodes: Virheellinen valinta.
     components:
       collaborative_texts:
+        actions:
+          create: Luo
+          destroy: Poista
+          update: Päivitä
         name: Yhteistyötekstit
         settings:
           global:

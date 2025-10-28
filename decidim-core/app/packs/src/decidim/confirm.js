@@ -1,4 +1,4 @@
-import icon from "src/decidim/icon"
+import icon from "src/decidim/refactor/moved/icon"
 
 /**
  * A custom confirm dialog for Decidim based on Foundation reveals.
@@ -119,7 +119,7 @@ const allowAction = (ev, element) => {
         $(element).is('input[type="submit"]')
       )
     ) {
-      $(element).parents("form").submit();
+      $(element).parents("form").get(0).requestSubmit();
     } else {
       let origEv = ev.originalEvent || ev;
       let newEv = origEv;
@@ -183,7 +183,7 @@ export const initializeConfirm = () => {
   // Abide registers its own submit click listeners since Foundation 5.6.x
   // which will be handled before the document listeners above. This would
   // break the custom confirm functionality when used with Foundation Abide.
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("turbo:load", function() {
     $(Rails.formInputClickSelector).on("click.confirm", (ev) => {
       handleConfirm(ev, getMatchingEventTarget(ev, Rails.formInputClickSelector));
     });

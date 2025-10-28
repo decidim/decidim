@@ -48,6 +48,7 @@ fi:
         customize_welcome_notification: Muokkaa tervetuloilmoitusta
         default_locale: Oletuskieli
         description: Kuvaus
+        enable_machine_translations: Ota konekäännökset käyttöön
         enable_omnipresent_banner: Näytä kaikkialla näkyvä banneri
         enable_participatory_space_filters: Ota käyttöön osallistumistilan suodattimet
         facebook_handler: Facebook-käsittelijä
@@ -166,13 +167,17 @@ fi:
   decidim:
     admin:
       actions:
+        actions: Toiminnot
         actions_label: Toiminnot kohteelle %{resource}
         add: Lisää
         attachment:
           new: Uusi liite
         attachment_collection:
           new: Uusi kansio
+        attachment_collections: Lisää kansio
+        attachments: Lisää liite
         browse: Selaa
+        configure: Asetukset
         confirm_delete_component: |
           Haluatko varmasti poistaa tämän komponentin?<br>
           Tämä komponentti sisältää:<br>
@@ -180,20 +185,21 @@ fi:
             <li class="font-bold">%{resources_count} resurssia</li>
           </ul>
           Mikäli muutat mieltäsi, voit palauttaa tuloksen myöhemmin.
-        export: Vie kaikki
+        export: Vie
         export-selection: Vie valitut
         import: Tuo
-        manage: Hallitse
+        menu_hidden: Piilota valikosta
+        moderate: Moderointien hallinta
         newsletter:
           new: Uusi uutiskirje
         participatory_space_private_user:
           new: Uusi osallistumistilan yksityinen käyttäjä
         per_page: Per sivu
-        permissions: Oikeudet
+        permissions: Käyttöoikeuksien hallinta
         restore: Palauta
         send_me_a_test_email: Lähetä minulle testisähköposti
         share: Jaa
-        share_tokens: Pääsylinkit
+        share_tokens: Jaa linkki
         soft_delete: Siirrä roskakoriin
         user:
           new: Uusi hallintakäyttäjä
@@ -683,7 +689,7 @@ fi:
               update_moderated_user_button: Poista käyttäjätilien ilmoitukset
             title: Toiminnot
             unblock: Poista käyttäjän esto
-            unreport: Poista ilmoitus
+            unreport: Peruuta ilmoitus
           cancel: Peruuta
           name: Nimi
           nickname: Nimimerkki
@@ -707,10 +713,10 @@ fi:
               title: Piilota
               update_moderation_button: Piilota valitut sisällöt
             unhide:
-              title: Poista piilotus
+              title: Peruuta piilotus
               update_moderation_button: Poista valittujen sisältöjen piilotus
             unreport:
-              title: Poista ilmoitus
+              title: Peruuta ilmoitus
               update_moderation_button: Poista valittujen sisältöjen ilmoitukset
           cancel: Peruuta
           selected: valittu
@@ -838,7 +844,7 @@ fi:
         index:
           actions: Toiminnot
           badge: Kunniamerkki
-          block: Estä käyttäjä
+          block: Estä
           created_at: Luontihetki
           name: Nimi
           nickname: Nimimerkki
@@ -847,9 +853,10 @@ fi:
           officialized: Virallistettu
           reofficialize: Virallista uudestaan
           reports: Ilmoitukset
-          show_email: Näytä sähköpostiosoite
+          send_message: Lähetä viesti
+          show_email: Näytä sähköposti
           status: Tila
-          unblock: Poista käyttäjän esto
+          unblock: Poista esto
           unofficialize: Poista virallistaminen
         new:
           badge: Virallistamismerkki
@@ -1076,7 +1083,7 @@ fi:
           success: Aiheen päivitys onnistui
       static_pages:
         actions:
-          view: Näytä julkinen sivu
+          view: Näytä
         create:
           error: Uuden sivun luonti epäonnistui.
           success: Sivun luonti onnistui.
@@ -1104,9 +1111,9 @@ fi:
       taxonomies:
         actions:
           actions: Toiminnot
-          destroy: Poista luokittelu ja luokittelut
-          edit: Muokkaa luokittelua ja luokitteluja
-          filters: Hallitse suodattimia
+          destroy: Poista
+          edit: Muokkaa
+          filters: Käytä suodattimia
         breadcrumb:
           edit: Muokkaa luokittelua
           new: Uusi luokittelu
@@ -1232,6 +1239,9 @@ fi:
         taxonomy_filters: Luokittelun suodattimet kohteelle "%{taxonomy}"
         users: Hallintakäyttäjät
       tooltips:
+        cannot_destroy_taxonomy_filter: Tätä luokittelusuodantinta ei voi poistaa
+        cannot_edit_taxonomy_filter: Tätä luokittelusuodantinta ei voi muokata
+        deleted_attachment_collections_info: Tätä kansiota ei voi poistaa, koska siihen on jo lisätty liitteitä.
         deleted_component_info: Komponentti voidaan poistaa ainoastaan, mikäli sitä ei ole julkaistu.
       trash_management:
         restore:
@@ -1274,8 +1284,8 @@ fi:
         not_hidden: Näkyvillä
         parent_hidden: Et voi palauttaa tätä kohdetta näkyviin, koska se on liitetty kohteeseen, joka on edelleen piilotettu.
         title: Toiminnot
-        unhide: Poista piilotus
-        unreport: Poista ilmoitus
+        unhide: Peruuta piilotus
+        unreport: Peruuta ilmoitus
       admin:
         reportable:
           bulk_action:

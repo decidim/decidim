@@ -132,16 +132,13 @@ gl:
         attachment:
           new: Novo anexo
         browse: Buscar
-        export: Exportar todo
         export-selection: Exportar selección
         import: Importar
-        manage: Xestionar
         newsletter:
           new: Novo boletín
         participatory_space_private_user:
           new: Novo usuario privado do espazo participativo
         per_page: Por páxina
-        permissions: Permisos
         share: Compartir
         user:
           new: Novo administrador
@@ -500,9 +497,11 @@ gl:
         index:
           actions:
             block: Bloquear usuario
+            bulk_actions:
+              unreport:
+                title: Desfacer denuncia
             title: Accións
             unblock: Desbloquear usuario
-            unreport: Desfacer denuncia
           name: Nome
           nickname: Alcume
           reason: Motivo
@@ -594,7 +593,6 @@ gl:
         index:
           actions: Accións
           badge: Insignia
-          block: Bloquear usuario
           created_at: Creado en
           name: Nome
           nickname: Alcume
@@ -603,9 +601,7 @@ gl:
           officialized: Oficializado
           reofficialize: Reofficializar
           reports: Informes
-          show_email: Amosar enderezo de correo
           status: Estado
-          unblock: Desbloquear usuario
           unofficialize: Non oficializar
         new:
           badge: Insignia de oficialización
@@ -713,8 +709,6 @@ gl:
           error: Produciuse un erro ao actualizar este tema.
           success: Tema actualizado correctamente
       static_pages:
-        actions:
-          view: Ver páxina pública
         create:
           error: Produciuse un erro ao crear unha nova páxina.
           success: Páxina creada con éxito.
@@ -774,8 +768,6 @@ gl:
         hide: Ocultar
         not_hidden: Non escondido
         title: Accións
-        unhide: Unhide
-        unreport: Non informar
       admin:
         reportable:
           hide:

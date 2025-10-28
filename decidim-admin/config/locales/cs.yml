@@ -48,6 +48,7 @@ cs:
         customize_welcome_notification: Přizpůsobit uvítací oznámení
         default_locale: Výchozí jazyk
         description: Popis
+        enable_machine_translations: Povolit strojové překlady
         enable_omnipresent_banner: Zobrazit všudypřítomný banner
         enable_participatory_space_filters: Povolit filtry participačního prostoru
         facebook_handler: Facebook handler
@@ -166,12 +167,17 @@ cs:
   decidim:
     admin:
       actions:
+        actions: Akce
+        actions_label: Akce pro %{resource}
         add: Přidat
         attachment:
           new: Nová příloha
         attachment_collection:
           new: Nová složka příloh
+        attachment_collections: Přidat složku
+        attachments: Přidat přílohu
         browse: Procházet
+        configure: Konfigurace
         confirm_delete_component: |
           Opravdu chcete odstranit tuto komponentu?<br>
           Tato komponenta obsahuje:<br>
@@ -179,21 +185,22 @@ cs:
             <li class="font-bold">%{resources_count} zdroje</li>
           </ul>
           Pokud změníte názor, můžete ji obnovit později.
-        export: Exportovat vše
+        export: Exportovat
         export-selection: Exportovat výběr
         import: Importovat
-        manage: Spravovat
+        menu_hidden: Skrýt v menu
+        moderate: Spravovat moderace
         newsletter:
           new: Nový zpravodaj
         participatory_space_private_user:
           new: Nový soukromý uživatel participačního prostoru
         per_page: Na stránku
-        permissions: Oprávnění
+        permissions: Správa oprávnění
         restore: Obnovit
         send_me_a_test_email: Pošlete mi testovací e-mail
         share: Sdílet
-        share_tokens: Přístupové odkazy
-        soft_delete: Skrýt
+        share_tokens: Sdílet odkaz
+        soft_delete: Přesunout do koše
         user:
           new: Nový administrátor
         view_deleted_components: Zobrazit odstraněné komponenty
@@ -344,6 +351,8 @@ cs:
       conflicts:
         attempts: Pokusy
         'false': 'Ne'
+        index:
+          text: Hledat podle aktuálního uživatelského e-mailu, jména nebo přezdívky
         managed_user_name: Spravovaný uživatel
         solved: Vyřešeno
         title: Konflikty ověření
@@ -447,6 +456,7 @@ cs:
         remove_all: Odebrat vše
         search_label: Hledat
         search_placeholder:
+          name_or_nickname_or_email_cont: Hledat %{collection} podle e-mailu, jména nebo přezdívky
           report_count_eq: Počet nahlášení
         state_eq:
           label: Stav
@@ -580,7 +590,9 @@ cs:
         content: Nahlášený obsah
         external_domain_allowlist: Povolené externí domény
         help_sections: Sekce nápovědy
+        homepage: Rozložení domovské stránky
         impersonations: V zastoupení
+        insights: Přehledy
         manage: Spravovat
         moderation: Globální moderace
         newsletters: Zpravodaje
@@ -683,7 +695,6 @@ cs:
               update_moderated_user_button: Zrušit nahlášení uživatelů
             title: Akce
             unblock: Odblokovat uživatele
-            unreport: Zrušit nahlášení
           cancel: Zrušit
           name: Jméno
           nickname: Přezdívka
@@ -707,10 +718,9 @@ cs:
               title: Skrýt
               update_moderation_button: Skrýt vybrané zdroje
             unhide:
-              title: Zrušit skrytí
+              title: Vrátit skrytí
               update_moderation_button: Odkrýt vybrané zdroje
             unreport:
-              title: Zrušit nahlášení
               update_moderation_button: Zrušit nahlášení vybraných zdrojů
           cancel: Zrušit
           selected: vybráno
@@ -838,7 +848,7 @@ cs:
         index:
           actions: Akce
           badge: Odznak
-          block: Zablokovat uživatele
+          block: Blokovat
           created_at: Vytvořeno na
           name: Název
           nickname: Přezdívka
@@ -847,9 +857,10 @@ cs:
           officialized: Ověřen
           reofficialize: Znovu ověřit
           reports: Hlášení
-          show_email: Zobrazit e-mailovou adresu
+          send_message: Odeslat zprávu
+          show_email: Zobrazit e-mail
           status: Stav
-          unblock: Odblokovat uživatele
+          unblock: Odblokovat
           unofficialize: Zrušit ověření
         new:
           badge: Odznak ověření
@@ -1078,7 +1089,7 @@ cs:
           success: Téma bylo úspěšně aktualizováno
       static_pages:
         actions:
-          view: Zobrazit veřejnou stránku
+          view: Zobrazit
         create:
           error: Při vytváření nové stránky došlo k chybě.
           success: Stránka úspěšně vytvořena.
@@ -1106,9 +1117,9 @@ cs:
       taxonomies:
         actions:
           actions: Akce
-          destroy: Smazat taxonomii a položky
-          edit: Upravit taxonomii a položky
-          filters: Spravovat filtry
+          destroy: Smazat
+          edit: Upravit
+          filters: Použít filtry
         breadcrumb:
           edit: Upravit taxonomii
           new: Nová taxonomie
@@ -1278,8 +1289,7 @@ cs:
         not_hidden: Neskrytý
         parent_hidden: Nelze odkrýt tento zdroj, protože jeho nadřazená položka je stále skrytá.
         title: Akce
-        unhide: Odkrýt
-        unreport: Zrušit nahlášení
+        unhide: Vrátit skrytí
       admin:
         reportable:
           bulk_action:
@@ -1334,5 +1344,7 @@ cs:
       admin:
         global_moderations:
           title: Globální moderace
+        insights:
+          title: Přehledy
         taxonomy_filters_selector:
           title: Filtry

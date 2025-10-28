@@ -1,4 +1,4 @@
-import AutoComplete from "src/decidim/autocomplete";
+import AutoComplete from "src/decidim/refactor/moved/autocomplete";
 
 /**
  * This function can be used to create an autocomplete input automatically
@@ -74,7 +74,7 @@ const autoConfigure = (el) => {
   return ac;
 }
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   const $autocompleteDiv = $("[data-autocomplete]");
   if ($autocompleteDiv.length < 1) {
     return;

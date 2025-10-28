@@ -14,6 +14,7 @@ es-PY:
   decidim:
     admin:
       actions:
+        confirm_unpublish_survey: '¿Seguro que quieres despublicar esta encuesta?'
         see_survey: Ver encuesta
       admin_log:
         changeset:
@@ -27,7 +28,7 @@ es-PY:
     components:
       surveys:
         actions:
-          response: Respuesta
+          respond: Responder
         name: Encuestas
         settings:
           announcement: Aviso
@@ -98,11 +99,11 @@ es-PY:
           destroy:
             success: Encuesta eliminada correctamente.
           edit:
-            title: Principal
+            title: Editar la encuesta
           index:
             title: Encuestas
           new:
-            title: Principal
+            title: Nueva encuesta
           publish:
             invalid: Se ha producido un error al publicar esta encuesta.
             success: Encuesta publicada correctamente.
@@ -128,10 +129,14 @@ es-PY:
       models:
         survey:
           fields:
+            published: Publicada
             questions: Preguntas
             responses: Respuestas
             status: Estado
             title: Título
+          published:
+            published: Publicada
+            unpublished: Despublicada
           status:
             closed: Cerrada
             open: Abierta

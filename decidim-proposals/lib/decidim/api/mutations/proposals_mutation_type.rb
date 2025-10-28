@@ -2,7 +2,7 @@
 
 module Decidim
   module Proposals
-    class ProposalsMutationType < Decidim::Api::Types::BaseObject
+    class ProposalsMutationType < Decidim::Core::ComponentType
       description "A proposals of a component."
 
       field :proposal, type: Decidim::Proposals::ProposalMutationType, description: "Mutates a proposal", null: true do

@@ -44,6 +44,8 @@ eu:
           edit: Editatu
           new_sortition: Beste zozketa bat
           show: Zozketaren xehetasunak
+          title: Ekintzak
+        deprecation_warning_html: "⚠️ <b>Deprezazioaren Oharra.</b> Zozketen modulua ezabatuko da Decidim v0.32an. Mesedez, planifikatu eta pentsatu irtenbide alternatiboak parte-hartzailearentzat edo proposamenak hautatzeko."
         models:
           sortition:
             fields:
@@ -53,7 +55,7 @@ eu:
               reference: Erreferentzia
               request_timestamp: Zozketa-denbora
               seed: Hazia
-              target_items: Aukeratzeko itemak
+              target_items: Aukeratzeko datu-eremuak
               taxonomies: Taxonomiak
               title: Izenburua
         sortitions:

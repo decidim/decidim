@@ -166,6 +166,13 @@ fi-pl:
       x_seconds:
         one: 1 sekunti
         other: "%{count} sekuntia"
+    widget:
+      label:
+        date: Valitse päivämäärä kohteelle %{label}
+        time: Valitse aika kohteelle %{label}
+      picker:
+        date_button: Avaa kalenterivalitsin kohteelle %{label}
+        time_button: Avaa aikavalitsin kohteelle %{label}
   decidim:
     accessibility:
       external_link: Ulkoinen linkki
@@ -718,6 +725,7 @@ fi-pl:
     doorkeeper:
       authorizations:
         new:
+          api_read: Lukea sisältöä rajapinnan kautta
           authorize: Hyväksyn tietojeni käytön
           by_organization_link_html: '<small class="heading-small">palveluntarjoaja: %{link}</small>'
           cancel: Peruuta
@@ -1256,11 +1264,12 @@ fi-pl:
         main_image: Pääkuva
     newsletters:
       unsubscribe:
-        check_subscription: Jos haluat muuttaa asetuksiasi, voit tehdä sen <a href="%{link}" target="_blank">asetussivulla</a>.
+        check_subscription_html: Mikäli haluat saada uutiskirjeitä jälleen tulevaisuudessa, voit tilata ne uudestaan <a href="%{link}" target="_blank">profiilisi asetuksista</a>.
         error: Tilauksen peruuttaminen epäonnistui.
+        subscription_preferences: Olemme päivittäneet uutiskirjeitä koskevia asetuksiasi, etkä enää saa uutiskirjeitä palvelusta %{organization_name}.
         success: Tilauksen peruuttaminen onnistui.
         token_error: Linkki on vanhentunut.
-        unsubscribe: Peruuta tilaus
+        unsubscribe: Peruuta uutiskirjeen tilaus
     newsletters_opt_in:
       unauthorized: Valitettavasti tämä linkki ei ole enää käytettävissä.
       update:
@@ -1268,7 +1277,7 @@ fi-pl:
         success: Uutiskirjeasetusten päivitys onnistui.
     newsletters_opt_in_mailer:
       notify:
-        body_1: Henkilötietojen käsittely ja niiden suojaaminen ovat yhä tärkeämpiä meille kaikille. Uuden yleisen tietosuoja-asetuksen (GDPR) 25.5.2018 voimaan tultua yksilöillä on paremmat mahdollisuudet hallinnoida henkilötietojaan. Tästä syystä tarvitsemme suostumuksesi lähettääksemme sinulle olennaista tietoa koskien organisaatiota %{organization_name}.
+        body_1: Henkilötietojen käsittely ja niiden suojaaminen ovat yhä tärkeämpiä meille kaikille. Yleisen tietosuoja-asetuksen (GDPR) 25.5.2018 voimaan tultua yksilöillä on paremmat mahdollisuudet hallinnoida henkilötietojaan. Tästä syystä tarvitsemme suostumuksesi lähettääksemme sinulle olennaista tietoa koskien palvelua %{organization_name}.
         body_2: 'Kuinka voit antaa meille suostumuksesi? Napsauta vain seuraavaa painiketta:'
         body_3: Tämän suostumuksen avulla voit edelleen vastaanottaa tietoja palvelun mahdollisuuksista. Jos emme saa lupaasi, lopetamme viestien lähettämisen sinulle. Jos vahvistat, että haluat edelleen pysyä ajan tasalla palvelusta, sinulla on mahdollisuus peruuttaa tilaus milloin tahansa.
         button: Kyllä, haluan jatkaa olennaisten tietojen vastaanottoa
@@ -1600,6 +1609,7 @@ fi-pl:
     searches:
       filters:
         jump_to: 'Siirry kohtaan:'
+        resource: "%{label} kohteesta %{collection}"
         search: Hae
         state:
           active: Aktiiviset
@@ -1715,20 +1725,20 @@ fi-pl:
         body_2: Yksinkertaistaaksemme organisaatioiden kokemusta tällä alustalla, käyttäjäryhmät poistetaan alustalta. Käyttäjäryhmäsi profiili on nyt muutettu tavalliseksi osallistujaprofiiliksi.
         greeting: Hei %{name},
         instructions_1: Mikäli sinulla on pääsy kyseiselle sähköpostitilille, tarkasta kyseiseen sähköpostiin saapuneet ohjeet.
-        instructions_intro: Olemme lähettäneet ohjeet salasanan asettamiseksi tälle tilillä kyseiseen tiliin liitettyyn sähköpostiosoitteeseen.
+        instructions_2: Mikäli sinulla ei ole pääsyä kyseiselle sähköpostitilille, pyydä kolleegaasi, jolla on pääsy kyseiselle tilille, asettamaan profiilille salasana ja jakamaan se kanssasi.
+        instructions_intro: Ryhmän hallitsija voi kirjautua tälle tilille henkilökohtaisilla tunnuksillaan (sähköpostiosoite ja salasana). Näitä tunnuksia ei tule jakaa kenenkään kanssa. Olemme lähettäneet ohjeet uuden salasanan asettamiseen tälle tunnukselle sähköpostiosoitteeseen %{email}.
         instructions_title: "<strong>Mitä tämä tarkoittaa sinulle?</strong>"
-        subject: Tärkeä ilmoitus koskien käyttäjäryhmää, jonka jäsen olet
+        subject: Tärkeä ryhmäprofiilia koskeva päivitys
       notify_deprecation_to_owner:
         body_1: Tämä viesti koskee tärkeää päivitystä käyttäjäryhmät-toiminnossa palvelussa %{organization_name}.
         body_2: Yksinkertaistaaksemme organisaatioiden kokemusta tällä alustalla, käyttäjäryhmät poistetaan alustalta. Käyttäjäryhmäsi <strong>%{name}</strong> profiili on nyt muutettu tavalliseksi osallistujaprofiiliksi.
-        body_3: Mikäli haluat jatkossa päästä ryhmäkäyttäjäsi tilille, sinun on asetettava salasana kyseiselle käyttäjätilille.
+        body_3: Mikäli haluat jatkaa ryhmäkäyttäjänä toimimista, ryhmän tilille tulee asettaa salasana. Salasanaa ei tule jakaa kenenkään kanssa.
         greeting: Hei %{name},
-        instructions_1: 'Paina alla olevaa linkkiä asettaaksesi salasanan kyseiselle tilille:'
-        instructions_2: Syötä kyseiselle lomakkeelle tämä sähköpostiosoite, johon tämä viesti lähetettiin ja lähetä pyyntö.
-        instructions_3: Tarkasta saapuneet sähköpostiviestit, missä on tarkemmat ohjeet salasanan asettamiseen.
-        instructions_title: "<strong>Mitä sinun täytyy tehdä?</strong>"
-        set_password: Aloita salasanan asettaminen
-        subject: Tärkeä ilmoitus koskien käyttäjäryhmää
+        instructions_1: 'Määritä tilille salasana seuraavan linkin avulla:'
+        instructions_2: 'Älä jaa näitä tunnuksia kenenkään kanssa.'
+        instructions_title: "<strong>Mitä sinun tulee tehdä</strong>"
+        set_password: Määritä salasana
+        subject: Tärkeä ryhmäprofiilia koskeva päivitys
     user_report_mailer:
       notify:
         body_1: Käyttäjä %{user} on ilmoitettu käyttäjän %{token} toimesta
@@ -2084,18 +2094,20 @@ fi-pl:
         edit: Muokkaa
       footer:
         cc_by_license: Creative Commons -lisenssi
+        current_organization_img: "%{organization} (Siirry etusivulle)"
         data_consent_settings: Evästeasetukset
         decidim_logo: Decidim-logo
         decidim_title: Decidim
+        help: Ohjeet
         log_in: Kirjaudu sisään
         made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">vapaan ohjelmiston</a> avulla.
         open_data: Avoin data
         resources: Resurssit
         sign_up: Luo tili
+        social_media: Sosiaalinen media
         terms_of_service: Käyttöehdot
       header:
-        back: Takaisin listaan
-        cancel: Peruuta
+        back: Takaisin
         close: Sulje
         confirm_close_ephemeral_session: Mikäli poistut tältä sivulta, väliaikainen istuntosi suljetaan. Kaikki tekemäsi toimet kuitenkin tallentuvat tilillesi. Mikäli olet suorittanut tarvittavat toimet loppuun, paina OK-painiketta.
         confirm_title_close_ephemeral_session: Ennen kuin poistut tältä sivulta…
@@ -2105,7 +2117,7 @@ fi-pl:
       impersonation_warning:
         close_session: Sulje istunto
         description_html: Esiinnyt käyttäjänä <b>%{user_name}</b>.
-        expire_time_html: Istuntosi vanhenee <b><span class="minutes">%{minutes}</span> minuutin kuluttua</b>.
+        expire_time_html: Istuntosi vanhenee <b><span data-impersonation-warning-target="minutes">%{minutes}</span> minuutin kuluttua</b>.
       language_chooser:
         choose_language: Valitse kieli
       navigation:
@@ -2136,6 +2148,8 @@ fi-pl:
         profile: Oma käyttäjätili
         public_profile: Oma julkinen profiili
         title: Profiilin linkit
+        unread_conversations: Sinulla on lukemattomia keskusteluja
+        unread_notifications: Sinulla on lukemattomia ilmoituksia
       user_profile:
         account: Käyttäjätili
         authorizations: Varmennukset
@@ -2147,6 +2161,11 @@ fi-pl:
   locale:
     name: Suomi
     name_with_error: Suomi (virhe!)
+  number:
+    currency:
+      format:
+        format: "%n %u"
+        format_html: "%n <span>%u</span>"
   password_validator:
     denied: ei ole sallittu
     domain_included_in_password: liian samankaltainen palvelun verkko-osoitteen kanssa
@@ -2155,7 +2174,6 @@ fi-pl:
     name_included_in_password: liian samankaltainen nimesi kanssa
     nickname_included_in_password: liian samankaltainen nimesi kanssa
     not_enough_unique_characters: ei sisällä tarpeeksi yksilöllisiä merkkejä
-    password_not_allowed: ei ole sallittu
     password_repeated: et voi uudelleenkäyttää vanhaa salasanaa
     password_too_common: liian yleinen
     password_too_long: liian pitkä

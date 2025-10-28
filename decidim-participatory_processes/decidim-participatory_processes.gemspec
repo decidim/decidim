@@ -32,7 +32,10 @@ Gem::Specification.new do |s|
 
   s.add_dependency "decidim-core", Decidim::ParticipatoryProcesses.version
 
+  s.add_development_dependency "decidim-accountability", Decidim::ParticipatoryProcesses.version
   s.add_development_dependency "decidim-admin", Decidim::ParticipatoryProcesses.version
+  s.add_development_dependency "decidim-budgets", Decidim::ParticipatoryProcesses.version
   s.add_development_dependency "decidim-dev", Decidim::ParticipatoryProcesses.version
   s.add_development_dependency "decidim-meetings", Decidim::ParticipatoryProcesses.version
+  s.add_development_dependency "decidim-proposals", Decidim::ParticipatoryProcesses.version
 end

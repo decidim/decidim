@@ -58,7 +58,7 @@ describe "Organization Areas" do
 
       it "can edit them" do
         within "tr", text: translated(area.name) do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Edit"
         end
 
@@ -103,7 +103,7 @@ describe "Organization Areas" do
 
   def click_delete_area
     within "tr", text: translated(area.name) do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       accept_confirm { click_on "Delete" }
     end
   end

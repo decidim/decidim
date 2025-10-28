@@ -9,9 +9,6 @@ id:
         closing_date: Tanggal Penutupan
         closing_date_reason: Alasan tanggal penutupan
         composition: Komposisi
-        copy_categories: Salin kategori
-        copy_components: Salin komponen
-        copy_features: Salin fitur
         created_by: Dibuat oleh
         created_by_other: Dibuat oleh lainnya
         creation_date: Tanggal Diciptakan
@@ -83,15 +80,6 @@ id:
         update:
           error: Ada kesalahan saat memperbarui perakitan ini.
           success: Majelis berhasil diperbarui.
-      assemblies_copies:
-        create:
-          error: Ada kesalahan saat menduplikasi majelis ini.
-          success: Majelis berhasil digandakan.
-      assembly_copies:
-        new:
-          copy: Salinan
-          select: Pilih data mana yang ingin Anda gandakan
-          title: Rakitan duplikat
       assembly_publications:
         create:
           error: Terjadi kesalahan saat mempublikasikan perakitan ini.

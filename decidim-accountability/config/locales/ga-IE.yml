@@ -12,13 +12,9 @@ ga:
         key: Eochair
         name: Ainm
         progress: Forás
-      timeline_entry:
-        entry_date: Dáta
   decidim:
     accountability:
       actions:
-        attachment_collections: Fillteáin
-        attachments: Ceangaltáin
         destroy: Scrios
         edit: Eagar
         preview: Réamhamharc
@@ -65,9 +61,6 @@ ga:
             key: Eochair
             name: Ainm
             progress: Forás
-        timeline_entry:
-          fields:
-            entry_date: Dáta
     admin:
       filters:
         results:

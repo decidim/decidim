@@ -27,6 +27,8 @@ cs:
       admin_log:
         changeset:
           debates: Debaty
+      tooltips:
+        deleted_debates_info: Tuto debatu nelze smazat
     components:
       debates:
         actions:
@@ -271,6 +273,7 @@ cs:
           instructions: Jaké jsou pokyny k připomínkám v této debatě
           last_comment_at: Datum, kdy byla tato debata naposledy komentována
           last_comment_by: Data posledního komentáře v rámci debaty
+          likes_count: Počet líbí se mi pro tuto debatu
           participatory_space: Do kterého prostoru (např. účastnický proces nebo Shromáždění) patří tato debata
           reference: Jedinečný identifikátor zdroje na této platformě
           start_time: Když tato debata začne, pokud se jedná o otevřenou debatu a má omezenou dobu
@@ -280,3 +283,4 @@ cs:
           url: URL, kde lze tuto debatu nalézt
     statistics:
       debates_count: Debaty
+      debates_count_tooltip: Počet konaných diskusí.

@@ -15,6 +15,7 @@ en:
   decidim:
     admin:
       actions:
+        confirm_unpublish_survey: Are you sure you want to unpublish this survey?
         see_survey: See survey
       admin_log:
         changeset:
@@ -28,7 +29,7 @@ en:
     components:
       surveys:
         actions:
-          response: Response
+          respond: Respond
         name: Surveys
         settings:
           announcement: Announcement
@@ -99,11 +100,11 @@ en:
           destroy:
             success: Survey successfully deleted.
           edit:
-            title: Main
+            title: Edit survey
           index:
             title: Surveys
           new:
-            title: Main
+            title: New survey
           publish:
             invalid: There was a problem publishing this survey.
             success: Survey successfully published.
@@ -129,10 +130,14 @@ en:
       models:
         survey:
           fields:
+            published: Published
             questions: Questions
             responses: Responses
             status: Status
             title: Title
+          published:
+            published: Published
+            unpublished: Unpublished
           status:
             closed: Closed
             open: Open

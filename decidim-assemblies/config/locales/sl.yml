@@ -9,9 +9,6 @@ sl:
         closing_date: Datum zaprtja
         closing_date_reason: Razlog za datum zaprtja
         composition: Sestava
-        copy_categories: Kopiraj kategorije
-        copy_components: Kopiraj sestavni del
-        copy_features: Kopiraj značilnosti
         created_by: Ustvaril
         creation_date: Datum nastanka
         decidim_area_id: Področje
@@ -89,15 +86,6 @@ sl:
         update:
           error: Pojavila se je težava pri urejanju združbe.
           success: Združba uspešno posodobljena.
-      assemblies_copies:
-        create:
-          error: Pojavila se je težava pri podvajanju združbe.
-          success: Združba uspešno podvojena.
-      assembly_copies:
-        new:
-          copy: Kopiraj
-          select: Izberi, katere podatke želiš podvojiti
-          title: Podvoji združbo
       assembly_imports:
         create:
           error: Pojavila se je težava pri uvozu te združbe.

@@ -3,9 +3,14 @@ pt-BR:
     admin:
       menu:
         elections_menu:
+          election_census: Censo
           election_questions: Questões
     components:
       elections:
+        actions:
+          create: Criar
+          destroy: Destruir
+          update: Atualizar
         name: Eleições
         settings:
           global:
@@ -14,13 +19,36 @@ pt-BR:
             announcement: Anúncio
     elections:
       actions:
+        preview: Pré-visualização
         title: Ações
       admin:
+        census:
+          edit:
+            created_at: Criado em
+        dashboard:
+          census:
+            title: Censo
+          main:
+            labels:
+              description: Descrição
+          questions:
+            labels:
+              answers: Respostas
+            title: Questões
+          questions_table:
+            answer: Respostas
+            votes: Votos
+          results:
+            publish_button: Publicar resultados
+            title: Resultados
+          status:
+            title: Status da eleição
         elections:
           edit:
             title: Editar eleição
           form:
             add_images: Adicionar imagens
+            publish: Publicar
           index:
             title: Eleições
           new:
@@ -29,9 +57,51 @@ pt-BR:
           edit_questions:
             new_question: Nova questão
             title: Questões
+        statuses:
+          publish_results:
+            invalid: Ocorreu um erro ao publicar os resultados.
+      censuses:
+        token_csv_form:
+          email: E-mail
+      elections:
+        count:
+          elections_count:
+            one: "%{count} eleição"
+            other: "%{count} eleições"
+        filters:
+          all: Todos
+          state: Status
+          state_values:
+            finished: Finalizado
+            ongoing: Em andamento
+        orders:
+          recent: Recente
+        questions:
+          title: Perguntas eleitorais
+        show:
+          vote_button: Voto
+        vote_results:
+          title: Resultados
       models:
         election:
           fields:
+            census: Censo
+            status: Status
             title: Título
+      status:
+        active: Ativo
+        finished: Finalizado
+        not_started: Não Iniciado
+        ongoing: Em andamento
+      votes:
+        confirm:
+          title: Confirme seu voto
+        question:
+          back: Voltar
+          next: Próxima
     statistics:
       elections_count: Eleições
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Fechado

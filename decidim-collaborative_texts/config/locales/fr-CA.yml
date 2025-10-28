@@ -16,12 +16,15 @@ fr-CA:
           draft: Brouillon
           version_number: Numéro de version
   decidim:
+    admin:
+      tooltips:
+        deleted_collaborative_texts_info: Impossible de supprimer ce document
     collaborative_texts:
       actions:
         confirm_delete_document: Êtes-vous sûr(e) de vouloir supprimer ce document ?
         deleted_document_info: Le document supprimé peut être restauré à partir de la corbeille.
         edit: Modifier
-        manage: Gérer
+        manage: Configurer
         new: Nouveau texte
         title: Actions
         view_deleted_documents: Voir les documents supprimés
@@ -30,6 +33,8 @@ fr-CA:
           create:
             invalid: Un problème est survenu lors de la création du document.
             success: Document créé avec succès.
+          draft_options:
+            accepting_suggestions: Activer les suggestions dans la prochaine version
           edit:
             previous_versions: Versions précédentes
             public_version: Version publique
@@ -60,6 +65,9 @@ fr-CA:
           update_settings:
             invalid: Un problème est survenu lors de la mise à jour du document.
             success: Document mis à jour avec succès.
+        index:
+          published: Publié
+          unpublished: Non publié
       admin_log:
         document:
           create: "%{user_name} a créé le texte collaboratif %{resource_name} dans %{space_name}"
@@ -93,6 +101,7 @@ fr-CA:
       models:
         collaborative_text:
           fields:
+            published: Publié
             suggestions: Accepter les suggestions
             title: Titre
       suggestions:
@@ -103,6 +112,10 @@ fr-CA:
           invalid_nodes: Nœuds sélectionnés non valides.
     components:
       collaborative_texts:
+        actions:
+          create: Créer
+          destroy: Détruire
+          update: Mettre à jour
         name: Textes collaboratifs
         settings:
           global:

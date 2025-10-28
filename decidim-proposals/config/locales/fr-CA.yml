@@ -138,6 +138,10 @@ fr-CA:
               state_published: Répondue
         search_placeholder:
           id_string_or_title_cont: Rechercher %{collection} par ID ou titre
+      tooltips:
+        cannot_edit_proposal_info: Impossible de modifier cette proposition car elle a été créée par un participant ou elle a reçu un vote
+        deleted_proposal_states_info: Impossible de supprimer cet état de proposition car il y a des propositions qui lui sont assignées
+        deleted_proposals_info: Impossible de supprimer cette proposition
     application:
       geocoding:
         not_configured: La géolocalisation n'est pas configurée !
@@ -162,6 +166,7 @@ fr-CA:
             can_accumulate_votes_beyond_threshold: Peut accumuler des votes au-delà du seuil
             clear_all: Tout effacer
             collaborative_drafts_enabled: Brouillons collaboratifs activés
+            collaborative_drafts_enabled_help: La fonctionnalité « Brouillons collaboratifs » sera supprimée dans Decidim v0.32. Les organisations qui l’utilisent peuvent passer à la nouvelle fonctionnalité de co-auteur de proposition.
             comments_enabled: Activer le module de commentaire
             comments_max_length: Longueur maximum (en caractères) des commentaires (laisser 0 pour la valeur par défaut)
             default_sort_order: Tri des propositions par défaut
@@ -427,6 +432,7 @@ fr-CA:
           deleted_proposals_info: Les propositions supprimées peuvent être restaurées à partir de la corbeille.
           preview: Aperçu
           view_deleted_proposals: Voir les propositions supprimées
+        deprecation_warning_collaborative_drafts_html: "⚠️ <b>Avis de dépréciation.</b> La fonctionnalité « Brouillons collaboratifs » sera supprimée dans Decidim v0.32. Les organisations qui l’utilisent peuvent passer à la nouvelle fonctionnalité de co-auteur de proposition."
         evaluation_assignments:
           create:
             invalid: Une erreur s'est produite lors de l'assignation des propositions à un évaluateur.

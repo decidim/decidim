@@ -10,6 +10,11 @@ describe "Admin filters meetings" do
   let!(:meeting) { create(:meeting, scope:, component:) }
 
   include_context "when managing a component as an admin"
+  it_behaves_like "access component permissions form"
+
+  it_behaves_like "access permissions form" do
+    let!(:row_text) { translated(meeting.title) }
+  end
 
   TYPES = Decidim::Meetings::Meeting::TYPE_OF_MEETING.keys
 

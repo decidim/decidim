@@ -30,7 +30,7 @@ shared_examples "manage processes announcements" do
 
     new_window = window_opened_by do
       within("tr", text: translated(participatory_process.title)) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Preview"
       end
     end

@@ -25,6 +25,8 @@ fi-pl:
       admin_log:
         changeset:
           debates: Keskustelut
+      tooltips:
+        deleted_debates_info: Tätä keskustelua ei voi poistaa
     components:
       debates:
         actions:

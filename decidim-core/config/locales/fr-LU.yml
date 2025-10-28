@@ -452,7 +452,7 @@ fr-LU:
           newsletter: Recevoir une newsletter sur l'actualité de la plateforme
           newsletter_title: Autorisation de contact
           nickname_help: Cet identifiant est public et unique sur %{organization} ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
-          password_help: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email."
+          password_help: "%{minimum_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email."
           sign_in: Se connecter
           sign_up: S'inscrire
           sign_up_as:
@@ -1455,7 +1455,7 @@ fr-LU:
         change_your_password: changez votre mot de passe
         confirm_new_password: Confirmer le nouveau mot de passe
         new_password: Nouveau mot de passe
-        password_help: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email."
+        password_help: "%{minimum_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email."
       new:
         forgot_your_password: Mot de passe oublié?
         send_me_reset_password_instructions: Envoyez-moi les instructions de réinitialisation du mot de passe
@@ -1472,7 +1472,7 @@ fr-LU:
         currently_waiting_confirmation_for_email: 'En attente de confirmation pour: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: laisser vide si vous ne voulez pas le changer
         title: Modifier %{resource}
-        unhappy: Pas satisfait ? 
+        unhappy: Pas satisfait ?
         update: Mettre à jour
         we_need_your_current_password_to_confirm_your_changes: nous avons besoin de votre mot de passe actuel pour confirmer vos modifications
       new:

@@ -7,6 +7,9 @@ sv:
         organization_name: Organisation
         organization_url: Organisationens hemsida
         redirect_uri: Omdirigerings-URI
+        refresh_tokens: Uppdatera tokens
+        refresh_tokens_enabled: Uppdatera tokens är aktiverat
+        scopes: Tillgängliga omfattningar
       organization:
         address: SMTP-värdnamn
         from_email: E-postadress
@@ -38,12 +41,26 @@ sv:
   decidim:
     system:
       actions:
+        api_user:
+          hidden_secret: Hemlighet är dold
+          hide_secret: Dölj hemlighet
+          secret_can_not_be_shown: API:s hemlighet kan bara ses vid skapande eller kopiering
+          show_secret: Visa hemlighet
+        api_users:
+          new: Ny API-användare
+          remove: Ta bort användaren
         confirm_destroy: Vill du radera detta?
+        confirm_refresh_api_secret: Är du säker på att du vill uppdatera hemlighet för denna API-användare? Efter uppdateringen kommer den gamla hemligheten att vara ogiltig och kan inte längre användas.
+        confirm_remove_api_user: Är du säker på att du vill ta bort denna API-användare?
+        copied: Kopierad
+        copy_secret: Kopiera hemlighet
+        copy_secret_clarification: Kopiera hemlighet till urklipp
         destroy: Radera
         edit: Redigera
         new_admin: Ny administratör
         new_oauth_application: Ny OAUTH-applikation
         new_organization: Ny organisation
+        refresh_secret: Uppdatera hemlighet
         save: Spara
         title: Åtgärder
       admins:
@@ -63,6 +80,25 @@ sv:
         update:
           error: Det gick inte att uppdatera administratören.
           success: Administratören har uppdaterats.
+      api_user:
+        create:
+          error: Skapandet av API-användare misslyckades.
+          success: API-användaren skapades framgångsrikt. Hemligheten för användaren är bara synlig efter skapandet. Kopiera den och lagra den säkert innan du lämnar denna sida!
+        destroy:
+          success: API-användaren har tagits bort.
+        refresh:
+          error: Något gick fel. Vänligen försök igen senare.
+          success: Hemligheten uppdaterades. Hemligheten för användaren är bara synlig efter skapandet. Kopiera den och lagra den säkert innan du lämnar denna sida!
+      api_users:
+        index:
+          explanation_html: |
+            <p>API-användare tillåter integrationsutvecklare att lägga till administrativa konton för maskinanvändare till systemet. Dessa maskinanvändare kan administrera på plattformen för att utföra uppdateringar som vanliga administratörer skulle utföra via administrationspanelen. Ett typiskt användningsfall är en extern dashboard där ett automatiserat skript skulle utföra administrativa uppgifter utan att en verklig användare behöver autentisera mot systemet. Till exempel, ett automationssystem kanske vill skicka svar på förslag ifall vi behöver en integrationsanvändare för att utföra uppgiften på plattformen.</p>
+            <p>Största skillnaden mellan dessa konton och normala administratörskonton är att de är avsedda för maskiner och därför deras lösenordskrav är olika. Dessa användare behöver inte regelbundet uppdatera sitt lösenord och ändra kontolösenordet kan hända på ett hanterat sätt när det behövs.</p>
+            <p>Dessa referenser är avsedda att användas av maskiner. Medverkande applikationer bör integreras med <a href="%{oauth_link}">OAuth applikationer</a>.</p>
+          manage: Hantera API-användare
+        new:
+          select_organization: Välj din organisation
+          title: Skapa ny API-användare
       dashboard:
         show:
           admins: Administratörer
@@ -91,6 +127,7 @@ sv:
             sign_up: Skapa ett konto
       menu:
         admins: Administratörer
+        api_credentials: API-uppgifter
         dashboard: Adminpanel
         oauth_applications: OAuth-applikationer
         organizations: Organisationer
@@ -101,6 +138,15 @@ sv:
             email: E-post
           validations:
             email_uniqueness: det finns redan en administratör med samma e-postadress
+        api_user:
+          fields:
+            created_at: Skapad den
+            key: Nyckel
+            name: Namn
+            organization: Organisation
+            secret: Hemlighet
+          validations:
+            name_uniqueness: En API-användare med detta namn finns redan.
         oauth_application:
           fields:
             created_at: Skapad
@@ -127,6 +173,26 @@ sv:
           save: Spara
           title: Redigera appen
         form:
+          application_type:
+            confidential:
+              explanation: Applikationer som kan autentisera auktoriseringsservern riskfritt, till exempel att kunna hålla sin registrerade klient hemlig och säker. Vanligtvis ett program som körs på en server där klienthemligheten lagras.
+              name: Konfidentiellt
+            public:
+              explanation: Applikationer som inte kan använda registrerade klienthemligheter, till exempel för att de körs i en webbläsare eller på en mobil enhet.
+              name: Offentlig
+          application_type_help_html: 'Klienttypen OAuth enligt definitionen av <a href="%{client_type_link}" target="_blank">RFC 6749 Avsnitt 2.1</a>. Offentliga kunder behöver implementera PKCE-flödet enligt definitionen av <a href="%{pkce_link}" target="_blank">RFC 7636</a>. '
+          refresh_tokens_help_html: 'Uppdatera tokens är användbart om de behöver en längre livstid än vad som tilldelas för åtkomsttoken. Observera att <strong>uppdatera token bör användas varsamt</strong> eftersom de kan försvaga säkerheten för dina användare. '
+          scopes_explanation:
+            "api:read": Tillåter användaren att ställa frågor genom GraphQL API.
+            "api:write": Tillåter användaren att göra mutationer genom GraphQL API.
+            profile: Ger åtkomst till användarens egna profildetaljer. Endast denna omfattning behövs ifall OAuth-applikationen bara används som identitetsleverantör eller autentiseringstjänst.
+            user: Möjlighet att agera som den inloggade användaren med angivet token under samtal till GraphQL API. Detta krävs för alla api:write eller api:read-operationer som behöver information om den aktuella användaren.
+          scopes_help_html: |
+            De valda omfången kommer att vara åtkomliga för de anslutna apparna under auktoriseringsprocessen. Användaren kommer att få detaljer om behörighetsbegäran när de loggar in med OAuth.
+            <br>
+            Autentiserade användare har tillgång till olika funktioner av olika omfattning med hjälp av de beviljade åtkomsttokens.
+            <br>
+            <strong>Obs:</strong> Om du bara behöver autentisera användarna till dina externa applikationer, så behöver du bara <strong>profilens</strong> omfattning. Applikationer som interagerar med Decidim API kräver även andra omfattningar.
           select_organization: Välj en organisation
         index:
           confirm_delete: Vill du ta bort appen?

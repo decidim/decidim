@@ -26,7 +26,7 @@ Decidim.register_component(:surveys) do |component|
   component.register_resource(:survey) do |resource|
     resource.model_class_name = "Decidim::Surveys::Survey"
     resource.card = "decidim/surveys/survey"
-    resource.actions = %w(response)
+    resource.actions = %w(respond)
   end
 
   component.register_stat :surveys_count,

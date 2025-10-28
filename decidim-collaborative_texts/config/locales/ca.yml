@@ -17,12 +17,15 @@ ca:
           draft: Esborrany
           version_number: Número de versió
   decidim:
+    admin:
+      tooltips:
+        deleted_collaborative_texts_info: No es pot esborrar aquest document
     collaborative_texts:
       actions:
         confirm_delete_document: Segur que vols esborrar aquest document?
         deleted_document_info: Els documents eliminats es poden restaurar des de la paperera.
         edit: Editar
-        manage: Gestionar
+        manage: Configurar
         new: Nou text
         title: Accions
         view_deleted_documents: Veure els documents eliminats
@@ -71,6 +74,9 @@ ca:
           update_settings:
             invalid: S'ha produït un error en actualitzar el document.
             success: Document actualitzat correctament.
+        index:
+          published: Publicat
+          unpublished: Despublicat
       admin_log:
         document:
           create: "%{user_name} ha creat el text col·laboratiu \"%{resource_name}\" a %{space_name}"
@@ -119,6 +125,7 @@ ca:
       models:
         collaborative_text:
           fields:
+            published: Publicat
             suggestions: Accepta el(s) suggeriment(s)
             title: Títol
       suggestion:
@@ -134,6 +141,10 @@ ca:
           invalid_nodes: Nodes seleccionats invàlids.
     components:
       collaborative_texts:
+        actions:
+          create: Crear
+          destroy: Destruir
+          update: Actualitzar
         name: Textos col·laboratius
         settings:
           global:

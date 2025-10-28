@@ -127,8 +127,8 @@ FactoryBot.define do
     sequence(:host) { |n| "#{n}.lvh.me" }
     description { generate_localized_description(:organization_description, skip_injection:) }
     favicon { Decidim::Dev.test_file("icon.png", "image/png") }
-    default_locale { Decidim.default_locale }
-    available_locales { Decidim.available_locales }
+    default_locale { "en" }
+    available_locales { %w(en ca es) }
     users_registration_mode { :enabled }
     official_img_footer { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     official_url { Faker::Internet.url }

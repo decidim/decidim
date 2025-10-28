@@ -14,9 +14,6 @@ lv:
         description: Apraksts
         key: Atslēga
         name: Nosaukums
-      timeline_entry:
-        description: Apraksts
-        entry_date: Datums
     models:
       decidim/accountability/proposal_linked_event: Priekšlikums iekļauts rezultātā
       decidim/accountability/result_progress_updated_event: Rezultātu progress ir atjaunināts
@@ -33,7 +30,6 @@ lv:
         destroy: Dzēst
         edit: Labot
         preview: Priekšskatīt
-        timeline_entries: Projekta attīstība
         title: Darbības
       admin:
         exports:
@@ -67,15 +63,6 @@ lv:
           new:
             create: Izveidot statusu
             title: Jauns statuss
-        timeline_entries:
-          edit:
-            title: Rediģēt ierakstu
-            update: Atjaunināt ierakstu
-          index:
-            title: Projekta laika grafika ieraksti
-          new:
-            create: Izveidot ierakstu
-            title: Jauns ieraksts
       admin_log:
         result:
           create: "%{user_name} izveidoja rezultātu %{resource_name} telpā %{space_name}"
@@ -102,9 +89,6 @@ lv:
             description: Apraksts
             key: Atslēga
             name: Nosaukums
-        timeline_entry:
-          fields:
-            entry_date: Datums
       results:
         count:
           results_count:
@@ -118,8 +102,6 @@ lv:
         show:
           stats:
             back_to_resource: Atgriezties pie rezultātiem
-        timeline:
-          title: Projekta attīstība
     components:
       accountability:
         name: Atbildība

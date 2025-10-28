@@ -25,7 +25,7 @@ module Decidim
           end
 
           on(:invalid) do
-            render action: :edit
+            render action: :edit, status: :unprocessable_entity
           end
         end
       end

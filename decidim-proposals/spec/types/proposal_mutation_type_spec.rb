@@ -5,7 +5,7 @@ require "decidim/api/test/mutation_context"
 
 module Decidim
   module Proposals
-    describe AnswerProposalType, type: :graphql do
+    describe ProposalAnswerType, type: :graphql do
       include_context "with a graphql class mutation"
 
       let(:root_klass) { ProposalMutationType }

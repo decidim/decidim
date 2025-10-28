@@ -21,7 +21,7 @@ module Decidim
             redirect_to import_results_path(current_participatory_space, current_component)
           else
             flash[:alert] = I18n.t("imports.create.invalid", scope: "decidim.accountability.admin")
-            render action: "new"
+            render action: "new", status: :unprocessable_entity
           end
         end
 

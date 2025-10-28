@@ -70,6 +70,9 @@ javascript:
 "module: debates":
   - changed-files:
       - any-glob-to-any-file: decidim-debates/**/*
+"module: demographics":
+  - changed-files:
+      - any-glob-to-any-file: decidim-demographics/**/*
 "module: design":
   - changed-files:
       - any-glob-to-any-file: decidim-design/**/*
