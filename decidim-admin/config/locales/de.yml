@@ -48,6 +48,7 @@ de:
         customize_welcome_notification: Willkommens-Benachrichtigung anpassen
         default_locale: Standardgebietsschema
         description: Beschreibung
+        enable_machine_translations: Maschinelle Übersetzungen aktivieren
         enable_omnipresent_banner: Zeige allgegenwärtiges Banner
         enable_participatory_space_filters: Bereichs- und Gebietsfilter aktivieren
         facebook_handler: Facebook-Handler
@@ -804,7 +805,7 @@ de:
           select_conferences: Konferenzen auswählen
           select_initiatives: Initiativen auswählen
           select_participatory_processes: Beteiligungsprozesse auswählen
-          select_spaces: Wählen Sie Abschnitte, um den Newsletter zu unterteilen
+          select_spaces: Bereiche zum Segmentieren des Newsletters auswählen
           select_users_for_participatory_space: Newsletter an einen oder mehrere partizipative Bereiche senden
           select_users_general: Plattformweiter Newsletter senden
           select_verification_types: Verifizierungsmethoden auswählen

@@ -1380,7 +1380,6 @@ ar:
     name_included_in_password: مشابه جدا لاسمك
     nickname_included_in_password: هذا شبيه جدا بالاسم المستعار الخاص بك
     not_enough_unique_characters: ليس لديه ما يكفي من الشخصيات الفريدة
-    password_not_allowed: غير مسموح
     password_repeated: لا يمكن إعادة استخدام كلمة المرور القديمة
     password_too_common: هو شائع جدا
     password_too_long: طويل جدا

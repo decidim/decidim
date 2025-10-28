@@ -74,6 +74,9 @@ eu:
           update_settings:
             invalid: Arazo bat egon da dokumentua eguneratzean.
             success: Dokumentua zuzen eguneratua.
+        index:
+          published: Argitaratuta
+          unpublished: Argitaratu gabea
       admin_log:
         document:
           create: "%{user_name} parte-hartzaileak %{resource_name} testu kolaboratiboa sortu du %{space_name} espazioan"
@@ -122,6 +125,7 @@ eu:
       models:
         collaborative_text:
           fields:
+            published: Argitaratuta
             suggestions: Onartu iradokina(k)
             title: Izenburua
       suggestion:

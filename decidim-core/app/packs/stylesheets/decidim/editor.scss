@@ -84,7 +84,9 @@
     }
 
     .ProseMirror {
-      @apply relative p-2.5 outline-0 min-h-full prose max-w-none prose-headings:first:mt-0 prose-p:first:mt-0 prose-ul:first:mt-0 prose-ol:first:mt-0 prose-blockquote:first:mt-0 prose-pre:first:mt-0;
+      @apply relative p-2.5 outline-0 resize-y overflow-hidden prose max-w-none prose-headings:first:mt-0 prose-p:first:mt-0 prose-ul:first:mt-0 prose-ol:first:mt-0 prose-blockquote:first:mt-0 prose-pre:first:mt-0;
+
+      min-height: inherit;
 
       &.ProseMirror-focused,
       &.dialog-open {
