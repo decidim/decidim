@@ -11,6 +11,7 @@ de:
         domain: Domäne
         duplicate_categories: Kategorien duplizieren
         duplicate_components: Komponenten duplizieren
+        duplicate_landing_page_blocks: Startseiten-Blöcke duplizieren
         duplicate_steps: Schritte duplizieren
         end_date: Enddatum
         hero_image: Hauptbild
@@ -204,13 +205,6 @@ de:
             last_step: Der letzte Schritt eines Prozesses kann nicht gelöscht werden.
           success: Beteiligungsprozessschritt erfolgreich gelöscht.
         edit:
-          cta_deprecated:
-            body_html: |-
-              Die Konfigurierung der Handlungsaufforderung durch die Schritte des partizipativen Prozesses ist mit dem neuen Design veraltet.
-              Neu finden Sie die Einstellung bei der Konfiguration der <b>Startseite</b> unter dem Inhaltsbaustein <b>Banner-Bild und Handlungsaufforderung</b>.
-              Sie können die benötigten Handlungsaufforderungen migrieren. Die Felder <i>Aufruf zum Aktionspfad</i> und
-              <i>Aufruf zum Aktionstext</i> werden in der nächsten Version entfernt.
-            title: Handlungsaufforderung veraltet
           title: Beteiligungsschritt bearbeiten
           update: Aktualisieren
         index:
@@ -506,10 +500,6 @@ de:
           form:
             document_legend: Dokument hinzufügen
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
-        participatory_process_steps:
-          form:
-            cta_path_help_html: 'Verwenden Sie hier Teilpfade, nicht die vollständige URL. Buchstaben, Zahlen, Bindestriche und Schrägstriche sind erlaubt; an der ersten Stelle ist ein Buchstabe erforderlich. Wenn nicht eingestellt, wird die Schaltfläche nicht angezeigt. Beispiel: %{url}'
-            cta_text_help: Wenn nicht eingestellt, wird die Schaltfläche nicht angezeigt.
         participatory_processes:
           form:
             announcement_help: Der Text, den Sie hier eingeben, wird dem Benutzer direkt unter den Prozessinformationen angezeigt.
@@ -546,9 +536,15 @@ de:
             tooltip: Berechnet als Durchschnitt aller Dimensionen
           name: Qualitätsindikator
           qualitative_metrics:
+            description: Diese Indikatoren stammen von den Antworten auf eine von den Verwaltern der Plattform ausgefüllte Selbstbeurteilungsbefragung.
             indicators:
+              citizen_influence: Volkseinfluss
+              citizen_influence_tooltip: Misst die Auswirkungen der Teilnehmenden auf die Entscheidungsfindung.
               inclusiveness: Inklusion
+              inclusiveness_tooltip: Bewertet, ob verschiedene Interessengruppen fair vertreten sind.
               informativeness: Informationsgehalt
+              informativeness_tooltip: Misst den Grad an Klarheit und Information innerhalb des Prozesses.
+            name: Kennzahlen der Selbsteinschätzung
         extra_data:
           name: Phase & Dauer
         hero:
@@ -614,8 +610,12 @@ de:
         belongs_to_group: Dieser Prozess gehört zu
         private_space: Dies ist ein privater Prozess
         related_processes: Ähnliche Beteiligungsprozesse
+      static_pages:
+        democratic_quality_indicators:
+          title: Demokratische Qualitätsindikatoren
     statistics:
       processes_count: Beteiligungsprozesse
+      processes_count_tooltip: Die Anzahl der Beteiligungsprozesse, die öffentlich zugänglich sind.
   layouts:
     decidim:
       participatory_process_groups:

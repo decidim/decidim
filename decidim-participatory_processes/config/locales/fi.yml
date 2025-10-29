@@ -11,6 +11,7 @@ fi:
         domain: Toimintaympäristö
         duplicate_categories: Kopioi aihepiirit
         duplicate_components: Kopioi komponentit
+        duplicate_landing_page_blocks: Kopioi laskeutumissivun sisältölohkot
         duplicate_steps: Kopioi vaiheet
         end_date: Päättymispäivä
         hero_image: Etusivun kuva
@@ -204,12 +205,6 @@ fi:
             last_step: Prosessin viimeistä vaihetta ei voi poistaa.
           success: Osallistumisprosessin vaiheen poisto onnistui.
         edit:
-          cta_deprecated:
-            body_html: |-
-              Osallistumisprosessin toimintopainike (call to action) on poistettu käytöstä uuden ulkoasun myötä.
-              Voit muuttaa tätä asetusta <b>Laskeutumssivun asetusten kautta</b> käyttämällä sisältölohkoa nimeltä <b>Pääkuva</b>.
-              Asetus on jätetty tähän paikkaan muuttaaksesi toimintopainikkeet (call to action) sellaiseksi kuin haluat. Kentät <i>toimintopainikkeen (call to action) polulle</i> ja <i>toimintopainikkeen (call to action) tekstille</i> poistetaan seuraavassa versiossa.
-            title: Käytöstä poistettu CTA (call to action)
           title: Muokkaa osallistumisprosessin vaihetta
           update: Päivitä
         index:
@@ -505,10 +500,6 @@ fi:
           form:
             document_legend: Lisää asiakirja
             slug_help_html: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
-        participatory_process_steps:
-          form:
-            cta_path_help_html: 'Käytä osittaisia ​​polkuja, ei kokonaisia URL-osoitteita. Hyväksyy kirjaimet, numerot, väliviivat ja kauttaviivat. Arvon täytyy alkaa kirjaimella. Jos asetusta ei ole asetettu, painiketta ei näytetä. Esimerkki: %{url}'
-            cta_text_help: Jos asetusta ei ole asetettu, painiketta ei näytetä.
         participatory_processes:
           form:
             announcement_help: Tähän kirjoitettu teksti näkyy käyttäjälle heti prosessitietojen alapuolella.
@@ -592,8 +583,8 @@ fi:
               one: 1 prosessi
               other: "%{count} prosessia"
             past:
-              one: 1 aikaisempi prosessi
-              other: "%{count} aikaisempaa prosessia"
+              one: 1 päättynyt prosessi
+              other: "%{count} päättynyttä prosessia"
             upcoming:
               one: 1 tuleva prosessi
               other: "%{count} tulevaa prosessia"
@@ -606,7 +597,7 @@ fi:
           names:
             active: Aktiiviset
             all: Kaikki
-            past: Menneet
+            past: Päättyneet
             upcoming: Tulevat
           see: Näytä
           type: Tyyppi

@@ -33,6 +33,7 @@ amagat
 amd
 amendables
 AMR
+Amz
 andreslucena
 ANOT
 antora
@@ -459,6 +460,7 @@ Jeet
 Jenae
 Jfcm
 jfif
+Jitsi
 jkl
 JKR
 joannadoe

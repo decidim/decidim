@@ -914,7 +914,6 @@ zh-CN:
     fallback: 无效
     name_included_in_password: 与您的名字太近了
     not_enough_unique_characters: 没有足够的唯一字符
-    password_not_allowed: 不允许
     password_too_common: 太常见了
     password_too_long: 太长
     password_too_short: 太短了

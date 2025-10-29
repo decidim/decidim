@@ -11,6 +11,7 @@ sv:
   decidim:
     admin:
       actions:
+        confirm_unpublish_survey: Är du säker på att du vill avpublisera denna enkät?
         see_survey: Se enkät
     components:
       surveys:
@@ -46,3 +47,10 @@ sv:
             success: Enkäten har sparats.
       last_activity:
         new_survey: 'Ny enkät:'
+      models:
+        survey:
+          fields:
+            published: Publicerad
+          published:
+            published: Publicerad
+            unpublished: Avpublicerad

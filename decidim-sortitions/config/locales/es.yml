@@ -45,6 +45,7 @@ es:
           new_sortition: Añadir sorteo
           show: Detalles del sorteo
           title: Acciones
+        deprecation_warning_html: "⚠️ <b>Aviso de Desuso/Obsolescencia.</b> El módulo de sorteos se eliminará en Decidim v.0.32. Por favor planifica en consecuencia y considera soluciones alternativas para la selección de elementos al azar."
         models:
           sortition:
             fields:

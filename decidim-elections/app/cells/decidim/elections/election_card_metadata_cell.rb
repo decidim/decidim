@@ -6,6 +6,7 @@ module Decidim
     class ElectionCardMetadataCell < Decidim::CardMetadataCell
       include Decidim::LayoutHelper
       include ActionView::Helpers::DateHelper
+      include Decidim::Elections::LabelHelper
 
       alias election model
 
@@ -22,9 +23,7 @@ module Decidim
       end
 
       def label
-        {
-          text: content_tag("span", t(election.status, scope: "decidim.elections.status"), class: "#{election.status} label")
-        }
+        { text: election_status_with_label(election) }
       end
 
       def current_date

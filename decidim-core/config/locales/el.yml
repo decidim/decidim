@@ -1124,7 +1124,6 @@ el:
     fallback: δεν είναι έγκυρη
     name_included_in_password: είναι πολύ παρόμοιο με το όνομά σας
     not_enough_unique_characters: δεν έχει αρκετούς μοναδικούς χαρακτήρες
-    password_not_allowed: δεν επιτρέπεται
     password_too_common: είναι πολύ κοινό
     password_too_long: είναι πολύ μεγάλο
     password_too_short: είναι πολύ μικρό

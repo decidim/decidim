@@ -43,6 +43,7 @@ fr:
             allow_editing_responses: Autoriser les utilisateurs enregistrés à modifier leurs propres réponses à l'enquête
             allow_responses: Autoriser les réponses
             allow_unregistered: Autoriser les utilisateurs non enregistrés à répondre à l'enquête
+            allow_unregistered_help: Si activé, aucune connexion ne sera requise pour répondre à l'enquête. Cela peut conduire à des données médiocres ou peu fiables et sera plus vulnérable aux attaques automatisées. A utiliser avec précaution! Rappelez-vous qu'un participant pourrait répondre à la même enquête plusieurs fois, en utilisant différents navigateurs ou la fonction de "navigation privée" de son navigateur Web.
             announcement: Annonce
             clean_after_publish: Supprimer les réponses lors de la publication de l’enquête
             description: La description
@@ -53,7 +54,7 @@ fr:
             tos: Conditions d'utilisation
         questionnaires:
           actions:
-            back: Retour aux questions
+            back: Retour aux réponses
             publish_responses: Publier les réponses
             show: Réponses
           display_condition:
@@ -101,12 +102,10 @@ fr:
             any: Tout
             collapse: Réduire
             description: Description
-            down: Descendre
             expand: Déveloper
             question: Question
             remove: Retirer
             statement: Déclaration
-            up: Monter
           questions_form:
             already_responded_warning: Certains utilisateurs ont déjà répondu au questionnaire, vous ne pouvez donc pas modifier ses questions.
             collapse: Replier toutes les questions
@@ -135,19 +134,15 @@ fr:
             show:
               title: 'Réponse #%{number}'
           separator:
-            down: Bas
             remove: Retirer
             separator: Séparateur
-            up: Haut
           title_and_description:
             collapse: Réduire
             description: Description
-            down: Descendre
             expand: Développer
             remove: Supprimer
             title: Titre
             title_and_description: Titre et description
-            up: Monter
           update:
             invalid: Il y a eu des erreurs lors de la sauvegarde du questionnaire.
             success: Le questionnaire a bien été sauvegardé.

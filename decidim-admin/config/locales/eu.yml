@@ -48,6 +48,7 @@ eu:
         customize_welcome_notification: Pertsonalizatu ongi etorri jakinarazpena
         default_locale: Kokapen lehenetsia
         description: Deskribapena
+        enable_machine_translations: Gaitu itzulpen automatikoak
         enable_omnipresent_banner: Erakutsi banner nonahikoa
         enable_participatory_space_filters: Gaitu iragazkiak parte hartzeko espazioan
         facebook_handler: Facebook kudeatzailea

@@ -66,8 +66,8 @@ module Decidim
     scope :active_after_notification, lambda {
       where("current_sign_in_at > (extended_data->'inactivity_notification'->>'sent_at')::timestamp")
     }
-    scope :user_group, -> { where("#{arel_table.name}.extended_data @> ?", Arel.sql({ group: true }.to_json)) }
-    scope :not_user_group, -> { where.not("#{arel_table.name}.extended_data @> ?", Arel.sql({ group: true }.to_json)) }
+    scope :user_group, -> { where("#{arel_table.name}.extended_data @> ?", { group: true }.to_json) }
+    scope :not_user_group, -> { where.not("#{arel_table.name}.extended_data @> ?", { group: true }.to_json) }
 
     attr_accessor :newsletter_notifications
 

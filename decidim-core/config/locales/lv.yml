@@ -856,7 +856,6 @@ lv:
     fallback: nav derīga.
     name_included_in_password: ir pārāk līdzīga jūsu vārdam
     not_enough_unique_characters: nav pietiekami daudz unikālu rakstzīmju
-    password_not_allowed: nav atļauta
     password_too_common: ir pārāk izplatīta
     password_too_long: ir pārāk gara
     password_too_short: ir pārāk īsa
