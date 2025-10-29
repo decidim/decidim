@@ -153,6 +153,24 @@ If the file does not exist, check and perform the same changes in the `packages/
 
 You can read more about this change on PR [#15016](https://github.com/decidim/decidim/pull/15016).
 
+### 2.4. Module deprecations
+
+As part of our ongoing efforts to improve and make simpler Decidim, the following modules will be **deprecated** in this version (v0.31) and **removed** in the next major version (v0.32):
+
+#### Collaborative Drafts
+
+The Collaborative Drafts feature in the Proposals module (`decidim-proposals`) will be removed in v0.32. Organizations using this feature can switch to the new proposal co-authorship feature.
+
+#### Sortitions (decidim-sortitions)
+
+The Sortitions module (`decidim-sortitions`) will be removed in v0.32. This module provided functionality to randomly select participants or proposals. Organizations relying on this feature should consider implementing alternative selection mechanisms.
+
+#### Polls in Meetings (decidim-meetings polls functionality)
+
+The Polls feature within the Meetings module (`decidim-meetings`) will be removed in a future version (to be determined). This feature allowed meeting organizers to create polls during meetings. Organizations using meeting polls should plan to use external polling tools (for instance, through Jitsi) or migrate to other voting mechanisms available in Decidim, such as the new Elections module (`decidim-elections`).
+
+You can read more about this change on PR [#15298](https://github.com/decidim/decidim/pull/15298).
+
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.
