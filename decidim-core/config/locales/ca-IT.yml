@@ -2170,8 +2170,8 @@ ca-IT:
         profile: Perfil
         title: Configuració de la participant
   locale:
-    name: Català
-    name_with_error: Català (error!)
+    name: Alguerés
+    name_with_error: Alguerés (error!)
   number:
     currency:
       format:
