@@ -226,10 +226,12 @@ end
 # configuration file path. This is needed e.g. when `rails assets:precompile` is
 # being run. Otherwise Shakapacker might not recognize if the assets need to be
 # compiled again (i.e. if the asset hash has been changed).
-if (config_path = Decidim::Shakapacker.configuration.configuration_file)
-  Shakapacker.instance = Shakapacker::Instance.new(
-    config_path: Pathname.new(config_path)
-  )
+if ENV["RAILS_GROUPS"]&.include?("assets") || ARGV.any? { |arg| arg =~ /(assets:|shakapacker:)/ }
+  if (config_path = Decidim::Shakapacker.configuration.configuration_file)
+    Shakapacker.instance = Shakapacker::Instance.new(
+      config_path: Pathname.new(config_path)
+    )
+  end
 end
 
 # Add gem overrides path to the beginning in order to override rake tasks
