@@ -13,6 +13,9 @@ module Decidim
       private
 
       def static_api_docs_content
+        puts safe_content_path
+        puts File.join("static", "api", "docs", *safe_content_path, "index")
+        puts File.exist?(File.join("static", "api", "docs", *safe_content_path, "index"))
         render_to_string(File.join("static", "api", "docs", *safe_content_path, "index"), layout: false)
       end
 
