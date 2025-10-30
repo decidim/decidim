@@ -23,6 +23,7 @@ gem "decidim-dev", github: "decidim/decidim", branch: "release/0.30-stable"
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
+bin/rails decidim:upgrade:fix_action_log
 ```
 
 ### 1.3. Follow the steps and commands detailed in these notes
@@ -35,7 +36,21 @@ You can read more about this change on PR [\#XXXX](https://github.com/decidim/de
 
 ## 3. One time actions
 
-### 3.1. [[TITLE OF THE ACTION]]
+These are one time actions that need to be done after the code is updated in the production database.
+
+### 3.1. Fix incorrect ActionLog entries
+
+The action of hiding a component from a menu was being stored as a public action. These can lead to crashing the application if some related participatory space is removed.
+
+In order to correct the existing entries you should run the following rake task:
+
+```bash
+bin/rails decidim:upgrade:fix_action_log
+```
+
+You can read more about this change on PR [#15390](https://github.com/decidim/decidim/pull/15390).
+
+### 3.2. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [\#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
