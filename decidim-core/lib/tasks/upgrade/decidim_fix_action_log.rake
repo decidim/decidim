@@ -11,7 +11,7 @@ namespace :decidim do
       if count.positive?
         # ActionLog is a read-only model, so we need to use raw SQL to update the records
         ActiveRecord::Base.connection.execute("UPDATE decidim_action_logs SET visibility = 'admin-only' WHERE action = 'menu_hidden'")
-        if Decidim::ActionLog.where(action: "menu_hidden").where(visibility: "admin-only").count.zero?
+        if Decidim::ActionLog.where(action: "menu_hidden").where.not(visibility: "admin-only").count.zero?
           logger.info("Successfully updated #{count} action logs.")
         else
           logger.error("Failed to update all action logs. Please check the database.")
