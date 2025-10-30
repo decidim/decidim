@@ -16,8 +16,23 @@ cs:
           index:
             description: Popis
             title: Zobrazit odpovědi
+        questions:
+          edit:
+            save: Uložit
+            title: Otázky
+          questions_form:
+            add_question: Přidat otázku
+            collapse: Sbalit všechny otázky
+            expand: Rozbalit všechny otázky
+        responses:
+          index:
+            publish_responses: Zobrazit odpovědi
+            title: "%{total} odpovědí celkem"
         settings:
           show:
+            collect_data: Povolit sběr demografických dat
+            collect_data_help: Povolení tohoto nastavení umožní uživatelům darovat svá data na platformu.
+            save: Uložit
             title: Nastavení
           update:
             invalid: Došlo k chybě při ukládání demografických dat
@@ -30,6 +45,15 @@ cs:
           modal_ok: Ok
           modal_question: Všechny vaše demografické údaje budou odstraněny.
           modal_title: Smazat data
+          submit: Uložit data
+          terms_of_service: podmínky služby
+          tos_agreement: Zúčastněním souhlasíte s %{link}.
+        show:
+          page_title: Demografická data darování
+      destroy:
+        error: Při odstraňování darovaných dat došlo k chybě
+        success: Vaše darovaná data byla úspěšně odstraněna
+      name: Demografická data darování
       questions:
         age:
           options:
