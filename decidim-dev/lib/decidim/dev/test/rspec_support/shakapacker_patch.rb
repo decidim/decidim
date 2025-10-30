@@ -12,8 +12,10 @@ module Shakapacker
       # puts YAML.load_file(config_path.to_s, aliases: true).inspect
       puts "*" * 80
 
+      env = Rails&.env&.present? ? Rails.env : (ENV["RAILS_ENV"] || "test")
+
       envs = available_environments || {}
-      Rails.env.presence_in(envs) || Shakapacker::DEFAULT_ENV
+      env.presence_in(envs) || env
     end
   end
 end
