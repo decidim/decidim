@@ -45,6 +45,7 @@ fi-pl:
           new_sortition: Uusi satunnaisvalinta
           show: Satunnaistamisen yksityiskohdat
           title: Toiminnot
+        deprecation_warning_html: "⚠️ <b>Poistamisilmoitus</b> Satunnaisvalinta-moduuli poistetaan Decidim-alustan versiossa 0.32. Suunnittele toimintatapasi tämän mukaisesti ja harkitse vaihtoehtoisia tapoja osallistujien tai ehdotusten valitsemiseksi."
         models:
           sortition:
             fields:

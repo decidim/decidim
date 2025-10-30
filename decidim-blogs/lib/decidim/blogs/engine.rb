@@ -30,7 +30,7 @@ module Decidim
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Blogs::Engine.root}/app/views") # for partials
       end
 
-      initializer "decidim_blogs.webpacker.assets_path" do
+      initializer "decidim_blogs.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 
