@@ -62,6 +62,7 @@ bin/rails decidim:upgrade:clean:invalid_private_exports # see "3.3 Removal of in
 bin/rails decidim:verifications:revoke:sms # see "3.4. SMS authorization changes"
 bin/rails decidim_surveys:upgrade:fix_survey_permissions # see "3.5. Permission rename in surveys module"
 bin/rails decidim:upgrade:user_groups:remove # see "3.6. User Groups removal"
+bin/rails decidim:upgrade:fix_action_log # see "3.8. Fix incorrect ActionLog entries"
 ```
 
 Update your shakapacker version in your `package.json` file for "2.3 Shakapacker upgrade".<br>
