@@ -10,9 +10,10 @@ module Shakapacker
       puts File.exist?(config_path.to_s)
       puts File.read(config_path.to_s).split.count
       # puts YAML.load_file(config_path.to_s, aliases: true).inspect
-      puts "*" * 80
 
       env = Rails&.env&.present? ? Rails.env : (ENV["RAILS_ENV"] || "test")
+      puts env
+      puts "*" * 80
 
       envs = available_environments || {}
       env.presence_in(envs) || env
