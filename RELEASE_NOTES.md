@@ -273,6 +273,18 @@ Apart of that, you also need to configure your preferred cloud service provider 
 
 You can read more about this change on PR [#15005](https://github.com/decidim/decidim/pull/15005/).
 
+### 3.8. Fix incorrect ActionLog entries
+
+The action of hiding a component from a menu was being stored as a public action. These can lead to crashing the application if some related participatory space is removed.
+
+In order to correct the existing entries you should run the following rake task:
+
+```bash
+bin/rails decidim:upgrade:fix_action_log
+```
+
+You can read more about this change on PR [#15390](https://github.com/decidim/decidim/pull/15390).
+
 ## 4. Scheduled tasks
 
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples
