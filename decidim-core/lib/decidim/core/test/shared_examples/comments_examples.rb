@@ -885,7 +885,6 @@ shared_examples "comments" do
 
         it "hides the comment" do
           within "#comment_#{comments.first.id}" do
-            # Toolbar
             page.find("[id^='dropdown-trigger']").click
             click_on "Report"
           end
