@@ -60,7 +60,7 @@ Decidim.register_component(:surveys) do |component|
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
-  ccomponent.exports :survey_user_responses do |exports|
+  component.exports :survey_user_responses do |exports|
     exports.collection do |f|
       survey = Decidim::Surveys::Survey.find_by(component: f)
       Decidim::Forms::QuestionnaireUserResponses.for(survey.questionnaire)
