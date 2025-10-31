@@ -4,6 +4,7 @@ require "spec_helper"
 
 shared_context "when a simple event" do
   include Decidim::SanitizeHelper
+
   subject { event_instance }
 
   let(:event_instance) do

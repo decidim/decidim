@@ -4,6 +4,7 @@ module Decidim
   module Core
     module ComponentInterface
       include Decidim::Api::Types::BaseInterface
+
       description "This interface is implemented by all components that belong into a Participatory Space"
 
       field :id, ID, "The Component's unique ID", null: false

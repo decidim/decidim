@@ -16,6 +16,7 @@ module Decidim
           include NeedsInitiative
 
           include Decidim::Admin::ParticipatorySpaceAdminContext
+
           participatory_space_admin_layout
 
           alias_method :current_participatory_space, :current_initiative

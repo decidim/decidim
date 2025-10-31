@@ -8,6 +8,7 @@ module Decidim
     #
     class RegisterOrganizationForm < BaseOrganizationForm
       include JsonbAttributes
+
       mimic :organization
 
       attribute :name, String

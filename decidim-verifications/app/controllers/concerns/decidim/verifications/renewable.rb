@@ -7,6 +7,7 @@ module Decidim
     # Common logic to renew authorizations
     module Renewable
       extend ActiveSupport::Concern
+
       included do
         def renew
           enforce_permission_to(:renew, :authorization, authorization:)

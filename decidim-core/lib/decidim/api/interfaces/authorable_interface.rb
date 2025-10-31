@@ -5,6 +5,7 @@ module Decidim
     # This interface represents a commentable object.
     module AuthorableInterface
       include Decidim::Api::Types::BaseInterface
+
       description "An interface that can be used in authorable objects."
 
       field :author, Decidim::Core::AuthorInterface, "The resource author", null: true do

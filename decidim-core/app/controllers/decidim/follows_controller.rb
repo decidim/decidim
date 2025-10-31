@@ -3,6 +3,7 @@
 module Decidim
   class FollowsController < Decidim::ApplicationController
     include FormFactory
+
     before_action :authenticate_user!
     helper_method :resource, :button_cell, :button_cell_mobile
 

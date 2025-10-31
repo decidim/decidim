@@ -8,6 +8,7 @@ module Decidim
     class ProjectCell < Decidim::ViewModel
       include Decidim::Accountability::ApplicationHelper
       include Cell::ViewModel::Partial
+
       delegate :children, :milestones, to: :model
 
       alias result model

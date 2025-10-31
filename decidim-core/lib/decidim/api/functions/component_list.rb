@@ -17,6 +17,7 @@ module Decidim
     class ComponentList
       include NeedsApiFilterAndOrder
       include NeedsApiDefaultOrder
+
       attr_reader :model_class
 
       def initialize

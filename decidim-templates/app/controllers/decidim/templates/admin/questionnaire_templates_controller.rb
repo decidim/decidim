@@ -8,6 +8,7 @@ module Decidim
       class QuestionnaireTemplatesController < Decidim::Templates::Admin::ApplicationController
         include Decidim::TranslatableAttributes
         include Decidim::Forms::Admin::Concerns::HasQuestionnaire
+
         helper Decidim::Forms::Admin::ApplicationHelper
 
         helper_method :template, :questionnaire

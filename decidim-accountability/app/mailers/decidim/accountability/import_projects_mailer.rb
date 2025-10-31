@@ -6,6 +6,7 @@ module Decidim
     # Cprojects to the results.
     class ImportProjectsMailer < Decidim::ApplicationMailer
       include Decidim::TranslatableAttributes
+
       helper Decidim::TranslationsHelper
 
       # Public: Sends a notification email with the result of projects import selected projects to Accountability

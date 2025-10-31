@@ -4,6 +4,7 @@ module Decidim
   module Forms
     class DownloadYourDataUserResponsesSerializer < Decidim::Exporters::Serializer
       include Decidim::TranslationsHelper
+
       # Serializes an user response for download your data
       def serialize
         {

@@ -6,6 +6,7 @@ module Decidim
       # This controller allows the create or update a budget.
       class BudgetsController < Admin::ApplicationController
         include Decidim::Admin::HasTrashableResources
+
         helper_method :budgets, :budget, :finished_orders, :pending_orders,
                       :users_with_pending_orders, :users_with_finished_orders
 

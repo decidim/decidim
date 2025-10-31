@@ -5,6 +5,7 @@ module Decidim
     module Admin
       class UpdateElection < Decidim::Commands::UpdateResource
         include ::Decidim::GalleryMethods
+
         fetch_form_attributes :title, :description, :start_at, :end_at, :results_availability
 
         def initialize(form, election)

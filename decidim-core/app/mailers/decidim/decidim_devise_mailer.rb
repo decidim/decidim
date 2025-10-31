@@ -6,6 +6,7 @@ module Decidim
   class DecidimDeviseMailer < ::Devise::Mailer
     include LocalisedMailer
     include Decidim::SanitizeHelper
+
     helper_method :decidim_escape_translated, :decidim_sanitize_translated, :translated_attribute
 
     layout "decidim/mailer"

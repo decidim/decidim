@@ -5,6 +5,7 @@ module Decidim
     # This interface represents a coauthorable object.
     module CoauthorableInterface
       include Decidim::Api::Types::BaseInterface
+
       description "An interface that can be used in coauthorable objects."
 
       field :authors_count, Integer,

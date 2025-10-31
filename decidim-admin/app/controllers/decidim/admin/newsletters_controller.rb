@@ -7,6 +7,7 @@ module Decidim
       include Decidim::NewslettersHelper
       include Decidim::Admin::NewslettersHelper
       include Paginable
+
       helper_method :newsletter, :recipients_count_query, :content_block, :selected_options, :newsletter_params
 
       def index

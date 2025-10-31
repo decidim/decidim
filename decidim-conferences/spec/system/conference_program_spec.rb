@@ -4,6 +4,7 @@ require "spec_helper"
 
 describe "Conference program" do
   include Decidim::TranslationsHelper
+
   let(:organization) { create(:organization) }
   let(:conference) { create(:conference, organization:) }
   let!(:component) do

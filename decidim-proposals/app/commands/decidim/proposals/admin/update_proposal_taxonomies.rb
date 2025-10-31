@@ -6,6 +6,7 @@ module Decidim
       #  A command with all the business logic when an admin batch updates proposals taxonomies.
       class UpdateProposalTaxonomies < UpdateResourcesTaxonomies
         include TranslatableAttributes
+
         # Public: Initializes the command.
         #
         # taxonomy_ids - the taxonomy ids to update

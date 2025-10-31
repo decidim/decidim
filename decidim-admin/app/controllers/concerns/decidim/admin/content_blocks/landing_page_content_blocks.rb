@@ -5,6 +5,7 @@ module Decidim
     module ContentBlocks
       module LandingPageContentBlocks
         extend ActiveSupport::Concern
+
         included do
           helper_method :content_block, :resource_landing_page_content_block_path, :scoped_resource, :submit_button_text
 

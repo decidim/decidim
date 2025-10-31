@@ -19,6 +19,7 @@ module Decidim
 
           included do
             include Decidim::Admin::ParticipatorySpaceAdminContext
+
             helper_method :current_assembly
             add_breadcrumb_item_from_menu :admin_assembly_menu
 

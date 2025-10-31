@@ -14,6 +14,7 @@ module Decidim
 
         included do
           include Decidim::ParticipatorySpacePrivateUsers::Admin::Filterable
+
           helper PaginateHelper
           helper_method :privatable_to, :participatory_space_private_users
 

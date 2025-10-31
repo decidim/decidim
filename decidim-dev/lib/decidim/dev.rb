@@ -21,6 +21,7 @@ module Decidim
   # them.
   module Dev
     include ActiveSupport::Configurable
+
     autoload :DummyTranslator, "decidim/dev/dummy_translator"
 
     # Public: Finds an asset.

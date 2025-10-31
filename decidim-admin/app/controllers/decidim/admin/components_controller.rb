@@ -7,6 +7,7 @@ module Decidim
     #
     class ComponentsController < Decidim::Admin::ApplicationController
       include Decidim::Admin::HasTrashableResources
+
       helper_method :manifest
 
       def index

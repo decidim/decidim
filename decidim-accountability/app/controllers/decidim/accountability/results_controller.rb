@@ -5,6 +5,7 @@ module Decidim
     # Exposes the result resource so users can view them
     class ResultsController < Decidim::Accountability::ApplicationController
       include FilterResource
+
       helper Decidim::TraceabilityHelper
       helper Decidim::Accountability::BreadcrumbHelper
 

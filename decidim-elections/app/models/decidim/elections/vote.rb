@@ -4,6 +4,7 @@ module Decidim
   module Elections
     class Vote < Elections::ApplicationRecord
       include Decidim::Traceable
+
       belongs_to :question, class_name: "Decidim::Elections::Question", counter_cache: true, inverse_of: :votes
       belongs_to :response_option, class_name: "Decidim::Elections::ResponseOption", counter_cache: true, inverse_of: :votes
 
