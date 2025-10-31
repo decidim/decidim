@@ -111,7 +111,9 @@ module Decidim
       end
 
       def taxonomy
-        @taxonomy ||= current_organization.taxonomies.find_by(id: params[:id])
+        return @taxonomy if defined?(@taxonomy)
+
+@taxonomy = current_organization.taxonomies.find_by(id: params[:id])
       end
 
       def set_taxonomies_breadcrumb_item

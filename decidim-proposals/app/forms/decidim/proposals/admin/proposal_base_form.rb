@@ -58,7 +58,9 @@ module Decidim
 
         # Return the meeting as author
         def meeting_as_author
-          @meeting_as_author ||= meetings.find_by(id: meeting_id)
+          return @meeting_as_author if defined?(@meeting_as_author)
+
+@meeting_as_author = meetings.find_by(id: meeting_id)
         end
 
         def author

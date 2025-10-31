@@ -32,7 +32,9 @@ module Decidim
         end
 
         def origin_component
-          @origin_component ||= origin_components.find_by(id: origin_component_id)
+          return @origin_component if defined?(@origin_component)
+
+@origin_component = origin_components.find_by(id: origin_component_id)
         end
 
         def origin_components

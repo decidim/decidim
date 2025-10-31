@@ -21,7 +21,9 @@ module Decidim
         private
 
         def assembly
-          @assembly ||= Decidim::Assembly.find_by(id: value)
+          return @assembly if defined?(@assembly)
+
+@assembly = Decidim::Assembly.find_by(id: value)
         end
       end
     end

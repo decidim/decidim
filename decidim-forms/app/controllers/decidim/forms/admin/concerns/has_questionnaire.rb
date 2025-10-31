@@ -152,7 +152,9 @@ module Decidim
             end
 
             def questionnaire
-              @questionnaire ||= Questionnaire.find_by(questionnaire_for:)
+              return @questionnaire if defined?(@questionnaire)
+
+@questionnaire = Questionnaire.find_by(questionnaire_for:)
             end
 
             def blank_question

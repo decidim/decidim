@@ -21,7 +21,9 @@ module Decidim
         private
 
         def conference
-          @conference ||= Decidim::Conference.find_by(id: value)
+          return @conference if defined?(@conference)
+
+@conference = Decidim::Conference.find_by(id: value)
         end
       end
     end

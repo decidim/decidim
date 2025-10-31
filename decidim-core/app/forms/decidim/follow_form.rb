@@ -15,7 +15,9 @@ module Decidim
     end
 
     def follow
-      @follow ||= Decidim::Follow.find_by(user: current_user, followable:)
+      return @follow if defined?(@follow)
+
+@follow = Decidim::Follow.find_by(user: current_user, followable:)
     end
   end
 end

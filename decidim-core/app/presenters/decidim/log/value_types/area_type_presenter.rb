@@ -21,7 +21,9 @@ module Decidim
         private
 
         def area_type
-          @area_type ||= Decidim::AreaType.find_by(id: value)
+          return @area_type if defined?(@area_type)
+
+@area_type = Decidim::AreaType.find_by(id: value)
         end
       end
     end

@@ -97,7 +97,9 @@ module Decidim
         end
 
         def parent
-          @parent ||= organization_assemblies.find_by(id: parent_id)
+          return @parent if defined?(@parent)
+
+@parent = organization_assemblies.find_by(id: parent_id)
         end
 
         def processes_for_select

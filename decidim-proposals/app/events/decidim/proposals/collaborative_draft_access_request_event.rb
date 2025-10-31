@@ -20,7 +20,9 @@ module Decidim
       end
 
       def rejected_requester_user
-        @rejected_requester_user ||= Decidim::User.find_by(id: extra[:requester_id])
+        return @rejected_requester_user if defined?(@rejected_requester_user)
+
+@rejected_requester_user = Decidim::User.find_by(id: extra[:requester_id])
       end
     end
   end

@@ -21,7 +21,9 @@ module Decidim
           private
 
           def result
-            @result ||= Decidim::Accountability::Result.find_by(id: value)
+            return @result if defined?(@result)
+
+@result = Decidim::Accountability::Result.find_by(id: value)
           end
         end
       end

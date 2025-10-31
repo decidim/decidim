@@ -21,7 +21,9 @@ module Decidim
         private
 
         def taxonomy
-          @taxonomy ||= Decidim::Taxonomy.find_by(id: value)
+          return @taxonomy if defined?(@taxonomy)
+
+@taxonomy = Decidim::Taxonomy.find_by(id: value)
         end
       end
     end

@@ -19,11 +19,15 @@ module Decidim
         validates :user, presence: true, if: proc { |object| object.existing_user }
 
         def user
-          @user ||= current_organization.users.find_by(id: user_id)
+          return @user if defined?(@user)
+
+@user = current_organization.users.find_by(id: user_id)
         end
 
         def registration_type
-          @registration_type ||= current_participatory_space.registration_types.find_by(id: registration_type_id)
+          return @registration_type if defined?(@registration_type)
+
+@registration_type = current_participatory_space.registration_types.find_by(id: registration_type_id)
         end
 
         def registration_types_for_select

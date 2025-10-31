@@ -9,7 +9,9 @@ module Decidim
       mimic :amendment
 
       def amendment
-        @amendment ||= Decidim::Amendment.find_by(id:)
+        return @amendment if defined?(@amendment)
+
+@amendment = Decidim::Amendment.find_by(id:)
       end
 
       def amendable

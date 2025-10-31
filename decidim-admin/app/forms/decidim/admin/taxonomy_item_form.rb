@@ -47,7 +47,9 @@ module Decidim
       end
 
       def parent
-        @parent ||= Decidim::Taxonomy.find_by(id: parent_id)
+        return @parent if defined?(@parent)
+
+@parent = Decidim::Taxonomy.find_by(id: parent_id)
       end
     end
   end

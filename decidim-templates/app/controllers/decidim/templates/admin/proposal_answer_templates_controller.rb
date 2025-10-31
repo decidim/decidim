@@ -169,7 +169,9 @@ module Decidim
         end
 
         def template
-          @template ||= Template.find_by(id: params[:id])
+          return @template if defined?(@template)
+
+@template = Template.find_by(id: params[:id])
         end
 
         def collection

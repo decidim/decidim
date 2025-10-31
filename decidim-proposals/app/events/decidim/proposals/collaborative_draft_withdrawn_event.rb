@@ -26,7 +26,9 @@ module Decidim
       end
 
       def author_user
-        @author_user ||= Decidim::User.find_by(id: extra[:author_id])
+        return @author_user if defined?(@author_user)
+
+@author_user = Decidim::User.find_by(id: extra[:author_id])
       end
     end
   end

@@ -25,7 +25,9 @@ module Decidim
         end
 
         def user_or_group
-          @user_or_group ||= Decidim::UserBaseEntity.find_by(
+          return @user_or_group if defined?(@user_or_group)
+
+@user_or_group = Decidim::UserBaseEntity.find_by(
             organization: current_organization,
             id: decidim_author_id
           )
@@ -46,7 +48,9 @@ module Decidim
         end
 
         def post
-          @post ||= Post.find_by(id:)
+          return @post if defined?(@post)
+
+@post = Post.find_by(id:)
         end
 
         def participatory_space_manifest

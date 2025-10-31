@@ -68,11 +68,15 @@ module Decidim
         end
 
         def parent
-          @parent ||= Decidim::Accountability::Result.find_by(component: current_component, id: parent_id)
+          return @parent if defined?(@parent)
+
+@parent = Decidim::Accountability::Result.find_by(component: current_component, id: parent_id)
         end
 
         def status
-          @status ||= Decidim::Accountability::Status.find_by(component: current_component, id: decidim_accountability_status_id)
+          return @status if defined?(@status)
+
+@status = Decidim::Accountability::Status.find_by(component: current_component, id: decidim_accountability_status_id)
         end
       end
     end

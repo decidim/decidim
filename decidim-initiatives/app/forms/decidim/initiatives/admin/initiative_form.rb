@@ -65,7 +65,9 @@ module Decidim
         end
 
         def area
-          @area ||= current_organization.areas.find_by(id: area_id)
+          return @area if defined?(@area)
+
+@area = current_organization.areas.find_by(id: area_id)
         end
 
         private

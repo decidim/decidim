@@ -50,7 +50,9 @@ module Decidim
           private
 
           def census_data
-            @census_data ||= CsvDatum.where(organization: current_organization).find_by(id: params[:id])
+            return @census_data if defined?(@census_data)
+
+            @census_data = CsvDatum.where(organization: current_organization).find_by(id: params[:id])
           end
 
           def csv_census_data

@@ -55,7 +55,9 @@ module Decidim
     end
 
     def template
-      @template ||= Decidim::ContentBlock
+      return @template if defined?(@template)
+
+@template = Decidim::ContentBlock
                     .for_scope(:newsletter_template, organization:)
                     .find_by(scoped_resource_id: id)
     end

@@ -105,7 +105,9 @@ module Decidim
     end
 
     def existing_identity
-      @existing_identity ||= Identity.find_by(
+      return @existing_identity if defined?(@existing_identity)
+
+@existing_identity = Identity.find_by(
         user: organization.users,
         provider: form.provider,
         uid: form.uid

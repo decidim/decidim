@@ -20,7 +20,9 @@ module Decidim
       end
 
       def debate
-        @debate ||= Debate.find_by(id: version.item_id)
+        return @debate if defined?(@debate)
+
+@debate = Debate.find_by(id: version.item_id)
       end
     end
   end

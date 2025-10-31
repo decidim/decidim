@@ -208,11 +208,15 @@ module Decidim
         end
 
         def project
-          @project ||= filtered_collection.find_by(id: params[:id])
+          return @project if defined?(@project)
+
+@project = filtered_collection.find_by(id: params[:id])
         end
 
         def trashable_deleted_resource
-          @trashable_deleted_resource ||= filtered_collection.with_deleted.find_by(id: params[:id])
+          return @trashable_deleted_resource if defined?(@trashable_deleted_resource)
+
+@trashable_deleted_resource = filtered_collection.with_deleted.find_by(id: params[:id])
         end
 
         def update_projects_bulk_response_successful(interpolations, subject, extra = {})

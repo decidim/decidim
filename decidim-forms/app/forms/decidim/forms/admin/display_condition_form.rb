@@ -55,21 +55,27 @@ module Decidim
         #
         # Returns a Decidim::Forms::Question
         def question
-          @question ||= Question.find_by(id: decidim_question_id)
+          return @question if defined?(@question)
+
+@question = Question.find_by(id: decidim_question_id)
         end
 
         # Finds the Condition Question from the given decidim_condition_question_id
         #
         # Returns a Decidim::Forms::Question
         def condition_question
-          @condition_question ||= Question.find_by(id: decidim_condition_question_id)
+          return @condition_question if defined?(@condition_question)
+
+@condition_question = Question.find_by(id: decidim_condition_question_id)
         end
 
         # Finds the Response Option from the given decidim_response_option_id
         #
         # Returns a Decidim::Forms::ResponseOption
         def response_option
-          @response_option ||= ResponseOption.find_by(id: decidim_response_option_id)
+          return @response_option if defined?(@response_option)
+
+@response_option = ResponseOption.find_by(id: decidim_response_option_id)
         end
 
         private

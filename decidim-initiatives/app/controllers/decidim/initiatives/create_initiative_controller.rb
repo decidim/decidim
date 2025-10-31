@@ -170,7 +170,9 @@ module Decidim
       end
 
       def current_initiative
-        @current_initiative ||= Initiative.where(organization: current_organization, author: current_user).find_by(id: session[:initiative_id] || nil)
+        return @current_initiative if defined?(@current_initiative)
+
+@current_initiative = Initiative.where(organization: current_organization, author: current_user).find_by(id: session[:initiative_id] || nil)
       end
 
       def initiative_types
@@ -178,7 +180,9 @@ module Decidim
       end
 
       def initiative_type
-        @initiative_type ||= initiative_types.find_by(id: initiative_type_id)
+        return @initiative_type if defined?(@initiative_type)
+
+@initiative_type = initiative_types.find_by(id: initiative_type_id)
       end
 
       def promotal_committee_required?

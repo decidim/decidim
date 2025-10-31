@@ -99,7 +99,9 @@ module Decidim
         alias current_participatory_space current_assembly
 
         def parent_assembly
-          @parent_assembly ||= collection.find_by(id: parent_assembly_id)
+          return @parent_assembly if defined?(@parent_assembly)
+
+@parent_assembly = collection.find_by(id: parent_assembly_id)
         end
 
         def parent_assembly_id

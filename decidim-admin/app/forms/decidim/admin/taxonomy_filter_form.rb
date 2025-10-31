@@ -48,7 +48,9 @@ module Decidim
       end
 
       def root_taxonomy
-        @root_taxonomy ||= current_organization.taxonomies.find_by(id: root_taxonomy_id)
+        return @root_taxonomy if defined?(@root_taxonomy)
+
+@root_taxonomy = current_organization.taxonomies.find_by(id: root_taxonomy_id)
       end
 
       def available_participatory_space_manifests

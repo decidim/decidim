@@ -116,7 +116,9 @@ module Decidim
           end
 
           def questionnaire
-            @questionnaire ||= Questionnaire.includes(questions: :response_options).find_by(questionnaire_for:)
+            return @questionnaire if defined?(@questionnaire)
+
+@questionnaire = Questionnaire.includes(questions: :response_options).find_by(questionnaire_for:)
           end
 
           def spam_detected

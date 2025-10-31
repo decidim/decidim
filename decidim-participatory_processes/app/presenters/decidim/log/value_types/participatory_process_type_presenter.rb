@@ -19,7 +19,9 @@ module Decidim
         private
 
         def type
-          @type ||= Decidim::ParticipatoryProcessType.find_by(id: value)
+          return @type if defined?(@type)
+
+@type = Decidim::ParticipatoryProcessType.find_by(id: value)
         end
       end
     end

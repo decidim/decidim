@@ -55,7 +55,9 @@ module Decidim
         end
 
         def user
-          @user ||= current_organization.users.find_by(id: user_id)
+          return @user if defined?(@user)
+
+@user = current_organization.users.find_by(id: user_id)
         end
 
         def conference_meetings

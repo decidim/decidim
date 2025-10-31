@@ -118,7 +118,9 @@ module Decidim
         end
 
         def trashable_deleted_resource
-          @trashable_deleted_resource ||= collection.with_deleted.find_by(id: params[:id])
+          return @trashable_deleted_resource if defined?(@trashable_deleted_resource)
+
+@trashable_deleted_resource = collection.with_deleted.find_by(id: params[:id])
         end
 
         def trashable_deleted_collection

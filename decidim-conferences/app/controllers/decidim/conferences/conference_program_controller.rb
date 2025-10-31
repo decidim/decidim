@@ -21,7 +21,11 @@ module Decidim
       def meeting_component
         return if params[:id].blank?
 
-        @meeting_component ||= current_participatory_space.components.where(manifest_name: "meetings").find_by(id: params[:id])
+        if defined?(@meeting_component)
+  @meeting_component
+else
+  @meeting_component = current_participatory_space.components.where(manifest_name: "meetings").find_by(id: params[:id])
+end
       end
 
       def meetings

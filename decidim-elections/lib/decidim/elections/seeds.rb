@@ -103,7 +103,9 @@ module Decidim
       end
 
       def admin_user
-        @admin_user ||= Decidim::User.find_by(organization:, email: "admin@example.org")
+        return @admin_user if defined?(@admin_user)
+
+@admin_user = Decidim::User.find_by(organization:, email: "admin@example.org")
       end
     end
   end

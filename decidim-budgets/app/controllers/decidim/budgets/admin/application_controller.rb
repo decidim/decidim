@@ -12,7 +12,9 @@ module Decidim
         helper_method :budget, :projects, :project, :maps_enabled?
 
         def budget
-          @budget ||= Budget.where(component: current_component).includes(:projects).find_by(id: params[:budget_id])
+          return @budget if defined?(@budget)
+
+@budget = Budget.where(component: current_component).includes(:projects).find_by(id: params[:budget_id])
         end
 
         def projects

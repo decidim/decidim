@@ -101,7 +101,9 @@ module Decidim
         end
 
         def trashable_deleted_resource
-          @trashable_deleted_resource ||= Meeting.with_deleted.where(component: current_component).find_by(id: params[:id])
+          return @trashable_deleted_resource if defined?(@trashable_deleted_resource)
+
+@trashable_deleted_resource = Meeting.with_deleted.where(component: current_component).find_by(id: params[:id])
         end
 
         def meetings
@@ -109,7 +111,9 @@ module Decidim
         end
 
         def meeting
-          @meeting ||= Meeting.where(component: current_component).find_by(id: params[:id])
+          return @meeting if defined?(@meeting)
+
+@meeting = Meeting.where(component: current_component).find_by(id: params[:id])
         end
 
         def collection

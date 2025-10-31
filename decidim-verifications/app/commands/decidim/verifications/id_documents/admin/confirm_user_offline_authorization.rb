@@ -63,7 +63,9 @@ module Decidim
           end
 
           def authorization_user
-            @authorization_user ||= Decidim::User
+            return @authorization_user if defined?(@authorization_user)
+
+@authorization_user = Decidim::User
                                     .where(organization: form.current_organization)
                                     .find_by(email: form.email)
           end

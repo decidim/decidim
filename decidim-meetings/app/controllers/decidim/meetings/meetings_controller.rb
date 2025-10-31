@@ -111,7 +111,9 @@ module Decidim
       private
 
       def meeting
-        @meeting ||= Meeting.not_hidden.where(component: current_component).find_by(id: params[:id])
+        return @meeting if defined?(@meeting)
+
+@meeting = Meeting.not_hidden.where(component: current_component).find_by(id: params[:id])
       end
 
       def meetings
@@ -120,7 +122,9 @@ module Decidim
       end
 
       def registration
-        @registration ||= meeting.registrations.find_by(user: current_user)
+        return @registration if defined?(@registration)
+
+@registration = meeting.registrations.find_by(user: current_user)
       end
 
       def registration_qr_code_image

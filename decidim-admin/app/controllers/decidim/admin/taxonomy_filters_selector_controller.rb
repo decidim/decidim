@@ -66,15 +66,21 @@ module Decidim
       end
 
       def component
-        @component ||= Component.find_by(id: params[:component_id])
+        return @component if defined?(@component)
+
+@component = Component.find_by(id: params[:component_id])
       end
 
       def root_taxonomy
-        @root_taxonomy ||= current_organization.taxonomies.roots.find_by(id: params[:taxonomy_id])
+        return @root_taxonomy if defined?(@root_taxonomy)
+
+@root_taxonomy = current_organization.taxonomies.roots.find_by(id: params[:taxonomy_id])
       end
 
       def taxonomy_filter
-        @taxonomy_filter ||= root_taxonomy.taxonomy_filters.find_by(id: params[:taxonomy_filter_id])
+        return @taxonomy_filter if defined?(@taxonomy_filter)
+
+@taxonomy_filter = root_taxonomy.taxonomy_filters.find_by(id: params[:taxonomy_filter_id])
       end
     end
   end

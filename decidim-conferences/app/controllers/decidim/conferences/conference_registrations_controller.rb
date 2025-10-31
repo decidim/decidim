@@ -71,7 +71,9 @@ module Decidim
       end
 
       def conference
-        @conference ||= Conference.find_by(slug: params[:conference_slug], organization: current_organization)
+        return @conference if defined?(@conference)
+
+@conference = Conference.find_by(slug: params[:conference_slug], organization: current_organization)
       end
 
       def registration_type

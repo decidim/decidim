@@ -44,7 +44,9 @@ module Decidim
         end
 
         def questionnaire
-          @questionnaire ||= Decidim::Forms::Questionnaire.find_by(questionnaire_for:)
+          return @questionnaire if defined?(@questionnaire)
+
+@questionnaire = Decidim::Forms::Questionnaire.find_by(questionnaire_for:)
         end
 
         def questionnaire_for

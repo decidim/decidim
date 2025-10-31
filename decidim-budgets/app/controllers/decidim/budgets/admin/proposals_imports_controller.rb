@@ -32,7 +32,9 @@ module Decidim
         private
 
         def budget
-          @budget ||= Budget.where(component: current_component).find_by(id: params[:budget_id])
+          return @budget if defined?(@budget)
+
+@budget = Budget.where(component: current_component).find_by(id: params[:budget_id])
         end
       end
     end

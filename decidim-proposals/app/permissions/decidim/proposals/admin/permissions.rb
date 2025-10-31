@@ -81,7 +81,9 @@ module Decidim
         end
 
         def user_evaluator_role
-          @user_evaluator_role ||= space.user_roles(:evaluator).find_by(user:)
+          return @user_evaluator_role if defined?(@user_evaluator_role)
+
+@user_evaluator_role = space.user_roles(:evaluator).find_by(user:)
         end
 
         def user_is_evaluator?

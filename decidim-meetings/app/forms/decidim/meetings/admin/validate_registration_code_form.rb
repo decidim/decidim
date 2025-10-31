@@ -11,7 +11,9 @@ module Decidim
         validate :registration_exists
 
         def registration
-          @registration ||= meeting.registrations.find_by(code:, validated_at: nil)
+          return @registration if defined?(@registration)
+
+@registration = meeting.registrations.find_by(code:, validated_at: nil)
         end
 
         private

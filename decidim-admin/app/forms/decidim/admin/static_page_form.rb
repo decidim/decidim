@@ -29,7 +29,9 @@ module Decidim
       end
 
       def topic
-        @topic ||= StaticPageTopic.find_by(
+        return @topic if defined?(@topic)
+
+@topic = StaticPageTopic.find_by(
           organization:,
           id: topic_id
         )

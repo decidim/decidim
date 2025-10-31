@@ -78,11 +78,15 @@ module Decidim
         end
 
         def trashable_deleted_resource
-          @trashable_deleted_resource ||= Debate.with_deleted.find_by(component: current_component, id: params[:id])
+          return @trashable_deleted_resource if defined?(@trashable_deleted_resource)
+
+@trashable_deleted_resource = Debate.with_deleted.find_by(component: current_component, id: params[:id])
         end
 
         def debate
-          @debate ||= Debate.find_by(component: current_component, id: params[:id])
+          return @debate if defined?(@debate)
+
+@debate = Debate.find_by(component: current_component, id: params[:id])
         end
       end
     end

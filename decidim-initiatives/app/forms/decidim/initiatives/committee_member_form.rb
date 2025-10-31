@@ -23,7 +23,9 @@ module Decidim
       private
 
       def initiative
-        @initiative ||= Decidim::Initiative.find_by(id: initiative_id)
+        return @initiative if defined?(@initiative)
+
+@initiative = Decidim::Initiative.find_by(id: initiative_id)
       end
     end
   end

@@ -26,7 +26,9 @@ module Decidim
       end
 
       def coauthor
-        @coauthor ||= Decidim::User.find_by(id: extra["coauthor_id"])
+        return @coauthor if defined?(@coauthor)
+
+@coauthor = Decidim::User.find_by(id: extra["coauthor_id"])
       end
 
       def i18n_scope

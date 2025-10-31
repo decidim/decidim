@@ -92,7 +92,9 @@ module Decidim
       end
 
       def taxonomy_filter
-        @taxonomy_filter ||= TaxonomyFilter.find_by(id: params[:id])
+        return @taxonomy_filter if defined?(@taxonomy_filter)
+
+@taxonomy_filter = TaxonomyFilter.find_by(id: params[:id])
       end
 
       def set_taxonomies_breadcrumb_item

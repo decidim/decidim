@@ -36,7 +36,9 @@ module Decidim
       end
 
       def attachment_collection
-        @attachment_collection ||= attachment_collections.find_by(id: attachment_collection_id)
+        return @attachment_collection if defined?(@attachment_collection)
+
+@attachment_collection = attachment_collections.find_by(id: attachment_collection_id)
       end
 
       private

@@ -21,7 +21,9 @@ module Decidim
         private
 
         def type
-          @type ||= Decidim::AssembliesType.find_by(id: value)
+          return @type if defined?(@type)
+
+@type = Decidim::AssembliesType.find_by(id: value)
         end
       end
     end
