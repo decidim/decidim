@@ -7,11 +7,11 @@ module Decidim
 
       implements Decidim::Core::TimestampsInterface
 
-      field :details, GraphQL::Types::String, "The details for this report", null: false
-      field :id, GraphQL::Types::ID, "Internal ID for this reportable", null: false
+      field :details, GraphQL::Types::String, "The details of this report", null: false
+      field :id, GraphQL::Types::ID, "Internal ID of this reportable", null: false
       field :locale, GraphQL::Types::String, "The locale of the reportable", null: false
-      field :reason, GraphQL::Types::String, "The reason for this report", null: false
-      field :user, UserType, "The user that reported this", null: true
+      field :reason, GraphQL::Types::String, "The reason of this report", null: false
+      field :user, UserType, "The author of this report", null: true
     end
   end
 end

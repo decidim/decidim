@@ -9,8 +9,8 @@ module Decidim
 
       field :details, GraphQL::Types::String, "The details of this report", null: false
       field :id, GraphQL::Types::ID, "Internal ID of this report", null: false
-      field :reason, GraphQL::Types::String, "The reason for this report", null: false
-      field :user, UserType, "The user that reported this", null: true
+      field :reason, GraphQL::Types::String, "The reason of this report", null: false
+      field :user, UserType, "The author of this report", null: true
     end
   end
 end

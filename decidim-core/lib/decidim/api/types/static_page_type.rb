@@ -9,10 +9,10 @@ module Decidim
       implements Decidim::Core::TimestampsInterface
 
       field :content, Decidim::Core::TranslatedFieldType, "The content of this page", null: true
-      field :id, GraphQL::Types::ID, "The id of the page", null: false
+      field :id, GraphQL::Types::ID, "The id of this page", null: false
       field :title, Decidim::Core::TranslatedFieldType, "The title of this page", null: false
       field :topic, Decidim::Core::StaticPageTopicType, "The topic of this page", null: true
-      field :url, GraphQL::Types::String, "The URL for this page", null: false
+      field :url, GraphQL::Types::String, "The URL of this page", null: false
 
       def url
         Decidim::EngineRouter.new("decidim", { host: object.organization.host }).page_url(object)
