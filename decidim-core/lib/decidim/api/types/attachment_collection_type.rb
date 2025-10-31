@@ -6,10 +6,10 @@ module Decidim
       description "A file attachment collection"
 
       field :attachments, [Decidim::Core::AttachmentType, { null: true }], "This object's attachments", null: false
-      field :description, Decidim::Core::TranslatedFieldType, "The description of this AttachmentCollection.", null: false
-      field :id, GraphQL::Types::ID, "Internal ID for this AttachmentCollection", null: false
-      field :name, Decidim::Core::TranslatedFieldType, "The name of this AttachmentCollection.", null: false
-      field :weight, GraphQL::Types::Int, "The weight of this AttachmentCollection", null: true
+      field :description, Decidim::Core::TranslatedFieldType, "The description of this Attachment Collection.", null: false
+      field :id, GraphQL::Types::ID, "Internal ID for this Attachment Collection", null: false
+      field :name, Decidim::Core::TranslatedFieldType, "The name of this Attachment Collection.", null: false
+      field :weight, GraphQL::Types::Int, "The weight of this Attachment Collection", null: true
     end
   end
 end
