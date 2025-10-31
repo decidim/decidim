@@ -220,7 +220,7 @@ module Decidim
       # rubocop:disable Rails/SkipsModelValidations
       def update_comments_count
         comments_count = comments.not_hidden.not_deleted.count
-        last_comment = comments.not_hidden.not_deleted.order("created_at DESC").first
+        last_comment = comments.not_hidden.not_deleted.order(created_at: :desc).first
 
         update_columns(
           last_comment_at: last_comment&.created_at,

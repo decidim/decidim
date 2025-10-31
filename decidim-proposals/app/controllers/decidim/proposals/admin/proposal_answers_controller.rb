@@ -86,12 +86,9 @@ module Decidim
 
         def template
           return unless Decidim.module_installed?(:templates)
+          return @template if defined?(@template)
 
-          if defined?(@template)
-  @template
-else
-  @template = Decidim::Templates::Template.find_by(id: params[:template][:template_id])
-end
+          @template = Decidim::Templates::Template.find_by(id: params[:template][:template_id])
         end
 
         def answer_form(proposal)

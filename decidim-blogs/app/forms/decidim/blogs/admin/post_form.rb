@@ -28,9 +28,9 @@ module Decidim
           return @user_or_group if defined?(@user_or_group)
 
           @user_or_group = Decidim::UserBaseEntity.find_by(
-                      organization: current_organization,
-                      id: decidim_author_id
-                    )
+            organization: current_organization,
+            id: decidim_author_id
+          )
         end
 
         def author

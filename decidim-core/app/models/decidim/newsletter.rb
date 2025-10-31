@@ -58,8 +58,8 @@ module Decidim
       return @template if defined?(@template)
 
       @template = Decidim::ContentBlock
-                          .for_scope(:newsletter_template, organization:)
-                          .find_by(scoped_resource_id: id)
+                  .for_scope(:newsletter_template, organization:)
+                  .find_by(scoped_resource_id: id)
     end
 
     def url(**)

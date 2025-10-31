@@ -91,7 +91,7 @@ module Decidim
         query = query.where(decidim_participatory_space: spaces)
       end
 
-      query = query.order("datetime DESC")
+      query = query.order(datetime: :desc)
       query = query.global_search(I18n.transliterate(term)) if term.present?
       query
     end

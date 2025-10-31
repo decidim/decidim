@@ -69,9 +69,9 @@ module Decidim
         return @user if defined?(@user)
 
         @user = Decidim::User.find_by(
-                  id: params[:user_id],
-                  organization: current_organization
-                )
+          id: params[:user_id],
+          organization: current_organization
+        )
       end
     end
   end

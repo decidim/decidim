@@ -35,9 +35,9 @@ module Decidim
         return @author if defined?(@author)
 
         @author = Decidim::UserBaseEntity.find_by(
-                  organization: current_organization,
-                  id: decidim_author_id
-                )
+          organization: current_organization,
+          id: decidim_author_id
+        )
       end
 
       private

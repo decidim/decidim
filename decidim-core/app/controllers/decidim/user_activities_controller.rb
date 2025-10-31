@@ -20,12 +20,9 @@ module Decidim
 
     def user
       return unless params[:nickname]
+      return @user if defined?(@user)
 
-      if defined?(@user)
-  @user
-else
-  @user = current_organization.users.find_by("nickname = ?", params[:nickname].downcase)
-end
+      @user = current_organization.users.find_by("nickname = ?", params[:nickname].downcase)
     end
 
     def activities
