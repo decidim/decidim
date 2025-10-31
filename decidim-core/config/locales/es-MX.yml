@@ -1151,6 +1151,7 @@ es-MX:
         create_with_space: "%{user_name} creó %{resource_name} en %{space_name}"
         delete: "%{user_name} eliminó %{resource_name}"
         delete_with_space: "%{user_name} eliminó %{resource_name} en %{space_name}"
+        publish: "%{user_name} publicó %{resource_name}"
         publish_with_space: "%{user_name} ha publicado %{resource_name} en %{space_name}"
         unknown_action: "%{user_name} realizó una acción en %{resource_name}"
         unknown_action_with_space: "%{user_name} realizó una acción en %{resource_name} en %{space_name}"
