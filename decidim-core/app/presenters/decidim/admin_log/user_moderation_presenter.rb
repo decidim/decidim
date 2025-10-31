@@ -54,7 +54,7 @@ module Decidim
       def unreported_user
         return @unreported_user if defined?(@unreported_user)
 
-@unreported_user = Decidim::UserBaseEntity.find_by(id: action_log.extra.dig("extra", "user_id"))
+        @unreported_user = Decidim::UserBaseEntity.find_by(id: action_log.extra.dig("extra", "user_id"))
       end
 
       def has_diff?

@@ -18,10 +18,10 @@ module Decidim
       def user
         return @user if defined?(@user)
 
-@user = Decidim::UserBaseEntity.find_by(
-          id: user_id,
-          organization: current_organization
-        )
+        @user = Decidim::UserBaseEntity.find_by(
+                  id: user_id,
+                  organization: current_organization
+                )
       end
     end
   end

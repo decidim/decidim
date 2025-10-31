@@ -24,7 +24,7 @@ module Decidim
     def terms_of_service_page
       return @terms_of_service_page if defined?(@terms_of_service_page)
 
-@terms_of_service_page = Decidim::StaticPage.find_by(slug: "terms-of-service", organization: current_organization)
+      @terms_of_service_page = Decidim::StaticPage.find_by(slug: "terms-of-service", organization: current_organization)
     end
 
     def terms_of_service_summary_content_blocks

@@ -34,10 +34,10 @@ module Decidim
       def author
         return @author if defined?(@author)
 
-@author = Decidim::UserBaseEntity.find_by(
-          organization: current_organization,
-          id: decidim_author_id
-        )
+        @author = Decidim::UserBaseEntity.find_by(
+                  organization: current_organization,
+                  id: decidim_author_id
+                )
       end
 
       private
@@ -52,7 +52,7 @@ module Decidim
       def post
         return @post if defined?(@post)
 
-@post = Post.find_by(id: id)
+        @post = Post.find_by(id: id)
       end
 
       def participatory_space_manifest

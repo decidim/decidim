@@ -101,7 +101,7 @@ module Decidim
         def parent_assembly
           return @parent_assembly if defined?(@parent_assembly)
 
-@parent_assembly = collection.find_by(id: parent_assembly_id)
+          @parent_assembly = collection.find_by(id: parent_assembly_id)
         end
 
         def parent_assembly_id

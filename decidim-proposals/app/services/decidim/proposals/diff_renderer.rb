@@ -87,7 +87,7 @@ module Decidim
       def proposal
         return @proposal if defined?(@proposal)
 
-@proposal = Proposal.find_by(id: version.item_id)
+        @proposal = Proposal.find_by(id: version.item_id)
       end
     end
   end

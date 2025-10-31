@@ -26,7 +26,7 @@ module Decidim
         def parent
           return @parent if defined?(@parent)
 
-@parent = Assembly.find_by(id: resource.parent)
+          @parent = Assembly.find_by(id: resource.parent)
         end
 
         def participatory_processes

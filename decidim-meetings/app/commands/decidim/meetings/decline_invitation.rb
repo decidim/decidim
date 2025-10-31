@@ -40,7 +40,7 @@ module Decidim
       def invitation
         return @invitation if defined?(@invitation)
 
-@invitation = meeting.invites.find_by(user:)
+        @invitation = meeting.invites.find_by(user:)
       end
     end
   end

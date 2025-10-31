@@ -29,7 +29,7 @@ module Decidim
         def questionnaire_for
           return @questionnaire_for if defined?(@questionnaire_for)
 
-@questionnaire_for = Decidim::Surveys::Survey.where(component: current_component).find_by(id: params[:survey_id])
+          @questionnaire_for = Decidim::Surveys::Survey.where(component: current_component).find_by(id: params[:survey_id])
         end
 
         def questionnaire_export_response_url(id)
@@ -58,7 +58,7 @@ module Decidim
         def questionnaire
           return @questionnaire if defined?(@questionnaire)
 
-@questionnaire = Decidim::Forms::Questionnaire.find_by(questionnaire_for:)
+          @questionnaire = Decidim::Forms::Questionnaire.find_by(questionnaire_for:)
         end
 
         def participants_query

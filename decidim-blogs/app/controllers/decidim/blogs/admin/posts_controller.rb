@@ -62,7 +62,7 @@ module Decidim
         def trashable_deleted_resource
           return @trashable_deleted_resource if defined?(@trashable_deleted_resource)
 
-@trashable_deleted_resource = Blogs::Post.with_deleted.find_by(component: current_component, id: params[:id])
+          @trashable_deleted_resource = Blogs::Post.with_deleted.find_by(component: current_component, id: params[:id])
         end
 
         def trashable_deleted_collection
@@ -72,7 +72,7 @@ module Decidim
         def post
           return @post if defined?(@post)
 
-@post = Blogs::Post.find_by(component: current_component, id: params[:id])
+          @post = Blogs::Post.find_by(component: current_component, id: params[:id])
         end
       end
     end

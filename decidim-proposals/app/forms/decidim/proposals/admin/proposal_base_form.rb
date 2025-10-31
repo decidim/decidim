@@ -60,7 +60,7 @@ module Decidim
         def meeting_as_author
           return @meeting_as_author if defined?(@meeting_as_author)
 
-@meeting_as_author = meetings.find_by(id: meeting_id)
+          @meeting_as_author = meetings.find_by(id: meeting_id)
         end
 
         def author

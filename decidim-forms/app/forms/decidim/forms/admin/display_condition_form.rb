@@ -57,7 +57,7 @@ module Decidim
         def question
           return @question if defined?(@question)
 
-@question = Question.find_by(id: decidim_question_id)
+          @question = Question.find_by(id: decidim_question_id)
         end
 
         # Finds the Condition Question from the given decidim_condition_question_id
@@ -66,7 +66,7 @@ module Decidim
         def condition_question
           return @condition_question if defined?(@condition_question)
 
-@condition_question = Question.find_by(id: decidim_condition_question_id)
+          @condition_question = Question.find_by(id: decidim_condition_question_id)
         end
 
         # Finds the Response Option from the given decidim_response_option_id
@@ -75,7 +75,7 @@ module Decidim
         def response_option
           return @response_option if defined?(@response_option)
 
-@response_option = ResponseOption.find_by(id: decidim_response_option_id)
+          @response_option = ResponseOption.find_by(id: decidim_response_option_id)
         end
 
         private

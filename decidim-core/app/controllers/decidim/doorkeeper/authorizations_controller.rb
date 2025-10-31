@@ -22,7 +22,7 @@ module Decidim
       def oauth_application
         return @oauth_application if defined?(@oauth_application)
 
-@oauth_application = Decidim::OAuthApplication.find_by(uid: params[:client_id])
+        @oauth_application = Decidim::OAuthApplication.find_by(uid: params[:client_id])
       end
 
       def breadcrumb_item

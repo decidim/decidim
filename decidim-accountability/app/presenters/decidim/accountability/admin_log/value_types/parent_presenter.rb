@@ -23,7 +23,7 @@ module Decidim
           def result
             return @result if defined?(@result)
 
-@result = Decidim::Accountability::Result.find_by(id: value)
+            @result = Decidim::Accountability::Result.find_by(id: value)
           end
         end
       end

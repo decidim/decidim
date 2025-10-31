@@ -13,7 +13,7 @@ module Decidim
         def registration
           return @registration if defined?(@registration)
 
-@registration = meeting.registrations.find_by(code:, validated_at: nil)
+          @registration = meeting.registrations.find_by(code:, validated_at: nil)
         end
 
         private

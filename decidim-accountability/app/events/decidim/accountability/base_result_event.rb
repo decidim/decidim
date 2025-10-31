@@ -20,7 +20,7 @@ module Decidim
       def proposal
         return @proposal if defined?(@proposal)
 
-@proposal = resource.linked_resources(:proposals, "included_proposals").find_by(id: extra[:proposal_id])
+        @proposal = resource.linked_resources(:proposals, "included_proposals").find_by(id: extra[:proposal_id])
       end
 
       def hidden_resource?

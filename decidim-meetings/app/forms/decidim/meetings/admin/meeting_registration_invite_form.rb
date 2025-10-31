@@ -18,7 +18,7 @@ module Decidim
         def user
           return @user if defined?(@user)
 
-@user = current_organization.users.find_by(id: user_id)
+          @user = current_organization.users.find_by(id: user_id)
         end
       end
     end

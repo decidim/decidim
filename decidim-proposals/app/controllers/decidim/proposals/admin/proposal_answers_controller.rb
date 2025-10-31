@@ -101,7 +101,7 @@ end
         def proposal_state
           return @proposal_state if defined?(@proposal_state)
 
-@proposal_state = Decidim::Proposals::ProposalState.find_by(id: template&.field_values&.dig("proposal_state_id"))
+          @proposal_state = Decidim::Proposals::ProposalState.find_by(id: template&.field_values&.dig("proposal_state_id"))
         end
       end
     end

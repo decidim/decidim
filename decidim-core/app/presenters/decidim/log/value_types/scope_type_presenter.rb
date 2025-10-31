@@ -23,7 +23,7 @@ module Decidim
         def scope_type
           return @scope_type if defined?(@scope_type)
 
-@scope_type = Decidim::ScopeType.find_by(id: value)
+          @scope_type = Decidim::ScopeType.find_by(id: value)
         end
       end
     end

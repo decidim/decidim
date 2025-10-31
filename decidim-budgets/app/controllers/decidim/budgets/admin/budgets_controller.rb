@@ -71,13 +71,13 @@ module Decidim
         def budget
           return @budget if defined?(@budget)
 
-@budget = Budget.where(component: current_component).find_by(id: params[:id])
+          @budget = Budget.where(component: current_component).find_by(id: params[:id])
         end
 
         def trashable_deleted_resource
           return @trashable_deleted_resource if defined?(@trashable_deleted_resource)
 
-@trashable_deleted_resource = Budget.with_deleted.find_by(component: current_component, id: params[:id])
+          @trashable_deleted_resource = Budget.with_deleted.find_by(component: current_component, id: params[:id])
         end
 
         def orders

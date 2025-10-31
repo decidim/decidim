@@ -107,11 +107,11 @@ module Decidim
     def existing_identity
       return @existing_identity if defined?(@existing_identity)
 
-@existing_identity = Identity.find_by(
-        user: organization.users,
-        provider: form.provider,
-        uid: form.uid
-      )
+      @existing_identity = Identity.find_by(
+              user: organization.users,
+              provider: form.provider,
+              uid: form.uid
+            )
     end
 
     def verify_user_confirmed(user)

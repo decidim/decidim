@@ -189,7 +189,7 @@ module Decidim
       def newsletter
         return @newsletter if defined?(@newsletter)
 
-@newsletter = collection.find_by(id: params[:id])
+        @newsletter = collection.find_by(id: params[:id])
       end
 
       def recipients_count_query

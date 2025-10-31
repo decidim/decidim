@@ -62,7 +62,7 @@ module Decidim
       def budget
         return @budget if defined?(@budget)
 
-@budget = Budget.find_by(id: params[:budget_id], component: current_component)
+        @budget = Budget.find_by(id: params[:budget_id], component: current_component)
       end
 
       def pdf_signature_service

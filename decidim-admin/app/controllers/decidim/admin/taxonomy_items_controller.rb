@@ -60,13 +60,13 @@ module Decidim
       def taxonomy
         return @taxonomy if defined?(@taxonomy)
 
-@taxonomy = Decidim::Taxonomy.find_by(organization: current_organization, id: params[:taxonomy_id])
+        @taxonomy = Decidim::Taxonomy.find_by(organization: current_organization, id: params[:taxonomy_id])
       end
 
       def taxonomy_item
         return @taxonomy_item if defined?(@taxonomy_item)
 
-@taxonomy_item = Decidim::Taxonomy.find_by(organization: current_organization, id: params[:id])
+        @taxonomy_item = Decidim::Taxonomy.find_by(organization: current_organization, id: params[:id])
       end
 
       def selected_parent_id

@@ -189,10 +189,10 @@ module Decidim
       def authorization
         return @authorization if defined?(@authorization)
 
-@authorization = Decidim::Authorization.find_by(
-          user: current_user,
-          name: handler_name
-        )
+        @authorization = Decidim::Authorization.find_by(
+                  user: current_user,
+                  name: handler_name
+                )
       end
     end
   end

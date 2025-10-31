@@ -45,7 +45,7 @@ module Decidim
       def meetings_component
         return @meetings_component if defined?(@meetings_component)
 
-@meetings_component = Decidim::Component.find_by(participatory_space: initiative, manifest_name: "meetings")
+        @meetings_component = Decidim::Component.find_by(participatory_space: initiative, manifest_name: "meetings")
       end
     end
   end

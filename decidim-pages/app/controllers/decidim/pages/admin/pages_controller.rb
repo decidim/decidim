@@ -40,7 +40,7 @@ module Decidim
         def page
           return @page if defined?(@page)
 
-@page = Pages::Page.find_by(component: current_component)
+          @page = Pages::Page.find_by(component: current_component)
         end
 
         alias trashable_deleted_resource current_component

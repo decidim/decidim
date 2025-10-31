@@ -23,7 +23,7 @@ module Decidim
         def assembly
           return @assembly if defined?(@assembly)
 
-@assembly = Decidim::Assembly.find_by(id: value)
+          @assembly = Decidim::Assembly.find_by(id: value)
         end
       end
     end

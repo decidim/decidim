@@ -28,7 +28,7 @@ module Decidim
       def liker_user
         return @liker_user if defined?(@liker_user)
 
-@liker_user = Decidim::User.find_by(id: extra[:liker_id])
+        @liker_user = Decidim::User.find_by(id: extra[:liker_id])
       end
     end
   end

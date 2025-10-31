@@ -94,7 +94,7 @@ module Decidim
         def process_group
           return @process_group if defined?(@process_group)
 
-@process_group = ParticipatoryProcessGroup.find_by(id: ransack_params[:decidim_participatory_process_group_id_eq], organization: current_organization)
+          @process_group = ParticipatoryProcessGroup.find_by(id: ransack_params[:decidim_participatory_process_group_id_eq], organization: current_organization)
         end
 
         def collection

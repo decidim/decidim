@@ -31,10 +31,10 @@ module Decidim
       def topic
         return @topic if defined?(@topic)
 
-@topic = StaticPageTopic.find_by(
-          organization:,
-          id: topic_id
-        )
+        @topic = StaticPageTopic.find_by(
+                  organization:,
+                  id: topic_id
+                )
       end
 
       def topics

@@ -193,7 +193,7 @@ module Decidim
     def amendment
       return @amendment if defined?(@amendment)
 
-@amendment = Decidim::Amendment.find_by(id: params[:id])
+      @amendment = Decidim::Amendment.find_by(id: params[:id])
     end
 
     def amendable

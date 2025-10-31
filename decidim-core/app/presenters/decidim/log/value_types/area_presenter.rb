@@ -23,7 +23,7 @@ module Decidim
         def area
           return @area if defined?(@area)
 
-@area = Decidim::Area.find_by(id: value)
+          @area = Decidim::Area.find_by(id: value)
         end
       end
     end

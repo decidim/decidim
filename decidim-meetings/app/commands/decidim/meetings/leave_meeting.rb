@@ -34,7 +34,7 @@ module Decidim
       def registration
         return @registration if defined?(@registration)
 
-@registration = Decidim::Meetings::Registration.find_by(meeting: @meeting, user: @user)
+        @registration = Decidim::Meetings::Registration.find_by(meeting: @meeting, user: @user)
       end
 
       def destroy_registration

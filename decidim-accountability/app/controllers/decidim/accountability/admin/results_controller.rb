@@ -76,7 +76,7 @@ module Decidim
         def trashable_deleted_resource
           return @trashable_deleted_resource if defined?(@trashable_deleted_resource)
 
-@trashable_deleted_resource = Result.with_deleted.where(component: current_component).find_by(id: params[:id])
+          @trashable_deleted_resource = Result.with_deleted.where(component: current_component).find_by(id: params[:id])
         end
 
         def trashable_deleted_collection
@@ -98,7 +98,7 @@ module Decidim
         def parent_result
           return @parent_result if defined?(@parent_result)
 
-@parent_result = Result.find_by(component: current_component, id: params[:parent_id])
+          @parent_result = Result.find_by(component: current_component, id: params[:parent_id])
         end
 
         def parent_results

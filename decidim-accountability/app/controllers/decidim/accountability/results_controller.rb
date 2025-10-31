@@ -35,7 +35,7 @@ module Decidim
       def result
         return @result if defined?(@result)
 
-@result = search_collection.includes(:milestones).find_by(id: params[:id])
+        @result = search_collection.includes(:milestones).find_by(id: params[:id])
       end
 
       def search_collection

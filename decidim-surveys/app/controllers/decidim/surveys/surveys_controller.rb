@@ -79,7 +79,7 @@ module Decidim
       def survey
         return @survey if defined?(@survey)
 
-@survey = search_collection.find_by(id: params[:id])
+        @survey = search_collection.find_by(id: params[:id])
       end
 
       def search_collection

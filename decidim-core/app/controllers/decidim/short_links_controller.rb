@@ -31,7 +31,7 @@ module Decidim
     def link
       return @link if defined?(@link)
 
-@link = Decidim::ShortLink.find_by(identifier: params[:id], organization: current_organization)
+      @link = Decidim::ShortLink.find_by(identifier: params[:id], organization: current_organization)
     end
   end
 end

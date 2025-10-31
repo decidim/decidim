@@ -103,7 +103,7 @@ module Decidim
       def debate
         return @debate if defined?(@debate)
 
-@debate = debates.find_by(id: params[:id])
+        @debate = debates.find_by(id: params[:id])
       end
 
       def close_debate_form

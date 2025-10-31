@@ -17,7 +17,7 @@ module Decidim
       def scoped_resource
         return @scoped_resource if defined?(@scoped_resource)
 
-@scoped_resource = collection.find_by(slug: params[:static_page_id])
+        @scoped_resource = collection.find_by(slug: params[:static_page_id])
       end
 
       def enforce_permission_to_update_resource

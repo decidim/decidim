@@ -25,7 +25,7 @@ module Decidim
       def initiative
         return @initiative if defined?(@initiative)
 
-@initiative = Decidim::Initiative.find_by(id: initiative_id)
+        @initiative = Decidim::Initiative.find_by(id: initiative_id)
       end
     end
   end
