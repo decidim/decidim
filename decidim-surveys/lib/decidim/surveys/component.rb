@@ -67,7 +67,7 @@ Decidim.register_component(:surveys) do |component|
       return [] unless survey&.questionnaire
 
       responses = Decidim::Forms::QuestionnaireUserResponses.for(survey.questionnaire)
-      Decidim::Surveys::BatchableArray.new(responses)
+      Decidim::Surveys::ArrayWithBatches.new(responses)
     end
 
     exports.formats %w(CSV JSON Excel FormPDF)
