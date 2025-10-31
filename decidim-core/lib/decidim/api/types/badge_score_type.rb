@@ -5,11 +5,11 @@ module Decidim
     class BadgeScoreType < Decidim::Api::Types::BaseObject
       description "An user badge score"
 
-      field :description, GraphQL::Types::String, "The badge's description", null: false
-      field :image, GraphQL::Types::String, "The badge's image", null: false
-      field :level, GraphQL::Types::Int, "The badge's level", null: false
-      field :name, GraphQL::Types::String, "The badge's name", null: false, method: :badge_name
-      field :score, GraphQL::Types::Int, "The badge's score", null: false
+      field :description, GraphQL::Types::String, "The description of this badge", null: false
+      field :image, GraphQL::Types::String, "The image of this badge", null: false
+      field :level, GraphQL::Types::Int, "The level of this badge", null: false
+      field :name, GraphQL::Types::String, "The name of this badge", null: false, method: :badge_name
+      field :score, GraphQL::Types::Int, "The score of this badge", null: false
 
       delegate :level, :score, to: :status
       delegate :image, :description, to: :manifest

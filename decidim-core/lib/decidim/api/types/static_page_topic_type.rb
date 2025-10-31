@@ -6,7 +6,7 @@ module Decidim
       description "The current organization static page topics"
 
       field :description, Decidim::Core::TranslatedFieldType, "The description of this static page.", null: false
-      field :id, GraphQL::Types::ID, "Internal ID for this static page topic", null: false
+      field :id, GraphQL::Types::ID, "Internal ID of this static page topic", null: false
       field :show_in_footer, GraphQL::Types::Boolean, "Whether this static page should be shown in the footer.", null: false
       field :title, Decidim::Core::TranslatedFieldType, "The title of this static page.", null: false
     end
