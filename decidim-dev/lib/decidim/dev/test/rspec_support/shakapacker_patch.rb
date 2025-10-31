@@ -29,6 +29,11 @@ class Shakapacker::Configuration
       YAML.load_file(config_path.to_s)
     end
 
+    puts "=" * 80
+    puts config_path.to_s
+    puts File.exist?(config_path.to_s)
+    puts File.read(config_path.to_s).split.count
+
     puts "===> Shakapacker env: #{env.inspect}"
     puts "===> Shakapacker YAML top-level keys: #{config.keys.inspect}"
 
