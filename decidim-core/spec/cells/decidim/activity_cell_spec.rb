@@ -65,6 +65,18 @@ describe Decidim::ActivityCell, type: :cell do
     end
   end
 
+  context "when a relationship is soft-deleted" do
+    # A real case where this happened is when a comment entry points to a resource that belongs to a
+    # participatory space that has been soft-deleted.
+    before do
+      allow(my_cell).to receive(:resource_link_path).and_raise(NoMethodError)
+    end
+
+    it "does not raise an error" do
+      expect { subject }.not_to raise_error
+    end
+  end
+
   describe "#cache_hash" do
     subject { described_class.new(model, context: { controller:, show_author: }) }
 
