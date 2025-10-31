@@ -5,6 +5,7 @@ require "decidim/surveys/api"
 require "decidim/surveys/engine"
 require "decidim/surveys/admin_engine"
 require "decidim/surveys/component"
+require "decidim/surveys/batchable_array"
 
 module Decidim
   # This namespace holds the logic of the `Surveys` component. This component

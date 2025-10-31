@@ -60,27 +60,20 @@ Decidim.register_component(:surveys) do |component|
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
-  component.exports :survey_user_responses do |exports|
+  ccomponent.exports :survey_user_responses do |exports|
     exports.collection do |f|
       survey = Decidim::Surveys::Survey.find_by(component: f)
+      Decidim::Forms::QuestionnaireUserResponses.for(survey.questionnaire)
+      return [] unless survey&.questionnaire
 
-      # Use custom query for open data, existing for admin
-      if exports.include_in_open_data
-        Decidim::Surveys::QuestionnaireUserResponses.for(survey.questionnaire)
-      else
-        Decidim::Forms::QuestionnaireUserResponses.for(survey.questionnaire)
-      end
+      responses = Decidim::Forms::QuestionnaireUserResponses.for(survey.questionnaire)
+      Decidim::Surveys::BatchableArray.new(responses)
     end
 
     exports.formats %w(CSV JSON Excel FormPDF)
     exports.include_in_open_data = true
 
-    # Use custom serializer for open data, existing for admin
-    if exports.include_in_open_data
-      exports.serializer Decidim::Surveys::UserResponsesSerializer
-    else
-      exports.serializer Decidim::Forms::UserResponsesSerializer
-    end
+    exports.serializer Decidim::Forms::UserResponsesSerializer
   end
 
   component.seeds do |participatory_space|

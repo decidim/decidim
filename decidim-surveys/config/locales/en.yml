@@ -52,13 +52,11 @@ en:
     open_data:
       help:
         survey_user_responses:
-          body: Response to question
-          question: Survey question
-          registered: Whether the user was registered or not
-          unregistered: Survey responded by nregistered
-          user_status: User status
-          created_at: Responded on
-          id: ID of response & user ID
+          Response ID: Unique identifier for the survey response
+          Responded on: Date and time when the survey was completed
+          IP Hash: Hashed IP address of the respondent
+          User status: Whether the respondent was registered or anonymous
+          question: Question
     statistics:
       responses: 'Responses:'
       responses_count: Responses
