@@ -44,7 +44,6 @@ ja:
             choose_census: この選挙に使用したいセンサスの種類を選択してください
             created_at: 作成日時
             identifier: ユーザーID
-            title: センサスの種類
           preview:
             title:
               other: プレビューリストは %{count} レコードに制限されています。
