@@ -8,6 +8,8 @@
   <div class="form__wrapper">
     <%= f.text_field :name, autofocus: true %>
 
+    <%= f.text_field :short_name, help_text: t(".short_name_hint") %>
+
     <%= f.text_field :reference_prefix, help_text: t(".reference_prefix_hint") %>
 
     <%= f.text_field :host %>

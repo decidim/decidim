@@ -10,6 +10,10 @@
       <%= f.translated :text_field, :name, autofocus: true %>
     </div>
 
+    <div>
+      <%= f.translated :text_field, :short_name, help_text: t(".short_name_hint") %>
+    </div>
+
     <%= f.text_field :host %>
 
     <%= f.text_area :secondary_hosts, help_text: t(".secondary_hosts_hint") %>

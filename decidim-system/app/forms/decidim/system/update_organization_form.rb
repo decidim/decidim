@@ -8,6 +8,7 @@ module Decidim
     #
     class UpdateOrganizationForm < BaseOrganizationForm
       translatable_attribute :name, String
+      translatable_attribute :short_name, String
 
       validate :validate_organization_name_presence
 

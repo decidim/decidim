@@ -11,6 +11,7 @@ module Decidim
       mimic :organization
 
       attribute :name, String
+      attribute :short_name, String
 
       attribute :organization_admin_email, String
       attribute :organization_admin_name, String
@@ -22,6 +23,7 @@ module Decidim
 
       validates :organization_admin_email, :organization_admin_name, :name, :reference_prefix, presence: true
       validates :name, presence: true
+      validates :short_name, presence: true
       validates :available_locales, presence: true
       validates :default_locale, presence: true
       validates :default_locale, inclusion: { in: :available_locales }
