@@ -50,6 +50,22 @@ module Decidim
           it "returns nil" do
             expect(response["user"]).to be_nil
           end
+
+          context "when user reporting deleted his account" do
+            let(:moderation) { create(:user_moderation, user: create(:user, :confirmed, :deleted)) }
+
+            it "returns nil" do
+              expect(response["user"]).to be_nil
+            end
+          end
+
+          context "when user reporting got blocked" do
+            let(:moderation) { create(:user_moderation, user: create(:user, :confirmed, :blocked)) }
+
+            it "returns nil" do
+              expect(response["user"]).to be_nil
+            end
+          end
         end
       end
     end

@@ -53,10 +53,20 @@ module Decidim
         context "when the user is anonymous" do
           let(:moderation) { create(:moderation) }
 
-          let!(:model) { create(:report, moderation:, user: create(:user, organization: moderation.reportable.organization), details: "Testing reason", locale: "en") }
+          context "when user reporting deleted his account" do
+            let!(:model) { create(:report, moderation:, user: create(:user, :confirmed, :deleted, organization: moderation.reportable.organization), details: "Testing reason", locale: "en") }
 
-          it "returns nil" do
-            expect(response["user"]).to be_nil
+            it "returns nil" do
+              expect(response["user"]).to be_nil
+            end
+          end
+
+          context "when user reporting got blocked" do
+            let!(:model) { create(:report, moderation:, user: create(:user, :confirmed, :blocked, organization: moderation.reportable.organization), details: "Testing reason", locale: "en") }
+
+            it "returns nil" do
+              expect(response["user"]).to be_nil
+            end
           end
         end
       end
