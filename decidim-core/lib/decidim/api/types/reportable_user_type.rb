@@ -3,7 +3,7 @@
 module Decidim
   module Core
     class ReportableUserType < Decidim::Api::Types::BaseObject
-      description "A report object"
+      description "An user report"
 
       implements Decidim::Core::TimestampsInterface
 
