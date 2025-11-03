@@ -22,10 +22,12 @@ end
 def fill_in_votes
   expect(page).to have_current_path(election_vote_path(election.questions.first))
   expect(page).to have_content(translated_attribute(election.questions.first.body))
+  expect(page).to have_content(strip_tags(translated_attribute(election.questions.first.description)))
   choose translated_attribute(election.questions.first.response_options.first.body)
   click_on "Next"
   expect(page).to have_current_path(election_vote_path(election.questions.second))
   expect(page).to have_content(translated_attribute(election.questions.second.body))
+  expect(page).to have_content(strip_tags(translated_attribute(election.questions.second.description)))
   check translated_attribute(election.questions.second.response_options.first.body)
   check translated_attribute(election.questions.second.response_options.second.body)
   click_on "Next"
