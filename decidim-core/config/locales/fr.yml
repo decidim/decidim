@@ -1180,6 +1180,7 @@ fr:
         create_with_space: "%{user_name} a créé %{resource_name} dans %{space_name}"
         delete: "%{user_name} a supprimé %{resource_name}"
         delete_with_space: "%{user_name} a supprimé %{resource_name} dans %{space_name}"
+        publish: "%{user_name} a publié %{resource_name}"
         publish_with_space: "%{user_name} a publié %{resource_name} dans %{space_name}"
         unknown_action: "%{user_name} a effectué une action sur %{resource_name}"
         unknown_action_with_space: "%{user_name} a effectué une action sur %{resource_name} dans %{space_name}"
