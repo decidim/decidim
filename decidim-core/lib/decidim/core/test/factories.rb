@@ -732,6 +732,7 @@ FactoryBot.define do
     user do
       build(
         :user,
+        :confirmed,
         organization: followable.try(:organization) || build(:organization, skip_injection:)
       )
     end
