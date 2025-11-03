@@ -15,7 +15,7 @@ module Decidim
       describe "content_type" do
         let(:query) { "{ contentType }" }
 
-        it "returns the attachment's title" do
+        it "returns the attachment's content type" do
           expect(response["contentType"]).to eq(model.content_type)
         end
       end
@@ -31,7 +31,7 @@ module Decidim
       describe "file_size" do
         let(:query) { "{ fileSize }" }
 
-        it "returns the attachment's title" do
+        it "returns the attachment's file size" do
           expect(response["fileSize"]).to eq(model.file_size)
         end
       end

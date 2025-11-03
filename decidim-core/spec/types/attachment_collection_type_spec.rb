@@ -37,7 +37,7 @@ module Decidim
       describe "id" do
         let(:query) { "{ id }" }
 
-        it "returns the attachment's id" do
+        it "returns the attachment's collection id" do
           expect(response).to eq("id" => model.id.to_s)
         end
       end
