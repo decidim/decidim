@@ -420,7 +420,7 @@ eu:
         heading: Aldaketa berrikustea
         send: Onartu aldaketa
       update_draft:
-        error: Arazoa egon da zuzenketa-zirriborroa eguneratzean.
+        error: Arazo bat egon da zuzenketa-zirriborroa eguneratzean.
         success: Zuzenketa-zirriborroa zuzen eguneratu da.
       withdraw:
         error: Arazo bat izan da zuzenketa kentzean.
@@ -669,7 +669,7 @@ eu:
           nickname_help: Zure ezizena %{organization}-an. Letrak, zenbakiak, '-' eta '_' soilik eduki ditzake.
           sign_up: Mesedez, osatu zure profila
           subtitle: Mesedez, bete hurrengo formularioa kontua sortzen amaitzeko
-          username_help: Zure mezuetan agertuko den izen publikoa. Anonimatua bermatze aldera, edozein izen izan daiteke.
+          username_help: Zure mezuetan agertzen den izen publikoa. Anonimotasuna bermatzeko helburuarekin, edozein izen izan daiteke.
         new_tos_fields:
           sign_up: Sortu kontu bat
           sign_up_title: Zure kontua sortzen amaitu
@@ -686,7 +686,7 @@ eu:
           terms: zerbitzuaren baldintzak
           tos_agreement: 'Erregistratzean, hau onartzen duzu: %{link}.'
           tos_title: Zerbitzuaren baldintzak
-          username_help: Zure mezuetan agertuko den izen publikoa. Anonimatua bermatze aldera, edozein izen izan daiteke.
+          username_help: Zure mezuetan agertzen den izen publikoa. Anonimotasuna bermatzeko helburuarekin, edozein izen izan daiteke.
       sessions:
         new:
           are_you_new?: Oraindik erregistratu gabe?
@@ -925,12 +925,12 @@ eu:
           affected_user:
             email_intro: '%{amendable_title} k zuzenketa ukatu egin du. Orrialde honetan ikus dezakezu:'
             email_outro: 'Jakinarazpen hau jaso duzu honen egilea zarelako: %{amendable_title}.'
-            email_subject: Aldaketa %{amendable_title} %{emendation_author_nickname} k ukatua
+            email_subject: Aldaketa %{amendable_title} %{emendation_author_nickname} egileak ukatua
             notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> k egindako <a href="%{emendation_path}">zuzenketa <a href="%{amendable_path}">%{amendable_title}</a> k ukatu du.
           follower:
             email_intro: 'Aldaketa ukatu egin da %{amendable_title}. Orrialde honetatik ikus dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title} jarraitzen duzulako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
-            email_subject: '%{emendation_author_nickname} k baztertu du %{amendable_title} aldaketa'
+            email_subject: '%{emendation_author_nickname} egileak baztertu du %{amendable_title} aldaketa'
             notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> k sortutako <a href="%{emendation_path}">zuzenketa </a> <a href="%{amendable_path}">%{amendable_title}</a> k ukatu du.
         emendation_promoted:
           follower:
@@ -1582,7 +1582,7 @@ eu:
           name: Taxonomia honen izena
           parent_id: Taxonomia nagusi honen identifikatzaile bakarrak (baldin badago)
           part_of: Taxonomia hau beste taxonomia baten parte den jakiteko erabiltzen da
-          taxonomizations_count: Taxonomia hau erabiltzen duten baliabideen zenbaketa
+          taxonomizations_count: Taxonomia hori erabiltzen duten baliabideen zenbaketa
           updated_at: Zein datatan eguneratu zen taxonomia hau azkenekoz
           weight: Zein ordenatan erakusten den taxonomia hau
         user_groups:
@@ -2199,7 +2199,7 @@ eu:
       long_words: luzeegiak diren hitzak ditu (35 karaktere baino gehiago)
       must_start_with_caps: letra larriz hasi behartu
       nesting_too_deep: ezin da egon azpikategoria batean
-      not_found: ezin izan da aurkitu. Lehenago konturik sortu duzu?
+      not_found: ezin izan da aurkitu. Aurretik kontu bat sortu duzu?
       not_locked: ez dago itxita
       not_saved:
         one: 'Errore bat izan da zure eskaera prozesatzean:'
