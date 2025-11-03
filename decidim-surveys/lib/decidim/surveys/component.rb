@@ -63,17 +63,30 @@ Decidim.register_component(:surveys) do |component|
   component.exports :survey_user_responses do |exports|
     exports.collection do |f|
       survey = Decidim::Surveys::Survey.find_by(component: f)
-      Decidim::Forms::QuestionnaireUserResponses.for(survey.questionnaire)
       return [] unless survey&.questionnaire
 
-      responses = Decidim::Forms::QuestionnaireUserResponses.for(survey.questionnaire)
-      Decidim::Surveys::BatchesArray.new(responses)
+      Decidim::Forms::QuestionnaireUserResponses.for(survey.questionnaire)
     end
 
     exports.formats %w(CSV JSON Excel FormPDF)
-    exports.include_in_open_data = true
-
     exports.serializer Decidim::Forms::UserResponsesSerializer
+  end
+
+  component.exports :public_survey_user_responses do |exports|
+    exports.collection do |component|
+      survey = Decidim::Surveys::Survey.find_by(component: component)
+      return Decidim::Forms::Response.none unless survey&.questionnaire
+
+      Decidim::Forms::Response
+        .joins(:question)
+        .where(questionnaire: survey.questionnaire)
+        .where.not(decidim_forms_questions: { question_type: %w(separator title_and_description) })
+        .includes(:question, :choices, :user)
+    end
+
+    exports.formats []
+    exports.include_in_open_data = true
+    exports.serializer Decidim::Surveys::UserResponsesSerializer
   end
 
   component.seeds do |participatory_space|

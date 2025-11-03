@@ -2,31 +2,31 @@
 
 module Decidim
   module Surveys
-    # This class serializes a Survey so it can be exported to CSV, JSON or other formats.
     class UserResponsesSerializer < Decidim::Exporters::Serializer
       include Decidim::TranslationsHelper
 
       # Public: Exports a hash with the serialized data for the user response.
       def serialize
-        responses_hash = hash_for(@responses.first)
-        responses_hash.merge!(questions_hash)
+        # Use 'resource' which is provided by the parent Serializer class
+        response = resource
+        return {} unless response
 
-        @responses.each do |response|
-          responses_hash[translated_question_key(response.question.position, response.question.body)] = normalize_body(response)
-        end
-
-        responses_hash
+        {
+          id: response.session_token,
+          created_at: response.created_at,
+          ip_hash: response.ip_hash,
+          user_status: (response.decidim_user_id.present? ? "Registered" : "Unregistered"),
+          question: question_text(response),
+          body: normalize_body(response)
+        }
       end
 
       private
 
-      def hash_for(response)
-        {
-          response_translated_attribute_name(:id) => response&.session_token,
-          response_translated_attribute_name(:created_at) => response&.created_at,
-          response_translated_attribute_name(:ip_hash) => response&.ip_hash,
-          response_translated_attribute_name(:user_status) => response_translated_attribute_name(response&.decidim_user_id.present? ? "registered" : "unregistered")
-        }
+      def question_text(response)
+        return "Unknown Question" if response.question.present?
+
+        "#{response.question.position}. #{translated_attribute(response.question.body)}"
       end
 
       def normalize_body(response)
@@ -36,11 +36,16 @@ module Decidim
       end
 
       def normalize_choices(choices)
-        choices.map { |choice| choice.try(:body) }.compact.join(", ")
+        choices.map { |choice| translated_attribute(choice.try(:body)) }.compact.join(", ")
       end
 
-      def response_translated_attribute_name(attribute)
-        I18n.t(attribute.to_sym, scope: "decidim.forms.user_responses_serializer")
+      def translated_attribute(attribute)
+        if attribute.is_a?(Hash)
+          # Get translation for current locale, fallback to English, then first available
+          attribute[I18n.locale.to_s] || attribute["en"] || attribute.values.first
+        else
+          attribute.to_s
+        end
       end
     end
   end
