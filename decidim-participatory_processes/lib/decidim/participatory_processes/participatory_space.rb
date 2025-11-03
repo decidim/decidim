@@ -42,8 +42,9 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
   end
 
   participatory_space.exports :participatory_processes do |export|
-    export.collection do
-      Decidim::ParticipatoryProcess.public_spaces
+    export.collection do |participatory_space, _user|
+      query = Decidim::ParticipatoryProcess.public_spaces
+      participatory_space ? query.where(id: participatory_space) : query
     end
 
     export.include_in_open_data = true
