@@ -10,12 +10,27 @@ module Decidim
   class LegacyFormBuilder < ActionView::Helpers::FormBuilder
     include ActionView::Helpers::TagHelper
     include ActionView::Helpers::OutputSafetyHelper
-    %w(file_field email_field text_field text_area url_field
-       number_field date_field datetime_field search_field color_field)
+    %w(file_field email_field text_field url_field
+       number_field search_field color_field)
       .each do |method_name|
       define_method(method_name) do |*args|
         attribute = args[0]
         options = args[1] || {}
+        field(attribute, options) do |opts|
+          super(attribute, opts)
+        end
+      end
+    end
+
+    %w(date_field datetime_field datetime_local_field).each do |method_name|
+      define_method(method_name) do |*args|
+        attribute = args[0]
+        options = args[1] || {}
+
+        options[:data] ||= {}
+        options[:data][:controller] ||= ""
+        options[:data][:controller] += " date-picker"
+
         field(attribute, options) do |opts|
           super(attribute, opts)
         end

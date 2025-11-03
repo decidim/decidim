@@ -27,7 +27,7 @@ de:
     components:
       surveys:
         actions:
-          response: Antwort
+          respond: Antworten
         name: Umfragen
         settings:
           announcement: Ankündigung
@@ -40,7 +40,7 @@ de:
         survey_closed:
           email_intro: Die Umfrage %{resource_title} in %{participatory_space_title} wurde geschlossen.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-          email_subject: Eine Umfrage ist in %{participatory_space_title}
+          email_subject: Eine Umfrage wurde auf «%{participatory_space_title}» abgeschlossen
           notification_title: Die Umfrage <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> ist beendet.
         survey_opened:
           email_intro: 'Die Umfrage %{resource_title} in %{participatory_space_title} ist jetzt geöffnet. Sie können auf dieser Seite teilnehmen:'
@@ -48,6 +48,7 @@ de:
           email_subject: Eine neue Umfrage in %{participatory_space_title}
           notification_title: Die Umfrage <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> ist jetzt geöffnet.
     statistics:
+      responses: 'Antworten:'
       responses_count: Antworten
       surveys_count_tooltip: Die Anzahl der verfügbaren Umfragen und abgegebenen Antworten.
     surveys:
@@ -97,11 +98,11 @@ de:
           destroy:
             success: Umfrage erfolgreich gelöscht.
           edit:
-            title: Umfrage
+            title: Umfrage bearbeiten
           index:
             title: Umfragen
           new:
-            title: Umfrage
+            title: Neue Umfrage
           publish:
             invalid: Beim Veröffentlichen dieser Umfrage ist ein Problem aufgetreten.
             success: Umfrage erfolgreich veröffentlicht.

@@ -22,15 +22,11 @@ ga:
           question:
             add_matrix_row: Suimigh ró
             any: Ar Bith
-            down: Síos
             expand: Méadaigh
             question: Ceist
             remove: Bain as
-            up: Thuas
           separator:
-            down: Ísligh
             remove: Bain as
-            up: Ardaigh
       question_types:
         files: Comhaid
         sorting: Sórtáil

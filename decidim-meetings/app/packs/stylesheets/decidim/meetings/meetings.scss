@@ -1,4 +1,4 @@
-@import "stylesheets/decidim/meetings/list.scss";
-@import "stylesheets/decidim/meetings/item.scss";
-@import "stylesheets/decidim/meetings/calendar.scss";
-@import "stylesheets/decidim/meetings/live_event.scss";
+@use "stylesheets/decidim/meetings/list";
+@use "stylesheets/decidim/meetings/item";
+@use "stylesheets/decidim/meetings/calendar";
+@use "stylesheets/decidim/meetings/live_event";

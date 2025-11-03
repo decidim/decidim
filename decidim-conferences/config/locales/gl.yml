@@ -2,12 +2,8 @@ gl:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Asembleas relacionadas
         available_slots: Prazas dispoñíbeis
         banner_image: Imaxe do banner
-        copy_categories: Copiar categorías
-        copy_components: Copiar compoñentes
-        copy_features: Copiar funcións
         decidim_scope_id: Alcance
         description: Descrición
         end_date: Data de finalización
@@ -73,11 +69,6 @@ gl:
       actions:
         confirm: Confirmar
         send_diplomas: Enviar certificados de asistencia
-      conference_copies:
-        new:
-          copy: Copiar
-          select: Seleccione os datos que desexa duplicar
-          title: Conferencia duplicada
       conference_publications:
         create:
           error: Produciuse un erro ao publicar esta conferencia.
@@ -126,19 +117,15 @@ gl:
         exports:
           registrations: Rexistros
         form:
+          images: Fotos
           title: Información xeral
         index:
           published: Publicado
         new:
           create: Crear
-          title: Conferencia
         update:
           error: Houbo un erro ao actualizar esta conferencia.
           success: A conferencia actualizouse con éxito.
-      conferences_copies:
-        create:
-          error: Produciuse un erro ao duplicar esta conferencia.
-          success: A conferencia duplicouse con éxito.
       media_links:
         create:
           error: Produciuse un erro ao crear unha nova ligazón multimedia.

@@ -93,11 +93,6 @@ module Decidim
                              default: false,
                              desc: "Do not add Puma development SSL configuration options"
 
-      # we disable the webpacker installation as we will use shakapacker
-      def webpacker_gemfile_entry
-        []
-      end
-
       def remove_old_assets
         remove_file "config/initializers/assets.rb"
         remove_dir("app/assets")
@@ -127,6 +122,13 @@ module Decidim
                   "# config.action_controller.raise_on_missing_callback_actions = false"
         gsub_file "config/environments/development.rb", /config\.action_controller\.raise_on_missing_callback_actions = true$/,
                   "# config.action_controller.raise_on_missing_callback_actions = false"
+      end
+
+      def disable_annotate_rendered_view_on_development
+        gsub_file "config/environments/development.rb", /config\.action_view\.annotate_rendered_view_with_filenames = true$/,
+                  "# Using annotate rendered view breaks rails-ujs functionality
+  # @see https://github.com/decidim/decidim/issues/14912
+  # config.action_view.annotate_rendered_view_with_filenames = true"
       end
 
       def database_yml
@@ -240,7 +242,27 @@ module Decidim
           end
         RUBY
 
-        append_file "Gemfile", %(gem "sidekiq")
+        redis_version = begin
+          require "redis"
+          ver = Redis.new.call("INFO").lines(chomp: true).find { |l| l.start_with?("redis_version:") }.split(":", 2).last
+          Gem::Version.new(ver)
+        rescue LoadError, Redis::CannotConnectError
+          # This does not have to be the actual Redis version, it can be
+          # anything that is above any of the version checks below to default to
+          # the latest Sidekiq version.
+          Gem::Version.new("8.0.0")
+        end
+
+        if redis_version < Gem::Version.new("6.2.0")
+          # Sidekiq 7.x requires Redis 6.2.0 or newer
+          append_file "Gemfile", %(gem "sidekiq", "~> 6.5")
+        elsif redis_version < Gem::Version.new("7.0.0")
+          # Sidekiq 8.x requires Redis 7.0.0 or newer
+          append_file "Gemfile", %(gem "sidekiq", "~> 7.3")
+        else
+          # Assume latest
+          append_file "Gemfile", %(gem "sidekiq")
+        end
       end
 
       def add_production_gems(&block)
@@ -262,7 +284,7 @@ module Decidim
         remove_file("config/initializers/content_security_policy.rb")
         create_file "config/initializers/content_security_policy.rb" do
           %(# For tuning the Content Security Policy, check the Decidim documentation site
-# https://docs.decidim.org/develop/en/customize/content_security_policy)
+# https://docs.decidim.org/en/develop/customize/content_security_policy)
         end
       end
 

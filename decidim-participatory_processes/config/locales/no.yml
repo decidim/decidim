@@ -4,9 +4,6 @@
       participatory_process:
         announcement: Kunngjøring
         area_id: Område
-        copy_categories: Kopier kategorier
-        copy_components: Kopier komponenter
-        copy_steps: Kopier trinn
         decidim_area_id: Område
         description: Beskrivelse
         developer_group: Promotørgruppe
@@ -82,13 +79,11 @@
     admin:
       actions:
         activate: Aktiver
-        configure: Konfigurer
         confirm_destroy: Bekreft sletting
         destroy: Slett
         duplicate: Kopier
         edit: Rediger
         import_process: Importer
-        moderate: Moderér
         new_process: Ny prosess
         new_process_group: Ny prosessgruppe
         new_process_step: Ny medvirkningsfase
@@ -148,11 +143,6 @@
           fields:
             invitation_accepted_at: Invitasjon godtatt
             invitation_sent_at: Invitasjonen sendt
-      participatory_process_copies:
-        new:
-          copy: Kopier
-          select: Velg hvilke data du vil kopiere
-          title: Kopier deltakende prosess
       participatory_process_groups:
         destroy:
           success: Prosessgruppen ble slettet.
@@ -195,13 +185,6 @@
             last_step: Kan ikke slette siste fase i en prosess.
           success: Medvirkningsfasen ble slettet.
         edit:
-          cta_deprecated:
-            body_html: |-
-              Å konfigurere CTA gjennom trinnene i en prosess vil bli faset ut i det nye designet.
-              Nå gjøres dette i <b>Landingsside</b>ved hjelp av innholdsblokken <b>Topptekst og bilde</b>.
-              Vi har latt det står igjen her for deg så du kan migrere CTA som du trenger. Feltene <i>Call-to-action-sti</i> og
-              <i>Call-to-action-tekst</i> vil bli fjernet i neste versjon.
-            title: CTA foreldet
           title: Rediger medvirkningsfase
           update: Oppdater
         index:
@@ -248,10 +231,6 @@
         update:
           error: Det oppstod et problem med å oppdatere denne prosessen.
           success: Prosessen er oppdatert.
-      participatory_processes_copies:
-        create:
-          error: Det oppstod et problem med å duplisere denne deltaker prosessen.
-          success: Prosessen er kopiert.
       participatory_processes_group:
         create:
           error: Det oppstod et problem med å lage en ny prosessgruppe.
@@ -359,9 +338,6 @@
         participatory_process_imports:
           form:
             document_legend: Legg til et dokumentet
-        participatory_process_steps:
-          form:
-            cta_text_help: Hvis ikke angitt, vil ikke knappen vises.
         participatory_processes:
           form:
             announcement_help: Teksten du skriver inn her vil vises til brukeren rett under prosessinformasjonen.

@@ -10,9 +10,6 @@ fi:
         closing_date: Sulkeutumispäivä
         closing_date_reason: Perustelu sulkemiselle
         composition: Kokoonpano
-        copy_categories: Kopioi aihepiirit
-        copy_components: Kopioi komponentit
-        copy_features: Kopioi ominaisuudet
         created_by: Luonut
         created_by_other: Luotu muualta
         creation_date: Luontipäivämäärä
@@ -22,6 +19,9 @@ fi:
         developer_group: Edistäjäryhmä
         document: Asiakirja
         domain: Toimintaympäristö
+        duplicate_categories: Kopioi aihepiirit
+        duplicate_components: Kopioi komponentit
+        duplicate_features: Kopioi ominaisuudet
         duration: Kesto
         facebook: Facebook
         github: GitHub
@@ -111,13 +111,13 @@ fi:
         update:
           error: Ryhmän päivitys epäonnistui.
           success: Ryhmän päivitys onnistui.
-      assemblies_copies:
+      assemblies_duplicates:
         create:
-          error: Ryhmän kopiointi epäonnistui.
-          success: Ryhmän kopiointi onnistui.
-      assembly_copies:
+          error: Ryhmän kopioiminen epäonnistui.
+          success: Ryhmän kopioiminen onnistui.
+      assembly_duplicates:
         new:
-          copy: Kopioi
+          duplicate: Kopioi
           select: Valitse, mitkä tiedot haluat kopioida
           title: Kopioi ryhmä
       assembly_imports:
@@ -259,7 +259,7 @@ fi:
             taxonomies: Luokittelut
             title: Yleiset tiedot
             visibility: Näkyvyys
-        assembly_copies:
+        assembly_duplicates:
           form:
             slug_help_html: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
         assembly_imports:

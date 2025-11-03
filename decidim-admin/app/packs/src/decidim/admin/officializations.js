@@ -1,4 +1,4 @@
-$(() => {
+document.addEventListener("turbo:load", () => {
   const $modal = $("#show-email-modal");
 
   if ($modal.length === 0) {

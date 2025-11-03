@@ -27,8 +27,6 @@ el:
   decidim:
     accountability:
       actions:
-        attachment_collections: Φάκελοι
-        attachments: Συνημμένα
         confirm_destroy: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το όνομα %{name};
         destroy: Διαγραφή
         edit: Επεξεργασία

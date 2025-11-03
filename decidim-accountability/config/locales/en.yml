@@ -41,8 +41,8 @@ en:
   decidim:
     accountability:
       actions:
-        attachment_collections: Folders
-        attachments: Attachments
+        add_milestone: Add milestone
+        add_result: Add result
         confirm_delete_result: Are you sure you want to delete this result?
         confirm_destroy: Are you sure you want to delete this %{name}?
         deleted_results_info: Deleted results can be restored from the trash.
@@ -50,7 +50,6 @@ en:
         edit: Edit
         import: Import results from another component
         import_csv: Import results from CSV file
-        milestones: Milestones
         new_milestone: New milestone
         new_result: New result
         new_status: New status

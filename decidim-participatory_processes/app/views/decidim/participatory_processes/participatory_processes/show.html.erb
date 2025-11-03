@@ -7,10 +7,10 @@
 
 <%
   edit_link(
-    resource_locator(current_participatory_space).edit,
-    :update,
-    :process,
-    process: current_participatory_space
+   decidim_admin_participatory_processes.edit_participatory_process_landing_page_path(current_participatory_space),
+   :update,
+   :process,
+   process: current_participatory_space
   )
 %>
 

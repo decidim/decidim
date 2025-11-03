@@ -2,7 +2,7 @@ const removeNewlineAdjacentSpaces = (text) => {
   return text.replace(/\n\s/g, "\n");
 }
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   const $confirmButton = $(".destroy-meeting-alert");
 
   if ($confirmButton.length > 0) {

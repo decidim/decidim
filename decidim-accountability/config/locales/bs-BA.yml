@@ -1,6 +1,10 @@
 bs:
   activemodel:
     attributes:
+      milestone:
+        description: Opis
+        entry_date: Datum
+        title: Naslov
       result:
         decidim_accountability_status_id: Stanje
         decidim_category_id: Kategorija

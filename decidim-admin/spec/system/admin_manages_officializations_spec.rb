@@ -66,6 +66,23 @@ describe "Admin manages officializations" do
     end
   end
 
+  describe "when user's nickname is blank" do
+    let!(:user) { create(:user, :managed, organization:, nickname: "") }
+
+    before do
+      within_admin_sidebar_menu do
+        click_on "Participants"
+      end
+    end
+
+    it "has no user link" do
+      within "tr[data-user-id=\"#{user.id}\"]" do
+        expect(page).to have_content(user.name)
+        expect(page).to have_no_link(user.name)
+      end
+    end
+  end
+
   describe "officializating users" do
     context "when not yet officialized" do
       let!(:user) { create(:user, organization:) }
@@ -76,7 +93,7 @@ describe "Admin manages officializations" do
         end
 
         within "tr[data-user-id=\"#{user.id}\"]" do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Officialize"
         end
       end
@@ -125,7 +142,7 @@ describe "Admin manages officializations" do
         end
 
         within "tr[data-user-id=\"#{user.id}\"]" do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Reofficialize"
         end
       end
@@ -158,7 +175,7 @@ describe "Admin manages officializations" do
       end
 
       within "tr[data-user-id=\"#{user.id}\"]" do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Unofficialize"
       end
     end
@@ -183,8 +200,8 @@ describe "Admin manages officializations" do
 
     it "redirect to conversation path" do
       within "tr[data-user-id=\"#{user.id}\"]" do
-        find("button[data-component='dropdown']").click
-        click_on "Contact"
+        find("button[data-controller='dropdown']").click
+        click_on "Send message"
       end
       expect(page).to have_current_path decidim.new_conversation_path(recipient_id: user.id)
     end
@@ -242,7 +259,7 @@ describe "Admin manages officializations" do
     it "shows the users emails to admin users and logs the action" do
       users.each do |user|
         within "tr[data-user-id=\"#{user.id}\"]" do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Show email"
         end
 

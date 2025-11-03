@@ -32,10 +32,7 @@ ro:
               'true': Implementare refuzată
     budgets:
       actions:
-        attachment_collections: Dosare
-        attachments: Atașamente
         edit: Editare
-        edit_projects: Gestionați proiectele
         import: Importă propuneri în proiecte
         preview: Previzualizare
         send_voting_reminders: Trimite memento-uri de votare
@@ -57,8 +54,6 @@ ro:
         exports:
           projects: Proiecte
         models:
-          budget:
-            name: Buget
           project:
             name: Proiect
         projects:
@@ -162,15 +157,6 @@ ro:
             all: Toate
             not_selected: Neselectate
             selected: Selectate
-        order_progress:
-          minimum_projects_rule:
-            description: Selectați cel puțin %{minimum_number} proiecte pe care le doriți și votați în funcție de preferințele dvs.
-          projects_rule:
-            description: Selectați cel puțin %{minimum_number} și până la %{maximum_number} proiectele pe care le doriți și votați în funcție de preferințele dvs.
-          projects_rule_maximum_only:
-            description: Selectați până la %{maximum_number} proiecte pe care le doriți și votați în funcție de preferințele dvs.
-          vote_threshold_percent_rule:
-            description: Atribuiți cel puțin %{minimum_budget} proiectelor pe care le doriți și votați în funcție de preferințele dvs.
         orders:
           highest_cost: Cel mai mare cost
           label: Ordonează proiectele după
@@ -191,7 +177,6 @@ ro:
         select_projects: Adaugați proiecte
         show:
           budget: Buget
-        start_voting: Începeți să votați
     components:
       budgets:
         actions:
@@ -233,13 +218,6 @@ ro:
               disabled: Votare dezactivată
               enabled: Votare activată
               finished: Votare terminată
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'Bugetul %{resource_title} este acum activ pentru %{participatory_space_title}. Îl poți vizualiza pe această pagină:'
-          email_outro: Ai primit această notificare deoarece urmărești „%{participatory_space_title}”. Poți anula abonarea de la link-ul anterior.
-          email_subject: Bugetul %{resource_title} este în prezent activ pentru %{participatory_space_title}.
-          notification_title: Bugetul <a href="%{resource_path}">%{resource_title}</a> este activ pentru %{participatory_space_title}.
     resource_links:
       included_proposals:
         project_proposal: Propuneri incluse în acest proiect

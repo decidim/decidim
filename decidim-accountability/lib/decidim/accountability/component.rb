@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Decidim.register_component(:accountability) do |component|
+  include Decidim::TranslatableAttributes
+
   component.engine = Decidim::Accountability::Engine
   component.admin_engine = Decidim::Accountability::AdminEngine
   component.icon = "media/images/decidim_accountability.svg"
@@ -32,7 +34,7 @@ Decidim.register_component(:accountability) do |component|
     settings.attribute :display_progress_enabled, type: :boolean, default: true
     settings.attribute :geocoding_enabled, type: :boolean, default: false
     settings.attribute :default_taxonomy, type: :select, include_blank: true, raw_choices: true, choices: lambda { |context|
-      context[:component].available_root_taxonomies.map { |taxonomy| [taxonomy.name["en"], taxonomy.id] }
+      context[:component].available_root_taxonomies.map { |taxonomy| [translated_attribute(taxonomy.name), taxonomy.id] }
     }
   end
 

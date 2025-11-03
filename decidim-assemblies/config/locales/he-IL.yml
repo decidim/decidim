@@ -10,9 +10,6 @@ he:
         closing_date: תאריך סגירה
         closing_date_reason: סיבת תאריך סגירה
         composition: הרכב
-        copy_categories: העתקת קטגוריה
-        copy_components: העתקת רכיבים
-        copy_features: העתקת מאפיינים
         created_by: נוצר ע"י
         created_by_other: נוצר על ידי אחרים
         creation_date: תאריך יצירה
@@ -110,14 +107,6 @@ he:
         update:
           error: יש בעיה בעדכון אסיפה זו.
           success: האסיפה עודכנה בהצלחה.
-      assemblies_copies:
-        create:
-          error: יש בעיה בשכפול אסיפה זו.
-          success: אסיפה השתכפלה בהצלחה.
-      assembly_copies:
-        new:
-          copy: העתקה
-          title: שכפל אסיפה
       assembly_imports:
         create:
           error: הייתה בעיה בייבוא ​​אסיפה זו.

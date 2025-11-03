@@ -25,7 +25,7 @@ describe "Admin exports initiatives" do
     it "shows the export dropdown" do
       visit decidim_admin_initiatives.initiatives_path
 
-      expect(page).to have_content("Export all")
+      expect(page).to have_content("Export")
       expect(page).to have_no_content("Export selection")
     end
   end
@@ -36,7 +36,7 @@ describe "Admin exports initiatives" do
     end
 
     it "shows the export formats" do
-      click_on "Export all"
+      click_on "Export"
 
       expect(page).to have_content("Initiatives as CSV")
       expect(page).to have_content("Initiatives as JSON")
@@ -46,7 +46,7 @@ describe "Admin exports initiatives" do
   context "when clicking the export link" do
     before do
       visit decidim_admin_initiatives.initiatives_path
-      click_on "Export all"
+      click_on "Export"
     end
 
     it "displays success message" do
@@ -62,7 +62,7 @@ describe "Admin exports initiatives" do
         visit decidim_admin_initiatives.initiatives_path
         apply_filter("State", "Drafted")
 
-        expect(page).to have_content("Export all")
+        expect(page).to have_content("Export")
         expect(page).to have_content("Export selection")
       end
     end

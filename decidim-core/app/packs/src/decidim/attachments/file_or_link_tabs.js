@@ -48,7 +48,7 @@ const initializeTabs = (container) => {
   updateTabsState(container);
 };
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const tabs = document.querySelectorAll(
     "div[data-file-or-link-tabs-controller]"
   );

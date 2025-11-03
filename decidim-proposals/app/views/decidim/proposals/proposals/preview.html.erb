@@ -8,7 +8,7 @@
   <%= render partial: "wizard_header", locals: { callout_help_text_class: "warning" } %>
 
   <div class="proposal__container my-10 flex flex-col gap-4">
-    <h2 class="h3 text-secondary"><%= present(@proposal).title(links: true, html_escape: true) %></h2>
+    <h2 class="h3 text-secondary"><%= present(@proposal).title(html_escape: true) %></h2>
 
     <% unless component_settings.participatory_texts_enabled? %>
       <%= cell "decidim/coauthorships", @proposal, context_actions: [] %>

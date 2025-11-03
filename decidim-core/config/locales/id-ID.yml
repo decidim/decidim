@@ -476,10 +476,8 @@ id:
       unsubscribe:
         success: Anda berhasil berhenti berlangganan.
         token_error: Tautan telah kedaluwarsa.
-        unsubscribe: Berhenti berlangganan
     newsletters_opt_in_mailer:
       notify:
-        body_1: Pengolahan data pribadi dan perlindungannya menjadi semakin penting bagi kita semua. Dengan Peraturan Perlindungan Data Umum yang baru (GDPR) 25 Mei 2018, individu memiliki kontrol yang lebih baik atas data pribadi mereka. Untuk alasan ini kami memerlukan "OK" Anda untuk terus mengirim informasi yang relevan tentang kegiatan %{organization_name}.
         body_2: 'Bagaimana Anda bisa memberi kami persetujuan Anda? Cukup klik tombol berikut:'
         body_3: Dengan persetujuan ini Anda akan dapat terus menerima informasi tentang layanan platform. Jika, sebaliknya, kami tidak menerima konfirmasi positif dari pihak Anda, kami akan berhenti mengirimi Anda pesan kami. Jika Anda mengonfirmasi bahwa Anda ingin terus mendapat informasi, Anda akan selalu memiliki opsi untuk membatalkan kapan saja.
         button: Ya, saya ingin terus menerima informasi yang relevan
@@ -716,7 +714,6 @@ id:
       impersonation_warning:
         close_session: Tutup sesi
         description_html: Anda meniru identitas pengguna <b>%{user_name}</b>.
-        expire_time_html: Sesi Anda akan berakhir dalam <b><span class="minutes">%{minutes}</span> menit</b>.
       notifications_dashboard:
         mark_all_as_read: tandai semua telah dibaca
       user_menu:
@@ -741,7 +738,6 @@ id:
     fallback: tidak valid
     name_included_in_password: terlalu mirip dengan nama Anda
     not_enough_unique_characters: tidak memiliki karakter unik yang cukup
-    password_not_allowed: tidak diizinkan
     password_too_common: terlalu umum
     password_too_long: terlalu panjang
     password_too_short: terlalu pendek
