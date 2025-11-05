@@ -62,6 +62,7 @@ bin/rails decidim:upgrade:clean:invalid_private_exports # see "3.3 Removal of in
 bin/rails decidim:verifications:revoke:sms # see "3.4. SMS authorization changes"
 bin/rails decidim_surveys:upgrade:fix_survey_permissions # see "3.5. Permission rename in surveys module"
 bin/rails decidim:upgrade:user_groups:remove # see "3.6. User Groups removal"
+bin/rails decidim:upgrade:fix_action_log # see "3.8. Fix incorrect ActionLog entries"
 ```
 
 Update your shakapacker version in your `package.json` file for "2.3 Shakapacker upgrade".<br>
@@ -272,6 +273,18 @@ This will also change the URL that is used, so you will need to update your [Con
 Apart of that, you also need to configure your preferred cloud service provider to support this. We recommend you to follow the Rails official guide for [Active Storage configuration](https://guides.rubyonrails.org/v7.0/active_storage_overview.html#setup).
 
 You can read more about this change on PR [#15005](https://github.com/decidim/decidim/pull/15005/).
+
+### 3.8. Fix incorrect ActionLog entries
+
+The action of hiding a component from a menu was being stored as a public action. These can lead to crashing the application if some related participatory space is removed.
+
+In order to correct the existing entries you should run the following rake task:
+
+```bash
+bin/rails decidim:upgrade:fix_action_log
+```
+
+You can read more about this change on PR [#15390](https://github.com/decidim/decidim/pull/15390).
 
 ## 4. Scheduled tasks
 
