@@ -32,9 +32,7 @@ describe Decidim::OpenDataExporter do
     let!(:unpublished_survey) { create(:survey, component: unpublished_component) }
 
     it "only exports responses from published surveys" do
-      before do
-        Decidim::Surveys::Admin::PublishSurvey.call(published_survey)
-      end
+      Decidim::Surveys::Admin::PublishSurvey.call(published_survey)
 
       subject.export
 
