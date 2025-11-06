@@ -18,10 +18,13 @@ $(() => {
     const toggleDependsOnSelect = ($target, $showDiv, type) => {
       const value = $target.val();
       if (value === "hybrid") {
+        $showDiv.find("input").prop("disabled", false);
         $showDiv.show();
       } else {
+        $showDiv.find("input").prop("disabled", true);
         $showDiv.hide();
         if (value === type) {
+          $showDiv.find("input").prop("disabled", false);
           $showDiv.show();
         }
       }
