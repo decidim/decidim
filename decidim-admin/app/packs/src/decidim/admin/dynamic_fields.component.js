@@ -182,6 +182,7 @@ class DynamicFieldsComponent {
 
       $removedField.addClass("hidden");
       $removedField.hide();
+      $removedField.attr("disabled", true);
     } else {
       $removedField.remove();
     }

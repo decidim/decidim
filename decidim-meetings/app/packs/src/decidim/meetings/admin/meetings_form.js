@@ -133,10 +133,14 @@ document.addEventListener("turbo:load", () => {
     const toggleTypeDependsOnSelect = ($target, $showDiv, type) => {
       const value = $target.val();
       if (value === "hybrid") {
+        $showDiv.find("input").attr("disabled", false);
         $showDiv.show();
+
       } else {
+        $showDiv.find("input").attr("disabled", true);
         $showDiv.hide();
         if (value === type) {
+          $showDiv.find("input").attr("disabled", false);
           $showDiv.show();
         }
       }
@@ -149,6 +153,7 @@ document.addEventListener("turbo:load", () => {
       toggleTypeDependsOnSelect($target, $meetingOnlineFields, "online");
       toggleTypeDependsOnSelect($target, $meetingInPersonFields, "in_person");
       if (embedTypeValue === "none") {
+        $meetingOnlineAccessLevelFields.find("input").attr("disabled", true);
         $meetingOnlineAccessLevelFields.hide();
       } else {
         toggleTypeDependsOnSelect($target, $meetingOnlineAccessLevelFields, "online");
