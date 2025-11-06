@@ -120,6 +120,7 @@ document.addEventListener("turbo:load", () => {
     const toggleDependsOnSelect = ($target, $showDiv, type) => {
       const value = $target.val();
       $showDiv.toggle(value === type);
+      $showDiv.find("input").prop("disabled", value !== type);
     };
 
     $meetingRegistrationType.on("change", (ev) => {
