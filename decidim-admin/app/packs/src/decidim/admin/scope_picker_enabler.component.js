@@ -5,8 +5,8 @@ $(() => {
   if ($(".edit_component, .new_component").length > 0) {
     $ComponentScopeEnabled.on("change", (event) => {
       const checked = event.target.checked;
-      $ComponentScopeId.attr("disabled", !checked);
+      $ComponentScopeId.prop("disabled", !checked);
     })
-    $ComponentScopeId.attr("disabled", !$ComponentScopeEnabled.prop("checked"));
+    $ComponentScopeId.prop("disabled", !$ComponentScopeEnabled.prop("checked"));
   }
 });

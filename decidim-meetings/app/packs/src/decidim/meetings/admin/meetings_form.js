@@ -37,6 +37,7 @@ $(() => {
 
     if (inputDeleted === "true") {
       $target.addClass("hidden");
+      $target.prop("disabled", true);
       $target.hide();
     }
   };
@@ -89,10 +90,10 @@ $(() => {
 
     const toggleDisabledHiddenFields = () => {
       const enabledPrivateSpace = $privateMeeting.find("input[type='checkbox']").prop("checked");
-      $transparent.find("input[type='checkbox']").attr("disabled", "disabled");
+      $transparent.find("input[type='checkbox']").prop("disabled", true);
 
       if (enabledPrivateSpace) {
-        $transparent.find("input[type='checkbox']").attr("disabled", !enabledPrivateSpace);
+        $transparent.find("input[type='checkbox']").prop("disabled", !enabledPrivateSpace);
       }
     };
 
@@ -125,14 +126,14 @@ $(() => {
     const toggleTypeDependsOnSelect = ($target, $showDiv, type) => {
       const value = $target.val();
       if (value === "hybrid") {
-        $showDiv.find("input").attr("disabled", false);
+        $showDiv.find("input").prop("disabled", false);
         $showDiv.show();
 
       } else {
-        $showDiv.find("input").attr("disabled", true);
+        $showDiv.find("input").prop("disabled", true);
         $showDiv.hide();
         if (value === type) {
-          $showDiv.find("input").attr("disabled", false);
+          $showDiv.find("input").prop("disabled", false);
           $showDiv.show();
         }
       }
@@ -145,7 +146,7 @@ $(() => {
       toggleTypeDependsOnSelect($target, $meetingOnlineFields, "online");
       toggleTypeDependsOnSelect($target, $meetingInPersonFields, "in_person");
       if (embedTypeValue === "none") {
-        $meetingOnlineAccessLevelFields.find("input").attr("disabled", true);
+        $meetingOnlineAccessLevelFields.find("input").prop("disabled", true);
         $meetingOnlineAccessLevelFields.hide();
       } else {
         toggleTypeDependsOnSelect($target, $meetingOnlineAccessLevelFields, "online");

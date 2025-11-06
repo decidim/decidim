@@ -37,6 +37,7 @@
           <%= form.radio_button :bg_color, color_values[:background],
                                 label: color_values[:name],
                                 style: "display: none;",
+                                disabled: true,
                                 data: {
                                   "sync-radio-buttons-value-target" => color_key,
                                   "css-preview" => true,

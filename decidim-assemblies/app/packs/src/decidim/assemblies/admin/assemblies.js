@@ -5,9 +5,9 @@ $(() => {
   if ($(".edit_assembly, .new_assembly").length > 0) {
     $assemblyScopeEnabled.on("change", (event) => {
       const checked = event.target.checked;
-      $assemblyScopeId.attr("disabled", !checked);
+      $assemblyScopeId.prop("disabled", !checked);
     })
-    $assemblyScopeId.attr("disabled", !$assemblyScopeEnabled.prop("checked"));
+    $assemblyScopeId.prop("disabled", !$assemblyScopeEnabled.prop("checked"));
   }
 
   const $form = $(".assembly_form_admin");

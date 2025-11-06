@@ -13,7 +13,7 @@ $(() => {
       $proposalMeeting.hide();
 
       if (enabledMeeting) {
-        $proposalMeeting.find("select").attr("disabled", !enabledMeeting);
+        $proposalMeeting.find("select").prop("disabled", !enabledMeeting);
         $proposalMeeting.show();
       }
     };

@@ -6,13 +6,9 @@ $(() => {
   if ($(".edit_participatory_process, .new_participatory_process").length > 0) {
     $participatoryProcessScopeEnabled.on("change", (event) => {
       const checked = event.target.checked;
-      $participatoryProcessScopeId.attr("disabled", !checked);
-      if (checked === true) {
-        $participatoryProcessScopeTypeId.removeAttr("disabled");
-      } else {
-        $participatoryProcessScopeTypeId.attr("disabled", true)
-      }
-      $participatoryProcessScopeId.attr("disabled", !$participatoryProcessScopeEnabled.prop("checked"));
+      $participatoryProcessScopeId.prop("disabled", !checked);
+      $participatoryProcessScopeTypeId.prop("disabled", !checked)
+      $participatoryProcessScopeId.prop("disabled", !$participatoryProcessScopeEnabled.prop("checked"));
     })
   }
 });

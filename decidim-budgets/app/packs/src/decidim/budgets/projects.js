@@ -21,7 +21,7 @@ $(() => {
     const $currentTarget = $(event.currentTarget);
     const projectAllocation = parseInt($currentTarget.attr("data-allocation"), 10);
 
-    if ($currentTarget.attr("disabled")) {
+    if ($currentTarget.prop("disabled")) {
       cancelEvent(event);
     } else if (($currentTarget.attr("data-add") === "true") && ((currentAllocation + projectAllocation) > totalAllocation)) {
       window.Decidim.currentDialogs["budget-excess"].toggle()
