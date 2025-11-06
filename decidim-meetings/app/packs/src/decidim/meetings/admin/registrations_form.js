@@ -18,9 +18,9 @@ document.addEventListener("turbo:load", () => {
 
     const toggleDisabledFields = () => {
       const enabled = $registrationsEnabled.prop("checked");
-      $availableSlots.attr("disabled", !enabled);
-      $reservedSlots.attr("disabled", !enabled);
-      $customizeRegistrationEmail.attr("disabled", !enabled);
+      $availableSlots.prop("disabled", !enabled);
+      $reservedSlots.prop("disabled", !enabled);
+      $customizeRegistrationEmail.prop("disabled", !enabled);
 
       $form[0].querySelectorAll(".editor-container .ProseMirror").forEach((node) => {
         node.editor.setOptions({ editable: enabled });

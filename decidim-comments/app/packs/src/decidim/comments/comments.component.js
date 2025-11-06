@@ -160,7 +160,7 @@ export default class CommentsComponent {
       $form.on("submit.decidim-comments", () => {
         const $submit = $("button[type='submit']", $form);
 
-        $submit.attr("disabled", "disabled");
+        $submit.prop("disabled", true);
         this._stopPolling();
       });
 
@@ -396,6 +396,7 @@ export default class CommentsComponent {
     const $add = $text.closest(".add-comment");
     const $form = $("form", $add);
 
+<<<<<<< HEAD
     this._updateSubmitButtonState(this._prepareSubmitButtonStateParams($form));
   }
 
@@ -410,6 +411,12 @@ export default class CommentsComponent {
 
     if (!desktopOrderSelect && !mobileOrderSelect) {
       return;
+=======
+    if ($text.val().length > 0) {
+      $submit.prop("disabled", false);
+    } else {
+      $submit.prop("disabled", true);
+>>>>>>> 555f0ffadd (harmonize more "disabled" attributes)
     }
 
     desktopOrderSelect.style.borderColor = "black";
