@@ -80,7 +80,8 @@ export default Image.extend({
   addAttributes() {
     return {
       ...this.parent?.(),
-      width: { default: null }
+      width: { default: null },
+      href: { default: null }
     };
   },
 
@@ -92,11 +93,12 @@ export default Image.extend({
       ...this.parent?.(),
       imageDialog: () => async ({ dispatch }) => {
         if (dispatch) {
-          let { src, alt, width } = this.editor.getAttributes("image");
+          let { src, alt, width, href } = this.editor.getAttributes("image");
 
           this.editor.commands.toggleDialog(true);
-          const dialogState = await uploadDialog.toggle({ src, alt }, {
-            inputLabel: i18n.altLabel,
+          const dialogState = await uploadDialog.toggle({ src, alt, href }, {
+            altLabel: i18n.altLabel,
+            linkLabel: i18n.linkLabel,
             uploadHandler: async (file) => uploadImage(file, this.options.uploadImagesPath)
           });
           this.editor.commands.toggleDialog(false);
@@ -113,8 +115,14 @@ export default Image.extend({
 
           src = uploadDialog.getValue("src");
           alt = uploadDialog.getValue("alt");
+          href = uploadDialog.getValue("href");
+          
+          // Treat empty string as null (no link)
+          if (href === "" || !href) {
+            href = null;
+          }
 
-          return this.editor.chain().setImage({ src, alt, width }).focus(null, { scrollIntoView: false }).run();
+          return this.editor.chain().setImage({ src, alt, width, href }).focus(null, { scrollIntoView: false }).run();
         }
 
         return true;
@@ -127,18 +135,42 @@ export default Image.extend({
   },
 
   parseHTML() {
-    return [{ tag: "div[data-image] img[src]:not([src^='data:'])" }];
+    return [
+      {
+        tag: "div[data-image] img[src]:not([src^='data:'])",
+        getAttrs: (dom) => {
+          // Check if the image's parent div is wrapped in a link
+          const imageDiv = dom.closest("div[data-image]");
+          const link = imageDiv?.parentElement;
+          if (link && link.tagName === "A" && link.hasAttribute("href")) {
+            return { href: link.getAttribute("href") };
+          }
+          return {};
+        }
+      }
+    ];
   },
 
   renderHTML({ HTMLAttributes }) {
-    return [
+    const { href, ...imgAttributes } = HTMLAttributes;
+    const imageContent = [
       "div",
       { "class": "editor-content-image", "data-image": "" },
       [
         "img",
-        mergeAttributes(this.options.HTMLAttributes, HTMLAttributes)
+        mergeAttributes(this.options.HTMLAttributes, imgAttributes)
       ]
     ];
+
+    if (href) {
+      return [
+        "a",
+        { href, target: "_blank", rel: "noopener noreferrer" },
+        imageContent
+      ];
+    }
+
+    return imageContent;
   },
 
   addProseMirrorPlugins() {

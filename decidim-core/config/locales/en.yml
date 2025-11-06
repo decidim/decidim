@@ -1943,6 +1943,7 @@ en:
     extensions:
       image:
         altLabel: Alternative text for the image
+        linkLabel: Link URL (optional)
         nodeView:
           resizer:
             control:
