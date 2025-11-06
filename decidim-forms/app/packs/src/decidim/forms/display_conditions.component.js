@@ -191,7 +191,7 @@ class DisplayConditionsComponent {
       this.wrapperField.hide();
     }
 
-    this.wrapperField.find("input, textarea").prop("disabled", "disabled");
+    this.wrapperField.find("input, textarea").prop("disabled", true);
   }
 }
 

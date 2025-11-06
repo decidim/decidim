@@ -21,11 +21,11 @@ $(() => {
 
     const toggleDisabledHiddenFields = () => {
       const enabledPrivateSpace = $privateSpace.find("input[type='checkbox']").prop("checked");
-      $isTransparent.find("input[type='checkbox']").attr("disabled", "disabled");
+      $isTransparent.find("input[type='checkbox']").prop("disabled", true);
       $specialFeatures.hide();
 
       if (enabledPrivateSpace) {
-        $isTransparent.find("input[type='checkbox']").attr("disabled", !enabledPrivateSpace);
+        $isTransparent.find("input[type='checkbox']").prop("disabled", !enabledPrivateSpace);
         $specialFeatures.show();
       }
     };
