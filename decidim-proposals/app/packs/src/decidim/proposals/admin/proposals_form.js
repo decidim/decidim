@@ -9,7 +9,7 @@ document.addEventListener("turbo:load", () => {
 
     const toggleDisabledHiddenFields = () => {
       const enabledMeeting = $proposalCreatedInMeeting.prop("checked");
-      $proposalMeeting.find("select").attr("disabled", "disabled");
+      $proposalMeeting.find("select").prop("disabled", true);
       $proposalMeeting.hide();
 
       if (enabledMeeting) {
