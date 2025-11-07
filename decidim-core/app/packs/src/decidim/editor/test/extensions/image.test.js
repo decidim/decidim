@@ -1,4 +1,5 @@
 /* global jest, global */
+/* eslint max-lines: ["error", 400] */
 
 import { createBasicEditor, updateContent, sleep, pasteFixtureFile, dropFixtureFile } from "src/decidim/editor/test/helpers";
 
