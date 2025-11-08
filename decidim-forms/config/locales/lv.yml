@@ -38,13 +38,20 @@ lv:
             any: Jebkura
             collapse: Sakļaut
             description: Apraksts
+            down: Lejup
             expand: Izvērst
             question: Jautājums
             remove: Noņemt
             statement: Paziņojums
+            up: Augšup
           separator:
+            down: Lejup
             remove: Noņemt
             separator: Atdalītājs
+            up: Augšup
+          title_and_description:
+            down: Lejup
+            up: Augšup
           update:
             invalid: Saglabājot veidlapu, radās problēma.
       images:
