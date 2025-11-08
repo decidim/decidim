@@ -35,11 +35,18 @@ ar:
             add_answer_option: إضافة خيار الإجابة
             any: أي
             description: وصف
+            down: أسفل
             question: سؤال
             remove: إزالة
             statement: بيان
+            up: فوق
+          separator:
+            down: أسفل
+            up: فوق
           title_and_description:
             description: الوصف
+            down: أسفل
+            up: فوق
           update:
             invalid: كانت هناك مشكلة في حفظ النموذج.
       question_types:
