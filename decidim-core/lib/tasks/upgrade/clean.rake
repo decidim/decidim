@@ -12,8 +12,7 @@ namespace :decidim do
         :"decidim:upgrade:clean:action_logs",
         :"decidim:upgrade:clean:clean_deleted_users",
         :"decidim:upgrade:clean:fix_blocked_user_notification",
-        :"decidim:upgrade:clean:invalid_private_exports",
-        :"decidim:upgrade:clean:remove_private_exports_attachments"
+        :"decidim:upgrade:clean:invalid_private_exports"
       ]
 
       desc "Remove data from deleted users"
