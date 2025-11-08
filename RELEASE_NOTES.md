@@ -66,6 +66,7 @@ Due to some data consistency issues with the private exports, we have decided to
 if you are upgrading from a lover version like 0.30, and you have already ran this command, you can skip this step.
 
 Run the following command to expire all the private exports:
+
 ```console
 bin/rails decidim:upgrade:clean:remove_private_exports_attachments
 ```
