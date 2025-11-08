@@ -76,20 +76,26 @@ lt:
             any: Bet koks
             collapse: Suskleisti
             description: Aprašymas
+            down: Žemyn
             expand: Išplėsti
             question: Klausimas
             remove: Pašalinti
             statement: Pareiškimas
+            up: Į viršų
           separator:
+            down: Žemyn
             remove: Pašalinti
             separator: Skirtukas
+            up: Į viršų
           title_and_description:
             collapse: Suskleisti
             description: Aprašymas
+            down: Žemyn
             expand: Išplėsti
             remove: Pašalinti
             title: Pavadinimas
             title_and_description: Pavadinimas ir aprašymas
+            up: Į viršų
           update:
             invalid: Išsaugant šią formą iškilo problema.
             success: Forma sėkmingai išsaugota.
