@@ -88,8 +88,8 @@ module Decidim
           let(:query) { "{ taxonomizationsCount }" }
           let(:model) { taxonomy }
           let(:taxonomizable) { create(:dummy_resource) }
-          let!(:taxonomization) { create(:taxonomization, taxonomy: ) }
-          let!(:second_taxonomization) { create(:taxonomization, taxonomy: ) }
+          let!(:taxonomization) { create(:taxonomization, taxonomy:) }
+          let!(:second_taxonomization) { create(:taxonomization, taxonomy:) }
 
           it "returns true" do
             expect(response["taxonomizationsCount"]).to eq(2)
