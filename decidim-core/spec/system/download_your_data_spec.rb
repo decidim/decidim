@@ -61,13 +61,13 @@ describe "DownloadYourData", download: true do
       it "when requesting the file of other user's data" do
         visit decidim.download_download_your_data_path(uuid: other_user_active_export.uuid)
 
-        expect(page).to have_content(ActiveRecord::RecordNotFound)
+        expect(page).to have_content("The export you have accessed does not exist, or you do not have access to download it")
       end
 
       it "when requesting the expired file of other user's data" do
         visit decidim.download_download_your_data_path(uuid: other_user_expired_export.uuid)
 
-        expect(page).to have_content(ActiveRecord::RecordNotFound)
+        expect(page).to have_content("The export you have accessed does not exist, or you do not have access to download it")
       end
 
       it "when requesting current user's expired file" do
