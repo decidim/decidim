@@ -465,8 +465,19 @@ header {
       &-desktop {
         @apply border-r border-gray-6 pr-10;
 
+        &.focus-mode {
+         @apply border-none pr-0;
+        }
+      }
+
+      &-desktop,
+      &-mobile {
         & button {
           @apply border border-neutral-300 rounded px-4 py-2 gap-x-2;
+
+          & > div {
+            @apply flex items-center gap-x-1;
+          }
 
           & > span,
           & > svg:first-of-type {
@@ -496,6 +507,20 @@ header {
               @apply rounded;
             }
 
+            .is-active {
+              @apply bg-neutral-200 rounded;
+
+              &:hover {
+                @apply bg-[var(--secondary)];
+              }
+            }
+          }
+        }
+
+        #dropdown-menu-language-chooser-mobile {
+          @apply overflow-scroll h-[50vh];
+
+          ul {
             .is-active {
               @apply bg-neutral-200 rounded;
 
