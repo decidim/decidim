@@ -42,7 +42,7 @@ module Decidim
           expect(response["user"]["id"]).to eq(model.user.id.to_s)
         end
 
-        context "when the user is anonymous" do
+        context "when the user has an incidence (i.e. is deleted or blocked)" do
           let(:moderation) { create(:user_moderation, user: create(:user)) }
 
           let!(:model) { create(:user_report, moderation:, user: moderation.user, details: "Testing reason") }
@@ -51,7 +51,7 @@ module Decidim
             expect(response["user"]).to be_nil
           end
 
-          context "when user reporting deleted his account" do
+          context "when the user that made the report deleted their account" do
             let(:moderation) { create(:user_moderation, user: create(:user, :confirmed, :deleted)) }
 
             it "returns nil" do
@@ -59,7 +59,7 @@ module Decidim
             end
           end
 
-          context "when user reporting got blocked" do
+          context "when the user that made the reporting got blocked" do
             let(:moderation) { create(:user_moderation, user: create(:user, :confirmed, :blocked)) }
 
             it "returns nil" do

@@ -98,7 +98,7 @@ module Decidim
           context "when the user has badges" do
             let!(:badge) { create(:badge_score, user: model) }
 
-            it "returns empty" do
+            it "returns the tokenized name of the badge" do
               expect(response["badges"]).to be_present
               expect(response["badges"][0]["name"]).to eq("followers")
             end
