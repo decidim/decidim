@@ -475,15 +475,16 @@ header {
         & button {
           @apply border border-neutral-300 rounded px-4 py-2 gap-x-2;
 
-          & > div {
-            @apply flex items-center gap-x-1;
-          }
-
           & > span,
           & > svg:first-of-type {
             @apply text-neutral-500;
 
             display: block !important;
+          }
+
+          & > span.mobile-holder {
+            @apply items-center gap-x-1;
+            display: flex !important;
           }
 
           & > span {
