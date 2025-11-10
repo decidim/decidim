@@ -55,7 +55,7 @@
     "emojibase": "^6.1.0",
     "foundation-sites": "^6.7.0",
     "graphiql": "^3.0.10",
-    "graphql-ws": ">= 4.5.0",
+    "graphql-ws": "^5.16.2",
     "html5sortable": "0.10.0",
     "identity-obj-proxy": "^3.0.0",
     "jquery": "^3.2.1",
