@@ -873,6 +873,30 @@ shared_examples "comments" do
           expect(page.find("#comment-#{parent.id}-replies").text).to be_blank
         end
       end
+
+      context "when admin moderates the comment" do
+        let!(:user) { create(:user, :admin, :confirmed, organization:) }
+
+        before do
+          switch_to_host(organization.host)
+          login_as user, scope: :user
+          visit resource_path
+        end
+
+        it "hides the comment" do
+          within "#comment_#{comments.first.id}" do
+            page.find("[id^='dropdown-trigger']").click
+            click_on "Report"
+          end
+
+          within "#flagModalComment#{comments.first.id}" do
+            check "Hide this content"
+            click_on "Hide"
+          end
+
+          expect(page).to have_content("This resource has been hidden.")
+        end
+      end
     end
 
     describe "arguable option" do

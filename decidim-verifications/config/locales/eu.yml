@@ -17,7 +17,7 @@ eu:
         document_type: Dokumentu mota
       id_document_upload:
         document_number: Dokumentuaren zenbakia (letraz)
-        document_type: Zure dokumentuaren mota
+        document_type: Dokumentuaren mota
         user: Parte-hartzaileak
         verification_attachment: Zure dokumentuaren eskaneatutako kopia
       mobile_phone:
@@ -218,7 +218,7 @@ eu:
               created_at: Noiz sortua
               email: Helbide elektronikoa
               user_authorized: Parte-hartzailea baimendua?
-            import_csv: Inportatu CSV
+            import_csv: Inportatu CSV fitxategia
             no_authorized: Parte-hartzailea ez baimendua
             title: Erroldako oraingo datuak
           instructions:
@@ -267,7 +267,7 @@ eu:
               verify: Ziurtatu
           pending_authorizations:
             index:
-              config: config
+              config: Konfiguratu
               offline_verification: Off-line egiaztapena
               title: On-line egiaztapenak zain
               verification_number: 'Egiaztapena # %{n}'
@@ -292,7 +292,7 @@ eu:
             rejection_notice: Arazo bat egon da zure egiaztapenarekin. Mesedez, saiatu berriro.
             send: Eskatu egiaztapena berriro
           new:
-            send: Eskatu egiaztapena
+            send: Egiaztapena eskatu
             title: Igo zure identifikazio agiria
           update:
             error: Arazo bat egon da zure dokumentua berriro igotzean.
@@ -325,7 +325,7 @@ eu:
             waiting_for_letter: Laster gutun bat bidaliko dugu zure helbidera zure egiaztapen-kodearekin.
           new:
             send: Bidali iezadazu gutun bat
-            title: Eskatu egiaztapen-kodea
+            title: Egiaztapen-kodea eskatu
           update:
             error: Zure egiaztapen-kodea ez dator bat gurearekin. Mesedez, begiratu berriro bidali dizugun gutuna.
             success: Zorionak! Zuzen egiaztatu zara.

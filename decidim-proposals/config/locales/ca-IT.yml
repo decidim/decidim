@@ -176,6 +176,7 @@ ca-IT:
             can_accumulate_votes_beyond_threshold: Pot acumular suports més enllà del llindar
             clear_all: Netejar-ho tot
             collaborative_drafts_enabled: Esborranys col·laboratius habilitats
+            collaborative_drafts_enabled_help: La funció «Esborranys col·laboratius» s'eliminarà pròximament. Si la feies servir, a partir de la versió 0.32 de Decidim podràs fer servir la funcionalitat de coautoria de propostes.
             comments_enabled: Comentaris habilitats
             comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
             default_sort_order: Ordre de propostes per defecte
@@ -389,7 +390,7 @@ ca-IT:
           conditions:
             - Tria l'espai de participació del teu interès amb la creació de propostes activada
             - Intenta fer propostes que es puguin dur a terme. D'aquesta manera és més probable que s'acceptin.
-          description: Aquest distintiu es concedeix quan participes activament amb noves propostes i aquestes són acceptades.
+          description: Aquesta ensenya es concedeix quan participes activament amb noves propostes i aquestes són acceptades.
           description_another: Aquesta participant ha aconseguit %{score} propostes acceptades.
           description_own: '%{score} de les teves propostes han estat acceptades.'
           name: Propostes acceptades
@@ -411,7 +412,7 @@ ca-IT:
           conditions:
             - Tria un espai de participació amb la creació de propostes habilitada que sigui del teu interès
             - Crea una proposta nova
-          description: Aquest distintiu es concedeix quan participes activament amb noves propostes.
+          description: Aquesta ensenya es concedeix quan participes activament amb noves propostes.
           description_another: Aquesta participant ha creat %{score} propostes.
           description_own: Has creat %{score} propostes.
           name: Propostes
@@ -493,6 +494,7 @@ ca-IT:
           deleted_proposals_info: Les propostes eliminades es poden restaurar des de la paperera.
           preview: Previsualitzar
           view_deleted_proposals: Veure les propostes eliminades
+        deprecation_warning_collaborative_drafts_html: "⚠️ <b>Avís de Desús/Obsolescència.</b> La funció \"Esborranys col·laboratius\" s'eliminarà pròximament. Si la feies servir, a partir de la versió 0.32 de Decidim podràs fer servir la funcionalitat de coautoria de propostes."
         evaluation_assignments:
           create:
             invalid: S'ha produït un error en assignar propostes a una avaluadora.

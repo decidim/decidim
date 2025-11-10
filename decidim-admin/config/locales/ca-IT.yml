@@ -48,6 +48,7 @@ ca-IT:
         customize_welcome_notification: Personalitza la notificació de benvinguda
         default_locale: Idioma per defecte
         description: Descripció
+        enable_machine_translations: Habilitar traduccions automàtiques
         enable_omnipresent_banner: Mostrar el banner omnipresent
         enable_participatory_space_filters: Habilitar els filtres a l'espai de participació
         facebook_handler: Nom d'usuari de Facebook
@@ -842,7 +843,7 @@ ca-IT:
           success: S'ha retirat correctament l'oficialització de la participant.
         index:
           actions: Accions
-          badge: Insígnia
+          badge: Ensenya
           block: Bloquejar
           created_at: Creat el
           name: Nom
@@ -858,7 +859,7 @@ ca-IT:
           unblock: Desbloquejar
           unofficialize: Des-oficialitzar
         new:
-          badge: Insígnia d'oficialització
+          badge: Ensenya d'oficialització
           officialize: Oficialitza
           title: Oficialitza la participant "%{name}"
         show_email_modal:

@@ -11,6 +11,7 @@ es-MX:
         domain: Dominio
         duplicate_categories: Duplicar las categorías
         duplicate_components: Duplicar los componentes
+        duplicate_landing_page_blocks: Duplicar los bloques de contenido de la página de inicio
         duplicate_steps: Duplicar las fases
         end_date: Fecha de finalización
         hero_image: Imagen de portada
@@ -204,13 +205,6 @@ es-MX:
             last_step: No se puede eliminar la última fase de un proceso.
           success: Fase de proceso participativo eliminada con éxito.
         edit:
-          cta_deprecated:
-            body_html: |-
-              La configuración del CTA a través de la Fase del proceso participativo está obsoleta con el nuevo diseño.
-              Ahora esto se hace en la <b>Página de Inicio</b>, usando el bloque de contenido <b>Imagen principal y botón de acción</b> .
-              Lo hemos dejado aquí para que migres las CTAs que necesites. Los campos <i>Ruta del botón de acción</i> y
-              <i>Texto del botón de acción</i> se eliminaran en la próxima versión.
-            title: CTA obsoleto
           title: Editar fase de proceso participativo
           update: Actualizar
         index:
@@ -506,10 +500,6 @@ es-MX:
           form:
             document_legend: Añadir un documento
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
-        participatory_process_steps:
-          form:
-            cta_path_help_html: 'Utiliza rutas parciales, no URL completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. Si no ese establece ninguna ruta, el botón no se mostrará. Ejemplo: %{url}'
-            cta_text_help: Si no está configurado, el botón no se mostrará.
         participatory_processes:
           form:
             announcement_help: El texto que ingreses aquí se mostrará al usuario justo debajo de la información del proceso.

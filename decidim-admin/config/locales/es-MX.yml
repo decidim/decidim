@@ -48,6 +48,7 @@ es-MX:
         customize_welcome_notification: Personalizar notificación de bienvenida
         default_locale: Idioma predeterminado
         description: Descripción
+        enable_machine_translations: Habilitar traducciones automáticas
         enable_omnipresent_banner: Mostrar banner omnipresente
         enable_participatory_space_filters: Habilitar los filtros en el espacio de participación
         facebook_handler: Nombre en Facebook
