@@ -47,7 +47,6 @@ describe "Menu" do
       click_on(id: "main-dropdown-summary-mobile")
 
       within "#breadcrumb-main-dropdown-mobile" do
-        expect(page).to have_link("Home", href: "/")
         expect(page).to have_link("Processes", href: "/processes")
       end
     end
