@@ -284,7 +284,7 @@ module Decidim
         remove_file("config/initializers/content_security_policy.rb")
         create_file "config/initializers/content_security_policy.rb" do
           %(# For tuning the Content Security Policy, check the Decidim documentation site
-# https://docs.decidim.org/develop/en/customize/content_security_policy)
+# https://docs.decidim.org/en/develop/customize/content_security_policy)
         end
       end
 

@@ -1660,7 +1660,6 @@ bg:
     name_included_in_password: е твърде подобно на името Ви
     nickname_included_in_password: е твърде близко до Вашия псевдоним
     not_enough_unique_characters: няма достатъчно различни букви
-    password_not_allowed: не се допуска
     password_repeated: не може да преизползвате стара парола
     password_too_common: твърде разпространен
     password_too_long: твърде дълъг

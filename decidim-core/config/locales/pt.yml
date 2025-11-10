@@ -1040,7 +1040,6 @@ pt:
     fallback: não é válido
     name_included_in_password: é muito semelhante com o seu nome
     not_enough_unique_characters: não tem caracteres únicos suficientes
-    password_not_allowed: não é permitido
     password_too_common: é muito comum
     password_too_long: é muito longo
     password_too_short: é muito curto

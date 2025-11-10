@@ -1705,20 +1705,10 @@ ja:
         body_2: 組織向けの利用体験を簡素化する取り組みの一環として、「ユーザーグループ」機能は廃止される予定です。あなたのユーザーグループのプロフィールは通常の参加者プロフィールに変更されました。
         greeting: こんにちは %{name} さん、
         instructions_1: そのメールアカウントにアクセスできる場合は、受信トレイに届いている案内をご確認ください。
-        instructions_intro: プロファイルの新しいパスワードを設定するために、アカウントに関連付けられているメールアドレスに指示を送信しました。
-        instructions_title: "<strong>これがあなたにとって何を意味するか</strong>"
-        subject: あなたが所属しているユーザーグループに関する重要な更新
       notify_deprecation_to_owner:
         body_1: '%{organization_name}でのグループプロフィールに関する重要なアップデートについてお知らせするためにご連絡しています。'
         body_2: あなたのような組織向けの利用体験を簡素化・改善する取り組みの一環として、「ユーザーグループ」機能は廃止されます。あなたのグループ<strong>%{name}</strong>は通常のアカウントに変更されました。
-        body_3: アカウントに引き続きアクセスするために、パスワードの設定をお願いします。
         greeting: こんにちは %{name} さん、
-        instructions_1: '以下のリンクをクリックして、パスワードの設定を開始してください：'
-        instructions_2: フォームに、このメッセージを受け取ったメールアドレスを入力し、リクエストを送信してください。
-        instructions_3: 新しいパスワードを設定するための詳しい手順が記載されたメールが届いているか、受信トレイをご確認ください。
-        instructions_title: "<strong>あなたが行うべきこと</strong>"
-        set_password: パスワード設定を開始
-        subject: ユーザーグループの重要なアップデート
     user_report_mailer:
       notify:
         body_1: ユーザー %{user} が %{token} によって報告されました
@@ -2153,7 +2143,6 @@ ja:
     name_included_in_password: あなたの名前に似ています
     nickname_included_in_password: ニックネームに類似しすぎています
     not_enough_unique_characters: ユニークな文字が十分ではありません
-    password_not_allowed: は許可されていません
     password_repeated: 古いパスワードは再利用できません
     password_too_common: あまりにも一般的です
     password_too_long: 長すぎます

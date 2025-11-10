@@ -824,7 +824,6 @@ gl:
     name_included_in_password: é moi similar ao teu nome
     nickname_included_in_password: é moi semellante ao teu alcume
     not_enough_unique_characters: non ten suficientes caracteres únicos
-    password_not_allowed: non está permitido
     password_too_common: é moi común
     password_too_long: é demasiado longo
     password_too_short: é demasiado curto

@@ -15,8 +15,6 @@ el:
             description: Περιγραφή
             tos: Όροι χρήσης υπηρεσίας
         questionnaires:
-          actions:
-            back: Επιστροφή στις ερωτήσεις
           display_condition:
             condition_question: Ερώτηση
             condition_type: Συνθήκη
@@ -51,29 +49,23 @@ el:
             any: Οποιαδήποτε
             collapse: Σύμπτυξη
             description: Περιγραφή
-            down: Κάτω
             expand: Ανάπτυξη
             question: Ερώτηση
             remove: Κατάργηση
             statement: Δήλωση
-            up: Επάνω
           responses:
             actions:
               show: Εμφάνιση απαντήσεων
           separator:
-            down: Κάτω
             remove: Κατάργηση
             separator: Διαχωριστικό
-            up: Επάνω
           title_and_description:
             collapse: Σύμπτυξη
             description: Περιγραφή
-            down: Κάτω
             expand: Ανάπτυξη
             remove: Αφαίρεση
             title: Τίτλος
             title_and_description: Τίτλος και περιγραφή
-            up: Πάνω
           update:
             invalid: Υπήρξε ένα πρόβλημα κατά την αποθήκευση της φόρμας.
             success: Η φόρμα αποθηκεύτηκε επιτυχώς.

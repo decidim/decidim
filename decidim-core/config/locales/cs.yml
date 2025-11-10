@@ -1738,15 +1738,8 @@ cs:
         body_1: 'Kontaktujeme vás, abychom vás informovali o důležité aktualizaci uživatelské skupiny, kterou jste členem: <strong>%{group_name}</strong>.'
         greeting: Dobrý den %{name},
         instructions_1: Pokud máte přístup k tomuto e-mailovému účtu, zkontrolujte prosím svou doručenou poštu pro pokyny.
-        instructions_intro: Poslali jsme pokyny na e-mail přidružený k účtu pro nastavení nového hesla k profilu.
-        instructions_title: "<strong>Co to pro vás znamená</strong>"
       notify_deprecation_to_owner:
-        body_3: Abyste mohli pokračovat v přístupu k vašemu účtu, musíte nastavit heslo.
         greeting: Dobrý den %{name},
-        instructions_1: 'Klikněte na odkaz níže pro spuštění procesu nastavení hesla:'
-        instructions_title: "<strong>Co potřebujete udělat</strong>"
-        set_password: Začít proces nastavení hesla
-        subject: Důležitá aktualizace uživatelské skupiny
     user_report_mailer:
       notify:
         body_1: Uživatel %{user} byl nahlášen od %{token}
@@ -2123,6 +2116,7 @@ cs:
         social_media: Sociální sítě
         terms_of_service: Podmínky služby
       header:
+        back: Zpět
         close: Zavřít‏
         confirm_close_ephemeral_session: Pokud odejdete, vaše dočasná relace bude ukončena. Nicméně veškerý váš pokrok a aktivita budou uloženy. Pokud jste svou aktivitu dokončili, klikněte na tlačítko Ok.
         confirm_title_close_ephemeral_session: Před opuštěním této stránky…
@@ -2175,6 +2169,11 @@ cs:
   locale:
     name: Čeština
     name_with_error: Čeština (chyba!)
+  number:
+    currency:
+      format:
+        format: "%u %n"
+        format_html: "<span>%u</span> %n"
   password_validator:
     denied: je odepřen
     domain_included_in_password: je příliš podobné tomuto názvu domény
@@ -2183,7 +2182,6 @@ cs:
     name_included_in_password: je příliš podobné vašemu jménu
     nickname_included_in_password: je příliš podobné vaší přezdívce
     not_enough_unique_characters: nemá dostatek jedinečných znaků
-    password_not_allowed: není povoleno
     password_repeated: nelze znovu použít staré heslo
     password_too_common: je příliš běžné
     password_too_long: je to moc dlouhé

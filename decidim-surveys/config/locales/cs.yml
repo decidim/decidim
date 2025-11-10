@@ -114,10 +114,14 @@ cs:
       models:
         survey:
           fields:
+            published: Zveřejněno
             questions: Otázky
             responses: Odpovědi
             status: Status
             title: Název
+          published:
+            published: Zveřejněno
+            unpublished: Nezveřejněno
           status:
             closed: Uzavřeno
             open: Otevřeno

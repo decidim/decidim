@@ -110,7 +110,7 @@ module Decidim
       initializer "decidim_participatory_processes.static_pages" do
         config.to_prepare do
           Decidim::EventsManager.subscribe("decidim.system.create_organization:after") do |_event_name, data|
-            Decidim::ParticipatoryProcesses::CreateDemocraticQualityIndicatorsPage.call(data[:organization])
+            Decidim::ParticipatoryProcesses::CreateDemocraticQualityIndicatorsPage.call(data[:organization].id)
           end
         end
       end
