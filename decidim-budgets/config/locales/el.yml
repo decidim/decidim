@@ -266,13 +266,6 @@ el:
               disabled: Απενεργοποιημένη ψηφοφορία
               enabled: Η ψηφοφορία ενεργοποιήθηκε
               finished: Η ψηφοφορία ολοκληρώθηκε
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'Ο προϋπολογισμός %{resource_title} είναι τώρα ενεργός για το %{participatory_space_title}. Μπορείτε να τον δείτε από αυτή τη σελίδα:'
-          email_outro: Λάβατε αυτή την ειδοποίηση επειδή ακολουθείτε το %{participatory_space_title}. Μπορείτε να σταματήσετε να λαμβάνετε ειδοποιήσεις ακολουθώντας τον προηγούμενο σύνδεσμο.
-          email_subject: Ο προϋπολογισμός %{resource_title} είναι τώρα ενεργός για το %{participatory_space_title}.
-          notification_title: Ο προϋπολογισμός <a href="%{resource_path}">%{resource_title}</a> είναι τώρα ενεργός για το %{participatory_space_title}.
     orders:
       checkout:
         error: Υπήρξε ένα πρόβλημα κατά την επεξεργασία της ψήφου σας.

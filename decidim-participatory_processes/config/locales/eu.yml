@@ -11,6 +11,7 @@ eu:
         domain: Domeinua
         duplicate_categories: Kategoriak bikoiztu
         duplicate_components: Bikoiztu osagaiak
+        duplicate_landing_page_blocks: Bikoiztu lurreratze-orrien blokeak
         duplicate_steps: Bikoiztu urratsak
         end_date: Bukaera-data
         hero_image: Orri nagusiko irudia
@@ -204,13 +205,6 @@ eu:
             last_step: Ezin da ezabatu prozesuaren azken fasea.
           success: Partaidetza-prozesuaren fasea ondo ezabatua.
         edit:
-          cta_deprecated:
-            body_html: |-
-              CTAren konfigurazioa, partaidetza-prozesuaren fasearen bidez, zaharkituta dago diseinu berriarekin.
-              Orain, <b>Hasierako orrian</b> egiten da hori, <b>Irudi nagusia</b> eduki-blokea eta ekintza-botoia erabilita.
-              Hemen utzi dugu behar dituzun CTAak egin ditzazun. <i>Ekintzaren ibilbidea</i> eta
-              <i>Ekintza botoiaren</i> testuak hurrengo bertsioan ezabatuko dira.
-            title: CTA zaharkituta
           title: Editatu partaidetza-prozesuaren fasea
           update: Eguneratu
         index:
@@ -354,7 +348,7 @@ eu:
           id: Prozesu honen identifikatzaile bakarra
           local_area: Prozesuaren tokiko arloa. Hau da prozesua garatzen ari den erakundearen arloa.
           meta_scope: Prozesuaren eremu-metadatuak
-          participatory_process_group: Prozesuaren taldea, baldin badago
+          participatory_process_group: Prozesuaren taldea, baten parte bada
           participatory_process_type: Prozesu mota
           participatory_scope: Prozesuaren parte-hartze eremua
           participatory_structure: Prozesuaren partaidetza-egitura. Horrela erabakitzen da prozesua.
@@ -383,7 +377,7 @@ eu:
         html:
           name: HTML blokea
         html_1:
-          name: Lehen HTML blokea
+          name: Aurreneko HTML blokea
         html_2:
           name: Bigarren HTML blokea
         html_3:
@@ -401,7 +395,7 @@ eu:
             one: Prozesu bat
             other: "Prozesu bat"
       related_processes:
-        help: Hautatutako prozesu guztiak talde horri esleituko zaizkio, beste talde batzuei esleituta daudenak barne.
+        help: Hautatutako prozesu guztiak talde honi esleituko zaizkio, beste talde batzuei esleitutakoak barne.
       show:
         title: Partaidetza-prozesuen taldeak
     participatory_process_steps:
@@ -504,12 +498,8 @@ eu:
             visibility: Ikusgarritasuna
         participatory_process_imports:
           form:
-            document_legend: Gehitu dokumentu bat
+            document_legend: Dokumentu bat atxikitu
             slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
-        participatory_process_steps:
-          form:
-            cta_path_help_html: 'Erabili ibilbide partzialak, ez dira URL osoak hemen. Letrak, zenbakiak, gidoiak eta barrak onartzen ditu, eta letra batez hasi behar du. Bestela, ez da erakutsiko botoia. Adibidea: %{url}'
-            cta_text_help: Ezartzen bada, botoia ez da agertuko.
         participatory_processes:
           form:
             announcement_help: Hemen sartzen duzun testua parte-hartzaileari erakutsiko zaio, prozesuaren informazioaren azpian.
@@ -520,7 +510,7 @@ eu:
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             private_notice: Kiak kudeatu ahal izango dituzu pribatu gisa ezarri ondoren
             related_processes: Elkarrekin lotutako prozesuak
-            select_process_group: Hautatu prozesu-talde bat
+            select_process_group: Prozesu-talde bat hautatu
             slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
             taxonomies: Taxonomiak
             title: Informazio orokorra

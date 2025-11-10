@@ -248,25 +248,25 @@ eu:
           body: Iruzkin bera
           commentable_id: Iruzkingarriaren identifikazio bakarra
           commentable_type: Iruzkingarri mota (emaitza, proposamena... izan bazen)
-          created_at: Zein datatan sortu zen iruzkin hau
+          created_at: Zein datatan sortu da iruzkin hau
           depth: Iruzkin hau hiru iruzkinetan dago (erantzuna edo erantzunaren erantzuna bada)
           id: Identifikazioa iruzkin honetarako
           locale: Parte-hartzaileak iruzkin hau uzteko erabilitako lokala (hizkuntza)
           root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
         debates:
           author: Eztabaida honen egilearen data
-          closed_at: Zein datatan itxi zen eztabaida hau
-          comments: Eztabaida honek duen iruzkin kopurua
+          closed_at: Zein datatan itxi da eztabaida hau
+          comments: Eztabaida honen iruzkin kopurua
           comments_enabled: Eztabaida honek iruzkinak ditu baimenduta edo ez
           component: Emaitzaren osagaia honi dagokio
-          conclusions: Eztabaidaren ondorioak itxita bazegoen
+          conclusions: Eztabaidaren ondorioak itxita dago
           created_at: Zein datatan eta zein ordutan sortu zen eztabaida
           description: Eztabaidaren deskribapena
           end_time: Eztabaida hau amaitzen denean, eztabaida irekia bada eta denbora mugatua badu
           follows_count: Eztabaida honek duen jarraitzaile kopurua
           id: Eztabaidaren identifikatzaile bakarra
           information_updates: Egileak eztabaidari egin dizkion eguneraketak
-          instructions: Jarraibideak eztabaida honetan iruzkina egiteko
+          instructions: Eztabaida honetan iruzkina egiteko jarraibideak
           last_comment_at: Zein datatan aipatu zen eztabaida hau azkenekoz?
           last_comment_by: Eztabaidan egindako azken iruzkinaren datuak
           likes_count: Eztabaida honek duen like kopurua
@@ -275,7 +275,7 @@ eu:
           start_time: Eztabaida hau hasten denean, eztabaida irekia bada eta denbora mugatua badu
           taxonomies: Proiektuaren taxonomiak
           title: Eztabaidearen izenburua
-          updated_at: Eztabaida azken aldiz eguneratu zen eguna
+          updated_at: Eztabaida azken aldiz eguneratu den eguna
           url: Eztabaida hau URL honetan aurki daiteke
     statistics:
       debates_count: Eztabaidak

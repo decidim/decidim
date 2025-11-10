@@ -103,12 +103,10 @@ en:
             any: Any
             collapse: Collapse
             description: Description
-            down: Down
             expand: Expand
             question: Question
             remove: Remove
             statement: Statement
-            up: Up
           questions_form:
             already_responded_warning: The form is already responded by some users so you cannot modify its questions.
             collapse: Collapse all questions

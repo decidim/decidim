@@ -176,6 +176,7 @@ fi:
             can_accumulate_votes_beyond_threshold: Voi kerätä ääniä yli kynnysarvon
             clear_all: Tyhjennä kaikki
             collaborative_drafts_enabled: Yhteistyöluonnokset ovat käytössä
+            collaborative_drafts_enabled_help: Yhteistyöluonnokset-ominaisuus poistetaan Decidim-alustan versiossa 0.32. Organisaatioiden, jotka käyttävät tätä ominaisuutta, tulisi siirtyä käyttämään ehdotusten laatijat-ominaisuutta.
             comments_enabled: Kommentit käytössä
             comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
             default_sort_order: Ehdotuksen oletusjärjestys
@@ -257,7 +258,7 @@ fi:
             publish_answers_immediately_help_html: 'Huomioithan, että jos vastaat mihin tahansa ehdotukseen ilman tätä asetusta, sinun on julkaistava vastaukset manuaalisesti valitsemalla vastaukset sisältävät ehdotukset ja käyttämällä julkaisutoimintoa. Lisätietoja, miten tämä toimii, löytyy <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">dokumentaation osiosta ehdotuksiin vastaaminen</a>.'
             votes_blocked: Äänestys estetty
             votes_enabled: Äänet käytössä
-            votes_hidden: Piilotetut äänet (jos äänet ovat käytössä, tämä valitseminen piilottaa äänimäärän)
+            votes_hidden: Piilotetut äänet (jos äänet ovat käytössä, tämän valitseminen piilottaa äänimäärän)
     download_your_data:
       show:
         proposal_comments: Ehdotuksen kommenttien vienti
@@ -493,6 +494,7 @@ fi:
           deleted_proposals_info: Poistetut ehdotukset voidaan palauttaa roskakorista.
           preview: Esikatsele
           view_deleted_proposals: Näytä poistetut ehdotukset
+        deprecation_warning_collaborative_drafts_html: "⚠️ <b>Poistamisilmoitus</b> Yhteistyöluonnokset-ominaisuus poistetaan Decidim-alustan versiossa 0.32. Organisaatioiden, jotka käyttävät tätä ominaisuutta, tulisi siirtyä käyttämään ehdotusten laatijat-ominaisuutta."
         evaluation_assignments:
           create:
             invalid: Arvioijan määritys ehdotuksille epäonnistui.
