@@ -14,7 +14,7 @@ module Decidim
       describe "id" do
         let(:query) { "{ id }" }
 
-        it "returns the moderation's id" do
+        it "returns the static page's id" do
           expect(response).to eq("id" => model.id.to_s)
         end
       end
@@ -22,7 +22,7 @@ module Decidim
       describe "title" do
         let(:query) { '{ title { translation(locale: "en")}}' }
 
-        it "returns the attachment's title" do
+        it "returns the static page's title" do
           expect(response["title"]["translation"]).to eq(translated(model.title))
         end
       end
@@ -30,7 +30,7 @@ module Decidim
       describe "description" do
         let(:query) { '{ description { translation(locale: "en")}}' }
 
-        it "returns the attachment's description" do
+        it "returns the static page's description" do
           expect(response["description"]["translation"]).to eq(translated(model.description))
         end
       end
