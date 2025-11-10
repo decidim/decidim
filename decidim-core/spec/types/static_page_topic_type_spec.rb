@@ -7,6 +7,7 @@ module Decidim
   module Core
     describe StaticPageTopicType do
       include_context "with a graphql class type"
+      include_examples "timestamps interface"
 
       let!(:model) { create(:static_page_topic, show_in_footer: true) }
 
