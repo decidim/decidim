@@ -83,6 +83,18 @@ module Decidim
             expect(response["childrenCount"]).to eq(4)
           end
         end
+
+        describe "taxonomizationsCount" do
+          let(:query) { "{ taxonomizationsCount }" }
+          let(:model) { taxonomy }
+          let(:taxonomizable) { create(:dummy_resource) }
+          let!(:taxonomization) { create(:taxonomization, taxonomy: ) }
+          let!(:second_taxonomization) { create(:taxonomization, taxonomy: ) }
+
+          it "returns true" do
+            expect(response["taxonomizationsCount"]).to eq(2)
+          end
+        end
       end
     end
   end
