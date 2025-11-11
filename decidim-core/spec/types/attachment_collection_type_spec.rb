@@ -18,6 +18,26 @@ module Decidim
         end
       end
 
+      describe "attachments" do
+        let(:query) { "{ attachments { id } }" }
+
+        context "when the attachment collection has attachments" do
+          let!(:attachment) { create(:attachment, :with_image, attachment_collection: model) }
+
+          it "returns the attachment id field" do
+            expect(response["attachments"]).to eq(["id" => attachment.id.to_s])
+          end
+        end
+
+        context "when the attachment collection does not have attachments" do
+          let!(:attachment) { create(:attachment, :with_image) }
+
+          it "returns the attachment id field" do
+            expect(response["attachments"]).to be_empty
+          end
+        end
+      end
+
       describe "description" do
         let(:query) { '{ description { translation(locale: "en")}}' }
 
