@@ -15,8 +15,20 @@ module Decidim
       describe "content_type" do
         let(:query) { "{ contentType }" }
 
-        it "returns the content type field" do
-          expect(response["contentType"]).to eq(model.content_type)
+        context "when is a image returns image/jpeg" do
+          let(:model) { create(:attachment, :with_image) }
+
+          it "returns the type field" do
+            expect(response).to eq("contentType" => model.content_type)
+          end
+        end
+
+        context "when is a link returns text/uri-list" do
+          let(:model) { create(:attachment, :with_link) }
+
+          it "returns the type field" do
+            expect(response).to eq("contentType" => "text/uri-list")
+          end
         end
       end
 
@@ -88,8 +100,20 @@ module Decidim
       describe "type" do
         let(:query) { "{ type }" }
 
-        it "returns the type field" do
-          expect(response).to eq("type" => model.file_type)
+        context "when is a image returns jpeg" do
+          let(:model) { create(:attachment, :with_image) }
+
+          it "returns the type field" do
+            expect(response).to eq("type" => "jpeg")
+          end
+        end
+
+        context "when is a link returns link" do
+          let(:model) { create(:attachment, :with_link) }
+
+          it "returns the type field" do
+            expect(response).to eq("type" => "link")
+          end
         end
       end
 
