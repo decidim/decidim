@@ -63,7 +63,7 @@ module Decidim::Admin
         expect(step_settings.readonly_step_attribute).to be(true)
       end
 
-      it "broadcats :ok and does not update the weight" do
+      it "broadcasts :ok and does not update the weight" do
         expect do
           described_class.call(form, component)
         end.to broadcast(:ok)
