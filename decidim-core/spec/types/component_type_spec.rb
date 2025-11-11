@@ -6,9 +6,10 @@ require "decidim/api/test"
 module Decidim
   module Core
     describe ComponentType do
+      include_context "with a graphql class type"
+
       let(:model) { create(:dummy_component) }
 
-      include_context "with a graphql class type"
       include_examples "timestamps interface"
 
       describe "id" do
