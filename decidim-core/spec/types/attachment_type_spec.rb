@@ -15,7 +15,7 @@ module Decidim
       describe "content_type" do
         let(:query) { "{ contentType }" }
 
-        it "returns the content type of this attachment" do
+        it "returns the content type field" do
           expect(response["contentType"]).to eq(model.content_type)
         end
       end
@@ -23,7 +23,7 @@ module Decidim
       describe "description" do
         let(:query) { '{ description { translation(locale: "en")}}' }
 
-        it "returns the description of this attachment" do
+        it "returns the description field" do
           expect(response["description"]["translation"]).to eq(translated(model.description))
         end
       end
@@ -31,7 +31,7 @@ module Decidim
       describe "file_size" do
         let(:query) { "{ fileSize }" }
 
-        it "returns the file size of this attachment" do
+        it "returns the file size field" do
           expect(response["fileSize"]).to eq(model.file_size)
         end
       end
@@ -48,7 +48,7 @@ module Decidim
         let(:query) { "{ link }" }
         let(:model) { create(:attachment, :with_link) }
 
-        it "returns the link of this attachment" do
+        it "returns the link field" do
           expect(response).to eq("link" => model.link)
         end
 
@@ -64,7 +64,7 @@ module Decidim
       describe "thumbnail" do
         let(:query) { "{ thumbnail }" }
 
-        it "returns the thumbnail of this attachment" do
+        it "returns the thumbnail field" do
           expect(response).to eq("thumbnail" => model.thumbnail_url)
         end
 
@@ -80,7 +80,7 @@ module Decidim
       describe "title" do
         let(:query) { '{ title { translation(locale: "en")}}' }
 
-        it "returns the title of this attachment" do
+        it "returns the titleattachment field" do
           expect(response["title"]["translation"]).to eq(translated(model.title))
         end
       end
@@ -88,7 +88,7 @@ module Decidim
       describe "type" do
         let(:query) { "{ type }" }
 
-        it "returns the type of this attachment" do
+        it "returns the type field" do
           expect(response).to eq("type" => model.file_type)
         end
       end
@@ -96,7 +96,7 @@ module Decidim
       describe "url" do
         let(:query) { "{ url }" }
 
-        it "returns the url of this attachment" do
+        it "returns the url field" do
           expect(response).to eq("url" => model.url)
         end
       end
@@ -104,7 +104,7 @@ module Decidim
       describe "weight" do
         let(:query) { "{ weight }" }
 
-        it "returns the weight of this attachment" do
+        it "returns the weight field" do
           expect(response).to eq("weight" => model.weight)
         end
       end
