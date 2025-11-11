@@ -35,6 +35,8 @@ gem "decidim-dev", github: "decidim/decidim"
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
+# skip this command if you have run it before:
+bin/rails decidim:upgrade:clean:remove_private_exports_attachments
 ```
 
 ### 1.4. AWS/Azure/Google Cloud assets storage
@@ -66,6 +68,20 @@ The Sortitions module (`decidim-sortitions`) will be removed in v0.32. This modu
 #### Polls in Meetings (decidim-meetings polls functionality)
 
 The Polls feature within the Meetings module (`decidim-meetings`) will be removed in a future version (to be determined). This feature allowed meeting organizers to create polls during meetings. Organizations using meeting polls should plan to use external polling tools (for instance, through Jitsi) or migrate to other voting mechanisms available in Decidim, such as the new Elections module (`decidim-elections`).
+
+### 2.2. Old private exports are now expired
+
+Due to some data consistency issues with the private exports, we have decided to expire all the previously generated files. Users are able to request and receive a new private export file.
+
+if you are upgrading from a lover version like 0.30, and you have already ran this command, you can skip this step.
+
+Run the following command to expire all the private exports:
+
+```console
+bin/rails decidim:upgrade:clean:remove_private_exports_attachments
+```
+
+You can read more about this change on PR [#15020](https://github.com/decidim/decidim/pull/15020).
 
 ## 3. One time actions
 

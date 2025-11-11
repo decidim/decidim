@@ -37,6 +37,8 @@ module Decidim
     autoload :TraceVersionType, "decidim/api/types/trace_version_type"
     autoload :TranslatedFieldType, "decidim/api/types/translated_field_type"
     autoload :UserType, "decidim/api/types/user_type"
+    autoload :StaticPageType, "decidim/api/types/static_page_type"
+    autoload :StaticPageTopicType, "decidim/api/types/static_page_topic_type"
 
     autoload :BaseInputFilter, "decidim/api/input_filters/base_input_filter"
     autoload :CategoryInputFilter, "decidim/api/input_filters/category_input_filter"
