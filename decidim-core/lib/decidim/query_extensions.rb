@@ -89,7 +89,7 @@ module Decidim
     end
 
     def static_pages
-      context[:current_organization].static_pages_accessible_for(context[:current_user])
+      Decidim::StaticPage.accessible_for(context[:current_organization], context[:current_user])
     end
 
     def static_page_topics

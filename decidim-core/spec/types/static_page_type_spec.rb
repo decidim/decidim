@@ -6,10 +6,11 @@ require "decidim/api/test"
 module Decidim
   module Core
     describe StaticPageType do
+      include_context "with a graphql class type"
+
       let!(:model) { create(:static_page, :with_topic) }
       let!(:organization) { model.organization }
 
-      include_context "with a graphql class type"
       include_examples "timestamps interface"
 
       describe "id" do

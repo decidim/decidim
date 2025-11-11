@@ -6,10 +6,9 @@ require "decidim/api/test"
 module Decidim
   module Core
     describe StaticPageTopicType do
-      let!(:model) { create(:static_page_topic, show_in_footer: true) }
-
       include_context "with a graphql class type"
-      include_examples "timestamps interface"
+
+      let!(:model) { create(:static_page_topic, show_in_footer: true) }
 
       describe "id" do
         let(:query) { "{ id }" }
