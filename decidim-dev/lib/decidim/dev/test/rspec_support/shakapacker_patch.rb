@@ -8,7 +8,11 @@ module Shakapacker
       puts "*" * 80
       puts config_path.to_s
       puts File.exist?(config_path.to_s)
-      puts File.read(config_path.to_s).split.count
+      puts number_of_lines_in_config
+      if number_of_lines_in_config == 0
+        create_config_file
+      end
+      puts number_of_lines_in_config
       # puts YAML.load_file(config_path.to_s, aliases: true).inspect
 
       env = Rails&.env&.present? ? Rails.env : (ENV["RAILS_ENV"] || "test")
@@ -17,6 +21,25 @@ module Shakapacker
 
       envs = available_environments || {}
       env.presence_in(envs) || env
+    end
+
+    private
+
+    def number_of_lines_in_config
+      File.read(config_path.to_s).split.count
+    end
+
+    def create_config_file
+      runtime = Rails.application.root.join("tmp/shakapacker_runtime.yml")
+      FileUtils.mkdir_p(File.dirname(runtime))
+      File.write(runtime, <<~YAML)
+        default:
+          source_path: app/packs
+          public_output_path: packs-test
+          additional_paths: []
+        test:
+          <<: *default
+      YAML
     end
   end
 end
