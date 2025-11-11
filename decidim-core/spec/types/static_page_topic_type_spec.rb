@@ -43,11 +43,11 @@ module Decidim
       end
 
       describe "static_pages" do
-        let(:query) { "{ static_pages { id } }" }
+        let(:query) { "{ staticPages { id } }" }
 
         context "when the topic has no static pages" do
           it "returns the static pages object" do
-            expect(response["static_pages"]).to eq([])
+            expect(response["staticPages"]).to eq([])
           end
         end
 
@@ -55,7 +55,7 @@ module Decidim
           let!(:static_page) { create(:static_page, topic: model) }
 
           it "returns the pages object" do
-            expect(response["static_pages"]).to eq([{ "id" => static_page.id.to_s }])
+            expect(response["staticPages"]).to eq([{ "id" => static_page.id.to_s }])
           end
         end
       end
