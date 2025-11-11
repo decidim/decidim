@@ -2,6 +2,7 @@
 
 module Decidim
   module Core
+    # This type represents an attachment 
     class AttachmentType < Decidim::Api::Types::BaseObject
       description "A file attachment"
       implements Decidim::Core::TimestampsInterface

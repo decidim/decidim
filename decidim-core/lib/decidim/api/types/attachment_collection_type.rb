@@ -2,6 +2,7 @@
 
 module Decidim
   module Core
+    # This type represents an attachment collection 
     class AttachmentCollectionType < Decidim::Api::Types::BaseObject
       description "A file attachment collection"
 
