@@ -28,12 +28,18 @@ Decidim.register_component(:meetings) do |component|
   end
 
   component.register_stat :meetings_count,
-                          primary: true,
                           admin: false,
                           priority: Decidim::StatsRegistry::HIGH_PRIORITY,
                           icon_name: "map-pin-line",
                           tooltip_key: "meetings_count_tooltip" do |components, start_at, end_at|
-    meetings = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at).not_withdrawn
+    meetings = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at).published.not_withdrawn
+    meetings.count
+  end
+
+  component.register_stat :admin_meetings_count,
+                          primary: true,
+                          admin: false do |components, start_at, end_at|
+    meetings = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at)
     meetings.count
   end
 
@@ -41,7 +47,7 @@ Decidim.register_component(:meetings) do |component|
                           priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
                           icon_name: "map-pin-line",
                           tooltip_key: "meetings_count_tooltip" do |components, start_at, end_at|
-    meetings = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at).not_withdrawn
+    meetings = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at).published.not_withdrawn
     meetings.count
   end
 
@@ -50,7 +56,7 @@ Decidim.register_component(:meetings) do |component|
                           icon_name: "user-follow-line",
                           tooltip_key: "followers_count_tooltip",
                           priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
-    meetings_ids = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at).pluck(:id)
+    meetings_ids = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at).published.pluck(:id)
     Decidim::Follow.where(decidim_followable_type: "Decidim::Meetings::Meeting", decidim_followable_id: meetings_ids).count
   end
 
@@ -59,7 +65,7 @@ Decidim.register_component(:meetings) do |component|
                           icon_name: "chat-1-line",
                           tooltip_key: "comments_count",
                           tag: :comments do |components, start_at, end_at|
-    meetings = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at).not_hidden
+    meetings = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at).published.not_hidden
     meetings.sum(:comments_count)
   end
 

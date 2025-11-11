@@ -45,6 +45,7 @@ require "decidim/core/menu"
 require "decidim/middleware/strip_x_forwarded_host"
 require "decidim/middleware/static_dispatcher"
 require "decidim/middleware/current_organization"
+require "decidim/shakapacker"
 require "decidim/webpacker"
 
 module Decidim
@@ -228,8 +229,8 @@ module Decidim
         Decidim.icons.register(name: "facebook-circle-line", icon: "facebook-circle-line", category: "social icon", description: "", engine: :core)
       end
 
-      initializer "decidim_core.patch_webpacker", before: "shakapacker.version_checker" do
-        ENV["SHAKAPACKER_CONFIG"] = Decidim::Webpacker.configuration.configuration_file
+      initializer "decidim_core.patch_shakapacker", before: "shakapacker.version_checker" do
+        ENV["SHAKAPACKER_CONFIG"] = Decidim::Shakapacker.configuration.configuration_file
       end
 
       # Rails 7.0 default is vips, but
@@ -487,6 +488,7 @@ module Decidim
       end
 
       initializer "decidim_core.add_cells_view_paths" do
+        Cell::ViewModel.view_paths << Rails.root.join("app/views") # for partials
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/cells/amendable")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/views") # for partials

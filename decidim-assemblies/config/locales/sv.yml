@@ -37,7 +37,7 @@ sv:
         meta_scope: Omfattning
         parent_id: Överordnat samråd
         participatory_processes_ids: Relaterade deltagandeprocesser
-        participatory_scope: Vad bestäms
+        participatory_scope: Vad beslutas
         participatory_structure: Hur fattas beslut
         private_space: Privat utrymme
         promoted: Utvald
@@ -47,7 +47,7 @@ sv:
         slug: URL-slug
         special_features: Specialfunktioner
         subtitle: Underrubrik
-        target: Vem deltar
+        target: Vilka deltar
         title: Titel
         twitter: X
         weight: Position i listan
@@ -280,11 +280,11 @@ sv:
           area_name: Område
           closing_date: Slutdatum
           created_by: Skapad av
-          creation_date: Skapad
+          creation_date: Startdatum
           data: Data från samråd
           developer_group: Arrangör
           duration: Varaktighet
-          included_at: Inkluderad
+          included_at: Publicerad
           indefinite_duration: Permanent
           local_area: Område
           meta_scope: Indelning
@@ -313,9 +313,9 @@ sv:
         related_assemblies:
           name: Relaterade samråd
       created_by:
-        city_council: Stadsfullmäktige
+        city_council: Staden
         others: Övriga
-        public: Offentligt
+        public: Medborgare
       filter:
         all: Alla typer
         commission: Kommission

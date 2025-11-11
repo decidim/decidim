@@ -16,7 +16,12 @@ describe "AdminAccess" do
     let(:participatory_space_path) { decidim_participatory_processes.participatory_process_path(participatory_space) }
 
     it_behaves_like "admin participatory space access"
-    it_behaves_like "admin participatory space edit button"
+
+    describe "edit button" do
+      let(:target_path) { decidim_admin_participatory_processes.edit_participatory_process_landing_page_path(participatory_space) }
+
+      it_behaves_like "admin participatory space edit button"
+    end
   end
 
   context "with participatory space evaluator" do

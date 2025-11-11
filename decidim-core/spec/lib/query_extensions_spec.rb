@@ -73,6 +73,82 @@ module Decidim
         end
       end
 
+      describe "static_pages" do
+        let!(:model) { create(:static_page, :with_topic, organization: current_organization) }
+
+        let(:query) do
+          %({
+            staticPages{
+              content {
+                translation(locale: "en")
+              }
+              createdAt
+              id
+              title {
+                translation(locale: "en")
+              }
+              topic {
+                id
+              }
+              updatedAt
+              url
+            }
+          })
+        end
+
+        it "returns all the static pages" do
+          expect(response["staticPages"].last).to include(
+            "content" => {
+              "translation" => translated(model.content)
+            },
+            "createdAt" => model.created_at.to_time.iso8601,
+            "id" => model.id.to_s,
+            "title" => {
+              "translation" => translated(model.title)
+            },
+            "topic" => {
+              "id" => model.topic.id.to_s
+            },
+            "updatedAt" => model.updated_at.to_time.iso8601,
+            "url" => Decidim::EngineRouter.new("decidim", { host: current_organization.host }).page_url(model.reload)
+          )
+        end
+      end
+
+      describe "static_page_topic" do
+        let!(:model) { create(:static_page, :with_topic, organization: current_organization) }
+
+        let(:static_page_topic) { model.topic }
+
+        let(:query) do
+          %({
+            staticPageTopics{
+              description{
+                translation(locale: "en")
+              }
+              id
+              showInFooter
+              title {
+                translation(locale: "en")
+              }
+            }
+          })
+        end
+
+        it "returns all the static page topics" do
+          expect(response["staticPageTopics"]).to include(
+            "description" => {
+              "translation" => translated(static_page_topic.description)
+            },
+            "id" => static_page_topic.id.to_s,
+            "showInFooter" => static_page_topic.show_in_footer,
+            "title" => {
+              "translation" => translated(static_page_topic.title)
+            }
+          )
+        end
+      end
+
       describe "users with empty exclusion list" do
         let!(:user1) { create(:user, :confirmed, organization: current_organization) }
         let!(:user2) { create(:user, :confirmed, organization: current_organization) }
@@ -133,6 +209,43 @@ module Decidim
           expect(response["users"]).not_to include("id" => user4.id.to_s)
           expect(response["users"]).not_to include("id" => user5.id.to_s)
           expect(response["users"]).not_to include("id" => user6.id.to_s)
+        end
+      end
+
+      describe "participant_details" do
+        include_context "with a graphql class type"
+
+        let!(:participant) { create(:user, :confirmed, organization: current_organization) }
+        let(:query) { %({ participantDetails(id: #{participant.id}){email name nickname}} ) }
+        let(:user_type) { :user }
+
+        let!(:current_user) do
+          case user_type
+          when :admin
+            create(:user, :admin, :confirmed, organization: current_organization)
+          when :api_user
+            create(:api_user, organization: current_organization)
+          else
+            create(:user, :confirmed, organization: current_organization)
+          end
+        end
+
+        context "with unauthorized user" do
+          it "does not show participant details" do
+            expect(response["participantDetails"]).to be_nil
+          end
+        end
+
+        context "with an admin user" do
+          let!(:user_type) { :admin }
+
+          it_behaves_like "loggable participant details"
+        end
+
+        context "with an api user" do
+          let!(:user_type) { :api_user }
+
+          it_behaves_like "loggable participant details"
         end
       end
     end

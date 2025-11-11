@@ -49,24 +49,33 @@
   }
 }
 
-.questionnaire-question {
-  button[aria-expanded="true"] {
-    .icon-collapse {
-      @apply block;
+.questionnaire-questions {
+  .questionnaire-question {
+    transition: all 0.2s ease;
+
+    svg[role="img"] {
+      cursor: default !important;
+      transition: color 0.2s ease;
     }
 
-    .icon-expand {
-      @apply hidden;
-    }
-  }
+    button[aria-expanded="true"] {
+      .icon-collapse {
+        @apply block;
+      }
 
-  button[aria-expanded="false"] {
-    .icon-collapse {
-      @apply hidden;
+      .icon-expand {
+        @apply hidden;
+      }
     }
 
-    .icon-expand {
-      @apply block;
+    button[aria-expanded="false"] {
+      .icon-collapse {
+        @apply hidden;
+      }
+
+      .icon-expand {
+        @apply block;
+      }
     }
   }
 }

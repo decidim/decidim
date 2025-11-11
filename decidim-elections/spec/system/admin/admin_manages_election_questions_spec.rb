@@ -73,30 +73,127 @@ describe "Admin manages elections questions" do
     end
   end
 
-  context "when admin user edits and reorders" do
-    let!(:question) { create(:election_question, :with_response_options, election:) }
-    let!(:second_question) { create(:election_question, :with_response_options, election:) }
+  context "when reordering questions with drag and drop", :js do
+    let!(:question1) do
+      create(:election_question, election:, body: first_body, position: 0)
+    end
 
-    it "edits a question with response options" do
+    let!(:question2) do
+      create(:election_question, election:, body: second_body, position: 1)
+    end
+
+    let!(:question3) do
+      create(:election_question, election:, body: third_body, position: 2)
+    end
+
+    let(:first_body) do
+      { en: "First", ca: "Primera", es: "Primera" }
+    end
+
+    let(:second_body) do
+      { en: "Second", ca: "Segona", es: "Segunda" }
+    end
+
+    let(:third_body) do
+      { en: "Third", ca: "Tercera", es: "Tercera" }
+    end
+
+    before do
       visit questions_edit_path
-      find("#questionnaire_question_#{question.id}-button").click
+      expand_all_questions
+    end
 
-      within "#accordion-questionnaire_question_#{question.id}-field" do
-        fill_in find_nested_form_field_locator("body_en"), with: "This is the edited question"
+    it "allows moving questions using drag and drop" do
+      question_cards = all(".questionnaire-question")
+
+      question_cards.each do |card|
+        question_id = card[:id].split("_").last
+        question_id = question_id.gsub("-field", "")
+        expect(card.find("input[name='questions[#{question_id}][body_en]']").value).to be_present
       end
 
-      click_on "Up"
+      page.execute_script(<<~JS)
+        var questions = document.querySelectorAll('.questionnaire-question');
+        var container = questions[0].parentNode;
+        var second = questions[1];
+        var first = questions[0];
 
-      click_on "Save and continue"
+        container.insertBefore(second, first);
 
-      expect(page).to have_admin_callout("successfully")
+        var updatedQuestions = container.querySelectorAll('.questionnaire-question');
+        updatedQuestions.forEach(function(question, index) {
+          var positionInput = question.querySelector('input[name$="[position]"]');
+          if (positionInput) positionInput.value = index;
+        });
+      JS
 
+      sleep 0.5
+
+      question_cards.each do |card|
+        question_id = card[:id].split("_").last
+        question_id = question_id.gsub("-field", "")
+        expect(card.find("input[name='questions[#{question_id}][body_en]']").value).to be_present
+      end
+    end
+
+    it "persists drag and drop changes when saving" do
+      response_options_body = [
+        ["This is the Q1 first option", "This is the Q1 second option", "This is the Q1 third option"],
+        ["This is the Q2 first option", "This is the Q2 second option", "This is the Q2 third option"],
+        ["This is the Q3 first option", "This is the Q3 second option", "This is the Q3 third option"]
+      ]
+
+      page.all(".questionnaire-question").each do |question|
+        within question do
+          select "Single option", from: "Type"
+        end
+      end
+
+      page.all(".questionnaire-question").each_with_index do |question, question_idx|
+        question.all(".questionnaire-question-response-option").each_with_index do |question_response_option, response_option_idx|
+          within question_response_option do
+            fill_in find_nested_form_field_locator("body_en"), with: response_options_body[question_idx][response_option_idx]
+          end
+        end
+      end
+
+      page.execute_script(<<~JS)
+        var questions = document.querySelectorAll('.questionnaire-question');
+        var container = questions[0].parentNode;
+        var second = questions[1];
+
+        container.appendChild(second);
+
+        var updatedQuestions = container.querySelectorAll('.questionnaire-question');
+        updatedQuestions.forEach(function(question, index) {
+          var positionInput = question.querySelector('input[name$="[position]"]');
+          if (positionInput) positionInput.value = index;
+        });
+      JS
+
+      sleep 0.5
+
+      click_on "Save"
+      expect(page).to have_admin_callout("Questions updated successfully")
+
+      # Returned to the saved questions to see their different positions
       visit questions_edit_path
       expand_all_questions
 
-      expect(page).to have_css("input[value='This is the edited question']")
-      expect(election.questions.reload.first).to eq(second_question)
-      expect(election.questions.second).to eq(question)
+      question_cards = all(".questionnaire-question")
+
+      within question_cards[0] do
+        question_id = question_cards[0][:id].split("_").last.gsub("-field", "")
+        expect(find("input[name='questions[#{question_id}][body_en]']").value).to eq("First")
+      end
+      within question_cards[1] do
+        question_id = question_cards[1][:id].split("_").last.gsub("-field", "")
+        expect(find("input[name='questions[#{question_id}][body_en]']").value).to eq("Third")
+      end
+      within question_cards[2] do
+        question_id = question_cards[2][:id].split("_").last.gsub("-field", "")
+        expect(find("input[name='questions[#{question_id}][body_en]']").value).to eq("Second")
+      end
     end
   end
 

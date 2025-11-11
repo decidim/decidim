@@ -48,6 +48,7 @@ cs:
         customize_welcome_notification: Přizpůsobit uvítací oznámení
         default_locale: Výchozí jazyk
         description: Popis
+        enable_machine_translations: Povolit strojové překlady
         enable_omnipresent_banner: Zobrazit všudypřítomný banner
         enable_participatory_space_filters: Povolit filtry participačního prostoru
         facebook_handler: Facebook handler
@@ -591,6 +592,7 @@ cs:
         help_sections: Sekce nápovědy
         homepage: Rozložení domovské stránky
         impersonations: V zastoupení
+        insights: Přehledy
         manage: Spravovat
         moderation: Globální moderace
         newsletters: Zpravodaje
@@ -1342,5 +1344,7 @@ cs:
       admin:
         global_moderations:
           title: Globální moderace
+        insights:
+          title: Přehledy
         taxonomy_filters_selector:
           title: Filtry

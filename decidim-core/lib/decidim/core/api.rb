@@ -26,6 +26,7 @@ module Decidim
     autoload :FingerprintType, "decidim/api/types/fingerprint_type"
     autoload :LocalizedStringType, "decidim/api/types/localized_string_type"
     autoload :OrganizationType, "decidim/api/types/organization_type"
+    autoload :ParticipantDetailsType, "decidim/api/types/participant_details_type"
     autoload :ParticipatorySpaceType, "decidim/api/types/participatory_space_type"
     autoload :ParticipatorySpaceLinkType, "decidim/api/types/participatory_space_link_type"
     autoload :ParticipatorySpaceManifestType, "decidim/api/types/participatory_space_manifest_type"
@@ -36,6 +37,8 @@ module Decidim
     autoload :TraceVersionType, "decidim/api/types/trace_version_type"
     autoload :TranslatedFieldType, "decidim/api/types/translated_field_type"
     autoload :UserType, "decidim/api/types/user_type"
+    autoload :StaticPageType, "decidim/api/types/static_page_type"
+    autoload :StaticPageTopicType, "decidim/api/types/static_page_topic_type"
 
     autoload :BaseInputFilter, "decidim/api/input_filters/base_input_filter"
     autoload :CategoryInputFilter, "decidim/api/input_filters/category_input_filter"

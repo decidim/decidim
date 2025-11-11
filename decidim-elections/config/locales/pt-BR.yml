@@ -19,6 +19,7 @@ pt-BR:
             announcement: Anúncio
     elections:
       actions:
+        preview: Pré-visualização
         title: Ações
       admin:
         census:
@@ -59,6 +60,28 @@ pt-BR:
         statuses:
           publish_results:
             invalid: Ocorreu um erro ao publicar os resultados.
+      censuses:
+        token_csv_form:
+          email: E-mail
+      elections:
+        count:
+          elections_count:
+            one: "%{count} eleição"
+            other: "%{count} eleições"
+        filters:
+          all: Todos
+          state: Status
+          state_values:
+            finished: Finalizado
+            ongoing: Em andamento
+        orders:
+          recent: Recente
+        questions:
+          title: Perguntas eleitorais
+        show:
+          vote_button: Voto
+        vote_results:
+          title: Resultados
       models:
         election:
           fields:
@@ -68,6 +91,17 @@ pt-BR:
       status:
         active: Ativo
         finished: Finalizado
+        not_started: Não Iniciado
         ongoing: Em andamento
+      votes:
+        confirm:
+          title: Confirme seu voto
+        question:
+          back: Voltar
+          next: Próxima
     statistics:
       elections_count: Eleições
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Fechado

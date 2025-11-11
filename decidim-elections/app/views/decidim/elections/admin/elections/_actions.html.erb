@@ -58,6 +58,15 @@
 
       <hr>
 
+      <li class="dropdown__item">
+        <%= link_to resource_locator(election).path, class: "dropdown__button", target: :blank, data: { "external-link": false } do %>
+          <%= icon "eye-line" %>
+          <%= t("actions.preview", scope: "decidim.elections") %>
+        <% end %>
+      </li>
+
+      <hr>
+
       <% if allowed_to? :soft_delete, :election, trashable_deleted_resource: election %>
         <li class="dropdown__item">
           <%= link_to soft_delete_election_path(election), method: :patch, data: { confirm: t("actions.confirm_delete_election", scope: "decidim.elections") }, class: "dropdown__button" do %>

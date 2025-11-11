@@ -871,9 +871,14 @@ FactoryBot.define do
     end
     expires_at { 1.week.from_now }
     attached_to { create(:user, organization:, skip_injection:) }
-    export_type { "dummy" }
+    export_type { "download_your_data" }
     content_type { "application/zip" }
-    file_size { 10.kilobytes }
+    file_size { 208.bytes }
+    file { Decidim::Dev.test_file("dummy-export.zip", "application/zip") }
+
+    trait :expired do
+      expires_at { 1.week.ago }
+    end
   end
 
   factory :searchable_resource, class: "Decidim::SearchableResource" do

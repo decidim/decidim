@@ -54,7 +54,7 @@ ca:
             tos: Termes del servei
         questionnaires:
           actions:
-            back: Tornar a les preguntes
+            back: Tornar a les respostes
             publish_responses: Publicar les respostes
             show: Respostes
           display_condition:
@@ -102,12 +102,10 @@ ca:
             any: Cap
             collapse: Redueix
             description: Descripció
-            down: Avall
             expand: Expandeix
             question: Pregunta
             remove: Eliminar
             statement: Declaració
-            up: Amunt
           questions_form:
             already_responded_warning: L'enquesta ja està contestada per algunes usuàries i per tant no pots modificar les seves preguntes.
             collapse: Replega totes les preguntes
@@ -138,19 +136,15 @@ ca:
             show:
               title: 'Resposta #%{number}'
           separator:
-            down: Baixar
             remove: Eliminar
             separator: Separador
-            up: Pujar
           title_and_description:
             collapse: Replegar
             description: Descripció
-            down: Baixar
             expand: Expandir
             remove: Esborrar
             title: Títol
             title_and_description: Títol i descripció
-            up: Pujar
           update:
             invalid: S'ha produït un error en desar el formulari.
             success: Formulari desat correctament.

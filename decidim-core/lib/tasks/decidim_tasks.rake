@@ -5,9 +5,10 @@ namespace :decidim do
   task upgrade: [
     :choose_target_plugins,
     :"decidim:upgrade_app",
+    :"decidim:upgrade:shakapacker_npm",
     :"railties:install:migrations",
     :"decidim:upgrade:migrations",
-    :"decidim:upgrade:webpacker",
+    :"decidim:upgrade:shakapacker",
     :"decidim_api:generate_docs"
   ]
 
