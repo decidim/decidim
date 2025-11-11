@@ -7,10 +7,8 @@ module Decidim
 
       # Public: Exports a hash with the serialized data for the user response.
       def serialize
-        # Use 'resource' which is provided by the parent Serializer class
+        # Returns a csv export of surveys responses only if they have been published.
         response = resource
-        return {} unless response
-
         {
           id: response.session_token,
           created_at: response.created_at,
@@ -24,9 +22,11 @@ module Decidim
       private
 
       def question_text(response)
-        return "Unknown Question" if response.question.present?
-
-        "#{response.question.position}. #{translated_attribute(response.question.body)}"
+        if response.question.present?
+          "#{response.question.position}. #{translated_attribute(response.question.body)}"
+        else
+          ""
+        end
       end
 
       def normalize_body(response)
@@ -41,7 +41,6 @@ module Decidim
 
       def translated_attribute(attribute)
         if attribute.is_a?(Hash)
-          # Get translation for current locale, fallback to English, then first available
           attribute[I18n.locale.to_s] || attribute["en"] || attribute.values.first
         else
           attribute.to_s

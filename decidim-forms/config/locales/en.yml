@@ -35,8 +35,8 @@ en:
           response: The response to the question
           user: The user who responded the questionnaire
       show:
+        responses: Responses export
         survey_user_responses: Survey user responses
-        responses: Responses
     forms:
       admin:
         models:

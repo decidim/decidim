@@ -63,7 +63,6 @@ Decidim.register_component(:surveys) do |component|
   component.exports :survey_user_responses do |exports|
     exports.collection do |f|
       survey = Decidim::Surveys::Survey.find_by(component: f)
-      return [] unless survey&.questionnaire
 
       Decidim::Forms::QuestionnaireUserResponses.for(survey.questionnaire)
     end
@@ -72,10 +71,9 @@ Decidim.register_component(:surveys) do |component|
     exports.serializer Decidim::Forms::UserResponsesSerializer
   end
 
-  component.exports :public_survey_user_responses do |exports|
+  component.exports :published_survey_user_responses do |exports|
     exports.collection do |component|
       survey = Decidim::Surveys::Survey.find_by(component: component)
-      return Decidim::Forms::Response.none unless survey&.questionnaire
 
       Decidim::Forms::Response
         .joins(:question)
