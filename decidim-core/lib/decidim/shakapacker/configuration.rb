@@ -64,11 +64,7 @@ module Decidim
       end
 
       def configuration_file_path
-        @configuration_file_path ||= if ENV["CI"]
-                                       File.join(app_path, "tmp/shakapacker_runtime#{ENV.fetch("TEST_ENV_NUMBER", "")}.yml")
-                                     else
-                                       File.join(app_path, "tmp/shakapacker_runtime.yml")
-                                     end
+        @configuration_file_path ||= File.join(app_path, "tmp/shakapacker_runtime#{ENV.fetch("TEST_ENV_NUMBER", "")}.yml")
       end
 
       def original_configuration_file_path
