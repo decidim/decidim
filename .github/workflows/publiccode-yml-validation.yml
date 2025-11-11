@@ -1,7 +1,8 @@
 name: publiccode.yml validation
 
 on: [pull_request, push]
-
+permissions:
+  contents: read
 jobs:
   publiccode_yml_validation:
     runs-on: ubuntu-latest
