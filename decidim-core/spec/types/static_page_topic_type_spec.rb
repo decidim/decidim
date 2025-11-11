@@ -14,7 +14,7 @@ module Decidim
       describe "id" do
         let(:query) { "{ id }" }
 
-        it "returns the static page topic's id" do
+        it "returns the id field" do
           expect(response).to eq("id" => model.id.to_s)
         end
       end
@@ -22,7 +22,7 @@ module Decidim
       describe "title" do
         let(:query) { '{ title { translation(locale: "en")}}' }
 
-        it "returns the static page topic's title" do
+        it "returns the title field" do
           expect(response["title"]["translation"]).to eq(translated(model.title))
         end
       end
@@ -30,7 +30,7 @@ module Decidim
       describe "description" do
         let(:query) { '{ description { translation(locale: "en")}}' }
 
-        it "returns the static page topic's description" do
+        it "returns the description field" do
           expect(response["description"]["translation"]).to eq(translated(model.description))
         end
       end
@@ -38,7 +38,7 @@ module Decidim
       describe "showInFooter" do
         let(:query) { "{ showInFooter }" }
 
-        it "returns the static page topic's showInFooter" do
+        it "returns the showInFooter field" do
           expect(response["showInFooter"]).to be_truthy
         end
       end
