@@ -265,7 +265,7 @@ de:
           checked_out:
             description: Sie haben bereits über dieses Budget abgestimmt. Wenn Sie Ihre Meinung geändert haben, können Sie %{cancel_link}.
             title: Budget-Abstimmung abgeschlossen
-          vote: Gewähltes Budget
+          vote: Für Budget abstimmen
         count:
           projects_count:
             one: 1 Projekt
