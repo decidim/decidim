@@ -42,8 +42,7 @@ de:
           components:
             allow_editing_responses: Registrierten Benutzern die Bearbeitung eigener Umfrageantworten ermöglichen
             allow_responses: Antworten erlauben
-            allow_unregistered: Nicht registrierten Benutzern erlauben, die Umfrage zu beantworten
-            allow_unregistered_help: Wenn aktiviert, ist keine Anmeldung erforderlich, um die Umfrage zu beantworten. Dies kann zu schlechten oder unzuverlässigen Daten führen und ist anfälliger für automatisierte Angriffe. Verwenden Sie diese Funktion mit Vorsicht! Beachten Sie, dass ein Teilnehmer die gleiche Umfrage mehrfach beantworten kann, indem er verschiedene Browser oder die "Private Browsing"-Funktion ihres Web-Browsers nutzt.
+            allow_unregistered: Teilnahme an der Umfrage ohne Registrierung erlauben
             announcement: Ankündigung
             clean_after_publish: Antworten beim Veröffentlichen der Umfrage löschen
             description: Beschreibung
@@ -54,7 +53,6 @@ de:
             tos: Nutzungsbedingungen
         questionnaires:
           actions:
-            back: Zurück zu Fragen
             publish_responses: Antworten veröffentlichen
             show: Antworten
           display_condition:
@@ -102,12 +100,10 @@ de:
             any: Irgendein
             collapse: Einklappen
             description: Beschreibung
-            down: Nach unten
             expand: Ausklappen
             question: Frage
             remove: Löschen
             statement: Aussage
-            up: Oben
           questions_form:
             already_responded_warning: Das Formular wird von einigen Benutzern bereits beantwortet, weshalb Sie die Fragen nicht mehr ändern können.
             collapse: Alle Fragen einklappen
@@ -138,19 +134,15 @@ de:
             show:
               title: 'Antwort #%{number}'
           separator:
-            down: Runter
             remove: Löschen
             separator: Trennzeichen
-            up: Nach oben
           title_and_description:
             collapse: Einklappen
             description: Beschreibung
-            down: Runter
             expand: Ausklappen
             remove: Entfernen
             title: Titel
             title_and_description: Titel und Beschreibung
-            up: Hinauf
           update:
             invalid: Beim Speichern des Fragebogens sind Fehler aufgetreten.
             success: Formular erfolgreich gespeichert.

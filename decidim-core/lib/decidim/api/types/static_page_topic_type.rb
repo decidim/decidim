@@ -2,6 +2,7 @@
 
 module Decidim
   module Core
+    # This type represents a topic's page
     class StaticPageTopicType < Decidim::Api::Types::BaseObject
       description "The current organization static page topics"
 

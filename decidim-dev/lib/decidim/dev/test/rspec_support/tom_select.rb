@@ -9,11 +9,14 @@ module Capybara
     # a better way, we could try actually interacting with the on-screen tom-select-provided UI,
     # but we are taking the easy way out for now.
     #
-    # @param option_id can be the `id` value of an option in the select, OR for select multiple inputs,
-    #   can be an array of such IDs.
+    # @param select_selector [String] The CSS selector of the select element.
+    # @param option_id [String, Array<String>] The `id` value of an option in the select.
+    #   For selects with the `multiple` attribute, this can be an array of such IDs.
     #
-    # @example tom_select("#select_id", option_id: "2")
-    # @example tom_select("#select_id", option_id: ["2", "10"]) # `multiple` input.
+    # @example
+    #   tom_select("#select_id", option_id: "2")
+    # @example
+    #   tom_select("#select_id", option_id: ["2", "10"]) # For a `multiple` select input.
     def tom_select(select_selector, option_id:)
       js_str = %(document.querySelector("#{select_selector}").tomselect.setValue(#{option_id.inspect}))
       execute_script(js_str)

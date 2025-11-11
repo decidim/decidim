@@ -1056,7 +1056,6 @@
     name_included_in_password: er for likt navnet ditt
     nickname_included_in_password: er for likt kallenavnet ditt
     not_enough_unique_characters: har ikke nok unike tegn
-    password_not_allowed: er ikke tillatt
     password_too_common: er for vanlig
     password_too_long: er for lang
     password_too_short: er for kort

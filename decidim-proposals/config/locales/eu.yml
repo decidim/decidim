@@ -176,6 +176,7 @@ eu:
             can_accumulate_votes_beyond_threshold: Babesak metatu ditzake atalasetik haratago
             clear_all: Garbitu dena
             collaborative_drafts_enabled: Zirriborro kolaboratiboak gaituta
+            collaborative_drafts_enabled_help: Elkarlaneko zirriborroak Decidim v0.32an ezabatuko dira. Erabiltzen duten erakundeek proposamen berriaren egilekidetzara pasa daitezke.
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako ezarpenei eusteko)
             default_sort_order: Proposamenen hurrenkera lehenetsia
@@ -493,6 +494,7 @@ eu:
           deleted_proposals_info: Ezabatutako proposamenak berreskura daitezke zaborrontzitik.
           preview: Aurreikusi
           view_deleted_proposals: Ikusi ezabatutako proposamenak
+        deprecation_warning_collaborative_drafts_html: "⚠️ <b>Deprezazioaren Oharra. </b> Elkarlaneko Zirriborroak ezabatuko dira Decidim v0.32an. Erabiltzen duten erakundeek proposamen berriaren egilekidetzara pasa daitezke."
         evaluation_assignments:
           create:
             invalid: Arazo bat izan da proposamenak ebaluatzaile bati esleitzean.
@@ -952,7 +954,7 @@ eu:
           most_commented: Iruzkin gehien dituztenak
           most_followed: Jarraitzaile gehien dituztenak
           most_liked: Like gehien
-          most_voted: Bozkatuenak
+          most_voted: Gehien babestutakoak
           random: Ausazko ordena
           recent: Berrienetatik zaharrenetara
           with_more_authors: Egile gehiagorekin

@@ -44,6 +44,7 @@ ja:
           new_sortition: 新しいソート順
           show: 並べ替えの詳細
           title: アクション
+        deprecation_warning_html: "⚠️ <b>非推奨通知</b>。SortitionsモジュールはDecidim v0.32で削除される予定です。これに先立ち、適切な代替策を検討し、参加者や提案の選定方法について代替ソリューションを準備してください。"
         models:
           sortition:
             fields:

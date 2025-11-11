@@ -1577,7 +1577,6 @@ pt-BR:
     name_included_in_password: é muito parecido com o seu nome
     nickname_included_in_password: é muito parecido com o seu nome de usuário
     not_enough_unique_characters: não tem caracteres únicos suficientes
-    password_not_allowed: não é permitido
     password_repeated: não é possível reutilizar a senha antiga
     password_too_common: é muito comum
     password_too_long: é muito longo

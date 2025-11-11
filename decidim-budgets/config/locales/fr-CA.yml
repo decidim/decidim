@@ -376,13 +376,6 @@ fr-CA:
     download_your_data:
       show:
         projects: Export des projets
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'Le budget %{resource_title} est maintenant actif pour %{participatory_space_title}. Vous pouvez le voir sur cette page :'
-          email_outro: Vous recevez cette notification car vous suivez « %{participatory_space_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
-          email_subject: Le budget %{resource_title} est maintenant actif pour %{participatory_space_title}.
-          notification_title: Le budget <a href="%{resource_path}">%{resource_title}</a> est maintenant actif pour %{participatory_space_title}.
     open_data:
       help:
         projects:

@@ -199,6 +199,7 @@ en:
         success: Your account was successfully deleted.
       download_your_data_export:
         export_expired: The export has expired. Try to generate a new export.
+        export_not_found: The export you have accessed does not exist, or you do not have access to download it
         file_no_exists: File does not exist
         notice: The download of your data is currently in progress. You will receive an email when it is complete.
       email_change:
@@ -1156,6 +1157,7 @@ en:
         create_with_space: "%{user_name} created %{resource_name} in %{space_name}"
         delete: "%{user_name} deleted %{resource_name}"
         delete_with_space: "%{user_name} deleted %{resource_name} in %{space_name}"
+        publish: "%{user_name} published %{resource_name}"
         publish_with_space: "%{user_name} published %{resource_name} in %{space_name}"
         unknown_action: "%{user_name} performed some action on %{resource_name}"
         unknown_action_with_space: "%{user_name} performed some action on %{resource_name} in %{space_name}"
@@ -1744,6 +1746,16 @@ en:
         instructions_2: 'Share the login credentials (email: %{email} and the new password) with your colleagues.'
         instructions_title: "<strong>What you need to do</strong>"
         set_password: Set Your Password
+        subject: Important update regarding your Group profile
+      notify_user_group_patched:
+        body_1_html: We are reaching out to inform you about an important update regarding your Group profile on %{organization_name}.
+        body_2_html: As part of our efforts to simplify and improve the experience for organizations like yours, we are deprecating the "User Groups" feature. Your Group, <strong>%{name}</strong>, has been converted into a regular account.
+        body_3_html: To continue accessing your account and share access, we need you to set a new email and password. Please note that each member of your group will receive this email. To ensure continued access, you will need to agree internally on the shared credentials (email and password) that everyone will use.
+        greeting: Dear %{name},
+        instructions_1_html: 'Use the following temporary credentials to log in: <br><br> Username: <strong>%{email}</strong> <br> Password: <strong>%{password}</strong><br><br>'
+        instructions_2_html: Set a new email address and password.
+        instructions_3_html: Share the chosen login credentials with your colleagues so the entire group can continue accessing the account.
+        instructions_title_html: "<strong>What You Need to Do</strong>"
         subject: Important update regarding your Group profile
     user_report_mailer:
       notify:

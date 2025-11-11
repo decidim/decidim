@@ -45,6 +45,7 @@ eu:
           new_sortition: Beste zozketa bat
           show: Zozketaren xehetasunak
           title: Ekintzak
+        deprecation_warning_html: "⚠️ <b>Deprezazioaren Oharra.</b> Zozketen modulua ezabatuko da Decidim v0.32an. Mesedez, planifikatu eta pentsatu irtenbide alternatiboak parte-hartzailearentzat edo proposamenak hautatzeko."
         models:
           sortition:
             fields:

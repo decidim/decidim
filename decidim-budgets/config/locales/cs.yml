@@ -182,6 +182,7 @@ cs:
         cancel_order:
           more_than_one: smažte svůj hlas na %{name} a začněte znovu
           only_one: smazat váš hlas a začít znovu.
+        completed: Dokončeno
         count:
           one: "%{count} rozpočet"
           few: "%{count} rozpočty"
@@ -191,6 +192,7 @@ cs:
         finished_message: Dokončili jste hlasovací proces. Děkujeme za účast!
         highlighted_cta: Hlasovat na %{name}
         if_change_opinion: Pokud jste změnili názor, můžete
+        incomplete: Nedokončené
         orders:
           highest_cost: Nejvyšší náklady
           label: Seřadit rozpočty podle
@@ -198,6 +200,8 @@ cs:
           random: Náhodné pořadí
         progress: Dokončit hlasování
         remove_vote: Odebrat hlas
+        see_projects: Zobrazit projekty
+        see_results: Zobrazit výsledky
         show: Zobrazit projekty
         vote: Hlasovat
         voted_budgets: Hlasované rozpočty
@@ -252,6 +256,7 @@ cs:
           subject: Hlasovali jste o účastnickém prostoru %{space_name}
           voted_on_space: Hlasovali jste o rozpočtu %{budget_name} pro skupinu %{space_name}.
       projects:
+        back_to_budgets: Zpět do rozpočtů
         budget_confirm:
           are_you_sure: Pokud změníte názor, můžete svůj hlas později změnit.
           cancel: Zrušit
@@ -328,6 +333,7 @@ cs:
         select_projects: Přidat projekty
         show:
           budget: Rozpočet
+          votes: Hlasy
       prompt: Vybrat rozpočet
       vote_reminder_mailer:
         vote_reminder:
@@ -374,6 +380,11 @@ cs:
             vote_selected_projects_maximum: Maximální počet projektů, které mají být vybrány
             vote_selected_projects_minimum: Minimální počet projektů, které mají být vybrány
             vote_threshold_percent: Prahová hodnota pro hlasování v procentech
+            voting_rule: Pravidla hlasování
+            voting_rule_choices:
+              minimum_projects: Minimální počet projektů, o nichž se má hlasovat
+              selected_projects: Minimální a maximální počet projektů, o nichž se má hlasovat
+              threshold_percent: Minimální procento rozpočtu
             workflow: Pracovní postup
             workflow_choices:
               all: 'Hlasovat všude: umožňuje účastníkům hlasovat ve všech rozpočtech.'
@@ -404,13 +415,6 @@ cs:
           updated_at: Datum a čas, kdy byl pokyn aktualizován
       show:
         projects: Export projektů
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'Rozpočet %{resource_title} je nyní aktivní pro %{participatory_space_title}. Můžete jej vidět z této stránky:'
-          email_outro: Obdrželi jste toto oznámení, protože sledujete %{participatory_space_title}. Můžete přestat přijímat oznámení na předchozím odkazu.
-          email_subject: Rozpočet %{resource_title} je nyní aktivní pro %{participatory_space_title}.
-          notification_title: Rozpočet <a href="%{resource_path}">%{resource_title}</a> je nyní aktivní pro %{participatory_space_title}.
     open_data:
       help:
         projects:

@@ -6,15 +6,14 @@ require "decidim/api/test"
 module Decidim
   module Core
     describe StaticPageTopicType do
-      let!(:model) { create(:static_page_topic, show_in_footer: true) }
-
       include_context "with a graphql class type"
-      include_examples "timestamps interface"
+
+      let!(:model) { create(:static_page_topic, show_in_footer: true) }
 
       describe "id" do
         let(:query) { "{ id }" }
 
-        it "returns the static page's id" do
+        it "returns the id field" do
           expect(response).to eq("id" => model.id.to_s)
         end
       end
@@ -22,7 +21,7 @@ module Decidim
       describe "title" do
         let(:query) { '{ title { translation(locale: "en")}}' }
 
-        it "returns the static page's title" do
+        it "returns the title field" do
           expect(response["title"]["translation"]).to eq(translated(model.title))
         end
       end
@@ -30,7 +29,7 @@ module Decidim
       describe "description" do
         let(:query) { '{ description { translation(locale: "en")}}' }
 
-        it "returns the static page's description" do
+        it "returns the description field" do
           expect(response["description"]["translation"]).to eq(translated(model.description))
         end
       end
@@ -38,7 +37,7 @@ module Decidim
       describe "showInFooter" do
         let(:query) { "{ showInFooter }" }
 
-        it "returns the showInFooter" do
+        it "returns the showInFooter field" do
           expect(response["showInFooter"]).to be_truthy
         end
       end
