@@ -40,6 +40,10 @@ module Decidim
         argument :id, GraphQL::Types::ID, "The ID of the participant", required: true
         argument :nickname, GraphQL::Types::String, "The @nickname of the participant", required: false
       end
+      type.field :static_pages, type: [Decidim::Core::StaticPageType], null: true,
+                                description: "The static pages for the current organization"
+      type.field :static_page_topics, type: [Decidim::Core::StaticPageTopicType], null: true,
+                                      description: "The static page topic for the current organization"
     end
 
     def component(id: {})
@@ -82,6 +86,14 @@ module Decidim
       )
 
       participant
+    end
+
+    def static_pages
+      context[:current_organization].static_pages_accessible_for(context[:current_user])
+    end
+
+    def static_page_topics
+      static_pages.collect(&:topic).uniq.compact_blank
     end
   end
 end
