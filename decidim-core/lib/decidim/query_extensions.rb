@@ -43,7 +43,7 @@ module Decidim
       type.field :static_pages, type: [Decidim::Core::StaticPageType], null: true,
                                 description: "The static pages for the current organization"
       type.field :static_page_topics, type: [Decidim::Core::StaticPageTopicType], null: true,
-                                      description: "The static page topic for the current organization"
+                                      description: "The static page topics for the current organization"
     end
 
     def component(id: {})
