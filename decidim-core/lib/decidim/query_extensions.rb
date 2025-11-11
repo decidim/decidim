@@ -33,10 +33,6 @@ module Decidim
                                    description: "The moderated users for the current organization"
       type.field :moderations, type: [Decidim::Core::ModerationType], null: true,
                                description: "The moderation for the current organization"
-      type.field :static_pages, type: [Decidim::Core::StaticPageType], null: true,
-                                description: "The static pages for the current organization"
-      type.field :static_page_topics, type: [Decidim::Core::StaticPageTopicType], null: true,
-                                      description: "The static page topic for the current organization"
       type.field :participant_details, type: Decidim::Core::ParticipantDetailsType, null: true do
         description "Participant details visible to admin users only"
         argument :id, GraphQL::Types::ID, "The ID of the participant", required: true
@@ -79,14 +75,6 @@ module Decidim
 
     def moderations
       Decidim::Moderation.where(participatory_space: context[:current_organization].participatory_spaces).includes(:reports).hidden
-    end
-
-    def static_pages
-      Decidim::StaticPage.accessible_for(context[:current_organization], context[:current_user])
-    end
-
-    def static_page_topics
-      static_pages.collect(&:topic).uniq.compact_blank
     end
 
     def participant_details(id: nil, nickname: nil)
