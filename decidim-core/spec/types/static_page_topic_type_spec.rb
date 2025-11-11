@@ -41,6 +41,24 @@ module Decidim
           expect(response["showInFooter"]).to be_truthy
         end
       end
+
+      describe "pages" do
+        let(:query) { "{ pages { id } }" }
+
+        context "when the topic has no pages" do
+          it "returns the pages object" do
+            expect(response["pages"]).to eq([])
+          end
+        end
+
+        context "when the topic has pages" do
+          let!(:page) { create(:static_page, topic: model) }
+
+          it "returns the pages object" do
+            expect(response["pages"]).to eq([{ "id" => page.id.to_s }])
+          end
+        end
+      end
     end
   end
 end
