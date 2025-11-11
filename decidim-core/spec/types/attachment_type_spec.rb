@@ -80,7 +80,7 @@ module Decidim
       describe "title" do
         let(:query) { '{ title { translation(locale: "en")}}' }
 
-        it "returns the titleattachment field" do
+        it "returns the title field" do
           expect(response["title"]["translation"]).to eq(translated(model.title))
         end
       end
