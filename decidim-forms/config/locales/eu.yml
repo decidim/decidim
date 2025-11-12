@@ -43,7 +43,7 @@ eu:
           components:
             allow_answers: Baimendu erantzunak
             allow_editing_answers: Eman aukera erregistratutako parte-hartzaileei inkestako erantzunak editatzeko
-            allow_unregistered: Baimentzea erregistratu gabeko parte-hartzaileek inkesta erantzutea
+            allow_unregistered: Erregistratu gabeko parte-hartzaileek inkesta erantzutea
             allow_unregistered_help: Aktibatuta badago ez da beharrezkoa saioa hastea inkesta erantzuteko. Honen ondorioz datu eskas edo fidagarritasun gutxikoak bildu litezke. Kontuz erabili! Izan ere, parte-hartzaile berak hainbat aldiz erantzun litzake nabigatzaile desberdinetatik edo "nabigazio pribatuaren" aukera erabiliz.
             announcement: Oharra
             clean_after_publish: Ezabatu erantzunak inkesta argitaratzean
@@ -208,7 +208,7 @@ eu:
             body: Galdetegi honen ezaugarri batzuk desaktibatu egingo dira. Zure esperientzia hobetzeko, gaitu JavaScript zure nabigatzailean.
             title: Javascript desaktibatuta dago
           questionnaire_not_published:
-            body: Argitalpen hau oraindik ez da argitaratu.
+            body: Formulario hau ez da oraindik argitaratu.
           tos_agreement: Parte hartzean, haren zerbitzu-baldintzak onartzen dituzu
       step_navigation:
         show:
