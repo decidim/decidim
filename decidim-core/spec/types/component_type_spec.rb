@@ -6,15 +6,16 @@ require "decidim/api/test"
 module Decidim
   module Core
     describe ComponentType do
+      include_context "with a graphql class type"
+
       let(:model) { create(:dummy_component) }
 
-      include_context "with a graphql class type"
       include_examples "timestamps interface"
 
       describe "id" do
         let(:query) { "{ id }" }
 
-        it "returns the component's id" do
+        it "returns the id field" do
           expect(response).to eq("id" => model.id.to_s)
         end
       end
@@ -30,7 +31,7 @@ module Decidim
       describe "participatorySpace" do
         let(:query) { "{ participatorySpace { id } }" }
 
-        it "returns the component's participatorySpace" do
+        it "returns the participatorySpace field" do
           expect(response["participatorySpace"]["id"]).to eq(model.participatory_space.id.to_s)
         end
       end
@@ -38,7 +39,7 @@ module Decidim
       describe "visible" do
         let(:query) { "{ visible }" }
 
-        it "returns all the required fields" do
+        it "returns the visible field" do
           expect(response["visible"]).to be_truthy
         end
       end
@@ -56,7 +57,7 @@ module Decidim
       describe "url" do
         let(:query) { "{ url }" }
 
-        it "returns all the required fields" do
+        it "returns the url field" do
           expect(response["url"]).to eq(Decidim::EngineRouter.main_proxy(model).root_url)
         end
       end
@@ -64,7 +65,7 @@ module Decidim
       describe "weight" do
         let(:query) { "{ weight }" }
 
-        it "returns the components's weight" do
+        it "returns the weight field" do
           expect(response).to eq("weight" => model.weight)
         end
       end

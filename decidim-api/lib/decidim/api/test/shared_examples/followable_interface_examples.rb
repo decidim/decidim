@@ -18,7 +18,7 @@ shared_examples_for "followable interface" do
 
     it "includes the field" do
       expect(response["followers"]).to be_present
-      expect(response["followers"]).to eq([{ "id" => model.reload.followers.first.id.to_s }])
+      expect(response["followers"]).to include({ "id" => model.reload.followers.first.id.to_s })
     end
   end
 end

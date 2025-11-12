@@ -1,7 +1,7 @@
 /* eslint max-lines: ["error", 1100] */
 
 import { Application } from "@hotwired/stimulus"
-import Controller from "./controller"
+import Controller from "src/decidim/assemblies/controllers/assembly_admin/controller"
 
 describe("AssemblyAdminController", () => {
   let application = null;
