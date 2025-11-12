@@ -44,6 +44,10 @@ module Decidim
                                 description: "The static pages for the current organization"
       type.field :static_page_topics, type: [Decidim::Core::StaticPageTopicType], null: true,
                                       description: "The static page topics for the current organization"
+      type.field :moderated_users, type: [Decidim::Core::UserModerationType], null: true,
+                                   description: "The moderated users for the current organization"
+      type.field :moderations, type: [Decidim::Core::ModerationType], null: true,
+                               description: "The moderation for the current organization"
     end
 
     def component(id: {})
@@ -94,6 +98,14 @@ module Decidim
 
     def static_page_topics
       static_pages.collect(&:topic).uniq.compact_blank
+    end
+
+    def moderated_users
+      Decidim::UserModeration.joins(:user).where(decidim_users: { decidim_organization_id: context[:current_organization]&.id }).where.not(decidim_users: { blocked_at: nil })
+    end
+
+    def moderations
+      Decidim::Moderation.where(participatory_space: context[:current_organization].participatory_spaces).includes(:reports).hidden
     end
   end
 end
