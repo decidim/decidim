@@ -79,6 +79,7 @@ Decidim.register_component(:surveys) do |component|
         .joins(:question)
         .where(questionnaire: survey.questionnaire)
         .where.not(decidim_forms_questions: { question_type: %w(separator title_and_description) })
+        .where.not(decidim_forms_questions: { survey_responses_published_at: nil })
         .includes(:question, :choices, :user)
     end
 
