@@ -712,7 +712,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     moderation
-    user { build(:user, :confirmed, organization: moderation.reportable.organization, skip_injection:) }
+    user { build(:user, organization: moderation.reportable.organization, skip_injection:) }
     reason { "spam" }
   end
 
@@ -956,7 +956,7 @@ FactoryBot.define do
     end
     reason { "spam" }
     moderation { create(:user_moderation, user:, skip_injection:) }
-    user { build(:user, :confirmed) }
+    user { build(:user) }
   end
 
   factory :user_moderation, class: "Decidim::UserModeration" do
