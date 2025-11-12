@@ -105,6 +105,10 @@ cs:
             published: Zveřejněno
             suggestions: Přijmout návrhy
             title: Název
+      suggestion:
+        add_html: <span class="type">Přidat:</span> <span class="text">%{text}</span>
+        remove_html: <span class="type">Odstranit:</span> <span class="text">%{text}</span>
+        replace_html: <span class="type">Nahradit:</span> <span class="text">%{text}</span>
       suggestions:
         create:
           invalid: Při vytváření návrhu došlo k chybě.
