@@ -12,6 +12,10 @@ module Decidim
 
     default_scope { order(created_at: :desc) }
 
+    before_create do |record|
+      record.uuid = SecureRandom.uuid
+    end
+
     def expired?
       expires_at < Time.zone.now
     end

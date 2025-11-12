@@ -24,7 +24,8 @@ describe EtiquetteValidator do
     [
       %(I am a very reasonable body, ain't I? I have the right length, the right style, the right words. Yup.),
       %("Validate bodies", they said. "It is gonna be fun!", they said.),
-      %(I contain special characters because I am à la mode.)
+      %(I contain special characters because I am à la mode.),
+      %(À la mode, I want to contain special characters.)
     ].each do |a_body|
       describe "like \"#{a_body}\"" do
         let(:body) { a_body }
@@ -48,6 +49,12 @@ describe EtiquetteValidator do
     end
 
     context "when etiquette_validator is enabled" do
+      it { is_expected.to be_invalid }
+    end
+
+    context "when the text has non-ascii uppercase characters" do
+      let(:body) { "À ÑÓ ÂÊ" }
+
       it { is_expected.to be_invalid }
     end
   end
@@ -81,6 +88,12 @@ describe EtiquetteValidator do
   context "when the text is written starting in downcase" do
     context "with a single line body" do
       let(:body) { "i no care about grammar" }
+
+      it { is_expected.to be_invalid }
+    end
+
+    context "with non ascii characters" do
+      let(:body) { "à la mode, we start with a non-ascii character in downcase." }
 
       it { is_expected.to be_invalid }
     end

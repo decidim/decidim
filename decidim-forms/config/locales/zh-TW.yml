@@ -15,8 +15,6 @@ zh-TW:
             description: 說明
             tos: 服務條款
         questionnaires:
-          actions:
-            back: 返回問題
           display_condition:
             condition_question: 問題
             condition_type: 條件
@@ -51,29 +49,23 @@ zh-TW:
             any: 任何
             collapse: 收回
             description: 說明
-            down: 向下
             expand: 展開
             question: 問題
             remove: 移除
             statement: 聲明
-            up: 往上
           responses:
             actions:
               show: 顯示回應
           separator:
-            down: 向下
             remove: 移除
             separator: 分隔線
-            up: 往上
           title_and_description:
             collapse: 收回
             description: 說明
-            down: 向下
             expand: 展開
             remove: 移除
             title: 標題
             title_and_description: 標題和描述
-            up: 往上
           update:
             invalid: 儲存表單時發生問題。
             success: 表單已成功儲存。

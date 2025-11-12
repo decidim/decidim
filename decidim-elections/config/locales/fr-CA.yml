@@ -42,6 +42,10 @@ fr-CA:
           edit:
             created_at: Créée le
             identifier: Identifiant de l'utilisateur
+          preview:
+            title:
+              one: La liste de prévisualisation est limitée à %{count} enregistrement.
+              other: La liste de prévisualisation est limitée à %{count} enregistrements.
           update:
             error: Il y a eu une erreur lors de la génération ou de l'enregistrement du recensement.
             success: Recensement mis à jour avec succès.

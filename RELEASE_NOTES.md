@@ -35,17 +35,71 @@ gem "decidim-dev", github: "decidim/decidim"
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
+# skip this command if you have run it before:
+bin/rails decidim:upgrade:clean:remove_private_exports_attachments
 ```
 
-### 1.4. Follow the steps and commands detailed in these notes
+### 1.4. AWS/Azure/Google Cloud assets storage
+
+There is a bug related to the cache expiration using Active Storage (assets, such as images). For fixing this issue, the Rails team added an extra active storage parameter, `public: true` that you can add it to your storage configuration. If you followed the step `3.4. Deprecation of Rails.application.secrets` and changed your `config/storage.yml` file you don't need to do anything else.
+
+This will also change the URL that is used, so you will need to update your [Content Security Policy](https://docs.decidim.org/en/develop/customize/content_security_policy.html), adding the new URL in the policies "default-src", "img-src", "media-src", and "connect-src". For instance, in the case of S3 with AWS, the format of the URL is the following:  `https://BUCKET-NAME.s3.amazonaws.com/ASSET_ID`.
+
+Apart of that, you also need to configure your preferred cloud service provider to support this. We recommend you to follow the Rails official guide for [Active Storage configuration](https://guides.rubyonrails.org/v7.0/active_storage_overview.html#setup).
+
+You can read more about this change on PR [#15005](https://github.com/decidim/decidim/pull/15005/).
+
+### 1.5. Follow the steps and commands detailed in these notes
 
 ## 2. General notes
+
+### 2.1. Module deprecations
+
+As part of our ongoing efforts to improve and make simpler Decidim, the following modules will be **deprecated** in this version (v0.31) and **removed** in the next major version (v0.32):
+
+#### Collaborative Drafts
+
+The Collaborative Drafts feature in the Proposals module (`decidim-proposals`) will be removed in v0.32. Organizations using this feature can switch to the new proposal co-authorship feature.
+
+#### Sortitions (decidim-sortitions)
+
+The Sortitions module (`decidim-sortitions`) will be removed in v0.32. This module provided functionality to randomly select participants or proposals. Organizations relying on this feature should consider implementing alternative selection mechanisms.
+
+#### Polls in Meetings (decidim-meetings polls functionality)
+
+The Polls feature within the Meetings module (`decidim-meetings`) will be removed in a future version (to be determined). This feature allowed meeting organizers to create polls during meetings. Organizations using meeting polls should plan to use external polling tools (for instance, through Jitsi) or migrate to other voting mechanisms available in Decidim, such as the new Elections module (`decidim-elections`).
+
+### 2.2. Old private exports are now expired
+
+Due to some data consistency issues with the private exports, we have decided to expire all the previously generated files. Users are able to request and receive a new private export file.
+
+if you are upgrading from a lover version like 0.30, and you have already ran this command, you can skip this step.
+
+Run the following command to expire all the private exports:
+
+```console
+bin/rails decidim:upgrade:clean:remove_private_exports_attachments
+```
+
+You can read more about this change on PR [#15020](https://github.com/decidim/decidim/pull/15020).
 
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.
 
-### 3.1. [[TITLE OF THE ACTION]]
+### 3.1. Fix incorrect ActionLog entries
+
+The action of hiding a component from a menu was being stored as a public action. These can lead to crashing the application if some related participatory space is removed.
+
+In order to correct the existing entries you should run the following rake task:
+
+```bash
+bin/rails decidim:upgrade:fix_action_log
+```
+
+You can read more about this change on PR [#15390](https://github.com/decidim/decidim/pull/15390).
+
+### 3.2. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 

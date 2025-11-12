@@ -48,6 +48,7 @@ ja:
         customize_welcome_notification: ウェルカム通知をカスタマイズ
         default_locale: 既定のロケール：
         description: 説明
+        enable_machine_translations: 機械翻訳を有効にする
         enable_omnipresent_banner: Omnipresentバナーを表示
         enable_participatory_space_filters: 参加型スペースフィルタを有効にする
         facebook_handler: Facebook ハンドラー

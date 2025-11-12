@@ -135,7 +135,8 @@ describe "Filter Participatory Processes" do
           expect(page).to have_no_content(translated(process_without_taxonomy.title))
         end
 
-        within "#panel-dropdown-menu-taxonomy" do
+        within "#panel-dropdown-menu-taxonomy-#{taxonomy_filter.root_taxonomy_id}" do
+          click_filter_item "A great taxonomy"
           click_filter_item "Another taxonomy"
           sleep 2
         end
@@ -145,7 +146,7 @@ describe "Filter Participatory Processes" do
           expect(page).to have_no_content(translated(process_without_taxonomy.title))
         end
 
-        within "#panel-dropdown-menu-taxonomy" do
+        within "#panel-dropdown-menu-taxonomy-#{taxonomy_filter.root_taxonomy_id}" do
           click_filter_item "Another taxonomy"
           sleep 2
         end
@@ -153,6 +154,27 @@ describe "Filter Participatory Processes" do
         within "#processes-grid" do
           expect(page).to have_content(translated(process_with_taxonomy.title))
           expect(page).to have_content(translated(process_without_taxonomy.title))
+        end
+      end
+
+      it "collapses the accordions on click" do
+        within ".layout-2col__aside" do
+          expect(page).to have_content "Upcoming"
+          expect(page).to have_content "A great taxonomy"
+        end
+
+        click_on "Date"
+        click_on decidim_sanitize_translated taxonomy_filter.root_taxonomy.name
+
+        within ".layout-2col__aside" do
+          expect(page).to have_no_content "Upcoming"
+          expect(page).to have_no_content "A great taxonomy"
+        end
+
+        click_on decidim_sanitize_translated taxonomy_filter.root_taxonomy.name
+        within ".layout-2col__aside" do
+          expect(page).to have_no_content "Upcoming"
+          expect(page).to have_content "A great taxonomy"
         end
       end
     end

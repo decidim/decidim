@@ -9,18 +9,18 @@
     &-container {
       @apply w-24 h-24 relative;
     }
-
-    &-badge {
-      @apply absolute top-full right-0 -translate-y-full grid place-items-center w-6 h-6 rounded-full overflow-hidden bg-primary border border-white;
-
-      svg {
-        @apply w-4 h-4 text-white fill-current;
-      }
-    }
   }
 
   &__details {
     @apply pb-3 space-y-2;
+
+    &-badge {
+      @apply flex items-center gap-1 text-sm text-gray-2;
+
+      svg {
+        @apply w-4 h-4 inline-block bg-primary rounded-full text-white fill-current;
+      }
+    }
 
     &-data {
       @apply flex flex-wrap gap-x-6 gap-y-4;

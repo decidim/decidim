@@ -286,6 +286,7 @@ en:
         agenda: Agenda
         close: Close
         confirm_delete_meeting: Are you sure you want to delete this meeting?
+        confirm_unpublish_meeting: Are you sure you want to unpublish this meeting?
         deleted_meetings_info: Deleted meetings can be restored from the trash.
         edit: Edit
         invalid_destroy:
@@ -330,6 +331,7 @@ en:
           update:
             invalid: There was a problem updating this agenda.
             success: Agenda successfully updated.
+        deprecation_warning_polls_html: "⚠️ <b>Deprecation Notice.</b> The Polls feature will be removed in a future version (to be determined). Organizations using meeting polls should plan to use external polling tools (for instance, through Jitsi) or migrate to other voting mechanisms available in Decidim, such as the new Elections module (`decidim-elections`)."
         exports:
           meeting_comments: Comments
           meetings: Meetings
@@ -384,7 +386,9 @@ en:
             select_an_iframe_access_level: Please select an iframe access level
           index:
             linked_meeting_warning_html: This meeting must be edited from <br><a href="%{href}">%{name}</a>
+            published: Published
             title: Meetings
+            unpublished: Unpublished
           linked_spaces:
             assign: Assign
             link_a_space: Link a space
@@ -676,6 +680,7 @@ en:
             end_time: End date
             map: Map
             official_meeting: Official meeting
+            published: Published
             start_time: Start date
             taxonomies: Taxonomies
             title: Title
