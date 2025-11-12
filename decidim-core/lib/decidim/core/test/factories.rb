@@ -949,7 +949,7 @@ FactoryBot.define do
     end
     reason { "spam" }
     moderation { create(:user_moderation, user:, skip_injection:) }
-    user { build(:user) }
+    user { build(:user, :confirmed) }
   end
 
   factory :user_moderation, class: "Decidim::UserModeration" do
