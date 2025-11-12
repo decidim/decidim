@@ -37,6 +37,7 @@ bin/rails decidim:upgrade
 bin/rails db:migrate
 # skip this command if you have run it before:
 bin/rails decidim:upgrade:clean:remove_private_exports_attachments
+bin/rails data:migrate:up # Read more in 2.3. Add data migrations
 ```
 
 ### 1.4. AWS/Azure/Google Cloud assets storage
@@ -82,6 +83,55 @@ bin/rails decidim:upgrade:clean:remove_private_exports_attachments
 ```
 
 You can read more about this change on PR [#15020](https://github.com/decidim/decidim/pull/15020).
+
+### 2.3. Add data migrations
+
+As the need to migrate data increased, we need a more reliable way to migrate data. We have introduced data migrations, which are similar to schema migrations but they are run only when the database schema is up to date.
+
+To run the data migrations, run the following command:
+
+```console
+bin/rails data:migrate:up
+```
+
+To see the status of available data migrations, run the following command:
+
+```console
+bin/rails data:migrate:status
+```
+
+#### 2.3.1. Developer notes
+
+As you may need to run data migrations in your developed plugins, you can hook up to the data migration system by adding the following line to your gem's `engine.rb` file:
+
+```ruby
+ initializer "your_gem_name.data_migrate", after: "decidim_core.data_migrate" do
+    DataMigrate.configure do |config|
+      config.data_migrations_path << root.join("db/data").to_s
+    end
+  end
+```
+
+The migration files should be named following the pattern `YYYYMMDDHHMMSS_your_migration_name.rb`, and should be placed in the `db/data` folder. The structure of the migration should be something like:
+
+```ruby
+# frozen_string_literal: true
+
+class YourMigrationName < ActiveRecord::Migration[7.2]
+
+  # your custom classes should be defined here
+
+  def up
+    # your migration code
+  end
+
+  def down
+    raise ActiveRecord::IrreversibleMigration
+  end
+end
+```
+
+You can read more about this change on PR [#15501](https://github.com/decidim/decidim/pull/15501).
 
 ## 3. One time actions
 
