@@ -48,15 +48,24 @@ export default Link.extend({
       ...this.parent?.(),
 
       toggleLinkBubble: () => ({ dispatch }) => {
+        const { selection } = this.editor.state;
+        const isImageSelection = selection instanceof NodeSelection && selection.node.type.name === "image";
+        const imageHasLink = isImageSelection && Boolean(selection.node.attrs.href);
+
         if (dispatch) {
-          if (this.editor.isActive("link")) {
-            this.storage.bubbleMenu.show();
+          if (this.editor.isActive("link") || (isImageSelection && imageHasLink)) {
+            this.storage.bubbleMenu.handleSelectionChange(this.editor.view);
             return true;
           }
 
           this.storage.bubbleMenu.hide();
           return false;
         }
+
+        if (isImageSelection) {
+          return imageHasLink;
+        }
+
         return this.editor.isActive("link");
       },
 
@@ -126,7 +135,7 @@ export default Link.extend({
           }
 
           if (isImageSelection) {
-            return buildChain().updateAttributes("image", { href: href, target }).run();
+            return buildChain().updateAttributes("image", { href: href, target }).toggleLinkBubble().run();
           }
 
           return buildChain().setLink({ href: href, target }).toggleLinkBubble().run();
