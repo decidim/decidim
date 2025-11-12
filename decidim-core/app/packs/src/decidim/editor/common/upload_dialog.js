@@ -26,7 +26,7 @@ export default class UploadDialog {
     this.onOpen = onOpen;
     this.onClose = onClose;
 
-    this.values = { src: null, alt: null, href: null };
+    this.values = { src: null, alt: null, href: null, target: null };
     this.dropZoneEnabled = true;
     this.exitMode = "cancel";
 
@@ -104,11 +104,6 @@ export default class UploadDialog {
       if (titleInput) {
         this.values.alt = titleInput.value;
       }
-      const linkInput = this.inputSection.querySelector(".attachment-link");
-      if (linkInput) {
-        this.values.href = linkInput.value;
-      }
-
       if (this.onClose) {
         this.onClose(this);
       }
@@ -129,7 +124,12 @@ export default class UploadDialog {
 
     return new Promise((resolve) => {
       this.saveButton.disabled = true;
-      this.values = { src: values.src, alt: values.alt, href: values.href }
+      this.values = {
+        src: values.src ?? null,
+        alt: values.alt ?? null,
+        href: values.href ?? null,
+        target: values.target ?? null
+      };
 
       this.updateCurrentFile();
 
@@ -149,19 +149,12 @@ export default class UploadDialog {
             </div>
             <input class="attachment-title" type="text" name="alt" id="image-alt-input">
           </div>
-          <div class="row column mb-4">
-            <div>
-              <label for="image-link-input">${options.linkLabel || ""}</label>
-            </div>
-            <input class="attachment-link" type="url" name="href" id="image-link-input">
-          </div>
         </form>
       `;
 
       let titleSection = null;
       titleSection = createElement(`<div class="form__wrapper">${formInputsHtml}</div>`);
       titleSection.querySelector(".attachment-title").value = values.alt || "";
-      titleSection.querySelector(".attachment-link").value = values.href || "";
       this.inputSection.innerHTML = "";
       this.inputSection.append(titleSection);
 

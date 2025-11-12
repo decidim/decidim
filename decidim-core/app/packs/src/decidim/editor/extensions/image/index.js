@@ -81,7 +81,8 @@ export default Image.extend({
     return {
       ...this.parent?.(),
       width: { default: null },
-      href: { default: null }
+      href: { default: null },
+      target: { default: null }
     };
   },
 
@@ -93,14 +94,16 @@ export default Image.extend({
       ...this.parent?.(),
       imageDialog: () => async ({ dispatch }) => {
         if (dispatch) {
-          let { src, alt, width, href } = this.editor.getAttributes("image");
+          let { src, alt, width, href, target } = this.editor.getAttributes("image");
 
           this.editor.commands.toggleDialog(true);
-          const dialogState = await uploadDialog.toggle({ src, alt, href }, {
-            altLabel: i18n.altLabel,
-            linkLabel: i18n.linkLabel,
-            uploadHandler: async (file) => uploadImage(file, this.options.uploadImagesPath)
-          });
+          const dialogState = await uploadDialog.toggle(
+            { src, alt, href, target },
+            {
+              altLabel: i18n.altLabel,
+              uploadHandler: async (file) => uploadImage(file, this.options.uploadImagesPath)
+            }
+          );
           this.editor.commands.toggleDialog(false);
 
           if (dialogState !== "save") {
@@ -115,14 +118,7 @@ export default Image.extend({
 
           src = uploadDialog.getValue("src");
           alt = uploadDialog.getValue("alt");
-          href = uploadDialog.getValue("href");
-          
-          // Treat empty string as null (no link)
-          if (href === "" || !href) {
-            href = null;
-          }
-
-          return this.editor.chain().setImage({ src, alt, width, href }).focus(null, { scrollIntoView: false }).run();
+          return this.editor.chain().setImage({ src, alt, width, href, target }).focus(null, { scrollIntoView: false }).run();
         }
 
         return true;
@@ -143,7 +139,11 @@ export default Image.extend({
           const imageDiv = dom.closest("div[data-image]");
           const link = imageDiv?.parentElement;
           if (link && link.tagName === "A" && link.hasAttribute("href")) {
-            return { href: link.getAttribute("href") };
+            const attrs = { href: link.getAttribute("href") };
+            if (link.hasAttribute("target")) {
+              attrs.target = link.getAttribute("target");
+            }
+            return attrs;
           }
           return {};
         }
@@ -163,9 +163,19 @@ export default Image.extend({
     ];
 
     if (href) {
+      const anchorAttributes = {
+        href,
+        rel: "noopener noreferrer"
+      };
+      const anchorTarget = HTMLAttributes.target;
+      if (anchorTarget) {
+        anchorAttributes.target = anchorTarget;
+      } else {
+        Reflect.deleteProperty(anchorAttributes, "rel");
+      }
       return [
         "a",
-        { href, target: "_blank", rel: "noopener noreferrer" },
+        anchorAttributes,
         imageContent
       ];
     }
