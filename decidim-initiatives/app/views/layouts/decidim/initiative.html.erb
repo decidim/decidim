@@ -3,7 +3,7 @@
 
 <%= render "layouts/decidim/application" do %>
   <%= render layout: "layouts/decidim/shared/layout_center" do %>
-    <main>
+    <main role="main">
       <%= yield %>
     </main>
     <% if content_for? :expanded %>
