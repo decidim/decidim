@@ -31,14 +31,10 @@ describe Decidim::OpenDataExporter do
     end
     let!(:unpublished_survey) { create(:survey, component: unpublished_component) }
 
-    it "only exports responses from published surveys" do
-      Decidim::Surveys::Admin::PublishSurvey.call(published_survey)
-
-      subject.export
-
-      expect(File.exist?("#{path}/published-survey-user-responses.csv")).to be true
-
-      expect(CSV.read("#{path}/published-survey-user-responses.csv", headers: true).length).to eq(3)
+    before do
+      published_question.update(survey_responses_published_at: Time.current)
     end
+
+    it_behaves_like "open data exporter"
   end
 end
