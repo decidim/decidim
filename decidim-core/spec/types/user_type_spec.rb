@@ -149,7 +149,7 @@ module Decidim
       describe "organizationName" do
         let(:query) { '{ organizationName { translation(locale: "en") } } ' }
 
-        it "returns the user's organization name" do
+        it "returns the organization name field" do
           expect(response["organizationName"]["translation"]).to eq(translated(model.organization.name))
         end
       end
@@ -157,7 +157,7 @@ module Decidim
       describe "followersCount" do
         let(:query) { "{ followersCount }" }
 
-        it "returns the user's followers count" do
+        it "returns the followers count field" do
           expect(response).to include("followersCount" => model.followers.count)
         end
       end
@@ -165,7 +165,7 @@ module Decidim
       describe "followingCount" do
         let(:query) { "{ followingCount }" }
 
-        it "returns the user's following count" do
+        it "returns the following count field" do
           expect(response).to include("followingCount" => model.following_count)
         end
       end
@@ -173,7 +173,7 @@ module Decidim
       describe "followsCount" do
         let(:query) { "{ followsCount }" }
 
-        it "returns the user's follows count" do
+        it "returns the follows count field" do
           expect(response).to include("followsCount" => model.follows.count)
         end
       end
@@ -181,7 +181,7 @@ module Decidim
       describe "about" do
         let(:query) { "{ about }" }
 
-        it "returns the user's about" do
+        it "returns the about about" do
           expect(response).to include("about" => model.about)
         end
       end
@@ -189,7 +189,7 @@ module Decidim
       describe "personalUrl" do
         let(:query) { "{ personalUrl }" }
 
-        it "returns the user's personal url" do
+        it "returns the personal url field" do
           expect(response).to include("personalUrl" => model.personal_url)
         end
       end
