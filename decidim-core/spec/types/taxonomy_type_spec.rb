@@ -79,7 +79,7 @@ module Decidim
         describe "childrenCount" do
           let(:query) { "{ childrenCount }" }
 
-          it "returns true" do
+          it "returns the childrenCount field" do
             expect(response["childrenCount"]).to eq(4)
           end
         end
@@ -91,7 +91,7 @@ module Decidim
           let!(:taxonomization) { create(:taxonomization, taxonomy:) }
           let!(:second_taxonomization) { create(:taxonomization, taxonomy:) }
 
-          it "returns true" do
+          it "returns the taxonomizationsCount field" do
             expect(response["taxonomizationsCount"]).to eq(2)
           end
         end
