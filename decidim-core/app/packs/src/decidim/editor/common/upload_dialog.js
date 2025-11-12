@@ -26,7 +26,7 @@ export default class UploadDialog {
     this.onOpen = onOpen;
     this.onClose = onClose;
 
-    this.values = { src: null, alt: null, href: null, target: null };
+    this.values = { src: null, alt: null };
     this.dropZoneEnabled = true;
     this.exitMode = "cancel";
 
@@ -49,13 +49,9 @@ export default class UploadDialog {
 
     this.saveButton.addEventListener("click", () => {
       this.exitMode = "save";
-      // Move focus away from inputs before closing to avoid aria-hidden warning
-      this.saveButton.focus();
     });
     this.cancelButton.addEventListener("click", () => {
       this.exitMode = "cancel";
-      // Move focus away from inputs before closing to avoid aria-hidden warning
-      this.cancelButton.focus();
     });
 
     this.dropZone.addEventListener("change", (event) => {
@@ -104,6 +100,7 @@ export default class UploadDialog {
       if (titleInput) {
         this.values.alt = titleInput.value;
       }
+
       if (this.onClose) {
         this.onClose(this);
       }
@@ -124,12 +121,7 @@ export default class UploadDialog {
 
     return new Promise((resolve) => {
       this.saveButton.disabled = true;
-      this.values = {
-        src: values.src ?? null,
-        alt: values.alt ?? null,
-        href: values.href ?? null,
-        target: values.target ?? null
-      };
+      this.values = { src: values.src, alt: values.alt }
 
       this.updateCurrentFile();
 
@@ -141,19 +133,17 @@ export default class UploadDialog {
         titleEl.textContent = titleEl.dataset.addlabel;
       }
 
-      const formInputsHtml = `
+      const titleInputHtml = `
         <form class="form-defaults form">
-          <div class="row column mb-4">
-            <div>
-              <label for="image-alt-input">${options.altLabel || ""}</label>
-            </div>
-            <input class="attachment-title" type="text" name="alt" id="image-alt-input">
-          </div>
+          <label>
+            ${options.inputLabel}
+            <input class="attachment-title" type="text" name="alt">
+          </label>
         </form>
       `;
 
       let titleSection = null;
-      titleSection = createElement(`<div class="form__wrapper">${formInputsHtml}</div>`);
+      titleSection = createElement(`<div class="form__wrapper">${titleInputHtml}</div>`);
       titleSection.querySelector(".attachment-title").value = values.alt || "";
       this.inputSection.innerHTML = "";
       this.inputSection.append(titleSection);
