@@ -13,15 +13,35 @@ module Decidim
       describe "name" do
         let(:query) { '{ name { translation(locale: "en")}}' }
 
-        it "returns the attachment's collection name" do
+        it "returns the name field" do
           expect(response["name"]["translation"]).to eq(translated(model.name))
+        end
+      end
+
+      describe "attachments" do
+        let(:query) { "{ attachments { id } }" }
+
+        context "when the attachment collection has attachments" do
+          let!(:attachment) { create(:attachment, :with_image, attachment_collection: model) }
+
+          it "returns the attachment id field" do
+            expect(response["attachments"]).to eq(["id" => attachment.id.to_s])
+          end
+        end
+
+        context "when the attachment collection does not have attachments" do
+          let!(:attachment) { create(:attachment, :with_image) }
+
+          it "returns the attachment id field" do
+            expect(response["attachments"]).to be_empty
+          end
         end
       end
 
       describe "description" do
         let(:query) { '{ description { translation(locale: "en")}}' }
 
-        it "returns the attachment's collection description" do
+        it "returns the description field" do
           expect(response["description"]["translation"]).to eq(translated(model.description))
         end
       end
@@ -29,7 +49,7 @@ module Decidim
       describe "weight" do
         let(:query) { "{ weight }" }
 
-        it "returns the attachment's collection weight" do
+        it "returns the weight field" do
           expect(response).to eq("weight" => model.weight)
         end
       end
@@ -37,7 +57,7 @@ module Decidim
       describe "id" do
         let(:query) { "{ id }" }
 
-        it "returns the attachment's collection id" do
+        it "returns the id field" do
           expect(response).to eq("id" => model.id.to_s)
         end
       end
