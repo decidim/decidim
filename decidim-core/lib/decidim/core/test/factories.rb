@@ -706,7 +706,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     moderation
-    user { build(:user, organization: moderation.reportable.organization, skip_injection:) }
+    user { build(:user, :confirmed, organization: moderation.reportable.organization, skip_injection:) }
     reason { "spam" }
   end
 
