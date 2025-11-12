@@ -1,7 +1,7 @@
 <% subtitle = content_for(:subtitle) %>
 
 <%= render layout: "layouts/decidim/shared/layout_center", locals: { columns: 10 } do %>
-  <header class="text-center py-10">
+  <header class="text-center py-10" role="banner">
     <h1 class="title-decorator inline-block text-left md:mb-12">
       <% if content_for?(:profile_title) %>
         <%= yield :profile_title %>
