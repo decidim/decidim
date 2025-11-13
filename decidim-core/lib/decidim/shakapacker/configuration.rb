@@ -64,13 +64,11 @@ module Decidim
       end
 
       def configuration_file_path
-        @configuration_file_path ||= begin
-				  if defined?(Rails) && Rails.env.test?
-				    File.join(app_path, "tmp/shakapacker_runtime#{ENV.fetch("TEST_ENV_NUMBER", "")}.yml")
-				  else
-				    File.join(app_path, "tmp/shakapacker_runtime.yml")
-				  end
-				end
+        @configuration_file_path ||= if defined?(Rails) && Rails.env.test?
+                                       File.join(app_path, "tmp/shakapacker_runtime#{ENV.fetch("TEST_ENV_NUMBER", "")}.yml")
+                                     else
+                                       File.join(app_path, "tmp/shakapacker_runtime.yml")
+                                     end
       end
 
       def original_configuration_file_path
