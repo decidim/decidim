@@ -9,9 +9,9 @@ describe "AdminAccess" do
   let(:title) { "Edit page" }
 
   # This does not work for pages
-  # 
+  #
   # let!(:page) { create(:page, component:) }
-  # 
+  #
   # So, we need to do a workaround
   before do
     create(:page, component:)
