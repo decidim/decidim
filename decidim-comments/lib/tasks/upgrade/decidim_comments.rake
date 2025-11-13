@@ -54,7 +54,7 @@ namespace :decidim_comments do
         end
 
         if body_changed
-          comment.update_column(:body, updated_body)
+          comment.update_column(:body, updated_body) # rubocop:disable Rails/SkipsModelValidations
           updated_count += 1
           puts "✓ Updated comment ##{comment.id}"
         else
