@@ -129,7 +129,7 @@
 
 /* overwrite default dropdowns */
 [data-target="dropdown-menu-filters"] {
-  @apply px-0 justify-start [&>span]:text-gray-2;
+  @apply px-0 justify-start [&>span]:text-gray-2 md:hidden;
 
   > svg {
     @apply h-4 w-4 text-gray;
