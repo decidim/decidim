@@ -24,7 +24,7 @@ module Decidim
         let!(:config_file) { subject.configuration_file }
 
         it "returns the runtime configuration path" do
-          expect(config_file).to eq(Rails.application.root.join("tmp/shakapacker_runtime#{ENV.fetch("TEST_ENV_NUMBER", "")}.yml").to_s)
+          expect(config_file).to eq(runtime_config_path.to_s)
         end
 
         it "adds the core additional paths to the shakapacker runtime configuration" do
