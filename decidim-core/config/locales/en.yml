@@ -199,6 +199,7 @@ en:
         success: Your account was successfully deleted.
       download_your_data_export:
         export_expired: The export has expired. Try to generate a new export.
+        export_not_found: The export you have accessed does not exist, or you do not have access to download it
         file_no_exists: File does not exist
         notice: The download of your data is currently in progress. You will receive an email when it is complete.
       email_change:
