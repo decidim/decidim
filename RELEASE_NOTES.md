@@ -85,7 +85,7 @@ You can read more about this change on PR [#15020](https://github.com/decidim/de
 
 ### 2.3. Add data migrations
 
-At the moment we are adding this gem so we can start doing data migrations for fixes when v0.33.0 is released. You can read more about this at [Data migrations doc](https://docs.decidim.org/en/develop/develop/data-migrations).
+At the moment we are adding this gem so we can start doing data migrations for fixes when v0.33.0 is released. You can read more about this at [Data migrations doc](https://docs.decidim.org/en/develop/develop/guide_data_migrations.html).
 
 ## 3. One time actions
 
