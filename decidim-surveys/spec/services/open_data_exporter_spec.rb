@@ -1,40 +1,45 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "csv"
 
-require "decidim/core/test/shared_examples/open_data_exporter_examples"
-
-describe Decidim::OpenDataExporter do
+describe Decidim::OpenDataExporter do # rubocop:disable RSpec/SpecFilePathFormat
   subject { described_class.new(organization, path) }
 
   let(:organization) { create(:organization) }
   let(:path) { Rails.root.join("tmp/open-data-export") }
 
   describe "published survey user responses" do
-    let(:resource_file_name) { "published-survey-user-responses" }
-    let(:participatory_process) { create(:participatory_process, organization:) }
+    let(:component) { create(:surveys_component, organization:, published_at: Time.current) }
+    let(:questionnaire) { create(:questionnaire) }
+    let(:questions) { create(:questionnaire_question, survey_responses_published_at: Time.current) }
 
-    let(:component) do
-      create(:surveys_component, participatory_space: participatory_process, published_at: Time.current)
-    end
-    let!(:published_survey) { create(:survey, :published, component:) }
-    let!(:published_question) { create(:questionnaire_question, questionnaire: published_survey.questionnaire) }
-    let!(:published_responses) do
-      3.times.map do
-        create(:response, questionnaire: published_survey.questionnaire, question: published_question)
+    context "when no responses are published" do
+      before do
+        questions.update(survey_responses_published_at: nil)
+      end
+
+      it "does not export unpublished responses" do
+        subject.export
+
+        csv_file = Dir.glob(path.join("*published-survey-user-responses*.csv")).first
+
+        expect(CSV.read(csv_file, headers: true).count).to eq(0) if csv_file
       end
     end
 
-    let(:unpublished_component) do
-      create(:surveys_component, participatory_space: participatory_process, published_at: nil)
-    end
-    let!(:unpublished_survey) { create(:survey, component: unpublished_component) }
+    context "when survey component is unpublished" do
+      before do
+        component.update(published_at: nil)
+        questions.update(survey_responses_published_at: nil)
+      end
 
-    before do
-      published_question.update(survey_responses_published_at: Time.current)
-    end
+      it "does not export responses from unpublished responses" do
+        subject.export
 
-    it_behaves_like "open data exporter"
+        csv_file = Dir.glob(path.join("*published-survey-user-responses*.csv")).first
+
+        expect(CSV.read(csv_file, headers: true).count).to eq(0) if csv_file
+      end
+    end
   end
 end
