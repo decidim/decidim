@@ -89,6 +89,16 @@ module Decidim
           with_any_state: %w(open)
         }
       end
+
+      def add_breadcrumb_item
+        return {} if survey.blank?
+
+        {
+          label: translated_attribute(survey.title),
+          url: survey_path(survey),
+          active: false
+        }
+      end
     end
   end
 end
