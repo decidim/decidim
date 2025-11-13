@@ -42,6 +42,16 @@ module Decidim
           with_any_state: "active"
         }
       end
+
+      def add_breadcrumb_item
+        return {} if sortition.blank?
+
+        {
+          label: translated_attribute(sortition.title),
+          url: sortition_path(sortition),
+          active: false
+        }
+      end
     end
   end
 end

@@ -43,6 +43,11 @@ describe "show" do
       let!(:sortition) { create(:sortition, component:, decidim_proposals_component:) }
 
       it "shows all selected proposals" do
+        within(".menu-bar") do
+          expect(page).to have_content(translated(component.name))
+          expect(page).to have_content(translated(sortition.title))
+        end
+
         sortition.proposals.each do |p|
           expect(page).to have_content(translated(p.title))
         end
