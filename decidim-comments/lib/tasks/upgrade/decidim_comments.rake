@@ -28,47 +28,44 @@ namespace :decidim_comments do
     desc "Updates GlobalIDs from UserGroups to Users"
     task update_user_group_references: :environment do
       puts "Starting comment body updates..."
-    
+
       updated_count = 0
       skipped_count = 0
       error_count = 0
-    
+
       Decidim::Comments::Comment.find_each do |comment|
-        begin
-          next if comment.body.blank?
-        
-          body_changed = false
-          updated_body = {}
-        
-          # Process each locale in the body hash
-          comment.body.each do |locale, text|
-            next if text.blank?
-          
-            # Replace gid://...UserGroup/... with gid://...User/...
-            updated_text = text.gsub(
-              %r{gid://([^/]+)/Decidim::UserGroup/(\d+)},
-              'gid://\1/Decidim::User/\2'
-            )
-          
-            updated_body[locale] = updated_text
-            body_changed = true if updated_text != text
-          end
-        
-          if body_changed
-            comment.update_column(:body, updated_body)
-            updated_count += 1
-            puts "✓ Updated comment ##{comment.id}"
-          else
-            skipped_count += 1
-          end
-        
-        rescue StandardError => e
-          error_count += 1
-          puts "✗ Error updating comment ##{comment.id}: #{e.message}"
+        next if comment.body.blank?
+
+        body_changed = false
+        updated_body = {}
+
+        # Process each locale in the body hash
+        comment.body.each do |locale, text|
+          next if text.blank?
+
+          # Replace gid://...UserGroup/... with gid://...User/...
+          updated_text = text.gsub(
+            %r{gid://([^/]+)/Decidim::UserGroup/(\d+)},
+            'gid://\1/Decidim::User/\2'
+          )
+
+          updated_body[locale] = updated_text
+          body_changed = true if updated_text != text
         end
+
+        if body_changed
+          comment.update_column(:body, updated_body)
+          updated_count += 1
+          puts "✓ Updated comment ##{comment.id}"
+        else
+          skipped_count += 1
+        end
+      rescue StandardError => e
+        error_count += 1
+        puts "✗ Error updating comment ##{comment.id}: #{e.message}"
       end
-    
-      puts "\n" + "=" * 50
+
+      puts "=" * 50
       puts "Comment body update completed!"
       puts "=" * 50
       puts "Updated: #{updated_count}"
