@@ -19,6 +19,16 @@ module Decidim
       def result
         @result ||= Result.includes(:milestones).where(component: current_component).find(params[:result_id])
       end
+
+      def add_breadcrumb_item
+        return {} if result.blank?
+
+        {
+          label: translated_attribute(result.title),
+          url: result_path(result),
+          active: false
+        }
+      end
     end
   end
 end
