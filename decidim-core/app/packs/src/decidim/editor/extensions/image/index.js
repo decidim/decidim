@@ -100,7 +100,7 @@ export default Image.extend({
           const dialogState = await uploadDialog.toggle(
             { src, alt, href, target },
             {
-              altLabel: i18n.altLabel,
+              inputLabel: i18n.altLabel,
               uploadHandler: async (file) => uploadImage(file, this.options.uploadImagesPath)
             }
           );
