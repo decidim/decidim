@@ -38,4 +38,29 @@ describe "rake decidim_comments:upgrade:update_user_group_references", type: :ta
       expect(comment.reload.body).to eq(result)
     end
   end
+
+  describe "with a UserGroup reference in the body and machine translation enabled" do
+    let(:body) do
+      {
+        "en" => "This is a body mentioning gid://decidim-development-app/Decidim::UserGroup/5",
+        "machine_translations" => {
+          "es" => "Este es el cuerpo mencionando gid://decidim-development-app/Decidim::UserGroup/5"
+        }
+      }
+    end
+    let(:result) do
+      {
+        "en" => "This is a body mentioning gid://decidim-development-app/Decidim::User/5",
+        "machine_translations" => {
+          "es" => "Este es el cuerpo mencionando gid://decidim-development-app/Decidim::User/5"
+        }
+      }
+    end
+
+    it "changes the reference to User" do
+      expect(comment.reload.body).to eq(body)
+      task.execute
+      expect(comment.reload.body).to eq(result)
+    end
+  end
 end

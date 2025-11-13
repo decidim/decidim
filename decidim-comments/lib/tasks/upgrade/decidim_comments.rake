@@ -41,16 +41,33 @@ namespace :decidim_comments do
 
         # Process each locale in the body hash
         comment.body.each do |locale, text|
-          next if text.blank?
+          if locale == "machine_translations" && text.is_a?(Hash)
+            # Handle machine_translations nested hash
+            updated_translations = {}
+            text.each do |translation_locale, translation_text|
+              next if translation_text.blank?
 
-          # Replace gid://...UserGroup/... with gid://...User/...
-          updated_text = text.gsub(
-            %r{gid://([^/]+)/Decidim::UserGroup/(\d+)},
-            'gid://\1/Decidim::User/\2'
-          )
+              updated_translation = translation_text.gsub(
+                %r{gid://([^/]+)/Decidim::UserGroup/(\d+)},
+                'gid://\1/Decidim::User/\2'
+              )
 
-          updated_body[locale] = updated_text
-          body_changed = true if updated_text != text
+              updated_translations[translation_locale] = updated_translation
+              body_changed = true if updated_translation != translation_text
+            end
+            updated_body[locale] = updated_translations
+          else
+            # Handle regular locale strings
+            next if text.blank?
+
+            updated_text = text.gsub(
+              %r{gid://([^/]+)/Decidim::UserGroup/(\d+)},
+              'gid://\1/Decidim::User/\2'
+            )
+
+            updated_body[locale] = updated_text
+            body_changed = true if updated_text != text
+          end
         end
 
         if body_changed
