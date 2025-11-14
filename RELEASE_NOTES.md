@@ -37,6 +37,7 @@ bin/rails decidim:upgrade
 bin/rails db:migrate
 # skip this command if you have run it before:
 bin/rails decidim:upgrade:clean:remove_private_exports_attachments
+bin/rails data:migrate
 ```
 
 ### 1.4. AWS/Azure/Google Cloud assets storage
