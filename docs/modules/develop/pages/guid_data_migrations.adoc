@@ -1,0 +1,50 @@
+= Data Migrations
+
+TIP: These commands are available in Decidim v0.31.0, but we will only accept fixes using this new approach only if the bug is present on this version and not on v0.30.x. That means that in most cases the preferred approach for doing data migrations would still be through DB migrations or rake tasks until v0.33.0, when the only supported versions will be +v0.31.0.
+
+As the need to migrate data increased, we need a more reliable way to migrate data. We have introduced data migrations, which are similar to schema migrations but they are run only when the database schema is up to date.
+
+To run the data migrations, run the following command:
+
+```console
+bin/rails data:migrate:up
+```
+
+To see the status of available data migrations, run the following command:
+
+```console
+bin/rails data:migrate:status
+```
+
+== Developer notes
+
+As you may need to run data migrations in your developed plugins, you can hook up to the data migration system by adding the following line to your gem's `engine.rb` file:
+
+```ruby
+ initializer "your_gem_name.data_migrate", after: "decidim_core.data_migrate" do
+    DataMigrate.configure do |config|
+      config.data_migrations_path << root.join("db/data").to_s
+    end
+  end
+```
+
+The migration files should be named following the pattern `YYYYMMDDHHMMSS_your_migration_name.rb`, and should be placed in the `db/data` folder. For generating the migration you would do as `bin/rails g data_migration add_this_to_that` inside of the engine, as you would do for schema migrations.
+
+The structure of the migration should be something like:
+
+```ruby
+# frozen_string_literal: true
+
+class YourMigrationName < ActiveRecord::Migration[7.2]
+
+  # your custom classes should be defined here
+
+  def up
+    # your migration code
+  end
+
+  def down
+    raise ActiveRecord::IrreversibleMigration
+  end
+end
+```
