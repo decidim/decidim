@@ -12,4 +12,19 @@ describe "AdminAccess" do
 
   include_context "when managing a component as an admin"
   include_examples "accessing the component in a participatory space"
+
+  describe "when accessing projects" do
+    context "when the user is a process admin" do
+      let(:user) { create(:process_admin, :confirmed, organization:, participatory_process:) }
+
+      before do
+        login_as user, scope: :user
+      end
+
+      it "access the projects' index page" do
+        click_on(translated(budget.title))
+        expect(page).to have_content(translated(project.title))
+      end
+    end
+  end
 end
