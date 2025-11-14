@@ -199,6 +199,7 @@ eu:
         success: Zure kontua ezabatu egin da.
       download_your_data_export:
         export_expired: Esportazioa amaitu da. Saiatu beste esportazio bat sortzen.
+        export_not_found: Sartu zaren esportazioa ez da existitzen, edo ez duzu deskargatzeko aukerarik
         file_no_exists: Fitxategia ez dago
         notice: Une honetan zure datuak deskargatzen ari dira. Mezu elektroniko bat jasoko duzu amaitutakoan.
       email_change:
