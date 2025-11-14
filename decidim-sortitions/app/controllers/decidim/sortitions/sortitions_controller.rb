@@ -48,7 +48,7 @@ module Decidim
 
         {
           label: translated_attribute(sortition.title),
-          url: sortition_path(sortition),
+          url: Decidim::EngineRouter.main_proxy(current_component).sortition_path(sortition),
           active: false
         }
       end

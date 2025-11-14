@@ -296,13 +296,13 @@ module Decidim
         if proposal.emendation?
           {
             label: translated_attribute(proposal.amendable.title),
-            url: proposal_path(proposal.amendable),
+            url: Decidim::EngineRouter.main_proxy(current_component).proposal_path(proposal.amendable),
             active: false
           }
         else
           {
             label: translated_attribute(proposal.title),
-            url: proposal_path(proposal),
+            url: Decidim::EngineRouter.main_proxy(current_component).proposal_path(proposal),
             active: false
           }
         end

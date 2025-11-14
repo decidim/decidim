@@ -65,7 +65,7 @@ module Decidim
 
         {
           label: translated_attribute(election.title),
-          url: election_path(election),
+          url: Decidim::EngineRouter.main_proxy(current_component).election_path(election),
           active: false
         }
       end

@@ -95,7 +95,7 @@ module Decidim
 
         {
           label: translated_attribute(survey.title),
-          url: survey_path(survey),
+          url: Decidim::EngineRouter.main_proxy(current_component).survey_path(survey),
           active: false
         }
       end

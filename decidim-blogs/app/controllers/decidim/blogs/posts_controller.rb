@@ -109,7 +109,7 @@ module Decidim
 
         {
           label: translated_attribute(post.title),
-          url: post_path(post),
+          url: Decidim::EngineRouter.main_proxy(current_component).post_path(post),
           active: false
         }
       end

@@ -17,7 +17,7 @@ module Decidim
 
         {
           label: translated_attribute(versioned_resource.title),
-          url: debate_path(versioned_resource),
+          url: Decidim::EngineRouter.main_proxy(current_component).debate_path(versioned_resource),
           active: false
         }
       end

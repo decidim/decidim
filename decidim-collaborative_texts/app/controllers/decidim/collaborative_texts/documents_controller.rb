@@ -58,7 +58,7 @@ module Decidim
 
         {
           label: translated_attribute(document.title),
-          url: document_path(document),
+          url: Decidim::EngineRouter.main_proxy(current_component).document_path(document),
           active: false
         }
       end

@@ -131,7 +131,7 @@ module Decidim
 
         {
           label: translated_attribute(debate.title),
-          url: debate_path(debate),
+          url: Decidim::EngineRouter.main_proxy(current_component).debate_path(debate),
           active: false
         }
       end

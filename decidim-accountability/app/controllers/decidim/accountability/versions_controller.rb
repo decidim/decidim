@@ -25,7 +25,7 @@ module Decidim
 
         {
           label: translated_attribute(result.title),
-          url: result_path(result),
+          url: Decidim::EngineRouter.main_proxy(current_component).result_path(result),
           active: false
         }
       end

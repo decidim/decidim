@@ -22,7 +22,7 @@ module Decidim
 
         {
           label: translated_attribute(versioned_resource.title),
-          url: proposal_path(versioned_resource),
+          url: Decidim::EngineRouter.main_proxy(current_component).proposal_path(versioned_resource),
           active: false
         }
       end
