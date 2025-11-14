@@ -16,6 +16,7 @@ tr:
             announcement: Duyuru
     elections:
       actions:
+        preview: Önizleme
         title: Eylemler
       admin:
         dashboard:
@@ -41,6 +42,25 @@ tr:
           edit_questions:
             new_question: Yeni soru
             title: Sorular
+      censuses:
+        token_csv_form:
+          email: E-posta
+      elections:
+        count:
+          elections_count:
+            one: "%{count} seçim"
+            other: "%{count} seçim"
+        filters:
+          all: Tümü
+          state: Statü
+          state_values:
+            finished: Bitti
+        orders:
+          recent: En son
+        questions:
+          title: Seçim soruları
+        show:
+          vote_button: Oy ver
       models:
         election:
           fields:
@@ -49,3 +69,12 @@ tr:
       status:
         active: Aktif
         finished: Bitti
+      votes:
+        confirm:
+          title: Oyunu onayla
+        question:
+          next: Sonraki
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Kapat

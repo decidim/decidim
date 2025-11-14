@@ -3,7 +3,7 @@ import { Application } from "@hotwired/stimulus"
 import PasswordTogglerController from "src/decidim/controllers/password_toggler/controller";
 
 // Mock the icon function
-jest.mock("src/decidim/icon", () => ({
+jest.mock("src/decidim/refactor/moved/icon", () => ({
   __esModule: true,
   default: jest.fn((iconName) => `<svg class="${iconName}"><use href="#${iconName}"></use></svg>`)
 }));

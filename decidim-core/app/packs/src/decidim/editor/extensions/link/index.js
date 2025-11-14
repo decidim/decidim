@@ -1,7 +1,7 @@
 import Link from "@tiptap/extension-link";
 import { Plugin } from "prosemirror-state";
 
-import { getDictionary } from "src/decidim/i18n";
+import { getDictionary } from "src/decidim/refactor/moved/i18n";
 import InputDialog from "src/decidim/editor/common/input_dialog";
 import createBubbleMenu from "src/decidim/editor/extensions/link/bubble_menu";
 

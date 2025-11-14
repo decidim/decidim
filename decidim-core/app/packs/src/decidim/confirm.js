@@ -1,4 +1,4 @@
-import icon from "src/decidim/icon"
+import icon from "src/decidim/refactor/moved/icon"
 
 /**
  * A custom confirm dialog for Decidim based on Foundation reveals.

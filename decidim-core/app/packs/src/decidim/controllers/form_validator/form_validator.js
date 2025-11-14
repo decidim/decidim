@@ -1,5 +1,5 @@
 /* eslint max-lines: ["error", 840] */
-import { getDictionary } from "src/decidim/i18n";
+import { getDictionary } from "src/decidim/refactor/moved/i18n";
 
 /**
  * FormValidator class provides comprehensive form validation functionality

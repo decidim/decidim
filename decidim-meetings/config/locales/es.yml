@@ -285,6 +285,7 @@ es:
         agenda: Orden del día
         close: Cerrar
         confirm_delete_meeting: '¿Seguro que quiere eliminar este encuentro?'
+        confirm_unpublish_meeting: '¿Seguro que quieres despublicar este encuentro?'
         deleted_meetings_info: Los encuentros eliminados se pueden restaurar desde papelera.
         edit: Editar
         invalid_destroy:
@@ -329,6 +330,7 @@ es:
           update:
             invalid: Se ha producido un error al actualizar este orden del día.
             success: El orden del día se ha actualizado correctamente.
+        deprecation_warning_polls_html: "⚠️ <b>Aviso de Desuso/Obsolescencia.</b> La función de sondeos/votaciones se eliminará en una versión futura (por determinar). Las organizaciones que utilizan sondeos/votaciones de reuniones deben planear utilizar herramientas de sondeos/votaciones externas (por ejemplo, a través de Jitsi) o migrar a otros mecanismos de votación disponibles en Decidim, como el nuevo componente de Elecciones (`decidim-eleccions`)."
         exports:
           meeting_comments: Comentarios
           meetings: Encuentros
@@ -383,7 +385,9 @@ es:
             select_an_iframe_access_level: Por favor, seleccione un nivel de acceso iframe
           index:
             linked_meeting_warning_html: Esta reunión debe ser editada desde <br><a href="%{href}">%{name}</a>
+            published: Publicado
             title: Encuentros
+            unpublished: Despublicado
           linked_spaces:
             assign: Asignar
             link_a_space: Vincular un espacio
@@ -676,6 +680,7 @@ es:
             id: ID
             map: Mapa
             official_meeting: Encuentro oficial
+            published: Publicado
             start_time: Fecha de inicio
             taxonomies: Taxonomías
             title: Título

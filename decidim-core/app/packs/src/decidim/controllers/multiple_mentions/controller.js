@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
-import AutoComplete from "src/decidim/autocomplete";
-import icon from "src/decidim/icon";
+import AutoComplete from "src/decidim/refactor/moved/autocomplete";
+import icon from "src/decidim/refactor/moved/icon";
 
 export default class extends Controller {
   connect() {

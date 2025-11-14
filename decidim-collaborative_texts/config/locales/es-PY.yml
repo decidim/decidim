@@ -74,6 +74,9 @@ es-PY:
           update_settings:
             invalid: Se ha producido un error al actualizar el documento.
             success: Documento actualizado correctamente.
+        index:
+          published: Publicado
+          unpublished: Despublicado
       admin_log:
         document:
           create: "%{user_name} creó el texto colaborativo \"%{resource_name}\" en %{space_name}"
@@ -122,6 +125,7 @@ es-PY:
       models:
         collaborative_text:
           fields:
+            published: Publicado
             suggestions: Aceptar la(s) sugerencia(s)
             title: Título
       suggestion:

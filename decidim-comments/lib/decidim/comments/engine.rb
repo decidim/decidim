@@ -59,6 +59,12 @@ module Decidim
         Decidim.icons.register(name: "edit-line", icon: "edit-line", description: "Edit comment button", **common_parameters)
       end
 
+      initializer "decidim_comments.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
       initializer "decidim_comments.register_resources" do
         Decidim.register_resource(:comment) do |resource|
           resource.model_class_name = "Decidim::Comments::Comment"
@@ -72,7 +78,7 @@ module Decidim
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Comments::Engine.root}/app/views") # for partials
       end
 
-      initializer "decidim_comments.webpacker.assets_path" do
+      initializer "decidim_comments.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 

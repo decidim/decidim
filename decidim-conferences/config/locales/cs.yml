@@ -2,10 +2,14 @@ cs:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Související shromáždění
         available_slots: Dostupné sloty
         banner_image: Obrázek banneru
         decidim_scope_id: Oblast působnosti
         description: Popis
+        duplicate_categories: Duplikovat kategorie
+        duplicate_components: Duplikovat komponenty
+        duplicate_features: Duplikovat funkce
         end_date: Datum ukončení
         hero_image: Obrázek na hlavní stránce
         location: Lokalita
@@ -102,6 +106,8 @@ cs:
       conference_duplicates:
         new:
           duplicate: Duplikovat
+          select: Vyberte, která data chcete duplikovat
+          title: Duplikovat konferenci
       conference_publications:
         create:
           error: Při publikování této konference došlo k chybě.
@@ -162,8 +168,13 @@ cs:
         exports:
           registrations: Registrace
         form:
+          duration: Doba trvání
           images: Fotky
+          metadata: Metadata
+          registrations: Registrace
+          related_spaces: Související prostory
           title: Obecná informace
+          visibility: Viditelnost
         index:
           published: Publikováno
           unpublished: Nezveřejněno
@@ -171,9 +182,14 @@ cs:
           title: Smazané konference
         new:
           create: Vytvořit
+          title: Nová konference
         update:
           error: Při aktualizaci této konference došlo k chybě.
           success: Konference byla úspěšně aktualizována.
+      conferences_duplicates:
+        create:
+          error: Při kopírování této konference došlo k chybě.
+          success: Konference byla úspěšně duplikována.
       media_links:
         create:
           error: Při vytváření nového odkazu na média došlo k chybě.
@@ -213,17 +229,20 @@ cs:
       models:
         conference:
           fields:
+            actions: Akce
             created_at: Vytvořeno v
             published: Publikováno
             title: Název
         conference_speaker:
           fields:
+            actions: Akce
             affiliation: Přidružení
             full_name: Celé jméno
             position: Pozice
           name: Řečník Konference
         conference_user_role:
           fields:
+            actions: Akce
             email: E-mail
             name: Název
             role: Role
@@ -235,12 +254,14 @@ cs:
             moderator: Moderátor
         media_link:
           fields:
+            actions: Akce
             date: Datum
             link: Odkaz
             title: Název
           name: Odkaz na média
         partner:
           fields:
+            actions: Akce
             link: Odkaz
             logo: Logo
             name: Název
@@ -251,6 +272,7 @@ cs:
             main_promotor: Hlavní podporovatel
         registration_type:
           fields:
+            actions: Akce
             conference_meetings: Setkání konference
             price: Cena
             registrations_count: Počet registrací
@@ -345,6 +367,9 @@ cs:
         title: Řečníci
     conferences:
       admin:
+        conference_duplicates:
+          form:
+            slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na tuto konferenci. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         conference_invites:
           create:
             error: Při pozvání uživatele do konference došlo k problému.
@@ -511,6 +536,7 @@ cs:
             sent: Odeslaná
         conference_registration:
           fields:
+            actions: Akce
             email: E-mail
             name: Název
             registration_type: Typ registrace

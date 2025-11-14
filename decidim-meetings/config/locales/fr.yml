@@ -275,6 +275,7 @@ fr:
         agenda: Ordre du jour
         close: Clore
         confirm_delete_meeting: Êtes-vous sûr(e) de vouloir supprimer cette rencontre ?
+        confirm_unpublish_meeting: Êtes-vous sûr(e) de vouloir annuler la publication de cette réunion ?
         deleted_meetings_info: Les rencontres supprimées peuvent être restaurées depuis la corbeille.
         edit: Modifier
         invalid_destroy:
@@ -319,6 +320,7 @@ fr:
           update:
             invalid: Un problème est survenu lors de la mise à jour de cet ordre du jour.
             success: Ordre du jour mis à jour avec succès.
+        deprecation_warning_polls_html: "⚠️ <b>Avis de dépréciation.</b> La fonctionnalité des sondages sera supprimée dans une version future (à déterminer). Les organisations utilisant des sondages de réunion devraient planifier d'utiliser des outils de sondage externes (par exemple, via Jitsi) ou migrer vers d'autres mécanismes de vote disponibles dans Decidim, comme le nouveau module Elections (`decidim-elections`)."
         exports:
           meeting_comments: Commentaires
           meetings: Rencontres
@@ -373,7 +375,9 @@ fr:
             select_an_iframe_access_level: Veuillez sélectionner un niveau d'accès iframe
           index:
             linked_meeting_warning_html: Cette rencontre doit être modifiée à partir de <br><a href="%{href}">%{name}</a>
+            published: Publiée
             title: Rencontres
+            unpublished: Non publiées
           linked_spaces:
             assign: Assigner
             link_a_space: Lier un espace
@@ -663,6 +667,7 @@ fr:
             id: ID
             map: Carte
             official_meeting: Rencontre officielle
+            published: Publiée
             start_time: Date de début
             taxonomies: Taxonomies
             title: Titre
