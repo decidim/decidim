@@ -1,5 +1,9 @@
 ---
 sr:
+  activemodel:
+    attributes:
+      assembly:
+        youtube: YouTube
   decidim:
     admin:
       actions:
