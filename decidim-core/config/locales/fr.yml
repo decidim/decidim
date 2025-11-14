@@ -184,6 +184,7 @@ fr:
         success: Votre compte a été supprimé avec succès.
       download_your_data_export:
         export_expired: L'export a expiré. Essayez de générer un nouvel export.
+        export_not_found: L'export auquel vous avez tenté d'accéder n'existe pas, ou vous n'avez pas l'accès pour le télécharger
         file_no_exists: Le fichier n'existe pas
         notice: Le téléchargement de vos données est en cours. Vous recevrez un email lorsque celui-ci sera terminé.
       email_change:
