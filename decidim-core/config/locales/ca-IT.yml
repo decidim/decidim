@@ -204,6 +204,7 @@ ca-IT:
         success: El teu compte s'ha eliminat correctament.
       download_your_data_export:
         export_expired: L'exportació ha caducat. Intenta generar una nova exportació.
+        export_not_found: L'exportació a la qual has accedit no existeix o no tens accés o permisos per descarregar-la
         file_no_exists: L'arxiu no existeix
         notice: La descàrrega de les teves dades està en curs. Rebràs un correu electrònic quan estigui completa.
       email_change:
