@@ -6,7 +6,7 @@ class ChangeSendRemindersBeforeHoursForLegacyMeetings < ActiveRecord::Migration[
   end
 
   def up
-    Meeting.where(send_reminders_before_hours: nil).update_all(send_reminders_before_hours: 48)
+    Meeting.where(send_reminders_before_hours: nil).update_all(send_reminders_before_hours: 48) # rubocop:disable Rails/SkipsModelValidations
   end
 
   def down
