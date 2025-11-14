@@ -3,10 +3,6 @@
     <%= check_box_tag "moderation_ids_s[]", moderation.id, false, class: "js-check-all-moderations js-moderation-list-check js-moderation-id-#{moderation.id}" %>
   </td>
 
-  <td data-label="<%= t("models.moderation.fields.reportable_id", scope: "decidim.moderations") %>">
-    <%= moderation.reportable.id %>
-  </td>
-
   <td data-label="<%= t("models.moderation.fields.reportable_type", scope: "decidim.moderations") %>">
     <%= moderation.reportable.class.model_name.human %>
   </td>
