@@ -52,8 +52,7 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
 
   participatory_space.exports :conferences do |export|
     export.collection do |participatory_space, _user|
-      query = Decidim::Conference.public_spaces.includes(:taxonomies, :attachment_collections)
-      participatory_space ? query.where(id: participatory_space) : query
+      Decidim::Conference.public_spaces.includes(:taxonomies, :attachment_collections).where(id: participatory_space)
     end
 
     export.include_in_open_data = true

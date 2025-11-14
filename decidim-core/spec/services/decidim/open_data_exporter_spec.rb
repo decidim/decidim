@@ -162,6 +162,8 @@ describe Decidim::OpenDataExporter do
       let!(:participatory_process) { create(:participatory_process, :published, organization:) }
       let!(:assembly) { create(:assembly, :published, organization:) }
 
+      let!(:another_tenant_process) { create(:participatory_process, :published) }
+
       before do
         subject.export
       end
@@ -184,6 +186,12 @@ describe Decidim::OpenDataExporter do
         expect(csv_data).to include(participatory_process.title["en"].gsub(/"/, '""')).once
         csv_data = zip_contents.glob("*open-data-assemblies.csv").first.get_input_stream.read
         expect(csv_data).to include(assembly.title["en"].gsub(/"/, '""')).once
+      end
+
+      it "does not include data from other tenants" do
+        csv_data = zip_contents.glob("*open-data-participatory_processes.csv").first.get_input_stream.read
+        expect(csv_data).not_to include(another_tenant_process.title["en"].gsub(/"/, '""'))
+        expect(csv_data).to include(participatory_process.title["en"].gsub(/"/, '""')).once
       end
 
       describe "README content" do
