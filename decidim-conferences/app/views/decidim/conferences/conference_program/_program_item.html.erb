@@ -7,10 +7,10 @@
       <% taxonomies = meetings.map(&:taxonomies).uniq %>
       <% seed = SecureRandom.hex(3).to_s %>
       <% if taxonomies.present? %>
-        <ul class="conference__program-category-container">
+        <ul class="conference__program-taxonomy-container">
           <% taxonomies.each do |taxonomy| %>
             <li>
-              <div class="conference__program-category">
+              <div class="conference__program-taxonomy">
                 <%= taxonomy.first.present? ? translated_attribute(taxonomy.first.name) : "other" %>
               </div>
             </li>
@@ -19,7 +19,7 @@
       <% end %>
 
       <% meetings.group_by(&:taxonomies).each do |taxonomies_block| %>
-        <div class="conference__program-category-content">
+        <div class="conference__program-taxonomy-content">
           <% taxonomies_block.last.each do |meeting| %>
             <%= render partial: "program_meeting", locals: { meeting: } %>
           <% end %>
