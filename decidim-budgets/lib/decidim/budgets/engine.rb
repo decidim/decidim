@@ -37,6 +37,12 @@ module Decidim
         Decidim.icons.register(name: "progress-2-line", icon: "progress-2-line", category: "system", description: "", engine: :budgets)
       end
 
+      initializer "decidim_budgets.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
       initializer "decidim_budgets.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Budgets::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Budgets::Engine.root}/app/views") # for partials

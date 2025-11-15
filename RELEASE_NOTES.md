@@ -188,6 +188,12 @@ bin/rails decidim:upgrade:clean:remove_private_exports_attachments
 
 You can read more about this change on PR [#15020](https://github.com/decidim/decidim/pull/15020).
 
+### 2.6. Add data migrations
+
+At the moment we are adding this gem so we can start doing data migrations for fixes when v0.33.0 is released. You can read more about this at [Data migrations doc](https://docs.decidim.org/en/develop/develop/guide_data_migrations.html).
+
+You can read more about this change on PR [#15501](https://github.com/decidim/decidim/pull/15501).
+
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.
