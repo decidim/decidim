@@ -43,6 +43,7 @@ fr-CA:
           new_sortition: Nouveau tirage au sort
           show: Détails du tirage au sort
           title: Actions
+        deprecation_warning_html: "⚠️ <b>Avis de dépréciation.</b> Le module « Tirages au sort » sera supprimé dans Decidim v0.32. Veuillez planifier en conséquence et envisager des solutions alternatives pour la sélection des participants ou des propositions."
         models:
           sortition:
             fields:

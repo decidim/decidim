@@ -268,9 +268,6 @@ ar:
         participatory_process_imports:
           form:
             document_legend: إضافة وثيقة
-        participatory_process_steps:
-          form:
-            cta_text_help: إذا لم يتم تعيينه ، فلن يظهر الزر.
         participatory_processes:
           form:
             announcement_help: سيتم عرض النص الذي تدخله هنا للمستخدم مباشرة أسفل معلومات العملية.

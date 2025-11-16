@@ -55,11 +55,11 @@
         <div class="row column election-fields--time">
           <div class="md:flex w-100">
             <div class="row column election_start_time">
-              <%= form.datetime_field :start_at, label: t("decidim.elections.admin.elections.form.start_at") %>
+              <%= form.datetime_field :start_at, label: t("decidim.elections.admin.elections.form.start_at"), disabled: disable_fields %>
               <%= form.hidden_field :start_at, value: election.start_at if disable_fields %>
             </div>
             <div class="row column">
-              <%= form.datetime_field :end_at, label: t("decidim.elections.admin.elections.form.end_at") %>
+              <%= form.datetime_field :end_at, label: t("decidim.elections.admin.elections.form.end_at"), disabled: disable_fields %>
               <%= form.hidden_field :end_at, value: election.end_at if disable_fields %>
             </div>
           </div>

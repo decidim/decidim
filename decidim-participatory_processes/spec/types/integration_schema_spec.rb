@@ -134,10 +134,6 @@ describe "Decidim::Api::QueryType" do
         startDate
         steps {
           active
-          callToActionPath
-          callToActionText{
-            translation(locale: "#{locale}")
-          }
           createdAt
           description{
             translation(locale: "#{locale}")
@@ -221,8 +217,6 @@ describe "Decidim::Api::QueryType" do
       "steps" => [
         {
           "active" => participatory_process.steps.first.active,
-          "callToActionPath" => participatory_process.steps.first.cta_path,
-          "callToActionText" => { "translation" => participatory_process.steps.first.cta_text[locale] },
           "createdAt" => participatory_process.steps.first.created_at.to_time.iso8601,
           "description" => { "translation" => participatory_process.steps.first.description[locale] },
           "endDate" => participatory_process.steps.first.end_date&.to_time&.iso8601,

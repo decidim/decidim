@@ -42,6 +42,16 @@ describe "Admin manages meetings" do
       expect(page).to have_css("tbody tr:last-child", text: Decidim::Meetings::MeetingPresenter.new(old_meeting).title)
     end
 
+    it "shows the unpublish modal" do
+      visit current_path
+
+      within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+        find("button[data-controller='dropdown']").click
+        click_on "Unpublish"
+        expect(accept_confirm).to eq("Are you sure you want to unpublish this meeting?")
+      end
+    end
+
     it "allows to publish/unpublish meetings" do
       visit current_path
 
@@ -50,7 +60,11 @@ describe "Admin manages meetings" do
         accept_confirm { click_on "Unpublish" }
       end
 
-      expect(page).to have_admin_callout("successfully")
+      within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+        expect(page).to have_content("Unpublished")
+      end
+
+      expect(page).to have_admin_callout("Meeting successfully unpublished")
 
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
         find("button[data-controller='dropdown']").click
@@ -61,7 +75,11 @@ describe "Admin manages meetings" do
         click_on "Publish"
       end
 
-      expect(page).to have_admin_callout("successfully")
+      within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+        expect(page).to have_content("Published")
+      end
+
+      expect(page).to have_admin_callout("Meeting successfully published")
 
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
         find("button[data-controller='dropdown']").click

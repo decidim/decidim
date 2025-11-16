@@ -64,8 +64,6 @@ pt-BR:
         exports:
           projects: Projetos
         models:
-          budget:
-            name: Orçamento
           project:
             name: Projeto
         projects:
@@ -226,9 +224,7 @@ pt-BR:
           assigned: Atribuído
           budget: Orçamento
           dynamic_help:
-            keep_adding_projects: Continuar adicionando projetos
             minimum_reached: Você atingiu o mínimo para poder votar
-            start_adding_projects: Começar a adicionar projetos
           minimum: Mínimo
         orders:
           highest_cost: Custo mais alto
@@ -313,13 +309,6 @@ pt-BR:
               disabled: Votação desativada
               enabled: Votação habilitada
               finished: Votação finalizada
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'O orçamento %{resource_title} agora está ativo para %{participatory_space_title}. Você pode vê-lo a partir desta página:'
-          email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
-          email_subject: O orçamento %{resource_title} agora está ativo para %{participatory_space_title}.
-          notification_title: O orçamento <a href="%{resource_path}">%{resource_title}</a> agora está ativo para %{participatory_space_title}.
     orders:
       checkout:
         error: Ocorreu um erro ao processar seu voto.

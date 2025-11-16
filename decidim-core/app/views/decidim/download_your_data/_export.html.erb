@@ -2,7 +2,7 @@
   <td class="text-left p-4"><%= t(export.export_type, scope:"decidim.download_your_data.show") %></td>
   <td class="text-center"><%= export.expired? ? t("expired", scope:"decidim.download_your_data.show") : l(export.expires_at, format: :decidim_short) %></td>
   <td class="py-4">
-    <%= button_to download_download_your_data_path(export),
+    <%= button_to download_download_your_data_path(uuid: export.uuid),
                   class: "button button__sm button__transparent-secondary m-auto block",
                   disabled: export.expired?,
                   aria: { label: t("download", scope:"decidim.download_your_data.show") },

@@ -285,6 +285,7 @@ fi-pl:
         agenda: Esityslista
         close: Sulje
         confirm_delete_meeting: Haluatko varmasti poistaa tämän tapaamisen?
+        confirm_unpublish_meeting: Haluatko varmasti perua tämän tapaamisen julkaisun?
         deleted_meetings_info: Poistetut tapaamiset voidaan palauttaa roskakorista.
         edit: Muokkaa
         invalid_destroy:
@@ -329,6 +330,7 @@ fi-pl:
           update:
             invalid: Esityslistan päivittäminen epäonnistui.
             success: Esityslistan päivitys onnistui.
+        deprecation_warning_polls_html: "⚠️ <b>Poistamisilmoitus</b> Pikakyselyominaisuus poistetaan järjestelmän myöhemmistä versioista (määritetään myöhemmin). Organisaatioiden, jotka käyttävät tapaamisten pikakyselyominaisuutta, tulisi suunnitella ulkoisten pikakyselytyökalujen käyttöä (esimerkiksi Jitsi-tapaamissovellus) tai siirtyä käyttämään muita Decidim-alustan äänestystapoja, kuten uutta vaalit-moduulia (`decidim-elections`)."
         exports:
           meeting_comments: Kommentit
           meetings: Tapahtumat
@@ -383,7 +385,9 @@ fi-pl:
             select_an_iframe_access_level: Valitse iframe-upotusten käyttöoikeustaso
           index:
             linked_meeting_warning_html: Tätä tapaamista tulee muokata kohteesta <br><a href="%{href}">%{name}</a>
+            published: Julkaistu
             title: Tapahtumat
+            unpublished: Julkaisematon
           linked_spaces:
             assign: Määritä
             link_a_space: Liitä osallistumistila
@@ -676,6 +680,7 @@ fi-pl:
             id: ID
             map: Kartta
             official_meeting: Virallinen tapahtuma
+            published: Julkaistu
             start_time: Alkamispäivä
             taxonomies: Luokittelut
             title: Otsikko

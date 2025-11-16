@@ -46,6 +46,12 @@ module Decidim
         end
       end
 
+      initializer "decidim_assemblies.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
       initializer "decidim_assemblies.register_icons" do
         Decidim.icons.register(name: "Decidim::Assembly", icon: "government-line", description: "Assembly", category: "activity", engine: :assemblies)
         Decidim.icons.register(name: "assembly_type", icon: "group-2-line", description: "Type", category: "assemblies", engine: :assemblies)

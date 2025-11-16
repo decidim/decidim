@@ -22,20 +22,20 @@ eu:
             title: Galderak
           questions_form:
             add_question: Gehitu galdera
-            collapse: Kolapsatu galdera guztiak
+            collapse: Uzkurtu galdera guztiak
             expand: Zabaldu galdera guztiak
         responses:
           index:
-            publish_responses: Erakutsi erantzunak
+            publish_responses: Erantzunak erakutsi
             title: "Guztira, %{guztira} erantzun"
         settings:
           show:
             collect_data: Gaitu datu demografikoen bilketa
-            collect_data_help: Aukera hori gaituz, erabiltzaileek plataforman eman ahal izango dituzte beren datuak.
+            collect_data_help: Aukera hori gaituz, parte-hartzaileek plataforman eman ahal izango dituzte beren datuak.
             save: Gorde
             title: Ezarpenak
           update:
-            invalid: Errorea egon da datu demografikoak gordetzean
+            invalid: Akats bat izan da datu demografikoak gordetzean
             success: Datu demografikoak zuzen gorde dira
         title: Datu demografikoak
       demographics:
@@ -51,7 +51,7 @@ eu:
         show:
           page_title: Datu demografikoak uztea
       destroy:
-        error: Errorea egon da zure datu demografikoak ematean
+        error: Akats bat izan da zure datu demografikoak ematean
         success: Eman dituzun datu demografikoak zuzen ezabatu dira
       name: Datu demografikoak uztea
       questions:
@@ -72,3 +72,8 @@ eu:
           question: Hauetako zeinek deskribatzen du ondoen zure generoa?
         postal:
           question: Zein da zure etxeko posta-kodea?
+  layouts:
+    decidim:
+      shared:
+        layout_center:
+          alert: Informazio hori emanez, laguntzen duzu parte-hartzearen kalitatea hobetzeko laguntzen duen analisi estatistikoa egiten. Zure datuak gehitu egingo dira eta ikerketarako baino ez dira erabiliko.
