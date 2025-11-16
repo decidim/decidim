@@ -7,7 +7,7 @@ As the need to migrate data increased, we need a more reliable way to migrate da
 To run the data migrations, run the following command:
 
 ```console
-bin/rails data:migrate:up
+bin/rails data:migrate
 ```
 
 To see the status of available data migrations, run the following command:
