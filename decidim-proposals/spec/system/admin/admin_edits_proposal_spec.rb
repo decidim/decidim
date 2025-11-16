@@ -59,7 +59,7 @@ describe "Admin edits proposals" do
       visit_component_admin
 
       within "tr[data-id='#{proposal.id}']" do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Edit proposal"
       end
 

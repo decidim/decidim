@@ -5,17 +5,27 @@ de:
       collaborative_texts:
         document:
           body: Inhalt
+          draft: Entwurf
           title: Titel
           version_number: Versionsnummer
+        suggestion:
+          nodes: DOM nodes
+          original: Originaltext
+          replace: Ersatz
         version:
           body: Haupttext
+          draft: Entwurf
           version_number: Versionsnummer
   decidim:
+    admin:
+      tooltips:
+        deleted_collaborative_texts_info: Dieses Dokument kann nicht gelöscht werden
     collaborative_texts:
       actions:
         confirm_delete_document: Sind Sie sicher, dass Sie dieses Dokument löschen wollen?
         deleted_document_info: Gelöschtes Dokument kann aus dem Papierkorb wiederhergestellt werden.
         edit: Bearbeiten
+        manage: Konfigurieren
         new: Neuer Text
         title: Aktionen
         view_deleted_documents: Gelöschte Dokumente anzeigen
@@ -24,9 +34,19 @@ de:
           create:
             invalid: Beim Erstellen des Dokuments ist ein Problem aufgetreten.
             success: Dokument erfolgreich erstellt.
+          draft_options:
+            accepting_suggestions: Vorschläge in der nächsten Version aktivieren
+            accepting_suggestions_help: Das Aktivieren von Vorschlägen wird eine neue Runde von Vorschlägen für dieses Dokument starten. Die aktuellen Vorschläge werden in der neuen Version nicht mehr sichtbar sein.
+            draft: Entwurfsversion
+            draft_help_html: Eine Entwurfsversion ist nicht öffentlich und kann von den Admins bearbeitet werden. Entfernen Sie den Entwurfsstatus, um diesen Inhalt zu veröffentlichen. <strong> Beachten Sie, dass Teilnehmende, solange die Entwurfsversion aktiviert ist, die vorherige Version sehen und keine Vorschläge machen können.</strong>
           edit:
+            document_has_suggestions_html: <a href="%{url}">Dieses Dokument hat Vorschläge</a> und kann nicht direkt bearbeitet werden. Bitte akzeptieren Sie oder lehnen Sie die Vorschläge ab, um eine neue Entwurfsversion zu generieren, die bearbeitet werden kann.
+            draft: Entwurfsversion
+            previous_versions: Vorherige Versionen
+            public_version: Öffentliche Version
             title: Kollaborative Texte bearbeiten
             update: Aktualisieren
+            version: Version %{version_number}, erstellt am %{created_at} und mit %{suggestions_count} erhaltenen Vorschlägen.
           edit_settings:
             title: Kollaborative Texte einstellen
             update: Aktualisieren
@@ -37,6 +57,11 @@ de:
           new:
             create: Erstellen
             title: Kollaborative Texte erstellen
+          non_draft_options:
+            create_draft: Vorschläge verwerfen und eine neue Entwurfsversion erstellen
+            draft_help_html: Eine Entwurfsversion ist nicht öffentlich und kann von den Admins bearbeitet werden. Entfernen Sie den Entwurfsstatus, um diesen Inhalt zu veröffentlichen. <strong> Beachten Sie, dass Teilnehmende, solange die Entwurfsversion aktiviert ist, die vorherige Version sehen und keine Vorschläge machen können.</strong>
+            enable_suggestions: Vorschläge aktivieren
+            enable_suggestions_help: Durch das Aktivieren von Vorschlägen können die Teilnehmende Vorschläge zu dieser Version machen.
           publish:
             invalid: Beim Veröffentlichen dieses Dokuments ist ein Problem aufgetreten.
             success: Dokument erfolgreich veröffentlicht.
@@ -58,11 +83,34 @@ de:
           soft_delete: "%{user_name} hat den kollaborativen Text %{resource_name} auf %{space_name} in den Papierkorb verschoben"
           unpublish: "%{user_name} hat die Veröffentlichung des kollaborativen Texts %{resource_name} auf %{space_name} rückgängig gemacht"
           update: "%{user_name} hat den kollaborativen Text %{resource_name} in %{space_name} aktualisiert"
+        suggestion:
+          create: "%{user_name} hat den kollaborativen Text %{resource_name} in %{space_name} aktualisiert"
         version:
           delete: "%{user_name} hat die Version des kollaborativen Texts %{resource_name} aus %{space_name} gelöscht"
           update: "%{user_name} hat die Version des kollaborativen Texts %{resource_name} in %{space_name} aktualisiert"
       document:
+        apply: Anwenden
         cancel: Abbrechen
+        consolidate:
+          confirm: Diese Aktion wird alle akzeptierten Vorschläge in einer neuen Version des Dokuments zusammenfassen. Nicht akzeptierte Vorschläge werden zur weiteren Überprüfung auf die neue Version übertragen. Diese Aktion wird den Status der Vorschläge beibehalten.
+          new: Akzeptierte Vorschläge zusammenfassen
+        consolidate_counter: Konsolidierung wird die %{applied} angewendeten Vorschläge zusammenführen und %{pending} ausstehende Vorschläge auf die neue Version verschieben.
+        controls_label: Vorschlagssteuerung
+        draft_counter: Entwurf wird die %{applied} angewendeten Vorschläge zusammenführen und %{pending} ausstehende Vorschläge verwerfen.
+        index: Index
+        restore: Wiederherstellen
+        rollout:
+          confirm: Diese Aktion wird einen neuen Entwurf des Dokuments erstellen und Sie werden zur Bearbeitungsseite weitergeleitet, um abschließende Verbesserungen zu erhalten. Die aktuelle Version bleibt öffentlich und Vorschläge werden deaktiviert.
+          invalid: Es gab ein Problem beim Erstellen einer neuen Version des Dokuments (%{errors}).
+          new: Eine neue Version entwerfen
+        save: Änderungen vorschlagen
+        status:
+          accepting_suggestions: Um Änderungen vorzuschlagen, wählen Sie oder doppelklicken Sie auf den zu bearbeitenden Text und klicken Sie dann auf den Button "Änderungen vorschlagen".
+          draft: Dieses Dokument wird derzeit von den Admins überprüft. Vorschläge sind zu diesem Zeitpunkt nicht erlaubt, aber Sie können Vorschläge anderer Teilnehmenden ansehen.
+          not_accepting_suggestions: Vorschläge sind derzeit nicht zulässig.
+          selection_active: Eine Auswahl ist aktiv. Bitte brechen Sie die aktuelle Auswahl ab, um eine neue zu erstellen.
+        suggestions_count: "%{count} Vorschläge"
+        toggle: Vorschläge ein-/ausblenden
       documents:
         index:
           count:
@@ -80,8 +128,19 @@ de:
         add_html: <span class="type">Hinzufügen:</span> <span class="text">%{text}</span>
         remove_html: <span class="type">Entfernen:</span> <span class="text">%{text}</span>
         replace_html: <span class="type">Ersetzen:</span> <span class="text">%{text}</span>
+      suggestions:
+        create:
+          invalid: Es gab ein Problem beim Erstellen des Vorschlags.
+          success: Vorschlag erfolgreich erstellt.
+        errors:
+          blank_changeset: Changeset darf nicht leer sein.
+          invalid_nodes: Ungültige ausgewählten Knoten.
     components:
       collaborative_texts:
+        actions:
+          create: Erstellen
+          destroy: Löschen
+          update: Aktualisieren
         name: Kollaborative Texte
         settings:
           global:
@@ -90,4 +149,6 @@ de:
           step:
             announcement: Ankündigung
     statistics:
+      all_collaborative_texts_count: Alle kollaborative Texte
       collaborative_texts_count: Kollaborative Texte
+      collaborative_texts_count_tooltip: Anzahl der kollaborativen Texte

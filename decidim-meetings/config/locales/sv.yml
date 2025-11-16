@@ -369,7 +369,9 @@ sv:
             select_an_iframe_access_level: Välj vem som får tillgång till iframe
           index:
             linked_meeting_warning_html: Mötet måste redigeras från <br><a href="%{href}">%{name}</a>
+            published: Publicerad
             title: Möten
+            unpublished: Opublicerad
           linked_spaces:
             assign: Tilldela
             link_a_space: Länka en process
@@ -662,6 +664,7 @@ sv:
             id: ID
             map: Karta
             official_meeting: Officiellt möte
+            published: Publicerad
             start_time: Startdatum
             taxonomies: Kategorisering
             title: Titel

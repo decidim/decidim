@@ -19,6 +19,7 @@ el:
             announcement: Ανακοίνωση
     elections:
       actions:
+        preview: Προεπισκόπηση
         title: Ενέργειες
       admin:
         census:
@@ -59,6 +60,28 @@ el:
         statuses:
           publish_results:
             invalid: Υπήρξε ένα πρόβλημα στη δημοσίευση των αποτελεσμάτων.
+      censuses:
+        token_csv_form:
+          email: Email
+      elections:
+        count:
+          elections_count:
+            one: "%{count} εκλογή"
+            other: "%{count} εκλογές"
+        filters:
+          all: Όλα
+          state: Κατάσταση
+          state_values:
+            finished: Ολοκληρώθηκε
+            ongoing: Σε εξέλιξη
+        orders:
+          recent: Πρόσφατη
+        questions:
+          title: Ερωτήσεις εκλογών
+        show:
+          vote_button: Ψήφος
+        vote_results:
+          title: Αποτελέσματα
       models:
         election:
           fields:
@@ -68,6 +91,17 @@ el:
       status:
         active: Ενεργό
         finished: Ολοκληρώθηκε
+        not_started: Δεν ξεκίνησε
         ongoing: Σε εξέλιξη
+      votes:
+        confirm:
+          title: Επιβεβαιώστε την ψήφο σας
+        question:
+          back: Πίσω
+          next: Επόμενο
     statistics:
       elections_count: Εκλογές
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Κλείσιμο

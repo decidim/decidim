@@ -270,9 +270,6 @@ lv:
         participatory_process_imports:
           form:
             document_legend: Pievienot dokumentu
-        participatory_process_steps:
-          form:
-            cta_text_help: Ja tas nav iestatīts, poga netiks rādīta.
         participatory_processes:
           form:
             announcement_help: Šeit ievadītais teksts tiks parādīts lietotājam tieši zem procesa informācijas.

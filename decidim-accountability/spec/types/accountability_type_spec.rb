@@ -48,6 +48,60 @@ module Decidim
           end
         end
       end
+
+      describe "statuses" do
+        let!(:statuses) { create_list(:status, 5, component: model) }
+        let(:query) do
+          %(
+            {
+              statuses {
+                id
+                key
+                name { translations { locale text } }
+              }
+            }
+          )
+        end
+
+        it "returns all statuses" do
+          expect(response["statuses"]).to be_a(Array)
+          expect(response["statuses"].count).to eq(5)
+
+          response["statuses"].each do |response_status|
+            status = statuses.find { |st| st.id.to_s == response_status["id"] }
+            expect(response_status["key"]).to eq(status.key)
+
+            translated_name = status.name.to_h
+            machine_translations = translated_name.delete("machine_translations")
+            translated_name.merge!(machine_translations) if machine_translations.is_a?(Hash)
+
+            expect(response_status["name"]["translations"]).to match_array(
+              translated_name.map { |key, val| { "locale" => key.to_s, "text" => val } }
+            )
+          end
+        end
+      end
+
+      describe "status" do
+        let(:query) { "query Status($id: ID!){ status(id: $id) { id } }" }
+        let(:variables) { { id: status.id.to_s } }
+
+        context "when the status belongs to the component" do
+          let!(:status) { create(:status, component: model) }
+
+          it "finds the status" do
+            expect(response["status"]).to eq("id" => status.id.to_s)
+          end
+        end
+
+        context "when the status does not belong to the component" do
+          let!(:status) { create(:status, component: create(:accountability_component)) }
+
+          it "returns null" do
+            expect(response["status"]).to be_nil
+          end
+        end
+      end
     end
   end
 end
