@@ -11,7 +11,7 @@
           <% categories.each do |category| %>
             <li>
               <div class="conference__program-category">
-                <%= category.present? ? translated_attribute(category.name) : "other" %>
+                <%= category.present? ? translated_attribute(category.name) : t(".other_category") %>
               </div>
             </li>
           <% end %>
