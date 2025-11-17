@@ -38,14 +38,10 @@ module Decidim
       end
 
       def defined_translations
-        return {} unless object.is_a?(Hash)
-
         object.stringify_keys.except("machine_translations")
       end
 
       def machine_translations
-        return {} unless object.is_a?(Hash)
-
         object.stringify_keys["machine_translations"]&.stringify_keys || {}
       end
     end
