@@ -12,12 +12,18 @@ module Decidim
           let!(:post_component) { create(:post_component, participatory_space: participatory_process) }
           let!(:unpublished) { create(:post, component: post_component, created_at: 2.days.ago, published_at: 2.days.from_now) }
           let!(:published) { create(:post, component: post_component, created_at: 2.days.ago, published_at: 2.days.ago) }
+          let!(:another_published) { create(:post, component: post_component, created_at: 3.days.ago, published_at: 1.day.ago) }
           let!(:current_user) { create(:user, :admin, :confirmed, organization:) }
 
           before do
             request.env["decidim.current_organization"] = organization
             request.env["decidim.current_component"] = post_component
             request.env["decidim.current_participatory_space"] = participatory_process
+          end
+
+          it "lists only published posts" do
+            get :index
+            expect(controller.helpers.posts).to eq([another_published, published])
           end
 
           it "shows published posts" do

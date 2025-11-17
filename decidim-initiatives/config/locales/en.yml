@@ -97,7 +97,7 @@ en:
           type_id_eq:
             label: Type
         search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Search %{collection} by title, description, ID or author name
+          title_or_description_or_author_name_or_author_nickname_cont: Search %{collection} by title, description, or author name
       initiatives_settings:
         update:
           error: There was a problem updating the initiatives settings.
@@ -119,7 +119,6 @@ en:
         initiatives:
           fields:
             created_at: Created at
-            id: ID
             published_at: Published at
             state: Status
             supports_count: Signatures
