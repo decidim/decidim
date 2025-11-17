@@ -4,23 +4,23 @@
       <%= start_time.to_fs(:time) %> - <%= end_time.to_fs(:time) %>
     </div>
     <div>
-      <% categories = meetings.map(&:category).uniq %>
+      <% taxonomies = meetings.map(&:taxonomies).uniq %>
       <% seed = SecureRandom.hex(3).to_s %>
-      <% if categories.present? %>
-        <ul class="conference__program-category-container">
-          <% categories.each do |category| %>
+      <% if taxonomies.present? %>
+        <ul class="conference__program-taxonomy-container">
+          <% taxonomies.each do |taxonomy| %>
             <li>
-              <div class="conference__program-category">
-                <%= category.present? ? translated_attribute(category.name) : t(".other_category") %>
+              <div class="conference__program-taxonomy">
+                <%= taxonomy.first.present? ? translated_attribute(taxonomy.first.name) : t(".other_category") %>
               </div>
             </li>
           <% end %>
         </ul>
       <% end %>
 
-      <% meetings.group_by(&:category).each do |categories_block| %>
-        <div class="conference__program-category-content">
-          <% categories_block.last.each do |meeting| %>
+      <% meetings.group_by(&:taxonomies).each do |taxonomies_block| %>
+        <div class="conference__program-taxonomy-content">
+          <% taxonomies_block.last.each do |meeting| %>
             <%= render partial: "program_meeting", locals: { meeting: } %>
           <% end %>
         </div>
