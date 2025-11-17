@@ -444,7 +444,7 @@ en:
           registration: Registration
       conference_program:
         program_item:
-          other_html: Other
+          other_category: Other
         show:
           program: Program
       conference_registration_mailer:
