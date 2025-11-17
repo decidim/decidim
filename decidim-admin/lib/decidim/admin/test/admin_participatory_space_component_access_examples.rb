@@ -17,8 +17,8 @@ shared_examples "accessing the component in a participatory space" do
       login_as user, scope: :user
     end
 
-    it_behaves_like "a 404 page" do
-      let(:target_path) { manage_component_path(component) }
+    it "raises a ActionController::RoutingError" do
+      expect { visit manage_component_path(component) }.to raise_error(ActionController::RoutingError)
     end
   end
 
