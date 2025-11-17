@@ -106,12 +106,9 @@
           @apply text-gray-2 mr-1;
         }
       }
-    }
 
-    &:hover,
-    &-hovered {
-      > .dropdown__button {
-        @apply text-white no-underline;
+      &:hover {
+        @apply text-white no-underline !bg-secondary;
 
         span {
           @apply text-white;
@@ -119,6 +116,26 @@
 
         svg {
           @apply fill-white;
+        }
+      }
+    }
+
+    &-opened {
+      > .dropdown__button {
+        @apply text-secondary no-underline;
+
+        span {
+          @apply text-secondary;
+        }
+
+        svg {
+          fill: rgb(var(--secondary-rgb) / var(--tw-bg-opacity)) !important;
+        }
+
+        &:hover {
+          svg {
+            fill: white !important;
+          }
         }
       }
     }
