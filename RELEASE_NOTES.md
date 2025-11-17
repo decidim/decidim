@@ -266,6 +266,9 @@ You can read more about this change on PR [#14940](https://github.com/decidim/de
 
 ### 3.6. User Groups removal
 
+> [!WARNING]
+> We have detected a bug related to the authorship of the UserGroups activity. This was already happening in versions before v0.31.0, and we plan on fixing this for v0.31.1. See [#15448](https://github.com/decidim/decidim/issues/15448) for more details.
+
 As part of our efforts to simplify the experience for organizations, the "User Groups" feature has been deprecated. All previously existing User Groups has been converted into regular participants able to sign in providing the email and a password. The users with access to the email associated with the User Group will be able to set a password.
 
 There are some tasks to notify users affected by the changes, transfer authorships and remove deprecated references to groups. All of them can be executed in a main task:
