@@ -82,22 +82,22 @@ module Decidim
 
         let(:query) do
           %({
-            moderatedUsers{
+            moderatedUsers {
               about
               blockReasons
               blockedAt
-              blockingUser{
+              blockingUser {
                 id
               }
               createdAt
               id
-              reports{
+              reports {
                 createdAt
                 details
                 id
                 reason
                 updatedAt
-                user{
+                user {
                   id
                 }
               }
@@ -140,7 +140,7 @@ module Decidim
 
         let(:query) do
           %({
-            moderations{
+            moderations {
               createdAt
               hiddenAt
               id

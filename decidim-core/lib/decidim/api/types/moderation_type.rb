@@ -2,7 +2,7 @@
 
 module Decidim
   module Core
-    # this type is used to represent a content moderation record
+    # This type represents a content moderation record
     class ModerationType < Decidim::Api::Types::BaseObject
       description "A moderation detail"
 
@@ -12,7 +12,7 @@ module Decidim
       field :id, GraphQL::Types::ID, "The ID of the moderation", null: false
       field :report_count, GraphQL::Types::Int, "The number of reports of this resource", null: true
       field :reported_content, GraphQL::Types::String, "The content that has been reported", null: true
-      field :reported_url, GraphQL::Types::String, "The url of the resource that was reported", null: true
+      field :reported_url, GraphQL::Types::String, "The URL of the resource that was reported", null: true
       field :reports, [Decidim::Core::ReportableType, { null: true }], "The reports of this resource", null: true
 
       def reported_url

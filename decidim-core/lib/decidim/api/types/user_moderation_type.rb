@@ -2,7 +2,7 @@
 
 module Decidim
   module Core
-    # This type represents a User Moderation
+    # This type represents a user moderation
     class UserModerationType < Decidim::Api::Types::BaseObject
       description "A moderated user detail"
 
