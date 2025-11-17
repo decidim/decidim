@@ -113,5 +113,23 @@ RSpec.describe "Result search" do
         expect(subject).to contain_exactly(result1, result2)
       end
     end
+
+    context "when filtering by taxonomy" do
+      context "when filtering by taxonomy1" do
+        let(:filter_params) { { taxonomies_part_of_contains: taxonomy1.id } }
+
+        it "returns results with that taxonomy directly assigned" do
+          expect(subject).to contain_exactly(result1)
+        end
+      end
+
+      context "when filtering by taxonomy2" do
+        let(:filter_params) { { taxonomies_part_of_contains: taxonomy2.id } }
+
+        it "returns results with that taxonomy and results with its child taxonomies" do
+          expect(subject).to contain_exactly(result2, result4)
+        end
+      end
+    end
   end
 end
