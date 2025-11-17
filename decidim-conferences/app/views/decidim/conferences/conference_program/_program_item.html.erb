@@ -11,7 +11,7 @@
           <% taxonomies.each do |taxonomy| %>
             <li>
               <div class="conference__program-taxonomy">
-                <%= taxonomy.first.present? ? translated_attribute(taxonomy.first.name) : "other" %>
+                <%= taxonomy.first.present? ? translated_attribute(taxonomy.first.name) : t(".other_category") %>
               </div>
             </li>
           <% end %>
