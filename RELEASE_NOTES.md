@@ -65,6 +65,7 @@ bin/rails decidim:upgrade:user_groups:remove # see "3.6. User Groups removal"
 bin/rails decidim:upgrade:fix_action_log # see "3.8. Fix incorrect ActionLog entries"
 # skip this command if you have run it before:
 bin/rails decidim:upgrade:clean:remove_private_exports_attachments
+bin/rails data:migrate
 ```
 
 Update your shakapacker version in your `package.json` file for "2.3 Shakapacker upgrade".<br>
