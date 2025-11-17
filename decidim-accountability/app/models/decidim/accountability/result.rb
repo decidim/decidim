@@ -110,7 +110,7 @@ module Decidim
         base + %w(created_at progress)
       end
 
-      def self.ransackable_associations(auth_object = nil)
+      def self.ransackable_associations(_auth_object = nil)
         %w(taxonomies status)
       end
 
