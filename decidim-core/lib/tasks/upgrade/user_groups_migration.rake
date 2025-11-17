@@ -10,8 +10,7 @@ namespace :decidim do
         :"decidim:upgrade:user_groups:send_user_group_changes_notification_to_members",
         :"decidim:upgrade:user_groups:transfer_user_groups_authorships",
         :"decidim:upgrade:user_groups:fix_user_groups_action_logs",
-        :"decidim:upgrade:user_groups:remove_groups_notifications",
-        :"decidim_comments:upgrade:update_user_group_references"
+        :"decidim:upgrade:user_groups:remove_groups_notifications"
       ]
 
       desc "Patch users migrated from user groups with invalid emails"
