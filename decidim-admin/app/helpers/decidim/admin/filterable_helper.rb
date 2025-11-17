@@ -77,7 +77,7 @@ module Decidim
           safe_join([
                       content_tag(:span) { extract_html_value(key) },
                       icon("arrow-right-s-line", class: "fill-secondary absolute right-2"),
-                      icon("arrow-right-s-line", class: "!fill-current !text-white absolute right-2")
+                      icon("arrow-right-s-line", class: "fill-current text-white absolute right-2")
                     ])
         end
       end
