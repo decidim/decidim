@@ -256,7 +256,6 @@ en:
           fields:
             created_at: Created
             end_date: End date
-            id: ID
             progress: Progress
             start_date: Start date
             status: Status

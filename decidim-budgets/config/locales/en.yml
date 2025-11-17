@@ -214,7 +214,6 @@ en:
             total_budget: Total budget
         project:
           fields:
-            id: ID
             map: Map
             taxonomies: Taxonomies
             title: Title

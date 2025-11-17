@@ -23,10 +23,6 @@ module Decidim
             collection.includes(:taxonomies).joins(:taxonomies)
           end
 
-          def search_field_predicate
-            :id_string_or_title_cont
-          end
-
           def filters
             [
               :taxonomies_part_of_contains,
