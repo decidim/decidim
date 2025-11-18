@@ -210,7 +210,6 @@ es-MX:
             total_budget: Presupuesto total
         project:
           fields:
-            id: ID
             map: Mapa
             taxonomies: Taxonomías
             title: Título
