@@ -427,6 +427,7 @@ pt:
           fields:
             closed: Encerradas
             end_time: Data final
+            id: IDENTIFICAÇÃO
             map: Mapa
             official_meeting: Reunião oficial
             start_time: Data de início
