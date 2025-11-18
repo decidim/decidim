@@ -673,7 +673,6 @@ de:
           fields:
             closed: Geschlossen
             end_time: Endtermin
-            id: ID
             map: Karte
             official_meeting: Offizielle Besprechung
             start_time: Anfangsdatum
