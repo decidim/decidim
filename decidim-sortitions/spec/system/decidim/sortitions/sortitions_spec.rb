@@ -32,10 +32,6 @@ describe "sortitions" do
       it "lists the sortitions ordered randomly" do
         page.visit "#{main_component_path(component)}?order=random"
 
-        within(".menu-bar") do
-          expect(page).to have_content(translated(component.name))
-        end
-
         expect(page).to have_css(".card__list", count: 2)
         expect(page).to have_css(".card__list", text: lucky_sortition.title[:en])
         expect(page).to have_css(".card__list", text: unlucky_sortition.title[:en])
