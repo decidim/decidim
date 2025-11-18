@@ -190,6 +190,7 @@ ja:
         success: アカウントが正常に削除されました。
       download_your_data_export:
         export_expired: エクスポートの有効期限が切れています。新しいエクスポートを生成してください。
+        export_not_found: アクセスしたエクスポートが存在しないか、ダウンロードする権限がありません
         file_no_exists: ファイルが存在しません
         notice: データのダウンロードは現在進行中です。完了した際にはメールでお知らせします。
       email_change:
