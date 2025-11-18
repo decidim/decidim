@@ -57,6 +57,7 @@ module Decidim
       # @param closable [Boolean] - Whether the close icon is added.
       #
       # @return [String] the HTML with the alert box
+      # @param [Hash{Symbol => Object}] opts
       def alert_box(value, alert_class, closable, opts = {})
         options = {
           class: "flash #{alert_class}",

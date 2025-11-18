@@ -130,6 +130,11 @@ describe "Explore versions", versioning: true do
       visit current_path
       click_on("Version 3 of 3")
 
+      within(".menu-bar") do
+        expect(page).to have_content(translated(component.name))
+        expect(page).to have_content(translated(proposal.reload.title))
+      end
+
       within "#diff-for-state" do
         expect(page).to have_content("State")
         within ".diff > ul > .ins" do

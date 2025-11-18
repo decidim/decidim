@@ -148,8 +148,6 @@ pt:
     meetings:
       actions:
         agenda: Agenda
-        attachment_collections: Pastas
-        attachments: Anexos
         close: Fechar
         edit: Editar
         invalid_destroy:

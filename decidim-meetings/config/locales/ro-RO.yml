@@ -220,8 +220,6 @@ ro:
     meetings:
       actions:
         agenda: Agendă
-        attachment_collections: Dosare
-        attachments: Atașamente
         close: Închide
         edit: Editare
         invalid_destroy:

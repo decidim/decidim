@@ -34,7 +34,7 @@ module Decidim
 
           on(:invalid) do
             set_flash_message :notice, :success, kind: @form.provider.capitalize
-            render :new
+            render :new, status: :unprocessable_entity
           end
 
           on(:add_tos_errors) do

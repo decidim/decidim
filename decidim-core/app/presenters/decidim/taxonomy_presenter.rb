@@ -11,8 +11,8 @@ module Decidim
       @translated_name ||= translated_attribute name
     end
 
-    def title(links: false, html_escape: false, all_locales: false)
-      super(name, links, html_escape, all_locales)
+    def title(html_escape: false, all_locales: false)
+      super(name, html_escape, all_locales)
     end
   end
 end

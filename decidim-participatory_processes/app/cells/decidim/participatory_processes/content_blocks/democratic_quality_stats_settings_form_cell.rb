@@ -17,58 +17,57 @@ module Decidim
 
         def settings_options
           {
-            migrant_groups_invited: [
-              [t("inclusiveness.migrant_groups_invited.options.five", scope: option_scope), 5],
-              [t("inclusiveness.migrant_groups_invited.options.zero", scope: option_scope), 0]
-            ],
-            cultural_origins_participation: [
-              [t("inclusiveness.cultural_origins_participation.options.one", scope: option_scope), 1],
-              [t("inclusiveness.cultural_origins_participation.options.two", scope: option_scope), 2],
-              [t("inclusiveness.cultural_origins_participation.options.three", scope: option_scope), 3],
-              [t("inclusiveness.cultural_origins_participation.options.four", scope: option_scope), 4],
-              [t("inclusiveness.cultural_origins_participation.options.five", scope: option_scope), 5]
-            ],
             functional_diversity_invited: [
-              [t("inclusiveness.functional_diversity_invited.options.five", scope: option_scope), 5],
-              [t("inclusiveness.functional_diversity_invited.options.zero", scope: option_scope), 0]
+              [t("inclusiveness.functional_diversity_invited.options.zero", scope: option_scope), 0],
+              [t("inclusiveness.functional_diversity_invited.options.one", scope: option_scope), 1],
+              [t("inclusiveness.functional_diversity_invited.options.two_five", scope: option_scope), 2.5],
+              [t("inclusiveness.functional_diversity_invited.options.five", scope: option_scope), 5]
             ],
-            functional_diversity_participation: [
-              [t("inclusiveness.functional_diversity_participation.options.one", scope: option_scope), 1],
-              [t("inclusiveness.functional_diversity_participation.options.two", scope: option_scope), 2],
-              [t("inclusiveness.functional_diversity_participation.options.three", scope: option_scope), 3],
-              [t("inclusiveness.functional_diversity_participation.options.four", scope: option_scope), 4],
-              [t("inclusiveness.functional_diversity_participation.options.five", scope: option_scope), 5]
+            languages_communicated: [
+              [t("inclusiveness.languages_communicated.options.one", scope: option_scope), 1],
+              [t("inclusiveness.languages_communicated.options.two_five", scope: option_scope), 2.5],
+              [t("inclusiveness.languages_communicated.options.five", scope: option_scope), 5]
             ],
-            relevance_percentage: [
-              [t("relevance.relevance_percentage.options.one", scope: option_scope), 1],
-              [t("relevance.relevance_percentage.options.two", scope: option_scope), 2],
-              [t("relevance.relevance_percentage.options.three", scope: option_scope), 3],
-              [t("relevance.relevance_percentage.options.four", scope: option_scope), 4],
-              [t("relevance.relevance_percentage.options.five", scope: option_scope), 5]
+            mobility_meeting_access: [
+              [t("inclusiveness.mobility_meeting_access.options.zero", scope: option_scope), 0],
+              [t("inclusiveness.mobility_meeting_access.options.two_five", scope: option_scope), 2.5],
+              [t("inclusiveness.mobility_meeting_access.options.five", scope: option_scope), 5]
+            ],
+            participation_scheduling_times: [
+              [t("inclusiveness.participation_scheduling_times.options.zero", scope: option_scope), 0],
+              [t("inclusiveness.participation_scheduling_times.options.two_five", scope: option_scope), 2.5],
+              [t("inclusiveness.participation_scheduling_times.options.five", scope: option_scope), 5]
+            ],
+            digital_support_offered: [
+              [t("inclusiveness.digital_support_offered.options.zero", scope: option_scope), 0],
+              [t("inclusiveness.digital_support_offered.options.two_five", scope: option_scope), 2.5],
+              [t("inclusiveness.digital_support_offered.options.five", scope: option_scope), 5]
             ],
             citizen_influence_level: [
-              [t("citizen_influence.citizen_influence_level.options.zero", scope: option_scope), 0,
-               t("citizen_influence.citizen_influence_level.options.zero_description", scope: option_scope)],
-              [t("citizen_influence.citizen_influence_level.options.one", scope: option_scope), 1,
-               t("citizen_influence.citizen_influence_level.options.one_description", scope: option_scope)],
-              [t("citizen_influence.citizen_influence_level.options.two", scope: option_scope), 2,
-               t("citizen_influence.citizen_influence_level.options.two_description", scope: option_scope)],
-              [t("citizen_influence.citizen_influence_level.options.three", scope: option_scope), 3,
-               t("citizen_influence.citizen_influence_level.options.three_description", scope: option_scope)],
-              [t("citizen_influence.citizen_influence_level.options.four", scope: option_scope), 4,
-               t("citizen_influence.citizen_influence_level.options.four_description", scope: option_scope)],
-              [t("citizen_influence.citizen_influence_level.options.five", scope: option_scope), 5,
-               t("citizen_influence.citizen_influence_level.options.five_description", scope: option_scope)]
+              [t("citizen_influence.citizen_influence_level.options.one", scope: option_scope), 1],
+              [t("citizen_influence.citizen_influence_level.options.two", scope: option_scope), 2],
+              [t("citizen_influence.citizen_influence_level.options.three", scope: option_scope), 3],
+              [t("citizen_influence.citizen_influence_level.options.four", scope: option_scope), 4],
+              [t("citizen_influence.citizen_influence_level.options.five", scope: option_scope), 5]
             ],
-            languages_count: [
-              [t("accessibility.languages_count.options.one", scope: option_scope), 1],
-              [t("accessibility.languages_count.options.two_five", scope: option_scope), 2.5],
-              [t("accessibility.languages_count.options.five", scope: option_scope), 5]
+            citizen_decisional_intervention: [
+              [t("citizen_influence.citizen_decisional_intervention.options.one", scope: option_scope), 1],
+              [t("citizen_influence.citizen_decisional_intervention.options.two", scope: option_scope), 2],
+              [t("citizen_influence.citizen_decisional_intervention.options.three", scope: option_scope), 3],
+              [t("citizen_influence.citizen_decisional_intervention.options.four", scope: option_scope), 4],
+              [t("citizen_influence.citizen_decisional_intervention.options.five", scope: option_scope), 5]
             ],
-            venue_accessibility: [
-              [t("accessibility.venue_accessibility.options.zero", scope: option_scope), 0],
-              [t("accessibility.venue_accessibility.options.two_five", scope: option_scope), 2.5],
-              [t("accessibility.venue_accessibility.options.five", scope: option_scope), 5]
+            published_information_clarity: [
+              [t("informativeness.published_information_clarity.options.zero", scope: option_scope), 0],
+              [t("informativeness.published_information_clarity.options.one", scope: option_scope), 1],
+              [t("informativeness.published_information_clarity.options.two_five", scope: option_scope), 2.5],
+              [t("informativeness.published_information_clarity.options.five", scope: option_scope), 5]
+            ],
+            information_provided: [
+              [t("informativeness.information_provided.options.zero", scope: option_scope), 0],
+              [t("informativeness.information_provided.options.one", scope: option_scope), 1],
+              [t("informativeness.information_provided.options.two_five", scope: option_scope), 2.5],
+              [t("informativeness.information_provided.options.five", scope: option_scope), 5]
             ]
           }
         end

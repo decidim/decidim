@@ -138,7 +138,7 @@ describe "User prints the initiative" do
 
         it "shows a printable form with all available data about the initiative", :download do
           within("tr", text: translated(initiative.title)) do
-            find("button[data-component='dropdown']").click
+            find("button[data-controller='dropdown']").click
             click_on "Print"
           end
           expect(File.basename(download_path)).to include("initiative_submit_#{initiative.id}.pdf")
@@ -150,7 +150,7 @@ describe "User prints the initiative" do
 
         it "does not show the print link" do
           within("tr", text: translated(initiative.title)) do
-            find("button[data-component='dropdown']").click
+            find("button[data-controller='dropdown']").click
             expect(page).to have_no_content("Print")
           end
         end

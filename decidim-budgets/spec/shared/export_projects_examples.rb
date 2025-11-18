@@ -2,14 +2,14 @@
 
 shared_examples "export projects" do
   let!(:projects) { create_list(:project, 5, budget:) }
-  let(:export_type) { "Export all" }
+  let(:export_type) { "Export" }
 
   it_behaves_like "export as CSV"
   it_behaves_like "export as JSON"
 
   context "with query" do
     before do
-      fill_in "q[id_string_or_title_cont]", with: translated(projects.last.title)
+      fill_in "q[title_cont]", with: translated(projects.last.title)
       find("button[aria-label='Search']").click
     end
 

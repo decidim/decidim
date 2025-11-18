@@ -14,7 +14,8 @@ eu:
   decidim:
     admin:
       actions:
-        see_survey: Ikusi inkesta
+        confirm_unpublish_survey: Ziur zaude inkesta hau despublikatu nahi duzula?
+        see_survey: Inkesta ikusi
       admin_log:
         changeset:
           surveys: inkestak
@@ -27,7 +28,7 @@ eu:
     components:
       surveys:
         actions:
-          response: Erantzuna
+          respond: Erantzun
         name: Inkestak
         settings:
           announcement: Oharra
@@ -71,7 +72,7 @@ eu:
               Argitaratu nahi dituzun erantzunak hauta ditzakezu galdera bakoitzaren ondoan dagoen laukitxoan klik eginez.
               Galdera mota hauek baino ezin dira argitaratu: "Aukera bakarra", "Aukera anitza", "Matrizea (aukera bakarra)", "Matrizea (aukera anitza)" eta "Sailkapena".
             responses:
-              one: "%{count} erantzun"
+              one: "Erantzun %{count}"
               other: "%{count} erantzun"
             status:
               not_published: Argitaratu gabe
@@ -98,11 +99,11 @@ eu:
           destroy:
             success: Inkesta behar bezala ezabatua.
           edit:
-            title: Nagusia
+            title: Editatu inkesta
           index:
             title: Inkestak
           new:
-            title: Nagusia
+            title: Beste inkesta bat
           publish:
             invalid: Arazo bat egon da inkesta hau argitaratzean.
             success: Inkesta zuzen argitaratua.
@@ -128,10 +129,14 @@ eu:
       models:
         survey:
           fields:
+            published: Argitaratua
             questions: Galderak
             responses: Erantzunak
             status: Egoera
             title: Izenburua
+          published:
+            published: Argitaratua
+            unpublished: Desargitaratua
           status:
             closed: Itxita
             open: Zabaldu

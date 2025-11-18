@@ -25,8 +25,6 @@ cs:
           settings: Nastavení
     components:
       surveys:
-        actions:
-          response: Odpověď
         name: Průzkumy
         settings:
           announcement: Oznámení
@@ -86,11 +84,11 @@ cs:
           destroy:
             success: Anketa byla úspěšně odstraněna.
           edit:
-            title: Hlavní
+            title: Upravit anketu
           index:
             title: Ankety
           new:
-            title: Hlavní
+            title: Nový průzkum
           publish:
             invalid: Při publikování této ankety došlo k chybě.
             success: Anketa byla úspěšně publikována.
@@ -116,10 +114,14 @@ cs:
       models:
         survey:
           fields:
+            published: Zveřejněno
             questions: Otázky
             responses: Odpovědi
             status: Status
             title: Název
+          published:
+            published: Zveřejněno
+            unpublished: Nezveřejněno
           status:
             closed: Uzavřeno
             open: Otevřeno

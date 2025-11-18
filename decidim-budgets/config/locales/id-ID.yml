@@ -12,8 +12,6 @@ id:
   decidim:
     budgets:
       actions:
-        attachment_collections: Folder
-        attachments: Lampiran
         edit: Edit
         import: Impor proposal ke proyek
         preview: Pratinjau

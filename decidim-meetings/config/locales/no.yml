@@ -147,8 +147,6 @@
     meetings:
       actions:
         agenda: Dagsorden
-        attachment_collections: Mapper
-        attachments: Vedlegg
         close: Lukk
         edit: Rediger
         invalid_destroy:

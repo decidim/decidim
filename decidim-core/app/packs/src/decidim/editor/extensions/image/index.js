@@ -2,7 +2,7 @@ import { mergeAttributes } from "@tiptap/core";
 import Image from "@tiptap/extension-image";
 import { Plugin } from "prosemirror-state";
 
-import { getDictionary } from "src/decidim/i18n";
+import { getDictionary } from "src/decidim/refactor/moved/i18n";
 import { fileNameToTitle } from "src/decidim/editor/utilities/file";
 import createNodeView from "src/decidim/editor/extensions/image/node_view";
 

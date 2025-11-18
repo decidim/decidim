@@ -10,9 +10,6 @@ es:
         closing_date: Fecha de cierre
         closing_date_reason: Razón de la fecha de cierre
         composition: Composición
-        copy_categories: Copiar categorías
-        copy_components: Copiar componentes
-        copy_features: Copiar funcionalidades
         created_by: Creado por
         created_by_other: Creado por otra
         creation_date: Fecha de creacion
@@ -22,6 +19,9 @@ es:
         developer_group: Grupo promotor
         document: Documento
         domain: Dominio
+        duplicate_categories: Duplicar las categorías
+        duplicate_components: Duplicar los componentes
+        duplicate_features: Duplicar las funcionalidades
         duration: Duración
         facebook: Facebook
         github: GitHub
@@ -111,13 +111,13 @@ es:
         update:
           error: Se ha producido un error al actualizar esta asamblea.
           success: La asamblea se ha actualizado correctamente.
-      assemblies_copies:
+      assemblies_duplicates:
         create:
           error: Se ha producido un error al duplicar esta asamblea.
-          success: Asamblea duplicada correctamente.
-      assembly_copies:
+          success: La asamblea se ha duplicado correctamente.
+      assembly_duplicates:
         new:
-          copy: Copiar
+          duplicate: Duplicar
           select: Selecciona qué datos quieres duplicar
           title: Duplicar asamblea
       assembly_imports:
@@ -259,9 +259,9 @@ es:
             taxonomies: Taxonomías
             title: Información general
             visibility: Visibilidad
-        assembly_copies:
+        assembly_duplicates:
           form:
-            slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         assembly_imports:
           form:
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'

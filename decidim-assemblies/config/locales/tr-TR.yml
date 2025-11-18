@@ -10,9 +10,6 @@ tr:
         closing_date: Kapanış tarihi
         closing_date_reason: Kapanış tarihi nedeni
         composition: bileştirme, kompozisyon
-        copy_categories: Kategorileri kopyala
-        copy_components: Bileşenleri kopyala
-        copy_features: Özellikleri kopyala
         created_by: Tarafından yaratıldı
         created_by_other: Diğer tarafından oluşturuldu
         creation_date: Tarih oluşturuldu
@@ -97,15 +94,6 @@ tr:
         update:
           error: Bu kurul güncellenirken bir hata oluştu.
           success: Kurul başarıyla güncellendi.
-      assemblies_copies:
-        create:
-          error: Bu kurul çoğaltırken bir hata oluştu.
-          success: Kurul başarıyla kopyalandı.
-      assembly_copies:
-        new:
-          copy: Kopya
-          select: Çoğaltmak istediğiniz verileri seçin
-          title: Kurulu çoğalt
       assembly_imports:
         create:
           error: Bu kurul derlenirken, içeri aktarılırken bir hata oluştu.

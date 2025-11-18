@@ -1,7 +1,7 @@
 import createFieldDependentInputs from "src/decidim/admin/field_dependent_inputs.component"
 
-$(() => {
-  const $debateType = $('[name="debate[finite]"');
+document.addEventListener("turbo:load", () => {
+  const $debateType = $('[name="debate[finite]"]');
 
   createFieldDependentInputs({
     controllerField: $debateType,

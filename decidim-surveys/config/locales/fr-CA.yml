@@ -14,6 +14,7 @@ fr-CA:
   decidim:
     admin:
       actions:
+        confirm_unpublish_survey: Êtes-vous sûr(e) de vouloir dépublier cette enquête ?
         see_survey: Voir le sondage
       admin_log:
         changeset:
@@ -27,7 +28,7 @@ fr-CA:
     components:
       surveys:
         actions:
-          response: Réponse
+          respond: Répondre
         name: Enquêtes
         settings:
           announcement: Annonce
@@ -92,11 +93,11 @@ fr-CA:
           destroy:
             success: Enquête supprimée avec succès.
           edit:
-            title: Principal
+            title: Modifier l’enquête
           index:
             title: Enquêtes
           new:
-            title: Principal
+            title: Nouvelle enquête
           publish:
             invalid: Une erreur s'est produite lors de la publication de cette enquête.
             success: Enquête publiée avec succès.
@@ -122,10 +123,14 @@ fr-CA:
       models:
         survey:
           fields:
+            published: Publiée
             questions: Questions
             responses: Réponses
             status: État 
             title: Titre
+          published:
+            published: Publiée
+            unpublished: Non publiée
           status:
             closed: Fermée
             open: Ouverte

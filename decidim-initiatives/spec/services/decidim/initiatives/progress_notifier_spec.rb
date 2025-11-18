@@ -14,7 +14,7 @@ module Decidim
         double(
           "initiative",
           author:,
-          followers:,
+          followers: [],
           committee_members: double("committee_members", approved: approved_committee_members)
         )
       end
@@ -56,17 +56,30 @@ module Decidim
         end
       end
 
-      context "and followers are notified" do
+      context "and followers are not notified" do
         let(:followers_count) { 10 }
         let(:followers) do
           create_list(:user, followers_count, organization:)
         end
+        let(:initiative) do
+          double(
+            "initiative",
+            author:,
+            followers: followers,
+            committee_members: double("committee_members", approved: approved_committee_members)
+          )
+        end
 
-        it "one message per follower is sent" do
+        it "notifies the author but not the initiatives followers" do
           expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_progress)
-            .with(any_args)
-            .exactly(followers_count + 1).times
+            .with(initiative, author)
+            .once
             .and_return(message_delivery)
+
+          followers.each do |follower|
+            expect(Decidim::Initiatives::InitiativesMailer).not_to receive(:notify_progress)
+              .with(initiative, follower)
+          end
 
           subject.notify
         end

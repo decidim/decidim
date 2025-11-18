@@ -133,16 +133,15 @@ lb:
         attachment:
           new: Neuer Anhang
         browse: Durchsuchen
-        export: Alles exportéieren
+        configure: Konfigurieren
+        export: Exportéieren
         export-selection: Export Auswiel
         import: Importieren
-        manage: Verwalten
         newsletter:
           new: Neuer Newsletter
         participatory_space_private_user:
           new: Neuer privater Benutzer
         per_page: Pro Seite
-        permissions: Berechtigungen
         share: Teilen
       area_types:
         create:
@@ -465,9 +464,11 @@ lb:
         index:
           actions:
             block: Benutzer blockieren
+            bulk_actions:
+              unreport:
+                title: Meldung Rückgängig machen
             title: Aktionen
             unblock: Blockierung des Benutzers aufheben
-            unreport: Meldung Rückgängig machen
           name: Name
           nickname: Spitzname
           reason: Grund
@@ -560,7 +561,6 @@ lb:
         index:
           actions: Aktionen
           badge: Abzeichen
-          block: Benutzer blockieren
           created_at: Hergestellt in
           name: Name
           nickname: Spitzname
@@ -569,9 +569,7 @@ lb:
           officialized: Offizialisiert
           reofficialize: Reoffizialisieren
           reports: Berichte
-          show_email: E-Mail-Adresse anzeigen
           status: Status
-          unblock: Blockierung des Users aufheben
           unofficialize: Nicht offiziell
         new:
           badge: Offizielles Abzeichen
@@ -672,8 +670,6 @@ lb:
           error: Beim Aktualisieren dieses Themas ist ein Fehler aufgetreten.
           success: Thema erfolgreich aktualisiert
       static_pages:
-        actions:
-          view: Öffentliche Seite anzeigen
         create:
           error: Beim Erstellen einer neuen Seite ist ein Fehler aufgetreten.
           success: Seite erfolgreich erstellt
@@ -731,8 +727,6 @@ lb:
         hide: verbergen
         not_hidden: Nicht versteckt
         title: Aktionen
-        unhide: Einblenden
-        unreport: Nicht melden
       admin:
         reportable:
           hide:

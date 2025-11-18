@@ -707,6 +707,7 @@ ja:
     doorkeeper:
       authorizations:
         new:
+          api_read: API経由でコンテンツを読み込む
           authorize: アプリケーションを承認する
           by_organization_link_html: <small class="heading-small">by %{link}</small>
           cancel: キャンセル
@@ -1245,11 +1246,12 @@ ja:
         main_image: メイン画像
     newsletters:
       unsubscribe:
-        check_subscription: 設定を変更したい場合は、 <a href="%{link}" target="_blank">設定ページ</a> で設定できます。
+        check_subscription_html: 配信を再開したい場合は、<a href="%{link}" target="_blank">設定ページ</a>からいつでもサブスクリプションを再開できます。
         error: 購読解除中に問題が発生しました。
+        subscription_preferences: サブスクリプションの設定を更新しました。 %{organization_name} からニュースレターを受け取ることはできなくなりました。
         success: 購読解除に成功しました。
         token_error: リンクの有効期限が切れました。
-        unsubscribe: 購読解除
+        unsubscribe: ニュースレターの購読を解除
     newsletters_opt_in:
       unauthorized: 申し訳ありませんが、このリンクは使用できなくなりました。
       update:
@@ -1257,7 +1259,7 @@ ja:
         success: ニュースレター設定を更新しました。
     newsletters_opt_in_mailer:
       notify:
-        body_1: 個人データの処理とその保護は、私たち全員にとってますます重要になっています。 2018年5月25日の新しい一般データ保護規則(GDPR)により、個人は個人データをより良く管理できます。 このため、 %{organization_name} の活動に関する関連情報を送信し続けるには、お客様の "OK" が必要です。
+        body_1: 個人データの処理とその保護は、私たち全員にとってますます重要な課題となっています。2018年5月25日に施行された一般データ保護規則（GDPR）により、個人は自分の個人データに対する管理権限を強化しました。このため、%{organization_name}の活動に関する関連情報の提供を継続するため、お客様の「同意」が必要です。
         body_2: 'どのように私たちにあなたの同意を与えることができますか? ただ、以下のボタンをクリックしてください:'
         body_3: この同意があれば、プラットフォームのサービスに関する情報を引き続き受け取ることができます。 逆に、お客様の確認を受けていない場合、当社は当社のメッセージの送信を停止します。 通知を受け続けることを確認した場合は、いつでもキャンセルすることができます。
         button: はい、関連情報を引き続き受信します。
@@ -1587,6 +1589,7 @@ ja:
     searches:
       filters:
         jump_to: 'ジャンプ先:'
+        resource: "%{collection} の中の %{label}"
         search: 検索
         state:
           active: アクティブ
@@ -1702,20 +1705,10 @@ ja:
         body_2: 組織向けの利用体験を簡素化する取り組みの一環として、「ユーザーグループ」機能は廃止される予定です。あなたのユーザーグループのプロフィールは通常の参加者プロフィールに変更されました。
         greeting: こんにちは %{name} さん、
         instructions_1: そのメールアカウントにアクセスできる場合は、受信トレイに届いている案内をご確認ください。
-        instructions_intro: プロファイルの新しいパスワードを設定するために、アカウントに関連付けられているメールアドレスに指示を送信しました。
-        instructions_title: "<strong>これがあなたにとって何を意味するか</strong>"
-        subject: あなたが所属しているユーザーグループに関する重要な更新
       notify_deprecation_to_owner:
         body_1: '%{organization_name}でのグループプロフィールに関する重要なアップデートについてお知らせするためにご連絡しています。'
         body_2: あなたのような組織向けの利用体験を簡素化・改善する取り組みの一環として、「ユーザーグループ」機能は廃止されます。あなたのグループ<strong>%{name}</strong>は通常のアカウントに変更されました。
-        body_3: アカウントに引き続きアクセスするために、パスワードの設定をお願いします。
         greeting: こんにちは %{name} さん、
-        instructions_1: '以下のリンクをクリックして、パスワードの設定を開始してください：'
-        instructions_2: フォームに、このメッセージを受け取ったメールアドレスを入力し、リクエストを送信してください。
-        instructions_3: 新しいパスワードを設定するための詳しい手順が記載されたメールが届いているか、受信トレイをご確認ください。
-        instructions_title: "<strong>あなたが行うべきこと</strong>"
-        set_password: パスワード設定を開始
-        subject: ユーザーグループの重要なアップデート
     user_report_mailer:
       notify:
         body_1: ユーザー %{user} が %{token} によって報告されました
@@ -2070,18 +2063,20 @@ ja:
         edit: 編集
       footer:
         cc_by_license: クリエイティブコモンズライセンス
+        current_organization_img: "%{organization} (Home)"
         data_consent_settings: Cookieの設定
         decidim_logo: Decidim ロゴ
         decidim_title: Decidim
+        help: ヘルプ
         log_in: ログイン
         made_with_open_source: このサイトは <a target="_blank" href="https://github.com/decidim/decidim">フリーソフトウェア</a>で作られています。
         open_data: オープンデータ
         resources: リソース
         sign_up: アカウントを作成
+        social_media: ソーシャルメディア
         terms_of_service: 利用規約
       header:
-        back: リストに戻る
-        cancel: キャンセル
+        back: 戻る
         close: 閉じる
         confirm_close_ephemeral_session: この画面から移動すると、一時セッションは終了します。ただし、進捗状況やアクティビティはすべて保存されます。アクティビティが完了している場合は「Ok」をクリックしてください。
         confirm_title_close_ephemeral_session: このページから離れる前に…
@@ -2091,7 +2086,7 @@ ja:
       impersonation_warning:
         close_session: セッションを閉じる
         description_html: 参加者 <b>%{user_name}</b> を管理しています。
-        expire_time_html: このログインセッションは <b><span class="minutes">%{minutes}</span> 分後に無効になります。</b>.
+        expire_time_html: このログインセッションは <b><span data-impersonation-warning-target="minutes">%{minutes}</span> 分後に無効になります。</b>。
       language_chooser:
         choose_language: 言語を選択
       navigation:
@@ -2122,6 +2117,8 @@ ja:
         profile: マイアカウント
         public_profile: 公開プロフィール
         title: プロフィールリンク
+        unread_conversations: 未読の会話があります
+        unread_notifications: 未読の通知があります
       user_profile:
         account: アカウント
         authorizations: 権限
@@ -2133,6 +2130,11 @@ ja:
   locale:
     name: 日本語
     name_with_error: 日本語 (エラー!)
+  number:
+    currency:
+      format:
+        format: "%u %n"
+        format_html: "<span>%u</span> %n"
   password_validator:
     denied: 拒否されました
     domain_included_in_password: このドメイン名に似ています
@@ -2141,7 +2143,6 @@ ja:
     name_included_in_password: あなたの名前に似ています
     nickname_included_in_password: ニックネームに類似しすぎています
     not_enough_unique_characters: ユニークな文字が十分ではありません
-    password_not_allowed: は許可されていません
     password_repeated: 古いパスワードは再利用できません
     password_too_common: あまりにも一般的です
     password_too_long: 長すぎます

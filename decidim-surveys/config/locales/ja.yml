@@ -12,6 +12,7 @@ ja:
   decidim:
     admin:
       actions:
+        confirm_unpublish_survey: このアンケートを非公開にしますか？
         see_survey: アンケートを見る
       admin_log:
         changeset:
@@ -25,7 +26,7 @@ ja:
     components:
       surveys:
         actions:
-          response: 回答
+          respond: 回答する
         name: 調査
         settings:
           announcement: お知らせ
@@ -95,11 +96,11 @@ ja:
           destroy:
             success: アンケートを削除しました。
           edit:
-            title: メイン
+            title: アンケートを編集
           index:
             title: アンケート
           new:
-            title: メイン
+            title: 新しいアンケート
           publish:
             invalid: このアンケートを公開する際に問題が発生しました。
             success: アンケートを公開しました。
@@ -125,10 +126,14 @@ ja:
       models:
         survey:
           fields:
+            published: 公開済み
             questions: 質問
             responses: 回答
             status: ステータス
             title: タイトル
+          published:
+            published: 公開済み
+            unpublished: 未公開
           status:
             closed: 終了済
             open: 公開

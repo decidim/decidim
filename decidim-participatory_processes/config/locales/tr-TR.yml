@@ -4,9 +4,6 @@ tr:
       participatory_process:
         announcement: duyuru
         area_id: alan
-        copy_categories: Kategorileri kopyala
-        copy_components: Bileşenleri kopyala
-        copy_steps: Adımları kopyala
         decidim_area_id: alan
         description: Açıklama
         developer_group: Tanıtım grubu
@@ -69,7 +66,6 @@ tr:
     admin:
       actions:
         activate: etkinleştirmek
-        configure: Yapılandır
         confirm_destroy: Silmeyi onayla
         destroy: silmek
         duplicate: Çift
@@ -131,11 +127,6 @@ tr:
           fields:
             invitation_accepted_at: Davet kabul edildi
             invitation_sent_at: Davetiye gönderildi
-      participatory_process_copies:
-        new:
-          copy: kopya
-          select: Çoğaltmak istediğiniz verileri seçin
-          title: Yinelenen katılımcı süreç
       participatory_process_groups:
         destroy:
           success: Katılımcı süreç grubu başarıyla silindi.
@@ -221,10 +212,6 @@ tr:
         update:
           error: Bu katılımcı süreci güncellerken bir hata oluştu.
           success: Katılımcı süreç başarıyla güncellendi.
-      participatory_processes_copies:
-        create:
-          error: Bu katılımcı süreci çoğaltırken bir hata oluştu.
-          success: Katılımcı süreç başarıyla kopyalandı.
       participatory_processes_group:
         create:
           error: Yeni bir katılımcı süreç grubu oluştururken bir hata oluştu.
@@ -317,9 +304,6 @@ tr:
         participatory_process_imports:
           form:
             document_legend: Doküman Ekle
-        participatory_process_steps:
-          form:
-            cta_text_help: Ayarlanmazsa, düğme gösterilmeyecektir.
         participatory_processes:
           form:
             announcement_help: Buraya girdiğiniz metin, işlem bilgilerinin hemen altındaki kullanıcıya gösterilecektir.

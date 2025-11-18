@@ -1,4 +1,4 @@
-$(() => {
+document.addEventListener("turbo:load", () => {
   const $projects = $("#projects, #project-item");
   const $budgetSummaryTotal = $(".budget-summary__progressbar-marks_right");
   const selectBudgetSummaryTotal = $budgetSummaryTotal.data("totalAllocation");

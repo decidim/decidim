@@ -12,12 +12,12 @@ shared_examples "export survey user responses" do
   it "exports a CSV" do
     visit_component_admin
     within "tr", text: decidim_sanitize_translated(survey.title) do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       click_on "Questions"
     end
     click_on "Responses"
 
-    click_on "Export all"
+    click_on "Export"
     expect(Decidim::PrivateExport.count).to eq(0)
 
     perform_and_wait_for_enqueued_jobs { click_on "CSV" }
@@ -32,12 +32,12 @@ shared_examples "export survey user responses" do
   it "exports a JSON" do
     visit_component_admin
     within "tr", text: decidim_sanitize_translated(survey.title) do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       click_on "Questions"
     end
     click_on "Responses"
 
-    click_on "Export all"
+    click_on "Export"
     expect(Decidim::PrivateExport.count).to eq(0)
 
     perform_and_wait_for_enqueued_jobs { click_on "JSON" }
@@ -52,12 +52,12 @@ shared_examples "export survey user responses" do
   it "exports a PDF" do
     visit_component_admin
     within "tr", text: decidim_sanitize_translated(survey.title) do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       click_on "Questions"
     end
     click_on "Responses"
 
-    click_on "Export all"
+    click_on "Export"
     expect(Decidim::PrivateExport.count).to eq(0)
 
     perform_and_wait_for_enqueued_jobs { click_on "PDF" }
@@ -73,7 +73,7 @@ shared_examples "export survey user responses" do
 
     visit_component_admin
     within "tr", text: decidim_sanitize_translated(survey.title) do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       click_on "Questions"
     end
     click_on "Responses"
@@ -81,7 +81,7 @@ shared_examples "export survey user responses" do
     expect(Decidim::PrivateExport.count).to eq(0)
 
     within "tr", text: "hola2" do
-      find("button[data-component='dropdown']").click
+      find("button[data-controller='dropdown']").click
       perform_and_wait_for_enqueued_jobs { click_on "Export" }
     end
 

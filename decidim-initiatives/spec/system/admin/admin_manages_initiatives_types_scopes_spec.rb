@@ -46,7 +46,7 @@ describe "Admin manages initiatives types scopes" do
 
     it "updates the initiative type scope" do
       within "#panel-initiative_type_scope tr", text: translated_attribute(initiative_type_scope.scope_name) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Configure"
       end
       click_on "Update"

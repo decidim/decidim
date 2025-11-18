@@ -3,14 +3,14 @@
 shared_examples "export proposals" do
   let!(:proposals) { create_list(:proposal, 3, component: current_component) }
 
-  let(:export_type) { "Export all" }
+  let(:export_type) { "Export" }
 
   it_behaves_like "export as CSV"
   it_behaves_like "export as JSON"
 
   context "with query" do
     before do
-      fill_in "q[id_string_or_title_cont]", with: translated(proposals.last.title)
+      fill_in "q[title_cont]", with: translated(proposals.last.title)
       find("button[aria-label='Search']").click
     end
 

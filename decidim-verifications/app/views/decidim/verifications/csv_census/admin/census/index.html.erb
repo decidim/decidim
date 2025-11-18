@@ -40,7 +40,7 @@
                 <%= last_login_info[:last_sign_in] %>
               </td>
               <td data-label="<%= t("index.fields.actions", scope: "decidim.verifications.csv_census.admin") %>" class="table-list__actions">
-                <button type="button" data-component="dropdown" data-target="actions-census-log-<%= data.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: data.id) %>">
+                <button type="button" data-controller="dropdown" data-target="actions-census-log-<%= data.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: data.id) %>">
                   <%= icon "more-fill", class: "text-secondary" %>
                 </button>
 
@@ -70,7 +70,7 @@
       </table>
     </div>
   <% else %>
-    <p><%= t(".empty", import_csv: link_to(t("index.import_csv", scope: "decidim.verifications.csv_census.admin"), new_import_census_logs_path, class: "underline decoration-solid decoration-secondary font-semibold text-secondary").html_safe).html_safe %></p>
+    <p><%= t(".empty", import_csv: link_to(t("index.import_csv", scope: "decidim.verifications.csv_census.admin"), new_import_census_logs_path, class: " decoration-solid decoration-secondary font-semibold text-secondary").html_safe).html_safe %></p>
   <% end %>
 </div>
 <%= decidim_paginate csv_census_data %>

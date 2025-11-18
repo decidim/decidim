@@ -1,0 +1,5 @@
+var $elections = $('#elections');
+var $orderFilterInput = $('.order_filter');
+
+$elections.html('<%= j(render partial: "elections").strip.html_safe %>');
+$orderFilterInput.val('<%= order %>');

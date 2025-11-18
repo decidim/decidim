@@ -51,7 +51,7 @@ shared_examples "manage processes examples" do
       it "allows the user to preview the unpublished process" do
         new_window = window_opened_by do
           within("tr", text: translated(participatory_process.title)) do
-            find("button[data-component='dropdown']").click
+            find("button[data-controller='dropdown']").click
             click_on "Preview"
           end
         end
@@ -69,7 +69,7 @@ shared_examples "manage processes examples" do
       it "allows the user to preview the published process" do
         new_window = window_opened_by do
           within("tr", text: translated(participatory_process.title)) do
-            find("button[data-component='dropdown']").click
+            find("button[data-controller='dropdown']").click
             click_on "Preview"
           end
         end
@@ -140,20 +140,23 @@ shared_examples "manage processes examples" do
     let!(:participatory_process) { create(:participatory_process, :unpublished, organization:) }
 
     before do
-      within "tr", text: translated(participatory_process.title) do
-        click_on translated(participatory_process.title)
-      end
-
-      within_admin_sidebar_menu do
-        click_on "About this process"
-      end
+      visit decidim_admin_participatory_processes.participatory_processes_path
     end
 
     it "publishes the process" do
-      click_on "Publish"
+      within("tr", text: translated_attribute(participatory_process.title)) do
+        find("button[data-controller='dropdown']").click
+        find("a", text: "Publish", visible: true).click
+      end
+
       expect(page).to have_content("successfully published")
-      expect(page).to have_content("Unpublish")
-      expect(page).to have_current_path decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
+
+      within("tr", text: translated_attribute(participatory_process.title)) do
+        find("button[data-controller='dropdown']").click
+        expect(page).to have_content("Unpublish")
+      end
+
+      expect(page).to have_current_path decidim_admin_participatory_processes.participatory_processes_path
 
       participatory_process.reload
       expect(participatory_process).to be_published
@@ -164,20 +167,18 @@ shared_examples "manage processes examples" do
     let!(:participatory_process) { create(:participatory_process, organization:) }
 
     before do
-      within "tr", text: translated(participatory_process.title) do
-        click_on translated(participatory_process.title)
-      end
-
-      within_admin_sidebar_menu do
-        click_on "About this process"
-      end
+      visit decidim_admin_participatory_processes.participatory_processes_path
     end
 
     it "unpublishes the process" do
-      click_on "Unpublish"
+      within("tr", text: translated_attribute(participatory_process.title)) do
+        find("button[data-controller='dropdown']").click
+        find("a", text: "Unpublish", visible: true).click
+      end
+
       expect(page).to have_content("successfully unpublished")
       expect(page).to have_content("Publish")
-      expect(page).to have_current_path decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
+      expect(page).to have_current_path decidim_admin_participatory_processes.participatory_processes_path
 
       participatory_process.reload
       expect(participatory_process).not_to be_published

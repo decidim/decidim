@@ -45,6 +45,7 @@ ca:
           new_sortition: Afegir sorteig
           show: Detalls del sorteig
           title: Accions
+        deprecation_warning_html: "⚠️ <b>Avís de Desús/Obsolescència.</b> El mòdul de sorteigs s'eliminarà a Decidim v.0.32. Si us plau, planifiqueu en conseqüència i considereu solucions alternatives per a la selecció d'elements a l'atzar."
         models:
           sortition:
             fields:

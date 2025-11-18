@@ -5,7 +5,7 @@ import formatAddress from "src/decidim/geocoding/format_address"
  * For the available address format keys, refer to:
  * https://github.com/komoot/photon
  */
-$(() => {
+document.addEventListener("turbo:load", () => {
   const generateAddressLabel = formatAddress;
 
   $("[data-decidim-geocoding]").each((_i, el) => {

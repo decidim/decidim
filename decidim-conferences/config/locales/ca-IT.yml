@@ -5,11 +5,11 @@ ca-IT:
         assemblies_ids: Assemblees relacionades
         available_slots: Places disponibles
         banner_image: Imatge de banner
-        copy_categories: Copiar categories
-        copy_components: Copiar components
-        copy_features: Copiar funcionalitats
         decidim_scope_id: Àmbit
         description: Descripció
+        duplicate_categories: Duplicar les categories
+        duplicate_components: Duplicar els components
+        duplicate_features: Duplicar les funcionalitats
         end_date: Data de fi
         hero_image: Imatge de la pàgina d'inici
         location: Ubicació
@@ -97,11 +97,11 @@ ca-IT:
         new_speaker: Afegir ponent
         send_diplomas: Enviar certificats d'assistència
         view_deleted_conferences: Veure les jornades eliminades
-      conference_copies:
+      conference_duplicates:
         new:
-          copy: Copiar
+          duplicate: Duplicar
           select: Selecciona quines dades vols duplicar
-          title: Jornada duplicada
+          title: Duplicar la jornada
       conference_publications:
         create:
           error: S'ha produït un error en publicar aquesta jornada.
@@ -162,7 +162,13 @@ ca-IT:
         exports:
           registrations: Inscripcions
         form:
+          duration: Durada
+          images: Imatges
+          metadata: Metadades
+          registrations: Inscripcions
+          related_spaces: Espais relacionats
           title: Informació general
+          visibility: Visibilitat
         index:
           published: Publicat
           unpublished: Despublicada
@@ -170,11 +176,11 @@ ca-IT:
           title: Jornades eliminades
         new:
           create: Crear
-          title: Jornada
+          title: Nova jornada
         update:
           error: S'ha produït un error en actualitzar aquesta jornada.
           success: Jornada actualitzada correctament.
-      conferences_copies:
+      conferences_duplicates:
         create:
           error: S'ha produït un error en duplicar aquesta jornada.
           success: La jornada s'ha duplicat correctament.
@@ -355,9 +361,9 @@ ca-IT:
         title: Ponents
     conferences:
       admin:
-        conference_copies:
+        conference_duplicates:
           form:
-            slug_help_html: 'Les URL amigables s''utilitzen per generar els URL que apunten a aquesta jornada. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+            slug_help_html: 'La part final de l''URL després de l''última barra inversa (URL slug) s''utilitza per generar l''URL (adreça web) que apunten a aquesta jornada. Aquesta només accepta lletres, números i guions i ha de començar per una lletra. Exemple: %{url}'
         conference_invites:
           create:
             error: S'ha produït un error en convidar la participant a unir-se a la jornada.
