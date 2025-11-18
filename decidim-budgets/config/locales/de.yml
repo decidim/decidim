@@ -213,7 +213,6 @@ de:
             total_budget: Gesamt Budget
         project:
           fields:
-            id: ID
             map: Karte
             taxonomies: Klassifizierungen
             title: Titel
