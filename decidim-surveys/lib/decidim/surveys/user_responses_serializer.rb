@@ -13,7 +13,7 @@ module Decidim
           id: response.session_token,
           created_at: response.created_at,
           ip_hash: response.ip_hash,
-          user_status: (response.decidim_user_id.present? ? "Registered" : "Unregistered"),
+          user_status: translated_attribute(response.decidim_user_id.present? ? "Registered" : "Unregistered"),
           question: question_text(response),
           body: normalize_body(response)
         }
