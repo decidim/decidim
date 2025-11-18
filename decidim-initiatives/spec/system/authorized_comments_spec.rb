@@ -40,18 +40,43 @@ describe "Authorized comments" do
     end
   end
 
-  context "when the initiative has no restriction on commenting" do
+  shared_examples_for "allowed to vote a comment" do
+    it do
+      within "#comment_#{comments[0].id}" do
+        page.find(".js-comment__votes--up").click
+      end
+
+      expect(page).to have_css(".js-comment__votes--up", text: /1/)
+    end
+  end
+
+  shared_examples_for "not allowed to vote a comment" do
+    it "does not allow voting" do
+      within "#comment_#{comments[0].id}" do
+        expect(page).to have_css(".js-comment__votes--up", text: /0/)
+        page.find(".js-comment__votes--up").click
+        # The vote counter should not have changed
+        expect(page).to have_css(".js-comment__votes--up", text: /0/)
+      end
+    end
+  end
+
+  context "when the initiative has no restriction on commenting and voting comments" do
     before do
       visit resource_path
     end
 
     it_behaves_like "allowed to comment"
+    it_behaves_like "allowed to vote a comment"
   end
 
-  context "when the initiative has restrictions on commenting" do
+  context "when the initiative has restrictions on commenting and/or voting comments" do
     let!(:resource_permission) { commentable.create_resource_permission(permissions:) }
     let(:comment_permission) do
       { comment: authorization_handlers }
+    end
+    let(:vote_comment_permission) do
+      { vote_comment: authorization_handlers }
     end
     let(:authorization_handlers) do
       { authorization_handlers: { authorization_handler_name => { "options" => {} } } }
@@ -70,6 +95,19 @@ describe "Authorized comments" do
 
         it_behaves_like "not allowed to comment"
       end
+
+      describe "restricted vote_comment action" do
+        let(:permissions) { vote_comment_permission }
+
+        it_behaves_like "not allowed to vote a comment"
+      end
+
+      describe "restricted comment and vote_comment action" do
+        let(:permissions) { comment_permission.merge(vote_comment_permission) }
+
+        it_behaves_like "not allowed to comment"
+        it_behaves_like "not allowed to vote a comment"
+      end
     end
 
     context "and user is verified" do
@@ -79,6 +117,19 @@ describe "Authorized comments" do
         let(:permissions) { comment_permission }
 
         it_behaves_like "allowed to comment"
+      end
+
+      describe "restricted vote_comment action" do
+        let(:permissions) { vote_comment_permission }
+
+        it_behaves_like "allowed to vote a comment"
+      end
+
+      describe "restricted comment and vote_comment action" do
+        let(:permissions) { comment_permission.merge(vote_comment_permission) }
+
+        it_behaves_like "allowed to comment"
+        it_behaves_like "allowed to vote a comment"
       end
     end
   end

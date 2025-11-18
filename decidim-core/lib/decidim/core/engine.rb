@@ -38,6 +38,7 @@ require "ransack"
 require "wisper"
 require "chartkick"
 require "shakapacker"
+require "data_migrate"
 
 require "decidim/api"
 require "decidim/core/content_blocks/registry_manager"
@@ -227,6 +228,13 @@ module Decidim
         Decidim.icons.register(name: "youtube-line", icon: "youtube-line", category: "social icon", description: "", engine: :core)
         Decidim.icons.register(name: "github-fill", icon: "github-fill", category: "social icon", description: "", engine: :core)
         Decidim.icons.register(name: "facebook-circle-line", icon: "facebook-circle-line", category: "social icon", description: "", engine: :core)
+      end
+
+      initializer "decidim_core.data_migrate" do |app|
+        DataMigrate.configure do |config|
+          config.data_migrations_path = [app.root.join("db/data").to_s]
+          config.data_migrations_path << root.join("db/data").to_s
+        end
       end
 
       initializer "decidim_core.patch_shakapacker", before: "shakapacker.version_checker" do

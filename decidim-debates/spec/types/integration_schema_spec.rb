@@ -33,7 +33,6 @@ describe "Decidim::Api::QueryType" do
           followsCount
           hasComments
           id
-          image
           informationUpdates {
             translation(locale: "#{locale}")
           }
@@ -94,7 +93,6 @@ describe "Decidim::Api::QueryType" do
       "followsCount" => 3,
       "hasComments" => debate.comment_threads.size.positive?,
       "id" => debate.id.to_s,
-      "image" => nil,
       "informationUpdates" => { "translation" => debate.information_updates[locale] },
       "instructions" => { "translation" => debate.instructions[locale] },
       "lastCommentAt" => debate.last_comment_at.to_time.iso8601,
@@ -179,7 +177,6 @@ describe "Decidim::Api::QueryType" do
               followsCount
               hasComments
               id
-              image
               informationUpdates {
                 translation(locale: "#{locale}")
               }

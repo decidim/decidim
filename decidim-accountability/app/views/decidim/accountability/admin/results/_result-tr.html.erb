@@ -2,9 +2,6 @@
   <td>
     <%= check_box_tag "result_ids_s[]", result.id, false, data: { result_id: result.id, result_checkbox: true } %><br>
   </td>
-  <td data-label="<%= t("models.result.fields.id", scope: "decidim.accountability") %>">
-    <%= result.id %><br>
-  </td>
   <td class="!text-left" data-label="<%= t("models.result.fields.title", scope: "decidim.accountability") %>">
     <% if result.parent_id.nil? %>
       <%= link_to translated_attribute(result.title), results_path(parent_id: result.id) %><br>
@@ -21,7 +18,7 @@
     <% end %>
   </td>
   <td data-label="<%= t("models.result.fields.progress", scope: "decidim.accountability") %>">
-    <%= result.progress&.to_i %>
+    <%= result.progress.nil? ? 0 : result.progress&.to_i %>%
   </td>
   <td data-label="<%= t("models.result.fields.created_at", scope: "decidim.accountability") %>">
     <%= l result.created_at, format: :decidim_short %>
