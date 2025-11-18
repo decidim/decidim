@@ -124,7 +124,7 @@ Additional cron jobs may be available depending on the modules you have installe
 
 ==== Meetings module
 
-In the Meetings module you have the oportunity to clear the registration forms. To follow that process, you need to run the following task.
+In the Meetings module you have the opportunity to clear the registration forms. To follow that process, you need to run the following task.
 
 [source,console]
 ----
