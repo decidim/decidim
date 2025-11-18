@@ -144,6 +144,7 @@ ga:
           fields:
             closed: Dúnta
             end_time: Dáta deiridh
+            id: ID
             map: Léarscáil
             title: Teideal
       polls:
