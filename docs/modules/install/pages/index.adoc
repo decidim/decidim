@@ -105,9 +105,6 @@ For production environments, you can configure these tasks with `crontab -e`. Fo
 # Compute open data
 2 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:open_data:export
 
-# Delete old registrations forms
-3 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_meetings:clean_registration_forms
-
 # Generate reminders
 4 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:reminders:all
 
@@ -117,9 +114,6 @@ For production environments, you can configure these tasks with `crontab -e`. Fo
 # Send notification mail digest weekly on saturdays
 5 0 * * 6 cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:mailers:notifications_digest_weekly
 
-# Change active step in participatory processes
-*/15 * * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_participatory_processes:change_active_step
-
 # Delete inactive participants accounts
 0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:participants:delete_inactive_participants
 ----
@@ -127,6 +121,26 @@ For production environments, you can configure these tasks with `crontab -e`. Fo
 === Scheduled tasks from modules
 
 Additional cron jobs may be available depending on the modules you have installed.
+
+==== Meetings module
+
+In the Meetings module you have the oportunity to clear the registration forms. To follow that process, you need to run the following task.
+
+[source,console]
+----
+# Delete old registrations forms
+3 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_meetings:clean_registration_forms
+----
+
+==== Participatory Process module
+
+In Participatory Processes we have the Process active phase cron that we can use to change the current active step of a Process. To handle the phase change, you need to run the following task.
+
+[source,console]
+----
+# Change active step in participatory processes
+*/15 * * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_participatory_processes:change_active_step
+----
 
 ==== Initiatives module
 
