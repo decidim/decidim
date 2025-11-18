@@ -677,7 +677,6 @@ es-MX:
           fields:
             closed: Cerrado
             end_time: Fecha de finalización
-            id: ID
             map: Mapa
             official_meeting: Encuentro oficial
             published: Publicado
