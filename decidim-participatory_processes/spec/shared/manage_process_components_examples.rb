@@ -406,7 +406,7 @@ shared_examples "manage process components" do
       end
       expect(page).to have_admin_callout("The component was updated successfully.")
       expect(page).to have_content(translated(attributes[:name]))
-      expect(page).to have_content("Component 2") 
+      expect(page).to have_content("Component 2")
       expect(page).to have_content("Component 3")
       expect(page.text.index(translated(attributes[:name]))).to be < page.text.index("Component 2")
       expect(page.text.index("Component 2")).to be < page.text.index("Component 3")
