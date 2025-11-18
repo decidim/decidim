@@ -687,6 +687,7 @@ en:
       initiative:
         actions:
           comment: Comment
+          vote_comment: Vote comment
       initiatives_type:
         actions:
           create: Create an initiative

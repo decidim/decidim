@@ -37,6 +37,10 @@ module Decidim
     autoload :TraceVersionType, "decidim/api/types/trace_version_type"
     autoload :TranslatedFieldType, "decidim/api/types/translated_field_type"
     autoload :UserType, "decidim/api/types/user_type"
+    autoload :UserModerationType, "decidim/api/types/user_moderation_type"
+    autoload :ModerationType, "decidim/api/types/moderation_type"
+    autoload :ReportableUserType, "decidim/api/types/reportable_user_type"
+    autoload :ReportableType, "decidim/api/types/reportable_type"
     autoload :StaticPageType, "decidim/api/types/static_page_type"
     autoload :StaticPageTopicType, "decidim/api/types/static_page_topic_type"
 

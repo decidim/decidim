@@ -163,6 +163,7 @@ en:
           comment: Comment
           join: Join
           reply_poll: Reply poll
+          vote_comment: Vote comment
         name: Meetings
         settings:
           global:

@@ -297,6 +297,7 @@ en:
       accountability:
         actions:
           comment: Comment
+          vote_comment: Vote comment
         name: Accountability
         settings:
           global:
