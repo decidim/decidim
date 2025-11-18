@@ -677,7 +677,6 @@ ca-IT:
           fields:
             closed: Tancada
             end_time: Data de finalització
-            id: ID
             map: Mapa
             official_meeting: Trobada oficial
             published: Publicada
