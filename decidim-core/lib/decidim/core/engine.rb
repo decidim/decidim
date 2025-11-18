@@ -38,6 +38,7 @@ require "ransack"
 require "wisper"
 require "chartkick"
 require "shakapacker"
+require "data_migrate"
 
 require "decidim/api"
 require "decidim/core/content_blocks/registry_manager"
@@ -45,6 +46,7 @@ require "decidim/core/menu"
 require "decidim/middleware/strip_x_forwarded_host"
 require "decidim/middleware/static_dispatcher"
 require "decidim/middleware/current_organization"
+require "decidim/shakapacker"
 require "decidim/webpacker"
 
 module Decidim
@@ -228,8 +230,15 @@ module Decidim
         Decidim.icons.register(name: "facebook-circle-line", icon: "facebook-circle-line", category: "social icon", description: "", engine: :core)
       end
 
-      initializer "decidim_core.patch_webpacker", before: "shakapacker.version_checker" do
-        ENV["SHAKAPACKER_CONFIG"] = Decidim::Webpacker.configuration.configuration_file
+      initializer "decidim_core.data_migrate" do |app|
+        DataMigrate.configure do |config|
+          config.data_migrations_path = [app.root.join("db/data").to_s]
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
+      initializer "decidim_core.patch_shakapacker", before: "shakapacker.version_checker" do
+        ENV["SHAKAPACKER_CONFIG"] = Decidim::Shakapacker.configuration.configuration_file
       end
 
       # Rails 7.0 default is vips, but
@@ -462,8 +471,6 @@ module Decidim
       end
 
       initializer "decidim_core.menu" do
-        Decidim::Core::Menu.register_menu!
-        Decidim::Core::Menu.register_mobile_menu!
         Decidim::Core::Menu.register_user_menu!
       end
 
@@ -487,6 +494,7 @@ module Decidim
       end
 
       initializer "decidim_core.add_cells_view_paths" do
+        Cell::ViewModel.view_paths << Rails.root.join("app/views") # for partials
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/cells/amendable")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/views") # for partials
@@ -515,8 +523,8 @@ module Decidim
           # Define access token scopes for your provider
           # For more information go to
           # https://github.com/doorkeeper-gem/doorkeeper/wiki/Using-Scopes
-          default_scopes :public
-          optional_scopes []
+          default_scopes :profile
+          optional_scopes :user, :"api:read", :"api:write"
 
           # Forces the usage of the HTTPS protocol in non-native redirect uris (enabled
           # by default in non-development environments). OAuth2 delegates security in
@@ -530,6 +538,15 @@ module Decidim
 
           # WWW-Authenticate Realm (default "Doorkeeper").
           realm "Decidim"
+
+          # Custom access token generation for API access
+          access_token_generator "Decidim::OAuth::TokenGenerator"
+
+          # How long the access tokens are valid
+          access_token_expires_in Decidim.config.oauth_access_token_expires_in
+
+          # Whether refresh tokens are enabled or not
+          use_refresh_token { |context| context.client.refresh_tokens_enabled? }
         end
       end
 

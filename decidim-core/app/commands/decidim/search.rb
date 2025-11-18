@@ -7,10 +7,10 @@ module Decidim
 
     # Public: Initializes the command.
     #
-    # @param term: The term to search for.
-    # @param organization: The Organization to which the results are constrained.
-    # @param filters: (optional) A Hash of SearchableResource attributes to filter for.
-    # @param page_params: (optional) A Hash with `page` and `per_page` options to paginate.
+    # @param term [String] -  The term to search for.
+    # @param organization [Decidim::Organization] - The Organization to which the results are constrained.
+    # @param filters [Hash] - (optional) A Hash of SearchableResource attributes to filter for.
+    # @param page_params [Hash] - (optional) A Hash with `page` and `per_page` options to paginate.
     def initialize(term, organization, filters = {}, page_params = {})
       @term = term
       @organization = organization

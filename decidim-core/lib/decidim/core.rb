@@ -59,6 +59,7 @@ module Decidim
   autoload :AdminFilter, "decidim/admin_filter"
   autoload :AdminFiltersRegistry, "decidim/admin_filters_registry"
   autoload :ManifestRegistry, "decidim/manifest_registry"
+  autoload :MutationRegistry, "decidim/mutation_registry"
   autoload :AssetRouter, "decidim/asset_router"
   autoload :EngineRouter, "decidim/engine_router"
   autoload :UrlOptionResolver, "decidim/url_option_resolver"
@@ -124,12 +125,15 @@ module Decidim
   autoload :HasConversations, "decidim/has_conversations"
   autoload :SoftDeletable, "decidim/soft_deletable"
   autoload :PrivateDownloadHelper, "decidim/private_download_helper"
+  autoload :OAuth, "decidim/oauth"
   autoload :PdfSignatureExample, "decidim/pdf_signature_example"
   autoload :HasWorkflows, "decidim/has_workflows"
   autoload :StatsFollowersCount, "decidim/stats_followers_count"
   autoload :StatsParticipantsCount, "decidim/stats_participants_count"
   autoload :ActionAuthorizationHelper, "decidim/action_authorization_helper"
+  autoload :ApiResponseHelper, "decidim/api_response_helper"
   autoload :ResourceHelper, "decidim/resource_helper"
+  autoload :TooltipHelper, "decidim/tooltip_helper"
 
   module Commands
     autoload :CreateResource, "decidim/commands/create_resource"
@@ -496,6 +500,12 @@ module Decidim
   # this is also maximum time that user can idle before getting automatically signed out.
   config_accessor :expire_session_after do
     Decidim::Env.new("DECIDIM_EXPIRE_SESSION_AFTER", "30").to_i.minutes
+  end
+
+  # Defines how long the OAuth access tokens and API access tokens are valid.
+  # Defaults to the default value as defined in Doorkeeper.
+  config_accessor :oauth_access_token_expires_in do
+    Decidim::Env.new("DECIDIM_OAUTH_ACCESS_TOKEN_EXPIRES_IN", "120").to_i.minutes
   end
 
   # If set to true, users have option to "remember me". Notice that expire_session_after will not take

@@ -25,6 +25,8 @@ es:
       admin_log:
         changeset:
           debates: Debates
+      tooltips:
+        deleted_debates_info: No se puede eliminar este debate
     components:
       debates:
         actions:

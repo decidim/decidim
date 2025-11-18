@@ -86,7 +86,7 @@ module Decidim
 
           on(:invalid) do
             flash[:alert] = t("authorizations.create.error", scope: "decidim.verifications")
-            render action: :new
+            render action: :new, status: :unprocessable_entity
           end
         end
       end

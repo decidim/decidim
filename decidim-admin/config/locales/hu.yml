@@ -170,16 +170,15 @@ hu:
         attachment_collection:
           new: Új csatolmány mappa
         browse: Böngészés
-        export: Összes exportálása
+        configure: Beállítások
+        export: Exportálás
         export-selection: Kiválasztottak exportálása
         import: Import
-        manage: Kezelés
         newsletter:
           new: Új hírlevél
         participatory_space_private_user:
           new: Új privát felhasználó a részvételi térben
         per_page: Oldalanként
-        permissions: Engedélyek
         send_me_a_test_email: Teszt e-mail küldése
         share: Megosztás
         user:
@@ -606,9 +605,11 @@ hu:
         index:
           actions:
             block: Felhasználó tiltása
+            bulk_actions:
+              unreport:
+                title: Jelentés visszavonása
             title: Műveletek
             unblock: Felhasználó feloldása
-            unreport: Jelentés visszavonása
           name: Név
           nickname: Felhasználónév
           reason: Indok
@@ -716,7 +717,6 @@ hu:
         index:
           actions: Műveletek
           badge: Jelvény
-          block: Felhasználó tiltása
           created_at: Létrehozva
           name: Név
           nickname: Becenév
@@ -725,9 +725,7 @@ hu:
           officialized: Hivatalos
           reofficialize: Újbóli hivatalossá tétel
           reports: Jelentések
-          show_email: E-mail cím megjelenítése
           status: Állapot
-          unblock: Felhasználó tiltásának törlése
           unofficialize: Hivatalossá tétel visszavonása
         new:
           badge: A hivatalosság jelvénye
@@ -869,8 +867,6 @@ hu:
           error: Hiba történt a téma frissítésekor.
           success: Téma frissítve sikeresen
       static_pages:
-        actions:
-          view: Nyilvános oldal megtekintése
         create:
           error: Hiba történt az új oldal létrehozásakor.
           success: Oldal létrehozása sikeres.
@@ -942,8 +938,6 @@ hu:
         hide: Elrejt
         not_hidden: Nem rejtett
         title: Műveletek
-        unhide: Felfedés
-        unreport: Ne jelentse
       admin:
         reportable:
           hide:

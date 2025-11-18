@@ -17,34 +17,34 @@ module Decidim
         Decidim::AreaPresenter.new(process.area).translated_name_with_type
       end
 
-      def title(links: false, extras: true, html_escape: false, all_locales: false)
+      def title(html_escape: false, all_locales: false)
         return unless process
 
-        super(process.title, links, html_escape, all_locales, extras:)
+        super(process.title, html_escape, all_locales)
       end
 
-      def description(links: false, extras: true, strip_tags: false, all_locales: false)
+      def description(links: false, strip_tags: false, all_locales: false)
         return unless process
 
-        content_handle_locale(process.description, all_locales, extras, links, strip_tags)
+        content_handle_locale(process.description, all_locales, links, strip_tags)
       end
 
-      def editor_description(extras: true, all_locales: false)
+      def editor_description(all_locales: false)
         return unless process
 
-        editor_locales(process.description, all_locales, extras:)
+        editor_locales(process.description, all_locales)
       end
 
-      def short_description(links: false, extras: true, strip_tags: false, all_locales: false)
+      def short_description(links: false, strip_tags: false, all_locales: false)
         return unless process
 
-        content_handle_locale(process.short_description, all_locales, extras, links, strip_tags)
+        content_handle_locale(process.short_description, all_locales, links, strip_tags)
       end
 
-      def editor_short_description(extras: true, all_locales: false)
+      def editor_short_description(all_locales: false)
         return unless process
 
-        editor_locales(process.short_description, all_locales, extras:)
+        editor_locales(process.short_description, all_locales)
       end
 
       def process

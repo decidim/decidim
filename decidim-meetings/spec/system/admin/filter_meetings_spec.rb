@@ -10,6 +10,11 @@ describe "Admin filters meetings" do
   let!(:meeting) { create(:meeting, scope:, component:) }
 
   include_context "when managing a component as an admin"
+  it_behaves_like "access component permissions form"
+
+  it_behaves_like "access permissions form" do
+    let!(:row_text) { translated(meeting.title) }
+  end
 
   TYPES = Decidim::Meetings::Meeting::TYPE_OF_MEETING.keys
 
@@ -97,19 +102,13 @@ describe "Admin filters meetings" do
     end
   end
 
-  context "when searching by ID or title" do
+  context "when searching by title" do
     let!(:meeting1) { create(:meeting, component:) }
     let!(:meeting2) { create(:meeting, component:) }
     let!(:meeting1_title) { translated(meeting1.title) }
     let!(:meeting2_title) { translated(meeting2.title) }
 
     before { visit_component_admin }
-
-    it "can be searched by ID" do
-      search_by_text(meeting1.id)
-
-      expect(page).to have_content(meeting1_title)
-    end
 
     it "can be searched by title" do
       search_by_text(meeting2_title)

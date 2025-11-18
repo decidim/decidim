@@ -39,6 +39,7 @@ sv:
           edit: Redigera
           new_sortition: Ny lottning
           show: Detaljer om tilldelningen
+          title: Handlingar
         models:
           sortition:
             fields:

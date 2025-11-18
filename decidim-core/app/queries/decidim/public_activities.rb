@@ -32,7 +32,7 @@ module Decidim
     def query
       query = base_query
 
-      query = query.where(user:) if user
+      query = query.where(user_id: user.id, user_type: user.class.name) if user
       query = query.where(resource_type: resource_name) if resource_name.present?
 
       query = filter_follows(query)
@@ -71,7 +71,7 @@ module Decidim
       followed_users = follows.where(decidim_followable_type: "Decidim::UserBaseEntity")
       return [] if followed_users.empty?
 
-      [Decidim::ActionLog.arel_table[:decidim_user_id].in(followed_users.map(&:decidim_followable_id))]
+      [Decidim::ActionLog.arel_table[:user_id].in(followed_users.map(&:decidim_followable_id))]
     end
 
     def followed_spaces_conditions(follows)

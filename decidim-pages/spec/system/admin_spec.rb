@@ -4,9 +4,6 @@ require "spec_helper"
 
 describe "Edit a page" do
   include_context "when managing a component as an admin"
-  let(:component) { create(:component, manifest_name: "pages", participatory_space: participatory_process) }
-  let(:manifest_name) { "pages" }
-
   let(:body) do
     {
       "en" => "<p>Content</p>",
@@ -14,6 +11,8 @@ describe "Edit a page" do
       "es" => "<p>Contenido</p>"
     }
   end
+  let(:manifest_name) { "pages" }
+  let(:component) { create(:component, manifest_name: "pages", participatory_space: participatory_process) }
 
   describe "admin page" do
     before do

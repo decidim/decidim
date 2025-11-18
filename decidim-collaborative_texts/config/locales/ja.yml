@@ -17,12 +17,15 @@ ja:
           draft: 下書き
           version_number: バージョン番号
   decidim:
+    admin:
+      tooltips:
+        deleted_collaborative_texts_info: このドキュメントを削除できません
     collaborative_texts:
       actions:
         confirm_delete_document: このドキュメントを削除してもよろしいですか？
         deleted_document_info: 削除されたドキュメントはゴミ箱から復元できます。
         edit: 編集
-        manage: 管理
+        manage: 設定
         new: 新しいテキスト
         title: アクション
         view_deleted_documents: 削除されたドキュメントを表示
@@ -71,6 +74,9 @@ ja:
           update_settings:
             invalid: ドキュメントの更新中に問題が発生しました。
             success: ドキュメントを更新しました。
+        index:
+          published: 公開済み
+          unpublished: 未公開
       admin_log:
         document:
           create: "%{user_name}が%{space_name}で%{resource_name}のコラボレーションテキストを作成しました"
@@ -118,6 +124,7 @@ ja:
       models:
         collaborative_text:
           fields:
+            published: 公開済み
             suggestions: 提案を承認する
             title: タイトル
       suggestion:
@@ -133,6 +140,10 @@ ja:
           invalid_nodes: 選択されたノードが無効です。
     components:
       collaborative_texts:
+        actions:
+          create: 作成
+          destroy: 破棄
+          update: 更新
         name: 共同テキスト
         settings:
           global:

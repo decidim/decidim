@@ -15,8 +15,6 @@ sk:
   decidim:
     budgets:
       actions:
-        attachment_collections: Priečinky
-        attachments: Prílohy
         edit: Upraviť
         import: Importovať návrhy do projektov
         preview: Ukážka

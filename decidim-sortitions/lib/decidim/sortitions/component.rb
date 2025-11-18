@@ -27,7 +27,7 @@ Decidim.register_component(:sortitions) do |component|
     resource.model_class_name = "Decidim::Sortitions::Sortition"
     resource.template = "decidim/sortitions/sortitions/linked_sortitions"
     resource.card = "decidim/sortitions/sortition"
-    resource.actions = %w(comment)
+    resource.actions = %w(comment vote_comment)
   end
 
   component.register_stat :sortitions_count,

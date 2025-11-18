@@ -34,7 +34,7 @@ describe "Admin manages moderated users" do
     describe "blocking a user" do
       it "can block them" do
         within "tr", text: first_user.name do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Block"
         end
 
@@ -50,7 +50,7 @@ describe "Admin manages moderated users" do
 
       it "cannot block itself" do
         within "tr", text: admin.name do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           expect(page).to have_no_css(".button", text: "Block")
         end
       end
@@ -136,7 +136,10 @@ describe "Admin manages moderated users" do
     end
 
     it "user cannot unreport them" do
-      expect(page).to have_no_css(".action-icon--unreport")
+      within "tr", text: first_user.name, match: :first do
+        find("button[data-controller='dropdown']").click
+        expect(page).to have_no_css(".button", text: "Undo the report")
+      end
     end
 
     context "when filtering by report reason" do

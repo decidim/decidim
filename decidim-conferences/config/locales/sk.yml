@@ -2,11 +2,7 @@ sk:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Podobné zhromaždenia
         banner_image: Obrázok banneru
-        copy_categories: Kopírovať kategórie
-        copy_components: Kopírovať komponenty
-        copy_features: Kopírovať prvky
         decidim_scope_id: Rozsah
         description: Popis
         hero_image: Obrázok na hlavnej stránke
@@ -46,11 +42,6 @@ sk:
       actions:
         confirm: Potvrdiť
         send_diplomas: Zaslať certifikáty o účasti
-      conference_copies:
-        new:
-          copy: Kopírovať
-          select: Označte údaje, ktoré by ste chceli duplikovať
-          title: Duplikovať konferenciu
       conference_publications:
         create:
           error: Vyskytol sa problém s publikovaním konferencie.
@@ -99,19 +90,15 @@ sk:
         exports:
           registrations: Registrácie
         form:
+          images: Obrázky
           title: Všeobecné informácie
         index:
           published: Zverejnené
         new:
           create: Vytvoriť
-          title: Konferencia
         update:
           error: Vyskytol sa problém s aktualizáciou tejto konferencie.
           success: Konferencia úspešne aktualizovaná.
-      conferences_copies:
-        create:
-          error: Vyskytol sa problém s duplikáciou tejto konferencie.
-          success: Konferencia úspešne duplikovaná.
       media_links:
         create:
           error: Pri tvorbe mediálneho odkazu nastala chyba.

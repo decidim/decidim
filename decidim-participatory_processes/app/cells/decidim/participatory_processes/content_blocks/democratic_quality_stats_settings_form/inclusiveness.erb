@@ -1,0 +1,69 @@
+<div class="row column">
+  <h2 class="text-xl font-semibold">
+    <%= t("inclusiveness.name", scope: "decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form") %>
+  </h2>
+
+  <p class="text-md text-gray mt-2 font-normal">
+    <%= t("inclusiveness.description", scope: "decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form") %>
+  </p>
+</div>
+
+<div class="row column">
+  <fieldset>
+    <legend class="font-semibold"><%= t("inclusiveness.functional_diversity_invited.legend", scope: "decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form") %></legend>
+    <% settings_options[:functional_diversity_invited].each do |label, value| %>
+      <%= label_tag nil, class: "form__wrapper-checkbox-label" do %>
+        <%= radio_button_tag input_name("functional_diversity_invited"), value, form.object.settings.functional_diversity_invited == value %>
+        <%= label %>
+      <% end %>
+    <% end %>
+  </fieldset>
+</div>
+
+<div class="row column">
+<fieldset>
+  <legend class="font-semibold"><%= t("inclusiveness.languages_communicated.legend", scope: "decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form") %></legend>
+  <% settings_options[:languages_communicated].each do |label, value| %>
+    <%= label_tag nil, class: "form__wrapper-checkbox-label" do %>
+      <%= radio_button_tag input_name("languages_communicated"), value, form.object.settings.languages_communicated == value %>
+      <%= label %>
+    <% end %>
+  <% end %>
+</fieldset>
+</div>
+
+<div class="row column">
+<fieldset>
+  <legend class="font-semibold"><%= t("inclusiveness.mobility_meeting_access.legend", scope: "decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form") %></legend>
+  <% settings_options[:mobility_meeting_access].each do |label, value| %>
+    <%= label_tag nil, class: "form__wrapper-checkbox-label" do %>
+      <%= radio_button_tag input_name("mobility_meeting_access"), value, form.object.settings.mobility_meeting_access == value %>
+      <%= label %>
+    <% end %>
+  <% end %>
+</fieldset>
+</div>
+
+<div class="row column">
+<fieldset>
+  <legend class="font-semibold"><%= t("inclusiveness.participation_scheduling_times.legend", scope: "decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form") %></legend>
+  <% settings_options[:participation_scheduling_times].each do |label, value| %>
+    <%= label_tag nil, class: "form__wrapper-checkbox-label" do %>
+      <%= radio_button_tag input_name("participation_scheduling_times"), value, form.object.settings.participation_scheduling_times == value %>
+      <%= label %>
+    <% end %>
+  <% end %>
+</fieldset>
+</div>
+
+<div class="row column">
+<fieldset>
+  <legend class="font-semibold"><%= t("inclusiveness.digital_support_offered.legend", scope: "decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form") %></legend>
+  <% settings_options[:digital_support_offered].each do |label, value| %>
+    <%= label_tag nil, class: "form__wrapper-checkbox-label" do %>
+      <%= radio_button_tag input_name("digital_support_offered"), value, form.object.settings.digital_support_offered == value %>
+      <%= label %>
+    <% end %>
+  <% end %>
+</fieldset>
+</div>

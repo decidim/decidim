@@ -170,6 +170,11 @@ Also, be sure to add the line `gem "aws-sdk-s3", require: false` in your Gemfile
 |
 |No
 
+|*AWS_PUBLIC*
+|Whether the AWS assets to be public or not. Default is true, which means that no credential strings would be attached to your AWS stored assets, making it easier for components to be cached. If you set this to `false` you may have cache issues (like changing an image and not seeing the change immediately).
+|true
+|No
+
 |*AZURE_STORAGE_ACCESS_KEY*
 |If STORAGE_PROVIDER is set to `azure`, define here your AZURE ACCESS KEY with permissions to access the container for the application. Needs to be encoded in Base64.
 
@@ -185,6 +190,11 @@ Also, be sure to add the line `gem "azure-storage-blob", require: false` in your
 |*AZURE_CONTAINER*
 |If STORAGE_PROVIDER is set to `azure`, define here your AZURE CONTAINER used for uploading files and images.
 |
+|No
+
+|*AZURE_PUBLIC*
+|Whether the Azure assets to be public or not. Default is true, which means that no credential strings would be attached to your Azure stored assets, making it easier for components to be cached. If you set this to `false` you may have cache issues (like changing an image and not seeing the change immediately).
+|true
 |No
 
 |*GCS_PROJECT*
@@ -249,6 +259,11 @@ Also, be sure to add the line `gem "google-cloud-storage", "~> 1.11", require: f
 |GCS_CLIENT_X509_CERT_URL
 |If STORAGE_PROVIDER is set to `gcs`, define here your GOOGLE CLOUD X509 CERT URI (if needed)
 |
+|No
+
+|*GCS_PUBLIC*
+|Whether the Google Cloud Service assets to be public or not. Default is true, which means that no credential strings would be attached to your CGS stored assets, making it easier for components to be cached. If you set this to `false` you may have cache issues (like changing an image and not seeing the change immediately).
+|true
 |No
 
 |===
@@ -524,6 +539,11 @@ You may specify multiple ip in an array, separating by commas, such as `1.2.3.4,
 |
 |No
 
+|DECIDIM_SYSTEM_API_USERS_SECRET_LENGTH
+|The length of API secrets generated for API users.
+|32
+|No
+
 |DECIDIM_BASE_UPLOADS_PATH
 |A base path for the uploads. If set, make sure it ends in a slash.
 Uploads will be set to `<base_path>/uploads/`. This can be useful if you
@@ -658,11 +678,6 @@ A content processor is a concept to refer to a set of two classes:
 | 7
 | No
 
-|DECIDIM_API_FORCE_API_AUTHENTICATION
-|Enable authentication for using api through setting Api configuration option. This is used to filter out unauthorized users from using api endpoint.
-|false
-|No
-
 |*DECIDIM_SERVICE_WORKER_ENABLED*
 |Enable/Disable the service worker. This is used to enable offline support and to deliver push notifications. In development it is recommended to be disabled because its aggressive cache configuration might cause some issues when submitting forms.
 |false
@@ -719,6 +734,11 @@ Read more about this at xref:services:pdf.adoc[PDF signing] service page.
 | 6
 | No
 
+|DECIDIM_OAUTH_ACCESS_TOKEN_EXPIRES_IN
+|OAuth access token expiration time in minutes.
+|120
+|No
+
 |===
 
 .Optional Env Vars fine tuning some Decidim modules (such the API or Proposal behaviors)
@@ -739,6 +759,21 @@ Read more about this at xref:services:pdf.adoc[PDF signing] service page.
 |API_SCHEMA_MAX_DEPTH
 |GraphQL nested queries can generated equally deeply nested queries on the database. To prevent this set this limit to prevent too unperformant queries.
 |15
+|No
+
+|DECIDIM_API_JWT_SECRET
+|This secret is being used by the devise-jwt to sign the tokens being generated for the api users.
+|
+|Yes
+
+|DECIDIM_API_JWT_EXPIRES_IN
+|The expiration time of the JWT tokens in minutes, after which issued token will expire.
+|(value of DECIDIM_OAUTH_ACCESS_TOKEN_EXPIRES_IN)
+|No
+
+|DECIDIM_API_FORCE_API_AUTHENTICATION
+|Enable authentication for using api through setting Api configuration option. This is used to filter out unauthorized users from using api endpoint.
+|false
 |No
 
 | DECIDIM_API_DISCLOSE_SYSTEM_VERSION
@@ -952,8 +987,8 @@ Note that this only applies to production environments.
 |5
 |No
 
-|FAST_SEEDS
-|If seeding various environment that needs to be fast (like gitpod). Please use `FAST_SEEDS` environment variable to reduce the seeding time.
+|SLOW_SEEDS
+|If seeding an environment that needs to have more data, please use `SLOW_SEEDS` environment variable to add it.
 |false
 |No
 

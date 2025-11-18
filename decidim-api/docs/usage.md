@@ -12,7 +12,7 @@ Typically (although some particular installations may change that) you will find
 * `URL/api/docs` This documentation, every Decidim site should provide one.
 * `URL/api/graphiql` [GraphiQL](https://github.com/graphql/graphiql) is a in-browser IDE for exploring GraphQL APIs. Some Decidim installations may choose to remove access to this tool. In that case you can use a [standalone version](https://electronjs.org/apps/graphiql) and use any `URL/api` as the endpoint
 
-### Using the GraphQL APi
+### Using the GraphQL API
 
 The GraphQL format is a JSON formatted text that is specified in a query. Response is a JSON object as well. For details about specification check the official [GraphQL site](https://graphql.org/learn/).
 
@@ -53,6 +53,96 @@ Response (formatted) should look something like this:
 The most practical way to experiment with GraphQL, however, is just to use the in-browser IDE GraphiQL. It provides access to the documentation and auto-complete (use CTRL-Space) for writing queries.
 
 From now on, we will skip the "query" keyword for the purpose of readability. You can skip it too if you are using GraphiQL, if you are querying directly (by using CURL for instance) you will need to include it.
+
+### Signing in to the API
+
+In case you want to use the API as a sign in user to perform mutations representing a user in Decidim, you have two available options for such integrations through the system administration panel:
+
+1. Creating an OAuth application and implementing the OAuth authentication flow for the users of your application. Use this option for participant-facing applications where the participants represent themselves in Decidim through the API.
+2. Creating API credentials and signing in to the API with these credentials to perform the operations as a signed in machine user. Use this option for machine-to-machine automations where there is no real end user interacting with Decidim.
+
+If you only want to test the GraphQL queries as a signed in user, you can use the normal Decidim authentication functionality to sign in and then use the GraphiQL IDE to perform these queries as a signed in user.
+
+#### OAuth flow for participant-facing applications
+
+Participant-facing applications where the participants need to interact with Decidim through GraphQL mutations can be integrated using OAuth applications. In order to configure such integration capability from the system administration panel, create a new OAuth application and provide the necessary details for your integration. Note that the "application type" for such applications would typically be "Public". For more information regarding the application types, refer to [RFC 6749 Section 2.1. (OAuth client types)](https://datatracker.ietf.org/doc/html/rfc6749#section-2.1).
+
+In order to use the OAuth access tokens to represent the user through the API, please select the following scopes as "Available" scopes for the application:
+
+* `user` - Authenticated users have the ability to represent a logged in user in Decidim
+* `api:read` - Authenticated users have the ability to read data from the API
+* `api:write` - Authenticated users have the ability to write data through the API (in case your external application needs to perform mutations over the API on behalf of the user)
+
+Once configured, you can now use any OAuth authentication library to perform the OAuth authentication flow with your application users and receive an access token to utilize the Decidim API representing the signed in user. Please note that with public OAuth clients especially (and recommended also for confidential clients), you have to use [PKCE](https://datatracker.ietf.org/doc/html/rfc7636) with the authorization flow.
+
+Once the OAuth application is created, you can authenticate against it with the following steps:
+
+1. Send the user to perform an OAuth authorization request at Decidim with the required API scopes (`user`, `api:read` and `api:write` if you want to perform mutations over the API). Along with the authorization request, also send the additional parameters required by PKCE (`code_challenge` and `code_challenge_method`).
+2. Receive an OAuth authorization code back to your application's configured redirect URI.
+3. Utilizing the received authorization code, request an OAuth access token from the OAuth token endpoint. Along with the token request, also send the additional parameter required by PKCE `code_verifier`.
+4. The issued token is a JSON Web Token (JWT) when the authorization request contains the defined scopes. This token can be now used to represent the user in further calls to the API by passing the token with its type (`Bearer`) within the HTTP Authorization header with the request to the API.
+
+When doing the requests to the API, you also need to pass the OAuth client ID within the `X-Jwt-Aud` header of the requests in order for the token to be recognized as a valid token for the issued client. Passing the bearer token to the `Authorization` header and the OAuth client ID to the `X-Jwt-Aud` header, you can send the following HTTP request to the API to validate that the token works and the user is recognized as signed in:
+
+```http
+POST /api HTTP/1.1
+Accept: application/json
+Authorization: Bearer token
+Content-Length: 53
+Content-Type: application/json
+Host: DOMAIN
+X-Jwt-Aud: OAUTH_CLIENT_ID
+
+{"query":"{ session { user { id name nickname } } }"}
+```
+
+You should see the user details in the response in case the token is valid and you have configured the API correctly. If the response does not contain the user details, please refer to the Decidim configuration documentation.
+
+Once the interaction with the API is completed, it is recommended to revoke the tokens, which is similar to the user signing out of the application. This can be done utilizing the OAuth revocation endpoint provided by Decidim. After the token is revoked, it is no longer valid and the user has to perform a re-authorization the next time they want to utilize the API.
+
+In case you need tokens with a longer life span, you can either look into the Decidim documentation to extend the validity period of the access tokens or enable refresh tokens for the OAuth application when configuring it. However, note that tokens with longer lifespan can weaken the security of your system and make your application users vulnerable to security threats. Such use cases should be carefully planned and the security concerns should be addressed seriously.
+
+#### API credentials flow for machine-to-machine automations
+
+The API credentials represent an administrative user in Decidim that performs administrative tasks on behalf of the end users. This type of integration flows should never live on devices that the participants have access to. These types of integrations are meant for different types of automations, such as transferring proposal answers or meeting reports back to Decidim from an external system automatically, e.g. once a day.
+
+Note that these credentials are highly sensitive and have elevated permissions, so take good care of the system security where you are planning to store these credentials. If these credentials end up in participants' hands, the whole system is compromised and no longer secure. You should always primarily create OAuth integrations where the end users will manually perform the authorization for the application to perform actions on behalf of them.
+
+Once you have validated that this is the correct way for your integration to operate, you can create the API credentials from the system administration panel. You will receive an API key and API secret after creating the credentials. These credentials should be also manually rotated on a regular basis to prevent unauthorized access to the system with these credentials in case they are leaked. The credentials have to be manually rotated in order to prevent external applications breaking because they cannot rotate the credentials themselves and they are typically statically configured for these applications.
+
+Given you have issued the API key and API secret, you can now send a sign in request to the API using these credentials as follows:
+
+```bash
+curl -s -i -H "Content-type: application/x-www-form-urlencoded" \
+  -d "api_user[key]=PASTE_API_KEY_HERE" \
+  -d "api_user[secret]=PASTE_API_SECRET_HERE" \
+  -X POST https://DOMAIN/api/sign_in | grep 'Authorization' | cut -d ' ' -f2-
+```
+
+After running this command, you should see the following string in the console, where `token` is replaced with the access token:
+
+```bash
+Bearer token
+```
+
+This string is passed to the following requests within the HTTP `Authorization` header to represent the user during API calls. You can use the following example query to test it out and confirm that signing in works as expected:
+
+```bash
+curl -w "\n" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer token" \
+  -d '{"query":"{ session { user { id name nickname } } }"}' \
+  -X POST https://DOMAIN/api
+```
+
+You should see the user details in the response in case the token is valid and you have configured the API correctly. If the response does not contain the user details, please refer to the Decidim configuration documentation.
+
+Once the API interaction is done, you should always make an HTTP DELETE request to `/api/sign_out` with the same token in order to revoke the token from further access as follows:
+
+```bash
+curl -s -o /dev/null -w "HTTP %{http_code}\n" \
+  -H "Authorization: Bearer token" \
+  -X DELETE http://DOMAIN/api/sign_out
+```
 
 ### Usage limits
 

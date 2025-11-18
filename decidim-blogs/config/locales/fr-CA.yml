@@ -18,6 +18,8 @@ fr-CA:
       admin_log:
         changeset:
           posts: Articles
+      tooltips:
+        deleted_posts_info: Impossible de supprimer cet article
     blogs:
       actions:
         author_id: Créer un article comme

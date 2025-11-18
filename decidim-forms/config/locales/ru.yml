@@ -15,10 +15,8 @@ ru:
             remove: Удалить
           question:
             any: Любые
-            down: Вниз
             question: Вопрос
             remove: Удалить
-            up: Вверх
           update:
             invalid: При попытке сохранить форму произошли ошибки.
       question_types:

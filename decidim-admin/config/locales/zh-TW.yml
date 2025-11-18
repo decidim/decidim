@@ -164,16 +164,14 @@ zh-TW:
         attachment_collection:
           new: 新增附件資料夾
         browse: 瀏覽
-        export: 全部匯出
+        configure: 配置
         export-selection: 匯出選擇
         import: 匯入
-        manage: 管理
         newsletter:
           new: 新電子報
         participatory_space_private_user:
           new: 新參與空間私有使用者
         per_page: 每頁
-        permissions: 權限
         share: 分享
         user:
           new: 新增管理員
@@ -570,9 +568,11 @@ zh-TW:
         index:
           actions:
             block: 封鎖使用者
+            bulk_actions:
+              unreport:
+                title: 取消報告
             title: 操作
             unblock: 取消封鎖使用者
-            unreport: 取消報告
           name: 名稱
           nickname: 暱稱
           reason: 理由
@@ -677,7 +677,6 @@ zh-TW:
         index:
           actions: 操作
           badge: 徽章
-          block: 封鎖使用者
           created_at: 建立於
           name: 姓名
           nickname: 暱稱
@@ -686,9 +685,7 @@ zh-TW:
           officialized: 已官方化
           reofficialize: 重新官方化
           reports: 報告
-          show_email: 顯示電子郵件地址
           status: 狀態
-          unblock: 取消封鎖使用者
           unofficialize: 取消官方化
         new:
           badge: 官方化徽章
@@ -817,8 +814,6 @@ zh-TW:
           error: 更新主題時發生問題。
           success: 主題已成功更新。
       static_pages:
-        actions:
-          view: 查看公開頁面。
         create:
           error: 創建新頁面時出現問題。
           success: 頁面建立成功.
@@ -886,8 +881,6 @@ zh-TW:
         hide: 隱藏
         not_hidden: 不隱藏
         title: 操作
-        unhide: 解除隱藏
-        unreport: 取消報告
       admin:
         reportable:
           hide:

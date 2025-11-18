@@ -33,6 +33,7 @@ amagat
 amd
 amendables
 AMR
+Amz
 andreslucena
 ANOT
 antora
@@ -71,6 +72,7 @@ backported
 backporter
 backticks
 barcat
+Basecamp
 Basecontroller
 Batchloader
 bayes
@@ -288,6 +290,7 @@ EOTITLE
 eql
 equalcat
 equales
+equalto
 erabaki
 erblint
 ERESOLVE
@@ -334,6 +337,9 @@ formattings
 formelements
 formfield
 forminvalid
+formreset
+formvalid
+formvalidator
 Fpb
 freetext
 Fritsch
@@ -381,13 +387,14 @@ gteq
 Gual
 GVzd
 Gyver
+hadolint
 haml
 Hammes
 hashdiff
-hashtag
 hashtaggable
 hashtagging
 hastaggable
+hashtags
 heighta
 heightb
 hereapi
@@ -404,6 +411,7 @@ Hodor
 Holas
 honeypots
 hooli
+hotwired
 housenumber
 hsh
 hsts
@@ -452,6 +460,7 @@ Jeet
 Jenae
 Jfcm
 jfif
+Jitsi
 jkl
 JKR
 joannadoe
@@ -672,6 +681,7 @@ ORMs
 osallistu
 osm
 oss
+osv
 osx
 otf
 otg
@@ -754,8 +764,10 @@ publicable
 Pujol
 pwa
 QLiterals
+qlty
 queda
 qux
+raf
 railtie
 railties
 randomable
@@ -836,8 +848,10 @@ sereneinserenade
 serializeds
 setseed
 sgid
+Shakacode
 shakapacker
 sharedapp
+shellcheckrc
 shellwords
 shs
 sidekiq
@@ -918,6 +932,7 @@ Terica
 Terrassa
 terrats
 territorials
+testid
 testsecret
 teva
 texta

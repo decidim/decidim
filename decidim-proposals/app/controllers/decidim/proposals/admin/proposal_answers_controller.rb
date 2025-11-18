@@ -34,7 +34,7 @@ module Decidim
 
             on(:invalid) do
               flash.keep[:alert] = I18n.t("proposals.answer.invalid", scope: "decidim.proposals.admin")
-              render template: "decidim/proposals/admin/proposals/show"
+              render template: "decidim/proposals/admin/proposals/show", status: :unprocessable_entity
             end
           end
         end

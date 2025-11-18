@@ -18,6 +18,8 @@ describe Decidim::ActionLogger do
   describe "#log" do
     it "saves the user info" do
       subject
+      expect(action_log.user_id).to eq(user.id)
+      expect(action_log.user_type).to eq("Decidim::User")
       expect(action_log.extra["user"]["ip"]).to be_present
       expect(action_log.extra["user"]["name"]).to eq user.name
       expect(action_log.extra["user"]["nickname"]).to eq user.nickname
@@ -169,6 +171,19 @@ describe Decidim::ActionLogger do
             expect(action_log.area).to be_nil
           end
         end
+      end
+    end
+
+    context "when the user is an api user" do
+      let!(:user) { create(:api_user, organization:, current_sign_in_ip: "127.0.0.1") }
+
+      it "saves the user info" do
+        subject
+        expect(action_log.user_id).to eq(user.id)
+        expect(action_log.user_type).to eq("Decidim::Api::ApiUser")
+        expect(action_log.extra["user"]["ip"]).to be_present
+        expect(action_log.extra["user"]["name"]).to eq user.name
+        expect(action_log.extra["user"]["nickname"]).to eq user.nickname
       end
     end
   end

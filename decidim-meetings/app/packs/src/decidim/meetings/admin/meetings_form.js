@@ -5,7 +5,7 @@ import createDynamicFields from "src/decidim/admin/dynamic_fields.component"
 import createFieldDependentInputs from "src/decidim/admin/field_dependent_inputs.component"
 import attachGeocoding from "src/decidim/geocoding/attach_input"
 
-$(() => {
+document.addEventListener("turbo:load", () => {
   const wrapperSelector = ".meeting-services";
   const fieldSelector = ".meeting-service";
 

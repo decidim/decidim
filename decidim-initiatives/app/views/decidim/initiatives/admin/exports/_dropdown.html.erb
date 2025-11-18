@@ -1,6 +1,6 @@
 <% menu_id = "top-#{SecureRandom.uuid}" %>
 <div class="relative">
-  <button class="button button__sm button__transparent-secondary" data-component="dropdown" data-target="dropdown-exports-<%= menu_id %>-<%= dropdown_id(collection_ids) %>">
+  <button class="button button__sm button__transparent-secondary" data-controller="dropdown" data-target="dropdown-exports-<%= menu_id %>-<%= dropdown_id(collection_ids) %>">
     <% if collection_ids.present? %>
       <%= t("actions.export-selection", scope: "decidim.admin") %>
     <% else %>

@@ -33,7 +33,7 @@ module Decidim
 
               on(:invalid) do
                 flash.now[:alert] = t("config.update.error", scope: "decidim.verifications.id_documents.admin")
-                render action: :edit
+                render action: :edit, status: :unprocessable_entity
               end
             end
           end
