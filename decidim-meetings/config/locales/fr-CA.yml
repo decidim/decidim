@@ -664,7 +664,6 @@ fr-CA:
           fields:
             closed: Fermée
             end_time: Date de fin
-            id: ID
             map: Carte
             official_meeting: Réunion officielle
             published: Publiée
