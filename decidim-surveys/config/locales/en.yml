@@ -57,8 +57,8 @@ en:
           id: Unique identifier for the survey response
           ip_hash: Hashed IP address of the respondent for privacy
           question: The question that was Responded
-          registered: Registered survey participants
-          unregistered: Unregistered survey participants
+          registered: Registered participant
+          unregistered: Unregistered participant
           user_status: Status of the user who submitted the response
     statistics:
       responses: 'Responses:'
