@@ -2,7 +2,6 @@
 
 require "spec_helper"
 require "decidim/api/test"
-require "decidim/api/test/mutation_context"
 
 module Decidim
   module Core
