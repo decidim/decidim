@@ -30,7 +30,7 @@ module Decidim
       end
 
       def election
-        @election ||= current_user&.admin? ? available_elections.find(params[:id]) : elections.find(params[:id])
+        @election ||= current_user&.admin? ? available_elections.find_by(id: params[:id]) : elections.find_by(id: params[:id])
       end
 
       def questions
@@ -57,6 +57,16 @@ module Decidim
         {
           search_text_cont: "",
           with_any_state: "all"
+        }
+      end
+
+      def add_breadcrumb_item
+        return {} if election.blank?
+
+        {
+          label: translated_attribute(election.title),
+          url: Decidim::EngineRouter.main_proxy(current_component).election_path(election),
+          active: false
         }
       end
     end

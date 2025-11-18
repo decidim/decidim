@@ -34,7 +34,7 @@ module Decidim
           context "when not logged in" do
             it "throws exception on non published page" do
               expect { get :show, params: { id: unpublished.id } }
-                .to raise_error(ActiveRecord::RecordNotFound)
+                .to raise_error(ActionController::RoutingError)
             end
           end
 
@@ -47,7 +47,7 @@ module Decidim
 
             it "throws exception on non published page" do
               expect { get :show, params: { id: unpublished.id } }
-                .to raise_error(ActiveRecord::RecordNotFound)
+                .to raise_error(ActionController::RoutingError)
             end
           end
 
