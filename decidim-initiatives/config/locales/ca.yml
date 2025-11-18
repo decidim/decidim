@@ -95,8 +95,6 @@ ca:
               validating: Validació tècnica
           type_id_eq:
             label: Tipus
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Cercar %{collection} per títol, descripció, ID o autoria
       initiatives_settings:
         update:
           error: S'ha produït un error en actualitzar la configuració de les iniciatives.
@@ -118,7 +116,6 @@ ca:
         initiatives:
           fields:
             created_at: Data de creació
-            id: ID
             published_at: Publicat el
             state: Estat
             supports_count: Signatures
