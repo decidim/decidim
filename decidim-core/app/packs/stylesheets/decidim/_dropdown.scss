@@ -33,6 +33,32 @@
   }
 }
 
+[data-target="dropdown-menu-main-mobile"] {
+  &[aria-expanded="false"] > span:last-of-type,
+  &[aria-expanded="true"] > span:first-of-type {
+    @apply hidden;
+  }
+
+  &[aria-expanded="true"] > span:last-of-type,
+  &[aria-expanded="false"] > span:first-of-type {
+    @apply block;
+  }
+}
+
+[data-target="dropdown-menu-main-desktop"] {
+  > span:first-of-type,
+  > svg:first-of-type {
+    @apply block;
+  }
+}
+
+[data-target="dropdown-menu-main-desktop"] {
+  > span,
+  > svg {
+    @apply hidden md:block;
+  }
+}
+
 [data-target="dropdown-menu-participatory-space"],
 [data-target="dropdown-menu-order"],
 [data-target="dropdown-menu-resource"],
@@ -64,7 +90,7 @@
   }
 
   > svg {
-    @apply w-5 h-6 flex-none text-xs font-normal text-black fill-current;
+    @apply w-fit h-6 flex-none text-xs font-normal text-black fill-current px-2;
   }
 
   & > ul {

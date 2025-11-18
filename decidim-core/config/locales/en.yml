@@ -590,8 +590,6 @@ en:
         description: Description
       footer_sub_hero:
         name: Footer sub hero banner
-      global_menu:
-        name: Global menu
       hero:
         name: Hero image and CTA
       hero_settings_form:
@@ -1190,7 +1188,6 @@ en:
         latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Help
       home: Home
     messaging:
       conversation_mailer:

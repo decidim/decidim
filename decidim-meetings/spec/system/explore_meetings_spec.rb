@@ -28,6 +28,11 @@ describe "Explore meetings", :slow do
   describe "index" do
     it "shows all meetings for the given process" do
       visit_component
+
+      within(".menu-bar") do
+        expect(page).to have_content(translated(component.name))
+      end
+
       expect(page).to have_selector(meetings_selector, count: meetings_count)
 
       meetings.each do |meeting|

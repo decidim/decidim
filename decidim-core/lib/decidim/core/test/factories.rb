@@ -195,7 +195,7 @@ FactoryBot.define do
     tos_agreement { "1" }
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     personal_url { Faker::Internet.url }
-    about { generate_localized_title(:user_about, skip_injection:) }
+    about { generate_title(:user_about, skip_injection:) }
     confirmation_sent_at { Time.current }
     accepted_tos_version { organization.tos_version }
     notifications_sending_frequency { "real_time" }
@@ -269,6 +269,12 @@ FactoryBot.define do
       # password.
       user.password ||= evaluator.password || "decidim123456789"
     end
+  end
+
+  factory :badge_score, class: "Decidim::Gamification::BadgeScore" do
+    user
+    badge_name { "followers" }
+    value { 1 }
   end
 
   factory :participatory_space_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
