@@ -41,10 +41,14 @@ module Decidim
 
       def translated_attribute(attribute)
         if attribute.is_a?(Hash)
-          attribute[I18n.locale.to_s] || attribute["en"] || attribute.values.first
+          attribute[I18n.locale.to_s] || attribute[organization.default_locale] || attribute.values.first
         else
           attribute.to_s
         end
+      end
+
+      def organization
+        resource.questionnaire.questionnaire_for.organization
       end
     end
   end
