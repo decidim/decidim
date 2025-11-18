@@ -83,7 +83,7 @@ shared_examples "admin menu shows only assigned space" do |space_name:, other_sp
     visit target_path
   end
 
-  context "and doesn't show unassigned spaces" do
+  context "and does not show unassigned spaces" do
     it "shows only the assigned space" do
       expect(page).to have_content(space_name)
 
