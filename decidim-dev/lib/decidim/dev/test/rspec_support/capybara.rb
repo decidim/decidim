@@ -180,7 +180,4 @@ RSpec.configure do |config|
 
   config.include Decidim::CapybaraTestHelpers, type: :system
   config.include Devise::Test::IntegrationHelpers, type: :system
-end 
-
-
-test
+end
