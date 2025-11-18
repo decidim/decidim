@@ -254,7 +254,6 @@ ca-IT:
           fields:
             created_at: Creat
             end_date: Fi
-            id: ID
             progress: Progrés
             start_date: Inici
             status: Estat
