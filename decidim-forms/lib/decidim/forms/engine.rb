@@ -12,8 +12,14 @@ module Decidim
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Forms::Engine.root}/app/cells")
       end
 
-      initializer "decidim_forms.webpacker.assets_path" do
+      initializer "decidim_forms.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
+
+      initializer "decidim_forms.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
       end
 
       initializer "decidim_forms.authorization_transfer" do

@@ -176,6 +176,7 @@ es-PY:
             can_accumulate_votes_beyond_threshold: Puede acumular apoyos más allá del umbral
             clear_all: Limpiar todo
             collaborative_drafts_enabled: Habilitar borradores colaborativos
+            collaborative_drafts_enabled_help: La función "Borradores colaborativos" se eliminará próximamente. Si la utilizas a partir de la versión 0.32 de Decidim, podrás utilizar la funcionalidad de coautoría de propuestas.
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
             default_sort_order: Ordenación por defecto de propuestas
@@ -493,6 +494,7 @@ es-PY:
           deleted_proposals_info: Las propuestas eliminadas se pueden restaurar desde papelera.
           preview: Previsualizar
           view_deleted_proposals: Ver las propuestas eliminadas
+        deprecation_warning_collaborative_drafts_html: "⚠️ <b>Aviso de Desuso/Obsolescencia.</b> La función \"Borradores colaborativos\" se eliminará próximamente. Si la utilizabas, a partir de la versión 0.32 de Decidim podrás utilizar la funcionalidad de coautoría de propuestas."
         evaluation_assignments:
           create:
             invalid: Se ha producido un error al asignar propuestas a una evaluadora.

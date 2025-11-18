@@ -3,6 +3,9 @@ import createEditor from "src/decidim/editor";
 
 export default class extends Controller {
   connect() {
-    this.editor = createEditor(this.element)
+    if (!this.element.dataset.editorInitialized) {
+      this.editor = createEditor(this.element);
+      this.element.dataset.editorInitialized = true;
+    }
   }
 }

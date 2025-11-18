@@ -29,7 +29,9 @@ sv:
         deleted_election_info: Borttagna val visas inte i listan. Du kan se dem genom att klicka på knappen nedan.
         edit: Redigera val
         new: Nytt val
+        preview: Förhandsgranska
         title: Åtgärder
+        view: Se val
         view_deleted_elections: Visa raderade val
       admin:
         census:
@@ -40,12 +42,14 @@ sv:
             title: Typ av folkräkning
           preview:
             title:
-              one: 'Användarförhandsgranskning (listan är begränsad till %{count} post):'
-              other: 'Användarförhandsgranskning (listan är begränsad till %{count} poster):'
+              one: Förhandsgranskningen är begränsad till %{count} post.
+              other: Förhandsgranskningen är begränsad till %{count} poster.
           update:
             error: Ett fel uppstod när folkräkningen skulle skapas eller sparas.
             success: Folkräkningen har uppdaterats.
         dashboard:
+          calendar:
+            published_results_at: Resultat publicerade vid
           census:
             title: Census
           main:
@@ -61,10 +65,18 @@ sv:
           results:
             publish_button: Publicera resultat
             title: Resultat
+          status:
+            census: 'Folkräkning:'
+            results_availability:
+              after_end: Resultat tillgängliga efter valets slut
+              per_question: Resultat tillgängliga per fråga
+              real_time: Resultat tillgängliga i realtid
         elections:
           create:
             invalid: Det gick inte att skapa valet.
             success: Valet skapades framgångsrikt.
+          dashboard:
+            subtitle: 'Slutligt steg: Granska dina detaljer. Redigeringar kan fortfarande göras innan de publiceras. När de är publicerade kommer du fortfarande att kunna uppdatera beskrivningen av valet.'
           edit:
             title: Redigera val
           form:
@@ -112,11 +124,24 @@ sv:
           update: "%{user_name} Uppdaterade valet %{resource_name} i %{space_name}"
       censuses:
         internal_users:
+          already_have_an_account?: Har du redan ett konto?
+          are_you_new?: Ny deltagare?
           info_html: |
-            Du kan begränsa kandidaterna i valet till deltagare som har behörighet.<br>
-            Observera att deltagarna måste uppfylla valda behörigheter för att kunna rösta. Genom att lämna alla kryssrutor tomma kan man rösta på alla registrerade.
+            Du kan begränsa deltagandet i valet till deltagare som har behörighet.<br>
+            Observera att deltagarna måste uppfylla valda behörigheter för att kunna rösta. Genom att lämnar alla kryssrutor tomma kan man rösta på alla registrerade.
           internal_type_title: Ytterligare behörigheter som krävs för att få rösta (valfritt)
           label: Registrerade deltagare (dynamisk)
+          sign_in_description: Logga in för att göra detta val
+          sign_up_description: Skapa ett konto för att rösta i detta val
+        internal_users_form:
+          authorization_options_invalid: Tyvärr – ni har alla tillstånd som krävs, men en del av dem är inte giltiga för detta val.
+          exit_button: Lämna valbåset
+          invalid: Du har inte behörighet att rösta i detta val.
+          missing: Din användare saknar vissa nödvändiga tillstånd. Kontrollera informationen och försök igen.
+          not_authorized: '"%{adapter}" tillståndet matchar inte de obligatoriska villkoren.'
+          not_granted: '"%{adapter}" behörighet beviljas inte.'
+          resume_with_method: Återuppta verifieringen med %{name}
+          verify_with_method: Verifiera med %{name}
         token_csv:
           example: |
             e-post;token
@@ -128,6 +153,48 @@ sv:
           label: Oregistrerade deltagare med tokens (fixerade)
           upload_file: Ladda upp fil
           upload_new_census: Ladda upp en CSV-fil
+        token_csv_form:
+          email: E-post
+          email_placeholder: Ange väljarens e-postadress
+          invalid: E-postadress eller lösenord är ogiltigt. Kontrollera detaljerna och försök igen.
+          token: Lösenord
+          token_placeholder: Ange väljarens lösenord
+      elections:
+        count:
+          elections_count:
+            one: "%{count} val"
+            other: "%{count} val"
+        elections:
+          empty: Det finns inga val.
+          empty_filters: Det finns inga val som matchar dina filter.
+        filters:
+          all: Allt
+          state: Status
+          state_values:
+            finished: Avslutad
+            ongoing: Pågående
+            scheduled: Schemalagd
+        orders:
+          end_at: Slutdatum
+          label: Sortera efter
+          recent: Senaste
+          start_at: Startdatum
+        questions:
+          subtitle: 'Detta är frågorna för denna omröstningsprocess:'
+        show:
+          active_voting_until: 'Aktiv röstning till: %{end_date}'
+          vote_button: Rösta
+          voted: Du har redan röstat. Om du röstar igen kommer bara den senaste rösten att räknas.
+          votes_count:
+            one: 1 röst
+            other: "%{count} röster"
+          voting_began: 'Omröstningen började den: %{start_date}'
+        vote_results:
+          subtitle:
+            after_end: Valet har avslutats. Du kan nu se resultatet.
+            per_question: Resultat finns tillgängliga per fråga. Du kan se resultaten för varje fråga efter att röstning har aktiverats och resultaten är publicerade.
+            real_time: Resultaten är tillgängliga i realtid. Du kan se resultaten medan omröstningen pågår.
+          title: Resultat
       models:
         election:
           fields:
@@ -136,9 +203,48 @@ sv:
             start_at: Starttid
             status: Status
             title: Titel
+      per_question_votes:
+        waiting:
+          description: Du kan vänta här tills nästa fråga är tillgänglig. Du kommer automatiskt att omdirigeras till nästa fråga när den är klar.
+          edit_vote: Redigera din röst
+          exit_button: Lämna väntrummet
+          title: Väntar på nästa fråga
       status:
         active: Pågående
         finished: Avslutad
+        not_started: Inte påbörjad
         ongoing: Pågående
+        published_results: Publicerade resultat
+      votes:
+        cast:
+          invalid: Det gick inte att registrera din röst. Kontrollera informationen du angav och försök igen.
+          success: Din röst har tagits emot.
+        check_census:
+          access: Åtkomst
+          election_not_open: Valet är inte öppet ännu. Kontrollera datumen och försök igen.
+          failed: Din identitet kunde inte verifieras. Kontrollera informationen du angav och försök igen.
+          form_title: Verifiera din identitet
+          invalid: Användaren hittades inte i folkräkningen.
+        confirm:
+          cast_vote: Rösta
+          edit_vote: Redigera din röst
+          not_answered: Du har inte besvarat frågan.
+          title: Bekräfta din röst
+        not_authorized: Du har inte behörighet att rösta i detta val.
+        question:
+          back: Tillbaka
+          cast_vote: Rösta
+          next: Nästa
+        receipt:
+          description: Du kan rösta igen så länge omröstningsperioden pågår. En ny omröstning kommer att skriva över den gamla.
+          exit_button: Lämna valbåset
+          title: Tack, din röst är mottagen
+    metadata:
+      progress:
+        published_results: 'Resultaten publicerades: %{end_date}'
     statistics:
       elections_count: Omröstningar
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Stäng

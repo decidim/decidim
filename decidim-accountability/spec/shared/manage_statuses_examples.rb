@@ -74,4 +74,57 @@ RSpec.shared_examples "manage statuses" do
       end
     end
   end
+
+  describe "sorts statuses" do
+    let(:statuses) do
+      [
+        create(:status, key: "status_106", progress: 0, component: current_component),
+        create(:status, key: "status_110", progress: 30, component: current_component),
+        create(:status, key: "status_105", progress: 60, component: current_component),
+        create(:status, key: "status_104", progress: 90, component: current_component),
+        create(:status, key: "status_120", progress: 100, component: current_component)
+      ]
+    end
+
+    before do
+      # Replace the statuses with the new ones defined above so that we can have
+      # an expected order of the rows.
+      Decidim::Accountability::Status.where(component: current_component).destroy_all
+      statuses
+
+      expect(page).to have_content("Statuses")
+      visit current_path
+      expect(page).to have_content("status_106")
+    end
+
+    it "sorts by progress by default" do
+      expect(all("tr")[1].text).to include("status_106")
+      expect(all("tr")[2].text).to include("status_110")
+      expect(all("tr")[3].text).to include("status_105")
+      expect(all("tr")[4].text).to include("status_104")
+      expect(all("tr")[5].text).to include("status_120")
+    end
+
+    it "can sort based on key" do
+      within(all("tr").first) { click_on "Key" }
+
+      expect(all("tr")[1].text).to include("status_104")
+      expect(all("tr")[2].text).to include("status_105")
+      expect(all("tr")[3].text).to include("status_106")
+      expect(all("tr")[4].text).to include("status_110")
+      expect(all("tr")[5].text).to include("status_120")
+    end
+
+    it "can sort based on name" do
+      within(all("tr").first) { click_on "Name" }
+
+      expected_order = statuses.sort do |s1, s2|
+        s1.name["en"] <=> s2.name["en"]
+      end
+
+      expected_order.each_with_index do |status, idx|
+        expect(all("tr")[1 + idx].text).to include(status.key)
+      end
+    end
+  end
 end

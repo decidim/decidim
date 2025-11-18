@@ -1,4 +1,7 @@
 <%= form_tag(decidim.search_path, method: :get, id: "form-search_topbar") do %>
+  <button type="submit" aria-label="<%= t("decidim.search.term_input_placeholder") %>">
+    <%= icon "search-line" %>
+  </button>
   <%= text_field_tag(
     :term,
     nil,
@@ -9,7 +12,4 @@
     title: t("decidim.search.term_input_placeholder"),
     "aria-label": t("decidim.search.term_input_placeholder")
   ) %>
-  <button type="submit" aria-label="<%= t("decidim.search.term_input_placeholder") %>">
-    <%= icon "search-line" %>
-  </button>
 <% end %>

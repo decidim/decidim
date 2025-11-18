@@ -16,14 +16,14 @@ Decidim.register_component(:accountability) do |component|
   end
 
   # These actions permissions can be configured in the admin panel
-  component.actions = %w(comment)
+  component.actions = %w(comment vote_comment)
 
   component.register_resource(:result) do |resource|
     resource.model_class_name = "Decidim::Accountability::Result"
     resource.template = "decidim/accountability/results/linked_results"
     resource.card = "decidim/accountability/result"
     resource.searchable = false
-    resource.actions = %w(comment)
+    resource.actions = %w(comment vote_comment)
   end
 
   component.settings(:global) do |settings|
