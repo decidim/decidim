@@ -572,8 +572,6 @@ ja:
         description: 説明
       footer_sub_hero:
         name: フッターサブヒーローバナー
-      global_menu:
-        name: グローバルメニュー
       hero:
         name: ヒーローイメージと CTA
       hero_settings_form:
@@ -1166,7 +1164,6 @@ ja:
         latlng_text: '緯度: %{latitude}, 経度: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: ヘルプ
       home: ホーム
     messaging:
       conversation_mailer:
