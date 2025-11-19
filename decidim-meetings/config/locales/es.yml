@@ -162,6 +162,7 @@ es:
           comment: Comentar
           join: Unirse
           reply_poll: Responder la consulta
+          vote_comment: Votar el comentario
         name: Encuentros
         settings:
           global:
