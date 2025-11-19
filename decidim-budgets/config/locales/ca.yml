@@ -338,6 +338,7 @@ ca:
         actions:
           comment: Comentar
           vote: Vota
+          vote_comment: Votar el comentari
         name: Pressupostos
         settings:
           global:
