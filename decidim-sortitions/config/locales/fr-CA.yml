@@ -20,6 +20,7 @@ fr-CA:
       sortitions:
         actions:
           comment: Commenter
+          vote_comment: Vote sur le commentaire
         name: Tirages au sort
         settings:
           global:
