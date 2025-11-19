@@ -42,5 +42,5 @@ Then you will need to configure it with the help of Environment Variables:
 [source,bash]
 ....
 export DECIDIM_ENABLE_MACHINE_TRANSLATION="true"
-export DECIDIM_MACHINE_TRANSLATION_SERVICE="MyTranslator"
+export DECIDIM_MACHINE_TRANSLATION_SERVICE="MyTranslationService"
 ....
