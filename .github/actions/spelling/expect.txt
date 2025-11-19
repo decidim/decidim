@@ -9,6 +9,7 @@ accesslist
 Aceasta
 acentos
 acro
+actionpack
 activejob
 activelog
 activemodel
