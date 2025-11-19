@@ -586,8 +586,6 @@ es:
         description: Descripción
       footer_sub_hero:
         name: Banner de sub-hero de pie de página
-      global_menu:
-        name: Menú global
       hero:
         name: Imagen principal y botón de acción
       hero_settings_form:
@@ -1182,7 +1180,6 @@ es:
         latlng_text: 'latitud: %{latitude}, longitud: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Ayuda
       home: Inicio
     messaging:
       conversation_mailer:
