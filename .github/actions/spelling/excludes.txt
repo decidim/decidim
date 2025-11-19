@@ -83,6 +83,7 @@
 \.zip$
 ^\.github/actions/spelling/
 ^\Q.github/workflows/spelling.yml\E$
+^\Q.github/workflows/publiccode-yml-validation.yml\E$
 /db/migrate/
 /locales/
 ^\Q.erb-lint.yml\E$

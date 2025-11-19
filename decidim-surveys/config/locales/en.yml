@@ -49,6 +49,17 @@ en:
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: A new survey in %{participatory_space_title}
           notification_title: The survey <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> is now open.
+    open_data:
+      help:
+        published_survey_user_responses:
+          body: The content of the response
+          created_at: Timestamp when the response was created
+          id: Unique identifier for the survey response
+          ip_hash: Hashed IP address of the respondent for privacy
+          question: The question that was Responded
+          registered: Registered participant
+          unregistered: Unregistered participant
+          user_status: Status of the user who submitted the response
     statistics:
       responses: 'Responses:'
       responses_count: Responses

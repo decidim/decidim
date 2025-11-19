@@ -84,6 +84,7 @@ de:
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: Klassifizierung des Vorschlags geändert
       decidim/proposals/creation_enabled_event: Vorschlagserstellung aktiviert
+      decidim/proposals/liking_enabled_event: Vorschlagsunterstützung aktiviert
       decidim/proposals/proposal_mentioned_event: Vorschlag erwähnt
       decidim/proposals/publish_proposal_event: Vorschlag veröffentlicht
       decidim/proposals/voting_enabled_event: Vorschlagsabstimmung aktiviert
@@ -92,7 +93,9 @@ de:
       decidim:
         proposals:
           proposal:
+            budget_text: Der Vorschlag <span class="resource-link">%{link}</span> wurde erstellt
             import_from_proposal_text: 'Es wurde zu diesem Vorschlag: %{link}'
+            import_to_proposal_text: Der Vorschlag <span class="resource-link">%{link}</span> wurde erstellt
             merge_from_proposal_text: 'Es wurde zu diesem Vorschlag: %{link}'
             merge_to_proposal_text: 'Dieser Vorschlag wurde erstellt: %{link}'
             split_from_proposal_text: 'Es wurde zu diesem Vorschlag: %{link}'
@@ -142,6 +145,12 @@ de:
             values:
               state_not_published: Unbeantwortet
               state_published: Beantwortet
+        search_placeholder:
+          id_string_or_title_cont: In %{collection} nach ID oder Titel suchen
+      tooltips:
+        cannot_edit_proposal_info: Dieser Vorschlag kann nicht bearbeitet werden, da er von einem Teilnehmenden erstellt wurde oder bereits Stimmen erhalten hat
+        deleted_proposal_states_info: Dieser Vorschlagsstatus kann nicht gelöscht werden, da ihm Vorschläge zugewiesen sind
+        deleted_proposals_info: Dieser Vorschlag kann nicht gelöscht werden
     application:
       geocoding:
         not_configured: Geolokalisierung wurde nicht eingestellt!
@@ -327,6 +336,8 @@ de:
           notification_title: Sie können jetzt <a href="%{resource_path}">neue Vorschläge</a> auf <a href="%{participatory_space_url}">%{participatory_space_title}</a> erfassen.
         liking_enabled:
           email_intro: 'Sie können ab jetzt Vorschläge auf %{participatory_space_title} unterstützen! Jetzt auf dieser Seite mitmachen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den angegebenen Link.
+          email_subject: Vorschläge können nun in %{participatory_space_title} unterstützt werden
         proposal_mentioned:
           email_intro: Ihr Vorschlag "%{mentioned_proposal_title}" wurde <a href="%{resource_url}">hier</a> in den Kommentaren erwähnt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.

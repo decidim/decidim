@@ -176,6 +176,7 @@ fi-pl:
             can_accumulate_votes_beyond_threshold: Voi kerätä ääniä yli kynnysarvon
             clear_all: Tyhjennä kaikki
             collaborative_drafts_enabled: Yhteistyöluonnokset ovat käytössä
+            collaborative_drafts_enabled_help: Yhteistyöluonnokset-ominaisuus poistetaan Decidim-alustan versiossa 0.32. Organisaatioiden, jotka käyttävät tätä ominaisuutta, tulisi siirtyä käyttämään ehdotusten laatijat-ominaisuutta.
             comments_enabled: Kommentit käytössä
             comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
             default_sort_order: Ehdotuksen oletusjärjestys
@@ -493,6 +494,7 @@ fi-pl:
           deleted_proposals_info: Poistetut ehdotukset voidaan palauttaa roskakorista.
           preview: Esikatsele
           view_deleted_proposals: Näytä poistetut ehdotukset
+        deprecation_warning_collaborative_drafts_html: "⚠️ <b>Poistamisilmoitus</b> Yhteistyöluonnokset-ominaisuus poistetaan Decidim-alustan versiossa 0.32. Organisaatioiden, jotka käyttävät tätä ominaisuutta, tulisi siirtyä käyttämään ehdotusten laatijat-ominaisuutta."
         evaluation_assignments:
           create:
             invalid: Arvioijan määritys ehdotuksille epäonnistui.

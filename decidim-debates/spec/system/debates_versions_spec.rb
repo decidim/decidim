@@ -14,6 +14,10 @@ describe "Explore versions", versioning: true do
     end
 
     it "has only one version" do
+      within(".menu-bar") do
+        expect(page).to have_content(translated(component.name))
+        expect(page).to have_content(translated(debate.title))
+      end
       expect(page).to have_content("Version number 1 (of 1)")
     end
 

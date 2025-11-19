@@ -490,7 +490,6 @@ uk:
     fallback: не дійсний
     name_included_in_password: занадто схожий на ваше ім'я
     not_enough_unique_characters: не містить достатньої кількості унікальних символів
-    password_not_allowed: неприпустимий
     password_too_common: занадто поширений
     password_too_long: занадто довгий
     password_too_short: занадто короткий

@@ -144,8 +144,10 @@ module Decidim
 
         if root_commentable.respond_to?(:polymorphic_resource_url)
           root_commentable.polymorphic_resource_url(url_params)
-        else
+        elsif root_commentable.respond_to?(:reported_content_url)
           root_commentable.reported_content_url(url_params)
+        else
+          "/"
         end
       end
 

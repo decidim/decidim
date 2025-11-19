@@ -269,7 +269,6 @@ describe "Homepage" do
 
           before do
             visit current_path
-            find_by_id("main-dropdown-summary").hover
           end
 
           it "does not show last activity section on menu bar main dropdown" do
@@ -285,7 +284,6 @@ describe "Homepage" do
 
           before do
             visit current_path
-            find_by_id("main-dropdown-summary").hover
           end
 
           it "does not show last activity section on menu bar main dropdown" do

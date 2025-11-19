@@ -16,12 +16,7 @@ module Decidim
       private
 
       def card_size
-        case @options[:size]
-        when :s
-          "decidim/meetings/meeting_s"
-        else
-          "decidim/meetings/meeting_l"
-        end
+        "decidim/meetings/meeting_l"
       end
 
       def resource_icon

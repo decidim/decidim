@@ -151,6 +151,7 @@ module Decidim
         it { is_expected.not_to be_valid }
       end
 
+      # See UploaderImageDimensionsValidator#validate_image_size
       context "when the file is a malicious image" do
         let(:avatar_path) { Decidim::Dev.asset("malicious.jpg") }
         let(:user) do

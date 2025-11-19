@@ -63,7 +63,7 @@ ca-IT:
       decidim/attachment_created_event: Arxiu adjunt
       decidim/component_published_event: Component actiu
       decidim/demoted_membership: Ja no ets una administradora del grup
-      decidim/gamification/badge_earned_event: Insígnia obtinguda
+      decidim/gamification/badge_earned_event: Ensenya obtinguda
       decidim/gamification/level_up_event: Has pujat de nivell
       decidim/invited_to_group_event: Convidada al grup
       decidim/join_request_accepted_event: Sol·licitud d'incorporació acceptada
@@ -1083,7 +1083,7 @@ ca-IT:
         dropzone: Arrossega-hi els arxius o fes clic per a pujar-los
         explanation: Guia per a %{attribute}
     gamification:
-      all_badges_link: Veure totes les insígnies disponibles.
+      all_badges_link: Veure totes les ensenyes disponibles.
       badges:
         followers:
           conditions:
@@ -1096,11 +1096,11 @@ ca-IT:
           unearned_another: Aquesta participant encara no té seguidores.
           unearned_own: Encara no et segueix ningú.
         index:
-          badge_title: "Insígnia %{name}"
+          badge_title: "Ensenya %{name}"
           how: Com pots aconseguir-la
-          page_description: Les insígnies són reconeixements de les accions de les participants i del progrés en la plataforma. A mesura que comencis a descobrir, participar i interactuar amb la plataforma, n'obtindràs de diferents tipus. Aquí tens la llista d'insígnies i algunes formes d'aconseguir-les.
-          title: Insígnies
-      description: Les insígnies són reconeixements de les accions de les participants i del progrés en la plataforma. A mesura que comencis a descobrir, participar i interactuar amb la plataforma, n'obtindràs de diferents tipus.
+          page_description: Les ensenyes són reconeixements de les accions de les participants i del progrés en la plataforma. A mesura que comencis a descobrir, participar i interactuar amb la plataforma, n'obtindràs de diferents tipus. Aquí tens la llista d'ensenyes i algunes formes d'aconseguir-les.
+          title: Ensenyes
+      description: Les ensenyes són reconeixements de les accions de les participants i del progrés en la plataforma. A mesura que comencis a descobrir, participar i interactuar amb la plataforma, n'obtindràs de diferents tipus.
       level: Nivell %{level}
       reached_top: Has arribat al màxim nivell d'aquesta ensenya.
       title: Què són les ensenyes?
@@ -1533,7 +1533,7 @@ ca-IT:
       default_officialization_text_for_users: Aquesta participant està verificada públicament. S'ha verificat que el seu nom o la seva funció es correspon amb el seu nom i funció reals.
       show:
         activity: Activitat
-        badges: Insígnies
+        badges: Ensenyes
         conversations: Converses
         followers: Seguidores
         following: Seguint
@@ -1723,20 +1723,30 @@ ca-IT:
         body_2: Com a part dels nostres esforços per simplificar l'experiència de les organitzacions, la funció "Grups d'usuàries" tal com la coneixem fins ara quedarà obsoleta. El perfil del Grup d'Usuàries ha esdevingut un perfil de participant en ús.
         greeting: Benvolgut/da %{name},
         instructions_1: Si tens accés a aquest compte de correu electrònic, si us plau, revisa la safata d'entrada per veure les instruccions.
-        instructions_intro: Hem enviat instruccions per establir una nova contrasenya pel perfil, al correu electrònic associat al compte.
+        instructions_2: Si no, algun membre del grup amb accés al correu haurà d'establir la contrasenya i compartir les credencials d'inici de sessió amb tu.
+        instructions_intro: Els membres del grup ara compartiran l'accés a aquest perfil usant credencials d'accés compartides (email i contrasenya). Hem enviat instruccions a %{email} per establir una contrasenya nova per al perfil.
         instructions_title: "<strong>Què vol dir això per a tu?</strong>"
-        subject: Actualització important sobre un grup d'usuaris del que formeu part
+        subject: Actualització important respecte al perfil del teu grup d'usuàries
       notify_deprecation_to_owner:
         body_1: Ens posem en contacte amb tu per informar-te sobre una important actualització respecte al Grup d'usuaris %{organization_name} del qual formes part.
         body_2: 'Com a part dels nostres esforços per simplificar l''experiència de les organitzacions com la vostra, la funció "Grups d''Usuàries" tal com la coneixem fins ara quedarà obsoleta. El perfil del Grup: <strong>%{name}</strong> s''ha convertit en un perfil de participant a l''ús.'
-        body_3: Per poder seguir accedint al teu compte, necessitem que estableixis una contrasenya.
+        body_3: Per continuar accedint al grup i compartir l'accés, cal que defineixis una contrasenya. Un cop configurada, pots compartir les credencials d'inici de sessió (email i contrasenya) amb qui consideris oportú. Aquesta/es persona/es podrà realitzar diferents accions a la plataforma amb el nom de l'organització.
         greeting: Benvolgut/da %{name},
-        instructions_1: 'Clica a l''enllaç que trobaràs a continuació per iniciar el procés per configurar la contrasenya:'
-        instructions_2: Al formulari, introdueix l'adreça de correu electrònic on vas rebre aquest missatge i envia la sol·licitud.
-        instructions_3: Revisa la teva safata d'entrada a la recerca d'un correu electrònic amb més instruccions per establir la contrasenya nova.
+        instructions_1: 'Fes clic a l''enllaç següent per establir una contrasenya:'
+        instructions_2: 'Comparteix les credencials d''inici de sessió (correu electrònic: %{email} i la nova contrasenya) amb qui consideris oportú. Recorda: aquesta/es persona/es podrà realitzar diferents accions a la plataforma amb el perfil de l''organització.'
         instructions_title: "<strong>Què cal que facis?</strong>"
-        set_password: Iniciar el procés de configuració de la contrasenya
-        subject: Actualització important del grup d'usuàries
+        set_password: Estableix la teva contrasenya
+        subject: Actualització important respecte al perfil del teu grup d'usuàries
+      notify_user_group_patched:
+        body_1_html: Ens posem en contacte amb tu per informar-te sobre una important actualització respecte al Grup d'usuàries %{organization_name} del qual formes part.
+        body_2_html: 'Com a part dels nostres esforços per simplificar l''experiència de les organitzacions com la vostra, la funció "Grups d''Usuàries" tal com la coneixem fins ara quedarà obsoleta. El perfil del Grup: <strong>%{name}</strong> s''ha convertit en un perfil de participant a l''ús.'
+        body_3_html: Per continuar accedint al vostre compte i compartir l'accés, necessitem que definiu un correu electrònic i una contrasenya nous. Tingueu en compte que cada membre del vostre grup rebrà aquest correu electrònic. Per garantir l'accés continuat, haureu d'acordar internament les credencials compartides (correu electrònic i contrasenya) que tothom utilitzarà.
+        greeting: Benvolgut/da %{name},
+        instructions_1_html: 'Fes servir les credencials temporals següents per iniciar la sessió: <br><br> Nom d''usuari: <strong>%{email}</strong> <br> Contrasenya: <strong>%{password}</strong><br><br>'
+        instructions_2_html: Estableix una nova adreça de correu electrònic i una contrasenya.
+        instructions_3_html: Comparteix les credencials d'inici de sessió escollides amb les teves companyes perquè tot el grup pugui continuar accedint al compte.
+        instructions_title_html: "<strong>Què cal que facis?</strong>"
+        subject: Actualització important respecte al perfil del teu grup d'usuàries
     user_report_mailer:
       notify:
         body_1: La usuària %{user} ha estat reportada per %{token}
@@ -1769,7 +1779,7 @@ ca-IT:
       show:
         version_index: Versió %{index} de %{total}
     welcome_notification:
-      default_body: <p>Hola {{name}}, gràcies per unir-te a {{organization}} et donem la benvinguda!</p><ul><li>Si vole fer-te una idea ràpida de que pots fer-hi, fes una ullada a la <a href="{{help_url}}">Secció d'ajuda</a>.</li><li>Una vegada l'hagis llegit rebràs la teva primera ensenya. Aquí trobaràs un <a href="{{badges_url}}">llistat de totes les ensenyes</a>que pots aconsegui participant a {{organization}}</li><li>. Per acabar, però no per això menys important, uneix-te a d'altres persones, comparteix amb elles d'estar compromesa i de participar a {{organization}}. Fes propostes, comentaris, debat, pensa en com contribuir a un bé comú, aporta arguments per mirar de convèncer, escolta i llegeix per convèncer-te, expressa les teves idees de manera concreta i directa, respon amb paciència i decisió, defensa les teves idees i resta oberta de ment per a col·laborar i unir-te a les idees d'altra gent.</li></ul>
+      default_body: <p>Hola {{name}}, gràcies per unir-te a {{organization}} i benvinguda!</p><ul><li>Si vols fer-te una idea ràpida del que pots fer aquí, fes un cop d'ull a la secció d'<a href="{{help_url}}">Ajuda</a>.</li><li>Un cop l'hagis llegit obtindràs la teva primera ensenya. Aquí tens la <a href="{{badges_url}}">llista</a> de totes les ensenyes que pots anar aconseguint a mesura que participis a {{organization}}</li><li>Finalment, però no per això menys important, uneix-te a altres persones, comparteix amb elles l'experiència d'implicar-se i participar a {{organization}}. Fes propostes, comenta, debat, pensa en com contribuir al bé comú, aporta arguments per convèncer, escolta i llegeix per convèncer-te, expressa les teves idees de manera concreta i directa, respon amb paciència i decisió, defensa les teves idees i manté la ment oberta a col·laborar i sumar-te a les idees d'altres persones.</li></ul>
       default_subject: Gràcies per unir-te a {{organization}}!
     wizard_step_form:
       wizard_aside:
@@ -2174,7 +2184,6 @@ ca-IT:
     name_included_in_password: és massa semblant al teu nom
     nickname_included_in_password: és massa semblant al teu àlies
     not_enough_unique_characters: no té prou caràcters únics
-    password_not_allowed: no està permès
     password_repeated: no pots reutilitzar una antiga contrasenya
     password_too_common: és massa comú
     password_too_long: és massa llarg

@@ -53,8 +53,8 @@ shared_examples "manage process steps examples" do
 
     within "#steps table" do
       expect(page).to have_content(translated(attributes[:title]))
-      expect(page).to have_content("#{Time.new.utc.day},")
-      expect(page).to have_content("#{(Time.new.utc + 2.days).day},")
+      expect(page).to have_content(Time.new.utc.day)
+      expect(page).to have_content((Time.new.utc + 2.days).day)
     end
     visit decidim_admin.root_path
     expect(page).to have_content("created the #{translated(attributes[:title])} phase in")

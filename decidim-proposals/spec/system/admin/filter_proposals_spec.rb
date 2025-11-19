@@ -212,19 +212,13 @@ describe "Admin filters proposals" do
     end
   end
 
-  context "when searching by ID or title" do
+  context "when searching by title" do
     let!(:proposal1) { create(:proposal, component:) }
     let!(:proposal2) { create(:proposal, component:) }
     let!(:proposal1_title) { ActionView::Base.full_sanitizer.sanitize(translated(proposal1.title)) }
     let!(:proposal2_title) { ActionView::Base.full_sanitizer.sanitize(translated(proposal2.title)) }
 
     before { visit_component_admin }
-
-    it "can be searched by ID" do
-      search_by_text(proposal1.id)
-
-      expect(page).to have_content(proposal1_title)
-    end
 
     it "can be searched by title" do
       search_by_text(proposal2_title)

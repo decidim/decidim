@@ -14,6 +14,7 @@ fr-CA:
   decidim:
     admin:
       actions:
+        confirm_unpublish_survey: Êtes-vous sûr(e) de vouloir dépublier cette enquête ?
         see_survey: Voir le sondage
       admin_log:
         changeset:
@@ -122,10 +123,14 @@ fr-CA:
       models:
         survey:
           fields:
+            published: Publiée
             questions: Questions
             responses: Réponses
             status: État 
             title: Titre
+          published:
+            published: Publiée
+            unpublished: Non publiée
           status:
             closed: Fermée
             open: Ouverte

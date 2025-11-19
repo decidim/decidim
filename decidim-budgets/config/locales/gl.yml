@@ -182,10 +182,6 @@ gl:
               disabled: Votación deshabilitada
               enabled: Votación habilitada
               finished: Votación finalizada
-    events:
-      budgets:
-        budget_published:
-          notification_title: O orzamento <a href="%{resource_path}">%{resource_title}</a> para %{participatory_space_title} xa está aberto.
     resource_links:
       included_proposals:
         project_proposal: Propostas incluídas neste proxecto
