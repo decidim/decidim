@@ -571,6 +571,7 @@ fr:
       initiative:
         actions:
           comment: Commenter
+          vote_comment: Vote sur le commentaire
       initiatives_type:
         actions:
           title: Actions
