@@ -32,6 +32,12 @@ module Decidim
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Elections::Engine.root}/app/views") # for partials
       end
 
+      initializer "decidim_elections.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
       initializer "decidim.elections.default_censuses" do |_app|
         Decidim::Elections.census_registry.register(:token_csv) do |manifest|
           manifest.admin_form = "Decidim::Elections::Admin::Censuses::TokenCsvForm"

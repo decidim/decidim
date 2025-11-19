@@ -74,6 +74,9 @@ sv:
           update_settings:
             invalid: Det gick inte att uppdatera dokumentet.
             success: Dokumentet har uppdaterats.
+        index:
+          published: Publicerad
+          unpublished: Opublicerad
       admin_log:
         document:
           create: "%{user_name} Skapade samarbetsprojektet %{resource_name} i %{space_name}"
@@ -83,11 +86,18 @@ sv:
           soft_delete: "%{user_name} Flyttade samarbetsprojektet %{resource_name} i %{space_name} till papperskorgen"
           unpublish: "%{user_name} Tog bort samarbetsprojektet %{resource_name} i %{space_name}"
           update: "%{user_name} Uppdaterade samarbetsprojektet %{resource_name} i %{space_name}"
+        suggestion:
+          create: "%{user_name} föreslår förändringar till den gemensamma texten %{resource_name} i %{space_name}"
         version:
           delete: "%{user_name} Raderade samarbetsprojektets version %{resource_name} i %{space_name}"
           update: "%{user_name} Uppdaterade samarbetsprojektets version %{resource_name} i %{space_name}"
       document:
+        apply: Godkänn
         cancel: Avbryt
+        consolidate:
+          confirm: Denna handling kommer att slå samman alla godkända förslag till en ny version av dokumentet. Icke godkända förslag kommer att överföras till den nya versionen för vidare granskning. Handlingen kommer att bibehålla statusen "förslag aktiverade".
+          new: Slå samman accepterade förslag
+        consolidate_counter: När de godkända %{applied} förslagen slås samman flyttas de väntande %{pending} förslagen till den nya versionen.
       documents:
         index:
           count:
@@ -97,6 +107,7 @@ sv:
       models:
         collaborative_text:
           fields:
+            published: Publicerad
             suggestions: Acceptera förslag
             title: Titel
     components:

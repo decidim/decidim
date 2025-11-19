@@ -195,7 +195,7 @@ FactoryBot.define do
     tos_agreement { "1" }
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     personal_url { Faker::Internet.url }
-    about { generate_localized_title(:user_about, skip_injection:) }
+    about { generate_title(:user_about, skip_injection:) }
     confirmation_sent_at { Time.current }
     accepted_tos_version { organization.tos_version }
     notifications_sending_frequency { "real_time" }
@@ -269,6 +269,12 @@ FactoryBot.define do
       # password.
       user.password ||= evaluator.password || "decidim123456789"
     end
+  end
+
+  factory :badge_score, class: "Decidim::Gamification::BadgeScore" do
+    user
+    badge_name { "followers" }
+    value { 1 }
   end
 
   factory :participatory_space_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
@@ -706,7 +712,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     moderation
-    user { build(:user, organization: moderation.reportable.organization, skip_injection:) }
+    user { build(:user, :confirmed, organization: moderation.reportable.organization, skip_injection:) }
     reason { "spam" }
   end
 
@@ -726,6 +732,7 @@ FactoryBot.define do
     user do
       build(
         :user,
+        :confirmed,
         organization: followable.try(:organization) || build(:organization, skip_injection:)
       )
     end
@@ -883,9 +890,14 @@ FactoryBot.define do
     end
     expires_at { 1.week.from_now }
     attached_to { create(:user, organization:, skip_injection:) }
-    export_type { "dummy" }
+    export_type { "download_your_data" }
     content_type { "application/zip" }
-    file_size { 10.kilobytes }
+    file_size { 208.bytes }
+    file { Decidim::Dev.test_file("dummy-export.zip", "application/zip") }
+
+    trait :expired do
+      expires_at { 1.week.ago }
+    end
   end
 
   factory :searchable_resource, class: "Decidim::SearchableResource" do
@@ -956,7 +968,7 @@ FactoryBot.define do
     end
     reason { "spam" }
     moderation { create(:user_moderation, user:, skip_injection:) }
-    user { build(:user) }
+    user { build(:user, :confirmed) }
   end
 
   factory :user_moderation, class: "Decidim::UserModeration" do

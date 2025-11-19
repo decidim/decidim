@@ -163,6 +163,7 @@ en:
           comment: Comment
           join: Join
           reply_poll: Reply poll
+          vote_comment: Vote comment
         name: Meetings
         settings:
           global:
@@ -678,7 +679,6 @@ en:
           fields:
             closed: Closed
             end_time: End date
-            id: ID
             map: Map
             official_meeting: Official meeting
             published: Published

@@ -273,7 +273,7 @@ ca:
         attended_meetings:
           conditions:
             - Inscriu-te a les trobades a les que vols assistir
-          description: Aquest distintiu s'aconsegueix assistint a diverses reunions presencials.
+          description: Aquesta ensenya s'aconsegueix assistint a diverses reunions presencials.
           description_another: Aquesta participant ha assistit a %{score} trobades.
           description_own: Has assistit a %{score} trobades.
           name: Trobades a les que has assistit
@@ -285,6 +285,7 @@ ca:
         agenda: Ordre del dia
         close: Tancar
         confirm_delete_meeting: Segur que vols suprimir aquesta trobada?
+        confirm_unpublish_meeting: Segur que vols despublicar aquesta trobada?
         deleted_meetings_info: Les trobades eliminades es poden restaurar des de la paperera.
         edit: Edita
         invalid_destroy:
@@ -329,6 +330,7 @@ ca:
           update:
             invalid: S'ha produït un error en actualitzar aquest ordre del dia.
             success: L'ordre del dia s'ha actualitzat correctament.
+        deprecation_warning_polls_html: "⚠️ <b>Avís de Desús/Obsolescència.</b> La funció de sondejos/votacions s'eliminarà en una versió futura (per determinar). Les organitzacions que utilitzen sondejos/votacions en viu a les reunions han de planejar-se fer servir eines de sondejos/votacions externes (per exemple, a través de Jitsi) o migrar a altres mecanismes de votació disponibles a Decidim, com el nou component d'Eleccions (`decidim-eleccions`)."
         exports:
           meeting_comments: Comentaris
           meetings: Trobades
@@ -383,7 +385,9 @@ ca:
             select_an_iframe_access_level: Si us plau, selecciona el nivell d'accés a l'iframe
           index:
             linked_meeting_warning_html: Aquesta reunió s'ha d'editar des de <br><a href="%{href}">%{name}</a>
+            published: Publicada
             title: Trobades
+            unpublished: Despublicada
           linked_spaces:
             assign: Assignar
             link_a_space: Vincular un espai
@@ -676,6 +680,7 @@ ca:
             id: ID
             map: Mapa
             official_meeting: Trobada oficial
+            published: Publicada
             start_time: Data d'inici
             taxonomies: Taxonomies
             title: Títol

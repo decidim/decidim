@@ -25,6 +25,12 @@ module Decidim
         Decidim.icons.register(name: "Decidim::Debates::Debate", icon: "discuss-line", description: "Debate", category: "activity", engine: :debates)
       end
 
+      initializer "decidim_debates.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
       initializer "decidim_debates.settings_changes" do
         config.to_prepare do
           Decidim::SettingsChange.subscribe "debates" do |changes|

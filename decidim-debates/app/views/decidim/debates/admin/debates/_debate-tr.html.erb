@@ -8,12 +8,12 @@
   </td>
   <td data-label="<%= t("models.debate.fields.start_time", scope: "decidim.debates") %>">
     <% if debate.start_time %>
-      <%= l debate.start_time, format: :long %>
+      <%= l debate.start_time, format: :decidim_short %>
     <% end %>
   </td>
   <td data-label="<%= t("models.debate.fields.end_time", scope: "decidim.debates") %>">
     <% if debate.end_time %>
-      <%= l debate.end_time, format: :long %>
+      <%= l debate.end_time, format: :decidim_short %>
     <% end %>
   </td>
   <td data-label="<%= t("models.debate.fields.taxonomies", scope: "decidim.debates") %>">

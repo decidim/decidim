@@ -9,6 +9,10 @@
   <% end %>
 </div>
 
+<div class="menu-bar__language-chooser-desktop focus-mode">
+  <%= render partial: "layouts/decidim/header/main_language_chooser" %>
+</div>
+
 <div class="main-bar__back-button lg:hidden">
   <%= link_to(
       content_for(:focus_mode_return_path),

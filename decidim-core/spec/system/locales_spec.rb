@@ -16,7 +16,7 @@ describe "Locales" do
         click_on "Català"
       end
 
-      expect(page).to have_content("Inici")
+      expect(page).to have_content("Menú")
     end
 
     it "only shows the available locales" do
@@ -32,9 +32,9 @@ describe "Locales" do
         click_on "Català"
       end
 
-      click_on "Inici", match: :first
+      click_on "Menú", match: :first
 
-      expect(page).to have_content("Inici")
+      expect(page).to have_content("Menú")
     end
 
     it "displays devise messages with the right locale when not authenticated" do
@@ -77,7 +77,7 @@ describe "Locales" do
       end
 
       it "uses the user's locale" do
-        expect(page).to have_content("Inici")
+        expect(page).to have_content("Menú")
       end
     end
   end

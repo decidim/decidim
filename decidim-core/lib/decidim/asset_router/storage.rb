@@ -26,7 +26,7 @@ module Decidim
     class Storage
       # Initializes the router.
       #
-      # @param [ActiveStorage::Attached, ActiveStorage::Blob] The asset to route
+      # @param asset [ActiveStorage::Attached, ActiveStorage::Blob] The asset to route
       #   to
       def initialize(asset)
         @asset = asset
@@ -41,7 +41,7 @@ module Decidim
 
       # Generates the correct URL to the asset with the provided options.
       #
-      # @param options The options for the URL that are the normal route options
+      # Accepts any options for the URL that are the normal route options
       #   Rails route helpers accept
       # @return [String] The URL of the asset
       def url(**options)
@@ -115,8 +115,8 @@ module Decidim
       # already when the logic below is unnecessary. This logic is needed e.g.
       # for serializers where the request context is not available.
       #
-      # @param record The record for which to check the organization
-      # @param opts Options for building the URL
+      # @param record [Object] The record for which to check the organization
+      # @param opts [Hash] Options for building the URL
       # @return [void]
       def ensure_current_host(record, **opts)
         return if asset_url_available?
@@ -141,7 +141,7 @@ module Decidim
 
       # Determines the organization for the passed record.
       #
-      # @param record The record for which to fetch the organization
+      # @param record [Object] The record for which to fetch the organization
       # @return [Decidim::Organization, nil] The organization for the record or
       #   `nil` if the organization cannot be determined
       def organization_for(record)
@@ -154,8 +154,7 @@ module Decidim
 
       # Returns the URL for the given blob object.
       #
-      # @param blob The blob object
-      # @param options Options for building the URL
+      # @param options [Hash] Options for building the URL
       # @return [String, nil] The URL to the blob object or `nil` if the blob is
       #   not defined.
       def blob_url(**options)
@@ -207,7 +206,8 @@ module Decidim
       # because once the image is stored at the storage service, it already has
       # the correct file extension.
       #
-      # @param options The options for building the URL
+      # Accepts any options for the URL that are the normal route options
+      # Rails route helpers accept
       # @return [String, nil] The converted representation URL or `nil` if the
       #   asset is not defined.
       def rails_representation_url(**)
@@ -235,7 +235,7 @@ module Decidim
       # variant has to be served through the service's own representation URL
       # causing it to be processed and stored at the storage service.
       #
-      # @param options The options for building the URL
+      # @param options [Hash] The options for building the URL
       # @return [String, nil] The variant URL at the storage service or `nil` if
       #   the variant has not been processed yet and does not yet exist at the
       #   storage service or `nil` when the asset is not defined

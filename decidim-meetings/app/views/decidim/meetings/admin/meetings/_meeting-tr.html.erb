@@ -1,9 +1,6 @@
 <% is_linked = meeting.decidim_component_id != current_component.id %>
 
 <tr data-id="<%= meeting.id %>">
-  <td data-label="<%= t("models.meeting.fields.id", scope: "decidim.meetings") %>">
-    <%= meeting.id %><br>
-  </td>
   <td class="!text-left" data-label="<%= t("models.meeting.fields.title", scope: "decidim.meetings") %>">
     <% if allowed_to? :update, :meeting, meeting: meeting %>
       <%= link_to present(meeting).title(html_escape: true), edit_meeting_path(meeting) %>
@@ -13,12 +10,12 @@
   </td>
   <td data-label="<%= t("models.meeting.fields.start_time", scope: "decidim.meetings") %>">
     <% if meeting.start_time %>
-      <%= l meeting.start_time, format: :long %>
+      <%= l meeting.start_time, format: :decidim_short %>
     <% end %>
   </td>
   <td data-label="<%= t("models.meeting.fields.end_time", scope: "decidim.meetings") %>">
     <% if meeting.end_time %>
-      <%= l meeting.end_time, format: :long %>
+      <%= l meeting.end_time, format: :decidim_short %>
     <% end %>
   </td>
   <td data-label="<%= t("models.meeting.fields.closed", scope: "decidim.meetings") %>">

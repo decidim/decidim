@@ -25,6 +25,12 @@ module Decidim
         Decidim.icons.register(name: "Decidim::Blogs::Post", icon: "pen-nib-line", description: "Blogs post", category: "activity", engine: :core)
       end
 
+      initializer "decidim_blogs.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
       initializer "decidim_blogs.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Blogs::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Blogs::Engine.root}/app/views") # for partials

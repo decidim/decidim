@@ -35,6 +35,9 @@ gem "decidim-dev", github: "decidim/decidim"
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
+# skip this command if you have run it before:
+bin/rails decidim:upgrade:clean:remove_private_exports_attachments
+bin/rails data:migrate
 ```
 
 ### 1.4. AWS/Azure/Google Cloud assets storage
@@ -67,7 +70,27 @@ The Sortitions module (`decidim-sortitions`) will be removed in v0.32. This modu
 
 The Polls feature within the Meetings module (`decidim-meetings`) will be removed in a future version (to be determined). This feature allowed meeting organizers to create polls during meetings. Organizations using meeting polls should plan to use external polling tools (for instance, through Jitsi) or migrate to other voting mechanisms available in Decidim, such as the new Elections module (`decidim-elections`).
 
-### 2.2.  Clean deleted user left behind data `decidim:upgrade:remove_deleted_users_left_data` task
+### 2.2. Old private exports are now expired
+
+Due to some data consistency issues with the private exports, we have decided to expire all the previously generated files. Users are able to request and receive a new private export file.
+
+if you are upgrading from a lover version like 0.30, and you have already ran this command, you can skip this step.
+
+Run the following command to expire all the private exports:
+
+```console
+bin/rails decidim:upgrade:clean:remove_private_exports_attachments
+```
+
+You can read more about this change on PR [#15020](https://github.com/decidim/decidim/pull/15020).
+
+### 2.3. Add data migrations
+
+At the moment we are adding this gem so we can start doing data migrations for fixes when v0.33.0 is released. You can read more about this at [Data migrations doc](https://docs.decidim.org/en/develop/develop/guide_data_migrations.html).
+
+You can read more about this change on PR [#15501](https://github.com/decidim/decidim/pull/15501).
+
+### 2.4.  Clean deleted user left behind data `decidim:upgrade:remove_deleted_users_left_data` task
 
 When a user deletes their account and the `Decidim::DestroyAccount` command is executed, certain related data such as authorizations, versions, private exports, access grants, access tokens, notifications, and reminders were left behind. To fix this issue, we've added a new rake task to clean up the leftover data for previously deleted users.
 
@@ -77,7 +100,7 @@ bin/rails decidim:upgrade:remove_deleted_users_left_data
 
 You can read more about this change on PR [#14731](https://github.com/decidim/decidim/pull/14731).
 
-### 2.3. [[TITLE OF THE ACTION]]
+### 2.5. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -85,7 +108,19 @@ You can read more about this change on PR [#XXXX](https://github.com/decidim/dec
 
 These are one time actions that need to be done after the code is updated in the production database.
 
-### 3.1. [[TITLE OF THE ACTION]]
+### 3.1. Fix incorrect ActionLog entries
+
+The action of hiding a component from a menu was being stored as a public action. These can lead to crashing the application if some related participatory space is removed.
+
+In order to correct the existing entries you should run the following rake task:
+
+```bash
+bin/rails decidim:upgrade:fix_action_log
+```
+
+You can read more about this change on PR [#15390](https://github.com/decidim/decidim/pull/15390).
+
+### 3.2. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
