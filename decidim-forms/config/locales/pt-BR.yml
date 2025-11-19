@@ -72,20 +72,26 @@ pt-BR:
             any: Qualquer
             collapse: Recolher
             description: Descrição
+            down: Baixa
             expand: Expandir
             question: Questão
             remove: Remover
             statement: Declaração
+            up: Acima
           separator:
+            down: Baixa
             remove: Remover
             separator: Separador
+            up: Acima
           title_and_description:
             collapse: Recolher
             description: Descrição
+            down: Baixa
             expand: Expandir
             remove: Excluir
             title: Título
             title_and_description: Título e descrição
+            up: Acima
           update:
             invalid: Houve erros ao salvar o questionário.
             success: Formulário salvo com sucesso.

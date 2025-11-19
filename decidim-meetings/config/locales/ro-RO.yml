@@ -511,6 +511,7 @@ ro:
           fields:
             closed: Închis
             end_time: Data de încheiere
+            id: ID
             map: Hartă
             official_meeting: Întâlnire publică
             start_time: Data de început

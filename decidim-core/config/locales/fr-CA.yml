@@ -1144,7 +1144,7 @@ fr-CA:
     members:
       no_members: Ce groupe d'utilisateurs n'a encore aucun membre.
     menu:
-      help: Aide
+      help: Aidez-moi
       home: Accueil
     messaging:
       conversation_mailer:

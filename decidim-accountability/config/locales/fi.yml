@@ -233,7 +233,7 @@ fi:
           global: Yleinen toteutus
         no_results: Projekteja ei ole saatavilla
         search:
-          search: Hae toimintoja
+          search: Hae toimenpiteitä
         show:
           stats:
             back_to_resource: Palaa tulokseen

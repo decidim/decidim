@@ -32,9 +32,17 @@ id:
             add_answer_option: Tambahkan opsi jawaban
             any: Apa saja
             description: Deskripsi
+            down: Turun
             question: Pertanyaan
             remove: Menghapus
             statement: Pernyataan
+            up: Naik
+          separator:
+            down: Turun
+            up: Naik
+          title_and_description:
+            down: Turun
+            up: Naik
           update:
             invalid: Terjadi masalah saat menyimpan formulir.
       question_types:

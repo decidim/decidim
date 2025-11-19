@@ -27,11 +27,18 @@ ga:
           question:
             add_matrix_row: Suimigh ró
             any: Ar Bith
+            down: Síos
             expand: Méadaigh
             question: Ceist
             remove: Bain as
+            up: Thuas
           separator:
+            down: Síos
             remove: Bain as
+            up: Thuas
+          title_and_description:
+            down: Síos
+            up: Thuas
       question_types:
         files: Comhaid
         sorting: Sórtáil

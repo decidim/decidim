@@ -427,6 +427,7 @@
           fields:
             closed: Lukket
             end_time: Sluttdato
+            id: ID
             map: Kart
             start_time: Startdato
             title: Tittel

@@ -442,6 +442,7 @@ hu:
           fields:
             closed: Lezárt
             end_time: Befejezés dátuma
+            id: ID
             map: Térkép
             start_time: Kezdő dátum
             title: Cím

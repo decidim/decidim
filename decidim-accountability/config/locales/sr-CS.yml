@@ -43,6 +43,9 @@ sr:
       admin:
         exports:
           results: Rezultati
+        import_results:
+          new:
+            title: Uvezi rezultate iz CSV datoteke
         models:
           result:
             name: Rezultat

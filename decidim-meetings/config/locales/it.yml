@@ -430,6 +430,7 @@ it:
           fields:
             closed: Chiuso
             end_time: Data di fine
+            id: ID
             map: Mappa
             official_meeting: Riunione ufficiale
             start_time: Data di inizio

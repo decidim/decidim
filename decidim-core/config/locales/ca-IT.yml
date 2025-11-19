@@ -2051,8 +2051,8 @@ ca-IT:
         title: Configuració de la participant
         user_groups: Grups
   locale:
-    name: Català
-    name_with_error: Català (error!)
+    name: Alguerés
+    name_with_error: Alguerés (error!)
   password_validator:
     denied: no és vàlid
     domain_included_in_password: és massa semblant a aquest nom de domini

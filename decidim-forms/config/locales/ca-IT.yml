@@ -101,20 +101,26 @@ ca-IT:
             any: Cap
             collapse: Redueix
             description: Descripció
+            down: Avall
             expand: Expandeix
             question: Pregunta
             remove: Eliminar
             statement: Declaració
+            up: Amunt
           separator:
+            down: Avall
             remove: Eliminar
             separator: Separador
+            up: Amunt
           title_and_description:
             collapse: Replegar
             description: Descripció
+            down: Avall
             expand: Expandir
             remove: Esborrar
             title: Títol
             title_and_description: Títol i descripció
+            up: Amunt
           update:
             invalid: S'ha produït un error en desar el formulari.
             success: Formulari desat correctament.

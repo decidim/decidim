@@ -32,16 +32,23 @@ gl:
             add_answer_option: Engadir unha opción de resposta
             any: Calquera
             description: Descrición
+            down: Baixo
             question: Pregunta
             remove: Quitar
             statement: Declaración
+            up: Arriba
+          separator:
+            down: Baixo
+            up: Arriba
           title_and_description:
             collapse: Contraer
             description: Descrición
+            down: Baixo
             expand: Expandir
             remove: Eliminar
             title: Título
             title_and_description: Título e descrición
+            up: Arriba
           update:
             invalid: Produciuse un erro ao gardar o cuestionario.
       images:

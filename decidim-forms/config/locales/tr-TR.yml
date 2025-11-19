@@ -71,13 +71,20 @@ tr:
             any: herhangi
             collapse: Daralt
             description: Açıklama
+            down: Aşağı
             expand: Genişlet
             question: Soru
             remove: Kaldır
             statement: Beyan
+            up: yukarı
           separator:
+            down: Aşağı
             remove: Kaldır
             separator: Ayraç
+            up: yukarı
+          title_and_description:
+            down: Aşağı
+            up: yukarı
           update:
             invalid: Formu kaydederken bir sorun oluştu.
             success: Başarıyla kaydedildi.

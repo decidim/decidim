@@ -32,9 +32,17 @@ sk:
             add_answer_option: Pridať možnosť odpovede
             any: Akékoľvek
             description: Popis
+            down: Nadol
             question: Otázka
             remove: Odstrániť
             statement: Prehlásenie
+            up: Hore
+          separator:
+            down: Nadol
+            up: Hore
+          title_and_description:
+            down: Nadol
+            up: Hore
           update:
             invalid: Vyskytol sa problém s ukladaním formulára.
       question_types:
