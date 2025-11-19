@@ -44,3 +44,8 @@ Then you will need to configure it with the help of Environment Variables:
 export DECIDIM_ENABLE_MACHINE_TRANSLATION="true"
 export DECIDIM_MACHINE_TRANSLATION_SERVICE="MyTranslationService"
 ....
+
+You also need to enable the setting "Enable machine translations" in `Settings` -> `Configuration`.
+
+You can read more about the details of how this service work at `xref:develop:machine_translations.adoc[Using machine translations].
+
