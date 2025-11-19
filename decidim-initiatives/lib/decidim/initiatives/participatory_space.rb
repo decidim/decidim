@@ -23,7 +23,7 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
   participatory_space.breadcrumb_cell = "decidim/initiatives/initiative_dropdown_metadata"
 
   participatory_space.register_resource(:initiative) do |resource|
-    resource.actions = %w(comment)
+    resource.actions = %w(comment vote_comment)
     resource.permissions_class_name = "Decidim::Initiatives::Permissions"
     resource.model_class_name = "Decidim::Initiative"
     resource.card = "decidim/initiatives/initiative"

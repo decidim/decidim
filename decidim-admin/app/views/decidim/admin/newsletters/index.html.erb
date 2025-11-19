@@ -36,11 +36,11 @@
             </td>
 
             <td data-label="<%= t("models.newsletter.fields.created_at", scope: "decidim.admin") %>">
-              <%= l(newsletter.created_at, format: :long) if newsletter.created_at %>
+              <%= l(newsletter.created_at, format: :decidim_short) if newsletter.created_at %>
             </td>
 
             <td data-label="<%= t("models.newsletter.fields.sent_at", scope: "decidim.admin") %>">
-              <%= l(newsletter.sent_at, format: :long) if newsletter.sent_at %>
+              <%= l(newsletter.sent_at, format: :decidim_short) if newsletter.sent_at %>
             </td>
 
             <td data-label="<%= t("models.newsletter.fields.sent_to", scope: "decidim.admin") %>">

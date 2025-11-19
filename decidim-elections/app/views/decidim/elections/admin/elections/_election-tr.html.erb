@@ -8,14 +8,14 @@
   </td>
   <td data-label="<%= t("models.election.fields.start_at", scope: "decidim.elections") %>">
     <% if election.start_at %>
-      <%= l election.start_at, format: :long %>
+      <%= l election.start_at, format: :decidim_short %>
     <% else %>
       <%= t("decidim.elections.admin.elections.form.manual_start") %>
     <% end %>
   </td>
   <td data-label="<%= t("models.election.fields.end_at", scope: "decidim.elections") %>">
     <% if election.end_at %>
-      <%= l election.end_at, format: :long %>
+      <%= l election.end_at, format: :decidim_short %>
     <% end %>
   </td>
   <td data-label="<%= t("models.election.fields.status", scope: "decidim.elections") %>">

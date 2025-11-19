@@ -14,27 +14,21 @@ module Decidim
         description "Lists the components this space contains."
         argument :id, GraphQL::Types::ID, required: true, description: "The ID of the component to be found"
       end
-
       type.field :session, Core::SessionType, description: "Return's information about the logged in user", null: true
-
       type.field :decidim, Core::DecidimType, "Decidim's framework properties.", null: true
-
       type.field :organization, Core::OrganizationType, "The current organization", null: true
-
       type.field :user,
-                 type: Core::AuthorInterface, null: true,
+                 type: Core::UserType, null: true,
                  description: "A participant (user or group) in the current organization" do
         argument :id, GraphQL::Types::ID, "The ID of the participant", required: false
         argument :nickname, GraphQL::Types::String, "The @nickname of the participant", required: false
       end
-
       type.field :users,
-                 type: [Core::AuthorInterface], null: true,
+                 type: [Core::UserType], null: true,
                  description: "The participants (users or groups) for the current organization" do
         argument :order, Decidim::Core::UserEntityInputSort, "Provides several methods to order the results", required: false
         argument :filter, Decidim::Core::UserEntityInputFilter, "Provides several methods to filter the results", required: false
       end
-
       type.field :participant_details, type: Decidim::Core::ParticipantDetailsType, null: true do
         description "Participant details visible to admin users only"
         argument :id, GraphQL::Types::ID, "The ID of the participant", required: true
@@ -44,6 +38,10 @@ module Decidim
                                 description: "The static pages for the current organization"
       type.field :static_page_topics, type: [Decidim::Core::StaticPageTopicType], null: true,
                                       description: "The static page topics for the current organization"
+      type.field :moderated_users, type: [Decidim::Core::UserModerationType], null: true,
+                                   description: "The moderated users for the current organization"
+      type.field :moderations, type: [Decidim::Core::ModerationType], null: true,
+                               description: "The moderation for the current organization"
     end
 
     def component(id: {})
@@ -94,6 +92,14 @@ module Decidim
 
     def static_page_topics
       static_pages.collect(&:topic).uniq.compact_blank
+    end
+
+    def moderated_users
+      Decidim::UserModeration.joins(:user).where(decidim_users: { decidim_organization_id: context[:current_organization]&.id }).where.not(decidim_users: { blocked_at: nil })
+    end
+
+    def moderations
+      Decidim::Moderation.where(participatory_space: context[:current_organization].participatory_spaces).includes(:reports).hidden
     end
   end
 end

@@ -234,6 +234,8 @@ shared_examples "comments" do
 
     describe "when using emojis" do
       before do
+        skip("This spec does not work in focus mode, since there is no language selector.") if has_selector?(".main-bar--focus-mode-back-button")
+
         within_language_menu do
           click_on "Castellano"
         end

@@ -5,7 +5,8 @@ footer {
     &__top {
       @apply hidden lg:flex flex-row gap-8 container py-10;
 
-      .prose a {
+      .prose a,
+      .prose strong {
         @apply text-white;
       }
     }

@@ -34,6 +34,7 @@ en:
           comment: Comment
           create: Create a debate
           like: Like
+          vote_comment: Vote comment
         name: Debates
         settings:
           global:
