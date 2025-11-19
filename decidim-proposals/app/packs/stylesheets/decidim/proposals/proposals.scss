@@ -112,7 +112,7 @@
 
   &__list-list {
     .card__proposals-item {
-      @apply border-l-4 rounded-[10px] md:rounded-md border-[#F5F5F5] hover:border-tertiary focus-visible:border-tertiary flex flex-col md:items-center md:flex-row md:justify-between min-h-0 md:min-h-[127px] lg:min-h-[83px];
+      @apply border-l-4 rounded-[10px] md:rounded-md border-neutral-100 hover:border-tertiary focus-visible:border-tertiary flex flex-col md:items-center md:flex-row md:justify-between min-h-0 md:min-h-[127px] lg:min-h-[83px];
 
       .card__list {
         @apply border-none md:flex-1 md:items-center mb-2.5 md:mb-0;
@@ -128,7 +128,7 @@
 
       .card__proposals-votes,
       .card__proposals-votes-hidden {
-        @apply flex md:flex-col lg:flex-row bg-[#F5F5F5] justify-around md:flex-[0.6] lg:flex-[0.8] items-center md:items-stretch lg:items-center lg:min-w-[196px] h-[68px] md:h-auto lg:h-[68px];
+        @apply flex md:flex-col lg:flex-row bg-neutral-100 justify-around md:flex-[0.6] lg:flex-[0.8] items-center md:items-stretch lg:items-center lg:min-w-[196px] h-[68px] md:h-auto lg:h-[68px];
 
         button {
           @apply bg-[var(--secondary)];

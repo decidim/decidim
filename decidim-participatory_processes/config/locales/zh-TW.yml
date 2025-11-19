@@ -323,9 +323,6 @@ zh-TW:
         participatory_process_imports:
           form:
             document_legend: 添加文檔
-        participatory_process_steps:
-          form:
-            cta_text_help: 如果未設置，按鈕將不會顯示。
         participatory_processes:
           form:
             announcement_help: 您在此處輸入的文字將顯示至使用者的正下方程序信息

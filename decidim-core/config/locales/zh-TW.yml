@@ -1410,7 +1410,6 @@ zh-TW:
     name_included_in_password: 與您的名字太相似
     nickname_included_in_password: 與您的暱稱太相似
     not_enough_unique_characters: 沒有足夠的獨特字符
-    password_not_allowed: 不被允許
     password_repeated: 不能重複使用舊密碼
     password_too_common: 太常見了
     password_too_long: 太長

@@ -19,7 +19,6 @@
       <table class="table-list">
         <thead>
         <tr>
-          <th><%= t("models.initiatives.fields.id", scope: "decidim.admin") %></th>
           <th class="!text-left"><%= t("models.initiatives.fields.title", scope: "decidim.admin") %></th>
           <th><%= t("models.initiatives.fields.state", scope: "decidim.admin") %></th>
           <th><%= sort_link(query, :supports_count, t("models.initiatives.fields.supports_count", scope: "decidim.admin"), default_order: :desc) %></th>
@@ -31,7 +30,6 @@
         <tbody>
         <% @initiatives.each do |initiative| %>
           <tr>
-            <td data-label="<%= t("models.initiatives.fields.id", scope: "decidim.admin") %>"><%= initiative.id %></td>
             <td class="!text-left" data-label="<%= t("models.initiatives.fields.title", scope: "decidim.admin") %>">
               <% if allowed_to? :edit, :initiative, initiative: initiative %>
                 <%= link_to translated_attribute(initiative.title),

@@ -29,6 +29,15 @@ module Decidim
 
           ActionAuthorizer.new(user, "comment", component, self).authorize.ok?
         end
+
+        # Public: Whether the user can vote comments or not.
+        # Checks for vote_comment permissions on the component.
+        def user_allowed_to_vote_comment?(user)
+          return false unless accepts_new_comments?
+          return false unless can_participate?(user)
+
+          ActionAuthorizer.new(user, "vote_comment", component, self).authorize.ok?
+        end
       end
     end
   end

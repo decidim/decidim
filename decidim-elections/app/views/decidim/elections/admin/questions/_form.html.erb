@@ -16,7 +16,7 @@
     <%= render "decidim/elections/admin/questions/response_option_template", form: question_form, editable: true, template_id: "response-option-template-dummy" %>
   <% end %>
 
-  <div class="questionnaire-questions-list flex flex-col py-6 gap-6 last:pb-0">
+  <div class="questionnaire-questions-list flex flex-col py-6 gap-6 last:pb-0" data-draggable-table data-sort-url="#" id="questionnaire-questions-list">
     <% @form.questions.each_with_index do |question, index| %>
       <%= fields_for "questions[]", question do |question_form| %>
         <%= render "decidim/elections/admin/questions/question",
@@ -35,5 +35,34 @@
 <script>
   document.addEventListener("turbo:load", function () {
     window.Decidim.createEditableForm();
+
+    // Function to initialize the sortable functionality
+    function initializeSortable() {
+      const container = document.querySelector("#questionnaire-questions-list");
+      const questionCards = container?.querySelectorAll(".card.questionnaire-question");
+
+      if (!container || !questionCards?.length) return;
+
+      questionCards.forEach(card => {
+        card.setAttribute("draggable", "true");
+        card.setAttribute("role", "option");
+        card.setAttribute("aria-grabbed", "false");
+      });
+
+      window.Decidim?.createSortableList?.("#questionnaire-questions-list");
+    }
+
+    // Initialize on load and when new options such as questions etc are added
+    initializeSortable();
+
+    const observer = new MutationObserver(() => {
+      clearTimeout(observer.timer);
+      observer.timer = setTimeout(initializeSortable, 500);
+    });
+
+    const container = document.querySelector("#questionnaire-questions-list");
+    if (container) {
+      observer.observe(container, { childList: true, subtree: true });
+    }
   });
 </script>

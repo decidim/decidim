@@ -403,13 +403,6 @@ fi-pl:
           updated_at: Äänen viimeisimmän päivityksen ajankohta
       show:
         projects: Projektien vienti
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'Budjetti %{resource_title} on nyt aktiivinen osallistumistilassa %{participatory_space_title}. Näet sen tältä sivulta:'
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
-          email_subject: Budjetti %{resource_title} on nyt aktiivinen osallistumistilassa %{participatory_space_title}.
-          notification_title: Budjetti <a href="%{resource_path}">%{resource_title}</a> on nyt aktiivinen osallistumistilassa %{participatory_space_title}.
     open_data:
       help:
         projects:

@@ -214,7 +214,6 @@ en:
             total_budget: Total budget
         project:
           fields:
-            id: ID
             map: Map
             taxonomies: Taxonomies
             title: Title
@@ -340,6 +339,7 @@ en:
         actions:
           comment: Comment
           vote: Vote
+          vote_comment: Vote comment
         name: Budgets
         settings:
           global:

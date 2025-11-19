@@ -34,6 +34,7 @@ module Decidim
         # @param context [GraphQL::Query::Context] The GraphQL context
         #
         # @return Boolean
+        # @param [Symbol] scope
         def allowed_to?(action, subject, object, context, scope: :public)
           unless subject.is_a?(::Symbol)
             subject = determine_subject_name(object)

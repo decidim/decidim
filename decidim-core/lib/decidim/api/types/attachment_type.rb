@@ -2,17 +2,23 @@
 
 module Decidim
   module Core
+    # This type represents an attachment
     class AttachmentType < Decidim::Api::Types::BaseObject
       description "A file attachment"
+      implements Decidim::Core::TimestampsInterface
 
       field :collection, Decidim::Core::AttachmentCollectionType, "attachment collection", method: :attachment_collection, null: true
-      field :description, Decidim::Core::TranslatedFieldType, "The description of this attachment.", null: false
+      field :description, Decidim::Core::TranslatedFieldType, "The description of this attachment", null: false
+      field :id, GraphQL::Types::ID, "Internal ID of this attachment", null: false
       field :file_blob, Decidim::Core::BlobType, "The file blob for this attachment", null: true
-      field :id, GraphQL::Types::ID, "The attachment ID", null: true
-      field :thumbnail, GraphQL::Types::String, "A thumbnail of this attachment, if it is an image.", method: :thumbnail_url, null: true
-      field :title, Decidim::Core::TranslatedFieldType, "The title of this attachment.", null: false
-      field :type, GraphQL::Types::String, "The type of this attachment", method: :file_type, null: false
+      field :thumbnail, GraphQL::Types::String, "A thumbnail of this attachment, if it is an image", method: :thumbnail_url, null: true
+      field :title, Decidim::Core::TranslatedFieldType, "The title of this attachment", null: false
+      field :type, GraphQL::Types::String, "The type of this attachment (could be 'link', 'jpeg', 'pdf' or any other allowed extensions)", method: :file_type, null: false
+      field :content_type, GraphQL::Types::String, "The content type of this attachment (could be 'text/uri-list', 'image/jpeg', or any allowed content types)", null: true
+      field :file_size, GraphQL::Types::String, "The file size of this attachment", null: true
+      field :link, GraphQL::Types::String, "The attached link of this attachment", null: true
       field :url, GraphQL::Types::String, "The url of this attachment", null: false
+      field :weight, GraphQL::Types::Int, "The weight of this attachment", null: true
     end
   end
 end

@@ -14,6 +14,7 @@ eu:
   decidim:
     admin:
       actions:
+        confirm_unpublish_survey: Ziur zaude inkesta hau despublikatu nahi duzula?
         see_survey: Inkesta ikusi
       admin_log:
         changeset:
@@ -128,10 +129,14 @@ eu:
       models:
         survey:
           fields:
+            published: Argitaratua
             questions: Galderak
             responses: Erantzunak
             status: Egoera
             title: Izenburua
+          published:
+            published: Argitaratua
+            unpublished: Desargitaratua
           status:
             closed: Itxita
             open: Zabaldu

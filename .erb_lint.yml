@@ -126,7 +126,6 @@ linters:
           - author-data__extra
           - author-data__main
           - author__avatar--small
-          - author__badge
           - author__date
           - author__name--container
           - author__nickname

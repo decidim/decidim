@@ -101,6 +101,12 @@ module Decidim
         Decidim.icons.register(name: "forbid-line", icon: "forbid-line", category: "system", description: "", engine: :initiatives)
       end
 
+      initializer "decidim_initiatives.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
       initializer "decidim_initiatives.stats" do
         Decidim.stats.register :initiatives_count,
                                priority: StatsRegistry::HIGH_PRIORITY,

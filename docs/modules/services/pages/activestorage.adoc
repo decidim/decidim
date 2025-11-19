@@ -4,6 +4,11 @@ Decidim uses https://edgeguides.rubyonrails.org/active_storage_overview.html[Act
 
 In order to plug Decidim into a storage provider of your choice, you need to generate the Decidim application using the `--storage` modifier as explained at the xref:configure:index.adoc[configuration guide]. You will also need to provide the correct configuration options for the selected storage provider as explained at the xref:configure:environment_variables.adoc[environment variables guide].
 
+[NOTE]
+====
+If you use any other provider than the default (`local`) you will need to also configure the xref:customize:content_security_policy.adoc[Content security policy]. For the directives "default-src", "img-src", "media-src", and "connect-src"`.
+====
+
 == Dynamic file uploads
 
 Decidim allows participants to upload files dynamically from their browsers to the website using the upload modals where participants can drag and drop the files to or select them from their computer. With the default configuration using a local file storage, this feature does not require any additional configuration. With external storage providers, you have to configure those storages properly to support the client-side file uploads to Decidim.

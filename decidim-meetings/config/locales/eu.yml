@@ -145,17 +145,17 @@ eu:
           success: Topaketa zuzen bikoiztu da.
         new:
           copy: Kopiatu
-          title: Bikoiztu topaketa
+          title: Topaketa bikoiztu
       tooltips:
-        cannot_close_meetings: Ezin da bilera hau itxi parte-hartzaile batek sortu baitu
-        cannot_duplicate_meetings: Ezin da bilera hau bikoiztu parte-hartzaile batek sortu baitu
-        cannot_edit_meetings: Ezin da bilera hau editatu parte-hartzaile batek sortu baitu
-        cannot_manage_agenda_meetings: Ezin da erabili agenda bilera honetan parte-hartzaile batek sortu baitu
-        cannot_manage_attachments_meetings: Ez da erabili eranskirik bilera honetan parte-hartzaile batek sortu baitu
-        cannot_manage_poll_meetings: Ezin da erabili inkestarik bilera honetan parte-hartzaile batek sortu baitu
-        cannot_manage_registrations_meetings: Ezin da erabili erregistrorik bilera honetan parte-hartzaile batek sortu baitu, erregistroak desgaituak ditu edo kanpokoak dira
+        cannot_close_meetings: Ezin da topaketa hau itxi parte-hartzaile batek sortu baitu
+        cannot_duplicate_meetings: Ezin da topaketa hau bikoiztu parte-hartzaile batek sortu baitu
+        cannot_edit_meetings: Ezin da topketa hau editatu parte-hartzaile batek sortu baitu
+        cannot_manage_agenda_meetings: Ezin da erabili agenda topaketa honetan parte-hartzaile batek sortu baitu
+        cannot_manage_attachments_meetings: Ez da erabili eranskirik topaketa honetan parte-hartzaile batek sortu baitu
+        cannot_manage_poll_meetings: Ezin da erabili inkestarik topaketa honetan parte-hartzaile batek sortu baitu
+        cannot_manage_registrations_meetings: Ezin da erabili erregistrorik topaketa honetan parte-hartzaile batek sortu baitu, erregistroak desgaituak ditu edo kanpokoak dira
         cannot_mark_attendee: Ezin da markatu laguntzaile bezala, markatuta baitzegoen
-        deleted_meetings_info: Ezin da bilera hau ezabatu parte-hartzaile batek sortu baitu.
+        deleted_meetings_info: Ezin da topaketa hau ezabatu parte-hartzaile batek sortu baitu.
     components:
       meetings:
         actions:
@@ -220,7 +220,7 @@ eu:
             email_subject: '"%{resource_title}" topaketa itxi egin da'
             notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxi egin da.
         meeting_created:
-          button_text: Eman izena bileran
+          button_text: Eman izena topaketan
           email_intro: '"%{resource_title}" topaketa jarraitzen duzun "%{participatory_space_title}" espazioan gehitu da.'
           email_outro: Jakinarazpen hau jaso duzu "%{participatory_space_title}" prozesua jarraitzen ari zarelako. Aureko estekan utzi ahal diozu jarraitzeari.
           email_subject: 'Beste topaketa bat gehituta honi: %{participatory_space_title}'
@@ -250,10 +250,10 @@ eu:
           email_subject: '"%{resource_title}" topaketarako zure "%{registration_code}" erregistro kodea baliozkotu egin da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketarako zure "%{registration_code}" erregistro kodea balioztatu da.
         registration_marked_as_attendee:
-          email_intro: '"%{resource ce_title}" bilerako zure izen-ematea egiaztatu da.'
+          email_intro: '"%{resource_title}" topakerako zure izen-ematea egiaztatu da.'
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketarako zure erregistro-kodea baliozkotu delako.
-          email_subject: '"%{resource ce_title}" bilerako zure izen-ematea egiaztatu da'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> bilerako zure izen-ematea egiaztatu da.
+          email_subject: '"%{resource_title}" topakerako zure izen-ematea egiaztatu da'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> topakerako zure izen-ematea egiaztatu da.
         registrations_enabled:
           email_intro: '"%{resource_title}" topaketan izena emateko epea ireki da. Izena eman ahal duzu bere orrian:'
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko estekan sartu jarraitzeari uzteko.
@@ -285,6 +285,7 @@ eu:
         agenda: Agenda
         close: Itxi
         confirm_delete_meeting: Ziur zaude topaketa hau ezabatu nahi duzula?
+        confirm_unpublish_meeting: Ziur zaude topaketa hau despublikatu nahi duzula?
         deleted_meetings_info: Ezabatutako topaketak zaborretik berreskura daitezke.
         edit: Editatu
         invalid_destroy:
@@ -329,6 +330,7 @@ eu:
           update:
             invalid: Arazo bat egon da agenda hau eguneratzean.
             success: Agenda ondo eguneratua.
+        deprecation_warning_polls_html: "⚠️<b>Deprezazioaren oharra.<b> Inkesten ezaugarria etorkizuneko bertsio batean ezabatuko da (zehazteke). Bilera-inkestak erabiltzen dituzten erakundeek pentsatu behar dute kanpoko hauteskunde-tresnak erabiltzea (adibidez, Jitsiren bidez) edo Decidimen dauden beste bozketa-mekanismoetara migratzea, hala nola Hauteskundeen modulu berrira (hauteskunde sindikalak)."
         exports:
           meeting_comments: Iruzkinak
           meetings: Topaketak
@@ -337,7 +339,7 @@ eu:
         invite_join_meeting_mailer:
           invite:
             decline: Deuseztatu gonbidapena
-            invited_you_to_join_a_meeting: "%{invited_by}-k gonbidatu zaitu %{application} topaketan parte hartzera. Beheko estekan onartu dezakezu."
+            invited_you_to_join_a_meeting: "%{invited_by} k %{application} topaketan parte hartzera gonbidatu zaitu. Beheko estekan onar dezakezu gobidapena."
             join: Erregistratu '%{meeting_title}' topaketa
         invites:
           create:
@@ -357,7 +359,7 @@ eu:
         meeting_closes:
           edit:
             close: Itxi
-            title: Itxi topaketa
+            title: Topaketa itxi
         meetings:
           close:
             invalid: Arazo bat egon da topaketa hau ixtean.
@@ -368,7 +370,7 @@ eu:
             invalid: Arazo bat egon da topaketa hau sortzean.
             success: Topaketa zuzen sortu da. Kontuan hartu oraindik ez dela argitaratu, eskuz argitaratu beharko duzu.
           edit:
-            title: Editatu bilera
+            title: Topaketa editatu
             update: Eguneratu
           form:
             address_help: 'Helbidea: Geocoderrek erabiltzen du kokapena aurkitzeko'
@@ -383,7 +385,9 @@ eu:
             select_an_iframe_access_level: Mesedez, hautatu iframe maila bat
           index:
             linked_meeting_warning_html: 'Topaketa hau hemendik editatu behar da: <br><a href="%{href}">%{name}</a>'
+            published: Argitaratua
             title: Topaketa-zerrenda
+            unpublished: Desargitaratua
           linked_spaces:
             assign: Esleitu
             link_a_space: Lotu espazioa
@@ -405,7 +409,7 @@ eu:
           reminders:
             reminder_enabled: Bidali gogorarazpena topaketa honetarako
             reminder_message: Gogorarazteko e-mailaren edukia
-            reminder_message_help_text: Pertsonalizatu mezua behar den bezala. Erabili {{meeting_title}} bilera-izena erakusteko.
+            reminder_message_help_text: Pertsonalizatu mezua behar den bezala. Erabili {{meeting_title}} topaketa-izena erakusteko.
             send_reminder: Gogorarazteko e-maila programatuta
             send_reminder_help_text: Topaketa egin baino lehen, zenbat ordu gogorarazteko.
             title: Gogorarazpenak
@@ -504,7 +508,7 @@ eu:
         export_calendar: Esportatu egutegia
       close_meeting_reminder_mailer:
         close_meeting_reminder:
-          body: <a href="%{meeting_path}">"%{meeting_title}"</a> bilera ixteko dago. Mesedez, gehitu bilerari buruzko txosten bat "Itxi bilera" botoia erabiliz.
+          body: <a href="%{meeting_path}">"%{meeting_title}"</a> topaketa ixteko dago. Mesedez, gehitu topaketari buruzko txosten bat "Itxi topaketa" botoia erabiliz.
           greetings: Agur, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Kaixo %{username},
           subject: Zuk orain "%{meeting_title}" topaketa itxi ahal duzu txosten batekin
@@ -676,6 +680,7 @@ eu:
             id: ID
             map: Mapa
             official_meeting: Topaketa ofiziala
+            published: Argitaratua
             start_time: Hasiera-data
             taxonomies: Taxonomiak
             title: Titulua
@@ -748,7 +753,7 @@ eu:
           success: Topaketatik ongi atera zara.
         waitlist:
           invalid: Arazo bat egon da itxarote-zerrendara lotzean.
-          success: Zuzen sartu zara bileraren itxarote-zerrendan. Zure erregistroa behar bezala ziurtatuz gero, jakinaraziko dizute.
+          success: Zuzen sartu zara topaketaren itxarote-zerrendan. Zure erregistroa behar bezala ziurtatuz gero, jakinaraziko dizute.
       type_of_meeting:
         hybrid: Hibridoa
         in_person: Aurrez aurre
@@ -776,7 +781,7 @@ eu:
           root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
         meetings:
           address: Topaketaren helbidea, baldin eta aurrez aurre badago eta kokapen fisikoa badu
-          attachments: Bilera honetako atxikipen kopurua
+          attachments: Topaketa honetako atxikipen kopurua
           attendees: Zenbat jende bildu da topaketa honetan?
           attending_organizations: Topaketan izan diren erakundeak
           audio_url: Topaketaren audiograbazioa
