@@ -295,6 +295,7 @@ fr-CA:
       accountability:
         actions:
           comment: Commenter
+          vote_comment: Vote sur le commentaire
         name: Suivi
         settings:
           global:
