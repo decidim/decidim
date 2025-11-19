@@ -16,7 +16,15 @@ class MyTranslationService
   end
 
   def translate
-    # Actual code to translate the text
+    # Actual code for translating the text
+    translated_text = "#{target_locale} - #{text}"
+
+    Decidim::MachineTranslationSaveJob.perform_later(
+      resource,
+      field_name,
+      target_locale,
+      translated_text
+    )
   end
 end
 ....
