@@ -728,7 +728,6 @@ it:
         latlng_text: 'latitudine: %{latitude}, longitudine: %{longitude}'
         map_service_brand: Mappa OpenStreet
     menu:
-      help: Aiuto
       home: Home
     messaging:
       conversation_mailer:
