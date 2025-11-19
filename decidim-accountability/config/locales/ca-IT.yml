@@ -295,6 +295,7 @@ ca-IT:
       accountability:
         actions:
           comment: Comentar
+          vote_comment: Votar el comentari
         name: Seguiment
         settings:
           global:
