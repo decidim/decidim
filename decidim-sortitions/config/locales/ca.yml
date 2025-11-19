@@ -20,6 +20,7 @@ ca:
       sortitions:
         actions:
           comment: Comentar
+          vote_comment: Votar el comentari
         name: Sortejos
         settings:
           global:
