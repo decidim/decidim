@@ -162,6 +162,7 @@ fr:
           comment: Commenter
           join: Rejoindre
           reply_poll: Répondre au sondage
+          vote_comment: Vote sur le commentaire
         name: Rencontres
         settings:
           global:
