@@ -1,5 +1,49 @@
 # Changelog
 
+## [0.30.4](https://github.com/decidim/decidim/tree/0.30.4)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-admin**, **decidim-core**: Backport 'Fix visibility type in action log for menu_hide action' to v0.30 [\#15445](https://github.com/decidim/decidim/pull/15445)
+- **decidim-api**: Backport 'Change spec on decidim-api that removes the views directory' to v0.30 [\#15457](https://github.com/decidim/decidim/pull/15457)
+- **decidim-comments**, **decidim-core**: Backport 'Fix missing `reportable_content_url` method' to v0.30 [\#15455](https://github.com/decidim/decidim/pull/15455)
+- Backport 'Lock graphql-ws to stable version' to v0.30 [\#15475](https://github.com/decidim/decidim/pull/15475)
+- **decidim-core**: Backport 'Add local `app/views` to `Cell::ViewModel` view paths' to v0.30 [\#15481](https://github.com/decidim/decidim/pull/15481)
+- **decidim-core**, **decidim-dev**: Backport 'Fix flaky specs on private exports' to v0.30 [\#15503](https://github.com/decidim/decidim/pull/15503)
+- **decidim-core**: Backport 'Prevent shakapacker related flakys in CI' to v0.30 [\#15514](https://github.com/decidim/decidim/pull/15514)
+- **decidim-blogs**: Backport 'Order posts by publication date' to v0.30 [\#15522](https://github.com/decidim/decidim/pull/15522)
+- **decidim-core**: Backport 'Fix markers displayed in meeting page' to v0.30 [\#15516](https://github.com/decidim/decidim/pull/15516)
+- **decidim-meetings**: Backport 'Use same card for Meeting always' to v0.30 [\#15546](https://github.com/decidim/decidim/pull/15546)
+- **decidim-core**: Backport 'Fix links in footer when using the organizations' description' to v0.30 [\#15543](https://github.com/decidim/decidim/pull/15543)
+- **decidim-conferences**: Backport 'Add missing i18n string in Conference program page' to v0.30 [\#15554](https://github.com/decidim/decidim/pull/15554)
+- **decidim-core**: Backport 'Fix strong tags color in footer organization description' to v0.30 [\#15560](https://github.com/decidim/decidim/pull/15560)
+- **decidim-accountability**, **decidim-admin**, **decidim-blogs**, **decidim-budgets**, **decidim-collaborative_texts**, **decidim-debates**, **decidim-elections**, **decidim-meetings**, **decidim-pages**, **decidim-proposals**, **decidim-surveys**: Backport 'Fix for process admins accessing some components' to v0.30 [\#15532](https://github.com/decidim/decidim/pull/15532)
+- **decidim-conferences**: Backport 'Use taxonomies instead of categories for the conferences' program' to v0.30 [\#15565](https://github.com/decidim/decidim/pull/15565)
+- **decidim-assemblies**, **decidim-conferences**, **decidim-core**, **decidim-initiatives**, **decidim-participatory processes**: Backport 'Fix duplicated participatory spaces in open data exports' to v0.30 [\#15550](https://github.com/decidim/decidim/pull/15550)
+- **decidim-elections**: Remove wrongly backported spec [\#15575](https://github.com/decidim/decidim/pull/15575)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
+### Internal
+
+- **decidim-api**: Backport 'Change spec on decidim-api that removes the views directory' to v0.30 [\#15457](https://github.com/decidim/decidim/pull/15457)
+- **decidim-core**: Backport 'Prevent shakapacker related flakys in CI' to v0.30 [\#15514](https://github.com/decidim/decidim/pull/15514)
+- **decidim-elections**: Remove wrongly backported spec [\#15575](https://github.com/decidim/decidim/pull/15575)
+
 ## [0.30.3](https://github.com/decidim/decidim/tree/0.30.3)
 
 ### Added
