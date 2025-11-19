@@ -588,8 +588,6 @@ de:
         description: Beschreibung
       footer_sub_hero:
         name: Abschnitt mit Plattformslogan
-      global_menu:
-        name: Globales Menü
       hero:
         name: Banner-Bild und Handlungsaufforderung
       hero_settings_form:
@@ -1187,7 +1185,6 @@ de:
         latlng_text: 'Breitengrad: %{latitude}, Längengrad: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Hilfe
       home: Start
     messaging:
       conversation_mailer:
