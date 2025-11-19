@@ -295,6 +295,7 @@ es-PY:
       accountability:
         actions:
           comment: Comentar
+          vote_comment: Votar el comentario
         name: Seguimiento
         settings:
           global:
