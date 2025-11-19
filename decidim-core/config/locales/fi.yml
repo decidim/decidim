@@ -588,8 +588,6 @@ fi:
         description: Kuvaus
       footer_sub_hero:
         name: Alaosion esialueen banneri
-      global_menu:
-        name: Päänavigaatio
       hero:
         name: Pääkuva ja CTA-painike (call to action)
       hero_settings_form:
@@ -1183,7 +1181,6 @@ fi:
         latlng_text: 'leveysaste: %{latitude}, pituusaste: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Tietoa
       home: Etusivu
     messaging:
       conversation_mailer:
