@@ -1294,6 +1294,7 @@ fi:
         create_with_space: "%{user_name} loi %{resource_name} osallistumistilassa %{space_name}"
         delete: "%{user_name} poisti %{resource_name}"
         delete_with_space: "%{user_name} poisti %{resource_name} osallistumistilassa %{space_name}"
+        publish: "%{user_name} julkaisi kohteen %{resource_name}"
         publish_with_space: "%{user_name} julkaisi %{resource_name} osallistumistilassa %{space_name}"
         unknown_action: "%{user_name} suoritti toimenpiteen koskien kohdetta %{resource_name}"
         unknown_action_with_space: "%{user_name} suoritti toimenpiteen koskien kohdetta %{resource_name} osallistumistilassa %{space_name}"

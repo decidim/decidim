@@ -277,7 +277,7 @@ eu:
       titles:
         participatory_process_groups: Partaidetza-prozesuen taldeak
         participatory_process_types: Partaidetza-prozesu motak
-        participatory_processes: Prozesu pare-hartzaileak
+        participatory_processes: Partaidetza-prozesuak
         participatory_processes_deleted: Ezabatutako partaidetza-prozesuak
       tooltips:
         deleted_processes_info: Prozesu bat soilik ezabatu daiteke egoera "Argitaratugabea" bada.
@@ -349,7 +349,7 @@ eu:
       participatory_processes:
         description: Erakundeko partaidetza-prozesu kopurua
         object: partaidetza-prozesuak
-        title: Prozesu pare-hartzaileak
+        title: Partaidetza-prozesuak
     open_data:
       help:
         participatory_processes:

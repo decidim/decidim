@@ -190,6 +190,7 @@ ja:
         success: アカウントが正常に削除されました。
       download_your_data_export:
         export_expired: エクスポートの有効期限が切れています。新しいエクスポートを生成してください。
+        export_not_found: アクセスしたエクスポートが存在しないか、ダウンロードする権限がありません
         file_no_exists: ファイルが存在しません
         notice: データのダウンロードは現在進行中です。完了した際にはメールでお知らせします。
       email_change:
@@ -1275,6 +1276,7 @@ ja:
         create_with_space: "%{user_name} が %{resource_name} に %{space_name} を作成しました"
         delete: "%{user_name} が %{resource_name} を削除しました"
         delete_with_space: "%{user_name} が %{resource_name} で %{space_name} を削除しました"
+        publish: "%{user_name} が %{resource_name}を公開しました"
         publish_with_space: "%{user_name} が %{space_name} の %{resource_name} を公開しました"
         unknown_action: "%{user_name} が %{resource_name} にいくつかのアクションを実行しました"
         unknown_action_with_space: "%{user_name} が %{resource_name} で %{space_name} にアクションを実行しました"
