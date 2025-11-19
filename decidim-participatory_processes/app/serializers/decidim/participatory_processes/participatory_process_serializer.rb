@@ -35,8 +35,6 @@ module Decidim
             description: step.try(:description),
             start_date: step.try(:start_date),
             end_date: step.try(:end_date),
-            cta_path: step.try(:cta_path),
-            cta_text: step.try(:cta_text),
             active: step.active,
             position: step.position
           }

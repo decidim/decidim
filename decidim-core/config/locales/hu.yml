@@ -1531,7 +1531,6 @@ hu:
     name_included_in_password: túlságosan hasonlít a nevedhez
     nickname_included_in_password: túlságosan hasonlít a becenevéhez
     not_enough_unique_characters: nem tartalmaz elegendő egyedi karaktert
-    password_not_allowed: nem engedélyezett
     password_repeated: korábban már használt jelszó nem megfelelő
     password_too_common: túl gyakori
     password_too_long: túl hosszú

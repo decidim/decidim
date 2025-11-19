@@ -738,7 +738,6 @@ id:
     fallback: tidak valid
     name_included_in_password: terlalu mirip dengan nama Anda
     not_enough_unique_characters: tidak memiliki karakter unik yang cukup
-    password_not_allowed: tidak diizinkan
     password_too_common: terlalu umum
     password_too_long: terlalu panjang
     password_too_short: terlalu pendek

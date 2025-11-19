@@ -1938,7 +1938,6 @@ sv:
     name_included_in_password: är för likt ditt namn
     nickname_included_in_password: är för likt ditt användarnamn
     not_enough_unique_characters: har inte tillräckligt med unika tecken
-    password_not_allowed: är ej tillåtet
     password_repeated: kan inte återanvända tidigare lösenord
     password_too_common: är för vanligt
     password_too_long: är för långt

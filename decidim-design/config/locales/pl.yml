@@ -86,21 +86,18 @@ pl:
           adjacent_links_paragraph: Jeśli ten sam zasób ma wiele sąsiadujących linków wskazujących no niego, utrudnia to takim użytkownikom spojrzenie na stronę, ponieważ mogą oni przejść przez wiele linków, aby dotrzeć do następnego zasobu.
           color_contrast: Kontrast kolorów
           color_contrast_paragraph: Podczas tworzenia interfejsów użytkownika lub modyfikowania kolorów, zawsze upewnij się, że nie naruszasz dostępności swoimi zmianami. Możesz użyć narzędzia do sprawdzania kontrastu kolorów, aby upewnić się, że kolory mają wystarczający kontrast względem koloru tła, na którym są wyświetlane.
-          decidim_follows_html: Decidim jest zgodny z wytycznymi <u>Web Content Accessibility Guidelines (WCAG) 2.1</u>
           dynamic_changes_header: Dynamiczna funkcjonalność zmienia kontekst strony w sposób nieintuicyjny
           dynamic_changes_paragraph: Zmiany w formularzu danych wejściowych nie powinny automatycznie zmieniać kontekstu strony.
           elements_hidden: Ukryte elementy
           elements_hidden_header: Elementy ukryte w API ułatwień dostępu
           elements_hidden_paragraph: Aby ukryć element przed technologiami wspomagającymi, użyj w nim atrybutu aria-hidden="true".
           heading_on: Nagłówek w ważnych sekcjach
-          here_link: tutaj
           illogical_heading_order: Nielogiczna kolejność nagłówków
           illogical_heading_paragraph: Każda strona powinna mieć logiczną kolejność nagłówków podczas używania elementów nagłówka <h1>, <h2>, <h3>, <h4>, <h5> i <h6>.
           important_sections_heading: Nagłówek w ważnych sekcjach
           important_sections_paragraph: Bardzo ważne jest, aby każda ważna sekcja strony miała nagłówek ułatwiający zrozumienie, jakie ważne sekcje znajdują się na stronie tylko poprzez przeglądanie jej nagłówków.
           links_and_buttons: Linki i przyciski
           links_and_buttons_paragraph: Elementy kotwicy (tj. odnośniki) mają na celu połączenie z różnymi stronami lub zakotwiczenie pozycji na stronie. Jeśli element ma na celu np. otwarcie na tej stronie niektórych ukrytych elementów, powinieneś (powinnaś) zamiast tego użyć elementu <button>.
-          see_further_info_html: Zobacz dalsze informacje %{link}
           unique_h1: Unikalny H1
           unique_h1_paragraph: Każda strona powinna mieć unikalny nagłówek H1
           use_aria: Użyj ARIA

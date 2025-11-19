@@ -23,6 +23,7 @@ describe Decidim::EditorImage do
       it { is_expected.not_to be_valid }
     end
 
+    # See UploaderImageDimensionsValidator#validate_image_size
     context "when the file is a malicious image" do
       subject do
         build(

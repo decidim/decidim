@@ -1,9 +1,11 @@
 <button id="main-dropdown-summary-mobile" class="main-bar__links-mobile__trigger p-0"
-                                          data-controller="dropdown"
-                                          data-target="dropdown-menu-main-mobile">
-  <%= icon "menu-line" %><span class="sr-only"><%= t("main_menu", scope: "layouts.decidim.header") %></span>
-  <%= icon "close-line" %>
+        data-controller="dropdown"
+        data-target="dropdown-menu-main-mobile"
+        aria-expanded="false">
+  <%= icon "menu-line" %><span><%= t("menu", scope: "decidim.admin.titles") %></span>
+  <%= icon "close-line" %><span><%= t("close", scope: "layouts.decidim.header") %></span>
 </button>
+<div aria-hidden="true" class="border-r border-gray-6 h-full"></div>
 
 <div id="dropdown-menu-main-mobile" class="main-bar__links-mobile__dropdown main-bar__links-mobile__dropdown-before" aria-hidden="true">
   <%= render partial: "layouts/decidim/header/menu_breadcrumb_main_dropdown_mobile", locals: { id: "breadcrumb-main-dropdown-mobile" } %>

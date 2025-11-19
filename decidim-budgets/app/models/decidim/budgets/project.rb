@@ -151,11 +151,11 @@ module Decidim
       end
 
       def self.ransackable_attributes(auth_object = nil)
-        base = %w(search_text description title)
+        base = %w(id_string id search_text description title)
 
         return base unless auth_object&.admin?
 
-        base + %w(id_string id selected selected_at confirmed_orders_count)
+        base + %w(selected selected_at confirmed_orders_count)
       end
 
       def self.ransackable_associations(_auth_object = nil)

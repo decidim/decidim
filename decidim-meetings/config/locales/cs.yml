@@ -276,6 +276,7 @@ cs:
         agenda: Denní program
         close: Zavřít
         confirm_delete_meeting: Opravdu chcete smazat tuto schůzi?
+        confirm_unpublish_meeting: Opravdu chcete zrušit publikování této schůzky?
         deleted_meetings_info: Smazané schůzky mohou být obnoveny z koše.
         edit: Upravit
         invalid_destroy:
@@ -322,6 +323,7 @@ cs:
           update:
             invalid: Při aktualizaci této agendy došlo k problému.
             success: Program schůze byl úspěšně aktualizován.
+        deprecation_warning_polls_html: "⚠️ <b>Oznámení o zastaralosti.</b> Funkce Ankety bude odstraněna v budoucí verzi (bude určena). Organizace používající ankety by měly plánovat použití externích průzkumných nástrojů (například prostřednictvím Jitsi) nebo se přesuňte na další hlasovací mechanismy, které jsou k dispozici v Decidimu, jako je nový volební modul (`decidim-elections`)."
         exports:
           meeting_comments: Komentáře
           meetings: Setkání
@@ -376,7 +378,9 @@ cs:
             select_an_iframe_access_level: Vyberte prosím úroveň přístupu iframe
           index:
             linked_meeting_warning_html: Tato schůzka musí být upravena od <br><a href="%{href}">%{name}</a>
+            published: Publikováno
             title: Setkání
+            unpublished: Nezveřejněno
           linked_spaces:
             assign: Přiřadit
             link_a_space: Propojit prostor
@@ -675,6 +679,7 @@ cs:
             id: ID
             map: Mapa
             official_meeting: Oficiální schůzka
+            published: Zveřejněno
             start_time: Datum zahájení
             taxonomies: Taxonomie
             title: Titul

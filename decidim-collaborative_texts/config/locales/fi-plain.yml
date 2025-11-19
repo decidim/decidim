@@ -74,6 +74,9 @@ fi-pl:
           update_settings:
             invalid: Asiakirjan päivittäminen epäonnistui.
             success: Asiakirjan päivittäminen onnistui.
+        index:
+          published: Julkaistu
+          unpublished: Julkaisematon
       admin_log:
         document:
           create: "%{user_name} loi yhteistyötekstin %{resource_name} tilassa %{space_name}"
@@ -122,6 +125,7 @@ fi-pl:
       models:
         collaborative_text:
           fields:
+            published: Julkaistu
             suggestions: Hyväksy muutosehdotus
             title: Otsikko
       suggestion:

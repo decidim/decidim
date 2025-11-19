@@ -16,11 +16,15 @@ cs:
           draft: Koncept
           version_number: Číslo verze
   decidim:
+    admin:
+      tooltips:
+        deleted_collaborative_texts_info: Tento dokument nelze odstranit
     collaborative_texts:
       actions:
         confirm_delete_document: Opravdu chcete odstranit tento dokument?
         deleted_document_info: Odstraněný dokument může být obnoven z koše.
         edit: Upravit
+        manage: Konfigurace
         new: Nový text
         title: Akce
         view_deleted_documents: Zobrazit odstraněné dokumenty
@@ -83,6 +87,7 @@ cs:
           new: Navrhnout novou verzi
         save: Navrhnout změny
         status:
+          draft: Tento dokument je v současné době přezkoumáván správci. Návrhy nejsou v tuto chvíli povoleny, ale můžete zobrazit návrhy jiných účastníků.
           not_accepting_suggestions: Návrhy nejsou v tuto chvíli povoleny.
         suggestions_count: "%{count} návrhů"
         toggle: Zobrazit/skrýt návrhy
@@ -94,6 +99,7 @@ cs:
       models:
         collaborative_text:
           fields:
+            published: Zveřejněno
             suggestions: Přijmout návrhy
             title: Název
       suggestions:

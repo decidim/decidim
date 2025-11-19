@@ -403,13 +403,6 @@ de:
           updated_at: Datum und Uhrzeit der Anfrageaktualisierung
       show:
         projects: Export der Projekte
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'Das Budget %{resource_title} ist jetzt für %{participatory_space_title} aktiv. Sehen Sie es sich auf dieser Seite an:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-          email_subject: Das Budget %{resource_title} ist jetzt für %{participatory_space_title} aktiv.
-          notification_title: Das Budget <a href="%{resource_path}">%{resource_title}</a> ist jetzt aktiv für %{participatory_space_title}.
     open_data:
       help:
         projects:

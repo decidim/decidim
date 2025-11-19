@@ -163,6 +163,7 @@ en:
           comment: Comment
           join: Join
           reply_poll: Reply poll
+          vote_comment: Vote comment
         name: Meetings
         settings:
           global:
@@ -331,6 +332,7 @@ en:
           update:
             invalid: There was a problem updating this agenda.
             success: Agenda successfully updated.
+        deprecation_warning_polls_html: "⚠️ <b>Deprecation Notice.</b> The Polls feature will be removed in a future version (to be determined). Organizations using meeting polls should plan to use external polling tools (for instance, through Jitsi) or migrate to other voting mechanisms available in Decidim, such as the new Elections module (`decidim-elections`)."
         exports:
           meeting_comments: Comments
           meetings: Meetings
@@ -677,7 +679,6 @@ en:
           fields:
             closed: Closed
             end_time: End date
-            id: ID
             map: Map
             official_meeting: Official meeting
             published: Published
