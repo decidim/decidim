@@ -338,6 +338,7 @@ es-PY:
         actions:
           comment: Comentar
           vote: Votar
+          vote_comment: Votar el comentario
         name: Presupuestos
         settings:
           global:
