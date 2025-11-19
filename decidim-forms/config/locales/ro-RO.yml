@@ -31,7 +31,6 @@ ro:
             tos: Termenii serviciului
         questionnaires:
           actions:
-            back: Înapoi la întrebări
             show: Răspunsuri
           display_condition:
             condition_question: Întrebare
@@ -67,12 +66,10 @@ ro:
             any: Oricare
             collapse: Restrângeți
             description: Descriere
-            down: Mergi în jos
             expand: Extindeți
             question: Întrebare
             remove: Eliminați
             statement: Declarație
-            up: Mergi în sus
           response_option:
             free_text: Text liber
             remove: Eliminați
@@ -87,19 +84,15 @@ ro:
               show: Afișați răspunsurile
             empty: Nu există răspunsuri încă
           separator:
-            down: Mergi în jos
             remove: Elimină
             separator: Separator
-            up: Mergi în sus
           title_and_description:
             collapse: Restrângeți
             description: Descriere
-            down: Mergi în jos
             expand: Extindeți
             remove: Șterge
             title: Titlu
             title_and_description: Titlu și descriere
-            up: Mergi în sus
           update:
             invalid: A apărut o eroare la salvarea chestionarului.
             success: Chestionarul a fost salvat cu succes.

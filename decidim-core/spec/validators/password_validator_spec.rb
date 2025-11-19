@@ -5,7 +5,8 @@ require "spec_helper"
 describe PasswordValidator do
   describe "#validate_each" do
     let(:organization) { create(:organization) }
-    let(:validator) { described_class.new(options).validate_each(record, attribute, value) }
+    let(:validator_instance) { described_class.new(options) }
+    let(:validator) { validator_instance.validate_each(record, attribute, value) }
 
     let(:errors) { ActiveModel::Errors.new(attribute.to_s => []) }
     let(:record) do
@@ -282,6 +283,35 @@ describe PasswordValidator do
           expect(validator).to be(true)
           expect(record.errors[attribute]).to be_empty
         end
+      end
+    end
+
+    # This could happen in case the validator is customized.
+    describe "missing validator translation" do
+      let(:value) { "password" }
+
+      around do |example|
+        methods = described_class.const_get(:VALIDATION_METHODS)
+        described_class.class_eval do
+          remove_const(:VALIDATION_METHODS)
+          const_set(:VALIDATION_METHODS, [:speakeasy?])
+        end
+
+        example.run
+
+        described_class.class_eval do
+          remove_const(:VALIDATION_METHODS)
+          const_set(:VALIDATION_METHODS, methods)
+        end
+      end
+
+      before do
+        allow(validator_instance).to receive(:speakeasy?).and_return(true)
+      end
+
+      it "shows the fallback error" do
+        expect(validator).to be(false)
+        expect(record.errors[attribute]).to include("is not valid")
       end
     end
   end

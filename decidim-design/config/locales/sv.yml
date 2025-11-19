@@ -5,6 +5,11 @@ sv:
       components:
         accordions:
           usage_p_1_html: 1. En wrapper <code>div</code>, med data-attributet <code>data-controller="dragspelsmeny"</code>, över alla tillgängliga rubriker och paneler.
+      foundations:
+        accessibility:
+          decidim_follows_html: Decidim följer %{link}
+          learn_more_about_html: Läs mer om %{link}
+          wcag_guidelines: Riktlinjer för tillgänglighet för webbinnehåll (WCAG)
       helpers:
         assembly_g: Samråd G
         assembly_s: Samråd S

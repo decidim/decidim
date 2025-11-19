@@ -32,10 +32,6 @@ module Decidim
             collection.with_evaluation_assigned_to(current_user, current_participatory_space)
           end
 
-          def search_field_predicate
-            :id_string_or_title_cont
-          end
-
           def filter_config
             @filter_config ||= Decidim::AdminFilter.new(:proposals).build_for(self)
           end

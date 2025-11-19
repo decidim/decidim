@@ -57,6 +57,12 @@ module Decidim
         Decidim.icons.register(name: "globe-line", icon: "globe-line", category: "system", description: "", engine: :participatory_process)
       end
 
+      initializer "decidim_participatory_processes.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
       initializer "decidim_participatory_processes.query_extensions" do
         Decidim::Api::QueryType.include Decidim::ParticipatoryProcesses::QueryExtensions
       end
@@ -110,7 +116,7 @@ module Decidim
       initializer "decidim_participatory_processes.static_pages" do
         config.to_prepare do
           Decidim::EventsManager.subscribe("decidim.system.create_organization:after") do |_event_name, data|
-            Decidim::ParticipatoryProcesses::CreateDemocraticQualityIndicatorsPage.call(data[:organization])
+            Decidim::ParticipatoryProcesses::CreateDemocraticQualityIndicatorsPage.call(data[:organization].id)
           end
         end
       end

@@ -2,6 +2,8 @@
 en:
   activemodel:
     attributes:
+      elections_question:
+        max_choices: Maximum number of choices
       token_csv:
         file: File
         remove_all: Remove all current census data
@@ -45,7 +47,6 @@ en:
             choose_census: Choose the census type you want to use for this election
             created_at: Created at
             identifier: User identifier
-            title: Census type
           preview:
             title:
               one: The preview list is limited to %{count} record.
@@ -311,6 +312,9 @@ en:
         question:
           back: Back
           cast_vote: Cast vote
+          max_choices: 'Max choices: %{count}'
+          max_choices_alert: You have selected too many options. Please deselect some to continue.
+          max_choices_exceeded: You cannot select more than %{max} options. Please go back and adjust your selection.
           next: Next
         receipt:
           description: Yo can vote again at any time while the voting period is open. Your previous vote will be overwritten by the new one.

@@ -298,9 +298,6 @@ nl:
         participatory_process_imports:
           form:
             document_legend: Document toevoegen
-        participatory_process_steps:
-          form:
-            cta_text_help: Als dit niet is ingesteld, wordt de knop niet weergegeven.
         participatory_processes:
           form:
             announcement_help: De tekst die u hier invoert, wordt rechts onder de procesinformatie aan de gebruiker getoond.

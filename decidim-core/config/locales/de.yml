@@ -1282,6 +1282,7 @@ de:
         success: Newslettereinstellungen wurden erfolgreich aktualisiert.
     newsletters_opt_in_mailer:
       notify:
+        body_1: Die Verarbeitung personenbezogener Daten und deren Schutz wird für uns alle immer wichtiger. Mit der Datenschutz-Grundverordnung (DSGV) vom 25. Mai 2018 haben Einzelpersonen eine bessere Kontrolle über ihre personenbezogenen Daten. Aus diesem Grund benötigen wir Ihr "OK" um weiterhin relevante Informationen über die Aktivitäten von %{organization_name} zu senden.
         body_2: 'Wie können Sie uns Ihre Zustimmung geben? Klicken Sie einfach auf den folgenden Knopf:'
         body_3: Mit dieser Zustimmung können Sie weiterhin Informationen über die Dienste der Plattform erhalten. Wenn wir im Gegenteil keine positive Bestätigung von Ihnen erhalten, werden wir Ihnen keine Nachrichten mehr senden. Wenn Sie bestätigen, dass Sie weiterhin informiert werden möchten, haben Sie jederzeit die Möglichkeit, den Vorgang abzubrechen.
         button: Ja, ich möchte weiterhin relevante Informationen erhalten
@@ -1729,20 +1730,11 @@ de:
         body_2: Um die Benutzerfreundlichkeit zu steigern, wird die Funktion "Gruppen" nicht mehr weiterentwickelt. Das Profil der Gruppe wird nun in ein reguläres Profil umgewandelt.
         greeting: Hallo %{name},
         instructions_1: Wenn Sie Zugriff auf dieses E-Mail-Konto haben, überprüfen Sie bitte Ihren Posteingang für die Anweisungen.
-        instructions_intro: Wir haben Anweisungen an die mit dem Konto verknüpfte E-Mail-Adresse gesendet, um ein neues Passwort für das Profil festzulegen.
-        instructions_title: "<strong>Was das für Sie bedeutet</strong>"
-        subject: Wichtige Aktualisierung zu einer Gruppe, von der Sie Mitglied sind
+        instructions_2: Wenn nicht, muss einer Ihrer Kollegen, der Zugriff hat, das Passwort festlegen und die Anmeldedaten mit Ihnen teilen.
       notify_deprecation_to_owner:
         body_1: 'Wir möchten Sie gerne über ein wichtiges Update ihres Gruppenprofil informieren: %{organization_name}.'
         body_2: Wir möchten die Erfahrungen von Organisationen vereinfachen und verbessern und werden deshalb die Funktion "Benutzergruppen" abschalten. Ihre Gruppe, <strong>%{name}</strong>, wurde in ein reguläres Konto umgewandelt.
-        body_3: Um weiterhin auf Ihr Konto zuzugreifen, müssen Sie ein Passwort setzen.
         greeting: Hallo %{name},
-        instructions_1: 'Klicken Sie auf den Link unten, um den Passwortaufsetzungsprozess zu starten:'
-        instructions_2: Geben Sie in das Formular die E-Mail-Adresse ein, unter der Sie diese Nachricht erhalten haben, und senden Sie die Anfrage ab.
-        instructions_3: Überprüfen Sie Ihren Posteingang für eine E-Mail mit weiteren Anweisungen, um Ihr neues Passwort festzulegen.
-        instructions_title: "<strong>Was Sie tun müssen</strong>"
-        set_password: Starte Passwortsetzungsprozess
-        subject: Wichtiges Update zur Gruppenfunktion
     user_report_mailer:
       notify:
         body_1: Benutzer %{user} wurde von %{token} gemeldet
@@ -2181,7 +2173,6 @@ de:
     name_included_in_password: ist Ihrem Namen zu ähnlich
     nickname_included_in_password: ist Ihrem Nicknamen zu ähnlich
     not_enough_unique_characters: hat nicht genug eindeutige Zeichen
-    password_not_allowed: ist nicht erlaubt
     password_repeated: ein früheres Passwort kann nicht wieder verwendet werden
     password_too_common: ist zu allgemein
     password_too_long: es ist zu lang

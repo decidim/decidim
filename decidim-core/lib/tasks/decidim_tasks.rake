@@ -34,7 +34,6 @@ namespace :decidim do
       decidim_pages
       decidim_participatory_processes
       decidim_proposals
-      decidim_sortitions
       decidim_surveys
       decidim_system
       decidim_templates

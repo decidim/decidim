@@ -33,6 +33,12 @@ module Decidim
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 
+      initializer "decidim_surveys.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
       initializer "decidim_surveys.responses_email" do
         config.to_prepare do
           ActiveSupport::Notifications.subscribe("decidim.forms.response_questionnaire:after") do |_event_name, data|
