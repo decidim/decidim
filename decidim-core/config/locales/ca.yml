@@ -586,8 +586,6 @@ ca:
         description: Descripció
       footer_sub_hero:
         name: Peu de pàgina sub-hero
-      global_menu:
-        name: Menú global
       hero:
         name: Imatge principal i botó d'acció
       hero_settings_form:
@@ -1182,7 +1180,6 @@ ca:
         latlng_text: 'latitud: %{latitude}, longitud: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Ajuda
       home: Inici
     messaging:
       conversation_mailer:
