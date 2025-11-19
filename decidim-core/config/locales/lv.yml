@@ -509,7 +509,6 @@ lv:
     managed_users:
       expired_session: Pašreizējā dalībnieka administratora sesija ir beigusies.
     menu:
-      help: Palīdzība
       home: Sākums
     messaging:
       conversation_mailer:
