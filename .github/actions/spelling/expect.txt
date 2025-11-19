@@ -501,6 +501,7 @@ libicu
 libpq
 libreadline
 libreoffice
+libretranslate
 libvips
 libyaml
 Liddel
