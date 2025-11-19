@@ -454,6 +454,8 @@ it:
         description: Descrisione
       footer_sub_hero:
         name: Banner di sub eroe di piè di pagina
+      global_menu:
+        name: Menu globale
       hero_settings_form:
         background_image: Immagine di sfondo
         welcome_text: Testo di benvenuto
