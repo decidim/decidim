@@ -53,7 +53,7 @@ You can read more about the details of how this service work at `xref:develop:ma
 
 === LibreTranslate
 
-https://github.com/LibreTranslate/LibreTranslate[LibreTranslate] is a Free and Open Source Machine Translation API. Self-hosted, offline capable and easy to setup. If you don't want to self-host it, they also offer a paid service at https://libretranslate.com/[libretranslate.com].
+https://github.com/LibreTranslate/LibreTranslate[LibreTranslate] is a Free and Open Source Machine Translation API. Self-hosted, offline capable and easy to setup. If you do not want to self-host it, they also offer a paid service at https://libretranslate.com/[libretranslate.com].
 
 For using it, follow these steps:
 
