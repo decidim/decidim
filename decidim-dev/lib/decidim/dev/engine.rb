@@ -25,6 +25,12 @@ module Decidim
         ActiveSupport.on_load(:action_controller) { include Decidim::Dev::NeedsDevelopmentTools } if Rails.env.development? || ENV.fetch("DECIDIM_DEV_ENGINE", nil)
       end
 
+      initializer "decidim_dev.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
       initializer "decidim_dev.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end

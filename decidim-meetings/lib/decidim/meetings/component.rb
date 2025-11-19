@@ -23,7 +23,7 @@ Decidim.register_component(:meetings) do |component|
     resource.template = "decidim/meetings/meetings/linked_meetings"
     resource.card = "decidim/meetings/meeting"
     resource.reported_content_cell = "decidim/meetings/reported_content"
-    resource.actions = %w(join comment reply_poll)
+    resource.actions = %w(join comment reply_poll vote_comment)
     resource.searchable = true
   end
 

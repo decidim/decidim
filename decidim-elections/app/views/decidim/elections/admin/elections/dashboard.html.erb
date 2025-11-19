@@ -5,15 +5,15 @@
 
 <div class="item_show__header" style="border-bottom: none;">
   <h1 class="item_show__header-title">
-    <%= t(".title") %>
+    <%= t("decidim.elections.actions.edit") %>
   </h1>
 
   <div>
-    <%= link_to resource_locator(election).path, class: "button button__xs button__transparent-secondary", target: :blank, data: { "external-link": false } do %>
-      <%= icon "eye-line" %>
+    <%= link_to resource_locator(election).path, class: "button button__xs button__transparent-secondary flex flex-row items-center gap-2", target: :blank, data: { "external-link": false } do %>
+      <%= icon "eye-line", class: "inline-block" %>
       <%# i18n-tasks-use t("decidim.elections.actions.view") %>
       <%# i18n-tasks-use t("decidim.elections.actions.preview") %>
-      <%= t(election.published? ? "view" : "preview", scope: "decidim.elections.actions") %>
+      <span class="whitespace-nowrap"><%= t(election.published? ? "view" : "preview", scope: "decidim.elections.actions") %></span>
     <% end %>
   </div>
 </div>
