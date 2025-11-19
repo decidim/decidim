@@ -588,8 +588,6 @@ eu:
         description: Deskribapena
       footer_sub_hero:
         name: Azpi-heroko bannerra orri-oinean
-      global_menu:
-        name: Menu globala
       hero:
         name: Irudi nagusia eta ekintza botoia
       hero_settings_form:
@@ -1183,7 +1181,6 @@ eu:
         latlng_text: 'latitudea: %{latitude}, longitudea: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Laguntza
       home: Hasiera
     messaging:
       conversation_mailer:
