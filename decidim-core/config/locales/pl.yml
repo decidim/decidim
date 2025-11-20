@@ -476,8 +476,6 @@ pl:
         description: Opis
       footer_sub_hero:
         name: Baner podrzędny stopki
-      global_menu:
-        name: Globalne menu
       hero:
         name: Banner i CTA
       hero_settings_form:
@@ -897,7 +895,6 @@ pl:
         latlng_text: 'szerokość geograficzna: %{latitude}, długość geograficzna: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Pomoc
       home: Strona główna
     messaging:
       conversation_mailer:

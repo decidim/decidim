@@ -198,6 +198,7 @@ eu:
         success: Zure kontua ezabatu egin da.
       download_your_data_export:
         export_expired: Esportazioa amaitu da. Saiatu beste esportazio bat sortzen.
+        export_not_found: Sartu zaren esportazioa ez da existitzen, edo ez duzu deskargatzeko aukerarik
         file_no_exists: Fitxategia ez dago
         notice: Une honetan zure datuak deskargatzen ari dira. Mezu elektroniko bat jasoko duzu amaitutakoan.
       email_change:
@@ -413,7 +414,7 @@ eu:
         heading: Aldaketa berrikustea
         send: Onartu aldaketa
       update_draft:
-        error: Arazoa egon da zuzenketa-zirriborroa eguneratzean.
+        error: Arazo bat egon da zuzenketa-zirriborroa eguneratzean.
         success: Zuzenketa-zirriborroa zuzen eguneratu da.
       withdraw:
         error: Arazo bat izan da zuzenketa kentzean.
@@ -587,8 +588,6 @@ eu:
         description: Deskribapena
       footer_sub_hero:
         name: Azpi-heroko bannerra orri-oinean
-      global_menu:
-        name: Menu globala
       hero:
         name: Irudi nagusia eta ekintza botoia
       hero_settings_form:
@@ -670,7 +669,7 @@ eu:
           nickname_help: Zure ezizena %{organization}-an. Letrak, zenbakiak, '-' eta '_' soilik eduki ditzake.
           sign_up: Mesedez, osatu zure profila
           subtitle: Mesedez, bete hurrengo formularioa kontua sortzen amaitzeko
-          username_help: Zure mezuetan agertuko den izen publikoa. Anonimatua bermatze aldera, edozein izen izan daiteke.
+          username_help: Zure mezuetan agertzen den izen publikoa. Anonimotasuna bermatzeko helburuarekin, edozein izen izan daiteke.
         new_tos_fields:
           sign_up: Sortu kontu bat
           sign_up_title: Zure kontua sortzen amaitu
@@ -687,7 +686,7 @@ eu:
           terms: zerbitzuaren baldintzak
           tos_agreement: 'Erregistratzean, hau onartzen duzu: %{link}.'
           tos_title: Zerbitzuaren baldintzak
-          username_help: Zure mezuetan agertuko den izen publikoa. Anonimatua bermatze aldera, edozein izen izan daiteke.
+          username_help: Zure mezuetan agertzen den izen publikoa. Anonimotasuna bermatzeko helburuarekin, edozein izen izan daiteke.
       sessions:
         new:
           are_you_new?: Oraindik erregistratu gabe?
@@ -724,7 +723,7 @@ eu:
     doorkeeper:
       authorizations:
         new:
-          api_read: Irakurri edukia APIren bitartez
+          api_read: APIren bitartez edukia irakurri
           authorize: Aplikazioa baimentzen du
           by_organization_link_html: '%{link} bidez'
           cancel: Ezeztatu
@@ -822,7 +821,7 @@ eu:
           reset_password_sent_at: Zein datatan eta zein ordutan bidali zen pasahitza berriro
           roles: Parte-hartzaile honek duen rola, baldin badute
           sign_in_count: Zenbat aldiz hasi duen saioa parte-hartzaile honek
-          type: Parte-hartzaile honek zer mota duen
+          type: Erabiltzaile honek dituen aukerak
           unconfirmed_email: Parte-hartzaile honek oraindik baieztatu ez duen helbide elektronikoa
           updated_at: Zein datatan eta zein ordutan eguneratu zen parte-hartzaile hau azken aldiz
       show:
@@ -907,12 +906,12 @@ eu:
           affected_user:
             email_intro: '%{amendable_title} k zuzenketa ukatu egin du. Orrialde honetan ikus dezakezu:'
             email_outro: 'Jakinarazpen hau jaso duzu honen egilea zarelako: %{amendable_title}.'
-            email_subject: Aldaketa %{amendable_title} %{emendation_author_nickname} k ukatua
+            email_subject: Aldaketa %{amendable_title} %{emendation_author_nickname} egileak ukatua
             notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> k egindako <a href="%{emendation_path}">zuzenketa <a href="%{amendable_path}">%{amendable_title}</a> k ukatu du.
           follower:
             email_intro: 'Aldaketa ukatu egin da %{amendable_title}. Orrialde honetatik ikus dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title} jarraitzen duzulako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
-            email_subject: '%{emendation_author_nickname} k baztertu du %{amendable_title} aldaketa'
+            email_subject: '%{emendation_author_nickname} egileak baztertu du %{amendable_title} aldaketa'
             notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> k sortutako <a href="%{emendation_path}">zuzenketa </a> <a href="%{amendable_path}">%{amendable_title}</a> k ukatu du.
         emendation_promoted:
           follower:
@@ -969,9 +968,9 @@ eu:
           notification_title: |-
             Administratzaile batek zure %{resource_type} ezabatu du salatua izan delako arrazoi honengatik %{report_reasons}.</br><i>%{resource_content}</i>
       resource_liked:
-        email_intro: '%{liker_name} %{liker_nickname} -k, zu jarraitzen ari zarenak, "%{resource_title}" atsegin du eta uste dugu interesatu ahal zaizula. Egiaztatu eta lagundu:'
+        email_intro: '%{liker_name} %{liker_nickname}, jarraitzen ari zaren horri "%{resource_title}" gustatu zaio, eta zuretzat interesgarria izan daitekeela uste dugu. Kontsultatu eta ekarri:'
         email_outro: Jakinarazpen hau jaso duzu %{liker_nickname} jarraitzen duzulako. Ondorengo estekan sartu jakinarazpenak jasotzeari uzteko.
-        email_subject: "%{liker_nickname} -k beste bat atsegin du"
+        email_subject: "%{liker_nickname}(e) k like berri bat egin du"
         notification_title: <a href="%{liker_path}">%{liker_name} %{liker_nickname}</a> -k <a href="%{resource_path}">%{resource_title}</a> %{resource_type} ategin du.
       resources:
         soft_deleted:
@@ -1084,7 +1083,7 @@ eu:
         dropzone: Bota fitxategiak hona edo egin klik igotzeko
         explanation: Gida honetarako %{attribute}
     gamification:
-      all_badges_link: Ikusi eskuragarri dauden txapak.
+      all_badges_link: Ikusi eskuragarri dauden bereizgarri guztiak.
       badges:
         followers:
           conditions:
@@ -1149,6 +1148,7 @@ eu:
         create_with_space: "%{user_name} sortu %{resource_name} en %{space_name}"
         delete: "%{user_name} parte-hartzaileak %{resource_name} ezabatu du"
         delete_with_space: "%{user_name} parte-hartzaileak %{resource_name} ezabatu du %{space_name} espazioan"
+        publish: "%{user_name} parte-hartzaileak %{resource_name} argitaratu du"
         publish_with_space: "%{user_name} parte-hartzaileak %{resource_name} argitaratu du %{space_name} espazioan"
         unknown_action: "%{user_name} parte-hartzaileak ekintza batzuk egin ditu %{resource_name} ean"
         unknown_action_with_space: "%{user_name} parte-hartzaileak ekintza batzuk egin ditu %{resource_name} ean %{space_name} espazioan"
@@ -1181,7 +1181,6 @@ eu:
         latlng_text: 'latitudea: %{latitude}, longitudea: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Laguntza
       home: Hasiera
     messaging:
       conversation_mailer:
@@ -1391,7 +1390,7 @@ eu:
           name: Taxonomia honen izena
           parent_id: Taxonomia nagusi honen identifikatzaile bakarrak (baldin badago)
           part_of: Taxonomia hau beste taxonomia baten parte den jakiteko erabiltzen da
-          taxonomizations_count: Taxonomia hau erabiltzen duten baliabideen zenbaketa
+          taxonomizations_count: Taxonomia hori erabiltzen duten baliabideen zenbaketa
           updated_at: Zein datatan eguneratu zen taxonomia hau azkenekoz
           weight: Zein ordenatan erakusten den taxonomia hau
         users:
@@ -1725,18 +1724,27 @@ eu:
         greeting: "%{name}, agurgarria:\n"
         instructions_1: Sarbidea baduzu posta elektronikoko kontu horretarako, mesedez, kontsultatu zure sarrera-erretilua argibideetarako.
         instructions_2: Horrela ez bada, zure lankideetako batek, pasahitza duenak, jarri beharko du eta kredentzialak zurekin partekatu.
+        instructions_intro: Taldeko kideek profil horretarako sarbidea partekatuko dute orain, saio-hasierako egiaztagiri partekatuak erabiliz (posta elektronikoa eta pasahitza). %{email}(e) ra jarraibideak bidali ditugu profilaren pasahitz berria ezartzeko.
+        instructions_title: "<strong>Zer esan nahi du horrek zuretzat</strong>"
+        subject: Taldearen profilari dagokionez, eguneraketa garrantzitsua
       notify_deprecation_to_owner:
         body_1: '%{organization_name} (e) n duzun taldearen profilari buruzko eguneraketa garrantzitsu baten berri ematera gatozkizu.'
         body_2: 'Zurea bezalako erakundeen esperientzia sinplifikatzeko gure ahaleginen zati gisa, orain arte ezagutzen dugun "Erabiltzaile Taldeak" funtzioa zaharkituta geratuko da. Taldearen profila: <strong>%{name}</strong>, ohiko parte-hartzailearen profil bihurtu da.'
+        body_3: Zure kontuan sartzen jarraitzeko eta sarbidea partekatzeko, pasahitz bat ezartzea behar dugu. Behin ezarrita, saioa hasteko kredentzialak (posta elektronikoa eta pasahitza) edozeinekin parteka ditzakezu.
         greeting: '%{name}, agurgarria:'
+        instructions_1: 'Egin klik beheko estekan zure pasahitza ezartzeko:'
+        instructions_2: 'Partekatu saioa hasteko kredentzialak (posta elektronikoa: %{email} eta pasahitz berria) zure lankideekin.'
+        instructions_title: "<strong>Egin beharrekoa</strong>"
+        set_password: Idatzi zure pasahitza
+        subject: Zure taldearen profilari buruzko eguneratze garrantzitsua
       notify_user_group_patched:
         body_1_html: 'Zure taldearen profilari buruzko eguneratze garrantzitsu baten berri emango dizugu hemen: %{organization_name}.'
         body_2_html: 'Zurea bezalako erakundeen esperientzia sinplifikatzeko gure ahaleginen zati gisa, orain arte ezagutzen dugun "Erabiltzaile Taldeak" funtzioa zaharkituta geratuko da. Taldearen profila: <strong>%{name}</strong>, ohiko parte-hartzailearen profil bihurtu da.'
         body_3_html: Zure kontuan sartzen jarraitzeko eta sarbidea partekatzeko, mezu elektroniko eta pasahitz berri bat ezar ditzazun behar dugu. Mesedez, kontuan izan zure taldeko kide bakoitzak mezu hau jasoko duela. Sarbide jarraitua bermatzeko, denek erabiliko dituzten kredentzial partekatuak (posta elektronikoa eta pasahitza) adostu beharko dituzu.
         greeting: '%{name}, agurgarria:'
         instructions_1_html: 'Erabili behin-behineko kredentzial hauek saioa hasteko: <br><br> Erabiltzailea: <strong>% {email}</strong> <br> Pasahitza: <strong>% {password}</strong> <br><br>'
-        instructions_2_html: Jarri helbide elektroniko berria eta pasahitza.
-        instructions_3_html: Partekatu zure lankideekin aukeratutako sarrera-kredentzialak, talde osoak kontura sartzen jarraitu ahal izateko.
+        instructions_2_html: Helbide elektroniko berria eta pasahitza jarri.
+        instructions_3_html: Zure lankideekin aukeratutako sarrera-kredentzialak partekatu, talde osoak kontura sartzen jarraitu ahal izateko.
         instructions_title_html: "<strong>Zer egin behar duzu?</strong>"
         subject: Zure taldearen profilari buruzko eguneratze garrantzitsua
     user_report_mailer:
@@ -1849,7 +1857,7 @@ eu:
       reset_password_instructions:
         action: Nire pasahitza aldatu
         greeting: Kaixo %{recipient}!
-        instruction: Norbaitek zure pasahitza aldatzeko esteka eskatu du, eta beheko estekan egin dezakezu.
+        instruction: Norbaitek esteka bat eskatu du zure pasahitza aldatzeko, eta beheko estekaren bidez egin dezakezu.
         instruction_2: Ez baduzu hori eskatu, ez egin kasurik mezu honi.
         instruction_3: Zure pasahitza ez da aldatuko aurreko estekara sartu eta beste bat sortu arte.
         subject: Berrezarri pasahitzaren argibideak
@@ -2018,7 +2026,7 @@ eu:
       long_words: luzeegiak diren hitzak ditu (35 karaktere baino gehiago)
       must_start_with_caps: letra larriz hasi behartu
       nesting_too_deep: ezin da egon azpikategoria batean
-      not_found: ezin izan da aurkitu. Lehenago konturik sortu duzu?
+      not_found: ezin izan da aurkitu. Aurretik kontu bat sortu duzu?
       not_locked: ez dago itxita
       not_saved:
         one: 'Errore bat izan da zure eskaera prozesatzean:'

@@ -6,8 +6,8 @@ require "decidim/elections/test/vote_examples"
 describe "Dashboard" do
   let(:user) { create(:user, :confirmed, organization:) }
   let!(:election) { create(:election, :published, :ongoing, :with_internal_users_census, census_settings:) }
-  let!(:question1) { create(:election_question, :with_response_options, election:, question_type: "single_option") }
-  let!(:question2) { create(:election_question, :with_response_options, election:, question_type: "multiple_option") }
+  let!(:question1) { create(:election_question, :with_response_options, skip_injection: true, election:, question_type: "single_option") }
+  let!(:question2) { create(:election_question, :with_response_options, skip_injection: true, election:, question_type: "multiple_option") }
   let(:organization) { election.organization }
   let(:census_settings) do
     {
@@ -103,6 +103,62 @@ describe "Dashboard" do
         visit new_election_vote_path
         expect(page).to have_content("You are not authorized to perform this action.")
         expect(page).to have_current_path("/")
+      end
+    end
+  end
+
+  context "when question has max_choices limit", :js do
+    let(:election_with_limit) { create(:election, :published, :ongoing, :with_internal_users_census, component: election.component) }
+    let!(:question_with_limit) { create(:election_question, election: election_with_limit, question_type: "multiple_option", max_choices: 2, body: { en: "Choose your options" }) }
+    let!(:option1) { create(:election_response_option, question: question_with_limit, body: { en: "Option 1" }) }
+    let!(:option2) { create(:election_response_option, question: question_with_limit, body: { en: "Option 2" }) }
+    let!(:option3) { create(:election_response_option, question: question_with_limit, body: { en: "Option 3" }) }
+    let(:new_election_with_limit_vote_path) { Decidim::EngineRouter.main_proxy(election.component).new_election_vote_path(election_id: election_with_limit.id) }
+
+    before do
+      login_as user, scope: :user
+      visit new_election_with_limit_vote_path
+    end
+
+    it "shows max_choices in question title" do
+      expect(page).to have_content("Choose your options (Max choices: 2)")
+    end
+
+    it "shows alert when selecting more than max_choices" do
+      check "Option 1"
+      check "Option 2"
+      check "Option 3"
+
+      expect(page).to have_css(".max-choices-alert", visible: :visible)
+    end
+
+    it "hides alert when deselecting options" do
+      check "Option 1"
+      check "Option 2"
+      check "Option 3"
+
+      expect(page).to have_css(".max-choices-alert", visible: :visible)
+
+      uncheck "Option 3"
+
+      expect(page).to have_css(".max-choices-alert", visible: :hidden)
+    end
+
+    it "shows server-side validation error when exceeding limit" do
+      check "Option 1"
+      check "Option 2"
+      check "Option 3"
+
+      click_on "Next"
+
+      expect(page).to have_content("You cannot select more than 2 options")
+    end
+
+    context "when question is single_option" do
+      let!(:single_question) { create(:election_question, election: election_with_limit, question_type: "single_option", body: { en: "Choose one option" }) }
+
+      it "does not show max_choices for single_option questions" do
+        expect(page).to have_no_content("Choose one option (Max choices:")
       end
     end
   end

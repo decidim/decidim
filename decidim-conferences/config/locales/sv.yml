@@ -427,6 +427,8 @@ sv:
           no_slots_available: Inga platser tillgängliga
           registration: Registrering
       conference_program:
+        program_item:
+          other_category: Övrigt
         show:
           program: Program
       conference_registration_mailer:

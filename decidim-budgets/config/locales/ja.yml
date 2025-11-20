@@ -209,7 +209,6 @@ ja:
             total_budget: 予算の合計
         project:
           fields:
-            id: ID
             map: 地図
             taxonomies: タクソノミー
             title: タイトル

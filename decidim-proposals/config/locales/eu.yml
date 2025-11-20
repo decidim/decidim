@@ -145,8 +145,6 @@ eu:
             values:
               state_not_published: Erantzun gabe
               state_published: Erantzun da
-        search_placeholder:
-          id_string_or_title_cont: Bilatu %{collection} edo ID edo izenburuaren arabera
       tooltips:
         cannot_edit_proposal_info: Ezin da editatu proposamen hau parte-hartzaile batek sortua bezala edo botorik jaso badu
         deleted_proposal_states_info: Ezin da ezabatu proposamen-egoera hau, proposamen batzuk esleitu baitzaizkio
@@ -712,7 +710,7 @@ eu:
           delete: "%{user_name} k desesleitu du ebaluatzaile bat %{proposal_title} proposamenetik"
         proposal:
           answer: "%{user_name} parte-hartzaileak %{resource_name} %{space_name} espazioko proposamenari erantzun dio"
-          create: "%{user_name} -k sortu zuen %{resource_name} proposamena %{space_name} esparruko %{merged_count} proposamenen bat egitetik"
+          create: "%{user_name} parte-hartzaileak sortu zuen %{resource_name} proposamena %{space_name} esparruko %{merged_count} proposamenen bat egitetik"
           publish_answer: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} proposamenaren erantzuna %{space_name} espazioan"
           restore: "%{user_name} parte-hartzailea berreskuratu du %{resource_name} proposamena %{space_name} espazioan"
           soft_delete: "%{user_name} parte-hartzailea eraman du %{resource_name} proposamena %{space_name} espaziora"

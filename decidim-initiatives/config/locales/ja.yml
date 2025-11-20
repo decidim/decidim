@@ -92,8 +92,6 @@ ja:
               validating: 技術的検証
           type_id_eq:
             label: タイプ
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: '%{collection} をタイトル、説明、ID、著者名で検索'
       initiatives_settings:
         update:
           error: イニシアチブ設定の更新中に問題が発生しました。
@@ -115,7 +113,6 @@ ja:
         initiatives:
           fields:
             created_at: 作成日時
-            id: ID
             published_at: 公開日時
             state: ステータス
             supports_count: 署名

@@ -84,7 +84,6 @@ is-IS:
           fields:
             created_at: Stofnað
             end_date: Loka dagsetning
-            id: ID
             progress: Framfarir
             start_date: Upphafsdagur
             status: Staða
