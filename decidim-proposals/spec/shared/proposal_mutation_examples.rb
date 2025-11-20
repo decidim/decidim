@@ -3,7 +3,7 @@
 shared_examples "manage proposal mutation examples" do
   context "when proposal answering disabled" do
     it "does not answer the proposal" do
-      expect(response["answer"]).to be_nil
+      expect { response }.to raise_error(StandardError, "You cannot view answer field on Answer because you do not have permission")
     end
   end
 

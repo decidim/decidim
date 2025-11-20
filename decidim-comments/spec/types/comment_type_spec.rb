@@ -21,7 +21,7 @@ module Decidim
         let(:query) { "{ id }" }
 
         it "returns nothing" do
-          expect(response).to be_nil
+          expect { response }.to raise_error(StandardError, "You cannot view this Comment because you do not have permissions")
         end
       end
 
@@ -46,7 +46,7 @@ module Decidim
         let(:query) { "{ id }" }
 
         it "returns nothing" do
-          expect(response).to be_nil
+          expect { response }.to raise_error(StandardError, "You cannot view this Comment because you do not have permissions")
         end
       end
 
@@ -58,7 +58,7 @@ module Decidim
         let(:query) { "{ id }" }
 
         it "returns nothing" do
-          expect(response).to be_nil
+          expect { response }.to raise_error(StandardError, "You cannot view this Comment because you do not have permissions")
         end
       end
 
@@ -69,7 +69,7 @@ module Decidim
         let(:query) { "{ id }" }
 
         it "returns nothing" do
-          expect(response).to be_nil
+          expect { response }.to raise_error(StandardError, "You cannot view this Comment because you do not have permissions")
         end
       end
 
@@ -81,7 +81,7 @@ module Decidim
         let(:query) { "{ id }" }
 
         it "returns nothing" do
-          expect(response).to be_nil
+          expect { response }.to raise_error(StandardError, "You cannot view this Comment because you do not have permissions")
         end
       end
 
@@ -90,7 +90,7 @@ module Decidim
         let(:query) { "{ id }" }
 
         it "returns nothing" do
-          expect(response).to be_nil
+          expect { response }.to raise_error(StandardError, "You cannot view this Comment because you do not have permissions")
         end
       end
 
@@ -99,7 +99,7 @@ module Decidim
         let(:query) { "{ id }" }
 
         it "returns nothing" do
-          expect(response).to be_nil
+          expect { response }.to raise_error(StandardError, "You cannot view this Comment because you do not have permissions")
         end
       end
 

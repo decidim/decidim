@@ -57,7 +57,7 @@ module Decidim
             let!(:model) { create(:report, moderation:, user: create(:user, :confirmed, :deleted, organization: moderation.reportable.organization), details: "Testing reason", locale: "en") }
 
             it "returns nil" do
-              expect(response["user"]).to be_nil
+              expect { response }.to raise_error(StandardError, "You cannot view this User because you do not have permissions")
             end
           end
 
@@ -65,7 +65,7 @@ module Decidim
             let!(:model) { create(:report, moderation:, user: create(:user, :confirmed, :blocked, organization: moderation.reportable.organization), details: "Testing reason", locale: "en") }
 
             it "returns nil" do
-              expect(response["user"]).to be_nil
+              expect { response }.to raise_error(StandardError, "You cannot view this User because you do not have permissions")
             end
           end
         end

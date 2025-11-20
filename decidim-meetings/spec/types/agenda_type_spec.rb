@@ -43,7 +43,7 @@ module Decidim
         let(:model) { create(:agenda, :with_agenda_items, visible: false) }
 
         it "returns the agenda's id" do
-          expect(response).to be_nil
+          expect { response }.to raise_error(StandardError, "You cannot view this MeetingAgenda because you do not have permissions")
         end
       end
     end

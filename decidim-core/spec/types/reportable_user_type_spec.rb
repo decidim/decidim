@@ -48,14 +48,14 @@ module Decidim
           let!(:model) { create(:user_report, moderation:, user: moderation.user, details: "Testing reason") }
 
           it "returns nil" do
-            expect(response["user"]).to be_nil
+            expect { response }.to raise_error(StandardError, "You cannot view this User because you do not have permissions")
           end
 
           context "when the user that made the report deleted their account" do
             let(:moderation) { create(:user_moderation, user: create(:user, :confirmed, :deleted)) }
 
             it "returns nil" do
-              expect(response["user"]).to be_nil
+              expect { response }.to raise_error(StandardError, "You cannot view this User because you do not have permissions")
             end
           end
 
@@ -63,7 +63,7 @@ module Decidim
             let(:moderation) { create(:user_moderation, user: create(:user, :confirmed, :blocked)) }
 
             it "returns nil" do
-              expect(response["user"]).to be_nil
+              expect { response }.to raise_error(StandardError, "You cannot view this User because you do not have permissions")
             end
           end
         end

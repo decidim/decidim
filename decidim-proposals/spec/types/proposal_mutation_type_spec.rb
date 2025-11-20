@@ -70,7 +70,7 @@ module Decidim
 
       context "with normal user" do
         it "returns nil" do
-          expect(response["answer"]).to be_nil
+          expect { response }.to raise_error(StandardError, "You cannot view answer field on Answer because you do not have permission")
         end
       end
 

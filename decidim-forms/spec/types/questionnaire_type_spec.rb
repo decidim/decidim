@@ -85,11 +85,11 @@ module Decidim
           end
         end
 
-        context "when meeting is no published" do
+        context "when meeting is not published" do
           let(:meeting) { create(:meeting) }
 
           it "returns the questionnaire's entity corresponding to questionnaire_for_id" do
-            expect(response["forEntity"]).to be_nil
+            expect { response }.to raise_error(StandardError, "You cannot view this Meeting because you do not have permissions")
           end
         end
       end
