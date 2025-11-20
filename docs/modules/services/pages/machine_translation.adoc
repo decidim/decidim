@@ -57,21 +57,22 @@ https://github.com/LibreTranslate/LibreTranslate[LibreTranslate] is a Free and O
 
 For using it, follow these steps:
 
-1. https://docs.libretranslate.com/guides/installation/[Install LibreTranslate] with any of the methods proposed on their documentation. For demonstration purposes, it will be installed at `http://localhost:5000`. You have a Docker Compose configuration based on the LibreTranslate documentation.
-2. Add the file `app/services/libre_translate_service.rb` to your application
-3. Add these Environment Variables:
+. https://docs.libretranslate.com/guides/installation/[Install LibreTranslate] with any of the methods proposed on their documentation. For demonstration purposes, it will be installed at `http://localhost:5000`. You have a Docker Compose configuration based on the LibreTranslate documentation.
+. Add the file `app/services/libre_translate_service.rb` to your application
+. Add these Environment Variables:
 [source,bash]
 ....
 export DECIDIM_ENABLE_MACHINE_TRANSLATION="true"
 export DECIDIM_MACHINE_TRANSLATION_SERVICE="LibreTranslateService"
 export DECIDIM_LIBRE_TRANSLATE_SERVICE_URL="http://localhost:5000"
 ....
-4. Restart the web application and queue servers
-5. Sign in as administrator
-6. Go to the admin panel and go into in `Settings` -> `Configuration`
-7. Enable the settings "Enable machine translations" and "Translated text first"
-8. Create a new Process or Edit an existing one
-9. Go to the frontend and change the language
+[start=4]
+. Restart the web application and queue servers
+. Sign in as administrator
+. Go to the admin panel and go into in `Settings` -> `Configuration`
+. Enable the settings "Enable machine translations" and "Translated text first"
+. Create a new Process or Edit an existing one
+. Go to the frontend and change the language
 
 ==== Docker compose
 
