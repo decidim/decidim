@@ -489,8 +489,6 @@ bg:
         description: Описание
       footer_sub_hero:
         name: Долен колонтитул на под-геройския банер
-      global_menu:
-        name: Основно меню
       hero:
         name: Профилно изображение и бутон "Призив към действие"
       hero_settings_form:
@@ -910,7 +908,6 @@ bg:
         latlng_text: 'географска ширина: %{latitude}, географска дължина: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Помощ
       home: Начало
     messaging:
       conversation_mailer:

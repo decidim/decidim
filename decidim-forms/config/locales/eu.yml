@@ -139,7 +139,7 @@ eu:
             remove: Kendu
             separator: Bereizlea
           title_and_description:
-            collapse: Kolapsoa
+            collapse: Tolestu
             description: Deskribapena
             expand: Zabaldu
             remove: Kendu
@@ -195,7 +195,7 @@ eu:
             body: Galdetegi honen ezaugarri batzuk desaktibatu egingo dira. Zure esperientzia hobetzeko, gaitu JavaScript zure nabigatzailean.
             title: Javascript desaktibatuta dago
           questionnaire_not_published:
-            body: Argitalpen hau oraindik ez da argitaratu.
+            body: Formulario hau ez da oraindik argitaratu.
           questionnaire_responded:
             body: Dagoeneko inkesta hau erantzun duzu.
             title: Dagoeneko erantzunda

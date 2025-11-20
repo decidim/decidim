@@ -435,8 +435,6 @@ ar:
         description: الوصف
       footer_sub_hero:
         name: تذييل البطل الفرعي راية
-      global_menu:
-        name: القائمة العامة
       hero_settings_form:
         background_image: الصورة الخلفية
         welcome_text: نص الترحيب
@@ -793,7 +791,6 @@ ar:
         latlng_text: 'العرض: %{latitude}، الطول: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: المساعدة
       home: الصفحة الرئيسية
     messaging:
       conversation_mailer:

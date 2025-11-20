@@ -502,8 +502,6 @@ lt:
         description: Aprašymas
       footer_sub_hero:
         name: Apatinės dalies reklamjuostė
-      global_menu:
-        name: Globalus meniu
       hero_settings_form:
         background_image: Foninis paveikslėlis
         welcome_text: Pasveikinimo tekstas
@@ -900,7 +898,6 @@ lt:
         latlng_text: 'platuma: %{latitude}, ilguma: %{longitude}'
         map_service_brand: 'OpenStreetMap: Žemėlapis'
     menu:
-      help: Pagalba
       home: Pagrindinis
     messaging:
       conversation_mailer:

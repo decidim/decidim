@@ -213,7 +213,6 @@ eu:
             total_budget: Aurrekontua guztira
         project:
           fields:
-            id: ID
             map: Mapa
             taxonomies: Taxonomiak
             title: Izenburua

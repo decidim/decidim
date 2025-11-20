@@ -676,7 +676,6 @@ cs:
           fields:
             closed: Zavřeno
             end_time: Datum ukončení
-            id: ID
             map: Mapa
             official_meeting: Oficiální schůzka
             published: Zveřejněno

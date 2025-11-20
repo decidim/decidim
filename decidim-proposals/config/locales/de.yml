@@ -145,8 +145,6 @@ de:
             values:
               state_not_published: Unbeantwortet
               state_published: Beantwortet
-        search_placeholder:
-          id_string_or_title_cont: In %{collection} nach ID oder Titel suchen
       tooltips:
         cannot_edit_proposal_info: Dieser Vorschlag kann nicht bearbeitet werden, da er von einem Teilnehmenden erstellt wurde oder bereits Stimmen erhalten hat
         deleted_proposal_states_info: Dieser Vorschlagsstatus kann nicht gelöscht werden, da ihm Vorschläge zugewiesen sind

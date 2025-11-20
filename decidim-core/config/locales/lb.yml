@@ -593,7 +593,6 @@ lb:
         latlng_text: 'Breedegrad:%{latitude}, Längegrad:%{longitude}'
         map_service_brand: Stroosse-Kaart opmaachen
     menu:
-      help: Hëllef
       home: Startsäit
     messaging:
       conversation_mailer:

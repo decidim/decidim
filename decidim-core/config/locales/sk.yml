@@ -522,7 +522,6 @@ sk:
     managed_users:
       expired_session: Aktuálna platnosť zosúhlasenia už vypršala.
     menu:
-      help: Pomoc
       home: Domov
     messaging:
       conversation_mailer:
