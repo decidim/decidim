@@ -162,6 +162,7 @@ eu:
           comment: Iruzkina
           join: Hartu parte
           reply_poll: Erantzun inkesta
+          vote_comment: Bozkatu iruzkina
         name: Topaketak
         settings:
           global:
