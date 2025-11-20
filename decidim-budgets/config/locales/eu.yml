@@ -338,6 +338,7 @@ eu:
         actions:
           comment: Egin iruzkina
           vote: Babesa eman
+          vote_comment: Bozkatu iruzkina
         name: Aurrekontuak
         settings:
           global:
