@@ -8,7 +8,7 @@ In order to release any other version of Decidim, is mandatory to have the `deci
 gem install decidim-maintainers_toolbox
 ----
 
-Before you begin the release process, make sure you check if there are any open or pending  backports. Is not mandatory to open or merge all the backports, required, but is worth having an informed decision. Please refer to xref:develop:backports.adoc[backports] page.
+Before you begin the release process, make sure you check if there are any open or pending  backports. Currently, is not mandatory to open or merge all the backports, but is something that we usually aim for. Refer to the xref:develop:backports.adoc[backports] page for more information.
 
 == Release Candidates
 
@@ -36,14 +36,15 @@ During this process you will have the instructions on how to follow with the pro
 .. Always check if there are any pending security CVE's that needs to be published. If there are, add a section header called "Security fixes", and add the relevant information there, like we have done in https://github.com/decidim/decidim/releases/tag/v0.31.0[v0.31.0 release notes]
 .... Add the advisory id
 .... Make sure you change the date, to be 2 months away from release date
+.... Add the date to your calendar to actually publish the CVEs and link them to the Release Notes when that's the case. You can see how the final result looks like at https://github.com/decidim/decidim/releases/tag/v0.29.0[v0.29.0 release notes]
 .. Create a new release at this repository, just go to the https://github.com/decidim/decidim/releases[releases page] and create a new one.
 
 Usually, at this point, the release branch is deployed to Metadecidim during, at least, one week to validate the stability of the version.
 
 === During the validation period
 
-. During the validation period, bugfixes must be implemented directly to the current `develop` branch, and if you need to backport, just add the red label `release: v0.xx` to allow automated backports.
- ... In special cases only (when the feature aimed to be fixed does not exist anymore in `develop`), you can open the Pull request directly against the release branch.
+. During the validation period, bugfixes must be implemented directly to the current `develop` branch, and if you need to backport, just add the labels `type: fix` and also the `release: v0.xx` to allow automated backports.
+ ... In special cases only (when the feature aimed to be fixed does not exist anymore in `develop`), you can open the Pull Request directly against the release branch. This is something that we usually defer to doing, as it could bring inconsistencies between the versions, making the maintenance harder.
 . During the validation period, translations to the officially supported languages must be added to Crowdin and, when completed, merged into `release/x.y.z-stable`.
 
 == Major/Minor versions
