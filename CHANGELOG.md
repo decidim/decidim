@@ -2,6 +2,41 @@
 
 # Changelog
 
+## [0.29.7](https://github.com/decidim/decidim/tree/0.29.7)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- Backport 'Lock graphql-ws to stable version' to v0.29 [\#15476](https://github.com/decidim/decidim/pull/15476)
+- **decidim-core**: Backport 'Add local `app/views` to `Cell::ViewModel` view paths' to v0.29 [\#15482](https://github.com/decidim/decidim/pull/15482)
+- **decidim-core**: Backport 'Prevent shakapacker related flakys in CI' to v0.29 [\#15515](https://github.com/decidim/decidim/pull/15515)
+- **decidim-blogs**: Backport 'Order posts by publication date' to v0.29 [\#15523](https://github.com/decidim/decidim/pull/15523)
+- **decidim-core**: Backport 'Fix markers displayed in meeting page' to v0.29 [\#15518](https://github.com/decidim/decidim/pull/15518)
+- **decidim-meetings**: Backport 'Use same card for Meeting always' to v0.29 [\#15547](https://github.com/decidim/decidim/pull/15547)
+- **decidim-core**: Backport 'Fix links in footer when using the organizations' description' to v0.29 [\#15544](https://github.com/decidim/decidim/pull/15544)
+- **decidim-conferences**: Backport 'Add missing i18n string in Conference program page' to v0.29 [\#15555](https://github.com/decidim/decidim/pull/15555)
+- **decidim-core**: Backport 'Fix strong tags color in footer organization description' to v0.29 [\#15561](https://github.com/decidim/decidim/pull/15561)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
+### Internal
+
+- **decidim-forms**, **decidim-surveys**: Revert "Backport 'Fix drag and drop sorting for questionnaires' to v0.29" [\#15467](https://github.com/decidim/decidim/pull/15467)
+- **decidim-core**: Backport 'Prevent shakapacker related flakys in CI' to v0.29 [\#15515](https://github.com/decidim/decidim/pull/15515)
+
 ## [0.29.6](https://github.com/decidim/decidim/tree/0.29.6)
 
 ### Added
