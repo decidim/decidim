@@ -67,6 +67,7 @@ NOTE: When you bump the version, the generator tests will fail because the gems 
 .. Always check if there are any pending security CVE's that needs to be published. If there are, add a section header called "Security fixes", and add the relevant information there, like we have done in https://github.com/decidim/decidim/releases/tag/v0.31.0[v0.31.0 release notes]
 .... Add the advisory id
 .... Make sure you change the date, to be 2 months away from release date
+.... Add the date to your calendar to actually publish the CVEs and link them to the Release Notes when that's the case. You can see how the final result looks like at https://github.com/decidim/decidim/releases/tag/v0.29.0[v0.29.0 release notes]
 .. Create a new release at this repository, just go to the https://github.com/decidim/decidim/releases[releases page] and create a new one.
 . Update Decidim's Docker repository as explained in the Docker images section below.
 . Update Crowdin synchronization configuration with GitHub:
@@ -130,8 +131,9 @@ NOTE: When you bump the version, the generator tests will fail because the gems 
  .. Re-run the failed generators tests at the release branch.
  .. Always check if there are any pending security CVE's that needs to be published. If there are, add a section header called "Security fixes", and add the relevant information there, like we have done in https://github.com/decidim/decidim/releases/tag/v0.31.0[v0.31.0 release notes]
  .... Add the advisory id
- .... Make sure you change the date, to be 2 months away from release date
- .. Create a new release at this repository, just go to the https://github.com/decidim/decidim/releases[releases page] and create a new one.
+.... Make sure you change the date, to be 2 months away from release date
+.... Add the date to your calendar to actually publish the CVEs and link them to the Release Notes when that's the case. You can see how the final result looks like at https://github.com/decidim/decidim/releases/tag/v0.29.0[v0.29.0 release notes]
+.. Create a new release at this repository, just go to the https://github.com/decidim/decidim/releases[releases page] and create a new one.
 . Update Decidim's Docker repository as explained in the Docker images section.
 
 == Docker images for each release
