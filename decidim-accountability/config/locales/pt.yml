@@ -103,7 +103,6 @@ pt:
           fields:
             created_at: Criado em
             end_date: Data final
-            id: ID
             progress: Progresso
             start_date: Data de início
             status: Estado

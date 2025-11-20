@@ -253,7 +253,6 @@ de:
           fields:
             created_at: Erstellt am
             end_date: Enddatum
-            id: ID
             progress: Fortschritt
             start_date: Startdatum
             status: Status

@@ -64,7 +64,7 @@ The Collaborative Drafts feature in the Proposals module (`decidim-proposals`) w
 
 #### Sortitions (decidim-sortitions)
 
-The Sortitions module (`decidim-sortitions`) will be removed in v0.32. This module provided functionality to randomly select participants or proposals. Organizations relying on this feature should consider implementing alternative selection mechanisms.
+The Sortitions module (`decidim-sortitions`) is removed in v0.32. This module provided functionality to randomly select participants or proposals. Organizations relying on this feature should consider implementing alternative selection mechanisms.
 
 #### Polls in Meetings (decidim-meetings polls functionality)
 

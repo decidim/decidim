@@ -670,7 +670,6 @@ ja:
           fields:
             closed: クローズ済み
             end_time: 終了日
-            id: ID
             map: 地図
             official_meeting: 公式ミーティング
             published: 公開済み

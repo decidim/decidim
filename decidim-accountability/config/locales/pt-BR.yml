@@ -251,7 +251,6 @@ pt-BR:
           fields:
             created_at: Criado
             end_date: Data final
-            id: ID
             progress: Progresso
             start_date: Data de início
             status: Status

@@ -213,7 +213,6 @@ es:
             total_budget: Presupuesto total
         project:
           fields:
-            id: ID
             map: Mapa
             taxonomies: Taxonomías
             title: Título
@@ -339,6 +338,7 @@ es:
         actions:
           comment: Comentar
           vote: Vota
+          vote_comment: Votar el comentario
         name: Presupuestos
         settings:
           global:

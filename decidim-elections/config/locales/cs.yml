@@ -128,7 +128,22 @@ cs:
           already_have_an_account?: Již máte účet?
           are_you_new?: Nový účastník?
           sign_in_description: Přihlaste se k hlasování v těchto volbách
+          sign_up_description: Vytvořte účet pro hlasování v této volbě
+        internal_users_form:
+          authorization_options_invalid: Bohužel, i když máte všechna požadovaná oprávnění, některé z nich pro tyto volby neplatí.
+          invalid: V těchto volbách nemáte oprávnění volit.
+          missing: Vašemu uživateli chybí některá požadovaná autorizace. Zkontrolujte prosím informace a zkuste to znovu.
+          resume_with_method: Pokračovat v ověřování pomocí %{name}
+          verify_with_method: Ověřit pomocí %{name}
         token_csv:
+          example: |
+            e-mail;token
+            user@example.org;123456
+            user2@example.org;ABCXYZ
+          info_html: |
+            Musí být soubor ve formátu CSV se dvěma sloupci, jedna s e-mailovou adresou a druhá s hodnotou tokenu, který uživatel bude muset představit, aby mohl hlasovat.
+            Musí být oddělena středníkem (;)
+          label: Neregistrovaní účastníci s tokeny (fixní)
           upload_file: Nahrát soubor
           upload_new_census: Nahrát CSV soubor
         token_csv_form:
@@ -146,6 +161,7 @@ cs:
             other: "%{count} voleb"
         elections:
           empty: Nejsou k dispozici žádné volby.
+          empty_filters: Neexistují žádné volby, které by odpovídaly vašim filtrům.
         filters:
           all: Vše
           state: Stav
@@ -163,6 +179,8 @@ cs:
         show:
           vote_button: Hlasovat
         vote_results:
+          subtitle:
+            per_question: Výsledky jsou k dispozici na jednu otázku. Výsledky pro každou otázku můžete vidět po povolení hlasování a po zveřejnění výsledků.
           title: Výsledky
       models:
         election:
@@ -175,11 +193,14 @@ cs:
       per_question_votes:
         waiting:
           edit_vote: Upravte svůj hlas
+          exit_button: Odejít z čekací místnosti
+          title: Čekání na další otázku
       status:
         active: Aktivní
         finished: Dokončeno
         not_started: Nezahájeno
         ongoing: Probíhající
+        published_results: Zveřejněné výsledky
         scheduled: Naplánováno
         unpublished: Nezveřejněno
         voting_enabled: Probíhá hlasování
@@ -189,9 +210,11 @@ cs:
           success: Váš hlas byl úspěšně odeslán.
         check_census:
           access: Přístup
+          election_not_open: Volby ještě nejsou otevřeny. Zkontrolujte prosím datum a zkuste to znovu.
           failed: Vaši identitu nelze ověřit. Zkontrolujte zadané informace a zkuste to znovu.
           form_title: Ověřte svou identitu
         confirm:
+          edit_vote: Upravte svůj hlas
           not_answered: Na tuto otázku jste neodpověděl.
           title: Potvrďte svůj hlas
         not_authorized: V těchto volbách nemáte oprávnění volit.

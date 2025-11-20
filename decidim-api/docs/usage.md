@@ -296,7 +296,7 @@ Second, the response is not an Array, it is just the object we requested. We can
 
 #### Components
 
-Every participatory space may (and should) have some components. There are 9 official components, these are `Proposals`, `Page`, `Meetings`, `Budgets`, `Surveys`, `Accountability`, `Debates`, `Sortitions` and `Blog`. Plugins may add their own components.
+Every participatory space may (and should) have some components. There are 9 official components, these are `Proposals`, `Page`, `Meetings`, `Budgets`, `Surveys`, `Accountability`, `Debates` and `Blog`. Plugins may add their own components.
 
 If you know the `id`\* of a specific component you can obtain it by querying it directly:
 

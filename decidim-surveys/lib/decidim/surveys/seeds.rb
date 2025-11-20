@@ -96,7 +96,7 @@ module Decidim
 
           # Files type questions do not support being conditionals for another questions
           files_question = questionnaire.questions.where(question_type: "files")
-          possible_condition_questions = questionnaire.questions.excluding(files_question)
+          possible_condition_questions = questionnaire.questions.excluding(question, files_question)
 
           question.display_conditions.create!(
             condition_question: possible_condition_questions.sample,
