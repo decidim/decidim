@@ -37,8 +37,8 @@ module Decidim
         (defined?(current_component) && translated_attribute(current_component&.name).presence) || t("decidim.components.elections.name")
       end
 
-      def question_title(question, tag = :h3, **options)
-        content_tag(tag, **options) do
+      def question_title(question, tag = :h3, **)
+        content_tag(tag, **) do
           title = translated_attribute(question.body)
           if question.max_choices.present? && question.question_type == "multiple_option"
             title += " (#{t("decidim.elections.votes.question.max_choices", count: question.max_choices)})"
