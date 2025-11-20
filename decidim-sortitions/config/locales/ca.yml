@@ -43,7 +43,7 @@ ca:
         actions:
           destroy: Cancel·la el sorteig
           edit: Edita
-          new_sortition: Afegir sorteig
+          new_sortition: Nou sorteig
           show: Detalls del sorteig
         models:
           sortition:
