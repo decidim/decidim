@@ -1,6 +1,8 @@
 fr-CA:
   activemodel:
     attributes:
+      elections_question:
+        max_choices: Nombre maximum de choix
       token_csv:
         file: Fichier
         remove_all: Supprimer toutes les données de recensement actuelles
@@ -254,6 +256,9 @@ fr-CA:
         question:
           back: Retour
           cast_vote: Exprimer votre vote
+          max_choices: 'Nombre de choix maximum : %{count}'
+          max_choices_alert: Vous avez sélectionné trop d'options. Veuillez en désélectionner pour continuer.
+          max_choices_exceeded: Vous ne pouvez pas sélectionner plus que %{max} options. Veuillez revenir en arrière et ajuster votre sélection.
           next: Suivant
         receipt:
           description: Vous pouvez voter à nouveau à tout moment tant que la période de vote est ouverte. Votre vote précédent sera écrasé par le nouveau.
