@@ -23,7 +23,7 @@ describe Decidim::Budgets::SendVoteReminderJob do
         .with(reminder)
         .and_return(mailer)
       expect(mailer)
-        .to receive(:deliver_now)
+        .to receive(:deliver_later)
 
       expect { subject.perform_now(reminder) }.to change(Decidim::ReminderDelivery, :count).to(1)
     end

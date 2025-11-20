@@ -23,7 +23,7 @@ describe Decidim::NewslettersOptInJob do
         .with(user, token)
         .and_return(mailer)
       expect(mailer)
-        .to receive(:deliver_now)
+        .to receive(:deliver_later)
 
       subject.perform_now(user, token)
     end

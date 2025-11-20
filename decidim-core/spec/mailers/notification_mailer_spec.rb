@@ -49,7 +49,7 @@ module Decidim
         let(:user) { create(:user, :deleted) }
 
         it "does nothing" do
-          expect(mail.deliver_now).to be_nil
+          expect(mail.deliver_later).to be_nil
         end
       end
 

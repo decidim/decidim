@@ -8,7 +8,7 @@ module Decidim
       queue_as :newsletter
 
       def perform(user, newsletter)
-        NewsletterMailer.newsletter(user, newsletter).deliver_now
+        NewsletterMailer.newsletter(user, newsletter).deliver_later
 
         # rubocop:disable Rails/SkipsModelValidations
         newsletter.with_lock do

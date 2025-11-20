@@ -59,13 +59,13 @@ describe Decidim::Accountability::Admin::ImportProjectsJob do
       end.to change(Decidim::Accountability::Result, :count).from(0).to(3)
     end
 
-    it "triggers deliver_now" do
+    it "triggers deliver_later" do
       allow(Decidim::Accountability::ImportProjectsMailer)
         .to receive(:import)
         .with(current_user, current_component, projects.count)
         .and_return(mailer)
       expect(mailer)
-        .to receive(:deliver_now)
+        .to receive(:deliver_later)
 
       subject.perform_now(projects, current_component, current_user)
     end

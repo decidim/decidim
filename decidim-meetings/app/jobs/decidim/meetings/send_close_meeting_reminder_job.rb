@@ -9,7 +9,7 @@ module Decidim
         return if record.remindable.closed?
 
         ::Decidim::ReminderDelivery.create(reminder: record.reminder)
-        ::Decidim::Meetings::CloseMeetingReminderMailer.close_meeting_reminder(record).deliver_now
+        ::Decidim::Meetings::CloseMeetingReminderMailer.close_meeting_reminder(record).deliver_later
         record.update(state: "completed")
       end
     end

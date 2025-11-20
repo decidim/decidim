@@ -11,7 +11,7 @@ module Decidim
 
           errors = importer.import!
 
-          Decidim::Accountability::ImportMailer.import(current_user, errors).deliver_now
+          Decidim::Accountability::ImportMailer.import(current_user, errors).deliver_later
         end
       end
     end

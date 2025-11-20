@@ -5,7 +5,7 @@ module Decidim
     queue_as :user_report
 
     def perform(admin, report)
-      UserReportMailer.notify(admin, report).deliver_now
+      UserReportMailer.notify(admin, report).deliver_later
     end
   end
 end

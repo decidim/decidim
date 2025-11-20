@@ -21,7 +21,7 @@ describe Decidim::Meetings::SendCloseMeetingReminderJob do
       allow(mailer_class)
         .to receive(:close_meeting_reminder).with(reminder_record).and_return(mailer)
       expect(mailer)
-        .to receive(:deliver_now)
+        .to receive(:deliver_later)
 
       expect { subject.perform_now(reminder_record) }.to change(Decidim::ReminderDelivery, :count).to(1)
     end

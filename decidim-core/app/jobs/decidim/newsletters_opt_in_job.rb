@@ -5,7 +5,7 @@ module Decidim
     queue_as :newsletters_opt_in
 
     def perform(user, token)
-      NewslettersOptInMailer.notify(user, token).deliver_now
+      NewslettersOptInMailer.notify(user, token).deliver_later
     end
   end
 end

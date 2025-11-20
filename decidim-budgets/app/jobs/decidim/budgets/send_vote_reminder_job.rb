@@ -9,7 +9,7 @@ module Decidim
         return if reminder.records.active.blank?
 
         ::Decidim::ReminderDelivery.create(reminder:)
-        ::Decidim::Budgets::VoteReminderMailer.vote_reminder(reminder).deliver_now
+        ::Decidim::Budgets::VoteReminderMailer.vote_reminder(reminder).deliver_later
       end
     end
   end

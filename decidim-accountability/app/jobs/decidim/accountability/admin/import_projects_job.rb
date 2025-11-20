@@ -19,7 +19,7 @@ module Decidim
 
             copy_attachments(original_project, new_result)
           end.compact
-          Decidim::Accountability::ImportProjectsMailer.import(user, component, projects.count).deliver_now
+          Decidim::Accountability::ImportProjectsMailer.import(user, component, projects.count).deliver_later
         end
 
         private

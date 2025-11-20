@@ -15,7 +15,7 @@ module Decidim
 
             copy_attachments(original_proposal, new_result)
           end.compact
-          Decidim::Accountability::ImportProposalsMailer.import(user, component, proposals.count).deliver_now
+          Decidim::Accountability::ImportProposalsMailer.import(user, component, proposals.count).deliver_later
         end
 
         private
