@@ -14,7 +14,7 @@ The process for making backports is the following:
 . If the fix affects multiple versions, attach the corresponding release tag ( ex: `release: v0.30`)
 . Be patient and wait for a maintainer to review and merge
 . Once it is merged, an automated workflow will attempt to apply the patch
-. If you have an already merged Pull Request, you can add another `release: v0.xx` tag, and this will retrigger the backport workflow. So you do not need to decide when you open the PR which are the versions you want to backport to.   
+. If you have an already merged Pull Request, you can add another `release: v0.xx` tag, and this will retrigger the backport workflow. So you do not need to decide when you open the PR which are the versions you want to backport to.
 
 == Maintainers only
 
@@ -80,7 +80,7 @@ If a Pull Request is fully backported (merged backport Pull Requests in `0.31` a
 
 === decidim-backporter
 
-As previously mentioned, we have an automated tool that will try to add create the backports automatically, but sometimes, due to conflicts the automated backport is not possible, so you need to use the `decidim-backporer` command.
+As previously mentioned, we have an automated tool that will try to add create the backports automatically, but sometimes, due to conflicts the automated backport is not possible, so you need to use the `decidim-backporter` command.
 
 [source, bash]
 ----
