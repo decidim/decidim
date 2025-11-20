@@ -200,9 +200,6 @@ en:
           authorization_options_invalid: Unfortunately, although you have all the required authorizations, some of them are not valid for this election.
           exit_button: Exit the voting booth
           invalid: You are not authorized to vote in this election.
-          missing: Your user misses some required authorizations. Please check the information and try again.
-          not_authorized: '"%{adapter}" authorization does not match the required conditions.'
-          not_granted: '"%{adapter}" authorization is not granted.'
           resume_with_method: Resume verification with %{name}
           verify_with_method: Verify with %{name}
         token_csv:
