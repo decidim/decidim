@@ -8,6 +8,12 @@ acceptada
 accesslist
 acentos
 acro
+actioncable
+actionmailbox
+actionmailer
+actionpack
+actiontext
+actionview
 activejob
 activelog
 activemodel
@@ -457,6 +463,7 @@ libicu
 libpq
 libreadline
 libreoffice
+libretranslate
 libyaml
 Liddel
 lighthouserc
