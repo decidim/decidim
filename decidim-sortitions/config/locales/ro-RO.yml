@@ -40,6 +40,7 @@ ro:
         actions:
           destroy: Anulează tragerea la sorți
           edit: Editează
+          new_sortition: Tragere la sorți nouă
           show: Detalii privind tragerea la sorți
         models:
           sortition:
