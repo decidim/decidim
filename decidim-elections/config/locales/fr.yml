@@ -158,9 +158,6 @@ fr:
           authorization_options_invalid: Malheureusement, bien que vous ayez toutes les autorisations requises, certaines d'entre elles ne sont pas valides pour cette élection.
           exit_button: Quitter l'isoloir
           invalid: Vous n'êtes pas autorisé(e) à voter pour cette élection.
-          missing: Votre compte utilisateur ne présente pas certaines autorisations requises. Veuillez vérifier les informations et réessayer.
-          not_authorized: 'L''autorisation "%{adapter}" ne correspond pas aux conditions requises.'
-          not_granted: 'L''autorisation "%{adapter}" n''est pas accordée.'
           resume_with_method: Reprendre la vérification avec %{name}
           verify_with_method: Vérifier avec %{name}
         token_csv:
