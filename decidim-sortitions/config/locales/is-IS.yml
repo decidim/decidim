@@ -28,6 +28,7 @@ is:
         actions:
           destroy: Hætta við flokkunina
           edit: Breyta
+          new_sortition: Ný flokkun
           show: Uppsetningarupplýsingar
         models:
           sortition:
