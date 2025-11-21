@@ -39,7 +39,7 @@ sv:
         actions:
           destroy: Avbryt tilldelningen
           edit: Redigera
-          new_sortition: Ny lottning
+          new_sortition: Ny tilldelning
           show: Detaljer om tilldelningen
         models:
           sortition:
