@@ -15,6 +15,7 @@ de:
   decidim:
     admin:
       actions:
+        confirm_unpublish_survey: Sind Sie sicher, dass Sie die Veröffentlichung dieser Umfrage aufheben möchten?
         see_survey: Umfrage anzeigen
       admin_log:
         changeset:
@@ -129,10 +130,13 @@ de:
       models:
         survey:
           fields:
+            published: Veröffentlicht
             questions: Fragen
             responses: Antworten
             status: Status
             title: Titel
+          published:
+            published: Veröffentlicht
           status:
             closed: Geschlossen
             open: Offen
