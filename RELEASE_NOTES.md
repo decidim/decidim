@@ -23,6 +23,7 @@ gem "decidim-dev", github: "decidim/decidim", branch: "release/0.30-stable"
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
+echo "/public/sw.js*" >> .gitignore
 bin/rails decidim:upgrade:fix_action_log
 bin/rails decidim:upgrade:clean:remove_private_exports_attachments
 ```
@@ -45,7 +46,17 @@ bin/rails decidim:upgrade:clean:remove_private_exports_attachments
 
 You can read more about this change on PR [#15020](https://github.com/decidim/decidim/pull/15020).
 
-### 2.2. [[TITLE OF THE ACTION]]
+#### 2.2. Fix gitignore for ServiceWorker related files
+
+We detected a bug where some dynamic files are not added to the gitignore, so they could be committed to the repository. For fixing it, you need to add them to your gitignore file:
+
+```bash
+echo "/public/sw.js*" >> .gitignore
+```
+
+You can read more about this change on PR [#15601](https://github.com/decidim/decidim/pull/15601).
+
+### 2.3. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [\#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
