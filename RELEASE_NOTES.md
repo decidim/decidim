@@ -25,6 +25,8 @@ bin/rails decidim:upgrade
 bin/rails db:migrate
 bin/rails decidim:upgrade:fix_action_log
 bin/rails decidim:upgrade:clean:remove_private_exports_attachments
+bin/rails decidim:upgrade:remove_deleted_users_left_data
+bin/rails decidim:upgrade:fix_deleted_private_follows
 ```
 
 ### 1.3. Follow the steps and commands detailed in these notes
@@ -65,7 +67,21 @@ bin/rails decidim:upgrade:fix_action_log
 
 You can read more about this change on PR [#15390](https://github.com/decidim/decidim/pull/15390).
 
-### 3.2. [[TITLE OF THE ACTION]]
+### 3.3. Remove the follows of former private users
+
+To delete the follows of ex private users of non transparent assemblies or processes, run
+
+```console
+bin/rails decidim:upgrade:fix_deleted_private_follows
+```
+
+You can read more about this change on PR [#12878](https://github.com/decidim/decidim/pull/12878).
+
+### 3.4. [[TITLE OF THE ACTION]]
+
+You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+
+### 3.5. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [\#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
