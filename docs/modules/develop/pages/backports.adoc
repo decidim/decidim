@@ -55,24 +55,21 @@ The output by default is for the terminal. It uses a color code to differentiate
 
 Any maintainer that wants to see the pending Pull Requests that needs to be backported to a specific version, should type in the following command:
 
-In our previous example, we have the develop branch set to be on 0.32.0.dev, which means that our latest released minor version is 0.31. We are using the minor version regardless if we are at `0.31.0.rc2`, `0.31.0` or `0.31.1`.
 
 [source, bash]
 ----
 decidim-backports-checker --github-token=$(gh auth token) --last-version-number=0.31
 ----
+In our previous example, we have the develop branch set to be on 0.32.0.dev, which means that our latest released minor version is 0.31. We are using the minor version regardless if we are at `0.31.0.rc2`, `0.31.0` or `0.31.1`.
 
-Running the above command would output the following data:
-[source, bash]
-----
-PRs: |===============================================================================================================================================================================================================================|
-|   ID   |                                        Title                                        | Backport v0.31 | Backport v0.30 |
-|--------|-------------------------------------------------------------------------------------|----------------|----------------|
-| #XXXXX | The name of the PR with Id #XXXXX                                              |     #AAAA     |      #CCCCC      |
-| #YYYYY | The name of the PR with Id #YYYYY                     |     #BBBB     |      None      |
-----
+image::maintainers-backports-checker.png[decidim-backports-checker output]
 
-In my example, `#XXXXX` and `#YYYYY` are the Pull Requests opened against the `develop` branch, while `#AAAAA`, `#BBBBB` and `#CCCCC` are the actual backports targeting a specific version
+In the above picture:
+
+- `15501` is a Pull Request that has been only opened for `0.31`, with no active backport to `0.30`.
+- `15201` is a Pull Request that has only been backported to `0.30`
+- `15181` is a Pull Request that has not been backported, or the automated backport script failed
+- We do not displayed a merged backport Pull Request.
 
 If you want to address a PR only for a specific version, you open the Pull Request for that version, then you can add `no-backport` label for the Pull Request that you do not want to backport to the oldest version.
 
