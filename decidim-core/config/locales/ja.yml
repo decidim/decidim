@@ -185,6 +185,7 @@ ja:
         success: アカウントが正常に削除されました。
       download_your_data_export:
         export_expired: エクスポートの有効期限が切れています。新しいエクスポートを生成してください。
+        export_not_found: アクセスしたエクスポートが存在しないか、ダウンロードする権限がありません
         file_no_exists: ファイルが存在しません
         notice: データのダウンロードは現在進行中です。完了した際にはメールでお知らせします。
       email_change:
@@ -571,8 +572,6 @@ ja:
         description: 説明
       footer_sub_hero:
         name: フッターサブヒーローバナー
-      global_menu:
-        name: グローバルメニュー
       hero:
         name: ヒーローイメージと CTA
       hero_settings_form:
@@ -1132,6 +1131,7 @@ ja:
         create_with_space: "%{user_name} が %{resource_name} に %{space_name} を作成しました"
         delete: "%{user_name} が %{resource_name} を削除しました"
         delete_with_space: "%{user_name} が %{resource_name} で %{space_name} を削除しました"
+        publish: "%{user_name} が %{resource_name}を公開しました"
         publish_with_space: "%{user_name} が %{space_name} の %{resource_name} を公開しました"
         unknown_action: "%{user_name} が %{resource_name} にいくつかのアクションを実行しました"
         unknown_action_with_space: "%{user_name} が %{resource_name} で %{space_name} にアクションを実行しました"
@@ -1164,7 +1164,6 @@ ja:
         latlng_text: '緯度: %{latitude}, 経度: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: ヘルプ
       home: ホーム
     messaging:
       conversation_mailer:
@@ -1705,10 +1704,30 @@ ja:
         body_2: 組織向けの利用体験を簡素化する取り組みの一環として、「ユーザーグループ」機能は廃止される予定です。あなたのユーザーグループのプロフィールは通常の参加者プロフィールに変更されました。
         greeting: こんにちは %{name} さん、
         instructions_1: そのメールアカウントにアクセスできる場合は、受信トレイに届いている案内をご確認ください。
+        instructions_2: そうでない場合は、アクセス権を持つ同僚の一人がパスワードを設定し、ログイン情報をあなたと共有する必要があります。
+        instructions_intro: グループメンバーは、共有ログインクレデンシャル(メールアドレスとパスワード)を使用して、このプロファイルへのアクセスを共有するようになりました。 プロファイルの新しいパスワードを設定するための指示を %{email} に送信しました。
+        instructions_title: "<strong>あなたへの影響</strong>"
+        subject: グループプロフィールに関する重要な更新情報
       notify_deprecation_to_owner:
         body_1: '%{organization_name}でのグループプロフィールに関する重要なアップデートについてお知らせするためにご連絡しています。'
         body_2: あなたのような組織向けの利用体験を簡素化・改善する取り組みの一環として、「ユーザーグループ」機能は廃止されます。あなたのグループ<strong>%{name}</strong>は通常のアカウントに変更されました。
+        body_3: 引き続きアカウントへアクセスしてアクセス権限を共有するためには、パスワードを設定する必要があります。設定後、ログイン認証情報（メールアドレスとパスワード）を任意の相手と共有することが可能になります。
         greeting: こんにちは %{name} さん、
+        instructions_1: '以下のリンクをクリックしてパスワードを設定してください：'
+        instructions_2: 'ログイン認証情報（メールアドレス：%{email}、新規パスワード）を同僚と共有してください。'
+        instructions_title: "<strong>実施すべきこと</strong>"
+        set_password: パスワードの設定
+        subject: グループプロフィールに関する重要な更新事項
+      notify_user_group_patched:
+        body_1_html: '%{organization_name}におけるグループプロフィールに関する重要な更新についてお知らせします。'
+        body_2_html: 組織の利便性向上とシステムの簡素化を図るため、「ユーザーグループ」機能の廃止を決定いたしました。あなたのグループ <strong>%{name}</strong> は、通常のアカウント形式に変更されています。
+        body_3_html: 引き続きアカウントにアクセスしてアクセス権限を共有するためには、新しいメールアドレスとパスワードの設定が必要です。なお、グループの各メンバーにはこのメールが送信されます。継続的なアクセスを保証するため、共有する認証情報（メールアドレスとパスワード）について、グループ内で事前に合意していただく必要があります。
+        greeting: こんにちは %{name} さん、
+        instructions_1_html: '以下の仮認証情報を使用してログインしてください：<br><br> ユーザー名： <strong>%{email}</strong> <br> パスワード： <strong>%{password}</strong><br><br>'
+        instructions_2_html: 新しいメールアドレスとパスワードを設定します。
+        instructions_3_html: 選択したログイン認証情報を同僚の方々と共有し、グループ全体で引き続きアカウントにアクセスできるようにしてください。
+        instructions_title_html: "<strong>実施が必要な事項</strong>"
+        subject: グループプロフィールに関する重要なお知らせ
     user_report_mailer:
       notify:
         body_1: ユーザー %{user} が %{token} によって報告されました

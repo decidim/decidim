@@ -154,7 +154,6 @@ hu:
             total_budget: Teljes költségvetés
         project:
           fields:
-            id: Azonosító
             map: Térkép
             title: Cím
       order:

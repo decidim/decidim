@@ -677,7 +677,6 @@ fi:
           fields:
             closed: Suljettu
             end_time: Päättymispäivä
-            id: ID
             map: Kartta
             official_meeting: Virallinen tapaaminen
             published: Julkaistu

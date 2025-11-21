@@ -142,7 +142,6 @@ el:
             total_budget: Συνολικός προϋπολογισμός
         project:
           fields:
-            id: ID
             title: Τίτλος
       order:
         status:

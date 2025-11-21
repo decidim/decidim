@@ -221,7 +221,6 @@ cs:
             total_budget: Celkový rozpočet
         project:
           fields:
-            id: ID
             map: Mapa
             taxonomies: Taxonomie
             title: Titul

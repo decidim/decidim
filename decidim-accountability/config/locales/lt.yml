@@ -123,7 +123,6 @@ lt:
           fields:
             created_at: Sukurta
             end_date: Pabaigos data
-            id: ID
             progress: Progresas
             start_date: Pradžios data
             status: Statusas

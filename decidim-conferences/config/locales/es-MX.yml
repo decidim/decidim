@@ -442,6 +442,8 @@ es-MX:
           no_slots_available: No hay plazas disponibles
           registration: Inscripción
       conference_program:
+        program_item:
+          other_category: Otro
         show:
           program: Programa
       conference_registration_mailer:
