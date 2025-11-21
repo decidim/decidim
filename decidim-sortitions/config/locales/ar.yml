@@ -40,6 +40,7 @@ ar:
         actions:
           destroy: إلغاء الفرز
           edit: تعديل
+          new_sortition: فرز جديد
           show: تفاصيل الفرز
         models:
           sortition:
