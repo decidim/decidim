@@ -65,6 +65,7 @@ bin/rails decidim:upgrade:user_groups:remove # see "3.6. User Groups removal"
 bin/rails decidim:upgrade:fix_action_log # see "3.8. Fix incorrect ActionLog entries"
 # skip this command if you have run it before:
 bin/rails decidim:upgrade:clean:remove_private_exports_attachments
+echo "/public/sw.js*" >> .gitignore
 bin/rails decidim:upgrade:remove_deleted_users_left_data
 bin/rails decidim:upgrade:fix_deleted_private_follows
 bin/rails data:migrate
@@ -196,6 +197,16 @@ You can read more about this change on PR [#15020](https://github.com/decidim/de
 At the moment we are adding this gem so we can start doing data migrations for fixes when v0.33.0 is released. You can read more about this at [Data migrations doc](https://docs.decidim.org/en/develop/develop/guide_data_migrations.html).
 
 You can read more about this change on PR [#15501](https://github.com/decidim/decidim/pull/15501).
+
+#### 2.7. Fix gitignore for ServiceWorker related files
+
+We detected a bug where some dynamic files are not added to the gitignore, so they could be committed to the repository. For fixing it, you need to add them to your gitignore file:
+
+```bash
+echo "/public/sw.js*" >> .gitignore
+```
+
+You can read more about this change on PR [#15601](https://github.com/decidim/decidim/pull/15601).
 
 ## 3. One time actions
 
