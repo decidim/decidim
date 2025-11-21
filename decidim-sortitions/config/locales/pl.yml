@@ -41,7 +41,7 @@ pl:
         actions:
           destroy: Anuluj wybór losowy
           edit: Edytuj
-          new_sortition: Nowy wybór przez losowanie
+          new_sortition: Nowy wybór losowy
           show: Szczegóły dotyczące wyboru losowego
         models:
           sortition:
