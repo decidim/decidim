@@ -8,4 +8,6 @@
 
 |v0.30 | 3.3.4 | 18.17.x | Bug fixes and security updates
 
+|v0.29 | 3.2.2 | 18.17.x | Not maintained
+
 |===
