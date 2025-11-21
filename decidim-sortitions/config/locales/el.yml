@@ -39,6 +39,7 @@ el:
         actions:
           destroy: Ακύρωση της κλήρωσης
           edit: Επεξεργασία
+          new_sortition: Νέα κλήρωση
           show: Λεπτομέρειες κλήρωσης
         models:
           sortition:
