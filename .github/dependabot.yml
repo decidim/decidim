@@ -26,6 +26,12 @@ updates:
           - "activejob"
           - "activerecord"
           - "activesupport"
+      rspec:
+        patterns:
+          - "rspec-core"
+          - "rspec-expectations"
+          - "rspec-mocks"
+          - "rspec-support"
     versioning-strategy: "increase"
     labels:
       - "dependencies"
@@ -46,6 +52,12 @@ updates:
           - "actionpack"
           - "activerecord"
           - "activesupport"
+      rspec:
+        patterns:
+          - "rspec-core"
+          - "rspec-expectations"
+          - "rspec-mocks"
+          - "rspec-support"
     versioning-strategy: "increase"
     labels:
       - "dependencies"
