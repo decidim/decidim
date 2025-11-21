@@ -200,9 +200,6 @@ fi-pl:
           authorization_options_invalid: Valitettavasti osa käyttäjätilisi vahvistuksista eivät täsmää näiden vaalien vaatimusten kanssa.
           exit_button: Poistu äänestyskopista
           invalid: Tiliäsi ei ole vahvistettu äänestääksesi näissä vaaleissa.
-          missing: Käyttäjätililtäsi puuttuu osa vaadituista vahvistuksista. Ole hyvä ja tarkasta tiedot, minkä jälkeen voit yrittää uudestaan.
-          not_authorized: '"%{adapter}" -vahvistus ei täsmää vaatimusten kanssa.'
-          not_granted: '"%{adapter}" -vahvistusta ei ole myönnetty.'
           resume_with_method: Jatka vahvistusta %{name}
           verify_with_method: Vahvista palvelun %{name} avulla
         token_csv:
