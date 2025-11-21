@@ -526,7 +526,6 @@ zh-CN:
         latlng_text: '纬度: %{latitude}, 经度: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: 帮助
       home: 首页
     messaging:
       conversation_mailer:

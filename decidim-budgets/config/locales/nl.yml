@@ -114,7 +114,6 @@ nl:
             total_budget: Totale budget
         project:
           fields:
-            id: ID
             title: Titel
       order:
         status:

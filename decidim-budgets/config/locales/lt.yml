@@ -149,7 +149,6 @@ lt:
             total_budget: Visas biudžetas
         project:
           fields:
-            id: ID
             title: Pavadinimas
       order:
         status:

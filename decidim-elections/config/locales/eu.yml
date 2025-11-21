@@ -44,7 +44,6 @@ eu:
             choose_census: Hautatu hauteskunde hauetarako erabili nahi duzun errolda-mota
             created_at: Sortze-data
             identifier: Parte-hartzailearen identifikatzailea
-            title: Errolda-mota
           preview:
             title:
               one: Aurrebistaren zerrenda erregistro batera mugatuta dago.
@@ -180,7 +179,7 @@ eu:
           unpublish: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea despublikatu du %{space_name} espazioan"
           update: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea eguneratu du %{space_name} espazioan"
         question:
-          update: "%{user_name} -k eguneratu ditu %{resource_name} aukerako galderak"
+          update: "%{user_name} parte-hartzaileak eguneratu ditu %{resource_name} aukerako galderak"
       censuses:
         census_ready_html: Erroldako datuak kargatuta daude eta prest daude % <b>%{election_title}{@eleccion_title}</b> bozketan erabiltzeko.
         census_size_html:

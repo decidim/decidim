@@ -225,6 +225,74 @@ describe "Admin manages elections questions" do
     end
   end
 
+  context "when admin user sets max_choices for multiple_option question" do
+    it "creates a question with max_choices" do
+      visit questions_edit_path
+
+      click_on "Add question"
+      expand_all_questions
+
+      within "form.edit_questions" do
+        within page.all(".questionnaire-question").first do
+          fill_in find_nested_form_field_locator("body_en"), with: "Select up to 2 options"
+          select "Multiple option", from: "Type"
+
+          3.times { click_on "Add response option" }
+
+          page.all(".questionnaire-question-response-option").each_with_index do |option, idx|
+            within option do
+              fill_in find_nested_form_field_locator("body_en"), with: "Option #{idx + 1}"
+            end
+          end
+
+          select "2", from: "Maximum number of choices"
+        end
+      end
+
+      click_on "Save and continue"
+
+      expect(page).to have_admin_callout("successfully")
+
+      visit questions_edit_path
+      expand_all_questions
+
+      expect(page).to have_css("input[value='Select up to 2 options']")
+      expect(election.questions.last.max_choices).to eq(2)
+    end
+
+    it "updates max_choices on existing question" do
+      question = create(:election_question, :with_response_options,
+                        election:,
+                        question_type: "multiple_option",
+                        max_choices: nil)
+
+      visit questions_edit_path
+      find("#questionnaire_question_#{question.id}-button").click
+
+      within "#accordion-questionnaire_question_#{question.id}-field" do
+        select "2", from: "Maximum number of choices"
+      end
+
+      click_on "Save and continue"
+
+      expect(page).to have_admin_callout("successfully")
+      expect(question.reload.max_choices).to eq(2)
+    end
+
+    it "shows 'Any' option for max_choices when unset" do
+      question = create(:election_question, :with_response_options,
+                        election:,
+                        question_type: "multiple_option")
+
+      visit questions_edit_path
+      find("#questionnaire_question_#{question.id}-button").click
+
+      within "#accordion-questionnaire_question_#{question.id}-field" do
+        expect(page).to have_select("Maximum number of choices", selected: "Any")
+      end
+    end
+  end
+
   private
 
   def find_nested_form_field_locator(attribute, visible: :visible)

@@ -588,8 +588,6 @@ de:
         description: Beschreibung
       footer_sub_hero:
         name: Abschnitt mit Plattformslogan
-      global_menu:
-        name: Globales Menü
       hero:
         name: Banner-Bild und Handlungsaufforderung
       hero_settings_form:
@@ -685,7 +683,7 @@ de:
           newsletter_title: Kontakterlaubnis
           sign_up: Konto erstellen
           subtitle: Erstellen Sie ein Konto, um auf der Plattform teilzunehmen.
-          terms: die Nutzungsbedingungen
+          terms: den Nutzungsbedingungen
           tos_agreement: Mit der Anmeldung stimmen Sie %{link} zu.
           tos_title: Nutzungsbedingungen
           username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
@@ -1187,7 +1185,6 @@ de:
         latlng_text: 'Breitengrad: %{latitude}, Längengrad: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Hilfe
       home: Start
     messaging:
       conversation_mailer:
