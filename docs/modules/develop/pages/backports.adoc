@@ -8,17 +8,17 @@ The idea of a backport is to bring a given fix from the last development version
 
 The process for making backports is the following:
 
-. Reproduce the error against develop
-. Develop a fix for the issue, starting from the develop
-. Open the Pull Request, adding the following Red labels: `type: fix`, `release: 0.xx`, in our example using `0.32.0.dev`, we would attach `type: fix`, `release: v0.31`.
-. If the fix affects multiple versions, attach the corresponding release tag ( ex: `release: v0.30`)
-. Be patient and wait for a maintainer to review and merge
-. Once it is merged, an automated workflow will attempt to apply the patch
-. If you have an already merged Pull Request, you can add another `release: v0.xx` tag, and this will retrigger the backport workflow. So you do not need to decide when you open the PR which are the versions you want to backport to.
+. Reproduce the error against develop.
+. Develop a fix for the issue, starting from the develop.
+. Open the Pull Request, adding the following labels: `type: fix`, `release: 0.xx`, in our example using `0.32.0.dev`, we would attach `type: fix`, `release: v0.31`.
+. If the fix affects multiple versions, attach the corresponding release tag (for instance, `release: v0.30`).
+. Be patient and wait for a maintainer to review and merge.
+. Once it is merged, an automated workflow will attempt to apply the patch.
+. If you have an already merged Pull Request, you can add another `release: v0.xx` tag, and this will retrigger the backport workflow. You do not need to decide when you open the PR which are the versions you want to backport to.
 
 == Maintainers only
 
-in order to ease up the backport process, you will need to install the `decidim-maintainers_toolbox` gem
+In order to ease up the backport process, you will need to install the `decidim-maintainers_toolbox` gem.
 
 [source,bash]
 ----
@@ -27,7 +27,7 @@ gem install decidim-maintainers_toolbox
 
 This will provide you with some commands that you can use for day to day activities:
 
-Before starting to use `decidim-maintainers_toolbox` gem, you will need to make sure that you have available the `gh` command, provided by `GitHub`. Follow the https://github.com/cli/cli[project's page] for installation steps that are most suited for your Operating System.
+Before starting to use `decidim-maintainers_toolbox` gem, you will need to make sure that you have available the `gh` command, provided by `GitHub`. Follow the https://github.com/cli/cli[gh project's page] for installation steps that are most suited for your Operating System.
 
 === decidim-backports-checker
 
@@ -74,7 +74,7 @@ PRs: |==========================================================================
 
 In my example, `#XXXXX` and `#YYYYY` are the Pull Requests opened against the `develop` branch, while `#AAAAA`, `#BBBBB` and `#CCCCC` are the actual backports targeting a specific version
 
-If you want to address a PR only for a specific version, you open the Pull Request for that version, then you can add `no-backport` label for the Pull Request that you do not want to backport to oldest version.
+If you want to address a PR only for a specific version, you open the Pull Request for that version, then you can add `no-backport` label for the Pull Request that you do not want to backport to the oldest version.
 
 If a Pull Request is fully backported (merged backport Pull Requests in `0.31` and `0.30` versions), then the line will not be displayed.
 
@@ -104,10 +104,10 @@ An example of the command is:
 
 [source, bash]
 ----
-decidim-backporter --github-token=$(gh auth token) --pull-request-id=XXXXX --version-number=0.31
+decidim-backporter --github-token=$(gh auth token) --pull-request-id=1234 --version-number=0.31
 ----
 
-In this particular example, XXXXX is the Pull Request merged against develop branch, while `--version-number` is the version where we want to backport.
+In this particular example, 1234 is the Pull Request merged against develop branch, while `--version-number` is the version where we want to backport.
 We do not need to pass the full version, as this will apply the fix only for the unreleased versions, regardless if we are on `0.31.0.rc1`, `0.31.0` or `0.31.1`
 
 The command will attempt to apply the patch, and if the patch fails with error, a console will be displayed, allowing you to change the files in your editor. After the conflict is fixed, you will need to write the following in your console:
@@ -115,9 +115,9 @@ The command will attempt to apply the patch, and if the patch fails with error, 
 ----
 git add <any conflicting files that you fixed>
 git cherry-pick --continue
-type logout / press CTRL + D
+# type logout or press CTRL + D
 ----
 
-The process will continue with creating the backport Pull Request.
+The process will continue creating the backport Pull Request.
 
-If you want to skip the backport creation for any reason, you just need to ensure that when your console drops, you do not have staged / modified files. Typing a `git cherry-pick --abort` will clean the backport process. After that you just need to exit the console with either `logout` either `CTRL+D`.
+If you want to skip the backport creation for any reason, you just need to ensure that when your console drops, you do not have staged / modified files. Typing a `git cherry-pick --abort` will clean the backport process. After that you just need to exit the console with either `logout` or `CTRL+D`.
