@@ -65,6 +65,8 @@ bin/rails decidim:upgrade:user_groups:remove # see "3.6. User Groups removal"
 bin/rails decidim:upgrade:fix_action_log # see "3.8. Fix incorrect ActionLog entries"
 # skip this command if you have run it before:
 bin/rails decidim:upgrade:clean:remove_private_exports_attachments
+bin/rails decidim:upgrade:remove_deleted_users_left_data
+bin/rails decidim:upgrade:fix_deleted_private_follows
 bin/rails data:migrate
 ```
 
@@ -311,6 +313,30 @@ bin/rails decidim:upgrade:fix_action_log
 ```
 
 You can read more about this change on PR [#15390](https://github.com/decidim/decidim/pull/15390).
+
+### 3.9. Remove user data left behind by `Decidim::DestroyAccount`
+
+When a user deletes their account and the `Decidim::DestroyAccount` command is executed, certain related data such as authorizations, versions, private exports, access grants, access tokens, notifications, and reminders were left behind. To fix this issue, we've added a new rake task to clean up the leftover data for previously deleted users.
+
+```ruby
+bin/rails decidim:upgrade:remove_deleted_users_left_data
+```
+
+You can read more about this change on PR [#14731](https://github.com/decidim/decidim/pull/14731).
+
+### 3.10. Remove the follows of former private users
+
+To delete the follows of ex private users of non transparent assemblies or processes, run
+
+```console
+bin/rails decidim:upgrade:fix_deleted_private_follows
+```
+
+You can read more about this change on PR [#12878](https://github.com/decidim/decidim/pull/12878).
+
+### 3.11. [[TITLE OF THE ACTION]]
+
+You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
 ## 4. Scheduled tasks
 
