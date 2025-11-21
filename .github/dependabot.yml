@@ -50,6 +50,15 @@ updates:
         patterns:
           - "rails*"
           - "actionpack"
+          - "actioncable"
+          - "actionmailbox"
+          - "actionmailer"
+          - "actiontext"
+          - "actionview"
+          - "activestorage"
+          - "railties"
+          - "activemodel"
+          - "activejob"
           - "activerecord"
           - "activesupport"
       rspec:
