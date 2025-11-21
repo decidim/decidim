@@ -21,25 +21,25 @@ eu:
     components:
       sortitions:
         actions:
-          comment: Egin iruzkina
+          comment: Iruzkina
         name: Zozketak
         settings:
           global:
             comments_enabled: Iruzkinak gaituta
-            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsita konfigurazioa mantendu nahi baduzu)
+            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako konfigurazioa uzteko)
     events:
       sortitions:
         sortition_created:
           email_intro: '"%{resource_title}" zozketa jarraitzen ari zaren "%{participatory_space_title}" espazioan gehitu da.'
           email_outro: Jakinarazpen hau jaso duzu "%{participatory_space_title}" jarraitzen ari zarelako. Aurreko estekan sartu jarraitzeari uzteko.
-          email_subject: Beste zozketa bat gehitu da %{participatory_space_title} espaziora
+          email_subject: Zozketa berria gehitu da %{participatory_space_title} espaziora
           notification_title: <a href="%{resource_path}">%{resource_title}</a> zozketa %{participatory_space_title} espaziora gehitu da
     sortitions:
       admin:
         actions:
           destroy: Zozketa bertan behera utzi
           edit: Editatu
-          new_sortition: Beste zozketa bat
+          new_sortition: Zozketa berria
           show: Zozketaren xehetasunak
         models:
           sortition:
@@ -57,7 +57,7 @@ eu:
           confirm_destroy:
             confirm_destroy: Ziur al zaude zozketa hau bertan behera utzi nahi duzula?
             destroy: Zozketa bertan behera utzi
-            title: Zozketa bertan behera uztea
+            title: Zozketa bertan behera utzi
           create:
             error: Arazo bat gertatu da zozketa berri bat sortzean.
             success: Zozketa ondo sortu da.
@@ -75,9 +75,9 @@ eu:
           new:
             confirm: Botoia sakatzean plataformak egun eta ordua (segundu gutxi batzuk gora behera) eta dadoak botatzean ateratako zenbakia gorde egingo ditu ausazko hautaketa bat egiteko. Botoia sakatu ondoren ez dago atzera egiterik eta zozketaren emaitzak zein txantiloi honetan sartutako datuak argitaratuko dira eta ezin izango dira aldatu. Beraz, mesedez, arretaz jarraitu.
             create: Sortu
-            title: Zozketa berria
+            title: Beste zozketa bat
           show:
-            selected_proposals: Zozketatzeko aukeratutako proposamenak
+            selected_proposals: Aukeratutako proposamenak
           update:
             error: Arazo bat sortu da zozketa eguneratzean.
             success: Zozketa zuzen eguneratu da.
@@ -89,10 +89,10 @@ eu:
       sortitions:
         count:
           proposals_count:
-            one: proposamen 1
-            other: "Proposamen bat"
+            one: Proposamen 1
+            other: "%{count} proposamen"
         filters:
-          active: Aktiboak
+          active: Aktiboa
           all: Guztiak
           cancelled: Bertan behera
           category: Kategoria
@@ -103,8 +103,8 @@ eu:
           selected_proposals: Aukeratutako proposamenak
         orders:
           label: 'Zozketak honen arabera ordenatu:'
-          random: Ausazko ordena
-          recent: Berrienetatik zaharrenetara
+          random: Ausaz
+          recent: Berrienak
         results_count:
           count:
             one: Hautatutako proposamena
@@ -112,7 +112,7 @@ eu:
         show:
           algorithm: Zozketaren algoritmoaren kodea
           any_category: kategoria guztienak
-          cancelled: Bertan behera utzitako zozketak
+          cancelled: Zozketa beran behera utzita
           candidate_proposal_ids: Zozketako proposamenen hurrenkera eta IDak
           candidate_proposals_info: 'Zozketa (%{category_label}) proposamenen artean egin da, honako IDekin (letra lodiz hautatutako proposamenak)  '
           category: '%{category} kategoriatik'
