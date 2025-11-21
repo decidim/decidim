@@ -55,7 +55,6 @@ The output by default is for the terminal. It uses a color code to differentiate
 
 Any maintainer that wants to see the pending Pull Requests that needs to be backported to a specific version, should type in the following command:
 
-
 [source, bash]
 ----
 decidim-backports-checker --github-token=$(gh auth token) --last-version-number=0.31
