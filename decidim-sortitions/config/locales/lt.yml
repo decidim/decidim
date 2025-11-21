@@ -41,6 +41,7 @@ lt:
         actions:
           destroy: Atšaukti sprendimą burtų keliu
           edit: Redaguoti
+          new_sortition: Nauja galimybė spręsti burtų keliu
           show: Išsami informacija apie sprendimą burtų keliu
         models:
           sortition:
