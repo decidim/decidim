@@ -39,7 +39,7 @@ es-MX:
         actions:
           destroy: Cancelar el sorteo
           edit: Editar
-          new_sortition: Añadir sorteo
+          new_sortition: Nuevo sorteo
           show: Detalles de la clasificación
         models:
           sortition:
