@@ -14,7 +14,7 @@ module Decidim
 
       describe "#configuration_file" do
         let(:runtime_config_path) do
-          Rails.application.root.join("tmp/shakapacker_runtime.yml")
+          Rails.application.root.join("tmp/shakapacker_runtime#{ENV.fetch("TEST_ENV_NUMBER", "")}.yml").to_s
         end
         let(:runtime_config) { YAML.load_file(runtime_config_path, aliases: true) }
         let(:core_path) do

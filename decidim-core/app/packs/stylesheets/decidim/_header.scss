@@ -35,11 +35,11 @@ header {
   }
 
   #sticky-header-container {
-    @apply fixed w-full top-0 shadow-lg z-40 bg-white md:relative transition-top duration-300;
+    @apply fixed w-full top-0 z-40 bg-white md:relative transition-top duration-300;
   }
 
   .main-bar {
-    @apply container grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-4 items-center py-5 h-24;
+    @apply container flex justify-between gap-4 items-center py-5 h-20;
 
     &--focus-mode-back-button {
       @apply h-16 lg:h-24;
@@ -50,7 +50,7 @@ header {
     }
 
     &__container {
-      @apply relative w-full;
+      @apply relative w-full flex justify-between;
     }
 
     &__logo {
@@ -73,11 +73,19 @@ header {
       }
 
       input[type="text"] {
-        @apply block bg-transparent w-full px-4 py-1.5;
+        @apply block bg-transparent w-full px-4 py-2 h-full;
+
+        &::placeholder {
+          @apply text-neutral-500 text-sm ltr:pl-0 rtl:pr-0;
+        }
       }
 
       button[type="submit"] {
-        @apply absolute ltr:right-2 rtl:left-2 inset-y-0 text-secondary px-2;
+        @apply absolute rtl:left-2 ltr:right-2 inset-y-0 text-secondary px-2;
+
+        svg {
+          @apply fill-neutral-500;
+        }
       }
     }
 
@@ -90,7 +98,7 @@ header {
     }
 
     &__menu-mobile {
-      @apply lg:hidden flex flex-row-reverse items-center;
+      @apply lg:hidden flex flex-row-reverse items-center gap-x-3;
     }
 
     &__links-desktop,
@@ -102,7 +110,11 @@ header {
       @apply hidden lg:flex items-center justify-between text-center divide-x-2 divide-gray-3 ml-auto [&>*]:px-4 xl:[&>*]:px-6 first:[&>*]:pl-0 last:[&>*]:pr-0;
 
       &__item {
-        @apply flex flex-col items-center text-secondary px-2 py-1 rounded hover:underline hover:bg-background;
+        @apply flex items-center gap-x-2 text-secondary px-2 py-1 rounded;
+
+        &:hover {
+          @apply bg-secondary rounded-[4px] text-white;
+        }
 
         &-wrapper {
           @apply flex gap-x-4 xl:gap-x-6;
@@ -113,17 +125,70 @@ header {
         }
       }
 
+      &__dropdown {
+        @apply flex items-end absolute top-0 right-0 z-30 h-screen;
+
+        .menu-bar {
+          &__main-dropdown {
+            @apply hidden lg:flex flex-col h-full md:p-8;
+
+            &__left {
+              @apply w-full;
+            }
+          }
+
+          &__dropdown-menu {
+            @apply w-full;
+
+            li {
+              @apply py-3 md:py-3.5 border-b border-t-0 last:border-0 border-gray-3 #{!important};
+
+              a {
+                @apply no-underline;
+              }
+            }
+          }
+        }
+
+        #main-dropdown-summary-desktop-close {
+          @apply self-end;
+        }
+      }
+
+      &__trigger {
+        @apply text-secondary cursor-pointer py-1 px-2 text-md leading-[22px] w-fit flex items-center gap-x-2;
+
+        span {
+          @apply text-secondary;
+        }
+
+        &:hover {
+          @apply bg-secondary rounded-[4px] text-white;
+
+          svg,
+          span {
+            @apply text-white;
+          }
+        }
+
+        &[aria-expended="true"] {
+          #content {
+            @apply bg-[rgb(0_0_0_/_0.5)];
+          }
+        }
+      }
+
       /* overwrite default dropdown styles */
       [data-target*="dropdown"] > span:only-of-type {
         @apply gap-0;
       }
 
       svg {
-        @apply w-5 h-5 fill-current;
+        @apply w-4 h-5 fill-current;
       }
 
       svg + span {
-        @apply text-sm first-letter:uppercase;
+        @apply text-md leading-[22px] first-letter:uppercase font-semibold;
       }
     }
 
@@ -131,23 +196,28 @@ header {
       @apply fixed bottom-0 left-0 z-40 bg-white w-full px-4 py-3 flex justify-between text-secondary shadow-[0_-4px_6px_rgba(198,198,198,0.25)];
 
       &__trigger {
-        @apply flex flex-col items-center text-secondary cursor-pointer md:pl-4 md:border-l border-gray-3;
+        @apply flex items-center text-secondary cursor-pointer justify-evenly gap-x-1 px-2 py-1;
 
         svg {
           @apply w-6 h-6 fill-current;
         }
 
         span {
-          @apply text-sm first-letter:uppercase;
+          @apply text-secondary;
+        }
+
+        &:hover {
+          @apply bg-secondary rounded-[4px] text-white;
+
+          svg,
+          span {
+            @apply text-white;
+          }
         }
       }
 
       &__dropdown {
         @apply absolute top-full left-0 z-30 bg-white;
-      }
-
-      &__dropdown-before {
-        @apply before:block before:absolute before:-top-10 before:right-12 before:content-[""] before:bg-white before:w-24 before:h-12 before:-mt-8;
       }
 
       &__account {
@@ -198,7 +268,7 @@ header {
         }
 
         svg + span {
-          @apply text-sm first-letter:uppercase w-auto;
+          @apply w-auto text-md leading-[22px] first-letter:uppercase font-semibold;
 
           flex-shrink: 0;
         }
@@ -243,7 +313,7 @@ header {
 
     /* overwrite default dropdown styles */
     [id*="dropdown-menu"] {
-      @apply py-0 mx-0 w-full;
+      @apply py-0 mx-0 w-full lg:w-fit;
 
       &[aria-hidden="true"] {
         @apply md:hidden;
@@ -255,14 +325,18 @@ header {
     @apply container h-full flex justify-between items-center lg:relative last-of-type:[&>svg]:hidden;
 
     &__container {
-      @apply bg-primary relative h-14;
+      @apply bg-white relative h-14 flex justify-between;
     }
 
     &__breadcrumb-desktop {
-      @apply hidden lg:flex justify-between items-center gap-2.5 [&>*]:text-lg [&>*]:text-white;
+      @apply hidden lg:flex justify-between items-center [&>*]:text-md [&>*]:text-black gap-x-2;
+
+      .no-interactive {
+        @apply font-normal px-0;
+      }
 
       &__dropdown-trigger {
-        @apply flex rounded px-2 py-1 z-20;
+        @apply flex rounded py-1 z-20 font-semibold;
 
         &:hover {
           @apply z-10 relative before:content-[''] before:absolute before:w-[calc(100%+3rem+1px)] before:min-w-[10rem] before:h-40 before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/4 before:-z-10;
@@ -274,7 +348,7 @@ header {
       }
 
       &__dropdown-wrapper {
-        @apply flex items-center cursor-pointer rounded hover:backdrop-brightness-75 focus:backdrop-brightness-75 focus:outline-none;
+        @apply flex items-center cursor-pointer underline focus:backdrop-brightness-75 focus:outline-none;
       }
 
       &__dropdown-content {
@@ -348,11 +422,15 @@ header {
       @apply block lg:hidden w-full z-20;
 
       &__dropdown-trigger {
-        @apply flex items-center justify-between text-white;
+        @apply flex items-center justify-between text-black;
 
         svg {
           @apply w-6 h-6 fill-current;
         }
+      }
+
+      .menu-bar__breadcrumb-item {
+        @apply font-semibold underline;
       }
 
       /* overwrite default dropdown styles */
@@ -382,18 +460,90 @@ header {
     }
 
     &__language-chooser {
-      @apply absolute top-full left-0 bg-white rounded w-full bg-gray-5;
+      @apply absolute top-full left-0 rounded w-full bg-gray-5;
+
+      &-desktop {
+        @apply border-r border-gray-6 pr-10;
+
+        &.focus-mode {
+          @apply border-none pr-0;
+        }
+      }
+
+      &-desktop,
+      &-mobile {
+        & button {
+          @apply border border-neutral-300 rounded px-4 py-2 gap-x-2;
+
+          & > span,
+          & > svg:first-of-type {
+            @apply text-neutral-500;
+
+            display: block !important;
+          }
+
+          & > span.mobile-holder {
+            @apply items-center gap-x-1;
+
+            display: flex !important;
+          }
+
+          & > span {
+            @apply text-sm font-normal;
+          }
+
+          & > svg:last-of-type {
+            @apply text-gray-2  ml-1;
+
+            display: block !important;
+          }
+        }
+
+        #dropdown-menu-language-chooser {
+          @apply absolute top-full bg-white shadow-[1px_4px_8px_3px_rgba(0,0,0,0.15)] p-2;
+
+          ul {
+            @apply flex flex-col space-y-2;
+
+            li:hover {
+              @apply rounded;
+            }
+
+            .is-active {
+              @apply bg-neutral-200 rounded;
+
+              &:hover {
+                @apply bg-[var(--secondary)];
+              }
+            }
+          }
+        }
+
+        #dropdown-menu-language-chooser-mobile {
+          @apply overflow-scroll h-[50vh];
+
+          ul {
+            .is-active {
+              @apply bg-neutral-200 rounded;
+
+              &:hover {
+                @apply bg-[var(--secondary)];
+              }
+            }
+          }
+        }
+      }
     }
 
     &__dropdown-menu {
-      @apply w-full md:w-1/4 bg-primary px-4 md:px-8 pt-0 pb-3 md:py-3 divide-y divide-gray-3 text-white;
+      @apply w-full md:w-1/4 px-4 md:px-0 pt-0 pb-3 md:py-3 divide-y divide-gray-3 text-[var(--secondary)];
 
       > * {
-        @apply py-3 md:py-3.5;
+        @apply py-3 md:py-3.5 md:px-2;
       }
 
       a {
-        @apply flex items-center justify-start gap-1 font-semibold text-lg text-white;
+        @apply flex items-center justify-start gap-1 font-semibold text-xl text-[var(--secondary)] underline;
 
         span {
           @apply min-w-0 truncate;
@@ -403,13 +553,21 @@ header {
           @apply flex-none fill-current;
         }
       }
+
+      li:hover {
+        @apply bg-[var(--secondary)] rounded-[4px];
+
+        a {
+          @apply text-white;
+        }
+      }
     }
 
     &__main-dropdown {
-      @apply bg-white flex flex-row rounded-b shadow-lg text-black w-full lg:w-[1280px] h-screen md:h-auto;
+      @apply bg-white flex flex-row rounded-b shadow-lg text-black w-full lg:w-[530px] h-screen md:h-auto;
 
       &__left {
-        @apply flex flex-col justify-between p-4 md:p-8 space-y-5 hidden md:block md:w-3/4;
+        @apply p-4 md:py-8 md:px-0 space-y-5 hidden md:block md:w-3/4;
 
         &-top {
           @apply border-b-4 border-gray-3 pb-3;
@@ -463,6 +621,24 @@ header {
 
       &__subtitle {
         @apply hidden text-md md:flex md:text-lg text-gray-2 mt-5;
+      }
+    }
+
+    &__dropdown-desktop {
+      .card__highlight {
+        @apply flex-col ring-transparent rounded-lg shadow-[1px_4px_8px_3px_rgba(0,0,0,0.15)];
+
+        &-img {
+          @apply w-full aspect-[3/1] rounded-tl-lg rounded-tr-lg;
+        }
+
+        &-text {
+          @apply w-full items-start text-start bg-background-2 rounded-bl-lg rounded-br-lg;
+
+          h3 {
+            @apply font-bold;
+          }
+        }
       }
     }
 

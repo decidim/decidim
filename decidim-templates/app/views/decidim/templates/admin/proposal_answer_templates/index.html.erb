@@ -34,7 +34,7 @@
                 <%= availability_option_as_text(template) %>
               </td>
               <td data-label="<%= t("template.fields.created_at", scope: "decidim.models") %>">
-                <%= l template.created_at, format: :long %>
+                <%= l template.created_at, format: :decidim_short %>
               </td>
               <td data-label="<%= t("decidim.admin.actions.actions") %>" class="table-list__actions">
                 <button type="button" data-controller="dropdown" data-target="actions-proposal-answer-template-<%= template.id %>" aria-label="<%= t("decidim.admin.actions.actions_label", resource: template.name) %>">

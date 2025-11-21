@@ -43,6 +43,18 @@ module Decidim
         end
       end
 
+      def render_question_description(question)
+        description = translated_attribute(question.description)
+        return if description.blank?
+
+        sanitized = decidim_sanitize_admin(description)
+        if rich_text_editor_in_public_views?
+          Decidim::ContentProcessor.render_without_format(sanitized).html_safe
+        else
+          Decidim::ContentProcessor.render(sanitized, "div")
+        end
+      end
+
       def selected_response_option_id(question)
         session.dig(:votes_buffer, question.id.to_s, "response_option_id")&.to_i
       end
