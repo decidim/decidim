@@ -17,6 +17,9 @@ describe "AdminAccess" do
 
     it_behaves_like "admin participatory space access"
     it_behaves_like "admin participatory space edit button"
+    it_behaves_like "admin menu shows only assigned space",
+                    space_name: "Conferences",
+                    other_spaces: %w(Processes Initiatives Assemblies)
   end
 
   context "with participatory space evaluator" do
