@@ -111,7 +111,7 @@ bin/rails decidim:upgrade:fix_action_log
 
 You can read more about this change on PR [#15390](https://github.com/decidim/decidim/pull/15390).
 
-### 3.2.  Clean deleted user left behind data `decidim:upgrade:remove_deleted_users_left_data` task
+### 3.2. Remove user data left behind by `Decidim::DestroyAccount`
 
 When a user deletes their account and the `Decidim::DestroyAccount` command is executed, certain related data such as authorizations, versions, private exports, access grants, access tokens, notifications, and reminders were left behind. To fix this issue, we've added a new rake task to clean up the leftover data for previously deleted users.
 
