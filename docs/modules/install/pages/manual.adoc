@@ -158,5 +158,5 @@ The seed data will not be created in production environments, if you still want 
 
 [source,bash]
 ----
-SEED=true rails shakapacker:compile db:seed
+SEED=true bin/rails assets:precompile db:seed
 ----

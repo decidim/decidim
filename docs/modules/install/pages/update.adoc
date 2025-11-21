@@ -13,11 +13,9 @@ gem "decidim-initiatives", "0.29.0"
 gem "decidim-dev", "0.29.0"
 ----
 
-For example, if the latest release is 0.29 we could decide to update to 0.30 or even 0.31.
+To update, we recommend using small increments. From time to time we change the Ruby version or update dependencies, and skipping multiple versions at once can introduce breaking changes. Therefore, if you need to upgrade from v0.29.0 to v0.31.0, we recommend to first upgrade to v0.30.0, follow the release notes, and then, from v0.30.0 to upgrade to v0.31.0.
 
-To update, usually we recommend using small increments, as from now and then, we are changing Ruby version, or we perform upgrades to our dependencies, work that could break your application if you do major leaps. Therefore, if you need to upgrade from 0.29 to 0.31, we recommend to first upgrade to 0.30, follow the release notes, then, from 0.30 to upgrade to 0.31.
-
-So, to perform the upgrade, we first follow the https://github.com/decidim/decidim/releases/tag/v0.30.0[release notes for 0.30], then, after we confirmed everything went ok, we should follow the https://github.com/decidim/decidim/releases/tag/v0.31.0[release notes for 0.31].
+So, to perform the upgrade, we first follow the https://github.com/decidim/decidim/releases/tag/v0.30.0[release notes for v0.30.0], then, after we confirmed everything went OK, we should follow the https://github.com/decidim/decidim/releases/tag/v0.31.0[release notes for v0.31.0].
 
 In theory, that would be all. However, you need to be careful in certain situations, specially if your copy of Decidim has many code modifications. We'd recommend to always test the upgrade following Ruby on Rails best practices: working with development mode in localhost, deploying to a staging/preproduction server to test it manually (specially your modifications) and finally deploying to production. As an alternative you can test the upgrade in a separate machine with the same configuration (If using DigitalOcean you can create an snapshot of the server, tested the update, and then remove it, similar process on other providers).
 
