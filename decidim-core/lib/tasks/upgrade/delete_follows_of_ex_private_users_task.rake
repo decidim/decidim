@@ -2,7 +2,7 @@
 
 namespace :decidim do
   namespace :upgrade do
-    desc "Delete follows of ex private users"
+    desc "Delete follows of private users deleted from a private space"
     task fix_deleted_private_follows: :environment do
       Decidim::Organization.all.each do |organization|
         spaces = organization.participatory_spaces.collect { |space| space if space.respond_to?(:private_space?) && space.private_space? }.compact_blank

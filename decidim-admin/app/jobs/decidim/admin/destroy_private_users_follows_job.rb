@@ -2,8 +2,6 @@
 
 module Decidim
   module Admin
-    # Custom ApplicationJob scoped to the admin panel.
-    #
     class DestroyPrivateUsersFollowsJob < ApplicationJob
       queue_as :default
 

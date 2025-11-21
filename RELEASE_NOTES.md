@@ -107,12 +107,12 @@ bin/rails decidim:upgrade:fix_action_log
 
 You can read more about this change on PR [#15390](https://github.com/decidim/decidim/pull/15390).
 
-### 3.. Remove the follows of ex private users
+### 3.2. Remove the follows of former private users
 
 To delete the follows of ex private users of non transparent assemblies or processes, run
 
 ```console
-./bin/rails decidim:upgrade:fix_deleted_private_follows
+bin/rails decidim:upgrade:fix_deleted_private_follows
 ```
 
 You can read more about this change on PR [#12878](https://github.com/decidim/decidim/pull/12878).
