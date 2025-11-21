@@ -136,9 +136,6 @@ sv:
           authorization_options_invalid: Tyvärr – ni har alla tillstånd som krävs, men en del av dem är inte giltiga för detta val.
           exit_button: Lämna valbåset
           invalid: Du har inte behörighet att rösta i detta val.
-          missing: Din användare saknar vissa nödvändiga tillstånd. Kontrollera informationen och försök igen.
-          not_authorized: '"%{adapter}" tillståndet matchar inte de obligatoriska villkoren.'
-          not_granted: '"%{adapter}" behörighet beviljas inte.'
           resume_with_method: Återuppta verifieringen med %{name}
           verify_with_method: Verifiera med %{name}
         token_csv:
