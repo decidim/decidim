@@ -44,7 +44,6 @@ ca-IT:
             choose_census: Tria el tipus de cens que vols vincular a aquesta elecció
             created_at: Creada el
             identifier: Identificador d'usuària
-            title: Tipus de cens
           preview:
             title:
               one: La vista prèvia de la llista està limitada a %{count} registre.

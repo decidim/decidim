@@ -588,8 +588,6 @@ fi:
         description: Kuvaus
       footer_sub_hero:
         name: Alaosion esialueen banneri
-      global_menu:
-        name: Päänavigaatio
       hero:
         name: Pääkuva ja CTA-painike (call to action)
       hero_settings_form:
@@ -1150,6 +1148,7 @@ fi:
         create_with_space: "%{user_name} loi %{resource_name} osallistumistilassa %{space_name}"
         delete: "%{user_name} poisti %{resource_name}"
         delete_with_space: "%{user_name} poisti %{resource_name} osallistumistilassa %{space_name}"
+        publish: "%{user_name} julkaisi kohteen %{resource_name}"
         publish_with_space: "%{user_name} julkaisi %{resource_name} osallistumistilassa %{space_name}"
         unknown_action: "%{user_name} suoritti toimenpiteen koskien kohdetta %{resource_name}"
         unknown_action_with_space: "%{user_name} suoritti toimenpiteen koskien kohdetta %{resource_name} osallistumistilassa %{space_name}"
@@ -1182,7 +1181,6 @@ fi:
         latlng_text: 'leveysaste: %{latitude}, pituusaste: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Tietoa
       home: Etusivu
     messaging:
       conversation_mailer:
@@ -1738,6 +1736,16 @@ fi:
         instructions_2: 'Älä jaa näitä tunnuksia kenenkään kanssa.'
         instructions_title: "<strong>Mitä sinun tulee tehdä</strong>"
         set_password: Määritä salasana
+        subject: Tärkeä ryhmäprofiilia koskeva päivitys
+      notify_user_group_patched:
+        body_1_html: Tämä viesti koskee tärkeää päivitystä käyttäjäryhmät-toiminnossa palvelussa %{organization_name}.
+        body_2_html: Yksinkertaistaaksemme organisaatioiden kokemusta tällä alustalla, käyttäjäryhmät poistetaan alustalta. Käyttäjäryhmäsi <strong>%{name}</strong> profiili on nyt muutettu tavalliseksi osallistujaprofiiliksi.
+        body_3_html: Jatkaaksesi ryhmätilisi käyttöä, sinun tulee asettaa sille sähköpostiosoite ja salasana. Huomioithan, että jokainen ryhmäsi jäsen saa tämän sähköpostiviestin. Mikäli haluat jatkaa tilin käyttöä, yhden ryhmän jäsenen tulee jatkossa hallinnoida tiliä ryhmän sähköpostiosoitteella ja hänen asettamallaan salasanalla.
+        greeting: Hei %{name},
+        instructions_1_html: 'Käytä seuraavia väliaikaisia tunnuksia kirjautuaksesi sisään: <br><br> Sähköpostiosoite: <strong>%{email}</strong> <br> Salasana <strong>%{password}</strong><br><br>'
+        instructions_2_html: Aseta uusi sähköpostiosoite ja salasana.
+        instructions_3_html: Älä jaa näitä tunnuksia kenenkään kanssa. Ainoastaan ryhmän hallinnoija voi jatkossa kirjautua palveluun tällä tilillä.
+        instructions_title_html: "<strong>Mitä sinun täytyy tehdä?</strong>"
         subject: Tärkeä ryhmäprofiilia koskeva päivitys
     user_report_mailer:
       notify:

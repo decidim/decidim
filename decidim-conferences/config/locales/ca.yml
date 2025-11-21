@@ -442,6 +442,8 @@ ca:
           no_slots_available: No hi ha places disponibles
           registration: Inscripció
       conference_program:
+        program_item:
+          other_category: Altre
         show:
           program: Programa
       conference_registration_mailer:

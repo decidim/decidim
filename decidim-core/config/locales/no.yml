@@ -608,7 +608,6 @@
         latlng_text: 'breddegrad: %{latitude}, lengdegrad: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Hjelp
       home: Hjem
     messaging:
       conversation_mailer:

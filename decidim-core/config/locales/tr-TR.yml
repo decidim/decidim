@@ -604,7 +604,6 @@ tr:
         latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Yardım
       home: Ana Sayfa
     messaging:
       conversation_mailer:

@@ -40,6 +40,7 @@ fr:
       admin:
         census:
           edit:
+            choose_census: Choisissez le type de recensement que vous souhaitez utiliser pour cette élection
             created_at: Créée le
             identifier: Identifiant de l'utilisateur
           preview:
@@ -71,6 +72,7 @@ fr:
             publish_button: Publier les résultats
             title: Résultats
           status:
+            census: 'Recensement:'
             results_availability:
               after_end: Résultats disponibles après la fin de l'élection
               per_question: Résultats disponibles par question
@@ -80,6 +82,8 @@ fr:
           create:
             invalid: Il y a eu un problème lors de la création de l'élection.
             success: Élection créée avec succès.
+          dashboard:
+            subtitle: 'Étape finale: éxaminez vos détails. Des modifications peuvent toujours être apportées avant de publier. Une fois publiée, vous serez toujours en mesure de mettre à jour la description de l''élection.'
           edit:
             title: Modifier l'élection
           form:
@@ -142,6 +146,9 @@ fr:
         internal_users:
           already_have_an_account?: Vous avez déjà un compte?
           are_you_new?: Nouveau participant ?
+          info_html: |
+            Vous pouvez restreindre la participation à l'élection aux participants qui ont une autorisation.<br>
+            Notez que les participants devront satisfaire aux autorisations sélectionnées pour voter. Laisser toutes les cases à cocher vides permettra à toute personne enregistrée de voter.
           internal_type_title: Autorisations supplémentaires requises pour voter (facultatif)
           sign_in_description: Connectez-vous pour voter durant cette élection
           sign_up_description: Créer un compte pour voter durant cette élection
@@ -184,6 +191,7 @@ fr:
           state_values:
             finished: Terminées
             ongoing: En cours
+            scheduled: Programmé
         orders:
           end_at: Date de fin
           label: Trier par

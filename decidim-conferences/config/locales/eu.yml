@@ -442,6 +442,8 @@ eu:
           no_slots_available: Ez dago plazarik
           registration: Izen-ematea
       conference_program:
+        program_item:
+          other_category: Beste bat
         show:
           program: Egitaraua
       conference_registration_mailer:
