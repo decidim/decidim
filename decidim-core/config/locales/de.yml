@@ -199,6 +199,7 @@ de:
         success: Ihr Konto wurde erfolgreich gelöscht.
       download_your_data_export:
         export_expired: Der Export ist abgelaufen. Versuchen Sie, einen neuen Export zu generieren.
+        export_not_found: Der von Ihnen abgerufene Export existiert nicht, oder Sie haben keinen Zugriff auf den Download
         file_no_exists: Diese Datei existiert nicht
         notice: Ihre Daten werden gerade bereitgestellt. Sie erhalten nach Fertigstellung eine E-Mail.
       email_change:
@@ -1156,6 +1157,7 @@ de:
         create_with_space: "%{user_name} hat %{resource_name} in %{space_name} erstellt"
         delete: "%{user_name} hat %{resource_name} gelöscht"
         delete_with_space: "%{user_name} hat %{resource_name} in %{space_name} gelöscht"
+        publish: "%{user_name} hat %{resource_name} veröffentlicht"
         publish_with_space: "%{user_name} veröffentlichte %{resource_name} in %{space_name}"
         unknown_action: "%{user_name} hat eine Aktion an %{resource_name} ausgeführt"
         unknown_action_with_space: "%{user_name} hat eine Aktion an %{resource_name} in %{space_name} ausgeführt"
@@ -1732,10 +1734,15 @@ de:
         greeting: Hallo %{name},
         instructions_1: Wenn Sie Zugriff auf dieses E-Mail-Konto haben, überprüfen Sie bitte Ihren Posteingang für die Anweisungen.
         instructions_2: Wenn nicht, muss einer Ihrer Kollegen, der Zugriff hat, das Passwort festlegen und die Anmeldedaten mit Ihnen teilen.
+        instructions_intro: Gruppenmitglieder teilen nun den Zugriff auf dieses Profil mithilfe gemeinsamer Anmeldedaten (E-Mail und Passwort). Wir haben Anweisungen an %{email} gesendet, um ein neues Passwort für das Profil festzulegen.
+        instructions_title: "<strong>Was das für Sie bedeutet</strong>"
+        subject: Wichtige Aktualisierung für Ihr Gruppenprofil
       notify_deprecation_to_owner:
         body_1: 'Wir möchten Sie gerne über ein wichtiges Update ihres Gruppenprofil informieren: %{organization_name}.'
         body_2: Wir möchten die Erfahrungen von Organisationen vereinfachen und verbessern und werden deshalb die Funktion "Benutzergruppen" abschalten. Ihre Gruppe, <strong>%{name}</strong>, wurde in ein reguläres Konto umgewandelt.
         greeting: Hallo %{name},
+        set_password: Passwort festlegen
+        subject: Wichtige Aktualisierung für Ihr Gruppenprofil
     user_report_mailer:
       notify:
         body_1: Benutzer %{user} wurde von %{token} gemeldet
