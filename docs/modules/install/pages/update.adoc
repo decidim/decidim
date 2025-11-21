@@ -70,7 +70,7 @@ include::install:partial$version_matrix.adoc[]
 == Recommendations
 
 . Make a full backup of the database before updating, just in case something unexpected happens.
-. Never add 2 or more versions of Decidim to the same release, as the database structure could change, deprecated functions could be removed, causing issues that may prevent you to successfully run post release commands.
+. Never add 2 or more versions of Decidim to the same deployment to production, as the database structure could change, deprecated functions could be removed, causing issues that may prevent you to successfully run post release commands.
 . If you are more than update away. Always update from one version to the immediately next one and then repeat the process until you are up to date.
 . Always check the instructions for a certain version upgrade in https://github.com/decidim/decidim/releases[Releases]. Some releases require to perform certain actions as they may change some database structures. Follow that instructions if you are affected.
 . Check also the file https://github.com/decidim/decidim/blob/develop/CHANGELOG.md[CHANGELOG] It may have relevant information for updates between versions.
