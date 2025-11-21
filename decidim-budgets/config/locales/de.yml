@@ -338,6 +338,7 @@ de:
         actions:
           comment: Kommentieren
           vote: Abstimmen
+          vote_comment: Kommentar bewerten
         name: Budgets
         settings:
           global:
