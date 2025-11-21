@@ -199,9 +199,6 @@ es:
           authorization_options_invalid: Lamentablemente, aunque tienes todas las autorizaciones necesarias, algunas de ellas no son válidas para estas elecciones.
           exit_button: Salir de la cabina de votación
           invalid: No tienes autorización para votar en estas elecciones.
-          missing: Tu cuenta de usuaria no dispone de algunas de las autorizaciones necesarias. Por favor, revisa la información e inténtalo de nuevo.
-          not_authorized: 'La autorización de "%{adapter}" no coincide con las condiciones requeridas.'
-          not_granted: 'La autorización de "%{adapter}" no está concedida.'
           resume_with_method: Reanudar la verificación con %{name}
           verify_with_method: Verificar con %{name}
         token_csv:
