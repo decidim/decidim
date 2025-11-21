@@ -85,10 +85,12 @@ shared_examples "admin menu shows only assigned space" do |space_name:, other_sp
 
   context "and does not show unassigned spaces" do
     it "shows only the assigned space" do
-      expect(page).to have_content(space_name)
+      within ".layout-nav" do
+        expect(page).to have_content(space_name)
 
-      other_spaces.each do |other_space|
-        expect(page).to have_no_content(other_space)
+        other_spaces.each do |other_space|
+          expect(page).to have_no_content(other_space)
+        end
       end
     end
   end
