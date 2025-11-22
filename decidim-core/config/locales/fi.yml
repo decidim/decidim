@@ -198,6 +198,7 @@ fi:
         success: Tilisi poisto onnistui.
       download_your_data_export:
         export_expired: Vientitiedosto on vanhentunut. Yritä luoda uusi vienti.
+        export_not_found: Vientitiedosto, jota yritit ladata, ei ole enää saatavilla tai sinulla ei ole oikeutta ladata sitä
         file_no_exists: Tiedostoa ei ole olemassa
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
       email_change:
