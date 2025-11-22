@@ -1,6 +1,8 @@
 fi:
   activemodel:
     attributes:
+      elections_question:
+        max_choices: Valintojen enimmäismäärä
       token_csv:
         file: Tiedosto
         remove_all: Poista kaikki nykyiset tiedot henkilötietorekisteristä
@@ -298,6 +300,9 @@ fi:
         question:
           back: Takaisin
           cast_vote: Lähetä ääni
+          max_choices: 'Valintojen enimmäismäärä: %{count}'
+          max_choices_alert: Olet valinnut liian monta vaihtoehtoa. Poista joitain valintoja jatkaaksesi.
+          max_choices_exceeded: Et voi valita enempää kuin %{max} vaihtoehtoa. Mene takaisin ja muuta valintojasi.
           next: Seuraava
         receipt:
           description: Voit äänestää uudestaan äänestyksen ollessa auki. Aikaisempi äänesi mitätöidään ja korvataan antamallasi uudella äänellä.
