@@ -12,7 +12,7 @@ describe "Menu" do
 
   context "when clicking on a menu entry" do
     before do
-      visit decidim.pages_path
+      visit decidim.pages_path(locale: I18n.locale)
     end
 
     it "switches the active option" do

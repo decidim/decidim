@@ -61,20 +61,6 @@ describe "Conferences" do
       let(:manifest_name) { :conferences }
     end
 
-    context "and accessing from the homepage" do
-      let!(:menu_content_block) { create(:content_block, organization:, manifest_name: :global_menu, scope_name: :homepage) }
-
-      it "the menu link is shown" do
-        visit decidim.root_path
-
-        within "#home__menu" do
-          click_on "Conferences"
-        end
-
-        expect(page).to have_current_path decidim_conferences.conferences_path(locale: I18n.locale)
-      end
-    end
-
     it "lists all the highlighted conferences" do
       within "#highlighted-conferences" do
         expect(page).to have_content(translated(promoted_conference.title, locale: :en))

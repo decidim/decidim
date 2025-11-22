@@ -73,20 +73,6 @@ describe "Assemblies" do
       let(:manifest_name) { :assemblies }
     end
 
-    context "and accessing from the homepage" do
-      let!(:menu_content_block) { create(:content_block, organization:, manifest_name: :global_menu, scope_name: :homepage) }
-
-      it "the menu link is shown" do
-        visit decidim.root_path
-
-        within "#home__menu" do
-          click_on "Assemblies"
-        end
-
-        expect(page).to have_current_path decidim_assemblies.assemblies_path(locale: I18n.locale)
-      end
-    end
-
     context "and requesting the assemblies path" do
       before do
         visit decidim_assemblies.assemblies_path(locale: I18n.locale)

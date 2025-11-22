@@ -41,7 +41,7 @@ module Decidim
         let(:query) { "{ url }" }
 
         it "returns the url field" do
-          expect(response["url"]).to eq(Decidim::EngineRouter.new("decidim", { host: organization.host }).page_url(model.reload))
+          expect(response["url"]).to eq(Decidim::EngineRouter.new("decidim", { host: organization.host }).page_url(model.reload, locale: I18n.locale))
         end
       end
 

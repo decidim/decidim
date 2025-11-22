@@ -15,7 +15,7 @@ module Decidim
       field :url, GraphQL::Types::String, "The URL of this page", null: false
 
       def url
-        Decidim::EngineRouter.new("decidim", { host: object.organization.host }).page_url(object)
+        Decidim::EngineRouter.new("decidim", { host: object.organization.host }).page_url(object, locale: I18n.locale)
       end
     end
   end
