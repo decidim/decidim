@@ -47,6 +47,7 @@ module Decidim
             body: question_form.body,
             description: question_form.description,
             question_type: question_form.question_type,
+            max_choices: question_form.max_choices,
             position: index
           )
 

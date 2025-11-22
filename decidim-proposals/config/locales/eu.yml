@@ -145,8 +145,6 @@ eu:
             values:
               state_not_published: Erantzun gabe
               state_published: Erantzun da
-        search_placeholder:
-          id_string_or_title_cont: Bilatu %{collection} edo ID edo izenburuaren arabera
       tooltips:
         cannot_edit_proposal_info: Ezin da editatu proposamen hau parte-hartzaile batek sortua bezala edo botorik jaso badu
         deleted_proposal_states_info: Ezin da ezabatu proposamen-egoera hau, proposamen batzuk esleitu baitzaizkio
@@ -176,6 +174,7 @@ eu:
             can_accumulate_votes_beyond_threshold: Babesak metatu ditzake atalasetik haratago
             clear_all: Garbitu dena
             collaborative_drafts_enabled: Zirriborro kolaboratiboak gaituta
+            collaborative_drafts_enabled_help: Elkarlaneko zirriborroak Decidim v0.32an ezabatuko dira. Erabiltzen duten erakundeek proposamen berriaren egilekidetzara pasa daitezke.
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako ezarpenei eusteko)
             default_sort_order: Proposamenen hurrenkera lehenetsia
@@ -493,6 +492,7 @@ eu:
           deleted_proposals_info: Ezabatutako proposamenak berreskura daitezke zaborrontzitik.
           preview: Aurreikusi
           view_deleted_proposals: Ikusi ezabatutako proposamenak
+        deprecation_warning_collaborative_drafts_html: "⚠️ <b>Deprezazioaren Oharra. </b> Elkarlaneko Zirriborroak ezabatuko dira Decidim v0.32an. Erabiltzen duten erakundeek proposamen berriaren egilekidetzara pasa daitezke."
         evaluation_assignments:
           create:
             invalid: Arazo bat izan da proposamenak ebaluatzaile bati esleitzean.
@@ -710,7 +710,7 @@ eu:
           delete: "%{user_name} k desesleitu du ebaluatzaile bat %{proposal_title} proposamenetik"
         proposal:
           answer: "%{user_name} parte-hartzaileak %{resource_name} %{space_name} espazioko proposamenari erantzun dio"
-          create: "%{user_name} -k sortu zuen %{resource_name} proposamena %{space_name} esparruko %{merged_count} proposamenen bat egitetik"
+          create: "%{user_name} parte-hartzaileak sortu zuen %{resource_name} proposamena %{space_name} esparruko %{merged_count} proposamenen bat egitetik"
           publish_answer: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} proposamenaren erantzuna %{space_name} espazioan"
           restore: "%{user_name} parte-hartzailea berreskuratu du %{resource_name} proposamena %{space_name} espazioan"
           soft_delete: "%{user_name} parte-hartzailea eraman du %{resource_name} proposamena %{space_name} espaziora"
@@ -952,7 +952,7 @@ eu:
           most_commented: Iruzkin gehien dituztenak
           most_followed: Jarraitzaile gehien dituztenak
           most_liked: Like gehien
-          most_voted: Bozkatuenak
+          most_voted: Gehien babestutakoak
           random: Ausazko ordena
           recent: Berrienetatik zaharrenetara
           with_more_authors: Egile gehiagorekin

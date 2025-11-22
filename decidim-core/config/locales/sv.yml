@@ -570,8 +570,6 @@ sv:
         description: Beskrivning
       footer_sub_hero:
         name: Sidfot sub hero banner
-      global_menu:
-        name: Global meny
       hero:
         name: Bild och CTA
       hero_settings_form:
@@ -1099,7 +1097,6 @@ sv:
         latlng_text: 'latitud: %{latitude}, longitud: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Hjälp
       home: Hem
     messaging:
       conversation_mailer:
@@ -1938,7 +1935,6 @@ sv:
     name_included_in_password: är för likt ditt namn
     nickname_included_in_password: är för likt ditt användarnamn
     not_enough_unique_characters: har inte tillräckligt med unika tecken
-    password_not_allowed: är ej tillåtet
     password_repeated: kan inte återanvända tidigare lösenord
     password_too_common: är för vanligt
     password_too_long: är för långt

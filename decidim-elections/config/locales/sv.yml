@@ -39,7 +39,6 @@ sv:
             choose_census: Välj vilken typ av folkräkning du vill använda för detta val
             created_at: Skapad den
             identifier: Identifierare för användare
-            title: Typ av folkräkning
           preview:
             title:
               one: Förhandsgranskningen är begränsad till %{count} post.

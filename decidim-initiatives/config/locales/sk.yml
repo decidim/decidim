@@ -60,7 +60,6 @@ sk:
         initiatives:
           fields:
             created_at: Vytvorené u
-            id: ID
             state: Štát
             supports_count: Podpisy
             title: Iniciatívy

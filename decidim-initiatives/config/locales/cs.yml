@@ -122,7 +122,6 @@ cs:
         initiatives:
           fields:
             created_at: Vytvořeno v
-            id: ID
             published_at: Publikováno v
             state: Stav
             supports_count: Podpisy

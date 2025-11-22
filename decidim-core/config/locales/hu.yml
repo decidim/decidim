@@ -446,8 +446,6 @@ hu:
         description: Leírás
       footer_sub_hero:
         name: Lábléc sub hero banner
-      global_menu:
-        name: Globális menü
       hero:
         name: Hero image és CTA
       hero_settings_form:
@@ -817,7 +815,6 @@ hu:
         latlng_text: 'földrajzi szélesség: %{latitude}, földrajzi hosszúság: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Segítség
       home: Kezdőlap
     messaging:
       conversation_mailer:
@@ -1531,7 +1528,6 @@ hu:
     name_included_in_password: túlságosan hasonlít a nevedhez
     nickname_included_in_password: túlságosan hasonlít a becenevéhez
     not_enough_unique_characters: nem tartalmaz elegendő egyedi karaktert
-    password_not_allowed: nem engedélyezett
     password_repeated: korábban már használt jelszó nem megfelelő
     password_too_common: túl gyakori
     password_too_long: túl hosszú

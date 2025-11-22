@@ -234,6 +234,8 @@ shared_examples "comments" do
 
     describe "when using emojis" do
       before do
+        skip("This spec does not work in focus mode, since there is no language selector.") if has_selector?(".main-bar--focus-mode-back-button")
+
         within_language_menu do
           click_on "Castellano"
         end
@@ -877,6 +879,30 @@ shared_examples "comments" do
         within "#comments #comment_#{parent.id}" do
           expect(page).to have_css("#comment-#{parent.id}-replies")
           expect(page.find("#comment-#{parent.id}-replies").text).to be_blank
+        end
+      end
+
+      context "when admin moderates the comment" do
+        let!(:user) { create(:user, :admin, :confirmed, organization:) }
+
+        before do
+          switch_to_host(organization.host)
+          login_as user, scope: :user
+          visit resource_path
+        end
+
+        it "hides the comment" do
+          within "#comment_#{comments.first.id}" do
+            page.find("[id^='dropdown-trigger']").click
+            click_on "Report"
+          end
+
+          within "#flagModalComment#{comments.first.id}" do
+            check "Hide this content"
+            click_on "Hide"
+          end
+
+          expect(page).to have_content("This resource has been hidden.")
         end
       end
     end

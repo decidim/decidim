@@ -522,7 +522,6 @@ sk:
     managed_users:
       expired_session: Aktuálna platnosť zosúhlasenia už vypršala.
     menu:
-      help: Pomoc
       home: Domov
     messaging:
       conversation_mailer:
@@ -859,7 +858,6 @@ sk:
     fallback: nie je platný
     name_included_in_password: je príliš podobné vášmu menu
     not_enough_unique_characters: nemá dostatok jedinečných znakov
-    password_not_allowed: nie je povolené
     password_too_common: je príliš bežné
     password_too_long: je to moc dlhé
     password_too_short: je príliš krátke

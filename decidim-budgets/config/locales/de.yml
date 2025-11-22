@@ -213,7 +213,6 @@ de:
             total_budget: Gesamt Budget
         project:
           fields:
-            id: ID
             map: Karte
             taxonomies: Klassifizierungen
             title: Titel
@@ -262,9 +261,9 @@ de:
           are_you_sure: Sind Sie sicher, dass Sie Ihre Stimme zurückziehen wollen?
           cancel_order: Stimme löschen
           checked_out:
-            description: Sie haben bereits über dieses Budget abgestimmt. Wenn Sie Ihre Meinung geändert haben, können Sie %{cancel_link}.
+            description: Sie haben bereits über dieses Budget abgestimmt. Wenn Sie Ihre Meinung geändert haben, können Sie Ihre Stimmen löschen.
             title: Budget-Abstimmung abgeschlossen
-          vote: Gewähltes Budget
+          vote: Für Budget abstimmen
         count:
           projects_count:
             one: 1 Projekt
@@ -314,10 +313,10 @@ de:
         project_budget_button:
           add: Zur Abstimmung hinzufügen
           add_descriptive: Projekt %{resource_name} zu Ihrer Abstimmung hinzufügen.
-          added: Zu deiner Abstimmung hinzugefügt
+          added: Ausgewählt
           added_descriptive: Project %{resource_name} zu Ihrer Abstimmung hinzugefügt.
         project_filter:
-          added: Hinzugefügt
+          added: Ausgewählt
           all: Alle
         projects_for: Projekte für %{name}
         select_projects: Projekt hinzufügen
@@ -403,13 +402,6 @@ de:
           updated_at: Datum und Uhrzeit der Anfrageaktualisierung
       show:
         projects: Export der Projekte
-    events:
-      budgets:
-        budget_published:
-          email_intro: 'Das Budget %{resource_title} ist jetzt für %{participatory_space_title} aktiv. Sehen Sie es sich auf dieser Seite an:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-          email_subject: Das Budget %{resource_title} ist jetzt für %{participatory_space_title} aktiv.
-          notification_title: Das Budget <a href="%{resource_path}">%{resource_title}</a> ist jetzt aktiv für %{participatory_space_title}.
     open_data:
       help:
         projects:

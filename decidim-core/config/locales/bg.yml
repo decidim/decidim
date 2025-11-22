@@ -489,8 +489,6 @@ bg:
         description: Описание
       footer_sub_hero:
         name: Долен колонтитул на под-геройския банер
-      global_menu:
-        name: Основно меню
       hero:
         name: Профилно изображение и бутон "Призив към действие"
       hero_settings_form:
@@ -910,7 +908,6 @@ bg:
         latlng_text: 'географска ширина: %{latitude}, географска дължина: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Помощ
       home: Начало
     messaging:
       conversation_mailer:
@@ -1660,7 +1657,6 @@ bg:
     name_included_in_password: е твърде подобно на името Ви
     nickname_included_in_password: е твърде близко до Вашия псевдоним
     not_enough_unique_characters: няма достатъчно различни букви
-    password_not_allowed: не се допуска
     password_repeated: не може да преизползвате стара парола
     password_too_common: твърде разпространен
     password_too_long: твърде дълъг

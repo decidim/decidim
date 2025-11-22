@@ -476,8 +476,6 @@ pl:
         description: Opis
       footer_sub_hero:
         name: Baner podrzędny stopki
-      global_menu:
-        name: Globalne menu
       hero:
         name: Banner i CTA
       hero_settings_form:
@@ -897,7 +895,6 @@ pl:
         latlng_text: 'szerokość geograficzna: %{latitude}, długość geograficzna: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Pomoc
       home: Strona główna
     messaging:
       conversation_mailer:
@@ -1659,7 +1656,6 @@ pl:
     name_included_in_password: jest zbyt podobne do twojego imienia
     nickname_included_in_password: jest zbyt podobne do twojego nicka
     not_enough_unique_characters: nie ma wystarczającej liczby unikalnych znaków
-    password_not_allowed: nie jest dozwolone
     password_repeated: nie można ustawić ponownie starego hasła
     password_too_common: jest zbyt powszechne
     password_too_long: jest zbyt długie

@@ -498,8 +498,8 @@ de:
         copy_calendar_url: Kopieren
         copy_calendar_url_clarification: Kalender-URL in Zwischenablage kopieren
         copy_calendar_url_copied: Kopiert!
-        copy_calendar_url_description: Sie können alle veröffentlichten Veranstaltungen in Ihrer Kalenderanwendung oder bei Ihrem Kalender-Anbieter sehen. Kopieren und fügen Sie diese URL mit der Option "Neuen Kalender von einer URL hinzufügen" in Ihren Kalender ein.
-        copy_calendar_url_explanation: Bitte beachten Sie, dass Sie eine Auswahl von Veranstaltungen exportieren, da es aktive Filter gibt. Wenn Sie alle Veranstaltungen exportieren möchten, setzen Sie zuerst alle Filter zurück.
+        copy_calendar_url_description: Sie können alle veröffentlichten Veranstaltungen auf Ihrer Kalenderanwendung anzeigen. Kopieren Sie diese URL und fügen Sie den Kalender mit der Option "Neuen Kalender von einer URL abonnieren" hinzu.
+        copy_calendar_url_explanation: Bitte beachten Sie, dass nur eine Auswahl von Veranstaltungen exportiert wird, weil Filter aktiv sind. Wenn Sie alle Veranstaltungen exportieren möchten, setzen Sie zuerst alle Filter zurück.
         copy_calendar_url_message: Die URL wurde erfolgreich in die Zwischenablage kopiert.
         export_calendar: Kalender exportieren
       close_meeting_reminder_mailer:
@@ -673,7 +673,6 @@ de:
           fields:
             closed: Geschlossen
             end_time: Endtermin
-            id: ID
             map: Karte
             official_meeting: Offizielle Besprechung
             start_time: Anfangsdatum

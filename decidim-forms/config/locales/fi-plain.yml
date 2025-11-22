@@ -43,7 +43,7 @@ fi-pl:
             allow_editing_responses: Salli rekisteröityneiden käyttäjien muokata omia kyselyvastauksiaan
             allow_responses: Salli vastaukset
             allow_unregistered: Salli rekisteröitymättömien käyttäjien vastata tähän kyselyyn
-            allow_unregistered_help: Jos asetus on käytössä, sisäänkirjautumista ei vaadita kyselyyn vastaamista varten. Tämä voi johtaa heikkotasoiseen tai epäluotettavaan tietoon ja se on alttiimpi automatisoiduille hyökkäyksille. Käytä varoen! Muista, että osallistuja voisi vastata samaan kyselyyn useita kertoja, käyttämällä eri selaimia tai selaimen "yksityisen selauksen" ominaisuutta.
+            allow_unregistered_help: Jos asetus on käytössä, sisäänkirjautumista ei vaadita kyselyyn vastaamista varten. Tämä voi johtaa heikkotasoiseen tai epäluotettavaan tietoon ja se on alttiimpi automatisoiduille hyökkäyksille. Käytä varoen! Muista, että osallistuja voisi vastata samaan kyselyyn useita kertoja, käyttämällä eri selaimia tai selaimen "näkymättömyystilan" tai "yksityisen selauksen" avulla.
             announcement: Ilmoitus
             clean_after_publish: Poista vastaukset kyselyn julkaisun yhteydessä
             description: Kuvaus
@@ -54,7 +54,7 @@ fi-pl:
             tos: Käyttöehdot
         questionnaires:
           actions:
-            back: Takaisin kysymyksiin
+            back: Takaisin vastauksiin
             publish_responses: Julkaise vastaukset
             show: Vastaukset
           display_condition:
@@ -102,12 +102,10 @@ fi-pl:
             any: Minkä tahansa
             collapse: Sulje
             description: Kuvaus
-            down: Alas
             expand: Avaa
             question: Kysymys
             remove: Poista
             statement: Selite
-            up: Ylös
           questions_form:
             already_responded_warning: Jotkut käyttäjät ovat jo vastanneet lomakkeeseen, joten et voi muokata sen kysymyksiä.
             collapse: Supista kaikki kysymykset
@@ -138,19 +136,15 @@ fi-pl:
             show:
               title: 'Vastaus #%{number}'
           separator:
-            down: Alas
             remove: Poista
             separator: Erotin
-            up: Ylös
           title_and_description:
             collapse: Pienennä
             description: Kuvaus
-            down: Alas
             expand: Laajenna
             remove: Poista
             title: Otsikko
             title_and_description: Otsikko ja kuvaus
-            up: Ylös
           update:
             invalid: Kyselylomakkeiden tallentamisessa on tapahtunut virheitä.
             success: Lomake tallennettu onnistuneesti.

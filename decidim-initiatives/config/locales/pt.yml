@@ -85,7 +85,6 @@ pt:
         initiatives:
           fields:
             created_at: Criado em
-            id: Identidade
             published_at: Publicado em
             state: Estado
             supports_count: Assinaturas

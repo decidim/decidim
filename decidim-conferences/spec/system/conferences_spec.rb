@@ -28,18 +28,6 @@ describe "Conferences" do
     end
   end
 
-  context "when there are no conferences and accessing from the homepage" do
-    let!(:menu_content_block) { create(:content_block, organization:, manifest_name: :global_menu, scope_name: :homepage) }
-
-    it "the menu link is not shown" do
-      visit decidim.root_path
-
-      within "#home__menu" do
-        expect(page).to have_no_content("Conferences")
-      end
-    end
-  end
-
   context "when the conference does not exist" do
     it_behaves_like "a 404 page" do
       let(:target_path) { decidim_conferences.conference_path(99_999_999, locale: I18n.locale) }
@@ -55,18 +43,6 @@ describe "Conferences" do
     context "and directly accessing from URL" do
       it_behaves_like "a 404 page" do
         let(:target_path) { decidim_conferences.conferences_path(locale: I18n.locale) }
-      end
-    end
-
-    context "and accessing from the homepage" do
-      let!(:menu_content_block) { create(:content_block, organization:, manifest_name: :global_menu, scope_name: :homepage) }
-
-      it "the menu link is not shown" do
-        visit decidim.root_path
-
-        within "#home__menu" do
-          expect(page).to have_no_content("Conferences")
-        end
       end
     end
   end

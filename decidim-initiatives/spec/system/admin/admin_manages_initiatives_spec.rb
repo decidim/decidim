@@ -113,12 +113,6 @@ describe "Admin manages initiatives" do
       expect(page).to have_content(translated(open_initiative.title))
     end
 
-    it "can be searched by id" do
-      search_by_text(open_initiative.id)
-
-      expect(page).to have_content(translated(open_initiative.title))
-    end
-
     it "can be searched by author name" do
       search_by_text(open_initiative.author.name)
 

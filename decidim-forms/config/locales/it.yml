@@ -15,8 +15,6 @@ it:
             description: Descrizione
             tos: Termini di servizio
         questionnaires:
-          actions:
-            back: Torna alle domande
           display_condition:
             condition_question: Domanda
             condition_type: Condizione
@@ -51,20 +49,16 @@ it:
             any: Qualunque
             collapse: Comprimi
             description: Descrizione
-            down: Giù
             expand: Espandi
             question: Domanda
             remove: Rimuovere
             statement: dichiarazione
-            up: Su
           responses:
             actions:
               show: Mostra risposte
           separator:
-            down: Giù
             remove: Elimina
             separator: Separatore
-            up: Su
           update:
             invalid: Si sono verificati errori durante il salvataggio del questionario.
             success: Modulo salvato correttamente.

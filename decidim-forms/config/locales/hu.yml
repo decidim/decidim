@@ -27,21 +27,17 @@ hu:
             any: Bármilyen
             collapse: Összecsukás
             description: Leírás
-            down: Le
             expand: Kibontás
             question: Kérdés
             remove: Eltávolít
             statement: Nyilatkozat
-            up: Fel
           title_and_description:
             collapse: Összecsuk
             description: Leírás
-            down: Le
             expand: Kibont
             remove: Eltávolít
             title: Cím
             title_and_description: Cím és leírás
-            up: Fel
           update:
             invalid: Hiba történt a kérdőív mentésekor.
       images:

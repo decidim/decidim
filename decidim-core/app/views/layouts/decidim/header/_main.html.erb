@@ -16,14 +16,16 @@
       <% if current_user&.ephemeral? %>
         <%= render partial: "layouts/decidim/header/close_ephemeral_session" %>
       <% else %>
-        <div role="search" class="main-bar__search">
-          <%= render partial: "layouts/decidim/header/main_search" %>
-        </div>
-        <nav role="navigation" class="main-bar__links-desktop">
-          <%= render partial: "layouts/decidim/header/main_links_desktop" %>
-        </nav>
-        <div class="main-bar__menu-mobile">
-          <%= render partial: "layouts/decidim/header/main_menu_mobile" %>
+        <div class="flex md:justify-between md:gap-x-10">
+          <div role="search" class="main-bar__search">
+            <%= render partial: "layouts/decidim/header/main_search" %>
+          </div>
+          <nav role="navigation" aria-label="<%= t("layouts.decidim.header.user_menu") %>" class="main-bar__links-desktop md:flex md:gap-x-8">
+            <%= render partial: "layouts/decidim/header/main_links_desktop" %>
+          </nav>
+          <div class="main-bar__menu-mobile">
+            <%= render partial: "layouts/decidim/header/main_menu_mobile" %>
+          </div>
         </div>
         <%= render partial: "layouts/decidim/header/main_links_mobile_account" if current_user %>
       <% end %>

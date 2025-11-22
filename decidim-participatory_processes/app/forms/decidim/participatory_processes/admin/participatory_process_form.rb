@@ -50,6 +50,9 @@ module Decidim
 
         validates :weight, presence: true
 
+        validates :start_date, date: { before: :end_date, allow_blank: true, if: proc { |obj| obj.end_date.present? } }
+        validates :end_date, date: { after: :start_date, allow_blank: true, if: proc { |obj| obj.start_date.present? } }
+
         alias organization current_organization
 
         def map_model(model)
