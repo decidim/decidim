@@ -1,6 +1,8 @@
 sv:
   activemodel:
     attributes:
+      elections_question:
+        max_choices: Maximalt antal val
       token_csv:
         file: Fil
         remove_all: Ta bort all aktuell folkräkningsdata
@@ -230,6 +232,9 @@ sv:
         question:
           back: Tillbaka
           cast_vote: Rösta
+          max_choices: 'Max val: %{count}'
+          max_choices_alert: Du har valt för många alternativ. Avmarkera några för att fortsätta.
+          max_choices_exceeded: Du kan inte välja mer än %{max} alternativ. Gå tillbaka och justera ditt val.
           next: Nästa
         receipt:
           description: Du kan rösta igen så länge omröstningsperioden pågår. En ny omröstning kommer att skriva över den gamla.
