@@ -12,6 +12,14 @@ To install this module, run in your console:
 bundle add decidim-elections
 ```
 
+And then execute:
+
+```bash
+bundle
+bundle exec rails decidim_elections:install:migrations
+bundle exec rails db:migrate
+```
+
 ## Contributing
 
 See [Decidim](https://github.com/decidim/decidim).
