@@ -819,7 +819,7 @@ en:
           nickname: The nickname of this user
           notification_settings: The notification settings that this user has selected
           notifications_sending_frequency: The frequency of the notifications that this user receives
-          officialized_as: The name of the officialization (Counsellor, Mayor, etc)
+          officialized_as: The name of the officialization (Councellor, Mayor, etc)
           officialized_at: The date and time when this user was officialized
           organization: The organization that this user belongs to
           password_updated_at: The date when their password was changed for the last time
