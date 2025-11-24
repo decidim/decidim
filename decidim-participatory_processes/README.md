@@ -27,12 +27,6 @@ This module provides:
 
 This is on the default Decidim installation so you should not change anything to use this participatory space.
 
-## Screenshots
-
-![Public View](docs/screenshot01.png)
-
-![Admin View](docs/screenshot02.png)
-
 ## Contributing
 
 See [Decidim](https://github.com/decidim/decidim).
