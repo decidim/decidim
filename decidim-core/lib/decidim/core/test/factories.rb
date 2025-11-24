@@ -647,7 +647,7 @@ FactoryBot.define do
 
   factory :taxonomy_filter_item, class: "Decidim::TaxonomyFilterItem" do
     taxonomy_filter
-    taxonomy_item { association(:taxonomy, parent: taxonomy_filter.root_taxonomy) }
+    taxonomy_item { association(:taxonomy, organization: taxonomy_filter.root_taxonomy.organization, parent: taxonomy_filter.root_taxonomy) }
   end
 
   factory :coauthorship, class: "Decidim::Coauthorship" do
