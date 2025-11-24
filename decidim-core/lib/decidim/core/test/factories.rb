@@ -1036,7 +1036,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     reminder { create(:reminder, skip_injection:) }
-    remindable { build(:dummy_resource, skip_injection:) }
+    remindable { build(:dummy_resource, organization: reminder.user.organization, skip_injection:) }
 
     Decidim::ReminderRecord::STATES.keys.each do |defined_state|
       trait defined_state do
