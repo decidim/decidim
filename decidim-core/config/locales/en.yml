@@ -815,7 +815,7 @@ en:
           locale: The locale (language) that this user has selected
           managed: Whether this user is managed by another user
           name: The name of this user
-          newsletter_notifications_at: The date and time when this user last received a newsletter
+          newsletter_notifications_at: The date and time when this participant subscribed to receive a newsletter
           nickname: The nickname of this user
           notification_settings: The notification settings that this user has selected
           notifications_sending_frequency: The frequency of the notifications that this user receives
