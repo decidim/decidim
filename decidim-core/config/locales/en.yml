@@ -1486,7 +1486,7 @@ en:
         statistics:
           headline: Statistics
         sub_hero:
-          register: Register
+          register: Create an account
           register_title: Create an account
       index:
         standalone_pages: Pages
