@@ -23,6 +23,8 @@ This module provides:
 
 * Public views for participatory process via a high level section in the main menu.
 
+You can see the documentation of this feature at the [Decidim Documentation](https://docs.decidim.org/en/develop/admin/spaces/processes).
+
 ## Installation
 
 This is on the default Decidim installation so you should not change anything to use this participatory space.

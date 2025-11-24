@@ -15,6 +15,8 @@ This module provides:
 
 * Public views for conference via a high level section in the main menu.
 
+You can see the documentation of this feature at the [Decidim Documentation](https://docs.decidim.org/en/develop/admin/spaces/conferences).
+
 ## Installation
 
 Add this line to your application's Gemfile:

@@ -18,9 +18,7 @@ This plugin provides:
 
 * Public views for initiatives via a high level section in the main menu.
 
-## Installation
-
-Add this line to your application's Gemfile:
+You can see the documentation of this feature at the [Decidim Documentation](https://docs.decidim.org/en/develop/admin/spaces/initiatives).
 
 ```ruby
 gem 'decidim-initiatives'
