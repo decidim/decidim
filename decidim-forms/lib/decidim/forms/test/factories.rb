@@ -118,16 +118,16 @@ FactoryBot.define do
 
     trait :with_response_options do
       after(:build) do |question, evaluator|
-        question.response_options do
-          Array.new(3).collect { build(:response_option, question: , skip_injection: evaluator.skip_injection) }
+        question.response_options = Array.new(3).collect do
+          build(:response_option, question:, skip_injection: evaluator.skip_injection)
         end
       end
     end
 
     trait :conditioned do
       after(:build) do |question, evaluator|
-        question.display_conditions do
-          Array.new(3).collect { build(:display_condition, question:, skip_injection: evaluator.skip_injection) }
+        question.display_conditions = Array.new(3).collect do
+          build(:display_condition, question:, skip_injection: evaluator.skip_injection)
         end
       end
     end
