@@ -183,6 +183,7 @@ fr:
         success: Votre compte a été supprimé avec succès.
       download_your_data_export:
         export_expired: L'export a expiré. Essayez de générer un nouvel export.
+        export_not_found: L'export auquel vous avez tenté d'accéder n'existe pas, ou vous n'avez pas l'accès pour le télécharger
         file_no_exists: Le fichier n'existe pas
         notice: Le téléchargement de vos données est en cours. Vous recevrez un email lorsque celui-ci sera terminé.
       email_change:
@@ -547,8 +548,6 @@ fr:
         description: Description
       footer_sub_hero:
         name: Section "Bienvenue sur la plateforme" (. footer_sub_hero)
-      global_menu:
-        name: Menu global
       hero:
         name: Image principale et bouton d'action
       hero_settings_form:
@@ -1023,6 +1022,7 @@ fr:
         create_with_space: "%{user_name} a créé %{resource_name} dans %{space_name}"
         delete: "%{user_name} a supprimé %{resource_name}"
         delete_with_space: "%{user_name} a supprimé %{resource_name} dans %{space_name}"
+        publish: "%{user_name} a publié %{resource_name}"
         publish_with_space: "%{user_name} a publié %{resource_name} dans %{space_name}"
         unknown_action: "%{user_name} a effectué une action sur %{resource_name}"
         unknown_action_with_space: "%{user_name} a effectué une action sur %{resource_name} dans %{space_name}"
@@ -1053,7 +1053,6 @@ fr:
         latlng_text: 'latitude : %{latitude}, longitude : %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Aide
       home: Accueil
     messaging:
       conversation_mailer:
@@ -1574,6 +1573,16 @@ fr:
         instructions_2: 'Partagez les identifiants de connexion (email: %{email} et le nouveau mot de passe) avec vos collègues.'
         instructions_title: "<strong>Ce que vous devez faire</strong>"
         set_password: Définissez votre mot de passe
+        subject: Mise à jour importante concernant votre profil de groupe
+      notify_user_group_patched:
+        body_1_html: Nous vous contactons pour vous informer d’une mise à jour importante concernant votre profil de groupe sur %{organization_name}.
+        body_2_html: Dans le cadre de nos efforts pour simplifier et améliorer l'expérience des organisations comme la vôtre, nous déprécions la fonctionnalité "Groupes d'utilisateurs". Votre groupe, <strong>%{name}</strong>a été converti en simple compte.
+        body_3_html: Pour continuer à accéder à votre compte et partager votre accès, nous avons besoin que vous définissiez une nouvelle adresse e-mail et un nouveau mot de passe. Veuillez noter que chaque membre de votre groupe recevra ce courriel. Pour assurer la continuité de l'accès, vous devrez convenir en interne des identifiants partagés (adresse e-mail et mot de passe) que tout le monde utilisera.
+        greeting: Cher(ère) %{name},
+        instructions_1_html: 'Utilisez les identifiants temporaires suivants pour vous connecter : <br><br> Nom d''utilisateur : <strong>%{email}</strong> <br> Mot de passe : <strong>%{password}</strong><br><br>'
+        instructions_2_html: Définir une nouvelle adresse e-mail et un nouveau mot de passe.
+        instructions_3_html: Partagez les identifiants de connexion choisis avec vos collègues pour que l'ensemble du groupe puisse continuer à accéder au compte.
+        instructions_title_html: "<strong>Ce que vous devez faire</strong>"
         subject: Mise à jour importante concernant votre profil de groupe
     user_report_mailer:
       notify:

@@ -594,7 +594,6 @@ nl:
         latlng_text: 'breedte: %{latitude}, lengtegraad: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Help
       home: Home
     messaging:
       conversation_mailer:

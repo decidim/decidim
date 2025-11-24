@@ -619,8 +619,6 @@ cs:
         description: Popis
       footer_sub_hero:
         name: Zápatí pod hlavním pruhem
-      global_menu:
-        name: Globální menu
       hero:
         name: Obrázek hrdiny a CTA
       hero_settings_form:
@@ -1208,7 +1206,6 @@ cs:
         latlng_text: 'zeměpisná šířka: %{latitude}, zeměpisná délka: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Pomoc
       home: Úvod
     messaging:
       conversation_mailer:

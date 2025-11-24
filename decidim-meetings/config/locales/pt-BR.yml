@@ -536,7 +536,6 @@ pt-BR:
           fields:
             closed: Fechadas
             end_time: Data final
-            id: ID
             map: Mapa
             official_meeting: Reunião oficial
             start_time: Data de início

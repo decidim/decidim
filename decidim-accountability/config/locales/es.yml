@@ -254,7 +254,6 @@ es:
           fields:
             created_at: Creado
             end_date: Fin
-            id: ID
             progress: Progreso
             start_date: Inicio
             status: Estado
@@ -296,6 +295,7 @@ es:
       accountability:
         actions:
           comment: Comentar
+          vote_comment: Votar el comentario
         name: Seguimiento
         settings:
           global:

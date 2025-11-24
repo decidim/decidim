@@ -34,6 +34,17 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: En ny enkät i %{participatory_space_title}
           notification_title: Enkäten <a href="%{resource_path}">%{resource_title}</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a> är nu öppen.
+    open_data:
+      help:
+        published_survey_user_responses:
+          body:
+          created_at: Datum då resultatet skapades
+          id: Unik identifierare för enkätsvar
+          ip_hash: Hashad IP-adress åt respondenten för sekretess
+          question: Frågan som besvarades
+          registered: Registrerad deltagare
+          unregistered: Oregistrerad deltagare
+          user_status: Status för användaren som skickade svaret
     statistics:
       responses: 'Svar:'
       surveys_count_tooltip: Antalet tillgängliga undersökningar och svar som samlats in.

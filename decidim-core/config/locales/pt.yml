@@ -597,7 +597,6 @@ pt:
         latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Ajuda
       home: Inicio
     messaging:
       conversation_mailer:

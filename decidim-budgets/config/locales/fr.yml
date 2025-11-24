@@ -201,7 +201,6 @@ fr:
             total_budget: Budget total
         project:
           fields:
-            id: ID
             map: Carte
             title: Titre
       order:
@@ -326,6 +325,7 @@ fr:
         actions:
           comment: Commenter
           vote: Voter
+          vote_comment: Vote sur le commentaire
         name: Budgets
         settings:
           global:

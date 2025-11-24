@@ -570,8 +570,6 @@ sv:
         description: Beskrivning
       footer_sub_hero:
         name: Sidfot sub hero banner
-      global_menu:
-        name: Global meny
       hero:
         name: Bild och CTA
       hero_settings_form:
@@ -1099,7 +1097,6 @@ sv:
         latlng_text: 'latitud: %{latitude}, longitud: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Hjälp
       home: Hem
     messaging:
       conversation_mailer:

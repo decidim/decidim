@@ -162,6 +162,7 @@ es-PY:
           comment: Comentar
           join: Unirse
           reply_poll: Responder la consulta
+          vote_comment: Votar el comentario
         name: Encuentros
         settings:
           global:
@@ -677,7 +678,6 @@ es-PY:
           fields:
             closed: Cerrado
             end_time: Fecha de finalización
-            id: ID
             map: Mapa
             official_meeting: Encuentro oficial
             published: Publicado

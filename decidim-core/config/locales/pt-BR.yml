@@ -490,8 +490,6 @@ pt-BR:
         description: Descrição
       footer_sub_hero:
         name: Rodapé do sub-herói banner
-      global_menu:
-        name: Menu global
       hero_settings_form:
         background_image: Imagem de fundo
         welcome_text: Texto de boas-vindas
@@ -891,7 +889,6 @@ pt-BR:
         latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Ajuda
       home: Inicio
     messaging:
       conversation_mailer:

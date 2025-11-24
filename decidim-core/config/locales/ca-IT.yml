@@ -198,6 +198,7 @@ ca-IT:
         success: El teu compte s'ha eliminat correctament.
       download_your_data_export:
         export_expired: L'exportació ha caducat. Intenta generar una nova exportació.
+        export_not_found: L'exportació a la qual has accedit no existeix o no tens accés o permisos per descarregar-la
         file_no_exists: L'arxiu no existeix
         notice: La descàrrega de les teves dades està en curs. Rebràs un correu electrònic quan estigui completa.
       email_change:
@@ -585,8 +586,6 @@ ca-IT:
         description: Descripció
       footer_sub_hero:
         name: Peu de pàgina sub-hero
-      global_menu:
-        name: Menú global
       hero:
         name: Imatge principal i botó d'acció
       hero_settings_form:
@@ -1148,6 +1147,7 @@ ca-IT:
         create_with_space: "%{user_name} ha creat %{resource_name} a %{space_name}"
         delete: "%{user_name} ha eliminat %{resource_name}"
         delete_with_space: "%{user_name} ha eliminat %{resource_name} en %{space_name}"
+        publish: "%{user_name} ha publicat %{resource_name}"
         publish_with_space: "%{user_name} ha publicat %{resource_name} en %{space_name}"
         unknown_action: "%{user_name} ha realitzat una acció a %{resource_name}"
         unknown_action_with_space: "%{user_name} ha realitzat una acció a %{resource_name} en %{space_name}"
@@ -1180,7 +1180,6 @@ ca-IT:
         latlng_text: 'latitud: %{latitude}, longitud: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Ajuda
       home: Inici
     messaging:
       conversation_mailer:
@@ -2169,8 +2168,8 @@ ca-IT:
         profile: Perfil
         title: Configuració de la participant
   locale:
-    name: Català
-    name_with_error: Català (error!)
+    name: Alguerés
+    name_with_error: Alguerés (error!)
   number:
     currency:
       format:
