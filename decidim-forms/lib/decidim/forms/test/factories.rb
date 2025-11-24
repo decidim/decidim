@@ -198,8 +198,8 @@ FactoryBot.define do
     transient do
       skip_injection { false }
     end
-    condition_question { create(:questionnaire_question, skip_injection:) }
-    question { create(:questionnaire_question, position: 1, questionnaire: condition_question.questionnaire, skip_injection:) }
+    condition_question { create(:questionnaire_question, questionnaire: question.questionnaire, skip_injection:) }
+    question { create(:questionnaire_question, position: 1, skip_injection:) }
     condition_type { :responded }
     mandatory { true }
 
