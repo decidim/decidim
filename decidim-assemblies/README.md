@@ -17,17 +17,7 @@ This module provides:
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'decidim-assemblies'
-```
-
-And then execute:
-
-```bash
-bundle
-```
+This is on the default Decidim installation so you should not change anything to use this participatory space.
 
 ## Contributing
 
