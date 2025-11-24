@@ -623,8 +623,11 @@ FactoryBot.define do
   end
 
   factory :taxonomization, class: "Decidim::Taxonomization" do
+    transient do
+      skip_injection { false }
+    end
     taxonomy { association(:taxonomy, :with_parent) }
-    taxonomizable { association(:dummy_resource) }
+    taxonomizable { association(:dummy_resource, organization: taxonomy.organization, skip_injection:) }
   end
 
   factory :taxonomy_filter, class: "Decidim::TaxonomyFilter" do
