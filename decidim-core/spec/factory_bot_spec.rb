@@ -13,9 +13,11 @@ describe FactoryBot do
         expect { create(factory.name) }.to change(Decidim::Organization, :count).by(1)
       end
 
-      factory.defined_traits.each do |trait|
-        it "generates a single organization when using :#{trait} name" do
-          expect { create(factory.name, trait) }.to change(Decidim::Organization, :count).by(1)
+      context "when using a trait" do
+        factory.defined_traits.collect(&:name).each do |trait|
+          it ":#{trait}" do
+            expect { create(factory.name, trait.to_sym) }.to change(Decidim::Organization, :count).by(1)
+          end
         end
       end
     end
