@@ -857,7 +857,7 @@ en:
       files:
         file_cannot_be_processed: File cannot be processed
         file_resolution_too_large: File resolution is too large
-        not_inside_organization: The file is not attached to any organization
+        not_inside_organization: The file is not attached to any organization.
       internal_server_error:
         copied: Text copied!
         copy_error_message_clarification: Copy error message to clipboard
