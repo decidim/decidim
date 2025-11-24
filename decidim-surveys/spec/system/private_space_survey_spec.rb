@@ -54,7 +54,7 @@ describe "Private Space Respond a survey" do
 
         expect(page).to have_i18n_content(questionnaire.title)
         expect(page).to have_i18n_content(questionnaire.description)
-        
+
         expect(page).to have_no_css(".form.response-questionnaire")
 
         within ".response-questionnaire__step" do
