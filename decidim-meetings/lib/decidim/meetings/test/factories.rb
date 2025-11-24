@@ -190,7 +190,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     meeting
-    user
+    user { create(:user, :confirmed, organization: meeting.component.organization, skip_injection:) }
   end
 
   factory :agenda, class: "Decidim::Meetings::Agenda" do
