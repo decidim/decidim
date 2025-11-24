@@ -10,8 +10,8 @@ describe FactoryBot do
   described_class.factories.each do |factory|
     context "when using the #{factory.name} factory" do
       # There are some factories that should not create an organization.
-      # We have this as a exclusion list from our expectation.
-      let(:increment) { %w(admin).include?(factory.name.to_s) ? 0 : 1 }
+      # We have this as an exclusion list from our expectation.
+      let(:increment) { %w(admin blob).include?(factory.name.to_s) ? 0 : 1 }
 
       it "generates a single organization" do
         expect { create(factory.name) }.to change(Decidim::Organization, :count).by(increment)
