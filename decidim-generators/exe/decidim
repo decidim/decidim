@@ -48,7 +48,7 @@ App generation extra options (ignored if the --component flag is on):
   --seed_db [true|false]   Seed the database: generate demo data for each participatory space and component
   --recreate_db            Recreate the database after installing Decidim
 
-Component generation extra options (ignored ifthe --component flag is not defined)
+Component generation extra options (ignored if the --component flag is not defined)
   --external               To create a new module external to the main decidim repository
   --destination-folder     IF you want to point to an existing folder or give it a custom name
 
