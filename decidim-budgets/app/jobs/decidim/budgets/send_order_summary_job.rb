@@ -8,7 +8,7 @@ module Decidim
       def perform(order)
         return if order&.user&.email.blank?
 
-        OrderSummaryMailer.order_summary(order).deliver_later
+        OrderSummaryMailer.order_summary(order).deliver_now
       end
     end
   end
