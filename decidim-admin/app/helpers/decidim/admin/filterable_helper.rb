@@ -73,11 +73,11 @@ module Decidim
       end
 
       def dropdown_link(key, menu_id)
-        link_to("#", class: "dropdown__button", data: { component: "dropdown", target: "dropdown-filters-#{menu_id}" }) do
+        link_to("#", class: "dropdown__button", data: { controller: "dropdown", target: "dropdown-filters-#{menu_id}" }) do
           safe_join([
                       content_tag(:span) { extract_html_value(key) },
                       icon("arrow-right-s-line", class: "fill-secondary absolute right-2"),
-                      icon("arrow-right-s-line", class: "!fill-current !text-white absolute right-2")
+                      icon("arrow-right-s-line", class: "fill-current text-white absolute right-2")
                     ])
         end
       end
@@ -147,8 +147,7 @@ module Decidim
         icon_link_to(
           "delete-bin-line",
           url_for(query_params_without(filter)),
-          t("decidim.admin.actions.cancel"),
-          class: "action-icon--remove"
+          t("decidim.admin.actions.cancel")
         )
       end
 

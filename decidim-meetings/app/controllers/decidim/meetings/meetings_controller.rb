@@ -41,7 +41,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("meetings.create.invalid", scope: "decidim.meetings")
-            render action: "new"
+            render action: "new", status: :unprocessable_entity
           end
         end
       end
@@ -88,7 +88,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("meetings.update.invalid", scope: "decidim.meetings")
-            render :edit
+            render :edit, status: :unprocessable_entity
           end
         end
       end
@@ -200,6 +200,16 @@ module Decidim
         @previous_space
       rescue NameError, LoadError
         nil
+      end
+
+      def add_breadcrumb_item
+        return {} if meeting.blank?
+
+        {
+          label: translated_attribute(meeting.title),
+          url: Decidim::EngineRouter.main_proxy(current_component).meeting_path(meeting),
+          active: false
+        }
       end
     end
   end

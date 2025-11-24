@@ -25,12 +25,15 @@ ca:
       admin_log:
         changeset:
           debates: Debats
+      tooltips:
+        deleted_debates_info: No es pot esborrar aquest debat
     components:
       debates:
         actions:
           comment: Comentar
           create: Crear un debat
           like: M'agrada
+          vote_comment: Votar el comentari
         name: Debats
         settings:
           global:
@@ -231,7 +234,7 @@ ca:
         commented_debates:
           conditions:
             - Tria un debat obert per participar
-          description: Aquest distintiu es desbloqueja quan participes activament en els diferents debats deixant els teus comentaris.
+          description: Aquesta ensenya es desbloqueja quan participes activament en els diferents debats deixant els teus comentaris.
           description_another: Aquesta participant ha pres part en %{score} debats.
           description_own: Has participat en %{score} debats.
           name: Debats

@@ -35,7 +35,9 @@ module Decidim
           organization_url: @form.organization_url,
           organization_logo: @form.organization_logo,
           redirect_uri: @form.redirect_uri,
-          scopes: "public"
+          scopes: @form.scopes.join(" "),
+          confidential: @form.confidential?,
+          refresh_tokens_enabled: @form.refresh_tokens_enabled?
         }.tap do |attrs|
           attrs[:organization_logo] = @form.organization_logo if @form.organization_logo.present?
         end

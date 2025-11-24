@@ -127,8 +127,8 @@ FactoryBot.define do
     sequence(:host) { |n| "#{n}.lvh.me" }
     description { generate_localized_description(:organization_description, skip_injection:) }
     favicon { Decidim::Dev.test_file("icon.png", "image/png") }
-    default_locale { Decidim.default_locale }
-    available_locales { Decidim.available_locales }
+    default_locale { "en" }
+    available_locales { %w(en ca es) }
     users_registration_mode { :enabled }
     official_img_footer { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     official_url { Faker::Internet.url }
@@ -195,7 +195,7 @@ FactoryBot.define do
     tos_agreement { "1" }
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     personal_url { Faker::Internet.url }
-    about { generate_localized_title(:user_about, skip_injection:) }
+    about { generate_title(:user_about, skip_injection:) }
     confirmation_sent_at { Time.current }
     accepted_tos_version { organization.tos_version }
     notifications_sending_frequency { "real_time" }
@@ -269,6 +269,12 @@ FactoryBot.define do
       # password.
       user.password ||= evaluator.password || "decidim123456789"
     end
+  end
+
+  factory :badge_score, class: "Decidim::Gamification::BadgeScore" do
+    user
+    badge_name { "followers" }
+    value { 1 }
   end
 
   factory :participatory_space_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
@@ -706,7 +712,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     moderation
-    user { build(:user, organization: moderation.reportable.organization, skip_injection:) }
+    user { build(:user, :confirmed, organization: moderation.reportable.organization, skip_injection:) }
     reason { "spam" }
   end
 
@@ -726,6 +732,7 @@ FactoryBot.define do
     user do
       build(
         :user,
+        :confirmed,
         organization: followable.try(:organization) || build(:organization, skip_injection:)
       )
     end
@@ -806,8 +813,10 @@ FactoryBot.define do
       extra_data { {} }
     end
 
+    user { create(:user) }
     organization { user.organization }
-    user
+    user_id { user.id }
+    user_type { user.class.name }
     participatory_space { build(:participatory_process, organization:, skip_injection:) }
     component { build(:component, participatory_space:, skip_injection:) }
     resource { build(:dummy_resource, component:, skip_injection:) }
@@ -845,7 +854,9 @@ FactoryBot.define do
     organization_url { "http://example.org" }
     organization_logo { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     redirect_uri { "https://app.example.org/oauth" }
-    scopes { "public" }
+    scopes { "profile" }
+    confidential { true }
+    refresh_tokens_enabled { false }
   end
 
   factory :oauth_access_token, class: "Doorkeeper::AccessToken" do
@@ -857,7 +868,19 @@ FactoryBot.define do
     token { SecureRandom.hex(32) }
     expires_in { 1.month.from_now }
     created_at { Time.current }
-    scopes { "public" }
+    scopes { "profile" }
+  end
+
+  factory :oauth_access_grant, class: "Doorkeeper::AccessGrant" do
+    transient do
+      skip_injection { false }
+      organization { create(:organization) }
+    end
+    resource_owner_id { create(:user, organization: application.organization, skip_injection:).id }
+    application { create(:oauth_application, organization:, skip_injection:) }
+    redirect_uri { "https://app.com/callback" }
+    expires_in { 100 }
+    scopes { "public write" }
   end
 
   factory :private_export, class: "Decidim::PrivateExport" do
@@ -867,9 +890,14 @@ FactoryBot.define do
     end
     expires_at { 1.week.from_now }
     attached_to { create(:user, organization:, skip_injection:) }
-    export_type { "dummy" }
+    export_type { "download_your_data" }
     content_type { "application/zip" }
-    file_size { 10.kilobytes }
+    file_size { 208.bytes }
+    file { Decidim::Dev.test_file("dummy-export.zip", "application/zip") }
+
+    trait :expired do
+      expires_at { 1.week.ago }
+    end
   end
 
   factory :searchable_resource, class: "Decidim::SearchableResource" do
@@ -940,7 +968,7 @@ FactoryBot.define do
     end
     reason { "spam" }
     moderation { create(:user_moderation, user:, skip_injection:) }
-    user { build(:user) }
+    user { build(:user, :confirmed) }
   end
 
   factory :user_moderation, class: "Decidim::UserModeration" do

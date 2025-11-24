@@ -137,12 +137,10 @@ sq:
         attachment:
           new: Shtojcë e re
         browse: Shfleto
-        export: Eksporto të gjitha
         import: Importo
         newsletter:
           new: Newsletter i ri
         per_page: Për faqe
-        permissions: Lejet
         send_me_a_test_email: Më dërgo një email prove
         share: Shpërndaj
         user:
@@ -427,7 +425,6 @@ sq:
       officializations:
         index:
           actions: Veprimet
-          block: Blloko përdoruesin
           created_at: Krijuar më
           name: Emri
           nickname: Nofka

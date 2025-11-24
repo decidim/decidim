@@ -145,7 +145,6 @@ module Decidim
 
     before_update :set_offline_votes_total
     after_commit :notify_state_change
-    after_create :notify_creation
 
     searchable_fields({
                         participatory_space: :itself,
@@ -451,6 +450,10 @@ module Decidim
       ActionAuthorizer.new(user, "comment", self, nil).authorize.ok?
     end
 
+    def user_allowed_to_vote_comment?(user)
+      ActionAuthorizer.new(user, "vote_comment", self, nil).authorize.ok?
+    end
+
     def shareable_url(share_token)
       EngineRouter.main_proxy(self).initiative_url(self, share_token: share_token.token)
     end
@@ -482,11 +485,6 @@ module Decidim
     def notify_state_change
       return unless saved_change_to_state?
 
-      notifier = Decidim::Initiatives::StatusChangeNotifier.new(initiative: self)
-      notifier.notify
-    end
-
-    def notify_creation
       notifier = Decidim::Initiatives::StatusChangeNotifier.new(initiative: self)
       notifier.notify
     end

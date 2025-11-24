@@ -75,13 +75,16 @@ de:
           attributes:
             base:
               not_official: Sind nicht offiziell
+              voted: Haben Stimmen oder Unterstützung erhalten
         proposals_split:
           attributes:
             base:
               not_official: Sind nicht offiziell
+              voted: Haben Stimmen oder Unterstützung erhalten
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: Klassifizierung des Vorschlags geändert
       decidim/proposals/creation_enabled_event: Vorschlagserstellung aktiviert
+      decidim/proposals/liking_enabled_event: Vorschlagsunterstützung aktiviert
       decidim/proposals/proposal_mentioned_event: Vorschlag erwähnt
       decidim/proposals/publish_proposal_event: Vorschlag veröffentlicht
       decidim/proposals/voting_enabled_event: Vorschlagsabstimmung aktiviert
@@ -90,7 +93,9 @@ de:
       decidim:
         proposals:
           proposal:
+            budget_text: Der Vorschlag <span class="resource-link">%{link}</span> wurde erstellt
             import_from_proposal_text: 'Es wurde zu diesem Vorschlag: %{link}'
+            import_to_proposal_text: Der Vorschlag <span class="resource-link">%{link}</span> wurde erstellt
             merge_from_proposal_text: 'Es wurde zu diesem Vorschlag: %{link}'
             merge_to_proposal_text: 'Dieser Vorschlag wurde erstellt: %{link}'
             split_from_proposal_text: 'Es wurde zu diesem Vorschlag: %{link}'
@@ -140,6 +145,10 @@ de:
             values:
               state_not_published: Unbeantwortet
               state_published: Beantwortet
+      tooltips:
+        cannot_edit_proposal_info: Dieser Vorschlag kann nicht bearbeitet werden, da er von einem Teilnehmenden erstellt wurde oder bereits Stimmen erhalten hat
+        deleted_proposal_states_info: Dieser Vorschlagsstatus kann nicht gelöscht werden, da ihm Vorschläge zugewiesen sind
+        deleted_proposals_info: Dieser Vorschlag kann nicht gelöscht werden
     application:
       geocoding:
         not_configured: Geolokalisierung wurde nicht eingestellt!
@@ -149,6 +158,7 @@ de:
           amend: Änderungsvorschlag
           comment: Kommentieren
           create: Einen Vorschlag erstellen
+          like: Unterstützen
           vote: Abstimmen
           vote_comment: Kommentar bewerten
           withdraw: Zurückziehen
@@ -172,6 +182,7 @@ de:
               automatic: Automatisch
               most_commented: Am häufigsten kommentiert
               most_followed: Am häufigsten gefolgt
+              most_liked: Am häufigsten unterstützt
               most_voted: Am meisten gewählt
               random: Zufällig
               recent: Neueste
@@ -232,10 +243,13 @@ de:
               automatic: Automatisch
               most_commented: Am meisten kommentiert
               most_followed: Am häufigsten gefolgt
+              most_liked: Am häufigsten unterstützt
               most_voted: Am meisten gewählt
               random: Zufällig
               recent: Neueste
               with_more_authors: Mit mehr Autoren
+            likes_blocked: Unterstützungsfunktion gesperrt
+            likes_enabled: Unterstützungsfunktion aktiviert
             proposal_answering_enabled: Vorschlagsantworten aktiviert
             publish_answers_immediately: Vorschlagsantworten sofort veröffentlichten
             publish_answers_immediately_help_html: 'Wenn Sie einen Vorschlag ohne diese Option beantworten, müssen Sie die Antwort manuell veröffentlichen, indem Sie den Vorschlag auswählen und über «Aktionen» im Menü veröffentlichen. Weitere Informationen darüber finden Sie auf der <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">Dokumentationsseite zur Vorschlagsbeantwortung</a>.'
@@ -318,6 +332,10 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: In %{participatory_space_title} sind jetzt Vorschläge verfügbar
           notification_title: Sie können jetzt <a href="%{resource_path}">neue Vorschläge</a> auf <a href="%{participatory_space_url}">%{participatory_space_title}</a> erfassen.
+        liking_enabled:
+          email_intro: 'Sie können ab jetzt Vorschläge auf %{participatory_space_title} unterstützen! Jetzt auf dieser Seite mitmachen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den angegebenen Link.
+          email_subject: Vorschläge können nun in %{participatory_space_title} unterstützt werden
         proposal_mentioned:
           email_intro: Ihr Vorschlag "%{mentioned_proposal_title}" wurde <a href="%{resource_url}">hier</a> in den Kommentaren erwähnt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
@@ -423,14 +441,15 @@ de:
           cost: Die Gesamtkosten des Vorschlags
           cost_report: Ein Kostenbericht für den Vorschlag
           created_at: Erstellungsdatum dieses Vorschlags
-          created_in_meeting: Ob der Vorschlag in einer Sitzung erstellt wurde
+          created_in_meeting: Ob der Vorschlag in einer Veranstaltung erstellt wurde
           execution_period: Der Zeitraum, in dem der Vorschlag von Anfang bis Ende lief
           follows_count: Die Anzahl Folgende dieses Vorschlags
           id: Die eindeutige Bezeichnung des Vorschlags
           is_amend: Ob dieser Vorschlag einen anderen Vorschlag ändert
           latitude: Der Breitengrad des Vorschlags, falls es einen verortet wurde
+          likes: Die Anzahl Unterstützungen dieses Vorschlags
           longitude: Der Längengrad des Vorschlags, falls er verortet wurde
-          meeting_urls: Die URLs der Sitzungen, an denen dieser Vorschlag vorgestellt oder diskutiert wurde
+          meeting_urls: Die URLs der Veranstaltungen, an denen dieser Vorschlag vorgestellt oder diskutiert wurde
           original_proposal: Referenz des ursprünglichen Vorschlags, falls es sich um einen Änderungsantrag handelt
           participatory_space: Zu welchem Bereich dieser Vorschlag gehört (z.B. Partizipationsprozesse oder Gremien)
           published_at: Das Datum, an dem dieser Vorschlag veröffentlicht wurde
@@ -642,10 +661,15 @@ de:
             comments_count: Anzahl der Kommentare
             documents: Unterlagen
             evaluators: Bewertende Personen
+            likes: Unterstützungen
+            likes_count: Anzahl Unterstützungen
             link: Vorschlag anzeigen
+            n_more_likes:
+              one: und 1 mehr
+              other: und %{count} mehr
             photos: Fotos
             ranking: "%{ranking} von %{total}"
-            related_meetings: Ähnliche Besprechungen
+            related_meetings: Ähnliche Veranstaltungen
             remove_assignment: Zuweisung entfernen
             remove_assignment_confirmation: Sind Sie sicher, dass Sie den Bewerter dieses Vorschlags entfernen möchten?
             votes_count: Anzahl Stimmen
@@ -924,6 +948,7 @@ de:
           label: 'Vorschläge sortieren nach:'
           most_commented: Am meisten kommentiert
           most_followed: Am meisten gefolgt
+          most_liked: Am häufigsten unterstützt
           most_voted: Am meisten gewählt
           random: Zufällig
           recent: Kürzlich hinzugefügt
@@ -950,6 +975,9 @@ de:
           changes_at_title: Ergänzung zu „%{title}“
           edit_proposal: Bearbeiten
           estimated_cost: Geschätzte Kosten
+          hidden_likes_count:
+            one: und %{count} weitere Person
+            other: und %{count} weitere Personen
           link_to_collaborative_draft_help_text: Dieser Vorschlag ist das Ergebnis eines gemeinsamen Entwurfs. Überprüfen Sie die Geschichte
           link_to_collaborative_draft_text: Gemeinsamen Entwurf anzeigen
           link_to_promoted_emendation_help_text: Dieser Vorschlag hat eine markierte Berichtigung
@@ -1031,6 +1059,9 @@ de:
         proposal_project: 'Vorschlag, der in diesen Projekten erscheint:'
         proposal_result: 'Vorschlag erscheint in diesen Ergebnissen:'
     statistics:
+      participatory_space_proposals_count: Vorschläge
       proposals_accepted: Akzeptierte Vorschläge
       proposals_count: Vorschläge
+      proposals_count_tooltip: Die Gesamtzahl der eingereichten Vorschläge und die abgegebenen Stimmen.
+      votes: 'Stimmen:'
       votes_count: Stimmen

@@ -302,6 +302,14 @@ Devise.setup do |config|
     manager.failure_app = RandomStalling
   end
 
+  # To be compatible with Turbo, from Devise v.4.9.0 on,
+  # devise keep error status for validation as :ok, and sets
+  # the redirect_status as :found. However, these configuration
+  # options is devised to change this behavior as
+  # needed (for more information refer to
+  # https://github.com/heartcombo/devise/blob/v4.9.0/CHANGELOG.md#490---2023-02-17):
+  config.responder.error_status = :forbidden
+
   # ==> Mountable engine configurations
   # When using Devise inside an engine, we can call it `MyEngine`, and this engine
   # is mountable, there are some extra configurations to be taken into account.

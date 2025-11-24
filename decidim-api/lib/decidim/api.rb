@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
+require "devise/jwt"
+require "warden/jwt_auth/decidim_overrides"
 require "decidim/env"
 require "decidim/api/engine"
 require "decidim/api/types"
+require "decidim/api/devise"
 
 module Decidim
   # This module holds all business logic related to exposing a Public API for
@@ -35,10 +38,20 @@ module Decidim
       Decidim::Env.new("DECIDIM_API_FORCE_API_AUTHENTICATION", nil).present?
     end
 
+    # The expiration time of the JWT tokens, after which issued token will
+    # expire. Recommended to match the value of
+    # `DECIDIM_OAUTH_ACCESS_TOKEN_EXPIRES_IN`.
+    config_accessor :jwt_expires_in do
+      Decidim::Env.new(
+        "DECIDIM_API_JWT_EXPIRES_IN",
+        Decidim::Env.new("DECIDIM_OAUTH_ACCESS_TOKEN_EXPIRES_IN", "120").value
+      ).to_i
+    end
+
     # This declares all the types an interface or union can resolve to. This needs
     # to be done in order to be able to have them found. This is a shortcoming of
     # graphql-ruby and the way it deals with loading types, in combination with
-    # rail's infamous autoloading.
+    # rail's infamous auto-loading.
     def self.orphan_types
       Decidim.component_manifests.map(&:query_type).map(&:constantize).uniq +
         Decidim.participatory_space_manifests.map(&:query_type).map(&:constantize).uniq +

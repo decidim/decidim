@@ -16,9 +16,6 @@ lb:
         key: Schlëssel
         name: Numm
         progress: Progrès
-      timeline_entry:
-        description: Beschreiwung
-        entry_date: Datum
     models:
       decidim/accountability/proposal_linked_event: Propose déi Deel vun engem Resultat ass
       decidim/accountability/result_progress_updated_event: Aktualiséiert Entwécklung vun engem Resultat
@@ -30,13 +27,10 @@ lb:
   decidim:
     accountability:
       actions:
-        attachment_collections: Dossier
-        attachments: Unhäng
         confirm_destroy: Sidd Dir sécher datt Dir dësen %{name} läsche wëllt?
         destroy: Läschen
         edit: Editéieren
         preview: Preview
-        timeline_entries: Projektentwécklung
         title: Aktiounen
       admin:
         exports:
@@ -71,15 +65,6 @@ lb:
           new:
             create: Status erstellen
             title: Neuer Status
-        timeline_entries:
-          edit:
-            title: Eintrag bearbeiten
-            update: Eintrag aktualisieren
-          index:
-            title: Projektzeitplaneinträge
-          new:
-            create: Eintrag erstellen
-            title: Neuer Eintrag
       admin_log:
         result:
           create: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} erstellt"
@@ -102,7 +87,6 @@ lb:
           fields:
             created_at: Erstellt am
             end_date: Enddatum
-            id: ID
             progress: Fortschritt
             start_date: Startdatum
             status: Status
@@ -113,9 +97,6 @@ lb:
             key: Schlüssel
             name: Name
             progress: Fortschritt
-        timeline_entry:
-          fields:
-            entry_date: Datum
       results:
         count:
           results_count:
@@ -128,8 +109,6 @@ lb:
         show:
           stats:
             back_to_resource: Gehe zurück zum Ergebnis
-        timeline:
-          title: Projektentwicklung
     admin:
       filters:
         results:

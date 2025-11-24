@@ -10,9 +10,6 @@ sv:
         closing_date: Slutdatum
         closing_date_reason: Anledning till avslut
         composition: Sammansättning
-        copy_categories: Kopiera kategorier
-        copy_components: Kopiera komponenter
-        copy_features: Kopiera funktioner
         created_by: Skapad av
         created_by_other: Skapad av andra
         creation_date: Skapad datum
@@ -22,6 +19,9 @@ sv:
         developer_group: Arrangör
         document: Dokument
         domain: Domän
+        duplicate_categories: Duplicera kategorier
+        duplicate_components: Duplicera komponenter
+        duplicate_features: Duplicera funktioner
         duration: Varaktighet
         facebook: Facebook
         github: GitHub
@@ -37,7 +37,7 @@ sv:
         meta_scope: Omfattning
         parent_id: Överordnat samråd
         participatory_processes_ids: Relaterade deltagandeprocesser
-        participatory_scope: Vad bestäms
+        participatory_scope: Vad beslutas
         participatory_structure: Hur fattas beslut
         private_space: Privat utrymme
         promoted: Utvald
@@ -47,7 +47,7 @@ sv:
         slug: URL-slug
         special_features: Specialfunktioner
         subtitle: Underrubrik
-        target: Vem deltar
+        target: Vilka deltar
         title: Titel
         twitter: X
         weight: Position i listan
@@ -111,14 +111,14 @@ sv:
         update:
           error: Det gick inte att uppdatera samrådet.
           success: Samrådet har uppdaterats.
-      assemblies_copies:
+      assemblies_duplicates:
         create:
           error: Det gick inte att duplicera samrådet.
           success: Samrådet har duplicerats.
-      assembly_copies:
+      assembly_duplicates:
         new:
-          copy: Kopiera
-          select: Välj vilka data som ska dupliceras
+          duplicate: Duplicera
+          select: Välj vilka data som du vill duplicera
           title: Duplicera samråd
       assembly_imports:
         create:
@@ -191,6 +191,7 @@ sv:
             vice_president: Vice ordförande
         assembly_user_role:
           fields:
+            actions: Handlingar
             email: E-post
             name: Namn
             role: Roll
@@ -257,7 +258,7 @@ sv:
             taxonomies: Kategorier
             title: Allmän information
             visibility: Synlighet
-        assembly_copies:
+        assembly_duplicates:
           form:
             slug_help_html: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         assembly_imports:
@@ -279,11 +280,11 @@ sv:
           area_name: Område
           closing_date: Slutdatum
           created_by: Skapad av
-          creation_date: Skapad
+          creation_date: Startdatum
           data: Data från samråd
           developer_group: Arrangör
           duration: Varaktighet
-          included_at: Inkluderad
+          included_at: Publicerad
           indefinite_duration: Permanent
           local_area: Område
           meta_scope: Indelning
@@ -312,9 +313,9 @@ sv:
         related_assemblies:
           name: Relaterade samråd
       created_by:
-        city_council: Stadsfullmäktige
+        city_council: Staden
         others: Övriga
-        public: Offentligt
+        public: Medborgare
       filter:
         all: Alla typer
         commission: Kommission

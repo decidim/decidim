@@ -214,8 +214,6 @@ bg:
     meetings:
       actions:
         agenda: Дневен ред
-        attachment_collections: Папки
-        attachments: Прикачени файлове
         close: Затвори
         edit: Редактирай
         invalid_destroy:
@@ -550,7 +548,6 @@ bg:
           fields:
             closed: Затворен
             end_time: Крайна дата
-            id: ID
             map: Карта
             official_meeting: Официална среща
             start_time: Начална дата

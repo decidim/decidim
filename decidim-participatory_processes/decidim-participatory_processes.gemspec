@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
     "homepage_uri" => "https://decidim.org",
     "source_code_uri" => "https://github.com/decidim/decidim"
   }
-  s.required_ruby_version = "~> 3.3.0"
+  s.required_ruby_version = "~> 3.4.0"
 
   s.name = "decidim-participatory_processes"
   s.summary = "Decidim participatory processes module"
@@ -32,7 +32,10 @@ Gem::Specification.new do |s|
 
   s.add_dependency "decidim-core", Decidim::ParticipatoryProcesses.version
 
+  s.add_development_dependency "decidim-accountability", Decidim::ParticipatoryProcesses.version
   s.add_development_dependency "decidim-admin", Decidim::ParticipatoryProcesses.version
+  s.add_development_dependency "decidim-budgets", Decidim::ParticipatoryProcesses.version
   s.add_development_dependency "decidim-dev", Decidim::ParticipatoryProcesses.version
   s.add_development_dependency "decidim-meetings", Decidim::ParticipatoryProcesses.version
+  s.add_development_dependency "decidim-proposals", Decidim::ParticipatoryProcesses.version
 end

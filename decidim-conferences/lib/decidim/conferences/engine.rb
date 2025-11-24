@@ -65,6 +65,12 @@ module Decidim
         Decidim.icons.register(name: "link-m", icon: "link-m", category: "system", description: "", engine: :conferences)
       end
 
+      initializer "decidim_conferences.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
       initializer "decidim_conferences.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Conferences::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Conferences::Engine.root}/app/views") # for partials
@@ -93,7 +99,7 @@ module Decidim
         Decidim::Api::QueryType.include Decidim::Conferences::QueryExtensions
       end
 
-      initializer "decidim_conferences.webpacker.assets_path" do
+      initializer "decidim_conferences.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
     end

@@ -18,6 +18,8 @@ fr:
       admin_log:
         changeset:
           posts: Articles
+      tooltips:
+        deleted_posts_info: Impossible de supprimer cet article
     blogs:
       actions:
         author_id: Créer un article en tant que
@@ -104,6 +106,7 @@ fr:
           create: Créer
           destroy: Supprimer
           update: Mettre à jour
+          vote_comment: Vote sur le commentaire
         name: Actualités
         settings:
           global:

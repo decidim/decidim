@@ -146,6 +146,16 @@ fi:
         new:
           copy: Kopioi
           title: Kopioi tapaaminen
+      tooltips:
+        cannot_close_meetings: Tätä tapaamista ei voi sulkea, koska se on osallistujan luoma
+        cannot_duplicate_meetings: Tätä tapaamista ei voi kopioida, koska se on osallistujan luoma
+        cannot_edit_meetings: Tätä tapaamista ei voi muokata, koska se on osallistujan luoma
+        cannot_manage_agenda_meetings: Tapaamisen esityslistaa ei voida hallita, koska tapaaminen on osallistujan luoma
+        cannot_manage_attachments_meetings: Tapaamisen liitteitä ei voida hallita, koska tapaaminen on osallistujan luoma
+        cannot_manage_poll_meetings: Tapaamisen mielipidetiedustelua ei voida hallita, koska tapaaminen on osallistujan luoma
+        cannot_manage_registrations_meetings: Tapaamisen ilmoittautumisia ei voida hallita, koska tapaaminen on osallistujan luoma, ilmoittautumiset eivät ole sallittu tapaamiselle tai tapaamisen ilmoittautumisen on määritetty tapahtuvan tämän alustan ulkopuolella
+        cannot_mark_attendee: Kyseinen osallistuja on jo merkitty tapaamisen osallistujaksi
+        deleted_meetings_info: Tapaamista ei voida poistaa, koska tapaaminen on osallistujan luoma.
     components:
       meetings:
         actions:
@@ -273,10 +283,9 @@ fi:
     meetings:
       actions:
         agenda: Esityslista
-        attachment_collections: Kansiot
-        attachments: Liitteet
         close: Sulje
         confirm_delete_meeting: Haluatko varmasti poistaa tämän tapaamisen?
+        confirm_unpublish_meeting: Haluatko varmasti perua tämän tapaamisen julkaisun?
         deleted_meetings_info: Poistetut tapaamiset voidaan palauttaa roskakorista.
         edit: Muokkaa
         invalid_destroy:
@@ -321,6 +330,7 @@ fi:
           update:
             invalid: Esityslistan päivittäminen epäonnistui.
             success: Esityslistan päivitys onnistui.
+        deprecation_warning_polls_html: "⚠️ <b>Poistamisilmoitus</b> Pikakyselyominaisuus poistetaan järjestelmän myöhemmistä versioista (määritetään myöhemmin). Organisaatioiden, jotka käyttävät tapaamisten pikakyselyominaisuutta, tulisi suunnitella ulkoisten pikakyselytyökalujen käyttöä (esimerkiksi Jitsi-tapaamissovellus) tai siirtyä käyttämään muita Decidim-alustan äänestystapoja, kuten uutta vaalit-moduulia (`decidim-elections`)."
         exports:
           meeting_comments: Kommentit
           meetings: Tapaamiset
@@ -375,7 +385,9 @@ fi:
             select_an_iframe_access_level: Valitse iframe-upotusten käyttöoikeustaso
           index:
             linked_meeting_warning_html: Tätä tapaamista tulee muokata kohteesta <br><a href="%{href}">%{name}</a>
+            published: Julkaistu
             title: Tapaamiset
+            unpublished: Julkaisematon
           linked_spaces:
             assign: Määritä
             link_a_space: Liitä osallistumistila
@@ -665,9 +677,9 @@ fi:
           fields:
             closed: Suljettu
             end_time: Päättymispäivä
-            id: ID
             map: Kartta
             official_meeting: Virallinen tapaaminen
+            published: Julkaistu
             start_time: Alkamispäivä
             taxonomies: Luokittelut
             title: Otsikko

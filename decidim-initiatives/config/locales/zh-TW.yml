@@ -102,7 +102,6 @@ zh-TW:
         initiatives:
           fields:
             created_at: 建立於
-            id: ID
             published_at: 發佈於
             state: 狀態
             supports_count: 簽名

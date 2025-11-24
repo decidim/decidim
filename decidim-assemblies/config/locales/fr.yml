@@ -10,9 +10,6 @@ fr:
         closing_date: Date de clôture
         closing_date_reason: Raison de la date de clôture
         composition: Composition
-        copy_categories: Copier les catégories
-        copy_components: Copier les fonctionnalités
-        copy_features: Copier les fonctionnalités
         created_by: Créé par
         created_by_other: Si "autres", précisez
         creation_date: Date de création
@@ -22,6 +19,9 @@ fr:
         developer_group: Organisateur
         document: Document
         domain: Domaine
+        duplicate_categories: Dupliquer les catégories
+        duplicate_components: Dupliquer les composants
+        duplicate_features: Dupliquer les fonctionnalités
         duration: Durée
         facebook: Facebook
         github: GitHub
@@ -111,13 +111,13 @@ fr:
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette assemblée.
           success: Assemblée mise à jour avec succès.
-      assemblies_copies:
+      assemblies_duplicates:
         create:
           error: Une erreur s'est produite lors de la duplication de cette assemblée.
           success: L'assemblée a été dupliquée avec succès.
-      assembly_copies:
+      assembly_duplicates:
         new:
-          copy: Copier
+          duplicate: Dupliquer
           select: Sélectionnez les données que vous souhaitez dupliquer
           title: Dupliquer l'assemblée
       assembly_imports:
@@ -258,7 +258,7 @@ fr:
             taxonomies: Taxonomies
             title: Informations générales
             visibility: Visibilité
-        assembly_copies:
+        assembly_duplicates:
           form:
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_imports:

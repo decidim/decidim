@@ -154,7 +154,7 @@ module Decidim
                       permission_action.subject == :space_area &&
                       context.fetch(:space_name, nil) == :processes
 
-        toggle_allow(user.admin? || user_has_any_role?(user, process, broad_check: true) || has_manageable_processes?)
+        toggle_allow(user.admin? || has_manageable_processes?)
       end
 
       # Only organization admins can manage process groups.
@@ -244,7 +244,7 @@ module Decidim
           :process_step,
           :process_user_role,
           :export_space,
-          :share_tokens,
+          :share_token,
           :import
         ].include?(permission_action.subject)
         allow! if is_allowed
@@ -263,7 +263,7 @@ module Decidim
           :process_step,
           :process_user_role,
           :export_space,
-          :share_tokens,
+          :share_token,
           :import
         ].include?(permission_action.subject)
         allow! if is_allowed

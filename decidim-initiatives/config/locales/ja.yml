@@ -74,6 +74,7 @@ ja:
   decidim:
     admin:
       actions:
+        cannot_answer: このイニシアチブに回答できません
         new_initiative_type: 新しいイニシアチブ種別
         new_initiative_type_scope: 新しいイニシアチブ種別のスコープ
       filters:
@@ -112,13 +113,16 @@ ja:
         initiatives:
           fields:
             created_at: 作成日時
-            id: ID
             published_at: 公開日時
             state: ステータス
             supports_count: 署名
             title: イニシアチブ
+        initiatives_committee_member:
+          fields:
+            actions: アクション
         initiatives_type_scope:
           fields:
+            actions: アクション
             scope: スコープ
             supports_required: 必要署名数
           name: イニシアチブ種別のスコープ
@@ -258,6 +262,7 @@ ja:
             success: イニシアチブは技術的な検証に送信されました。
             update: 更新
           form:
+            attachments_title: 添付ファイル
             settings: 設定
             title: 一般情報
           index:

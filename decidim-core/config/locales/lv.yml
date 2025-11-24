@@ -509,7 +509,6 @@ lv:
     managed_users:
       expired_session: Pašreizējā dalībnieka administratora sesija ir beigusies.
     menu:
-      help: Palīdzība
       home: Sākums
     messaging:
       conversation_mailer:
@@ -564,10 +563,8 @@ lv:
       unsubscribe:
         success: Jūsu abonements ir veiksmīgi anulēts.
         token_error: Saitei ir beidzies derīguma termiņš.
-        unsubscribe: Anulēt abonementu
     newsletters_opt_in_mailer:
       notify:
-        body_1: Personas datu apstrāde un to aizsardzība kļūst arvien nozīmīgāka mums visiem. Ievērojot jauno Vispārīgo datu aizsardzības regulu (VDAR) (2018. gada 25. maijs), indivīdi var efektīvāk kontrolēt savu personas datu izmantošanu. Šī iemesla dēļ mums ir nepieciešams jūsu „OK”, lai turpinātu sūtīt būtisku informāciju par %{organisation_name} darbībām.
         body_2: 'Kā jūs varat dot mums savu piekrišanu? Vienkārši noklikšķiniet uz šīs pogas:'
         body_3: Piekrītot jūs varēsiet turpināt saņemt informāciju par platformas pakalpojumiem. Pretējā gadījumā, ja mēs nesaņemsim no jums pozitīvu apstiprinājumu, mēs pārtrauksim jums sūtīt ziņas. Ja jūs apstiprināsiet, ka vēlaties saņemt informāciju, jums vienmēr būs iespēja šo piekrišanu atcelt jebkurā laikā.
         button: Jā, es vēlos turpināt saņemt būtisku informāciju
@@ -834,7 +831,6 @@ lv:
       impersonation_warning:
         close_session: Aizvērt sesiju
         description_html: Jūs pārvaldāt dalībnieku <b>%{user_name}</b>.
-        expire_time_html: Jūsu sesija beigsies pēc <b><span class="minutes">%{minutes}</span> minūtēm</b>.
       notifications_dashboard:
         mark_all_as_read: Atzīmēt visu kā izlasītu
       user_menu:
@@ -859,7 +855,6 @@ lv:
     fallback: nav derīga.
     name_included_in_password: ir pārāk līdzīga jūsu vārdam
     not_enough_unique_characters: nav pietiekami daudz unikālu rakstzīmju
-    password_not_allowed: nav atļauta
     password_too_common: ir pārāk izplatīta
     password_too_long: ir pārāk gara
     password_too_short: ir pārāk īsa

@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
     "homepage_uri" => "https://decidim.org",
     "source_code_uri" => "https://github.com/decidim/decidim"
   }
-  s.required_ruby_version = "~> 3.3.0"
+  s.required_ruby_version = "~> 3.4.0"
 
   s.name = "decidim-elections"
   s.summary = "A Decidim module for creating Elections."
@@ -32,6 +32,9 @@ Gem::Specification.new do |s|
 
   s.add_dependency "decidim-admin", Decidim::Elections.version
   s.add_dependency "decidim-core", Decidim::Elections.version
+  s.add_dependency "decidim-forms", Decidim::Elections.version
 
+  s.add_development_dependency "decidim-admin", Decidim::Elections.version
   s.add_development_dependency "decidim-dev", Decidim::Elections.version
+  s.add_development_dependency "decidim-participatory_processes", Decidim::Elections.version
 end

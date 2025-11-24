@@ -604,7 +604,6 @@ tr:
         latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Yardım
       home: Ana Sayfa
     messaging:
       conversation_mailer:
@@ -667,10 +666,8 @@ tr:
       unsubscribe:
         success: Abonelikten başarıyla çıktınız.
         token_error: Bağlantının süresi doldu.
-        unsubscribe: Abonelikten ayrıl
     newsletters_opt_in_mailer:
       notify:
-        body_1: Kişisel verilerin işlenmesi ve korunması, hepimiz için giderek daha önemli hale gelmektedir. 25 Mayıs 2018 tarihli yeni Genel Veri Koruma Yönetmeliği (GDPR) ile bireyler kişisel verileri üzerinde daha iyi bir kontrole sahiptir. Bu nedenle, %{organization_name}faaliyetleri hakkında ilgili bilgileri göndermeye devam etmek için "OK" e ihtiyacımız var.
         body_2: 'Bize onayınızı nasıl verirsiniz? Aşağıdaki düğmeyi tıklamanız yeterlidir:'
         body_3: Bu izinle, platformun hizmetleri hakkında bilgi almaya devam edebileceksiniz. Aksine, sizin tarafınızdan olumlu bir onay almazsak, size mesajlarımızı göndermeyi durduracağız. Bilgilendirilmeye devam etmek istediğinizi onaylarsanız, her zaman istediğiniz zaman iptal etme seçeneğiniz olacaktır.
         button: Evet, alakalı bilgileri almaya devam etmek istiyorum
@@ -1005,7 +1002,6 @@ tr:
       impersonation_warning:
         close_session: Oturumu kapat
         description_html: Kullanıcının kimliğine bürünüyorsunuz <b>%{user_name}</b>.
-        expire_time_html: Seansınız <b><span class="minutes">%{minutes}</span> dakika</b>bitecek.
       language_chooser:
         choose_language: Dil seçin
       notifications_dashboard:
@@ -1043,7 +1039,6 @@ tr:
     fallback: geçerli değil
     name_included_in_password: adınıza çok benzer
     not_enough_unique_characters: yeterli benzersiz karakter yok
-    password_not_allowed: Müsade edilmez
     password_too_common: çok yaygın
     password_too_long: çok uzun
     password_too_short: çok kısa

@@ -154,6 +154,13 @@ ignore_unused:
   - decidim.forms.admin_log.questionnaire.update
   - decidim.elections.admin_log.election.*
   - decidim.elections.admin_log.question.*
+  - decidim.elections.admin.statuses.*
+  - decidim.elections.censuses.internal_users.*
+  - decidim.elections.elections.filters.state_values.*
+  - decidim.elections.elections.orders.*
+  - decidim.elections.elections.show.*
+  - decidim.elections.votes.check_census.*
+  - decidim.elections.votes.question.*
   - decidim.proposals.answers.*
   - decidim.proposals.collaborative_drafts.show.see_other_versions
   - decidim.proposals.collaborative_drafts.wizard_aside.back
@@ -222,9 +229,6 @@ ignore_unused:
   - decidim.budgets.projects.order_progress.vote_threshold_percent_rule.*
   - decidim.orders.checkout.*
   - decidim.budgets.projects.filters.*
-  - decidim.sortitions.admin_log.*
-  - decidim.sortitions.sortitions.filters.*
-  - decidim.sortitions.sortitions.orders.*
   - decidim.initiatives.admin_log.*
   - decidim.initiatives.initiatives.orders.*
   - decidim.initiatives.states.*
@@ -365,8 +369,11 @@ ignore_unused:
   - decidim.meetings.directory.meetings.index.space_type
   - decidim.authorization_modals.content.*
   - decidim.authorization_handlers.admin.{another_dummy_authorization_handler,csv_census,dummy_authorization_handler,ephemeral_dummy_authorization_handler,id_documents,postal_letter,sms}.help
+  - number.currency.format.format
   - time.buttons.*
   - decidim.profiles.show.members
+  - decidim.participatory_processes.static_pages.democratic_quality_indicators.*
+  - decidim.participatory_processes.admin.content_blocks.democratic_quality_stats_settings_form.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

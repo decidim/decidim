@@ -18,6 +18,8 @@ es-PY:
       admin_log:
         changeset:
           posts: Entradas en el blog
+      tooltips:
+        deleted_posts_info: No se puede eliminar esta entrada en el blog
     blogs:
       actions:
         author_id: Crear publicación como
@@ -105,6 +107,7 @@ es-PY:
           destroy: Borrar
           like: '"Me gusta"'
           update: Actualizar
+          vote_comment: Votar el comentario
         name: Blog
         settings:
           global:

@@ -1,7 +1,7 @@
 {
   "name": "@decidim/webpacker",
   "description": "The webpacker dependencies for Decidim",
-  "version": "0.31.0-dev",
+  "version": "0.32.0-dev",
   "repository": {
     "url": "git@github.com:decidim/decidim.git",
     "type": "git",
@@ -11,6 +11,7 @@
   "license": "AGPL-3.0-or-later",
   "main": "index.js",
   "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
     "@rails/ujs": "^6.1.7",
     "@tailwindcss/typography": "^0.5.2",
     "autoprefixer": "^10.4.14",
@@ -33,7 +34,7 @@
     "postcss-preset-env": "^9.0.0",
     "postcss-scss": "^4.0.6",
     "sass-embedded": "^1.63.6",
-    "shakapacker": "~7.1.0",
+    "shakapacker": "~8.3.0",
     "source-map-loader": "^4.0.1",
     "style-loader": "^3.3.3",
     "tailwindcss": "^3.4.1",

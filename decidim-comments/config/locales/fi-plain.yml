@@ -123,6 +123,9 @@ fi-pl:
           other: "%{count} kommenttia"
         top_comment_label: Eniten ääniä saaneet ensin
       down_vote_button:
+        label:
+          one: Eri mieltä osoittava painike. %{count} henkilö on asiasta eri mieltä
+          other: Eri mieltä osoittava painike. %{count} henkilöä on asiasta eri mieltä
         text: Olen eri mieltä tämän kommentin kanssa
       edit_comment_modal_form:
         close: Sulje
@@ -133,6 +136,9 @@ fi-pl:
           submit: Lähetä
         title: Muokkaa kommenttiasi
       up_vote_button:
+        label:
+          one: Tykkäyspainike. %{count} tykkäys
+          other: Tykkäyspainike. %{count} tykkäystä
         text: Olen samaa mieltä tämän kommentin kanssa
     download_your_data:
       help:

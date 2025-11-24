@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
     "homepage_uri" => "https://decidim.org",
     "source_code_uri" => "https://github.com/decidim/decidim"
   }
-  s.required_ruby_version = "~> 3.3.0"
+  s.required_ruby_version = "~> 3.4.0"
 
   s.name = "decidim-api"
   s.summary = "Decidim API module"
@@ -33,7 +33,8 @@ Gem::Specification.new do |s|
   end
 
   s.add_dependency "decidim-core", Decidim::Api.version
-  s.add_dependency "graphql", "~> 2.4.0"
+  s.add_dependency "devise-jwt", "~> 0.12.1"
+  s.add_dependency "graphql", "~> 2.4.0", ">= 2.4.17"
   s.add_dependency "graphql-docs", "~> 5.0"
   s.add_dependency "rack-cors", "~> 1.0"
 

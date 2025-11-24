@@ -16,10 +16,6 @@ ko:
         key: 키
         name: 이름
         progress: 진행 상황
-      timeline_entry:
-        description: 상세정보
-        entry_date: 날짜
-        title: 제목
     models:
       decidim/accountability/proposal_linked_event: 결과에 포함된 제안
       decidim/accountability/result_progress_updated_event: 결과 진행이 업데이트되었습니다
@@ -30,8 +26,6 @@ ko:
   decidim:
     accountability:
       actions:
-        attachment_collections: 폴더
-        attachments: 첨부 파일
         confirm_destroy: 정말로 %{name} 를 삭제하시겠습니까?
         destroy: 삭제
         edit: 편집
@@ -125,7 +119,6 @@ ko:
           fields:
             created_at: 생성됨
             end_date: 종료 날짜
-            id: 아이디
             progress: 진행 상황
             start_date: 시작 날짜
             status: 상태
@@ -136,10 +129,6 @@ ko:
             key: 키
             name: 이름
             progress: 진행 상황
-        timeline_entry:
-          fields:
-            entry_date: 날짜
-            title: 제목
       results:
         count:
           results_count:

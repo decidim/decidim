@@ -16,9 +16,6 @@ da:
         key: Nøgle
         name: Navn
         progress: Fremskridt
-      timeline_entry:
-        description: Beskrivelse
-        entry_date: Dato
     models:
       decidim/accountability/proposal_linked_event: Projekter, der indgår i dette resultat
       decidim/accountability/result_progress_updated_event: Resultatstatus opdateret
@@ -34,7 +31,6 @@ da:
         destroy: Slet
         edit: Rediger
         preview: Eksempelvisning
-        timeline_entries: Projektudvikling
         title: Handlinger
       admin:
         exports:
@@ -68,15 +64,6 @@ da:
           new:
             create: Opret status
             title: Ny status
-        timeline_entries:
-          edit:
-            title: Rediger Indlæg
-            update: Opdater indlæg
-          index:
-            title: Projekt tidslinje indlæg
-          new:
-            create: Opret indlæg
-            title: Nyt indlæg
       admin_log:
         result:
           create: "%{user_name} oprettede resultat %{resource_name} i %{space_name}"
@@ -105,9 +92,6 @@ da:
             key: Nøgle
             name: Navn
             progress: Fremskridt
-        timeline_entry:
-          fields:
-            entry_date: Dato
       results:
         count:
           results_count:
@@ -120,8 +104,6 @@ da:
         show:
           stats:
             back_to_resource: Tilbage til resultater
-        timeline:
-          title: Projektets udvikling
     components:
       accountability:
         name: Ansvarlighed

@@ -61,6 +61,8 @@ describe "Interact with commenters" do
       let!(:notification) { create(:notification, :proposal_coauthor_invite, user: commenter, resource: proposal) }
 
       it "author can cancel invitation" do
+        visit current_path
+
         within "#comment_#{comment.id}" do
           find("#dropdown-trigger-toggle-context-menu-#{comment.id}").click
           perform_enqueued_jobs do

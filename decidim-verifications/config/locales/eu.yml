@@ -7,9 +7,9 @@ eu:
         file: Fitxategia
       config:
         available_methods: Metodo erabilgarriak
-        offline: Offline
-        offline_explanation: Lineaz kanpoko egiaztapenaren jarraibideak
-        online: Online
+        offline: Off-line
+        offline_explanation: Off-line egiaztapenaren jarraibideak
+        online: On-line
       confirmation:
         verification_code: Egiaztapen kodea
       id_document_information:
@@ -17,7 +17,7 @@ eu:
         document_type: Dokumentu mota
       id_document_upload:
         document_number: Dokumentuaren zenbakia (letraz)
-        document_type: Zure dokumentuaren mota
+        document_type: Dokumentuaren mota
         user: Parte-hartzaileak
         verification_attachment: Zure dokumentuaren eskaneatutako kopia
       mobile_phone:
@@ -72,7 +72,7 @@ eu:
         default:
           help:
             - Ez dago zehaztuta baimen-emailearen laguntza.
-            - Garatzaile batek laguntza zehaztu behar du "% {authorization_handler} "(i18n) itzulpen-gakoan
+            - Garatzaile batek laguntza zehaztu behar du "%{authorization_handler} "(i18n) itzulpen-gakoan
         dummy_authorization_handler:
           help:
             - Baimen-emaile adibide bat garatzaileek uler dezaten nola funtzionatzen duen egiaztapen sinple batek.
@@ -124,10 +124,10 @@ eu:
     verifications:
       admin_log:
         csv_datum:
-          create: "%{user_name} -k sortu du errolda-datuen erregistro berria sortu du e-mail honekin: %{resource_email}"
-          delete: "%{user_name} -k ezabatu du errolda-datuen erregistro berria e-mail honekin: %{resource_email}"
-          import: "%{user_name} -k %{imported_count} errolda-erregistroak inportatu ditu"
-          update: "%{user_name} -k eguneratu du errolda-datuen erregistro berria e-mail honekin: %{resource_email}"
+          create: "%{user_name} parte-hartzaileak sortu du errolda-datuen erregistro berria sortu du e-mail honekin: %{resource_email}"
+          delete: "%{user_name} parte-hartzaileak ezabatu du errolda-datuen erregistro berria e-mail honekin: %{resource_email}"
+          import: "%{user_name} parte-hartzaileak %{imported_count} errolda-erregistroak inportatu ditu"
+          update: "%{user_name} parte-hartzaileak eguneratu du errolda-datuen erregistro berria e-mail honekin: %{resource_email}"
       authorizations:
         authorization_metadata:
           info: 'Hauek dira oraingo egiaztapenaren datuak:'
@@ -151,14 +151,14 @@ eu:
         new:
           authorize: Bidali
           authorize_with: Egiaztatu %{authorizer} rekin
-          tos_agreement: 'Zure nortasuna egiaztatzeko, onartu: % {link}.'
+          tos_agreement: 'Zure nortasuna egiaztatzeko, onartu: %{link}.'
         onboarding_pending:
           completed_verifications: 'Bainema zuzen lortu duzu, orain zuk ahal duzu %{action} hemen: %{resource_name}'
           granted_verifications: Emandako egiaztapenak
           onboarding_message_html: 'Ia prest zaude %{action} ekintzarako hemen: <strong>%{resource_title}</strong> %{resource_name}. Mesedez, egiaztatu zure kontua baimen hauek betez.'
           pending_admin_approval_verifications: Admin. onespenaren egiaztapenen zain
           pending_verifications: Egiaztatzeke
-          unauthorized: Ez duzu baimenik %{ekintza} ekintzarako baliabide honetan
+          unauthorized: Ez duzu baimenik %{action} ekintzarako baliabide honetan
         renew_modal:
           cancel: Ezeztatu
           continue: Jarraitu
@@ -203,7 +203,7 @@ eu:
               save: Gorde
               title: Editatu errolda-erregistroa
             form:
-              email: Helbide elektronkoa
+              email: Helbide elektronikoa
             new_record:
               save: Gorde
               title: Gehitu beste errolda-erregistro bat
@@ -216,9 +216,9 @@ eu:
             fields:
               actions: Ekintzak
               created_at: Noiz sortua
-              email: Helbide elektronkoa
+              email: Helbide elektronikoa
               user_authorized: Parte-hartzailea baimendua?
-            import_csv: Inportatu CSV
+            import_csv: Inportatu CSV fitxategia
             no_authorized: Parte-hartzailea ez baimendua
             title: Erroldako oraingo datuak
           instructions:
@@ -267,9 +267,9 @@ eu:
               verify: Ziurtatu
           pending_authorizations:
             index:
-              config: config
-              offline_verification: Lineaz kanpoko egiaztapena
-              title: Onlineko egiaztapenak zain
+              config: Konfiguratu
+              offline_verification: Off-line egiaztapena
+              title: On-line egiaztapenak zain
               verification_number: 'Egiaztapena # %{n}'
           rejections:
             create:
@@ -277,22 +277,22 @@ eu:
         authorizations:
           choose:
             choose_a_type: 'Hautatu nola egiaztatu nahi duzun:'
-            offline: Offline
-            online: Online
+            offline: Off-line
+            online: On-line
             title: Egiaztatu zure identifikazio dokumentua erabiliz
           create:
             error: Arazo bat egon da zure dokumentua igotzean.
             success: Dokumentua ondo igota.
           edit:
             being_reviewed: Zure dokumentuak berrikusten ari gara. Laster egiaztatuko zaituzte.
-            offline: Erabili lineaz kanpoko egiaztapena
-            online: Erabili lineako egiaztapena
+            offline: Erabili off-line egiaztapena
+            online: Erabili on-line egiaztapena
             rejection_clarity: Ziurtatu informazioa argi eta garbi ageri dela kargatutako irudian.
             rejection_correctness: Ziurtatu sartu duzun informazioa zuzena dela.
             rejection_notice: Arazo bat egon da zure egiaztapenarekin. Mesedez, saiatu berriro.
             send: Eskatu egiaztapena berriro
           new:
-            send: Eskatu egiaztapena
+            send: Egiaztapena eskatu
             title: Igo zure identifikazio agiria
           update:
             error: Arazo bat egon da zure dokumentua berriro igotzean.
@@ -304,6 +304,7 @@ eu:
           pending_authorizations:
             index:
               address: Helbidea
+              already_sent: Posta-gutuna bidalita zegoen, eta ezin da berriro markatu bidalita bezala.
               letter_sent_at: Gutuna bidali
               mark_as_sent: Markatu bidali gisa
               not_yet_sent: Ez da bidali oraindik
@@ -324,7 +325,7 @@ eu:
             waiting_for_letter: Laster gutun bat bidaliko dugu zure helbidera zure egiaztapen-kodearekin.
           new:
             send: Bidali iezadazu gutun bat
-            title: Eskatu egiaztapen-kodea
+            title: Egiaztapen-kodea eskatu
           update:
             error: Zure egiaztapen-kodea ez dator bat gurearekin. Mesedez, begiratu berriro bidali dizugun gutuna.
             success: Zorionak! Zuzen egiaztatu zara.

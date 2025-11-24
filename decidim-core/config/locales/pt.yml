@@ -597,7 +597,6 @@ pt:
         latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Ajuda
       home: Inicio
     messaging:
       conversation_mailer:
@@ -659,10 +658,8 @@ pt:
       unsubscribe:
         success: Subscrição cancelada corretamente.
         token_error: A hiperligação expirou.
-        unsubscribe: Cancelar subscrição
     newsletters_opt_in_mailer:
       notify:
-        body_1: O processamento de dados pessoais e a sua proteção estão a tornar-se cada vez mais importantes para todos nós. Com o novo Regulamento Geral de Proteção de Dados (GDPR) de 25 de maio de 2018, os indivíduos têm melhor controlo sobre os seus dados pessoais. Por este motivo, precisamos do seu "OK" para continuar a enviar informações relevantes sobre as atividades de %{organization_name}.
         body_2: 'Como pode dar-nos o seu consentimento? Basta clicar no seguinte botão:'
         body_3: Com este consentimento, poderá continuar a receber informações sobre os serviços da plataforma. Se, pelo contrário, não recebermos uma confirmação positiva da sua parte, deixaremos de lhe enviar as nossas mensagens. Se confirmar que deseja continuar a ser informado, terá sempre a opção de cancelar a qualquer momento.
         button: Sim, quero continuar a receber informações relevantes
@@ -1004,7 +1001,6 @@ pt:
       impersonation_warning:
         close_session: Terminar sessão
         description_html: Está a gerir o participante <b>%{user_name}</b>.
-        expire_time_html: A sua sessão irá expirar em <b><span class="minutes">%{minutes}</span> minutos</b>.
       language_chooser:
         choose_language: Escolher idioma
       notifications_dashboard:
@@ -1043,7 +1039,6 @@ pt:
     fallback: não é válido
     name_included_in_password: é muito semelhante com o seu nome
     not_enough_unique_characters: não tem caracteres únicos suficientes
-    password_not_allowed: não é permitido
     password_too_common: é muito comum
     password_too_long: é muito longo
     password_too_short: é muito curto

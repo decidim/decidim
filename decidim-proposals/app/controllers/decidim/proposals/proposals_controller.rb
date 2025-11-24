@@ -20,7 +20,7 @@ module Decidim
 
       before_action :authenticate_user!, only: [:new, :create]
       before_action :ensure_is_draft, only: [:preview, :publish, :edit_draft, :update_draft, :destroy_draft]
-      before_action :set_proposal, only: [:show, :edit, :update, :withdraw]
+      before_action :proposal, only: [:show, :edit, :update, :withdraw]
       before_action :edit_form, only: [:edit_draft, :edit]
       before_action :set_view_mode, only: [:index]
 
@@ -79,7 +79,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("proposals.create.error", scope: "decidim")
-            render :new
+            render :new, status: :unprocessable_entity
           end
         end
       end
@@ -101,7 +101,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("proposals.publish.error", scope: "decidim")
-            render :edit_draft
+            render :edit_draft, status: :unprocessable_entity
           end
         end
       end
@@ -124,7 +124,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("proposals.update_draft.error", scope: "decidim")
-            render :edit_draft
+            render :edit_draft, status: :unprocessable_entity
           end
         end
       end
@@ -140,7 +140,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("proposals.destroy_draft.error", scope: "decidim")
-            render :edit_draft
+            render :edit_draft, status: :unprocessable_entity
           end
         end
       end
@@ -161,7 +161,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("proposals.update.error", scope: "decidim")
-            render :edit
+            render :edit, status: :unprocessable_entity
           end
         end
       end
@@ -216,8 +216,8 @@ module Decidim
         redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path unless @proposal.draft?
       end
 
-      def set_proposal
-        @proposal = Proposal.published.not_hidden.where(component: current_component).find_by(id: params[:id])
+      def proposal
+        @proposal ||= Proposal.published.not_hidden.where(component: current_component).find_by(id: params[:id])
       end
 
       # Returns true if the proposal is NOT an emendation or the user IS an admin.
@@ -288,6 +288,24 @@ module Decidim
 
       def default_view_mode
         @default_view_mode ||= current_component.settings.attachments_allowed? ? "grid" : "list"
+      end
+
+      def add_breadcrumb_item
+        return {} if proposal.blank?
+
+        if proposal.emendation?
+          {
+            label: translated_attribute(proposal.amendable.title),
+            url: Decidim::EngineRouter.main_proxy(current_component).proposal_path(proposal.amendable),
+            active: false
+          }
+        else
+          {
+            label: translated_attribute(proposal.title),
+            url: Decidim::EngineRouter.main_proxy(current_component).proposal_path(proposal),
+            active: false
+          }
+        end
       end
     end
   end

@@ -38,7 +38,7 @@ module Decidim
 
         on(:invalid) do
           flash.now[:alert] = t("created.error", scope: "decidim.amendments")
-          render :new
+          render :new, status: :unprocessable_entity
         end
       end
     end
@@ -62,7 +62,7 @@ module Decidim
 
         on(:invalid) do
           flash.now[:alert] = t("error", scope: "decidim.amendments.update_draft")
-          render :edit_draft
+          render :edit_draft, status: :unprocessable_entity
         end
       end
     end
@@ -100,13 +100,13 @@ module Decidim
 
         on(:invalid) do
           flash.now[:alert] = t("error", scope: "decidim.amendments.publish_draft")
-          render :edit_draft
+          render :edit_draft, status: :unprocessable_entity
         end
       end
     end
 
     def reject
-      enforce_permission_to :reject, :amendment, current_component: amendable.component
+      enforce_permission_to :reject, :amendment, amendable:, current_component: amendable.component
 
       @form = form(Decidim::Amendable::RejectForm).from_model(amendment)
 
@@ -142,13 +142,13 @@ module Decidim
     end
 
     def review
-      enforce_permission_to :accept, :amendment, current_component: amendable.component
+      enforce_permission_to :accept, :amendment, amendable:, current_component: amendable.component
 
       @form = form(Decidim::Amendable::ReviewForm).from_params(params)
     end
 
     def accept
-      enforce_permission_to :accept, :amendment, current_component: amendable.component
+      enforce_permission_to :accept, :amendment, amendable:, current_component: amendable.component
 
       @form = form(Decidim::Amendable::ReviewForm).from_params(params)
 
@@ -160,7 +160,7 @@ module Decidim
 
         on(:invalid) do
           flash.now[:alert] = t("accepted.error", scope: "decidim.amendments")
-          render :review
+          render :review, status: :unprocessable_entity
         end
       end
     end

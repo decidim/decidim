@@ -149,6 +149,13 @@ sv:
       x_seconds:
         one: 1 sekund
         other: "%{count} sekunder"
+    widget:
+      label:
+        date: Välj datum för %{label}
+        time: Välj tidpunkt för %{label}
+      picker:
+        date_button: Öppna kalenderväljare för %{label}
+        time_button: Öppen tidsväljare för %{label}
   decidim:
     accessibility:
       external_link: Extern länk
@@ -563,8 +570,6 @@ sv:
         description: Beskrivning
       footer_sub_hero:
         name: Sidfot sub hero banner
-      global_menu:
-        name: Global meny
       hero:
         name: Bild och CTA
       hero_settings_form:
@@ -700,6 +705,7 @@ sv:
     doorkeeper:
       authorizations:
         new:
+          api_read: Läs innehåll via API:et
           authorize: Auktorisera ansökan
           by_organization_link_html: av %{link}
           cancel: Avbryt
@@ -1091,7 +1097,6 @@ sv:
         latlng_text: 'latitud: %{latitude}, longitud: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Hjälp
       home: Hem
     messaging:
       conversation_mailer:
@@ -1173,11 +1178,12 @@ sv:
         main_image: Huvudbild
     newsletters:
       unsubscribe:
-        check_subscription: Om du vill ändra dina inställningar kan du göra det på <a href="%{link}" target="_blank">inställningssidan</a>.
+        check_subscription_html: Om du vill börja ta emot dem igen, kan du återaktivera din prenumeration när som helst från <a href="%{link}" target="_blank">inställningssidan</a>.
         error: Det gick inte att avsluta prenumerationen.
+        subscription_preferences: Vi har uppdaterat dina prenumerationsinställningar, och du får inte längre nyhetsbrev från %{organization_name}.
         success: Prenumerationen har avslutats.
         token_error: Länken är inte längre giltig.
-        unsubscribe: Avprenumerera
+        unsubscribe: Avregistrera dig från nyhetsbrev
     newsletters_opt_in:
       unauthorized: Länken är tyvärr inte längre tillgänglig.
       update:
@@ -1402,6 +1408,7 @@ sv:
     searches:
       filters:
         jump_to: 'Gå till:'
+        resource: "%{label} bland %{collection}"
         search: Sök
         state:
           active: Pågående
@@ -1854,24 +1861,26 @@ sv:
         edit: Redigera
       footer:
         cc_by_license: Creative Commons-licens
+        current_organization_img: "%{organization} (hemma)"
         data_consent_settings: Inställningar för cookies
         decidim_logo: Decidims logotyp
         decidim_title: Decidim
+        help: Hjälp
         log_in: Logga in
         made_with_open_source: Webbplats skapad med <a target="_blank" href="https://github.com/decidim/decidim">fri programvara</a>.
         resources: Innehåll
         sign_up: Skapa ett konto
+        social_media: Sociala medier
         terms_of_service: Användarvillkor
       header:
-        back: Tillbaka till listan
-        cancel: Avbryt
+        back: Tillbaka
         log_in: Logga in
         main_menu: Huvudmeny
         user_menu: Användarmeny
       impersonation_warning:
         close_session: Stäng session
         description_html: Du hanterar deltagaren <b>%{user_name}</b>.
-        expire_time_html: Din session kommer löpa ut om <b><span class="minutes">%{minutes}</span> minuter</b>.
+        expire_time_html: Din session löper ut om <b><span data-impersonation-warning-target="minutes">%{minutes}</span> minuter</b>.
       language_chooser:
         choose_language: Välj språk
       notifications_dashboard:
@@ -1900,6 +1909,8 @@ sv:
         profile: Mitt konto
         public_profile: Min offentliga profil
         title: Profillänkar
+        unread_conversations: Du har olästa konversationer
+        unread_notifications: Du har olästa meddelanden
       user_profile:
         account: Konto
         authorizations: Auktoriseringar
@@ -1911,6 +1922,11 @@ sv:
   locale:
     name: Svenska
     name_with_error: Svenska (fel!)
+  number:
+    currency:
+      format:
+        format: "%u %n"
+        format_html: "<span>%u</span> %n"
   password_validator:
     denied: nekas
     domain_included_in_password: är för likt detta domännamn
@@ -1919,7 +1935,6 @@ sv:
     name_included_in_password: är för likt ditt namn
     nickname_included_in_password: är för likt ditt användarnamn
     not_enough_unique_characters: har inte tillräckligt med unika tecken
-    password_not_allowed: är ej tillåtet
     password_repeated: kan inte återanvända tidigare lösenord
     password_too_common: är för vanligt
     password_too_long: är för långt

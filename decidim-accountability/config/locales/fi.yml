@@ -1,6 +1,10 @@
 fi:
   activemodel:
     attributes:
+      milestone:
+        description: Kuvaus
+        entry_date: Päivämäärä
+        title: Otsikko
       result:
         decidim_accountability_status_id: Tila
         decidim_category_id: Aihepiiri
@@ -17,10 +21,6 @@ fi:
         key: Tunniste
         name: Nimi
         progress: Edistyminen
-      timeline_entry:
-        description: Kuvaus
-        entry_date: Päivämäärä
-        title: Otsikko
     models:
       decidim/accountability/proposal_linked_event: Ehdotus sisältyy tulokseen
       decidim/accountability/result_progress_updated_event: Tuloksen edistyminen päivitetty
@@ -40,8 +40,8 @@ fi:
   decidim:
     accountability:
       actions:
-        attachment_collections: Kansiot
-        attachments: Liitteet
+        add_milestone: Lisää välitavoite
+        add_result: Lisää tulos
         confirm_delete_result: Haluatko varmasti poistaa tämän tuloksen?
         confirm_destroy: Oletko varma, että haluat poistaa tämän kohteen nimeltä "%{name}"?
         deleted_results_info: Poistetut tulokset voidaan palauttaa roskakorista.
@@ -49,11 +49,10 @@ fi:
         edit: Muokkaa
         import: Tuo tuloksia toisesta komponentista
         import_csv: Tuo tulokset CSV-tiedostosta
+        new_milestone: Uusi välitavoite
         new_result: Uusi tulos
         new_status: Uusi tila
-        new_timeline_entry: Uusi aikajanan merkintä
         preview: Esikatsele
-        timeline_entries: Hankkeen edistyminen
         title: Toiminnot
         view_deleted_results: Näytä poistetut tulokset
       admin:
@@ -111,6 +110,23 @@ fi:
           create:
             invalid: Tulosten tuonti epäonnistui.
             success: Tiedoston tuominen on aloitettu. Saat muutaman minuutin kuluttua sähköpostin, jossa ilmoitetaan tuonnin lopputulos.
+        milestones:
+          create:
+            invalid: Välitavoitteen luonti epäonnistui.
+            success: Välitavoitteen luonti onnistui.
+          destroy:
+            success: Välitavoitteen poisto onnistui.
+          edit:
+            title: Muokkaa välitavoitetta
+            update: Päivitä välitavoite
+          index:
+            title: Välitavoitteet
+          new:
+            create: Luo välitavoite
+            title: Uusi välitavoite
+          update:
+            invalid: Välitavoitteen päivitys epäonnistui.
+            success: Välitavoitteen päivitys onnistui.
         models:
           result:
             name: Tulos
@@ -182,24 +198,11 @@ fi:
           update:
             invalid: Tilan päivitys epäonnistui.
             success: Tilan päivitys onnistui.
-        timeline_entries:
-          create:
-            invalid: Merkinnän luonti epäonnistui.
-            success: Merkinnän luonti onnistui.
-          destroy:
-            success: Merkinnän poisto onnistui.
-          edit:
-            title: Muokkaa merkintää
-            update: Päivitä merkintä
-          index:
-            title: Hankkeen aikajanan merkinnät
-          new:
-            create: Luo merkintä
-            title: Uusi merkintä
-          update:
-            invalid: Merkinnän päivitys epäonnistui.
-            success: Merkinnän päivitys onnistui.
       admin_log:
+        milestones:
+          create: "%{user_name} loi välitavoitteen %{resource_name}"
+          delete: "%{user_name} poisti välitavoitteen %{resource_name}"
+          update: "%{user_name} päivitti välitavoittetta %{resource_name}"
         result:
           create: "%{user_name} loi tuloksen %{resource_name} osallistumistilassa %{space_name}"
           delete: "%{user_name} poisti tuloksen %{resource_name} osallistumistilassa %{space_name}"
@@ -210,10 +213,6 @@ fi:
           create: "%{user_name} loi tilan %{resource_name}"
           delete: "%{user_name} poisti tilan %{resource_name}"
           update: "%{user_name} päivitti tilaa %{resource_name}"
-        timeline_entry:
-          create: "%{user_name} loi aikajanan merkinnän %{resource_name}"
-          delete: "%{user_name} poisti aikajanan merkinnän %{resource_name}"
-          update: "%{user_name} päivitti aikajanan merkintää %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'Pääelementtiä ei löytynyt tietokannasta (ID: %{id})'
@@ -246,11 +245,14 @@ fi:
       last_activity:
         new_result: 'Uusi tulos:'
       models:
+        milestone:
+          fields:
+            entry_date: Päivämäärä
+            title: Otsikko
         result:
           fields:
             created_at: Luontiaika
             end_date: Päättymispäivä
-            id: ID
             progress: Edistyminen
             start_date: Alkamispäivä
             status: Tila
@@ -262,10 +264,6 @@ fi:
             key: Tunniste
             name: Nimi
             progress: Edistyminen
-        timeline_entry:
-          fields:
-            entry_date: Päivämäärä
-            title: Otsikko
       results:
         count:
           results_count:
@@ -273,16 +271,16 @@ fi:
             other: "%{count} tulosta"
         home_header:
           global_status: Yleisen toteutuksen tila
+        milestones:
+          title: Välitavoitteet
         no_results: Projekteja ei ole saatavilla
         root_taxonomies:
           title: 'Näytä luokittelun mukaan:'
         search:
-          search: Hae toimintoja
+          search: Hae toimenpiteitä
         show:
           stats:
             back_to_resource: Palaa tulokseen
-        timeline:
-          title: Hankkeen kehitys
     admin:
       filters:
         results:
@@ -290,6 +288,8 @@ fi:
             label: Tila
           taxonomies_part_of_contains:
             label: Luokittelu
+      tooltips:
+        deleted_results_info: Tätä tulosta ei voi poistaa
     components:
       accountability:
         actions:

@@ -132,7 +132,7 @@ describe "Admin manages newsletters" do
         visit decidim_admin.newsletters_path
 
         within("tr[data-newsletter-id=\"#{newsletter.id}\"]") do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           perform_enqueued_jobs do
             click_on "Send me a test email"
           end
@@ -150,7 +150,7 @@ describe "Admin manages newsletters" do
     it "allows a newsletter to be updated" do
       visit decidim_admin.newsletters_path
       within("tr[data-newsletter-id=\"#{newsletter.id}\"]") do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
@@ -545,7 +545,7 @@ describe "Admin manages newsletters" do
       visit decidim_admin.newsletters_path
 
       within("tr[data-newsletter-id=\"#{newsletter.id}\"]") do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
 

@@ -9,7 +9,7 @@ concurrency:
 
 env:
   CI: "true"
-  RUBY_VERSION: 3.3.4
+  RUBY_VERSION: 3.4.7
 
 jobs:
   backport:

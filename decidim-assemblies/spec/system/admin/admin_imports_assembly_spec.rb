@@ -55,14 +55,14 @@ describe "Admin imports assembly" do
       expect(page).to have_content("Unpublished")
 
       within "tr", text: "Import assembly" do
-        find("button[data-component='dropdown']").click
-        click_on "Configure"
+        find("button[data-controller='dropdown']").click
+        click_on "Edit"
       end
 
       within_admin_sidebar_menu do
         click_on "Components"
       end
-      expect(Decidim::Assembly.last.components.size).to eq(9)
+      expect(Decidim::Assembly.last.components.size).to eq(8)
       within ".table-list" do
         Decidim::Assembly.last.components.each do |component|
           expect(page).to have_content(translated(component.name))

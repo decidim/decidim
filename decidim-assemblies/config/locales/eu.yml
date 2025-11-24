@@ -10,9 +10,6 @@ eu:
         closing_date: Amaiera-data
         closing_date_reason: Amaiera-dataren arrazoia
         composition: Osaera
-        copy_categories: Kopiatu kategoriak
-        copy_components: Kopiatu osagaiak
-        copy_features: Kopiatu funtzionalitateak
         created_by: Nork sortua
         created_by_other: Beste batek sortua
         creation_date: Sortze-data
@@ -22,6 +19,9 @@ eu:
         developer_group: Talde sustatzailea
         document: Dokumentua
         domain: Domeinua
+        duplicate_categories: Kategoriak bikoiztu
+        duplicate_components: Osagaiak bikoiztu
+        duplicate_features: Ezaugarriak bikoiztu
         duration: Iraupena
         facebook: Facebook
         github: GitHub
@@ -72,7 +72,7 @@ eu:
         assembly:
           attributes:
             document:
-              allowed_file_content_types: 'Dokumentu mota ez da baliozkoa. Honako luzapen hauek dituzten fitxategiak baino ez dira onartzen: % {types}.'
+              allowed_file_content_types: 'Dokumentu mota ez da baliozkoa. Honako luzapen hauek dituzten fitxategiak baino ez dira onartzen: %{types}.'
   activerecord:
     models:
       decidim/assembly:
@@ -111,15 +111,15 @@ eu:
         update:
           error: Arazo bat egon da batzar hau eguneratzean.
           success: Batzarra zuzen eguneratua.
-      assemblies_copies:
+      assemblies_duplicates:
         create:
           error: Arazo bat egon da batzar hau bikoiztean.
           success: Batzarra zuzen bikoiztua.
-      assembly_copies:
+      assembly_duplicates:
         new:
-          copy: Kopiatu
-          select: Hautatu bikoiztu nahi dituzun datuak
-          title: Kopiatu batzarra
+          duplicate: Bikoiztu
+          select: Hautatu zein datu bikoiztu nahi dituzun
+          title: Batzarra bikoiuztu
       assembly_imports:
         create:
           error: Arazo bat egon da batzar hau inportatzean.
@@ -192,6 +192,7 @@ eu:
             vice_president: Presidenteordea
         assembly_user_role:
           fields:
+            actions: Ekintzak
             email: Helbide elektronikoa
             name: Izena
             role: Rola
@@ -258,7 +259,7 @@ eu:
             taxonomies: Taxonomiak
             title: Informazio orokorra
             visibility: Ikusgarritasuna
-        assembly_copies:
+        assembly_duplicates:
           form:
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
         assembly_imports:

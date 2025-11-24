@@ -220,8 +220,6 @@ pl:
     meetings:
       actions:
         agenda: Program
-        attachment_collections: Folder
-        attachments: Załączniki
         close: Zamknij
         edit: Edytuj
         invalid_destroy:
@@ -564,7 +562,6 @@ pl:
           fields:
             closed: Zakończone
             end_time: Data zakończenia
-            id: Numer ID
             map: Mapa
             official_meeting: Spotkanie oficjalne
             start_time: Data rozpoczęcia

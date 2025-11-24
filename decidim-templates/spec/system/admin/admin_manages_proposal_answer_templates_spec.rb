@@ -126,7 +126,7 @@ describe "Admin manages proposal answer templates" do
 
     it "copies the template" do
       within "tr", text: translated(template.name) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Duplicate"
       end
 
@@ -142,7 +142,7 @@ describe "Admin manages proposal answer templates" do
 
     it "destroys the template" do
       within "tr", text: translated(template.name) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
 
@@ -161,7 +161,7 @@ describe "Admin manages proposal answer templates" do
     before do
       visit Decidim::EngineRouter.admin_proxy(templatable).root_path
       within "tr", text: translated_attribute(proposal.title) do
-        find("button[data-component='dropdown']").click
+        find("button[data-controller='dropdown']").click
         click_on "Answer proposal"
       end
     end
@@ -187,7 +187,7 @@ describe "Admin manages proposal answer templates" do
         template.destroy!
         visit Decidim::EngineRouter.admin_proxy(templatable).root_path
         within "tr", text: translated_attribute(proposal.title) do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Answer proposal"
         end
       end
@@ -204,7 +204,7 @@ describe "Admin manages proposal answer templates" do
       before do
         visit Decidim::EngineRouter.admin_proxy(templatable).root_path
         within "tr", text: translated_attribute(proposal.title) do
-          find("button[data-component='dropdown']").click
+          find("button[data-controller='dropdown']").click
           click_on "Answer proposal"
         end
       end

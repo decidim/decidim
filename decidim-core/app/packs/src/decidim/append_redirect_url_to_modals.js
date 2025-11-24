@@ -20,7 +20,7 @@
  * injected.
  *
  */
-$(() => {
+document.addEventListener("turbo:load", () => {
   const removeUrlParameter = (url, parameter) => {
     const urlParts = url.split("?");
 
