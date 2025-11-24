@@ -19,17 +19,11 @@ You can see the documentation of this feature at the [Decidim Documentation](htt
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'decidim-conferences'
-```
-
-And then execute:
+To install this module, run in your console:
 
 ```bash
-bundle
-bundle exec rails decidim_conferences:install:migrations
+bundle add decidim-conferences
+bundle exec rails decidim:upgrade
 bundle exec rails db:migrate
 ```
 

@@ -20,15 +20,13 @@ This plugin provides:
 
 You can see the documentation of this feature at the [Decidim Documentation](https://docs.decidim.org/en/develop/admin/spaces/initiatives).
 
-```ruby
-gem 'decidim-initiatives'
-```
+## Installation
 
-And then execute:
+To install this module, run in your console:
 
 ```bash
-bundle
-bundle exec rails decidim_initiatives:install:migrations
+bundle add decidim-initiatives
+bundle exec rails decidim:upgrade
 bundle exec rails db:migrate
 ```
 
