@@ -7,16 +7,20 @@ describe FactoryBot do
     expect { described_class.lint(traits: true) }.not_to raise_error
   end
 
-  described_class.factories.sort_by(&:name).each do |factory|
+  described_class.factories.each do |factory|
     context "when using the #{factory.name} factory" do
+      # There are some factories that should not create an organization.
+      # We have this as a exclusion list from our expectation.
+      let(:increment) { %w(admin).include?(factory.name.to_s) ? 0 : 1 }
+
       it "generates a single organization" do
-        expect { create(factory.name) }.to change(Decidim::Organization, :count).by(1)
+        expect { create(factory.name) }.to change(Decidim::Organization, :count).by(increment)
       end
 
       context "when using a trait" do
         factory.defined_traits.collect(&:name).each do |trait|
           it ":#{trait}" do
-            expect { create(factory.name, trait.to_sym) }.to change(Decidim::Organization, :count).by(1)
+            expect { create(factory.name, trait.to_sym) }.to change(Decidim::Organization, :count).by(increment)
           end
         end
       end
