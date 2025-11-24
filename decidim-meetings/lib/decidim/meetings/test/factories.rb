@@ -182,7 +182,7 @@ FactoryBot.define do
 
   factory :meeting_link, class: "Decidim::Meetings::MeetingLink" do
     meeting
-    component
+    component { meeting.component }
   end
 
   factory :registration, class: "Decidim::Meetings::Registration" do
