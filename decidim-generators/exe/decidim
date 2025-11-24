@@ -9,25 +9,25 @@ if File.exist?(File.expand_path("../../.git", __dir__))
 end
 
 case ARGV[0]
-when "--component"
+when "--component", "-c"
   ARGV.replace(["component", *ARGV[1..-1]])
 
   require "decidim/generators/component_generator"
 
   Decidim::Generators::ComponentGenerator.start
-when "--version"
+when "--version", "-v"
   require "decidim/core/version"
   puts Decidim::Core.version
-when "--help"
+when "--help", "-h"
   require "decidim/core/version"
   puts "Decidim #{Decidim::Core.version}
 Syntax: decidim [options] [App or Module name]
 https://decidim.org
 
 Options:
-  --help                   display this help and exit
-  --version                output version information and exit
-  --component [name]       creates a component for Decidim
+  -h, --help                   display this help and exit
+  -v, --version                output version information and exit
+  -c, --component [name]       creates a component for Decidim
   [name]                   creates an application based on Decidim
 
 App generation extra options (ignored if the --component flag is on):
