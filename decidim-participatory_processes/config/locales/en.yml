@@ -341,6 +341,7 @@ en:
         participatory_processes:
           announcement: The announcement (callout) information
           area: The area where the process is taking place
+          component_settings: The component settings of the process
           created_at: The date this space was created
           description: A long description of the process
           developer_group: The developer group of the process. This is the organization that is promoting the process.
