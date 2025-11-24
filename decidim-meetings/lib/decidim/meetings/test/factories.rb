@@ -236,7 +236,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     meeting
-    user
+    user { create(:user, :confirmed, organization: meeting.component.organization, skip_injection:) }
     sent_at { 1.day.ago }
     accepted_at { nil }
     rejected_at { nil }
