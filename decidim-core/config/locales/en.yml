@@ -811,7 +811,7 @@ en:
           invitations_count: The number of invitations sent to this user
           invited_by: The user who invited this user
           last_sign_in_at: The date and time of the previous login
-          last_sign_in_ip: The IP address of the last login
+          last_sign_in_ip: The IP address of the previous login
           locale: The locale (language) that this user has selected
           managed: Whether this user is managed by another user
           name: The name of this user
