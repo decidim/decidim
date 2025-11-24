@@ -936,9 +936,10 @@ FactoryBot.define do
   factory :amendment, class: "Decidim::Amendment" do
     transient do
       skip_injection { false }
+      organization { create(:organization, skip_injection:) }
     end
-    amendable { build(:dummy_resource, skip_injection:) }
-    emendation { build(:dummy_resource, skip_injection:) }
+    amendable { build(:dummy_resource, organization:, skip_injection:) }
+    emendation { build(:dummy_resource, organization:, skip_injection:) }
     amender { emendation.try(:creator_author) || emendation.try(:author) }
     state { "evaluating" }
 

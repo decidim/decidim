@@ -18,7 +18,7 @@ FactoryBot.define do
       organization { create(:organization, skip_injection:) }
     end
     title { generate_localized_title(:dummy_resource_title, skip_injection:) }
-    component { create(:dummy_component, organization: , skip_injection:) }
+    component { create(:dummy_component, organization:, skip_injection:) }
     author { create(:user, :confirmed, organization: component.organization, skip_injection:) }
     scope { create(:scope, organization: component.organization, skip_injection:) }
 
