@@ -108,8 +108,7 @@ module Decidim
             id: component.id,
             name: component.name,
             manifest_name: component.manifest_name,
-            settings: component.settings.respond_to?(:to_h) ? component.settings.to_h : component.settings
-
+            settings: component.settings.respond_to?(:as_json) ? component.settings.as_json : component.settings
           }
         end
       end
