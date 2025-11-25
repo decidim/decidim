@@ -60,6 +60,13 @@ module Decidim
 
         errors.add(:short_name, :taken) if organization_short_names.include?(short_name&.downcase)
       end
+
+      def validate_short_name_format
+        return if short_name.blank?
+
+        errors.add(:short_name, :too_short, count: 3) if short_name.length < 3
+        errors.add(:short_name, :too_long, count: 12) if short_name.length > 12
+      end
     end
   end
 end

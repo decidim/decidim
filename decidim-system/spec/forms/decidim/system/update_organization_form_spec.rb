@@ -246,6 +246,63 @@ module Decidim::System
         end
       end
 
+      describe "short_name format" do
+        context "when short_name is too short in one locale" do
+          before { subject.short_name = { en: "AB", es: "ValidName" } }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error to the locale with invalid format" do
+            subject.valid?
+            expect(subject.errors[:short_name_en]).to include("is too short (under 3 characters)")
+          end
+        end
+
+        context "when short_name is too long in one locale" do
+          before { subject.short_name = { en: "A" * 13, es: "ValidName" } }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error to the locale with invalid format" do
+            subject.valid?
+            expect(subject.errors[:short_name_en]).to include("is too long (maximum is 12 characters)")
+          end
+        end
+
+        context "when short_name is invalid in multiple locales" do
+          before { subject.short_name = { en: "AB", es: "A" * 13 } }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds errors to all locales with invalid format" do
+            subject.valid?
+            expect(subject.errors[:short_name_en]).to include("is too short (under 3 characters)")
+            expect(subject.errors[:short_name_es]).to include("is too long (maximum is 12 characters)")
+          end
+        end
+
+        context "when short_name has minimum valid length" do
+          before { subject.short_name = { en: "ABC" } }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when short_name has maximum valid length" do
+          before { subject.short_name = { en: "A" * 12 } }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when short_name is blank in a locale" do
+          before { subject.short_name = { en: "ValidName", es: "" } }
+
+          it "does not add format validation errors for blank values" do
+            subject.valid?
+            expect(subject.errors[:short_name_es]).not_to include("is too short (under 3 characters)")
+          end
+        end
+      end
+
       describe "organization uniqueness" do
         let!(:existing_organization) do
           create(

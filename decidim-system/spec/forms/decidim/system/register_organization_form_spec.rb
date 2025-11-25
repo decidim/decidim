@@ -200,6 +200,40 @@ module Decidim::System
 
           it { is_expected.not_to be_valid }
         end
+
+        context "when short_name is too short" do
+          before { subject.short_name = "AB" }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:short_name]).to include("is too short (under 3 characters)")
+          end
+        end
+
+        context "when short_name is too long" do
+          before { subject.short_name = "A" * 13 }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:short_name]).to include("is too long (maximum is 12 characters)")
+          end
+        end
+
+        context "when short_name has minimum valid length" do
+          before { subject.short_name = "ABC" }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when short_name has maximum valid length" do
+          before { subject.short_name = "A" * 12 }
+
+          it { is_expected.to be_valid }
+        end
       end
 
       describe "reference_prefix" do

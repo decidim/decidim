@@ -63,6 +63,7 @@ module Decidim
 
       validate :validate_organization_uniqueness
       validate :validate_short_name_uniqueness
+      validate :validate_short_name_format
       validate :validate_secret_key_base_for_encryption
 
       def map_model(model)
@@ -128,6 +129,10 @@ module Decidim
 
       def validate_short_name_uniqueness
         raise "#{self.class.name} is expected to implement #validate_short_name_uniqueness"
+      end
+
+      def validate_short_name_format
+        raise "#{self.class.name} is expected to implement #validate_short_name_format"
       end
     end
   end

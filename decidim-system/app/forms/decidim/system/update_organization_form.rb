@@ -12,6 +12,7 @@ module Decidim
 
       validate :validate_organization_name_presence
       validate :validate_organization_short_name_presence
+      validate :validate_short_name_format
 
       private
 
@@ -62,6 +63,16 @@ module Decidim
           next if value.is_a?(Hash)
 
           errors.add("short_name_#{language}", :taken) if organization_short_names.include?(value&.downcase)
+        end
+      end
+
+      def validate_short_name_format
+        short_name.each do |language, value|
+          next if value.is_a?(Hash)
+          next if value.blank?
+
+          errors.add("short_name_#{language}", :too_short, count: 3) if value.length < 3
+          errors.add("short_name_#{language}", :too_long, count: 12) if value.length > 12
         end
       end
     end
