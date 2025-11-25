@@ -749,9 +749,14 @@ ro:
           reason: Motivul prezentului raport
           updated_at: Data și ora la care acest raport a fost actualizat ultima dată
         users:
+          about: Descrierea profilului a acestui utilizator
           accepted_tos_version: Data la care termenii de utilizare ai acestei platforme au fost acceptați de către utilizator
           followers_count: Numărul de participanți care urmăresc acest utilizator
           following_count: Numărul de participanți pe care acest utilizator îl urmărește
+          last_sign_in_at: Data și ora penultimei autentificări
+          last_sign_in_ip: Adresa IP a penultimei autentificări
+          newsletter_notifications_at: Data și ora la care acest utilizator a ales să primească buletine informative
+          officialized_as: Numele oficializării (consilier, primar, etc.)
           password_updated_at: Data la care parola a fost schimbată ultima dată
           roles: Rolul pe care îl are acest utilizator, dacă are vreun astfel de rol
           type: Tipul pe care acest utilizator îl are
@@ -781,7 +786,7 @@ ro:
       files:
         file_cannot_be_processed: Fișierul nu poate fi procesat
         file_resolution_too_large: Rezoluția fișierului este prea mare
-        not_inside_organization: Fișierul nu este atașat niciunei organizații
+        not_inside_organization: Fișierul nu este atașat niciunei organizații.
       internal_server_error:
         copied: Text copiat!
         copy_error_message_clarification: Copiază mesajul de eroare în clipboard
