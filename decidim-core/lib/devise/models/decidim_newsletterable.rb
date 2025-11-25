@@ -13,7 +13,7 @@ module Devise
       def newsletter_opt_in_notify
         unless newsletter_opt_in_valid?
           set_newsletter_token!
-          NewslettersOptInMailer.notify(self, newsletter_token).deliver_later
+          Decidim::NewslettersOptInMailer.notify(self, newsletter_token).deliver_later
         end
       end
 
