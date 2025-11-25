@@ -198,6 +198,7 @@ es-PY:
         success: Tu cuenta se ha eliminado correctamente.
       download_your_data_export:
         export_expired: La exportación ha caducado. Intenta generar una nueva exportación.
+        export_not_found: La exportación a la que has accedido no existe o no tienes acceso o permisos para descargarla
         file_no_exists: El archivo no existe
         notice: La descarga de tus datos está en curso. Recibirás un correo electrónico cuando se complete.
       email_change:
@@ -588,8 +589,6 @@ es-PY:
         description: Descripción
       footer_sub_hero:
         name: Banner de sub-hero de pie de página
-      global_menu:
-        name: Menú global
       hero:
         name: Imagen principal y botón de acción
       hero_settings_form:
@@ -1151,6 +1150,7 @@ es-PY:
         create_with_space: "%{user_name} creó %{resource_name} en %{space_name}"
         delete: "%{user_name} eliminó %{resource_name}"
         delete_with_space: "%{user_name} eliminó %{resource_name} en %{space_name}"
+        publish: "%{user_name} publicó %{resource_name}"
         publish_with_space: "%{user_name} ha publicado %{resource_name} en %{space_name}"
         unknown_action: "%{user_name} realizó una acción en %{resource_name}"
         unknown_action_with_space: "%{user_name} realizó una acción en %{resource_name} en %{space_name}"
@@ -1183,7 +1183,6 @@ es-PY:
         latlng_text: 'latitud: %{latitude}, longitud: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Ayuda
       home: Inicio
     messaging:
       conversation_mailer:

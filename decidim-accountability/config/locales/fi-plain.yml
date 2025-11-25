@@ -253,7 +253,6 @@ fi-pl:
           fields:
             created_at: Luontiaika
             end_date: Päättymispäivä
-            id: ID
             progress: Edistyminen
             start_date: Alkamispäivä
             status: Tila

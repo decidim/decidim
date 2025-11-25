@@ -20,7 +20,7 @@ module Decidim
       def translate
         translated_text = "#{target_locale} - #{text}"
 
-        MachineTranslationSaveJob.perform_later(
+        Decidim::MachineTranslationSaveJob.perform_later(
           resource,
           field_name,
           target_locale,

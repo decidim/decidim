@@ -323,8 +323,7 @@ module Decidim
           # Ignore the files and folders generated through Webpack
           /public/decidim-packs
           /public/packs-test
-          /public/sw.js
-          /public/sw.js.map
+          /public/sw.js*
 
           # Ignore node modules
           /node_modules

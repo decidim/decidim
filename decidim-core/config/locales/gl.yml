@@ -500,7 +500,6 @@ gl:
     managed_users:
       expired_session: A sesión de suplantación actual caducou.
     menu:
-      help: Axuda
       home: Inicio
     messaging:
       conversation_mailer:

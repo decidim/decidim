@@ -446,8 +446,6 @@ hu:
         description: Leírás
       footer_sub_hero:
         name: Lábléc sub hero banner
-      global_menu:
-        name: Globális menü
       hero:
         name: Hero image és CTA
       hero_settings_form:
@@ -817,7 +815,6 @@ hu:
         latlng_text: 'földrajzi szélesség: %{latitude}, földrajzi hosszúság: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Segítség
       home: Kezdőlap
     messaging:
       conversation_mailer:
