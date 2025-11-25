@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   describe OrganizationPresenter, type: :helper do
     let(:description) { { "en" => "<p>A necessitatibus quo. 1</p>" } }
-    let(:organization) { create(:organization, name: { en: "Organization's name" }, description:) }
+    let(:organization) { create(:organization, name: { en: "Organization's name" }, short_name: { en: "OrgName" }, description:) }
 
     subject { described_class.new(organization) }
 
@@ -13,6 +13,12 @@ module Decidim
       describe "#html_name" do
         it "returns the description translated and without any html tag" do
           expect(subject.html_name).to eq("Organization's name")
+        end
+      end
+
+      describe "#html_short_name" do
+        it "returns the short_name translated and without any html tag" do
+          expect(subject.html_short_name).to eq("OrgName")
         end
       end
 
