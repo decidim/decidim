@@ -145,7 +145,7 @@ module Decidim
           create(:like, author: user, resource:)
 
           expect(resource.likes.count).to eq(1)
-          expect { command.call }.to change(Like, :count).by(-1)
+          expect { command.call }.to change(Endorsement, :count).by(-1)
           expect(resource.likes.count).to eq(0)
         end
 
