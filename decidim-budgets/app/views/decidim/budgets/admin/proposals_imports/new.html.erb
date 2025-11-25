@@ -21,9 +21,17 @@
                 <%= f.number_field :default_budget, label: t(".default_budget") %>
               </div>
               <div class="row column">
-                <%= f.check_box :import_all_accepted_proposals, label: t(".import_all_accepted_proposals") %>
+                <%= f.check_box :accepted, label: t(".accepted") %>
               </div>
-            </div>
+              <div class="row column">
+                <%= f.check_box :rejected, label: t(".rejected") %>
+              </div>
+              <div class="row column">
+                <%= f.check_box :evaluating, label: t(".evaluating") %>
+              </div>
+              <div class="row column">
+                <%= f.check_box :not_answered, label: t(".not_answered") %>
+              </div>
           </div>
         </div>
 
