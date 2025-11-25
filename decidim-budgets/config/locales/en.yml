@@ -141,11 +141,14 @@ en:
             invalid: There was a problem importing the proposals into projects.
             success: "%{number} proposals successfully imported into projects."
           new:
+            accepted: Accepted
             create: Import proposals to projects
             default_budget: Default budget
-            import_all_accepted_proposals: Import all accepted proposals
+            evaluating: Evaluating
             no_components: There are no other proposal components in this participatory space to import the proposals into projects.
+            not_answered: Not answered
             origin_component_id: Origin component
+            rejected: Rejected
             select_component: Please select a component
             title: Import proposals to projects
         reminders:
