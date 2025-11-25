@@ -410,6 +410,126 @@ module Decidim::System
           end
         end
       end
+
+      describe "short_name uniqueness" do
+        let!(:existing_organization) do
+          create(
+            :organization,
+            short_name: { en: "ExistingCity", es: "CiudadExistente" }
+          )
+        end
+
+        context "when creating a new organization" do
+          context "when organization short_name already exists (case insensitive)" do
+            before { subject.short_name = { en: "EXISTINGCITY" } }
+
+            it { is_expected.not_to be_valid }
+
+            it "adds an error to the short_name attribute" do
+              subject.valid?
+              expect(subject.errors[:short_name_en]).to include("has already been taken")
+            end
+          end
+
+          context "when organization short_name already exists in different locale" do
+            before { subject.short_name = { en: "CiudadExistente" } }
+
+            it { is_expected.not_to be_valid }
+
+            it "adds an error" do
+              subject.valid?
+              expect(subject.errors[:short_name_en]).to include("has already been taken")
+            end
+          end
+
+          context "when multiple locale short_names conflict" do
+            before { subject.short_name = { en: "ExistingCity", es: "CiudadExistente" } }
+
+            it { is_expected.not_to be_valid }
+
+            it "adds errors to both locale attributes" do
+              subject.valid?
+              expect(subject.errors[:short_name_en]).to include("has already been taken")
+              expect(subject.errors[:short_name_es]).to include("has already been taken")
+            end
+          end
+
+          context "when organization short_name is unique" do
+            before { subject.short_name = { en: "UniqueCity" } }
+
+            it { is_expected.to be_valid }
+          end
+        end
+
+        context "when updating an existing organization" do
+          let(:organization_to_update) do
+            create(
+              :organization,
+              short_name: { en: "MyCity", es: "MiCiudad" }
+            )
+          end
+
+          before do
+            subject.id = organization_to_update.id
+          end
+
+          context "when keeping the same short_name" do
+            before { subject.short_name = { en: "My City" } }
+
+            it { is_expected.to be_valid }
+          end
+
+          context "when changing short_name to an existing one" do
+            before { subject.short_name = { en: "ExistingCity" } }
+
+            it { is_expected.not_to be_valid }
+
+            it "adds an error" do
+              subject.valid?
+              expect(subject.errors[:short_name_en]).to include("has already been taken")
+            end
+          end
+
+          context "when changing short_name to a unique one" do
+            before { subject.short_name = { en: "BrandNewCity" } }
+
+            it { is_expected.to be_valid }
+          end
+        end
+
+        context "when short_name contains machine_translations" do
+          let!(:org_with_translations) do
+            create(
+              :organization,
+              short_name: {
+                en: "TranslatedCity",
+                "machine_translations" => { fr: "VilleTraduite" }
+              }
+            )
+          end
+
+          context "when new short_name conflicts with machine translation" do
+            before { subject.short_name = { en: "VilleTraduite" } }
+
+            it { is_expected.not_to be_valid }
+
+            it "adds an error" do
+              subject.valid?
+              expect(subject.errors[:short_name_en]).to include("has already been taken")
+            end
+          end
+        end
+
+        context "when short_name value is a Hash (nested structure)" do
+          before do
+            allow(subject).to receive(:short_name).and_return({ en: { nested: "value" }, es: "ValidShortName" })
+          end
+
+          it "skips Hash values during validation" do
+            expect { subject.valid? }.not_to raise_error
+          end
+        end
+      end
     end
 
     describe "#map_model" do

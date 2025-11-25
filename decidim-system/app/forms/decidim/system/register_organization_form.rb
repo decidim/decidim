@@ -45,6 +45,21 @@ module Decidim
         errors.add(:name, :taken) if organization_names.include?(name&.downcase)
         errors.add(:host, :taken) if Decidim::Organization.where(host:).where.not(id:).exists?
       end
+
+      def validate_short_name_uniqueness
+        base_query = Decidim::Organization.pluck(:short_name)
+
+        organization_short_names = []
+
+        base_query.each do |value|
+          organization_short_names += value.except("machine_translations").values
+          organization_short_names += value.fetch("machine_translations", {}).values
+        end
+
+        organization_short_names = organization_short_names.map(&:downcase)
+
+        errors.add(:short_name, :taken) if organization_short_names.include?(short_name&.downcase)
+      end
     end
   end
 end

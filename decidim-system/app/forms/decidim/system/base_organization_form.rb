@@ -59,9 +59,11 @@ module Decidim
       jsonb_attribute :omniauth_settings, OMNIATH_PROVIDERS_ATTRIBUTES
 
       validates :host, :users_registration_mode, presence: true
-      validate :validate_organization_uniqueness
-      validate :validate_secret_key_base_for_encryption
       validates :users_registration_mode, inclusion: { in: Decidim::Organization.users_registration_modes }
+
+      validate :validate_organization_uniqueness
+      validate :validate_short_name_uniqueness
+      validate :validate_secret_key_base_for_encryption
 
       def map_model(model)
         self.default_locale = model.default_locale
@@ -122,6 +124,10 @@ module Decidim
 
       def validate_organization_uniqueness
         raise "#{self.class.name} is expected to implement #validate_organization_uniqueness"
+      end
+
+      def validate_short_name_uniqueness
+        raise "#{self.class.name} is expected to implement #validate_short_name_uniqueness"
       end
     end
   end
