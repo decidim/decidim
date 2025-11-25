@@ -38,7 +38,7 @@ en:
         user_group_id: Create imports as
       newsletter:
         body: Body
-        send_to_all_users: Send to all users
+        send_to_all_users: Send to all participants
         send_to_followers: Send to followers
         send_to_participants: Send to participants
         subject: Subject
@@ -302,13 +302,13 @@ en:
       block_user:
         bulk_new:
           action: Block accounts and send justification
-          already_reported_html: Continuing with this action you will also hide all the participants contents.
+          already_reported_html: By continuing with this action, you will also hide all the participant's content.
           description: Blocking a user will render their account unusable. You may provide in your justification any guidelines on ways you would consider unblocking the user.
           justification: Justification
           title: Block Users
         new:
           action: Block account and send justification
-          already_reported_html: Continuing with this action you will also hide all the participants contents.
+          already_reported_html: By continuing with this action, you will also hide all the participant's content.
           description: Blocking a user will render their account unusable. You may provide in your justification any guidelines on ways you would consider unblocking the user.
           justification: Justification
           title: Block User %{name}
@@ -402,7 +402,7 @@ en:
         form:
           domain_too_short: Domain too short
         update:
-          error: Failed to update list of allowed external domains
+          error: Failed to update list of allowed external domains.
           success: The list of allowed external domain successfully updated.
       exports:
         export_as: "%{name} as %{export_format}"
@@ -1321,7 +1321,7 @@ en:
           last_day: Last day
           last_month: Last month
           last_week: Last week
-          no_users_count_statistics_yet: There are no users count statistics yet.
+          no_users_count_statistics_yet: There are no participant count statistics yet.
           participants: Participants
     forms:
       errors:
