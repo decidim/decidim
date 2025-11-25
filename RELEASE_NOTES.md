@@ -88,7 +88,17 @@ bin/rails decidim:upgrade:fix_deleted_private_follows
 
 You can read more about this change on PR [#12878](https://github.com/decidim/decidim/pull/12878).
 
-### 3.4. [[TITLE OF THE ACTION]]
+### 3.4. Remove user data left behind by `Decidim::DestroyAccount`
+
+When a user deletes their account and the `Decidim::DestroyAccount` command is executed, certain related data such as authorizations, versions, private exports, access grants, access tokens, notifications, and reminders were left behind. To fix this issue, we've added a new rake task to clean up the leftover data for previously deleted users.
+
+```ruby
+bin/rails decidim:upgrade:remove_deleted_users_left_data
+```
+
+You can read more about this change on PR [#14731](https://github.com/decidim/decidim/pull/14731).
+
+### 3.5. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
