@@ -4,7 +4,7 @@ Core functionality in Decidim. Every single decidim functionality depends on thi
 
 ## Usage
 
-You will be using indirectly on any decidim application.
+This module will be using indirectly on any decidim application.
 
 ## Installation
 
