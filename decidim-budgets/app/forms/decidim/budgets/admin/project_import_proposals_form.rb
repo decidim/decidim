@@ -10,10 +10,12 @@ module Decidim
 
         attribute :origin_component_id, Integer
         attribute :default_budget, Integer
-        attribute :import_all_accepted_proposals, Boolean
+        attribute :accepted, Boolean
+        attribute :rejected, Boolean
+        attribute :evaluating, Boolean
+        attribute :not_answered, Boolean
 
         validates :origin_component_id, :origin_component, :current_component, presence: true
-        validates :import_all_accepted_proposals, allow_nil: false, acceptance: true
         validates :default_budget, presence: true, numericality: { greater_than: 0 }
 
         def origin_component
