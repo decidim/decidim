@@ -7,6 +7,7 @@ module Decidim::System
     subject do
       described_class.new(
         name: { ca: "", en: "Gotham City", es: "" },
+        short_name: { ca: "", en: "GothamCity", es: "" },
         host: "decide.example.org",
         secondary_hosts: "foo.example.org\r\n\r\nbar.example.org",
         reference_prefix: "JKR",
@@ -188,6 +189,59 @@ module Decidim::System
           it "uses Decidim default locale" do
             subject.valid?
             expect(subject.errors[:"name_#{Decidim.default_locale}"]).to include("cannot be blank")
+          end
+        end
+      end
+
+      describe "organization short_name presence" do
+        let(:organization) { create(:organization, default_locale: "en") }
+
+        before do
+          subject.id = organization.id
+          allow(subject).to receive(:current_organization).and_return(organization)
+        end
+
+        context "when short_name in default locale is present" do
+          before { subject.short_name = { en: "GothamCity" } }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when short_name in default locale is blank" do
+          before { subject.short_name = { en: "" } }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error to the default locale short_name attribute" do
+            subject.valid?
+            expect(subject.errors[:short_name_en]).to include("cannot be blank")
+          end
+        end
+
+        context "when short_name in default locale is nil" do
+          before { subject.short_name = { en: nil } }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error to the default locale short_name attribute" do
+            subject.valid?
+            expect(subject.errors[:short_name_en]).to include("cannot be blank")
+          end
+        end
+
+        context "when organization has different default locale" do
+          let(:organization) { create(:organization, default_locale: "es") }
+
+          before do
+            subject.default_locale = "es"
+            subject.short_name = { es: "" }
+          end
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error to the correct locale short_name attribute" do
+            subject.valid?
+            expect(subject.errors[:short_name_es]).to include("cannot be blank")
           end
         end
       end

@@ -11,11 +11,17 @@ module Decidim
       translatable_attribute :short_name, String
 
       validate :validate_organization_name_presence
+      validate :validate_organization_short_name_presence
 
       private
 
       def validate_organization_name_presence
         translated_attr = :"name_#{current_organization.try(:default_locale) || Decidim.default_locale.to_s}"
+        errors.add(translated_attr, :blank) if send(translated_attr).blank?
+      end
+
+      def validate_organization_short_name_presence
+        translated_attr = :"short_name_#{current_organization.try(:default_locale) || Decidim.default_locale.to_s}"
         errors.add(translated_attr, :blank) if send(translated_attr).blank?
       end
 
