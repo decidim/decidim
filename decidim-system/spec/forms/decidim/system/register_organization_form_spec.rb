@@ -336,6 +336,43 @@ module Decidim::System
           it { is_expected.to be_valid }
         end
       end
+
+      describe "short_name uniqueness" do
+        let!(:existing_organization) do
+          create(
+            :organization,
+            short_name: { en: "ExistingCity", es: "CiudadExistente" }
+          )
+        end
+
+        context "when organization short_name already exists (case insensitive)" do
+          before { subject.short_name = "EXISTINGCITY" }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:short_name]).to include("has already been taken")
+          end
+        end
+
+        context "when organization short_name already exists in different locale" do
+          before { subject.short_name = "CiudadExistente" }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error" do
+            subject.valid?
+            expect(subject.errors[:short_name]).to include("has already been taken")
+          end
+        end
+
+        context "when organization short_name is unique" do
+          before { subject.short_name = "UniqueCity" }
+
+          it { is_expected.to be_valid }
+        end
+      end
     end
 
     describe "#map_model" do

@@ -34,7 +34,7 @@ module Decidim
         name.each do |language, value|
           next if value.is_a?(Hash)
 
-          errors.add("name_#{language}", :taken) if organization_names.include?(value.downcase)
+          errors.add("name_#{language}", :taken) if organization_names.include?(value&.downcase)
         end
 
         errors.add(:host, :taken) if Decidim::Organization.where(host:).where.not(id:).exists?

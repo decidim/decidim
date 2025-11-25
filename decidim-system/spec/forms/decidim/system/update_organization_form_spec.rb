@@ -124,6 +124,240 @@ module Decidim::System
       end
     end
 
+    describe "validations" do
+      describe "organization name presence" do
+        let(:organization) { create(:organization, default_locale: "en") }
+
+        before do
+          subject.id = organization.id
+          allow(subject).to receive(:current_organization).and_return(organization)
+        end
+
+        context "when name in default locale is present" do
+          before { subject.name = { en: "Gotham City" } }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when name in default locale is blank" do
+          before { subject.name = { en: "" } }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error to the default locale name attribute" do
+            subject.valid?
+            expect(subject.errors[:name_en]).to include("cannot be blank")
+          end
+        end
+
+        context "when name in default locale is nil" do
+          before { subject.name = { en: nil } }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error to the default locale name attribute" do
+            subject.valid?
+            expect(subject.errors[:name_en]).to include("cannot be blank")
+          end
+        end
+
+        context "when organization has different default locale" do
+          let(:organization) { create(:organization, default_locale: "es") }
+
+          before do
+            subject.default_locale = "es"
+            subject.name = { es: "" }
+          end
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error to the correct locale name attribute" do
+            subject.valid?
+            expect(subject.errors[:name_es]).to include("cannot be blank")
+          end
+        end
+
+        context "when current_organization is not set" do
+          before do
+            allow(subject).to receive(:current_organization).and_return(nil)
+            subject.send(:"name_#{Decidim.default_locale}=", "")
+          end
+
+          it { is_expected.not_to be_valid }
+
+          it "uses Decidim default locale" do
+            subject.valid?
+            expect(subject.errors[:"name_#{Decidim.default_locale}"]).to include("cannot be blank")
+          end
+        end
+      end
+
+      describe "organization uniqueness" do
+        let!(:existing_organization) do
+          create(
+            :organization,
+            name: { en: "Existing City", es: "Ciudad Existente" },
+            host: "existing.example.org"
+          )
+        end
+
+        context "when creating a new organization" do
+          context "when organization name already exists (case insensitive)" do
+            before { subject.name_en = "EXISTING CITY" }
+
+            it { is_expected.not_to be_valid }
+
+            it "adds an error to the name attribute" do
+              subject.valid?
+              expect(subject.errors[:name_en]).to include("has already been taken")
+            end
+          end
+
+          context "when organization name already exists in different locale" do
+            before { subject.name_en = "Ciudad Existente" }
+
+            it { is_expected.not_to be_valid }
+
+            it "adds an error" do
+              subject.valid?
+              expect(subject.errors[:name_en]).to include("has already been taken")
+            end
+          end
+
+          context "when multiple locale names conflict" do
+            before do
+              subject.name_en = "Existing City"
+              subject.name_es = "Ciudad Existente"
+            end
+
+            it { is_expected.not_to be_valid }
+
+            it "adds errors to both locale attributes" do
+              subject.valid?
+              expect(subject.errors[:name_en]).to include("has already been taken")
+              expect(subject.errors[:name_es]).to include("has already been taken")
+            end
+          end
+
+          context "when host already exists" do
+            before { subject.host = "existing.example.org" }
+
+            it { is_expected.not_to be_valid }
+
+            it "adds an error" do
+              subject.valid?
+              expect(subject.errors[:host]).to include("has already been taken")
+            end
+          end
+
+          context "when organization name is unique" do
+            before { subject.name_en = "Unique City" }
+
+            it { is_expected.to be_valid }
+          end
+
+          context "when host is unique" do
+            before { subject.host = "unique.example.org" }
+
+            it { is_expected.to be_valid }
+          end
+        end
+
+        context "when updating an existing organization" do
+          let(:organization_to_update) do
+            create(
+              :organization,
+              name: { en: "My City", es: "Mi Ciudad" },
+              host: "mycity.example.org"
+            )
+          end
+
+          before do
+            subject.id = organization_to_update.id
+          end
+
+          context "when keeping the same name" do
+            before { subject.name_en = "My City" }
+
+            it { is_expected.to be_valid }
+          end
+
+          context "when keeping the same host" do
+            before { subject.host = "mycity.example.org" }
+
+            it { is_expected.to be_valid }
+          end
+
+          context "when changing name to an existing one" do
+            before { subject.name_en = "Existing City" }
+
+            it { is_expected.not_to be_valid }
+
+            it "adds an error" do
+              subject.valid?
+              expect(subject.errors[:name_en]).to include("has already been taken")
+            end
+          end
+
+          context "when changing host to an existing one" do
+            before { subject.host = "existing.example.org" }
+
+            it { is_expected.not_to be_valid }
+
+            it "adds an error" do
+              subject.valid?
+              expect(subject.errors[:host]).to include("has already been taken")
+            end
+          end
+
+          context "when changing name to a unique one" do
+            before { subject.name_en = "Brand New City" }
+
+            it { is_expected.to be_valid }
+          end
+
+          context "when changing host to a unique one" do
+            before { subject.host = "brandnew.example.org" }
+
+            it { is_expected.to be_valid }
+          end
+        end
+
+        context "when name contains machine_translations" do
+          let!(:org_with_translations) do
+            create(
+              :organization,
+              name: {
+                en: "Translated City",
+                "machine_translations" => { fr: "Ville Traduite" }
+              }
+            )
+          end
+
+          context "when new name conflicts with machine translation" do
+            before { subject.name_en = "Ville Traduite" }
+
+            it { is_expected.not_to be_valid }
+
+            it "adds an error" do
+              subject.valid?
+              expect(subject.errors[:name_en]).to include("has already been taken")
+            end
+          end
+        end
+
+        context "when name value is a Hash (nested structure)" do
+          before do
+            allow(subject).to receive(:name).and_return({ en: { nested: "value" }, es: "Valid Name" })
+          end
+
+          it "skips Hash values during validation" do
+            expect { subject.valid? }.not_to raise_error
+          end
+        end
+      end
+    end
+
     describe "#map_model" do
       subject { described_class.from_model(organization) }
 
