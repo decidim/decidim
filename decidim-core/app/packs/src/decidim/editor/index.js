@@ -82,7 +82,9 @@ export default function createEditor(container) {
   container.insertBefore(toolbar, editorContainer);
 
   editor.on("update", () => {
-    input.value = editor.isEmpty ? "" : editor.getHTML();
+    input.value = editor.isEmpty
+      ? ""
+      : editor.getHTML();
   });
 
   return editor;
