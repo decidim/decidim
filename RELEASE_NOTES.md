@@ -103,7 +103,17 @@ echo "/public/sw.js*" >> .gitignore
 
 You can read more about this change on PR [#15601](https://github.com/decidim/decidim/pull/15601).
 
-### 2.5. [[TITLE OF THE ACTION]]
+### 2.5. Data migration for organization short_name
+
+A new data migration has been added to populate the `short_name` field for existing organizations. This field is required for the PWA (Progressive Web App) manifest to properly display the application name on mobile devices' home screens.
+
+The migration automatically generates a short_name for each organization based on its name by removing spaces and truncating to 12 characters maximum. Organizations with names that result in less than 3 characters after processing will not have a short_name set and will need to be configured manually through the admin panel.
+
+This migration runs automatically when executing `bin/rails data:migrate` as part of the upgrade process.
+
+You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+
+### 2.6. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
