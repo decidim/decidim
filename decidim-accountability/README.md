@@ -12,8 +12,8 @@ This is on the default Decidim installation so you should not change anything to
 
 ## Contributing
 
-See [Decidim](https://github.com/AjuntamentdeBarcelona/decidim).
+See [Decidim](https://github.com/decidim/decidim).
 
 ## License
 
-See [Decidim](https://github.com/AjuntamentdeBarcelona/decidim).
+See [Decidim](https://github.com/decidim/decidim).

@@ -22,4 +22,4 @@ See [Decidim](https://github.com/decidim/decidim).
 
 ## License
 
-This engine is distributed under the GNU AFFERO GENERAL PUBLIC LICENSE.
+See [Decidim](https://github.com/decidim/decidim).
