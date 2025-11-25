@@ -10,13 +10,7 @@ To install this module, run in your console:
 
 ```bash
 bundle add decidim-elections
-```
-
-And then execute:
-
-```bash
-bundle
-bundle exec rails decidim_elections:install:migrations
+bundle exec rails decidim:upgrade
 bundle exec rails db:migrate
 ```
 

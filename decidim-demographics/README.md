@@ -4,17 +4,12 @@ The demographic data module allows participants to voluntarily donate their demo
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem "decidim-demographics"
-```
-
-And then execute:
+To install this module, run in your console:
 
 ```bash
-bundle
-bin/rails decidim_demographics:install:migrations
+bundle add decidim-demographics
+bundle exec rails decidim:upgrade
+bundle exec rails db:migrate
 ```
 
 ## Contributing

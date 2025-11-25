@@ -13,6 +13,8 @@ To install this module, run in your console:
 
 ```bash
 bundle add decidim-collaborative_texts
+bundle exec rails decidim:upgrade
+bundle exec rails db:migrate
 ```
 
 ## Contributing

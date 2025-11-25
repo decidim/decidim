@@ -8,17 +8,11 @@ Templates will be available in their own section in the admin
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'decidim-templates'
-```
-
-And then execute:
+To install this module, run in your console:
 
 ```bash
-bundle
-bundle exec rails decidim_templates:install:migrations
+bundle add decidim-templates
+bundle exec rails decidim:upgrade
 bundle exec rails db:migrate
 ```
 
