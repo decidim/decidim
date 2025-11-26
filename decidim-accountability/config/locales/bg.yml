@@ -124,7 +124,6 @@ bg:
           fields:
             created_at: Създаден
             end_date: Крайна дата
-            id: ID
             progress: Напредък
             start_date: Начална дата
             status: Статус

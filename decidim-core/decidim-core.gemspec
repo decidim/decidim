@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.summary = "The core of the Decidim framework."
   s.description = "Adds core features so other engines can hook into the framework."
   s.license = "AGPL-3.0-or-later"
-  s.required_ruby_version = "~> 3.3.0"
+  s.required_ruby_version = "~> 3.4.0"
 
   s.files = Dir.chdir(__dir__) do
     `git ls-files -z`.split("\x0").select do |f|
@@ -41,6 +41,7 @@ Gem::Specification.new do |s|
   s.add_dependency "cells-rails", "~> 0.1.3"
   s.add_dependency "charlock_holmes", "~> 0.7"
   s.add_dependency "chartkick", "~> 5.1.2"
+  s.add_dependency "data_migrate", "~> 11.3"
   s.add_dependency "date_validator", "~> 0.12.0"
   s.add_dependency "devise", "~> 4.7"
   s.add_dependency "devise-i18n", "~> 1.2"
@@ -72,7 +73,7 @@ Gem::Specification.new do |s|
   s.add_dependency "premailer-rails", "~> 1.10"
   s.add_dependency "rack", "~> 2.2", ">= 2.2.8.1"
   s.add_dependency "rack-attack", "~> 6.0"
-  s.add_dependency "rails", "~> 7.2.0"
+  s.add_dependency "rails", "~> 7.2.0", ">= 7.2.2.2"
   s.add_dependency "rails-i18n", "~> 7.0"
   s.add_dependency "ransack", "~> 4.2.0"
   s.add_dependency "redis", "~> 4.1"
@@ -80,7 +81,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rqrcode", "~> 2.2.0"
   s.add_dependency "rubyXL", "~> 3.4"
   s.add_dependency "rubyzip", "~> 2.0"
-  s.add_dependency "shakapacker", "~> 7.1.0"
+  s.add_dependency "shakapacker", "~> 8.3.0"
   s.add_dependency "valid_email2", "~> 7.0"
   s.add_dependency "web-push", "~> 3.0"
   s.add_dependency "wisper", "~> 3.0"

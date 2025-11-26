@@ -18,7 +18,7 @@ describe "Admin manages election census" do
   end
 
   it "opens the census tab" do
-    expect(page).to have_content("Census type")
+    expect(page).to have_content("Edit election")
   end
 
   context "when the admin selects unregistered participants with tokens" do

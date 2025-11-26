@@ -43,5 +43,6 @@ RSpec.configure do |config|
     FileUtils.mkdir_p DownloadHelper::PATH.to_s
     page.driver.browser.download_path = DownloadHelper::PATH.to_s
     clear_downloads
+    driven_by :headless_chrome
   end
 end

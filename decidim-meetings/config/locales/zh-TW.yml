@@ -499,7 +499,6 @@ zh-TW:
           fields:
             closed: 關閉
             end_time: 結束日期
-            id: ID
             map: 地圖
             official_meeting: 官方會議
             start_time: 開始日期

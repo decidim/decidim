@@ -1,4 +1,16 @@
-<div class="row">
-  <h4><%== t ".unsubscribe" %></h4>
-  <p><%== t ".check_subscription", link: decidim.notifications_settings_path %></p>
-</div>
+<main class="layout-1col cols-6">
+  <div class="text-center py-12">
+    <h1 class="h1 decorator inline-block text-left"><%= t ".unsubscribe" %></h1>
+  </div>
+  <div class="page__container">
+    <div class="editor-content">
+      <div class="rich-text-display">
+        <%= t ".subscription_preferences", organization_name: translated_attribute(current_organization.name) %>
+      </div>
+      <br>
+      <div class="rich-text-display">
+        <%= t ".check_subscription_html", link: decidim.notifications_settings_path %>
+      </div>
+    </div>
+  </div>
+</main>

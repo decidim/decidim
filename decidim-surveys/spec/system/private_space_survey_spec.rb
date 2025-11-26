@@ -57,7 +57,7 @@ describe "Private Space Respond a survey" do
 
         expect(page).to have_no_css(".form.response-questionnaire")
 
-        within "[data-question-readonly]" do
+        within ".response-questionnaire__step" do
           expect(page).to have_i18n_content(question.body)
           expect(page).not_to have_i18n_content(question_conditioned.body)
         end

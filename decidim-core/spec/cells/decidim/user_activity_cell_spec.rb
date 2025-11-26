@@ -89,6 +89,33 @@ describe Decidim::UserActivityCell, type: :cell do
     end
   end
 
+  context "when comment is deleted" do
+    let!(:logs) do
+      comments.first(14).map do |comment|
+        create(
+          :action_log,
+          action: "publish",
+          visibility: "all",
+          user: model,
+          resource: comment,
+          organization: component.organization,
+          participatory_space: component.participatory_space
+        )
+      end
+    end
+    let!(:log_one) { create(:action_log, action: "create", visibility: "all", user: model, resource: comments.last, organization: component.organization, participatory_space: component.participatory_space) }
+    let!(:log_two) { create(:action_log, action: "delete", visibility: "all", user: model, resource: comments.last, organization: component.organization, participatory_space: component.participatory_space) }
+
+    it "does not display the references to the comment on the first page if comment has been deleted" do
+      logs.last(2) do |log|
+        root_link = Decidim::ResourceLocatorPresenter.new(log.resource.root_commentable).path
+        comment_link = "#{root_link}?commentId=#{log.resource.id}#comment_#{log.resource.id}"
+        title = html_truncate(translated_attribute(log.resource.root_commentable.title), length: 80)
+        expect(subject).to have_no_link(title, href: comment_link)
+      end
+    end
+  end
+
   context "when on the second page" do
     let(:current_page) { 2 }
 

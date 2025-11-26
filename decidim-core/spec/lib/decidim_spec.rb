@@ -67,7 +67,6 @@ describe Decidim do
         pages
         participatory_processes
         proposals
-        sortitions
         surveys
         system
         templates

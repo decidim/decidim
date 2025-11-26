@@ -48,6 +48,7 @@ fi-pl:
         customize_welcome_notification: Muokkaa tervetuloilmoitusta
         default_locale: Oletuskieli
         description: Kuvaus
+        enable_machine_translations: Ota konekäännökset käyttöön
         enable_omnipresent_banner: Näytä kaikkialla näkyvä banneri
         enable_participatory_space_filters: Ota käyttöön osallistumistilan suodattimet
         facebook_handler: Facebook-käsittelijä
