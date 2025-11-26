@@ -111,7 +111,6 @@ lt:
         initiatives:
           fields:
             created_at: Sukurta
-            id: ID
             published_at: Publikuota
             state: Būsena
             supports_count: Parašai

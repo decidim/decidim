@@ -33,6 +33,7 @@ es:
           comment: Comentar
           create: Crear un debate
           like: Me gusta
+          vote_comment: Votar el comentario
         name: Debates
         settings:
           global:

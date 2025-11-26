@@ -377,7 +377,6 @@ ru:
     managed_users:
       expired_session: Текущий сеанс выступления в роли участника истек.
     menu:
-      help: Справка
       home: Главная
     messaging:
       conversation_mailer:

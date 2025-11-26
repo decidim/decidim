@@ -48,6 +48,17 @@ fr:
           email_outro: Vous avez reçu cette notification car vous suivez la concertation %{participatory_space_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Une nouvelle enquête a été créée dans %{participatory_space_title}
           notification_title: 'L''enquête <a href="%{resource_path}">%{resource_title}</a> est ouverte. Vous pouvez y participer en vous rendant sur le lien suivant : <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
+    open_data:
+      help:
+        published_survey_user_responses:
+          body: Le contenu de la réponse
+          created_at: Horodatage de création de la réponse
+          id: Identifiant unique pour la réponse à l'enquête
+          ip_hash: Adresse IP du répondant pour confidentialité
+          question: La question à laquelle on a répondu
+          registered: Participant inscrit
+          unregistered: Participant non inscrit
+          user_status: Statut de l'utilisateur qui a soumis la réponse
     statistics:
       responses: 'Réponses:'
       responses_count: Réponses

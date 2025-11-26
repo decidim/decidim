@@ -796,7 +796,6 @@ zh-TW:
         latlng_text: '緯度：%{latitude}，經度：%{longitude}'
         map_service_brand: 開放街圖
     menu:
-      help: 幫助
       home: 首頁
     messaging:
       conversation_mailer:

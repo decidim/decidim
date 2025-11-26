@@ -161,7 +161,6 @@ pl:
             total_budget: Całkowity budżet
         project:
           fields:
-            id: Identyfikator
             map: Mapa
             title: Tytuł
       order:

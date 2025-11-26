@@ -3,10 +3,6 @@
     <%= check_box_tag "moderation_ids_s[]", moderation.id, false, class: "js-check-all-moderations js-moderation-list-check js-moderation-id-#{moderation.id}" %>
   </td>
 
-  <td data-label="<%= t("models.moderation.fields.reportable_id", scope: "decidim.moderations") %>">
-    <%= moderation.reportable.id %>
-  </td>
-
   <td data-label="<%= t("models.moderation.fields.reportable_type", scope: "decidim.moderations") %>">
     <%= moderation.reportable.class.model_name.human %>
   </td>
@@ -33,7 +29,7 @@
   </td>
 
   <td data-label="<%= t("models.moderation.fields.created_at", scope: "decidim.moderations") %>">
-    <%= l moderation.created_at, format: :long %>
+    <%= l moderation.created_at, format: :decidim_short %>
   </td>
 
   <td data-label="<%= t("models.moderation.fields.report_count", scope: "decidim.moderations") %>">
@@ -42,7 +38,7 @@
 
   <% if params[:hidden] %>
     <td data-label="<%= t("models.moderation.fields.hidden_at", scope: "decidim.moderations") %>">
-      <%= l(moderation.hidden_at, format: :long) if moderation.hidden_at.present? %>
+      <%= l(moderation.hidden_at, format: :decidim_short) if moderation.hidden_at.present? %>
     </td>
   <% end %>
 
