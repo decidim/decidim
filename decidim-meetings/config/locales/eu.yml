@@ -233,7 +233,7 @@ eu:
           unearned_own: Oraindik ez zara topaketa batere ere joan.
     meetings:
       actions:
-        agenda: Agenda
+        agenda: Gai zerrenda
         attachment_collections: Karpetak
         attachments: Eranskinak
         close: Itxi
@@ -252,34 +252,34 @@ eu:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Gehitu agendan azpi-item bat
-            agenda_item: Agenda-itema
-            agenda_item_children: Agendako azpi-itemak
+            add_agenda_item_child: Gai-zerrendan azpi-gai bat gehitu
+            agenda_item: Gai zerrendaren gaia
+            agenda_item_children: Gai zerrenda azpi gaiak
             down: Behera
             remove: Kendu
             up: Gora
           agenda_item_child:
-            agenda_item_child: Agendako azpi-itema
+            agenda_item_child: Gai zerrenda azpi-gaia
             down: Behera
             remove: Kendu
             up: Gora
           create:
-            invalid: Arazo bat egon da agenda hau sortzean.
-            success: Agenda ondo sortua.
+            invalid: Arazo bat egon da gai-zerrenda hau sortzean.
+            success: Gai-zerrenda ondo sortua.
           edit:
-            title: Agenda editau
+            title: Gai zerrenda editatu
             update: Eguneratu
           form:
-            add_agenda_item: Gehitu agendako itema
-            agenda_items: Agenda-itemak
+            add_agenda_item: Gai zerrendarn gai berria
+            agenda_items: Gai zerrendaren gaiak
             end_date: Amaiera-data
             start_date: Hasiera-data
           new:
             create: Sortu
-            title: Beste agenda bat
+            title: Beste gai zerrenda bat
           update:
-            invalid: Arazo bat egon da agenda hau eguneratzean.
-            success: Agenda ondo eguneratua.
+            invalid: Arazo bat egon da gai-zerrendaa hau eguneratzean.
+            success: Gai-zerrenda ondo eguneratua.
         exports:
           answers: Erantzunak
           meeting_comments: Iruzkinak
