@@ -671,7 +671,7 @@ eu:
           see_email: Ikusi zure helbide elektronikoa
           see_name: Ikusi zure izena
           see_username: Ikusi zure parte-hartzailearen izena
-          this_application_will_be_able_to: 'Aplikazio hau gai izango da:'
+          this_application_will_be_able_to: 'Aplikazio horrek honako zeregin hauek egin ahal izango ditu:'
           this_application_will_not_be_able_to: 'Aplikazio honek ezin izango du:'
           update_profile: Eguneratu profila
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> k zure kontua erabili nahi du"
@@ -1724,8 +1724,8 @@ eu:
           Gonbidapena onartu nahi ez baduzu, mesedez, ez egin kasurik mezu elektroniko honi. Zure kontua ez da sortuko, goiko estekara sartu eta zure erabiltzaile-izena eta pasahitza ezarri arte.
         invited_you_as_admin: "%{invited_by} admnisitrariak %{application} administratzaile gisa gonbidatu zaitu. Beheko estekan onartu dezakezu."
         invited_you_as_private_user: "%{invited_by} parte-hartzaileak egonbidatu zaitu %{application} ko erabiltzaile pribatu gisa. Beheko estekan onartu dezakezu."
-        someone_invited_you: Norbaitek %{application} gonbidatu zaitu. Beheko estekan onartu dezakezu.
-        someone_invited_you_as_admin: Norbaitek %{application} admin gisa gonbidatu zaitu, beheko estekan onartu dezakezu.
+        someone_invited_you: Norbaitek %{application} gonbidatu zaitu. Beheko estekan onar dezakezu.
+        someone_invited_you_as_admin: Norbaitek %{application} administratzaile gisa gonbidatu zaitu, beheko estekan onar dezakezu.
         someone_invited_you_as_private_user: Norbaitek %{application} ko parte-hartzaile pribatu gisa gonbidatu zaitu, beheko estekan onar dezakezu.
         subject: Gonbidapenaren argibideak
       invite_admin:
@@ -1805,7 +1805,7 @@ eu:
       new:
         resend_unlock_instructions: Birbidali desblokeatzeko argibideak
       send_instructions: Mezu elektroniko bat jasoko duzu jarraibideak zure kontua desblokeatzeko minutu gutxi barru.
-      send_paranoid_instructions: Zure kontua badago, mezu elektroniko bat jasoko duzu minutu batzuk barru nola desblokeatzeko argibideekin.
+      send_paranoid_instructions: Zure kontua badago, mezu elektroniko bat jasoko duzu minutu gutxi barru desblokeatzeko jarraibideekin.
       unlocked: Zure kontua ondo desblokeatu da. Hasi saioa jarraitzeko.
   doorkeeper:
     scopes:
