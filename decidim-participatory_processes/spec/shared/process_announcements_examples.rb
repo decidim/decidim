@@ -40,7 +40,7 @@ shared_examples "manage processes announcements" do
     end
   end
 
-  it "remove announcement element if annoucement body is empty" do
+  it "remove announcement element if announcement body is empty" do
     within "tr", text: translated(participatory_process.title) do
       click_on translated(participatory_process.title)
     end
