@@ -162,6 +162,7 @@ fi-pl:
           comment: Kommentoi
           join: Liity mukaan
           reply_poll: Vastaa mielipidetiedusteluun
+          vote_comment: Äänestä kommenttia
         name: Tapahtumat
         settings:
           global:
