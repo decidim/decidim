@@ -471,8 +471,6 @@ module Decidim
       end
 
       initializer "decidim_core.menu" do
-        Decidim::Core::Menu.register_menu!
-        Decidim::Core::Menu.register_mobile_menu!
         Decidim::Core::Menu.register_user_menu!
       end
 

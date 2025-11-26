@@ -15,7 +15,7 @@ Decidim.register_component(:budgets) do |component|
 
   component.query_type = "Decidim::Budgets::BudgetsType"
 
-  component.actions = %w(vote comment)
+  component.actions = %w(vote comment vote_comment)
 
   component.on(:before_destroy) do |instance|
     raise StandardError, "Cannot remove this component" if Decidim::Budgets::Budget.where(component: instance).any?

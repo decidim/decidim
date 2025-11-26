@@ -213,7 +213,6 @@ fi-pl:
             total_budget: Kokonaisbudjetti
         project:
           fields:
-            id: ID
             map: Kartta
             taxonomies: Luokittelut
             title: Otsikko

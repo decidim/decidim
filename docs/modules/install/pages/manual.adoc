@@ -57,7 +57,7 @@ An important component for Decidim is Node.js and Yarn. With this commands you w
 ----
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 source "$HOME/.nvm/nvm.sh"
-nvm install 24
+nvm install 22
 npm install -g yarn
 ----
 
@@ -158,5 +158,5 @@ The seed data will not be created in production environments, if you still want 
 
 [source,bash]
 ----
-SEED=true rails assets:precompile db:seed
+SEED=true bin/rails assets:precompile db:seed
 ----

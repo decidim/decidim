@@ -129,7 +129,6 @@ ro:
           fields:
             created_at: Creat
             end_date: Data de sfârșit
-            id: ID
             progress: Progres
             start_date: Data de început
             status: Stare

@@ -73,6 +73,118 @@ module Decidim
         end
       end
 
+      describe "moderated_users" do
+        let(:user) { create(:user, :confirmed, :blocked, organization: current_organization) }
+        let(:reporter) { create(:user, :confirmed, organization: current_organization) }
+        let(:moderation) { create(:user_moderation, user:) }
+        let!(:user_block) { create(:user_block, user:, blocking_user: reporter) }
+        let!(:user_report) { create(:user_report, user: reporter, reason: "spam", details: "Lorem ipsum", moderation:) }
+
+        let(:query) do
+          %({
+            moderatedUsers {
+              about
+              blockReasons
+              blockedAt
+              blockingUser {
+                id
+              }
+              createdAt
+              id
+              reports {
+                createdAt
+                details
+                id
+                reason
+                updatedAt
+                user {
+                  id
+                }
+              }
+              updatedAt
+              userId
+            }
+          })
+        end
+
+        it "returns all the moderated users" do
+          expect(response["moderatedUsers"].last).to include(
+            "about" => user.about,
+            "blockReasons" => user_block.justification,
+            "blockedAt" => user.blocked_at.to_time.iso8601,
+            "blockingUser" => { "id" => user_block.blocking_user.id.to_s },
+            "createdAt" => moderation.created_at.to_time.iso8601,
+            "id" => moderation.id.to_s,
+            "reports" => [
+              {
+                "createdAt" => user_report.created_at.to_time.iso8601,
+                "details" => user_report.details,
+                "id" => user_report.id.to_s,
+                "reason" => user_report.reason,
+                "updatedAt" => user_report.updated_at.to_time.iso8601,
+                "user" => { "id" => user_report.user.id.to_s }
+              }
+            ],
+            "updatedAt" => moderation.updated_at.to_time.iso8601,
+            "userId" => user.id.to_s
+          )
+        end
+      end
+
+      describe "moderations" do
+        let(:participatory_space) { create(:assembly, :published, organization: current_organization) }
+        let(:component) { create(:dummy_component, :published, participatory_space:) }
+        let(:commentable) { create(:dummy_resource, :published, component:) }
+        let(:moderation) { create(:moderation, reportable: commentable, hidden_at: 2.days.ago, report_count: 1, reported_content: "This is the content") }
+        let!(:report) { create(:report, moderation:, details: "This is a report", locale: "en") }
+
+        let(:query) do
+          %({
+            moderations {
+              createdAt
+              hiddenAt
+              id
+              reportCount
+              reportedContent
+              reportedUrl
+              reports {
+                createdAt
+                details
+                id
+                locale
+                reason
+                updatedAt
+                user { id }
+              }
+              updatedAt
+            }
+          })
+        end
+
+        it "returns all the moderations" do
+          expect(response["moderations"].last).to include(
+            "createdAt" => moderation.created_at.to_time.iso8601,
+            "hiddenAt" => moderation.hidden_at.to_time.iso8601,
+            "id" => moderation.id.to_s,
+            "reportCount" => moderation.reports.count,
+            "reportedContent" => translated(moderation.reported_content),
+            "reportedUrl" => moderation.reportable.reported_content_url,
+            "reports" => [
+              {
+                "createdAt" => report.created_at.to_time.iso8601,
+                "details" => report.details,
+                "id" => report.id.to_s,
+                "locale" => report.locale,
+                "reason" => report.reason,
+                "updatedAt" => report.updated_at.to_time.iso8601,
+                "user" => { "id" => report.user.id.to_s }
+              }
+            ],
+            "updatedAt" => moderation.updated_at.to_time.iso8601
+          )
+        end
+      end
+
       describe "static_pages" do
         let!(:model) { create(:static_page, :with_topic, organization: current_organization) }
 

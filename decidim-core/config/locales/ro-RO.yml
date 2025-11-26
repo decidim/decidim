@@ -586,8 +586,6 @@ ro:
         description: Descriere
       footer_sub_hero:
         name: Banner suberou suberou
-      global_menu:
-        name: Meniul global
       hero:
         name: Imagine Erou și CTA
       hero_settings_form:
@@ -1049,7 +1047,6 @@ ro:
         latlng_text: 'latitudine: %{latitude}, longitudine: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Ajutor
       home: Acasă
     messaging:
       conversation_mailer:

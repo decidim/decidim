@@ -698,7 +698,6 @@ el:
         latlng_text: 'γεωγραφικό πλάτος: %{latitude}, γεωγραφικό μήκος: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Βοήθεια
       home: Αρχική σελίδα
     messaging:
       conversation_mailer:

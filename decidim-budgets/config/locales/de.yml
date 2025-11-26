@@ -213,7 +213,6 @@ de:
             total_budget: Gesamt Budget
         project:
           fields:
-            id: ID
             map: Karte
             taxonomies: Klassifizierungen
             title: Titel
@@ -262,9 +261,9 @@ de:
           are_you_sure: Sind Sie sicher, dass Sie Ihre Stimme zurückziehen wollen?
           cancel_order: Stimme löschen
           checked_out:
-            description: Sie haben bereits über dieses Budget abgestimmt. Wenn Sie Ihre Meinung geändert haben, können Sie %{cancel_link}.
+            description: Sie haben bereits über dieses Budget abgestimmt. Wenn Sie Ihre Meinung geändert haben, können Sie Ihre Stimmen löschen.
             title: Budget-Abstimmung abgeschlossen
-          vote: Gewähltes Budget
+          vote: Für Budget abstimmen
         count:
           projects_count:
             one: 1 Projekt
@@ -314,10 +313,10 @@ de:
         project_budget_button:
           add: Zur Abstimmung hinzufügen
           add_descriptive: Projekt %{resource_name} zu Ihrer Abstimmung hinzufügen.
-          added: Zu deiner Abstimmung hinzugefügt
+          added: Ausgewählt
           added_descriptive: Project %{resource_name} zu Ihrer Abstimmung hinzugefügt.
         project_filter:
-          added: Hinzugefügt
+          added: Ausgewählt
           all: Alle
         projects_for: Projekte für %{name}
         select_projects: Projekt hinzufügen
