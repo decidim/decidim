@@ -573,12 +573,9 @@ gl:
           proposals_explanation: Fai propostas, apoia as existentes e promove os cambios que queres ver.
         footer_sub_hero:
           footer_sub_hero_headline: Benvido a %{organization} plataforma participativa.
-          register: Rexistrarse
         hero:
           participate: Participar
           welcome: Benvido a %{organization}.
-        sub_hero:
-          register: Rexistrarse
       index:
         standalone_pages: Páxinas
         subheading: Navega polas páxinas de axuda de %{name}
