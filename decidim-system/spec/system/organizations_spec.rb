@@ -252,9 +252,6 @@ describe "Organizations" do
           load "#{Decidim::System::Engine.root}/app/forms/decidim/system/update_organization_form.rb"
 
           organization.update!(available_locales:, name: organization_names)
-        end
-
-        before do
           click_on "Organizations"
           within "table tbody" do
             first("tr").click_on "Edit"
