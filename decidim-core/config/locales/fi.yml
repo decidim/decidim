@@ -760,7 +760,6 @@ fi:
           created_at: Keskustelun luontiaika
           id: Keskustelun yksilöivä tunniste
           messages: Keskustelun viestit
-          updated_at: Keskustelun viimeisimmän päivityksen ajankohta
         notifications:
           created_at: Ilmoituksen luontiaika
           event_class: Tapahtuman tyyppi, jota ilmoitus koskee
@@ -791,7 +790,6 @@ fi:
           phone: Käyttäjäryhmän puhelinnumero
           verified_at: Käyttäjäryhmän vahvistamisen ajankohta
         users:
-          about: Käyttäjätilin profiilin kuvaus
           accepted_tos_version: Käyttäjän palvelun käyttöehtojen hyväksymisaika
           admin: Onko tämä käyttäjä hallintakäyttäjä
           confirmation_sent_at: Käyttäjätilin vahvistusviestin lähetysaika
@@ -802,7 +800,6 @@ fi:
           delete_reason: Käyttäjätilin poistamisen syy
           deleted_at: Käyttäjätilin poistamisen ajankohta
           email: Käyttäjätilin sähköpostiosoite
-          followers_count: Käyttäjää seuraavien osallistujien lukumäärä
           following_count: Käyttäjän seuraamien osallistujien lukumäärä
           id: Käyttäjätilin yksilöivä tunniste
           invitation_accepted_at: Käyttäjätilin kutsun hyväksymisen ajankohta
@@ -810,16 +807,12 @@ fi:
           invitation_sent_at: Käyttäjän kutsun lähetyksen ajankohta
           invitations_count: Käyttäjälle lähetettyjen kutsujen lukumäärä
           invited_by: Kutsun lähettänyt käyttäjä
-          last_sign_in_at: Edellisen kirjautumisen ajankohta
-          last_sign_in_ip: Edellisen kirjautumisen IP-osoite
           locale: Käyttäjän valitsema kieliasetus
           managed: Onko tämä käyttäjätili toisen käyttäjän hallinnoima
           name: Käyttäjän nimi
-          newsletter_notifications_at: Uutiskirjeiden tilauksen ajankohta
           nickname: Käyttäjän nimimerkki
           notification_settings: Käyttäjän määrittämät ilmoitusten asetukset
           notifications_sending_frequency: Käyttäjän vastaanottamien ilmoitusten tiheys
-          officialized_as: Virallistamisen nimi (valtuutettu, kunnanjohtaja, pormestari, jne.)
           officialized_at: Käyttäjän virallistamisen ajankohta
           organization: Käyttäjän organisaatio
           password_updated_at: Salasanan viimeisimmän päivityksen ajankohta
@@ -871,7 +864,6 @@ fi:
       files:
         file_cannot_be_processed: Tiedostoa ei voida käsitellä
         file_resolution_too_large: Tiedoston resoluutio on liian suuri
-        not_inside_organization: Tiedostoa ei ole liitetty mihinkään organisaatioon
       internal_server_error:
         copied: Teksti kopioitu!
         copy_error_message_clarification: Kopioi virheviesti leikepöydälle
@@ -1113,7 +1105,6 @@ fi:
         file:
           explanation: 'Tiedoston ohjeistus:'
           message_1: On oltava kuva tai asiakirja.
-          message_2: Mikäli lataat kuvan, käytä mieluiten vaakasuuntaista kuvaa, joka ei sisällä ole tekstiä. Palvelu rajaa kuvaa.
         icon:
           explanation: 'Kuvakkeen ohjeistus:'
           message_1: On oltava neliömuotoinen kuva.
@@ -1482,11 +1473,9 @@ fi:
         same_language: Sisältö on lisätty toivomallasi kielellä (%{language}), minkä takia tässä viestissä ei näytetä automaattista käännöstä.
         translated_text: 'Automaattisesti käännetty teksti:'
     notifications:
-      action_error: Ilmoitusasetusten päivitys epäonnistui.
       no_notifications: Ei vielä ilmoituksia.
       show:
         missing_event: Hups, tämä ilmoitus kuuluu kohteeseen, joka ei ole enää käytettävissä. Voit merkitä sen luetuksi.
-        moderated: Sisältö moderoitu
     notifications_digest_mailer:
       header:
         daily: Päivittäinen ilmoitusyhteenveto
@@ -1495,7 +1484,6 @@ fi:
       hello: Hei %{name},
       intro:
         daily: 'Tässä on lista edellisen päivän ilmoituksista niistä asioista, joita seuraat:'
-        real_time: 'Tämä on ilmoitus seuraamistasi alustalla tapahtuneista asioista:'
         weekly: 'Tässä on lista edellisen viikon ilmoituksista niistä asioista, joita seuraat:'
       outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat ilmoitukseen liittyviä sisältöjä tai niiden tekijöitä. Voit lopettaa seuraamisen näiden sisältöjen sivuilta.
       see_more: Näytä lisää ilmoituksia
@@ -1649,9 +1637,7 @@ fi:
           title: Miten nämä tiedostot avataan ja miten niiden kanssa työskennellään?
         license:
           body_1_html: '%{organization_name} -palvelun tietokanta on lisensoitu %{link_database} -lisenssillä. Kaikki tietokannan sisällöt on lisensoitu %{link_contents} -lisenssillä.'
-          license_contents_link: https://opendatacommons.org/licenses/dbcl/1-0/
           license_contents_name: Tietokannan sisällön lisenssi
-          license_database_link: https://opendatacommons.org/licenses/dbcl/1-0/
           license_database_name: Avoimien tietojen lisenssi
           title: Lisenssi
         title: Avoin data
@@ -1674,7 +1660,6 @@ fi:
         footer_sub_hero:
           footer_sub_hero_body_html: Rakennetaan entistä avoimempi, läpinäkyvämpi ja yhteistyökykyisempi yhteiskunta.<br /> Liity, osallistu ja päätä.
           footer_sub_hero_headline: Tervetuloa yhteisölliseen osallistumispalveluun %{organization}.
-          register: Rekisteröidy
         hero:
           participate: Osallistu
           participate_title: Osallistu prosesseihin alustalla
@@ -1682,7 +1667,6 @@ fi:
         statistics:
           headline: '%{organization} numeroina'
         sub_hero:
-          register: Rekisteröidy
           register_title: Luo tili
       index:
         standalone_pages: Sivut
@@ -2304,8 +2288,6 @@ fi:
         expire_time_html: Istuntosi vanhenee <b><span class="minutes">%{minutes}</span> minuutin kuluttua</b>.
       language_chooser:
         choose_language: Valitse kieli
-      navigation:
-        aria_label: 'Navigaatiovalikko: %{title}'
       notifications_dashboard:
         mark_all_as_read: Merkitse kaikki luetuiksi
         mark_as_read: Merkitse luetuiksi
