@@ -38,7 +38,6 @@ it:
         user_group_id: Importa come
       newsletter:
         body: Testo
-        send_to_all_users: Invia a tutti gli utenti
         send_to_followers: Invia ai follower
         send_to_participants: Invia ai partecipanti
         subject: Oggetto
@@ -301,13 +300,11 @@ it:
       block_user:
         bulk_new:
           action: Blocca account e invia la motivazione
-          already_reported_html: Continuando con questa azione nasconderai anche tutti i contenuti dei partecipanti.
           description: Bloccare un utente renderà il suo account inutilizzabile, puoi fornire nelle tue motivazioni e linee guida i modi in cui ritieni di prendere in considerazione lo sblocco dell'utente.
           justification: Motivazione
           title: Blocca utenti
         new:
           action: Blocca account e invia la motivazione
-          already_reported_html: Continuando con questa azione nasconderai anche tutti i contenuti dei partecipanti.
           description: Il blocco di un utente renderà quell'account inutilizzabile. È possibile fornire nella propria giustificazione tutte le linee guida su come prendere in considerazione lo sblocco dell'utente.
           justification: Motivazione
           title: Blocca utente %{name}
@@ -401,7 +398,6 @@ it:
         form:
           domain_too_short: Dominio troppo corto
         update:
-          error: Impossibile aggiornare l'elenco dei domini esterni consentiti
           success: L'elenco di domini esterni consentiti è stata aggiornata correttamente.
       exports:
         export_as: "%{name} esporta come %{export_format}"
