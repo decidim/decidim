@@ -58,7 +58,6 @@ gl:
         initiatives:
           fields:
             created_at: Creado en
-            id: ID
             state: Estado
             supports_count: Sinaturas
             title: Iniciativas

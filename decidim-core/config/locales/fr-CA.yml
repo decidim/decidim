@@ -183,6 +183,7 @@ fr-CA:
         success: Votre compte a été supprimé avec succès.
       download_your_data_export:
         export_expired: L'export a expiré. Essayez de générer un nouvel export.
+        export_not_found: L'export auquel vous avez tenté d'accéder n'existe pas, ou vous n'avez pas l'accès pour le télécharger
         file_no_exists: Le fichier n'existe pas
         notice: Le téléchargement de vos données est en cours. Vous recevrez un email lorsque celui-ci sera terminé.
       email_change:
@@ -547,8 +548,6 @@ fr-CA:
         description: Description
       footer_sub_hero:
         name: Section "Bienvenue sur la plateforme" (. footer_sub_hero)
-      global_menu:
-        name: Menu global
       hero:
         name: Image principale et bouton d'action
       hero_settings_form:
@@ -1023,6 +1022,7 @@ fr-CA:
         create_with_space: "%{user_name} a créé %{resource_name} dans %{space_name}"
         delete: "%{user_name} a supprimé %{resource_name}"
         delete_with_space: "%{user_name} a supprimé %{resource_name} dans %{space_name}"
+        publish: "%{user_name} a publié %{resource_name}"
         publish_with_space: "%{user_name} a publié %{resource_name} dans %{space_name}"
         unknown_action: "%{user_name} a effectué une action sur %{resource_name}"
         unknown_action_with_space: "%{user_name} a effectué une action sur %{resource_name} dans %{space_name}"
@@ -1053,7 +1053,6 @@ fr-CA:
         latlng_text: 'latitude : %{latitude}, longitude : %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Aide
       home: Accueil
     messaging:
       conversation_mailer:
@@ -1135,11 +1134,12 @@ fr-CA:
         main_image: Image principale
     newsletters:
       unsubscribe:
-        check_subscription: Si vous souhaitez modifier vos préférences, vous pouvez le faire dans la page des <a href="%{link}" target="_blank">paramètres des notifications</a>.
+        check_subscription_html: Si vous souhaitez recommencer à les recevoir, vous pouvez réactiver votre abonnement à tout moment à partir de la <a href="%{link}" target="_blank">page des paramètres</a>.
         error: Un problème est survenu lors de la désinscription.
+        subscription_preferences: Nous avons mis à jour vos préférences d'abonnement, et vous ne recevrez plus de newsletters de %{organization_name}.
         success: Vous vous êtes désabonné avec succès.
         token_error: Le lien a expiré.
-        unsubscribe: Se désabonner
+        unsubscribe: Se désabonner de la newsletter
     newsletters_opt_in:
       unauthorized: Désolé, ce lien n'est plus disponible.
       update:
@@ -1147,7 +1147,7 @@ fr-CA:
         success: Les paramètres de la newsletter ont été mis à jour avec succès.
     newsletters_opt_in_mailer:
       notify:
-        body_1: Le traitement des données personnelles et leur protection deviennent de plus en plus importants pour nous tous. Avec le nouveau règlement général sur la protection des données (RGPD) du 25 mai 2018, les individus contrôlent mieux leurs données personnelles. Pour cette raison, nous avons besoin de votre accord pour continuer à vous envoyer des informations pertinentes sur les activités de %{organization_name}.
+        body_1: Le traitement des données personnelles et leur protection deviennent de plus en plus importants pour nous tous. Avec le nouveau Règlement Général sur la Protection des Données (RGPD) du 25 mai 2018, les individus contrôlent mieux leurs données personnelles. Pour cette raison, nous avons besoin de votre consentement pour continuer à vous envoyer des informations pertinentes sur les activités de %{organization_name}.
         body_2: 'Comment pouvez-vous nous donner votre consentement ? Cliquez simplement sur le bouton suivant :'
         body_3: Avec votre consentement, vous serez en mesure de continuer à recevoir des informations sur les services de la plateforme. Si, au contraire, nous ne recevons pas une confirmation positive de votre part, nous cesserons de vous envoyer des messages. Si vous confirmez que vous souhaitez rester informé, vous aurez toujours la possibilité d'annuler ce choix par la suite.
         button: Oui, je veux continuer à recevoir des informations pertinentes
@@ -1560,20 +1560,30 @@ fr-CA:
         body_2: Dans le cadre de nos efforts pour simplifier l'expérience des organisations, la fonctionnalité "Groupes d'utilisateurs" est dépréciée. Votre profil de groupe d'utilisateurs a maintenant été converti en un profil de simple participant.
         greeting: Cher(ère) %{name},
         instructions_1: Si vous avez accès à ce compte de messagerie, veuillez vérifier votre boîte de réception pour les instructions.
-        instructions_intro: Nous avons envoyé des instructions à l'adresse e-mail associée au compte pour définir un nouveau mot de passe pour le profil.
-        instructions_title: "<strong>Cce que ça signifie pour vous</strong>"
-        subject: Mise à jour importante à propos du groupe d'utilisateurs dont vous êtes membre
+        instructions_2: Sinon, l'un de vos collègues qui a accès devra définir le mot de passe et partager les identifiants de connexion avec vous.
+        instructions_intro: Les membres du groupe partageront désormais l'accès à ce profil en utilisant les identifiants de connexion partagés (email et mot de passe). Nous avons envoyé des instructions à %{email} pour définir un nouveau mot de passe pour le profil.
+        instructions_title: "<strong>Ce que cela signifie pour vous</strong>"
+        subject: Mise à jour importante concernant votre profil de groupe
       notify_deprecation_to_owner:
         body_1: Nous vous contactons pour vous informer d’une mise à jour importante concernant votre profil de groupe sur %{organization_name}.
         body_2: Dans le cadre de nos efforts pour simplifier et améliorer l'expérience des organisations comme la vôtre, nous déprécions la fonctionnalité "Groupes d'utilisateurs". Votre groupe, <strong>%{name}</strong>a été converti en simple compte.
-        body_3: Pour continuer à accéder à votre compte, nous avons besoin que vous définissiez un mot de passe.
+        body_3: Pour continuer à accéder à votre compte et partager votre accès, nous avons besoin que vous définissiez un mot de passe. Une fois défini, vous pouvez partager les identifiants de connexion (e-mail et mot de passe) avec n'importe qui.
         greeting: Cher(ère) %{name},
-        instructions_1: 'Cliquez sur le lien ci-dessous pour démarrer le processus de définition du mot de passe :'
-        instructions_2: Dans le formulaire, entrez l'adresse e-mail à laquelle vous avez reçu ce message et soumettez la demande.
-        instructions_3: Consultez votre boîte de réception afin d'obtenir des instructions supplémentaires pour définir votre nouveau mot de passe.
+        instructions_1: 'Cliquez sur le lien ci-dessous pour définir votre mot de passe :'
+        instructions_2: 'Partagez les identifiants de connexion (email: %{email} et le nouveau mot de passe) avec vos collègues.'
         instructions_title: "<strong>Ce que vous devez faire</strong>"
-        set_password: Démarrer le processus de définition du mot de passe
-        subject: Mise à jour importante à propos du groupe d'utilisateurs
+        set_password: Définissez votre mot de passe
+        subject: Mise à jour importante concernant votre profil de groupe
+      notify_user_group_patched:
+        body_1_html: Nous vous contactons pour vous informer d’une mise à jour importante concernant votre profil de groupe sur %{organization_name}.
+        body_2_html: Dans le cadre de nos efforts pour simplifier et améliorer l'expérience des organisations comme la vôtre, nous déprécions la fonctionnalité "Groupes d'utilisateurs". Votre groupe, <strong>%{name}</strong>a été converti en simple compte.
+        body_3_html: Pour continuer à accéder à votre compte et partager votre accès, nous avons besoin que vous définissiez une nouvelle adresse e-mail et un nouveau mot de passe. Veuillez noter que chaque membre de votre groupe recevra ce courriel. Pour assurer la continuité de l'accès, vous devrez convenir en interne des identifiants partagés (adresse e-mail et mot de passe) que tout le monde utilisera.
+        greeting: Cher(ère) %{name},
+        instructions_1_html: 'Utilisez les identifiants temporaires suivants pour vous connecter : <br><br> Nom d''utilisateur : <strong>%{email}</strong> <br> Mot de passe : <strong>%{password}</strong><br><br>'
+        instructions_2_html: Définir une nouvelle adresse e-mail et un nouveau mot de passe.
+        instructions_3_html: Partagez les identifiants de connexion choisis avec vos collègues pour que l'ensemble du groupe puisse continuer à accéder au compte.
+        instructions_title_html: "<strong>Ce que vous devez faire</strong>"
+        subject: Mise à jour importante concernant votre profil de groupe
     user_report_mailer:
       notify:
         body_1: L'utilisateur %{user} a été signalé par %{token}
@@ -1928,18 +1938,20 @@ fr-CA:
         edit: Modifier
       footer:
         cc_by_license: Licence Creative Commons
+        current_organization_img: "%{organization} (Retour à l'accueil)"
         data_consent_settings: Paramètres des cookies
         decidim_logo: Logo Decidim
         decidim_title: Decidim
+        help: Aide
         log_in: Se connecter
         made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
         open_data: Données ouvertes
         resources: Ressources
         sign_up: Créer un compte
+        social_media: Réseaux sociaux
         terms_of_service: Conditions d'utilisation
       header:
-        back: Retour à la liste
-        cancel: Annuler
+        back: Retour
         close: Fermer
         confirm_title_close_ephemeral_session: Avant de quitter cette page…
         log_in: Se connecter
@@ -1992,6 +2004,11 @@ fr-CA:
   locale:
     name: Français canadien
     name_with_error: Français canadien (erreur !)
+  number:
+    currency:
+      format:
+        format: "%u %n"
+        format_html: "<span>%u</span> %n"
   password_validator:
     denied: est refusé
     domain_included_in_password: est trop similaire au nom de domaine de cette plateforme
@@ -2000,7 +2017,6 @@ fr-CA:
     name_included_in_password: est trop similaire à votre nom
     nickname_included_in_password: est trop similaire à votre surnom
     not_enough_unique_characters: n'a pas assez de caractères uniques
-    password_not_allowed: n'est pas autorisé
     password_repeated: impossible de réutiliser un ancien mot de passe
     password_too_common: est trop commun
     password_too_long: est trop long

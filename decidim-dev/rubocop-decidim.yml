@@ -25,4 +25,5 @@ inherit_from:
   - config/rubocop/graphql/disabled.yml
   - config/rubocop/factory_bot/configuration.yml
   - config/rubocop/factory_bot/disabled.yml
+  - config/rubocop/yard/configuration.yml
   - config/rubocop/disabled.yml

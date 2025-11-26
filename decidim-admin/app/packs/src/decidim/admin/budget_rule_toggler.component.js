@@ -1,50 +1,100 @@
+/**
+ * BudgetRuleTogglerComponent
+ *
+ * Handles showing and hiding rule-specific input containers
+ * based on the selected radio option.
+ */
 export default class BudgetRuleTogglerComponent {
+
+  /**
+   * @param {Object} options - Configuration options
+   * @param {HTMLInputElement[]} options.ruleRadios - Array of radio inputs controlling the rules
+   * @param {Record<string, string[]>} options.mapping - Mapping from radio values to selectors of containers to show
+   */
   constructor(options = {}) {
-    this.ruleCheckboxes = options.ruleCheckboxes;
-    this._runAll();
+    this.ruleRadios = options.ruleRadios;
+    this.mapping = options.mapping || {};
   }
 
-  _runAll() {
-    this.ruleCheckboxes.each((_i, checkbox) => {
-      this._bindEvent(checkbox);
-      this.run(checkbox);
+  /**
+   * Initialize the component (bind events + run initial state).
+   * @returns {void}
+   */
+  init() {
+    this._bindEvents();
+    this._runInitial();
+  }
+
+  /**
+   * Bind change events on all radios
+   * @private
+   * @returns {void}
+   */
+  _bindEvents() {
+    this.ruleRadios.forEach((radio) => {
+      radio.addEventListener("change", (event) => {
+        this._run(event.target);
+      });
     });
   }
 
-  _bindEvent(target) {
-    $(target).on("change", (event) => {
-      this.run(event.target);
-    });
-  }
-
-  run(target) {
-    this.toggleTextInput(target);
-
-    if ($(target).prop("checked")) {
-      this.ruleCheckboxes.filter(
-        (_i, checkbox) => {
-          return checkbox !== target;
-        }).prop("checked", false).each(
-        (_i, checkbox) => {
-          this.toggleTextInput(checkbox);
-        });
-    }
-  }
-
-  toggleTextInput(target) {
-    const container = $(target).closest("div");
-    if (container.length < 1) {
-      return;
-    }
-    const containerClassPrefix = container.attr("class").
-      replace(/^vote_rule_/, "vote_").
-      replace(/_enabled_container$/, "");
-    const input = $(`[class^="${containerClassPrefix}"][class$="_container"]`);
-
-    if ($(target).prop("checked")) {
-      input.slideDown();
+  /**
+   * Run toggler logic on page load
+   * @private
+   * @returns {void}
+   */
+  _runInitial() {
+    const checked = this.ruleRadios.find((radio) => radio.checked);
+    if (checked) {
+      this._run(checked);
     } else {
-      input.slideUp();
+      this._hideAll();
+    }
+  }
+
+  /**
+   * Show the containers associated with the selected radio
+   * @param {HTMLInputElement} target - The radio input that triggered the change
+   * @private
+   * @returns {void}
+   */
+  _run(target) {
+    this._hideAll();
+
+    // Normalize radio value (snake_case → camelCase)
+    const rawValue = target.value;
+    const camelValue = rawValue.replace(/_([a-z])/g, (_match, letter) => letter.toUpperCase());
+
+    const selectors = this.mapping[camelValue] || [];
+
+    selectors.forEach((selector) => this._show(selector));
+  }
+
+  /**
+   * Hide all containers referenced in the mapping
+   * @private
+   * @returns {void}
+   */
+  _hideAll() {
+    const allSelectors = Object.values(this.mapping).flat();
+    allSelectors.forEach((selector) => {
+      const el = document.querySelector(selector);
+      if (el) {
+        el.style.display = "none";
+      }
+    });
+  }
+
+  /**
+   * Show a container by selector
+   * @param {string} selector - CSS selector of the container to show
+   * @private
+   * @returns {void}
+   */
+  _show(selector) {
+    const el = document.querySelector(selector);
+    if (el) {
+      el.style.display = "";
     }
   }
 }

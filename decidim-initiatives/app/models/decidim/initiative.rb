@@ -450,6 +450,10 @@ module Decidim
       ActionAuthorizer.new(user, "comment", self, nil).authorize.ok?
     end
 
+    def user_allowed_to_vote_comment?(user)
+      ActionAuthorizer.new(user, "vote_comment", self, nil).authorize.ok?
+    end
+
     def shareable_url(share_token)
       EngineRouter.main_proxy(self).initiative_url(self, share_token: share_token.token)
     end

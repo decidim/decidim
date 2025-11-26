@@ -442,6 +442,8 @@ es-PY:
           no_slots_available: No hay espacios disponibles
           registration: Registro
       conference_program:
+        program_item:
+          other_category: Otro
         show:
           program: Programa
       conference_registration_mailer:

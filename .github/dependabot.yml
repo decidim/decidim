@@ -1,0 +1,75 @@
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  # /Gemfile.lock
+  - package-ecosystem: "bundler"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "thursday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    groups:
+      rails:
+        patterns:
+          - "rails*"
+          - "actionpack"
+          - "actioncable"
+          - "actionmailbox"
+          - "actionmailer"
+          - "actiontext"
+          - "actionview"
+          - "activestorage"
+          - "railties"
+          - "activemodel"
+          - "activejob"
+          - "activerecord"
+          - "activesupport"
+      rspec:
+        patterns:
+          - "rspec-core"
+          - "rspec-expectations"
+          - "rspec-mocks"
+          - "rspec-support"
+    versioning-strategy: "increase"
+    labels:
+      - "dependencies"
+      - "type: internal"
+
+  # /decidim-generators/Gemfile.lock
+  - package-ecosystem: "bundler"
+    directory: "/decidim-generators"
+    schedule:
+      interval: "weekly"
+      day: "thursday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    groups:
+      rails:
+        patterns:
+          - "rails*"
+          - "actionpack"
+          - "actioncable"
+          - "actionmailbox"
+          - "actionmailer"
+          - "actiontext"
+          - "actionview"
+          - "activestorage"
+          - "railties"
+          - "activemodel"
+          - "activejob"
+          - "activerecord"
+          - "activesupport"
+      rspec:
+        patterns:
+          - "rspec-core"
+          - "rspec-expectations"
+          - "rspec-mocks"
+          - "rspec-support"
+    versioning-strategy: "increase"
+    labels:
+      - "dependencies"
+      - "type: internal"
+      - "decidim-generators"
+
