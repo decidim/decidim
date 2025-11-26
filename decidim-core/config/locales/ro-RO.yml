@@ -778,14 +778,8 @@ ro:
           phone: Numărul de telefon al acestui grup de utilizatori
           verified_at: Data și ora la care acest grup de utilizatori a fost verificat
         users:
-          about: Descrierea profilului a acestui utilizator
           accepted_tos_version: Data la care termenii de utilizare ai acestei platforme au fost acceptați de către utilizator
-          followers_count: Numărul de participanți care urmăresc acest utilizator
           following_count: Numărul de participanți pe care acest utilizator îl urmărește
-          last_sign_in_at: Data și ora penultimei autentificări
-          last_sign_in_ip: Adresa IP a penultimei autentificări
-          newsletter_notifications_at: Data și ora la care acest utilizator a ales să primească buletine informative
-          officialized_as: Numele oficializării (consilier, primar, etc.)
           password_updated_at: Data la care parola a fost schimbată ultima dată
           roles: Rolul pe care îl are acest utilizator, dacă are vreun astfel de rol
           type: Tipul pe care acest utilizator îl are
@@ -819,7 +813,6 @@ ro:
       files:
         file_cannot_be_processed: Fișierul nu poate fi procesat
         file_resolution_too_large: Rezoluția fișierului este prea mare
-        not_inside_organization: Fișierul nu este atașat niciunei organizații.
       internal_server_error:
         copied: Text copiat!
         copy_error_message_clarification: Copiază mesajul de eroare în clipboard
@@ -1376,7 +1369,6 @@ ro:
           proposals_explanation: Formulează propuneri, votează propunerile existente și promovează schimbările pe care dorești să le vezi implementate.
         footer_sub_hero:
           footer_sub_hero_headline: Bun venit pe platforma participativă %{organization}.
-          register: Inregistrare
         hero:
           participate: Participă
           participate_title: Participați la procesele platformei
@@ -1384,7 +1376,6 @@ ro:
         statistics:
           headline: Starea curentă a %{organization}
         sub_hero:
-          register: Inregistrare
           register_title: Creați un cont
       index:
         standalone_pages: Pagini
