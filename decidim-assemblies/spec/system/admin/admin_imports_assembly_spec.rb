@@ -62,7 +62,7 @@ describe "Admin imports assembly" do
       within_admin_sidebar_menu do
         click_on "Components"
       end
-      expect(Decidim::Assembly.last.components.size).to eq(9)
+      expect(Decidim::Assembly.last.components.size).to eq(8)
       within ".table-list" do
         Decidim::Assembly.last.components.each do |component|
           expect(page).to have_content(translated(component.name))

@@ -86,21 +86,18 @@ cs:
           adjacent_links_paragraph: Pokud má tentýž zdroj více sousedících odkazů, které na něj ukazují, pro tyto uživatele je obtížné podívat se na stránku, protože možná budou muset procházet více odkazů, aby se dostali k dalšímu zdroji.
           color_contrast: Barevný kontrast
           color_contrast_paragraph: Při vytváření uživatelských rozhraní nebo při úpravě barev se vždy ujistěte, že svými změnami neporušujete přístupnost. Můžete použít kontrolu kontrastu barev k zajištění dostatečného kontrastu barev s barvou pozadí, ve kterém jsou zobrazeny.
-          decidim_follows_html: Decidim se řídí <u>Pokyny pro přístupnost webového obsahu (WCAG) 2.1</u>
           dynamic_changes_header: Dynamická funkce neintuitivně mění kontext stránky
           dynamic_changes_paragraph: Změny ve vstupech formuláře by neměly automaticky měnit kontext stránky.
           elements_hidden: Skryté prvky
           elements_hidden_header: Prvky skryté z API pro přístupnost
           elements_hidden_paragraph: Pro skrytí prvku před asistenčními technologiemi použijte atribut aria-hidden="true".
           heading_on: Záhlaví na důležitých oddílech
-          here_link: zde
           illogical_heading_order: Nelogické pořadí záhlaví
           illogical_heading_paragraph: Každá stránka by měla mít logické pořadí nadpisů při použití prvků <h1>, <h2>, <h3>, <h4>, <h5> a <h6>.
           important_sections_heading: Záhlaví na důležitých oddílech
           important_sections_paragraph: Je velmi důležité, aby každá důležitá část stránky měla nadpis, který usnadní pochopení důležitých částí na stránce jen prohlížením jejích záhlaví.
           links_and_buttons: Odkazy a tlačítka
           links_and_buttons_paragraph: Kotevní prvky (tj. odkazy) mají odkazovat na různé stránky nebo ukotvit umístění na stránce. Pokud má prvek například otevřít na této stránce skrytou položku, měli byste místo toho použít prvek <button>.
-          see_further_info_html: Zobrazit další informace %{link}
           unique_h1: Unikátní H1
           unique_h1_paragraph: Každá stránka by měla mít jedinečný nadpis H1
           use_aria: Použití ARIA

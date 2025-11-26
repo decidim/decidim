@@ -385,6 +385,7 @@ en:
           assembly_type: The type of the assembly
           closing_date: The closing date of the assembly
           closing_date_reason: Why the assembly was closed
+          component_settings: The component settings of the assembly
           composition: The composition of the assembly
           created_at: The date this space was created
           created_by: Who has created this assembly

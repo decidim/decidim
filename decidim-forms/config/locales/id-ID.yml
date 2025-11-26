@@ -24,11 +24,9 @@ id:
           question:
             any: Apa saja
             description: Deskripsi
-            down: Turun
             question: Pertanyaan
             remove: Menghapus
             statement: Pernyataan
-            up: Naik
           update:
             invalid: Terjadi masalah saat menyimpan formulir.
       question_types:

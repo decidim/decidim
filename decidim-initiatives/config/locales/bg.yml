@@ -111,7 +111,6 @@ bg:
         initiatives:
           fields:
             created_at: Създадено на
-            id: ID
             published_at: Публикувано на
             state: Статус
             supports_count: Подписи

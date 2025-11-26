@@ -74,6 +74,9 @@ en:
           update_settings:
             invalid: There was a problem updating the document.
             success: Document successfully updated.
+        index:
+          published: Published
+          unpublished: Unpublished
       admin_log:
         document:
           create: "%{user_name} created the %{resource_name} collaborative text in %{space_name}"
@@ -122,6 +125,7 @@ en:
       models:
         collaborative_text:
           fields:
+            published: Published
             suggestions: Accept suggestions
             title: Title
       suggestion:

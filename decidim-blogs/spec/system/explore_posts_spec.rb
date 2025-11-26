@@ -38,6 +38,9 @@ describe "Explore posts" do
       end
 
       it "shows the component name in the sidebar" do
+        within(".menu-bar") do
+          expect(page).to have_content(translated(component.name))
+        end
         within("aside") do
           expect(page).to have_content(translated(component.name))
         end
@@ -85,6 +88,10 @@ describe "Explore posts" do
         it "shows 'Official' as the author" do
           within ".author__name" do
             expect(page).to have_content("Official")
+          end
+          within(".menu-bar") do
+            expect(page).to have_content(translated(component.name))
+            expect(page).to have_content(translated(post.title))
           end
         end
       end

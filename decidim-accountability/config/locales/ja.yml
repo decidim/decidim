@@ -247,7 +247,6 @@ ja:
           fields:
             created_at: 作成日時
             end_date: 終了日
-            id: ID
             progress: 進捗状況
             start_date: 開始日
             status: ステータス

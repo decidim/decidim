@@ -160,6 +160,7 @@ module Decidim
       #
       # @param attribute [Decidim::SettingsManifest::Attribute]
       # @return [Symbol] The FormBuilder's method used to render
+      # @param [Object] options
       def form_method_for_attribute(attribute, options)
         return :editor if attribute.type.to_sym == :text && options[:editor]
 
@@ -224,6 +225,7 @@ module Decidim
       #
       # @param name (see #settings_attribute_input)
       # @param i18n_scope (see #settings_attribute_input)
+      # @param [Object] form
       def taxonomy_filters(form, name, i18n_scope)
         current_filters = content_tag(:div, class: "js-current-filters") do
           render partial: "decidim/admin/taxonomy_filters_selector/component_table",

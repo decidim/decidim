@@ -186,7 +186,6 @@ tr:
           fields:
             created_at: Oluşturuldu
             end_date: Bitiş tarihi
-            id: ID
             progress: İlerleme
             start_date: Başlangıç tarihi
             status: durum
