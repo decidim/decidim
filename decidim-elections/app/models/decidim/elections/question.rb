@@ -9,6 +9,7 @@ module Decidim
       belongs_to :election, class_name: "Decidim::Elections::Election", inverse_of: :questions
 
       has_many :response_options, class_name: "Decidim::Elections::ResponseOption", dependent: :destroy, inverse_of: :question
+      has_many :votes, class_name: "Decidim::Elections::Vote", dependent: :restrict_with_error, inverse_of: :question
 
       translatable_fields :body, :description
 
@@ -27,6 +28,7 @@ module Decidim
       end
 
       def max_votable_options
+        return max_choices if max_choices.present? && question_type == "multiple_option"
         return response_options.size if question_type == "multiple_option"
 
         1
@@ -74,6 +76,10 @@ module Decidim
         response_ids = Array(response_ids)
 
         response_options.where(id: response_ids.take(max_votable_options))
+      end
+
+      def total_votes
+        @total_votes ||= response_options.sum(&:votes_count)
       end
 
       private

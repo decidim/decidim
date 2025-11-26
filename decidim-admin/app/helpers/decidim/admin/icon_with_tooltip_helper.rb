@@ -11,7 +11,7 @@ module Decidim
       #             data   - This option can be used to add custom data attributes.
       def icon_with_tooltip(icon_name, title, options = {})
         with_tooltip(title, options.merge(class: "top")) do
-          content_tag(:span, title:) do
+          content_tag(:span) do
             icon(icon_name, aria_label: title, role: "img")
           end
         end

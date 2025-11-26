@@ -63,6 +63,12 @@ module Decidim
         Decidim.icons.register(name: "layout-grid-fill", icon: "layout-grid-fill", category: "system", description: "", engine: :proposals)
       end
 
+      initializer "decidim_proposals.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
       initializer "decidim_proposals.content_processors" do |_app|
         Decidim.configure do |config|
           config.content_processors += [:proposal]
@@ -145,7 +151,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_proposals.webpacker.assets_path" do
+      initializer "decidim_proposals.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 

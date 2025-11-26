@@ -16,7 +16,15 @@ class MyTranslationService
   end
 
   def translate
-    # Actual code to translate the text
+    # Actual code for translating the text
+    translated_text = "#{target_locale} - #{text}"
+
+    Decidim::MachineTranslationSaveJob.perform_later(
+      resource,
+      field_name,
+      target_locale,
+      translated_text
+    )
   end
 end
 ....
@@ -34,5 +42,134 @@ Then you will need to configure it with the help of Environment Variables:
 [source,bash]
 ....
 export DECIDIM_ENABLE_MACHINE_TRANSLATION="true"
-export DECIDIM_MACHINE_TRANSLATION_SERVICE="MyTranslator"
+export DECIDIM_MACHINE_TRANSLATION_SERVICE="MyTranslationService"
+....
+
+You also need to enable the setting "Enable machine translations" in `Settings` -> `Configuration`.
+
+You can read more about the details of how this service work at `xref:develop:machine_translations.adoc[Using machine translations].
+
+== Examples
+
+=== LibreTranslate
+
+https://github.com/LibreTranslate/LibreTranslate[LibreTranslate] is a Free and Open Source Machine Translation API. Self-hosted, offline capable and easy to setup. If you do not want to self-host it, they also offer a paid service at https://libretranslate.com/[libretranslate.com].
+
+For using it, follow these steps:
+
+. https://docs.libretranslate.com/guides/installation/[Install LibreTranslate] with any of the methods proposed on their documentation. For demonstration purposes, it will be installed at `http://localhost:5000`. You have a Docker Compose configuration based on the LibreTranslate documentation.
+. Add the file `app/services/libre_translate_service.rb` to your application
+. Add these Environment Variables:
+[source,bash]
+....
+export DECIDIM_ENABLE_MACHINE_TRANSLATION="true"
+export DECIDIM_MACHINE_TRANSLATION_SERVICE="LibreTranslateService"
+export DECIDIM_LIBRE_TRANSLATE_SERVICE_URL="http://localhost:5000"
+....
+[start=4]
+. Restart the web application and queue servers
+. Sign in as administrator
+. Go to the admin panel and go into in `Settings` -> `Configuration`
+. Enable the settings "Enable machine translations" and "Translated text first"
+. Create a new Process or Edit an existing one
+. Go to the frontend and change the language
+
+==== Docker compose
+
+[source,yaml]
+....
+services:
+  libretranslate:
+    image: libretranslate/libretranslate
+    container_name: libretranslate
+    ports:
+      - "${LT_PORT:-5000}:5000"
+    volumes:
+      - lt-local:/home/libretranslate/.local
+      # Uncomment the line below if using --api-keys
+      # - lt-db:/app/db
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+    # Add any additional command arguments here
+    # command: ["--api-keys"]
+
+volumes:
+  lt-local:
+    name: lt-local
+....
+
+==== `app/services/libre_translate_service.rb`
+
+[source,ruby]
+....
+# frozen_string_literal: true
+
+require "faraday"
+require "json"
+
+# This translator uses LibreTranslate API to translate text
+# from one locale to another.
+class LibreTranslateService
+  attr_reader :text, :source_locale, :target_locale, :resource, :field_name
+
+  def initialize(resource, field_name, text, target_locale, source_locale)
+    @resource = resource
+    @field_name = field_name
+    @text = text
+    @target_locale = target_locale
+    @source_locale = source_locale
+  end
+
+  def translate
+    translated_text = fetch_translation || text
+
+    Decidim::MachineTranslationSaveJob.perform_later(
+      resource,
+      field_name,
+      target_locale,
+      translated_text
+    )
+  end
+
+  private
+
+  def fetch_translation
+    response = Faraday.post("#{host}/translate") do |req|
+      req.headers["Content-Type"] = "application/json"
+      req.body = translation_payload.to_json
+    end
+
+    parse_response(response)
+  rescue => e
+    log_error(e)
+    nil
+  end
+
+  def translation_payload
+    {
+      q: text,
+      source: source_locale,
+      target: target_locale,
+      api_key: api_key
+    }.compact
+  end
+
+  def parse_response(response)
+    result = JSON.parse(response.body)
+    result["translatedText"]
+  end
+
+  def host
+    Decidim::Env.new("DECIDIM_LIBRE_TRANSLATE_SERVICE_URL", "https://libretranslate.com").value
+  end
+
+  def api_key
+    Decidim::Env.new("DECIDIM_LIBRE_TRANSLATE_API_KEY").value
+  end
+
+  def log_error(error)
+    Rails.logger.error("LibreTranslate translation error: #{error.message}")
+  end
+end
 ....

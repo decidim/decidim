@@ -437,6 +437,8 @@ fr:
           no_slots_available: Il ne reste plus de place
           registration: Inscription
       conference_program:
+        program_item:
+          other_category: Autre
         show:
           program: Programme
       conference_registration_mailer:

@@ -94,9 +94,20 @@
 
       <% if allowed_to?(:soft_delete, :component, trashable_deleted_resource: component) %>
         <% resources_count = component.primary_stat || 0 %>
-        <% if !component.published? %>
+        <% if component.published? %>
           <hr>
-
+          <li class="dropdown__item">
+            <div class="dropdown__button-disabled">
+              <%= with_tooltip t("tooltips.deleted_component_info", scope: "decidim.admin") do %>
+                <%= icon "delete-bin-line", class: "text-gray" %>
+                <span>
+                  <%= t("actions.soft_delete", scope: "decidim.admin") %>
+                </span>
+              <% end %>
+            </div>
+          </li>
+        <% else %>
+          <hr>
           <li class="dropdown__item">
             <%= link_to url_for(action: :soft_delete, id: component, controller: "components"), method: :patch, class: "dropdown__button dropdown__button--danger", data: { confirm: t("actions.confirm_delete_component", scope: "decidim.admin", resources_count:) } do %>
               <%= icon "delete-bin-line" %>

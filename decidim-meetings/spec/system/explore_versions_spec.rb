@@ -48,6 +48,10 @@ describe "Explore versions", versioning: true do
     end
 
     it "lists all versions" do
+      within(".menu-bar") do
+        expect(page).to have_content(translated(component.name))
+        expect(page).to have_content(translated(meeting.reload.title))
+      end
       expect(page).to have_link("Version 1 of 2")
       expect(page).to have_link("Version 2 of 2")
     end

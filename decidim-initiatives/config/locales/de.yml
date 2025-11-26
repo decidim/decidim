@@ -77,6 +77,7 @@ de:
   decidim:
     admin:
       actions:
+        cannot_answer: Initiative kann nicht beantwortet werden
         new_initiative_type: Neuer Initiativentyp
         new_initiative_type_scope: Neuer Initiativentyp
       filters:
@@ -115,7 +116,6 @@ de:
         initiatives:
           fields:
             created_at: Erstellt am
-            id: ID
             published_at: Veröffentlicht am
             state: Status
             supports_count: Unterschriften
@@ -265,6 +265,7 @@ de:
             success: Die Initiative wurde an die technische Validierung gesendet.
             update: Aktualisieren
           form:
+            attachments_title: Anhänge
             settings: Einstellungen
             title: Allgemeine Information
           index:
@@ -687,6 +688,9 @@ de:
         actions:
           create: Initiative erstellen
           title: Aktionen
+    statistics:
+      initiatives_count: Initiativen
+      initiatives_count_tooltip: Die Anzahl der veröffentlichten Volksinitiativen.
   layouts:
     decidim:
       initiative_creation_header:

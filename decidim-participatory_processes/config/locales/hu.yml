@@ -327,9 +327,6 @@ hu:
         participatory_process_imports:
           form:
             document_legend: Dokumentum hozzáadása
-        participatory_process_steps:
-          form:
-            cta_text_help: Ha nincs beállítva, a gomb nem jelenik meg.
         participatory_processes:
           form:
             announcement_help: A megadott szöveg a folyamat információk alatt található felhasználónál jelenik meg.

@@ -11,6 +11,30 @@ describe Decidim::Ai::SpamDetection::Importer::Database do
     Decidim::Ai::SpamDetection.resource_models = resources
   end
 
+  shared_examples "some resources are being spam" do
+    before do
+      Decidim::Ai::SpamDetection.resource_models = resource_models
+      allow(Decidim::Ai::SpamDetection).to receive(:resource_classifier).and_return(instance)
+    end
+
+    let(:reporting_user) { author }
+    let(:spam_count) { 2 }
+    let!(:parent) { create(:report, reason: "parent_hidden", user: reporting_user, moderation: create(:moderation, :hidden, reportable: resources.last)) }
+    Decidim::Report::REASONS.excluding("parent_hidden").each do |reason|
+      let!(:report) { create(:report, reason:, user: reporting_user, moderation: create(:moderation, :hidden, reportable:)) }
+
+      it "successfully loads the dataset when there are resources marked as #{reason}" do
+        allow(instance).to receive(:train)
+
+        described_class.call
+
+        expect(instance).to have_received(:train).with(:ham, anything).at_least(training - spam_count)
+        expect(instance).to have_received(:train).with(:spam, anything).at_least(spam_count)
+        expect(instance).to have_received(:train).with(:spam, "Hidden resource").at_least(1)
+      end
+    end
+  end
+
   shared_examples "resource is being indexed" do
     let(:organization) { create(:organization) }
     let!(:author) { create(:user, organization:) }
@@ -56,67 +80,64 @@ describe Decidim::Ai::SpamDetection::Importer::Database do
     let(:manifest_name) { "meetings" }
     let(:training) { 20 }
 
-    let!(:meetings) do
-      create_list(:meeting, 4, component:, author:,
-                               title: { en: "Some proposal that is not blocked" },
-                               description: { en: "The body for the meeting." })
-    end
+    let!(:reportable) { create(:meeting, component:, author:, title: { en: "Hidden resource" }) }
+    let!(:resources) { create_list(:meeting, 3, component:, author:) }
+
     let(:resource_models) { { "Decidim::Meetings::Meeting" => "Decidim::Ai::SpamDetection::Resource::Meeting" } }
 
     include_examples "resource is being indexed"
+    include_examples "some resources are being spam" do
+      let(:spam_count) { 5 }
+    end
   end
 
   context "when trained model is Decidim::Proposals::Proposal" do
     let(:manifest_name) { "proposals" }
     let(:training) { 8 }
 
-    let!(:proposals) do
-      create_list(:proposal, 4,
-                  :published,
-                  component:,
-                  users: [author],
-                  title: "Some proposal that is not blocked",
-                  body: "The body for the proposal.")
-    end
+    let!(:reportable) { create(:proposal, :published, component:, users: [author], title: { en: "Hidden resource" }) }
+    let!(:resources) { create_list(:proposal, 3, :published, component:, users: [author]) }
     let(:resource_models) { { "Decidim::Proposals::Proposal" => "Decidim::Ai::SpamDetection::Resource::Proposal" } }
 
     include_examples "resource is being indexed"
+    include_examples "some resources are being spam"
   end
 
   context "when trained model is Decidim::Proposals::CollaborativeDraft" do
     let(:manifest_name) { "proposals" }
     let(:training) { 8 }
 
-    let!(:collaborative_drafts) do
-      create_list(:collaborative_draft, 4,
-                  component:,
-                  users: [author],
-                  title: "Some draft that is not blocked",
-                  body: "The body for the proposal.")
-    end
+    let!(:reportable) { create(:collaborative_draft, component:, users: [author], title: "Hidden resource") }
+    let!(:resources) { create_list(:collaborative_draft, 3, component:, users: [author]) }
     let(:resource_models) { { "Decidim::Proposals::CollaborativeDraft" => "Decidim::Ai::SpamDetection::Resource::CollaborativeDraft" } }
 
     include_examples "resource is being indexed"
+    include_examples "some resources are being spam"
   end
 
   context "when trained model is Decidim::Debates::Debate" do
     let(:manifest_name) { "debates" }
     let(:training) { 8 }
 
-    let!(:debates) do
-      create_list(:debate, 4,
+    let!(:reportable) do
+      create(:debate,
+             author:, component:,
+             title: { en: "Hidden resource" })
+    end
+    let!(:resources) do
+      create_list(:debate, 3,
                   author:, component:,
-                  title: { en: "Some proposal that is not blocked" },
-                  description: { en: "The body for the meeting." })
+                  title: { en: "Some proposal that is not blocked" })
     end
     let(:resource_models) { { "Decidim::Debates::Debate" => "Decidim::Ai::SpamDetection::Resource::Debate" } }
 
     include_examples "resource is being indexed"
+    include_examples "some resources are being spam"
   end
 
   context "when trained model is Decidim::User" do
     let(:tested) { 3 }
-    let(:training) { tested + 1 } # tested + author in shared example
+    let(:training) { 4 } # tested + author in shared example
 
     let!(:user) { create_list(:user, tested, organization:, about: "Something about me") }
     let(:resource_models) { { "Decidim::User" => "Decidim::Ai::SpamDetection::Resource::UserBaseEntity" } }

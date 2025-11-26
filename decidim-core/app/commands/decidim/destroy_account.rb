@@ -19,6 +19,15 @@ module Decidim
         destroy_user_account!
         destroy_user_identities
         destroy_follows
+        destroy_user_versions
+        destroy_user_private_exports
+        destroy_user_access_grants
+        destroy_user_access_tokens
+        destroy_user_reminders
+        destroy_user_notifications
+        destroy_user_badges
+        destroy_user_likes
+        destroy_user_reports
         destroy_participatory_space_private_user
         delegate_destroy_to_participatory_spaces
       end
@@ -47,17 +56,53 @@ module Decidim
       current_user.save!
     end
 
+    def destroy_user_badges
+      Decidim::Gamification::BadgeScore.where(user: current_user).find_each(&:destroy)
+    end
+
+    def destroy_user_reports
+      Decidim::UserModeration.where(user: current_user).find_each(&:destroy)
+    end
+
+    def destroy_user_likes
+      Decidim::Like.where(author: current_user).find_each(&:destroy)
+    end
+
     def destroy_user_identities
-      current_user.identities.destroy_all
+      current_user.identities.find_each(&:destroy)
+    end
+
+    def destroy_user_versions
+      current_user.versions.find_each(&:destroy)
+    end
+
+    def destroy_user_private_exports
+      current_user.private_exports.find_each(&:destroy)
+    end
+
+    def destroy_user_access_grants
+      current_user.access_grants.find_each(&:destroy)
+    end
+
+    def destroy_user_access_tokens
+      current_user.access_tokens.find_each(&:destroy)
+    end
+
+    def destroy_user_reminders
+      current_user.reminders.find_each(&:destroy)
+    end
+
+    def destroy_user_notifications
+      current_user.notifications.find_each(&:destroy)
     end
 
     def destroy_follows
-      Decidim::Follow.where(followable: current_user).destroy_all
-      Decidim::Follow.where(user: current_user).destroy_all
+      Decidim::Follow.where(followable: current_user).find_each(&:destroy)
+      Decidim::Follow.where(user: current_user).find_each(&:destroy)
     end
 
     def destroy_participatory_space_private_user
-      Decidim::ParticipatorySpacePrivateUser.where(user: current_user).destroy_all
+      Decidim::ParticipatorySpacePrivateUser.where(user: current_user).find_each(&:destroy)
     end
 
     def delegate_destroy_to_participatory_spaces

@@ -201,6 +201,16 @@ module Decidim
       rescue NameError, LoadError
         nil
       end
+
+      def add_breadcrumb_item
+        return {} if meeting.blank?
+
+        {
+          label: translated_attribute(meeting.title),
+          url: Decidim::EngineRouter.main_proxy(current_component).meeting_path(meeting),
+          active: false
+        }
+      end
     end
   end
 end

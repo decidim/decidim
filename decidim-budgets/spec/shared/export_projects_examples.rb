@@ -9,7 +9,7 @@ shared_examples "export projects" do
 
   context "with query" do
     before do
-      fill_in "q[id_string_or_title_cont]", with: translated(projects.last.title)
+      fill_in "q[title_cont]", with: translated(projects.last.title)
       find("button[aria-label='Search']").click
     end
 
