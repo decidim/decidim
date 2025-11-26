@@ -35,7 +35,6 @@ ca:
       id: ID
       newsletter:
         body: Cos
-        send_to_all_users: Envia a totes les usuàries
         send_to_followers: Envia a totes les seguidores
         send_to_participants: Envia a les participants
         subject: Assumpte
@@ -293,13 +292,11 @@ ca:
       block_user:
         bulk_new:
           action: Bloquejar comptes i enviar justificació
-          already_reported_html: Si segueixes amb aquesta acció, amagaràs tots els continguts de les participants.
           description: El bloqueig de les usuàries deixarà els seus comptes inutilitzables. Pots proporcionar en la teva justificació els criteris sota els quals consideraries desbloquejar-les.
           justification: Justificació
           title: Bloquejar usuàries
         new:
           action: Bloquejar compte i enviar justificació
-          already_reported_html: Si segueixes amb aquesta acció, amagaràs tots els continguts de la participant.
           description: El bloqueig d'una usuària deixarà el seu compte inutilitzable. Pots proporcionar en la teva justificació els criteris sota els quals consideraries desbloquejar-la.
           justification: Justificació
           title: Bloquejar a la usuària %{name}
@@ -393,7 +390,6 @@ ca:
         form:
           domain_too_short: El domini és massa curt
         update:
-          error: S'ha produït un error en actualitzar el llistat de domininis externs permesos
           success: El llistat de dominis externs permesos s'ha actualitzat correctament.
       exports:
         export_as: "%{name} com a %{export_format}"
@@ -478,7 +474,6 @@ ca:
           import_csv:
             explanation: 'Instruccions per al fitxer:'
             message_1: S'admeten fitxers CSV
-            message_2: "fitxer .csv amb dades de correus electrònics"
       help_sections:
         error: Hi ha hagut un problema en actualitzar les seccions d'ajuda.
         form:
@@ -1270,7 +1265,6 @@ ca:
           last_day: El darrer dia
           last_month: El darrer mes
           last_week: La darrera setmana
-          no_users_count_statistics_yet: Encara no hi ha estadístiques de recompte d’usuàries.
           participants: Participants
     forms:
       errors:
