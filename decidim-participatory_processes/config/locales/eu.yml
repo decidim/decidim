@@ -340,6 +340,7 @@ eu:
         participatory_processes:
           announcement: Informazioa iragarpenaz (deia)
           area: Prozesua zein arlotan gertatzen ari da
+          component_settings: Prozesuaren osagaien konfigurazioa
           created_at: Zein datatan sortu zen espazio hau
           description: Prozesuaren deskribapen luzea
           developer_group: Prozesuaren talde garatzailea. Hau da prozesua sustatzen duen erakundea.
