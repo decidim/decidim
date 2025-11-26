@@ -38,7 +38,6 @@ hu:
         user_group_id: Az importáltak létrehozása mint
       newsletter:
         body: Szöveg
-        send_to_all_users: Küldés az összes felhasználónak
         send_to_followers: Küldés a követőknek
         send_to_participants: Küldés a résztvevőknek
         subject: Tárgy
@@ -286,7 +285,6 @@ hu:
       block_user:
         new:
           action: Fiók blokkolása és igazolás küldése
-          already_reported_html: Ezt a műveletet folytatva elrejti a résztvevők összes tartalmát is.
           description: Egy felhasználó letiltása használhatatlanná teszi a fiókját. Az indoklásban megadhat bármilyen iránymutatást arra vonatkozóan, hogy miként lehetne feloldani a felhasználó blokkolását.
           justification: Indoklás
           title: '%{name} felhasználó blokkolása'
@@ -364,7 +362,6 @@ hu:
         form:
           domain_too_short: Túl rövid domain név
         update:
-          error: Nem sikerült frissíteni az engedélyezett külső tartományok listáját
           success: Az engedélyezett külső tartományok listája sikeresen frissült.
       exports:
         export_as: "%{name} mint %{export_format}"
@@ -734,7 +731,7 @@ hu:
           participants_help: Hírlevelet küld minden megerősített felhasználónak, aki a listában kiválasztott részvételi terek bármelyikében részt vett valamilyen folyamatban.
           recipients_count: Ezt a hírlevelet <strong id='recipients_count'>%{count}</strong> felhasználónak küldjük ki.
           select_spaces: A hírlevél szegmentálására szolgáló terek kiválasztása
-          send_to_all_users: Küldés mindenkinek
+          send_to_all_users: Küldés az összes felhasználónak
           title: Címzettek kiválasztása
           warning: "<strong>Figyelem:</strong> Ez a hírlevél csak azoknak a felhasználóknak kerül elküldésre, akik bejelölték a <em>Hírleveleket szeretnék kapni</em> opciót az értesítési beállításokban."
         send:
@@ -1017,7 +1014,6 @@ hu:
           last_day: Utolsó nap
           last_month: Előző hónap
           last_week: Előző hét
-          no_users_count_statistics_yet: Még nincsenek felhasználói statisztikák.
           participants: Résztvevők
     forms:
       errors:
