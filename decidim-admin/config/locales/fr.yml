@@ -35,7 +35,7 @@ fr:
       id: ID
       newsletter:
         body: Corps de texte
-        send_to_all_users: Envoyer à tous les utilisateurs
+        send_to_all_users: Envoyer à tous les participants
         send_to_followers: Envoyer aux abonnés
         send_to_participants: Envoyer aux participants
         subject: Objet
@@ -291,13 +291,13 @@ fr:
       block_user:
         bulk_new:
           action: Bloquer le compte et envoyer la justification
-          already_reported_html: En poursuivant cette action, vous masquerez également tous les contenus des participants bloqués.
+          already_reported_html: En poursuivant cette action, vous cacherez également tout le contenu du participant.
           description: Bloquer des participants rendra son compte inutilisable, vous pouvez fournir dans votre justification les conditions de déblocage de ces participants.
           justification: Justification
           title: Bloquer des participants
         new:
           action: Bloquer le compte et envoyer la justification
-          already_reported_html: En poursuivant cette action, vous masquerez également tous les contenus du participant.
+          already_reported_html: En poursuivant cette action, vous cacherez également tout le contenu du participant.
           description: Bloquer un utilisateur rendra son compte inutilisable, vous devriez fournir dans votre justification les conditions de déblocage de l'utilisateur.
           justification: Justification
           title: Bloquer l'utilisateur %{name}
@@ -391,7 +391,7 @@ fr:
         form:
           domain_too_short: Le nom de domaine est trop court
         update:
-          error: Impossible de mettre à jour la liste des domaines externes autorisés
+          error: Impossible de mettre à jour la liste des domaines externes autorisés.
           success: La liste des domaines externes autorisés a été mise à jour avec succès.
       exports:
         export_as: "%{name} en format %{export_format}"
@@ -476,7 +476,7 @@ fr:
           import_csv:
             explanation: 'Prérequis pour le fichier :'
             message_1: Les fichiers CSV sont pris en charge
-            message_2: "Fichier .csv avec les données des emails"
+            message_2: ".csv avec les données des emails"
       help_sections:
         error: Un problème est survenu lors de la mise à jour des sections d’aide.
         form:
@@ -1209,7 +1209,7 @@ fr:
           last_day: Hier
           last_month: Le mois dernier
           last_week: La semaine dernière
-          no_users_count_statistics_yet: Il n'y a pas encore de statistiques du nombre d'utilisateurs.
+          no_users_count_statistics_yet: Il n'y a pas encore de statistiques sur le nombre de participants.
           participants: Participants
     forms:
       errors:
