@@ -383,6 +383,7 @@ sv:
           assembly_type: Typ av samråd
           closing_date: Slutdatum för samrådet
           closing_date_reason: Anledning till att samrådet avslutades
+          component_settings: Samrådets sammansättning
           composition: Samrådets sammansättning
           created_at: Datum när processen skapades
           created_by: Initiativtagare till samrådet
