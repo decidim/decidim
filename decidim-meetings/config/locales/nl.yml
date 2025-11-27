@@ -436,7 +436,6 @@ nl:
           fields:
             closed: Gesloten
             end_time: Einddatum
-            id: ID
             map: Kaart
             official_meeting: Officiële vergadering
             start_time: Startdatum

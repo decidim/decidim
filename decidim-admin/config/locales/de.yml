@@ -48,6 +48,7 @@ de:
         customize_welcome_notification: Willkommens-Benachrichtigung anpassen
         default_locale: Standardgebietsschema
         description: Beschreibung
+        enable_machine_translations: Maschinelle Übersetzungen aktivieren
         enable_omnipresent_banner: Zeige allgegenwärtiges Banner
         enable_participatory_space_filters: Bereichs- und Gebietsfilter aktivieren
         facebook_handler: Facebook-Handler
@@ -519,7 +520,7 @@ de:
         and: und
         data_errors:
           duplicate_headers:
-            detail: Bitte überprüfen Sie, dass die Datei benötigte Spalten oder Kopfzeilen nur einmal enthält.
+            detail: Bitte überprüfen Sie, dass die Datei die benötigten Spalten oder Kopfzeilen nur einmal enthält.
             message:
               one: Spalte %{columns} duplizieren.
               other: Spalten %{columns} duplizieren.
@@ -804,7 +805,7 @@ de:
           select_conferences: Konferenzen auswählen
           select_initiatives: Initiativen auswählen
           select_participatory_processes: Beteiligungsprozesse auswählen
-          select_spaces: Wählen Sie Abschnitte, um den Newsletter zu unterteilen
+          select_spaces: Bereiche zum Segmentieren des Newsletters auswählen
           select_users_for_participatory_space: Newsletter an einen oder mehrere partizipative Bereiche senden
           select_users_general: Plattformweiter Newsletter senden
           select_verification_types: Verifizierungsmethoden auswählen
@@ -917,7 +918,7 @@ de:
       participatory_space_private_users:
         create:
           error: Beim Hinzufügen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
-          success: Participatory Space Privater Benutzerzugriff erfolgreich erstellt.
+          success: Ein privater Zugriff für diesen Beteiligungsbereich wurde erfolgreich für das Konto erstellt.
         destroy:
           error: Beim Löschen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
           success: Privater Zugriff zum partizipativen Raum erfolgreich gelöscht.

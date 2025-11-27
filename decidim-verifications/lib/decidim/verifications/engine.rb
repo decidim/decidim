@@ -51,12 +51,18 @@ module Decidim
         end
       end
 
+      initializer "decidim_verifications.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
       # Initializer to include cells views paths
       initializer "decidim_verifications.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Verifications::Engine.root}/app/cells")
       end
 
-      initializer "decidim_verifications.webpacker.assets_path" do
+      initializer "decidim_verifications.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 

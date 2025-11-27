@@ -59,6 +59,7 @@ module Decidim
   autoload :AdminFilter, "decidim/admin_filter"
   autoload :AdminFiltersRegistry, "decidim/admin_filters_registry"
   autoload :ManifestRegistry, "decidim/manifest_registry"
+  autoload :MutationRegistry, "decidim/mutation_registry"
   autoload :AssetRouter, "decidim/asset_router"
   autoload :EngineRouter, "decidim/engine_router"
   autoload :UrlOptionResolver, "decidim/url_option_resolver"
@@ -130,6 +131,7 @@ module Decidim
   autoload :StatsFollowersCount, "decidim/stats_followers_count"
   autoload :StatsParticipantsCount, "decidim/stats_participants_count"
   autoload :ActionAuthorizationHelper, "decidim/action_authorization_helper"
+  autoload :ApiResponseHelper, "decidim/api_response_helper"
   autoload :ResourceHelper, "decidim/resource_helper"
   autoload :TooltipHelper, "decidim/tooltip_helper"
 

@@ -95,8 +95,6 @@ fi-pl:
               validating: Teknisessä validoinnissa
           type_id_eq:
             label: Tyyppi
-        search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Hae kohteesta %{collection} otsikon, kuvauksen, ID-numeron tai tekijän nimen perusteella
       initiatives_settings:
         update:
           error: Aloitteiden asetusten päivittäminen epäonnistui.
@@ -118,7 +116,6 @@ fi-pl:
         initiatives:
           fields:
             created_at: Luontiaika
-            id: ID
             published_at: Julkaisuaika
             state: Maakunta/osavaltio
             supports_count: Allekirjoituksia

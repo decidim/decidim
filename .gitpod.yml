@@ -40,8 +40,8 @@ ports:
     port: 3000
     onOpen: open-preview
     visibility: public
-  - name: Webpacker
-    description: The webpacker dev server for asset reloading
+  - name: Shakapacker
+    description: The shakapacker dev server for asset reloading
     port: 3035
     onOpen: ignore
     visibility: public

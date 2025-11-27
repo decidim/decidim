@@ -502,8 +502,6 @@ lt:
         description: Aprašymas
       footer_sub_hero:
         name: Apatinės dalies reklamjuostė
-      global_menu:
-        name: Globalus meniu
       hero_settings_form:
         background_image: Foninis paveikslėlis
         welcome_text: Pasveikinimo tekstas
@@ -900,7 +898,6 @@ lt:
         latlng_text: 'platuma: %{latitude}, ilguma: %{longitude}'
         map_service_brand: 'OpenStreetMap: Žemėlapis'
     menu:
-      help: Pagalba
       home: Pagrindinis
     messaging:
       conversation_mailer:
@@ -978,18 +975,15 @@ lt:
         main_image: Pagrindinis atvaizdas
     newsletters:
       unsubscribe:
-        check_subscription: Jei norite pakeisti savo parinktis, galite tai padaryti <a href="%{link}" target="_blank">konfigūracijos puslapyje</a>.
         error: Atsisakant prenumeratos iškilo problema.
         success: Jūs atsisakėte prenumeratos.
         token_error: Nuorodos galiojimo laikas baigėsi.
-        unsubscribe: Atsisakyti prenumeratos
     newsletters_opt_in:
       update:
         error: Išsaugant naujienlaiškių nuostatas iškilo problema.
         success: Naujienlaiškio nuostatos atnaujintos.
     newsletters_opt_in_mailer:
       notify:
-        body_1: Asmens duomenų tvarkymas ir jų apsauga mums visiems tampa vis svarbesni. 2018 m. gegužės 25 d. priėmus naują Bendrąjį duomenų apsaugos reglamentą (BDAR), asmenys geriau kontroliuoja savo asmens duomenis. Dėl šios priežasties jums reikia spustelėti „Gerai“, kad galėtume ir toliau siųsti reikiamą informaciją apie %{organization_name} veiklą.
         body_2: 'Kaip duoti sutikimą? Spustelkite ant šio mygtuko:'
         body_3: Davę šį sutikimą galėsite ir toliau gauti informaciją apie platformos paslaugas. Kita vertus, jeigu negausime Jūsų sutikimo, Jums nebesiųsime pranešimų. Patvirtinę, kad norite ir toliau gauti informaciją, visada turėsite galimybę bet kuriuo metu sutikimą atšaukti.
         button: Taip, aš noriu ir toliau gauti aktualią informaciją
@@ -1597,7 +1591,6 @@ lt:
     name_included_in_password: per daug panašus į jūsų vardą, pavardę
     nickname_included_in_password: yra per daug panašus į jūsų slapyvardį
     not_enough_unique_characters: neturi pakankamai unikalių simbolių
-    password_not_allowed: draudžiama
     password_repeated: seno slaptažodžio naudoti negalima
     password_too_common: per daug įprastas
     password_too_long: per ilgas

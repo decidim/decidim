@@ -17,6 +17,26 @@ module Decidim
         expect(subject.election).to eq(election)
       end
 
+      it "has many response options" do
+        expect(subject.response_options.count).to be_positive
+        expect(subject.response_options_count).to be_positive
+        expect(subject.response_options_count).to eq(subject.response_options.count)
+      end
+
+      context "when votes exist" do
+        let!(:vote) { create(:election_vote, question:, response_option: question.response_options.first) }
+
+        it "has many votes" do
+          expect(subject.votes.count).to be_positive
+          expect(subject.votes_count).to eq(subject.votes.count)
+        end
+
+        it "increments the votes count" do
+          expect { create(:election_vote, question:, response_option: question.response_options.second) }
+            .to change(subject, :votes_count).by(1)
+        end
+      end
+
       describe "validations" do
         context "when question_type is invalid" do
           let(:question) { build(:election_question, election:, question_type: "invalid") }
@@ -135,6 +155,22 @@ module Decidim
           it "returns the count of response options" do
             expect(subject.max_votable_options).to eq(2)
           end
+
+          context "when max_choices is set" do
+            let(:question) { create(:election_question, :with_response_options, question_type: "multiple_option", max_choices: 1) }
+
+            it "returns the max_choices value" do
+              expect(subject.max_votable_options).to eq(1)
+            end
+          end
+
+          context "when max_choices is nil" do
+            let(:question) { create(:election_question, :with_response_options, question_type: "multiple_option", max_choices: nil) }
+
+            it "returns the count of response options" do
+              expect(subject.max_votable_options).to eq(2)
+            end
+          end
         end
       end
 
@@ -160,6 +196,15 @@ module Decidim
           it "returns an empty array" do
             response_ids = question.response_options.pluck(:id)
             expect(question.safe_responses(response_ids)).to be_empty
+          end
+        end
+
+        context "when max_choices is set" do
+          let(:question) { create(:election_question, :with_response_options, question_type: "multiple_option", max_choices: 1) }
+
+          it "returns only max_choices number of responses" do
+            response_ids = question.response_options.pluck(:id)
+            expect(question.safe_responses(response_ids).count).to eq(1)
           end
         end
       end
@@ -220,6 +265,13 @@ module Decidim
         it "destroys the question and its response options" do
           expect { question.destroy! }.to change(Decidim::Elections::Question, :count).by(-1)
           expect(ResponseOption.count).to be_zero
+        end
+
+        it "raises an error when trying to destroy with votes" do
+          create(:election_vote, question:, response_option: question.response_options.first)
+          expect { question.destroy! }.to raise_error(ActiveRecord::RecordNotDestroyed)
+          expect(question.reload).to be_persisted
+          expect(question.votes.count).to be_positive
         end
       end
     end

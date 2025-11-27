@@ -15,8 +15,6 @@ lb:
             description: Beschreibung
             tos: Nutzungsbedingungen
         questionnaires:
-          actions:
-            back: Zurück zu Fragen
           display_condition:
             condition_question: Frage
             condition_type: Bedingung
@@ -51,20 +49,16 @@ lb:
             any: Irgendein
             collapse: Zouklappen
             description: Beschreiwung
-            down: Runter
             expand: Ausklappen
             question: Fro
             remove: Löschen
             statement: Aussage
-            up: Hoch
           responses:
             actions:
               show: Antworten anzeigen
           separator:
-            down: Runter
             remove: Löschen
             separator: Trennzeichen
-            up: Hoch
           update:
             invalid: Beim Speichern des Fragebogens sind Fehler aufgetreten.
             success: Formular erfolgreich gespeichert.

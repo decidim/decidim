@@ -253,7 +253,6 @@ fi:
           fields:
             created_at: Luontiaika
             end_date: Päättymispäivä
-            id: ID
             progress: Edistyminen
             start_date: Alkamispäivä
             status: Tila
@@ -278,7 +277,7 @@ fi:
         root_taxonomies:
           title: 'Näytä luokittelun mukaan:'
         search:
-          search: Hae toimintoja
+          search: Hae toimenpiteitä
         show:
           stats:
             back_to_resource: Palaa tulokseen

@@ -121,7 +121,7 @@ eu:
         title:
           one: "Iruzkin bat"
           other: "%{count} iruzkin"
-        top_comment_label: Bozkatuenak
+        top_comment_label: Babes gehien galdu dituztenak
       down_vote_button:
         label:
           one: Ez dut atsegin botoia. %{count} ez-atsegin
