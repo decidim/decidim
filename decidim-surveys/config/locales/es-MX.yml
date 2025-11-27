@@ -48,6 +48,17 @@ es-MX:
           email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Nueva encuesta en %{participatory_space_title}
           notification_title: Ya está abierta la encuesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+    open_data:
+      help:
+        published_survey_user_responses:
+          body: El contenido de la respuesta
+          created_at: La fecha en la que se creó esta respuesta
+          id: Identificador único para la respuesta a la encuesta
+          ip_hash: Dirección IP de la encuestada, codificada (hash) por privacidad
+          question: La pregunta que se respondió
+          registered: Participante registrada
+          unregistered: Participante no registrada
+          user_status: Estado de la usuaria que envió la respuesta
     statistics:
       responses: 'Respuestas:'
       responses_count: Respuestas

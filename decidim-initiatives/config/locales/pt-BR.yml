@@ -94,7 +94,6 @@ pt-BR:
         initiatives:
           fields:
             created_at: Criado em
-            id: identidade
             published_at: Publicado em
             state: Estado
             supports_count: Assinaturas

@@ -33,6 +33,7 @@ ca:
           comment: Comentar
           create: Crear un debat
           like: M'agrada
+          vote_comment: Votar el comentari
         name: Debats
         settings:
           global:

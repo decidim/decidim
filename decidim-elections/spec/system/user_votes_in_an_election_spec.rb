@@ -30,6 +30,7 @@ describe "Dashboard" do
   end
 
   before do
+    organization.update!(available_authorizations: %w(dummy_authorization_handler))
     switch_to_host(organization.host)
   end
 

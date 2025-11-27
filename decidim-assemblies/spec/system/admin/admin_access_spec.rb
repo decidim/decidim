@@ -16,6 +16,9 @@ describe "AdminAccess" do
     let(:participatory_space_path) { decidim_assemblies.assembly_path(participatory_space) }
 
     it_behaves_like "admin participatory space access"
+    it_behaves_like "admin menu shows only assigned space",
+                    space_name: "Assemblies",
+                    other_spaces: %w(Processes Initiatives Conferences)
 
     describe "edit button" do
       let(:target_path) { decidim_admin_assemblies.edit_assembly_landing_page_path(participatory_space) }

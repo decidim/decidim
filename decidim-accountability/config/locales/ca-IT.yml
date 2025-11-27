@@ -254,7 +254,6 @@ ca-IT:
           fields:
             created_at: Creat
             end_date: Fi
-            id: ID
             progress: Progrés
             start_date: Inici
             status: Estat
@@ -296,6 +295,7 @@ ca-IT:
       accountability:
         actions:
           comment: Comentar
+          vote_comment: Votar el comentari
         name: Seguiment
         settings:
           global:

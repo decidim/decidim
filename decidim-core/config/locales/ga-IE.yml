@@ -134,7 +134,6 @@ ga:
         cancel: Cealaigh
         proceed: Gabh ar aghaidh
     menu:
-      help: Cabhair
       home: Baile
     messaging:
       conversations:

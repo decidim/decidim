@@ -253,7 +253,6 @@ eu:
           fields:
             created_at: Noiz sortua
             end_date: Amaiera-data
-            id: ID
             progress: Aurrerapena
             start_date: Hasiera-data
             status: Egoera

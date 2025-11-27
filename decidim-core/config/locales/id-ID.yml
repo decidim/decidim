@@ -450,7 +450,6 @@ id:
     managed_users:
       expired_session: Sesi peniruan saat ini telah kedaluwarsa.
     menu:
-      help: Membantu
       home: Rumah
     messaging:
       conversation_mailer:
