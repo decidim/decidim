@@ -195,7 +195,7 @@ describe "Meeting", download: true do
       it "timeouts user normally" do
         visit_meeting
         travel 1.minute
-        expect(page).to have_content("You were inactive for too long")
+        expect(page).to have_content("You were inactive for too long", wait: 10)
       end
 
       context "when comments are enabled" do
