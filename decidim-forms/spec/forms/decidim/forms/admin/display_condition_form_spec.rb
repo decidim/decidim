@@ -112,20 +112,32 @@ module Decidim
 
         describe "#questions_for_select" do
           let(:questions_for_select) { subject.questions_for_select(questionnaire, question.id) }
+          let!(:separator_question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "separator") }
 
           it "returns an array of arrays containing translated body, id, and a hash" do
-            expect(questions_for_select.first.first).to eq(questionnaire.questions.first.translated_body)
-            expect(questions_for_select.first.second).to eq(questionnaire.questions.first.id)
+            expect(questions_for_select.first.first).to eq(
+              questionnaire.questions.where.not(question_type: "separator").first.translated_body
+            )
+            expect(questions_for_select.first.second).to eq(
+              questionnaire.questions.where.not(question_type: "separator").first.id
+            )
             expect(questions_for_select.first.third).to be_a(Hash)
           end
 
           it "attaches a 'data-type' attribute to every question with its question_type" do
-            expect(questions_for_select.map { |q| q.last["data-type"] }).to match_array(questionnaire.questions.pluck(:question_type))
+            expect(questions_for_select.map { |q| q.last["data-type"] }).to match_array(
+              questionnaire.questions.where.not(question_type: "separator").pluck(:question_type)
+            )
           end
 
           it "disables current question" do
             this_question = questions_for_select.find { |q| q.second == decidim_question_id }
             expect(this_question.last["disabled"]).to be true
+          end
+
+          it "does not include separators as choices" do
+            ids = questions_for_select.map(&:second)
+            expect(ids).not_to include(separator_question.id)
           end
         end
 
