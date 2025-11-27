@@ -15,6 +15,8 @@ require "decidim/dev/auth_engine"
 # Also, to avoid further headaches :)
 # require "decidim/dev/component"
 
+require "decidim/dev/api"
+
 module Decidim
   # Decidim::Dev holds all the convenience logic and libraries to be able to
   # create external libraries that create test apps and test themselves against
