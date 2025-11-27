@@ -195,6 +195,7 @@ pt-BR:
         reject: Negar
         send_me_a_test_email: Enviar um e-mail de teste
         share: Compartilhar
+        soft_delete: Mover para lixeira
         user:
           new: Novo administrador
         verify: Verificar
@@ -1102,6 +1103,7 @@ pt-BR:
           actions: Ações
           destroy: Deletar
           edit: Editar
+          name:
       taxonomy_items:
         edit:
           title: Editar item em %{taxonomy}
@@ -1132,6 +1134,10 @@ pt-BR:
         statistics: Atividade
         user_groups: Grupos de usuários
         users: Administradores
+      trash_management:
+        soft_delete:
+          invalid: Houve um problema ao remover %{resource_name}.
+          success: "%{resource_name} removido com sucesso."
       user_group:
         csv_verify:
           invalid: Ocorreu um erro ao ler o arquivo CSV.
@@ -1239,3 +1245,5 @@ pt-BR:
       admin:
         global_moderations:
           title: Moderações globais
+        taxonomy_filters_selector:
+          title: Filtros
