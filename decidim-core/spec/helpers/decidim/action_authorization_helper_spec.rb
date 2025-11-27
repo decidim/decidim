@@ -62,7 +62,7 @@ module Decidim
               it "renders a link to renew onboarding data including the pending action info in data attributes" do
                 expect(subject).not_to match(path_as_action_or_href)
                 expect(subject).not_to include('data-dialog-open="authorizationModal"')
-                expect(subject).to include('href="/authorizations/renew_onboarding_data"')
+                expect(subject).to include('action="/authorizations/renew_onboarding_data"')
                 expect(subject).to include("data-onboarding-model-value=\"#{resource.to_gid}\"")
                 expect(subject).not_to include("data-onboarding-permissions-holder-value=\"#{component.to_gid}\"")
                 expect(subject).to include("data-onboarding-action-value=\"#{action}\"")
