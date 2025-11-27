@@ -4,7 +4,7 @@ This module provides a solution to create templates for different Decidim models
 
 ## Usage
 
-Templates will be available in their own section in the admin
+Templates will be available in their own section in the admin.
 
 ## Installation
 
