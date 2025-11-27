@@ -34,7 +34,7 @@ module Decidim
               choice_body: body_or_custom_body(choice)
             }
           end
-          
+
           content_tag(:ul) do
             if response.question.question_type == "single_option"
               choice(choices.first)
