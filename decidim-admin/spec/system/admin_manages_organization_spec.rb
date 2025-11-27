@@ -77,6 +77,10 @@ describe "Admin manages organization" do
         I18n.available_locales = available_locales
         Decidim.available_locales = available_locales
         I18n.backend.reload!
+
+        Decidim::Admin.send(:remove_const, :OrganizationForm)
+        load "#{Decidim::Admin::Engine.root}/app/forms/decidim/admin/organization_form.rb"
+
         organization.update!(available_locales:, name: organization_names)
       end
 
@@ -84,6 +88,9 @@ describe "Admin manages organization" do
         I18n.available_locales = %w(en ca es)
         Decidim.available_locales = %w(en ca es)
         I18n.backend.reload!
+
+        Decidim::Admin.send(:remove_const, :OrganizationForm)
+        load "#{Decidim::Admin::Engine.root}/app/forms/decidim/admin/organization_form.rb"
       end
 
       it "renders a dropdown for the language selector and switches between languages" do
