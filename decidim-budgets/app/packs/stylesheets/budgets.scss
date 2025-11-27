@@ -95,6 +95,13 @@
 
   &__card__highlight-vote {
     @apply justify-center flex w-full xl:w-2/5 items-center bg-background p-4 bg-background font-bold text-gray-2 ml-auto;
+
+    &.button_to {
+
+      button {
+        @apply flex w-full;
+      }
+    }
   }
 
   &__card__highlight-vote__header {

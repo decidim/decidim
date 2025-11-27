@@ -36,6 +36,7 @@
 
   <% if voting_context? %>
     <%= link_to_resource_or_vote("budget__card__highlight-vote") do %>
+    <div class="budget__card__highlight-vote">
       <div class="budget__card__highlight-vote__header">
         <span class="budget__card__highlight-vote__number">
           <%= budget_to_currency(total_budget) %>
@@ -49,5 +50,10 @@
         <% end %>
       </div>
     <% end %>
+      <%= link_to_resource_or_vote("budget__card__highlight-vote") do %>
+        <span><%= button_text %></span>
+        <%= icon "arrow-right-line" %>
+      <% end %>
+    </div>
   <% end %>
 </div>

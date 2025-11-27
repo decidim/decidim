@@ -80,6 +80,8 @@ module Decidim
           tag = "button"
           html_options["method"] = "post"
           html_options.delete(:remote)
+          css_class = html_options.delete(:class) || ""
+          html_options["form"] = { class: "button_to #{css_class}" }
           url = decidim_verifications.renew_onboarding_data_authorizations_path
         else
           html_options["data-dialog-open"] = "authorizationModal"
