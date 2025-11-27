@@ -49,6 +49,7 @@ pt-BR:
             skip_template: Ignorar
           edit:
             edit: Editar
+            manage_questions: Gerenciar questões
             questionnaire: Questionário
           form:
             title: Modelo de questionário %{questionnaire_for}
