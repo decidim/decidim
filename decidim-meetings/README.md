@@ -1,10 +1,10 @@
 # decidim-meetings
 
-The Meetings module adds meeting to any participatory process. It adds a CRUD engine to the admin and public view scoped inside the participatory process.
+The Meetings module adds meeting to any participatory space. It adds a CRUD engine to the admin and public view scoped inside the participatory space.
 
 ## Usage
 
-Meetings will be available as a component for a Participatory Process.
+Meetings will be available as a Component for a Participatory Space.
 
 ## Installation
 

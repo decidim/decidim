@@ -1,10 +1,10 @@
 # decidim-debates
 
-The Debates module adds debate to any participatory process. It adds a CRUD engine to the admin and public view scoped inside the participatory process.
+The Debates module adds debate to any participatory space. It adds a CRUD engine to the admin and public view scoped inside the participatory space.
 
 ## Usage
 
-Debates will be available as a Component for any participatory space.
+Debates will be available as a Component for any Participatory Space.
 
 ## Installation
 

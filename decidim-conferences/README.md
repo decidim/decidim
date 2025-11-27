@@ -1,7 +1,6 @@
 # decidim-conferences
 
-Conferences are the permanent Decidim's participatory space. They are always
-"active" so unlike participatory processes, they have no steps or phases.
+Conferences are the permanent Decidim's participatory space.
 
 A conference can get different components (such as blogs or proposals) attached.
 It can also have attachments, be associated to custom categories or scopes, and

@@ -10,7 +10,7 @@ The main features are:
 
 ## Usage
 
-Surveys will be available as a Component for a Participatory Process.
+Surveys will be available as a Component for a Participatory Space.
 
 ## Installation
 
