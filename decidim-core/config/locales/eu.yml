@@ -759,7 +759,7 @@ eu:
           created_at: Zein datatan sortu zen elkarrizketa hau
           id: Elkarrizketa honen identifikatzaile bakarra
           messages: Elkarrizketa honen mezuak
-          updated_at: Elkarrizketa hau azkenekoz noiz eguneratu da
+          updated_at: Zein datatan eguneratu zen elkarrizketa hau azken aldiz
         notifications:
           created_at: Zein datatan eta zein ordutan sortu zen jakinarazpena
           event_class: Jakinarazpenak eragin duen ekitaldi mota
@@ -801,7 +801,7 @@ eu:
           delete_reason: Parte-hartzaile hau ezabatzeko arrazoia
           deleted_at: Zein datatan eta zein ordutan ezabatu zen parte-hartzaile hau
           email: Parte-hartzaile honen helbide elektronikoa
-          followers_count: Parte-hartzile horren atzetik dauden parte-hartzaileen kopurua
+          followers_count: Parte-hartzaile honi jarraitzen ari zaion parte-hartzaile kopurua
           following_count: Parte-hartzaile hau jarraitzen ari den parte-hartzaileen kopurua
           id: Parte-hartzaile honen identifikatzaile bakarra
           invitation_accepted_at: Zein datatan eta zein ordutan onartu zen gonbidapena
@@ -810,15 +810,15 @@ eu:
           invitations_count: Parte-hartzaile honi bidalitako gonbidapen kopurua
           invited_by: Parte-hartzaile hau gonbidatu duen erabiltzailea
           last_sign_in_at: Aurreko saioaren data eta ordua
-          last_sign_in_ip: Aurreko saio-hasierako IP helbidea
+          last_sign_in_ip: Aurreko saioaren data eta ordua
           locale: Parte-hartzaile honek aukeratu duen lokala (hizkuntza)
           managed: Parte-hartzaile hau beste erabiltzaile batek kudeatzen badu
           name: Parte-hartzaile honen izena
-          newsletter_notifications_at: Parte-hartzaile hori informazio-buletin bat jasotzeko harpidetu den eguna eta ordua
+          newsletter_notifications_at: Zein datatan eta zein ordutan jaso du parte-hartzaile honek buletin bat azken aldiz
           nickname: Parte-hartzaile honen ezizena
           notification_settings: Parte-hartzaile honek aukeratu duen jakinarazpen-konfigurazioa
           notifications_sending_frequency: Parte-hartzaile honek jasotzen dituen jakinarazpenen maiztasuna
-          officialized_as: Ofizialtasunaren izena (zinegotzia, alkatea, etab.)
+          officialized_as: Ofizializazioaren izena (Kontseilaritza, Alkatetza, etab.)
           officialized_at: Zein datatan eta zein ordutan ofizializatu zen parte-hartzaile hau
           organization: Zein erakundetakoa den parte-hartzaile hau
           password_updated_at: Zein datatan eguneratu zen pasahitz hau azkenekoz
@@ -1112,7 +1112,7 @@ eu:
         file:
           explanation: 'Fitxategirako jarraibideak:'
           message_1: Irudi bat edo dokumentu bat izan behar da.
-          message_2: Irudia bada, hobe da testurik gabeko paisaia-irudia izatea. Plataformak irudia mozten du.
+          message_2: Irudia bada, ahal dela, paisaia-irudia, testurik ez duena izan dadila. Plataformak irudia lantzen du.
         icon:
           explanation: 'Irudirako jarraibideak:'
           message_1: Irudi karratua izan behar da.
