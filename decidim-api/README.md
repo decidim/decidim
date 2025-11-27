@@ -4,7 +4,7 @@ Exposes a [GraphQL](https://facebook.github.io/graphql/) API to programmatically
 
 ## Usage
 
-Including `decidim-api` will get expose two nice endpoints:
+Including `decidim-api` will expose these endpoints:
 
 * `/api`: The main GraphQL endpoint that holds the actual API.
 * `/api/docs`: Nicely-written docs of the entities of the API.
