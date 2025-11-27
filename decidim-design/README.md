@@ -6,6 +6,8 @@ The Design module implements the design guide for Decidim, a guide that includes
 
 The design application index is available at `/design` path
 
+This is a module oriented for developers, as a building block to be used by other modules.
+
 ## Installation
 
 To install this module, run in your console:

@@ -23,6 +23,10 @@ There are several use cases for this, such as
 Right now Decidim supports only a few of these cases, but we have an internal
 API where you can program your own kind of authorizations.
 
+## Usage
+
+This is a module oriented for developers, as a building block to be used by other modules.
+
 ## Introduction
 
 Each decidim instance is in full control of its authorizations, and can customize:
