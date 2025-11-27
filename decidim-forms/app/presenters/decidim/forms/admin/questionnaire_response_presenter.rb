@@ -35,7 +35,7 @@ module Decidim
             }
           end
 
-          return choice(choices.first) if response.question.question_type == "single_option"
+          return content_tag(:ul) { choice(choices.first) } if response.question.question_type == "single_option"
 
           content_tag(:ul) do
             safe_join(choices.map { |c| choice(c) })
