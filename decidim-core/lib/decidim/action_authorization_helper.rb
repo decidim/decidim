@@ -77,7 +77,7 @@ module Decidim
       elsif authorization_status&.ok? == false
         html_options = clean_authorized_to_data_open(html_options.merge(onboarding_options))
         if pending_steps?(authorization_status)
-          tag = "link"
+          tag = "button"
           html_options["method"] = "post"
           html_options.delete(:remote)
           url = decidim_verifications.renew_onboarding_data_authorizations_path
