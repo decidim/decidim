@@ -45,6 +45,10 @@ ru:
         many: Голосов
         other: Голосов
   decidim:
+    admin:
+      filters:
+        search_placeholder:
+          id_string_or_title_cont: Искать %{collection} по ID или названию
     components:
       proposals:
         actions:
