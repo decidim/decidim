@@ -148,6 +148,8 @@ en:
           update:
             invalid: There was a problem updating the election.
             success: Election updated successfully.
+          toggle_census_check:
+            error: There was an error enabling the census check.
         questions:
           edit_questions:
             new_question: New question

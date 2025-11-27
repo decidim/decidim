@@ -129,8 +129,8 @@ module Decidim
           election.update!(allow_census_check_before_start: value)
 
           render json: { success: true, allow_census_check_before_start: election.allow_census_check_before_start }
-        rescue StandardError => e
-          render json: { success: false, error: e.message }, status: :unprocessable_entity
+        rescue StandardError
+          render json: { success: false, error: I18n.t("elections.toggle_census_check.error", scope: "decidim.elections.admin") }, status: :unprocessable_entity
         end
 
         private
