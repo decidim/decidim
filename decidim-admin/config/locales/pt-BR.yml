@@ -1040,6 +1040,7 @@ pt-BR:
           actions: Ações
           destroy: Deletar
           edit: Editar
+          name:
       taxonomy_items:
         edit:
           title: Editar item em %{taxonomy}
@@ -1065,6 +1066,10 @@ pt-BR:
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         users: Administradores
+      trash_management:
+        soft_delete:
+          invalid: Houve um problema ao remover %{resource_name}.
+          success: "%{resource_name} removido com sucesso."
       users:
         create:
           error: Ocorreu um erro ao convidar esse usuário.
@@ -1134,3 +1139,5 @@ pt-BR:
       admin:
         global_moderations:
           title: Moderações globais
+        taxonomy_filters_selector:
+          title: Filtros
