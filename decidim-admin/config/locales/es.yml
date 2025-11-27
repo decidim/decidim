@@ -35,6 +35,7 @@ es:
       id: ID
       newsletter:
         body: Cuerpo
+        send_to_all_users: Enviar a todas las participantes
         send_to_followers: Enviar a las seguidoras
         send_to_participants: Enviar a las participantes
         subject: Asunto
@@ -292,11 +293,13 @@ es:
       block_user:
         bulk_new:
           action: Bloquear cuentas y enviar justificación
+          already_reported_html: Al continuar con esta acción también ocultarás todos los contenidos de las participantes.
           description: El bloqueo de las usuarias dejará sus cuentas inutilizables. Puedes proporcionar en tu justificación los criterios bajo los cuales considerarías desbloquearlas.
           justification: Justificación
           title: Bloquear usuarias
         new:
           action: Bloquear cuenta y enviar justificación
+          already_reported_html: Al continuar con esta acción también ocultarás todos los contenidos de las participantes.
           description: El bloqueo de una usuaria dejará su cuenta inutilizable. Puedes proporcionar en tu justificación los criterios bajo los cuales considerarías desbloquearla.
           justification: Justificación
           title: Bloquear a la usuaria %{name}
@@ -390,6 +393,7 @@ es:
         form:
           domain_too_short: El dominio es demasiado corto
         update:
+          error: Se ha producido un error al actualizar la lista de dominios externos permitidos.
           success: La lista de dominios externos permitidos se ha actualizado correctamente.
       exports:
         export_as: "%{name} como %{export_format}"
@@ -474,6 +478,7 @@ es:
           import_csv:
             explanation: 'Instrucciones para el archivo:'
             message_1: Se admiten archivos CSV
+            message_2: "archivo .csv con datos de correos electrónicos"
       help_sections:
         error: Se ha producido un error al actualizar las secciones de ayuda.
         form:
@@ -1265,6 +1270,7 @@ es:
           last_day: Último día
           last_month: Último mes
           last_week: Última semana
+          no_users_count_statistics_yet: Aún no hay estadísticas de recuento de participantes.
           participants: Participantes
     forms:
       errors:
