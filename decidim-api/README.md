@@ -1,4 +1,4 @@
-# Decidim::Api
+# decidim-api
 
 Exposes a [GraphQL](https://facebook.github.io/graphql/) API to programmatically interact with the Decidim platform via HTTP.
 

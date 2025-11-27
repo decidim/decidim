@@ -1,4 +1,4 @@
-# Decidim::System
+# decidim-system
 
 This engine adds an administration dashboard so admin can manage a Decidim deploy
 and its organizations when working in a multi-tenant environment.

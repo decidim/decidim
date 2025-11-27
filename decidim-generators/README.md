@@ -1,4 +1,4 @@
-# Decidim::Generators
+# decidim-generators
 
 This gem provides several generators to create decidim applications & components
 

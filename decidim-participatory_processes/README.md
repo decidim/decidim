@@ -1,4 +1,4 @@
-# Decidim::ParticipatoryProcesses
+# decidim-participatory_processes
 
 Participatory processes are the standard Decidim's participatory space.
 

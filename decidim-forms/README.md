@@ -1,4 +1,4 @@
-# Decidim::Forms
+# decidim-forms
 
 This gem encapsulates the logic to create and manage forms, so it can be reused in other modules, like surveys and meetings.
 

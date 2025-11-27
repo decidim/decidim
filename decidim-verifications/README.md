@@ -1,4 +1,4 @@
-# Decidim::Verifications
+# decidim-verifications
 
 Decidim offers several methods for allowing participants to get authorization to
 perform certain privileged actions. This module implements several of those methods

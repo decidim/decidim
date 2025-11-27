@@ -1,4 +1,4 @@
-# Decidim::Initiatives
+# decidim-initiatives
 
 Initiatives is the place on Decidim's where participants can promote an initiative. Unlike
 participatory processes that must be created by an administrator, initiatives can be

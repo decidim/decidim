@@ -1,4 +1,4 @@
-# Decidim::Surveys
+# decidim-surveys
 
 The Surveys module adds one new component to Decidim: defining and responding surveys.
 

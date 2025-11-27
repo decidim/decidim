@@ -1,4 +1,4 @@
-# Decidim
+# decidim-core
 
 Core functionality in Decidim. Every single decidim functionality depends on this gem.
 

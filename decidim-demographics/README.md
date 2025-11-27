@@ -1,4 +1,4 @@
-# Decidim::Demographics
+# decidim-demographics
 
 The demographic data module allows participants to voluntarily donate their demographic information for statistical purposes. The collected data will be anonymized, aggregated, and visualized in compliance with GDPR regulations. This feature aims to enhance the understanding of participant demographics while ensuring transparency and data privacy.
 

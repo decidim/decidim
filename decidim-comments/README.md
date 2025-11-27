@@ -1,4 +1,4 @@
-# Decidim::Comments
+# decidim-comments
 
 The Comments module adds the ability to include comments to any resource which can be commentable by users.
 

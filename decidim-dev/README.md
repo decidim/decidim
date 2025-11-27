@@ -1,4 +1,4 @@
-# Decidim::Dev
+# decidim-dev
 
 This module allows local development of decidim's components and other features.
 

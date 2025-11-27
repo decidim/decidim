@@ -1,4 +1,4 @@
-# Decidim::Assemblies
+# decidim-assemblies
 
 Assemblies are the permanent Decidim's participatory space. They are always
 "active" so unlike participatory processes, they have no steps or phases.

@@ -1,4 +1,4 @@
-# Decidim::Accountability
+# decidim-accountability
 
 The Accountability module adds results to any participatory process. It adds a CRUD engine to the admin and public views scoped inside the participatory process. Accountability will link to related meetings and proposals and will be used to show the progress on the related proposals.
 

@@ -1,4 +1,4 @@
-# Decidim::Pages
+# decidim-pages
 
 The Pages module adds static page capabilities to any participatory process. It basically provides an interface to include arbitrary HTML content to any step.
 

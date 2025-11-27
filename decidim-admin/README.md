@@ -1,4 +1,4 @@
-# Decidim::Admin
+# decidim-admin
 
 Adds an administration dashboard so users can manage their
 organization, participatory processes and all other entities.
