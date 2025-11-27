@@ -1,6 +1,6 @@
 # decidim-budgets
 
-The Budgets module adds budgets with projects related to them to any participatory process. It adds a CRUD engine to the admin and public views scoped inside the participatory space. Projects will link to related proposals and have a budget. The users should be able to distribute a budget between these projects.
+The Budgets module adds budgets with projects related to them to any participatory space. It adds a CRUD engine to the admin and public views scoped inside the participatory space. Projects will link to related proposals and have a budget. The users should be able to distribute a budget between these projects.
 
 ## Usage
 

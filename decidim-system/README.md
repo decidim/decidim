@@ -5,7 +5,7 @@ and its organizations when working in a multi-tenant environment.
 
 ## Usage
 
-This is on the default Decidim installation so you should not change anything to use this participatory space.
+This is on the default Decidim installation so you should not change anything to use this feature.
 
 ## Multi-tenancy in Decidim
 
