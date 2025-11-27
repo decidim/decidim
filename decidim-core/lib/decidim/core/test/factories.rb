@@ -623,8 +623,11 @@ FactoryBot.define do
   end
 
   factory :taxonomization, class: "Decidim::Taxonomization" do
+    transient do
+      skip_injection { false }
+    end
     taxonomy { association(:taxonomy, :with_parent) }
-    taxonomizable { association(:dummy_resource) }
+    taxonomizable { association(:dummy_resource, organization: taxonomy.organization, skip_injection:) }
   end
 
   factory :taxonomy_filter, class: "Decidim::TaxonomyFilter" do
@@ -644,7 +647,7 @@ FactoryBot.define do
 
   factory :taxonomy_filter_item, class: "Decidim::TaxonomyFilterItem" do
     taxonomy_filter
-    taxonomy_item { association(:taxonomy, parent: taxonomy_filter.root_taxonomy) }
+    taxonomy_item { association(:taxonomy, organization: taxonomy_filter.root_taxonomy.organization, parent: taxonomy_filter.root_taxonomy) }
   end
 
   factory :coauthorship, class: "Decidim::Coauthorship" do
@@ -769,8 +772,8 @@ FactoryBot.define do
       skip_injection { false }
     end
 
-    originator { build(:user, skip_injection:) }
-    interlocutors { [build(:user, skip_injection:)] }
+    originator { build(:user, organization: user.organization, skip_injection:) }
+    interlocutors { [build(:user, organization: originator.organization, skip_injection:)] }
     body { Faker::Lorem.sentence }
     user
 
@@ -933,9 +936,10 @@ FactoryBot.define do
   factory :amendment, class: "Decidim::Amendment" do
     transient do
       skip_injection { false }
+      organization { create(:organization, skip_injection:) }
     end
-    amendable { build(:dummy_resource, skip_injection:) }
-    emendation { build(:dummy_resource, skip_injection:) }
+    amendable { build(:dummy_resource, organization:, skip_injection:) }
+    emendation { build(:dummy_resource, organization:, skip_injection:) }
     amender { emendation.try(:creator_author) || emendation.try(:author) }
     state { "evaluating" }
 
@@ -1033,7 +1037,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     reminder { create(:reminder, skip_injection:) }
-    remindable { build(:dummy_resource, skip_injection:) }
+    remindable { build(:dummy_resource, organization: reminder.user.organization, skip_injection:) }
 
     Decidim::ReminderRecord::STATES.keys.each do |defined_state|
       trait defined_state do

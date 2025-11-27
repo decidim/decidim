@@ -11,7 +11,7 @@ on:
     inputs:
       ruby_version:
         description: 'Ruby Version'
-        default: "3.3.4"
+        default: "3.4.7"
         type: string
         required: false
       node_version:

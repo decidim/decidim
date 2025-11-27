@@ -765,7 +765,7 @@ en:
           created_at: The date when this conversation was created
           id: The unique identifier for this conversation
           messages: The messages of this conversation
-          updated_at: The date when this converstaion was last updated
+          updated_at: The date when this conversation was last updated
         notifications:
           created_at: The date and time when the notification was created
           event_class: The class of the event that triggered the notification
@@ -790,7 +790,7 @@ en:
           reason: The reason of this report
           updated_at: The date and time when this report was last updated
         users:
-          about: The biography of this user
+          about: The profile description of this participant
           accepted_tos_version: The date when the Terms of Service of this platform was accepted by the user
           admin: Whether this user is an administrator
           confirmation_sent_at: The date and time when the confirmation was sent
@@ -801,7 +801,7 @@ en:
           delete_reason: The reason given for deleting this user
           deleted_at: The date and time when this user was deleted
           email: The email address of this user
-          followers_count: The number of participants that are following to this user
+          followers_count: The number of participants that are following this user
           following_count: The number of participants this user is following
           id: The unique identifier of this user
           invitation_accepted_at: The date and time when the invitation was accepted
@@ -809,16 +809,16 @@ en:
           invitation_sent_at: The date and time when the invitation was sent
           invitations_count: The number of invitations sent to this user
           invited_by: The user who invited this user
-          last_sign_in_at: The date and time of the last login
-          last_sign_in_ip: The IP address of the last login
+          last_sign_in_at: The date and time of the previous login
+          last_sign_in_ip: The IP address of the previous login
           locale: The locale (language) that this user has selected
           managed: Whether this user is managed by another user
           name: The name of this user
-          newsletter_notifications_at: The date and time when this user last received a newsletter
+          newsletter_notifications_at: The date and time when this participant subscribed to receive a newsletter
           nickname: The nickname of this user
           notification_settings: The notification settings that this user has selected
           notifications_sending_frequency: The frequency of the notifications that this user receives
-          officialized_as: The name of the officialization (Counsellor, Mayor, etc)
+          officialized_as: The name of the officialization (Councillor, Mayor, etc)
           officialized_at: The date and time when this user was officialized
           organization: The organization that this user belongs to
           password_updated_at: The date when their password was changed for the last time
@@ -856,7 +856,7 @@ en:
       files:
         file_cannot_be_processed: File cannot be processed
         file_resolution_too_large: File resolution is too large
-        not_inside_organization: The file is not attached to any organization
+        not_inside_organization: The file is not attached to any organization.
       internal_server_error:
         copied: Text copied!
         copy_error_message_clarification: Copy error message to clipboard
@@ -1053,7 +1053,7 @@ en:
         file:
           explanation: 'Guidance for file:'
           message_1: Has to be an image or a document.
-          message_2: If it is an image, it preferably be a landscape image that does not have any text. The service crops the image.
+          message_2: If it is an image, it preferably be a landscape image that does not have any text. The platform crops the image.
         icon:
           explanation: 'Guidance for icon:'
           message_1: Has to be a square image.
@@ -1296,11 +1296,11 @@ en:
         same_language: The content has been posted in your preferred language (%{language}), this is why no automated translation is displayed in this email.
         translated_text: 'Automatically translated text:'
     notifications:
-      action_error: There was a problem updating the notifications.
+      action_error: There was a problem updating the notification settings.
       no_notifications: No notifications yet.
       show:
         missing_event: Oops, this notification belongs to an item that is no longer available. You can discard it.
-        moderated: Content moderated
+        moderated: Content has been hidden through moderation.
     notifications_digest_mailer:
       header:
         daily: Daily Notification Digest
@@ -1309,7 +1309,7 @@ en:
       hello: Hello %{name},
       intro:
         daily: 'These are the notifications from the last day based on the activity you are following:'
-        real_time: 'These is a notification on the activity you are following:'
+        real_time: 'This is a notification on the activity you are following:'
         weekly: 'These are the notifications from the last week based on the activity you are following:'
       outro: You have received these notifications because you are following this content or its authors. You can unfollow them from their respective pages.
       see_more: See more notifications
@@ -1452,9 +1452,9 @@ en:
           title: How to open and work with these files
         license:
           body_1_html: This %{organization_name} database is made available under the %{link_database}. Any rights in individual contents of the database are licensed under the %{link_contents}.
-          license_contents_link: http://opendatacommons.org/licenses/dbcl/1.0/
+          license_contents_link: https://opendatacommons.org/licenses/dbcl/1.0/
           license_contents_name: Database Contents License
-          license_database_link: http://opendatacommons.org/licenses/odbl/1.0/
+          license_database_link: https://opendatacommons.org/licenses/odbl/1.0/
           license_database_name: Open Database License
           title: License
         title: Open Data
@@ -1477,7 +1477,7 @@ en:
         footer_sub_hero:
           footer_sub_hero_body_html: Let's build a more open, transparent and collaborative society.<br /> Join, participate and decide.
           footer_sub_hero_headline: Welcome to %{organization} participatory platform.
-          register: Register
+          register: Create an account
         hero:
           participate: Participate
           participate_title: Participate in the platform's processes
@@ -1485,7 +1485,7 @@ en:
         statistics:
           headline: Statistics
         sub_hero:
-          register: Register
+          register: Create an account
           register_title: Create an account
       index:
         standalone_pages: Pages
@@ -2139,7 +2139,7 @@ en:
       language_chooser:
         choose_language: Choose language
       navigation:
-        aria_label: Navigation menu- %{title}
+        aria_label: 'Navigation menu: %{title}'
       notifications_dashboard:
         mark_all_as_read: Mark all as read
         mark_as_read: Mark as read
