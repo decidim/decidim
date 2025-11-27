@@ -46,6 +46,8 @@ pt-BR:
         exports:
           survey_user_answers: Avalie as respostas dos usuários
         surveys:
+          edit:
+            title: Editar questionário
           update:
             invalid: Houve erros ao salvar a pesquisa.
             success: Pesquisa salva com sucesso.
