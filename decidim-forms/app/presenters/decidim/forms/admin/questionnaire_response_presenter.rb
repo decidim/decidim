@@ -34,11 +34,13 @@ module Decidim
               choice_body: body_or_custom_body(choice)
             }
           end
-
-          return content_tag(:ul) { choice(choices.first) } if response.question.question_type == "single_option"
-
+          
           content_tag(:ul) do
-            safe_join(choices.map { |c| choice(c) })
+            if response.question.question_type == "single_option"
+              choice(choices.first)
+            else
+              safe_join(choices.map { |c| choice(c) })
+            end
           end
         end
 

@@ -40,7 +40,7 @@ module Decidim
 
         context "when it is a single_option question" do
           it "Returns the choice's body" do
-            expect(subject.body).to eq("<li>#{response_choice.body}</li>")
+            expect(subject.body).to eq("<ul><li>#{response_choice.body}</li></ul>")
           end
         end
 
