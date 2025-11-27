@@ -757,6 +757,7 @@ ca:
           created_at: La data en què es va iniciar aquesta conversa
           id: L'identificador únic d'aquesta conversa
           messages: Els missatges d'aquesta conversa
+          updated_at: La data en què aquesta conversa es va actualitzar per darrera vegada
         notifications:
           created_at: La data i l'hora en què es va crear aquesta notificació
           event_class: El tipus d'acció que va activar la notificació
@@ -781,6 +782,7 @@ ca:
           reason: Els motius d'aquest informe de moderació
           updated_at: La data i hora de la darrera actualització d'aquest informe de moderació
         users:
+          about: La descripció de perfil d'aquesta participant
           accepted_tos_version: La data en què la usuària va acceptar els Termes i Condicions d'ús d'aquesta plataforma
           admin: Si aquesta usuària és una administradora
           confirmation_sent_at: La data i l'hora en què es va enviar la confirmació
@@ -791,6 +793,7 @@ ca:
           delete_reason: La raó donada per eliminar a aquesta usuària
           deleted_at: La data i l'hora en què es va eliminar aquesta usuària
           email: L'adreça de correu electrònic d'aquesta usuària
+          followers_count: El nombre de participants que segueixen a aquesta participant
           following_count: El nombre de participants a què segueix aquesta participant
           id: L'identificador únic d'aquesta usuària
           invitation_accepted_at: La data i l'hora en què es va acceptar la invitació
@@ -798,12 +801,16 @@ ca:
           invitation_sent_at: La data i l'hora en què es va enviar la invitació
           invitations_count: El número d'invitacions enviades a aquesta usuària
           invited_by: La usuària que va convidar a aquesta usuària
+          last_sign_in_at: La data i l'hora del darrer inici de sessió
+          last_sign_in_ip: L'adreça IP del darrer inici de sessió
           locale: La configuració regional (idioma) que ha seleccionat aquesta usuària
           managed: Si es tracta d'una usuària gestionada (impersonada) o no
           name: El nom d'usuària de la usuària
+          newsletter_notifications_at: La data i l'hora en què aquesta usuària es va subscriure per rebre el butlletí informatiu
           nickname: L'àlies d'aquesta usuària
           notification_settings: La configuració de les notificacions que ha seleccionat aquesta usuària
           notifications_sending_frequency: La freqüència amb què aquesta usuària rep les notificacions
+          officialized_as: La descripció de l'oficialització (Alcaldia, Regidoria, etc.)
           officialized_at: La data i l'hora en què aquesta usuària va ser oficialitzada
           organization: L'organització a la qual pertany aquesta usuària
           password_updated_at: La data en què van canviar per darrera vegada les seves contrasenyes
@@ -841,6 +848,7 @@ ca:
       files:
         file_cannot_be_processed: No s'ha pogut processar el fitxer
         file_resolution_too_large: La resolució de l'arxiu és massa gran
+        not_inside_organization: L'arxiu no està vinculat a cap organització.
       internal_server_error:
         copied: Text copiat!
         copy_error_message_clarification: Missatge d'error copiat amb el porta-retalls
@@ -1037,6 +1045,7 @@ ca:
         file:
           explanation: 'Instruccions per a l''arxiu:'
           message_1: Ha de ser una imatge o un document.
+          message_2: En el cas d'una imatge, preferiblement apaïsada que no incorpori cap text. L'aplicació ajustarà la imatge.
         icon:
           explanation: 'Instruccions per a la icona:'
           message_1: Ha de ser una imatge quadrada.
@@ -1279,9 +1288,11 @@ ca:
         same_language: El contingut s'ha publicat en la teva llengua de preferència (%{language}), és per això que no es mostra cap traducció automàtica en aquest correu electrònic.
         translated_text: 'Text de la traducció automàtica:'
     notifications:
+      action_error: S'ha produït un error en actualitzar la configuració de les notificacions.
       no_notifications: Encara no hi ha notificacions.
       show:
         missing_event: Vaja, aquesta notificació pertany a un element que ja no està disponible. Pots descartar-la.
+        moderated: El contingut s'ha amagat correctament a través de la moderació.
     notifications_digest_mailer:
       header:
         daily: Resum diari de notificacions
@@ -1290,6 +1301,7 @@ ca:
       hello: Hola %{name},
       intro:
         daily: 'Aquestes són les notificacions del darrer dia basades en l''activitat que segueixes:'
+        real_time: 'Aquesta és una notificació sobre l''activitat que segueixes:'
         weekly: 'Aquestes són les notificacions de la darrera setmana basades en l''activitat que segueixes:'
       outro: Has rebut aquestes notificacions perquè segueixes aquest contingut o les seves autores. Pots deixar de seguir-les des de les seves respectives pàgines.
       see_more: Veure més notificacions
@@ -1432,7 +1444,9 @@ ca:
           title: Com obrir i treballar amb aquests fitxers
         license:
           body_1_html: Aquesta base de dades de "%{organization_name}" està disponible sota %{link_database}. Qualsevol dret sobre els continguts individuals de la base de dades està sota la llicència %{link_contents}.
+          license_contents_link: https://opendatacommons.org/licenses/dbcl/1.0/
           license_contents_name: Llicència dels continguts a la base de dades
+          license_database_link: https://opendatacommons.org/licenses/odbl/1.0/
           license_database_name: Llicència Oberta per a base de dades
           title: Llicència
         title: Dades obertes
@@ -1455,6 +1469,7 @@ ca:
         footer_sub_hero:
           footer_sub_hero_body_html: Construïm una societat més oberta, transparent i col·laborativa.<br /> Uneix-te, participa i decideix.
           footer_sub_hero_headline: Benvinguda a la plataforma participativa %{organization}.
+          register: Crear un compte
         hero:
           participate: Participa
           participate_title: Participa en els processos de la plataforma
@@ -1462,6 +1477,7 @@ ca:
         statistics:
           headline: Estadístiques
         sub_hero:
+          register: Crear un compte
           register_title: Crea un compte
       index:
         standalone_pages: Pàgines
@@ -2113,6 +2129,8 @@ ca:
         expire_time_html: La teva sessió caducarà en <b><span data-impersonation-warning-target="minutes">%{minutes}</span> minuts</b>.
       language_chooser:
         choose_language: Triar la llengua
+      navigation:
+        aria_label: 'Menú de navegació: %{title}'
       notifications_dashboard:
         mark_all_as_read: Marcar tot com a llegit
         mark_as_read: Marcar com a llegit
