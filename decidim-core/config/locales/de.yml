@@ -1462,6 +1462,7 @@ de:
         footer_sub_hero:
           footer_sub_hero_body_html: Lasst uns eine offenere, transparentere und kollaborativere Gesellschaft aufbauen.<br /> Beitreten, teilnehmen und entscheiden.
           footer_sub_hero_headline: Willkommen auf der Beteiligungsplattform %{organization}.
+          register: Konto erstellen
         hero:
           participate: Teilnehmen
           participate_title: Beteiligen Sie sich an den Prozessen auf dieser Plattform
@@ -1469,6 +1470,7 @@ de:
         statistics:
           headline: Statistiken
         sub_hero:
+          register: Konto erstellen
           register_title: Konto erstellen
       index:
         standalone_pages: Seiten
