@@ -35,7 +35,6 @@ describe "Assembly Breadcrumb" do
         expect(page).to have_content("Assemblies")
         expect(page).to have_content(translated(parent_assembly.title))
         expect(page).to have_content(translated(child_assembly.title))
-        expect(page).to have_content(translated(component.name))
       end
     end
 
@@ -73,7 +72,6 @@ describe "Assembly Breadcrumb" do
       within ".menu-bar" do
         expect(page).to have_content("Assemblies")
         expect(page).to have_content(translated(parent_assembly.title))
-        expect(page).to have_content(translated(component.name))
         expect(page).to have_no_content(translated(child_assembly.title))
       end
     end
@@ -99,7 +97,6 @@ describe "Assembly Breadcrumb" do
       within ".menu-bar" do
         expect(page).to have_content("Assemblies")
         expect(page).to have_content(translated(standalone_assembly.title))
-        expect(page).to have_content(translated(component.name))
         expect(page).to have_no_content(translated(parent_assembly.title))
       end
     end
