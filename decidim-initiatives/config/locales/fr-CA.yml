@@ -573,6 +573,10 @@ fr-CA:
         success: La pétition a été mise à jour avec succès.
     menu:
       initiatives: Pétitions
+    open_data:
+      help:
+        initiatives:
+          hashtag: Le hashtag de l'initiative, utilisé pour Twitter/X
     resources:
       initiative:
         actions:

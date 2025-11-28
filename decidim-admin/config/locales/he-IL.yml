@@ -38,7 +38,6 @@ he:
         user_group_id: יצירת ייבוא כ
       newsletter:
         body: גוף
-        send_to_all_users: שליחה לכל המשתמשים.ות
         send_to_followers: שליחה לכל העוקבים.ות
         send_to_participants: שליחה למשתתפים.ות
         subject: נושא
@@ -54,3 +53,6 @@ he:
         user_group:
           fields:
             name: שם
+      newsletters:
+        select_recipients_to_deliver:
+          send_to_all_users: שליחה לכל המשתמשים.ות

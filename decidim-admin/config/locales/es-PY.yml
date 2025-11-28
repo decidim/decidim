@@ -38,7 +38,7 @@ es-PY:
         user_group_id: Importar como
       newsletter:
         body: Cuerpo
-        send_to_all_users: Enviar a todas las usuarias
+        send_to_all_users: Enviar a todas las participantes
         send_to_followers: Enviar a las seguidoras
         send_to_participants: Enviar a las participantes
         subject: Asunto
@@ -308,7 +308,7 @@ es-PY:
           title: Bloquear usuarias
         new:
           action: Bloquear cuenta y enviar justificación
-          already_reported_html: Al continuar con esta acción también ocultarás todos los contenidos de la participante.
+          already_reported_html: Al continuar con esta acción también ocultarás todos los contenidos de las participantes.
           description: El bloqueo de una usuaria dejará su cuenta inutilizable. Puedes proporcionar en tu justificación los criterios bajo los cuales considerarías desbloquearla.
           justification: Justificación
           title: Bloquear a la usuaria %{name}
@@ -402,7 +402,7 @@ es-PY:
         form:
           domain_too_short: El dominio es demasiado corto
         update:
-          error: Se ha producido un error al actualizar la lista de dominios externos permitidos
+          error: Se ha producido un error al actualizar la lista de dominios externos permitidos.
           success: La lista de dominios externos permitidos se ha actualizado correctamente.
       exports:
         export_as: "%{name} como %{export_format}"
@@ -826,7 +826,7 @@ es-PY:
           select_users_for_participatory_space: Enviar el boletín informativo a uno o más espacios de participación
           select_users_general: Enviar un boletín general
           select_verification_types: Seleccionar métodos de verificación
-          send_to_all_users: Enviar a todos los usuarios
+          send_to_all_users: Enviar a todas las usuarias
           send_to_verified_users: Enviar a usuarias verificadas
           title: Selecciona los destinatarios
           verified_users_help: Envía un boletín informativo a todas las usuarias confirmadas y verificadas con cualquiera de los métodos de verificación seleccionados.
@@ -1321,7 +1321,7 @@ es-PY:
           last_day: Del último día
           last_month: El último mes
           last_week: La última semana
-          no_users_count_statistics_yet: Aún no hay estadísticas de recuento de usuarias.
+          no_users_count_statistics_yet: Aún no hay estadísticas de recuento de participantes.
           participants: Participantes
     forms:
       errors:
