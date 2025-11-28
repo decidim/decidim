@@ -593,7 +593,6 @@ lb:
         latlng_text: 'Breedegrad:%{latitude}, Längegrad:%{longitude}'
         map_service_brand: Stroosse-Kaart opmaachen
     menu:
-      help: Hëllef
       home: Startsäit
     messaging:
       conversation_mailer:
@@ -1031,7 +1030,6 @@ lb:
     fallback: ongülteg
     name_included_in_password: ze vill Ähnlechkeet mat dengem Numm
     not_enough_unique_characters: huet net genuch eemoleg Zeechen
-    password_not_allowed: ass net erlaabt
     password_too_common: ze allgemeng
     password_too_long: ze laang
     password_too_short: ze kuerz

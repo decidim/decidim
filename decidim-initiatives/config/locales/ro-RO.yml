@@ -100,7 +100,6 @@ ro:
         initiatives:
           fields:
             created_at: Creat la
-            id: ID
             published_at: Publicat la
             state: Status
             supports_count: Semnături

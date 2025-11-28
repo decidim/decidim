@@ -61,6 +61,64 @@ describe "Admin manages organization" do
       expect(page).to have_content("There is an error in this field.")
     end
 
+    context "when there are more than 4 locales in the organization" do
+      let(:available_locales) { %w(en ca es fr it) }
+      let(:organization_names) do
+        {
+          en: "English Organization Name",
+          ca: "Nom de l'organització en català",
+          es: "Nombre de la organización en español",
+          fr: "Nom de l'organisation en français",
+          it: "Nome dell'organizzazione in italiano"
+        }
+      end
+
+      before do
+        I18n.available_locales = available_locales
+        Decidim.available_locales = available_locales
+        I18n.backend.reload!
+
+        Decidim::Admin.send(:remove_const, :OrganizationForm)
+        load "#{Decidim::Admin::Engine.root}/app/forms/decidim/admin/organization_form.rb"
+
+        organization.update!(available_locales:, name: organization_names)
+      end
+
+      after do
+        I18n.available_locales = %w(en ca es)
+        Decidim.available_locales = %w(en ca es)
+        I18n.backend.reload!
+
+        Decidim::Admin.send(:remove_const, :OrganizationForm)
+        load "#{Decidim::Admin::Engine.root}/app/forms/decidim/admin/organization_form.rb"
+      end
+
+      it "renders a dropdown for the language selector and switches between languages" do
+        visit decidim_admin.edit_organization_path
+
+        expect(page).to have_select("organization-name-tabs")
+
+        expect(page).to have_css("#organization_name_en", visible: :visible)
+        expect(page).to have_field("organization_name_en", with: organization_names[:en])
+
+        select "Català", from: "organization-name-tabs"
+        expect(page).to have_css("#organization_name_ca", visible: :visible)
+        expect(page).to have_field("organization_name_ca", with: organization_names[:ca])
+
+        select "Français", from: "organization-name-tabs"
+        expect(page).to have_css("#organization_name_fr", visible: :visible)
+        expect(page).to have_field("organization_name_fr", with: organization_names[:fr])
+
+        select "Italiano", from: "organization-name-tabs"
+        expect(page).to have_css("#organization_name_it", visible: :visible)
+        expect(page).to have_field("organization_name_it", with: organization_names[:it])
+
+        select "Castellano", from: "organization-name-tabs"
+        expect(page).to have_css("#organization_name_es", visible: :visible)
+        expect(page).to have_field("organization_name_es", with: organization_names[:es])
+      end
+    end
+
     context "when using the rich text editor" do
       before do
         visit decidim_admin.edit_organization_path

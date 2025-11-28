@@ -53,7 +53,6 @@ id:
         initiatives:
           fields:
             created_at: Dibuat di
-            id: ID
             state: Negara
             supports_count: Tanda tangan
             title: Inisiatif

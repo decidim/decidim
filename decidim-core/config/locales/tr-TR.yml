@@ -604,7 +604,6 @@ tr:
         latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Yardım
       home: Ana Sayfa
     messaging:
       conversation_mailer:
@@ -1040,7 +1039,6 @@ tr:
     fallback: geçerli değil
     name_included_in_password: adınıza çok benzer
     not_enough_unique_characters: yeterli benzersiz karakter yok
-    password_not_allowed: Müsade edilmez
     password_too_common: çok yaygın
     password_too_long: çok uzun
     password_too_short: çok kısa

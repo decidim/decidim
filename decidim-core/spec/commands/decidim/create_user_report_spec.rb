@@ -65,27 +65,28 @@ module Decidim
           expect(last_report.details).to eq("some details about the report")
         end
 
-        it "calls the report job in order to send the emails" do
-          allow(UserReportJob).to receive(:perform_later).and_call_original
+        it "calls the report mailer" do
+          allow(UserReportMailer).to receive(:notify).and_call_original
           command.call
           last_report = UserReport.last
-          expect(UserReportJob).to have_received(:perform_later).with(admin, last_report)
+          expect(UserReportMailer).to have_received(:notify).with(admin, last_report)
         end
 
         context "when having multiple admins" do
           let!(:another_admin) { create(:user, :admin, :confirmed, organization: current_organization) }
 
-          it "calls twice the report job in order to send the emails and ignore the admin_no_moderation_mail" do
-            expect(UserReportJob).to receive(:perform_later).twice.with(a_kind_of(Decidim::User), a_kind_of(Decidim::UserReport))
+          it "calls twice the report mailer in order to send the emails and ignore the admin_no_moderation_mail" do
+            allow(UserReportMailer).to receive(:notify).and_call_original
+            expect(UserReportMailer).to receive(:notify).twice.with(a_kind_of(Decidim::User), a_kind_of(Decidim::UserReport))
 
             command.call
           end
         end
 
         it "does not send an email to the admin when he/she does not allow it" do
-          allow(UserReportJob).to receive(:perform_later).and_call_original
+          allow(UserReportMailer).to receive(:notify).and_call_original
           command.call
-          expect(UserReportJob).not_to have_received(:perform_later).with(admin_no_moderation_mail, a_kind_of(Decidim::UserReport))
+          expect(UserReportMailer).not_to have_received(:notify).with(admin_no_moderation_mail, a_kind_of(Decidim::UserReport))
         end
 
         context "and the reportable has been already reported two times" do

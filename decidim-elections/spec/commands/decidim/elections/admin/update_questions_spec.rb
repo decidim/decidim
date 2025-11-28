@@ -190,6 +190,67 @@ module Decidim
           end
         end
 
+        context "when updating max_choices" do
+          let(:update_max_choices_params) do
+            {
+              "questions" => [
+                {
+                  "id" => first_question.id,
+                  "body" => first_question.body,
+                  "description" => first_question.description,
+                  "question_type" => "multiple_option",
+                  "max_choices" => 2,
+                  "response_options" => [
+                    { "id" => first_question_first_option.id, "body" => first_question_first_option.body },
+                    { "id" => first_question_second_option.id, "body" => first_question_second_option.body }
+                  ]
+                }
+              ]
+            }
+          end
+
+          let(:form) { Decidim::Elections::Admin::QuestionsForm.from_params(update_max_choices_params).with_context(context_params) }
+          let(:command) { described_class.new(form, election) }
+
+          it "updates max_choices field" do
+            command.call
+            updated = election.reload.questions.find_by(id: first_question.id)
+            expect(updated.max_choices).to eq(2)
+          end
+        end
+
+        context "when adding a new question with max_choices" do
+          let(:add_with_max_choices_params) do
+            {
+              "questions" => [
+                {
+                  "body" => { en: "Q with max choices" },
+                  "description" => { en: "Description" },
+                  "question_type" => "multiple_option",
+                  "max_choices" => 3,
+                  "response_options" => [
+                    { "body" => { en: "Option 1" } },
+                    { "body" => { en: "Option 2" } },
+                    { "body" => { en: "Option 3" } },
+                    { "body" => { en: "Option 4" } }
+                  ]
+                }
+              ]
+            }
+          end
+
+          let(:form) { Decidim::Elections::Admin::QuestionsForm.from_params(add_with_max_choices_params).with_context(context_params) }
+          let(:command) { described_class.new(form, election) }
+
+          it "creates a new question with max_choices" do
+            expect { command.call }
+              .to change { election.reload.questions.count }.by(1)
+            new_question = election.reload.questions.last
+            expect(new_question.max_choices).to eq(3)
+            expect(new_question.response_options.size).to eq(4)
+          end
+        end
+
         context "when updating, deleting, and adding at once" do
           let(:combo_params) do
             {

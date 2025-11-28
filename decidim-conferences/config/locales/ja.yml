@@ -438,6 +438,8 @@ ja:
           no_slots_available: 利用可能なスロットがありません
           registration: 登録
       conference_program:
+        program_item:
+          other_category: その他
         show:
           program: プログラム
       conference_registration_mailer:

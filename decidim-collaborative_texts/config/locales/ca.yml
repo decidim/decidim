@@ -74,6 +74,9 @@ ca:
           update_settings:
             invalid: S'ha produït un error en actualitzar el document.
             success: Document actualitzat correctament.
+        index:
+          published: Publicat
+          unpublished: Despublicat
       admin_log:
         document:
           create: "%{user_name} ha creat el text col·laboratiu \"%{resource_name}\" a %{space_name}"
@@ -122,6 +125,7 @@ ca:
       models:
         collaborative_text:
           fields:
+            published: Publicat
             suggestions: Accepta el(s) suggeriment(s)
             title: Títol
       suggestion:

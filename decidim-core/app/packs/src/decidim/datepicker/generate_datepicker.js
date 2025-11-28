@@ -14,12 +14,18 @@ export default function generateDatePicker(input, row, formats) {
   date.setAttribute("id", `${input.id}_date`);
   date.setAttribute("type", "text");
   date.setAttribute("aria-label", input.dataset.dateLabel);
+  if (input.attributes.disabled) {
+    date.setAttribute("disabled", input.attributes.disabled);
+  };
 
   const calendar = document.createElement("button");
   calendar.innerHTML = icon("calendar-line");
   calendar.setAttribute("class", "datepicker__calendar-button");
   calendar.setAttribute("type", "button");
   calendar.setAttribute("aria-label", input.dataset.buttonDateLabel);
+  if (input.attributes.disabled) {
+    calendar.setAttribute("disabled", input.attributes.disabled);
+  };
 
   dateColumn.appendChild(date);
   dateColumn.appendChild(calendar);

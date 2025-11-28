@@ -146,8 +146,6 @@ en:
             values:
               state_not_published: Not answered
               state_published: Answered
-        search_placeholder:
-          id_string_or_title_cont: Search %{collection} by ID or title
       tooltips:
         cannot_edit_proposal_info: Cannot edit this proposal as it is created by a participant or it has received any vote
         deleted_proposal_states_info: Cannot delete this proposal state because there are proposals assigned to it

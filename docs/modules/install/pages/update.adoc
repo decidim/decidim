@@ -6,34 +6,16 @@ To keep our system up to date, we can visit the page https://github.com/decidim/
 
 [source,ruby]
 ----
-gem "decidim", "0.20.1"
-gem "decidim-conferences", "0.20.1"
-gem "decidim-initiatives", "0.20.1"
+gem "decidim", "0.29.0"
+gem "decidim-conferences", "0.29.0"
+gem "decidim-initiatives", "0.29.0"
 
-gem "decidim-dev", "0.20.1"
+gem "decidim-dev", "0.29.0"
 ----
 
-For example, if the latest release is 0.16 we could decide to update.
+To update, we recommend using small increments. From time to time we change the Ruby version or update dependencies, and skipping multiple versions at once can introduce breaking changes. Therefore, if you need to upgrade from v0.29.0 to v0.31.0, we recommend to first upgrade to v0.30.0, follow the release notes, and then, from v0.30.0 to upgrade to v0.31.0.
 
-To update, usually requires only to change the old version number on these gems to the new one. For instance, previous example should be:
-
-[source,ruby]
-----
-gem "decidim", "0.21"
-gem "decidim-conferences", "0.21"
-gem "decidim-initiatives", "0.21"
-
-gem "decidim-dev", "0.21"
-----
-
-After doing that, you need to execute these commands:
-
-[source,console]
-----
-bundle update decidim
-bin/rails decidim:upgrade
-bin/rails db:migrate
-----
+So, to perform the upgrade, we first follow the https://github.com/decidim/decidim/releases/tag/v0.30.0[release notes for v0.30.0], then, after we confirmed everything went OK, we should follow the https://github.com/decidim/decidim/releases/tag/v0.31.0[release notes for v0.31.0].
 
 In theory, that would be all. However, you need to be careful in certain situations, specially if your copy of Decidim has many code modifications. We'd recommend to always test the upgrade following Ruby on Rails best practices: working with development mode in localhost, deploying to a staging/preproduction server to test it manually (specially your modifications) and finally deploying to production. As an alternative you can test the upgrade in a separate machine with the same configuration (If using DigitalOcean you can create an snapshot of the server, tested the update, and then remove it, similar process on other providers).
 
@@ -88,6 +70,7 @@ include::install:partial$version_matrix.adoc[]
 == Recommendations
 
 . Make a full backup of the database before updating, just in case something unexpected happens.
+. Never add 2 or more versions of Decidim to the same deployment to production, as the database structure could change, deprecated functions could be removed, causing issues that may prevent you to successfully run post release commands.
 . If you are more than update away. Always update from one version to the immediately next one and then repeat the process until you are up to date.
 . Always check the instructions for a certain version upgrade in https://github.com/decidim/decidim/releases[Releases]. Some releases require to perform certain actions as they may change some database structures. Follow that instructions if you are affected.
 . Check also the file https://github.com/decidim/decidim/blob/develop/CHANGELOG.md[CHANGELOG] It may have relevant information for updates between versions.

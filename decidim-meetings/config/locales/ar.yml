@@ -498,7 +498,6 @@ ar:
           fields:
             closed: مغلق
             end_time: تاريخ الانتهاء
-            id: المعرف ID
             map: خريطة
             official_meeting: الاجتماع الرسمي
             start_time: تاريخ البدء

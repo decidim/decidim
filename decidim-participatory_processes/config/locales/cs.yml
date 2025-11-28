@@ -11,6 +11,7 @@ cs:
         domain: Doména
         duplicate_categories: Duplikovat kategorie
         duplicate_components: Duplikovat komponenty
+        duplicate_landing_page_blocks: Duplikovat bloky vstupní strany
         duplicate_steps: Duplikovat kroky
         end_date: Datum ukončení
         hero_image: Domácí obrázek
@@ -210,13 +211,6 @@ cs:
             last_step: Nelze odstranit poslední fázi procesu.
           success: Úspěšný krok procesu byl úspěšně smazán.
         edit:
-          cta_deprecated:
-            body_html: |-
-              Konfigurace CTA prostřednictvím fáze participativního procesu je s novým designem zastaralá.
-              Nyní se to děje na <b>vstupní stránce</b> pomocí bloku obsahu <b>Hero mapa a obrázek</b>.
-              Nechali jsme zde pro vás migraci CTA, které potřebujete. Pole <i>Cesta výzvy k akci</i> a
-              <i>Text výzvy k akci</i> bude v příští verzi odstraněn.
-            title: Zastaralá CTA
           title: Úprava kroku procesu participace
           update: Aktualizace
         index:
@@ -428,6 +422,7 @@ cs:
               title: 'Tento blok obsahu obsahuje dva typy metrik:'
             citizen_influence:
               citizen_decisional_intervention:
+                legend: Ze všech fází procesu (od výběru problémů až po provádění dohledu), v kolika případech je veřejnost schopna přijímat rozhodnutí nebo přijímat exekutivní opatření?
                 options:
                   five: 80 - 100%
                   four: 60 - 80%
@@ -440,9 +435,13 @@ cs:
                   five: Účastníci byli zapojeni do rozhodování a správy zdrojů nebo implementace
                   four: Účastníci byli rozhodujícím způsobem zapojeni do rozhodování
                   one: Účastníci obdrželi informace od organizace
+                  three: Účastníci kteří byli zapojeni do sdílení rozhodovacích pravomocí
+                  two: Účastníci kteří byli konzultováni nebo poskytli organizaci zpětnou vazbu
               name: Vliv občanů
             inclusiveness:
+              description: Inkluzivita podle kulturního původu a funkční rozmanitosti.
               digital_support_offered:
+                legend: Byla účastníkům nabídnuta digitální podpora?
                 options:
                   five: 'Ano'
                   two_five: Částečně
@@ -467,6 +466,7 @@ cs:
                   zero: 'Ne'
               name: Inkluzivita
               participation_scheduling_times:
+                legend: Zasedání o účasti byla naplánována v různých časech (ranní, poledne, odpoledne, večer a víkendy).
                 options:
                   five: 'Ano'
                   two_five: Částečně
@@ -485,6 +485,7 @@ cs:
                   five: Úpln jasné
                   one: Málo jasné
                   two_five: Dostatečně jasné
+                  zero: Nejasné
           highlighted_processes:
             active: Aktivní
             all: Vše
@@ -493,6 +494,9 @@ cs:
         new_import:
           accepted_types:
             json: JSON
+        participatory_process_duplicates:
+          form:
+            slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadata
@@ -502,10 +506,6 @@ cs:
           form:
             document_legend: Přidat dokument
             slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
-        participatory_process_steps:
-          form:
-            cta_path_help_html: 'Zde použijte částečné cesty, nikoli úplné adresy URL. Jsou povolena písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Příklad: %{url}'
-            cta_text_help: Není-li nastaveno, tlačítko se nezobrazí.
         participatory_processes:
           form:
             announcement_help: Text, který zde zadáte, se uživateli zobrazí přímo pod informacemi o procesu.
@@ -531,10 +531,24 @@ cs:
               influence: Vliv občanů
               influence_tooltip: Tento ukazatel měří míru vlivu občanů na přijaté návrhy a výsledky procesu.
               traceability: Sledovatelnost
+              traceability_tooltip: Tento ukazatel měří transparentnost a sledovatelnost účastnického procesu. Odráží to, jak snadno mohou účastníci sledovat vývoj návrhů a ověřovat institucionální opatření prostřednictvím zveřejněných záznamů.
               transparency: Odezva
+              transparency_tooltip: Tento ukazatel měří míru schopnosti organizace reagovat na vstupy účastníků, což odráží jejich angažovanost prostřednictvím oficiálních reakcí a realizovaných rozhodnutí.
             name: Automatická měření
           global_score:
+            description_html: Níže je uveden soubor ukazatelů používaných k posouzení demokratické kvality tohoto účastnického procesu. Další podrobnosti o tom, jak jsou vypočítány, naleznete v <a href="%{info_url}">informační stránce o demokratických ukazatelích kvality</a>.
             name: Globální skóre
+            note: "*Orientační hodnoty se měří na stupnici od 1 do 5, kde 1 představuje nejnižší a 5 nejvyšší ukazatel kvality."
+          name: Ukazatel kvality
+          qualitative_metrics:
+            description: Tyto ukazatele se získávají z odpovědí na sebehodnocení, které vyplní správci platformy.
+            indicators:
+              citizen_influence: Vliv občanů
+              inclusiveness: Inkluzivita
+              inclusiveness_tooltip: Hodnocení, zda jsou zastoupeny různé zúčastněné strany.
+              informativeness: Informativita
+              informativeness_tooltip: Měří úroveň jasnosti a informací poskytovaných v rámci procesu.
+            name: Metriky sebehodnocení
         extra_data:
           name: Fáze a doba trvání
         hero:

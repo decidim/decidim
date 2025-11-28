@@ -11,7 +11,7 @@ class AddDemocraticQualityStaticPage < ActiveRecord::Migration[7.0]
 
   def up
     Organization.find_each do |organization|
-      Decidim::ParticipatoryProcesses::CreateDemocraticQualityIndicatorsPage.call(organization)
+      Decidim::ParticipatoryProcesses::CreateDemocraticQualityIndicatorsPage.call(organization.id)
     end
   end
 end

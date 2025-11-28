@@ -490,8 +490,6 @@ pt-BR:
         description: Descrição
       footer_sub_hero:
         name: Rodapé do sub-herói banner
-      global_menu:
-        name: Menu global
       hero_settings_form:
         background_image: Imagem de fundo
         welcome_text: Texto de boas-vindas
@@ -891,7 +889,6 @@ pt-BR:
         latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Ajuda
       home: Inicio
     messaging:
       conversation_mailer:
@@ -1577,7 +1574,6 @@ pt-BR:
     name_included_in_password: é muito parecido com o seu nome
     nickname_included_in_password: é muito parecido com o seu nome de usuário
     not_enough_unique_characters: não tem caracteres únicos suficientes
-    password_not_allowed: não é permitido
     password_repeated: não é possível reutilizar a senha antiga
     password_too_common: é muito comum
     password_too_long: é muito longo
