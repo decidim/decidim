@@ -70,8 +70,7 @@ jobs:
         with:
           fetch-depth: 1
       - run: |
-          sudo apt-get update
-          sudo apt-get install -y libvips42 libvips-dev libvips-tools
+          sudo apt-get update && sudo apt-get install --no-install-recommends libvips imagemagick
         name: Install libvips
         shell: "bash"
       - uses: ruby/setup-ruby@v1
