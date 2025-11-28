@@ -317,7 +317,7 @@ es:
           success: Componente creado con éxito.
           success_landing_page: Componente creado con éxito. Puedes añadir un bloque de contenido para este componente en la página de inicio del espacio de participación. <a href="%{landing_page_path}">Ve a la página de inicio</a> para configurarla.
         edit:
-          title: Edita el componente
+          title: Configura el componente
           update: Actualizar
         form:
           default_step_settings: Configuraciones por defecto
