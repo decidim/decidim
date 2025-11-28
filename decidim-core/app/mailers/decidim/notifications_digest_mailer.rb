@@ -21,10 +21,10 @@ module Decidim
           next unless notification.event_class_instance.respond_to?(:email_intro)
           # checks if the resource exists, as we have implemented the possibility of soft deleting resources
           next unless resource_is_present?(notification)
-          # checks if the notification has been moderated
-          next if resource_is_moderated?(notification)
           # checks if the resource is visible
           next unless resource_is_visible?(notification)
+          # this checks if the notification should be rendered or not
+          next if notification_visible?(notification)
 
           Decidim::NotificationToMailerPresenter.new(notification)
         end
@@ -35,16 +35,19 @@ module Decidim
 
     private
 
+    # This method checks if the notification should be rendered or not
+    # It usually checks if the resource is reportable and is not hidden, however, there are some exceptions
+    # like in the comments, where we check if the resource and intended comment is visible.
+    def notification_visible?(notification)
+      notification.event_class_instance.respond_to?(:hidden_resource?) && notification.event_class_instance.hidden_resource?
+    end
+
     def resource_is_visible?(notification)
       notification.resource.can_participate?(@user)
     end
 
     def resource_is_present?(notification)
       notification.resource
-    end
-
-    def resource_is_moderated?(notification)
-      notification.resource.respond_to?(:hidden?) && notification.resource.hidden?
     end
   end
 end
