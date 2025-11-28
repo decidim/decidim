@@ -149,7 +149,6 @@ Back in [#15534](https://github.com/decidim/decidim/pull/15534) we upgraded webp
 
 You can read more about this change on PR [#15534](https://github.com/decidim/decidim/pull/15534), [#15674](https://github.com/decidim/decidim/pull/15674).
 
-
 ### 3.5. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
