@@ -747,6 +747,7 @@ fr:
           locale: La langue que cet utilisateur a sélectionnée
           newsletter_notifications_at: La date et l'heure à laquelle cet utilisateur s'est abonné pour recevoir une newsletter
           nickname: Le pseudonyme de l'utilisateur
+          officialized_as: Le nom de la fonction officielle (conseiller municipal, maire, etc.)
           password_updated_at: La date à laquelle leur mot de passe a été modifié pour la dernière fois
           roles: Le rôle de cet utilisateur s'il en a un
           type: Le type que cet utilisateur a
@@ -1003,7 +1004,7 @@ fr:
         file:
           explanation: 'Orientation pour le fichier :'
           message_1: Doit être une image ou un document.
-          message_2: Si c'est une image, c'est de préférence une image de paysage qui n'a pas de texte. La plate-forme recadre l'image.
+          message_2: Si c'est une image, préférer une image au format paysage n'incluant pas de texte. La plate-forme recadre l'image.
         icon:
           explanation: 'Manuel pour l''image:'
           message_1: Doit être une image carrée.
@@ -1543,7 +1544,7 @@ fr:
         statistics:
           headline: État actuel de %{organization}
         sub_hero:
-          register:
+          register: Créer un compte
           register_title: Créer un compte
       index:
         standalone_pages: Pages
