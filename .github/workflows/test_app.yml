@@ -91,6 +91,11 @@ jobs:
         with:
           chromedriver-version: ${{inputs.chrome_version}}
         name: Install Chrome version ${{inputs.chrome_version}}
+      - run: |
+          sudo apt-get update
+          sudo apt-get install -y libvips libvips-dev libvips-tools
+        name: Install libvips
+        shell: "bash"
       - run: bundle exec brakeman --rails7 --force-scan .
         name: Scanning Security issues on module
         working-directory: ${{ inputs.working-directory }}
