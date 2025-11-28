@@ -622,6 +622,7 @@ es-MX:
     open_data:
       help:
         conferences:
+          component_settings: Configuración de los componentes de la jornada
           created_at: La fecha en la que se creó esta jornada
           decidim_scope_id: El ámbito territorial de la jornada
           description: Una descripción larga de la jornada
