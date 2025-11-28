@@ -392,6 +392,7 @@ fr-CA:
           composition: La composition de l'assemblée
           created_at: La date de création de cet espace
           created_by: Qui a créé cette assemblée
+          hashtag: Le hashtag de l'assemblée, utilisé par Twitter/X
     participatory_processes:
       show:
         related_assemblies: Assemblées associées
