@@ -30,5 +30,6 @@ end
 group :development do
   gem "letter_opener_web", "~> 2.0"
   gem "listen", "~> 3.1"
+  gem "ruby-vips", "~> 2.2"
   gem "web-console", "~> 4.2"
 end
