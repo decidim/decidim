@@ -145,7 +145,7 @@ You can read more about this change on PR [#12878](https://github.com/decidim/de
 
 ### 3.4. webpack-dev-server upgrade
 
-Back in [#15534](https://github.com/decidim/decidim/pull/15534) we upgraded webpack-dev-server to version 5.2.2. In order to succesfully upgrade you need to edit your `config/shakapacker.yml` and remove the `https` option under `dev_server` key.
+Back in [#15534](https://github.com/decidim/decidim/pull/15534) we upgraded webpack-dev-server to version 5.2.2. In order to successfully upgrade you need to edit your `config/shakapacker.yml` and remove the `https` option under `dev_server` key.
 
 You can read more about this change on PR [#15534](https://github.com/decidim/decidim/pull/15534), [#15674](https://github.com/decidim/decidim/pull/15674).
 
