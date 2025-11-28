@@ -71,7 +71,7 @@ jobs:
           fetch-depth: 1
       - run: |
           sudo apt-get update
-          sudo apt-get install -y libvips libvips-dev libvips-tools
+          sudo apt-get install -y libvips42 libvips-dev libvips-tools
         name: Install libvips
         shell: "bash"
       - uses: ruby/setup-ruby@v1
