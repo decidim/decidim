@@ -96,6 +96,7 @@ ca:
             start_question_button: Activar la votació
             title: Resultats
           status:
+            allow_census_check_before_start: Permetre a les usuàries comprovar si poden votar abans que comenci l'elecció
             census: 'Cens:'
             results_availability:
               after_end: Resultats disponibles després de la finalització de les eleccions
@@ -140,6 +141,8 @@ ca:
           publish:
             invalid: S'ha produït un error en publicar l'elecció.
             success: Elecció publicada amb èxit.
+          toggle_census_check:
+            error: S'ha produït un error en activar la comprovació del cens.
           unpublish:
             invalid: S'ha produït un error en despublicar l'elecció.
             success: Elecció despublicada correctament.
@@ -182,6 +185,11 @@ ca:
           update: "%{user_name} ha actualitzat l'elecció \"%{resource_name}\" a %{space_name}"
         question:
           update: "%{user_name} va actualitzar les preguntes de l'elecció \"%{resource_name}\""
+      census_checks:
+        show:
+          description: Això vol dir que, una vegada comencin les eleccions, es podrà votar-hi.
+          exit_button: Sortir de la comprovació del cens
+          title: Se t'ha verificat correctament
       censuses:
         census_ready_html: S'han carregat les dades censals i estan a punt per utilitzar-les a l'elecció "<b>%{election_title}</b>".
         census_size_html:
@@ -244,6 +252,8 @@ ca:
           title: Preguntes de l'elecció
         show:
           active_voting_until: 'Votació activa fins: %{end_date}'
+          check_census_button: Comprova si pots votar
+          check_census_explanation: Aquesta elecció encara no ha començat, però pots comprovar si constes al cens.
           vote_button: Votar
           voted: Ja has votat. Pots tornar a votar, això esborrarà el teu vot anterior i, només s'explicarà la teva última votació.
           votes_count:
