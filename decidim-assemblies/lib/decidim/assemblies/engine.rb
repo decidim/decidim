@@ -115,6 +115,13 @@ module Decidim
       initializer "decidim_assemblies.webpacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
+
+      initializer "decidim_assemblies.extend_component_controllers" do
+        config.to_prepare do
+          # Extend component controllers with assembly breadcrumb when mounted under assemblies
+          Decidim::Components::BaseController.include(Decidim::Assemblies::AssemblyBreadcrumb)
+        end
+      end
     end
   end
 end
