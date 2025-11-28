@@ -46,6 +46,7 @@ de:
           new_sortition: Neue Sortierung
           show: Sortierdetails
           title: Aktionen
+        deprecation_warning_html: "⚠️ <b>Deprecation Notice.</b> Das Sortierungsmodul wird in Decidim v0.32 entfernt. Bitte planen Sie entsprechend und erwägen Sie alternative Lösungen für die Teilnehmenden- oder Vorschlagsauswahl."
         models:
           sortition:
             fields:
@@ -144,3 +145,4 @@ de:
             other: "%{count} Sortierungen"
     statistics:
       sortitions_count: Sortierungen
+      sortitions_count_tooltip: Die Anzahl der zufälligen Auswahlen, die zur Entscheidungsfindung durchgeführt werden.

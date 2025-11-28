@@ -43,7 +43,7 @@ ca-IT:
         actions:
           destroy: Cancel·la el sorteig
           edit: Edita
-          new_sortition: Afegir sorteig
+          new_sortition: Nou sorteig
           show: Detalls del sorteig
           title: Accions
         deprecation_warning_html: "⚠️ <b>Avís de Desús/Obsolescència.</b> El mòdul de sorteigs s'eliminarà a Decidim v.0.32. Si us plau, planifiqueu en conseqüència i considereu solucions alternatives per a la selecció d'elements a l'atzar."

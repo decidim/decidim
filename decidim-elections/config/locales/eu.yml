@@ -200,9 +200,6 @@ eu:
           authorization_options_invalid: Zoritxarrez, nahiz eta baimen guztiak dituzun, batzuk ez dira baliozkoak hautapen honetarako.
           exit_button: Irten bozkatzeko kabinatik
           invalid: Ez duzu baimenik aukeraketa honetan bozkatzeko.
-          missing: Zure erabiltzaileak ez ditu behar diren baimen batzuk. Mesedez, begiratu informazioa eta saiatu berriro.
-          not_authorized: '"%{adapter}" baimena ez dator bat eskatutako baldintzekin.'
-          not_granted: '"%{adapter}" baimena ez dago emanda.'
           resume_with_method: Egiaztapena berrartu %{name} erabiliz
           verify_with_method: Egiaztatu %{name} izenaz
         token_csv:

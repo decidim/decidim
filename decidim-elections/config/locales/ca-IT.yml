@@ -199,9 +199,6 @@ ca-IT:
           authorization_options_invalid: Malauradament, tot i que tens totes les autoritzacions necessàries, algunes no són vàlides per a aquestes eleccions.
           exit_button: Sortir de la cabina de votació
           invalid: No tens autorització per votar en aquestes eleccions.
-          missing: El vostre compte d'usuària no disposa d'algunes de les autoritzacions necessàries. Revisa la informació i torna-ho a provar.
-          not_authorized: 'L''autorització de "%{adapter}" no coincideix amb les condicions necessàries.'
-          not_granted: 'L''autorització de "%{adapter}" no està concedida.'
           resume_with_method: Reprendre la verificació amb %{name}
           verify_with_method: Verificar amb %{name}
         token_csv:

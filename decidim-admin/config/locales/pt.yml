@@ -29,7 +29,6 @@ pt:
       id: ID
       newsletter:
         body: Corpo
-        send_to_all_users: Enviar para todas as pessoas utilizadoras
         subject: Assunto
       organization:
         alert_color: Alerta
@@ -211,7 +210,6 @@ pt:
       block_user:
         bulk_new:
           action: Bloquear conta e enviar justificação
-          already_reported_html: Com essa ação todos os conteúdos dos participantes bloqueados serão ocultados.
           description: Bloquear um participante torna a sua conta inutilizável. Pode dar na sua justificação orientações sobre o que poderia levar a considerar desbloquear o participante.
           justification: Justificação
           title: Bloquear participantes
@@ -575,7 +573,7 @@ pt:
           participants_help: Envia um boletim informativo para todos os utilizadores confirmados que tenham participado em qualquer um dos espaços participativos selecionados na lista.
           recipients_count: Este boletim informativo será enviado para <strong id='recipients_count'>%{count}</strong> utilizadores.
           select_spaces: Selecione os espaços para segmentar o boletim informativo
-          send_to_all_users: Enviar para todos os utilizadores
+          send_to_all_users: Enviar para todas as pessoas utilizadoras
           title: Selecione os destinatários
           warning: "<strong>Atenção:</strong> Este boletim informativo apenas será enviado para utilizadores que tenham ativado a opção <em>Pretendo receber boletins informativo</em> nas suas definições de notificações."
         show:
