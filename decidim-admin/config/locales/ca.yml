@@ -327,7 +327,7 @@ ca:
           error: S'ha produït un error en eliminar aquest component.
           success: El component s'ha eliminat correctament.
         edit:
-          title: Edita el component
+          title: Configura el component
           update: Actualitzar
         form:
           default_step_settings: Configuració per defecte
