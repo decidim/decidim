@@ -10,6 +10,7 @@ module Decidim
 
       def current_participatory_space_breadcrumb_item
         return {} if current_participatory_space.blank?
+        return {} unless current_participatory_space.is_a?(Decidim::Assembly)
 
         dropdown_cell = current_participatory_space_manifest.breadcrumb_cell
 
