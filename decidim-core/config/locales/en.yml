@@ -1301,8 +1301,8 @@ en:
       show:
         deleted: Content has been deleted by the author.
         missing_event: Oops, this notification belongs to an item that is no longer available. You can discard it.
-        not_available: Oops, this notification belongs to an item that is no longer available. You can discard it.
         moderated: Content has been hidden through moderation.
+        not_available: Oops, this notification belongs to an item that is no longer available. You can discard it.
     notifications_digest_mailer:
       header:
         daily: Daily Notification Digest
