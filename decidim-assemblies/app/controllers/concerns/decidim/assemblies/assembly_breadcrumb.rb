@@ -24,13 +24,7 @@ module Decidim
           }
         end
 
-        items << {
-          label: current_participatory_space.title,
-          url: Decidim::ResourceLocatorPresenter.new(current_participatory_space).path,
-          active: true,
-          dropdown_cell:,
-          resource: current_participatory_space
-        }
+        items << super
       end
     end
   end
