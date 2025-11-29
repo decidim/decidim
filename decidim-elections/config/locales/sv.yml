@@ -67,6 +67,7 @@ sv:
             publish_button: Publicera resultat
             title: Resultat
           status:
+            allow_census_check_before_start: Tillåt användare att kontrollera om de kan rösta innan valet börjar
             census: 'Folkräkning:'
             results_availability:
               after_end: Resultat tillgängliga efter valets slut
@@ -105,6 +106,8 @@ sv:
           publish:
             invalid: Det gick inte att publicera valet.
             success: Valet publicerades.
+          toggle_census_check:
+            error: Det gick inte att aktivera kontrollen av folkräkningen.
           unpublish:
             invalid: Det gick inte att ta bort valet.
             success: Valet togs bort.
@@ -123,6 +126,11 @@ sv:
           soft_delete: "%{user_name} Flyttade valet %{resource_name} i %{space_name} till papperskorgen"
           unpublish: "%{user_name} Tog bort valet %{resource_name} i %{space_name}"
           update: "%{user_name} Uppdaterade valet %{resource_name} i %{space_name}"
+      census_checks:
+        show:
+          description: Detta innebär att direkt när valet har startat kan ni rösta i det.
+          exit_button: Avsluta folkräkningskontrollen
+          title: Du har blivit auktoriserad
       censuses:
         internal_users:
           already_have_an_account?: Har du redan ett konto?
@@ -181,6 +189,8 @@ sv:
           subtitle: 'Detta är frågorna för denna omröstningsprocess:'
         show:
           active_voting_until: 'Aktiv röstning till: %{end_date}'
+          check_census_button: Kontrollera om jag kan rösta
+          check_census_explanation: Detta val har ännu inte börjat, men du kan kontrollera om du är med i folkräkningen.
           vote_button: Rösta
           voted: Du har redan röstat. Om du röstar igen kommer bara den senaste rösten att räknas.
           votes_count:
