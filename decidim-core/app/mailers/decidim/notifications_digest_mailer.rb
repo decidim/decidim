@@ -39,7 +39,8 @@ module Decidim
     # It usually checks if the resource is reportable and is not hidden, however, there are some exceptions
     # like in the comments, where we check if the resource and intended comment is visible.
     def notification_visible?(notification)
-      notification.event_class_instance.respond_to?(:hidden_resource?) && notification.event_class_instance.hidden_resource?
+      (notification.event_class_instance.respond_to?(:hidden_resource?) && notification.event_class_instance.hidden_resource?) ||
+        (notification.event_class_instance.respond_to?(:deleted_resource?) && notification.event_class_instance.deleted_resource?)
     end
 
     def resource_is_visible?(notification)

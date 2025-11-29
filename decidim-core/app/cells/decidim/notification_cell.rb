@@ -7,7 +7,9 @@ module Decidim
     include Decidim::Core::Engine.routes.url_helpers
 
     def show
-      if notification.event_class_instance.try(:hidden_resource?)
+      if notification.event_class_instance.try(:deleted_resource?)
+        render :deleted
+      elsif notification.event_class_instance.try(:hidden_resource?)
         render :moderated
       else
         render :show
