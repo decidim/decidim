@@ -1,6 +1,8 @@
 sv:
   activemodel:
     attributes:
+      elections_question:
+        max_choices: Maximalt antal val
       token_csv:
         file: Fil
         remove_all: Ta bort all aktuell folkräkningsdata
@@ -136,9 +138,6 @@ sv:
           authorization_options_invalid: Tyvärr – ni har alla tillstånd som krävs, men en del av dem är inte giltiga för detta val.
           exit_button: Lämna valbåset
           invalid: Du har inte behörighet att rösta i detta val.
-          missing: Din användare saknar vissa nödvändiga tillstånd. Kontrollera informationen och försök igen.
-          not_authorized: '"%{adapter}" tillståndet matchar inte de obligatoriska villkoren.'
-          not_granted: '"%{adapter}" behörighet beviljas inte.'
           resume_with_method: Återuppta verifieringen med %{name}
           verify_with_method: Verifiera med %{name}
         token_csv:
@@ -233,6 +232,9 @@ sv:
         question:
           back: Tillbaka
           cast_vote: Rösta
+          max_choices: 'Max val: %{count}'
+          max_choices_alert: Du har valt för många alternativ. Avmarkera några för att fortsätta.
+          max_choices_exceeded: Du kan inte välja mer än %{max} alternativ. Gå tillbaka och justera ditt val.
           next: Nästa
         receipt:
           description: Du kan rösta igen så länge omröstningsperioden pågår. En ny omröstning kommer att skriva över den gamla.

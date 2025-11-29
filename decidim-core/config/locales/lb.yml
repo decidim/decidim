@@ -695,12 +695,9 @@ lb:
           proposals_explanation: Maach Virschléi, ënnerstëtz Virschléi an fërder Verännerungen déi dir wichteg sinn.
         footer_sub_hero:
           footer_sub_hero_headline: Wëllkomm %{organization} op der Participatiouns-Plattform.
-          register: Registréieren
         hero:
           participate: Matmaachen
           welcome: Wëllkomm %{organization}!
-        sub_hero:
-          register: Registréieren
       index:
         standalone_pages: Säiten
         subheading: Duerch d'Hëllefs-Säiten vun %{name} navigéieren

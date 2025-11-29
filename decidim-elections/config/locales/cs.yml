@@ -132,7 +132,6 @@ cs:
         internal_users_form:
           authorization_options_invalid: Bohužel, i když máte všechna požadovaná oprávnění, některé z nich pro tyto volby neplatí.
           invalid: V těchto volbách nemáte oprávnění volit.
-          missing: Vašemu uživateli chybí některá požadovaná autorizace. Zkontrolujte prosím informace a zkuste to znovu.
           resume_with_method: Pokračovat v ověřování pomocí %{name}
           verify_with_method: Ověřit pomocí %{name}
         token_csv:

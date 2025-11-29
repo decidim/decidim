@@ -384,6 +384,7 @@ eu:
           assembly_type: Batzar mota
           closing_date: Zein datatan ixten den batzarra
           closing_date_reason: Zergatik itxi zen batzarra
+          component_settings: Multzoaren osagaien konfigurazioa
           composition: Batzarraren osaera
           created_at: Zein datatan sortu zen espazio hau
           created_by: Nork sortu du batzar hau

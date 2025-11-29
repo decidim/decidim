@@ -107,6 +107,7 @@ de:
           destroy: Löschen
           like: Like
           update: Aktualisieren
+          vote_comment: Kommentar bewerten
         name: Blog
         settings:
           global:

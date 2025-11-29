@@ -35,7 +35,7 @@ es:
       id: ID
       newsletter:
         body: Cuerpo
-        send_to_all_users: Enviar a todas las usuarias
+        send_to_all_users: Enviar a todas las participantes
         send_to_followers: Enviar a las seguidoras
         send_to_participants: Enviar a las participantes
         subject: Asunto
@@ -299,7 +299,7 @@ es:
           title: Bloquear usuarias
         new:
           action: Bloquear cuenta y enviar justificación
-          already_reported_html: Al continuar con esta acción también ocultarás todos los contenidos de la participante.
+          already_reported_html: Al continuar con esta acción también ocultarás todos los contenidos de las participantes.
           description: El bloqueo de una usuaria dejará su cuenta inutilizable. Puedes proporcionar en tu justificación los criterios bajo los cuales considerarías desbloquearla.
           justification: Justificación
           title: Bloquear a la usuaria %{name}
@@ -316,7 +316,7 @@ es:
           success: Componente creado con éxito.
           success_landing_page: Componente creado con éxito. Puedes añadir un bloque de contenido para este componente en la página de inicio del espacio de participación. <a href="%{landing_page_path}">Ve a la página de inicio</a> para configurarla.
         edit:
-          title: Edita el componente
+          title: Configura el componente
           update: Actualizar
         form:
           default_step_settings: Configuraciones por defecto
@@ -393,7 +393,7 @@ es:
         form:
           domain_too_short: El dominio es demasiado corto
         update:
-          error: Se ha producido un error al actualizar la lista de dominios externos permitidos
+          error: Se ha producido un error al actualizar la lista de dominios externos permitidos.
           success: La lista de dominios externos permitidos se ha actualizado correctamente.
       exports:
         export_as: "%{name} como %{export_format}"
@@ -1270,7 +1270,7 @@ es:
           last_day: Último día
           last_month: Último mes
           last_week: Última semana
-          no_users_count_statistics_yet: Aún no hay estadísticas de recuento de usuarias.
+          no_users_count_statistics_yet: Aún no hay estadísticas de recuento de participantes.
           participants: Participantes
     forms:
       errors:

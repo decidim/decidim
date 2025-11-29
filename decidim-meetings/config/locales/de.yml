@@ -285,6 +285,7 @@ de:
         agenda: Agenda
         close: Schließen
         confirm_delete_meeting: Möchten Sie diese Veranstaltung wirklich löschen?
+        confirm_unpublish_meeting: Sind Sie sicher, dass Sie die Veröffentlichung dieser Veranstaltung aufheben möchten?
         deleted_meetings_info: Gelöschte Veranstaltungen können aus dem Papierkorb wiederhergestellt werden.
         edit: Bearbeiten
         invalid_destroy:
@@ -383,7 +384,9 @@ de:
             select_an_iframe_access_level: Bitte wählen Sie eine iFrame-Zugriffsebene aus
           index:
             linked_meeting_warning_html: Diese Veranstaltung muss von <br><a href="%{href}">%{name}</a> bearbeitet werden
+            published: Veröffentlicht
             title: Veranstaltungen
+            unpublished: Unveröffentlicht
           linked_spaces:
             assign: Zuweisen
             link_a_space: Bereich verknüpfen
@@ -675,6 +678,7 @@ de:
             end_time: Endtermin
             map: Karte
             official_meeting: Offizielle Besprechung
+            published: Veröffentlicht
             start_time: Anfangsdatum
             taxonomies: Klassifizierungen
             title: Titel

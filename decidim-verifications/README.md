@@ -1,4 +1,4 @@
-# Decidim::Verifications
+# decidim-verifications
 
 Decidim offers several methods for allowing participants to get authorization to
 perform certain privileged actions. This module implements several of those methods
@@ -22,6 +22,10 @@ There are several use cases for this, such as
 
 Right now Decidim supports only a few of these cases, but we have an internal
 API where you can program your own kind of authorizations.
+
+## Usage
+
+This is a module oriented for developers, as a building block to be used by other modules.
 
 ## Introduction
 
@@ -243,17 +247,7 @@ authorization.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'decidim-verifications'
-```
-
-And then execute:
-
-```bash
-bundle
-```
+This is on the default Decidim installation so you should not change anything to use this feature.
 
 ## Contributing
 

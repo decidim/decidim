@@ -1,6 +1,8 @@
 fi:
   activemodel:
     attributes:
+      elections_question:
+        max_choices: Valintojen enimmäismäärä
       token_csv:
         file: Tiedosto
         remove_all: Poista kaikki nykyiset tiedot henkilötietorekisteristä
@@ -199,9 +201,6 @@ fi:
           authorization_options_invalid: Valitettavasti osa käyttäjätilisi vahvistuksista eivät täsmää näiden vaalien vaatimusten kanssa.
           exit_button: Poistu äänestyskopista
           invalid: Tiliäsi ei ole vahvistettu äänestääksesi näissä vaaleissa.
-          missing: Käyttäjätililtäsi puuttuu osa vaadituista vahvistuksista. Ole hyvä ja tarkasta tiedot, minkä jälkeen voit yrittää uudestaan.
-          not_authorized: '"%{adapter}" -vahvistus ei täsmää vaatimusten kanssa.'
-          not_granted: '"%{adapter}" -vahvistusta ei ole myönnetty.'
           resume_with_method: Jatka vahvistusta %{name}
           verify_with_method: Vahvista palvelun %{name} avulla
         token_csv:
@@ -301,6 +300,9 @@ fi:
         question:
           back: Takaisin
           cast_vote: Lähetä ääni
+          max_choices: 'Valintojen enimmäismäärä: %{count}'
+          max_choices_alert: Olet valinnut liian monta vaihtoehtoa. Poista joitain valintoja jatkaaksesi.
+          max_choices_exceeded: Et voi valita enempää kuin %{max} vaihtoehtoa. Mene takaisin ja muuta valintojasi.
           next: Seuraava
         receipt:
           description: Voit äänestää uudestaan äänestyksen ollessa auki. Aikaisempi äänesi mitätöidään ja korvataan antamallasi uudella äänellä.

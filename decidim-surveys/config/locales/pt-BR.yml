@@ -31,6 +31,8 @@ pt-BR:
     surveys:
       admin:
         surveys:
+          edit:
+            title: Editar questionário
           update:
             invalid: Houve erros ao salvar a pesquisa.
             success: Pesquisa salva com sucesso.
