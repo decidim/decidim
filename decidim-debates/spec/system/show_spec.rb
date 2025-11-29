@@ -65,11 +65,14 @@ describe "show" do
   end
 
   context "when shows the debate component" do
-    it "shows the debate title" do
+    it "shows the correct information in breadcrumb" do
       within(".menu-bar") do
         expect(page).to have_content(translated(component.name))
         expect(page).to have_content(translated(debate.title))
       end
+    end
+
+    it "shows the debate title" do
       expect(page).to have_content(translated(debate.title))
     end
   end

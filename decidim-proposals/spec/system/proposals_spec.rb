@@ -88,12 +88,14 @@ describe "Proposals" do
         click_on official_proposal_title
       end
 
-      it "shows the author as official" do
+      it "shows the correct information in breadcrumb" do
         within(".menu-bar") do
           expect(page).to have_content(translated(component.name))
           expect(page).to have_content(translated(official_proposal.title))
         end
+      end
 
+      it "shows the author as official" do
         expect(page).to have_content("Official proposal")
       end
 

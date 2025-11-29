@@ -112,6 +112,13 @@ describe "Explore versions", versioning: true do
       end
     end
 
+    it "shows the correct information in breadcrumb" do
+      within(".menu-bar") do
+        expect(page).to have_content(translated(component.name))
+        expect(page).to have_content(translated(proposal.reload.title))
+      end
+    end
+
     it "show the correct state" do
       form_params = {
         internal_state: "evaluating",
@@ -129,11 +136,6 @@ describe "Explore versions", versioning: true do
 
       visit current_path
       click_on("Version 3 of 3")
-
-      within(".menu-bar") do
-        expect(page).to have_content(translated(component.name))
-        expect(page).to have_content(translated(proposal.reload.title))
-      end
 
       within "#diff-for-state" do
         expect(page).to have_content("State")

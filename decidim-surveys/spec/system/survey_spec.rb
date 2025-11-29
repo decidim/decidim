@@ -36,12 +36,14 @@ describe "Respond a survey" do
   it_behaves_like "preview component with a share_token"
 
   context "when the survey does not allow responses" do
-    it "does not allow responding the survey" do
-      visit_component
-
+    it "shows the correct information in breadcrumb" do
       within(".menu-bar") do
         expect(page).to have_content(translated(component.name))
       end
+    end
+
+    it "does not allow responding the survey" do
+      visit_component
 
       choose "All"
 
@@ -99,15 +101,17 @@ describe "Respond a survey" do
         end
       end
 
-      it "shows the charts when questions responses are published" do
-        visit_component
-        choose "All"
-        click_on translated_attribute(questionnaire.title)
-
+      it "shows the correct information in breadcrumb" do
         within(".menu-bar") do
           expect(page).to have_content(translated(component.name))
           expect(page).to have_content(translated(questionnaire.title))
         end
+      end
+
+      it "shows the charts when questions responses are published" do
+        visit_component
+        choose "All"
+        click_on translated_attribute(questionnaire.title)
 
         # does not show the charts if not published
         expect(page.html).not_to include('new Chartkick["ColumnChart"]("chart-1"')

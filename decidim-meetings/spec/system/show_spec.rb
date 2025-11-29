@@ -40,12 +40,14 @@ describe "show" do
         visit resource_locator(meeting).path
       end
 
-      it "shows the correct time zone" do
+      it "shows the correct information in breadcrumb" do
         within(".menu-bar") do
           expect(page).to have_content(translated(component.name))
           expect(page).to have_content(translated(meeting.reload.title))
         end
+      end
 
+      it "shows the correct time zone" do
         expect(page).to have_content("HST")
       end
     end

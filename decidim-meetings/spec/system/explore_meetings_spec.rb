@@ -26,12 +26,14 @@ describe "Explore meetings", :slow do
   end
 
   describe "index" do
-    it "shows all meetings for the given process" do
-      visit_component
-
+    it "shows the correct information in breadcrumb" do
       within(".menu-bar") do
         expect(page).to have_content(translated(component.name))
       end
+    end
+
+    it "shows all meetings for the given process" do
+      visit_component
 
       expect(page).to have_selector(meetings_selector, count: meetings_count)
 

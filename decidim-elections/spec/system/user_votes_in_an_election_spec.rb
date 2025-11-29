@@ -94,11 +94,14 @@ describe "Dashboard" do
     context "when the election has finished" do
       let(:election) { create(:election, :published, :finished, :with_internal_users_census) }
 
-      it "does not allow to vote" do
+      it "shows the correct information in breadcrumb" do
         within(".menu-bar") do
           expect(page).to have_content(translated(election.component.name))
           expect(page).to have_content(translated(election.title))
         end
+      end
+
+      it "does not allow to vote" do
         expect(page).to have_no_link("Vote")
         expect(page).to have_no_content("You have already voted.")
         visit new_election_vote_path
