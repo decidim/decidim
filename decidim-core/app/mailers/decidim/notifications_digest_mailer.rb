@@ -22,7 +22,7 @@ module Decidim
           # checks if the resource exists, as we have implemented the possibility of soft deleting resources
           next unless resource_is_present?(notification)
           # checks if the resource is visible
-          next unless resource_is_visible?(notification)
+          next unless notification.can_participate?(@user)
           # this checks if the notification should be rendered or not
           next if notification_visible?(notification)
 
@@ -39,14 +39,9 @@ module Decidim
     # It usually checks if the resource is reportable and is not hidden, however, there are some exceptions
     # like in the comments, where we check if the resource and intended comment is visible.
     def notification_visible?(notification)
-      (notification.event_class_instance.respond_to?(:hidden_resource?) && notification.event_class_instance.hidden_resource?) ||
-        (notification.event_class_instance.respond_to?(:deleted_resource?) && notification.event_class_instance.deleted_resource?)
+      notification.hidden_resource? || notification.deleted_resource?
     end
-
-    def resource_is_visible?(notification)
-      notification.resource.can_participate?(@user)
-    end
-
+    
     def resource_is_present?(notification)
       notification.resource
     end
