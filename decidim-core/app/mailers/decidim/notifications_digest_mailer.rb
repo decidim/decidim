@@ -41,7 +41,7 @@ module Decidim
     def notification_visible?(notification)
       notification.hidden_resource? || notification.deleted_resource?
     end
-    
+
     def resource_is_present?(notification)
       notification.resource
     end

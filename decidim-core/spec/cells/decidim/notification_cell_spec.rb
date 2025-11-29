@@ -44,7 +44,7 @@ describe Decidim::NotificationCell, type: :cell do
     end
   end
 
-  context "when resource is moderated" do
+  context "when resource is deleted" do
     let!(:resource) { create(:dummy_resource, component:) }
 
     before do
