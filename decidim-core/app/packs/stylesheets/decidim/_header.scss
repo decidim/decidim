@@ -533,6 +533,14 @@ header {
           }
         }
       }
+
+      &-mobile {
+        .main-footer__language-trigger {
+          & > svg:last-of-type {
+            @apply absolute right-4;
+          }
+        }
+      }
     }
 
     &__dropdown-menu {
