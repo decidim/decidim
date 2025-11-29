@@ -23,8 +23,12 @@ module Decidim
           next unless resource_is_present?(notification)
           # checks if the resource is visible
           next unless notification.can_participate?(@user)
-          # this checks if the notification should be rendered or not
-          next if notification_visible?(notification)
+          # It usually checks if the resource is reportable and is not hidden, however, there are some exceptions
+          # like in the comments, where we check if the resource and intended comment is visible.
+          next if notification.hidden_resource?
+          # It usually checks if the resource is deletable and is not deleted, however, there are some exceptions
+          # like in the comments, where we check if the resource and intended comment is visible.
+          next if notification.deleted_resource?
 
           Decidim::NotificationToMailerPresenter.new(notification)
         end
@@ -34,13 +38,6 @@ module Decidim
     end
 
     private
-
-    # This method checks if the notification should be rendered or not
-    # It usually checks if the resource is reportable and is not hidden, however, there are some exceptions
-    # like in the comments, where we check if the resource and intended comment is visible.
-    def notification_visible?(notification)
-      notification.hidden_resource? || notification.deleted_resource?
-    end
 
     def resource_is_present?(notification)
       notification.resource
