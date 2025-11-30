@@ -381,6 +381,7 @@ ja:
           assembly_type: 参加スペースの種別
           closing_date: 参加スペースの終了日
           closing_date_reason: 参加スペースが終了した理由
+          component_settings: 参加スペースのコンポーネント設定
           composition: 参加スペースの構成
           created_at: このスペースの作成日時
           created_by: この参加スペースの作成者
