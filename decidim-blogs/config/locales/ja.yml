@@ -105,6 +105,7 @@ ja:
           destroy: 削除
           like: いいね
           update: 更新
+          vote_comment: コメントに投票
         name: ブログ
         settings:
           global:
