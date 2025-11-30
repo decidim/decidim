@@ -86,13 +86,13 @@ module Decidim
             end
 
             it "does not update the election times" do
-              original_start_at = election.start_at
-              original_end_at = election.end_at
+              original_start_at = election.start_at.to_i
+              original_end_at = election.end_at.to_i
               subject.call
               election.reload
 
-              expect(election.start_at).to eq original_start_at
-              expect(election.end_at).to eq original_end_at
+              expect(election.start_at.to_i).to eq original_start_at
+              expect(election.end_at.to_i).to eq original_end_at
             end
 
             it "does not update results_availability" do
