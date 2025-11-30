@@ -14,6 +14,7 @@ describe "Admin manages elections" do
   let!(:election) { create(:election, census_manifest: :token_csv, component: current_component) }
   let!(:scheduled_election) { create(:election, :published, :scheduled, component: current_component) }
   let!(:published_election) { create(:election, :published, :per_question, :ongoing, :with_internal_users_census, component: current_component) }
+  let!(:started_unpublished_election) { create(:election, :ongoing, component: current_component) }
   let!(:finished_election) { create(:election, :published, :finished, component: current_component) }
   let!(:ongoing_election) { create(:election, :published, :ongoing, :with_token_csv_census, component: current_component) }
   let!(:published_results_election) { create(:election, :published, :published_results, component: current_component) }
@@ -97,7 +98,7 @@ describe "Admin manages elections" do
     end
   end
 
-  context "when the election is published" do
+  context "when the election is published and ongoing" do
     let!(:question1) { create(:election_question, :with_response_options, election: published_election) }
     let!(:question2) { create(:election_question, :with_response_options, election: published_election) }
 
@@ -133,6 +134,63 @@ describe "Admin manages elections" do
       expect(page).to have_content("Voting is not yet enabled for any questions.")
       click_on "Enable voting", match: :first
       expect(page).to have_no_content("Voting is not yet enabled for any questions.")
+    end
+  end
+
+  context "when the election is published but not yet started" do
+    let!(:question1) { create(:election_question, :with_response_options, election: scheduled_election) }
+    let!(:question2) { create(:election_question, :with_response_options, election: scheduled_election) }
+
+    before do
+      scheduled_election.update!(census_manifest: :token_csv)
+      create_list(:election_voter, 2, election: scheduled_election)
+
+      within "tr", text: translated(scheduled_election.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit election"
+      end
+    end
+
+    it "allows to edit all fields" do
+      within ".edit_election" do
+        expect(page).to have_field("election[title_en]", disabled: false)
+        expect(page).to have_field("election_start_at_date", disabled: false)
+        expect(page).to have_field("election_end_at_date", disabled: false)
+      end
+    end
+
+    it "allows to edit questions and census" do
+      expect(page).to have_link("Main")
+      expect(page).to have_link("Questions")
+      expect(page).to have_link("Census")
+    end
+  end
+
+  context "when the election has started but is unpublished" do
+    let!(:question1) { create(:election_question, :with_response_options, election: started_unpublished_election) }
+
+    it "still prevents editing title, dates and results_availability" do
+      within "tr", text: translated(started_unpublished_election.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit election"
+      end
+
+      within ".edit_election" do
+        expect(page).to have_field("election[title_en]", disabled: true)
+        expect(page).to have_field("election_end_at_date", disabled: true)
+        expect(page).to have_field("election_end_at_time", disabled: true)
+      end
+    end
+
+    it "does not show Questions and Census tabs" do
+      within "tr", text: translated(started_unpublished_election.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit election"
+      end
+
+      expect(page).to have_link("Main")
+      expect(page).to have_no_link("Questions")
+      expect(page).to have_no_link("Census")
     end
   end
 

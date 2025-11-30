@@ -142,7 +142,21 @@ describe Decidim::Elections::Admin::Permissions do
     context "when updating" do
       let(:action_name) { :update }
 
-      it_behaves_like "requires an election"
+      context "when election has not started" do
+        it { is_expected.to be true }
+      end
+
+      context "when election has started" do
+        let(:election) { create(:election, :ongoing, component:) }
+
+        it { is_expected.to be false }
+      end
+
+      context "when election is missing" do
+        let(:election) { nil }
+
+        it { is_expected.to be false }
+      end
     end
 
     context "when updating status" do
@@ -166,7 +180,21 @@ describe Decidim::Elections::Admin::Permissions do
     context "when reordering" do
       let(:action_name) { :reorder }
 
-      it_behaves_like "requires an election"
+      context "when election has not started" do
+        it { is_expected.to be true }
+      end
+
+      context "when election has started" do
+        let(:election) { create(:election, :ongoing, component:) }
+
+        it { is_expected.to be false }
+      end
+
+      context "when election is missing" do
+        let(:election) { nil }
+
+        it { is_expected.to be false }
+      end
     end
   end
 
@@ -182,7 +210,21 @@ describe Decidim::Elections::Admin::Permissions do
     context "when updating" do
       let(:action_name) { :update }
 
-      it_behaves_like "requires an election"
+      context "when election has not started" do
+        it { is_expected.to be true }
+      end
+
+      context "when election has started" do
+        let(:election) { create(:election, :ongoing, component:) }
+
+        it { is_expected.to be false }
+      end
+
+      context "when election is missing" do
+        let(:election) { nil }
+
+        it { is_expected.to be false }
+      end
     end
   end
 end
