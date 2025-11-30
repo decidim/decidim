@@ -145,6 +145,22 @@ module Decidim
     autoload :RestoreResource, "decidim/commands/restore_resource"
   end
 
+  module Configuration
+    autoload :ParticipatorySpaceRegistry, "decidim/configuration/participatory_space_registry"
+    autoload :ComponentRegistry, "decidim/configuration/component_registry"
+    autoload :GlobalEngineRegistry, "decidim/configuration/global_engine_registry"
+    autoload :ResourceRegistry, "decidim/configuration/resource_registry"
+    autoload :NotificationSettingManifest, "decidim/configuration/notification_setting_manifest"
+    autoload :SocialShareServicesRegistry, "decidim/configuration/social_share_services_registry"
+  end
+
+  include Decidim::Configuration::ParticipatorySpaceRegistry
+  include Decidim::Configuration::ComponentRegistry
+  include Decidim::Configuration::ResourceRegistry
+  include Decidim::Configuration::GlobalEngineRegistry
+  include Decidim::Configuration::NotificationSettingManifest
+  include Decidim::Configuration::SocialShareServicesRegistry
+
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
   def self.seed!
@@ -791,174 +807,9 @@ module Decidim
     ]
   end
 
-  # Public: Registers a global engine. This method is intended to be used
-  # by component engines that also offer unscoped functionality
-  #
-  # name    - The name of the engine to register. Should be unique.
-  # engine  - The engine to register.
-  # options - Options to pass to the engine.
-  #           :at - The route to mount the engine to.
-  #
-  # Returns nothing.
-  def self.register_global_engine(name, engine, options = {})
-    return if global_engines.has_key?(name)
-
-    options[:at] ||= "/#{name}"
-
-    global_engines[name.to_sym] = {
-      at: options[:at],
-      engine:
-    }
-  end
-
-  # Semiprivate: Removes a global engine from the registry. Mostly used on testing,
-  # no real reason to use this on production.
-  #
-  # name - The name of the global engine to remove.
-  #
-  # Returns nothing.
-  def self.unregister_global_engine(name)
-    global_engines.delete(name.to_sym)
-  end
-
-  # Public: Finds all registered engines via the 'register_global_engine' method.
-  #
-  # Returns an Array[::Rails::Engine]
-  def self.global_engines
-    @global_engines ||= {}
-  end
-
-  # Public: Registers a component, usually held in an external library or in a
-  # separate folder in the main repository. Exposes a DSL defined by
-  # `Decidim::ComponentManifest`.
-  #
-  # Component manifests are held in a global registry and are used in all kinds of
-  # places to figure out what new components or functionalities the component provides.
-  #
-  # name - A Symbol with the component's unique name.
-  #
-  # Returns nothing.
-  def self.register_component(name, &)
-    component_registry.register(name, &)
-  end
-
-  # Public: Registers a participatory space, usually held in an external library
-  # or in a separate folder in the main repository. Exposes a DSL defined by
-  # `Decidim::ParticipatorySpaceManifest`.
-  #
-  # Participatory space manifests are held in a global registry and are used in
-  # all kinds of places to figure out what new components or functionalities the
-  # participatory space provides.
-  #
-  # name - A Symbol with the participatory space's unique name.
-  #
-  # Returns nothing.
-  def self.register_participatory_space(name, &)
-    participatory_space_registry.register(name, &)
-  end
-
-  # Public: Registers a resource.
-  #
-  # Returns nothing.
-  def self.register_resource(name, &)
-    resource_registry.register(name, &)
-  end
-
-  # Public: Registers a social share service.
-  #
-  # Returns nothing.
-  def self.register_social_share_service(name, &)
-    social_share_services_registry.register(name, &)
-  end
-
-  # Public: Registers a notification setting.
-  #
-  # Returns nothing.
-  def self.notification_settings(name, &)
-    notification_settings_registry.register(name, &)
-  end
-
-  # Public: Finds all registered resource manifests via the `register_component`
-  # method.
-  #
-  # Returns an Array[ResourceManifest].
-  def self.resource_manifests
-    resource_registry.manifests
-  end
-
-  # Public: Finds all registered component manifest's via the `register_component`
-  # method.
-  #
-  # Returns an Array[ComponentManifest].
-  def self.component_manifests
-    component_registry.manifests.sort_by(&:name)
-  end
-
-  # Public: Finds all registered participatory space manifest's via the
-  # `register_participatory_space` method.
-  #
-  # Returns an Array[ParticipatorySpaceManifest].
-  def self.participatory_space_manifests
-    participatory_space_registry.manifests
-  end
-
-  # Public: Finds a component manifest by the component's name.
-  #
-  # name - The name of the ComponentManifest to find.
-  #
-  # Returns a ComponentManifest if found, nil otherwise.
-  def self.find_component_manifest(name)
-    component_registry.find(name.to_sym)
-  end
-
-  # Public: Finds a participatory space manifest by the participatory space's
-  # name.
-  #
-  # name - The name of the ParticipatorySpaceManifest to find.
-  #
-  # Returns a ParticipatorySpaceManifest if found, nil otherwise.
-  def self.find_participatory_space_manifest(name)
-    participatory_space_registry.find(name.to_sym)
-  end
-
-  # Public: Finds a resource manifest by the resource's name.
-  #
-  # resource_name_or_class - The String of the ResourceManifest name or the class of
-  # the ResourceManifest model_class to find.
-  #
-  # Returns a ResourceManifest if found, nil otherwise.
-  def self.find_resource_manifest(resource_name_or_klass)
-    resource_registry.find(resource_name_or_klass)
-  end
-
-  # Public: Stores the registry of components
-  def self.component_registry
-    @component_registry ||= ManifestRegistry.new(:components)
-  end
-
-  # Public: Stores the registry of participatory spaces
-  def self.participatory_space_registry
-    @participatory_space_registry ||= ManifestRegistry.new(:participatory_spaces)
-  end
-
   # Public: Stores the registry of reminders
   def self.reminders_registry
     @reminders_registry ||= ReminderRegistry.new
-  end
-
-  # Public: Stores the registry of resource spaces
-  def self.resource_registry
-    @resource_registry ||= ManifestRegistry.new(:resources)
-  end
-
-  # Public: Stores the registry of social shares services
-  def self.social_share_services_registry
-    @social_share_services_registry ||= ManifestRegistry.new(:social_share_services)
-  end
-
-  # Public: Stores the registry of notifications settings
-  def self.notification_settings_registry
-    @notification_settings_registry ||= ManifestRegistry.new(:notification_settings)
   end
 
   # Public: Stores the registry for user permissions
