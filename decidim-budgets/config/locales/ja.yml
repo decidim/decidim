@@ -328,6 +328,7 @@ ja:
         actions:
           comment: コメント
           vote: 投票
+          vote_comment: コメントに投票
         name: 予算
         settings:
           global:
