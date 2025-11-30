@@ -46,6 +46,17 @@ ja:
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: '%{participatory_space_title} での新しいアンケート'
           notification_title: <a href="%{resource_path}">%{resource_title}の</a> <a href="%{participatory_space_url}">%{participatory_space_title}のアンケート</a> が公開されました。
+    open_data:
+      help:
+        published_survey_user_responses:
+          body: 回答の内容
+          created_at: 回答が作成されたタイムスタンプ
+          id: アンケート回答の固有ID
+          ip_hash: プライバシー保護のためにハッシュ化された回答者のIPアドレス
+          question: 回答された質問
+          registered: 登録済みの参加者
+          unregistered: 未登録の参加者
+          user_status: 回答を提出したユーザーのステータス
     statistics:
       responses: '応答：'
       responses_count: 回答
