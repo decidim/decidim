@@ -868,7 +868,6 @@ zh-TW:
           last_day: 過去 1 天
           last_month: 上個月
           last_week: 上週
-          no_users_count_statistics_yet: 目前還沒有使用者統計數據。
           participants: 參與者
     forms:
       errors:

@@ -58,7 +58,7 @@ describe "Admin reports user" do
       end
 
       expect(page).to have_current_path(decidim_admin.new_user_block_path(user_id: reportable.id), ignore_query: true)
-      expect(page).to have_content("Continuing with this action you will also hide all the participants contents")
+      expect(page).to have_content("By continuing with this action, you will also hide all the participant's content.")
     end
   end
 

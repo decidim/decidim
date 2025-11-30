@@ -522,7 +522,6 @@ sk:
     managed_users:
       expired_session: Aktuálna platnosť zosúhlasenia už vypršala.
     menu:
-      help: Pomoc
       home: Domov
     messaging:
       conversation_mailer:
@@ -615,12 +614,9 @@ sk:
           proposals_explanation: Urobiť návrhy, podporiť existujúce a podporovať zmeny, ktoré chcete vidieť.
         footer_sub_hero:
           footer_sub_hero_headline: Vitajte na%{organization} participatívnej platforme.
-          register: Registrovať
         hero:
           participate: zúčastniť sa
           welcome: Vitajte na%{organization}!
-        sub_hero:
-          register: Registrovať
       index:
         standalone_pages: Stránky
         subheading: Prechádzajte stránky pomocníka%{name}

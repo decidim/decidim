@@ -124,10 +124,10 @@ eu:
     verifications:
       admin_log:
         csv_datum:
-          create: "%{user_name} -k sortu du errolda-datuen erregistro berria sortu du e-mail honekin: %{resource_email}"
-          delete: "%{user_name} -k ezabatu du errolda-datuen erregistro berria e-mail honekin: %{resource_email}"
-          import: "%{user_name} -k %{imported_count} errolda-erregistroak inportatu ditu"
-          update: "%{user_name} -k eguneratu du errolda-datuen erregistro berria e-mail honekin: %{resource_email}"
+          create: "%{user_name} parte-hartzaileak sortu du errolda-datuen erregistro berria sortu du e-mail honekin: %{resource_email}"
+          delete: "%{user_name} parte-hartzaileak ezabatu du errolda-datuen erregistro berria e-mail honekin: %{resource_email}"
+          import: "%{user_name} parte-hartzaileak %{imported_count} errolda-erregistroak inportatu ditu"
+          update: "%{user_name} parte-hartzaileak eguneratu du errolda-datuen erregistro berria e-mail honekin: %{resource_email}"
       authorizations:
         authorization_metadata:
           info: 'Hauek dira oraingo egiaztapenaren datuak:'

@@ -35,7 +35,6 @@ tr:
       id: İD
       newsletter:
         body: Vücut
-        send_to_all_users: Bütün kullanıcılara gönder
         send_to_followers: Takipçilere gönder
         send_to_participants: Katılımcılara gönder
         subject: konu
@@ -282,13 +281,11 @@ tr:
       block_user:
         bulk_new:
           action: Hesapları engelle ve gerekçe gönder.
-          already_reported_html: Bu işleme devam ederek katılımcının tüm içeriklerini de gizlersiniz.
           description: Bir kullanıcıyı engellemek, kullanıcının hesabını kullanılamaz hale getirir. Gerekçenizde engeli kaldırmak için gereken yönergeleri ekleyebilirsiniz.
           justification: Gerekçe
           title: Kullanıcıları engelle
         new:
           action: Hesabı engelle ve uyarı mesjı gönder
-          already_reported_html: Bu işleme devam ederek katılımcıların tüm içeriklerini de gizleyebilirsiniz.
           description: Bir kullanıcının engellenmesi, hesabının kullanılamaz hale gelmesine neden olur, gerekçenizde ve kullanıcının engellemesini kaldırmayı düşündüğünüz yollarla ilgili yönergeler sağlayabilirsiniz.
           justification: Gerekçe
           title: '%{name} Kullanıcısını Engelle'
@@ -378,7 +375,6 @@ tr:
         form:
           domain_too_short: Alan adı çok kısa
         update:
-          error: İzin verilen harici alan adı listesi güncellenemedi
           success: İzin verilen harici alan adı listesi başarıyla güncellendi.
       exports:
         export_as: "%{name} olarak %{export_format}"
@@ -456,7 +452,6 @@ tr:
           import_csv:
             explanation: 'Dosya kılavuzu:'
             message_1: CSV dosyaları desteklenmektedir.
-            message_2: "e-posta verileri içeren .csv dosyası"
       help_sections:
         error: Yardım bölümleri güncellenirken bir hata oluştu.
         form:

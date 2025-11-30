@@ -509,7 +509,6 @@ lv:
     managed_users:
       expired_session: Pašreizējā dalībnieka administratora sesija ir beigusies.
     menu:
-      help: Palīdzība
       home: Sākums
     messaging:
       conversation_mailer:
@@ -602,12 +601,9 @@ lv:
           proposals_explanation: Iesniedziet jaunus priekšlikumus, atbalstiet esošos un veiciniet vēlamās izmaiņas.
         footer_sub_hero:
           footer_sub_hero_headline: Laipni lūdzam %{organization} līdzdalības platformā.
-          register: Reģistrēties
         hero:
           participate: Piedalīties
           welcome: Laipni lūdzam %{organization}!
-        sub_hero:
-          register: Reģistrēties
       index:
         standalone_pages: Lapas
         subheading: Pārvietojieties %{name} palīdzības lapās

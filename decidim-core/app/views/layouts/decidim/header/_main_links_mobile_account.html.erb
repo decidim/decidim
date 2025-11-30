@@ -10,8 +10,9 @@
     </div>
 
     <div>
-      <div class="main-bar__links-mobile__trigger" onclick="document.querySelector('#dropdown-trigger-links-mobile').click();document.querySelector('#dropdown-menu-account-mobile').removeAttribute('aria-modal')">
+      <div class="main-bar__links-mobile__trigger" tabindex="0" onclick="document.querySelector('#dropdown-trigger-links-mobile').click();document.querySelector('#dropdown-menu-account-mobile').removeAttribute('aria-modal')">
         <%= icon "close-line" %>
+        <p class="sr-only"><%= t("close", scope: "decidim.shared.flag_modal") %></p>
       </div>
     </div>
   </div>
@@ -37,3 +38,16 @@
     </ul>
   </div>
 </div>
+<script type="text/javascript">
+  const closeDiv = document.querySelector('div.main-bar__links-mobile__trigger');
+  const menuDropdown = document.querySelector('#dropdown-menu-account-mobile');
+  const dropdownTrigger = document.querySelector('#dropdown-trigger-links-mobile');
+  // 32 is code for space bar and 13 is code for enter
+  closeDiv.addEventListener('keydown', function(e){
+    if (e.keyCode === 13 || e.keyCode === 32) {
+      menuDropdown.removeAttribute('aria-modal');
+      menuDropdown.setAttribute('aria-hidden', "true");
+      dropdownTrigger.focus();
+    }
+  })
+</script>

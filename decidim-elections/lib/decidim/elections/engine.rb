@@ -7,6 +7,7 @@ module Decidim
 
       routes do
         resources :elections, except: [:destroy] do
+          resource :census_check, only: [:new, :create, :show], controller: :census_checks
           resources :votes, except: [:edit, :destroy] do
             collection do
               get :confirm
@@ -30,6 +31,12 @@ module Decidim
       initializer "decidim_elections.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Elections::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Elections::Engine.root}/app/views") # for partials
+      end
+
+      initializer "decidim_elections.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
       end
 
       initializer "decidim.elections.default_censuses" do |_app|

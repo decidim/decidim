@@ -96,7 +96,7 @@ eu:
           type_id_eq:
             label: Mota
         search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Bilatu %{collection} izenburuaren, deskribapenaren, IDaren edo egiletzaren arabera
+          title_or_description_or_author_name_or_author_nickname_cont: Bilatu %{collection} izenburuaren, deskribapenaren, Idaren edo egiletzaren arabera
       initiatives_settings:
         update:
           error: Arazo bat izan da ekimenen konfigurazioak eguneratzean.
@@ -118,7 +118,6 @@ eu:
         initiatives:
           fields:
             created_at: Sortze-data
-            id: ID
             published_at: Argitaratze-data
             state: Egoera
             supports_count: Sinadurak
@@ -687,6 +686,7 @@ eu:
       initiative:
         actions:
           comment: Egin iruzkina
+          vote_comment: Bozkatu iruzkina
       initiatives_type:
         actions:
           create: Sortu ekimen bat

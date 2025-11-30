@@ -267,7 +267,7 @@ eu:
       titles:
         participatory_process_groups: Partaidetza-prozesuen taldeak
         participatory_process_types: Partaidetza-prozesu motak
-        participatory_processes: Prozesu pare-hartzaileak
+        participatory_processes: Partaidetza-prozesuak
         participatory_processes_deleted: Ezabatutako partaidetza-prozesuak
       tooltips:
         deleted_processes_info: Prozesu bat soilik ezabatu daiteke egoera "Argitaratugabea" bada.
@@ -340,6 +340,7 @@ eu:
         participatory_processes:
           announcement: Informazioa iragarpenaz (deia)
           area: Prozesua zein arlotan gertatzen ari da
+          component_settings: Prozesuaren osagaien konfigurazioa
           created_at: Zein datatan sortu zen espazio hau
           description: Prozesuaren deskribapen luzea
           developer_group: Prozesuaren talde garatzailea. Hau da prozesua sustatzen duen erakundea.

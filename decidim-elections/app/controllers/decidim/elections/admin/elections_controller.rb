@@ -122,6 +122,17 @@ module Decidim
           redirect_to dashboard_election_path(election)
         end
 
+        def toggle_census_check
+          enforce_permission_to :update, :election, election: election
+
+          value = ActiveModel::Type::Boolean.new.cast(params[:allow_census_check_before_start])
+          election.update!(allow_census_check_before_start: value)
+
+          render json: { success: true, allow_census_check_before_start: election.allow_census_check_before_start }
+        rescue StandardError
+          render json: { success: false, error: I18n.t("elections.toggle_census_check.error", scope: "decidim.elections.admin") }, status: :unprocessable_entity
+        end
+
         private
 
         def per_question_waiting?

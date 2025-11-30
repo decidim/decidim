@@ -96,7 +96,6 @@ gl:
             total_budget: Orzamento total
         project:
           fields:
-            id: ID
             title: Título
       order:
         status:

@@ -1,6 +1,10 @@
-# Decidim::Elections
+# decidim-elections
 
 The Decidim::Elections is a component that allows users to setup non-cryptographic elections. Elections are basically polls/surveys with census access management built-in. This allows registered or non-registered users to directly participate in them.
+
+## Usage
+
+Elections will be available as a Component for a Participatory Space.
 
 ## Installation
 
@@ -10,6 +14,8 @@ To install this module, run in your console:
 
 ```bash
 bundle add decidim-elections
+bundle exec rails decidim:upgrade
+bundle exec rails db:migrate
 ```
 
 ## Contributing

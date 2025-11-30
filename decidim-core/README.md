@@ -1,24 +1,14 @@
-# Decidim
+# decidim-core
 
 Core functionality in Decidim. Every single decidim functionality depends on this gem.
 
 ## Usage
 
-You will be using indirectly on any decidim application.
+This module will be using indirectly on any decidim application.
 
 ## Installation
 
-Add `decidim` to your `Gemfile` and you will be using it:
-
-```ruby
-gem 'decidim'
-```
-
-And then execute:
-
-```bash
-bundle
-```
+This is on the default Decidim installation so you should not change anything to use this feature.
 
 ## Users
 

@@ -58,7 +58,7 @@ module Decidim
       current_user.organization.admins.each do |admin|
         next unless admin.email_on_moderations
 
-        Decidim::UserReportJob.perform_later(admin, report)
+        UserReportMailer.notify(admin, report).deliver_later
       end
     end
 

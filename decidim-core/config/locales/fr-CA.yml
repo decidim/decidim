@@ -183,6 +183,7 @@ fr-CA:
         success: Votre compte a été supprimé avec succès.
       download_your_data_export:
         export_expired: L'export a expiré. Essayez de générer un nouvel export.
+        export_not_found: L'export auquel vous avez tenté d'accéder n'existe pas, ou vous n'avez pas l'accès pour le télécharger
         file_no_exists: Le fichier n'existe pas
         notice: Le téléchargement de vos données est en cours. Vous recevrez un email lorsque celui-ci sera terminé.
       email_change:
@@ -547,8 +548,6 @@ fr-CA:
         description: Description
       footer_sub_hero:
         name: Section "Bienvenue sur la plateforme" (. footer_sub_hero)
-      global_menu:
-        name: Menu global
       hero:
         name: Image principale et bouton d'action
       hero_settings_form:
@@ -701,6 +700,8 @@ fr-CA:
       export:
         ready: Prêt
       help:
+        messaging_conversations:
+          updated_at: La date de la dernière mise à jour de cette conversation
         notifications:
           extra: Informations supplémentaires sur cette notification
         participatory_space_private_users:
@@ -718,18 +719,21 @@ fr-CA:
           reason: La raison de ce rapport
           updated_at: La date et l'heure de la dernière mise à jour de ce rapport
         users:
+          about: La description du profil de ce participant
           accepted_tos_version: La date à laquelle les conditions d'utilisation de cette plateforme ont été acceptées par l'utilisateur
           deleted_at: La date et l'heure où cet utilisateur a été supprimé
           email: L'adresse e-mail de cet utilisateur
-          followers_count: Le nombre de participants qui suivent à cet utilisateur
+          followers_count: Le nombre de participants qui suivent cet utilisateur
           following_count: Le nombre de participants que cet utilisateur suit
           id: L'identifiant unique de l'utilisateur
           invitations_count: Le nombre d'invitations envoyées à cet utilisateur
           invited_by: L'utilisateur qui a invité cet utilisateur
-          last_sign_in_at: La date et l'heure de la dernière connexion
-          last_sign_in_ip: L'adresse IP de la dernière connexion
+          last_sign_in_at: La date et l'heure de la connexion précédente
+          last_sign_in_ip: L'adresse IP de la connexion précédente
           locale: La langue que cet utilisateur a sélectionnée
+          newsletter_notifications_at: La date et l'heure à laquelle cet utilisateur s'est abonné pour recevoir une newsletter
           nickname: Le pseudonyme de l'utilisateur
+          officialized_as: Le nom de la fonction officielle (conseiller municipal, maire, etc.)
           password_updated_at: La date à laquelle leur mot de passe a été modifié pour la dernière fois
           roles: Le rôle de cet utilisateur s'il en a un
           type: Le type que cet utilisateur a
@@ -753,7 +757,7 @@ fr-CA:
       files:
         file_cannot_be_processed: Le fichier ne peut pas être traité
         file_resolution_too_large: La résolution du fichier est trop grande
-        not_inside_organization: Le fichier n'est attaché à aucune organisation
+        not_inside_organization: Le fichier n'est attaché à aucune organisation.
       internal_server_error:
         copied: Texte copié !
         copy_error_message_clarification: Copier le message d'erreur dans le presse-papiers
@@ -931,7 +935,7 @@ fr-CA:
         file:
           explanation: 'Orientation pour le fichier :'
           message_1: Doit être une image ou un document.
-          message_2: Si c'est une image, c'est de préférence une image de paysage qui n'a pas de texte. Le service recadre l'image.
+          message_2: Si c'est une image, préférer une image au format paysage n'incluant pas de texte. La plate-forme recadre l'image.
         icon:
           explanation: 'Manuel pour l''image:'
           message_1: Doit être une image carrée.
@@ -1023,6 +1027,7 @@ fr-CA:
         create_with_space: "%{user_name} a créé %{resource_name} dans %{space_name}"
         delete: "%{user_name} a supprimé %{resource_name}"
         delete_with_space: "%{user_name} a supprimé %{resource_name} dans %{space_name}"
+        publish: "%{user_name} a publié %{resource_name}"
         publish_with_space: "%{user_name} a publié %{resource_name} dans %{space_name}"
         unknown_action: "%{user_name} a effectué une action sur %{resource_name}"
         unknown_action_with_space: "%{user_name} a effectué une action sur %{resource_name} dans %{space_name}"
@@ -1053,7 +1058,6 @@ fr-CA:
         latlng_text: 'latitude : %{latitude}, longitude : %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Aide
       home: Accueil
     messaging:
       conversation_mailer:
@@ -1162,11 +1166,11 @@ fr-CA:
         same_language: Le contenu a été publié dans votre langue préférée (%{language}), c'est pourquoi aucune traduction automatique n'est affichée dans cet e-mail.
         translated_text: 'Traduction automatique du texte :'
     notifications:
-      action_error: Un problème est survenu lors de la mise à jour des notifications.
+      action_error: Un problème est survenu lors de la mise à jour des paramètres de notification.
       no_notifications: Il n'y a pas encore de notifications.
       show:
         missing_event: Oups, cette notification est liée à un élément qui n'est plus disponible. Vous pouvez la supprimer.
-        moderated: Contenu modéré
+        moderated: Le contenu a été masqué par modération.
     notifications_digest_mailer:
       header:
         daily: Résumé quotidien des notifications
@@ -1295,6 +1299,8 @@ fr-CA:
             title: 3. Travailler avec les données
           title: Comment ouvrir et travailler avec ces fichiers
         license:
+          license_contents_link: https://opendatacommons.org/licenses/dbcl/1.0/
+          license_database_link: https://opendatacommons.org/licenses/odbl/1.0/
           title: Licence
         title: Données ouvertes
       not_available_yet: Les fichiers Open Data ne sont pas encore disponibles. Veuillez réessayer dans quelques minutes.
@@ -1316,7 +1322,7 @@ fr-CA:
         footer_sub_hero:
           footer_sub_hero_body_html: Construisons une société plus ouverte, transparente et collaborative.<br /> Rejoignez le mouvement, participez et décidez, ensemble.
           footer_sub_hero_headline: Bienvenue sur la plate-forme participative de %{organization}.
-          register: S'inscrire
+          register: Créer un compte
         hero:
           participate: Participez
           participate_title: Participer aux concertations de la plateforme
@@ -1324,7 +1330,7 @@ fr-CA:
         statistics:
           headline: Statistiques
         sub_hero:
-          register: S'inscrire
+          register: Créer un compte
           register_title: Créer un compte
       index:
         standalone_pages: Pages
@@ -1574,6 +1580,16 @@ fr-CA:
         instructions_2: 'Partagez les identifiants de connexion (email: %{email} et le nouveau mot de passe) avec vos collègues.'
         instructions_title: "<strong>Ce que vous devez faire</strong>"
         set_password: Définissez votre mot de passe
+        subject: Mise à jour importante concernant votre profil de groupe
+      notify_user_group_patched:
+        body_1_html: Nous vous contactons pour vous informer d’une mise à jour importante concernant votre profil de groupe sur %{organization_name}.
+        body_2_html: Dans le cadre de nos efforts pour simplifier et améliorer l'expérience des organisations comme la vôtre, nous déprécions la fonctionnalité "Groupes d'utilisateurs". Votre groupe, <strong>%{name}</strong>a été converti en simple compte.
+        body_3_html: Pour continuer à accéder à votre compte et partager votre accès, nous avons besoin que vous définissiez une nouvelle adresse e-mail et un nouveau mot de passe. Veuillez noter que chaque membre de votre groupe recevra ce courriel. Pour assurer la continuité de l'accès, vous devrez convenir en interne des identifiants partagés (adresse e-mail et mot de passe) que tout le monde utilisera.
+        greeting: Cher(ère) %{name},
+        instructions_1_html: 'Utilisez les identifiants temporaires suivants pour vous connecter : <br><br> Nom d''utilisateur : <strong>%{email}</strong> <br> Mot de passe : <strong>%{password}</strong><br><br>'
+        instructions_2_html: Définir une nouvelle adresse e-mail et un nouveau mot de passe.
+        instructions_3_html: Partagez les identifiants de connexion choisis avec vos collègues pour que l'ensemble du groupe puisse continuer à accéder au compte.
+        instructions_title_html: "<strong>Ce que vous devez faire</strong>"
         subject: Mise à jour importante concernant votre profil de groupe
     user_report_mailer:
       notify:
@@ -1955,7 +1971,7 @@ fr-CA:
       language_chooser:
         choose_language: Choisir la langue
       navigation:
-        aria_label: Menu de navigation - %{title}
+        aria_label: 'Menu de navigation: %{title}'
       notifications_dashboard:
         mark_all_as_read: Marquer tout comme lu
         mark_as_read: Marquer comme lu

@@ -16,6 +16,8 @@ Typically (although some particular installations may change that) you will find
 
 The GraphQL format is a JSON formatted text that is specified in a query. Response is a JSON object as well. For details about specification check the official [GraphQL site](https://graphql.org/learn/).
 
+For additional examples of queries and mutations, check the additional [GraphQL API documentation](https://docs.decidim.org/en/develop/develop/api/index.html) of Decidim.
+
 Exercise caution when utilizing the output of this API, as it may include HTML that has not been escaped. Take particular care in handling this data, specially if you intend to render it on a webpage.
 
 For instance, you can check the version of a Decidim installation by using `curl` in the terminal:
@@ -296,7 +298,7 @@ Second, the response is not an Array, it is just the object we requested. We can
 
 #### Components
 
-Every participatory space may (and should) have some components. There are 9 official components, these are `Proposals`, `Page`, `Meetings`, `Budgets`, `Surveys`, `Accountability`, `Debates`, `Sortitions` and `Blog`. Plugins may add their own components.
+Every participatory space may (and should) have some components. There are 9 official components, these are `Proposals`, `Page`, `Meetings`, `Budgets`, `Surveys`, `Accountability`, `Debates` and `Blog`. Plugins may add their own components.
 
 If you know the `id`\* of a specific component you can obtain it by querying it directly:
 

@@ -382,6 +382,7 @@ fr-CA:
           assembly_type: Le type de l'assemblée
           closing_date: La date de clôture de l'assemblée
           closing_date_reason: Pourquoi l'assemblée a été clôturée
+          component_settings: Les paramètres de fonctionnalité d'assemblée
           composition: La composition de l'assemblée
           created_at: La date de création de cet espace
           created_by: Qui a créé cette assemblée

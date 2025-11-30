@@ -256,8 +256,6 @@ fi-pl:
         share_button: Jaa-painike
         share_usage_description_html: Varmista, että sivun osa <code>decidim/shared/share_modal</code> on lisätty näkymään. Tämä sivun osa liitetään sovelluksen näkymään.
         sizes: Koot
-        sortition_l: sortition_l
-        sortitions: Satunnaisvalinnat
         source_code: Lähdekoodi
         state: Tilaa kuvaavat värit
         tab_panels_context_description: Tämä välilehtipaneeli kokoaa kaikki asiaan liittyvät sisällöt tai tietueeseen liitetyt muut tietueet, säästääkseen tilaa sivun pystysuunnassa. Välilehteä painamalla, kysiseen välilehteen liitetty paneeli aktivoituu ja näyttää sisältönsä.

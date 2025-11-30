@@ -48,6 +48,17 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Una nova enquesta a %{participatory_space_title}
           notification_title: L'enquesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> ja està oberta.
+    open_data:
+      help:
+        published_survey_user_responses:
+          body: El contingut de la resposta
+          created_at: La data en què es va crear aquesta resposta
+          id: Identificador únic per la resposta a l'enquesta
+          ip_hash: Adreça IP de la enquestada, codificada (hash) per privacitat
+          question: La pregunta que es va respondre
+          registered: Participant registrada
+          unregistered: Participant no registrada
+          user_status: Estat de la usuària que va enviar la resposta
     statistics:
       responses: 'Respostes:'
       responses_count: Respostes

@@ -78,7 +78,10 @@ module Decidim
 
       # Public: Whether the object can have new comment votes or not.
       def user_allowed_to_vote_comment?(user)
-        component.can_participate_in_space?(user)
+        return false unless accepts_new_comments?
+        return unless component.can_participate_in_space?(user)
+
+        ActionAuthorizer.new(user, "vote_comment", component, self).authorize.ok?
       end
 
       def self.user_collection(user)
