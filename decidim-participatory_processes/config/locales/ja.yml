@@ -337,6 +337,7 @@ ja:
         participatory_processes:
           announcement: アナウンス（コールアウト）情報
           area: プロセスが行われているエリア
+          component_settings: プロセスのコンポーネント設定
           created_at: このスペースの作成日時
           description: プロセスの詳しい説明
           developer_group: プロセスの開発者グループ。これはプロセスをプロモートしている組織です
