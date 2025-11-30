@@ -1,6 +1,8 @@
 ja:
   activemodel:
     attributes:
+      elections_question:
+        max_choices: 選択肢の最大数
       token_csv:
         file: ファイル
         remove_all: 現在のセンサスデータをすべて削除する
@@ -92,6 +94,7 @@ ja:
             start_question_button: 投票を有効化
             title: 結果
           status:
+            allow_census_check_before_start: 選挙開始前にユーザーが投票可能かどうかを確認できるようにする
             census: 'センサス：'
             results_availability:
               after_end: 選挙終了後に利用可能な結果
@@ -136,6 +139,8 @@ ja:
           publish:
             invalid: 選挙の公表中に問題が発生しました。
             success: 選挙を公開しました。
+          toggle_census_check:
+            error: センサスチェックを有効にする際にエラーが発生しました。
           unpublish:
             invalid: 選挙の非公表中に問題が発生しました。
             success: 選挙を非公開にしました。
@@ -178,6 +183,11 @@ ja:
           update: "%{user_name} が %{space_name} の %{resource_name} 選挙を更新しました"
         question:
           update: "%{user_name} が %{resource_name} 選挙の質問を更新しました"
+      census_checks:
+        show:
+          description: これは、選挙が始まったらあなたはその選挙に投票できるということを意味します。
+          exit_button: センサスチェックを終了
+          title: 正常に検証されました
       censuses:
         census_ready_html: センサスデータはアップロードされ、 <b>%{election_title}</b> 選挙での使用に備えられています。
         census_size_html:
@@ -240,6 +250,8 @@ ja:
           title: 選挙の質問
         show:
           active_voting_until: '有効な投票まで: %{end_date}'
+          check_census_button: 投票できるかどうかチェック
+          check_census_explanation: この選挙はまだ始まっていませんが、センサスの対象に含まれているかどうか確認できます。
           vote_button: 投票
           voted: すでに投票済みです。再度投票することは可能ですが、最後に投票した内容のみが集計対象となります。
           votes_count:
@@ -293,6 +305,9 @@ ja:
         question:
           back: 戻る
           cast_vote: 投票
+          max_choices: '最大選択数: %{count}'
+          max_choices_alert: 選択したオプションが多すぎます。続行するには選択をいくつか解除してください。
+          max_choices_exceeded: 選択できるオプションは最大 %{max} 個までです。一度戻って選択を調整してください。
           next: 次へ
         receipt:
           description: 投票期間中はいつでも再投票が可能です。以前の投票結果は新しい投票結果で上書きされます。
