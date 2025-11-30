@@ -5,7 +5,6 @@ module Decidim
     class ParticipatoryProcessPresenter < ResourcePresenter
       include Decidim::ResourceHelper
       include ActionView::Helpers::UrlHelper
-      include Decidim::SanitizeHelper
 
       def hero_image_url
         process.attached_uploader(:hero_image).url

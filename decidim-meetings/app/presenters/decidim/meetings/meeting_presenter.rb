@@ -8,7 +8,6 @@ module Decidim
     class MeetingPresenter < Decidim::ResourcePresenter
       include Decidim::ResourceHelper
       include ActionView::Helpers::UrlHelper
-      include Decidim::SanitizeHelper
 
       alias super_title title
 

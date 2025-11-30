@@ -8,7 +8,6 @@ module Decidim
     class ResultPresenter < Decidim::ResourcePresenter
       include Rails.application.routes.mounted_helpers
       include ActionView::Helpers::UrlHelper
-      include Decidim::SanitizeHelper
 
       def result
         __getobj__

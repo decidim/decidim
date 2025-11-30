@@ -7,7 +7,6 @@ module Decidim
     #
     class AgendaItemPresenter < Decidim::ResourcePresenter
       include Decidim::ResourceHelper
-      include Decidim::SanitizeHelper
 
       def agenda_item
         __getobj__
