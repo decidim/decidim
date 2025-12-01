@@ -383,11 +383,10 @@ eu:
           help_text: Berrikusi aldaketak eta onartu edo ukatu zuzenketa hau. Jakinarazpen bat bidaliko zaio/e bere egileari/ei.
         announcement:
           accepted: |-
-            For the Aldaketa hori %{amendable_type} %{amendable_link} izan da
-            onartu <strong>%{announcement_date}</strong>.
+            %{amendable_type} %{proposal_link} erako zuzenketa hau <strong>%{date}</strong>ean onartu da.
           evaluating: |-
-            For the Aldaketa hori %{amendable_type} %{amendable_link}
-            ebaluatu dago.
+            Aldaketa hau %{amendable_type} %{proposal_link} rako
+            ebaluatzen ari da.
           promoted: Sustatu hau %{amendable_type}.
           rejected: "%{amendable_type} %{amendable_link} en zuzenketa\nukatu da <strong>%{announcement_date}</strong>."
           withdrawn: |-
@@ -876,7 +875,7 @@ eu:
             email_subject: Onartu da %{emendation_author_nickname} ren %{amendable_title} zuzenketa
             notification_title: '<a href="%{emendation_author_path}">%{emendation_author_nickname} egileak sortutako </a><a href="% emendation_path}">zuzenketa onartu da honetarako: <a href="%{amendable_path}">%{amendable_title}</a>.'
           follower:
-            email_intro: 'Zuzenketa bat bertan bera onartu %{amendable_title}. Orrialde hau ikusi dezakezu:'
+            email_intro: '%{amendable_title} rako zuzenketa bat onartu da. Orrialde honetan ikus dezakezue:'
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title} jarraitzen duzulako. Aurreko estekan sartu jakinarazpenak jasotzeari utzi nahi badiozu.
             email_subject: '%{emendation_author_nickname} ren aldaketa onartuta honetarako: %{amendable_title}'
             notification_title: '<a href="%{emendation_author_path}">%{emendation_author_nickname}</a> k sortutako <a href="%{emendation_path}"></a> zuzenketa onartu da honetarako: <a href="%{amendable_path}">%{amendable_title}</a>.'
@@ -1053,7 +1052,7 @@ eu:
           message_2: Irudi honetarako gomendatzen den tamaina da 512x512.
         image:
           explanation: 'Jarraibideak irudirako:'
-          message_1: Ahal dela, testurik gabeko irudi etzana.
+          message_1: Testurik ez duen irudi etzan bat, ahal dela.
           message_2: Zerbitzuak irudia moztu egiten du.
       file_validation:
         allowed_file_extensions: 'Onartutako artxiboen formatua: %{extensions}'
@@ -1470,7 +1469,7 @@ eu:
         footer_sub_hero:
           footer_sub_hero_body_html: Eraiki dezagun gizarte irekiago, gardenago eta kolaboratiboagoa <br /> Lotu, hartu parte eta erabaki.
           footer_sub_hero_headline: Ongi etorri %{organization} erakundearen partaidetzarako plataformara.
-          register: Sortu kontu bat
+          register: Kontu bat sortu
         hero:
           participate: Hartu parte
           participate_title: Parte hartu plataformako prozesuetan
@@ -1606,7 +1605,7 @@ eu:
       term_input_placeholder: Bilatu
     searches:
       filters:
-        jump_to: 'Salto egin:'
+        jump_to: 'Hona jo:'
         resource: "%{label} %{collection} artean"
         search: Bilatu
         state:
