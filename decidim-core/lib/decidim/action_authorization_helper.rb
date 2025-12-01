@@ -51,7 +51,7 @@ module Decidim
     private
 
     # rubocop: disable Metrics/PerceivedComplexity
-    def authorized_to(tag, action, arguments, block)
+    def authorized_to(tag, action, arguments, block) # rubocop:disable Metrics/CyclomaticComplexity
       if block
         body = block
         url = arguments[0]
