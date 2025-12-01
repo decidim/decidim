@@ -35,6 +35,7 @@ de:
       id: ID
       newsletter:
         body: Haupttext
+        send_to_all_users: An alle Teilnehmende senden
         send_to_followers: An Follower senden
         send_to_participants: An Teilnehmende senden
         subject: Betreff
@@ -292,11 +293,13 @@ de:
       block_user:
         bulk_new:
           action: Konten sperren und Begründung senden
+          already_reported_html: Wenn Sie diese Aktion fortsetzen, werden Sie auch alle Inhalte der Teilnehmenden ausblenden.
           description: Das Blockieren eines Teilnehmenden wird das verknüpfte Konto unbrauchbar machen. Sie können dies begründen und Richtlinien dafür bieten, wie der Teilnehmende vorgehen kann, damit das Konto wieder entsperrt wird.
           justification: Begründung
           title: Teilnehmende blockieren
         new:
           action: Konto sperren und Begründung senden
+          already_reported_html: Wenn Sie diese Aktion fortsetzen, werden Sie auch alle Inhalte der Teilnehmenden ausblenden.
           description: Das Blockieren eines Benutzers wird sein Konto unbrauchbar machen. Sie können begründen und Richtlinien dafür bieten, wie der Benutzer vorgehen könnte, damit Sie in Betracht ziehen, die Blockierung wieder aufzuheben.
           justification: Begründung
           title: Benutzer %{name} blockieren
@@ -390,6 +393,7 @@ de:
         form:
           domain_too_short: Domain zu kurz
         update:
+          error: Das Aktualisieren der Liste der zulässigen externen Domains ist fehlgeschlagen.
           success: Die Liste der zulässigen externen Domains wurde erfolgreich aktualisiert.
       exports:
         export_as: "%{name} als %{export_format}"
@@ -474,6 +478,7 @@ de:
           import_csv:
             explanation: 'Hinweise für die Datei:'
             message_1: CSV-Dateien werden unterstützt
+            message_2: "CSV-Datei mit E-Mail-Daten"
       help_sections:
         error: Beim Aktualisieren der Hilfeabschnitte ist ein Fehler aufgetreten.
         form:
