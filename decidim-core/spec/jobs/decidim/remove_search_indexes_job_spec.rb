@@ -22,9 +22,7 @@ describe Decidim::RemoveSearchIndexesJob do
       expect(resource1.searchable_resources).not_to be_empty
       expect(resource2.searchable_resources).not_to be_empty
 
-      # rubocop:disable Rails/SkipsModelValidations:
-      proposal_component.update_column(:published_at, nil)
-      # rubocop:enable Rails/SkipsModelValidations:
+      proposal_component.unpublish!
 
       Decidim::RemoveSearchIndexesJob.perform_now([resource1, resource2])
 
@@ -36,9 +34,7 @@ describe Decidim::RemoveSearchIndexesJob do
       expect(resource1.searchable_resources).not_to be_empty
       expect(resource2.searchable_resources).not_to be_empty
 
-      # rubocop:disable Rails/SkipsModelValidations:
-      participatory_process.update_column(:published_at, nil)
-      # rubocop:enable Rails/SkipsModelValidations:
+      participatory_process.unpublish!
 
       Decidim::RemoveSearchIndexesJob.perform_now([resource1, resource2])
 
