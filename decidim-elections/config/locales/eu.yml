@@ -96,6 +96,7 @@ eu:
             start_question_button: Botoa eman daiteke
             title: Emaitzak
           status:
+            allow_census_check_before_start: Parte hartzaileek botoa ematen duten ala ez egiaztatu ahal izango dute aukeraketa hasi aurretik
             census: 'Errolda:'
             results_availability:
               after_end: Emaitzak eskuragarri bozketak amaitu ondoren
@@ -140,6 +141,8 @@ eu:
           publish:
             invalid: Arazo bat egon da hauteskundea argitaratzean.
             success: Hauteskundea zuzen argitaratua.
+          toggle_census_check:
+            error: Akats bat gertatu da errolda egiaztatzean.
           unpublish:
             invalid: Arazo bat egon da hauteskundea despublikatzean.
             success: Hauteskundea zuzen despublikatua.
@@ -182,6 +185,11 @@ eu:
           update: "%{user_name} parte-hartzaileak %{resource_name} hauteskundea eguneratu du %{space_name} espazioan"
         question:
           update: "%{user_name} parte-hartzaileak eguneratu ditu %{resource_name} aukerako galderak"
+      census_checks:
+        show:
+          description: Behin hauteskundeak hasita, bertan bozkatu ahal izango da.
+          exit_button: Exit the census check
+          title: Behar bezala egiaztatu da
       censuses:
         census_ready_html: Erroldako datuak kargatuta daude eta prest daude % <b>%{election_title}{@eleccion_title}</b> bozketan erabiltzeko.
         census_size_html:
@@ -246,6 +254,8 @@ eu:
           title: Aukeraketaren galderak
         show:
           active_voting_until: 'Bozketa aktibo %{end_date} arte'
+          check_census_button: Begiratu ea botoa eman dezakedan
+          check_census_explanation: Hauteskunde hauek oraindik ez dira hasi, baina erroldan sartuta zauden egiazta dezakezu.
           vote_button: Eman babesa
           voted: Bozkatu duzu. Berriz bozkatu dezakezu, zure azken botoa baino ez da kontuan hartuko.
           votes_count:
