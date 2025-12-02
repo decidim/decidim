@@ -1291,8 +1291,10 @@ es:
       action_error: Se ha producido un error al actualizar la configuración de las notificaciones.
       no_notifications: Aún no hay notificaciones.
       show:
+        deleted: El contenido ha sido eliminado por la autora.
         missing_event: Vaya, esta notificación pertenece a un elemento que ya no está disponible. Puedes descartarla.
         moderated: El contenido se ha ocultado mediante la moderación.
+        not_available: Vaya, esta notificación pertenece a un elemento que ya no está disponible. Puedes descartarla.
     notifications_digest_mailer:
       header:
         daily: Resumen diario de notificaciones
