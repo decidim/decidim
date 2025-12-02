@@ -11,6 +11,9 @@ describe Decidim::RemoveSearchIndexesJob do
   let!(:resource1) { create(:proposal, :official, component: proposal_component) }
   let!(:resource2) { create(:proposal, component: proposal_component) }
 
+  let!(:comment) { create(:comment, commentable: resource2) }
+  let!(:nested) { create(:comment, commentable: comment) }
+
   describe "queue" do
     it "is queued to events" do
       expect(subject.queue_name).to eq "default"
@@ -21,25 +24,33 @@ describe Decidim::RemoveSearchIndexesJob do
     it "calls method on resources when component is unpublished" do
       expect(resource1.searchable_resources).not_to be_empty
       expect(resource2.searchable_resources).not_to be_empty
+      expect(comment.searchable_resources).not_to be_empty
+      expect(nested.searchable_resources).not_to be_empty
 
-      proposal_component.unpublish!
-
-      Decidim::RemoveSearchIndexesJob.perform_now([resource1, resource2])
+      perform_enqueued_jobs do
+        Decidim::Admin::UnpublishComponent.call(proposal_component, Decidim::User.first)
+      end
 
       expect(resource1.searchable_resources).to be_empty
       expect(resource2.searchable_resources).to be_empty
+      expect(comment.reload.searchable_resources).to be_empty
+      expect(nested.reload.searchable_resources).to be_empty
     end
 
     it "calls method on resources when participatory_process is unpublished" do
       expect(resource1.searchable_resources).not_to be_empty
       expect(resource2.searchable_resources).not_to be_empty
+      expect(comment.searchable_resources).not_to be_empty
+      expect(nested.searchable_resources).not_to be_empty
 
-      participatory_process.unpublish!
-
-      Decidim::RemoveSearchIndexesJob.perform_now([resource1, resource2])
+      perform_enqueued_jobs do
+        participatory_process.unpublish!
+      end
 
       expect(resource1.searchable_resources).to be_empty
       expect(resource2.searchable_resources).to be_empty
+      expect(comment.reload.searchable_resources).to be_empty
+      expect(nested.reload.searchable_resources).to be_empty
     end
   end
 end
