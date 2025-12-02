@@ -37,9 +37,7 @@ module Decidim
       where(decidim_user_id: user.id)
     end
 
-    def can_participate?(user)
-      resource.can_participate?(user)
-    end
+    delegate :can_participate?, to: :resource
 
     def self.export_serializer
       Decidim::DownloadYourDataSerializers::DownloadYourDataNotificationSerializer
