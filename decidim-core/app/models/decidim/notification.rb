@@ -7,6 +7,8 @@ module Decidim
     belongs_to :resource, foreign_key: "decidim_resource_id", foreign_type: "decidim_resource_type", polymorphic: true
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
 
+    delegate :can_participate?, to: :resource
+
     # Daily notifications should contain all notifications within the previous
     # day from the given day.
     scope :daily, ->(time = Time.now.utc) { where(created_at: (time - 1.day).all_day) }
@@ -35,10 +37,6 @@ module Decidim
 
     def self.user_collection(user)
       where(decidim_user_id: user.id)
-    end
-
-    def can_participate?(user)
-      resource.can_participate?(user)
     end
 
     def self.export_serializer
