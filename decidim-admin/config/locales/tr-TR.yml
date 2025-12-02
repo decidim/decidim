@@ -165,6 +165,7 @@ tr:
   decidim:
     admin:
       actions:
+        actions_label: '%{resource} için işlemler'
         add: Eklemek
         attachment:
           new: Yeni ek
@@ -181,6 +182,7 @@ tr:
           Fikrinizi değiştirirseniz daha sonra yeniden yükleyebilirsiniz.
         export-selection: Seçimi dışa aktar
         import: İçe aktar
+        menu_hidden: Menüden gizle
         newsletter:
           new: Yeni bülten
         participatory_space_private_user:
@@ -281,6 +283,7 @@ tr:
       block_user:
         bulk_new:
           action: Hesapları engelle ve gerekçe gönder.
+          already_reported_html: Bu işleme devam ederek katılımcının tüm içeriklerini de gizleyeceksiniz.
           description: Bir kullanıcıyı engellemek, kullanıcının hesabını kullanılamaz hale getirir. Gerekçenizde engeli kaldırmak için gereken yönergeleri ekleyebilirsiniz.
           justification: Gerekçe
           title: Kullanıcıları engelle
@@ -300,6 +303,7 @@ tr:
         create:
           error: Bu bileşeni oluştururken bir hata oluştu.
           success: Bileşen başarıyla oluşturuldu.
+          success_landing_page: Bileşen başarıyla oluşturuldu. Alanın ana sayfasına bu bileşen için bir içerik engeli ekleyebilirsiniz. Yapılandırmak için <a href="%{landing_page_path}">Ana sayfaya</a> gidiniz.
         edit:
           title: Bileşeni düzenle
           update: Güncelleştirme
@@ -375,6 +379,7 @@ tr:
         form:
           domain_too_short: Alan adı çok kısa
         update:
+          error: İzin verilen harici alan adı listesi güncellenemedi.
           success: İzin verilen harici alan adı listesi başarıyla güncellendi.
       exports:
         export_as: "%{name} olarak %{export_format}"
@@ -433,6 +438,9 @@ tr:
             'true': Yayından kaldırıldı
         remove_all: Tümünü kaldır
         search_label: Arama
+        search_placeholder:
+          name_or_nickname_or_email_cont: '%{collection}''da e-posta, isim veya takma ad ile ara'
+          user_name_or_user_nickname_or_user_email_cont: '%{collection}''da e-posta, isim veya takma ad ile ara'
         state_eq:
           label: Durum
           values:
@@ -452,6 +460,7 @@ tr:
           import_csv:
             explanation: 'Dosya kılavuzu:'
             message_1: CSV dosyaları desteklenmektedir.
+            message_2: "e-posta verileri içeren .csv dosyası"
       help_sections:
         error: Yardım bölümleri güncellenirken bir hata oluştu.
         form:
@@ -506,6 +515,7 @@ tr:
             records:
               detail: Lütfen satırların doğru biçimlendirildiğinden ve geçerli kayıtlar içerdiğinden emin olun.
           missing_headers:
+            detail: Lütfen dosyanın istenen sütunlara sahip olduğundan emin olunuz.
             message:
               one: Eksik sütun %{columns}.
               other: Eksik sütunlar %{columns}.
@@ -518,12 +528,14 @@ tr:
           actions:
             back: Geri
           download_example: Örneği indir
+          download_example_format:
           file_legend: Ayrıştırılmak üzere bir içe aktarma dosyası ekleyin.
           import: İçe aktar
         notice: "%{count} %{resource_name} başarıyla içe aktarıldı."
       logs:
         filters:
           participatory_space: Katılımcı alanı bul
+          text: Kullanıcı e-postası, isim veya kullanıcı adı ile ara
           user: Kullanıcı
         logs_list:
           no_logs_yet: Henüz kayıt yok.
@@ -550,6 +562,7 @@ tr:
         content: Şikayet edilmiş içerik
         external_domain_allowlist: İzin verilen harici alan adları
         help_sections: Yardım bölümleri
+        homepage: Ana sayfa düzeni
         impersonations: impersonations
         manage: yönetme
         moderation: Küresel denetimler
@@ -683,6 +696,9 @@ tr:
             report_language: Rapor dili
             report_reason: Nedeni
             title: Rapor ayrıntıları
+      new_import:
+        accepted_mime_types:
+          json: JSON
       newsletter_templates:
         index:
           preview_template: Ön izleme
@@ -768,6 +784,7 @@ tr:
           officialized: resmileştirilmiş
           reofficialize: Reofficialize
           reports: Raporlar
+          send_message: Mesaj Gönder
           status: durum
           unofficialize: Unofficialize
         new:
@@ -789,9 +806,16 @@ tr:
           title: Kuruluş düzenle
           update: Güncelleştirme
         form:
+          colors:
+            colors_title: Organizasyon renkleri
+            colors_warning_html: Uyarı! Bu renkleri değiştirmek renk kontrastını bozabilir. Seçtiğiniz kontrastı veya diğer benzer araçları <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a>'dan kontrol edebilirsiniz.
+            explanation: Bu araç organizasyonun web sitesinde kullanılacak renk paletinde eşit aralıklarla yerleştirilmiş tonlardan oluşan bir renk düzeni seçmenize yardımcı olur.
+          extra_features: İlave özellikler
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          logos:
+            organization_logos: Organizasyon logoları
           rich_text_editor_in_public_views_help: Bazı metin alanlarında, katılımcılar zengin metin düzenleyicisini kullanarak HTML etiketleri ekleyebilecekler.
           social_handlers: Sosyal
           twitter: x
@@ -829,11 +853,18 @@ tr:
         new:
           create: yaratmak
           title: Yeni Katılımcı Uzay özel kullanıcısı.
+        publish_all:
+          success: Bu katılımcı alan için özel katılımcılar başarıyla yayınlandı
       participatory_space_private_users_csv_imports:
+        create:
+          success: CSV dosyası başarıyla yüklendi, katılımcılara bir davet e-postası gönderiyoruz. Bu biraz zaman alabilir.
         new:
           csv_upload:
             title: CSV dosyanızı yükleyin
           destroy:
+            button: Tüm özel kullanıcıları sil
+            confirm: Tüm özel kullanıcıları silmek istediğinizden emin misiniz? Bu işlem geri alınamaz, silinen katılımcıları geri yükleyemeyeceksiniz.
+            empty: Özel kullanıcınız yok.
             title: Özel Kullanıcıları kaldır
           example_file: 'Örnek dosya:'
           upload: Yükle
