@@ -26,7 +26,7 @@ describe "Participatory Process Breadcrumb" do
       end
     end
 
-    scenario "shows breadcrumb with only participatory process" do
+    scenario "shows breadcrumb with participatory process group and participatory process" do
       visit decidim_participatory_processes.participatory_process_path(participatory_space)
 
       within ".menu-bar" do
@@ -36,7 +36,7 @@ describe "Participatory Process Breadcrumb" do
       end
     end
 
-    scenario "shows breadcrumb with participatory process and component" do
+    scenario "shows breadcrumb with participatory process group, participatory process and component" do
       visit router.root_path
 
       within ".menu-bar" do
