@@ -13,7 +13,7 @@ describe "Participatory Process Breadcrumb" do
     switch_to_host(organization.host)
   end
 
-  context "when there is no participatory process groups" do
+  context "when there are no participatory process groups" do
     let!(:participatory_process_group) { create(:participatory_process_group, :with_participatory_processes, organization:) }
     let(:participatory_space) { participatory_process_group.participatory_processes.first }
 
