@@ -37,8 +37,20 @@ module Decidim
       where(decidim_user_id: user.id)
     end
 
+    def can_participate?(user)
+      resource.can_participate?(user)
+    end
+
     def self.export_serializer
       Decidim::DownloadYourDataSerializers::DownloadYourDataNotificationSerializer
+    end
+
+    def hidden_resource?
+      event_class_instance.respond_to?(:hidden_resource?) && event_class_instance.hidden_resource?
+    end
+
+    def deleted_resource?
+      event_class_instance.respond_to?(:deleted_resource?) && event_class_instance.deleted_resource?
     end
   end
 end

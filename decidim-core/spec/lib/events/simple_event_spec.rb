@@ -41,5 +41,24 @@ module Decidim
         end
       end
     end
+
+    describe "deleted_resource?" do
+      context "when resource is not moderated" do
+        let(:resource) { create(:dummy_resource, title: { en: "<script>alert('Hey');</script>" }) }
+
+        it "returns false" do
+          expect(subject.deleted_resource?).to be false
+        end
+      end
+
+      context "when resource is moderated" do
+        let(:resource) { create(:dummy_resource, title: { en: "<script>alert('Hey');</script>" }) }
+
+        it "returns false" do
+          resource.destroy!
+          expect(subject.deleted_resource?).to be true
+        end
+      end
+    end
   end
 end
