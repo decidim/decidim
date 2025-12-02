@@ -48,6 +48,17 @@ fi-pl:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Uusi kysely kohteessa %{participatory_space_title}
           notification_title: Kysely <a href="%{resource_path}">%{resource_title}</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a> on nyt auki.
+    open_data:
+      help:
+        published_survey_user_responses:
+          body: Vastauksen sisältö
+          created_at: Vastauksen luontiaika
+          id: Kyselyvastausten yksilöllinen tunniste
+          ip_hash: Vastaajan IP-osoitteen tarkistemerkkijono (IP-osoitetta ei esitetä osallistujien yksityisyyden parantamiseksi)
+          question: Kysymys, johon vastattiin
+          registered: Rekisteröitynyt osallistuja
+          unregistered: Rekisteröimätön osallistuja
+          user_status: Vastaajan käyttäjätilin tila
     statistics:
       responses: 'Vastaukset:'
       responses_count: Vastauksia

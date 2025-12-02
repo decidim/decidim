@@ -1,4 +1,4 @@
-# Decidim::Initiatives
+# decidim-initiatives
 
 Initiatives is the place on Decidim's where participants can promote an initiative. Unlike
 participatory processes that must be created by an administrator, initiatives can be
@@ -18,19 +18,15 @@ This plugin provides:
 
 * Public views for initiatives via a high level section in the main menu.
 
+You can see the documentation of this feature at the [Decidim Documentation](https://docs.decidim.org/en/develop/admin/spaces/initiatives).
+
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'decidim-initiatives'
-```
-
-And then execute:
+To install this module, run in your console:
 
 ```bash
-bundle
-bundle exec rails decidim_initiatives:install:migrations
+bundle add decidim-initiatives
+bundle exec rails decidim:upgrade
 bundle exec rails db:migrate
 ```
 

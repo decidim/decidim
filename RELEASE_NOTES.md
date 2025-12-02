@@ -143,7 +143,13 @@ bin/rails decidim:upgrade:fix_deleted_private_follows
 
 You can read more about this change on PR [#12878](https://github.com/decidim/decidim/pull/12878).
 
-### 3.4. [[TITLE OF THE ACTION]]
+### 3.4. webpack-dev-server upgrade
+
+Back in [#15534](https://github.com/decidim/decidim/pull/15534) we upgraded webpack-dev-server to version 5.2.2. In order to successfully upgrade you need to edit your `config/shakapacker.yml` and remove the `https` option under `dev_server` key.
+
+You can read more about this change on PR [#15534](https://github.com/decidim/decidim/pull/15534), [#15674](https://github.com/decidim/decidim/pull/15674).
+
+### 3.5. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 

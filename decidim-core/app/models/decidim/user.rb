@@ -153,6 +153,10 @@ module Decidim
       deleted_at.present?
     end
 
+    def can_participate?(_user)
+      true
+    end
+
     # Public: whether the user has been officialized or not
     def officialized?
       !officialized_at.nil?

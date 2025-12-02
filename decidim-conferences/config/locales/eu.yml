@@ -622,6 +622,7 @@ eu:
     open_data:
       help:
         conferences:
+          component_settings: Konferentzia-espazioaren osagaien konfigurazioa
           created_at: Zein datatan sortu da jardunaldi hau
           decidim_scope_id: Jardunaldiaren esparrua
           description: Jardunaldiaren deskribapen luzea

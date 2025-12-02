@@ -514,12 +514,9 @@ id:
           proposals_explanation: Buat proposal, dukung yang sudah ada dan promosikan perubahan yang ingin Anda lihat.
         footer_sub_hero:
           footer_sub_hero_headline: Selamat datang di %{organization} platform partisipatif.
-          register: Daftar
         hero:
           participate: Ikut
           welcome: Selamat datang di %{organization}!
-        sub_hero:
-          register: Daftar
       index:
         standalone_pages: Halaman
         subheading: Menavigasi melalui halaman bantuan %{name}

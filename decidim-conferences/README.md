@@ -1,7 +1,6 @@
-# Decidim::Conferences
+# decidim-conferences
 
-Conferences are the permanent Decidim's participatory space. They are always
-"active" so unlike participatory processes, they have no steps or phases.
+Conferences are the permanent Decidim's participatory space.
 
 A conference can get different components (such as blogs or proposals) attached.
 It can also have attachments, be associated to custom categories or scopes, and
@@ -15,19 +14,15 @@ This module provides:
 
 * Public views for conference via a high level section in the main menu.
 
+You can see the documentation of this feature at the [Decidim Documentation](https://docs.decidim.org/en/develop/admin/spaces/conferences).
+
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'decidim-conferences'
-```
-
-And then execute:
+To install this module, run in your console:
 
 ```bash
-bundle
-bundle exec rails decidim_conferences:install:migrations
+bundle add decidim-conferences
+bundle exec rails decidim:upgrade
 bundle exec rails db:migrate
 ```
 

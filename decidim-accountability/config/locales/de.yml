@@ -294,6 +294,7 @@ de:
       accountability:
         actions:
           comment: Kommentieren
+          vote_comment: Kommentar bewerten
         name: Rechenschaftspflicht
         settings:
           global:

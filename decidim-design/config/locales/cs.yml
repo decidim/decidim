@@ -251,8 +251,6 @@ cs:
         share_button: Tlačítko Sdílet
         share_usage_description_html: Ujistěte se, že v DOM je přítomen částečný <code>decidim/shared/share_modal</code>. Tato část je umístěna do rozvržení aplikace.
         sizes: Velikosti
-        sortition_l: sortition_l
-        sortitions: Losování
         source_code: Zdrojový kód
         state: Stav
         tab_panels_context_description: Tato komponenta panelů shromažďuje veškerý související obsah nebo jiné zdroje hlavního zobrazeného prvku, aby se ušetřil svislý prostor. Kliknutím na kartu se aktivuje vytvořený panel pro zobrazení obsahu.

@@ -782,7 +782,7 @@ es:
           reason: Los motivos de este informe de moderación
           updated_at: La fecha y hora de la última actualización de este informe de moderación
         users:
-          about: La biografía de esta usuaria
+          about: La descripción del perfil de esta participante
           accepted_tos_version: La fecha en que la usuaria aceptó los Términos y Condiciones de uso de esta plataforma
           admin: Si esta usuaria es una administradora
           confirmation_sent_at: La fecha y hora en que se envió la confirmación
@@ -806,7 +806,7 @@ es:
           locale: La configuración regional (idioma) que ha seleccionado esta usuaria
           managed: Si se trata de una cuenta de usuaria gestionada (impersonada) o no
           name: El nombre de usuaria de la usuaria
-          newsletter_notifications_at: La fecha y hora cuando esta usuaria recibió un boletín informativo por última vez
+          newsletter_notifications_at: La fecha y hora cuando esta usuaria se suscribió para recibir el boletín informativo
           nickname: El alias de la usuaria
           notification_settings: Los ajustes de notificación que ha seleccionado esta usuaria
           notifications_sending_frequency: La frecuencia con la que esta usuaria recibe las notificaciones
@@ -848,7 +848,7 @@ es:
       files:
         file_cannot_be_processed: No se ha podido procesar el archivo
         file_resolution_too_large: La resolución del archivo es demasiado grande
-        not_inside_organization: El archivo no está relacionado con ninguna organización
+        not_inside_organization: El archivo no está vinculado a ninguna organización.
       internal_server_error:
         copied: '¡Texto copiado!'
         copy_error_message_clarification: Mensaje de error copiado al portapapeles
@@ -1288,11 +1288,11 @@ es:
         same_language: El contenido ha sido publicado en tu idioma preferido (%{language}), por eso no se muestra ninguna traducción automática en este correo electrónico.
         translated_text: 'Texto traducido automáticamente:'
     notifications:
-      action_error: Se ha producido un error al actualizar las notificaciones.
+      action_error: Se ha producido un error al actualizar la configuración de las notificaciones.
       no_notifications: Aún no hay notificaciones.
       show:
         missing_event: Vaya, esta notificación pertenece a un elemento que ya no está disponible. Puedes descartarla.
-        moderated: Contenido moderado
+        moderated: El contenido se ha ocultado mediante la moderación.
     notifications_digest_mailer:
       header:
         daily: Resumen diario de notificaciones
@@ -1444,9 +1444,9 @@ es:
           title: Cómo abrir y trabajar con estos archivos
         license:
           body_1_html: Esta base de datos de "%{organization_name}" está disponible bajo %{link_database}. Cualquier derecho sobre los contenidos individuales de la base de datos está bajo la licencia %{link_contents}.
-          license_contents_link: https://opendatacommons.org/licenses/dbcl/1-0/
+          license_contents_link: https://opendatacommons.org/licenses/dbcl/1.0/
           license_contents_name: Licencia de los contenidos en la base de datos
-          license_database_link: https://opendatacommons.org/licenses/odbl/1-0/
+          license_database_link: https://opendatacommons.org/licenses/odbl/1.0/
           license_database_name: Licencia Abierta para bases de datos
           title: Licencia
         title: Datos abiertos
@@ -1469,7 +1469,7 @@ es:
         footer_sub_hero:
           footer_sub_hero_body_html: Construyamos una sociedad más abierta, transparente y colaborativa. <br /> Únete, participa y decide.
           footer_sub_hero_headline: Bienvenida a la plataforma participativa %{organization}.
-          register: Regístrate
+          register: Crear una cuenta
         hero:
           participate: Participa
           participate_title: Participa en los procesos de la plataforma
@@ -1477,7 +1477,7 @@ es:
         statistics:
           headline: Estadísticas
         sub_hero:
-          register: Regístrate
+          register: Crear una cuenta
           register_title: Crea una cuenta
       index:
         standalone_pages: Páginas

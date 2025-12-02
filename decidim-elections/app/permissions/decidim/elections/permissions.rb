@@ -10,6 +10,7 @@ module Decidim
 
         allowed_election_action?
         allowed_vote_action?
+        allowed_census_check_action?
 
         permission_action
       end
@@ -35,6 +36,18 @@ module Decidim
         case permission_action.action
         when :create
           allow! if election.present? && election.published? && election.ongoing?
+        end
+      end
+
+      def allowed_census_check_action?
+        return unless permission_action.subject == :census_check
+
+        case permission_action.action
+        when :create, :read
+          return unless election.present? && election.census_ready?
+
+          allow! if !election.published? && user&.admin?
+          allow! if election.scheduled? && election.allow_census_check_before_start
         end
       end
     end
