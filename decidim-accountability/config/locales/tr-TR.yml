@@ -20,6 +20,7 @@ tr:
         progress: İlerleme
       timeline_entry:
         description: Açıklama
+        entry_date: Tarih
         title: Başlık
     models:
       decidim/accountability/proposal_linked_event: Teklif bir sonuca dahil edildi
@@ -141,6 +142,7 @@ tr:
             invalid: Sonuçlar %{results} için sınıflandırmalar %{taxonomies} seçilemiyor
             select_a_result: Bir sonuç seç
             select_a_taxonomy: Bir sınıflandırma seç
+            success: '%{results} için sınıflandırmalar %{taxonomies} başarıyla güncellendi'
         shared:
           subnav:
             statuses: durumlar
@@ -182,6 +184,7 @@ tr:
         result:
           create: "%{user_name} sonuç yaratmıştır %{resource_name} içinde %{space_name}"
           delete: "%{user_name} %{resource_name} sonuçtan %{space_name}sildi"
+          restore: "%{user_name}, %{space_name}'deki %{resource_name} sonucunu geri yükledi"
           update: "%{user_name} güncellenen sonuç %{resource_name} in %{space_name}"
         status:
           create: "48 / 5.000\nÇeviri sonuçları\nÇeviri sonucu\n%{user_name}, %{resource_name} kaydını oluşturdu"
@@ -197,6 +200,8 @@ tr:
       content_blocks:
         highlighted_results:
           results: Sonuç
+      creation:
+        text: Bu sonuç eklendi
       import_mailer:
         import:
           errors: Hatalar
@@ -206,8 +211,18 @@ tr:
           success: Sonuçların içe aktarılması başarılı. Sonuçları yönetim arayüzünde inceleyebilirsiniz.
       import_projects_mailer:
         import:
+          added_projects:
+            one: Projelerden bir sonuç içe aktarıldı.
+            other: "%{count} sonuç projelerden içe aktarıldı."
           subject: Projeler başarıyla aktarılmıştır
           success: '%{component_name} bileşenindekiprojeler başarıyla aktarılmıştır. Sonuçları yönetim arayüzünde inceleyebilirsiniz.'
+      import_proposals_mailer:
+        import:
+          added_proposals:
+            one: Tekliflerden bir sonuç içe aktarıldı
+            other: "%{count} sonuç tekliflerden içe aktarıldı."
+          subject: Tekliflerin içe aktarımı başarılı
+          success: Teklifler %{component_name} bileşenindeki sonuçlara başarıyla aktarılmıştır. Sonuçları yönetim arayüzünde inceleyebilirsiniz.
       last_activity:
         new_result: 'Yeni sonuç:'
       models:
@@ -228,6 +243,7 @@ tr:
             progress: İlerleme
         timeline_entry:
           fields:
+            entry_date: Tarih
             title: Başlık
       results:
         count:
@@ -259,12 +275,19 @@ tr:
         name: Sorumluluk
         settings:
           global:
+            clear_all: Tümünü sil
             comments_enabled: Yorumlar etkin
             comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
+            define_taxonomy_filters: Bu ayarı kullanmadan önce lütfen bu katılımcı alan için bazı filtreler tanımlayın.
             display_progress_enabled: İlerlemeyi göster
             intro: Tanıtım
+            no_taxonomy_filters_found: Sınıflandırma filtresi bulunamadı.
+            taxonomy_filters_add: Filtre ekle
           step:
             comments_blocked: Yorumlar engellendi
+    download_your_data:
+      show:
+        result_comments: Sonuç yorumlarını dışa aktar
     events:
       accountability:
         proposal_linked:
