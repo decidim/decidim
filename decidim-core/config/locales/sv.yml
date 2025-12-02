@@ -1212,8 +1212,10 @@ sv:
       action_error: Det gick inte att uppdatera inställningen för meddelanden.
       no_notifications: Inga meddelanden ännu.
       show:
+        deleted: Innehållet har tagits bort av författaren.
         missing_event: Hoppsan, det här meddelandet tillhör ett objekt som inte längre är tillgängligt. Du kan kasta det.
         moderated: Innehållet har dolts av moderator.
+        not_available: Hoppsan, det här meddelandet tillhör ett objekt som inte längre är tillgängligt. Du kan kasta det.
     notifications_digest_mailer:
       header:
         daily: Dagligt sammandrag
