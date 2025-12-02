@@ -89,4 +89,22 @@ describe Decidim::Accountability::ProposalLinkedEvent do
       end
     end
   end
+
+  describe "deleted_resource?" do
+    context "when resource is not moderated" do
+      let(:resource) { create(:proposal) }
+
+      it "returns false" do
+        expect(subject.deleted_resource?).to be false
+      end
+    end
+
+    context "when resource is moderated" do
+      let(:resource) { create(:proposal, deleted_at: Time.zone.now) }
+
+      it "returns true" do
+        expect(subject.deleted_resource?).to be true
+      end
+    end
+  end
 end
