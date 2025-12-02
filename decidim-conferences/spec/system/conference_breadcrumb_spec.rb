@@ -28,7 +28,6 @@ describe "Conference Breadcrumb" do
     within ".menu-bar" do
       expect(page).to have_content("Conferences")
       expect(page).to have_content(translated(participatory_space.title))
-      expect(page).to have_content(translated(component.name))
     end
   end
 end

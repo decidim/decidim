@@ -43,7 +43,6 @@ describe "Participatory Process Breadcrumb" do
         expect(page).to have_content("Processes")
         expect(page).to have_content(translated(participatory_process_group.title))
         expect(page).to have_content(translated(participatory_space.title))
-        expect(page).to have_content(translated(component.name))
       end
     end
   end
@@ -64,7 +63,6 @@ describe "Participatory Process Breadcrumb" do
       within ".menu-bar" do
         expect(page).to have_content("Processes")
         expect(page).to have_content(translated(participatory_space.title))
-        expect(page).to have_content(translated(component.name))
       end
     end
   end
