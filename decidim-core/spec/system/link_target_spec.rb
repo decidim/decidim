@@ -30,13 +30,13 @@ describe "Admin editor link target remains" do
       link_button.click
       send_keys("https://decidim.org")
     end
-    
+
     within "[data-dialog][aria-hidden='false']" do
       find("button[data-action='save']").click
     end
     click_button "Update"
     expect(page).to have_content("The component was updated successfully")
-    
+
     # modifying content
     visit decidim_admin_participatory_processes.edit_component_path(participatory_process, component)
     within ".global-settings" do
@@ -48,7 +48,7 @@ describe "Admin editor link target remains" do
     end
     click_button "Update"
     expect(page).to have_content("The component was updated successfully")
-    
+
     # checking link is still in same tab
     visit decidim_admin_participatory_processes.edit_component_path(participatory_process, component)
     announcement_editor = first(".editor-container[data-options*='admin']")
@@ -56,8 +56,7 @@ describe "Admin editor link target remains" do
     editor_input.click
     page.execute_script("window.getSelection().selectAllChildren(arguments[0].firstChild)", editor_input)
     within "[data-linkbubble-actions]" do
-      find("button", text: "Edit").click
-      sleep 1
+      click_button "Edit"
     end
     expect(page).to have_text("Default (same tab)")
   end
