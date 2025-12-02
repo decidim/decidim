@@ -17,13 +17,30 @@ module Decidim
         # Note that this could be improved by adding a "type" column to the notifications table
         # This fix can generate lists of notifications that are below the SIZE_LIMIT
         @notifications = notifications[0...SIZE_LIMIT].filter_map do |notification|
+          # Check if is a notification that can be sent on email
           next unless notification.event_class_instance.respond_to?(:email_intro)
+          # checks if the resource exists, as we have implemented the possibility of soft deleting resources
+          next unless resource_is_present?(notification)
+          # checks if the resource is visible
+          next unless notification.can_participate?(@user)
+          # It usually checks if the resource is reportable and is not hidden, however, there are some exceptions
+          # like in the comments, where we check if the resource and intended comment is visible.
+          next if notification.hidden_resource?
+          # It usually checks if the resource is deletable and is not deleted, however, there are some exceptions
+          # like in the comments, where we check if the resource and intended comment is visible.
+          next if notification.deleted_resource?
 
           Decidim::NotificationToMailerPresenter.new(notification)
         end
 
-        mail(to: user.email, subject: @notifications_digest.subject)
+        mail(to: user.email, subject: @notifications_digest.subject) if @notifications.any?
       end
+    end
+
+    private
+
+    def resource_is_present?(notification)
+      notification.resource
     end
   end
 end

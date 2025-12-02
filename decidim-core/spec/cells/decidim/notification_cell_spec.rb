@@ -44,6 +44,18 @@ describe Decidim::NotificationCell, type: :cell do
     end
   end
 
+  context "when resource is deleted" do
+    let!(:resource) { create(:dummy_resource, component:) }
+
+    before do
+      resource.destroy
+    end
+
+    it "does not render the resource" do
+      expect(subject.to_s).to include("Content has been deleted by the author.")
+    end
+  end
+
   describe "#action_cell" do
     before do
       allow(notification.event_class_instance).to receive(:action_cell).and_return(action_cell)
