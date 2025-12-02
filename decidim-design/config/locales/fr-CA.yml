@@ -254,8 +254,6 @@ fr-CA:
         share_button: Bouton de partage
         share_usage_description_html: Assurez-vous que le partial <code>decidim/shared/share_modal</code> est présent dans le DOM. Ce partial est placé dans le layout de l'application.
         sizes: Tailles
-        sortition_l: Tirage au sort L
-        sortitions: Tirages au sort
         source_code: Code source
         state: État
         tab_panels_context_description: Ce composant d'onglets rassemble tous les contenus liés ou une autre ressource de l'élément principal affiché, afin d'économiser de l'espace. Cliquer sur l'onglet activera le panneau créé pour afficher le contenu.

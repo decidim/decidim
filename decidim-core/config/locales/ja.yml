@@ -742,7 +742,6 @@ ja:
           created_at: この会話の作成日時
           id: この会話の固有ID
           messages: この会話のメッセージ
-          updated_at: この会話の最終更新日時
         notifications:
           created_at: 通知の作成日時
           event_class: 通知をトリガーしたイベントのクラス
@@ -767,7 +766,6 @@ ja:
           reason: レポートの理由
           updated_at: レポートの最終更新日時
         users:
-          about: ユーザーの説明
           accepted_tos_version: プラットフォームの利用規約がユーザーに承諾された日時
           admin: このユーザーが管理者であるかどうか
           confirmation_sent_at: 確認の送信日時
@@ -778,7 +776,6 @@ ja:
           delete_reason: このユーザーの削除理由
           deleted_at: このユーザーの削除日時
           email: このユーザーのメールアドレス
-          followers_count: このユーザーをフォローしている参加者の数
           following_count: このユーザーがフォローしている参加者数
           id: ユーザーの固有ID
           invitation_accepted_at: 招待の承認日時
@@ -786,16 +783,12 @@ ja:
           invitation_sent_at: 招待の送信日時
           invitations_count: このユーザーに送信された招待の数
           invited_by: このユーザーを招待したユーザー
-          last_sign_in_at: 最終ログイン日時
-          last_sign_in_ip: 最後のログインのIPアドレス
           locale: このユーザーが選択したロケール（言語）
           managed: このユーザーが別のユーザーによって管理されているかどうか
           name: ユーザー名
-          newsletter_notifications_at: このユーザーが最後にニュースレターを受信した日時
           nickname: ユーザーのニックネーム
           notification_settings: このユーザーが選択した通知設定
           notifications_sending_frequency: このユーザーが受け取る通知の頻度
-          officialized_as: 正式名称（参事官、市長等）
           officialized_at: このユーザーの公式化日時
           organization: このユーザーが所属する組織
           password_updated_at: パスワードの最終更新日時
@@ -833,7 +826,6 @@ ja:
       files:
         file_cannot_be_processed: ファイルを処理できません
         file_resolution_too_large: ファイルの解像度が大きすぎます
-        not_inside_organization: ファイルがどの組織にも属していません
       internal_server_error:
         copied: テキストをコピーしました
         copy_error_message_clarification: エラーメッセージをクリップボードにコピー
@@ -1030,7 +1022,6 @@ ja:
         file:
           explanation: 'ファイルのガイダンス:'
           message_1: 画像またはドキュメントである必要があります。
-          message_2: 画像の場合、文字の入っていない横長の画像が望ましいです。サービス側で画像をトリミングします。
         icon:
           explanation: 'アイコンのガイド:'
           message_1: 正方形の画像でなければなりません。
@@ -1272,11 +1263,9 @@ ja:
         same_language: コンテンツはあなたの設定された言語(%{language}) で投稿されました。このため、このメールには自動翻訳は表示されません。
         translated_text: '自動翻訳されたテキスト:'
     notifications:
-      action_error: 通知の更新中に問題が発生しました。
       no_notifications: まだ通知はありません。
       show:
         missing_event: この通知は利用できなくなった要素に属しています。破棄してください。
-        moderated: モデレートされたコンテンツ
     notifications_digest_mailer:
       header:
         daily: 日次の通知のダイジェスト
@@ -1285,7 +1274,6 @@ ja:
       hello: こんにちは %{name} さん、
       intro:
         daily: 'あなたがフォローしているアクティビティに基づいた最終日以降の通知です:'
-        real_time: 'あなたがフォローしているアクティビティに基づいた通知です:'
         weekly: 'あなたがフォローしているアクティビティに基づいた先週以降の通知です:'
       outro: このコンテンツまたは著者をフォローしているため、これらの通知を受け取りました。それぞれのページからフォローを解除できます。
       see_more: 他の通知を見る
@@ -1427,9 +1415,7 @@ ja:
           title: これらのファイルを開いて操作する方法
         license:
           body_1_html: この %{organization_name} データベースは、 %{link_database} の下で利用可能になります。データベースの個々のコンテンツの権利は、 %{link_contents} の下でライセンスされます。
-          license_contents_link: http://opendatacommons.org/licenses/dbcl/1.0/
           license_contents_name: Database Contents License
-          license_database_link: http://opendatacommons.org/licenses/odbl/1.0/
           license_database_name: Open Database License
           title: ライセンス
         title: オープンデータ
@@ -1452,7 +1438,6 @@ ja:
         footer_sub_hero:
           footer_sub_hero_body_html: より開かれた透明性のあるコラボレーティブな社会を構築しましょう。<br /> 一緒に参加し、決定しましょう。
           footer_sub_hero_headline: '%{organization} 参加型プラットフォームへようこそ。'
-          register: 登録
         hero:
           participate: 参加
           participate_title: プラットフォームのプロセスに参加する
@@ -1460,7 +1445,6 @@ ja:
         statistics:
           headline: 統計情報
         sub_hero:
-          register: 登録
           register_title: アカウントを作成
       index:
         standalone_pages: ページ
@@ -2108,8 +2092,6 @@ ja:
         expire_time_html: このログインセッションは <b><span data-impersonation-warning-target="minutes">%{minutes}</span> 分後に無効になります。</b>。
       language_chooser:
         choose_language: 言語を選択
-      navigation:
-        aria_label: 'ナビゲーションメニュー: %{title}'
       notifications_dashboard:
         mark_all_as_read: すべての通知を削除する
         mark_as_read: 既読にする

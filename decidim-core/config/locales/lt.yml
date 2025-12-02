@@ -1060,13 +1060,10 @@ lt:
           proposals_explanation: Teikite pasiūlymus, remkite esamus ir skatinkite pakeitimus, kuriuos norite matyti.
         footer_sub_hero:
           footer_sub_hero_headline: Sveiki atvykę į %{organization} dalyvavimo platformą.
-          register: Registruotis
         hero:
           participate: Dalyvauti
           participate_title: Dalyvauti platformos procesuose
           welcome: Sveiki atvykę į %{organization}!
-        sub_hero:
-          register: Registruotis
       index:
         standalone_pages: Puslapiai
         subheading: Naršyti %{name} pagalbos puslapiuose

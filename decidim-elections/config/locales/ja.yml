@@ -196,9 +196,6 @@ ja:
           authorization_options_invalid: 残念ながら、必要なすべての権限を持っていても、今回の選挙では一部の権限が有効ではありません。
           exit_button: 投票ブースを出る
           invalid: この選挙で投票する権限がありません。
-          missing: ユーザーには必要な権限が逃しています。情報を確認してから、もう一度やり直してください。
-          not_authorized: '"%{adapter}" 認証が必要な条件に一致しません。'
-          not_granted: '"%{adapter}" 認証は許可されていません。'
           resume_with_method: '%{name} で本人確認を再開'
           verify_with_method: '%{name} で本人確認する'
         token_csv:

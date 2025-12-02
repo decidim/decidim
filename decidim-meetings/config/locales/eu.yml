@@ -150,7 +150,7 @@ eu:
         cannot_close_meetings: Ezin da topaketa hau itxi parte-hartzaile batek sortu baitu
         cannot_duplicate_meetings: Ezin da topaketa hau bikoiztu parte-hartzaile batek sortu baitu
         cannot_edit_meetings: Ezin da topketa hau editatu parte-hartzaile batek sortu baitu
-        cannot_manage_agenda_meetings: Ezin da erabili agenda topaketa honetan parte-hartzaile batek sortu baitu
+        cannot_manage_agenda_meetings: Ezin da gai-zerrenda kudeatu bilera honetan, parte-hartzaile batek sortu baitu
         cannot_manage_attachments_meetings: Ez da erabili eranskirik topaketa honetan parte-hartzaile batek sortu baitu
         cannot_manage_poll_meetings: Ezin da erabili inkestarik topaketa honetan parte-hartzaile batek sortu baitu
         cannot_manage_registrations_meetings: Ezin da erabili erregistrorik topaketa honetan parte-hartzaile batek sortu baitu, erregistroak desgaituak ditu edo kanpokoak dira
@@ -162,6 +162,7 @@ eu:
           comment: Iruzkina
           join: Hartu parte
           reply_poll: Erantzun inkesta
+          vote_comment: Bozkatu iruzkina
         name: Topaketak
         settings:
           global:
@@ -282,7 +283,7 @@ eu:
           unearned_own: Oraindik ez zara topaketa batere ere joan.
     meetings:
       actions:
-        agenda: Agenda
+        agenda: Gai zerrenda
         close: Itxi
         confirm_delete_meeting: Ziur zaude topaketa hau ezabatu nahi duzula?
         confirm_unpublish_meeting: Ziur zaude topaketa hau despublikatu nahi duzula?
@@ -302,34 +303,34 @@ eu:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Gehitu agendan azpi-item bat
-            agenda_item: Agenda-itema
-            agenda_item_children: Agendako azpi-itemak
+            add_agenda_item_child: Gai-zerrendan azpi-gai bat gehitu
+            agenda_item: Gai zerrendaren gaia
+            agenda_item_children: Gai zerrenda azpi gaiak
             down: Behera
             remove: Kendu
             up: Gora
           agenda_item_child:
-            agenda_item_child: Agendako azpi-itema
+            agenda_item_child: Gai zerrenda azpi-gaia
             down: Behera
             remove: Kendu
             up: Gora
           create:
-            invalid: Arazo bat egon da agenda hau sortzean.
-            success: Agenda ondo sortua.
+            invalid: Arazo bat egon da gai-zerrenda hau sortzean.
+            success: Gai-zerrenda ondo sortua.
           edit:
-            title: Agenda editau
+            title: Gai zerrenda editatu
             update: Eguneratu
           form:
-            add_agenda_item: Gehitu agendako itema
-            agenda_items: Agenda-itemak
+            add_agenda_item: Gai zerrendarn gai berria
+            agenda_items: Gai zerrendaren gaiak
             end_date: Amaiera-data
             start_date: Hasiera-data
           new:
             create: Sortu
-            title: Beste agenda bat
+            title: Beste gai zerrenda bat
           update:
-            invalid: Arazo bat egon da agenda hau eguneratzean.
-            success: Agenda ondo eguneratua.
+            invalid: Arazo bat egon da gai-zerrendaa hau eguneratzean.
+            success: Gai-zerrenda ondo eguneratua.
         deprecation_warning_polls_html: "⚠️<b>Deprezazioaren oharra.<b> Inkesten ezaugarria etorkizuneko bertsio batean ezabatuko da (zehazteke). Bilera-inkestak erabiltzen dituzten erakundeek pentsatu behar dute kanpoko hauteskunde-tresnak erabiltzea (adibidez, Jitsiren bidez) edo Decidimen dauden beste bozketa-mekanismoetara migratzea, hala nola Hauteskundeen modulu berrira (hauteskunde sindikalak)."
         exports:
           meeting_comments: Iruzkinak

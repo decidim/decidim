@@ -334,6 +334,7 @@ fr-CA:
     open_data:
       help:
         participatory_processes:
+          component_settings: Les paramètres de fonctionnalité de la concertation
           updated_at: La dernière date de mise à jour de cet espace
           url: L'URL de l'espace
     participatory_process_groups:

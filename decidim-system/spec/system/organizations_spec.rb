@@ -228,6 +228,70 @@ describe "Organizations" do
           expect(page).to have_no_field(:update_organization_header_snippets)
         end
       end
+
+      context "when there are more than 4 locales available" do
+        let(:available_locales) { %w(en ca es fr it) }
+        let(:organization_names) do
+          {
+            en: "English Organization Name",
+            ca: "Nom de l'organització en català",
+            es: "Nombre de la organización en español",
+            fr: "Nom de l'organisation en français",
+            it: "Nome dell'organizzazione in italiano"
+          }
+        end
+
+        before do
+          I18n.available_locales = available_locales
+          Decidim.available_locales = available_locales
+          I18n.backend.reload!
+
+          Decidim::System.send(:remove_const, :BaseOrganizationForm)
+          Decidim::System.send(:remove_const, :UpdateOrganizationForm)
+          load "#{Decidim::System::Engine.root}/app/forms/decidim/system/base_organization_form.rb"
+          load "#{Decidim::System::Engine.root}/app/forms/decidim/system/update_organization_form.rb"
+
+          organization.update!(available_locales:, name: organization_names)
+          click_on "Organizations"
+          within "table tbody" do
+            first("tr").click_on "Edit"
+          end
+        end
+
+        after do
+          I18n.available_locales = %w(en ca es)
+          Decidim.available_locales = %w(en ca es)
+          I18n.backend.reload!
+
+          Decidim::System.send(:remove_const, :BaseOrganizationForm)
+          Decidim::System.send(:remove_const, :UpdateOrganizationForm)
+          load "#{Decidim::System::Engine.root}/app/forms/decidim/system/base_organization_form.rb"
+          load "#{Decidim::System::Engine.root}/app/forms/decidim/system/update_organization_form.rb"
+        end
+
+        it "renders a dropdown for the language selector and switches between languages" do
+          expect(page).to have_select("update_organization-name-tabs")
+
+          expect(page).to have_css("#update_organization_name_en", visible: :visible)
+          expect(page).to have_field("update_organization_name_en", with: organization_names[:en])
+
+          select "Català", from: "update_organization-name-tabs"
+          expect(page).to have_css("#update_organization_name_ca", visible: :visible)
+          expect(page).to have_field("update_organization_name_ca", with: organization_names[:ca])
+
+          select "Français", from: "update_organization-name-tabs"
+          expect(page).to have_css("#update_organization_name_fr", visible: :visible)
+          expect(page).to have_field("update_organization_name_fr", with: organization_names[:fr])
+
+          select "Italiano", from: "update_organization-name-tabs"
+          expect(page).to have_css("#update_organization_name_it", visible: :visible)
+          expect(page).to have_field("update_organization_name_it", with: organization_names[:it])
+
+          select "Castellano", from: "update_organization-name-tabs"
+          expect(page).to have_css("#update_organization_name_es", visible: :visible)
+          expect(page).to have_field("update_organization_name_es", with: organization_names[:es])
+        end
+      end
     end
 
     describe "editing an organization with disabled OmniAuth provider" do

@@ -384,6 +384,7 @@ ca-IT:
           assembly_type: El tipus d'assemblea
           closing_date: La data de tancament de l'assemblea
           closing_date_reason: Perquè es va tancar l'assemblea
+          component_settings: Configuració dels components de l'assemblea
           composition: La composició de l'assemblea
           created_at: La data en què es va crear aquesta assemblea
           created_by: Qui va crear l'assemblea
