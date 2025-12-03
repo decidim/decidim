@@ -46,8 +46,7 @@ describe "Admin filters assemblies private space users" do
       visit decidim_admin_assemblies.participatory_space_private_users_path(assembly_slug: assembly.slug)
     end
 
-    it "restricts access" do
-      expect(page).to have_admin_callout("You are not authorized to perform this action.")
-    end
+    include_examples "filterable participatory space users"
+    include_examples "searchable participatory space users"
   end
 end
