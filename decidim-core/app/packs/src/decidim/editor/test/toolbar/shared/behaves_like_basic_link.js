@@ -26,7 +26,7 @@ export default (ctx) => {
       await sleep(0);
 
       expect(ctx.prosemirror.innerHTML).toEqual(
-        '<p>Hello, <a target="_blank" href="https://decidim.org">world</a>!</p>'
+        '<p>Hello, <a href="https://decidim.org" target="_blank">world</a>!</p>'
       );
     });
   });
