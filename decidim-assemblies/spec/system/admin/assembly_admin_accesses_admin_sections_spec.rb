@@ -10,18 +10,7 @@ describe "Assembly admin accesses admin sections" do
     login_as user, scope: :user
   end
 
-  shared_examples "sees public space menu" do
-    it "can access all sections" do
-      expect(page).to have_content("Info")
-      expect(page).to have_content("Components")
-      expect(page).to have_content("Attachments")
-      expect(page).to have_content("Assembly admins")
-      expect(page).to have_no_content("Members")
-      expect(page).to have_content("Moderations")
-    end
-  end
-
-  shared_examples "sees private space menu" do
+  shared_examples "sees space menu" do
     it "can access all sections" do
       expect(page).to have_content("Info")
       expect(page).to have_content("Components")
@@ -42,13 +31,13 @@ describe "Assembly admin accesses admin sections" do
     end
 
     context "when is a public assembly" do
-      it_behaves_like "sees public space menu"
+      it_behaves_like "sees space menu"
     end
 
     context "when is a private assembly" do
       let(:assembly) { create(:assembly, organization:, private_space: true) }
 
-      it_behaves_like "sees private space menu"
+      it_behaves_like "sees space menu"
     end
   end
 
@@ -60,13 +49,13 @@ describe "Assembly admin accesses admin sections" do
     end
 
     context "when is a public assembly" do
-      it_behaves_like "sees public space menu"
+      it_behaves_like "sees space menu"
     end
 
     context "when is a private assembly" do
       let(:child_assembly) { create(:assembly, parent: assembly, organization:, private_space: true) }
 
-      it_behaves_like "sees private space menu"
+      it_behaves_like "sees space menu"
     end
 
     it_behaves_like "assembly admin manage assembly components"
