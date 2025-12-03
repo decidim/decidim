@@ -18,15 +18,14 @@ module Decidim
         }
       end.merge(
         favicon: {
-          resize_and_pad: [256, 256]
-          # define: "icon:auto-resize=16,24,32,48,64,72,96,128,256",
-          # format: :ico
+          resize_and_pad: [256, 256],
+          format: :png
         }
       )
     end
 
     def extension_allowlist
-      %w(png jpg jpeg webp ico)
+      %w(png jpg jpeg webp)
     end
   end
 end
