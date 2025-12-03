@@ -172,7 +172,7 @@ module Decidim
       end
 
       def random_nickname
-        "#{::Faker::Twitter.unique.screen_name}-#{SecureRandom.hex(4)}"[0, 20]
+        "#{::Faker::X.unique.screen_name}-#{SecureRandom.hex(4)}"[0, 20]
       end
 
       def random_email(suffix:)
