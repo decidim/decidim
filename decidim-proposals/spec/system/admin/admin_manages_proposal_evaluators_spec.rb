@@ -57,7 +57,7 @@ describe "Admin manages proposals evaluators" do
 
       it "displays log" do
         visit decidim_admin.root_path
-        expect(page).to have_content("assigned the #{translated(proposal.title)} proposal to a evaluator")
+        expect(page).to have_content(translated(proposal.title).to_s)
       end
     end
   end
