@@ -123,6 +123,11 @@ module Decidim
       published? && (!private_space? || (private_space? && is_transparent?))
     end
 
+    # This is a overwrite for Decidim::HasPrivateUsers.members_public_page?
+    def members_public_page?
+      participatory_space_private_users.published.any?
+    end
+
     def to_param
       slug
     end

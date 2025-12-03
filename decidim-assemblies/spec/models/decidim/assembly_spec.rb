@@ -123,6 +123,21 @@ module Decidim
       end
     end
 
+    describe ".members_public_page?" do
+      let!(:another_user) { create(:user, organization: assembly.organization) }
+      let!(:private_user) { create(:assembly_private_user, user: another_user, privatable_to: assembly, published: published) }
+      let(:published) { true }
+
+      it { is_expected.to be_truthy }
+
+      subject { assembly.members_public_page? }
+      context "when there are no published private users" do
+        let(:published) { false }
+
+        it { is_expected.to be_falsey }
+      end
+    end
+
     describe "scopes" do
       describe "public_spaces" do
         let!(:private_assembly) { create(:assembly, :private, :opaque) }
