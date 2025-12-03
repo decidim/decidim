@@ -178,7 +178,7 @@ fi:
               no_user: Käyttäjää ei löytynyt
               success: '%{count} tietueen tuonti onnistui. Tietoja käsitellään parhaillaan. Päivitä tämä sivu muutaman minuutin kuluttua nähdäksesi muutokset.'
             destroy:
-              success: Henkilötietorekisteriin tietue poistettiin.
+              success: Henkilötietorekisterin tietue poistettiin.
             index:
               empty: Henkilötietorekisterissä ei ole tietoja. Käytä %{import_csv} -toimintoa tuodaksesi tiedot järjestelmään CSV-tiedostosta.
               no_sign_in: Ei ole koskaan kirjautunut sisään
