@@ -270,7 +270,7 @@ describe "Editor" do
       expect_value(
         <<~HTML
           <p>Hello, world!</p>
-          <p>Another <a target="_blank" href="https://decidim.org">paragraph.</a></p>
+          <p>Another <a href="https://decidim.org" target="_blank">paragraph.</a></p>
         HTML
       )
 
