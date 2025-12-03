@@ -26,6 +26,7 @@ describe "Show a Proposal" do
 
       describe "extra admin link" do
         before do
+          visit_proposal
           login_as user, scope: :user
           visit current_path
         end
@@ -46,6 +47,7 @@ describe "Show a Proposal" do
 
           it "does not have a link to answer the proposal at the admin" do
             within "header" do
+              expect(page).to have_no_link("Log in")
               expect(page).to have_no_css("#admin-bar")
               expect(page).to have_no_link("Answer")
             end
