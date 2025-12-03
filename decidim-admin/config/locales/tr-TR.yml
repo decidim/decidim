@@ -958,9 +958,11 @@ tr:
           create: Sayfa oluştur
           title: Yeni sayfa
         topic:
+          empty: Bu konu altında hiçbir sayfa yok.
           without_topic: Konu olmayan sayfalar
         update:
           error: Bu sayfa güncellenirken bir hata oluştu.
+          success: Sayfa başarıyla güncellendi.
       titles:
         admin_log: Yönetici günlüğü
         area_types: Alan türleri
