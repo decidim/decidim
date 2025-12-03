@@ -37,7 +37,7 @@ describe("Link", () => {
     await sleep(50);
 
     expect(editor.getHTML()).toEqual(
-      '<p>Hello, <a href=\"https://decidim.org\" target=\"_blank\">world</a>!</p>'
+      '<p>Hello, <a href="https://decidim.org" target="_blank">world</a>!</p>'
     );
   });
 
