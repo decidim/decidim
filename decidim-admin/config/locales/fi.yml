@@ -35,6 +35,7 @@ fi:
       id: ID
       newsletter:
         body: Runko
+        send_to_all_users: Lähetä kaikille osallistujille
         send_to_followers: Lähetä seuraajille
         send_to_participants: Lähetä osallistujille
         subject: Otsikko
@@ -292,11 +293,13 @@ fi:
       block_user:
         bulk_new:
           action: Estä tilit ja lähetä perustelut
+          already_reported_html: Tämä toiminto piilottaa myös kaiken sisällön, jonka kyseinen osallistuja on luonut.
           description: Käyttäjätilien estäminen estää kyseisten käyttäjien pääsyn omalle tililleen. Voit antaa perusteluissasi ja ohjeistuksissasi tietoa siitä, mitä käyttäjät voivat tehdä palauttaakseen pääsyn tileilleen.
           justification: Perustelut
           title: Estä käyttäjät
         new:
           action: Estä tili ja lähetä perustelut
+          already_reported_html: Tämä toiminto piilottaa myös kaiken sisällön, jonka kyseinen osallistuja on luonut.
           description: Estämällä käyttäjän estät kyseisen käyttäjän pääsyn hänen omalle tililleen. Voit antaa perusteluissasi ja ohjeistuksissasi tietoa siitä, mitä kyseinen käyttäjä voi tehdä palauttaakseen pääsyn tililleen.
           justification: Perustelut
           title: Estä käyttäjä %{name}
@@ -390,6 +393,7 @@ fi:
         form:
           domain_too_short: Verkkotunnus on liian lyhyt
         update:
+          error: Sallittujen ulkoisten verkkotunnusten luettelon päivittäminen epäonnistui.
           success: Sallittujen ulkoisten verkkotunnusten luettelon päivittäminen onnistui.
       exports:
         export_as: "%{name} muodossa %{export_format}"
@@ -474,6 +478,7 @@ fi:
           import_csv:
             explanation: 'Tiedoston ohjeistus:'
             message_1: CSV-tiedostomuotoa tuetaan
+            message_2: "sähköpostiosoitteet sisältävä .csv-tiedosto"
       help_sections:
         error: Ohjeosioiden päivitys epäonnistui.
         form:
@@ -1265,6 +1270,7 @@ fi:
           last_day: Viimeinen päivä
           last_month: Viimeinen kuukausi
           last_week: Viimeinen viikko
+          no_users_count_statistics_yet: Käyttäjämäärätilastoja ei vielä ole.
           participants: Osallistujat
     forms:
       errors:
