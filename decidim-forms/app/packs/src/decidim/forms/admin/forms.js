@@ -7,7 +7,6 @@ import AutoSelectOptionsFromUrl from "src/decidim/forms/admin/auto_select_option
 import createLiveTextUpdateComponent from "src/decidim/forms/admin/live_text_update.component"
 import AutoButtonsByPositionComponent from "src/decidim/admin/auto_buttons_by_position.component"
 import AutoLabelByPositionComponent from "src/decidim/admin/auto_label_by_position.component"
-import createSortList from "src/decidim/admin/sort_list.component"
 import createDynamicFields from "src/decidim/admin/dynamic_fields.component"
 import createFieldDependentInputs from "src/decidim/admin/field_dependent_inputs.component"
 import initLanguageChangeSelect from "src/decidim/admin/choose_language"
@@ -99,16 +98,16 @@ export default function createEditableForm() {
     })
   };
 
-  const createSortableList = () => {
-    createSortList(".questionnaire-questions-list:not(.published)", {
-      handle: ".question-divider",
-      placeholder: '<div style="border-style: dashed; border-color: #000"></div>',
-      forcePlaceholderSize: true,
-      onSortUpdate: () => {
+  // Listen for sortupdate events from html5sortable (initialized by draggable-table.js)
+  const setupSortUpdateListener = () => {
+    const container = document.querySelector(".questionnaire-questions-list:not(.published)");
+    if (container && !container.dataset.sortListenerAttached) {
+      container.addEventListener("sortupdate", () => {
         autoLabelByPosition.run();
         autoButtonsByPosition.run();
-      }
-    });
+      });
+      container.dataset.sortListenerAttached = "true";
+    }
   };
 
   const createDynamicQuestionTitle = (fieldId) => {
@@ -386,7 +385,7 @@ export default function createEditableForm() {
     moveDownFieldButtonSelector: ".move-down-question",
     onAddField: ($field) => {
       setupInitialQuestionAttributes($field);
-      createSortableList();
+      setupSortUpdateListener();
 
       autoLabelByPosition.run();
       autoButtonsByPosition.run();
@@ -422,7 +421,7 @@ export default function createEditableForm() {
     }
   });
 
-  createSortableList();
+  setupSortUpdateListener();
 
   $(fieldSelector).each((idx, el) => {
     const $target = $(el);
