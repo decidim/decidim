@@ -207,9 +207,13 @@ describe "Amend Proposal", versioning: true do
           let!(:user) { create(:user, :confirmed, organization: component.organization) }
 
           before do
-            expect(page).to have_content("Log in")
-            switch_to_host(component.organization.host)
-            login_as user, scope: :user
+            visit decidim.new_user_session_path
+            within "form.new_user" do
+              fill_in :session_user_email, with: user.email
+              fill_in :session_user_password, with: "decidim123456789"
+              find("*[type=submit]").click
+            end
+
             visit proposal_path
             expect(page).to have_content(proposal_title)
             find("#dropdown-trigger-resource-#{proposal.id}").click
