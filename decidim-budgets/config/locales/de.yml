@@ -307,8 +307,8 @@ de:
           remove: Projekt %{resource_name} aus Ihrer Abstimmung entfernen.
           selected: Ausgewählt
           votes:
-            one: Abstimmung
-            other: Abstimmungen
+            one: Stimme
+            other: Stimmen
           you_voted: Sie haben dafür gestimmt
         project_budget_button:
           add: Zur Abstimmung hinzufügen
