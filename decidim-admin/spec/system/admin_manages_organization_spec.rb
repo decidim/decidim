@@ -238,7 +238,7 @@ describe "Admin manages organization" do
           find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys([:shift, :enter])
           expect(find(
             "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ProseMirror"
-            )["innerHTML"]).to eq('<p>foo<br><br><a  target="_blank" href="https://www.decidim.org">link</a></p>')
+          )["innerHTML"]).to eq('<p>foo<br><br><a  target="_blank" href="https://www.decidim.org">link</a></p>')
         end
 
         it "does not create br tag inside a tag" do
@@ -246,7 +246,7 @@ describe "Admin manages organization" do
           find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys([:shift, :enter])
           expect(find(
             "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ProseMirror"
-            )["innerHTML"]).to eq('<p>foo<br><br><a target="_blank" href="https://www.decidim.org" >link</a></p>')
+          )["innerHTML"]).to eq('<p>foo<br><br><a target="_blank" href="https://www.decidim.org" >link</a></p>')
         end
       end
 
