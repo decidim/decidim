@@ -2341,7 +2341,7 @@ eu:
         title: Parte-hartzailearen ezarpenak
         user_groups: Taldeak
   locale:
-    name: Euskara
+    name: Ingelesa
     name_with_error: Euskera (akatsa!)
   password_validator:
     denied: ukatu egin da
