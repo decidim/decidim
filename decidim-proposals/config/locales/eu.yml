@@ -1000,7 +1000,7 @@ eu:
           already_voted_hover: Kendu babesa
           maximum_votes_reached: Babesen muga lortua
           no_votes_remaining: Ez da gelditzen babesik
-          vote: Alde egin
+          vote: Babesa eman
           votes_blocked: Eman botoa
         votes_count:
           count:
@@ -1023,7 +1023,7 @@ eu:
           title: Parte hartzeko arauak
           vote_limit:
             description: '%{limit} proposameni eman ahal diozu babesa.'
-            votes: Gainerako %{number} babes
+            votes: '%{number} babes emateke'
         wizard_aside:
           back: Atzera
           back_from_step_1: Itzuli proposamenetara
