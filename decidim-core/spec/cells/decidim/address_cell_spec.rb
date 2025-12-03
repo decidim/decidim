@@ -58,7 +58,6 @@ describe Decidim::AddressCell, type: :cell do
     before do
       allow(model).to receive(:online?).and_return true
       allow(model).to receive(:type_of_meeting).and_return :online
-      allow(model).to receive(:iframe_access_level_allowed_for_user?).and_return true
       allow(model).to receive(:online_meeting_url).and_return online_meeting_url
     end
 
@@ -71,6 +70,16 @@ describe Decidim::AddressCell, type: :cell do
 
       it "renders the escaped URL" do
         expect(subject).to have_content "https://decidim.org/?v=h%3Cscript%3Ealert(1)%3C/script%3E"
+      end
+    end
+
+    context "when no URL is present" do
+      before do
+        allow(model).to receive(:online_meeting_url).and_return " "
+      end
+
+      it "does not render the URL" do
+        expect(subject).to have_no_css ".address__online-meeting-url"
       end
     end
   end
