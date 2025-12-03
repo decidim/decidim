@@ -911,6 +911,8 @@ tr:
           destroy: Sil
           edit: Düzenle
           preview: Ön İzleme
+        create:
+          invalid: Erişim linki üretilirken bir hata oluştu.
         edit:
           update: Güncelle
         form:
@@ -924,6 +926,8 @@ tr:
           'true': 'Evet'
         index:
           copied: Erişim bağlantısı kopyalandı!
+        new:
+          title: '%{name} için yeni erişim linki'
       shared:
         gallery:
           add_images: Resim ekle
@@ -956,9 +960,29 @@ tr:
         new:
           title: Yeni sayfa
         topic:
+          empty: Bu konu altında hiçbir sayfa yok.
           without_topic: Konu olmayan sayfalar
         update:
           error: Bu sayfa güncellenirken bir hata oluştu.
+          success: Sayfa başarıyla güncellendi.
+      taxonomies:
+        destroy:
+          invalid: Bu sınıflandırmayı kaldırırken bir hata oluştu.
+          success: Sınıflandırma başarıyla kaldırıldı.
+        edit:
+          description: Bu kategorideki ögeler katılımcı alanları veya bileşenler gibi kaynakları sınıflandırmak veya filtrelemek için kullanılacaktır. Listeyi yeniden düzenlemek için ögeleri sürükleyerek bırakınız.
+        new:
+          title: Yeni kategori
+        update:
+          success: Kategori başarıyla güncellendi.
+      taxonomy_filters:
+        form:
+          no_items: Bu kategori için herhangi bir öge mevcut değil. Kategori içindeki yapılandırma ayarlarından ögeler oluşturabilirsiniz.
+        table:
+          components_count: Bunu kullanan bileşenler
+      taxonomy_filters_selector:
+        new:
+          save:
       titles:
         admin_log: Yönetici günlüğü
         area_types: Alan türleri
