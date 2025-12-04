@@ -108,7 +108,7 @@
   }
 
   &__card__highlight-vote__number {
-    @apply text-xl mx-4 px-2 font-semibold flex justify-start w-full;
+    @apply flex justify-start w-full text-xl mx-4 px-2 font-semibold;
 
     span {
       @apply text-sm mx-8;
