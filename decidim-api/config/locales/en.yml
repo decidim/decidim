@@ -1,7 +1,6 @@
-
 ---
 en:
   decidim:
     api:
       errors:
-        not_found: %{type} not found
+        not_found: "%{type} not found"
