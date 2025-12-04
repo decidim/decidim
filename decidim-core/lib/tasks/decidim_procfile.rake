@@ -23,7 +23,7 @@ set -e
 
 bundle check || bundle install --jobs 20 --retry 5
 
-bin/rails decidim:upgrade db:migrate
+bin/rails decidim:upgrade db:migrate data:migrate
 
 if ! gem list foreman -i --silent; then
   echo "Installing foreman..."
