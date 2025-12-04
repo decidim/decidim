@@ -42,6 +42,14 @@ shared_context "with a graphql decidim component" do
   end
 end
 
+shared_examples "graphQL hidden space" do
+  let(:space_type) { "participatoryProcess" }
+
+  it "should not be visible" do
+    expect { response }.to raise_error(StandardError, "#{space_type.classify} not found")
+  end
+end
+
 shared_examples "with resource visibility" do
   let(:process_space_factory) { :participatory_process }
   let(:space_type) { "participatoryProcess" }
@@ -49,12 +57,6 @@ shared_examples "with resource visibility" do
   shared_examples "graphQL visible resource" do
     it "is visible" do
       expect(response[space_type]["components"].first[lookout_key]).to eq(query_result)
-    end
-  end
-
-  shared_examples "graphQL hidden space" do
-    it "should not be visible" do
-      expect(response[space_type]).to be_nil
     end
   end
 

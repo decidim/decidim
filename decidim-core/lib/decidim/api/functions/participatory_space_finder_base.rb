@@ -32,7 +32,7 @@ module Decidim
             model_class.public_spaces
           end
 
-        @query.find_by(query)
+        @query.find_by!(query)
       end
     end
   end

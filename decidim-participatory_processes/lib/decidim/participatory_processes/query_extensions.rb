@@ -57,29 +57,19 @@ module Decidim
       end
 
       def participatory_process_groups(*)
-        Decidim::ParticipatoryProcessGroup.where(
-          organization: context[:current_organization]
-        )
+        Decidim::ParticipatoryProcessGroup.where(organization:)
       end
 
       def participatory_process_group(id:)
-        Decidim::ParticipatoryProcessGroup.find_by(
-          organization: context[:current_organization],
-          id:
-        )
+        Decidim::ParticipatoryProcessGroup.where(organization:).find(id)
       end
 
       def participatory_process_types(*)
-        Decidim::ParticipatoryProcessType.where(
-          organization: context[:current_organization]
-        )
+        Decidim::ParticipatoryProcessType.where(organization:)
       end
 
       def participatory_process_type(id:)
-        Decidim::ParticipatoryProcessType.find_by(
-          organization: context[:current_organization],
-          id:
-        )
+        Decidim::ParticipatoryProcessType.where(organization:).find(id)
       end
     end
   end

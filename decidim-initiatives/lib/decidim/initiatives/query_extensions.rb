@@ -36,16 +36,11 @@ module Decidim
       end
 
       def initiatives_types
-        Decidim::InitiativesType.where(
-          organization: context[:current_organization]
-        )
+        Decidim::InitiativesType.where(organization:)
       end
 
       def initiatives_type(id:)
-        Decidim::InitiativesType.find_by(
-          organization: context[:current_organization],
-          id:
-        )
+        Decidim::InitiativesType.find_by!(organization:, id:)
       end
 
       def initiatives(filter: {}, order: {})

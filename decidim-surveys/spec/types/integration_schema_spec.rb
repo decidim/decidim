@@ -62,7 +62,7 @@ describe "Decidim::Api::QueryType" do
 
   let(:component_type) { "Surveys" }
   let!(:current_component) { create(:surveys_component, participatory_space: participatory_process) }
-  let!(:survey) { create(:survey, component: current_component) }
+  let!(:survey) { create(:survey, :published, component: current_component) }
   let!(:questionnaire) { create(:questionnaire, :with_questions, questionnaire_for: survey) }
 
   let(:survey_single_result) do

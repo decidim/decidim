@@ -12,6 +12,10 @@ module Decidim
       max_complexity Decidim::Api.schema_max_complexity
 
       orphan_types(Api.orphan_types)
+
+      rescue_from(ActiveRecord::RecordNotFound) do |_err, _obj, _args, _ctx, field|
+        raise GraphQL::ExecutionError, "#{field.type.unwrap.graphql_name} not found"
+      end
     end
   end
 end
