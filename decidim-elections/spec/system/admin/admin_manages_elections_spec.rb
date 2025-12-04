@@ -164,6 +164,25 @@ describe "Admin manages elections" do
       expect(page).to have_link("Questions")
       expect(page).to have_link("Census")
     end
+
+    it "does not allow setting dates in the past" do
+      past_date = 1.day.ago
+
+      within ".edit_election" do
+        find_by_id("election_start_at_date").native.clear
+        find_by_id("election_start_at_time").native.clear
+        fill_in_datepicker :election_start_at_date, with: past_date.strftime("%d/%m/%Y")
+        fill_in_timepicker :election_start_at_time, with: past_date.strftime("%H:%M")
+        find_by_id("election_end_at_date").native.clear
+        find_by_id("election_end_at_time").native.clear
+        fill_in_datepicker :election_end_at_date, with: past_date.strftime("%d/%m/%Y")
+        fill_in_timepicker :election_end_at_time, with: past_date.strftime("%H:%M")
+      end
+
+      click_on "Save and continue"
+
+      expect(page).to have_content("There was a problem updating the election")
+    end
   end
 
   context "when the election has started but is unpublished" do
