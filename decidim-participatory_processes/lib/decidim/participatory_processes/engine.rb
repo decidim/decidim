@@ -67,6 +67,13 @@ module Decidim
         Decidim::Api::QueryType.include Decidim::ParticipatoryProcesses::QueryExtensions
       end
 
+      initializer "decidim_participatory_processes.extend_component_controllers" do
+        config.to_prepare do
+          # Extend component controllers with participatory process breadcrumb when mounted under participatory processes
+          Decidim::Components::BaseController.include(Decidim::ParticipatoryProcesses::ParticipatoryProcessBreadcrumb)
+        end
+      end
+
       initializer "decidim_participatory_processes.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::ParticipatoryProcesses::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::ParticipatoryProcesses::Engine.root}/app/views") # for partials

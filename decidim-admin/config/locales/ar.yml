@@ -35,7 +35,6 @@ ar:
       id: المعرف ID
       newsletter:
         body: النص
-        send_to_all_users: إرسال إلى كافة المستخدمين
         send_to_followers: إرسال إلى المتابِعين
         send_to_participants: إرسال إلى المشتركين
         subject: الموضوع

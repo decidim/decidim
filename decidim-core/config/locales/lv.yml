@@ -601,12 +601,9 @@ lv:
           proposals_explanation: Iesniedziet jaunus priekšlikumus, atbalstiet esošos un veiciniet vēlamās izmaiņas.
         footer_sub_hero:
           footer_sub_hero_headline: Laipni lūdzam %{organization} līdzdalības platformā.
-          register: Reģistrēties
         hero:
           participate: Piedalīties
           welcome: Laipni lūdzam %{organization}!
-        sub_hero:
-          register: Reģistrēties
       index:
         standalone_pages: Lapas
         subheading: Pārvietojieties %{name} palīdzības lapās

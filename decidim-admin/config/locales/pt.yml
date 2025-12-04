@@ -28,7 +28,6 @@ pt:
       id: ID
       newsletter:
         body: Corpo
-        send_to_all_users: Enviar para todas as pessoas utilizadoras
         subject: Assunto
       organization:
         alert_color: Alerta
@@ -210,7 +209,6 @@ pt:
       block_user:
         bulk_new:
           action: Bloquear conta e enviar justificação
-          already_reported_html: Com essa ação todos os conteúdos dos participantes bloqueados serão ocultados.
           description: Bloquear um participante torna a sua conta inutilizável. Pode dar na sua justificação orientações sobre o que poderia levar a considerar desbloquear o participante.
           justification: Justificação
           title: Bloquear participantes

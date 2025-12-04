@@ -706,12 +706,9 @@ nl:
           proposals_explanation: Maak voorstellen, ondersteun de bestaande en bevorder de veranderingen die u wilt zien.
         footer_sub_hero:
           footer_sub_hero_headline: Welkom bij %{organization} participatief platform.
-          register: Registreren
         hero:
           participate: Deelnemen
           welcome: Welkom op het portaal van de burgerinspraak %{organization}!
-        sub_hero:
-          register: Registreren
       index:
         standalone_pages: Pages
         subheading: Navigeer door de helppagina's van %{name}

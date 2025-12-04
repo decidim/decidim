@@ -19,6 +19,7 @@ module Decidim
             patch :soft_delete
             patch :restore
             put :update_status
+            patch :toggle_census_check
 
             get "edit_questions", to: "questions#edit_questions"
             put "update_questions", to: "questions#update"

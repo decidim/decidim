@@ -676,8 +676,6 @@ tr:
         subject: '%{organization_name} ile ilgili bilgileri almaya devam etmek istiyor musunuz?'
     notifications:
       no_notifications: Henüz bildirim yok.
-      show:
-        moderated: İçerik Denetlendi
     notifications_settings:
       show:
         direct_messages: Herkesten doğrudan mesaj alın
@@ -708,12 +706,9 @@ tr:
           proposals_explanation: Öneriler yapın, mevcut olanları destekleyin ve görmek istediğiniz değişiklikleri tanıtın.
         footer_sub_hero:
           footer_sub_hero_headline: '%{organization} katılımcı platformuna hoş geldiniz.'
-          register: Kayıt Ol
         hero:
           participate: Katıl
           welcome: '%{organization} hoşgeldin!'
-        sub_hero:
-          register: Kayıt Ol
       index:
         standalone_pages: Sayfalar
         subheading: '%{name} yardım sayfalarını ziyaret edin'

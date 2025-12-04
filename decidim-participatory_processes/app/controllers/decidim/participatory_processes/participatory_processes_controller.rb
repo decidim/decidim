@@ -9,6 +9,7 @@ module Decidim
       include FilterResource
       include Paginable
       include HasParticipatorySpaceContentBlocks
+      include ParticipatoryProcessBreadcrumb
 
       helper_method :collection,
                     :promoted_collection,

@@ -442,6 +442,8 @@ fi:
           no_slots_available: Ei paikkoja vapaana
           registration: Ilmoittautuminen
       conference_program:
+        program_item:
+          other_category: Muut
         show:
           program: Ohjelma
       conference_registration_mailer:

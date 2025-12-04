@@ -294,6 +294,7 @@ eu:
       accountability:
         actions:
           comment: Iruzkina
+          vote_comment: Bozkatu iruzkina
         name: Jarraipena
         settings:
           global:

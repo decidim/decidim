@@ -40,6 +40,7 @@ pt-BR:
   decidim:
     accountability:
       actions:
+        add_result: Adicionar resultado
         confirm_delete_result: Você tem certeza que quer deletar este resultado?
         confirm_destroy: Deseja mesmo excluir %{name}?
         deleted_results_info: Os resultados deletados podem ser restaurados da lixeira.
@@ -292,6 +293,7 @@ pt-BR:
       accountability:
         actions:
           comment: Comentário
+          vote_comment: Vote no comentário
         name: Prestação de contas
         settings:
           global:

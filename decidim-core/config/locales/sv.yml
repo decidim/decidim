@@ -734,6 +734,8 @@ sv:
           created_at: Datum och tid då identiteten skapades
           id: Unikt id för identiteten
           provider: Leverantören av identiteten
+        messaging_conversations:
+          updated_at: Datum när denna konversation senast uppdaterades
         participatory_space_private_users:
           created_at: Datum och tid när den privata användaren skapades
           id: Unikt id för den privata användaren
@@ -750,7 +752,7 @@ sv:
           reason: Anledning till rapporteringen
           updated_at: Datum och tid för när rapporteringen senast uppdaterades
         users:
-          about: Presentation av användaren
+          about: Profilbeskrivningen för denna deltagare
           accepted_tos_version: Det datum då användarvillkoren godkändes av användaren
           admin: Om användaren är administratör
           confirmation_sent_at: Datum och tid då bekräftelsen skickades
@@ -770,8 +772,9 @@ sv:
           locale: Användarens valda språk
           managed: Om användare hanteras av en annan användare
           name: Namnet på användaren
-          newsletter_notifications_at: Datum och tid när användaren senast fick ett nyhetsbrev
+          newsletter_notifications_at: Datum och tid när denna deltagare prenumererade på att få ett nyhetsbrev
           nickname: Användarens användarnamn
+          officialized_as: Officiantens titel (kommunalråd, borgmästare, etc)
     editor_images:
       create:
         error: Fel vid uppladdning av bild.
@@ -781,7 +784,7 @@ sv:
       files:
         file_cannot_be_processed: Filen kan inte bearbetas
         file_resolution_too_large: Filupplösningen är för stor
-        not_inside_organization: Filen är inte kopplad till någon organisation
+        not_inside_organization: Filen är inte kopplad till någon organisation.
       internal_server_error:
         copied: Texten har kopierats!
         copy_error_message_clarification: Kopiera felmeddelandet till urklipp
@@ -969,6 +972,7 @@ sv:
         file:
           explanation: 'Instruktioner för fil:'
           message_1: Måste vara en bild eller ett dokument.
+          message_2: Om det är en bild så använd helst en landskapsbild som inte har någon text. Plattformen beskär bilden.
         icon:
           explanation: 'Instruktioner för ikon:'
           message_1: Måste vara en kvadratisk bild.
@@ -1209,7 +1213,7 @@ sv:
       no_notifications: Inga meddelanden ännu.
       show:
         missing_event: Hoppsan, det här meddelandet tillhör ett objekt som inte längre är tillgängligt. Du kan kasta det.
-        moderated: Innehåll modererat
+        moderated: Innehållet har dolts av moderator.
     notifications_digest_mailer:
       header:
         daily: Dagligt sammandrag
@@ -1217,6 +1221,7 @@ sv:
       hello: Hej %{name},
       intro:
         daily: 'Det här är meddelandena från senaste dagen baserat på aktiviteterna du följer:'
+        real_time: 'Detta är en notis om aktiviteten du följer:'
         weekly: 'Det här är meddelandena från senaste veckan baserat på aktiviteterna du följer:'
       outro: Du har fått de här meddelandena eftersom du följer det här innehållet eller dess författare. Du kan sluta följa dem från deras respektive sidor.
       see_more: Visa fler meddelanden
@@ -1262,6 +1267,10 @@ sv:
           resources:
             one: "%{count} Resurs"
             other: "%{count} Resurser"
+      index:
+        license:
+          license_contents_link: https://opendatacommons.org/licenses/dbcl/1.0/
+          license_database_link: https://opendatacommons.org/licenses/odbl/1.0/
       not_available_yet: De öppna datafilerna är ännu inte tillgängliga, var vänlig försök igen om några minuter.
     pad_iframe:
       disclaimer: Innehållet i anteckningarna är skrivet av registrerade användare och uttrycker deras åsikter. %{organization} kan inte hållas ansvarig för innehållet.
@@ -1281,7 +1290,7 @@ sv:
         footer_sub_hero:
           footer_sub_hero_body_html: Låt oss skapa ett mer öppet, transparent och deltagande samhälle.<br /> Gå med, delta och fatta beslut.
           footer_sub_hero_headline: Välkommen till %{organization} deltagarplattform.
-          register: Registrera dig
+          register: Skapa ett konto
         hero:
           participate: Delta
           participate_title: Delta i plattformens processer
@@ -1289,7 +1298,7 @@ sv:
         statistics:
           headline: Statistik
         sub_hero:
-          register: Registrera
+          register: Skapa ett konto
           register_title: Skapa ett konto
       index:
         standalone_pages: Sidor
@@ -1883,6 +1892,8 @@ sv:
         expire_time_html: Din session löper ut om <b><span data-impersonation-warning-target="minutes">%{minutes}</span> minuter</b>.
       language_chooser:
         choose_language: Välj språk
+      navigation:
+        aria_label: 'Navigation menu: %{title}'
       notifications_dashboard:
         mark_all_as_read: Markera allt som läst
         mark_as_read: Markera som läst

@@ -338,6 +338,7 @@ fi-pl:
         actions:
           comment: Kommentoi
           vote: Äänestä
+          vote_comment: Äänestä kommenttia
         name: Budjetit
         settings:
           global:

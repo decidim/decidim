@@ -28,7 +28,6 @@ ko:
         content: 내용
       id: 아이디
       newsletter:
-        send_to_all_users: 모든 유저에게 보내기
         send_to_followers: 팔로워들에게 보내기
         send_to_participants: 참여자들에게 보내기
         subject: 주제
@@ -503,6 +502,7 @@ ko:
           participants_help: 목록에서 선택한 참여 공간을 따르는 것이 확인된 모든 사용자에게 뉴스레터를 보냅니다.
           recipients_count: 이 뉴스레터는 <strong id='receiveners_count'>% {count}/strong> 사용자에게 발송됩니다.
           select_spaces: 뉴스레터를 분할할 공간 선택
+          send_to_all_users: 모든 유저에게 보내기
           title: 전송 받는 사람 선택
           warning: "<strong>주의:/strong>이 뉴스레터는 알림 설정에서 <em>I want to received newsletter</em>을 활성화한 사용자에게만 발송됩니다."
         send:

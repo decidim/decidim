@@ -1,6 +1,8 @@
 fr:
   activemodel:
     attributes:
+      elections_question:
+        max_choices: Nombre maximum de choix
       token_csv:
         file: Fichier
         remove_all: Supprimer toutes les données de recensement actuelles
@@ -72,6 +74,7 @@ fr:
             publish_button: Publier les résultats
             title: Résultats
           status:
+            allow_census_check_before_start: Autoriser les utilisateurs à vérifier s'ils peuvent voter avant le début de l'élection
             census: 'Recensement:'
             results_availability:
               after_end: Résultats disponibles après la fin de l'élection
@@ -111,6 +114,8 @@ fr:
           publish:
             invalid: Il y a eu un problème lors de la publication de l'élection.
             success: Élection publiée avec succès.
+          toggle_census_check:
+            error: Une erreur s'est produite lors de l'activation de la vérification du recensement.
           unpublish:
             invalid: Il y a eu un problème lors de la dépublication de l'élection.
             success: Élection dépubliée avec succès.
@@ -142,6 +147,11 @@ fr:
           update: "%{user_name} a mis à jour l'élection %{resource_name} dans %{space_name}"
         question:
           update: "%{user_name} a mis à jour les questions de l'élection %{resource_name}"
+      census_checks:
+        show:
+          description: Ça signifie qu'une fois que l'élection démarre, vous pouvez voter.
+          exit_button: Quitter la vérification du recensement
+          title: Votre inscription a été vérifiée avec succès
       censuses:
         internal_users:
           already_have_an_account?: Vous avez déjà un compte?
@@ -156,9 +166,6 @@ fr:
           authorization_options_invalid: Malheureusement, bien que vous ayez toutes les autorisations requises, certaines d'entre elles ne sont pas valides pour cette élection.
           exit_button: Quitter l'isoloir
           invalid: Vous n'êtes pas autorisé(e) à voter pour cette élection.
-          missing: Votre compte utilisateur ne présente pas certaines autorisations requises. Veuillez vérifier les informations et réessayer.
-          not_authorized: 'L''autorisation "%{adapter}" ne correspond pas aux conditions requises.'
-          not_granted: 'L''autorisation "%{adapter}" n''est pas accordée.'
           resume_with_method: Reprendre la vérification avec %{name}
           verify_with_method: Vérifier avec %{name}
         token_csv:
@@ -202,6 +209,8 @@ fr:
           title: Questions de l'élection
         show:
           active_voting_until: 'Vote actif jusqu''au : %{end_date}'
+          check_census_button: Vérifier si je peux voter
+          check_census_explanation: L'élection n'a pas encore commencé, mais vous pouvez vérifier si vous êtes inscrit dans le recensement.
           vote_button: Voter
           voted: Vous avez déjà voté. Vous pouvez voter à nouveau, seul votre dernier vote sera prise en compte.
           votes_count:
@@ -254,6 +263,9 @@ fr:
         question:
           back: Retour
           cast_vote: Exprimer votre vote
+          max_choices: 'Nombre de choix maximum : %{count}'
+          max_choices_alert: Vous avez sélectionné trop d'options. Veuillez en désélectionner pour continuer.
+          max_choices_exceeded: Vous ne pouvez pas sélectionner plus que %{max} options. Veuillez revenir en arrière et ajuster votre sélection.
           next: Suivant
         receipt:
           description: Vous pouvez voter à nouveau à tout moment tant que la période de vote est ouverte. Votre vote précédent sera écrasé par le nouveau.

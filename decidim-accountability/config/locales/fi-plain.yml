@@ -294,6 +294,7 @@ fi-pl:
       accountability:
         actions:
           comment: Kommentoi
+          vote_comment: Äänestä kommenttia
         name: Vastuullisuus
         settings:
           global:

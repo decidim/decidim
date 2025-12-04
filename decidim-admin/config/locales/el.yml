@@ -858,7 +858,6 @@ el:
           last_day: Τελευταία ημέρα
           last_month: Τελευταίος μήνας
           last_week: Τελευταία εβδομάδα
-          no_users_count_statistics_yet: Δεν υπάρχουν στατιστικά στοιχεία καταμέτρησης χρηστών ακόμα.
           participants: Συμμετέχοντες
     forms:
       errors:

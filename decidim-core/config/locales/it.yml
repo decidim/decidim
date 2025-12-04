@@ -836,12 +836,9 @@ it:
           proposals_explanation: Fare proposte, sostenere quelle esistenti e promuovere le modifiche che vuoi vedere.
         footer_sub_hero:
           footer_sub_hero_headline: Benvenuto sulla piattaforma partecipativa di %{organization}.
-          register: Registrati
         hero:
           participate: Partecipa
           welcome: Benvenuto su %{organization}!
-        sub_hero:
-          register: Registrati
       index:
         standalone_pages: pagine
         subheading: Naviga attraverso le pagine di aiuto di %{name}
