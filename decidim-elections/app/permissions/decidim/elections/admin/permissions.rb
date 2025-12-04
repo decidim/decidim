@@ -53,9 +53,7 @@ module Decidim
           return unless permission_action.subject == :census
 
           case permission_action.action
-          when :edit
-            allow!
-          when :update
+          when :edit, :update
             toggle_allow(election.present? && election.editable?)
           end
         end

@@ -235,15 +235,7 @@ describe Decidim::Elections::Admin::Permissions do
   context "when subject is census" do
     let(:action_subject) { :census }
 
-    context "when editing" do
-      let(:action_name) { :edit }
-
-      it { is_expected.to be true }
-    end
-
-    context "when updating" do
-      let(:action_name) { :update }
-
+    shared_examples "census action based on editability" do
       context "when election is unpublished" do
         context "and has no votes" do
           it { is_expected.to be true }
@@ -276,6 +268,18 @@ describe Decidim::Elections::Admin::Permissions do
 
         it { is_expected.to be false }
       end
+    end
+
+    context "when editing" do
+      let(:action_name) { :edit }
+
+      it_behaves_like "census action based on editability"
+    end
+
+    context "when updating" do
+      let(:action_name) { :update }
+
+      it_behaves_like "census action based on editability"
     end
   end
 end

@@ -82,7 +82,7 @@ describe "Admin manages election census" do
   end
 
   context "when the election has started" do
-    let!(:started_election) { create(:election, :ongoing, component: current_component) }
+    let!(:started_election) { create(:election, :published, :ongoing, component: current_component) }
     let(:started_election_census_path) { Decidim::EngineRouter.admin_proxy(component).election_census_path(started_election) }
 
     it "denies access to the census edit page" do
