@@ -111,7 +111,7 @@ This improves the user experience by allowing the platform to send emails with t
 
 It also enables the users of multilanguage platforms to share the links to the resources within their own language.
 
-```
+```text
     /en/processes/hereslug/f/57/elections/5 # if seen in english
     /ca/processes/hereslug/f/57/elections/5 # if seen in catalan
 ```
