@@ -35,6 +35,7 @@ cs:
       id: ID
       newsletter:
         body: Tělo
+        send_to_all_users: Poslat všem účastníkům
         send_to_followers: Odeslat sledujícím
         send_to_participants: Odeslat účastníkům
         subject: Předmět
@@ -292,11 +293,13 @@ cs:
       block_user:
         bulk_new:
           action: Zablokovat účty a odeslat zdůvodnění
+          already_reported_html: Pokračováním v této akci také skryjete veškerý obsah účastníků.
           description: Blokováním uživatele bude jejich účet nepoužitelný. Ve svém zdůvodnění můžete uvést veškerá pravidla pro způsob, jakým byste uvažovali o odblokování uživatele.
           justification: Odůvodnění
           title: Zablokovat uživatele
         new:
           action: Blokovat účet a odeslat odůvodnění
+          already_reported_html: Pokračováním v této akci také skryjete veškerý obsah účastníků.
           description: Blokováním uživatele bude jejich účet nepoužitelný. Ve svém zdůvodnění můžete uvést veškerá pravidla pro způsob, jakým byste uvažovali o odblokování uživatele.
           justification: Odůvodnění
           title: Blokovat uživatele %{name}
@@ -392,6 +395,7 @@ cs:
         form:
           domain_too_short: Doména je příliš krátká
         update:
+          error: Nepodařilo se aktualizovat seznam povolených externích domén.
           success: Seznam povolených externích domén byl úspěšně aktualizován.
       exports:
         export_as: "%{name} jako %{export_format}"
@@ -454,6 +458,9 @@ cs:
         search_placeholder:
           name_or_nickname_or_email_cont: Hledat %{collection} podle e-mailu, jména nebo přezdívky
           report_count_eq: Počet nahlášení
+          reported_id_string_or_reported_content_cont: Hledat %{collection} podle nahlášeného Id nebo obsahu
+          title_cont: Hledat %{collection} podle názvu
+          user_name_or_user_nickname_or_user_email_cont: Hledat %{collection} podle e-mailu, jména nebo přezdívky
         state_eq:
           label: Stav
           values:
@@ -473,6 +480,7 @@ cs:
           import_csv:
             explanation: 'Pokyny pro soubor:'
             message_1: CSV soubory jsou podporovány
+            message_2: ".csv soubor s daty e-mailu"
       help_sections:
         error: Při aktualizaci sekcí nápovědy došlo k chybě.
         form:
@@ -559,6 +567,7 @@ cs:
       logs:
         filters:
           participatory_space: Najít participační prostor
+          text: Hledat podle e-mailu, jména nebo přezdívky
           user: Uživatel
         logs_list:
           no_logs_yet: Zatím nejsou žádné logy.
@@ -690,6 +699,7 @@ cs:
               update_moderated_user_button: Zrušit nahlášení uživatelů
             title: Akce
             unblock: Odblokovat uživatele
+            unreport: Zpět hlášení
           cancel: Zrušit
           name: Jméno
           nickname: Přezdívka
@@ -716,6 +726,7 @@ cs:
               title: Vrátit skrytí
               update_moderation_button: Odkrýt vybrané zdroje
             unreport:
+              title: Zpět hlášení
               update_moderation_button: Zrušit nahlášení vybraných zdrojů
           cancel: Zrušit
           selected: vybráno
@@ -1242,6 +1253,9 @@ cs:
         taxonomy_filters: Filtry taxonomie pro "%{taxonomy}"
         users: Administrátoři
       tooltips:
+        cannot_destroy_taxonomy_filter: Nelze zničit tento filtr taxonomie
+        cannot_edit_taxonomy_filter: Nelze upravit tento filtr taxonomie
+        deleted_attachment_collections_info: Tuto složku nelze odstranit, protože obsahuje přílohy.
         deleted_component_info: Tato komponenta může být odstraněna pouze v případě, že je stav 'Nezveřejněno'.
       trash_management:
         restore:
@@ -1270,6 +1284,7 @@ cs:
           last_day: Poslední den
           last_month: Minulý měsíc
           last_week: Minulý týden
+          no_users_count_statistics_yet: Zatím nejsou žádné statistiky počtu účastníků.
           participants: Účastníci
     forms:
       errors:
@@ -1284,6 +1299,7 @@ cs:
         parent_hidden: Nelze odkrýt tento zdroj, protože jeho nadřazená položka je stále skrytá.
         title: Akce
         unhide: Vrátit skrytí
+        unreport: Zpět hlášení
       admin:
         reportable:
           bulk_action:
