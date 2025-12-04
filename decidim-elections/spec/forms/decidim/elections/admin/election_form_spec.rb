@@ -155,7 +155,7 @@ module Decidim::Elections
         }
       end
 
-      context "when election is published" do
+      context "when election is published and not started" do
         context "and start_at is set in the past" do
           let(:start_at) { 1.day.ago }
 
@@ -184,6 +184,14 @@ module Decidim::Elections
 
           it { is_expected.to be_valid }
         end
+      end
+
+      context "when election is published and already started (ongoing)" do
+        let(:election) { create(:election, :published, :ongoing, component:) }
+        let(:start_at) { election.start_at }
+        let(:end_at) { election.end_at }
+
+        it { is_expected.to be_valid }
       end
 
       context "when election is not published" do
