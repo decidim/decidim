@@ -189,16 +189,16 @@ describe "Admin manages elections" do
   context "when the election has started but is unpublished" do
     let!(:question1) { create(:election_question, :with_response_options, election: started_unpublished_election) }
 
-    it "still prevents editing title, dates and results_availability" do
+    it "allows editing title, dates and results_availability because there are no votes" do
       within "tr", text: translated(started_unpublished_election.title) do
         find("button[data-controller='dropdown']").click
         click_on "Edit election"
       end
 
       within ".edit_election" do
-        expect(page).to have_field("election[title_en]", disabled: true)
-        expect(page).to have_field("election_end_at_date", disabled: true)
-        expect(page).to have_field("election_end_at_time", disabled: true)
+        expect(page).to have_field("election[title_en]", disabled: false)
+        expect(page).to have_field("election_end_at_date", disabled: false)
+        expect(page).to have_field("election_end_at_time", disabled: false)
       end
     end
 
