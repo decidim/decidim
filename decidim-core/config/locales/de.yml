@@ -198,6 +198,7 @@ de:
         success: Ihr Konto wurde erfolgreich gelöscht.
       download_your_data_export:
         export_expired: Der Export ist abgelaufen. Versuchen Sie, einen neuen Export zu generieren.
+        export_not_found: Der von Ihnen abgerufene Export existiert nicht, oder Sie haben keinen Zugriff auf den Download
         file_no_exists: Diese Datei existiert nicht
         notice: Ihre Daten werden gerade bereitgestellt. Sie erhalten nach Fertigstellung eine E-Mail.
       email_change:
@@ -763,7 +764,6 @@ de:
           created_at: Das Erstellungsdatum dieser Unterhaltung
           id: Die eindeutige Bezeichnung dieser Unterhaltung
           messages: Die Nachrichten dieser Unterhaltung
-          updated_at: Das Datum, an dem diese Unterhaltung zuletzt aktualisiert wurde
         notifications:
           created_at: Datum und Uhrzeit, an dem die Benachrichtigung erstellt wurde
           event_class: Die Klasse des Ereignisses, das die Benachrichtigung ausgelöst hat
@@ -788,7 +788,6 @@ de:
           reason: Die Begründung dieser Meldung
           updated_at: Datum und Uhrzeit, an dem diese Meldung zuletzt aktualisiert wurde
         users:
-          about: Die Profilbeschreibung dieses Benutzers
           accepted_tos_version: Das Datum, an dem die Nutzungsbedingungen dieser Plattform vom Nutzenden akzeptiert wurden
           admin: Ob dieser Benutzer ein Administrator ist
           confirmation_sent_at: Datum und Uhrzeit, an dem die Bestätigung gesendet wurde
@@ -799,7 +798,6 @@ de:
           delete_reason: Der Grund für das Löschen dieses Benutzers
           deleted_at: Datum und Uhrzeit, an dem dieser Benutzer gelöscht wurde
           email: Die E-Mail-Adresse dieses Benutzers
-          followers_count: Die Anzahl Teilnehmende, die diesem Nutzenden folgen
           following_count: Die Anzahl der Teilnehmende, denen dieser Nutzende folgt
           id: Der eindeutige Identifikator dieses Benutzers
           invitation_accepted_at: Datum und Uhrzeit, an dem die Einladung angenommen wurde
@@ -807,16 +805,12 @@ de:
           invitation_sent_at: Datum und Uhrzeit, an dem die Einladung versendet wurde
           invitations_count: Die Anzahl der an diesen Benutzer gesendeten Einladungen
           invited_by: Der Benutzer, der diesen Benutzer eingeladen hat
-          last_sign_in_at: Datum und Uhrzeit des letzten Logins
-          last_sign_in_ip: Die IP-Adresse des letzten Logins
           locale: Die Plattformsprache, die dieser Benutzer ausgewählt hat
           managed: Ob dieser Benutzer von einem anderen Benutzer verwaltet wird
           name: Der Name des Benutzers
-          newsletter_notifications_at: Datum und Uhrzeit, wann dieser Benutzer zuletzt einen Newsletter erhalten hat
           nickname: Der Kontoname des Benutzers
           notification_settings: Die Benachrichtigungseinstellungen, die dieser Benutzer ausgewählt hat
           notifications_sending_frequency: Die Häufigkeit der Benachrichtigungen, die dieser Benutzer erhält
-          officialized_as: Der Name der offiziellen Rollen (Amtsleiterin, Bürgermeister, usw.)
           officialized_at: Das Datum und die Uhrzeit, an der dieser Benutzer offizialisiert wurde
           organization: Die Organisation, zu der dieser Benutzer gehört
           password_updated_at: Das Datum, an dem ihr Passwort zum letzten Mal geändert wurde
@@ -854,7 +848,6 @@ de:
       files:
         file_cannot_be_processed: Datei konnte nicht verarbeitet werden
         file_resolution_too_large: Die Datei-Auflösung ist zu gross
-        not_inside_organization: Die Datei ist keiner Organisation angefügt.
       internal_server_error:
         copied: Text Kopiert!
         copy_error_message_clarification: Fehlermeldung in die Zwischenablage kopieren
@@ -1051,7 +1044,6 @@ de:
         file:
           explanation: 'Anleitung für Datei:'
           message_1: Muss ein Bild oder ein Dokument sein.
-          message_2: Wenn es sich um ein Bild handelt, ist es vorzugsweise ein Querformat ohne Text. Es wird von der Plattform zugeschnitten.
         icon:
           explanation: 'Hinweise für das Bild:'
           message_1: Muss ein quadratisches Bild sein.
@@ -1153,6 +1145,7 @@ de:
         create_with_space: "%{user_name} hat %{resource_name} in %{space_name} erstellt"
         delete: "%{user_name} hat %{resource_name} gelöscht"
         delete_with_space: "%{user_name} hat %{resource_name} in %{space_name} gelöscht"
+        publish: "%{user_name} hat %{resource_name} veröffentlicht"
         publish_with_space: "%{user_name} veröffentlichte %{resource_name} in %{space_name}"
         unknown_action: "%{user_name} hat eine Aktion an %{resource_name} ausgeführt"
         unknown_action_with_space: "%{user_name} hat eine Aktion an %{resource_name} in %{space_name} ausgeführt"
@@ -1293,11 +1286,9 @@ de:
         same_language: Der Inhalt wurde in Ihrer bevorzugten Sprache (%{language}) veröffentlicht, daher wird in dieser E-Mail keine automatisierte Übersetzung angezeigt.
         translated_text: 'Automatisch übersetzter Text:'
     notifications:
-      action_error: Beim Aktualisieren der Benachrichtigungen ist ein Fehler aufgetreten.
       no_notifications: Noch keine Benachrichtigungen
       show:
         missing_event: Hoppla, diese Benachrichtigung gehört zu einem Artikel, der nicht mehr verfügbar ist. Du kannst sie verwerfen.
-        moderated: Inhalt moderiert
     notifications_digest_mailer:
       header:
         daily: Tägliche Zusammenfassung
@@ -1306,7 +1297,6 @@ de:
       hello: Hallo %{name}
       intro:
         daily: 'Dies sind die Benachrichtigungen vom letzten Tag basierend auf den Aktivitäten, denen Sie folgen:'
-        real_time: 'Es gibt eine Benachrichtigung über die Aktivität, die du folgst:'
         weekly: 'Dies sind die Benachrichtigungen der letzten Woche, basierend auf den Aktivitäten, die Sie folgen:'
       outro: Sie haben diese Benachrichtigung erhalten, weil Sie diesen Inhalt oder seine Verfassenden folgen. Sie können dem Inhalt direkt auf seiner Seite entfolgen.
       see_more: Weitere Benachrichtigungen ansehen
@@ -1449,9 +1439,7 @@ de:
           title: Wie man diese Dateien öffnet und mit ihnen arbeitet
         license:
           body_1_html: Diese Datenbank von %{organization_name} wird unter %{link_database} zur Verfügung gestellt. Alle Rechte an einzelnen Inhalten der Datenbank sind unter %{link_contents} lizenziert.
-          license_contents_link: https://opendatacommons.org/licenses/dbcl/1-0/
           license_contents_name: Lizenz für Datenbankinhalte
-          license_database_link: https://opendatacommons.org/licenses/odbl/1-0/
           license_database_name: Offene Datenbanklizenz
           title: Lizenz
         title: Offene Daten
@@ -1474,7 +1462,7 @@ de:
         footer_sub_hero:
           footer_sub_hero_body_html: Lasst uns eine offenere, transparentere und kollaborativere Gesellschaft aufbauen.<br /> Beitreten, teilnehmen und entscheiden.
           footer_sub_hero_headline: Willkommen auf der Beteiligungsplattform %{organization}.
-          register: Registrieren
+          register: Konto erstellen
         hero:
           participate: Teilnehmen
           participate_title: Beteiligen Sie sich an den Prozessen auf dieser Plattform
@@ -1482,7 +1470,7 @@ de:
         statistics:
           headline: Statistiken
         sub_hero:
-          register: Registrieren
+          register: Konto erstellen
           register_title: Konto erstellen
       index:
         standalone_pages: Seiten
@@ -1728,10 +1716,15 @@ de:
         greeting: Hallo %{name},
         instructions_1: Wenn Sie Zugriff auf dieses E-Mail-Konto haben, überprüfen Sie bitte Ihren Posteingang für die Anweisungen.
         instructions_2: Wenn nicht, muss einer Ihrer Kollegen, der Zugriff hat, das Passwort festlegen und die Anmeldedaten mit Ihnen teilen.
+        instructions_intro: Gruppenmitglieder teilen nun den Zugriff auf dieses Profil mithilfe gemeinsamer Anmeldedaten (E-Mail und Passwort). Wir haben Anweisungen an %{email} gesendet, um ein neues Passwort für das Profil festzulegen.
+        instructions_title: "<strong>Was das für Sie bedeutet</strong>"
+        subject: Wichtige Aktualisierung für Ihr Gruppenprofil
       notify_deprecation_to_owner:
         body_1: 'Wir möchten Sie gerne über ein wichtiges Update ihres Gruppenprofil informieren: %{organization_name}.'
         body_2: Wir möchten die Erfahrungen von Organisationen vereinfachen und verbessern und werden deshalb die Funktion "Benutzergruppen" abschalten. Ihre Gruppe, <strong>%{name}</strong>, wurde in ein reguläres Konto umgewandelt.
         greeting: Hallo %{name},
+        set_password: Passwort festlegen
+        subject: Wichtige Aktualisierung für Ihr Gruppenprofil
     user_report_mailer:
       notify:
         body_1: Benutzer %{user} wurde von %{token} gemeldet
@@ -2116,8 +2109,6 @@ de:
         expire_time_html: Ihre Sitzung läuft in <b><span data-impersonation-warning-target="minutes">%{minutes}</span> Minuten</b> ab.
       language_chooser:
         choose_language: Sprache wählen
-      navigation:
-        aria_label: 'Navigationsmenü: %{title}'
       notifications_dashboard:
         mark_all_as_read: Alles als gelesen markieren
         mark_as_read: Als gelesen markieren

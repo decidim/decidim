@@ -163,10 +163,6 @@ ga:
           debates: Díospóireachtaí
           meetings: Cruinnithe
           proposals: Moltaí
-        footer_sub_hero:
-          register: Cláraigh
-        sub_hero:
-          register: Cláraigh
       index:
         standalone_pages: Leathanaigh
         title: Cabhair

@@ -700,6 +700,8 @@ fr:
       export:
         ready: Prêt
       help:
+        messaging_conversations:
+          updated_at: La date de la dernière mise à jour de cette conversation
         notifications:
           extra: Informations supplémentaires sur cette notification
         participatory_space_private_users:
@@ -717,18 +719,21 @@ fr:
           reason: La raison de ce rapport
           updated_at: La date et l'heure de la dernière mise à jour de ce rapport
         users:
+          about: La description du profil de ce participant
           accepted_tos_version: La date à laquelle les conditions d'utilisation de cette plateforme ont été acceptées par l'utilisateur
           deleted_at: La date et l'heure où cet utilisateur a été supprimé
           email: L'adresse e-mail de cet utilisateur
-          followers_count: Le nombre de participants qui suivent à cet utilisateur
+          followers_count: Le nombre de participants qui suivent cet utilisateur
           following_count: Le nombre de participants que cet utilisateur suit
           id: L'identifiant unique de l'utilisateur
           invitations_count: Le nombre d'invitations envoyées à cet utilisateur
           invited_by: L'utilisateur qui a invité cet utilisateur
-          last_sign_in_at: La date et l'heure de la dernière connexion
-          last_sign_in_ip: L'adresse IP de la dernière connexion
+          last_sign_in_at: La date et l'heure de la connexion précédente
+          last_sign_in_ip: L'adresse IP de la connexion précédente
           locale: La langue que cet utilisateur a sélectionnée
+          newsletter_notifications_at: La date et l'heure à laquelle cet utilisateur s'est abonné pour recevoir une newsletter
           nickname: Le pseudonyme de l'utilisateur
+          officialized_as: Le nom de la fonction officielle (conseiller municipal, maire, etc.)
           password_updated_at: La date à laquelle leur mot de passe a été modifié pour la dernière fois
           roles: Le rôle de cet utilisateur s'il en a un
           type: Le type que cet utilisateur a
@@ -752,7 +757,7 @@ fr:
       files:
         file_cannot_be_processed: Le fichier ne peut pas être traité
         file_resolution_too_large: La résolution du fichier est trop grande
-        not_inside_organization: Le fichier n'est attaché à aucune organisation
+        not_inside_organization: Le fichier n'est attaché à aucune organisation.
       internal_server_error:
         copied: Texte copié !
         copy_error_message_clarification: Copier le message d'erreur dans le presse-papiers
@@ -930,7 +935,7 @@ fr:
         file:
           explanation: 'Orientation pour le fichier :'
           message_1: Doit être une image ou un document.
-          message_2: Si c'est une image, c'est de préférence une image de paysage qui n'a pas de texte. Le service recadre l'image.
+          message_2: Si c'est une image, préférer une image au format paysage n'incluant pas de texte. La plate-forme recadre l'image.
         icon:
           explanation: 'Manuel pour l''image:'
           message_1: Doit être une image carrée.
@@ -1161,11 +1166,11 @@ fr:
         same_language: Le contenu a été publié dans votre langue préférée (%{language}), c'est pourquoi aucune traduction automatique n'est affichée dans cet e-mail.
         translated_text: 'Traduction automatique du texte :'
     notifications:
-      action_error: Un problème est survenu lors de la mise à jour des notifications.
+      action_error: Un problème est survenu lors de la mise à jour des paramètres de notification.
       no_notifications: Il n'y a pas encore de notifications.
       show:
         missing_event: Oups, cette notification est liée à un élément qui n'est plus disponible. Vous pouvez la supprimer.
-        moderated: Contenu modéré
+        moderated: Le contenu a été masqué par modération.
     notifications_digest_mailer:
       header:
         daily: Résumé quotidien des notifications
@@ -1294,6 +1299,8 @@ fr:
             title: 3. Travailler avec les données
           title: Comment ouvrir et travailler avec ces fichiers
         license:
+          license_contents_link: https://opendatacommons.org/licenses/dbcl/1.0/
+          license_database_link: https://opendatacommons.org/licenses/odbl/1.0/
           title: Licence
         title: Données ouvertes
       not_available_yet: Les fichiers Open Data ne sont pas encore disponibles. Veuillez réessayer dans quelques minutes.
@@ -1315,7 +1322,7 @@ fr:
         footer_sub_hero:
           footer_sub_hero_body_html: Construisons une société plus ouverte, transparente et collaborative.<br /> Rejoignez le mouvement, participez et décidez, ensemble.
           footer_sub_hero_headline: Bienvenue sur la plate-forme participative de %{organization}.
-          register: S'inscrire
+          register: Créer un compte
         hero:
           participate: Participez
           participate_title: Participer aux concertations de la plateforme
@@ -1323,7 +1330,7 @@ fr:
         statistics:
           headline: Statistiques
         sub_hero:
-          register: S'inscrire
+          register: Créer un compte
           register_title: Créer un compte
       index:
         standalone_pages: Pages
@@ -1967,7 +1974,7 @@ fr:
       language_chooser:
         choose_language: Choisir la langue
       navigation:
-        aria_label: Menu de navigation - %{title}
+        aria_label: 'Menu de navigation: %{title}'
       notifications_dashboard:
         mark_all_as_read: Marquer tout comme lu
         mark_as_read: Marquer comme lu

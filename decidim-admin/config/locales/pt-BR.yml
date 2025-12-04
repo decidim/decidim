@@ -35,7 +35,6 @@ pt-BR:
       id: ID
       newsletter:
         body: Corpo
-        send_to_all_users: Enviar para todos os usuários
         send_to_followers: Enviar para seguidores
         send_to_participants: Enviar para participantes
         subject: Assunto
@@ -271,7 +270,6 @@ pt-BR:
       block_user:
         new:
           action: Bloquear conta e enviar justificativa
-          already_reported_html: Continuar com essa ação também resultará na ocultação o conteúdo de todos os participantes.
           description: Bloquear um usuário irá tornar sua conta inutilizável. Você pode fornecer em sua justificação quaisquer diretrizes sobre como você poderia considerar desbloquear o usuário.
           justification: Justificativa
           title: Bloquear usuário %{name}
@@ -356,7 +354,6 @@ pt-BR:
         form:
           domain_too_short: Domínio muito curto
         update:
-          error: Falha ao atualizar lista de domínios externos permitidos
           success: Lista do domínio externo permitido atualizada com sucesso.
       exports:
         export_as: "%{name} como %{export_format}"
@@ -1043,6 +1040,7 @@ pt-BR:
           actions: Ações
           destroy: Deletar
           edit: Editar
+          name:
       taxonomy_items:
         edit:
           title: Editar item em %{taxonomy}
@@ -1068,6 +1066,10 @@ pt-BR:
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         users: Administradores
+      trash_management:
+        soft_delete:
+          invalid: Houve um problema ao remover %{resource_name}.
+          success: "%{resource_name} removido com sucesso."
       users:
         create:
           error: Ocorreu um erro ao convidar esse usuário.
@@ -1088,7 +1090,6 @@ pt-BR:
           last_day: Último dia
           last_month: Último mês
           last_week: Última semana
-          no_users_count_statistics_yet: Ainda não há nenhuma estatística de usuários ainda.
           participants: Participantes
     forms:
       errors:
@@ -1138,3 +1139,5 @@ pt-BR:
       admin:
         global_moderations:
           title: Moderações globais
+        taxonomy_filters_selector:
+          title: Filtros

@@ -4,10 +4,10 @@ require "spec_helper"
 
 describe "Last activity" do
   let(:organization) { create(:organization) }
-  let!(:proposal_component) { create(:proposal_component) }
-  let!(:withdrawn_proposal) { create(:proposal, :withdrawn, component: proposal_component) }
+  let!(:proposal_component) { create(:proposal_component, :published) }
+  let!(:withdrawn_proposal) { create(:proposal, :published, :withdrawn, component: proposal_component) }
   let!(:proposal) { create(:proposal, :published, component: proposal_component) }
-  let(:commentable) { create(:dummy_resource, component:) }
+  let(:commentable) { create(:dummy_resource, :published, component:) }
   let(:comment) { create(:comment, commentable:) }
   let!(:action_log) do
     create(:action_log,
@@ -45,9 +45,9 @@ describe "Last activity" do
     create(:component, :published, organization:)
   end
   let(:resource) do
-    create(:dummy_resource, component:, published_at: Time.current)
+    create(:dummy_resource, :published, component:)
   end
-  let(:second_commentable) { create(:dummy_resource, component:) }
+  let(:second_commentable) { create(:dummy_resource, :published, component:) }
 
   before do
     allow(Decidim::ActionLog).to receive(:public_resource_types).and_return(

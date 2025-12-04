@@ -33,6 +33,7 @@ eu:
           comment: Iruzkina
           create: Sortu eztabaida bat
           like: Atsegin dut
+          vote_comment: Bozkatu iruzkina
         name: Eztabaidak
         settings:
           global:

@@ -53,6 +53,7 @@ de:
             tos: Nutzungsbedingungen
         questionnaires:
           actions:
+            back: Zurück zu den Antworten
             publish_responses: Antworten veröffentlichen
             show: Antworten
           display_condition:

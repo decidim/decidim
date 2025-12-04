@@ -340,6 +340,7 @@ ca:
         participatory_processes:
           announcement: La informació de l'anunci/avís (crida)
           area: L'àrea a què pertany aquest procés
+          component_settings: Configuració dels components del procés participatiu
           created_at: La data en què es va crear aquest procés participatiu
           description: Una descripció llarga del procés
           developer_group: El grup promotor del procés. Qui està promovent el procés.

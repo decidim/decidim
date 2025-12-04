@@ -432,12 +432,9 @@ ru:
           proposals_explanation: Вносите новые предложения, поддерживайте уже внесенные и способствуйте изменениям, которые вы хотите видеть.
         footer_sub_hero:
           footer_sub_hero_headline: Добро пожаловать на площадку соучастия %{organization}!
-          register: Зарегистрироваться
         hero:
           participate: Принять участие
           welcome: Добро пожаловать в %{organization}!
-        sub_hero:
-          register: Зарегистрироваться
     profile:
       deleted: Удаленный участник
     profiles:
