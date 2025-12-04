@@ -226,7 +226,7 @@ describe "Admin manages elections questions" do
   end
 
   context "when the election has started" do
-    let!(:started_election) { create(:election, :ongoing, component: current_component) }
+    let!(:started_election) { create(:election, :published, :ongoing, component: current_component) }
     let!(:question) { create(:election_question, :with_response_options, election: started_election) }
 
     it "denies access to the questions edit page" do

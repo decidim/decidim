@@ -913,7 +913,6 @@ GEM
 
 PLATFORMS
   arm64-darwin-23
-  arm64-darwin-25
   x86_64-linux
 
 DEPENDENCIES
