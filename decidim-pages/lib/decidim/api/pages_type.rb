@@ -15,7 +15,7 @@ module Decidim
         Page.where(component: object).includes(:component)
       end
 
-      def page(id: )
+      def page(id:)
         Decidim::Core::ComponentFinderBase.new(model_class: Page).call(object, { id: }, context)
       end
     end
