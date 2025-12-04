@@ -103,20 +103,20 @@
     }
   }
 
-  &__card__highlight-vote__header {
-    @apply place-items-start w-1/3;
+  &__card_highlight-vote__header {
+    @apply place-items-start flex;
   }
 
   &__card__highlight-vote__number {
-    @apply text-xl font-semibold;
+    @apply text-xl mx-4 px-2 font-semibold flex justify-start w-full;
 
     span {
-      @apply text-sm;
+      @apply text-sm mx-8;
     }
   }
 
   &__card__highlight-vote__button {
-    @apply mt-auto text-left;
+    @apply mx-8 px-4 text-left;
 
     &.button__secondary:hover {
       @apply text-white #{!important};
