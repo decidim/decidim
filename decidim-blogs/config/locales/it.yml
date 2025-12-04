@@ -17,6 +17,8 @@ it:
         title: Azioni
       admin:
         posts:
+          destroy:
+            success: Post eliminato correttamente.
           edit:
             save: Aggiornare
             title: Modifica post
