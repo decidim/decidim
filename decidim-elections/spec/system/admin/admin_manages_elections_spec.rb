@@ -18,6 +18,7 @@ describe "Admin manages elections" do
   let!(:finished_election) { create(:election, :published, :finished, component: current_component) }
   let!(:ongoing_election) { create(:election, :published, :ongoing, :with_token_csv_census, component: current_component) }
   let!(:published_results_election) { create(:election, :published, :published_results, component: current_component) }
+  let!(:unpublished_election_with_votes) { create(:election, component: current_component) }
 
   let(:attributes) { attributes_for(:election, component: current_component) }
   let(:start_time) { 1.day.from_now }
@@ -201,8 +202,26 @@ describe "Admin manages elections" do
       end
     end
 
-    it "does not show Questions and Census tabs" do
+    it "shows Questions and Census tabs because there are no votes" do
       within "tr", text: translated(started_unpublished_election.title) do
+        find("button[data-controller='dropdown']").click
+        click_on "Edit election"
+      end
+
+      expect(page).to have_link("Main")
+      expect(page).to have_link("Questions")
+      expect(page).to have_link("Census")
+    end
+  end
+
+  context "when the election is unpublished and has votes" do
+    let!(:question_with_votes) { create(:election_question, :with_response_options, election: unpublished_election_with_votes) }
+    let!(:vote) { create(:election_vote, question: question_with_votes, response_option: question_with_votes.response_options.first) }
+
+    it "does not show Questions and Census tabs" do
+      visit current_path
+
+      within "tr", text: translated(unpublished_election_with_votes.title) do
         find("button[data-controller='dropdown']").click
         click_on "Edit election"
       end
