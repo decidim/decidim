@@ -43,7 +43,7 @@ module Decidim
 
           case permission_action.action
           when :update, :reorder
-            toggle_allow(election.present? && !election.started?)
+            toggle_allow(election.present? && election.editable?)
           when :update_status
             toggle_allow(election.present? && election.published? && election.questions.exists?)
           end
@@ -56,7 +56,7 @@ module Decidim
           when :edit
             allow!
           when :update
-            toggle_allow(election.present? && !election.started?)
+            toggle_allow(election.present? && election.editable?)
           end
         end
       end

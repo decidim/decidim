@@ -72,6 +72,10 @@ module Decidim
         published? && !ongoing? && !finished? && !published_results?
       end
 
+      def editable?
+        published? ? !started? : !votes.exists?
+      end
+
       def started?
         start_at.present? && start_at <= Time.current
       end

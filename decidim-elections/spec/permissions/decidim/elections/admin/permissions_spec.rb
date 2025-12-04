@@ -142,14 +142,31 @@ describe Decidim::Elections::Admin::Permissions do
     context "when updating" do
       let(:action_name) { :update }
 
-      context "when election has not started" do
-        it { is_expected.to be true }
+      context "when election is unpublished" do
+        context "and has no votes" do
+          it { is_expected.to be true }
+        end
+
+        context "and has votes" do
+          let!(:question) { create(:election_question, :with_response_options, election:) }
+          let!(:vote) { create(:election_vote, question:, response_option: question.response_options.first) }
+
+          it { is_expected.to be false }
+        end
       end
 
-      context "when election has started" do
-        let(:election) { create(:election, :ongoing, component:) }
+      context "when election is published" do
+        context "and has not started" do
+          let(:election) { create(:election, :published, :scheduled, component:) }
 
-        it { is_expected.to be false }
+          it { is_expected.to be true }
+        end
+
+        context "and has started" do
+          let(:election) { create(:election, :published, :ongoing, component:) }
+
+          it { is_expected.to be false }
+        end
       end
 
       context "when election is missing" do
@@ -180,14 +197,31 @@ describe Decidim::Elections::Admin::Permissions do
     context "when reordering" do
       let(:action_name) { :reorder }
 
-      context "when election has not started" do
-        it { is_expected.to be true }
+      context "when election is unpublished" do
+        context "and has no votes" do
+          it { is_expected.to be true }
+        end
+
+        context "and has votes" do
+          let!(:question) { create(:election_question, :with_response_options, election:) }
+          let!(:vote) { create(:election_vote, question:, response_option: question.response_options.first) }
+
+          it { is_expected.to be false }
+        end
       end
 
-      context "when election has started" do
-        let(:election) { create(:election, :ongoing, component:) }
+      context "when election is published" do
+        context "and has not started" do
+          let(:election) { create(:election, :published, :scheduled, component:) }
 
-        it { is_expected.to be false }
+          it { is_expected.to be true }
+        end
+
+        context "and has started" do
+          let(:election) { create(:election, :published, :ongoing, component:) }
+
+          it { is_expected.to be false }
+        end
       end
 
       context "when election is missing" do
@@ -210,14 +244,31 @@ describe Decidim::Elections::Admin::Permissions do
     context "when updating" do
       let(:action_name) { :update }
 
-      context "when election has not started" do
-        it { is_expected.to be true }
+      context "when election is unpublished" do
+        context "and has no votes" do
+          it { is_expected.to be true }
+        end
+
+        context "and has votes" do
+          let!(:question) { create(:election_question, :with_response_options, election:) }
+          let!(:vote) { create(:election_vote, question:, response_option: question.response_options.first) }
+
+          it { is_expected.to be false }
+        end
       end
 
-      context "when election has started" do
-        let(:election) { create(:election, :ongoing, component:) }
+      context "when election is published" do
+        context "and has not started" do
+          let(:election) { create(:election, :published, :scheduled, component:) }
 
-        it { is_expected.to be false }
+          it { is_expected.to be true }
+        end
+
+        context "and has started" do
+          let(:election) { create(:election, :published, :ongoing, component:) }
+
+          it { is_expected.to be false }
+        end
       end
 
       context "when election is missing" do
