@@ -109,11 +109,11 @@ For a long time Decidim has been using internally the user browser to detect the
 
 This improves the user experience by allowing the platform to send emails with the correct language, linking any resource to the correct language preferred by the user.
 
-It also enables the users of multilanguage platforms to share the links to the resources within their own language.
+It also enables the users of multi language platforms to share the links to the resources within their own language.
 
 ```text
-    /en/processes/hereslug/f/57/elections/5 # if seen in english
-    /ca/processes/hereslug/f/57/elections/5 # if seen in catalan
+    /en/processes/here-slug/f/57/elections/5 # if seen in english
+    /ca/processes/here-slug/f/57/elections/5 # if seen in catalan
 ```
 
 You can read more about this change on PR [#14432](https://github.com/decidim/decidim/pull/14432).
