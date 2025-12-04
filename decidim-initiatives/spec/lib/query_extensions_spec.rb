@@ -61,8 +61,8 @@ module Decidim
           let!(:initiative) { create(:initiative) }
           let(:id) { initiative.id }
 
-          it "returns nil" do
-            expect(response["initiative"]).to be_nil
+          it_behaves_like "graphQL hidden space" do
+            let(:space_type) { "initiative" }
           end
         end
       end

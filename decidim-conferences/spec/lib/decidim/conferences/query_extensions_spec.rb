@@ -38,8 +38,8 @@ module Decidim
           let!(:conference) { create(:conference) }
           let(:id) { conference.id }
 
-          it "returns nil" do
-            expect(response["conference"]).to be_nil
+          it_behaves_like "graphQL hidden space" do
+            let(:space_type) { "conference" }
           end
         end
       end
