@@ -622,6 +622,7 @@ ca-IT:
     open_data:
       help:
         conferences:
+          component_settings: Configuració dels components de la jornada
           created_at: La data en què es va crear aquesta jornada
           decidim_scope_id: L'àmbit territorial de la jornada
           description: Una descripció llarga de la jornada

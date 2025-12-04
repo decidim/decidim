@@ -732,7 +732,7 @@ eu:
           see_email: Ikusi zure helbide elektronikoa
           see_name: Ikusi zure izena
           see_username: Ikusi zure parte-hartzailearen izena
-          this_application_will_be_able_to: 'Aplikazio hau gai izango da:'
+          this_application_will_be_able_to: 'Aplikazio horrek honako zeregin hauek egin ahal izango ditu:'
           this_application_will_not_be_able_to: 'Aplikazio honek ezin izango du:'
           update_profile: Eguneratu profila
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> k zure kontua erabili nahi du"
@@ -784,7 +784,7 @@ eu:
           reason: Txosten honen arrazoia
           updated_at: Zein datatan eta zein ordutan eguneratu zen txosten hau azken aldiz
         users:
-          about: Erabiltzaile honen biografia
+          about: Parte-hartzaile honen profilaren deskribapena
           accepted_tos_version: Zein datatan onartu zituen parte-hartzaileak plataforma honen zerbitzu-baldintzak
           admin: Parte-hartzaile hau administratzailea bada
           confirmation_sent_at: Zein datatan eta zein ordutan bidali zen konfirmazioa
@@ -803,8 +803,8 @@ eu:
           invitation_sent_at: Zein datatan eta zein ordutan bidali zen gonbidapena
           invitations_count: Parte-hartzaile honi bidalitako gonbidapen kopurua
           invited_by: Parte-hartzaile hau gonbidatu duen erabiltzailea
-          last_sign_in_at: Azken saioaren hasiera-data eta -ordua
-          last_sign_in_ip: Azken loginaren IP helbidea
+          last_sign_in_at: Aurreko saioaren data eta ordua
+          last_sign_in_ip: Aurreko saioaren data eta ordua
           locale: Parte-hartzaile honek aukeratu duen lokala (hizkuntza)
           managed: Parte-hartzaile hau beste erabiltzaile batek kudeatzen badu
           name: Parte-hartzaile honen izena
@@ -850,7 +850,7 @@ eu:
       files:
         file_cannot_be_processed: Fitxategia ezin izan da prozesatu
         file_resolution_too_large: Fitxategiaren erresoluzioa handiegia da
-        not_inside_organization: Fitxategia ez dago erakunde batekin erlazionatuta
+        not_inside_organization: Fitxategia ez dago inongo erakunderi atxikita.
       internal_server_error:
         copied: Testua kopiatuta!
         copy_error_message_clarification: Kopiatu errore-mezua arbelean
@@ -1046,7 +1046,7 @@ eu:
         file:
           explanation: 'Fitxategirako jarraibideak:'
           message_1: Irudi bat edo dokumentu bat izan behar da.
-          message_2: Irudia bada, ahal dela, paisaia-irudia, testurik ez duena izan dadila. Zerbitzuak irudia lantzen du.
+          message_2: Irudia bada, ahal dela, paisaia-irudia, testurik ez duena izan dadila. Plataformak irudia lantzen du.
         icon:
           explanation: 'Irudirako jarraibideak:'
           message_1: Irudi karratua izan behar da.
@@ -1289,11 +1289,11 @@ eu:
         same_language: Edukia zure hizkuntza gogokoenean %{language} argitaratu da, horregatik ez da itzulpen automatikorik agertzen posta elektroniko honetan.
         translated_text: 'Automatikoki itzulitako testua:'
     notifications:
-      action_error: Arazo bat sortu da jakinarazpenak eguneratzean.
+      action_error: Arazo bat egon da jakinarazpenaren konfigurazioa eguneratzean.
       no_notifications: Oraindik ez dago jakinarazpenik.
       show:
         missing_event: Aiba, jakinarazpen hau dagoeneko eskuragarri ez dagoen item batena da. Baztertu dezakezu.
-        moderated: Eduki moderatua
+        moderated: Edukia ezkutatu egin da, moderazioaren bidez.
     notifications_digest_mailer:
       header:
         daily: Jakinarazpenen eguneroko laburpena
@@ -1302,7 +1302,7 @@ eu:
       hello: Kaixo %{name},
       intro:
         daily: 'Hona hemen aktibitatean oinarritutako azken egunetako jakinarazpenak:'
-        real_time: 'Hone hemen jarduera honen berri:'
+        real_time: 'Jarraitzen ari zaren jarduerari buruzko jakinarazpena da hau:'
         weekly: 'Hauek dira azken asteko jakinarazpenak, jarraitzen ari zaren jardueran oinarrituta:'
       outro: Jakinarazpen hau jaso duzu eduki hau edo bere egileak jarraitzen dituzulako. Jarraitzeari utzi ahal diozu euren orrialdeetan.
       see_more: Ikusi jakinarazpen gehiago
@@ -1445,9 +1445,9 @@ eu:
           title: Nola ireki eta lan egin fitxategi hauekin
         license:
           body_1_html: '%{organization_name} datu-base hau %{link_database} datu-basearen azpian eginda dago. Datu-basearen eduki indibidualen gaineko edozein eskubide %{link_contents}. -ren arabera dago baimenduta.'
-          license_contents_link: http://opendatacommons.org/licenses/dbcl/1.0/
+          license_contents_link: https://opendatacommons.org/licenses/dbcl/1.0/
           license_contents_name: Datu-basearen Edukien Lizentzia
-          license_database_link: http://opendatacommons.org/licenses/odbl/1.0/
+          license_database_link: https://opendatacommons.org/licenses/odbl/1.0/
           license_database_name: Open Database Lizentzia
           title: Lizentzia
         title: Datu Irekiak
@@ -1470,7 +1470,7 @@ eu:
         footer_sub_hero:
           footer_sub_hero_body_html: Eraiki dezagun gizarte irekiago, gardenago eta kolaboratiboagoa <br /> Lotu, hartu parte eta erabaki.
           footer_sub_hero_headline: Ongi etorri %{organization} erakundearen partaidetzarako plataformara.
-          register: Erregistroa
+          register: Sortu kontu bat
         hero:
           participate: Hartu parte
           participate_title: Parte hartu plataformako prozesuetan
@@ -1478,7 +1478,7 @@ eu:
         statistics:
           headline: Estatistikak
         sub_hero:
-          register: Alta eman
+          register: Sortu kontu bat
           register_title: Kontu bat sortu
       index:
         standalone_pages: Orrialdeak
@@ -1838,8 +1838,8 @@ eu:
           Gonbidapena onartu nahi ez baduzu, mesedez, ez egin kasurik mezu elektroniko honi. Zure kontua ez da sortuko, goiko estekara sartu eta zure erabiltzaile-izena eta pasahitza ezarri arte.
         invited_you_as_admin: "%{invited_by} admnisitrariak %{application} administratzaile gisa gonbidatu zaitu. Beheko estekan onartu dezakezu."
         invited_you_as_private_user: "%{invited_by} parte-hartzaileak egonbidatu zaitu %{application} ko erabiltzaile pribatu gisa. Beheko estekan onartu dezakezu."
-        someone_invited_you: Norbaitek %{application} gonbidatu zaitu. Beheko estekan onartu dezakezu.
-        someone_invited_you_as_admin: Norbaitek %{application} admin gisa gonbidatu zaitu, beheko estekan onartu dezakezu.
+        someone_invited_you: Norbaitek %{application} gonbidatu zaitu. Beheko estekan onar dezakezu.
+        someone_invited_you_as_admin: Norbaitek %{application} administratzaile gisa gonbidatu zaitu, beheko estekan onar dezakezu.
         someone_invited_you_as_private_user: Norbaitek %{application} ko parte-hartzaile pribatu gisa gonbidatu zaitu, beheko estekan onar dezakezu.
         subject: Gonbidapenaren argibideak
       invite_admin:
@@ -1920,7 +1920,7 @@ eu:
       new:
         resend_unlock_instructions: Birbidali desblokeatzeko argibideak
       send_instructions: Mezu elektroniko bat jasoko duzu jarraibideak zure kontua desblokeatzeko minutu gutxi barru.
-      send_paranoid_instructions: Zure kontua badago, mezu elektroniko bat jasoko duzu minutu batzuk barru nola desblokeatzeko argibideekin.
+      send_paranoid_instructions: Zure kontua badago, mezu elektroniko bat jasoko duzu minutu gutxi barru desblokeatzeko jarraibideekin.
       unlocked: Zure kontua ondo desblokeatu da. Hasi saioa jarraitzeko.
   doorkeeper:
     scopes:
@@ -2131,7 +2131,7 @@ eu:
       language_chooser:
         choose_language: Aukeratu hizkuntza
       navigation:
-        aria_label: '%{title} Nabigazio-menua'
+        aria_label: 'Nabigazio menua: %{title}'
       notifications_dashboard:
         mark_all_as_read: Markatu dena irakurritako gisa
         mark_as_read: Irakurrita bezala markatu

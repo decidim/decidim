@@ -298,7 +298,7 @@ sv:
           title: Blockera användare
         new:
           action: Blockera konto och skicka motivering
-          already_reported_html: Fortsätter du kommer även alla deltagares innehåll att döljas.
+          already_reported_html: Fortsätter du kommer även deltagarens innehåll att döljas.
           description: Om du blockerar en användare blir kontot oanvändbart. Du kan skriva en motivering och riktlinjer för vad som krävs för att häva blockeringen.
           justification: Motivering
           title: Blockera användare %{name}
@@ -392,7 +392,7 @@ sv:
         form:
           domain_too_short: Domännamnet är för kort
         update:
-          error: Kunde inte uppdatera listan med tillåtna externa domännamn
+          error: Kunde inte uppdatera listan med tillåtna externa domännamn.
           success: Listan med tillåtna externa domännamn har uppdaterats.
       exports:
         export_as: "%{name} som %{export_format}"

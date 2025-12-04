@@ -8,6 +8,14 @@
           <span><%= t("decidim.elections.elections.show.voted") %></span>
         </div>
       <% end %>
+    <% elsif allowed_to? :create, :census_check, election: election %>
+      <%= link_to t("decidim.elections.elections.show.check_census_button"),
+                  new_election_census_check_path(election),
+                  class: "button button__lg button__secondary #{"hidden" if election.published? && !election.allow_census_check_before_start}",
+                  data: election.published? ? { census_check_button: true, census_check_url: election_path(election, format: :json) } : {} %>
+      <div class="mt-6 <%= "hidden" if election.published? && !election.allow_census_check_before_start %>" data-census-check-explanation="<%= election.published? %>">
+        <span><%= t("decidim.elections.elections.show.check_census_explanation") %></span>
+      </div>
     <% end %>
   </div>
 </section>

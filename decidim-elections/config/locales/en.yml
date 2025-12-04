@@ -97,6 +97,7 @@ en:
             start_question_button: Enable voting
             title: Results
           status:
+            allow_census_check_before_start: Allow users to check if they can vote before the election starts
             census: 'Census:'
             results_availability:
               after_end: Results available after the election ends
@@ -141,6 +142,8 @@ en:
           publish:
             invalid: There was a problem publishing the election.
             success: Election published successfully.
+          toggle_census_check:
+            error: There was an error enabling the census check.
           unpublish:
             invalid: There was a problem unpublishing the election.
             success: Election unpublished successfully.
@@ -183,6 +186,11 @@ en:
           update: "%{user_name} updated the %{resource_name} election in %{space_name}"
         question:
           update: "%{user_name} updated the questions of the %{resource_name} election"
+      census_checks:
+        show:
+          description: This means that, once the election starts, you can vote in it.
+          exit_button: Exit the census check
+          title: You have been successfully verified
       censuses:
         census_ready_html: The census data is uploaded and prepared for its use in the <b>%{election_title}</b> election.
         census_size_html:
@@ -247,6 +255,8 @@ en:
           title: Election questions
         show:
           active_voting_until: 'Active voting until: %{end_date}'
+          check_census_button: Check if I can vote
+          check_census_explanation: This election has not started yet, but you can check if you are included in the census.
           vote_button: Vote
           voted: You have already voted. You can vote again, only your last vote will be counted.
           votes_count:

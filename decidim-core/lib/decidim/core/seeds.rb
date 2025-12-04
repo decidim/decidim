@@ -140,7 +140,7 @@ module Decidim
       end
 
       def create_organization!
-        smtp_label = ENV.fetch("SMTP_FROM_LABEL", ::Faker::Twitter.unique.screen_name)
+        smtp_label = ENV.fetch("SMTP_FROM_LABEL", ::Faker::X.unique.screen_name)
         smtp_email = ENV.fetch("SMTP_FROM_EMAIL", ::Faker::Internet.email)
 
         primary_color, secondary_color, tertiary_color = [
@@ -168,7 +168,7 @@ module Decidim
             from: "#{smtp_label} <#{smtp_email}>",
             from_email: smtp_email,
             from_label: smtp_label,
-            user_name: ENV.fetch("SMTP_USERNAME", ::Faker::Twitter.unique.screen_name),
+            user_name: ENV.fetch("SMTP_USERNAME", ::Faker::X.unique.screen_name),
             encrypted_password: Decidim::AttributeEncryptor.encrypt(ENV.fetch("SMTP_PASSWORD", ::Faker::Internet.password(min_length: 8))),
             address: ENV.fetch("SMTP_ADDRESS", nil) || ENV.fetch("DECIDIM_HOST", "localhost"),
             port: ENV.fetch("SMTP_PORT", nil) || ENV.fetch("DECIDIM_SMTP_PORT", "25")

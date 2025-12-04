@@ -719,12 +719,9 @@
           proposals_explanation: Lag forslag, støtt eksisterende og promoter endringene du ønsker å se.
         footer_sub_hero:
           footer_sub_hero_headline: Velkommen til %{organization} deltaker plattform.
-          register: Registrer deg
         hero:
           participate: Delta
           welcome: Velkommen til %{organization}!
-        sub_hero:
-          register: Registrer deg
       index:
         standalone_pages: Sider
         subheading: Naviger gjennom hjelpesidene til %{name}

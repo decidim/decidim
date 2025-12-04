@@ -1,6 +1,8 @@
 eu:
   activemodel:
     attributes:
+      elections_question:
+        max_choices: Gehieneko aukera kopurua
       token_csv:
         file: Fitxategia
         remove_all: Ezabatu egungo errolda-datu guztiak
@@ -199,9 +201,6 @@ eu:
           authorization_options_invalid: Zoritxarrez, nahiz eta baimen guztiak dituzun, batzuk ez dira baliozkoak hautapen honetarako.
           exit_button: Irten bozkatzeko kabinatik
           invalid: Ez duzu baimenik aukeraketa honetan bozkatzeko.
-          missing: Zure erabiltzaileak ez ditu behar diren baimen batzuk. Mesedez, begiratu informazioa eta saiatu berriro.
-          not_authorized: '"%{adapter}" baimena ez dator bat eskatutako baldintzekin.'
-          not_granted: '"%{adapter}" baimena ez dago emanda.'
           resume_with_method: Egiaztapena berrartu %{name} erabiliz
           verify_with_method: Egiaztatu %{name} izenaz
         token_csv:
@@ -301,6 +300,9 @@ eu:
         question:
           back: Atzera
           cast_vote: Eman botoa
+          max_choices: 'Gehieneko aukerak: %{count}'
+          max_choices_alert: Aukera gehiegi aukeratu dituzu. Mesedez, utzi batzuk jarraitzeko.
+          max_choices_exceeded: Ezin da aukeratu % {max} aukera baino gehiago. Mesedez, itzuli eta doitu zure aukeraketa.
           next: Hurrengoa
         receipt:
           description: Edozein unetan eman dezakezu botoa berriro, bozkatzeko epea irekita dagoen bitartean. Zure boto berriak aurrekoa gainidatziko du.

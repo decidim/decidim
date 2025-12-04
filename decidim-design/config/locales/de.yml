@@ -253,8 +253,6 @@ de:
         share_button: Schaltfläche "Teilen"
         share_usage_description_html: Stellen Sie sicher, dass die partielle <code>Dezimal/Shared/share_modal</code> im DOM-Archiv vorhanden ist. Dieser Teil im Anwendungslayout platziert.
         sizes: Grössen
-        sortition_l: Sortierung_I
-        sortitions: Sortierungen
         source_code: Quellcode
         state: Status
         tab_panels_context_description: Diese Tab-Panel-Komponente sammelt alle zugehörigen Inhalte oder andere Ressourcen des angezeigten Hauptelements, um vertikalen Speicherplatz zu sparen. Wenn Sie auf den Tab klicken, wird das erstellte Fenster aktiviert, um den Inhalt anzuzeigen.
