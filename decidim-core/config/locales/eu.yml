@@ -1295,8 +1295,10 @@ eu:
       action_error: Arazo bat egon da jakinarazpenaren konfigurazioa eguneratzean.
       no_notifications: Oraindik ez dago jakinarazpenik.
       show:
+        deleted: Egileak edukia ezabatu egin du.
         missing_event: Aiba, jakinarazpen hau dagoeneko eskuragarri ez dagoen item batena da. Baztertu dezakezu.
         moderated: Edukia ezkutatu egin da, moderazioaren bidez.
+        not_available: Hara, jakinarazpen hau dagoeneko erabilgarri ez dagoen elementu bati dagokio. Alde batera utz dezakezu.
     notifications_digest_mailer:
       header:
         daily: Jakinarazpenen eguneroko laburpena
@@ -1644,7 +1646,7 @@ eu:
         help: "Bilaketa-baldintzak aldatzen direnean, beheko inprimakiak dinamikoki iragazten ditu bilaketaren\nemaitzak."
         skip: Joan emaitzetara
       flag_modal:
-        already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
+        already_reported: Eduki horren berri ematen da dagoeneko, eta administrazio batek berrikusiko du.
         close: Itxi
         description: Eduki hau desegokia da?
         does_not_belong: Bertan badago legez kontrako jardunik, suizidio-mehatxurik, informazio pertsonalik edo beste zernahi, zure ustez %{organization_name}-ri ez dagokionik.
@@ -1783,7 +1785,7 @@ eu:
         version_index: '%{total} en %{index} bertsioa'
     welcome_notification:
       default_body: <p>Kaixo {{name}}, eskerrik asko {{organization}}-era lotzeagatik eta ongi etorria!</p><ul><li>Hemen zer egin dezakezun ideia azkar bat nahi baduzu, begiratu <a href="{{help_url}}">Laguntza</a> atalean.</li><li>Behin irakurri ondoren, zure lehen garaikurra jasoko duzu. Hemen da <a href="{{badges_url}}">garaikur guztien zerrenda</a> zuk lor ditzakezunak {{organization}} ean parte hartuz.</li><li> Azkenik, lotu beste pertsona batzuei eta partekatu haiekin inplikatzearen eta {{organization}} ean parte hartzearen esperientzia. Egin proposamenak, iruzkinak, eztabaidak, pentsatu nola lagundu denon onerako, eman argudioak konbentzitzeko, entzun eta irakurri zeure burua konbentzitzeko, adierazi zure ideiak modu zehatzean, erantzun pazientziaz eta erabakiz, defendatu zure ideiak eta mantendu burua zabalik, beste pertsona batzuen ideietan lankidetzan aritzeko.</li></ul>
-      default_subject: Eskerrik asko sartzeko {{organization}}!
+      default_subject: Thanks for joining {{organization}}!
     wizard_step_form:
       wizard_aside:
         back: Atzera
