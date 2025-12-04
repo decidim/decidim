@@ -1534,7 +1534,7 @@ eu:
         help: "Bilaketa-baldintzak aldatzen direnean, beheko inprimakiak dinamikoki iragazten ditu bilaketaren\nemaitzak."
         skip: Joan emaitzetara
       flag_modal:
-        already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
+        already_reported: Eduki horren berri ematen da dagoeneko, eta administrazio batek berrikusiko du.
         close: Itxi
         description: Eduki hau desegokia da?
         does_not_belong: Bertan badago legez kontrako jardunik, suizidio-mehatxurik, informazio pertsonalik edo beste zernahi, zure ustez %{organization_name}-ri ez dagokionik.
@@ -1543,7 +1543,7 @@ eu:
         offensive: Bertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
         reason: Arrazoia
         report: Salatu
-        spam: Bertan badago clickbait-ik, publizitaterik edo iruzurrik.
+        spam: Clickbait, publizitatea, iruzurrak edo script bot-ak ditu.
         title: Salatu eduki desegokia
       flag_user_modal:
         already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
@@ -1665,7 +1665,7 @@ eu:
         version_index: '%{total} en %{index} bertsioa'
     welcome_notification:
       default_body: <p>Kaixo {{name}}, eskerrik asko {{organization}}-era lotzeagatik eta ongi etorria!</p><ul><li>Hemen zer egin dezakezun ideia azkar bat nahi baduzu, begiratu <a href="{{help_url}}">Laguntza</a> atalean.</li><li>Behin irakurri ondoren, zure lehen garaikurra jasoko duzu. Hemen da <a href="{{badges_url}}">garaikur guztien zerrenda</a> zuk lor ditzakezunak {{organization}} ean parte hartuz.</li><li> Azkenik, lotu beste pertsona batzuei eta partekatu haiekin inplikatzearen eta {{organization}} ean parte hartzearen esperientzia. Egin proposamenak, iruzkinak, eztabaidak, pentsatu nola lagundu denon onerako, eman argudioak konbentzitzeko, entzun eta irakurri zeure burua konbentzitzeko, adierazi zure ideiak modu zehatzean, erantzun pazientziaz eta erabakiz, defendatu zure ideiak eta mantendu burua zabalik, beste pertsona batzuen ideietan lankidetzan aritzeko.</li></ul>
-      default_subject: Eskerrik asko sartzeko {{organization}}!
+      default_subject: Thanks for joining {{organization}}!
     wizard_step_form:
       wizard_aside:
         back: Atzera
@@ -1676,9 +1676,9 @@ eu:
     confirmations:
       confirmed: Zure helbide elektronikoa ondo egiaztatu da.
       new:
-        resend_confirmation_instructions: Berrikusi berrespen-argibideak
+        resend_confirmation_instructions: Berrespen-jarraibideak birbidali
       send_instructions: Jarraibideak azaltzen dituen mezu elektroniko bat jasoko duzu, zure helbide elektronikoa berretsi ahal izateko minutu gutxi barru.
-      send_paranoid_instructions: Zure helbide elektronikoa gure datu-basean badago, zure helbide elektronikoa berretsi ahal izateko gutxienez minutu bat jasoko duzu.
+      send_paranoid_instructions: Zure helbide elektronikoa gure datu-basean badago, mezu elektroniko bat jasoko duzu zure helbide elektronikoa minutu gutxi barru baieztatzeko jarraibideekin.
     failure:
       already_authenticated: Saioa hasi duzu.
       inactive: Zure kontua ez dago oraindik aktibatuta.
@@ -1701,7 +1701,7 @@ eu:
         header: Bidali gonbidapena
         submit_button: Bidali gonbidapena
       no_invitations_remaining: Ez da gonbidapenik geratzen
-      send_instructions: Gonbidapen mezu bat bidali da %{email}.
+      send_instructions: '%{email} (e) ra bidali da gonbidapen-mezu elektroniko bat.'
       updated: Pasahitza ondo ezarri da. Saioa hasi duzu.
       updated_not_active: Pasahitza ondo ezarri da.
     mailer:
@@ -2043,7 +2043,7 @@ eu:
       user_profile:
         account: Kontua
         authorizations: Baimenak
-        delete_my_account: Ezabatu nire kontua
+        delete_my_account: Nire kontua ezabatu
         my_data: Nire datuak
         my_interests: Nire interesak
         notifications_settings: Jakinarazpen-konfigurazioa
@@ -2055,7 +2055,7 @@ eu:
     name_with_error: Euskera (akatsa!)
   password_validator:
     denied: ukatu egin da
-    domain_included_in_password: domeinu izen honen antzekoa da
+    domain_included_in_password: domeinu-izen horren oso antzekoa da
     email_included_in_password: zure posta elektronikoaren antzekoa da
     fallback: ez da zuzena
     name_included_in_password: zure izenaren antzekoa da
