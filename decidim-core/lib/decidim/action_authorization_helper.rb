@@ -77,11 +77,9 @@ module Decidim
       elsif authorization_status&.ok? == false
         html_options = clean_authorized_to_data_open(html_options.merge(onboarding_options))
         if pending_steps?(authorization_status)
-          tag = "button"
+          tag = "button" || "link"
           html_options["method"] = "post"
           html_options.delete(:remote)
-          css_class = html_options.delete(:class) || ""
-          html_options["form"] = { class: "button_to #{css_class}" }
           url = decidim_verifications.renew_onboarding_data_authorizations_path
         else
           html_options["data-dialog-open"] = "authorizationModal"
