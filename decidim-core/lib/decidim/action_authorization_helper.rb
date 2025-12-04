@@ -51,7 +51,7 @@ module Decidim
     private
 
     # rubocop: disable Metrics/PerceivedComplexity
-    def authorized_to(tag, action, arguments, block) # rubocop:disable Metrics/CyclomaticComplexity
+    def authorized_to(tag, action, arguments, block)
       if block
         body = block
         url = arguments[0]
@@ -77,7 +77,7 @@ module Decidim
       elsif authorization_status&.ok? == false
         html_options = clean_authorized_to_data_open(html_options.merge(onboarding_options))
         if pending_steps?(authorization_status)
-          tag = "button" || "link"
+          tag = "link"
           html_options["method"] = "post"
           html_options.delete(:remote)
           url = decidim_verifications.renew_onboarding_data_authorizations_path
