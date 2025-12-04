@@ -54,7 +54,7 @@ module Decidim
       def set_controller_breadcrumb
         context_breadcrumb_items << {
           label: translated_attribute(group.title),
-          url: participatory_process_group_path(group),
+          url: participatory_process_group_path(group, locale: current_locale),
           active: true,
           resource: group
         }

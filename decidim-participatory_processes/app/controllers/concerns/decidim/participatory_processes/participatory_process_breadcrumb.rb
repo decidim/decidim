@@ -17,7 +17,7 @@ module Decidim
           items << {
             label: translated_attribute(current_participatory_space.participatory_process_group.title),
             active: false,
-            url: decidim_participatory_processes.participatory_process_group_path(current_participatory_space.participatory_process_group),
+            url: decidim_participatory_processes.participatory_process_group_path(current_participatory_space.participatory_process_group, locale: current_locale),
             resource: current_participatory_space.participatory_process_group
           }
         end

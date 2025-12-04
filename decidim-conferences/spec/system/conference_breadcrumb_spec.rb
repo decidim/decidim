@@ -14,7 +14,7 @@ describe "Conference Breadcrumb" do
   end
 
   scenario "shows breadcrumb with only conference" do
-    visit decidim_conferences.conference_path(participatory_space)
+    visit decidim_conferences.conference_path(participatory_space, locale: I18n.locale)
 
     within ".menu-bar" do
       expect(page).to have_content("Conferences")
