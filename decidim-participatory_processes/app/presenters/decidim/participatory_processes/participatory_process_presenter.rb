@@ -2,7 +2,10 @@
 
 module Decidim
   module ParticipatoryProcesses
-    class ParticipatoryProcessPresenter < SimpleDelegator
+    class ParticipatoryProcessPresenter < ResourcePresenter
+      include Decidim::ResourceHelper
+      include ActionView::Helpers::UrlHelper
+
       def hero_image_url
         process.attached_uploader(:hero_image).url
       end
