@@ -218,14 +218,24 @@ describe "Admin manages elections" do
     let!(:question_with_votes) { create(:election_question, :with_response_options, election: unpublished_election_with_votes) }
     let!(:vote) { create(:election_vote, question: question_with_votes, response_option: question_with_votes.response_options.first) }
 
-    it "does not show Questions and Census tabs" do
+    before do
       visit current_path
 
       within "tr", text: translated(unpublished_election_with_votes.title) do
         find("button[data-controller='dropdown']").click
         click_on "Edit election"
       end
+    end
 
+    it "prevents editing title, dates and results_availability" do
+      within ".edit_election" do
+        expect(page).to have_field("election[title_en]", disabled: true)
+        expect(page).to have_field("election_end_at_date", disabled: true)
+        expect(page).to have_field("election_end_at_time", disabled: true)
+      end
+    end
+
+    it "does not show Questions and Census tabs" do
       expect(page).to have_link("Main")
       expect(page).to have_no_link("Questions")
       expect(page).to have_no_link("Census")
