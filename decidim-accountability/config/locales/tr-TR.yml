@@ -288,6 +288,7 @@ tr:
     download_your_data:
       show:
         result_comments: Sonuç yorumlarını dışa aktar
+        results: Sonuçları içe aktar
     events:
       accountability:
         proposal_linked:
@@ -308,9 +309,15 @@ tr:
     open_data:
       help:
         result_comments:
+          author: Bu yorumu yapan katılımcının adı
+          body: Yorumun kendisi
+          created_at: Bu yorumun oluşturulduğu tarih
+          root_commentable_url: Bu yoruma bağlı kaynağın URL bağlantısı
           user_group: Bu yorumu yapan kullanıcı grubu (varsa)
         results:
+          address: Sonucun adresi (varsa)
           created_at: Sonucun oluşturulma tarihi
+          taxonomies:
     participatory_spaces:
       highlighted_results:
         see_all: Tüm sonuçları gör (%{count})
