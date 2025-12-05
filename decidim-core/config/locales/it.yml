@@ -1033,7 +1033,7 @@ it:
       participatory_space:
         metrics:
           headline: Partecipazione in cifre
-          link: Mostra tutte le statistiche
+          link: Mostra tutto
     profile:
       deleted: Utente eliminato
     profiles:
@@ -1395,6 +1395,8 @@ it:
         expire_time_html: La sessione scadrà in <b><span class="minutes">%{minutes}</span> minuti</b>.
       language_chooser:
         choose_language: Scegli la lingua
+      navigation:
+        aria_label: Menu di navigazione- %{title}
       notifications_dashboard:
         mark_all_as_read: Contrassegnare tutti come letti
         mark_as_read: Segna come già letto
