@@ -14,6 +14,7 @@ module Decidim
         attribute :rejected, Boolean
         attribute :evaluating, Boolean
         attribute :not_answered, Boolean
+        attribute :internal_states, Boolean
 
         validates :origin_component_id, :origin_component, :current_component, presence: true
         validates :default_budget, presence: true, numericality: { greater_than: 0 }
@@ -34,6 +35,14 @@ module Decidim
 
         def budget
           @budget ||= context[:budget]
+        end
+
+        def available_states(component_id = nil)
+          scope = Decidim::Proposals::ProposalState
+          scope = scope.where(component: Decidim::Component.find(component_id)) if component_id.present?
+          scope.pluck(:token).uniq.map do |token|
+            OpenStruct.new(token: token, title: token.humanize)
+          end
         end
       end
     end
