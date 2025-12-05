@@ -1255,6 +1255,8 @@ cs:
         users: Administrátoři
       tooltips:
         cannot_destroy_taxonomy_filter: Nelze zničit tento filtr taxonomie
+        cannot_edit_taxonomy_filter: Nelze upravit tento filtr taxonomie
+        deleted_attachment_collections_info: Tuto složku nelze odstranit, protože obsahuje přílohy.
         deleted_component_info: Tato komponenta může být odstraněna pouze v případě, že je stav 'Nezveřejněno'.
       trash_management:
         restore:
@@ -1283,6 +1285,7 @@ cs:
           last_day: Poslední den
           last_month: Minulý měsíc
           last_week: Minulý týden
+          no_users_count_statistics_yet: Zatím nejsou žádné statistiky počtu účastníků.
           participants: Účastníci
     forms:
       errors:
@@ -1297,6 +1300,7 @@ cs:
         parent_hidden: Nelze odkrýt tento zdroj, protože jeho nadřazená položka je stále skrytá.
         title: Akce
         unhide: Vrátit skrytí
+        unreport: Zpět hlášení
       admin:
         reportable:
           bulk_action:
