@@ -42,7 +42,7 @@ describe Decidim::Proposals::Metrics::ProposalsMetricManage do
       let!(:report) { create(:report, moderation:) }
 
       it "filters the data correctly" do
-        proposals[0].moderation.update!(hidden_at: Time.current)
+        proposals[0].reload.moderation.update!(hidden_at: Time.current)
         proposals[1].update!(published_at: nil)
         proposals[2].withdraw!
 
