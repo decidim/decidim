@@ -641,7 +641,7 @@ en:
             subject: Subject
           name: Newsletter
         member:
-          name: Participatory space private participant
+          name: Member
         scope:
           fields:
             name: Name
@@ -919,21 +919,21 @@ en:
       members:
         create:
           error: There was a problem adding a private participant for this participatory space.
-          success: Participatory space private participant access successfully created.
+          success: Member access successfully created.
         destroy:
           error: There was a problem deleting a private participant for this participatory space.
-          success: Participatory space private participant access successfully destroyed.
+          success: Member access successfully destroyed.
         edit:
-          title: Edit Participatory Space private participant.
+          title: Edit Member.
           update: Update
         index:
           import_via_csv: Import via CSV
           publish_all: Publish all
-          title: Participatory space private participant
+          title: Member
           unpublish_all: Unpublish all
         new:
           create: Create
-          title: New Participatory Space private participant.
+          title: New Member.
         publish_all:
           error: There was a problem publishing all the private participants for this participatory space.
           success: Successfully published all private participants for this participatory space
@@ -942,7 +942,7 @@ en:
           success: Successfully unpublished all private participants for this participatory space
         update:
           error: There was a problem updating the private participant for this participatory space.
-          success: Participatory space private participant successfully updated
+          success: Member successfully updated
       members_csv_imports:
         create:
           invalid: There was a problem reading the CSV file. Please make sure you have followed the instructions.
