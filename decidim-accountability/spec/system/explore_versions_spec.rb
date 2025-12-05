@@ -36,7 +36,7 @@ describe "Explore versions", versioning: true do
       click_on "see other versions"
     end
 
-    it "displays the breadcrumb" do
+    it "shows the correct information in breadcrumb" do
       within(".menu-bar") do
         expect(page).to have_content(translated(component.name))
         expect(page).to have_content(translated(result.title))
