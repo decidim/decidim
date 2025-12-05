@@ -36,6 +36,7 @@ tr:
       id: İD
       newsletter:
         body: Vücut
+        send_to_all_users: Bütün katılımcılara gönder
         send_to_followers: Takipçilere gönder
         send_to_participants: Katılımcılara gönder
         subject: konu
@@ -731,6 +732,7 @@ tr:
       new_import:
         accepted_mime_types:
           json: JSON
+          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: Ön izleme
@@ -740,6 +742,8 @@ tr:
           preview: 'Şablon özizlemesi: %{template_name}'
           use_template: Bu şablonu kullan
       newsletters:
+        confirm_recipients:
+          title: Alıcıları doğrula
         create:
           error: Bu bülteni oluştururken bir hata oluştu.
         deliver:
@@ -774,6 +778,7 @@ tr:
           followers_help: Listede seçili herhangi bir katılımcı süreci takip eden bütün onaylanmış kullanıcılara haber bülteni gönderir.
           participants_help: Listede seçili herhangi bir katılımcı sürece katılmış olan bütün onaylanmış kullanıcılara haber bülteni gönderir.
           recipients_count: Bu haber bülteni <strong id='recipients_count'>%{count}</strong> kullanıcıya gönderilecektir.
+          select_participatory_processes: Katılımcı süreçleri seç
           select_spaces: Haber bültenini bölmek için alanları seçin
           send_to_all_users: Bütün kullanıcılara gönder
           title: Teslim etmek için alıcıları seçiniz
@@ -950,12 +955,14 @@ tr:
           success: Kapsam başarıyla güncellendi
       share_tokens:
         actions:
+          confirm_destroy: Bu erişimi silmek istediğinizden emin misiniz?
           destroy: Sil
           edit: Düzenle
           preview: Ön İzleme
         create:
           invalid: Erişim linki üretilirken bir hata oluştu.
         edit:
+          title: '%{name} için yeni erişim linki'
           update: Güncelle
         form:
           automatic: Otomatik
@@ -968,7 +975,18 @@ tr:
           'true': 'Evet'
         index:
           copied: Erişim bağlantısı kopyalandı!
+          copy_message: Metin başarıyla panoya kopyalandı.
+          create_new_token: İlk erişim linkini oluştur!
+          empty_html: Şu an aktif olan bir erişim linki yok. %{new_token_link}
+          never: Asla
+          new_share_token_button: Yeni erişim linki
+          share_tokens_help_html: |
+            Diğerlerinin bu yayınlanmamış kaynağı görüntüleyebilmesi için bir erişim linki oluşturun ve paylaşın. 
+            Erişim linkleri sadece kayıtlı kullanıcılar için geçerli olabilir ve gerekirse bir son kullanım tarihi belirlenebilir. 
+            Yeni bir erişim linki paylaşmak için, oluşturduktan sonra "%{clipboard} ikonunu kullanarak linki kopyalayın.
+          title: '%{name} için erişim linkleri'
         new:
+          create: Oluştur
           title: '%{name} için yeni erişim linki'
       shared:
         gallery:
@@ -1022,10 +1040,15 @@ tr:
         update:
           success: Kategori başarıyla güncellendi.
       taxonomy_filters:
+        create:
+          error: Bu kategori filtresi oluşturulurken bir hata oluştu.
+        destroy:
+          success: Kategori filtresi başarıyla kaldırıldı.
         form:
           no_items: Bu kategori için herhangi bir öge mevcut değil. Kategori içindeki yapılandırma ayarlarından ögeler oluşturabilirsiniz.
         table:
           components_count: Bunu kullanan bileşenler
+          internal_name:
       taxonomy_filters_selector:
         new:
           save:
@@ -1047,6 +1070,8 @@ tr:
         scopes: kapsamları
         statistics: Aktivite
         user_groups: Kullanıcı Grupları
+      tooltips:
+        deleted_component_info: Bu bileşen sadece durumu 'Yayınlanmamış' ise silinebilir.
       user_group:
         csv_verify:
           invalid: CSV dosyasını okurken bir hata oluştu.
@@ -1080,12 +1105,14 @@ tr:
           role: Rol
         new:
           create: Davet et
+          title: Yeni yönetici davet et
       users_statistics:
         users_count:
           admins: Yöneticiler
           last_day: Son gün
           last_month: Geçen ay
           last_week: Geçen hafta
+          no_users_count_statistics_yet: Henüz katılımcı sayısı istatistiği yok.
           participants: Katılımcılar
     moderations:
       actions:
