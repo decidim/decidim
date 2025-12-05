@@ -15,10 +15,10 @@ module Decidim
           email: email.downcase.strip
         }
         member_form = MemberForm.from_params(params, privatable_to:)
-                                                             .with_context(
-                                                               current_user:,
-                                                               current_participatory_space: privatable_to
-                                                             )
+                                .with_context(
+                                  current_user:,
+                                  current_participatory_space: privatable_to
+                                )
 
         Decidim::Admin::CreateMember.call(member_form, privatable_to, via_csv: true)
       end
