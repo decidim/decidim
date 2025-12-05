@@ -267,6 +267,10 @@ en:
         results: results
       impersonation_log:
         manage: "%{user_name} has managed %{resource_name} because %{reason}"
+      member:
+        create: "%{user_name} invited %{resource_name} to be a member"
+        create_via_csv: "%{user_name} invited %{resource_name} via CSV to be a member"
+        delete: "%{user_name} removed the participant %{resource_name} as a member"
       moderation:
         bulk_hide: "%{user_name} hid %{reported_count} resources"
         bulk_unhide: "%{user_name} unhid %{reported_count} resources"
@@ -285,10 +289,6 @@ en:
       organization:
         update: "%{user_name} updated the organization settings"
         update_external_domain: "%{user_name} updated the organization external domains"
-      member:
-        create: "%{user_name} invited %{resource_name} to be a member"
-        create_via_csv: "%{user_name} invited %{resource_name} via CSV to be a member"
-        delete: "%{user_name} removed the participant %{resource_name} as a member"
       scope:
         create: "%{user_name} created the %{resource_name} scope"
         create_with_parent: "%{user_name} created the %{resource_name} scope inside the %{parent_scope} scope"
@@ -761,6 +761,13 @@ en:
           uid: The unique identifier of this identity
           updated_at: The date and time when the identity was last updated
           user: The user that this identity belongs to
+        members:
+          created_at: The date and time when this member was created
+          id: The unique identifier of this member
+          privatable_to: To which space this member belongs
+          published: Wether this member is published or not
+          role: The role that this member has
+          updated_at: The date and time when this member was last updated
         messaging_conversations:
           created_at: The date when this conversation was created
           id: The unique identifier for this conversation
@@ -774,13 +781,6 @@ en:
           id: The unique identifier of this notification
           resource_type: The type of the resource that the notification is related to
           updated_at: The date and time when the notification was last updated
-        members:
-          created_at: The date and time when this member was created
-          id: The unique identifier of this member
-          privatable_to: To which space this member belongs
-          published: Wether this member is published or not
-          role: The role that this member has
-          updated_at: The date and time when this member was last updated
         reports:
           created_at: The date and time when this report was created
           details: The details of this report

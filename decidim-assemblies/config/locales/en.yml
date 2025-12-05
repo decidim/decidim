@@ -171,8 +171,8 @@ en:
           components: Components
           info: About this assembly
           landing_page: Landing page layout
-          moderations: Moderations
           members: Members
+          moderations: Moderations
           see_assembly: See assembly
       models:
         assembly:
