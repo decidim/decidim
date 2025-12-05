@@ -3,13 +3,13 @@
 module Decidim
   module Admin
     module Concerns
-      # PrivateUsers can be related to any ParticipatorySpace, in order to
+      # Members can be related to any ParticipatorySpace, in order to
       # manage the members for a given type, you should create a new
       # controller and include this concern.
       #
       # The only requirement is to define a `privatable_to` method that
       # returns an instance of the model to relate the private_user to.
-      module HasPrivateUsers
+      module HasMembers
         extend ActiveSupport::Concern
 
         included do

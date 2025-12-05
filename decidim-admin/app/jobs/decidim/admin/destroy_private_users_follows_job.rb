@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    class DestroyPrivateUsersFollowsJob < ApplicationJob
+    class DestroyMembersFollowsJob < ApplicationJob
       queue_as :default
 
       def perform(decidim_user_id, space)

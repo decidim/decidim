@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Admin
-    describe DestroyPrivateUsersFollowsJob do
+    describe DestroyMembersFollowsJob do
       let(:organization) { create(:organization) }
       let!(:user) { create(:user, :admin, :confirmed, organization:) }
       let!(:normal_user) { create(:user, organization:) }

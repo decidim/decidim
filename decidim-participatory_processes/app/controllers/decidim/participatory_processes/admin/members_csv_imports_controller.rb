@@ -7,7 +7,7 @@ module Decidim
       # on participatory processes
       class MembersCsvImportsController < Decidim::Admin::ApplicationController
         include Concerns::ParticipatoryProcessAdmin
-        include Decidim::Admin::Concerns::HasPrivateUsersCsvImport
+        include Decidim::Admin::Concerns::HasMembersCsvImport
 
         def after_import_path
           members_path(current_participatory_process)

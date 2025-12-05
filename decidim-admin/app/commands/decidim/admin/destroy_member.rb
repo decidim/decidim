@@ -21,7 +21,7 @@ module Decidim
 
         # When member is destroyed, a hook to destroy the follows of user on private non-transparent assembly
         # or private participatory process and the follows of their children
-        DestroyPrivateUsersFollowsJob.perform_later(resource.decidim_user_id, resource.privatable_to)
+        DestroyMembersFollowsJob.perform_later(resource.decidim_user_id, resource.privatable_to)
       end
     end
   end

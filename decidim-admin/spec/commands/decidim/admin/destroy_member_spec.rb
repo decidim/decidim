@@ -47,7 +47,7 @@ module Decidim::Admin
         it "does not enqueue a job" do
           assembly.update(is_transparent: true)
           expect(Decidim::Follow.where(user: normal_user).count).to eq(1)
-          expect { subject.call }.not_to have_enqueued_job(DestroyPrivateUsersFollowsJob)
+          expect { subject.call }.not_to have_enqueued_job(DestroyMembersFollowsJob)
         end
       end
 
@@ -55,7 +55,7 @@ module Decidim::Admin
         it "enqueues a job" do
           assembly.update(is_transparent: false)
           expect(Decidim::Follow.where(user: normal_user).count).to eq(1)
-          expect { subject.call }.to have_enqueued_job(DestroyPrivateUsersFollowsJob)
+          expect { subject.call }.to have_enqueued_job(DestroyMembersFollowsJob)
         end
       end
     end
@@ -70,7 +70,7 @@ module Decidim::Admin
 
         it "enqueues a job" do
           expect(Decidim::Follow.where(user: normal_user).count).to eq(1)
-          expect { subject.call }.to have_enqueued_job(DestroyPrivateUsersFollowsJob)
+          expect { subject.call }.to have_enqueued_job(DestroyMembersFollowsJob)
         end
       end
     end
