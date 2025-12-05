@@ -1655,7 +1655,7 @@ eu:
         offensive: Bertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
         reason: Arrazoia
         report: Salatu
-        spam: Bertan badago clickbait-ik, publizitaterik edo iruzurrik.
+        spam: Clickbait, publizitatea, iruzurrak edo script bot-ak ditu.
         title: Salatu eduki desegokia
       flag_user_modal:
         already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
@@ -1796,9 +1796,9 @@ eu:
     confirmations:
       confirmed: Zure helbide elektronikoa ondo egiaztatu da.
       new:
-        resend_confirmation_instructions: Berrikusi berrespen-argibideak
+        resend_confirmation_instructions: Berrespen-jarraibideak birbidali
       send_instructions: Jarraibideak azaltzen dituen mezu elektroniko bat jasoko duzu, zure helbide elektronikoa berretsi ahal izateko minutu gutxi barru.
-      send_paranoid_instructions: Zure helbide elektronikoa gure datu-basean badago, zure helbide elektronikoa berretsi ahal izateko gutxienez minutu bat jasoko duzu.
+      send_paranoid_instructions: Zure helbide elektronikoa gure datu-basean badago, mezu elektroniko bat jasoko duzu zure helbide elektronikoa minutu gutxi barru baieztatzeko jarraibideekin.
     failure:
       already_authenticated: Saioa hasi duzu.
       inactive: Zure kontua ez dago oraindik aktibatuta.
@@ -1821,7 +1821,7 @@ eu:
         header: Bidali gonbidapena
         submit_button: Bidali gonbidapena
       no_invitations_remaining: Ez da gonbidapenik geratzen
-      send_instructions: Gonbidapen mezu bat bidali da %{email}.
+      send_instructions: '%{email} (e) ra bidali da gonbidapen-mezu elektroniko bat.'
       updated: Pasahitza ondo ezarri da. Saioa hasi duzu.
       updated_not_active: Pasahitza ondo ezarri da.
     mailer:
@@ -2168,7 +2168,7 @@ eu:
       user_profile:
         account: Kontua
         authorizations: Baimenak
-        delete_my_account: Ezabatu nire kontua
+        delete_my_account: Nire kontua ezabatu
         my_data: Nire datuak
         notifications_settings: Jakinarazpen-konfigurazioa
         profile: Profila
@@ -2183,7 +2183,7 @@ eu:
         format_html: "<span>%u</span> %n"
   password_validator:
     denied: ukatu egin da
-    domain_included_in_password: domeinu izen honen antzekoa da
+    domain_included_in_password: domeinu-izen horren oso antzekoa da
     email_included_in_password: zure posta elektronikoaren antzekoa da
     fallback: ez da zuzena
     name_included_in_password: zure izenaren antzekoa da
