@@ -64,7 +64,7 @@ describe "rake decidim:upgrade:remove_deleted_users_left_data", type: :task, ver
       expect { task.execute }.to change(Decidim::Identity, :count).by(-1)
     end
 
-    it "deletes the participatory space private user of deleted user" do
+    it "deletes the member of deleted user" do
       expect { task.execute }.to change(Decidim::Member, :count).by(-1)
     end
 

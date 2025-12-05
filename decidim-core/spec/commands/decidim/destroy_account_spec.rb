@@ -133,7 +133,7 @@ module Decidim
           expect { command.call }.not_to change(Decidim::Authorization, :count)
         end
 
-        it "deletes participatory space private user" do
+        it "deletes member" do
           create(:member, user:)
 
           expect { command.call }.to change(Member, :count).by(-1)

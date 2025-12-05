@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin checks pagination on participatory space private users" do
+describe "Admin checks pagination on members" do
   let(:organization) { create(:organization) }
 
   let!(:user) { create(:user, :admin, :confirmed, organization:) }

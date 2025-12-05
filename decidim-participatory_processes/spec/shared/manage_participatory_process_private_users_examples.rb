@@ -21,7 +21,7 @@ shared_examples "manage participatory process private users examples" do
   end
 
   it "creates a new participatory process private users" do
-    click_on "New participatory space private user"
+    click_on "New member"
 
     within ".new_member" do
       fill_in :member_name, with: "John Doe"
@@ -41,7 +41,7 @@ shared_examples "manage participatory process private users examples" do
   end
 
   describe "when import a batch of private users from csv" do
-    it "import a batch of participatory space private users" do
+    it "import a batch of members" do
       click_on "Import via CSV"
 
       # The CSV has no headers

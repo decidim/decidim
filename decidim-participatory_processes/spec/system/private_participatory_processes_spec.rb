@@ -35,7 +35,7 @@ describe "Private Participatory Processes" do
     end
 
     context "when user is logged" do
-      context "when is not a participatory space private user" do
+      context "when is not a member" do
         before do
           switch_to_host(organization.host)
           login_as user, scope: :user
@@ -84,7 +84,7 @@ describe "Private Participatory Processes" do
       end
     end
 
-    context "when user is logged in and is participatory space private user" do
+    context "when user is logged in and is member" do
       before do
         switch_to_host(organization.host)
         login_as other_user, scope: :user

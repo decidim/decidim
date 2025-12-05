@@ -10,7 +10,7 @@ module Decidim::Admin
     let(:user) { create(:user, :admin, :confirmed, organization:) }
     let(:member) { create(:member, user:) }
 
-    it "destroys the participatory space private user" do
+    it "destroys the member" do
       subject.call
       expect { member.reload }.to raise_error(ActiveRecord::RecordNotFound)
     end

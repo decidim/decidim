@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    # A command with all the business logic to destroy a participatory space private user.
+    # A command with all the business logic to destroy a member.
     class DestroyMember < Decidim::Commands::DestroyResource
       private
 

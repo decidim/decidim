@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    # A form object used to create participatory space private users from the
+    # A form object used to create members from the
     # admin dashboard.
     #
     class MemberForm < Form
