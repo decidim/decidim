@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Admin
-    describe ParticipatorySpacePrivateUserForm do
+    describe MemberForm do
       subject { described_class.from_params(attributes) }
 
       let(:email) { "my_email@example.org" }

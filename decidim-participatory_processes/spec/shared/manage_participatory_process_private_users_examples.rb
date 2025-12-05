@@ -45,8 +45,8 @@ shared_examples "manage participatory process private users examples" do
       click_on "Import via CSV"
 
       # The CSV has no headers
-      expect(Decidim::Admin::ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).once.ordered.with("john.doe@example.org", "John Doe", participatory_process, user)
-      expect(Decidim::Admin::ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).once.ordered.with("jane.doe@example.org", "Jane Doe", participatory_process, user)
+      expect(Decidim::Admin::ImportMemberCsvJob).to receive(:perform_later).once.ordered.with("john.doe@example.org", "John Doe", participatory_process, user)
+      expect(Decidim::Admin::ImportMemberCsvJob).to receive(:perform_later).once.ordered.with("jane.doe@example.org", "Jane Doe", participatory_process, user)
       dynamically_attach_file(:member_csv_import_file, Decidim::Dev.asset("import_members.csv"))
       perform_enqueued_jobs { click_on "Upload" }
 
@@ -75,12 +75,12 @@ shared_examples "manage participatory process private users examples" do
 
     context "when the user has not accepted the invitation" do
       before do
-        form = Decidim::Admin::ParticipatorySpacePrivateUserForm.from_params(
+        form = Decidim::Admin::MemberForm.from_params(
           name: "test",
           email: "test@example.org"
         )
 
-        Decidim::Admin::CreateParticipatorySpacePrivateUser.call(
+        Decidim::Admin::CreateMember.call(
           form,
           participatory_process
         )

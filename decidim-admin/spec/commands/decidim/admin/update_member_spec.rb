@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Admin
-  describe UpdateParticipatorySpacePrivateUser do
+  describe UpdateMember do
     subject { described_class.new(form, private_user) }
 
     let!(:privatable_to) { create(:participatory_process) }

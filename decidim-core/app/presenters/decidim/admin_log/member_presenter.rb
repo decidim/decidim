@@ -2,7 +2,7 @@
 
 module Decidim
   module AdminLog
-    # This class holds the logic to present a `Decidim::ParticipatorySpacePrivateUserPresenter`
+    # This class holds the logic to present a `Decidim::MemberPresenter`
     # for the `AdminLog` log.
     #
     # Usage should be automatic and you should not need to call this class
@@ -10,8 +10,8 @@ module Decidim
     #
     #    action_log = Decidim::ActionLog.last
     #    view_helpers # => this comes from the views
-    #    ParticipatorySpacePrivateUserPresenter.new(action_log, view_helpers).present
-    class ParticipatorySpacePrivateUserPresenter < Decidim::Log::BasePresenter
+    #    MemberPresenter.new(action_log, view_helpers).present
+    class MemberPresenter < Decidim::Log::BasePresenter
       private
 
       def diff_fields_mapping

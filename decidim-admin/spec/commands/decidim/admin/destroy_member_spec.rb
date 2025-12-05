@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Admin
-  describe DestroyParticipatorySpacePrivateUser do
+  describe DestroyMember do
     subject { described_class.new(member, user) }
 
     let(:organization) { create(:organization) }

@@ -16,7 +16,7 @@ describe "Admin filters participatory processes private space users" do
   let(:name) { "Dummy Name" }
   let(:email) { "dummy_email@example.org" }
 
-  let(:resource_controller) { Decidim::ParticipatoryProcesses::Admin::ParticipatorySpacePrivateUsersController }
+  let(:resource_controller) { Decidim::ParticipatoryProcesses::Admin::MembersController }
 
   context "when managing private process" do
     let(:participatory_process) { create(:participatory_process, organization:, private_space: true) }

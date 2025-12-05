@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Admin
-  describe PublishAllParticipatorySpacePrivateUsers do
+  describe PublishAllMembers do
     subject { described_class.new(privatable_to, current_user) }
 
     let!(:privatable_to) { create(:participatory_process) }

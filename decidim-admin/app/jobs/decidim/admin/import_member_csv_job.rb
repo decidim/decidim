@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # Custom ApplicationJob scoped to the admin panel.
     #
-    class ImportParticipatorySpacePrivateUserCsvJob < ApplicationJob
+    class ImportMemberCsvJob < ApplicationJob
       queue_as :exports
 
       def perform(email, user_name, privatable_to, current_user)
@@ -14,13 +14,13 @@ module Decidim
           name: user_name,
           email: email.downcase.strip
         }
-        private_user_form = ParticipatorySpacePrivateUserForm.from_params(params, privatable_to:)
+        private_user_form = MemberForm.from_params(params, privatable_to:)
                                                              .with_context(
                                                                current_user:,
                                                                current_participatory_space: privatable_to
                                                              )
 
-        Decidim::Admin::CreateParticipatorySpacePrivateUser.call(private_user_form, privatable_to, via_csv: true)
+        Decidim::Admin::CreateMember.call(private_user_form, privatable_to, via_csv: true)
       end
     end
   end

@@ -17,16 +17,16 @@ module Decidim
 
           def new
             enforce_permission_to :csv_import, :space_private_user
-            @form = form(ParticipatorySpacePrivateUserCsvImportForm).from_params({}, privatable_to:)
-            @count = Decidim::ParticipatorySpacePrivateUser.by_participatory_space(privatable_to).count
+            @form = form(MemberCsvImportForm).from_params({}, privatable_to:)
+            @count = Decidim::Member.by_participatory_space(privatable_to).count
             render template: "decidim/admin/members_csv_imports/new"
           end
 
           def create
             enforce_permission_to :csv_import, :space_private_user
-            @form = form(ParticipatorySpacePrivateUserCsvImportForm).from_params(params, privatable_to:)
+            @form = form(MemberCsvImportForm).from_params(params, privatable_to:)
 
-            ProcessParticipatorySpacePrivateUserImportCsv.call(@form, current_participatory_space) do
+            ProcessMemberImportCsv.call(@form, current_participatory_space) do
               on(:ok) do
                 flash[:notice] = I18n.t("members_csv_imports.create.success", scope: "decidim.admin")
                 redirect_to after_import_path
@@ -41,7 +41,7 @@ module Decidim
 
           def destroy_all
             enforce_permission_to :csv_import, :space_private_user
-            Decidim::ParticipatorySpacePrivateUser.by_participatory_space(privatable_to).delete_all
+            Decidim::Member.by_participatory_space(privatable_to).delete_all
             redirect_to new_members_csv_imports_path
           end
 

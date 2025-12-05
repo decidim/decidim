@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    class ParticipatorySpaceAdminUserForm < ParticipatorySpacePrivateUserForm
+    class ParticipatorySpaceAdminUserForm < MemberForm
       attribute :role, String
 
       validates :role, presence: true

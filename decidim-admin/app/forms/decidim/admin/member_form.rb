@@ -5,7 +5,7 @@ module Decidim
     # A form object used to create participatory space private users from the
     # admin dashboard.
     #
-    class ParticipatorySpacePrivateUserForm < Form
+    class MemberForm < Form
       include TranslatableAttributes
 
       mimic :member

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Admin
-  describe CreateParticipatorySpacePrivateUser do
+  describe CreateMember do
     subject { described_class.new(form, privatable_to, via_csv:) }
 
     let(:via_csv) { false }
@@ -40,7 +40,7 @@ module Decidim::Admin
       it "creates the private user" do
         subject.call
 
-        members = Decidim::ParticipatorySpacePrivateUser.where(user:)
+        members = Decidim::Member.where(user:)
 
         expect(members.count).to eq 1
       end
@@ -55,7 +55,7 @@ module Decidim::Admin
           .to receive(:perform_action!)
           .with(
             "create",
-            Decidim::ParticipatorySpacePrivateUser,
+            Decidim::Member,
             current_user,
             resource: { title: user.name }
           )
@@ -74,7 +74,7 @@ module Decidim::Admin
             .to receive(:perform_action!)
             .with(
               "create_via_csv",
-              Decidim::ParticipatorySpacePrivateUser,
+              Decidim::Member,
               current_user,
               resource: { title: user.name }
             )
@@ -112,7 +112,7 @@ module Decidim::Admin
         it "does not get created twice" do
           expect { subject.call }.to broadcast(:ok)
 
-          members = Decidim::ParticipatorySpacePrivateUser.where(user:)
+          members = Decidim::Member.where(user:)
 
           expect(members.count).to eq 1
         end
@@ -125,7 +125,7 @@ module Decidim::Admin
         it "still finds the user" do
           expect { subject.call }.to broadcast(:ok)
 
-          members = Decidim::ParticipatorySpacePrivateUser.where(user: admin)
+          members = Decidim::Member.where(user: admin)
           participatory_space_admin = Decidim::User.where(email: "admin@example.org")
 
           expect(members.count).to eq 1

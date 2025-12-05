@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Decidim
-  # This class gives a given User access to a given private ParticipatorySpacePrivateUser
-  class ParticipatorySpacePrivateUser < ApplicationRecord
+  # This class gives a given User access to a given private Member
+  class Member < ApplicationRecord
     include Decidim::DownloadYourData
     include ParticipatorySpaceUser
     include Decidim::TranslatableResource
@@ -25,11 +25,11 @@ module Decidim
     end
 
     def self.export_serializer
-      Decidim::DownloadYourDataSerializers::DownloadYourDataParticipatorySpacePrivateUserSerializer
+      Decidim::DownloadYourDataSerializers::DownloadYourDataMemberSerializer
     end
 
     def self.log_presenter_class_for(_log)
-      Decidim::AdminLog::ParticipatorySpacePrivateUserPresenter
+      Decidim::AdminLog::MemberPresenter
     end
 
     ransacker :invitation_sent_at do

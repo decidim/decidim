@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Admin
-    describe ImportParticipatorySpacePrivateUserCsvJob do
+    describe ImportMemberCsvJob do
       let!(:email) { "my_user@example.org" }
       let!(:user_name) { "My User Name" }
       let(:user) { create(:user, :admin, organization:) }
@@ -13,7 +13,7 @@ module Decidim
 
       context "when the participatory space private user not exists" do
         it "delegates the work to a command" do
-          expect(Decidim::Admin::CreateParticipatorySpacePrivateUser).to receive(:call)
+          expect(Decidim::Admin::CreateMember).to receive(:call)
           described_class.perform_now(email, user_name, privatable_to, user)
         end
       end

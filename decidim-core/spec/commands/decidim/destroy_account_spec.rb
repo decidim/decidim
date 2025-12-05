@@ -136,7 +136,7 @@ module Decidim
         it "deletes participatory space private user" do
           create(:member, user:)
 
-          expect { command.call }.to change(ParticipatorySpacePrivateUser, :count).by(-1)
+          expect { command.call }.to change(Member, :count).by(-1)
         end
 
         it "deletes user likes" do

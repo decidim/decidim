@@ -13,7 +13,7 @@ module Decidim
         extend ActiveSupport::Concern
 
         included do
-          include Decidim::ParticipatorySpacePrivateUsers::Admin::Filterable
+          include Decidim::Members::Admin::Filterable
           helper PaginateHelper
           helper_method :privatable_to, :members
 
@@ -29,21 +29,21 @@ module Decidim
 
           def new
             enforce_permission_to :create, :space_private_user
-            @form = form(ParticipatorySpacePrivateUserForm).from_params({}, privatable_to:)
+            @form = form(MemberForm).from_params({}, privatable_to:)
             render template: "decidim/admin/members/new"
           end
 
           def edit
             enforce_permission_to :update, :space_private_user, private_user: @private_user
-            @form = form(ParticipatorySpacePrivateUserForm).from_model(@private_user)
+            @form = form(MemberForm).from_model(@private_user)
             render template: "decidim/admin/members/edit"
           end
 
           def update
             enforce_permission_to :update, :space_private_user, private_user: @private_user
-            @form = form(ParticipatorySpacePrivateUserForm).from_params(params, privatable_to:)
+            @form = form(MemberForm).from_params(params, privatable_to:)
 
-            UpdateParticipatorySpacePrivateUser.call(@form, @private_user) do
+            UpdateMember.call(@form, @private_user) do
               on(:ok) do
                 flash[:notice] = I18n.t("members.update.success", scope: "decidim.admin")
                 redirect_to action: :index
@@ -58,9 +58,9 @@ module Decidim
 
           def create
             enforce_permission_to :create, :space_private_user
-            @form = form(ParticipatorySpacePrivateUserForm).from_params(params, privatable_to:)
+            @form = form(MemberForm).from_params(params, privatable_to:)
 
-            CreateParticipatorySpacePrivateUser.call(@form, current_participatory_space) do
+            CreateMember.call(@form, current_participatory_space) do
               on(:ok) do
                 flash[:notice] = I18n.t("members.create.success", scope: "decidim.admin")
                 redirect_to action: :index
@@ -76,7 +76,7 @@ module Decidim
           def destroy
             enforce_permission_to :destroy, :space_private_user, private_user: @private_user
 
-            DestroyParticipatorySpacePrivateUser.call(@private_user, current_user) do
+            DestroyMember.call(@private_user, current_user) do
               on(:ok) do
                 flash[:notice] = I18n.t("members.destroy.success", scope: "decidim.admin")
                 redirect_to after_destroy_path
@@ -105,7 +105,7 @@ module Decidim
           end
 
           def publish_all
-            PublishAllParticipatorySpacePrivateUsers.call(current_participatory_space, current_user) do
+            PublishAllMembers.call(current_participatory_space, current_user) do
               on(:ok) do
                 flash[:notice] = I18n.t("members.publish_all.success", scope: "decidim.admin")
                 redirect_to action: :index
@@ -119,7 +119,7 @@ module Decidim
           end
 
           def unpublish_all
-            UnpublishAllParticipatorySpacePrivateUsers.call(current_participatory_space, current_user) do
+            UnpublishAllMembers.call(current_participatory_space, current_user) do
               on(:ok) do
                 flash[:notice] = I18n.t("members.unpublish_all.success", scope: "decidim.admin")
                 redirect_to action: :index
@@ -148,7 +148,7 @@ module Decidim
 
           def collection
             # there is an unidentified corner case where Decidim::User
-            # may have been destroyed, but the related ParticipatorySpacePrivateUser
+            # may have been destroyed, but the related Member
             # remains in the database. That is why filtering by not null users
             @collection ||= privatable_to
                             .members

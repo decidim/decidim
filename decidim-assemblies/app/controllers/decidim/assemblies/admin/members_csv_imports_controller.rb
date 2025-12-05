@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # Controller that allows importing assembly private users
       # on assemblies
-      class ParticipatorySpacePrivateUsersCsvImportsController < Decidim::Admin::ApplicationController
+      class MembersCsvImportsController < Decidim::Admin::ApplicationController
         include Concerns::AssemblyAdmin
         include Decidim::Admin::Concerns::HasPrivateUsersCsvImport
 

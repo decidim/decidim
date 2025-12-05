@@ -4,7 +4,7 @@ module Decidim
   #
   # Decorator for assembly members
   #
-  class ParticipatorySpacePrivateUserPresenter < SimpleDelegator
+  class MemberPresenter < SimpleDelegator
     delegate :profile_url, to: :user, allow_nil: true
 
     def name

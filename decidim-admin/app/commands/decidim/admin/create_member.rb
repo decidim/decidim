@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # A command with all the business logic when creating a new participatory space
     # private user in the system.
-    class CreateParticipatorySpacePrivateUser < Decidim::Command
+    class CreateMember < Decidim::Command
       delegate :current_user, to: :form
       # Public: Initializes the command.
       #
@@ -45,13 +45,13 @@ module Decidim
         action = @via_csv ? "create_via_csv" : "create"
         Decidim.traceability.perform_action!(
           action,
-          Decidim::ParticipatorySpacePrivateUser,
+          Decidim::Member,
           current_user,
           resource: {
             title: user.name
           }
         ) do
-          Decidim::ParticipatorySpacePrivateUser.find_or_create_by!(
+          Decidim::Member.find_or_create_by!(
             user:,
             privatable_to: @private_user_to,
             role: form.role,

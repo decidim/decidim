@@ -3,7 +3,7 @@
 module Decidim
   # This class serializes a User so can be exported to CSV
   module DownloadYourDataSerializers
-    class DownloadYourDataParticipatorySpacePrivateUserSerializer < Decidim::Exporters::Serializer
+    class DownloadYourDataMemberSerializer < Decidim::Exporters::Serializer
       include Decidim::ResourceHelper
 
       # Public: Exports a hash with the serialized data for this user.

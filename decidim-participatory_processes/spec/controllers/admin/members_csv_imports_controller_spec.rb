@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module ParticipatoryProcesses
     module Admin
-      describe ParticipatorySpacePrivateUsersCsvImportsController do
+      describe MembersCsvImportsController do
         routes { Decidim::ParticipatoryProcesses::AdminEngine.routes }
 
         let!(:organization) { create(:organization) }
@@ -29,7 +29,7 @@ module Decidim
         it "suppress the existing users" do
           expect do
             delete :destroy_all, params: { participatory_process_slug: private_user.privatable_to.slug }
-          end.to change { Decidim::ParticipatorySpacePrivateUser.by_participatory_space(private_user.privatable_to).count }.by(-1)
+          end.to change { Decidim::Member.by_participatory_space(private_user.privatable_to).count }.by(-1)
         end
       end
     end

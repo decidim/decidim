@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe DownloadYourDataSerializers::DownloadYourDataParticipatorySpacePrivateUserSerializer do
+  describe DownloadYourDataSerializers::DownloadYourDataMemberSerializer do
     subject { described_class.new(resource) }
     let(:resource) { build(:member) }
 

@@ -2,7 +2,7 @@
 
 module Decidim
   module ParticipatoryProcesses
-    class ParticipatorySpacePrivateUsersController < Decidim::ParticipatoryProcesses::ApplicationController
+    class MembersController < Decidim::ParticipatoryProcesses::ApplicationController
       include ParticipatorySpaceContext
       include Decidim::HasMembersPage
 

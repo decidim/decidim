@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    class UnpublishAllParticipatorySpacePrivateUsers < Decidim::Command
+    class UnpublishAllMembers < Decidim::Command
       # Public: Initializes the command.
       #
       # participatory_space - the participatory space

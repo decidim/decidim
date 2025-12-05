@@ -102,7 +102,7 @@ module Decidim
     end
 
     def destroy_member
-      Decidim::ParticipatorySpacePrivateUser.where(user: current_user).find_each(&:destroy)
+      Decidim::Member.where(user: current_user).find_each(&:destroy)
     end
 
     def delegate_destroy_to_participatory_spaces

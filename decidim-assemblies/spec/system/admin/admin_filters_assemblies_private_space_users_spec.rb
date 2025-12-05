@@ -17,7 +17,7 @@ describe "Admin filters assemblies private space users" do
   let(:name) { "Dummy Name" }
   let(:email) { "dummy_email@example.org" }
 
-  let(:resource_controller) { Decidim::Assemblies::Admin::ParticipatorySpacePrivateUsersController }
+  let(:resource_controller) { Decidim::Assemblies::Admin::MembersController }
 
   context "when managing private process" do
     before do

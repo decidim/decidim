@@ -4,7 +4,7 @@ require "csv"
 
 module Decidim
   module Admin
-    class ProcessParticipatorySpacePrivateUserImportCsv < Decidim::Command
+    class ProcessMemberImportCsv < Decidim::Command
       include Decidim::Admin::CustomImport
 
       delegate :current_user, to: :form
@@ -36,7 +36,7 @@ module Decidim
 
       def process_csv
         process_import_file(@form.file) do |(email, user_name)|
-          ImportParticipatorySpacePrivateUserCsvJob.perform_later(email, user_name, @private_users_to, current_user) if email.present? && user_name.present?
+          ImportMemberCsvJob.perform_later(email, user_name, @private_users_to, current_user) if email.present? && user_name.present?
         end
       end
     end

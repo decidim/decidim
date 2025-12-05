@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe ParticipatorySpacePrivateUser do
+  describe Member do
     subject { member }
 
     let(:member) { build(:member) }

@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # Controller that allows managing assembly private users
       # on assemblies
-      class ParticipatorySpacePrivateUsersController < Decidim::Assemblies::Admin::ApplicationController
+      class MembersController < Decidim::Assemblies::Admin::ApplicationController
         include Concerns::AssemblyAdmin
         include Decidim::Admin::Concerns::HasPrivateUsers
 

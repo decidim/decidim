@@ -2,7 +2,7 @@
 
 module Decidim
   # This cell renders the card for an instance of an Assembly member
-  class ParticipatorySpacePrivateUserCell < Decidim::ViewModel
+  class MemberCell < Decidim::ViewModel
     property :name
     property :role
     property :nickname

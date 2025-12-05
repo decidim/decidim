@@ -115,7 +115,7 @@ describe "Assembly private users" do
         within "#assembly_members-grid" do
           expect(page).to have_css(".profile__user", count: 1)
 
-          expect(page).to have_no_content(Decidim::ParticipatorySpacePrivateUserPresenter.new(ceased_private_user).name)
+          expect(page).to have_no_content(Decidim::MemberPresenter.new(ceased_private_user).name)
         end
       end
     end

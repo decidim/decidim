@@ -6,7 +6,7 @@ module Decidim
   module Admin
     # A form object used to upload CSV to batch participatory space private users.
     #
-    class ParticipatorySpacePrivateUserCsvImportForm < Form
+    class MemberCsvImportForm < Form
       include Decidim::HasUploadValidations
       include Decidim::Admin::CustomImport
 

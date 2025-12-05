@@ -3,7 +3,7 @@
 require "active_support/concern"
 
 module Decidim
-  module ParticipatorySpacePrivateUsers
+  module Members
     module Admin
       module Filterable
         extend ActiveSupport::Concern
