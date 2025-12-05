@@ -8,7 +8,6 @@ module Decidim
     class ProposalPresenter < Decidim::ResourcePresenter
       include Rails.application.routes.mounted_helpers
       include ActionView::Helpers::UrlHelper
-      include Decidim::SanitizeHelper
 
       def author
         @author ||= if official?
