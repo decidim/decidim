@@ -20,21 +20,23 @@
               <div class="row column">
                 <%= f.number_field :default_budget, label: t(".default_budget") %>
               </div>
-              <div class="row column">
-                <%= f.check_box :accepted, label: t(".accepted") %>
-              </div>
-              <div class="row column">
-                <%= f.check_box :rejected, label: t(".rejected") %>
-              </div>
-              <div class="row column">
-                <%= f.check_box :evaluating, label: t(".evaluating") %>
-              </div>
-              <div class="row column">
-                <%= f.check_box :not_answered, label: t(".not_answered") %>
-              </div>
             </div>
           </div>
         </div>
+
+        <% available_states = @form.available_states %>
+        <% if available_states.any? %>
+          <div class="form__wrapper">
+            <div class="card">
+              <div class="card-section">
+                <h3>Proposal States</h3>
+                <%= f.collection_check_boxes :internal_states, available_states, :token, ->(a) { translated_attribute(a.title) } do |builder| %>
+                  <%= builder.label { builder.check_box + builder.text } %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
 
         <div class="item__edit-sticky">
           <div class="item__edit-sticky-container">
