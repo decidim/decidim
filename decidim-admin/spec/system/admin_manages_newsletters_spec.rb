@@ -473,7 +473,7 @@ describe "Admin manages newsletters" do
       context "with private members" do
         let!(:participatory_process) { create(:participatory_process, organization:, skip_injection: true, private_space: true) }
         let!(:private_users) do
-          create_list(:participatory_space_private_user, 30) do |private_user|
+          create_list(:member, 30) do |private_user|
             private_user.user = create(:user, :confirmed, newsletter_notifications_at: Time.current, organization:)
             private_user.privatable_to = participatory_process
             private_user.save!

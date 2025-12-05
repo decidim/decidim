@@ -605,7 +605,7 @@ en:
           type: Type
         show:
           title: About this process
-      participatory_space_private_users:
+      members:
         index:
           title: Members
       show:

@@ -316,7 +316,7 @@ module Decidim::Admin
           let!(:participatory_process) { create(:participatory_process, organization:, private_space: true) }
           let!(:component) { create(:dummy_component, organization:, participatory_space: participatory_process) }
           let!(:private_users) do
-            create_list(:participatory_space_private_user, 30) do |private_user|
+            create_list(:member, 30) do |private_user|
               private_user.user = create(:user, :confirmed, newsletter_notifications_at: Time.current, organization:)
               private_user.privatable_to = participatory_process
               private_user.save!

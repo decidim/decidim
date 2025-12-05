@@ -43,7 +43,7 @@ describe "Admin filters assemblies private space users" do
 
       switch_to_host(organization.host)
       login_as user, scope: :user
-      visit decidim_admin_assemblies.participatory_space_private_users_path(assembly_slug: assembly.slug)
+      visit decidim_admin_assemblies.members_path(assembly_slug: assembly.slug)
     end
 
     it "restricts access" do

@@ -285,7 +285,7 @@ en:
       organization:
         update: "%{user_name} updated the organization settings"
         update_external_domain: "%{user_name} updated the organization external domains"
-      participatory_space_private_user:
+      member:
         create: "%{user_name} invited %{resource_name} to be a private participant"
         create_via_csv: "%{user_name} invited %{resource_name} via CSV to be a private participant"
         delete: "%{user_name} removed the participant %{resource_name} as a private participant"
@@ -774,7 +774,7 @@ en:
           id: The unique identifier of this notification
           resource_type: The type of the resource that the notification is related to
           updated_at: The date and time when the notification was last updated
-        participatory_space_private_users:
+        members:
           created_at: The date and time when this private user was created
           id: The unique identifier of this private user
           privatable_to: To which space this private user belongs

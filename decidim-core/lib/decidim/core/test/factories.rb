@@ -277,7 +277,7 @@ FactoryBot.define do
     value { 1 }
   end
 
-  factory :participatory_space_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
+  factory :member, class: "Decidim::ParticipatorySpacePrivateUser" do
     transient do
       skip_injection { false }
     end

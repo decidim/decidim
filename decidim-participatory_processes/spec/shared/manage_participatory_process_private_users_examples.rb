@@ -3,7 +3,7 @@
 shared_examples "manage participatory process private users examples" do
   let(:other_user) { create(:user, organization:, email: "my_email@example.org") }
 
-  let!(:participatory_space_private_user) { create(:participatory_space_private_user, user:, privatable_to: participatory_process) }
+  let!(:member) { create(:member, user:, privatable_to: participatory_process) }
 
   before do
     switch_to_host(organization.host)
@@ -16,16 +16,16 @@ shared_examples "manage participatory process private users examples" do
 
   it "shows participatory process private user list" do
     within "#private_users table" do
-      expect(page).to have_content(participatory_space_private_user.user.email)
+      expect(page).to have_content(member.user.email)
     end
   end
 
   it "creates a new participatory process private users" do
     click_on "New participatory space private user"
 
-    within ".new_participatory_space_private_user" do
-      fill_in :participatory_space_private_user_name, with: "John Doe"
-      fill_in :participatory_space_private_user_email, with: other_user.email
+    within ".new_member" do
+      fill_in :member_name, with: "John Doe"
+      fill_in :member_email, with: other_user.email
 
       find("*[type=submit]").click
     end
@@ -47,7 +47,7 @@ shared_examples "manage participatory process private users examples" do
       # The CSV has no headers
       expect(Decidim::Admin::ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).once.ordered.with("john.doe@example.org", "John Doe", participatory_process, user)
       expect(Decidim::Admin::ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).once.ordered.with("jane.doe@example.org", "Jane Doe", participatory_process, user)
-      dynamically_attach_file(:participatory_space_private_user_csv_import_file, Decidim::Dev.asset("import_participatory_space_private_users.csv"))
+      dynamically_attach_file(:member_csv_import_file, Decidim::Dev.asset("import_members.csv"))
       perform_enqueued_jobs { click_on "Upload" }
 
       expect(page).to have_content("CSV file uploaded successfully")
@@ -56,7 +56,7 @@ shared_examples "manage participatory process private users examples" do
 
   describe "when managing different users" do
     before do
-      create(:participatory_space_private_user, user: other_user, privatable_to: participatory_process)
+      create(:member, user: other_user, privatable_to: participatory_process)
       visit current_path
     end
 

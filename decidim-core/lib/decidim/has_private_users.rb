@@ -9,12 +9,12 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      has_many :participatory_space_private_users,
+      has_many :members,
                class_name: "Decidim::ParticipatorySpacePrivateUser",
                as: :privatable_to,
                dependent: :destroy
       has_many :users,
-               through: :participatory_space_private_users,
+               through: :members,
                class_name: "Decidim::User",
                foreign_key: "private_user_to_id"
 
@@ -25,8 +25,8 @@ module Decidim
           where(
             id: public_spaces +
                 private_spaces
-                  .joins(:participatory_space_private_users)
-                  .where(decidim_participatory_space_private_users: { decidim_user_id: user.id })
+                  .joins(:members)
+                  .where(decidim_members: { decidim_user_id: user.id })
           )
         else
           public_spaces
@@ -34,7 +34,7 @@ module Decidim
       end
 
       def members_public_page?
-        private_space && participatory_space_private_users.published.any?
+        private_space && members.published.any?
       end
 
       def can_participate?(user)
@@ -42,7 +42,7 @@ module Decidim
         return true unless private_space?
         return false unless user
 
-        participatory_space_private_users.exists?(decidim_user_id: user.id)
+        members.exists?(decidim_user_id: user.id)
       end
 
       def self.public_spaces

@@ -23,9 +23,9 @@ shared_examples "manage assembly private users examples" do
   it "creates a new assembly private users" do
     click_on "New participatory space private user"
 
-    within ".new_participatory_space_private_user" do
-      fill_in :participatory_space_private_user_name, with: "John Doe"
-      fill_in :participatory_space_private_user_email, with: other_user.email
+    within ".new_member" do
+      fill_in :member_name, with: "John Doe"
+      fill_in :member_email, with: other_user.email
 
       find("*[type=submit]").click
     end
@@ -47,7 +47,7 @@ shared_examples "manage assembly private users examples" do
       # The CSV has no headers
       expect(Decidim::Admin::ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).once.ordered.with("john.doe@example.org", "John Doe", assembly, user)
       expect(Decidim::Admin::ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).once.ordered.with("jane.doe@example.org", "Jane Doe", assembly, user)
-      dynamically_attach_file(:participatory_space_private_user_csv_import_file, Decidim::Dev.asset("import_participatory_space_private_users.csv"))
+      dynamically_attach_file(:member_csv_import_file, Decidim::Dev.asset("import_members.csv"))
       perform_enqueued_jobs { click_on "Upload" }
 
       expect(page).to have_content("CSV file uploaded successfully")

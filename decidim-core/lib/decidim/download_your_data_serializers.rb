@@ -8,7 +8,7 @@ module Decidim
     autoload :DownloadYourDataFollowSerializer, "decidim/download_your_data_serializers/download_your_data_follow_serializer"
     autoload :DownloadYourDataNotificationSerializer, "decidim/download_your_data_serializers/download_your_data_notification_serializer"
     autoload :DownloadYourDataIdentitySerializer, "decidim/download_your_data_serializers/download_your_data_identity_serializer"
-    autoload :DownloadYourDataParticipatorySpacePrivateUserSerializer, "decidim/download_your_data_serializers/download_your_data_participatory_space_private_user_serializer"
+    autoload :DownloadYourDataParticipatorySpacePrivateUserSerializer, "decidim/download_your_data_serializers/download_your_data_member_serializer"
 
     def self.data_entities
       ["Decidim::Follow", "Decidim::Identity",

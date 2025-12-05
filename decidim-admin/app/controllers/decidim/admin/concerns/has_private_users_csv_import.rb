@@ -19,7 +19,7 @@ module Decidim
             enforce_permission_to :csv_import, :space_private_user
             @form = form(ParticipatorySpacePrivateUserCsvImportForm).from_params({}, privatable_to:)
             @count = Decidim::ParticipatorySpacePrivateUser.by_participatory_space(privatable_to).count
-            render template: "decidim/admin/participatory_space_private_users_csv_imports/new"
+            render template: "decidim/admin/members_csv_imports/new"
           end
 
           def create
@@ -28,13 +28,13 @@ module Decidim
 
             ProcessParticipatorySpacePrivateUserImportCsv.call(@form, current_participatory_space) do
               on(:ok) do
-                flash[:notice] = I18n.t("participatory_space_private_users_csv_imports.create.success", scope: "decidim.admin")
+                flash[:notice] = I18n.t("members_csv_imports.create.success", scope: "decidim.admin")
                 redirect_to after_import_path
               end
 
               on(:invalid) do
-                flash[:alert] = I18n.t("participatory_space_private_users_csv_imports.create.invalid", scope: "decidim.admin")
-                render template: "decidim/admin/participatory_space_private_users_csv_imports/new", status: :unprocessable_entity
+                flash[:alert] = I18n.t("members_csv_imports.create.invalid", scope: "decidim.admin")
+                render template: "decidim/admin/members_csv_imports/new", status: :unprocessable_entity
               end
             end
           end
@@ -42,7 +42,7 @@ module Decidim
           def destroy_all
             enforce_permission_to :csv_import, :space_private_user
             Decidim::ParticipatorySpacePrivateUser.by_participatory_space(privatable_to).delete_all
-            redirect_to new_participatory_space_private_users_csv_imports_path
+            redirect_to new_members_csv_imports_path
           end
 
           # Public: Returns a String or Object that will be passed to `redirect_to` after
