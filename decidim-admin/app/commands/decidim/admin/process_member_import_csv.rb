@@ -11,10 +11,10 @@ module Decidim
       # Public: Initializes the command.
       #
       # form - the form object containing the uploaded file
-      # private_users_to - The private_users_to that will hold the user role
-      def initialize(form, private_users_to)
+      # members_to - The members_to that will hold the user role
+      def initialize(form, members_to)
         @form = form
-        @private_users_to = private_users_to
+        @members_to = members_to
       end
 
       # Executes the command. Broadcasts these events:
@@ -36,7 +36,7 @@ module Decidim
 
       def process_csv
         process_import_file(@form.file) do |(email, user_name)|
-          ImportMemberCsvJob.perform_later(email, user_name, @private_users_to, current_user) if email.present? && user_name.present?
+          ImportMemberCsvJob.perform_later(email, user_name, @members_to, current_user) if email.present? && user_name.present?
         end
       end
     end

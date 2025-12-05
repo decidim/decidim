@@ -7,7 +7,7 @@
 
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
-    <%= decidim_form_for(@form, url: member_path(current_participatory_space, @private_user), html: { class: "form-defaults form edit_member" }) do |f| %>
+    <%= decidim_form_for(@form, url: member_path(current_participatory_space, @member), html: { class: "form-defaults form edit_member" }) do |f| %>
       <%= render partial: "decidim/admin/members/form", object: f %>
       <div class="item__edit-sticky">
         <div class="item__edit-sticky-container">

@@ -240,7 +240,7 @@ shared_examples "with resource visibility" do
 
       context "when user is member" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
-        let!(:member) { create(:assembly_private_user, user: current_user, privatable_to: participatory_process) }
+        let!(:member) { create(:assembly_member, user: current_user, privatable_to: participatory_process) }
         it_behaves_like "graphQL visible resource"
       end
 
@@ -291,7 +291,7 @@ shared_examples "with resource visibility" do
 
       context "when user is member" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
-        let!(:member) { create(:assembly_private_user, user: current_user, privatable_to: participatory_process) }
+        let!(:member) { create(:assembly_member, user: current_user, privatable_to: participatory_process) }
         it_behaves_like "graphQL hidden component"
       end
     end

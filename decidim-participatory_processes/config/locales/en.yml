@@ -117,7 +117,7 @@ en:
           info: About this process
           landing_page: Landing page layout
           moderations: Moderations
-          private_users: Members
+          members: Members
           process_admins: Process admins
           steps: Phases
       models:

@@ -15,7 +15,7 @@ shared_examples "manage participatory process members examples" do
   end
 
   it "shows participatory process member list" do
-    within "#private_users table" do
+    within "#members table" do
       expect(page).to have_content(member.user.email)
     end
   end
@@ -32,7 +32,7 @@ shared_examples "manage participatory process members examples" do
 
     expect(page).to have_admin_callout("successfully")
 
-    within "#private_users table" do
+    within "#members table" do
       expect(page).to have_content(other_user.email)
     end
 
@@ -60,15 +60,15 @@ shared_examples "manage participatory process members examples" do
       visit current_path
     end
 
-    it "deletes an assembly_private_user" do
-      within "#private_users tr", text: other_user.email do
+    it "deletes an assembly_member" do
+      within "#members tr", text: other_user.email do
         find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
-      within "#private_users table" do
+      within "#members table" do
         expect(page).to have_no_content(other_user.email)
       end
     end
@@ -89,7 +89,7 @@ shared_examples "manage participatory process members examples" do
       end
 
       it "resends the invitation to the user" do
-        within "#private_users tr", text: "test@example.org" do
+        within "#members tr", text: "test@example.org" do
           find("button[data-controller='dropdown']").click
           click_on "Resend invitation"
         end

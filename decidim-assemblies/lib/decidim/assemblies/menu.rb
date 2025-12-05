@@ -123,10 +123,10 @@ module Decidim
                         if: allowed_to?(:read, :assembly_user_role, assembly: current_participatory_space)
 
           menu.add_item :members,
-                        I18n.t("private_users", scope: "decidim.admin.menu.assemblies_submenu"),
+                        I18n.t("members", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.members_path(current_participatory_space),
                         icon_name: "spy-line",
-                        if: allowed_to?(:read, :space_private_user, current_participatory_space:)
+                        if: allowed_to?(:read, :space_member, current_participatory_space:)
 
           menu.add_item :moderations,
                         I18n.t("moderations", scope: "decidim.admin.menu.assemblies_submenu"),

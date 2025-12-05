@@ -9,11 +9,11 @@ module Decidim
       # Public: Initializes the command.
       #
       # form - A form object with the params.
-      # private_user_to - The private_user_to that will hold the
+      # member_to - The member_to that will hold the
       #   user role
-      def initialize(form, private_user_to, via_csv: false)
+      def initialize(form, member_to, via_csv: false)
         @form = form
-        @private_user_to = private_user_to
+        @member_to = member_to
         @via_csv = via_csv
       end
 
@@ -28,7 +28,7 @@ module Decidim
 
         ActiveRecord::Base.transaction do
           @user ||= existing_user || new_user
-          create_private_user
+          create_member
         end
 
         broadcast(:ok)
@@ -39,9 +39,9 @@ module Decidim
 
       private
 
-      attr_reader :form, :private_user_to, :user
+      attr_reader :form, :member_to, :user
 
-      def create_private_user
+      def create_member
         action = @via_csv ? "create_via_csv" : "create"
         Decidim.traceability.perform_action!(
           action,
@@ -53,7 +53,7 @@ module Decidim
         ) do
           Decidim::Member.find_or_create_by!(
             user:,
-            privatable_to: @private_user_to,
+            privatable_to: @member_to,
             role: form.role,
             published: form.published
           )
@@ -65,7 +65,7 @@ module Decidim
 
         @existing_user = User.find_by(
           email: form.email.downcase,
-          organization: private_user_to.organization
+          organization: member_to.organization
         )
 
         InviteUserAgain.call(@existing_user, invitation_instructions) if @existing_user&.invitation_pending?
@@ -84,14 +84,14 @@ module Decidim
       def user_form
         OpenStruct.new(name: form.name,
                        email: form.email.downcase,
-                       organization: private_user_to.organization,
+                       organization: member_to.organization,
                        admin: false,
                        invited_by: current_user,
                        invitation_instructions:)
       end
 
       def invitation_instructions
-        "invite_private_user"
+        "invite_member"
       end
     end
   end

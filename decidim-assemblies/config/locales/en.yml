@@ -172,7 +172,7 @@ en:
           info: About this assembly
           landing_page: Landing page layout
           moderations: Moderations
-          private_users: Members
+          members: Members
           see_assembly: See assembly
       models:
         assembly:

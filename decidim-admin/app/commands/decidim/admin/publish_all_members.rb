@@ -42,7 +42,7 @@ module Decidim
           "publish_all_members",
           participatory_space,
           current_user,
-          private_users_ids: participatory_space.members.pluck(:id)
+          members_ids: participatory_space.members.pluck(:id)
         )
       end
     end

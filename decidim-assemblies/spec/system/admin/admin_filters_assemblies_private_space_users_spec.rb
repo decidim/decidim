@@ -10,9 +10,9 @@ describe "Admin filters assemblies private space users" do
   let(:assembly) { create(:assembly, organization:, private_space: true) }
 
   let!(:invited_user1) { create(:user, name:, organization:) }
-  let!(:invited_private_user1) { create(:assembly_private_user, user: invited_user1, privatable_to: assembly) }
+  let!(:invited_member1) { create(:assembly_member, user: invited_user1, privatable_to: assembly) }
   let!(:invited_user2) { create(:user, email:, organization:) }
-  let!(:invited_private_user2) { create(:assembly_private_user, user: invited_user2, privatable_to: assembly) }
+  let!(:invited_member2) { create(:assembly_member, user: invited_user2, privatable_to: assembly) }
 
   let(:name) { "Dummy Name" }
   let(:email) { "dummy_email@example.org" }

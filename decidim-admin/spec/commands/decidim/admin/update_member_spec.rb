@@ -4,10 +4,10 @@ require "spec_helper"
 
 module Decidim::Admin
   describe UpdateMember do
-    subject { described_class.new(form, private_user) }
+    subject { described_class.new(form, member) }
 
     let!(:privatable_to) { create(:participatory_process) }
-    let!(:private_user) { create(:member, :unpublished, user:, role:) }
+    let!(:member) { create(:member, :unpublished, user:, role:) }
     let!(:user) { create(:user, email: "my_email@example.org", organization: privatable_to.organization) }
     let!(:current_user) { create(:user, email: "some_email@example.org", organization: privatable_to.organization) }
 
@@ -35,13 +35,13 @@ module Decidim::Admin
       it "updates the role" do
         subject.call
 
-        expect(translated(private_user.reload.role)).to eq(translated_attribute(role))
+        expect(translated(member.reload.role)).to eq(translated_attribute(role))
       end
 
       it "updates the published status" do
         subject.call
 
-        expect(private_user.reload.published).to eq(published)
+        expect(member.reload.published).to eq(published)
       end
     end
   end

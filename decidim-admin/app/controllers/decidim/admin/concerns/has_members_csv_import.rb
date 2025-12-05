@@ -8,7 +8,7 @@ module Decidim
       # controller and include this concern.
       #
       # The only requirement is to define a `privatable_to` method that
-      # returns an instance of the model to relate the private_user to.
+      # returns an instance of the model to relate the member to.
       module HasMembersCsvImport
         extend ActiveSupport::Concern
 
@@ -16,14 +16,14 @@ module Decidim
           helper_method :privatable_to
 
           def new
-            enforce_permission_to :csv_import, :space_private_user
+            enforce_permission_to :csv_import, :space_member
             @form = form(MemberCsvImportForm).from_params({}, privatable_to:)
             @count = Decidim::Member.by_participatory_space(privatable_to).count
             render template: "decidim/admin/members_csv_imports/new"
           end
 
           def create
-            enforce_permission_to :csv_import, :space_private_user
+            enforce_permission_to :csv_import, :space_member
             @form = form(MemberCsvImportForm).from_params(params, privatable_to:)
 
             ProcessMemberImportCsv.call(@form, current_participatory_space) do
@@ -40,7 +40,7 @@ module Decidim
           end
 
           def destroy_all
-            enforce_permission_to :csv_import, :space_private_user
+            enforce_permission_to :csv_import, :space_member
             Decidim::Member.by_participatory_space(privatable_to).delete_all
             redirect_to new_members_csv_imports_path
           end

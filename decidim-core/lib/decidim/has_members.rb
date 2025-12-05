@@ -16,7 +16,7 @@ module Decidim
       has_many :users,
                through: :members,
                class_name: "Decidim::User",
-               foreign_key: "private_user_to_id"
+               foreign_key: "member_to_id"
 
       def self.visible_for(user)
         if user

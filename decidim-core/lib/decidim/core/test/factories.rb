@@ -295,7 +295,7 @@ FactoryBot.define do
     end
   end
 
-  factory :assembly_private_user, class: "Decidim::Member" do
+  factory :assembly_member, class: "Decidim::Member" do
     transient do
       skip_injection { false }
     end

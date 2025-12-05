@@ -13,7 +13,7 @@ shared_examples_for "has members" do
     create(factory_name, private_space: true, published_at: Time.current)
   end
 
-  def create_space_private_user(space, user = create(:user, organization: space.organization))
+  def create_space_member(space, user = create(:user, organization: space.organization))
     Decidim::Member.create(privatable_to: space, user:)
   end
 
@@ -26,7 +26,7 @@ shared_examples_for "has members" do
   describe ".visible_for" do
     let(:scope) { described_class.send(:visible_for, user) }
 
-    before { create_space_private_user(private_space) }
+    before { create_space_member(private_space) }
 
     context "without user" do
       let(:user) { nil }
@@ -52,8 +52,8 @@ shared_examples_for "has members" do
 
       before do
         # Public space has multiple members.
-        create_space_private_user(public_space)
-        create_space_private_user(public_space)
+        create_space_member(public_space)
+        create_space_member(public_space)
       end
 
       # Expect no duplicate results.

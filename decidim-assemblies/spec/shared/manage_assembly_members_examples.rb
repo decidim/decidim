@@ -3,7 +3,7 @@
 shared_examples "manage assembly members examples" do
   let(:other_user) { create(:user, organization:, email: "my_email@example.org") }
 
-  let!(:assembly_private_user) { create(:assembly_private_user, user:, privatable_to: assembly) }
+  let!(:assembly_member) { create(:assembly_member, user:, privatable_to: assembly) }
 
   before do
     switch_to_host(organization.host)
@@ -15,8 +15,8 @@ shared_examples "manage assembly members examples" do
   end
 
   it "shows assembly member list" do
-    within "#private_users table" do
-      expect(page).to have_content(assembly_private_user.user.email)
+    within "#members table" do
+      expect(page).to have_content(assembly_member.user.email)
     end
   end
 
@@ -32,7 +32,7 @@ shared_examples "manage assembly members examples" do
 
     expect(page).to have_admin_callout("successfully")
 
-    within "#private_users table" do
+    within "#members table" do
       expect(page).to have_content(other_user.email)
     end
 
@@ -56,19 +56,19 @@ shared_examples "manage assembly members examples" do
 
   describe "when managing different users" do
     before do
-      create(:assembly_private_user, user: other_user, privatable_to: assembly)
+      create(:assembly_member, user: other_user, privatable_to: assembly)
       visit current_path
     end
 
-    it "deletes an assembly_private_user" do
-      within "#private_users tr", text: other_user.email do
+    it "deletes an assembly_member" do
+      within "#members tr", text: other_user.email do
         find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
-      within "#private_users table" do
+      within "#members table" do
         expect(page).to have_no_content(other_user.email)
       end
     end
@@ -89,7 +89,7 @@ shared_examples "manage assembly members examples" do
       end
 
       it "resends the invitation to the user" do
-        within "#private_users tr", text: "test@example.org" do
+        within "#members tr", text: "test@example.org" do
           find("button[data-controller='dropdown']").click
           click_on "Resend invitation"
         end

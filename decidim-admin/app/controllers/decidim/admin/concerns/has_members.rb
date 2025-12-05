@@ -8,7 +8,7 @@ module Decidim
       # controller and include this concern.
       #
       # The only requirement is to define a `privatable_to` method that
-      # returns an instance of the model to relate the private_user to.
+      # returns an instance of the model to relate the member to.
       module HasMembers
         extend ActiveSupport::Concern
 
@@ -18,32 +18,32 @@ module Decidim
           helper_method :privatable_to, :members
 
           # rubocop:disable Rails/LexicallyScopedActionFilter
-          before_action :set_private_user, only: [:edit, :update, :destroy, :resend_invitation]
+          before_action :set_member, only: [:edit, :update, :destroy, :resend_invitation]
           # rubocop:enable Rails/LexicallyScopedActionFilter
 
           def index
-            enforce_permission_to :read, :space_private_user
+            enforce_permission_to :read, :space_member
 
             render template: "decidim/admin/members/index"
           end
 
           def new
-            enforce_permission_to :create, :space_private_user
+            enforce_permission_to :create, :space_member
             @form = form(MemberForm).from_params({}, privatable_to:)
             render template: "decidim/admin/members/new"
           end
 
           def edit
-            enforce_permission_to :update, :space_private_user, private_user: @private_user
-            @form = form(MemberForm).from_model(@private_user)
+            enforce_permission_to :update, :space_member, member: @member
+            @form = form(MemberForm).from_model(@member)
             render template: "decidim/admin/members/edit"
           end
 
           def update
-            enforce_permission_to :update, :space_private_user, private_user: @private_user
+            enforce_permission_to :update, :space_member, member: @member
             @form = form(MemberForm).from_params(params, privatable_to:)
 
-            UpdateMember.call(@form, @private_user) do
+            UpdateMember.call(@form, @member) do
               on(:ok) do
                 flash[:notice] = I18n.t("members.update.success", scope: "decidim.admin")
                 redirect_to action: :index
@@ -57,7 +57,7 @@ module Decidim
           end
 
           def create
-            enforce_permission_to :create, :space_private_user
+            enforce_permission_to :create, :space_member
             @form = form(MemberForm).from_params(params, privatable_to:)
 
             CreateMember.call(@form, current_participatory_space) do
@@ -74,9 +74,9 @@ module Decidim
           end
 
           def destroy
-            enforce_permission_to :destroy, :space_private_user, private_user: @private_user
+            enforce_permission_to :destroy, :space_member, member: @member
 
-            DestroyMember.call(@private_user, current_user) do
+            DestroyMember.call(@member, current_user) do
               on(:ok) do
                 flash[:notice] = I18n.t("members.destroy.success", scope: "decidim.admin")
                 redirect_to after_destroy_path
@@ -90,8 +90,8 @@ module Decidim
           end
 
           def resend_invitation
-            enforce_permission_to :invite, :space_private_user, private_user: @private_user
-            InviteUserAgain.call(@private_user.user, "invite_private_user") do
+            enforce_permission_to :invite, :space_member, member: @member
+            InviteUserAgain.call(@member.user, "invite_member") do
               on(:ok) do
                 flash[:notice] = I18n.t("users.resend_invitation.success", scope: "decidim.admin")
               end
@@ -159,8 +159,8 @@ module Decidim
             filtered_collection
           end
 
-          def set_private_user
-            @private_user = collection.find(params[:id])
+          def set_member
+            @member = collection.find(params[:id])
           end
         end
       end

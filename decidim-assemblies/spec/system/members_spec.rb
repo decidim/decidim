@@ -80,8 +80,8 @@ describe "Assembly members" do
   end
 
   context "when there are some published assembly members" do
-    let!(:private_user) { create(:member, user:, privatable_to:, published: true) }
-    let!(:ceased_private_user) { create(:member, user: ceased_user, privatable_to:, published: false) }
+    let!(:member) { create(:member, user:, privatable_to:, published: true) }
+    let!(:ceased_member) { create(:member, user: ceased_user, privatable_to:, published: false) }
 
     before do
       visit decidim_assemblies.assembly_members_path(assembly)
@@ -115,7 +115,7 @@ describe "Assembly members" do
         within "#assembly_members-grid" do
           expect(page).to have_css(".profile__user", count: 1)
 
-          expect(page).to have_no_content(Decidim::MemberPresenter.new(ceased_private_user).name)
+          expect(page).to have_no_content(Decidim::MemberPresenter.new(ceased_member).name)
         end
       end
     end
