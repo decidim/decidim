@@ -702,6 +702,7 @@ tr:
       new_import:
         accepted_mime_types:
           json: JSON
+          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: Ön izleme
@@ -1014,6 +1015,7 @@ tr:
           role: Rol
         new:
           create: Davet et
+          title: Yeni yönetici davet et
       users_statistics:
         users_count:
           admins: Yöneticiler
