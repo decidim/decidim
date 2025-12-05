@@ -14,7 +14,7 @@ describe "Initiative Breadcrumb" do
   end
 
   scenario "shows breadcrumb with only initiative" do
-    visit decidim_initiatives.initiative_path(participatory_space)
+    visit decidim_initiatives.initiative_path(participatory_space, locale: I18n.locale)
 
     within ".menu-bar" do
       expect(page).to have_content("Initiatives")

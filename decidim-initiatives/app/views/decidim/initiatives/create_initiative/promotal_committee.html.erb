@@ -34,7 +34,7 @@
 </div>
 
 <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-  <%= link_to fill_data_create_initiative_index_path, class: "button button__sm md:button__lg button__text-secondary" do %>
+  <%= link_to fill_data_create_initiative_index_path(locale: current_locale), class: "button button__sm md:button__lg button__text-secondary" do %>
     <%= icon "arrow-left-line", class: "fill-current" %>
     <%= t("back", scope: "decidim.initiatives.create_initiative.previous_form") %>
   <% end %>

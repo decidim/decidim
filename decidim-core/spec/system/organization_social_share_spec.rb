@@ -52,7 +52,7 @@ describe "Social shares" do
   end
 
   context "when visiting static pages" do
-    let(:resource) { decidim.page_path(static_page) }
+    let(:resource) { decidim.page_path(static_page, locale: I18n.locale) }
 
     it_behaves_like "a social share meta tag", "content_image.jpg"
 

@@ -17,12 +17,12 @@ describe "Content pages" do
     let(:decidim_page) { decidim_pages.first }
 
     it_behaves_like "editable content for admins" do
-      let(:target_path) { decidim.pages_path }
+      let(:target_path) { decidim.pages_path(locale: I18n.locale) }
     end
 
     context "when requesting the pages path" do
       before do
-        visit decidim.pages_path
+        visit decidim.pages_path(locale: I18n.locale)
       end
 
       it "shows the list of topics" do
@@ -41,7 +41,7 @@ describe "Content pages" do
           find("button[role=button]").click
 
           expect(page).to have_css(
-            "a[href=\"#{decidim.page_path(decidim_page)}\"]",
+            "a[href=\"#{decidim.page_path(decidim_page, locale: I18n.locale)}\"]",
             text: page_title
           )
         end
