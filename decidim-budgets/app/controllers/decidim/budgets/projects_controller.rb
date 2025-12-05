@@ -113,6 +113,8 @@ module Decidim
       end
 
       def add_parent_breadcrumb_item
+        return {} if budget.blank?
+
         {
           label: translated_attribute(budget.title),
           url: Decidim::EngineRouter.main_proxy(current_component).budget_projects_url(budget, locale: current_locale),

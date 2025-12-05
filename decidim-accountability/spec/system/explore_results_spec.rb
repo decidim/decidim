@@ -281,6 +281,7 @@ describe "Explore results", :versioning do
         end
 
         it "shows the correct information in breadcrumb" do
+          click_on translated(first_subresult.title)
           within(".menu-bar") do
             expect(page).to have_content(translated(component.name))
             expect(page).to have_content(translated(result.title))

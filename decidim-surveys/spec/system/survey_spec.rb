@@ -37,6 +37,8 @@ describe "Respond a survey" do
 
   context "when the survey does not allow responses" do
     it "shows the correct information in breadcrumb" do
+      visit_component
+
       within(".menu-bar") do
         expect(page).to have_content(translated(component.name))
       end
@@ -102,6 +104,10 @@ describe "Respond a survey" do
       end
 
       it "shows the correct information in breadcrumb" do
+        visit_component
+        choose "All"
+        click_on translated_attribute(questionnaire.title)
+
         within(".menu-bar") do
           expect(page).to have_content(translated(component.name))
           expect(page).to have_content(translated(questionnaire.title))
