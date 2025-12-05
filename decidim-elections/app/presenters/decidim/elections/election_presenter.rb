@@ -5,7 +5,6 @@ module Decidim
     class ElectionPresenter < Decidim::ResourcePresenter
       include Decidim::ResourceHelper
       include ActionView::Helpers::UrlHelper
-      include Decidim::SanitizeHelper
 
       def election
         __getobj__

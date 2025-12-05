@@ -36,7 +36,7 @@ describe "Filter Participatory Processes" do
     let(:titles) { page.all(".card__grid-text h3") }
 
     before do
-      visit decidim_participatory_processes.participatory_processes_path
+      visit decidim_participatory_processes.participatory_processes_path(locale: I18n.locale)
     end
 
     context "and choosing 'active' processes" do
@@ -126,7 +126,7 @@ describe "Filter Participatory Processes" do
 
     context "and choosing a taxonomy" do
       before do
-        visit decidim_participatory_processes.participatory_processes_path(filter: { with_any_taxonomies: { taxonomy.parent_id => [taxonomy.id] } })
+        visit decidim_participatory_processes.participatory_processes_path(filter: { with_any_taxonomies: { taxonomy.parent_id => [taxonomy.id] } }, locale: I18n.locale)
       end
 
       it "lists all processes belonging to that taxonomy" do

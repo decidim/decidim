@@ -107,7 +107,9 @@ Decidim::Core::Engine.routes.draw do
     get "seconds_until_timeout", to: "timeouts#seconds_until_timeout"
   end
 
-  resources :pages, only: [:index, :show], format: false
+  scope "/:locale" do
+    resources :pages, only: [:index, :show], format: false
+  end
 
   get "/search", to: "searches#index", as: :search
   get "/resource_autocomplete", to: "resource_autocomplete#index", as: :resource_autocomplete

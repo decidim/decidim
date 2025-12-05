@@ -17,7 +17,7 @@ describe "Private Participatory Processes" do
     context "and no user is logged in" do
       before do
         switch_to_host(organization.host)
-        visit decidim_participatory_processes.participatory_processes_path
+        visit decidim_participatory_processes.participatory_processes_path(locale: I18n.locale)
       end
 
       it "lists only the not private participatory process" do
@@ -39,7 +39,7 @@ describe "Private Participatory Processes" do
         before do
           switch_to_host(organization.host)
           login_as user, scope: :user
-          visit decidim_participatory_processes.participatory_processes_path
+          visit decidim_participatory_processes.participatory_processes_path(locale: I18n.locale)
         end
 
         it "lists only the not private participatory process" do
@@ -60,7 +60,7 @@ describe "Private Participatory Processes" do
         before do
           switch_to_host(organization.host)
           login_as admin, scope: :user
-          visit decidim_participatory_processes.participatory_processes_path
+          visit decidim_participatory_processes.participatory_processes_path(locale: I18n.locale)
         end
 
         it "lists private participatory processes" do
@@ -76,7 +76,7 @@ describe "Private Participatory Processes" do
         end
 
         it "shows the privacy warning in attachments admin" do
-          visit decidim_admin_participatory_processes.participatory_process_attachments_path(private_participatory_process)
+          visit decidim_admin_participatory_processes.participatory_process_attachments_path(private_participatory_process, locale: I18n.locale)
           within "#attachments" do
             expect(page).to have_content("Any participant could share this document to others")
           end
@@ -88,7 +88,7 @@ describe "Private Participatory Processes" do
       before do
         switch_to_host(organization.host)
         login_as other_user, scope: :user
-        visit decidim_participatory_processes.participatory_processes_path
+        visit decidim_participatory_processes.participatory_processes_path(locale: I18n.locale)
       end
 
       it "lists private participatory processes" do
@@ -106,7 +106,7 @@ describe "Private Participatory Processes" do
       it "links to the individual process page" do
         first(".card__grid-text", text: translated(private_participatory_process.title, locale: :en)).click
 
-        expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(private_participatory_process)
+        expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(private_participatory_process, locale: I18n.locale)
         expect(page).to have_content "This is a private process"
       end
     end
