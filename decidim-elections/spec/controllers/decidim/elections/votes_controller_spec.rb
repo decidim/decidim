@@ -235,12 +235,19 @@ module Decidim
               create(:election_vote, voter_uid: session[:voter_uid], question: question, response_option: question.response_options.first)
             end
 
-            it "renders the receipt page" do
+            it "renders the receipt page and clears votes buffer" do
               expect(controller.send(:votes_buffer)).to receive(:clear)
-              expect(controller.send(:session_attributes)).to receive(:clear)
+              expect(controller.send(:session_attributes)).not_to receive(:clear)
               get :receipt, params: params
               expect(response).to have_http_status(:ok)
               expect(subject).to render_template(:receipt)
+            end
+
+            it "clears session when exit param is present" do
+              expect(controller.send(:votes_buffer)).to receive(:clear)
+              expect(controller.send(:session_attributes)).to receive(:clear)
+              get :receipt, params: params.merge(exit: true)
+              expect(response).to redirect_to(election_path)
             end
           end
         end
