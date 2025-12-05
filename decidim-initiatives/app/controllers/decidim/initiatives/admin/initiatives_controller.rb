@@ -134,7 +134,7 @@ module Decidim
           end
         end
 
-        # GET /admin/initiatives/export
+        # POST /admin/initiatives/export
         def export
           enforce_permission_to :export, :initiatives
 

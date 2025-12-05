@@ -608,11 +608,12 @@ describe Decidim::Initiatives::Admin::InitiativesController do
       context "when a collection of ids is passed as a parameter" do
         let!(:initiatives) { create_list(:initiative, 3, organization:) }
         let(:collection_ids) { initiatives.map(&:id) }
+        let(:comma_separated_ids) { collection_ids.join(",") }
 
         it "enqueues the job" do
           expect(Decidim::Initiatives::ExportInitiativesJob).to receive(:perform_later).with(admin_user, organization, "csv", collection_ids)
 
-          post :export, params: { format: :csv, collection_ids: }
+          post :export, params: { format: :csv, collection_ids: comma_separated_ids }
           expect(flash[:alert]).to be_nil
           expect(response).to have_http_status(:found)
         end
