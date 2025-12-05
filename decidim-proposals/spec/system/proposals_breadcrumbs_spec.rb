@@ -1,0 +1,68 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+
+describe "Budgets Breadcrumb" do
+  let(:organization) { create(:organization) }
+  let(:participatory_space) { create(:participatory_process, :with_steps, :published, organization:, title: { "en" => "Participatory space" }) }
+  let(:component) { create(:proposal_component, :published, :with_amendments_enabled, participatory_space:, name: { "en" => "Component" }) }
+  let(:proposal) { create(:proposal, component:, title: { "en" => "Proposal" }) }
+  let(:router) { Decidim::EngineRouter.main_proxy(component) }
+
+  before do
+    switch_to_host(organization.host)
+  end
+
+  context "when visiting the proposals index page" do
+    scenario "shows breadcrumb with parent space, component" do
+      visit router.root_path(locale: I18n.locale)
+
+      within ".menu-bar" do
+        expect(page).to have_content(translated(component.participatory_space.title))
+        expect(page).to have_content(translated(component.name))
+      end
+    end
+  end
+
+  context "when visiting single proposal page" do
+    scenario "shows breadcrumb with parent space, component and proposal" do
+      visit router.proposal_path(proposal, locale: I18n.locale)
+
+      within ".menu-bar" do
+        expect(page).to have_content(translated(component.participatory_space.title))
+        expect(page).to have_content(translated(component.name))
+        expect(page).to have_content(translated(proposal.title))
+      end
+    end
+  end
+
+  context "when visiting single amendment page", versioning: true do
+    let!(:emendation) { create(:proposal, title: { en: "Amended Long enough title" }, component:) }
+    let!(:amendment) { create(:amendment, amendable: proposal, emendation:) }
+    let(:form) do
+      Decidim::Amendable::ReviewForm.from_params(
+        id: amendment.id,
+        amendable_gid: proposal.to_sgid.to_s,
+        emendation_gid: emendation.to_sgid.to_s,
+        emendation_params: { title: emendation.title, body: emendation.body }
+      )
+    end
+    let(:command) { Decidim::Amendable::Accept.new(form) }
+
+    before do
+      component.update!(settings: { amendments_enabled: true })
+      command.call
+    end
+
+    scenario "shows breadcrumb with parent space, component and proposal" do
+      visit router.proposal_path(emendation, locale: I18n.locale)
+
+      within ".menu-bar" do
+        expect(page).to have_content(translated(component.participatory_space.title))
+        expect(page).to have_content(translated(component.name))
+        expect(page).to have_content(translated(emendation.title))
+        expect(page).to have_content("Amendment")
+      end
+    end
+  end
+end
