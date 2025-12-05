@@ -157,7 +157,7 @@ module Decidim
                         I18n.t("members", scope: "decidim.admin.menu.participatory_processes_submenu"),
                         decidim_admin_participatory_processes.members_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_participatory_processes.members_path(current_participatory_space)),
-                        icon_name: "spy-line",
+                        icon_name: "user-settings-line",
                         if: allowed_to?(:read, :space_member, current_participatory_space:)
 
           menu.add_item :moderations,
