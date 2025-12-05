@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Budgets Breadcrumb" do
+describe "Proposals Breadcrumb" do
   let(:organization) { create(:organization) }
   let(:participatory_space) { create(:participatory_process, :with_steps, :published, organization:, title: { "en" => "Participatory space" }) }
   let(:component) { create(:proposal_component, :published, :with_amendments_enabled, participatory_space:, name: { "en" => "Component" }) }
