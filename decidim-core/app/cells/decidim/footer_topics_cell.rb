@@ -25,7 +25,7 @@ module Decidim
 
         {
           title: decidim_escape_translated(topic.title),
-          path: decidim.page_path(topic.pages.first)
+          path: decidim.page_path(topic.pages.first, locale: current_locale)
         }
       end.compact
     end

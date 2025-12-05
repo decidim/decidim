@@ -18,7 +18,7 @@ describe "Participatory Process Breadcrumb" do
     let(:participatory_space) { participatory_process_group.participatory_processes.first }
 
     scenario "shows breadcrumb with only participatory process group" do
-      visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
+      visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group, locale: I18n.locale)
 
       within ".menu-bar" do
         expect(page).to have_content("Processes")
@@ -27,7 +27,7 @@ describe "Participatory Process Breadcrumb" do
     end
 
     scenario "shows breadcrumb with participatory process group and participatory process" do
-      visit decidim_participatory_processes.participatory_process_path(participatory_space)
+      visit decidim_participatory_processes.participatory_process_path(participatory_space, locale: I18n.locale)
 
       within ".menu-bar" do
         expect(page).to have_content("Processes")
@@ -50,7 +50,7 @@ describe "Participatory Process Breadcrumb" do
 
   context "when there is a participatory process" do
     scenario "shows breadcrumb with only participatory process" do
-      visit decidim_participatory_processes.participatory_process_path(participatory_space)
+      visit decidim_participatory_processes.participatory_process_path(participatory_space, locale: I18n.locale)
 
       within ".menu-bar" do
         expect(page).to have_content("Processes")

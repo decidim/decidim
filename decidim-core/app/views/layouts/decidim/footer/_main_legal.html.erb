@@ -1,6 +1,6 @@
 <ul class="flex flex-col gap-6 md:flex-row md:gap-10 text-sm text-white [&_a]:underline">
   <li>
-    <%= link_to t("layouts.decidim.footer.terms_of_service"), decidim.page_path("terms-of-service") %>
+    <%= link_to t("layouts.decidim.footer.terms_of_service"), decidim.page_path("terms-of-service", locale: current_locale) %>
   </li>
   <li>
     <a href="#" role="button" data-dialog-open="dc-modal"><%= t("layouts.decidim.footer.data_consent_settings") %></a>
