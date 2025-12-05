@@ -240,4 +240,3 @@ shared_examples "a per question votable election with edit from receipt when all
     expect(election.votes.where(voter_uid:).size).to eq(2)
   end
 end
-
