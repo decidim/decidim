@@ -439,7 +439,7 @@ module Decidim::System
             create(
               :organization,
               name: {
-                en: "Translated City",
+                :en => "Translated City",
                 "machine_translations" => { fr: "Ville Traduite" }
               }
             )
@@ -559,7 +559,7 @@ module Decidim::System
             create(
               :organization,
               short_name: {
-                en: "TranslatedCity",
+                :en => "TranslatedCity",
                 "machine_translations" => { fr: "VilleTraduite" }
               }
             )

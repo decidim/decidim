@@ -294,7 +294,7 @@ module Decidim::System
 
         context "when default_locale is not included in available_locales" do
           before do
-            subject.available_locales = ["en", "es"]
+            subject.available_locales = %w(en es)
             subject.default_locale = "fr"
           end
 
@@ -308,7 +308,7 @@ module Decidim::System
 
         context "when default_locale is included in available_locales" do
           before do
-            subject.available_locales = ["en", "es", "fr"]
+            subject.available_locales = %w(en es fr)
             subject.default_locale = "fr"
           end
 

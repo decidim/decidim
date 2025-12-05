@@ -15,7 +15,7 @@ describe AddShortNameToOrganizations do
       describe describe_title do
         let!(:organization) do
           org = create(:organization, name: name_hash)
-          org.update_column(:short_name, {})
+          org.update_column(:short_name, {}) # rubocop:disable Rails/SkipsModelValidations
           org
         end
 

@@ -120,7 +120,7 @@ FactoryBot.define do
     # we do not want machine translation here
     short_name do
       Decidim.available_locales.index_with { |_locale| Faker::Company.unique.name.gsub(/\s+/, "")[0, 12] }
-     end
+    end
 
     reference_prefix { Faker::Name.suffix }
     time_zone { "UTC" }
