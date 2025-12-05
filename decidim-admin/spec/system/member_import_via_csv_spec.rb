@@ -24,7 +24,7 @@ describe "Admin manages members via csv import" do
 
   context "when there are no existing users" do
     it "does not propose to delete" do
-      expect(page).to have_content("You have no private participants.")
+      expect(page).to have_content("You have no members.")
     end
   end
 
@@ -41,11 +41,11 @@ describe "Admin manages members via csv import" do
     it "ask you for confirmation and delete existing users" do
       find(".alert").click
 
-      expect(page).to have_content("Are you sure you want to delete all private participants?")
+      expect(page).to have_content("Are you sure you want to delete all members?")
 
       click_on("OK")
 
-      expect(page).to have_content("You have no private participants")
+      expect(page).to have_content("You have no members")
     end
   end
 end

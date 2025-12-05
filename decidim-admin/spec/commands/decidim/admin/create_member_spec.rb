@@ -16,7 +16,7 @@ module Decidim::Admin
     let(:form) do
       double(
         invalid?: invalid,
-        delete_current_private_participants?: delete,
+        delete_current_members?: delete,
         email:,
         current_user:,
         name:,

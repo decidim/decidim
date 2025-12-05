@@ -316,7 +316,7 @@ describe "Decidim::Api::QueryType" do
         end
       end
 
-      context "when the current user is a private participant" do
+      context "when the current user is a member" do
         let!(:member) { create(:member, privatable_to: private_process, user: current_user) }
 
         it "returns all spaces" do

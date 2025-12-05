@@ -748,7 +748,7 @@ describe("AssemblyAdminController", () => {
               <label for="assembly_private_space">
                 <input name="assembly[private_space]" type="hidden" value="0" autocomplete="off">
                 <input type="checkbox" value="1" name="assembly[private_space]" id="assembly_private_space">Private space </label>
-              <p class="help-text">You will be able to manage private participants after setting it as private</p>
+              <p class="help-text">You will be able to manage members after setting it as private</p>
             </div>
             <div class="row column" id="is_transparent">
               <label for="assembly_is_transparent">

@@ -918,10 +918,10 @@ en:
           title: Allowed list of external domains
       members:
         create:
-          error: There was a problem adding a private participant for this participatory space.
+          error: There was a problem adding a member for this participatory space.
           success: Member access successfully created.
         destroy:
-          error: There was a problem deleting a private participant for this participatory space.
+          error: There was a problem deleting a member for this participatory space.
           success: Member access successfully destroyed.
         edit:
           title: Edit Member.
@@ -935,13 +935,13 @@ en:
           create: Create
           title: New Member.
         publish_all:
-          error: There was a problem publishing all the private participants for this participatory space.
-          success: Successfully published all private participants for this participatory space
+          error: There was a problem publishing all the members for this participatory space.
+          success: Successfully published all members for this participatory space
         unpublish_all:
-          error: There was a problem unpublishing all the private participants for this participatory space.
-          success: Successfully unpublished all private participants for this participatory space
+          error: There was a problem unpublishing all the members for this participatory space.
+          success: Successfully unpublished all members for this participatory space
         update:
-          error: There was a problem updating the private participant for this participatory space.
+          error: There was a problem updating the member for this participatory space.
           success: Member successfully updated
       members_csv_imports:
         create:
@@ -951,17 +951,17 @@ en:
           csv_upload:
             title: Upload your CSV file
           destroy:
-            button: Delete all private participants
-            confirm: Are you sure you want to delete all private participants? This action cannot be undone, you will not be able to recover them.
-            empty: You have no private participants.
-            explanation: You have %{count} private participants.
-            title: Delete private participants
+            button: Delete all members
+            confirm: Are you sure you want to delete all members? This action cannot be undone, you will not be able to recover them.
+            empty: You have no members.
+            explanation: You have %{count} members.
+            title: Delete members
           example_file: 'Example file:'
           explanation: Upload your CSV file. It must have two columns with email in the first column of the file and name in the last column of the file of the users that you want to add to the participatory space, without headers. Avoid using invalid chars like `<>?%&^*#@()[]=+:;"{}\|` in user name.
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: Import private participants via CSV
+          title: Import members via CSV
           upload: Upload
       reminders:
         create:

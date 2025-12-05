@@ -246,7 +246,7 @@ describe Decidim::Meetings::Permissions do
         it { is_expected.to be false }
       end
 
-      context "when user is a space private participant" do
+      context "when user is a space member" do
         before do
           create(:member, user:, privatable_to: participatory_space)
         end

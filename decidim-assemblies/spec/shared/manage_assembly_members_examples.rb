@@ -37,7 +37,7 @@ shared_examples "manage assembly members examples" do
     end
 
     visit decidim_admin.root_path
-    expect(page).to have_content("invited #{other_user.name} to be a private participant")
+    expect(page).to have_content("invited #{other_user.name} to be a member")
   end
 
   describe "when import a batch of members from csv" do
