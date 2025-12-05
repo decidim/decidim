@@ -15,7 +15,7 @@ describe Decidim::PublicActivities do
   let(:private_assembly) { create(:assembly, :private, organization:) }
 
   before do
-    # Note that it is possible to add private users also to public processes
+    # Note that it is possible to add members also to public processes
     # and assemblies, there is no programming logic forbidding that to happen.
     [process, assembly, private_process, private_assembly].each do |space|
       10.times { create(:member, user: build(:user, :confirmed, organization:), privatable_to: space) }

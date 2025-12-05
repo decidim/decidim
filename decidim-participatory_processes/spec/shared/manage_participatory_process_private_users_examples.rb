@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_examples "manage participatory process private users examples" do
+shared_examples "manage participatory process members examples" do
   let(:other_user) { create(:user, organization:, email: "my_email@example.org") }
 
   let!(:member) { create(:member, user:, privatable_to: participatory_process) }
@@ -14,13 +14,13 @@ shared_examples "manage participatory process private users examples" do
     end
   end
 
-  it "shows participatory process private user list" do
+  it "shows participatory process member list" do
     within "#private_users table" do
       expect(page).to have_content(member.user.email)
     end
   end
 
-  it "creates a new participatory process private users" do
+  it "creates a new participatory process members" do
     click_on "New member"
 
     within ".new_member" do
@@ -40,7 +40,7 @@ shared_examples "manage participatory process private users examples" do
     expect(page).to have_content("invited #{other_user.name} to be a private participant")
   end
 
-  describe "when import a batch of private users from csv" do
+  describe "when import a batch of members from csv" do
     it "import a batch of members" do
       click_on "Import via CSV"
 

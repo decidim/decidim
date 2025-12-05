@@ -135,7 +135,7 @@ describe Decidim::Meetings::MeetingsController do
         end
       end
 
-      context "when user is private user" do
+      context "when user is member" do
         let!(:user) { create(:user, :confirmed, organization:) }
         let!(:member) { create(:member, user:, privatable_to: participatory_process) }
 

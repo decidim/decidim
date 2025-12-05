@@ -4,7 +4,7 @@ module Decidim
   module Admin
     module Concerns
       # PrivateUsers can be related to any ParticipatorySpace, in order to
-      # manage the private users for a given type, you should create a new
+      # manage the members for a given type, you should create a new
       # controller and include this concern.
       #
       # The only requirement is to define a `privatable_to` method that
@@ -133,7 +133,7 @@ module Decidim
           end
 
           # Public: Returns a String or Object that will be passed to `redirect_to` after
-          # destroying a private user. By default it redirects to the privatable_to.
+          # destroying a member. By default it redirects to the privatable_to.
           #
           # It can be redefined at controller level if you need to redirect elsewhere.
           def after_destroy_path

@@ -3,7 +3,7 @@
 module Decidim
   module Assemblies
     module Admin
-      # Controller that allows importing assembly private users
+      # Controller that allows importing assembly members
       # on assemblies
       class MembersCsvImportsController < Decidim::Admin::ApplicationController
         include Concerns::AssemblyAdmin

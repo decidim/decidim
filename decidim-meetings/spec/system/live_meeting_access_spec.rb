@@ -187,7 +187,7 @@ describe "Meeting live event access" do
         end
       end
 
-      context "when private user is signed in" do
+      context "when member is signed in" do
         before do
           login_as private_user, scope: :user
         end

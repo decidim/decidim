@@ -37,7 +37,7 @@ module Decidim::Admin
     end
 
     context "when everything is ok" do
-      it "creates the private user" do
+      it "creates the member" do
         subject.call
 
         members = Decidim::Member.where(user:)
@@ -104,7 +104,7 @@ module Decidim::Admin
         end
       end
 
-      context "when a private user exist" do
+      context "when a member exist" do
         before do
           subject.call
         end

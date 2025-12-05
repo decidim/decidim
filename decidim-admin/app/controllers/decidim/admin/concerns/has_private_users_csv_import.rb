@@ -4,7 +4,7 @@ module Decidim
   module Admin
     module Concerns
       # PrivateUsers can be related to any ParticipatorySpace, in order to
-      # import private users from csv for a given type, you should create a new
+      # import members from csv for a given type, you should create a new
       # controller and include this concern.
       #
       # The only requirement is to define a `privatable_to` method that
@@ -46,7 +46,7 @@ module Decidim
           end
 
           # Public: Returns a String or Object that will be passed to `redirect_to` after
-          # importing private users. By default it redirects to the privatable_to.
+          # importing members. By default it redirects to the privatable_to.
           #
           # It can be redefined at controller level if you need to redirect elsewhere.
           def after_import_path

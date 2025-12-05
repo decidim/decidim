@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-shared_examples_for "has private users" do
+shared_examples_for "has members" do
   let(:factory_name) { described_class.name.demodulize.underscore.to_sym }
 
   let!(:public_space) do
@@ -34,24 +34,24 @@ shared_examples_for "has private users" do
       it { expect(scope).to contain_exactly(public_space) }
     end
 
-    context "with non-private user" do
+    context "with non-member" do
       let(:user) { create(:user) }
 
       it { expect(scope).to contain_exactly(public_space) }
     end
 
-    context "with private user" do
+    context "with member" do
       let(:user) { private_space.users.first }
 
       it { expect(scope).to contain_exactly(public_space, private_space) }
     end
 
-    context "when the space is both public and has private users" do
-      # Visible spaces for non-private user.
+    context "when the space is both public and has members" do
+      # Visible spaces for non-member.
       let(:user) { create(:user) }
 
       before do
-        # Public space has multiple private users.
+        # Public space has multiple members.
         create_space_private_user(public_space)
         create_space_private_user(public_space)
       end

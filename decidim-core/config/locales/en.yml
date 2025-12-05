@@ -775,12 +775,12 @@ en:
           resource_type: The type of the resource that the notification is related to
           updated_at: The date and time when the notification was last updated
         members:
-          created_at: The date and time when this private user was created
-          id: The unique identifier of this private user
-          privatable_to: To which space this private user belongs
-          published: Wether this private user is published or not
-          role: The role that this private user has
-          updated_at: The date and time when this private user was last updated
+          created_at: The date and time when this member was created
+          id: The unique identifier of this member
+          privatable_to: To which space this member belongs
+          published: Wether this member is published or not
+          role: The role that this member has
+          updated_at: The date and time when this member was last updated
         reports:
           created_at: The date and time when this report was created
           details: The details of this report

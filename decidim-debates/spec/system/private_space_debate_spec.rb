@@ -39,7 +39,7 @@ describe "Private Space Debate" do
     end
 
     context "when the user is logged in" do
-      context "and is private user space" do
+      context "and is member space" do
         before do
           login_as other_user, scope: :user
         end
@@ -51,7 +51,7 @@ describe "Private Space Debate" do
         end
       end
 
-      context "and is not private user space" do
+      context "and is not member space" do
         before do
           login_as user, scope: :user
         end
@@ -83,7 +83,7 @@ describe "Private Space Debate" do
     end
 
     context "when the user is logged in" do
-      context "and is private user space" do
+      context "and is member space" do
         before do
           login_as other_user, scope: :user
         end
@@ -104,7 +104,7 @@ describe "Private Space Debate" do
         end
       end
 
-      context "and is not private user space" do
+      context "and is not member space" do
         let(:target_path) { main_component_path(component) }
 
         before do

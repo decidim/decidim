@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # A command with all the business logic when creating a new participatory space
-    # private user in the system.
+    # member in the system.
     class CreateMember < Decidim::Command
       delegate :current_user, to: :form
       # Public: Initializes the command.

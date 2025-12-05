@@ -27,7 +27,7 @@ describe "rake decidim:upgrade:fix_deleted_private_follows", type: :task do
   context "when assembly is private and non transparent" do
     let(:participatory_space) { create(:assembly, :private, :published, :opaque, organization: user.organization) }
 
-    it "deletes follows of non private users" do
+    it "deletes follows of non members" do
       # we have 2 follows, one for assembly, and one for a "child" resource
       expect { task.execute }.to change(Decidim::Follow, :count).by(-2)
     end
@@ -36,7 +36,7 @@ describe "rake decidim:upgrade:fix_deleted_private_follows", type: :task do
   context "when assembly is private but transparent" do
     let(:participatory_space) { create(:assembly, :private, :published, organization: user.organization) }
 
-    it "preserves follows of non private users" do
+    it "preserves follows of non members" do
       # we have 2 follows, one for assembly, and one for a "child" resource
       expect { task.execute }.not_to change(Decidim::Follow, :count)
     end
@@ -45,7 +45,7 @@ describe "rake decidim:upgrade:fix_deleted_private_follows", type: :task do
   context "when assembly is public" do
     let(:participatory_space) { create(:assembly, :published, organization: user.organization) }
 
-    it "preserves follows of non private users" do
+    it "preserves follows of non members" do
       # we have 2 follows, one for assembly, and one for a "child" resource
       expect { task.execute }.not_to change(Decidim::Follow, :count)
     end
@@ -54,7 +54,7 @@ describe "rake decidim:upgrade:fix_deleted_private_follows", type: :task do
   context "when process is private" do
     let(:participatory_space) { create(:participatory_process, :private, :published, organization: user.organization) }
 
-    it "deletes follows of non private users" do
+    it "deletes follows of non members" do
       # we have 2 follows, one for process, and one for a "child" resource
       expect { task.execute }.to change(Decidim::Follow, :count).by(-2)
     end
@@ -63,7 +63,7 @@ describe "rake decidim:upgrade:fix_deleted_private_follows", type: :task do
   context "when process is public" do
     let(:participatory_space) { create(:participatory_process, :published, organization: user.organization) }
 
-    it "preserves follows of non private users" do
+    it "preserves follows of non members" do
       expect { task.execute }.not_to change(Decidim::Follow, :count)
     end
   end

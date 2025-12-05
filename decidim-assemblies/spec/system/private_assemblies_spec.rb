@@ -37,7 +37,7 @@ describe "Private Assemblies" do
       end
 
       context "when user is logged in" do
-        context "when is not an assembly private user" do
+        context "when is not an assembly member" do
           before do
             switch_to_host(organization.host)
             login_as user, scope: :user
@@ -98,7 +98,7 @@ describe "Private Assemblies" do
         end
       end
 
-      context "when user is logged in and is not an assembly private user" do
+      context "when user is logged in and is not an assembly member" do
         context "when the user is not admin" do
           before do
             switch_to_host(organization.host)
@@ -155,7 +155,7 @@ describe "Private Assemblies" do
         end
       end
 
-      context "when user is logged in and is an assembly private user" do
+      context "when user is logged in and is an assembly member" do
         before do
           switch_to_host(organization.host)
           login_as other_user, scope: :user

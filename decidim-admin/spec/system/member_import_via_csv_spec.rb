@@ -18,7 +18,7 @@ describe "Admin manages members via csv import" do
     click_on "Import via CSV"
   end
 
-  it "show the form to add some private users via csv" do
+  it "show the form to add some members via csv" do
     expect(page).to have_content("Upload your CSV file")
   end
 

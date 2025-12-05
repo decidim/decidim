@@ -3,7 +3,7 @@
 module Decidim
   module ParticipatoryProcesses
     module Admin
-      # Controller that allows importing participatory process private users
+      # Controller that allows importing participatory process members
       # on participatory processes
       class MembersCsvImportsController < Decidim::Admin::ApplicationController
         include Concerns::ParticipatoryProcessAdmin

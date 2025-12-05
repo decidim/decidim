@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_examples "manage assembly private users examples" do
+shared_examples "manage assembly members examples" do
   let(:other_user) { create(:user, organization:, email: "my_email@example.org") }
 
   let!(:assembly_private_user) { create(:assembly_private_user, user:, privatable_to: assembly) }
@@ -14,13 +14,13 @@ shared_examples "manage assembly private users examples" do
     end
   end
 
-  it "shows assembly private user list" do
+  it "shows assembly member list" do
     within "#private_users table" do
       expect(page).to have_content(assembly_private_user.user.email)
     end
   end
 
-  it "creates a new assembly private users" do
+  it "creates a new assembly members" do
     click_on "New member"
 
     within ".new_member" do
@@ -40,7 +40,7 @@ shared_examples "manage assembly private users examples" do
     expect(page).to have_content("invited #{other_user.name} to be a private participant")
   end
 
-  describe "when import a batch of private users from csv" do
+  describe "when import a batch of members from csv" do
     it "import a batch of members" do
       click_on "Import via CSV"
 

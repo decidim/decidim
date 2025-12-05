@@ -16,7 +16,7 @@ module Decidim
       context "when assembly is private and non transparent" do
         let(:participatory_space) { create(:assembly, :private, :published, :opaque, organization: user.organization) }
 
-        it "deletes follows of non private users" do
+        it "deletes follows of non members" do
           # we have 2 follows, one for assembly, and one for a "child" resource
           expect { described_class.perform_now(normal_user.id, participatory_space) }.to change(Decidim::Follow, :count).by(-2)
         end
@@ -25,7 +25,7 @@ module Decidim
       context "when assembly is private but transparent" do
         let(:participatory_space) { create(:assembly, :private, :published, organization: user.organization) }
 
-        it "preserves follows of non private users" do
+        it "preserves follows of non members" do
           # we have 2 follows, one for assembly, and one for a "child" resource
           expect { described_class.perform_now(normal_user.id, participatory_space) }.not_to change(Decidim::Follow, :count)
         end
@@ -34,7 +34,7 @@ module Decidim
       context "when assembly is public" do
         let(:participatory_space) { create(:assembly, :published, organization: user.organization) }
 
-        it "preserves follows of non private users" do
+        it "preserves follows of non members" do
           # we have 2 follows, one for assembly, and one for a "child" resource
           expect { described_class.perform_now(normal_user.id, participatory_space) }.not_to change(Decidim::Follow, :count)
         end
@@ -43,7 +43,7 @@ module Decidim
       context "when process is private" do
         let(:participatory_space) { create(:participatory_process, :private, :published, organization: user.organization) }
 
-        it "deletes follows of non private users" do
+        it "deletes follows of non members" do
           # we have 2 follows, one for process, and one for a "child" resource
           expect { described_class.perform_now(normal_user.id, participatory_space) }.to change(Decidim::Follow, :count).by(-2)
         end
@@ -52,7 +52,7 @@ module Decidim
       context "when process is public" do
         let(:participatory_space) { create(:participatory_process, :published, organization: user.organization) }
 
-        it "preserves follows of non private users" do
+        it "preserves follows of non members" do
           expect { described_class.perform_now(normal_user.id, participatory_space) }.not_to change(Decidim::Follow, :count)
         end
       end

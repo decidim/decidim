@@ -3,7 +3,7 @@
 module Decidim
   module Assemblies
     module Admin
-      # Controller that allows managing assembly private users
+      # Controller that allows managing assembly members
       # on assemblies
       class MembersController < Decidim::Assemblies::Admin::ApplicationController
         include Concerns::AssemblyAdmin

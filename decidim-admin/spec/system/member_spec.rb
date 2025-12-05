@@ -19,7 +19,7 @@ describe "Admin checks pagination on members" do
     end
   end
 
-  it "shows private users of the participatory space and changes page correctly" do
+  it "shows members of the participatory space and changes page correctly" do
     find("li a", text: "Next").click
     expect(page).to have_current_path "#{decidim_admin_assemblies.members_path(assembly_slug: assembly.slug)}?page=2"
   end

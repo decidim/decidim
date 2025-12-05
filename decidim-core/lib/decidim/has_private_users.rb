@@ -4,7 +4,7 @@ require "active_support/concern"
 
 module Decidim
   # A concern with the features needed when you want a model to be able to create
-  # private users
+  # members
   module HasPrivateUsers
     extend ActiveSupport::Concern
 

@@ -100,7 +100,7 @@ module Decidim
 
       context "when the user has member" do
         let!(:member) { create(:member, user:) }
-        let(:help_definition_string) { "The role that this private user has" }
+        let(:help_definition_string) { "The role that this member has" }
 
         it_behaves_like "a download your data entity"
       end

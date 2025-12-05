@@ -35,7 +35,7 @@ describe "Admin filters assemblies private space users" do
     include_examples "searchable participatory space users"
   end
 
-  context "when managing private users in a public process" do
+  context "when managing members in a public process" do
     let(:assembly) { create(:assembly, organization:, private_space: false) }
 
     before do
