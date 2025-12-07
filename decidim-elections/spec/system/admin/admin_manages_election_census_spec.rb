@@ -81,6 +81,17 @@ describe "Admin manages election census" do
     end
   end
 
+  context "when the election has started" do
+    let!(:started_election) { create(:election, :published, :ongoing, component: current_component) }
+    let(:started_election_census_path) { Decidim::EngineRouter.admin_proxy(component).election_census_path(started_election) }
+
+    it "denies access to the census edit page" do
+      visit started_election_census_path
+
+      expect(page).to have_content("You are not authorized to perform this action")
+    end
+  end
+
   context "when the admin selects registered participants (dynamic)" do
     let!(:users) { create_list(:user, 10, :confirmed, organization:) }
     let(:authorized_users) { create_list(:user, 3, :confirmed, organization:) }
