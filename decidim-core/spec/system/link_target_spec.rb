@@ -34,7 +34,7 @@ describe "Admin editor link target remains" do
     within "[data-dialog][aria-hidden='false']" do
       find("button[data-action='save']").click
     end
-    click_button "Update"
+    click_link_or_button "Update"
     expect(page).to have_content("The component was updated successfully")
 
     # modifying content
@@ -46,7 +46,7 @@ describe "Admin editor link target remains" do
       editor_input.click
       editor_input.send_keys(:enter, :enter, :arrow_up, "...more content")
     end
-    click_button "Update"
+    click_link_or_button "Update"
     expect(page).to have_content("The component was updated successfully")
 
     # checking link is still in same tab
@@ -56,7 +56,7 @@ describe "Admin editor link target remains" do
     editor_input.click
     page.execute_script("window.getSelection().selectAllChildren(arguments[0].firstChild)", editor_input)
     within "[data-linkbubble-actions]" do
-      click_button "Edit"
+      click_link_or_button "Edit"
     end
     expect(page).to have_text("Default (same tab)")
   end
