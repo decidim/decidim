@@ -17,7 +17,7 @@ describe "Assembly Breadcrumb" do
 
   context "when viewing a child assembly page" do
     scenario "shows breadcrumb with parent assembly and child assembly" do
-      visit decidim_assemblies.assembly_path(child_assembly)
+      visit decidim_assemblies.assembly_path(child_assembly, locale: I18n.locale)
 
       within ".menu-bar" do
         expect(page).to have_content("Assemblies")
@@ -53,7 +53,7 @@ describe "Assembly Breadcrumb" do
 
   context "when viewing a parent assembly page" do
     scenario "shows breadcrumb with only parent assembly" do
-      visit decidim_assemblies.assembly_path(parent_assembly)
+      visit decidim_assemblies.assembly_path(parent_assembly, locale: I18n.locale)
 
       within ".menu-bar" do
         expect(page).to have_content("Assemblies")
@@ -84,7 +84,7 @@ describe "Assembly Breadcrumb" do
     let(:component) { create(:component, manifest_name: "proposals", participatory_space: standalone_assembly) }
 
     scenario "shows breadcrumb with only assembly" do
-      visit decidim_assemblies.assembly_path(standalone_assembly)
+      visit decidim_assemblies.assembly_path(standalone_assembly, locale: I18n.locale)
 
       within ".menu-bar" do
         expect(page).to have_content("Assemblies")

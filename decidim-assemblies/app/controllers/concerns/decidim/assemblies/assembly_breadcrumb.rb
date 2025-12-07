@@ -10,7 +10,7 @@ module Decidim
 
       def current_participatory_space_breadcrumb_item
         return {} if current_participatory_space.blank?
-        return {} unless current_participatory_space.is_a?(Decidim::Assembly)
+        return super unless current_participatory_space.is_a?(Decidim::Assembly)
 
         dropdown_cell = current_participatory_space_manifest.breadcrumb_cell
 
@@ -24,13 +24,7 @@ module Decidim
           }
         end
 
-        items << {
-          label: current_participatory_space.title,
-          url: Decidim::ResourceLocatorPresenter.new(current_participatory_space).path,
-          active: true,
-          dropdown_cell:,
-          resource: current_participatory_space
-        }
+        items << super
       end
     end
   end
