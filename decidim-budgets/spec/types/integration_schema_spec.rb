@@ -468,6 +468,15 @@ describe "Decidim::Api::QueryType" do
 
           it "is visible" do
             expect(response["assembly"]["components"].first[lookout_key]).to eq(query_result.except("projects"))
+            expect(response["assembly"]["components"].first[lookout_key]).to eq(query_result.except("projects"))
+          end
+        end
+
+        context "when user is visitor and requests projects that is not supposed to see" do
+          let!(:current_user) { nil }
+
+          it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
+            expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this Project because you do not have permissions")
           end
         end
 
