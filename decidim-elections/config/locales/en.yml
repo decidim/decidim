@@ -257,6 +257,7 @@ en:
           active_voting_until: 'Active voting until: %{end_date}'
           check_census_button: Check if I can vote
           check_census_explanation: This election has not started yet, but you can check if you are included in the census.
+          edit_vote_button: Edit vote
           vote_button: Vote
           voted: You have already voted. You can vote again, only your last vote will be counted.
           votes_count:
