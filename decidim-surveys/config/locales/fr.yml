@@ -140,8 +140,8 @@ fr:
             status: État 
             title: Titre
           published:
-            published: Publiée
-            unpublished: Non publiée
+            published: Publié
+            unpublished: Non publié
           status:
             closed: Fermée
             open: Ouverte

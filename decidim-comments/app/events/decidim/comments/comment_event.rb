@@ -20,6 +20,10 @@ module Decidim
           super || (comment.respond_to?(:hidden?) && comment.hidden?)
         end
 
+        def deleted_resource?
+          super || (comment.respond_to?(:deleted?) && comment.deleted?)
+        end
+
         def author_presenter
           return unless author
 

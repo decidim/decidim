@@ -16,7 +16,7 @@ module Decidim::ParticipatoryProcesses
 
         expect(serialized).to include(id: resource.id)
         expect(serialized).to include(title: resource.title)
-        expect(serialized).to include(url: "http://#{resource.organization.host}:#{Capybara.server_port}/processes/#{resource.slug}")
+        expect(serialized).to include(url: "http://#{resource.organization.host}:#{Capybara.server_port}/en/processes/#{resource.slug}")
         expect(serialized).to include(subtitle: resource.subtitle)
         expect(serialized).to include(slug: resource.slug)
         expect(serialized).to include(reference: resource.reference)

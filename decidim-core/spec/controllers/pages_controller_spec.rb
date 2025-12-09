@@ -17,7 +17,7 @@ module Decidim
         render_views
 
         it "renders the page contents" do
-          get :show, params: { id: page.slug }
+          get :show, params: { id: page.slug, locale: I18n.locale }
 
           expect(response).to render_template(:show)
 
@@ -33,7 +33,7 @@ module Decidim
 
         context "when asking the page in other formats" do
           it "ignores them" do
-            get :show, params: { id: page.slug }, format: :text
+            get :show, params: { id: page.slug, locale: I18n.locale }, format: :text
 
             expect(response).to render_template(:show)
           end
@@ -42,7 +42,7 @@ module Decidim
 
       context "when a page does not exist" do
         it "redirects to the 404" do
-          expect { get :show, params: { id: "some-page" } }
+          expect { get :show, params: { id: "some-page", locale: I18n.locale } }
             .to raise_error(ActiveRecord::RecordNotFound)
         end
       end
@@ -54,7 +54,7 @@ module Decidim
         end
 
         context "with a publicly accessible page" do
-          let(:page) { create(:static_page, organization:, allow_public_access: true) }
+          let!(:page) { create(:static_page, organization:, allow_public_access: true) }
 
           it_behaves_like "accessible static page"
         end
@@ -63,7 +63,7 @@ module Decidim
           let(:page) { create(:static_page, organization:, allow_public_access: false) }
 
           it "redirects to sign in path" do
-            get :show, params: { id: page.slug }
+            get :show, params: { id: page.slug, locale: I18n.locale }
 
             expect(response).to redirect_to("/users/sign_in")
             expect(flash[:warning]).to include("Please, log in with your account before access")

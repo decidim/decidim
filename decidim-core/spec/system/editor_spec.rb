@@ -270,7 +270,7 @@ describe "Editor" do
       expect_value(
         <<~HTML
           <p>Hello, world!</p>
-          <p>Another <a target="_blank" href="https://decidim.org">paragraph.</a></p>
+          <p>Another <a href="https://decidim.org" target="_blank">paragraph.</a></p>
         HTML
       )
 
@@ -299,7 +299,7 @@ describe "Editor" do
       expect_value(
         <<~HTML
           <p>Hello, world!</p>
-          <p>Another <a target="_blank" href="https://try.decidim.org">paragraph.</a></p>
+          <p>Another <a href="https://try.decidim.org" target="_blank">paragraph.</a></p>
         HTML
       )
 
@@ -1379,7 +1379,7 @@ describe "Editor" do
           select "New tab", from: "Target"
           find("button[data-action='save']").click
         end
-        expect_value(%(<p>Hello, <a target="_blank" href="https://docs.decidim.org">world</a>!</p>))
+        expect_value(%(<p>Hello, <a href="https://docs.decidim.org" target="_blank">world</a>!</p>))
 
         # Should show the bubble menu after the link is closed
         within ".editor" do

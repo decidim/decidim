@@ -623,7 +623,6 @@ bg:
       files:
         file_cannot_be_processed: Файлът не може да бъде обработен
         file_resolution_too_large: Разделителната способност на файла е твърде голяма
-        not_inside_organization: Файлът не е прикачен към никоя организация.
       internal_server_error:
         copied: Текстът е копиран!
         copy_error_message_clarification: Копирайте съобщението за грешка в клипборда
@@ -1010,11 +1009,9 @@ bg:
         same_language: Съдържанието е публикувано на предпочитания от вас език (%{language}), поради което в този имейл не се показва автоматичен превод.
         translated_text: 'Автоматично преведен текст:'
     notifications:
-      action_error: Възникна проблем при актуализирането на известията.
       no_notifications: Още няма известия.
       show:
         missing_event: Упс, това известие принадлежи на съдържание, което вече не е налично. Можете да го подминете.
-        moderated: Съдържанието е модерирано
     notifications_digest_mailer:
       header:
         daily: Ежедневно обобщение на известията
@@ -1078,13 +1075,10 @@ bg:
         footer_sub_hero:
           footer_sub_hero_body_html: Нека изградим по-отворено, прозрачно и задружно общество.<br /> Присъединете се, участвайте и решавайте.
           footer_sub_hero_headline: Добре дошли в платформата за сътрудничество %{organization}!
-          register: Регистрация
         hero:
           participate: Участвайте
           participate_title: Участвайте в процесите на платформата
           welcome: Добре дошли в %{organization}!
-        sub_hero:
-          register: Регистрация
       index:
         standalone_pages: Страници
         subheading: Придвижвайте се в помощта на %{name}

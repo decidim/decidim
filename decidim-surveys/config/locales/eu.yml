@@ -48,6 +48,17 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Aurreko estekan sartuz jakinarazpenak jasotzeari utzi ahal diozu.
           email_subject: Beste inkesta bat %{participatory_space_title} izeneko espazioan
           notification_title: <a href="%{resource_path}">%{resource_title}</a> inkesta <a href="%{participatory_space_url}">%{participatory_space_title}</a> espazioan irekita dago.
+    open_data:
+      help:
+        published_survey_user_responses:
+          body: Erantzunaren edukia
+          created_at: Erantzun hau noiz sortu zen
+          id: Identifikatzaile bakarra inkestaren erantzunerako
+          ip_hash: Elkarrizketatuaren IP helbidea pribatutasunagatik
+          question: Erantzun zen galdera
+          registered: Parte-hartzaile erregistratua
+          unregistered: Erregistratu gabeko parte-hartzailea
+          user_status: Erantzuna aurkeztu duen erabiltzailearen egoera
     statistics:
       responses: 'Erantzunak:'
       responses_count: Erantzunak

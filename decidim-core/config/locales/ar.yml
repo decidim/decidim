@@ -881,7 +881,6 @@ ar:
       hello: مرحبا %{name}،
       intro:
         daily: 'هذه هي إخطارات اليوم الأخير بناءً على النشاط الذي تتابعه:'
-        real_time: 'هذا تنبيه عن النشاط الذي تتبعّه:'
         weekly: 'هذه هي إخطارات الأسبوع الأخير بناءً على النشاط الذي تتابعه:'
       outro: لقد تلقيت هذه الإشعارات لأنك تتبع هذا المحتوى أو مؤلفيه. يمكنك إلغاء متابعتها من صفحات كل منهم.
       see_more: عرض المزيد من الإشعارات
@@ -930,13 +929,10 @@ ar:
           proposals_explanation: تقديم مقترحات ، ودعم المقترحات الحالية وتعزيز التغييرات التي تريد رؤيتها.
         footer_sub_hero:
           footer_sub_hero_headline: مرحبًا بكم على المنصة التشاركية لـ %{organization}.
-          register: تسجيل
         hero:
           participate: مشاركة
           participate_title: المشاركة في مسارات المنصة
           welcome: مرحبًا بكم على %{organization}!
-        sub_hero:
-          register: تسجيل
       index:
         standalone_pages: صفحات
         subheading: انتقل من خلال صفحات المساعدة من %{name}

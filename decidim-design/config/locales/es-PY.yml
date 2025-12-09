@@ -256,8 +256,6 @@ es-PY:
         share_button: Botón "Compartir"
         share_usage_description_html: Asegúrate de que el <code>decidim/shared/share_modal</code> parcial esté presente en el DOM. Este parcial se coloca en el diseño de la aplicación.
         sizes: Tamaños
-        sortition_l: Sorteo L
-        sortitions: Sorteos
         source_code: Código Fuente
         state: Estado
         tab_panels_context_description: Este componente del panel de pestañas recolecta todos los contenidos relacionados u otros recursos del elemento principal mostrado, con el fin de ahorrar espacio vertical. Al hacer clic en la pestaña se activará el panel creado para mostrar el contenido.

@@ -338,6 +338,7 @@ sv:
         participatory_processes:
           announcement: Meddelande
           area: Geografiskt område för processen
+          component_settings: Inställningar för processen
           created_at: Datum när processen skapades
           description: Längre beskrivning av processen
           developer_group: Ansvariga för processen. Organisation eller grupp som står bakom processen.

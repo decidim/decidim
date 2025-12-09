@@ -607,6 +607,7 @@ sv:
     open_data:
       help:
         conferences:
+          component_settings: Inställningar för konferensutrymmet
           created_at: Datum när utrymmet skapades
           decidim_scope_id: Omfattningen av konferensen
           description: Längre beskrivning av konferensen

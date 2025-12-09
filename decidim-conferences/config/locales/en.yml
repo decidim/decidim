@@ -623,6 +623,7 @@ en:
     open_data:
       help:
         conferences:
+          component_settings: Component settings of the conference space
           created_at: The date this space was created
           decidim_scope_id: The scope of the conference
           description: A long description of the conference

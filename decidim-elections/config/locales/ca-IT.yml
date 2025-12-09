@@ -1,6 +1,8 @@
 ca-IT:
   activemodel:
     attributes:
+      elections_question:
+        max_choices: Número màxim d'opcions
       token_csv:
         file: Arxiu
         remove_all: Eliminar totes les dades del cens actual
@@ -94,6 +96,7 @@ ca-IT:
             start_question_button: Activar la votació
             title: Resultats
           status:
+            allow_census_check_before_start: Permetre a les usuàries comprovar si poden votar abans que comenci l'elecció
             census: 'Cens:'
             results_availability:
               after_end: Resultats disponibles després de la finalització de les eleccions
@@ -138,6 +141,8 @@ ca-IT:
           publish:
             invalid: S'ha produït un error en publicar l'elecció.
             success: Elecció publicada amb èxit.
+          toggle_census_check:
+            error: S'ha produït un error en activar la comprovació del cens.
           unpublish:
             invalid: S'ha produït un error en despublicar l'elecció.
             success: Elecció despublicada correctament.
@@ -180,6 +185,11 @@ ca-IT:
           update: "%{user_name} ha actualitzat l'elecció \"%{resource_name}\" a %{space_name}"
         question:
           update: "%{user_name} va actualitzar les preguntes de l'elecció \"%{resource_name}\""
+      census_checks:
+        show:
+          description: Això vol dir que, una vegada comencin les eleccions, es podrà votar-hi.
+          exit_button: Sortir de la comprovació del cens
+          title: Se t'ha verificat correctament
       censuses:
         census_ready_html: S'han carregat les dades censals i estan a punt per utilitzar-les a l'elecció "<b>%{election_title}</b>".
         census_size_html:
@@ -198,9 +208,6 @@ ca-IT:
           authorization_options_invalid: Malauradament, tot i que tens totes les autoritzacions necessàries, algunes no són vàlides per a aquestes eleccions.
           exit_button: Sortir de la cabina de votació
           invalid: No tens autorització per votar en aquestes eleccions.
-          missing: El vostre compte d'usuària no disposa d'algunes de les autoritzacions necessàries. Revisa la informació i torna-ho a provar.
-          not_authorized: 'L''autorització de "%{adapter}" no coincideix amb les condicions necessàries.'
-          not_granted: 'L''autorització de "%{adapter}" no està concedida.'
           resume_with_method: Reprendre la verificació amb %{name}
           verify_with_method: Verificar amb %{name}
         token_csv:
@@ -245,6 +252,8 @@ ca-IT:
           title: Preguntes de l'elecció
         show:
           active_voting_until: 'Votació activa fins: %{end_date}'
+          check_census_button: Comprova si pots votar
+          check_census_explanation: Aquesta elecció encara no ha començat, però pots comprovar si constes al cens.
           vote_button: Votar
           voted: Ja has votat. Pots tornar a votar, això esborrarà el teu vot anterior i, només s'explicarà la teva última votació.
           votes_count:
@@ -299,6 +308,9 @@ ca-IT:
         question:
           back: Tornar
           cast_vote: Enviar el vot
+          max_choices: 'Opcions màximes: %{count}'
+          max_choices_alert: Has seleccionat massa opcions. Si us plau, desmarquen algunes per continuar.
+          max_choices_exceeded: No pots seleccionar més de %{max} opcions. Si us plau, torna enrere i ajusta la teva selecció.
           next: Següent
         receipt:
           description: Pots tornar a votar en qualsevol moment mentre el període de votació estigui obert. El teu vot anterior serà substituït pel nou.

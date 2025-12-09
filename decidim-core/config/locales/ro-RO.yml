@@ -750,7 +750,6 @@ ro:
           updated_at: Data și ora la care acest raport a fost actualizat ultima dată
         users:
           accepted_tos_version: Data la care termenii de utilizare ai acestei platforme au fost acceptați de către utilizator
-          followers_count: Numărul de participanți care urmăresc acest utilizator
           following_count: Numărul de participanți pe care acest utilizator îl urmărește
           password_updated_at: Data la care parola a fost schimbată ultima dată
           roles: Rolul pe care îl are acest utilizator, dacă are vreun astfel de rol
@@ -781,7 +780,6 @@ ro:
       files:
         file_cannot_be_processed: Fișierul nu poate fi procesat
         file_resolution_too_large: Rezoluția fișierului este prea mare
-        not_inside_organization: Fișierul nu este atașat niciunei organizații
       internal_server_error:
         copied: Text copiat!
         copy_error_message_clarification: Copiază mesajul de eroare în clipboard
@@ -1196,7 +1194,6 @@ ro:
           proposals_explanation: Formulează propuneri, votează propunerile existente și promovează schimbările pe care dorești să le vezi implementate.
         footer_sub_hero:
           footer_sub_hero_headline: Bun venit pe platforma participativă %{organization}.
-          register: Inregistrare
         hero:
           participate: Participă
           participate_title: Participați la procesele platformei
@@ -1204,7 +1201,6 @@ ro:
         statistics:
           headline: Statistici
         sub_hero:
-          register: Inregistrare
           register_title: Creați un cont
       index:
         standalone_pages: Pagini

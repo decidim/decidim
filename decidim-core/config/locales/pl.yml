@@ -601,6 +601,16 @@ pl:
     download_your_data:
       export:
         ready: Gotowy
+      help:
+        messaging_conversations:
+          updated_at: Data ostatniej aktualizacji tej rozmowy
+        users:
+          about: Opis profilu tego uczestnika
+          followers_count: Liczba uczestników, którzy obserwują tego użytkownika
+          last_sign_in_at: Data i godzina poprzedniego logowania
+          last_sign_in_ip: Adres IP poprzedniego logowania
+          newsletter_notifications_at: Data i godzina subskrypcji tego uczestnika do newslettera
+          officialized_as: Nazwisko urzędnika (radca, burmistrz itd.)
     editor_images:
       create:
         error: Wystąpił błąd podczas przesyłania obrazu.
@@ -610,7 +620,7 @@ pl:
       files:
         file_cannot_be_processed: Plik nie może zostać przetworzony
         file_resolution_too_large: Rozdzielczość pliku jest zbyt duża
-        not_inside_organization: Plik nie jest dołączony do żadnej organizacji
+        not_inside_organization: Plik nie jest dołączony do żadnej organizacji.
       internal_server_error:
         copied: Tekst skopiowany!
         copy_error_message_clarification: Skopiuj komunikat o błędzie do schowka
@@ -997,11 +1007,9 @@ pl:
         same_language: Treść została zamieszczona w preferowanym przez Ciebie języku (%{language}), dlatego w tej wiadomości e-mail nie wyświetlono żadnego automatycznego tłumaczenia.
         translated_text: 'Automatycznie przetłumaczony tekst:'
     notifications:
-      action_error: Wystąpił problem z aktualizacją powiadomień.
       no_notifications: Brak powiadomień.
       show:
         missing_event: Ups, to powiadomienie należy do elementu, który nie jest już dostępny. Możesz je odrzucić.
-        moderated: Zawartość moderowana
     notifications_digest_mailer:
       header:
         daily: Podsumowanie codziennych powiadomień
@@ -1065,13 +1073,11 @@ pl:
         footer_sub_hero:
           footer_sub_hero_body_html: Zbudujmy społeczeństwo bardziej otwarte, przejrzyste i współpracujące.<br /> Dołącz, uczestnicz i decyduj.
           footer_sub_hero_headline: Witamy na %{organization} platformie partycypacyjnej.
-          register: Zarejestruj się
         hero:
           participate: Weź udział
           participate_title: Weź udział w procesach platformy
           welcome: Witamy w %{organization}!
         sub_hero:
-          register: Zarejestruj się
           register_title: Utwórz konto
       index:
         standalone_pages: Strony

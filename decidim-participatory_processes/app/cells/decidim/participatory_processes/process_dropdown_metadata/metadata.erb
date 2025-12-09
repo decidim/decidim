@@ -7,7 +7,7 @@
       <span class="font-semibold"><%= t("layouts.decidim.participatory_processes.participatory_process.active_step") %></span>
       <%= link_to(
         step_title,
-        decidim_participatory_processes.participatory_process_path(process, display_steps: true),
+        decidim_participatory_processes.participatory_process_path(process, display_steps: true, locale: I18n.locale),
         class: "text-secondary underline"
       ) %>
     </span>

@@ -74,7 +74,7 @@ module Decidim
         end
 
         it_behaves_like "working short link", :dummy_resources do
-          let(:expected_resource_url) { "#{organization_url}/processes/#{target.participatory_space.slug}/f/#{target.component.id}/dummy_resources" }
+          let(:expected_resource_url) { "#{organization_url}/#{I18n.locale}/processes/#{target.participatory_space.slug}/f/#{target.component.id}/dummy_resources" }
         end
       end
 
@@ -87,7 +87,7 @@ module Decidim
         end
 
         it_behaves_like "working short link", :participatory_process do
-          let(:expected_resource_url) { "#{organization_url}/processes/#{target.participatory_space.slug}" }
+          let(:expected_resource_url) { "#{organization_url}/#{I18n.locale}/processes/#{target.participatory_space.slug}" }
         end
       end
 
@@ -101,7 +101,7 @@ module Decidim
         end
 
         it_behaves_like "working short link", :pages do
-          let(:expected_resource_url) { "#{organization_url}/pages" }
+          let(:expected_resource_url) { "#{organization_url}/#{I18n.locale}/pages" }
         end
       end
     end

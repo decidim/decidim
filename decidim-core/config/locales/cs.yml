@@ -795,7 +795,6 @@ cs:
           created_at: Datum, kdy byla konverzace vytvořena
           id: Jedinečný identifikátor pro tuto konverzaci
           messages: Zprávy této konverzace
-          updated_at: Datum, kdy byla tato konverzace naposledy aktualizována
         notifications:
           created_at: Datum a čas, kdy bylo oznámení vytvořeno
           event_class: Třída události, která spustila oznámení
@@ -820,7 +819,6 @@ cs:
           reason: Důvod této zprávy
           updated_at: Datum a čas poslední aktualizace této zprávy
         users:
-          about: Životopis tohoto uživatele
           accepted_tos_version: Datum, kdy uživatel přijal podmínky poskytování služeb této platformy
           admin: Zda je tento uživatel administrátorem
           confirmation_sent_at: Datum a čas, kdy bylo potvrzení odesláno
@@ -831,7 +829,6 @@ cs:
           delete_reason: Důvod pro odstranění tohoto uživatele
           deleted_at: Datum a čas, kdy byl tento uživatel odstraněn
           email: E-mailová adresa tohoto uživatele
-          followers_count: Počet účastníků, kteří sledují tohoto uživatele
           following_count: Počet účastníků, které tento uživatel sleduje
           id: Jedinečný identifikátor tohoto uživatele
           invitation_accepted_at: Datum a čas, kdy byla pozvánka přijata
@@ -839,16 +836,12 @@ cs:
           invitation_sent_at: Datum a čas, kdy byla pozvánka odeslána
           invitations_count: Počet pozvánek zaslaných tomuto uživateli
           invited_by: Uživatel, který pozval tohoto uživatele
-          last_sign_in_at: Datum a čas posledního přihlášení
-          last_sign_in_ip: IP adresa posledního přihlášení
           locale: Lokalizace (jazyk), kterou tento uživatel vybral
           managed: Zda je tento uživatel spravován jiným uživatelem
           name: Jméno tohoto uživatele
-          newsletter_notifications_at: Datum a čas, kdy tento uživatel obdržel zpravodaj
           nickname: Přezdívka tohoto uživatele
           notification_settings: Nastavení oznámení, které tento uživatel vybral
           notifications_sending_frequency: Četnost oznámení, která tento uživatel obdrží
-          officialized_as: Název oficializace (poradce, starosta atd.)
           officialized_at: Datum a čas, kdy byl tento uživatel oficializován
           organization: Organizace, do které tento uživatel patří,
           password_updated_at: Datum poslední změny hesla
@@ -886,7 +879,6 @@ cs:
       files:
         file_cannot_be_processed: Soubor nelze zpracovat
         file_resolution_too_large: Rozlišení souboru je příliš velké
-        not_inside_organization: Soubor není připojen k žádné organizaci
       internal_server_error:
         copied: Text zkopírován!
         copy_error_message_clarification: Kopírovat chybovou zprávu do schránky
@@ -1075,7 +1067,6 @@ cs:
         file:
           explanation: 'Pokyny pro soubor:'
           message_1: Jedná se o obrázek nebo dokument.
-          message_2: Pokud se jedná o obrázek, měl by to být obrázek na šířku, který neobsahuje žádný text. Služba obrázek ořízne.
         icon:
           explanation: 'Pokyny pro ikonu:'
           message_1: Musí to být čtvercový obrázek.
@@ -1311,11 +1302,9 @@ cs:
         same_language: Obsah byl zveřejněn ve vašem preferovaném jazyce (%{language}), proto se v tomto e-mailu nezobrazuje automatický překlad.
         translated_text: 'Automaticky přeložený text:'
     notifications:
-      action_error: Při aktualizaci oznámení došlo k chybě.
       no_notifications: Zatím žádné oznámení.
       show:
         missing_event: Jejda, toto oznámení patří k položce, která již není k dispozici. Můžete ho zahodit.
-        moderated: Obsah upraven
     notifications_digest_mailer:
       header:
         daily: Denní výběr oznámení
@@ -1324,7 +1313,6 @@ cs:
       hello: Dobrý den %{name},
       intro:
         daily: 'Toto jsou oznámení z posledního dne založená na aktivitě, kterou máte:'
-        real_time: 'Toto je oznámení o aktivitě, kterou sledujete:'
         weekly: 'Toto jsou oznámení z minulého týdne založená na aktivitě, kterou máte:'
       outro: Obdrželi jste tato oznámení, protože sledujete tento obsah nebo jeho autory. Můžete je zrušit z jejich příslušných stránek.
       see_more: Zobrazit další oznámení
@@ -1464,9 +1452,7 @@ cs:
           title: Jak tyto soubory otevřít a pracovat s nimi
         license:
           body_1_html: Tato databáze %{organization_name} je k dispozici pod %{link_database}. Jakákoli práva v jednotlivém obsahu databáze jsou licencována pod %{link_contents}.
-          license_contents_link: http://opendatacommons.org/licenses/dbcl/1.0/
           license_contents_name: Licence obsahu databáze
-          license_database_link: http://opendatacommons.org/licenses/odbl/1.0/
           license_database_name: Open Database License
           title: Licence
         title: Otevřená data
@@ -1489,7 +1475,6 @@ cs:
         footer_sub_hero:
           footer_sub_hero_body_html: Vytvořme otevřenější, transparentnější a více spolupracující společnost.<br /> Připojte se, účastněte se a rozhodujte.
           footer_sub_hero_headline: Vítejte na %{organization} participační platformě.
-          register: Registrovat
         hero:
           participate: Účastnit se
           participate_title: Účast na procesech platformy
@@ -1497,7 +1482,6 @@ cs:
         statistics:
           headline: Statistiky
         sub_hero:
-          register: Registrovat
           register_title: Vytvořit účet
       index:
         standalone_pages: Stránky
@@ -2125,8 +2109,6 @@ cs:
         description_html: Spravujete účastníka <b>%{user_name}</b>.
       language_chooser:
         choose_language: Vyberte jazyk
-      navigation:
-        aria_label: Navigační menu - %{title}
       notifications_dashboard:
         mark_all_as_read: Označit vše jako přečtené
         mark_as_read: Označit jako přečtené

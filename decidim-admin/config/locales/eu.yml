@@ -293,7 +293,7 @@ eu:
       block_user:
         bulk_new:
           action: Blokeatu kontuak eta bidali justifikazioa
-          already_reported_html: Ekintza honekin jarraituz gero, parte-hartzaile guztien edukiak ere ezkutatuko dituzu.
+          already_reported_html: Ekintza honekin jarraituz, parte-hartzailearen eduki guztiak ere ezkutatuko dituzu.
           description: Parte-hartzaile bat blokeatzeak bere kontua erabilezin bihurtuko du. Zure justifikazioan edozein jarraibide eman dezakezu parte-hartzailea desblokeatzeko moduei buruz.
           justification: Justifikazioa
           title: Blokeatu parte-hartzaileak
@@ -393,7 +393,7 @@ eu:
         form:
           domain_too_short: Domeinu laburregia
         update:
-          error: Errorea gertatu da baimendutako kanpoko domeinuen zerrenda eguneratzean
+          error: Ezin izan da eguneratu baimendutako kanpo-domeinuen zerrenda.
           success: Baimendutako kanpoko domeinuen zerrenda zuzen eguneratua.
       exports:
         export_as: "%{name} honako hau gisa: %{export_format}"
@@ -478,7 +478,7 @@ eu:
           import_csv:
             explanation: 'Fitxategirako jarraibideak:'
             message_1: CSV fitxategiak onartzen dira
-            message_2: ".csv fitxategiak helbide elektronikoak ditu"
+            message_2: ".csv fitxategia posta elektronikoko datuekin"
       help_sections:
         error: Arazo bat egon da laguntza-atalak eguneratzean.
         form:
@@ -1270,7 +1270,7 @@ eu:
           last_day: Azken eguna
           last_month: Azken hila
           last_week: Azken astea
-          no_users_count_statistics_yet: Oraindik ez dago parte-hartzaileen zenbaketa-estatistikarik.
+          no_users_count_statistics_yet: Oraindik ez dago parte-hartzaileen zenbaketaren estatistikarik.
           participants: Parte-hartzaileak
     forms:
       errors:

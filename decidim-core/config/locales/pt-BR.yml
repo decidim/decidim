@@ -618,7 +618,6 @@ pt-BR:
       files:
         file_cannot_be_processed: O arquivo não pode ser processado
         file_resolution_too_large: A resolução do arquivo é muito grande
-        not_inside_organization: O arquivo não está anexado a nenhuma organização
       internal_server_error:
         copied: Texto copiado!
         copy_error_message_clarification: Copiar mensagem de erro para área de transferência
@@ -985,11 +984,9 @@ pt-BR:
         same_language: O conteúdo foi publicado em seu idioma preferido (%{language}), e é por isso que nenhuma tradução automática é exibida neste e-mail.
         translated_text: 'Texto traduzido automaticamente:'
     notifications:
-      action_error: Houve um erro ao atualizar as notificações.
       no_notifications: Não há notificações.
       show:
         missing_event: Ops, esta notificação pertence a um item que não está mais disponível. Você pode descartá-lo.
-        moderated: Comentário moderado
     notifications_digest_mailer:
       header:
         daily: Resumo de Notificação Diário
@@ -1050,13 +1047,11 @@ pt-BR:
         footer_sub_hero:
           footer_sub_hero_body_html: Vamos construir uma sociedade mais aberta, transparente e colaborativa.<br /> Participe, participe e decida.
           footer_sub_hero_headline: Bem-vindo à plataforma participativa %{organization}.
-          register: Registrar-se
         hero:
           participate: Participar
           participate_title: Participe dos processos da plataforma
           welcome: Bem-vindo ao %{organization}!
         sub_hero:
-          register: Registrar-se
           register_title: Criar uma conta
       index:
         standalone_pages: Páginas

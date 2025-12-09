@@ -10,7 +10,7 @@ describe "Admin manages initiative publication" do
   let!(:initiative) { create(:initiative, :validating, organization:) }
 
   let(:admin_page_path) { decidim_admin_initiatives.edit_initiative_path(participatory_space) }
-  let(:public_collection_path) { decidim_initiatives.initiatives_path }
+  let(:public_collection_path) { decidim_initiatives.initiatives_path(locale: I18n.locale) }
   let(:title) { "My space" }
   let(:participatory_space) { initiative }
 

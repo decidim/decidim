@@ -562,7 +562,6 @@ hu:
     errors:
       files:
         file_resolution_too_large: A fájl felbontása túl nagy
-        not_inside_organization: A fájl nincs csatolva egyetlen szervezethez sem
       internal_server_error:
         copied: Szöveg kimásolva!
         copy_error_message_clarification: A hibaüzenet másolása a vágólapra
@@ -977,13 +976,10 @@ hu:
           proposals_explanation: Tegyél javaslatot, támogasd a már meglévőket, legyél Te a változás motorja.
         footer_sub_hero:
           footer_sub_hero_headline: Üdvözöljük a %{organization} részvételi platformján.
-          register: Regisztráció
         hero:
           participate: Részvétel
           participate_title: Részvétel a platform folyamataiban
           welcome: Üdvözöl a(z) %{organization}!
-        sub_hero:
-          register: Regisztráció
       index:
         standalone_pages: Oldalak
         subheading: Navigáljon a %{name} súgó oldalán
