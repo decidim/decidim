@@ -76,7 +76,6 @@ module Decidim
   autoload :SearchResourceFieldsMapper, "decidim/search_resource_fields_mapper"
   autoload :QueryExtensions, "decidim/query_extensions"
   autoload :ParticipatorySpaceResourceable, "decidim/participatory_space_resourceable"
-  autoload :HasMembers, "decidim/participatory_space/has_members"
   autoload :ViewModel, "decidim/view_model"
   autoload :FingerprintCalculator, "decidim/fingerprint_calculator"
   autoload :Fingerprintable, "decidim/fingerprintable"
@@ -134,6 +133,10 @@ module Decidim
   autoload :ApiResponseHelper, "decidim/api_response_helper"
   autoload :ResourceHelper, "decidim/resource_helper"
   autoload :TooltipHelper, "decidim/tooltip_helper"
+
+  module ParticipatorySpace
+    autoload :HasMembers, "decidim/participatory_space/has_members"
+  end
 
   module Commands
     autoload :CreateResource, "decidim/commands/create_resource"
