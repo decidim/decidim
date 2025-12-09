@@ -4,7 +4,7 @@ module Decidim
   module Assemblies
     class MembersController < Decidim::Assemblies::ApplicationController
       include ParticipatorySpaceContext
-      include Decidim::HasMembersPage
+      include Decidim::ParticipatorySpace::HasMembersPage
 
       def index
         raise ActionController::RoutingError, "No members for this assembly" if members.none?

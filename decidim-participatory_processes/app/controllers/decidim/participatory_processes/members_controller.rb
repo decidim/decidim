@@ -4,7 +4,7 @@ module Decidim
   module ParticipatoryProcesses
     class MembersController < Decidim::ParticipatoryProcesses::ApplicationController
       include ParticipatorySpaceContext
-      include Decidim::HasMembersPage
+        include Decidim::ParticipatorySpace::HasMembersPage
 
       def index
         raise ActionController::RoutingError, "No members for this participatory process" if members.none?
