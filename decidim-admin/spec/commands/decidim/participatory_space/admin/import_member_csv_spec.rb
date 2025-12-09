@@ -2,8 +2,8 @@
 
 require "spec_helper"
 
-module Decidim::Admin
-  describe ProcessMemberImportCsv do
+module Decidim::ParticiaptorySpace::Admin
+  describe ImportMemberCsv do
     subject { described_class.new(form, members_to) }
 
     let(:current_user) { create(:user, :admin, organization:) }
