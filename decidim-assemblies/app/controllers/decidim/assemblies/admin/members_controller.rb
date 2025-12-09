@@ -7,7 +7,7 @@ module Decidim
       # on assemblies
       class MembersController < Decidim::Assemblies::Admin::ApplicationController
         include Concerns::AssemblyAdmin
-        include Decidim::Admin::Concerns::HasMembers
+        include Decidim::ParticipatorySpace::Admin::Concerns::HasMembers
 
         def after_destroy_path
           members_path(current_assembly)

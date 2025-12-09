@@ -6,7 +6,7 @@ module Decidim
       # Controller that allows managing participatory process members
       class MembersController < Decidim::Admin::ApplicationController
         include Concerns::ParticipatoryProcessAdmin
-        include Decidim::Admin::Concerns::HasMembers
+        include Decidim::ParticipatorySpace::Admin::Concerns::HasMembers
 
         def after_destroy_path
           members_path(current_participatory_process)
