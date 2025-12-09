@@ -118,7 +118,6 @@ module Decidim
       end
 
       def message(value)
-        debugger
         return content_tag(:p, value, class: "flash__message") unless value.is_a?(Hash)
 
         content_tag(:p, class: "flash__message") do
