@@ -76,7 +76,7 @@ module Decidim
     end
 
     def clean(value)
-      if value == "<div class=\"rich-text-display\"></div>"
+      if value.include?("rich-text-display")
         decidim_sanitize_admin(translated_attribute(value))
       else
         tag.p(decidim_sanitize_admin(translated_attribute(value)))
