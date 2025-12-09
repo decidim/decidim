@@ -36,6 +36,7 @@ tr:
       id: İD
       newsletter:
         body: Vücut
+        send_to_all_users: Bütün katılımcılara gönder
         send_to_followers: Takipçilere gönder
         send_to_participants: Katılımcılara gönder
         subject: konu
@@ -298,6 +299,7 @@ tr:
       block_user:
         bulk_new:
           action: Hesapları engelle ve gerekçe gönder.
+          already_reported_html: Bu işleme devam ederek katılımcının tüm içeriklerini de gizleyeceksiniz.
           description: Bir kullanıcıyı engellemek, kullanıcının hesabını kullanılamaz hale getirir. Gerekçenizde engeli kaldırmak için gereken yönergeleri ekleyebilirsiniz.
           justification: Gerekçe
           title: Kullanıcıları engelle
@@ -317,6 +319,7 @@ tr:
         create:
           error: Bu bileşeni oluştururken bir hata oluştu.
           success: Bileşen başarıyla oluşturuldu.
+          success_landing_page: Bileşen başarıyla oluşturuldu. Alanın ana sayfasına bu bileşen için bir içerik engeli ekleyebilirsiniz. Yapılandırmak için <a href="%{landing_page_path}">Ana sayfaya</a> gidiniz.
         edit:
           title: Bileşeni düzenle
           update: Güncelleştirme
@@ -392,6 +395,7 @@ tr:
         form:
           domain_too_short: Alan adı çok kısa
         update:
+          error: İzin verilen harici alan adı listesi güncellenemedi.
           success: İzin verilen harici alan adı listesi başarıyla güncellendi.
       exports:
         export_as: "%{name} olarak %{export_format}"
@@ -524,6 +528,7 @@ tr:
             records:
               detail: Lütfen satırların doğru biçimlendirildiğinden ve geçerli kayıtlar içerdiğinden emin olun.
           missing_headers:
+            detail: Lütfen dosyanın istenen sütunlara sahip olduğundan emin olunuz.
             message:
               one: Eksik sütun %{columns}.
               other: Eksik sütunlar %{columns}.
@@ -536,6 +541,7 @@ tr:
           actions:
             back: Geri
           download_example: Örneği indir
+          download_example_format:
           file_legend: Ayrıştırılmak üzere bir içe aktarma dosyası ekleyin.
           import: İçe aktar
         notice: "%{count} %{resource_name} başarıyla içe aktarıldı."
@@ -723,6 +729,10 @@ tr:
             report_language: Rapor dili
             report_reason: Nedeni
             title: Rapor ayrıntıları
+      new_import:
+        accepted_mime_types:
+          json: JSON
+          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: Ön izleme
@@ -732,6 +742,8 @@ tr:
           preview: 'Şablon özizlemesi: %{template_name}'
           use_template: Bu şablonu kullan
       newsletters:
+        confirm_recipients:
+          title: Alıcıları doğrula
         create:
           error: Bu bülteni oluştururken bir hata oluştu.
         deliver:
@@ -766,6 +778,7 @@ tr:
           followers_help: Listede seçili herhangi bir katılımcı süreci takip eden bütün onaylanmış kullanıcılara haber bülteni gönderir.
           participants_help: Listede seçili herhangi bir katılımcı sürece katılmış olan bütün onaylanmış kullanıcılara haber bülteni gönderir.
           recipients_count: Bu haber bülteni <strong id='recipients_count'>%{count}</strong> kullanıcıya gönderilecektir.
+          select_participatory_processes: Katılımcı süreçleri seç
           select_spaces: Haber bültenini bölmek için alanları seçin
           send_to_all_users: Bütün kullanıcılara gönder
           title: Teslim etmek için alıcıları seçiniz
@@ -847,6 +860,10 @@ tr:
         edit:
           update: Güncelleştirme
         form:
+          colors:
+            colors_title: Organizasyon renkleri
+            colors_warning_html: Uyarı! Bu renkleri değiştirmek renk kontrastını bozabilir. Seçtiğiniz kontrastı veya diğer benzer araçları <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a>'dan kontrol edebilirsiniz.
+            explanation: Bu araç organizasyonun web sitesinde kullanılacak renk paletinde eşit aralıklarla yerleştirilmiş tonlardan oluşan bir renk düzeni seçmenize yardımcı olur.
           cta_button_text_help: Kuruluşunuzdaki mevcut her dil için ana sayfada Harekete Geçirici Mesaj düğmesinin üzerine yazabilirsiniz. Ayarlanmazsa, varsayılan değer kullanılır. Karşılama metni ve açıklama arasındaki ana sayfada Eylem Çağrısı düğmesi görüntülenir.
           homepage_appearance_title: Ana sayfa görünümünü düzenle
           homepage_highlighted_content_banner_title: Yüksek içerikli banner
@@ -883,11 +900,18 @@ tr:
         new:
           create: yaratmak
           title: Yeni Katılımcı Uzay özel kullanıcısı.
+        publish_all:
+          success: Bu katılımcı alan için özel katılımcılar başarıyla yayınlandı
       participatory_space_private_users_csv_imports:
+        create:
+          success: CSV dosyası başarıyla yüklendi, katılımcılara bir davet e-postası gönderiyoruz. Bu biraz zaman alabilir.
         new:
           csv_upload:
             title: CSV dosyanızı yükleyin
           destroy:
+            button: Tüm özel kullanıcıları sil
+            confirm: Tüm özel kullanıcıları silmek istediğinizden emin misiniz? Bu işlem geri alınamaz, silinen katılımcıları geri yükleyemeyeceksiniz.
+            empty: Özel kullanıcınız yok.
             title: Özel Kullanıcıları kaldır
           example_file: 'Örnek dosya:'
           upload: Yükle
@@ -931,10 +955,14 @@ tr:
           success: Kapsam başarıyla güncellendi
       share_tokens:
         actions:
+          confirm_destroy: Bu erişimi silmek istediğinizden emin misiniz?
           destroy: Sil
           edit: Düzenle
           preview: Ön İzleme
+        create:
+          invalid: Erişim linki üretilirken bir hata oluştu.
         edit:
+          title: '%{name} için yeni erişim linki'
           update: Güncelle
         form:
           automatic: Otomatik
@@ -947,6 +975,19 @@ tr:
           'true': 'Evet'
         index:
           copied: Erişim bağlantısı kopyalandı!
+          copy_message: Metin başarıyla panoya kopyalandı.
+          create_new_token: İlk erişim linkini oluştur!
+          empty_html: Şu an aktif olan bir erişim linki yok. %{new_token_link}
+          never: Asla
+          new_share_token_button: Yeni erişim linki
+          share_tokens_help_html: |
+            Diğerlerinin bu yayınlanmamış kaynağı görüntüleyebilmesi için bir erişim linki oluşturun ve paylaşın. 
+            Erişim linkleri sadece kayıtlı kullanıcılar için geçerli olabilir ve gerekirse bir son kullanım tarihi belirlenebilir. 
+            Yeni bir erişim linki paylaşmak için, oluşturduktan sonra "%{clipboard} ikonunu kullanarak linki kopyalayın.
+          title: '%{name} için erişim linkleri'
+        new:
+          create: Oluştur
+          title: '%{name} için yeni erişim linki'
       shared:
         gallery:
           add_images: Resim ekle
@@ -983,9 +1024,34 @@ tr:
           create: Sayfa oluştur
           title: Yeni sayfa
         topic:
+          empty: Bu konu altında hiçbir sayfa yok.
           without_topic: Konu olmayan sayfalar
         update:
           error: Bu sayfa güncellenirken bir hata oluştu.
+          success: Sayfa başarıyla güncellendi.
+      taxonomies:
+        destroy:
+          invalid: Bu sınıflandırmayı kaldırırken bir hata oluştu.
+          success: Sınıflandırma başarıyla kaldırıldı.
+        edit:
+          description: Bu kategorideki ögeler katılımcı alanları veya bileşenler gibi kaynakları sınıflandırmak veya filtrelemek için kullanılacaktır. Listeyi yeniden düzenlemek için ögeleri sürükleyerek bırakınız.
+        new:
+          title: Yeni kategori
+        update:
+          success: Kategori başarıyla güncellendi.
+      taxonomy_filters:
+        create:
+          error: Bu kategori filtresi oluşturulurken bir hata oluştu.
+        destroy:
+          success: Kategori filtresi başarıyla kaldırıldı.
+        form:
+          no_items: Bu kategori için herhangi bir öge mevcut değil. Kategori içindeki yapılandırma ayarlarından ögeler oluşturabilirsiniz.
+        table:
+          components_count: Bunu kullanan bileşenler
+          internal_name:
+      taxonomy_filters_selector:
+        new:
+          save:
       titles:
         admin_log: Yönetici günlüğü
         area_types: Alan türleri
@@ -1004,6 +1070,8 @@ tr:
         scopes: kapsamları
         statistics: Aktivite
         user_groups: Kullanıcı Grupları
+      tooltips:
+        deleted_component_info: Bu bileşen sadece durumu 'Yayınlanmamış' ise silinebilir.
       user_group:
         csv_verify:
           invalid: CSV dosyasını okurken bir hata oluştu.
@@ -1037,12 +1105,14 @@ tr:
           role: Rol
         new:
           create: Davet et
+          title: Yeni yönetici davet et
       users_statistics:
         users_count:
           admins: Yöneticiler
           last_day: Son gün
           last_month: Geçen ay
           last_week: Geçen hafta
+          no_users_count_statistics_yet: Henüz katılımcı sayısı istatistiği yok.
           participants: Katılımcılar
     moderations:
       actions:

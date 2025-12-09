@@ -276,7 +276,7 @@ eu:
           empty: Oraindik ez dago emaitzarik.
           empty_filters: Ez dago emaitzarik irizpide honekin.
         home_header:
-          global_status: Exekuzio-egoera orokorra
+          global_status: Helburuen betetze-maila
         no_results: Ez dago proiekturik
         search:
           search: Bilatu ekintzak

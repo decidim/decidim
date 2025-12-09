@@ -38,6 +38,7 @@ cs:
         user_group_id: Vytvořit importy jako
       newsletter:
         body: Tělo
+        send_to_all_users: Poslat všem účastníkům
         send_to_followers: Odeslat sledujícím
         send_to_participants: Odeslat účastníkům
         subject: Předmět
@@ -301,11 +302,13 @@ cs:
       block_user:
         bulk_new:
           action: Zablokovat účty a odeslat zdůvodnění
+          already_reported_html: Pokračováním v této akci také skryjete veškerý obsah účastníků.
           description: Blokováním uživatele bude jejich účet nepoužitelný. Ve svém zdůvodnění můžete uvést veškerá pravidla pro způsob, jakým byste uvažovali o odblokování uživatele.
           justification: Odůvodnění
           title: Zablokovat uživatele
         new:
           action: Blokovat účet a odeslat odůvodnění
+          already_reported_html: Pokračováním v této akci také skryjete veškerý obsah účastníků.
           description: Blokováním uživatele bude jejich účet nepoužitelný. Ve svém zdůvodnění můžete uvést veškerá pravidla pro způsob, jakým byste uvažovali o odblokování uživatele.
           justification: Odůvodnění
           title: Blokovat uživatele %{name}
@@ -401,6 +404,7 @@ cs:
         form:
           domain_too_short: Doména je příliš krátká
         update:
+          error: Nepodařilo se aktualizovat seznam povolených externích domén.
           success: Seznam povolených externích domén byl úspěšně aktualizován.
       exports:
         export_as: "%{name} jako %{export_format}"
@@ -1331,6 +1335,7 @@ cs:
           last_day: Poslední den
           last_month: Minulý měsíc
           last_week: Minulý týden
+          no_users_count_statistics_yet: Zatím nejsou žádné statistiky počtu účastníků.
           participants: Účastníci
     forms:
       errors:

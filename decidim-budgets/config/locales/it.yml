@@ -145,6 +145,18 @@ it:
             all: Tutti
             not_selected: Non selezionato
             selected: Selezionato
+        order_progress:
+          dynamic_help:
+            keep_adding_projects: Continua ad aggiungere progetti
+            start_adding_projects: Continua ad aggiungere progetti
+          minimum_projects_rule:
+            description: Seleziona almeno %{minimum_number} progetti che desideri e vota in base alle tue preferenze per definirne il budget.
+          projects_rule:
+            description: Seleziona almeno %{minimum_number} e fino a %{maximum_number} progetti che desideri e vota in base alle tue preferenze per definirne il budget.
+          projects_rule_maximum_only:
+            description: Seleziona fino a %{maximum_number} progetti che desideri e vota in base alle tue preferenze per definirne il budget.
+          vote_threshold_percent_rule:
+            description: Assegna almeno %{minimum_budget} ai progetti che desideri e vota in base alle tue preferenze per definirne il budget.
         orders:
           highest_cost: Costo più alto
           label: Ordina i progetti per
@@ -161,6 +173,7 @@ it:
           add: Aggiungi al tuo voto
           added: Aggiunto al tuo voto
         projects_for: Progetti per %{name}
+        select_projects: Seleziona i progetti
         show:
           budget: Budget
     components:
