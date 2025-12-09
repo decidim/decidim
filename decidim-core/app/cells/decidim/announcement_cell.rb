@@ -68,7 +68,7 @@ module Decidim
     def clean_body
       return unless body
 
-      Array(body).map { |paragraph| tag.p(clean(paragraph)) }.join
+      Array(body).map { |paragraph| clean(paragraph) }.join
     end
 
     def clean_announcement
@@ -76,7 +76,11 @@ module Decidim
     end
 
     def clean(value)
-      decidim_sanitize_admin(translated_attribute(value))
+      if value == "<div class=\"rich-text-display\"></div>"
+        decidim_sanitize_admin(translated_attribute(value))
+      else
+        tag.p(decidim_sanitize_admin(translated_attribute(value)))
+      end
     end
   end
 end
