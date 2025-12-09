@@ -3,9 +3,9 @@
 require "active_support/concern"
 
 module Decidim
-  module Members
+  module ParticipatorySpace
     module Admin
-      module Filterable
+      module MembersFilterable
         extend ActiveSupport::Concern
 
         included do

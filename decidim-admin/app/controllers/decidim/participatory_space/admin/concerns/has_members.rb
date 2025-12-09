@@ -14,7 +14,7 @@ module Decidim
           extend ActiveSupport::Concern
 
           included do
-            include Decidim::Members::Admin::Filterable
+            include Decidim::ParticipatorySpace::Admin::MembersFilterable
             helper PaginateHelper
             helper_method :privatable_to, :members
 
