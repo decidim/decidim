@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-module Decidim::ParticiaptorySpace::Admin
+module Decidim::ParticipatorySpace::Admin
   describe ImportMemberCsv do
     subject { described_class.new(form, members_to) }
 
