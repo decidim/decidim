@@ -17,7 +17,7 @@ namespace :decidim do
           next unless user.following_follows.count.positive?
 
           spaces.each do |space|
-            Decidim::Admin::DestroyMembersFollowsJob.perform_later(user, space)
+            Decidim::ParticipatorySpace::Admin::DestroyMembersFollowsJob.perform_later(user, space)
           end
         end
       end
