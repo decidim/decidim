@@ -13,7 +13,7 @@ module Decidim
 
       context "when the member not exists" do
         it "delegates the work to a command" do
-          expect(Decidim::Admin::CreateMember).to receive(:call)
+          expect(Decidim::ParticipatorySpace::Admin::CreateMember).to receive(:call)
           described_class.perform_now(email, user_name, privatable_to, user)
         end
       end

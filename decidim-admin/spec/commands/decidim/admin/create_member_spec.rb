@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-module Decidim::Admin
+module Decidim::ParticipatorySpace::Admin
   describe CreateMember do
     subject { described_class.new(form, privatable_to, via_csv:) }
 

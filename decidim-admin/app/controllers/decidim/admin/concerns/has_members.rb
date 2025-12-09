@@ -60,7 +60,7 @@ module Decidim
             enforce_permission_to :create, :space_member
             @form = form(MemberForm).from_params(params, privatable_to:)
 
-            CreateMember.call(@form, current_participatory_space) do
+            Decidim::ParticipatorySpace::Admin::CreateMember.call(@form, current_participatory_space) do
               on(:ok) do
                 flash[:notice] = I18n.t("members.create.success", scope: "decidim.admin")
                 redirect_to action: :index

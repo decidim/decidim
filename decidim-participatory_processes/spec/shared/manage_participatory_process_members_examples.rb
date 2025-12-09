@@ -80,7 +80,7 @@ shared_examples "manage participatory process members examples" do
           email: "test@example.org"
         )
 
-        Decidim::Admin::CreateMember.call(
+        Decidim::ParticipatorySpace::Admin::CreateMember.call(
           form,
           participatory_process
         )

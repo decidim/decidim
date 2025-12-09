@@ -80,7 +80,7 @@ shared_examples "manage assembly members examples" do
           email: "test@example.org"
         )
 
-        Decidim::Admin::CreateMember.call(
+        Decidim::ParticipatorySpace::Admin::CreateMember.call(
           form,
           assembly
         )
