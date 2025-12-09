@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-module Decidim::Admin
+module Decidim::ParticipatorySpace::Admin
   describe UpdateMember do
     subject { described_class.new(form, member) }
 
