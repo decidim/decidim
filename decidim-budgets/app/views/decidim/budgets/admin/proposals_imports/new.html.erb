@@ -20,24 +20,18 @@
               <div class="row column">
                 <%= f.number_field :default_budget, label: t(".default_budget") %>
               </div>
-            </div>
-          </div>
-        </div>
-
-        <% if @form.available_states.any? %>
-          <div class="form__wrapper">
-            <div class="card">
-              <div class="card-section">
-                <%= t(".proposal_states") %>
+              <% if @form.available_states.any? %>
+                <label class="ml-4"><%= t(".proposal_states") %></label>
                 <div class="row column">
                   <%= f.collection_check_boxes :internal_states, @form.available_states, :token, ->(a) { translated_attribute(a.title) } do |builder| %>
                     <%= builder.label { builder.check_box + builder.text } %>
                   <% end %>
                 </div>
-              </div>
+              <% end %>
             </div>
           </div>
-        <% end %>
+        </div>
+
         <div class="item__edit-sticky">
           <div class="item__edit-sticky-container">
             <%= f.submit t(".create"), class: "button button__sm button__secondary" %>
