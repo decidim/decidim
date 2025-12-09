@@ -85,6 +85,7 @@ it:
         duplicate: Duplica
         edit: Modifica
         import_process: Importa
+        moderate: Moderato
         new_process: Nuovo processo
         new_process_group: Nuovo gruppo di processi
         new_process_step: Nuova fase
@@ -193,6 +194,13 @@ it:
         destroy:
           success: Fase del processo partecipativo cancellata con successo.
         edit:
+          cta_deprecated:
+            body_html: |-
+              Configurare il Call To Action attraverso la fase del processo partecipativo è deprecato con il nuovo design.
+              Ora questo viene fatto nella <b>Landing Page</b>, utilizzando il blocco di contenuti <b>Hero e di immagine </b>.
+              Lo abbiamo lasciato qui per voi per migrare i Call To Action di cui avete bisogno. I campi <i>Call to action path</i> e
+              <i>Call to action text</i> verranno rimossi nella prossima versione.
+            title: CTA deprecato
           title: Modifica una fase del processo partecipativo.
           update: Modifica
         index:

@@ -35,6 +35,7 @@ id:
         actions:
           destroy: Batalkan penyortiran
           edit: Edit
+          new_sortition: Pemilahan baru
           show: Detail penyortiran
         models:
           sortition:

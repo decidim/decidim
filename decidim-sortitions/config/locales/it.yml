@@ -39,6 +39,7 @@ it:
         actions:
           destroy: Annulla la sortizione
           edit: Modifica
+          new_sortition: Nuova sortizione
           show: Dettagli di ordinamento
         models:
           sortition:

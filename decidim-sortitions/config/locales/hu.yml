@@ -36,6 +36,7 @@ hu:
         actions:
           destroy: Sorsolás törlése
           edit: Szerkesztés
+          new_sortition: Új sorsolás
           show: Sorsolás részletei
         models:
           sortition:

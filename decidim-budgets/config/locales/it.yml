@@ -37,6 +37,9 @@ it:
         title: Azioni
       admin:
         budgets:
+          destroy:
+            invalid: Si è verificato un errore durante l'eliminazione di questo budget.
+            success: Budget eliminato con successo.
           edit:
             title: Modifica budget
             update: Aggiorna budget
@@ -57,6 +60,8 @@ it:
           project:
             name: Progetto
         projects:
+          destroy:
+            success: Progetto eliminato con successo.
           edit:
             title: Modifica il progetto
             update: Aggiorna
@@ -71,11 +76,16 @@ it:
           new:
             create: Crea
             title: Nuovo progetto
+          update_budget:
+            invalid: 'Questi progetti sono già nello stesso bilancio o i loro budget sono più del massimo consentito: %{projects}.'
+            success: 'Progetti aggiornati con successo alla categoria %{subject_name} e ambito %{projects}.'
           update_category:
             invalid: 'Questi progetti avevano già la categoria %{subject_name} %{projects}.'
+            select_a_category: Seleziona una categoria.
             success: 'Progetti aggiornati con successo alla categoria %{subject_name} e ambito %{projects}.'
           update_scope:
             invalid: 'Questi progetti avevano già la categoria %{subject_name} e l''ambito %{projects}.'
+            select_a_scope: Seleziona un ambito.
             success: 'Progetti aggiornati con successo alla categoria %{subject_name} e ambito %{projects}.'
           update_selected:
             invalid:
@@ -168,6 +178,18 @@ it:
             all: Tutti
             not_selected: Non selezionato
             selected: Selezionato
+        order_progress:
+          dynamic_help:
+            keep_adding_projects: Continua ad aggiungere progetti
+            start_adding_projects: Continua ad aggiungere progetti
+          minimum_projects_rule:
+            description: Seleziona almeno %{minimum_number} progetti che desideri e vota in base alle tue preferenze per definirne il budget.
+          projects_rule:
+            description: Seleziona almeno %{minimum_number} e fino a %{maximum_number} progetti che desideri e vota in base alle tue preferenze per definirne il budget.
+          projects_rule_maximum_only:
+            description: Seleziona fino a %{maximum_number} progetti che desideri e vota in base alle tue preferenze per definirne il budget.
+          vote_threshold_percent_rule:
+            description: Assegna almeno %{minimum_budget} ai progetti che desideri e vota in base alle tue preferenze per definirne il budget.
         orders:
           highest_cost: Costo più alto
           label: Ordina i progetti per
@@ -184,6 +206,7 @@ it:
           add: Aggiungi al tuo voto
           added: Aggiunto al tuo voto
         projects_for: Progetti per %{name}
+        select_projects: Seleziona i progetti
         show:
           budget: Budget
     components:
@@ -236,6 +259,10 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. Puoi smettere di ricevere notifiche cliccando il link precedente.
           email_subject: Il budget %{resource_title} è ora attivo per %{participatory_space_title}.
           notification_title: Il budget <a href="%{resource_path}">%{resource_title}</a> è ora attivo per %{participatory_space_title}.
+    orders:
+      checkout:
+        success_html: <p>Il tuo voto è stato accettato con successo.</p> <p class="text-sm font-normal">Puoi esplorare il resto <a class="text-secondary underline" href="%{rest_of_budgets_link}">dei budget</a>.</p>
+        success_no_left_budgets_html: Ok, il tuo voto è stato acquisito.
     resource_links:
       included_proposals:
         project_proposal: Proposte incluse in questo progetto

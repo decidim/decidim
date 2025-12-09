@@ -38,6 +38,7 @@ zh-TW:
         actions:
           destroy: 取消選民隨機抽籤
           edit: 編輯
+          new_sortition: 新的抽籤
           show: 抽籤詳細資料
         models:
           sortition:

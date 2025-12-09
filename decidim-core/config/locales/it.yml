@@ -527,6 +527,8 @@ it:
     endorsers_list:
       endorsed_by: Piace a…
     errors:
+      files:
+        not_inside_organization: Il file non è collegato a nessuna organizzazione
       internal_server_error:
         title: C'era un problema con il nostro server
       not_found:
@@ -976,6 +978,11 @@ it:
         translated_text: 'Testo tradotto automaticamente:'
     notifications:
       no_notifications: Nessuna notifica.
+      show:
+        moderated: Contenuto moderato
+    notifications_digest_mailer:
+      intro:
+        real_time: 'Questa è una notifica sull''attività che stai seguendo:'
     notifications_settings:
       show:
         administrators: Amministratori
@@ -1026,7 +1033,7 @@ it:
       participatory_space:
         metrics:
           headline: Partecipazione in cifre
-          link: Mostra tutte le statistiche
+          link: Mostra tutto
     profile:
       deleted: Utente eliminato
     profiles:
@@ -1388,6 +1395,8 @@ it:
         expire_time_html: La sessione scadrà in <b><span class="minutes">%{minutes}</span> minuti</b>.
       language_chooser:
         choose_language: Scegli la lingua
+      navigation:
+        aria_label: Menu di navigazione- %{title}
       notifications_dashboard:
         mark_all_as_read: Contrassegnare tutti come letti
         mark_as_read: Segna come già letto

@@ -36,6 +36,7 @@ zh-CN:
         actions:
           destroy: 取消排序方式
           edit: 编辑
+          new_sortition: 新的排序方式
           show: 排序详情
         models:
           sortition:

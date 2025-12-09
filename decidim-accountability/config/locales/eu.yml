@@ -228,7 +228,7 @@ eu:
           empty_filters: Ez dago emaitzarik irizpide honekin.
           subcategories_label: Azpikategoriak
         home_header:
-          global_status: Exekuzio-egoera orokorra
+          global_status: Helburuen betetze-maila
         nav_breadcrumb:
           global: Gauzatze osoa
         no_results: Ez dago proiekturik

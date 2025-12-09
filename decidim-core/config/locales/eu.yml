@@ -342,11 +342,10 @@ eu:
           help_text: Berrikusi aldaketak eta onartu edo ukatu zuzenketa hau. Jakinarazpen bat bidaliko zaio/e bere egileari/ei.
         announcement:
           accepted: |-
-            For the Aldaketa hori %{amendable_type} %{amendable_link} izan da
-            onartu <strong>%{announcement_date}</strong>.
+            %{amendable_type} %{proposal_link} erako zuzenketa hau <strong>%{date}</strong>ean onartu da.
           evaluating: |-
-            For the Aldaketa hori %{amendable_type} %{amendable_link}
-            ebaluatu dago.
+            Aldaketa hau %{amendable_type} %{proposal_link} rako
+            ebaluatzen ari da.
           promoted: Sustatu hau %{amendable_type}.
           rejected: "%{amendable_type} %{amendable_link} en zuzenketa\nukatu da <strong>%{announcement_date}</strong>."
           withdrawn: |-
@@ -671,7 +670,7 @@ eu:
           see_email: Ikusi zure helbide elektronikoa
           see_name: Ikusi zure izena
           see_username: Ikusi zure parte-hartzailearen izena
-          this_application_will_be_able_to: 'Aplikazio hau gai izango da:'
+          this_application_will_be_able_to: 'Aplikazio horrek honako zeregin hauek egin ahal izango ditu:'
           this_application_will_not_be_able_to: 'Aplikazio honek ezin izango du:'
           update_profile: Eguneratu profila
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> k zure kontua erabili nahi du"
@@ -729,7 +728,7 @@ eu:
             email_subject: Onartu da %{emendation_author_nickname} ren %{amendable_title} zuzenketa
             notification_title: '<a href="%{emendation_author_path}">%{emendation_author_nickname} egileak sortutako </a><a href="% emendation_path}">zuzenketa onartu da honetarako: <a href="%{amendable_path}">%{amendable_title}</a>.'
           follower:
-            email_intro: 'Zuzenketa bat bertan bera onartu %{amendable_title}. Orrialde hau ikusi dezakezu:'
+            email_intro: '%{amendable_title} rako zuzenketa bat onartu da. Orrialde honetan ikus dezakezue:'
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title} jarraitzen duzulako. Aurreko estekan sartu jakinarazpenak jasotzeari utzi nahi badiozu.
             email_subject: '%{emendation_author_nickname} ren aldaketa onartuta honetarako: %{amendable_title}'
             notification_title: '<a href="%{emendation_author_path}">%{emendation_author_nickname}</a> k sortutako <a href="%{emendation_path}"></a> zuzenketa onartu da honetarako: <a href="%{amendable_path}">%{amendable_title}</a>.'
@@ -938,7 +937,7 @@ eu:
           message_2: Irudi honetarako gomendatzen den tamaina da 512x512.
         image:
           explanation: 'Jarraibideak irudirako:'
-          message_1: Ahal dela, testurik gabeko irudi etzana.
+          message_1: Testurik ez duen irudi etzan bat, ahal dela.
           message_2: Zerbitzuak irudia moztu egiten du.
       file_validation:
         allowed_file_extensions: 'Onartutako artxiboen formatua: %{extensions}'
@@ -1501,7 +1500,7 @@ eu:
       term_input_placeholder: Bilatu
     searches:
       filters:
-        jump_to: 'Salto egin:'
+        jump_to: 'Hona jo:'
         resource: "%{label} %{collection} artean"
         search: Bilatu
         state:
@@ -1535,7 +1534,7 @@ eu:
         help: "Bilaketa-baldintzak aldatzen direnean, beheko inprimakiak dinamikoki iragazten ditu bilaketaren\nemaitzak."
         skip: Joan emaitzetara
       flag_modal:
-        already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
+        already_reported: Eduki horren berri ematen da dagoeneko, eta administrazio batek berrikusiko du.
         close: Itxi
         description: Eduki hau desegokia da?
         does_not_belong: Bertan badago legez kontrako jardunik, suizidio-mehatxurik, informazio pertsonalik edo beste zernahi, zure ustez %{organization_name}-ri ez dagokionik.
@@ -1544,7 +1543,7 @@ eu:
         offensive: Bertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
         reason: Arrazoia
         report: Salatu
-        spam: Bertan badago clickbait-ik, publizitaterik edo iruzurrik.
+        spam: Clickbait, publizitatea, iruzurrak edo script bot-ak ditu.
         title: Salatu eduki desegokia
       flag_user_modal:
         already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
@@ -1666,7 +1665,7 @@ eu:
         version_index: '%{total} en %{index} bertsioa'
     welcome_notification:
       default_body: <p>Kaixo {{name}}, eskerrik asko {{organization}}-era lotzeagatik eta ongi etorria!</p><ul><li>Hemen zer egin dezakezun ideia azkar bat nahi baduzu, begiratu <a href="{{help_url}}">Laguntza</a> atalean.</li><li>Behin irakurri ondoren, zure lehen garaikurra jasoko duzu. Hemen da <a href="{{badges_url}}">garaikur guztien zerrenda</a> zuk lor ditzakezunak {{organization}} ean parte hartuz.</li><li> Azkenik, lotu beste pertsona batzuei eta partekatu haiekin inplikatzearen eta {{organization}} ean parte hartzearen esperientzia. Egin proposamenak, iruzkinak, eztabaidak, pentsatu nola lagundu denon onerako, eman argudioak konbentzitzeko, entzun eta irakurri zeure burua konbentzitzeko, adierazi zure ideiak modu zehatzean, erantzun pazientziaz eta erabakiz, defendatu zure ideiak eta mantendu burua zabalik, beste pertsona batzuen ideietan lankidetzan aritzeko.</li></ul>
-      default_subject: Eskerrik asko sartzeko {{organization}}!
+      default_subject: Thanks for joining {{organization}}!
     wizard_step_form:
       wizard_aside:
         back: Atzera
@@ -1677,9 +1676,9 @@ eu:
     confirmations:
       confirmed: Zure helbide elektronikoa ondo egiaztatu da.
       new:
-        resend_confirmation_instructions: Berrikusi berrespen-argibideak
+        resend_confirmation_instructions: Berrespen-jarraibideak birbidali
       send_instructions: Jarraibideak azaltzen dituen mezu elektroniko bat jasoko duzu, zure helbide elektronikoa berretsi ahal izateko minutu gutxi barru.
-      send_paranoid_instructions: Zure helbide elektronikoa gure datu-basean badago, zure helbide elektronikoa berretsi ahal izateko gutxienez minutu bat jasoko duzu.
+      send_paranoid_instructions: Zure helbide elektronikoa gure datu-basean badago, mezu elektroniko bat jasoko duzu zure helbide elektronikoa minutu gutxi barru baieztatzeko jarraibideekin.
     failure:
       already_authenticated: Saioa hasi duzu.
       inactive: Zure kontua ez dago oraindik aktibatuta.
@@ -1702,7 +1701,7 @@ eu:
         header: Bidali gonbidapena
         submit_button: Bidali gonbidapena
       no_invitations_remaining: Ez da gonbidapenik geratzen
-      send_instructions: Gonbidapen mezu bat bidali da %{email}.
+      send_instructions: Gonbidapen-mezu elektroniko bat %{email} helbidera bidali da.
       updated: Pasahitza ondo ezarri da. Saioa hasi duzu.
       updated_not_active: Pasahitza ondo ezarri da.
     mailer:
@@ -1724,8 +1723,8 @@ eu:
           Gonbidapena onartu nahi ez baduzu, mesedez, ez egin kasurik mezu elektroniko honi. Zure kontua ez da sortuko, goiko estekara sartu eta zure erabiltzaile-izena eta pasahitza ezarri arte.
         invited_you_as_admin: "%{invited_by} admnisitrariak %{application} administratzaile gisa gonbidatu zaitu. Beheko estekan onartu dezakezu."
         invited_you_as_private_user: "%{invited_by} parte-hartzaileak egonbidatu zaitu %{application} ko erabiltzaile pribatu gisa. Beheko estekan onartu dezakezu."
-        someone_invited_you: Norbaitek %{application} gonbidatu zaitu. Beheko estekan onartu dezakezu.
-        someone_invited_you_as_admin: Norbaitek %{application} admin gisa gonbidatu zaitu, beheko estekan onartu dezakezu.
+        someone_invited_you: Norbaitek %{application} gonbidatu zaitu. Beheko estekan onar dezakezu.
+        someone_invited_you_as_admin: Norbaitek %{application} administratzaile gisa gonbidatu zaitu, beheko estekan onar dezakezu.
         someone_invited_you_as_private_user: Norbaitek %{application} ko parte-hartzaile pribatu gisa gonbidatu zaitu, beheko estekan onar dezakezu.
         subject: Gonbidapenaren argibideak
       invite_admin:
@@ -1805,7 +1804,7 @@ eu:
       new:
         resend_unlock_instructions: Birbidali desblokeatzeko argibideak
       send_instructions: Mezu elektroniko bat jasoko duzu jarraibideak zure kontua desblokeatzeko minutu gutxi barru.
-      send_paranoid_instructions: Zure kontua badago, mezu elektroniko bat jasoko duzu minutu batzuk barru nola desblokeatzeko argibideekin.
+      send_paranoid_instructions: Zure kontua badago, mezu elektroniko bat jasoko duzu minutu gutxi barru desblokeatzeko jarraibideekin.
       unlocked: Zure kontua ondo desblokeatu da. Hasi saioa jarraitzeko.
   doorkeeper:
     scopes:
@@ -2044,7 +2043,7 @@ eu:
       user_profile:
         account: Kontua
         authorizations: Baimenak
-        delete_my_account: Ezabatu nire kontua
+        delete_my_account: Nire kontua ezabatu
         my_data: Nire datuak
         my_interests: Nire interesak
         notifications_settings: Jakinarazpen-konfigurazioa
@@ -2052,11 +2051,11 @@ eu:
         title: Parte-hartzailearen ezarpenak
         user_groups: Taldeak
   locale:
-    name: Euskara
+    name: Ingelesa
     name_with_error: Euskera (akatsa!)
   password_validator:
     denied: ukatu egin da
-    domain_included_in_password: domeinu izen honen antzekoa da
+    domain_included_in_password: domeinu-izen horren oso antzekoa da
     email_included_in_password: zure posta elektronikoaren antzekoa da
     fallback: ez da zuzena
     name_included_in_password: zure izenaren antzekoa da

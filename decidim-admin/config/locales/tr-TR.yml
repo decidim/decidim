@@ -316,6 +316,7 @@ tr:
         create:
           error: Bu bileşeni oluştururken bir hata oluştu.
           success: Bileşen başarıyla oluşturuldu.
+          success_landing_page: Bileşen başarıyla oluşturuldu. Alanın ana sayfasına bu bileşen için bir içerik engeli ekleyebilirsiniz. Yapılandırmak için <a href="%{landing_page_path}">Ana sayfaya</a> gidiniz.
         destroy:
           error: Bu bileşeni yok eden bir hata oluştu.
           success: Bileşen başarıyla silindi.
@@ -520,6 +521,7 @@ tr:
             records:
               detail: Lütfen satırların doğru biçimlendirildiğinden ve geçerli kayıtlar içerdiğinden emin olun.
           missing_headers:
+            detail: Lütfen dosyanın istenen sütunlara sahip olduğundan emin olunuz.
             message:
               one: Eksik sütun %{columns}.
               other: Eksik sütunlar %{columns}.
@@ -532,6 +534,7 @@ tr:
           actions:
             back: Geri
           download_example: Örneği indir
+          download_example_format:
           file_legend: Ayrıştırılmak üzere bir içe aktarma dosyası ekleyin.
           import: İçe aktar
         notice: "%{count} %{resource_name} başarıyla içe aktarıldı."
@@ -696,6 +699,10 @@ tr:
             report_language: Rapor dili
             report_reason: Nedeni
             title: Rapor ayrıntıları
+      new_import:
+        accepted_mime_types:
+          json: JSON
+          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: Ön izleme
@@ -815,6 +822,10 @@ tr:
         edit:
           update: Güncelleştirme
         form:
+          colors:
+            colors_title: Organizasyon renkleri
+            colors_warning_html: Uyarı! Bu renkleri değiştirmek renk kontrastını bozabilir. Seçtiğiniz kontrastı veya diğer benzer araçları <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a>'dan kontrol edebilirsiniz.
+            explanation: Bu araç organizasyonun web sitesinde kullanılacak renk paletinde eşit aralıklarla yerleştirilmiş tonlardan oluşan bir renk düzeni seçmenize yardımcı olur.
           cta_button_text_help: Kuruluşunuzdaki mevcut her dil için ana sayfada Harekete Geçirici Mesaj düğmesinin üzerine yazabilirsiniz. Ayarlanmazsa, varsayılan değer kullanılır. Karşılama metni ve açıklama arasındaki ana sayfada Eylem Çağrısı düğmesi görüntülenir.
           homepage_appearance_title: Ana sayfa görünümünü düzenle
           homepage_highlighted_content_banner_title: Yüksek içerikli banner
@@ -847,10 +858,15 @@ tr:
           create: yaratmak
           title: Yeni Katılımcı Uzay özel kullanıcısı.
       participatory_space_private_users_csv_imports:
+        create:
+          success: CSV dosyası başarıyla yüklendi, katılımcılara bir davet e-postası gönderiyoruz. Bu biraz zaman alabilir.
         new:
           csv_upload:
             title: CSV dosyanızı yükleyin
           destroy:
+            button: Tüm özel kullanıcıları sil
+            confirm: Tüm özel kullanıcıları silmek istediğinizden emin misiniz? Bu işlem geri alınamaz, silinen katılımcıları geri yükleyemeyeceksiniz.
+            empty: Özel kullanıcınız yok.
             title: Özel Kullanıcıları kaldır
           example_file: 'Örnek dosya:'
           upload: Yükle
@@ -943,9 +959,11 @@ tr:
           create: Sayfa oluştur
           title: Yeni sayfa
         topic:
+          empty: Bu konu altında hiçbir sayfa yok.
           without_topic: Konu olmayan sayfalar
         update:
           error: Bu sayfa güncellenirken bir hata oluştu.
+          success: Sayfa başarıyla güncellendi.
       titles:
         admin_log: Yönetici günlüğü
         area_types: Alan türleri
@@ -997,6 +1015,7 @@ tr:
           role: Rol
         new:
           create: Davet et
+          title: Yeni yönetici davet et
       users_statistics:
         users_count:
           admins: Yöneticiler

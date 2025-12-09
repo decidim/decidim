@@ -39,7 +39,7 @@ pt-BR:
         actions:
           destroy: Cancelar a classificação
           edit: Editar
-          new_sortition: Novo Sorteio
+          new_sortition: Nova classificação
           show: Detalhes da classificação
         models:
           sortition:

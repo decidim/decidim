@@ -1075,6 +1075,7 @@ it:
           last_day: Ultimo giorno
           last_month: Mese precedente
           last_week: Settimana precedente
+          no_users_count_statistics_yet: Non ci sono ancora statistiche per utenti.
           participants: Partecipanti
     metrics:
       blocked_users:

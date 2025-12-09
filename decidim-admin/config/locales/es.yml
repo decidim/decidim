@@ -327,7 +327,7 @@ es:
           error: Se ha producido un error al eliminar este componente.
           success: El componente se ha eliminado correctamente.
         edit:
-          title: Edita el componente
+          title: Configura el componente
           update: Actualizar
         form:
           default_step_settings: Configuraciones por defecto

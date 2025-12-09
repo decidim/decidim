@@ -1095,7 +1095,7 @@ sv:
           last_day: Senaste dagen
           last_month: Senaste månaden
           last_week: Senaste veckan
-          no_users_count_statistics_yet: Det finns ännu ingen statistik över antal användare ännu.
+          no_users_count_statistics_yet: Det finns ännu ingen statistik över antal användare.
           participants: Deltagare
     forms:
       errors:

@@ -23,6 +23,7 @@ tr:
         progress: İlerleme
       timeline_entry:
         description: Açıklama
+        entry_date: Tarih
         title: Başlık
     models:
       decidim/accountability/proposal_linked_event: Teklif bir sonuca dahil edildi
@@ -182,6 +183,9 @@ tr:
           success: Sonuçların içe aktarılması başarılı. Sonuçları yönetim arayüzünde inceleyebilirsiniz.
       import_projects_mailer:
         import:
+          added_projects:
+            one: Projelerden bir sonuç içe aktarıldı.
+            other: "%{count} sonuç projelerden içe aktarıldı."
           subject: Projeler başarıyla aktarılmıştır
           success: '%{component_name} bileşenindekiprojeler başarıyla aktarılmıştır. Sonuçları yönetim arayüzünde inceleyebilirsiniz.'
       last_activity:
@@ -206,6 +210,7 @@ tr:
             progress: İlerleme
         timeline_entry:
           fields:
+            entry_date: Tarih
             title: Başlık
       results:
         count:

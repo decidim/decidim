@@ -37,6 +37,7 @@ lv:
         actions:
           destroy: Atcelt izlozi
           edit: Labot
+          new_sortition: Jauna izloze
           show: Izlozes detaļas
         models:
           sortition:

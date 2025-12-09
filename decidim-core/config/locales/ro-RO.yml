@@ -705,7 +705,7 @@ ro:
       files:
         file_cannot_be_processed: Fișierul nu poate fi procesat
         file_resolution_too_large: Rezoluția fișierului este prea mare
-        not_inside_organization: Fișierul nu este atașat niciunei organizații
+        not_inside_organization: Fișierul nu este atașat niciunei organizații.
       internal_server_error:
         copied: Text copiat!
         copy_error_message_clarification: Copiază mesajul de eroare în clipboard
