@@ -24,13 +24,12 @@
           </div>
         </div>
 
-        <% available_states = @form.available_states %>
-        <% if available_states.any? %>
+        <% if @form.available_states.any? %>
           <div class="form__wrapper">
             <div class="card">
               <div class="card-section">
                 <h3>Proposal States</h3>
-                <%= f.collection_check_boxes :internal_states, available_states, :token, ->(a) { translated_attribute(a.title) } do |builder| %>
+                <%= f.collection_check_boxes :internal_states, @form.available_states, :token, ->(a) { translated_attribute(a.title) } do |builder| %>
                   <%= builder.label { builder.check_box + builder.text } %>
                 <% end %>
               </div>
