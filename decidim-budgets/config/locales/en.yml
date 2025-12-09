@@ -146,6 +146,7 @@ en:
             no_components: There are no other proposal components in this participatory space to import the proposals into projects.
             origin_component_id: Origin component
             proposal_states: Proposal States
+            proposal_states_help: Select one or more proposal states to import into projects. By selecting none you will import all published proposals.
             select_component: Please select a component
             title: Import proposals to projects
         reminders:

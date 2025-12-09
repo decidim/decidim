@@ -22,6 +22,7 @@
               </div>
               <% if @form.available_states.any? %>
                 <label class="ml-4"><%= t(".proposal_states") %></label>
+                <span class="help-text ml-4"><%= t(".proposal_states_help") %></span>
                 <div class="row column">
                   <%= f.collection_check_boxes :internal_states, @form.available_states, :token, ->(a) { translated_attribute(a.title) } do |builder| %>
                   <div>
