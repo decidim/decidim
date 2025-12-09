@@ -94,7 +94,7 @@ module Decidim
       end
 
       # Returns JSON response with question voting status for client-side polling.
-      # Used to redirect users when a question's voting is closed while they're on the voting page.
+      # Used to redirect users when a question's voting is closed while they are on the voting page.
       def question_status_response
         if question.voting_enabled?
           { voting_enabled: true, redirect_url: nil }
