@@ -68,8 +68,8 @@ module Decidim
         participant = Decidim::Core::UserEntityFinder.new.call(object, { id: id, nickname: nickname }, context)
         return nil unless participant
 
-        return nil unless Decidim::Core::ParticipantDetailsauthorized?(participant, context)
-
+        return nil unless Decidim::Core::ParticipantDetailsType.authorized?(participant, context)
+        
         Decidim::ActionLogger.log(
           "read",
           context[:current_user],
