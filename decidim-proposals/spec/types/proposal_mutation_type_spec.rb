@@ -70,7 +70,7 @@ module Decidim
 
       context "with normal user" do
         it "returns nil" do
-          expect { response }.to raise_error(StandardError, "You cannot view answer field on Answer because you do not have permission")
+          expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedFieldError, "You cannot view or edit answer field on Answer because you do not have permission")
         end
       end
 

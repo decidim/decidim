@@ -89,7 +89,7 @@ module Decidim
           let(:meeting) { create(:meeting) }
 
           it "returns the questionnaire's entity corresponding to questionnaire_for_id" do
-            expect { response }.to raise_error(StandardError, "You cannot view this Meeting because you do not have permissions")
+            expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this Meeting because you do not have permissions")
           end
         end
       end

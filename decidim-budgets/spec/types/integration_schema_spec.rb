@@ -123,6 +123,12 @@ describe "Decidim::Api::QueryType" do
     }
   end
 
+  shared_examples "unauthorized Budget" do
+    it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
+      expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this Budget because you do not have permissions")
+    end
+  end
+
   describe "commentable" do
     let(:component_fragment) { nil }
 
@@ -320,9 +326,7 @@ describe "Decidim::Api::QueryType" do
         context "when the user is admin" do
           let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
 
-          it "should not be visible" do
-            expect { response["participatoryProcess"]["components"].first[lookout_key] }.to raise_error(StandardError, "You cannot view this Budget because you do not have permissions")
-          end
+          it_behaves_like "unauthorized Budget"
         end
 
         context "when user is visitor" do
@@ -352,9 +356,7 @@ describe "Decidim::Api::QueryType" do
         context "when the user is admin" do
           let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
 
-          it "should not be visible" do
-            expect { response["participatoryProcess"]["components"].first[lookout_key] }.to raise_error(StandardError, "You cannot view this Budget because you do not have permissions")
-          end
+          it_behaves_like "unauthorized Budget"
         end
 
         context "when user is visitor" do
@@ -376,9 +378,7 @@ describe "Decidim::Api::QueryType" do
         context "when the user is admin" do
           let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
 
-          it "should not be visible" do
-            expect { response["participatoryProcess"]["components"].first[lookout_key] }.to raise_error(StandardError, "You cannot view this Budget because you do not have permissions")
-          end
+          it_behaves_like "unauthorized Budget"
         end
 
         context "when user is visitor" do
@@ -495,9 +495,7 @@ describe "Decidim::Api::QueryType" do
         context "when the user is admin" do
           let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
 
-          it "is visible" do
-            expect { response["assembly"]["components"].first[lookout_key] }.to raise_error(StandardError, "You cannot view this Budget because you do not have permissions")
-          end
+          it_behaves_like "unauthorized Budget"
         end
 
         %w(admin collaborator evaluator).each do |role|
@@ -555,9 +553,7 @@ describe "Decidim::Api::QueryType" do
         context "when the user is admin" do
           let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
 
-          it "should not be visible" do
-            expect { response["participatoryProcess"]["components"].first[lookout_key] }.to raise_error(StandardError, "You cannot view this Budget because you do not have permissions")
-          end
+          it_behaves_like "unauthorized Budget"
         end
 
         context "when user is visitor" do
@@ -579,9 +575,7 @@ describe "Decidim::Api::QueryType" do
         context "when the user is admin" do
           let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
 
-          it "should not be visible" do
-            expect { response }.to raise_error(StandardError, "You cannot view this Budget because you do not have permissions")
-          end
+          it_behaves_like "unauthorized Budget"
         end
 
         context "when user is visitor" do

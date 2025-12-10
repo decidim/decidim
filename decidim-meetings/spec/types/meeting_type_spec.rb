@@ -24,7 +24,6 @@ module Decidim
       include_examples "referable interface"
       include_examples "localizable interface"
 
-
       shared_examples "unauthorized Meeting" do
         it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
           expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this Meeting because you do not have permissions")
