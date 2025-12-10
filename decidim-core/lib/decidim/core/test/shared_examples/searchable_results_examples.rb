@@ -95,15 +95,15 @@ shared_examples "searchable results" do
     context "when there is a link in the search result" do
       before do
         visit decidim.root_path
-        create(:comment, body: "Here's an interesting link: https://github.com/decidim", commentable:)
+        create(:comment, body: "Here is an interesting link: https://github.com/decidim", commentable:)
         field = find(search_input_selector)
-        field.set "Here's an interesting link:"
+        field.set "Here is an interesting link:"
         send_keys(:enter)
       end
 
-      it "doesn't allow clickable link" do
+      it "does not allow clickable link" do
         expect(page).to have_link("https://github.com/decidim")
-        find(text: "Here's an interesting link: https://github.com/decidim")
+        find(text: "Here is an interesting link: https://github.com/decidim")
         take_screenshot
       end
     end
