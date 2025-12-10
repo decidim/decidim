@@ -75,7 +75,7 @@ shared_examples "manage participatory process members examples" do
 
     context "when the user has not accepted the invitation" do
       before do
-        form = Decidim::Admin::MemberForm.from_params(
+        form = Decidim::ParticipatorySpace::Admin::MemberForm.from_params(
           name: "test",
           email: "test@example.org"
         )
