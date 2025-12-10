@@ -5,27 +5,29 @@ require "active_support/concern"
 module Decidim
   module ParticipatorySpace
     module Admin
-      module MembersFilterable
-        extend ActiveSupport::Concern
+      module Concerns
+        module MembersFilterable
+          extend ActiveSupport::Concern
 
-        included do
-          include Decidim::Admin::Filterable
+          included do
+            include Decidim::Admin::Filterable
 
-          private
+            private
 
-          def base_query
-            collection
-          end
+            def base_query
+              collection
+            end
 
-          def filters
-            [
-              :user_invitation_sent_at_not_null,
-              :user_invitation_accepted_at_not_null
-            ]
-          end
+            def filters
+              [
+                :user_invitation_sent_at_not_null,
+                :user_invitation_accepted_at_not_null
+              ]
+            end
 
-          def search_field_predicate
-            :user_name_or_user_email_cont
+            def search_field_predicate
+              :user_name_or_user_email_cont
+            end
           end
         end
       end
