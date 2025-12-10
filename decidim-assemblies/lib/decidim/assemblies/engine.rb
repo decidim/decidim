@@ -97,7 +97,7 @@ module Decidim
           assemblies = OrganizationPublishedAssemblies.new(view_context.current_organization, view_context.current_user)
                                                       .query.distinct
                                                       .joins(:members)
-                                                      .merge(Decidim::Member.where(user: view_context.profile_holder))
+                                                      .merge(Decidim::ParticipatorySpace::Member.where(user: view_context.profile_holder))
                                                       .reorder(title: :asc)
 
           next unless assemblies.any?

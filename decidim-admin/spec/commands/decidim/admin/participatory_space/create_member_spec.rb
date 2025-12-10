@@ -40,7 +40,7 @@ module Decidim::Admin::ParticipatorySpace
       it "creates the member" do
         subject.call
 
-        members = Decidim::Member.where(user:)
+        members = Decidim::ParticipatorySpace::Member.where(user:)
 
         expect(members.count).to eq 1
       end
@@ -55,7 +55,7 @@ module Decidim::Admin::ParticipatorySpace
           .to receive(:perform_action!)
           .with(
             "create",
-            Decidim::Member,
+            Decidim::ParticipatorySpace::Member,
             current_user,
             resource: { title: user.name }
           )
@@ -74,7 +74,7 @@ module Decidim::Admin::ParticipatorySpace
             .to receive(:perform_action!)
             .with(
               "create_via_csv",
-              Decidim::Member,
+              Decidim::ParticipatorySpace::Member,
               current_user,
               resource: { title: user.name }
             )
@@ -112,7 +112,7 @@ module Decidim::Admin::ParticipatorySpace
         it "does not get created twice" do
           expect { subject.call }.to broadcast(:ok)
 
-          members = Decidim::Member.where(user:)
+          members = Decidim::ParticipatorySpace::Member.where(user:)
 
           expect(members.count).to eq 1
         end
@@ -125,7 +125,7 @@ module Decidim::Admin::ParticipatorySpace
         it "still finds the user" do
           expect { subject.call }.to broadcast(:ok)
 
-          members = Decidim::Member.where(user: admin)
+          members = Decidim::ParticipatorySpace::Member.where(user: admin)
           participatory_space_admin = Decidim::User.where(email: "admin@example.org")
 
           expect(members.count).to eq 1

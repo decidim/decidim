@@ -277,7 +277,7 @@ FactoryBot.define do
     value { 1 }
   end
 
-  factory :member, class: "Decidim::Member" do
+  factory :member, class: "Decidim::ParticipatorySpace::Member" do
     transient do
       skip_injection { false }
     end
@@ -295,7 +295,7 @@ FactoryBot.define do
     end
   end
 
-  factory :assembly_member, class: "Decidim::Member" do
+  factory :assembly_member, class: "Decidim::ParticipatorySpace::Member" do
     transient do
       skip_injection { false }
     end

@@ -46,13 +46,13 @@ module Decidim
           action = @via_csv ? "create_via_csv" : "create"
           Decidim.traceability.perform_action!(
             action,
-            Decidim::Member,
+            Decidim::ParticipatorySpace::Member,
             current_user,
             resource: {
               title: user.name
             }
           ) do
-            Decidim::Member.find_or_create_by!(
+            Decidim::ParticipatorySpace::Member.find_or_create_by!(
               user:,
               privatable_to: @member_to,
               role: form.role,

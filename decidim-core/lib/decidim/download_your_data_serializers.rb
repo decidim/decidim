@@ -13,7 +13,7 @@ module Decidim
     def self.data_entities
       ["Decidim::Follow", "Decidim::Identity",
        "Decidim::Messaging::Conversation", "Decidim::Notification",
-       "Decidim::Member", "Decidim::Report", "Decidim::User"] |
+       "Decidim::ParticipatorySpace::Member", "Decidim::Report", "Decidim::User"] |
         Decidim.component_manifests.map(&:data_portable_entities).flatten |
         Decidim.participatory_space_manifests.map(&:data_portable_entities).flatten |
         (Decidim::Comments.data_portable_entities.flatten if defined?(Decidim::Comments))

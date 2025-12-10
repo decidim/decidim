@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-module Decidim
+module Decidim::ParticipatorySpace
   describe Member do
     subject { member }
 

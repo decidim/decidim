@@ -11,7 +11,7 @@ module Decidim
 
       included do
         has_many :members,
-                 class_name: "Decidim::Member",
+                 class_name: "Decidim::ParticipatorySpace::Member",
                  as: :privatable_to,
                  dependent: :destroy
         has_many :users,

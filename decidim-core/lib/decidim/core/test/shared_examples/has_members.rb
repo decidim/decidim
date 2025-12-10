@@ -14,7 +14,7 @@ shared_examples_for "has members" do
   end
 
   def create_space_member(space, user = create(:user, organization: space.organization))
-    Decidim::Member.create(privatable_to: space, user:)
+    Decidim::ParticipatorySpace::Member.create(privatable_to: space, user:)
   end
 
   describe ".public_spaces" do

@@ -29,7 +29,7 @@ module Decidim
         it "suppress the existing users" do
           expect do
             delete :destroy_all, params: { participatory_process_slug: member.privatable_to.slug, locale: I18n.locale }
-          end.to change { Decidim::Member.by_participatory_space(member.privatable_to).count }.by(-1)
+          end.to change { Decidim::ParticipatorySpace::Member.by_participatory_space(member.privatable_to).count }.by(-1)
         end
       end
     end
