@@ -402,8 +402,8 @@ eu:
         select_initiative_type:
           back: Back
           choose_html: <strong>%{title}</strong>bat sortu nahi dut
-          more_information: (Informazio gehiago)
-          new: Sortu beste ekimen bat
+          more_information: Informazio gehiago
+          new: Beste ekimen bat sortu
           select: Ekimen hau sustatu nahi dut
           select_initiative_type_help: Ekimenen bidez, parte-hartzaileek esku har dezakete erakundeak interes orokorraren aldeko ekintzak egin ditzan. Zein ekimen abiarazi nahi duzu?
           verification_required: Egiaztatu zure kontua ekimen hau sustatzeko.
@@ -565,7 +565,7 @@ eu:
         votes_count:
           count:
             one: SIGNATURE
-            other: sinadurak
+            other: Sinadurak
       initiatives_mailer:
         creation_subject: Zure '%{title}'ekimena sortu egin da
         initiative_link:
@@ -599,7 +599,7 @@ eu:
           validating: Baliozkotze teknikoa
       states:
         accepted: Onartua
-        expired: iraungi
+        expired: Iraungita
       unavailable_scope: Eremua ez dago erabilgarri
       update:
         error: Arazo bat izan da ekimena eguneratzean.
