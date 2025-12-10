@@ -3,8 +3,8 @@
 require "spec_helper"
 
 module Decidim
-  module ParticipatorySpace
-    module Admin
+  module Admin
+    module ParticipatorySpace
       describe MemberForm do
         subject { described_class.from_params(attributes) }
 
