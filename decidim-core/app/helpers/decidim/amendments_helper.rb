@@ -19,7 +19,7 @@ module Decidim
     # Checks if the user can participate in a participatory space
     # based on its settings related with Decidim::ParticipatorySpace::HasMembers.
     def can_participate_in_private_space?
-      return true unless current_participatory_space.class.included_modules.include?(HasMembers)
+      return true unless current_participatory_space.class.included_modules.include?(Decidim::ParticipatorySpace::HasMembers)
 
       current_participatory_space.can_participate?(current_user)
     end
