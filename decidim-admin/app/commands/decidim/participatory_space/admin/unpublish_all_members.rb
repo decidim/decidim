@@ -48,5 +48,5 @@ module Decidim
         end
       end
     end
-end
+  end
 end
