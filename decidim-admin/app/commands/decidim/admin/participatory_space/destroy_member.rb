@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Decidim
-  module ParticipatorySpace
-    module Admin
+  module Admin
+    module ParticipatorySpace
       # A command with all the business logic to destroy a member.
       class DestroyMember < Decidim::Commands::DestroyResource
         private

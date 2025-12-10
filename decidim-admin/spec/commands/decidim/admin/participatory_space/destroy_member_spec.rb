@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-module Decidim::ParticipatorySpace::Admin
+module Decidim::Admin::ParticipatorySpace
   describe DestroyMember do
     subject { described_class.new(member, user) }
 

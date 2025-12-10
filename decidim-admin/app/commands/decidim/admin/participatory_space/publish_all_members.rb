@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Decidim
-  module ParticipatorySpace
-    module Admin
+  module Admin
+    module ParticipatorySpace
       class PublishAllMembers < Decidim::Command
         # Public: Initializes the command.
         #

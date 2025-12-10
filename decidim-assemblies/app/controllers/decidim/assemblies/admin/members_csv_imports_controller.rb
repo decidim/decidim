@@ -7,7 +7,7 @@ module Decidim
       # on assemblies
       class MembersCsvImportsController < Decidim::Admin::ApplicationController
         include Concerns::AssemblyAdmin
-        include Decidim::ParticipatorySpace::Admin::Concerns::HasMembersCsvImport
+        include Decidim::Admin::ParticipatorySpace::Concerns::HasMembersCsvImport
 
         def after_import_path
           members_path(current_assembly)

@@ -3,8 +3,8 @@
 require "csv"
 
 module Decidim
-  module ParticipatorySpace
-    module Admin
+  module Admin
+    module ParticipatorySpace
       # A form object used to upload CSV to batch members.
       #
       class MemberCsvImportForm < Form

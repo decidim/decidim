@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Decidim
-  module ParticipatorySpace
-    module Admin
+  module Admin
+    module ParticipatorySpace
       # A form object used to create members from the
       # admin dashboard.
       #

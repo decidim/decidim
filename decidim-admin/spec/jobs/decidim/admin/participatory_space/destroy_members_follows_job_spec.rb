@@ -3,8 +3,8 @@
 require "spec_helper"
 
 module Decidim
-  module ParticipatorySpace
-    module Admin
+  module Admin
+    module ParticipatorySpace
       describe DestroyMembersFollowsJob do
         let(:organization) { create(:organization) }
         let!(:user) { create(:user, :admin, :confirmed, organization:) }

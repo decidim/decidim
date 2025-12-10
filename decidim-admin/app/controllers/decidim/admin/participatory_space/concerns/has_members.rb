@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Decidim
-  module ParticipatorySpace
-    module Admin
+  module Admin
+    module ParticipatorySpace
       module Concerns
         # Members can be related to any ParticipatorySpace, in order to
         # manage the members for a given type, you should create a new
@@ -14,7 +14,7 @@ module Decidim
           extend ActiveSupport::Concern
 
           included do
-            include Decidim::ParticipatorySpace::Admin::Concerns::MembersFilterable
+            include Decidim::Admin::ParticipatorySpace::Concerns::MembersFilterable
             helper PaginateHelper
             helper_method :privatable_to, :members
 
@@ -61,7 +61,7 @@ module Decidim
               enforce_permission_to :create, :space_member
               @form = form(MemberForm).from_params(params, privatable_to:)
 
-              Decidim::ParticipatorySpace::Admin::CreateMember.call(@form, current_participatory_space) do
+              CreateMember.call(@form, current_participatory_space) do
                 on(:ok) do
                   flash[:notice] = I18n.t("members.create.success", scope: "decidim.admin")
                   redirect_to action: :index

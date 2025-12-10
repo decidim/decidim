@@ -3,8 +3,8 @@
 require "csv"
 
 module Decidim
-  module ParticipatorySpace
-    module Admin
+  module Admin
+    module ParticipatorySpace
       class ImportMemberCsv < Decidim::Command
         include Decidim::Admin::CustomImport
 

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Decidim
-  module ParticipatorySpace
-    module Admin
+  module Admin
+    module ParticipatorySpace
       module Concerns
         # Members can be related to any ParticipatorySpace, in order to
         # import members from csv for a given type, you should create a new

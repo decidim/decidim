@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Decidim
-  module ParticipatorySpace
-    module Admin
+  module Admin
+    module ParticipatorySpace
       # Custom ApplicationJob scoped to the admin panel.
       #
       class ImportMemberCsvJob < ApplicationJob
@@ -21,7 +21,7 @@ module Decidim
                                     current_participatory_space: privatable_to
                                   )
 
-          Decidim::ParticipatorySpace::Admin::CreateMember.call(member_form, privatable_to, via_csv: true)
+          CreateMember.call(member_form, privatable_to, via_csv: true)
         end
       end
     end

@@ -3,8 +3,8 @@
 require "spec_helper"
 
 module Decidim
-  module ParticipatorySpace
-    module Admin
+  module Admin
+    module ParticipatorySpace
       describe ImportMemberCsvJob do
         let!(:email) { "my_user@example.org" }
         let!(:user_name) { "My User Name" }
@@ -14,7 +14,7 @@ module Decidim
 
         context "when the member not exists" do
           it "delegates the work to a command" do
-            expect(Decidim::ParticipatorySpace::Admin::CreateMember).to receive(:call)
+            expect(Decidim::Admin::ParticipatorySpace::CreateMember).to receive(:call)
             described_class.perform_now(email, user_name, privatable_to, user)
           end
         end

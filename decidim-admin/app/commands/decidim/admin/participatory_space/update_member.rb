@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Decidim
-  module ParticipatorySpace
-    module Admin
+  module Admin
+    module ParticipatorySpace
       # A command with all the business logic when updating a participatory space
       # member.
       class UpdateMember < Decidim::Commands::UpdateResource
