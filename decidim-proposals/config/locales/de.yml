@@ -110,8 +110,8 @@ de:
         one: Anmerkung
         other: Anmerkungen
       decidim/proposals/proposal_vote:
-        one: Abstimmung
-        other: Abstimmungen
+        one: Stimme
+        other: Stimmen
   decidim:
     admin:
       admin_log:

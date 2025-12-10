@@ -9,6 +9,10 @@ module Decidim
     autoload :GraphqlPermissions, "decidim/api/graphql_permissions"
     autoload :ComponentMutationType, "decidim/api/component_mutation_type"
 
+    module Errors
+      autoload :NotFoundError, "decidim/api/errors/not_found_error"
+    end
+
     module Types
       autoload :BaseArgument, "decidim/api/types/base_argument"
       autoload :BaseEnum, "decidim/api/types/base_enum"

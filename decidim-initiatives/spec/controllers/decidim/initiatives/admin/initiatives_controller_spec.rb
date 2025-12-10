@@ -577,7 +577,7 @@ describe Decidim::Initiatives::Admin::InitiativesController do
     end
   end
 
-  context "when GET export" do
+  context "when POST export" do
     context "and user" do
       before do
         sign_in user, scope: :user
@@ -586,7 +586,7 @@ describe Decidim::Initiatives::Admin::InitiativesController do
       it "is not allowed" do
         expect(Decidim::Initiatives::ExportInitiativesJob).not_to receive(:perform_later).with(user, "CSV", nil)
 
-        get :export, params: { format: :csv }
+        post :export, params: { format: :csv }
         expect(flash[:alert]).not_to be_empty
         expect(response).to have_http_status(:found)
       end
@@ -600,7 +600,7 @@ describe Decidim::Initiatives::Admin::InitiativesController do
       it "is allowed" do
         expect(Decidim::Initiatives::ExportInitiativesJob).to receive(:perform_later).with(admin_user, organization, "csv", nil)
 
-        get :export, params: { format: :csv }
+        post :export, params: { format: :csv }
         expect(flash[:alert]).to be_nil
         expect(response).to have_http_status(:found)
       end
@@ -608,11 +608,12 @@ describe Decidim::Initiatives::Admin::InitiativesController do
       context "when a collection of ids is passed as a parameter" do
         let!(:initiatives) { create_list(:initiative, 3, organization:) }
         let(:collection_ids) { initiatives.map(&:id) }
+        let(:comma_separated_ids) { collection_ids.join(",") }
 
         it "enqueues the job" do
           expect(Decidim::Initiatives::ExportInitiativesJob).to receive(:perform_later).with(admin_user, organization, "csv", collection_ids)
 
-          get :export, params: { format: :csv, collection_ids: }
+          post :export, params: { format: :csv, collection_ids: comma_separated_ids }
           expect(flash[:alert]).to be_nil
           expect(response).to have_http_status(:found)
         end

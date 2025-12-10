@@ -36,7 +36,7 @@ module Decidim
             end
 
             collection do
-              get :export
+              post :export
             end
 
             resources :attachments, controller: "initiative_attachments", except: [:show]

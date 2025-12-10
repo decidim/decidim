@@ -251,6 +251,8 @@ module Decidim
       initializer "decidim_core.setup_i18n" do |app|
         app.config.i18n.available_locales = Decidim.available_locales
         app.config.i18n.default_locale = Decidim.default_locale
+        app.config.i18n.fallbacks = true
+        app.config.i18n.raise_on_missing_translations = Rails.env.local?
       end
 
       initializer "decidim_core.active_storage_method_patch" do |_app|
@@ -362,10 +364,6 @@ module Decidim
         end
       end
 
-      initializer "decidim_core.locales" do |app|
-        app.config.i18n.fallbacks = true
-      end
-
       initializer "decidim_core.graphql_api" do
         Decidim::Api::QueryType.include Decidim::QueryExtensions
 
@@ -394,10 +392,6 @@ module Decidim
           # this allows to search for an integer inside a column that is an array
           config.add_predicate("contains", arel_predicate: "contains", formatter: array_cast, validator: integer_presence)
         end
-      end
-
-      initializer "decidim_core.i18n_exceptions" do |app|
-        app.config.i18n.raise_on_missing_translations = true unless Rails.env.production?
       end
 
       initializer "decidim_core.geocoding", after: :load_config_initializers do

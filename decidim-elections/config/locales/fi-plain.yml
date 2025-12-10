@@ -96,6 +96,7 @@ fi-pl:
             start_question_button: Ota äänestys käyttöön
             title: Tulokset
           status:
+            allow_census_check_before_start: Salli käyttäjien tarkistaa, voivatko he äänestää ennen vaalin alkamista
             census: 'Henkilötietorekisteri:'
             results_availability:
               after_end: Tulokset ovat saatavilla vaalin päätyttyä
@@ -140,6 +141,8 @@ fi-pl:
           publish:
             invalid: Vaalin julkaisu epäonnistui.
             success: Vaalin julkaisu onnistui.
+          toggle_census_check:
+            error: Henkilötietorekisterin tarkastuksen käyttöönotto epäonnistui.
           unpublish:
             invalid: Vaalin julkaisun peruminen epäonnistui.
             success: Vaalin julkaisun peruminen onnistui.
@@ -182,6 +185,11 @@ fi-pl:
           update: "%{user_name} päivitti vaalia %{resource_name} tilassa %{space_name}"
         question:
           update: "%{user_name} päivitti kysymyksiä vaalille %{resource_name}"
+      census_checks:
+        show:
+          description: Tämä tarkoittaa sitä, että kun vaalit alkavat, voit äänestää niissä.
+          exit_button: Poistu väestölaskennan tarkastuksesta
+          title: Tilisi vahvistaminen onnistui
       censuses:
         census_ready_html: Henkilötietorekisterin tietoja ladataan ja valmistellaan käytettäväksi vaalissa <b>%{election_title}</b>.
         census_size_html:
@@ -246,6 +254,8 @@ fi-pl:
           title: Vaaliin liittyvät kysymykset
         show:
           active_voting_until: 'Äänestysaika päättyy: %{end_date}'
+          check_census_button: Tarkasta, voitko äänestää
+          check_census_explanation: Nämä vaalit eivät ole vielä alkaneet, mutta voit tarkistaa, onko sinut merkitty näiden vaalien henkilötietorekisteriin.
           vote_button: Äänestä
           voted: Olet jo äänestänyt. Voit äänestää uudestaan, ainoastaan viimeinen äänesi otetaan huomioon ääntenlaskennassa.
           votes_count:

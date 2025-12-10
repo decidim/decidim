@@ -390,6 +390,7 @@ cs:
           assembly_type: Typ shromáždění
           closing_date: Datum ukončení shromáždění
           closing_date_reason: Proč bylo shromáždění uzavřeno
+          component_settings: Nastavení komponenty shromáždění
           composition: Složení shromáždění
           created_at: Datum, kdy byl tento prostor vytvořen
           created_by: Kdo vytvořil toto shromáždění

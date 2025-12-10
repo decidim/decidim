@@ -1721,6 +1721,16 @@ cs:
         instructions_1: Pokud máte přístup k tomuto e-mailovému účtu, zkontrolujte prosím svou doručenou poštu pro pokyny.
       notify_deprecation_to_owner:
         greeting: Dobrý den %{name},
+        set_password: Nastavte své heslo
+        subject: Důležitá aktualizace vašeho profilu skupiny
+      notify_user_group_patched:
+        body_3_html: Abychom mohli pokračovat v přístupu k vašemu účtu a sdílet přístup, potřebujeme, abyste si nastavili nový e-mail a heslo. Vezměte prosím na vědomí, že každý člen vaší skupiny obdrží tento e-mail. Chcete-li zajistit trvalý přístup, musíte se interně dohodnout na sdílených přihlašovacích údajích (e-mail a heslo), které budou všichni používat.
+        greeting: Dobrý den %{name},
+        instructions_1_html: 'K přihlášení použijte následující dočasné přihlašovací údaje: <br><br> Uživatelské jméno: <strong>%{email}</strong> <br> heslo: <strong>%{password}</strong><br><br>'
+        instructions_2_html: Nastavte novou e-mailovou adresu a heslo.
+        instructions_3_html: Sdílejte vybrané přihlašovací údaje s vašimi kolegy, aby celá skupina mohla pokračovat v přístupu k účtu.
+        instructions_title_html: "<strong>Co potřebujete udělat</strong>"
+        subject: Důležitá aktualizace vašeho profilu skupiny
     user_report_mailer:
       notify:
         body_1: Uživatel %{user} byl nahlášen od %{token}
