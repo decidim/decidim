@@ -65,7 +65,7 @@ module Decidim
 
         SendInitiativeToTechnicalValidation.call(current_initiative, current_user) do
           on(:ok) do
-            redirect_to EngineRouter.main_proxy(current_initiative).initiatives_path(initiative_slug: nil), flash: {
+            redirect_to EngineRouter.main_proxy(current_initiative).initiatives_path(initiative_slug: nil, locale: current_locale), flash: {
               notice: I18n.t(
                 "success",
                 scope: "decidim.initiatives.admin.initiatives.edit"
@@ -99,7 +99,7 @@ module Decidim
         UpdateInitiative.call(current_initiative, @form) do
           on(:ok) do |initiative|
             flash[:notice] = I18n.t("success", scope: "decidim.initiatives.update")
-            redirect_to initiative_path(initiative)
+            redirect_to initiative_path(initiative, locale: current_locale)
           end
 
           on(:invalid) do
@@ -119,7 +119,7 @@ module Decidim
         end
 
         flash[:notice] = I18n.t("initiatives.discard.success", scope: "decidim.initiatives.admin")
-        redirect_to decidim_initiatives.initiatives_path
+        redirect_to decidim_initiatives.initiatives_path(locale: current_locale)
       end
 
       def print

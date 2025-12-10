@@ -69,6 +69,13 @@ module Decidim
       link.present?
     end
 
+    # Whether this attachment has a file or not.
+    #
+    # Returns Boolean.
+    def file?
+      file.attached?
+    end
+
     # Which kind of file this is.
     #
     # Returns String.

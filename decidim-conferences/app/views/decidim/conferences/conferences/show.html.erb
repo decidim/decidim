@@ -2,7 +2,7 @@
   title: translated_attribute(current_participatory_space.title),
   image_url: resolve_meta_image_url(current_participatory_space),
   description: translated_attribute(current_participatory_space.short_description),
-  url: conference_url(current_participatory_space),
+  url: conference_url(current_participatory_space, locale: current_locale),
   resource: current_participatory_space) %>
 
 <%
@@ -58,14 +58,14 @@ edit_link(
       <div>
         <% if current_participatory_space.registrations_enabled? %>
           <% if current_participatory_space.has_registration_for?(current_user) %>
-            <%= link_to t("decidim.conferences.conferences.show.manage_registration"), decidim_conferences.conference_registration_types_path(current_participatory_space), class: "button button__lg button__primary" %>
+            <%= link_to t("decidim.conferences.conferences.show.manage_registration"), decidim_conferences.conference_registration_types_path(current_participatory_space, locale: current_locale), class: "button button__lg button__primary" %>
           <% elsif current_participatory_space.has_published_registration_types? %>
-            <%= link_to t("decidim.conferences.conferences.show.register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class: "button button__lg button__secondary" %>
+            <%= link_to t("decidim.conferences.conferences.show.register"), decidim_conferences.conference_registration_types_path(current_participatory_space, locale: current_locale), class: "button button__lg button__secondary" %>
           <% end %>
         <% end %>
         <% current_participatory_space.components.where(manifest_name: "meetings").each do |component_meeting| %>
           <% if component_meeting.published? || component_meeting == self.try(:current_component) %>
-            <%= link_to translated_attribute(component_meeting.name), decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id), class: "button button__lg button__transparent-secondary" %>
+            <%= link_to translated_attribute(component_meeting.name), decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id, locale: I18n.locale), class: "button button__lg button__transparent-secondary" %>
           <% end %>
         <% end %>
       </div>
@@ -98,9 +98,9 @@ edit_link(
             </div>
             <div>
               <% if current_participatory_space.has_registration_for?(current_user) %>
-                <%= link_to t("decidim.conferences.conferences.show.manage_registration"), decidim_conferences.conference_registration_types_path(current_participatory_space), class: "button button__lg button__primary" %>
+                <%= link_to t("decidim.conferences.conferences.show.manage_registration"), decidim_conferences.conference_registration_types_path(current_participatory_space, locale: current_locale), class: "button button__lg button__primary" %>
               <% elsif current_participatory_space.has_published_registration_types? %>
-                <%= link_to t("decidim.conferences.conferences.show.register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class: "button button__lg button__secondary" %>
+                <%= link_to t("decidim.conferences.conferences.show.register"), decidim_conferences.conference_registration_types_path(current_participatory_space, locale: current_locale), class: "button button__lg button__secondary" %>
               <% end %>
             </div>
           </div>

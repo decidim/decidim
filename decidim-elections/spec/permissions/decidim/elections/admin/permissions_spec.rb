@@ -142,7 +142,38 @@ describe Decidim::Elections::Admin::Permissions do
     context "when updating" do
       let(:action_name) { :update }
 
-      it_behaves_like "requires an election"
+      context "when election is unpublished" do
+        context "and has no votes" do
+          it { is_expected.to be true }
+        end
+
+        context "and has votes" do
+          let!(:question) { create(:election_question, :with_response_options, election:) }
+          let!(:vote) { create(:election_vote, question:, response_option: question.response_options.first) }
+
+          it { is_expected.to be false }
+        end
+      end
+
+      context "when election is published" do
+        context "and has not started" do
+          let(:election) { create(:election, :published, :scheduled, component:) }
+
+          it { is_expected.to be true }
+        end
+
+        context "and has started" do
+          let(:election) { create(:election, :published, :ongoing, component:) }
+
+          it { is_expected.to be false }
+        end
+      end
+
+      context "when election is missing" do
+        let(:election) { nil }
+
+        it { is_expected.to be false }
+      end
     end
 
     context "when updating status" do
@@ -166,23 +197,89 @@ describe Decidim::Elections::Admin::Permissions do
     context "when reordering" do
       let(:action_name) { :reorder }
 
-      it_behaves_like "requires an election"
+      context "when election is unpublished" do
+        context "and has no votes" do
+          it { is_expected.to be true }
+        end
+
+        context "and has votes" do
+          let!(:question) { create(:election_question, :with_response_options, election:) }
+          let!(:vote) { create(:election_vote, question:, response_option: question.response_options.first) }
+
+          it { is_expected.to be false }
+        end
+      end
+
+      context "when election is published" do
+        context "and has not started" do
+          let(:election) { create(:election, :published, :scheduled, component:) }
+
+          it { is_expected.to be true }
+        end
+
+        context "and has started" do
+          let(:election) { create(:election, :published, :ongoing, component:) }
+
+          it { is_expected.to be false }
+        end
+      end
+
+      context "when election is missing" do
+        let(:election) { nil }
+
+        it { is_expected.to be false }
+      end
     end
   end
 
   context "when subject is census" do
     let(:action_subject) { :census }
 
+    shared_examples "census action based on editable election" do
+      context "when election is unpublished" do
+        context "and has no votes" do
+          it { is_expected.to be true }
+        end
+
+        context "and has votes" do
+          let!(:question) { create(:election_question, :with_response_options, election:) }
+          let!(:vote) { create(:election_vote, question:, response_option: question.response_options.first) }
+
+          it { is_expected.to be false }
+        end
+      end
+
+      context "when election is published" do
+        context "and has not started" do
+          let(:election) { create(:election, :published, :scheduled, component:) }
+
+          it { is_expected.to be true }
+        end
+
+        context "and has started" do
+          let(:election) { create(:election, :published, :ongoing, component:) }
+
+          it { is_expected.to be false }
+        end
+      end
+
+      context "when election is missing" do
+        let(:election) { nil }
+
+        it { is_expected.to be false }
+      end
+    end
+
     context "when editing" do
       let(:action_name) { :edit }
 
-      it { is_expected.to be true }
+      it_behaves_like "census action based on editable election"
     end
 
     context "when updating" do
       let(:action_name) { :update }
 
-      it_behaves_like "requires an election"
+      it_behaves_like "census action based on editable election"
     end
   end
 end

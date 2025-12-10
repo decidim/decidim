@@ -10,6 +10,6 @@
 
   <div class="flex justify-between mt-16">
     <button class="button button__lg button__transparent-secondary" data-dialog-close="<%= model.id %>"><%= t("cancel", scope: "decidim.conferences.conference.registration_confirm") %></button>
-    <%= button_to t("confirm", scope: "decidim.conferences.conference.registration_confirm"), conference_registration_type_conference_registration_path(conference, model), class: "button button__lg button__secondary" %>
+    <%= button_to t("confirm", scope: "decidim.conferences.conference.registration_confirm"), conference_registration_type_conference_registration_path(conference, model, locale: current_locale), class: "button button__lg button__secondary" %>
   </div>
 <% end %>
