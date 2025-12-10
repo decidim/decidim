@@ -46,7 +46,7 @@ shared_examples "graphQL hidden space" do
   let(:space_type) { "participatoryProcess" }
 
   it "should not be visible" do
-    expect { response }.to raise_error(StandardError, "#{space_type.classify} not found")
+    expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "#{space_type.classify} not found")
   end
 end
 

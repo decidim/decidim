@@ -76,7 +76,7 @@ module Decidim
           let(:id) { process.id }
 
           it "should not be visible" do
-            expect { response }.to raise_error(StandardError, "ParticipatoryProcessGroup not found")
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "ParticipatoryProcessGroup not found")
           end
         end
       end
@@ -112,7 +112,7 @@ module Decidim
           let(:id) { type.id }
 
           it "should not be visible" do
-            expect { response }.to raise_error(StandardError, "ParticipatoryProcessType not found")
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "ParticipatoryProcessType not found")
           end
         end
       end

@@ -40,7 +40,7 @@ module Decidim
           let!(:post) { create(:post, component: create(:post_component)) }
 
           it "raises error" do
-            expect { response }.to raise_error(StandardError, "Post not found")
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Post not found")
           end
         end
       end

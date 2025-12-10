@@ -59,7 +59,7 @@ module Decidim
           let!(:proposal) { create(:proposal, component: create(:proposal_component)) }
 
           it "raises error" do
-            expect { response }.to raise_error(StandardError, "Proposal not found")
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Proposal not found")
           end
         end
 
@@ -67,7 +67,7 @@ module Decidim
           let!(:proposal) { create(:proposal, :draft, component: model) }
 
           it "raises error" do
-            expect { response }.to raise_error(StandardError, "Proposal not found")
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Proposal not found")
           end
         end
       end

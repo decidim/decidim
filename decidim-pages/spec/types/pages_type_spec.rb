@@ -40,7 +40,7 @@ module Decidim
           let!(:page) { create(:page, component: create(:page_component)) }
 
           it "raises error" do
-            expect { response }.to raise_error(StandardError, "Page not found")
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Page not found")
           end
         end
       end

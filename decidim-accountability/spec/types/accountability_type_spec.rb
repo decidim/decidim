@@ -44,7 +44,7 @@ module Decidim
           let!(:result) { create(:result, component: create(:accountability_component)) }
 
           it "raises error" do
-            expect { response }.to raise_error(StandardError, "Result not found")
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Result not found")
           end
         end
       end
@@ -98,7 +98,7 @@ module Decidim
           let!(:status) { create(:status, component: create(:accountability_component)) }
 
           it "raises error" do
-            expect { response }.to raise_error(StandardError, "Status not found")
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Status not found")
           end
         end
       end

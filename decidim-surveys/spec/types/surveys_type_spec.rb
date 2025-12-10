@@ -40,7 +40,7 @@ module Decidim
           let!(:survey) { create(:survey, :published, component: create(:surveys_component)) }
 
           it "raises error" do
-            expect { response }.to raise_error(StandardError, "Survey not found")
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Survey not found")
           end
         end
       end

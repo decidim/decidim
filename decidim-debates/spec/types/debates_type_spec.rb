@@ -40,7 +40,7 @@ module Decidim
           let(:debate) { create(:debate, component: create(:debates_component)) }
 
           it "raises error" do
-            expect { response }.to raise_error(StandardError, "Debate not found")
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Debate not found")
           end
         end
       end

@@ -69,7 +69,7 @@ module Decidim
           let!(:meeting) { create(:meeting, :published, component: create(:meeting_component)) }
 
           it "raises error" do
-            expect { response }.to raise_error(StandardError, "Meeting not found")
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Meeting not found")
           end
         end
 
@@ -77,7 +77,7 @@ module Decidim
           let!(:meeting) { create(:meeting, :published, component: model, private_meeting: true, transparent: false) }
 
           it "raises error" do
-            expect { response }.to raise_error(StandardError, "Meeting not found")
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Meeting not found")
           end
         end
       end

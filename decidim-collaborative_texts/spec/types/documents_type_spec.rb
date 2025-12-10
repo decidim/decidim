@@ -40,7 +40,7 @@ module Decidim
           let!(:document) { create(:collaborative_text_document, :published, component: create(:collaborative_text_component)) }
 
           it "raises error" do
-            expect { response }.to raise_error(StandardError, "CollaborativeText not found")
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "CollaborativeText not found")
           end
         end
       end

@@ -41,7 +41,7 @@ module Decidim
           let!(:budget) { create(:budget, component: create(:budgets_component)) }
 
           it "raises error" do
-            expect { response }.to raise_error(StandardError, "Budget not found")
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Budget not found")
           end
         end
       end

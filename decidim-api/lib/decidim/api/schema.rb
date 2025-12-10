@@ -14,7 +14,7 @@ module Decidim
       orphan_types(Api.orphan_types)
 
       rescue_from(ActiveRecord::RecordNotFound) do |_err, _obj, _args, _ctx, field|
-        raise GraphQL::ExecutionError, I18n.t("decidim.api.errors.not_found", type: field.type.unwrap.graphql_name)
+        raise Decidim::Api::Errors::NotFoundError, I18n.t("decidim.api.errors.not_found", type: field.type.unwrap.graphql_name)
       end
     end
   end
