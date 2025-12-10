@@ -111,7 +111,7 @@ module Decidim
           let!(:type) { create(:participatory_process_type, :with_active_participatory_processes) }
           let(:id) { type.id }
 
-          it "should not be visible" do
+          it "should not be found" do
             expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "ParticipatoryProcessType not found")
           end
         end

@@ -57,7 +57,7 @@ module Decidim
           end
         end
 
-        context "with a conference of another organization" do
+        context "with an initiative of another organization" do
           let!(:initiative) { create(:initiative) }
           let(:id) { initiative.id }
 
