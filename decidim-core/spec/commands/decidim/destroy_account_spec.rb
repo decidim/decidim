@@ -136,7 +136,7 @@ module Decidim
         it "deletes member" do
           create(:member, user:)
 
-          expect { command.call }.to change(Member, :count).by(-1)
+          expect { command.call }.to change(Decidim::ParticipatorySpace::Member, :count).by(-1)
         end
 
         it "deletes user likes" do
