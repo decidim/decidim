@@ -2,7 +2,7 @@
 
 module Decidim
   module AdminLog
-    # This class holds the logic to present a `Decidim::MemberPresenter`
+    # This class holds the logic to present a `Decidim::ParticiaptorySpace::MemberPresenter`
     # for the `AdminLog` log.
     #
     # Usage should be automatic and you should not need to call this class

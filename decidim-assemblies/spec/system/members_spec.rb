@@ -115,7 +115,7 @@ describe "Assembly members" do
         within "#assembly_members-grid" do
           expect(page).to have_css(".profile__user", count: 1)
 
-          expect(page).to have_no_content(Decidim::MemberPresenter.new(ceased_member).name)
+          expect(page).to have_no_content(Decidim::ParticipatorySpace::MemberPresenter.new(ceased_member).name)
         end
       end
     end
