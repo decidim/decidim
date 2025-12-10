@@ -69,7 +69,7 @@ module Decidim
         return nil unless participant
 
         return nil unless Decidim::Core::ParticipantDetailsType.authorized?(participant, context)
-        
+
         Decidim::ActionLogger.log(
           "read",
           context[:current_user],
