@@ -3,5 +3,6 @@ en:
   decidim:
     api:
       errors:
-        unauthorized_field: You cannot view %{field} field on %{type} because you do not have permission
-        unauthorized_object: You cannot view this %{type} because you do not have permissions
+        not_found: "%{type} not found"
+        unauthorized_field: You cannot view or edit %{field} field on %{type} because you do not have permission
+        unauthorized_object: You cannot view or edit this %{type} because you do not have permissions

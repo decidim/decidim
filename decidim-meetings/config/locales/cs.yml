@@ -153,6 +153,8 @@ cs:
           copy: Kopírovat
           title: Duplicitní schůzka
       tooltips:
+        cannot_close_meetings: Tuto schůzku nelze zavřít, protože ji vytvořil účastník
+        cannot_duplicate_meetings: Tuto schůzku nelze duplikovat, protože byla vytvořena účastníkem
         cannot_manage_attachments_meetings: Nelze spravovat přílohy v této schůzce, protože jsou vytvořeny uživatelem
         cannot_manage_poll_meetings: Nelze spravovat anketu na této schůzce, protože je vytvořena účastníkem
     components:

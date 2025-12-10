@@ -360,17 +360,13 @@ describe "Decidim::Api::QueryType" do
         context "when user is visitor" do
           let!(:current_user) { nil }
 
-          it "should not be visible" do
-            expect(response["participatoryProcess"]).to be_nil
-          end
+          it_behaves_like "graphQL not found space"
         end
 
         context "when user is normal user" do
           let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
 
-          it "should not be visible" do
-            expect(response["participatoryProcess"]).to be_nil
-          end
+          it_behaves_like "graphQL not found space"
         end
       end
 
@@ -388,17 +384,13 @@ describe "Decidim::Api::QueryType" do
         context "when user is visitor" do
           let!(:current_user) { nil }
 
-          it "should not be visible" do
-            expect(response["participatoryProcess"]).to be_nil
-          end
+          it_behaves_like "graphQL not found space"
         end
 
         context "when user is normal user" do
           let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
 
-          it "should not be visible" do
-            expect(response["participatoryProcess"]).to be_nil
-          end
+          it_behaves_like "graphQL not found space"
         end
       end
     end
@@ -571,17 +563,13 @@ describe "Decidim::Api::QueryType" do
         context "when user is visitor" do
           let!(:current_user) { nil }
 
-          it "should not be visible" do
-            expect(response["participatoryProcess"]).to be_nil
-          end
+          it_behaves_like "graphQL not found space"
         end
 
         context "when user is normal user" do
           let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
 
-          it "should not be visible" do
-            expect(response["participatoryProcess"]).to be_nil
-          end
+          it_behaves_like "graphQL not found space"
         end
       end
 
@@ -599,17 +587,13 @@ describe "Decidim::Api::QueryType" do
         context "when user is visitor" do
           let!(:current_user) { nil }
 
-          it "should not be visible" do
-            expect(response["participatoryProcess"]).to be_nil
-          end
+          it_behaves_like "graphQL not found space"
         end
 
         context "when user is normal user" do
           let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
 
-          it "should not be visible" do
-            expect(response["participatoryProcess"]).to be_nil
-          end
+          it_behaves_like "graphQL not found space"
         end
       end
     end

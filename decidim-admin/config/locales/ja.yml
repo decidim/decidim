@@ -35,6 +35,7 @@ ja:
       id: ID
       newsletter:
         body: 本文
+        send_to_all_users: 全参加者に送信
         send_to_followers: フォロワーに送信
         send_to_participants: 参加者に送信
         subject: 件名
@@ -292,11 +293,13 @@ ja:
       block_user:
         bulk_new:
           action: アカウントをブロックして理由を送信
+          already_reported_html: この操作を続行すると、参加者のコンテンツもすべて非表示になります。
           description: ユーザーをブロックすると、そのアカウントは利用できなくなります。ユーザーのブロックを解除することを検討する方法に関するガイドラインを判定通知に含めることができます。
           justification: 判定理由
           title: ユーザーをブロック
         new:
           action: アカウントをブロックして理由を送信
+          already_reported_html: この操作を続行すると、参加者のコンテンツもすべて非表示になります。
           description: ユーザーをブロックすると、そのアカウントは利用できなくなります。ユーザーのブロックを解除することを検討する方法に関するガイドラインを判定通知に含めることができます。
           justification: 判定理由
           title: ユーザー %{name} をブロックする
@@ -389,6 +392,7 @@ ja:
         form:
           domain_too_short: ドメインが短すぎます
         update:
+          error: 許可された外部ドメインのリストを更新できませんでした。
           success: 許可された外部ドメインのリストを更新しました。
       exports:
         export_as: "%{name} を %{export_format} 形式で取得"
@@ -473,6 +477,7 @@ ja:
           import_csv:
             explanation: 'ファイルのガイダンス:'
             message_1: CSVファイルがサポートされています
+            message_2: "電子メールデータを含む.csvファイル"
       help_sections:
         error: ヘルプセクションの更新中に問題が発生しました。
         form:
@@ -1257,6 +1262,7 @@ ja:
           last_day: 直近24時間
           last_month: 直近1ヶ月間
           last_week: 直近1週間
+          no_users_count_statistics_yet: 参加者数の統計データはまだありません。
           participants: 参加者
     forms:
       errors:

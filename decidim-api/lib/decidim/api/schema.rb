@@ -15,12 +15,16 @@ module Decidim
 
       def self.unauthorized_object(error)
         # Add a top-level error to the response instead of returning nil:
-        raise GraphQL::ExecutionError, I18n.t("decidim.api.errors.unauthorized_object", type: error.type.graphql_name)
+        raise Decidim::Api::Errors::UnauthorizedObjectError, I18n.t("decidim.api.errors.unauthorized_object", type: error.type.graphql_name)
       end
 
       def self.unauthorized_field(error)
         # Add a top-level error to the response instead of returning nil:
-        raise GraphQL::ExecutionError, I18n.t("decidim.api.errors.unauthorized_field", type: error.type.graphql_name, field: error.field.graphql_name)
+        raise Decidim::Api::Errors::UnauthorizedFieldError, I18n.t("decidim.api.errors.unauthorized_field", type: error.type.graphql_name, field: error.field.graphql_name)
+      end
+
+      rescue_from(ActiveRecord::RecordNotFound) do |_err, _obj, _args, _ctx, field|
+        raise Decidim::Api::Errors::NotFoundError, I18n.t("decidim.api.errors.not_found", type: field.type.unwrap.graphql_name)
       end
     end
   end

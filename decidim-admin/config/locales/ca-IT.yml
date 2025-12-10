@@ -125,6 +125,9 @@ ca-IT:
         show_in_footer: Mostra al peu de pàgina
         title: Títol
         weight: Ordre de posició
+      taxonomy:
+        item_name: Nom de l'element
+        parent_id: Taxonomia mare
       user_group_csv_verification:
         file: Fitxer
     errors:
