@@ -72,10 +72,14 @@ module Decidim
     end
 
     def clean_announcement
+      return if announcement.is_a?(Hash) && announcement.values.any?(&:empty?)
+
       clean(announcement)
     end
 
     def clean(value)
+      return if value.blank? || value.nil?
+
       if value.include?("rich-text-display")
         decidim_sanitize_admin(translated_attribute(value))
       else
