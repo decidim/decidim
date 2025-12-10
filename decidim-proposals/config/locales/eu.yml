@@ -609,7 +609,7 @@ eu:
           destroy:
             success: Egoera behar bezala ezabatua
           edit:
-            title: Editatu egoera
+            title: Egoera editatu
             update: Eguneratu
           form:
             preview: Aurrebistaratu
