@@ -339,7 +339,7 @@ eu:
           responses: Erantzunak
         invite_join_meeting_mailer:
           invite:
-            decline: Deuseztatu gonbidapena
+            decline: Gonbidapena deuseztatu
             invited_you_to_join_a_meeting: "%{invited_by} k %{application} topaketan parte hartzera gonbidatu zaitu. Beheko estekan onar dezakezu gobidapena."
             join: Erregistratu '%{meeting_title}' topaketa
         invites:
@@ -826,10 +826,10 @@ eu:
           title: Topaketaren izenburua
           transparent: Topaketaren ikusgarritasuna bisitarientzat
           type_of_meeting: Topaketa mota
-          updated_at: Zein datatan eguneratu zen topaketa azken aldiz
+          updated_at: Zein datatan eguneratu da topaketa azken aldiz
           url: Topaketaren URLa
           video_url: Topaketaren bideograbazioa
-          withdrawn: Topaketa bertan behera geratu zen ala ez
+          withdrawn: Topaketa bertan behera geratu den ala ez
           withdrawn_at: Noiz utzi zen bertan behera topaketa hau?
     participatory_spaces:
       highlighted_meetings:
@@ -839,10 +839,10 @@ eu:
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Topaketaren emaitzak:'
-        result_meeting: 'Proposamenarekin lotutako topaketak:'
+        result_meeting: 'Topaketari dagozkion proposamenak:'
       proposals_from_meeting:
         meeting_proposal: 'Topaketari dagozkion proposamenak:'
-        proposal_meeting: 'Proposamenarekin lotutako topaketak:'
+        proposal_meeting: 'Topaketari dagozkion proposamenak:'
     statistics:
       attendees_count: Topaketara bertaratuak
       meetings_count: Topaketak
