@@ -159,6 +159,7 @@ ja:
           comment: コメント
           join: 参加する
           reply_poll: 投票
+          vote_comment: コメントに投票
         name: ミーティング
         settings:
           global:

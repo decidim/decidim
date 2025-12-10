@@ -12,7 +12,7 @@ shared_examples "participatory space members page examples" do
   describe "GET index" do
     context "when participatory space has no members" do
       it "redirects to 404" do
-        expect { get :index, params: { slug_param => slug } }
+        expect { get :index, params: { slug_param => slug, :locale => I18n.locale } }
           .to raise_error(ActionController::RoutingError)
       end
     end
@@ -24,7 +24,7 @@ shared_examples "participatory space members page examples" do
 
       context "when user has permissions" do
         it "displays list of members" do
-          get :index, params: { slug_param => slug }
+          get :index, params: { slug_param => slug, :locale => I18n.locale }
 
           expect(controller.helpers.collection).to contain_exactly(member1, member2)
         end
@@ -36,9 +36,9 @@ shared_examples "participatory space members page examples" do
         end
 
         it "redirects to participatory space path" do
-          get :index, params: { slug_param => slug }
+          get :index, params: { slug_param => slug, :locale => I18n.locale }
 
-          expect(response).to redirect_to(privatable_to)
+          expect(response).to redirect_to(destination_path)
         end
       end
     end

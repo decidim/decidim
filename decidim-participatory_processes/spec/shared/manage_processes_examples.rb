@@ -75,7 +75,7 @@ shared_examples "manage processes examples" do
         end
 
         page.within_window(new_window) do
-          expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(participatory_process)
+          expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(participatory_process, locale: I18n.locale)
           expect(page).to have_content(translated(participatory_process.title))
         end
       end

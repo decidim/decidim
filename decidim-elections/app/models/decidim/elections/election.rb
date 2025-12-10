@@ -72,6 +72,10 @@ module Decidim
         published? && !ongoing? && !finished? && !published_results?
       end
 
+      def editable?
+        published? ? !started? : !votes.exists?
+      end
+
       def started?
         start_at.present? && start_at <= Time.current
       end
@@ -129,14 +133,6 @@ module Decidim
         return questions.enabled.unpublished_results if per_question?
 
         questions
-      end
-
-      # Create i18n ransackers for :title and :description.
-      # Create the :search_text ransacker alias for searching from both of these.
-      ransacker_i18n_multi :search_text, [:title, :description]
-
-      def self.ransackable_scopes(_auth_object = nil)
-        [:with_any_state]
       end
 
       def status

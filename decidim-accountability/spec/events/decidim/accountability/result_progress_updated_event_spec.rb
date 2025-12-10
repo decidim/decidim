@@ -75,7 +75,12 @@ describe Decidim::Accountability::ResultProgressUpdatedEvent do
     end
 
     context "when resource is moderated" do
-      let(:resource) { create(:proposal, :moderated) }
+      let!(:resource) { create(:proposal) }
+
+      before do
+        create(:moderation, reportable: resource, hidden_at: 2.days.ago)
+        resource.reload
+      end
 
       it "returns true" do
         expect(subject.hidden_resource?).to be true
@@ -93,7 +98,11 @@ describe Decidim::Accountability::ResultProgressUpdatedEvent do
     end
 
     context "when resource is moderated" do
-      let(:resource) { create(:proposal, deleted_at: Time.zone.now) }
+      let!(:resource) { create(:proposal) }
+
+      before do
+        resource.destroy
+      end
 
       it "returns true" do
         expect(subject.deleted_resource?).to be true

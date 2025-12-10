@@ -7,24 +7,24 @@
           <%= icon "add-fill" %>
         </button>
       <% else %>
-        <%= link_to create_initiative_path(:select_initiative_type), class: "!px-4 title-action__action button button__xl button__secondary w-full" do %>
+        <%= link_to create_initiative_path(:select_initiative_type, locale: current_locale), class: "!px-4 title-action__action button button__xl button__secondary w-full" do %>
           <%= t("new_initiative", scope: "decidim.initiatives.initiatives.index_header") %>
           <%= icon "add-fill" %>
         <% end %>
       <% end %>
     <% else %>
-      <% content_for(:redirect_after_login) { create_initiative_url(:select_initiative_type) } %>
+      <% content_for(:redirect_after_login) { create_initiative_url(:select_initiative_type, locale: current_locale) } %>
       <button type="button" class="button button__xl button__secondary w-full" data-dialog-open="loginModal" aria-controls="loginModal" aria-haspopup="dialog" tabindex="0">
         <%= t("new_initiative", scope: "decidim.initiatives.initiatives.index_header") %>
         <%= icon "add-fill" %>
       </button>
     <% end %>
   <% elsif (initiative_type = available_initiative_types.first).present? %>
-    <% content_for(:redirect_after_login) { fill_data_create_initiative_index_path(initiative: { type_id: initiative_type.id }) } unless current_user %>
+    <% content_for(:redirect_after_login) { fill_data_create_initiative_index_path(initiative: { type_id: initiative_type.id }, locale: current_locale) } unless current_user %>
     <%= action_authorized_link_to(
           :create,
-          fill_data_create_initiative_index_path(initiative: { type_id: initiative_type.id }),
-          authorizations_modal_path: authorization_create_modal_initiative_path(initiative_type),
+          fill_data_create_initiative_index_path(initiative: { type_id: initiative_type.id }, locale: current_locale),
+          authorizations_modal_path: authorization_create_modal_initiative_path(initiative_type, locale: current_locale),
           permissions_holder: initiative_type,
           "data-dialog-open": allowed_to?(:create, :initiative, { initiative_type: }) ? "" : "not-authorized-modal",
           class: "!px-4 title-action__action button button__xl button__secondary w-full"

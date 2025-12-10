@@ -124,6 +124,9 @@ fr-CA:
         show_in_footer: Montrer dans le pied de page
         title: Titre
         weight: Rang
+      taxonomy:
+        item_name: Nom de l’élément
+        parent_id: Parent
       user_group_csv_verification:
         file: Fichier
     errors:
