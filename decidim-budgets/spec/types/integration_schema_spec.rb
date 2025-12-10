@@ -335,13 +335,13 @@ describe "Decidim::Api::QueryType" do
         context "when user is visitor" do
           let!(:current_user) { nil }
 
-          it_behaves_like "graphQL hidden space"
+          it_behaves_like "graphQL not found space"
         end
 
         context "when user is normal user" do
           let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
 
-          it_behaves_like "graphQL hidden space"
+          it_behaves_like "graphQL not found space"
         end
       end
 
@@ -359,13 +359,13 @@ describe "Decidim::Api::QueryType" do
         context "when user is visitor" do
           let!(:current_user) { nil }
 
-          it_behaves_like "graphQL hidden space"
+          it_behaves_like "graphQL not found space"
         end
 
         context "when user is normal user" do
           let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
 
-          it_behaves_like "graphQL hidden space"
+          it_behaves_like "graphQL not found space"
         end
       end
     end
@@ -514,13 +514,13 @@ describe "Decidim::Api::QueryType" do
         context "when user is visitor" do
           let!(:current_user) { nil }
 
-          it_behaves_like "graphQL hidden space"
+          it_behaves_like "graphQL not found space"
         end
 
         context "when user is normal user" do
           let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
 
-          it_behaves_like "graphQL hidden space"
+          it_behaves_like "graphQL not found space"
         end
       end
 
@@ -538,13 +538,13 @@ describe "Decidim::Api::QueryType" do
         context "when user is visitor" do
           let!(:current_user) { nil }
 
-          it_behaves_like "graphQL hidden space"
+          it_behaves_like "graphQL not found space"
         end
 
         context "when user is normal user" do
           let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
 
-          it_behaves_like "graphQL hidden space"
+          it_behaves_like "graphQL not found space"
         end
       end
     end

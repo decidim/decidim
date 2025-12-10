@@ -41,7 +41,7 @@ module Decidim
           let!(:process) { create(:participatory_process) }
           let(:id) { process.id }
 
-          it_behaves_like "graphQL hidden space"
+          it_behaves_like "graphQL not found space"
         end
       end
 

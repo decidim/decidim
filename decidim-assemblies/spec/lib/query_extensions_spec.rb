@@ -38,7 +38,7 @@ module Decidim
           let!(:assembly) { create(:assembly) }
           let(:id) { assembly.id }
 
-          it_behaves_like "graphQL hidden space" do
+          it_behaves_like "graphQL not found space" do
             let(:space_type) { "assembly" }
           end
         end

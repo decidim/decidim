@@ -61,7 +61,7 @@ module Decidim
           let!(:initiative) { create(:initiative) }
           let(:id) { initiative.id }
 
-          it_behaves_like "graphQL hidden space" do
+          it_behaves_like "graphQL not found space" do
             let(:space_type) { "initiative" }
           end
         end

@@ -42,7 +42,7 @@ shared_context "with a graphql decidim component" do
   end
 end
 
-shared_examples "graphQL hidden space" do
+shared_examples "graphQL not found space" do
   let(:space_type) { "participatoryProcess" }
 
   it "should not be visible" do
@@ -77,7 +77,7 @@ shared_examples "with resource visibility" do
   shared_examples "graphQL space hidden to visitor" do
     context "when user is visitor" do
       let!(:current_user) { nil }
-      it_behaves_like "graphQL hidden space"
+      it_behaves_like "graphQL not found space"
     end
   end
 
@@ -310,33 +310,33 @@ shared_examples "with resource visibility" do
       context "when the user is space admin" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
         let!(:role) { create(:participatory_process_user_role, participatory_process:, user: current_user, role: "admin") }
-        it_behaves_like "graphQL hidden space"
+        it_behaves_like "graphQL not found space"
       end
 
       context "when the user is space collaborator" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
         let!(:role) { create(:participatory_process_user_role, participatory_process:, user: current_user, role: "collaborator") }
-        it_behaves_like "graphQL hidden space"
+        it_behaves_like "graphQL not found space"
       end
 
       context "when the user is space moderator" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
         let!(:role) { create(:participatory_process_user_role, participatory_process:, user: current_user, role: "moderator") }
 
-        it_behaves_like "graphQL hidden space"
+        it_behaves_like "graphQL not found space"
       end
 
       context "when the user is space evaluator" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
         let!(:role) { create(:participatory_process_user_role, participatory_process:, user: current_user, role: "evaluator") }
-        it_behaves_like "graphQL hidden space"
+        it_behaves_like "graphQL not found space"
       end
 
       it_behaves_like "graphQL space hidden to visitor"
 
       context "when user is normal user" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
-        it_behaves_like "graphQL hidden space"
+        it_behaves_like "graphQL not found space"
       end
 
       context "when user is member" do
@@ -354,25 +354,25 @@ shared_examples "with resource visibility" do
       context "when the user is space admin" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
         let!(:role) { create(:participatory_process_user_role, participatory_process:, user: current_user, role: "admin") }
-        it_behaves_like "graphQL hidden space"
+        it_behaves_like "graphQL not found space"
       end
 
       context "when the user is space collaborator" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
         let!(:role) { create(:participatory_process_user_role, participatory_process:, user: current_user, role: "collaborator") }
-        it_behaves_like "graphQL hidden space"
+        it_behaves_like "graphQL not found space"
       end
 
       context "when the user is space moderator" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
         let!(:role) { create(:participatory_process_user_role, participatory_process:, user: current_user, role: "moderator") }
-        it_behaves_like "graphQL hidden space"
+        it_behaves_like "graphQL not found space"
       end
 
       context "when the user is space evaluator" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
         let!(:role) { create(:participatory_process_user_role, participatory_process:, user: current_user, role: "evaluator") }
-        it_behaves_like "graphQL hidden space"
+        it_behaves_like "graphQL not found space"
       end
       it_behaves_like "graphQL space hidden to visitor"
 
@@ -383,7 +383,7 @@ shared_examples "with resource visibility" do
       end
       context "when user is normal user" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
-        it_behaves_like "graphQL hidden space"
+        it_behaves_like "graphQL not found space"
       end
     end
   end
@@ -399,25 +399,25 @@ shared_examples "with resource visibility" do
       context "when the user is space admin" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
         let!(:role) { create(:participatory_process_user_role, participatory_process:, user: current_user, role: "admin") }
-        it_behaves_like "graphQL hidden space"
+        it_behaves_like "graphQL not found space"
       end
 
       context "when the user is space collaborator" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
         let!(:role) { create(:participatory_process_user_role, participatory_process:, user: current_user, role: "collaborator") }
-        it_behaves_like "graphQL hidden space"
+        it_behaves_like "graphQL not found space"
       end
 
       context "when the user is space moderator" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
         let!(:role) { create(:participatory_process_user_role, participatory_process:, user: current_user, role: "moderator") }
-        it_behaves_like "graphQL hidden space"
+        it_behaves_like "graphQL not found space"
       end
 
       context "when the user is space evaluator" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
         let!(:role) { create(:participatory_process_user_role, participatory_process:, user: current_user, role: "evaluator") }
-        it_behaves_like "graphQL hidden space"
+        it_behaves_like "graphQL not found space"
       end
 
       it_behaves_like "graphQL space hidden to visitor"
@@ -425,12 +425,12 @@ shared_examples "with resource visibility" do
       context "when user is member" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
         let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: current_user, privatable_to: participatory_process) }
-        it_behaves_like "graphQL hidden space"
+        it_behaves_like "graphQL not found space"
       end
 
       context "when user is normal user" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
-        it_behaves_like "graphQL hidden space"
+        it_behaves_like "graphQL not found space"
       end
     end
 
@@ -442,38 +442,38 @@ shared_examples "with resource visibility" do
       context "when the user is space admin" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
         let!(:role) { create(:participatory_process_user_role, participatory_process:, user: current_user, role: "admin") }
-        it_behaves_like "graphQL hidden space"
+        it_behaves_like "graphQL not found space"
       end
 
       context "when the user is space collaborator" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
         let!(:role) { create(:participatory_process_user_role, participatory_process:, user: current_user, role: "collaborator") }
-        it_behaves_like "graphQL hidden space"
+        it_behaves_like "graphQL not found space"
       end
 
       context "when the user is space moderator" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
         let!(:role) { create(:participatory_process_user_role, participatory_process:, user: current_user, role: "moderator") }
-        it_behaves_like "graphQL hidden space"
+        it_behaves_like "graphQL not found space"
       end
 
       context "when the user is space evaluator" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
         let!(:role) { create(:participatory_process_user_role, participatory_process:, user: current_user, role: "evaluator") }
-        it_behaves_like "graphQL hidden space"
+        it_behaves_like "graphQL not found space"
       end
       it_behaves_like "graphQL space hidden to visitor"
 
       context "when user is member" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
         let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: current_user, privatable_to: participatory_process) }
-        it_behaves_like "graphQL hidden space"
+        it_behaves_like "graphQL not found space"
       end
 
       context "when user is normal user" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
 
-        it_behaves_like "graphQL hidden space"
+        it_behaves_like "graphQL not found space"
       end
     end
   end

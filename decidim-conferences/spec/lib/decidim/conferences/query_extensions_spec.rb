@@ -38,7 +38,7 @@ module Decidim
           let!(:conference) { create(:conference) }
           let(:id) { conference.id }
 
-          it_behaves_like "graphQL hidden space" do
+          it_behaves_like "graphQL not found space" do
             let(:space_type) { "conference" }
           end
         end
