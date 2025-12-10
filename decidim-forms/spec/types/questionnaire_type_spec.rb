@@ -88,7 +88,7 @@ module Decidim
         context "when meeting is not published" do
           let(:meeting) { create(:meeting) }
 
-          it "returns the questionnaire's entity corresponding to questionnaire_for_id" do
+          it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
             expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this Meeting because you do not have permissions")
           end
         end
