@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-    module ParticipatorySpace
+  module ParticipatorySpace
     module Admin
       class UnpublishAllMembers < Decidim::Command
         # Public: Initializes the command.
@@ -48,5 +48,5 @@ module Decidim
         end
       end
     end
-  end
+end
 end
