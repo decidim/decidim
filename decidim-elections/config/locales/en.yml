@@ -245,6 +245,7 @@ en:
           title: Election questions
         show:
           active_voting_until: 'Active voting until: %{end_date}'
+          edit_vote_button: Edit vote
           vote_button: Vote
           voted: You have already voted. You can vote again, only your last vote will be counted.
           votes_count:

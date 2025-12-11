@@ -31,7 +31,7 @@ shared_examples "a csv token per question votable election" do
     expect(page).to have_current_path(election_path)
     expect(page).to have_content("You have already voted.")
     expect(election.votes.where(voter_uid:).size).to eq(3)
-    click_on "Vote"
+    click_on "Edit vote"
     expect(page).to have_current_path(new_election_vote_path)
     fill_in "Email", with: election.voters.first.data["email"]
     fill_in "Token", with: election.voters.first.data["token"]
@@ -73,7 +73,7 @@ shared_examples "a per question votable election" do
     expect(page).to have_current_path(election_path)
     expect(page).to have_content("You have already voted.")
     expect(election.votes.where(voter_uid:).size).to eq(2)
-    click_on "Vote"
+    click_on "Edit vote"
     expect(find("input[value='#{question1.response_options.first.id}']")).to be_checked
     choose translated_attribute(question1.response_options.second.body)
     click_on "Cast vote"
@@ -114,7 +114,7 @@ shared_examples "a per question votable election with published results" do
     expect(page).to have_current_path(election_path)
     expect(page).to have_content("You have already voted.")
     expect(election.votes.where(voter_uid:).size).to eq(1)
-    click_on "Vote"
+    click_on "Edit vote"
     expect(page).to have_current_path(election_vote_path(question2))
     expect(find("input[value='#{question2.response_options.first.id}']")).to be_checked
     expect(find("input[value='#{question2.response_options.second.id}']")).not_to be_checked
