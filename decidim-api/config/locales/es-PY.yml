@@ -1,0 +1,6 @@
+---
+es-PY:
+  decidim:
+    api:
+      errors:
+        not_found: "%{type} no encontrado"
