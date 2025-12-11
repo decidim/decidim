@@ -1,0 +1,6 @@
+---
+fr:
+  decidim:
+    api:
+      errors:
+        not_found: "%{type} introuvable"
