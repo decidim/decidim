@@ -268,7 +268,6 @@ fr:
           max_choices_exceeded: Vous ne pouvez pas sélectionner plus que %{max} options. Veuillez revenir en arrière et ajuster votre sélection.
           next: Suivant
         receipt:
-          description: Vous pouvez voter à nouveau à tout moment tant que la période de vote est ouverte. Votre vote précédent sera écrasé par le nouveau.
           exit_button: Quitter l'isoloir
           title: Vos votes ont été exprimés avec succès
     metadata:
