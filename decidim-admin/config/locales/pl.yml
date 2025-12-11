@@ -35,7 +35,7 @@ pl:
       id: ID
       newsletter:
         body: Treść
-        send_to_all_users: Wyślij do wszystkich użytkowników
+        send_to_all_users: Wyślij do wszystkich uczestników
         send_to_followers: Wyślij do obserwujących
         send_to_participants: Wyślij do uczestników
         subject: Temat
@@ -268,9 +268,11 @@ pl:
         no_results: Brak wyników
         search_prompt: Wpisz co najmniej trzy znaki, żeby wyszukać.
       block_user:
+        bulk_new:
+          already_reported_html: Dalsze kontynuowanie tej czynności spowoduje również ukrycie wszystkich treści uczestnika.
         new:
           action: Zablokuj konto i wyślij uzasadnienie
-          already_reported_html: Kontynuując tę akcję, ukryjesz również wszystkie treści uczestników.
+          already_reported_html: Dalsze kontynuowanie tej czynności spowoduje również ukrycie wszystkich treści uczestnika.
           description: Blokowanie użytkownika sprawi, że jego konto nie będzie użyteczne. Możesz podać w uzasadnieniu wszelkie wytyczne dotyczące sposobu odblokowania użytkownika.
           justification: Uzasadnienie
           title: Zablokuj użytkownika %{name}
@@ -349,7 +351,7 @@ pl:
         form:
           domain_too_short: Domena jest za krótka
         update:
-          error: Nie udało się zaktualizować listy dozwolonych domen zewnętrznych
+          error: Nie udało się zaktualizować listy dozwolonych domen zewnętrznych.
           success: Lista dozwolonych domen zewnętrznych została pomyślnie zaktualizowana.
       exports:
         export_as: "%{name} jako %{export_format}"
@@ -424,6 +426,8 @@ pl:
             explanation: 'Wytyczne dotyczące pliku:'
             message_1: Pliki CSV, JSON i Excel (.xlsx) są obsługiwane
             message_2: Dla plików w formacie CSV separatorem kolumn musi być średnik (";")
+          import_csv:
+            message_2: "Plik.csv z danymi e-mail"
       help_sections:
         error: Wystąpił błąd podczas aktualizowania sekcji pomocy.
         form:

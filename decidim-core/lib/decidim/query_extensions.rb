@@ -87,7 +87,7 @@ module Decidim
     end
 
     def static_pages
-      Decidim::StaticPage.accessible_for(context[:current_organization], context[:current_user])
+      Decidim::StaticPage.accessible_for(organization, context[:current_user])
     end
 
     def static_page_topics
@@ -95,11 +95,11 @@ module Decidim
     end
 
     def moderated_users
-      Decidim::UserModeration.joins(:user).where(decidim_users: { decidim_organization_id: context[:current_organization]&.id }).where.not(decidim_users: { blocked_at: nil })
+      Decidim::UserModeration.joins(:user).where(decidim_users: { decidim_organization_id: organization&.id }).where.not(decidim_users: { blocked_at: nil })
     end
 
     def moderations
-      Decidim::Moderation.where(participatory_space: context[:current_organization].participatory_spaces).includes(:reports).hidden
+      Decidim::Moderation.where(participatory_space: organization.participatory_spaces).includes(:reports).hidden
     end
   end
 end

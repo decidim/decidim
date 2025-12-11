@@ -951,13 +951,10 @@ zh-TW:
           proposals_explanation: 提出建議、支持現有建議並推動您希望看到的變化。
         footer_sub_hero:
           footer_sub_hero_headline: 歡迎來到 %{organization} 的參與平台。
-          register: 註冊
         hero:
           participate: 參與
           participate_title: 參與平台的流程
           welcome: 歡迎來到 %{organization}！
-        sub_hero:
-          register: 註冊
       index:
         standalone_pages: 頁
         subheading: 瀏覽 %{name} 的幫助頁面

@@ -15,8 +15,8 @@ module Decidim
         Meeting.published.visible.where(component: object).includes(:component)
       end
 
-      def meeting(**args)
-        Meeting.published.visible.where(component: object).find_by(id: args[:id])
+      def meeting(id:)
+        Decidim::Core::ComponentFinderBase.new(model_class: Meeting.published.visible).call(object, { id: }, context)
       end
     end
   end

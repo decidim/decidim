@@ -340,6 +340,7 @@ es-MX:
         participatory_processes:
           announcement: La información del anuncio/aviso (llamada)
           area: El área a la que pertenece el proceso
+          component_settings: Configuración de los componentes del proceso participativo
           created_at: La fecha en la que se creó este proceso participativo
           description: Una descripción larga del proceso
           developer_group: El grupo promotor del proceso. Quien está promoviendo el proceso.

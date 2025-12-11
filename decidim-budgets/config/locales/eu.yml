@@ -219,16 +219,16 @@ eu:
       order:
         status:
           continue_voting: Jarraitu bozkatzen
-          download_vote: Deskargatu zure babesa
+          download_vote: Deskargatu zure hautaketa
           pending_to_vote_budgets:
             one: Beste aurrekontu batean bozkatu dezakezu
             other: Beste aurrekontu batzuetan bozkatu dezakezu
           share_text: "Botoa eman diet nire proiekturik gogokoenei hemen %{space_name}! 🎉 Eman botoa orain: %{component_url}"
-          share_vote: Aldatu zure babesa
+          share_vote: Partekatu zure hautaketa
           title: Zure babesa ongi bideratu da
           view_votes:
             one: Ikusi babesa
-            other: Ikusi babesak
+            other: Botoak ikusi
           votes_count:
             one: 'Zure babesa honentzat: %{budget_name} erregistratu da.'
             other: 'Zure %{count} babes honentzat: %{budget_name} erregistratu dira.'
@@ -338,6 +338,7 @@ eu:
         actions:
           comment: Egin iruzkina
           vote: Babesa eman
+          vote_comment: Bozkatu iruzkina
         name: Aurrekontuak
         settings:
           global:

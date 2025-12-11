@@ -31,7 +31,7 @@ module Decidim
             invalid?: false,
             current_user: user,
             current_organization: organization,
-            taxonomies: [],
+            taxonomizations: [],
             title: { "en" => "Copied Meeting" },
             description: { "en" => "Copied description" },
             end_time: 2.hours.from_now,

@@ -11,7 +11,7 @@ module Decidim
       #
       # Returns an HTML-safe String.
       def resource_path
-        @resource_path ||= h.decidim.page_path(resource)
+        @resource_path ||= h.decidim.page_path(resource, locale: I18n.locale)
       end
     end
   end

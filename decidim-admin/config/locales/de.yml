@@ -35,7 +35,7 @@ de:
       id: ID
       newsletter:
         body: Haupttext
-        send_to_all_users: An alle Benutzenden senden
+        send_to_all_users: An alle Teilnehmende senden
         send_to_followers: An Follower senden
         send_to_participants: An Teilnehmende senden
         subject: Betreff
@@ -393,7 +393,7 @@ de:
         form:
           domain_too_short: Domain zu kurz
         update:
-          error: Liste der zulässigen externen Domains konnte nicht aktualisiert werden
+          error: Das Aktualisieren der Liste der zulässigen externen Domains ist fehlgeschlagen.
           success: Die Liste der zulässigen externen Domains wurde erfolgreich aktualisiert.
       exports:
         export_as: "%{name} als %{export_format}"
@@ -1270,7 +1270,6 @@ de:
           last_day: Letzter Tag
           last_month: Letzter Monat
           last_week: Letzte Woche
-          no_users_count_statistics_yet: Es gibt noch keine Nutzendestatistiken.
           participants: Teilnehmer
     forms:
       errors:

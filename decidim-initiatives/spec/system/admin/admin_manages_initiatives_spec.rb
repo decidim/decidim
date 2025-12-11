@@ -53,7 +53,7 @@ describe "Admin manages initiatives" do
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
-    visit decidim_admin_initiatives.initiatives_path
+    visit decidim_admin_initiatives.initiatives_path(locale: I18n.locale)
   end
 
   describe "listing initiatives" do

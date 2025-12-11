@@ -33,6 +33,7 @@ fi:
           comment: Kommentoi
           create: Luo keskustelu
           like: Tykkää
+          vote_comment: Äänestä kommenttia
         name: Keskustelut
         settings:
           global:

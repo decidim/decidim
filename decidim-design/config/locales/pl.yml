@@ -250,8 +250,6 @@ pl:
         share_button: Przycisk udostępniania
         share_usage_description_html: Upewnij się, że część <code>decidim/shared/share_modal</code> jest obecna w DOM. Ta część jest umieszczona w układzie aplikacji.
         sizes: Rozmiary
-        sortition_l: sortition_l
-        sortitions: Wybory przez losowanie
         source_code: Kod źródłowy
         state: Stan
         tab_panels_context_description: Ten komponent panelu kart gromadzi wszystkie powiązane treści lub inne zasoby głównego elementu wyświetlanego, aby zaoszczędzić przestrzeń pionową. Kliknięcie karty aktywuje utworzony panel, aby wyświetlić zawartość.

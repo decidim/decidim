@@ -614,12 +614,9 @@ sk:
           proposals_explanation: Urobiť návrhy, podporiť existujúce a podporovať zmeny, ktoré chcete vidieť.
         footer_sub_hero:
           footer_sub_hero_headline: Vitajte na%{organization} participatívnej platforme.
-          register: Registrovať
         hero:
           participate: zúčastniť sa
           welcome: Vitajte na%{organization}!
-        sub_hero:
-          register: Registrovať
       index:
         standalone_pages: Stránky
         subheading: Prechádzajte stránky pomocníka%{name}

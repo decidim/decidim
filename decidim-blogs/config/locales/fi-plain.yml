@@ -107,6 +107,7 @@ fi-pl:
           destroy: Poista
           like: Tykkää
           update: Päivitä
+          vote_comment: Äänestä kommenttia
         name: Blogi
         settings:
           global:

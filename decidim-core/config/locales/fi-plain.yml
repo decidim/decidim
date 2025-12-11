@@ -198,6 +198,7 @@ fi-pl:
         success: Tilisi poistaminen onnistui.
       download_your_data_export:
         export_expired: Vientitiedosto on vanhentunut. Yritä luoda uusi vienti.
+        export_not_found: Vientitiedosto, jota yritit ladata, ei ole enää saatavilla tai sinulla ei ole oikeutta ladata sitä
         file_no_exists: Tiedostoa ei ole olemassa
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
       email_change:
@@ -784,7 +785,7 @@ fi-pl:
           reason: Ilmoituksen syy
           updated_at: Ilmoituksen viimeisimmän päivityksen ajankohta
         users:
-          about: Käyttäjätilin profiilin kuvaus
+          about: Osallistujan profiilikuvaus
           accepted_tos_version: Käyttäjän palvelun käyttöehtojen hyväksymisaika
           admin: Onko tämä käyttäjä hallintakäyttäjä
           confirmation_sent_at: Käyttäjätilin vahvistusviestin lähetysaika
@@ -850,7 +851,7 @@ fi-pl:
       files:
         file_cannot_be_processed: Tiedostoa ei voida käsitellä
         file_resolution_too_large: Tiedoston resoluutio on liian suuri
-        not_inside_organization: Tiedostoa ei ole liitetty mihinkään organisaatioon
+        not_inside_organization: Tiedostoa ei ole liitetty mihinkään organisaatioon.
       internal_server_error:
         copied: Teksti kopioitu!
         copy_error_message_clarification: Kopioi virheviesti leikepöydälle
@@ -1289,11 +1290,13 @@ fi-pl:
         same_language: Sisältö on lisätty toivomallasi kielellä (%{language}), minkä takia tässä viestissä ei näytetä automaattista käännöstä.
         translated_text: 'Automaattisesti käännetty teksti:'
     notifications:
-      action_error: Ilmoitusasetusten päivitys epäonnistui.
+      action_error: Ilmoitusasetusten päivittäminen epäonnistui.
       no_notifications: Ei vielä ilmoituksia.
       show:
+        deleted: Sisällön laatija on poistanut tämän sisällön.
         missing_event: Hups, tämä ilmoitus kuuluu kohteeseen, joka ei ole enää käytettävissä. Voit merkitä sen luetuksi.
-        moderated: Sisältö moderoitu
+        moderated: Moderoija on piilottanut tämän sisällön.
+        not_available: Tämä ilmoitus kuuluu kohteeseen, joka ei ole enää käytettävissä. Voit merkitä sen luetuksi.
     notifications_digest_mailer:
       header:
         daily: Päivittäinen ilmoitusyhteenveto
@@ -1445,9 +1448,9 @@ fi-pl:
           title: Miten nämä tiedostot avataan ja miten niiden kanssa työskennellään?
         license:
           body_1_html: '%{organization_name} -palvelun tietokanta on lisensoitu %{link_database} -lisenssillä. Kaikki tietokannan sisällöt on lisensoitu %{link_contents} -lisenssillä.'
-          license_contents_link: https://opendatacommons.org/licenses/dbcl/1-0/
+          license_contents_link: https://opendatacommons.org/licenses/dbcl/1.0/
           license_contents_name: Tietokannan sisällön lisenssi
-          license_database_link: https://opendatacommons.org/licenses/dbcl/1-0/
+          license_database_link: https://opendatacommons.org/licenses/odbl/1.0/
           license_database_name: Avoimien tietojen lisenssi
           title: Lisenssi
         title: Avoin data
@@ -1470,7 +1473,7 @@ fi-pl:
         footer_sub_hero:
           footer_sub_hero_body_html: Rakennetaan entistä avoimempi, läpinäkyvämpi ja yhteistyökykyisempi yhteiskunta.<br /> Liity, osallistu ja päätä.
           footer_sub_hero_headline: Tervetuloa yhteisölliseen osallisuuspalveluun %{organization}.
-          register: Rekisteröidy
+          register: Luo tili
         hero:
           participate: Osallistu
           participate_title: Osallistu alustan prosesseihin
@@ -1478,7 +1481,7 @@ fi-pl:
         statistics:
           headline: Tilastot
         sub_hero:
-          register: Rekisteröidy
+          register: Luo tili
           register_title: Luo tili
       index:
         standalone_pages: Sivut

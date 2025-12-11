@@ -35,7 +35,7 @@ fi:
       id: ID
       newsletter:
         body: Runko
-        send_to_all_users: Lähetä kaikille käyttäjille
+        send_to_all_users: Lähetä kaikille osallistujille
         send_to_followers: Lähetä seuraajille
         send_to_participants: Lähetä osallistujille
         subject: Otsikko
@@ -293,7 +293,7 @@ fi:
       block_user:
         bulk_new:
           action: Estä tilit ja lähetä perustelut
-          already_reported_html: Tämä toiminto piilottaa myös kaiken sisällön, jota nämä osallistujat ovat luoneet.
+          already_reported_html: Tämä toiminto piilottaa myös kaiken sisällön, jonka kyseinen osallistuja on luonut.
           description: Käyttäjätilien estäminen estää kyseisten käyttäjien pääsyn omalle tililleen. Voit antaa perusteluissasi ja ohjeistuksissasi tietoa siitä, mitä käyttäjät voivat tehdä palauttaakseen pääsyn tileilleen.
           justification: Perustelut
           title: Estä käyttäjät
@@ -393,7 +393,7 @@ fi:
         form:
           domain_too_short: Verkkotunnus on liian lyhyt
         update:
-          error: Sallittujen ulkoisten verkkotunnusten luettelon päivittäminen epäonnistui
+          error: Sallittujen ulkoisten verkkotunnusten luettelon päivittäminen epäonnistui.
           success: Sallittujen ulkoisten verkkotunnusten luettelon päivittäminen onnistui.
       exports:
         export_as: "%{name} muodossa %{export_format}"

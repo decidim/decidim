@@ -8,6 +8,10 @@ module Decidim
     describe ParticipatorySpacePrivateUsersController do
       routes { Decidim::Assemblies::Engine.routes }
 
+      def decidim_assemblies
+        Decidim::Assemblies::Engine.routes.url_helpers
+      end
+
       let(:organization) { create(:organization) }
 
       let!(:privatable_to) do
@@ -18,6 +22,8 @@ module Decidim
           private_space: true
         )
       end
+
+      let(:destination_path) { decidim_assemblies.assembly_path(privatable_to, locale: I18n.locale) }
 
       let(:slug_param) { "assembly_slug" }
       let(:slug) { privatable_to.slug }

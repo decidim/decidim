@@ -7,6 +7,7 @@ module Decidim
 
       routes do
         resources :elections, except: [:destroy] do
+          resource :census_check, only: [:new, :create, :show], controller: :census_checks
           resources :votes, except: [:edit, :destroy] do
             collection do
               get :confirm
