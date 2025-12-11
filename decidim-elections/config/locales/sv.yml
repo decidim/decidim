@@ -247,7 +247,6 @@ sv:
           max_choices_exceeded: Du kan inte välja mer än %{max} alternativ. Gå tillbaka och justera ditt val.
           next: Nästa
         receipt:
-          description: Du kan rösta igen så länge omröstningsperioden pågår. En ny omröstning kommer att skriva över den gamla.
           exit_button: Lämna valbåset
           title: Tack, din röst är mottagen
     metadata:
