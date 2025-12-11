@@ -100,10 +100,10 @@ shared_examples "searchable results" do
         field.set "Here is an interesting link:"
         send_keys(:enter)
       end
-
+      
       it "does not allow clickable link" do
-        expect(page).to have_link("https://github.com/decidim")
-        find(text: "Here is an interesting link: https://github.com/decidim")
+        expect(page).not_to have_link(href: "https://github.com/decidim")
+        expect(page).to have_text("Here is an interesting link: https://github.com/decidim")
       end
     end
   end
