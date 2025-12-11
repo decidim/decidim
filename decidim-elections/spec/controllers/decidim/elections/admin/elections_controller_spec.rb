@@ -117,6 +117,8 @@ module Decidim
                   "position" => election_question.position,
                   "voting_enabled" => false,
                   "published_results" => false,
+                  "total_votes" => 0,
+                  "total_votes_text" => "0 votes",
                   "response_options" => election_question.response_options.map do |ro|
                     {
                       "id" => ro.id,

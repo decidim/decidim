@@ -80,6 +80,7 @@ en:
           questions_table:
             answer: Answers
             percentage: Percentage
+            total: Total
             votes: Votes
             votes_count:
               one: 1 vote
@@ -257,6 +258,10 @@ en:
             per_question: Results are available per question. You can see the results for each question after voting is enabled and results are published.
             real_time: Results are available in real time. You can see the results while voting is in progress.
           title: Results
+          total: 'TOTAL:'
+          total_votes:
+            one: 1 vote
+            other: "%{count} votes"
       models:
         election:
           fields:
