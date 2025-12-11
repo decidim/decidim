@@ -56,7 +56,7 @@ shared_examples "with resource visibility" do
 
   shared_examples "graphQL visible resource" do |visible: true|
     if visible
-      it "is visible" do
+      it "should be visible" do
         expect(response[space_type]["components"].first[lookout_key]).to eq(query_result)
       end
     else
