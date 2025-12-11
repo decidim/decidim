@@ -42,6 +42,6 @@ As decidim is a gem for Ruby on Rails you may find the usual rails directories: 
 2. **Form Objects**: Forms in `app/forms/` handle validation separately from models
 3. **Cells**: Component-based views using `Trailblazer::Cells` for reusable UI
 4. **Query Objects**: Complex database queries isolated in `app/queries/`
-5. **Event Sourcing**: Events trigger notifications, logs, and side effects
+5. **Events**: Events trigger notifications, logs, and side effects
 6. **Permission System**: Scope-based authorization with action/subject model
 7. **Content Block System**: Customizable page sections via manifests
