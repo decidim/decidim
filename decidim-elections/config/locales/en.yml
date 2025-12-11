@@ -306,7 +306,8 @@ en:
           cast_vote: Cast vote
           next: Next
         receipt:
-          description: Yo can vote again at any time while the voting period is open. Your previous vote will be overwritten by the new one.
+          description: You can vote again at any time while the voting period is open. Your previous vote will be overwritten by the new one.
+          edit_vote: Edit your vote
           exit_button: Exit the voting booth
           title: Your votes have been cast successfully
     metadata:
