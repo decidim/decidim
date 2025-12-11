@@ -310,7 +310,6 @@ ja:
           max_choices_exceeded: 選択できるオプションは最大 %{max} 個までです。一度戻って選択を調整してください。
           next: 次へ
         receipt:
-          description: 投票期間中はいつでも再投票が可能です。以前の投票結果は新しい投票結果で上書きされます。
           exit_button: 投票ブースを出る
           title: 投票は正常に行われました
     metadata:
