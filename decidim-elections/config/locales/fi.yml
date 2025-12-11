@@ -315,7 +315,6 @@ fi:
           max_choices_exceeded: Et voi valita enempää kuin %{max} vaihtoehtoa. Mene takaisin ja muuta valintojasi.
           next: Seuraava
         receipt:
-          description: Voit äänestää uudestaan äänestyksen ollessa auki. Aikaisempi äänesi mitätöidään ja korvataan antamallasi uudella äänellä.
           exit_button: Poistu äänestyskopista
           title: Äänesi kirjaaminen onnistui
     metadata:
