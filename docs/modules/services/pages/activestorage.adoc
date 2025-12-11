@@ -86,7 +86,7 @@ To have public assets in your application, so that you do not rely on the Active
 
 [NOTE]
 ====
-If you use any other provider than the default (`local`) you will need to also configure the xref:customize:content_security_policy.adoc[Content security policy]. For the directives "img-src", "media-src", and "connect-src"` adding some additional content like https://$YOUR-BUCKET-NAME.s3.$YOUR-AWS-REGION.amazonaws.com/*  (should look like: https://my-bucket.s3.eu-west-1.amazonaws.com)
+If you use any other provider than the default (`local`) you will need to also configure the xref:customize:content_security_policy.adoc[Content security policy]. For the directives "img-src", "media-src", and "connect-src" adding some additional content like https://$YOUR-BUCKET-NAME.s3.$YOUR-AWS-REGION.amazonaws.com/*  (should look like: https://my-bucket.s3.eu-west-1.amazonaws.com)
 ====
 
 ===  Google Cloud Storage
