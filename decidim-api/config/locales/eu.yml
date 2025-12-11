@@ -1,0 +1,6 @@
+---
+eu:
+  decidim:
+    api:
+      errors:
+        not_found: "%{mota} ez da aurkitu"
