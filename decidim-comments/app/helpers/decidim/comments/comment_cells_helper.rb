@@ -11,7 +11,6 @@ module Decidim
 
       def resource_link_text
         translated_attribute(comment.body)
-        # comment.formatted_body
       end
 
       def resource_link_path
