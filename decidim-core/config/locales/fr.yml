@@ -1169,8 +1169,10 @@ fr:
       action_error: Un problème est survenu lors de la mise à jour des paramètres de notification.
       no_notifications: Il n'y a pas encore de notifications.
       show:
+        deleted: Le contenu a été supprimé par l'auteur.
         missing_event: Oups, cette notification est liée à un élément qui n'est plus disponible. Vous pouvez la supprimer.
         moderated: Le contenu a été masqué par modération.
+        not_available: Oups, cette notification est liée à un élément qui n'est plus disponible. Vous pouvez la supprimer.
     notifications_digest_mailer:
       header:
         daily: Résumé quotidien des notifications

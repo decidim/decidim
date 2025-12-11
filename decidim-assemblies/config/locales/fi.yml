@@ -384,6 +384,7 @@ fi:
           assembly_type: Ryhmän tyyppi
           closing_date: Ryhmän sulkemispäivä
           closing_date_reason: Miksi tämä ryhmä suljettiin
+          component_settings: Ryhmän komponenttiasetukset
           composition: Ryhmän kokoonpano
           created_at: Tilan luontiaika
           created_by: Kuka tämän ryhmän on luonut

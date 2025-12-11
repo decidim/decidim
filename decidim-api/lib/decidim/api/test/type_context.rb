@@ -28,6 +28,17 @@ shared_context "with a graphql class type" do
     execute_query query, variables.stringify_keys
   end
 
+  def raise_proper_error(error)
+    code = error.dig("extensions", "code")
+
+    case code
+    when "NOT_FOUND"
+      raise Decidim::Api::Errors::NotFoundError, error["message"]
+    else
+      raise StandardError, error["message"]
+    end
+  end
+
   def execute_query(query, variables)
     result = schema.execute(
       query,
@@ -41,7 +52,7 @@ shared_context "with a graphql class type" do
       variables:
     )
 
-    raise StandardError, result["errors"].map { |e| e["message"] }.join(", ") if result["errors"]
+    raise_proper_error(result["errors"].first) if result["errors"]
 
     result["data"]
   end

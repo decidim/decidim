@@ -37,6 +37,7 @@ module Decidim
         enforce_permission_to(:create, :vote, election:)
 
         response_ids = params.dig(:response, question.id.to_s)
+        requeue_following_questions
         votes_buffer[question.id.to_s] = response_ids
         CastVotes.call(election, { question.id.to_s => response_ids }, voter_uid) do
           on(:ok) do
@@ -102,6 +103,13 @@ module Decidim
           redirect_action = next_vote_step_action
           { voting_enabled: false, redirect_url: url_for(**redirect_action) }
         end
+      end
+
+      def requeue_following_questions
+        election.questions
+                .where("position > ?", question.position)
+                .pluck(:id)
+                .each { |id| votes_buffer.delete(id.to_s) }
       end
     end
   end

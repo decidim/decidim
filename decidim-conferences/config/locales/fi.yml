@@ -622,6 +622,7 @@ fi:
     open_data:
       help:
         conferences:
+          component_settings: Konferenssin komponenttiasetukset
           created_at: Tilan luontiaika
           decidim_scope_id: Konferenssin teema
           description: Konferenssin pitkä kuvaus
