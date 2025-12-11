@@ -10,7 +10,8 @@ module Decidim
       end
 
       def resource_link_text
-        translated_attribute(comment.body)
+        # translated_attribute(comment.body)
+        comment.formatted_body
       end
 
       def resource_link_path
