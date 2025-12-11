@@ -104,7 +104,6 @@ shared_examples "searchable results" do
       it "does not allow clickable link" do
         expect(page).to have_link("https://github.com/decidim")
         find(text: "Here is an interesting link: https://github.com/decidim")
-        take_screenshot
       end
     end
   end
