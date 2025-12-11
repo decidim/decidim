@@ -74,8 +74,8 @@ describe "Dashboard" do
   end
 
   context "when editing votes from receipt page" do
-    let!(:question1) { create(:election_question, :with_response_options, :voting_enabled, skip_injection: true, question_type: "single_option", election:, position: 1) }
-    let!(:question2) { create(:election_question, :with_response_options, :voting_enabled, election:, skip_injection: true, position: 2) }
+    let!(:question1) { create(:election_question, :with_response_options, :voting_enabled, question_type: "single_option", election:, position: 1) }
+    let!(:question2) { create(:election_question, :with_response_options, :voting_enabled, election:, position: 2) }
 
     before do
       login_as user, scope: :user
