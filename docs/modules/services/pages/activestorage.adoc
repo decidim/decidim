@@ -64,7 +64,7 @@ To have public assets in your application, so that you do not rely on the Active
 6. Click "Save changes"
 7. In the permissions tab, identify "Bucket policy" and click "Edit"
 8. Set your policy as in the below example.
-   - If you do not know your "AWS-ARN" value, visit properties tab
+   - If you do not know your "Resource" value (ARN), visit the bucket's properties tab. For demonstration purposes we will use `arn:aws:s3:::my-bucket`
    - The "AWS-ARN" should look like `arn:aws:s3:::$YOUR-BUCKET-NAME`
 9. Click "Save changes"
 
@@ -78,7 +78,7 @@ To have public assets in your application, so that you do not rely on the Active
             "Effect": "Allow",
             "Principal": "*",
             "Action": "s3:GetObject",
-            "Resource": "AWS-ARN/*"
+            "Resource": "arn:aws:s3:::my-bucket/*"
         }
     ]
 }
