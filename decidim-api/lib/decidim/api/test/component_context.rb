@@ -55,10 +55,12 @@ shared_examples "with resource visibility" do
   let(:space_type) { "participatoryProcess" }
 
   shared_examples "graphQL visible resource" do |visible: true|
-    it "is visible" do
-      if visible
+    if visible
+      it "is visible" do
         expect(response[space_type]["components"].first[lookout_key]).to eq(query_result)
-      else
+      end
+    else
+      it "should not be visible" do
         expect(response[space_type]["components"]).to be_empty
       end
     end
