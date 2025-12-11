@@ -1,0 +1,6 @@
+---
+ca:
+  decidim:
+    api:
+      errors:
+        not_found: "%{type} no trobat"
