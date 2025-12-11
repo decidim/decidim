@@ -49,7 +49,7 @@ Read more at https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html[Ama
 
 ==== Public assets
 
-To have public assets in your application, so that you do not rely on the ActiveStorege redirect system, you need to configure your bucket as follows:
+To have public assets in your application, so that you do not rely on the ActiveStorage redirect system, you need to configure your bucket as follows:
 
 1. Visit your AWS S3 account
 2. Select the bucket you are setting as upload
