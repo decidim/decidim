@@ -75,9 +75,13 @@ module Decidim
               current_component: @controller.try(:current_component),
               current_user: @controller.try(:current_user),
               current_participatory_space: @controller.try(:current_participatory_space)
-            }
+            }.reverse_merge(@controller.form_context)
           end
         end.new(klass, self)
+      end
+
+      def form_context
+        {}
       end
     end
   end
