@@ -6,7 +6,14 @@ describe "Surveys Breadcrumb" do
   include_context "with a component"
 
   let(:manifest_name) { "surveys" }
-  let!(:questionnaire) { create(:questionnaire) }
+  let(:title) do
+    {
+      "en" => "Survey's title",
+      "ca" => "Títol de l'enquesta'",
+      "es" => "Título de la encuesta"
+    }
+  end
+  let!(:questionnaire) { create(:questionnaire, title:) }
   let!(:survey) { create(:survey, :published, component:, questionnaire:) }
 
   context "when the survey does not allow responses" do

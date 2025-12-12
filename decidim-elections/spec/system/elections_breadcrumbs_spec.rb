@@ -6,7 +6,7 @@ describe "Elections Breadcrumb" do
   include_context "with a component"
   let(:manifest_name) { "elections" }
 
-  let!(:election) { create(:election, :published, :finished, component:) }
+  let!(:election) { create(:election, :published, :finished, :with_internal_users_census, component:) }
 
   before do
     visit_component
