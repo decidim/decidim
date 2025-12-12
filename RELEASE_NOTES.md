@@ -119,9 +119,17 @@ It also enables the users of multi language platforms to share the links to the 
 
 You can read more about this change on PR [#14432](https://github.com/decidim/decidim/pull/14432).
 
-### 2.6. [[TITLE OF THE ACTION]]
+### 2.6. Installation of LibVips and LibVips-Tools
 
-You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+We have upgraded our image processor within the application to Libvips for speed and low memory usage.
+
+In order to install please run the following command:
+
+```bash
+sudo apt install libvips libvips-tools
+```
+
+You can read more about this change on PR [#15670](https://github.com/decidim/decidim/pull/15670).
 
 ## 3. One time actions
 
