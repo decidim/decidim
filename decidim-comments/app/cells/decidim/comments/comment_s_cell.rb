@@ -13,6 +13,7 @@ module Decidim
 
       def title
         translated_attribute(model.body)
+        
       end
 
       def resource_path
