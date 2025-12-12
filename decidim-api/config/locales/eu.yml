@@ -4,3 +4,5 @@ eu:
     api:
       errors:
         not_found: "%{mota} ez da aurkitu"
+        unauthorized_field: Ezin duzu editatu %{field} eremua hemen %{type} ez daukazulako baimenik
+        unauthorized_object: Ezin duzu ikusi edo editatu %{field} eremua ez daukazulako baimenik
