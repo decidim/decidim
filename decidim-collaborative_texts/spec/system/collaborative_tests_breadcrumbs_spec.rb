@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Collaborative texts breadcrumbs" do
+describe "CollaborativeTexts Breadcrumb" do
   include_context "with a component"
   let(:manifest_name) { "collaborative_texts" }
   let!(:component) do
@@ -10,15 +10,7 @@ describe "Collaborative texts breadcrumbs" do
            manifest:,
            participatory_space: participatory_process)
   end
-
-  let!(:document) { create(:collaborative_text_document, :published, component:, body:) }
-  let(:body) do
-    "<h2>First title</h2>
-      <p>First <b>paragraph</b></p>
-      <p>Second paragraph</p>
-      <h2>Second title</h2>
-      <p>Third paragraph</p>"
-  end
+  let!(:document) { create(:collaborative_text_document, :with_body, :published, component:) }
 
   before do
     visit_component

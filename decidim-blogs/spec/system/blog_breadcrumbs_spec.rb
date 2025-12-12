@@ -2,12 +2,10 @@
 
 require "spec_helper"
 
-describe "Blogs breadcrumbs" do
+describe "Blogs Breadcrumb" do
   include_context "with a component"
   let(:manifest_name) { "blogs" }
-  let(:author) { organization }
-  let(:body) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
-  let!(:post) { create(:post, component:, author:, body:) }
+  let!(:post) { create(:post, component:) }
 
   before do
     visit_component

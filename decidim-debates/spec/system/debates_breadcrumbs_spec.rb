@@ -2,14 +2,11 @@
 
 require "spec_helper"
 
-describe "debates breadcrumbs" do
+describe "Debates Breadcrumb" do
   include_context "with a component"
   let(:manifest_name) { "debates" }
 
-  let(:description) { generate_localized_description(:debate_description) }
-  let(:information_updates) { generate_localized_description(:information_updates) }
-  let(:instructions) { generate_localized_description(:instructions) }
-  let!(:debate) { create(:debate, component:, description:, information_updates:, instructions:) }
+  let!(:debate) { create(:debate, component:) }
 
   before do
     visit_component

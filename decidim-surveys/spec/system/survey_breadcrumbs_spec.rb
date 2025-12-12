@@ -6,22 +6,7 @@ describe "Respond a survey" do
   include_context "with a component"
 
   let(:manifest_name) { "surveys" }
-  let!(:questionnaire) { create(:questionnaire, title:, description:) }
-
-  let(:title) do
-    {
-      "en" => "Survey's title",
-      "ca" => "Títol de l'enquesta'",
-      "es" => "Título de la encuesta"
-    }
-  end
-  let(:description) do
-    {
-      "en" => "<p>Survey's content</p>",
-      "ca" => "<p>Contingut de l'enquesta</p>",
-      "es" => "<p>Contenido de la encuesta</p>"
-    }
-  end
+  let!(:questionnaire) { create(:questionnaire) }
   let!(:survey) { create(:survey, :published, component:, questionnaire:) }
 
   context "when the survey does not allow responses" do

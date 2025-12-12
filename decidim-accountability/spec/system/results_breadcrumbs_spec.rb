@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Explore results" do
+describe "Accountability Breadcrumb" do
   include_context "with a component"
 
   let(:manifest_name) { "accountability" }

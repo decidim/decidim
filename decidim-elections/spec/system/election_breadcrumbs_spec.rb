@@ -2,11 +2,11 @@
 
 require "spec_helper"
 
-describe "Election breadcrumbs" do
+describe "Election Breadcrumb" do
   include_context "with a component"
   let(:manifest_name) { "elections" }
 
-  let!(:election) { create(:election, :published, :finished, :with_internal_users_census, component:) }
+  let!(:election) { create(:election, :published, :finished, component:) }
 
   before do
     visit_component
