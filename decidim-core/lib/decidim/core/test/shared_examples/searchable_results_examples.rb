@@ -93,10 +93,9 @@ shared_examples "searchable results" do
     end
 
     context "when there is a link in the search result" do
-      let(:commentable) { searchables.first }
       before do
+        create(:comment, body: "Here is an interesting link: https://github.com/decidim", commentable: searchables.first.commentable)
         visit decidim.root_path
-        create(:comment, body: "Here is an interesting link: https://github.com/decidim", commentable:)
         field = find(search_input_selector)
         field.set "Here is an interesting link:"
         send_keys(:enter)
