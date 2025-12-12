@@ -207,12 +207,8 @@ describe "Amend Proposal", versioning: true do
           let!(:user) { create(:user, :confirmed, organization: component.organization) }
 
           before do
-            visit decidim.new_user_session_path
-            within "form.new_user" do
-              fill_in :session_user_email, with: user.email
-              fill_in :session_user_password, with: "decidim123456789"
-              find("*[type=submit]").click
-            end
+            expect(page).to have_content("Log in")
+            login_as user, scope: :user
 
             visit proposal_path
             expect(page).to have_content(proposal_title)
