@@ -32,13 +32,29 @@ describe "Dashboard" do
     end
   end
 
-  context "when the election is published" do
+  context "when the election is published and ongoing" do
+    let!(:election) { create(:election, :with_token_csv_census, :published, :ongoing, component:) }
+
     it_behaves_like "can only edit election description"
 
     context "when per question results availability" do
       let!(:election) { create(:election, :with_token_csv_census, :per_question, :published, :ongoing, component:) }
 
       it_behaves_like "can only edit election description"
+    end
+  end
+
+  context "when the election is published but not yet started" do
+    let!(:election) { create(:election, :with_token_csv_census, :published, :scheduled, component:) }
+
+    it "can edit all fields including questions and census" do
+      expect(page).to have_no_link("Publish")
+      expect(page).to have_link("Main")
+      expect(page).to have_link("Questions")
+      expect(page).to have_link("Census")
+
+      click_on "Main"
+      expect(page).to have_field("election[title_en]", disabled: false)
     end
   end
 
