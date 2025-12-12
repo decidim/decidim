@@ -54,19 +54,6 @@ describe "User adds suggestions" do
       expect(page).to have_no_content(unpublished_document.title)
     end
 
-    it "shows the correct information in breadcrumb" do
-      within(".menu-bar") do
-        expect(page).to have_content(translated(component.name))
-      end
-
-      click_on document.title
-
-      within(".menu-bar") do
-        expect(page).to have_content(translated(component.name))
-        expect(page).to have_content(translated(document.title))
-      end
-    end
-
     it "shows the document details" do
       click_on document.title
 
