@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Participatory Process Breadcrumb" do
+describe "Participatory Processes Breadcrumb" do
   let(:organization) { create(:organization) }
   let(:participatory_space) { create(:participatory_process, :published, organization:) }
   let(:component) { create(:proposal_component, :published, participatory_space:) }

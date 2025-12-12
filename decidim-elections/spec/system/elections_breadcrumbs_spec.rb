@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Election Breadcrumb" do
+describe "Elections Breadcrumb" do
   include_context "with a component"
   let(:manifest_name) { "elections" }
 

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Respond a survey" do
+describe "Surveys Breadcrumb" do
   include_context "with a component"
 
   let(:manifest_name) { "surveys" }
