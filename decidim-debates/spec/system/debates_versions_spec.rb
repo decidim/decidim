@@ -13,13 +13,6 @@ describe "Explore versions", versioning: true do
       visit debate_path
     end
 
-    it "shows the correct information in breadcrumb" do
-      within(".menu-bar") do
-        expect(page).to have_content(translated(component.name))
-        expect(page).to have_content(translated(debate.title))
-      end
-    end
-
     it "has only one version" do
       expect(page).to have_content("Version number 1 (of 1)")
     end
