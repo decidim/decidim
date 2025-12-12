@@ -4,3 +4,5 @@ ca:
     api:
       errors:
         not_found: "%{type} no trobat"
+        unauthorized_field: No pots veure o editar el camp %{field} a %{type} perquè no tens permisos per fer-ho
+        unauthorized_object: No pots veure i editar aquest %{type} perquè no tens permisos per fer-ho
