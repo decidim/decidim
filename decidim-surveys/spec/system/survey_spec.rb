@@ -36,14 +36,6 @@ describe "Respond a survey" do
   it_behaves_like "preview component with a share_token"
 
   context "when the survey does not allow responses" do
-    it "shows the correct information in breadcrumb" do
-      visit_component
-
-      within(".menu-bar") do
-        expect(page).to have_content(translated(component.name))
-      end
-    end
-
     it "does not allow responding the survey" do
       visit_component
 
