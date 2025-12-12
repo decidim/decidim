@@ -126,6 +126,9 @@ ja:
         show_in_footer: フッターに表示
         title: タイトル
         weight: 順番の位置
+      taxonomy:
+        item_name: アイテム名
+        parent_id: 親
       user_group_csv_verification:
         file: ファイル
     errors:
