@@ -56,7 +56,7 @@ describe "Proposals Breadcrumb" do
     end
   end
 
-  describe "verions", versioning: true do
+  describe "versions", versioning: true do
     let!(:amendment) { create(:amendment, amendable: proposal, emendation:) }
     let!(:emendation) { create(:proposal, body: { en: "Amended One liner body" }, component:) }
 
