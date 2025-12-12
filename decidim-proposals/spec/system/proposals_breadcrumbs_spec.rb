@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe "Proposals Breadcrumb" do
+  include_context "with a component"
+
   let(:organization) { create(:organization) }
   let(:participatory_space) { create(:participatory_process, :with_steps, :published, organization:, title: { "en" => "Participatory space" }) }
   let(:component) { create(:proposal_component, :published, :with_amendments_enabled, participatory_space:, name: { "en" => "Component" }) }
@@ -32,6 +34,53 @@ describe "Proposals Breadcrumb" do
         expect(page).to have_content(translated(component.participatory_space.title))
         expect(page).to have_content(translated(component.name))
         expect(page).to have_content(translated(proposal.title))
+      end
+    end
+
+    context "when it is an official proposal" do
+      let(:content) { generate_localized_title }
+      let!(:official_proposal) { create(:proposal, :official, body: content, component:) }
+      let!(:official_proposal_title) { translated(official_proposal.title) }
+
+      before do
+        visit_component
+        click_on official_proposal_title
+      end
+
+      it "shows the correct information in breadcrumb" do
+        within(".menu-bar") do
+          expect(page).to have_content(translated(component.name))
+          expect(page).to have_content(translated(official_proposal.title))
+        end
+      end
+    end
+  end
+
+  describe "verions", versioning: true do
+    let!(:amendment) { create(:amendment, amendable: proposal, emendation:) }
+    let!(:emendation) { create(:proposal, body: { en: "Amended One liner body" }, component:) }
+
+    let(:form) do
+      Decidim::Amendable::ReviewForm.from_params(
+        id: amendment.id,
+        amendable_gid: proposal.to_sgid.to_s,
+        emendation_gid: emendation.to_sgid.to_s,
+        emendation_params: { title: emendation.title, body: emendation.body }
+      )
+    end
+    let(:command) { Decidim::Amendable::Accept.new(form) }
+
+    before do
+      visit router.proposal_path(proposal, locale: I18n.locale)
+      command.call
+      click_on "see other versions"
+      click_on("Version 2 of 2")
+    end
+
+    it "shows the correct information in breadcrumb" do
+      within(".menu-bar") do
+        expect(page).to have_content(translated(component.name))
+        expect(page).to have_content(translated(proposal.reload.title))
       end
     end
   end
