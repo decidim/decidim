@@ -15,7 +15,7 @@ describe "Proposals Breadcrumb" do
     switch_to_host(organization.host)
   end
 
-  context "when visiting the proposals index page" do
+  describe "index" do
     scenario "shows breadcrumb with parent space, component" do
       visit router.root_path(locale: I18n.locale)
 
@@ -26,7 +26,7 @@ describe "Proposals Breadcrumb" do
     end
   end
 
-  context "when visiting single proposal page" do
+  describe "show" do
     scenario "shows breadcrumb with parent space, component and proposal" do
       visit router.proposal_path(proposal, locale: I18n.locale)
 

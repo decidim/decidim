@@ -64,12 +64,6 @@ describe "Show a Proposal" do
           visit current_path
         end
 
-        it "shows the correct information in breadcrumb" do
-          within(".menu-bar") do
-            expect(page).to have_content(translated(component.name))
-          end
-        end
-
         it "successfully shows the page" do
           expect(page).to have_content("Deleted participant")
         end
