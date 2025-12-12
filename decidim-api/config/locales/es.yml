@@ -4,3 +4,5 @@ es:
     api:
       errors:
         not_found: "%{type} no encontrado"
+        unauthorized_field: No puedes ver o editar el campo %{field} en %{type} porque no tienes permiso
+        unauthorized_object: No puedes ver o editar este %{type} porque no tienes permisos
