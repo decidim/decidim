@@ -51,22 +51,21 @@ Read more at https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html[Ama
 
 To have public assets in your application, so that you do not rely on the ActiveStorage redirect system, you need to configure your bucket as follows:
 
-1. Visit your AWS S3 account
-2. Select the bucket you are setting as upload
-3. Visit permissions tab
-4. Click edit on "Block public access" section
-5. In the screen that opens, uncheck all the checkboxes
-  - Uncheck "Block all public access"
-  - Uncheck "Block public access to buckets and objects granted through new access control lists (ACLs)"
-  - Uncheck "Block public access to buckets and objects granted through any access control lists (ACLs)"
-  - Uncheck "Block public access to buckets and objects granted through new public bucket or access point policies"
-  - Uncheck "Block public and cross-account access to buckets and objects through any public bucket or access point policies"
-6. Click "Save changes"
-7. In the permissions tab, identify "Bucket policy" and click "Edit"
-8. Set your policy as in the below example.
-   - If you do not know your "Resource" value (ARN), visit the bucket's properties tab. For demonstration purposes we will use `arn:aws:s3:::my-bucket`
-9. Click "Save changes"
-
+1. Go to your AWS S3 console
+2. Select the bucket you are using for uploads
+3. Open the *Permissions* tab
+4. In the *Block public access* section, click *Edit*
+5. Disable all blocking options by *unchecking* every box:
+  - "Block all public access"
+  - "Block public access to buckets and objects granted through new access control lists (ACLs)"
+  - "Block public access to buckets and objects granted through any access control lists (ACLs)"
+  - "Block public access to buckets and objects granted through new public bucket or access point policies"
+  -  "Block public and cross-account access to buckets and objects through any public bucket or access point policies"
+6. Click *Save changes*
+7. Still in the *Permissions tab*, locate the *Bucket policy section* and click *Edit*.
+8. Add a bucket policy similar to the example below.
+   - If you are unsure of your bucket’s ARN, you can find it in the Properties tab. For this example, we use  `arn:aws:s3:::your-bucket-name`
+9. Click *Save changes*
 [source,json]
 ----
 {
@@ -77,7 +76,7 @@ To have public assets in your application, so that you do not rely on the Active
             "Effect": "Allow",
             "Principal": "*",
             "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::my-bucket/*"
+            "Resource": "arn:aws:s3:::your-bucket-name/*"
         }
     ]
 }
@@ -85,7 +84,7 @@ To have public assets in your application, so that you do not rely on the Active
 
 [NOTE]
 ====
-If you use any other provider than the default (`local`) you will need to also configure the xref:customize:content_security_policy.adoc[Content security policy]. For the directives "img-src", "media-src", and "connect-src" adding some additional content like https://$YOUR-BUCKET-NAME.s3.$YOUR-AWS-REGION.amazonaws.com/*  (should look like: https://my-bucket.s3.eu-west-1.amazonaws.com)
+If you use any other provider than the default (`local`) you will need to also configure the xref:customize:content_security_policy.adoc[Content security policy]. For the directives "img-src", "media-src", and "connect-src" adding some additional content like https://$YOUR-BUCKET-NAME.s3.$YOUR-AWS-REGION.amazonaws.com/*  (should look like: https://your-bucket-name.s3.eu-west-1.amazonaws.com)
 ====
 
 ===  Google Cloud Storage
