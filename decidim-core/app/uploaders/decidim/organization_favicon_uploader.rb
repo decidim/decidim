@@ -7,7 +7,8 @@ module Decidim
       huge: 512,
       big: 192,
       medium: 180,
-      small: 32
+      small: 32,
+      favicon: 256
     }.freeze
 
     set_variants do
