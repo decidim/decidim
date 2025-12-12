@@ -227,8 +227,14 @@ module Decidim
           end
         end
 
-        context "with a PNG file" do
-          let(:favicon_path) { Decidim::Dev.asset("icon.png") }
+        context "with a HEIC format" do
+          let(:favicon_path) { Decidim::Dev.asset("icon.HEIC") }
+
+          it_behaves_like "creates correct favicon variants"
+        end
+
+        context "with a JPEG format" do
+          let(:favicon_path) { Decidim::Dev.asset("avatar.jpeg") }
 
           it_behaves_like "creates correct favicon variants"
         end
