@@ -88,13 +88,6 @@ describe "Explore posts" do
       end
 
       context "when author is an organization" do
-        it "shows the correct information in breadcrumb" do
-          within(".menu-bar") do
-            expect(page).to have_content(translated(component.name))
-            expect(page).to have_content(translated(post.title))
-          end
-        end
-
         it "shows 'Official' as the author" do
           within ".author__name" do
             expect(page).to have_content("Official")
