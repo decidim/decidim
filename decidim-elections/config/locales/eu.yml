@@ -301,7 +301,6 @@ eu:
           cast_vote: Eman botoa
           next: Hurrengoa
         receipt:
-          description: Edozein unetan eman dezakezu botoa berriro, bozkatzeko epea irekita dagoen bitartean. Zure boto berriak aurrekoa gainidatziko du.
           exit_button: Irten bozkatzeko kabinatik
           title: Zure botoak zuzen eman dira
     metadata:
