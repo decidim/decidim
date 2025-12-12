@@ -41,7 +41,7 @@ describe UploaderImageDimensionsValidator do
         expect(subject.attached_uploader(:upload).validable_dimensions).to be(true)
       end
 
-      # Ensure MiniMagic is called so that the validations are actually run for
+      # Ensure Vips is called so that the validations are actually run for
       # the same reason as above.
       it "calls Vips" do
         if type == :blob
