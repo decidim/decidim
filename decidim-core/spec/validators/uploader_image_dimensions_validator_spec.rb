@@ -136,6 +136,20 @@ describe UploaderImageDimensionsValidator do
     let(:upload) { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     let(:uploader) { record.attached_uploader(:upload) }
 
+    context "when image dimensions exceed maximum allowed" do
+      let(:image) { instance_double(Vips::Image, width: 10_000, height: 8_000) }
+
+      before do
+        allow(Vips::Image).to receive(:new_from_file).and_return(image)
+        allow(uploader).to receive(:max_image_height_or_width).and_return(5_000)
+      end
+
+      it "adds the correct error" do
+        expect { subject }.not_to raise_error
+        expect(record.errors[:upload]).to contain_exactly("File resolution is too large")
+      end
+    end
+
     context "when Vips fails to process the image" do
       let(:image) do
         Vips::Image.new_from_file(upload.path)
