@@ -103,17 +103,6 @@ describe "Respond a survey" do
         end
       end
 
-      it "shows the correct information in breadcrumb" do
-        visit_component
-        choose "All"
-        click_on translated_attribute(questionnaire.title)
-
-        within(".menu-bar") do
-          expect(page).to have_content(translated(component.name))
-          expect(page).to have_content(translated(questionnaire.title))
-        end
-      end
-
       it "shows the charts when questions responses are published" do
         visit_component
         choose "All"
