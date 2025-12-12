@@ -761,13 +761,6 @@ en:
           uid: The unique identifier of this identity
           updated_at: The date and time when the identity was last updated
           user: The user that this identity belongs to
-        members:
-          created_at: The date and time when this member was created
-          id: The unique identifier of this member
-          privatable_to: To which space this member belongs
-          published: Wether this member is published or not
-          role: The role that this member has
-          updated_at: The date and time when this member was last updated
         messaging_conversations:
           created_at: The date when this conversation was created
           id: The unique identifier for this conversation
@@ -781,6 +774,13 @@ en:
           id: The unique identifier of this notification
           resource_type: The type of the resource that the notification is related to
           updated_at: The date and time when the notification was last updated
+        participatory_space_members:
+          created_at: The date and time when this member was created
+          id: The unique identifier of this member
+          privatable_to: To which space this member belongs
+          published: Wether this member is published or not
+          role: The role that this member has
+          updated_at: The date and time when this member was last updated
         reports:
           created_at: The date and time when this report was created
           details: The details of this report

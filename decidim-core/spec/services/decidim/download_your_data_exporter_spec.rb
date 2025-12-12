@@ -16,7 +16,7 @@ module Decidim
         decidim-identities-
         decidim-messaging-conversations-
         decidim-notifications-
-        decidim-members-
+        decidim-participatoryspace-members-
         decidim-reports-
         decidim-users-
         decidim-meetings-registrations-
