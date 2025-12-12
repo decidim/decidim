@@ -69,7 +69,6 @@ en:
         confirm_destroy: Are you sure you want to delete this?
         destroy: Destroy
         edit: Edit
-        export_responses: Responses
         manage_questions: Questions
         new_survey: New survey
         preview: Preview
