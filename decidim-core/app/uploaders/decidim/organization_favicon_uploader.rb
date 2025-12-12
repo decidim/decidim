@@ -17,12 +17,7 @@ module Decidim
           resize_and_pad: [value, value],
           format: :png
         }
-      end.merge(
-        favicon: {
-          resize_and_pad: [256, 256],
-          format: :png
-        }
-      )
+      end
     end
 
     def extension_allowlist
