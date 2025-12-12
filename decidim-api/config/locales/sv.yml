@@ -1,1 +1,8 @@
+---
 sv:
+  decidim:
+    api:
+      errors:
+        not_found: "%{type} hittades inte"
+        unauthorized_field: Du kan inte visa eller redigera %{field} fältet på %{type} eftersom du inte har behörighet
+        unauthorized_object: Du kan inte visa eller redigera detta %{type} eftersom du inte har behörigheter
