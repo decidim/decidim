@@ -15,7 +15,7 @@ describe "Budgets Breadcrumb" do
   end
 
   context "when visiting the budgets index page" do
-    scenario "shows breadcrumb with parent space, component and budget" do
+    it "shows the correct information in breadcrumb (space, component)" do
       visit router.root_path(locale: I18n.locale)
 
       within ".menu-bar" do
@@ -26,7 +26,7 @@ describe "Budgets Breadcrumb" do
   end
 
   context "when visiting single budget page" do
-    scenario "shows breadcrumb with parent space, component and budget" do
+    it "shows the correct information in breadcrumb (space, component, budget)" do
       visit router.budget_path(budget, locale: I18n.locale)
 
       within ".menu-bar" do
@@ -38,7 +38,7 @@ describe "Budgets Breadcrumb" do
   end
 
   context "when visiting single project page" do
-    scenario "shows breadcrumb with parent space, component, budget and project" do
+    it "shows the correct information in breadcrumb (space, component, budget, project)" do
       visit router.budget_project_path(budget, project, locale: I18n.locale)
 
       within ".menu-bar" do

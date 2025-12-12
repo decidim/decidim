@@ -25,7 +25,7 @@ describe "Collaborative texts breadcrumbs" do
   end
 
   describe "index" do
-    it "shows the correct information in breadcrumb" do
+    it "shows the correct information in breadcrumb (space, component)" do
       within(".menu-bar") do
         expect(page).to have_content(translated(component.participatory_space.title))
         expect(page).to have_content(translated(component.name))
@@ -34,7 +34,7 @@ describe "Collaborative texts breadcrumbs" do
   end
 
   describe "show" do
-    it "shows the correct information in breadcrumb" do
+    it "shows the correct information in breadcrumb (space, component, document)" do
       click_on document.title
 
       within(".menu-bar") do

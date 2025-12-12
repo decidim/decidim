@@ -25,10 +25,11 @@ describe "Respond a survey" do
   let!(:survey) { create(:survey, :published, component:, questionnaire:) }
 
   context "when the survey does not allow responses" do
-    it "shows the correct information in breadcrumb" do
+    it "shows the correct information in breadcrumb (space, component)" do
       visit_component
 
       within(".menu-bar") do
+        expect(page).to have_content(translated(component.participatory_space.title))
         expect(page).to have_content(translated(component.name))
       end
     end
@@ -45,12 +46,13 @@ describe "Respond a survey" do
       end
     end
 
-    it "shows the correct information in breadcrumb" do
+    it "shows the correct information in breadcrumb (space, component, questionnaire)" do
       visit_component
       choose "All"
       click_on translated_attribute(questionnaire.title)
 
       within(".menu-bar") do
+        expect(page).to have_content(translated(component.participatory_space.title))
         expect(page).to have_content(translated(component.name))
         expect(page).to have_content(translated(questionnaire.title))
       end

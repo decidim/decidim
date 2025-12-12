@@ -16,7 +16,7 @@ describe "Proposals Breadcrumb" do
   end
 
   describe "index" do
-    scenario "shows breadcrumb with parent space, component" do
+    it "shows the correct information in breadcrumb (space, component)" do
       visit router.root_path(locale: I18n.locale)
 
       within ".menu-bar" do
@@ -27,7 +27,7 @@ describe "Proposals Breadcrumb" do
   end
 
   describe "show" do
-    scenario "shows breadcrumb with parent space, component and proposal" do
+    it "shows the correct information in breadcrumb (space, component, proposal)" do
       visit router.proposal_path(proposal, locale: I18n.locale)
 
       within ".menu-bar" do
@@ -47,8 +47,9 @@ describe "Proposals Breadcrumb" do
         click_on official_proposal_title
       end
 
-      it "shows the correct information in breadcrumb" do
+      it "shows the correct information in breadcrumb (space, component, proposal)" do
         within(".menu-bar") do
+          expect(page).to have_content(translated(component.participatory_space.title))
           expect(page).to have_content(translated(component.name))
           expect(page).to have_content(translated(official_proposal.title))
         end
@@ -77,8 +78,9 @@ describe "Proposals Breadcrumb" do
       click_on("Version 2 of 2")
     end
 
-    it "shows the correct information in breadcrumb" do
+    it "shows the correct information in breadcrumb (space, component, proposal)" do
       within(".menu-bar") do
+        expect(page).to have_content(translated(component.participatory_space.title))
         expect(page).to have_content(translated(component.name))
         expect(page).to have_content(translated(proposal.reload.title))
       end
@@ -103,7 +105,7 @@ describe "Proposals Breadcrumb" do
       command.call
     end
 
-    scenario "shows breadcrumb with parent space, component and proposal" do
+    it "shows the correct information in breadcrumb (space, component, amendment)" do
       visit router.proposal_path(emendation, locale: I18n.locale)
 
       within ".menu-bar" do

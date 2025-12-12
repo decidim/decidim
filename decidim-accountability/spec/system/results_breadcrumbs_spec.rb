@@ -15,8 +15,9 @@ describe "Explore results" do
       visit path
     end
 
-    it "shows the correct information in breadcrumb" do
+    it "shows the correct information in breadcrumb (space, component)" do
       within(".menu-bar") do
+        expect(page).to have_content(translated(component.participatory_space.title))
         expect(page).to have_content(translated(component.name))
       end
     end
@@ -31,8 +32,9 @@ describe "Explore results" do
       visit path
     end
 
-    it "shows the correct information in breadcrumb" do
+    it "shows the correct information in breadcrumb (space, component, result)" do
       within(".menu-bar") do
+        expect(page).to have_content(translated(component.participatory_space.title))
         expect(page).to have_content(translated(component.name))
         expect(page).to have_content(translated(result.title))
       end
@@ -46,9 +48,10 @@ describe "Explore results" do
         visit current_path
       end
 
-      it "shows the correct information in breadcrumb" do
+      it "shows the correct information in breadcrumb (space, component, result, subresult)" do
         click_on translated(first_subresult.title)
         within(".menu-bar") do
+          expect(page).to have_content(translated(component.participatory_space.title))
           expect(page).to have_content(translated(component.name))
           expect(page).to have_content(translated(result.title))
           expect(page).to have_content(translated(first_subresult.title))
@@ -72,8 +75,9 @@ describe "Explore results" do
       click_on "see other versions"
     end
 
-    it "shows the correct information in breadcrumb" do
+    it "shows the correct information in breadcrumb (space, component, result)" do
       within(".menu-bar") do
+        expect(page).to have_content(translated(component.participatory_space.title))
         expect(page).to have_content(translated(component.name))
         expect(page).to have_content(translated(result.title))
       end

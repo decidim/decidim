@@ -14,7 +14,7 @@ describe "Blogs breadcrumbs" do
   end
 
   describe "index" do
-    it "shows the correct information in breadcrumb" do
+    it "shows the correct information in breadcrumb (space, component)" do
       within(".menu-bar") do
         expect(page).to have_content(translated(component.participatory_space.title))
         expect(page).to have_content(translated(component.name))
@@ -23,7 +23,7 @@ describe "Blogs breadcrumbs" do
   end
 
   describe "show" do
-    it "shows the correct information in breadcrumb" do
+    it "shows the correct information in breadcrumb (space, component, post)" do
       click_on translated(post.title)
 
       within(".menu-bar") do

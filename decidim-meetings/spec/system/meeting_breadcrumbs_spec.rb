@@ -14,7 +14,7 @@ describe "Meeting breadcrumbs" do
   end
 
   describe "index" do
-    it "shows the correct information in breadcrumb" do
+    it "shows the correct information in breadcrumb (space, component)" do
       within(".menu-bar") do
         expect(page).to have_content(translated(component.participatory_space.title))
         expect(page).to have_content(translated(component.name))
@@ -23,7 +23,7 @@ describe "Meeting breadcrumbs" do
   end
 
   describe "show" do
-    it "shows the correct information in breadcrumb" do
+    it "shows the correct information in breadcrumb (space, component, meeting)" do
       click_on meeting.title[I18n.locale.to_s]
       within(".menu-bar") do
         expect(page).to have_content(translated(component.participatory_space.title))
@@ -54,7 +54,7 @@ describe "Meeting breadcrumbs" do
       click_on "see other versions"
     end
 
-    it "shows the correct information in breadcrumb" do
+    it "shows the correct information in breadcrumb (space, component, meeting)" do
       within(".menu-bar") do
         expect(page).to have_content(translated(component.participatory_space.title))
         expect(page).to have_content(translated(component.name))
