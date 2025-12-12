@@ -2,8 +2,8 @@
 
 shared_examples "manage proposal mutation examples" do
   context "when proposal answering disabled" do
-    it "does not answer the proposal" do
-      expect(response["answer"]).to be_nil
+    it "throws Decidim::Api::Errors::UnauthorizedFieldError" do
+      expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedFieldError, "You cannot view or edit answer field on Answer because you do not have permission")
     end
   end
 

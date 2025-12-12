@@ -125,6 +125,9 @@ eu:
         show_in_footer: Erakutsi orri-oinean
         title: Izenburua
         weight: Kokapenaren hurrenkera
+      taxonomy:
+        item_name: Elementuaren izena
+        parent_id: Nagusia
       user_group_csv_verification:
         file: Fitxategia
     errors:

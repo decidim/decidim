@@ -39,8 +39,8 @@ module Decidim
         context "when the post does not belong to the component" do
           let!(:post) { create(:post, component: create(:post_component)) }
 
-          it "returns null" do
-            expect(response["post"]).to be_nil
+          it "raises error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Post not found")
           end
         end
       end

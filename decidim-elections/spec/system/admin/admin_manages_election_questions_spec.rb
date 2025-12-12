@@ -225,6 +225,17 @@ describe "Admin manages elections questions" do
     end
   end
 
+  context "when the election has started" do
+    let!(:started_election) { create(:election, :published, :ongoing, component: current_component) }
+    let!(:question) { create(:election_question, :with_response_options, election: started_election) }
+
+    it "denies access to the questions edit page" do
+      visit Decidim::EngineRouter.admin_proxy(current_component).edit_questions_election_path(started_election)
+
+      expect(page).to have_content("You are not authorized to perform this action")
+    end
+  end
+
   context "when admin user sets max_choices for multiple_option question" do
     it "creates a question with max_choices" do
       visit questions_edit_path

@@ -617,6 +617,7 @@ ja:
     open_data:
       help:
         conferences:
+          component_settings: カンファレンススペースのコンポーネント設定
           created_at: このスペースが作成された日時
           decidim_scope_id: カンファレンスのスコープ
           description: カンファレンスの詳しい説明

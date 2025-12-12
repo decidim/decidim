@@ -340,6 +340,7 @@ fi-pl:
         participatory_processes:
           announcement: Ilmoituksen sisältö
           area: Alue, jota prosessi koskee
+          component_settings: Prosessin komponenttiasetukset
           created_at: Tilan luontiaika
           description: Prosessin pitkä kuvaus
           developer_group: Prosessin kehittäjäryhmä, joka edistää tämän prosessin toteutumista.

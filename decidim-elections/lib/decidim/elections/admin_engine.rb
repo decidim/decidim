@@ -52,14 +52,14 @@ module Decidim
 
           menu.add_item :election_questions_edit,
                         I18n.t("election_questions", scope: "decidim.admin.menu.elections_menu"),
-                        @election.nil? || @election.published? ? "#" : current_component_admin_proxy&.edit_questions_election_path(@election),
-                        active: @election.present? && !@election.published? && is_active_link?(current_component_admin_proxy&.edit_questions_election_path(@election)),
+                        @election.nil? || !@election.editable? ? "#" : current_component_admin_proxy&.edit_questions_election_path(@election),
+                        active: @election.present? && @election.editable? && is_active_link?(current_component_admin_proxy&.edit_questions_election_path(@election)),
                         icon_name: "question-answer-line"
 
           menu.add_item :election_census,
                         I18n.t("election_census", scope: "decidim.admin.menu.elections_menu"),
-                        @election.nil? || @election.published? || @election.questions.blank? ? "#" : current_component_admin_proxy&.census_election_path(@election),
-                        active: @election.present? && !@election.published? && is_active_link?(current_component_admin_proxy&.census_election_path(@election)),
+                        @election.nil? || !@election.editable? || @election.questions.blank? ? "#" : current_component_admin_proxy&.census_election_path(@election),
+                        active: @election.present? && @election.editable? && is_active_link?(current_component_admin_proxy&.census_election_path(@election)),
                         icon_name: "group-2-line"
 
           menu.add_item :election_dashboard,

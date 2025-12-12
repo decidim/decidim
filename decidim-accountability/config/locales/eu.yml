@@ -270,7 +270,7 @@ eu:
             one: Emaitza 1
             other: "%{count} emaitza"
         home_header:
-          global_status: Exekuzio-egoera orokorra
+          global_status: Helburuen betetze-maila
         milestones:
           title: Mugarriak
         no_results: Ez dago proiekturik

@@ -125,6 +125,9 @@ es:
         show_in_footer: Mostrar en el pie de página
         title: Título
         weight: Orden de posición
+      taxonomy:
+        item_name: Nombre del elemento
+        parent_id: Taxonomía madre
       user_group_csv_verification:
         file: Archivo
     errors:

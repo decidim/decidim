@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const optionVoteCountTexts = () => document.querySelectorAll("[data-option-votes-count-text]");
   const optionVotePercentTexts = () => document.querySelectorAll("[data-option-votes-percent-text]");
   const optionVoteWidths = () => document.querySelectorAll("[data-option-votes-width]");
+  const questionTotalVotesTexts = () => document.querySelectorAll("[data-question-total-votes-text]");
   
   const animateText = (element, value) => {
     if (element.textContent === value) {
@@ -24,6 +25,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1000);
   };
   
+  const digQuestionValue = (questionId, data, key) => {
+    const questions = data.questions || [];
+    const question = questions.find((item) => item.id === parseInt(questionId, 10));
+    if (!question || !(key in question)) {
+      return null;
+    }
+    return question[key];
+  };
+
   const digOptionValue = (questionId, optionId, data, key) => {
     data.questions = data.questions || [];
     const question = data.questions.find((item) => item.id === parseInt(questionId, 10));
@@ -55,6 +65,11 @@ document.addEventListener("DOMContentLoaded", () => {
       questionElement.id = `question-${question.id}`;
       questionElement.classList.remove("hidden");
       questionElement.querySelector("[data-question-body]").textContent = question.body;
+      const totalVotesElement = questionElement.querySelector("[data-question-total-votes-text]");
+      if (totalVotesElement) {
+        totalVotesElement.dataset.questionTotalVotesText = question.id;
+        totalVotesElement.textContent = question.total_votes_text || "";
+      }
       const optionsContainer = questionElement.querySelector("[data-options-container]");
       question.response_options.forEach((option) => {
         const optionElement = optionTemplate.cloneNode(true);
@@ -104,6 +119,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const val = digOptionValue(questionId, optionId, data, "votes_percent")
         if (val) {
           el.style.width = `${val}%`;
+        }
+      });
+      questionTotalVotesTexts().forEach((el) => {
+        const questionId = el.dataset.questionTotalVotesText;
+        const val = digQuestionValue(questionId, data, "total_votes_text");
+        if (val) {
+          animateText(el, val);
         }
       });
       // repeat for ongoing elections only

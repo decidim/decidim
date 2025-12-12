@@ -124,6 +124,9 @@ sv:
         show_in_footer: Visa i sidfoten
         title: Titel
         weight: Position i listan
+      taxonomy:
+        item_name: Objektnamn
+        parent_id: Överordnad
       user_group_csv_verification:
         file: Fil
     errors:

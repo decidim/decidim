@@ -1,6 +1,10 @@
 tr:
   activemodel:
     attributes:
+      milestone:
+        description: Açıklama
+        entry_date: Tarih
+        title: Başlık
       result:
         decidim_accountability_status_id: Durum
         decidim_category_id: Kategori
@@ -36,6 +40,7 @@ tr:
   decidim:
     accountability:
       actions:
+        add_milestone: Aşama ekle
         confirm_delete_result: Bu sonucu silmek istediğinizden emin misiniz?
         confirm_destroy: Bu %{name}silmek istediğinize emin misiniz?
         deleted_results_info: Silinen sonuçlar çöp kutusundan geri yüklenebilir.
@@ -43,6 +48,7 @@ tr:
         edit: Düzenle
         import: Sonuçları başka bir bileşenden içe aktar
         import_csv: Sonuçları CSV dosyasından içe aktarın
+        new_milestone: Yeni aşama
         new_result: Yeni sonuç
         new_status: Yeni Durum
         preview: Ön izleme
@@ -83,6 +89,20 @@ tr:
           create:
             invalid: Sonuçlar içe aktarılırken bir sorun oluştu.
             success: Dosya aktarımı başladı. Birkaç dakika içinde içe aktarma işleminin sonucunu içeren bir e-posta alacaksınız.
+        milestones:
+          create:
+            invalid: Bu aşama oluşturulurken bir hata oluştu.
+            success: Aşama başarıyla oluşturuldu.
+          destroy:
+            success: Aşama başarıyla silindi.
+          edit:
+            title: Aşamayı düzenle
+            update: Aşamayı güncelle
+          new:
+            create: Aşama oluştur
+          update:
+            invalid: Bu aşama güncellenirken bir hata oluştu.
+            success: Aşama başarıyla güncellendi.
         models:
           result:
             name: Sonuç
@@ -133,6 +153,7 @@ tr:
             invalid: Sonuçlar %{results} için sınıflandırmalar %{taxonomies} seçilemiyor
             select_a_result: Bir sonuç seç
             select_a_taxonomy: Bir sınıflandırma seç
+            success: '%{results} için sınıflandırmalar %{taxonomies} başarıyla güncellendi'
         shared:
           subnav:
             statuses: durumlar
@@ -157,6 +178,7 @@ tr:
         result:
           create: "%{user_name} sonuç yaratmıştır %{resource_name} içinde %{space_name}"
           delete: "%{user_name} %{resource_name} sonuçtan %{space_name}sildi"
+          restore: "%{user_name}, %{space_name}'deki %{resource_name} sonucunu geri yükledi"
           update: "%{user_name} güncellenen sonuç %{resource_name} in %{space_name}"
         status:
           create: "48 / 5.000\nÇeviri sonuçları\nÇeviri sonucu\n%{user_name}, %{resource_name} kaydını oluşturdu"
@@ -168,6 +190,8 @@ tr:
       content_blocks:
         highlighted_results:
           results: Sonuç
+      creation:
+        text: Bu sonuç eklendi
       import_mailer:
         import:
           errors: Hatalar
@@ -177,8 +201,18 @@ tr:
           success: Sonuçların içe aktarılması başarılı. Sonuçları yönetim arayüzünde inceleyebilirsiniz.
       import_projects_mailer:
         import:
+          added_projects:
+            one: Projelerden bir sonuç içe aktarıldı.
+            other: "%{count} sonuç projelerden içe aktarıldı."
           subject: Projeler başarıyla aktarılmıştır
           success: '%{component_name} bileşenindekiprojeler başarıyla aktarılmıştır. Sonuçları yönetim arayüzünde inceleyebilirsiniz.'
+      import_proposals_mailer:
+        import:
+          added_proposals:
+            one: Tekliflerden bir sonuç içe aktarıldı
+            other: "%{count} sonuç tekliflerden içe aktarıldı."
+          subject: Tekliflerin içe aktarımı başarılı
+          success: Teklifler %{component_name} bileşenindeki sonuçlara başarıyla aktarılmıştır. Sonuçları yönetim arayüzünde inceleyebilirsiniz.
       last_activity:
         new_result: 'Yeni sonuç:'
       models:
@@ -203,6 +237,8 @@ tr:
             other: "%{count} sonuç"
         home_header:
           global_status: Genel yürütme durumu
+        milestones:
+          title: Aşamalar
         no_results: Proje Bulunamadı
         search:
           search: İşlemleri ara
@@ -214,19 +250,32 @@ tr:
         results:
           status_id_eq:
             label: Durum
+      tooltips:
+        deleted_results_info: Bu sonuç silinemiyor
     components:
       accountability:
         actions:
           comment: Yorum
+          vote_comment: Yorumu oyla
         name: Sorumluluk
         settings:
           global:
+            clear_all: Tümünü sil
             comments_enabled: Yorumlar etkin
             comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
+            default_taxonomy: Varsayılan sınıflandırma
+            default_taxonomy_help: Varsayılan olarak hangi sınıflandırmayı göstermek istediğinizi seçin. Eğer herhangi bir sınıflandırma seçilmezse, sonuçlar liste biçiminde gösterilecektir.
+            define_taxonomy_filters: Bu ayarı kullanmadan önce lütfen bu katılımcı alan için bazı filtreler tanımlayın.
             display_progress_enabled: İlerlemeyi göster
             intro: Tanıtım
+            no_taxonomy_filters_found: Sınıflandırma filtresi bulunamadı.
+            taxonomy_filters_add: Filtre ekle
           step:
             comments_blocked: Yorumlar engellendi
+    download_your_data:
+      show:
+        result_comments: Sonuç yorumlarını dışa aktar
+        results: Sonuçları içe aktar
     events:
       accountability:
         proposal_linked:
@@ -241,8 +290,15 @@ tr:
           notification_title: '<a href="%{proposal_path}">%{proposal_title}</a> teklifini içeren <a href="%{resource_path}">%{resource_title}</a> sonucu: %{progress} tamamlandı.'
     open_data:
       help:
+        result_comments:
+          author: Bu yorumu yapan katılımcının adı
+          body: Yorumun kendisi
+          created_at: Bu yorumun oluşturulduğu tarih
+          root_commentable_url: Bu yoruma bağlı kaynağın URL bağlantısı
         results:
+          address: Sonucun adresi (varsa)
           created_at: Sonucun oluşturulma tarihi
+          taxonomies:
     participatory_spaces:
       highlighted_results:
         see_all: Tüm sonuçları gör (%{count})
