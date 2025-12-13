@@ -6,7 +6,6 @@ Allows administrators to answer proposals with a status (accepted, rejected, or 
 
 This is an example on how to use the Answer Proposal mutation. Please refer to the GraphQL documentation for the available fields:
 
-
 - https://nightly.decidim.org/api/docs/input_object/answerinput/[Answer Input]
 - https://nightly.decidim.org/api/docs/input_object/proposalattributes[Proposal Attributes]
 - https://nightly.decidim.org/api/docs/object/proposal[Proposal Type]
@@ -83,3 +82,101 @@ When you are not authorized, or when you are not authenticated, the server will 
 }
 ```
 
+== Proposals Attributes
+When you want to add or create data in your proposals component, you need to rely on the `ProposalAttributes` type, which has the following input fields:
+
+```
+• title       (required) - 15-150 characters
+• body        (required) - minimum 15 characters
+• address     (optional) - physical address (requires geocoding)
+• latitude    (optional) - coordinate
+• longitude   (optional) - coordinate
+• taxonomies  (optional) - Taxonomies ids to assign to this proposal
+```
+
+== Creating Proposals
+
+The `CreateProposal` mutation allows authenticated users to create new proposals in a Decidim proposals component. This mutation uses the existing `CreateProposal` command from the controller.
+
+[source,graphql]
+----
+mutation {
+  component(id: "123") {
+    ... on ProposalsMutation {
+      createProposal(input: {
+        attributes: {
+          title: "Install Bike Lanes on Main Street",
+          body: "We propose adding dedicated bike lanes along Main Street to improve cyclist safety and encourage sustainable transportation.",
+          address: "Main Street, Barcelona, Spain",
+          latitude: 41.3851,
+          longitude: 2.1734,
+          "taxonomies": [123, 456]
+        }
+      }) {
+        id
+        title {
+          translation(locale: "en")
+        }
+        address
+        coordinates {
+          latitude
+          longitude
+        }
+      }
+    }
+  }
+}
+----
+
+=== Error Handling
+
+==== Validation Errors
+
+When you are not authorized or when you are not authenticated, the server will respond with a simple:
+
+[source,json]
+----
+{
+  "errors": [
+    {
+      "message": "You do not have permission to perform this mutation",
+      "locations": [
+        {
+          "line": 2, "column": 3
+        }
+      ],
+      "path": ["createProposal"],
+      "extensions": {"code": "MUTATION_NOT_AUTHORIZED"}
+    }
+  ],
+  "data": { "createProposal": null }
+}
+----
+
+
+If the input fails validation, you will receive an error response:
+
+[source,json]
+----
+{
+  "errors": [
+    {
+      "message": [
+        {
+          "path": ["attributes", "title"],
+          "message": "cannot be blank"
+        },
+        {
+          "path": ["attributes", "title"],
+          "message": "is too short (under 15 characters)"}
+      ],
+      "locations": [
+        {"line": 2, "column": 3}
+      ],
+      "path": ["createProposal"],
+      "extensions": {"code": "ATTRIBUTE_VALIDATION_ERROR"}
+    }
+  ],
+  "data": {"createProposal": null}
+}
+----
