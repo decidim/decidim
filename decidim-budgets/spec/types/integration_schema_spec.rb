@@ -474,8 +474,20 @@ describe "Decidim::Api::QueryType" do
         context "when user is visitor and requests projects that is not supposed to see" do
           let!(:current_user) { nil }
 
-          it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
-            expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this Project because you do not have permissions")
+          let(:component_fragment) do
+            %(
+      fragment fooComponent on Budgets {
+        budget(id: #{budget.id}) {
+          id
+          projects {
+            id
+          }
+        }
+      })
+          end
+
+          it "throws Decidim::Api::Errors::PermissionNotSetError" do
+            expect { response }.to raise_error(Decidim::Api::Errors::PermissionNotSetError, "Permission has not been set for this Project")
           end
         end
 
