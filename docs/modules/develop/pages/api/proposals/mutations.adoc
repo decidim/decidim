@@ -180,3 +180,83 @@ If the input fails validation, you will receive an error response:
   "data": {"createProposal": null}
 }
 ----
+
+== Updating Proposals
+The `UpdateProposal` mutation allows authenticated users to updates proposals in a Decidim component. This mutation uses the existing `UpdateProposal` command from controller.
+
+[source,graphql]
+----
+mutation {
+  proposals {
+    proposal(id: "123") {
+      update(input: {
+        attributes: {
+          title: "Install Bike Lanes on Main Street",
+          body: "We propose adding dedicated bike lanes along Main Street to improve cyclist safety and encourage sustainable transportation.",
+          address: "Main Street, Barcelona, Spain",
+          latitude: 41.3851,
+          longitude: 2.1734,
+          "taxonomies": [123, 456]
+        }
+      }) {
+        id
+        title { translation(locale: "en") }
+        body { translation(locale: "en") }
+      }
+    }
+  }
+}
+----
+
+=== Error Handling
+
+==== Validation Errors
+
+When you are not authorized or when you are not authenticated, the server will respond with a simple:
+
+[source,json]
+----
+{
+  "errors": [
+    {
+      "message": "You do not have permission to perform this mutation",
+      "locations": [
+        {
+          "line": 2, "column": 3
+        }
+      ],
+      "path": ["updateProposal"],
+      "extensions": {"code": "MUTATION_NOT_AUTHORIZED"}
+    }
+  ],
+  "data": { "updateProposal": null }
+}
+----
+
+
+If the input fails validation, you will receive an error response:
+
+[source,json]
+----
+{
+  "errors": [
+    {
+      "message": [
+        {
+          "path": ["attributes", "title"],
+          "message": "cannot be blank"
+        },
+        {
+          "path": ["attributes", "title"],
+          "message": "is too short (under 15 characters)"}
+      ],
+      "locations": [
+        {"line": 2, "column": 3}
+      ],
+      "path": ["updateProposal"],
+      "extensions": {"code": "ATTRIBUTE_VALIDATION_ERROR"}
+    }
+  ],
+  "data": {"updateProposal": null}
+}
+----

@@ -9,6 +9,7 @@ module Decidim
       description "a proposal which includes its available mutations"
 
       field :answer, mutation: Decidim::Proposals::ProposalAnswerType, description: "Answers a proposal"
+      field :update, mutation: Decidim::Proposals::UpdateProposalType, description: "Updates a proposal"
     end
   end
 end

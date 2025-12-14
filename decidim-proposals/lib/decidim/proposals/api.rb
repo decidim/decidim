@@ -13,5 +13,6 @@ module Decidim
     autoload :AnswerProposalAttributes, "decidim/api/mutations/answer_proposal_attributes"
     autoload :CreateProposalType, "decidim/api/mutations/create_proposal_type"
     autoload :ProposalAttributes, "decidim/api/mutations/proposal_attributes"
+    autoload :UpdateProposalType, "decidim/api/mutations/update_proposal_type"
   end
 end
