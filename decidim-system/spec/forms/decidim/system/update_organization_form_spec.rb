@@ -313,7 +313,7 @@ module Decidim::System
         end
 
         context "when creating a new organization" do
-          context "when organization name already exists (case insensitive)" do
+          context "when organization name already exists (case-insensitive)" do
             before { subject.name_en = "EXISTING CITY" }
 
             it { is_expected.not_to be_valid }
@@ -477,7 +477,7 @@ module Decidim::System
         end
 
         context "when creating a new organization" do
-          context "when organization short_name already exists (case insensitive)" do
+          context "when organization short_name already exists (case-insensitive)" do
             before { subject.short_name = { en: "EXISTINGCITY" } }
 
             it { is_expected.not_to be_valid }

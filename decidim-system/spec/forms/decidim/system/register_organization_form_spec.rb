@@ -325,7 +325,7 @@ module Decidim::System
           )
         end
 
-        context "when organization name already exists (case insensitive)" do
+        context "when organization name already exists (case-insensitive)" do
           before { subject.name = "EXISTING CITY" }
 
           it { is_expected.not_to be_valid }
@@ -379,7 +379,7 @@ module Decidim::System
           )
         end
 
-        context "when organization short_name already exists (case insensitive)" do
+        context "when organization short_name already exists (case-insensitive)" do
           before { subject.short_name = "EXISTINGCITY" }
 
           it { is_expected.not_to be_valid }
