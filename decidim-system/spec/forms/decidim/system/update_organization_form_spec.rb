@@ -428,7 +428,7 @@ module Decidim::System
           end
 
           context "when changing host to a unique one" do
-            before { subject.host = "brandnew.example.org" }
+            before { subject.host = "other.example.org" }
 
             it { is_expected.to be_valid }
           end
@@ -439,14 +439,14 @@ module Decidim::System
             create(
               :organization,
               name: {
-                :en => "Translated City",
-                "machine_translations" => { fr: "Ville Traduite" }
+                :en => "City",
+                "machine_translations" => { fr: "Ville" }
               }
             )
           end
 
           context "when new name conflicts with machine translation" do
-            before { subject.name_en = "Ville Traduite" }
+            before { subject.name_en = "Ville" }
 
             it { is_expected.not_to be_valid }
 
@@ -559,14 +559,14 @@ module Decidim::System
             create(
               :organization,
               short_name: {
-                :en => "TranslatedCity",
-                "machine_translations" => { fr: "VilleTraduite" }
+                :en => "City",
+                "machine_translations" => { fr: "Ville" }
               }
             )
           end
 
           context "when new short_name conflicts with machine translation" do
-            before { subject.short_name = { en: "VilleTraduite" } }
+            before { subject.short_name = { en: "Ville" } }
 
             it { is_expected.not_to be_valid }
 
