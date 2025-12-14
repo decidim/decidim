@@ -486,8 +486,8 @@ describe "Decidim::Api::QueryType" do
       })
           end
 
-          it "throws Decidim::Api::Errors::PermissionNotSetError" do
-            expect { response }.to raise_error(Decidim::Api::Errors::PermissionNotSetError, "Permission has not been set for this Project")
+          it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
+            expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this Project because you do not have permissions")
           end
         end
 
