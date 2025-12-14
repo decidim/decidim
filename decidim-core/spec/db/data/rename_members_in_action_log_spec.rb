@@ -19,6 +19,7 @@ describe RenameMembersInActionLog do
     context "when there are records with the old resource type" do
       let!(:action_logs_with_old_type) do
         user = create(:user, organization:)
+        # rubocop:disable Rails/SkipsModelValidations
         Decidim::ActionLog.insert_all([
                                         {
                                           decidim_organization_id: organization.id,
@@ -58,6 +59,7 @@ describe RenameMembersInActionLog do
                                         }
                                       ])
       end
+      # rubocop:enable Rails/SkipsModelValidations
       let!(:action_logs_with_other_types) do
         create_list(:action_log, 2, resource: create(:dummy_resource, organization:))
       end
