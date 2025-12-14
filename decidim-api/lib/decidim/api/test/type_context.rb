@@ -42,6 +42,8 @@ shared_context "with a graphql class type" do
       raise Decidim::Api::Errors::UnauthorizedFieldError, error["message"]
     when "NO_OBJECT_PERMISSION"
       raise Decidim::Api::Errors::UnauthorizedObjectError, error["message"]
+    when "VALIDATION_ERROR"
+      raise Decidim::Api::Errors::ValidationError, error["message"]
     else
       raise StandardError, error["message"]
     end
