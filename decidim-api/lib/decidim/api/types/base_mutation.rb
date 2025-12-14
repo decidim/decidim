@@ -11,6 +11,18 @@ module Decidim
         input_object_class BaseInputObject
 
         required_scopes "api:read", "api:write"
+
+        def current_user
+          context[:current_user]
+        end
+
+        def current_component
+          context[:current_component]
+        end
+
+        def current_organization
+          context[:current_organization]
+        end
       end
     end
   end

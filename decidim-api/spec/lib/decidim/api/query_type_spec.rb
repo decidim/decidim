@@ -4,8 +4,8 @@ require "spec_helper"
 require "decidim/api/test"
 
 module Decidim
-  module Core
-    describe Decidim::Api::QueryType do
+  module Api
+    describe QueryType do
       include_context "with a graphql class type"
 
       describe "component" do

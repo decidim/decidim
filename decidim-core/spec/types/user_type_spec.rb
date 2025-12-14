@@ -13,31 +13,31 @@ module Decidim
       include_examples "timestamps interface"
       include_examples "followable interface"
 
+      shared_examples "unauthorized User object" do
+        it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
+          expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this User because you do not have permissions")
+        end
+      end
+
       describe "unconfirmed user" do
         let(:model) { create(:user) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized User object"
       end
 
       describe "deleted user" do
         let(:model) { create(:user, :deleted) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized User object"
       end
 
       describe "moderated user" do
         let(:model) { create(:user, :blocked) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized User object"
       end
 
       describe "name" do
@@ -124,9 +124,7 @@ module Decidim
         context "when user is deleted" do
           let(:model) { create(:user, :deleted) }
 
-          it "returns empty" do
-            expect(response).to be_nil
-          end
+          it_behaves_like "unauthorized User object"
         end
       end
 

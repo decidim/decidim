@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Initiative Breadcrumb" do
+describe "Initiatives Breadcrumb" do
   let(:organization) { create(:organization) }
   let(:participatory_space) { create(:initiative, :open, organization:) }
   let(:component) { create(:meeting_component, :published, participatory_space:) }

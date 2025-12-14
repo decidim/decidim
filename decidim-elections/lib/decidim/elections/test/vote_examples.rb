@@ -52,7 +52,7 @@ shared_examples "a votable election" do
     click_on "Vote"
 
     fill_in_votes
-    click_on "Vote"
+    click_on "Edit vote"
     expect(page).to have_current_path(election_vote_path(election.questions.first))
   end
 end
@@ -131,7 +131,7 @@ shared_examples "a csv token votable election" do
     fill_in "Token", with: election.voters.first.data["token"]
     click_on "Access"
     fill_in_votes
-    click_on "Vote"
+    click_on "Edit vote"
     expect(page).to have_current_path(new_election_vote_path)
     fill_in "Email", with: election.voters.first.data["email"]
     fill_in "Token", with: election.voters.first.data["token"]
@@ -169,7 +169,8 @@ end
 
 shared_examples "an editable votable election" do
   it "Allows the user to edit the vote" do
-    click_on "Vote"
+    expect(page).to have_link("Edit vote")
+    click_on "Edit vote"
     expect(page).to have_current_path(election_vote_path(election.questions.first))
     expect(find("input[value='#{election.questions.first.response_options.first.id}']")).to be_checked
     expect(find("input[value='#{election.questions.first.response_options.second.id}']")).not_to be_checked
@@ -191,6 +192,7 @@ end
 
 shared_examples "a csv token editable votable election" do
   it "Allows the user to edit the vote" do
+    expect(page).to have_link("Vote")
     click_on "Vote"
     expect(page).to have_current_path(new_election_vote_path)
     expect(page).to have_content("Verify your identity")

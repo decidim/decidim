@@ -73,6 +73,19 @@ describe "Dashboard" do
     it_behaves_like "a per question votable election with already voted questions"
   end
 
+  context "when editing votes from receipt page" do
+    let!(:question1) { create(:election_question, :with_response_options, :voting_enabled, skip_injection: true, question_type: "single_option", election:, position: 1) }
+    let!(:question2) { create(:election_question, :with_response_options, :voting_enabled, election:, skip_injection: true, position: 2) }
+
+    before do
+      login_as user, scope: :user
+      visit election_path
+    end
+
+    it_behaves_like "a per question votable election with edit from receipt"
+    it_behaves_like "a per question votable election with edit from receipt when all questions enabled"
+  end
+
   context "when the election is real time" do
     let(:election) { create(:election, :published, :ongoing, :with_internal_users_census, :real_time, :with_questions) }
 

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Assembly Breadcrumb" do
+describe "Assemblies Breadcrumb" do
   let(:organization) { create(:organization) }
   let(:parent_assembly) { create(:assembly, :published, organization:) }
   let(:child_assembly) { create(:assembly, :published, organization:, parent: parent_assembly) }
