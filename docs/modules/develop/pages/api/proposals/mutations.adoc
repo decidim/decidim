@@ -77,9 +77,69 @@ curl -X POST https://your-decidim-instance.org/api \
 === Error Handling
 
 When you are not authorized, or when you are not authenticated, the server will respond with a simple:
-```graphql
+
+[source,graphql]
+----
 {
   "data": null
 }
-```
+----
 
+== Withdraw proposals
+
+To use the API to withdraw any proposal, you will need to use the following API request.
+
+[source,graphql]
+----
+mutation {
+  proposals {
+    proposal(id: "123") {
+      withdraw(input: {}) {
+
+      }
+    }
+  }
+}
+----
+
+=== Error Handling
+
+When you are not authorized or when you are not authenticated, the server will respond with a simple:
+
+[source,json]
+----
+{
+  "errors":
+    [
+      {
+        "message": "You do not have permission to perform this mutation",
+        "locations": [
+          {"line": 2, "column": 3}
+        ],
+        "path": ["withdraw"],
+        "extensions": {"code": "MUTATION_NOT_AUTHORIZED"}
+      }
+    ],
+  "data": {"withdraw": null}
+}
+----
+
+Additionally, if there is a validation error:
+
+[source,json]
+----
+{
+  "errors":
+    [
+      {
+        "message": "This proposal cannot be withdrawn because it already has votes.",
+        "locations": [
+          {"line": 2, "column": 3}
+        ],
+        "path": ["withdraw"],
+        "extensions": {"code": "VALIDATION_ERROR"}
+      }
+    ],
+  "data": {"withdraw": null}
+}
+----
