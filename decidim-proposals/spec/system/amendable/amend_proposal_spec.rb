@@ -208,6 +208,7 @@ describe "Amend Proposal", versioning: true do
 
           before do
             expect(page).to have_content("Log in")
+            switch_to_host(component.organization.host)
             login_as user, scope: :user
 
             visit proposal_path
