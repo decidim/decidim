@@ -34,7 +34,7 @@ describe "Decidim::Api::Errors" do
     end
 
     it "throws exception" do
-      expect { response }.to raise_error(Decidim::Api::Errors::PermissionNotSetError, "Exemplifying permission not set error")
+      expect { response }.to raise_error(Decidim::Api::Errors::PermissionNotSetError, /Permission has not been set for this/)
     end
   end
 end
