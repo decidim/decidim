@@ -188,9 +188,6 @@ eu:
           questionnaire_closed:
             body: Galdetegia itxita dago eta ezin da erantzun.
             title: Galdeketa itxia
-          questionnaire_for_private_users:
-            body: Galdetegia parte-hartzaile pribatuentzat soilik dago erabilgarri
-            title: Galdeketa itxia
           questionnaire_js_disabled:
             body: Galdetegi honen ezaugarri batzuk desaktibatu egingo dira. Zure esperientzia hobetzeko, gaitu JavaScript zure nabigatzailean.
             title: Javascript desaktibatuta dago
