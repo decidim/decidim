@@ -91,11 +91,6 @@ ja:
         welcome_notification_body: ウェルカム通知本文
         welcome_notification_subject: ウェルカム通知の件名
         youtube_handler: YouTube ハンドラー
-      participatory_space_private_user:
-        email: Eメールアドレス
-        name: 名前
-      participatory_space_private_user_csv_import:
-        file: ファイル
       scope:
         code: コード
         name: 名前
@@ -140,10 +135,6 @@ ja:
           attributes:
             official_img_footer:
               allowed_file_content_types: 無効な画像ファイル
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: インポートファイルの形式が正しくありません。手順を見直して、ファイルがUTF-8でエンコードされていることを確認してください。
         user_group_csv_verification:
           attributes:
             file:
@@ -195,8 +186,6 @@ ja:
         moderate: モデレーションの管理
         newsletter:
           new: 新しいニュースレター
-        participatory_space_private_user:
-          new: 新しい参加型スペースのプライベートユーザー
         per_page: ページごと
         permissions: 権限の管理
         restore: 復元
@@ -432,17 +421,6 @@ ja:
           values:
             'false': 公式化済み
             'true': 公式化されていない
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: 招待が承認されました
-            values:
-              'false': 未承認
-              'true': 承認済み
-          user_invitation_sent_at_not_null:
-            label: 招待状の送信
-            values:
-              'false': 未送信
-              'true': 送信済み
         private_space_eq:
           label: プライベート
           values:
@@ -571,6 +549,10 @@ ja:
             explanation: 管理対象参加者は通常の参加者に昇格することができます。 その場合、彼らはアプリケーションに招待され、あなたはそれらを再び管理することはできなくなります。 招待された参加者は、招待を承諾するためのメールを受け取ります。
             new_managed_user_promotion: 新しい管理対象参加者の昇格
             promote: プロモート
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: CSVファイルをアップロード
       menu:
         admin_log: 管理者アクティビティログ
         admins: 管理者
@@ -637,8 +619,6 @@ ja:
             sent_to: '送信先:'
             subject: 件名
           name: ニュースレター
-        participatory_space_private_user:
-          name: 参加型スペースプライベート参加者
         scope:
           fields:
             name: 名前
@@ -913,53 +893,6 @@ ja:
         form:
           add: 許可されたリストに追加
           title: 許可された外部ドメインのリスト
-      participatory_space_private_users:
-        create:
-          error: この参加型スペースにプライベート参加者を追加する際に問題が発生しました。
-          success: 参加型スペースのプライベート参加者アクセスが正常に作成されました。
-        destroy:
-          error: この参加型スペースのプライベート参加者を削除する際に問題が発生しました。
-          success: 参加型スペースのプライベート参加者アクセスが正常に破棄されました。
-        edit:
-          title: 参加スペースの非公開参加者を編集します。
-          update: 更新
-        index:
-          import_via_csv: CSV形式でインポート
-          publish_all: すべて公開
-          title: 参加型スペースプライベート参加者
-          unpublish_all: すべて非公開
-        new:
-          create: 作成
-          title: 新しい参加型スペースのプライベート参加者。
-        publish_all:
-          error: この参加型スペースのすべてのプライベート参加者を公開する際に問題が発生しました。
-          success: この参加型スペースのすべてのプライベート参加者を公開しました
-        unpublish_all:
-          error: この参加型スペースのすべてのプライベート参加者を非公開にする際に問題が発生しました。
-          success: この参加型スペースのすべてのプライベート参加者を非公開にしました
-        update:
-          error: この参加型スペースのプライベート参加者の更新中に問題が発生しました。
-          success: 参加型スペースのプライベート参加者を更新しました
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: CSVファイルの読み込み中に問題が発生しました。手順を確認してください。
-          success: CSVファイルは正常にアップロードされました。参加者に招待メールを送信しています。しばらくお待ちください。
-        new:
-          csv_upload:
-            title: CSVファイルをアップロード
-          destroy:
-            button: すべてのプライベート参加者を削除
-            confirm: すべてのプライベート参加者を削除してもよろしいですか？この操作は元に戻せず、削除された方を復元することはできません。
-            empty: プライベートの参加者はいません。
-            explanation: '%{count} 人のプライベート参加者がいます。'
-            title: プライベート参加者を削除
-          example_file: 'サンプルファイル:'
-          explanation: 'CSV ファイルをアップロードします。 CSVにはヘッダをつけず、最初のカラムにはメールアドレスを、次のカラムにはユーザー名を入れた2カラムのCSVとして、参加スペースに追加したいユーザーの情報を並べてください。 ユーザー名には `<>?%&^*#@()[]=+:;"{}\|`のような無効な文字を使用しないでください。'
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: プライベート参加者をCSV形式でインポート
-          upload: アップロード
       reminders:
         create:
           error: リマインダー作成中に問題が発生しました。
