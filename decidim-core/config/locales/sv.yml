@@ -266,10 +266,6 @@ sv:
       organization:
         update: "%{user_name} uppdaterade organisationsinställningarna"
         update_external_domain: "%{user_name} uppdaterade organisationens externa domäner"
-      participatory_space_private_user:
-        create: "%{user_name} uppmanade %{resource_name} att vara en privat deltagare"
-        create_via_csv: "%{user_name} bjöd in %{resource_name} till att vara en privat deltagare via CSV-fil"
-        delete: "%{user_name} tog deltagaren %{resource_name} som en privat deltagare"
       scope:
         create: "%{user_name} skapade indelningen %{resource_name}"
         create_with_parent: "%{user_name} skapade indelningen %{resource_name} inom %{parent_scope}"
@@ -736,13 +732,6 @@ sv:
           provider: Leverantören av identiteten
         messaging_conversations:
           updated_at: Datum när denna konversation senast uppdaterades
-        participatory_space_private_users:
-          created_at: Datum och tid när den privata användaren skapades
-          id: Unikt id för den privata användaren
-          privatable_to: Till vilken plats den privata användaren tillhör
-          published: Om den privata användaren är publicerad eller inte
-          role: Den privata användarens roll
-          updated_at: Datum och tid när den privata användaren senast uppdaterades
         reports:
           created_at: Datum och tid för när rapporteringen skapades
           details: Mer information om rapporteringen
@@ -1605,17 +1594,13 @@ sv:
           Om du inte vill godkänna inbjudan kan du ignorera detta e-postmeddelande.<br />
           Ditt konto kommer bara att skapas om du öppnar länken ovan och anger ditt användarnamn och lösenord.
         invited_you_as_admin: "%{invited_by} har bjudit in dig som administratör av %{application}. Du kan acceptera det via länken nedan."
-        invited_you_as_private_user: "%{invited_by} har bjudit in dig som privat deltagare till %{application}. Du kan godkänna detta via länken nedan."
         someone_invited_you: Någon har bjudit in dig till %{application}. Du kan acceptera det via länken nedan.
         someone_invited_you_as_admin: Någon har bjudit in dig som administratör av %{application}. Du kan acceptera det via länken nedan.
-        someone_invited_you_as_private_user: Någon har bjudit in dig som privatperson till %{application}, du kan godkänna detta via länken nedan.
         subject: Anvisningar om inbjudningar
       invite_admin:
         subject: Du har blivit inbjuden att hantera %{organization}
       invite_collaborator:
         subject: Du har blivit inbjuden att samarbeta på %{organization}
-      invite_private_user:
-        subject: Du har blivit inbjuden till en privat deltagarprocess på %{organization}
       organization_admin_invitation_instructions:
         subject: Du har blivit inbjuden att hantera %{organization}
       password_change:
