@@ -284,10 +284,6 @@ eu:
       organization:
         update: "%{user_name} parte-hartzaileak erakundearen ezarpenak eguneratu ditu"
         update_external_domain: "%{user_name} parte-hartzaileak erakundearen kanpoko domeinuak eguneratu ditu"
-      participatory_space_private_user:
-        create: "%{user_name} parte-hartzaileak %{resource_name} gonbidatu du parte-hartzaile pribatua izatera"
-        create_via_csv: "%{user_name} parte-hartzaileak %{resource_name} gonbidatu du CSV bidez parte-hartzaile pribatua izatera"
-        delete: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzaile pribatu gisa kendu du"
       scope:
         create: "%{user_name} parte-hartzaileak %{resource_name} eremua sortu du"
         create_with_parent: "%{user_name} parte-hartzaileak %{resource_name} eremua%{parent_scope} eremua barruan sortu du"
@@ -767,13 +763,6 @@ eu:
           id: Jakinarazpen honen identifikatzaile bakarra
           resource_type: Jakinarazpena zein baliabide motarekin dago lotuta
           updated_at: Zein datatan eta zein ordutan eguneratu zen jakinarazpena azken aldiz
-        participatory_space_private_users:
-          created_at: Zein datatan eta zein ordutan sortu zen parte-hartzaile pribatu hau
-          id: Parte-hartzaile honen identifikatzaile bakarra
-          privatable_to: Zein espaziotakoa den parte-hartzaile pribatu hau
-          published: Ea parte-hartzaile pribatu hau argitaratuta dagoen ala ez
-          role: Zein rol duen parte-hartzaile pribatu honek
-          updated_at: Zein datatan eta zein ordutan eguneratu zen parte-hartzaile pribatu hau
         reports:
           created_at: Zein datatan eta zein ordutan sortu zen salaketa hau
           details: Txosten honen xehetasunak
@@ -1838,17 +1827,13 @@ eu:
         ignore: |-
           Gonbidapena onartu nahi ez baduzu, mesedez, ez egin kasurik mezu elektroniko honi. Zure kontua ez da sortuko, goiko estekara sartu eta zure erabiltzaile-izena eta pasahitza ezarri arte.
         invited_you_as_admin: "%{invited_by} admnisitrariak %{application} administratzaile gisa gonbidatu zaitu. Beheko estekan onartu dezakezu."
-        invited_you_as_private_user: "%{invited_by} parte-hartzaileak egonbidatu zaitu %{application} ko erabiltzaile pribatu gisa. Beheko estekan onartu dezakezu."
         someone_invited_you: Norbaitek %{application} gonbidatu zaitu. Beheko estekan onar dezakezu.
         someone_invited_you_as_admin: Norbaitek %{application} administratzaile gisa gonbidatu zaitu, beheko estekan onar dezakezu.
-        someone_invited_you_as_private_user: Norbaitek %{application} ko parte-hartzaile pribatu gisa gonbidatu zaitu, beheko estekan onar dezakezu.
         subject: Gonbidapenaren argibideak
       invite_admin:
         subject: '%{organization} kudeatzeko gonbita jaso duzu'
       invite_collaborator:
         subject: 'Gonbita jaso duzu erakunde honekin lankidetzan aritzeko: %{organization}'
-      invite_private_user:
-        subject: Gonbidatu zaituzte partaidetza-prozesu pribatu batean %{organization} erakundean
       organization_admin_invitation_instructions:
         subject: '%{organization} erakundea kudeatzeko gonbita jaso duzu'
       password_change:
