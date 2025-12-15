@@ -111,7 +111,7 @@ The migration automatically generates a short_name for each organization based o
 
 This migration runs automatically when executing `bin/rails data:migrate` as part of the upgrade process.
 
-You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+You can read more about this change on PR [#15729](https://github.com/decidim/decidim/pull/15729).
 
 ### 2.6. Add locale to the url
 
