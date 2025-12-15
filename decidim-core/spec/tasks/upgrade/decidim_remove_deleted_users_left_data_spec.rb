@@ -17,7 +17,7 @@ describe "rake decidim:upgrade:remove_deleted_users_left_data", type: :task, ver
     create(:identity, user: deleted_user)
     create(:follow, followable: deleted_user, user: user)
     create(:follow, followable: user, user: deleted_user)
-    create(:participatory_space_private_user, user: deleted_user)
+    create(:member, user: deleted_user)
 
     create(:oauth_access_token, resource_owner_id: user.id)
     create(:identity, user:)
@@ -64,8 +64,8 @@ describe "rake decidim:upgrade:remove_deleted_users_left_data", type: :task, ver
       expect { task.execute }.to change(Decidim::Identity, :count).by(-1)
     end
 
-    it "deletes the participatory space private user of deleted user" do
-      expect { task.execute }.to change(Decidim::ParticipatorySpacePrivateUser, :count).by(-1)
+    it "deletes the member of deleted user" do
+      expect { task.execute }.to change(Decidim::ParticipatorySpace::Member, :count).by(-1)
     end
 
     it "deletes the badges of deleted user" do

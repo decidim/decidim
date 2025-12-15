@@ -290,22 +290,26 @@ module Decidim
         @default_view_mode ||= current_component.settings.attachments_allowed? ? "grid" : "list"
       end
 
-      def add_breadcrumb_item
+      def add_parent_breadcrumb_item
         return {} if proposal.blank?
 
-        if proposal.emendation?
-          {
-            label: translated_attribute(proposal.amendable.title),
-            url: Decidim::EngineRouter.main_proxy(current_component).proposal_path(proposal.amendable),
-            active: false
-          }
-        else
-          {
-            label: translated_attribute(proposal.title),
-            url: Decidim::EngineRouter.main_proxy(current_component).proposal_path(proposal),
-            active: false
-          }
-        end
+        object = proposal.emendation? ? proposal.amendable : proposal
+        {
+          label: translated_attribute(object.title),
+          url: Decidim::EngineRouter.main_proxy(current_component).proposal_path(object),
+          active: false
+        }
+      end
+
+      def add_breadcrumb_item
+        return {} if proposal.blank?
+        return {} if proposal.amendable?
+
+        {
+          label: I18n.t("decidim.amendments.name"),
+          url: Decidim::EngineRouter.main_proxy(current_component).proposal_path(proposal),
+          active: false
+        }
       end
     end
   end

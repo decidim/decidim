@@ -189,8 +189,8 @@ en:
           questionnaire_closed:
             body: The form is closed and cannot be responded.
             title: Form closed
-          questionnaire_for_private_users:
-            body: The form is available only for private users
+          questionnaire_for_members:
+            body: The form is available only for members
             title: Form closed
           questionnaire_js_disabled:
             body: Some of this form's features will be disabled. To improve your experience, please enable JavaScript in your browser.

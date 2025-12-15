@@ -639,7 +639,7 @@ pamplona
 pandoc
 paramxx
 partcipatory
-participatoryspaceprivateusers
+participatoryspace
 patrimonigracia
 Peguera
 pepito

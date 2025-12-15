@@ -70,15 +70,15 @@ module Decidim
             process_two.update!(promoted: true, private_space: true)
           end
 
-          context "and current_user is private user of that process" do
-            let!(:participatory_space_private_user) { create(:participatory_space_private_user, privatable_to: process_two, user:) }
+          context "and current_user is member of that process" do
+            let!(:member) { create(:member, privatable_to: process_two, user:) }
 
             it "returns the private process" do
               expect(helper.menu_highlighted_participatory_process).to eq(process_two)
             end
           end
 
-          context "and current_user is not private user of that process" do
+          context "and current_user is not member of that process" do
             it "returns the other published promoted process" do
               expect(helper.menu_highlighted_participatory_process).to eq(process_three)
             end

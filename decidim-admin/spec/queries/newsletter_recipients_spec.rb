@@ -163,7 +163,7 @@ module Decidim::Admin
 
         before do
           recipients.each do |member|
-            create(:participatory_space_private_user, privatable_to: participatory_process, user: member)
+            create(:member, privatable_to: participatory_process, user: member)
           end
         end
 
