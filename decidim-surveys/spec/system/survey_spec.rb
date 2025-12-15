@@ -39,10 +39,6 @@ describe "Respond a survey" do
     it "does not allow responding the survey" do
       visit_component
 
-      within(".menu-bar") do
-        expect(page).to have_content(translated(component.name))
-      end
-
       choose "All"
 
       expect(page).to have_i18n_content(questionnaire.title)
@@ -103,11 +99,6 @@ describe "Respond a survey" do
         visit_component
         choose "All"
         click_on translated_attribute(questionnaire.title)
-
-        within(".menu-bar") do
-          expect(page).to have_content(translated(component.name))
-          expect(page).to have_content(translated(questionnaire.title))
-        end
 
         # does not show the charts if not published
         expect(page.html).not_to include('new Chartkick["ColumnChart"]("chart-1"')

@@ -207,7 +207,7 @@ module Decidim
 
         {
           label: translated_attribute(meeting.title),
-          url: Decidim::EngineRouter.main_proxy(current_component).meeting_path(meeting),
+          url: Decidim::EngineRouter.main_proxy(current_component).meeting_path(meeting, locale: current_locale),
           active: false
         }
       end

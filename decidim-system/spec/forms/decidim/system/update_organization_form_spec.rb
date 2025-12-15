@@ -7,6 +7,7 @@ module Decidim::System
     subject do
       described_class.new(
         name: { ca: "", en: "Gotham City", es: "" },
+        short_name: { ca: "", en: "GothamCity", es: "" },
         host: "decide.example.org",
         secondary_hosts: "foo.example.org\r\n\r\nbar.example.org",
         reference_prefix: "JKR",
@@ -119,6 +120,470 @@ module Decidim::System
 
           it "returns nil" do
             expect(subject.encrypted_smtp_settings).to be_nil
+          end
+        end
+      end
+    end
+
+    describe "validations" do
+      describe "organization name presence" do
+        let(:organization) { create(:organization, default_locale: "en") }
+
+        before do
+          subject.id = organization.id
+          allow(subject).to receive(:current_organization).and_return(organization)
+        end
+
+        context "when name in default locale is present" do
+          before { subject.name = { en: "Gotham City" } }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when name in default locale is blank" do
+          before { subject.name = { en: "" } }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error to the default locale name attribute" do
+            subject.valid?
+            expect(subject.errors[:name_en]).to include("cannot be blank")
+          end
+        end
+
+        context "when name in default locale is nil" do
+          before { subject.name = { en: nil } }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error to the default locale name attribute" do
+            subject.valid?
+            expect(subject.errors[:name_en]).to include("cannot be blank")
+          end
+        end
+
+        context "when organization has different default locale" do
+          let(:organization) { create(:organization, default_locale: "es") }
+
+          before do
+            subject.default_locale = "es"
+            subject.name = { es: "" }
+          end
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error to the correct locale name attribute" do
+            subject.valid?
+            expect(subject.errors[:name_es]).to include("cannot be blank")
+          end
+        end
+
+        context "when current_organization is not set" do
+          before do
+            allow(subject).to receive(:current_organization).and_return(nil)
+            subject.send(:"name_#{Decidim.default_locale}=", "")
+          end
+
+          it { is_expected.not_to be_valid }
+
+          it "uses Decidim default locale" do
+            subject.valid?
+            expect(subject.errors[:"name_#{Decidim.default_locale}"]).to include("cannot be blank")
+          end
+        end
+      end
+
+      describe "organization short_name presence" do
+        let(:organization) { create(:organization, default_locale: "en") }
+
+        before do
+          subject.id = organization.id
+          allow(subject).to receive(:current_organization).and_return(organization)
+        end
+
+        context "when short_name in default locale is present" do
+          before { subject.short_name = { en: "GothamCity" } }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when short_name in default locale is blank" do
+          before { subject.short_name = { en: "" } }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error to the default locale short_name attribute" do
+            subject.valid?
+            expect(subject.errors[:short_name_en]).to include("cannot be blank")
+          end
+        end
+
+        context "when short_name in default locale is nil" do
+          before { subject.short_name = { en: nil } }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error to the default locale short_name attribute" do
+            subject.valid?
+            expect(subject.errors[:short_name_en]).to include("cannot be blank")
+          end
+        end
+
+        context "when organization has different default locale" do
+          let(:organization) { create(:organization, default_locale: "es") }
+
+          before do
+            subject.default_locale = "es"
+            subject.short_name = { es: "" }
+          end
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error to the correct locale short_name attribute" do
+            subject.valid?
+            expect(subject.errors[:short_name_es]).to include("cannot be blank")
+          end
+        end
+      end
+
+      describe "short_name format" do
+        context "when short_name is too short in one locale" do
+          before { subject.short_name = { en: "AB", es: "ValidName" } }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error to the locale with invalid format" do
+            subject.valid?
+            expect(subject.errors[:short_name_en]).to include("is too short (under 3 characters)")
+          end
+        end
+
+        context "when short_name is too long in one locale" do
+          before { subject.short_name = { en: "A" * 13, es: "ValidName" } }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds an error to the locale with invalid format" do
+            subject.valid?
+            expect(subject.errors[:short_name_en]).to include("is too long (maximum is 12 characters)")
+          end
+        end
+
+        context "when short_name is invalid in multiple locales" do
+          before { subject.short_name = { en: "AB", es: "A" * 13 } }
+
+          it { is_expected.not_to be_valid }
+
+          it "adds errors to all locales with invalid format" do
+            subject.valid?
+            expect(subject.errors[:short_name_en]).to include("is too short (under 3 characters)")
+            expect(subject.errors[:short_name_es]).to include("is too long (maximum is 12 characters)")
+          end
+        end
+
+        context "when short_name has minimum valid length" do
+          before { subject.short_name = { en: "ABC" } }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when short_name has maximum valid length" do
+          before { subject.short_name = { en: "A" * 12 } }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when short_name is blank in a locale" do
+          before { subject.short_name = { en: "ValidName", es: "" } }
+
+          it "does not add format validation errors for blank values" do
+            subject.valid?
+            expect(subject.errors[:short_name_es]).not_to include("is too short (under 3 characters)")
+          end
+        end
+      end
+
+      describe "organization uniqueness" do
+        let!(:existing_organization) do
+          create(
+            :organization,
+            name: { en: "Existing City", es: "Ciudad Existente" },
+            host: "existing.example.org"
+          )
+        end
+
+        context "when creating a new organization" do
+          context "when organization name already exists (case-insensitive)" do
+            before { subject.name_en = "EXISTING CITY" }
+
+            it { is_expected.not_to be_valid }
+
+            it "adds an error to the name attribute" do
+              subject.valid?
+              expect(subject.errors[:name_en]).to include("has already been taken")
+            end
+          end
+
+          context "when organization name already exists in different locale" do
+            before { subject.name_en = "Ciudad Existente" }
+
+            it { is_expected.not_to be_valid }
+
+            it "adds an error" do
+              subject.valid?
+              expect(subject.errors[:name_en]).to include("has already been taken")
+            end
+          end
+
+          context "when multiple locale names conflict" do
+            before do
+              subject.name_en = "Existing City"
+              subject.name_es = "Ciudad Existente"
+            end
+
+            it { is_expected.not_to be_valid }
+
+            it "adds errors to both locale attributes" do
+              subject.valid?
+              expect(subject.errors[:name_en]).to include("has already been taken")
+              expect(subject.errors[:name_es]).to include("has already been taken")
+            end
+          end
+
+          context "when host already exists" do
+            before { subject.host = "existing.example.org" }
+
+            it { is_expected.not_to be_valid }
+
+            it "adds an error" do
+              subject.valid?
+              expect(subject.errors[:host]).to include("has already been taken")
+            end
+          end
+
+          context "when organization name is unique" do
+            before { subject.name_en = "Unique City" }
+
+            it { is_expected.to be_valid }
+          end
+
+          context "when host is unique" do
+            before { subject.host = "unique.example.org" }
+
+            it { is_expected.to be_valid }
+          end
+        end
+
+        context "when updating an existing organization" do
+          let(:organization_to_update) do
+            create(
+              :organization,
+              name: { en: "My City", es: "Mi Ciudad" },
+              host: "mycity.example.org"
+            )
+          end
+
+          before do
+            subject.id = organization_to_update.id
+          end
+
+          context "when keeping the same name" do
+            before { subject.name_en = "My City" }
+
+            it { is_expected.to be_valid }
+          end
+
+          context "when keeping the same host" do
+            before { subject.host = "mycity.example.org" }
+
+            it { is_expected.to be_valid }
+          end
+
+          context "when changing name to an existing one" do
+            before { subject.name_en = "Existing City" }
+
+            it { is_expected.not_to be_valid }
+
+            it "adds an error" do
+              subject.valid?
+              expect(subject.errors[:name_en]).to include("has already been taken")
+            end
+          end
+
+          context "when changing host to an existing one" do
+            before { subject.host = "existing.example.org" }
+
+            it { is_expected.not_to be_valid }
+
+            it "adds an error" do
+              subject.valid?
+              expect(subject.errors[:host]).to include("has already been taken")
+            end
+          end
+
+          context "when changing name to a unique one" do
+            before { subject.name_en = "Brand New City" }
+
+            it { is_expected.to be_valid }
+          end
+
+          context "when changing host to a unique one" do
+            before { subject.host = "other.example.org" }
+
+            it { is_expected.to be_valid }
+          end
+        end
+
+        context "when name contains machine_translations" do
+          let!(:org_with_translations) do
+            create(
+              :organization,
+              name: {
+                :en => "City",
+                "machine_translations" => { fr: "Ville" }
+              }
+            )
+          end
+
+          context "when new name conflicts with machine translation" do
+            before { subject.name_en = "Ville" }
+
+            it { is_expected.not_to be_valid }
+
+            it "adds an error" do
+              subject.valid?
+              expect(subject.errors[:name_en]).to include("has already been taken")
+            end
+          end
+        end
+
+        context "when name value is a Hash (nested structure)" do
+          before do
+            allow(subject).to receive(:name).and_return({ en: { nested: "value" }, es: "Valid Name" })
+          end
+
+          it "skips Hash values during validation" do
+            expect { subject.valid? }.not_to raise_error
+          end
+        end
+      end
+
+      describe "short_name uniqueness" do
+        let!(:existing_organization) do
+          create(
+            :organization,
+            short_name: { en: "ExistingCity", es: "CiudadExistente" }
+          )
+        end
+
+        context "when creating a new organization" do
+          context "when organization short_name already exists (case-insensitive)" do
+            before { subject.short_name = { en: "EXISTINGCITY" } }
+
+            it { is_expected.not_to be_valid }
+
+            it "adds an error to the short_name attribute" do
+              subject.valid?
+              expect(subject.errors[:short_name_en]).to include("has already been taken")
+            end
+          end
+
+          context "when organization short_name already exists in different locale" do
+            before { subject.short_name = { en: "CiudadExistente" } }
+
+            it { is_expected.not_to be_valid }
+
+            it "adds an error" do
+              subject.valid?
+              expect(subject.errors[:short_name_en]).to include("has already been taken")
+            end
+          end
+
+          context "when multiple locale short_names conflict" do
+            before { subject.short_name = { en: "ExistingCity", es: "CiudadExistente" } }
+
+            it { is_expected.not_to be_valid }
+
+            it "adds errors to both locale attributes" do
+              subject.valid?
+              expect(subject.errors[:short_name_en]).to include("has already been taken")
+              expect(subject.errors[:short_name_es]).to include("has already been taken")
+            end
+          end
+
+          context "when organization short_name is unique" do
+            before { subject.short_name = { en: "UniqueCity" } }
+
+            it { is_expected.to be_valid }
+          end
+        end
+
+        context "when updating an existing organization" do
+          let(:organization_to_update) do
+            create(
+              :organization,
+              short_name: { en: "MyCity", es: "MiCiudad" }
+            )
+          end
+
+          before do
+            subject.id = organization_to_update.id
+          end
+
+          context "when keeping the same short_name" do
+            before { subject.short_name = { en: "My City" } }
+
+            it { is_expected.to be_valid }
+          end
+
+          context "when changing short_name to an existing one" do
+            before { subject.short_name = { en: "ExistingCity" } }
+
+            it { is_expected.not_to be_valid }
+
+            it "adds an error" do
+              subject.valid?
+              expect(subject.errors[:short_name_en]).to include("has already been taken")
+            end
+          end
+
+          context "when changing short_name to a unique one" do
+            before { subject.short_name = { en: "BrandNewCity" } }
+
+            it { is_expected.to be_valid }
+          end
+        end
+
+        context "when short_name contains machine_translations" do
+          let!(:org_with_translations) do
+            create(
+              :organization,
+              short_name: {
+                :en => "City",
+                "machine_translations" => { fr: "Ville" }
+              }
+            )
+          end
+
+          context "when new short_name conflicts with machine translation" do
+            before { subject.short_name = { en: "Ville" } }
+
+            it { is_expected.not_to be_valid }
+
+            it "adds an error" do
+              subject.valid?
+              expect(subject.errors[:short_name_en]).to include("has already been taken")
+            end
+          end
+        end
+
+        context "when short_name value is a Hash (nested structure)" do
+          before do
+            allow(subject).to receive(:short_name).and_return({ en: { nested: "value" }, es: "ValidShortName" })
+          end
+
+          it "skips Hash values during validation" do
+            expect { subject.valid? }.not_to raise_error
           end
         end
       end

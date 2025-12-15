@@ -135,9 +135,9 @@ describe Decidim::Meetings::MeetingsController do
         end
       end
 
-      context "when user is private user" do
+      context "when user is member" do
         let!(:user) { create(:user, :confirmed, organization:) }
-        let!(:participatory_space_private_user) { create(:participatory_space_private_user, user:, privatable_to: participatory_process) }
+        let!(:member) { create(:member, user:, privatable_to: participatory_process) }
 
         it_behaves_like "having meeting access visibility applied"
       end
