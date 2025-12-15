@@ -15,15 +15,15 @@ describe Decidim::PublicActivities do
   let(:private_assembly) { create(:assembly, :private, organization:) }
 
   before do
-    # Note that it is possible to add private users also to public processes
+    # Note that it is possible to add members also to public processes
     # and assemblies, there is no programming logic forbidding that to happen.
     [process, assembly, private_process, private_assembly].each do |space|
-      10.times { create(:participatory_space_private_user, user: build(:user, :confirmed, organization:), privatable_to: space) }
+      10.times { create(:member, user: build(:user, :confirmed, organization:), privatable_to: space) }
     end
 
     # Add the user to both private spaces
-    create(:participatory_space_private_user, user:, privatable_to: private_process)
-    create(:participatory_space_private_user, user:, privatable_to: private_assembly)
+    create(:member, user:, privatable_to: private_process)
+    create(:member, user:, privatable_to: private_assembly)
   end
 
   describe "#query" do
@@ -43,7 +43,7 @@ describe Decidim::PublicActivities do
 
     context "when the current user has access to the private space" do
       before do
-        create(:participatory_space_private_user, user: current_user, privatable_to: private_process)
+        create(:member, user: current_user, privatable_to: private_process)
       end
 
       it "returns also the private comment without duplicates" do

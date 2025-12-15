@@ -25,7 +25,7 @@ describe "Private Space Respond a survey" do
   let(:user) { create(:user, :confirmed, organization:) }
   let!(:another_user) { create(:user, :confirmed, organization:) }
 
-  let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: another_user, privatable_to: participatory_space_private) }
+  let!(:member) { create(:member, user: another_user, privatable_to: participatory_space_private) }
 
   let!(:questionnaire) { create(:questionnaire, title:, description:) }
   let!(:survey) { create(:survey, :published, :allow_responses, component:, questionnaire:) }
@@ -65,7 +65,7 @@ describe "Private Space Respond a survey" do
     end
 
     context "when the user is logged in" do
-      context "and is private user space" do
+      context "and is member space" do
         before do
           login_as another_user, scope: :user
         end
@@ -92,7 +92,7 @@ describe "Private Space Respond a survey" do
         end
       end
 
-      context "and is not private user space" do
+      context "and is not member space" do
         before do
           login_as user, scope: :user
         end
@@ -103,7 +103,7 @@ describe "Private Space Respond a survey" do
 
           expect(page).to have_i18n_content(questionnaire.title)
           expect(page).to have_i18n_content(questionnaire.description)
-          expect(page).to have_content "The form is available only for private users"
+          expect(page).to have_content "The form is available only for members"
           expect(page).to have_content "Form closed"
 
           expect(page).to have_css(".button[disabled]")
@@ -128,7 +128,7 @@ describe "Private Space Respond a survey" do
     end
 
     context "when the user is logged in" do
-      context "and is private user space" do
+      context "and is member space" do
         before do
           login_as another_user, scope: :user
         end
@@ -157,7 +157,7 @@ describe "Private Space Respond a survey" do
         end
       end
 
-      context "and is not private user space" do
+      context "and is not member space" do
         let(:target_path) { main_component_path(component) }
 
         before do

@@ -117,6 +117,11 @@ FactoryBot.define do
       Decidim.available_locales.index_with { |_locale| Faker::Company.unique.name }
     end
 
+    # we do not want machine translation here
+    short_name do
+      Decidim.available_locales.index_with { |_locale| Faker::Company.unique.name.gsub(/\s+/, "")[0, 12] }
+    end
+
     reference_prefix { Faker::Name.suffix }
     time_zone { "UTC" }
     twitter_handler { Faker::Hipster.word }
@@ -277,7 +282,7 @@ FactoryBot.define do
     value { 1 }
   end
 
-  factory :participatory_space_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
+  factory :member, class: "Decidim::ParticipatorySpace::Member" do
     transient do
       skip_injection { false }
     end
@@ -295,7 +300,7 @@ FactoryBot.define do
     end
   end
 
-  factory :assembly_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
+  factory :assembly_member, class: "Decidim::ParticipatorySpace::Member" do
     transient do
       skip_injection { false }
     end

@@ -41,7 +41,7 @@ module Decidim
 
         return permission_action unless assembly
 
-        user_can_read_private_users?
+        user_can_read_members?
 
         moderator_action?
         collaborator_action?
@@ -53,8 +53,8 @@ module Decidim
 
       private
 
-      def user_can_read_private_users?
-        return unless permission_action.subject == :space_private_user
+      def user_can_read_members?
+        return unless permission_action.subject == :space_member
         return unless assembly.private_space?
 
         toggle_allow(user.admin? || can_manage_assembly?(role: :admin) || can_manage_assembly?(role: :collaborator))
@@ -222,7 +222,7 @@ module Decidim
       # Collaborators can read/preview everything inside their assembly.
       def collaborator_action?
         return unless can_manage_assembly?(role: :collaborator)
-        return if permission_action.subject == :space_private_user
+        return if permission_action.subject == :space_member
 
         allow! if permission_action.action == :read || permission_action.action == :preview
       end
