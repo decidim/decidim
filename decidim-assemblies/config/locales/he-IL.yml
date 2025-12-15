@@ -151,7 +151,6 @@ he:
           components: רכיבים
           info: אודות האסיפה
           moderations: שינויים
-          private_users: חברים
           see_assembly: ראה אסיפה
       models:
         assembly:
