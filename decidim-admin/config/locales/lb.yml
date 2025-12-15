@@ -90,6 +90,11 @@ lb:
         welcome_notification_body: Text der Willkommens-Benachrichtigung
         welcome_notification_subject: Betreff der Willkommens-Benachrichtigung
         youtube_handler: YouTube-Handler
+      participatory_space_private_user:
+        email: Email
+        name: Name
+      participatory_space_private_user_csv_import:
+        file: Datei
       scope:
         code: Code
         name: Name
@@ -308,16 +313,9 @@ lb:
             'false': Offizialisiert
             'true': Nicht offiziell
         participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Einladung akzeptiert
-            values:
-              'false': Nicht akzeptiert
-              'true': Akzeptiert
           user_invitation_sent_at_not_null:
-            label: Einladung versendet
             values:
-              'false': Nicht versendet
-              'true': Versendet
+              'false': Nicht gesendet
         private_space_eq:
           label: Privat
           values:
@@ -659,8 +657,9 @@ lb:
         destroy:
           error: Beim Löschen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
           success: Participatory Space Privater Benutzerzugriff wurde erfolgreich zerstört.
+        edit:
+          update: Aktualisieren
         index:
-          import_via_csv: Aus CSV-Datein importieren
           title: Participatory Space privater Benutzer
         new:
           create: Erstellen
@@ -669,7 +668,6 @@ lb:
         new:
           csv_upload:
             title: Laden Sie Ihre CSV-Datei hoch
-          upload: Hochladen
       resource_permissions:
         edit:
           submit: einreichen
@@ -780,7 +778,6 @@ lb:
         new:
           explanation: Laden Sie Ihre CSV-Datei hoch. In der ersten Spalte der Datei müssen die offiziellen E-Mails der Benutzergruppen in Ihrer Organisation enthalten sein, ohne Kopfzeilen. Nur Benutzergruppen, die ihre E-Mail bestätigt haben und deren E-Mail in der CSV-Datei enthalten ist, werden überprüft.
           title: Laden Sie Ihre CSV-Datei hoch
-          upload: Hochladen
       users:
         create:
           error: Beim Einladen dieses Benutzers ist ein Fehler aufgetreten.
