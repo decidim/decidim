@@ -106,6 +106,8 @@ pl:
       participatory_space_private_user:
         email: E-mail
         name: Nazwa
+      participatory_space_private_user_csv_import:
+        file: Plik
       scope:
         code: Kod
         name: Nazwa
@@ -405,16 +407,9 @@ pl:
             'false': Oficjalny
             'true': Nieoficjalny
         participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Zaakceptowano zaproszenie
-            values:
-              'false': Nie zaakceptowano
-              'true': Zaakceptowano
           user_invitation_sent_at_not_null:
-            label: Wysłano zaproszenie
             values:
               'false': Nie wysłano
-              'true': Wysłano
         private_space_eq:
           label: Prywatny
           values:
@@ -847,16 +842,14 @@ pl:
         destroy:
           error: Wystąpił błąd podczas usuwania użytkownika prywatnego z tej przestrzeni partycypacyjnej.
           success: Usunięto dostęp dla prywatnego użytkownika w tej przestrzeni partycypacyjnej.
+        edit:
+          update: Aktualizuj
         index:
-          import_via_csv: Importuj z CSV
           title: Prywatny użytkownik przestrzeni partycypacyjnej
         new:
           create: Utwórz
           title: Nowy prywatny użytkownik przestrzeni partycypacyjnej.
       participatory_space_private_users_csv_imports:
-        create:
-          invalid: Wystąpił problem podczas odczytu pliku CSV. Upewnij się, że postępowałeś zgodnie z instrukcjami.
-          success: Załadowanie pliku CSV powiodło się, wysyłamy e-mail z zaproszeniem do uczestników. To może chwilę potrwać.
         new:
           csv_upload:
             title: Prześlij swój plik CSV
@@ -866,13 +859,7 @@ pl:
             empty: Nie masz żadnych uczestników prywatnych.
             explanation: Masz %{count} uczestników prywatnych.
             title: Usuń prywatnych uczestników
-          example_file: 'Przykładowy plik:'
-          explanation: 'Załaduj swój plik CSV. Plik musi składać się z dwóch kolumn: w pierwszej kolumnie adresy e-mail, a w ostatniej nazwy użytkowników, których chcesz dodać do przestrzeni dla uczestników. Nie dodawaj nagłówków. Unikaj niepoprawnych znaków, takich jak `<>?%&^*#@()[]=+:;"{}\|` w nazwie użytkownika.'
-          explanation_example: |
-            jan.kowalski@przyklad.org%{csv_col_sep}Jan Kowalski
-            anna.kowalska@przyklad.org%{csv_col_sep}Anna Kowalska
           title: Importuj uczestników prywatnych przez CSV
-          upload: Prześlij
       reminders:
         create:
           error: Wystąpił błąd podczas tworzenia przypomnień.
@@ -1018,13 +1005,11 @@ pl:
           verify_via_csv: Zweryfikuj za pomocą CSV
       user_groups_csv_verifications:
         new:
-          example_file: 'Przykładowy plik:'
           explanation: 'Prześlij swój plik CSV. Plik musi zawierać: w pierwszej kolumnie oficjalne adresy e-mail grup w organizacji, bez nagłówków. Tylko grupy, które potwierdziły swój adres e-mail i których adres e-mail znajduje się w pliku CSV, zostaną zweryfikowane.'
           explanation_example: |
             acme@przyklad.org
             bubba.gump@przyklad.org
           title: Prześlij swój plik CSV
-          upload: Prześlij
       users:
         create:
           error: Podczas zapraszania administratora wystąpił błąd.
