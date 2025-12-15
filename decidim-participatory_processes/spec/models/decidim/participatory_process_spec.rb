@@ -13,7 +13,7 @@ module Decidim
     it { is_expected.to act_as_paranoid }
 
     it_behaves_like "publicable"
-    it_behaves_like "has private users"
+    it_behaves_like "has members"
 
     it "overwrites the log presenter" do
       expect(described_class.log_presenter_class_for(:foo))

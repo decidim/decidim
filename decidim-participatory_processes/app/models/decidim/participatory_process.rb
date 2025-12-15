@@ -16,7 +16,7 @@ module Decidim
     include Decidim::Followable
     include Decidim::HasReference
     include Decidim::Traceable
-    include Decidim::HasPrivateUsers
+    include Decidim::ParticipatorySpace::HasMembers
     include Decidim::Loggable
     include Decidim::ParticipatorySpaceResourceable
     include Decidim::Searchable

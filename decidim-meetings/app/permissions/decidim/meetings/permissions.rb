@@ -35,7 +35,7 @@ module Decidim
       def space_member?(participatory_space, user)
         return false unless user
 
-        participatory_space.participatory_space_private_users.exists?(decidim_user_id: user.id)
+        participatory_space.members.exists?(decidim_user_id: user.id)
       end
 
       def can_update_poll?

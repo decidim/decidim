@@ -165,8 +165,8 @@ describe "Meeting live event access" do
       let(:assembly) { create(:assembly, :private, :transparent, organization:) }
       let(:participatory_space) { assembly }
       let(:admin) { create(:user, :confirmed, :admin, organization:) }
-      let(:private_user) { create(:user, :confirmed, organization:) }
-      let!(:assembly_private_user) { create(:assembly_private_user, user: private_user, privatable_to: assembly) }
+      let(:member) { create(:user, :confirmed, organization:) }
+      let!(:assembly_member) { create(:assembly_member, user: member, privatable_to: assembly) }
 
       context "when user is not signed in" do
         it "does not show the meeting link embedded" do
@@ -188,9 +188,9 @@ describe "Meeting live event access" do
         end
       end
 
-      context "when private user is signed in" do
+      context "when member is signed in" do
         before do
-          login_as private_user, scope: :user
+          login_as member, scope: :user
         end
 
         it "shows the meeting link embedded" do

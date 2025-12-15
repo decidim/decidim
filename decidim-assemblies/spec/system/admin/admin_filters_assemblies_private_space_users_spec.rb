@@ -10,14 +10,14 @@ describe "Admin filters assemblies private space users" do
   let(:assembly) { create(:assembly, organization:, private_space: true) }
 
   let!(:invited_user1) { create(:user, name:, organization:) }
-  let!(:invited_private_user1) { create(:assembly_private_user, user: invited_user1, privatable_to: assembly) }
+  let!(:invited_member1) { create(:assembly_member, user: invited_user1, privatable_to: assembly) }
   let!(:invited_user2) { create(:user, email:, organization:) }
-  let!(:invited_private_user2) { create(:assembly_private_user, user: invited_user2, privatable_to: assembly) }
+  let!(:invited_member2) { create(:assembly_member, user: invited_user2, privatable_to: assembly) }
 
   let(:name) { "Dummy Name" }
   let(:email) { "dummy_email@example.org" }
 
-  let(:resource_controller) { Decidim::Assemblies::Admin::ParticipatorySpacePrivateUsersController }
+  let(:resource_controller) { Decidim::Assemblies::Admin::MembersController }
 
   context "when managing private process" do
     before do
@@ -35,7 +35,7 @@ describe "Admin filters assemblies private space users" do
     include_examples "searchable participatory space users"
   end
 
-  context "when managing private users in a public process" do
+  context "when managing members in a public process" do
     let(:assembly) { create(:assembly, organization:, private_space: false) }
 
     before do
@@ -43,7 +43,7 @@ describe "Admin filters assemblies private space users" do
 
       switch_to_host(organization.host)
       login_as user, scope: :user
-      visit decidim_admin_assemblies.participatory_space_private_users_path(assembly_slug: assembly.slug)
+      visit decidim_admin_assemblies.members_path(assembly_slug: assembly.slug)
     end
 
     it "restricts access" do
