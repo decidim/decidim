@@ -91,11 +91,6 @@ cs:
         welcome_notification_body: Tělo uvítacího oznámení
         welcome_notification_subject: Předmět uvítacího oznámení
         youtube_handler: YouTube handler
-      participatory_space_private_user:
-        email: E-mail
-        name: Název
-      participatory_space_private_user_csv_import:
-        file: Soubor
       scope:
         code: Kód
         name: Název
@@ -137,10 +132,6 @@ cs:
           attributes:
             official_img_footer:
               allowed_file_content_types: Neplatný soubor s obrázkem
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Chybný importní soubor, přečtěte si pozorně pokyny a ujistěte se, že soubor je kódovaný UTF-8.
         user_group_csv_verification:
           attributes:
             file:
@@ -192,8 +183,6 @@ cs:
         moderate: Spravovat moderace
         newsletter:
           new: Nový zpravodaj
-        participatory_space_private_user:
-          new: Nový soukromý uživatel participačního prostoru
         per_page: Na stránku
         permissions: Správa oprávnění
         restore: Obnovit
@@ -432,17 +421,6 @@ cs:
           values:
             'false': Ověřeno
             'true': Neověřeno
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Pozvánka přijata
-            values:
-              'false': Nepřijato
-              'true': Přijato
-          user_invitation_sent_at_not_null:
-            label: Pozvánka odeslána
-            values:
-              'false': Neodesláno
-              'true': Odesláno
         private_space_eq:
           label: Soukromé
           values:
@@ -583,6 +561,10 @@ cs:
             explanation: Spravovaní uživatelé mohou být povýšeni na standardní uživatele. Znamená to, že budou pozváni do aplikace a nebudete je moci znovu předstírat. Pozvaný uživatel obdrží e-mail, ve kterém přijme vaši pozvánku.
             new_managed_user_promotion: Nová spravovaná podpora pro uživatele
             promote: Podporovat
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Nahrát soubor CSV
       menu:
         admin_log: Protokol aktivity správce
         admins: Administrátoři
@@ -649,8 +631,6 @@ cs:
             sent_to: Odeslána
             subject: Předmět
           name: Zpravodaj
-        participatory_space_private_user:
-          name: Participační prostor soukromého účastníka
         scope:
           fields:
             name: Název
@@ -925,53 +905,6 @@ cs:
         form:
           add: Přidat na Seznam povolených
           title: Seznam povolených externích domén
-      participatory_space_private_users:
-        create:
-          error: Při přidávání soukromého uživatele pro tento participační prostor došlo k chybě.
-          success: Přístup soukromého účastníka do participativního prostoru byl úspěšně vytvořen.
-        destroy:
-          error: Při odstraňování soukromého uživatele tohoto participačního prostoru došlo k chybě.
-          success: Přístup soukromého účastníka do participativního prostoru byl úspěšně zrušen.
-        edit:
-          title: Upravit participační prostor soukromého účastníka.
-          update: Aktualizovat
-        index:
-          import_via_csv: Importovat přes CSV
-          publish_all: Publikovat vše
-          title: Participační prostor soukromého účastníka
-          unpublish_all: Zrušit publikování všech
-        new:
-          create: Vytvořit
-          title: Nový participační prostor soukromého účastníka.
-        publish_all:
-          error: U tohoto participativního prostoru byl problém se zveřejněním všech soukromých účastníků.
-          success: Úspěšné zveřejnění všech soukromých účastníků tohoto participativního prostoru
-        unpublish_all:
-          error: U tohoto participativního prostoru byl problém se zrušením zveřejnění všech soukromých účastníků.
-          success: Úspěšně zneveřejněni všichni soukromí účastníci tohoto participativního prostoru
-        update:
-          error: U tohoto participativního prostoru se vyskytl problém s aktualizací soukromého účastníka.
-          success: Soukromý účastník participativního prostoru úspěšně aktualizován
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: Při čtení souboru CSV se vyskytl problém. Ujistěte se, že jste dodrželi pokyny.
-          success: CSV soubor byl úspěšně nahrán, posíláme účastníkům e-mail s pozvánkou. To může chvíli trvat.
-        new:
-          csv_upload:
-            title: Nahrát soubor CSV
-          destroy:
-            button: Odstranit všechny soukromé účastníky
-            confirm: Jste si jisti, že chcete odstranit všechny soukromé účastníky? Tuto akci nelze vrátit zpět, nebudete je moci obnovit.
-            empty: Nemáte žádné soukromé účastníky.
-            explanation: Máte %{count} soukromých účastníků.
-            title: Odstranit soukromé účastníky
-          example_file: 'Příklad souboru:'
-          explanation: 'Nahrajte soubor CSV. Musí mít dva sloupce s e-mailem v prvním sloupci souboru a jméno v posledním sloupci souboru uživatelů, které chcete přidat do participačního prostoru, bez hlaviček. Vyhněte se používání neplatných znaků jako `<>?%&^*#@()[]=+:;"{}\|` v uživatelském jméně.'
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: Importovat soukromé účastníky přes CSV
-          upload: Nahrát
       reminders:
         create:
           error: Při vytváření připomenutí došlo k chybě.
