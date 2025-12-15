@@ -468,7 +468,6 @@ describe "Decidim::Api::QueryType" do
 
           it "is visible" do
             expect(response["assembly"]["components"].first[lookout_key]).to eq(query_result.except("projects"))
-            expect(response["assembly"]["components"].first[lookout_key]).to eq(query_result.except("projects"))
           end
         end
 

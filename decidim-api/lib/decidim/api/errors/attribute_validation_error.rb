@@ -11,7 +11,15 @@ module Decidim
 
           @messages = messages
 
-          super(messages.full_messages.join(", ")) if messages.is_a?(ActiveModel::Errors)
+          message_str =
+            if messages.is_a?(ActiveModel::Errors)
+              messages.full_messages.join(", ")
+            elsif messages.is_a?(Array)
+              messages.map { |a| a[:message] }.join(", ")
+            else
+              messages.to_s
+            end
+          super(message_str)
         end
 
         def to_h
