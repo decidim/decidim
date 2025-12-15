@@ -160,7 +160,6 @@ he:
           info: אודות האסיפה
           landing_page: דף נחיתה
           moderations: שינויים
-          private_users: חברים
           see_assembly: ראה אסיפה
       models:
         assembly:
