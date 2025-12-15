@@ -122,7 +122,6 @@ cs:
           info: O tomto procesu
           landing_page: Rozložení vstupní strany
           moderations: Moderování
-          private_users: Členové
           process_admins: Administrátoři procesu
           steps: Kroky
       models:
@@ -615,9 +614,6 @@ cs:
           type: Typ
         show:
           title: O tomto procesu
-      participatory_space_private_users:
-        index:
-          title: Členové
       show:
         belongs_to_group: Tento proces patří do
         private_space: Jedná se o soukromý proces
