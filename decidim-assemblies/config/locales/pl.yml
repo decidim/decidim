@@ -159,6 +159,7 @@ pl:
           components: Komponenty
           info: O tym zgromadzeniu
           moderations: Moderacje
+          private_users: Członkowie
           see_assembly: Zobacz zgromadzenie
       models:
         assembly:
