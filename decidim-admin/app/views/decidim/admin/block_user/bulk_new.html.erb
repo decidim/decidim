@@ -29,7 +29,7 @@
                 <%= hidden_field_tag "user_ids[]", id %>
               <% end %>
               <%= f.hidden_field :hide %>
-              <%= f.text_area :justification, required: true, label: t(".justification") %>
+              <%= f.text_area :justification, required: true, label: t(".justification"), data: { controller: "character-counter" } %>
             </div>
           </div>
         </div>

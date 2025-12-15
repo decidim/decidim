@@ -79,6 +79,14 @@ describe "Admin manages surveys" do
         expect(page).to have_no_selector("#questions_questions_#{question.id}_body_en[disabled]")
       end
 
+      it "shows the unpublish modal" do
+        within "tr", text: decidim_sanitize_translated(survey.title) do
+          find("button[data-controller='dropdown']").click
+          click_on "Unpublish"
+          expect(accept_confirm).to eq("Are you sure you want to unpublish this survey?")
+        end
+      end
+
       it "deletes responses after published" do
         within "tr", text: decidim_sanitize_translated(survey.title) do
           find("button[data-controller='dropdown']").click
@@ -96,15 +104,25 @@ describe "Admin manages surveys" do
 
         within "tr", text: decidim_sanitize_translated(survey.title) do
           find("button[data-controller='dropdown']").click
-          click_on "Unpublish"
+          accept_confirm { click_on "Unpublish" }
         end
+
         expect(page).to have_admin_callout "Survey successfully unpublished"
+
+        within "tr", text: decidim_sanitize_translated(survey.title) do
+          expect(page).to have_content "Unpublished"
+        end
 
         within "tr", text: decidim_sanitize_translated(survey.title) do
           find("button[data-controller='dropdown']").click
           accept_confirm { click_on("Publish") }
         end
+
         expect(page).to have_admin_callout "Survey successfully published"
+
+        within "tr", text: decidim_sanitize_translated(survey.title) do
+          expect(page).to have_content "Published"
+        end
         expect(questionnaire.responses).to be_empty
       end
 
@@ -128,7 +146,7 @@ describe "Admin manages surveys" do
 
               within "tr", text: decidim_sanitize_translated(survey.title) do
                 find("button[data-controller='dropdown']").click
-                click_on "Unpublish"
+                accept_confirm { click_on "Unpublish" }
               end
 
               within "tr", text: decidim_sanitize_translated(survey.title) do

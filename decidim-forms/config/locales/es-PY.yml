@@ -54,7 +54,7 @@ es-PY:
             tos: Términos y condiciones de uso
         questionnaires:
           actions:
-            back: Volver a las preguntas
+            back: Volver a las respuestas
             publish_responses: Publicar las respuestas
             show: Respuestas
           display_condition:
@@ -102,12 +102,10 @@ es-PY:
             any: Alguna
             collapse: Contraer
             description: Descripción
-            down: Abajo
             expand: Expandir
             question: Pregunta
             remove: Borrar
             statement: Declaración
-            up: Arriba
           questions_form:
             already_responded_warning: La encuesta ya está contestada por algunas usuarias, así que no puedes modificar sus preguntas.
             collapse: Contraer todas las preguntas
@@ -138,19 +136,15 @@ es-PY:
             show:
               title: 'Respuesta #%{number}'
           separator:
-            down: Bajar
             remove: Eliminar
             separator: Separador
-            up: Subir
           title_and_description:
             collapse: Contraer
             description: Descripción
-            down: Bajar
             expand: Expandir
             remove: Eliminar
             title: Título
             title_and_description: Título y descripción
-            up: Subir
           update:
             invalid: Ha habido errores al guardar el cuestionario.
             success: Formulario guardado correctamente.

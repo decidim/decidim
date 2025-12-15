@@ -1,25 +1,15 @@
 # decidim-blogs
 
-The BLOG module adds posts to any participatory process. It adds a CRUD engine
-to the admin and public view scoped inside the participatory process.
+The Blogs module adds posts to any participatory space. It adds a CRUD engine
+to the admin and public view scoped inside the participatory space.
 
 ## Usage
 
-BLOG will be available as a Component for a Participatory Process.
+Blogs will be available as a Component for a Participatory Space.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'decidim-blogs'
-```
-
-And then execute:
-
-```bash
-bundle
-```
+This is on the default Decidim installation so you should not change anything to use this component.
 
 ## Contributing
 

@@ -67,7 +67,9 @@ export default class MapMarkersController extends MapController {
   }
 
   clearMarkers() {
-    this.map.removeLayer(this.markerClusters);
+    if (this.markerClusters !== null) {
+      this.map.removeLayer(this.markerClusters);
+    }
     this.markerClusters = new L.MarkerClusterGroup();
     this.map.addLayer(this.markerClusters);
   }

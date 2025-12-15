@@ -24,20 +24,16 @@ gl:
           question:
             any: Calquera
             description: Descrición
-            down: Baixo
             question: Pregunta
             remove: Quitar
             statement: Declaración
-            up: Arriba
           title_and_description:
             collapse: Contraer
             description: Descrición
-            down: Abaixo
             expand: Expandir
             remove: Eliminar
             title: Título
             title_and_description: Título e descrición
-            up: Arriba
           update:
             invalid: Produciuse un erro ao gardar o cuestionario.
       images:

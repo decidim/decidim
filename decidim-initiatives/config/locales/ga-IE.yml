@@ -37,7 +37,6 @@ ga:
       models:
         initiatives:
           fields:
-            id: ID
             state: Stádas
         initiatives_type_scope:
           fields:

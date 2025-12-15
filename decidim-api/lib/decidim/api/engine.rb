@@ -41,6 +41,12 @@ module Decidim
         end
       end
 
+      initializer "decidim_api.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
       initializer "decidim_api.shakapacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end

@@ -6,7 +6,6 @@ module Decidim
   module TooltipHelper
     def with_tooltip(title, opts = {}, &)
       content_tag(:span,
-                  title:,
                   class: "inline-block",
                   data: { controller: :tooltip,
                           "tooltip-tooltip-value": content_tag(:p, title, id: opts[:id], class: opts[:class] || "bottom", role: "tooltip", "aria-hidden": "true") }) do

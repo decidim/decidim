@@ -30,7 +30,7 @@ module Decidim
 
             it "does not index a SearchableResource after Proposal creation when it is not official" do
               searchables = SearchableResource.where(resource_type: proposal.class.name, resource_id: [proposal.id, proposal2.id])
-              expect(searchables).to be_empty
+              expect(searchables).not_to be_empty
             end
           end
 

@@ -11,6 +11,7 @@ module Decidim
     # @param url [String, Symbol] The URL this item will link to
     # @param options [Hash] The options for the menu item
     #
+    # @param [Object] identifier
     def initialize(label, url, identifier, options = {})
       @label = label
       @url = url

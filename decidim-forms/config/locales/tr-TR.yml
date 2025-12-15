@@ -14,8 +14,6 @@ tr:
             description: Açıklama
             tos: Kullanım Şartları
         questionnaires:
-          actions:
-            back: Sorulara geri dön
           display_condition:
             condition_question: Soru
             condition_type: Durum
@@ -50,20 +48,16 @@ tr:
             any: herhangi
             collapse: Daralt
             description: Açıklama
-            down: Aşağı
             expand: Genişlet
             question: Soru
             remove: Kaldır
             statement: Beyan
-            up: yukarı
           responses:
             actions:
               show: Yanıtları göster
           separator:
-            down: Aşağı
             remove: Kaldır
             separator: Ayraç
-            up: Yukarı
           update:
             invalid: Formu kaydederken bir sorun oluştu.
             success: Başarıyla kaydedildi.

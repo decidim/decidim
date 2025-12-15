@@ -117,7 +117,6 @@ pl:
         initiatives:
           fields:
             created_at: Utworzono
-            id: ID
             published_at: Opublikowano
             state: Stan
             supports_count: Podpisy

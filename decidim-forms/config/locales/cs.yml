@@ -43,7 +43,7 @@ cs:
             allow_editing_responses: Povolit registrovaným uživatelům upravovat vlastní odpovědi z průzkumu
             allow_responses: Povolit odpovědi
             allow_unregistered: Povolit neregistrovaným uživatelům odpovědět na průzkum
-            allow_unregistered_help: Pokud je aktivní, pro odpověď na dotazník nebude vyžadováno žádné přihlášení. To může vést ke špatným nebo nespolehlivým údajům a bude to zranitelnější vůči automatickým útokům. Používejte s opatrností! Mějte na paměti, že účastník může odpovědět na stejný průzkum vícekrát, použitím různých prohlížečů nebo funkce "soukromého prohlížeče" svého webového prohlížeče.
+            allow_unregistered_help: Pokud je aktivní, pro odpověď na dotazník nebude nutné žádné přihlášení. To může vést ke špatným nebo nespolehlivým údajům a bude to zranitelnější vůči automatickým útokům. Používejte s opatrností! Mějte na paměti, že účastník může odpovědět na stejný průzkum vícekrát, použitím různých prohlížečů nebo funkce "soukromého prohlížeče" svého webového prohlížeče.
             announcement: Oznámení
             clean_after_publish: Odstranit odpovědi při publikování ankety
             description: Popis
@@ -54,7 +54,7 @@ cs:
             tos: Podmínky služby
         questionnaires:
           actions:
-            back: Zpět na otázky
+            back: Zpět k reakcím
             publish_responses: Publikovat odpovědi
             show: Odpovědi
           display_condition:
@@ -102,12 +102,10 @@ cs:
             any: Žádný
             collapse: Sbalit
             description: Popis
-            down: Dolů
             expand: Rozbalit
             question: Otázka
             remove: Odstranit
             statement: Prohlášení
-            up: Nahoru
           questions_form:
             already_responded_warning: Formulář už obsahuje odpovědi od některých uživatelů, takže nemůžete upravovat jeho otázky.
             collapse: Sbalit všechny otázky
@@ -138,19 +136,15 @@ cs:
             show:
               title: 'Odpověď č.%{number}'
           separator:
-            down: Dolů
             remove: Odebrat
             separator: Oddělovač
-            up: Nahoru
           title_and_description:
             collapse: Sbalit
             description: Popis
-            down: Dolů
             expand: Rozbalit
             remove: Odebrat
             title: Název
             title_and_description: Název a popis
-            up: Nahoru
           update:
             invalid: Při ukládání dotazníku došlo k chybám.
             success: Formulář byl úspěšně uložen.

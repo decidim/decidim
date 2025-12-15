@@ -21,7 +21,7 @@ module Decidim
                   data: options[:data] || {},
                   title:,
                   target: options[:target]) do
-            content_tag(:span, title:) do
+            content_tag(:span) do
               icon(icon_name, aria_label: title, role: "img")
             end
           end

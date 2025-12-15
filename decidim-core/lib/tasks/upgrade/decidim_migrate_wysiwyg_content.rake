@@ -39,7 +39,6 @@ namespace :decidim do
       Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::Meetings::Meeting", [:description, :registration_terms, :registration_email_custom_content, :closing_report])
       Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::Pages::Page", [:body])
       Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::Proposals::Proposal", [:body, :answer, :cost_report, :execution_period])
-      Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::Sortitions::Sortition", [:witnesses, :additional_info, :cancel_reason])
     end
 
     desc "Updates the content entered through the WYSIWYG editors"

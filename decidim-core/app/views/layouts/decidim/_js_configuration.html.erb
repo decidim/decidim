@@ -17,21 +17,21 @@ js_configs = {
     },
     notifications: {
       action_error: I18n.t("decidim.notifications.action_error")
+    },
+    characterCounter: {
+      charactersAtLeast: {
+        one: t("forms.length_validator.minimum.one", count: "%count%", default: "forms.length_validator.minimum.other"),
+        other: t("forms.length_validator.minimum.other", count: "%count%")
+      },
+      charactersLeft: {
+        one: t("decidim.components.add_comment_form.remaining_characters_1", count: "%count%"),
+        other: t("decidim.components.add_comment_form.remaining_characters", count: "%count%")
+      }
     }
   },
   external_domain_allowlist: [current_organization.host] + current_organization.external_domain_allowlist,
   consent_cookie_name: Decidim.consent_cookie_name,
   sign_out_path: decidim.destroy_user_session_path
-}
-character_messages = {
-  "charactersAtLeast": {
-    one: t("forms.length_validator.minimum.one", count: "%count%", default: "forms.length_validator.minimum.other"),
-    other: t("forms.length_validator.minimum.other", count: "%count%")
-  },
-  "charactersLeft": {
-    one: t("decidim.components.add_comment_form.remaining_characters_1", count: "%count%"),
-    other: t("decidim.components.add_comment_form.remaining_characters", count: "%count%")
-  }
 }
 external_link_messages = {
   "externalLink": t("decidim.accessibility.external_link"),
@@ -41,6 +41,5 @@ external_link_messages = {
 
 <script>
   Decidim.config.set(<%== js_configs.to_json %>);
-  Decidim.InputCharacterCounter.configureMessages(<%== character_messages.to_json %>);
   Decidim.ExternalLink.configureMessages(<%== external_link_messages.to_json %>);
 </script>

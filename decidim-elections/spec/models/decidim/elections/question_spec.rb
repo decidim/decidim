@@ -155,6 +155,22 @@ module Decidim
           it "returns the count of response options" do
             expect(subject.max_votable_options).to eq(2)
           end
+
+          context "when max_choices is set" do
+            let(:question) { create(:election_question, :with_response_options, question_type: "multiple_option", max_choices: 1) }
+
+            it "returns the max_choices value" do
+              expect(subject.max_votable_options).to eq(1)
+            end
+          end
+
+          context "when max_choices is nil" do
+            let(:question) { create(:election_question, :with_response_options, question_type: "multiple_option", max_choices: nil) }
+
+            it "returns the count of response options" do
+              expect(subject.max_votable_options).to eq(2)
+            end
+          end
         end
       end
 
@@ -180,6 +196,15 @@ module Decidim
           it "returns an empty array" do
             response_ids = question.response_options.pluck(:id)
             expect(question.safe_responses(response_ids)).to be_empty
+          end
+        end
+
+        context "when max_choices is set" do
+          let(:question) { create(:election_question, :with_response_options, question_type: "multiple_option", max_choices: 1) }
+
+          it "returns only max_choices number of responses" do
+            response_ids = question.response_options.pluck(:id)
+            expect(question.safe_responses(response_ids).count).to eq(1)
           end
         end
       end

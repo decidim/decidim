@@ -15,14 +15,14 @@ module Decidim::Elections
     let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }
 
     it "renders as unpublished" do
-      expect(subject.to_s).to include('<span class="unpublished label">Unpublished</span>')
+      expect(subject.to_s).to include('<span class="alert label">Unpublished</span>')
     end
 
     context "when the election is scheduled" do
       let(:election) { create(:election, :published, :scheduled) }
 
       it "renders as scheduled" do
-        expect(subject.to_s).to include('<span class="scheduled label">Scheduled</span>')
+        expect(subject.to_s).to include('<span class="reverse label">Scheduled</span>')
         expect(subject.to_s).to include("Not started yet")
       end
     end
@@ -31,7 +31,7 @@ module Decidim::Elections
       let(:election) { create(:election, :published, :ongoing, end_at: 1.9.days.from_now) }
 
       it "renders as ongoing" do
-        expect(subject.to_s).to include('<span class="ongoing label">Ongoing</span>')
+        expect(subject.to_s).to include('<span class="warning label">Ongoing</span>')
         expect(subject.to_s).to include("2 days remaining")
       end
     end
@@ -40,7 +40,7 @@ module Decidim::Elections
       let(:election) { create(:election, :published, :finished) }
 
       it "renders as finished" do
-        expect(subject.to_s).to include('<span class="finished label">Finished</span>')
+        expect(subject.to_s).to include('<span class="success label">Finished</span>')
         expect(subject.to_s).to include("Finished: #{election.end_at.strftime("%d/%m/%Y")}")
       end
     end
@@ -49,7 +49,7 @@ module Decidim::Elections
       let(:election) { create(:election, :published, :finished, :published_results) }
 
       it "renders as results published" do
-        expect(subject.to_s).to include('<span class="finished label">Finished</span>')
+        expect(subject.to_s).to include('<span class="success label">Finished</span>')
         expect(subject.to_s).to include("Results published: #{election.published_results_at.strftime("%d/%m/%Y")}")
       end
     end

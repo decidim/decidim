@@ -19,20 +19,20 @@ module Decidim
       def tab_panel_items
         [
           {
-            enabled: ResultHistoryCell.new(result).render?,
-            id: "included_history",
-            text: t("decidim.history", scope: "activerecord.models", count: 2),
-            icon: resource_type_icon_key("history"),
-            method: :cell,
-            args: ["decidim/accountability/result_history", result]
-          },
-          {
             enabled: milestones.any?,
             id: "milestones",
             text: t("decidim.accountability.results.milestones.title"),
             icon: "route-line",
             method: :cell,
             args: ["decidim/accountability/project", result, { template: :milestones }]
+          },
+          {
+            enabled: ResultHistoryCell.new(result).render?,
+            id: "included_history",
+            text: t("decidim.history", scope: "activerecord.models", count: 2),
+            icon: resource_type_icon_key("history"),
+            method: :cell,
+            args: ["decidim/accountability/result_history", result]
           },
           {
             enabled: children.any?,

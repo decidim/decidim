@@ -5,6 +5,8 @@ module Decidim
     module Admin
       # This controller allows an admin to manage results from a Participatory Process
       class StatusesController < Admin::ApplicationController
+        include Decidim::Accountability::Admin::Filterable
+
         helper_method :statuses
 
         def new
@@ -68,8 +70,18 @@ module Decidim
 
         private
 
+        def base_query
+          Status.where(component: current_component)
+        end
+
+        def filtered_collection
+          query.sorts = ["progress asc", "key asc"] if query.sorts.empty?
+
+          paginate(query.result)
+        end
+
         def statuses
-          @statuses ||= Status.where(component: current_component).page(params[:page]).per(15)
+          @statuses ||= filtered_collection
         end
 
         def status

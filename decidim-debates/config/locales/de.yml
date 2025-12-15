@@ -25,11 +25,14 @@ de:
       admin_log:
         changeset:
           debates: Debatten
+      tooltips:
+        deleted_debates_info: Diese Debatte kann nicht gelöscht werden
     components:
       debates:
         actions:
           comment: Kommentieren
           create: Debatte erstellen
+          like: Unterstützen
         name: Debatten
         settings:
           global:
@@ -46,6 +49,8 @@ de:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
             creation_enabled: Teilnehmer können Debatten erstellen
+            likes_blocked: Unterstützungsfunktion gesperrt
+            likes_enabled: Unterstützungsfunktion aktiviert
     debates:
       actions:
         close: Schließen
@@ -142,6 +147,7 @@ de:
           state: Status
           state_values:
             closed: Geschlossen
+            ongoing: Laufend
         index:
           new_debate: Neue Debatte
         new:
@@ -156,9 +162,13 @@ de:
           updated: Kürzlich aktualisiert
         show:
           close_debate: Schliessen
+          closed: Abgeschlossen
           debate_conclusions_are: 'Die Debatte wurde am %{date} mit diesen Ergebnissen geschlossen:'
           edit_conclusions: Schlussfolgerungen bearbeiten
           edit_debate: Bearbeiten
+          not_started: Nicht begonnen
+          ongoing: Laufend
+          open_ended: Unbefristet
           participants_count: Teilnehmer
         update:
           invalid: Es gab ein Problem bei der Aktualisierung der Aussprache.
@@ -259,6 +269,7 @@ de:
           instructions: Kommentaranleitungen für diese Debatte
           last_comment_at: Datum, an dem diese Debatte zuletzt kommentiert wurde
           last_comment_by: Der Inhalt des letzten Kommentars der Debatte
+          likes_count: Die Anzahl Unterstützungen dieses Beitrags
           participatory_space: Zu welchem Bereich diese Debatte gehört (z.B. Partizipationsprozesse oder Gremien)
           reference: Die eindeutige Bezeichnung der Ressource auf dieser Plattform
           start_time: Wann diese Debatte beginnt, ob es sich um eine offene Debatte handelt oder ob sie eine begrenzte Dauer hat
@@ -268,3 +279,4 @@ de:
           url: Die URL, unter der diese Debatte gefunden werden kann
     statistics:
       debates_count: Debatten
+      debates_count_tooltip: Die Anzahl der durchgeführten Diskussionen.

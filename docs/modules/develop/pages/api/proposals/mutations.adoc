@@ -1,0 +1,85 @@
+= Proposals
+
+== Answering Proposals
+
+Allows administrators to answer proposals with a status (accepted, rejected, or evaluating).
+
+This is an example on how to use the Answer Proposal mutation. Please refer to the GraphQL documentation for the available fields:
+
+
+- https://nightly.decidim.org/api/docs/input_object/answerinput/[Answer Input]
+- https://nightly.decidim.org/api/docs/input_object/proposalattributes[Proposal Attributes]
+- https://nightly.decidim.org/api/docs/object/proposal[Proposal Type]
+
+```graphql
+mutation addProposalAnswer($componentId: ID!, $proposalId: ID!, $input: AnswerInput!){
+  component(id: $componentId) {
+    ...on ProposalsMutation{
+      proposal(id: $proposalId) {
+        answer(input: $input) {
+          // this is the proposal response
+        }
+      }
+    }
+  }
+}
+```
+
+Example of submitted variables
+```graphql
+{
+  "componentId": 9,
+  "proposalId": 2,
+  "input": {
+    "clientMutationId": "unique-client-id-123",
+    "attributes": {
+      "state": "accepted",
+      "cost": 10.0,
+      "answerContent": {
+         "en" => "Some answer in english",
+         "ca" => "Some answer in Catalan"
+      }
+    }
+  }
+}
+```
+
+=== HTTP Request Example
+
+Using cURL to make the GraphQL request:
+
+```bash
+curl -X POST https://your-decidim-instance.org/api \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_API_TOKEN" \
+  -d '{
+    "query": "mutation addProposalAnswer($componentId: ID!, $proposalId: ID!, $input: AnswerInput!){ component(id: $componentId) { ...on ProposalsMutation{ proposal(id: $proposalId) { answer(input: $input) { /* this is the proposal response */  } } } } }",
+    "variables": {
+      "input": {
+        "componentId": 9,
+        "proposalId": 2,
+        "input": {
+          "clientMutationId": "unique-client-id-123",
+            "attributes": {
+            "state": "accepted",
+            "cost": 10.0,
+            "answerContent": {
+              "en" => "Some answer in english",
+              "ca" => "Some answer in Catalan"
+            }
+          }
+        }
+      }
+    }
+  }'
+```
+
+=== Error Handling
+
+When you are not authorized, or when you are not authenticated, the server will respond with a simple:
+```graphql
+{
+  "data": null
+}
+```
+

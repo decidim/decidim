@@ -18,7 +18,7 @@ describe "Admin manages election census" do
   end
 
   it "opens the census tab" do
-    expect(page).to have_content("Census type")
+    expect(page).to have_content("Edit election")
   end
 
   context "when the admin selects unregistered participants with tokens" do
@@ -78,6 +78,17 @@ describe "Admin manages election census" do
         expect(page).to have_content("The preview list is limited to 5 records.")
         expect(page).to have_content("user1@example.org")
       end
+    end
+  end
+
+  context "when the election has started" do
+    let!(:started_election) { create(:election, :published, :ongoing, component: current_component) }
+    let(:started_election_census_path) { Decidim::EngineRouter.admin_proxy(component).election_census_path(started_election) }
+
+    it "denies access to the census edit page" do
+      visit started_election_census_path
+
+      expect(page).to have_content("You are not authorized to perform this action")
     end
   end
 

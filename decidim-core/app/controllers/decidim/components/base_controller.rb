@@ -67,12 +67,28 @@ module Decidim
       end
 
       def set_component_breadcrumb_item
-        context_breadcrumb_items << {
+        context_breadcrumb_items << add_current_component
+        context_breadcrumb_items << add_parent_breadcrumb_item
+        context_breadcrumb_items << add_breadcrumb_item
+      end
+
+      private
+
+      def add_current_component
+        {
           label: current_component.name,
           url: Decidim::EngineRouter.main_proxy(current_component).root_path,
           active: false,
           resource: current_component
         }
+      end
+
+      def add_parent_breadcrumb_item
+        {}
+      end
+
+      def add_breadcrumb_item
+        {}
       end
     end
   end

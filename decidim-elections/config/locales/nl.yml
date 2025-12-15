@@ -19,6 +19,7 @@ nl:
             announcement: Mededeling
     elections:
       actions:
+        preview: Voorvertoning
         title: acties
       admin:
         census:
@@ -55,11 +56,37 @@ nl:
           edit_questions:
             new_question: Nieuwe vraag
             title: vragen
+      censuses:
+        token_csv_form:
+          email: E-mail
+      elections:
+        count:
+          elections_count:
+            one: "%{count} verkiezing"
+            other: "%{count} verkiezingen"
+        filters:
+          state: Status
+        show:
+          vote_button: Stemming
+        vote_results:
+          title: Resultaten
       models:
         election:
           fields:
             census: Kiezerslijst
             status: Status
             title: Aanspreektitel
+      status:
+        not_started: Niet begonnen
+      votes:
+        confirm:
+          title: Bevestig uw stem
+        question:
+          back: Terug
+          next: Volgende
     statistics:
       elections_count: Verkiezingen
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Afsluiten

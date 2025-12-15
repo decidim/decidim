@@ -15,7 +15,6 @@ sl:
       linked_classes:
         meeting: Sestanki
     menu:
-      help: Pomoč
       home: Domov
     messaging:
       conversations:

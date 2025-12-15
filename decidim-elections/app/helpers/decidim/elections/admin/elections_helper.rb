@@ -5,6 +5,7 @@ module Decidim
     module Admin
       module ElectionsHelper
         include Decidim::ApplicationHelper
+        include Decidim::Elections::LabelHelper
 
         def census_count(election)
           election.census&.count(election).to_i
@@ -22,12 +23,6 @@ module Decidim
           return user unless election.census
 
           election.census.user_presenter.constantize.new(user)
-        end
-
-        def election_status_with_label(election)
-          content_tag(:span,
-                      I18n.t("decidim.elections.status.#{election.status}"),
-                      class: "#{election.status} label")
         end
 
         def election_status_action_data(election)

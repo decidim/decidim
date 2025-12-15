@@ -18,7 +18,6 @@ window.Rails = Rails;
 // Fake timers for testing polling
 jest.useFakeTimers();
 
-import { createCharacterCounter } from "src/decidim/input_character_counter";
 import Configuration from "src/decidim/refactor/implementation/configuration";
 // Component is loaded with require because using import loads it before $ has been mocked
 // so tests are not able to check the spied behaviours
@@ -362,9 +361,6 @@ describe("CommentsComponent", () => {
       order: "older",
       lastCommentId: 456,
       pollingInterval: 1000
-    });
-    $("textarea[maxlength]", $container).each((_i, elem) => {
-      createCharacterCounter($(elem));
     });
 
     $doc = $(document);

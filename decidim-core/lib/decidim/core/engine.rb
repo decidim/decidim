@@ -38,6 +38,7 @@ require "ransack"
 require "wisper"
 require "chartkick"
 require "shakapacker"
+require "data_migrate"
 
 require "decidim/api"
 require "decidim/core/content_blocks/registry_manager"
@@ -229,6 +230,13 @@ module Decidim
         Decidim.icons.register(name: "facebook-circle-line", icon: "facebook-circle-line", category: "social icon", description: "", engine: :core)
       end
 
+      initializer "decidim_core.data_migrate" do |app|
+        DataMigrate.configure do |config|
+          config.data_migrations_path = [app.root.join("db/data").to_s]
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
       initializer "decidim_core.patch_shakapacker", before: "shakapacker.version_checker" do
         ENV["SHAKAPACKER_CONFIG"] = Decidim::Shakapacker.configuration.configuration_file
       end
@@ -243,6 +251,8 @@ module Decidim
       initializer "decidim_core.setup_i18n" do |app|
         app.config.i18n.available_locales = Decidim.available_locales
         app.config.i18n.default_locale = Decidim.default_locale
+        app.config.i18n.fallbacks = true
+        app.config.i18n.raise_on_missing_translations = Rails.env.local?
       end
 
       initializer "decidim_core.active_storage_method_patch" do |_app|
@@ -354,13 +364,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_core.locales" do |app|
-        app.config.i18n.fallbacks = true
-      end
-
       initializer "decidim_core.graphql_api" do
-        Decidim::Api::QueryType.include Decidim::QueryExtensions
-
         Decidim::Api.add_orphan_type Decidim::Core::UserType
       end
 
@@ -386,10 +390,6 @@ module Decidim
           # this allows to search for an integer inside a column that is an array
           config.add_predicate("contains", arel_predicate: "contains", formatter: array_cast, validator: integer_presence)
         end
-      end
-
-      initializer "decidim_core.i18n_exceptions" do |app|
-        app.config.i18n.raise_on_missing_translations = true unless Rails.env.production?
       end
 
       initializer "decidim_core.geocoding", after: :load_config_initializers do
@@ -463,8 +463,6 @@ module Decidim
       end
 
       initializer "decidim_core.menu" do
-        Decidim::Core::Menu.register_menu!
-        Decidim::Core::Menu.register_mobile_menu!
         Decidim::Core::Menu.register_user_menu!
       end
 
@@ -488,6 +486,7 @@ module Decidim
       end
 
       initializer "decidim_core.add_cells_view_paths" do
+        Cell::ViewModel.view_paths << Rails.root.join("app/views") # for partials
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/cells/amendable")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/views") # for partials

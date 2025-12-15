@@ -71,6 +71,23 @@ Decidim.register_component(:surveys) do |component|
     exports.serializer Decidim::Forms::UserResponsesSerializer
   end
 
+  component.exports :published_survey_user_responses do |exports|
+    exports.collection do |component|
+      survey = Decidim::Surveys::Survey.find_by(component: component)
+
+      Decidim::Forms::Response
+        .joins(:question)
+        .where(questionnaire: survey.questionnaire)
+        .where.not(decidim_forms_questions: { question_type: %w(separator title_and_description) })
+        .where.not(decidim_forms_questions: { survey_responses_published_at: nil })
+        .includes(:question, :choices, :user)
+    end
+
+    exports.formats []
+    exports.include_in_open_data = true
+    exports.serializer Decidim::Surveys::UserResponsesSerializer
+  end
+
   component.seeds do |participatory_space|
     require "decidim/surveys/seeds"
 

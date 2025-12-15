@@ -8,8 +8,6 @@ module Decidim
     # the other methods to see how they work.
     #
     # @param [Hash] tags - A Hash containing the meta tag name as keys and its content as values.
-    # @param [Object, nil] resource - The resource object that may contain the image.
-    #
     # @return [nil]
     def add_decidim_meta_tags(tags)
       add_decidim_page_title(tags[:title])

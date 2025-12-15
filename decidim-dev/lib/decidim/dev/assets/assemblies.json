@@ -579,23 +579,6 @@
         "published_at": "2020-01-22 07:55:05 UTC"
       },
       {
-        "manifest_name": "sortitions",
-        "id": 26,
-        "name": {
-          "ca": "Sortejos",
-          "en": "Sortitions",
-          "es": "Sorteos"
-        },
-        "participatory_space_id": 1,
-        "participatory_space_type": "Decidim::Assembly",
-        "settings": {
-          "comments_enabled": true
-        },
-        "weight": 0,
-        "permissions": null,
-        "published_at": "2020-01-22 07:55:19 UTC"
-      },
-      {
         "manifest_name": "surveys",
         "id": 23,
         "name": {

@@ -45,7 +45,7 @@ module Decidim
         # @private
         #
         # @param resource [Object] - the Decidim resource to add the comments to.
-        # @param root_commentable - the root commentable resource. It is optional, used for making nested comments.
+        # @param root_commentable [Object, Decidim::Comments::Comment] - the root commentable resource. It is optional, used for making nested comments.
         #
         # @return [Decidim::Comments::Comment]
         def create_comment(resource, root_commentable = nil)
@@ -70,7 +70,7 @@ module Decidim
         #
         # @private
         #
-        # @param [Decidim::Comments::Comment]
+        # @param comment [Decidim::Comments::Comment]
         #
         # @return nil
         def create_votes(comment)

@@ -490,8 +490,6 @@ pt-BR:
         description: Descrição
       footer_sub_hero:
         name: Rodapé do sub-herói banner
-      global_menu:
-        name: Menu global
       hero_settings_form:
         background_image: Imagem de fundo
         welcome_text: Texto de boas-vindas
@@ -620,7 +618,6 @@ pt-BR:
       files:
         file_cannot_be_processed: O arquivo não pode ser processado
         file_resolution_too_large: A resolução do arquivo é muito grande
-        not_inside_organization: O arquivo não está anexado a nenhuma organização
       internal_server_error:
         copied: Texto copiado!
         copy_error_message_clarification: Copiar mensagem de erro para área de transferência
@@ -891,7 +888,6 @@ pt-BR:
         latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
         map_service_brand: OpenStreetMap
     menu:
-      help: Ajuda
       home: Inicio
     messaging:
       conversation_mailer:
@@ -969,7 +965,6 @@ pt-BR:
         error: Ocorreu um erro ao se desinscrever.
         success: Você está inscrito com sucesso.
         token_error: O link expirou.
-        unsubscribe: Cancelar subscrição
     newsletters_opt_in:
       unauthorized: Desculpe, este link não está mais disponível.
       update:
@@ -977,7 +972,6 @@ pt-BR:
         success: Configurações de boletim informativo atualizadas com sucesso.
     newsletters_opt_in_mailer:
       notify:
-        body_1: O processamento de dados pessoais e sua proteção estão se tornando cada vez mais importantes para todos nós. Com o novo Regulamento Geral de Proteção de Dados (GDPR) de 25 de maio de 2018, os indivíduos têm melhor controle sobre seus dados pessoais. Por esse motivo, precisamos que seu "OK" continue enviando informações relevantes sobre as atividades do %{organization_name}.
         body_2: 'Como você pode nos dar seu consentimento? Basta clicar no seguinte botão:'
         body_3: Com esse consentimento, você poderá continuar recebendo informações sobre os serviços da plataforma. Se, pelo contrário, não recebermos uma confirmação positiva da sua parte, deixaremos de lhe enviar as nossas mensagens. Se você confirmar que deseja continuar sendo informado, sempre terá a opção de cancelar a qualquer momento.
         button: Sim, quero continuar recebendo informações relevantes
@@ -990,11 +984,9 @@ pt-BR:
         same_language: O conteúdo foi publicado em seu idioma preferido (%{language}), e é por isso que nenhuma tradução automática é exibida neste e-mail.
         translated_text: 'Texto traduzido automaticamente:'
     notifications:
-      action_error: Houve um erro ao atualizar as notificações.
       no_notifications: Não há notificações.
       show:
         missing_event: Ops, esta notificação pertence a um item que não está mais disponível. Você pode descartá-lo.
-        moderated: Comentário moderado
     notifications_digest_mailer:
       header:
         daily: Resumo de Notificação Diário
@@ -1055,13 +1047,11 @@ pt-BR:
         footer_sub_hero:
           footer_sub_hero_body_html: Vamos construir uma sociedade mais aberta, transparente e colaborativa.<br /> Participe, participe e decida.
           footer_sub_hero_headline: Bem-vindo à plataforma participativa %{organization}.
-          register: Registrar-se
         hero:
           participate: Participar
           participate_title: Participe dos processos da plataforma
           welcome: Bem-vindo ao %{organization}!
         sub_hero:
-          register: Registrar-se
           register_title: Criar uma conta
       index:
         standalone_pages: Páginas
@@ -1579,7 +1569,6 @@ pt-BR:
     name_included_in_password: é muito parecido com o seu nome
     nickname_included_in_password: é muito parecido com o seu nome de usuário
     not_enough_unique_characters: não tem caracteres únicos suficientes
-    password_not_allowed: não é permitido
     password_repeated: não é possível reutilizar a senha antiga
     password_too_common: é muito comum
     password_too_long: é muito longo

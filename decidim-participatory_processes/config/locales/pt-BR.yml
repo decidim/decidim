@@ -326,10 +326,6 @@ pt-BR:
           form:
             document_legend: Adicionar um documento
             slug_help_html: 'Os slugs de URL são usados para gerar os URLs que apontam para este processo. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
-        participatory_process_steps:
-          form:
-            cta_path_help_html: 'Use caminhos parciais, não URLs completas aqui. Aceita letras, números, traços e barras e deve começar com uma letra. Se não for definido, o botão não será mostrado. Exemplo: %{url}'
-            cta_text_help: Se não estiver definido, o botão não será mostrado.
         participatory_processes:
           form:
             announcement_help: O texto que você insere aqui será mostrado ao usuário logo abaixo das informações do processo.

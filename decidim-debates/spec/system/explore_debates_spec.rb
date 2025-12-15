@@ -262,6 +262,29 @@ describe "Explore debates" do
 
           expect(page).to have_css("a.card__list", count: 1)
         end
+
+        it "collapses the accordions on click" do
+          within ".layout-2col__aside" do
+            expect(page).to have_content "Ongoing"
+            expect(page).to have_content "Official"
+          end
+
+          click_on "Status"
+          click_on "The name for regular users"
+          click_on "Origin"
+
+          within ".layout-2col__aside" do
+            expect(page).to have_no_content "Ongoing"
+            expect(page).to have_no_content "Official"
+          end
+
+          click_on "Origin"
+
+          within ".layout-2col__aside" do
+            expect(page).to have_no_content "Ongoing"
+            expect(page).to have_content "Official"
+          end
+        end
       end
     end
 
@@ -305,7 +328,8 @@ describe "Explore debates" do
       decidim_participatory_process_debates.debate_path(
         id: debate.id,
         participatory_process_slug: participatory_space.slug,
-        component_id: component.id
+        component_id: component.id,
+        locale: I18n.locale
       )
     end
     let!(:debate) do

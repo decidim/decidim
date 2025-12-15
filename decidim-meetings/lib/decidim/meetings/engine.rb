@@ -75,6 +75,12 @@ module Decidim
         Decidim.icons.register(name: "calendar-close-line", icon: "calendar-close-line", category: "system", description: "", engine: :meetings)
       end
 
+      initializer "decidim_meetings.data_migrate", after: "decidim_core.data_migrate" do
+        DataMigrate.configure do |config|
+          config.data_migrations_path << root.join("db/data").to_s
+        end
+      end
+
       initializer "decidim_meetings.content_processors" do |_app|
         Decidim.configure do |config|
           config.content_processors += [:meeting]

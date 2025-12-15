@@ -54,7 +54,7 @@ module Decidim
 
           expect(result).to eq(
             [
-              [question.id.to_s, separator.id.to_s],
+              [question.id.to_s],
               [question2.id.to_s]
             ]
           )
@@ -68,7 +68,7 @@ module Decidim
           it "returns an empty spec" do
             result = subject.responses_by_step
 
-            expect(result).to eq([[]])
+            expect(result).to eq([])
           end
         end
       end

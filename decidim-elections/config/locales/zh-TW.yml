@@ -19,6 +19,7 @@ zh-TW:
             announcement: 公告
     elections:
       actions:
+        preview: 預覽
         title: 操作
       admin:
         census:
@@ -59,6 +60,27 @@ zh-TW:
         statuses:
           publish_results:
             invalid: 發布結果時出現問題.
+      censuses:
+        token_csv_form:
+          email: 電子郵件
+      elections:
+        count:
+          elections_count:
+            other: "%{count} 個選舉"
+        filters:
+          all: 全部
+          state: 狀態
+          state_values:
+            finished: 已完成
+            ongoing: 進行中
+        orders:
+          recent: 最近
+        questions:
+          title: 選舉問題
+        show:
+          vote_button: 投票
+        vote_results:
+          title: 結果
       models:
         election:
           fields:
@@ -68,6 +90,17 @@ zh-TW:
       status:
         active: 生效
         finished: 已完成
+        not_started: 尚未啟動
         ongoing: 進行中
+      votes:
+        confirm:
+          title: 確認您的選票
+        question:
+          back: 返回
+          next: 下一個
     statistics:
       elections_count: 選舉
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: 關閉

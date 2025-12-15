@@ -427,6 +427,8 @@ sv:
           no_slots_available: Inga platser tillgängliga
           registration: Registrering
       conference_program:
+        program_item:
+          other_category: Övrigt
         show:
           program: Program
       conference_registration_mailer:
@@ -605,6 +607,7 @@ sv:
     open_data:
       help:
         conferences:
+          component_settings: Inställningar för konferensutrymmet
           created_at: Datum när utrymmet skapades
           decidim_scope_id: Omfattningen av konferensen
           description: Längre beskrivning av konferensen

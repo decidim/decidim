@@ -96,6 +96,56 @@ module Decidim
             expect(session[:votes_buffer]).to eq({ question.id.to_s => nil, second_question.id.to_s => nil })
             expect(response).to redirect_to(confirm_election_votes_path)
           end
+
+          context "when question has max_choices limit" do
+            let!(:question_with_limit) do
+              create(:election_question, :voting_enabled, election:, question_type: "multiple_option", max_choices: 2)
+            end
+            let!(:option1) { create(:election_response_option, question: question_with_limit) }
+            let!(:option2) { create(:election_response_option, question: question_with_limit) }
+            let!(:option3) { create(:election_response_option, question: question_with_limit) }
+
+            it "rejects vote when exceeding max_choices" do
+              patch :update, params: params.merge(
+                id: question_with_limit.id,
+                response: {
+                  question_with_limit.id.to_s => [option1.id, option2.id, option3.id]
+                }
+              )
+
+              expect(response).to have_http_status(:ok)
+              expect(flash[:alert]).to match(/cannot select more than 2/)
+              expect(subject).to render_template(:show)
+            end
+
+            it "accepts vote when within max_choices limit" do
+              session[:votes_buffer] = { question.id.to_s => nil, second_question.id.to_s => nil }
+
+              patch :update, params: params.merge(
+                id: question_with_limit.id,
+                response: {
+                  question_with_limit.id.to_s => [option1.id, option2.id]
+                }
+              )
+
+              expect(session[:votes_buffer][question_with_limit.id.to_s]).to eq([option1.id.to_s, option2.id.to_s])
+              expect(response).to redirect_to(confirm_election_votes_path)
+            end
+
+            it "accepts vote with less than max_choices" do
+              session[:votes_buffer] = { question.id.to_s => nil, second_question.id.to_s => nil }
+
+              patch :update, params: params.merge(
+                id: question_with_limit.id,
+                response: {
+                  question_with_limit.id.to_s => [option1.id]
+                }
+              )
+
+              expect(session[:votes_buffer][question_with_limit.id.to_s]).to eq([option1.id.to_s])
+              expect(response).to redirect_to(confirm_election_votes_path)
+            end
+          end
         end
       end
 
@@ -185,12 +235,19 @@ module Decidim
               create(:election_vote, voter_uid: session[:voter_uid], question: question, response_option: question.response_options.first)
             end
 
-            it "renders the receipt page" do
+            it "renders the receipt page and clears votes buffer" do
               expect(controller.send(:votes_buffer)).to receive(:clear)
-              expect(controller.send(:session_attributes)).to receive(:clear)
+              expect(controller.send(:session_attributes)).not_to receive(:clear)
               get :receipt, params: params
               expect(response).to have_http_status(:ok)
               expect(subject).to render_template(:receipt)
+            end
+
+            it "clears session when exit param is present" do
+              expect(controller.send(:votes_buffer)).to receive(:clear)
+              expect(controller.send(:session_attributes)).to receive(:clear)
+              get :receipt, params: params.merge(exit: true)
+              expect(response).to redirect_to(election_path)
             end
           end
         end

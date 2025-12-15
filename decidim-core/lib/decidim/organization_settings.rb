@@ -48,7 +48,7 @@ module Decidim
       # Note: this cannot fetch the default settings from the class instance
       # variable "defaults" because that would cause an infinite loop.
       #
-      # @param *chain [Symbol, String] The configuration key(s) to dig into
+      # @param chain [Array<Symbol, String>] The configuration key(s) to dig into
       #   inside the default configurations hash.
       # @return The value found from the default configurations hash.
       def default(*chain)
@@ -203,7 +203,7 @@ module Decidim
     # Turns the stars into wildcard regular expression matches in the matching
     # strings.
     #
-    # @param [Array<String>] An array of glob strings to match against.
+    # @param types [Array<String>] An array of glob strings to match against.
     # @return [Array<Regexp>] An array of regular expressions to match against.
     def content_type_array(types)
       types.map do |match_string|

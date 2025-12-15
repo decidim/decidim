@@ -18,7 +18,7 @@ module Decidim
           end
 
           def search_field_predicate
-            :title_or_description_or_id_string_or_author_name_or_author_nickname_cont
+            :title_or_description_or_author_name_or_author_nickname_cont
           end
 
           def filters

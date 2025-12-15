@@ -39,7 +39,7 @@ module Decidim
     # @!attribute rewrite
     #   @return [String] the rewritten content
     # @!attribute metadata
-    #   @return [Hash<Symbol, Metadata>] a hash where the keys are the parsers
+    #   @return [Hash{Symbol => Metadata}] a hash where the keys are the parsers
     #     names, and the values are the Metadata object returned by the parser
     Result = Struct.new(:rewrite, :metadata)
 

@@ -69,7 +69,6 @@ nl:
         initiatives:
           fields:
             created_at: Aangemaakt op
-            id: ID kaart
             published_at: Gepubliceerd op
             state: Status
             supports_count: Handtekeningen

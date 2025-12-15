@@ -2,6 +2,14 @@
 
 In order to release new version you need to be owner of all the gems at RubyGems, ask one of the owners to add you before releasing. Try `gem owner decidim` to find out the owners of the gem. It is worth making sure you are owner of all gems.
 
+In order to release any other version of Decidim, is mandatory to have the `decidim-maintainers_toolbox` installed, and to have it on the latest version. What we can, we aim to automate.
+[source,bash]
+----
+gem install decidim-maintainers_toolbox
+----
+
+Before you begin the release process, make sure you check if there are any open or pending  backports. Currently, is not mandatory to open or merge all the backports, but is something that we usually aim for. Refer to the xref:develop:backports.adoc[backports] page for more information.
+
 == Release Candidates
 
 Release Candidates are the same as beta versions.
@@ -9,7 +17,7 @@ They should be ready to go to production, but publicly released just before in o
 
 If this is a *Release Candidate version* release, the steps to follow are:
 
-. Merge all the https://github.com/decidim/decidim/pulls?q=is%3Apr+is%3Aopen+author%3Adecidim-bot+sort%3Aupdated-desc[Crowdin pull requests created by the user `decidim-bot`], specially the one that is going to be marged against the release branch `release/x.y-stable` that should be returned by the provided example search (pick the correct pull request for the release from the results).
+. Merge all the https://github.com/decidim/decidim/pulls?q=is%3Apr+is%3Aopen+author%3Adecidim-bot+sort%3Aupdated-desc[Crowdin pull requests created by the user `decidim-bot`], specially the one that is going to be merged against the release branch `release/x.y-stable` that should be returned by the provided example search (pick the correct pull request for the release from the results).
 . Go to develop with `git checkout develop`
 . Install the last version of the `decidim-maintainers_toolbox` gem, and run the releaser command. Mind that for this to work you need locally the gh CLI from GitHub.
 [source,bash]
@@ -19,16 +27,24 @@ decidim-releaser --github-token=(gh auth token) --version-type=rc
 ----
 . This will create the stable branch and also create two Pull Requests:
 .. One for changing the development version on the `develop` branch (with title "Bump develop to next release version (x.y.z)")
-.. Another for creating the  the new release in the stable branch with title `Bump to vx.y.z version`. Wait for the tests to finish and check that everything is passing before releasing the version.
+.. Another for creating the new release in the stable branch with title `Bump to vx.y.z version`. Wait for the tests to finish and check that everything is passing before releasing the version.
 During this process you will have the instructions on how to follow with the process in the command line. One of the tasks is updating Crowdin, you can read more about this in the "Create the stable branch in Crowdin" section of this page.
 . Review, accept and merge the Pull Request.
 . Run `git pull && bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems. Be ready for the One Time Password fill for each of the gems.
+. Once all the gems are published:
+.. Re-run the failed generators tests at the release branch.
+.. Always check if there are any pending security CVE's that needs to be published. If there are, add a section header called "Security fixes", and add the relevant information there, like we have done in https://github.com/decidim/decidim/releases/tag/v0.31.0[v0.31.0 release notes]
+.... Add the advisory id
+.... Make sure you change the date, to be 2 months away from release date
+.... Add the date to your calendar to actually publish the CVE's and link them to the Release Notes when that is the case. You can see how the final result looks like at https://github.com/decidim/decidim/releases/tag/v0.29.0[v0.29.0 release notes]
+.. Create a new release at this repository, just go to the https://github.com/decidim/decidim/releases[releases page] and create a new one.
 
 Usually, at this point, the release branch is deployed to Metadecidim during, at least, one week to validate the stability of the version.
 
 === During the validation period
 
-. During the validation period, bugfixes must be implemented directly to the current `release/x.y.z-stable` branch and ported to `develop`.
+. During the validation period, bugfixes must be implemented directly to the current `develop` branch, and if you need to backport, just add the labels `type: fix` and also the `release: v0.xx` to allow automated backports.
+ ... In special cases only (when the feature aimed to be fixed does not exist anymore in `develop`), you can open the Pull Request directly against the release branch. This is something that we usually defer to doing, as it could bring inconsistencies between the versions, making the maintenance harder.
 . During the validation period, translations to the officially supported languages must be added to Crowdin and, when completed, merged into `release/x.y.z-stable`.
 
 == Major/Minor versions
@@ -37,20 +53,22 @@ Release Candidates will be tested in a production server (usually Metadecidim) d
 
 . Merge all the https://github.com/decidim/decidim/pulls?q=is%3Apr+is%3Aopen+author%3Adecidim-bot+sort%3Aupdated-desc[Crowdin pull requests created by the user `decidim-bot`], specially the one that is going to be marged against the release branch `release/x.y-stable` that should be returned by the provided example search (pick the correct pull request for the release from the results).
 . Checkout the release stable branch `git checkout release/x.y-stable`.
-. Update `.decidim-version` by removing the `.rcN` suffix, leaving a clean version number like `x.y.z`
-. Run `bin/rake update_versions`, this will update all references to the new version.
-. Run `bin/rake patch_generators`, this will update the Gemfile for the generators to the new version.
-. Run `bin/rake bundle`, this will update all the `Gemfile.lock` files
-. Run `bin/rake webpack`, this will update the JavaScript bundle.
-. Update the `CHANGELOG.md`.
-Add the header with the current version and link like `+## [0.20.0](https://github.com/decidim/decidim/tree/v0.20.0)+` and the headers generated by the changelog generator.
-. Commit all the changes: `git add . && git commit -m "Bump to v0.XX.0 final version" && git push origin release/x.y-stable`.
+. Install the last version of the `decidim-maintainers_toolbox` gem, and run the releaser command. Mind that for this to work you need locally the gh CLI from GitHub.
+[source,bash]
+----
+gem install decidim-maintainers_toolbox
+decidim-releaser --github-token=(gh auth token) --version-type=minor
+----
 . Wait for the tests to finish and check that everything is passing before releasing the version.
 NOTE: When you bump the version, the generator tests will fail because the gems and NPM packages have not been actually published yet (as in sent to rubygems/npm). You may see errors such as `No matching version found for @decidim/browserslist-config@~0.xx.y` in the CI logs. This should be fine as long as you have ensured that the generators tests passed in the previous commit.
-. Run `git pull && bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems.
+. Run `git pull && bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems. Be ready for the One Time Password fill for each of the gems.
 . Once all the gems are published:
- .. Re-run the failed generators tests at the release branch.
- .. Create a new release at this repository, just go to the https://github.com/decidim/decidim/releases[releases page] and create a new one.
+.. Re-run the failed generators tests at the release branch.
+.. Always check if there are any pending security CVE's that needs to be published. If there are, add a section header called "Security fixes", and add the relevant information there, like we have done in https://github.com/decidim/decidim/releases/tag/v0.31.0[v0.31.0 release notes]
+.... Add the advisory id
+.... Make sure you change the date, to be 2 months away from release date
+.... Add the date to your calendar to actually publish the CVE's and link them to the Release Notes when that is the case. You can see how the final result looks like at https://github.com/decidim/decidim/releases/tag/v0.29.0[v0.29.0 release notes]
+.. Create a new release at this repository, just go to the https://github.com/decidim/decidim/releases[releases page] and create a new one.
 . Update Decidim's Docker repository as explained in the Docker images section below.
 . Update Crowdin synchronization configuration with GitHub:
  .. Add the new `release/x.y-stable` branch.
@@ -111,7 +129,11 @@ NOTE: When you bump the version, the generator tests will fail because the gems 
 . Run `git pull && bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems. Be ready for the One Time Password fill for each of the gems.
 . Once all the gems are published:
  .. Re-run the failed generators tests at the release branch.
- .. Create a new release at this repository, just go to the https://github.com/decidim/decidim/releases[releases page] and create a new one.
+ .. Always check if there are any pending security CVE's that needs to be published. If there are, add a section header called "Security fixes", and add the relevant information there, like we have done in https://github.com/decidim/decidim/releases/tag/v0.31.0[v0.31.0 release notes]
+ .... Add the advisory id
+.... Make sure you change the date, to be 2 months away from release date
+.... Add the date to your calendar to actually publish the CVE's and link them to the Release Notes when that is the case. You can see how the final result looks like at https://github.com/decidim/decidim/releases/tag/v0.29.0[v0.29.0 release notes]
+.. Create a new release at this repository, just go to the https://github.com/decidim/decidim/releases[releases page] and create a new one.
 . Update Decidim's Docker repository as explained in the Docker images section.
 
 == Docker images for each release

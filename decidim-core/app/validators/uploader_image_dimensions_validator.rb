@@ -28,6 +28,10 @@ class UploaderImageDimensionsValidator < ActiveModel::Validations::FileContentTy
     return unless uploader.validable_dimensions
     return if (image = extract_image(file)).blank?
 
+    # A simple check to avoid DoS with maliciously crafted images, or just to
+    # avoid reckless users that upload images with too many pixels.
+    #
+    # See https://hackerone.com/reports/390
     record.errors.add attribute, I18n.t("decidim.errors.files.file_resolution_too_large") if image.dimensions.any? { |dimension| dimension > uploader.max_image_height_or_width }
   rescue MiniMagick::Error
     # The error may happen because of many reasons but most commonly the image

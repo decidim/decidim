@@ -214,7 +214,7 @@ de:
     admin_log:
       assembly:
         create: "%{user_name} hat das Gremium %{resource_name} erstellt"
-        duplicate: "%{user_name} hat das Gremium %{resource_name} aktualisiert"
+        duplicate: "%{user_name} hat das Gremium %{resource_name} dupliziert"
         export: "%{user_name} hat das Gremium %{resource_name} exportiert"
         import: "%{user_name} hat das Gremium %{resource_name} importiert"
         publish: "%{user_name} hat das Gremium %{resource_name} veröffentlicht"
@@ -259,6 +259,9 @@ de:
             taxonomies: Klassifizierungen
             title: Allgemeine Information
             visibility: Sichtbarkeit
+        assembly_duplicates:
+          form:
+            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und sie müssen mit einem Buchstaben beginnen. Beispiel: %{url}'
         assembly_imports:
           form:
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'

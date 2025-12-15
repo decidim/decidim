@@ -17,6 +17,7 @@ ro:
             announcement: Anunţ
     elections:
       actions:
+        preview: Previzualizare
         title: Acțiuni
       admin:
         dashboard:
@@ -46,6 +47,27 @@ ro:
           edit_questions:
             new_question: Întrebare nouă
             title: Întrebări
+      censuses:
+        token_csv_form:
+          email: E-mail
+      elections:
+        count:
+          elections_count:
+            one: "%{count} alegeri"
+            few: "%{count} alegeri"
+            other: "%{count} alegeri"
+        filters:
+          all: Toate
+          state_values:
+            finished: Terminat
+        orders:
+          recent: Recente
+        questions:
+          title: Întrebări aferente alegerilor
+        show:
+          vote_button: Votează
+        vote_results:
+          title: Rezultate
       models:
         election:
           fields:
@@ -53,5 +75,15 @@ ro:
       status:
         active: Activ
         finished: Terminat
+        not_started: Nu a început
+      votes:
+        confirm:
+          title: Confirmă votul tău
+        question:
+          next: Următoarea
     statistics:
       elections_count: Alegeri
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Inchide

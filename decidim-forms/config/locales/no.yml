@@ -15,8 +15,6 @@
             description: Beskrivelse
             tos: Tjenestevilkår
         questionnaires:
-          actions:
-            back: Tilbake til spørsmål
           display_condition:
             condition_question: Spørsmål
             condition_type: Betingelse
@@ -51,29 +49,23 @@
             any: Alle
             collapse: Skjul
             description: Beskrivelse
-            down: Ned
             expand: Utvid
             question: Spørsmål
             remove: Fjern
             statement: Uttalelse
-            up: Opp
           responses:
             actions:
               show: Vis svar
           separator:
-            down: Ned
             remove: Fjern
             separator: Skilletegn
-            up: Opp
           title_and_description:
             collapse: Kollaps
             description: Beskrivelse
-            down: Ned
             expand: Utvid
             remove: Fjern
             title: Tittel
             title_and_description: Tittel og beskrivelse
-            up: Opp
           update:
             invalid: Det oppstod et problem med å lagre dette skjema.
             success: Skjemaet ble lagret.

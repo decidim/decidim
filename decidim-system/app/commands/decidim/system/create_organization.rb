@@ -29,7 +29,7 @@ module Decidim
         @organization = nil
         invite_form = nil
 
-        transaction do
+        with_events(with_transaction: true) do
           @organization = create_organization
           CreateDefaultPages.call(@organization)
           CreateDefaultHelpPages.call(@organization)
@@ -50,6 +50,10 @@ module Decidim
       private
 
       attr_reader :form
+
+      def event_arguments
+        { organization: @organization }
+      end
 
       def create_organization
         Decidim::Organization.create!(

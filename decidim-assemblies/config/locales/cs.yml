@@ -19,6 +19,9 @@ cs:
         developer_group: Skupina promotérů
         document: Dokument
         domain: Doména
+        duplicate_categories: Duplikovat kategorie
+        duplicate_components: Duplikovat komponenty
+        duplicate_features: Duplikovat funkce
         duration: Doba trvání
         facebook: Facebook
         github: GitHub
@@ -114,6 +117,15 @@ cs:
         update:
           error: Při aktualizaci tohoto shromáždění došlo k chybě.
           success: Shromáždění úspěšně aktualizováno.
+      assemblies_duplicates:
+        create:
+          error: Při kopírování tohoto shromáždění došlo k chybě.
+          success: Shromáždění úspěšně duplikováno.
+      assembly_duplicates:
+        new:
+          duplicate: Duplikovat
+          select: Vyberte, která data chcete duplikovat
+          title: Duplikovat shromáždění
       assembly_imports:
         create:
           error: Při importu tohoto shromáždění došlo k chybě.
@@ -253,6 +265,9 @@ cs:
             taxonomies: Taxonomie
             title: Obecná informace
             visibility: Viditelnost
+        assembly_duplicates:
+          form:
+            slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         assembly_imports:
           form:
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
@@ -375,6 +390,7 @@ cs:
           assembly_type: Typ shromáždění
           closing_date: Datum ukončení shromáždění
           closing_date_reason: Proč bylo shromáždění uzavřeno
+          component_settings: Nastavení komponenty shromáždění
           composition: Složení shromáždění
           created_at: Datum, kdy byl tento prostor vytvořen
           created_by: Kdo vytvořil toto shromáždění

@@ -6,10 +6,12 @@ module Decidim
       description "A taxonomy that can be applied to other resources."
 
       field :children, [Decidim::Core::TaxonomyType], "The children of this taxonomy.", null: false
+      field :children_count, GraphQL::Types::Int, "The number of children of this taxonomy."
       field :id, GraphQL::Types::ID, "The id of this taxonomy.", null: false
       field :is_root, Boolean, "Whether this taxonomy is a root taxonomy (root taxonomies have no parents).", null: false, method: :root?
       field :name, Decidim::Core::TranslatedFieldType, "The name of this taxonomy.", null: false
       field :parent, Decidim::Core::TaxonomyType, "The parent of this taxonomy.", null: true
+      field :taxonomizations_count, GraphQL::Types::Int, "The number of taxonomizations of this taxonomy."
     end
   end
 end

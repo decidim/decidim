@@ -123,7 +123,7 @@ shared_examples "proposals wizards" do |options|
 
           click_on "Documents"
           within "#panel-documents" do
-            expect(find("a.card__list-title")["innerHTML"]).to include("&lt;svg onload=alert('ALERT')&gt;.pdf")
+            expect(find(".card__list-title")["innerHTML"]).to include("&lt;svg onload=alert('ALERT')&gt;.pdf")
           end
         end
       end

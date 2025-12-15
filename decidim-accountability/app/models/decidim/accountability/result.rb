@@ -103,11 +103,11 @@ module Decidim
       ransacker_i18n_multi :search_text, [:title, :description]
 
       def self.ransackable_attributes(auth_object = nil)
-        base = %w(search_text title description)
+        base = %w(id_string id search_text title description)
 
         return base unless auth_object&.admin?
 
-        base + %w(id_string created_at id progress)
+        base + %w(created_at progress)
       end
 
       def self.ransackable_associations(auth_object = nil)

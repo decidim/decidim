@@ -19,7 +19,7 @@ FactoryBot.define do
     transient do
       skip_injection { false }
     end
-    questionnaire { build(:questionnaire, :with_questions, skip_injection:) }
+    questionnaire { build(:questionnaire, :with_questions, questionnaire_for: component.try(:participatory_space), skip_injection:) }
     component { build(:surveys_component, skip_injection:) }
 
     trait :published do

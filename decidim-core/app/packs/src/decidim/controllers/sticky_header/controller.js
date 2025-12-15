@@ -41,7 +41,7 @@ export default class extends Controller {
     const menuBarContainer = document.querySelector("#menu-bar-container");
 
     // Calculate margin based on screen size and sticky header height
-    const marginTop = this.isMaxScreenSize("md")
+    const marginTop = this.isMaxScreenSize("sm")
       ? this.element.offsetHeight
       : 0;
 

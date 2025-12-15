@@ -21,12 +21,21 @@
       <tbody>
       <% @users.each do |user| %>
         <tr data-user-id="<%= user.id %>">
-          <td data-label="<%= t(".name") %>">
-            <%= link_to_if user.nickname.present?, user.name, decidim.profile_path(user.nickname) %>
-          </td>
-          <td data-label="<%= t(".nickname") %>">
-            <%= link_to_if user.nickname.present?, user.nickname, decidim.profile_path(user.nickname) %>
-          </td>
+          <% if user.nickname.present? %>
+            <td data-label="<%= t(".name") %>">
+              <%= link_to user.name, decidim.profile_path(user.nickname) %>
+            </td>
+            <td data-label="<%= t(".nickname") %>">
+              <%= link_to user.nickname, decidim.profile_path(user.nickname) %>
+            </td>
+          <% else %>
+            <td data-label="<%= t(".name") %>">
+              <%= user.name %>
+            </td>
+            <td data-label="<%= t(".nickname") %>">
+              <%= user.nickname %>
+            </td>
+          <% end %>
           <td data-label="<%= t(".created_at") %>">
             <%= l user.created_at, format: :short %>
           </td>

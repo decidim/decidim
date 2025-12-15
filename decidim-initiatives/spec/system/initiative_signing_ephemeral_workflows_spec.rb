@@ -54,7 +54,7 @@ describe "Initiative signing with ephemeral workflows" do
       .with("dummy_signature_handler")
       .and_return(test_handler)
     switch_to_host(organization.host)
-    visit decidim_initiatives.initiative_path(initiative)
+    visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
   end
 
   context "when the workflow only enables the ephemeral feature" do
@@ -135,6 +135,7 @@ describe "Initiative signing with ephemeral workflows" do
           end
 
           it "an authorization is created" do
+            sleep 1
             user = Decidim::User.ephemeral.last
             expect do
               click_on "Validate your data"
@@ -304,7 +305,7 @@ describe "Initiative signing with ephemeral workflows" do
 
         before do
           login_as regular_user, scope: :user
-          visit decidim_initiatives.initiative_path(initiative)
+          visit decidim_initiatives.initiative_path(initiative, locale: I18n.locale)
           within ".initiative__aside" do
             click_on "Sign"
           end

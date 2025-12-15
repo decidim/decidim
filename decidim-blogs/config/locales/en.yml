@@ -108,6 +108,7 @@ en:
           destroy: Delete
           like: Like
           update: Update
+          vote_comment: Vote comment
         name: Blog
         settings:
           global:

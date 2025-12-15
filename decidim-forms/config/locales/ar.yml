@@ -27,11 +27,9 @@ ar:
           question:
             any: أي
             description: وصف
-            down: أسفل
             question: سؤال
             remove: إزالة
             statement: بيان
-            up: فوق
           title_and_description:
             description: الوصف
           update:

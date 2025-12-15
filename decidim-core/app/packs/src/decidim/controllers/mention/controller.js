@@ -17,8 +17,11 @@ export default class extends Controller {
       return;
     }
 
+    if (this.element.hasAttribute("data-tribute")) {
+      this.element.removeAttribute("data-tribute");
+    }
+
     this.createTribute();
-    this.attachTribute();
     this.setupEventListeners();
     this.isInitialized = true;
   }
@@ -73,21 +76,8 @@ export default class extends Controller {
         `;
       }
     });
-  }
 
-  /**
-   * Attach the Tribute instance to the element
-   * @returns {void}
-   * @private
-   */
-  attachTribute() {
-    // if (this.element.hasAttribute("data-tribute")) {
-    //   return;
-    // }
-
-    if (this.tribute) {
-      this.tribute.attach(this.element);
-    }
+    this.tribute.attach(this.element);
   }
 
   /**

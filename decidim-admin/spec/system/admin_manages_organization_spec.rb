@@ -61,6 +61,64 @@ describe "Admin manages organization" do
       expect(page).to have_content("There is an error in this field.")
     end
 
+    context "when there are more than 4 locales in the organization" do
+      let(:available_locales) { %w(en ca es fr it) }
+      let(:organization_names) do
+        {
+          en: "English Organization Name",
+          ca: "Nom de l'organització en català",
+          es: "Nombre de la organización en español",
+          fr: "Nom de l'organisation en français",
+          it: "Nome dell'organizzazione in italiano"
+        }
+      end
+
+      before do
+        I18n.available_locales = available_locales
+        Decidim.available_locales = available_locales
+        I18n.backend.reload!
+
+        Decidim::Admin.send(:remove_const, :OrganizationForm)
+        load "#{Decidim::Admin::Engine.root}/app/forms/decidim/admin/organization_form.rb"
+
+        organization.update!(available_locales:, name: organization_names)
+      end
+
+      after do
+        I18n.available_locales = %w(en ca es)
+        Decidim.available_locales = %w(en ca es)
+        I18n.backend.reload!
+
+        Decidim::Admin.send(:remove_const, :OrganizationForm)
+        load "#{Decidim::Admin::Engine.root}/app/forms/decidim/admin/organization_form.rb"
+      end
+
+      it "renders a dropdown for the language selector and switches between languages" do
+        visit decidim_admin.edit_organization_path
+
+        expect(page).to have_select("organization-name-tabs")
+
+        expect(page).to have_css("#organization_name_en", visible: :visible)
+        expect(page).to have_field("organization_name_en", with: organization_names[:en])
+
+        select "Català", from: "organization-name-tabs"
+        expect(page).to have_css("#organization_name_ca", visible: :visible)
+        expect(page).to have_field("organization_name_ca", with: organization_names[:ca])
+
+        select "Français", from: "organization-name-tabs"
+        expect(page).to have_css("#organization_name_fr", visible: :visible)
+        expect(page).to have_field("organization_name_fr", with: organization_names[:fr])
+
+        select "Italiano", from: "organization-name-tabs"
+        expect(page).to have_css("#organization_name_it", visible: :visible)
+        expect(page).to have_field("organization_name_it", with: organization_names[:it])
+
+        select "Castellano", from: "organization-name-tabs"
+        expect(page).to have_css("#organization_name_es", visible: :visible)
+        expect(page).to have_field("organization_name_es", with: organization_names[:es])
+      end
+    end
+
     context "when using the rich text editor" do
       before do
         visit decidim_admin.edit_organization_path
@@ -223,7 +281,7 @@ describe "Admin manages organization" do
       context "when the admin terms of service content has a link" do
         let(:terms_content) do
           <<~HTML
-            <p>foo<br><a href="https://www.decidim.org" target="_blank">link</a></p>
+            <p>foo<br><a target="_blank" href="https://www.decidim.org">link</a></p>
           HTML
         end
         let(:organization) do
@@ -238,7 +296,7 @@ describe "Admin manages organization" do
           find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys([:shift, :enter])
           expect(find(
             "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ProseMirror"
-          )["innerHTML"]).to eq('<p>foo<br><br><a target="_blank" href="https://www.decidim.org">link</a></p>')
+          )["innerHTML"]).to eq('<p>foo<br><br><a href="https://www.decidim.org" target="_blank">link</a></p>')
         end
 
         it "does not create br tag inside a tag" do
@@ -246,7 +304,7 @@ describe "Admin manages organization" do
           find('#organization_admin_terms_of_service_body_en div[contenteditable="true"].ProseMirror').native.send_keys([:shift, :enter])
           expect(find(
             "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ProseMirror"
-          )["innerHTML"]).to eq('<p>foo<br><br><a target="_blank" href="https://www.decidim.org">link</a></p>')
+          )["innerHTML"]).to eq('<p>foo<br><br><a href="https://www.decidim.org" target="_blank">link</a></p>')
         end
       end
 
@@ -475,7 +533,7 @@ describe "Admin manages organization" do
         let(:parsed_content) do
           cnt = <<~HTML
             <p>testing</p>
-            <p><strong>foo</strong><br><a target="_blank" href="https://www.decidim.org/"><u>link</u></a></p>
+            <p><strong>foo</strong><br><a href="https://www.decidim.org/" target="_blank"><u>link</u></a></p>
             <p><br></p>
           HTML
 

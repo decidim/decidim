@@ -1,5 +1,8 @@
 <%= form_with url: url_for(action: :show, id: question), method: :patch, local: true do %>
-  <%= question_title(question, :h1, class: "h4 mb-8") %>
+  <%= question_title(question, :h1, class: "vote_booth-question_title") %>
+  <div class="editor-content">
+    <%= render_question_description(question) %>
+  </div>
 
   <div class="question__response-options mt-4 flex flex-col gap-4">
     <% question.response_options.each do |option| %>

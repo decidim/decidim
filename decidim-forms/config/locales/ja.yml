@@ -42,8 +42,8 @@ ja:
           components:
             allow_editing_responses: 登録ユーザーが自分のアンケート応答を編集できるようにする
             allow_responses: 応答を許可
-            allow_unregistered: 未登録ユーザーがアンケートに応答できるようにする
-            allow_unregistered_help: 有効にした場合、アンケートへの回答にログインは必要ありません。 これは、データが貧弱または信頼性が低下する可能性があり、自動化された攻撃に対してより脆弱になります。 注意して使用してください。参加者は、異なるブラウザまたは彼女のWebブラウザの「プライベートブラウジング」機能を使用することで、同じアンケートに複数回応答できることに留意してください。
+            allow_unregistered: 未登録ユーザーによるアンケート回答を許可する
+            allow_unregistered_help: この設定を有効にすると、アンケートに回答する際にログインが不要になります。これにより、データの品質低下や信頼性の問題が生じる可能性があり、自動化された攻撃に対して脆弱性が高まります。使用には十分注意してください。なお、参加者が異なるブラウザを使用する場合や、ウェブブラウザの「プライベートブラウジング」機能を利用した場合、同じアンケートに複数回回答できてしまう可能性がある点にご注意ください。
             announcement: お知らせ
             clean_after_publish: アンケートを公開するときに回答を削除する
             description: 説明
@@ -54,7 +54,7 @@ ja:
             tos: 利用規約
         questionnaires:
           actions:
-            back: 質問に戻る
+            back: 回答に戻る
             publish_responses: 応答を公開
             show: 応答
           display_condition:
@@ -102,12 +102,10 @@ ja:
             any: 任意の
             collapse: 折りたたむ
             description: 説明
-            down: 下
             expand: 展開
             question: 質問
             remove: 削除
             statement: ステートメント
-            up: 上へ
           questions_form:
             already_responded_warning: このフォームはすでに応答しているユーザーがいるため、質問を修正することはできません。
             collapse: すべての質問を閉じる
@@ -138,19 +136,15 @@ ja:
             show:
               title: '応答 #%{number}'
           separator:
-            down: 下
             remove: 削除
             separator: 区切り記号
-            up: 上へ
           title_and_description:
             collapse: 折りたたむ
             description: 説明
-            down: 下へ
             expand: 展開する
             remove: 削除
             title: タイトル
             title_and_description: タイトルと説明
-            up: 上へ
           update:
             invalid: フォームの保存に失敗しました。
             success: フォームを保存しました。

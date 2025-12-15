@@ -13,6 +13,18 @@ Decidim.register_component(:blogs) do |component|
     raise StandardError, "Cannot remove this component" if Decidim::Blogs::Post.where(component: instance).any?
   end
 
+  component.on(:publish) do |instance|
+    Decidim::Blogs::Post.where(component: instance).find_in_batches(batch_size: 100) do |batch|
+      Decidim::UpdateSearchIndexesJob.perform_later(batch)
+    end
+  end
+
+  component.on(:unpublish) do |instance|
+    Decidim::Blogs::Post.where(component: instance).find_in_batches(batch_size: 100) do |batch|
+      Decidim::RemoveSearchIndexesJob.perform_later(batch)
+    end
+  end
+
   component.register_stat :posts_count,
                           primary: true,
                           priority: Decidim::StatsRegistry::MEDIUM_PRIORITY,
@@ -50,7 +62,7 @@ Decidim.register_component(:blogs) do |component|
   component.register_resource(:blogpost) do |resource|
     resource.model_class_name = "Decidim::Blogs::Post"
     resource.card = "decidim/blogs/post"
-    resource.actions = %w(like comment)
+    resource.actions = %w(like comment vote_comment)
     resource.searchable = true
   end
 

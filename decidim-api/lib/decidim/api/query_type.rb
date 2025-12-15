@@ -5,6 +5,97 @@ module Decidim
     # This type represents the root query type of the whole API.
     class QueryType < Decidim::Api::Types::BaseObject
       description "The root query of this schema"
+
+      field :component, Decidim::Core::ComponentInterface, null: true do
+        description "Lists the components this space contains."
+        argument :id, GraphQL::Types::ID, required: true, description: "The ID of the component to be found"
+      end
+      field :decidim, Core::DecidimType, "Decidim's framework properties.", null: true
+      field :moderated_users, type: [Decidim::Core::UserModerationType], null: true,
+                              description: "The moderated users for the current organization"
+      field :moderations, type: [Decidim::Core::ModerationType], null: true,
+                          description: "The moderation for the current organization"
+      field :organization, Core::OrganizationType, "The current organization", null: true
+      field :participant_details, type: Decidim::Core::ParticipantDetailsType, null: true do
+        description "Participant details visible to admin users only"
+        argument :id, GraphQL::Types::ID, "The ID of the participant", required: true
+        argument :nickname, GraphQL::Types::String, "The @nickname of the participant", required: false
+      end
+      field :session, Core::SessionType, description: "Return's information about the logged in user", null: true
+      field :static_page_topics, type: [Decidim::Core::StaticPageTopicType], null: true,
+                                 description: "The static page topics for the current organization"
+      field :static_pages, type: [Decidim::Core::StaticPageType], null: true,
+                           description: "The static pages for the current organization"
+      field :user,
+            type: Core::UserType, null: true,
+            description: "A participant (user or group) in the current organization" do
+        argument :id, GraphQL::Types::ID, "The ID of the participant", required: false
+        argument :nickname, GraphQL::Types::String, "The @nickname of the participant", required: false
+      end
+      field :users,
+            type: [Core::UserType], null: true,
+            description: "The participants (users or groups) for the current organization" do
+        argument :filter, Decidim::Core::UserEntityInputFilter, "Provides several methods to filter the results", required: false
+        argument :order, Decidim::Core::UserEntityInputSort, "Provides several methods to order the results", required: false
+      end
+
+      def component(id: {})
+        component = Decidim::Component.published.find_by(id:)
+        component&.organization == context[:current_organization] ? component : nil
+      end
+
+      def session
+        context[:current_user]
+      end
+
+      def decidim
+        Decidim
+      end
+
+      def organization
+        context[:current_organization]
+      end
+
+      def user(id: nil, nickname: nil)
+        Core::UserEntityFinder.new.call(object, { id:, nickname: }, context)
+      end
+
+      def users(filter: {}, order: {})
+        Core::UserEntityList.new.call(object, { filter:, order: }, context)
+      end
+
+      def participant_details(id: nil, nickname: nil)
+        participant = Decidim::Core::UserEntityFinder.new.call(object, { id: id, nickname: nickname }, context)
+        return nil unless participant
+
+        return nil unless Decidim::Core::ParticipantDetailsType.authorized?(participant, context)
+
+        Decidim::ActionLogger.log(
+          "read",
+          context[:current_user],
+          participant,
+          nil,
+          {}
+        )
+
+        participant
+      end
+
+      def static_pages
+        Decidim::StaticPage.accessible_for(organization, context[:current_user])
+      end
+
+      def static_page_topics
+        static_pages.collect(&:topic).uniq.compact_blank
+      end
+
+      def moderated_users
+        Decidim::UserModeration.joins(:user).where(decidim_users: { decidim_organization_id: organization&.id }).where.not(decidim_users: { blocked_at: nil })
+      end
+
+      def moderations
+        Decidim::Moderation.where(participatory_space: organization.participatory_spaces).includes(:reports).hidden
+      end
     end
   end
 end

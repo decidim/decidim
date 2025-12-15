@@ -34,6 +34,7 @@ module Decidim
         # @param context [GraphQL::Query::Context] The GraphQL context
         #
         # @return Boolean
+        # @param [Symbol] scope
         def allowed_to?(action, subject, object, context, scope: :public)
           unless subject.is_a?(::Symbol)
             subject = determine_subject_name(object)
@@ -43,12 +44,7 @@ module Decidim
           permission_action = Decidim::PermissionAction.new(scope:, action:, subject:)
 
           permission_chain(object).inject(permission_action) do |current_permission_action, permission_class|
-            permission_context =
-              if scope == :admin
-                local_admin_context(object, context)
-              else
-                local_context(object, context)
-              end
+            permission_context = local_user_context(object, context)
 
             permission_class.new(
               context[:current_user],
@@ -56,6 +52,8 @@ module Decidim
               permission_context
             ).permissions
           end.allowed?
+        rescue Decidim::PermissionAction::PermissionNotSetError
+          false
         end
 
         # Injects into context object current_participatory_space and current_component keys as they are needed
@@ -81,7 +79,7 @@ module Decidim
           context.to_h
         end
 
-        def local_admin_context(object, context)
+        def local_user_context(object, context)
           context = local_context(object, context)
 
           component = context[:current_component]

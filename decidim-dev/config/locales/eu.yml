@@ -42,7 +42,7 @@ eu:
             test_options:
               bar: Bar
               baz: Baz
-              foo: foo
+              foo: Foo
     dummy:
       admin:
         exports:
@@ -66,4 +66,4 @@ eu:
       bar: Bar
       dummies_count_high: Dummies altua
       dummies_count_medium: Dummies ertainak
-      foo: foo
+      foo: Foo

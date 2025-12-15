@@ -334,9 +334,6 @@ ro:
         participatory_process_imports:
           form:
             document_legend: Adaugă un document
-        participatory_process_steps:
-          form:
-            cta_text_help: Dacă nu este setat, butonul nu va fi afișat.
         participatory_processes:
           form:
             announcement_help: Textul pe care îl introduci aici va fi afișat utilizatorului chiar sub informațiile procesului.

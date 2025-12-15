@@ -52,7 +52,6 @@ ga:
           fields:
             created_at: Cruthaithe
             end_date: Dáta deiridh
-            id: ID
             progress: Forás
             status: Stádas
             title: Teideal

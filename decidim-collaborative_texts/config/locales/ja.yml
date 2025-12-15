@@ -74,6 +74,9 @@ ja:
           update_settings:
             invalid: ドキュメントの更新中に問題が発生しました。
             success: ドキュメントを更新しました。
+        index:
+          published: 公開済み
+          unpublished: 未公開
       admin_log:
         document:
           create: "%{user_name}が%{space_name}で%{resource_name}のコラボレーションテキストを作成しました"
@@ -121,6 +124,7 @@ ja:
       models:
         collaborative_text:
           fields:
+            published: 公開済み
             suggestions: 提案を承認する
             title: タイトル
       suggestion:

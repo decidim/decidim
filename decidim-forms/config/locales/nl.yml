@@ -14,8 +14,6 @@ nl:
             description: Omschrijving
             tos: Servicevoorwaarden
         questionnaires:
-          actions:
-            back: Terug naar vragen
           display_condition:
             condition_question: Vraag
             condition_type: Voorwaarde
@@ -49,29 +47,23 @@ nl:
             any: Ieder
             collapse: Samenvouwen
             description: Omschrijving
-            down: naar beneden
             expand: Uitklappen
             question: Vraag
             remove: Verwijderen
             statement: Uitspraak
-            up: omhoog
           responses:
             actions:
               show: Antwoorden tonen
           separator:
-            down: Omlaag
             remove: Verwijderen
             separator: Scheidingsteken
-            up: Omhoog
           title_and_description:
             collapse: Inklappen
             description: Beschrijving
-            down: Naar beneden
             expand: Uitklappen
             remove: Verwijderen
             title: Titel
             title_and_description: Titel en beschrijving
-            up: Naar boven
           update:
             invalid: Er zijn fouten opgetreden bij het opslaan van de vragenlijst.
             success: Formulier succesvol opgeslagen.

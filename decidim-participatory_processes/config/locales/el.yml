@@ -327,9 +327,6 @@ el:
         participatory_process_imports:
           form:
             document_legend: Προσθήκη εγγράφου
-        participatory_process_steps:
-          form:
-            cta_text_help: Εάν δεν οριστεί, το κουμπί δεν θα εμφανιστεί.
         participatory_processes:
           form:
             announcement_help: Το κείμενο που εισάγετε εδώ θα εμφανίζεται στον χρήστη ακριβώς κάτω από τις πληροφορίες της διαδικασίας.
