@@ -116,7 +116,6 @@ fi:
           info: Tietoa tästä prosessista
           landing_page: Laskeutumissivun asettelu
           moderations: Moderoinnit
-          private_users: Jäsenet
           process_admins: Prosessin hallintakäyttäjät
           steps: Vaiheet
       models:
@@ -604,9 +603,6 @@ fi:
           type: Tyyppi
         show:
           title: Tietoa tästä prosessista
-      participatory_space_private_users:
-        index:
-          title: Jäsenet
       show:
         belongs_to_group: Tämä prosessi kuuluu ryhmään
         private_space: Tämä on yksityinen prosessi
