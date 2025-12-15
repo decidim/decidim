@@ -116,7 +116,6 @@ es-MX:
           info: Acerca de este proceso
           landing_page: Disposición de la página de aterrizaje
           moderations: Moderaciones
-          private_users: Miembros
           process_admins: Usuarios del proceso
           steps: Fases del proceso
       models:
@@ -604,9 +603,6 @@ es-MX:
           type: Tipo
         show:
           title: Acerca de este proceso
-      participatory_space_private_users:
-        index:
-          title: Miembros
       show:
         belongs_to_group: Este proceso pertenece a
         private_space: Este es un proceso privado
