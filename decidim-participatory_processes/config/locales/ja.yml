@@ -113,7 +113,6 @@ ja:
           info: このプロセスについて
           landing_page: ランディングページのレイアウト
           moderations: モデレーション
-          private_users: メンバー
           process_admins: 参加型プロセス管理者
           steps: フェーズ
       models:
@@ -596,9 +595,6 @@ ja:
           type: 種別
         show:
           title: このプロセスについて
-      participatory_space_private_users:
-        index:
-          title: メンバー
       show:
         belongs_to_group: このプロセスの所属グループ
         private_space: これはプライベートな参加型プロセスです
