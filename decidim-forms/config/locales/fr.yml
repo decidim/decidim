@@ -184,9 +184,6 @@ fr:
           questionnaire_closed:
             body: Le questionnaire est fermé et vous ne pouvez pas y répondre.
             title: Questionnaire fermé
-          questionnaire_for_private_users:
-            body: Le questionnaire est disponible uniquement pour les utilisateurs privés
-            title: Questionnaire fermé
           questionnaire_js_disabled:
             body: Certaines des fonctionnalités de ce formulaire seront désactivées. Pour améliorer votre expérience, veuillez activer JavaScript dans votre navigateur.
             title: JavaScript est désactivé
