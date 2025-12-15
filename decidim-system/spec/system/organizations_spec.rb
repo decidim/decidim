@@ -42,6 +42,7 @@ describe "Organizations" do
 
       it "creates a new organization" do
         fill_in "Name", with: "Citizen Corp"
+        fill_in "Short name", with: "CitizenCorp"
         fill_in "Host", with: "www.example.org"
         fill_in "Secondary hosts", with: "foo.example.org\n\rbar.example.org"
         fill_in "Reference prefix", with: "CCORP"
@@ -78,6 +79,7 @@ describe "Organizations" do
 
         it "does not create an organization" do
           fill_in "Name", with: "Citizen Corp"
+          fill_in "Short name", with: "CitizenCorp"
           fill_in "Host", with: "www.example.org"
           fill_in "Reference prefix", with: "CCORP"
           click_on "Create organization & invite admin"
@@ -95,6 +97,7 @@ describe "Organizations" do
 
         it "does not create an organization" do
           fill_in "Name", with: "Citizen Corp 2"
+          fill_in "Short name", with: "CitizenCorp2"
           fill_in "Reference prefix", with: "CCORP"
           fill_in "Organization admin name", with: "system@example.org"
 

@@ -8,7 +8,7 @@ namespace :decidim do
       Decidim::User.where.not(deleted_at: nil).find_each do |deleted_user|
         Decidim::Follow.where(followable: deleted_user).find_each(&:destroy)
         Decidim::Follow.where(user: deleted_user).find_each(&:destroy)
-        Decidim::ParticipatorySpacePrivateUser.where(user: deleted_user).find_each(&:destroy)
+        Decidim::ParticipatorySpace::Member.where(user: deleted_user).find_each(&:destroy)
         Decidim::Gamification::BadgeScore.where(user: deleted_user).find_each(&:destroy)
         Decidim::UserModeration.where(user: deleted_user).find_each(&:destroy)
         Decidim::Like.where(author: deleted_user).find_each(&:destroy)
