@@ -171,7 +171,6 @@ fi:
           info: Tietoa tästä ryhmästä
           landing_page: Laskeutumissivun asettelu
           moderations: Moderoinnit
-          private_users: Jäsenet
           see_assembly: Näytä ryhmä
       models:
         assembly:
@@ -251,7 +250,6 @@ fi:
             metadata: Metatiedot
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             other: Muut
-            private_notice: Voit hallinnoida osallistumistilan yksityisiä käyttäjiä asettamalla osallistumistilan yksityiseksi
             select_a_created_by: Valitse luoja
             select_parent_assembly: Valitse pääryhmä
             slug_help_html: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
