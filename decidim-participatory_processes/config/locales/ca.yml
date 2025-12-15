@@ -116,7 +116,6 @@ ca:
           info: Quant a aquest procés
           landing_page: Disposició de la pàgina de destinació
           moderations: Moderacions
-          private_users: Membres
           process_admins: Administradores del procés
           steps: Fases del procés
       models:
@@ -604,9 +603,6 @@ ca:
           type: Tipus
         show:
           title: Quant a aquest procés
-      participatory_space_private_users:
-        index:
-          title: Membres
       show:
         belongs_to_group: Aquest procés pertany a
         private_space: Aquest és un procés privat
