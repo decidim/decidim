@@ -69,6 +69,11 @@ sk:
         welcome_notification_body: Telo textu úvodného privítania
         welcome_notification_subject: Predmet textu úvodného privítania
         youtube_handler: YouTube handler
+      participatory_space_private_user:
+        email: E-mail
+        name: Názov
+      participatory_space_private_user_csv_import:
+        file: Súbor
       scope:
         code: Kód
         name: Názov
@@ -231,6 +236,10 @@ sk:
           values:
             'false': Oficiálni
             'true': Neoficiálni
+        participatory_space_private_users:
+          user_invitation_sent_at_not_null:
+            values:
+              'false': Neodoslané
         private_space_eq:
           label: Súkromné
           values:
@@ -499,6 +508,8 @@ sk:
         destroy:
           error: Pri vymazaní súkromného používateľa pre tento participačný priestor došlo k chybe.
           success: Participatívny priestor bol zneprístupnený súkromnému užívateľovi.
+        edit:
+          update: Aktualizovať
         index:
           title: Súkromný účastník participatívneho priestoru
         new:
@@ -508,7 +519,6 @@ sk:
         new:
           csv_upload:
             title: Nahrať súbor CSV
-          upload: Nahrať
       resource_permissions:
         edit:
           submit: Potvrdiť
@@ -611,7 +621,6 @@ sk:
         new:
           explanation: Nahrajte svoj súbor CSV. Musí obsahovať oficiálne e-maily skupín vo Vašej organizácii v prvom stĺpci, bez hlavičiek. Iba skupiny, ktoré overili svoj e-mail a CSV obsahuje ich e-mail, budú validované.
           title: Nahrať súbor CSV
-          upload: Nahrať
       users:
         create:
           error: Pri pozývaní administrátora nastal problém.
