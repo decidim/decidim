@@ -1344,8 +1344,6 @@ bg:
         subject: Получихте покана да управлявате %{organization}
       invite_collaborator:
         subject: Получихте покана да сътрудничите на %{organization}
-      invite_private_user:
-        subject: Поканени сте в частен процес на сътрудничество в %{organization}
       organization_admin_invitation_instructions:
         subject: Получихте покана да управлявате %{organization}
       password_change:
