@@ -1550,8 +1550,6 @@ lt:
         subject: Esate pakviestas tvarkyti %{organization}
       invite_collaborator:
         subject: Esate pakviesta(-s) bendradarbiauti %{organization}
-      invite_private_user:
-        subject: Esate pakviesta(-s) į %{organization} uždarą dalyvaujamąjį procesą
       organization_admin_invitation_instructions:
         subject: Esate pakviesta(-s) tvarkyti %{organization}
       password_change:
