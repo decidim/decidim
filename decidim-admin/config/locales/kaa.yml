@@ -16,6 +16,9 @@ kaa:
         name: Ataması
       participatory_space_private_user:
         email: Elektron pochta
+        name: Ataması
+      participatory_space_private_user_csv_import:
+        file: Fayl
       user_group_csv_verification:
         file: Fayl
   activerecord:
@@ -155,11 +158,10 @@ kaa:
         edit:
           update: Jańalaw
       participatory_space_private_users:
+        edit:
+          update: Jańalaw
         new:
           create: Jaratıw
-      participatory_space_private_users_csv_imports:
-        new:
-          upload: Júklew
       reminders:
         new:
           submit: Jiberiw
@@ -182,9 +184,6 @@ kaa:
       static_pages:
         edit:
           update: Jańalaw
-      user_groups_csv_verifications:
-        new:
-          upload: Júklew
       users_statistics:
         users_count:
           participants: Qatnasıwshılar
