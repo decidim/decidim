@@ -171,7 +171,6 @@ ca:
           info: Quant a aquesta assemblea
           landing_page: Disposició de la pàgina de destinació
           moderations: Moderacions
-          private_users: Membres
           see_assembly: Veure l'assemblea
       models:
         assembly:
@@ -251,7 +250,6 @@ ca:
             metadata: Metadades
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             other: Altre
-            private_notice: Podràs administrar les participants privades un cop haguis configurar l'espai com a privat
             select_a_created_by: Selecciona una creadora
             select_parent_assembly: Selecciona una assemblea mare
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
