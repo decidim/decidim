@@ -171,7 +171,6 @@ es-PY:
           info: Acerca de esta asamblea
           landing_page: Disposición de la página de aterrizaje
           moderations: Moderaciones
-          private_users: Miembros
           see_assembly: Ver la asamblea
       models:
         assembly:
@@ -251,7 +250,6 @@ es-PY:
             metadata: Metadatos
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             other: Otro
-            private_notice: Podrás administrar las participantes privadas después de configurar el espacio como privado
             select_a_created_by: Selecciona creada por
             select_parent_assembly: Seleccionar ensamblaje principal
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
