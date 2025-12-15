@@ -159,7 +159,6 @@ it:
           info: Info su questo spazio
           landing_page: Layout della pagina di destinazione
           moderations: Moderazione
-          private_users: Membri
           see_assembly: Guarda l'assemblea
       models:
         assembly:
@@ -239,7 +238,6 @@ it:
             metadata: Metadati
             no_taxonomy_filters_found: Nessun filtro trovato.
             other: Altro
-            private_notice: Sarai in grado di gestire i partecipanti privati dopo aver impostato lo spazio come privato
             select_a_created_by: Seleziona un creatore
             select_parent_assembly: Seleziona l'assemblea madre
             slug_help_html: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa assemblea. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
