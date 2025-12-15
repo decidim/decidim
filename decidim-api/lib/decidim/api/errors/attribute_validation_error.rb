@@ -27,9 +27,9 @@ module Decidim
           if @messages.is_a?(ActiveModel::Errors)
             hash["message"] = @messages.map do |error|
               # This is the GraphQL argument which corresponds to the validation error:
-              path = ["attributes", error.attribute.to_s.camelize(:lower)]
+              local_path = ["attributes", error.attribute.to_s.camelize(:lower)]
               {
-                path: path,
+                path: local_path,
                 message: error.message
               }
             end
