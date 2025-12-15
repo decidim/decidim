@@ -91,20 +91,5 @@ shared_examples "searchable results" do
         it_behaves_like "no searches found"
       end
     end
-
-    # context "when there is a link in the search result" do
-    #   before do
-    #     create(:comment, body: "Here is an interesting link: https://github.com/decidim", commentable: searchables.first.commentable)
-    #     visit decidim.root_path
-    #     field = find(search_input_selector)
-    #     field.set "Here is an interesting link:"
-    #     send_keys(:enter)
-    #   end
-
-    #   it "does not allow clickable link" do
-    #     expect(page).to have_no_link(href: "https://github.com/decidim")
-    #     expect(page).to have_text("Here is an interesting link: https://github.com/decidim")
-    #   end
-    # end
   end
 end
