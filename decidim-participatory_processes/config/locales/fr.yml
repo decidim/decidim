@@ -114,7 +114,6 @@ fr:
           components: Fonctionnalités
           info: A propos de cette concertation
           moderations: Modérations
-          private_users: Membres
           process_admins: Administrateurs de la concertation
           steps: Étapes
       models:
@@ -539,9 +538,6 @@ fr:
           type: Type
         show:
           title: A propos de cette concertation
-      participatory_space_private_users:
-        index:
-          title: Membres
       show:
         belongs_to_group: Cette concertation appartient à
         private_space: Ceci est une concertation privée
