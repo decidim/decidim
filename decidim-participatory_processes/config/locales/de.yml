@@ -116,7 +116,6 @@ de:
           info: Über diesen Prozess
           landing_page: Startseiten-Layout
           moderations: Moderationen
-          private_users: Mitglieder
           process_admins: Benutzer verarbeiten
           steps: Schritte
       models:
@@ -603,9 +602,6 @@ de:
           type: Typ
         show:
           title: Über diesen Prozess
-      participatory_space_private_users:
-        index:
-          title: Mitglieder
       show:
         belongs_to_group: Dieser Prozess gehört zu
         private_space: Dies ist ein privater Prozess
