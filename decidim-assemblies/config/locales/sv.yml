@@ -170,7 +170,6 @@ sv:
           components: Komponenter
           info: Om samrådet
           moderations: Moderering
-          private_users: Medlemmar
           see_assembly: Visa samråd
       models:
         assembly:
@@ -250,7 +249,6 @@ sv:
             metadata: Metadata
             no_taxonomy_filters_found: Inga filter för kategorier hittades.
             other: Övrigt
-            private_notice: Du kommer att kunna hantera medlemmar om samrådet gjorts privat
             select_a_created_by: Välj en skapad av
             select_parent_assembly: Välj överordnat samråd
             slug_help_html: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
