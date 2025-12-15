@@ -435,16 +435,9 @@ ca-IT:
             'false': Oficialitzada
             'true': No oficialitzada
         participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Invitació acceptada
-            values:
-              'false': No acceptada
-              'true': Acceptada
           user_invitation_sent_at_not_null:
-            label: S'ha enviat la invitació
             values:
-              'false': No enviada
-              'true': Enviada
+              'false': No enviat
         private_space_eq:
           label: Privat
           values:
@@ -930,10 +923,7 @@ ca-IT:
           title: Editar participant privada de l'espai de participació.
           update: Actualitzar
         index:
-          import_via_csv: Importar des de CSV
-          publish_all: Publicar tot
           title: Participant de l'espai participatiu privat
-          unpublish_all: Despublicar tot
         new:
           create: Crear
           title: Nova participant de l'espai privat.
@@ -947,9 +937,6 @@ ca-IT:
           error: S'ha produït un error en actualitzar una participant participada d'aquest espai de participació.
           success: S'ha actualitzat correctament l'espai de participació privat
       participatory_space_private_users_csv_imports:
-        create:
-          invalid: S'ha produït un error llegint el fitxer CSV. Si us plau, assegura't d'haver seguit les instruccions.
-          success: L'arxiu CSV s'ha carregat amb èxit, estem enviant un correu d'invitació a les participants. Això pot trigar una estona.
         new:
           csv_upload:
             title: Puja el fitxer CSV
@@ -959,13 +946,7 @@ ca-IT:
             empty: No hi ha participants privades.
             explanation: Hi ha %{count} participant/s privada/ades.
             title: Esborrar les participants privades
-          example_file: 'Fitxer d''exemple:'
-          explanation: 'Carrega el teu arxiu CSV. Ha de tenir dues columnes amb l''adreça de correu electrònic a la primera columna i el nom a la segona de les participants que vulguis afegir a l''espai de participació, sense capçaleres. Evita emprar caràcters invàlids com `<>?%&^*#@()[]=+:;"{}\|` al nom d''usuària.'
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: Importar participant privades via CSV
-          upload: Carrega
       reminders:
         create:
           error: Hi ha hagut un problema en crear els recordatoris.
