@@ -168,7 +168,6 @@ ja:
           info: この参加スペースについて
           landing_page: ランディングページのレイアウト
           moderations: モデレーション
-          private_users: メンバー
           see_assembly: 参加スペースを見る
       models:
         assembly:
@@ -248,7 +247,6 @@ ja:
             metadata: メタデータ
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             other: その他
-            private_notice: プライベートとして設定した後、プライベート参加者を管理することができます
             select_a_created_by: 作成者を選択してください
             select_parent_assembly: 親参加スペースを選択
             slug_help_html: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
