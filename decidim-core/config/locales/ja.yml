@@ -2004,8 +2004,6 @@ ja:
         subject: '%{organization} を管理するために招待されています'
       invite_collaborator:
         subject: あなたは %{organization} で共同作業に招待されています
-      invite_private_user:
-        subject: あなたは %{organization} のプライベート参加プロセスに招待されています
       organization_admin_invitation_instructions:
         subject: '%{organization} を管理するために招待されています'
       password_change:
