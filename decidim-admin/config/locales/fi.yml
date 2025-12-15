@@ -91,11 +91,6 @@ fi:
         welcome_notification_body: Tervetuloilmoituksen runko
         welcome_notification_subject: Tervetuloilmoituksen otsikko
         youtube_handler: YouTube-käsittelijä
-      participatory_space_private_user:
-        email: Sähköpostiosoite
-        name: Nimi
-      participatory_space_private_user_csv_import:
-        file: Tiedosto
       scope:
         code: Koodi
         name: Nimi
@@ -137,10 +132,6 @@ fi:
           attributes:
             official_img_footer:
               allowed_file_content_types: Virheellinen kuvatiedosto
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Virheellinen tuontitiedosto, lue ohjeet huolellisesti ja varmista, että tiedosto on UTF-8 muodossa.
         user_group_csv_verification:
           attributes:
             file:
@@ -192,8 +183,6 @@ fi:
         moderate: Moderointien hallinta
         newsletter:
           new: Uusi uutiskirje
-        participatory_space_private_user:
-          new: Uusi osallistumistilan yksityinen käyttäjä
         per_page: Per sivu
         permissions: Käyttöoikeuksien hallinta
         restore: Palauta
@@ -430,17 +419,6 @@ fi:
           values:
             'false': Virallistettu
             'true': Ei virallistettu
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Kutsu hyväksytty
-            values:
-              'false': Ei hyäksytty
-              'true': Hyväksytty
-          user_invitation_sent_at_not_null:
-            label: Kutsu lähetetty
-            values:
-              'false': Ei lähetetty
-              'true': Lähetetty
         private_space_eq:
           label: Yksityinen
           values:
@@ -573,6 +551,10 @@ fi:
             explanation: Hallituille käyttäjille voidaan myöntää normaalien käyttäjien oikeudet. Tämä tarkoittaa, että heille lähetetään rekisteröitymiskutsu alustalle ja rekisteröitymisen jälkeen kyseisinä käyttäjinä ei voi enää esiintyä. Kutsutulle käyttäjälle lähetetään sähköposti, jonka avulla he voivat hyväksyä kutsusi.
             new_managed_user_promotion: Uusi käyttäjätason korotus hallinnoidulle käyttäjälle
             promote: Korota oikeudet
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Lataa CSV-tiedosto
       menu:
         admin_log: Hallintatoimintojen tapahtumaloki
         admins: Ylläpitäjät
@@ -639,8 +621,6 @@ fi:
             sent_to: Vastaanottajat
             subject: Otsikko
           name: Uutiskirje
-        participatory_space_private_user:
-          name: Osallistumistilan yksityinen käyttäjä
         scope:
           fields:
             name: Nimi
@@ -915,53 +895,6 @@ fi:
         form:
           add: Lisää sallittujen listalle
           title: Sallitut ulkoiset verkko-osoitteet
-      participatory_space_private_users:
-        create:
-          error: Yksityisen käyttäjän lisääminen tähän osallistumistilaan epäonnistui.
-          success: Osallistumistilaa koskeva yksityisen käyttäjän käyttöoikeuden lisäys onnistui.
-        destroy:
-          error: Osallistumistilan yksityisen käyttäjän poistaminen epäonnistui.
-          success: Osallistumistilaa koskeva yksityisen käyttäjän käyttöoikeuden poistaminen onnistui.
-        edit:
-          title: Muokkaa osallistumistilan yksityistä käyttäjää.
-          update: Päivitä
-        index:
-          import_via_csv: Tuo CSV-tiedostosta
-          publish_all: Julkaise kaikki
-          title: Osallistumistilan yksityinen käyttäjä
-          unpublish_all: Lopeta kaikkien julkaisu
-        new:
-          create: Luo
-          title: Uusi osallistumistilan yksityinen käyttäjä.
-        publish_all:
-          error: Osallistumistilan yksityisten käyttäjien julkaiseminen epäonnistui.
-          success: Osallistumistilan yksityisten käyttäjien julkaiseminen onnistui
-        unpublish_all:
-          error: Osallistumistilan yksityisten käyttäjien julkaisun peruminen epäonnistui.
-          success: Osallistumistilan yksityisten käyttäjien julkaisun peruminen onnistui.
-        update:
-          error: Osallistumistilan yksityisen käyttäjän päivittäminen epäonnistui.
-          success: Osallistumistilan yksityisen käyttäjän päivittäminen onnistui.
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: CSV-tiedoston lukeminen epäonnistui. Tarkasta, että olet seurannut esitettyjä ohjeita.
-          success: CSV-tiedoston lataus onnistui. Lähetämme kutsusähköpostin osallistujille. Tämä voi kestää hetken.
-        new:
-          csv_upload:
-            title: Lataa CSV-tiedosto
-          destroy:
-            button: Poista kaikki yksityiset osallistujat
-            confirm: Oletko varma, että haluat poistaa kaikki yksityiset osallistujat? Tätä toimintoa ei voi perua ja poistettuja osallistujia ei voi palauttaa.
-            empty: Tässä osallistumistilassa ei ole yksityisiä osallistujia.
-            explanation: Tässä osallistumistilassa on %{count} yksityistä osallistujaa.
-            title: Poista kaikki yksityiset osallistujat
-          example_file: 'Esimerkkitiedosto:'
-          explanation: 'Lataa CSV-tiedosto. Tiedostossa on oltava kaksi saraketta ilman otsikkoriviä. Ensimmäiseen sarakkeeseen asetetaan käyttäjän sähköpostiosoite ja toiseen sarakkeeseen käyttäjän nimi, alkaen ensimmäiseltä riviltä. Jokaisesta rivistä luodaan uusi osallistumistilan käyttäjä. Vältä erikoismerkkejä nimessä, kuten `<>?%&^*#@()[]=+:;"{}\|`.'
-          explanation_example: |
-            matti.meikalainen@esimerkki.fi%{csv_col_sep}Matti Meikäläinen
-            minna.meikalainen@esimerkki.fi%{csv_col_sep}Minna Meikäläinen
-          title: Tuo yksityisiä osallistujia CSV-tiedostosta
-          upload: Lataa
       reminders:
         create:
           error: Muistutusten luonti epäonnistui.
