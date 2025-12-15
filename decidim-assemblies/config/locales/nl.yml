@@ -134,6 +134,7 @@ nl:
           attachments: Bijlagen
           components: Onderdelen
           moderations: Moderaties
+          private_users: Leden
       models:
         assembly:
           fields:
