@@ -103,6 +103,7 @@ sl:
           attachment_files: Datoteke
           attachments: Priponke
           components: Komponente
+          private_users: Člani
       titles:
         assemblies: Združbe
         assemblies_types: Vrste združb
