@@ -1618,8 +1618,6 @@ sv:
         subject: Du har blivit inbjuden att hantera %{organization}
       invite_collaborator:
         subject: Du har blivit inbjuden att samarbeta på %{organization}
-      invite_private_user:
-        subject: Du har blivit inbjuden till en privat deltagarprocess på %{organization}
       organization_admin_invitation_instructions:
         subject: Du har blivit inbjuden att hantera %{organization}
       password_change:
