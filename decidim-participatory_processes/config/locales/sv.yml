@@ -114,7 +114,6 @@ sv:
           components: Komponenter
           info: Om processen
           moderations: Moderering
-          private_users: Medlemmar
           process_admins: Administratörer för process
           steps: Steg
       models:
@@ -561,9 +560,6 @@ sv:
           type: Typ
         show:
           title: Om processen
-      participatory_space_private_users:
-        index:
-          title: Medlemmar
       show:
         belongs_to_group: Den här processen tillhör
         private_space: Det här är en privat process
