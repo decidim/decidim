@@ -1851,8 +1851,6 @@ eu:
         subject: '%{organization} kudeatzeko gonbita jaso duzu'
       invite_collaborator:
         subject: 'Gonbita jaso duzu erakunde honekin lankidetzan aritzeko: %{organization}'
-      invite_private_user:
-        subject: Gonbidatu zaituzte partaidetza-prozesu pribatu batean %{organization} erakundean
       organization_admin_invitation_instructions:
         subject: '%{organization} erakundea kudeatzeko gonbita jaso duzu'
       password_change:
