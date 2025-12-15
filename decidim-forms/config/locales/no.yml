@@ -87,9 +87,6 @@
           of_total_steps: av %{total_steps}
           questionnaire_closed:
             title: Skjema lukket
-          questionnaire_for_private_users:
-            body: Skjemaet er bare tilgjengelig for private brukere
-            title: Skjema lukket
           questionnaire_js_disabled:
             body: Noen av funksjonene i dette skjemaet vil bli deaktivert. For å forbedre opplevelsen, må du aktivere JavaScript i nettleseren.
             title: JavaScript deaktivert
