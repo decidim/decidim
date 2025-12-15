@@ -49,8 +49,8 @@ module Decidim
         context[:project] = object
 
         chain = [
-          object.visible?,
-          allowed_to?(:read, :project, object, context)
+          allowed_to?(:read, :project, object, context),
+          object.visible?
         ].all?
 
         super && chain
