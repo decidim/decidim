@@ -150,6 +150,7 @@ hu:
           components: Elemek
           info: Erről a gyűlésről
           moderations: Moderálás
+          private_users: Tagok
           see_assembly: A gyűlés megtekintése
       models:
         assembly:
