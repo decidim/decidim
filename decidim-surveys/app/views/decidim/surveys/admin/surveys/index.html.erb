@@ -68,7 +68,7 @@
                   <% if survey.questionnaire.responses.any? %>
                     <li class="dropdown__item">
                       <%= link_to survey_responses_path(survey), class: "dropdown__button" do %>
-                        <%= icon "survey-line" %>
+                        <%= icon "draft-line" %>
                         <%= t("actions.export_responses", scope: "decidim.surveys") %>
                       <% end %>
                     </li>
