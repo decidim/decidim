@@ -153,6 +153,7 @@ bg:
           components: Компоненти
           info: Относно това събрание
           moderations: Модерации
+          private_users: Членове
           see_assembly: Вижте събранието
       models:
         assembly:
