@@ -42,6 +42,8 @@ en:
       votes:
         create:
           error: There was a problem voting the comment.
+        destroy:
+          error: There was a problem unvoting the comment.
     components:
       add_comment_form:
         account_message: Log in or create an account to add your comment.
