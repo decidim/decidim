@@ -43,8 +43,8 @@ module Decidim
         context "when the result does not belong to the component" do
           let!(:result) { create(:result, component: create(:accountability_component)) }
 
-          it "returns null" do
-            expect(response["result"]).to be_nil
+          it "raises error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Result not found")
           end
         end
       end
@@ -97,8 +97,8 @@ module Decidim
         context "when the status does not belong to the component" do
           let!(:status) { create(:status, component: create(:accountability_component)) }
 
-          it "returns null" do
-            expect(response["status"]).to be_nil
+          it "raises error" do
+            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "Status not found")
           end
         end
       end

@@ -18,7 +18,7 @@ describe "Admin manages participatory processes", versioning: true do
     visit decidim_admin_participatory_processes.participatory_processes_path
   end
 
-  context "when conditionally displaying private user menu entry" do
+  context "when conditionally displaying member menu entry" do
     let!(:my_space) { create(:participatory_process, organization:, private_space:) }
 
     before do
@@ -31,7 +31,7 @@ describe "Admin manages participatory processes", versioning: true do
     context "when the participatory process is private" do
       let(:private_space) { true }
 
-      it "hides the private user menu entry" do
+      it "hides the member menu entry" do
         within_admin_sidebar_menu do
           expect(page).to have_content("Members")
         end
@@ -41,7 +41,7 @@ describe "Admin manages participatory processes", versioning: true do
     context "when the participatory process is public" do
       let(:private_space) { false }
 
-      it "shows the private user menu entry" do
+      it "shows the member menu entry" do
         within_admin_sidebar_menu do
           expect(page).to have_no_content("Members")
         end

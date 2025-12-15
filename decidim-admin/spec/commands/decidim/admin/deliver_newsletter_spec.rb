@@ -315,11 +315,11 @@ module Decidim::Admin
         context "when spaces selected" do
           let!(:participatory_process) { create(:participatory_process, organization:, private_space: true) }
           let!(:component) { create(:dummy_component, organization:, participatory_space: participatory_process) }
-          let!(:private_users) do
-            create_list(:participatory_space_private_user, 30) do |private_user|
-              private_user.user = create(:user, :confirmed, newsletter_notifications_at: Time.current, organization:)
-              private_user.privatable_to = participatory_process
-              private_user.save!
+          let!(:members) do
+            create_list(:member, 30) do |member|
+              member.user = create(:user, :confirmed, newsletter_notifications_at: Time.current, organization:)
+              member.privatable_to = participatory_process
+              member.save!
             end
           end
           let(:participatory_space_types) do
@@ -339,7 +339,7 @@ module Decidim::Admin
             ]
           end
 
-          let!(:deliverable_users) { Decidim::User.where(id: private_users.map(&:decidim_user_id)) }
+          let!(:deliverable_users) { Decidim::User.where(id: members.map(&:decidim_user_id)) }
 
           let!(:undeliverable_users) do
             create_list(:user, rand(2..9), :confirmed, organization:, newsletter_notifications_at: Time.current)

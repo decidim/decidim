@@ -167,7 +167,7 @@ describe "Amend Proposal", versioning: true do
           expect(page).to have_no_css("#amend-button")
         end
 
-        context "when a private user is logged in" do
+        context "when a member is logged in" do
           let!(:user) { create(:user, :confirmed, organization: component.organization) }
 
           before do

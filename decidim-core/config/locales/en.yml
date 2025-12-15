@@ -267,6 +267,10 @@ en:
         results: results
       impersonation_log:
         manage: "%{user_name} has managed %{resource_name} because %{reason}"
+      member:
+        create: "%{user_name} invited %{resource_name} to be a member"
+        create_via_csv: "%{user_name} invited %{resource_name} via CSV to be a member"
+        delete: "%{user_name} removed the participant %{resource_name} as a member"
       moderation:
         bulk_hide: "%{user_name} hid %{reported_count} resources"
         bulk_unhide: "%{user_name} unhid %{reported_count} resources"
@@ -285,10 +289,6 @@ en:
       organization:
         update: "%{user_name} updated the organization settings"
         update_external_domain: "%{user_name} updated the organization external domains"
-      participatory_space_private_user:
-        create: "%{user_name} invited %{resource_name} to be a private participant"
-        create_via_csv: "%{user_name} invited %{resource_name} via CSV to be a private participant"
-        delete: "%{user_name} removed the participant %{resource_name} as a private participant"
       scope:
         create: "%{user_name} created the %{resource_name} scope"
         create_with_parent: "%{user_name} created the %{resource_name} scope inside the %{parent_scope} scope"
@@ -774,13 +774,13 @@ en:
           id: The unique identifier of this notification
           resource_type: The type of the resource that the notification is related to
           updated_at: The date and time when the notification was last updated
-        participatory_space_private_users:
-          created_at: The date and time when this private user was created
-          id: The unique identifier of this private user
-          privatable_to: To which space this private user belongs
-          published: Wether this private user is published or not
-          role: The role that this private user has
-          updated_at: The date and time when this private user was last updated
+        participatory_space_members:
+          created_at: The date and time when this member was created
+          id: The unique identifier of this member
+          privatable_to: To which space this member belongs
+          published: Wether this member is published or not
+          role: The role that this member has
+          updated_at: The date and time when this member was last updated
         reports:
           created_at: The date and time when this report was created
           details: The details of this report
@@ -1847,16 +1847,16 @@ en:
           If you do not want to accept the invitation, please ignore this email.<br />
           Your account will not be created until you access the link above and set your nickname and password.
         invited_you_as_admin: "%{invited_by} has invited you as an admin of %{application}. You can accept it through the link below."
-        invited_you_as_private_user: "%{invited_by} has invited you as a private participant of %{application}. You can accept it through the link below."
+        invited_you_as_member: "%{invited_by} has invited you as a member of %{application}. You can accept it through the link below."
         someone_invited_you: Someone has invited you to %{application}. You can accept it through the link below.
         someone_invited_you_as_admin: Someone has invited you as an admin of %{application}, you can accept it through the link below.
-        someone_invited_you_as_private_user: Someone has invited you as private participant of %{application}, you can accept it through the link below.
+        someone_invited_you_as_member: Someone has invited you as member of %{application}, you can accept it through the link below.
         subject: Invitation instructions
       invite_admin:
         subject: You have been invited to manage %{organization}
       invite_collaborator:
         subject: You have been invited to collaborate on %{organization}
-      invite_private_user:
+      invite_member:
         subject: You have been invited to a private participatory process on %{organization}
       organization_admin_invitation_instructions:
         subject: You have been invited to manage %{organization}

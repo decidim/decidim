@@ -153,12 +153,12 @@ module Decidim
                         icon_name: "user-settings-line",
                         if: allowed_to?(:read, :process_user_role)
 
-          menu.add_item :participatory_space_private_users,
-                        I18n.t("private_users", scope: "decidim.admin.menu.participatory_processes_submenu"),
-                        decidim_admin_participatory_processes.participatory_space_private_users_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_participatory_processes.participatory_space_private_users_path(current_participatory_space)),
-                        icon_name: "spy-line",
-                        if: allowed_to?(:read, :space_private_user, current_participatory_space:)
+          menu.add_item :members,
+                        I18n.t("members", scope: "decidim.admin.menu.participatory_processes_submenu"),
+                        decidim_admin_participatory_processes.members_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_participatory_processes.members_path(current_participatory_space)),
+                        icon_name: "user-settings-line",
+                        if: allowed_to?(:read, :space_member, current_participatory_space:)
 
           menu.add_item :moderations,
                         I18n.t("moderations", scope: "decidim.admin.menu.participatory_processes_submenu"),

@@ -23,6 +23,12 @@ module Decidim
         let(:model) { create(:debate, :ongoing_ama, :with_likes) }
       end
 
+      shared_examples "unauthorized Debate" do
+        it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
+          expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this Debate because you do not have permissions")
+        end
+      end
+
       describe "id" do
         let(:query) { "{ id }" }
 
@@ -140,9 +146,7 @@ module Decidim
         let(:model) { create(:debate, :ongoing_ama, component: current_component) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Debate"
       end
 
       context "when participatory space is private but transparent" do
@@ -162,9 +166,7 @@ module Decidim
         let(:model) { create(:debate, :ongoing_ama, component: current_component) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Debate"
       end
 
       context "when component is not published" do
@@ -172,9 +174,7 @@ module Decidim
         let(:model) { create(:debate, :ongoing_ama, component: current_component) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Debate"
       end
 
       context "when debate is moderated" do
@@ -182,9 +182,7 @@ module Decidim
         let(:query) { "{ id }" }
         let(:root_value) { model.reload }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Debate"
       end
     end
   end
