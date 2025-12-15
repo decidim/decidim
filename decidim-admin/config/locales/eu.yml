@@ -440,16 +440,9 @@ eu:
             'false': Ofizializatua
             'true': Ez ofizializatua
         participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Gonbidapena onartua
-            values:
-              'false': Ez onartuta
-              'true': Onartuta
           user_invitation_sent_at_not_null:
-            label: Gonbidapena bidali da
             values:
               'false': Ez da bidali
-              'true': Bidalia
         private_space_eq:
           label: Pribatua
           values:
@@ -948,12 +941,9 @@ eu:
           success: Behar bezala ezabatua parte-hartzailearen sarbidea partaidetza-espazio pribaturako.
         edit:
           title: Editatu espazio parte-hartzailea parte-hartzaile pribatua.
-          update: Eguneratu
+          update: Onartu
         index:
-          import_via_csv: Inportatu CSV bidetik
-          publish_all: Argitaratu guztiak
           title: Partaidetza-espazio pribatuko parte-hartzailea
-          unpublish_all: Desargitaratu guztiak
         new:
           create: Sortu
           title: Partaidetza-espazio pribatuko parte-hartzaile berria.
@@ -967,9 +957,6 @@ eu:
           error: Arazo bat egon da parte-hartzaile pribatua partaidetza-espazio horretarako eguneratzean.
           success: Partaidetza-espazioa, parte-hartzaile pribatua, arrakastaz eguneratua
       participatory_space_private_users_csv_imports:
-        create:
-          invalid: Arazo bat egon da CSV fitxategia irakurtzean. Mesedez, ziurtatu jarraibideei kasu egin diezula.
-          success: CSV fitxategia zuzen igo da, eta parte-hartzaileei gonbidapen-mezu elektroniko bat bidaltzen ari gara. Prozesu horrek denbora behar du.
         new:
           csv_upload:
             title: Igo zure CSV fitxategia
@@ -979,13 +966,7 @@ eu:
             empty: Ez duzu parte-hartzaile pribaturik.
             explanation: '%{count} parte-hartzaile pribatu dituzu.'
             title: Ezabatu parte-hartzaile pribatuak
-          example_file: 'Fitxategi eredua:'
-          explanation: 'Igo zure CSV fitxategia. Bi zutabe izan behar ditu. Lehenengo zutabean posta elektronikoa jarri behar da, eta azken zutabean partaidetza-prozesura gehitu nahi dituzun parte-hartzaileen izena, goibururik gabe. Ez erabili holako karaktererik erabiltzaileen izenetan: `<>?%&^*#@()[]=+:;"{}\|`.'
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: Inportatu parte-hartzaile pribatuak CSV bidez
-          upload: Igo
       reminders:
         create:
           error: Arazo bat egon da ohartarazpenak sortzean.
@@ -1294,13 +1275,11 @@ eu:
           verify_via_csv: Egiaztatu CSV bidez
       user_groups_csv_verifications:
         new:
-          example_file: 'Fitxategi eredua:'
           explanation: Igo zure CSV fitxategia. Zure erakundeko taldeen mezu elektronikoak fitxategiko lehen zutabean izan behar dituzu, goibururik gabe. Soilik baliozkotuko dira bere posta elektronikoa baieztatu duten taldeak eta CSV fitxategian agertzen den posta elektronikoa dutenak.
           explanation_example: |
             acme@example.org
             bubba.gump@example.org
           title: Igo zure CSV fitxategia
-          upload: Igo
       users:
         create:
           error: Arazo bat egon da administratzaile hau gonbitzean.
