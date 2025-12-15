@@ -170,7 +170,6 @@ fr-CA:
           components: Composants
           info: À propos de cette assemblée
           moderations: Modérations
-          private_users: Membres
           see_assembly: Voir l'assemblée
       models:
         assembly:
@@ -250,7 +249,6 @@ fr-CA:
             metadata: Métadonnées
             no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
             other: Autre
-            private_notice: Vous serez en mesure de gérer les participants privés après l'avoir défini comme privé
             select_a_created_by: Sélectionnez un créateur
             select_parent_assembly: Sélectionnez l'assemblée parente
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
