@@ -28,7 +28,7 @@ describe "Decidim::Api::Errors" do
         field :tested_error, String, null: false
 
         def tested_error
-          raise Decidim::Api::Errors::PermissionNotSetError, "Exemplifying permission not set error"
+          raise Decidim::PermissionAction::PermissionNotSetError, "Exemplifying permission not set error"
         end
       end
     end
