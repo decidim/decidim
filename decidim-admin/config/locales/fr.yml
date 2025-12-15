@@ -90,11 +90,6 @@ fr:
         welcome_notification_body: Corps du mail de bienvenue
         welcome_notification_subject: Objet du mail de bienvenue
         youtube_handler: Gestionnaire YouTube
-      participatory_space_private_user:
-        email: Email
-        name: Nom
-      participatory_space_private_user_csv_import:
-        file: Fichier
       scope:
         code: Code
         name: Titre
@@ -139,10 +134,6 @@ fr:
           attributes:
             official_img_footer:
               allowed_file_content_types: Fichier image invalide
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Fichier d'importation mal formé, veuillez lire attentivement les instructions et assurez-vous que le fichier est encodé en UTF-8.
         user_group_csv_verification:
           attributes:
             file:
@@ -194,8 +185,6 @@ fr:
         moderate: Gérer les modérations
         newsletter:
           new: Nouvelle newsletter
-        participatory_space_private_user:
-          new: Nouvel utilisateur privé de l'espace participatif
         per_page: Par page
         permissions: Gérer les permissions
         restore: Restaurer
@@ -431,17 +420,6 @@ fr:
           values:
             'false': Validé
             'true': Non validé
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Invitation acceptée
-            values:
-              'false': Non acceptée
-              'true': Acceptée
-          user_invitation_sent_at_not_null:
-            label: Invitation envoyée
-            values:
-              'false': Non envoyée
-              'true': Envoyée
         private_space_eq:
           label: Privé
           values:
@@ -574,6 +552,10 @@ fr:
             explanation: Les utilisateurs représentés peuvent être promu utilisateurs standard. Cela signifie qu'ils seront invités à s'inscrire sur l'application et vous ne pourrez plus agir à leur place. L'utilisateur recevra un email pour accepter votre invitation.
             new_managed_user_promotion: Promouvoir un utilisateur représenté en utilisateur standard
             promote: Promouvoir
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Téléchargez votre fichier CSV
       menu:
         admin_log: Journal d'activité personnel
         admins: Administrateurs
@@ -640,8 +622,6 @@ fr:
             sent_to: Envoyé à
             subject: Objet
           name: Bulletin d'information (newsletter)
-        participatory_space_private_user:
-          name: Utilisateur de l'espace participatif
         scope:
           fields:
             name: Titre
@@ -916,53 +896,6 @@ fr:
         form:
           add: Ajouter à la liste autorisée
           title: Liste des domaines externes autorisés
-      participatory_space_private_users:
-        create:
-          error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet espace participatif.
-          success: L'accès utilisateur à l'espace participatif privé a été créé avec succès.
-        destroy:
-          error: Une erreur s'est produite lors de la suppression d'un utilisateur privé pour cet espace participatif.
-          success: L'accès utilisateur à l'espace participatif privé a été supprimé avec succès.
-        edit:
-          title: Modifier le participant privé de l'espace participatif.
-          update: Mettre à jour
-        index:
-          import_via_csv: Importer via csv
-          publish_all: Tout publier
-          title: Utilisateur privé de l'espace participatif
-          unpublish_all: Tout dépublier
-        new:
-          create: Créer
-          title: Nouvel utilisateur privé de l'espace participatif.
-        publish_all:
-          error: Une erreur s'est produite lors de la publication de tous les participants privés pour cet espace participatif.
-          success: Tous les participants privés ont été publiés avec succès pour cet espace participatif
-        unpublish_all:
-          error: Une erreur s'est produite lors de la dépublication de tous les participants privés pour cet espace participatif.
-          success: Tous les participants privés ont été dépubliés avec succès pour cet espace participatif
-        update:
-          error: Une erreur s'est produite lors de la mise à jour du participant privé pour cet espace participatif.
-          success: Participant privé de l'espace participatif mis à jour avec succès
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: Un problème est survenu lors de la lecture du fichier CSV. Veuillez vous assurer que vous avez suivi les instructions.
-          success: Le fichier CSV a été téléchargé avec succès. Une invitation par courriel sera envoyée sous peu à chaque participant. Cela peut prendre quelques instants. 
-        new:
-          csv_upload:
-            title: Téléchargez votre fichier CSV
-          destroy:
-            button: Supprimer tous les utilisateurs privés
-            confirm: Êtes-vous sûr de vouloir supprimer tous les utilisateurs privés ? Cette action est irréversible, vous ne pourrez pas les récupérer.
-            empty: Vous n'avez aucun utilisateur privé.
-            explanation: Vous avez %{count} utilisateurs privés.
-            title: Supprimer les utilisateurs privés
-          example_file: 'Fichier d''exemple :'
-          explanation: 'Téléchargez votre fichier CSV. Il doit avoir deux colonnes avec les emails dans la première colonne, et dans la seconde colonne les noms des utilisateurs que vous souhaitez ajouter à l''espace participatif, sans en-tête. Évitez les caractères spéciaux comme `<>?%&^*#@()[]=+:;"{}\|` dans les noms des utilisateurs.'
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}Jean Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: Importer des participants privés via CSV
-          upload: Télécharger
       reminders:
         create:
           error: Il y a eu un problème lors de la création des rappels.
