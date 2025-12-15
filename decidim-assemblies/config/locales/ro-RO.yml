@@ -150,6 +150,7 @@ ro:
           components: Componente
           landing_page: Pagina principală
           moderations: Moderări
+          private_users: Membri
       models:
         assembly:
           fields:
