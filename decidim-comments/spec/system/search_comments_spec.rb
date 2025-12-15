@@ -25,7 +25,6 @@ describe "Search comments" do
       field = find(search_input_selector)
       field.set "Here is an interesting"
       send_keys(:enter)
-      take_screenshot
     end
 
     it "does not allow clickable link" do
