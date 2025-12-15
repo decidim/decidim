@@ -232,7 +232,7 @@ describe Decidim::Meetings::Permissions do
         let(:user) { admin_user }
 
         before do
-          create(:participatory_space_private_user, user:, privatable_to: participatory_space)
+          create(:member, user:, privatable_to: participatory_space)
         end
 
         it { is_expected.to be true }
@@ -246,9 +246,9 @@ describe Decidim::Meetings::Permissions do
         it { is_expected.to be false }
       end
 
-      context "when user is a space private participant" do
+      context "when user is a space member" do
         before do
-          create(:participatory_space_private_user, user:, privatable_to: participatory_space)
+          create(:member, user:, privatable_to: participatory_space)
         end
 
         it { is_expected.to be true }

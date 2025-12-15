@@ -1,0 +1,26 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+
+describe "Admin checks pagination on members" do
+  let(:organization) { create(:organization) }
+
+  let!(:user) { create(:user, :admin, :confirmed, organization:) }
+  let(:assembly) { create(:assembly, organization:, private_space: true) }
+
+  let!(:members) { create_list(:assembly_member, 26, privatable_to: assembly, user: create(:user, organization: assembly.organization)) }
+
+  before do
+    switch_to_host(organization.host)
+    login_as user, scope: :user
+    visit decidim_admin_assemblies.edit_assembly_path(assembly)
+    within_admin_sidebar_menu do
+      click_on "Members"
+    end
+  end
+
+  it "shows members of the participatory space and changes page correctly" do
+    find("li a", text: "Next").click
+    expect(page).to have_current_path "#{decidim_admin_assemblies.members_path(assembly_slug: assembly.slug)}?page=2"
+  end
+end

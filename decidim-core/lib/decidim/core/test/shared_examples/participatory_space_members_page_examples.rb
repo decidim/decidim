@@ -18,9 +18,9 @@ shared_examples "participatory space members page examples" do
     end
 
     context "when participatory space has members" do
-      let!(:member1) { create(:participatory_space_private_user, privatable_to:, user: user1, published: true) }
-      let!(:member2) { create(:participatory_space_private_user, privatable_to:, user: user2, published: true) }
-      let!(:non_published) { create(:participatory_space_private_user, privatable_to:, user: user3, published: false) }
+      let!(:member1) { create(:member, privatable_to:, user: user1, published: true) }
+      let!(:member2) { create(:member, privatable_to:, user: user2, published: true) }
+      let!(:non_published) { create(:member, privatable_to:, user: user3, published: false) }
 
       context "when user has permissions" do
         it "displays list of members" do

@@ -116,8 +116,8 @@ en:
           components: Components
           info: About this process
           landing_page: Landing page layout
+          members: Members
           moderations: Moderations
-          private_users: Members
           process_admins: Process admins
           steps: Phases
       models:
@@ -559,6 +559,9 @@ en:
         title: Participatory processes
       last_activity:
         new_participatory_process: 'New participatory process:'
+      members:
+        index:
+          title: Members
       pages:
         home:
           highlighted_processes:
@@ -605,9 +608,6 @@ en:
           type: Type
         show:
           title: About this process
-      participatory_space_private_users:
-        index:
-          title: Members
       show:
         belongs_to_group: This process belongs to
         private_space: This is a private process

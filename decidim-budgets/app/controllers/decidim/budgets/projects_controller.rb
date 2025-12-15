@@ -100,6 +100,28 @@ module Decidim
           }
         ].select { |item| item[:enabled] }
       end
+
+      def add_breadcrumb_item
+        return {} if project.blank?
+
+        {
+          label: translated_attribute(project.title),
+          url: Decidim::EngineRouter.main_proxy(current_component).budget_project_url(budget, project, locale: current_locale),
+          active: false,
+          resource: project
+        }
+      end
+
+      def add_parent_breadcrumb_item
+        return {} if budget.blank?
+
+        {
+          label: translated_attribute(budget.title),
+          url: Decidim::EngineRouter.main_proxy(current_component).budget_projects_url(budget, locale: current_locale),
+          active: false,
+          resource: budget
+        }
+      end
     end
   end
 end
