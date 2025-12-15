@@ -8,14 +8,53 @@ Documentation for this API is auto-generated in each instance of Decidim, usuall
 
 Accessing that URL will give a full details of all the objects that can be requested and how. It includes the full field types reference. Note that the API can be slightly different for different Decidim instances and versions.
 
-For example, you can see the Decidim demo application API documentation under the following URL:
+== Using the GraphQL API
 
-`https://try.decidim.org/api/docs`
+The GraphQL format is a JSON formatted text that is specified in a query. Response is a JSON object as well. For details about specification check the official https://graphql.org/learn/[GraphQL site].
 
-As an alternative, if you cannot access that URL on your instance you can read about how this work https://github.com/decidim/decidim/blob/develop/decidim-api/docs/usage.md[Using the Decidim GraphQL API].
+Exercise caution when utilizing the output of this API, as it may include HTML that has not been escaped. Take particular care in handling this data, specially if you intend to render it on a webpage.
 
-== Integrating external applications with the API
+For instance, you can check the version of a Decidim installation by using different technologies and languages:
 
-By default, the GraphQL API in Decidim is publically available for read-only operations and it can also be used by external applications to read data from Decidim. If you want to write data over the API, i.e. perform GraphQL mutations, you need first need to authenticate the API user to perform these operations. Otherwise, it is not possible to perform such operations as most such operations are performed as an actual user in Decidim.
+include::develop:partial$api/decidim_version.adoc[]
 
-More information regarding implementing the API authentication is available in the API documentation of your Decidim instance.
+Note that `Content-Type` needs to be specified.
+
+The query can also be used in GraphiQL, in that case you can skip the `"query"` text:
+
+```graphql
+{
+  decidim {
+    version
+  }
+}
+```
+
+Response (formatted) should look something like this:
+
+```json
+{
+  "data": {
+    "decidim": {
+      "version": "0.18.1"
+    }
+  }
+}
+```
+
+The most practical way to experiment with GraphQL, however, is just to use the in-browser IDE GraphiQL. It provides access to the documentation and auto-complete (use CTRL-Space) for writing queries.
+
+From now on, we will skip the "query" keyword for the purpose of readability. You can skip it too if you are using GraphiQL, if you are querying directly (by using CURL for instance) you will need to include it.
+
+** xref:develop:api/authentication.adoc[Authentication]
+** xref:develop:api/core-concepts.adoc[Core concepts]
+** API reference by module
+*** Spaces
+*** Components
+**** xref:develop:api/reference/components/proposals.adoc[Proposals]
+
+== Usage limits
+
+Decidim is just a Rails application, meaning that any particular installation may implement custom limits in order to access the API (and the application in general).
+
+By default (particular installations may change that), API uses the same limitations as the whole Decidim website, provided by the Gem https://github.com/kickstarter/rack-attack[Rack::Attack]. These are 100 maximum requests per minute per IP to prevent DoS attacks
