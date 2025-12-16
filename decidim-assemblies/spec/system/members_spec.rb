@@ -5,11 +5,11 @@ require "spec_helper"
 describe "Assembly members" do
   let(:organization) { create(:organization) }
   let(:assembly) { create(:assembly, :with_content_blocks, organization:, blocks_manifests:, has_members: true) }
-  let(:privatable_to) { assembly }
+  let(:participatory_space) { assembly }
   let(:blocks_manifests) { [] }
 
-  let(:user) { create(:user, organization: privatable_to.organization) }
-  let(:ceased_user) { create(:user, organization: privatable_to.organization) }
+  let(:user) { create(:user, organization: participatory_space.organization) }
+  let(:ceased_user) { create(:user, organization: participatory_space.organization) }
 
   before do
     switch_to_host(organization.host)
@@ -49,7 +49,7 @@ describe "Assembly members" do
 
   context "when there are some assembly members and all are unpublished" do
     before do
-      create(:member, user:, privatable_to:, published: false)
+      create(:member, user:, participatory_space:, published: false)
     end
 
     context "and directly accessing from URL" do
@@ -80,8 +80,8 @@ describe "Assembly members" do
   end
 
   context "when there are some published assembly members" do
-    let!(:member) { create(:member, user:, privatable_to:, published: true) }
-    let!(:ceased_member) { create(:member, user: ceased_user, privatable_to:, published: false) }
+    let!(:member) { create(:member, user:, participatory_space:, published: true) }
+    let!(:ceased_member) { create(:member, user: ceased_user, participatory_space:, published: false) }
 
     before do
       visit decidim_assemblies.assembly_members_path(assembly, locale: I18n.locale)

@@ -10,8 +10,8 @@ describe "Private Participatory Processes" do
   let!(:user) { create(:user, :confirmed, organization:) }
   let!(:other_user) { create(:user, :confirmed, organization:) }
   let!(:other_user2) { create(:user, :confirmed, organization:) }
-  let!(:member) { create(:member, user: other_user, privatable_to: private_participatory_process) }
-  let!(:member2) { create(:member, user: other_user2, privatable_to: private_participatory_process) }
+  let!(:member) { create(:member, user: other_user, participatory_space: private_participatory_process) }
+  let!(:member2) { create(:member, user: other_user2, participatory_space: private_participatory_process) }
 
   context "when there are private participatory processes" do
     context "and no user is logged in" do

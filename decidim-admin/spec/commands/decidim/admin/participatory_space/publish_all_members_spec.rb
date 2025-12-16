@@ -4,13 +4,13 @@ require "spec_helper"
 
 module Decidim::Admin::ParticipatorySpace
   describe PublishAllMembers do
-    subject { described_class.new(privatable_to, current_user) }
+    subject { described_class.new(participatory_space, current_user) }
 
-    let!(:privatable_to) { create(:participatory_process) }
-    let!(:user) { create(:user, email: "my_email@example.org", organization: privatable_to.organization) }
-    let!(:member) { create(:member, :unpublished, user:, privatable_to:, role:) }
+    let!(:participatory_space) { create(:participatory_process) }
+    let!(:user) { create(:user, email: "my_email@example.org", organization: participatory_space.organization) }
+    let!(:member) { create(:member, :unpublished, user:, participatory_space:, role:) }
     let(:role) { generate_localized_title(:role) }
-    let(:current_user) { create(:user, email: "admin@example.org", organization: privatable_to.organization) }
+    let(:current_user) { create(:user, email: "admin@example.org", organization: participatory_space.organization) }
 
     it "updates the published attribute" do
       subject.call

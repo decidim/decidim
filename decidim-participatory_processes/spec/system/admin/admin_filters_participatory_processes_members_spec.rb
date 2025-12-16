@@ -9,9 +9,9 @@ describe "Admin filters participatory processes members" do
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
 
   let!(:invited_user1) { create(:user, name:, organization:) }
-  let!(:invited_member1) { create(:member, user: invited_user1, privatable_to: participatory_process) }
+  let!(:invited_member1) { create(:member, user: invited_user1, participatory_space: participatory_process) }
   let!(:invited_user2) { create(:user, email:, organization:) }
-  let!(:invited_member2) { create(:member, user: invited_user2, privatable_to: participatory_process) }
+  let!(:invited_member2) { create(:member, user: invited_user2, participatory_space: participatory_process) }
 
   let(:name) { "Dummy Name" }
   let(:email) { "dummy_email@example.org" }
