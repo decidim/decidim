@@ -31,28 +31,19 @@ shared_context "with a graphql class type" do
   def raise_proper_error(error)
     code = error.dig("extensions", "code")
 
-    case code
-    when "LOCALE_ERROR"
-      raise Decidim::Api::Errors::LocaleError, error["message"]
-    when "INVALID_LOCALE"
-      raise Decidim::Api::Errors::InvalidLocaleError, error["message"]
-    when "ATTRIBUTE_VALIDATION_ERROR"
-      raise Decidim::Api::Errors::AttributeValidationError, error["message"]
-    when "MUTATION_NOT_AUTHORIZED"
-      raise Decidim::Api::Errors::MutationNotAuthorizedError, error["message"]
-    when "NO_PERMISSION_SET"
-      raise Decidim::Api::Errors::PermissionNotSetError, error["message"]
-    when "NOT_FOUND"
-      raise Decidim::Api::Errors::NotFoundError, error["message"]
-    when "NO_FIELD_PERMISSION"
-      raise Decidim::Api::Errors::UnauthorizedFieldError, error["message"]
-    when "NO_OBJECT_PERMISSION"
-      raise Decidim::Api::Errors::UnauthorizedObjectError, error["message"]
-    when "VALIDATION_ERROR"
-      raise Decidim::Api::Errors::ValidationError, error["message"]
-    else
-      raise StandardError, error["message"]
-    end
+    raise "Decidim::Api::Errors::#{code.downcase.classify}".constantize, error["message"] if %w(
+      LOCALE_ERROR
+      NOT_FOUND_ERROR
+      INVALID_LOCALE_ERROR
+      PERMISSION_NOT_SET_ERROR
+      ATTRIBUTE_VALIDATION_ERROR
+      UNAUTHORIZED_FIELD_ERROR
+      UNAUTHORIZED_OBJECT_ERROR
+      MUTATION_NOT_AUTHORIZED_ERROR
+      VALIDATION_ERROR
+    ).include?(code)
+
+    raise GraphQL::ExecutionError, error["message"]
   end
 
   def execute_query(query, variables)
