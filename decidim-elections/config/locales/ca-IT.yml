@@ -259,7 +259,7 @@ ca-IT:
           title: Resultats
           total: 'TOTAL:'
           total_votes:
-            one: 1 voto
+            one: 1 vot
             other: "%{count} vots"
       models:
         election:
