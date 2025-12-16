@@ -32,6 +32,10 @@ shared_context "with a graphql class type" do
     code = error.dig("extensions", "code")
 
     case code
+    when "LOCALE_ERROR"
+      raise Decidim::Api::Errors::LocaleError, error["message"]
+    when "INVALID_LOCALE"
+      raise Decidim::Api::Errors::InvalidLocaleError, error["message"]
     when "ATTRIBUTE_VALIDATION_ERROR"
       raise Decidim::Api::Errors::AttributeValidationError, error["message"]
     when "MUTATION_NOT_AUTHORIZED"
