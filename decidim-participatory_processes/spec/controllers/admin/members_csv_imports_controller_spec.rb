@@ -11,7 +11,7 @@ module Decidim
         let!(:organization) { create(:organization) }
         let!(:admin) { create(:user, :admin, :confirmed, organization:) }
         let!(:user) { create(:user, organization:) }
-        let!(:privatable_to) { create(:participatory_process, organization: user.organization, private_space: true) }
+        let!(:privatable_to) { create(:participatory_process, organization: user.organization, has_members: true) }
         let!(:member) { create(:member, user:, privatable_to:) }
 
         before do
