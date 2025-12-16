@@ -64,6 +64,7 @@ module Decidim
         def message
           return @messages.full_messages.join(", ") if @messages.is_a?(ActiveModel::Errors)
           return @messages.map { |a| a[:message] }.join(", ") if @messages.is_a?(Array)
+
           @messages.to_s
         end
       end
