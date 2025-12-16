@@ -33,6 +33,11 @@ eu:
       help_section:
         content: Edukia
       id: ID
+      member:
+        email: Helbide elektronikoa
+        name: Izena
+      member_csv_import:
+        file: Fitxategia
       newsletter:
         body: Testua
         send_to_all_users: Bidali parte-hartzaile guztiei
@@ -127,6 +132,10 @@ eu:
         file: Fitxategia
     errors:
       models:
+        member_csv_import:
+          attributes:
+            file:
+              malformed: Gaizki osatutako inportazio-fitxategia. Mesedez, irakurri arretaz jarraibideen bidez, eta ziurtatu fitxategia UTF-8 kodetuta dagoela.
         newsletter:
           attributes:
             base:
@@ -182,6 +191,8 @@ eu:
         export: Esportatu
         export-selection: Esportatu hautaketa
         import: Inportatu
+        member:
+          new: Beste kide bat
         menu_hidden: Ezkutatu menutik
         moderate: Kudeatu moderazioak
         newsletter:
@@ -407,6 +418,17 @@ eu:
           values:
             'false': 'Ez'
             'true': 'Bai'
+        members:
+          user_invitation_accepted_at_not_null:
+            label: Gonbidapena onartua
+            values:
+              'false': Ez onartua
+              'true': Onartua
+          user_invitation_sent_at_not_null:
+            label: Gonbidapena bidalita
+            values:
+              'false': Ez da bidali
+              'true': Bidalia
         moderated_users:
           reports_reason_eq:
             label: Arrazoiaren berri eman
@@ -554,10 +576,53 @@ eu:
             explanation: Kudeatutako parte-hartzaileak parte-hartzaile estandar mailara igo daitezke. Horrek esan nahi du aplikaziora gonbidatuak izanen direla eta ezingo direla berriro ere ordeztu. Parte-hartzaile gonbidatuak mezu elektroniko bat jasoko du gonbita onartzeko.
             new_managed_user_promotion: Kudeatutako parte-hartzaileen beste maila-igoera bat
             promote: Sustatu
+      members:
+        create:
+          error: Arazo bat izan da partaidetza-espazio horretarako kide bat gehitzeko.
+          success: Kideen sarbidea behar bezala sortu da.
+        destroy:
+          error: Arazo bat dago partaidetza-espazio horretarako kide bat ezabatzeko.
+          success: Kidearen sarbidea behar bezala suntsitu da.
+        edit:
+          title: Kidea aldatu.
+          update: Egunaratu
+        index:
+          import_via_csv: CSV fitxategi baten bidez inportatu
+          publish_all: Denak argitaratu
+          title: Kidea
+          unpublish_all: Desargitaratu guztiak
+        new:
+          create: Sortu
+          title: Beste kide bat.
+        publish_all:
+          error: Arazo bat izan da partaidetza-espazio horretarako kide bat gehitzeko.
+          success: Partaidetza-espazio honetarako kide guztiak arrakastaz argitaratu dira
+        unpublish_all:
+          error: Arazo bat dago partaidetza-espazio horretarako kide guztiak desargitaratzeko.
+          success: Partaidetza-espazio honetako kide guztiak behar bezala ezabatu dira
+        update:
+          error: Arazo bat izan da partaidetza-espazio horretarako kidea eguneratzeko.
+          success: Kidea behar bezala eguneratu da
       members_csv_imports:
+        create:
+          invalid: Arazo bat izan da CSV fitxategia irakurtzean. Egiaztatu jarraibideak bete dituzula.
+          success: CSV fitxategia ondo igo da, gonbidapen-mezu elektroniko bat bidaltzen ari gara parte-hartzaileei. Horrek denbora pixka bat iraun dezake.
         new:
           csv_upload:
             title: Igo zure CSV fitxategia
+          destroy:
+            button: Kide guztiak ezabatu
+            confirm: Ziur zaude kide guztiak ezabatu nahi dituzula? Ekintza hori ezin da desegin, ezingo dituzu berreskuratu.
+            empty: Ez duzu kiderik.
+            explanation: '%{count} kide dituzu.'
+            title: Kideak ezabatu
+          example_file: 'Adibide-fitxategia:'
+          explanation: 'Igo zure CSV fitxategia. Bi zutabe izan behar ditu, fitxategiko lehen zutabean posta elektronikoa eta parte-hartze gunera gehitu nahi dituzun parte-hartzaileen fitxategiaren azken zutabean izena jarrita, goibururik gabe. Ez erabili baliozko ez diren karaktereak erabiltzaile-izenean, hala nola, "sim"<>?%&^*#@()[]=+:;"{}\|`.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
+          title: Kidek CSV fitxategi baten bidez
+          upload: Igo
       menu:
         admin_log: Administratzaile jarduera-erregistroa
         admins: Administratzaileak
@@ -616,6 +681,8 @@ eu:
             reason: Arrazoia
             started_at: 'Hasiera-ordua:'
             user: Parte-hartzaileak
+        member:
+          name: Kidea
         newsletter:
           fields:
             created_at: Noiz sortua
