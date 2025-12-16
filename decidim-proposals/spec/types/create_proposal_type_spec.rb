@@ -45,6 +45,7 @@ module Decidim
         {
           component_id: component.id,
           input: {
+            locale: "en",
             attributes:
           }
         }

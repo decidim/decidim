@@ -9,8 +9,15 @@ module Decidim
       type Decidim::Proposals::ProposalType
 
       argument :attributes, ProposalAttributes, description: "Input attributes for the proposal", required: true
+      argument :locale, GraphQL::Types::String, "The locale for which to get the comments text", required: true
+      argument :toggle_translations, GraphQL::Types::Boolean, "Whether the user asked to toggle the machine translations or not.", required: true, default_value: false
 
-      def resolve(attributes:)
+      def resolve(attributes:, locale:, toggle_translations:)
+        raise GraphQL::ExecutionError, "#{locale} is not a valid locale" unless available_locales.include?(locale)
+
+        I18n.locale = locale.presence
+        RequestStore.store[:toggle_machine_translations] = toggle_translations
+
         params = attributes.to_h.slice(:title, :body, :address, :latitude, :longitude, :taxonomies)
 
         params[:taxonomies] = Decidim::Taxonomy.where(id: params[:taxonomies]).pluck(:id) if params[:taxonomies]
@@ -42,7 +49,7 @@ module Decidim
         end
       end
 
-      def authorized?(attributes:)
+      def authorized?(attributes:, locale:, toggle_translations:)
         unless super && allowed_to?(:create, :proposal, Decidim::Proposals::Proposal.new(component: current_component), { current_user:, current_component: })
           raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
         end

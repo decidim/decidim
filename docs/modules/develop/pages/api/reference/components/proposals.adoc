@@ -111,7 +111,8 @@ mutation {
           latitude: 41.3851,
           longitude: 2.1734,
           "taxonomies": [123, 456]
-        }
+        }},
+        locale: "en"
       }) {
         id
         title {
