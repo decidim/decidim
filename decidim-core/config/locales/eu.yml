@@ -1763,7 +1763,7 @@ eu:
         details: Xehetasunak
         hello: 'Kaixo, %{name}:'
         manage_moderations: Moderazioak kudeatu
-        participatory_space: Partaidetza espazioa
+        participatory_space: Partaidetza-espazioa
         reason: Arrazoia
         report_html: <p>Hurrengo <a href="%{url}">edukia</a>automatikoki ezkutatu da</p>
         subject: '%{moderator} -k baliabidea ezkutatu du'
@@ -2021,6 +2021,8 @@ eu:
         subject: '%{organization} kudeatzeko gonbita jaso duzu'
       invite_collaborator:
         subject: 'Gonbita jaso duzu erakunde honekin lankidetzan aritzeko: %{organization}'
+      invite_private_user:
+        subject: '%{organization} erakundeari buruzko partaidetza prozesu pribatu batera gonbidatu zaituzte'
       organization_admin_invitation_instructions:
         subject: '%{organization} erakundea kudeatzeko gonbita jaso duzu'
       password_change:
@@ -2062,7 +2064,7 @@ eu:
       updated: Pasahitza ondo aldatu da. Saioa hasi duzu.
       updated_not_active: Pasahitza ondo aldatu da.
     registrations:
-      destroyed: Agur! Zure kontua behar bezala bertan behera utzi da. Laster ikusiko dugu berriro.
+      destroyed: Agur! Zure kontua behar bezala bertan behera utzi da. Laster ikusiko dugu elkar berriro.
       new:
         sign_up: Sortu kontu bat
       signed_up: Ongi etorri!  Ondo eman duzu izena.
@@ -2341,7 +2343,7 @@ eu:
         title: Parte-hartzailearen ezarpenak
         user_groups: Taldeak
   locale:
-    name: Ingelesa
+    name: Euskara
     name_with_error: Euskera (akatsa!)
   password_validator:
     denied: ukatu egin da
