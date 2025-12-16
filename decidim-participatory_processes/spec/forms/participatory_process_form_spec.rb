@@ -48,6 +48,8 @@ module Decidim
         let(:end_date) { 1.month.from_now }
         let(:slug) { "slug" }
         let(:attachment) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
+        let(:private_space) { true }
+        let(:has_members) { true }
         let(:attributes) do
           {
             "participatory_process" => {
@@ -68,9 +70,23 @@ module Decidim
               "end_date" => end_date,
               "hero_image" => attachment,
               "slug" => slug,
+              "private_space" => private_space,
+              "has_members" => has_members,
               "taxonomies" => [taxonomies.first.id, taxonomies.second.id]
             }
           }
+        end
+
+        context "when has_members is true" do
+          let(:has_members) { true }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when has_members is false" do
+          let(:has_members) { false }
+
+          it { is_expected.to be_valid }
         end
 
         context "when everything is OK" do
