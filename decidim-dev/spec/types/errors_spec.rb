@@ -48,7 +48,7 @@ describe "Decidim::Api::Errors" do
     end
   end
 
-  context "when Decidim::Api::Errors::InvalidLocaleError is raised because of I18n::MissingInterpolationArgument is raised" do
+  context "when Decidim::Api::Errors::LocaleError is raised because of I18n::MissingInterpolationArgument is raised" do
     let(:type_class) do
       Class.new(Decidim::Api::Types::BaseObject) do
         graphql_name "ErrorTypeTest"
@@ -65,7 +65,7 @@ describe "Decidim::Api::Errors" do
     end
   end
 
-  context "when Decidim::Api::Errors::InvalidLocaleError is raised because of I18n::MissingTranslationData is raised" do
+  context "when Decidim::Api::Errors::LocaleError is raised because of I18n::MissingTranslationData is raised" do
     let(:type_class) do
       Class.new(Decidim::Api::Types::BaseObject) do
         graphql_name "ErrorTypeTest"
