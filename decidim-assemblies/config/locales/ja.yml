@@ -167,6 +167,7 @@ ja:
           components: コンポーネント
           info: この参加スペースについて
           landing_page: ランディングページのレイアウト
+          members: メンバー
           moderations: モデレーション
           see_assembly: 参加スペースを見る
       models:
