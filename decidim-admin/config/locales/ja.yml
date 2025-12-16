@@ -434,9 +434,16 @@ ja:
             'false': 公式化済み
             'true': 公式化されていない
         participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: 招待が承認されました
+            values:
+              'false': 未承認
+              'true': 承認済み
           user_invitation_sent_at_not_null:
+            label: 招待状を送信しました
             values:
               'false': 送信されていません
+              'true': 送信済み
         private_space_eq:
           label: プライベート
           values:
@@ -918,7 +925,10 @@ ja:
           title: 参加スペースの非公開参加者を編集します。
           update: 更新
         index:
+          import_via_csv: CSV形式でインポート
+          publish_all: すべて公開
           title: 参加型スペースプライベート参加者
+          unpublish_all: すべて非公開
         new:
           create: 作成
           title: 新しい参加型スペースのプライベート参加者。
@@ -941,7 +951,9 @@ ja:
             empty: プライベートの参加者はいません。
             explanation: '%{count} 人のプライベート参加者がいます。'
             title: プライベート参加者を削除
+          example_file: 'サンプルファイル：'
           title: プライベート参加者をCSV形式でインポート
+          upload: アップロード
       reminders:
         create:
           error: リマインダー作成中に問題が発生しました。
