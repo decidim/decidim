@@ -342,6 +342,35 @@ describe "Admin manages surveys" do
     end
   end
 
+  context "when the survey has responses or more" do
+    let!(:question) do
+      create(:questionnaire_question, questionnaire:)
+    end
+    let!(:response) { create(:response, questionnaire:, question:) }
+
+    before do
+      visit manage_questionnaire_path
+    end
+
+    it "allows access to responses" do
+      within "tr", text: decidim_sanitize_translated(survey.title) do
+        find("button[data-controller='dropdown']").click
+        expect(page).to have_link("Responses")
+      end
+    end
+  end
+
+  context "when the survey has no responses" do
+    let!(:question) { create(:questionnaire_question, questionnaire:) }
+
+    it "does not show the Responses button" do
+      within "tr", text: decidim_sanitize_translated(survey.title) do
+        find("button[data-controller='dropdown']").click
+        expect(page).to have_no_link("Responses")
+      end
+    end
+  end
+
   context "when updates the questionnaire" do
     let(:description) do
       {
@@ -376,6 +405,10 @@ describe "Admin manages surveys" do
 
   def questionnaire_public_path
     main_component_path(component)
+  end
+
+  def manage_questionnaire_path
+    Decidim::EngineRouter.admin_proxy(component).surveys_path
   end
 
   private
