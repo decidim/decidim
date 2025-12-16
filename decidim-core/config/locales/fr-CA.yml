@@ -700,6 +700,13 @@ fr-CA:
           updated_at: La date de la dernière mise à jour de cette conversation
         notifications:
           extra: Informations supplémentaires sur cette notification
+        participatory_space_members:
+          created_at: La date et l'heure de création de ce membre
+          id: L'identifiant unique de ce membre
+          privatable_to: À quel espace ce membre appartient
+          published: Que ce membre soit publié ou non
+          role: Le rôle que ce membre a
+          updated_at: La date et l'heure de la dernière mise à jour de ce membre
         reports:
           created_at: La date et l'heure de création de ce rapport
           details: Les détails de ce rapport
@@ -1679,6 +1686,8 @@ fr-CA:
         subject: Vous avez été invité(e) à gérer %{organization}
       invite_collaborator:
         subject: Vous avez été invité à collaborer sur %{organization}
+      invite_member:
+        subject: Vous avez été invité(e) à un processus participatif privé sur %{organization}
       organization_admin_invitation_instructions:
         subject: Vous avez été invité(e) à gérer %{organization}
       password_change:
