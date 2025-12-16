@@ -434,9 +434,16 @@ sv:
             'false': Har officiell status
             'true': Ej gjord officiell
         participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Inbjudan accepterades
+            values:
+              'false': Inte tackat ja
+              'true': Tackat ja
           user_invitation_sent_at_not_null:
+            label: Inbjudan har skickats
             values:
               'false': Inte skickat
+              'true': Skickad
         private_space_eq:
           label: Privat
           values:
