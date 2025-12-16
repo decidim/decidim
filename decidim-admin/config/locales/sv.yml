@@ -33,6 +33,11 @@ sv:
       help_section:
         content: Innehåll
       id: ID
+      member:
+        email: E-post
+        name: Namn
+      member_csv_import:
+        file: Fil
       newsletter:
         body: Innehåll
         send_to_all_users: Skicka till alla deltagare
@@ -126,6 +131,10 @@ sv:
         file: Fil
     errors:
       models:
+        member_csv_import:
+          attributes:
+            file:
+              malformed: Felaktig importfil, läs igenom anvisningarna noga och se till att filen är UTF-8 kodad.
         newsletter:
           attributes:
             base:
@@ -181,6 +190,8 @@ sv:
         export: Exportera
         export-selection: Exportera markerade
         import: Importera
+        member:
+          new: Ny medlem
         menu_hidden: Dölj från menyn
         moderate: Hantera modereringar
         newsletter:
@@ -406,6 +417,17 @@ sv:
           values:
             'false': 'Nej'
             'true': 'Ja'
+        members:
+          user_invitation_accepted_at_not_null:
+            label: Inbjudan accepterades
+            values:
+              'false': Inte tackat ja
+              'true': Tackat ja
+          user_invitation_sent_at_not_null:
+            label: Inbjudan har skickats
+            values:
+              'false': Inte skickat
+              'true': Skickad
         moderated_users:
           reports_reason_eq:
             label: Anledning till anmälan
@@ -553,6 +575,9 @@ sv:
             explanation: Hanterade deltagare kan befordras till vanliga deltagare. Det innebär att de kommer att bli inbjudna till programmet och du kommer inte att kunna hantera dem igen. Den inbjudna deltagaren får ett e-brev om att godkänna inbjudan.
             new_managed_user_promotion: Befordra ny hanterad användare
             promote: Befordra
+      members:
+        create:
+          error: Det gick inte att lägga till en deltagare till processen.
       members_csv_imports:
         new:
           csv_upload:
