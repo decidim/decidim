@@ -266,6 +266,10 @@ es-MX:
         results: resultados
       impersonation_log:
         manage: "%{user_name} ha gestionado a %{resource_name} porque %{reason}"
+      member:
+        create: "%{user_name} ha invitado a %{resource_name} como miembro"
+        create_via_csv: "%{user_name} ha invitado a %{resource_name} como miembro vía CSV"
+        delete: "%{user_name} ha eliminado a la participante %{resource_name} de miembro"
       moderation:
         bulk_hide: "%{user_name} ha ocultado %{reported_count} contenidos"
         bulk_unhide: "%{user_name} ha vuelto a mostrar %{reported_count} contenidos"
@@ -765,6 +769,13 @@ es-MX:
           id: El identificador único de esta notificación
           resource_type: El tipo de recurso con el que está relacionada la notificación
           updated_at: La fecha y hora en que esta notificación fue actualizada por última vez
+        participatory_space_members:
+          created_at: La fecha y hora en que se creó esta miembro
+          id: El identificador único de esta miembro
+          privatable_to: A qué espacio de participación pertenece esta miembro
+          published: Si esta miembro está publicada o no
+          role: El rol tiene que esta miembro
+          updated_at: La fecha de la última actualización de esta miembro
         reports:
           created_at: La fecha y hora en que se creó este informe
           details: Los detalles de los informes de moderación
@@ -1830,13 +1841,17 @@ es-MX:
         ignore: |-
           Si no deseas aceptar la invitación, por favor ignora este correo electrónico.<br /> Tu cuenta no se creará hasta que accedas al enlace de arriba y establezcas tu nombre de usuaria y contraseña.
         invited_you_as_admin: "%{invited_by} te ha invitado como administrador de %{application}. Puedes aceptarlo a través del siguiente enlace."
+        invited_you_as_member: "%{invited_by} te ha invitado como miembro de %{application}. Puedes aceptarlo a través del siguiente enlace."
         someone_invited_you: Alguien te ha invitado a %{application}. Puedes aceptar la invitación a través del siguiente enlace.
         someone_invited_you_as_admin: Alguien te ha invitado como administrador de %{application}, puedes aceptar a través del siguiente enlace.
+        someone_invited_you_as_member: Alguien te ha invitado como miembro de %{application}, puedes aceptarlo a través del siguiente enlace.
         subject: Instrucciones de invitación
       invite_admin:
         subject: Te han invitado a administrar %{organization}
       invite_collaborator:
         subject: Te han invitado a colaborar en %{organization}
+      invite_member:
+        subject: Te han invitado a participar en un espacio de participación privado en %{organization}
       organization_admin_invitation_instructions:
         subject: Te han invitado a administrar %{organization}
       password_change:
