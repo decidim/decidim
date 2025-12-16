@@ -438,9 +438,16 @@ fr-CA:
             'false': Validé
             'true': Non validé
         participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Invitation acceptée
+            values:
+              'false': Non acceptée
+              'true': Acceptée
           user_invitation_sent_at_not_null:
+            label: Invitation envoyée
             values:
               'false': Envoi non effectué
+              'true': Envoyée
         private_space_eq:
           label: Privé
           values:
@@ -941,7 +948,10 @@ fr-CA:
           title: Modifier le participant privé de l'espace participatif.
           update: Mettre à jour
         index:
+          import_via_csv: Importer via CSV
+          publish_all: Tout publier
           title: Utilisateur privé de l'espace participatif
+          unpublish_all: Tout dépublier
         new:
           create: Créer
           title: Nouvel utilisateur privé de l'espace participatif.
@@ -964,7 +974,9 @@ fr-CA:
             empty: Vous n'avez aucun utilisateur privé.
             explanation: Vous avez %{count} utilisateurs privés.
             title: Supprimer les utilisateurs privés
+          example_file: 'Fichier d''exemple :'
           title: Importer des participants privés via CSV
+          upload: Charger
       reminders:
         create:
           error: Il y a eu un problème lors de la création des rappels.
@@ -1214,11 +1226,13 @@ fr-CA:
           verify_via_csv: Vérifier via CSV
       user_groups_csv_verifications:
         new:
+          example_file: 'Fichier d''exemple :'
           explanation: Téléchargez votre fichier CSV. Les courriels officiels des groupes d'utilisateurs de votre organisation doivent figurer dans la première colonne du fichier, sans en-tête. Seuls les groupes d'utilisateurs ayant confirmé leur courrier électronique et ayant un courrier électronique dans le fichier CSV seront validés.
           explanation_example: |
             acme@exemple.org
             bubba.gump@exemple.org
           title: Téléchargez votre fichier CSV
+          upload: Charger
       users:
         create:
           error: Une erreur s'est produite lors de l'invitation de cet utilisateur.
