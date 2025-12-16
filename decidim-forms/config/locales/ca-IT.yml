@@ -188,6 +188,9 @@ ca-IT:
           questionnaire_closed:
             body: El formulari està tancat i no es pot respondre.
             title: S'ha tancat el formulari
+          questionnaire_for_members:
+            body: El formulari només està disponible per a membres
+            title: S'ha tancat el formulari
           questionnaire_js_disabled:
             body: Algunes de les característiques d'aquest formulari es deshabilitaran. Per millorar la teva experiència, si us plau, habilita JavaScript al teu navegador.
             title: JavaScript està desactivat
