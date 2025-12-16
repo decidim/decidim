@@ -33,6 +33,11 @@ ja:
       help_section:
         content: 内容
       id: ID
+      member:
+        email: メールアドレス
+        name: 名前
+      member_csv_import:
+        file: ファイル
       newsletter:
         body: 本文
         send_to_all_users: 全参加者に送信
@@ -127,6 +132,10 @@ ja:
         file: ファイル
     errors:
       models:
+        member_csv_import:
+          attributes:
+            file:
+              malformed: インポートファイルの形式が正しくありません。指示内容をよく読み、ファイルがUTF-8でエンコードされていることを確認してください。
         newsletter:
           attributes:
             base:
@@ -182,6 +191,8 @@ ja:
         export: エクスポート
         export-selection: 選択したものをエクスポート
         import: インポート
+        member:
+          new: 新規メンバー
         menu_hidden: メニューから隠す
         moderate: モデレーションの管理
         newsletter:
@@ -406,6 +417,17 @@ ja:
           values:
             'false': 'いいえ'
             'true': 'はい'
+        members:
+          user_invitation_accepted_at_not_null:
+            label: 招待が承認されました
+            values:
+              'false': 未承認
+              'true': 承認済み
+          user_invitation_sent_at_not_null:
+            label: 招待状を送信しました
+            values:
+              'false': 未送信
+              'true': 送信済み
         moderated_users:
           reports_reason_eq:
             label: 理由を報告
@@ -549,10 +571,32 @@ ja:
             explanation: 管理対象参加者は通常の参加者に昇格することができます。 その場合、彼らはアプリケーションに招待され、あなたはそれらを再び管理することはできなくなります。 招待された参加者は、招待を承諾するためのメールを受け取ります。
             new_managed_user_promotion: 新しい管理対象参加者の昇格
             promote: プロモート
+      members:
+        create:
+          error: 参加型スペースにメンバーを追加する際に問題が発生しました。
+        edit:
+          title: メンバーを編集
+          update: 更新
+        index:
+          import_via_csv: CSV形式でインポート
+          publish_all: すべて公開
+          title: メンバー
+          unpublish_all: すべて非公開
+        update:
+          success: メンバーを更新しました
       members_csv_imports:
         new:
           csv_upload:
             title: CSVファイルをアップロード
+          destroy:
+            button: すべてのメンバーを削除
+            confirm: すべてのメンバーを削除してもよろしいですか？この操作は元に戻せません。復元することはできません。
+            empty: メンバーがいません。
+            explanation: '%{count} 名のメンバーがいます。'
+            title: メンバーを削除
+          example_file: 'サンプルファイル：'
+          title: CSV形式でメンバーをインポート
+          upload: アップロード
       menu:
         admin_log: 管理者アクティビティログ
         admins: 管理者
@@ -611,6 +655,8 @@ ja:
             reason: 理由：
             started_at: 開始日時
             user: 参加者
+        member:
+          name: メンバー
         newsletter:
           fields:
             created_at: 作成日時
