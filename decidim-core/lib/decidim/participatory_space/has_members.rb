@@ -35,7 +35,7 @@ module Decidim
         end
 
         def members_public_page?
-          private_space && members.published.any?
+          has_members && members.published.any?
         end
 
         def can_participate?(user)
