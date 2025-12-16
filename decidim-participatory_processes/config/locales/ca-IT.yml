@@ -115,6 +115,7 @@ ca-IT:
           components: Components
           info: Quant a aquest procés
           landing_page: Disposició de la pàgina de destinació
+          members:
           moderations: Moderacions
           process_admins: Administradores del procés
           steps: Fases del procés
@@ -557,6 +558,9 @@ ca-IT:
         title: Processos participatius
       last_activity:
         new_participatory_process: 'Nou procés participatiu:'
+      members:
+        index:
+          title: Membres
       pages:
         home:
           highlighted_processes:
