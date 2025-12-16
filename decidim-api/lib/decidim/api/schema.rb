@@ -30,6 +30,14 @@ module Decidim
       rescue_from(Decidim::PermissionAction::PermissionNotSetError) do |_err, _obj, _args, _ctx, field|
         raise Decidim::Api::Errors::PermissionNotSetError, I18n.t("decidim.api.errors.permission_not_set", type: field.type.unwrap.graphql_name)
       end
+
+      rescue_from(I18n::InvalidLocale) do |_err, _obj, _args, _ctx, _field|
+        raise Decidim::Api::Errors::InvalidLocaleError, I18n.t("decidim.api.errors.invalid_locale")
+      end
+
+      rescue_from(I18n::ArgumentError) do |err, _obj, _args, _ctx, _field|
+        raise Decidim::Api::Errors::LocaleError, I18n.t("decidim.api.errors.locale_argument_error", message: err.message)
+      end
     end
   end
 end
