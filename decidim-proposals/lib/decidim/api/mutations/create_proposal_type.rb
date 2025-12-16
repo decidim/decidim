@@ -13,22 +13,13 @@ module Decidim
       argument :toggle_translations, GraphQL::Types::Boolean, "Whether the user asked to toggle the machine translations or not.", required: true, default_value: false
 
       def resolve(attributes:, locale:, toggle_translations:)
-        raise GraphQL::ExecutionError, "#{locale} is not a valid locale" unless available_locales.include?(locale)
-
-        I18n.locale = locale.presence
-        RequestStore.store[:toggle_machine_translations] = toggle_translations
+        set_locale(locale:, toggle_translations:)
 
         params = attributes.to_h.slice(:title, :body, :address, :latitude, :longitude, :taxonomies)
 
         params[:taxonomies] = Decidim::Taxonomy.where(id: params[:taxonomies]).pluck(:id) if params[:taxonomies]
 
-        form = Decidim::Proposals::ProposalForm.from_params(
-          params
-        ).with_context(
-          current_component:,
-          current_user:,
-          current_organization: current_user.organization
-        )
+        form = form(Decidim::Proposals::ProposalForm).from_params(params)
 
         Decidim::Proposals::CreateProposal.call(form, current_user) do
           on(:ok) do |proposal|
