@@ -266,6 +266,8 @@ eu:
         results: emaitzak
       impersonation_log:
         manage: "%{user_name} parte-hartzaileak %{resource_name} kudeatu du arrazoi honengatik %{reason}"
+      member:
+        create: "%{user_name} parte-hartzaileak %{resource_name} baliabidera kide izateko gonbidatu du"
       moderation:
         bulk_hide: "%{user_name} parte-hartzaileak %{reported_count} baliabide ezkutatu du"
         bulk_unhide: "%{user_name} parte-hartzaileak berriro erakutsi du %{reported_count} baliabide"
@@ -763,6 +765,12 @@ eu:
           id: Jakinarazpen honen identifikatzaile bakarra
           resource_type: Jakinarazpena zein baliabide motarekin dago lotuta
           updated_at: Zein datatan eta zein ordutan eguneratu zen jakinarazpena azken aldiz
+        participatory_space_members:
+          created_at: Kide hori sortu zen eguna eta ordua
+          id: The unique identifier of this member
+          published: Parte-hartzaile pribatu hori argitaratuta dagoen ala ez
+          role: Kide horrek duen rola
+          updated_at: Kide hori azken aldiz eguneratu zen eguna eta ordua
         reports:
           created_at: Zein datatan eta zein ordutan sortu zen salaketa hau
           details: Txosten honen xehetasunak
@@ -1554,7 +1562,7 @@ eu:
         details: Xehetasunak
         hello: 'Kaixo, %{name}:'
         manage_moderations: Moderazioak kudeatu
-        participatory_space: Partaidetza espazioa
+        participatory_space: Partaidetza-espazioa
         reason: Arrazoia
         report_html: <p>Hurrengo <a href="%{url}">edukia</a>automatikoki ezkutatu da</p>
         subject: '%{moderator} -k baliabidea ezkutatu du'
@@ -1829,11 +1837,14 @@ eu:
         invited_you_as_admin: "%{invited_by} admnisitrariak %{application} administratzaile gisa gonbidatu zaitu. Beheko estekan onartu dezakezu."
         someone_invited_you: Norbaitek %{application} gonbidatu zaitu. Beheko estekan onar dezakezu.
         someone_invited_you_as_admin: Norbaitek %{application} administratzaile gisa gonbidatu zaitu, beheko estekan onar dezakezu.
+        someone_invited_you_as_member: '%{application}-eko kide gisa gonbidatu zaitu norbaitek. Esteka honen bidez onar dezakezu.'
         subject: Gonbidapenaren argibideak
       invite_admin:
         subject: '%{organization} kudeatzeko gonbita jaso duzu'
       invite_collaborator:
         subject: 'Gonbita jaso duzu erakunde honekin lankidetzan aritzeko: %{organization}'
+      invite_member:
+        subject: '%{organization} erakundeari buruzko partaidetza prozesu pribatu batera gonbidatu zaituzte'
       organization_admin_invitation_instructions:
         subject: '%{organization} erakundea kudeatzeko gonbita jaso duzu'
       password_change:
@@ -1875,7 +1886,7 @@ eu:
       updated: Pasahitza ondo aldatu da. Saioa hasi duzu.
       updated_not_active: Pasahitza ondo aldatu da.
     registrations:
-      destroyed: Agur! Zure kontua behar bezala bertan behera utzi da. Laster ikusiko dugu berriro.
+      destroyed: Agur! Zure kontua behar bezala bertan behera utzi da. Laster ikusiko dugu elkar berriro.
       new:
         sign_up: Sortu kontu bat
       signed_up: Ongi etorri!  Ondo eman duzu izena.
@@ -2155,7 +2166,7 @@ eu:
         profile: Profila
         title: Parte-hartzailearen ezarpenak
   locale:
-    name: Ingelesa
+    name: Euskara
     name_with_error: Euskera (akatsa!)
   number:
     currency:
