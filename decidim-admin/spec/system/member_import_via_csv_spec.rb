@@ -6,7 +6,7 @@ describe "Admin manages members via csv import" do
   let(:organization) { create(:organization) }
 
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
-  let(:assembly) { create(:assembly, organization:, private_space: true) }
+  let(:assembly) { create(:assembly, organization:, has_members: true) }
 
   before do
     switch_to_host(organization.host)
