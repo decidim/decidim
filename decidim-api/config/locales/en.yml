@@ -4,7 +4,7 @@ en:
     api:
       errors:
         invalid_locale: Invalid locale provided
-        locale_argument_error: There was an error while internally handling 18n data
+        locale_argument_error: There was an error while internally handling i18n data
         not_found: "%{type} not found"
         permission_not_set: Permission has not been set for this %{type}
         unauthorized_field: You cannot view or edit %{field} field on %{type} because you do not have permission

@@ -61,7 +61,7 @@ describe "Decidim::Api::Errors" do
     end
 
     it "throws exception" do
-      expect { response }.to raise_error(Decidim::Api::Errors::LocaleError, "There was an error while internally handling 18n data")
+      expect { response }.to raise_error(Decidim::Api::Errors::LocaleError, "There was an error while internally handling i18n data")
     end
   end
 
@@ -78,7 +78,7 @@ describe "Decidim::Api::Errors" do
     end
 
     it "throws exception" do
-      expect { response }.to raise_error(Decidim::Api::Errors::LocaleError, "There was an error while internally handling 18n data")
+      expect { response }.to raise_error(Decidim::Api::Errors::LocaleError, "There was an error while internally handling i18n data")
     end
   end
 
