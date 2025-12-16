@@ -212,7 +212,7 @@ module Decidim
       [:with_date, :with_any_taxonomies]
     end
 
-    # Allows for sorting by these attributes in columns within the admin interface eg (created_at, published_at etc)
+    # Allows for sorting of these attributes in columns within the processes admin space (created_at, published_at etc)
     def self.ransackable_attributes(auth_object = nil)
       base = %w(title short_description description id)
       return base unless auth_object&.admin?
