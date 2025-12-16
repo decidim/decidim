@@ -33,6 +33,11 @@ ca-IT:
       help_section:
         content: Contingut
       id: ID
+      member:
+        email: Correu electrònic
+        name: Nom
+      member_csv_import:
+        file: Arxiu
       newsletter:
         body: Cos
         send_to_all_users: Envia a totes les participants
@@ -127,6 +132,10 @@ ca-IT:
         file: Fitxer
     errors:
       models:
+        member_csv_import:
+          attributes:
+            file:
+              malformed: Arxiu d'importació mal formatat, si us plau, llegeix les instruccions curosament i assegura't que l'arxiu està codificat en UTF-8.
         newsletter:
           attributes:
             base:
@@ -182,6 +191,8 @@ ca-IT:
         export: Exporta
         export-selection: Exportar selecció
         import: Importar
+        member:
+          new: Nova membre
         menu_hidden: Amaga del menú
         moderate: Gestionar les moderacions
         newsletter:
@@ -407,6 +418,17 @@ ca-IT:
           values:
             'false': 'No'
             'true': 'Sí'
+        members:
+          user_invitation_accepted_at_not_null:
+            label: Invitació acceptada
+            values:
+              'false': No acceptada
+              'true': Acceptada
+          user_invitation_sent_at_not_null:
+            label: Invitació enviada
+            values:
+              'false': No enviada
+              'true': Enviada
         moderated_users:
           reports_reason_eq:
             label: Motiu de l'informe
@@ -554,10 +576,53 @@ ca-IT:
             explanation: Les participants gestionades es poden promocionar a participants estàndard. Significa que seran convidades al sistema i no podràs tornar a administrar-les. La participant convidada rebrà un correu electrònic per acceptar la vostra invitació.
             new_managed_user_promotion: Nova promoció de participant
             promote: Promocionar
+      members:
+        create:
+          error: S'ha produït un error en actualitzar una administradora per a aquest procés participatiu.
+          success: Accés com a membre creat correctament.
+        destroy:
+          error: S'ha produït un error en eliminar una participant participada d'aquest espai participació.
+          success: Accés com a membre eliminat correctament.
+        edit:
+          title: Edita membre
+          update: Actualizar
+        index:
+          import_via_csv: Importar des de CSV
+          publish_all: Publicar totes
+          title: Membre
+          unpublish_all: Despublicar totes
+        new:
+          create: Crear
+          title: Nova membre
+        publish_all:
+          error: S'ha produït un error en publicar totes les membres d'aquest espai de participació.
+          success: S'han publicat correctament totes les membres d'aquest espai de participació
+        unpublish_all:
+          error: S'ha produït un error en despublicar totes les membres d'aquest espai de participació.
+          success: S'han despublicat correctament totes les membres d'aquest espai de participació
+        update:
+          error: S'ha produït un error en actualitzar la membre per a aquest espai de participació.
+          success: Membre actualitzada correctament
       members_csv_imports:
+        create:
+          invalid: S'ha produït un error llegint el fitxer CSV. Si us plau, assegura't d'haver seguit les instruccions.
+          success: L'arxiu CSV s'ha carregat amb èxit, estem enviant un correu d'invitació a les participants. Això pot trigar una estona.
         new:
           csv_upload:
             title: Puja el fitxer CSV
+          destroy:
+            button: Esborrar totes les membres
+            confirm: Segur que vols esborrar totes les membres? Aquesta acció no es pot desfer, no podràs recuperar-les.
+            empty: No hi ha membres.
+            explanation: Hi ha %{count} membres.
+            title: Elimina membres
+          example_file: 'Fitxer d''exemple:'
+          explanation: 'Carrega el teu arxiu CSV. Ha de tenir dues columnes amb l''adreça de correu electrònic a la primera columna i el nom a la segona de les participants que vulguis afegir a l''espai de participació, sense capçaleres. Evita emprar caràcters invàlids com `<>?%&^*#@()[]=+:;"{}\|` al nom d''usuària.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
+          title: Importar membres via CSV
+          upload: Carregar
       menu:
         admin_log: Registre d'activitat d'administració
         admins: Administradores
@@ -616,6 +681,8 @@ ca-IT:
             reason: Raó
             started_at: Va començar el
             user: Participant
+        member:
+          name: Membre
         newsletter:
           fields:
             created_at: Data de creació
