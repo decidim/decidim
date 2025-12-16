@@ -113,6 +113,7 @@ fr-CA:
           attachments: Documents liés
           components: Fonctionnalités
           info: A propos de cette concertation
+          members:
           moderations: Modérations
           process_admins: Administrateurs de la concertation
           steps: Étapes
@@ -492,6 +493,9 @@ fr-CA:
         title: Concertations
       last_activity:
         new_participatory_process: 'Nouveau processus participatif:'
+      members:
+        index:
+          title: Membres
       pages:
         home:
           highlighted_processes:
