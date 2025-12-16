@@ -115,6 +115,7 @@ eu:
           components: Osagaiak
           info: Prozesu honi buruz
           landing_page: Lurreratze-orrien antolaketa
+          members: Kideak
           moderations: Moderazioak
           process_admins: Prozesuaren parte-hartzaileak
           steps: Prozesuaren faseak
@@ -557,6 +558,9 @@ eu:
         title: Partaidetza-prozesuak
       last_activity:
         new_participatory_process: 'Beste partaidetza-prozesu bat:'
+      members:
+        index:
+          title: Kideak
       pages:
         home:
           highlighted_processes:
