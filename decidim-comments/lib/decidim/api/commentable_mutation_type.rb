@@ -22,6 +22,10 @@ module Decidim
           on(:ok) do |comment|
             return comment
           end
+
+          on(:invalid) do
+            raise GraphQL::ExecutionError, t("create.error", scope: "decidim.comments.comments")
+          end
         end
       end
     end

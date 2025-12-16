@@ -54,7 +54,7 @@ jobs:
       PARALLEL_TEST_PROCESSORS: 3
     services:
       validator:
-        image: ghcr.io/validator/validator:latest
+        image: ghcr.io/validator/validator@sha256:7667b0ffa6d395c27aa8f9e21db1cfe6b66549245a3972e9397d255de5ef0ec6
         ports: ["8888:8888"]
       postgres:
         image: postgres:14

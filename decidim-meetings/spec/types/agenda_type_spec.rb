@@ -42,8 +42,8 @@ module Decidim
 
         let(:model) { create(:agenda, :with_agenda_items, visible: false) }
 
-        it "returns the agenda's id" do
-          expect(response).to be_nil
+        it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
+          expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this MeetingAgenda because you do not have permissions")
         end
       end
     end

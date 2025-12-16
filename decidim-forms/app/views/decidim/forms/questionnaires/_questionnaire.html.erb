@@ -3,7 +3,7 @@
 </noscript>
 
 <% unless current_participatory_space.can_participate?(current_user) %>
-  <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_for_private_users.title"), body: t("decidim.forms.questionnaires.show.questionnaire_for_private_users.body") }, callout_class: "alert") %>
+  <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_for_members.title"), body: t("decidim.forms.questionnaires.show.questionnaire_for_members.body") }, callout_class: "alert") %>
 <% end %>
 
 <% if questionnaire_for.respond_to?(:announcement) and questionnaire_for.announcement.present? %>

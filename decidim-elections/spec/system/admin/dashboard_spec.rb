@@ -133,6 +133,27 @@ describe "Dashboard" do
         expect(page).to have_no_content("Election has not started yet.")
         expect(page).to have_no_content("Publish results")
       end
+
+      it "shows total votes for each question" do
+        questions.each do |question|
+          within("#question_#{question.id}") do
+            expect(page).to have_content("Total")
+            expect(page).to have_css("[data-question-total-votes-text='#{question.id}']", text: "0 votes")
+          end
+        end
+      end
+
+      context "when there are votes" do
+        let!(:questions) { create_list(:election_question, 3, :with_response_options, election:) }
+        let!(:vote) { create(:election_vote, question: questions.first, response_option: questions.first.response_options.first, voter_uid: "voter1") }
+
+        it "shows the correct total votes count" do
+          visit election_dashboard_path
+          within("#question_#{questions.first.id}") do
+            expect(page).to have_css("[data-question-total-votes-text='#{questions.first.id}']", text: "1 vote")
+          end
+        end
+      end
     end
   end
 
@@ -174,6 +195,15 @@ describe "Dashboard" do
         expect(page).to have_button("Publish results", count: 0, disabled: false)
         expect(page).to have_button("Publish results", count: election.questions.size, disabled: true)
         expect(page).to have_button("Enable voting", count: 3, disabled: false)
+      end
+
+      it "shows total votes for each question" do
+        questions.each do |question|
+          within("#question_#{question.id}") do
+            expect(page).to have_content("Total")
+            expect(page).to have_css("[data-question-total-votes-text='#{question.id}']", text: "0 votes")
+          end
+        end
       end
 
       context "when a question is enabled" do
@@ -262,6 +292,15 @@ describe "Dashboard" do
         expect(page).to have_no_content("Election has not started yet.")
         expect(page).to have_button("Publish results")
       end
+
+      it "shows total votes for each question" do
+        questions.each do |question|
+          within("#question_#{question.id}") do
+            expect(page).to have_content("Total")
+            expect(page).to have_css("[data-question-total-votes-text='#{question.id}']", text: "0 votes")
+          end
+        end
+      end
     end
   end
 
@@ -271,6 +310,15 @@ describe "Dashboard" do
     it "shows the published results status" do
       expect(page).to have_content("Finished")
       expect(page).to have_no_button("Results published at")
+    end
+
+    it "shows total votes for each question" do
+      questions.each do |question|
+        within("#question_#{question.id}") do
+          expect(page).to have_content("Total")
+          expect(page).to have_css("[data-question-total-votes-text='#{question.id}']", text: "0 votes")
+        end
+      end
     end
   end
 

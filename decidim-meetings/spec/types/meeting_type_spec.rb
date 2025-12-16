@@ -24,6 +24,12 @@ module Decidim
       include_examples "referable interface"
       include_examples "localizable interface"
 
+      shared_examples "unauthorized Meeting" do
+        it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
+          expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this Meeting because you do not have permissions")
+        end
+      end
+
       describe "id" do
         let(:query) { "{ id }" }
 
@@ -72,9 +78,7 @@ module Decidim
         context "when is not set" do
           let(:model) { create(:meeting, component:) }
 
-          it "returns the publishedAt field" do
-            expect(response).to be_nil
-          end
+          it_behaves_like "unauthorized Meeting"
         end
       end
 
@@ -433,9 +437,7 @@ module Decidim
         let(:root_value) { model.reload }
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Meeting"
       end
 
       describe "transparent" do
@@ -452,9 +454,7 @@ module Decidim
         let(:model) { create(:meeting, component: current_component) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Meeting"
       end
 
       context "when participatory space is private but transparent" do
@@ -474,9 +474,7 @@ module Decidim
         let(:model) { create(:meeting, component: current_component) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Meeting"
       end
 
       context "when component is not published" do
@@ -484,9 +482,7 @@ module Decidim
         let(:model) { create(:meeting, component: current_component) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Meeting"
       end
 
       context "when meeting is moderated" do
@@ -494,9 +490,7 @@ module Decidim
         let(:query) { "{ id }" }
         let(:root_value) { model.reload }
 
-        it "returns all the required fields" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Meeting"
       end
 
       context "when meeting is not published" do
@@ -504,9 +498,7 @@ module Decidim
         let(:query) { "{ id }" }
         let(:root_value) { model.reload }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Meeting"
       end
     end
   end

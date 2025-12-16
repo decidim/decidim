@@ -31,7 +31,7 @@ shared_examples "a csv token per question votable election" do
     expect(page).to have_current_path(election_path)
     expect(page).to have_content("You have already voted.")
     expect(election.votes.where(voter_uid:).size).to eq(3)
-    click_on "Vote"
+    click_on "Edit vote"
     expect(page).to have_current_path(new_election_vote_path)
     fill_in "Email", with: election.voters.first.data["email"]
     fill_in "Token", with: election.voters.first.data["token"]
@@ -73,7 +73,7 @@ shared_examples "a per question votable election" do
     expect(page).to have_current_path(election_path)
     expect(page).to have_content("You have already voted.")
     expect(election.votes.where(voter_uid:).size).to eq(2)
-    click_on "Vote"
+    click_on "Edit vote"
     expect(find("input[value='#{question1.response_options.first.id}']")).to be_checked
     choose translated_attribute(question1.response_options.second.body)
     click_on "Cast vote"
@@ -114,7 +114,7 @@ shared_examples "a per question votable election with published results" do
     expect(page).to have_current_path(election_path)
     expect(page).to have_content("You have already voted.")
     expect(election.votes.where(voter_uid:).size).to eq(1)
-    click_on "Vote"
+    click_on "Edit vote"
     expect(page).to have_current_path(election_vote_path(question2))
     expect(find("input[value='#{question2.response_options.first.id}']")).to be_checked
     expect(find("input[value='#{question2.response_options.second.id}']")).not_to be_checked
@@ -169,5 +169,74 @@ shared_examples "a per question votable election with already voted questions" d
     click_on "Cast vote"
     expect(page).to have_current_path(waiting_election_votes_path)
     expect(page).to have_no_content("Edit your vote")
+  end
+end
+
+shared_examples "a per question votable election with edit from receipt" do
+  it "allows editing votes from receipt page" do
+    click_on "Vote"
+    choose translated_attribute(question1.response_options.first.body)
+    click_on "Cast vote"
+    check translated_attribute(question2.response_options.first.body)
+    click_on "Cast vote"
+    expect(page).to have_current_path(receipt_election_votes_path)
+    expect(page).to have_link("Edit your vote")
+    expect(page).to have_link("Exit the voting booth")
+
+    click_on "Edit your vote"
+    expect(page).to have_current_path(election_vote_path(question2))
+    expect(find("input[value='#{question2.response_options.first.id}']")).to be_checked
+
+    click_on "Back"
+    expect(page).to have_current_path(election_vote_path(question1))
+    expect(find("input[value='#{question1.response_options.first.id}']")).to be_checked
+
+    choose translated_attribute(question1.response_options.second.body)
+    click_on "Cast vote"
+    expect(page).to have_current_path(election_vote_path(question2))
+
+    check translated_attribute(question2.response_options.second.body)
+    click_on "Cast vote"
+    expect(page).to have_current_path(receipt_election_votes_path)
+    expect(election.votes.where(voter_uid:).size).to eq(3)
+
+    click_on "Exit the voting booth"
+    expect(page).to have_current_path(election_path)
+    expect(page).to have_content("You have already voted.")
+  end
+end
+
+shared_examples "a per question votable election with edit from receipt when all questions enabled" do
+  it "allows editing any question from receipt page" do
+    click_on "Vote"
+    choose translated_attribute(question1.response_options.first.body)
+    click_on "Cast vote"
+    check translated_attribute(question2.response_options.first.body)
+    click_on "Cast vote"
+    expect(page).to have_current_path(receipt_election_votes_path)
+
+    click_on "Edit your vote"
+    expect(page).to have_current_path(election_vote_path(question2))
+
+    click_on "Back"
+    expect(page).to have_current_path(election_vote_path(question1))
+
+    choose translated_attribute(question1.response_options.second.body)
+    click_on "Cast vote"
+    expect(page).to have_current_path(election_vote_path(question2))
+    expect(find("input[value='#{question2.response_options.first.id}']")).to be_checked
+
+    click_on "Cast vote"
+    expect(page).to have_current_path(receipt_election_votes_path)
+
+    click_on "Edit your vote"
+    click_on "Back"
+    choose translated_attribute(question1.response_options.first.body)
+    click_on "Cast vote"
+    uncheck translated_attribute(question2.response_options.first.body)
+    check translated_attribute(question2.response_options.second.body)
+    click_on "Cast vote"
+    expect(page).to have_current_path(receipt_election_votes_path)
+    expect(election.votes.where(voter_uid:).size).to eq(2)
   end
 end
