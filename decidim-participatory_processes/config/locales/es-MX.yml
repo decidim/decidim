@@ -115,6 +115,7 @@ es-MX:
           components: Componentes
           info: Acerca de este proceso
           landing_page: Disposición de la página de aterrizaje
+          members: Miembros
           moderations: Moderaciones
           process_admins: Usuarios del proceso
           steps: Fases del proceso
@@ -557,6 +558,9 @@ es-MX:
         title: Procesos participativos
       last_activity:
         new_participatory_process: 'Nuevo proceso participativo:'
+      members:
+        index:
+          title: Miembros
       pages:
         home:
           highlighted_processes:
