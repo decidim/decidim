@@ -10,6 +10,8 @@ module Decidim
     autoload :ComponentMutationType, "decidim/api/component_mutation_type"
 
     module Errors
+      autoload :LocaleError, "decidim/api/errors/locale_error"
+      autoload :InvalidLocaleError, "decidim/api/errors/invalid_locale_error"
       autoload :AttributeValidationError, "decidim/api/errors/attribute_validation_error"
       autoload :MutationNotAuthorizedError, "decidim/api/errors/mutation_not_authorized_error"
       autoload :NotFoundError, "decidim/api/errors/not_found_error"
