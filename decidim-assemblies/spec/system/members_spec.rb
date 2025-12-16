@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Assembly members" do
   let(:organization) { create(:organization) }
-  let(:assembly) { create(:assembly, :with_content_blocks, organization:, blocks_manifests:, private_space: true) }
+  let(:assembly) { create(:assembly, :with_content_blocks, organization:, blocks_manifests:, has_members: true) }
   let(:privatable_to) { assembly }
   let(:blocks_manifests) { [] }
 

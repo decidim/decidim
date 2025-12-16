@@ -6,7 +6,7 @@ describe "Admin checks pagination on members" do
   let(:organization) { create(:organization) }
 
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
-  let(:assembly) { create(:assembly, organization:, private_space: true) }
+  let(:assembly) { create(:assembly, organization:, has_members: true) }
 
   let!(:members) { create_list(:assembly_member, 26, privatable_to: assembly, user: create(:user, organization: assembly.organization)) }
 
