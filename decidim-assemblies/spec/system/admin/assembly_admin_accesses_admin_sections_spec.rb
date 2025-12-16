@@ -41,7 +41,7 @@ describe "Assembly admin accesses admin sections" do
       end
     end
 
-    context "when is an assembly with members" do
+    context "when is an assembly without members" do
       it_behaves_like "sees menu without members"
     end
 
