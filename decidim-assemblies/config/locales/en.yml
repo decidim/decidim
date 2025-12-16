@@ -253,8 +253,8 @@ en:
             metadata: Metadata
             no_taxonomy_filters_found: No taxonomy filters found.
             other: Other
-            private_notice: You will be able to manage members after setting it as private
-            has_members_help: You'll be able to create and publish members
+            private_notice: Makes the space not visible for visitors and only for members (except if it is also transparent)
+            has_members_help: You will be able to create and publish members
             select_a_created_by: Select a created by
             select_parent_assembly: Select parent assembly
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
