@@ -48,10 +48,25 @@ From now on, we will skip the "query" keyword for the purpose of readability. Yo
 
 ** xref:develop:api/authentication.adoc[Authentication]
 ** xref:develop:api/core-concepts.adoc[Core concepts]
+** xref:develop:api/reference/errors.adoc[Errors tracked]
 ** API reference by module
 *** Spaces
 *** Components
+**** xref:develop:api/reference/components/debates.adoc[Debates]
+***** xref:develop:api/reference/components/debates/create.adoc[Create Debate]
+***** xref:develop:api/reference/components/debates/update.adoc[Update Debate]
+***** xref:develop:api/reference/components/debates/close.adoc[Close Debate]
+**** xref:develop:api/reference/components/meetings.adoc[Meetings]
+***** xref:develop:api/reference/components/meetings/create.adoc[Create Meetings]
+***** xref:develop:api/reference/components/meetings/update.adoc[Update Meetings]
+***** xref:develop:api/reference/components/meetings/withdraw.adoc[Withdraw Meetings]
+***** xref:develop:api/reference/components/meetings/close.adoc[Close Meetings]
 **** xref:develop:api/reference/components/proposals.adoc[Proposals]
+***** xref:develop:api/reference/components/proposals/create.adoc[Create Proposals]
+***** xref:develop:api/reference/components/proposals/update.adoc[Update Proposals]
+***** xref:develop:api/reference/components/proposals/withdraw.adoc[Withdraw Proposals]
+***** xref:develop:api/reference/components/proposals/vote.adoc[Vote Proposals]
+***** xref:develop:api/reference/components/proposals/answer.adoc[Answer Proposals (Admin)]
 
 == Usage limits
 
