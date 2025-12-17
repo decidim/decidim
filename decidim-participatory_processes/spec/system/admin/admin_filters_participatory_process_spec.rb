@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin sorts participatory processes" do
+describe "Admin sorting participatory processes" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
 
@@ -16,7 +16,7 @@ describe "Admin sorts participatory processes" do
     visit decidim_admin_participatory_processes.participatory_processes_path
   end
 
-  context "when sorting processes by created_at" do
+  context "when sorting processes by their creation" do
     it "sorts by created_at descending by default" do
       within "table thead" do
         click_link "Created at"
