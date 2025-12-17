@@ -51,6 +51,8 @@ From now on, we will skip the "query" keyword for the purpose of readability. Yo
 ** API reference by module
 *** Spaces
 *** Components
+**** xref:develop:api/reference/components/debates.adoc[Debates]
+**** xref:develop:api/reference/components/meetings.adoc[Meetings]
 **** xref:develop:api/reference/components/proposals.adoc[Proposals]
 
 == Usage limits

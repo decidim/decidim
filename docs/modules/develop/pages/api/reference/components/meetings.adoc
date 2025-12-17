@@ -1,0 +1,10 @@
+= Meetings
+
+In the meetings module we are providing a few mutations that we find useful for day-to-day management of Decidim instance outside the admin.
+
+== User facing
+
+* xref:develop:api/reference/components/meetings/create.adoc[Create Meetings]
+* xref:develop:api/reference/components/meetings/update.adoc[Update Meetings]
+* xref:develop:api/reference/components/meetings/withdraw.adoc[Withdraw Meetings]
+* xref:develop:api/reference/components/meetings/close.adoc[Close Meetings]

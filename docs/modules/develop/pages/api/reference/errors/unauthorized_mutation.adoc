@@ -1,0 +1,30 @@
+= Unauthorized Mutation Error - MUTATION_NOT_AUTHORIZED_ERROR
+
+This error is being fired when the user submits a mutation request to a resource where he does not have access to.
+
+The JSON response structure is:
+[source, json]
+----
+{
+  "errors": [
+    {
+      "message": "You do not have permission to perform this mutation",
+      "locations": [
+        {
+          "line": 2,
+          "column": 3
+        }
+      ],
+      "path": [
+        "createProposal"
+      ],
+      "extensions": {
+        "code": "MUTATION_NOT_AUTHORIZED_ERROR"
+      }
+    }
+  ],
+  "data": {
+    "createProposal": null
+  }
+}
+----
