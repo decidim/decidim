@@ -4,5 +4,6 @@ en:
     api:
       errors:
         not_found: "%{type} not found"
+        permission_not_set: Permission has not been set for this %{type}
         unauthorized_field: You cannot view or edit %{field} field on %{type} because you do not have permission
         unauthorized_object: You cannot view or edit this %{type} because you do not have permissions
