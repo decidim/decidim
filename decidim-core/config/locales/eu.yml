@@ -46,7 +46,7 @@ eu:
         email: Zure helbide elektronikoa
         encrypted_password: Pasahitza
         locale: Tokikoa
-        name: Zure Izena
+        name: Zure izen-abizenak
         nickname: Ezizena
         old_password: Egungo pasahitza
         password: Pasahitza
@@ -729,7 +729,7 @@ eu:
           connect_your_account_html: 'Konektatu zure kontua saioa hasteko hemen: %{organization}.'
           publish_content: Argitaratu edukia zuretzat
           see_email: Ikusi zure helbide elektronikoa
-          see_name: Ikusi zure izena
+          see_name: Ikusi zure izena-abizenak
           see_username: Ikusi zure parte-hartzailearen izena
           this_application_will_be_able_to: 'Aplikazio horrek honako zeregin hauek egin ahal izango ditu:'
           this_application_will_not_be_able_to: 'Aplikazio honek ezin izango du:'
@@ -2070,7 +2070,7 @@ eu:
       signed_up: Ongi etorri!  Ondo eman duzu izena.
       signed_up_but_inactive: Eginda sinatu duzu. Hala ere, ezin izan dugu saioa hasi kontua oraindik ez baita aktibatuta.
       signed_up_but_locked: Ongi eman duzu izena. Hala ere, ezin duzu saioa hasi zure kontua giltzapetuta dagoelako.
-      signed_up_but_unconfirmed: Berrespen-esteka duen mezu bat zure helbide elektronikora bidali da. Jarraitu esteka zure kontua aktibatzeko.
+      signed_up_but_unconfirmed: Berrespen-esteka duen mezu bat bidali da zure helbide elektronikora. Mesedez, jarraitu esteka zure kontua aktibatzeko.
       update_needs_confirmation: Zure kontua arrakastaz eguneratu duzu, baina helbide elektroniko berria egiaztatu behar dugu. Egiaztatu zure posta elektronikoa eta berretsi esteka jarraitu zure helbide elektroniko berria berresteko.
       updated: Zure kontua ondo eguneratu da.
     sessions:
