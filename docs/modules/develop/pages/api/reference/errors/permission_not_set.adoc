@@ -1,6 +1,6 @@
 = Permission Not Set Error - PERMISSION_NOT_SET_ERROR
 
-This is an error that should not be seen by end users, as this error is being fired when a request passes through an manged permission handler.
+This is an error that should not be seen by end users, as this error is being fired when a request passes through a managed permission handler.
 
 The JSON response structure is:
 [source, json]
