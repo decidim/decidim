@@ -34,6 +34,11 @@ en:
       help_section:
         content: Content
       id: ID
+      member:
+        email: Email
+        name: Name
+      member_csv_import:
+        file: File
       newsletter:
         body: Body
         send_to_all_users: Send to all participants
@@ -92,11 +97,6 @@ en:
         welcome_notification_body: Welcome notification body
         welcome_notification_subject: Welcome notification subject
         youtube_handler: YouTube handler
-      participatory_space_private_user:
-        email: Email
-        name: Name
-      participatory_space_private_user_csv_import:
-        file: File
       scope:
         code: Code
         name: Name
@@ -133,6 +133,10 @@ en:
         file: File
     errors:
       models:
+        member_csv_import:
+          attributes:
+            file:
+              malformed: Malformed import file, please read through the instructions carefully and make sure the file is UTF-8 encoded.
         newsletter:
           attributes:
             base:
@@ -141,10 +145,6 @@ en:
           attributes:
             official_img_footer:
               allowed_file_content_types: Invalid image file
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Malformed import file, please read through the instructions carefully and make sure the file is UTF-8 encoded.
         user_group_csv_verification:
           attributes:
             file:
@@ -192,12 +192,12 @@ en:
         export: Export
         export-selection: Export selection
         import: Import
+        member:
+          new: New member
         menu_hidden: Hide from menu
         moderate: Manage moderations
         newsletter:
           new: New newsletter
-        participatory_space_private_user:
-          new: New participatory space private user
         per_page: Per page
         permissions: Manage permissions
         restore: Restore
@@ -419,6 +419,17 @@ en:
           values:
             'false': 'No'
             'true': 'Yes'
+        members:
+          user_invitation_accepted_at_not_null:
+            label: Invitation accepted
+            values:
+              'false': Not accepted
+              'true': Accepted
+          user_invitation_sent_at_not_null:
+            label: Invitation sent
+            values:
+              'false': Not sent
+              'true': Sent
         moderated_users:
           reports_reason_eq:
             label: Report reason
@@ -434,17 +445,6 @@ en:
           values:
             'false': Officialized
             'true': Not officialized
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Invitation accepted
-            values:
-              'false': Not accepted
-              'true': Accepted
-          user_invitation_sent_at_not_null:
-            label: Invitation sent
-            values:
-              'false': Not sent
-              'true': Sent
         private_space_eq:
           label: Private
           values:
@@ -577,6 +577,53 @@ en:
             explanation: Managed participants can be promoted to standard participants. It means they will be invited to the application and you will not be able to manage them again. The invited participant will receive an email to accept your invitation.
             new_managed_user_promotion: New managed participant promotion
             promote: Promote
+      members:
+        create:
+          error: There was a problem adding a member for this participatory space.
+          success: Member access successfully created.
+        destroy:
+          error: There was a problem deleting a member for this participatory space.
+          success: Member access successfully destroyed.
+        edit:
+          title: Edit Member.
+          update: Update
+        index:
+          import_via_csv: Import via CSV
+          publish_all: Publish all
+          title: Member
+          unpublish_all: Unpublish all
+        new:
+          create: Create
+          title: New Member.
+        publish_all:
+          error: There was a problem publishing all the members for this participatory space.
+          success: Successfully published all members for this participatory space
+        unpublish_all:
+          error: There was a problem unpublishing all the members for this participatory space.
+          success: Successfully unpublished all members for this participatory space
+        update:
+          error: There was a problem updating the member for this participatory space.
+          success: Member successfully updated
+      members_csv_imports:
+        create:
+          invalid: There was a problem reading the CSV file. Please make sure you have followed the instructions.
+          success: CSV file uploaded successfully, we are sending an invitation email to participants. This might take a while.
+        new:
+          csv_upload:
+            title: Upload your CSV file
+          destroy:
+            button: Delete all members
+            confirm: Are you sure you want to delete all members? This action cannot be undone, you will not be able to recover them.
+            empty: You have no members.
+            explanation: You have %{count} members.
+            title: Delete members
+          example_file: 'Example file:'
+          explanation: Upload your CSV file. It must have two columns with email in the first column of the file and name in the last column of the file of the users that you want to add to the participatory space, without headers. Avoid using invalid chars like `<>?%&^*#@()[]=+:;"{}\|` in user name.
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
+          title: Import members via CSV
+          upload: Upload
       menu:
         admin_log: Admin activity log
         admins: Admins
@@ -635,6 +682,8 @@ en:
             reason: Reason
             started_at: Started at
             user: Participant
+        member:
+          name: Member
         newsletter:
           fields:
             created_at: Created at
@@ -643,8 +692,6 @@ en:
             sent_to: Sent to
             subject: Subject
           name: Newsletter
-        participatory_space_private_user:
-          name: Participatory space private participant
         scope:
           fields:
             name: Name
@@ -919,53 +966,6 @@ en:
         form:
           add: Add to allowed list
           title: Allowed list of external domains
-      participatory_space_private_users:
-        create:
-          error: There was a problem adding a private participant for this participatory space.
-          success: Participatory space private participant access successfully created.
-        destroy:
-          error: There was a problem deleting a private participant for this participatory space.
-          success: Participatory space private participant access successfully destroyed.
-        edit:
-          title: Edit Participatory Space private participant.
-          update: Update
-        index:
-          import_via_csv: Import via CSV
-          publish_all: Publish all
-          title: Participatory space private participant
-          unpublish_all: Unpublish all
-        new:
-          create: Create
-          title: New Participatory Space private participant.
-        publish_all:
-          error: There was a problem publishing all the private participants for this participatory space.
-          success: Successfully published all private participants for this participatory space
-        unpublish_all:
-          error: There was a problem unpublishing all the private participants for this participatory space.
-          success: Successfully unpublished all private participants for this participatory space
-        update:
-          error: There was a problem updating the private participant for this participatory space.
-          success: Participatory space private participant successfully updated
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: There was a problem reading the CSV file. Please make sure you have followed the instructions.
-          success: CSV file uploaded successfully, we are sending an invitation email to participants. This might take a while.
-        new:
-          csv_upload:
-            title: Upload your CSV file
-          destroy:
-            button: Delete all private participants
-            confirm: Are you sure you want to delete all private participants? This action cannot be undone, you will not be able to recover them.
-            empty: You have no private participants.
-            explanation: You have %{count} private participants.
-            title: Delete private participants
-          example_file: 'Example file:'
-          explanation: Upload your CSV file. It must have two columns with email in the first column of the file and name in the last column of the file of the users that you want to add to the participatory space, without headers. Avoid using invalid chars like `<>?%&^*#@()[]=+:;"{}\|` in user name.
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: Import private participants via CSV
-          upload: Upload
       reminders:
         create:
           error: There was a problem creating reminders.

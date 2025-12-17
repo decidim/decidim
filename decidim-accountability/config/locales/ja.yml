@@ -287,6 +287,7 @@ ja:
       accountability:
         actions:
           comment: コメント
+          vote_comment: コメントに投票
         name: アカウンタビリティ
         settings:
           global:

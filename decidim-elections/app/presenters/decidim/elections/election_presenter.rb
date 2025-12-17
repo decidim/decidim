@@ -42,7 +42,13 @@ module Decidim
               body: translated_attribute(question.body),
               position: question.position,
               voting_enabled: question.voting_enabled?,
-              published_results: question.published_results?,
+              published_results: question.published_results?
+            }.tap do |hash|
+              next unless admin || result_published_questions.include?(question)
+
+              hash[:total_votes] = question.total_votes
+              hash[:total_votes_text] = I18n.t("total_votes", scope: "decidim.elections.elections.vote_results", count: question.total_votes)
+            end.merge(
               response_options: question.response_options.map do |option|
                 {
                   id: option.id,
@@ -56,7 +62,7 @@ module Decidim
                   hash[:votes_percent] = option.votes_percent
                 end
               end
-            }
+            )
           end
         }
       end

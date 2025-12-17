@@ -10,7 +10,7 @@ describe "Private Space Debate" do
   let(:user) { create(:user, :confirmed, organization:) }
   let!(:other_user) { create(:user, :confirmed, organization:) }
 
-  let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: other_user, privatable_to: participatory_space_private) }
+  let!(:member) { create(:member, user: other_user, privatable_to: participatory_space_private) }
 
   let!(:participatory_space) { participatory_space_private }
 
@@ -39,7 +39,7 @@ describe "Private Space Debate" do
     end
 
     context "when the user is logged in" do
-      context "and is private user space" do
+      context "and is member space" do
         before do
           login_as other_user, scope: :user
         end
@@ -51,7 +51,7 @@ describe "Private Space Debate" do
         end
       end
 
-      context "and is not private user space" do
+      context "and is not member space" do
         before do
           login_as user, scope: :user
         end
@@ -83,7 +83,7 @@ describe "Private Space Debate" do
     end
 
     context "when the user is logged in" do
-      context "and is private user space" do
+      context "and is member space" do
         before do
           login_as other_user, scope: :user
         end
@@ -104,7 +104,7 @@ describe "Private Space Debate" do
         end
       end
 
-      context "and is not private user space" do
+      context "and is not member space" do
         let(:target_path) { main_component_path(component) }
 
         before do

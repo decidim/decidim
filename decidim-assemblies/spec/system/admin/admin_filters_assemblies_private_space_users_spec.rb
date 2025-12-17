@@ -9,20 +9,24 @@ describe "Admin filters assemblies private space users" do
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:assembly) { create(:assembly, organization:, private_space: true) }
 
-  let!(:invited_user1) { create(:user, name:, organization:) }
-  let!(:invited_private_user1) { create(:assembly_private_user, user: invited_user1, privatable_to: assembly) }
+  let!(:invited_user1) { create(:user, name:, organization:, invitation_sent_at: 1.day.ago, invitation_accepted_at: Time.current) }
+  let!(:invited_member1) { create(:assembly_member, user: invited_user1, privatable_to: assembly) }
   let!(:invited_user2) { create(:user, email:, organization:) }
-  let!(:invited_private_user2) { create(:assembly_private_user, user: invited_user2, privatable_to: assembly) }
+  let!(:invited_member2) { create(:assembly_member, user: invited_user2, privatable_to: assembly) }
 
   let(:name) { "Dummy Name" }
   let(:email) { "dummy_email@example.org" }
 
-  let(:resource_controller) { Decidim::Assemblies::Admin::ParticipatorySpacePrivateUsersController }
+  let(:resource_controller) { Decidim::Assemblies::Admin::MembersController }
 
-  context "when managing private process" do
+  before do
+    switch_to_host(organization.host)
+    login_as user, scope: :user
+    visit decidim_admin_assemblies.members_path(assembly_slug: assembly.slug)
+  end
+
+  context "when managing private space" do
     before do
-      invited_user1.update!(invitation_sent_at: 1.day.ago, invitation_accepted_at: Time.current)
-
       switch_to_host(organization.host)
       login_as user, scope: :user
       visit decidim_admin_assemblies.edit_assembly_path(assembly)
@@ -35,19 +39,29 @@ describe "Admin filters assemblies private space users" do
     include_examples "searchable participatory space users"
   end
 
-  context "when managing private users in a public process" do
+  context "when managing members in a public process" do
     let(:assembly) { create(:assembly, organization:, private_space: false) }
-
-    before do
-      invited_user1.update!(invitation_sent_at: 1.day.ago, invitation_accepted_at: Time.current)
-
-      switch_to_host(organization.host)
-      login_as user, scope: :user
-      visit decidim_admin_assemblies.participatory_space_private_users_path(assembly_slug: assembly.slug)
-    end
 
     it "restricts access" do
       expect(page).to have_admin_callout("You are not authorized to perform this action.")
+    end
+  end
+
+  describe "when publishing all members" do
+    let!(:member) { create(:member, :unpublished, user:, privatable_to: assembly) }
+
+    it "publishes all members" do
+      click_on "Publish all"
+
+      sleep(1)
+      expect(member.reload).to be_published
+    end
+
+    it "displays the correct log message" do
+      click_on "Publish all"
+      sleep(1)
+      visit decidim_admin.root_path
+      expect(page).to have_content("published all members of the #{translated(assembly.title)} assembly")
     end
   end
 end
