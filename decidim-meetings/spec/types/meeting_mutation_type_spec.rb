@@ -9,24 +9,17 @@ module Decidim
       include_context "with a graphql class mutation"
 
       let(:root_klass) { MeetingMutationType }
-      let(:organization) { create(:organization) }
-      let(:participatory_process) { create(:participatory_process, organization:) }
-      let(:component) { create(:meeting_component, participatory_space: participatory_process) }
+      let(:organization) { create(:organization, available_locales: [:en]) }
+      let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
       let(:user) { create(:user, :confirmed, organization:) }
-      let!(:model) { create(:meeting, component:, author: user) }
-      
-      let(:variables) do
-        {
-          input: {
-            attributes: {}
-          }
-        }
-      end
-      
+      let(:component) { create(:meeting_component, participatory_space: participatory_process) }
+      let!(:model) { create(:meeting, :published, component:, author: user) }
+      let(:current_user) { user }
+
       let(:query) do
         <<~GRAPHQL
-          mutation($input: WithdrawMeetingInput!) {
-            withdraw(input: $input) {
+          mutation() {
+            withdraw(input: {}) {
               id
               title { translation(locale: "en") }
               withdrawn
@@ -50,21 +43,18 @@ module Decidim
         let(:other_user) { create(:user, :confirmed, organization:) }
         let(:current_user) { other_user }
 
-        it "returns nil" do
-          expect(response["withdraw"]).to be_nil
+        it "raises a Decidim::Api::Errors::MutationNotAuthorizedError exception" do
+          expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
         end
       end
 
-      context "with api_user as author" do
-        let(:api_user) { create(:user, :confirmed, organization:) }
-        let!(:model) { create(:meeting, component:, author: api_user) }
-        let(:current_user) { api_user }
+      context "when proposal is already withdrawn" do
+        let!(:model) { create(:meeting, :published, :withdrawn, component:, author: user) }
 
-        it "withdraws the meeting" do
-          expect(response["withdraw"]).to be_present
-          expect(response["withdraw"]["id"]).to eq(model.id.to_s)
-          expect(response["withdraw"]["withdrawn"]).to be(true)
+        it "does not withdraw the proposal and returns an error" do
+          expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
           expect(model.reload).to be_withdrawn
+          expect(model.withdrawn_at).to be_present
         end
       end
     end

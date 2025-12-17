@@ -43,7 +43,7 @@ module Decidim
 
           permission_action = Decidim::PermissionAction.new(scope:, action:, subject:)
 
-          permission_chain(object).inject(permission_action) do |current_permission_action, permission_class|
+          return permission_chain(object).inject(permission_action) do |current_permission_action, permission_class|
             permission_context = local_user_context(object, context)
 
             permission_class.new(
