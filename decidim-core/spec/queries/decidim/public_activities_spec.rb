@@ -41,7 +41,7 @@ describe Decidim::PublicActivities do
       expect(subject.count).to eq(1)
     end
 
-    context "when the current user has access to the private space" do
+    context "when the current user is a member of the private space" do
       before do
         create(:member, user: current_user, participatory_space: private_process)
       end

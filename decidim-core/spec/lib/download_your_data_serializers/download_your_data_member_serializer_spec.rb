@@ -14,7 +14,7 @@ module Decidim
         expect(serialized).to include(id: resource.id)
       end
 
-      it "includes the privatable to" do
+      it "includes the participatory space" do
         expect(serialized[:participatory_space]).to(
           include(id: resource.participatory_space_id)
         )
