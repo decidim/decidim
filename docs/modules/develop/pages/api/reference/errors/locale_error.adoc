@@ -1,6 +1,6 @@
 = Locale Error - LOCALE_ERROR
 
-This error is being triggered when the requested language has any internationalization errors, like missing translation string, bad variable replacement (interpolation) or any other I18n errors.
+This error is triggered when the requested language has any internationalization errors, like missing translation string, bad variable replacement (interpolation) or any other I18n errors.
 
 The JSON response structure is:
 [source, json]

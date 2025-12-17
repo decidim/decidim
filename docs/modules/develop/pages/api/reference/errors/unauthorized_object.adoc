@@ -1,6 +1,6 @@
 = Unauthorized Object Error - UNAUTHORIZED_OBJECT_ERROR
 
-This error is issued when the requesting user does not have access to access a certain resource.
+This error is issued when the requesting user does not have access to a certain resource.
 
 The JSON response structure is:
 [source, json]

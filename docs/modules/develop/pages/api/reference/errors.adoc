@@ -7,8 +7,8 @@ At the moment there are 3 categories of exceptions that are being handled:
 == Authorization errors
 
 * xref:develop:api/reference/errors/permission_not_set.adoc[Permission Not Set Error - PERMISSION_NOT_SET_ERROR], is issued when there is a problem with the authorization layer.
-* xref:develop:api/reference/errors/unauthorized_object.adoc[Unauthorized Object Error - UNAUTHORIZED_OBJECT_ERROR], is issued when the requesting user does not have access to access a certain resource.
-* xref:develop:api/reference/errors/unauthorized_field.adoc[Unauthorized Field Error - UNAUTHORIZED_FIELD_ERROR], is issued when the requesting user does not have access to access a certain field, or a certain resource.
+* xref:develop:api/reference/errors/unauthorized_object.adoc[Unauthorized Object Error - UNAUTHORIZED_OBJECT_ERROR], is issued when the requesting user does not have access to a certain resource.
+* xref:develop:api/reference/errors/unauthorized_field.adoc[Unauthorized Field Error - UNAUTHORIZED_FIELD_ERROR], is issued when the requesting user does not have access to a certain field or resource.
 * xref:develop:api/reference/errors/unauthorized_mutation.adoc[Unauthorized Mutation Error - MUTATION_NOT_AUTHORIZED_ERROR], is issued when the requesting user tries to access a mutation that cannot be accessed.
 
 == Validation errors
@@ -19,4 +19,4 @@ At the moment there are 3 categories of exceptions that are being handled:
 == Internationalization ( I18n ) errors
 
 * xref:develop:api/reference/errors/locale_error.adoc[Locale Error - LOCALE_ERROR], is issued when there is a problem with the internationalization, for example, a missing translation, a missing interpolation to the output string
-* xref:develop:api/reference/errors/invalid_locale_error.adoc[Invalid Locale Error - INVALID_LOCALE_ERROR], is issued when there is a problem with the internationalization, for example a missing translation, a missing interpolation to the output string
+* xref:develop:api/reference/errors/invalid_locale_error.adoc[Invalid Locale Error - INVALID_LOCALE_ERROR], is issued when the provided locale is invalid or not supported by the system, for example when an unknown locale code is used or a locale that is not enabled for the current organization

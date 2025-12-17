@@ -1,6 +1,6 @@
 = Attribute Validation Error - ATTRIBUTE_VALIDATION_ERROR
 
-This error is being triggered when a user submits invalid data into a mutation form. This error is the equivalent of the form validation errors seen in the HTTP version
+This error is triggered when a user submits invalid data into a mutation form. This error is the equivalent of the form validation errors seen in the HTTP version
 
 The JSON response structure is:
 [source, json]
