@@ -506,7 +506,7 @@ eu:
         copy_calendar_url_description: Argitaratutako batzar guztiak zure egutegi-aplikazioan edo hornitzailean ikus ditzakezu. Kopiatu eta itsatsi URL hau "Egutegi berria gehitu URL batetik" aukera erabiliz
         copy_calendar_url_explanation: Mesedez, kontuan izan aukeratutako topaketa multzo bat esportatzen ari zarela eta iragazkiak aktibatuta daudela. Denak esportatu nahi badituzu, lehenengo kendu irakazkiak.
         copy_calendar_url_message: URL hau zuzen kopiatu da zure arbelean.
-        export_calendar: Esportatu egutegia
+        export_calendar: Egutegia esportatu
       close_meeting_reminder_mailer:
         close_meeting_reminder:
           body: <a href="%{meeting_path}">"%{meeting_title}"</a> topaketa ixteko dago. Mesedez, gehitu topaketari buruzko txosten bat "Itxi topaketa" botoia erabiliz.
