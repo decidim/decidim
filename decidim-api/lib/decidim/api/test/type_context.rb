@@ -32,6 +32,8 @@ shared_context "with a graphql class type" do
     code = error.dig("extensions", "code")
 
     case code
+    when "NO_PERMISSION_SET"
+      raise Decidim::Api::Errors::PermissionNotSetError, error["message"]
     when "NOT_FOUND"
       raise Decidim::Api::Errors::NotFoundError, error["message"]
     when "NO_FIELD_PERMISSION"
