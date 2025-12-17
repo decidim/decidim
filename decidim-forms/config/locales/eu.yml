@@ -29,7 +29,7 @@ eu:
       help:
         responses:
           id: Erantzunaren identifikatzaile bakarra
-          question: Erantzun zen galdera
+          question: Erantzun den galdera
           questionnaire: Erantzun zen galdetegia
           response: Galderaren erantzuna
           user: Inkesta erantzun duen parte-hartzailea
