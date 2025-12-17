@@ -29,6 +29,8 @@ module Decidim
 
       let(:title) { "More sidewalks and less roads" }
       let(:body) { "Cities need more people, not more cars" }
+      let(:locale) { "en" }
+      let(:translation_locale) { "en" }
 
       let(:attributes) do
         {
@@ -45,7 +47,7 @@ module Decidim
         {
           component_id: component.id,
           input: {
-            locale: "en",
+            locale:,
             attributes:
           }
         }
@@ -57,8 +59,8 @@ module Decidim
           mutation createProposal($input: CreateProposalInput!){
             createProposal(input: $input) {
               id
-              title { translation(locale: "en") }
-              body { translation(locale: "en") }
+              title { translation(locale: "#{translation_locale}") }
+              body { translation(locale: "#{translation_locale}") }
               address
               publishedAt
               author { name }
@@ -100,6 +102,18 @@ module Decidim
               expect(proposal_response["body"]["translation"]).to include(body)
               expect(proposal_response["publishedAt"]).to be_present
               expect(proposal_response["author"]["name"]).to eq(current_user.name)
+            end
+
+            context "when submitting in one language and requesting in another" do
+              let(:locale) { "en" }
+              let(:translation_locale) { "es" }
+
+              it "creates a new proposal" do
+                proposal_response = response["createProposal"]
+
+                expect(proposal_response).to be_present
+                expect(proposal_response["title"]["translation"]).to be_nil
+              end
             end
 
             context "when geocoding is enabled" do
@@ -175,7 +189,15 @@ module Decidim
         end
 
         context "when validating" do
-          context "with invalid title" do
+          context "with having invalid locale" do
+            let(:locale) { "tlh" }
+
+            it "raises an error" do
+              expect { response }.to raise_error(Api::Errors::InvalidLocaleError, /Invalid locale provided/)
+            end
+          end
+
+          context "with having invalid title" do
             context "when is missing" do
               let(:title) { "" }
 
@@ -193,7 +215,7 @@ module Decidim
             end
           end
 
-          context "with invalid body" do
+          context "with having invalid body" do
             let(:body) { "Short" }
 
             it "raises an error" do
