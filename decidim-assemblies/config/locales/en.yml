@@ -219,9 +219,11 @@ en:
         export: "%{user_name} exported the %{resource_name} assembly"
         import: "%{user_name} imported the %{resource_name} assembly"
         publish: "%{user_name} published the %{resource_name} assembly"
+        publish_all_members: "%{user_name} published all members of the %{resource_name} assembly"
         restore: "%{user_name} restored the %{resource_name} assembly"
         soft_delete: "%{user_name} moved to trash the %{resource_name} assembly"
         unpublish: "%{user_name} unpublished the %{resource_name} assembly"
+        unpublish_all_members: "%{user_name} unpublished all members of the %{resource_name} assembly"
         update: "%{user_name} updated the %{resource_name} assembly"
       assembly_member:
         create: "%{user_name} created the %{resource_name} member in the %{space_name} assembly"
