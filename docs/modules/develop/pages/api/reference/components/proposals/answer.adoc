@@ -2,7 +2,7 @@
 
 Allows administrators to answer proposals with a status (accepted, rejected, or evaluating).
 
-This is an example on how to use the Answer Proposal mutation. Please refer to the GraphQL documentation for the available fields:
+This is an example on how to use the `addProposalAnswer` mutation. Please refer to the GraphQL documentation for the available fields:
 
 
 - https://nightly.decidim.org/api/docs/input_object/answerinput/[Answer Input]

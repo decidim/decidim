@@ -16,7 +16,7 @@ At the moment there are 3 categories of exceptions that are being handled:
 * xref:develop:api/reference/errors/validation_error.adoc[Validation Error - VALIDATION_ERROR], is issued when the requesting user performs an action that contains an error. This is equivalent to the flash messages displayed on the Website.
 * xref:develop:api/reference/errors/attribute_validation_error.adoc[Attribute Validation Error - ATTRIBUTE_VALIDATION_ERROR], is issued when the requesting user submits a request to alter a resource that has an error. This is equivalent to the validation errors in the HTTP forms.
 
-== Internationalization ( I18n ) errors
+== Internationalization errors
 
 * xref:develop:api/reference/errors/locale_error.adoc[Locale Error - LOCALE_ERROR], is issued when there is a problem with the internationalization, for example, a missing translation, a missing interpolation to the output string
 * xref:develop:api/reference/errors/invalid_locale_error.adoc[Invalid Locale Error - INVALID_LOCALE_ERROR], is issued when the provided locale is invalid or not supported by the system, for example when an unknown locale code is used or a locale that is not enabled for the current organization

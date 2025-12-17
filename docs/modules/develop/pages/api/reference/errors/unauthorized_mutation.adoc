@@ -1,6 +1,6 @@
 = Unauthorized Mutation Error - MUTATION_NOT_AUTHORIZED_ERROR
 
-This error is fired when the user submits a mutation request to a resource where he does not have access to.
+This error is fired when a user submits a mutation request to a resource they do not have access to.
 
 The JSON response structure is:
 [source, json]
