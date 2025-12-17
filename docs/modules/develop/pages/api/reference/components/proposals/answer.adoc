@@ -34,8 +34,8 @@ Example of submitted variables
       "state": "accepted",
       "cost": 10.0,
       "answerContent": {
-         "en" => "Some answer in english",
-         "ca" => "Some answer in Catalan"
+         "en": "Some answer in English",
+         "ca": "Some answer in Catalan"
       }
     }
   }
@@ -62,8 +62,8 @@ curl -X POST https://your-decidim-instance.org/api \
             "state": "accepted",
             "cost": 10.0,
             "answerContent": {
-              "en" => "Some answer in english",
-              "ca" => "Some answer in Catalan"
+              "en": "Some answer in English",
+              "ca": "Some answer in Catalan"
             }
           }
         }
