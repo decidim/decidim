@@ -5,4 +5,26 @@ This error is issued when the user submits or requests content in a language tha
 The JSON response structure is:
 [source, json]
 ----
+{
+  "errors": [
+    {
+      "message": "Invalid locale provided",
+      "locations": [
+        {
+          "line": 2,
+          "column": 3
+        }
+      ],
+      "path": [
+        "createProposal"
+      ],
+      "extensions": {
+        "code": "INVALID_LOCALE_ERROR"
+      }
+    }
+  ],
+  "data": {
+    "createProposal": null
+  }
+}
 ----
