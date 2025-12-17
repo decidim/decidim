@@ -23,6 +23,7 @@ module Decidim
       let(:variables) do
         {
           input: {
+            locale: "en",
             attributes: {
               title: new_title,
               body: new_body

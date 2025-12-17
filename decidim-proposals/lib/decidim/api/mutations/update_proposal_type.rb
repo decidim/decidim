@@ -9,8 +9,12 @@ module Decidim
       type Decidim::Proposals::ProposalType
 
       argument :attributes, ProposalAttributes, description: "Input attributes for updating a proposal", required: true
+      argument :locale, GraphQL::Types::String, "The locale for which to get the proposals texts", required: true
+      argument :toggle_translations, GraphQL::Types::Boolean, "Whether the user asked to toggle the machine translations or not.", required: true, default_value: false
 
-      def resolve(attributes:)
+      def resolve(attributes:, locale:, toggle_translations:)
+        set_locale(locale:, toggle_translations:)
+
         title = attributes.to_h.fetch(:title, object.title)
         body = attributes.to_h.fetch(:body, object.body)
         address = attributes.to_h.fetch(:address, object.address)
