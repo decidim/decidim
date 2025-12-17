@@ -61,10 +61,18 @@
 
                   <li class="dropdown__item">
                     <%= link_to edit_questions_questions_survey_path(survey), class: "dropdown__button" do %>
-                      <%= icon "survey-line" %>
+                      <%= icon "question-answer-line" %>
                       <%= t("actions.manage_questions", scope: "decidim.surveys") %>
                     <% end %>
                   </li>
+                  <% if survey.questionnaire.responses.any? %>
+                    <li class="dropdown__item">
+                      <%= link_to survey_responses_path(survey), class: "dropdown__button" do %>
+                        <%= icon "draft-line" %>
+                        <%= t("actions.responses", scope: "decidim.surveys") %>
+                      <% end %>
+                    </li>
+                  <% end %>
 
                   <hr>
 
