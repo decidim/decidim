@@ -31,6 +31,14 @@ module Decidim
         def current_organization
           context[:current_organization]
         end
+
+        def available_locales
+          if current_organization.present?
+            current_organization.available_locales
+          else
+            I18n.available_locales.map(&:to_s)
+          end
+        end
       end
     end
   end
