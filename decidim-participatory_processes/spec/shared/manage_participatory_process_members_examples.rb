@@ -54,6 +54,24 @@ shared_examples "manage participatory process members examples" do
     end
   end
 
+  describe "when publishing all members" do
+    let!(:member) { create(:member, :unpublished, user:, privatable_to: participatory_process) }
+
+    it "publishes all members" do
+      click_on "Publish all"
+
+      sleep(1)
+      expect(member.reload).to be_published
+    end
+
+    it "displays the correct log message" do
+      click_on "Publish all"
+      sleep(1)
+      visit decidim_admin.root_path
+      expect(page).to have_content("published all members of the #{translated(participatory_process.title)} participatory process")
+    end
+  end
+
   describe "when managing different users" do
     before do
       create(:member, user: other_user, privatable_to: participatory_process)

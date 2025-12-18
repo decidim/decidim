@@ -1,6 +1,6 @@
 = Validation Error - VALIDATION_ERROR
 
-This error is issued when the requesting user performs an action that contains an error, for example, when the user tries to publish a resource that is already published. This is equivalent to the flash messages displayed on the Website.
+This error is triggered when the requesting user performs an action that contains an error, for example, when the user tries to publish a resource that is already published. This is equivalent to the flash messages displayed on the Website.
 
 The JSON response structure is:
 [source, json]
