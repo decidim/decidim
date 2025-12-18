@@ -6,7 +6,7 @@ module Decidim
       graphql_name "WithdrawMeetingAttributes"
       description "Attributes for withdrawing a meeting"
 
-      # The WithdrawMeeting command doesn't require any additional attributes
+      # The WithdrawMeeting command does not require any additional attributes
       # as it only needs the meeting and current_user which are provided via context
     end
   end
