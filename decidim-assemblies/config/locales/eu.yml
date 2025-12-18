@@ -218,9 +218,11 @@ eu:
         export: "%{user_name} parte-hartzaileak %{resource_name} batzarra esportatu du"
         import: "%{user_name} parte-hartzaileak %{resource_name} batzarra inportatu du"
         publish: "%{user_name} parte-hartzaileak %{resource_name} batzarra argitaratu du"
+        publish_all_members: "%{user_name} parte-hartzaileak %{resource_name} batzarreko kide guztiak argitaratu ditu"
         restore: "%{user_name} parte-hartzaileak %{resource_name} batzarra berreskuratu du"
         soft_delete: "%{user_name} parte-hartzaileak %{resource_name} batzarra zaborrontzira eraman du"
         unpublish: "%{user_name} parte-hartzaileak %{resource_name} batzarra desargitaratu du"
+        unpublish_all_members: "%{user_name} parte-hartzaileak %{resource_name} batzarreko kide guztiak desargitaratu ditu"
         update: "%{user_name} parte-hartzaileak %{resource_name} batzarra eguneratu du"
       assembly_member:
         create: "%{user_name} parte-hartzaileak %{resource_name} kidea sortu du %{space_name} batzarrean"
