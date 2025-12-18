@@ -1,4 +1,4 @@
-= Withdraw Meetings
+= Withdraw Meeting
 
 To use the API to withdraw any proposal, you will need to use the following API request.
 
