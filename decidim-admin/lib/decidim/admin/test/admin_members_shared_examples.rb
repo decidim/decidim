@@ -3,7 +3,7 @@
 shared_examples "manage admin members examples" do
   let(:other_user) { create(:user, organization:, email: "my_email@example.org") }
 
-  let!(:member) { create(:member, user:, participatory_space: participatory_space) }
+  let!(:member) { create(:member, user:, participatory_space:) }
 
   before do
     switch_to_host(organization.host)
