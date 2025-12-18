@@ -26,7 +26,6 @@ describe "Show a Proposal" do
 
       describe "extra admin link" do
         before do
-          visit_proposal
           login_as user, scope: :user
           visit current_path
         end
