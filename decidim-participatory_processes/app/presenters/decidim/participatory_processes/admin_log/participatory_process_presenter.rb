@@ -35,9 +35,20 @@ module Decidim
           }
         end
 
+        # i18n-tasks-use t("decidim.admin_log.participatory_process.create")
+        # i18n-tasks-use t("decidim.admin_log.participatory_process.publish")
+        # i18n-tasks-use t("decidim.admin_log.participatory_process.unpublish")
+        # i18n-tasks-use t("decidim.admin_log.participatory_process.update")
+        # i18n-tasks-use t("decidim.admin_log.participatory_process.import")
+        # i18n-tasks-use t("decidim.admin_log.participatory_process.export")
+        # i18n-tasks-use t("decidim.admin_log.participatory_process.duplicate")
+        # i18n-tasks-use t("decidim.admin_log.participatory_process.soft_delete")
+        # i18n-tasks-use t("decidim.admin_log.participatory_process.restore")
+        # i18n-tasks-use t("decidim.admin_log.participatory_process.publish_all_members")
+        # i18n-tasks-use t("decidim.admin_log.participatory_process.unpublish_all_members")
         def action_string
           case action
-          when "create", "publish", "unpublish", "update", "import", "export", "duplicate", "soft_delete", "restore"
+          when "create", "publish", "unpublish", "update", "import", "export", "duplicate", "soft_delete", "restore", "publish_all_members", "unpublish_all_members"
             "decidim.admin_log.participatory_process.#{action}"
           else
             super

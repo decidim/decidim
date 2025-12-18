@@ -1,4 +1,4 @@
-= Answering Proposals
+= Answer Proposal
 
 Allows administrators to answer proposals with a status (accepted, rejected, or evaluating).
 

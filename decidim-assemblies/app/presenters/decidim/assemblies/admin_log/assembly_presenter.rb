@@ -59,9 +59,20 @@ module Decidim
           "activemodel.attributes.assembly"
         end
 
+        # i18n-tasks-use t("decidim.admin_log.assembly.create")
+        # i18n-tasks-use t("decidim.admin_log.assembly.publish")
+        # i18n-tasks-use t("decidim.admin_log.assembly.unpublish")
+        # i18n-tasks-use t("decidim.admin_log.assembly.update")
+        # i18n-tasks-use t("decidim.admin_log.assembly.import")
+        # i18n-tasks-use t("decidim.admin_log.assembly.export")
+        # i18n-tasks-use t("decidim.admin_log.assembly.duplicate")
+        # i18n-tasks-use t("decidim.admin_log.assembly.soft_delete")
+        # i18n-tasks-use t("decidim.admin_log.assembly.restore")
+        # i18n-tasks-use t("decidim.admin_log.assembly.publish_all_members")
+        # i18n-tasks-use t("decidim.admin_log.assembly.unpublish_all_members")
         def action_string
           case action
-          when "create", "publish", "unpublish", "update", "duplicate", "export", "import", "soft_delete", "restore"
+          when "create", "publish", "unpublish", "update", "duplicate", "export", "import", "soft_delete", "restore", "publish_all_members", "unpublish_all_members"
             "decidim.admin_log.assembly.#{action}"
           else
             super
