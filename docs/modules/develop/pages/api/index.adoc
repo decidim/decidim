@@ -48,7 +48,7 @@ From now on, we will skip the "query" keyword for the purpose of readability. Yo
 
 ** xref:develop:api/authentication.adoc[Authentication]
 ** xref:develop:api/core-concepts.adoc[Core concepts]
-** xref:develop:api/reference/errors.adoc[Errors tracked]
+** xref:develop:api/reference/errors.adoc[Error Handling]
 ** API reference by module
 *** Spaces
 *** Components

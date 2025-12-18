@@ -1,6 +1,6 @@
 = Unauthorized Field Error - UNAUTHORIZED_FIELD_ERROR
 
-This error is issued when the requesting user does not have access to a certain field, or a certain resource.
+This error is triggered when the requesting user does not have access to a certain field, or a certain resource.
 
 The JSON response structure is:
 [source, json]

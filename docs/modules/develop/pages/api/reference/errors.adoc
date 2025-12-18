@@ -1,4 +1,4 @@
-= API Error handling
+= Error Handling for the API
 
 Currently, in Decidim we are using some exceptions to handle API responses, aiming to serve both input (receiving data through API) and output (sending data through API).
 
