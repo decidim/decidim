@@ -433,7 +433,7 @@ eu:
         back: Atzera
         confirm: Ziur zaude?
         discard: Kendu ekimena
-        export_pdf_signatures: Esportatu sinaduren PDF
+        export_pdf_signatures: Sinadurak PDF batera esportatu
         export_votes: Sinadurak esportatu
         reject: Ukatu ekimena
         title: Ekimena editatu
@@ -687,7 +687,7 @@ eu:
     resources:
       initiative:
         actions:
-          comment: Egin iruzkina
+          comment: Iruzkindu
       initiatives_type:
         actions:
           create: Sortu ekimen bat
