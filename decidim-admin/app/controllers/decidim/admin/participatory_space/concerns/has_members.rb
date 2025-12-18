@@ -8,8 +8,8 @@ module Decidim
         # manage the members for a given type, you should create a new
         # controller and include this concern.
         #
-        # The only requirement is to define a `participatory_space` method that
-        # returns an instance of the model to relate the member to.
+        # It takes the current_participatory_space that is defined
+        # in the controller, so there is no need to define any method
         module HasMembers
           extend ActiveSupport::Concern
 
