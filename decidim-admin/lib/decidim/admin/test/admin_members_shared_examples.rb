@@ -55,7 +55,7 @@ shared_examples "manage admin members examples" do
   end
 
   describe "when publishing all members" do
-    let!(:member) { create(:member, :unpublished, user:, privatable_to: participatory_process) }
+    let!(:member) { create(:member, :unpublished, user:, participatory_space:) }
 
     it "publishes all members" do
       click_on "Publish all"
@@ -68,7 +68,7 @@ shared_examples "manage admin members examples" do
       click_on "Publish all"
       sleep(1)
       visit decidim_admin.root_path
-      expect(page).to have_content("published all members of the #{translated(participatory_process.title)} participatory process")
+      expect(page).to have_content("published all members of the #{translated(participatory_space.title)}")
     end
   end
 
