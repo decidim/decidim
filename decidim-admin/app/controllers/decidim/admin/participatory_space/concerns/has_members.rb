@@ -16,7 +16,7 @@ module Decidim
           included do
             include Decidim::Admin::ParticipatorySpace::Concerns::MembersFilterable
             helper PaginateHelper
-            helper_method :participatory_space, :members
+            helper_method :members
 
             # rubocop:disable Rails/LexicallyScopedActionFilter
             before_action :set_member, only: [:edit, :update, :destroy, :resend_invitation]
