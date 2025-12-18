@@ -30,7 +30,7 @@ module Decidim
 
             def new
               enforce_permission_to :create, :space_member
-              @form = form(MemberForm).from_params({}, participatory_space:)
+              @form = form(MemberForm).from_params({})
               render template: "decidim/admin/members/new"
             end
 
@@ -42,7 +42,7 @@ module Decidim
 
             def update
               enforce_permission_to :update, :space_member, member: @member
-              @form = form(MemberForm).from_params(params, participatory_space:)
+              @form = form(MemberForm).from_params(params)
 
               UpdateMember.call(@form, @member) do
                 on(:ok) do
@@ -59,7 +59,7 @@ module Decidim
 
             def create
               enforce_permission_to :create, :space_member
-              @form = form(MemberForm).from_params(params, participatory_space:)
+              @form = form(MemberForm).from_params(params)
 
               CreateMember.call(@form, current_participatory_space) do
                 on(:ok) do
@@ -138,20 +138,14 @@ module Decidim
             #
             # It can be redefined at controller level if you need to redirect elsewhere.
             def after_destroy_path
-              participatory_space
-            end
-
-            # Public: The only method to be implemented at the controller. You need to
-            # return the object where the attachment will be attached to.
-            def participatory_space
-              raise NotImplementedError
+              members_path(current_participatory_space)
             end
 
             def collection
               # there is an unidentified corner case where Decidim::User
               # may have been destroyed, but the related Member
               # remains in the database. That is why filtering by not null users
-              @collection ||= participatory_space
+              @collection ||= current_participatory_space
                               .members
                               .includes(:user).where.not("decidim_users.id" => nil)
             end
