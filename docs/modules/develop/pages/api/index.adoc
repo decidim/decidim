@@ -48,7 +48,7 @@ From now on, we will skip the "query" keyword for the purpose of readability. Yo
 
 ** xref:develop:api/authentication.adoc[Authentication]
 ** xref:develop:api/core-concepts.adoc[Core concepts]
-** xref:develop:api/reference/errors.adoc[Error Handling for the API]
+** xref:develop:api/reference/errors.adoc[Error Handling]
 *** xref:develop:api/reference/errors/permission_not_set.adoc[Permission Not Set Error - PERMISSION_NOT_SET_ERROR]
 *** xref:develop:api/reference/errors/unauthorized_field.adoc[Unauthorized Field Error - UNAUTHORIZED_FIELD_ERROR]
 *** xref:develop:api/reference/errors/unauthorized_mutation.adoc[Unauthorized Mutation Error - MUTATION_NOT_AUTHORIZED_ERROR]
