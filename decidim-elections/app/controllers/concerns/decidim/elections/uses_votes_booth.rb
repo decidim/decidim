@@ -91,7 +91,7 @@ module Decidim
 
       def previous_responses
         @previous_responses ||= election.questions.to_h do |question|
-          [question.id.to_s, question.votes.where(voter_uid: voter_uid).pluck(:response_option_id).map(&:to_s)]
+          [question.id.to_s, question.votes.where(voter_uid:).pluck(:response_option_id).map(&:to_s)]
         end
       end
     end

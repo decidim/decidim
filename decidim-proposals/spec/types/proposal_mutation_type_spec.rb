@@ -25,9 +25,9 @@ module Decidim
         {
           input: {
             attributes: {
-              state: state,
+              state:,
               answerContent: answer_content,
-              cost: cost,
+              cost:,
               costReport: cost_report,
               executionPeriod: execution_period
             }
@@ -52,10 +52,10 @@ module Decidim
 
       before do
         component.update!(
-          settings: { proposal_answering_enabled: proposal_answering_enabled },
+          settings: { proposal_answering_enabled: },
           step_settings: {
             component.participatory_space.active_step.id => {
-              proposal_answering_enabled: proposal_answering_enabled,
+              proposal_answering_enabled:,
               answers_with_costs: proposal_answers_with_costs?
             }
           }
