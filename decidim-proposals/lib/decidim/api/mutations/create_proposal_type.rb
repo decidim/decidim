@@ -9,7 +9,7 @@ module Decidim
       type Decidim::Proposals::ProposalType
 
       argument :attributes, ProposalAttributes, description: "Input attributes for the proposal", required: true
-      argument :locale, GraphQL::Types::String, "The locale for which to get the comments text", required: true
+      argument :locale, GraphQL::Types::String, "The locale for which to set the proposal texts", required: true
       argument :toggle_translations, GraphQL::Types::Boolean, "Whether the user asked to toggle the machine translations or not.", required: true, default_value: false
 
       def resolve(attributes:, locale:, toggle_translations:)

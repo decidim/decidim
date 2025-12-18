@@ -1,0 +1,3 @@
+= Update Debate
+
+include::admin:partial$under-construction.adoc[]

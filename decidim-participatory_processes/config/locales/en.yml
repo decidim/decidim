@@ -283,9 +283,11 @@ en:
         export: "%{user_name} exported the %{resource_name} participatory process"
         import: "%{user_name} imported the %{resource_name} participatory process"
         publish: "%{user_name} published the %{resource_name} participatory process"
+        publish_all_members: "%{user_name} published all members of the %{resource_name} participatory process"
         restore: "%{user_name} restored the %{resource_name} participatory process"
         soft_delete: "%{user_name} trashed the %{resource_name} participatory process"
         unpublish: "%{user_name} unpublished the %{resource_name} participatory process"
+        unpublish_all_members: "%{user_name} unpublished all members of the %{resource_name} participatory process"
         update: "%{user_name} updated the %{resource_name} participatory process"
       participatory_process_group:
         create: "%{user_name} created the %{resource_name} participatory process group"
