@@ -13,6 +13,7 @@ module Decidim
           on(:ok) do
             return object.reload
           end
+
           on(:invalid) do
             raise Decidim::Api::Errors::ValidationError, I18n.t("proposal_votes.create.error", scope: "decidim.proposals")
           end
