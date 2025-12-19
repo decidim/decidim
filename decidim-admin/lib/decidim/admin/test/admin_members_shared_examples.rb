@@ -74,7 +74,7 @@ shared_examples "manage admin members examples" do
 
   describe "when managing different users" do
     before do
-      create(:member, user: other_user, participatory_space: participatory_space)
+      create(:member, user: other_user, participatory_space:)
       visit current_path
     end
 
