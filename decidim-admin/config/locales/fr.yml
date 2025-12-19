@@ -965,6 +965,9 @@ fr:
           error: Une erreur s'est produite lors de la mise à jour du participant privé pour cet espace participatif.
           success: Participant privé de l'espace participatif mis à jour avec succès
       participatory_space_private_users_csv_imports:
+        create:
+          invalid: Un problème est survenu lors de la lecture du fichier CSV. Veuillez vous assurer que vous avez suivi les instructions.
+          success: Fichier CSV transféré avec succès, nous envoyons un courriel d'invitation aux participants. Cela peut prendre un certain temps.
         new:
           csv_upload:
             title: Téléchargez votre fichier CSV
@@ -975,6 +978,10 @@ fr:
             explanation: Vous avez %{count} utilisateurs privés.
             title: Supprimer les utilisateurs privés
           example_file: 'Fichier d''exemple :'
+          explanation: 'Téléchargez votre fichier CSV. Il doit comporter deux colonnes, sans en-têtes, avec l''email dans la première colonne et le nom dans la dernière colonne du fichier des utilisateurs que vous voulez ajouter à l''espace participatif. Évitez d''utiliser des caractères invalides comme `<>?%&^*#@()[]=+:;"{}\|` dans le nom d''utilisateur.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: Importer des participants privés via CSV
           upload: Charger
       reminders:
