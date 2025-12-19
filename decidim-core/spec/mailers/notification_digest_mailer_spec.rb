@@ -81,7 +81,7 @@ module Decidim
       context "when the space is private and user has access" do
         let!(:participatory_space) { create(:participatory_process, :private, organization:) }
         let(:component) { create(:component, :published, manifest_name: "dummy", participatory_space:) }
-        let!(:member) { create(:member, privatable_to: participatory_space, user: user) }
+        let!(:member) { create(:member, privatable_to: participatory_space, user:) }
 
         it "displays the notification" do
           expect(subject.body).to include(test_content)
@@ -92,7 +92,7 @@ module Decidim
       context "when the space is transparent and user has access" do
         let!(:participatory_space) { create(:assembly, :transparent, :private, organization:) }
         let(:component) { create(:component, :published, manifest_name: "dummy", participatory_space:) }
-        let!(:member) { create(:member, privatable_to: participatory_space, user: user) }
+        let!(:member) { create(:member, privatable_to: participatory_space, user:) }
 
         it "displays the notification" do
           expect(subject.body).to include(test_content)

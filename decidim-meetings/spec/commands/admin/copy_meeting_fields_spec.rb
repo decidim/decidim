@@ -9,9 +9,9 @@ module Decidim
         subject { described_class.new(form, meeting) }
 
         let(:organization) { create(:organization) }
-        let(:participatory_process) { create(:participatory_process, organization: organization) }
+        let(:participatory_process) { create(:participatory_process, organization:) }
         let(:current_component) { create(:component, manifest_name: "meetings", participatory_space: participatory_process) }
-        let(:user) { create(:user, :admin, :confirmed, organization: organization) }
+        let(:user) { create(:user, :admin, :confirmed, organization:) }
         let(:meeting) { create(:meeting, :published, component: current_component, **meeting_attributes) }
 
         let(:meeting_attributes) do

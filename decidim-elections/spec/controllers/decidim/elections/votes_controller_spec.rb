@@ -9,7 +9,7 @@ module Decidim
       let(:user) { create(:user, :confirmed, organization: component.organization) }
       let(:component) { create(:elections_component) }
       let(:election) { create(:election, :published, :with_internal_users_census, :ongoing, component:) }
-      let!(:existing_vote) { create(:election_vote, question: question, response_option: question.response_options.first, voter_uid: "some-id") }
+      let!(:existing_vote) { create(:election_vote, question:, response_option: question.response_options.first, voter_uid: "some-id") }
       let!(:question) { create(:election_question, :with_response_options, :voting_enabled, election:) }
       let!(:second_question) { create(:election_question, :with_response_options, :voting_enabled, election:) }
 
@@ -52,7 +52,7 @@ module Decidim
         end
 
         it "renders the voting form" do
-          get :show, params: params
+          get(:show, params:)
           expect(response).to have_http_status(:ok)
           expect(controller.helpers.question).to eq(question)
           expect(subject).to render_template(:show)
@@ -158,7 +158,7 @@ module Decidim
           end
 
           it "renders the confirmation page" do
-            get :confirm, params: params
+            get(:confirm, params:)
             expect(response).to have_http_status(:ok)
             expect(subject).to render_template(:confirm)
           end
@@ -184,7 +184,7 @@ module Decidim
           it "casts the votes and redirects to the receipt page" do
             expect(controller.send(:votes_buffer)).to receive(:clear)
             expect(controller.send(:session_attributes)).to receive(:clear)
-            post :cast, params: params
+            post(:cast, params:)
             expect(session[:voter_uid]).to eq(user.to_global_id.to_s)
             expect(response).to redirect_to(receipt_election_votes_path)
             expect(flash[:notice]).to eq(I18n.t("votes.cast.success", scope: "decidim.elections"))
@@ -198,7 +198,7 @@ module Decidim
             end
 
             it "redirects to the confirm page if votes are incomplete" do
-              post :cast, params: params
+              post(:cast, params:)
               expect(response).to redirect_to(confirm_election_votes_path)
               expect(flash[:alert]).to eq(I18n.t("votes.cast.invalid", scope: "decidim.elections"))
             end
@@ -208,7 +208,7 @@ module Decidim
 
       describe "GET receipt" do
         it "redirects to the election path" do
-          get :receipt, params: params
+          get(:receipt, params:)
           expect(response).to redirect_to(election_path)
         end
 
@@ -218,7 +218,7 @@ module Decidim
           end
 
           it "redirects to the election path" do
-            get :receipt, params: params
+            get(:receipt, params:)
             expect(response).to redirect_to(election_path)
           end
         end
@@ -232,13 +232,13 @@ module Decidim
 
           context "when the election has votes for the voter UID" do
             before do
-              create(:election_vote, voter_uid: session[:voter_uid], question: question, response_option: question.response_options.first)
+              create(:election_vote, voter_uid: session[:voter_uid], question:, response_option: question.response_options.first)
             end
 
             it "renders the receipt page and clears votes buffer" do
               expect(controller.send(:votes_buffer)).to receive(:clear)
               expect(controller.send(:session_attributes)).not_to receive(:clear)
-              get :receipt, params: params
+              get(:receipt, params:)
               expect(response).to have_http_status(:ok)
               expect(subject).to render_template(:receipt)
             end
