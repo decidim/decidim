@@ -9,7 +9,9 @@ mutation withdrawProposal($componentId: ID!, $proposalId: ID!){
     ...on ProposalsMutation{
       proposal(id: $proposalId) {
         withdraw(input: {}) {
-          // this is the proposal response
+          id
+          state
+          withdrawnAt
         }
       }
     }
@@ -22,8 +24,8 @@ Example of submitted variables
 [source,json]
 ----
 {
-  "componentId": 9,
-  "proposalId": 2
+  "componentId": "9",
+  "proposalId": "2"
 }
 ----
 

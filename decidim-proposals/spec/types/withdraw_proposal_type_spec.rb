@@ -35,7 +35,7 @@ module Decidim
         }
       end
 
-      context "when proposal has no votes" do
+      context "when withdrawing a proposal" do
         context "with proposal author" do
           let(:current_user) { author }
 
@@ -113,7 +113,7 @@ module Decidim
         let!(:model) { create(:proposal, :withdrawn, component: proposal_component, users: [author]) }
         let(:current_user) { author }
 
-        it "does not withdraw the proposal and returns an error" do
+        it "remains withdrawn and returns an error" do
           expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
           expect(model.reload).to be_withdrawn
           expect(model.withdrawn_at).to be_present
