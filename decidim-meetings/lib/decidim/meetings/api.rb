@@ -12,6 +12,5 @@ module Decidim
     autoload :MeetingsMutationType, "decidim/api/mutations/meetings_mutation_type"
     autoload :MeetingMutationType, "decidim/api/mutations/meeting_mutation_type"
     autoload :WithdrawMeetingType, "decidim/api/mutations/withdraw_meeting_type"
-    autoload :WithdrawMeetingAttributes, "decidim/api/mutations/withdraw_meeting_attributes"
   end
 end
