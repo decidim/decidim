@@ -11,12 +11,12 @@ module Decidim
       let(:root_klass) { ProposalMutationType }
       let(:current_organization) { create(:organization, available_locales: [:en]) }
       let(:participatory_process) { create(:participatory_process, :with_steps, organization: current_organization) }
-      let(:current_component) do
+      let(:proposal_component) do
         create(:proposal_component,
                :with_votes_enabled,
                participatory_space: participatory_process)
       end
-      let!(:model) { create(:proposal, component: current_component) }
+      let!(:model) { create(:proposal, component: proposal_component) }
       let(:component) { model.component }
       let(:query) do
         <<~GRAPHQL
@@ -74,7 +74,7 @@ module Decidim
         end
 
         context "when votes are disabled" do
-          let(:current_component) do
+          let(:proposal_component) do
             create(:proposal_component,
                    :with_votes_disabled,
                    participatory_space: participatory_process)
