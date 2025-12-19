@@ -131,6 +131,10 @@ fr:
         file: Fichier
     errors:
       models:
+        member_csv_import:
+          attributes:
+            file:
+              malformed: Fichier d'importation mal formé, veuillez lire attentivement les instructions et assurez-vous que le fichier est encodé en UTF-8.
         newsletter:
           attributes:
             base:
@@ -588,18 +592,33 @@ fr:
         new:
           create: Créer
           title: Nouveau membre.
+        publish_all:
+          error: Un problème est survenu lors de la publication de tous les membres de cet espace participatif.
+          success: Tous les membres ont été publiés avec succès pour cet espace participatif
+        unpublish_all:
+          error: Une erreur s'est produite lors de la dépublication de tous les membres de cet espace participatif.
+          success: Tous les membres de cet espace participatif ont été dépubliés avec succès
         update:
+          error: Un problème est survenu lors de la mise à jour du membre pour cet espace participatif.
           success: Membre mis à jour avec succès
       members_csv_imports:
+        create:
+          invalid: Un problème est survenu lors de la lecture du fichier CSV. Veuillez vous assurer que vous avez suivi les instructions.
+          success: Fichier CSV transféré avec succès, nous envoyons un courriel d'invitation aux participants. Cela peut prendre un certain temps.
         new:
           csv_upload:
             title: Téléchargez votre fichier CSV
           destroy:
             button: Supprimer tous les membres
+            confirm: Êtes-vous sûr(e) de vouloir supprimer tous les membres ? Cette action ne peut pas être annulée, vous ne pourrez pas les récupérer.
             empty: Vous n'avez aucun membre.
             explanation: Vus avez %{count} membres.
             title: Supprimer les membres
           example_file: 'Fichier d''exemple :'
+          explanation: 'Téléchargez votre fichier CSV. Il doit comporter deux colonnes, sans en-têtes, avec l''email dans la première colonne et le nom dans la dernière colonne du fichier des utilisateurs que vous voulez ajouter à l''espace participatif. Évitez d''utiliser des caractères invalides comme `<>?%&^*#@()[]=+:;"{}\|` dans le nom d''utilisateur.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: Importer des membres via CSV
           upload: Charger
       menu:
