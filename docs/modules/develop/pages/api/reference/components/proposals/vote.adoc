@@ -6,13 +6,25 @@ To use the API to vote any proposal, you will need to use the following API requ
 
 [source,graphql]
 ----
-mutation {
-  proposals {
-    proposal(id: "123") {
-      vote(input: {}) {
+mutation voteProposal($componentId: ID!, $proposalId: ID!){
+  component(id: $componentId) {
+    ...on ProposalsMutation{
+      proposal(id: $proposalId) {
+        vote(input: {}) {
+        }
       }
     }
   }
+}
+----
+
+Example of submitted variables
+
+[source,json]
+----
+{
+  "componentId": "9",
+  "proposalId": "2"
 }
 ----
 
@@ -30,13 +42,25 @@ To use the API to unvote any proposal, you will need to use the following API re
 
 [source,graphql]
 ----
-mutation {
-  proposals {
-    proposal(id: "123") {
-      unvote(input: {}) {
+mutation unvoteProposal($componentId: ID!, $proposalId: ID!){
+  component(id: $componentId) {
+    ...on ProposalsMutation{
+      proposal(id: $proposalId) {
+        unvote(input: {}) {
+        }
       }
     }
   }
+}
+----
+
+Example of submitted variables
+
+[source,json]
+----
+{
+  "componentId": "9",
+  "proposalId": "2"
 }
 ----
 

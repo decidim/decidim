@@ -31,6 +31,8 @@ shared_context "with a graphql class type" do
   def raise_proper_error(error)
     code = error.dig("extensions", "code")
 
+    # Matches the error code with the Error class
+    # For instance, if the error code is NOT_FOUND_ERROR then it will raise the "Decidim::Api::Errors::NotFoundError" class
     raise "Decidim::Api::Errors::#{code.downcase.classify}".constantize, error["message"] if %w(
       LOCALE_ERROR
       NOT_FOUND_ERROR
