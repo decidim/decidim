@@ -6,7 +6,7 @@ module Decidim
       include Decidim::ApiResponseHelper
 
       graphql_name "MeetingMutation"
-      description "a meeting which includes its available mutations"
+      description "A meeting which includes its available mutations"
 
       field :withdraw, mutation: Decidim::Meetings::WithdrawMeetingType, description: "Withdraws a meeting"
     end

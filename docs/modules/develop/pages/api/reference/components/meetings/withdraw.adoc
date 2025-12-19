@@ -1,6 +1,6 @@
 = Withdraw Meeting
 
-To use the API to withdraw any proposal, you will need to use the following API request.
+To use the API to withdraw any meeting, you will need to use the following API request.
 
 [source,graphql]
 ----

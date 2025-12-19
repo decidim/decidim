@@ -48,10 +48,10 @@ module Decidim
         end
       end
 
-      context "when proposal is already withdrawn" do
+      context "when meeting is already withdrawn" do
         let!(:model) { create(:meeting, :published, :withdrawn, component:, author: user) }
 
-        it "does not withdraw the proposal and returns an error" do
+        it "does not withdraw the meeting and returns an error" do
           expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
           expect(model.reload).to be_withdrawn
           expect(model.withdrawn_at).to be_present
