@@ -15,32 +15,10 @@ module Decidim
       def resolve(attributes:, locale:, toggle_translations:)
         set_locale(locale:, toggle_translations:)
 
-        title = attributes.to_h.fetch(:title, object.title)
-        body = attributes.to_h.fetch(:body, object.body)
-        address = attributes.to_h.fetch(:address, object.address)
-        latitude = attributes.to_h.fetch(:latitude, object.latitude)
-        longitude = attributes.to_h.fetch(:longitude, object.longitude)
-        taxonomies = attributes.to_h.fetch(:taxonomies, object.taxonomies)
-
-        params = {
-          title:,
-          body:,
-          address:,
-          latitude:,
-          longitude:,
-          taxonomies:
-        }
-
+        params = attributes.to_h.slice(:title, :body, :address, :latitude, :longitude, :taxonomies)
         params[:taxonomies] = Decidim::Taxonomy.where(id: params[:taxonomies]).pluck(:id) if params[:taxonomies]
 
-        form = Decidim::Proposals::ProposalForm.from_params(
-          params
-        ).with_context(
-          current_component: object.component,
-          current_user:,
-          current_organization: current_user.organization,
-          current_participatory_space: object.component.participatory_space
-        )
+        form = form(Decidim::Proposals::ProposalForm).from_params(params)
 
         UpdateProposal.call(form, current_user, object) do
           on(:ok) do |proposal|
@@ -52,7 +30,7 @@ module Decidim
         end
       end
 
-      def authorized?(attributes:)
+      def authorized?(attributes:, locale:, toggle_translations:)
         raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation") unless super && allowed_to?(:edit, :proposal, object, context)
 
         true

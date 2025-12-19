@@ -10,7 +10,7 @@ module Decidim
 
       let(:type_class) { Decidim::Proposals::UpdateProposalType }
       let(:root_klass) { ProposalMutationType }
-      let(:organization) { create(:organization, available_locales: [:en]) }
+      let(:organization) { create(:organization, available_locales: [:en, :ca, :es]) }
       let(:current_organization) { organization }
       let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
       let(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
@@ -20,10 +20,11 @@ module Decidim
       let(:new_title) { "Updated proposal title for testing" }
       let(:new_body) { "This is an updated body content for the proposal that meets the minimum length requirements." }
       let(:component) { model.component }
+      let(:locale) { "en" }
       let(:variables) do
         {
           input: {
-            locale: "en",
+            locale:,
             attributes: {
               title: new_title,
               body: new_body
@@ -36,8 +37,8 @@ module Decidim
           mutation($input: UpdateProposalInput!) {
             updateProposal(input: $input) {
               id
-              title { translation(locale: "en") }
-              body { translation(locale: "en") }
+              title { translation(locale: "#{locale}") }
+              body { translation(locale: "#{locale}") }
               address
             }
           }
@@ -55,6 +56,19 @@ module Decidim
 
         context "when user is authorized" do
           context "with valid attributes" do
+            context "when requesting a different locale" do
+              let!(:model) { create(:proposal, title: { "en" => "Original title", "ca" => "Títol original" }, component: proposal_component, users: [author]) }
+              let(:locale) { "ca" }
+
+              it "updates only the language" do
+                update = response["updateProposal"]
+                expect(update).to be_present
+                expect(update["title"]).to include({ "translation" => new_title })
+
+                expect(model.reload.title).to include({ "ca" => new_title })
+              end
+            end
+
             it "updates the proposal" do
               update = response["updateProposal"]
               expect(update).to be_present
@@ -78,6 +92,7 @@ module Decidim
               let(:variables) do
                 {
                   input: {
+                    locale:,
                     attributes: {
                       title: new_title,
                       body: new_body,
@@ -118,6 +133,14 @@ module Decidim
 
         it_behaves_like "update proposal mutation examples" do
           let!(:user_type) { :user }
+        end
+
+        context "with having invalid locale" do
+          let(:locale) { "tlh" }
+
+          it "raises an error" do
+            expect { response }.to raise_error(Api::Errors::InvalidLocaleError, /Invalid locale provided/)
+          end
         end
 
         context "with invalid attributes" do
