@@ -35,7 +35,7 @@ module Decidim
         }
       end
 
-      context "when withdrawing a proposal" do
+      describe "withdrawing a proposal" do
         context "with proposal author" do
           let(:current_user) { author }
 
