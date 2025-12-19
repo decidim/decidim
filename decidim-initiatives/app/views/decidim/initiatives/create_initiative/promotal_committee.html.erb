@@ -22,7 +22,7 @@
 <% if promoters_committee_members.count.positive? %>
   <div class="block">
     <% current_initiative.committee_members.each do |request| %>
-      <%= render partial: "committee_member", locals: { request: request } %>
+      <%= render partial: "committee_member", locals: { request: } %>
     <% end %>
   </div>
 <% end %>

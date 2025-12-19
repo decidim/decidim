@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   describe MenuHelper do
     let(:organization) { create(:organization) }
-    let(:user) { create(:user, organization: organization) }
+    let(:user) { create(:user, organization:) }
     let!(:process) { create(:participatory_process, :active, weight: 1, organization:) }
     let!(:process_two) { create(:participatory_process, :active, weight: 2, organization:) }
     let!(:process_three) { create(:participatory_process, :active, :promoted, weight: 3, organization:) }

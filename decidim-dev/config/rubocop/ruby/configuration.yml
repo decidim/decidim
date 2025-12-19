@@ -521,6 +521,7 @@ Style/GuardClause:
   MinBodyLength: 6
 
 Style/HashSyntax:
+  EnforcedShorthandSyntax: always
   EnforcedStyle: no_mixed_keys
   SupportedStyles:
     # checks for 1.9 syntax (e.g. {a: 1}) for all symbol keys

@@ -1,0 +1,38 @@
+= Attribute Validation Error - ATTRIBUTE_VALIDATION_ERROR
+
+This error is triggered when a user submits invalid data into a mutation form. This error is the equivalent of the form validation errors seen in the HTTP version
+
+The JSON response structure is:
+[source, json]
+----
+{
+  "errors": [
+    {
+      "message": [
+        {
+          "path": ["attributes", "title"],
+          "message": "cannot be blank"
+        },
+        {
+          "path": ["attributes", "title"],
+          "message": "is too short (under 15 characters)"}
+      ],
+      "locations": [
+        {
+          "line": 2,
+          "column": 3
+        }
+      ],
+      "path": [
+        "createProposal"
+      ],
+      "extensions": {
+        "code": "ATTRIBUTE_VALIDATION_ERROR"
+      }
+    }
+  ],
+  "data": {
+    "createProposal": null
+  }
+}
+----
