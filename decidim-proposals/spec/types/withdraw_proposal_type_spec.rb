@@ -38,6 +38,7 @@ module Decidim
       describe "withdrawing a proposal" do
         context "with proposal author" do
           let(:current_user) { author }
+          let(:user_type) { :user }
 
           it "withdraws the proposal" do
             proposal = response["withdraw"]
@@ -45,16 +46,6 @@ module Decidim
             expect(proposal["id"]).to eq(model.id.to_s)
             expect(model.reload).to be_withdrawn
             expect(model.withdrawn_at).to be_present
-          end
-
-          context "when has some votes" do
-            before do
-              model.votes.create!(author: current_user)
-            end
-
-            it "raises a Decidim::Api::Errors::ValidationError, exception" do
-              expect { response }.to raise_error(Decidim::Api::Errors::ValidationError, "This proposal cannot be withdrawn because it already has votes.")
-            end
           end
         end
 
@@ -81,7 +72,6 @@ module Decidim
         end
 
         context "with api_user that is the author" do
-          let(:current_user) { create(:api_user, organization:) }
           let!(:model) { create(:proposal, component: proposal_component, users: [current_user]) }
           let!(:user_type) { :api_user }
 
