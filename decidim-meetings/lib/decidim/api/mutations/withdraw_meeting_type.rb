@@ -13,6 +13,7 @@ module Decidim
           on(:ok) do |meeting|
             return meeting
           end
+
           on(:invalid) do
             raise Decidim::Api::Errors::ValidationError, I18n.t("decidim.meetings.withdraw.error")
           end

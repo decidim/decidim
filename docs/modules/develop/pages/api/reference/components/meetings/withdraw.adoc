@@ -1,6 +1,6 @@
 = Withdraw Meeting
 
-To use the API to withdraw any meeting, you will need to use the following API request.
+To use the API to withdraw any meeting that the user has created, you will need to use the following API request.
 
 [source,graphql]
 ----
@@ -16,7 +16,6 @@ mutation withdrawMeeting($componentId: ID!, $meetingId: ID!){
   }
 }
 ----
-
 
 Example of submitted variables
 
