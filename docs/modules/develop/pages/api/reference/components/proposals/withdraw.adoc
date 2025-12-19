@@ -1,6 +1,6 @@
 = Withdraw Proposal
 
-To use the API to withdraw any proposal, you will need to use the following API request.
+To use the API to withdraw any proposal that the user has created, you will need to use the following API request.
 
 [source,graphql]
 ----
