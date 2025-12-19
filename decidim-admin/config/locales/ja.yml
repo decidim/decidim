@@ -962,6 +962,9 @@ ja:
           error: この参加型スペースのプライベート参加者の更新中に問題が発生しました。
           success: 参加型スペースのプライベート参加者を更新しました
       participatory_space_private_users_csv_imports:
+        create:
+          invalid: CSVファイルの読み込み中に問題が発生しました。指示に従って正しく操作されているかご確認ください。
+          success: CSVファイルのアップロードが完了しました。参加者に招待メールを送信中です。完了までしばらくお待ちください。
         new:
           csv_upload:
             title: CSVファイルをアップロード
@@ -972,6 +975,10 @@ ja:
             explanation: '%{count} 人のプライベート参加者がいます。'
             title: プライベート参加者を削除
           example_file: 'サンプルファイル：'
+          explanation: "CSVファイルをアップロードしてください。ファイルには2つの列が必要で、1列目にはメールアドレス、最後の列には参加スペースに追加したいユーザーの名前を入力してください。ヘッダー行は不要です。ユーザー名には、`<>?%&^*#@()[]=+:;\"{}\\|`などの無効な文字を使用しないでください。\n"
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: プライベート参加者をCSV形式でインポート
           upload: アップロード
       reminders:
