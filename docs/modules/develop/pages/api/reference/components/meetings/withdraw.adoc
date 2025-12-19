@@ -4,7 +4,7 @@ To use the API to withdraw any proposal, you will need to use the following API 
 
 [source,graphql]
 ----
-mutation withdrawmeeting($componentId: ID!, $meetingId: ID!){
+mutation withdrawMeeting($componentId: ID!, $meetingId: ID!){
   component(id: $componentId) {
     ...on MeetingsMutation{
       meeting(id: $meetingId) {
