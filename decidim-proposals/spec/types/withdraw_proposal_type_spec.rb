@@ -26,6 +26,7 @@ module Decidim
           }
         GRAPHQL
       end
+
       let(:variables) do
         {
           input: {
@@ -110,6 +111,7 @@ module Decidim
 
       context "when proposal is already withdrawn" do
         let!(:model) { create(:proposal, :withdrawn, component: proposal_component, users: [author]) }
+        let(:current_user) { author }
 
         it "does not withdraw the proposal and returns an error" do
           expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
@@ -120,11 +122,14 @@ module Decidim
 
       context "when proposal is already answered" do
         let!(:model) { create(:proposal, :with_answer, component: proposal_component, users: [author]) }
+        let(:current_user) { author }
 
-        it "does not withdraw the proposal and returns an error" do
-          expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
-          expect(model.reload).not_to be_withdrawn
-          expect(model.withdrawn_at).not_to be_present
+        it "can be withdrawn by author" do
+          proposal = response["withdraw"]
+          expect(proposal).to be_present
+          expect(proposal["id"]).to eq(model.id.to_s)
+          expect(model.reload).to be_withdrawn
+          expect(model.withdrawn_at).to be_present
         end
       end
     end

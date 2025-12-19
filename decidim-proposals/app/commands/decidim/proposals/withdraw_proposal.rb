@@ -17,6 +17,7 @@ module Decidim
       #
       # - :ok when everything is valid, together with the proposal.
       # - :has_votes if the proposal already has votes or does not belong to current user.
+      # - :has_votes if the proposal is already withdrawn
       #
       # Returns nothing.
       def call
