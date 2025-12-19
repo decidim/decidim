@@ -287,7 +287,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     user
-    privatable_to { create(:participatory_process, organization: user.organization, skip_injection:) }
+    participatory_space { create(:participatory_process, organization: user.organization, skip_injection:) }
 
     role { generate_localized_title(:role, skip_injection:) }
 
@@ -305,7 +305,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     user
-    privatable_to { create(:assembly, organization: user.organization, skip_injection:) }
+    participatory_space { create(:assembly, organization: user.organization, skip_injection:) }
   end
 
   factory :identity, class: "Decidim::Identity" do

@@ -7,7 +7,7 @@ describe "Private Space Proposal" do
   let(:user) { create(:user, :confirmed, organization:) }
   let!(:other_user) { create(:user, :confirmed, organization:) }
 
-  let!(:member) { create(:member, user: other_user, privatable_to: participatory_space_private) }
+  let!(:member) { create(:member, user: other_user, participatory_space: participatory_space_private) }
 
   let!(:participatory_space) { participatory_space_private }
 

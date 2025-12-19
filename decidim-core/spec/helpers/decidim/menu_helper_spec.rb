@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   describe MenuHelper do
     let(:organization) { create(:organization) }
-    let(:user) { create(:user, organization: organization) }
+    let(:user) { create(:user, organization:) }
     let!(:process) { create(:participatory_process, :active, weight: 1, organization:) }
     let!(:process_two) { create(:participatory_process, :active, weight: 2, organization:) }
     let!(:process_three) { create(:participatory_process, :active, :promoted, weight: 3, organization:) }
@@ -71,7 +71,7 @@ module Decidim
           end
 
           context "and current_user is member of that process" do
-            let!(:member) { create(:member, privatable_to: process_two, user:) }
+            let!(:member) { create(:member, participatory_space: process_two, user:) }
 
             it "returns the private process" do
               expect(helper.menu_highlighted_participatory_process).to eq(process_two)

@@ -13,7 +13,7 @@ module Decidim
 
       let(:election) do
         create(:election,
-               component: component,
+               component:,
                title: { en: "Test election" })
       end
 

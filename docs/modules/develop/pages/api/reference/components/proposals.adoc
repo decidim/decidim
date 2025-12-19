@@ -12,4 +12,3 @@ In the proposals module we are providing a few mutations that we find useful for
 == For admin roles
 
 * xref:develop:api/reference/components/proposals/answer.adoc[Answer Proposal]
-

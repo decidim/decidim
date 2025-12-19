@@ -25,9 +25,9 @@ module Decidim
         {
           input: {
             attributes: {
-              state: state,
+              state:,
               answerContent: answer_content,
-              cost: cost,
+              cost:,
               costReport: cost_report,
               executionPeriod: execution_period
             }
@@ -52,18 +52,75 @@ module Decidim
 
       before do
         component.update!(
-          settings: { proposal_answering_enabled: proposal_answering_enabled },
+          settings: { proposal_answering_enabled: },
           step_settings: {
             component.participatory_space.active_step.id => {
-              proposal_answering_enabled: proposal_answering_enabled,
+              proposal_answering_enabled:,
               answers_with_costs: proposal_answers_with_costs?
             }
           }
         )
       end
 
+      shared_examples "manage proposal answer mutation examples" do
+        context "when proposal answering disabled" do
+          it "throws Decidim::Api::Errors::UnauthorizedFieldError" do
+            expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedFieldError, "You cannot view or edit answer field on Answer because you do not have permission")
+          end
+        end
+
+        context "when proposal answering enabled" do
+          let!(:proposal_answering_enabled) { true }
+
+          it "answers the proposal but not costs" do
+            answer = response["answer"]
+            expect(answer).to be_present
+            expect(answer).to include(
+              {
+                "id" => model.id.to_s,
+                "state" => state,
+                "answer" => {
+                  "translation" => answer_content[:en]
+                },
+                "cost" => nil,
+                "costReport" => nil,
+                "executionPeriod" => nil,
+                "answeredAt" => model.reload.answered_at.to_time.iso8601
+              }
+            )
+          end
+
+          context "with enabled answering with cost" do
+            let!(:proposal_answers_with_costs?) { true }
+
+            it "answers the proposal and adds the cost" do
+              answer = response["answer"]
+
+              expect(answer).to be_present
+              expect(answer).to include(
+                {
+                  "id" => model.id.to_s,
+                  "state" => state,
+                  "answer" => {
+                    "translation" => answer_content[:en]
+                  },
+                  "cost" => "€ 1,234.00",
+                  "costReport" => {
+                    "translation" => cost_report[:en]
+                  },
+                  "executionPeriod" => {
+                    "translation" => execution_period[:en]
+                  },
+                  "answeredAt" => model.reload.answered_at.to_time.iso8601
+                }
+              )
+            end
+          end
+        end
+      end
+
       context "with admin user" do
-        it_behaves_like "manage proposal mutation examples" do
+        it_behaves_like "manage proposal answer mutation examples" do
           let!(:user_type) { :admin }
         end
       end
@@ -75,7 +132,7 @@ module Decidim
       end
 
       context "with api_user" do
-        it_behaves_like "manage proposal mutation examples" do
+        it_behaves_like "manage proposal answer mutation examples" do
           let!(:user_type) { :api_user }
         end
       end
