@@ -1,1 +1,6 @@
-no:
+---
+"no":
+  decidim:
+    api:
+      errors:
+        not_found: "%{type} ikke funnet"
