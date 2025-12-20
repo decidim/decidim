@@ -2,11 +2,13 @@
   <%= render partial: "decidim/budgets/projects/order_progress_summary/progress_box" %>
   <%= render partial: "decidim/budgets/projects/order_progress_summary/progress_box_buttons" %>
 
-  <div class="budget-summary__button-modal">
-    <button type="button" data-dialog-open="budget-modal-info" aria-haspopup="dialog" tabindex="0" class="button button__text button__xs underline font-bold">
-      <%= t("more_information", scope: "decidim.budgets.budget_information_modal") %>
-    </button>
-  </div>
+  <% if cell("decidim/budgets/budget_information_modal", budget).more_information.present? %>
+    <div class="budget-summary__button-modal">
+      <button type="button" data-dialog-open="budget-modal-info" aria-haspopup="dialog" tabindex="0" class="button button__text button__xs underline font-bold">
+        <%= t("more_information", scope: "decidim.budgets.budget_information_modal") %>
+      </button>
+    </div>
+  <% end %>
 
   <div class="w-screen max-w-screen progressbox-fixed-wrapper" data-progressbox-fixed>
     <div class="gap-0 layout-item py-4 items-center budget-summary__progressbar">
