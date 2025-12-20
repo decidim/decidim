@@ -32,16 +32,30 @@ describe "Conferences Breadcrumb" do
     end
   end
 
-  scenario "shows breadcrumb with conference and program" do
-    meetings_component = create(:meeting_component, :published, participatory_space:)
-    create(:meeting, :published, component: meetings_component, start_time: 1.day.from_now)
+  describe "with a program" do
+    let(:meetings_component) { create(:meeting_component, :published, participatory_space:) }
+    let!(:meeting) { create(:meeting, :published, component: meetings_component, start_time: 1.day.from_now) }
 
-    visit decidim_conferences.conference_conference_program_path(participatory_space, meetings_component, locale: I18n.locale)
+    scenario "shows breadcrumb with conference and program" do
+      visit decidim_conferences.conference_conference_program_path(participatory_space, meetings_component, locale: I18n.locale)
 
-    within ".menu-bar" do
-      expect(page).to have_content("Conferences")
-      expect(page).to have_content(translated(participatory_space.title))
-      expect(page).to have_content(t("conference_program.index.title", scope: "decidim"))
+      within ".menu-bar" do
+        expect(page).to have_content("Conferences")
+        expect(page).to have_content(translated(participatory_space.title))
+        expect(page).to have_content("Program")
+      end
+    end
+
+    scenario "shows breadcrumb with conference, program, and meeting" do
+      visit decidim_conferences.conference_conference_program_path(participatory_space, meetings_component, locale: I18n.locale)
+      click_on decidim_sanitize_translated(meeting.title)
+
+      within ".menu-bar" do
+        expect(page).to have_content("Conferences")
+        expect(page).to have_content(translated(participatory_space.title))
+        expect(page).to have_content("Program")
+        expect(page).to have_content(translated_attribute(meeting.title))
+      end
     end
   end
 end
