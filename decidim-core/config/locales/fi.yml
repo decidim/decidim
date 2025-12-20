@@ -1854,6 +1854,8 @@ fi:
         subject: Sinut on kutsuttu hallinnoimaan palvelua %{organization}
       invite_collaborator:
         subject: Sinut on kutsuttu osallistumaan palvelussa %{organization}
+      invite_private_user:
+        subject: Sinut on kutsuttu yksityiseen osallistumisprosessiin palvelussa %{organization}
       organization_admin_invitation_instructions:
         subject: Sinut on kutsuttu hallinnoimaan palvelua %{organization}
       password_change:
