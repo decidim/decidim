@@ -507,7 +507,6 @@ de:
             images: Bilder
             metadata: Metadaten
             no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
-            private_notice: Sie können private Teilnehmende verwalten, nachdem Sie das Gremium als "privat" festgelegt haben
             related_processes: Ähnliche Beteiligungsprozesse
             select_process_group: Wählen Sie eine Prozessgruppe aus
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
