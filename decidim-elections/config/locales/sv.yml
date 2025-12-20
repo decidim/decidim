@@ -63,6 +63,9 @@ sv:
             answer: Svar
             total: Totalt
             votes: Röster
+            votes_count:
+              one: 1 röst
+              other: "%{count} röster"
           results:
             publish_button: Publicera resultat
             title: Resultat
