@@ -8,22 +8,26 @@ module Decidim
       description "Creates a meeting"
       type Decidim::Meetings::MeetingType
 
-      argument :component_id, GraphQL::Types::ID, description: "The ID of the component where the meeting will be created", required: true
       argument :attributes, CreateMeetingAttributes, description: "Input attributes for creating a meeting", required: true
+      argument :component_id, GraphQL::Types::ID, description: "The ID of the component where the meeting will be created", required: true
 
       def resolve(component_id:, attributes:)
         component = current_user.organization.components.find_by(id: component_id)
 
-        return GraphQL::ExecutionError.new(
-          "Component not found"
-        ) unless component
+        unless component
+          return GraphQL::ExecutionError.new(
+            "Component not found"
+          )
+        end
 
-        return GraphQL::ExecutionError.new(
-          "Invalid component type. Must be a meetings component."
-        ) unless component.manifest_name == "meetings"
+        unless component.manifest_name == "meetings"
+          return GraphQL::ExecutionError.new(
+            "Invalid component type. Must be a meetings component."
+          )
+        end
 
         attrs = attributes.to_h
-        
+
         # Build taxonomizations from taxonomy_ids
         taxonomizations = build_taxonomizations(attrs.delete(:taxonomy_ids), component.organization)
 

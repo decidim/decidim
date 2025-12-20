@@ -79,9 +79,9 @@ module Decidim
           before do
             allow(context).to receive(:[]).with(:current_user).and_return(current_user)
             allow(context).to receive(:[]).with(:current_organization).and_return(organization)
-            
+
             # Grant permission to create meetings
-            permissions = Decidim::PermissionAction.new(action: :create, subject: :meeting, scope: :public)
+            Decidim::PermissionAction.new(action: :create, subject: :meeting, scope: :public)
             allow_any_instance_of(Decidim::Meetings::Permissions).to receive(:allowed?).and_return(true)
             allow_any_instance_of(CreateMeetingType).to receive(:allowed_to?).and_return(true)
           end
