@@ -13,7 +13,7 @@ module Decidim
           members_path(current_participatory_process)
         end
 
-        def privatable_to
+        def participatory_space
           current_participatory_process
         end
       end

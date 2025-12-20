@@ -232,10 +232,6 @@ bg:
       organization:
         update: "%{user_name} обнови настройките на организацията"
         update_external_domain: "%{user_name} актуализира външните домейни на организацията"
-      participatory_space_private_user:
-        create: "%{user_name} покани %{resource_name} да бъде частен участник"
-        create_via_csv: "%{user_name} покани %{resource_name} чрез CSV да бъде частен участник"
-        delete: "%{user_name} премахна участника %{resource_name} като частен"
       scope:
         create: "%{user_name} създаде сферата %{resource_name}"
         create_with_parent: "%{user_name} създаде сферата %{resource_name} в родителската сфера %{parent_scope}"
@@ -1331,17 +1327,13 @@ bg:
           Ако не искате да приемете поканата, моля, игнорирайте този имейл.<br />
           Профилът Ви няма да бъде създаден, докато не отворите връзката по-горе и не зададете своите псевдоним и парола.
         invited_you_as_admin: "%{invited_by} Ви покани за администратор на %{application}. Можете да приемете чрез връзката по-долу."
-        invited_you_as_private_user: "%{invited_by} Ви покани като частен участник на %{application}. Можете да приемете чрез връзката по-долу."
         someone_invited_you: Някой Ви покани в %{application}. Можете да приемете чрез връзката по-долу.
         someone_invited_you_as_admin: Някой ви покани за администратор на %{application}, можете да приемете чрез връзката по-долу.
-        someone_invited_you_as_private_user: Някой ви покани частен участник в %{application}, можете да приемете чрез връзката по-долу.
         subject: Инструкции за покана
       invite_admin:
         subject: Получихте покана да управлявате %{organization}
       invite_collaborator:
         subject: Получихте покана да сътрудничите на %{organization}
-      invite_private_user:
-        subject: Поканени сте в частен процес на сътрудничество в %{organization}
       organization_admin_invitation_instructions:
         subject: Получихте покана да управлявате %{organization}
       password_change:

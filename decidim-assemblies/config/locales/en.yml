@@ -26,6 +26,7 @@ en:
         duration: Duration
         facebook: Facebook
         github: GitHub
+        has_members: This space has members
         hero_image: Home image
         import_attachments: Import attachments
         import_categories: Import categories
@@ -249,12 +250,13 @@ en:
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             duration: Duration
             duration_help: If the duration of this assembly is limited, select the end date. Otherwise, it will appear as indefinite.
+            has_members_help: You will be able to create and publish members
             images: Images
             included_at_help: Select the date when this assembly was added to the platform. It does not necessarily have to be the same as the creation date.
             metadata: Metadata
             no_taxonomy_filters_found: No taxonomy filters found.
             other: Other
-            private_notice: You will be able to manage members after setting it as private
+            private_notice: Makes the space not visible for visitors and only for members (except if it is also transparent)
             select_a_created_by: Select a created by
             select_parent_assembly: Select parent assembly
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'

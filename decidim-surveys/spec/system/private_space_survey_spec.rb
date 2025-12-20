@@ -25,7 +25,7 @@ describe "Private Space Respond a survey" do
   let(:user) { create(:user, :confirmed, organization:) }
   let!(:another_user) { create(:user, :confirmed, organization:) }
 
-  let!(:member) { create(:member, user: another_user, privatable_to: participatory_space_private) }
+  let!(:member) { create(:member, user: another_user, participatory_space: participatory_space_private) }
 
   let!(:questionnaire) { create(:questionnaire, title:, description:) }
   let!(:survey) { create(:survey, :published, :allow_responses, component:, questionnaire:) }

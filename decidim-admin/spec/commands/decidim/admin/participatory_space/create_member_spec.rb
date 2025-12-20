@@ -4,14 +4,14 @@ require "spec_helper"
 
 module Decidim::Admin::ParticipatorySpace
   describe CreateMember do
-    subject { described_class.new(form, privatable_to, via_csv:) }
+    subject { described_class.new(form, participatory_space, via_csv:) }
 
     let(:via_csv) { false }
-    let(:privatable_to) { create(:participatory_process) }
+    let(:participatory_space) { create(:participatory_process) }
     let!(:email) { "my_email@example.org" }
     let!(:name) { "Weird Guy" }
-    let!(:user) { create(:user, email: "my_email@example.org", organization: privatable_to.organization) }
-    let!(:current_user) { create(:user, email: "some_email@example.org", organization: privatable_to.organization) }
+    let!(:user) { create(:user, email: "my_email@example.org", organization: participatory_space.organization) }
+    let!(:current_user) { create(:user, email: "some_email@example.org", organization: participatory_space.organization) }
     let(:role) { generate_localized_title(:role) }
     let(:form) do
       double(
@@ -119,7 +119,7 @@ module Decidim::Admin::ParticipatorySpace
       end
 
       context "when email is input with case-insensitive letters" do
-        let!(:admin) { create(:user, :admin, email: "admin@example.org", organization: privatable_to.organization) }
+        let!(:admin) { create(:user, :admin, email: "admin@example.org", organization: participatory_space.organization) }
         let!(:email) { "Admin@example.org" }
 
         it "still finds the user" do

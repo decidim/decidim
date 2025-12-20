@@ -13,7 +13,7 @@ describe "rake decidim:upgrade:fix_deleted_private_follows", type: :task do
   let!(:unwanted_follow) { create(:follow, user: second_user, followable: participatory_space) }
   let!(:resource_follow) { create(:follow, followable:, user:) }
   let!(:resource_unwanted_follow) { create(:follow, followable:, user: second_user) }
-  let!(:member) { create(:member, user:, privatable_to: participatory_space) }
+  let!(:member) { create(:member, user:, participatory_space:) }
   let(:participatory_space) { create(:participatory_process, :published, organization: user.organization) }
 
   around do |example|

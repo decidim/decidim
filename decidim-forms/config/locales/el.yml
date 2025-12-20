@@ -93,9 +93,6 @@ el:
           of_total_steps: από %{total_steps}
           questionnaire_closed:
             title: Η φόρμα έκλεισε
-          questionnaire_for_private_users:
-            body: Η φόρμα είναι διαθέσιμη μόνο για ιδιωτικούς χρήστες
-            title: Η φόρμα έκλεισε
           questionnaire_js_disabled:
             body: Ορισμένες από τις δυνατότητες αυτής της φόρμας θα απενεργοποιηθούν. Για να βελτιώσετε την εμπειρία σας, ενεργοποιήστε την JavaScript στο πρόγραμμα περιήγησης.
             title: Η JavaScript είναι απενεργοποιημένη

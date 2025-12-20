@@ -84,9 +84,6 @@ sq:
         welcome_notification_body: Përmbajtja e njoftimit të mirëseardhjes
         welcome_notification_subject: Tema e njoftimit të mirëseardhjes
         youtube_handler: Emri i përdoruesit Youtube
-      participatory_space_private_user:
-        email: Email
-        name: Emri
       scope:
         code: Kodi
         name: Emri
@@ -238,17 +235,6 @@ sq:
             label: Tipi
         officialized_at_null:
           label: Gjendja
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Ftesa u pranua
-            values:
-              'false': E papranuar
-              'true': Pranuar
-          user_invitation_sent_at_not_null:
-            label: Ftesa u dërguan
-            values:
-              'false': Nuk është dërguar
-              'true': Dërguar
         private_space_eq:
           label: Private
           values:

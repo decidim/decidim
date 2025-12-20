@@ -116,7 +116,6 @@ de:
           info: Über diesen Prozess
           landing_page: Startseiten-Layout
           moderations: Moderationen
-          private_users: Mitglieder
           process_admins: Benutzer verarbeiten
           steps: Schritte
       models:
@@ -508,7 +507,6 @@ de:
             images: Bilder
             metadata: Metadaten
             no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
-            private_notice: Sie können private Teilnehmende verwalten, nachdem Sie das Gremium als "privat" festgelegt haben
             related_processes: Ähnliche Beteiligungsprozesse
             select_process_group: Wählen Sie eine Prozessgruppe aus
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
@@ -603,9 +601,6 @@ de:
           type: Typ
         show:
           title: Über diesen Prozess
-      participatory_space_private_users:
-        index:
-          title: Mitglieder
       show:
         belongs_to_group: Dieser Prozess gehört zu
         private_space: Dies ist ein privater Prozess

@@ -125,13 +125,6 @@ ga:
             label: Cineál
         officialized_at_null:
           label: Staid
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            values:
-              'true': Glactha
-          user_invitation_sent_at_not_null:
-            values:
-              'true': Seolta
         private_space_eq:
           label: Príobháideach
           values:
@@ -280,12 +273,6 @@ ga:
           social_handlers: Sóisialta
           url: URL
           youtube: YouTube
-      participatory_space_private_users:
-        new:
-          create: Cruthaigh
-      participatory_space_private_users_csv_imports:
-        new:
-          upload: Uaslódáil
       resource_permissions:
         edit:
           submit: Deimhnigh

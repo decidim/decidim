@@ -90,9 +90,6 @@ pl:
         welcome_notification_body: Treść komunikatu powitalnego
         welcome_notification_subject: Tytuł komunikatu powitalnego
         youtube_handler: Handler YouTube
-      participatory_space_private_user:
-        email: E-mail
-        name: Nazwa
       scope:
         code: Kod
         name: Nazwa
@@ -134,10 +131,6 @@ pl:
           attributes:
             official_img_footer:
               allowed_file_content_types: Nieprawidłowy plik obrazu
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Nieprawidłowy plik importu, przeczytaj uważnie instrukcję i upewnij się, że plik jest kodowany w UTF-8.
         user_group_csv_verification:
           attributes:
             file:
@@ -176,8 +169,6 @@ pl:
         import: Importuj
         newsletter:
           new: Nowy newsletter
-        participatory_space_private_user:
-          new: Nowy użytkownik prywatny
         per_page: Na stronę
         send_me_a_test_email: Wyślij mi testowego e-maila
         share: Udostępnij
@@ -388,17 +379,6 @@ pl:
           values:
             'false': Oficjalny
             'true': Nieoficjalny
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Zaakceptowano zaproszenie
-            values:
-              'false': Nie zaakceptowano
-              'true': Zaakceptowano
-          user_invitation_sent_at_not_null:
-            label: Wysłano zaproszenie
-            values:
-              'false': Nie wysłano
-              'true': Wysłano
         private_space_eq:
           label: Prywatny
           values:
@@ -527,6 +507,10 @@ pl:
             explanation: Zarządzani użytkownicy mogą być promowani do standardowych użytkowników. Oznacza to, że zostaną zaproszeni do udziału w aplikacji i nie będą mogli podszywać się pod inne osoby. Zaproszony użytkownik otrzyma wiadomość e-mail, aby zaakceptować zaproszenie.
             new_managed_user_promotion: Nowa zarządzana promocja użytkowników
             promote: Awansuj
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Prześlij swój plik CSV
       menu:
         admin_log: Logi aktywności administratora
         admins: Administratorzy
@@ -587,8 +571,6 @@ pl:
             sent_to: Wysłano do
             subject: Temat
           name: Newsletter
-        participatory_space_private_user:
-          name: Użytkownik prywatnej przestrzeni partycypacyjnej
         scope:
           fields:
             name: Nazwa
@@ -782,39 +764,6 @@ pl:
         form:
           add: Dodaj do listy dozwolonych
           title: Dozwolone domeny zewnętrzne
-      participatory_space_private_users:
-        create:
-          error: Wystąpił błąd podczas dodawania użytkownika prywatnego do tej przestrzeni partycypacyjnej.
-          success: Dodano dostęp dla prywatnego użytkownika przestrzeni partycypacyjnej.
-        destroy:
-          error: Wystąpił błąd podczas usuwania użytkownika prywatnego z tej przestrzeni partycypacyjnej.
-          success: Usunięto dostęp dla prywatnego użytkownika w tej przestrzeni partycypacyjnej.
-        index:
-          import_via_csv: Importuj z CSV
-          title: Prywatny użytkownik przestrzeni partycypacyjnej
-        new:
-          create: Utwórz
-          title: Nowy prywatny użytkownik przestrzeni partycypacyjnej.
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: Wystąpił problem podczas odczytu pliku CSV. Upewnij się, że postępowałeś zgodnie z instrukcjami.
-          success: Załadowanie pliku CSV powiodło się, wysyłamy e-mail z zaproszeniem do uczestników. To może chwilę potrwać.
-        new:
-          csv_upload:
-            title: Załaduj swój plik CSV
-          destroy:
-            button: Usuń wszystkich prywatnych uczestników
-            confirm: Czy na pewno chcesz usunąć wszystkich uczestników prywatnych? Tej akcji nie można cofnąć, nie będziesz w stanie odzyskać danych.
-            empty: Nie masz żadnych uczestników prywatnych.
-            explanation: Masz %{count} uczestników prywatnych.
-            title: Usuń prywatnych uczestników
-          example_file: 'Przykładowy plik:'
-          explanation: 'Załaduj swój plik CSV. Plik musi składać się z dwóch kolumn: w pierwszej kolumnie adresy e-mail, a w ostatniej nazwy użytkowników, których chcesz dodać do przestrzeni dla uczestników. Nie dodawaj nagłówków. Unikaj niepoprawnych znaków, takich jak `<>?%&^*#@()[]=+:;"{}\|` w nazwie użytkownika.'
-          explanation_example: |
-            jan.kowalski@przyklad.org%{csv_col_sep}Jan Kowalski
-            anna.kowalska@przyklad.org%{csv_col_sep}Anna Kowalska
-          title: Importuj uczestników prywatnych przez CSV
-          upload: Prześlij
       reminders:
         create:
           error: Wystąpił błąd podczas tworzenia przypomnień.

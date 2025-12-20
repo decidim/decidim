@@ -202,10 +202,6 @@ ar:
       organization:
         update: "قام %{user_name} بتحديث إعدادات المنظمة"
         update_external_domain: "قام %{user_name} بتحديث النطاقات الخارجية للمنظمة external domains"
-      participatory_space_private_user:
-        create: "%{user_name} مدعو %{resource_name} ليكون مشاركًا خاصًا"
-        create_via_csv: "%{user_name} دعا %{resource_name} عبر CSV ليكون مشاركا خاصا"
-        delete: "%{user_name} أزال المشارك %{resource_name} كمشارك خاص"
       scope:
         create: "%{user_name} خلق نطاق %{resource_name}"
         create_with_parent: "إنشاء %{user_name} النطاق %{resource_name} داخل النطاق %{parent_scope}"
@@ -1136,10 +1132,8 @@ ar:
         decline: رفض الدعوة
         hello: مرحبا %{email}،
         invited_you_as_admin: "%{invited_by} دعاك كمشرف لـ %{application}. يمكنك قبول ذلك من خلال الرابط أدناه."
-        invited_you_as_private_user: "تلقيت دعوة من %{invited_by} كمشارك خاص لـ %{application}يمكنك قبول ذلك من خلال الرابط أدناه."
         someone_invited_you: دعاك شخص ما إلى %{application}. يمكنك قبول ذلك من خلال الرابط أدناه.
         someone_invited_you_as_admin: قام شخص ما بدعوتك كمسؤول لـ %{application}، يمكنك قبولها من خلال الرابط أدناه.
-        someone_invited_you_as_private_user: قام شخص ما بدعوتك كمشارك خاص بقيمة %{application}، ويمكنك قبولها من خلال الرابط أدناه.
         subject: تعليمات الدعوة
       password_change:
         greeting: مرحبا %{recipient}!

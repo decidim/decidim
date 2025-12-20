@@ -132,6 +132,9 @@ pt-BR:
       x_seconds:
         one: 1 segundo
         other: "%{count} segundos"
+    widget:
+      picker:
+        time_button: Abrir seletor para %{label}
   decidim:
     accessibility:
       external_link: Link externo
@@ -234,10 +237,6 @@ pt-BR:
       organization:
         update: "%{user_name} atualizou as configurações da organização"
         update_external_domain: "%{user_name} atualizou os domínios externos da organização"
-      participatory_space_private_user:
-        create: "%{user_name} Convidado %{resource_name} ser um usuário privado"
-        create_via_csv: "%{user_name} convidou %{resource_name} via CSV para ser um usuário privado"
-        delete: "%{user_name} removeu o usuário %{resource_name} como usuário particular"
       scope:
         create: "%{user_name} criou o âmbito %{resource_name}"
         create_with_parent: "%{user_name} criou o âmbito %{resource_name} dentro do âmbito %{parent_scope}"
@@ -1282,10 +1281,8 @@ pt-BR:
         decline: Negar convite
         hello: Olá %{email},
         invited_you_as_admin: "%{invited_by} convidou você como administrador de %{application}. Você pode aceitá-lo através do link abaixo."
-        invited_you_as_private_user: "%{invited_by} convidou você como usuário particular de %{application}. Você pode aceitá-lo através do link abaixo."
         someone_invited_you: Alguém convidou você para %{application}. Você pode aceitá-lo através do link abaixo.
         someone_invited_you_as_admin: Alguém convidou você como administrador de %{application}, você pode aceitá-lo através do link abaixo.
-        someone_invited_you_as_private_user: Alguém convidou você como usuário privado de %{application}, você pode aceitá-lo através do link abaixo.
         subject: Instruções de convite
       invite_admin:
         subject: Você foi convidado a gerenciar %{organization}

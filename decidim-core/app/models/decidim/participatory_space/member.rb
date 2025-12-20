@@ -8,13 +8,13 @@ module Decidim
       include ParticipatorySpaceUser
       include Decidim::TranslatableResource
 
-      belongs_to :privatable_to, polymorphic: true
+      belongs_to :participatory_space, polymorphic: true
 
       translatable_fields :role
 
       delegate :email, :name, to: :user
 
-      scope :by_participatory_space, ->(privatable_to) { where(privatable_to_id: privatable_to.id, privatable_to_type: privatable_to.class.to_s) }
+      scope :by_participatory_space, ->(participatory_space) { where(participatory_space_id: participatory_space.id, participatory_space_type: participatory_space.class.to_s) }
       scope :published, -> { where(published: true) }
 
       def self.user_collection(user)
@@ -22,7 +22,7 @@ module Decidim
       end
 
       def self.member_ids_for_participatory_spaces(spaces)
-        joins(:user).where(privatable_to: spaces).distinct.pluck(:decidim_user_id)
+        joins(:user).where(participatory_space: spaces).distinct.pluck(:decidim_user_id)
       end
 
       def self.export_serializer
@@ -47,7 +47,7 @@ module Decidim
         %w(user)
       end
 
-      def target_space_association = :privatable_to
+      def target_space_association = :participatory_space
     end
   end
 end
