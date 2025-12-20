@@ -111,6 +111,23 @@ describe "Notifications" do
         end
       end
     end
+
+    context "when the notification is from a component" do
+      let!(:notification) do
+        create(:notification, user:,
+                              resource: resource.component,
+                              event_name: "decidim.events.components.component_published",
+                              event_class: "Decidim::ComponentPublishedEvent")
+      end
+
+      before do
+        page.visit decidim.notifications_path
+      end
+
+      it "shows the notifications" do
+        expect(page).to have_css(".notification")
+      end
+    end
   end
 
   context "when the notification event has an action" do
