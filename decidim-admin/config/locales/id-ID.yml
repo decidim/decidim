@@ -252,6 +252,10 @@ id:
             explanation: Pengguna yang dikelola dapat dipromosikan ke pengguna standar. Ini berarti mereka akan diundang ke aplikasi dan Anda tidak akan dapat meniru mereka lagi. Pengguna yang diundang akan menerima email untuk menerima undangan Anda.
             new_managed_user_promotion: Promosi pengguna terkelola baru
             promote: Memajukan
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Unggah file CSV Anda
       menu:
         admin_log: Log aktivitas admin
         admins: Admin
@@ -304,8 +308,6 @@ id:
             sent_at: Dikirim pada
             subject: Subyek
           name: Newsletter
-        participatory_space_private_user:
-          name: Ruang partisipatif pengguna pribadi
         scope:
           fields:
             name: Nama
@@ -394,22 +396,6 @@ id:
         update:
           error: Terjadi kesalahan saat memperbarui organisasi ini.
           success: Organisasi berhasil diperbarui.
-      participatory_space_private_users:
-        create:
-          error: Terjadi kesalahan saat menambahkan pengguna pribadi untuk ruang partisipatif ini.
-          success: Ruang partisipatif akses pengguna pribadi berhasil dibuat.
-        destroy:
-          error: Terjadi kesalahan saat menghapus pengguna pribadi untuk ruang partisipatif ini.
-          success: Akses pribadi pengguna ruang partisipatif berhasil dihancurkan.
-        index:
-          title: Ruang partisipatif pengguna pribadi
-        new:
-          create: Membuat
-          title: Pengguna Pribadi Ruang Partisipatif Baru.
-      participatory_space_private_users_csv_imports:
-        new:
-          csv_upload:
-            title: Unggah file CSV Anda
       resource_permissions:
         edit:
           submit: Menyerahkan

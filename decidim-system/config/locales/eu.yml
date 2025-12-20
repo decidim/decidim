@@ -72,7 +72,7 @@ eu:
         destroy:
           success: Administratzailea zuzen ezabatua.
         edit:
-          title: Editatu administratzailea
+          title: Administratzailea editatu
           update: Eguneratu
         index:
           title: Administratzaileak
@@ -265,6 +265,7 @@ eu:
           confirm_resend_invitation: Ziur zaude gonbidapena birbidali nahi duzula?
           resend_invitation: Birbidali gonbidapena
           secondary_hosts_hint: Sartu haietako bakoitza lerro berri batean
+          short_name_hint: Web aplikazio progresiborako erabilitako izen laburra. 12 karaktere izan behar ditu gehienez.
           title: Editatu erakundea
         file_upload_settings:
           content_types:
@@ -295,6 +296,7 @@ eu:
           organization_admin_email_hint: Mezu elektroniko bat bidaliko dugu helbide honetara, baieztatu eta pasahitza jar dezazun.
           reference_prefix_hint: Erreferentzia-aurrizkia erakunde guztietan baliabideak identifikatzeko erabiltzen da.
           secondary_hosts_hint: Sartu haietako bakoitza beste lerro batean.
+          short_name_hint: Web aplikazio progresiborako erabilitako izen laburra. 12 karaktere izan behar ditu gehienez.
           title: Beste erakunde bat
         omniauth_settings:
           decidim:

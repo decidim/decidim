@@ -197,10 +197,6 @@ hu:
       organization:
         update: "%{user_name} frissítette a szervezet beállításait"
         update_external_domain: "%{user_name} frissítette a szervezet külső domainjeit"
-      participatory_space_private_user:
-        create: "%{user_name} meghívott %{resource_name} privát felhasználónak"
-        create_via_csv: "%{user_name} meghívta %{resource_name} önt, hogy privát résztvevő legyen"
-        delete: "%{user_name} eltávolította a felhasználót %{resource_name} privát felhasználóként"
       scope:
         create: "%{user_name} létrehozta a(z) %{resource_name} hatáskört"
         create_with_parent: "%{user_name} létrehozta a(z) %{resource_name} hatáskört ezen belül: %{parent_scope}"
@@ -1213,17 +1209,13 @@ hu:
           Ha nem szeretné elfogadni a meghívást, hagyja figyelmen kívül ezt az e-mailt.<br />
           Fiókját addig nem hozzuk létre, amíg nem használja a fenti hivatkozást, és nem adja meg becenevét és jelszavát.
         invited_you_as_admin: "%{invited_by} meghívott, mint admint, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken."
-        invited_you_as_private_user: "%{invited_by} meghívott, mint privát felhasználót, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken."
         someone_invited_you: 'Valaki meghívott, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken.'
         someone_invited_you_as_admin: 'Valaki meghívott, mint admint, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken.'
-        someone_invited_you_as_private_user: 'Valaki meghívott, mint privát felhasználót, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken.'
         subject: Meghívó utasítások
       invite_admin:
         subject: 'Meghívást kapott, hogy ezt kezelje a következő szervezetet: %{organization}'
       invite_collaborator:
         subject: Meghívták együttműködésre a(z) %{organization} szervezetben
-      invite_private_user:
-        subject: Meghívtak egy privát folyamatban való részvételre a (%{organization}) szervezetnél
       organization_admin_invitation_instructions:
         subject: 'Meghívást kapott, hogy kezelje a következő szervezetet: %{organization}'
       password_change:

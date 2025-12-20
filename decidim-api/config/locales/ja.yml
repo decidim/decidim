@@ -1,0 +1,9 @@
+---
+ja:
+  decidim:
+    api:
+      errors:
+        not_found: "%{type} が見つかりません"
+        permission_not_set: この %{type} の権限が設定されていません
+        unauthorized_field: 権限がないため、 %{field} の %{type} フィールドを表示または編集することはできません
+        unauthorized_object: 権限がないため、この %{type} を表示または編集できません

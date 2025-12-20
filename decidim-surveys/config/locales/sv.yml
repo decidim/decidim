@@ -49,6 +49,8 @@ sv:
       responses: 'Svar:'
       surveys_count_tooltip: Antalet tillgängliga undersökningar och svar som samlats in.
     surveys:
+      actions:
+        responses: Svar
       admin:
         surveys:
           new:

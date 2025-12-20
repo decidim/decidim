@@ -195,10 +195,6 @@ zh-TW:
       organization:
         update: "%{user_name} 更新了組織設定"
         update_external_domain: "%{user_name} 更新了組織外部域名"
-      participatory_space_private_user:
-        create: "%{user_name} 邀請了 %{resource_name} 成為私人參與者"
-        create_via_csv: "%{user_name} 透過 CSV 邀請了 %{resource_name} 成為私人參與者"
-        delete: "%{user_name} 將參與者 %{resource_name} 從私人參與者中移除"
       scope:
         create: "%{user_name} 創建了 %{resource_name} 範圍"
         create_with_parent: "%{user_name} 在 %{parent_scope} 範圍內創建了 %{resource_name} 範圍"
@@ -1185,17 +1181,13 @@ zh-TW:
         ignore: |-
           如果您不想接受邀請，請忽略此電子郵件。<br />在您使用上述連結設置您的暱稱和密碼之前，您的帳戶不會被創建。
         invited_you_as_admin: "%{invited_by} 邀請您成為 %{application} 的管理員。您可以通過下面的連結接受邀請。"
-        invited_you_as_private_user: "%{invited_by} 邀請您成為 %{application} 的私密參與者。您可以通過下面的連結接受邀請。"
         someone_invited_you: 有人邀請您加入 %{application}。您可以通過下面的連結接受邀請。
         someone_invited_you_as_admin: 有人邀請您成為 %{application} 的管理員，您可以通過下面的連結接受邀請。
-        someone_invited_you_as_private_user: 有人邀請您成為 %{application} 的私人參與者，您可以通過下面的連結接受邀請。
         subject: 邀請說明
       invite_admin:
         subject: 你已經被邀請成為 %{organization} 的管理者
       invite_collaborator:
         subject: 你已獲邀成為 %{organization} 的協作者
-      invite_private_user:
-        subject: 您已被邀請參加 %{organization} 的私密參與過程。
       organization_admin_invitation_instructions:
         subject: 你已經被邀請成為 %{organization} 的管理者
       password_change:

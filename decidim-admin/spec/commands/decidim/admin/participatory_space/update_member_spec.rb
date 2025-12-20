@@ -6,10 +6,10 @@ module Decidim::Admin::ParticipatorySpace
   describe UpdateMember do
     subject { described_class.new(form, member) }
 
-    let!(:privatable_to) { create(:participatory_process) }
+    let!(:participatory_space) { create(:participatory_process) }
     let!(:member) { create(:member, :unpublished, user:, role:) }
-    let!(:user) { create(:user, email: "my_email@example.org", organization: privatable_to.organization) }
-    let!(:current_user) { create(:user, email: "some_email@example.org", organization: privatable_to.organization) }
+    let!(:user) { create(:user, email: "my_email@example.org", organization: participatory_space.organization) }
+    let!(:current_user) { create(:user, email: "some_email@example.org", organization: participatory_space.organization) }
 
     let(:form) do
       double(

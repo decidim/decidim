@@ -33,6 +33,11 @@ ca:
       help_section:
         content: Contingut
       id: ID
+      member:
+        email: Correu electrònic
+        name: Nom
+      member_csv_import:
+        file: Arxiu
       newsletter:
         body: Cos
         send_to_all_users: Envia a totes les participants
@@ -91,11 +96,6 @@ ca:
         welcome_notification_body: Cos de la notificació de benvinguda
         welcome_notification_subject: Assumpte de la notificació de benvinguda
         youtube_handler: Nom d'usuària de YouTube
-      participatory_space_private_user:
-        email: Correu electrònic
-        name: Nom
-      participatory_space_private_user_csv_import:
-        file: Arxiu
       scope:
         code: Codi
         name: Nom
@@ -132,6 +132,10 @@ ca:
         file: Fitxer
     errors:
       models:
+        member_csv_import:
+          attributes:
+            file:
+              malformed: Arxiu d'importació mal formatat, si us plau, llegeix les instruccions curosament i assegura't que l'arxiu està codificat en UTF-8.
         newsletter:
           attributes:
             base:
@@ -140,10 +144,6 @@ ca:
           attributes:
             official_img_footer:
               allowed_file_content_types: Fitxer d'imatge no vàlid
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Arxiu d'importació mal formatat, si us plau, llegeix les instruccions curosament i assegura't que l'arxiu està codificat en UTF-8.
         user_group_csv_verification:
           attributes:
             file:
@@ -191,12 +191,12 @@ ca:
         export: Exporta
         export-selection: Exportar selecció
         import: Importar
+        member:
+          new: Nova membre
         menu_hidden: Amaga del menú
         moderate: Gestionar les moderacions
         newsletter:
           new: Nou butlletí
-        participatory_space_private_user:
-          new: Nou usuari privat de l'espai participatiu
         per_page: Per pàgina
         permissions: Gestionar els permisos
         restore: Restaurar
@@ -418,6 +418,17 @@ ca:
           values:
             'false': 'No'
             'true': 'Sí'
+        members:
+          user_invitation_accepted_at_not_null:
+            label: Invitació acceptada
+            values:
+              'false': No acceptada
+              'true': Acceptada
+          user_invitation_sent_at_not_null:
+            label: Invitació enviada
+            values:
+              'false': No enviada
+              'true': Enviada
         moderated_users:
           reports_reason_eq:
             label: Motiu de l'informe
@@ -433,17 +444,6 @@ ca:
           values:
             'false': Oficialitzada
             'true': No oficialitzada
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Invitació acceptada
-            values:
-              'false': No acceptada
-              'true': Acceptada
-          user_invitation_sent_at_not_null:
-            label: S'ha enviat la invitació
-            values:
-              'false': No enviada
-              'true': Enviada
         private_space_eq:
           label: Privat
           values:
@@ -576,6 +576,51 @@ ca:
             explanation: Les participants gestionades es poden promocionar a participants estàndard. Significa que seran convidades al sistema i no podràs tornar a administrar-les. La participant convidada rebrà un correu electrònic per acceptar la vostra invitació.
             new_managed_user_promotion: Nova promoció de participant
             promote: Promocionar
+      members:
+        create:
+          error: S'ha produït un error en actualitzar una administradora per a aquest procés participatiu.
+          success: Accés com a membre creat correctament.
+        destroy:
+          error: S'ha produït un error en eliminar una participant participada d'aquest espai participació.
+          success: Accés com a membre eliminat correctament.
+        edit:
+          update: Actualizar
+        index:
+          import_via_csv: Importar des de CSV
+          publish_all: Publicar totes
+          title: Membre
+          unpublish_all: Despublicar totes
+        new:
+          create: Crear
+        publish_all:
+          error: S'ha produït un error en publicar totes les membres d'aquest espai de participació.
+          success: S'han publicat correctament totes les membres d'aquest espai de participació
+        unpublish_all:
+          error: S'ha produït un error en despublicar totes les membres d'aquest espai de participació.
+          success: S'han despublicat correctament totes les membres d'aquest espai de participació
+        update:
+          error: S'ha produït un error en actualitzar la membre per a aquest espai de participació.
+          success: Membre actualitzada correctament
+      members_csv_imports:
+        create:
+          invalid: S'ha produït un error llegint el fitxer CSV. Si us plau, assegura't d'haver seguit les instruccions.
+          success: L'arxiu CSV s'ha carregat amb èxit, estem enviant un correu d'invitació a les participants. Això pot trigar una estona.
+        new:
+          csv_upload:
+            title: Puja el fitxer CSV
+          destroy:
+            button: Esborrar totes les membres
+            confirm: Segur que vols esborrar totes les membres? Aquesta acció no es pot desfer, no podràs recuperar-les.
+            empty: No hi ha membres.
+            explanation: Hi ha %{count} membres.
+            title: Elimina membres
+          example_file: 'Fitxer d''exemple:'
+          explanation: 'Carrega el teu arxiu CSV. Ha de tenir dues columnes amb l''adreça de correu electrònic a la primera columna i el nom a la segona de les participants que vulguis afegir a l''espai de participació, sense capçaleres. Evita emprar caràcters invàlids com `<>?%&^*#@()[]=+:;"{}\|` al nom d''usuària.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
+          title: Importar membres via CSV
+          upload: Carregar
       menu:
         admin_log: Registre d'activitat d'administració
         admins: Administradores
@@ -634,6 +679,8 @@ ca:
             reason: Raó
             started_at: Va començar el
             user: Participant
+        member:
+          name: Membre
         newsletter:
           fields:
             created_at: Data de creació
@@ -642,8 +689,6 @@ ca:
             sent_to: Enviat a
             subject: Assumpte
           name: Butlletí
-        participatory_space_private_user:
-          name: Participant d'espai de participació privat
         scope:
           fields:
             name: Nom
@@ -918,53 +963,6 @@ ca:
         form:
           add: Afegeix a la llista de permesos
           title: Llistat de dominis externs permesos
-      participatory_space_private_users:
-        create:
-          error: S'ha produït un error en afegir una participant privada a aquest espai de participació.
-          success: L'accés de la participant a l'espai de participació privat s'ha creat correctament.
-        destroy:
-          error: S'ha produït un error en eliminar una participant participada d'aquest espai participatiu.
-          success: L'accés de la participant a l'espai de participació privat s'ha eliminat correctament.
-        edit:
-          title: Editar participant privada de l'espai de participació.
-          update: Actualitzar
-        index:
-          import_via_csv: Importar des de CSV
-          publish_all: Publicar tot
-          title: Participant de l'espai participatiu privat
-          unpublish_all: Despublicar tot
-        new:
-          create: Crear
-          title: Nova participant de l'espai privat.
-        publish_all:
-          error: S'ha produït un error en publicar totes les participants privades d'aquest espai de participació.
-          success: S'han publicat correctament totes les participants privades d'aquest espai de participació
-        unpublish_all:
-          error: S'ha produït un error en despublicar totes les participants privades d'aquest espai de participació.
-          success: S'han despublicat correctament totes les participants privades d'aquest espai de participació
-        update:
-          error: S'ha produït un error en actualitzar una participant participada d'aquest espai de participació.
-          success: S'ha actualitzat correctament l'espai de participació privat
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: S'ha produït un error llegint el fitxer CSV. Si us plau, assegura't d'haver seguit les instruccions.
-          success: L'arxiu CSV s'ha carregat amb èxit, estem enviant un correu d'invitació a les participants. Això pot trigar una estona.
-        new:
-          csv_upload:
-            title: Puja el teu fitxer CSV
-          destroy:
-            button: Esborrar totes les participants privades
-            confirm: Segur que vols esborrar totes les participants privades? Aquesta acció no es pot desfer, no podràs recuperar-les.
-            empty: No hi ha participants privades.
-            explanation: Hi ha %{count} participant/s privada/ades.
-            title: Esborrar les participants privades
-          example_file: 'Fitxer d''exemple:'
-          explanation: 'Carrega el teu arxiu CSV. Ha de tenir dues columnes amb l''adreça de correu electrònic a la primera columna i el nom a la segona de les participants que vulguis afegir a l''espai de participació, sense capçaleres. Evita emprar caràcters invàlids com `<>?%&^*#@()[]=+:;"{}\|` al nom d''usuària.'
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: Importar participant privades via CSV
-          upload: Carrega
       reminders:
         create:
           error: Hi ha hagut un problema en crear els recordatoris.

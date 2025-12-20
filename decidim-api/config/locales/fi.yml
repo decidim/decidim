@@ -1,0 +1,12 @@
+---
+fi:
+  decidim:
+    api:
+      errors:
+        invalid_locale: Virheellinen kielivalinta
+        locale_argument_error: Lokalisointitietojen käsittelyssä tapahtui sisäinen virhetilanne
+        not_found: "%{type} ei löytynyt"
+        permission_not_set: Oikeuksia ei ole asetettu tyypille %{type}
+        unauthorized_field: Sinulla ei ole oikeuksia tarkastella tai muokata kenttää %{field} tyypille %{type}
+        unauthorized_mutation: Sinulla ei ole oikeutta tämän muutospyynnön suorittamiseen
+        unauthorized_object: Sinulla ei ole oikeuksia tarkastella tai muokata tyyppiä %{type}

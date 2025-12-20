@@ -84,8 +84,8 @@ module Decidim
                 Decidim::Elections::Election,
                 current_user,
                 hash_including(
-                  title: title,
-                  description: description,
+                  title:,
+                  description:,
                   start_at:,
                   end_at:,
                   results_availability: "after_end",

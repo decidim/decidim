@@ -219,10 +219,6 @@ pl:
       organization:
         update: "%{user_name} zaktualizował(a) ustawienia organizacji"
         update_external_domain: "%{user_name} zaktualizował zewnętrzne domeny organizacji"
-      participatory_space_private_user:
-        create: "%{user_name} zaprosił(a) %{resource_name} jako użytkownika prywatnego"
-        create_via_csv: "%{user_name} zaprosił(a) %{resource_name} jako prywatnego użytkownika poprzez CSV"
-        delete: "%{user_name} usunął/usunęła użytkownika %{resource_name} jako użytkownika prywatnego"
       scope:
         create: "%{user_name} utworzył(a) zakres %{resource_name}"
         create_with_parent: "%{user_name} utworzył(a) zakres podrzędny %{resource_name} w zakresie %{parent_scope}"
@@ -1333,17 +1329,13 @@ pl:
           Jeżeli nie chcesz zaakceptować zaproszenia, zignoruj ten e-mail.<br />
            Twoje konto nie zostanie utworzone, dopóki nie skorzystasz z linku powyżej i nie ustawisz pseudonimu i hasła.
         invited_you_as_admin: "%{invited_by} zaprasza Cię jako administratora %{application}. Możesz zaakceptować zaproszenie za pomocą poniższego linku."
-        invited_you_as_private_user: "%{invited_by} zaprasza Cię jako prywatnego użytkownika %{application}. Możesz zaakceptować to zaproszenie za pomocą poniższego linku."
         someone_invited_you: Ktoś zaprosił Cię do %{application}. Możesz zaakceptować zaproszenie za pomocą poniższego linku.
         someone_invited_you_as_admin: Ktoś zaprosił Cię jako administratora %{application}, możesz zaakceptować zaproszenie za pomocą poniższego linku.
-        someone_invited_you_as_private_user: Ktoś zaprosił Cię jako prywatnego użytkownika %{application}, możesz zaakceptować zaproszenie za pomocą poniższego linku.
         subject: Instrukcje dotyczące zaproszenia
       invite_admin:
         subject: Zaproszono Cię do zarządzania %{organization}
       invite_collaborator:
         subject: Zaproszono Cię do współpracy przy %{organization}
-      invite_private_user:
-        subject: Zostałeś zaproszony do uczestnictwa w prywatnym procesie w %{organization}
       organization_admin_invitation_instructions:
         subject: Zaproszono Cię do zarządzania %{organization}
       password_change:

@@ -118,10 +118,6 @@ pt:
         update: "%{user_name} atualizou a aplicação OAuth %{resource_name}"
       organization:
         update: "%{user_name} atualizou as configurações da organização"
-      participatory_space_private_user:
-        create: "%{user_name} convidou %{resource_name} para ser um participante privado"
-        create_via_csv: "%{user_name} convidou %{resource_name} via CSV para ser participante privado"
-        delete: "%{user_name} removeu o participante %{resource_name} como participante privado"
       scope:
         create: "%{user_name} criou o âmbito %{resource_name}"
         create_with_parent: "%{user_name} criou o âmbito %{resource_name} dentro do âmbito %{parent_scope}"
@@ -890,10 +886,8 @@ pt:
         decline: Recusar convite
         hello: Olá %{email},
         invited_you_as_admin: "%{invited_by} convidou-(a) como administrador(a) de %{application}. Pode aceitar através da hiperligação abaixo."
-        invited_you_as_private_user: "%{invited_by} convidou-o(a) como participante privado de %{application}. Pode aceitar através da hiperligação abaixo."
         someone_invited_you: Alguém convidou-o(a) para %{application}. Pode aceitar através da hiperligação abaixo.
         someone_invited_you_as_admin: Alguém convidou-o(a) como administrador(a) de %{application}, pode aceitar através da hiperligação abaixo.
-        someone_invited_you_as_private_user: Alguém convidou-o(a) como participante privado de %{application}, pode aceitar através da hiperligação abaixo.
         subject: Instruções de convite
       password_change:
         greeting: Olá %{recipient}!

@@ -45,7 +45,7 @@ eu:
         email: Zure helbide elektronikoa
         encrypted_password: Pasahitza
         locale: Tokikoa
-        name: Zure Izena
+        name: Zure izen-abizenak
         nickname: Ezizena
         old_password: Egungo pasahitza
         password: Pasahitza
@@ -266,6 +266,10 @@ eu:
         results: emaitzak
       impersonation_log:
         manage: "%{user_name} parte-hartzaileak %{resource_name} kudeatu du arrazoi honengatik %{reason}"
+      member:
+        create: "%{user_name} parte-hartzaileak %{resource_name} baliabidera kide izateko gonbidatu du"
+        create_via_csv: "%{user_name} -k %{resource_name} CSV bidez gonbidatu du kide izateko"
+        delete: "%{user_name} -k %{resource_name} parte-hartzailea kendu du kide bezala"
       moderation:
         bulk_hide: "%{user_name} parte-hartzaileak %{reported_count} baliabide ezkutatu du"
         bulk_unhide: "%{user_name} parte-hartzaileak berriro erakutsi du %{reported_count} baliabide"
@@ -284,10 +288,6 @@ eu:
       organization:
         update: "%{user_name} parte-hartzaileak erakundearen ezarpenak eguneratu ditu"
         update_external_domain: "%{user_name} parte-hartzaileak erakundearen kanpoko domeinuak eguneratu ditu"
-      participatory_space_private_user:
-        create: "%{user_name} parte-hartzaileak %{resource_name} gonbidatu du parte-hartzaile pribatua izatera"
-        create_via_csv: "%{user_name} parte-hartzaileak %{resource_name} gonbidatu du CSV bidez parte-hartzaile pribatua izatera"
-        delete: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzaile pribatu gisa kendu du"
       scope:
         create: "%{user_name} parte-hartzaileak %{resource_name} eremua sortu du"
         create_with_parent: "%{user_name} parte-hartzaileak %{resource_name} eremua%{parent_scope} eremua barruan sortu du"
@@ -729,7 +729,7 @@ eu:
           connect_your_account_html: 'Konektatu zure kontua saioa hasteko hemen: %{organization}.'
           publish_content: Argitaratu edukia zuretzat
           see_email: Ikusi zure helbide elektronikoa
-          see_name: Ikusi zure izena
+          see_name: Ikusi zure izena-abizenak
           see_username: Ikusi zure parte-hartzailearen izena
           this_application_will_be_able_to: 'Aplikazio horrek honako zeregin hauek egin ahal izango ditu:'
           this_application_will_not_be_able_to: 'Aplikazio honek ezin izango du:'
@@ -767,13 +767,12 @@ eu:
           id: Jakinarazpen honen identifikatzaile bakarra
           resource_type: Jakinarazpena zein baliabide motarekin dago lotuta
           updated_at: Zein datatan eta zein ordutan eguneratu zen jakinarazpena azken aldiz
-        participatory_space_private_users:
-          created_at: Zein datatan eta zein ordutan sortu zen parte-hartzaile pribatu hau
-          id: Parte-hartzaile honen identifikatzaile bakarra
-          privatable_to: Zein espaziotakoa den parte-hartzaile pribatu hau
-          published: Ea parte-hartzaile pribatu hau argitaratuta dagoen ala ez
-          role: Zein rol duen parte-hartzaile pribatu honek
-          updated_at: Zein datatan eta zein ordutan eguneratu zen parte-hartzaile pribatu hau
+        participatory_space_members:
+          created_at: Kide hori sortu zen eguna eta ordua
+          id: The unique identifier of this member
+          published: Parte-hartzaile pribatu hori argitaratuta dagoen ala ez
+          role: Kide horrek duen rola
+          updated_at: Kide hori azken aldiz eguneratu zen eguna eta ordua
         reports:
           created_at: Zein datatan eta zein ordutan sortu zen salaketa hau
           details: Txosten honen xehetasunak
@@ -1565,7 +1564,7 @@ eu:
         details: Xehetasunak
         hello: 'Kaixo, %{name}:'
         manage_moderations: Moderazioak kudeatu
-        participatory_space: Partaidetza espazioa
+        participatory_space: Partaidetza-espazioa
         reason: Arrazoia
         report_html: <p>Hurrengo <a href="%{url}">edukia</a>automatikoki ezkutatu da</p>
         subject: '%{moderator} -k baliabidea ezkutatu du'
@@ -1838,17 +1837,17 @@ eu:
         ignore: |-
           Gonbidapena onartu nahi ez baduzu, mesedez, ez egin kasurik mezu elektroniko honi. Zure kontua ez da sortuko, goiko estekara sartu eta zure erabiltzaile-izena eta pasahitza ezarri arte.
         invited_you_as_admin: "%{invited_by} admnisitrariak %{application} administratzaile gisa gonbidatu zaitu. Beheko estekan onartu dezakezu."
-        invited_you_as_private_user: "%{invited_by} parte-hartzaileak egonbidatu zaitu %{application} ko erabiltzaile pribatu gisa. Beheko estekan onartu dezakezu."
+        invited_you_as_member: "%{invited_by} k %{application} -ren kide gisa gisa gonbidatu zaitu. Beheko estekan onartu dezakezu."
         someone_invited_you: Norbaitek %{application} gonbidatu zaitu. Beheko estekan onar dezakezu.
         someone_invited_you_as_admin: Norbaitek %{application} administratzaile gisa gonbidatu zaitu, beheko estekan onar dezakezu.
-        someone_invited_you_as_private_user: Norbaitek %{application} ko parte-hartzaile pribatu gisa gonbidatu zaitu, beheko estekan onar dezakezu.
+        someone_invited_you_as_member: '%{application}-eko kide gisa gonbidatu zaitu norbaitek. Esteka honen bidez onar dezakezu.'
         subject: Gonbidapenaren argibideak
       invite_admin:
         subject: '%{organization} kudeatzeko gonbita jaso duzu'
       invite_collaborator:
         subject: 'Gonbita jaso duzu erakunde honekin lankidetzan aritzeko: %{organization}'
-      invite_private_user:
-        subject: Gonbidatu zaituzte partaidetza-prozesu pribatu batean %{organization} erakundean
+      invite_member:
+        subject: '%{organization} erakundeari buruzko partaidetza prozesu pribatu batera gonbidatu zaituzte'
       organization_admin_invitation_instructions:
         subject: '%{organization} erakundea kudeatzeko gonbita jaso duzu'
       password_change:
@@ -1890,13 +1889,13 @@ eu:
       updated: Pasahitza ondo aldatu da. Saioa hasi duzu.
       updated_not_active: Pasahitza ondo aldatu da.
     registrations:
-      destroyed: Agur! Zure kontua behar bezala bertan behera utzi da. Laster ikusiko dugu berriro.
+      destroyed: Agur! Zure kontua behar bezala bertan behera utzi da. Laster ikusiko dugu elkar berriro.
       new:
         sign_up: Sortu kontu bat
       signed_up: Ongi etorri!  Ondo eman duzu izena.
       signed_up_but_inactive: Eginda sinatu duzu. Hala ere, ezin izan dugu saioa hasi kontua oraindik ez baita aktibatuta.
       signed_up_but_locked: Ongi eman duzu izena. Hala ere, ezin duzu saioa hasi zure kontua giltzapetuta dagoelako.
-      signed_up_but_unconfirmed: Berrespen-esteka duen mezu bat zure helbide elektronikora bidali da. Jarraitu esteka zure kontua aktibatzeko.
+      signed_up_but_unconfirmed: Berrespen-esteka duen mezu bat bidali da zure helbide elektronikora. Mesedez, jarraitu esteka zure kontua aktibatzeko.
       update_needs_confirmation: Zure kontua arrakastaz eguneratu duzu, baina helbide elektroniko berria egiaztatu behar dugu. Egiaztatu zure posta elektronikoa eta berretsi esteka jarraitu zure helbide elektroniko berria berresteko.
       updated: Zure kontua ondo eguneratu da.
     sessions:
@@ -2170,7 +2169,7 @@ eu:
         profile: Profila
         title: Parte-hartzailearen ezarpenak
   locale:
-    name: Ingelesa
+    name: Euskara
     name_with_error: Euskera (akatsa!)
   number:
     currency:

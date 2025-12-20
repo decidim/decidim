@@ -1,0 +1,12 @@
+---
+eu:
+  decidim:
+    api:
+      errors:
+        invalid_locale: Baliozkoa ez den eskualde-konfigurazioa eman da
+        locale_argument_error: Errorea gertatu da i18n datuen barne-kudeaketa egiten zen bitartean
+        not_found: "%{mota} ez da aurkitu"
+        permission_not_set: Ez da baimenik ezarri %{type} honetarako
+        unauthorized_field: Ezin duzu editatu %{field} eremua hemen %{type} ez daukazulako baimenik
+        unauthorized_mutation: Ez duzu baimenik aldaketa hau egiteko
+        unauthorized_object: Ezin duzu ikusi edo editatu %{field} eremua ez daukazulako baimenik

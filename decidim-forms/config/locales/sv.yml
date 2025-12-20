@@ -188,9 +188,6 @@ sv:
           questionnaire_closed:
             body: Formuläret är stängt och kan inte besvaras.
             title: Formuläret är stängt
-          questionnaire_for_private_users:
-            body: Formuläret är endast tillgängligt för privata användare
-            title: Formuläret är stängt
           questionnaire_js_disabled:
             body: Vissa av formulärets funktioner kommer att inaktiveras. Aktivera JavaScript i webbläsaren för att förbättra upplevelsen.
             title: JavaScript är inaktiverat
