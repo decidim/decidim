@@ -435,6 +435,7 @@ it:
             question_replied: Domanda risposta
             reply_question: Rispondi alla domanda
       public_participants_list:
+        attending_organizations: Organizzazioni
         attending_participants: Partecipanti presenti
         hidden_participants_count:
           one: e %{count} altra persona
