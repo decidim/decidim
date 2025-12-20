@@ -120,6 +120,7 @@ uk:
           attachments: Вкладені файли
           components: Складові
           moderations: Дії з модерації
+          private_users: Члени президії
       models:
         assembly:
           fields:

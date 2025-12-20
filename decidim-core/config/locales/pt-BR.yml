@@ -133,6 +133,9 @@ pt-BR:
       x_seconds:
         one: 1 segundo
         other: "%{count} segundos"
+    widget:
+      picker:
+        time_button: Abrir seletor para %{label}
   decidim:
     accessibility:
       external_link: Link externo

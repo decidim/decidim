@@ -42,7 +42,7 @@ sk:
             title: Formulár je uzavretý.
           questionnaire_for_private_users:
             body: Formulár je otvorený len pre súkromných používateľov
-            title: Formulár je uzavretý
+            title: Formulár je uzavretý.
           tos_agreement: Účasťou súhlasíte s našimi Podmienkami použitia
       step_navigation:
         show:

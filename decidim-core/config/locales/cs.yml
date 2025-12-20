@@ -1835,8 +1835,6 @@ cs:
         subject: Byli jste pozváni ke spravování organizace %{organization}
       invite_collaborator:
         subject: Byli jste pozváni ke spolupráci na organizaci %{organization}
-      invite_private_user:
-        subject: Byli jste pozváni k soukromé účasti na organizaci %{organization}
       organization_admin_invitation_instructions:
         subject: Byli jste pozváni ke spravování organizace %{organization}
       password_change:

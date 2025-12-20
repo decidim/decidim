@@ -59,6 +59,11 @@ bs:
         welcome_notification_body: Glavni tekst obaveštenja dobrodošlice
         welcome_notification_subject: Naslov obaveštenja dobrodošlice
         youtube_handler: Administrator YouTube-a
+      participatory_space_private_user:
+        email: E-pošta
+        name: Ime
+      participatory_space_private_user_csv_import:
+        file: Fajl
       scope:
         code: Kod
         name: Ime
@@ -217,6 +222,10 @@ bs:
           values:
             'false': Službeno
             'true': Neslužbeno
+        participatory_space_private_users:
+          user_invitation_sent_at_not_null:
+            values:
+              'false': Nije poslato
         private_space_eq:
           label: Privatno
           values:
@@ -444,6 +453,11 @@ bs:
         update:
           error: Pojavio se problem pri ažuriranju ove organizacije.
           success: Organizacija je uspešno ažurirana.
+      participatory_space_private_users:
+        edit:
+          update: Ažuriraj
+        new:
+          create: Stvori
       shared:
         gallery:
           add_images: Dodaj slike

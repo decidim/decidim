@@ -1697,7 +1697,7 @@ fr-CA:
       invite_collaborator:
         subject: Vous avez été invité à collaborer sur %{organization}
       invite_private_user:
-        subject: Vous avez été invité(e) à une concertation privés sur %{organization}
+        subject: Vous avez été invité(e) à un processus participatif privé sur %{organization}
       organization_admin_invitation_instructions:
         subject: Vous avez été invité(e) à gérer %{organization}
       password_change:

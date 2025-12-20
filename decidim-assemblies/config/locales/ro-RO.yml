@@ -142,6 +142,7 @@ ro:
           attachments: Atașamente
           components: Componente
           moderations: Moderări
+          private_users: Membri
       models:
         assembly:
           fields:

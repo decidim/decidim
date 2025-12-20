@@ -139,6 +139,7 @@ el:
           attachments: Συνημμένα
           components: Στοιχεία
           moderations: Εποπτεύσεις
+          private_users: Μέλη
       models:
         assembly:
           fields:

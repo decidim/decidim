@@ -434,16 +434,9 @@ cs:
             'false': Ověřeno
             'true': Neověřeno
         participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Pozvánka přijata
-            values:
-              'false': Nepřijato
-              'true': Přijato
           user_invitation_sent_at_not_null:
-            label: Pozvánka odeslána
             values:
               'false': Neodesláno
-              'true': Odesláno
         private_space_eq:
           label: Soukromé
           values:
@@ -935,12 +928,9 @@ cs:
           success: Přístup soukromého účastníka do participativního prostoru byl úspěšně zrušen.
         edit:
           title: Upravit participační prostor soukromého účastníka.
-          update: Aktualizovat
+          update: Aktualizace
         index:
-          import_via_csv: Importovat přes CSV
-          publish_all: Publikovat vše
           title: Participační prostor soukromého účastníka
-          unpublish_all: Zrušit publikování všech
         new:
           create: Vytvořit
           title: Nový participační prostor soukromého účastníka.
@@ -954,9 +944,6 @@ cs:
           error: U tohoto participativního prostoru se vyskytl problém s aktualizací soukromého účastníka.
           success: Soukromý účastník participativního prostoru úspěšně aktualizován
       participatory_space_private_users_csv_imports:
-        create:
-          invalid: Při čtení souboru CSV se vyskytl problém. Ujistěte se, že jste dodrželi pokyny.
-          success: CSV soubor byl úspěšně nahrán, posíláme účastníkům e-mail s pozvánkou. To může chvíli trvat.
         new:
           csv_upload:
             title: Nahrát soubor CSV
@@ -966,13 +953,7 @@ cs:
             empty: Nemáte žádné soukromé účastníky.
             explanation: Máte %{count} soukromých účastníků.
             title: Odstranit soukromé účastníky
-          example_file: 'Příklad souboru:'
-          explanation: 'Nahrajte soubor CSV. Musí mít dva sloupce s e-mailem v prvním sloupci souboru a jméno v posledním sloupci souboru uživatelů, které chcete přidat do participačního prostoru, bez hlaviček. Vyhněte se používání neplatných znaků jako `<>?%&^*#@()[]=+:;"{}\|` v uživatelském jméně.'
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: Importovat soukromé účastníky přes CSV
-          upload: Nahrát
       reminders:
         create:
           error: Při vytváření připomenutí došlo k chybě.

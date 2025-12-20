@@ -127,6 +127,7 @@ gl:
           attachments: Anexos
           components: Compoñentes
           moderations: Moderacións
+          private_users: Membros
       models:
         assembly:
           fields:

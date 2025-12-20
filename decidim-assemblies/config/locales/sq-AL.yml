@@ -141,6 +141,7 @@ sq:
           components: Komponentet
           info: Rreth asamblesë
           moderations: Moderimet
+          private_users: Anëtarët
           see_assembly: Shiko asamblenë
       models:
         assembly:

@@ -65,6 +65,7 @@ fr-CA:
             title: Questions
           questions_table:
             answer: Réponses
+            total: Total
             votes: Votes
             votes_count:
               one: 1 vote
@@ -200,6 +201,7 @@ fr-CA:
           title: Questions de l'élection
         show:
           active_voting_until: 'Vote actif jusqu''au : %{end_date}'
+          edit_vote_button: Modifier le vote
           vote_button: Voter
           voted: Vous avez déjà voté. Vous pouvez voter à nouveau, seul votre dernier vote sera prise en compte.
           votes_count:
@@ -212,6 +214,10 @@ fr-CA:
             per_question: Les résultats sont disponibles par question. Vous pouvez voir les résultats pour chaque question après que le vote soit activé et que les résultats soient publiés.
             real_time: Les résultats sont disponibles en temps réel. Vous pouvez voir les résultats en cours de vote.
           title: Résultats
+          total: 'TOTAL :'
+          total_votes:
+            one: 1 vote
+            other: "%{count} votes"
       models:
         election:
           fields:
@@ -254,7 +260,8 @@ fr-CA:
           cast_vote: Exprimer votre vote
           next: Suivant
         receipt:
-          description: Vous pouvez voter à nouveau à tout moment tant que la période de vote est ouverte. Votre vote précédent sera écrasé par le nouveau.
+          description: Vous pouvez voter à nouveau à tout moment pendant que la période de vote est ouverte. Votre vote précédent sera écrasé par le nouveau.
+          edit_vote: Modifier votre vote
           exit_button: Quitter l'isoloir
           title: Vos votes ont été exprimés avec succès
     metadata:

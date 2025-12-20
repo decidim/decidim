@@ -127,6 +127,7 @@
           attachments: Vedlegg
           components: Komponenter
           moderations: Moderering
+          private_users: Medlemmer
       models:
         assembly:
           fields:

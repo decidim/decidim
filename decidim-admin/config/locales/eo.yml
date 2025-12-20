@@ -28,6 +28,10 @@ eo:
       newsletter:
         body: Korpo
         subject: Temo
+      participatory_space_private_user:
+        name: Nomo
+      participatory_space_private_user_csv_import:
+        file: Dosiero
   decidim:
     admin:
       managed_users:
