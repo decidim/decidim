@@ -114,3 +114,34 @@ shared_context "when managing a component as a process admin" do
            participatory_process:)
   end
 end
+
+shared_context "when publishes and unpublishes component" do
+  let(:title) { translated(current_component.name) }
+
+  include_context "when managing a component as an admin" do
+    it "unpublishes and publishes the component successfully" do
+      within ".sidebar-menu" do
+        click_on "Components"
+      end
+
+      within "tr", text: title do
+        find("button[data-controller='dropdown']").click
+        click_on "Hide from menu"
+      end
+
+      within "tr", text: title do
+        find("button[data-controller='dropdown']").click
+        click_on "Unpublish"
+      end
+
+      expect(page).to have_content("The component has been successfully unpublished")
+
+      within "tr", text: title do
+        find("button[data-controller='dropdown']").click
+        click_on "Publish"
+      end
+
+      expect(page).to have_content("The component has been successfully published")
+    end
+  end
+end
