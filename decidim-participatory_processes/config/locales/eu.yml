@@ -511,7 +511,6 @@ eu:
             images: Irudiak
             metadata: Metadatuak
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
-            private_notice: Kiak kudeatu ahal izango dituzu pribatu gisa ezarri ondoren
             related_processes: Elkarrekin lotutako prozesuak
             select_process_group: Prozesu-talde bat hautatu
             slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
