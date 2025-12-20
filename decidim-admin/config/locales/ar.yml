@@ -104,7 +104,7 @@ ar:
         youtube_handler: مُعرّف حساب يوتيوب
       participatory_space_private_user:
         email: البريد الإلكتروني
-        name: الإسم
+        name: الاسم
       participatory_space_private_user_csv_import:
         file: ملف
       scope:
@@ -361,16 +361,9 @@ ar:
             'false': Officialized
             'true': غير رسمي
         participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: تم قبول الدعوة
-            values:
-              'false': لم يتم القبول
-              'true': تم قبوله
           user_invitation_sent_at_not_null:
-            label: تم إرسال الدعوة
             values:
-              'false': لم يتم الارسال
-              'true': تم الإرسال
+              'false': غير مرسَلة
         private_space_eq:
           label: خاص
           values:
@@ -717,6 +710,8 @@ ar:
         destroy:
           error: حدثت مشكلة في حذف مشارك خاص لهذه المساحة التشاركية.
           success: المشاركة الفضاء الفضاء وصول المشاركين دمرت بنجاح.
+        edit:
+          update: تحديث
         index:
           title: المشاركة الفضاء المشارك الخاص
         new:
@@ -731,7 +726,6 @@ ar:
             empty: ليس لديك أي مشاركين خاصين.
             explanation: لديك %{count} مشاركين خاصين.
             title: حذف جميع المشاركين الخاصين
-          upload: حمّل
       reminders:
         new:
           submit: إرسال
@@ -869,7 +863,6 @@ ar:
         new:
           explanation: قم بتحميل ملف CSV الخاص بك. يجب أن يحتوي على رسائل البريد الإلكتروني الرسمية للمجموعات في مؤسستك في العمود الأول من الملف ، بدون رؤوس. سيتم التحقق من صحة المجموعات التي أكدت بريدها الإلكتروني والتي تحتوي على بريد إلكتروني ظاهر في ملف CSV.
           title: قم بتحميل ملف CSV الخاص بك
-          upload: حمّل
       users:
         create:
           error: كانت هناك مشكلة في دعوة هذا المشرف.

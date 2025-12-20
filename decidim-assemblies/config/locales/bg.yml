@@ -161,6 +161,7 @@ bg:
           info: Относно това събрание
           landing_page: Целева страница
           moderations: Модерации
+          private_users: Членове
           see_assembly: Вижте събранието
       models:
         assembly:

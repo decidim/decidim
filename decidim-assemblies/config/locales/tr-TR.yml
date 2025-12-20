@@ -141,6 +141,7 @@ tr:
           attachments: Ekler
           components: Bileşenler
           moderations: Yönetim
+          private_users: Üyeler
       models:
         assembly:
           fields:

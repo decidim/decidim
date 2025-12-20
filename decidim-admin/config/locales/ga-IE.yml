@@ -35,6 +35,11 @@ ga:
         primary_color: Bundath
         success_color: Rathúil
         warning_color: Rabhadh
+      participatory_space_private_user:
+        email: Seoladh ríomhphoist
+        name: Ainm
+      participatory_space_private_user_csv_import:
+        file: Comhad
       scope:
         code: Cód
         name: Ainm
@@ -130,13 +135,6 @@ ga:
             label: Cineál
         officialized_at_null:
           label: Staid
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            values:
-              'true': Glactha
-          user_invitation_sent_at_not_null:
-            values:
-              'true': Seolta
         private_space_eq:
           label: Príobháideach
           values:
@@ -308,11 +306,10 @@ ga:
           images:
             preview: Réamhamharc
       participatory_space_private_users:
+        edit:
+          update: Nuashonraigh
         new:
           create: Cruthaigh
-      participatory_space_private_users_csv_imports:
-        new:
-          upload: Uaslódáil
       resource_permissions:
         edit:
           submit: Deimhnigh
@@ -339,9 +336,6 @@ ga:
         panel: Riarachán
         scopes: Scóip
         user_groups: Grúpaí
-      user_groups_csv_verifications:
-        new:
-          upload: Uaslódáil
       users:
         form:
           email: Seoladh ríomhphoist

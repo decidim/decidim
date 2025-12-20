@@ -76,6 +76,11 @@ zh-CN:
         welcome_notification_body: 欢迎通知机构
         welcome_notification_subject: 欢迎通知主题
         youtube_handler: YouTube 处理程序
+      participatory_space_private_user:
+        email: 电子邮件地址
+        name: 名称
+      participatory_space_private_user_csv_import:
+        file: 文件
       scope:
         code: 代码
         name: 名称
@@ -244,6 +249,10 @@ zh-CN:
           values:
             'false': 已授权
             'true': 未正式授权
+        participatory_space_private_users:
+          user_invitation_sent_at_not_null:
+            values:
+              'false': 未发送
         private_space_eq:
           label: 非公开的
           values:
@@ -518,6 +527,8 @@ zh-CN:
         destroy:
           error: 删除这个参与空间的私人参与者时出错。
           success: 参与性空间私人参与者访问成功被摧毁。
+        edit:
+          update: 更新
         index:
           title: 参与性空间私人参与者
         new:
@@ -527,7 +538,6 @@ zh-CN:
         new:
           csv_upload:
             title: 上传您的 CSV 文件
-          upload: 上传
       resource_permissions:
         edit:
           submit: 提交
@@ -633,7 +643,6 @@ zh-CN:
         new:
           explanation: 上传您的 CSV 文件。它必须在文件的第一列中包含您组织中的群组的官方电子邮件，没有标题。 只有已确认其电子邮件并在CSV文件中出现电子邮件的组才会被验证。
           title: 上传您的 CSV 文件
-          upload: 上传
       users:
         create:
           error: 邀请此管理员时出现问题。

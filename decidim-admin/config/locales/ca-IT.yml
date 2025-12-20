@@ -446,9 +446,9 @@ ca-IT:
               'false': No acceptada
               'true': Acceptada
           user_invitation_sent_at_not_null:
-            label: S'ha enviat la invitació
+            label: Invitació enviada
             values:
-              'false': No enviada
+              'false': No enviat
               'true': Enviada
         private_space_eq:
           label: Privat
@@ -951,9 +951,9 @@ ca-IT:
           update: Actualitzar
         index:
           import_via_csv: Importar des de CSV
-          publish_all: Publicar tot
+          publish_all: Publicar totes
           title: Participant de l'espai participatiu privat
-          unpublish_all: Despublicar tot
+          unpublish_all: Despublicar totes
         new:
           create: Crear
           title: Nova participant de l'espai privat.
@@ -985,7 +985,7 @@ ca-IT:
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
           title: Importar participant privades via CSV
-          upload: Carrega
+          upload: Carregar
       reminders:
         create:
           error: Hi ha hagut un problema en crear els recordatoris.
@@ -1300,7 +1300,7 @@ ca-IT:
             acme@example.org
             bubba.gump@example.org
           title: Puja el fitxer CSV
-          upload: Carrega
+          upload: Carregar
       users:
         create:
           error: S'ha produït un error en convidar aquesta participant.

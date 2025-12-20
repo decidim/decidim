@@ -167,6 +167,7 @@ pl:
           info: O tym zgromadzeniu
           landing_page: Strona startowa
           moderations: Moderacje
+          private_users: Członkowie
           see_assembly: Zobacz zgromadzenie
       models:
         assembly:

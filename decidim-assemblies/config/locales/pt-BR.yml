@@ -161,6 +161,7 @@ pt-BR:
           info: Sobre essa assambleia
           landing_page: Página principal
           moderations: Moderação
+          private_users: Membros
           see_assembly: Ver assembleia
       models:
         assembly:

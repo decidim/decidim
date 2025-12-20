@@ -153,6 +153,7 @@ lt:
           components: Komponentai
           landing_page: Pagrindinis puslapis
           moderations: Moderavimai
+          private_users: Nariai
       models:
         assembly:
           fields:

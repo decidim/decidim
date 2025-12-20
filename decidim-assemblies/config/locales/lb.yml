@@ -133,6 +133,7 @@ lb:
           attachment_files: Dateien
           components: Komponenten
           moderations: Moderationen
+          private_users: Mitglieder
       models:
         assembly:
           fields:
