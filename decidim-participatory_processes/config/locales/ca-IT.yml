@@ -511,7 +511,6 @@ ca-IT:
             images: Imatges
             metadata: Metadades
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
-            private_notice: Podràs administrar les membres un cop haguis configurar l'espai com a privat
             related_processes: Processos relacionats
             select_process_group: Selecciona un grup de processos
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
