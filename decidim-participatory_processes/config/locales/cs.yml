@@ -513,7 +513,6 @@ cs:
             images: Obrázky
             metadata: Metadata
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
-            private_notice: Po nastavení jako soukromé budete moci spravovat členy
             related_processes: Související procesy
             select_process_group: Vyberte skupinu procesů
             slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
