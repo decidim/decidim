@@ -769,7 +769,6 @@ es:
         participatory_space_members:
           created_at: La fecha y hora en que se creó esta miembro
           id: El identificador único de esta miembro
-          privatable_to: A qué espacio de participación pertenece esta miembro
           published: Si esta miembro está publicada o no
           role: El rol tiene que esta miembro
           updated_at: La fecha de la última actualización de esta miembro
