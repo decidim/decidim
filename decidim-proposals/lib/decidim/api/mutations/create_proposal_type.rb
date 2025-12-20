@@ -10,14 +10,14 @@ module Decidim
 
       argument :attributes, ProposalAttributes, description: "Input attributes for the proposal", required: true
       argument :locale, GraphQL::Types::String, "The locale for which to set the proposal texts", required: true
-      argument :toggle_translations, GraphQL::Types::Boolean, "Whether the user asked to toggle the machine translations or not.", required: true, default_value: false
+      argument :toggle_translations, GraphQL::Types::Boolean, "Whether the user asked to toggle the machine translations or not.", required: false, default_value: false
 
       def resolve(attributes:, locale:, toggle_translations:)
         set_locale(locale:, toggle_translations:)
 
         params = attributes.to_h.slice(:title, :body, :address, :latitude, :longitude, :taxonomies)
 
-        params[:taxonomies] = Decidim::Taxonomy.where(id: params[:taxonomies]).pluck(:id) if params[:taxonomies]
+        params[:taxonomies] = Decidim::Taxonomy.where(organization: current_organization, id: params[:taxonomies]).pluck(:id) if params[:taxonomies]
 
         form = form(Decidim::Proposals::ProposalForm).from_params(params)
 
