@@ -582,7 +582,7 @@ fr:
           error: Un problème est survenu lors de la suppression d'un membre pour cet espace participatif.
           success: Accès membre supprimé avec succès.
         edit:
-          title: Modifier le membre.
+          title: Modifier le membre
           update: Mettre à jour
         index:
           import_via_csv: Importer via CSV
@@ -591,7 +591,7 @@ fr:
           unpublish_all: Tout dépublier
         new:
           create: Créer
-          title: Nouveau membre.
+          title: Nouveau membre
         publish_all:
           error: Un problème est survenu lors de la publication de tous les membres de cet espace participatif.
           success: Tous les membres ont été publiés avec succès pour cet espace participatif
