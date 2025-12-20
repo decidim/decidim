@@ -507,7 +507,6 @@ ja:
             images: 画像
             metadata: メタデータ
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
-            private_notice: プライベートとして設定した後、メンバーを管理することができます
             related_processes: 関連する参加型プロセス
             select_process_group: 参加型プロセス グループを選択
             slug_help_html: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
