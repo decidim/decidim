@@ -579,7 +579,6 @@ ja:
           error: 参加型スペースのメンバーの削除中に問題が発生しました。
           success: メンバーを削除しました。
         edit:
-          title: メンバーを編集
           update: 更新
         index:
           import_via_csv: CSV形式でインポート
@@ -588,7 +587,6 @@ ja:
           unpublish_all: すべて非公開
         new:
           create: 作成
-          title: 新しいメンバー
         publish_all:
           error: 参加スペースのすべてのメンバーを公開する際に問題が発生しました。
           success: 参加スペースのすべてのメンバーを公開しました
