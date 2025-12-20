@@ -6,10 +6,11 @@ module Decidim
     class ProjectsController < Decidim::Budgets::ApplicationController
       include FilterResource
       include NeedsCurrentOrder
+      include Decidim::AttachmentsHelper
       include Decidim::Budgets::Orderable
       include Decidim::IconHelper
 
-      helper_method :projects, :project, :budget, :all_geocoded_projects, :tabs, :panels, :resource_added?
+      helper_method :projects, :project, :budget, :all_geocoded_projects, :resource_added?, :tab_panel_items
 
       before_action :set_focus_mode_if_voting_open
 
@@ -64,16 +65,8 @@ module Decidim
         voting_finished? && budget.projects.selected.any?
       end
 
-      def tabs
-        @tabs ||= items.map { |item| item.slice(:id, :text, :icon) }
-      end
-
-      def panels
-        @panels ||= items.map { |item| item.slice(:id, :method, :args) }
-      end
-
-      def items
-        @items ||= [
+      def tab_panel_items
+        @tab_panel_items ||= [
           {
             enabled: ProjectHistoryCell.new(@project).render?,
             id: "included_history",
@@ -82,22 +75,7 @@ module Decidim
             method: :cell,
             args: ["decidim/budgets/project_history", @project]
           },
-          {
-            enabled: @project.photos.present?,
-            id: "images",
-            text: t("decidim.application.photos.photos"),
-            icon: resource_type_icon_key("images"),
-            method: :cell,
-            args: ["decidim/images_panel", @project]
-          },
-          {
-            enabled: @project.documents.present?,
-            id: "documents",
-            text: t("decidim.application.documents.documents"),
-            icon: resource_type_icon_key("documents"),
-            method: :cell,
-            args: ["decidim/documents_panel", @project]
-          }
+          *attachments_tab_panel_items(@project)
         ].select { |item| item[:enabled] }
       end
 
