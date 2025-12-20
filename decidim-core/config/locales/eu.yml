@@ -770,7 +770,6 @@ eu:
         participatory_space_members:
           created_at: Kide hori sortu zen eguna eta ordua
           id: The unique identifier of this member
-          privatable_to: Zein espaziotakoa den parte-hartzaile hau
           published: Parte-hartzaile pribatu hori argitaratuta dagoen ala ez
           role: Kide horrek duen rola
           updated_at: Kide hori azken aldiz eguneratu zen eguna eta ordua
