@@ -19,7 +19,7 @@ describe "Admin sorting initiatives" do
   context "when sorting initiatives by their creation" do
     it "sorts by created_at descending by default" do
       within "table thead" do
-        click_link "Created at"
+        click_on "Created at"
       end
 
       titles = page.all("table tbody tr td:nth-of-type(2)")
@@ -30,8 +30,8 @@ describe "Admin sorting initiatives" do
 
     it "sorts by created_at ascending when clicked again" do
       within "table thead" do
-        click_link "Created at"
-        click_link "Created at"
+        click_on "Created at"
+        click_on "Created at"
       end
 
       titles = page.all("table tbody tr td:nth-of-type(2)")
