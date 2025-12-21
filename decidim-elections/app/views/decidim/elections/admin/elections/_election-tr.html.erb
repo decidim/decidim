@@ -25,6 +25,6 @@
     <%= election.census&.label %>
   </td>
   <td data-label="<%= t("actions.title", scope: "decidim.elections") %>" class="table-list__actions">
-    <%= render partial: "decidim/elections/admin/elections/actions", locals: { election: election, view: view } %>
+    <%= render partial: "decidim/elections/admin/elections/actions", locals: { election:, view: } %>
   </td>
 </tr>

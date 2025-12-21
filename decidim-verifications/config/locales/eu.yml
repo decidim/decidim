@@ -182,7 +182,7 @@ eu:
             index:
               empty: Ez dago errolda-daturik. Erabili %{import_csv} inportatzeko CSV fitxategi bat.
               no_sign_in: Saioa inoiz ez hasia
-              no_user: Ez da aurkitu parte-hartzailerik
+              no_user: Ez da parte-hartzailerik aurkitu 
             last_login:
               no_sign_in: Inoiz ez sinatua
               no_user: Parte-hartzailerik gabe

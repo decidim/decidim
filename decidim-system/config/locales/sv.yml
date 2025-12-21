@@ -46,7 +46,9 @@ sv:
           hide_secret: Dölj hemlighet
           secret_can_not_be_shown: API:s hemlighet kan bara ses vid skapande eller kopiering
           show_secret: Visa hemlighet
+          shown_secret: Hemligheten är visad
         api_users:
+          create: Skapa
           new: Ny API-användare
           remove: Ta bort användaren
         confirm_destroy: Vill du radera detta?

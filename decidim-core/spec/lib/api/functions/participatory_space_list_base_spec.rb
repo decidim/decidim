@@ -30,7 +30,7 @@ module Decidim::Core
 
     context "with a private space participant" do
       let(:user) { create(:user, :confirmed, organization:) }
-      let!(:member) { create(:member, privatable_to: private_process, user:) }
+      let!(:member) { create(:member, participatory_space: private_process, user:) }
 
       it "returns all spaces including the private space" do
         expect(subject).to include(process1, process2, process3, private_process)

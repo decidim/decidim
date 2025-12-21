@@ -86,9 +86,6 @@ el:
         welcome_notification_body: Σώμα ειδοποίησης καλωσορίσματος
         welcome_notification_subject: Θέμα ειδοποίησης καλωσορίσματος
         youtube_handler: Πρόγραμμα χειρισμού YouTube
-      participatory_space_private_user:
-        email: Email
-        name: Όνομα
       scope:
         code: Κωδικός
         name: Όνομα
@@ -129,10 +126,6 @@ el:
           attributes:
             official_img_footer:
               allowed_file_content_types: Μη έγκυρο αρχείο εικόνας
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Λάθος στο αρχείο εισαγωγής, παρακαλούμε διαβάστε προσεκτικά τις οδηγίες και βεβαιωθείτε ότι το αρχείο είναι κωδικοποιημένο σε UTF-8.
         user_group_csv_verification:
           attributes:
             file:
@@ -171,8 +164,6 @@ el:
         import: Εισαγωγή
         newsletter:
           new: Νέο ενημερωτικό δελτίο
-        participatory_space_private_user:
-          new: Νέος ιδιωτικός χρήστης συμμετοχικού χώρου
         per_page: Ανά σελίδα
         share: Κοινοποίηση
         user:
@@ -357,17 +348,6 @@ el:
           values:
             'false': Επισημοποιήθηκε
             'true': Δεν επισημοποιήθηκε
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Πρόσκληση αποδεκτή
-            values:
-              'false': Δεν γίνεται δεκτό
-              'true': Αποδοχή
-          user_invitation_sent_at_not_null:
-            label: Πρόσκλησης εστάλει
-            values:
-              'false': Δεν έχει σταλεί
-              'true': Απεστάλλει
         private_space_eq:
           label: Ιδιωτικό
           values:
@@ -485,6 +465,10 @@ el:
             explanation: Οι διαχειριζόμενοι συμμετέχοντες μπορούν να αναβαθμιστούν σε τυπικούς συμμετέχοντες. Αυτό σημαίνει ότι θα προσκληθούν στην εφαρμογή και δεν θα μπορείτε να τους διαχειριστείτε ξανά. Ο προσκεκλημένος συμμετέχων θα λάβει email για να αποδεχτεί την πρόσκλησή σας.
             new_managed_user_promotion: Προώθηση νέου διαχειριζόμενου συμμετέχοντα
             promote: Αναβάθμιση
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Αποστολή του αρχείου σας CSV
       menu:
         admin_log: Αρχείο καταγραφής δραστηριοτήτων διαχειριστή
         admins: Διαχειριστές
@@ -541,8 +525,6 @@ el:
             sent_to: Στάλθηκε σε
             subject: Θέμα
           name: Ενημερωτικό δελτίο
-        participatory_space_private_user:
-          name: Ιδιωτικός συμμετέχων χώρου συμμετοχής
         scope:
           fields:
             name: Όνομα
@@ -720,27 +702,6 @@ el:
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του οργανισμού.
           success: Ο οργανισμός ενημερώθηκε με επιτυχία.
-      participatory_space_private_users:
-        create:
-          error: Υπήρξε ένα πρόβλημα κατά την προσθήκη ενός ιδιωτικού συμμετέχοντα για αυτόν τον χώρο συμμετοχής.
-          success: Η πρόσβαση του ιδιωτικού συμμετέχοντα στον χώρο συμμετοχής δημιουργήθηκε με επιτυχία.
-        destroy:
-          error: Υπήρξε ένα πρόβλημα κατά τη διαγραφή ενός ιδιωτικού συμμετέχοντα για αυτόν τον χώρο συμμετοχής.
-          success: Η πρόσβαση του ιδιωτικού συμμετέχοντα στον χώρο συμμετοχής καταστράφηκε με επιτυχία.
-        index:
-          import_via_csv: Εισαγωγή μέσω CSV
-          title: Ιδιωτικός συμμετέχων χώρου συμμετοχής
-        new:
-          create: Δημιουργία
-          title: Νέο ιδιωτικός συμμετέχων χώρου συμμετοχής.
-      participatory_space_private_users_csv_imports:
-        create:
-          success: Το αρχείο CSV μεταφορτώθηκε με επιτυχία. Στέλνουμε πρόσκληση στους συμμετέχοντες μέσω email. Αυτή η διαδικασία μπορεί να χρειαστεί λίγη ώρα.
-        new:
-          csv_upload:
-            title: Αποστολή του αρχείου σας CSV
-          example_file: 'Παράδειγμα αρχείου:'
-          upload: Αποστολή
       reminders:
         new:
           submit: Αποστολή

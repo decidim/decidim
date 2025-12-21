@@ -118,10 +118,6 @@ lb:
         update: "%{user_name} huet d'OAuth-Applikation %{resource_name} aktualiséiert"
       organization:
         update: "%{user_name} huet d'Organisatiouns-Astellungen aktualiséiert"
-      participatory_space_private_user:
-        create: "%{user_name} huet d' %{resource_name} als privaten Benotzer agelueden"
-        create_via_csv: "%{user_name} huet d'%{resource_name} per CSV als privaten Teilnehmer agelueden"
-        delete: "%{user_name} huet den Benotzer %{resource_name} als privaten Benotzer geläscht"
       scope:
         create: "%{user_name} huet den Beräich %{resource_name} erstallt"
         create_with_parent: "%{user_name} huet den Beräich %{resource_name} am iwwergeuerdenten Beräich %{parent_scope} erstallt"
@@ -886,10 +882,8 @@ lb:
         decline: Invitatioun refuséieren
         hello: Moien %{email},
         invited_you_as_admin: "%{invited_by} huet dech als Admin vun %{application} aglueden. Du kanns se unhuelen andeems op den Link ënnen gees."
-        invited_you_as_private_user: "%{invited_by} huet dech als privaten Teilnehmer vun %{application} agelueden. Du déi kanns iwwer den folgenden Link unhuelen."
         someone_invited_you: Et huet een dech fir d' %{application} agelueden. Du kanns dat unhuelen andeems du op op den Link ënnen gees.
         someone_invited_you_as_admin: Et huet een dech als Admin op %{application} agelueden, du kanns dat iwwer den Link ënnen unhuelen.
-        someone_invited_you_as_private_user: Jemand hat dich als private_user von %{application}eingeladen, du kannst es über den folgenden Link akzeptieren.
         subject: Instruktiounen fir d'Invitatioun
       password_change:
         greeting: Moien %{recipient}!

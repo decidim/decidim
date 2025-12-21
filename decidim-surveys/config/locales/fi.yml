@@ -71,6 +71,7 @@ fi:
         manage_questions: Kysymykset
         new_survey: Uusi kysely
         preview: Esikatsele
+        responses: Vastaukset
         responses_alert: Kyselyn vastausten poistaminen julkaisun yhteydessä on otettu käyttöön tälle kyselylle. Kyselyllä on tällä hetkellä %{responses_count} vastausta, jotka poistetaan, mikäli jatkat eteenpäin.
         title: Toiminnot
       admin:

@@ -246,10 +246,6 @@ lt:
       organization:
         update: "%{user_name} atnaujino organizacijos nustatymus"
         update_external_domain: "%{user_name} atnaujino organizacijos išorinius domenus"
-      participatory_space_private_user:
-        create: "%{user_name} pakvietė %{resource_name} būti privačiu dalyviu"
-        create_via_csv: "%{user_name} pakvietė %{resource_name} per CSV tapti privačiu dalyviu"
-        delete: "%{user_name} pašalino %{resource_name} dalyvį iš privačių dalyvių"
       scope:
         create: "%{user_name} sukūrė %{resource_name} sritį"
         create_with_parent: "%{user_name} sukūrė %{resource_name} sritį %{parent_scope} srityje"
@@ -1299,17 +1295,13 @@ lt:
           Jei nenorite priimti kvietimo, nekreipkite dėmesio į šį e. laišką. <br />
           jūsų paskyra nebus sukurta tol, kol nespustelėsite pirmiau pateiktos nuorodos ir nenustatysite savo naudotojo vardo ir slaptažodžio.
         invited_you_as_admin: "%{invited_by} pakvietė jus kaip %{application} administratorių. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą."
-        invited_you_as_private_user: "%{invited_by} pakvietė jus kaip %{application} privatų dalyvį. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą."
         someone_invited_you: Kažkas pakvietė jus į %{application}. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą.
         someone_invited_you_as_admin: Kažkas pakvietė jus kaip %{application} administratorių. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą.
-        someone_invited_you_as_private_user: Kažkas pakvietė jus kaip %{application} privatų dalyvį. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą.
         subject: Kvietimo nurodymai
       invite_admin:
         subject: Esate pakviestas tvarkyti %{organization}
       invite_collaborator:
         subject: Esate pakviesta(-s) bendradarbiauti %{organization}
-      invite_private_user:
-        subject: Esate pakviesta(-s) į %{organization} uždarą dalyvaujamąjį procesą
       organization_admin_invitation_instructions:
         subject: Esate pakviesta(-s) tvarkyti %{organization}
       password_change:

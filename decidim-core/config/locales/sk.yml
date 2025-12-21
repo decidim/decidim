@@ -113,9 +113,6 @@ sk:
         update: "%{user_name} aktualizoval %{resource_name} aplikáciu OAuth"
       organization:
         update: "%{user_name} aktualizoval nastavenia organizácie"
-      participatory_space_private_user:
-        create: "%{user_name} pozval %{resource_name} aby sa stal súkromným používateľom"
-        delete: "%{user_name} odstránil užívateľa %{resource_name} ako súkromného účastníka"
       scope:
         create: "%{user_name} vytvoril %{resource_name} rozsah"
         create_with_parent: "%{user_name} vytvoril%{resource_name} rozsah vnútri rozsahu%{parent_scope}"
@@ -734,10 +731,8 @@ sk:
         decline: Odmietnuť pozvaním
         hello: Dobrý deň%{email},
         invited_you_as_admin: "%{invited_by} vás pozval ako administrátora na %{application}. Môžete pozvanie prijať prostredníctvom nižšie uvedeného odkazu."
-        invited_you_as_private_user: "%{invited_by} vás pozval ako súkromného užívateľa na %{application}. Môžete pozvanie prijať prostredníctvom nižšie uvedeného odkazu."
         someone_invited_you: Niekto vás pozval na%{application}. Môžete pozvanie prijať prostredníctvom nižšie uvedeného odkazu.
         someone_invited_you_as_admin: Niekto Vás pozval ako administrátora%{application}, môžete ho prijať pomocou nižšie uvedeného odkazu.
-        someone_invited_you_as_private_user: Niekto vás pozval ako private_user%{application}, môžete ho prijať pomocou nižšie uvedeného odkazu.
         subject: Pokyny k pozvánkam
       password_change:
         greeting: Dobrý deň, %{recipient}!

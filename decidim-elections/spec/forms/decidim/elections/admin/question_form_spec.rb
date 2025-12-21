@@ -20,10 +20,10 @@ module Decidim
 
         let(:attributes) do
           {
-            body_en: body_en,
-            description_en: description_en,
-            question_type: question_type,
-            response_options: response_options
+            body_en:,
+            description_en:,
+            question_type:,
+            response_options:
           }
         end
 
@@ -58,11 +58,11 @@ module Decidim
         describe "max_choices validation" do
           let(:attributes) do
             {
-              body_en: body_en,
-              description_en: description_en,
-              question_type: question_type,
-              response_options: response_options,
-              max_choices: max_choices
+              body_en:,
+              description_en:,
+              question_type:,
+              response_options:,
+              max_choices:
             }
           end
 

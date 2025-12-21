@@ -1,0 +1,30 @@
+= Unauthorized Object Error - UNAUTHORIZED_OBJECT_ERROR
+
+This error is triggered when the requesting user does not have access to a certain resource.
+
+The JSON response structure is:
+[source, json]
+----
+{
+  "errors": [
+    {
+      "message": "You cannot view or edit this Result because you do not have permissions",
+      "locations": [
+        {
+          "line": 2,
+          "column": 3
+        }
+      ],
+      "path": [
+        "vote"
+      ],
+      "extensions": {
+        "code": "UNAUTHORIZED_OBJECT_ERROR"
+      }
+    }
+  ],
+  "data": {
+    "result": null
+  }
+}
+----

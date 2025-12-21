@@ -33,6 +33,11 @@ eu:
       help_section:
         content: Edukia
       id: ID
+      member:
+        email: Helbide elektronikoa
+        name: Izena
+      member_csv_import:
+        file: Fitxategia
       newsletter:
         body: Testua
         send_to_all_users: Bidali parte-hartzaile guztiei
@@ -91,11 +96,6 @@ eu:
         welcome_notification_body: Ongietorri-jakinarazpenaren testua
         welcome_notification_subject: Ongi etorri jakinarazpenaren mezuaren gaia
         youtube_handler: YouTubeko kudeatzailea
-      participatory_space_private_user:
-        email: Helbide elektronikoa
-        name: Izena
-      participatory_space_private_user_csv_import:
-        file: Fitxategia
       scope:
         code: Kodea
         name: Izena
@@ -132,6 +132,10 @@ eu:
         file: Fitxategia
     errors:
       models:
+        member_csv_import:
+          attributes:
+            file:
+              malformed: Gaizki osatutako inportazio-fitxategia. Mesedez, irakurri arretaz jarraibideen bidez, eta ziurtatu fitxategia UTF-8 kodetuta dagoela.
         newsletter:
           attributes:
             base:
@@ -140,10 +144,6 @@ eu:
           attributes:
             official_img_footer:
               allowed_file_content_types: Irudi-fitxategi baliogabea
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Fitxategia akastuna da. Irakurri arretaz jarraibideak eta ziurtatu fitxategia UTF-8an kodifikatuta dagoela.
         user_group_csv_verification:
           attributes:
             file:
@@ -191,12 +191,12 @@ eu:
         export: Esportatu
         export-selection: Esportatu hautaketa
         import: Inportatu
+        member:
+          new: Beste kide bat
         menu_hidden: Ezkutatu menutik
         moderate: Kudeatu moderazioak
         newsletter:
           new: Beste buletin bat
-        participatory_space_private_user:
-          new: Partaidetza-espazio berria, erabiltzaile pribatua
         per_page: Orrialdeko
         permissions: Kudeatu baimenak
         restore: Berreskuratu
@@ -418,6 +418,17 @@ eu:
           values:
             'false': 'Ez'
             'true': 'Bai'
+        members:
+          user_invitation_accepted_at_not_null:
+            label: Gonbidapena onartua
+            values:
+              'false': Ez onartua
+              'true': Onartua
+          user_invitation_sent_at_not_null:
+            label: Gonbidapena bidalita
+            values:
+              'false': Ez da bidali
+              'true': Bidalia
         moderated_users:
           reports_reason_eq:
             label: Arrazoiaren berri eman
@@ -433,17 +444,6 @@ eu:
           values:
             'false': Ofizializatua
             'true': Ez ofizializatua
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Gonbidapena onartua
-            values:
-              'false': Ez onartuta
-              'true': Onartuta
-          user_invitation_sent_at_not_null:
-            label: Gonbidapena bidali da
-            values:
-              'false': Ez da bidali
-              'true': Bidalia
         private_space_eq:
           label: Pribatua
           values:
@@ -576,6 +576,51 @@ eu:
             explanation: Kudeatutako parte-hartzaileak parte-hartzaile estandar mailara igo daitezke. Horrek esan nahi du aplikaziora gonbidatuak izanen direla eta ezingo direla berriro ere ordeztu. Parte-hartzaile gonbidatuak mezu elektroniko bat jasoko du gonbita onartzeko.
             new_managed_user_promotion: Kudeatutako parte-hartzaileen beste maila-igoera bat
             promote: Sustatu
+      members:
+        create:
+          error: Arazo bat izan da partaidetza-espazio horretarako kide bat gehitzeko.
+          success: Kideen sarbidea behar bezala sortu da.
+        destroy:
+          error: Arazo bat dago partaidetza-espazio horretarako kide bat ezabatzeko.
+          success: Kidearen sarbidea behar bezala suntsitu da.
+        edit:
+          update: Egunaratu
+        index:
+          import_via_csv: CSV fitxategi baten bidez inportatu
+          publish_all: Denak argitaratu
+          title: Kidea
+          unpublish_all: Desargitaratu guztiak
+        new:
+          create: Sortu
+        publish_all:
+          error: Arazo bat izan da partaidetza-espazio horretarako kide bat gehitzeko.
+          success: Partaidetza-espazio honetarako kide guztiak arrakastaz argitaratu dira
+        unpublish_all:
+          error: Arazo bat dago partaidetza-espazio horretarako kide guztiak desargitaratzeko.
+          success: Partaidetza-espazio honetako kide guztiak behar bezala ezabatu dira
+        update:
+          error: Arazo bat izan da partaidetza-espazio horretarako kidea eguneratzeko.
+          success: Kidea behar bezala eguneratu da
+      members_csv_imports:
+        create:
+          invalid: Arazo bat izan da CSV fitxategia irakurtzean. Egiaztatu jarraibideak bete dituzula.
+          success: CSV fitxategia ondo igo da, gonbidapen-mezu elektroniko bat bidaltzen ari gara parte-hartzaileei. Horrek denbora pixka bat iraun dezake.
+        new:
+          csv_upload:
+            title: Igo zure CSV fitxategia
+          destroy:
+            button: Kide guztiak ezabatu
+            confirm: Ziur zaude kide guztiak ezabatu nahi dituzula? Ekintza hori ezin da desegin, ezingo dituzu berreskuratu.
+            empty: Ez duzu kiderik.
+            explanation: '%{count} kide dituzu.'
+            title: Kideak ezabatu
+          example_file: 'Adibide-fitxategia:'
+          explanation: 'Igo zure CSV fitxategia. Bi zutabe izan behar ditu, fitxategiko lehen zutabean posta elektronikoa eta parte-hartze gunera gehitu nahi dituzun parte-hartzaileen fitxategiaren azken zutabean izena jarrita, goibururik gabe. Ez erabili baliozko ez diren karaktereak erabiltzaile-izenean, hala nola, "sim"<>?%&^*#@()[]=+:;"{}\|`.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
+          title: Kidek CSV fitxategi baten bidez
+          upload: Igo
       menu:
         admin_log: Administratzaile jarduera-erregistroa
         admins: Administratzaileak
@@ -634,6 +679,8 @@ eu:
             reason: Arrazoia
             started_at: 'Hasiera-ordua:'
             user: Parte-hartzaileak
+        member:
+          name: Kidea
         newsletter:
           fields:
             created_at: Noiz sortua
@@ -642,8 +689,6 @@ eu:
             sent_to: Hona bidalia
             subject: Gaia
           name: Buletina
-        participatory_space_private_user:
-          name: Partaidetza-espazio pribatuko parte-hartzailea
         scope:
           fields:
             name: Izena
@@ -918,53 +963,6 @@ eu:
         form:
           add: Gehitu baimendutako helbideen zerrendara
           title: Baimendutako kanpoko domeinuen zerrenda
-      participatory_space_private_users:
-        create:
-          error: Arazo bat egon da parte-hartzaile pribatu bat gehitzean partaidetza-espazio honetarako.
-          success: Zuzen sortu da sarbide pribatua partaidetza-espazioko partaideentzat.
-        destroy:
-          error: Arazo bat egon da parte-hartzaile pribatu bat ezabatzean partaidetza-espazio honetarako.
-          success: Behar bezala ezabatua parte-hartzailearen sarbidea partaidetza-espazio pribaturako.
-        edit:
-          title: Editatu espazio parte-hartzailea parte-hartzaile pribatua.
-          update: Eguneratu
-        index:
-          import_via_csv: Inportatu CSV bidetik
-          publish_all: Argitaratu guztiak
-          title: Partaidetza-espazio pribatuko parte-hartzailea
-          unpublish_all: Desargitaratu guztiak
-        new:
-          create: Sortu
-          title: Partaidetza-espazio pribatuko parte-hartzaile berria.
-        publish_all:
-          error: Arazo bat egon da parte-hartzaile pribatu guztiak argitaratzean partaidetza-espazio honetarako.
-          success: Parte-hartzaile pribatu guztiak zuzen argitaratu dira partaidetza-espazio honetarako
-        unpublish_all:
-          error: Arazo bat egon da parte-hartzaile pribatu guztiak desargiratzean partaidetza-espazio honetarako.
-          success: Parte-hartzaile pribatu guztiak zuzen desargitaratu dira partaidetza-espazio honetarako
-        update:
-          error: Arazo bat egon da parte-hartzaile pribatua partaidetza-espazio horretarako eguneratzean.
-          success: Partaidetza-espazioa, parte-hartzaile pribatua, arrakastaz eguneratua
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: Arazo bat egon da CSV fitxategia irakurtzean. Mesedez, ziurtatu jarraibideei kasu egin diezula.
-          success: CSV fitxategia zuzen igo da, eta parte-hartzaileei gonbidapen-mezu elektroniko bat bidaltzen ari gara. Prozesu horrek denbora behar du.
-        new:
-          csv_upload:
-            title: Igo zure CSV fitxategia
-          destroy:
-            button: Ezabatu parte-hartzaile pribatu guztiak
-            confirm: Ziur zaude parte-hartzaile pribatu guztiak ezabatu nahi dituzula? Ekintza hau ezin da desegin, ezin izango dituzu berreskuratu.
-            empty: Ez duzu parte-hartzaile pribaturik.
-            explanation: '%{count} parte-hartzaile pribatu dituzu.'
-            title: Ezabatu parte-hartzaile pribatuak
-          example_file: 'Fitxategi eredua:'
-          explanation: 'Igo zure CSV fitxategia. Bi zutabe izan behar ditu. Lehenengo zutabean posta elektronikoa jarri behar da, eta azken zutabean partaidetza-prozesura gehitu nahi dituzun parte-hartzaileen izena, goibururik gabe. Ez erabili holako karaktererik erabiltzaileen izenetan: `<>?%&^*#@()[]=+:;"{}\|`.'
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: Inportatu parte-hartzaile pribatuak CSV bidez
-          upload: Igo
       reminders:
         create:
           error: Arazo bat egon da ohartarazpenak sortzean.

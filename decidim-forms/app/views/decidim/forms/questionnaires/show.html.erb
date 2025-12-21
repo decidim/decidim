@@ -39,7 +39,7 @@
           <% else %>
             <% body = t("decidim.forms.questionnaires.show.questionnaire_responded.body") %>
           <% end %>
-          <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_responded.title"), body: body }) %>
+          <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_responded.title"), body: }) %>
         <% else %>
           <% if @form.responses_by_step.flatten.empty? %>
             <%= cell("decidim/announcement", t("decidim.forms.questionnaires.show.empty")) %>

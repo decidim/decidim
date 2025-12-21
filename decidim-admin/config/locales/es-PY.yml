@@ -33,6 +33,11 @@ es-PY:
       help_section:
         content: Contenido
       id: ID
+      member:
+        email: Correo electrónico
+        name: Nombre
+      member_csv_import:
+        file: Archivo
       newsletter:
         body: Cuerpo
         send_to_all_users: Enviar a todas las participantes
@@ -91,11 +96,6 @@ es-PY:
         welcome_notification_body: Cuerpo del mensaje de notificación de bienvenida
         welcome_notification_subject: Asunto del mensaje de notificación de bienvenida
         youtube_handler: Nombre de YouTube
-      participatory_space_private_user:
-        email: Correo electrónico
-        name: Nombre
-      participatory_space_private_user_csv_import:
-        file: Archivo
       scope:
         code: Código
         name: Nombre
@@ -132,6 +132,10 @@ es-PY:
         file: Expediente
     errors:
       models:
+        member_csv_import:
+          attributes:
+            file:
+              malformed: Archivo de importación mal formateado, por favor lea las instrucciones cuidadosamente y asegúrese de que el archivo está codificado en UTF-8.
         newsletter:
           attributes:
             base:
@@ -140,10 +144,6 @@ es-PY:
           attributes:
             official_img_footer:
               allowed_file_content_types: Archivo de imagen no válido
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Archivo de importación mal formateado, por favor lea las instrucciones cuidadosamente y asegúrese de que el archivo está codificado en UTF-8.
         user_group_csv_verification:
           attributes:
             file:
@@ -191,12 +191,12 @@ es-PY:
         export: Exportar
         export-selection: Exportar selección
         import: Importar
+        member:
+          new: Nueva miembro
         menu_hidden: Ocultar del menú
         moderate: Gestionar las moderaciones
         newsletter:
           new: Nuevo boletín
-        participatory_space_private_user:
-          new: Nuevo usuario privado del espacio participativo
         per_page: Por página
         permissions: Gestionar los permisos
         restore: Restaurar
@@ -418,6 +418,17 @@ es-PY:
           values:
             'false': 'No'
             'true': 'Sí'
+        members:
+          user_invitation_accepted_at_not_null:
+            label: Invitación aceptada
+            values:
+              'false': No aceptada
+              'true': Aceptada
+          user_invitation_sent_at_not_null:
+            label: Invitación enviada
+            values:
+              'false': No enviada
+              'true': Enviada
         moderated_users:
           reports_reason_eq:
             label: Motivo de la denuncia
@@ -433,17 +444,6 @@ es-PY:
           values:
             'false': Oficializado
             'true': No oficializado
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Invitación aceptada
-            values:
-              'false': No aceptada
-              'true': Aceptada
-          user_invitation_sent_at_not_null:
-            label: Invitación enviada
-            values:
-              'false': No enviada
-              'true': Enviada
         private_space_eq:
           label: Privado
           values:
@@ -576,6 +576,51 @@ es-PY:
             explanation: Los usuarios gestionados pueden ser promovidos a usuarios estándar. Esto significa que serán invitados a la aplicación y no será capaz de suplantarlos de nuevo. El usuario invitado recibirá un correo electrónico para aceptar su invitación.
             new_managed_user_promotion: Nueva promoción de usuarios gestionados
             promote: Promocionar
+      members:
+        create:
+          error: Se ha producido un error al agregar una participante privada a este espacio participativo.
+          success: Acceso como miembro creado correctamente.
+        destroy:
+          error: Se ha producido un error al eliminar a una participante privada para este espacio de participación.
+          success: Acceso como miembro eliminado correctamente.
+        edit:
+          update: Actualizar
+        index:
+          import_via_csv: Importar vía csv
+          publish_all: Publicar todas
+          title: Miembro
+          unpublish_all: Despublicar todas
+        new:
+          create: Crear
+        publish_all:
+          error: Se ha producido un error al publicar todas las miembros de este espacio de participación.
+          success: Se han publicado correctamente todas las miembros de este espacio de participación
+        unpublish_all:
+          error: Se ha producido un error al despublicar todas las miembros de este espacio de participación.
+          success: Se han despublicado correctamente todas las miembros de este espacio de participación
+        update:
+          error: Se ha producido un error al actualizar la miembro para este espacio de participación.
+          success: Miembro actualizada correctamente
+      members_csv_imports:
+        create:
+          invalid: Hubo un problema al leer el archivo CSV. Por favor, asegúrate de haber seguido las instrucciones.
+          success: El archivo CSV se ha cargado correctamente, estamos enviando un correo de invitación a las participantes. Este proceso puede tardar un poco.
+        new:
+          csv_upload:
+            title: Sube tu archivo CSV
+          destroy:
+            button: Borrar todas las miembros
+            confirm: '¿Seguro que quieres eliminar todas las miembros? Esta acción no se puede deshacer, no podrás recuperarlas.'
+            empty: No hay miembros.
+            explanation: Hay %{count} miembros.
+            title: Eliminar miembros
+          example_file: 'Archivo de ejemplo:'
+          explanation: 'Sube tu archivo CSV. Debe tener dos columnas con correo electrónico en la primera columna del archivo y el nombre en la última columna del archivo de las participantes que deseas añadir al espacio participativo, sin encabezados. Evita usar caracteres no válidos como `<>?%&^*#@()[]=+:;"{}\|` en el nombre de usuaria.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
+          title: Importar miembros mediante CSV
+          upload: Cargar
       menu:
         admin_log: Registro de actividad de administrador
         admins: Administradores
@@ -634,6 +679,8 @@ es-PY:
             reason: Razón
             started_at: Empezó a las
             user: Usuario
+        member:
+          name: Miembro
         newsletter:
           fields:
             created_at: Fecha de creación
@@ -642,8 +689,6 @@ es-PY:
             sent_to: Enviado a
             subject: Asunto
           name: Boletín
-        participatory_space_private_user:
-          name: Usuario privado de espacio participativo
         scope:
           fields:
             name: Nombre
@@ -918,53 +963,6 @@ es-PY:
         form:
           add: Añadir a la lista de direcciones permitidas
           title: Lista de dominios externos permitidos
-      participatory_space_private_users:
-        create:
-          error: Hubo un error al agregar un usuario privado para este espacio participativo.
-          success: El acceso a usuarios privados de espacio participativo creado con éxito.
-        destroy:
-          error: Se ha producido un error al eliminar un usuario privado para este espacio participativo.
-          success: El acceso de usuarios privados del espacio participativo se eliminado con éxito.
-        edit:
-          title: Editar participante privada del espacio de participación.
-          update: Actualizar
-        index:
-          import_via_csv: Importar vía csv
-          publish_all: Publicar todo
-          title: Usuario privado de espacio participativo.
-          unpublish_all: Despublicar todo
-        new:
-          create: Crear
-          title: Nuevo usuario privado en el espacio participativo.
-        publish_all:
-          error: Se ha producido un error al publicar todas las participantes privadas de este espacio de participación.
-          success: Se han publicado correctamente todas las participantes privadas de este espacio de participación
-        unpublish_all:
-          error: Se ha producido un error al despublicar todas las participantes privadas de este espacio de participación.
-          success: Se han despublicado correctamente todas las participantes privadas de este espacio de participación
-        update:
-          error: Se ha producido un error actualizando una participante privada de este espacio de participación.
-          success: Se ha actualizado correctamente el espacio de participación privado
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: Hubo un problema al leer el archivo CSV. Por favor, asegúrate de haber seguido las instrucciones.
-          success: El archivo CSV se ha cargado correctamente, estamos enviando un correo de invitación a las participantes. Este proceso puede tardar un poco.
-        new:
-          csv_upload:
-            title: Sube tu archivo CSV
-          destroy:
-            button: Borrar todas las participantes privadas
-            confirm: '¿Seguro que quieres eliminar todas las participantes privadas? Esta acción no se puede deshacer, no podrás recuperarlas.'
-            empty: No hay participantes privadas.
-            explanation: Hay %{count} participante/s privada/s.
-            title: Borrar las participantes privadas
-          example_file: 'Fichero de ejemplo:'
-          explanation: 'Sube tu archivo CSV. Debe tener dos columnas con correo electrónico en la primera columna del archivo y el nombre en la última columna del archivo de las participantes que deseas añadir al espacio participativo, sin encabezados. Evita usar caracteres no válidos como `<>?%&^*#@()[]=+:;"{}\|` en el nombre de usuaria.'
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: Importar participantes privadas vía CSV
-          upload: Subir
       reminders:
         create:
           error: Se ha producido un error al crear los recordatorios.

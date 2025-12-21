@@ -69,6 +69,7 @@ ja:
         manage_questions: 質問
         new_survey: 新しいアンケート
         preview: プレビュー
+        responses: 回答
         responses_alert: このアンケートでは、公開時に回答を削除する設定が有効になっています。現在%{responses_count}件の回答があり、続行するとそれらは削除されます。
         title: アクション
       admin:

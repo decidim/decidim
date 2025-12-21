@@ -40,6 +40,7 @@ module Decidim::ParticipatoryProcesses
         current_user:,
         current_organization: organization,
         organization:,
+        has_members: false,
         private_space: false,
         taxonomizations:,
         errors:,

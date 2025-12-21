@@ -79,7 +79,7 @@ module Decidim
       end
 
       def can_withdraw_proposal?
-        toggle_allow(proposal && proposal.authored_by?(user))
+        toggle_allow(proposal && !proposal.withdrawn? && proposal.authored_by?(user))
       end
 
       def can_create_amendment?

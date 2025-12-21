@@ -15,6 +15,7 @@ en:
         duplicate_landing_page_blocks: Duplicate landing page blocks
         duplicate_steps: Duplicate steps
         end_date: End date
+        has_members: This space has members
         hero_image: Home image
         import_attachments: Import attachments
         import_categories: Import categories
@@ -283,9 +284,11 @@ en:
         export: "%{user_name} exported the %{resource_name} participatory process"
         import: "%{user_name} imported the %{resource_name} participatory process"
         publish: "%{user_name} published the %{resource_name} participatory process"
+        publish_all_members: "%{user_name} published all members of the %{resource_name} participatory process"
         restore: "%{user_name} restored the %{resource_name} participatory process"
         soft_delete: "%{user_name} trashed the %{resource_name} participatory process"
         unpublish: "%{user_name} unpublished the %{resource_name} participatory process"
+        unpublish_all_members: "%{user_name} unpublished all members of the %{resource_name} participatory process"
         update: "%{user_name} updated the %{resource_name} participatory process"
       participatory_process_group:
         create: "%{user_name} created the %{resource_name} participatory process group"
@@ -507,10 +510,11 @@ en:
             announcement_help: The text you enter here will be shown to the user right below the process information.
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             duration: Duration
+            has_members_help: You will be able to create and publish members
             images: Images
             metadata: Metadata
             no_taxonomy_filters_found: No taxonomy filters found.
-            private_notice: You will be able to manage members after setting it as private
+            private_notice: Makes the space not visible for visitors and only for members (except if it is also transparent)
             related_processes: Related processes
             select_process_group: Select a process group
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
