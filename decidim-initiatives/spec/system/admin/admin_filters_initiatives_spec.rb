@@ -22,7 +22,7 @@ describe "Admin sorting initiatives" do
         click_link "Created at"
       end
 
-      titles = page.all("table tbody tr td:first-child")
+      titles = page.all("table tbody tr td:nth-of-type(2)")
       expect(titles[0].text).to include("Newest initiative")
       expect(titles[1].text).to include("Recent initiative")
       expect(titles[2].text).to include("Old initiative")
@@ -34,7 +34,7 @@ describe "Admin sorting initiatives" do
         click_link "Created at"
       end
 
-      titles = page.all("table tbody tr td:first-child")
+      titles = page.all("table tbody tr td:nth-of-type(2)")
       expect(titles[0].text).to include("Old initiative")
       expect(titles[1].text).to include("Recent initiative")
       expect(titles[2].text).to include("Newest initiative")
