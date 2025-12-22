@@ -1,10 +1,10 @@
 = Close Debate
 
-o use the API to close any meeting that the user has created, you will need to use the following API request.
+To use the API to close any meeting that the user has created, you will need to use the following API request.
 
 [source,graphql]
 ----
-mutation closeMeeting($componentId: ID!, $debateId: ID!, $input: CloseDebateInput!){
+mutation closeDebate($componentId: ID!, $debateId: ID!, $input: CloseDebateInput!){
   component(id: $componentId) {
     ...on DebatesMutation{
       debate(id: $debateId) {
@@ -29,7 +29,7 @@ Example of submitted variables
 ----
 {
   "componentId": "9",
-  "meetingId": "2",
+  "debateId": "2",
   "input": {
     "locale": "en",
     "attributes": {

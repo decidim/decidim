@@ -3,7 +3,7 @@
 module Decidim
   module Debates
     class DebatesMutationType < Decidim::Core::ComponentType
-      description "A debates of a component."
+      description "Debates mutations for a component."
 
       field :debate, type: Decidim::Debates::DebateMutationType, description: "Mutates a debate", null: true do
         argument :id, GraphQL::Types::ID, "The ID of the debate", required: true
