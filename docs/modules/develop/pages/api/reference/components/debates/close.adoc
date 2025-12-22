@@ -1,6 +1,6 @@
 = Close Debate
 
-To use the API to close any meeting that the user has created, you will need to use the following API request.
+To use the API to close any debate that the user has created, you will need to use the following API request.
 
 [source,graphql]
 ----
