@@ -14,6 +14,7 @@ fi:
         duplicate_landing_page_blocks: Kopioi laskeutumissivun sisältölohkot
         duplicate_steps: Kopioi vaiheet
         end_date: Päättymispäivä
+        has_members: Tässä tilassa on jäseniä
         hero_image: Etusivun kuva
         import_attachments: Tuo liitteitä
         import_categories: Kopioi aihepiirejä
@@ -115,8 +116,8 @@ fi:
           components: Komponentit
           info: Tietoa tästä prosessista
           landing_page: Laskeutumissivun asettelu
+          members: Jäsenet
           moderations: Moderoinnit
-          private_users: Jäsenet
           process_admins: Prosessin hallintakäyttäjät
           steps: Vaiheet
       models:
@@ -282,9 +283,11 @@ fi:
         export: "%{user_name} vei osallistumisprosessin %{resource_name}"
         import: "%{user_name} toi osallistumisprosessin %{resource_name}"
         publish: "%{user_name} julkaisi osallistumisprosessin %{resource_name}"
+        publish_all_members: "%{user_name} julkaisi osallistumisprosessin %{resource_name} jäsenet"
         restore: "%{user_name} palautti osallistumisprosessin %{resource_name}"
         soft_delete: "%{user_name} siirsi osallistumisprosessin %{resource_name} roskakoriin"
         unpublish: "%{user_name} perui osallistumisprosessin %{resource_name} julkaisun"
+        unpublish_all_members: "%{user_name} perui osallistumisprosessin %{resource_name} jäsenten julkaisun"
         update: "%{user_name} päivitti osallistumisprosessin %{resource_name}"
       participatory_process_group:
         create: "%{user_name} loi osallistumisprosessien ryhmän %{resource_name}"
@@ -506,10 +509,11 @@ fi:
             announcement_help: Tähän kirjoitettu teksti näkyy käyttäjälle heti prosessitietojen alapuolella.
             define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             duration: Kesto
+            has_members_help: Voit luoda ja julkaista jäseniä
             images: Kuvat
             metadata: Metatiedot
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
-            private_notice: Voit hallinnoida osallistumistilan yksityisiä käyttäjiä asettamalla osallistumistilan yksityiseksi
+            private_notice: Piilottaa osallistumistilan verkkosivuston vierailijoiden näkyvistä (ellei osallistumistila ole myös läpinäkyvä)
             related_processes: Liittyvät prosessit
             select_process_group: Valitse prosessiryhmä
             slug_help_html: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
@@ -558,6 +562,9 @@ fi:
         title: Osallistumisprosessit
       last_activity:
         new_participatory_process: 'Uusi osallistumisprosessi:'
+      members:
+        index:
+          title: Jäsenet
       pages:
         home:
           highlighted_processes:
@@ -604,9 +611,6 @@ fi:
           type: Tyyppi
         show:
           title: Tietoa tästä prosessista
-      participatory_space_private_users:
-        index:
-          title: Jäsenet
       show:
         belongs_to_group: Tämä prosessi kuuluu ryhmään
         private_space: Tämä on yksityinen prosessi

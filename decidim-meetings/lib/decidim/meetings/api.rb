@@ -9,5 +9,9 @@ module Decidim
     autoload :ServiceType, "decidim/api/service_type"
     autoload :LinkedResourcesInterface, "decidim/api/linked_resources_interface"
     autoload :ServicesInterface, "decidim/api/services_interface"
+
+    autoload :MeetingsMutationType, "decidim/api/mutations/meetings_mutation_type"
+    autoload :MeetingMutationType, "decidim/api/mutations/meeting_mutation_type"
+    autoload :WithdrawMeetingType, "decidim/api/mutations/withdraw_meeting_type"
   end
 end

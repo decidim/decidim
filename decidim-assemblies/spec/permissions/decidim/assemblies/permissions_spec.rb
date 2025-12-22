@@ -429,11 +429,11 @@ describe Decidim::Assemblies::Permissions do
       it_behaves_like "allows any action on subject", :assembly
       it_behaves_like "allows any action on subject", :assembly_user_role
 
-      context "when private assembly" do
-        let(:assembly) { create(:assembly, organization:, private_space: true) }
+      context "when assembly has members" do
+        let(:assembly) { create(:assembly, organization:, has_members: true) }
         let!(:context) { { current_participatory_space: assembly } }
 
-        it_behaves_like "allows any action on subject", :space_private_user
+        it_behaves_like "allows any action on subject", :space_member
       end
     end
 
@@ -463,11 +463,11 @@ describe Decidim::Assemblies::Permissions do
       it_behaves_like "allows any action on subject", :assembly
       it_behaves_like "allows any action on subject", :assembly_user_role
 
-      context "when private assembly" do
-        let(:assembly) { create(:assembly, organization:, private_space: true) }
+      context "when assembly has members" do
+        let(:assembly) { create(:assembly, organization:, has_members: true) }
         let!(:context) { { current_participatory_space: assembly } }
 
-        it_behaves_like "allows any action on subject", :space_private_user
+        it_behaves_like "allows any action on subject", :space_member
       end
     end
   end

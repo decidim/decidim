@@ -264,6 +264,7 @@ ca-IT:
           confirm_resend_invitation: Segur que vols reenviar la invitació?
           resend_invitation: Reenviar la invitació
           secondary_hosts_hint: Introdueix cada un d'ells en una nova línia
+          short_name_hint: Nom curt que es farà servir per a l'Aplicació Web Progressiva (PWA). Ha de tenir un màxim de 12 caràcters.
           title: Editar l'organització
         file_upload_settings:
           content_types:
@@ -293,6 +294,7 @@ ca-IT:
           organization_admin_email_hint: T'enviarem un correu electrònic a aquesta adreça perquè puguis confirmar-la i configurar la teva contrasenya.
           reference_prefix_hint: El prefix de la referència s'utilitza per identificar de forma única els recursos del conjunt de l'organització.
           secondary_hosts_hint: Introdueix cada un d'ells en una nova línia.
+          short_name_hint: Nom curt que es farà servir per a l'Aplicació Web Progressiva (PWA). Ha de tenir un màxim de 12 caràcters.
           title: Nova organització
         omniauth_settings:
           decidim:

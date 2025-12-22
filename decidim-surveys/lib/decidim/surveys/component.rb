@@ -73,7 +73,7 @@ Decidim.register_component(:surveys) do |component|
 
   component.exports :published_survey_user_responses do |exports|
     exports.collection do |component|
-      survey = Decidim::Surveys::Survey.find_by(component: component)
+      survey = Decidim::Surveys::Survey.find_by(component:)
 
       Decidim::Forms::Response
         .joins(:question)

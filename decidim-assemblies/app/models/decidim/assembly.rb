@@ -31,7 +31,7 @@ module Decidim
     include Decidim::Traceable
     include Decidim::Loggable
     include Decidim::ParticipatorySpaceResourceable
-    include Decidim::HasPrivateUsers
+    include Decidim::ParticipatorySpace::HasMembers
     include Decidim::Searchable
     include Decidim::HasUploadValidations
     include Decidim::TranslatableResource
@@ -92,7 +92,7 @@ module Decidim
                       index_on_create: ->(_assembly) { false },
                       index_on_update: ->(assembly) { assembly.visible? })
 
-    # Overwriting existing method Decidim::HasPrivateUsers.public_spaces
+    # Overwriting existing method Decidim::ParticipatorySpace::HasMembers.public_spaces
     def self.public_spaces
       where(private_space: false).or(where(private_space: true).where(is_transparent: true)).published
     end
@@ -169,7 +169,7 @@ module Decidim
 
       return base unless auth_object&.admin?
 
-      base + %w(published_at private_space parent_id)
+      base + %w(published_at created_at private_space parent_id)
     end
 
     def self.ransackable_associations(_auth_object = nil)

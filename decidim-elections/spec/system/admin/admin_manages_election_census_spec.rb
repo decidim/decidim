@@ -99,7 +99,7 @@ describe "Admin manages election census" do
     let(:available_authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
 
     before do
-      organization.update!(available_authorizations: available_authorizations)
+      organization.update!(available_authorizations:)
     end
 
     context "when no verification handlers are selected" do

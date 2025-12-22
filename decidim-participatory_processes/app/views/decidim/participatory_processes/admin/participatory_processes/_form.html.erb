@@ -167,6 +167,10 @@
         <% end %>
       </div>
 
+      <div class="row column" id="has_members">
+        <%= form.check_box :has_members, help_text: t(".has_members_help") %>
+      </div>
+
       <div class="row column">
         <%= form.check_box :private_space %>
         <p class="help-text"><%= t(".private_notice") %></p>

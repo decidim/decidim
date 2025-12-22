@@ -11,6 +11,12 @@ module Decidim
       let(:model) { create(:comment) }
       let(:sgid) { double("sgid", to_s: "1234") }
 
+      shared_examples "unauthorized Comment" do
+        it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
+          expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this Comment because you do not have permissions")
+        end
+      end
+
       context "when participatory space is unpublished" do
         let(:participatory_space) { create(:assembly, :unpublished) }
         let(:component) { create(:dummy_component, :published, participatory_space:) }
@@ -20,9 +26,7 @@ module Decidim
         let(:model) { create(:comment, commentable:) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Comment"
       end
 
       context "when participatory space is private and transparent" do
@@ -45,9 +49,7 @@ module Decidim
         let(:model) { create(:comment, commentable:) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Comment"
       end
 
       context "when component is unpublished" do
@@ -57,9 +59,7 @@ module Decidim
         let(:model) { create(:comment, commentable:) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Comment"
       end
 
       context "when resource is unpublished" do
@@ -68,9 +68,7 @@ module Decidim
         let(:model) { create(:comment, commentable:) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Comment"
       end
 
       context "when resource is moderated" do
@@ -80,27 +78,21 @@ module Decidim
         let(:model) { create(:comment, commentable:) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Comment"
       end
 
       describe "deleted comment" do
         let(:model) { create(:comment, :deleted) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Comment"
       end
 
       describe "moderated comment" do
         let(:model) { create(:comment, :moderated) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
-        end
+        it_behaves_like "unauthorized Comment"
       end
 
       describe "author" do

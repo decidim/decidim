@@ -262,6 +262,7 @@ ja:
           confirm_resend_invitation: 招待を再送信してもよろしいですか？
           resend_invitation: 招待を再送信する
           secondary_hosts_hint: 新しい行にそれぞれ入力してください
+          short_name_hint: Progressive Web アプリケーションに使用される短い名前。最大 12 文字までです。
           title: 組織の編集
         file_upload_settings:
           content_types:
@@ -291,6 +292,7 @@ ja:
           organization_admin_email_hint: このアドレスにメールを送信しますので、ご確認の上、パスワードを設定してください。
           reference_prefix_hint: 参照プレフィックスは、すべての組織をまたがってリソースを一意に識別するために使用されます。
           secondary_hosts_hint: 新しい行にそれぞれ入力します。
+          short_name_hint: Progressive Web アプリケーションに使用される短い名前。最大 12 文字までです。
           title: 新しい組織
         omniauth_settings:
           decidim:

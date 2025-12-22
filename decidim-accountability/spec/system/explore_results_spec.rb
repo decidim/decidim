@@ -155,10 +155,6 @@ describe "Explore results", :versioning do
       end
 
       it "shows all results for the given process and taxonomy" do
-        within(".menu-bar") do
-          expect(page).to have_content(translated(component.name))
-        end
-
         within("#results") do
           expect(page).to have_css(".card__list", count: results_count)
 
@@ -179,10 +175,6 @@ describe "Explore results", :versioning do
       end
 
       it "shows all result info" do
-        within(".menu-bar") do
-          expect(page).to have_content(translated(component.name))
-          expect(page).to have_content(translated(result.title))
-        end
         expect(page).to have_i18n_content(result.title)
         expect(page).to have_i18n_content(result.description, strip_tags: true)
         expect(page).to have_content(result.reference)
@@ -278,12 +270,6 @@ describe "Explore results", :versioning do
         it "the result is mentioned in the subresult page" do
           click_on translated(first_subresult.title)
           expect(page).to have_i18n_content(result.title)
-
-          within(".menu-bar") do
-            expect(page).to have_content(translated(component.name))
-            expect(page).to have_content(translated(result.title))
-            expect(page).to have_content(translated(first_subresult.title))
-          end
         end
 
         it "a banner links back to the result" do

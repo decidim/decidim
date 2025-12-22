@@ -266,6 +266,10 @@ fi:
         results: tulokset
       impersonation_log:
         manage: "%{user_name} hallinnoi käyttäjää %{resource_name}, koska %{reason}"
+      member:
+        create: "%{user_name} kutsui henkilön %{resource_name} jäseneksi"
+        create_via_csv: "%{user_name} kutsui henkilön %{resource_name} jäseneksi CSV-tuonnin kautta"
+        delete: "%{user_name} poisti osallistujan %{resource_name} jäsenyyden"
       moderation:
         bulk_hide: "%{user_name} piilotti %{reported_count} kohdetta"
         bulk_unhide: "%{user_name} palautti %{reported_count} kohdetta näkyviin"
@@ -284,10 +288,6 @@ fi:
       organization:
         update: "%{user_name} päivitti organisaation asetuksia"
         update_external_domain: "%{user_name} päivitti organisaation ulkoisia verkkotunnuksia"
-      participatory_space_private_user:
-        create: "%{user_name} kutsui käyttäjän %{resource_name} yksityiseksi käyttäjäksi"
-        create_via_csv: "%{user_name} kutsui yksityisen osallistujan %{resource_name} CSV-tuonnin kautta"
-        delete: "%{user_name} poisti yksityisen käyttäjän %{resource_name}"
       scope:
         create: "%{user_name} loi %{resource_name} teeman"
         create_with_parent: "%{user_name} loi %{resource_name} teeman %{parent_scope} teeman alle"
@@ -769,13 +769,13 @@ fi:
           id: Ilmoituksen yksilöivä tunniste
           resource_type: Ilmoituksen kohteen tyyppi
           updated_at: Ilmoituksen viimeisimmän päivityksen ajankohta
-        participatory_space_private_users:
-          created_at: Yksityisen käyttäjän luontiaika
-          id: Yksityisen käyttäjän yksilöivä tunniste
-          privatable_to: Mihin osallistumistilaan tämä yksityinen käyttäjä kuuluu
-          published: Onko yksityinen käyttäjä julkaistu vai ei
-          role: Yksityisen käyttäjän rooli
-          updated_at: Yksityisen käyttäjän viimeisimmän päivityksen ajankohta
+        participatory_space_members:
+          created_at: Jäsenen luontiaika
+          id: Jäsenen yksilöivä tunniste
+          participatory_space: Mihin osallistumistilaan tämä jäsen kuuluu
+          published: Onko jäsen julkaistu vai ei
+          role: Jäsenen rooli
+          updated_at: Jäsenen viimeisimmän päivityksen ajankohta
         reports:
           created_at: Ilmoituksen luontiaika
           details: Ilmoituksen tiedot
@@ -1841,16 +1841,16 @@ fi:
           Jos et halua hyväksyä kutsua, jätä tämä viesti huomioimatta.<br />
           Sinulle ei luoda tiliä ennen kuin seuraat yllä olevaa linkkiä ja asetat käyttäjänimen sekä salasanan.
         invited_you_as_admin: "%{invited_by} on kutsunut sinut hallinnoimaan kohdetta %{application}. Voit hyväksyä sen alla olevan linkin kautta."
-        invited_you_as_private_user: "%{invited_by} on kutsunut sinut yksityiseksi käyttäjäksi %{application} -nimiseen palveluun. Voit hyväksyä kutsun alla olevan linkin kautta."
+        invited_you_as_member: "%{invited_by} on kutsunut sinut jäseneksi palveluun %{application}. Voit hyväksyä kutsun alla olevan linkin avulla."
         someone_invited_you: Joku on kutsunut sinut kohteeseen %{application}. Voit hyväksyä sen alla olevan linkin kautta.
         someone_invited_you_as_admin: Joku on kutsunut sinut ylläpitämään palvelua %{application}. Voit hyväksyä kutsun alla olevan linkin avulla.
-        someone_invited_you_as_private_user: Joku on kutsunut sinut yksityiseksi käyttäjäksi %{application} -nimiseen palveluun. Voit hyväksyä kutsun alla olevan linkin kautta.
+        someone_invited_you_as_member: Joku on kutsunut sinut jäseneksi palveluun %{application}. Voit hyväksyä kutsun alla olevan linkin kautta.
         subject: Kutsuohjeet
       invite_admin:
         subject: Sinut on kutsuttu hallinnoimaan palvelua %{organization}
       invite_collaborator:
         subject: Sinut on kutsuttu osallistumaan palvelussa %{organization}
-      invite_private_user:
+      invite_member:
         subject: Sinut on kutsuttu yksityiseen osallistumisprosessiin palvelussa %{organization}
       organization_admin_invitation_instructions:
         subject: Sinut on kutsuttu hallinnoimaan palvelua %{organization}

@@ -264,6 +264,7 @@ fi:
           confirm_resend_invitation: Haluatko varmasti lähettää kutsun uudestaan?
           resend_invitation: Lähetä kutsu uudestaan
           secondary_hosts_hint: Syötä jokainen niistä omalle rivilleen
+          short_name_hint: Progressiivisen verkkosovelluksen (PWA) lyhyt nimi. Nimessä voi olla enintään 12 merkkiä.
           title: Muokkaa organisaatiota
         file_upload_settings:
           content_types:
@@ -293,6 +294,7 @@ fi:
           organization_admin_email_hint: Lähetämme tähän sähköpostiosoitteeseen viestin vahvistaaksesi kyseisen sähköpostiosoitteen ja asettaaksesi salasanan käyttäjätilillesi.
           reference_prefix_hint: Viitetunnisteen avulla tunnistetaan yksilöllisesti resursseja eri organisaatioiden välillä.
           secondary_hosts_hint: Syötä jokainen niistä omalle rivilleen.
+          short_name_hint: Progressiivisen verkkosovelluksen (PWA) lyhyt nimi. Nimessä voi olla enintään 12 merkkiä.
           title: Uusi organisaatio
         omniauth_settings:
           decidim:

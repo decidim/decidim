@@ -62,7 +62,11 @@ sv:
             title: Frågor
           questions_table:
             answer: Svar
+            total: Totalt
             votes: Röster
+            votes_count:
+              one: 1 röst
+              other: "%{count} röster"
           results:
             publish_button: Publicera resultat
             title: Resultat
@@ -191,6 +195,7 @@ sv:
           active_voting_until: 'Aktiv röstning till: %{end_date}'
           check_census_button: Kontrollera om jag kan rösta
           check_census_explanation: Detta val har ännu inte börjat, men du kan kontrollera om du är med i folkräkningen.
+          edit_vote_button: Redigera röst
           vote_button: Rösta
           voted: Du har redan röstat. Om du röstar igen kommer bara den senaste rösten att räknas.
           votes_count:
@@ -203,6 +208,10 @@ sv:
             per_question: Resultat finns tillgängliga per fråga. Du kan se resultaten för varje fråga efter att röstning har aktiverats och resultaten är publicerade.
             real_time: Resultaten är tillgängliga i realtid. Du kan se resultaten medan omröstningen pågår.
           title: Resultat
+          total: 'TOTAL:'
+          total_votes:
+            one: 1 röst
+            other: "%{count} röster"
       models:
         election:
           fields:
@@ -248,6 +257,7 @@ sv:
           next: Nästa
         receipt:
           description: Du kan rösta igen så länge omröstningsperioden pågår. En ny omröstning kommer att skriva över den gamla.
+          edit_vote: Redigera din röst
           exit_button: Lämna valbåset
           title: Tack, din röst är mottagen
     metadata:
