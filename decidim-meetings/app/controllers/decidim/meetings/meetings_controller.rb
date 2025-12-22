@@ -201,6 +201,46 @@ module Decidim
       rescue NameError, LoadError
         nil
       end
+
+      def conference_context?
+        return false unless Decidim.module_installed?(:conferences)
+        return false if current_participatory_space.blank?
+
+        current_participatory_space.is_a?(Decidim::Conference)
+      end
+
+      # Override the add_current_component method when in conference context
+      # to avoid showing "Meetings" breadcrumb and show "Program" instead
+      def add_current_component
+        return {} if conference_context?
+
+        super
+      end
+
+      def add_breadcrumb_item
+        return {} if meeting.blank?
+
+        breadcrumb = {
+          label: translated_attribute(meeting.title),
+          url: Decidim::EngineRouter.main_proxy(current_component).meeting_path(meeting),
+          active: false
+        }
+
+        # If this meeting is being accessed from within a conference program context,
+        # add program breadcrumb to maintain proper navigation hierarchy
+        if conference_context?
+          program_path = decidim_conferences.conference_conference_program_path(current_participatory_space, current_component)
+
+          context_breadcrumb_items << {
+            label: t("conference_program.index.title", scope: "decidim"),
+            url: program_path,
+            active: false,
+            resource: current_component
+          }
+        end
+
+        breadcrumb
+      end
     end
   end
 end
