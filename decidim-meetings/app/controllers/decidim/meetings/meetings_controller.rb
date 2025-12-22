@@ -204,7 +204,7 @@ module Decidim
 
       def conference_context?
         return false unless Decidim.module_installed?(:conferences)
-        return false unless current_participatory_space.present?
+        return false if current_participatory_space.blank?
 
         current_participatory_space.is_a?(Decidim::Conference)
       end
