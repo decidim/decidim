@@ -6,7 +6,7 @@ o use the API to close any meeting that the user has created, you will need to u
 ----
 mutation closeMeeting($componentId: ID!, $debateId: ID!, $input: CloseDebateInput!){
   component(id: $componentId) {
-    ...on DebatessMutation{
+    ...on DebatesMutation{
       debate(id: $debateId) {
         close(input: $input) {
           id
