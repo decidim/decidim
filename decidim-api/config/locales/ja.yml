@@ -3,7 +3,10 @@ ja:
   decidim:
     api:
       errors:
+        invalid_locale: 無効なロケールが指定されました
+        locale_argument_error: I18n データの内部処理中にエラーが発生しました
         not_found: "%{type} が見つかりません"
         permission_not_set: この %{type} の権限が設定されていません
         unauthorized_field: 権限がないため、 %{field} の %{type} フィールドを表示または編集することはできません
+        unauthorized_mutation: この変更を実行する権限がありません
         unauthorized_object: 権限がないため、この %{type} を表示または編集できません
