@@ -97,11 +97,11 @@ module Decidim
             end
           end
 
-          context "with having invalid locale" do
+          context "with invalid locale" do
             let(:locale) { "tlh" }
 
             it "raises an error" do
-              expect { response }.to raise_error(Api::Errors::InvalidLocaleError, /Invalid locale provided/)
+              expect { response }.to raise_error(Decidim::Api::Errors::InvalidLocaleError, /Invalid locale provided/)
             end
           end
         end

@@ -6,7 +6,7 @@ module Decidim
       graphql_name "CloseDebateAttributes"
       description "Attributes for closing a debate"
 
-      argument :conclusions, GraphQL::Types::JSON, description: "The conclusions for closing the debate", required: true
+      argument :conclusions, GraphQL::Types::String, description: "The conclusions for closing the debate", required: true
     end
   end
 end
