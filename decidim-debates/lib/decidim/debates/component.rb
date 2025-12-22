@@ -8,7 +8,6 @@ Decidim.register_component(:debates) do |component|
   component.permissions_class_name = "Decidim::Debates::Permissions"
 
   component.query_type = "Decidim::Debates::DebatesType"
-  component.mutation_type = "Decidim::Debates::DebatesMutationType"
   component.data_portable_entities = ["Decidim::Debates::Debate"]
 
   component.newsletter_participant_entities = ["Decidim::Debates::Debate"]
