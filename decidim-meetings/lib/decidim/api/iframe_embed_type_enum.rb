@@ -3,7 +3,7 @@
 module Decidim
   module Meetings
     class IframeEmbedTypeEnum < Decidim::Api::Types::BaseEnum
-      description "The type of iframe embeded in the meeting"
+      description "The type of iframe embedded in the meeting"
 
       value "NONE", value: "none", description: "None", value_method: false
       value "EMBED_IN_MEETING_PAGE", value: "embed_in_meeting_page", description: "Embed in meeting page", value_method: false
