@@ -14,6 +14,7 @@ module Decidim
                description: "Who can access the iframe: 'all', 'registered', 'signed_in'", required: false
       argument :iframe_embed_type, Decidim::Meetings::IframeEmbedTypeEnum,
                description: "How to embed the iframe: 'none', 'embed_in_meeting_page', 'open_in_live_event_page', 'open_in_new_tab'",
+               required: false
       argument :latitude, GraphQL::Types::Float, description: "The latitude coordinate", required: false
       argument :location, GraphQL::Types::String, description: "The physical location of the meeting", required: false
       argument :location_hints, GraphQL::Types::String, description: "Hints about the location", required: false
