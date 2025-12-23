@@ -111,7 +111,7 @@ module Decidim
             let(:model) { create(:meeting, :published, component:, iframe_access_level:) }
 
             it "displays the field value" do
-              expect(response["iframeAccessLevel"]).to eq(model.iframe_access_level)
+              expect(response["iframeAccessLevel"]).to eq(model.iframe_access_level.upcase)
             end
           end
         end
@@ -130,7 +130,7 @@ module Decidim
             let(:model) { create(:meeting, :published, component:, iframe_embed_type:) }
 
             it "displays the field value" do
-              expect(response["iframeEmbedType"]).to eq(model.iframe_embed_type)
+              expect(response["iframeEmbedType"]).to eq(model.iframe_embed_type.upcase)
             end
           end
         end
@@ -144,7 +144,7 @@ module Decidim
             let(:model) { create(:meeting, :published, component:, registration_type:) }
 
             it "displays the field value" do
-              expect(response["registrationType"]).to eq(model.registration_type)
+              expect(response["registrationType"]).to eq(model.registration_type.upcase)
             end
           end
         end

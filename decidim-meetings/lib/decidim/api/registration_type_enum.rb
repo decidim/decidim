@@ -2,7 +2,7 @@
 
 module Decidim
   module Meetings
-    class RegistrationTypeType < Decidim::Api::Types::BaseEnum
+    class RegistrationTypeEnum < Decidim::Api::Types::BaseEnum
       description "The registration types for meetings"
 
       value "REGISTRATION_DISABLED", value: "registration_disabled", description: "Registration disabled", value_method: false

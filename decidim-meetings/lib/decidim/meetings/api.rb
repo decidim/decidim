@@ -17,7 +17,9 @@ module Decidim
     autoload :MeetingMutationType, "decidim/api/mutations/meeting_mutation_type"
     autoload :WithdrawMeetingType, "decidim/api/mutations/withdraw_meeting_type"
 
-    autoload :RegistrationTypeType, "decidim/api/registration_type_type"
-    autoload :TypeOfMeetingType, "decidim/api/type_of_meeting_type"
+    autoload :RegistrationTypeEnum, "decidim/api/registration_type_enum"
+    autoload :TypeOfMeetingEnum, "decidim/api/type_of_meeting_enum"
+    autoload :IframeEmbedTypeEnum, "decidim/api/iframe_embed_type_enum"
+    autoload :IframeAccessLevelEnum, "decidim/api/iframe_access_level_enum"
   end
 end

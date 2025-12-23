@@ -2,7 +2,7 @@
 
 module Decidim
   module Meetings
-    class TypeOfMeetingType < Decidim::Api::Types::BaseEnum
+    class TypeOfMeetingEnum < Decidim::Api::Types::BaseEnum
       description "The types of meetings"
 
       value "HYBRID", value: "hybrid", description: "Hybrid"
