@@ -32,6 +32,8 @@ module Decidim
           :title,
           :taxonomies,
           :type_of_meeting,
+          :iframe_access_level,
+          :iframe_embed_type,
           :registrations_enabled
         )
 

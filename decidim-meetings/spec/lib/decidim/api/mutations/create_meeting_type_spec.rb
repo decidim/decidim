@@ -202,7 +202,7 @@ module Decidim
             let(:locale) { "en" }
             let(:translation_locale) { "es" }
 
-            it "creates a new proposal" do
+            it "creates a new meeting" do
               meeting_response = response["createMeeting"]
 
               expect(meeting_response).to be_present

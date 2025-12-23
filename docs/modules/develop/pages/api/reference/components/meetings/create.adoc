@@ -21,7 +21,7 @@ When you want to add or create data in your meetings component, you need to rely
 • registration_url      (optional) - String
 • registrations_enabled (optional) - Boolean
 • start_time            (required) - DateTime
-• taxonomies            (optional) - Taxonomies ids to assign to this proposal
+• taxonomies            (optional) - Taxonomy ids to assign to this meeting
 • type_of_meeting       (required) - TypeOfMeeting
 ----
 
