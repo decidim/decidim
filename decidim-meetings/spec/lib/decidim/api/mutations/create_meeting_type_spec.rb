@@ -37,8 +37,6 @@ module Decidim
       let(:longitude) { 2.1234 }
       let(:start_time) { 1.day.from_now }
       let(:end_time) { start_time + 2.hours }
-      let(:iframe_embed_type) { "none" }
-      let(:iframe_access_level) { "all" }
       let(:location) { "Somewhere" }
       let(:location_hints) { "Near the main square" }
       let(:online_meeting_url) { "https://meets.example.org/abc-def" }
@@ -83,8 +81,6 @@ module Decidim
           availableSlots: 10,
           description:,
           endTime: end_time.iso8601,
-          iframeAccessLevel: iframe_access_level,
-          iframeEmbedType: iframe_embed_type,
           latitude:,
           location:,
           locationHints: location_hints,
