@@ -14,6 +14,7 @@ eu:
         duplicate_landing_page_blocks: Bikoiztu lurreratze-orrien blokeak
         duplicate_steps: Bikoiztu urratsak
         end_date: Bukaera-data
+        has_members: Partaidetza-espazio honek kideak ditu
         hero_image: Orri nagusiko irudia
         import_attachments: Inportatu eranskinak
         import_categories: Inportatu kategoriak
@@ -508,9 +509,11 @@ eu:
             announcement_help: Hemen sartzen duzun testua parte-hartzaileari erakutsiko zaio, prozesuaren informazioaren azpian.
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             duration: Iraupena
+            has_members_help: Kideak sortu eta argitaratu ahal izango dituzu
             images: Irudiak
             metadata: Metadatuak
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
+            private_notice: Bisitarientzat eta bazkideentzat soilik (gardena bada izan ezik) ez da partaidetza-espazioa ikusten
             related_processes: Elkarrekin lotutako prozesuak
             select_process_group: Prozesu-talde bat hautatu
             slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
