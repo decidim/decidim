@@ -19,13 +19,15 @@ module Decidim
       argument :longitude, GraphQL::Types::Float, description: "The longitude coordinate", required: false
       argument :online_meeting_url, GraphQL::Types::String, description: "URL for online meeting", required: false
       argument :registration_terms, GraphQL::Types::String, description: "Terms and conditions for registration", required: false
-      argument :registration_type, GraphQL::Types::String, description: "Type of registration: 'on_this_platform', 'on_different_platform', or 'registration_disabled'",
-                                                           required: true
+      argument :registration_type, Decidim::Meetings::RegistrationTypeType,
+               description: "Type of registration: 'on_this_platform', 'on_different_platform', or 'registration_disabled'",
+               required: true
       argument :registration_url, GraphQL::Types::String, description: "External registration URL", required: false
+      argument :registrations_enabled, GraphQL::Types::Boolean, description: "Whether registrations are enabled or not", required: false
       argument :start_time, Decidim::Core::DateTimeType, description: "The start time of the meeting", required: true
-      argument :taxonomy_ids, [GraphQL::Types::ID], description: "The IDs of taxonomies (categories/tags) to associate with the meeting", required: false
+      argument :taxonomies, [GraphQL::Types::ID], description: "Array of taxonomy IDs", required: false
       argument :title, GraphQL::Types::String, description: "The title of the meeting", required: true
-      argument :type_of_meeting, GraphQL::Types::String, description: "The type of meeting: 'online', 'in_person', or 'hybrid'", required: true
+      argument :type_of_meeting, Decidim::Meetings::TypeOfMeetingType, description: "The type of meeting: 'online', 'in_person', or 'hybrid'", required: true
     end
   end
 end

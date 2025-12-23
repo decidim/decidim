@@ -6,200 +6,208 @@ require "decidim/api/test"
 module Decidim
   module Meetings
     describe CreateMeetingType do
-      include_context "with a graphql class type"
+      include_context "with a graphql class mutation"
 
-      let(:schema) { Decidim::Api::Schema }
+      let(:type_class) { Decidim::Meetings::CreateMeetingType }
+      let(:root_klass) { Decidim::Meetings::MeetingsMutationType }
+
+      let(:current_organization) { create(:organization, available_locales: [:en]) }
+      let(:organization) { current_organization }
+      let(:participatory_process) { create(:participatory_process, :published, :with_steps, organization:) }
+
       let(:locale) { "en" }
-      let(:organization) { create(:organization) }
-      let(:participatory_process) { create(:participatory_process, organization:) }
-      let(:component) { create(:component, participatory_space: participatory_process, manifest_name: "meetings") }
-      let(:current_user) { create(:user, :confirmed, organization:) }
-      let(:context) do
-        {
-          current_user:,
-          current_organization: organization
-        }
-      end
+      let(:translation_locale) { "en" }
 
+      let!(:current_component) do
+        create(:meeting_component, :published, participatory_space: participatory_process, settings: {
+                 creation_enabled_for_participants: true,
+                 taxonomy_filters: [taxonomy_filter.id]
+               })
+      end
+      let(:root_taxonomy) { create(:taxonomy, organization:) }
+      let!(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization:) }
+      let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:) }
+      let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
+      let!(:user) { create(:user, :confirmed, organization:) }
+
+      let(:title) { "More sidewalks and less roads" }
+      let(:description) { "Cities need more people, not more cars" }
+      let(:address) { "Carrer de la Pau, 1, Barcelona" }
+      let(:latitude) { 40.1234 }
+      let(:longitude) { 2.1234 }
       let(:start_time) { 1.day.from_now }
       let(:end_time) { start_time + 2.hours }
+      let(:iframe_embed_type) { "none" }
+      let(:iframe_access_level) { "all" }
+      let(:location) { "Somewhere" }
+      let(:location_hints) { "Near the main square" }
+      let(:online_meeting_url) { "https://meets.example.org/abc-def" }
+      let(:registration_terms) { "By registering you agree to the terms and conditions" }
+      let(:registration_type) { "ON_THIS_PLATFORM" }
+      let(:registration_url) { "https://example.org/register" }
+      let(:registrations_enabled) { true }
+      let(:type_of_meeting) { "ONLINE" }
 
-      let(:meeting_attributes) do
+      let(:root_value) { current_component }
+      let(:query) do
+        <<~GRAPHQL
+          mutation createMeetings($input: CreateMeetingInput!){
+            createMeeting(input: $input) {
+              id
+              title { translation(locale: "#{translation_locale}") }
+              description { translation(locale: "#{translation_locale}") }
+              address
+              coordinates { latitude longitude }
+              publishedAt
+              author { name }
+              taxonomies { id }
+              remainingSlots
+              location  { translation(locale: "#{translation_locale}") }
+              locationHints { translation(locale: "#{translation_locale}") }
+              onlineMeetingUrl
+              registrationTerms { translation(locale: "#{translation_locale}") }
+              registrationType
+              registrationUrl
+              endTime
+              startTime
+              typeOfMeeting
+              registrationsEnabled
+            }
+          }
+        GRAPHQL
+      end
+
+      let(:attributes) do
         {
-          title: "Test Meeting",
-          description: "This is a test meeting",
-          location: "Test Location",
-          location_hints: "Near the main square",
-          type_of_meeting: "online",
-          start_time: start_time.iso8601,
-          end_time: end_time.iso8601,
-          registration_type: "on_this_platform",
-          available_slots: 50,
-          registration_terms: "Please be on time",
-          online_meeting_url: "https://meet.example.com/test",
-          iframe_embed_type: "embed_in_meeting_page",
-          iframe_access_level: "all"
+          address:,
+          availableSlots: 10,
+          description:,
+          endTime: end_time.iso8601,
+          iframeAccessLevel: iframe_access_level,
+          iframeEmbedType: iframe_embed_type,
+          latitude:,
+          location:,
+          locationHints: location_hints,
+          longitude:,
+          onlineMeetingUrl: online_meeting_url,
+          registrationTerms: registration_terms,
+          registrationType: registration_type,
+          registrationUrl: registration_url,
+          registrationsEnabled: registrations_enabled,
+          startTime: start_time.iso8601,
+          taxonomies: [taxonomy.id],
+          title:,
+          typeOfMeeting: type_of_meeting
         }
       end
 
-      let(:mutation) do
-        %(
-          mutation {
-            createMeeting(
-              componentId: #{component.id},
-              attributes: {
-                title: "#{meeting_attributes[:title]}",
-                description: "#{meeting_attributes[:description]}",
-                location: "#{meeting_attributes[:location]}",
-                locationHints: "#{meeting_attributes[:location_hints]}",
-                typeOfMeeting: "#{meeting_attributes[:type_of_meeting]}",
-                startTime: "#{meeting_attributes[:start_time]}",
-                endTime: "#{meeting_attributes[:end_time]}",
-                registrationType: "#{meeting_attributes[:registration_type]}",
-                availableSlots: #{meeting_attributes[:available_slots]},
-                registrationTerms: "#{meeting_attributes[:registration_terms]}",
-                onlineMeetingUrl: "#{meeting_attributes[:online_meeting_url]}",
-                iframeEmbedType: "#{meeting_attributes[:iframe_embed_type]}",
-                iframeAccessLevel: "#{meeting_attributes[:iframe_access_level]}"
-              }
-            ) {
-              id
-              title { translation(locale: "en") }
-              description { translation(locale: "en") }
-              typeOfMeeting
-              startTime
-              endTime
-            }
+      let(:variables) do
+        {
+          component_id: current_component.id,
+          input: {
+            locale:,
+            attributes:
           }
-        )
+        }
       end
 
-      describe "createMeeting mutation" do
-        context "when user is authorized" do
-          before do
-            allow(context).to receive(:[]).with(:current_user).and_return(current_user)
-            allow(context).to receive(:[]).with(:current_organization).and_return(organization)
+      before do
+        stub_geocoding(address, [latitude, longitude])
+      end
 
-            # Grant permission to create meetings
-            Decidim::PermissionAction.new(action: :create, subject: :meeting, scope: :public)
-            allow_any_instance_of(Decidim::Meetings::Permissions).to receive(:allowed?).and_return(true)
-            allow_any_instance_of(CreateMeetingType).to receive(:allowed_to?).and_return(true)
+      context "when validating" do
+        context "with having invalid locale" do
+          let(:locale) { "tlh" }
+
+          it "raises an error" do
+            expect { response }.to raise_error(Api::Errors::InvalidLocaleError, /Invalid locale provided/)
           end
+        end
 
-          it "creates a meeting successfully" do
-            result = schema.execute(
-              mutation,
-              context:,
-              variables: {}
-            )
+        context "with having invalid title" do
+          context "when is missing" do
+            let(:title) { "" }
 
-            expect(result["errors"]).to be_nil
-            expect(result.dig("data", "createMeeting")).to be_present
-            expect(result.dig("data", "createMeeting", "title", "translation")).to eq(meeting_attributes[:title])
-            expect(result.dig("data", "createMeeting", "typeOfMeeting")).to eq(meeting_attributes[:type_of_meeting])
-          end
-
-          it "increases the meeting count" do
-            expect do
-              schema.execute(
-                mutation,
-                context:,
-                variables: {}
-              )
-            end.to change(Meeting, :count).by(1)
-          end
-
-          context "when meeting attributes are invalid" do
-            let(:meeting_attributes) do
-              {
-                title: "",
-                description: "Test",
-                type_of_meeting: "online",
-                start_time: start_time.iso8601,
-                end_time: (start_time - 1.hour).iso8601, # Invalid: end before start
-                registration_type: "on_this_platform"
-              }
-            end
-
-            let(:mutation) do
-              %(
-                mutation {
-                  createMeeting(
-                    componentId: #{component.id},
-                    attributes: {
-                      title: "",
-                      description: "#{meeting_attributes[:description]}",
-                      typeOfMeeting: "#{meeting_attributes[:type_of_meeting]}",
-                      startTime: "#{meeting_attributes[:start_time]}",
-                      endTime: "#{meeting_attributes[:end_time]}",
-                      registrationType: "#{meeting_attributes[:registration_type]}"
-                    }
-                  ) {
-                    id
-                  }
-                }
-              )
-            end
-
-            it "returns validation errors" do
-              result = schema.execute(
-                mutation,
-                context:,
-                variables: {}
-              )
-
-              expect(result["errors"]).to be_present
-              expect(result["errors"].first["message"]).to include("Title")
+            it "raises an error" do
+              expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /cannot be blank/)
             end
           end
         end
 
-        context "when user is not authorized" do
-          it "returns an authorization error" do
-            result = schema.execute(
-              mutation,
-              context: { current_user: nil, current_organization: organization },
-              variables: {}
-            )
+        context "with having invalid registration type" do
+          let(:registration_type) { "INVALID_TYPE" }
 
-            expect(result["errors"]).to be_present
+          it "raises an error" do
+            expect { response }.to raise_error(GraphQL::ExecutionError, /to be one of: REGISTRATION_DISABLED, ON_THIS_PLATFORM, ON_DIFFERENT_PLATFORM/)
           end
         end
 
-        context "when component does not exist" do
-          let(:mutation) do
-            %(
-              mutation {
-                createMeeting(
-                  componentId: 999999,
-                  attributes: {
-                    title: "Test",
-                    description: "Test",
-                    typeOfMeeting: "online",
-                    startTime: "#{start_time.iso8601}",
-                    endTime: "#{end_time.iso8601}",
-                    registrationType: "registration_disabled"
-                  }
-                ) {
-                  id
-                }
-              }
+        context "with having invalid meeting type" do
+          let(:type_of_meeting) { "INVALID_TYPE" }
+
+          it "raises an error" do
+            expect { response }.to raise_error(GraphQL::ExecutionError, /to be one of: HYBRID, IN_PERSON, ONLINE/)
+          end
+        end
+      end
+
+      context "when creating a new meeting" do
+        context "when the user is not logged in" do
+          let(:current_user) { nil }
+
+          it "raises a Decidim::Api::Errors::MutationNotAuthorizedError" do
+            expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
+          end
+        end
+
+        context "when creation is disabled" do
+          let!(:current_component) { create(:meeting_component, :published, participatory_space: participatory_process) }
+
+          it "raises a Decidim::Api::Errors::MutationNotAuthorizedError" do
+            expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
+          end
+        end
+
+        context "when user is logged in" do
+          it "creates a new meeting" do
+            meeting_response = response["createMeeting"]
+
+            expect(meeting_response).to be_present
+            expect(meeting_response["title"]["translation"]).to eq(title)
+            expect(meeting_response["description"]["translation"]).to include(description)
+            expect(meeting_response["publishedAt"]).to be_present
+            expect(meeting_response["taxonomies"]).to include({ "id" => taxonomy.id.to_s })
+            expect(meeting_response["author"]["name"]).to eq(current_user.name)
+            expect(meeting_response["remainingSlots"]).to eq(10)
+            expect(meeting_response["location"]).to include({ "translation" => location })
+            expect(meeting_response["locationHints"]).to include({ "translation" => location_hints })
+            expect(meeting_response["registrationTerms"]).to include({ "translation" => registration_terms })
+
+            expect(meeting_response["onlineMeetingUrl"]).to eq(online_meeting_url)
+            expect(meeting_response["registrationType"]).to eq(registration_type)
+            expect(meeting_response["registrationUrl"]).to eq(registration_url)
+            expect(meeting_response["endTime"]).to eq(end_time.to_time.iso8601)
+            expect(meeting_response["startTime"]).to eq(start_time.to_time.iso8601)
+            expect(meeting_response["typeOfMeeting"]).to eq(type_of_meeting)
+            expect(meeting_response["registrationsEnabled"]).to eq(registrations_enabled)
+
+            expect(meeting_response["address"]).to eq(address)
+            expect(meeting_response["coordinates"]).to include(
+              "latitude" => latitude,
+              "longitude" => longitude
             )
           end
 
-          before do
-            allow(context).to receive(:[]).with(:current_user).and_return(current_user)
-            allow(context).to receive(:[]).with(:current_organization).and_return(organization)
-          end
+          context "when submitting in one language and requesting in another" do
+            let(:locale) { "en" }
+            let(:translation_locale) { "es" }
 
-          it "returns an error" do
-            result = schema.execute(
-              mutation,
-              context:,
-              variables: {}
-            )
+            it "creates a new proposal" do
+              meeting_response = response["createMeeting"]
 
-            expect(result["errors"]).to be_present
+              expect(meeting_response).to be_present
+              expect(meeting_response["title"]["translation"]).to be_nil
+            end
           end
         end
       end

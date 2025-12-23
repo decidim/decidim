@@ -1,5 +1,6 @@
 ---
 en:
+
   activemodel:
     attributes:
       close_meeting:

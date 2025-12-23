@@ -9,81 +9,52 @@ module Decidim
       type Decidim::Meetings::MeetingType
 
       argument :attributes, CreateMeetingAttributes, description: "Input attributes for creating a meeting", required: true
-      argument :component_id, GraphQL::Types::ID, description: "The ID of the component where the meeting will be created", required: true
+      argument :locale, GraphQL::Types::String, "The locale for which to set the meeting texts", required: true
+      argument :toggle_translations, GraphQL::Types::Boolean, "Whether the user asked to toggle the machine translations or not.", required: false, default_value: false
 
-      def resolve(component_id:, attributes:)
-        component = current_user.organization.components.find_by(id: component_id)
+      def resolve(attributes:, locale:, toggle_translations:)
+        set_locale(locale:, toggle_translations:)
 
-        unless component
-          return GraphQL::ExecutionError.new(
-            "Component not found"
-          )
-        end
-
-        unless component.manifest_name == "meetings"
-          return GraphQL::ExecutionError.new(
-            "Invalid component type. Must be a meetings component."
-          )
-        end
-
-        attrs = attributes.to_h
-
-        # Build taxonomizations from taxonomy_ids
-        taxonomizations = build_taxonomizations(attrs.delete(:taxonomy_ids), component.organization)
-
-        # Prepare form parameters
-        form_params = attrs.merge(
-          taxonomizations:,
-          registrations_enabled: attrs[:registration_type] == "on_this_platform",
-          clean_type_of_meeting: attrs[:type_of_meeting]
+        params = attributes.to_h.slice(
+          :address,
+          :available_slots,
+          :description,
+          :end_time,
+          :latitude,
+          :longitude,
+          :location,
+          :location_hints,
+          :online_meeting_url,
+          :registration_terms,
+          :registration_type,
+          :registration_url,
+          :start_time,
+          :title,
+          :taxonomies,
+          :type_of_meeting,
+          :registrations_enabled
         )
 
-        form = Decidim::Meetings::MeetingForm.from_params(
-          form_params
-        ).with_context(
-          current_component: component,
-          current_user:,
-          current_organization: current_user.organization
-        )
+        params[:taxonomies] = Decidim::Taxonomy.where(organization: current_organization, id: params[:taxonomies]).pluck(:id) if params[:taxonomies]
 
-        CreateMeeting.call(form) do
+        form = form(Decidim::Meetings::MeetingForm).from_params(params)
+
+        Decidim::Meetings::CreateMeeting.call(form) do
           on(:ok) do |meeting|
-            return meeting
+            return meeting.reload
           end
           on(:invalid) do
-            return GraphQL::ExecutionError.new(
-              form.errors.full_messages.join(", ")
-            )
+            raise Decidim::Api::Errors::AttributeValidationError, form.errors
           end
-
-          GraphQL::ExecutionError.new(
-            I18n.t("decidim.meetings.create.invalid")
-          )
         end
       end
 
-      def authorized?(component_id:, attributes:)
-        component = current_user.organization.components.find_by(id: component_id)
-        return false unless component
+      def authorized?(attributes:, locale:, toggle_translations:)
+        unless super && allowed_to?(:create, :meeting, Meeting.new(component: current_component), { current_user:, current_component: })
+          raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
+        end
 
-        super && allowed_to?(:create, :meeting, {}, { current_component: component })
-      end
-
-      def current_user
-        context[:current_user]
-      end
-
-      private
-
-      def build_taxonomizations(taxonomy_ids, organization)
-        return [] unless taxonomy_ids.present?
-
-        taxonomy_ids.map do |id|
-          taxonomy = Decidim::Taxonomy.find_by(id:, organization:)
-          next unless taxonomy
-
-          Decidim::Taxonomization.new(taxonomy:, taxonomizable: nil)
-        end.compact
+        true
       end
     end
   end
