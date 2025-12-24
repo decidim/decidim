@@ -15,8 +15,7 @@ module Decidim
       def resolve(attributes:, locale:, toggle_translations:)
         set_locale(locale:, toggle_translations:)
 
-        params = attributes.to_h.slice(:title, :body, :address, :latitude, :longitude, :taxonomies)
-        params[:taxonomies] = Decidim::Taxonomy.where(id: params[:taxonomies]).pluck(:id) if params[:taxonomies]
+        params = extract_from(attributes)
 
         form = form(Decidim::Proposals::ProposalForm).from_params(params)
 
@@ -35,6 +34,19 @@ module Decidim
         raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation") unless super && allowed_to?(:edit, :proposal, object, context)
 
         true
+      end
+
+      private
+
+      def extract_from(attributes)
+        title = attributes.to_h.fetch(:title, translated_attribute(object.title))
+        body = attributes.to_h.fetch(:body, translated_attribute(object.body))
+        taxonomies = Decidim::Taxonomy.where(organization: current_organization, id: attributes.to_h.fetch(:taxonomies, [])).pluck(:id)
+        address = attributes.to_h.fetch(:address, object.address)
+        latitude = attributes.to_h.fetch(:latitude, object.latitude)
+        longitude = attributes.to_h.fetch(:longitude, object.longitude)
+
+        { title:, body:, address:, latitude:, longitude:, taxonomies: }
       end
     end
   end
