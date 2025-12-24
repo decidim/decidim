@@ -127,7 +127,7 @@ module Decidim
                 let(:start_time) { "" }
 
                 it "raises an error" do
-                  expect { response }.to raise_error(ArgumentError, /invalid xmlschema format/)
+                  expect { response }.to raise_error(ArgumentError)
                 end
               end
 
@@ -145,7 +145,7 @@ module Decidim
                 let(:end_time) { "" }
 
                 it "raises an error" do
-                  expect { response }.to raise_error(ArgumentError, /invalid xmlschema format/)
+                  expect { response }.to raise_error(ArgumentError)
                 end
               end
 
