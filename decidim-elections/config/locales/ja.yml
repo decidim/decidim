@@ -80,6 +80,7 @@ ja:
           questions_table:
             answer: 回答
             percentage: パーセンテージ
+            total: 合計
             votes: 投票
             votes_count:
               other: "%{count} 票"
@@ -252,6 +253,7 @@ ja:
           active_voting_until: '有効な投票まで: %{end_date}'
           check_census_button: 投票できるかどうかチェック
           check_census_explanation: この選挙はまだ始まっていませんが、センサスの対象に含まれているかどうか確認できます。
+          edit_vote_button: 投票を編集
           vote_button: 投票
           voted: すでに投票済みです。再度投票することは可能ですが、最後に投票した内容のみが集計対象となります。
           votes_count:
@@ -263,6 +265,9 @@ ja:
             per_question: 結果は質問ごとに確認できます。投票が有効化され、結果が公開されると、各質問の結果を確認できるようになります。
             real_time: 結果はリアルタイムで確認できます。投票が行われている間も結果を閲覧可能です。
           title: 結果
+          total: '合計：'
+          total_votes:
+            other: "%{count}票"
       models:
         election:
           fields:
@@ -311,6 +316,7 @@ ja:
           next: 次へ
         receipt:
           description: 投票期間中はいつでも再投票が可能です。以前の投票結果は新しい投票結果で上書きされます。
+          edit_vote: 投票を編集
           exit_button: 投票ブースを出る
           title: 投票は正常に行われました
     metadata:

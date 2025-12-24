@@ -11,7 +11,7 @@ module Decidim
         let!(:normal_user) { create(:user, organization:) }
         let!(:follow) { create(:follow, followable: participatory_space, user: normal_user) }
         let(:component) { create(:dummy_component, participatory_space:) }
-        let(:resource) { create(:dummy_resource, component: component, author: user) }
+        let(:resource) { create(:dummy_resource, component:, author: user) }
         let!(:followed_resource) { create(:follow, followable: resource, user: normal_user) }
 
         context "when assembly is private and non transparent" do

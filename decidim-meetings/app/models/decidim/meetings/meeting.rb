@@ -122,7 +122,7 @@ module Decidim
                 SELECT decidim_components.id FROM decidim_components
                 WHERE CONCAT(decidim_components.participatory_space_id, '-', decidim_components.participatory_space_type)
                 IN
-                  (SELECT CONCAT(decidim_members.privatable_to_id, '-', decidim_members.privatable_to_type)
+                  (SELECT CONCAT(decidim_members.participatory_space_id, '-', decidim_members.participatory_space_type)
                   FROM decidim_members WHERE decidim_members.decidim_user_id = ?)
               )
             "

@@ -9,7 +9,7 @@ module Decidim
       let(:user) { create(:user, :confirmed, organization: component.organization) }
       let(:component) { create(:elections_component) }
       let(:election) { create(:election, :published, :with_internal_users_census, :per_question, :ongoing, component:) }
-      let!(:existing_vote) { create(:election_vote, question: question, response_option: question.response_options.first, voter_uid: "some-id") }
+      let!(:existing_vote) { create(:election_vote, question:, response_option: question.response_options.first, voter_uid: "some-id") }
       let!(:question) { create(:election_question, :with_response_options, :voting_enabled, election:) }
       let!(:second_question) { create(:election_question, :with_response_options, :voting_enabled, election:) }
 
@@ -49,7 +49,7 @@ module Decidim
           it_behaves_like "a redirect to the waiting room", :show
 
           it "renders the voting form" do
-            get :show, params: params
+            get(:show, params:)
             expect(response).to have_http_status(:ok)
             expect(controller.helpers.question).to eq(question)
             expect(subject).to render_template(:show)
@@ -58,14 +58,14 @@ module Decidim
           it "redirects to the next question if the current question is not enabled" do
             question.update(voting_enabled_at: nil)
             expect(controller).to receive(:redirect_to).with(action: :show, id: second_question)
-            get :show, params: params
+            get(:show, params:)
             expect(response).to have_http_status(:ok)
           end
 
           it "redirects to the next question if the current question has published results" do
             question.update(published_results_at: Time.current)
             expect(controller).to receive(:redirect_to).with(action: :show, id: second_question)
-            get :show, params: params
+            get(:show, params:)
             expect(response).to have_http_status(:ok)
           end
         end
@@ -152,7 +152,7 @@ module Decidim
             allow(controller).to receive(:votes_buffer).and_return({ question.id.to_s => [question.response_options.first.id] })
 
             expect(controller).to receive(:redirect_to).with(action: :show, id: second_question)
-            get :waiting, params: params
+            get(:waiting, params:)
             expect(response).to have_http_status(:ok)
           end
 
@@ -163,7 +163,7 @@ module Decidim
 
             it "redirects to the non voted question" do
               expect(controller).to receive(:redirect_to).with(action: :show, id: question)
-              get :waiting, params: params
+              get(:waiting, params:)
               expect(response).to have_http_status(:ok)
             end
 
@@ -172,13 +172,13 @@ module Decidim
 
               it "redirects to the non voted question" do
                 expect(controller).to receive(:redirect_to).with(action: :show, id: question)
-                get :waiting, params: params
+                get(:waiting, params:)
                 expect(response).to have_http_status(:ok)
               end
 
               it "renders the waiting page if votes_buffer exist" do
                 allow(controller).to receive(:votes_buffer).and_return({ question.id.to_s => [question.response_options.first.id] })
-                get :waiting, params: params
+                get(:waiting, params:)
                 expect(response).to have_http_status(:ok)
                 expect(subject).to render_template(:waiting)
               end
@@ -191,7 +191,7 @@ module Decidim
               allow(controller).to receive(:votes_buffer).and_return({ question.id.to_s => [question.response_options.first.id] })
 
               expect(controller).to receive(:url_for).with(action: :show, id: second_question)
-              get :waiting, params: params, format: :json
+              get :waiting, params:, format: :json
               expect(response).to have_http_status(:ok)
               expect(JSON.parse(response.body)).to have_key("url")
             end
@@ -215,13 +215,13 @@ module Decidim
             end
 
             it "redirects to the election path" do
-              get :receipt, params: params
+              get(:receipt, params:)
               expect(response).to redirect_to(election_path)
             end
 
             context "when the election has votes for the voter UID" do
               before do
-                create(:election_vote, voter_uid: session[:voter_uid], question: question, response_option: question.response_options.first)
+                create(:election_vote, voter_uid: session[:voter_uid], question:, response_option: question.response_options.first)
                 create(:election_vote, voter_uid: session[:voter_uid], question: second_question, response_option: second_question.response_options.first)
               end
 
@@ -230,7 +230,7 @@ module Decidim
               it "renders the receipt page without clearing session" do
                 expect(controller.send(:votes_buffer)).not_to receive(:clear)
                 expect(controller.send(:session_attributes)).not_to receive(:clear)
-                get :receipt, params: params
+                get(:receipt, params:)
                 expect(response).to have_http_status(:ok)
                 expect(subject).to render_template(:receipt)
               end

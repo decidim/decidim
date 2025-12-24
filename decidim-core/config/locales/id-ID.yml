@@ -96,9 +96,6 @@ id:
         update: "%{user_name} memperbarui aplikasi %{resource_name} OAuth"
       organization:
         update: "%{user_name} memperbarui pengaturan organisasi"
-      participatory_space_private_user:
-        create: "%{user_name} diundang %{resource_name} untuk menjadi pengguna pribadi"
-        delete: "%{user_name} menghapus pengguna %{resource_name} sebagai pengguna pribadi"
       scope:
         create: "%{user_name} menciptakan %{resource_name} ruang lingkup"
         create_with_parent: "%{user_name} menciptakan %{resource_name} ruang lingkup di dalam %{parent_scope} ruang lingkup"
@@ -626,10 +623,8 @@ id:
         decline: Tolak undangan
         hello: Halo %{email},
         invited_you_as_admin: "%{invited_by} telah mengundang Anda sebagai admin %{application}. Anda dapat menerimanya melalui tautan di bawah ini."
-        invited_you_as_private_user: "%{invited_by} telah mengundang Anda sebagai pengguna pribadi dari %{application}. Anda dapat menerimanya melalui tautan di bawah ini."
         someone_invited_you: Seseorang telah mengundang Anda ke %{application}. Anda dapat menerimanya melalui tautan di bawah ini.
         someone_invited_you_as_admin: Seseorang telah mengundang Anda sebagai admin %{application}, Anda dapat menerimanya melalui tautan di bawah.
-        someone_invited_you_as_private_user: Seseorang telah mengundang Anda sebagai pengguna pribadi %{application}, Anda dapat menerimanya melalui tautan di bawah ini.
         subject: Instruksi undangan
       password_change:
         greeting: Halo %{recipient}!

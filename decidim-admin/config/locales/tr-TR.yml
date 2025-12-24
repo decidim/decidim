@@ -90,11 +90,6 @@ tr:
         welcome_notification_body: Karşılama bildirimi gövdesi
         welcome_notification_subject: Karşılama bildirimi konusu
         youtube_handler: YouTube işleyici
-      participatory_space_private_user:
-        email: E-Posta
-        name: Adı
-      participatory_space_private_user_csv_import:
-        file: Dosya
       scope:
         code: kod
         name: isim
@@ -136,10 +131,6 @@ tr:
           attributes:
             official_img_footer:
               allowed_file_content_types: Geçersiz resim dosyası
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Bozuk içe aktarım dosyası, lütfen yönergeleri dikkatlice gözden geçirin ve dosyanın UTF-8 ile kodlandığından emin olun.
         user_group_csv_verification:
           attributes:
             file:
@@ -186,8 +177,6 @@ tr:
         menu_hidden: Menüden gizle
         newsletter:
           new: Yeni bülten
-        participatory_space_private_user:
-          new: Yeni katılımcı alanı özel kullanıcısı
         per_page: Sayfa başına
         restore: Geri yükle
         send_me_a_test_email: Bana bir test e-postası gönder
@@ -416,17 +405,6 @@ tr:
           values:
             'false': resmileştirilmiş
             'true': Resmi değil
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Davet kabul edildi
-            values:
-              'false': Kabul edilmedi
-              'true': Kabul Edildi
-          user_invitation_sent_at_not_null:
-            label: Davet gönderildi
-            values:
-              'false': Gönderilmedi
-              'true': Gönderildi
         private_space_eq:
           label: Kişisel
           values:
@@ -552,6 +530,10 @@ tr:
             explanation: Yönetilen kullanıcılar standart kullanıcılara yükseltilebilir. Bu, uygulamaya davet edilecekleri anlamına gelir ve onları tekrar taklit edemezsiniz. Davet edilen kullanıcı davetinizi kabul etmek için bir e-posta alacak.
             new_managed_user_promotion: Yeni yönetilen kullanıcı tanıtımı
             promote: Desteklemek
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: CSV dosyanızı yükleyin
       menu:
         admin_log: Yönetici etkinlik günlüğü
         admins: Yöneticiler
@@ -617,8 +599,6 @@ tr:
             sent_to: Gönderilen
             subject: konu
           name: Bülten
-        participatory_space_private_user:
-          name: Katılımcı alan özel kullanıcısı
         scope:
           fields:
             name: isim
@@ -841,39 +821,6 @@ tr:
         form:
           add: İzin verilenler listesine ekle
           title: İzin verilen harici alan adları
-      participatory_space_private_users:
-        create:
-          error: Bu katılımcı alan için özel bir kullanıcı eklenirken bir hata oluştu.
-          success: Katılımcı alan özel kullanıcı erişimi başarıyla oluşturuldu.
-        destroy:
-          error: Bu katılımcı alan için özel bir kullanıcı silinirken bir hata oluştu.
-          success: Katılımcı alan özel kullanıcı erişimi başarıyla yok edildi.
-        edit:
-          title: Katılımcı alanı özel katılımcılarını düzenle.
-          update: Güncelle
-        index:
-          import_via_csv: CSV'den içe aktar
-          publish_all: Tümünü yayımla
-          title: Katılımcı alan özel kullanıcısı
-          unpublish_all: Tümünü yayımdan kaldır
-        new:
-          create: yaratmak
-          title: Yeni Katılımcı Uzay özel kullanıcısı.
-        publish_all:
-          success: Bu katılımcı alan için özel katılımcılar başarıyla yayınlandı
-      participatory_space_private_users_csv_imports:
-        create:
-          success: CSV dosyası başarıyla yüklendi, katılımcılara bir davet e-postası gönderiyoruz. Bu biraz zaman alabilir.
-        new:
-          csv_upload:
-            title: CSV dosyanızı yükleyin
-          destroy:
-            button: Tüm özel kullanıcıları sil
-            confirm: Tüm özel kullanıcıları silmek istediğinizden emin misiniz? Bu işlem geri alınamaz, silinen katılımcıları geri yükleyemeyeceksiniz.
-            empty: Özel kullanıcınız yok.
-            title: Özel Kullanıcıları kaldır
-          example_file: 'Örnek dosya:'
-          upload: Yükle
       reminders:
         new:
           submit: Gönder

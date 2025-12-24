@@ -87,9 +87,6 @@ ro:
         welcome_notification_body: Conținutul notificării de bun venit
         welcome_notification_subject: Subiectul notificării de bun venit
         youtube_handler: Responsabil YouTube
-      participatory_space_private_user:
-        email: E-mail
-        name: Nume
       scope:
         code: Cod
         name: Nume
@@ -131,10 +128,6 @@ ro:
           attributes:
             official_img_footer:
               allowed_file_content_types: Fișier invalid
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Fișier de import malformat, vă rugăm să citiți instrucțiunile cu atenție și asigurați-vă că fișierul este codificat UTF-8.
         user_group_csv_verification:
           attributes:
             file:
@@ -172,8 +165,6 @@ ro:
         import: Importă
         newsletter:
           new: Buletin informativ nou
-        participatory_space_private_user:
-          new: Nou utilizator privat al spațiului participativ
         per_page: Pe pagină
         send_me_a_test_email: Trimite-mi un e-mail de test
         share: Distribuie
@@ -363,17 +354,6 @@ ro:
           values:
             'false': Verificat
             'true': Neverificat
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Invitație acceptată
-            values:
-              'false': Neacceptat
-              'true': Acceptat
-          user_invitation_sent_at_not_null:
-            label: Invitaţie trimisă
-            values:
-              'false': Nu s-a trimis
-              'true': Trimis
         private_space_eq:
           label: Privat
           values:
@@ -497,6 +477,10 @@ ro:
             explanation: Participanții gestionați pot fi promovați drept participanți standard. Înseamnă că vor fi invitați în aplicație și nu vei mai putea să îi gestionezi din nou. Participantul invitat va primi un e-mail pentru a accepta invitația ta.
             new_managed_user_promotion: Promovarea unui nou participant gestionat
             promote: Promovează
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Încarcă fișierul tău CSV
       menu:
         admin_log: Jurnal activitate admin
         admins: Administratori
@@ -556,8 +540,6 @@ ro:
             sent_to: Trimis către
             subject: Subiect
           name: Buletin Informativ
-        participatory_space_private_user:
-          name: Participant privat pentru spațiul participativ
         scope:
           fields:
             name: Nume
@@ -736,38 +718,6 @@ ro:
         update:
           error: A apărut o eroare la actualizarea acestei organizații.
           success: Organizația a fost actualizată cu succes.
-      participatory_space_private_users:
-        create:
-          error: A apărut o problemă la adăugarea unui participant privat pentru acest spațiu participativ.
-          success: Accesul la spațiul participativ a participantului privat a fost creat cu succes.
-        destroy:
-          error: A apărut o eroare la ștergerea unui participant privat pentru acest spațiu participativ.
-          success: Accesul la spațiul participativ a participantului privat a fost șters cu succes.
-        index:
-          import_via_csv: Importă din fișier CSV
-          title: Participant privat pentru spațiul participativ
-        new:
-          create: Crează
-          title: Participant privat nou pentru spațiul participativ.
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: A apărut o eroare la citirea fișierului CSV. Vă rugăm să vă asigurați că ați urmat instrucțiunile.
-          success: Fișier-ul CSV a fost încărcat cu succes, trimitem câte un e-mail participanților cu invitația. Acest lucru ar putea dura puțin timp.
-        new:
-          csv_upload:
-            title: Încarcă fișierul tău CSV
-          destroy:
-            button: Șterge toți participanții privați
-            confirm: Sunteți sigur că doriți să ștergeți toți participanții privați? Această acțiune nu poate fi anulată, și nu îi veți putea recupera.
-            empty: Nu aveți niciun participant privat.
-            explanation: Aveți %{count} participanți privați.
-            title: Ștergere participanți privați
-          example_file: 'Exemplu de fişier:'
-          explanation: 'Încărcă fişierul tău CSV. Trebuie să aibă două coloane cu e-mail în prima coloană a fișierului și numele în ultima coloană (e-mail, numele) pentru utilizatorii pe care doriţi să îi adăugaţi în spaţiul participativ, fără antet. Evită folosirea caracterelor invalide, cum ar fi `<>?%&^*#@()[]=+:;"{}\<unk> ` în numele utilizatorului.'
-          explanation_example: |
-            ion.popescu@example.org%{csv_col_sep}Ion Popescu
-            maria.popescu@example.org%{csv_col_sep}Maria Popescu
-          upload: Încarcă
       reminders:
         create:
           error: A apărut o eroare la crearea de memento-uri.

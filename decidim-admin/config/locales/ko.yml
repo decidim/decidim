@@ -66,9 +66,6 @@ ko:
         twitter_handler: X handler
         warning_color: 경고
         youtube_handler: YouTube handler
-      participatory_space_private_user:
-        email: 이메일
-        name: 이름
       scope:
         code: 코드
         name: 이름
@@ -106,10 +103,6 @@ ko:
           attributes:
             official_img_footer:
               allowed_file_content_types: 잘못된 이미지 파일
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: 잘못된 형식의 가져오기 파일입니다. 설명서를 잘 읽고 UTF-8이 인코딩되었는지 확인하십시오.
         user_group_csv_verification:
           attributes:
             file:
@@ -145,8 +138,6 @@ ko:
         import: 가져오기
         newsletter:
           new: 새 뉴스레터
-        participatory_space_private_user:
-          new: 새 참여 공간 비공개 사용자
         per_page: 페이지 당
         send_me_a_test_email: 나에게 테스트 메일 보내기
         share: 공유
@@ -306,10 +297,6 @@ ko:
             label: 유형
         officialized_at_null:
           label: 상태
-        participatory_space_private_users:
-          user_invitation_sent_at_not_null:
-            values:
-              'true': 전송됨
         private_space_eq:
           label: 비공개
           values:
@@ -429,8 +416,6 @@ ko:
             sent_to: 다음에 전송하였습니다
             subject: 주제
           name: 뉴스 레터
-        participatory_space_private_user:
-          name: 참여공간 비공개참여
         scope:
           fields:
             name: 이름
@@ -531,20 +516,6 @@ ko:
           hidden: 숨겨짐
           show: 표시
           title: 참가자의 이메일 주소 보기
-      participatory_space_private_users:
-        new:
-          create: 생성
-      participatory_space_private_users_csv_imports:
-        new:
-          csv_upload:
-            title: CSV 파일 업로드
-          destroy:
-            button: 모든 비공개 참가자 삭제
-            confirm: 모든 비공개 참가자를 삭제하시겠습니까? 이 작업은 취소할 수 없습니다. 복구할 수 없습니다.
-            empty: 비공개 참가자가 없습니다.
-            explanation: '%{count} 개의 비공개 참가자가 있습니다.'
-            title: 비공개 참가자 삭제
-          example_file: '예제 파일:'
       reminders:
         create:
           error: 리마인더를 만드는 중 문제가 발생했습니다.

@@ -91,11 +91,6 @@ de:
         welcome_notification_body: Text der Willkommens-Benachrichtigung
         welcome_notification_subject: Betreff der Willkommens-Benachrichtigung
         youtube_handler: YouTube-Handler
-      participatory_space_private_user:
-        email: E-Mail
-        name: Name
-      participatory_space_private_user_csv_import:
-        file: Datei
       scope:
         code: Code
         name: Name
@@ -137,10 +132,6 @@ de:
           attributes:
             official_img_footer:
               allowed_file_content_types: Ungültige Bilddatei
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Fehlerhafte Importdatei. Bitte lesen Sie die Anweisungen sorgfältig durch und stellen Sie sicher, dass die Datei UTF-8 kodiert ist.
         user_group_csv_verification:
           attributes:
             file:
@@ -192,8 +183,6 @@ de:
         moderate: Moderationen verwalten
         newsletter:
           new: Neuer Newsletter
-        participatory_space_private_user:
-          new: Neuer privater Benutzer
         per_page: Pro Seite
         permissions: Berechtigungen verwalten
         restore: Wiederherstellen
@@ -430,17 +419,6 @@ de:
           values:
             'false': Offizialisiert
             'true': Nicht offiziell
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Einladung akzeptiert
-            values:
-              'false': Nicht akzeptiert
-              'true': Akzeptiert
-          user_invitation_sent_at_not_null:
-            label: Einladung versendet
-            values:
-              'false': Nicht versendet
-              'true': Versendet
         private_space_eq:
           label: Privat
           values:
@@ -573,6 +551,10 @@ de:
             explanation: Verwaltete Benutzer können zu Standardbenutzern heraufgestuft werden. Das bedeutet, dass sie zu der Anwendung eingeladen werden und nicht in der Lage sind, sie erneut zu repräsentieren. Der eingeladene Benutzer erhält eine E-Mail, um Ihre Einladung anzunehmen.
             new_managed_user_promotion: Neue verwaltete Benutzerwerbung
             promote: Fördern
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Laden Sie Ihre CSV-Datei hoch
       menu:
         admin_log: Admin-Aktivitätsprotokoll
         admins: Admins
@@ -639,8 +621,6 @@ de:
             sent_to: Gesendet an
             subject: Gegenstand
           name: Newsletter
-        participatory_space_private_user:
-          name: Participatory Space privater Benutzer
         scope:
           fields:
             name: Name
@@ -915,53 +895,6 @@ de:
         form:
           add: Zur erlaubten Liste hinzufügen
           title: Liste erlaubter externer Domains
-      participatory_space_private_users:
-        create:
-          error: Beim Hinzufügen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
-          success: Ein privater Zugriff für diesen Beteiligungsbereich wurde erfolgreich für das Konto erstellt.
-        destroy:
-          error: Beim Löschen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
-          success: Privater Zugriff zum partizipativen Raum erfolgreich gelöscht.
-        edit:
-          title: Privates Mitglied des partiziaptiven Bereichs bearbeiten.
-          update: Aktualisieren
-        index:
-          import_via_csv: Aus CSV-Datein importieren
-          publish_all: Alle veröffentlichen
-          title: Participatory Space privater Benutzer
-          unpublish_all: Alle Veröffentlichungen aufheben
-        new:
-          create: Erstellen
-          title: Neuer privater Benutzer des Participatory Space.
-        publish_all:
-          error: Es gab ein Problem bei der Veröffentlichung aller privaten Teilnehmenden für diesen partizipativen Bereich.
-          success: Alle privaten Teilnehmenden erfolgreich für diesen partizipativen Bereich veröffentlicht
-        unpublish_all:
-          error: Es gab ein Problem beim Entfernen aller privaten Teilnehmenden für diesen partizipativen Bereich.
-          success: Alle privaten Teilnehmenden für diesen teilnehmenden Raum erfolgreich zurückgezogen
-        update:
-          error: Beim Aktualisieren des privaten Teilnehmenden für diesen Beteiligungsbereich ist ein Problem aufgetreten.
-          success: Privater Teilnehmende für diesen partizipativen Raum erfolgreich erstellt
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: Beim Lesen der CSV-Datei ist ein Problem aufgetreten. Bitte stellen Sie sicher, dass Sie den Anweisungen korrekt gefolgt sind.
-          success: CSV-Datei wurde erfolgreich hochgeladen, wir senden eine Einladungs-E-Mail an die Teilnehmenden. Dies kann eine Weile dauern.
-        new:
-          csv_upload:
-            title: CSV-Datei hochladen
-          destroy:
-            button: Alle private Teilnehmende auswählen
-            confirm: Sind Sie sicher, dass Sie alle private Teilnehmende entfernen möchten? Diese Aktion kann nicht rückgängig gemacht werden. Sie werden sie nicht wiederherstellen können.
-            empty: Sie haben keine private Teilnehmende.
-            explanation: Sie haben %{count} private Teilnehmende.
-            title: Alle private Teilnehmende entfernen
-          example_file: 'Beispieldatei:'
-          explanation: 'Laden Sie Ihre CSV-Datei mit den Teilnehmenden, die Sie zum Prozess hinzufügen möchten, hoch. Sie muss zwei Spalten (ohne Kopfzeile) haben, mit der E-Mail-Adresse in der ersten Spalte und dem Namen in der zweiten Spalte der Datei. Verwenden Sie keine ungültige Zeichen wie `<>?%&^*#@()[]=+:;"{}\|` im Namen der Teilnehmenden.'
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: Private Teilnehmende via CSV importieren
-          upload: Hochladen
       reminders:
         create:
           error: Beim Erstellen dieser Erinnerungen ist ein Problem aufgetreten.

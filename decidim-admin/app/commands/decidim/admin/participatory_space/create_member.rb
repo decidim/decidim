@@ -54,7 +54,7 @@ module Decidim
           ) do
             Decidim::ParticipatorySpace::Member.find_or_create_by!(
               user:,
-              privatable_to: @member_to,
+              participatory_space: @member_to,
               role: form.role,
               published: form.published
             )

@@ -175,4 +175,30 @@ describe "Admin manages budgets" do
     it_behaves_like "manage soft deletable resource", "budget"
     it_behaves_like "manage trashed resource", "budget"
   end
+
+  describe "more information button" do
+    context "when budget has more_information content" do
+      let!(:budget_with_info) { create(:budget, :with_projects, component: current_component) }
+
+      before do
+        current_component.update!(settings: { more_information_modal: { en: "Additional budget information" } })
+      end
+
+      it "displays the more information button" do
+        visit Decidim::EngineRouter.main_proxy(current_component).budget_projects_path(budget_with_info)
+
+        expect(page).to have_button("More information")
+      end
+    end
+
+    context "when budget has no more_information content" do
+      let!(:budget_without_info) { create(:budget, :with_projects, component: current_component) }
+
+      it "does not display the more information button" do
+        visit Decidim::EngineRouter.main_proxy(current_component).budget_projects_path(budget_without_info)
+
+        expect(page).to have_no_button("More information")
+      end
+    end
+  end
 end

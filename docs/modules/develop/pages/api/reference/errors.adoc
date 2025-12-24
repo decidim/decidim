@@ -1,0 +1,22 @@
+= Error Handling for the API
+
+Currently, in Decidim we are using some exceptions to handle API responses, aiming to serve both input (receiving data through API) and output (sending data through API).
+
+At the moment there are 3 categories of exceptions that are being handled:
+
+== Authorization errors
+
+* xref:develop:api/reference/errors/permission_not_set.adoc[Permission Not Set Error - PERMISSION_NOT_SET_ERROR], is triggered when there is a problem with the authorization layer.
+* xref:develop:api/reference/errors/unauthorized_object.adoc[Unauthorized Object Error - UNAUTHORIZED_OBJECT_ERROR], is triggered when the requesting user does not have access to a certain resource.
+* xref:develop:api/reference/errors/unauthorized_field.adoc[Unauthorized Field Error - UNAUTHORIZED_FIELD_ERROR], is triggered when the requesting user does not have access to a certain field or resource.
+* xref:develop:api/reference/errors/unauthorized_mutation.adoc[Unauthorized Mutation Error - MUTATION_NOT_AUTHORIZED_ERROR], is triggered when the requesting user tries to access a mutation that cannot be accessed.
+
+== Validation errors
+* xref:develop:api/reference/errors/not_found.adoc[Not Found Error - NOT_FOUND_ERROR], is triggered when the requested record does not exist in database, or is in a state where you should not have access to it (moderated, belongs to an unpublished component, belongs to a private process where the requesting user does not have access)
+* xref:develop:api/reference/errors/validation_error.adoc[Validation Error - VALIDATION_ERROR], is triggered when the requesting user performs an action that contains an error. This is equivalent to the flash messages displayed on the Website.
+* xref:develop:api/reference/errors/attribute_validation_error.adoc[Attribute Validation Error - ATTRIBUTE_VALIDATION_ERROR], is triggered when the requesting user submits a request to alter a resource that has an error. This is equivalent to the validation errors in the HTTP forms.
+
+== Internationalization errors
+
+* xref:develop:api/reference/errors/locale_error.adoc[Locale Error - LOCALE_ERROR], is triggered when there is a problem with the internationalization, for example, a missing translation, a missing interpolation to the output string
+* xref:develop:api/reference/errors/invalid_locale_error.adoc[Invalid Locale Error - INVALID_LOCALE_ERROR], is triggered when the provided locale is invalid or not supported by the system, for example when an unknown locale code is used or a locale that is not enabled for the current organization

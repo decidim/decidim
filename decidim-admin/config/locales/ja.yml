@@ -33,6 +33,11 @@ ja:
       help_section:
         content: 内容
       id: ID
+      member:
+        email: メールアドレス
+        name: 名前
+      member_csv_import:
+        file: ファイル
       newsletter:
         body: 本文
         send_to_all_users: 全参加者に送信
@@ -91,11 +96,6 @@ ja:
         welcome_notification_body: ウェルカム通知本文
         welcome_notification_subject: ウェルカム通知の件名
         youtube_handler: YouTube ハンドラー
-      participatory_space_private_user:
-        email: Eメールアドレス
-        name: 名前
-      participatory_space_private_user_csv_import:
-        file: ファイル
       scope:
         code: コード
         name: 名前
@@ -125,10 +125,17 @@ ja:
         show_in_footer: フッターに表示
         title: タイトル
         weight: 順番の位置
+      taxonomy:
+        item_name: アイテム名
+        parent_id: 親
       user_group_csv_verification:
         file: ファイル
     errors:
       models:
+        member_csv_import:
+          attributes:
+            file:
+              malformed: インポートファイルの形式が正しくありません。指示内容をよく読み、ファイルがUTF-8でエンコードされていることを確認してください。
         newsletter:
           attributes:
             base:
@@ -137,10 +144,6 @@ ja:
           attributes:
             official_img_footer:
               allowed_file_content_types: 無効な画像ファイル
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: インポートファイルの形式が正しくありません。手順を見直して、ファイルがUTF-8でエンコードされていることを確認してください。
         user_group_csv_verification:
           attributes:
             file:
@@ -188,12 +191,12 @@ ja:
         export: エクスポート
         export-selection: 選択したものをエクスポート
         import: インポート
+        member:
+          new: 新規メンバー
         menu_hidden: メニューから隠す
         moderate: モデレーションの管理
         newsletter:
           new: 新しいニュースレター
-        participatory_space_private_user:
-          new: 新しい参加型スペースのプライベートユーザー
         per_page: ページごと
         permissions: 権限の管理
         restore: 復元
@@ -414,6 +417,17 @@ ja:
           values:
             'false': 'いいえ'
             'true': 'はい'
+        members:
+          user_invitation_accepted_at_not_null:
+            label: 招待が承認されました
+            values:
+              'false': 未承認
+              'true': 承認済み
+          user_invitation_sent_at_not_null:
+            label: 招待状を送信しました
+            values:
+              'false': 未送信
+              'true': 送信済み
         moderated_users:
           reports_reason_eq:
             label: 理由を報告
@@ -429,17 +443,6 @@ ja:
           values:
             'false': 公式化済み
             'true': 公式化されていない
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: 招待が承認されました
-            values:
-              'false': 未承認
-              'true': 承認済み
-          user_invitation_sent_at_not_null:
-            label: 招待状の送信
-            values:
-              'false': 未送信
-              'true': 送信済み
         private_space_eq:
           label: プライベート
           values:
@@ -568,6 +571,51 @@ ja:
             explanation: 管理対象参加者は通常の参加者に昇格することができます。 その場合、彼らはアプリケーションに招待され、あなたはそれらを再び管理することはできなくなります。 招待された参加者は、招待を承諾するためのメールを受け取ります。
             new_managed_user_promotion: 新しい管理対象参加者の昇格
             promote: プロモート
+      members:
+        create:
+          error: 参加型スペースにメンバーを追加する際に問題が発生しました。
+          success: メンバーを作成しました。
+        destroy:
+          error: 参加型スペースのメンバーの削除中に問題が発生しました。
+          success: メンバーを削除しました。
+        edit:
+          update: 更新
+        index:
+          import_via_csv: CSV形式でインポート
+          publish_all: すべて公開
+          title: メンバー
+          unpublish_all: すべて非公開
+        new:
+          create: 作成
+        publish_all:
+          error: 参加スペースのすべてのメンバーを公開する際に問題が発生しました。
+          success: 参加スペースのすべてのメンバーを公開しました
+        unpublish_all:
+          error: 参加スペースのすべてのメンバーを非公開にする際に問題が発生しました。
+          success: 参加スペースのすべてのメンバーを非公開にしました
+        update:
+          error: 参加スペースのメンバーを更新する際に問題がありました。
+          success: メンバーを更新しました
+      members_csv_imports:
+        create:
+          invalid: CSVファイルの読み込み中に問題が発生しました。指示に従って正しく操作されているかご確認ください。
+          success: CSVファイルのアップロードが完了しました。参加者に招待メールを送信中です。完了までしばらくお待ちください。
+        new:
+          csv_upload:
+            title: CSVファイルをアップロード
+          destroy:
+            button: すべてのメンバーを削除
+            confirm: すべてのメンバーを削除してもよろしいですか？この操作は元に戻せません。復元することはできません。
+            empty: メンバーがいません。
+            explanation: '%{count} 名のメンバーがいます。'
+            title: メンバーを削除
+          example_file: 'サンプルファイル：'
+          explanation: "CSVファイルをアップロードしてください。ファイルには2つの列が必要で、1列目にはメールアドレス、最後の列には参加スペースに追加したいユーザーの名前を入力してください。ヘッダー行は不要です。ユーザー名には、`<>?%&^*#@()[]=+:;\"{}\\|`などの無効な文字を使用しないでください。\n"
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
+          title: CSV形式でメンバーをインポート
+          upload: アップロード
       menu:
         admin_log: 管理者アクティビティログ
         admins: 管理者
@@ -626,6 +674,8 @@ ja:
             reason: 理由：
             started_at: 開始日時
             user: 参加者
+        member:
+          name: メンバー
         newsletter:
           fields:
             created_at: 作成日時
@@ -634,8 +684,6 @@ ja:
             sent_to: '送信先:'
             subject: 件名
           name: ニュースレター
-        participatory_space_private_user:
-          name: 参加型スペースプライベート参加者
         scope:
           fields:
             name: 名前
@@ -910,53 +958,6 @@ ja:
         form:
           add: 許可されたリストに追加
           title: 許可された外部ドメインのリスト
-      participatory_space_private_users:
-        create:
-          error: この参加型スペースにプライベート参加者を追加する際に問題が発生しました。
-          success: 参加型スペースのプライベート参加者アクセスが正常に作成されました。
-        destroy:
-          error: この参加型スペースのプライベート参加者を削除する際に問題が発生しました。
-          success: 参加型スペースのプライベート参加者アクセスが正常に破棄されました。
-        edit:
-          title: 参加スペースの非公開参加者を編集します。
-          update: 更新
-        index:
-          import_via_csv: CSV形式でインポート
-          publish_all: すべて公開
-          title: 参加型スペースプライベート参加者
-          unpublish_all: すべて非公開
-        new:
-          create: 作成
-          title: 新しい参加型スペースのプライベート参加者。
-        publish_all:
-          error: この参加型スペースのすべてのプライベート参加者を公開する際に問題が発生しました。
-          success: この参加型スペースのすべてのプライベート参加者を公開しました
-        unpublish_all:
-          error: この参加型スペースのすべてのプライベート参加者を非公開にする際に問題が発生しました。
-          success: この参加型スペースのすべてのプライベート参加者を非公開にしました
-        update:
-          error: この参加型スペースのプライベート参加者の更新中に問題が発生しました。
-          success: 参加型スペースのプライベート参加者を更新しました
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: CSVファイルの読み込み中に問題が発生しました。手順を確認してください。
-          success: CSVファイルは正常にアップロードされました。参加者に招待メールを送信しています。しばらくお待ちください。
-        new:
-          csv_upload:
-            title: CSVファイルをアップロード
-          destroy:
-            button: すべてのプライベート参加者を削除
-            confirm: すべてのプライベート参加者を削除してもよろしいですか？この操作は元に戻せず、削除された方を復元することはできません。
-            empty: プライベートの参加者はいません。
-            explanation: '%{count} 人のプライベート参加者がいます。'
-            title: プライベート参加者を削除
-          example_file: 'サンプルファイル:'
-          explanation: 'CSV ファイルをアップロードします。 CSVにはヘッダをつけず、最初のカラムにはメールアドレスを、次のカラムにはユーザー名を入れた2カラムのCSVとして、参加スペースに追加したいユーザーの情報を並べてください。 ユーザー名には `<>?%&^*#@()[]=+:;"{}\|`のような無効な文字を使用しないでください。'
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: プライベート参加者をCSV形式でインポート
-          upload: アップロード
       reminders:
         create:
           error: リマインダー作成中に問題が発生しました。

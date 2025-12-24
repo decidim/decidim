@@ -187,9 +187,6 @@ de:
           questionnaire_closed:
             body: Das Formular ist geschlossen und kann nicht beantwortet werden.
             title: Fragebogen geschlossen
-          questionnaire_for_private_users:
-            body: Der Fragebogen ist nur für Privatanwender verfügbar
-            title: Fragebogen geschlossen
           questionnaire_js_disabled:
             body: Manche Funktionen des Formulars werden deaktiviert sein. Aktivieren Sie JavaScript in Ihrem Browser für eine bessere Erfahrung.
             title: JavaScript ist deaktiviert
