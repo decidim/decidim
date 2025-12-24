@@ -2,7 +2,7 @@
 
 module Decidim
   module Meetings
-    class CreateMeetingAttributes < Decidim::Api::Types::BaseInputObject
+    class MeetingAttributes < Decidim::Api::Types::BaseInputObject
       graphql_name "CreateMeetingAttributes"
       description "Attributes for creating a meeting"
 
