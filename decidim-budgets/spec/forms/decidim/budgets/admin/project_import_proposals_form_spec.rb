@@ -12,12 +12,12 @@ module Decidim
         let(:component) { project.component }
         let(:origin_component) { create(:proposal_component, participatory_space: component.participatory_space) }
         let(:default_budget) { 1000 }
-        let(:import_all_accepted_proposals) { true }
+        let(:internal_states) { %w(accepted rejected) }
         let(:params) do
           {
             origin_component_id: origin_component.try(:id),
             default_budget:,
-            import_all_accepted_proposals:
+            internal_states:
           }
         end
 
@@ -44,10 +44,10 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
-        context "when the import proposals is not accepted" do
-          let(:import_all_accepted_proposals) { false }
+        context "when no states are selected" do
+          let(:internal_states) { [] }
 
-          it { is_expected.to be_invalid }
+          it { is_expected.to be_valid }
         end
 
         describe "origin_component" do
