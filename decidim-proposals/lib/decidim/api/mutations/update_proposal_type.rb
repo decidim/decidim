@@ -24,6 +24,7 @@ module Decidim
           on(:ok) do |proposal|
             return proposal
           end
+
           on(:invalid) do
             raise Decidim::Api::Errors::AttributeValidationError, form.errors
           end
