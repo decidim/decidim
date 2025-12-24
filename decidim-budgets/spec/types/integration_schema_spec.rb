@@ -478,11 +478,31 @@ describe "Decidim::Api::QueryType" do
           it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
             expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this Project because you do not have permissions")
           end
+
+          context "and requests projects that is not supposed to see" do
+            let!(:current_user) { nil }
+
+            let(:component_fragment) do
+              %(
+      fragment fooComponent on Budgets {
+        budget(id: #{budget.id}) {
+          id
+          projects {
+            id
+          }
+        }
+      })
+            end
+
+            it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
+              expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this Project because you do not have permissions")
+            end
+          end
         end
 
         context "when user is member" do
           let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
-          let!(:participatory_space_private_user) { create(:assembly_private_user, user: current_user, privatable_to: participatory_process) }
+          let!(:member) { create(:assembly_member, user: current_user, participatory_space: participatory_process) }
 
           it "is visible" do
             expect(response["assembly"]["components"].first[lookout_key]).to eq(query_result)
@@ -517,6 +537,7 @@ describe "Decidim::Api::QueryType" do
             end
           end
         end
+
         context "when the user is space moderator" do
           let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
           let!(:role) { create(:assembly_user_role, assembly: participatory_process, user: current_user, role: "moderator") }
@@ -535,7 +556,7 @@ describe "Decidim::Api::QueryType" do
 
           context "when user is member" do
             let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
-            let!(:participatory_space_private_user) { create(:assembly_private_user, user: current_user, privatable_to: participatory_process) }
+            let!(:member) { create(:assembly_member, user: current_user, participatory_space: participatory_process) }
 
             it "should not be visible" do
               expect(response["assembly"]["components"]).to be_empty

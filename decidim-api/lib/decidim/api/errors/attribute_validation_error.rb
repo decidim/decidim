@@ -11,7 +11,15 @@ module Decidim
 
           @messages = messages
 
-          super(messages.full_messages.join(", ")) if messages.is_a?(ActiveModel::Errors)
+          message_str =
+            if messages.is_a?(ActiveModel::Errors)
+              messages.full_messages.join(", ")
+            elsif messages.is_a?(Array)
+              messages.map { |a| a[:message] }.join(", ")
+            else
+              messages.to_s
+            end
+          super(message_str)
         end
 
         def to_h
@@ -19,9 +27,9 @@ module Decidim
           if @messages.is_a?(ActiveModel::Errors)
             hash["message"] = @messages.map do |error|
               # This is the GraphQL argument which corresponds to the validation error:
-              path = ["attributes", error.attribute.to_s.camelize(:lower)]
+              local_path = ["attributes", error.attribute.to_s.camelize(:lower)]
               {
-                path: path,
+                path: local_path,
                 message: error.message
               }
             end
@@ -55,8 +63,9 @@ module Decidim
 
         def message
           return @messages.full_messages.join(", ") if @messages.is_a?(ActiveModel::Errors)
+          return @messages.map { |a| a[:message] }.join(", ") if @messages.is_a?(Array)
 
-          @messages.map { |a| a[:message] }.join(", ")
+          @messages.to_s
         end
       end
     end

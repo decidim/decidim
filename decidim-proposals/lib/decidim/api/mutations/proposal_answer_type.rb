@@ -33,6 +33,7 @@ module Decidim
           on(:ok) do
             return object
           end
+
           on(:invalid) do
             raise GraphQL::ExecutionError, form.errors.full_messages.join(", ")
           end

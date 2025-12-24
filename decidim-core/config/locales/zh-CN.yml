@@ -108,9 +108,6 @@ zh-CN:
         update: "%{user_name} 更新了 %{resource_name} OAuth 应用程序"
       organization:
         update: "%{user_name} 更新了组织设置"
-      participatory_space_private_user:
-        create: "%{user_name} 邀請了 %{resource_name} 作为私人参与者"
-        delete: "%{user_name} 移除了参与者 %{resource_name} 作为私人参与者"
       scope:
         create: "%{user_name} 创建了 %{resource_name} 范围"
         create_with_parent: "%{user_name} 在 %{parent_scope} 范围内创建了 %{resource_name} 范围"
@@ -788,10 +785,8 @@ zh-CN:
         decline: 拒绝邀请
         hello: 您好 %{email}，
         invited_you_as_admin: "%{invited_by} 邀请您担任了 %{application}的管理员。您可以通过下面的链接接受它。"
-        invited_you_as_private_user: "%{invited_by} 邀请您作为私有参与者 %{application}。您可以通过下面的链接接受它。"
         someone_invited_you: 有人邀请您访问 %{application}。您可以通过下面的链接接受它。
         someone_invited_you_as_admin: 有人邀请您作为 %{application}的管理员，您可以通过下面的链接接受它。
-        someone_invited_you_as_private_user: 有人邀请您作为私有参与者 %{application}，您可以通过下面的链接接受它。
         subject: 邀请说明
       password_change:
         greeting: 你好 %{recipient}！

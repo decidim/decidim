@@ -42,11 +42,6 @@ describe "show" do
       end
 
       it "shows the correct time zone" do
-        within(".menu-bar") do
-          expect(page).to have_content(translated(component.name))
-          expect(page).to have_content(translated(meeting.reload.title))
-        end
-
         expect(page).to have_content("HST")
       end
     end

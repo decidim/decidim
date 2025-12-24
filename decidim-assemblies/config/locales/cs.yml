@@ -177,7 +177,6 @@ cs:
           info: O tomto shromáždění
           landing_page: Rozložení vstupní strany
           moderations: Moderování
-          private_users: Členové
           see_assembly: Zobrazit shromáždění
       models:
         assembly:
@@ -257,7 +256,6 @@ cs:
             metadata: Metadata
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             other: Ostatní
-            private_notice: Budete moci spravovat soukromé účastníky po nastavení jako soukromé
             select_a_created_by: Vybrat vytvořeno od
             select_parent_assembly: Vybrat nadřazené shromáždění
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'

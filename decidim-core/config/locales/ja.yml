@@ -271,10 +271,6 @@ ja:
       organization:
         update: "%{user_name} が組織設定を更新しました"
         update_external_domain: "%{user_name} が組織の外部ドメインを更新しました"
-      participatory_space_private_user:
-        create: "%{user_name} が %{resource_name} をプライベート参加者に招待しました"
-        create_via_csv: "%{user_name} が %{resource_name} をCSV経由でプライベート参加者に招待しました"
-        delete: "%{user_name} がプライベート参加者の %{resource_name} を削除しました"
       scope:
         create: "%{user_name} が %{resource_name} スコープを作成しました"
         create_with_parent: "%{user_name} は %{resource_name} スコープ内で %{parent_scope} スコープを作成しました"
@@ -751,13 +747,6 @@ ja:
           id: この通知の固有ID
           resource_type: 通知に関連するリソースの種類
           updated_at: 通知の最終更新日時
-        participatory_space_private_users:
-          created_at: プライベートユーザーの作成日時
-          id: このプライベートユーザーの固有ID
-          privatable_to: このプライベートユーザーが所属する領域：
-          published: このプライベートユーザーが公開されているか否か
-          role: このプライベートユーザーが持つ役割
-          updated_at: プライベートユーザーの最終更新日時
         reports:
           created_at: レポートの作成日時
           details: レポートの詳細
@@ -1275,8 +1264,10 @@ ja:
       action_error: 通知設定の更新に問題が発生しました。
       no_notifications: まだ通知はありません。
       show:
+        deleted: コンテンツは著者によって削除されました。
         missing_event: この通知は利用できなくなった要素に属しています。破棄してください。
         moderated: コンテンツはモデレーションにより非表示になっています。
+        not_available: この通知は現在利用できないアイテムに関するものです。破棄できます。
     notifications_digest_mailer:
       header:
         daily: 日次の通知のダイジェスト
@@ -1818,17 +1809,13 @@ ja:
         ignore: |-
           招待を受け入れたくない場合は、このメールを無視してください。<br />上記のリンクにアクセスし、アカウントIDとパスワードを設定するまで、あなたのアカウントは作成されません。
         invited_you_as_admin: "%{invited_by} さんが %{application}の管理者としてあなたを招待しました。以下のリンクから承認できます。"
-        invited_you_as_private_user: "%{invited_by} が %{application} のプライベート参加者としてあなたを招待しました。以下のリンクから承認できます。"
         someone_invited_you: '%{application} にあなたを招待しました。以下のリンクから受け入れることができます。'
         someone_invited_you_as_admin: '%{application} の管理者としてあなたを招待しました。以下のリンクから承認できます。'
-        someone_invited_you_as_private_user: '%{application} のプライベート参加者としてあなたは招待されています。以下のリンクから承認できます。'
         subject: 招待の説明
       invite_admin:
         subject: '%{organization} を管理するために招待されています'
       invite_collaborator:
         subject: あなたは %{organization} で共同作業に招待されています
-      invite_private_user:
-        subject: あなたは %{organization} のプライベート参加プロセスに招待されています
       organization_admin_invitation_instructions:
         subject: '%{organization} を管理するために招待されています'
       password_change:

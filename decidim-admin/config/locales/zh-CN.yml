@@ -286,6 +286,10 @@ zh-CN:
             explanation: 管理下的参与者可以提升到标准参与者。 这意味着他们将被邀请到应用程序中，您将无法再次管理他们。 邀请的参与者将收到一封电子邮件来接受您的邀请。
             new_managed_user_promotion: 新管理的参与者促销活动
             promote: 升级
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: 上传您的 CSV 文件
       menu:
         admin_log: 管理员活动日志
         admins: 管理员
@@ -339,8 +343,6 @@ zh-CN:
             sent_to: 发送至
             subject: 议 题
           name: 通讯
-        participatory_space_private_user:
-          name: 参与性空间私人参与者
         scope:
           fields:
             name: 名称
@@ -462,23 +464,6 @@ zh-CN:
         update:
           error: 更新这个组织时出现问题。
           success: 组织更新成功。
-      participatory_space_private_users:
-        create:
-          error: 在这种参与空间中添加私人参与者时出现了问题。
-          success: 参与性空间私人参与者访问成功创建。
-        destroy:
-          error: 删除这个参与空间的私人参与者时出错。
-          success: 参与性空间私人参与者访问成功被摧毁。
-        index:
-          title: 参与性空间私人参与者
-        new:
-          create: 创建
-          title: 新的参与性空间活动私人参与者。
-      participatory_space_private_users_csv_imports:
-        new:
-          csv_upload:
-            title: 上传您的 CSV 文件
-          upload: 上传
       resource_permissions:
         edit:
           submit: 提交

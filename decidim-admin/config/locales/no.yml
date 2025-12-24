@@ -139,8 +139,6 @@
         import: Importer
         newsletter:
           new: Nytt nyhetsbrev
-        participatory_space_private_user:
-          new: Nytt deltakerområde for privat bruker
         per_page: Per side
         share: Del
         user:
@@ -314,17 +312,6 @@
           values:
             'false': Offisialisert
             'true': Ikke offisialisert
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Invitasjon godtatt
-            values:
-              'false': Ikke akseptert
-              'true': Godkjent
-          user_invitation_sent_at_not_null:
-            label: Invitasjon sendt
-            values:
-              'false': Ikke sendt
-              'true': Sendt
         private_space_eq:
           label: Privat
           values:
@@ -430,6 +417,10 @@
             explanation: Styrte deltakere kan bli promotert til standard deltakere. Dette betyr at de vil bli invitert til applikasjonen og du vil ikke kunne administrere dem lenger. De inviterte deltakerene vil motta en email så de kan akseptere invitasjonen.
             new_managed_user_promotion: Ny administrert deltaker forfremmelse
             promote: Promoter
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Last opp din CSV fil
       menu:
         admin_log: Admin aktivitet logg
         admins: Adminer
@@ -484,8 +475,6 @@
             sent_to: Send til
             subject: Emne
           name: Nyhetsbrev
-        participatory_space_private_user:
-          name: Deltakerområdets private deltaker
         scope:
           fields:
             name: Navn
@@ -649,29 +638,6 @@
         update:
           error: Det oppstod et problem med å oppdatere denne organisasjon.
           success: Organisasjonen ble oppdatert.
-      participatory_space_private_users:
-        create:
-          error: Det oppstod et problem med å legge til en privat deltaker for dette deltakerområdet.
-          success: Deltakerområde privat deltaker tilgang opprettet.
-        destroy:
-          error: Det oppstod et problem med å slette en privat deltaker for dette deltakerområdet.
-          success: Deltakerområde privat deltaker tilgang ødelagt.
-        index:
-          import_via_csv: Importer fra CSV
-          title: Deltakerområdets private deltaker
-        new:
-          create: Opprett
-          title: Ny deltaker område privat deltaker.
-      participatory_space_private_users_csv_imports:
-        new:
-          csv_upload:
-            title: Last opp din CSV fil
-          destroy:
-            button: Slett alle private deltakere
-            empty: Du har ingen private deltakere.
-            explanation: Du har %{count} private deltakere.
-            title: Slett private deltakere
-          upload: Last opp
       reminders:
         create:
           error: Det oppsto et problem med å opprette påminnelser.

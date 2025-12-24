@@ -112,8 +112,8 @@ ja:
           components: コンポーネント
           info: このプロセスについて
           landing_page: ランディングページのレイアウト
+          members: メンバー
           moderations: モデレーション
-          private_users: メンバー
           process_admins: 参加型プロセス管理者
           steps: フェーズ
       models:
@@ -279,9 +279,11 @@ ja:
         export: "%{user_name} が %{resource_name} の参加プロセスをエクスポートしました"
         import: "%{user_name} が %{resource_name} の参加プロセスをインポートしました"
         publish: "%{user_name} が %{resource_name} 参加型プロセスを公開しました"
+        publish_all_members: "%{user_name} が参加型プロセス %{resource_name} のすべてのメンバーを公開しました"
         restore: "%{user_name} が %{resource_name} 参加型プロセスを復元しました"
         soft_delete: "%{user_name} が %{resource_name} 参加型プロセスをゴミ箱に移動しました"
         unpublish: "%{user_name} が %{resource_name} 参加型プロセスを非公開にしました"
+        unpublish_all_members: "%{user_name} が参加型プロセス %{resource_name} のすべてのメンバーを非公開にしました"
         update: "%{user_name} が %{resource_name} の参加型プロセスを更新しました"
       participatory_process_group:
         create: "%{user_name} が %{resource_name} 参加型プロセスグループを作成しました"
@@ -505,7 +507,6 @@ ja:
             images: 画像
             metadata: メタデータ
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
-            private_notice: プライベートとして設定した後、メンバーを管理することができます
             related_processes: 関連する参加型プロセス
             select_process_group: 参加型プロセス グループを選択
             slug_help_html: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
@@ -554,6 +555,9 @@ ja:
         title: 参加型プロセス
       last_activity:
         new_participatory_process: '新しい参加型プロセス:'
+      members:
+        index:
+          title: メンバー
       pages:
         home:
           highlighted_processes:
@@ -596,9 +600,6 @@ ja:
           type: 種別
         show:
           title: このプロセスについて
-      participatory_space_private_users:
-        index:
-          title: メンバー
       show:
         belongs_to_group: このプロセスの所属グループ
         private_space: これはプライベートな参加型プロセスです

@@ -12,7 +12,7 @@ module Decidim
       private
 
       def title
-        resource_link_text
+        sanitize(translated_attribute(model.body))
       end
 
       def resource_path

@@ -266,6 +266,10 @@ es-PY:
         results: resultados
       impersonation_log:
         manage: "%{user_name} ha gestionado a %{resource_name} porque %{reason}"
+      member:
+        create: "%{user_name} ha invitado a %{resource_name} como miembro"
+        create_via_csv: "%{user_name} ha invitado a %{resource_name} como miembro vía CSV"
+        delete: "%{user_name} ha eliminado a la participante %{resource_name} de miembro"
       moderation:
         bulk_hide: "%{user_name} ha ocultado %{reported_count} contenidos"
         bulk_unhide: "%{user_name} ha vuelto a mostrar %{reported_count} contenidos"
@@ -284,10 +288,6 @@ es-PY:
       organization:
         update: "%{user_name} actualizó la configuración de la organización"
         update_external_domain: "%{user_name} ha actualizado los dominios externos de la organización"
-      participatory_space_private_user:
-        create: "%{user_name} invitados %{resource_name} para ser un usuario privado"
-        create_via_csv: "%{user_name} invitó a %{resource_name} vía CSV a ser un participante privada"
-        delete: "%{user_name} eliminado el usuario %{resource_name} como un usuario privado"
       scope:
         create: "%{user_name} creó el ámbito %{resource_name}"
         create_with_parent: "%{user_name} creó el ámbito %{resource_name} dentro del ámbito %{parent_scope}"
@@ -769,13 +769,12 @@ es-PY:
           id: El identificador único de esta notificación
           resource_type: El tipo de recurso con el que está relacionada la notificación
           updated_at: La fecha y hora en que esta notificación fue actualizada por última vez
-        participatory_space_private_users:
-          created_at: La fecha y hora en que se creó esta participante privada
-          id: El identificador único de esta participante privada
-          privatable_to: A qué espacio de participación pertenece esta participante privada
-          published: Si esta participante privada está publicado o no
-          role: El rol tiene que esta participante privada
-          updated_at: La fecha y hora en que esta participante privada fue actualizada por última vez
+        participatory_space_members:
+          created_at: La fecha y hora en que se creó esta miembro
+          id: El identificador único de esta miembro
+          published: Si esta miembro está publicada o no
+          role: El rol tiene que esta miembro
+          updated_at: La fecha de la última actualización de esta miembro
         reports:
           created_at: La fecha y hora en que se creó este informe
           details: Los detalles de los informes de moderación
@@ -1841,17 +1840,17 @@ es-PY:
         ignore: |-
           Si no deseas aceptar la invitación, por favor ignora este correo electrónico.<br /> Tu cuenta no se creará hasta que accedas al enlace de arriba y establezcas tu nombre de usuaria y contraseña.
         invited_you_as_admin: "%{invited_by} te ha invitado como administrador de %{application}. Puedes aceptarlo a través del siguiente enlace."
-        invited_you_as_private_user: "%{invited_by} te ha invitado como usuario privado de %{application}. Puedes aceptar a través del siguiente enlace."
+        invited_you_as_member: "%{invited_by} te ha invitado como miembro de %{application}. Puedes aceptarlo a través del siguiente enlace."
         someone_invited_you: Alguien te ha invitado a %{application}. Puedes aceptar la invitación a través del siguiente enlace.
         someone_invited_you_as_admin: Alguien te ha invitado como administrador de %{application}, puedes aceptar a través del siguiente enlace.
-        someone_invited_you_as_private_user: Alguien te ha invitado como usuario_privado de %{application}, puedes aceptarlo a través del siguiente enlace.
+        someone_invited_you_as_member: Alguien te ha invitado como miembro de %{application}, puedes aceptarlo a través del siguiente enlace.
         subject: Instrucciones de invitación
       invite_admin:
         subject: Te han invitado a administrar %{organization}
       invite_collaborator:
         subject: Te han invitado a colaborar en %{organization}
-      invite_private_user:
-        subject: Te han invitado a participar en un proceso participativo privado en %{organization}
+      invite_member:
+        subject: Te han invitado a participar en un espacio de participación privado en %{organization}
       organization_admin_invitation_instructions:
         subject: Te han invitado a administrar %{organization}
       password_change:

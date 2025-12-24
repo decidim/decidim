@@ -4,8 +4,8 @@ require "spec_helper"
 
 describe "Admin editor link target remains" do
   let(:organization) { create(:organization) }
-  let(:admin) { create(:user, :admin, :confirmed, organization: organization) }
-  let(:participatory_process) { create(:participatory_process, organization: organization) }
+  let(:admin) { create(:user, :admin, :confirmed, organization:) }
+  let(:participatory_process) { create(:participatory_process, organization:) }
   let(:component) { create(:component, manifest_name: "pages", participatory_space: participatory_process) }
 
   before do

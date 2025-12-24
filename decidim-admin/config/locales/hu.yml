@@ -89,9 +89,6 @@ hu:
         welcome_notification_body: Üdvözlő értesítés szövegtörzse
         welcome_notification_subject: Üdvözlő üzenet tárgya
         youtube_handler: YouTube kezelő
-      participatory_space_private_user:
-        email: Email
-        name: Név
       scope:
         code: Kód
         name: Név
@@ -133,10 +130,6 @@ hu:
           attributes:
             official_img_footer:
               allowed_file_content_types: Érvénytelen képfájl
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Hibás importfájl, kérjük, olvassa el figyelmesen az utasításokat, és győződjön meg róla, hogy a fájl UTF-8 kódolású.
         user_group_csv_verification:
           attributes:
             file:
@@ -175,8 +168,6 @@ hu:
         import: Import
         newsletter:
           new: Új hírlevél
-        participatory_space_private_user:
-          new: Új privát felhasználó a részvételi térben
         per_page: Oldalanként
         send_me_a_test_email: Teszt e-mail küldése
         share: Megosztás
@@ -382,17 +373,6 @@ hu:
           values:
             'false': Hivatalos
             'true': Nem hivatalos
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Meghívás elfogadva
-            values:
-              'false': Nincs elfogadva
-              'true': Elfogadva
-          user_invitation_sent_at_not_null:
-            label: Meghívó kiküldve
-            values:
-              'false': Nincs elküldve
-              'true': Elküldve
         private_space_eq:
           label: Magán
           values:
@@ -510,6 +490,10 @@ hu:
             explanation: A kezelt résztvevők sztenderd résztvevőkké alakíthatóak. Ez azt jelenti, hogy meghívást kapnak az alkalmazáshoz és nem lehet őket újra kezelni. Erről emailben kapnak értesítést.
             new_managed_user_promotion: Új résztvevő előléptetése
             promote: Előléptetés
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Töltse fel a CSV fájlját
       menu:
         admin_log: Admin tevékenységnapló
         admins: Adminok
@@ -569,8 +553,6 @@ hu:
             sent_to: Címzett
             subject: Tárgy
           name: Hírlevél
-        participatory_space_private_user:
-          name: Részvételi tér privát felhasználó
         scope:
           fields:
             name: Név
@@ -764,38 +746,6 @@ hu:
         form:
           add: Hozzáadás az engedélyezett listához
           title: Engedélyezett külső domainek listája
-      participatory_space_private_users:
-        create:
-          error: Hiba történt egy privát felhasználó hozzáadása során a részvételi helyhez.
-          success: Magán résztvevő részvételi helyhez való hozzáférése biztosítva.
-        destroy:
-          error: Hiba történt egy privát felhasználó törlésével a részvételi helyen.
-          success: Privát felhasználó részvételi helyhez való hozzáférése törölve.
-        index:
-          import_via_csv: Importálás CSV -ből
-          title: Részvételi tér privát felhasználója
-        new:
-          create: Létrehozás
-          title: Új részvételi tér privát felhasználója.
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: Probléma adódott a CSV fájl beolvasásával. Kérjük, győződjön meg róla, hogy követte az utasításokat.
-          success: A CSV fájl sikeresen feltöltődött, meghívó e-mailt küldünk a résztvevőknek. Ez eltarthat egy ideig.
-        new:
-          csv_upload:
-            title: Töltse fel a CSV fájlját
-          destroy:
-            button: Az összes privát felhasználó törlése
-            confirm: Biztos, hogy törölni szeretné az összes privát résztvevőt? Ezt a műveletet nem lehet visszacsinálni, nem tudja majd visszaállítani őket.
-            empty: Nincsenek privát résztvevők.
-            explanation: '%{count} privát résztvevője van.'
-            title: Privát felhasználók törlése
-          example_file: 'Példa fájl:'
-          explanation: 'Töltse fel a CSV-fájlt. Két oszlopnak kell lennie, a fájl első oszlopában az e-mail címmel, a fájl utolsó oszlopában pedig a nevével azoknak a felhasználóknak, akiket hozzá szeretne adni a részvételi térhez, fejlécek nélkül. Kerülje az olyan érvénytelen karakterek használatát, mint a `<>?%&^*#@()[]=+:;"{}\|` a felhasználói névben.'
-          explanation_example: |
-            ohn.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
-          upload: Feltölt
       reminders:
         create:
           error: Hiba történt a bejegyzés létrehozása során.

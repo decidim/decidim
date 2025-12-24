@@ -114,7 +114,6 @@ sv:
           components: Komponenter
           info: Om processen
           moderations: Moderering
-          private_users: Medlemmar
           process_admins: Administratörer för process
           steps: Steg
       models:
@@ -280,9 +279,11 @@ sv:
         export: "%{user_name} exporterade processen %{resource_name}"
         import: "%{user_name} importerade processen %{resource_name}"
         publish: "%{user_name} publicerade deltagandeprocessen %{resource_name}"
+        publish_all_members: "%{user_name} publicerade deltagandeprocessen %{resource_name}"
         restore: "%{user_name} återställde deltagandeprocessen %{resource_name}"
         soft_delete: "%{user_name} raderade deltagandeprocessen %{resource_name}"
         unpublish: "%{user_name} avpublicerade deltagandeprocessen %{resource_name}"
+        unpublish_all_members: "%{user_name} avpublicerade deltagandeprocessen %{resource_name}"
         update: "%{user_name} uppdaterade deltagandeprocessen %{resource_name}"
       participatory_process_group:
         create: "%{user_name} skapade gruppen %{resource_name}"
@@ -486,7 +487,6 @@ sv:
             images: Bilder
             metadata: Metadata
             no_taxonomy_filters_found: Inga filter för kategorier hittades.
-            private_notice: Du kommer att kunna hantera medlemmar om processen gjorts privat
             related_processes: Relaterade processer
             select_process_group: Välj en grupp av processer
             slug_help_html: 'URL-slugs används till att generera URL:er till processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
@@ -561,9 +561,6 @@ sv:
           type: Typ
         show:
           title: Om processen
-      participatory_space_private_users:
-        index:
-          title: Medlemmar
       show:
         belongs_to_group: Den här processen tillhör
         private_space: Det här är en privat process

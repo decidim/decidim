@@ -46,6 +46,7 @@ module Decidim::Assemblies
         organization:,
         taxonomizations:,
         parent: nil,
+        has_members: false,
         private_space: false,
         errors:,
         participatory_processes_ids: related_process_ids,
