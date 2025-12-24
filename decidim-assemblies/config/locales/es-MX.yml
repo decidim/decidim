@@ -170,8 +170,8 @@ es-MX:
           components: Componentes
           info: Acerca de esta asamblea
           landing_page: Disposición de la página de aterrizaje
+          members: Miembros
           moderations: Moderaciones
-          private_users: Miembros
           see_assembly: Ver la asamblea
       models:
         assembly:
@@ -218,9 +218,11 @@ es-MX:
         export: "%{user_name} exportó la asamblea %{resource_name}"
         import: "%{user_name} importó la asamblea %{resource_name}"
         publish: "%{user_name} publicó la asamblea %{resource_name}"
+        publish_all_members: "%{user_name} publicó todas las miembros de la asamblea %{resource_name}"
         restore: "%{user_name} ha restaurado la asamblea %{resource_name}"
         soft_delete: "%{user_name} ha movido a la papelera la asamblea %{resource_name}"
         unpublish: "%{user_name} despublicó la asamblea %{resource_name}"
+        unpublish_all_members: "%{user_name} despublicó a todas las miembros de la asamblea %{resource_name}"
         update: "%{user_name} actualizó la asamblea %{resource_name}"
       assembly_member:
         create: "%{user_name} creó el miembro %{resource_name} en la asamblea %{space_name}"
@@ -251,7 +253,6 @@ es-MX:
             metadata: Metadatos
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             other: Otro
-            private_notice: Podrás administrar las participantes privadas después de configurar el espacio como privado
             select_a_created_by: Selecciona creada por
             select_parent_assembly: Selecciona asamblea principal
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'

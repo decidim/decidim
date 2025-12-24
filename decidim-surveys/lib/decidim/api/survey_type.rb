@@ -27,8 +27,6 @@ module Decidim
         context[:current_settings] = object.component.current_settings
 
         super
-      rescue Decidim::PermissionAction::PermissionNotSetError
-        false
       end
     end
   end

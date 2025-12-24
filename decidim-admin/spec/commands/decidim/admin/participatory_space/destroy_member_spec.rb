@@ -40,7 +40,7 @@ module Decidim::Admin::ParticipatorySpace
     context "when assembly is private and user follows assembly" do
       let(:normal_user) { create(:user, organization:) }
       let(:assembly) { create(:assembly, :private, :published, organization: user.organization) }
-      let!(:member) { create(:member, user: normal_user, privatable_to: assembly) }
+      let!(:member) { create(:member, user: normal_user, participatory_space: assembly) }
       let!(:follow) { create(:follow, followable: assembly, user: normal_user) }
 
       context "and assembly is transparent" do
@@ -63,7 +63,7 @@ module Decidim::Admin::ParticipatorySpace
     context "when participatory process is private" do
       let(:normal_user) { create(:user, organization:) }
       let(:participatory_process) { create(:participatory_process, :private, :published, organization: user.organization) }
-      let!(:member) { create(:member, user: normal_user, privatable_to: participatory_process) }
+      let!(:member) { create(:member, user: normal_user, participatory_space: participatory_process) }
 
       context "and user follows process" do
         let!(:follow) { create(:follow, followable: participatory_process, user: normal_user) }

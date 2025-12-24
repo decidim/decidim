@@ -15,7 +15,7 @@ describe "rake decidim:upgrade:remove_deleted_users_left_data", type: :task, ver
     create(:reminder, user: deleted_user)
     create(:private_export, attached_to: deleted_user)
     create(:identity, user: deleted_user)
-    create(:follow, followable: deleted_user, user: user)
+    create(:follow, followable: deleted_user, user:)
     create(:follow, followable: user, user: deleted_user)
     create(:member, user: deleted_user)
 

@@ -89,9 +89,6 @@ pt-BR:
         welcome_notification_body: Corpo de notificação de boas-vindas
         welcome_notification_subject: Corpo de notificação de boas-vindas
         youtube_handler: Manipulador do YouTube
-      participatory_space_private_user:
-        email: E-mail
-        name: Nome
       scope:
         code: Código
         name: Nome
@@ -133,10 +130,6 @@ pt-BR:
           attributes:
             official_img_footer:
               allowed_file_content_types: Arquivo de imagem inválido
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Arquivo de importação malformado, por favor leia as instruções cuidadosamente e certifique-se de que o arquivo é codificado em UTF-8.
         user_group_csv_verification:
           attributes:
             file:
@@ -175,8 +168,6 @@ pt-BR:
         import: Importar
         newsletter:
           new: Novo Boletim Informativo
-        participatory_space_private_user:
-          new: Novo espaço participativo de usuário privado
         per_page: Por página
         send_me_a_test_email: Enviar um e-mail de teste
         share: Compartilhar
@@ -390,17 +381,6 @@ pt-BR:
           values:
             'false': Oficializado
             'true': Não oficializado
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Convite aceito
-            values:
-              'false': Não aceito
-              'true': Aceito
-          user_invitation_sent_at_not_null:
-            label: Envio de convite
-            values:
-              'false': Não enviado
-              'true': Enviado
         private_space_eq:
           label: Privado
           values:
@@ -515,6 +495,10 @@ pt-BR:
             explanation: Os usuários gerenciados podem ser promovidos para usuários padrão. Isso significa que eles serão convidados para o aplicativo e você não poderá representá-los novamente. O usuário convidado receberá um e-mail para aceitar seu convite.
             new_managed_user_promotion: Nova promoção de usuário gerenciado
             promote: Promover
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Envie seu arquivo CSV
       menu:
         admin_log: Log de atividade de administração
         admins: Admins
@@ -574,8 +558,6 @@ pt-BR:
             sent_to: Enviado para
             subject: Assunto
           name: Newsletter
-        participatory_space_private_user:
-          name: Espaço participativo usuário particular
         scope:
           fields:
             name: Nome
@@ -829,39 +811,6 @@ pt-BR:
         form:
           add: Adicionar na lista de permitidos
           title: Lista de domínios externos permitidos
-      participatory_space_private_users:
-        create:
-          error: Ocorreu um erro ao adicionar um usuário privado para este espaço participativo.
-          success: Espaço participativo acesso de usuário privado criado com sucesso.
-        destroy:
-          error: Houve um erro ao excluir um usuário particular desse espaço participativo.
-          success: Espaço participativo acesso de usuário privado excluído com sucesso.
-        index:
-          import_via_csv: Importar via CSV
-          title: Espaço participativo usuário particular
-        new:
-          create: Criar
-          title: Novo usuário particular do Espaço Participativo.
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: Ocorreu um problema ao ler o arquivo CSV. Por favor, certifique-se de ter seguido as instruções.
-          success: Arquivo CSV enviado com sucesso, estamos enviando um e-mail de convite para os participantes. Isso pode demorar um pouco.
-        new:
-          csv_upload:
-            title: Envie seu arquivo CSV
-          destroy:
-            button: Excluir todos os participantes privados
-            confirm: Tem certeza que deseja excluir todos os participantes privados? Esta ação não pode ser desfeita, não será possível recuperá-los.
-            empty: Você não tem participantes privados.
-            explanation: Você tem %{count} participantes privados.
-            title: Excluir participantes privados
-          example_file: 'Arquivo de exemplo:'
-          explanation: 'Envie seu arquivo CSV. Deve ter duas colunas com e-mail na primeira coluna do arquivo e nome na última coluna do arquivo dos usuários que você deseja adicionar ao espaço participativo, sem cabeçalhos. Evite usar caracteres inválidos como `<>?%&^*#@()[]=+:;"{}\├` no nome de usuário.'
-          explanation_example: |
-            joao.silva@examplo.org%{csv_col_sep}João da Silva
-            maria.silva@examplo.org%{csv_col_sep}Maria da Silva
-          title: Importar participantes privados via CSV
-          upload: Upload
       reminders:
         create:
           error: Ocorreu um problema ao criar lembretes.

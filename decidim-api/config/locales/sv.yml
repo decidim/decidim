@@ -1,0 +1,12 @@
+---
+sv:
+  decidim:
+    api:
+      errors:
+        invalid_locale: Ogiltigt språk angivet
+        locale_argument_error: Ett fel uppstod när i18n data hanterades internt
+        not_found: "%{type} hittades inte"
+        permission_not_set: Behörigheten har inte satts för denna %{type}
+        unauthorized_field: Du kan inte visa eller redigera %{field} fältet på %{type} eftersom du inte har behörighet
+        unauthorized_mutation: Du har inte behörighet att utföra denna åtgärd
+        unauthorized_object: Du kan inte visa eller redigera detta %{type} eftersom du inte har behörigheter

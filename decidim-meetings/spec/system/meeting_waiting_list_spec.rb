@@ -58,7 +58,7 @@ describe "Meeting waiting list" do
 
     context "when the meeting has no available slots" do
       before do
-        create_list(:registration, available_slots, meeting: meeting)
+        create_list(:registration, available_slots, meeting:)
       end
 
       context "when the user is not logged in" do
@@ -111,13 +111,13 @@ describe "Meeting waiting list" do
 
   context "when the meeting is full and a user cancels their registration" do
     context "and there are users on the waiting list" do
-      let!(:registrations) { create_list(:registration, available_slots, meeting: meeting) }
+      let!(:registrations) { create_list(:registration, available_slots, meeting:) }
       let(:users_on_waitlist) { create_list(:user, 5, :confirmed, organization:) }
       let(:first_waitlist_user) { users_on_waitlist.first }
 
       let!(:waitlist_entries) do
         users_on_waitlist.map.with_index do |user, index|
-          create(:registration, meeting: meeting, user: user, status: "waiting_list", created_at: Time.current - index.minutes)
+          create(:registration, meeting:, user:, status: "waiting_list", created_at: Time.current - index.minutes)
         end
       end
 

@@ -26,6 +26,7 @@ en:
         duration: Duration
         facebook: Facebook
         github: GitHub
+        has_members: This space has members
         hero_image: Home image
         import_attachments: Import attachments
         import_categories: Import categories
@@ -219,9 +220,11 @@ en:
         export: "%{user_name} exported the %{resource_name} assembly"
         import: "%{user_name} imported the %{resource_name} assembly"
         publish: "%{user_name} published the %{resource_name} assembly"
+        publish_all_members: "%{user_name} published all members of the %{resource_name} assembly"
         restore: "%{user_name} restored the %{resource_name} assembly"
         soft_delete: "%{user_name} moved to trash the %{resource_name} assembly"
         unpublish: "%{user_name} unpublished the %{resource_name} assembly"
+        unpublish_all_members: "%{user_name} unpublished all members of the %{resource_name} assembly"
         update: "%{user_name} updated the %{resource_name} assembly"
       assembly_member:
         create: "%{user_name} created the %{resource_name} member in the %{space_name} assembly"
@@ -247,12 +250,13 @@ en:
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             duration: Duration
             duration_help: If the duration of this assembly is limited, select the end date. Otherwise, it will appear as indefinite.
+            has_members_help: You will be able to create and publish members
             images: Images
             included_at_help: Select the date when this assembly was added to the platform. It does not necessarily have to be the same as the creation date.
             metadata: Metadata
             no_taxonomy_filters_found: No taxonomy filters found.
             other: Other
-            private_notice: You will be able to manage members after setting it as private
+            private_notice: Makes the space not visible for visitors and only for members (except if it is also transparent)
             select_a_created_by: Select a created by
             select_parent_assembly: Select parent assembly
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'

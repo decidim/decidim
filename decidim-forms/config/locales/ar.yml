@@ -44,9 +44,6 @@ ar:
         show:
           questionnaire_closed:
             title: شكل مغلق
-          questionnaire_for_private_users:
-            body: النموذج متاح فقط للمستخدمين من القطاع الخاص
-            title: شكل مغلق
           tos_agreement: من خلال المشاركة ، فإنك تقبل شروط الخدمة
       step_navigation:
         show:

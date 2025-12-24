@@ -1,0 +1,30 @@
+= Locale Error - LOCALE_ERROR
+
+This error is triggered when the requested language has any internationalization errors, like missing translation string, bad variable replacement (interpolation), or any other I18n errors.
+
+The JSON response structure is:
+[source, json]
+----
+{
+  "errors": [
+    {
+      "message": "There was an error while internally handling i18n data",
+      "locations": [
+        {
+          "line": 2,
+          "column": 39
+        }
+      ],
+      "path": [
+        "createProposal"
+      ],
+      "extensions": {
+        "code": "LOCALE_ERROR"
+      }
+    }
+  ],
+  "data": {
+    "createProposal": null
+  }
+}
+----

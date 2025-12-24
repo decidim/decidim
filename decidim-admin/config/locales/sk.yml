@@ -273,6 +273,10 @@ sk:
             explanation: Spravovaní účastníci môžu byť povýšení na štandardných účastníkov. To znamená, že budú pozvaní do aplikácie, a už ich nebudete môcť spravovať. Pozvaný účastník obdrží e-mail s Vašou pozvánkou.
             new_managed_user_promotion: Povýšenie nového spravovaného účastníka
             promote: Povýšiť
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Nahrať súbor CSV
       menu:
         admin_log: Záznam aktivity administrátora
         admins: Administrátori
@@ -326,8 +330,6 @@ sk:
             sent_to: Odoslané
             subject: Predmet
           name: Spravodaj
-        participatory_space_private_user:
-          name: Účastníci participatívnych procesov
         scope:
           fields:
             name: Meno
@@ -446,23 +448,6 @@ sk:
         update:
           error: Pri aktualizácii organizácie došlo k chybe.
           success: Organizácia úspešne aktualizovaná.
-      participatory_space_private_users:
-        create:
-          error: Pri pridávaní súkromného používateľa pre tento participačný priestor došlo k chybe.
-          success: Participatívny priestor bol sprístupnený súkromnému užívateľovi.
-        destroy:
-          error: Pri vymazaní súkromného používateľa pre tento participačný priestor došlo k chybe.
-          success: Participatívny priestor bol zneprístupnený súkromnému užívateľovi.
-        index:
-          title: Súkromný účastník participatívneho priestoru
-        new:
-          create: Vytvoriť
-          title: Nový súkromný účastník participatívneho priestoru.
-      participatory_space_private_users_csv_imports:
-        new:
-          csv_upload:
-            title: Nahrať súbor CSV
-          upload: Nahrať
       resource_permissions:
         edit:
           submit: Potvrdiť

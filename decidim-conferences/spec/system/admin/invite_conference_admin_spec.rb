@@ -15,5 +15,5 @@ describe "Invite conference administrator" do
 
   include_context "when inviting participatory space users"
 
-  it_behaves_like "inviting participatory space admins", check_private_space: false, check_landing_page: false
+  it_behaves_like "inviting participatory space admins", check_members_page: false, check_landing_page: false
 end

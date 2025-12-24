@@ -10,11 +10,11 @@ module Decidim
       def serialize
         {
           id: resource.id,
-          privatable_to: {
-            id: resource.privatable_to_id,
-            type: resource.privatable_to_type,
-            title: resource.privatable_to.title,
-            slug: resource.privatable_to.slug
+          participatory_space: {
+            id: resource.participatory_space_id,
+            type: resource.participatory_space_type,
+            title: resource.participatory_space.title,
+            slug: resource.participatory_space.slug
           },
           created_at: resource.created_at,
           updated_at: resource.updated_at,

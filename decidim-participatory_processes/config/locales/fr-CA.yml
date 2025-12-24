@@ -14,6 +14,7 @@ fr-CA:
         duplicate_landing_page_blocks: Dupliquer les blocs de page d'accueil
         duplicate_steps: Dupliquer les étapes
         end_date: Date de fin
+        has_members: Cet espace a des membres
         hero_image: Image de la page d'accueil
         import_attachments: Importer les pièces jointes
         import_categories: Importer les catégories
@@ -113,8 +114,8 @@ fr-CA:
           attachments: Documents liés
           components: Fonctionnalités
           info: A propos de cette concertation
+          members:
           moderations: Modérations
-          private_users: Membres
           process_admins: Administrateurs de la concertation
           steps: Étapes
       models:
@@ -280,7 +281,9 @@ fr-CA:
         export: "%{user_name} a exporté la concertation %{resource_name}"
         import: "%{user_name} a importé la concertation %{resource_name}"
         publish: "%{user_name} a publié la concertation %{resource_name}"
+        publish_all_members: "%{user_name} a publié tous les membres du processus participatif %{resource_name}"
         unpublish: "%{user_name} n'a pas publié la concertation %{resource_name}"
+        unpublish_all_members: "%{user_name} a dépublié tous les membres du processus participatif %{resource_name}"
         update: "%{user_name} a mis à jour la concertation %{resource_name}"
       participatory_process_group:
         create: "%{user_name} a créé le groupe de concertations %{resource_name}"
@@ -458,10 +461,11 @@ fr-CA:
             announcement_help: Le texte saisi ici sera affiché juste en dessous des informations de la concertation.
             define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
             duration: Durée
+            has_members_help: Vous pourrez créer et publier des membres
             images: Images
             metadata: Métadonnées
             no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
-            private_notice: Vous serez en mesure de gérer les membres après l'avoir défini comme privé
+            private_notice: Rend l'espace non visible pour les visiteurs et visible seulement pour les membres (sauf s'il est également transparent)
             related_processes: Concertations liées
             select_process_group: Sélectionnez un groupe de concertations
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette concertation. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
@@ -493,6 +497,9 @@ fr-CA:
         title: Concertations
       last_activity:
         new_participatory_process: 'Nouveau processus participatif:'
+      members:
+        index:
+          title: Membres
       pages:
         home:
           highlighted_processes:
@@ -539,9 +546,6 @@ fr-CA:
           type: Type
         show:
           title: A propos de cette concertation
-      participatory_space_private_users:
-        index:
-          title: Membres
       show:
         belongs_to_group: Cette concertation appartient à
         private_space: Ceci est une concertation privée

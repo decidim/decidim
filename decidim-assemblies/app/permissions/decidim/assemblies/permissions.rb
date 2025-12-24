@@ -55,7 +55,7 @@ module Decidim
 
       def user_can_read_members?
         return unless permission_action.subject == :space_member
-        return unless assembly.private_space?
+        return unless assembly.has_members?
 
         toggle_allow(user.admin? || can_manage_assembly?(role: :admin) || can_manage_assembly?(role: :collaborator))
       end
