@@ -47,7 +47,7 @@ module Decidim
           manifest.voter_form_partial = "decidim/elections/censuses/token_csv_form"
           manifest.after_update_command = "Decidim::Elections::Admin::Censuses::TokenCsv"
           manifest.user_query do |election|
-            Decidim::Elections::Voter.where(election: election)
+            Decidim::Elections::Voter.where(election:)
           end
         end
 

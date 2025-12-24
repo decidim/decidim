@@ -13,7 +13,7 @@ module Decidim
       let(:scopes) { "profile" }
       let(:options) do
         {
-          application: application,
+          application:,
           resource_owner_id: user.id,
           scopes: ::Doorkeeper::OAuth::Scopes.from_string(scopes)
         }

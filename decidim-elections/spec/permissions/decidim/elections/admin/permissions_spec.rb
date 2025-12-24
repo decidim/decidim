@@ -14,7 +14,7 @@ describe Decidim::Elections::Admin::Permissions do
       election:
     }
   end
-  let(:permission_action) { Decidim::PermissionAction.new(scope: scope, action: action_name, subject: action_subject) }
+  let(:permission_action) { Decidim::PermissionAction.new(scope:, action: action_name, subject: action_subject) }
   let(:scope) { :admin }
   let(:action_name) { :foo }
   let(:action_subject) { :foo }

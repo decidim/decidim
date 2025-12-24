@@ -14,7 +14,7 @@ module Decidim
 
       let(:organization) { create(:organization) }
 
-      let!(:privatable_to) do
+      let!(:participatory_space) do
         create(
           :assembly,
           :published,
@@ -23,10 +23,10 @@ module Decidim
         )
       end
 
-      let(:destination_path) { decidim_assemblies.assembly_path(privatable_to, locale: I18n.locale) }
+      let(:destination_path) { decidim_assemblies.assembly_path(participatory_space, locale: I18n.locale) }
 
       let(:slug_param) { "assembly_slug" }
-      let(:slug) { privatable_to.slug }
+      let(:slug) { participatory_space.slug }
 
       it_behaves_like "participatory space members page examples"
     end

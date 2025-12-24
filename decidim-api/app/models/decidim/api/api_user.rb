@@ -54,7 +54,7 @@ module Decidim
       end
 
       def follows?(followable)
-        Decidim::Follow.where(user: self, followable: followable).any?
+        Decidim::Follow.where(user: self, followable:).any?
       end
 
       # Public: whether the user accepts direct messages from another

@@ -21,7 +21,6 @@ module Decidim
       let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:) }
       let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
       let!(:user) { create(:user, :confirmed, organization:) }
-      let(:taxonomies) { [taxonomy_filter.id] }
 
       let(:address) { "Carrer de la Pau, 1, Barcelona" }
       let(:latitude) { 40.1234 }
@@ -39,7 +38,7 @@ module Decidim
           address:,
           latitude:,
           longitude:,
-          taxonomies:
+          taxonomies: [taxonomy_filter.id]
         }
       end
 
@@ -90,7 +89,7 @@ module Decidim
                      :with_creation_enabled,
                      participatory_space: participatory_process,
                      settings: {
-                       taxonomy_filters: taxonomies
+                       taxonomy_filters: [taxonomy_filter.id]
                      })
             end
 
@@ -124,7 +123,7 @@ module Decidim
                        participatory_space: participatory_process,
                        settings: {
                          geocoding_enabled: true,
-                         taxonomy_filters: taxonomies
+                         taxonomy_filters: [taxonomy_filter.id]
                        })
               end
 
@@ -154,7 +153,7 @@ module Decidim
                   component.update!(permissions:)
                 end
 
-                it "redirects to the authorization form" do
+                it "throws an error if the user does not have a verification method" do
                   skip("This test is failing, but it is not in the scope of this PR.")
                   proposal_response = response["createProposal"]
 
@@ -176,7 +175,7 @@ module Decidim
                   component.update!(permissions:)
                 end
 
-                it "redirects to pending onboarding authorizations page" do
+                it "throws an error if the user does not have a verification method" do
                   skip("This test is failing, but it is not in the scope of this PR.")
 
                   proposal_response = response["createProposal"]

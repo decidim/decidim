@@ -9,7 +9,7 @@ describe Decidim::CollaborativeTexts::Permissions do
   let(:context) do
     {
       current_component: collaborative_text_component,
-      document: document
+      document:
     }
   end
   let(:collaborative_text_component) { create(:collaborative_text_component) }
