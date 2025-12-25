@@ -20,6 +20,7 @@ module Decidim
     # Returns nothing.
     def call
       return broadcast(:invalid) if form.invalid?
+      return broadcast(:invalid) unless current_user.is_a?(Decidim::User)
 
       create_follow!
       increment_score

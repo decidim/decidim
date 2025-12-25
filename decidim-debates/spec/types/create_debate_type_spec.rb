@@ -62,6 +62,7 @@ module Decidim
               taxonomies {
                 name { translation(locale: "en") }
               }
+              author { id }
             }
           }
         GRAPHQL
