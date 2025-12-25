@@ -142,7 +142,6 @@ ca:
           new:
             create: Importa propostes a projectes
             default_budget: Pressupost per defecte
-            import_all_accepted_proposals: Importar totes les propostes acceptades
             no_components: No hi ha cap component de propostes en aquest espai participatiu per importar les propostes a projectes.
             origin_component_id: Component d'origen
             select_component: Selecciona un component
