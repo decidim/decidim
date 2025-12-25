@@ -136,7 +136,6 @@ fr:
           new:
             create: Importer des propositions dans des projets
             default_budget: Budget par défaut
-            import_all_accepted_proposals: Importer toutes les propositions acceptées
             no_components: Il n'y a pas d'autres modules de proposition dans cet espace participatif pour importer les propositions dans des projets.
             origin_component_id: Composant d'origine
             select_component: Veuillez sélectionner un module
