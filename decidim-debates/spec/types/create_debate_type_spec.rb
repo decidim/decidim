@@ -16,9 +16,11 @@ module Decidim
       let(:current_organization) { create(:organization, available_locales: [:en]) }
       let(:organization) { current_organization }
       let(:participatory_process) { create(:participatory_process, :published, :with_steps, organization:) }
-      let!(:current_component) { create(:debates_component, :published, :with_creation_enabled, participatory_space: participatory_process, settings: {
-        taxonomy_filters: [taxonomy_filter.id]
-      }) }
+      let!(:current_component) do
+        create(:debates_component, :published, :with_creation_enabled, participatory_space: participatory_process, settings: {
+                 taxonomy_filters: [taxonomy_filter.id]
+               })
+      end
 
       let(:title) { "Should every organization use Decidim?" }
       let(:description) { "Add your comments on whether Decidim is useful for every organization." }

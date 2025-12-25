@@ -14,7 +14,6 @@ module Decidim
 
         return permission_action unless user
 
-
         case permission_action.action
         when :create
           toggle_allow(can_create_debate?)

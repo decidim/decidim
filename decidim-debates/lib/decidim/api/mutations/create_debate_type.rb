@@ -15,7 +15,7 @@ module Decidim
       def resolve(attributes:, locale:, toggle_translations:)
         set_locale(locale:, toggle_translations:)
 
-        params = attributes.to_h.slice(:title,:description)
+        params = attributes.to_h.slice(:title, :description)
 
         params[:taxonomies] = Decidim::Taxonomy.where(organization: current_organization, id: attributes.to_h.fetch(:taxonomies, [])).pluck(:id)
 
