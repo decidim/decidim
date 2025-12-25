@@ -5,14 +5,13 @@ module Decidim
     class DebatesMutationType < Decidim::Core::ComponentType
       description "A debates component."
 
+      field :create_debate, mutation: Decidim::Debates::CreateDebateType, description: "Creates a debate"
       field :debate, type: Decidim::Debates::DebateMutationType, description: "Mutates a debate", null: true do
         argument :id, GraphQL::Types::ID, "The ID of the debate", required: false
       end
 
-      field :create_debate, mutation: Decidim::Debates::CreateDebateType, description: "Creates a debate"
-
       def debate(id: nil)
-        id ? collection.find(id) : nil
+        collection.find(id)
       end
 
       private

@@ -10,11 +10,14 @@ module Decidim
 
         return permission_action if permission_action.subject != :debate
 
+        toggle_allow(!debate.hidden?) if permission_action.subject == :debate && permission_action.action == :read
+
+        return permission_action unless user
+
+
         case permission_action.action
         when :create
           toggle_allow(can_create_debate?)
-        when :read
-          toggle_allow(!debate.hidden?)
         when :report
           allow!
         when :edit

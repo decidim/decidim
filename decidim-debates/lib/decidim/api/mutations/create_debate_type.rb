@@ -8,56 +8,36 @@ module Decidim
       description "Creates a debate"
       type Decidim::Debates::DebateType
 
-      argument :component_id, GraphQL::Types::ID, description: "The ID of the component", required: true
-      argument :attributes, CreateDebateAttributes, description: "Input attributes of a debate", required: true
+      argument :attributes, DebateAttributes, description: "Input attributes of a debate", required: true
+      argument :locale, GraphQL::Types::String, "The locale for which to set the debate texts", required: true
+      argument :toggle_translations, GraphQL::Types::Boolean, "Whether the user asked to toggle the machine translations or not.", required: false, default_value: false
 
-      def resolve(component_id:, attributes:)
-        component = Decidim::Component.find(component_id)
-        
-        title = attributes.to_h.fetch(:title)
-        description = attributes.to_h.fetch(:description)
-        taxonomy_ids = attributes.to_h.fetch(:taxonomy_ids, [])
+      def resolve(attributes:, locale:, toggle_translations:)
+        set_locale(locale:, toggle_translations:)
 
-        taxonomizations = taxonomy_ids.map do |taxonomy_id|
-          taxonomy = Decidim::Taxonomy.find(taxonomy_id)
-          Decidim::Taxonomization.new(taxonomy:, taxonomizable: nil)
-        end
+        params = attributes.to_h.slice(:title,:description)
 
-        params = {
-          title:,
-          description:,
-          taxonomizations:
-        }
+        params[:taxonomies] = Decidim::Taxonomy.where(organization: current_organization, id: attributes.to_h.fetch(:taxonomies, [])).pluck(:id)
 
-        form = Decidim::Debates::DebateForm.from_params(params).with_context(
-          current_component: component,
-          current_user:,
-          current_organization: current_user.organization
-        )
+        form = form(Decidim::Debates::DebateForm).from_params(params)
 
         Decidim::Debates::CreateDebate.call(form) do
           on(:ok) do |debate|
-            return debate
-          end
-          on(:invalid) do
-            return GraphQL::ExecutionError.new(
-              form.errors.full_messages.join(", ")
-            )
+            return debate.reload
           end
 
-          GraphQL::ExecutionError.new(
-            I18n.t("decidim.debates.create.invalid")
-          )
+          on(:invalid) do
+            raise Decidim::Api::Errors::AttributeValidationError, form.errors
+          end
         end
       end
 
-      def authorized?(component_id:, attributes:)
-        component = Decidim::Component.find(component_id)
-        super && allowed_to?(:create, :debate, component:, context:)
-      end
+      def authorized?(attributes:, locale:, toggle_translations:)
+        unless super && allowed_to?(:create, :debate, Debate.new(component: current_component), { current_user:, current_component: })
+          raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation")
+        end
 
-      def current_user
-        context[:current_user]
+        true
       end
     end
   end
