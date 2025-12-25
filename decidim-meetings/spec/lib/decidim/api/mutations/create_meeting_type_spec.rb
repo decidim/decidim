@@ -151,15 +151,7 @@ module Decidim
         end
       end
 
-      context "when creating a new meeting" do
-        context "when the user is not logged in" do
-          let(:current_user) { nil }
-
-          it "raises a Decidim::Api::Errors::MutationNotAuthorizedError" do
-            expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
-          end
-        end
-
+      shared_examples "create meeting mutation examples" do
         context "when creation is disabled" do
           let!(:current_component) { create(:meeting_component, :published, participatory_space: participatory_process) }
 
@@ -209,6 +201,32 @@ module Decidim
               expect(meeting_response["title"]["translation"]).to be_nil
             end
           end
+        end
+      end
+
+      context "with admin user" do
+        it_behaves_like "create meeting mutation examples" do
+          let!(:user_type) { :admin }
+        end
+      end
+
+      context "with normal user" do
+        it_behaves_like "create meeting mutation examples" do
+          let!(:user_type) { :user }
+        end
+      end
+
+      context "with api_user" do
+        it_behaves_like "create meeting mutation examples" do
+          let!(:user_type) { :api_user }
+        end
+      end
+
+      context "when the user is not logged in" do
+        let(:current_user) { nil }
+
+        it "raises a Decidim::Api::Errors::MutationNotAuthorizedError" do
+          expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
         end
       end
     end
