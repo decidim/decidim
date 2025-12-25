@@ -142,7 +142,6 @@ fi:
           new:
             create: Tuo ehdotuksia projekteiksi
             default_budget: Oletusbudjetti
-            import_all_accepted_proposals: Tuo kaikki hyväksytyt ehdotukset
             no_components: Tässä osallistumistilassa ei ole ole muita ehdotuskomponentteja, joista voitaisiin tuoda ehdotuksia projekteiksi.
             origin_component_id: Lähdekomponentti
             select_component: Valitse komponentti
