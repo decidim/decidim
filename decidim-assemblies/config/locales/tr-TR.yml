@@ -140,6 +140,7 @@ tr:
           attachment_files: Dosyalar
           attachments: Ekler
           components: Bileşenler
+          info: Bu meclis hakkında
           moderations: Yönetim
           private_users: Üyeler
       models:
@@ -172,6 +173,8 @@ tr:
       titles:
         assemblies: Kurullar
         assemblies_types: Kurul türleri
+      tooltips:
+        deleted_assemblies_info: Bir meclis yalnızca eğer statüsü "Yayınlanmamış" ise silinebilir.
     admin_log:
       assembly:
         create: "%{user_name} %{resource_name} kurulu oluşturdu"
