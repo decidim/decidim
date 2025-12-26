@@ -530,6 +530,11 @@ tr:
             explanation: Yönetilen kullanıcılar standart kullanıcılara yükseltilebilir. Bu, uygulamaya davet edilecekleri anlamına gelir ve onları tekrar taklit edemezsiniz. Davet edilen kullanıcı davetinizi kabul etmek için bir e-posta alacak.
             new_managed_user_promotion: Yeni yönetilen kullanıcı tanıtımı
             promote: Desteklemek
+      members:
+        create:
+          error: Bu katılımcı alan için bir üye eklenirken hata oluştu.
+        update:
+          error: Bu katılımcı alan için bir üyeyi güncellerken bir hata oluştu.
       members_csv_imports:
         new:
           csv_upload:
