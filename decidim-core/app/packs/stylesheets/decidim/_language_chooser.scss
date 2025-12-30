@@ -1,18 +1,23 @@
 header {
   .language {
     &-container {
+      &-desktop {
+        @apply  hidden lg:block;
+      }
+
       > div {
         @apply bg-white shadow-[1px_4px_8px_3px_rgba(0,0,0,0.15)] overflow-scroll max-h-[50vh];
 
         padding: 0.5rem !important;
       }
+
       &.focus-mode {
         @apply border-none pr-0;
       }
 
       .language {
         &-trigger {
-          @apply border border-neutral-300 rounded px-4 py-2 gap-x-2 py-2 flex-row;
+          @apply border border-neutral-300 rounded px-4 py-[9px] gap-x-2 flex-row;
 
           & > span,
           & > svg:first-of-type {
