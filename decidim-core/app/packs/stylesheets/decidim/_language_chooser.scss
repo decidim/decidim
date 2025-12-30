@@ -6,7 +6,7 @@ header {
       }
 
       > div {
-        @apply bg-white shadow-[1px_4px_8px_3px_rgba(0,0,0,0.15)] overflow-scroll max-h-[50vh];
+        @apply bg-white shadow-[1px_4px_8px_3px_rgba(0,0,0,0.15)] overflow-auto max-h-[50vh];
 
         padding: 0.5rem !important;
       }
@@ -27,7 +27,7 @@ header {
           }
 
           & > svg:last-of-type {
-            @apply text-gray-2  ml-1;
+            @apply text-gray-2 ml-1;
 
             display: block !important;
           }

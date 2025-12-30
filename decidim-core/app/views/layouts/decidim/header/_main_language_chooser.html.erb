@@ -14,7 +14,7 @@
     <div id="<%= id %>" aria-hidden="true">
       <ul class="language-list" role="menu">
         <% available_locales.each do |locale| %>
-          <li class="language-item  <%= "is-active" if I18n.locale.to_s == locale %>" role="presentation">
+          <li class="language-item <%= "is-active" if I18n.locale.to_s == locale %>" role="presentation">
             <%= link_to locale_name(locale), decidim.locale_path(locale:), method: :post, role: "menuitem", lang: locale, class: "p-2 w-full block" %>
           </li>
         <% end %>
