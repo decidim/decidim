@@ -17,9 +17,16 @@
         <%= render partial: "layouts/decidim/header/close_ephemeral_session" %>
       <% else %>
         <div class="flex md:justify-between md:gap-x-10">
-          <div role="search" class="main-bar__search">
-            <%= render partial: "layouts/decidim/header/main_search" %>
+          <div class="hidden md:flex md:gap-x-8 border-r border-gray-6 pr-10">
+            <div role="search" class="main-bar__search">
+              <%= render partial: "layouts/decidim/header/main_search" %>
+            </div>
+
+            <div class="menu-bar__language-chooser-desktop hidden lg:block">
+              <%= render partial: "layouts/decidim/header/main_language_chooser", locals: { id: "dropdown-menu-language-chooser-desktop" } %>
+            </div>
           </div>
+
           <nav role="navigation" aria-label="<%= t("layouts.decidim.header.user_menu") %>" class="main-bar__links-desktop md:flex md:gap-x-8">
             <%= render partial: "layouts/decidim/header/main_links_desktop" %>
           </nav>

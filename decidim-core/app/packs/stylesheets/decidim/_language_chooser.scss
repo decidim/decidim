@@ -1,0 +1,66 @@
+header {
+  .language {
+    &-container {
+      > div {
+        @apply bg-white shadow-[1px_4px_8px_3px_rgba(0,0,0,0.15)] overflow-scroll max-h-[50vh];
+
+        padding: 0.5rem !important;
+      }
+      &.focus-mode {
+        @apply border-none pr-0;
+      }
+
+      .language {
+        &-trigger {
+          @apply border border-neutral-300 rounded px-4 py-2 gap-x-2 py-2 flex-row;
+
+          & > span,
+          & > svg:first-of-type {
+            @apply text-neutral-500;
+
+            display: block !important;
+          }
+
+          & > svg:last-of-type {
+            @apply text-gray-2  ml-1;
+            display: block !important;
+          }
+
+          svg + span {
+            @apply text-sm font-normal;
+          }
+
+          & > span.holder {
+            @apply items-center gap-x-1;
+
+            display: flex !important;
+          }
+        }
+
+        &-list {
+          @apply flex flex-col space-y-2;
+        }
+
+        &-item {
+          @apply text-black text-left text-md hover:bg-secondary hover:text-white;
+
+          &:hover {
+            @apply rounded;
+          }
+
+          &.is-active {
+            @apply bg-neutral-200 rounded;
+
+            &:hover {
+              @apply bg-[var(--secondary)];
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#dropdown-menu-language-chooser-desktop {
+  @apply absolute;
+}
