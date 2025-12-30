@@ -2,7 +2,7 @@ header {
   .language {
     &-container {
       &-desktop {
-        @apply  hidden lg:block;
+        @apply hidden lg:block;
       }
 
       > div {
@@ -28,6 +28,7 @@ header {
 
           & > svg:last-of-type {
             @apply text-gray-2  ml-1;
+
             display: block !important;
           }
 

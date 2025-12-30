@@ -1,6 +1,6 @@
 <% if available_locales.length > 1 %>
   <div class="language-container">
-    <button data-class="trigger-dropdown-language-chooser" id="trigger-<%= id %>" data-controller="dropdown" data-target="<%= id %>" class="language-trigger">
+    <button id="trigger-<%= id %>" data-controller="dropdown" data-target="<%= id %>" class="language-trigger">
       <span class="holder">
         <%= icon "global-line" %>
         <span><%= t("name", scope: "locale" ) %></span>
