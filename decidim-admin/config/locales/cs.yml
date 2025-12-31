@@ -126,6 +126,9 @@ cs:
         show_in_footer: Zobrazit v zápatí
         title: Titul
         weight: Pozice v řazení
+      taxonomy:
+        item_name: Název položky
+        parent_id: Nadřazený
       user_group_csv_verification:
         file: Soubor
     errors:
@@ -434,9 +437,16 @@ cs:
             'false': Ověřeno
             'true': Neověřeno
         participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Pozvánka přijata
+            values:
+              'false': Nepřijato
+              'true': Přijato
           user_invitation_sent_at_not_null:
+            label: Pozvánka odeslána
             values:
               'false': Neodesláno
+              'true': Odesláno
         private_space_eq:
           label: Soukromé
           values:
@@ -930,6 +940,7 @@ cs:
           title: Upravit participační prostor soukromého účastníka.
           update: Aktualizace
         index:
+          import_via_csv: Importovat přes CSV
           title: Participační prostor soukromého účastníka
         new:
           create: Vytvořit
