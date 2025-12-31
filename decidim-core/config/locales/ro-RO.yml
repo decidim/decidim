@@ -761,7 +761,13 @@ ro:
           about: Descrierea profilului acestui participant
           accepted_tos_version: Data la care termenii de utilizare ai acestei platforme au fost acceptați de către utilizator
           admin: Dacă acest participant este un administrator
+          confirmation_sent_at: Data și ora la care a fost trimisă confirmarea
+          confirmed_at: Data și ora la care a fost confirmat acest participant
+          created_at: Data și ora la care a fost creat acest participant
+          current_sign_in_at: Data și ora autentificării curente
+          current_sign_in_ip: Adresa IP a autentificării curente
           email: Adresa de e-mail a acestui participant
+          followers_count: Numărul de urmăritori ai acestui participant
           following_count: Numărul de participanți pe care acest utilizator îl urmărește
           id: Identificatorul unic al acestui participant
           invitation_accepted_at: Data și ora la care a fost acceptată invitația
@@ -769,15 +775,24 @@ ro:
           invitation_sent_at: Data și ora la care a fost trimisă invitația
           invitations_count: Numărul de invitații trimise acestui participant
           invited_by: Participantul care a invitat acest participant
+          last_sign_in_at: Data și ora penultimei autentificări
+          last_sign_in_ip: Adresa IP a penultimei autentificări
           locale: Limba locală (limba) selectată de acest participant
+          managed: Dacă acest participant este gestionat de un altul
           name: Numele acestui participant
           newsletter_notifications_at: Data și ora la care acest participant a ales să primească buletine informative
           nickname: Pseudonimul acestui participant
           notifications_sending_frequency: Frecvența notificărilor pe care le primește acest participant
+          officialized_as: Numele oficializării (consilier, primar, etc.)
+          officialized_at: Data și ora la care a fost oficializat acest participant
           password_updated_at: Data la care parola a fost schimbată ultima dată
           personal_url: URL-ul personal al acestui participant
+          remember_created_at: Data și ora la care participantul a ales să fie ținut minte
+          reset_password_sent_at: Data și ora la care a fost trimisă cererea de resetare a parolei
           roles: Rolul pe care îl are acest utilizator, dacă are vreun astfel de rol
+          sign_in_count: De câte ori s-a autentificat acest participant
           type: Tipul pe care acest utilizator îl are
+          unconfirmed_email: Adresa de e-mail pe care acest participant nu a confirmat-o încă
           updated_at: Data și ora la care acest raport a fost actualizat ultima dată
       show:
         download: Descarcă fișier
