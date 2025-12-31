@@ -477,6 +477,11 @@ ro:
             explanation: Participanții gestionați pot fi promovați drept participanți standard. Înseamnă că vor fi invitați în aplicație și nu vei mai putea să îi gestionezi din nou. Participantul invitat va primi un e-mail pentru a accepta invitația ta.
             new_managed_user_promotion: Promovarea unui nou participant gestionat
             promote: Promovează
+      members:
+        edit:
+          title: Editare membru
+        new:
+          title: Membru nou
       members_csv_imports:
         new:
           csv_upload:
