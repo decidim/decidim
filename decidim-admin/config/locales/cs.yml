@@ -941,7 +941,9 @@ cs:
           update: Aktualizace
         index:
           import_via_csv: Importovat přes CSV
+          publish_all: Publikovat vše
           title: Participační prostor soukromého účastníka
+          unpublish_all: Zrušit publikování všech
         new:
           create: Vytvořit
           title: Nový participační prostor soukromého účastníka.
