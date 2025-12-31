@@ -727,7 +727,7 @@ ro:
           hidden_password: Parola dvs. este ascunsă
           hide_password: Ascunde parola
           show_password: Afişeaza parola
-          shown_password:
+          shown_password: Parola dumneavoastră este vizibilă
         placeholder_email: hi@exemplu.org
     doorkeeper:
       authorizations:
@@ -1301,6 +1301,7 @@ ro:
         same_language: Conținutul a fost postat în limba preferată (%{language}), de aceea nu este afișată nicio traducere automată în acest e-mail.
         translated_text: 'Text tradus automat:'
     notifications:
+      action_error: A apărut o eroare la actualizarea setărilor de notificări.
       no_notifications: Nici o notificare încă.
     notifications_digest_mailer:
       header:
@@ -1368,7 +1369,9 @@ ro:
           proposals: Propuneri
           proposals_explanation: Formulează propuneri, votează propunerile existente și promovează schimbările pe care dorești să le vezi implementate.
         footer_sub_hero:
+          footer_sub_hero_body_html: Să construim o societate mai deschisă, mai transparentă și mai colaborativă. <br /> Participați și decideți.
           footer_sub_hero_headline: Bun venit pe platforma participativă %{organization}.
+          register: Creați un cont
         hero:
           participate: Participă
           participate_title: Participați la procesele platformei
@@ -1376,6 +1379,7 @@ ro:
         statistics:
           headline: Starea curentă a %{organization}
         sub_hero:
+          register: Creați un cont
           register_title: Creați un cont
       index:
         standalone_pages: Pagini
@@ -1467,6 +1471,7 @@ ro:
         close_modal: Închide fereastra
         ok: Ok
         title: Confirmare
+      confirm_unload: Această pagină conține modificări nesalvate. Sunteți sigur că doriți să părăsiți această pagină?
       extended_navigation_bar:
         more: Mai
         unfold: Desfășurat
@@ -1494,7 +1499,10 @@ ro:
       floating_help:
         help: Ajutor
       login_modal:
+        please_log_in: Vă rugăm să vă autentificați
         sign_up: Creați un cont
+      mentions_modal:
+        remove_recipient: Eliminați destinatarul %{name}
       public_participation:
         public_participation: Arată public participarea mea
       reference:
@@ -1586,6 +1594,7 @@ ro:
       last_attempt: Mai ai încă o încercare înainte de a bloca contul.
       locked: Contul dvs. este blocat.
       not_found_in_database: '%{authentication_keys} sau parolă invalidă.'
+      unauthenticated: Trebuie să vă autentificați sau să creați un cont înainte de a continua.
     invitations:
       edit:
         header: Finalizați crearea contului dumneavoastră
@@ -1668,6 +1677,7 @@ ro:
         back: Înapoi
         forgot_your_password: V-ați uitat parola?
         log_in: Autentificare
+        log_in_with_provider: Autentificați-vă cu {provider}
         sign_up: Creați un cont
       minimum_password_length:
         one: "(minimum %{count} caractere)"
@@ -1681,6 +1691,60 @@ ro:
   doorkeeper:
     scopes:
       public: Informațiile dumneavoastră publice.
+  editor:
+    extensions:
+      image:
+        altLabel: Text alternativ pentru imagine
+        nodeView:
+          resizer:
+            control:
+              resize: Redimensionați imaginea (%position%)
+            position:
+              bottomLeft: colț stânga jos
+              bottomRight: colț dreapta jos
+              topLeft: colț stânga sus
+              topRight: colț dreapta sus
+        uploadError: Încărcarea fișierului a eșuat.
+      link:
+        bubbleMenu:
+          edit: Modificați
+          remove: Eliminați
+          url: Adresa URL
+        hrefLabel: Legătură URL
+        targetLabel: Destinație
+        targets:
+          blank: Tab nou
+          default: Implicit (same tab)
+      videoEmbed:
+        titleLabel: Titlu
+        urlLabel: URL videoclip
+    inputDialog:
+      buttons:
+        cancel: Anulați
+        remove: Eliminați
+        save: Salvaţi
+      close: Închideți fereastra
+    toolbar:
+      control:
+        blockquote: Citat
+        bold: Îngroșat
+        bulletList: Listă neordonată
+        codeBlock: Bloc de cod
+        hardBreak: Linie pauză
+        heading: Stilul textului
+        image: Imagine
+        indent:
+          indent: Indentare
+          outdent: Anulare indentare
+        italic: Înclinat
+        link: Link
+        orderedList: Listă ordonată
+        underline: Subliniat
+        videoEmbed: Video încorporat
+      textStyle:
+        normal: Normal
+    upload:
+      uploadedFile: Fișier încărcat
   emojis:
     add_custom: Adaugați emoji personalizat
     button: Adaugați emoji
@@ -1737,12 +1801,23 @@ ro:
       data_consent:
         details:
           columns:
+            description: Descriere
+            name: Categorie
+            service: Serviciu
             type: Tip
           items:
             _session_id:
               description: Permite site-urilor web să rețină utilizatorul din cadrul unui site web atunci când se mută între paginile web.
+              service: Acest site
             decidim-consent:
               description: Stochează informații despre cookie-urile permise de utilizator pe acest site.
+              service: Acest site
+            pwaInstallPromptSeen:
+              description: Stochează statusul în cazul în care notificarea de instalare pentru aplicația web progresivă (PWA) a fost deja văzută de către utilizator.
+              service: Acest site
+          types:
+            cookie: Cookie
+            local_storage: Stocare locală
         dialog:
           accept_all: Acceptați toate
           accept_only_essential: Acceptați numai esențiale
@@ -1755,24 +1830,40 @@ ro:
           analytics:
             description: Aceste cookie-uri sunt utilizate pentru a măsura și analiza publicul site-ului web pentru a ajuta la îmbunătățirea acestuia.
             title: Analize și statistici
+          description: Folosim cookie-uri pentru a asigura funcționalitățile de bază ale website-ului și pentru a vă îmbunătăți experiența online. Puteți configura și accepta utilizarea cookie-urilor și vă puteți modifica în orice moment opțiunile de aprobare.
           essential:
+            description: Aceste cookie-uri permit funcționalitatea cheie a site-ului și ajută utilizatorii să își păstreze securitatea. Acestea sunt salvate automat în browser și nu pot fi dezactivate.
             title: Esențiale
           marketing:
             description: Aceste cookie-uri colectează informații despre modul în care utilizați site-ul și pot fi utilizate pentru a vă oferi experiență de marketing personalizată pe diferitele site-uri pe care le utilizați.
             title: Marketing
           preferences:
+            description: Aceste cookie-uri permit site-ului web să își amintească de alegerile pe care le-ați făcut în trecut pe acest website pentru a oferi o experiență mai personalizată utilizatorilor website-ului.
             title: Preferințe
           save_settings: Salvați setările
+          title: Setări cookie-uri
+          toggle: Comută %{consent_category}
+        warning:
+          all_categories: toate cookie-urile
+          change_settings: Schimbați setările cookie-urilor
+          consent_required: Trebuie să activați %{categories} pentru a vedea acest conținut.
       edit_link:
         edit: Editare
       footer:
         cc_by_license: Licență Creative Commons
+        data_consent_settings: Setări cookie-uri
         decidim_logo: Logo decidim
+        decidim_title: Decidim
+        help: Ajutor
         log_in: Autentificare
         made_with_open_source: Site web creat cu <a target="_blank" href="https://github.com/decidim/decidim">software gratuit</a>.
+        open_data: Seturi de date
         resources: Resurse
         sign_up: Creați un cont
+        social_media: Rețele de socializare
+        terms_of_service: Condiții de utilizare
       header:
+        close: Închideți
         log_in: Autentificare
         main_menu: Meniul principal
         user_menu: Meniu de utilizator
@@ -1785,10 +1876,13 @@ ro:
       notifications_dashboard:
         mark_all_as_read: Marcați totul ca fiind citit
         mark_as_read: Marcați ca fiind citit
+      offline_banner:
+        cache_version_page: Ups! Rețeaua dvs. este offline. Aceasta este o versiune cache anterioară a paginii pe care o vizitați, poate conținutul nu este actualizat.
       social_media_links:
         facebook: "%{organization} pe Facebook"
         github: "%{organization} pe GitHub"
         instagram: "%{organization} pe Instagram"
+        x: "%{organization} pe X (Twitter)"
         youtube: "%{organization} pe YouTube"
       timeout_modal:
         body: Ați fost inactiv pentru %{minutes} minute. Dacă veți continua să fiți inactiv, veți fi deconectat automat pentru propria securitate.
@@ -1802,6 +1896,7 @@ ro:
         profile: Contul meu
         public_profile: Profilul meu public
         title: Link-uri profil
+        unread_notifications: Aveți notificări necitite
       user_profile:
         account: Cont
         authorizations: Autorizări
