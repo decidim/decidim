@@ -531,6 +531,7 @@ ro:
           accepted: Semnături suficiente
           created: Create
           discarded: Respins
+          open: Deschisă
           rejected: Semnături insuficiente
           validating: Validarea tehnică
       signatures:
