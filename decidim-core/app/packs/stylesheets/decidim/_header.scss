@@ -65,10 +65,6 @@ header {
       @apply lg:hidden;
     }
 
-    &__language-chooser-desktop {
-      @apply hidden md:block;
-    }
-
     &__search {
       @apply hidden md:block col-span-2 col-start-5 xl:col-start-4;
 
