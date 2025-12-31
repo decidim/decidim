@@ -45,7 +45,7 @@ ro:
         email: E-mailul dumneavoastră
         encrypted_password: Parolă
         locale: Setări regionale
-        name: Numele
+        name: Numele dumneavoastră
         nickname: Pseudonim
         old_password: Parola curentă
         password: Parolă
@@ -72,7 +72,8 @@ ro:
       decidim/promote_to_admin: Promovat ca administrator
       decidim/promoted_to_admin_event: Promovat ca administrator
       decidim/removed_from_group: Eliminat din grup
-      decidim/resource_hidden_event: Conținut ascuns
+      decidim/resource_hidden_event: Resursă ascunsă
+      decidim/resource_liked_event: Resursă apreciată
       decidim/welcome_notification_event: Mesaj de întâmpinare
   activerecord:
     attributes:
@@ -155,7 +156,7 @@ ro:
         x_seconds: "%{count}s"
         x_years: "%{count}y"
       x_days:
-        one: 1 zi
+        one: o zi
         few: "%{count} zile"
         other: "%{count} zile"
       x_hours:
@@ -171,7 +172,7 @@ ro:
         few: "%{count} luni"
         other: "%{count} luni"
       x_seconds:
-        one: 1 secundă
+        one: o secundă
         few: "%{count} secunde"
         other: "%{count} secunde"
   decidim:
@@ -187,7 +188,7 @@ ro:
       delete:
         alert: Această acțiune nu poate fi anulată. Dacă vă ștergeți contul, nu veți mai putea să vă autentificați cu datele de autentificare. Ștergerea contului dvs. va duce la anonimizarea contribuțiilor dvs. Veți putea crea în continuare un cont nou, dar aceste contribuții nu vor fi asociate cu acesta.
         confirm:
-          close: Închideţi fereastra
+          close: Închideți fereastra
           ok: Da, vreau să îmi șterg contul
           question: Sigur doriți să vă ștergeți contul?
           title: Ștergeți contul meu
@@ -226,27 +227,27 @@ ro:
         cancel: Anulați
       password_change:
         alert: Trebuie să vă schimbați parola pentru a merge mai departe.
-        notification: Utilizatorii cu rol de administrator trebuie să își schimbe parola o dată la %{count} zile.
+        notification: Participanții cu rol de administrator trebuie să își schimbe parola o dată la %{count} zile.
     admin_log:
       area:
         create: "%{user_name} a creat zona %{resource_name}"
-        delete: "%{user_name} a șters zona %{resource_name}"
+        delete: "%{user_name} a eliminat zona %{resource_name}"
         update: "%{user_name} a actualizat zona %{resource_name}"
       area_type:
         create: "%{user_name} a creat tipul de zonă %{resource_name}"
-        delete: "%{user_name} a șters tipul de zonă %{resource_name}"
+        delete: "%{user_name} a eliminat tipul de zonă %{resource_name}"
         update: "%{user_name} a actualizat tipul de zonă %{resource_name}"
       attachment:
         create: "%{user_name} a creat atașamentul %{resource_name}"
-        delete: "%{user_name} a șters atașamentul %{resource_name}"
+        delete: "%{user_name} a eliminat atașamentul %{resource_name}"
         update: "%{user_name} a actualizat atașamentul %{resource_name}"
       attachment_collection:
         create: "%{user_name} a creat colecția de atașamente %{resource_name}"
-        delete: "%{user_name} a șters colecția de atașamente %{resource_name}"
+        delete: "%{user_name} a eliminat colecția de atașamente %{resource_name}"
         update: "%{user_name} a actualizat colecția de atașamente %{resource_name}"
       category:
         create: "%{user_name} a adăugat categoria %{resource_name} în spațiul participativ %{space_name}"
-        delete: "%{user_name} a șters categoria %{resource_name} din spațiul participativ %{space_name}"
+        delete: "%{user_name} a eliminat categoria %{resource_name} din spațiul participativ %{space_name}"
         update: "%{user_name} a actualizat categoria %{resource_name} din spațiul participativ %{space_name}"
       component:
         create: "%{user_name} a adăugat componenta %{resource_name} în spațiul participativ %{space_name}"
@@ -258,14 +259,14 @@ ro:
         unpublish: "%{user_name} a anulat publicarea componentei %{resource_name} din spațiul participativ %{space_name}"
         update_permissions_with_space: "%{user_name} a actualizat permisiunile %{resource_name} din spațiul participativ %{space_name}"
       contextual_help_section:
-        update: "%{user_name} a actualizat secțiunea de ajutor %{resource_name}"
+        update: "%{user_name} a actualizat secțiunea de ajutor a %{resource_name}"
       helpers:
         answers: răspunsuri
         comments: comentarii
         projects: proiecte
         results: rezultate
       impersonation_log:
-        manage: "%{user_name} a gestionat %{resource_name} deoarece %{reason}"
+        manage: "%{user_name} a gestionat participantul %{resource_name} deoarece %{reason}"
       member:
         create: "%{user_name} l-a invitat pe %{resource_name} să fie membru"
         create_via_csv: "%{user_name} l-a invitat pe %{resource_name} prin upload de CSV să fie membru"
@@ -278,12 +279,12 @@ ro:
         unreport: "%{user_name} nu a raportat o resursă de tip %{resource_type} în spațiul %{space_name}"
       newsletter:
         create: "%{user_name} a creat newsletterul %{resource_name}"
-        delete: "%{user_name} a șters newsletterul %{resource_name}"
-        deliver: "%{user_name} a livrat newsletterul %{resource_name}"
+        delete: "%{user_name} a eliminat newsletterul %{resource_name}"
+        deliver: "%{user_name} a trimis newsletterul %{resource_name}"
         update: "%{user_name} a actualizat newsletterul %{resource_name}"
       oauth_application:
         create: "%{user_name} a creat aplicația OAuth %{resource_name}"
-        delete: "%{user_name} a șters aplicația OAuth %{resource_name}"
+        delete: "%{user_name} a eliminat aplicația OAuth %{resource_name}"
         update: "%{user_name} a actualizat aplicația OAuth %{resource_name}"
       organization:
         update: "%{user_name} a actualizat setările organizației"
@@ -291,70 +292,70 @@ ro:
       scope:
         create: "%{user_name} a creat domeniul de interes %{resource_name}"
         create_with_parent: "%{user_name} a creat subdomeniul de interes %{resource_name} în cadrul domeniului de interes %{parent_scope}"
-        delete: "%{user_name} a șters domeniul de interes %{resource_name}"
-        delete_with_parent: "%{user_name} a șters subdomeniul de interes %{resource_name} în cadrul domeniului de interes %{parent_scope}"
+        delete: "%{user_name} a eliminat domeniul de interes %{resource_name}"
+        delete_with_parent: "%{user_name} a eliminat subdomeniul de interes %{resource_name} în cadrul domeniului de interes %{parent_scope}"
         update: "%{user_name} a actualizat domeniul de interes %{resource_name}"
         update_with_parent: "%{user_name} a actualizat subdomeniul %{resource_name} în cadrul domeniului %{parent_scope}"
       scope_type:
         create: "%{user_name} a creat tipul de domeniu de interes %{resource_name}"
-        delete: "%{user_name} a șters tipul de domeniu de interes %{resource_name}"
+        delete: "%{user_name} a eliminat tipul de domeniu de interes %{resource_name}"
         update: "%{user_name} a actualizat tipul de domeniu de interes %{resource_name}"
       share_token:
         create: "%{user_name} a creat un link de acces în %{space_name}"
         create_with_space: "%{user_name} a creat un link de acces pentru %{resource_name} din %{space_name}"
-        delete: "%{user_name} a șters un link de acces din %{space_name}"
-        delete_with_space: "%{user_name} a șters un link de acces pentru %{resource_name} din %{space_name}"
+        delete: "%{user_name} a eliminat un link de acces din %{space_name}"
+        delete_with_space: "%{user_name} a eliminat un link de acces pentru %{resource_name} din %{space_name}"
         update: "%{user_name} a actualizat un link de acces din %{space_name}"
         update_with_space: "%{user_name} a actualizat un link de acces pentru %{resource_name} din %{space_name}"
       static_page:
         create: "%{user_name} a creat pagina statică %{resource_name}"
-        delete: "%{user_name} a șters pagina statică %{resource_name}"
+        delete: "%{user_name} a eliminat pagina statică %{resource_name}"
         update: "%{user_name} a actualizat pagina statică %{resource_name}"
       taxonomy:
         create: "%{user_name} a creat taxonomia %{resource_name}"
         create_with_parent: "%{user_name} a creat taxonomia %{resource_name} în interiorul taxonomiei %{parent_taxonomy}"
-        delete: "%{user_name} a șters taxonomia %{resource_name}"
-        delete_with_parent: "%{user_name} a șters taxonomia %{resource_name} din cadrul taxonomiei %{parent_taxonomy}"
+        delete: "%{user_name} a eliminat taxonomia %{resource_name}"
+        delete_with_parent: "%{user_name} a eliminat taxonomia %{resource_name} din cadrul taxonomiei %{parent_taxonomy}"
         update: "%{user_name} a actualizat taxonomia %{resource_name}"
         update_with_parent: "%{user_name} a actualizat taxonomia %{resource_name} din cadrul taxonomiei %{parent_taxonomy}"
       taxonomy_filter:
         create: "%{user_name} a creat filtrul %{resource_name}"
         create_with_filter_info: '%{user_name} a creat filtrul %{resource_name} bazat pe taxonomie"%{taxonomy_name}" care are %{filter_items_count} elemente'
-        delete: "%{user_name} a șters filtrul %{resource_name}"
+        delete: "%{user_name} a eliminat filtrul %{resource_name}"
         delete_with_filter_info: '%{user_name} a șters filtrul %{resource_name} bazat pe taxonomie"%{taxonomy_name}" care are %{filter_items_count} elemente'
         update: "%{user_name} a actualizat filtrul %{resource_name}"
         update_with_filter_info: '%{user_name} a creat filtrul %{resource_name} bazat pe taxonomie"%{taxonomy_name}" care are %{filter_items_count} elemente'
       user:
         block: "%{user_name} a blocat accesul participantului %{resource_name}"
-        bulk_block: "%{user_name} a blocat %{blocked_count} utilizatori"
+        bulk_block: "%{user_name} a blocat %{blocked_count} participanți"
         bulk_ignore: "%{user_name} a deblocat %{unreported_users_count} utilizatori"
-        bulk_unblock: "%{user_name} a deblocat %{unblocked_count} utilizatori"
+        bulk_unblock: "%{user_name} a deblocat %{unblocked_count} participanți"
         invite: "%{user_name} a invitat participantul %{resource_name} cu rolul: %{role}"
-        officialize: "%{user_name} a validat participantul %{resource_name}"
+        officialize: "%{user_name} a oficializat participantul %{resource_name}"
         promote: "%{user_name} a promovat %{resource_name}"
-        remove_from_admin: "%{user_name} a eliminat participantul %{resource_name} cu rolul: %{role}"
+        remove_from_admin: "%{user_name} a eliminat rolul de %{role} al participantului %{resource_name}"
         show_email: "%{user_name} a vizualizat e-mailul participantului %{resource_name}"
         transfer: "%{user_name} a transferat participantul %{resource_name}"
         unblock: "%{user_name} a deblocat accesul participantului %{resource_name}"
-        unofficialize: "%{user_name} a revocat validarea pentru participantul %{resource_name}"
+        unofficialize: "%{user_name} a revocat oficializarea pentru participantul %{resource_name}"
       user_group:
-        block: "%{user_name} a blocat grupul de utilizatori %{resource_name}"
-        bulk_block: "%{user_name} a blocat %{blocked_count} utilizatori"
+        block: "%{user_name} a blocat grupul de participanți %{resource_name}"
+        bulk_block: "%{user_name} a blocat %{blocked_count} participanți"
         bulk_ignore: "%{user_name} a deblocat %{unreported_users_count} utilizatori"
-        bulk_unblock: "%{user_name} a deblocat %{unblocked_count} utilizatori"
+        bulk_unblock: "%{user_name} a deblocat %{unblocked_count} participanți"
         reject: "%{user_name} a respins verificarea grupului %{resource_name}"
-        unblock: "%{user_name} a deblocat grupul de utilizatori %{resource_name}"
-        verify: "%{user_name} a verificat grupul de utilizatori %{resource_name}"
-        verify_via_csv: "%{user_name} a verificat grupul de utilizatori %{resource_name} printr-un upload de fișier CSV"
+        unblock: "%{user_name} a deblocat grupul de participanți %{resource_name}"
+        verify: "%{user_name} a verificat grupul de participanți %{resource_name}"
+        verify_via_csv: "%{user_name} a verificat grupul de participanți %{resource_name} printr-un upload de fișier CSV"
       user_moderation:
         unreport: "%{user_name} a anulat raportarea pentru %{resource_type} - %{unreported_user_name}"
     admin_terms_of_service:
       default_body: "<h2>ADMIN TERMS OF USE</h2><p>Avem încredere că ați primit prelegerea obișnuită de la administratorul local de sistem. De obicei se rezumă la aceste trei lucruri: </p><ol><li>Respectați viața privată a celorlalți. </li><li>Gândiți înainte de a face clic.</li><li>Cu o putere mare vine și o mare responsabilitate.</li></ol>"
     alert:
-      dismiss: Închideți notificare
+      dismiss: Închideți notificarea
     amendments:
       accepted:
-        error: Există o problemă la acceptarea amendamentului.
+        error: A apărut o problemă la acceptarea amendamentului.
         success: Amendamentul a fost acceptat cu succes.
       amendable:
         button: Creați amendament pentru %{model_name}
@@ -371,12 +372,12 @@ ro:
         error: A apărut o problemă la crearea ciornei de amendament.
         success: Proiectul de amendament a fost creat cu succes.
       destroy_draft:
-        error: A apărut o eroare la ștergerea proiectului de amendament.
-        success: Proiectul de amendament a fost șters cu succes.
+        error: A apărut o eroare la ștergerea ciornei de amendament.
+        success: Ciorna de amendament a fost ștearsă cu succes.
       edit_draft:
-        discard: Renunțați la acest proiect de amendament
+        discard: Renunțați la acest ciornă de amendament
         send: Previzualizați
-        title: Editați proiectul de amendament
+        title: Editează ciorna de amendament
       emendation:
         actions:
           button_accept: Acceptaţi
@@ -391,19 +392,19 @@ ro:
           rejected: Acest amendament pentru %{amendable_type} %{proposal_link} a fost respins la data de <strong>%{date}</strong>.
           withdrawn: |-
             Acest amendament pentru %{amendable_type} %{proposal_link} a fost retras de către autor.
-      name: Amendamente
+      name: Amendament
       new:
         send: Creați
-        title: Creați un proiect de amendament
+        title: Creează o ciornă de amendament
       preview_draft:
         modify: Modificați
         publish: Publicați
-        title: Publicați proiectul de amendament
+        title: Publică ciorna de amendament
       promoted:
-        error: A existat o problemă la publicarea amendamentului ca propunere nouă.
+        error: A apărut o eroare la publicarea amendamentului ca propunere nouă.
         success: Amendamentul a fost publicat cu succes ca propunere nouă.
       publish_draft:
-        error: A apărut o problemă la publicarea amendamentului.
+        error: A apărut o eroare la publicarea amendamentului.
         success: Amendamentul a fost publicat cu succes.
       rejected:
         error: A apărut o eroare la respingerea acestui amendament, vă rugăm să încercați mai târziu.
@@ -413,8 +414,8 @@ ro:
         heading: Revizuiți amendamentul
         send: Acceptați amendamentul
       update_draft:
-        error: A apărut o problemă la actualizarea proiectului de amendament.
-        success: Proiectului de amendament a fost actualizat cu succes.
+        error: A apărut o eroare la actualizarea ciornei de amendament.
+        success: Ciorna de amendament a fost actualizată cu succes.
       withdraw:
         error: A apărut o eroare la retragerea amendamentului.
         success: Amendamentul a fost retras cu succes.
@@ -445,6 +446,10 @@ ro:
         one: comentariu
         few: comentarii
         other: comentarii
+      likes:
+        one: o apreciere
+        few: aprecieri
+        other: aprecieri
       official_author: Oficial
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -499,7 +504,7 @@ ro:
         missing:
           authorize: Autorizați cu "%{authorization}"
           explanation: Pentru a efectua această acțiune, trebuie să fiți autorizat cu "%{authorization}".
-          title: Autorizare necesară
+          title: Este necesară autorizarea
         ok:
           title: Ați fost autorizat în timp ce vizitai această pagină. Te rugăm să reîncarci pagina pentru a efectua acțiunea.
         pending:
@@ -797,7 +802,7 @@ ro:
           unconfirmed_email: Adresa de e-mail pe care acest participant nu a confirmat-o încă
           updated_at: Data și ora la care acest raport a fost actualizat ultima dată
       show:
-        download: Descarcă fișier
+        download: Descarcați fișier
         download_data: Descărcare date
         download_data_description_1: Aici puteți găsi toate descărcările disponibile pentru contul dvs. Aceste fișiere .zip vor fi disponibile timp de două săptămâni înainte de a fi șterse.
         download_data_description_2: Puteți solicita un fișier .zip cu conținutul generat, precum și datele dumneavoastră personale.
@@ -836,7 +841,7 @@ ro:
       not_found:
         back_home: Înapoi acasă
         content_doesnt_exist: Această adresă este incorectă sau a fost eliminată.
-        title: Pagina pe care o cauți nu poate fi găsită.
+        title: Pagina pe care o cautați nu poate fi găsită
     events:
       amendments:
         amendment_accepted:
@@ -1059,6 +1064,7 @@ ro:
       all: Toate tipurile de activitate
       index:
         last_activity: Activitate recentă
+      name: Activitate recentă
     links:
       invalid_url: URL invalid
       warning:
@@ -1113,6 +1119,9 @@ ro:
           add_users_placeholder: Caută...
           modal_title: Conversație nouă
           no_results: Niciun rezultat
+          participant_with_disabled_message_reception: Acest participant nu dorește să primească mesaje private.
+          participants:
+            title: Participanți
         error_modal:
           close: Închidere
           correct_errors: Vă rugăm să remediați erorile și să încercați din nou.
@@ -1135,6 +1144,7 @@ ro:
           send: Trimite
     metadata:
       progress:
+        finished: 'Finalizat: %{end_date}'
         not_started: Încă nu a început
         remaining: "%{time_distance} ramas"
     newsletter_mailer:
@@ -1185,7 +1195,7 @@ ro:
         translated_text: 'Text tradus automat:'
     notifications:
       action_error: A apărut o eroare la actualizarea setărilor de notificări.
-      no_notifications: Nici o notificare încă.
+      no_notifications: Nicio notificare încă.
     notifications_digest_mailer:
       header:
         daily: Rezumat notificare zilnică
@@ -1356,6 +1366,7 @@ ro:
       global: Domeniul global de interes
       prompt: Selectează un domeniu
     search:
+      name: Căutare
       results: Rezultatele căutării
       results_found_for_term: '%{count} rezultate ale căutării: "%{term}"'
       term_input_placeholder: Caută
@@ -1415,6 +1426,7 @@ ro:
         sign_up: Creați un cont
       mentions_modal:
         remove_recipient: Eliminați destinatarul %{name}
+      progress: Progres
       public_participation:
         public_participation: Arată public participarea mea
       reference:
