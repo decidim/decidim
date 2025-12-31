@@ -974,6 +974,7 @@ ro:
         other: "%{count} urmăritori"
       no_followers: Nici un urmăritor încă.
     following:
+      no_followings: Nu urmărește pe nimeni sau nimic încă.
       non_public_followings: Unele dintre resursele urmărite nu sunt publice.
     follows:
       create:
@@ -1034,6 +1035,8 @@ ro:
           description_own: "%{score} persoane te urmăresc."
           name: Urmăritori
           next_level_in: Obțineți încă %{score} urmăritori pentru a atinge următorul nivel!
+          unearned_another: Acest participant nu are încă niciun urmăritor.
+          unearned_own: Încă nu aveți urmăritori.
         index:
           badge_title: "Insignă %{name}"
           how: Cum poți să o câștigi
@@ -1817,6 +1820,7 @@ ro:
         delete_my_account: Ștergere cont
         my_data: Datele mele
         notifications_settings: Setări notificări
+        profile: Profil
         title: Setări participant
   locale:
     name: Română
@@ -1886,6 +1890,7 @@ ro:
       option_unified: Unificat
   views:
     pagination:
+      next: Următoarea
       next_title: Link către pagina următoare
       pagination: Paginare
       previous_title: Link către pagina anterioară
