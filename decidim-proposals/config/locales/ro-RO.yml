@@ -237,6 +237,7 @@ ro:
             - Răsfoiește paginile și petrece puțin timp citind propunerile altora
             - 
           description_another: Acest participant a votat %{score} propuneri.
+          description_own: Ați votat %{score} propuneri.
           name: Voturi pentru propunere
           unearned_another: Acest participant nu a votat încă nicio propunere.
           unearned_own: Încă nu ați votat nicio propunere.
