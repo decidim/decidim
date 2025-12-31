@@ -738,6 +738,17 @@ ro:
           user: Utilizatorul căruia îi aparține această identitate
         messaging_conversations:
           created_at: Data la care a fost creată această conversație
+          id: Identificatorul unic pentru această conversație
+          messages: Mesajele acestei conversații
+          updated_at: Data la care această conversație a fost actualizată ultima dată
+        notifications:
+          created_at: Data și ora la care a fost creată notificarea
+          event_class: Clasa evenimentului care a declanșat notificarea
+          event_name: Numele evenimentului care a declanșat notificarea
+          extra: Informații suplimentare despre această notificare
+          id: Identificatorul unic pentru această notificare
+          resource_type: Tipul de resursă pentru care s-a realizat notificarea
+          updated_at: Data și ora la care notificarea a fost actualizată ultima dată
         reports:
           created_at: Data și ora la care acest raport a fost creat
           details: Detaliile acestui raport
@@ -747,9 +758,24 @@ ro:
           reason: Motivul prezentului raport
           updated_at: Data și ora la care acest raport a fost actualizat ultima dată
         users:
+          about: Descrierea profilului acestui participant
           accepted_tos_version: Data la care termenii de utilizare ai acestei platforme au fost acceptați de către utilizator
+          admin: Dacă acest participant este un administrator
+          email: Adresa de e-mail a acestui participant
           following_count: Numărul de participanți pe care acest utilizator îl urmărește
+          id: Identificatorul unic al acestui participant
+          invitation_accepted_at: Data și ora la care a fost acceptată invitația
+          invitation_created_at: Data și ora la care a fost invitat acest participant
+          invitation_sent_at: Data și ora la care a fost trimisă invitația
+          invitations_count: Numărul de invitații trimise acestui participant
+          invited_by: Participantul care a invitat acest participant
+          locale: Limba locală (limba) selectată de acest participant
+          name: Numele acestui participant
+          newsletter_notifications_at: Data și ora la care acest participant a ales să primească buletine informative
+          nickname: Pseudonimul acestui participant
+          notifications_sending_frequency: Frecvența notificărilor pe care le primește acest participant
           password_updated_at: Data la care parola a fost schimbată ultima dată
+          personal_url: URL-ul personal al acestui participant
           roles: Rolul pe care îl are acest utilizator, dacă are vreun astfel de rol
           type: Tipul pe care acest utilizator îl are
           updated_at: Data și ora la care acest raport a fost actualizat ultima dată
