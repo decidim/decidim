@@ -60,14 +60,17 @@ ro:
             - Marcați scrisoarea ca fiind trimisă.
             - Odată ce marcați scrisoarea ca fiind trimisă, participantul va putea introduce codul și va putea fi verificat.
       csv_census:
+        explanation: Obțineți verificarea folosind recensământul organizației.
         name: Recensământul organizației
       direct: Directă
       help: Ajutor
       id_documents:
+        explanation: Încărcați documentele dumneavoastră de identitate pentru a vă putea verifica identitatea.
         name: Documente de identitate
       multistep: Mai multe etape
       name: Nume
       postal_letter:
+        explanation: Vă vom trimite o scrisoare poștală cu un cod pe care va trebui să îl introduceți pentru a vă putea verifica adresa.
         name: Cod primit prin scrisoare poștală
     verifications:
       authorizations:
