@@ -321,6 +321,11 @@ ro:
           take_part: Participă
         index:
           promoted_assemblies: Grupuri de lucru evidențiate
+        metadata:
+          children_item:
+            one: "%{count} grup de lucru"
+            few: "%{count} grupuri de lucru"
+            other: "%{count} grup de lucru"
         order_by_assemblies:
           assemblies:
             one: "%{count} grup de lucru"
