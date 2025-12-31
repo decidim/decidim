@@ -10,6 +10,7 @@ ro:
         document: Document
         domain: Domeniu
         end_date: Data de încheiere
+        has_members: Acest spațiu are membri
         hero_image: Imagine pentru pagina principală
         import_attachments: Importă atașamente
         import_categories: Importă categorii
@@ -338,8 +339,10 @@ ro:
           form:
             announcement_help: Textul pe care îl introduci aici va fi afișat utilizatorului chiar sub informațiile procesului.
             duration: Durată
+            has_members_help: Veți putea crea și publica membri
             images: Imagini
             metadata: Metadate
+            private_notice: Face spațiul invizibil pentru vizitatori și vizibil doar pentru membri (cu excepția cazului în care este de asemenea transparent)
             related_processes: Procese asociate
             select_process_group: Selectează un grup de proces
             taxonomies: Taxonomii
