@@ -749,6 +749,8 @@ ro:
           id: Identificatorul unic pentru această notificare
           resource_type: Tipul de resursă pentru care s-a realizat notificarea
           updated_at: Data și ora la care notificarea a fost actualizată ultima dată
+        participatory_space_members:
+          participatory_space: Spațiul din care face parte acest membru
         reports:
           created_at: Data și ora la care acest raport a fost creat
           details: Detaliile acestui raport
