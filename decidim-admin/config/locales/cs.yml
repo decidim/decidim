@@ -442,9 +442,16 @@ cs:
             'false': Ověřeno
             'true': Neověřeno
         participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Pozvánka přijata
+            values:
+              'false': Nepřijato
+              'true': Přijato
           user_invitation_sent_at_not_null:
+            label: Pozvánka odeslána
             values:
               'false': Neodesláno
+              'true': Odesláno
         private_space_eq:
           label: Soukromé
           values:
@@ -953,7 +960,10 @@ cs:
           title: Upravit participační prostor soukromého účastníka.
           update: Aktualizace
         index:
+          import_via_csv: Importovat přes CSV
+          publish_all: Publikovat vše
           title: Participační prostor soukromého účastníka
+          unpublish_all: Zrušit publikování všech
         new:
           create: Vytvořit
           title: Nový participační prostor soukromého účastníka.
