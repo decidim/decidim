@@ -724,6 +724,11 @@ ro:
       export:
         ready: Pregătit
       help:
+        follows:
+          created_at: Data și ora când a fost creată urmărirea
+          followable: Resursa sau spațiul care este urmărit
+          id: Identificatorul unic al acestei urmăriri
+          updated_at: Data și ora la care a fost actualizată ultima dată
         identities:
           created_at: Data și ora la care a fost creată identitatea
           id: Identificatorul unic al acestei identități
@@ -1154,6 +1159,8 @@ ro:
         everything_followed: Tot ce urmăresc
         newsletter_notifications: Vreau să primesc buletine informative
         newsletters: Newslettere
+        notification_settings:
+          close_meeting_reminder: Vreau să primesc mementouri prin e-mail cu privire la rapoartele nepublicate ale ședințelor încheiate
         notifications_sending_frequencies:
           daily: Zilnic
           none: Nimic
@@ -1178,6 +1185,31 @@ ro:
             one: "%{count} rezultat"
             few: "%{count} rezultate"
             other: "%{count} rezultate"
+      index:
+        detailed:
+          body_1: 'Mai jos este prezentată o descriere a fiecărui set de date, inclusiv schema (structura) sa și tipul de informații pe care le conține:'
+          title: Explicații detaliate pentru fiecare fișier
+        how_to:
+          step_1:
+            body_html: Dați click pe link-urile de mai jos pentru a descărca fișierele CSV în computer.
+            title: 1. Descărcați fișierele
+          step_2:
+            body_html: |-
+              <ul>
+              <li><b>Aplicaţii Spreadsheet</b>: Puteţi deschide fişiere CSV folosind aplicaţii precum Microsoft Excel, Google Sheets sau LibreOffice Calc. Pur şi simplu deschideţi aplicaţia, apoi selectaţi "Deschide" din meniul de fişiere, şi alegeţi fişierul CSV descărcat.</li>
+              <li><b>Editori de Text</b>: fişierele CSV pot fi deschise şi în orice editor de text, precum Notepad sau Text Sublime. Acest lucru va afișa datele brute, cu fiecare linie reprezentând un rând și fiecare valoare separate prin virgulă.</li>
+              <li><b>Instrumente de analiză a datelor</b>: Dacă sunteţi familiarizaţi cu instrumente de analiză a datelor precum Python (cu pandas), R, sau baze de date SQL, puteţi importa aceste fişiere CSV direct pentru procesare şi analiză.</li>
+              </ul>
+            title: 2. Deschideți fișierele
+          step_3:
+            body_html: |-
+              <ul>
+              <li><b>Filtrare și sortare</b>: În aplicațiile tabelei de calcul puteți filtra și sorta datele pentru a vă concentra pe anumite subseturi de informații.</li>
+              <li><b>Analiza</b>: Utilizeazați datele pentru a efectua diverse analize, cum ar fi luarea în considerare a numărului de propuneri, analiza tendinţelor observaţiilor sau evaluarea participării la reuniuni.</li>
+              <li><b>Vizualizare</b>: Puteţi crea grafice, grafice şi alte vizualizări pentru a ajuta la interpretarea datelor.</li>
+              </ul>
+            title: 3. Lucrul cu datele
+          title: Cum să deschideți și să lucrați cu aceste fișiere
       not_available_yet: Fişierele de date deschise nu sunt încă disponibile, vă rugăm să încercaţi din nou în câteva minute.
     pad_iframe:
       disclaimer: Conținutul acestui panou este scris de utilizatori înregistrați și își exprimă opiniile. %{organization} nu poate fi considerat responsabil pentru conținutul său.
