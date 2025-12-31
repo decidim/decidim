@@ -54,6 +54,7 @@ ro:
         imports:
           create:
             invalid: A apărut o problemă la importul rezultatelor.
+            success: Importarea fișierului a început. În câteva minute veți primi un e-mail cu rezultatul importării.
         models:
           result:
             name: Rezultat
