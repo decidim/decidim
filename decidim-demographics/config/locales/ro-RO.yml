@@ -1,1 +1,21 @@
+---
 ro:
+  decidim:
+    demographics:
+      demographics:
+        questionnaire:
+          modal_close: Anulați
+          modal_ok: Ok
+          modal_question: Toate datele demografice vor fi eliminate.
+          modal_title: Ștergeți datele
+          submit: Salvați datele
+          terms_of_service: condițiile de utilizare
+          tos_agreement: Prin participarea dumneavoastră acceptați %{link}.
+        show:
+          page_title: Informații demografice
+      name: Informații demografice
+  layouts:
+    decidim:
+      shared:
+        layout_center:
+          alert: Furnizând aceste informații, contribuiți la analiza statistică ce contribuie la îmbunătățirea indicatorului de calitate. Datele dumneavoastră vor fi agregate și utilizate numai în scopuri de cercetare.
