@@ -190,7 +190,7 @@ ro:
           close: Închideţi fereastra
           ok: Da, vreau să îmi șterg contul
           question: Sigur doriți să vă ștergeți contul?
-          title: Șterge contul meu
+          title: Ștergeți contul meu
         explanation: Vă rugăm, completați motivul pentru care doriți să vă ștergeți contul (opțional).
         leaving_authorizations_behind: Unele date asociate autorizării dumneavoastră vor fi salvate pentru securitate. Dacă creați un alt cont și autorizați din nou, aceste date vor fi recuperate în noul dvs. cont.
       destroy:
@@ -939,6 +939,7 @@ ro:
         decidim/user:
           password: Parola este prea scurtă.
           password_confirmation: Confirmarea parolei trebuie să coincidă cu parola.
+        error: Există o eroare în acest câmp.
       file_help:
         file:
           explanation: 'Orientări pentru fișier:'
@@ -947,9 +948,11 @@ ro:
           explanation: 'Îndrumare pentru imagine:'
         image:
           explanation: 'Orientări pentru imagine:'
+          message_1: De preferință o imagine orizontală care să nu conțină vreun text.
           message_2: Serviciul decupează imaginea.
       file_validation:
         allowed_file_extensions: 'Extensii de fișiere permise: %{extensions}'
+        max_file_dimension: 'Dimensiunea maximă a fișierului: %{resolution} pixeli'
         max_file_size: 'Dimensiunea maximă a fișierului: %{megabytes}MB'
       upload:
         labels:
@@ -958,12 +961,16 @@ ro:
           add_image: Adaugă imagine
           edit_image: Schimbă imaginea
           error: Eroare!
+          file_size_too_large: 'Mărimea fișierului este prea mare! Mărimea maximă a fișierului: %{megabytes}MB'
           filename: Nume fișier
-          remove: Șterge
-          replace: Înlocuiește
+          remove: Eliminați
+          replace: Înlocuiți
           save: Salvați
           title: Titlu
           title_required: Titlul este obligatoriu!
+          uploaded: Încărcat
+          validating: Se validează...
+          validation_error: Eroare de validare! Verificați dacă fișierul are o extensie sau o dimensiune permisă.
         select_file: Selectaţi fişierul
       upload_help:
         dropzone: Trageți fișierele aici sau apăsați pe buton pentru a încărca
@@ -1126,6 +1133,7 @@ ro:
         same_language: Conținutul a fost postat în limba preferată (%{language}), de aceea nu este afișată nicio traducere automată în acest e-mail.
         translated_text: 'Text tradus automat:'
     notifications:
+      action_error: A apărut o eroare la actualizarea setărilor de notificări.
       no_notifications: Nici o notificare încă.
     notifications_digest_mailer:
       header:
@@ -1296,7 +1304,7 @@ ro:
       qr_code: Cod QR
     shared:
       confirm_modal:
-        cancel: Anulează
+        cancel: Anulați
         close_modal: Închide fereastra
         ok: Ok
         title: Confirmare
@@ -1418,6 +1426,7 @@ ro:
       last_attempt: Mai ai încă o încercare înainte de a bloca contul.
       locked: Contul dvs. este blocat.
       not_found_in_database: '%{authentication_keys} sau parolă invalidă.'
+      unauthenticated: Trebuie să vă autentificați sau să creați un cont înainte de a continua.
     invitations:
       edit:
         header: Finalizați crearea contului dumneavoastră
@@ -1473,6 +1482,9 @@ ro:
         change_my_password: Modificați parola mea
         confirm_new_password: Confirmați parola nouă
         new_password: Parola nouă
+        old_password_help: Pentru a confirma modificările aduse contului dumneavoastră, vă rugăm să introduceți parola curentă.
+        password_help: "%{minimum_characters} nr. minim de caractere, nu trebuie să fie prea des întâlnite (de exemplu, 123456) și trebuie să fie diferite de numele dvs. și de adresa dvs. e-mail."
+        password_help_admin: "Minim %{minimum_characters} caractere, nu trebuie să fie prea comun (ex. 123456), trebuie să fie diferit de porecla și adresa de e-mail și trebuie să fie diferită de parola veche."
       new:
         forgot_your_password: Ați uitat parola?
         send_me_reset_password_instructions: Trimiteți-mi instrucțiunile de resetare a parolei
@@ -1664,6 +1676,10 @@ ro:
           save_settings: Salvați setările
           title: Setări cookie-uri
           toggle: Comută %{consent_category}
+        warning:
+          all_categories: toate cookie-urile
+          change_settings: Schimbați setările cookie-urilor
+          consent_required: Trebuie să activați %{categories} pentru a vedea acest conținut.
       edit_link:
         edit: Editare
       footer:
@@ -1691,6 +1707,8 @@ ro:
         description_html: Gestionați participantul <b>%{user_name}</b>.
       language_chooser:
         choose_language: Alegeți limba
+      navigation:
+        aria_label: 'Navigare meniu: %{title}'
       notifications_dashboard:
         mark_all_as_read: Marcați totul ca fiind citit
         mark_as_read: Marcați ca fiind citit
@@ -1705,11 +1723,14 @@ ro:
       timeout_modal:
         body: Ați fost inactiv pentru %{minutes} minute. Dacă veți continua să fiți inactiv, veți fi deconectat automat pentru propria securitate.
         continue_session: Continuați sesiunea
+        log_out: Deconectare
         title: Doriți să continuați sesiunea?
       user_menu:
         account: 'Cont de utilizator: %{name}'
         admin_dashboard: Panou de administrare
+        configuration: Configurare
         conversations: Conversații
+        log_out: Deconectare
         notifications: Notificări
         profile: Contul meu
         public_profile: Profilul meu public
