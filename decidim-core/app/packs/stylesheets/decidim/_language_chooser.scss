@@ -5,10 +5,8 @@ header {
         @apply hidden lg:block;
       }
 
-      > div {
-        @apply bg-white shadow-[1px_4px_8px_3px_rgba(0,0,0,0.15)] overflow-auto max-h-[50vh];
-
-        padding: 0.5rem !important;
+      > div[id*="dropdown-menu"] {
+        @apply bg-white shadow-[1px_4px_8px_3px_rgba(0,0,0,0.15)] overflow-auto max-h-[50vh] p-2;
       }
 
       &.focus-mode {
