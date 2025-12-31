@@ -1197,7 +1197,9 @@ ro:
           proposals: Propuneri
           proposals_explanation: Formulează propuneri, votează propunerile existente și promovează schimbările pe care dorești să le vezi implementate.
         footer_sub_hero:
+          footer_sub_hero_body_html: Să construim o societate mai deschisă, mai transparentă și mai colaborativă. <br /> Participați și decideți.
           footer_sub_hero_headline: Bun venit pe platforma participativă %{organization}.
+          register: Creați un cont
         hero:
           participate: Participă
           participate_title: Participați la procesele platformei
@@ -1205,6 +1207,7 @@ ro:
         statistics:
           headline: Statistici
         sub_hero:
+          register: Creați un cont
           register_title: Creați un cont
       index:
         standalone_pages: Pagini
@@ -1573,12 +1576,23 @@ ro:
       data_consent:
         details:
           columns:
+            description: Descriere
+            name: Categorie
+            service: Serviciu
             type: Tip
           items:
             _session_id:
               description: Permite site-urilor web să rețină utilizatorul din cadrul unui site web atunci când se mută între paginile web.
+              service: Acest site
             decidim-consent:
               description: Stochează informații despre cookie-urile permise de utilizator pe acest site.
+              service: Acest site
+            pwaInstallPromptSeen:
+              description: Stochează statusul în cazul în care notificarea de instalare pentru aplicația web progresivă (PWA) a fost deja văzută de către utilizator.
+              service: Acest site
+          types:
+            cookie: Cookie
+            local_storage: Stocare locală
         dialog:
           accept_all: Acceptați toate
           accept_only_essential: Acceptați numai esențiale
@@ -1591,24 +1605,36 @@ ro:
           analytics:
             description: Aceste cookie-uri sunt utilizate pentru a măsura și analiza publicul site-ului web pentru a ajuta la îmbunătățirea acestuia.
             title: Analize și statistici
+          description: Folosim cookie-uri pentru a asigura funcționalitățile de bază ale website-ului și pentru a vă îmbunătăți experiența online. Puteți configura și accepta utilizarea cookie-urilor și vă puteți modifica în orice moment opțiunile de aprobare.
           essential:
+            description: Aceste cookie-uri permit funcționalitatea cheie a site-ului și ajută utilizatorii să își păstreze securitatea. Acestea sunt salvate automat în browser și nu pot fi dezactivate.
             title: Esențiale
           marketing:
             description: Aceste cookie-uri colectează informații despre modul în care utilizați site-ul și pot fi utilizate pentru a vă oferi experiență de marketing personalizată pe diferitele site-uri pe care le utilizați.
             title: Marketing
           preferences:
+            description: Aceste cookie-uri permit site-ului web să își amintească de alegerile pe care le-ați făcut în trecut pe acest website pentru a oferi o experiență mai personalizată utilizatorilor website-ului.
             title: Preferințe
           save_settings: Salvați setările
+          title: Setări cookie-uri
+          toggle: Comută %{consent_category}
       edit_link:
         edit: Editare
       footer:
         cc_by_license: Licență Creative Commons
+        data_consent_settings: Setări cookie-uri
         decidim_logo: Logo decidim
+        decidim_title: Decidim
+        help: Ajutor
         log_in: Autentificare
         made_with_open_source: Site web creat cu <a target="_blank" href="https://github.com/decidim/decidim">software gratuit</a>.
+        open_data: Seturi de date
         resources: Resurse
         sign_up: Creați un cont
+        social_media: Rețele sociale
+        terms_of_service: Condiții de utilizare
       header:
+        close: Închideți
         confirm_close_ephemeral_session: Dacă părăsiți pagina, sesiunea temporară va fi închisă. Cu toate acestea, progresul și activitatea dumneavoastră vor fi salvate. Dacă ați terminat activitatea, apăsați Ok.
         confirm_title_close_ephemeral_session: Înainte de a părăsi această pagină…
         log_in: Autentificare
@@ -1622,6 +1648,8 @@ ro:
       notifications_dashboard:
         mark_all_as_read: Marcați totul ca fiind citit
         mark_as_read: Marcați ca fiind citit
+      offline_banner:
+        cache_version_page: Ups! Rețeaua dvs. este offline. Aceasta este o versiune cache anterioară a paginii pe care o vizitați, poate conținutul nu este actualizat.
       social_media_links:
         facebook: "%{organization} pe Facebook"
         github: "%{organization} pe GitHub"
@@ -1639,6 +1667,7 @@ ro:
         profile: Contul meu
         public_profile: Profilul meu public
         title: Link-uri profil
+        unread_notifications: Aveți notificări necitite
       user_profile:
         account: Cont
         authorizations: Autorizări
