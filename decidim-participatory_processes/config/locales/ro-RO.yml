@@ -10,6 +10,7 @@ ro:
         developer_group: Grup promotor
         document: Document
         domain: Domeniu
+        duplicate_categories: Categorii duplicate
         end_date: Data de încheiere
         hero_image: Imagine pentru pagina principală
         import_attachments: Importă atașamente
@@ -297,6 +298,11 @@ ro:
       processes: Procese participative
     participatory_process_groups:
       content_blocks:
+        extra_data:
+          developer_group: Promovat de
+          participatory_scope: Ce se decide
+          participatory_structure: Cum se decide
+          target: Cine participă
         html_1:
           name: Primul bloc HTML
         html_2:
@@ -361,6 +367,13 @@ ro:
             active_spaces: Procese participative active
             see_all_spaces: Vedeți tot
       participatory_processes:
+        description:
+          developer_group: Grup de promotori
+          local_area: Zona organizației
+          meta_scope: Domeniu de interes
+          participatory_scope: Ce se decide
+          participatory_structure: Cum se decide
+          target: Cine participă
         filters:
           all_types: Toate tipurile
           counters:
@@ -380,6 +393,7 @@ ro:
               one: 1 proces viitor
               few: "%{count} procese viitoare"
               other: "%{count} procese viitoare"
+          date: Dată
           explanations:
             no_active: Niciun proces activ.
             no_active_nor_upcoming: Nu există procese active sau viitoare.
