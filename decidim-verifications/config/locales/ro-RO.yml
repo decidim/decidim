@@ -165,7 +165,7 @@ ro:
           edit:
             offline: Folosește verificarea offline
             online: Folosește verificarea online
-            send: Cere verificarea din nou
+            send: Solicitați din nou verificarea
           new:
             send: Cere verificare
             title: Încarcă documentul tău de identitate
@@ -183,17 +183,17 @@ ro:
               verification_code: Cod de verificare
         authorizations:
           edit:
-            send: Confirmă
+            send: Confirmați
           new:
             send: Trimiteți-mi o scrisoare
             title: Cere codul tău de verificare
       sms:
         authorizations:
           edit:
-            confirm_destroy: Sigur dorești să resetezi codul de verificare?
-            destroy: Resetează codul de verificare
-            send: Confirmă
-            title: Introdu codul de verificare primit
+            confirm_destroy: Sigur doriți să resetați codul de verificare?
+            destroy: Resetați codul de verificare
+            send: Confirmați
+            title: Introduceți codul de verificare primit
           new:
             send: Trimite-mi un SMS
             title: Solicitați codul de verificare
