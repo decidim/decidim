@@ -828,7 +828,7 @@ ro:
         file_resolution_too_large: Rezoluția fișierului este prea mare
       internal_server_error:
         copied: Text copiat!
-        copy_error_message_clarification: Copiază mesajul de eroare în clipboard
+        copy_error_message_clarification: Copiați mesajul de eroare în clipboard
         copy_to_clipboard: Copiați în clipboard
         date_and_time: Data și ora
         reference: Referinţa
@@ -1065,6 +1065,15 @@ ro:
       index:
         last_activity: Activitate recentă
       name: Activitate recentă
+    like_buttons_cell:
+      like: Apreciere
+    likes_list:
+      liked_by:
+        one: Apreciat de %{visible}
+        few: Apreciat de %{visible}
+        other: Apreciat de %{visible} și %{others}
+      others: "încă %{count}"
+      title: Apreciat de
     links:
       invalid_url: URL invalid
       warning:
@@ -1373,6 +1382,7 @@ ro:
     searches:
       filters:
         jump_to: 'Sari la:'
+        search: Căutare
         state:
           active: Activ
           all: Toate
@@ -1405,6 +1415,7 @@ ro:
         already_reported: Acest conținut este deja raportat și va fi revizuit de către un administrator.
         close: Închideți
         description: Este acest conținut neadecvat?
+        does_not_belong: Conține activitate ilegală, amenințări la sinucidere, informații personale sau altceva ce credeți că nu aparține %{organization_name}.
         hide: Ascunde
         hide_content: Ascundeți conținutul
         offensive: Conține rasism, sexism, slurbii, atacuri personale, amenințări cu moartea, cereri de sinucidere sau orice formă de discurs de incitare la ură.
@@ -1435,13 +1446,14 @@ ro:
         label: 'Rezultate pe pagină:'
         title: Selectați numărul de rezultate pe pagină
       share_modal:
-        copy_share_link: Copiază
-        copy_share_link_clarification: Copiază link-ul de partajare în clipboard
+        copy_share_link: Copiați
+        copy_share_link_clarification: Copiați link-ul de distribuire în clipboard
         copy_share_link_copied: Copiat!
         copy_share_link_cta: Sau copiați link-ul
         copy_share_link_message: Link-ul a fost copiat cu succes în clipboard.
         share: Distribuie
         share_link: Distribuie link-ul
+        share_to: Distribuiți către %{service}
     statistics:
       comments_count: Comentarii
       comments_count_tooltip: Numărul total de comentarii postate în acest spațiu.
@@ -1452,6 +1464,7 @@ ro:
       pages_count: Pagini
       participants_count: Participanți
       participants_count_tooltip: Numărul de utilizatori unici care au interacționat în acest spațiu prin prezentarea de propuneri, participarea la întâlniri, votarea sau participarea la discuții.
+      surveys_count: Sondaje
       users_count: Participanți
       users_count_tooltip: Numărul total de utilizatori care s-au înregistrat și și-au confirmat contul prin e-mail.
     translation_bar:
