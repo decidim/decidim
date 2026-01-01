@@ -5,17 +5,26 @@ ro:
       collaborative_texts:
         document:
           body: Conținut
+          draft: Schiță
           title: Titlu
           version_number: Număr versiune
+        suggestion:
+          original: Text original
+          replace: Înlocuire
         version:
           body: Conținut
+          draft: Schiță
           version_number: Număr versiune
   decidim:
+    admin:
+      tooltips:
+        deleted_collaborative_texts_info: Nu puteți șterge acest document
     collaborative_texts:
       actions:
         confirm_delete_document: Sigur doriți să ștergeți acest document?
         deleted_document_info: Documentul șters poate fi restaurat din gunoi.
         edit: Modificați
+        manage: Configurare
         new: Text nou
         title: Acțiuni
         view_deleted_documents: Vizualizați documentele șterse
@@ -24,7 +33,11 @@ ro:
           create:
             invalid: A apărut o problemă la crearea documentului.
             success: Documentul a fost creat cu succes.
+          draft_options:
+            accepting_suggestions: Activați sugestiile în versiunea următoare
+            accepting_suggestions_help: Activarea sugestiilor va începe o nouă rundă de sugestii pentru acest document. Sugestiile actuale nu vor fi vizibile în noua versiune.
           edit:
+            previous_versions: Versiuni anterioare
             title: Actualizați texte colaborative
             update: Actualizați
           edit_settings:
@@ -62,7 +75,7 @@ ro:
           delete: "%{user_name} a șters versiunea text colaborativă %{resource_name} din %{space_name}"
           update: "%{user_name} a actualizat versiunea text colaborativ %{resource_name} în %{space_name}"
       document:
-        cancel: Anulează
+        cancel: Anulați
       documents:
         index:
           count:
