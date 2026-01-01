@@ -74,6 +74,7 @@ ro:
         new_survey: Sondaj nou
         preview: Previzualizați
         responses: Răspunsuri
+        responses_alert: Ștergerea răspunsurilor la publicare este activă pentru acest sondaj. Există în prezent %{responses_count} răspunsuri care vor fi eliminate în momentul publicării.
         title: Acțiuni
       admin:
         exports:
@@ -83,7 +84,7 @@ ro:
             description: |-
               Prin publicarea răspunsurilor la întrebări, acestea vor fi vizibile pentru public.
               Puteți selecta răspunsurile pe care doriți să le publicați făcând clic pe caseta de selectare de lângă fiecare întrebare.
-              Puteți publica numai următoarele tipuri de întrebări: "opțiune unică", "opțiune multiplă", "matrice (opțiune unică)", "matrice (opțiune multiplă)" și "Sorting".
+              Puteți publica numai următoarele tipuri de întrebări: "opțiune unică", "opțiune multiplă", "matrice (opțiune unică)", "matrice (opțiune multiplă)" și "Sortare".
             responses:
               one: "%{count} răspuns"
               few: "%{count} răspunsuri"
@@ -143,6 +144,7 @@ ro:
       models:
         survey:
           fields:
+            published: Publicat
             questions: Întrebări
             responses: Răspunsuri
             status: Stare
@@ -156,6 +158,7 @@ ro:
       survey_confirmation_mailer:
         confirmation:
           body: Ați răspuns cu succes la sondajul %{questionnaire_title} din %{participatory_space}
+          subject: Confirmarea răspunsurilor la sondajul %{questionnaire_tile}
         export_name: Răspunsuri la sondaj
       surveys:
         count:
