@@ -50,7 +50,7 @@ ro:
         edit: Modificați
         import: Importați rezultate dintr-o altă componentă
         import_csv: Importați rezultate dintr-un fișier CSV
-        new_milestone: Obiectiv nou
+        new_milestone: Reper nou
         new_result: Rezultat nou
         new_status: Stare nouă
         preview: Previzualizare
@@ -91,9 +91,22 @@ ro:
             invalid: A apărut o problemă la importul rezultatelor.
             success: Importarea fișierului a început. În câteva minute veți primi un e-mail cu rezultatul importului.
         milestones:
+          create:
+            invalid: A apărut o problemă la crearea acestui reper.
+            success: Reperul a fost creat cu succes.
+          destroy:
+            success: Reperul a fost eliminat cu succes.
           edit:
             title: Modificați obiectivul
-            update: Actualizați obiectivul
+            update: Actualizați reperul
+          index:
+            title: Repere
+          new:
+            create: Creați un reper
+            title: Reper nou
+          update:
+            invalid: A apărut o problemă la actualizarea acestui reper.
+            success: Reperul a fost actualizat cu succes.
         models:
           result:
             name: Rezultat
@@ -148,6 +161,10 @@ ro:
             invalid: A apărut o eroare la actualizarea acestei stări.
             success: Starea a fost actualizată.
       admin_log:
+        milestones:
+          create: "%{user_name} a creat reperul %{resource_name}"
+          delete: "%{user_name} a eliminat reperul %{resource_name}"
+          update: "%{user_name} a actualizat reperul %{resource_name}"
         result:
           create: "%{user_name} a creat rezultatul %{resource_name} în %{space_name}"
           delete: "%{user_name} a șters rezultatul %{resource_name} din %{space_name}"
@@ -179,6 +196,10 @@ ro:
       last_activity:
         new_result: 'Rezultat nou:'
       models:
+        milestone:
+          fields:
+            entry_date: Data
+            title: Titlu
         result:
           fields:
             created_at: Creat
@@ -201,6 +222,8 @@ ro:
             other: "%{count} rezultate"
         home_header:
           global_status: Stare globală de execuție
+        milestones:
+          title: Repere
         no_results: Nu există proiecte
         root_taxonomies:
           title: 'Vizualizare după:'
