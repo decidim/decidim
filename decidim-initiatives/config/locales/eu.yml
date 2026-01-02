@@ -259,9 +259,9 @@ eu:
             confirm: Ziur zaude?
             confirm_send_to_technical_validation: Ziur zaude?
             discard: Ekimena baztertu
-            export_pdf_signatures: Esportatu sinaduren PDF
+            export_pdf_signatures: Esportatu sinaduren PDF fitxetagia
             export_votes: Esportatu sinadurak
-            reject: Ukatu ekimena
+            reject: Ekimena ukatu
             send_to_technical_validation: Baliozkotze teknikorako bidali
             success: Ekimena baliozkotze teknikora bidali da.
             update: Eguneratu
@@ -416,7 +416,7 @@ eu:
         discard: Kendu ekimena
         export_pdf_signatures: Sinadurak PDF batera esportatu
         export_votes: Sinadurak esportatu
-        reject: Ukatu ekimena
+        reject: Ekimena ukatu
         title: Ekimena editatu
         update: Eguneratu
       events:
@@ -449,7 +449,7 @@ eu:
         add_attachments: Gehitu eranskinak
         add_image: Irudia gehitu
         attachment_legend: Gehitu dokumentu bat edo irudi bat
-        edit_attachments: Editatu eranskinak
+        edit_attachments: Eranskinak editatu
         edit_image: Editatu irudia
         image_legend: "(Aukerakoa) Gehitu irudi bat"
       index:
