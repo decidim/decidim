@@ -55,7 +55,7 @@ eu:
         questionnaires:
           actions:
             back: Itzuli erantzunetara
-            publish_responses: Argitaratu erantzunak
+            publish_responses: Erantzunak argitura
             show: Erantzunak
           display_condition:
             condition_question: Galdera
