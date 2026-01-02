@@ -913,8 +913,8 @@ ro:
             notification_title: Un <a href="%{emendation_path}">amendament respins</a> pentru <a href="%{amendable_path}">%{amendable_title}</a> a fost publicat ca un nou %{amendable_type} de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
-            email_intro: 'Un amendament a fost respins pentru %{amendable_title}. Îl poți vedea de pe această pagină:'
-            email_outro: Ai primit această notificare deoarece ești autorul %{amendable_title}.
+            email_intro: 'Un amendament al %{amendable_title} a fost respins. Îl puteți vedea de pe această pagină:'
+            email_outro: Ați primit această notificare deoarece sunteți un autor al %{amendable_title}.
             email_subject: Amendament respins pentru %{amendable_title} de la %{emendation_author_nickname}
             notification_title: <a href="%{emendation_path}">Amendamentul</a> creat de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a fost respins pentru <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
@@ -1083,7 +1083,7 @@ ro:
           unearned_own: Încă nu aveți urmăritori.
         index:
           badge_title: "Insignă %{name}"
-          how: Cum poți să o câștigi
+          how: Cum puteți să o câștigați
           page_description: Insignele sunt recunoașterea acțiunilor participanților și progresele înregistrate în cadrul platformei. Pe măsură ce începi să descoperi, să participi și să interacționezi în platformă, vei câștiga diferite insigne. Aici este lista de insigne și câteva modalități prin care le poți câștiga.
           title: Insigne
       description: Insignele sunt recunoașterea acțiunilor participanților și progresele înregistrate în cadrul platformei. Pe măsură ce începi să descoperi, să participi și să interacționezi în platformă, vei câștiga diferite insigne.
@@ -1200,8 +1200,8 @@ ro:
           not_allowed: Acest participant nu acceptă mesaje directe.
           title: Conversație cu %{usernames}
         start:
-          placeholder: Mesajul tău...
-          send: Trimite
+          placeholder: Mesajul dumneavoastră...
+          send: Trimiteți
     metadata:
       progress:
         active: Activ
@@ -1324,6 +1324,9 @@ ro:
             few: "%{count} rezultate"
             other: "%{count} rezultate"
           spaces: Spații
+        users:
+          about: Textul de descriere a participantului
+          direct_messages_enabled: Dacă utilizatorul permite mesaje directe
       index:
         detailed:
           body_1: 'Mai jos este prezentată o descriere a fiecărui set de date, inclusiv schema (structura) sa și tipul de informații pe care le conține:'
@@ -1368,7 +1371,7 @@ ro:
           debates: Dezbateri
           debates_explanation: Dezbați și discuți, îți împărtășești opiniile și contribui la subiectele relevante pentru tine.
           how_to_participate: Cum pot lua parte la un proces?
-          meetings: Întâlniri
+          meetings: Ședințe
           meetings_explanation: Află unde și când poți participa la întâlniri deschise publicului.
           more_info: Mai multe informații
           proposals: Propuneri
@@ -1452,7 +1455,7 @@ ro:
         participatory_space: Spaţiu participativ
         reason: Motiv
         report_html: <p>A fost raportat următorul <a href="%{url}">conținut</a> .</p>
-        see_report: Vezi raportul
+        see_report: Vizualizați raportul
         subject: O resursă a fost raportată
     reports:
       create:
@@ -1485,7 +1488,7 @@ ro:
         filter_and_search: Filtrare și căutare
         filter_by: Filtrare după
       results:
-        view_all: Vezi toate (%{count})
+        view_all: Vizualizați toate (%{count})
     security:
       selfxss_warning:
         description: Această caracteristică de browser este destinată dezvoltatorilor și nu ar trebui să inserați nimic aici dacă vi s-a cerut să faceți acest lucru. Lipirea conținutului în această fereastră poate compromite intimitatea ta și permite hackerilor să îți acceseze contul.
@@ -1545,7 +1548,7 @@ ro:
         copy_share_link_cta: Sau copiați link-ul
         copy_share_link_message: Link-ul a fost copiat cu succes în clipboard.
         share: Distribuie
-        share_link: Distribuie link-ul
+        share_link: Distribuiți link-ul
         share_to: Distribuiți către %{service}
     statistics:
       comments_count: Comentarii
@@ -1554,13 +1557,15 @@ ro:
       followers_count_tooltip: Numărul de utilizatori care urmăresc orice parte a acestui spațiu pentru a rămâne la curent.
       headline: Statistici
       likes_count: Aprecieri
-      no_stats: Încă nu există statistici.
+      no_stats: Nu există statistici încă.
       pages_count: Pagini
       participants_count: Participanți
       participants_count_tooltip: Numărul de utilizatori unici care au interacționat în acest spațiu prin prezentarea de propuneri, participarea la întâlniri, votarea sau participarea la discuții.
       surveys_count: Sondaje
       users_count: Participanți
       users_count_tooltip: Numărul total de utilizatori care s-au înregistrat și și-au confirmat contul prin e-mail.
+    taxonomies:
+      prompt: Vă rugăm, alegeți o opțiune
     translation_bar:
       help_text: "<strong>Avertisment:</strong> Conținutul poate fi tradus automat și nu este 100% exact."
       show_original: Afișați textul original
@@ -1579,15 +1584,35 @@ ro:
         greeting: Dragă %{name},
         instructions_1: Dacă aveți acces la acest cont de e-mail, vă rugăm să verificați căsuța poștală pentru instrucțiuni.
         instructions_2: În caz contrar, unul dintre colegii dvs. care are acces va trebui să seteze parola și să partajeze credențialele de conectare cu dvs.
+        subject: Actualizare importantă cu privire la profilul grupului dumneavoastră
+      notify_deprecation_to_owner:
+        body_1: Vă contactăm pentru a vă informa cu privire la o actualizare importantă a grupului de utilizatori pe care îl dețineți in %{organization_name}.
+        body_2: Ca parte a eforturilor noastre de a simplifica și îmbunătăți experiența pentru organizații ca a ta, vom elimina funcționalitatea "Grupuri de utilizatori". Grupul dumneavoastră, <strong>%{name}</strong>, a fost transformat într-un profil obișnuit de participant.
+        body_3: Pentru a continua să accesați contul dumneavoastră și a permite accesul altor utilizatori, trebuie să setați o parolă. După setare, puteți partaja carențialele de autentificare (e-mail și parolă) cu oricine.
+        greeting: Bună ziua %{name},
+        instructions_1: 'Faceți click pe link-ul de mai jos pentru a vă seta parola:'
+        instructions_2: 'Împărtășiți datele de conectare (e-mail: %{email} și noua parolă) cu colegii dumneavoastră.'
+        set_password: Stabiliți o parolă
+        subject: Actualizare importantă cu privire la profilul grupului dumneavoastră
       notify_user_group_patched:
+        body_1_html: Vă contactăm pentru a vă informa cu privire la o actualizare importantă a grupului de utilizatori la care sunteți membru in %{organization_name}.
+        instructions_1_html: 'Folosiți următoarele credențiale temporare pentru a vă autentifica: <br><br> Nume de utilizator: <strong>%{email}</strong> <br> Parola: <strong>%{password}</strong><br><br>'
         instructions_2_html: Setați o nouă adresă de e-mail și o parolă.
+        subject: Actualizare importantă cu privire la profilul grupului dumneavoastră
     user_report_mailer:
       notify:
         body_1: Utilizatorul %{user} a fost raportat de %{token}
         body_2: 'Motiv: %{reason}'
+        details: Detalii furnizate de utilizator
         greetings: Salutări,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Bună ziua %{admin},
         subject: Un nou utilizator a fost raportat în %{organization_name}
+    user_update_mailer:
+      notify:
+        body_1: Vă trimitem acest mesaj pentru a vă informa despre o actualizare a contului dumneavoastră.
+        body_2: În cazul în care nu ați efectuat o astfel de actualizare, vă rugăm să vă autentificați în contul dumneavoastră pentru a vă schimba parola. În cazul în care nu vă puteți conecta, contactați asistența platformei.
+        main_body: 'Următoarele detalii au fost actualizate: %{updates}.'
+      subject: Contul dumneavoastră a fost actualizat
     version:
       show:
         back_to_resource: Mergi înapoi
@@ -1625,10 +1650,12 @@ ro:
       last_attempt: Mai ai încă o încercare înainte de a bloca contul.
       locked: Contul dumneavoastră este blocat.
       not_found_in_database: '%{authentication_keys} sau parolă invalidă.'
+      timeout: Sesiunea dumneavoastră a expirat. Vă rugăm să vă conectați din nou pentru a continua.
       unauthenticated: Trebuie să vă autentificați sau să creați un cont înainte de a continua.
     invitations:
       edit:
         header: Finalizați crearea contului dumneavoastră
+        nickname_help: Pseudonimul dumneavoastră în %{organization}, poate conține doar litere, numere, '-' și '_'.
         submit_button: Salvează
         subtitle: Dacă acceptați invitația, vă rugăm să vă setați porecla și parola.
       invitation_removed: Invitația dumneavoastră a fost eliminată.
@@ -1648,12 +1675,16 @@ ro:
         subject: Instrucțiuni de confirmare
       email_changed:
         greeting: Bună ziua %{recipient}!
+        message: Vă contactăm pentru a vă informa că adresa dumneavoastră e-mail a fost schimbată în %{email}.
         subject: Adresa e-mai a fost schimbată
       invitation_instructions:
         accept: Acceptați invitația
         accept_until: Această invitație va expira la %{due_date}.
         decline: Refuzați invitația
         hello: Bună ziua %{email},
+        ignore: |-
+          Dacă nu doriți să acceptați invitația, vă rugăm să ignorați acest e-mail.<br />
+          Contul dumneavoastră nu va fi creat decât după ce accesați linkul de mai sus și vă stabiliți numele de utilizator și parola.
         invited_you_as_admin: "%{invited_by} v-a invitat ca administrator al %{application}. Îl puteți accepta prin link-ul de mai jos."
         invited_you_as_private_user: "%{invited_by} v-a invitat ca participant privat la %{application}. Puteți accepta prin linkul de mai jos."
         someone_invited_you: Cineva v-a invitat la %{application}. Puteți accepta prin linkul de mai jos.
@@ -1686,6 +1717,7 @@ ro:
         old_password_help: Pentru a confirma modificările aduse contului dumneavoastră, vă rugăm să introduceți parola curentă.
         password_help: "%{minimum_characters} nr. minim de caractere, nu trebuie să fie prea des întâlnite (de exemplu, 123456) și trebuie să fie diferite de numele dvs. și de adresa dvs. e-mail."
         password_help_admin: "Minim %{minimum_characters} caractere, nu trebuie să fie prea comun (ex. 123456), trebuie să fie diferit de porecla și adresa de e-mail și trebuie să fie diferită de parola veche."
+        title: Schimbare parolă
       new:
         forgot_your_password: Ați uitat parola?
         send_me_reset_password_instructions: Trimiteți-mi instrucțiunile de resetare a parolei
@@ -1704,11 +1736,16 @@ ro:
       update_needs_confirmation: V-ați actualizat contul, însă trebuie să vă verificăm noua adresă de e-mail. Vă rugăm să verificați e-mailul și să urmați linkul de confirmare pentru a vă confirma noua adresă de e-mail.
       updated: Contul dumneavoastră fost actualizat cu succes.
     sessions:
+      already_signed_out: Deconectat cu succes.
       new:
         log_in: Autentificare
+      signed_in: Autentificat cu succes.
+      signed_out: Deconectat cu succes.
     shared:
       links:
         back: Înapoi
+        didn_t_receive_confirmation_instructions: Nu ați primit instrucțiunile de confirmare?
+        didn_t_receive_unlock_instructions: Nu ați primit instrucțiuni de deblocare?
         forgot_your_password: V-ați uitat parola?
         log_in: Autentificare
         log_in_with_provider: Autentificați-vă cu {provider}
@@ -1808,20 +1845,26 @@ ro:
       choose: Alegeți ton implicit pentru piele
   errors:
     messages:
+      allowed_file_content_types: 'numai fișierele cu următoarele extensii sunt permise: %{types}'
+      already_confirmed: a fost deja confirmat, vă rugăm încercați să vă autentificați
       blank: nu poate fi gol
       cannot_be_blank: nu poate fi gol
       confirmation: nu se potrivește cu %{attribute}
       confirmation_period_expired: trebuie să fie confirmat în %{period}, vă rugăm să solicitați unul nou
       content_type_allowlist_error: tipul de fișier nu este valid
       empty: nu poate fi gol
-      expired: a expirat, vă rugăm să solicitaţi unul nou
-      file_size_is_less_than_or_equal_to: dimensiunea fişierului trebuie să fie mai mică sau egală cu %{count}
+      expired: a expirat, vă rugăm să solicitați unul nou
+      file_size_is_less_than_or_equal_to: dimensiunea fișierului trebuie să fie mai mică sau egală cu %{count}
       invalid_time_zone: nu este un fus orar valid
       long_words: conține cuvinte care sunt prea lungi (peste 35 de caractere)
       must_start_with_caps: trebuie să înceapă cu o majusculă
+      nesting_too_deep: nu se poate afla în interiorul unei subcategorii
+      not_found: nu a putut fi găsit. Ați creat un cont anterior?
       not_locked: nu a fost blocat
       too_many_marks: folosește prea multe semne consecutive de punctuație (de ex. ! și ?)
       too_much_caps: utilizează prea multe majuscule (peste 25% din text)
+      too_short: este prea scurt (sub %{count} caractere)
+      url_format: Acest URL are un format incorect
   forms:
     correct_errors: Există erori în formular, vă rugăm să le corectaţi pentru a continua.
     length_validator:
@@ -1914,6 +1957,7 @@ ro:
       impersonation_warning:
         close_session: Închideți sesiunea
         description_html: Gestionați participantul <b>%{user_name}</b>.
+        expire_time_html: Sesiunea dumneavoastră va expira în <b><span data-impersonation-warning-target="minutes">%{minutes}</span> minute</b>.
       language_chooser:
         choose_language: Alegeți limba
       navigation:
@@ -1965,6 +2009,7 @@ ro:
     nickname_included_in_password: este prea asemănător cu nickname-ul dvs
     not_enough_unique_characters: nu are destule caractere unice
     password_not_allowed: nu este permis
+    password_repeated: nu se poate reutiliza parola veche
     password_too_common: este prea frecvent
     password_too_long: este prea lungă
     password_too_short: este prea scurtă
