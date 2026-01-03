@@ -29,7 +29,7 @@ module Decidim
           around do |example|
             aliases = Decidim::Api.max_aliases
 
-            # 5 is the default value, we have a number alias in the above query definition, and we just set a higher number
+            # 5 is the default value, we have 6 aliases in the above query definition, and we just set a higher number
             Decidim::Api.max_aliases = 10
             example.run
 
