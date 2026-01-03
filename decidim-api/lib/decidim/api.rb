@@ -23,6 +23,7 @@ module Decidim
       Decidim::Env.new("API_SCHEMA_MAX_COMPLEXITY", 5000).to_i
     end
 
+    # Public. Defines how many aliases are permitted in a query
     config_accessor :max_aliases do
       Decidim::Env.new("API_SCHEMA_MAX_ALIASES", 5).to_i
     end
