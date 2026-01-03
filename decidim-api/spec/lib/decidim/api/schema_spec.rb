@@ -22,7 +22,7 @@ module Decidim
         end
 
         it "raises an error" do
-          expect { response }.to raise_error(GraphQL::ExecutionError)
+          expect { response }.to raise_error(Errors::TooManyAliasesError, "Too many aliases used. You have used 6 aliases, but 5 are allowed.")
         end
 
         context "when using a custom value" do

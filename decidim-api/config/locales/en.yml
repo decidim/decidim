@@ -6,6 +6,7 @@ en:
         invalid_locale: Invalid locale provided
         locale_argument_error: There was an error while internally handling i18n data
         not_found: "%{type} not found"
+        too_many_aliases_error: Too many aliases used. You have used %{size} aliases, but %{limit} are allowed.
         permission_not_set: Permission has not been set for this %{type}
         unauthorized_field: You cannot view or edit %{field} field on %{type} because you do not have permission
         unauthorized_mutation: You do not have permission to perform this mutation
