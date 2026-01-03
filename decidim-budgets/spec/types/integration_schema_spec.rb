@@ -57,6 +57,8 @@ describe "Decidim::Api::QueryType" do
       }
     )
     end
+
+    include_examples "when the introspection is disabled"
   end
   let(:component_type) { "Budgets" }
   let!(:current_component) { create(:budgets_component, :published, participatory_space: participatory_process) }

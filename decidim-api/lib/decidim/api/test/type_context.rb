@@ -68,55 +68,56 @@ shared_context "with a graphql class type" do
 
     result["data"]
   end
+end
 
-  context "when the introspection is disabled" do
-    shared_examples "check introspection behavior" do
-      context "and the user is not an admin" do
-        let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+shared_examples "when the introspection is disabled" do
+  shared_examples "check introspection behavior" do
+    context "and the user is not an admin" do
+      let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
 
-        it "raises an Decidim::Api::Errors::IntrospectionDisabledError" do
-          expect { response }.to raise_error(Decidim::Api::Errors::IntrospectionDisabledError, "Introspection is disabled for this request")
-        end
-      end
-
-      context "and the user is an admin" do
-        let!(:current_user) { create(:user, :confirmed, :admin, organization: current_organization) }
-
-        it "runs successfully" do
-          expect { response }.not_to raise_error
-        end
-      end
-
-      context "and the Env variable are set" do
-        before do
-          allow(Decidim::Api).to receive(:enable_anonymous_introspection).and_return(true)
-        end
-
-        it "runs successfully" do
-          expect { response }.not_to raise_error
-        end
-      end
-      context "and the Env variable are set" do
-        before do
-          allow(Decidim::Api).to receive(:enable_anonymous_introspection).and_return(false)
-        end
-        it "raises an Decidim::Api::Errors::IntrospectionDisabledError" do
-          expect { response }.to raise_error(Decidim::Api::Errors::IntrospectionDisabledError, "Introspection is disabled for this request")
-        end
+      it "raises an Decidim::Api::Errors::IntrospectionDisabledError" do
+        expect { response }.to raise_error(Decidim::Api::Errors::IntrospectionDisabledError, "Introspection is disabled for this request")
       end
     end
 
-    context "when requesting the schema introspection" do
-      let(:query) do
-        %( query { __schema { types { fields { type { fields { type { fields { type { fields { type { name } } } } } } } } } } } )
-      end
+    context "and the user is an admin" do
+      let!(:current_user) { create(:user, :confirmed, :admin, organization: current_organization) }
 
-      it_behaves_like "check introspection behavior"
+      it "runs successfully" do
+        expect { response }.not_to raise_error
+      end
     end
 
-    context "when requesting the type introspection" do
-      let(:query) do
-        %( query CircularIntrospection {
+    context "and the Env variable are set" do
+      before do
+        allow(Decidim::Api).to receive(:enable_anonymous_introspection).and_return(true)
+      end
+
+      it "runs successfully" do
+        expect { response }.not_to raise_error
+      end
+    end
+    context "and the Env variable are set" do
+      before do
+        allow(Decidim::Api).to receive(:enable_anonymous_introspection).and_return(false)
+      end
+      it "raises an Decidim::Api::Errors::IntrospectionDisabledError" do
+        expect { response }.to raise_error(Decidim::Api::Errors::IntrospectionDisabledError, "Introspection is disabled for this request")
+      end
+    end
+  end
+
+  context "when requesting the schema introspection" do
+    let(:query) do
+      %( query { __schema { types { fields { type { fields { type { fields { type { fields { type { name } } } } } } } } } } } )
+    end
+
+    it_behaves_like "check introspection behavior"
+  end
+
+  context "when requesting the type introspection" do
+    let(:query) do
+      %( query CircularIntrospection {
   __type(name: "User") {
     fields {
       type {
@@ -133,10 +134,9 @@ shared_context "with a graphql class type" do
     }
   }
 } )
-      end
-
-      it_behaves_like "check introspection behavior"
     end
+
+    it_behaves_like "check introspection behavior"
   end
 end
 

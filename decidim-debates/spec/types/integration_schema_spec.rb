@@ -58,6 +58,8 @@ describe "Decidim::Api::QueryType" do
       }
 )
     end
+
+    include_examples "when the introspection is disabled"
   end
   let(:component_type) { "Debates" }
 
