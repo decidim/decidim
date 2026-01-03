@@ -2,6 +2,7 @@
 
 module Decidim
   module Api
+    autoload :AliasAnalyzer, "decidim/api/alias_analyzer"
     autoload :QueryType, "decidim/api/query_type"
     autoload :MutationType, "decidim/api/mutation_type"
     autoload :Schema, "decidim/api/schema"

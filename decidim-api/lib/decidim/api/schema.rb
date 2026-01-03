@@ -11,6 +11,8 @@ module Decidim
       max_depth Decidim::Api.schema_max_depth
       max_complexity Decidim::Api.schema_max_complexity
 
+      query_analyzer AliasAnalyzer
+
       orphan_types(Api.orphan_types)
 
       def self.unauthorized_object(error)
