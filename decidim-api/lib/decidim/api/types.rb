@@ -2,6 +2,7 @@
 
 module Decidim
   module Api
+    autoload :DecidimIntrospection, "decidim/api/decidim_introspection"
     autoload :QueryType, "decidim/api/query_type"
     autoload :MutationType, "decidim/api/mutation_type"
     autoload :Schema, "decidim/api/schema"
@@ -10,6 +11,7 @@ module Decidim
     autoload :ComponentMutationType, "decidim/api/component_mutation_type"
 
     module Errors
+      autoload :IntrospectionDisabledError, "decidim/api/errors/introspection_disabled_error"
       autoload :LocaleError, "decidim/api/errors/locale_error"
       autoload :InvalidLocaleError, "decidim/api/errors/invalid_locale_error"
       autoload :AttributeValidationError, "decidim/api/errors/attribute_validation_error"

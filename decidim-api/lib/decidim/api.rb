@@ -38,6 +38,13 @@ module Decidim
       Decidim::Env.new("DECIDIM_API_FORCE_API_AUTHENTICATION", nil).present?
     end
 
+    # Public Setting that allows anonymous introspection queries.
+    # If you are not sure, leave it set to false. In this way only administrator users will be able to access the introspection query.
+    # Otherwise, anyone can access it, causing security issues.
+    config_accessor :enable_anonymous_introspection do
+      Decidim::Env.new("DECIDIM_API_ENABLE_ANONYMOUS_INTROSPECTION", nil).present?
+    end
+
     # The expiration time of the JWT tokens, after which issued token will
     # expire. Recommended to match the value of
     # `DECIDIM_OAUTH_ACCESS_TOKEN_EXPIRES_IN`.

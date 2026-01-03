@@ -3,6 +3,7 @@ en:
   decidim:
     api:
       errors:
+        introspection_disabled: Introspection is disabled for this request
         invalid_locale: Invalid locale provided
         locale_argument_error: There was an error while internally handling i18n data
         not_found: "%{type} not found"
