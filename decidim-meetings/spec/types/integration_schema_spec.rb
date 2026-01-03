@@ -220,6 +220,32 @@ describe "Decidim::Api::QueryType" do
     end
   end
 
+  context "when recursion is not allowed" do
+    let(:component_fragment) do
+      %(
+      fragment fooComponent on Meetings {
+        meeting(id: #{meeting.id}){
+          agenda {
+            items {
+              agenda {
+                items {
+                  agenda {
+                    items { id }
+                  }
+                }
+              }
+            }
+          }
+        }
+        }
+      )
+    end
+
+    it "raises error Decidim::Api::Errors::TooManyRecursionsError" do
+      expect { response }.to raise_error(Decidim::Api::Errors::TooManyRecursionsError, "Too many recursions detected in query")
+    end
+  end
+
   describe "valid connection query" do
     let(:component_fragment) do
       %(
