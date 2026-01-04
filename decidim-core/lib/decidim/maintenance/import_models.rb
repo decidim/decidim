@@ -7,7 +7,6 @@ module Decidim
   module Maintenance
     module ImportModels
       autoload :ApplicationRecord, "decidim/maintenance/import_models/application_record"
-      autoload :AssemblyType, "decidim/maintenance/import_models/assembly_type"
       autoload :Scope, "decidim/maintenance/import_models/scope"
       autoload :Area, "decidim/maintenance/import_models/area"
       autoload :AreaType, "decidim/maintenance/import_models/area_type"
