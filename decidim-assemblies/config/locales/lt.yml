@@ -145,6 +145,7 @@ lt:
           attachments: Priedai
           components: Komponentai
           moderations: Moderavimai
+          private_users: Nariai
       models:
         assembly:
           fields:

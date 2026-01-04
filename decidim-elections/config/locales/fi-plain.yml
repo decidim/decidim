@@ -80,6 +80,7 @@ fi-pl:
           questions_table:
             answer: Vastaukset
             percentage: Prosentti
+            total: Yhteensä
             votes: Äänet
             votes_count:
               one: 1 ääni
@@ -245,6 +246,7 @@ fi-pl:
           title: Vaaliin liittyvät kysymykset
         show:
           active_voting_until: 'Äänestysaika päättyy: %{end_date}'
+          edit_vote_button: Muokkaa ääntä
           vote_button: Äänestä
           voted: Olet jo äänestänyt. Voit äänestää uudestaan, ainoastaan viimeinen äänesi otetaan huomioon ääntenlaskennassa.
           votes_count:
@@ -257,6 +259,10 @@ fi-pl:
             per_question: Tulokset ovat saatavilla kutakin kysymystä kohden. Näet kunkin kysymyksen tulokset, kun äänestys päättyy ja tulokset julkaistaan.
             real_time: Tulokset näkyvät reaaliaikaisesti. Näet tulokset äänestyksen aikana.
           title: Tulokset
+          total: 'YHTEENSÄ:'
+          total_votes:
+            one: 1 ääni
+            other: "%{count} ääntä"
       models:
         election:
           fields:
@@ -302,6 +308,7 @@ fi-pl:
           next: Seuraava
         receipt:
           description: Voit äänestää uudestaan äänestyksen ollessa auki. Aikaisempi äänesi mitätöidään ja korvataan antamallasi uudella äänellä.
+          edit_vote: Muokkaa ääntäsi
           exit_button: Poistu äänestyskopista
           title: Äänesi kirjaaminen onnistui
     metadata:

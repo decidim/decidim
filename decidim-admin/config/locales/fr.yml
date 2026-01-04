@@ -93,7 +93,7 @@ fr:
         youtube_handler: Gestionnaire YouTube
       participatory_space_private_user:
         email: Email
-        name: Nom
+        name: Titre
       participatory_space_private_user_csv_import:
         file: Fichier
       scope:
@@ -441,7 +441,7 @@ fr:
           user_invitation_sent_at_not_null:
             label: Invitation envoyée
             values:
-              'false': Non envoyée
+              'false': Envoi non effectué
               'true': Envoyée
         private_space_eq:
           label: Privé
@@ -928,7 +928,7 @@ fr:
           title: Modifier le participant privé de l'espace participatif.
           update: Mettre à jour
         index:
-          import_via_csv: Importer via csv
+          import_via_csv: Importer via CSV
           publish_all: Tout publier
           title: Utilisateur privé de l'espace participatif
           unpublish_all: Tout dépublier
@@ -947,7 +947,7 @@ fr:
       participatory_space_private_users_csv_imports:
         create:
           invalid: Un problème est survenu lors de la lecture du fichier CSV. Veuillez vous assurer que vous avez suivi les instructions.
-          success: Le fichier CSV a été téléchargé avec succès. Une invitation par courriel sera envoyée sous peu à chaque participant. Cela peut prendre quelques instants. 
+          success: Fichier CSV transféré avec succès, nous envoyons un courriel d'invitation aux participants. Cela peut prendre un certain temps.
         new:
           csv_upload:
             title: Téléchargez votre fichier CSV
@@ -958,12 +958,12 @@ fr:
             explanation: Vous avez %{count} utilisateurs privés.
             title: Supprimer les utilisateurs privés
           example_file: 'Fichier d''exemple :'
-          explanation: 'Téléchargez votre fichier CSV. Il doit avoir deux colonnes avec les emails dans la première colonne, et dans la seconde colonne les noms des utilisateurs que vous souhaitez ajouter à l''espace participatif, sans en-tête. Évitez les caractères spéciaux comme `<>?%&^*#@()[]=+:;"{}\|` dans les noms des utilisateurs.'
+          explanation: 'Téléchargez votre fichier CSV. Il doit comporter deux colonnes, sans en-têtes, avec l''email dans la première colonne et le nom dans la dernière colonne du fichier des utilisateurs que vous voulez ajouter à l''espace participatif. Évitez d''utiliser des caractères invalides comme `<>?%&^*#@()[]=+:;"{}\|` dans le nom d''utilisateur.'
           explanation_example: |
-            john.doe@example.org%{csv_col_sep}Jean Doe
+            john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
           title: Importer des participants privés via CSV
-          upload: Télécharger
+          upload: Charger
       reminders:
         create:
           error: Il y a eu un problème lors de la création des rappels.

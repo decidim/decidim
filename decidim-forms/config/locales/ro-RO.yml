@@ -124,7 +124,7 @@ ro:
             title: Formular închis
           questionnaire_for_private_users:
             body: Chestionarul este disponibil doar pentru utilizatorii privați
-            title: Chestionar închis
+            title: Formular închis
           questionnaire_js_disabled:
             body: Unele dintre funcționalitățile acestui chestionar vor fi dezactivate. Pentru a îți îmbunătăți experiența, te rugăm să activezi JavaScript în browser-ul tău.
             title: JavaScript este dezactivat

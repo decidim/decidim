@@ -114,6 +114,7 @@ lv:
           attachments: Pielikumi
           components: Komponenti
           moderations: Moderācijas
+          private_users: Dalībnieki
       models:
         assembly:
           fields:

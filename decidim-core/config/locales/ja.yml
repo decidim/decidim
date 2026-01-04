@@ -1279,8 +1279,10 @@ ja:
       action_error: 通知設定の更新に問題が発生しました。
       no_notifications: まだ通知はありません。
       show:
+        deleted: コンテンツは著者によって削除されました。
         missing_event: この通知は利用できなくなった要素に属しています。破棄してください。
         moderated: コンテンツはモデレーションにより非表示になっています。
+        not_available: この通知は現在利用できないアイテムに関するものです。破棄できます。
     notifications_digest_mailer:
       header:
         daily: 日次の通知のダイジェスト
@@ -1831,8 +1833,6 @@ ja:
         subject: '%{organization} を管理するために招待されています'
       invite_collaborator:
         subject: あなたは %{organization} で共同作業に招待されています
-      invite_private_user:
-        subject: あなたは %{organization} のプライベート参加プロセスに招待されています
       organization_admin_invitation_instructions:
         subject: '%{organization} を管理するために招待されています'
       password_change:

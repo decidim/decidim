@@ -121,6 +121,7 @@ zh-CN:
           attachments: 附件
           components: 组件
           moderations: 版面
+          private_users: 成员
       models:
         assembly:
           fields:

@@ -78,6 +78,11 @@ pt:
         welcome_notification_body: Corpo da notificação de boas-vindas
         welcome_notification_subject: Assunto da notificação de boas-vindas
         youtube_handler: Manipulador do YouTube
+      participatory_space_private_user:
+        email: E-mail
+        name: Nome
+      participatory_space_private_user_csv_import:
+        file: Arquivo
       scope:
         code: Código
         name: Nome
@@ -298,16 +303,9 @@ pt:
             'false': Oficializado
             'true': Não oficializado
         participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Convite aceite
-            values:
-              'false': Não aceite
-              'true': Aceite
           user_invitation_sent_at_not_null:
-            label: Convite enviado
             values:
               'false': Não enviado
-              'true': Enviado
         private_space_eq:
           label: Privado
           values:
@@ -630,8 +628,9 @@ pt:
         destroy:
           error: Houve um problema ao eliminar um participante privado deste espaço participativo.
           success: Espaço participativo acesso de usuário privado destruído com sucesso.
+        edit:
+          update: Atualizar
         index:
-          import_via_csv: Importar via CSV
           title: Espaço participativo de participante privado
         new:
           create: Criar
@@ -640,7 +639,6 @@ pt:
         new:
           csv_upload:
             title: Envie o seu ficheiro CSV
-          upload: Carregar
       resource_permissions:
         edit:
           submit: Submeter
