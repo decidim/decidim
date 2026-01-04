@@ -1346,8 +1346,6 @@ pl:
         subject: Zaproszono Cię do zarządzania %{organization}
       invite_collaborator:
         subject: Zaproszono Cię do współpracy przy %{organization}
-      invite_private_user:
-        subject: Zostałeś zaproszony do uczestnictwa w prywatnym procesie w %{organization}
       organization_admin_invitation_instructions:
         subject: Zaproszono Cię do zarządzania %{organization}
       password_change:

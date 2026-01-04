@@ -153,6 +153,7 @@ pt-BR:
           components: Componentes
           info: Sobre essa assambleia
           moderations: Moderação
+          private_users: Membros
           see_assembly: Ver assembleia
       models:
         assembly:

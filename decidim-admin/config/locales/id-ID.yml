@@ -53,6 +53,11 @@ id:
         tos_version: Versi persyaratan layanan
         warning_color: Peringatan
         youtube_handler: Penangan YouTube
+      participatory_space_private_user:
+        email: E-mail
+        name: Nama
+      participatory_space_private_user_csv_import:
+        file: Mengajukan
       scope:
         code: Kode
         name: Nama
@@ -402,6 +407,8 @@ id:
         destroy:
           error: Terjadi kesalahan saat menghapus pengguna pribadi untuk ruang partisipatif ini.
           success: Akses pribadi pengguna ruang partisipatif berhasil dihancurkan.
+        edit:
+          update: Memperbarui
         index:
           title: Ruang partisipatif pengguna pribadi
         new:

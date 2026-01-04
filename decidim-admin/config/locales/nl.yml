@@ -78,6 +78,11 @@ nl:
         welcome_notification_body: Tekst van de welkomstmelding
         welcome_notification_subject: Welkomstmelding onderwerp
         youtube_handler: YouTube gebruikersnaam
+      participatory_space_private_user:
+        email: E-mail
+        name: Naam
+      participatory_space_private_user_csv_import:
+        file: Bestand
       scope:
         code: Code
         name: Naam
@@ -304,16 +309,9 @@ nl:
             'false': Gevalideerd
             'true': Niet gevalideerd
         participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Uitnodiging geaccepteerd
-            values:
-              'false': Niet geaccepteerd
-              'true': Geaccepteerd
           user_invitation_sent_at_not_null:
-            label: Uitnodiging verzonden
             values:
               'false': Niet verzonden
-              'true': Verzonden
         private_space_eq:
           label: Privé
           values:
@@ -651,8 +649,9 @@ nl:
         destroy:
           error: Er was een probleem met het verwijderen van een privé-deelnemer voor deze participatieruimte.
           success: De toegang van de privé deelnemer voor burgerinspraak is met succes verwijderd.
+        edit:
+          update: Bijwerken
         index:
-          import_via_csv: Importeren via csv
           title: Participerende ruimte voor privé deelnemer
         new:
           create: creëren
@@ -666,7 +665,6 @@ nl:
             empty: Je hebt geen privé deelnemers.
             explanation: Je hebt %{count} privédeelnemers.
             title: Verwijder privé deelnemer
-          upload: Upload
       reminders:
         create:
           error: Er is een probleem opgetreden bij het maken van herinneringen.

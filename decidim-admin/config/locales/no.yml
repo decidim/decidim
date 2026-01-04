@@ -78,6 +78,11 @@
         welcome_notification_body: Velkomst varslings tekst
         welcome_notification_subject: Velkomst varslings emne
         youtube_handler: YouTube brukernavn
+      participatory_space_private_user:
+        email: Epost
+        name: Navn
+      participatory_space_private_user_csv_import:
+        file: Fil
       scope:
         code: Kode
         name: Navn
@@ -316,16 +321,9 @@
             'false': Offisialisert
             'true': Ikke offisialisert
         participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Invitasjon godtatt
-            values:
-              'false': Ikke akseptert
-              'true': Godkjent
           user_invitation_sent_at_not_null:
-            label: Invitasjon sendt
             values:
               'false': Ikke sendt
-              'true': Sendt
         private_space_eq:
           label: Privat
           values:
@@ -656,8 +654,9 @@
         destroy:
           error: Det oppstod et problem med å slette en privat deltaker for dette deltakerområdet.
           success: Deltakerområde privat deltaker tilgang ødelagt.
+        edit:
+          update: Oppdater
         index:
-          import_via_csv: Importer fra CSV
           title: Deltakerområdets private deltaker
         new:
           create: Opprett
@@ -671,7 +670,6 @@
             empty: Du har ingen private deltakere.
             explanation: Du har %{count} private deltakere.
             title: Slett private deltakere
-          upload: Last opp
       reminders:
         create:
           error: Det oppsto et problem med å opprette påminnelser.

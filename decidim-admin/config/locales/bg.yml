@@ -93,6 +93,8 @@ bg:
       participatory_space_private_user:
         email: Имейл
         name: Име
+      participatory_space_private_user_csv_import:
+        file: Файл
       scope:
         code: Код
         name: Име
@@ -396,16 +398,9 @@ bg:
             'false': Официализирано
             'true': Неофициализирано
         participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Поканата е приета
-            values:
-              'false': Не се приема
-              'true': Прието
           user_invitation_sent_at_not_null:
-            label: Поканата е изпратена
             values:
               'false': Не е изпратено
-              'true': Изпратено
         private_space_eq:
           label: Частни
           values:
@@ -792,16 +787,14 @@ bg:
         destroy:
           error: Възникна проблем при изтриването на частен участник за това пространство за участие.
           success: Достъпът на частния участник до пространството за участие беше премахнат успешно.
+        edit:
+          update: Актуализация
         index:
-          import_via_csv: Импортиране чрез CSV
           title: Пространство за участие на частен участник
         new:
           create: Създаване
           title: Ново пространство за участие на частен участник.
       participatory_space_private_users_csv_imports:
-        create:
-          invalid: Възникна проблем при четенето на CSV файла. Моля, уверете се, че сте следвали инструкциите.
-          success: Файлът във формат CSV беше качен успешно; изпращаме имейл с покана на участниците. Това може да отнеме известно време.
         new:
           csv_upload:
             title: Качете своя CSV файл
@@ -811,13 +804,7 @@ bg:
             empty: Нямате частни участници.
             explanation: Имате %{count} частни участници.
             title: Изтрийте частни участници
-          example_file: 'Примерен файл:'
-          explanation: Качете своя файл във формат CSV. Трябва да съдържа две колони — електронната поща в първата колона и името в последната колона от файла (електронна поща, име) — за потребителите, които искате да добавите в пространството за участие, без заглавки.
-          explanation_example: |
-            john.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: Импортирайте частни участници чрез CSV
-          upload: Качване
       reminders:
         create:
           error: Възникна проблем при създаването на напомняния.

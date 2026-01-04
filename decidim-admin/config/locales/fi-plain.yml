@@ -93,7 +93,7 @@ fi-pl:
         welcome_notification_subject: Tervetuloilmoituksen otsikko
         youtube_handler: YouTube-käsittelijä
       participatory_space_private_user:
-        email: Sähköpostiosoite
+        email: Sähköposti
         name: Nimi
       participatory_space_private_user_csv_import:
         file: Tiedosto
@@ -126,6 +126,9 @@ fi-pl:
         show_in_footer: Näytä alatunnisteessa
         title: Otsikko
         weight: Järjestysnumero
+      taxonomy:
+        item_name: Asian nimi
+        parent_id: Vanhempi
       user_group_csv_verification:
         file: Tiedosto
     errors:
@@ -946,7 +949,7 @@ fi-pl:
       participatory_space_private_users_csv_imports:
         create:
           invalid: CSV-tiedoston lukeminen epäonnistui. Tarkasta, että olet seurannut esitettyjä ohjeita.
-          success: CSV-tiedosto ladattu onnistuneesti. Lähetämme kutsusähköpostin osallistujille. Tämä voi kestää hetken.
+          success: CSV-tiedoston lataus onnistui. Lähetämme kutsusähköpostin osallistujille. Tämä voi kestää hetken.
         new:
           csv_upload:
             title: Lataa CSV-tiedosto
@@ -957,7 +960,7 @@ fi-pl:
             explanation: Tässä osallistumistilassa on %{count} yksityistä osallistujaa.
             title: Poista kaikki yksityiset osallistujat
           example_file: 'Esimerkkitiedosto:'
-          explanation: 'Lataa CSV-tiedosto. Tiedostossa on oltava kaksi saraketta ilman otsikkoriviä. Ensimmäiseen sarakkeeseen asetetaan käyttäjän sähköpostiosoite ja toiseen sarakkeeseen käyttäjän nimi, alkaen ensimmäiseltä riviltä. Jokaisesta rivistä luodaan uusi osallistumistilan käyttäjä. Vältä erikoismerkkejä nimessä, kuten `<>?%&^*#@()[]=+:;"{}\|`.'
+          explanation: 'Lataa CSV-tiedosto. Tiedostossa on oltava kaksi saraketta ilman otsikkoriviä. Ensimmäiseen sarakkeeseen määritetään käyttäjän sähköpostiosoite ja toiseen sarakkeeseen käyttäjän nimi, alkaen ensimmäiseltä riviltä. Jokaisesta rivistä luodaan uusi osallistumistilan käyttäjä. Vältä erikoismerkkejä nimessä, kuten `<>?%&^*#@()[]=+:;"{}\|`.'
           explanation_example: |
             matti.meikalainen@esimerkki.fi%{csv_col_sep}Matti Meikäläinen
             minna.meikalainen@esimerkki.fi%{csv_col_sep}Minna Meikäläinen

@@ -73,7 +73,7 @@ eu:
         destroy:
           success: Administratzailea zuzen ezabatua.
         edit:
-          title: Editatu administratzailea
+          title: Administratzailea editatu
           update: Eguneratu
         index:
           title: Administratzaileak

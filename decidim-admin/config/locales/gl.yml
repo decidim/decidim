@@ -77,6 +77,11 @@ gl:
         welcome_notification_body: Corpo da notificación de benvida
         welcome_notification_subject: Asunto da notificación de benvida
         youtube_handler: Xestor de YouTube
+      participatory_space_private_user:
+        email: Correo electrónico
+        name: Nome
+      participatory_space_private_user_csv_import:
+        file: Ficheiro
       scope:
         code: Código
         name: Nome
@@ -297,16 +302,9 @@ gl:
             'false': Oficializado
             'true': Non oficializado
         participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Invitación aceptada
-            values:
-              'false': Non aceptada
-              'true': Aceptada
           user_invitation_sent_at_not_null:
-            label: Invitación enviada
             values:
               'false': Sen enviar
-              'true': Enviada
         private_space_eq:
           label: Privado
           values:
@@ -634,8 +632,9 @@ gl:
         destroy:
           error: Produciuse un erro ao eliminar un usuario privado deste espazo participativo.
           success: O acceso ao usuario privado do espazo participativo foi destruído con éxito.
+        edit:
+          update: Actualización
         index:
-          import_via_csv: Importar a través de CSV
           title: Espazo participativo usuario privado
         new:
           create: Crear
@@ -644,7 +643,6 @@ gl:
         new:
           csv_upload:
             title: Carga o teu ficheiro CSV
-          upload: Subir
       reminders:
         create:
           error: Produciuse un problema ao crear os recordatorios.

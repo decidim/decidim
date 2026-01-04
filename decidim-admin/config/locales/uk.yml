@@ -47,6 +47,11 @@ uk:
         reference_prefix: Довідковий префікс
         tos_version: Версія умов участі
         youtube_handler: Адреса YouTube
+      participatory_space_private_user:
+        email: Адреса електронної пошти
+        name: Назва
+      participatory_space_private_user_csv_import:
+        file: Файл
       scope:
         code: Код
         name: Назва
@@ -378,6 +383,8 @@ uk:
           success: Приватним учасникам успішно надано доступ до простору співучасті.
         destroy:
           success: Успішно скасовано доступ приватних учасників до простору співучасті.
+        edit:
+          update: Оновити
         index:
           title: Приватний учасник простору співучасті
         new:
