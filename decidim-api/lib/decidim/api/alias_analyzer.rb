@@ -6,11 +6,11 @@ module Decidim
       def initialize(query)
         super
 
-        @aliases = {}
+        @aliases = Set.new
       end
 
       def on_enter_field(node, _parent, _visitor)
-        @aliases[node.alias] ||= 1 if node.alias.present?
+        @aliases.add(node.alias) if node.alias.present?
       end
 
       def result
