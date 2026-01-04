@@ -35,15 +35,6 @@ module Decidim
           description "Finds a participatory process group"
           argument :id, GraphQL::Types::ID, required: true, description: "The ID of the Participatory process group"
         end
-
-        type.field :participatory_process_types, [ParticipatoryProcessTypeType],
-                   null: false,
-                   description: "List all participatory process types"
-
-        type.field :participatory_process_type, ParticipatoryProcessTypeType, null: true do
-          description "Finds a participatory process type"
-          argument :id, GraphQL::Types::ID, required: true, description: "The ID of the participatory process type"
-        end
       end
 
       def participatory_processes(filter: {}, order: {})
@@ -62,14 +53,6 @@ module Decidim
 
       def participatory_process_group(id:)
         Decidim::ParticipatoryProcessGroup.where(organization:).find(id)
-      end
-
-      def participatory_process_types(*)
-        Decidim::ParticipatoryProcessType.where(organization:)
-      end
-
-      def participatory_process_type(id:)
-        Decidim::ParticipatoryProcessType.where(organization:).find(id)
       end
     end
   end

@@ -153,28 +153,6 @@ FactoryBot.define do
     end
   end
 
-  factory :participatory_process_type, class: "Decidim::ParticipatoryProcessType" do
-    transient do
-      skip_injection { false }
-    end
-    title { generate_localized_title(:participatory_process_type_title, skip_injection:) }
-    organization
-
-    trait :with_active_participatory_processes do
-      after(:create) do |participatory_process_type, evaluator|
-        create_list(:participatory_process, 2, :active, :published, organization: participatory_process_type.organization, participatory_process_type:,
-                                                                    skip_injection: evaluator.skip_injection)
-      end
-    end
-
-    trait :with_past_participatory_processes do
-      after(:create) do |participatory_process_type, evaluator|
-        create_list(:participatory_process, 2, :past, :published, organization: participatory_process_type.organization, participatory_process_type:,
-                                                                  skip_injection: evaluator.skip_injection)
-      end
-    end
-  end
-
   factory :process_admin, parent: :user, class: "Decidim::User" do
     transient do
       skip_injection { false }

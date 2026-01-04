@@ -80,42 +80,6 @@ module Decidim
           end
         end
       end
-
-      describe "participatoryProcessTypes" do
-        let!(:type1) { create(:participatory_process_type, :with_active_participatory_processes, organization: current_organization) }
-        let!(:type2) { create(:participatory_process_type, :with_active_participatory_processes, organization: current_organization) }
-        let!(:type3) { create(:participatory_process_type, :with_active_participatory_processes) }
-
-        let(:query) { %({ participatoryProcessTypes { id }}) }
-
-        it "returns all the process types" do
-          expect(response["participatoryProcessTypes"]).to include("id" => type1.id.to_s)
-          expect(response["participatoryProcessTypes"]).to include("id" => type2.id.to_s)
-          expect(response["participatoryProcessTypes"]).not_to include("id" => type3.id.to_s)
-        end
-      end
-
-      describe "participatoryProcessType" do
-        let(:query) { %({ participatoryProcessType(id: "#{id}") { id }}) }
-
-        context "with a participatory process type that belongs to the current organization" do
-          let!(:type) { create(:participatory_process_type, :with_active_participatory_processes, organization: current_organization) }
-          let(:id) { type.id }
-
-          it "returns the type" do
-            expect(response["participatoryProcessType"]).to eq("id" => type.id.to_s)
-          end
-        end
-
-        context "with a participatory process type of another organization" do
-          let!(:type) { create(:participatory_process_type, :with_active_participatory_processes) }
-          let(:id) { type.id }
-
-          it "should not be found" do
-            expect { response }.to raise_error(Decidim::Api::Errors::NotFoundError, "ParticipatoryProcessType not found")
-          end
-        end
-      end
     end
   end
 end
