@@ -59,10 +59,6 @@ module Decidim
                foreign_key: "decidim_scope_type_id",
                class_name: "Decidim::ScopeType",
                optional: true
-    belongs_to :participatory_process_type,
-               foreign_key: "decidim_participatory_process_type_id",
-               class_name: "Decidim::ParticipatoryProcessType",
-               optional: true
 
     has_many :components, as: :participatory_space, dependent: :destroy
 
@@ -220,7 +216,7 @@ module Decidim
     end
 
     def self.ransackable_associations(_auth_object = nil)
-      %w(participatory_process_type participatory_process_group taxonomies)
+      %w(participatory_process_group taxonomies)
     end
   end
 end

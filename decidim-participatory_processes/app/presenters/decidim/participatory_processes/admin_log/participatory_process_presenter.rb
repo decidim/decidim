@@ -30,8 +30,7 @@ module Decidim
             slug: :string,
             subtitle: :i18n,
             target: :i18n,
-            title: :i18n,
-            decidim_participatory_process_type_id: :participatory_process_type
+            title: :i18n
           }
         end
 

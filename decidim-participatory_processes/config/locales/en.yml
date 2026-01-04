@@ -281,10 +281,6 @@ en:
         create: "%{user_name} created the %{resource_name} phase in the %{space_name} participatory process"
         delete: "%{user_name} deleted the %{resource_name} phase in the %{space_name} participatory process"
         update: "%{user_name} updated the %{resource_name} phase in the %{space_name} participatory process"
-      participatory_process_type:
-        create: "%{user_name} created the %{resource_name} participatory process type"
-        delete: "%{user_name} deleted the %{resource_name} participatory process type"
-        update: "%{user_name} updated the %{resource_name} participatory process type"
       participatory_process_user_role:
         create: "%{user_name} invited the participant %{resource_name} to the %{space_name} participatory process"
         delete: "%{user_name} removed the participant %{resource_name} from the %{space_name} participatory process"
@@ -315,10 +311,6 @@ en:
           contextual: "<p>A <strong>participatory process</strong> is a sequence of participatory activities (e.g. first filling out a survey, then making proposals, discussing them in face-to-face or virtual meetings, and finally prioritizing them) with the aim of defining and making a decision on a specific topic.</p> <p>Examples of participatory processes are: a process of electing committee members (where candidatures are first presented, then debated and finally a candidacy is chosen), participatory budgets (where proposals are made, valued economically and voted on with the money available), a strategic planning process, the collaborative drafting of a regulation or norm, the design of an urban space or the production of a public policy plan.</p>\n"
           page: "<p>A <strong>participatory process</strong> is a sequence of participatory activities (e.g. first filling out a survey, then making proposals, discussing them in face-to-face or virtual meetings, and finally prioritizing them) with the aim of defining and making a decision on a specific topic.</p> <p>Examples of participatory processes are: a process of electing committee members (where candidatures are first presented, then debated and finally a candidacy is chosen), participatory budgets (where proposals are made, valued economically and voted on with the money available), a strategic planning process, the collaborative drafting of a regulation or norm, the design of an urban space or the production of a public policy plan.</p>\n"
           title: What is a participatory process?
-    log:
-      value_types:
-        participatory_process_type_presenter:
-          not_found: 'The process type was not found on the database (ID: %{id}).'
     menu:
       processes: Processes
     open_data:

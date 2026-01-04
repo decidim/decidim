@@ -33,11 +33,7 @@ module Decidim
               id: resource.scope.try(:id),
               name: resource.scope.try(:name) || empty_translatable
             },
-            scopes_enabled: resource.scopes_enabled,
-            participatory_process_type: {
-              id: resource.participatory_process_type.try(:id),
-              title: resource.participatory_process_type.try(:title) || empty_translatable
-            }
+            scopes_enabled: resource.scopes_enabled
           }
         )
       end
