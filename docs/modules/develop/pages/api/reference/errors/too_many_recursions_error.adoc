@@ -1,0 +1,20 @@
+= Too many recursions error - TOO_MANY_RECURSIONS_ERROR
+
+Is triggered when your query uses a GraphQL circular reference for more than 2 times.
+
+*Solution*: Remove the circular reference
+
+The JSON response structure is:
+[source, json]
+----
+{
+  "errors": [
+    {
+      "message": "Too many recursions detected in query",
+      "extensions": {
+        "code": "TOO_MANY_RECURSIONS_ERROR"
+      }
+    }
+  ]
+}
+----

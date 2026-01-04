@@ -1,0 +1,18 @@
+= Introspection disabled error - INTROSPECTION_DISABLED_ERROR
+
+Is triggered when there is a user that tries to run the introspections, and he does not have the permission.
+
+The JSON response structure is:
+[source, json]
+----
+{
+  "errors": [
+    {
+      "message": "Introspection is disabled for this request",
+      "extensions": {
+        "code": "INTROSPECTION_DISABLED_ERROR"
+      }
+    }
+  ]
+}
+----
