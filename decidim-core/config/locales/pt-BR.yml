@@ -5,6 +5,8 @@ pt-BR:
         delete_reason: Motivo para excluir sua conta
       common:
         created_at: Criado em
+      component:
+        taxonomy_filters: Filtros de taxonomia
       conversation:
         body: Corpo
       group:
@@ -21,6 +23,8 @@ pt-BR:
         details: Comentários adicionais
       taxonomy:
         name: Nome da taxonomia
+      taxonomy_filter:
+        name: Etiqueta
       user:
         about: Sobre
         email: O seu email
@@ -56,6 +60,7 @@ pt-BR:
         with_participatory_space: Espaço participativo
       decidim/user:
         current_password: Senha atual
+        email: Endereço de email
         name: Nome de usuário
         password: Senha
         password_confirmation: Confirmação de senha
