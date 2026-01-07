@@ -117,6 +117,11 @@ FactoryBot.define do
       Decidim.available_locales.index_with { |_locale| Faker::Company.unique.name }
     end
 
+    # we do not want machine translation here
+    short_name do
+      Decidim.available_locales.index_with { |_locale| Faker::Company.unique.name.gsub(/\s+/, "")[0, 12] }
+    end
+
     reference_prefix { Faker::Name.suffix }
     time_zone { "UTC" }
     twitter_handler { Faker::Hipster.word }

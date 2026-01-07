@@ -198,7 +198,7 @@ At the moment we are adding this gem so we can start doing data migrations for f
 
 You can read more about this change on PR [#15501](https://github.com/decidim/decidim/pull/15501).
 
-#### 2.7. Fix gitignore for ServiceWorker related files
+### 2.7. Fix gitignore for ServiceWorker related files
 
 We detected a bug where some dynamic files are not added to the gitignore, so they could be committed to the repository. For fixing it, you need to add them to your gitignore file:
 
