@@ -193,6 +193,7 @@ You can read more about this change on PR [#15670](https://github.com/decidim/de
 ### 3.6. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+
 ## 4. Scheduled tasks
 
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples
