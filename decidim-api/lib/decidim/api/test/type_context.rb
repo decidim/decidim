@@ -72,6 +72,13 @@ end
 
 shared_examples "when the introspection is disabled" do
   shared_examples "check introspection behavior" do
+    context "and the user is not authenticated" do
+      let!(:current_user) { nil }
+
+      it "raises an Decidim::Api::Errors::IntrospectionDisabledError" do
+        expect { response }.to raise_error(Decidim::Api::Errors::IntrospectionDisabledError, "Introspection is disabled for this request")
+      end
+    end
     context "and the user is not an admin" do
       let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
 
@@ -88,7 +95,7 @@ shared_examples "when the introspection is disabled" do
       end
     end
 
-    context "and the Env variable are set" do
+    context "and the Env variable is set and is true" do
       before do
         allow(Decidim::Api).to receive(:enable_anonymous_introspection).and_return(true)
       end
@@ -97,7 +104,7 @@ shared_examples "when the introspection is disabled" do
         expect { response }.not_to raise_error
       end
     end
-    context "and the Env variable are set" do
+    context "and the Env variable is set and is false" do
       before do
         allow(Decidim::Api).to receive(:enable_anonymous_introspection).and_return(false)
       end
