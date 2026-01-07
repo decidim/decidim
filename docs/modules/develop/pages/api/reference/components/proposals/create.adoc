@@ -15,7 +15,7 @@ When you want to add or create data in your proposals component, you need to rel
 
 == Sample request
 
-The `CreateProposal` mutation allows authenticated users to create new proposals in a Decidim proposals component. This mutation uses the existing `CreateProposal` command from the controller.
+The `CreateProposal` mutation allows authenticated users to create new proposals in a Decidim proposals component. This mutation delegates to the existing `Decidim::Proposals::CreateProposal` command used by the controllers.
 
 [source,graphql]
 ----
