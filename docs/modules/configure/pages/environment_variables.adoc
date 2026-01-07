@@ -782,9 +782,9 @@ Read more about this at xref:services:pdf.adoc[PDF signing] service page.
 | No
 
 | DECIDIM_API_ENABLE_ANONYMOUS_INTROSPECTION
-| This Environment variable allows the system to accept introspection queries, which can lead to a security issue. We recommend avoid enabling this variable in production environment. When is disabled, only organization admin users will be able to run introspection queries.
+| This Environment variable allows the system to accept introspection queries, which can lead to a security issue. We recommend avoiding enabling this variable in production environments. When it is disabled, only organization admin users will be able to run introspection queries.
 | false
-| no
+| No
 
 |PROPOSALS_PARTICIPATORY_SPACE_HIGHLIGHTED_PROPOSALS_LIMIT
 |Number of proposals to be shown in blocks with highlighted content across different participatory spaces.
