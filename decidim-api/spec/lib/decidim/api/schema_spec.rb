@@ -12,12 +12,12 @@ module Decidim
       context "when restricting number of aliases" do
         let!(:query) do
           %({
-          invalias0 : __typename
-          invalias1 : __typename
-          invalias2 : __typename
-          invalias3 : __typename
-          invalias4 : __typename
-          invalias5 : __typename
+          invalidAlias0 : __typename
+          invalidAlias1 : __typename
+          invalidAlias2 : __typename
+          invalidAlias3 : __typename
+          invalidAlias4 : __typename
+          invalidAlias5 : __typename
         })
         end
 
@@ -37,7 +37,7 @@ module Decidim
           end
 
           it "runs successfully" do
-            expect(response).to include("invalias0" => "Query")
+            expect(response).to include("invalidAlias0" => "Query")
           end
         end
       end
@@ -45,16 +45,16 @@ module Decidim
       context "when allowing number of aliases" do
         let!(:query) do
           %({
-          invalias0 : __typename
-          invalias1 : __typename
-          invalias2 : __typename
-          invalias3 : __typename
-          invalias4 : __typename
+          invalidAlias0 : __typename
+          invalidAlias1 : __typename
+          invalidAlias2 : __typename
+          invalidAlias3 : __typename
+          invalidAlias4 : __typename
         })
         end
 
         it "runs successfully" do
-          expect(response).to include("invalias0" => "Query")
+          expect(response).to include("invalidAlias0" => "Query")
         end
       end
     end
