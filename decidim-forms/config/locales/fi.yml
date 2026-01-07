@@ -188,8 +188,8 @@ fi:
           questionnaire_closed:
             body: Kyselylomake on suljettu, eikä siihen voi vastata.
             title: Kyselylomake on suljettu
-          questionnaire_for_private_users:
-            body: Kyselylomake on nähtävillä vain yksityisille käyttäjille
+          questionnaire_for_members:
+            body: Kyselylomake on nähtävillä vain jäsenille
             title: Kyselylomake on suljettu
           questionnaire_js_disabled:
             body: Jotkin tämän lomakkeen ominaisuudet eivät ole käytössä. Parantaaksesi käyttökokemustasi, ota JavaScript käyttöön selaimestasi.

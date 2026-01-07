@@ -81,6 +81,7 @@ es-PY:
           questions_table:
             answer: Respuestas
             percentage: Porcentaje
+            total: Total
             votes: Votos
             votes_count:
               one: 1 voto
@@ -254,6 +255,7 @@ es-PY:
           active_voting_until: 'Votación activa hasta: %{end_date}'
           check_census_button: Comprobar si puedo votar
           check_census_explanation: Esta elección aún no ha comenzado, pero puede comprobar si constas en el censo.
+          edit_vote_button: Editar el voto
           vote_button: Votar
           voted: Ya has votado. Puedes votar de nuevo, esto borrará tu voto anterior y, solo se contará tu última votación.
           votes_count:
@@ -266,6 +268,10 @@ es-PY:
             per_question: Los resultados están disponibles por pregunta. Puedes ver los resultados de cada pregunta una vez que se habilite la votación y se publiquen los resultados.
             real_time: Los resultados están disponibles en tiempo real. Puedes ver los resultados mientras la votación está en curso.
           title: Resultados
+          total: 'TOTAL:'
+          total_votes:
+            one: 1 voto
+            other: "%{count} votos"
       models:
         election:
           fields:
@@ -314,6 +320,7 @@ es-PY:
           next: Siguiente
         receipt:
           description: Puedes votar de nuevo en cualquier momento mientras el período de votación esté abierto. Tu voto anterior será sustituido por el nuevo.
+          edit_vote: Edita tu voto
           exit_button: Salir de la cabina de votación
           title: Tu voto se ha emitido correctamente
     metadata:

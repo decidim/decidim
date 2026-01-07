@@ -777,7 +777,7 @@ en:
         participatory_space_members:
           created_at: The date and time when this member was created
           id: The unique identifier of this member
-          privatable_to: To which space this member belongs
+          participatory_space: To which space this member belongs
           published: Wether this member is published or not
           role: The role that this member has
           updated_at: The date and time when this member was last updated

@@ -29,7 +29,7 @@ eu:
       help:
         responses:
           id: Erantzunaren identifikatzaile bakarra
-          question: Erantzun zen galdera
+          question: Erantzun den galdera
           questionnaire: Erantzun zen galdetegia
           response: Galderaren erantzuna
           user: Inkesta erantzun duen parte-hartzailea
@@ -188,8 +188,8 @@ eu:
           questionnaire_closed:
             body: Galdetegia itxita dago eta ezin da erantzun.
             title: Galdeketa itxia
-          questionnaire_for_private_users:
-            body: Galdetegia parte-hartzaile pribatuentzat soilik dago erabilgarri
+          questionnaire_for_members:
+            body: Formularioa bazkideentzat soilik dago eskuragarri
             title: Galdeketa itxia
           questionnaire_js_disabled:
             body: Galdetegi honen ezaugarri batzuk desaktibatu egingo dira. Zure esperientzia hobetzeko, gaitu JavaScript zure nabigatzailean.

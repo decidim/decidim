@@ -132,6 +132,7 @@ module Decidim
   autoload :ApiResponseHelper, "decidim/api_response_helper"
   autoload :ResourceHelper, "decidim/resource_helper"
   autoload :TooltipHelper, "decidim/tooltip_helper"
+  autoload :FormFactory, "decidim/form_factory"
 
   module ParticipatorySpace
     autoload :HasMembers, "decidim/participatory_space/has_members"

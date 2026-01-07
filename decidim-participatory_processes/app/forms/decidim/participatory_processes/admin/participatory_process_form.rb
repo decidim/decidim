@@ -31,6 +31,7 @@ module Decidim
         attribute :related_process_ids, Array[Integer]
         attribute :weight, Integer, default: 0
 
+        attribute :has_members, Boolean
         attribute :private_space, Boolean
         attribute :promoted, Boolean
 

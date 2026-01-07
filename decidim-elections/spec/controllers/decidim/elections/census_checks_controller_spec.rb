@@ -28,7 +28,7 @@ module Decidim
 
       describe "GET new" do
         it "renders the census check form" do
-          get :new, params: params
+          get(:new, params:)
 
           expect(response).to have_http_status(:ok)
           expect(assigns(:form)).to be_present
@@ -40,7 +40,7 @@ module Decidim
           end
 
           it "redirects to the success page" do
-            get :new, params: params
+            get(:new, params:)
 
             expect(response).to redirect_to(census_check_path)
           end
@@ -66,7 +66,7 @@ module Decidim
 
       describe "GET show" do
         it "redirects to the form when the session is not authenticated" do
-          get :show, params: params
+          get(:show, params:)
 
           expect(response).to redirect_to(new_census_check_path)
           expect(flash[:alert]).to eq(I18n.t("decidim.elections.votes.check_census.failed"))
@@ -78,7 +78,7 @@ module Decidim
           end
 
           it "renders the success page" do
-            get :show, params: params
+            get(:show, params:)
 
             expect(response).to have_http_status(:ok)
             expect(subject).to render_template(:show)

@@ -200,7 +200,7 @@ eu:
       badges:
         initiatives:
           conditions:
-            - Joan zaitez Intiatives-ko partaidetza espaziora
+            - Joan zaitez Intiatives-ko partaidetza-espaziora
             - Jarraitu urrats berriak beste ekimen bat sortzeko
           description: Garaikur hau ekimen berriak martxan jartzean ematen da, beste batzuekin partekatuz horiek lortzeko.
           description_another: Parte-hartzaile honek %{score} ekimen argitaratzea lortu du.
@@ -394,7 +394,7 @@ eu:
           back: Atzera
           callout_text_created: Zorionak! Zure ekimena zuzen sortu da.
           callout_text_validating: Zure ekimena zuzen bidali da balidazio teknikora.
-          go_to_initiatives: Joan ekimenetara
+          go_to_initiatives: Ekimenetara joan
           publish_helper_text_html: "Gogoan izan zure ekimena argitaratzeko teknikoki baliozkotu behar dela, administratzaile batek berrikus dezan.\n"
         previous_form:
           back: Back
@@ -411,8 +411,8 @@ eu:
           choose_html: <strong>%{title}</strong>bat sortu nahi dut
           consult_existing_initiatives: Kontsultatu lehendik dauden ekimenak
           continue: Jarraitu
-          more_information: (Informazio gehiago)
-          new: Sortu beste ekimen bat
+          more_information: Informazio gehiago
+          new: Beste ekimen bat sortu
           select: Ekimen hau sustatu nahi dut
           select_initiative_type_help_html: "<p>Ekimenak bide dira parte-hartzaileek parte har dezaten, erakundeak interes orokorraren aldeko ekintzak egin ditzan. Zein ekimen jarri nahi duzu abian?</p>"
           show_less: Gutxiago erakutsi
@@ -431,7 +431,7 @@ eu:
         back: Atzera
         confirm: Ziur zaude?
         discard: Kendu ekimena
-        export_pdf_signatures: Esportatu sinaduren PDF
+        export_pdf_signatures: Sinadurak PDF batera esportatu
         export_votes: Sinadurak esportatu
         reject: Ukatu ekimena
         title: Ekimena editatu
@@ -596,7 +596,7 @@ eu:
         votes_count:
           count:
             one: SIGNATURE
-            other: sinadurak
+            other: Sinadurak
       initiatives_mailer:
         creation_subject: Zure '%{title}'ekimena sortu egin da
         initiative_link:
@@ -647,7 +647,7 @@ eu:
             name: Sinaduren Legezko Kudeatzailea
       states:
         accepted: Onartua
-        expired: iraungi
+        expired: Iraungita
       unavailable_scope: Eremua ez dago erabilgarri
       update:
         error: Arazo bat izan da ekimena eguneratzean.
@@ -685,7 +685,7 @@ eu:
     resources:
       initiative:
         actions:
-          comment: Egin iruzkina
+          comment: Iruzkindu
           vote_comment: Bozkatu iruzkina
       initiatives_type:
         actions:

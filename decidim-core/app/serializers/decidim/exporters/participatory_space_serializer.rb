@@ -28,7 +28,7 @@ module Decidim
           short_description: resource.short_description,
           description: resource.description,
           promoted: resource.promoted,
-          component_settings: component_settings
+          component_settings:
         }
       end
 

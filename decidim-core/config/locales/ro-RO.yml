@@ -284,10 +284,6 @@ ro:
       organization:
         update: "%{user_name} a actualizat setările organizației"
         update_external_domain: "%{user_name} a actualizat domeniile externe ale organizației"
-      participatory_space_private_user:
-        create: "%{user_name} a invitat pe %{resource_name} să fie un participant privat"
-        create_via_csv: "%{user_name} a invitat pe %{resource_name} prin upload de CSV să fie un participant privat"
-        delete: "%{user_name} l-a eliminat pe %{resource_name} din lista de participanți privați"
       scope:
         create: "%{user_name} a creat domeniul de interes %{resource_name}"
         create_with_parent: "%{user_name} a creat subdomeniul de interes %{resource_name} în cadrul domeniului de interes %{parent_scope}"
@@ -733,13 +729,6 @@ ro:
           user: Utilizatorul căruia îi aparține această identitate
         messaging_conversations:
           created_at: Data la care a fost creată această conversație
-        participatory_space_private_users:
-          created_at: Data și ora la care a fost creat acest utilizator privat
-          id: Identificatorul unic al acestui utilizator privat
-          privatable_to: Spațiul căruia îi aparține acest utilizator privat
-          published: Daca acest utilizator privat este vizibil sau nu
-          role: Rolul pe care îl are acest utilizator privat
-          updated_at: Data și ora la care acest utilizator privat a fost actualizat ultima dată
         reports:
           created_at: Data și ora la care acest raport a fost creat
           details: Detaliile acestui raport
@@ -1447,10 +1436,8 @@ ro:
         decline: Refuzați invitația
         hello: Bună ziua %{email},
         invited_you_as_admin: "%{invited_by} v-a invitat ca administrator al %{application}. Îl puteți accepta prin link-ul de mai jos."
-        invited_you_as_private_user: "%{invited_by} v-a invitat ca participant privat la %{application}. Puteți accepta prin linkul de mai jos."
         someone_invited_you: Cineva v-a invitat la %{application}. Puteți accepta prin linkul de mai jos.
         someone_invited_you_as_admin: Cineva v-a invitat să administrați %{application}. Puteți accepta prin linkul de mai jos.
-        someone_invited_you_as_private_user: Cineva v-a invitat ca participant privat la %{application}, puteți accepta prin intermediul linkului de mai jos.
         subject: Instrucțiuni pentru invitație
       invite_admin:
         subject: Ați fost invitat să gestionați %{organization}

@@ -422,8 +422,8 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       it_behaves_like "allows any action on subject", :process_step
       it_behaves_like "allows any action on subject", :process_user_role
 
-      context "when private process" do
-        let(:process) { create(:participatory_process, organization:, private_space: true) }
+      context "when process has members" do
+        let(:process) { create(:participatory_process, organization:, has_members: true) }
         let!(:context) { { current_participatory_space: process } }
 
         it_behaves_like "allows any action on subject", :space_member
@@ -447,8 +447,8 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       it_behaves_like "allows any action on subject", :process_step
       it_behaves_like "allows any action on subject", :process_user_role
 
-      context "when private process" do
-        let(:process) { create(:participatory_process, organization:, private_space: true) }
+      context "when process has members" do
+        let(:process) { create(:participatory_process, organization:, has_members: true) }
         let!(:context) { { current_participatory_space: process } }
 
         it_behaves_like "allows any action on subject", :space_member

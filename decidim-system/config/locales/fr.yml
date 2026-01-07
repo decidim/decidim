@@ -197,6 +197,7 @@ fr:
           confirm_resend_invitation: Êtes-vous sûr de vouloir renvoyer l'invitation ?
           resend_invitation: Renvoyer l'invitation
           secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne
+          short_name_hint: Nom court utilisé pour l'application Web progressive. Il doit avoir un maximum de 12 caractères.
           title: Modifier l'organisation
         file_upload_settings:
           content_types:
@@ -226,6 +227,7 @@ fr:
           organization_admin_email_hint: Nous enverrons un e-mail à cette adresse afin que vous puissiez la confirmer et configurer votre mot de passe.
           reference_prefix_hint: Le préfixe de référence est utilisé pour identifier de manière unique les ressources à travers toutes les organisations.
           secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne.
+          short_name_hint: Nom court utilisé pour l'application Web progressive. Il doit avoir un maximum de 12 caractères.
           title: Nouvelle organisation
         omniauth_settings:
           decidim:

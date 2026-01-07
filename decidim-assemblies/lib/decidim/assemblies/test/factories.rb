@@ -37,6 +37,7 @@ FactoryBot.define do
     participatory_scope { generate_localized_title(:assembly_participatory_scope, skip_injection:) }
     participatory_structure { generate_localized_title(:assembly_participatory_structure, skip_injection:) }
     private_space { false }
+    has_members { false }
     purpose_of_action { generate_localized_description(:assembly_purpose_of_action, skip_injection:) }
     composition { generate_localized_description(:assembly_composition, skip_injection:) }
     creation_date { 1.month.ago }

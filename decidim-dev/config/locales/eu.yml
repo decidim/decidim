@@ -26,7 +26,7 @@ eu:
             guided_rich_readonly_html: HTML<strong>laguntza</strong>testua input desgaiturako
             readonly_attribute: Soilik irakurtzeko atributua
             test: Proba bat
-            test_add: Erantsi testa
+            test_add: Testa erantsi
             test_choices:
               a: A aukera
               b: B aukera

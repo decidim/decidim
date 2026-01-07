@@ -27,7 +27,7 @@ module Decidim::Meetings
         context "with available slots" do
           it "creates registration and redirects" do
             expect do
-              post :create, params: params
+              post :create, params:
             end.to change(Registration, :count).by(1)
 
             expect(flash[:notice]).to eq(I18n.t("registrations.create.success", scope: "decidim.meetings"))
@@ -36,10 +36,10 @@ module Decidim::Meetings
         end
 
         context "when no available slots" do
-          let!(:registrations) { create_list(:registration, 10, meeting: meeting) }
+          let!(:registrations) { create_list(:registration, 10, meeting:) }
 
           it "shows error message" do
-            post :create, params: params
+            post(:create, params:)
 
             expect(flash[:alert]).to eq(I18n.t("registrations.create.invalid", scope: "decidim.meetings"))
             expect(response).to redirect_to(my_meeting_path)
@@ -49,7 +49,7 @@ module Decidim::Meetings
 
       context "when user not authenticated" do
         it "redirects to login" do
-          post :create, params: params
+          post(:create, params:)
           expect(response).to redirect_to("/users/sign_in")
         end
       end
@@ -76,7 +76,7 @@ module Decidim::Meetings
         meeting.update!(
           registrations_enabled: true,
           registration_form_enabled: true,
-          questionnaire: questionnaire
+          questionnaire:
         )
       end
 
@@ -84,7 +84,7 @@ module Decidim::Meetings
         context "when joining directly" do
           it "answers questionnaire and redirects" do
             expect do
-              post :respond, params: params
+              post :respond, params:
             end.to change { meeting.registrations.count }.by(1)
 
             expect(flash[:notice]).to eq(I18n.t("registrations.create.success", scope: "decidim.meetings"))
@@ -94,11 +94,11 @@ module Decidim::Meetings
 
         context "when joining waitlist" do
           let(:meeting) { create(:meeting, component:, available_slots: 10) }
-          let!(:registrations) { create_list(:registration, 10, meeting: meeting) }
+          let!(:registrations) { create_list(:registration, 10, meeting:) }
 
           it "adds user to waitlist and redirects" do
             expect do
-              post :respond, params: params
+              post :respond, params:
             end.to change { meeting.registrations.where(status: :waiting_list).count }.by(1)
 
             expect(flash[:notice]).to eq(I18n.t("registrations.waitlist.success", scope: "decidim.meetings"))
@@ -116,7 +116,7 @@ module Decidim::Meetings
         end
 
         it "shows error message" do
-          post :respond, params: params
+          post(:respond, params:)
 
           expect(flash[:alert]).to eq(I18n.t("response.invalid", scope: "decidim.forms.questionnaires"))
           expect(response).to render_template("decidim/forms/questionnaires/show")
@@ -126,7 +126,7 @@ module Decidim::Meetings
 
     describe "POST join_waitlist" do
       let(:meeting) { create(:meeting, component:, available_slots: 10) }
-      let!(:registrations) { create_list(:registration, 10, meeting: meeting) }
+      let!(:registrations) { create_list(:registration, 10, meeting:) }
       let(:params) { { meeting_id: meeting.id } }
 
       before { sign_in user }
@@ -134,7 +134,7 @@ module Decidim::Meetings
       context "when meeting has no available slots" do
         it "adds user to waitlist" do
           expect do
-            post :join_waitlist, params: params
+            post :join_waitlist, params:
           end.to change(Registration.on_waiting_list, :count).by(1)
 
           expect(flash[:notice]).to eq(I18n.t("registrations.waitlist.success", scope: "decidim.meetings"))
@@ -151,7 +151,7 @@ module Decidim::Meetings
 
       it "destroys registration" do
         expect do
-          delete :destroy, params: params
+          delete :destroy, params:
         end.to change(Registration, :count).by(-1)
 
         expect(flash[:notice]).to match(/successfully/)

@@ -1,0 +1,12 @@
+---
+ca:
+  decidim:
+    api:
+      errors:
+        invalid_locale: La configuració regional que s'ha facilitat no és vàlida
+        locale_argument_error: S'ha produït un error mentre es gestionaven internament les dades i18n
+        not_found: "%{type} no trobat"
+        permission_not_set: No s'ha establert el permís per aquest %{type}
+        unauthorized_field: No pots veure o editar el camp %{field} a %{type} perquè no tens permisos per fer-ho
+        unauthorized_mutation: No tens permís per realitzar aquesta mutació
+        unauthorized_object: No pots veure i editar aquest %{type} perquè no tens permisos per fer-ho

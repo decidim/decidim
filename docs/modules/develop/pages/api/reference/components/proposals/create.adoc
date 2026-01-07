@@ -1,0 +1,3 @@
+= Create Proposal
+
+include::admin:partial$under-construction.adoc[]

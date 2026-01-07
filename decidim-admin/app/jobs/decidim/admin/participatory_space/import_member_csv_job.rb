@@ -8,20 +8,20 @@ module Decidim
       class ImportMemberCsvJob < ApplicationJob
         queue_as :exports
 
-        def perform(email, user_name, privatable_to, current_user)
+        def perform(email, user_name, participatory_space, current_user)
           return if email.blank? || user_name.blank?
 
           params = {
             name: user_name,
             email: email.downcase.strip
           }
-          member_form = MemberForm.from_params(params, privatable_to:)
+          member_form = MemberForm.from_params(params, participatory_space:)
                                   .with_context(
                                     current_user:,
-                                    current_participatory_space: privatable_to
+                                    current_participatory_space: participatory_space
                                   )
 
-          CreateMember.call(member_form, privatable_to, via_csv: true)
+          CreateMember.call(member_form, participatory_space, via_csv: true)
         end
       end
     end

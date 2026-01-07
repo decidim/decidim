@@ -317,7 +317,7 @@ describe "Decidim::Api::QueryType" do
       end
 
       context "when the current user is a member" do
-        let!(:member) { create(:member, privatable_to: private_process, user: current_user) }
+        let!(:member) { create(:member, participatory_space: private_process, user: current_user) }
 
         it "returns all spaces" do
           expect(response["participatoryProcesses"]).to include(

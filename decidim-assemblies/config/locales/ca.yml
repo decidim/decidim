@@ -170,8 +170,8 @@ ca:
           components: Components
           info: Quant a aquesta assemblea
           landing_page: Disposició de la pàgina de destinació
+          members: Membres
           moderations: Moderacions
-          private_users: Membres
           see_assembly: Veure l'assemblea
       models:
         assembly:
@@ -218,9 +218,11 @@ ca:
         export: "%{user_name} ha exportat l'assemblea %{resource_name}"
         import: "%{user_name} ha importat l'assemblea %{resource_name}"
         publish: "%{user_name} ha publicat l'assemblea %{resource_name}"
+        publish_all_members: "%{user_name} va publicar a totes les membres de l'assemblea %{resource_name}"
         restore: "%{user_name} ha restaurat l'assemblea %{resource_name}"
         soft_delete: "%{user_name} ha mogut a la paperera l'assemblea %{resource_name}"
         unpublish: "%{user_name} ha despublicat l'assemblea %{resource_name}"
+        unpublish_all_members: "%{user_name} va despublicar a totes les membres de l'assemblea %{resource_name}"
         update: "%{user_name} ha actualitzat l'assemblea %{resource_name}"
       assembly_member:
         create: "%{user_name} ha afegit el membre %{resource_name} a l'assemblea %{space_name}"
@@ -251,7 +253,6 @@ ca:
             metadata: Metadades
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             other: Altre
-            private_notice: Podràs administrar les participants privades un cop haguis configurar l'espai com a privat
             select_a_created_by: Selecciona una creadora
             select_parent_assembly: Selecciona una assemblea mare
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'

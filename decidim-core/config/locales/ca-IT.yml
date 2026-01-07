@@ -266,6 +266,10 @@ ca-IT:
         results: resultats
       impersonation_log:
         manage: "%{user_name} ha gestionat a %{resource_name} perquè %{reason}"
+      member:
+        create: "%{user_name} ha convidat a %{resource_name} com a membre"
+        create_via_csv: "%{user_name} ha convidat a %{resource_name} com a membre via CSV"
+        delete: "%{user_name} ha eliminat a %{resource_name} de membre"
       moderation:
         bulk_hide: "%{user_name} ha amagat %{reported_count} continguts"
         bulk_unhide: "%{user_name} ha tornat a mostrar %{reported_count} continguts"
@@ -284,10 +288,6 @@ ca-IT:
       organization:
         update: "%{user_name} ha actualitzat la configuració de l'organització"
         update_external_domain: "%{user_name} ha actualitzat els dominis externs de l'organització"
-      participatory_space_private_user:
-        create: "%{user_name} ha convidat %{resource_name} com a participant privada"
-        create_via_csv: "%{user_name} ha convidat %{resource_name} via CSV per a ser participant privada"
-        delete: "%{user_name} ha eliminat %{resource_name} com a participant privada"
       scope:
         create: "%{user_name} ha creat l'àmbit %{resource_name}"
         create_with_parent: "%{user_name} ha creat l'àmbit %{resource_name} dins l'àmbit %{parent_scope}"
@@ -766,13 +766,12 @@ ca-IT:
           id: L'identificador únic d'aquesta notificació
           resource_type: El tipus de recurs amb el qual està relacionat amb la notificació
           updated_at: La data i hora en què aquesta notificació va ser actualitzada per darrera vegada
-        participatory_space_private_users:
-          created_at: La data i l'hora en què es va crear aquesta participant privada
-          id: L'identificador únic d'aquesta participant privada
-          privatable_to: A quin espai de participació pertanys aquesta participant privada
-          published: Si aquesta participant privada està publicada o no
-          role: El rol que té aquesta participant privada
-          updated_at: La data i hora en què aquesta participant privada va ser actualitzada per darrera vegada
+        participatory_space_members:
+          created_at: La data i l'hora en què es va crear aquesta membre
+          id: L'identificador únic d'aquesta membre
+          published: Si aquesta membre està publicada o no
+          role: El rol que té aquesta membre
+          updated_at: La data de la darrera actualització d'aquesta membre
         reports:
           created_at: La data i hora en què es va crear aquest informe
           details: Els detalls dels informes de moderació
@@ -1838,16 +1837,16 @@ ca-IT:
         ignore: |-
           Si no vols acceptar la invitació, si us plau, ignora aquest correu electrònic.<br /> El teu compte no es crearà fins que no accedeixis a l'enllaç anterior i estableixis el teu àlies i contrasenya.
         invited_you_as_admin: "%{invited_by} t'ha convidat com a administradora de %{application}. Pots acceptar-ho a través de l'enllaç següent."
-        invited_you_as_private_user: "%{invited_by} t'ha convidat com a participant privada de %{application}. Pots acceptar a través de l'enllaç següent."
+        invited_you_as_member: "%{invited_by} t'ha convidat com a membre de %{application}. Pots acceptar-ho a través de l'enllaç següent."
         someone_invited_you: Algú t'ha convidat a %{application}. Pots acceptar-ho a través de l'enllaç següent.
         someone_invited_you_as_admin: Algú t'ha convidat com a administradora de %{application}, pots acceptar-lo a través de l'enllaç següent.
-        someone_invited_you_as_private_user: Algú t'ha convidat com a participant privada de %{application}. Pots acceptar a través del següent enllaç.
+        someone_invited_you_as_member: Algú t'ha convidat com a membre de %{application}, pots acceptar-ho a través de l'enllaç següent.
         subject: Instruccions d'invitació
       invite_admin:
         subject: T'han convidat a administrar %{organization}
       invite_collaborator:
         subject: T'han convidat a col·laborar a %{organization}
-      invite_private_user:
+      invite_member:
         subject: T'han convidat a participar en un espai de participació privat a%{organization}
       organization_admin_invitation_instructions:
         subject: T'han convidat a administrar %{organization}
