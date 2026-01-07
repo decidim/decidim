@@ -112,6 +112,50 @@ module Decidim
       end
 
       context "when validating" do
+        context "with issues on attendees_count" do
+          context "when the value is not sent" do
+            let(:variables) do
+              {
+                input: {
+                  locale:,
+                  attributes: {
+                    closingReport: closing_report,
+                    proposalIds: proposal_ids
+                  }
+                }
+              }
+            end
+
+            it "raises an error" do
+              expect { response }.to raise_error(::GraphQL::ExecutionError, /Expected value to not be null/)
+            end
+          end
+
+          context "when the value is not an integer" do
+            let(:attendees_count) { "not_an_integer" }
+
+            it "raises an error" do
+              expect { response }.to raise_error(::GraphQL::ExecutionError, /Could not coerce value "not_an_integer" to Int/)
+            end
+          end
+
+          context "when the value is less than 0" do
+            let(:attendees_count) { -1 }
+
+            it "raises an error" do
+              expect { response }.to raise_error(Api::Errors::AttributeValidationError, /must be greater than or equal to 0/)
+            end
+          end
+
+          context "when the value is larger than 1000" do
+            let(:attendees_count) { 1000 }
+
+            it "raises an error" do
+              expect { response }.to raise_error(Api::Errors::AttributeValidationError, /must be less than or equal to 999/)
+            end
+          end
+        end
+
         context "with an invalid locale" do
           let(:locale) { "tlh" }
 
