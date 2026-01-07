@@ -17,6 +17,7 @@ module Decidim
           let(:params) do
             {
               name: "Gotham City",
+              short_name: "GothamCity",
               host: "decide.example.org",
               secondary_hosts: "foo.example.org\r\n\r\nbar.example.org",
               reference_prefix: "JKR",
@@ -55,6 +56,7 @@ module Decidim
             expect { command.call }.to change(Organization, :count).by(1)
             organization = Organization.last
             expect(translated(organization.name)).to eq("Gotham City")
+            expect(translated(organization.short_name)).to eq("GothamCity")
             expect(organization.host).to eq("decide.example.org")
             expect(organization.secondary_hosts).to contain_exactly("foo.example.org", "bar.example.org")
             expect(organization.external_domain_allowlist).to contain_exactly("decidim.org", "github.com")
