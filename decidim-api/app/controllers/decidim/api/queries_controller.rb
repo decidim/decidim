@@ -31,7 +31,7 @@ module Decidim
           current_organization:,
           current_user: api_user,
           scopes: api_scopes,
-          can_introspect: Decidim::Api.enable_anonymous_introspection || current_user&.admin?
+          can_introspect: Decidim::Api.enable_anonymous_introspection || api_user&.admin?
         }
       end
 
