@@ -110,9 +110,7 @@ module Decidim
         base + %w(created_at progress)
       end
 
-      def self.ransackable_associations(auth_object = nil)
-        return [] unless auth_object&.admin?
-
+      def self.ransackable_associations(_auth_object = nil)
         %w(taxonomies status)
       end
 
