@@ -17,7 +17,7 @@ module Decidim
 
         closing_report = attributes.to_h.fetch(:closing_report, object.closing_report)
         attendees_count = attributes.to_h.fetch(:attendees_count, object.attendees_count)
-        proposal_ids = attributes.to_h.fetch(:proposal_ids, [])
+        proposal_ids = Array(attributes.to_h.fetch(:proposal_ids, [])).map(&:to_i)
         closed_at = attributes.to_h.fetch(:closed_at, Time.current)
 
         params = {

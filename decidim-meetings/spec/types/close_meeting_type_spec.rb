@@ -80,7 +80,7 @@ module Decidim
             let!(:proposals_component) { create(:proposal_component, participatory_space: participatory_process) }
             let!(:proposal1) { create(:proposal, component: proposals_component) }
             let!(:proposal2) { create(:proposal, component: proposals_component) }
-            let!(:proposal_ids) { [proposal1.id, proposal2.id] }
+            let!(:proposal_ids) { [proposal1.id, proposal2.id].map(&:to_s) }
 
             it "closes the meeting and links proposals" do
               close = response["close"]
@@ -89,7 +89,7 @@ module Decidim
               expect(model.reload).to be_closed
 
               # Verify proposals are linked
-              expect(model.reload.linked_resources(:proposals, "proposals_from_meeting").pluck(:id)).to match_array(proposal_ids)
+              expect(model.reload.linked_resources(:proposals, "proposals_from_meeting").pluck(:id)).to match_array(proposal_ids.collect(&:to_i))
             end
           end
         end

@@ -33,7 +33,7 @@ Example of submitted variables
     "attributes": {
       "closingReport": "Your closing report",
       "attendeesCount": 12,
-      "proposalIds": [1,2,3]
+      "proposalIds": ["1","2","3"]
     }
   }
 }
