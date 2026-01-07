@@ -4,7 +4,7 @@
 # Copyright (c) GitLab B.V.
 # License: MIT Expat license
 # This content of the class was copied from https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/graphql/query_analyzers/ast/recursion_analyzer.rb
-# To which i have modified the result format to be compatible with decidim-api.
+# To which I have modified the result format to be compatible with decidim-api.
 
 module Decidim
   module Api
@@ -51,7 +51,7 @@ module Decidim
       attr_reader :node_visits, :recurring_fields
 
       def recursion_too_deep?(node_name, times_encountered)
-        return if IGNORED_FIELDS.include?(node_name)
+        return false if IGNORED_FIELDS.include?(node_name)
 
         times_encountered > recursion_threshold
       end
