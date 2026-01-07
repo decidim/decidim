@@ -32,6 +32,7 @@ gem "decidim-dev", github: "decidim/decidim"
 ### 1.3. Run these commands
 
 ```console
+sudo apt install libvips libvips-tools # or the alternative installation process for your operating system. See "3.5. Replace image processing with imagemagick to libvips"
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
@@ -185,8 +186,13 @@ In order to install please run the following command:
 sudo apt install libvips libvips-tools
 ```
 
+This works for Ubuntu Linux, other operating systems would need to do other command/package.
+
 You can read more about this change on PR [#15670](https://github.com/decidim/decidim/pull/15670).
 
+### 3.6. [[TITLE OF THE ACTION]]
+
+You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 ## 4. Scheduled tasks
 
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples
