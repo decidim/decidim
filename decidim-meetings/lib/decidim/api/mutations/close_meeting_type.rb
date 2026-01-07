@@ -8,7 +8,7 @@ module Decidim
       description "Closes a meeting"
       type Decidim::Meetings::MeetingType
 
-      argument :attributes, CloseMeetingAttributes, description: "input attributes for closing a meeting", required: true
+      argument :attributes, CloseMeetingAttributes, description: "Input attributes for closing a meeting", required: true
       argument :locale, GraphQL::Types::String, "The locale to use for the mutation", required: true
       argument :toggle_translations, GraphQL::Types::Boolean, "Whether the user asked to toggle the machine translations or not", required: false, default_value: false
 

@@ -112,7 +112,7 @@ module Decidim
       end
 
       context "when validating" do
-        context "with having invalid locale" do
+        context "with an invalid locale" do
           let(:locale) { "tlh" }
 
           it "raises an error" do
@@ -120,7 +120,7 @@ module Decidim
           end
         end
 
-        context "with having invalid closing_report" do
+        context "when having an invalid closing_report" do
           context "when is missing" do
             let(:closing_report) { "" }
 
