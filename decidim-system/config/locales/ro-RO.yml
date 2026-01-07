@@ -264,6 +264,7 @@ ro:
           confirm_resend_invitation: Sunteți sigur că doriți retrimiteți invitația?
           resend_invitation: Retrimiteți invitația
           secondary_hosts_hint: Introduceți câte una pe linie
+          short_name_hint: Nume scurt folosit pentru Aplicația Web Progresiv. Trebuie să aibă maxim 12 caractere.
           title: Modificați organizația
         file_upload_settings:
           content_types:
@@ -293,6 +294,7 @@ ro:
           organization_admin_email_hint: Vom trimite un e-mail la această adresă pentru a o putea confirma și a vă configura parola.
           reference_prefix_hint: Prefixul de referință este folosit pentru a identifica în mod unic resursele din toate organizațiile.
           secondary_hosts_hint: Introduceți câte una pe linie.
+          short_name_hint: Nume scurt folosit pentru Aplicația Web Progresiv. Trebuie să aibă maxim 12 caractere.
           title: Organizație nouă
         omniauth_settings:
           decidim:
