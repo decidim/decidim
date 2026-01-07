@@ -175,7 +175,7 @@ Back in [#15534](https://github.com/decidim/decidim/pull/15534) we upgraded webp
 
 You can read more about this change on PR [#15534](https://github.com/decidim/decidim/pull/15534), [#15674](https://github.com/decidim/decidim/pull/15674).
 
-### 3.5. Installation of LibVips and LibVips-Tools
+### 3.5. Replace image processing with imagemagick to libvips
 
 We have upgraded our image processor within the application to Libvips for speed and low memory usage.
 
