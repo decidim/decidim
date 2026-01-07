@@ -207,10 +207,10 @@ describe "Amend Proposal", versioning: true do
           let!(:user) { create(:user, :confirmed, organization: component.organization) }
 
           before do
-            visit proposal_path
             expect(page).to have_content("Log in")
             switch_to_host(component.organization.host)
             login_as user, scope: :user
+            sleep 1
             visit proposal_path
             expect(page).to have_content(proposal_title)
             find("#dropdown-trigger-resource-#{proposal.id}").click
