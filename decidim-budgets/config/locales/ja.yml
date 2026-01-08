@@ -143,7 +143,6 @@ ja:
           new:
             create: プロジェクトへの提案をインポート
             default_budget: 既定の予算
-            import_all_accepted_proposals: すべての承認済みの提案をインポート
             no_components: この参加型スペースには、プロジェクトにインポートするための他の提案コンポーネントはありません。
             origin_component_id: 元のコンポーネント
             select_component: コンポーネントを選択してください
