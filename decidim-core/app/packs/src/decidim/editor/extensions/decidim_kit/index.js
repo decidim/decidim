@@ -43,7 +43,9 @@ export default Extension.create({
         heading: false,
         bold: false,
         orderedList: false,
-        codeBlock: false
+        codeBlock: false,
+        link: false,
+        underline: false
       }),
       CharacterCount.configure(this.options.characterCount),
       Link.configure({ openOnClick: false, ...this.options.link }),
