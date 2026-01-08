@@ -68,6 +68,47 @@ module Decidim
             get(:show, params:)
             expect(response).to have_http_status(:ok)
           end
+
+          context "when json format is requested" do
+            it "returns voting_enabled true when question is enabled" do
+              get :show, params: params.merge(id: question.id), format: :json
+              expect(response).to have_http_status(:ok)
+              json_response = JSON.parse(response.body)
+              expect(json_response["voting_enabled"]).to be(true)
+              expect(json_response["redirect_url"]).to be_nil
+            end
+
+            it "returns voting_enabled false with redirect_url when question voting is disabled" do
+              question.update(voting_enabled_at: nil)
+              allow(controller).to receive(:url_for).with(action: :show, id: second_question).and_return(second_election_vote_path)
+              get :show, params: params.merge(id: question.id), format: :json
+              expect(response).to have_http_status(:ok)
+              json_response = JSON.parse(response.body)
+              expect(json_response["voting_enabled"]).to be(false)
+              expect(json_response["redirect_url"]).to eq(second_election_vote_path)
+            end
+
+            it "returns redirect_url to next question when current question has published results" do
+              question.update(published_results_at: Time.current)
+              allow(controller).to receive(:url_for).with(action: :show, id: second_question).and_return(second_election_vote_path)
+              get :show, params: params.merge(id: question.id), format: :json
+              expect(response).to have_http_status(:ok)
+              json_response = JSON.parse(response.body)
+              expect(json_response["voting_enabled"]).to be(false)
+              expect(json_response["redirect_url"]).to eq(second_election_vote_path)
+            end
+
+            it "returns redirect_url to waiting room when no enabled questions available" do
+              question.update(published_results_at: Time.current)
+              second_question.update(voting_enabled_at: nil)
+              allow(controller).to receive(:url_for).with(action: :waiting).and_return(waiting_election_votes_path)
+              get :show, params: params.merge(id: question.id), format: :json
+              expect(response).to have_http_status(:ok)
+              json_response = JSON.parse(response.body)
+              expect(json_response["voting_enabled"]).to be(false)
+              expect(json_response["redirect_url"]).to eq(waiting_election_votes_path)
+            end
+          end
         end
       end
 
