@@ -176,9 +176,9 @@ Back in [#15534](https://github.com/decidim/decidim/pull/15534) we upgraded webp
 
 You can read more about this change on PR [#15534](https://github.com/decidim/decidim/pull/15534), [#15674](https://github.com/decidim/decidim/pull/15674).
 
-### 3.5. Replace image processing with imagemagick to libvips
+### 3.5. Replace ImageMagick with libvips for image processing
 
-We have upgraded our image processor within the application to Libvips for speed and low memory usage.
+We have upgraded our image processor within the application to libvips for speed and low memory usage.
 
 Support for `.ico` favicon files has been removed. Applications that relied on ICO favicons must migrate to one of the supported Libvips image formats.
 
