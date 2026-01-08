@@ -239,32 +239,32 @@ module Decidim
           it_behaves_like "creates correct favicon variants"
         end
       end
+    end
 
-      describe "#to_sgid" do
-        subject { sgid }
+    describe "#to_sgid" do
+      subject { sgid }
 
-        let(:organization) { create(:organization) }
-        let(:sgid) { travel_to(5.years.ago) { organization.to_sgid.to_s } }
+      let(:organization) { create(:organization) }
+      let(:sgid) { travel_to(5.years.ago) { organization.to_sgid.to_s } }
 
-        it "does not expire" do
-          located = GlobalID::Locator.locate_signed(subject)
-          expect(located).to eq(organization)
+      it "does not expire" do
+        located = GlobalID::Locator.locate_signed(subject)
+        expect(located).to eq(organization)
+      end
+    end
+
+    describe "#open_data_file_path" do
+      subject(:organization) { build(:organization, host: "example.org") }
+
+      context "without a resource" do
+        it "returns the default file name" do
+          expect(subject.open_data_file_path).to eq("example.org-open-data.zip")
         end
       end
 
-      describe "#open_data_file_path" do
-        subject(:organization) { build(:organization, host: "example.org") }
-
-        context "without a resource" do
-          it "returns the default file name" do
-            expect(subject.open_data_file_path).to eq("example.org-open-data.zip")
-          end
-        end
-
-        context "with a resource" do
-          it "returns the file name" do
-            expect(subject.open_data_file_path("proposals")).to eq("example.org-open-data-proposals.csv")
-          end
+      context "with a resource" do
+        it "returns the file name" do
+          expect(subject.open_data_file_path("proposals")).to eq("example.org-open-data-proposals.csv")
         end
       end
     end
