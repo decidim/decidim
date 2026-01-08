@@ -19,36 +19,51 @@ The `CreateProposal` mutation allows authenticated users to create new proposals
 
 [source,graphql]
 ----
-mutation {
-  component(id: "123") {
-    ... on ProposalsMutation {
-      createProposal(
-        input: {
-          attributes: {
-            title: "Install Bike Lanes on Main Street",
-            body: "We propose adding dedicated bike lanes along Main Street to improve cyclist safety and encourage sustainable transportation.",
-            address: "Main Street, Barcelona, Spain",
-            latitude: 41.3851,
-            longitude: 2.1734,
-            taxonomies: [123, 456]
-          },
-          locale: "en"
-        }
-      ) {
+mutation createProposal($componentId: ID!, $input: CreateProposalInput!){
+  component(id: $componentId) {
+    ...on ProposalsMutation{
+      createProposal(input: $input) {
         id
         title {
           translation(locale: "en")
         }
+        body {          
+          translation(locale: "en")
+        }
         address
-        coordinates {
-          latitude
-          longitude
+        taxonomies{
+          name {
+            translation(locale: "en")
+          }
+          children{
+            name{
+              translation(locale: "en")
+            }
+          }
         }
       }
     }
-  }
+  } 
 }
 ----
+
+Example of submitted variables
+
+[source,json]
+----
+{
+  "componentId": 9,
+  "input": {
+    "locale": "en",
+    "attributes": {
+      "title": "Install Bike Lanes on Main Street",
+      "body": "We propose adding dedicated bike lanes along Main Street to improve cyclist safety and encourage sustainable transportation.",
+      "address": "Main Street, Barcelona, Spain",
+      "latitude": 41.3851,
+      "longitude": 2.1734
+    }
+  }
+}
 
 == Error Handling
 
