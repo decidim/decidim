@@ -180,6 +180,8 @@ You can read more about this change on PR [#15534](https://github.com/decidim/de
 
 We have upgraded our image processor within the application to Libvips for speed and low memory usage.
 
+Support for `.ico` favicon files has been removed. Applications that relied on ICO favicons must migrate to one of the supported Libvips image formats.
+
 In order to install please run the following command:
 
 ```bash
