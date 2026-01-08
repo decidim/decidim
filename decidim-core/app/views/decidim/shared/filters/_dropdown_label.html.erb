@@ -7,7 +7,7 @@
 <% end %>
 
 <% if is_blank_root %>
-  <%= hidden_field_tag "#{form.object_name}[#{method}][]", "", id: "#{form.options[:namespace] rescue "default"}_filter_#{check_boxes_tree_id}_all" %>
+  <%= hidden_field_tag "#{form.object_name}#{name}[]", "", id: "#{form.options[:namespace] rescue "default"}_filter_#{check_boxes_tree_id}_all" %>
 <% end %>
 
 <div class="filter">
@@ -22,7 +22,8 @@
           id: data_checkboxes_tree_id,
           namespace: form.options[:namespace],
           parent_id:,
-          object: form.object
+          object: form.object,
+          name: "#{form.object_name}#{name}[]"
         ),
         leaf.value.to_s,
         nil
@@ -38,7 +39,7 @@
 <% if item.tree_node? && item.node.present? %>
   <% subitems_content = capture do %>
     <% item.node.each do |subitem| %>
-      <%= form.dropdown_label(subitem, method, check_boxes_tree_id:, parent_id: data_checkboxes_tree_id || "") %>
+      <%= form.dropdown_label(subitem, method, name: "#{name}", check_boxes_tree_id:, parent_id: data_checkboxes_tree_id || "") %>
     <% end %>
   <% end %>
 
