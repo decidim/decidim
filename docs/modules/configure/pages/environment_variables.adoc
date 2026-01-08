@@ -782,7 +782,7 @@ Read more about this at xref:services:pdf.adoc[PDF signing] service page.
 | No
 
 | API_SCHEMA_MAX_ALIASES
-| This Environment variable instructs Decidim how many aliases should be allowed for the types being used in a query
+| This Environment variable instructs Decidim how many aliases should be allowed in a GraphQL query
 | 5
 | No
 
