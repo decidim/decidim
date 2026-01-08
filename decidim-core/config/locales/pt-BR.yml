@@ -1499,6 +1499,7 @@ pt-BR:
         core:
           components: Componentes
           description: Este arquivo ZIP contém arquivos para estudo e pesquisa sobre esta plataforma de participação.
+          main: Essencial
           spaces: Espaços
           title: Abra os arquivos de dados para %{organization}
         moderated_users:
@@ -1533,6 +1534,7 @@ pt-BR:
           weight: A ordem em que esta taxonomia é apresentada
         user_groups:
           deleted: Se o usuário foi excluído ou não
+          profile_url: A Url do perfil
         users:
           about: O texto "Sobre o usuário"
           avatar_url: O avatar do "usuário"
@@ -1542,14 +1544,59 @@ pt-BR:
           groups: O id e nome do grupo de usuários
           id: O único identificador deste usuário
           name: O nome de exibição do usuário
+          nickname: O nome de usuário deste usuário
+          profile_url: A Url do perfil
       index:
+        description: Bem-vindo a %{organization_name} página de Dados Abertos. Aqui, você encontrará arquivos de dados que são regulamente gerados a partir de vários processos deliberados e de governança dentro de %{organization_name}. Estes ficheiros são disponibilizados para promover a transparência, acessibilidade e a colaboração. Abaixo, você encontrará informações detalhadas sobre o que são esses arquivos, como abrir e trabalhar com eles, e uma descrição do conteúdo e estrutura de cada arquivo.
+        detailed:
+          body_1: 'Abaixo está uma descrição de cada conjunto de dados, incluindo seu esquema (estrutura) e o tipo de informação que contém:'
+          components: Componentes
+          spaces: Espaços participativos
+          title: Explicação detalhada de cada arquivo
         download:
+          components: Componentes
+          core: Essencial
           spaces: Espaços participativos
           title: Baixar recursos
         download_open_data: Baixe todos os arquivos de dados abertos
+        download_resource: Baixar %{resource_name} no formato CSV
+        explanation:
+          body_1: Esses arquivos são conjuntos de dados exportados dos processos participativos da %{organization_name}, como propostas, comentários e reuniões. Eles fornecem dados brutos e estruturados que podem ser usados ​​para análise, pesquisa ou integração com outras ferramentas. Os dados são atualizados automaticamente a cada 24 horas, garantindo que você tenha acesso às informações mais recentes.
+          body_2: Esses arquivos estão no formato CSV (Valores Separados por Vírgula), um formato amplamente utilizado que pode ser aberto e processado por diversos aplicativos de ‘software’, incluindo planilhas eletrônicas, editores de texto e ferramentas de análise de dados.
+          title: O que são esses arquivos?
+        how_to:
+          step_1:
+            body_html: Clique nos links fornecidos abaixo para baixar os arquivos CSV para seu computador.
+            title: 1. Baixar os arquivos
+          step_2:
+            body_html: |-
+              <ul>
+              <li><b>Planilha de Aplicações </b>: É possível abrir arquivos CSV usando aplicações como Microsoft Excel, Google Sheets, ou LibreOffice Calc. Basta abrir o aplicativo, depois selecione "Abrir" no menu do arquivo, e escolha o arquivo CSV baixado.</li>
+              <li><b>Editores de Texto</b>: os arquivos CSV também podem ser abertos em qualquer editor de texto, como Notepad ou Sublime Text. Isso irá exibir os dados brutos, com cada linha representando uma linha e cada valor separado por uma vírgula.</li>
+              <li><b>Análise de Dados</b>: Se você está familiarizado com ferramentas de análise de dados como Python (com pandas), R, ou SQL databases, você pode importar esses arquivos CSV diretamente para processamento e análise.</li>
+              </ul>
+            title: 2. Abra os arquivos
+          step_3:
+            body_html: |-
+              <ul>
+              <li><b>Filtrar e classificar</b>: Em aplicações de planilha você pode filtrar e classificar os dados para se concentrar em subconjuntos específicos de informações.</li>
+              <li><b>Análise</b>: Use os dados para realizar várias análises, como a contagem do número de propostas, a análise das tendências nos comentários ou a avaliação da participação nas reuniões.</li>
+              <li><b>Visualização</b>: Você pode criar gráficos, gráficos e outras visualizações para ajudar a interpretar os dados.</li>
+              </ul>
+            title: 3. Trabalhando com dados
+          title: Como abrir e trabalhar com esses arquivos
+        license:
+          body_1_html: Este %{organization_name} banco de dados é disponibilizado sob o %{link_database}. Quaisquer direitos em conteúdos individuais do banco de dados são licenciados sob o %{link_contents}.
+          license_contents_link: https://opendatacommons.org/licenses/dbcl/1.0/
+          license_contents_name: Licença de Conteúdo Base
+          license_database_link: https://opendatacommons.org/licenses/odbl/1.0/
+          license_database_name: Abrir Licença do Banco
+          title: Licença
+        title: Dados Abertos
       not_available_yet: Os arquivos Open Data ainda não estão disponíveis. Tente novamente em alguns minutos.
     pad_iframe:
       disclaimer: O conteúdo deste bloco é escrito por usuários registrados e expressa suas opiniões. %{organization} não pode ser responsabilizado pelo seu conteúdo.
+      explanation: Use esse bloco para fazer anotações colaborativos durante a reunião, para que seja fácil escrever o minuto depois.
       pad: Almofada
     pages:
       home:
@@ -1565,6 +1612,7 @@ pt-BR:
         footer_sub_hero:
           footer_sub_hero_body_html: Vamos construir uma sociedade mais aberta, transparente e colaborativa.<br /> Participe, participe e decida.
           footer_sub_hero_headline: Bem-vindo à plataforma participativa %{organization}.
+          register: Criar uma conta
         hero:
           participate: Participar
           participate_title: Participe dos processos da plataforma
@@ -1572,6 +1620,7 @@ pt-BR:
         statistics:
           headline: Estado atual de %{organization}
         sub_hero:
+          register: Criar uma conta
           register_title: Criar uma conta
       index:
         standalone_pages: Páginas
@@ -1583,12 +1632,18 @@ pt-BR:
           headline: Participação em números
           link: Mostrar todas as estatísticas
       terms_of_service:
+        accept:
+          error: Houve um problema ao aceitar os termos do serviço.
+          success: Ótimo! Você aceitou os termos de serviço.
         form:
           agreement: Concordo com estes termos
+          legend: Concordo com os termos de serviço
         refuse:
+          modal_body: Se recusar, você não poderá usar a plataforma, você pode <a href="%{download_your_data_path}"> baixar seus dados</a> e/ou <a href="%{delete_path}"> excluir sua conta </a>.
           modal_btn_continue: Aceite os termos e continue
           modal_btn_exit: Vou revisá-lo mais tarde
           modal_button: Recuse os termos
+          modal_title: Você realmente recusa os termos de serviço atualizados?
         required_review:
           alert: Atualizamos nossos Termos de Serviço, revise-os.
           body: Por favor, dedique um momento para rever as atualizações dos nossos Termos de Serviço. Caso contrário, você não poderá usar a plataforma.
@@ -1640,6 +1695,16 @@ pt-BR:
         participatory_space: Espaço participativo
         reason: Razão
         report_html: <p>O seguinte <a href="%{url}">conteúdo</a> foi ocultado automaticamente.</p>
+        subject: Um recurso foi ocultado automaticamente
+      hidden_manually:
+        content: Conteúdo relatado
+        details: Detalhes
+        hello: Olá, %{name}
+        manage_moderations: Gerenciar moderações
+        participatory_space: Espaço participativo
+        reason: Razão
+        report_html: <p>O seguinte <a href="%{url}">conteúdo</a> foi ocultado por %{moderator}.</p>
+        subject: Um recurso foi ocultado por %{moderator}
       report:
         authors: Autores
         content: Conteúdo denunciado
@@ -1655,7 +1720,14 @@ pt-BR:
         subject: Um recurso foi relatado
     reports:
       create:
+        error: Ocorreu um problema ao gerar o relatório. Por favor, tente novamente.
         success: O relatório foi criado com sucesso e será revisto por um administrador.
+      hide:
+        success: Este recurso foi ocultado.
+      parent_hidden:
+        report_details: O recurso principal estava oculto
+    resource:
+      controls_label: Controles de recursos
     resource_endorsements:
       create:
         error: Houve um problema durante a ação de endosso.
@@ -1670,6 +1742,7 @@ pt-BR:
     searches:
       filters:
         jump_to: 'Pule para:'
+        resource: "%{rótulo} entre %{coleção}"
         search: Pesquisa
         state:
           active: Ativo
@@ -1693,6 +1766,8 @@ pt-BR:
         ok: OK
         title: Confirmar
       confirm_unload: Esta página contém alterações não salvas. Tem certeza que deseja sair desta página?
+      embed:
+        title: Conteúdo de vídeo incorporado
       extended_navigation_bar:
         more: Mais
         unfold: Desdobrar
@@ -1703,6 +1778,9 @@ pt-BR:
         already_reported: Este conteúdo já foi relatado e será revisto por um administrador.
         close: Fechar
         description: Este conteúdo é impróprio?
+        does_not_belong: Contém atividades ilegais, ameaças de suicídio, informações pessoais ou algo que você considere inadequado para %{organization_name}.
+        hide: Esconder
+        hide_content: Ocultar este conteúdo
         offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer tipo de discurso de ódio.
         reason: Motivo
         report: Denunciar
@@ -1710,10 +1788,14 @@ pt-BR:
         title: Reportar um problema
       flag_user_modal:
         already_reported: Este conteúdo já foi reportado e será revisado por um administrador.
+        block: Bloquear este participante
+        description: O que há de inapropriado neste participante?
+        does_not_belong: Contém atividades ilegais, ameaças de suicídio, informações pessoais ou algo que você considere inadequado para %{organization_name}.
         hide: Ocultar todo o conteúdo
         offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer tipo de discurso de ódio.
         report: Denunciar
         spam: Contém clickbait, publicidade, fraudes ou scripts bots.
+        title: Denunciar participante inadequado
       floating_help:
         help: Ajuda
       follow_button:
@@ -1750,7 +1832,12 @@ pt-BR:
       no_stats: Ainda não há estatísticas.
       pages_count: Páginas
       participants_count: Participantes
+      surveys_count: Formulários
       users_count: Participantes
+    tags:
+      filter_results_for_taxonomy: 'Filtrar resultados para: %{resource}'
+    taxonomies:
+      prompt: Por favor, selecione uma opção
     translation_bar:
       help_text: "<strong>Aviso:</strong> O conteúdo pode ser traduzido automaticamente e não está 100% correto."
       show_original: Exibir texto original
@@ -1783,6 +1870,12 @@ pt-BR:
     user_update_mailer:
       notify:
         body_1: Estamos enviando esta mensagem para informá-lo sobre uma atualização da sua conta.
+        body_2: Caso você não tenha realizado essa atualização, faça ‘login’ na sua conta para alterar sua senha. Se não conseguir fazer ‘login’, entre em contato com o suporte da plataforma.
+        greetings: Saudações,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Olá %{user}
+        main_body: 'Os seguintes detalhes foram alterados: %{updates}.'
+        update_fields: "%{updates} E %{last_update}"
+      subject: Sua conta foi atualizada
     version:
       show:
         back_to_resource: Voltar
@@ -1798,6 +1891,7 @@ pt-BR:
       show:
         version_index: Versão %{index}
     welcome_notification:
+      default_body: <p>Olá {{name}}, obrigado por se juntar à {{organization}} e seja bem-vindo!</p><ul><li>Se você quiser ter uma ideia rápida do que pode fazer aqui, dê uma olhada na seção <a href="{{help_url}}">Ajuda</a>.</li><li>Depois de lê-la, você receberá seu primeiro distintivo. Aqui está uma <a href="{{badges_url}}">lista de todos os distintivos</a> que você pode obter ao participar da {{organization}}</li><li>Por último, mas não menos importante, junte-se a outras pessoas, compartilhe com elas a experiência de estar engajado e participar da {{organization}}. Faça propostas, comentários, debata, pense em como contribuir para o bem comum, apresente argumentos para convencer, ouça e leia para se convencer, expresse suas ideias de forma concreta e direta, responda com paciência e decisão, defenda suas ideias e mantenha a mente aberta para colaborar e se juntar às ideias de outras pessoas.</li></ul>
       default_subject: Obrigado por se juntar a {{organization}}!
     wizard_step_form:
       wizard_aside:
@@ -1820,9 +1914,12 @@ pt-BR:
       last_attempt: Você tem mais uma tentativa antes que sua conta seja bloqueada.
       locked: Sua conta está bloqueada.
       not_found_in_database: '%{authentication_keys} inválido ou senha.'
+      timeout: Sua sessão expirou. Faça ‘login’ novamente para continuar.
+      unauthenticated: Você precisa fazer ‘login’ ou criar uma conta antes de continuar.
     invitations:
       edit:
         header: Termine de criar sua conta
+        nickname_help: Seu apelido em %{organization}. Pode conter apenas letras, números, '-' e '_'.
         submit_button: Salvar
         subtitle: Se você aceitar o convite, defina seu apelido e senha.
       invitation_removed: Seu convite foi removido.
@@ -1849,6 +1946,9 @@ pt-BR:
         accept_until: Este convite será devido em %{due_date}.
         decline: Negar convite
         hello: Olá %{email},
+        ignore: |-
+          Se você não deseja aceitar o convite, ignore este e-mail.<br />
+          Sua conta não será criada até que você acesse o link acima e defina seu apelido e senha.
         invited_you_as_admin: "%{invited_by} convidou você como administrador de %{application}. Você pode aceitá-lo através do link abaixo."
         invited_you_as_private_user: "%{invited_by} convidou você como usuário particular de %{application}. Você pode aceitá-lo através do link abaixo."
         someone_invited_you: Alguém convidou você para %{application}. Você pode aceitá-lo através do link abaixo.
@@ -1857,22 +1957,31 @@ pt-BR:
         subject: Instruções de convite
       invite_admin:
         subject: Você foi convidado a gerenciar %{organization}
+      invite_collaborator:
+        subject: Você foi convidado a colaborar em %{organization}
+      invite_private_user:
+        subject: Você foi convidado para um processo participativo privado em %{organization}
       organization_admin_invitation_instructions:
         subject: Você foi convidado a gerenciar %{organization}
       password_change:
         greeting: Olá %{recipient}!
+        message: Estamos entrando em contato com você para notificá-lo de que sua senha foi alterada.
         subject: A senha mudou
       reset_password_instructions:
         action: Mudar minha senha
         greeting: Olá %{recipient}!
         instruction: Alguém solicitou um link para alterar sua senha, e você pode fazer isso através do link abaixo.
+        instruction_2: Se você não solicitou isso, ignore este email.
+        instruction_3: Sua senha não será alterada até que você acesse o link acima e crie uma.
         subject: Redefinir instruções de senha
       unlock_instructions:
         action: Desbloquear minha conta
         greeting: Olá %{recipient}!
         instruction: 'Clique no link abaixo para desbloquear sua conta:'
+        message: Sua conta foi bloqueada devido a uma quantidade excessiva de tentativas de acesso incorretas.
         subject: Desbloquear instruções
     omniauth_callbacks:
+      add_tos_errors: Os termos de serviço devem ser aceitos para criar uma conta.
       failure: Não foi possível autenticá-lo de %{kind} porque "%{reason}".
       success: Autenticado com êxito a partir de %{kind} conta.
     passwords:
@@ -1880,10 +1989,14 @@ pt-BR:
         change_my_password: Mudar minha senha
         confirm_new_password: Confirme a nova senha
         new_password: Nova senha
+        old_password_help: Para confirmar as alterações à sua conta, por favor, forneça a sua senha atual.
+        password_help: "O mínimo de caracteres %{minimum_characters}, não deve ser muito comum (por exemplo, 123456) e deve ser diferente do seu apelido e do seu e-mail."
+        password_help_admin: "Mínimo de caracteres %{minimum_characters}, não deve ser muito comum (por exemplo, 123456) deve ser diferente do seu apelido e seu email e deve ser diferente das senhas antigas."
         title: Senha alterada
       new:
         forgot_your_password: Esqueceu sua senha?
         send_me_reset_password_instructions: Envie-me as instruções de redefinição de senha
+      no_token: Você não pode acessar esta página sem precisar de um email de redefinição de senha. Se você veio de um email de redefinição de senha, verifique se você usou a URL completa fornecida.
       send_instructions: Você receberá um e-mail com instruções sobre como redefinir sua senha em alguns minutos.
       send_paranoid_instructions: Se o seu endereço de e-mail existir em nosso banco de dados, você receberá um link de recuperação de senha em seu endereço de e-mail em alguns minutos.
       updated: Sua senha foi alterada com sucesso. Agora você está conectado.
@@ -1942,9 +2055,13 @@ pt-BR:
       link:
         bubbleMenu:
           edit: Editar
+          remove: Excluir
+          url: URL
         hrefLabel: Link URL
+        targetLabel: Destino
         targets:
           blank: Nova aba
+          default: Defeito (mesma guia)
       videoEmbed:
         titleLabel: Título
         urlLabel: URL do vídeo
@@ -1956,11 +2073,26 @@ pt-BR:
       close: Fechar modal
     toolbar:
       control:
+        blockquote: Bloco de citação
         bold: Negrito
+        bulletList: Lista não ordenada
+        codeBlock: Bloco de código
+        common:
+          eraseStyles: Apagar estilos
+        hardBreak: Quebra de linha
+        heading: Estilo do texto
         image: Imagem
         indent:
           indent: Indentar
+          outdent: Desdentar
         italic: Itálico
+        link: Link
+        orderedList: Lista ordenada
+        underline: Sublinhar
+        videoEmbed: Vídeo incorporado
+      textStyle:
+        heading: Cabeçalho %level%
+        normal: Normal
     upload:
       uploadedFile: Arquivo carregado
   emojis:
@@ -1969,18 +2101,26 @@ pt-BR:
     categories:
       activity: Atividade
       custom: Personalizar
+      flags: Bandeiras
+      foods: Comida e Bebida
+      frequent: Usados com frequência
       nature: Animais e Natureza
+      objects: Objetos
+      people: Carinhas e Pessoas
       places: Viagens e Lugares
       search: Resultados da Pesquisa
       symbols: Símbolos
     pick: Escolher um emoji…
     search: Pesquisar
     search_no_results_1: Ah não!
+    search_no_results_2: Não foi possível encontrar esse emoji
     skins:
       '1': Padrão
       '2': Claro
       '3': Luz média
+      '4': Médio
       '5': Médio-Escuro
+      '6': Escuro
       choose: Escolha um tom de pele
   errors:
     messages:
@@ -1988,8 +2128,10 @@ pt-BR:
       already_confirmed: já foi confirmada, tente fazer login
       blank: não pode estar em branco
       cannot_be_blank: não pode estar em branco
+      confirmation: não corresponde %{attribute}
       confirmation_period_expired: precisa ser confirmado dentro de %{period}, solicite um novo
       content_type_allowlist_error: o tipo de arquivo não é válido
+      cycle_detected: O pai de um escopo não pode ser um de seus descendentes
       empty: não pode estar vazio
       expired: expirou, solicite um novo
       file_size_is_less_than_or_equal_to: o tamanho do arquivo deve ser menor ou igual a %{count}
@@ -2075,15 +2217,20 @@ pt-BR:
         edit: Editar
       footer:
         cc_by_license: Licença Creative Commons
+        current_organization_img: "%{organization} (Voltar para a página inicial)"
         data_consent_settings: Configurações de cookies
         decidim_logo: Logo Decidim
         decidim_title: Decidim
+        help: Ajuda
         log_in: Iniciar sessão
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
+        open_data: Dado Aberto
         resources: Recursos
         sign_up: Criar uma conta
+        social_media: Mídias sociais
         terms_of_service: Termos de serviço
       header:
+        close: Fechar
         log_in: Iniciar sessão
         main_menu: Menu principal
         user_menu: Menu de usuários
@@ -2093,6 +2240,8 @@ pt-BR:
         expire_time_html: Sua sessão expirará em <b><span class="minutes">%{minutes}</span> minutos</b>.
       language_chooser:
         choose_language: Escolher idioma
+      navigation:
+        aria_label: 'Menu de navegação: %{title} '
       notifications_dashboard:
         mark_all_as_read: Marcar tudo como lido
         mark_as_read: Marcar como lida
@@ -2119,6 +2268,8 @@ pt-BR:
         profile: Minha conta
         public_profile: Meu perfil público
         title: Links do perfil
+        unread_conversations: Você tem notificações não lidas
+        unread_notifications: Você tem notificações não lidas
       user_profile:
         account: Conta
         authorizations: Autorizações
@@ -2184,6 +2335,8 @@ pt-BR:
       day_of_week: "%a"
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
+      ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a, %d %b %Y %H:%M:%S %z"
@@ -2195,8 +2348,10 @@ pt-BR:
         time_format: 'Formato: hh:mm'
       long: "%B %d, %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
+      long_with_particles: "%d %B, %Y as %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %: z)"
   versions:
     directions:
       left: Exclusões
@@ -2208,6 +2363,7 @@ pt-BR:
       option_split: Lado-por lado
       option_unescaped: Abandonado
       option_unified: Unificado
+      toggle: Alternar visualização
   views:
     pagination:
       next: Próxima
