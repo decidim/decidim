@@ -172,6 +172,39 @@ shared_examples "a per question votable election with already voted questions" d
   end
 end
 
+shared_examples "a per question votable election with automatic redirect when question closes" do
+  it "redirects to the waiting room when admin closes voting while user is on question page" do
+    expect(page).to have_content(translated_attribute(election.title))
+    click_on "Vote"
+    expect(page).to have_current_path(election_vote_path(question1))
+    expect(page).to have_content(strip_tags(translated_attribute(question1.description)))
+
+    # Simulate admin closing voting for question1 (publishing results)
+    question1.update!(published_results_at: Time.current)
+
+    # Wait for JavaScript polling to detect the change and redirect
+    expect(page).to have_current_path(waiting_election_votes_path, wait: 3)
+    expect(page).to have_content("Waiting for the next question")
+  end
+
+  it "redirects to next question when admin closes current question and next is available" do
+    # Enable question2 from the start
+    question2.update!(voting_enabled_at: Time.current)
+
+    expect(page).to have_content(translated_attribute(election.title))
+    click_on "Vote"
+    expect(page).to have_current_path(election_vote_path(question1))
+    expect(page).to have_content(strip_tags(translated_attribute(question1.description)))
+
+    # Simulate admin closing voting for question1
+    question1.update!(published_results_at: Time.current)
+
+    # Wait for JavaScript polling to detect the change and redirect
+    expect(page).to have_current_path(election_vote_path(question2), wait: 3)
+    expect(page).to have_content(strip_tags(translated_attribute(question2.description)))
+  end
+end
+
 shared_examples "a per question votable election with edit from receipt" do
   it "allows editing votes from receipt page" do
     click_on "Vote"
