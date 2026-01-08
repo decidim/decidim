@@ -251,8 +251,6 @@ en:
       taxonomy_filters:
         space_filter_for:
           participatory_processes: All participatory processes
-      titles:
-        participatory_process_types: Participatory process types
       tooltips:
         deleted_processes_info: A process can only be deleted if status is "Unpublished".
       users:
