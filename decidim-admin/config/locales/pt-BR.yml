@@ -38,6 +38,7 @@ pt-BR:
         user_group_id: Criar importações como
       newsletter:
         body: Corpo
+        send_to_all_users: Enviar para todos os participantes
         send_to_followers: Enviar para seguidores
         send_to_participants: Enviar para participantes
         subject: Assunto
@@ -52,7 +53,8 @@ pt-BR:
         customize_welcome_notification: Personalizar notificação de boas-vindas
         default_locale: Idioma padrão
         description: Descrição
-        enable_omnipresent_banner: Mostrar bandeira omnipresente
+        enable_machine_translations: Ativar traduções automáticas
+        enable_omnipresent_banner: Mostrar bandeira onipresente
         enable_participatory_space_filters: Habilitar filtros do espaço participativo
         facebook_handler: Manipulador do Facebook
         favicon: Ícone
@@ -184,6 +186,13 @@ pt-BR:
         attachment_collection:
           new: Nova pasta de anexos
         browse: Navegar
+        confirm_delete_component: |
+          Você tem certeza que quer  excluir esse componente?<br>
+           Este componente contém:<br>
+          <ul class="list-disc ml-6 my-2">
+            <li class="font-bold">%{resources_count} recurso</li>
+          </ul>
+          Se você trocar de ideia, pode restaurar-lá mais tarde.
         export: Exportar tudo
         export-selection: Exportar selecionado
         import: Importar
@@ -195,12 +204,15 @@ pt-BR:
         per_page: Por página
         permissions: Permissões
         reject: Negar
+        restore: Restaurar
         send_me_a_test_email: Enviar um e-mail de teste
         share: Compartilhar
+        share_tokens: Acessar links
         soft_delete: Mover para lixeira
         user:
           new: Novo administrador
         verify: Verificar
+        view_deleted_components: Ver componentes excluídos
       admin_terms_of_service:
         accept:
           error: Houve um erro ao aceitar os termos de serviço de administrador. 
@@ -234,6 +246,7 @@ pt-BR:
         create:
           error: Ocorreu um erro ao criar uma nova área.
           success: Área criada com sucesso.
+        deprecated: Lembre-se de que as áreas estão obsoletas e serão removidas em versões futuras. Por favor, use taxonomias em vez disso. O único módulo atualmente usando áreas é o módulo de iniciativas.
         destroy:
           has_spaces: Essa área tem espaços dependentes. Por favor, certifique-se de que nenhum Espaço Participativo referencia essa área antes de excluí-lo.
           success: Área excluída com sucesso.
@@ -287,8 +300,15 @@ pt-BR:
         no_results: Nenhum resultado encontrado
         search_prompt: Digite, no mínimo, três caracteres para pesquisar.
       block_user:
+        bulk_new:
+          action: Bloquear conta e enviar justificativa
+          already_reported_html: Ao continuar com esta ação, você também ocultará o conteúdo de todos os participantes.
+          description: Bloquear um usuário irá tornar sua conta inutilizável. Você pode fornecer em sua justificação quaisquer diretrizes sobre como você poderia considerar desbloquear o usuário.
+          justification: Justificativa
+          title: Bloquear usuários
         new:
           action: Bloquear conta e enviar justificativa
+          already_reported_html: Ao continuar com esta ação, você também ocultará o conteúdo de todos os participantes.
           description: Bloquear um usuário irá tornar sua conta inutilizável. Você pode fornecer em sua justificação quaisquer diretrizes sobre como você poderia considerar desbloquear o usuário.
           justification: Justificativa
           title: Bloquear usuário %{name}
@@ -320,6 +340,8 @@ pt-BR:
             name: Nome do componente
             type: Tipo de componente
             visibility: Visibilidade
+        manage_trash:
+          title: Componentes excluídos
         new:
           add: Adicionar componente
           title: 'Adicionar componente: %{name}'
@@ -345,6 +367,7 @@ pt-BR:
         title: Conflitos de verificação
         transfer:
           email: E-mail
+          error: Ocorreu um erro ao transferir o participante atual para o participante gerenciado.
           name: Nome
           reason: Motivo
           success: A transferência atual foi concluída com sucesso.
@@ -353,6 +376,7 @@ pt-BR:
         user_name: Usuário
       content_blocks:
         create:
+          error: Ocorreu um problema ao criar o bloco de conteúdo.
           success: Bloco de conteúdo criado com sucesso.
         destroy:
           error: Ocorreu um problema ao tentar excluir esse bloco de conteúdo.
@@ -366,6 +390,9 @@ pt-BR:
           update: Atualizar
       dashboard:
         pending_moderations:
+          announcement:
+            one: Existem %{count} moderações pendentes
+            other: Existem %{count} moderações pendentes
           goto_moderation: Ir para moderações globais
           title: Moderações pendentes
         show:
@@ -375,6 +402,7 @@ pt-BR:
         form:
           domain_too_short: Domínio muito curto
         update:
+          error: Falha ao atualizar lista de domínios externos permitidos.
           success: Lista do domínio externo permitido atualizada com sucesso.
       exports:
         export_as: "%{name} como %{export_format}"
@@ -412,9 +440,16 @@ pt-BR:
             'false': Oficializado
             'true': Não oficializado
         participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Convite aceito
+            values:
+              'false': Não aceito
+              'true': Aceito
           user_invitation_sent_at_not_null:
+            label: Convite enviado
             values:
               'false': Não enviado
+              'true': Enviado
         private_space_eq:
           label: Privado
           values:
@@ -425,6 +460,7 @@ pt-BR:
           values:
             'false': Publicado
             'true': Não publicado
+        remove_all: Apagar tudo
         search_label: Buscar
         search_placeholder:
           name_or_nickname_or_email_cont: Pesquise %{collection} por e-mail, nome ou apelido.
@@ -439,6 +475,9 @@ pt-BR:
             pending: Pendente
             rejected: Rejeitado
             verified: Verificado
+        taxonomies:
+          taxonomy_id_eq:
+            label: Taxonomia
       forms:
         file_help:
           import:
@@ -503,6 +542,9 @@ pt-BR:
                 other: Encontrado um erro no arquivo de importação para registros com os números de ordem %{indexes}.
           missing_headers:
             detail: Por favor, verifique se o arquivo contém colunas obrigatórias.
+            message:
+              one: 'Faltam as seguintes colunas: %{columns}.'
+              other: Faltam colunas %{columns}.
         error: Houve um problema durante a importação.
         example_error: Ocorreu um erro ao criar um exemplo para o tipo fornecido.
         new:
@@ -525,6 +567,8 @@ pt-BR:
         logs_list:
           no_logs_yet: Ainda não há registros.
           no_matching_logs: Não há nenhum registro com os filtros da pesquisa fornecidos. Tente alterá-los e tente novamente.
+      manage_trash:
+        deleted_items_warning: Você está visualizando itens excluídos no momento. Para fazer qualquer edição ou alterações, você deve primeiro restaurá-los.
       managed_users:
         promotion:
           error: Ocorreu um erro ao promover o usuário gerenciado.
@@ -540,6 +584,7 @@ pt-BR:
         appearance: Aparência
         area_types: Tipos de área
         areas: Áreas
+        components: Componentes
         configuration: Configuração
         content: Conteúdo relatado
         external_domain_allowlist: Domínios externos permitidos
@@ -555,8 +600,11 @@ pt-BR:
         scopes: Âmbitos
         see_site: Ver site
         settings: Configurações
+        share_tokens: Acessar links
         static_page_topics: Tópicos
         static_pages: Páginas
+        taxonomies: Taxonomias
+        taxonomy_filters: Filtros de taxonomia
         user_groups: Grupos de usuários
         users: Usuários
       metrics:
@@ -860,6 +908,15 @@ pt-BR:
         edit:
           update: Atualizar
         form:
+          colors:
+            choose_color: Escolha a cor primária
+            colors_title: Cores da organização
+            colors_warning_html: Atenção! Mudar estas cores pode quebrar contrastes de acessibilidade. Você pode verificar o contraste da sua escolha com <a href="https://webaim.org/resources/contrastchecker">verificador de contraste WebAIM</a> ou outras ferramentas similares.
+            explanation: Esta ferramenta ajuda você a escolher um esquema de cores, composto de tons igualmente espaçados ao redor da roda de cor que será usado no site da organização.
+            legend_html: Cores principais da aplicação, com base no <a href="https://www.color-meanings.com/triadic-colors/">algoritmo Triadic</a>. A cor <i>secundária</i> é auto-calculada a partir da cor primária e da saturação que você escolheu.
+            saturation: Saturação
+            title: Seletor de cores
+            update_suggested_colors: Atualizar cores sugeridas
           cta_button_path_help_html: 'Você pode substituir onde o botão Chamar para Ação na página inicial liga. Use caminhos parciais, não URLs completas aqui. Aceita letras, números, traços e barras e deve começar com uma letra. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição. Exemplo: %{url}'
           cta_button_text_help: Você pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível em sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
           header_snippets:
@@ -892,11 +949,17 @@ pt-BR:
         edit:
           update: Atualizar
         index:
+          import_via_csv: Importar via CSV
+          publish_all: Publicar tudo
           title: Espaço participativo usuário particular
+          unpublish_all: Despublicar tudo
         new:
           create: Criar
           title: Novo usuário particular do Espaço Participativo.
       participatory_space_private_users_csv_imports:
+        create:
+          invalid: Houve um problema ao ler o arquivo CSV. Por favor, certifique-se de ter seguido as instruções.
+          success: Arquivo CSV carregado com sucesso, estamos enviando um email de convite para os participantes. Isso pode demorar um pouco.
         new:
           csv_upload:
             title: Envie seu arquivo CSV
@@ -906,7 +969,13 @@ pt-BR:
             empty: Você não tem participantes privados.
             explanation: Você tem %{count} participantes privados.
             title: Excluir participantes privados
+          example_file: 'Arquivo de exemplo:'
+          explanation: 'Envie seu arquivo CSV. Deve ter duas colunas com email na primeira coluna do arquivo e nome na última coluna do arquivo dos usuários que você deseja adicionar ao espaço participativo, sem cabeçalhos. Evite usar caracteres inválidos como `<>?%&^*#@()[]=+:;"{}\├` no nome de usuário.'
+          explanation_example: |
+            joao.silva@exemplo.org%{csv_col_sep}João da Silva
+            joana.silva@exemplo.org%{csv_col_sep}Joana da Silva
           title: Importar participantes privados via CSV
+          upload: Carregar
       reminders:
         create:
           error: Ocorreu um problema ao criar lembretes.
@@ -919,6 +988,8 @@ pt-BR:
         edit:
           submit: Enviar
           title: Editar permissões
+        options_form:
+          ephemeral_warning: Para habilitar este método de autorização, você precisa <a href="%{path}">revogar</a> todas as autorizações existentes. Isto minimiza o risco de conflitos de verificação. Todas as autorizações deste tipo serão revogadas automaticamente na organização se você enviar alterações adicionando este método ou modifiyng sua configuração depois de adicionada.
         update:
           success: Permissões atualizadas com sucesso.
       scope_types:
@@ -940,6 +1011,7 @@ pt-BR:
         create:
           error: Ocorreu um erro ao criar um novo âmbito.
           success: Âmbito criado com sucesso.
+        deprecated: Lembre-se de que os escopos são obsoletos e serão removidos em versões futuras. Por favor use taxonomias em vez disso. O único módulo que usa escopos atualmente é o módulo de iniciativas.
         destroy:
           success: Âmbito excluído com sucesso.
         edit:
@@ -954,8 +1026,38 @@ pt-BR:
           success: Âmbito atualizado com sucesso
       share_tokens:
         actions:
+          confirm_destroy: Tem certeza de que deseja excluir este acesso?
+          copy_link: Copiar o link
           destroy: Excluir
+          edit: Editar
+          preview: Pré-visualização
+        create:
+          invalid: Ocorreu um erro ao gerar o link de acesso.
+          success: Link de acesso criado com sucesso.
+        destroy:
+          error: Ocorreu um erro ao destruir o link de acesso.
+          success: Link de acesso excluído com sucesso.
+        edit:
+          title: 'Editar links de acesso para: %{name}'
+          update: Atualizar
+        form:
+          automatic: Automático
+          custom: Personalizar
+          custom_expiration: Expiração personalizada
+          custom_token: Palavra customizada
+          expires_at: Válido até
+          'false': 'Não'
+          never_expire: Nunca
+          registered_only: Apenas registrado?
+          token: Chave de acesso
+          'true': 'Sim'
         index:
+          back_to_share_tokens: Voltar aos links de acesso
+          copied: Link de acesso copiado!
+          copy_message: O texto foi copiado com sucesso para área de transferência.
+          create_new_token: Crie seu primeiro link de acesso!
+          empty_html: Não há nenhum link de acesso ativo. %{new_token_link}
+          never: Nunca
           new_share_token_button: Novo link de acesso
           share_tokens_help_html: |
             Crie e compartilhe um link de acesso para permitir que outros visualizem este recurso não publicado.
@@ -1082,15 +1184,46 @@ pt-BR:
           back: Retornar
           title: Editar filtro de taxonomia
           update: Atualizar filtro de taxonomia
+        form:
+          all: Tudo
+          items:
+            one: "Item %{count} selecionado"
+            other: "Itens %{count} selecionados"
+          name_help: O título do filtro a ser exibido no frontend.
+          no_items: Não há itens disponíveis para esta taxonomia. Você pode criar itens nas configurações de configuração da taxonomia.
+          space_filter: Disponível como filtro para
+        index:
+          description: Um filtro taxonômico permite aos administradores ordenar e filtrar espaços participativos com base em uma taxonomia. Por exemplo, adicione um filtro de taxonomia aos processos de classificação por âmbito geográfico.
+          empty: Atualmente não há filtros de taxonomia. Crie uma lista de filtros de taxonomia aqui para classificar e filtrar espaços participativos com base em uma taxonomia.
+          new_filter: Novo filtro
         new:
           back: Voltar
           create: Criar filtro de taxonomia
           title: Novo filtro de taxonomia
         table:
           actions: Ações
+          components_count: Componentes usando isto
+          confirm_destroy: 'Tem certeza que deseja excluir o filtro %{name}? NOTA: Recursos que estão usando este filtro não serão afetados, mas eles perderão a referência a este filtro.'
           destroy: Deletar
           edit: Editar
+          internal_name: Rótulo Interno
           name:
+        update:
+          error: Ocorreu um erro ao atualizar este filtro de taxonomia.
+          success: Filtro de taxonomia atualizado com sucesso.
+      taxonomy_filters_selector:
+        new:
+          add_new_items_html: Se você precisa definir um novo filtro ou item, faça isso através das configurações ou clicando <a href="%{url}">aqui</a>.
+          items_count: "{count} itens"
+          save: Salvar
+        show:
+          items_count: "{count} itens"
+          remove: Excluir
+        taxonomies_select:
+          filters: Filtros
+          select_filter: Selecione um filtro
+          select_taxonomy: Selecione uma taxonomia
+          taxonomies: Taxonomias
       taxonomy_items:
         edit:
           title: Editar item em %{taxonomy}
@@ -1119,9 +1252,16 @@ pt-BR:
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         statistics: Atividade
+        taxonomies: Taxonomias
+        taxonomy_filters: Filtros de taxonomia para "%{taxonomy}"
         user_groups: Grupos de usuários
         users: Administradores
+      tooltips:
+        deleted_component_info: Este componente só pode ser excluído se o status for 'Não publicado'.
       trash_management:
+        restore:
+          invalid: Houve um problema ao restaurar %{resource_name}.
+          success: "%{resource_name} restaurado com sucesso."
         soft_delete:
           invalid: Houve um problema ao remover %{resource_name}.
           success: "%{resource_name} removido com sucesso."
@@ -1144,11 +1284,13 @@ pt-BR:
           verify_via_csv: Verificar via CSV
       user_groups_csv_verifications:
         new:
+          example_file: 'Arquivo de exemplo:'
           explanation: Envie seu arquivo CSV. Deve ter os e-mails oficiais dos grupos de usuários em sua organização na primeira coluna do arquivo, sem cabeçalhos. Somente grupos de usuários que confirmaram seus e-mails e que tenham um e-mail aparecendo no arquivo CSV serão validados.
           explanation_example: |
             acme@example.org
             bubba.gump@example.org
           title: Envie seu arquivo CSV
+          upload: Carregar
       users:
         create:
           error: Ocorreu um erro ao convidar esse usuário.
@@ -1169,6 +1311,7 @@ pt-BR:
           last_day: Último dia
           last_month: Último mês
           last_week: Última semana
+          no_users_count_statistics_yet: Ainda não há nenhuma estatística de participantes.
           participants: Participantes
     forms:
       errors:
@@ -1190,16 +1333,34 @@ pt-BR:
         hidden: Oculto
         hide: Ocultar
         not_hidden: Não oculto
+        parent_hidden: Você não pode exibir este recurso porque seu pai ainda está oculto.
         title: Ações
         unhide: Mostrar
         unreport: Anular denúncia
       admin:
         reportable:
+          bulk_action:
+            hide:
+              failed: 'Houve um problema ao esconder alguns recursos: %{errored}'
+              invalid: Nenhuma moderação selecionada.
+              success: Recursos ocultos com sucesso.
+            ignore:
+              invalid: Nenhuma moderação de usuários selecionada.
+              success: Participantes não reportados com sucesso.
+            unhide:
+              failed: 'Houve um problema ao exibir alguns recursos: %{errored}'
+              invalid: Nenhuma moderação selecionada.
+              success: Recursos desocultados com sucesso.
+            unreport:
+              failed: 'Houve um problema não reportando alguns recursos: %{errored}'
+              invalid: Nenhuma moderação selecionada.
+              success: Recursos não reportados com sucesso.
           hide:
             invalid: Ocorreu um problema ao ocultar o recurso.
             success: O recurso foi ocultado com sucesso.
           unhide:
             invalid: Houve um problema ao exibir o recurso.
+            parent_invalid: Ocorreu um problema ao exibir o recurso. O pai não está visível.
             success: Recurso com sucesso exibido.
           unreport:
             invalid: Tem havido um problema não relatando o recurso.
