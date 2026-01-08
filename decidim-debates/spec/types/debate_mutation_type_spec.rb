@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/mutation_context"
+require "decidim/api/test/shared_examples/mutation_context"
 
 module Decidim
   module Debates
