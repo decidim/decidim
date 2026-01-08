@@ -211,19 +211,19 @@ module Decidim
             expect(variant.content_type).to eq("image/png")
             expect(variant.filename.to_s).to eq("#{File.basename(favicon_path, ".*")}.png")
           end
+        end
 
-          context "with small variant" do
-            include_context "with processed variant", :small
+        context "with small variant" do
+          include_context "with processed variant", :small
 
-            it "creates the correct PNG variant" do
-              expect(variant.content_type).to eq("image/png")
-              expect(variant.filename.to_s).to eq("#{File.basename(favicon_path, ".*")}.png")
-            end
+          it "creates the correct PNG variant" do
+            expect(variant.content_type).to eq("image/png")
+            expect(variant.filename.to_s).to eq("#{File.basename(favicon_path, ".*")}.png")
+          end
 
-            it "converts it the image correct dimensions" do
-              expect(image.width).to eq(32)
-              expect(image.height).to eq(32)
-            end
+          it "converts it the image correct dimensions" do
+            expect(image.width).to eq(32)
+            expect(image.height).to eq(32)
           end
         end
 
