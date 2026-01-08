@@ -8,6 +8,7 @@ module Decidim
       graphql_name "DebateMutation"
       description "A debate which includes its available mutations"
 
+      field :close, mutation: Decidim::Debates::CloseDebateType, description: "Closes a debate"
       field :create_debate, mutation: Decidim::Debates::CreateDebateType, description: "Creates a debate"
     end
   end
