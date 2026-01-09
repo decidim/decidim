@@ -187,9 +187,6 @@ el:
         update: "Ο χρήστης %{user_name} ενημέρωσε την εφαρμογή OAuth %{resource_name}"
       organization:
         update: "Ο χρήστης %{user_name} ενημέρωσε τις ρυθμίσεις του οργανισμού"
-      participatory_space_private_user:
-        create: "Ο χρήστης %{user_name} προσκάλεσε τον χρήστη %{resource_name} να γίνει ιδιωτικός συμμετέχων"
-        delete: "Ο χρήστης %{user_name} κατάργησε τον συμμετέχοντα %{resource_name} ως ιδιωτικό συμμετέχων"
       scope:
         create: "Ο χρήστης %{user_name} δημιούργησε το πεδίο εφαρμογής %{resource_name}"
         create_with_parent: "Ο χρήστης %{user_name} δημιούργησε το πεδίο εφαρμογής %{resource_name} μέσα στο πεδίο εφαρμογής %{parent_scope}"
@@ -990,10 +987,8 @@ el:
         decline: Απόρριψη πρόσκλησης
         hello: Γεια σας %{email},
         invited_you_as_admin: "Ο χρήστης %{invited_by} σάς προσκάλεσε ως διαχειριστή της εφαρμογής %{application}. Μπορείτε να την αποδεχτείτε μέσω του παρακάτω συνδέσμου."
-        invited_you_as_private_user: "Ο χρήστης %{invited_by} σάς προσκάλεσε ως ιδιωτικό συμμετέχοντα της εφαρμογής %{application}. Μπορείτε να την αποδεχτείτε μέσω του παρακάτω συνδέσμου."
         someone_invited_you: Κάποιος σάς προσκάλεσε στην εφαρμογή %{application}. Μπορείτε να την αποδεχτείτε μέσω του παρακάτω συνδέσμου.
         someone_invited_you_as_admin: Κάποιος σάς προσκάλεσε ως διαχειριστή της εφαρμογής %{application}. Μπορείτε να την αποδεχτείτε μέσω του παρακάτω συνδέσμου.
-        someone_invited_you_as_private_user: Κάποιος σάς προσκάλεσε ως ιδιωτικό συμμετέχοντα της εφαρμογής %{application}. Μπορείτε να την αποδεχτείτε μέσω του παρακάτω συνδέσμου.
         subject: Οδηγίες πρόσκλησης
       password_change:
         greeting: Γεια σας %{recipient}!

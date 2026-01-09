@@ -33,6 +33,11 @@ fi-pl:
       help_section:
         content: Sisältö
       id: ID
+      member:
+        email: Sähköpostiosoite
+        name: Nimi
+      member_csv_import:
+        file: Tiedosto
       newsletter:
         body: Runko
         send_to_all_users: Lähetä kaikille osallistujille
@@ -91,11 +96,6 @@ fi-pl:
         welcome_notification_body: Tervetuloilmoituksen runko
         welcome_notification_subject: Tervetuloilmoituksen otsikko
         youtube_handler: YouTube-käsittelijä
-      participatory_space_private_user:
-        email: Sähköpostiosoite
-        name: Nimi
-      participatory_space_private_user_csv_import:
-        file: Tiedosto
       scope:
         code: Koodi
         name: Nimi
@@ -125,10 +125,17 @@ fi-pl:
         show_in_footer: Näytä alatunnisteessa
         title: Otsikko
         weight: Järjestysnumero
+      taxonomy:
+        item_name: Asian nimi
+        parent_id: Vanhempi
       user_group_csv_verification:
         file: Tiedosto
     errors:
       models:
+        member_csv_import:
+          attributes:
+            file:
+              malformed: Virheellinen tuontitiedosto, lue ohjeet huolellisesti ja varmista, että tiedosto on UTF-8 muodossa.
         newsletter:
           attributes:
             base:
@@ -137,10 +144,6 @@ fi-pl:
           attributes:
             official_img_footer:
               allowed_file_content_types: Virheellinen kuvatiedosto
-        participatory_space_private_user_csv_import:
-          attributes:
-            file:
-              malformed: Virheellinen tuontitiedosto, lue ohjeet huolellisesti ja varmista, että tiedosto on UTF-8 muodossa.
         user_group_csv_verification:
           attributes:
             file:
@@ -188,12 +191,12 @@ fi-pl:
         export: Vie
         export-selection: Vie valitut
         import: Tuo
+        member:
+          new: Uusi jäsen
         menu_hidden: Piilota valikosta
         moderate: Moderointien hallinta
         newsletter:
           new: Uusi uutiskirje
-        participatory_space_private_user:
-          new: Uusi osallistumistilan yksityinen käyttäjä
         per_page: Per sivu
         permissions: Käyttöoikeuksien hallinta
         restore: Palauta
@@ -415,6 +418,17 @@ fi-pl:
           values:
             'false': 'Ei'
             'true': 'Kyllä'
+        members:
+          user_invitation_accepted_at_not_null:
+            label: Kutsu hyväksytty
+            values:
+              'false': Ei hyäksytty
+              'true': Hyväksytty
+          user_invitation_sent_at_not_null:
+            label: Kutsu lähetetty
+            values:
+              'false': Ei lähetetty
+              'true': Lähetetty
         moderated_users:
           reports_reason_eq:
             label: Ilmoituksen syy
@@ -430,17 +444,6 @@ fi-pl:
           values:
             'false': Virallistettu
             'true': Ei virallistettu
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Kutsu hyväksytty
-            values:
-              'false': Ei hyäksytty
-              'true': Hyväksytty
-          user_invitation_sent_at_not_null:
-            label: Kutsu lähetetty
-            values:
-              'false': Ei lähetetty
-              'true': Lähetetty
         private_space_eq:
           label: Yksityinen
           values:
@@ -573,6 +576,53 @@ fi-pl:
             explanation: Hallituille käyttäjille voidaan myöntää normaalien käyttäjien oikeudet. Tämä tarkoittaa, että heille lähetetään kutsu hakemusprosessiin ja tämän jälkeen kyseisinä tileinä ei voi enää esiintyä. Kutsutulle käyttäjälle lähetetään sähköposti, jonka avulla hän voi hyväksyä kutsusi.
             new_managed_user_promotion: Uusi käyttäjätason korotus hallinnoidulle käyttäjälle
             promote: Korota oikeudet
+      members:
+        create:
+          error: Jäsenen lisääminen tähän osallistumistilaan epäonnistui.
+          success: Jäsenen pääsyoikeuden lisäys onnistui.
+        destroy:
+          error: Osallistumistilan jäsenen poistaminen epäonnistui.
+          success: Jäsenen pääsyoikeuden poistaminen onnistui.
+        edit:
+          title: Muokkaa jäsentä
+          update: Päivitä
+        index:
+          import_via_csv: Tuo CSV-tiedostosta
+          publish_all: Julkaise kaikki
+          title: Jäsen
+          unpublish_all: Lopeta kaikkien julkaisu
+        new:
+          create: Luo
+          title: Uusi jäsen
+        publish_all:
+          error: Osallistumistilan jäsenten julkaiseminen epäonnistui.
+          success: Osallistumistilan jäsenten julkaiseminen onnistui
+        unpublish_all:
+          error: Osallistumistilan jäsenten julkaisun peruminen epäonnistui.
+          success: Osallistumistilan jäsenten julkaisun peruminen onnistui.
+        update:
+          error: Osallistumistilan jäsenen päivittäminen epäonnistui.
+          success: Osallistumistilan jäsenen päivittäminen onnistui.
+      members_csv_imports:
+        create:
+          invalid: CSV-tiedoston lukeminen epäonnistui. Tarkasta, että olet seurannut esitettyjä ohjeita.
+          success: CSV-tiedoston lataus onnistui. Lähetämme kutsusähköpostin osallistujille. Tämä voi kestää hetken.
+        new:
+          csv_upload:
+            title: Lataa CSV-tiedosto
+          destroy:
+            button: Poista kaikki jäsenet
+            confirm: Haluatko varmasti poistaa kaikki jäsenet? Tätä toimintoa ei voi perua ja poistettuja jäseniä ei voi palauttaa.
+            empty: Jäseniä ei ole määritetty.
+            explanation: '%{count} jäsentä.'
+            title: Poista jäsenet
+          example_file: 'Esimerkkitiedosto:'
+          explanation: 'Lataa CSV-tiedosto. Tiedostossa on oltava kaksi saraketta ilman otsikkoriviä. Ensimmäiseen sarakkeeseen määritetään käyttäjän sähköpostiosoite ja toiseen sarakkeeseen käyttäjän nimi, alkaen ensimmäiseltä riviltä. Jokaisesta rivistä luodaan uusi osallistumistilan käyttäjä. Vältä erikoismerkkejä nimessä, kuten `<>?%&^*#@()[]=+:;"{}\|`.'
+          explanation_example: |
+            matti.meikalainen@esimerkki.fi%{csv_col_sep}Matti Meikäläinen
+            minna.meikalainen@esimerkki.fi%{csv_col_sep}Minna Meikäläinen
+          title: Tuo jäseniä CSV-tiedostosta
+          upload: Lataa
       menu:
         admin_log: Hallintatoimintojen tapahtumaloki
         admins: Ylläpitäjät
@@ -631,6 +681,8 @@ fi-pl:
             reason: Syy
             started_at: Aloitettu
             user: Käyttäjä
+        member:
+          name: Jäsen
         newsletter:
           fields:
             created_at: Luonnin ajankohta
@@ -639,8 +691,6 @@ fi-pl:
             sent_to: Vastaanottajat
             subject: Otsikko
           name: Uutiskirje
-        participatory_space_private_user:
-          name: Osallisuustilan yksityinen käyttäjä
         scope:
           fields:
             name: Nimi
@@ -915,53 +965,6 @@ fi-pl:
         form:
           add: Lisää sallittujen listalle
           title: Sallitut ulkoiset verkko-osoitteet
-      participatory_space_private_users:
-        create:
-          error: Yksityisen käyttäjän lisäämisessä tähän osallisuustilaan tapahtui virhe.
-          success: Osallisuustilaa koskeva yksityisen käyttäjän käyttöoikeus lisätty onnistuneesti.
-        destroy:
-          error: Tapahtui virhe poistettaessa osallisuustilan yksityistä käyttäjää.
-          success: Osallisuustilaa koskeva yksityisen käyttäjän käyttöoikeus tuhottu onnistuneesti.
-        edit:
-          title: Muokkaa osallistumistilan yksityistä käyttäjää.
-          update: Päivitä
-        index:
-          import_via_csv: Tuo CSV-tiedostosta
-          publish_all: Julkaise kaikki
-          title: Osallisuustilan yksityinen käyttäjä
-          unpublish_all: Lopeta kaikkien julkaisu
-        new:
-          create: Luo
-          title: Uusi osallisuustilan yksityinen käyttäjä.
-        publish_all:
-          error: Osallistumistilan yksityisten käyttäjien julkaiseminen epäonnistui.
-          success: Osallistumistilan yksityisten käyttäjien julkaiseminen onnistui
-        unpublish_all:
-          error: Osallistumistilan yksityisten käyttäjien julkaisun peruminen epäonnistui.
-          success: Osallistumistilan yksityisten käyttäjien julkaisun peruminen onnistui.
-        update:
-          error: Osallistumistilan yksityisen käyttäjän päivittäminen epäonnistui.
-          success: Osallistumistilan yksityisen käyttäjän päivittäminen onnistui.
-      participatory_space_private_users_csv_imports:
-        create:
-          invalid: CSV-tiedoston lukeminen epäonnistui. Tarkasta, että olet seurannut esitettyjä ohjeita.
-          success: CSV-tiedosto ladattu onnistuneesti. Lähetämme kutsusähköpostin osallistujille. Tämä voi kestää hetken.
-        new:
-          csv_upload:
-            title: Lataa CSV-tiedosto
-          destroy:
-            button: Poista kaikki yksityiset osallistujat
-            confirm: Oletko varma, että haluat poistaa kaikki yksityiset osallistujat? Tätä toimintoa ei voi peruuttaa ja poistettuja osallistujia ei voi palauttaa.
-            empty: Tässä osallistumistilassa ei ole yksityisiä osallistujia.
-            explanation: Tässä osallistumistilassa on %{count} yksityistä osallistujaa.
-            title: Poista kaikki yksityiset osallistujat
-          example_file: 'Esimerkkitiedosto:'
-          explanation: 'Lataa CSV-tiedosto. Tiedostossa on oltava kaksi saraketta ilman otsikkoriviä. Ensimmäiseen sarakkeeseen asetetaan käyttäjän sähköpostiosoite ja toiseen sarakkeeseen käyttäjän nimi, alkaen ensimmäiseltä riviltä. Jokaisesta rivistä luodaan uusi osallistumistilan käyttäjä. Vältä erikoismerkkejä nimessä, kuten `<>?%&^*#@()[]=+:;"{}\|`.'
-          explanation_example: |
-            matti.meikalainen@esimerkki.fi%{csv_col_sep}Matti Meikäläinen
-            minna.meikalainen@esimerkki.fi%{csv_col_sep}Minna Meikäläinen
-          title: Tuo yksityisiä osallistujia CSV-tiedostosta
-          upload: Lataa
       reminders:
         create:
           error: Muistutusten luonti epäonnistui.

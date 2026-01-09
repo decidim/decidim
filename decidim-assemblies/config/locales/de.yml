@@ -171,7 +171,6 @@ de:
           info: Über dieses Gremium
           landing_page: Startseiten-Layout
           moderations: Moderationen
-          private_users: Mitglieder
           see_assembly: Gremium ansehen
       models:
         assembly:
@@ -251,7 +250,6 @@ de:
             metadata: Metadaten
             no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
             other: Andere
-            private_notice: Sie werden in der Lage sein, private Teilnehmer zu verwalten, nachdem Sie das Gremium als privat festgelegt haben
             select_a_created_by: Wählen Sie eine erstellt von aus
             select_parent_assembly: Übergeordnetes Gremium auswählen
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'

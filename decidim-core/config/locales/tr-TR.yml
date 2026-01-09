@@ -115,10 +115,6 @@ tr:
         update: "%{user_name} , %{resource_name} OAuth uygulamasını güncelledi"
       organization:
         update: "%{user_name} kuruluş ayarlarını güncelledi"
-      participatory_space_private_user:
-        create: "%{user_name}, %{resource_name} adlı kullanıcıyı özel katılımcı olması için davet etti"
-        create_via_csv: "%{user_name}, %{resource_name} kaynağını CSV aracılığıyla özel bir katılımcı olması için davet etti"
-        delete: "%{user_name}, katılımcıyı %{resource_name} özel katılımcı özelliğini kaldırdı"
       scope:
         create: "%{user_name}, %{resource_name} kapsamı oluşturdu"
         create_with_parent: "%{user_name}, %{parent_scope} içindeki %{resource_name} kapsamı oluşturdu"
@@ -891,10 +887,8 @@ tr:
         decline: Davet reddet
         hello: Merhaba %{email}
         invited_you_as_admin: "%{invited_by} sizi %{application}yönetici olarak davet etti. Aşağıdaki bağlantıdan kabul edebilirsiniz."
-        invited_you_as_private_user: "%{invited_by} özel bir kullanıcı olarak davet etti %{application}. Aşağıdaki bağlantıdan kabul edebilirsiniz."
         someone_invited_you: Birisi sizi %{application}davet etti. Aşağıdaki bağlantıdan kabul edebilirsiniz.
         someone_invited_you_as_admin: Birisi sizi %{application}yönetici olarak davet etti, aşağıdaki bağlantıdan kabul edebilirsiniz.
-        someone_invited_you_as_private_user: Birisi sizi %{application}private_user olarak davet etti, aşağıdaki bağlantıdan kabul edebilirsiniz.
         subject: Davet talimatları
       password_change:
         greeting: Merhaba %{recipient}!

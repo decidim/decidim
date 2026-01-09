@@ -112,7 +112,7 @@ module Decidim
 
         describe "#questions_for_select" do
           let(:questions_for_select) { subject.questions_for_select(questionnaire, question.id) }
-          let!(:separator_question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "separator") }
+          let!(:separator_question) { create(:questionnaire_question, questionnaire:, question_type: "separator") }
 
           it "returns an array of arrays containing translated body, id, and a hash" do
             expect(questions_for_select.first.first).to eq(

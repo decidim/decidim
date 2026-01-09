@@ -423,10 +423,8 @@ uk:
         decline: Відхилити запрошення
         hello: Доброго дня, %{email}%!
         invited_you_as_admin: "%{invited_by} запросив вас як адміністратора %{application}. Ви можете прийняти це запрошення за посиланням нижче."
-        invited_you_as_private_user: "%{invited_by} запросив вас як приватного учасника %{application}. Ви можете прийняти це запрошення за посиланням нижче."
         someone_invited_you: Хтось запросив вас до %{application}. Ви можете прийняти це запрошення за посиланням нижче.
         someone_invited_you_as_admin: Хтось запросив вас як адміністратора %{application}, ви можете прийняти це запрошення за посиланням нижче.
-        someone_invited_you_as_private_user: Хтось запросив вас як приватного учасника %{application}, ви можете прийняти це запрошення за посиланням нижче.
       password_change:
         greeting: Доброго дня, %{recipient}!
         subject: Пароль змінено

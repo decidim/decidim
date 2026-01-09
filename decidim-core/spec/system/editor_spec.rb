@@ -1274,7 +1274,7 @@ describe "Editor" do
     it "allows selecting resource mentions with a slash" do
       allow(Decidim::SearchableResource).to receive(:where).with(
         resource_type: %w(Decidim::Proposals::Proposal),
-        organization: organization,
+        organization:,
         decidim_participatory_space: participatory_space,
         locale: I18n.locale
       ).and_return(double(

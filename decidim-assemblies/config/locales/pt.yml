@@ -158,7 +158,6 @@ pt:
           components: Componentes
           info: Sobre esta reunião
           moderations: Moderação
-          private_users: Membros
           see_assembly: Veja a reunião
       models:
         assembly:
@@ -236,7 +235,6 @@ pt:
             metadata: Metadados
             no_taxonomy_filters_found: Nenhum filtro de taxonomia encontrado.
             other: Outros
-            private_notice: Poderá gerir participantes privados depois de os definir como privados
             select_a_created_by: Selecione um criado por
             select_parent_assembly: Selecione a reunião pai
             slug_help_html: 'São usados slugs de URL para gerar URLs que apontam para esta reunião. Aceita apenas letras, números e traços, e deve começar com uma letra. Exemplo: %{url}'

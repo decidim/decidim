@@ -306,10 +306,6 @@ cs:
       organization:
         update: "%{user_name} aktualizovala nastavení organizace"
         update_external_domain: "%{user_name} aktualizoval externí domény organizace"
-      participatory_space_private_user:
-        create: "%{user_name} pozval %{resource_name} aby se stal soukromým uživatelem"
-        create_via_csv: "%{user_name} pozval %{resource_name} prostřednictvím CSV k tomu, aby byl soukromým účastníkem"
-        delete: "%{user_name} uživatele %{resource_name} odstranil jako soukromého uživatele"
       scope:
         create: "%{user_name} vytvořil oblast působnosti %{resource_name}"
         create_with_parent: "%{user_name} vytvořil oblast působnosti %{resource_name} uvnitř oblasti působnosti %{parent_scope}"
@@ -803,13 +799,6 @@ cs:
           id: Jedinečný identifikátor tohoto oznámení
           resource_type: Typ zdroje, ke kterému se oznámení vztahuje
           updated_at: Datum a čas, kdy bylo oznámení naposledy aktualizováno
-        participatory_space_private_users:
-          created_at: Datum a čas, kdy byl tento soukromý uživatel vytvořen
-          id: Jedinečný identifikátor tohoto soukromého uživatele
-          privatable_to: Do kterého prostoru patří tento soukromý uživatel
-          published: Zda je tento soukromý uživatel zveřejněn, nebo ne
-          role: Role, kterou má tento soukromý uživatel
-          updated_at: Datum a čas poslední aktualizace tohoto soukromého uživatele
         reports:
           created_at: Datum a čas vytvoření této zprávy
           details: Podrobnosti této zprávy
@@ -1822,17 +1811,13 @@ cs:
           Pokud pozvánku nechcete přijmout, ignorujte tento e-mail.<br />
           Váš účet nebude vytvořen, dokud nekliknete na odkaz výše a nenastavíte si uživatelské jméno a heslo.
         invited_you_as_admin: "%{invited_by} vás pozval jako administrátora z %{application}. Můžete jej přijmout prostřednictvím níže uvedeného odkazu."
-        invited_you_as_private_user: "%{invited_by} vás pozval jako soukromého uživatele %{application}. Můžete jej přijmout prostřednictvím níže uvedeného odkazu."
         someone_invited_you: Někdo vás pozval na %{application}. Můžete jej přijmout prostřednictvím níže uvedeného odkazu.
         someone_invited_you_as_admin: Někdo Vás pozval jako administrátora %{application}, můžete jej přijmout pomocí níže uvedeného odkazu.
-        someone_invited_you_as_private_user: Někdo vás pozval jako private_user %{application}, můžete jej přijmout pomocí níže uvedeného odkazu.
         subject: Pokyny k pozvánkám
       invite_admin:
         subject: Byli jste pozváni ke spravování organizace %{organization}
       invite_collaborator:
         subject: Byli jste pozváni ke spolupráci na organizaci %{organization}
-      invite_private_user:
-        subject: Byli jste pozváni k soukromé účasti na organizaci %{organization}
       organization_admin_invitation_instructions:
         subject: Byli jste pozváni ke spravování organizace %{organization}
       password_change:

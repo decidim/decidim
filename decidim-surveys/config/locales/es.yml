@@ -71,6 +71,7 @@ es:
         manage_questions: Preguntas
         new_survey: Nueva encuesta
         preview: Previsualizar
+        responses: Respuestas
         responses_alert: La opción de borrar las respuestas al publicar la encuesta está activada. Si sigues, se borrarán las %{responses_count} existentes actualmente.
         title: Acciones
       admin:

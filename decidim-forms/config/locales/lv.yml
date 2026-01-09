@@ -55,9 +55,6 @@ lv:
           of_total_steps: no %{total_steps}
           questionnaire_closed:
             title: Veidlapa slēgta
-          questionnaire_for_private_users:
-            body: Veidlapa ir pieejama tikai privātiem lietotājiem
-            title: Veidlapa slēgta
           tos_agreement: Piedaloties jūs piekrītat pakalpojumu sniegšanas noteikumiem.
       step_navigation:
         show:

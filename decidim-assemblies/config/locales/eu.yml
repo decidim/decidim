@@ -170,8 +170,8 @@ eu:
           components: Osagaiak
           info: Batzar honi buruz
           landing_page: Lurreratze-orrien antolaketa
+          members: Kideak
           moderations: Moderazioak
-          private_users: Kideak
           see_assembly: Ikusi batzarra
       models:
         assembly:
@@ -218,9 +218,11 @@ eu:
         export: "%{user_name} parte-hartzaileak %{resource_name} batzarra esportatu du"
         import: "%{user_name} parte-hartzaileak %{resource_name} batzarra inportatu du"
         publish: "%{user_name} parte-hartzaileak %{resource_name} batzarra argitaratu du"
+        publish_all_members: "%{user_name} parte-hartzaileak %{resource_name} batzarreko kide guztiak argitaratu ditu"
         restore: "%{user_name} parte-hartzaileak %{resource_name} batzarra berreskuratu du"
         soft_delete: "%{user_name} parte-hartzaileak %{resource_name} batzarra zaborrontzira eraman du"
         unpublish: "%{user_name} parte-hartzaileak %{resource_name} batzarra desargitaratu du"
+        unpublish_all_members: "%{user_name} parte-hartzaileak %{resource_name} batzarreko kide guztiak desargitaratu ditu"
         update: "%{user_name} parte-hartzaileak %{resource_name} batzarra eguneratu du"
       assembly_member:
         create: "%{user_name} parte-hartzaileak %{resource_name} kidea sortu du %{space_name} batzarrean"
@@ -251,7 +253,6 @@ eu:
             metadata: Metadata
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             other: Beste bat
-            private_notice: Parte hartzaile pribatuak kudeatu ahal izango dituzu pribatu gisa ezarri ondoren
             select_a_created_by: Hautatu egilea
             select_parent_assembly: Hautatu batzar nagusia
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
