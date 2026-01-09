@@ -1238,6 +1238,7 @@ ro:
         create_with_space: "%{user_name} a creat %{resource_name} în %{space_name}"
         delete: "%{user_name} a eliminat %{resource_name}"
         delete_with_space: "%{user_name} a eliminat %{resource_name} în %{space_name}"
+        publish: "%{user_name} a publicat %{resource_name}"
         unknown_action: "%{user_name} a efectuat o acțiune în %{resource_name}"
         unknown_action_with_space: "%{user_name} a efectuat o acțiune asupra %{resource_name} în %{space_name}"
         update: "%{user_name} a actualizat %{resource_name}"
