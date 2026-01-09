@@ -1729,7 +1729,7 @@ eu:
         group_admins: Kudeatu kudeatzaileak
         group_members: Kudeatu kideak
         groups: Taldeak
-        members: Bazkideek
+        members: Kideak
         officialized: Parte-hartzaile ofiziala
         send_private_message: Mezu pribatua bidali
       user:
