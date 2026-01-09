@@ -1,6 +1,7 @@
 = Create Proposal
 
 == Input attributes
+
 When you want to add or create data in your proposals component, you need to rely on the `ProposalAttributes` type, which has the following input fields:
 
 [source]
@@ -64,6 +65,7 @@ Example of submitted variables
     }
   }
 }
+----
 
 == Error Handling
 
