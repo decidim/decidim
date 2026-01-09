@@ -51,7 +51,7 @@ module Decidim
       let(:root_value) { current_component }
       let(:query) do
         <<~GRAPHQL
-          mutation createMeetings($input: CreateMeetingInput!){
+          mutation createMeeting($input: CreateMeetingInput!){
             createMeeting(input: $input) {
               id
               title { translation(locale: "#{translation_locale}") }
