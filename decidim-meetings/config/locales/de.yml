@@ -799,7 +799,6 @@ de:
           follows_count: Die Anzahl der Folgen, die das Meeting hat
           id: Die eindeutige Bezeichnung der Veranstaltung
           iframe_access_level: Die iFrame-Zugriffsebene der Veranstaltung
-          iframe_embed_type: Die Art des iFrames, der in diese Veranstaltung eingebettet ist
           latitude: Der Breitengrad des Veranstaltungsorts
           location: Der Ort der Veranstaltung
           location_hints: Ein Hinweis auf den Ort, an dem die Veranstaltung stattfindet
