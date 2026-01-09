@@ -22,7 +22,7 @@ eu:
             guided: Input gidatua
             guided_help: Laguntza-testua
             guided_readonly: Input desgaitua
-            guided_rich: Input gidatu aberastua
+            guided_rich: Sarrera aberats gidatua
             guided_rich_help_html: HTML<strong>laguntza </strong> testua
             guided_rich_readonly_html: HTML <strong>laguntza</strong> desaktibatutako testua sartzeko
             readonly_attribute: Soilik irakurtzeko atributua
@@ -47,7 +47,7 @@ eu:
     dummy:
       admin:
         exports:
-          dummies: Probak
+          dummies: Alegiazko parte-hartzaileak
     gamification:
       badges:
         test:
@@ -65,6 +65,6 @@ eu:
         dummy_resource_dummy: ' Honekin lotutako proba'
     statistics:
       bar: Bar
-      dummies_count_high: Dummies altua
-      dummies_count_medium: Dummies ertainak
+      dummies_count_high: Alegiazko parte-hartzaileen gehieneko kopurua
+      dummies_count_medium: Alegiazko parte-hartzaileen batez bestekoa
       foo: Foo
