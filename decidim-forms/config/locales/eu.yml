@@ -55,7 +55,7 @@ eu:
             tos: Zerbitzu-baldintzak
         questionnaires:
           actions:
-            back: Itzuli erantzunetara
+            back: Erantzunetara itzuli
             publish_answers: Argitaratu erantzunak
             show: Erakutsi erantzunak
           answer_option:
@@ -94,7 +94,7 @@ eu:
             display_condition: Bistaratzeko baldintza
             mandatory: Baldintza hau beti bete behar da, beste baldintza batzuen egoera edozein dela ere
             remove: Kendu
-            save_warning: Gogoratu formularioa gorde behar duzula, bistaratze-baldintzak konfiguratu aurretik
+            save_warning: Gogoratu formularioa gorde behar duzula bistaratzeko baldintzak konfiguratu aurretik
             select_answer_option: Hautatu erantzun-aukera
             select_condition_question: Hautatu galdera bat
             select_condition_type: Hautatu baldintza mota bat
@@ -119,7 +119,7 @@ eu:
             statement: Adierazpena
           question:
             add_answer_option: Gehitu erantzun aukera
-            add_display_condition: Gehitu bistaratzeko baldintza
+            add_display_condition: Bistaratzeko baldintza gehitu
             add_display_condition_info: Gorde galdetegia bistaratzeko baldintzak konfiguratzeko
             add_matrix_row: Gehitu errenkada
             any: Edozein
