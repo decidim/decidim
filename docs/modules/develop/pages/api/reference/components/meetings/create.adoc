@@ -38,7 +38,7 @@ The `CreateMeeting` mutation allows authenticated users to create new meetings i
 
 [source,graphql]
 ----
-mutation createMeetings($componentId: ID!, $input: CreateMeetingInput!){
+mutation createMeeting($componentId: ID!, $input: CreateMeetingInput!){
   component(id: $componentId) {
     ...on MeetingsMutation{
       createMeeting(input: $input) {

@@ -19,6 +19,7 @@ GraphQL/ObjectDescription:
     - "**/lib/decidim/api/functions/*"
     - "**/lib/decidim/api/errors/*"
     - "decidim-api/lib/decidim/api/alias_analyzer.rb"
+    - "decidim-api/lib/decidim/api/decidim_introspection.rb"
     - "spec/**/*"
     - "test/**/*"
 
