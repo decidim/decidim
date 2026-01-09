@@ -31,8 +31,6 @@ describe "Decidim::Api::QueryType" do
       }
     )
     end
-
-    include_examples "when the introspection is disabled"
   end
   let(:component_type) { "CollaborativeTexts" }
   let!(:current_component) { create(:collaborative_text_component, participatory_space: participatory_process) }

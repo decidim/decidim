@@ -23,8 +23,6 @@ describe "Decidim::Api::QueryType" do
       }
 )
     end
-
-    include_examples "when the introspection is disabled"
   end
   let(:component_type) { "Pages" }
   let!(:current_component) { create(:page_component, participatory_space: participatory_process) }
