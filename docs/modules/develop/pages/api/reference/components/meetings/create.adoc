@@ -46,7 +46,7 @@ mutation createMeeting($componentId: ID!, $input: CreateMeetingInput!){
         title {
           translation(locale: "en")
         }
-        description {          
+        description {
           translation(locale: "en")
         }
         address
@@ -62,7 +62,7 @@ mutation createMeeting($componentId: ID!, $input: CreateMeetingInput!){
         }
       }
     }
-  } 
+  }
 }
 ----
 
