@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/mutation_context"
 
 module Decidim
   module Proposals
@@ -43,6 +42,10 @@ module Decidim
             }
           }
         GRAPHQL
+      end
+      
+      before do
+        I18n.locale = "en"
       end
 
       shared_examples "update proposal mutation examples" do
