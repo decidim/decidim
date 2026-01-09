@@ -103,4 +103,13 @@ describe "Dashboard" do
       expect(page).to have_current_path(new_election_normal_vote_path)
     end
   end
+
+  context "when admin closes question voting while user is viewing the question" do
+    before do
+      login_as user, scope: :user
+      visit election_path
+    end
+
+    it_behaves_like "a per question votable election with automatic redirect when question closes"
+  end
 end
