@@ -1,0 +1,6 @@
+---
+en:
+  decidim:
+    api:
+      errors:
+        too_many_aliases_error: Too many aliases used. You have used %{size} aliases, but %{limit} are allowed.

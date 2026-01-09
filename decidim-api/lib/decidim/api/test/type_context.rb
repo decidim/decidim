@@ -21,6 +21,18 @@ shared_context "with a graphql class type" do
     execute_query query, variables.stringify_keys
   end
 
+  def raise_proper_error(error)
+    code = error.dig("extensions", "code")
+
+    # Matches the error code with the Error class
+    # For instance, if the error code is NOT_FOUND_ERROR then it will raise the "Decidim::Api::Errors::NotFoundError" class
+    raise "Decidim::Api::Errors::#{code.downcase.classify}".constantize, error["message"] if %w(
+      TOO_MANY_ALIASES_ERROR
+    ).include?(code)
+
+    raise GraphQL::ExecutionError, error["message"]
+  end
+
   def execute_query(query, variables)
     result = schema.execute(
       query,
@@ -33,7 +45,7 @@ shared_context "with a graphql class type" do
       variables:
     )
 
-    raise StandardError, result["errors"].map { |e| e["message"] }.join(", ") if result["errors"]
+    raise_proper_error(result["errors"].first) if result["errors"]
 
     result["data"]
   end

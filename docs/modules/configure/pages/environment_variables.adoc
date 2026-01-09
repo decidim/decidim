@@ -675,6 +675,12 @@ Additional context: This has been revealed as an issue during a security audit o
 |15
 |No
 
+
+| API_SCHEMA_MAX_ALIASES
+| This Environment variable instructs Decidim how many aliases should be allowed in a GraphQL query
+| 5
+| No
+
 |PROPOSALS_PARTICIPATORY_SPACE_HIGHLIGHTED_PROPOSALS_LIMIT
 |Number of proposals to be shown in blocks with highlighted content across different participatory spaces.
 |4
@@ -830,4 +836,3 @@ Note that this only applies to production environments.
 |===
 
 Please take care that all these configurations would be the defaults but *some of these could also be changed on a Multitenant's System configuration* (for instance SMTP or OAUTH providers).
-
