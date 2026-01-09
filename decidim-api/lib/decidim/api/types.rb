@@ -2,9 +2,14 @@
 
 module Decidim
   module Api
+
     autoload :QueryType, "decidim/api/query_type"
     autoload :MutationType, "decidim/api/mutation_type"
     autoload :Schema, "decidim/api/schema"
+    autoload :DecidimIntrospection, "decidim/api/decidim_introspection"
+    module Errors
+      autoload :IntrospectionDisabledError, "decidim/api/errors/introspection_disabled_error"
+    end
 
     module Types
       autoload :BaseArgument, "decidim/api/types/base_argument"

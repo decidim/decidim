@@ -16,6 +16,8 @@ GraphQL/ObjectDescription:
     - "**/lib/decidim/api/schema.rb"
     - "**/lib/decidim/api/graphiql/config.rb"
     - "**/lib/decidim/api/functions/*"
+    - "**/lib/decidim/api/errors/*"
+    - "decidim-api/lib/decidim/api/decidim_introspection.rb"
     - "spec/**/*"
     - "test/**/*"
 
