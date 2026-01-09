@@ -1,0 +1,6 @@
+---
+en:
+  decidim:
+    api:
+      errors:
+        introspection_disabled: Introspection is disabled for this request
