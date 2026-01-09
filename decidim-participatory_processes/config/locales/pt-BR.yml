@@ -8,16 +8,21 @@ pt-BR:
         decidim_area_id: Área
         description: Descrição
         developer_group: Grupo promotor
+        document: Documento
         domain: Domínio
+        duplicate_components: Componente duplicado
         end_date: Data final
         hero_image: Imagem inicial
+        import_attachments: Importar anexos
         import_categories: Importar categorias
+        import_components: Importar componentes
         import_steps: Importar etapas
         local_area: Área da organização
         meta_scope: Metadados do âmbito
         participatory_process_group_id: Grupo de processos
         participatory_scope: O que é decidido
         participatory_structure: Como é decidido
+        private_space: Processo privado
         promoted: Destacado
         published_at: Publicado em
         related_process_ids: Processos relacionados
@@ -88,7 +93,12 @@ pt-BR:
         preview: Visualização
         publish: Publicar
         resend_invitation: Reenviar convite
+        see_process: Visualizar processo
         unpublish: Unpublish
+        view_deleted_processes: Visualizar processos excluídos
+      filters:
+        decidim_participatory_process_group_id_eq:
+          label: Por grupo de processo
       menu:
         participatory_process_groups: Grupos de processo
         participatory_process_groups_submenu:
@@ -106,6 +116,7 @@ pt-BR:
       models:
         participatory_process:
           fields:
+            actions: Ações
             created_at: Criado em
             private: Privado
             published: Publicados
@@ -135,6 +146,7 @@ pt-BR:
           fields:
             invitation_accepted_at: Convite aceito em
             invitation_sent_at: Convite enviado em
+            published: Publicado
       participatory_process_groups:
         destroy:
           success: Grupo de processos participativo excluído com sucesso.
@@ -172,6 +184,9 @@ pt-BR:
           success: Passo do processo participativo criado com sucesso.
         default_title: Introdução
         destroy:
+          error:
+            active_step: Não é possível excluir a etapa ativa.
+            last_step: Não é possível excluir a última etapa de um processo.
           success: Etapa do processo participativo excluída com sucesso.
         edit:
           title: Edite o passo do processo participativo
@@ -213,16 +228,26 @@ pt-BR:
           private: Privado
           public: Público
           published: Publicados
+          unpublished: Não publicado
+        manage_trash:
+          title: Excluir processo participativo
         new:
           create: Criar
           title: Novo processo participativo
         update:
           error: Ocorreu um erro ao atualizar este processo participativo.
           success: Processo participativo atualizado com sucesso.
+      participatory_processes_duplicates:
+        create:
+          error: Ocorreu um erro ao duplicar este processo participativo.
+          success: Processo participativo duplicado com sucesso.
       participatory_processes_group:
         create:
           error: Ocorreu um erro ao criar um novo grupo de processos participativos.
           success: Grupo de processo participativo criado com sucesso.
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: Todos os processos participativos
       titles:
         participatory_process_groups: Grupos de processos participativos
         participatory_processes: Processos participativos
