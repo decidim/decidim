@@ -16,15 +16,19 @@ The `CreateDebate` mutation allows authenticated users to create new debates in 
 
 [source,graphql]
 ----
-mutation createDebates($input: CreateDebateInput!) {
-  createDebate(input: $input) {
-    id
-    title { translation(locale: "en") }
-    description { translation(locale: "en") }
-    taxonomies {
-      name { translation(locale: "en") }
-    }
-  }
+mutation createDebate($componentId: ID!, $input: CreateDebateInput!){
+  component(id: $componentId) {
+    ...on DebatesMutation{
+		  createDebate(input: $input) {
+		    id
+	  	  title { translation(locale: "en") }
+  	  	description { translation(locale: "en") }
+		    taxonomies {
+  		    name { translation(locale: "en") }
+    		}
+	    }
+  	}
+	}
 }
 ----
 
@@ -33,12 +37,12 @@ Example of submitted variables
 [source,json]
 ----
 {
-  "componentId": 670,
+  "componentId": 5,
   "input": {
     "locale": "en",
     "attributes": {
       "description": "Cities need more people, not more cars",
-      "taxonomies": [1072],
+      "taxonomies": [11],
       "title": "More sidewalks and less roads"
     }
   }
