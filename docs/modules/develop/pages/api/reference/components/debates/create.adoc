@@ -19,16 +19,16 @@ The `CreateDebate` mutation allows authenticated users to create new debates in 
 mutation createDebate($componentId: ID!, $input: CreateDebateInput!){
   component(id: $componentId) {
     ...on DebatesMutation{
-		  createDebate(input: $input) {
-		    id
-	  	  title { translation(locale: "en") }
-  	  	description { translation(locale: "en") }
-		    taxonomies {
-  		    name { translation(locale: "en") }
-    		}
-	    }
-  	}
-	}
+      createDebate(input: $input) {
+        id
+        title { translation(locale: "en") }
+        description { translation(locale: "en") }
+        taxonomies {
+          name { translation(locale: "en") }
+        }
+      }
+    }
+  }
 }
 ----
 

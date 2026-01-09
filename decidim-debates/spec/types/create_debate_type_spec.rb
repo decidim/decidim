@@ -53,7 +53,7 @@ module Decidim
 
       let(:query) do
         <<~GRAPHQL
-          mutation createDebates($input: CreateDebateInput!) {
+          mutation createDebate($input: CreateDebateInput!) {
             createDebate(input: $input) {
               id
               title { translation(locale: "en") }
