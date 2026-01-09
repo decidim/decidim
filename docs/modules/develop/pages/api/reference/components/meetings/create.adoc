@@ -27,10 +27,10 @@ When you want to add or create data in your meetings component, you need to rely
 
 You may want to check the following input types:
 
-* http://meta.decidim.org/api/docs/enum/typeofmeetingenum/[TypeOfMeetingEnum]
-* http://meta.decidim.org/api/docs/enum/registrationtypeenum/[RegistrationTypeEnum]
-* http://meta.decidim.org/api/docs/enum/iframeembedtypeenum/[IframeEmbedTypeEnum]
-* http://meta.decidim.org/api/docs/enum/iframeaccesslevelenum/[IframeAccessLevelEnum]
+* http://nightly.decidim.org/api/docs/enum/typeofmeetingenum/[TypeOfMeetingEnum]
+* http://nightly.decidim.org/api/docs/enum/registrationtypeenum/[RegistrationTypeEnum]
+* http://nightly.decidim.org/api/docs/enum/iframeembedtypeenum/[IframeEmbedTypeEnum]
+* http://nightly.decidim.org/api/docs/enum/iframeaccesslevelenum/[IframeAccessLevelEnum]
 
 == Sample request
 
@@ -38,10 +38,30 @@ The `CreateMeeting` mutation allows authenticated users to create new meetings i
 
 [source,graphql]
 ----
-mutation createMeetings($input: CreateMeetingInput!){
-  createMeeting(input: $input) {
-    id
-    title { translation(locale: "en") }
+mutation createMeetings($componentId: ID!, $input: CreateMeetingInput!){
+  component(id: $componentId) {
+    ...on MeetingsMutation{
+      createMeeting(input: $input) {
+        id
+        title {
+          translation(locale: "en")
+        }
+        description {
+          translation(locale: "en")
+        }
+        address
+        taxonomies{
+          name {
+            translation(locale: "en")
+          }
+          children{
+            name{
+              translation(locale: "en")
+            }
+          }
+        }
+      }
+    }
   }
 }
 ----
@@ -59,8 +79,8 @@ Example of submitted variables
       "availableSlots": 10,
       "description": "Cities need more people, not more cars",
       "endTime": "2025-12-24T22:10:22Z",
-      "iframeAccessLevel": "all",
-      "iframeEmbedType": "none",
+      "iframeAccessLevel": "ALL",
+      "iframeEmbedType": "NONE",
       "latitude": 40.1234,
       "location": "Somewhere",
       "locationHints": "Near the main square",
