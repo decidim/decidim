@@ -2,6 +2,7 @@
 
 shared_context "with a graphql decidim component" do
   include_context "with a graphql class type"
+  include_examples "when the introspection is disabled"
 
   let(:schema) { Decidim::Api::Schema }
 
