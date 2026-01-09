@@ -57,7 +57,7 @@ module Decidim
           end
         end
 
-        context "when meeting closing is allowed" do
+        context "when meeting can be closed" do
           it "closes the meeting" do
             close = response["close"]
             expect(close).to be_present
