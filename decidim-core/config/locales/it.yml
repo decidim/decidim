@@ -204,10 +204,6 @@ it:
       organization:
         update: "%{user_name} aggiornato le impostazioni dell'organizzazione"
         update_external_domain: "%{user_name} ha aggiornato i domini esterni dell'organizzazione"
-      participatory_space_private_user:
-        create: "%{user_name} invitato %{resource_name} a essere un utente privato"
-        create_via_csv: "%{user_name} ha invitato %{resource_name} tramite csv a unirsi come partecipante privato"
-        delete: "%{user_name} rimosso l'utente %{resource_name} come utente privato"
       scope:
         create: "%{user_name} ha creato l'ambito %{resource_name}"
         create_with_parent: "%{user_name} ha creato l'ambito %{resource_name} all'interno dell'ambito %{parent_scope}"
@@ -1030,10 +1026,8 @@ it:
         decline: Rifiuta l'invito
         hello: Ciao %{email},
         invited_you_as_admin: "%{invited_by} ti ha invitato come amministratore di %{application}. Puoi accettare l'invito facendo clic sul link sottostante."
-        invited_you_as_private_user: "%{invited_by} ti ha invitato come utente privato di %{application}. Puoi accettarlo tramite il link sottostante."
         someone_invited_you: Qualcuno ti ha invitato a %{application}. Puoi accettare l'invito facendo clic sul link sottostante.
         someone_invited_you_as_admin: Qualcuno ti ha invitato come amministratore di %{application}. Puoi accettare l'invito facendo clic sul link sottostante.
-        someone_invited_you_as_private_user: Qualcuno ti ha invitato come private_user di %{application}, puoi accettarlo tramite il link sottostante.
         subject: Istruzioni di invito
       password_change:
         greeting: Ciao %{recipient}!

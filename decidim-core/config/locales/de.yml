@@ -284,10 +284,6 @@ de:
       organization:
         update: "%{user_name} hat die Organisationseinstellungen aktualisiert"
         update_external_domain: "%{user_name} hat die externe Domains der Organisation aktualisiert"
-      participatory_space_private_user:
-        create: "%{user_name} hat %{resource_name} als privaten Benutzer eingeladen"
-        create_via_csv: "%{user_name} hat %{resource_name} per CSV als privaten Teilnehmer eingeladen"
-        delete: "%{user_name} hat den Benutzer %{resource_name} als privaten Benutzer entfernt"
       scope:
         create: "%{user_name} hat den Bereich %{resource_name} erstellt"
         create_with_parent: "%{user_name} hat den Bereich %{resource_name} im übergeordneten Bereich %{parent_scope} erstellt"
@@ -772,13 +768,6 @@ de:
           id: Die eindeutige Bezeichnung dieser Benachrichtigung
           resource_type: Der Typ der Ressource, mit der die Benachrichtigung verknüpft ist
           updated_at: Datum und Uhrzeit, an dem die Benachrichtigung zuletzt aktualisiert wurde
-        participatory_space_private_users:
-          created_at: Das Datum und die Uhrzeit, als diese private Teilnahme erstellt wurde
-          id: Die eindeutige Bezeichnung der privaten Teilnahme
-          privatable_to: Zu welchem Raum diese private Teilnahme gehört
-          published: Ob diese private Teilnahme veröffentlicht ist oder nicht
-          role: Die Rolle, die diese private Teilnahme hat
-          updated_at: Das Datum und die Uhrzeit, als diese private Teilnahme zuletzt aktualisiert wurde
         reports:
           created_at: Das Datum und die Uhrzeit, an der dieser Bericht erstellt wurde
           details: Die Details dieses Berichts
@@ -1816,17 +1805,13 @@ de:
           Wenn Sie die Einladung nicht annehmen möchten, ignorieren Sie diese E-Mail.<br />
           Ihr Konto wird erst erstellt, wenn Sie auf den angegebenen Link zugreifen und Ihren Kontonamen und Ihr Passwort festlegen.
         invited_you_as_admin: "%{invited_by} hat Sie als Admin von %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren."
-        invited_you_as_private_user: "%{invited_by} hat Sie als privaten Teilnehmenden zu %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren."
         someone_invited_you: Jemand hat Sie zu %{application} eingeladen. Sie können die EInladung über den folgenden Link akzeptieren.
         someone_invited_you_as_admin: Jemand hat Sie als Admin zu %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren.
-        someone_invited_you_as_private_user: Jemand hat Sie als privaten Teilnehmenden zu %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren.
         subject: Anweisungen zur Einladung
       invite_admin:
         subject: Sie wurden eingeladen %{organization} zu verwalten
       invite_collaborator:
         subject: Sie wurden zur Zusammenarbeit auf %{organization} eingeladen
-      invite_private_user:
-        subject: Sie wurden zu einem privaten Beteiligungsprozess auf %{organization} eingeladen
       organization_admin_invitation_instructions:
         subject: Sie wurden eingeladen %{organization} zu verwalten
       password_change:

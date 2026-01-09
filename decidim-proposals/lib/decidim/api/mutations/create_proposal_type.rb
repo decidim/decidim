@@ -15,8 +15,9 @@ module Decidim
       def resolve(attributes:, locale:, toggle_translations:)
         set_locale(locale:, toggle_translations:)
 
-        params = attributes.to_h.slice(:title, :body, :address, :latitude, :longitude)
-        params[:taxonomies] = Decidim::Taxonomy.where(organization: current_organization, id: attributes.to_h.fetch(:taxonomies, [])).pluck(:id)
+        params = attributes.to_h.slice(:title, :body, :address, :latitude, :longitude, :taxonomies)
+
+        params[:taxonomies] = Decidim::Taxonomy.where(organization: current_organization, id: params[:taxonomies]).pluck(:id) if params[:taxonomies]
 
         form = form(Decidim::Proposals::ProposalForm).from_params(params)
 

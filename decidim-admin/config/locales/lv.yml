@@ -274,6 +274,10 @@ lv:
             explanation: Pārvaldītos dalībniekus var paaugstināt par standarta dalībniekiem. Tas nozīmē, ka viņi tiks uzaicināti uz lietojumprogrammu un jūs viņus vairs nevarēsiet pārvaldīt. Uzaicinātais dalībnieks saņems e-pastu ar jūsu ielūgumu.
             new_managed_user_promotion: Jauna pārvaldīta dalībnieka paaugstināšana
             promote: Paaugstināt
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Augšupielādējiet savu CSV failu
       menu:
         admin_log: Administratora darbību žurnāls
         admins: Administratori
@@ -326,8 +330,6 @@ lv:
             sent_to: Nosūtīts
             subject: Temats
           name: Informatīvais biļetens
-        participatory_space_private_user:
-          name: Līdzdalības telpas privāts dalībnieks
         scope:
           fields:
             name: Nosaukums
@@ -442,23 +444,6 @@ lv:
         update:
           error: Šīs organizācijas atjaunināšanas laikā radās problēma.
           success: Organizācija ir veiksmīgi atjaunināta.
-      participatory_space_private_users:
-        create:
-          error: Pievienojot privāto dalībnieku šai līdzdalības telpai, radās problēma.
-          success: Privāto dalībnieku piekļuve līdzdalības telpai ir veiksmīgi izveidota.
-        destroy:
-          error: Dzēšot privāto dalībnieku no šīs līdzdalības telpas, radās problēma.
-          success: Privāto dalībnieku piekļuve līdzdalības telpai ir veiksmīgi dzēsta.
-        index:
-          title: Līdzdalības telpas privāts dalībnieks
-        new:
-          create: Izveidot
-          title: Jauns līdzdalības telpas privāts dalībnieks
-      participatory_space_private_users_csv_imports:
-        new:
-          csv_upload:
-            title: Augšupielādējiet savu CSV failu
-          upload: Augšupielādēt
       resource_permissions:
         edit:
           submit: Iesniegt

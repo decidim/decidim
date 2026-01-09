@@ -81,6 +81,7 @@ eu:
           questions_table:
             answer: Erantzunak
             percentage: Ehunekoa
+            total: Guztira
             votes: Babesak
             votes_count:
               one: Boto 1
@@ -256,6 +257,7 @@ eu:
           active_voting_until: 'Bozketa aktibo %{end_date} arte'
           check_census_button: Begiratu ea botoa eman dezakedan
           check_census_explanation: Hauteskunde hauek oraindik ez dira hasi, baina erroldan sartuta zauden egiazta dezakezu.
+          edit_vote_button: Editatu botoak
           vote_button: Eman babesa
           voted: Bozkatu duzu. Berriz bozkatu dezakezu, zure azken botoa baino ez da kontuan hartuko.
           votes_count:
@@ -268,6 +270,10 @@ eu:
             per_question: Emaitzak kontsulta daitezke galderaren arabera. Galdera bakoitzaren emaitzak ikus ditzakezu botoa eman eta emaitzak argitaratu ondoren.
             real_time: Emaitzak denbora errealean daude eskuragarri. Emaitzak ikus ditzakezu bozketa egiten den bitartean.
           title: Emaitzak
+          total: 'GUZTIRA:'
+          total_votes:
+            one: Bozka 1
+            other: "%{count} bozka"
       models:
         election:
           fields:
@@ -315,7 +321,8 @@ eu:
           max_choices_exceeded: Ezin da aukeratu % {max} aukera baino gehiago. Mesedez, itzuli eta doitu zure aukeraketa.
           next: Hurrengoa
         receipt:
-          description: Edozein unetan eman dezakezu botoa berriro, bozkatzeko epea irekita dagoen bitartean. Zure boto berriak aurrekoa gainidatziko du.
+          description: Bozkatzeko epea zabalik dagoen bitartean edozein unetan eman daiteke berriro botoa. Zure aurreko botoa berriaz gainidatziko da.
+          edit_vote: Zure botoa editau
           exit_button: Irten bozkatzeko kabinatik
           title: Zure botoak zuzen eman dira
     metadata:

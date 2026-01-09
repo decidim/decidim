@@ -43,6 +43,7 @@ shared_context "with a graphql class type" do
       UNAUTHORIZED_OBJECT_ERROR
       MUTATION_NOT_AUTHORIZED_ERROR
       VALIDATION_ERROR
+      TOO_MANY_ALIASES_ERROR
     ).include?(code)
 
     raise GraphQL::ExecutionError, error["message"]

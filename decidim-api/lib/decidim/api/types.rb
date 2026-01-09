@@ -2,6 +2,7 @@
 
 module Decidim
   module Api
+    autoload :AliasAnalyzer, "decidim/api/alias_analyzer"
     autoload :QueryType, "decidim/api/query_type"
     autoload :MutationType, "decidim/api/mutation_type"
     autoload :Schema, "decidim/api/schema"
@@ -11,6 +12,7 @@ module Decidim
 
     module Errors
       autoload :LocaleError, "decidim/api/errors/locale_error"
+      autoload :TooManyAliasesError, "decidim/api/errors/too_many_aliases_error"
       autoload :InvalidLocaleError, "decidim/api/errors/invalid_locale_error"
       autoload :AttributeValidationError, "decidim/api/errors/attribute_validation_error"
       autoload :MutationNotAuthorizedError, "decidim/api/errors/mutation_not_authorized_error"

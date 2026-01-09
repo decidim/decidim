@@ -139,8 +139,6 @@ lb:
         import: Importieren
         newsletter:
           new: Neuer Newsletter
-        participatory_space_private_user:
-          new: Neuer privater Benutzer
         per_page: Pro Seite
         share: Teilen
       area_types:
@@ -291,17 +289,6 @@ lb:
           values:
             'false': Offizialisiert
             'true': Nicht offiziell
-        participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Einladung akzeptiert
-            values:
-              'false': Nicht akzeptiert
-              'true': Akzeptiert
-          user_invitation_sent_at_not_null:
-            label: Einladung versendet
-            values:
-              'false': Nicht versendet
-              'true': Versendet
         private_space_eq:
           label: Privat
           values:
@@ -378,6 +365,10 @@ lb:
             explanation: Verwaltete Benutzer können zu Standardbenutzern heraufgestuft werden. Das bedeutet, dass sie zu der Anwendung eingeladen werden und nicht in der Lage sind, sie erneut zu repräsentieren. Der eingeladene Benutzer erhält eine E-Mail, um Ihre Einladung anzunehmen.
             new_managed_user_promotion: Neue verwaltete Benutzerwerbung
             promote: Fördern
+      members_csv_imports:
+        new:
+          csv_upload:
+            title: Laden Sie Ihre CSV-Datei hoch
       menu:
         admin_log: Admin-Aktivitätsprotokoll
         admins: Admins
@@ -432,8 +423,6 @@ lb:
             sent_to: Gesendet an
             subject: Gegenstand
           name: Newsletter
-        participatory_space_private_user:
-          name: Participatory Space privater Benutzer
         scope:
           fields:
             name: Name
@@ -597,24 +586,6 @@ lb:
         update:
           error: Beim Aktualisieren dieser Organisation ist ein Fehler aufgetreten.
           success: Die Organisation wurde erfolgreich aktualisiert.
-      participatory_space_private_users:
-        create:
-          error: Beim Hinzufügen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
-          success: Participatory Space Privater Benutzerzugriff erfolgreich erstellt.
-        destroy:
-          error: Beim Löschen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
-          success: Participatory Space Privater Benutzerzugriff wurde erfolgreich zerstört.
-        index:
-          import_via_csv: Aus CSV-Datein importieren
-          title: Participatory Space privater Benutzer
-        new:
-          create: Erstellen
-          title: Neuer privater Benutzer des Participatory Space.
-      participatory_space_private_users_csv_imports:
-        new:
-          csv_upload:
-            title: Laden Sie Ihre CSV-Datei hoch
-          upload: Hochladen
       resource_permissions:
         edit:
           submit: einreichen

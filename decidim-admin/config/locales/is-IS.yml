@@ -359,9 +359,6 @@ is-IS:
           youtube: Youtube
         update:
           success: Skipulag uppfærður með góðum árangri.
-      participatory_space_private_users:
-        new:
-          create: Búa til
       resource_permissions:
         edit:
           title: Breyta heimildum
