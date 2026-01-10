@@ -11,6 +11,7 @@ pt-BR:
         domain: Domínio
         duplicate_components: Componente duplicado
         end_date: Data final
+        has_members: Este espaço tem membros
         hero_image: Imagem inicial
         import_attachments: Importar anexos
         import_categories: Importar categorias
@@ -80,6 +81,7 @@ pt-BR:
     admin:
       actions:
         activate: Ativar
+        confirm_delete_process: Tem certeza de que deseja excluir este processo? Caso mude de ideia, você poderá restaurá-lo posteriormente.
         confirm_destroy: Confirmar exclusão
         destroy: Excluir
         duplicate: Duplicar
@@ -124,16 +126,19 @@ pt-BR:
           name: Processo participativo
         participatory_process_group:
           fields:
+            actions: Ações
             title: Título
           name: Grupo de processo
         participatory_process_step:
           fields:
+            actions: Ações
             end_date: Data final
             start_date: Data de início
             title: Título
           name: Etapa do processo participativo
         participatory_process_user_role:
           fields:
+            actions: Ações
             email: Endereço de e-mail
             name: Nome
             role: Cargo
@@ -280,6 +285,9 @@ pt-BR:
         create: "%{user_name} convidou o usuário %{resource_name} para o %{space_name} processo participativo"
         delete: "%{user_name} removeu o usuário %{resource_name} do %{space_name} processo participativo"
         update: "%{user_name} alterou o papel do usuário %{resource_name} no %{space_name} processo participativo"
+    download_your_data:
+      show:
+        participatory_processes: Exportar Processo Participativo
     events:
       participatory_process:
         role_assigned:
@@ -309,6 +317,11 @@ pt-BR:
           not_found: 'O tipo de processo não foi encontrado no banco de dados (ID: %{id}).'
     menu:
       processes: Processos
+    open_data:
+      help:
+        participatory_processes:
+          description: Uma descrição longa do processo
+          end_date: Data final do processo
     participatory_process_groups:
       content_blocks:
         extra_data:
