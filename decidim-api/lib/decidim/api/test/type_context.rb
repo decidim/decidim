@@ -120,7 +120,7 @@ shared_examples "when the introspection is disabled" do
 
   context "when requesting the schema introspection" do
     let(:query) do
-      %( query { __schema { types { fields { type { fields { type { fields { type { fields { type { name } } } } } } } } } } } )
+      %( query { __schema { types { fields { type { fields { type { name } } } } } } } )
     end
 
     it_behaves_like "check introspection behavior"
@@ -134,11 +134,7 @@ shared_examples "when the introspection is disabled" do
       type {
         fields {
           type {
-            fields {
-              type {
-                name
-              }
-            }
+            name
           }
         }
       }
