@@ -3,6 +3,7 @@ fr:
   decidim:
     api:
       errors:
+        introspection_disabled: L'introspection est désactivée pour cette requête
         not_found: "%{type} introuvable"
         permission_not_set: La permission n'a pas été définie pour ce %{type}
         too_many_aliases_error: Trop d'alias utilisés. Vous avez utilisé %{size} alias, mais seulement %{limit} sont autorisés.
