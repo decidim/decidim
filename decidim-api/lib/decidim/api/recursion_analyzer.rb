@@ -64,7 +64,7 @@ module Decidim
         !node.is_a?(GraphQL::Language::Nodes::Field) || node.selections.empty?
       end
 
-      # separated into a method for use in allow_high_graphql_recursion
+      # Separated into a method to allow overriding or customization of the recursion limit.
       def recursion_threshold
         RECURSION_THRESHOLD
       end
