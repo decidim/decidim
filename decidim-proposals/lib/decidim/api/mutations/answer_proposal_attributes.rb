@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     class AnswerProposalAttributes < Decidim::Api::Types::BaseInputObject
-      graphql_name "ProposalAttributes"
+      graphql_name "AnswerProposalAttributes"
       description "Attributes of a proposal"
 
       argument :answer_content, GraphQL::Types::JSON, description: "The answer feedback for the status for this proposal", required: false

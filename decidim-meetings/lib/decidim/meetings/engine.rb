@@ -81,6 +81,12 @@ module Decidim
         end
       end
 
+      initializer "decidim_meetings.register_mutations", before: "decidim_api.graphiql" do
+        Decidim::MutationRegistry.instance.register(
+          Decidim::Meetings::MeetingsMutationType
+        )
+      end
+
       initializer "decidim_meetings.content_processors" do |_app|
         Decidim.configure do |config|
           config.content_processors += [:meeting]
@@ -170,12 +176,6 @@ module Decidim
             Decidim::Meetings::HideAllCreatedByAuthorJob.perform_later(**data)
           end
         end
-      end
-
-      initializer "decidim_meetings.register_mutations", before: "decidim_api.graphiql" do
-        Decidim::MutationRegistry.instance.register(
-          Decidim::Meetings::MeetingsMutationType
-        )
       end
     end
   end
