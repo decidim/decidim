@@ -86,6 +86,7 @@ pt-BR:
       actions:
         activate: Ativar
         configure: Configurar
+        confirm_delete_process: Tem certeza de que deseja excluir este processo? Caso mude de ideia, você poderá restaurá-lo posteriormente.
         confirm_destroy: Confirmar exclusão
         destroy: Excluir
         duplicate: Duplicar
@@ -291,6 +292,9 @@ pt-BR:
         create: "%{user_name} convidou o usuário %{resource_name} para o %{space_name} processo participativo"
         delete: "%{user_name} removeu o usuário %{resource_name} do %{space_name} processo participativo"
         update: "%{user_name} alterou o papel do usuário %{resource_name} no %{space_name} processo participativo"
+    download_your_data:
+      show:
+        participatory_processes: Exportar Processo Participativo
     events:
       participatory_process:
         role_assigned:
@@ -325,6 +329,11 @@ pt-BR:
         description: Número de processos participativos nesta organização
         object: processos participativos
         title: Processos participativos
+    open_data:
+      help:
+        participatory_processes:
+          description: Uma descrição longa do processo
+          end_date: Data final do processo
     participatory_process_groups:
       content_blocks:
         extra_data:
