@@ -16,6 +16,7 @@ module Decidim
         set_locale(locale:, toggle_translations:)
 
         params = extract_from(attributes)
+        params[:taxonomies] = Decidim::Taxonomy.where(organization: current_organization, id: params[:taxonomies]).pluck(:id) if params[:taxonomies]
 
         form = form(Decidim::Meetings::MeetingForm).from_params(params)
 
@@ -59,7 +60,8 @@ module Decidim
           iframe_access_level: attributes.fetch(:iframe_access_level, object.iframe_access_level),
           online_meeting_url: attributes.fetch(:online_meeting_url, object.online_meeting_url),
           registrations_enabled: attributes.fetch(:registrations_enabled, object.registrations_enabled),
-          registration_url: attributes.fetch(:registration_url, object.registration_url)
+          registration_url: attributes.fetch(:registration_url, object.registration_url),
+          taxonomies: attributes.fetch(:taxonomies, object.taxonomies.pluck(:id))
         }
       end
     end

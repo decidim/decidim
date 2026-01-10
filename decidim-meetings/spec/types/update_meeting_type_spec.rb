@@ -11,7 +11,12 @@ module Decidim
       let(:root_klass) { MeetingMutationType }
       let(:current_organization) { create(:organization, available_locales: [:en]) }
       let(:participatory_process) { create(:participatory_process, :with_steps, organization: current_organization) }
-      let(:meeting_component) { create(:meeting_component, :published, participatory_space: participatory_process) }
+      let(:meeting_component) do
+        create(:meeting_component, :published, participatory_space: participatory_process, settings: {
+                 creation_enabled_for_participants: true,
+                 taxonomy_filters: [taxonomy_filter.id]
+               })
+      end
       let!(:model) { create(:meeting, :published, component: meeting_component, author: current_user) }
       let(:title) { "Updated Meeting Title" }
       let(:description) { "Updated meeting description" }
@@ -26,6 +31,10 @@ module Decidim
       let(:type_of_meeting) { "ONLINE" }
       let(:online_meeting_url) { "https://meet.example.org/updated-meeting" }
       let(:registration_terms) { "Updated registration terms" }
+      let(:root_taxonomy) { create(:taxonomy, organization: current_organization) }
+      let!(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization: current_organization) }
+      let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:) }
+      let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
       let(:locale) { "en" }
 
       let(:variables) do
@@ -41,6 +50,7 @@ module Decidim
               address:,
               latitude:,
               longitude:,
+              taxonomies: [taxonomy.id],
               registrationType: registration_type,
               availableSlots: available_slots,
               typeOfMeeting: type_of_meeting,
@@ -63,6 +73,7 @@ module Decidim
               endTime
               address
               registrationType
+              taxonomies { id }
             }
           }
         GRAPHQL
@@ -70,7 +81,7 @@ module Decidim
 
       shared_examples "update meeting mutation examples" do
         context "when user has permission to update" do
-          it "updates the meeting" do
+          it "the meeting" do
             meeting_response = response["update"]
             expect(meeting_response).to be_present
             expect(meeting_response).to include(
@@ -89,6 +100,8 @@ module Decidim
                 "registrationType" => registration_type
               }
             )
+
+            expect(meeting_response["taxonomies"]).to include({ "id" => taxonomy.id.to_s })
 
             # Verify the meeting was actually updated in the database
             model.reload
@@ -153,7 +166,7 @@ module Decidim
                 let(:end_time) { (2.days.ago + 2.hours).to_time.iso8601 }
 
                 it "raises an error" do
-                  expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /ust be before/)
+                  expect { response }.to raise_error(Decidim::Api::Errors::AttributeValidationError, /must be before/)
                 end
               end
             end
@@ -229,6 +242,7 @@ module Decidim
                   attributes: {
                     title: "Only title updated",
                     description:,
+                    taxonomies: [taxonomy.id],
                     startTime: start_time,
                     endTime: end_time,
                     registrationType: registration_type,
