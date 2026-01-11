@@ -13,6 +13,7 @@ module Decidim
       let(:current_organization) { organization }
       let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
       let(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
+      let(:current_component) { proposal_component }
       let(:author) { create(:user, organization:) }
       let!(:model) { create(:proposal, component: proposal_component, users: [author]) }
       let(:root_value) { model }
@@ -186,13 +187,13 @@ module Decidim
       context "with admin user" do
         let!(:user_type) { :admin }
 
-        it "raises an Decidim::Api::Errors::MutationNotAuthorizedError exception" do
+        it "raises a Decidim::Api::Errors::MutationNotAuthorizedError exception" do
           expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
         end
       end
 
       context "with normal user (not author)" do
-        it "returns nil" do
+        it "raises an Decidim::Api::Errors::MutationNotAuthorizedError exception" do
           expect { response }.to raise_error(Decidim::Api::Errors::MutationNotAuthorizedError, "You do not have permission to perform this mutation")
         end
       end
