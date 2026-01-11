@@ -7,12 +7,18 @@ module Decidim
     describe UpdateProposalType, type: :graphql do
       include_context "with a graphql class mutation"
 
+      let(:root_taxonomy) { create(:taxonomy, organization:) }
+      let!(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization:) }
+      let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:) }
+      let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
+      let!(:taxonomies) { [taxonomy.id] }
+
       let(:type_class) { Decidim::Proposals::UpdateProposalType }
       let(:root_klass) { ProposalMutationType }
       let(:organization) { create(:organization, available_locales: [:en, :ca, :es]) }
       let(:current_organization) { organization }
       let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
-      let(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
+      let(:proposal_component) { create(:proposal_component, participatory_space: participatory_process, settings: { taxonomy_filters: [taxonomy_filter.id] }) }
       let(:current_component) { proposal_component }
       let(:author) { create(:user, organization:) }
       let!(:model) { create(:proposal, component: proposal_component, users: [author]) }
@@ -27,7 +33,8 @@ module Decidim
             locale:,
             attributes: {
               title: new_title,
-              body: new_body
+              body: new_body,
+              taxonomies:
             }
           }
         }
@@ -40,6 +47,7 @@ module Decidim
               title { translation(locale: "#{locale}") }
               body { translation(locale: "#{locale}") }
               address
+              taxonomies { id }
             }
           }
         GRAPHQL
@@ -75,6 +83,7 @@ module Decidim
 
             it "updates the proposal" do
               update = response["updateProposal"]
+
               expect(update).to be_present
               expect(update).to include(
                 {
@@ -87,6 +96,7 @@ module Decidim
                   }
                 }
               )
+              expect(update["taxonomies"]).to include({ "id" => taxonomy.id.to_s })
             end
 
             context "with address and coordinates" do

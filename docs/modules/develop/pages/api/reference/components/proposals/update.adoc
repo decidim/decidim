@@ -14,27 +14,38 @@ When you want to update data in your proposals component, you need to rely on th
 
 == Sample request
 
-The `UpdateProposal` mutation allows authenticated users to update proposals in a Decidim component. This mutation uses the existing `UpdateProposal` command from controller.
+The `UpdateProposal` mutation allows authenticated users to update proposals in a Decidim component. This mutation delegates to the existing `Decidim::Proposals::UpdateProposal` command.
 
 [source,graphql]
 ----
 mutation {
   proposals {
     proposal(id: "123") {
-      update(input: {
-        attributes: {
-          title: "Install Bike Lanes on Main Street",
-          body: "We propose adding dedicated bike lanes along Main Street to improve cyclist safety and encourage sustainable transportation.",
-          address: "Main Street, Barcelona, Spain",
-          latitude: 41.3851,
-          longitude: 2.1734,
-          "taxonomies": [123, 456]
-        }
-      }) {
+      update(input: $input) {
         id
         title { translation(locale: "en") }
         body { translation(locale: "en") }
       }
+    }
+  }
+}
+----
+
+Example of submitted variables
+
+[source,json]
+----
+{
+  "componentId": 5,
+  "input": {
+    "locale": "en",
+    "attributes": {
+      "title": "Install Bike Lanes on Main Street",
+      "body": "We propose adding dedicated bike lanes along Main Street to improve cyclist safety and encourage sustainable transportation.",
+      "address": "Main Street, Barcelona, Spain",
+      "latitude": 41.3851,
+      "longitude": 2.1734,
+      "taxonomies": [123, 456]
     }
   }
 }
