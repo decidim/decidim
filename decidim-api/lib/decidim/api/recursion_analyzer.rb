@@ -3,7 +3,8 @@
 # This analyzer checks for too many recursions in GraphQL queries.
 # Copyright (c) GitLab B.V.
 # License: MIT Expat license
-# This content of the class was copied from https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/graphql/query_analyzers/ast/recursion_analyzer.rb
+# This content of the class was copied from the GitLab repository
+# @see https://gitlab.com/gitlab-org/gitlab/-/blob/f59f7aa0d86f07496e68abf7172edd703669e7bd/lib/gitlab/graphql/query_analyzers/ast/recursion_analyzer.rb
 # To which I have modified the result format to be compatible with decidim-api.
 
 module Decidim
