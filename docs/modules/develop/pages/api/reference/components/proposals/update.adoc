@@ -1,7 +1,7 @@
 = Update Proposal
 
 == Input attributes
-When you want to add or create data in your proposals component, you need to rely on the `ProposalAttributes` type, which has the following input fields:
+When you want to update data in your proposals component, you need to rely on the `ProposalAttributes` type, which has the following input fields:
 
 ```
 • title       (required) - 15-150 characters
@@ -14,7 +14,7 @@ When you want to add or create data in your proposals component, you need to rel
 
 == Sample request
 
-The `UpdateProposal` mutation allows authenticated users to updates proposals in a Decidim component. This mutation uses the existing `UpdateProposal` command from controller.
+The `UpdateProposal` mutation allows authenticated users to update proposals in a Decidim component. This mutation uses the existing `UpdateProposal` command from controller.
 
 [source,graphql]
 ----
