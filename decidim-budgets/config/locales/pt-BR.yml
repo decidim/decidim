@@ -108,7 +108,6 @@ pt-BR:
           new:
             create: Importar propostas para projetos
             default_budget: Orçamento padrão
-            import_all_accepted_proposals: Importar todas as propostas aceitas
             no_components: Não há outros componentes da proposta neste espaço participativo para importar as propostas para projetos.
             origin_component_id: Componente de origem
             select_component: Selecione um componente
