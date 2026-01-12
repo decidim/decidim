@@ -12,10 +12,8 @@ export default class extends Controller {
     this.newPwVisible = false;
     this.observer = null;
 
-    if (this.newPasswordPanel) {
-      this.setupMutationObserver();
-      this.setupEmailChangeListener();
-    }
+    this.setupMutationObserver();
+    this.setupEmailChangeListener();
   }
 
   toggleNewPassword() {
@@ -44,6 +42,10 @@ export default class extends Controller {
   }
 
   setupMutationObserver() {
+    if (!this.newPasswordPanel) {
+      return;
+    }
+
     this.observer = new MutationObserver(() => {
       let ariaHiddenValue = this.newPasswordPanel.getAttribute("aria-hidden");
       this.newPwVisible = ariaHiddenValue === "false";
@@ -56,6 +58,10 @@ export default class extends Controller {
   }
 
   setupEmailChangeListener() {
+    if (!this.emailField) {
+      return;
+    }
+
     this.emailField.addEventListener("change", () => {
       this.emailChanged = this.emailField.value !== this.originalEmail;
       this.toggleOldPassword();
