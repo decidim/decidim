@@ -3,8 +3,8 @@
 module Decidim
   module Meetings
     class MeetingAttributes < Decidim::Api::Types::BaseInputObject
-      graphql_name "CreateMeetingAttributes"
-      description "Attributes for creating a meeting"
+      graphql_name "MeetingAttributes"
+      description "Attributes for creating or updating a meeting"
 
       argument :address, GraphQL::Types::String, description: "The address of the meeting", required: false
       argument :available_slots, GraphQL::Types::Int, description: "Number of available slots for registration", required: false

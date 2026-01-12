@@ -7,6 +7,7 @@ module Decidim
     autoload :MeetingType, "decidim/api/meeting_type"
     autoload :MeetingsType, "decidim/api/meetings_type"
     autoload :ServiceType, "decidim/api/service_type"
+
     autoload :LinkedResourcesInterface, "decidim/api/linked_resources_interface"
     autoload :ServicesInterface, "decidim/api/services_interface"
     autoload :MeetingsMutationType, "decidim/api/mutations/meetings_mutation_type"
