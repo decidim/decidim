@@ -284,7 +284,7 @@ describe("Image", () => {
 
       editorElement.focus();
 
-      editor.commands.setImage({ src: "/path/to/image.jpg", alt: "alt text" });
+      editor.commands.setImage({ src: "/path/to/image.jpg", alt: "Test text" });
       await sleep(0);
     });
     describe("with mouse", () => behavesLikeImageResizer("mouse"));
