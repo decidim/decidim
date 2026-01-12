@@ -1,4 +1,4 @@
-= Too many recursions error - TOO_MANY_RECURSIONS_ERROR
+= Recursion limit error - RECURSION_LIMIT_EXCEEDED_ERROR
 
 Is triggered when your query uses a GraphQL circular reference for more than 2 times.
 
@@ -12,7 +12,7 @@ The JSON response structure is:
     {
       "message": "Too many recursions detected in query",
       "extensions": {
-        "code": "TOO_MANY_RECURSIONS_ERROR"
+        "code": "RECURSION_LIMIT_EXCEEDED_ERROR"
       }
     }
   ]
