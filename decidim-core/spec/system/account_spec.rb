@@ -31,6 +31,16 @@ describe "Account" do
 
     it_behaves_like "accessible page"
 
+    context "when login is not enabled" do
+      let(:organization) { create(:organization, users_registration_mode: "disabled") }
+      let(:user) { create(:user, :confirmed, password:) }
+
+      it "does not have js errors" do
+        sleep 1
+        expect_no_js_errors
+      end
+    end
+
     describe "update avatar" do
       it "can update avatar" do
         dynamically_attach_file(:user_avatar, Decidim::Dev.asset("avatar.jpg"), remove_before: true)

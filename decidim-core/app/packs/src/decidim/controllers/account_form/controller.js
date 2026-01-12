@@ -12,8 +12,10 @@ export default class extends Controller {
     this.newPwVisible = false;
     this.observer = null;
 
-    this.setupMutationObserver();
-    this.setupEmailChangeListener();
+    if (this.newPasswordPanel) {
+      this.setupMutationObserver();
+      this.setupEmailChangeListener();
+    }
   }
 
   toggleNewPassword() {
