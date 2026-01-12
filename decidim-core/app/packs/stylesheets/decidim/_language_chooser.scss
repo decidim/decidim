@@ -14,20 +14,25 @@ header {
       }
 
       .language {
+        [data-target*="dropdown"] > span.holder {
+          @apply items-center gap-x-1 flex;
+        }
+
         &-trigger {
           @apply border border-neutral-300 rounded px-4 py-[9px] gap-x-2 flex-row;
 
           & > span,
           & > svg:first-of-type {
             @apply text-neutral-500;
+          }
 
-            display: block !important;
+          & > svg:last-of-type,
+          & > svg:first-of-type {
+            @apply block;
           }
 
           & > svg:last-of-type {
             @apply text-gray-2 ml-1;
-
-            display: block !important;
           }
 
           svg + span {
@@ -35,9 +40,7 @@ header {
           }
 
           & > span.holder {
-            @apply items-center gap-x-1;
-
-            display: flex !important;
+            @apply items-center gap-x-1 flex;
           }
         }
 
