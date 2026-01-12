@@ -9,7 +9,10 @@ pt-BR:
         developer_group: Grupo promotor
         document: Documento
         domain: Domínio
+        duplicate_categories: Categoria duplicada
         duplicate_components: Componente duplicado
+        duplicate_landing_page_blocks: Bloco da página principal duplicada
+        duplicate_steps: Etapa duplicada
         end_date: Data final
         has_members: Este espaço tem membros
         hero_image: Imagem inicial
@@ -104,6 +107,7 @@ pt-BR:
         participatory_process_groups: Grupos de processo
         participatory_process_groups_submenu:
           info: Informações
+          landing_page: Layout página principal
         participatory_processes: Processos
         participatory_processes_submenu:
           attachment_collections: Pastas
@@ -111,6 +115,7 @@ pt-BR:
           attachments: Anexos
           components: Componentes
           info: Sobre este processo
+          landing_page: Layout página principal
           members: Membros
           moderations: Moderação
           process_admins: Processar usuários
@@ -146,12 +151,18 @@ pt-BR:
           roles:
             admin: Administrador
             collaborator: Colaborador
+            evaluator: Avaliador
             moderator: Moderador
         user:
           fields:
             invitation_accepted_at: Convite aceito em
             invitation_sent_at: Convite enviado em
             published: Publicado
+      participatory_process_duplicates:
+        new:
+          duplicate: Duplicar
+          select: Selecione os dados que deseja duplicar
+          title: Processos participativos duplicados
       participatory_process_groups:
         destroy:
           success: Grupo de processos participativo excluído com sucesso.
@@ -255,7 +266,11 @@ pt-BR:
           participatory_processes: Todos os processos participativos
       titles:
         participatory_process_groups: Grupos de processos participativos
+        participatory_process_types: Tipos de processos participativos
         participatory_processes: Processos participativos
+        participatory_processes_deleted: Processos participativos excluídos
+      tooltips:
+        deleted_processes_info: Um processo apenas pode ser excluído se estiver "Não Publicado".
       users:
         resend_invitation:
           error: Ocorreu um erro ao reenviar o convite.
@@ -267,6 +282,9 @@ pt-BR:
         export: "%{user_name} exportou o processo participativo %{resource_name}"
         import: "%{user_name} importou o processo participativo %{resource_name}"
         publish: "%{user_name} publicou o %{resource_name} processo participativo"
+        publish_all_members: ""
+        restore: "%{user_name} restaurou o processo participativo %{resource_name}"
+        soft_delete: "%{user_name} moveu o processo participativo %{resource_name} para a lixeira"
         unpublish: "%{user_name} não publicado o %{resource_name} processo participativo"
         update: "%{user_name} atualizou o processo participativo %{resource_name}"
       participatory_process_group:
@@ -320,18 +338,34 @@ pt-BR:
     open_data:
       help:
         participatory_processes:
+          area: A área onde o processo está ocorrendo
+          component_settings: As configurações dos componentes do processo
+          created_at: A data em que este espaço foi criado
           description: Uma descrição longa do processo
           end_date: Data final do processo
+          follows_count: O número de usuário seguindo este espaço
+          participatory_process_group: Grupo do processo, se houver
+          participatory_process_type: O tipo do processo
+          participatory_scope: O escopo participativo do processo
+          start_date: A data início do processo
+          subtitle: O subtítulo do processo
+          title: O título do processo
     participatory_process_groups:
       content_blocks:
         extra_data:
           developer_group: Promovido por
+          participatory_structure: Como é decidido
+          target: Quem participa
+        html:
+          name: Bloco HTML
         html_1:
           name: Primeiro bloco HTML
         html_2:
           name: Segundo bloco HTML
         html_3:
           name: Terceiro bloco HTML
+        main_data:
+          name: Título e descrição
         participatory_processes:
           active: Processos participativos ativos
           name: Processos participativos
@@ -350,8 +384,29 @@ pt-BR:
     participatory_processes:
       admin:
         content_blocks:
+          democratic_quality_stats_settings_form:
+            inclusiveness:
+              digital_support_offered:
+                options:
+                  five: 'Sim'
+                  zero: 'No'
+              mobility_meeting_access:
+                options:
+                  five: 'Sim'
+                  zero: 'Não'
+              participation_scheduling_times:
+                options:
+                  five: 'Sim'
+                  zero: 'Não'
+            informativeness:
+              information_provided:
+                options:
+                  five: Sempre
+                  one: Quase nunca
+                  zero: Nunca
           highlighted_processes:
             active: Ativo
+            all: Tudo
             max_results: Quantidade máxima de elementos para mostrar
         new_import:
           accepted_types:
@@ -374,8 +429,15 @@ pt-BR:
             related_processes: Processos relacionados
             select_process_group: Selecione um grupo de processos
             slug_help_html: 'Os slugs de URL são usados para gerar os URLs que apontam para este processo. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
+            taxonomies: Taxonomias
             title: Informação geral
+            visibility: Visibilidade
       content_blocks:
+        democratic_quality_stats:
+          automatic_metrics:
+            indicators:
+              traceability: Rastreabilidade
+              transparency: Responsividade
         highlighted_processes:
           name: Processos em destaque
       index:
@@ -426,6 +488,8 @@ pt-BR:
           browse: Navegar
           browse_resource: Buscar grupo de processos %{resource_name}
           processes_count: 'Processos:'
+      participatory_process_navigation:
+        member_menu_item: Membros
       participatory_processes:
         index:
           promoted_processes: Processos destacados
