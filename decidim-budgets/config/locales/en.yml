@@ -434,7 +434,6 @@ en:
           related_proposals: The related proposals to this project
           selected_at: The time at which the project was selected
           taxonomies: The taxonomies of the project
-          test_field: Test field for projects serializer subscription
           title: The title of the project
           updated_at: The last date the project was updated
           url: The URL of the project
