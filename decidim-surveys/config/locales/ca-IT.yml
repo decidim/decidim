@@ -71,6 +71,7 @@ ca-IT:
         manage_questions: Preguntes
         new_survey: Nova enquesta
         preview: Previsualitzar
+        responses: Respostes
         responses_alert: L'opció d'esborrar les respostes en publicar l'enquesta està activada. Si segueixes, s'esborraran les %{responses_count} existents actualment.
         title: Accions
       admin:

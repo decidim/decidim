@@ -93,9 +93,6 @@ pt-BR:
           of_total_steps: de %{total_steps}
           questionnaire_closed:
             title: Questionário fechado
-          questionnaire_for_private_users:
-            body: O questionário está disponível apenas para usuários particulares
-            title: Questionário fechado
           questionnaire_js_disabled:
             body: Algumas das funcionalidades deste formulário serão desativadas. Para melhorar sua experiência, por favor ative o JavaScript no seu navegador.
             title: JavaScript está desativado

@@ -71,6 +71,7 @@ fr:
         manage_questions: Questions
         new_survey: Nouvelle enquête
         preview: Aperçu
+        responses: Réponses
         responses_alert: La suppression des réponses lors de la publication est active pour cette enquête. Il y a actuellement %{responses_count} réponses qui seront supprimées si vous continuez.
         title: Actions
       admin:

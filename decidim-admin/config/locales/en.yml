@@ -585,7 +585,7 @@ en:
           error: There was a problem deleting a member for this participatory space.
           success: Member access successfully destroyed.
         edit:
-          title: Edit Member.
+          title: Edit member
           update: Update
         index:
           import_via_csv: Import via CSV
@@ -594,7 +594,7 @@ en:
           unpublish_all: Unpublish all
         new:
           create: Create
-          title: New Member.
+          title: New member
         publish_all:
           error: There was a problem publishing all the members for this participatory space.
           success: Successfully published all members for this participatory space

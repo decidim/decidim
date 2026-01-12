@@ -265,6 +265,7 @@ es:
           confirm_resend_invitation: '¿Seguro que quieres reenviar la invitación?'
           resend_invitation: Reenviar invitación
           secondary_hosts_hint: Introduce cada uno de ellos en una nueva línea
+          short_name_hint: Nombre corto utilizado para la Aplicación Web Progresiva (PWA). Debe tener un máximo de 12 caracteres.
           title: Editar la organización
         file_upload_settings:
           content_types:
@@ -294,6 +295,7 @@ es:
           organization_admin_email_hint: Te enviaremos un correo electrónico a esta dirección para que la puedas confirmar y configurar tu contraseña.
           reference_prefix_hint: El prefijo de referencia se utiliza para identificar de forma única los recursos del conjunto de la organización.
           secondary_hosts_hint: Introduce cada uno de ellos en una nueva línea.
+          short_name_hint: Nombre corto utilizado para la Aplicación Web Progresiva (PWA). Debe tener un máximo de 12 caracteres.
           title: Nueva organización
         omniauth_settings:
           decidim:

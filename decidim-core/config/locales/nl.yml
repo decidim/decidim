@@ -125,10 +125,6 @@ nl:
         update: "%{user_name} heeft de %{resource_name} OAuth-toepassing bijgewerkt"
       organization:
         update: "%{user_name} heeft de organisatie-instellingen bijgewerkt"
-      participatory_space_private_user:
-        create: "%{user_name} heeft %{resource_name} uitgenodigd om een privé deelnemer te zijn"
-        create_via_csv: "%{user_name} heeft %{resource_name} uitgenodigd als privé deelnemer"
-        delete: "%{user_name} heeft de deelnemer %{resource_name} verwijderd als privé-deelnemer"
       scope:
         create: "%{user_name} heeft het bereik %{resource_name} gemaakt"
         create_with_parent: "%{user_name} heeft het bereik %{resource_name} gemaakt binnen het bereik %{parent_scope}"
@@ -879,10 +875,8 @@ nl:
         decline: Uitnodiging afwijzen
         hello: Hallo %{email},
         invited_you_as_admin: "%{invited_by} heeft je uitgenodigd als admin van %{application}. U kunt het accepteren via de onderstaande link."
-        invited_you_as_private_user: "%{invited_by} heeft je uitgenodigd als een privé deelnemer van %{application}. Accepteren kan via onderstaande link."
         someone_invited_you: Iemand heeft u uitgenodigd voor %{application}. U kunt het accepteren via de onderstaande link.
         someone_invited_you_as_admin: Iemand heeft u uitgenodigd als administrator van %{application}, u kunt het accepteren via onderstaande link.
-        someone_invited_you_as_private_user: Iemand heeft je uitgenodigd als privé-deelnemer van %{application}, je kunt het accepteren via de onderstaande link.
         subject: Instructies voor de uitnodiging
       password_change:
         greeting: Hallo %{recipient}!

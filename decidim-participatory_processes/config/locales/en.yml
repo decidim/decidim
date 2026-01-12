@@ -15,6 +15,7 @@ en:
         duplicate_landing_page_blocks: Duplicate landing page blocks
         duplicate_steps: Duplicate steps
         end_date: End date
+        has_members: This space has members
         hero_image: Home image
         import_attachments: Import attachments
         import_categories: Import categories
@@ -509,10 +510,11 @@ en:
             announcement_help: The text you enter here will be shown to the user right below the process information.
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             duration: Duration
+            has_members_help: You will be able to create and publish members
             images: Images
             metadata: Metadata
             no_taxonomy_filters_found: No taxonomy filters found.
-            private_notice: You will be able to manage members after setting it as private
+            private_notice: Makes the space not visible for visitors and only for members (except if it is also transparent)
             related_processes: Related processes
             select_process_group: Select a process group
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'

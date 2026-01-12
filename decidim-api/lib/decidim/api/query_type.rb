@@ -65,7 +65,7 @@ module Decidim
       end
 
       def participant_details(id: nil, nickname: nil)
-        participant = Decidim::Core::UserEntityFinder.new.call(object, { id: id, nickname: nickname }, context)
+        participant = Decidim::Core::UserEntityFinder.new.call(object, { id:, nickname: }, context)
         return nil unless participant
 
         return nil unless Decidim::Core::ParticipantDetailsType.authorized?(participant, context)

@@ -14,18 +14,18 @@ module Decidim
         expect(serialized).to include(id: resource.id)
       end
 
-      it "includes the privatable to" do
-        expect(serialized[:privatable_to]).to(
-          include(id: resource.privatable_to_id)
+      it "includes the participatory space" do
+        expect(serialized[:participatory_space]).to(
+          include(id: resource.participatory_space_id)
         )
-        expect(serialized[:privatable_to]).to(
-          include(type: resource.privatable_to_type)
+        expect(serialized[:participatory_space]).to(
+          include(type: resource.participatory_space_type)
         )
-        expect(serialized[:privatable_to]).to(
-          include(title: resource.privatable_to.title)
+        expect(serialized[:participatory_space]).to(
+          include(title: resource.participatory_space.title)
         )
-        expect(serialized[:privatable_to]).to(
-          include(slug: resource.privatable_to.slug)
+        expect(serialized[:participatory_space]).to(
+          include(slug: resource.participatory_space.slug)
         )
       end
 

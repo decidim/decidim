@@ -8,14 +8,6 @@ module Decidim
       class MembersController < Decidim::Assemblies::Admin::ApplicationController
         include Concerns::AssemblyAdmin
         include Decidim::Admin::ParticipatorySpace::Concerns::HasMembers
-
-        def after_destroy_path
-          members_path(current_assembly)
-        end
-
-        def privatable_to
-          current_assembly
-        end
       end
     end
   end

@@ -2,6 +2,7 @@
 
 shared_context "with a graphql decidim component" do
   include_context "with a graphql class type"
+  include_examples "when the introspection is disabled"
 
   let(:schema) { Decidim::Api::Schema }
 
@@ -126,13 +127,13 @@ shared_examples "with resource visibility" do
 
       context "when user is member" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
-        let!(:member) { create(:member, user: current_user, privatable_to: participatory_process) }
+        let!(:member) { create(:member, user: current_user, participatory_space: participatory_process) }
         it_behaves_like "graphQL visible resource"
       end
 
       context "when user is member" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
-        let!(:member) { create(:member, user: current_user, privatable_to: participatory_process) }
+        let!(:member) { create(:member, user: current_user, participatory_space: participatory_process) }
         it_behaves_like "graphQL visible resource"
       end
 
@@ -184,7 +185,7 @@ shared_examples "with resource visibility" do
 
       context "when user is member" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
-        let!(:member) { create(:member, user: current_user, privatable_to: participatory_process) }
+        let!(:member) { create(:member, user: current_user, participatory_space: participatory_process) }
         it_behaves_like "graphQL hidden component"
       end
     end
@@ -248,7 +249,7 @@ shared_examples "with resource visibility" do
 
       context "when user is member" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
-        let!(:member) { create(:assembly_member, user: current_user, privatable_to: participatory_process) }
+        let!(:member) { create(:assembly_member, user: current_user, participatory_space: participatory_process) }
         it_behaves_like "graphQL visible resource"
       end
 
@@ -299,7 +300,7 @@ shared_examples "with resource visibility" do
 
       context "when user is member" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
-        let!(:member) { create(:assembly_member, user: current_user, privatable_to: participatory_process) }
+        let!(:member) { create(:assembly_member, user: current_user, participatory_space: participatory_process) }
         it_behaves_like "graphQL hidden component"
       end
     end
@@ -347,7 +348,7 @@ shared_examples "with resource visibility" do
 
       context "when user is member" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
-        let!(:member) { create(:member, user: current_user, privatable_to: participatory_process) }
+        let!(:member) { create(:member, user: current_user, participatory_space: participatory_process) }
         it_behaves_like "graphQL visible resource"
       end
     end
@@ -384,7 +385,7 @@ shared_examples "with resource visibility" do
 
       context "when user is member" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
-        let!(:member) { create(:member, user: current_user, privatable_to: participatory_process) }
+        let!(:member) { create(:member, user: current_user, participatory_space: participatory_process) }
         it_behaves_like "graphQL hidden component"
       end
       context "when user is normal user" do
@@ -430,7 +431,7 @@ shared_examples "with resource visibility" do
 
       context "when user is member" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
-        let!(:member) { create(:member, user: current_user, privatable_to: participatory_process) }
+        let!(:member) { create(:member, user: current_user, participatory_space: participatory_process) }
         it_behaves_like "graphQL not found space"
       end
 
@@ -472,7 +473,7 @@ shared_examples "with resource visibility" do
 
       context "when user is member" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
-        let!(:member) { create(:member, user: current_user, privatable_to: participatory_process) }
+        let!(:member) { create(:member, user: current_user, participatory_space: participatory_process) }
         it_behaves_like "graphQL not found space"
       end
 

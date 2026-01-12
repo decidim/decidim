@@ -29,7 +29,7 @@ module Decidim
             [
               adapter,
               Decidim::Verifications::Authorizations.new(
-                organization: organization,
+                organization:,
                 user: current_user,
                 name: adapter.name
               ).first

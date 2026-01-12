@@ -6,7 +6,7 @@ describe "Admin manages members via csv import" do
   let(:organization) { create(:organization) }
 
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
-  let(:assembly) { create(:assembly, organization:, private_space: true) }
+  let(:assembly) { create(:assembly, organization:, has_members: true) }
 
   before do
     switch_to_host(organization.host)
@@ -30,7 +30,7 @@ describe "Admin manages members via csv import" do
 
   context "when there are existing users" do
     before do
-      create_list(:assembly_member, 3, privatable_to: assembly, user: create(:user, organization: assembly.organization))
+      create_list(:assembly_member, 3, participatory_space: assembly, user: create(:user, organization: assembly.organization))
       visit current_path
     end
 

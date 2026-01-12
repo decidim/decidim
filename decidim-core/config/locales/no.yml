@@ -127,10 +127,6 @@
         update: "%{user_name} oppdaterte %{resource_name} OAuth applikasjonen"
       organization:
         update: "%{user_name} oppdaterte organisasjonens innstillinger"
-      participatory_space_private_user:
-        create: "%{user_name} inviterte %{resource_name} til å bli en privat deltaker"
-        create_via_csv: "%{user_name} inviterte %{resource_name} via CSV til å være privat deltaker"
-        delete: "%{user_name} fjernet deltakeren %{resource_name} som en privat deltaker"
       scope:
         create: "%{user_name} laget temaet %{resource_name}"
         create_with_parent: "%{user_name} lagde %{resource_name} temaet inni %{parent_scope} temaet"
@@ -910,10 +906,8 @@
         decline: Avvis invitasjon
         hello: Hei %{email},
         invited_you_as_admin: "%{invited_by} har invitert deg som en admin av %{application}. Du kan godta via lenken nedenfor."
-        invited_you_as_private_user: "%{invited_by} har invitert deg som en privat deltaker av %{application}. Du kan godta via lenken nedenfor."
         someone_invited_you: Noen har invitert deg til %{application}. Du kan godta det via lenken nedenfor.
         someone_invited_you_as_admin: Noen har invitert deg som en administrator av %{application}, du kan godta det via lenken nedenfor.
-        someone_invited_you_as_private_user: Noen har invitert deg som privat deltaker av %{application}, du kan godta det via lenken nedenfor.
         subject: Invitasjonsinstruksjoner
       password_change:
         greeting: Hei %{recipient}!

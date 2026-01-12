@@ -48,10 +48,33 @@ From now on, we will skip the "query" keyword for the purpose of readability. Yo
 
 ** xref:develop:api/authentication.adoc[Authentication]
 ** xref:develop:api/core-concepts.adoc[Core concepts]
+** xref:develop:api/reference/errors.adoc[Error Handling]
+*** xref:develop:api/reference/errors/permission_not_set.adoc[Permission Not Set Error - PERMISSION_NOT_SET_ERROR]
+*** xref:develop:api/reference/errors/unauthorized_field.adoc[Unauthorized Field Error - UNAUTHORIZED_FIELD_ERROR]
+*** xref:develop:api/reference/errors/unauthorized_mutation.adoc[Unauthorized Mutation Error - MUTATION_NOT_AUTHORIZED_ERROR]
+*** xref:develop:api/reference/errors/not_found.adoc[Not Found Error - NOT_FOUND_ERROR]
+*** xref:develop:api/reference/errors/validation_error.adoc[Validation Error - VALIDATION_ERROR]
+*** xref:develop:api/reference/errors/attribute_validation_error.adoc[Attribute Validation Error - ATTRIBUTE_VALIDATION_ERROR]
+*** xref:develop:api/reference/errors/locale_error.adoc[Locale Error - LOCALE_ERROR]
+*** xref:develop:api/reference/errors/invalid_locale_error.adoc[Invalid Locale Error - INVALID_LOCALE_ERROR]
 ** API reference by module
 *** Spaces
 *** Components
+**** xref:develop:api/reference/components/debates.adoc[Debates]
+***** xref:develop:api/reference/components/debates/create.adoc[Create Debate]
+***** xref:develop:api/reference/components/debates/update.adoc[Update Debate]
+***** xref:develop:api/reference/components/debates/close.adoc[Close Debate]
+**** xref:develop:api/reference/components/meetings.adoc[Meetings]
+***** xref:develop:api/reference/components/meetings/create.adoc[Create Meeting]
+***** xref:develop:api/reference/components/meetings/update.adoc[Update Meeting]
+***** xref:develop:api/reference/components/meetings/withdraw.adoc[Withdraw Meeting]
+***** xref:develop:api/reference/components/meetings/close.adoc[Close Meeting]
 **** xref:develop:api/reference/components/proposals.adoc[Proposals]
+***** xref:develop:api/reference/components/proposals/create.adoc[Create Proposal]
+***** xref:develop:api/reference/components/proposals/update.adoc[Update Proposal]
+***** xref:develop:api/reference/components/proposals/withdraw.adoc[Withdraw Proposal]
+***** xref:develop:api/reference/components/proposals/vote.adoc[Vote Proposal]
+***** xref:develop:api/reference/components/proposals/answer.adoc[Answer Proposal]
 
 == Usage limits
 

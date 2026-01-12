@@ -13,7 +13,7 @@
   <ul id="dropdown-exports-<%= menu_id %>-<%= dropdown_id(collection_ids) %>" class="dropdown dropdown__bottom" aria-hidden="true">
     <% %w(CSV JSON).each do |format| %>
       <li class="dropdown__item">
-        <%= form_with url: export_initiatives_path(format: format), method: :post, class: "dropdown__button" do |f| %>
+        <%= form_with url: export_initiatives_path(format:), method: :post, class: "dropdown__button" do |f| %>
           <%= hidden_field_tag "collection_ids", collection_ids&.join(",") %>
           <%= f.submit t("decidim.admin.exports.export_as",
                          name: t("decidim.initiatives.admin.exports.initiatives"),

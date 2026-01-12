@@ -11,25 +11,25 @@ module Decidim
         let!(:organization) { create(:organization) }
         let!(:admin) { create(:user, :admin, :confirmed, organization:) }
         let!(:user) { create(:user, organization:) }
-        let!(:privatable_to) { create(:participatory_process, organization: user.organization, private_space: true) }
-        let!(:member) { create(:member, user:, privatable_to:) }
+        let!(:participatory_space) { create(:participatory_process, organization: user.organization, has_members: true) }
+        let!(:member) { create(:member, user:, participatory_space:) }
 
         before do
           request.env["decidim.current_organization"] = organization
-          request.env["decidim.current_participatory_process"] = member.privatable_to
+          request.env["decidim.current_participatory_process"] = member.participatory_space
           sign_in admin, scope: :user
         end
 
         it "is routed to" do
-          delete :destroy_all, params: { participatory_process_slug: member.privatable_to.slug }
+          delete :destroy_all, params: { participatory_process_slug: member.participatory_space.slug }
 
           expect(response).to be_redirect
         end
 
         it "suppress the existing users" do
           expect do
-            delete :destroy_all, params: { participatory_process_slug: member.privatable_to.slug, locale: I18n.locale }
-          end.to change { Decidim::ParticipatorySpace::Member.by_participatory_space(member.privatable_to).count }.by(-1)
+            delete :destroy_all, params: { participatory_process_slug: member.participatory_space.slug, locale: I18n.locale }
+          end.to change { Decidim::ParticipatorySpace::Member.by_participatory_space(member.participatory_space).count }.by(-1)
         end
       end
     end

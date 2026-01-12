@@ -250,6 +250,10 @@ fr:
         results: résultats
       impersonation_log:
         manage: "%{user_name} a représenté %{resource_name} parce que %{reason}"
+      member:
+        create: "%{user_name} a invité %{resource_name} à devenir membre"
+        create_via_csv: "%{user_name} a invité %{resource_name} via CSV à devenir membre"
+        delete: "%{user_name} a supprimé le participant %{resource_name} en tant que membre"
       moderation:
         hide: "%{user_name} a caché une ressource de type %{resource_type} dans l'espace %{space_name}"
         unreport: "%{user_name} a annulé le signalement d'une ressource de type %{resource_type} dans l'espace %{space_name}"
@@ -265,10 +269,6 @@ fr:
       organization:
         update: "%{user_name} a mis à jour les paramètres de l'organisation"
         update_external_domain: "%{user_name} a mis à jour les domaines externes de l'organisation"
-      participatory_space_private_user:
-        create: "%{user_name} invité %{resource_name} pour être un utilisateur privé"
-        create_via_csv: "%{user_name} a invité %{resource_name} via CSV à être un utilisateur privé"
-        delete: "%{user_name} supprimé l'utilisateur %{resource_name} tant qu'utilisateur privé"
       scope:
         create: "%{user_name} a créé le périmètre d'application %{resource_name}"
         create_with_parent: "%{user_name} a créé le périmètre d'application %{resource_name} à l'intérieur du périmètre %{parent_scope}"
@@ -704,13 +704,13 @@ fr:
           updated_at: La date de la dernière mise à jour de cette conversation
         notifications:
           extra: Informations supplémentaires sur cette notification
-        participatory_space_private_users:
-          created_at: La date et l'heure de création de cet utilisateur privé
-          id: L'identifiant unique de cet utilisateur privé
-          privatable_to: À quel espace cet utilisateur privé appartient
-          published: Que cet utilisateur privé soit publié ou non
-          role: Le rôle que cet utilisateur privé a
-          updated_at: La date et l'heure de la dernière mise à jour de cet utilisateur privé
+        participatory_space_members:
+          created_at: La date et l'heure de création de ce membre
+          id: L'identifiant unique de ce membre
+          participatory_space: À quel espace ce membre appartient
+          published: Que ce membre soit publié ou non
+          role: Le rôle que ce membre a
+          updated_at: La date et l'heure de la dernière mise à jour de ce membre
         reports:
           created_at: La date et l'heure de création de ce rapport
           details: Les détails de ce rapport
@@ -1683,17 +1683,17 @@ fr:
         ignore: |-
           Si vous n’acceptez pas l’invitation, veuillez ignorer ce courrier électronique.<br />Votre compte ne sera pas créé tant que vous n’aurez pas accédé au lien ci-dessus et que vous n’aurez pas configuré votre pseudo et votre mot de passe.
         invited_you_as_admin: "%{invited_by} vous a invité en tant qu'administrateur de %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous."
-        invited_you_as_private_user: "%{invited_by} vous a invité en tant qu'utilisateur privé de %{application}. Vous pouvez l'accepter via le lien ci-dessous."
+        invited_you_as_member: "%{invited_by} vous a invité en tant que membre de %{application}. Vous pouvez accepter cette invitation via le lien ci-dessous."
         someone_invited_you: Vous avez été invité à %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous.
         someone_invited_you_as_admin: Vous avez été invité en tant qu'administrateur de %{application}, vous pouvez l'accepter via le lien ci-dessous.
-        someone_invited_you_as_private_user: Vous avez été invité en tant qu'utilisateur privé de %{application}, vous pouvez l'accepter via le lien ci-dessous.
+        someone_invited_you_as_member: Quelqu'un vous a invité en tant que membre de %{application}, vous pouvez accepter cette invitation via le lien ci-dessous.
         subject: Instructions d'invitation
       invite_admin:
         subject: Vous avez été invité(e) à gérer %{organization}
       invite_collaborator:
         subject: Vous avez été invité à collaborer sur %{organization}
-      invite_private_user:
-        subject: Vous avez été invité(e) à une concertation privés sur %{organization}
+      invite_member:
+        subject: Vous avez été invité(e) à un processus participatif privé sur %{organization}
       organization_admin_invitation_instructions:
         subject: Vous avez été invité(e) à gérer %{organization}
       password_change:
