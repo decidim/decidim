@@ -63,7 +63,7 @@ module Decidim
         end
 
         it "raises an error" do
-          expect { response }.to raise_error(Decidim::Api::Errors::TooManyRecursionsError)
+          expect { response }.to raise_error(Decidim::Api::Errors::RecursionLimitExceededError)
         end
       end
 

@@ -24,7 +24,7 @@ module Decidim
       autoload :UnauthorizedFieldError, "decidim/api/errors/unauthorized_field_error"
       autoload :UnauthorizedObjectError, "decidim/api/errors/unauthorized_object_error"
       autoload :ValidationError, "decidim/api/errors/validation_error"
-      autoload :TooManyRecursionsError, "decidim/api/errors/too_many_recursions_error"
+      autoload :RecursionLimitExceededError, "decidim/api/errors/recursion_limit_exceeded_error"
     end
 
     module Types

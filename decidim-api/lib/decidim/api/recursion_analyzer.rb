@@ -44,7 +44,7 @@ module Decidim
       def result
         @recurring_fields = @recurring_fields.select { |k, v| recursion_too_deep?(k, v) }
 
-        Decidim::Api::Errors::TooManyRecursionsError.new I18n.t("decidim.api.errors.too_many_recursions") if @recurring_fields.any?
+        Decidim::Api::Errors::RecursionLimitExceededError.new I18n.t("decidim.api.errors.too_many_recursions") if @recurring_fields.any?
       end
 
       private

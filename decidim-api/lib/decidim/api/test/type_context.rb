@@ -46,7 +46,7 @@ shared_context "with a graphql class type" do
       VALIDATION_ERROR
       TOO_MANY_ALIASES_ERROR
       INTROSPECTION_DISABLED_ERROR
-      TOO_MANY_RECURSIONS_ERROR
+      RECURSION_LIMIT_EXCEEDED_ERROR
     ).include?(code)
 
     raise GraphQL::ExecutionError, error["message"]
