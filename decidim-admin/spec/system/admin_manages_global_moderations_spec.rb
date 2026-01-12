@@ -115,7 +115,7 @@ describe "Admin manages global moderations" do
     end
   end
 
-  context "when unreporting reported participant" do
+  context "when un-reporting reported participant" do
     let!(:reported_user) { create(:user, :confirmed, organization:) }
     let!(:moderation) { create(:user_moderation, user: reported_user, report_count: 1) }
     let!(:report) { create(:user_report, moderation:, user:, reason: "spam") }
