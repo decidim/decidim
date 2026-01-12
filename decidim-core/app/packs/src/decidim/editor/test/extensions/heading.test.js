@@ -6,7 +6,7 @@ import OrderedList from "@tiptap/extension-ordered-list";
 import ListItem from "@tiptap/extension-list-item";
 import Text from "@tiptap/extension-text";
 
-import { updateContent } from "src/decidim/editor/test/helpers";
+import { updateContent, sleep } from "src/decidim/editor/test/helpers";
 
 import Heading from "@tiptap/extension-heading";
 
@@ -29,6 +29,7 @@ describe("Heading", () => {
   const expectHeadingWithLevel = async (level) => {
     editorElement.focus();
     await updateContent(editorElement, `${"#".repeat(level)} `);
+    await sleep(50);
 
     const tag = `h${level}`;
     expect(editor.getHTML()).toMatchHtml(`<${tag}></${tag}>`);
@@ -50,6 +51,7 @@ describe("Heading", () => {
   it("does not allow creating a first level heading with a markdown shortcut", async () => {
     editorElement.focus();
     await updateContent(editorElement, "# ");
+    await sleep(50);
 
     expect(editor.getHTML()).toMatchHtml("<h2></h2>");
   });
