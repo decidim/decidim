@@ -43,25 +43,25 @@ module Decidim
         attributes = attributes.to_h.compact
 
         {
-          title: attributes.fetch(:title, translated_attribute(object.title)),
-          description: attributes.fetch(:description, translated_attribute(object.description)),
-          location: attributes.fetch(:location, translated_attribute(object.location)),
-          registration_terms: attributes.fetch(:registration_terms, translated_attribute(object.registration_terms)),
-          location_hints: attributes.fetch(:location_hints, translated_attribute(object.location_hints)),
-          start_time: attributes.fetch(:start_time, object.start_time),
-          end_time: attributes.fetch(:end_time, object.end_time),
           address: attributes.fetch(:address, object.address),
-          latitude: attributes.fetch(:latitude, object.latitude),
-          longitude: attributes.fetch(:longitude, object.longitude),
-          registration_type: attributes.fetch(:registration_type, object.registration_type),
           available_slots: attributes.fetch(:available_slots, object.available_slots),
-          type_of_meeting: attributes.fetch(:type_of_meeting, object.type_of_meeting),
-          iframe_embed_type: attributes.fetch(:iframe_embed_type, object.iframe_embed_type),
+          description: attributes.fetch(:description, translated_attribute(object.description)),
+          end_time: attributes.fetch(:end_time, object.end_time),
           iframe_access_level: attributes.fetch(:iframe_access_level, object.iframe_access_level),
+          iframe_embed_type: attributes.fetch(:iframe_embed_type, object.iframe_embed_type),
+          latitude: attributes.fetch(:latitude, object.latitude),
+          location: attributes.fetch(:location, translated_attribute(object.location)),
+          location_hints: attributes.fetch(:location_hints, translated_attribute(object.location_hints)),
+          longitude: attributes.fetch(:longitude, object.longitude),
           online_meeting_url: attributes.fetch(:online_meeting_url, object.online_meeting_url),
-          registrations_enabled: attributes.fetch(:registrations_enabled, object.registrations_enabled),
+          registration_terms: attributes.fetch(:registration_terms, translated_attribute(object.registration_terms)),
+          registration_type: attributes.fetch(:registration_type, object.registration_type),
           registration_url: attributes.fetch(:registration_url, object.registration_url),
-          taxonomies: attributes.fetch(:taxonomies, object.taxonomies.pluck(:id))
+          registrations_enabled: attributes.fetch(:registrations_enabled, object.registrations_enabled),
+          start_time: attributes.fetch(:start_time, object.start_time),
+          taxonomies: attributes.fetch(:taxonomies, object.taxonomies.pluck(:id)),
+          title: attributes.fetch(:title, translated_attribute(object.title)),
+          type_of_meeting: attributes.fetch(:type_of_meeting, object.type_of_meeting)
         }
       end
     end

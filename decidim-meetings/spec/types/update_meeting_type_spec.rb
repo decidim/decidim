@@ -42,20 +42,20 @@ module Decidim
           input: {
             locale:,
             attributes: {
-              title:,
-              description:,
-              location:,
-              startTime: start_time,
-              endTime: end_time,
               address:,
-              latitude:,
-              longitude:,
-              taxonomies: [taxonomy.id],
-              registrationType: registration_type,
               availableSlots: available_slots,
-              typeOfMeeting: type_of_meeting,
+              description:,
+              endTime: end_time,
+              latitude:,
+              location:,
+              longitude:,
               onlineMeetingUrl: online_meeting_url,
-              registrationTerms: registration_terms
+              registrationTerms: registration_terms,
+              registrationType: registration_type,
+              startTime: start_time,
+              taxonomies: [taxonomy.id],
+              title:,
+              typeOfMeeting: type_of_meeting
             }
           }
         }
@@ -65,15 +65,15 @@ module Decidim
         <<~GRAPHQL
           mutation($input: UpdateMeetingInput!) {
             update(input: $input) {
+              address
               id
-              title { translation(locale: "en") }
               description { translation(locale: "en") }
               location { translation(locale: "en") }
-              startTime
               endTime
-              address
               registrationType
+              startTime
               taxonomies { id }
+              title { translation(locale: "en") }
             }
           }
         GRAPHQL
@@ -240,14 +240,14 @@ module Decidim
                 input: {
                   locale:,
                   attributes: {
-                    title: "Only title updated",
                     description:,
-                    taxonomies: [taxonomy.id],
-                    startTime: start_time,
                     endTime: end_time,
+                    onlineMeetingUrl: online_meeting_url,
                     registrationType: registration_type,
-                    typeOfMeeting: type_of_meeting,
-                    onlineMeetingUrl: online_meeting_url
+                    startTime: start_time,
+                    taxonomies: [taxonomy.id],
+                    title: "Only title updated",
+                    typeOfMeeting: type_of_meeting
                   }
                 }
               }

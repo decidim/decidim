@@ -20,21 +20,21 @@ module Decidim
           :available_slots,
           :description,
           :end_time,
+          :iframe_access_level,
+          :iframe_embed_type,
           :latitude,
-          :longitude,
           :location,
           :location_hints,
+          :longitude,
           :online_meeting_url,
           :registration_terms,
           :registration_type,
           :registration_url,
+          :registrations_enabled,
           :start_time,
-          :title,
           :taxonomies,
-          :type_of_meeting,
-          :iframe_access_level,
-          :iframe_embed_type,
-          :registrations_enabled
+          :title,
+          :type_of_meeting
         )
 
         params[:taxonomies] = Decidim::Taxonomy.where(organization: current_organization, id: params[:taxonomies]).pluck(:id) if params[:taxonomies]

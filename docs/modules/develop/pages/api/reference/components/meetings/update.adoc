@@ -8,7 +8,6 @@ When you want to update your meetings component, you need to rely on the `Meetin
 ----
 • address               (optional) - String
 • available_slots       (optional) - Int
-• title                 (required) - String
 • description           (required) - String
 • end_time              (required) - DateTime
 • latitude              (optional) - coordinate
@@ -22,6 +21,7 @@ When you want to update your meetings component, you need to rely on the `Meetin
 • registrations_enabled (optional) - Boolean
 • start_time            (required) - DateTime
 • taxonomies            (optional) - Taxonomy ids to assign to this meeting
+• title                 (required) - String
 • type_of_meeting       (required) - TypeOfMeeting
 ----
 
