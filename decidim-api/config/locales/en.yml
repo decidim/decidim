@@ -1,0 +1,6 @@
+---
+en:
+  decidim:
+    api:
+      errors:
+        recursion_limit_exceeded_error: Too many recursions detected in query

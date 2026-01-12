@@ -2,12 +2,18 @@
 
 module Decidim
   module Api
+
+    autoload :RecursionAnalyzer, "decidim/api/recursion_analyzer"
     autoload :QueryType, "decidim/api/query_type"
     autoload :MutationType, "decidim/api/mutation_type"
     autoload :Schema, "decidim/api/schema"
     autoload :RequiredScopes, "decidim/api/required_scopes"
     autoload :GraphqlPermissions, "decidim/api/graphql_permissions"
     autoload :ComponentMutationType, "decidim/api/component_mutation_type"
+
+    module Errors
+      autoload :RecursionLimitExceededError, "decidim/api/errors/recursion_limit_exceeded_error"
+    end
 
     module Types
       autoload :BaseArgument, "decidim/api/types/base_argument"
