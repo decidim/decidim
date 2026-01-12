@@ -32,10 +32,13 @@ export default Mention.extend({
 
     return {
       ...parentOptions,
-      renderLabel({ node }) {
-        // The labels are formed based on the nicknames returned by the API
+      renderText({ node }) {
+        // The text is formed based on the nicknames returned by the API
         // which already contain the suggestion character, so there is no need
         // to display it twice.
+        return `${node.attrs.label ?? node.attrs.id}`
+      },
+      renderHTML({ node }) {
         return `${node.attrs.label ?? node.attrs.id}`
       },
       suggestion: {
