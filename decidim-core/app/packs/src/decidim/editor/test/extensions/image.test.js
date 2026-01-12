@@ -283,9 +283,9 @@ describe("Image", () => {
       });
 
       editorElement.focus();
-      await updateContent(editorElement,
-        '<div class="editor-content-image" data-image=""><img src="/path/to/image.jpg" alt="Test text"></div>'
-      );
+
+      editor.commands.setImage({ src: "/path/to/image.jpg", alt: "alt text" });
+      await sleep(0);
     });
     describe("with mouse", () => behavesLikeImageResizer("mouse"));
 
