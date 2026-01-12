@@ -1,6 +1,6 @@
 = Recursion limit error - RECURSION_LIMIT_EXCEEDED_ERROR
 
-Is triggered when your query uses a GraphQL circular reference for more than 2 times.
+This error is triggered when your query uses a GraphQL circular reference for more than two times.
 
 *Solution*: Remove the circular reference
 

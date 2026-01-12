@@ -7,7 +7,7 @@ At the moment there are 4 categories of exceptions that are being handled:
 == System Errors
 * xref:develop:api/reference/errors/too_many_aliases_error.adoc[Too many aliases error - TOO_MANY_ALIASES_ERROR] - is triggered when your query uses too many aliases.
 * xref:develop:api/reference/errors/recursion_limit_exceeded_error.adoc[Recursion limit error - RECURSION_LIMIT_EXCEEDED_ERROR] - is triggered when your query uses a GraphQL circular reference for more than two times.
-* xref:develop:api/reference/errors/introspection_disabled_error.adoc[Introspection disabled error - INTROSPECTION_DISABLED_ERROR] - is triggered when there is a user that tries to run the introspections, and he does not have the permission.
+* xref:develop:api/reference/errors/introspection_disabled_error.adoc[Introspection disabled error - INTROSPECTION_DISABLED_ERROR] - is triggered when a user attempts to run introspection and they do not have the required permissions.
 
 == Authorization errors
 

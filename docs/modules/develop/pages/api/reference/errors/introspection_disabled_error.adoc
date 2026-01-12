@@ -1,6 +1,6 @@
 = Introspection disabled error - INTROSPECTION_DISABLED_ERROR
 
-Is triggered when there is a user that tries to run the introspections, and he does not have the permission.
+This error is triggered when a user tries to run introspections and they do not have the required permissions.
 
 The JSON response structure is:
 [source, json]

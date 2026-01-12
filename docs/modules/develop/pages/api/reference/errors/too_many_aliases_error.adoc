@@ -1,6 +1,6 @@
 = Too many Aliases error - TOO_MANY_ALIASES_ERROR
 
-This error is being triggered when your query has too many aliases.
+This error is triggered when your query has too many aliases.
 To avoid this, you should do any of the following:
 
 - Simplify the query
