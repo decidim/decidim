@@ -67,6 +67,87 @@ module Decidim
 
           it { is_expected.to be_valid }
         end
+
+        describe "banner_image validation" do
+        
+          context "when form is not persisted and initiative_type is nil in context" do
+            let(:attributes) do
+              {
+                title:,
+                description: Decidim::Faker::Localized.sentence(word_count: 25),
+                online_signature_enabled: false,
+                attachments_enabled: true,
+                custom_signature_end_date_enabled: true,
+                undo_online_signatures_enabled: false,
+                area_enabled: false,
+                comments_enabled:,
+                promoting_committee_enabled:,
+                minimum_committee_members:
+                
+              }
+            end
+            let(:context) do
+              {
+                current_organization: organization,
+                current_component: nil
+              
+              }
+            end
+
+            it "is invalid" do
+              expect(subject).to be_invalid
+            end
+
+            it "has an error on banner_image" do
+              subject.valid?
+              expect(subject.errors[:banner_image]).not_to be_empty
+            end
+          end
+
+          context "when form is persisted (from_model)" do
+            subject { described_class.from_model(initiatives_type).with_context(context) }
+
+            let(:context) do
+              {
+                current_organization: organization,
+                current_component: nil
+              }
+            end
+
+            it "is valid even without banner_image" do
+              expect(subject).to be_valid
+            end
+          end
+
+          context "when initiative_type is present in context" do
+            let(:attributes) do
+              {
+                title:,
+                description: Decidim::Faker::Localized.sentence(word_count: 25),
+                online_signature_enabled: false,
+                attachments_enabled: true,
+                custom_signature_end_date_enabled: true,
+                undo_online_signatures_enabled: false,
+                area_enabled: false,
+                comments_enabled:,
+                promoting_committee_enabled:,
+                minimum_committee_members:
+              
+              }
+            end
+            let(:context) do
+              {
+                current_organization: organization,
+                current_component: nil,
+                initiative_type: initiatives_type
+              }
+            end
+
+            it "is valid even without banner_image" do
+              expect(subject).to be_valid
+            end
+          end
+        end
       end
     end
   end
