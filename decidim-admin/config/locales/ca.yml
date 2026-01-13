@@ -584,6 +584,7 @@ ca:
           error: S'ha produït un error en eliminar una participant participada d'aquest espai participació.
           success: Accés com a membre eliminat correctament.
         edit:
+          title: Editar membre
           update: Actualizar
         index:
           import_via_csv: Importar des de CSV
@@ -592,6 +593,7 @@ ca:
           unpublish_all: Despublicar totes
         new:
           create: Crear
+          title: Nova membre
         publish_all:
           error: S'ha produït un error en publicar totes les membres d'aquest espai de participació.
           success: S'han publicat correctament totes les membres d'aquest espai de participació
