@@ -277,11 +277,13 @@ describe "Editor" do
       within prosemirror_selector do
         find("a").double_click
       end
+      sleep 0.5
       within "[data-dialog][aria-hidden='false']" do
         fill_in "Link URL", with: "https://docs.decidim.org"
         select "Default (same tab)", from: "Target"
         find("button[data-action='save']").click
       end
+      sleep 0.2
       expect_value(
         <<~HTML
           <p>Hello, world!</p>
