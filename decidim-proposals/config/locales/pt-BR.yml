@@ -10,13 +10,21 @@ pt-BR:
         scope_id: Escopo
         state: Estado
         title: Título
+      evaluation_assignment:
+        admin_log:
+          evaluator_role_id: Nome do avaliador
+      import_participatory_text:
+        document: Documento
       proposal:
         address: Endereço
         answer: Responda
         answered_at: Respondido em
         body: Corpo
+        decidim_proposals_proposal_state_id: Estado
         decidim_scope_id: Escopo
         has_address: Tem endereço
+        latitude: Latitude
+        longitude: Longitude
         scope_id: Escopo
         state: Estado
         title: Título
@@ -25,8 +33,24 @@ pt-BR:
         cost: Custo
         cost_report: Relatório de custos
         execution_period: Período de execução
+      proposal_state:
+        announcement_title: Título da resposta
+        bg_color: Cor de fundo
+        colors:
+          blue: Azul
+          gray: Cinza
+          green: Verde
+          orange: Laranja
+          pink: Rosa
+          purple: Roxo
+          red: Vermelho
+          yellow: Amarelo
+        text_color: Cor do texto
       proposals_copy:
+        copy_proposals: Entendo que isso importará todas as propostas do componente selecionado para o componente atual e que essa ação não pode ser desfeita.
         origin_component_id: Componente para copiar as propostas de
+      proposals_file_import:
+        file: Arquivo
       proposals_import:
         import_proposals: Importar propostas
         keep_answers: Manter o estado e as respostas
@@ -48,13 +72,35 @@ pt-BR:
               identical: E o título não pode ser idêntico
             title:
               identical: E o corpo não pode ser idêntico
+        proposals_merge:
+          attributes:
+            base:
+              not_official: Não são oficiais
+              voted: Já recebeu votos ou curtidas
+        proposals_split:
+          attributes:
+            base:
+              not_official: Não são oficiais
+              voted: Já recebeu votos ou curtidas
     models:
+      decidim/proposals/admin/update_proposal_taxonomies_event: Taxonomias da proposta alteradas
       decidim/proposals/creation_enabled_event: Criação de proposta ativada
+      decidim/proposals/liking_enabled_event: Curtir propostas ativado
       decidim/proposals/proposal_mentioned_event: Proposta mencionada
       decidim/proposals/publish_proposal_event: Proposta publicada
       decidim/proposals/voting_enabled_event: Proposta de votação ativada
   activerecord:
     models:
+      decidim:
+        proposals:
+          proposal:
+            budget_text: A proposta <span class="resource-link">%{link} foi criada</span>
+            import_from_proposal_text: 'Foi tornado esta proposta: %{link}'
+            import_to_proposal_text: A proposta <span "resource-link">%{link} foi criada</span>
+            merge_from_proposal_text: 'Foi tornado esta proposta: %{link}'
+            merge_to_proposal_text: 'Esta proposta foi criada: %{link}'
+            split_from_proposal_text: 'Foi tornado esta proposta: %{link}'
+            split_to_proposal_text: 'Esta proposta foi criada: %{link}'
       decidim/proposals/collaborative_draft:
         one: Rascunho colaborativo
         other: Rascunhos colaborativos
@@ -69,13 +115,20 @@ pt-BR:
         other: Votos
   decidim:
     admin:
+      admin_log:
+        changeset:
+          proposals: Propostas
       filters:
         proposals:
+          evaluator_role_ids_has:
+            label: Atribuído ao avaliador
           is_emendation_true:
             label: Tipo
             values:
               'false': Propostas
               'true': Emendas
+          proposal_state_id_eq:
+            label: Estado
           state_eq:
             label: Estado
             values:
@@ -86,14 +139,27 @@ pt-BR:
               rejected: Rejeitado
               validating: Validação técnica
               withdrawn: Retirado
+          taxonomies_part_of_contains:
+            label: Taxonomia
           with_any_state:
+            label: Respondido
             values:
               state_not_published: Não respondido
+              state_published: Respondido
+      tooltips:
+        cannot_edit_proposal_info: Não é possível editar esta proposta, pois ela foi criada por um participante ou já recebeu votos
+        deleted_proposal_states_info: Não é possível excluir o estado desta proposta porque há propostas atribuídas a ela
+        deleted_proposals_info: Não é possível excluir esta proposta
+    application:
+      geocoding:
+        not_configured: Geocodificação não está configurado!
     components:
       proposals:
         actions:
           amend: Alterar
           comment: Comentar
+          create: Criar uma proposta
+          like: Curtir
           vote: Voto
           vote_comment: Votar no documento
           withdraw: retirar o
@@ -105,10 +171,17 @@ pt-BR:
             amendments_wizard_help_text: Texto de ajuda do Assistente
             announcement: Anúncio
             attachments_allowed: Permitir anexos
+            attachments_allowed_help: Ao ativar esta opção, as propostas serão predefinidas no modo de grade, e a primeira imagem aparecerá no cartão.
+            can_accumulate_votes_beyond_threshold: Pode acumular votos além do limite
+            clear_all: Limpar tudo
             collaborative_drafts_enabled: Rascunhos colaborativos ativados
+            collaborative_drafts_enabled_help: O recurso de Rascunhos colaborativos será removido no Decidim v0.32. As organizações que o usam, podem alternar para o novo recurso de co-autoria de proposta.
             comments_enabled: Comentários ativados
             comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
+            default_sort_order: Classificação de proposta padrão
+            default_sort_order_help: Automático significa que, se os votos estiverem habilitados, as propostas serão mostradas por ordem aleatória, e se as votações estiverem bloqueadas, serão ordenadas pela maioria das votações.
             default_sort_order_options:
+              automatic: Automático
               most_commented: Mais comentado
             minimum_votes_per_user: Mínimo de votos por usuário
             new_proposal_body_template: Novo modelo de corpo da proposta
@@ -156,6 +229,18 @@ pt-BR:
         admin:
           proposal_note_created:
             email_subject: Alguém deixou uma nota na proposta %{resource_title}.
+        coauthor_accepted_invite:
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> aceitou seu convite para se tornar um co-autor da proposta <a href="%{resource_path}">%{resource_title}</a>.
+        coauthor_invited:
+          actions:
+            accept: Aceitar
+            decline: Recusar
+          email_intro: 'Você foi convidado para ser um co-autor da proposta "%{resource_title}". Você pode aceitar ou recusar o convite nesta página:'
+          email_outro: Você recebeu esta notificação porque o autor da proposta quer reconhecer suas contribuições tornando-se um co-autor.
+          email_subject: Você foi convidado para ser um co-autor da proposta "%{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name}</a> gostaria de convidá-lo como co-autor da proposta <a href="%{resource_path}">%{resource_title}</a>.
+        coauthor_rejected_invite:
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> recusou seu convite para se tornar um co-autor da proposta <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} foi aceito para acessar como colaborador do rascunho colaborativo <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Você recebeu esta notificação porque é colaborador de <a href="%{resource_url}">%{resource_title}</a>.
@@ -190,11 +275,21 @@ pt-BR:
           email_intro: 'Agora você pode criar novas propostas em %{participatory_space_title}! Comece a participar nesta página:'
           email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
           email_subject: Propostas agora disponíveis em %{participatory_space_title}
+          notification_title: Agora você pode apresentar <a href="%{resource_path}">novas propostas</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+        liking_enabled:
+          email_intro: 'Você pode curtir propostas em %{participatory_space_title}! Comece a participar nesta página:'
+          email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
+          email_subject: A curtida nas propostas começou por %{participatory_space_title}
+          notification_title: Agora você pode começar a<a href="%{resource_path}">curtir propostas</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
           email_intro: Sua proposta "%{mentioned_proposal_title}" foi mencionada <a href="%{resource_url}">neste espaço</a> nos comentários.
           email_outro: Você recebeu esta notificação porque é um autor de "%{resource_title}".
           email_subject: Sua proposta "%{mentioned_proposal_title}" foi mencionada
           notification_title: Sua proposta "%{mentioned_proposal_title}" foi mencionada <a href="%{resource_path}">neste espaço</a> nos comentários.
+        proposal_merged:
+          email_intro: 'Um administrador incorporou sua proposta "%{resource_title}", confira nesta página:'
+          email_outro: Você recebeu esta notificação porque você é o autor da proposta.
+          email_subject: A proposta %{resource_title} foi incorporada
         proposal_published:
           email_intro: '%{author_name} %{author_nickname}, que você está seguindo, publicou uma nova proposta chamada "%{resource_title}". Confira e contribua:'
           email_outro: Você recebeu esta notificação porque está seguindo %{author_nickname}. Você pode parar de receber notificações após o link anterior.
