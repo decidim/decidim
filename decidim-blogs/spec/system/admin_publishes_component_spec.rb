@@ -2,9 +2,9 @@
 
 require "spec_helper"
 
-describe "AdminAccess" do
+describe "Admin publishes component" do
   let(:manifest_name) { "blogs" }
-  let!(:post) { create(:post, component:) }
+  let!(:resource) { create(:post, component:) }
 
   include_context "when publishes and unpublishes component"
 end

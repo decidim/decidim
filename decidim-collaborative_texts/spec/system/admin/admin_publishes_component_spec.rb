@@ -2,9 +2,9 @@
 
 require "spec_helper"
 
-describe "AdminAccess" do
+describe "Admin publishes component" do
   let(:manifest_name) { "collaborative_texts" }
-  let!(:collaborative_text_document) { create(:collaborative_text_document, component:) }
+  let!(:resource) { create(:collaborative_text_document, component:) }
 
   include_context "when publishes and unpublishes component"
 end
