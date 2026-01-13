@@ -161,7 +161,7 @@ The following hooks are being fired when an action is being done in the admin we
 
 - `:create` - A new component is being created
 - `:publish` - A component is being published
-- `:unpublish` - A component is being published
+- `:unpublish` - A component is being unpublished
 - `:update` - A component is being updated
 - `:permission_update` - The component permissions are being changed
 - `:duplicate` - A component is being copied
