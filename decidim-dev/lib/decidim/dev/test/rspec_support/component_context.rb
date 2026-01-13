@@ -118,8 +118,70 @@ end
 shared_context "when publishes and unpublishes component" do
   let(:title) { translated(current_component.name) }
 
+  context "when component is unpublished" do
+    before do
+      component.unpublish!
+      component.participatory_space.try_add_to_index_as_search_resource
+
+      visit current_path
+    end
+
+    it "" do
+      perform_enqueued_jobs
+      expect(Decidim::SearchableResource.where(resource:).count).to be_zero
+
+      expect(page).to have_content("The component has been successfully unpublished")
+
+      within "tr", text: title do
+        find("button[data-controller='dropdown']").click
+        click_on "Publish"
+      end
+
+      expect(page).to have_content("The component has been successfully published")
+
+      perform_enqueued_jobs
+
+      expect(Decidim::SearchableResource.where(resource:).count).to be_positive
+      expect(component.reload).to be_published
+    end
+  end
+
+  context "when component is published" do
+    before do
+      component.publish!
+      component.participatory_space.try_add_to_index_as_search_resource
+
+      visit current_path
+    end
+
+    it "" do
+      expect(Decidim::SearchableResource.where(resource:).count).to be_positive
+
+      within ".sidebar-menu" do
+        click_on "Components"
+      end
+
+      within "tr", text: title do
+        find("button[data-controller='dropdown']").click
+        click_on "Hide from menu"
+      end
+
+      within "tr", text: title do
+        find("button[data-controller='dropdown']").click
+        click_on "Unpublish"
+      end
+
+      expect(page).to have_content("The component has been successfully unpublished")
+
+      perform_enqueued_jobs
+
+      expect(Decidim::SearchableResource.where(resource:).count).to be_zero
+      expect(component.reload).not_to be_published
+    end
+  end
+
   include_context "when managing a component as an admin" do
-    it "unpublishes and publishes the component successfully" do
+    it "cycles through unpublished and published states successfully" do
       within ".sidebar-menu" do
         click_on "Components"
       end
