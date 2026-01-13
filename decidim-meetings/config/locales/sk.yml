@@ -310,7 +310,7 @@ sk:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Minulé schôdze
-        see_all: Zobraziť všetky (%{count})
+        see_all: Zobraziť všetky stretnutia
         upcoming_meetings: Nadchádzajúce schôdzky
     resource_links:
       meetings_through_proposals:
