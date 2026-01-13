@@ -27,21 +27,14 @@ const searchResources = async (queryText) => {
 
 export default Mention.extend({
   name: "mentionResource",
-
   addOptions() {
     const options = this.parent?.();
     const suggestion = options?.suggestion;
-
     return {
       ...options,
       renderText({ node }) {
-        // The labels are formed based on the titles returned by the API
-        // which already contain the suggestion character, so there is no need
-        // to display it twice.
-        return `${node.attrs.label ?? node.attrs.id}`
-      },
-      renderHTML({ node }) {
-        return `${node.attrs.label ?? node.attrs.id}`
+        // renderText is used to create the DOM representation
+        return node.attrs.label ?? node.attrs.id;
       },
       suggestion: {
         ...suggestion,
@@ -64,6 +57,19 @@ export default Mention.extend({
         })
       }
     };
+  },
+
+  renderHTML({ node }) {
+    // renderHTML is used for visual rendering getHTML()
+    return [
+      "span",
+      {
+        "data-type": "mentionResource",
+        "data-id": node.attrs.id,
+        "data-label": node.attrs.label
+      },
+      node.attrs.label ?? node.attrs.id
+    ];
   },
 
   addNodeView() {

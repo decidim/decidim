@@ -33,13 +33,9 @@ export default Mention.extend({
     return {
       ...parentOptions,
       renderText({ node }) {
-        // The text is formed based on the nicknames returned by the API
-        // which already contain the suggestion character, so there is no need
-        // to display it twice.
-        return `${node.attrs.label ?? node.attrs.id}`
-      },
-      renderHTML({ node }) {
-        return `${node.attrs.label ?? node.attrs.id}`
+        // renderText is used to create the DOM representation
+        const label = node.attrs.label ?? node.attrs.id;
+        return label;
       },
       suggestion: {
         ...parentOptions?.suggestion,
@@ -60,6 +56,20 @@ export default Mention.extend({
         })
       }
     };
+  },
+
+  renderHTML({ node }) {
+    // renderHTML is used for visual rendering getHTML()
+    const label = node.attrs.label ?? node.attrs.id;
+    return [
+      "span",
+      {
+        "data-type": "mention",
+        "data-id": node.attrs.id,
+        "data-label": node.attrs.label
+      },
+      label
+    ];
   },
 
   addNodeView() {
