@@ -16,14 +16,14 @@ Decidim.register_component(:accountability) do |component|
   end
 
   component.on(:publish) do |instance|
-    Decidim::Accountability::Result.where(component: instance).find_each do |result|
-      Decidim::UpdateSearchIndexesJob.perform_later([result])
+    Decidim::Accountability::Result.where(decidim_component_id: instance).find_in_batches(batch_size: 10) do |batch|
+      Decidim::UpdateSearchIndexesJob.perform_later(batch)
     end
   end
 
   component.on(:unpublish) do |instance|
-    Decidim::Accountability::Result.where(component: instance).find_each do |result|
-      Decidim::RemoveSearchIndexesJob.perform_later([result])
+    Decidim::Accountability::Result.where(decidim_component_id: instance).find_in_batches(batch_size: 10) do |batch|
+      Decidim::RemoveSearchIndexesJob.perform_later(batch)
     end
   end
 
