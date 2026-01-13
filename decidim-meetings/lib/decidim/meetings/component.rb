@@ -14,10 +14,6 @@ Decidim.register_component(:meetings) do |component|
     "Decidim::Meetings::Meeting"
   ]
 
-  component.on(:before_destroy) do |instance|
-    raise StandardError, "Cannot remove this component" if Decidim::Meetings::Meeting.where(component: instance).any?
-  end
-
   component.on(:publish) do |instance|
     Decidim::Meetings::Meeting.where(component: instance).find_in_batches(batch_size: 100) do |batch|
       Decidim::UpdateSearchIndexesJob.perform_later(batch)
