@@ -33,6 +33,7 @@ pt-BR:
         import_components: Importar componentes
         included_at: Incluído em
         instagram: Instagram
+        internal_organisation: Organização interna
         is_transparent: É transparente
         local_area: Área da organização
         meta_scope: Metadados do escopo
@@ -88,12 +89,15 @@ pt-BR:
   decidim:
     admin:
       actions:
+        confirm_delete_assembly: Tem certeza de que deseja excluir esta assembleia? Se mudar de ideia, você pode restaurá-lo mais tarde.
         import_assembly: Importar
         new_assembly: Nova assembleia
         new_assembly_user_role: Novo administrador da assembleia
+        view_deleted_assemblies: Ver assembleias excluídas
       assemblies:
         create:
           error: Ocorreu um erro ao criar uma nova assembleia.
+          success: Assembléia criada com sucesso. Agora você pode adicionar componentes e configurá-la.
         edit:
           update: Atualizar
         index:
@@ -101,15 +105,23 @@ pt-BR:
           public: Público
           published: Publicados
           unpublished: Despublicado
+        manage_trash:
+          title: Assembléias excluídas
         new:
           create: Criar
           title: Nova assembleia
         update:
           error: Ocorreu um erro ao atualizar esta assembleia.
           success: Assembleia atualizada com sucesso.
+      assemblies_copies:
+        create:
+          error: Ocorreu um erro ao duplicar esta assembleia.
+          success: Assembléia duplicada com sucesso.
       assembly_copies:
         new:
           copy: Cópia
+          select: Selecione quais dados você gostaria de duplicar
+          title: Duplicar assembléia
       assembly_imports:
         create:
           error: Ocorreu um erro ao importar esta assembleia.
@@ -191,9 +203,15 @@ pt-BR:
             collaborator: Colaborador
             moderator: Moderador
             valuator: Avaliador
+      taxonomy_filters:
+        space_filter_for:
+          assemblies: Todas as assembléias
       titles:
         assemblies: Assembleias
+        assemblies_deleted: Assembleias excluídas
         assemblies_types: Tipos de assembleia
+      tooltips:
+        deleted_assemblies_info: Uma assembleia só pode ser excluída se o status for "Não publicada".
     admin_log:
       assembly:
         create: "%{user_name} criou a assembleia %{resource_name}"
@@ -201,6 +219,8 @@ pt-BR:
         export: "%{user_name} exportou a assembleia %{resource_name}"
         import: "%{user_name} importou a assembleia %{resource_name}"
         publish: "%{user_name} publicou a assembleia %{resource_name}"
+        restore: "%{user_name} restaurou a assembleia %{resource_name}"
+        soft_delete: "%{user_name} movido para a lixeira da assembleia %{resource_name}"
         unpublish: "%{user_name} não desplublicou a assembleia %{resource_name}"
         update: "%{user_name} atualizou a assembleia %{resource_name}"
       assembly_member:
@@ -224,17 +244,21 @@ pt-BR:
         assemblies:
           form:
             announcement_help: O texto que você inserir aqui será mostrado ao usuário logo abaixo das informações de assembleia.
+            define_taxonomy_filters: Por favor, defina alguns filtros para este espaço participativo antes de usar esta configuração.
             duration: Duração
             duration_help: Se a duração dessa assembleia for limitada, selecione a data final. Caso contrário, aparecerá como indefinido.
             images: Imagens
             included_at_help: Selecione a data em que a assambleia foi adicionada à plataforma. Não precisa necessariamente ser o mesmo que a data de criação.
             metadata: Metadados
+            no_taxonomy_filters_found: Nenhum filtro de taxonomia encontrado.
             other: De outros
             select_a_created_by: Selecione um criado por
             select_parent_assembly: Selecione a assembleia mãe
             slug_help_html: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
             social_handlers: Social
+            taxonomies: Taxonomias
             title: Informação geral
+            visibility: Visibilidade
         assembly_copies:
           form:
             slug_help_html: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
@@ -244,6 +268,7 @@ pt-BR:
         assembly_members:
           form:
             explanation: 'Orientação para a imagem:'
+            image_guide: Preferencialmente, uma imagem de retrato que não tem nenhum texto.
             non_user_avatar_help: Você deve receber o consentimento das pessoas antes de publicá-las como membro.
         content_blocks:
           highlighted_assemblies:
@@ -321,6 +346,9 @@ pt-BR:
     assembly_members:
       index:
         title: Membros
+    download_your_data:
+      show:
+        assemblies: Exportação de assembléias
     events:
       assemblies:
         create_assembly_member:
@@ -353,6 +381,54 @@ pt-BR:
         description: Número de montagens criadas
         object: assembleias
         title: Assembleias
+    open_data:
+      help:
+        assemblies:
+          announcement: A informação de anúncio (chamada)
+          area: A área da assembleia
+          assembly_type: O tipo de assembleia
+          closing_date: A data de fechamento da assembleia
+          closing_date_reason: Porque a assembleia foi fechada
+          composition: A composição da assembleia
+          created_at: A data em que este espaço foi criado
+          created_by: Quem criou esta assembleia
+          created_by_other: Outro criador da assembleia
+          creation_date: A data de criação desta assembleia
+          decidim_scope_id: O escopo da assembleia
+          description: Uma longa descrição da assembleia
+          developer_group: O grupo de desenvolvedores da assembleia
+          duration: A duração da assembleia
+          facebook_handler: Manipulador de mídia social para Facebook
+          follows_count: O número de usuário seguindo este espaço
+          github_handler: Manipulador de mídia social para GitHub
+          id: O identificador único desta assembleia
+          included_at: A data de quando a assembleia foi incluído
+          instagram_handler: Manipulador de mídia social para Instagram
+          internal_organisation: A organização interna desta assembleia
+          is_transparent: Onde a assembleia é transparente ou não
+          local_area: A área local da assembleia
+          meta_scope: Os metadados do escopo da assembleia
+          participatory_scope: O escopo participativo da assembleia
+          participatory_structure: A estrutura participativa da assembleia
+          promoted: Se a assembleia é promovida ou não
+          published_at: A data que esse espaço foi publicado
+          purpose_of_action: O propósito da ação da assembleia
+          reference: A referência única do espaço
+          remote_banner_image_url: A URL da imagem do banner da assembleia
+          remote_hero_image_url: URL da imagem do herói assembleia
+          scope: O escopo da assembleia
+          scopes_enabled: Se os escopos estão habilitados ou não
+          short_description: Uma breve descrição da assembleia
+          slug: O slug da assembleia(usado para fins de identificação, para a URL)
+          special_features: Quais características especiais esta assembleia tem
+          subtitle: O subtítulo da assembleia
+          target: O alvo da assembleia
+          taxonomies: As taxonomias do projeto
+          title: Título da assembleia
+          twitter_handler: Manipulador de mídia social para Twitter
+          updated_at: A última data em que este espaço foi atualizado
+          url: A URL do espaço
+          youtube_handler: Manipulador de mídia social para o YouTube
     participatory_processes:
       show:
         related_assemblies: Assembleias Relacionadas
