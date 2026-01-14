@@ -986,7 +986,9 @@ cs:
             empty: Nemáte žádné soukromé účastníky.
             explanation: Máte %{count} soukromých účastníků.
             title: Odstranit soukromé účastníky
+          example_file: 'Příklad souboru:'
           title: Importovat soukromé účastníky přes CSV
+          upload: Nahrát
       reminders:
         create:
           error: Při vytváření připomenutí došlo k chybě.
@@ -1299,11 +1301,13 @@ cs:
           verify_via_csv: Ověřit pomocí CSV
       user_groups_csv_verifications:
         new:
+          example_file: 'Příklad souboru:'
           explanation: Nahrajte soubor CSV. Musí mít oficiální e-maily skupin ve vaší organizaci v prvním sloupci souboru bez záhlaví. Pouze skupiny, které potvrdily svůj e-mail a které mají e-mailovou adresu v souboru CSV, budou ověřeny.
           explanation_example: |
             acme@example.org
             bubba.gump@example.org
           title: Nahrát soubor CSV
+          upload: Nahrát
       users:
         create:
           error: Při pozvání tohoto administrátora došlo k chybě.
