@@ -66,10 +66,10 @@ module Decidim
           mutation($input: UpdateMeetingInput!) {
             update(input: $input) {
               address
-              id
               description { translation(locale: "en") }
-              location { translation(locale: "en") }
               endTime
+              id
+              location { translation(locale: "en") }
               registrationType
               startTime
               taxonomies { id }
