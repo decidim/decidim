@@ -1,3 +1,4 @@
+<div class="voting-booth" data-question-status-url="<%= url_for(action: :show, id: question, format: :json) %>">
 <%= form_with url: url_for(action: :show, id: question), method: :patch, local: true do %>
   <%= question_title(question, :h1, class: "vote_booth-question_title") %>
   <div class="editor-content">
@@ -28,3 +29,4 @@
     </div>
   </div>
 <% end %>
+</div>

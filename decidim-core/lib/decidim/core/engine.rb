@@ -241,13 +241,6 @@ module Decidim
         ENV["SHAKAPACKER_CONFIG"] = Decidim::Shakapacker.configuration.configuration_file
       end
 
-      # Rails 7.0 default is vips, but
-      # The `:mini_magick` option is not deprecated; it is fine to keep using it.
-      # And we are going to use it while migrating rails application
-      initializer "decidim_core.active_storage_variant_processor" do |app|
-        app.config.active_storage.variant_processor = :mini_magick
-      end
-
       initializer "decidim_core.setup_i18n" do |app|
         app.config.i18n.available_locales = Decidim.available_locales
         app.config.i18n.default_locale = Decidim.default_locale
