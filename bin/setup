@@ -21,7 +21,10 @@ FileUtils.chdir APP_ROOT do
   puts "\n== Preparing decidim development app =="
   system! "bundle exec rake development_app" unless Dir.exist?("development_app")
 
-  puts "\n== Restarting application server =="
+  puts "\n== Preparing database =="
+  system("bin/rails db:create")
+
+  puts "\n== Starting application server =="
   system! "bin/dev"
 
   # puts "\n== Configuring puma-dev =="
