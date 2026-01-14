@@ -44,6 +44,7 @@ module Decidim
 
         def notify_followers
           return if proposal.state == "not_answered"
+
           Decidim::EventsManager.publish(
             event: "decidim.events.proposals.proposal_state_changed",
             event_class: Decidim::Proposals::ProposalStateChangedEvent,
@@ -55,6 +56,7 @@ module Decidim
 
         def notify_authors
           return if proposal.state == "not_answered"
+
           Decidim::EventsManager.publish(
             event: "decidim.events.proposals.proposal_state_changed_for_authors",
             event_class: Decidim::Proposals::ProposalStateChangedEvent,
