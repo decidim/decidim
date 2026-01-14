@@ -18,13 +18,15 @@ The `UpdateProposal` mutation allows authenticated users to update proposals in 
 
 [source,graphql]
 ----
-mutation {
-  proposals {
-    proposal(id: "123") {
-      update(input: $input) {
-        id
-        title { translation(locale: "en") }
-        body { translation(locale: "en") }
+mutation updateProposal($componentId: ID!,$proposalId: ID!, $input: UpdateProposalInput!){
+  component(id: $componentId) {
+    ...on ProposalsMutation{
+		  proposal(id: $proposalId) {
+        update(input: $input) {
+          id
+          title { translation(locale: "en") }
+          body { translation(locale: "en") }
+        }
       }
     }
   }
@@ -36,7 +38,8 @@ Example of submitted variables
 [source,json]
 ----
 {
-  "componentId": 5,
+  "componentId": 9,
+  "proposalId": "140",
   "input": {
     "locale": "en",
     "attributes": {
