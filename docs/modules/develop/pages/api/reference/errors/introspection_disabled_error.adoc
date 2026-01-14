@@ -1,6 +1,6 @@
 = Introspection disabled error - INTROSPECTION_DISABLED_ERROR
 
-This error is triggered when a user tries to run introspections and they do not have the required permissions.
+This error is triggered when a user tries to run introspections, and they do not have the required permissions. By default, Decidim API allows administrators to run introspection queries but restricts them for regular users due to security concerns.
 
 The JSON response structure is:
 
