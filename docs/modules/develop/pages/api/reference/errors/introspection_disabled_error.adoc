@@ -3,6 +3,7 @@
 This error is triggered when a user tries to run introspections and they do not have the required permissions.
 
 The JSON response structure is:
+
 [source, json]
 ----
 {

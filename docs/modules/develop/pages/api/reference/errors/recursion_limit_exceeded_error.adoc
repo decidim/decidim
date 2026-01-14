@@ -5,6 +5,7 @@ This error is triggered when your query uses a GraphQL circular reference for mo
 *Solution*: Remove the circular reference
 
 The JSON response structure is:
+
 [source, json]
 ----
 {
