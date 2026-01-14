@@ -690,10 +690,8 @@ en:
             create: Import proposals
             no_components: There are no other proposal components in this participatory space to import the proposals from.
             select_component: Please select a component
-            select_states: Import only proposals with these statuses. If none are selected, all proposals will be imported
+            select_states: Import only proposals with these statuses, if none are selected, all proposals will be imported.
             title: Import proposals from another component
-            proposal_states: Proposal States
-            proposal_states_help: Select one or more proposal states to import into projects. By selecting none, you will import all published proposals that have not already been imported in other budgets from this component.
         proposals_merges:
           create:
             invalid: 'There was a problem merging the selected proposals because some of them:'
