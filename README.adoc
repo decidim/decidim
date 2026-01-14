@@ -29,7 +29,7 @@ image:https://img.shields.io/gem/dt/decidim.svg[Gem,link=https://rubygems.org/ge
 image:https://img.shields.io/github/contributors/decidim/decidim.svg[GitHub contributors,link=https://github.com/decidim/decidim/graphs/contributors]
 image:https://img.shields.io/matrix/decidimdevs:matrix.org[Matrix,link=https://matrix.to/#/#decidimdevs:matrix.org]
 image:https://codecov.io/gh/decidim/decidim/branch/develop/graph/badge.svg[codecov,link=https://codecov.io/gh/decidim/decidim]
-image:https://api.codeclimate.com/v1/badges/ad8fa445086e491486b6/maintainability[Maintainability,link=https://codeclimate.com/github/decidim/decidim/maintainability]
+image:https://qlty.sh/gh/decidim/projects/decidim/maintainability.svg[Maintainability,link=https://qlty.sh/gh/decidim/projects/decidim]
 image:https://d322cqt584bo4o.cloudfront.net/decidim/localized.svg[Crowdin,link=https://crowdin.com/project/decidim]
 image:https://opencollective.com/decidim/tiers/badge.svg[https://opencollective.com/decidim]
 image:http://img.shields.io/badge/yard-docs-blue.svg[Yard Docs,link=http://rubydoc.info/github/decidim/decidim/develop]
