@@ -2,7 +2,7 @@
 
 module Decidim
   module Api
-    module DecidimIntrospection
+    module IntrospectionAnalyzer
       module FieldVisibility
         extend ActiveSupport::Concern
 

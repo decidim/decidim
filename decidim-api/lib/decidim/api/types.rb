@@ -2,8 +2,9 @@
 
 module Decidim
   module Api
-    autoload :DecidimIntrospection, "decidim/api/decidim_introspection"
+    autoload :IntrospectionAnalyzer, "decidim/api/introspection_analyzer"
     autoload :AliasAnalyzer, "decidim/api/alias_analyzer"
+    autoload :RecursionAnalyzer, "decidim/api/recursion_analyzer"
     autoload :QueryType, "decidim/api/query_type"
     autoload :MutationType, "decidim/api/mutation_type"
     autoload :Schema, "decidim/api/schema"
@@ -23,6 +24,7 @@ module Decidim
       autoload :UnauthorizedFieldError, "decidim/api/errors/unauthorized_field_error"
       autoload :UnauthorizedObjectError, "decidim/api/errors/unauthorized_object_error"
       autoload :ValidationError, "decidim/api/errors/validation_error"
+      autoload :RecursionLimitExceededError, "decidim/api/errors/recursion_limit_exceeded_error"
     end
 
     module Types
