@@ -86,7 +86,7 @@ module Decidim
           context "without taxonomies" do
             let(:taxonomies) { [] }
 
-            it "creates a debate without taxonomies" do
+            it "updates a debate without taxonomies" do
               debate = response["update"]
               expect(debate).to be_present
               expect(debate["taxonomies"]).to be_empty
