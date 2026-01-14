@@ -609,6 +609,14 @@ cs:
         new:
           csv_upload:
             title: Nahrát soubor CSV
+          destroy:
+            button: Odstranit všechny členy
+            confirm: Opravdu chcete odstranit všechny členy? Tuto akci nelze vrátit zpět, nebudete ji moci obnovit.
+            empty: Nemáte žádné členy.
+            title: Smazat členy
+          example_file: 'Příklad souboru:'
+          title: Importovat členy přes CSV
+          upload: Nahrát
       menu:
         admin_log: Protokol aktivity správce
         admins: Administrátoři
@@ -667,6 +675,8 @@ cs:
             reason: Důvod
             started_at: Začalo v
             user: Účastník
+        member:
+          name: Člen
         newsletter:
           fields:
             created_at: Vytvořeno v
