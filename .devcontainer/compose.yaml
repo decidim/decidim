@@ -6,7 +6,7 @@ services:
       context: ..
       dockerfile: .devcontainer/Dockerfile
     volumes:
-    - ../../decidim:/workspaces/decidim:cached
+    - ../:/workspaces/decidim:cached
     - bundle-cache:/usr/local/bundle
     - node-modules-cache:/workspaces/decidim/node_modules
     command: sleep infinity
