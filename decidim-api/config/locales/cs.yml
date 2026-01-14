@@ -1,1 +1,6 @@
+---
 cs:
+  decidim:
+    api:
+      errors:
+        unauthorized_mutation: Nemáte oprávnění k provedení této mutace
