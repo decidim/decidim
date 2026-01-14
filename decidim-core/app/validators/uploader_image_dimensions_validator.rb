@@ -3,7 +3,7 @@
 # This validator checks when the files to be uploaded are images and the attached uploader's
 # has enabled dimensions validation that the image dimensions are below the
 # limit defined by the uploader
-require "mini_magick"
+require "vips"
 
 class UploaderImageDimensionsValidator < ActiveModel::Validations::FileContentTypeValidator
   def validate_each(record, attribute, value)
@@ -32,14 +32,12 @@ class UploaderImageDimensionsValidator < ActiveModel::Validations::FileContentTy
     # avoid reckless users that upload images with too many pixels.
     #
     # See https://hackerone.com/reports/390
-    record.errors.add attribute, I18n.t("decidim.errors.files.file_resolution_too_large") if image.dimensions.any? { |dimension| dimension > uploader.max_image_height_or_width }
-  rescue MiniMagick::Error
+    max_dimension = [image.width, image.height].max
+    record.errors.add attribute, I18n.t("decidim.errors.files.file_resolution_too_large") if max_dimension > uploader.max_image_height_or_width
+  rescue Vips::Error
     # The error may happen because of many reasons but most commonly the image
-    # exceeds the default maximum dimensions set for ImageMagick when the
-    # `identify` command fails to identify the image.
-    #
-    # To relax ImageMagick default limits, please refer to:
-    # https://imagemagick.org/script/security-policy.php
+    # exceeds the default maximum dimensions set for libvips when the image
+    # fails to load.
     #
     # Note that the error can also happen because of other reasons than only
     # the image dimensions being too large. But as we do not really know the
@@ -51,11 +49,11 @@ class UploaderImageDimensionsValidator < ActiveModel::Validations::FileContentTy
     return unless file.try(:content_type).to_s.start_with?("image")
 
     if uploaded_file?(file)
-      MiniMagick::Image.new(file.path, File.extname(file.original_filename))
+      Vips::Image.new_from_file(file.path)
     elsif file.is_a?(ActiveStorage::Attached) && file.blob.persisted?
-      MiniMagick::Image.read(file.blob.download, File.extname(file.blob.filename.to_s))
+      Vips::Image.new_from_buffer(file.blob.download, "")
     end
-  rescue ActiveStorage::FileNotFoundError, MiniMagick::Invalid
+  rescue ActiveStorage::FileNotFoundError, Vips::Error
     # Although the blob is persisted, the file is not available to download and analyze
     # after committing the record
     nil

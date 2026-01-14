@@ -220,6 +220,35 @@ describe "Decidim::Api::QueryType" do
     end
   end
 
+  context "when query exceeds recursion threshold" do
+    let(:component_fragment) do
+      %(
+      fragment fooComponent on Meetings {
+        meeting(id: #{meeting.id}){
+          agenda {
+            items {
+              agenda {
+                items {
+                  agenda {
+                    items { id }
+                  }
+                }
+              }
+            }
+          }
+        }
+        }
+      )
+    end
+
+    it "raises error Decidim::Api::Errors::TooManyRecursionsError" do
+      expect { response }.to raise_error(
+        Decidim::Api::Errors::RecursionLimitExceededError,
+        I18n.t("decidim.api.errors.recursion_limit_exceeded_error")
+      )
+    end
+  end
+
   describe "valid connection query" do
     let(:component_fragment) do
       %(

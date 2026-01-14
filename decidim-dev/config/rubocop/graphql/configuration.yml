@@ -19,7 +19,9 @@ GraphQL/ObjectDescription:
     - "**/lib/decidim/api/functions/*"
     - "**/lib/decidim/api/errors/*"
     - "decidim-api/lib/decidim/api/alias_analyzer.rb"
-    - "decidim-api/lib/decidim/api/decidim_introspection.rb"
+    - "decidim-api/lib/decidim/api/introspection_analyzer.rb"
+    - "decidim-api/lib/decidim/api/recursion_analyzer.rb"
+    - "decidim-api/spec/lib/decidim/api/recursion_analyzer_spec.rb"
     - "spec/**/*"
     - "test/**/*"
 
