@@ -69,7 +69,6 @@ module Decidim
         end
 
         describe "banner_image validation" do
-        
           context "when form is not persisted and initiative_type is nil in context" do
             let(:attributes) do
               {
@@ -83,14 +82,13 @@ module Decidim
                 comments_enabled:,
                 promoting_committee_enabled:,
                 minimum_committee_members:
-                
               }
             end
             let(:context) do
               {
                 current_organization: organization,
                 current_component: nil
-              
+
               }
             end
 
@@ -132,7 +130,6 @@ module Decidim
                 comments_enabled:,
                 promoting_committee_enabled:,
                 minimum_committee_members:
-              
               }
             end
             let(:context) do
