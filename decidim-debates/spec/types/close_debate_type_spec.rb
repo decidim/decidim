@@ -52,14 +52,14 @@ module Decidim
             closed = response["close"]
             expect(closed).to be_present
             expect(closed).to include(
-                                {
-                                  "id" => model.id.to_s,
-                                  "conclusions" => {
-                                    "translation" => conclusions
-                                  },
-                                  "closedAt" => model.reload.closed_at.to_time.iso8601
-                                }
-                              )
+              {
+                "id" => model.id.to_s,
+                "conclusions" => {
+                  "translation" => conclusions
+                },
+                "closedAt" => model.reload.closed_at.to_time.iso8601
+              }
+            )
           end
         end
 

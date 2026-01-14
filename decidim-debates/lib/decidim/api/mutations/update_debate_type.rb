@@ -8,54 +8,49 @@ module Decidim
       description "Updates a debate"
       type Decidim::Debates::DebateType
 
-      argument :attributes, UpdateDebateAttributes, description: "input attributes of a debate", required: true
+      argument :attributes, DebateAttributes, description: "input attributes of a debate", required: true
+      argument :locale, GraphQL::Types::String, "The locale for which to set the debate texts", required: true
+      argument :toggle_translations, GraphQL::Types::Boolean, "Whether the user asked to toggle the machine translations or not.", required: false, default_value: false
 
-      def resolve(attributes:)
-        title = attributes.to_h.fetch(:title, object.title.values.first)
-        description = attributes.to_h.fetch(:description, object.description.values.first)
-        taxonomy_ids = attributes.to_h.fetch(:taxonomy_ids, object.taxonomies.map(&:id))
+      def resolve(attributes:, locale:, toggle_translations:)
+        set_locale(locale:, toggle_translations:)
 
-        # Convert taxonomy IDs to taxonomy objects
-        taxonomies = taxonomy_ids.present? ? Decidim::Taxonomy.where(id: taxonomy_ids).to_a : []
+        params = extract_from(attributes)
+        params[:taxonomies] = Decidim::Taxonomy.where(organization: current_organization, id: params[:taxonomies]).pluck(:id) if params[:taxonomies]
 
-        params = {
-          title:,
-          description:,
-          taxonomies:,
-          id: object.id
-        }
-
-        form = Decidim::Debates::DebateForm.from_params(
-          params
-        ).with_context(
-          current_component: object.component,
-          current_user:,
-          current_organization: current_user.organization,
-          current_participatory_space: object.component.participatory_space
-        )
+        form = form(Decidim::Debates::DebateForm).from_params(params)
 
         UpdateDebate.call(form, object) do
           on(:ok) do
-            return object
-          end
-          on(:invalid) do
-            return GraphQL::ExecutionError.new(
-              form.errors.full_messages.join(", ")
-            )
+            return object.reload
           end
 
-          GraphQL::ExecutionError.new(
-            I18n.t("decidim.debates.update.invalid")
-          )
+          on(:invalid) do
+            raise Decidim::Api::Errors::AttributeValidationError, form.errors
+          end
         end
       end
 
-      def authorized?(attributes:)
-        super && allowed_to?(:edit, :debate, { debate: object }, context)
+      def authorized?(attributes:, locale:, toggle_translations:)
+        raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation") unless super && allowed_to?(:edit, :debate, object, context)
+
+        true
       end
 
-      def current_user
-        context[:current_user]
+      private
+
+      def extract_from(attributes)
+        attributes = attributes.to_h.compact
+
+        title = attributes.fetch(:title, translated_attribute(object.title))
+        description = attributes.fetch(:description, translated_attribute(object.description))
+        taxonomies = attributes.fetch(:taxonomies, object.taxonomies.pluck(:id))
+
+        {
+          title:,
+          description:,
+          taxonomies:
+        }
       end
     end
   end
