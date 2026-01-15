@@ -57,7 +57,7 @@ module Decidim
 
         def valid_states
           return if states.all? do |state|
-            states_collection.pluck(:token).include?(state)
+            available_states(origin_component_id).pluck(:token).include?(state)
           end
 
           errors.add(:states, :invalid)
