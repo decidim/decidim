@@ -35,8 +35,8 @@ module Decidim
       end
 
       def authorized?(attributes:)
-        raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation") unless super && allowed_to?(:create, :proposal_answer, object,
-                                                                                                                                               context, scope: :admin)
+        authorized = super && allowed_to?(:create, :proposal_answer, object, context, scope: :admin)
+        raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation") unless authorized
 
         true
       end
