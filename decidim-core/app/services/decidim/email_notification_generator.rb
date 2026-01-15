@@ -44,6 +44,7 @@ module Decidim
 
     def send_to_affected_users
       affected_users.each do |recipient|
+        next unless recipient.respond_to?(:notification_types)
         next unless ["all", "own-only"].include?(recipient.notification_types)
         next if recipient.deleted? || recipient.blocked?
 

@@ -42,8 +42,8 @@ module Decidim
           subject
         end
 
-        context "when the authors is notified too" do
-          it "notifies the proposal authors" do
+        context "when the creator_author needs to be notified" do
+          it "notifies the proposal to creator_author" do
             expect(Decidim::EventsManager)
               .to receive(:publish)
               .with(
@@ -86,8 +86,8 @@ module Decidim
             subject
           end
 
-          context "when the authors is notified too" do
-            it "notifies the proposal authors" do
+          context "when the creator_author needs to be notified" do
+            it "notifies the proposal to creator_author" do
               expect(Decidim::EventsManager)
                 .to receive(:publish)
                 .with(
@@ -124,8 +124,8 @@ module Decidim
             subject
           end
 
-          context "when the authors is notified too" do
-            it "does not notify the proposal authors" do
+          context "when the creator_author doesn't need to be notified" do
+            it "does not notify the proposal creator_author" do
               expect(Decidim::EventsManager)
                 .not_to receive(:publish)
 
@@ -152,8 +152,8 @@ module Decidim
             subject
           end
 
-          context "when the authors is notified too" do
-            it "does not notify the proposal authors" do
+          context "when the creator_author doesn't need to be notified" do
+            it "does not notify the proposal creator_author" do
               expect(Decidim::EventsManager)
                 .not_to receive(:publish)
 

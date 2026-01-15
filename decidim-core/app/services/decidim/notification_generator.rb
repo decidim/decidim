@@ -41,6 +41,7 @@ module Decidim
       end
 
       affected_users.each do |recipient|
+        next unless recipient.respond_to?(:notification_types)
         generate_notification_for(recipient, user_role: :affected_user) if ["all", "own-only"].include?(recipient.notification_types)
       end
     end
