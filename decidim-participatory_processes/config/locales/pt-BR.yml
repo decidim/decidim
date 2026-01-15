@@ -618,6 +618,193 @@ pt-BR:
         related_processes: Processos relacionados
       static_pages:
         democratic_quality_indicators:
+          content: |-
+            <h2>Sistema de indicadores para medir a qualidade dos processos participativos no Decidim.</h2>
+
+            <h3>Introdução</h3>
+            <p>A qualidade democrática é um princípio fundamental do Decidim. Para garantir isso, desenvolvemos um sistema de indicadores que auxilia na avaliação da qualidade dos processos participativos na plataforma. Este artigo explica como esses indicadores são calculados.</p>
+
+            <h3>Como os indicadores são calculados?</h3>
+            <p>Definimos dois métodos para coletar indicadores de qualidade:</p>
+
+            <ol>
+            <li><strong>Métricas automáticas:</strong> Essas métricas são calculadas diretamente a partir dos dados da plataforma Decidim.</li>
+            <li><strong>Questões de autoavaliação:</strong> Essas questões são baseadas em um formulário preenchido por um administrador.</li>
+            </ol>
+
+            <p>Cada indicador é expresso em porcentagem (n/total).</p> Essa porcentagem é então convertida em uma pontuação em uma escala de 1 a 5:</p>
+
+            <ul>
+            <li>1 = 0–20%</li>
+            <li>2 = 20–40%</li>
+            <li>3 = 40–60%</li>
+            <li>4 = 60–80%</li>
+            <li>5 = 80–100%</li>
+            </ul>
+
+            <br><br>
+            <h3>Métricas Automáticas</h3>
+            <p>Essas métricas são calculadas automaticamente a partir dos dados disponíveis no Decidim. Eles são avaliados por meio de um processo participativo e podem ser tornados públicos pelos administradores, para que todos os participantes possam acessá-los.</p>
+
+            <p>Definimos quatro indicadores principais: Influência Cidadã, Hibridização, Responsividade e Rastreabilidade:</p>
+
+            <h3>Influência Cidadã</h3>
+
+            <p>Este indicador mede o nível de influência cidadã nas propostas aceitas e nos resultados do processo.</p>
+
+            <ul>
+            <li>
+            Influência cidadã nas propostas
+            <ul>
+            <li>Percentual de propostas aceitas (n/total)</li>
+            <li>Percentual de propostas <em>cidadãs</em> aprovadas em relação ao total de propostas cidadãs (influência cidadã total nas propostas aprovadas)</li>
+            <li>Percentual de propostas cidadãs aprovadas em relação ao total de propostas aprovadas (influência cidadã relativa nas propostas aprovadas)</li>
+            </ul>
+            </li>
+            <li>
+            Influência cidadã nos resultados/produtos
+            <ul>
+            <li>Percentual de resultados vinculados a propostas cidadãs em relação ao total de resultados (influência total dos cidadãos nos resultados)</li>
+            </ul>
+            </li>
+            </ul>
+
+            <h3>Hibridização</h3>
+
+            <p>Este indicador mede o nível de combinação entre espaços online e offline durante o processo.</p>
+
+            <ul>
+            <li>Há algum componente de reunião ativo? (Sim=5, Não=0)</li>
+            <li>Há reuniões presenciais? (Sim=5, Não=0)</li>
+            <li>Há reuniões online? (Sim=5, Não=0)</li>
+            <li>Há reuniões híbridas? (Sim=5, Não=0)</li>
+            <li>Há propostas criadas a partir das reuniões? (Sim=5, Não=0)</li>
+            </ul>
+
+            <h3>Capacidade de resposta</h3>
+
+            <p>Este indicador mede o nível de capacidade de resposta da organização às contribuições dos participantes. Reflete o seu envolvimento através de respostas oficiais e decisões implementadas.</p>
+
+            <ul>
+            <li>Percentagem de propostas com respostas (n/total) – Responsividade institucional da proposta</li>
+            <li>Percentagem de resultados concluídos a 100% (n/total)</li>
+            </ul>
+
+            <h3>Rastreabilidade</h3>
+
+            <p>Este indicador mede a transparência e a rastreabilidade do processo participativo. Reflete a facilidade com que os participantes podem acompanhar a evolução das propostas e verificar as ações institucionais por meio de registros publicados.</p>
+
+            <ul>
+            <li>Número de propostas com histórico (n/total)</li>
+            <li>Percentual de resultados vinculados às propostas (n/total)</li>
+            <li>Percentual de reuniões encerradas com atas publicadas (n/total)</li>
+            <li>Ativação do módulo de dados abertos (dicotômico: 0 ou 5)</li>
+            <li>Percentual de propostas relacionadas a orçamentos (n/total)</li>
+            </ul>
+
+            <br><br>
+            <h3>Métricas de autoavaliação</h3>
+
+            <p>Além das métricas automáticas, propomos o uso de um <strong>formulário de autoavaliação</strong> para avaliar as dimensões qualitativas de cada processo participativo. Este formulário será preenchido pelos administradores da plataforma ao final de cada processo, e as respostas serão exibidas publicamente no bloco de conteúdo de indicadores.</p>
+
+            <p>Estas perguntas visam capturar aspectos da qualidade democrática que não podem ser avaliados apenas por meio de dados quantitativos. É importante observar que as respostas a esta pesquisa são influenciadas pela opinião dos administradores da plataforma.</p>
+
+            <br><br>
+            <h3>Perguntas de autoavaliação</h3>
+
+            <p>As perguntas que compõem o formulário de autoavaliação respondido pelos administradores, bem como os valores associados a cada resposta, estão descritos abaixo.</p>
+
+            <h4>Informação<h4></h4>
+
+            <ol>
+            <li>As informações publicadas fornecem clareza sobre os mecanismos de tomada de decisão (por exemplo, votação, consenso, negociações diretas)?
+
+            <ul>
+            <li>Sem clareza = 0</li>
+            <li>Baixa clareza = 1</li>
+            <li>Clareza suficiente = 2,5</li>
+            <li>Clareza total = 5</li>
+            </ul>
+            </li>
+            <li>Foram fornecidas informações sobre a capacidade dos participantes de influenciar o tema em discussão (tanto na comunicação do processo e dos convites, quanto no início de cada sessão de debate)?
+
+            <ul>
+            <li>Nunca = 0</li>
+            <li>Quase nunca = 1</li>
+            <li>Geralmente = 2,5</li>
+            <li>Sempre = 5</li>
+            </ul>
+            </li>
+            </ol>
+
+            <h4>Influência dos cidadãos</h4>
+
+            <ol>
+            <li>Avaliação do grau de participação no processo
+            <ul>
+            <li>Os participantes receberam informações da organização. = 1</li>
+            <li>Os participantes foram consultados ou deram feedback à organização. = 2</li>
+            <li>Os participantes estiveram envolvidos na partilha do poder de decisão. = 3</li>
+            <li>Os participantes estiveram envolvidos de forma decisiva na tomada de decisão. = 4</li>
+            <li>Os participantes estiveram envolvidos na tomada de decisão e na gestão de recursos ou na implementação. = 5</li>
+            </ul>
+            </li>
+            <li>Percentagem de fases com 0-5 de intervenção decisória dos cidadãos.
+
+            <p>De todas as fases do processo (da seleção de questões à supervisão da execução), em quantas o público tem a capacidade de tomar decisões ou realizar ações executivas?</p>
+            <ul>
+            <li>0-20% = 1</li>
+            <li>20-40% = 2</li>
+            <li>40-60% = 3</li>
+            <li>60-80% = 4</li>
+            <li>80-100% = 5</li>
+            </ul>
+            </li>
+            </ol>
+
+            <h4>Inclusão</h4>
+
+            <ol>
+            <li>Como é avaliado o grau de diversidade dos agentes e participantes em relação à população de referência no processo?
+
+            <ul>
+            <li>Nenhum = 0</li>
+            <li>Baixo = 1</li>
+            <li>Suficiente = 2,5</li>
+            <li>Bom = 5</li>
+            </ul>
+            </li>
+            <li>Em quantos idiomas o processo foi comunicado?
+
+            <ul>
+            <li>Um idioma = 1</li>
+            <li>Menos da metade dos idiomas falados na comunidade = 2,5</li>
+            <li>Mais da metade dos idiomas falados na comunidade = 5</li>
+            </ul>
+            </li>
+            <li>Os locais das reuniões presenciais eram acessíveis a pessoas com mobilidade reduzida?
+
+            <ul>
+            <li>Não = 0</li>
+            <li>Parcialmente = 2,5</li>
+            <li>Sim = 5</li>
+            </ul>
+            </li>
+            <li>As sessões de participação foram agendadas em horários variados (manhã, meio-dia, tarde, noite e fins de semana). <ul>
+            <li>Não = 0</li>
+            <li>Parcialmente = 2,5</li>
+            <li>Sim = 5</li>
+            </ul>
+            </li>
+            <li>Foi oferecido suporte digital aos participantes?
+
+            <ul>
+            <li>Não = 0</li>
+            <li>Parcialmente = 2,5</li>
+            <li>Sim = 5</li>
+            </ul>
+            </li>
+            </ol>
           title: Indicadores de qualidade democráticos
     statistics:
       processes_count: Processos
