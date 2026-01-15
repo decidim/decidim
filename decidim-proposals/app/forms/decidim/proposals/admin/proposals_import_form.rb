@@ -10,13 +10,11 @@ module Decidim
         mimic :proposals_import
 
         attribute :origin_component_id, Integer
-        attribute :import_proposals, Boolean
         attribute :keep_answers, Boolean
         attribute :keep_authors, Boolean
         attribute :states, Array[String]
 
         validates :origin_component_id, :origin_component, :states, :current_component, presence: true
-        validates :import_proposals, allow_nil: false, acceptance: true
         validate :valid_states
 
         def states_collection
