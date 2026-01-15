@@ -966,7 +966,9 @@ cs:
             empty: Nemáte žádné soukromé účastníky.
             explanation: Máte %{count} soukromých účastníků.
             title: Odstranit soukromé účastníky
+          example_file: 'Příklad souboru:'
           title: Importovat soukromé účastníky přes CSV
+          upload: Nahrát
       reminders:
         create:
           error: Při vytváření připomenutí došlo k chybě.
