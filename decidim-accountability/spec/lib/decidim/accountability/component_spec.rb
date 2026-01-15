@@ -21,4 +21,40 @@ describe "Accountability component" do # rubocop:disable RSpec/DescribeClass
       it_behaves_like "has mandatory config setting", :comments_max_length
     end
   end
+
+  describe "hooks" do
+    let!(:results) { create_list(:result, 5, component:) }
+
+    describe "publish" do
+      let(:component) { create(:accountability_component, published_at: nil) }
+
+      it "adds the results to search index" do
+        expect(Decidim::SearchableResource.where(resource: results)).to be_empty
+        component.publish!
+
+        perform_enqueued_jobs do
+          component.manifest.run_hooks(:publish, component)
+        end
+
+        expect(Decidim::SearchableResource.where(resource: results)).to be_present
+        # 3 languages multiplied by 5 results
+        expect(Decidim::SearchableResource.where(resource: results).count).to eq(15)
+      end
+    end
+
+    describe "unpublish" do
+      it "removes the results from search index" do
+        # 3 languages multiplied by 5 results
+        expect(Decidim::SearchableResource.where(resource: results).count).to eq(15)
+        expect(Decidim::SearchableResource.where(resource: results)).to be_present
+        component.unpublish!
+
+        perform_enqueued_jobs do
+          component.manifest.run_hooks(:publish, component)
+        end
+
+        expect(Decidim::SearchableResource.where(resource: results)).to be_empty
+      end
+    end
+  end
 end

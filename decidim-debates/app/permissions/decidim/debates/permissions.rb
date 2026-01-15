@@ -31,6 +31,8 @@ module Decidim
       private
 
       def can_create_debate?
+        return false unless user
+
         authorized?(:create) &&
           current_settings&.creation_enabled? && component.participatory_space.can_participate?(user)
       end

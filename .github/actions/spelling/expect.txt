@@ -226,6 +226,7 @@ douban
 downvoted
 downvotes
 downvoting
+DPG
 draggables
 dragula
 drinkform
@@ -467,6 +468,7 @@ libpq
 libreadline
 libreoffice
 libretranslate
+libvips
 libyaml
 Liddel
 lighthouserc

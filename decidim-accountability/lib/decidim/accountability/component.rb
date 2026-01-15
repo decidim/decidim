@@ -15,6 +15,18 @@ Decidim.register_component(:accountability) do |component|
     raise StandardError, "Cannot remove this component" if Decidim::Accountability::Result.where(component: instance).any?
   end
 
+  component.on(:publish) do |instance|
+    Decidim::Accountability::Result.where(component: instance).find_in_batches(batch_size: 10) do |batch|
+      Decidim::UpdateSearchIndexesJob.perform_later(batch)
+    end
+  end
+
+  component.on(:unpublish) do |instance|
+    Decidim::Accountability::Result.where(component: instance).find_in_batches(batch_size: 10) do |batch|
+      Decidim::RemoveSearchIndexesJob.perform_later(batch)
+    end
+  end
+
   # These actions permissions can be configured in the admin panel
   component.actions = %w(comment vote_comment)
 
@@ -22,7 +34,7 @@ Decidim.register_component(:accountability) do |component|
     resource.model_class_name = "Decidim::Accountability::Result"
     resource.template = "decidim/accountability/results/linked_results"
     resource.card = "decidim/accountability/result"
-    resource.searchable = false
+    resource.searchable = true
     resource.actions = %w(comment vote_comment)
   end
 
