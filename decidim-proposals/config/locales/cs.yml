@@ -153,6 +153,8 @@ cs:
               state_published: Odpovězeno
         search_placeholder:
           id_string_or_title_cont: Hledat %{collection} podle ID nebo názvu
+      tooltips:
+        deleted_proposals_info: Tento návrh nelze odstranit
     application:
       geocoding:
         not_configured: Geocoding není nakonfigurován!
@@ -336,6 +338,8 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Návrhy jsou nyní k dispozici v %{participatory_space_title}
           notification_title: Nyní můžete předložit <a href="%{resource_path}">nové návrhy</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+        liking_enabled:
+          email_outro: Obdrželi jste toto oznámení, protože sledujete %{participatory_space_title}. Můžete přestat přijímat oznámení na předchozím odkazu.
         proposal_mentioned:
           email_intro: Váš návrh "%{mentioned_proposal_title}" byl zmíněn <a href="%{resource_url}">v této skupině</a> v komentářích.
           email_outro: Toto oznámení jste obdrželi, protože jste autorem položky "%{resource_title}".
