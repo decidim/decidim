@@ -124,7 +124,7 @@ module Decidim
             subject
           end
 
-          context "when the creator_author doesn't need to be notified" do
+          context "when the creator_author does not need to be notified" do
             it "does not notify the proposal creator_author" do
               expect(Decidim::EventsManager)
                 .not_to receive(:publish)
@@ -152,7 +152,7 @@ module Decidim
             subject
           end
 
-          context "when the creator_author doesn't need to be notified" do
+          context "when the creator_author does not need to be notified" do
             it "does not notify the proposal creator_author" do
               expect(Decidim::EventsManager)
                 .not_to receive(:publish)
