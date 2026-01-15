@@ -39,13 +39,15 @@ module Decidim
 
       after_save :update_parent_progress, if: -> { parent_id.present? }
 
-      searchable_fields(
-        scope_id: :decidim_scope_id,
-        participatory_space: { component: :participatory_space },
-        A: :title,
-        D: :description,
-        datetime: :start_date
-      )
+      searchable_fields({
+                          scope_id: :decidim_scope_id,
+                          participatory_space: { component: :participatory_space },
+                          A: :title,
+                          D: :description,
+                          datetime: :start_date
+                        },
+                        index_on_create: ->(result) { result.visible? },
+                        index_on_update: ->(result) { result.visible? })
 
       geocoded_by :address
 

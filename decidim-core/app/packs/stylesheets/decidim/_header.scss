@@ -125,6 +125,12 @@ header {
         }
       }
 
+      .card__highlight-img {
+        svg {
+          @apply w-full h-full;
+        }
+      }
+
       &__dropdown {
         @apply flex items-end absolute top-0 right-0 z-30 h-screen;
 
@@ -629,7 +635,11 @@ header {
         @apply flex-col ring-transparent rounded-lg shadow-[1px_4px_8px_3px_rgba(0,0,0,0.15)];
 
         &-img {
-          @apply w-full aspect-[3/1] rounded-tl-lg rounded-tr-lg;
+          @apply w-full aspect-[21/9] rounded-none rounded-tl-lg rounded-tr-lg;
+
+          svg {
+            @apply fill-primary;
+          }
         }
 
         &-text {
