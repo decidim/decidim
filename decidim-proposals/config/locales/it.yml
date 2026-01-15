@@ -194,6 +194,7 @@ it:
           email_intro: 'Puoi sostenere proposte in %{participatory_space_title}! Inizia a partecipare a questa pagina:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche facendo click su pulsante Smetti di seguire nella pagina del processo che stai seguendo.
           email_subject: L'approvazione delle proposte è iniziata per %{participatory_space_title}
+          notification_title: Da adesso puoi iniziare <a href="%{resource_path}">a sottoscrivere proposte</a> su <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
           email_intro: La tua proposta%{mentioned_proposal_title}" è stata menzionata <a href="%{resource_url}">in questo spazio</a> nei commenti.
           email_outro: Hai ricevuto questa notifica perché sei un autore di "%{resource_title}".
@@ -362,6 +363,11 @@ it:
         proposals_splits:
           create:
             success: Suddiviso con successo le proposte in nuove.
+        valuation_assignments:
+          create:
+            success: Proposte assegnate ad un valutatore con successo.
+          delete:
+            success: Valutatore disassegnato dalle proposte con successo.
       admin_log:
         proposal:
           answer: "%{user_name} ha risposto alla proposta %{resource_name} sullo spazio %{space_name}"
