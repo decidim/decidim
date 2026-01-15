@@ -199,7 +199,7 @@ Decidim.register_component(:my_component) do |my_component|
 end
 ----
 
-In some cases, you could define your own component hooks like follows:
+In some cases, you could define your own component hooks like the following:
 
 [source,ruby]
 ----
@@ -211,11 +211,11 @@ Decidim.register_component(:my_component) do |my_component|
 end
 ----
 
-Then you could call it in your codebase as follows:
+Then you could call it in your codebase as the following:
 
 [source,ruby]
 ----
-# ... Some code that you have
+# ... Some code that you may have
 @my_resource.component.run_hooks(:my_action, params)
 # ... Some other code you may need
 ----
