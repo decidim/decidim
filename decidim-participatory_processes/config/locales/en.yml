@@ -102,6 +102,11 @@ en:
         unpublish: Unpublish
         view_deleted_processes: View deleted processes
       filters:
+        with_any_access_mode:
+          label: Access mode
+          values:
+            open: Open
+            restricted: Restricted
         decidim_participatory_process_group_id_eq:
           label: By process group
       menu:

@@ -164,6 +164,12 @@ en:
             'true': Ceased
         search_placeholder:
           full_name_or_user_name_or_user_nickname_cont: Search by name or nickname
+        with_any_access_mode:
+          label: Access mode
+          values:
+            open: Open
+            restricted: Restricted
+            transparent: Transparent
       menu:
         assemblies: Assemblies
         assemblies_submenu:

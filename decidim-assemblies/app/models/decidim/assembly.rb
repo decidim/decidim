@@ -92,7 +92,10 @@ module Decidim
                       index_on_create: ->(_assembly) { false },
                       index_on_update: ->(assembly) { assembly.visible? })
 
-    enum :access_mode, { open: 0, transparent: 1, restricted: 2 }
+    ACCESS_MODES = { open: 0, transparent: 1, restricted: 2 }.freeze
+    enum :access_mode, ACCESS_MODES
+
+    scope_search_multi :with_any_access_mode, ACCESS_MODES.keys
 
     # Overwriting existing method Decidim::ParticipatorySpace::HasMembers.public_spaces
     def self.public_spaces
@@ -159,7 +162,7 @@ module Decidim
     end
 
     def self.ransackable_scopes(_auth_object = nil)
-      [:with_any_taxonomies]
+      [:with_any_taxonomies, :with_any_access_mode]
     end
 
     def shareable_url(share_token)

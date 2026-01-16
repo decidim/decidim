@@ -19,7 +19,7 @@ module Decidim
 
           def filters
             [
-              :private_space_eq,
+              :with_any_access_mode,
               :published_at_null,
               :decidim_participatory_process_group_id_eq
             ]
@@ -27,7 +27,7 @@ module Decidim
 
           def filters_with_values
             {
-              private_space_eq: [true, false],
+              with_any_access_mode: access_modes,
               published_at_null: [true, false],
               decidim_participatory_process_group_id_eq: OrganizationParticipatoryProcessGroups.new(current_organization).pluck(:id)
             }
@@ -39,6 +39,12 @@ module Decidim
 
           def translated_decidim_participatory_process_group_id_eq(id)
             translated_attribute(Decidim::ParticipatoryProcessGroup.find(id).title)
+          end
+
+          private
+
+          def access_modes
+            ParticipatoryProcess::ACCESS_MODES
           end
         end
       end
