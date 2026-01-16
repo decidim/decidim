@@ -659,6 +659,7 @@ PGVERSION
 Phargo
 phoe
 pinterest
+pids
 Placeholdit
 plantuml
 plataforma
