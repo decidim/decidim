@@ -21,11 +21,9 @@ describe ReindexResults do
         let!(:results) { create_list(:result, 2, component:) }
 
         it "those are added to index" do
-          pp enqueued_jobs
           Decidim::SearchableResource.delete_all
 
           expect(Decidim::SearchableResource.where(resource: results)).to be_empty
-          pp enqueued_jobs
           perform_enqueued_jobs { migrator.migrate(:up) }
           Decidim::SearchableResource.where(resource: results)
           pp enqueued_jobs
