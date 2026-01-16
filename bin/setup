@@ -31,9 +31,5 @@ FileUtils.chdir APP_ROOT do
 
   puts "\n== Starting application server =="
   system! "bin/dev"
-
-  # puts "\n== Configuring puma-dev =="
-  # system "ln -nfs #{APP_ROOT} ~/.puma-dev/#{APP_NAME}"
-  # system "curl -Is https://#{APP_NAME}.test/up | head -n 1"
 end
 
