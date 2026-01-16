@@ -81,7 +81,7 @@ export const updateContent = async (editable, content, editor) => {
     // Allows the proper use of TipTap's setContent method
     editor.commands.setContent(content);
   } else {
-    // Fallback for cases where editor isn't available
+    // Fallback for cases where editor is not available
     editable.innerHTML = content;
   }
   await sleep(50);
