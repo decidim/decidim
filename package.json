@@ -30,7 +30,8 @@
   "dependencies": {
     "@decidim/browserslist-config": "file:packages/browserslist-config",
     "@decidim/core": "file:packages/core",
-    "@decidim/webpacker": "file:packages/webpacker"
+    "@decidim/webpacker": "file:packages/webpacker",
+    "glob": "^10.5.0"
   },
   "devDependencies": {
     "@decidim/dev": "file:packages/dev",
