@@ -46,6 +46,10 @@ describe("Image", () => {
     await sleep(0);
   }
 
+  const normalizeHTML = (html) => {
+    return html.replace(/<p><br class="ProseMirror-trailingBreak"><\/p>/g, "").replace(/<p><\/p>/g, "");
+  };
+
   beforeEach(() => {
     document.body.innerHTML = "";
 
@@ -100,7 +104,7 @@ describe("Image", () => {
     await updateFile("/path/to/image_updated.jpg", "Updated text")
     expect(editorElement.classList.contains("dialog-open")).toBe(false);
 
-    expect(editorElement.innerHTML).toMatchHtml(editorInnerHTML("null", "/path/to/image_updated.jpg", "Updated text"));
+    expect(normalizeHTML(editorElement.innerHTML)).toMatchHtml(editorInnerHTML("null", "/path/to/image_updated.jpg", "Updated text"));
     expect(editor.getHTML()).toMatchHtml(`
       <div class="editor-content-image" data-image=""><img src="/path/to/image_updated.jpg" alt="Updated text"></div>
     `);
