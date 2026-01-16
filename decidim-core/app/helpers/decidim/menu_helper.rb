@@ -73,7 +73,7 @@ module Decidim
     end
 
     def remove_private_space_if_not_member(process)
-      return nil if process.private_space == true && !process.can_participate?(current_user)
+      return nil if process.restricted? && !process.can_participate?(current_user)
 
       process
     end

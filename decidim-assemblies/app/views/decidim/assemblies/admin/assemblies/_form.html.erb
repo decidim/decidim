@@ -205,13 +205,24 @@
         <%= form.check_box :has_members, help_text: t(".has_members_help") %>
       </div>
 
-      <div class="row column" id="private_space">
-        <%= form.check_box :private_space %>
-        <p class="help-text"><%= t(".private_notice") %></p>
-      </div>
-
-      <div class="row column" id="is_transparent">
-        <%= form.check_box :is_transparent %>
+      <div class="row column" id="access_mode">
+        <legend>
+          <%= t("access.label", scope: "decidim.assemblies.admin.assemblies.form") %>
+        </legend>
+        <div class="radio-group">
+          <%= label_tag nil, class: "form__wrapper-checkbox-label" do %>
+            <%= form.radio_button :access_mode, :open %>
+            <span><%= t("access.options.open", scope: "decidim.assemblies.admin.assemblies.form") %></span>
+          <% end %>
+          <%= label_tag nil, class: "form__wrapper-checkbox-label" do %>
+            <%= form.radio_button :access_mode, :transparent %>
+            <%= t("access.options.transparent", scope: "decidim.assemblies.admin.assemblies.form") %>
+          <% end %>
+          <%= label_tag nil, class: "form__wrapper-checkbox-label" do %>
+            <%= form.radio_button :access_mode, :restricted %>
+            <%= t("access.options.restricted", scope: "decidim.assemblies.admin.assemblies.form") %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

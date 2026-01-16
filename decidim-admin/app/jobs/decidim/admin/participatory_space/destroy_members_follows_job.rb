@@ -7,11 +7,9 @@ module Decidim
         queue_as :default
 
         def perform(decidim_user_id, space)
-          return unless space.respond_to?(:private_space?)
-
-          return unless space.private_space?
-
-          return if space.respond_to?(:is_transparent) && space.is_transparent?
+          return unless space.respond_to?(:restricted?) || space.respond_to?(:transparent)
+          return unless space.restricted?
+          return if space.transparent?
 
           user = Decidim::User.find_by(id: decidim_user_id)
 

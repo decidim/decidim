@@ -102,7 +102,7 @@ module Decidim
       # - is published
       # - is not private
       def visible?
-        published? && !try(:private_space?)
+        published? && (try(:open?) || try(:transparent?))
       end
 
       # Defines a way to get the user roles for the current participatory space.

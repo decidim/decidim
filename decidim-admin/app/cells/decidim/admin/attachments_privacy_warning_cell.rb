@@ -8,11 +8,11 @@ module Decidim
       private
 
       def private_space?
-        current_participatory_space.private_space if current_participatory_space.respond_to?(:private_space)
+        current_participatory_space.restricted? || current_participatory_space.transparent?
       end
 
       def transparent_space?
-        current_participatory_space.is_transparent if current_participatory_space.respond_to?(:is_transparent)
+        current_participatory_space.transparent?
       end
     end
   end

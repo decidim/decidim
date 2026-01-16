@@ -124,6 +124,7 @@ en:
       models:
         participatory_process:
           fields:
+            access_mode: Access mode
             actions: Actions
             created_at: Created at
             private: Private
@@ -243,8 +244,9 @@ en:
         edit:
           update: Update
         index:
-          private: Private
-          public: Public
+          access_modes:
+            open: Open
+            restricted: Restricted
           published: Published
           unpublished: Unpublished
         manage_trash:
@@ -514,7 +516,11 @@ en:
             images: Images
             metadata: Metadata
             no_taxonomy_filters_found: No taxonomy filters found.
-            private_notice: Makes the space not visible for visitors and only for members (except if it is also transparent)
+            access:
+              label: Access
+              options:
+                open: "everyone can see the process and participate."
+                restricted: "only members can see and participate."
             related_processes: Related processes
             select_process_group: Select a process group
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'

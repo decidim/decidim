@@ -45,10 +45,9 @@ module Decidim
         attribute :participatory_processes_ids, Array[Integer]
         attribute :weight, Integer, default: 0
 
+        attribute :access_mode, String
         attribute :has_members, Boolean
-        attribute :is_transparent, Boolean
         attribute :promoted, Boolean
-        attribute :private_space, Boolean
 
         attribute :closing_date, Decidim::Attributes::LocalizedDate
         attribute :creation_date, Decidim::Attributes::LocalizedDate

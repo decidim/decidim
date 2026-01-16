@@ -101,8 +101,10 @@ en:
         edit:
           update: Update
         index:
-          private: Private
-          public: Public
+          access_modes:
+            open: Open
+            restricted: Restricted
+            transparent: Transparent
           published: Published
           unpublished: Unpublished
         manage_trash:
@@ -178,6 +180,7 @@ en:
       models:
         assembly:
           fields:
+            access_mode: Access mode
             actions: Actions
             created_at: Created at
             private: Private
@@ -256,7 +259,12 @@ en:
             metadata: Metadata
             no_taxonomy_filters_found: No taxonomy filters found.
             other: Other
-            private_notice: Makes the space not visible for visitors and only for members (except if it is also transparent)
+            access:
+              label: Access
+              options:
+                open: "everyone can see the process or assembly and participate."
+                transparent: "everyone can see the process or assembly, but only members can participate."
+                restricted: "only members can see and participate."
             select_a_created_by: Select a created by
             select_parent_assembly: Select parent assembly
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'

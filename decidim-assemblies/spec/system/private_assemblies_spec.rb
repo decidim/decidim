@@ -14,7 +14,7 @@ describe "Private Assemblies" do
 
   context "when there are private assemblies" do
     context "and the assembly is transparent" do
-      let!(:private_assembly) { create(:assembly, :published, organization:, private_space: true, is_transparent: true) }
+      let!(:private_assembly) { create(:assembly, :published, organization:, access_mode: :transparent) }
 
       context "and no user is logged in" do
         before do
@@ -76,7 +76,7 @@ describe "Private Assemblies" do
     end
 
     context "when the assembly is not transparent" do
-      let!(:private_assembly) { create(:assembly, :published, organization:, private_space: true, is_transparent: false) }
+      let!(:private_assembly) { create(:assembly, :published, organization:, access_mode: :restricted) }
 
       context "and no user is logged in" do
         before do

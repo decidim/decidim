@@ -71,6 +71,8 @@ module Decidim
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
 
+    enum :access_mode, { open: 0, restricted: 2 }
+
     has_one_attached :hero_image
     validates_upload :hero_image, uploader: Decidim::HeroImageUploader
 
@@ -216,7 +218,7 @@ module Decidim
       base = %w(title short_description description id)
       return base unless auth_object&.admin?
 
-      base + %w(private_space published_at created_at decidim_participatory_process_group_id)
+      base + %w(published_at created_at decidim_participatory_process_group_id access_mode)
     end
 
     def self.ransackable_associations(_auth_object = nil)

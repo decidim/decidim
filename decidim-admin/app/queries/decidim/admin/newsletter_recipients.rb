@@ -122,7 +122,7 @@ module Decidim
       def private_spaces
         return [] if spaces.blank?
 
-        spaces.select { |space| space.try(:private_space?) }
+        spaces.select { |space| space.try(:restricted?) || space.try(:transparent?) }
       end
 
       def private_member_ids

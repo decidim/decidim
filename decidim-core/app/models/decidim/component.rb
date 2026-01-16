@@ -103,7 +103,8 @@ module Decidim
     def can_participate_in_space?(user)
       return false unless published?
       return false unless participatory_space.published?
-      return true unless participatory_space.try(:private_space?)
+
+      return true unless participatory_space.restricted? || participatory_space.transparent?
       return false unless user
 
       participatory_space.can_participate?(user)
@@ -111,14 +112,7 @@ module Decidim
     alias can_participate? can_participate_in_space?
 
     def private_non_transparent_space?
-      return false unless participatory_space.respond_to?(:private_space?)
-      return false unless participatory_space.private_space?
-
-      if participatory_space.respond_to?(:is_transparent?)
-        !participatory_space.is_transparent?
-      else
-        true
-      end
+      participatory_space.restricted?
     end
 
     # Public: Public URL for component with given share token as query parameter

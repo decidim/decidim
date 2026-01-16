@@ -92,9 +92,11 @@ module Decidim
                       index_on_create: ->(_assembly) { false },
                       index_on_update: ->(assembly) { assembly.visible? })
 
+    enum :access_mode, { open: 0, transparent: 1, restricted: 2 }
+
     # Overwriting existing method Decidim::ParticipatorySpace::HasMembers.public_spaces
     def self.public_spaces
-      where(private_space: false).or(where(private_space: true).where(is_transparent: true)).published
+      open.transparent.published
     end
 
     # Scope to return only the promoted assemblies.
@@ -120,7 +122,7 @@ module Decidim
 
     # This is a overwrite for Decidim::ParticipatorySpaceResourceable.visible?
     def visible?
-      published? && (!private_space? || (private_space? && is_transparent?))
+      published? && (open? || transparent?)
     end
 
     def to_param
@@ -169,7 +171,7 @@ module Decidim
 
       return base unless auth_object&.admin?
 
-      base + %w(published_at created_at private_space parent_id)
+      base + %w(published_at created_at parent_id access_mode)
     end
 
     def self.ransackable_associations(_auth_object = nil)

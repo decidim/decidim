@@ -31,8 +31,8 @@ module Decidim
         attribute :related_process_ids, Array[Integer]
         attribute :weight, Integer, default: 0
 
+        attribute :access_mode, String
         attribute :has_members, Boolean
-        attribute :private_space, Boolean
         attribute :promoted, Boolean
 
         attribute :end_date, Decidim::Attributes::LocalizedDate
