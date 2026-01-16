@@ -96,7 +96,8 @@ describe("Image", () => {
   it("editing setting the image through the dialog", async () => {
     editorElement.focus();
     await updateContent(editorElement,
-      '<div class="editor-content-image" data-image=""><img src="/path/to/image.jpg" alt="Test text"></div>'
+      '<div class="editor-content-image" data-image=""><img src="/path/to/image.jpg" alt="Test text"></div>',
+      editor
     );
 
     editor.commands.imageDialog();
@@ -113,16 +114,26 @@ describe("Image", () => {
   it("allows double clicking the image", async () => {
     editorElement.focus();
     await updateContent(editorElement,
-      '<div class="editor-content-image" data-image=""><img src="/path/to/image.jpg" alt="Test text"></div>'
+      '<div class="editor-content-image" data-image=""><img src="/path/to/image.jpg" alt="Test text"></div>',
+      editor
     );
 
     jest.spyOn(uploadDialogElement.dialog, "open");
 
     // Position calculations do not work with JSDom / Jest
-    editor.view.posAtCoords = jest.fn().mockReturnValue({ pos: 1, inside: -1 });
-    editorElement.dispatchEvent(new MouseEvent("mousedown", { button: 0, clientX: 10, clientY: 10 }));
-    editorElement.dispatchEvent(new MouseEvent("mousedown", { button: 0, clientX: 10, clientY: 10 }));
-    await updateFile("/path/to/image_updated.jpg", "Updated text")
+    editor.view.posAtCoords = jest.fn().mockReturnValue({ pos: 0, inside: 0 });
+
+    const mockEvent = new MouseEvent("dblclick", {
+      button: 0,
+      clientX: 10,
+      clientY: 10
+    });
+
+    editor.view.someProp("handleDoubleClick", (click) => click(editor.view, 0, mockEvent));
+
+    await sleep(0);
+
+    await updateFile("/path/to/image_updated.jpg", "Updated text");
 
     expect(uploadDialogElement.dialog.open).toHaveBeenCalled();
     expect(editor.getHTML()).toMatchHtml(`
