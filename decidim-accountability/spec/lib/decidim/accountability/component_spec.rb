@@ -36,7 +36,7 @@ describe "Accountability component" do # rubocop:disable RSpec/DescribeClass
         expect(Decidim::SearchableResource.where(resource: results)).to be_empty
         component.publish!
 
-        perform_enqueued_jobs do
+        perform_enqueued_jobs(only: Decidim::UpdateSearchIndexesJob) do
           component.manifest.run_hooks(:publish, component)
         end
 
@@ -53,7 +53,7 @@ describe "Accountability component" do # rubocop:disable RSpec/DescribeClass
         expect(Decidim::SearchableResource.where(resource: results)).to be_present
         component.unpublish!
 
-        perform_enqueued_jobs do
+        perform_enqueued_jobs(only: Decidim::UpdateSearchIndexesJob) do
           component.manifest.run_hooks(:publish, component)
         end
 
