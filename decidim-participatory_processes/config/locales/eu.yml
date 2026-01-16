@@ -313,7 +313,7 @@ eu:
       participatory_process:
         role_assigned:
           email_intro: '%{role} rola esleitu zaizu <a href="%{resource_title}"> partaidetza-prozesuan.'
-          email_outro: Jakinarazpen hau jaso duzu %{role} rola esleitu zaizu "%{resource_title}" espazioan.
+          email_outro: Jakinarazpen hau jaso duzu %{role} rola esleitu zaizulako "%{resource_title}" espazioan.
           email_subject: '%{role} rola esleitu zaizu hemen "%{resource_title}".'
           notification_title: '%{role} rola esleitu zaizu <a href="%{resource_url}">%{resource_title}</a> partaidetza-prozesuan.'
         step_activated:
