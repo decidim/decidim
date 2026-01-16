@@ -25,6 +25,10 @@ describe "Accountability component" do # rubocop:disable RSpec/DescribeClass
   describe "hooks" do
     let!(:results) { create_list(:result, 5, component:) }
 
+    before do
+      clear_enqueued_jobs
+    end
+
     describe "publish" do
       let(:component) { create(:accountability_component, published_at: nil) }
 
