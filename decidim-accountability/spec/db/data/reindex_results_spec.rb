@@ -9,6 +9,7 @@ describe ReindexResults do
       m.verbose = false
     end
   end
+
   before do
     clear_enqueued_jobs
   end
@@ -25,8 +26,6 @@ describe ReindexResults do
 
           expect(Decidim::SearchableResource.where(resource: results)).to be_empty
           perform_enqueued_jobs { migrator.migrate(:up) }
-          Decidim::SearchableResource.where(resource: results)
-          pp enqueued_jobs
           expect(Decidim::SearchableResource.where(resource: results)).not_to be_empty
           # 3 languages multiplied by 2 results
           expect(Decidim::SearchableResource.where(resource: results).count).to eq(6)
