@@ -9,6 +9,9 @@ describe ReindexResults do
       m.verbose = false
     end
   end
+  before do
+    clear_enqueued_jobs
+  end
 
   describe "#up" do
     context "when the component is published" do
@@ -18,10 +21,14 @@ describe ReindexResults do
         let!(:results) { create_list(:result, 2, component:) }
 
         it "those are added to index" do
+          pp enqueued_jobs
           Decidim::SearchableResource.delete_all
 
           expect(Decidim::SearchableResource.where(resource: results)).to be_empty
+          pp enqueued_jobs
           perform_enqueued_jobs { migrator.migrate(:up) }
+          Decidim::SearchableResource.where(resource: results)
+          pp enqueued_jobs
           expect(Decidim::SearchableResource.where(resource: results)).not_to be_empty
           # 3 languages multiplied by 2 results
           expect(Decidim::SearchableResource.where(resource: results).count).to eq(6)
