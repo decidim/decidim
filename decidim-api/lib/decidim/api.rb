@@ -32,7 +32,7 @@ module Decidim
     # If you are not sure, leave it set to false. In this way only administrator users will be able to access the introspection query.
     # Otherwise, anyone can access it, causing security issues.
     config_accessor :enable_anonymous_introspection do
-      ENV.fetch("DECIDIM_API_ENABLE_ANONYMOUS_INTROSPECTION", nil) === "true"
+      ENV.fetch("DECIDIM_API_ENABLE_ANONYMOUS_INTROSPECTION", nil) == "true"
     end
 
     # This declares all the types an interface or union can resolve to. This needs
