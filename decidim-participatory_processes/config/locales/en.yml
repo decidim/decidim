@@ -106,6 +106,7 @@ en:
           label: Access mode
           values:
             open: Open
+            transparent: Transparent
             restricted: Restricted
         decidim_participatory_process_group_id_eq:
           label: By process group
@@ -251,6 +252,7 @@ en:
         index:
           access_modes:
             open: Open
+            transparent: Transparent
             restricted: Restricted
           published: Published
           unpublished: Unpublished
@@ -525,6 +527,7 @@ en:
               label: Access
               options:
                 open: "everyone can see the process and participate."
+                transparent: "everyone can see the process, but only members can participate."
                 restricted: "only members can see and participate."
             related_processes: Related processes
             select_process_group: Select a process group

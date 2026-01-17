@@ -71,7 +71,7 @@ module Decidim
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
 
-    ACCESS_MODES = { open: 0, restricted: 2 }.freeze
+    ACCESS_MODES = { open: 0, transparent: 1, restricted: 2 }.freeze
     enum :access_mode, ACCESS_MODES
 
     has_one_attached :hero_image

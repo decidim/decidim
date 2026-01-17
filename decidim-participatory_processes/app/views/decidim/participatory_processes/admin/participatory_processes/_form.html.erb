@@ -181,6 +181,10 @@
             <%= t("access.options.open", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
           <% end %>
           <%= label_tag nil, class: "form__wrapper-checkbox-label" do %>
+            <%= form.radio_button :access_mode, :transparent %>
+            <%= t("access.options.transparent", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
+          <% end %>
+          <%= label_tag nil, class: "form__wrapper-checkbox-label" do %>
             <%= form.radio_button :access_mode, :restricted %>
             <%= t("access.options.restricted", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
           <% end %>

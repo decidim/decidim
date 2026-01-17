@@ -57,6 +57,14 @@ FactoryBot.define do
       private_space { true }
     end
 
+    trait :transparent do
+      access_mode { :transparent }
+    end
+
+    trait :restricted do
+      access_mode { :restricted }
+    end
+
     trait :with_steps do
       transient { current_step_ends { 1.month.from_now } }
 
