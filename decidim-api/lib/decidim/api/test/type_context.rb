@@ -48,7 +48,7 @@ shared_context "with a graphql class type" do
     )
 
     raise_proper_error(result["errors"].first) if result["errors"]
-    
+
     result["data"]
   end
 end
@@ -93,6 +93,7 @@ shared_examples "when the introspection is disabled" do
       before do
         allow(Decidim::Api).to receive(:enable_anonymous_introspection).and_return(false)
       end
+
       it "raises an Decidim::Api::Errors::IntrospectionDisabledError" do
         expect { response }.to raise_error(Decidim::Api::Errors::IntrospectionDisabledError, "Introspection is disabled for this request")
       end
