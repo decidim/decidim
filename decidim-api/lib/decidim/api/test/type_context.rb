@@ -54,7 +54,7 @@ shared_context "with a graphql class type" do
     )
 
     raise_proper_error(result["errors"].first) if result["errors"]
-    
+
     result["data"]
   end
 end
