@@ -252,6 +252,7 @@ ja:
             metadata: メタデータ
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             other: その他
+            private_notice: 訪問者にはスペースを非表示にし、メンバーのみ表示します（透明化している場合を除きます）
             select_a_created_by: 作成者を選択してください
             select_parent_assembly: 親参加スペースを選択
             slug_help_html: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
@@ -310,7 +311,7 @@ ja:
         extra_data:
           name: 種別と期間
         highlighted_assemblies:
-          name: ハイライトされた参加スペース
+          name: 注目の参加スペース
         related_assemblies:
           name: 関連する参加スペース
       created_by:
@@ -438,7 +439,7 @@ ja:
           more_info: 詳細情報
           take_part: 参加する
         index:
-          promoted_assemblies: ハイライトされた参加スペース
+          promoted_assemblies: 注目の参加スペース
         metadata:
           children_item:
             other: "%{count} 個の参加スペース"
