@@ -101,6 +101,7 @@ shared_examples "when the introspection is disabled" do
       before do
         allow(Decidim::Api).to receive(:enable_anonymous_introspection).and_return(false)
       end
+
       it "raises an Decidim::Api::Errors::IntrospectionDisabledError" do
         expect { response }.to raise_error(Decidim::Api::Errors::IntrospectionDisabledError, "Introspection is disabled for this request")
       end
