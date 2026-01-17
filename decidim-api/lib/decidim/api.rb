@@ -21,7 +21,7 @@ module Decidim
 
     # defines how many aliases are permitted in a query
     config_accessor :max_aliases do
-      Decidim::Env.new("API_SCHEMA_MAX_ALIASES", 5).to_i
+      ENV.fetch("API_SCHEMA_MAX_ALIASES", 5).to_i
     end
 
     # defines the schema max_depth to configure GraphQL query max_depth
