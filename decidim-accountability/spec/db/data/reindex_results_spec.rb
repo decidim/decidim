@@ -10,6 +10,10 @@ describe ReindexResults do
     end
   end
 
+  before do
+    clear_enqueued_jobs
+  end
+
   describe "#up" do
     context "when the component is published" do
       let(:component) { create(:accountability_component, published_at: Time.zone.now) }
@@ -21,7 +25,7 @@ describe ReindexResults do
           Decidim::SearchableResource.delete_all
 
           expect(Decidim::SearchableResource.where(resource: results)).to be_empty
-          perform_enqueued_jobs { migrator.migrate(:up) }
+          perform_enqueued_jobs(only: Decidim::UpdateSearchIndexesJob) { migrator.migrate(:up) }
           expect(Decidim::SearchableResource.where(resource: results)).not_to be_empty
           # 3 languages multiplied by 2 results
           expect(Decidim::SearchableResource.where(resource: results).count).to eq(6)
@@ -36,7 +40,7 @@ describe ReindexResults do
           Decidim::SearchableResource.delete_all
 
           expect(Decidim::SearchableResource.where(resource: results)).to be_empty
-          perform_enqueued_jobs { migrator.migrate(:up) }
+          perform_enqueued_jobs(only: Decidim::UpdateSearchIndexesJob) { migrator.migrate(:up) }
           expect(Decidim::SearchableResource.where(resource: results)).to be_empty
         end
       end
@@ -48,7 +52,7 @@ describe ReindexResults do
           Decidim::SearchableResource.delete_all
 
           expect(Decidim::SearchableResource.where(resource: results)).to be_empty
-          perform_enqueued_jobs { migrator.migrate(:up) }
+          perform_enqueued_jobs(only: Decidim::UpdateSearchIndexesJob) { migrator.migrate(:up) }
           expect(Decidim::SearchableResource.where(resource: results)).to be_empty
         end
       end
@@ -62,7 +66,7 @@ describe ReindexResults do
         Decidim::SearchableResource.delete_all
 
         expect(Decidim::SearchableResource.where(resource: results)).to be_empty
-        perform_enqueued_jobs { migrator.migrate(:up) }
+        perform_enqueued_jobs(only: Decidim::UpdateSearchIndexesJob) { migrator.migrate(:up) }
         expect(Decidim::SearchableResource.where(resource: results)).to be_empty
       end
     end
@@ -75,7 +79,7 @@ describe ReindexResults do
         Decidim::SearchableResource.delete_all
 
         expect(Decidim::SearchableResource.where(resource: results)).to be_empty
-        perform_enqueued_jobs { migrator.migrate(:up) }
+        perform_enqueued_jobs(only: Decidim::UpdateSearchIndexesJob) { migrator.migrate(:up) }
         expect(Decidim::SearchableResource.where(resource: results)).to be_empty
       end
     end
