@@ -7,9 +7,7 @@ module Decidim
       mutation(MutationType)
       query(QueryType)
 
-      introspection(IntrospectionAnalyzer)
       query_analyzer RecursionAnalyzer
-      query_analyzer AliasAnalyzer
 
       default_max_page_size Decidim::Api.schema_max_per_page
       max_depth Decidim::Api.schema_max_depth
