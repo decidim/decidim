@@ -201,7 +201,7 @@ module Decidim
             let(:msg) { "Field '#{field}' doesn't exist on type 'Initiative'" }
 
             it "has not have a #{field} field" do
-              expect { response }.to raise_error(an_instance_of(StandardError).and(having_attributes(message: msg)))
+              expect { response }.to raise_error(an_instance_of(GraphQL::ExecutionError).and(having_attributes(message: msg)))
             end
           end
         end
