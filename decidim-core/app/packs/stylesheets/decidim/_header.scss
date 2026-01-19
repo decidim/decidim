@@ -73,7 +73,7 @@ header {
       }
 
       input[type="text"] {
-        @apply block bg-transparent w-full px-4 py-2 h-full;
+        @apply block bg-transparent w-full pl-4 pr-10 py-2 h-full;
 
         &::placeholder {
           @apply text-neutral-500 text-sm ltr:pl-0 rtl:pr-0;
@@ -122,6 +122,12 @@ header {
 
         &-account {
           @apply w-6 h-6 flex items-center justify-center bg-secondary text-white rounded-full text-xs font-bold mr-2;
+        }
+      }
+
+      .card__highlight-img {
+        svg {
+          @apply w-full h-full;
         }
       }
 
@@ -348,7 +354,7 @@ header {
       }
 
       &__dropdown-wrapper {
-        @apply flex items-center cursor-pointer underline focus:backdrop-brightness-75 focus:outline-none;
+        @apply flex items-center cursor-pointer underline;
       }
 
       &__dropdown-content {
@@ -629,7 +635,11 @@ header {
         @apply flex-col ring-transparent rounded-lg shadow-[1px_4px_8px_3px_rgba(0,0,0,0.15)];
 
         &-img {
-          @apply w-full aspect-[3/1] rounded-tl-lg rounded-tr-lg;
+          @apply w-full aspect-[21/9] rounded-none rounded-tl-lg rounded-tr-lg;
+
+          svg {
+            @apply fill-primary;
+          }
         }
 
         &-text {

@@ -25,7 +25,7 @@ module Decidim
       end
 
       def self.resolve_type(obj, _ctx)
-        return Decidim::Core::UserType if obj.is_a? Decidim::User
+        return Decidim::Core::UserType if obj.is_a? Decidim::UserBaseEntity
       end
     end
   end

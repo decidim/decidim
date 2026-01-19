@@ -1,0 +1,19 @@
+= Recursion limit error - RECURSION_LIMIT_EXCEEDED_ERROR
+
+This error is triggered when your query uses a GraphQL circular reference for more than two times. By default, Decidim API restricts the circular reference calls due to security and performance issues.
+
+The JSON response structure is:
+
+[source, json]
+----
+{
+  "errors": [
+    {
+      "message": "Too many recursions detected in query",
+      "extensions": {
+        "code": "RECURSION_LIMIT_EXCEEDED_ERROR"
+      }
+    }
+  ]
+}
+----

@@ -226,6 +226,7 @@ douban
 downvoted
 downvotes
 downvoting
+DPG
 draggables
 dragula
 drinkform
@@ -467,6 +468,7 @@ libpq
 libreadline
 libreoffice
 libretranslate
+libvips
 libyaml
 Liddel
 lighthouserc
@@ -532,6 +534,7 @@ misogi
 mlat
 mlon
 Mobi
+moby
 modals
 modernizrrc
 modestbranding
@@ -657,6 +660,7 @@ PGVERSION
 Phargo
 phoe
 pinterest
+pids
 Placeholdit
 plantuml
 plataforma
