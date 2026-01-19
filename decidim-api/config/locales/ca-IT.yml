@@ -1,0 +1,7 @@
+---
+ca-IT:
+  decidim:
+    api:
+      errors:
+        introspection_disabled: La introspecció està desactivada per a aquesta sol·licitud
+        too_many_aliases_error: S'han fet servir massa àlies (nicknames). Has fet servir %{size} àlies, però es permet un màxim de %{limit}.
