@@ -1,0 +1,6 @@
+---
+eu:
+  decidim:
+    api:
+      errors:
+        too_many_aliases_error: Ezizen gehiegi erabiltzen dira. %{size} ezizen erabili dituzu, baina %{limit} onartuta daude.
