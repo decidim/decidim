@@ -1,1 +1,7 @@
+---
 it:
+  decidim:
+    design:
+      helpers:
+        sortition_l: sortition_l
+        sortitions: Sorteggi
