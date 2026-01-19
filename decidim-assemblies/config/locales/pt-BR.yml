@@ -254,6 +254,7 @@ pt-BR:
             metadata: Metadados
             no_taxonomy_filters_found: Nenhum filtro de taxonomia encontrado.
             other: De outros
+            private_notice: Você conseguirá gerenciar participantes privados após configurá-lo como privado
             select_a_created_by: Selecione um criado por
             select_parent_assembly: Selecione a assembleia mãe
             slug_help_html: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
