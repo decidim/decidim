@@ -2,12 +2,17 @@
 
 module Decidim
   module Api
+    autoload :AliasAnalyzer, "decidim/api/alias_analyzer"
     autoload :QueryType, "decidim/api/query_type"
     autoload :MutationType, "decidim/api/mutation_type"
     autoload :Schema, "decidim/api/schema"
     autoload :RequiredScopes, "decidim/api/required_scopes"
     autoload :GraphqlPermissions, "decidim/api/graphql_permissions"
     autoload :ComponentMutationType, "decidim/api/component_mutation_type"
+
+    module Errors
+      autoload :TooManyAliasesError, "decidim/api/errors/too_many_aliases_error"
+    end
 
     module Types
       autoload :BaseArgument, "decidim/api/types/base_argument"
