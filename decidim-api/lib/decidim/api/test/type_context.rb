@@ -15,6 +15,7 @@ shared_context "with a graphql class type" do
   let(:type_class) { described_class }
   let(:variables) { {} }
   let(:root_value) { model }
+  let(:can_introspect) { Decidim::Api.enable_anonymous_introspection || current_user&.admin? }
 
   let(:schema) do
     klass = type_class
@@ -34,17 +35,8 @@ shared_context "with a graphql class type" do
     # Matches the error code with the Error class
     # For instance, if the error code is NOT_FOUND_ERROR then it will raise the "Decidim::Api::Errors::NotFoundError" class
     raise "Decidim::Api::Errors::#{code.downcase.classify}".constantize, error["message"] if %w(
-      LOCALE_ERROR
-      NOT_FOUND_ERROR
-      INVALID_LOCALE_ERROR
-      PERMISSION_NOT_SET_ERROR
-      ATTRIBUTE_VALIDATION_ERROR
-      UNAUTHORIZED_FIELD_ERROR
-      UNAUTHORIZED_OBJECT_ERROR
-      MUTATION_NOT_AUTHORIZED_ERROR
-      VALIDATION_ERROR
-      TOO_MANY_ALIASES_ERROR
       INTROSPECTION_DISABLED_ERROR
+      TOO_MANY_ALIASES_ERROR
       RECURSION_LIMIT_EXCEEDED_ERROR
     ).include?(code)
 
@@ -59,7 +51,8 @@ shared_context "with a graphql class type" do
         current_organization:,
         current_user:,
         current_component:,
-        scopes: api_scopes
+        scopes: api_scopes,
+        can_introspect:
       },
       variables:
     )
@@ -110,6 +103,7 @@ shared_examples "when the introspection is disabled" do
       before do
         allow(Decidim::Api).to receive(:enable_anonymous_introspection).and_return(false)
       end
+
       it "raises an Decidim::Api::Errors::IntrospectionDisabledError" do
         expect { response }.to raise_error(Decidim::Api::Errors::IntrospectionDisabledError, "Introspection is disabled for this request")
       end
@@ -118,7 +112,7 @@ shared_examples "when the introspection is disabled" do
 
   context "when requesting the schema introspection" do
     let(:query) do
-      %( query { __schema { types { fields { type { fields { type { name } } } } } } } )
+      %( query { __schema { types { fields { type { fields { type { fields { type { fields { type { name } } } } } } } } } } } )
     end
 
     it_behaves_like "check introspection behavior"
@@ -132,7 +126,11 @@ shared_examples "when the introspection is disabled" do
       type {
         fields {
           type {
-            name
+            fields {
+              type {
+                name
+              }
+            }
           }
         }
       }
