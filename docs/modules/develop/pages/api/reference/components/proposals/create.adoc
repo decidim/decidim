@@ -28,7 +28,7 @@ mutation createProposal($componentId: ID!, $input: CreateProposalInput!){
         title {
           translation(locale: "en")
         }
-        body {          
+        body {
           translation(locale: "en")
         }
         address
@@ -44,7 +44,7 @@ mutation createProposal($componentId: ID!, $input: CreateProposalInput!){
         }
       }
     }
-  } 
+  }
 }
 ----
 

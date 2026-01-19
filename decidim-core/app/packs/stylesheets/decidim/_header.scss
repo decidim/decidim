@@ -354,7 +354,7 @@ header {
       }
 
       &__dropdown-wrapper {
-        @apply flex items-center cursor-pointer underline focus:backdrop-brightness-75 focus:outline-none;
+        @apply flex items-center cursor-pointer underline;
       }
 
       &__dropdown-content {

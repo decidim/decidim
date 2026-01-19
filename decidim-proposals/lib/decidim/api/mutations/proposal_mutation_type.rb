@@ -10,6 +10,7 @@ module Decidim
 
       field :answer, mutation: Decidim::Proposals::ProposalAnswerType, description: "Answers a proposal"
       field :unvote, mutation: Decidim::Proposals::UnvoteProposalType, description: "Removes a vote from a proposal"
+      field :update, mutation: Decidim::Proposals::UpdateProposalType, description: "Updates a proposal"
       field :vote, mutation: Decidim::Proposals::VoteProposalType, description: "Votes a proposal"
       field :withdraw, mutation: Decidim::Proposals::WithdrawProposalType, description: "Withdraws a proposal"
     end
