@@ -564,7 +564,7 @@ header {
     }
 
     &__main-dropdown {
-      @apply bg-white flex flex-row rounded-b shadow-lg text-black w-full sm:w-[530px] h-screen;
+      @apply bg-white flex flex-row rounded-b shadow-lg text-black w-full sm:w-[530px] h-screen md:h-auto;
 
       &__left {
         @apply p-4 sm:py-8 sm:px-0 space-y-5 hidden sm:block sm:w-3/4;
