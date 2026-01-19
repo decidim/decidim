@@ -264,6 +264,7 @@ pt-BR:
         create: "%{user_name} criou a conferência %{resource_name}"
         publish: "%{user_name} publicou a conferencia%{resource_name}"
         send_conference_diplomas: "%{user_name} enviou certificados de participação para os %{resource_name} participantes da conferência"
+        soft_delete: "%{user_name} movido para a lixeira da conferência %{resource_name}"
         unpublish: "%{user_name} despublicou a conferencia%{resource_name}"
         update: "%{user_name} Atualizou a conferência %{resource_name}"
         update_diploma: "%{user_name} atualizou a configuração dos certificados de participação para %{resource_name} conferência"
@@ -300,6 +301,9 @@ pt-BR:
         title: caixas de som
     conferences:
       admin:
+        conference_duplicates:
+          form:
+            slug_help_html: 'Os slugs de URL são usados para gerar as URLs que apontam para esta conferência. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
         conference_invites:
           create:
             error: Houve um problema ao convidar o usuário para participar da conferência.
