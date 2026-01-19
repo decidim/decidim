@@ -219,9 +219,11 @@ de:
         export: "%{user_name} hat das Gremium %{resource_name} exportiert"
         import: "%{user_name} hat das Gremium %{resource_name} importiert"
         publish: "%{user_name} hat das Gremium %{resource_name} veröffentlicht"
+        publish_all_members: "%{user_name} hat alle Mitglieder des Gremiums %{resource_name} veröffentlicht"
         restore: "%{user_name} hat das Gremium %{resource_name} wiederhergestellt"
         soft_delete: "%{user_name} hat das Gremium %{resource_name} in den Papierkorb verschoben"
         unpublish: "%{user_name} hat das Gremium %{resource_name} auf \"unveröffentlicht\" gesetzt"
+        unpublish_all_members: "%{user_name} hat die Veröffentlichung aller Mitglieder des Gremiums %{resource_name} aufgehoben"
         update: "%{user_name} hat das Gremium %{resource_name} aktualisiert"
       assembly_member:
         create: "%{user_name} hat das Mitglied %{resource_name} im Gremium %{space_name} erstellt"
