@@ -2,7 +2,7 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-require "decidim/ai/version"
+require_relative "lib/decidim/ai/version"
 
 Gem::Specification.new do |s|
   s.version = Decidim::Ai.version
@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
   s.add_dependency "classifier-reborn", "~> 2.3.0"
+  # HERE 
   s.add_dependency "decidim-core", Decidim::Ai.version
   s.add_development_dependency "decidim-debates", Decidim::Ai.version
   s.add_development_dependency "decidim-initiatives", Decidim::Ai.version

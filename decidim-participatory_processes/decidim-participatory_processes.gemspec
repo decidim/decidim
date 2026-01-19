@@ -2,7 +2,7 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-require "decidim/participatory_processes/version"
+require_relative "lib/decidim/participatory_processes/version"
 
 Gem::Specification.new do |s|
   s.version = Decidim::ParticipatoryProcesses.version

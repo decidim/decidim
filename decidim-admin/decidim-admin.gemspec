@@ -3,7 +3,7 @@
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
 # Maintain your gem's version:
-require "decidim/admin/version"
+require_relative "lib/decidim/admin/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
   end
 
   s.add_dependency "active_link_to", "~> 1.0"
+  # HERE
   s.add_dependency "decidim-core", Decidim::Admin.version
   s.add_dependency "devise", "~> 4.7"
   s.add_dependency "devise-i18n", "~> 1.2"

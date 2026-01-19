@@ -2,7 +2,7 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-require "decidim/debates/version"
+require_relative "lib/decidim/debates/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|

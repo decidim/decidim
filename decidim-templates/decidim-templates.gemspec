@@ -2,7 +2,7 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-require "decidim/templates/version"
+require_relative "lib/decidim/templates/version"
 
 Gem::Specification.new do |s|
   s.version = Decidim::Templates.version

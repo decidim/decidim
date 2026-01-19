@@ -3,7 +3,7 @@
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
 # Maintain your gem's version:
-require "decidim/version"
+require_relative "lib/decidim/version"
 
 Gem::Specification.new do |s|
   s.version = Decidim.version

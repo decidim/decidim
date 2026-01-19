@@ -3,7 +3,10 @@
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
 # Maintain your gem's version:
-require "decidim/accountability/version"
+unless defined?(Decidim)
+  module Decidim; end
+end
+require_relative "lib/decidim/accountability/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
@@ -32,6 +35,7 @@ Gem::Specification.new do |s|
     end
   end
 
+  # HERE
   s.add_dependency "decidim-comments", Decidim::Accountability.version
   s.add_dependency "decidim-core", Decidim::Accountability.version
 
