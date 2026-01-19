@@ -29,6 +29,7 @@ shared_context "with a graphql class type" do
     # For instance, if the error code is NOT_FOUND_ERROR then it will raise the "Decidim::Api::Errors::NotFoundError" class
     raise "Decidim::Api::Errors::#{code.downcase.classify}".constantize, error["message"] if %w(
       INTROSPECTION_DISABLED_ERROR
+      TOO_MANY_ALIASES_ERROR
     ).include?(code)
 
     raise GraphQL::ExecutionError, error["message"]
