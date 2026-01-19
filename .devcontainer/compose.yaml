@@ -9,6 +9,8 @@ services:
     - ../:/workspaces/decidim:cached
     - bundle-cache:/usr/local/bundle
     - node-modules-cache:/workspaces/decidim/node_modules
+    ports:
+      - "3000:3000"
     command: sleep infinity
     depends_on:
       - selenium
