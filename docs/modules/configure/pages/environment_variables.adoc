@@ -777,7 +777,12 @@ Read more about this at xref:services:pdf.adoc[PDF signing] service page.
 |No
 
 | DECIDIM_API_DISCLOSE_SYSTEM_VERSION
-| This Environment variable instructs decidim whether to display or not the exact version of the application. By default, this is set to false to avoid explicit exposure of Decidim version.
+| Instructs the system whether to display or not the exact version of the application. By default, this is set to false to avoid explicit exposure of Decidim version.
+| false
+| No
+
+| DECIDIM_API_ENABLE_ANONYMOUS_INTROSPECTION
+| Allows the system to accept introspection queries, which can lead to a security issue. We recommend avoiding enabling this variable in production environments. When it is disabled, only organization admin users will be able to run introspection queries.
 | false
 | No
 

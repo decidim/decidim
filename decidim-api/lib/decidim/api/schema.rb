@@ -4,6 +4,7 @@ module Decidim
   module Api
     # Main GraphQL schema for decidim's API.
     class Schema < GraphQL::Schema
+      introspection(DecidimIntrospection)
       mutation(MutationType)
       query(QueryType)
 
