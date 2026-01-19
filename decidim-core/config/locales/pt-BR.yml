@@ -775,6 +775,13 @@ pt-BR:
           id: O identificador único desta notificação
           resource_type: O tipo de recurso ao qual a notificação está relacionada
           updated_at: A data e a hora em que a notificação foi atualizada pela última vez
+        participatory_space_private_users:
+          created_at: Data e hora em que o usuário privado foi criado
+          id: O identificador único desse usuário privado
+          privatable_to: A qual espaço este usuário particular pertence
+          published: Se esse usuário particular é publicado ou não
+          role: A função que este usuário privado tem
+          updated_at: Data e horário em que este usuário privado foi atualizado pela última vez
         reports:
           created_at: A data e a hora em que este relatório foi criado
           details: Os detalhes deste relatório
