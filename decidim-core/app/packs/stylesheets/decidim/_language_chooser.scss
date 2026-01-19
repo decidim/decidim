@@ -19,7 +19,7 @@ header {
         }
 
         &-trigger {
-          @apply border border-neutral-300 rounded px-4 py-[9px] gap-x-2 flex-row;
+          @apply inline-flex border border-neutral-300 rounded px-4 py-[9px] gap-x-2 flex-row;
 
           & > span,
           & > svg:first-of-type {
