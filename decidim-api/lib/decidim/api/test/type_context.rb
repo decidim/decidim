@@ -27,6 +27,7 @@ shared_context "with a graphql class type" do
     # Matches the error code with the Error class
     # For instance, if the error code is NOT_FOUND_ERROR then it will raise the "Decidim::Api::Errors::NotFoundError" class
     raise "Decidim::Api::Errors::#{code.downcase.classify}".constantize, error["message"] if %w(
+      TOO_MANY_ALIASES_ERROR
       RECURSION_LIMIT_EXCEEDED_ERROR
     ).include?(code)
 

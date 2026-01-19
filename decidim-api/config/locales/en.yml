@@ -4,3 +4,4 @@ en:
     api:
       errors:
         recursion_limit_exceeded_error: Too many recursions detected in query
+        too_many_aliases_error: Too many aliases used. You have used %{size} aliases, but %{limit} are allowed.
