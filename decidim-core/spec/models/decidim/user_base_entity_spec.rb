@@ -53,5 +53,33 @@ module Decidim
         end
       end
     end
+
+    describe "#validates :nickname" do
+      context "when nickname is john_doe" do
+        let(:user) { build(:user, organization:, nickname: "john_doe") }
+
+        it "is valid" do
+          expect(user).to be_valid
+        end
+      end
+
+      context "when nickname contains newlines" do
+        let(:user) { build(:user, organization:, nickname: "john\n<script>alert('nickname')</script>") }
+
+        it "is invalid" do
+          expect(user).not_to be_valid
+          expect(user.errors[:nickname]).to be_present
+        end
+      end
+
+      context "when nickname contains carriage return" do
+        let(:user) { build(:user, organization:, nickname: "john\r<script>alert('nickname')</script>") }
+
+        it "is invalid" do
+          expect(user).not_to be_valid
+          expect(user.errors[:nickname]).to be_present
+        end
+      end
+    end
   end
 end
