@@ -3,6 +3,7 @@
 module Decidim
   module Api
     autoload :DecidimIntrospection, "decidim/api/decidim_introspection"
+    autoload :AliasAnalyzer, "decidim/api/alias_analyzer"
     autoload :QueryType, "decidim/api/query_type"
     autoload :MutationType, "decidim/api/mutation_type"
     autoload :Schema, "decidim/api/schema"
@@ -12,6 +13,7 @@ module Decidim
 
     module Errors
       autoload :IntrospectionDisabledError, "decidim/api/errors/introspection_disabled_error"
+      autoload :TooManyAliasesError, "decidim/api/errors/too_many_aliases_error"
     end
 
     module Types
