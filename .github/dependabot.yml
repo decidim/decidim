@@ -1,75 +1,62 @@
-# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
-
 version: 2
 updates:
-  # /Gemfile.lock
+  # Bundler - all Ruby dependencies including decidim-* modules
   - package-ecosystem: "bundler"
     directory: "/"
     schedule:
       interval: "weekly"
-      day: "thursday"
+      day:  "monday"
       time: "09:00"
-    open-pull-requests-limit: 5
+      timezone: "Europe/Madrid"
+    open-pull-requests-limit: 2
+    # Group decidim internal dependencies together
     groups:
-      rails:
+      decidim-modules:
+        patterns:
+          - "decidim-*"
+      rails-dependencies:
         patterns:
           - "rails*"
-          - "actionpack"
-          - "actioncable"
-          - "actionmailbox"
-          - "actionmailer"
-          - "actiontext"
-          - "actionview"
-          - "activestorage"
-          - "railties"
-          - "activemodel"
-          - "activejob"
-          - "activerecord"
-          - "activesupport"
-      rspec:
-        patterns:
-          - "rspec-core"
-          - "rspec-expectations"
-          - "rspec-mocks"
-          - "rspec-support"
-    versioning-strategy: "increase"
+          - "action*"
+          - "active*"
     labels:
       - "dependencies"
-      - "type: internal"
+      - "ruby"
+    commit-message:
+      prefix: "chore"
+      prefix-development: "chore"
+      include: "scope"
 
-  # /decidim-generators/Gemfile.lock
-  - package-ecosystem: "bundler"
-    directory: "/decidim-generators"
+  # NPM dependencies
+  - package-ecosystem: "npm"
+    directory: "/"
     schedule:
       interval: "weekly"
-      day: "thursday"
+      day: "monday"
       time: "09:00"
-    open-pull-requests-limit: 5
+      timezone: "Europe/Madrid"
+    open-pull-requests-limit: 2
     groups:
-      rails:
+      npm-dependencies:
         patterns:
-          - "rails*"
-          - "actionpack"
-          - "actioncable"
-          - "actionmailbox"
-          - "actionmailer"
-          - "actiontext"
-          - "actionview"
-          - "activestorage"
-          - "railties"
-          - "activemodel"
-          - "activejob"
-          - "activerecord"
-          - "activesupport"
-      rspec:
-        patterns:
-          - "rspec-core"
-          - "rspec-expectations"
-          - "rspec-mocks"
-          - "rspec-support"
-    versioning-strategy: "increase"
+          - "*"
     labels:
       - "dependencies"
-      - "type: internal"
-      - "decidim-generators"
+      - "javascript"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
 
+  # GitHub Actions
+  - package-ecosystem:  "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Europe/Madrid"
+    labels:
+      - "dependencies"
+      - "ci"
+    commit-message:
+      prefix: "chore"
