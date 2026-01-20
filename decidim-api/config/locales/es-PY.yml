@@ -1,0 +1,6 @@
+---
+es-PY:
+  decidim:
+    api:
+      errors:
+        too_many_aliases_error: Has utilizado demasiados alias (nicknames). Has usado %{size} alias, pero se permite un máximo de %{limit}.
