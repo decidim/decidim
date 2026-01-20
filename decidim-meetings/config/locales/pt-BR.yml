@@ -49,6 +49,8 @@ pt-BR:
       meeting_registration_invite:
         email: E-mail
         name: Nome
+      response:
+        add_documents: Adicionar documentos
       validate_registration_code:
         code: Código
     errors:
@@ -77,6 +79,10 @@ pt-BR:
       decidim/meetings/update_meeting_event: Reunião atualizada
   activerecord:
     models:
+      decidim:
+        meetings:
+          meeting:
+            text: 'Foi discutido nesta reunião: %{link}'
       decidim/meetings/meeting:
         one: Reunião
         other: Reuniões
@@ -88,6 +94,9 @@ pt-BR:
         other: Registros
   decidim:
     admin:
+      admin_log:
+        changeset:
+          meetings: Eventos
       filters:
         accepted_at_not_null:
           label: Aceitou
@@ -105,6 +114,8 @@ pt-BR:
             values:
               'false': Passado
               'true': Próximos
+          taxonomies_part_of_contains:
+            label: Taxonomia
           with_any_origin:
             label: Origem
             values:
@@ -135,27 +146,67 @@ pt-BR:
         new:
           copy: cópia de
           title: Reunião duplicada
+      tooltips:
+        cannot_close_meetings: Não é possível fechar este evento, pois é criada por um participante
+        cannot_duplicate_meetings: Não é possível duplicar este evento, como é criada por um participante
+        cannot_edit_meetings: Não é possível editar este evento, pois é criada por um participante
+        cannot_manage_agenda_meetings: Não é possível gerenciar a agenda neste evento pois é criada por um usuário
+        cannot_manage_attachments_meetings: Não é possível gerenciar anexos neste evento pois ela é criada por um usuário
+        cannot_manage_poll_meetings: Não é possível gerenciar a enquete neste evento pois ela é criada por um usuário
+        cannot_manage_registrations_meetings: Não é possível gerenciar inscrições neste evento, como é criado por um participante, tem inscrições desabilitadas ou esses registos são externos
+        cannot_mark_attendee: Não é possível marcar como solicitado, pois já estava marcado
+        deleted_meetings_info: Não é possível excluir este evento, pois ela é criada por um participante.
     components:
       meetings:
         actions:
           comment: Comentário
           join: Junte-se
+          reply_poll: Responder enquete
+          vote_comment: Vote no comentário
         name: Reuniões
         settings:
           global:
             announcement: Anúncio
+            clear_all: Limpar tudo
             comments_enabled: Comentários ativados
             comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
             creation_enabled_for_participants: Os participantes podem criar reuniões
             default_registration_terms: Termos de registro padrão
+            define_taxonomy_filters: Por favor, defina alguns filtros para este espaço participativo antes de usar esta configuração.
             enable_pads_creation: Ativar criação de blocos
             maps_enabled: Mapas ativados
+            no_taxonomy_filters_found: Nenhum filtro de taxonomia encontrado.
+            registration_code_enabled: Código de registro e QR ativado
             resources_permissions_enabled: Permissões de ações podem ser definidas para cada encontro
+            taxonomy_filters: Selecione filtros para o componente
+            taxonomy_filters_add: Adicionar filtro
             terms_and_conditions_url_for_meeting_creators: URL de Termos e condições para criadores da reunião
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
             creation_enabled_for_participants: Criação de reunião por participantes habilitada
+    download_your_data:
+      help:
+        invites:
+          accepted_at: A data e hora em que este convite foi aceito
+          created_at: A data e hora em que este convite foi criado
+          id: O identificador único para esse convite
+          meeting: A reunião onde esse convite aconteceu
+          rejected_at: A data e hora em que este convite foi rejeitado
+          sent_at: A data e hora em que esse convite foi enviado
+          updated_at: A data e hora em que este convite foi atualizado pela última vez
+        registrations:
+          code: O código de registro
+          created_at: A data e hora em que esta inscrição foi criada
+          id: O identificador exclusivo do registo
+          meeting: A reunião em que o usuário se registrou
+          public_participation: Se esta participação foi mostrada publicamente
+          updated_at: Data e hora da última atualização desta inscrição
+          user: O usuário que fez o registro
+          validated_at: A data e hora em que esta inscrição foi validada
+      show:
+        meeting_comments: Exportação de comentários do evento
+        meetings: Exportação de eventos
     events:
       meetings:
         meeting_closed:
@@ -183,18 +234,34 @@ pt-BR:
           email_subject: Os espaços de ocupação ocupados com "%{resource_title}" estão acima de %{percentage}%
           notification_title: Os <a href="%{resource_path}">%{resource_title}</a> atendimento ocupados são mais de %{percentage}%.
         meeting_updated:
+          email_intro: 'O evento "%{resource_title}" foi atualizada com alterações a %{changed_fields}. Você pode ler a nova versão em sua página:'
           email_outro: Você recebeu esta notificação porque está seguindo a reunião "%{resource_title}". Você pode ignorá-lo do link anterior.
           email_subject: A reunião "%{resource_title}" foi atualizada
+          field_names:
+            address: o endereço
+            end_time: o horário de término
+            location: a localização
+            start_time: o horário de início
+          notification_title: O evento <a href="%{resource_path}">%{resource_title}</a> foi atualizada com alterações a %{changed_fields}.
+        meeting_waitlist_added:
+          notification_title: Você foi adicionado à lista de espera para o evento <a href="%{resource_url}">%{resource_title}</a>.
         registration_code_validated:
           email_intro: Seu código de registro "%{registration_code}" para a reunião "%{resource_title}" foi validado.
           email_outro: Você recebeu esta notificação porque seu código de registro para a reunião "%{resource_title}" foi validado.
           email_subject: Seu código de registro "%{registration_code}" para a reunião "%{resource_title}" foi validado
           notification_title: Seu código de registro "%{registration_code}" para a reunião <a href="%{resource_path}">%{resource_title}</a> foi validado.
+        registration_marked_as_attendee:
+          email_intro: Sua inscrição para o evento "%{resource_title}" foi marcada como participante.
+          email_outro: Você recebeu esta notificação porque sua inscrição para o evento "%{resource_title}" foi marcada como participante.
+          email_subject: Sua inscrição para o evento "%{resource_title}" foi marcada como participante
+          notification_title: Sua inscrição para o evento <a href="%{resource_path}">%{resource_title}</a> foi marcada como participante.
         registrations_enabled:
           email_intro: 'A reunião "%{resource_title}" permitiu registos. Você pode se registrar em sua página:'
           email_outro: Você recebeu esta notificação porque está seguindo a reunião "%{resource_title}". Você pode ignorá-lo do link anterior.
           email_subject: A reunião "%{resource_title}" permitiu registos.
           notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> permitiu registos.
+        upcoming_meeting:
+          default_body: O evento "{{meeting_title}}" começará em menos de {{before_hours}}h.
     forms:
       meetings:
         attendees_count_help_text: Não se esqueça de incluir o número total de participantes na sua reunião, seja presencial, on-line ou híbrida.
@@ -493,6 +560,7 @@ pt-BR:
         new:
           back: Voltar
           create: Criar
+          title: Criar nova reunião
         registration_confirm:
           cancel: Cancelar
           confirm: confirme
@@ -500,8 +568,11 @@ pt-BR:
           attendees: Contagem de participantes
           contributions: Contagem de Contribuições
           join: Participe da reunião
+          join_waitlist: Inscrever-se na lista de espera
           leave: Cancelar registro
           leave_confirmation: Tem certeza de que deseja cancelar seu cadastro para esta reunião?
+          leave_waitlist: Sair da lista de espera
+          leave_waitlist_confirmation: Tem certeza de que deseja sair da lista de espera para este evento?
           link_available_soon: Link disponível em breve
           link_closed: O link para participar da reunião estará disponível alguns minutos antes de iniciar
           live_event: Esta reunião está acontecendo agora
@@ -509,6 +580,11 @@ pt-BR:
           micro_camera_permissions_warning: Quando você clicar no botão abaixo, serão solicitadas permissões de microfone e/ou câmera e participará na videoconferência
           no_slots_available: Não há slots disponíveis
           organizations: Organizações participantes
+          pending_address: A localização será anunciada em breve.
+          redirect_notice: Este evento faz parte de outro espaço, por isso você foi movido para %{current_space_name}. <br>Se preferir, você pode voltar para <a href="%{previous_space_url}">%{previous_space_name}</a>.
+          registration_and_qr_code: Registro e Código QR
+          registration_code: 'Código de registro: %{code}'
+          registration_code_help_text: Seu registro e código QR
           registration_state:
             validated: VALIDADO
             validation_pending: VALIDAÇÃO PENDENTE
