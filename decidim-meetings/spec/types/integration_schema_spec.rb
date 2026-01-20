@@ -241,7 +241,7 @@ describe "Decidim::Api::QueryType" do
       )
     end
 
-    it "raises error Decidim::Api::Errors::TooManyRecursionsError" do
+    it "raises error Decidim::Api::Errors::RecursionLimitExceededError" do
       expect { response }.to raise_error(
         Decidim::Api::Errors::RecursionLimitExceededError,
         I18n.t("decidim.api.errors.recursion_limit_exceeded_error")
