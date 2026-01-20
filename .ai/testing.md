@@ -70,6 +70,8 @@ Some specs (especially `spec/system`) use Capybara with a real browser.
 Requirements for running system tests locally:
 
 - Google Chrome must be installed and available in `PATH`
+- Google ChromeDriver should also be available
+- ChromeDriver should have the same version number as Google Chrome
 - The test app must be generated (`spec/decidim_dummy_app`)
 - Tests are executed against the dummy app; do not modify it manually
 
