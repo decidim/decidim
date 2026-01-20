@@ -1,0 +1,6 @@
+---
+ja:
+  decidim:
+    api:
+      errors:
+        too_many_aliases_error: エイリアスが多すぎます。 %{size} 件のエイリアスを使用していますが、許可されているのは %{limit} 件までです。
