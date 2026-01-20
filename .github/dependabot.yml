@@ -1,28 +1,74 @@
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
 version: 2
 updates:
-  # Bundler - all Ruby dependencies including decidim-* modules
+  # /Gemfile.lock
   - package-ecosystem: "bundler"
     directory: "/"
     schedule:
       interval: "weekly"
-      day:  "monday"
+      day: "thursday"
       time: "09:00"
-      timezone: "Europe/Madrid"
-    open-pull-requests-limit: 2
-    # Group decidim internal dependencies together
+    open-pull-requests-limit: 5
     groups:
-      decidim-modules:
-        patterns:
-          - "decidim-*"
-      rails-dependencies:
+      rails:
         patterns:
           - "rails*"
-          - "action*"
-          - "active*"
+          - "actionpack"
+          - "actioncable"
+          - "actionmailbox"
+          - "actionmailer"
+          - "actiontext"
+          - "actionview"
+          - "activestorage"
+          - "railties"
+          - "activemodel"
+          - "activejob"
+          - "activerecord"
+          - "activesupport"
+      rspec:
+        patterns:
+          - "rspec-core"
+          - "rspec-expectations"
+          - "rspec-mocks"
+          - "rspec-support"
+    versioning-strategy: "increase"
     labels:
       - "dependencies"
-      - "ruby"
-    commit-message:
-      prefix: "chore"
-      prefix-development: "chore"
-      include: "scope"
+      - "type: internal"
+
+  # /decidim-generators/Gemfile.lock
+  - package-ecosystem: "bundler"
+    directory: "/decidim-generators"
+    schedule:
+      interval: "weekly"
+      day: "thursday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    groups:
+      rails:
+        patterns:
+          - "rails*"
+          - "actionpack"
+          - "actioncable"
+          - "actionmailbox"
+          - "actionmailer"
+          - "actiontext"
+          - "actionview"
+          - "activestorage"
+          - "railties"
+          - "activemodel"
+          - "activejob"
+          - "activerecord"
+          - "activesupport"
+      rspec:
+        patterns:
+          - "rspec-core"
+          - "rspec-expectations"
+          - "rspec-mocks"
+          - "rspec-support"
+    versioning-strategy: "increase"
+    labels:
+      - "dependencies"
+      - "type: internal"
+      - "decidim-generators"
