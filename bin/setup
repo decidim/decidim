@@ -16,12 +16,12 @@ def configure_codespaces_host
   app_config = "development_app/config/application.rb"
   return unless File.exist?(app_config)
 
-  config_content = File.read(app_config)
-  return if config_content.match?(/^\s+config\.hosts/)
-
   env_data = JSON.parse(File.read(env_file))
   hostname = env_data["CODESPACE_NAME"]
   return unless hostname
+
+  config_content = File.read(app_config)
+  return if config_content.include?("#{hostname}.github.dev")
 
   updated_content = config_content.sub(
     /(config\.load_defaults\s+[\d.]+\s*\n)/,
