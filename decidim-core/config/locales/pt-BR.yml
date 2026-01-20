@@ -772,6 +772,13 @@ pt-BR:
           id: O identificador único desta notificação
           resource_type: O tipo de recurso ao qual a notificação está relacionada
           updated_at: A data e a hora em que a notificação foi atualizada pela última vez
+        participatory_space_private_users:
+          created_at: Data e hora em que o usuário privado foi criado
+          id: O identificador único desse usuário privado
+          privatable_to: A qual espaço este usuário particular pertence
+          published: Se esse usuário particular é publicado ou não
+          role: A função que este usuário privado tem
+          updated_at: Data e horário em que este usuário privado foi atualizado pela última vez
         reports:
           created_at: A data e a hora em que este relatório foi criado
           details: Os detalhes deste relatório
@@ -780,6 +787,12 @@ pt-BR:
           moderation: A moderação que este relatório tem
           reason: O motivo deste relatório
           updated_at: Data e hora da última atualização deste relatório
+        user_groups:
+          document_number: O número do documento deste grupo de usuários
+          id: O identificador único desse grupo de usuário
+          name: O nome deste grupo de usuários
+          phone: O telefone deste grupo de usuários
+          verified_at: A data e hora em que este grupo de usuários foi verificado
         users:
           about: Descrição do perfil deste participante
           accepted_tos_version: A data em que os Termos de Serviço desta plataforma foram aceitos pelo usuário
@@ -1162,6 +1175,12 @@ pt-BR:
       title: O que são as medalhas?
     group_admins:
       actions:
+        confirm_modal:
+          ok_add: Adicionar um administrador
+          ok_remove: Remover o administrador
+          title_add: Confirmar o novo administrador
+          title_remove: Remover o administrador
+        confirm_remove_from_admin: Tem certeza que deseja remover o administrador deste grupo?
         demote_admin: Remover Administrador
       demote:
         error: Ocorreu um erro ao remover este usuário da lista de administradores.
@@ -1188,6 +1207,11 @@ pt-BR:
       reject_invitation: Rejeitar
     group_members:
       actions:
+        confirm_modal:
+          ok_remove: Remover o membro
+          title_remove: Remover o membro
+        confirm_promote_to_admin: Você tem certeza que deseja adicionar este usuário como administrador?
+        confirm_remove_from_group: Tem certeza que deseja remover o usuário deste grupo?
         promote_to_admin: Tornar administrador
         remove_from_group: Remover usuário
       index:
@@ -1362,6 +1386,8 @@ pt-BR:
         not_started: Não iniciado ainda
         remaining: "%{time_distance} Restante"
     metrics:
+      blocked_users:
+        description: Número de participantes bloqueados
       download:
         csv: Download de dados (CSV)
       followers:
@@ -1372,6 +1398,10 @@ pt-BR:
         description: Número de usuários ativos na organização
         object: participantes
         title: Participantes
+      reported_users:
+        description: Número de participantes reportados
+      user_reports:
+        description: Número de relatórios feitos pelos usuários
       users:
         description: Número de usuários na organização
         object: usuários
@@ -1502,6 +1532,11 @@ pt-BR:
           main: Essencial
           spaces: Espaços
           title: Abra os arquivos de dados para %{organization}
+        metrics:
+          cumulative: O número total da métrica no dia
+          day: No dia em que essa métrica foi criada
+          metric_type: O tipo de métrica
+          quantity: O número de métricas para este dia
         moderated_users:
           about: O campo "Sobre" do usuário
           block_reasons: O motivo pelo qual o usuário administrador bloqueou o usuário
@@ -1533,7 +1568,14 @@ pt-BR:
           updated_at: A data em que esta taxonomia foi atualizada pela última vez
           weight: A ordem em que esta taxonomia é apresentada
         user_groups:
+          avatar_url: O avatar do grupo de usuários
+          badge: O emblema do grupo de usuários
           deleted: Se o usuário foi excluído ou não
+          id: O identificador único do grupo de usuários
+          members: O id e o nome dos usuários que pertencem ao grupo
+          members_count: O número de usuários pertencentes ao grupo de usuários
+          name: O nome de exibição do grupo de usuários
+          nickname: O nome de usuário do grupo
           profile_url: A Url do perfil
         users:
           about: O texto "Sobre o usuário"
@@ -2231,6 +2273,7 @@ pt-BR:
         terms_of_service: Termos de serviço
       header:
         close: Fechar
+        confirm_close_ephemeral_session: Se você sair desta página, sua sessão será fechada. Tem certeza?
         log_in: Iniciar sessão
         main_menu: Menu principal
         user_menu: Menu de usuários
