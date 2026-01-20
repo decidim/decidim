@@ -5,31 +5,62 @@ require "json"
 APP_ROOT = File.expand_path("..", __dir__)
 APP_NAME = "decidim-development-app"
 
-def system!(*args)
-  system(*args, exception: true)
+def system!(env = {}, *args)
+  if args.empty?
+    # env is actually the command
+    system(env, exception: true)
+  else
+    system(env, *args, exception: true)
+  end
 end
 
-def configure_codespaces_host
-  env_file = "/workspaces/.codespaces/shared/environment-variables.json"
-  return unless File.exist?(env_file)
+class CodespacesConfig
+  ENV_FILE = "/workspaces/.codespaces/shared/environment-variables.json"
+  APP_CONFIG = "development_app/config/application.rb"
 
-  app_config = "development_app/config/application.rb"
-  return unless File.exist?(app_config)
+  def self.running?
+    File.exist?(ENV_FILE)
+  end
 
-  env_data = JSON.parse(File.read(env_file))
-  hostname = env_data["CODESPACE_NAME"]
-  return unless hostname
+  def initialize
+    @hostname = nil
+  end
 
-  config_content = File.read(app_config)
-  return if config_content.include?("#{hostname}.github.dev")
+  def hostname
+    @hostname ||= fetch_hostname
+  end
 
-  updated_content = config_content.sub(
-    /(config\.load_defaults\s+[\d.]+\s*\n)/,
-    "\\1    config.hosts << \"#{hostname}.github.dev\"\n"
-  )
+  def env_vars
+    hostname ? { "DECIDIM_HOST" => hostname } : {}
+  end
 
-  File.write(app_config, updated_content)
-  puts "\n== Configured Codespaces host: #{hostname}.github.dev =="
+  def configure_application!
+    return unless hostname
+    return unless File.exist?(APP_CONFIG)
+
+    config_content = File.read(APP_CONFIG)
+    return if config_content.match?(/^\s+config\.hosts/)
+
+    updated_content = config_content.sub(
+      /(config\.load_defaults\s+[\d.]+\s*\n)/,
+      "\\1    config.hosts << \"#{hostname}\"\n"
+    )
+
+    File.write(APP_CONFIG, updated_content)
+    puts "\n== Configured Codespaces host: #{hostname} =="
+  end
+
+  private
+
+  def fetch_hostname
+    return nil unless File.exist?(ENV_FILE)
+
+    env_data = JSON.parse(File.read(ENV_FILE))
+    codespace_name = env_data["CODESPACE_NAME"]
+    return nil unless codespace_name
+
+    "#{codespace_name}.github.dev"
+  end
 end
 
 FileUtils.chdir APP_ROOT do
@@ -43,7 +74,13 @@ FileUtils.chdir APP_ROOT do
   system("npm install")
 
   puts "\n== Preparing decidim development app =="
-  system! "bundle exec rake development_app" unless Dir.exist?("development_app")
+  if CodespacesConfig.running?
+    codespaces = CodespacesConfig.new
+    system!(codespaces.env_vars, "bundle exec rake development_app") unless Dir.exist?("development_app")
+    codespaces.configure_application!
+  else
+    system!("bundle exec rake development_app") unless Dir.exist?("development_app")
+  end
 
   puts "\n== Preparing database =="
   system("bin/rails db:create")
@@ -52,8 +89,6 @@ FileUtils.chdir APP_ROOT do
     puts "\n== Removing the leftover pid file =="
     system("rm development_app/tmp/pids/server.pid")
   end
-
-  configure_codespaces_host
 
   puts "\n== Starting application server =="
   system! "bin/dev"
