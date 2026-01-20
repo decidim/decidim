@@ -118,3 +118,89 @@ bin/rails db:migrate
 - Add indexes for foreign keys and frequently queried columns
 - Use `change_column_null` with a default value for non-nullable columns
 - Test migrations in both directions: `bin/rails db:migrate` and `bin/rails db:rollback`
+
+## Data Migrations (data-migrate)
+
+Decidim uses the `data-migrate` gem for data changes that should not live in schema migrations (e.g. backfilling data, transforming existing records, one-off fixes).
+
+Use data migrations when:
+
+* Modifying existing data
+* Backfilling new columns
+* Migrating values between columns or tables
+* Fixing production data inconsistencies
+
+Do **not** use schema migrations for these cases.
+
+### Creating a Data Migration
+
+From the appropriate decidim-* module:
+
+```bash
+cd decidim-<module> bin/rails generate data_migration BackfillSomething
+```
+
+This creates a file under:
+
+```text
+decidim-<module>/
+└── db/
+    └── daata/
+        └── YYYYMMDDHHMMSS_backfill_something.rb
+```
+
+### Running Data Migrations
+
+In a development or test app:
+
+```bash
+bin/rails data:migrate
+```
+
+To check status:
+
+```bash
+bin/rails data:migrate:status
+```
+
+### Data Migration Best Practices
+
+* Never reference application models directly.
+* Define a minimal ActiveRecord::Base class inside the migration.
+* Always pin the table name to avoid breakage if models change:
+
+```ruby
+class LegacyProposal < ActiveRecord::Base
+  self.table_name = "decidim_proposals_proposals"
+end
+```
+
+* Avoid callbacks, validations, and scopes.
+* Make migrations idempotent (safe to re-run).
+* Prefer find_each for large datasets.
+* Keep data migrations small and focused.
+
+### Example Pattern
+
+```ruby
+class BackfillPublishedAt < ActiveRecord::Migration[6.1]
+  class Proposal < ActiveRecord::Base
+    self.table_name = "decidim_proposals_proposals"
+  end
+
+  def up
+    Proposal.where(published_at: nil).find_each do |proposal|
+      proposal.update_column(:published_at, proposal.created_at)
+    end
+  end
+
+  def down
+    # no-op (data migrations are usually irreversible)
+  end
+end
+```
+
+### When in Doubt
+
+* Schema change? → regular migration
+* Data change? → data-migrate
