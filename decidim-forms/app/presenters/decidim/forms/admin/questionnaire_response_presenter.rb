@@ -29,9 +29,12 @@ module Decidim
           return "-" if response.choices.empty?
 
           choices = response.choices.map do |choice|
+            matrix_row_body = (translated_attribute(choice.matrix_row.body) if choice.matrix_row&.body)
+
             {
               response_option_body: choice.try(:response_option).try(:translated_body),
-              choice_body: body_or_custom_body(choice)
+              choice_body: body_or_custom_body(choice),
+              matrix_row_body:
             }
           end
 
@@ -69,9 +72,15 @@ module Decidim
         end
 
         def choice(choice_hash)
+          # rubocop:disable Style/StringConcatenation
           content_tag :li do
-            render_body_for choice_hash
+            if choice_hash[:matrix_row_body].present?
+              content_tag(:strong, choice_hash[:matrix_row_body]) + ": " + render_body_for(choice_hash)
+            else
+              render_body_for choice_hash
+            end
           end
+          # rubocop:enable Style/StringConcatenation
         end
 
         def render_body_for(choice_hash)
