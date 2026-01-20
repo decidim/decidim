@@ -88,15 +88,13 @@ module Decidim
         end
 
         def choice(choice_hash)
-          # rubocop:disable Style/StringConcatenation
           content_tag :li do
             if choice_hash[:matrix_row_body].present?
-              content_tag(:strong, choice_hash[:matrix_row_body]) + ": " + render_body_for(choice_hash)
+              content_tag(:strong, choice_hash[:matrix_row_body]) + ": " + render_body_for(choice_hash) # rubocop:disable Style/StringConcatenation
             else
               render_body_for choice_hash
             end
           end
-          # rubocop:enable Style/StringConcatenation
         end
 
         def render_body_for(choice_hash)
