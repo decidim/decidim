@@ -73,7 +73,7 @@ header {
       }
 
       input[type="text"] {
-        @apply block bg-transparent w-full px-4 py-2 h-full;
+        @apply block bg-transparent w-full pl-4 pr-10 py-2 h-full;
 
         &::placeholder {
           @apply text-neutral-500 text-sm ltr:pl-0 rtl:pr-0;
@@ -354,7 +354,7 @@ header {
       }
 
       &__dropdown-wrapper {
-        @apply flex items-center cursor-pointer underline focus:backdrop-brightness-75 focus:outline-none;
+        @apply flex items-center cursor-pointer underline;
       }
 
       &__dropdown-content {
