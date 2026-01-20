@@ -21,13 +21,7 @@ module Decidim
           execution_period: object.execution_period
         )
 
-        form = Decidim::Proposals::Admin::ProposalAnswerForm.from_params(
-          params
-        ).with_context(
-          current_component: object.component,
-          current_user:,
-          current_organization: current_user.organization
-        )
+        form = form(Decidim::Proposals::Admin::ProposalAnswerForm).from_params(params)
 
         Admin::AnswerProposal.call(form, object) do
           on(:ok) do
@@ -35,13 +29,16 @@ module Decidim
           end
 
           on(:invalid) do
-            raise GraphQL::ExecutionError, form.errors.full_messages.join(", ")
+            raise Decidim::Api::Errors::AttributeValidationError, form.errors
           end
         end
       end
 
       def authorized?(attributes:)
-        super && allowed_to?(:create, :proposal_answer, object, context, scope: :admin)
+        authorized = super && allowed_to?(:create, :proposal_answer, object, context, scope: :admin)
+        raise Decidim::Api::Errors::MutationNotAuthorizedError, I18n.t("decidim.api.errors.unauthorized_mutation") unless authorized
+
+        true
       end
 
       def current_user
