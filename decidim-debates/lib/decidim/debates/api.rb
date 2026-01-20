@@ -11,5 +11,6 @@ module Decidim
     autoload :CloseDebateAttributes, "decidim/api/mutations/close_debate_attributes"
     autoload :CreateDebateType, "decidim/api/mutations/create_debate_type"
     autoload :DebateAttributes, "decidim/api/mutations/debate_attributes"
+    autoload :UpdateDebateType, "decidim/api/mutations/update_debate_type"
   end
 end

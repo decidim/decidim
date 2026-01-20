@@ -11,10 +11,6 @@ Decidim.register_component(:accountability) do |component|
   component.permissions_class_name = "Decidim::Accountability::Permissions"
   component.query_type = "Decidim::Accountability::AccountabilityType"
 
-  component.on(:before_destroy) do |instance|
-    raise StandardError, "Cannot remove this component" if Decidim::Accountability::Result.where(component: instance).any?
-  end
-
   component.on(:publish) do |instance|
     Decidim::Accountability::Result.where(component: instance).find_in_batches(batch_size: 10) do |batch|
       Decidim::UpdateSearchIndexesJob.perform_later(batch)
