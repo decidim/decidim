@@ -1,0 +1,37 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ], 
+  "packageRules": [
+     // Rails ecosystem
+    {
+      "groupName": "Rails",
+      "matchPackagePatterns": ["^rails", "^action", "^active"],
+      "rangeStrategy": "bump"
+    },
+    // Update gemspec constraints
+    {
+      "matchFileNames": ["**/*. gemspec"],
+      "rangeStrategy": "bump",
+      "enabled": true
+    },
+    // Security updates - high priority
+    {
+      "matchUpdateTypes": ["patch"],
+      "matchPackagePatterns": ["devise", "doorkeeper", "omniauth"],
+      "automerge": true,
+      "labels": ["security", "automerge"]
+    }
+  ], 
+  
+  "bundler": {
+    "enabled":  true,
+    "rangeStrategy": "bump"  // Key setting:  updates ~> 4.7 to ~> 4.9
+  }, 
+  
+  "npm": {
+    "enabled": true,
+    "rangeStrategy": "bump"
+  }
+}
