@@ -1,11 +1,35 @@
 #!/usr/bin/env ruby
 require "fileutils"
+require "json"
 
 APP_ROOT = File.expand_path("..", __dir__)
 APP_NAME = "decidim-development-app"
 
 def system!(*args)
   system(*args, exception: true)
+end
+
+def configure_codespaces_host
+  env_file = "/workspaces/.codespaces/shared/environment-variables.json"
+  return unless File.exist?(env_file)
+
+  app_config = "development_app/config/application.rb"
+  return unless File.exist?(app_config)
+
+  config_content = File.read(app_config)
+  return if config_content.match?(/^\s+config\.hosts/)
+
+  env_data = JSON.parse(File.read(env_file))
+  hostname = env_data["CODESPACE_NAME"]
+  return unless hostname
+
+  updated_content = config_content.sub(
+    /(config\.load_defaults\s+[\d.]+\s*\n)/,
+    "\\1    config.hosts << \"#{hostname}.github.dev\"\n"
+  )
+
+  File.write(app_config, updated_content)
+  puts "\n== Configured Codespaces host: #{hostname}.github.dev =="
 end
 
 FileUtils.chdir APP_ROOT do
@@ -29,7 +53,8 @@ FileUtils.chdir APP_ROOT do
     system("rm development_app/tmp/pids/server.pid")
   end
 
+  configure_codespaces_host
+
   puts "\n== Starting application server =="
   system! "bin/dev"
 end
-
