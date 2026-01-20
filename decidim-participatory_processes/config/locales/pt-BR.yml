@@ -93,6 +93,7 @@ pt-BR:
         duplicate: Duplicar
         edit: Editar
         import_process: Importar
+        menu_hidden: Ocultar
         new_process: Novo processo
         new_process_group: Novo grupo de processos
         new_process_step: Novo passo
@@ -351,6 +352,7 @@ pt-BR:
           developer_group: O grupo de desenvolvedores do processo. Esta é a organização que está promovendo o processo.
           end_date: Data final do processo
           follows_count: O número de usuário seguindo este espaço
+          hashtag: A hashtag do processo, usada no Twitter/X
           id: O identificador exclusivo desse processo
           local_area: A área local do processo. Esta é a área da organização onde o processo está ocorrendo.
           meta_scope: Os metadados do escopo do processo
@@ -442,6 +444,7 @@ pt-BR:
             images: Imagens
             metadata: Metadados
             no_taxonomy_filters_found: Nenhum filtro de taxonomia encontrado.
+            private_notice: Você será capaz de gerenciar membros após configurá-lo como privado
             related_processes: Processos relacionados
             select_process_group: Selecione um grupo de processos
             slug_help_html: 'Os slugs de URL são usados para gerar os URLs que apontam para este processo. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
