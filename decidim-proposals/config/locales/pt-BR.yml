@@ -267,7 +267,10 @@ pt-BR:
           notification_title: Você foi adicionado como um co-autor da proposta <a href="%{resource_path}">%{resource_title}</a>.
         admin:
           proposal_assigned_to_valuator:
+            email_intro: Você foi designado como avaliador da proposta "%{resource_title}". Isso significa que você foi escolhido para fornecer feedback e uma resposta adequada nos próximos dias. Confira no <a href="%{admin_proposal_info_url}">painel de administração</a>.
             email_outro: Você recebeu esta notificação porque pode avaliar a proposta.
+            email_subject: Você foi atribuído como avaliador da proposta %{resource_title}.
+            notification_title: Você foi designado como avaliador da proposta <a href="%{resource_path}">%{resource_title}</a>. Confira-a no <a href="%{admin_proposal_info_path}">painel de administração</a>.
           proposal_note_created:
             email_intro: '%{author_name} criou uma nota privada em %{resource_title}. Confira no <a href="%{admin_proposal_info_url}">painel de administração</a>.'
             email_outro: Você recebeu esta notificação porque pode avaliar a proposta.
@@ -437,6 +440,7 @@ pt-BR:
           id: O Id para este comentário
           locale: A localidade (linguagem) que o usuário teve ao deixar este comentário
           root_commentable_url: A URL do recurso ligado a este comentário
+          user_group: O nome do grupo de usuários que fez este comentário (se houver)
         proposals:
           address: O endereço da proposta caso a proposta tenha um local físico
           answer: A resposta à proposta no caso de ela ter sido respondida
@@ -451,6 +455,7 @@ pt-BR:
           cost_report: Um relatório de custos para a proposta
           created_at: A data em que a proposta foi criada
           created_in_meeting: Se a proposta foi criada em uma reunião
+          endorsements: O número de endossos ("curtidas") esta proposta tem
           execution_period: O período em que a proposta correu do início ao fim
           follows_count: O número de seguidores que essa proposta tem
           id: O identificador único para a proposta
@@ -697,6 +702,11 @@ pt-BR:
           create:
             invalid: 'Houve um problema ao dividir as propostas selecionadas porque algumas delas:'
             success: Dividiu com sucesso as propostas em novas.
+        valuation_assignments:
+          create:
+            invalid: Houve um problema ao atribuir propostas a um avaliador.
+          delete:
+            invalid: Houve um problema ao desatribuir propostas de um avaliador.
       admin_log:
         proposal:
           answer: "%{user_name} respondeu a proposta %{resource_name} no espaço %{space_name}"
