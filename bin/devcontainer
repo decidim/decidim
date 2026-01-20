@@ -70,8 +70,9 @@ case "$1" in
     up)
         use_local_config
         devcontainer up --workspace-folder=.
+        status=$?
         restore_devcontainer_config
-        exit $?
+        exit "$status"
         ;;
     down)
         echo "Stopping containers..."
@@ -91,8 +92,9 @@ case "$1" in
         rm -rf development_app/
         use_local_config
         devcontainer up --workspace-folder=. --remove-existing-container
+        status=$?
         restore_devcontainer_config
-        exit $?
+        exit "$status"
         ;;
     ""| help | --help | -h)
         echo "Usage: $SCRIPT_NAME <command>"
