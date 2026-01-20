@@ -26,18 +26,37 @@ pt-BR:
         questionnaire:
           request_invalid: Houve um problema ao lidar com a solicitação. Por favor, tente novamente.
   decidim:
+    download_your_data:
+      help:
+        answers:
+          answer: A resposta para a pergunta
+          id: O identificador único da resposta
+          question: A pergunta respondida
+          questionnaire: O questionário respondido
+          user: O usuário que respondeu o questionário
+      show:
+        answers: Exportação de respostas
+        survey_user_answers: Respostas do usuário
     forms:
       admin:
         models:
           components:
+            allow_answers: Permitir respostas
+            allow_editing_answers: Permitir que usuários registrados editem as próprias respostas de pesquisa
+            allow_unregistered: Permitir que usuários não registrados respondam à pesquisa
+            allow_unregistered_help: Se estiver ativo, não será necessário fazer login para responder à pesquisa. Isso pode levar a dados imprecisos ou não confiáveis ​​e tornará o sistema mais vulnerável a ataques automatizados. Use com cautela! Lembre-se de que um participante pode responder à mesma pesquisa várias vezes, usando navegadores diferentes ou o recurso de "navegação anônima" do seu navegador.
             announcement: Anúncio
+            clean_after_publish: Excluir respostas ao publicar a pesquisa
             description: Descrição
+            ends_at: Respostas aceitas até
             ends_at_help: Deixe em branco para nenhuma data específica
+            starts_at: Respostas aceitas de
             starts_at_help: Deixe em branco para nenhuma data específica
             tos: Termos de serviço
         questionnaires:
           actions:
             back: Voltar para respostas
+            publish_answers: Publicar respostas
             show: Mostrar respostas
           answer_option:
             answer_option: Opção de resposta
@@ -129,6 +148,9 @@ pt-BR:
             invalid: Houve erros ao salvar o questionário.
             success: Formulário salvo com sucesso.
       admin_log:
+        question:
+          publish_answers: "%{user_name} publicou as respostas da pergunta %{resource_name} no espaço %{space_name}"
+          unpublish_answers: "%{user_name} não publicou as respostas da pergunta %{resource_name} no espaço %{space_name}"
         questionnaire:
           update: "%{user_name} atualizou o questionário %{resource_name}"
       errors:
@@ -171,6 +193,9 @@ pt-BR:
           questionnaire_answered:
             body: Você já respondeu esta pesquisa.
             title: Já respondido
+          questionnaire_answered_edit:
+            body: Você já respondeu a este formulário. %{link}
+            edit: Editar suas respostas
           questionnaire_closed:
             body: O questionário está fechado e não pode ser respondido.
             title: Questionário fechado
@@ -185,8 +210,10 @@ pt-BR:
           tos_agreement: Ao participar você aceita seus Termos de Serviço
       step_navigation:
         show:
+          are_you_sure_edit_guest: Se você quiser ser capaz de editar suas respostas depois, então você precisa entrar ou criar uma conta.
           back: Voltar
           continue: Continuar
+          disallowed: Você não tem permissão para editar suas respostas.
           submit: Enviar
       user_answers_serializer:
         body: Resposta
