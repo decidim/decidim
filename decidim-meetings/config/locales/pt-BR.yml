@@ -50,6 +50,8 @@ pt-BR:
       meeting_registration_invite:
         email: E-mail
         name: Nome
+      response:
+        add_documents: Adicionar documentos
       validate_registration_code:
         code: Código
     errors:
@@ -78,6 +80,10 @@ pt-BR:
       decidim/meetings/update_meeting_event: Reunião atualizada
   activerecord:
     models:
+      decidim:
+        meetings:
+          meeting:
+            text: 'Foi discutido nesta reunião: %{link}'
       decidim/meetings/meeting:
         one: Reunião
         other: Reuniões
@@ -89,6 +95,9 @@ pt-BR:
         other: Registros
   decidim:
     admin:
+      admin_log:
+        changeset:
+          meetings: Eventos
       filters:
         accepted_at_not_null:
           label: Aceitou
@@ -106,6 +115,8 @@ pt-BR:
             values:
               'false': Passado
               'true': Próximos
+          taxonomies_part_of_contains:
+            label: Taxonomia
           with_any_origin:
             label: Origem
             values:
@@ -136,27 +147,56 @@ pt-BR:
         new:
           copy: cópia de
           title: Reunião duplicada
+      tooltips:
+        cannot_close_meetings: Não é possível fechar este evento, pois é criada por um participante
+        cannot_duplicate_meetings: Não é possível duplicar este evento, como é criada por um participante
+        cannot_edit_meetings: Não é possível editar este evento, pois é criada por um participante
+        cannot_manage_agenda_meetings: Não é possível gerenciar a agenda neste evento pois é criada por um usuário
+        cannot_manage_attachments_meetings: Não é possível gerenciar anexos neste evento pois ela é criada por um usuário
+        cannot_manage_poll_meetings: Não é possível gerenciar a enquete neste evento pois ela é criada por um usuário
+        cannot_manage_registrations_meetings: Não é possível gerenciar inscrições neste evento, como é criado por um participante, tem inscrições desabilitadas ou esses registos são externos
+        cannot_mark_attendee: Não é possível marcar como solicitado, pois já estava marcado
+        deleted_meetings_info: Não é possível excluir este evento, pois ela é criada por um participante.
     components:
       meetings:
         actions:
           comment: Comentário
           join: Junte-se
+          reply_poll: Responder enquete
         name: Reuniões
         settings:
           global:
             announcement: Anúncio
+            clear_all: Limpar tudo
             comments_enabled: Comentários ativados
             comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
             creation_enabled_for_participants: Os participantes podem criar reuniões
             default_registration_terms: Termos de registro padrão
+            define_taxonomy_filters: Por favor, defina alguns filtros para este espaço participativo antes de usar esta configuração.
             enable_pads_creation: Ativar criação de blocos
             maps_enabled: Mapas ativados
+            no_taxonomy_filters_found: Nenhum filtro de taxonomia encontrado.
+            registration_code_enabled: Código de registro e QR ativado
             resources_permissions_enabled: Permissões de ações podem ser definidas para cada encontro
+            taxonomy_filters: Selecione filtros para o componente
+            taxonomy_filters_add: Adicionar filtro
             terms_and_conditions_url_for_meeting_creators: URL de Termos e condições para criadores da reunião
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
             creation_enabled_for_participants: Criação de reunião por participantes habilitada
+    download_your_data:
+      help:
+        invites:
+          accepted_at: A data e hora em que este convite foi aceito
+          created_at: A data e hora em que este convite foi criado
+          id: O identificador único para esse convite
+          meeting: A reunião onde esse convite aconteceu
+          rejected_at: A data e hora em que este convite foi rejeitado
+          sent_at: A data e hora em que esse convite foi enviado
+          updated_at: A data e hora em que este convite foi atualizado pela última vez
+        registrations:
+          code: O código de registro
     events:
       meetings:
         meeting_closed:
