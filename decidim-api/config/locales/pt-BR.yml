@@ -1,0 +1,6 @@
+---
+pt-BR:
+  decidim:
+    api:
+      errors:
+        too_many_aliases_error: Foram utilizados muitos aliases. Você usou %{size} aliases, mas são permitidos apenas %{limit}.
