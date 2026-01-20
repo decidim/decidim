@@ -1,6 +1,4 @@
-<div class="menu-bar__breadcrumb-desktop__dropdown-wrapper">
-  <%= link_to decidim.root_url, class: "menu-bar__breadcrumb-desktop__dropdown-trigger" do %>
-    <span class=""><%= t("decidim.menu.home") %></span>
-  <% end %>
-</div>
+<%= link_to decidim.root_url, class: "menu-bar__breadcrumb-desktop__dropdown-wrapper menu-bar__breadcrumb-desktop__dropdown-trigger" do %>
+  <span class=""><%= t("decidim.menu.home") %></span>
+<% end %>
 <%= render partial: "layouts/decidim/header/menu_breadcrumb_items" %>
