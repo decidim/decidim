@@ -12,7 +12,7 @@
     },
     // Update gemspec constraints
     {
-      "matchFileNames": ["**/*. gemspec"],
+      "matchFileNames": ["**/*.gemspec"],
       "rangeStrategy": "bump",
       "enabled": true
     },
