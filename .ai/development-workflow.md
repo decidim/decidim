@@ -145,7 +145,7 @@ This creates a file under:
 ```text
 decidim-<module>/
 └── db/
-    └── daata/
+    └── data/
         └── YYYYMMDDHHMMSS_backfill_something.rb
 ```
 
