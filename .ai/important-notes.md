@@ -6,4 +6,4 @@
 - Each `decidim-*` directory is an independent gem with its own tests and dependencies
 - Always run full validation scenarios after making changes to ensure functionality works end-to-end
 - **Changes to decidim-generators**: When making changes to `decidim-generators` that affect application configuration (files like `config/application.rb`, `config/environments/*`, etc) or other generated files, also document these changes in `RELEASE_NOTES.md`
-- Read more about testing (like how to run parallel tests) at @docs/modules/develop/pages/testing.adoc 
+- Read more about testing (like how to run parallel tests) at @docs/modules/develop/pages/testing.adoc

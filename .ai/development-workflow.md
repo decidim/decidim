@@ -125,10 +125,10 @@ Decidim uses the `data-migrate` gem for data changes that should not live in sch
 
 Use data migrations when:
 
-* Modifying existing data
-* Backfilling new columns
-* Migrating values between columns or tables
-* Fixing production data inconsistencies
+- Modifying existing data
+- Backfilling new columns
+- Migrating values between columns or tables
+- Fixing production data inconsistencies
 
 Do **not** use schema migrations for these cases.
 
@@ -165,9 +165,9 @@ bin/rails data:migrate:status
 
 ### Data Migration Best Practices
 
-* Never reference application models directly.
-* Define a minimal ActiveRecord::Base class inside the migration.
-* Always pin the table name to avoid breakage if models change:
+- Never reference application models directly.
+- Define a minimal ActiveRecord::Base class inside the migration.
+- Always pin the table name to avoid breakage if models change:
 
 ```ruby
 class LegacyProposal < ActiveRecord::Base
@@ -175,10 +175,10 @@ class LegacyProposal < ActiveRecord::Base
 end
 ```
 
-* Avoid callbacks, validations, and scopes.
-* Make migrations idempotent (safe to re-run).
-* Prefer find_each for large datasets.
-* Keep data migrations small and focused.
+- Avoid callbacks, validations, and scopes.
+- Make migrations idempotent (safe to re-run).
+- Prefer find_each for large datasets.
+- Keep data migrations small and focused.
 
 ### Example Pattern
 
@@ -202,5 +202,5 @@ end
 
 ### When in Doubt
 
-* Schema change? → regular migration
-* Data change? → data-migrate
+- Schema change? → regular migration
+- Data change? → data-migrate
