@@ -1,0 +1,6 @@
+---
+ro:
+  decidim:
+    api:
+      errors:
+        too_many_aliases_error: Prea multe aliasuri folosite. Ați folosit aliasuri %{size}, dar %{limit} sunt permise.
