@@ -76,7 +76,7 @@ module Decidim
           )
         end
 
-        it "raises an error" do
+        it "does not raise an error" do
           expect { response }.not_to raise_error
         end
       end
