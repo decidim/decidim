@@ -1508,6 +1508,7 @@ sv:
       pages_count: Sidor
       participants_count: Deltagare
       participants_count_tooltip: Antalet unika användare som har interagerat i detta område genom att lägga fram förslag, delta i möten, rösta eller delta i diskussioner.
+      surveys_count: Enkäter
       users_count: Deltagare
       users_count_tooltip: Det totala antalet användare som har registrerat sig och bekräftat sitt konto via e-post.
     translation_bar:
