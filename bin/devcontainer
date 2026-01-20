@@ -35,8 +35,13 @@ use_local_config() {
 
             # Merge configs: base config with local overrides
             # jq -s '.[0] * .[1]' merges two objects, with the second overriding the first
-            jq -s '.[0] * .[1]' "$DEVCONTAINER_BACKUP_JSON" "$DEVCONTAINER_LOCAL_JSON" > "$DEVCONTAINER_JSON"
-            return 0
+            if jq -s '.[0] * .[1]' "$DEVCONTAINER_BACKUP_JSON" "$DEVCONTAINER_LOCAL_JSON" > "$DEVCONTAINER_JSON"; then
+                return 0
+            else
+                echo "Error: Failed to merge JSON configs. Restoring backup..." >&2
+                mv "$DEVCONTAINER_BACKUP_JSON" "$DEVCONTAINER_JSON"
+                return 1
+            fi
         else
             echo "Warning: jq not found. Install jq to use devcontainer.local.json." >&2
             return 1
