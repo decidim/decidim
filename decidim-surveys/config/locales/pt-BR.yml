@@ -49,9 +49,11 @@ pt-BR:
       answers_count: Respostas
     surveys:
       actions:
+        answers_alert: Excluir as respostas na publicação está ativo para esta pesquisa. Existem respostas %{answers_count} que serão destruídas se você continuar.
         confirm_destroy: Tem certeza de que deseja excluir isso?
         destroy: Destruir
         edit: Editar
+        manage_questions: Gerenciar perguntas
         new_survey: Nova pesquisa
         preview: Pré-visualização
         title: Ações
@@ -59,13 +61,23 @@ pt-BR:
         answers:
           index:
             title: "%{total} Respostas totais"
+          show:
+            title: 'Resposta #%{number}'
         exports:
           survey_user_answers: Avalie as respostas dos usuários
         publish_answers:
           index:
+            answers:
+              one: "%{count} resposta"
+              other: "%{count} respostas"
+            description: |-
+              Ao publicar as respostas das perguntas, você as tornará visíveis ao público.
+              Você pode selecionar as respostas que deseja publicar clicando na caixa de seleção ao lado de cada pergunta.
+              Você só pode publicar os seguintes tipos de pergunta: "Opção única", "Opção múltipla", "Matriz (opção única)", "Matriz (opção múltipla)" e "Classificação".
             status:
               not_published: Não publicado
               published: Publicado
+            title: Publicar respostas
         surveys:
           create:
             invalid: Ocorreu um problema ao criar a pesquisa.
