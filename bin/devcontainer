@@ -10,6 +10,20 @@ DEVCONTAINER_LOCAL_JSON="$DEVCONTAINER_DIR/devcontainer.local.json"
 DEVCONTAINER_BACKUP_JSON="$DEVCONTAINER_DIR/devcontainer.json.backup"
 
 # Function to use local config if it exists
+#
+# This allows having a file with local instructions for your personal developer environment at
+# .devcontainer/devcontainer.local.json
+# So, for instance, you can have
+#
+# ```json
+# {
+#   "postCreateCommand": ".devcontainer/devcontainer.local.postCreateCommand.bash"
+# }
+# ```
+#
+# And there you can add your own packages, dotfiles, etc. Do not forget to also call `bin/setup`
+# at the end of your script.
+#
 use_local_config() {
     if [ -f "$DEVCONTAINER_LOCAL_JSON" ]; then
         # Check if jq is available
