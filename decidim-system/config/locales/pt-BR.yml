@@ -7,6 +7,9 @@ pt-BR:
         organization_name: Organização
         organization_url: URL da organização
         redirect_uri: Redirecionar URI
+        refresh_tokens: Atualizar tokens
+        refresh_tokens_enabled: Atualizar tokens ativados
+        scopes: Escopos disponíveis
       organization:
         address: Nome do host SMTP
         from_email: Endereço de E-mail
@@ -31,17 +34,43 @@ pt-BR:
           attributes:
             redirect_uri:
               must_be_ssl: O URI de redirecionamento deve ser um URI com SSL
+        organization:
+          attributes:
+            password:
+              secret_key: Você precisa definir a variável de ambiente SECRET_KEY_BASE para ser capaz de salvar este campo
   decidim:
     system:
       actions:
+        api_user:
+          hidden_secret: O segredo está oculto
+          hide_secret: Ocultar Segredo
+          secret_can_not_be_shown: o segredo de API só pode ser visto ou copiado após a criação
+          show_secret: Mostrar segredo
+          shown_secret: O segredo é mostrado
+        api_users:
+          create: Criar
+          new: Novo usuário da API
+          remove: Remover usuário
         confirm_destroy: Deseja mesmo excluir isso?
+        confirm_refresh_api_secret: Tem certeza que deseja atualizar o segredo para este usuário da API? Depois da atualização, o segredo antigo será inválido e não poderá mais ser usado.
+        confirm_remove_api_user: Você tem certeza que deseja remover este usuário da API?
+        copied: Copiado
+        copy_secret: Copiar segredo
+        copy_secret_clarification: Copiar segredo para área de transferência
         destroy: Excluir
         edit: Editar
+        new_admin: Novo administrador
+        new_oauth_application: Novo aplicação OAUTH
+        new_organization: Nova organização
+        refresh_secret: Atualizar segredo
         save: Salvar
         title: Ações
       admins:
         create:
           error: Ocorreu um erro ao criar um novo administrador.
+          success: Administrador criado com sucesso.
+        destroy:
+          success: Administrador excluído com sucesso.
         edit:
           title: Edit admin
           update: Atualizar
@@ -52,12 +81,35 @@ pt-BR:
           title: Novo administrador
         update:
           error: Ocorreu um erro ao atualizar este administrador.
+          success: Administrador atualizado com sucesso.
+      api_user:
+        create:
+          error: Criação de usuário da API falhou.
+          success: Usuário de API criado com sucesso. O segredo do usuário só é visível após a criação. Por favor, copie e armazene-o com segurança antes de sair desta página!
+        destroy:
+          success: Usuário de API excluído com sucesso.
+        refresh:
+          error: Algo deu errado! Por favor, tente novamente mais tarde.
+          success: Segredo atualizado com sucesso. O segredo para o usuário só é visível após a criação. Por favor, copie e armazene-o com segurança antes de sair desta página!
+      api_users:
+        index:
+          explanation_html: |
+            <p>Os usuários da API permitem que os desenvolvedores de integração adicionem contas de usuário de máquina administrativas ao sistema. Esses usuários de máquina podem atuar como administradores na plataforma para realizar atualizações que os administradores normais realizariam por meio do painel de administração. Um caso de uso típico é uma plataforma de gerenciamento externa onde um script automatizado executaria tarefas administrativas na plataforma sem que um usuário real precisasse se autenticar no sistema. Por exemplo, um sistema de automação pode querer enviar respostas a propostas, caso em que precisamos de um usuário de integração para executar essa tarefa dentro desta plataforma.</p>
+            <p>A principal diferença entre essas contas e as contas de administrador normais é que esses usuários são destinados ao uso por máquinas e, portanto, seus requisitos de senha são diferentes. Esses usuários não precisam atualizar suas senhas regularmente e a alteração da senha da conta pode ocorrer de forma gerenciada quando necessário.</p>
+            <p>Essas credenciais são destinadas ao uso por máquinas. Os aplicativos voltados para o participante devem ser integrados com <a href="%{oauth_link}">aplicativos OAuth</a>.</p>
+          manage: Gerenciar usuários da API
+        new:
+          select_organization: Selecione sua organização
+          title: Criar novo usuário de API
       dashboard:
         show:
+          admins: Administradores
           current_organizations: Organizações atuais
+          system_checks: Verificações de sistema
       default_pages:
         placeholders:
           content: Adicione conteúdo significativo à página estática %{page} no painel do administrador.
+          summary: Por favor, adicione um resumo significativo à página estática %{page} no painel do administrador.
           title: Título padrão para %{page}
         terms-of-service: Termos de serviço
       devise:
@@ -77,8 +129,9 @@ pt-BR:
             sign_up: Criar uma conta
       menu:
         admins: Administradores
+        api_credentials: Credenciais de API
         dashboard: painel de controle
-        oauth_applications: Aplicações OAuth
+        oauth_applications: Aplicativos OAuth
         organizations: Organizações
       models:
         admin:
@@ -87,6 +140,15 @@ pt-BR:
             email: E-mail
           validations:
             email_uniqueness: outro administrador com o mesmo e-mail já existe
+        api_user:
+          fields:
+            created_at: Criado em
+            key: Chave
+            name: Nome
+            organization: Organização
+            secret: Segredo
+          validations:
+            name_uniqueness: Um usuário de API com este nome já existe.
         oauth_application:
           fields:
             created_at: Criado em
@@ -96,6 +158,7 @@ pt-BR:
           actions:
             save_and_invite: Criar organização e convidar admin
           fields:
+            content_security_policy: Política de segurança de conteúdo
             created_at: Criado em
             file_upload_settings: Configurações de upload de arquivo
             name: Nome
@@ -112,6 +175,26 @@ pt-BR:
           save: Salvar
           title: Editar aplicativo
         form:
+          application_type:
+            confidential:
+              explanation: Aplicações que conseguem autenticar de forma segura com o servidor de autorização, por exemplo, conseguindo manter seus clientes registrados seguros. Normalmente um aplicativo executando em um servidor onde o segredo do cliente é armazenado.
+              name: Confidencial
+            public:
+              explanation: Aplicativos que são incapazes de usar segredos de cliente registrados, como aplicativos executados em um navegador ou em um dispositivo móvel.
+              name: Público
+          application_type_help_html: 'O tipo de cliente OAuth conforme definido por <a href="%{client_type_link}" target="_blank">RFC 6749 Seção 2.1</a>. Os clientes públicos precisam implementar o fluxo PKCE, conforme definido pela <a href="%{pkce_link}" target="_blank">RFC 7636</a>. '
+          refresh_tokens_help_html: 'Os tokens de atualização são úteis caso o token precise de um tempo de vida mais longo do que o que é atribuído para o token de acesso. Note que <strong>os tokens de atualização devem ser usados cuidadosamente</strong> porque eles podem enfraquecer a segurança de seus usuários. '
+          scopes_explanation:
+            "api:read": Permite que o usuário realize operações de consulta por meio da API GraphQL.
+            "api:write": Permite que o usuário execute operações de mutação através da API do GraphQL.
+            profile: Fornece acesso aos detalhes do próprio perfil do usuário. Apenas este escopo é necessário no caso de a aplicação OAuth ser usada apenas como um provedor de identidade ou um serviço de autenticação.
+            user: Capacidade de agir como o usuário conectado com o token fornecido durante chamadas para a API do GraphQL. Isto é necessário para todas as operações de api:write ou api:read que precisam de informação sobre o usuário atual.
+          scopes_help_html: |
+            Os escopos selecionados estarão disponíveis para os aplicativos conectados solicitarem durante o processo de autorização. O usuário será apresentado detalhes sobre a solicitação de autorização quando ele entrar usando OAuth.
+            <br>
+            Diferentes escopos fornecem diferentes recursos para o usuário autenticado usando os tokens de acesso concedidos.
+            <br>
+            <strong>Nota:</strong> Se você só precisar autenticar os usuários em seus aplicativos externos, você só precisa do escopo <strong>do perfil</strong>. Aplicações interagindo com a API Decidim também exigem outros escopos.
           select_organization: Selecione uma organização
         index:
           confirm_delete: Tem certeza de que deseja excluir este aplicativo?
@@ -129,8 +212,60 @@ pt-BR:
         create:
           error: Ocorreu um erro ao criar uma nova organização.
           error_invitation: Ocorreu um erro ao criar uma nova organização. Revise o nome do administrador da organização.
+          success_html: |
+            <p>
+            Organização criada com sucesso.
+
+            </p>
+            <ol>
+            <li>Talvez seja necessário atualizar o código do seu aplicativo, pois para permitir solicitações para %{host} você precisa adicionar o seguinte à sua configuração de ambiente (ou seja, <code>config/environment/production.rb</code>) ou ao seu <code>config/application.rb</code>:
+            <p>config.hosts << "%{host}"</p>
+            </li>
+            <li>
+            Após isso, você poderá acessar sua plataforma através de <a href="http://%{host}">http://%{host}</a>
+            </li>
+            <li>
+            Enviamos um e-mail para <b>%{email}</b> que você precisa confirmar.
+            </li>
+            </ol>
+        csp_settings:
+          connect_src: Conectar src
+          connect_src_hint: |
+            A diretiva connect-src restringe os URLs que podem ser carregados usando elementos <script>.
+            A plataforma adicionará 'self', mas permite que você adicione mais. Deixe em branco se não tiver certeza.
+          default_src: Default src
+          default_src_hint: |
+            A diretiva default-src é a política padrão para carregar conteúdo como JavaScript, imagens, CSS, fontes, solicitações AJAX, frames e mídia HTML5.
+            A plataforma adicionará "'self' 'unsafe-inline'", mas permite que você adicione mais. Deixe em branco se não tiver certeza.
+          font_src: Font src
+          font_src_hint: |
+            A diretiva font-src restringe os URLs que podem ser carregados usando @font-face.
+            A plataforma adicionará 'self', mas permite que você adicione mais. Deixe em branco se não tiver certeza.
+          frame_src: Frame src
+          frame_src_hint: |
+            A diretiva frame-src restringe os URLs que podem ser carregados usando os elementos <frame>, <iframe> e <object>.
+            A plataforma adicionará 'self', mas permite que você adicione mais. Deixe em branco se não tiver certeza.
+          img_src: Img src
+          img_src_hint: |
+            A diretiva img-src restringe os URLs que podem ser carregados usando os elementos <img>, <image>, <picture> e <svg>.
+            A plataforma adicionará 'self', mas permite que você adicione mais. Deixe em branco se não tiver certeza.
+          media_src: Src de mídia
+          media_src_hint: |
+            A diretiva media-src restringe os URLs que podem ser carregados usando os elementos <video>, <audio> e <source>.
+            A plataforma adicionará 'self', mas permite que você adicione mais. Deixe em branco se não tiver certeza.
+          script_src: Script src
+          script_src_hint: |
+            A diretiva script-src restringe os URLs que podem ser carregados usando elementos <script>.
+            A plataforma adicionará "'self' 'unsafe-inline' 'unsafe-eval'", mas permite que você adicione mais. Deixe em branco se não tiver certeza.
+          style_src: Estilo src
+          style_src_hint: |
+            A diretiva style-src restringe os URLs que podem ser carregados usando elementos <style>.
+            A plataforma adicionará "'self' 'unsafe-inline'", mas permite que você adicione mais. Deixe em branco se não tiver certeza.
         edit:
+          confirm_resend_invitation: Tem certeza de que deseja reenviar o convite?
+          resend_invitation: Reenviar convite
           secondary_hosts_hint: Insira cada um deles em uma nova linha
+          short_name_hint: Nome curto usado para o aplicativo web progressiva. Ele deve ter no máximo 12 caracteres.
           title: Editar organização
         file_upload_settings:
           content_types:
@@ -150,6 +285,7 @@ pt-BR:
           intro: |
             Por favor, tenha um cuidado extra ao considerar alterar estas configurações. Quanto menos você permitir, melhor.
             Permitir extensões de arquivo ou tipos MIME específicos pode expor os usuários do sistema a riscos de segurança e também pode afetar a acessibilidade do site.
+        header_snippets_help_html: Use este campo para adicionar elementos ao cabeçalho HTML. O uso mais comum é para integrar serviços de terceiros que exigem JavaScript ou CSS adicionais. Você também pode usá-lo para adicionar meta tags extras ao HTML. Observe que isso só será exibido em páginas públicas, não na área administrativa. Se o código interagir com APIs externas ou não estiver em conformidade com as diretrizes de segurança do aplicativo, será necessário alterar a Política de Segurança de Conteúdo (CSP). Saiba mais sobre <a href="https://docs.decidim.org/en/develop/customize/content_security_policy">na documentação</a>.
         index:
           title: Organizações
         new:
@@ -159,6 +295,7 @@ pt-BR:
           organization_admin_email_hint: Nós enviaremos um e-mail para este endereço para que você possa confirmá-lo e configurar sua senha.
           reference_prefix_hint: O prefixo de referência é usado para identificar exclusivamente recursos em todas as organizações.
           secondary_hosts_hint: Insira cada um deles em uma nova linha.
+          short_name_hint: Nome curto usado para o aplicativo web progressiva. Ele deve ter no máximo 12 caracteres.
           title: Nova organização
         omniauth_settings:
           decidim:
@@ -179,10 +316,13 @@ pt-BR:
             api_key: Chave da API
             api_secret: Senha API
         resend_invitation:
+          error: Houve um problema ao enviar o convite.
           success: O convite remete com sucesso.
         smtp_settings:
           fieldsets:
             sender: Remetente
+          instructions:
+            from_label: 'O remetente do e-mail será: "nome-da-sua-organização <your-organization@example.org>". Deixe em branco para usar o mesmo nome definido para a organização.'
           placeholder:
             from_email: sua-organização@exemplo.org
             from_label: nome-da-organizacao
@@ -199,11 +339,18 @@ pt-BR:
           our_getting_started_guide: nosso guia inicial
         organizations_list:
           confirm_resend_invitation: Tem certeza de que deseja excluir este aplicativo?
+          resend_invitation: Reenviar convite
       system_checks:
         active_job_queue:
           decidim_documentation: Documentação do Decidim
+          error: A fila de ActiveJob não está configurada. Esta não é uma configuração recomendada para produção. Leia mais em %{error_extra}.
+          success: A fila do ActiveJob está configurada corretamente.
+        secret_key:
+          error: 'A chave secreta não está definida corretamente. Salve-a na variável de ambiente SECRET_KEY_BASE e reinicie o servidor: %{error_extra}'
+          success: A chave secreta está configurada corretamente.
       titles:
         dashboard: painel de controle
+        decidim: Decidim
   layouts:
     decidim:
       system:
