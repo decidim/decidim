@@ -947,6 +947,7 @@ pt-BR:
           error: Houve um erro ao excluir um usuário particular desse espaço participativo.
           success: Espaço participativo acesso de usuário privado excluído com sucesso.
         edit:
+          title: Editar usuário privado do Espaço Participativo.
           update: Atualizar
         index:
           import_via_csv: Importar via CSV
@@ -956,6 +957,15 @@ pt-BR:
         new:
           create: Criar
           title: Novo usuário particular do Espaço Participativo.
+        publish_all:
+          error: Ocorreu um erro ao publicar todos os participantes privados para este espaço participativo.
+          success: Todos os participantes deste espaço participativo foram publicados com sucesso
+        unpublish_all:
+          error: Ocorreu um erro ao despublicar todos os participantes privados para este espaço participativo.
+          success: Todos os participantes privados deste espaço participativo foram despublicados com sucesso
+        update:
+          error: Ocorreu um erro ao atualizar o usuário privado para este espaço participativo.
+          success: Espaço participativo usuário privado atualizado com sucesso
       participatory_space_private_users_csv_imports:
         create:
           invalid: Houve um problema ao ler o arquivo CSV. Por favor, certifique-se de ter seguido as instruções.
