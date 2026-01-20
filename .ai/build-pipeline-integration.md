@@ -88,18 +88,26 @@ bundle exec i18n-tasks unused
 
 2. **Run the specific failing test** to iterate faster:
 
-   ```bash
-   cd decidim-<module>
-   bundle exec rspec spec/path/to/failing_spec.rb:LINE_NUMBER
-   ```
+```bash
+cd decidim-<module>
+bundle exec rspec spec/path/to/failing_spec.rb:LINE_NUMBER
+```
+
+* You can pass multiple line numbers: file.rb:12:34
+* For failures in shared contexts/examples, always run the concrete example using its file:line from the failure output.
+* Alternatively, run by example description:
+
+```bash
+bundle exec rspec spec/path/to/failing_spec.rb -e "example description"
+```
 
 3. **Check for flaky tests** - If a test passes when run individually but fails in the suite, it may be a test isolation issue
 
 4. **Reset the test database** if you suspect data issues:
 
-   ```bash
-   cd spec/decidim_dummy_app
-   bin/rails db:reset RAILS_ENV=test
-   ```
+```bash
+cd spec/decidim_dummy_app
+bin/rails db:reset RAILS_ENV=test
+```
 
 5. **Check for missing dependencies** - Run `bundle install` and `npm install` if tests fail with load errors
