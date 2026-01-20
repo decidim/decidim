@@ -126,11 +126,7 @@ shared_examples "when the introspection is disabled" do
       type {
         fields {
           type {
-            fields {
-              type {
-                name
-              }
-            }
+            name
           }
         }
       }
