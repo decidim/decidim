@@ -3,4 +3,5 @@ en:
   decidim:
     api:
       errors:
+        introspection_disabled: Introspection is disabled for this request
         too_many_aliases_error: Too many aliases used. You have used %{size} aliases, but %{limit} are allowed.

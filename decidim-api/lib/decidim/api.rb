@@ -33,6 +33,13 @@ module Decidim
       %w(1 true yes).include?(ENV.fetch("DECIDIM_API_DISCLOSE_SYSTEM_VERSION", nil))
     end
 
+    # allows anonymous introspection queries
+    # If you are not sure, leave it set to false. In this way only administrator users will be able to access the introspection query.
+    # Otherwise, anyone can access it, causing security issues.
+    config_accessor :enable_anonymous_introspection do
+      ENV.fetch("DECIDIM_API_ENABLE_ANONYMOUS_INTROSPECTION", nil) == "true"
+    end
+
     # This declares all the types an interface or union can resolve to. This needs
     # to be done in order to be able to have them found. This is a shortcoming of
     # graphql-ruby and the way it deals with loading types, in combination with
