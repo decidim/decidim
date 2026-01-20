@@ -29,7 +29,7 @@ module Decidim
           return "-" if response.choices.empty?
 
           choices = response.choices.map do |choice|
-            matrix_row_body = (translated_attribute(choice.matrix_row.body) if choice.matrix_row&.body)
+            matrix_row_body = (translated_attribute(choice.matrix_row.body) if response.question.matrix? && choice.matrix_row&.body)
 
             {
               response_option_body: choice.try(:response_option).try(:translated_body),
