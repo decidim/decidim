@@ -56,6 +56,7 @@ Database operations:
 
 ```bash
 cd development_app
+bin/rails db:drop       # Drop database
 bin/rails db:create     # Create database
 bin/rails db:migrate    # Run migrations
 bin/rails db:seed       # Load sample data
