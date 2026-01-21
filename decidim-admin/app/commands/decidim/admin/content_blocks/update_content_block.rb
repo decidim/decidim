@@ -6,7 +6,7 @@ module Decidim
       # This command gets called when a content block is updated from the admin
       # panel.
       class UpdateContentBlock < Decidim::Command
-        attr_reader :form, :content_block, :scope, :attachment_to_purge
+        attr_reader :form, :content_block, :scope, :attachments_to_purge
 
         # Public: Initializes the command.
         #
@@ -17,7 +17,7 @@ module Decidim
           @form = form
           @content_block = content_block
           @scope = scope
-          @attachment_to_purge = nil
+          @attachments_to_purge = []
         end
 
         # Public: Updates the content block settings and its attachments.
@@ -73,14 +73,16 @@ module Decidim
             if form.images[image_name]
               content_block.images_container.send("#{image_name}=", form.images[image_name])
             elsif form.images[:"remove_#{image_name}"]
-              @attachment_to_purge = content_block.images_container.send(image_name.to_s)
+              @attachments_to_purge << content_block.images_container.send(image_name.to_s)
               content_block.images_container.send("#{image_name}=", nil)
             end
           end
         end
 
         def purge_attachment
-          attachment_to_purge.purge if attachment_to_purge.respond_to?(:purge)
+          attachments_to_purge.each do |attachment_to_purge|
+            attachment_to_purge.purge if attachment_to_purge.respond_to?(:purge)
+          end
         end
       end
     end
