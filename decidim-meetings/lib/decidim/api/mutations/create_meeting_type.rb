@@ -8,7 +8,7 @@ module Decidim
       description "Creates a meeting"
       type Decidim::Meetings::MeetingType
 
-      argument :attributes, CreateMeetingAttributes, description: "Input attributes for creating a meeting", required: true
+      argument :attributes, MeetingAttributes, description: "Input attributes for creating a meeting", required: true
       argument :locale, GraphQL::Types::String, "The locale for which to set the meeting texts", required: true
       argument :toggle_translations, GraphQL::Types::Boolean, "Whether the user asked to toggle the machine translations or not.", required: false, default_value: false
 
@@ -20,21 +20,21 @@ module Decidim
           :available_slots,
           :description,
           :end_time,
+          :iframe_access_level,
+          :iframe_embed_type,
           :latitude,
-          :longitude,
           :location,
           :location_hints,
+          :longitude,
           :online_meeting_url,
           :registration_terms,
           :registration_type,
           :registration_url,
+          :registrations_enabled,
           :start_time,
-          :title,
           :taxonomies,
-          :type_of_meeting,
-          :iframe_access_level,
-          :iframe_embed_type,
-          :registrations_enabled
+          :title,
+          :type_of_meeting
         )
 
         params[:taxonomies] = Decidim::Taxonomy.where(organization: current_organization, id: params[:taxonomies]).pluck(:id) if params[:taxonomies]
