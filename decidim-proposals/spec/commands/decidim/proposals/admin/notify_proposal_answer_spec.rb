@@ -42,22 +42,20 @@ module Decidim
           subject
         end
 
-        context "when the creator_author needs to be notified" do
-          it "notifies the proposal to creator_author" do
-            expect(Decidim::EventsManager)
-              .to receive(:publish)
-              .with(
-                hash_including(
-                  event: "decidim.events.proposals.proposal_state_changed_for_authors",
-                  event_class: Decidim::Proposals::ProposalStateChangedEvent,
-                  resource: proposal,
-                  affected_users: match_array(proposal.authors),
-                  extra: { force_email: true }
-                )
+        it "notifies the proposal to authors" do
+          expect(Decidim::EventsManager)
+            .to receive(:publish)
+            .with(
+              hash_including(
+                event: "decidim.events.proposals.proposal_state_changed_for_authors",
+                event_class: Decidim::Proposals::ProposalStateChangedEvent,
+                resource: proposal,
+                affected_users: match_array(proposal.authors),
+                extra: { force_email: true }
               )
+            )
 
-            subject
-          end
+          subject
         end
 
         it "increments the accepted proposals counter" do
@@ -122,15 +120,6 @@ module Decidim
               .not_to receive(:publish)
 
             subject
-          end
-
-          context "when the creator_author does not need to be notified" do
-            it "does not notify the proposal creator_author" do
-              expect(Decidim::EventsManager)
-                .not_to receive(:publish)
-
-              subject
-            end
           end
 
           it "decrements the accepted proposals counter" do
