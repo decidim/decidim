@@ -449,7 +449,10 @@ sv:
         title: Åtgärder
       admin:
         actions:
+          confirm_delete_proposal: Är du säker på att du vill ta bort förslaget?
+          deleted_proposals_info: Borttagna förslag kan återställas från papperskorgen.
           preview: Förhandsvisa
+          view_deleted_proposals: Visa borttagna förslag
         evaluation_assignments:
           create:
             invalid: 'Problem: Utvärderaren kunde inte få förslag.'
@@ -565,6 +568,7 @@ sv:
             assign_to_evaluator: Tilldelad en utvärderare
             assign_to_evaluator_button: Tilldelad
             cancel: Avbryt
+            change_taxonomies: Ändra kategorier
             merge: Slå samman till ett nytt
             no_templates_available: Ingen mall tillgänglig
             publish: Publicera
@@ -781,6 +785,7 @@ sv:
             published_answer: Publicerat svar
             published_at: Publicerad
             state: Status
+            taxonomies: Kategorier
             title: Titel
             votes: Röster
         proposal_state:
@@ -824,7 +829,7 @@ sv:
           search: Sök
           state: Status
           type: Typ
-          voted: Röstade
+          voted: Röstat på
         index:
           click_here: Se alla förslag
           collaborative_drafts_list: Visa gemensamma utkast
