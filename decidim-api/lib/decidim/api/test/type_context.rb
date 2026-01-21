@@ -30,6 +30,7 @@ shared_context "with a graphql class type" do
     raise "Decidim::Api::Errors::#{code.downcase.classify}".constantize, error["message"] if %w(
       INTROSPECTION_DISABLED_ERROR
       TOO_MANY_ALIASES_ERROR
+      RECURSION_LIMIT_EXCEEDED_ERROR
     ).include?(code)
 
     raise GraphQL::ExecutionError, error["message"]
@@ -94,7 +95,6 @@ shared_examples "when the introspection is disabled" do
       before do
         allow(Decidim::Api).to receive(:enable_anonymous_introspection).and_return(false)
       end
-
       it "raises an Decidim::Api::Errors::IntrospectionDisabledError" do
         expect { response }.to raise_error(Decidim::Api::Errors::IntrospectionDisabledError, "Introspection is disabled for this request")
       end
@@ -103,7 +103,7 @@ shared_examples "when the introspection is disabled" do
 
   context "when requesting the schema introspection" do
     let(:query) do
-      %( query { __schema { types { fields { type { fields { type { fields { type { fields { type { name } } } } } } } } } } } )
+      %( query { __schema { types { fields { type { fields { type { name } } } } } } } )
     end
 
     it_behaves_like "check introspection behavior"
@@ -117,11 +117,7 @@ shared_examples "when the introspection is disabled" do
       type {
         fields {
           type {
-            fields {
-              type {
-                name
-              }
-            }
+            name
           }
         }
       }
