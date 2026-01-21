@@ -8,6 +8,7 @@ describe Decidim::ParticipatoryProcesses::ContentBlocks::DemocraticQualityStatsC
   let(:organization) { create(:organization) }
   let(:resource) { create(:participatory_process, organization:) }
   let(:content_block) { create(:content_block, organization:, manifest_name: :democratic_quality_stats, scope_name: :participatory_process_homepage, scoped_resource_id: resource.id) }
+  let(:html) { subject.call }
 
   controller Decidim::ParticipatoryProcesses::ParticipatoryProcessesController
 
@@ -26,6 +27,35 @@ describe Decidim::ParticipatoryProcesses::ContentBlocks::DemocraticQualityStatsC
       I18n.with_locale(:es) do
         expect(subject.send(:info_url)).to eq("/es/pages/democratic-quality-indicators")
       end
+    end
+  end
+
+  it "renders the democratic quality stats section" do
+    expect(html).to have_css("section#democratic_quality_stats")
+  end
+
+  it "renders the quality indicator section title" do
+    expect(html).to have_css("h2.home__section-title")
+  end
+
+  it "renders the global score indicator section" do
+    expect(html).to have_content("Global score")
+  end
+
+  it "renders the automatic metrics section title" do
+    expect(html).to have_content("Automatic metrics")
+  end
+
+  it "renders the automatic metrics indicators section" do
+    expect(html).to have_content("Citizen influence")
+    expect(html).to have_content("Hybridization")
+    expect(html).to have_content("Responsiveness")
+    expect(html).to have_content("Traceability")
+  end
+
+  it "includes a link to democratic quality indicators page" do
+    I18n.with_locale(:en) do
+      expect(html).to have_link(href: "/en/pages/democratic-quality-indicators")
     end
   end
 end
