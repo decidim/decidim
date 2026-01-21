@@ -3,4 +3,5 @@ ro:
   decidim:
     api:
       errors:
+        introspection_disabled: Introspection este dezactivat pentru această solicitare
         too_many_aliases_error: Prea multe aliasuri folosite. Ați folosit aliasuri %{size}, dar %{limit} sunt permise.
