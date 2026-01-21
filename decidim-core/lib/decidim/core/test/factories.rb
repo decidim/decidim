@@ -211,8 +211,9 @@ FactoryBot.define do
     extended_data { {} }
 
     after :create do |user|
-      user.name = "john\n<script>alert('name')</script>"
-      user.save!(validate: false)
+      # rubocop:disable Rails/SkipsModelValidations
+      user.update_column(:name, "user_#{user.id}\n<script>alert('name')</script>")
+      # rubocop:enable Rails/SkipsModelValidations
     end
 
     trait :confirmed do
