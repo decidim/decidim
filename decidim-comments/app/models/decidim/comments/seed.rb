@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "decidim/seeds"
+
 module Decidim
   module Comments
     # A comment can belong to many Commentable models. This class is responsible
