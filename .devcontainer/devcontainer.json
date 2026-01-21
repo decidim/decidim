@@ -2,7 +2,7 @@
   "name": "decidim",
   "dockerComposeFile": "compose.yaml",
   "service": "rails-app",
-  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "workspaceFolder": "/workspaces/decidim",
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {},
     "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
