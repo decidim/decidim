@@ -49,7 +49,6 @@ module Decidim
             event: "decidim.events.proposals.proposal_state_changed",
             event_class: Decidim::Proposals::ProposalStateChangedEvent,
             resource: proposal,
-            affected_users: proposal.notifiable_identities,
             followers: proposal.followers - proposal.notifiable_identities
           )
         end

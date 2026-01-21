@@ -35,7 +35,6 @@ module Decidim
               event: "decidim.events.proposals.proposal_state_changed",
               event_class: Decidim::Proposals::ProposalStateChangedEvent,
               resource: proposal,
-              affected_users: contain_exactly(proposal.creator_author),
               followers: contain_exactly(follower)
             )
 
@@ -50,7 +49,7 @@ module Decidim
                 event: "decidim.events.proposals.proposal_state_changed_for_authors",
                 event_class: Decidim::Proposals::ProposalStateChangedEvent,
                 resource: proposal,
-                affected_users: match_array(proposal.authors),
+                affected_users: proposal.authors,
                 extra: { force_email: true }
               )
             )
@@ -77,7 +76,6 @@ module Decidim
                 event: "decidim.events.proposals.proposal_state_changed",
                 event_class: Decidim::Proposals::ProposalStateChangedEvent,
                 resource: proposal,
-                affected_users: contain_exactly(proposal.creator_author),
                 followers: contain_exactly(follower)
               )
 
@@ -139,15 +137,6 @@ module Decidim
               .not_to receive(:publish)
 
             subject
-          end
-
-          context "when the creator_author does not need to be notified" do
-            it "does not notify the proposal creator_author" do
-              expect(Decidim::EventsManager)
-                .not_to receive(:publish)
-
-              subject
-            end
           end
 
           it "does not modify the accepted proposals counter" do
