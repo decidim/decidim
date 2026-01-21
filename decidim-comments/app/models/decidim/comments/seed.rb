@@ -20,16 +20,16 @@ module Decidim
 
           @organization = resource.organization
 
-          rand(0..6).times do
+          rand(0..config_value(:comments_count)).times do
             comment1 = create_comment(resource)
             NewCommentNotificationCreator.new(comment1, []).create
 
-            if [true, false].sample
+            if rand < config_value(:comments_nested_probability)
               comment2 = create_comment(comment1, resource)
               NewCommentNotificationCreator.new(comment2, []).create
             end
 
-            next if [true, false].sample
+            next if rand < config_value(:comments_vote_skip_probability)
 
             create_votes(comment1) if comment1
             create_votes(comment2) if comment2
@@ -39,6 +39,14 @@ module Decidim
         private
 
         attr_reader :organization
+
+        def config_value(key)
+          slow_seeds? ? Decidim::Seeds::SEEDS_CONFIG[key][:slow] : Decidim::Seeds::SEEDS_CONFIG[key][:fast]
+        end
+
+        def slow_seeds?
+          Decidim::Env.new("SLOW_SEEDS").present?
+        end
 
         # Creates a comment for a given resource.
         #
@@ -74,7 +82,7 @@ module Decidim
         #
         # @return nil
         def create_votes(comment)
-          rand(0..12).times do
+          rand(0..config_value(:comments_votes_count)).times do
             author = random_user
             next if CommentVote.where(comment:, author:).any?
 
