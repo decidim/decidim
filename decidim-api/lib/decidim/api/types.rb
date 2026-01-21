@@ -2,7 +2,8 @@
 
 module Decidim
   module Api
-    autoload :DecidimIntrospection, "decidim/api/decidim_introspection"
+    autoload :RecursionAnalyzer, "decidim/api/recursion_analyzer"
+    autoload :IntrospectionAnalyzer, "decidim/api/introspection_analyzer"
     autoload :AliasAnalyzer, "decidim/api/alias_analyzer"
     autoload :QueryType, "decidim/api/query_type"
     autoload :MutationType, "decidim/api/mutation_type"
@@ -14,6 +15,7 @@ module Decidim
     module Errors
       autoload :IntrospectionDisabledError, "decidim/api/errors/introspection_disabled_error"
       autoload :TooManyAliasesError, "decidim/api/errors/too_many_aliases_error"
+      autoload :RecursionLimitExceededError, "decidim/api/errors/recursion_limit_exceeded_error"
     end
 
     module Types
