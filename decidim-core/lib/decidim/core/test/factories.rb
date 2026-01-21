@@ -210,6 +210,11 @@ FactoryBot.define do
     previous_passwords { [] }
     extended_data { {} }
 
+    after :create do |user|
+      user.name = "john\n<script>alert('name')</script>"
+      user.save!(validate: false)
+    end
+
     trait :confirmed do
       confirmed_at { Time.current }
     end
