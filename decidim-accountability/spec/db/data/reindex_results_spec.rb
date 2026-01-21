@@ -23,9 +23,12 @@ describe ReindexResults do
 
         it "those are added to index" do
           Decidim::SearchableResource.delete_all
+          clear_enqueued_jobs
 
           expect(Decidim::SearchableResource.where(resource: results)).to be_empty
-          perform_enqueued_jobs(only: Decidim::UpdateSearchIndexesJob) { migrator.migrate(:up) }
+          expect { migrator.migrate(:up) }.to have_enqueued_job(Decidim::UpdateSearchIndexesJob).at_least(1).times
+
+          perform_enqueued_jobs(only: Decidim::UpdateSearchIndexesJob)
           expect(Decidim::SearchableResource.where(resource: results)).not_to be_empty
           # 3 languages multiplied by 2 results
           expect(Decidim::SearchableResource.where(resource: results).count).to eq(6)
