@@ -1069,6 +1069,7 @@ sv:
           title_required: Titel måste fyllas i!
           uploaded: Uppladdad
           validating: Validerar...
+          validation_error: Valideringsfel! Kontrollera att filen har en tillåten filtyp eller storlek.
         select_file: Välj fil
       upload_help:
         dropzone: Släpp filer här eller klicka på knappen för att ladda upp
@@ -1686,7 +1687,10 @@ sv:
       no_stats: Det finns ingen statistik ännu.
       pages_count: Sidor
       participants_count: Deltagare
+      surveys_count: Enkäter
       users_count: Deltagare
+    tags:
+      filter_results_for_taxonomy: 'Filtrera resultat: %{resource}'
     translation_bar:
       help_text: "<strong>Obs:</strong> Innehåll kan ha översatts automatiskt och inte vara 100% korrekt."
       show_original: Visa originaltexten
