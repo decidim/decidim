@@ -55,7 +55,7 @@ module Decidim
         end
 
         def self.private_spaces
-          restricted + transparent
+          restricted.or(transparent)
         end
       end
     end
