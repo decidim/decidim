@@ -8,6 +8,7 @@ shared_context "with a graphql class type" do
   let(:type_class) { described_class }
   let(:variables) { {} }
   let(:root_value) { model }
+  let(:can_introspect) { Decidim::Api.enable_anonymous_introspection || current_user&.admin? }
 
   let(:schema) do
     klass = type_class
@@ -27,6 +28,7 @@ shared_context "with a graphql class type" do
     # Matches the error code with the Error class
     # For instance, if the error code is NOT_FOUND_ERROR then it will raise the "Decidim::Api::Errors::NotFoundError" class
     raise "Decidim::Api::Errors::#{code.downcase.classify}".constantize, error["message"] if %w(
+      INTROSPECTION_DISABLED_ERROR
       TOO_MANY_ALIASES_ERROR
       RECURSION_LIMIT_EXCEEDED_ERROR
     ).include?(code)
@@ -41,7 +43,8 @@ shared_context "with a graphql class type" do
       context: {
         current_organization:,
         current_user:,
-        current_component:
+        current_component:,
+        can_introspect:
       },
       variables:
     )
