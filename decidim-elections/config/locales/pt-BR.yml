@@ -1,11 +1,21 @@
 ---
 pt-BR:
+  activemodel:
+    attributes:
+      token_csv:
+        file: Arquivo
+        remove_all: Remover todos os dados do censo atual
   decidim:
     admin:
       menu:
         elections_menu:
+          basic_elections: Principal
           election_census: Censo
+          election_dashboard: Painel de Controle
           election_questions: Questões
+      tooltips:
+        deleted_elections_info: Não é possível excluir esta eleição
+        edit_elections_info: Não é possível editar esta eleição
     components:
       elections:
         actions:
@@ -20,12 +30,25 @@ pt-BR:
             announcement: Anúncio
     elections:
       actions:
+        confirm_delete_election: Você tem certeza que deseja excluir esta eleição?
+        confirm_unpublish_election: Você tem certeza que deseja cancelar a publicação desta eleição?
+        deleted_election_info: Eleições excluídas não são exibidas na lista. Você pode visualizá-las clicando no botão abaixo.
+        edit: Editar eleição
+        new: Nova eleição
         preview: Pré-visualização
         title: Ações
+        view: Ver eleição
+        view_deleted_elections: Ver eleições excluídas
       admin:
         census:
           edit:
+            choose_census: Escolha o tipo de censo que deseja usar para esta eleição
             created_at: Criado em
+            identifier: Identificador de usuário
+          preview:
+            title:
+              one: A lista de pré-visualização é limitada ao registro %{count}.
+              other: A lista de pré-visualização é limitada aos %{count} registros.
         dashboard:
           census:
             title: Censo
