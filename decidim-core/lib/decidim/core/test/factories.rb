@@ -210,10 +210,12 @@ FactoryBot.define do
     previous_passwords { [] }
     extended_data { {} }
 
-    after :create do |user|
-      # rubocop:disable Rails/SkipsModelValidations
-      user.update_column(:name, "user_#{user.id}\n<script>alert('name')</script>")
-      # rubocop:enable Rails/SkipsModelValidations
+    trait :malicious do
+      after :create do |user|
+        # rubocop:disable Rails/SkipsModelValidations
+        user.update_column(:name, "user_#{user.id}\n<script>alert('name')</script>")
+        # rubocop:enable Rails/SkipsModelValidations
+      end
     end
 
     trait :confirmed do

@@ -2,15 +2,34 @@
 
 shared_examples "comments" do
   let!(:organization) { create(:organization) }
-  let!(:user) { create(:user, :confirmed, organization:) }
+  let!(:user) { create(:user, :malicious, :confirmed, organization:) }
   let!(:comments) { create_list(:comment, 3, commentable:) }
 
   before do
     switch_to_host(organization.host)
+    # rubocop:disable Rails/SkipsModelValidations
+    comments.each do |comment|
+      comment.author.update_column(:name, "user_#{comment.author.id}\n<script>alert('name')</script>") if comment.author.is_a?(Decidim::UserBaseEntity)
+    end
+    # rubocop:enable Rails/SkipsModelValidations
   end
 
   after do
     expect_no_js_errors
+  end
+
+  it "properly displays the user name" do
+    login_as user, scope: :user
+    visit resource_path
+
+    within "#add-comment-anchor" do
+      within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
+        expect(page).to have_css("p.comment__as-author-name")
+        within "p.comment__as-author-name" do
+          expect(page).to have_content("user_#{user.id} alert('name')")
+        end
+      end
+    end
   end
 
   it "shows the list of comments for the resource" do
@@ -21,7 +40,7 @@ shared_examples "comments" do
 
     within "#comments" do
       comments.each do |comment|
-        expect(page).to have_content comment.author.name
+        expect(page).to have_content decidim_sanitize_translated(comment.author.name).gsub("\n", " ")
         expect(page).to have_content comment.body.values.first
       end
     end
