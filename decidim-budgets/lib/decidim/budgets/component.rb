@@ -17,10 +17,6 @@ Decidim.register_component(:budgets) do |component|
 
   component.actions = %w(vote comment vote_comment)
 
-  component.on(:before_destroy) do |instance|
-    raise StandardError, "Cannot remove this component" if Decidim::Budgets::Budget.where(component: instance).any?
-  end
-
   component.on(:publish) do |instance|
     Decidim::Budgets::Budget.where(component: instance).find_each do |budget|
       Decidim::UpdateSearchIndexesJob.perform_later([budget])
