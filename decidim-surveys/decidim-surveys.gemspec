@@ -32,11 +32,11 @@ Gem::Specification.new do |s|
     end
   end
 
-  s.add_dependency "decidim-core", Decidim::Surveys.version
-  s.add_dependency "decidim-forms", Decidim::Surveys.version
+  s.add_dependency "decidim-core", version
+  s.add_dependency "decidim-forms", version
 
-  s.add_development_dependency "decidim-admin", Decidim::Surveys.version
-  s.add_development_dependency "decidim-dev", Decidim::Surveys.version
-  s.add_development_dependency "decidim-participatory_processes", Decidim::Surveys.version
-  s.add_development_dependency "decidim-templates", Decidim::Surveys.version
+  s.add_development_dependency "decidim-admin", version
+  s.add_development_dependency "decidim-dev", version
+  s.add_development_dependency "decidim-participatory_processes", version
+  s.add_development_dependency "decidim-templates", version
 end
