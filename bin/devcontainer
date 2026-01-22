@@ -101,6 +101,38 @@ case "$1" in
         restore_devcontainer_config
         exit "$status"
         ;;
+    rm)
+        echo "Removing all containers and cleaning up..."
+        for container in "${CONTAINERS_TO_STOP[@]}"; do
+            if docker ps -a --format "{{.Names}}" | grep -q "^${container}$"; then
+                echo "Removing $container..."
+                docker rm -f "$container"
+            else
+                echo "Container $container not found, skipping..."
+            fi
+        done
+        echo "Cleaning up development_app directory..."
+        rm -rf development_app/
+        restore_devcontainer_config
+        echo "Cleanup complete!"
+        exit 0
+        ;;
+    ps)
+        echo "Checking container status..."
+        echo ""
+        found_any=false
+        for container in "${CONTAINERS_TO_STOP[@]}"; do
+            if docker ps -a --format "{{.Names}}" | grep -q "^${container}$"; then
+                found_any=true
+                status=$(docker ps -a --filter "name=^${container}$" --format "{{.Status}}")
+                echo "  $container: $status"
+            fi
+        done
+        if [ "$found_any" = false ]; then
+            echo "  No containers found"
+        fi
+        exit 0
+        ;;
     ""| help | --help | -h)
         echo "Usage: $SCRIPT_NAME <command>"
         echo ""
@@ -108,6 +140,8 @@ case "$1" in
         echo "  up              - Start the devcontainer"
         echo "  down            - Stop all containers"
         echo "  rebuild         - Rebuild the devcontainer"
+        echo "  rm              - Remove all containers and clean up"
+        echo "  ps              - Check container status"
         echo ""
         echo "Execute Commands:"
         echo "  $SCRIPT_NAME <command>         - Execute any command in the container"
