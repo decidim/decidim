@@ -5,7 +5,6 @@ $LOAD_PATH.push File.expand_path("lib", __dir__)
 # Maintain your gem's version:
 
 Gem::Specification.new do |s|
-  s.name = "decidim-verifications"
   version = "0.32.0.dev"
   s.version = version
   s.authors = ["David Rodriguez"]
@@ -20,6 +19,7 @@ Gem::Specification.new do |s|
   }
   s.required_ruby_version = "~> 3.4.0"
 
+  s.name = "decidim-verifications"
   s.summary = "Decidim verifications module"
   s.description = "Several verification methods for your decidim instance"
   s.license = "AGPL-3.0-or-later"
