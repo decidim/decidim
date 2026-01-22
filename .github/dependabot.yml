@@ -10,7 +10,7 @@ updates:
       day: "monday"
       time: "06:00"
       timezone: "Europe/Madrid"
-    open-pull-requests-limit: 3
+    open-pull-requests-limit: 1
     groups:
       rails:
         patterns:
@@ -47,7 +47,7 @@ updates:
       day: "monday"
       time: "06:00"
       timezone: "Europe/Madrid"
-    open-pull-requests-limit: 3
+    open-pull-requests-limit: 1
     groups:
       rails:
         patterns:
@@ -99,7 +99,7 @@ updates:
       day: "monday"
       time: "06:00"
       timezone: "Europe/Madrid"
-    open-pull-requests-limit: 3
+    open-pull-requests-limit: 1
     labels:
       - "dependencies"
       - "type: internal"
@@ -113,7 +113,7 @@ updates:
       day: "monday"
       time: "06:00"
       timezone: "Europe/Madrid"
-    open-pull-requests-limit: 3
+    open-pull-requests-limit: 1
     labels:
       - "dependencies"
       - "type: internal"
@@ -129,7 +129,7 @@ updates:
       day: "monday"
       time: "06:00"
       timezone: "Europe/Madrid"
-    open-pull-requests-limit: 3
+    open-pull-requests-limit: 1
     labels:
       - "dependencies"
       - "type: internal"
@@ -143,7 +143,7 @@ updates:
       day: "monday"
       time: "06:00"
       timezone: "Europe/Madrid"
-    open-pull-requests-limit: 3
+    open-pull-requests-limit: 1
     labels:
       - "dependencies"
       - "type: internal"
@@ -157,7 +157,7 @@ updates:
       day: "monday"
       time: "06:00"
       timezone: "Europe/Madrid"
-    open-pull-requests-limit: 3
+    open-pull-requests-limit: 1
     labels:
       - "dependencies"
       - "type: internal"
@@ -171,7 +171,7 @@ updates:
       day: "monday"
       time: "06:00"
       timezone: "Europe/Madrid"
-    open-pull-requests-limit: 3
+    open-pull-requests-limit: 1
     labels:
       - "dependencies"
       - "type: internal"
@@ -185,7 +185,7 @@ updates:
       day: "monday"
       time: "06:00"
       timezone: "Europe/Madrid"
-    open-pull-requests-limit: 3
+    open-pull-requests-limit: 1
     labels:
       - "dependencies"
       - "type: internal"
@@ -199,7 +199,7 @@ updates:
       day: "monday"
       time: "06:00"
       timezone: "Europe/Madrid"
-    open-pull-requests-limit: 3
+    open-pull-requests-limit: 1
     labels:
       - "dependencies"
       - "type: internal"
