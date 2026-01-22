@@ -2,10 +2,11 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-require "decidim/templates/version"
+# Maintain your gem's version:
 
 Gem::Specification.new do |s|
-  s.version = Decidim::Templates.version
+  version = "0.32.0.dev"
+  s.version = version
   s.authors = ["Vera Rojman"]
   s.email = ["vrojman@protonmail.com"]
   s.license = "AGPL-3.0-or-later"

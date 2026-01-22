@@ -2,10 +2,11 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-require "decidim/initiatives/version"
+# Maintain your gem's version:
 
 Gem::Specification.new do |s|
-  s.version = Decidim::Initiatives.version
+  version = "0.32.0.dev"
+  s.version = version
   s.authors = ["Juan Salvador Perez Garcia"]
   s.email = ["jsperezg@gmail.com"]
   s.license = "AGPL-3.0-or-later"

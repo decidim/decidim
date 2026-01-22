@@ -3,11 +3,10 @@
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
 # Maintain your gem's version:
-require "decidim/design/version"
 
-# Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.version = Decidim::Design.version
+  version = "0.32.0.dev"
+  s.version = version
   s.authors = ["Decidim Team"]
   s.email = ["hola@decidim.org"]
   s.license = "AGPL-3.0-or-later"

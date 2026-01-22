@@ -2,10 +2,11 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-require "decidim/collaborative_texts/version"
+# Maintain your gem's version:
 
 Gem::Specification.new do |s|
-  s.version = Decidim::CollaborativeTexts.version
+  version = "0.32.0.dev"
+  s.version = version
   s.authors = ["Ivan Vergés"]
   s.email = ["ivan@pokecode.net"]
   s.license = "AGPL-3.0-or-later"

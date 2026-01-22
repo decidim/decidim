@@ -2,10 +2,12 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-require "decidim/assemblies/version"
+# Maintain your gem's version:
 
+# Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.version = Decidim::Assemblies.version
+  version = "0.32.0.dev"
+  s.version = version
   s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
   s.license = "AGPL-3.0-or-later"
