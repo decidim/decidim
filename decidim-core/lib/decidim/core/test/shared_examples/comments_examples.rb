@@ -2,31 +2,38 @@
 
 shared_examples "comments" do
   let!(:organization) { create(:organization) }
-  let!(:user) { create(:user, :malicious, :confirmed, organization:) }
+  let!(:user) { create(:user, :confirmed, organization:) }
   let!(:comments) { create_list(:comment, 3, commentable:) }
 
   before do
     switch_to_host(organization.host)
-    # rubocop:disable Rails/SkipsModelValidations
-    comments.each do |comment|
-      comment.author.update_column(:name, "user_#{comment.author.id}\n<script>alert('name')</script>") if comment.author.is_a?(Decidim::UserBaseEntity)
-    end
-    # rubocop:enable Rails/SkipsModelValidations
   end
 
   after do
     expect_no_js_errors
   end
 
-  it "properly displays the user name" do
-    login_as user, scope: :user
-    visit resource_path
+  context "when user name is improperly formatted" do
+    let!(:user) { create(:user, :malicious, :confirmed, organization:) }
 
-    within "#add-comment-anchor" do
-      within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
-        expect(page).to have_css("p.comment__as-author-name")
-        within "p.comment__as-author-name" do
-          expect(page).to have_content("user_#{user.id} alert('name')")
+    before do
+      # rubocop:disable Rails/SkipsModelValidations
+      comments.each do |comment|
+        comment.author.update_column(:name, "user_#{comment.author.id}\n<script>alert('name')</script>") if comment.author.is_a?(Decidim::UserBaseEntity)
+      end
+      # rubocop:enable Rails/SkipsModelValidations
+    end
+
+    it "properly displays the user name" do
+      login_as user, scope: :user
+      visit resource_path
+
+      within "#add-comment-anchor" do
+        within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
+          expect(page).to have_css("p.comment__as-author-name")
+          within "p.comment__as-author-name" do
+            expect(page).to have_content("user_#{user.id} alert('name')")
+          end
         end
       end
     end
