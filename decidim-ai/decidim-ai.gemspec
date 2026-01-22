@@ -27,9 +27,9 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
   s.add_dependency "classifier-reborn", "~> 2.3.0"
-  s.add_dependency "decidim-core", Decidim::Ai.version
-  s.add_development_dependency "decidim-debates", Decidim::Ai.version
-  s.add_development_dependency "decidim-initiatives", Decidim::Ai.version
-  s.add_development_dependency "decidim-meetings", Decidim::Ai.version
-  s.add_development_dependency "decidim-proposals", Decidim::Ai.version
+  s.add_dependency "decidim-core", version
+  s.add_development_dependency "decidim-debates", version
+  s.add_development_dependency "decidim-initiatives", version
+  s.add_development_dependency "decidim-meetings", version
+  s.add_development_dependency "decidim-proposals", version
 end

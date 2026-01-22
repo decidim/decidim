@@ -31,8 +31,8 @@ Gem::Specification.new do |s|
     end
   end
 
-  s.add_dependency "decidim-core", Decidim::Demographics.version
-  s.add_dependency "decidim-forms", Decidim::Demographics.version
+  s.add_dependency "decidim-core", version
+  s.add_dependency "decidim-forms", version
 
-  s.add_development_dependency "decidim-dev", Decidim::Demographics.version
+  s.add_development_dependency "decidim-dev", version
 end

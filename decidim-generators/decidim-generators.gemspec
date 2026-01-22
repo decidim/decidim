@@ -36,7 +36,7 @@ Gem::Specification.new do |s|
   s.executables = ["decidim"]
   s.require_paths = ["lib"]
 
-  s.add_dependency "decidim-core", Decidim::Generators.version
+  s.add_dependency "decidim-core", version
 
   s.add_development_dependency "bundler", "~> 2.2"
 end

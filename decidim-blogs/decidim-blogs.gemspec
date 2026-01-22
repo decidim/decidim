@@ -31,12 +31,12 @@ Gem::Specification.new do |s|
     end
   end
 
-  s.add_dependency "decidim-admin", Decidim::Blogs.version
-  s.add_dependency "decidim-comments", Decidim::Blogs.version
-  s.add_dependency "decidim-core", Decidim::Blogs.version
+  s.add_dependency "decidim-admin", version
+  s.add_dependency "decidim-comments", version
+  s.add_dependency "decidim-core", version
 
-  s.add_development_dependency "decidim-admin", Decidim::Blogs.version
-  s.add_development_dependency "decidim-assemblies", Decidim::Blogs.version
-  s.add_development_dependency "decidim-dev", Decidim::Blogs.version
-  s.add_development_dependency "decidim-participatory_processes", Decidim::Blogs.version
+  s.add_development_dependency "decidim-admin", version
+  s.add_development_dependency "decidim-assemblies", version
+  s.add_development_dependency "decidim-dev", version
+  s.add_development_dependency "decidim-participatory_processes", version
 end

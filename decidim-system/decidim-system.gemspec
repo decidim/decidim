@@ -32,10 +32,10 @@ Gem::Specification.new do |s|
   end
 
   s.add_dependency "active_link_to", "~> 1.0"
-  s.add_dependency "decidim-core", Decidim::System.version
+  s.add_dependency "decidim-core", version
   s.add_dependency "devise", "~> 4.7"
   s.add_dependency "devise-i18n", "~> 1.2"
   s.add_dependency "devise_invitable", "~> 2.0", ">= 2.0.9"
 
-  s.add_development_dependency "decidim-dev", Decidim::System.version
+  s.add_development_dependency "decidim-dev", version
 end

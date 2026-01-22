@@ -32,12 +32,12 @@ Gem::Specification.new do |s|
   end
 
   s.add_dependency "capybara", "~> 3.39"
-  s.add_dependency "decidim-admin", Decidim::Dev.version
-  s.add_dependency "decidim-api", Decidim::Dev.version
-  s.add_dependency "decidim-comments", Decidim::Dev.version
-  s.add_dependency "decidim-core", Decidim::Dev.version
-  s.add_dependency "decidim-generators", Decidim::Dev.version
-  s.add_dependency "decidim-verifications", Decidim::Dev.version
+  s.add_dependency "decidim-admin", version
+  s.add_dependency "decidim-api", version
+  s.add_dependency "decidim-comments", version
+  s.add_dependency "decidim-core", version
+  s.add_dependency "decidim-generators", version
+  s.add_dependency "decidim-verifications", version
   s.add_dependency "factory_bot_rails", "~> 6.2"
   s.add_dependency "faker", "~> 3.2"
 

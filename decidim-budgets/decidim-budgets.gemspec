@@ -31,10 +31,10 @@ Gem::Specification.new do |s|
     end
   end
 
-  s.add_dependency "decidim-comments", Decidim::Budgets.version
-  s.add_dependency "decidim-core", Decidim::Budgets.version
+  s.add_dependency "decidim-comments", version
+  s.add_dependency "decidim-core", version
 
-  s.add_development_dependency "decidim-admin", Decidim::Budgets.version
-  s.add_development_dependency "decidim-dev", Decidim::Budgets.version
-  s.add_development_dependency "decidim-proposals", Decidim::Budgets.version
+  s.add_development_dependency "decidim-admin", version
+  s.add_development_dependency "decidim-dev", version
+  s.add_development_dependency "decidim-proposals", version
 end

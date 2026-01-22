@@ -31,9 +31,9 @@ Gem::Specification.new do |s|
     end
   end
 
-  s.add_dependency "decidim-core", Decidim::Comments.version
+  s.add_dependency "decidim-core", version
   s.add_dependency "redcarpet", "~> 3.5", ">= 3.5.1"
 
-  s.add_development_dependency "decidim-admin", Decidim::Comments.version
-  s.add_development_dependency "decidim-dev", Decidim::Comments.version
+  s.add_development_dependency "decidim-admin", version
+  s.add_development_dependency "decidim-dev", version
 end

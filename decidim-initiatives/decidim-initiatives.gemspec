@@ -31,11 +31,11 @@ Gem::Specification.new do |s|
     end
   end
 
-  s.add_dependency "decidim-admin", Decidim::Initiatives.version
-  s.add_dependency "decidim-comments", Decidim::Initiatives.version
-  s.add_dependency "decidim-core", Decidim::Initiatives.version
-  s.add_dependency "decidim-verifications", Decidim::Initiatives.version
+  s.add_dependency "decidim-admin", version
+  s.add_dependency "decidim-comments", version
+  s.add_dependency "decidim-core", version
+  s.add_dependency "decidim-verifications", version
 
-  s.add_development_dependency "decidim-dev", Decidim::Initiatives.version
-  s.add_development_dependency "decidim-meetings", Decidim::Initiatives.version
+  s.add_development_dependency "decidim-dev", version
+  s.add_development_dependency "decidim-meetings", version
 end

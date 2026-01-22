@@ -86,6 +86,6 @@ Gem::Specification.new do |s|
   s.add_dependency "web-push", "~> 3.0"
   s.add_dependency "wisper", "~> 3.0"
 
-  s.add_development_dependency "decidim-api", Decidim::Core.version
-  s.add_development_dependency "decidim-dev", Decidim::Core.version
+  s.add_development_dependency "decidim-api", version
+  s.add_development_dependency "decidim-dev", version
 end

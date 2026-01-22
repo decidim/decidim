@@ -31,12 +31,12 @@ Gem::Specification.new do |s|
     end
   end
 
-  s.add_dependency "decidim-core", Decidim::Meetings.version
-  s.add_dependency "decidim-forms", Decidim::Meetings.version
+  s.add_dependency "decidim-core", version
+  s.add_dependency "decidim-forms", version
   s.add_dependency "icalendar", "~> 2.5"
 
-  s.add_development_dependency "decidim-admin", Decidim::Meetings.version
-  s.add_development_dependency "decidim-assemblies", Decidim::Meetings.version
-  s.add_development_dependency "decidim-dev", Decidim::Meetings.version
-  s.add_development_dependency "decidim-participatory_processes", Decidim::Meetings.version
+  s.add_development_dependency "decidim-admin", version
+  s.add_development_dependency "decidim-assemblies", version
+  s.add_development_dependency "decidim-dev", version
+  s.add_development_dependency "decidim-participatory_processes", version
 end
