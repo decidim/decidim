@@ -7,10 +7,6 @@ Decidim.register_component(:proposals) do |component|
   component.icon = "media/images/decidim_proposals.svg"
   component.icon_key = "chat-new-line"
 
-  component.on(:before_destroy) do |instance|
-    raise "Cannot destroy this component when there are proposals" if Decidim::Proposals::Proposal.where(component: instance).any?
-  end
-
   component.on(:create) do |instance|
     admin_user = GlobalID::Locator.locate(instance.versions.first.whodunnit)
     Decidim::Proposals.create_default_states!(instance, admin_user)
