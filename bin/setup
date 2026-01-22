@@ -59,7 +59,7 @@ class CodespacesConfig
     codespace_name = env_data["CODESPACE_NAME"]
     return nil unless codespace_name
 
-    "#{codespace_name}.app.github.dev"
+    "#{codespace_name}-3000.app.github.dev"
   end
 end
 
