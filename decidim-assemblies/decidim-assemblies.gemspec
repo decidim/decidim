@@ -32,10 +32,10 @@ Gem::Specification.new do |s|
     end
   end
 
-  s.add_dependency "decidim-core", Decidim::Assemblies.version
+  s.add_dependency "decidim-core", version
 
-  s.add_development_dependency "decidim-admin", Decidim::Assemblies.version
-  s.add_development_dependency "decidim-dev", Decidim::Assemblies.version
-  s.add_development_dependency "decidim-meetings", Decidim::Assemblies.version
-  s.add_development_dependency "decidim-proposals", Decidim::Assemblies.version
+  s.add_development_dependency "decidim-admin", version
+  s.add_development_dependency "decidim-dev", version
+  s.add_development_dependency "decidim-meetings", version
+  s.add_development_dependency "decidim-proposals", version
 end

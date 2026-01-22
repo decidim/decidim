@@ -32,8 +32,8 @@ Gem::Specification.new do |s|
     end
   end
 
-  s.add_dependency "decidim-core", Decidim::Pages.version
+  s.add_dependency "decidim-core", version
 
-  s.add_development_dependency "decidim-dev", Decidim::Pages.version
-  s.add_development_dependency "decidim-participatory_processes", Decidim::Pages.version
+  s.add_development_dependency "decidim-dev", version
+  s.add_development_dependency "decidim-participatory_processes", version
 end
