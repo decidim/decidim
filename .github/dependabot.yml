@@ -38,6 +38,8 @@ updates:
       - "dependencies"
       - "type: internal"
       - "configuration"
+    commit-message:
+      prefix: "bump to dependencies"
 
   # /decidim-generators/Gemfile.lock
   - package-ecosystem: "bundler"
@@ -76,6 +78,8 @@ updates:
       - "type: internal"
       - "decidim-generators"
       - "configuration"
+    commit-message:
+      prefix: "bump to dependencies"
 
   # GitHub Actions
   - package-ecosystem: "github-actions"
@@ -89,7 +93,7 @@ updates:
       - "dependencies"
       - "configuration"
     commit-message:
-      prefix: "chore"
+      prefix: "bump to dependencies"
 
   # NPM packages
   - package-ecosystem: "npm"
@@ -104,6 +108,8 @@ updates:
       - "dependencies"
       - "type: internal"
       - "javascript"
+    commit-message:
+      prefix: "bump to dependencies"
 
   # NPM packages - core
   - package-ecosystem: "npm"
@@ -120,6 +126,8 @@ updates:
       - "javascript"
       - "decidim-core"
       - "configuration"
+    commit-message:
+      prefix: "bump to dependencies"
 
   # NPM packages - eslint-config
   - package-ecosystem: "npm"
@@ -134,6 +142,8 @@ updates:
       - "dependencies"
       - "type: internal"
       - "javascript"
+    commit-message:
+      prefix: "bump to dependencies"
 
   # NPM packages - browserslist-config
   - package-ecosystem: "npm"
@@ -148,6 +158,8 @@ updates:
       - "dependencies"
       - "type: internal"
       - "javascript"
+    commit-message:
+      prefix: "bump to dependencies"
 
   # NPM packages - stylelint-config
   - package-ecosystem: "npm"
@@ -162,6 +174,8 @@ updates:
       - "dependencies"
       - "type: internal"
       - "javascript"
+    commit-message:
+      prefix: "bump to dependencies"
 
   # NPM packages - dev
   - package-ecosystem: "npm"
@@ -176,6 +190,8 @@ updates:
       - "dependencies"
       - "type: internal"
       - "javascript"
+    commit-message:
+      prefix: "bump to dependencies"
 
   # NPM packages - prettier-config
   - package-ecosystem: "npm"
@@ -190,6 +206,8 @@ updates:
       - "dependencies"
       - "type: internal"
       - "javascript"
+    commit-message:
+      prefix: "bump to dependencies"
 
   # NPM packages - webpacker
   - package-ecosystem: "npm"
@@ -205,3 +223,5 @@ updates:
       - "type: internal"
       - "javascript"
       - "configuration"
+    commit-message:
+      prefix: "bump to dependencies"
