@@ -4,4 +4,5 @@ es-PY:
     api:
       errors:
         introspection_disabled: La introspección está desactivada para esta solicitud
+        recursion_limit_exceeded_error: Se han detectado demasiadas consultas recurrentes
         too_many_aliases_error: Has utilizado demasiados alias (nicknames). Has usado %{size} alias, pero se permite un máximo de %{limit}.
