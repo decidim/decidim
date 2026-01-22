@@ -98,7 +98,7 @@ header {
     }
 
     &__menu-mobile {
-      @apply lg:hidden flex flex-row-reverse items-center gap-x-3;
+      @apply sm:hidden flex flex-row-reverse items-center gap-x-3;
     }
 
     &__links-desktop,
@@ -107,7 +107,7 @@ header {
     }
 
     &__links-desktop {
-      @apply hidden lg:flex items-center justify-between text-center divide-x-2 divide-gray-3 ml-auto [&>*]:px-4 xl:[&>*]:px-6 first:[&>*]:pl-0 last:[&>*]:pr-0;
+      @apply hidden sm:flex items-center justify-between text-center divide-x-2 divide-gray-3 ml-auto [&>*]:px-4 xl:[&>*]:px-6 first:[&>*]:pl-0 last:[&>*]:pr-0;
 
       &__item {
         @apply flex items-center gap-x-2 text-secondary px-2 py-1 rounded;
@@ -136,7 +136,7 @@ header {
 
         .menu-bar {
           &__main-dropdown {
-            @apply hidden lg:flex flex-col h-full md:p-8;
+            @apply hidden sm:flex flex-col h-full sm:p-8;
 
             &__left {
               @apply w-full;
@@ -147,7 +147,7 @@ header {
             @apply w-full;
 
             li {
-              @apply py-3 md:py-3.5 border-b border-t-0 last:border-0 border-gray-3 #{!important};
+              @apply py-3 sm:py-3.5 border-b border-t-0 last:border-0 border-gray-3 #{!important};
 
               a {
                 @apply no-underline;
@@ -319,16 +319,16 @@ header {
 
     /* overwrite default dropdown styles */
     [id*="dropdown-menu"] {
-      @apply py-0 mx-0 w-full lg:w-fit;
+      @apply py-0 mx-0 w-full sm:w-fit;
 
       &[aria-hidden="true"] {
-        @apply md:hidden;
+        @apply sm:hidden;
       }
     }
   }
 
   .menu-bar {
-    @apply container h-full flex justify-between items-center lg:relative last-of-type:[&>svg]:hidden;
+    @apply container h-full flex justify-between items-center sm:relative last-of-type:[&>svg]:hidden;
 
     &__container {
       @apply bg-white relative h-14 flex justify-between;
@@ -542,10 +542,10 @@ header {
     }
 
     &__dropdown-menu {
-      @apply w-full md:w-1/4 px-4 md:px-0 pt-0 pb-3 md:py-3 divide-y divide-gray-3 text-[var(--secondary)];
+      @apply w-full sm:w-1/4 px-4 sm:px-0 pt-0 pb-3 sm:py-3 divide-y divide-gray-3 text-[var(--secondary)];
 
       > * {
-        @apply py-3 md:py-3.5 md:px-2;
+        @apply py-3 sm:py-3.5 sm:px-2;
       }
 
       a {
@@ -570,10 +570,10 @@ header {
     }
 
     &__main-dropdown {
-      @apply bg-white flex flex-row rounded-b shadow-lg text-black w-full lg:w-[530px] h-screen md:h-auto;
+      @apply bg-white flex flex-row rounded-b shadow-lg text-black w-full sm:w-[530px] h-screen md:h-auto;
 
       &__left {
-        @apply p-4 md:py-8 md:px-0 space-y-5 hidden md:block md:w-3/4;
+        @apply p-4 sm:py-8 sm:px-0 space-y-5 hidden sm:block sm:w-3/4;
 
         &-top {
           @apply border-b-4 border-gray-3 pb-3;
