@@ -37,6 +37,8 @@ module Decidim
       autoload :BaseObject, "decidim/api/types/base_object"
       autoload :BaseScalar, "decidim/api/types/base_scalar"
       autoload :BaseUnion, "decidim/api/types/base_union"
+
+      autoload :AccessModeEnum, "decidim/api/types/access_mode_enum"
     end
   end
 end
