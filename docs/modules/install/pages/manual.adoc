@@ -8,6 +8,7 @@ In order to develop on decidim, you will need:
 * *NodeJS* 22.14.x
 * *Npm* 10.9.x
 * *ImageMagick*
+* *LibVips*
 * *Chrome* browser and https://sites.google.com/a/chromium.org/chromedriver/[chromedriver] (if you need to run specs/tests)
 
 The compatibility between the different versions of the components is the following:
@@ -67,7 +68,7 @@ Next, we need to install the `decidim` gem with its dependencies:
 
 [source,bash]
 ----
-sudo apt install -y libicu-dev imagemagick
+sudo apt install -y libicu-dev imagemagick libvips libvips-tools
 gem install decidim
 ----
 

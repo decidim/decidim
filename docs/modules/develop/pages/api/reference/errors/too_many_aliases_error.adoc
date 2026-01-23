@@ -1,0 +1,23 @@
+= Too many Aliases error - TOO_MANY_ALIASES_ERROR
+
+This error is triggered when your query has too many aliases.
+To avoid this, you should do any of the following:
+
+- Simplify the query
+- If you are unable, ask for the implementer of the instance to change the `API_SCHEMA_MAX_ALIASES` environment variable. (xref:configure:environment_variables.adoc[Environment Variables page])
+
+The JSON response structure is:
+
+[source, json]
+----
+{
+  "errors": [
+    {
+      "message": "Too many aliases used. You have used 51 aliases, but 5 are allowed.",
+      "extensions": {
+        "code": "TOO_MANY_ALIASES_ERROR"
+      }
+    }
+  ]
+}
+----

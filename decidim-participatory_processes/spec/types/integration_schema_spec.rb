@@ -245,6 +245,7 @@ describe "Decidim::Api::QueryType" do
     )
   end
 
+  include_examples "when the introspection is disabled"
   describe "valid query" do
     it "executes successfully" do
       expect { response }.not_to raise_error
