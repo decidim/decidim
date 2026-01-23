@@ -55,10 +55,12 @@ it:
           attributes:
             base:
               not_official: Non sono ufficiali
+              voted: Hanno ricevuto supporto o appoggi
         proposals_split:
           attributes:
             base:
               not_official: Non sono ufficiali
+              voted: Hanno ricevuto supporto o appoggi
     models:
       decidim/proposals/creation_enabled_event: Creazione della proposta abilitata
       decidim/proposals/endorsing_enabled_event: Approvazione della proposta abilitata
@@ -252,6 +254,8 @@ it:
         object: proposte
         title: Proposte
       votes:
+        description: Numero di voti sulle proposte
+        object: voti
         title: Voti
     participatory_spaces:
       highlighted_proposals:
@@ -328,6 +332,7 @@ it:
             publish: Pubblica
             publish_answers: Pubblica risposte
             select_component: Seleziona un componente
+            select_valuators: Seleziona uno o più valutatori
             selected: selezionato
             split: Proposte divise
             split_button: Diviso
