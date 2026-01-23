@@ -36,15 +36,22 @@ describe "Download Open Data files", download: true do
       it_behaves_like "does not include it in the open data ZIP file"
     end
 
-    context "when the participatory process is published and not private" do
-      let!(:participatory_process) { create(:participatory_process, :published, organization:, private_space: false) }
+    context "when the participatory process is published and open" do
+      let!(:participatory_process) { create(:participatory_process, :published, :open, organization:) }
       let(:resource_title) { translated_attribute(participatory_process.title).gsub('"', '""') }
 
       it_behaves_like "includes it in the open data ZIP file"
     end
 
-    context "when the participatory process is published and private" do
-      let!(:participatory_process) { create(:participatory_process, :published, organization:, private_space: true) }
+    context "when the participatory process is published and transparent" do
+      let!(:participatory_process) { create(:participatory_process, :published, :transparent, organization:) }
+      let(:resource_title) { translated_attribute(participatory_process.title).gsub('"', '""') }
+
+      it_behaves_like "includes it in the open data ZIP file"
+    end
+
+    context "when the participatory process is published and restricted" do
+      let!(:participatory_process) { create(:participatory_process, :published, :restricted, organization:) }
       let(:resource_title) { translated_attribute(participatory_process.title).gsub('"', '""') }
 
       it_behaves_like "does not include it in the open data ZIP file"
@@ -53,7 +60,7 @@ describe "Download Open Data files", download: true do
 
   describe "open data page" do
     let(:resource_type) { "participatory_processes" }
-    let!(:participatory_process) { create(:participatory_process, :published, organization:, private_space: false) }
+    let!(:participatory_process) { create(:participatory_process, :published, organization:) }
     let(:resource_title) { translated_attribute(participatory_process.title).gsub('"', '""') }
 
     it_behaves_like "includes it in the open data CSV file"

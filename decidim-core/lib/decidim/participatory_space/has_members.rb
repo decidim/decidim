@@ -47,7 +47,7 @@ module Decidim
         end
 
         def self.public_spaces
-          where(access_mode: [:open]).published
+          where(access_mode: [:open, :transparent]).published
         end
 
         def self.private_spaces

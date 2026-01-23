@@ -52,6 +52,10 @@ FactoryBot.define do
       deleted_at { Time.current }
     end
 
+    trait :open do
+      access_mode { :open }
+    end
+
     trait :transparent do
       access_mode { :transparent }
     end

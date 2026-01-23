@@ -24,7 +24,7 @@ shared_examples "manage processes examples" do
 
     describe "listing processes" do
       it_behaves_like "filtering collection by published/unpublished"
-      it_behaves_like "filtering collection by private/public"
+      it_behaves_like "filtering collection by open/restricted/transparent"
     end
 
     context "when processes are filtered by process_group" do
@@ -36,9 +36,10 @@ shared_examples "manage processes examples" do
           let!(:unpublished_space) { create(:participatory_process, :unpublished, organization:, participatory_process_group: process_group) }
         end
 
-        it_behaves_like "filtering collection by private/public" do
-          let!(:public_space) { process_with_group }
-          let!(:private_space) { create(:participatory_process, :private, organization:, participatory_process_group: process_group) }
+        it_behaves_like "filtering collection by open/restricted/transparent" do
+          let!(:open_space) { process_with_group }
+          let!(:restricted_space) { create(:participatory_process, :restricted, organization:, participatory_process_group: process_group) }
+          let!(:transparent_space) { create(:participatory_process, :transparent, organization:, participatory_process_group: process_group) }
         end
       end
     end

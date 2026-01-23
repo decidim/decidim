@@ -26,7 +26,6 @@ en:
         participatory_process_group_id: Processes group
         participatory_scope: What is decided
         participatory_structure: How is it decided
-        private_space: Private process
         promoted: Promoted
         published_at: Published at
         related_process_ids: Related processes
@@ -351,6 +350,7 @@ en:
     open_data:
       help:
         participatory_processes:
+          access_mode: Access mode. If the process is open, restricted or transparent.
           announcement: The announcement (callout) information
           area: The area where the process is taking place
           component_settings: The component settings of the process
@@ -628,7 +628,6 @@ en:
           title: About this process
       show:
         belongs_to_group: This process belongs to
-        private_space: This is a private process
         related_processes: Related processes
       static_pages:
         democratic_quality_indicators:

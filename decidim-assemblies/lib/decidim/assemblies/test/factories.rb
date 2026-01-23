@@ -80,6 +80,10 @@ FactoryBot.define do
       access_mode { :open }
     end
 
+    trait :open do
+      access_mode { :transparent }
+    end
+
     trait :transparent do
       access_mode { :transparent }
     end
