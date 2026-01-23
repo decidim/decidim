@@ -15,10 +15,6 @@ module Decidim
           on(:ok) do |comment|
             return comment
           end
-
-          on(:invalid) do
-            raise Decidim::Api::Errors::ValidationError, I18n.t("votes.create.error", scope: "decidim.comments")
-          end
         end
       end
 
@@ -26,10 +22,6 @@ module Decidim
         Decidim::Comments::VoteComment.call(object, current_user, weight: -1) do
           on(:ok) do |comment|
             return comment
-          end
-
-          on(:invalid) do
-            raise Decidim::Api::Errors::ValidationError, I18n.t("votes.destroy.error", scope: "decidim.comments")
           end
         end
       end
