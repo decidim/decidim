@@ -97,11 +97,6 @@ module Decidim
 
     scope_search_multi :with_any_access_mode, ACCESS_MODES.keys
 
-    # Overwriting existing method Decidim::ParticipatorySpace::HasMembers.public_spaces
-    def self.public_spaces
-      open.transparent.published
-    end
-
     # Scope to return only the promoted assemblies.
     #
     # Returns an ActiveRecord::Relation.
