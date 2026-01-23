@@ -1,7 +1,7 @@
 <% if available_locales.length > 1 %>
-  <div class="language-container">
-    <button id="trigger-<%= id %>" data-controller="dropdown" data-target="<%= id %>" class="language-trigger">
-      <span class="holder">
+  <div class="main-bar__language-chooser">
+    <button id="trigger-<%= id %>" data-controller="dropdown" data-target="<%= id %>" class="main-bar__language-chooser-trigger">
+      <span class="main-bar__language-chooser-holder">
         <%= icon "global-line" %>
         <span><%= t("name", scope: "locale" ) %></span>
       </span>
@@ -12,9 +12,9 @@
     </button>
 
     <div id="<%= id %>" aria-hidden="true">
-      <ul class="language-list" role="menu">
+      <ul class="main-bar__language-chooser-list" role="menu">
         <% available_locales.each do |locale| %>
-          <li class="language-item <%= "is-active" if I18n.locale.to_s == locale %>" role="presentation">
+          <li class="<%= I18n.locale.to_s == locale ? "main-bar__language-chooser-item-active" : "main-bar__language-chooser-item" %>" role="presentation">
             <%= link_to locale_name(locale), decidim.locale_path(locale:), method: :post, role: "menuitem", lang: locale, class: "p-2 w-full block" %>
           </li>
         <% end %>
