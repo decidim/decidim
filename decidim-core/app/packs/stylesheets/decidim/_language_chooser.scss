@@ -68,4 +68,12 @@ header {
       }
     }
   }
+
+  .menu-bar__language-chooser-mobile {
+    .main-bar__language-chooser {
+      & > div[id*="dropdown-menu"] {
+        @apply w-full relative;
+      }
+    }
+  }
 }
