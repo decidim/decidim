@@ -54,9 +54,9 @@ module Decidim
             content_block.save!
           end
 
-          purge_attachment
-
           return broadcast(:invalid) unless images_valid
+
+          purge_attachment
 
           broadcast(:ok, content_block)
         end
