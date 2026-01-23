@@ -110,8 +110,9 @@ module Decidim
 
         return disallow! unless can_view_private_space?
         return allow! if user&.admin?
-        return allow! if assembly.published?
+        return allow! if !assembly.private_space? && assembly.published?
         return allow! if user_can_preview_space?
+        return allow! if assembly.users.include?(user)
 
         toggle_allow(can_manage_assembly?)
       end
