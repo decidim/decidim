@@ -257,8 +257,8 @@ describe "Assemblies" do
       end
 
       context "when the assembly has children private and transparent assemblies and related assemblies block is active" do
-        let!(:private_transparent_child_assembly) { create(:assembly, organization:, parent: assembly, private_space: true, is_transparent: true) }
-        let!(:private_transparent_unpublished_child_assembly) { create(:assembly, :unpublished, organization:, parent: assembly, private_space: true, is_transparent: true) }
+        let!(:private_transparent_child_assembly) { create(:assembly, organization:, parent: assembly, access_mode: :transparent) }
+        let!(:private_transparent_unpublished_child_assembly) { create(:assembly, :unpublished, organization:, parent: assembly, access_mode: :transparent) }
         let(:blocks_manifests) { [:related_assemblies] }
 
         before do
@@ -274,8 +274,8 @@ describe "Assemblies" do
       end
 
       context "when the assembly has children private and not transparent assemblies" do
-        let!(:private_child_assembly) { create(:assembly, organization:, parent: assembly, private_space: true, is_transparent: false) }
-        let!(:private_unpublished_child_assembly) { create(:assembly, :unpublished, organization:, parent: assembly, private_space: true, is_transparent: false) }
+        let!(:private_child_assembly) { create(:assembly, organization:, parent: assembly, access_mode: :restricted) }
+        let!(:private_unpublished_child_assembly) { create(:assembly, :unpublished, organization:, parent: assembly, access_mode: :restricted) }
 
         before do
           visit decidim_assemblies.assembly_path(assembly, locale: I18n.locale)

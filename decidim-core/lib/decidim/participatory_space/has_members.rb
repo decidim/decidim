@@ -48,9 +48,9 @@ module Decidim
 
         def self.public_spaces
           if respond_to?(:transparent)
-            open.transparent.published
+            where(access_mode: [:open, :transparent]).published
           else
-            open.published
+            where(access_mode: [:open]).published
           end
         end
 

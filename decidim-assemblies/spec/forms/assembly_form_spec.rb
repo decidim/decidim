@@ -83,7 +83,7 @@ module Decidim
             ca: "Organització interna"
           }
         end
-        let(:is_transparent) { true }
+        let(:access_mode) { "open" }
         let(:special_features) do
           {
             en: "Special features",
@@ -148,7 +148,7 @@ module Decidim
               "internal_organisation_en" => internal_organisation[:en],
               "internal_organisation_es" => internal_organisation[:es],
               "internal_organisation_ca" => internal_organisation[:ca],
-              "is_transparent" => is_transparent,
+              "access_mode" => access_mode,
               "special_features_en" => special_features[:en],
               "special_features_es" => special_features[:es],
               "special_features_ca" => special_features[:ca],
@@ -329,7 +329,7 @@ module Decidim
                 closing_date: assembly.closing_date,
                 closing_date_reason: assembly.closing_date_reason,
                 internal_organisation: assembly.internal_organisation,
-                is_transparent: assembly.is_transparent,
+                access_mode: assembly.access_mode,
                 special_features: assembly.special_features,
                 twitter_handler: assembly.twitter_handler,
                 facebook_handler: assembly.facebook_handler,
@@ -383,7 +383,7 @@ module Decidim
                 closing_date: assembly.closing_date,
                 closing_date_reason: assembly.closing_date_reason,
                 internal_organisation: assembly.internal_organisation,
-                is_transparent: assembly.is_transparent,
+                access_mode: assembly.access_mode,
                 special_features: assembly.special_features,
                 twitter_handler: assembly.twitter_handler,
                 facebook_handler: assembly.facebook_handler,

@@ -32,7 +32,6 @@ FactoryBot.define do
     participatory_structure { generate_localized_title(:participatory_process_participatory_structure, skip_injection:) }
     announcement { generate_localized_title(:participatory_process_announcement, skip_injection:) }
     has_members { false }
-    private_space { false }
     start_date { Date.current }
     end_date { 2.months.from_now }
     area { nil }
@@ -51,10 +50,6 @@ FactoryBot.define do
 
     trait :trashed do
       deleted_at { Time.current }
-    end
-
-    trait :private do
-      private_space { true }
     end
 
     trait :transparent do

@@ -44,14 +44,14 @@ describe "Download Open Data files", download: true do
     end
 
     context "when the assembly is published, private and transparent" do
-      let!(:assembly) { create(:assembly, :published, organization:, private_space: true, is_transparent: true) }
+      let!(:assembly) { create(:assembly, :published, organization:, access_mode: :transparent) }
       let(:resource_title) { translated_attribute(assembly.title).gsub('"', '""') }
 
       it_behaves_like "includes it in the open data ZIP file"
     end
 
     context "when the assembly is published, private and not transparent" do
-      let!(:assembly) { create(:assembly, :published, organization:, private_space: true, is_transparent: false) }
+      let!(:assembly) { create(:assembly, :published, organization:, access_mode: :restricted) }
       let(:resource_title) { translated_attribute(assembly.title).gsub('"', '""') }
 
       it_behaves_like "does not include it in the open data ZIP file"
