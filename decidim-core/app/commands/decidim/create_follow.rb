@@ -20,6 +20,7 @@ module Decidim
     # Returns nothing.
     def call
       return broadcast(:invalid) if form.invalid?
+      return broadcast(:invalid) unless current_user.is_a?(Decidim::User)
 
       create_follow!
       increment_score
@@ -32,13 +33,10 @@ module Decidim
     attr_reader :follow, :form
 
     def create_follow!
-      @follow = Follow.find_by(
+      @follow = Follow.where(
         followable: form.followable,
         user: current_user
-      ) || Follow.create!(
-        followable: form.followable,
-        user: current_user
-      )
+      ).first_or_create!
     end
 
     def increment_score

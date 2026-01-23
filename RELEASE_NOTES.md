@@ -32,6 +32,7 @@ gem "decidim-dev", github: "decidim/decidim"
 ### 1.3. Run these commands
 
 ```console
+sudo apt install libvips libvips-tools # or the alternative installation process for your operating system. See "3.5. Replace image processing with imagemagick to libvips"
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
@@ -175,7 +176,23 @@ Back in [#15534](https://github.com/decidim/decidim/pull/15534) we upgraded webp
 
 You can read more about this change on PR [#15534](https://github.com/decidim/decidim/pull/15534), [#15674](https://github.com/decidim/decidim/pull/15674).
 
-### 3.5. [[TITLE OF THE ACTION]]
+### 3.5. Replace ImageMagick with libvips for image processing
+
+We have upgraded our image processor within the application to libvips for speed and low memory usage.
+
+Support for `.ico` favicon files has been removed. Applications that relied on ICO favicons must migrate to one of the supported Libvips image formats.
+
+In order to install please run the following command:
+
+```bash
+sudo apt install libvips libvips-tools
+```
+
+This works for Ubuntu Linux, other operating systems would need to do other command/package.
+
+You can read more about this change on PR [#15670](https://github.com/decidim/decidim/pull/15670).
+
+### 3.6. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 

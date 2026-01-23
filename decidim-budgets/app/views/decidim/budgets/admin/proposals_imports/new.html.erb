@@ -20,9 +20,17 @@
               <div class="row column">
                 <%= f.number_field :default_budget, label: t(".default_budget") %>
               </div>
-              <div class="row column">
-                <%= f.check_box :import_all_accepted_proposals, label: t(".import_all_accepted_proposals") %>
-              </div>
+              <% if @form.available_states.any? %>
+                <label class="ml-4"><%= t(".proposal_states") %></label>
+                <span class="help-text ml-4"><%= t(".proposal_states_help") %></span>
+                <div class="row column">
+                  <%= f.collection_check_boxes :internal_states, @form.available_states, :token, ->(a) { translated_attribute(a.title) } do |builder| %>
+                  <div>
+                    <%= builder.label { builder.check_box + builder.text } %>
+                  </div>
+                  <% end %>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
