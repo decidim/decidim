@@ -93,7 +93,7 @@ module Decidim
 
       def create_initiative_votes!(initiative:)
         users = []
-        rand(50).times do
+        rand(0..config_value(:initiatives_votes_count)).times do
           author = (Decidim::User.all - users).sample
           initiative.votes.create!(author:, scope: initiative.scope, hash_id: SecureRandom.hex)
           users << author
