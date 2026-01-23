@@ -18,7 +18,7 @@ module Decidim
         def run_after_hooks
           return unless resource.participatory_space.respond_to?(:restricted?)
           return unless resource.participatory_space.restricted?
-          return if resource.participatory_space.respond_to?(:transparent) && resource.participatory_space.transparent?
+          return if resource.participatory_space.respond_to?(:transparent?) && resource.participatory_space.transparent?
 
           # When member is destroyed, a hook to destroy the follows of user on restricted or transparent spaces
           # and the follows of their children
