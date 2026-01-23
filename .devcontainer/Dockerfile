@@ -1,8 +1,7 @@
-FROM decidim/decidim:0.22.0-dev
+ARG RUBY_VERSION=3.4.7
+FROM ghcr.io/rails/devcontainer/images/ruby:$RUBY_VERSION
 
-RUN apt-get update && apt-get install -y \
-  vim
+RUN sudo apt-get update && \
+  sudo apt-get install -y libicu-dev
 
-ENV EDITOR=vim
-
-RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.1/zsh-in-docker.sh)"
+ENV BINDING="0.0.0.0"
