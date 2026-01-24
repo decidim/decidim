@@ -19,13 +19,13 @@ describe Decidim::ParticipatoryProcesses::ContentBlocks::DemocraticQualityStatsC
   describe "#info_url" do
     it "generates the correct page path with locale" do
       I18n.with_locale(:en) do
-        expect(subject.send(:info_url)).to eq("/en/pages/democratic-quality-indicators")
+        expect(subject.send(:info_url)).to eq("/pages/democratic-quality-indicators?locale=en")
       end
     end
 
     it "uses the current locale" do
       I18n.with_locale(:es) do
-        expect(subject.send(:info_url)).to eq("/es/pages/democratic-quality-indicators")
+        expect(subject.send(:info_url)).to eq("/pages/democratic-quality-indicators?locale=es")
       end
     end
   end
@@ -55,7 +55,7 @@ describe Decidim::ParticipatoryProcesses::ContentBlocks::DemocraticQualityStatsC
 
   it "includes a link to democratic quality indicators page" do
     I18n.with_locale(:en) do
-      expect(html).to have_link(href: "/en/pages/democratic-quality-indicators")
+      expect(html).to have_link(href: "/pages/democratic-quality-indicators?locale=en")
     end
   end
 end
