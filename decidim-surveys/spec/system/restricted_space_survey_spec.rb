@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Private Space Respond a survey" do
+describe "Restricted Space Respond a survey" do
   let(:manifest_name) { "surveys" }
   let(:manifest) { Decidim.find_component_manifest(manifest_name) }
 
@@ -25,14 +25,14 @@ describe "Private Space Respond a survey" do
   let(:user) { create(:user, :confirmed, organization:) }
   let!(:another_user) { create(:user, :confirmed, organization:) }
 
-  let!(:member) { create(:member, user: another_user, participatory_space: participatory_space_private) }
+  let!(:member) { create(:member, user: another_user, participatory_space: participatory_space_restricted) }
 
   let!(:questionnaire) { create(:questionnaire, title:, description:) }
   let!(:survey) { create(:survey, :published, :allow_responses, component:, questionnaire:) }
   let!(:question) { create(:questionnaire_question, questionnaire:, position: 0) }
   let!(:question_conditioned) { create(:questionnaire_question, :conditioned, questionnaire:, position: 1) }
 
-  let!(:participatory_space) { participatory_space_private }
+  let!(:participatory_space) { participatory_space_restricted }
 
   let!(:component) { create(:component, manifest:, participatory_space:) }
 
@@ -44,76 +44,8 @@ describe "Private Space Respond a survey" do
     page.visit main_component_path(component)
   end
 
-  context "when space is private and transparent" do
-    let!(:participatory_space_private) { create(:assembly, :published, organization:, private_space: true, is_transparent: true) }
-
-    context "when the user is not logged in" do
-      it "does not allow responding the survey" do
-        visit_component
-        click_on translated_attribute(questionnaire.title)
-
-        expect(page).to have_i18n_content(questionnaire.title)
-        expect(page).to have_i18n_content(questionnaire.description)
-
-        expect(page).to have_no_css(".form.response-questionnaire")
-
-        within ".response-questionnaire__step" do
-          expect(page).to have_i18n_content(question.body)
-          expect(page).not_to have_i18n_content(question_conditioned.body)
-        end
-      end
-    end
-
-    context "when the user is logged in" do
-      context "and is member space" do
-        before do
-          login_as another_user, scope: :user
-        end
-
-        it "allows responding the survey" do
-          visit_component
-          click_on translated_attribute(questionnaire.title)
-
-          expect(page).to have_i18n_content(questionnaire.title)
-          expect(page).to have_i18n_content(questionnaire.description)
-
-          fill_in question.body["en"], with: "My first response"
-
-          check "questionnaire_tos_agreement"
-
-          accept_confirm { click_on "Submit" }
-
-          within ".success.flash" do
-            expect(page).to have_content("successfully")
-          end
-
-          expect(page).to have_content("You have already responded this form.")
-          expect(page).to have_no_i18n_content(question.body)
-        end
-      end
-
-      context "and is not member space" do
-        before do
-          login_as user, scope: :user
-        end
-
-        it "not allows responding the survey" do
-          visit_component
-          click_on translated_attribute(questionnaire.title)
-
-          expect(page).to have_i18n_content(questionnaire.title)
-          expect(page).to have_i18n_content(questionnaire.description)
-          expect(page).to have_content "The form is available only for members"
-          expect(page).to have_content "Form closed"
-
-          expect(page).to have_css(".button[disabled]")
-        end
-      end
-    end
-  end
-
-  context "when the spaces is private and not transparent" do
-    let!(:participatory_space_private) { create(:assembly, :published, organization:, private_space: true, is_transparent: false) }
+  context "when the spaces is restricted" do
+    let!(:participatory_space_restricted) { create(:assembly, :published, :restricted, organization:) }
 
     context "when the user is not logged in" do
       let(:target_path) { main_component_path(component) }

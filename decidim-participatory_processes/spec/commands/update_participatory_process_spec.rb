@@ -33,7 +33,7 @@ module Decidim::ParticipatoryProcesses
             current_organization: organization,
             errors: my_process.errors,
             participatory_process_group: my_process.participatory_process_group,
-            private_space: my_process.private_space,
+            access_mode: my_process.access_mode,
             taxonomies: [taxonomy.id, taxonomies.first.id]
           }.merge(attachment_params)
         }
