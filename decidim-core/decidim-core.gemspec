@@ -2,8 +2,6 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-# Maintain your gem's version:
-
 Gem::Specification.new do |s|
   s.name = "decidim-core"
   version = "0.32.0.dev"
