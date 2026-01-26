@@ -24,10 +24,10 @@ module Decidim::Meetings
         end
       end
 
-      context "when meeting in a private non transparent space with a link" do
-        let!(:private_process) { create(:participatory_process, organization: component.organization, private_space: true) }
-        let!(:private_component) { create(:component, manifest_name: "meetings", participatory_space: private_process) }
-        let!(:meeting) { create(:meeting, component: private_component) }
+      context "when meeting in a restricted space with a link" do
+        let!(:restricted_process) { create(:participatory_process, :restricted, organization: component.organization) }
+        let!(:restricted_component) { create(:component, manifest_name: "meetings", participatory_space: restricted_process) }
+        let!(:meeting) { create(:meeting, component: restricted_component) }
         let!(:meeting_link) { create(:meeting_link, meeting:, component:) }
 
         it "returns an empty array" do
@@ -35,10 +35,10 @@ module Decidim::Meetings
         end
       end
 
-      context "when meeting in a private transparent space with a link" do
-        let!(:assembly) { create(:assembly, organization: component.organization, private_space: true, is_transparent: true) }
-        let!(:private_component) { create(:component, manifest_name: "meetings", participatory_space: assembly) }
-        let!(:meeting) { create(:meeting, component: private_component) }
+      context "when meeting in a transparent space with a link" do
+        let!(:assembly) { create(:assembly, :transparent, organization: component.organization) }
+        let!(:transparent_component) { create(:component, manifest_name: "meetings", participatory_space: assembly) }
+        let!(:meeting) { create(:meeting, component: transparent_component) }
         let!(:meeting_link) { create(:meeting_link, meeting:, component:) }
 
         it "returns the meeting" do

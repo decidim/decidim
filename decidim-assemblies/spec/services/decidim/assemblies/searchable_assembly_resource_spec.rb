@@ -44,7 +44,7 @@ module Decidim
         }
       end
 
-      context "when participatory_spaces ARE private but transparent" do
+      context "when participatory_spaces are restricted or transparent" do
         it "does NOT indexes a SearchableResource after ParticipatorySpace update" do
           participatory_space.update(published_at: Time.current, access_mode: :restricted)
           organization.available_locales.each do |locale|

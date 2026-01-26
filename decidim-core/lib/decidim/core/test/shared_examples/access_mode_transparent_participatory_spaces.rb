@@ -13,7 +13,7 @@ shared_examples "access mode transparent participatory spaces" do
       visit participatory_space_index_path
     end
 
-    it "lists all the assemblies" do
+    it "lists all the spaces" do
       within css_class_selector do
         within "#{css_class_selector} h2" do
           expect(page).to have_content("2")
@@ -26,7 +26,7 @@ shared_examples "access mode transparent participatory spaces" do
       end
     end
 
-    it "links to the individual assembly page" do
+    it "links to the individual space page" do
       first(".card__grid-text", text: translated(transparent_participatory_space.title, locale: :en)).click
 
       expect(page).to have_current_path transparent_participatory_space_path
@@ -35,7 +35,7 @@ shared_examples "access mode transparent participatory spaces" do
   end
 
   context "when user is logged in" do
-    context "when is not an assembly member" do
+    context "when is not a space member" do
       before do
         switch_to_host(organization.host)
         login_as user, scope: :user

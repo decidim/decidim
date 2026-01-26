@@ -35,38 +35,38 @@ module Decidim
       end
     end
 
-    describe "private_non_transparent_space?" do
+    describe "restricted_space?" do
       subject { component }
 
       let(:component) { create(:component, manifest_name: "another_dummy", participatory_space:) }
 
-      context "when the component belongs to a private space" do
+      context "when the component belongs to a restricted space" do
         let(:participatory_space) do
-          create(:participatory_process, organization:, private_space: true)
+          create(:participatory_process, :restricted, organization:)
         end
 
         it "returns true" do
-          expect(subject.private_non_transparent_space?).to be true
+          expect(subject.restricted_space?).to be true
         end
       end
 
-      context "when the component belongs to a non-private space" do
+      context "when the component belongs to an open space" do
         let(:participatory_space) do
-          create(:participatory_process, organization:, private_space: false)
+          create(:participatory_process, :open, organization:)
         end
 
         it "returns false" do
-          expect(subject.private_non_transparent_space?).to be false
+          expect(subject.restricted_space?).to be false
         end
       end
 
-      context "when the component belongs to a private transparent space" do
+      context "when the component belongs to a transparent space" do
         let(:participatory_space) do
-          create(:assembly, organization:, private_space: false, is_transparent: true)
+          create(:assembly, :transparent, organization:)
         end
 
         it "returns false" do
-          expect(subject.private_non_transparent_space?).to be false
+          expect(subject.restricted_space?).to be false
         end
       end
     end

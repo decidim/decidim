@@ -38,7 +38,7 @@ describe "Decidim::Api::QueryType" do
       "includedAt" => assembly.included_at.iso8601,
       "instagramHandler" => assembly.instagram_handler,
       "internalOrganisation" => { "translation" => assembly.internal_organisation[locale] },
-      "accessMode" => assembly.access_mode,
+      "accessMode" => assembly.access_mode.upcase,
       "linkedParticipatorySpaces" => [],
       "localArea" => { "translation" => assembly.local_area[locale] },
       "metaScope" => { "translation" => assembly.meta_scope[locale] },
@@ -68,6 +68,7 @@ describe "Decidim::Api::QueryType" do
   let(:assemblies) do
     %(
       assemblies{
+        accessMode
         attachments {
           thumbnail
         }
@@ -117,7 +118,6 @@ describe "Decidim::Api::QueryType" do
         internalOrganisation {
           translation(locale:"#{locale}")
         }
-        isTransparent
         linkedParticipatorySpaces {
           id
         }
@@ -137,7 +137,6 @@ describe "Decidim::Api::QueryType" do
         participatoryStructure {
           translation(locale:"#{locale}")
         }
-        privateSpace
         promoted
         publishedAt
         purposeOfAction {
@@ -222,6 +221,7 @@ describe "Decidim::Api::QueryType" do
     let(:assemblies) do
       %(
       assembly(id: #{assembly.id}){
+        accessMode
         attachments {
           thumbnail
         }
@@ -271,7 +271,6 @@ describe "Decidim::Api::QueryType" do
         internalOrganisation {
           translation(locale:"#{locale}")
         }
-        isTransparent
         linkedParticipatorySpaces {
           id
         }
@@ -291,7 +290,6 @@ describe "Decidim::Api::QueryType" do
         participatoryStructure {
           translation(locale:"#{locale}")
         }
-        privateSpace
         promoted
         publishedAt
         purposeOfAction {

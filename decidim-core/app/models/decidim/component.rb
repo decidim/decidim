@@ -111,7 +111,9 @@ module Decidim
     end
     alias can_participate? can_participate_in_space?
 
-    def private_non_transparent_space?
+    def restricted_space?
+      return false unless participatory_space.respond_to?(:restricted?)
+
       participatory_space.restricted?
     end
 

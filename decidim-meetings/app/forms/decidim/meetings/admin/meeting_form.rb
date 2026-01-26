@@ -67,7 +67,7 @@ module Decidim
 
         # linked components
         def components
-          return [] if private_non_transparent_space?
+          return [] if restricted_space?
 
           if private_meeting && !transparent
             []
@@ -76,7 +76,7 @@ module Decidim
           end
         end
 
-        delegate :private_non_transparent_space?, to: :current_component
+        delegate :restricted_space?, to: :current_component
 
         def number_of_services
           services.size
