@@ -144,12 +144,14 @@ case "$1" in
         echo "  ps              - Check container status"
         echo ""
         echo "Execute Commands:"
-        echo "  $SCRIPT_NAME <command>         - Execute any command in the container"
+        echo "  $SCRIPT_NAME <command>                                        Execute any command in the container"
         echo ""
         echo "Examples:"
-        echo "  $SCRIPT_NAME dev               - Run bin/dev"
-        echo "  $SCRIPT_NAME rails console     - Run bin/rails console"
-        echo "  $SCRIPT_NAME bundle install    - Run bin/bundle install"
+        echo "  $SCRIPT_NAME dev                                             - Run bin/dev"
+        echo "  $SCRIPT_NAME rails console                                   - Run bin/rails console"
+        echo "  $SCRIPT_NAME bundle install                                  - Run bin/bundle install"
+        echo "  $SCRIPT_NAME bundle exec rake test_app                       - Generates the test_app"
+        echo "  $SCRIPT_NAME rspec decidim-budgets/spec/models/order_spec.rb - Runs the specs for the budgets' order model"
         exit 0
         ;;
 esac
