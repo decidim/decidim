@@ -6,7 +6,7 @@ permissions:
 on:
   pull_request:
     branches:
-      - dependabot/*
+      - dependabot/**
     paths:
       - 'Gemfile.lock'
       - 'decidim-generators/Gemfile.lock'

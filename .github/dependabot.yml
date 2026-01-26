@@ -39,7 +39,7 @@ updates:
       - "type: internal"
       - "configuration"
     commit-message:
-      prefix: "bump to dependencies"
+      prefix: "Bump to dependencies"
 
   # GitHub Actions
   - package-ecosystem: "github-actions"
@@ -53,7 +53,7 @@ updates:
       - "dependencies"
       - "configuration"
     commit-message:
-      prefix: "bump to dependencies"
+      prefix: "Bump to dependencies"
 
   # NPM packages
   - package-ecosystem: "npm"
@@ -68,7 +68,7 @@ updates:
       - "type: internal"
       - "javascript"
     commit-message:
-      prefix: "bump to dependencies"
+      prefix: "Bump to dependencies"
 
   # NPM packages - core
   - package-ecosystem: "npm"
@@ -85,7 +85,7 @@ updates:
       - "decidim-core"
       - "configuration"
     commit-message:
-      prefix: "bump to dependencies"
+      prefix: "Bump to dependencies"
 
   # NPM packages - eslint-config
   - package-ecosystem: "npm"
@@ -101,7 +101,7 @@ updates:
       - "type: internal"
       - "javascript"
     commit-message:
-      prefix: "bump to dependencies"
+      prefix: "Bump to dependencies"
 
   # NPM packages - browserslist-config
   - package-ecosystem: "npm"
@@ -117,7 +117,7 @@ updates:
       - "type: internal"
       - "javascript"
     commit-message:
-      prefix: "bump to dependencies"
+      prefix: "Bump to dependencies"
 
   # NPM packages - stylelint-config
   - package-ecosystem: "npm"
@@ -133,7 +133,7 @@ updates:
       - "type: internal"
       - "javascript"
     commit-message:
-      prefix: "bump to dependencies"
+      prefix: "Bump to dependencies"
 
   # NPM packages - dev
   - package-ecosystem: "npm"
@@ -149,7 +149,7 @@ updates:
       - "type: internal"
       - "javascript"
     commit-message:
-      prefix: "bump to dependencies"
+      prefix: "Bump to dependencies"
 
   # NPM packages - prettier-config
   - package-ecosystem: "npm"
@@ -165,7 +165,7 @@ updates:
       - "type: internal"
       - "javascript"
     commit-message:
-      prefix: "bump to dependencies"
+      prefix: "Bump to dependencies"
 
   # NPM packages - webpacker
   - package-ecosystem: "npm"
@@ -182,4 +182,4 @@ updates:
       - "javascript"
       - "configuration"
     commit-message:
-      prefix: "bump to dependencies"
+      prefix: "Bump to dependencies"
