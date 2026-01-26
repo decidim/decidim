@@ -242,7 +242,7 @@ module Decidim
       def create_user_group!(user:, verified_at:)
         user_group = Decidim::UserGroup.create!(
           name: ::Faker::Company.unique.name,
-          nickname: ::Faker::Twitter.unique.screen_name,
+          nickname: ::Faker::X.unique.screen_name,
           email: ::Faker::Internet.email,
           confirmed_at: Time.current,
           extended_data: {
