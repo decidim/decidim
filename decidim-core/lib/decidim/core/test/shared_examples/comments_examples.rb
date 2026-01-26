@@ -15,6 +15,8 @@ shared_examples "comments" do
 
   context "when user name is improperly formatted" do
     let!(:user) { create(:user, :malicious, :confirmed, organization:) }
+    let(:user_group) { create(:user_group, :verified, organization:) }
+    let!(:user_group_membership) { create(:user_group_membership, user:, user_group:) }
 
     before do
       # rubocop:disable Rails/SkipsModelValidations
@@ -733,19 +735,21 @@ shared_examples "comments" do
 
     context "when the user has verified organizations" do
       let(:user_group) { create(:user_group, :verified, organization:) }
+      let!(:user_group_membership) { create(:user_group_membership, user:, user_group:) }
       let(:content) { "This is a new comment" }
 
-      before do
-        create(:user_group_membership, user:, user_group:)
-      end
-
       it "adds new comment as a user group" do
+        organization.update!(user_groups_enabled: true)
         visit resource_path
 
         within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
+          click_on "Your profile"
+          choose "comment[user_group_id]"
+
           field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
           field.set " "
           field.native.send_keys content
+
           click_on "Publish comment"
         end
 
