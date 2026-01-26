@@ -9,7 +9,7 @@ describe "Restricted Space Respond a survey" do
   let(:title) do
     {
       "en" => "Survey's title",
-      "ca" => "Títol de l'enquesta'",
+      "ca" => "Títol de l'enquesta",
       "es" => "Título de la encuesta"
     }
   end
@@ -44,7 +44,7 @@ describe "Restricted Space Respond a survey" do
     page.visit main_component_path(component)
   end
 
-  context "when the spaces is restricted" do
+  context "when the space is restricted" do
     let!(:participatory_space_restricted) { create(:assembly, :published, :restricted, organization:) }
 
     context "when the user is not logged in" do
