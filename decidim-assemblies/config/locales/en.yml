@@ -267,9 +267,9 @@ en:
             access:
               label: Access
               options:
-                open: "everyone can see the process or assembly and participate."
-                transparent: "everyone can see the process or assembly, but only members can participate."
-                restricted: "only members can see and participate."
+                open: "Everyone can see the assembly and participate."
+                transparent: "Everyone can see the assembly, but only members can participate."
+                restricted: "Only members can see and participate."
             select_a_created_by: Select a created by
             select_parent_assembly: Select parent assembly
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
@@ -396,7 +396,7 @@ en:
     open_data:
       help:
         assemblies:
-          access_mode: Access mode. If the process is open, restricted or transparent.
+          access_mode: Access mode. Whether the assembly is open, restricted, or transparent.
           announcement: The announcement (callout) information
           area: The area of the assembly
           assembly_type: The type of the assembly

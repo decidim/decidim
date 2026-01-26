@@ -526,9 +526,9 @@ en:
             access:
               label: Access
               options:
-                open: "everyone can see the process and participate."
-                transparent: "everyone can see the process, but only members can participate."
-                restricted: "only members can see and participate."
+                open: "Everyone can see the process and participate."
+                transparent: "Everyone can see the process, but only members can participate."
+                restricted: "Only members can see and participate."
             related_processes: Related processes
             select_process_group: Select a process group
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
