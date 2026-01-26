@@ -129,7 +129,7 @@ module Decidim
       end
     end
 
-    describe "scopes" do
+    describe "access mode scopes" do
       describe "public_spaces" do
         let!(:open_process) { create(:participatory_process, access_mode: :open) }
         let!(:transparent_process) { create(:participatory_process, access_mode: :transparent) }
@@ -143,7 +143,7 @@ module Decidim
       end
     end
 
-    describe "scopes" do
+    describe "temporal scopes" do
       let!(:past) { create(:participatory_process, :past) }
       let!(:upcoming) { create(:participatory_process, :upcoming) }
       let!(:active) { create(:participatory_process, :active) }
