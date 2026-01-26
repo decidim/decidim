@@ -124,7 +124,7 @@ case "$1" in
         for container in "${CONTAINERS_TO_STOP[@]}"; do
             if docker ps -a --format "{{.Names}}" | grep -q "^${container}$"; then
                 found_any=true
-                status=$(docker ps -a --filter "name=^${container}$" --format "{{.Status}}")
+                status=$(docker ps -a --format "{{.Names}}\t{{.Status}}" | grep "^${container}\s" | cut -f2)
                 echo "  $container: $status"
             fi
         done
