@@ -2,14 +2,14 @@
 
 require "spec_helper"
 
-describe "Private Space Proposal" do
+describe "Restricted Space Proposal" do
   let!(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization:) }
   let!(:other_user) { create(:user, :confirmed, organization:) }
 
-  let!(:member) { create(:member, user: other_user, participatory_space: participatory_space_private) }
+  let!(:member) { create(:member, user: other_user, participatory_space: participatory_space_restricted) }
 
-  let!(:participatory_space) { participatory_space_private }
+  let!(:participatory_space) { participatory_space_restricted }
 
   let!(:component) { create(:proposal_component, participatory_space:) }
 
@@ -22,74 +22,8 @@ describe "Private Space Proposal" do
     page.visit main_component_path(component)
   end
 
-  context "when space is private and transparent" do
-    let!(:participatory_space_private) { create(:assembly, :published, organization:, private_space: true, is_transparent: true) }
-
-    context "when the user is not logged in" do
-      it "does not allow create a proposal" do
-        visit_component
-
-        within "aside" do
-          expect(page).to have_no_link("New proposal")
-        end
-      end
-
-      context "when the component has votes enabled and the proposal has votes" do
-        let!(:proposal) { create(:proposal, :official, :with_votes, component:) }
-
-        before do
-          component.default_step_settings = component.default_step_settings.to_h.merge({ votes_enabled: true })
-          component.save!
-        end
-
-        context "when accessing the proposal page" do
-          let(:target_path) { Decidim::ResourceLocatorPresenter.new(proposal).path }
-
-          before do
-            visit target_path
-          end
-
-          it "can access the page but cannot see the votes" do
-            expect(page).to have_content(proposal.title["en"])
-            expect(page).to have_no_content("Votes")
-          end
-        end
-      end
-    end
-
-    context "when the user is logged in" do
-      context "and is member space" do
-        before do
-          login_as other_user, scope: :user
-        end
-
-        it "not allows create a proposal" do
-          visit_component
-
-          within "aside" do
-            expect(page).to have_link("New proposal")
-          end
-        end
-      end
-
-      context "and is not member space" do
-        before do
-          login_as user, scope: :user
-        end
-
-        it "not allows create a proposal" do
-          visit_component
-
-          within "aside" do
-            expect(page).to have_no_link("New proposal")
-          end
-        end
-      end
-    end
-  end
-
-  context "when the spaces is private and not transparent" do
-    let!(:participatory_space_private) { create(:assembly, :published, organization:, private_space: true, is_transparent: false) }
+  context "when the spaces is restricted" do
+    let!(:participatory_space_restricted) { create(:assembly, :published, :restricted, organization:) }
 
     context "when the user is not logged in" do
       let(:target_path) { main_component_path(component) }

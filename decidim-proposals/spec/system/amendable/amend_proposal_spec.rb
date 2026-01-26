@@ -154,8 +154,8 @@ describe "Amend Proposal", versioning: true do
         component.update!(step_settings: { active_step_id => { amendment_creation_enabled: true } })
       end
 
-      context "and visits an amendable proposal from a private yet transparent space" do
-        let!(:participatory_space) { create(:assembly, :private, :transparent) }
+      context "and visits an amendable proposal from a transparent space" do
+        let!(:participatory_space) { create(:assembly, :transparent) }
         let(:active_step_id) { "default_step" }
 
         before do

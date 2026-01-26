@@ -76,12 +76,8 @@ FactoryBot.define do
       parent { create(:assembly, organization:, skip_injection:) }
     end
 
-    trait :public do
-      access_mode { :open }
-    end
-
     trait :open do
-      access_mode { :transparent }
+      access_mode { :open }
     end
 
     trait :transparent do

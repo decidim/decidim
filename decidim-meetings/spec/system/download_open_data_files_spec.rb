@@ -29,20 +29,20 @@ describe "Download Open Data files", download: true do
       end
     end
 
-    context "when the meeting's space is private" do
+    context "when the meeting's space is restricted" do
       let!(:meeting) { create(:meeting, component:) }
       let(:resource_title) { translated_attribute(meeting.title).gsub('"', '""') }
       let(:component) { create(:meeting_component, participatory_space:) }
-      let(:participatory_space) { create(:assembly, :private, :opaque, organization:) }
+      let(:participatory_space) { create(:assembly, :restricted, organization:) }
 
       it_behaves_like "does not include it in the open data ZIP file"
     end
 
-    context "when the meeting's space is private and transparent" do
+    context "when the meeting's space is transparent" do
       let!(:meeting) { create(:meeting, component:) }
       let(:resource_title) { translated_attribute(meeting.title).gsub('"', '""') }
       let(:component) { create(:meeting_component, participatory_space:) }
-      let(:participatory_space) { create(:assembly, :private, :transparent, organization:) }
+      let(:participatory_space) { create(:assembly, :transparent, organization:) }
 
       it_behaves_like "includes it in the open data ZIP file"
     end

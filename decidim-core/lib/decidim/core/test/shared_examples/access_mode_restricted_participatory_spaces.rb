@@ -56,7 +56,7 @@ shared_examples "access mode restricted participatory spaces" do
         visit participatory_space_index_path
       end
 
-      it "lists restricted participatory sapces" do
+      it "lists restricted participatory spaces" do
         within css_class_selector do
           within "#{css_class_selector} h2" do
             expect(page).to have_content("2")

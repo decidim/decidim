@@ -2,14 +2,14 @@
 
 namespace :decidim do
   namespace :upgrade do
-    desc "Delete follows of private users deleted from a private space"
-    task fix_deleted_private_follows: :environment do
+    desc "Delete follows of members deleted from a restricted space"
+    task fix_deleted_members_follows: :environment do
       Decidim::Organization.all.each do |organization|
-        spaces = organization.participatory_spaces.collect { |space| space if space.respond_to?(:private_space?) && space.private_space? }.compact_blank
+        spaces = organization.participatory_spaces.collect { |space| space if space.respond_to?(:restricted?) && space.restricted? }.compact_blank
 
         next if spaces.blank?
 
-        spaces = spaces.map { |space| space.respond_to?(:is_transparent?) ? (space unless space.is_transparent?) : space }.compact_blank
+        spaces = spaces.map { |space| space.respond_to?(:transparent?) ? (space unless space.transparent?) : space }.compact_blank
 
         next if spaces.blank?
 
