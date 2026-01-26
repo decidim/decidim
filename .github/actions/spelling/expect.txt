@@ -486,6 +486,7 @@ Llobregat
 lng
 Localret
 localvars
+lockfiles
 loggable
 lon
 LOPD
