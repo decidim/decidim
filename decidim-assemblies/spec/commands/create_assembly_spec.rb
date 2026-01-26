@@ -47,7 +47,7 @@ module Decidim::Assemblies
         taxonomizations:,
         parent: nil,
         has_members: false,
-        private_space: false,
+        access_mode: :open,
         errors:,
         participatory_processes_ids: related_process_ids,
         purpose_of_action: { en: "purpose of action" },
