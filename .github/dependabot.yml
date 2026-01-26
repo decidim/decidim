@@ -59,7 +59,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
       day: "monday"
       time: "06:00"
       timezone: "Europe/Madrid"
@@ -75,7 +75,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/packages/core"
     schedule:
-      interval: "weekly"
+      interval: "daily"
       day: "monday"
       time: "06:00"
       timezone: "Europe/Madrid"
