@@ -5,29 +5,21 @@ require "spec_helper"
 module Decidim::Admin
   describe "Admin manages attachments" do
     let(:organization) { create(:organization) }
-    let!(:user) do
-      create(
-        :user,
-        :confirmed,
-        :admin,
-        organization:
-      )
-    end
     let!(:participatory_process) { create(:participatory_process, organization:) }
+    let!(:admin) { create(:user, :admin, :confirmed, organization:) }
     let!(:attachment) { create(:attachment, attached_to: participatory_process) }
-
     let(:form) do
       instance_double(
         AttachmentForm,
         title: {
-          en: "An image",
-          ca: "Una imatge",
-          es: "Una imagen"
+          en: "",
+          ca: "",
+          es: ""
         },
         description: {
-          en: "A city",
-          ca: "Una ciutat",
-          es: "Una ciudad"
+          en: "",
+          ca: "",
+          es: ""
         },
         file:,
         link: nil,
@@ -36,39 +28,48 @@ module Decidim::Admin
         weight: 2
       )
     end
-    let(:file) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
 
     before do
       switch_to_host(organization.host)
-      login_as user, scope: :user
+      login_as admin, scope: :user
+      visit decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
     end
 
     context "when managing attachments" do
-      it "can update an attachment" do
-        within "#attachments" do
-          within "tr", text: translated(attachment.title) do
-            find("button[data-controller='dropdown']").click
-            click_on "Edit"
-          end
+      it "will persist picture when error is present" do
+        within_admin_sidebar_menu do
+          click_on "Attachments"
         end
 
-        within ".edit_attachment" do
+        within "#attachments" do
+          click_on "New attachment"
+        end
+
+        within ".new_attachment" do
           fill_in_i18n(
             :attachment_title,
             "#attachment-title-tabs",
-            en: "This is a nice photo",
-            es: "Una foto muy guay",
-            ca: "Aquesta foto és ben xula"
+            en: "",
+            es: "",
+            ca: ""
           )
+        end
 
+        within ".new_attachment" do
+          find_by_id("trigger-file").click
+        end
+
+        dynamically_attach_file(:attachment_file, Decidim::Dev.asset("city.jpeg"))
+
+        within ".new_attachment" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_admin_callout("successfully")
-
-        within "#attachments table" do
-          expect(page).to have_text("This is a nice photo")
+        within ".new_attachment" do
+          find("*[type=submit]").click
         end
+
+        expect(page).to have_css("img[src*='city.jpeg']")
       end
     end
   end
