@@ -16,7 +16,7 @@ module Decidim
           short_description: Decidim::Faker::Localized.sentence,
           description: description1,
           users: [author],
-          access_mode: :restricted
+          access_mode: :open
         )
       end
       let(:participatory_space) { assembly }

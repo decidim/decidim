@@ -47,6 +47,7 @@
       "es": "Incidunt provident doloremque."
     },
     "decidim_scope_id": null,
+    "access_mode": "open",
     "paticipatory_scope": {
       "ca": "Assumenda.",
       "en": "Quidem.",
@@ -58,7 +59,6 @@
       "es": "Et molestiae."
     },
     "scopes_enabled": true,
-    "private_space": false,
     "reference": "PhD-ASSE-2020-01-1",
     "purpose_of_action": {
       "ca": "<p>Velit a qui. Debitis rem occaecati. Id minus est.</p>",
@@ -90,7 +90,6 @@
       "en": "<p>Optio ducimus velit. Facilis omnis asperiores. Corporis ipsa non.</p>",
       "es": "<p>Est dolorum et. Quo sed ut. Corporis quos sit.</p>"
     },
-    "is_transparent": true,
     "special_features": {
       "ca": "<p>Dolor et reprehenderit. Unde soluta eum. Omnis occaecati omnis.</p>",
       "en": "<p>Et atque perspiciatis. Quas impedit corporis. Nesciunt blanditiis ipsa.</p>",

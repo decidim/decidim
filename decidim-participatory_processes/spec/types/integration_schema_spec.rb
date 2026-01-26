@@ -170,7 +170,7 @@ describe "Decidim::Api::QueryType" do
   let(:components) { [] }
   let!(:participatory_process_response) do
     {
-      "accessMode" => participatory_process.access_mode,
+      "accessMode" => participatory_process.access_mode.upcase,
       "announcement" => {
         "locales" => (
           participatory_process.announcement.keys.excluding("machine_translations") +
