@@ -1343,10 +1343,6 @@ en:
       update:
         error: There was a problem updating your notifications settings.
         success: Your notifications settings were successfully updated.
-    participatory_spaces:
-      show:
-        transparent_space: This is a transparent space. Anyone can view the content, but only members can participate.
-        restricted_space: This is a restricted space. Only members can view it and participate.
     offline:
       name: Offline
       show:
@@ -1534,6 +1530,10 @@ en:
           %{organization_name}
         hello: Dear %{username},
         subject: Inactive account deleted
+    participatory_spaces:
+      show:
+        restricted_space: This is a restricted space. Only members can view it and participate.
+        transparent_space: This is a transparent space. Anyone can view the content, but only members can participate.
     passwords:
       update:
         error: There was a problem updating the password.

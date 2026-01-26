@@ -101,14 +101,14 @@ en:
         unpublish: Unpublish
         view_deleted_processes: View deleted processes
       filters:
+        decidim_participatory_process_group_id_eq:
+          label: By process group
         with_any_access_mode:
           label: Access mode
           values:
             open: Open
-            transparent: Transparent
             restricted: Restricted
-        decidim_participatory_process_group_id_eq:
-          label: By process group
+            transparent: Transparent
       menu:
         participatory_process_groups: Process groups
         participatory_process_groups_submenu:
@@ -132,7 +132,6 @@ en:
             access_mode: Access mode
             actions: Actions
             created_at: Created at
-            private: Private
             published: Published
             title: Title
           name: Participatory process
@@ -251,8 +250,8 @@ en:
         index:
           access_modes:
             open: Open
-            transparent: Transparent
             restricted: Restricted
+            transparent: Transparent
           published: Published
           unpublished: Unpublished
         manage_trash:
@@ -516,6 +515,12 @@ en:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         participatory_processes:
           form:
+            access:
+              label: Access
+              options:
+                open: Everyone can see the process and participate.
+                restricted: Only members can see and participate.
+                transparent: Everyone can see the process, but only members can participate.
             announcement_help: The text you enter here will be shown to the user right below the process information.
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             duration: Duration
@@ -523,12 +528,6 @@ en:
             images: Images
             metadata: Metadata
             no_taxonomy_filters_found: No taxonomy filters found.
-            access:
-              label: Access
-              options:
-                open: "Everyone can see the process and participate."
-                transparent: "Everyone can see the process, but only members can participate."
-                restricted: "Only members can see and participate."
             related_processes: Related processes
             select_process_group: Select a process group
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'

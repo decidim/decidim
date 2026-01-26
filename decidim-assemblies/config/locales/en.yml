@@ -163,12 +163,6 @@ en:
             'true': Ceased
         search_placeholder:
           full_name_or_user_name_or_user_nickname_cont: Search by name or nickname
-        with_any_access_mode:
-          label: Access mode
-          values:
-            open: Open
-            restricted: Restricted
-            transparent: Transparent
       menu:
         assemblies: Assemblies
         assemblies_submenu:
@@ -188,7 +182,6 @@ en:
             access_mode: Access mode
             actions: Actions
             created_at: Created at
-            private: Private
             promoted: Highlighted
             published: Published
             title: Title
@@ -254,6 +247,12 @@ en:
       admin:
         assemblies:
           form:
+            access:
+              label: Access
+              options:
+                open: Everyone can see the assembly and participate.
+                restricted: Only members can see and participate.
+                transparent: Everyone can see the assembly, but only members can participate.
             announcement_help: The text you enter here will be shown to the user right below the assembly information.
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             duration: Duration
@@ -264,12 +263,6 @@ en:
             metadata: Metadata
             no_taxonomy_filters_found: No taxonomy filters found.
             other: Other
-            access:
-              label: Access
-              options:
-                open: "Everyone can see the assembly and participate."
-                transparent: "Everyone can see the assembly, but only members can participate."
-                restricted: "Only members can see and participate."
             select_a_created_by: Select a created by
             select_parent_assembly: Select parent assembly
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
