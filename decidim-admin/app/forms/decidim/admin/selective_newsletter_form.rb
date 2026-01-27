@@ -12,13 +12,13 @@ module Decidim
       attribute :send_to_verified_users, Boolean
       attribute :send_to_participants, Boolean
       attribute :send_to_followers, Boolean
-      attribute :send_to_private_members, Boolean
+      attribute :send_to_members, Boolean
 
       validates :send_to_all_users, presence: true, unless: :other_groups_selected_for_all_users?
       validates :send_to_verified_users, presence: true, unless: :other_groups_selected_for_verified_users?
       validates :send_to_followers, presence: true, if: :only_followers_selected?
       validates :send_to_participants, presence: true, if: :only_participants_selected?
-      validates :send_to_private_members, presence: true, if: :only_private_members_selected?
+      validates :send_to_members, presence: true, if: :only_members_selected?
 
       validate :at_least_one_participatory_space_selected
 
@@ -49,31 +49,31 @@ module Decidim
         send_to_verified_users.present? ||
           send_to_participants.present? ||
           send_to_followers.present? ||
-          send_to_private_members.present?
+          send_to_members.present?
       end
 
       def other_groups_selected_for_verified_users?
         send_to_all_users.present? ||
           send_to_participants.present? ||
           send_to_followers.present? ||
-          send_to_private_members.present?
+          send_to_members.present?
       end
 
       def only_followers_selected?
         send_to_all_users.blank? &&
           send_to_participants.blank? &&
-          send_to_private_members.blank? &&
+          send_to_members.blank? &&
           send_to_verified_users.blank?
       end
 
       def only_participants_selected?
         send_to_all_users.blank? &&
           send_to_followers.blank? &&
-          send_to_private_members.blank? &&
+          send_to_members.blank? &&
           send_to_verified_users.blank?
       end
 
-      def only_private_members_selected?
+      def only_members_selected?
         send_to_all_users.blank? &&
           send_to_followers.blank? &&
           send_to_participants.blank? &&

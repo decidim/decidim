@@ -833,7 +833,7 @@ en:
           has_been_sent_to: 'Has been sent to: '
           not_sent: Not sent
           participants: 'participants '
-          private_members: 'private members '
+          members: 'members '
           segmented_to: 'Segmented to %{subject}: '
           subscribed_count: 'Subscribed:'
           title: Newsletters
@@ -850,7 +850,7 @@ en:
           deliver: Deliver newsletter
           followers_help: Sends newsletter to all confirmed users that follow any selected participatory spaces in the list.
           participants_help: Sends newsletter to all confirmed users that have participated in any of the selected participatory spaces in the list.
-          private_members_help: Sends a newsletter to all confirmed users that have been added to the selected private participatory spaces.
+          members_help: Sends a newsletter to all confirmed users that have been added to the selected participatory spaces as members.
           recipients_count: This newsletter will be send to <strong id='recipients_count'>%{count}</strong> users.
           select_assemblies: Choose assemblies
           select_conferences: Choose conferences

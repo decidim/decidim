@@ -482,11 +482,11 @@ describe "Admin manages newsletters" do
 
         let(:recipients_count) { members.size }
 
-        it "sends to private members", :slow do
+        it "sends to members", :slow do
           visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
-          check("Send to private members")
+          check("Send to members")
 
-          expect(find("input[name='newsletter[send_to_private_members]']")).to be_checked
+          expect(find("input[name='newsletter[send_to_members]']")).to be_checked
 
           select_all
 
@@ -515,9 +515,9 @@ describe "Admin manages newsletters" do
       context "when the private members count is 0" do
         it "does not display any recipients", :slow do
           visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
-          check("Send to private members")
+          check("Send to members")
 
-          expect(find("input[name='newsletter[send_to_private_members]']")).to be_checked
+          expect(find("input[name='newsletter[send_to_members]']")).to be_checked
 
           select_all
 

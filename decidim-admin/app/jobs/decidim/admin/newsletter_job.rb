@@ -37,7 +37,7 @@ module Decidim
           send_to_verified_users: @form["send_to_verified_users"],
           send_to_followers: @form["send_to_followers"],
           send_to_participants: @form["send_to_participants"],
-          send_to_private_members: @form["send_to_private_members"],
+          send_to_members: @form["send_to_members"],
           participatory_space_types: @form["participatory_space_types"],
           verification_types: @form["verification_types"]
         }
