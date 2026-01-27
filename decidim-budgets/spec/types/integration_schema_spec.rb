@@ -469,25 +469,25 @@ describe "Decidim::Api::QueryType" do
           it "is visible" do
             expect(response["assembly"]["components"].first[lookout_key]).to eq(query_result.except("projects"))
           end
+        end
 
-          context "and requests projects that is not supposed to see" do
-            let!(:current_user) { nil }
+        context "when user is visitor and requests projects that is not supposed to see" do
+          let!(:current_user) { nil }
 
-            let(:component_fragment) do
-              %(
-      fragment fooComponent on Budgets {
-        budget(id: #{budget.id}) {
+          let(:component_fragment) do
+            %(
+    fragment fooComponent on Budgets {
+      budget(id: #{budget.id}) {
+        id
+        projects {
           id
-          projects {
-            id
-          }
         }
-      })
-            end
+      }
+    })
+          end
 
-            it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
-              expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this Project because you do not have permissions")
-            end
+          it "throws Decidim::Api::Errors::UnauthorizedObjectError" do
+            expect { response }.to raise_error(Decidim::Api::Errors::UnauthorizedObjectError, "You cannot view or edit this Project because you do not have permissions")
           end
         end
 
