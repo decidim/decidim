@@ -209,14 +209,6 @@ module Decidim
         current_participatory_space.is_a?(Decidim::Conference)
       end
 
-      # Override the add_current_component method when in conference context
-      # to avoid showing "Meetings" breadcrumb and show "Program" instead
-      def add_current_component
-        return {} if conference_context?
-
-        super
-      end
-
       def set_component_breadcrumb_item
         super
         return {} if meeting.blank?
@@ -240,7 +232,7 @@ module Decidim
           }
         end
 
-        breadcrumb
+        context_breadcrumb_items << breadcrumb
       end
     end
   end
