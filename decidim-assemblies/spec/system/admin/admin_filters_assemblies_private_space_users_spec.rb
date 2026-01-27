@@ -22,7 +22,7 @@ describe "Admin filters assemblies private space users" do
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
-    visit decidim_admin_assemblies.members_path(assembly_slug: assembly.slug)
+    visit decidim_admin_assemblies.participatory_space_private_users_path(assembly_slug: assembly.slug)
   end
 
   context "when managing private space" do
@@ -48,7 +48,7 @@ describe "Admin filters assemblies private space users" do
   end
 
   describe "when publishing all members" do
-    let!(:member) { create(:member, :unpublished, user:, privatable_to: assembly) }
+    let!(:member) { create(:assembly_private_user, user:, privatable_to: assembly) }
 
     it "publishes all members" do
       click_on "Publish all"
