@@ -20,7 +20,6 @@ module Decidim
     validates :content_type, presence: true
 
     delegate :attached?, to: :file
-    delegate :can_participate?, to: :attached_to
 
     default_scope { order(arel_table[:weight].asc, arel_table[:id].asc) }
 
@@ -130,6 +129,13 @@ module Decidim
 
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::AttachmentPresenter
+    end
+
+    def can_participate?(user)
+      return true unless attached_to
+      return true unless attached_to.respond_to?(:can_participate?)
+
+      attached_to.can_participate?(user)
     end
   end
 end
