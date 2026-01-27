@@ -260,7 +260,7 @@ describe "Editor" do
       )
     end
 
-    it "link" do
+    it "link" do # rubocop:disable RSpec/ExampleLength
       click_toggle("link")
       within "[data-dialog][aria-hidden='false']" do
         fill_in "Link URL", with: "https://decidim.org"
@@ -292,6 +292,7 @@ describe "Editor" do
         HTML
       )
 
+      # Test that editing works also when re-clicking the link toolbar button
       click_toggle("link")
       sleep 0.5
       within "[data-dialog][aria-hidden='false']" do
@@ -594,6 +595,7 @@ describe "Editor" do
       end
 
       it "allows saving the link using ENTER" do
+        # Test that updating the link works using ENTER
         click_toggle("link")
         within "[data-dialog][aria-hidden='false']" do
           fill_in "Link URL", with: "https://demo.decidim.org"
