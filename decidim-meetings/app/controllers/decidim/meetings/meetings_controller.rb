@@ -217,7 +217,8 @@ module Decidim
         super
       end
 
-      def add_breadcrumb_item
+      def set_component_breadcrumb_item
+        super
         return {} if meeting.blank?
 
         breadcrumb = {
