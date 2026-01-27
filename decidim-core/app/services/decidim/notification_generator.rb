@@ -38,7 +38,7 @@ module Decidim
 
       followers.each do |recipient|
         next unless recipient.is_a?(Decidim::User)
-        
+
         generate_notification_for(recipient, user_role: :follower) if ["all", "followed-only"].include?(recipient.notification_types)
       end
 
