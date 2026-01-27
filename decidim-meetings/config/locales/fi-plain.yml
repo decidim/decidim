@@ -801,6 +801,7 @@ fi-pl:
           follows_count: Tapaamisen seuraajien lukumäärä
           id: Tapaamisen yksilöivä tunniste
           iframe_access_level: Tapaamisen iframe-upotuksen käyttöoikeustaso
+          iframe_embed_type: Tapaamiseen liitetyn iframe-upotuksen tyyppi
           latitude: Tapaamisen sijainnin leveysaste
           location: Tapaamisen sijainti
           location_hints: Tapaamisen tapaamispaikan sijainnin ohjeistus
