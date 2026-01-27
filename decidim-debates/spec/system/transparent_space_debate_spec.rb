@@ -44,7 +44,7 @@ describe "Transparent Space Debate" do
           login_as other_user, scope: :user
         end
 
-        it "not allows create a debate" do
+        it "allows creating a debate" do
           visit_component
 
           expect(page).to have_link("New debate")
@@ -56,7 +56,7 @@ describe "Transparent Space Debate" do
           login_as user, scope: :user
         end
 
-        it "not allows create a debate" do
+        it "does not allow creating a debate" do
           visit_component
 
           within "aside" do
