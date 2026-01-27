@@ -328,6 +328,7 @@ describe "Editor" do
         select "New tab", from: "Target"
         find("button[data-action='save']").click
       end
+      sleep 0.5
 
       click_toggle("common:eraseStyles")
       expect_value(
