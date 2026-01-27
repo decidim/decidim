@@ -80,6 +80,10 @@ module Decidim
       end
     end
 
+    def can_participate?(user)
+      true
+    end
+
     # The URL that points to the attachment
     #
     # Returns String.
