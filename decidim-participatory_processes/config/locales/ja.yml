@@ -813,7 +813,7 @@ ja:
         member_menu_item: メンバー
       participatory_processes:
         index:
-          promoted_processes: ハイライトされた参加型プロセス
+          promoted_processes: 注目の参加型プロセス
         participatory_process:
           active_step: '現在のフェーズ:'
           more_info: 詳細情報
