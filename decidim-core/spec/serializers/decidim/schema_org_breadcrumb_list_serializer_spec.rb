@@ -39,8 +39,7 @@ module Decidim
 
       it "serializes the breadcrumb items" do
         expected_items_elements = [
-          { "@type": "ListItem", position: 1, name: "Processes", item: "https://example.org/processes" },
-          { "@type": "ListItem", position: 2, name: "Hello world", item: "https://example.org/processes/hello-world" }
+          { "@type": "ListItem", position: 1, name: "Processes", item: "https://example.org/processes" }
         ]
         expect(serialized[:itemListElement]).to eq(expected_items_elements)
       end
@@ -59,8 +58,7 @@ module Decidim
 
         it "ignores them" do
           expected_items_elements = [
-            { "@type": "ListItem", position: 1, name: "Processes", item: "https://example.org/processes" },
-            { "@type": "ListItem", position: 2, name: "Hello world", item: "https://example.org/processes/hello-world" }
+            { "@type": "ListItem", position: 1, name: "Processes", item: "https://example.org/processes" }
           ]
           expect(serialized[:itemListElement]).to eq(expected_items_elements)
         end
