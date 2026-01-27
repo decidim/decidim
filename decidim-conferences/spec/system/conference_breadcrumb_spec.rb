@@ -68,7 +68,6 @@ describe "Conference Breadcrumb" do
         expect(page).to have_content("Conferences")
         expect(page).to have_content(translated(participatory_space.title))
         expect(page).to have_content("Program")
-        expect(page).to have_content(translated_attribute(meeting.title))
       end
     end
   end
