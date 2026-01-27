@@ -308,7 +308,7 @@ ja:
         extra_data:
           name: 種別と期間
         highlighted_assemblies:
-          name: ハイライトされた参加スペース
+          name: 注目の参加スペース
         related_assemblies:
           name: 関連する参加スペース
       created_by:
@@ -440,7 +440,7 @@ ja:
           more_info: 詳細情報
           take_part: 参加する
         index:
-          promoted_assemblies: ハイライトされた参加スペース
+          promoted_assemblies: 注目の参加スペース
         metadata:
           children_item:
             other: "%{count} 個の参加スペース"
