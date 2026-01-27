@@ -122,7 +122,7 @@ sv:
           create: Skapa
           title: Skapa ny debatt
         orders:
-          commented: Mest kommenterade
+          commented: Flest kommentarer
           label: Sortera debater efter
           random: Slumpmässig ordning
           recent: Senaste
