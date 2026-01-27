@@ -1,0 +1,79 @@
+header {
+  .main-bar {
+    &__language-chooser {
+      &-desktop {
+        @apply hidden md:block;
+      }
+
+      > div[id*="dropdown-menu"] {
+        @apply bg-white shadow-[1px_4px_8px_3px_rgba(0,0,0,0.15)] overflow-auto max-h-[50vh] p-2 sm:w-fit;
+      }
+
+      &.focus-mode {
+        @apply border-none pr-0;
+      }
+
+      &-trigger {
+        @apply inline-flex border border-neutral-300 rounded px-4 py-[9px] gap-x-2 flex-row;
+
+        &[id*="dropdown-menu"] {
+          @apply py-[9px];
+        }
+
+        & > span,
+        & > svg:first-of-type {
+          @apply text-neutral-500;
+        }
+
+        & > svg:last-of-type,
+        & > svg:first-of-type {
+          @apply block;
+        }
+
+        & > svg:last-of-type {
+          @apply text-gray-2 ml-1;
+        }
+
+        svg + span {
+          @apply text-sm font-normal;
+        }
+      }
+
+      &-holder {
+        @apply items-center gap-x-1 flex;
+      }
+
+      &-list {
+        @apply flex flex-col space-y-2;
+      }
+
+      &-item {
+        @apply text-black text-left text-md hover:bg-secondary hover:text-white;
+
+        &:hover {
+          @apply rounded;
+        }
+
+        &-active {
+          @apply bg-neutral-200 rounded;
+
+          &:hover {
+            @apply bg-[var(--secondary)];
+          }
+        }
+      }
+
+      & > div {
+        @apply absolute;
+      }
+    }
+  }
+
+  .menu-bar__language-chooser-mobile {
+    .main-bar__language-chooser {
+      & > div[id*="dropdown-menu"] {
+        @apply w-full relative;
+      }
+    }
+  }
+}
