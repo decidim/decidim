@@ -681,15 +681,15 @@ sv:
             error: Det gick inte att publicera det gemensamma utkastet.
             irreversible_action_modal:
               body: Efter att utkastet har publicerats som ett förslag går det inte längre att redigera utkastet. Förslaget kommer inte acceptera nya författare eller tillägg.
-              cancel: Dra tillbaka
+              cancel: Avbryt
               ok: Publicera som ett förslag
               title: Följande åtgärd kan inte ångras
             success: Det gemensamma utkastet har publicerats som ett förslag.
           withdraw:
             error: Det gick inte att stänga det gemensamma utkastet.
             irreversible_action_modal:
-              body: Efter att utkastet har publicerats som ett förslag går det inte längre att redigera utkastet. Förslaget kommer inte acceptera nya författare eller tillägg.
-              cancel: Dra tillbaka
+              body: Efter att utkastet dragits tillbaka går det inte längre att redigera.
+              cancel: Avbryt
               ok: Dra tillbaka det gemensamma utkastet
               title: Det går inte att ångra denna åtgärd
             success: Det gemensamma utkastet har dragits tillbaka.
