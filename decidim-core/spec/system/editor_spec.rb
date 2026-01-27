@@ -267,6 +267,7 @@ describe "Editor" do
         select "New tab", from: "Target"
         find("button[data-action='save']").click
       end
+      sleep 0.5
       expect_value(
         <<~HTML
           <p>Hello, world!</p>
@@ -291,13 +292,14 @@ describe "Editor" do
         HTML
       )
 
-      # Test that editing works also when re-clicking the link toolbar button
       click_toggle("link")
+      sleep 0.5
       within "[data-dialog][aria-hidden='false']" do
         fill_in "Link URL", with: "https://try.decidim.org"
         select "New tab", from: "Target"
         find("button[data-action='save']").click
       end
+      sleep 0.5
       expect_value(
         <<~HTML
           <p>Hello, world!</p>
@@ -592,12 +594,12 @@ describe "Editor" do
       end
 
       it "allows saving the link using ENTER" do
-        # Test that updating the link works using ENTER
         click_toggle("link")
         within "[data-dialog][aria-hidden='false']" do
           fill_in "Link URL", with: "https://demo.decidim.org"
           find("[data-input='href'] input").native.send_keys [:enter]
         end
+        sleep 0.5
         expect_value(
           <<~HTML
             <p>Hello, world!</p>
