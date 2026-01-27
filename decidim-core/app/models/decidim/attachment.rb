@@ -20,6 +20,7 @@ module Decidim
     validates :content_type, presence: true
 
     delegate :attached?, to: :file
+    delegate :can_participate?, to: :attached_to
 
     default_scope { order(arel_table[:weight].asc, arel_table[:id].asc) }
 
