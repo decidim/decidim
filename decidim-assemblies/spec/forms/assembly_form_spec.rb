@@ -41,7 +41,6 @@ module Decidim
         end
         let(:slug) { "slug" }
         let(:attachment) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
-        let(:private_space) { true }
         let(:has_members) { true }
         let(:purpose_of_action) do
           {
@@ -129,7 +128,6 @@ module Decidim
               "hero_image" => attachment,
               "banner_image" => attachment,
               "slug" => slug,
-              "private_space" => private_space,
               "has_members" => has_members,
               "purpose_of_action_en" => purpose_of_action[:en],
               "purpose_of_action_es" => purpose_of_action[:es],

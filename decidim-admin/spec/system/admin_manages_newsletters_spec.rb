@@ -469,9 +469,9 @@ describe "Admin manages newsletters" do
       end
     end
 
-    context "when private members are selected" do
-      context "with private members" do
-        let!(:participatory_process) { create(:participatory_process, organization:, skip_injection: true, private_space: true) }
+    context "when members are selected" do
+      context "with members" do
+        let!(:participatory_process) { create(:participatory_process, organization:, skip_injection: true) }
         let!(:members) do
           create_list(:member, 30) do |member|
             member.user = create(:user, :confirmed, newsletter_notifications_at: Time.current, organization:)
@@ -512,7 +512,7 @@ describe "Admin manages newsletters" do
         end
       end
 
-      context "when the private members count is 0" do
+      context "when the members count is 0" do
         it "does not display any recipients", :slow do
           visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
           check("Send to members")

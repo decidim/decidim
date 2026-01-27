@@ -148,14 +148,14 @@ describe "Last activity" do
         end
       end
 
-      context "when there are activities from private spaces" do
+      context "when there are activities from restricted spaces" do
         before do
-          comment.update(body: { es: "this is a private comment" })
-          another_comment.update(body: { es: "this is another private comment" })
+          comment.update(body: { es: "this is a restricted comment" })
+          another_comment.update(body: { es: "this is another restricted comment" })
 
-          component.participatory_space.update(private_space: true)
-          comment.participatory_space.update(private_space: true)
-          another_comment.participatory_space.update(private_space: true)
+          component.participatory_space.update(access_mode: :restricted)
+          comment.participatory_space.update(access_mode: :restricted)
+          another_comment.participatory_space.update(access_mode: :restricted)
 
           visit current_path
         end

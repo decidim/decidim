@@ -40,14 +40,14 @@ module Decidim
 
         def can_participate?(user)
           return false unless published?
-          return true unless private_space?
+          return true unless transparent? || restricted?
           return false unless user
 
           members.exists?(decidim_user_id: user.id)
         end
 
         def self.public_spaces
-          where(access_mode: [:open, :transparent]).published
+          where(access_mode: [:open]).published
         end
 
         def self.private_spaces

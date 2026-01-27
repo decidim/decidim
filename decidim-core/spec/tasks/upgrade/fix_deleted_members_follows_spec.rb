@@ -34,7 +34,7 @@ describe "rake decidim:upgrade:fix_deleted_members_follows", type: :task do
   end
 
   context "when assembly is transparent" do
-    let(:participatory_space) { create(:assembly, :transparent, :published, organization: user.organization) }
+    let(:participatory_space) { create(:assembly, :published, :transparent, organization: user.organization) }
 
     it "preserves follows of non members" do
       # we have 2 follows, one for assembly, and one for a "child" resource
@@ -42,8 +42,8 @@ describe "rake decidim:upgrade:fix_deleted_members_follows", type: :task do
     end
   end
 
-  context "when assembly is public" do
-    let(:participatory_space) { create(:assembly, :published, organization: user.organization) }
+  context "when assembly is open" do
+    let(:participatory_space) { create(:assembly, :published, :open, organization: user.organization) }
 
     it "preserves follows of non members" do
       # we have 2 follows, one for assembly, and one for a "child" resource
@@ -52,7 +52,7 @@ describe "rake decidim:upgrade:fix_deleted_members_follows", type: :task do
   end
 
   context "when process is restricted" do
-    let(:participatory_space) { create(:participatory_process, :restricted, :published, organization: user.organization) }
+    let(:participatory_space) { create(:participatory_process, :published, :restricted, organization: user.organization) }
 
     it "deletes follows of non members" do
       # we have 2 follows, one for process, and one for a "child" resource
@@ -60,8 +60,8 @@ describe "rake decidim:upgrade:fix_deleted_members_follows", type: :task do
     end
   end
 
-  context "when process is public" do
-    let(:participatory_space) { create(:participatory_process, :published, organization: user.organization) }
+  context "when process is open" do
+    let(:participatory_space) { create(:participatory_process, :published, :open, organization: user.organization) }
 
     it "preserves follows of non members" do
       expect { task.execute }.not_to change(Decidim::Follow, :count)
