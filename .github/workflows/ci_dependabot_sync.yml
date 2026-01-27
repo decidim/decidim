@@ -2,42 +2,65 @@ name: Sync Gemfile.lock files
 
 permissions:
   contents: write
+  pull-requests: write
 
 on:
-  pull_request:
-    branches:
-      - dependabot/**
+  pull_request_target:
+    types: [opened, synchronize]
     paths:
       - 'Gemfile.lock'
-      - 'decidim-generators/Gemfile.lock'
 
 jobs:
   sync-lockfiles:
-    runs-on:  ubuntu-latest
+    runs-on: ubuntu-latest
     if: github.actor == 'dependabot[bot]'
 
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.head_ref }}
-          token: ${{ secrets.ACTION_BACKPORTER_PAT}}
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          token: ${{ secrets.ACTION_BACKPORTER_PAT }}
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version:  '3.4.7'
+          ruby-version: '3.4.7'
           bundler-cache: false
 
-      - name: Update decidim-generators Gemfile.lock if root changed
-        if: contains(github.event.pull_request.files, 'Gemfile.lock')
-        run: |
-          cd decidim-generators
-          bundle install
+      - name: Install root dependencies
+        run: bundle install
 
-      - name:  Commit changes
+      - name: Update decidim-generators Gemfile.lock
+        run: |
+          # Get the diff between base and head
+          diff_output=$(git diff \
+            ${{ github.event.pull_request.base.sha }} \
+            ${{ github.event.pull_request.head.sha }} \
+            -- Gemfile.lock)
+
+          cd decidim-generators
+          # Extract gem names from additions (lines starting with +)
+          # Skip first 2 lines, get second column
+          changed_gems=$(echo "$diff_output" | grep '^+' | tail -n +3 | awk '{print $2}' | sort -u)
+          # Update only the changed gems
+          echo "$changed_gems" | while IFS= read -r gem; do
+            if bundle update --quiet "$gem"; then
+              echo "$gem updated successfully"
+            else
+              echo "Failed to update $gem, but continuing..."
+            fi
+          done
+
+      - name: Commit changes
         run: |
           git config user.name "decidim-bot"
           git config user.email "101816158+greenwoodt@users.noreply.github.com"
-          git add Gemfile.lock decidim-generators/Gemfile.lock
-          git diff --staged --quiet || git commit -m "chore: sync Gemfile.lock files"
-          git push
+          git add decidim-generators/Gemfile.lock
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: sync decidim-generators/Gemfile.lock"
+            git push
+          fi
