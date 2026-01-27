@@ -2,7 +2,7 @@
 
 == Input attributes
 
-When you want to add or create data in your meetings component, you need to rely on the `CreateMeetingAttributes` type, which has the following input fields:
+When you want to add or create data in your meetings component, you need to rely on the `MeetingAttributes` type, which has the following input fields:
 
 [source]
 ----
