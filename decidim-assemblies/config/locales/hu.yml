@@ -158,6 +158,7 @@ hu:
           info: Erről a gyűlésről
           landing_page: Landing oldal
           moderations: Moderálás
+          private_users: Tagok
           see_assembly: A gyűlés megtekintése
       models:
         assembly:

@@ -153,6 +153,7 @@ ar:
           attachments: المرفقات
           components: المكونات
           moderations: الإعتدال
+          private_users: الأعضاء
       models:
         assembly:
           fields:

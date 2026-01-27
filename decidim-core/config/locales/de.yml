@@ -2013,8 +2013,6 @@ de:
         subject: Sie wurden eingeladen %{organization} zu verwalten
       invite_collaborator:
         subject: Sie wurden zur Zusammenarbeit auf %{organization} eingeladen
-      invite_private_user:
-        subject: Sie wurden zu einem privaten Beteiligungsprozess auf %{organization} eingeladen
       organization_admin_invitation_instructions:
         subject: Sie wurden eingeladen %{organization} zu verwalten
       password_change:

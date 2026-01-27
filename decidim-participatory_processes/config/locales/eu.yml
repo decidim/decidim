@@ -81,7 +81,7 @@ eu:
         other: Partaidetza-prozesuen taldeak
       decidim/participatory_process_step:
         one: Step
-        other: Urratsak
+        other: Faseak
   decidim:
     admin:
       actions:

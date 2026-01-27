@@ -143,6 +143,7 @@ zh-TW:
           attachments: 附件
           components: 元件
           moderations: 版主
+          private_users: 成員
       models:
         assembly:
           fields:

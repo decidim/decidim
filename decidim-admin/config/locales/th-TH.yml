@@ -50,8 +50,9 @@ th:
         welcome_notification_subject: ยินดีต้อนรับเรื่องการแจ้งเตือน
         youtube_handler: ตัวจัดการ YouTube
       participatory_space_private_user:
-        email: อีเมล
         name: ชื่อ
+      participatory_space_private_user_csv_import:
+        file: ไฟล์
       scope:
         code: รหัส
         name: ชื่อ
@@ -104,5 +105,8 @@ th:
           fields:
             name: ชื่อ
       organization_appearance:
+        edit:
+          update: อัปเดต
+      participatory_space_private_users:
         edit:
           update: อัปเดต

@@ -1,0 +1,8 @@
+---
+en:
+  decidim:
+    api:
+      errors:
+        introspection_disabled: Introspection is disabled for this request
+        recursion_limit_exceeded_error: Too many recursions detected in query
+        too_many_aliases_error: Too many aliases used. You have used %{size} aliases, but %{limit} are allowed.

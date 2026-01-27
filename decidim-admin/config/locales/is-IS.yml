@@ -68,6 +68,11 @@ is:
         user_groups_enabled: Virkja hópa
         warning_color: Aðvörun
         youtube_handler: YouTube umsjónarmaður
+      participatory_space_private_user:
+        email: Email
+        name: Nafn
+      participatory_space_private_user_csv_import:
+        file: Skrá
       scope:
         code: Kóði
         name: Nafn
@@ -393,6 +398,8 @@ is:
             layout_appearance_title: Breyta útliti útlits
             preview: Preview
       participatory_space_private_users:
+        edit:
+          update: Uppfæra
         new:
           create: Búa til
       resource_permissions:

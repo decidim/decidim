@@ -67,6 +67,11 @@ ru:
         welcome_notification_body: Текст приветствия
         welcome_notification_subject: Тема приветствия
         youtube_handler: Обработчик YouTube
+      participatory_space_private_user:
+        email: Эл. адрес
+        name: Имя
+      participatory_space_private_user_csv_import:
+        file: Прикрепленный файл
       scope:
         code: Код
         name: Имя
@@ -226,6 +231,10 @@ ru:
           values:
             'false': Имеет служебный статус
             'true': Не имеет служебного статуса
+        participatory_space_private_users:
+          user_invitation_sent_at_not_null:
+            values:
+              'false': Не отправлено
         search_label: Поиск
       help_sections:
         form:
@@ -455,10 +464,12 @@ ru:
           success: Частным участникам успешно предоставлен доступ к пространству соучастия.
         destroy:
           success: Успешно отменен доступ частных участников к пространству соучастия.
+        edit:
+          update: Обновить
         index:
           title: Частный участник пространства соучастия
         new:
-          create: Добавить
+          create: Создать
           title: Добавить частного участника пространства соучастия.
       participatory_space_private_users_csv_imports:
         new:

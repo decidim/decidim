@@ -149,6 +149,7 @@ sq:
           info: Rreth asamblesë
           landing_page: Faqja hyrëse
           moderations: Moderimet
+          private_users: Anëtarët
           see_assembly: Shiko asamblenë
       models:
         assembly:

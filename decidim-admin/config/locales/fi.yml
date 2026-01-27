@@ -105,7 +105,7 @@ fi:
         welcome_notification_subject: Tervetuloilmoituksen otsikko
         youtube_handler: YouTube-käsittelijä
       participatory_space_private_user:
-        email: Sähköpostiosoite
+        email: Sähköposti
         name: Nimi
       participatory_space_private_user_csv_import:
         file: Tiedosto
@@ -980,7 +980,7 @@ fi:
             explanation: Tässä osallistumistilassa on %{count} yksityistä osallistujaa.
             title: Poista kaikki yksityiset osallistujat
           example_file: 'Esimerkkitiedosto:'
-          explanation: 'Lataa CSV-tiedosto. Tiedostossa on oltava kaksi saraketta ilman otsikkoriviä. Ensimmäiseen sarakkeeseen asetetaan käyttäjän sähköpostiosoite ja toiseen sarakkeeseen käyttäjän nimi, alkaen ensimmäiseltä riviltä. Jokaisesta rivistä luodaan uusi osallistumistilan käyttäjä. Vältä erikoismerkkejä nimessä, kuten `<>?%&^*#@()[]=+:;"{}\|`.'
+          explanation: 'Lataa CSV-tiedosto. Tiedostossa on oltava kaksi saraketta ilman otsikkoriviä. Ensimmäiseen sarakkeeseen määritetään käyttäjän sähköpostiosoite ja toiseen sarakkeeseen käyttäjän nimi, alkaen ensimmäiseltä riviltä. Jokaisesta rivistä luodaan uusi osallistumistilan käyttäjä. Vältä erikoismerkkejä nimessä, kuten `<>?%&^*#@()[]=+:;"{}\|`.'
           explanation_example: |
             matti.meikalainen@esimerkki.fi%{csv_col_sep}Matti Meikäläinen
             minna.meikalainen@esimerkki.fi%{csv_col_sep}Minna Meikäläinen

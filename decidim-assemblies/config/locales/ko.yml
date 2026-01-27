@@ -48,6 +48,7 @@ ko:
           attachment_files: 파일
           attachments: 첨부 파일
           components: 구성요소
+          private_users: 멤버
       models:
         assembly_member:
           name: 멤버

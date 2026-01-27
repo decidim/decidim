@@ -105,6 +105,8 @@ hu:
       participatory_space_private_user:
         email: Email
         name: Név
+      participatory_space_private_user_csv_import:
+        file: Fájl
       scope:
         code: Kód
         name: Név
@@ -399,16 +401,9 @@ hu:
             'false': Hivatalos
             'true': Nem hivatalos
         participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Meghívás elfogadva
-            values:
-              'false': Nincs elfogadva
-              'true': Elfogadva
           user_invitation_sent_at_not_null:
-            label: Meghívó kiküldve
             values:
-              'false': Nincs elküldve
-              'true': Elküldve
+              'false': Nem került elküldésre
         private_space_eq:
           label: Magán
           values:
@@ -828,16 +823,14 @@ hu:
         destroy:
           error: Hiba történt egy privát felhasználó törlésével a részvételi helyen.
           success: Privát felhasználó részvételi helyhez való hozzáférése törölve.
+        edit:
+          update: Frissítés
         index:
-          import_via_csv: Importálás CSV -ből
           title: Részvételi tér privát felhasználója
         new:
           create: Létrehozás
           title: Új részvételi tér privát felhasználója.
       participatory_space_private_users_csv_imports:
-        create:
-          invalid: Probléma adódott a CSV fájl beolvasásával. Kérjük, győződjön meg róla, hogy követte az utasításokat.
-          success: A CSV fájl sikeresen feltöltődött, meghívó e-mailt küldünk a résztvevőknek. Ez eltarthat egy ideig.
         new:
           csv_upload:
             title: Töltse fel a CSV fájlját
@@ -847,12 +840,6 @@ hu:
             empty: Nincsenek privát résztvevők.
             explanation: '%{count} privát résztvevője van.'
             title: Privát felhasználók törlése
-          example_file: 'Példa fájl:'
-          explanation: 'Töltse fel a CSV-fájlt. Két oszlopnak kell lennie, a fájl első oszlopában az e-mail címmel, a fájl utolsó oszlopában pedig a nevével azoknak a felhasználóknak, akiket hozzá szeretne adni a részvételi térhez, fejlécek nélkül. Kerülje az olyan érvénytelen karakterek használatát, mint a `<>?%&^*#@()[]=+:;"{}\|` a felhasználói névben.'
-          explanation_example: |
-            ohn.doe@example.org%{csv_col_sep}John Doe
-            jane.doe@example.org%{csv_col_sep}Jane Doe
-          upload: Feltölt
       reminders:
         create:
           error: Hiba történt a bejegyzés létrehozása során.
@@ -987,13 +974,11 @@ hu:
           verify_via_csv: Ellenőrizze a CSV használatát
       user_groups_csv_verifications:
         new:
-          example_file: 'Példa fájl:'
           explanation: Töltse fel a CSV fájlját. A fájl első oszlopában, a fejlécek nélkül, rendelkeznie kell a szervezet felhasználói csoportjainak hivatalos e-mailjeivel. Csak azok a felhasználói csoportok lesznek érvényesítve, amelyek megerősítették az e-mailjüket, és e-mailjük szerepel a CSV-fájlban.
           explanation_example: |
             naez@azemailcim.hu
             pelda.janos@peldaul.hu
           title: Töltse fel a CSV fájlját
-          upload: Feltölt
       users:
         create:
           error: Hiba történt a felhasználó adminnak történő meghívása során.

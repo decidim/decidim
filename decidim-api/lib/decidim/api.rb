@@ -19,6 +19,11 @@ module Decidim
       5000
     end
 
+    # defines how many aliases are permitted in a query
+    config_accessor :max_aliases do
+      ENV.fetch("API_SCHEMA_MAX_ALIASES", 5).to_i
+    end
+
     # defines the schema max_depth to configure GraphQL query max_depth
     config_accessor :schema_max_depth do
       15
@@ -26,6 +31,13 @@ module Decidim
 
     config_accessor :disclose_system_version do
       %w(1 true yes).include?(ENV.fetch("DECIDIM_API_DISCLOSE_SYSTEM_VERSION", nil))
+    end
+
+    # allows anonymous introspection queries
+    # If you are not sure, leave it set to false. In this way only administrator users will be able to access the introspection query.
+    # Otherwise, anyone can access it, causing security issues.
+    config_accessor :enable_anonymous_introspection do
+      ENV.fetch("DECIDIM_API_ENABLE_ANONYMOUS_INTROSPECTION", nil) == "true"
     end
 
     # This declares all the types an interface or union can resolve to. This needs

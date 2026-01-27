@@ -102,7 +102,7 @@ tr:
         welcome_notification_subject: Karşılama bildirimi konusu
         youtube_handler: YouTube işleyici
       participatory_space_private_user:
-        email: E-Posta
+        email: E-posta
         name: Adı
       participatory_space_private_user_csv_import:
         file: Dosya
@@ -432,16 +432,9 @@ tr:
             'false': resmileştirilmiş
             'true': Resmi değil
         participatory_space_private_users:
-          user_invitation_accepted_at_not_null:
-            label: Davet kabul edildi
-            values:
-              'false': Kabul edilmedi
-              'true': Kabul Edildi
           user_invitation_sent_at_not_null:
-            label: Davet gönderildi
             values:
               'false': Gönderilmedi
-              'true': Gönderildi
         private_space_eq:
           label: Kişisel
           values:
@@ -891,20 +884,15 @@ tr:
           success: Katılımcı alan özel kullanıcı erişimi başarıyla yok edildi.
         edit:
           title: Katılımcı alanı özel katılımcılarını düzenle.
-          update: Güncelle
+          update: Güncelleştirme
         index:
-          import_via_csv: CSV'den içe aktar
-          publish_all: Tümünü yayımla
           title: Katılımcı alan özel kullanıcısı
-          unpublish_all: Tümünü yayımdan kaldır
         new:
           create: yaratmak
           title: Yeni Katılımcı Uzay özel kullanıcısı.
         publish_all:
           success: Bu katılımcı alan için özel katılımcılar başarıyla yayınlandı
       participatory_space_private_users_csv_imports:
-        create:
-          success: CSV dosyası başarıyla yüklendi, katılımcılara bir davet e-postası gönderiyoruz. Bu biraz zaman alabilir.
         new:
           csv_upload:
             title: CSV dosyanızı yükleyin
@@ -913,8 +901,6 @@ tr:
             confirm: Tüm özel kullanıcıları silmek istediğinizden emin misiniz? Bu işlem geri alınamaz, silinen katılımcıları geri yükleyemeyeceksiniz.
             empty: Özel kullanıcınız yok.
             title: Özel Kullanıcıları kaldır
-          example_file: 'Örnek dosya:'
-          upload: Yükle
       reminders:
         new:
           submit: Gönder
@@ -1088,10 +1074,8 @@ tr:
           verify_via_csv: CSV ile doğrulayın
       user_groups_csv_verifications:
         new:
-          example_file: 'Örnek dosya:'
           explanation: CSV dosyanızı yükleyin. Dosyanın ilk sütunundaki kullanıcı gruplarının resmi e-postalarının, başlıksız olarak olması gerekir. Sadece e-postalarını onaylayan ve CSV dosyasında görünen bir e-postaya sahip olan kullanıcı grupları doğrulanacaktır.
           title: CSV dosyanızı yükleyin
-          upload: Yükle
       users:
         create:
           error: Bu kullanıcıyı davet ederken bir hata oluştu.

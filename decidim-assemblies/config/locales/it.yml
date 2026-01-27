@@ -167,7 +167,7 @@ it:
           info: Info su questo spazio
           landing_page: Pagina di atterraggio
           moderations: Moderazione
-          private_users: Membri
+          private_users: Utenti
           see_assembly: Guarda l'assemblea
       models:
         assembly:

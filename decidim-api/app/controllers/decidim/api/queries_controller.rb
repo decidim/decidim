@@ -29,7 +29,8 @@ module Decidim
       def context
         {
           current_organization:,
-          current_user:
+          current_user:,
+          can_introspect: Decidim::Api.enable_anonymous_introspection || current_user&.admin?
         }
       end
 
