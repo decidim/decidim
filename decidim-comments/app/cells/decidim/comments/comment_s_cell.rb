@@ -12,7 +12,7 @@ module Decidim
       private
 
       def title
-        sanitize(translated_attribute(model.body))
+        decidim_sanitize(model.formatted_body, strip_tags: true)
       end
 
       def resource_path
