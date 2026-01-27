@@ -16,12 +16,20 @@ module Decidim
       end
 
       before_action only: [:show, :update] do
-        redirect_to(**next_vote_step_action) unless question.voting_enabled?
+        redirect_to(**next_vote_step_action) unless question.voting_enabled? || request.format.json?
       end
 
       # Show the voting form for the given question
+      # Responds to HTML (render the form) and JSON (check question status for polling)
       def show
         enforce_permission_to(:create, :vote, election:)
+
+        respond_to do |format|
+          format.html
+          format.json do
+            render json: question_status_response
+          end
+        end
       end
 
       # Saves the vote for the current question and redirect to the next question
@@ -84,6 +92,17 @@ module Decidim
         return { action: :waiting } if next_question.blank?
 
         { action: :show, id: next_question }
+      end
+
+      # Returns JSON response with question voting status for client-side polling.
+      # Used to redirect users when a question's voting is closed while they are on the voting page.
+      def question_status_response
+        if question.voting_enabled?
+          { voting_enabled: true, redirect_url: nil }
+        else
+          redirect_action = next_vote_step_action
+          { voting_enabled: false, redirect_url: url_for(**redirect_action) }
+        end
       end
 
       def requeue_following_questions
