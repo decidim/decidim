@@ -11,6 +11,9 @@ updates:
       time: "06:00"
       timezone: "Europe/Madrid"
     open-pull-requests-limit: 1
+    ignore:
+      - dependency-name: "rails"
+        update-types: [ "version-update:semver-minor", "version-update:semver-major" ]
     groups:
       rails:
         patterns:
