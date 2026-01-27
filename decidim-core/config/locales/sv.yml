@@ -649,7 +649,7 @@ sv:
           email_already_exists: Ett annat konto använder samma e-postadress.
         new:
           complete_profile: Komplettera profil
-          nickname_help: Ditt användarnamn i %{organization}. Kan bara innehålla bokstäver, siffror, '-' och '_'.
+          nickname_help: Ditt användarnamn i %{organization}. Kan bara innehålla små bokstäver a-z, siffror, '-' och '_'.
           sign_up: Var god slutför din profil
           subtitle: Slutför registreringen genom att fylla i följande formulär
           username_help: Offentligt namn som visas i dina inlägg. Du kan ange ett annat namn än ditt eget, om du vill vara anonym.
@@ -1770,7 +1770,7 @@ sv:
     invitations:
       edit:
         header: Slutför skapandet av ditt konto
-        nickname_help: Ditt användarnamn för %{organization}. Kan bara innehålla bokstäver, siffror, '-' och '_'.
+        nickname_help: Ditt användarnamn i %{organization}. Kan bara innehålla små bokstäver a-z, siffror, '-' och '_'.
         submit_button: Spara
         subtitle: Om du godkänner inbjudan väljer du ditt användarnamn och lösenord.
       invitation_removed: Din inbjudan har tagits bort.
