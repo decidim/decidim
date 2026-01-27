@@ -45,7 +45,7 @@ module Decidim
     def send_to_affected_users
       affected_users.each do |recipient|
         next unless recipient.is_a?(Decidim::User)
-        next unless extra[:force_email] || ["all", "own-only"].include?(recipient.notification_types)
+        next unless ["all", "own-only"].include?(recipient.notification_types)
         next if recipient.deleted? || recipient.blocked?
 
         send_email_to(recipient, user_role: :affected_user)
