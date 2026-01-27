@@ -33,6 +33,28 @@ describe "Private Space Proposal" do
           expect(page).to have_no_link("New proposal")
         end
       end
+
+      context "when the component has votes enabled and the proposal has votes" do
+        let!(:proposal) { create(:proposal, :official, :with_votes, component:) }
+
+        before do
+          component.default_step_settings = component.default_step_settings.to_h.merge({ votes_enabled: true })
+          component.save!
+        end
+
+        context "when accessing the proposal page" do
+          let(:target_path) { Decidim::ResourceLocatorPresenter.new(proposal).path }
+
+          before do
+            visit target_path
+          end
+
+          it "can access the page but cannot see the votes" do
+            expect(page).to have_content(proposal.title["en"])
+            expect(page).to have_no_content("Votes")
+          end
+        end
+      end
     end
 
     context "when the user is logged in" do
