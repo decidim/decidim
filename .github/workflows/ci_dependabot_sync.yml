@@ -34,31 +34,9 @@ jobs:
 
       - name: Update decidim-generators Gemfile.lock
         run: |
-          # Get the diff between base and head
-          diff_output=$(git diff \
+          .github/decidim_generators_update.rb \
             ${{ github.event.pull_request.base.sha }} \
-            ${{ github.event.pull_request.head.sha }} \
-            -- Gemfile.lock)
-
-          cd decidim-generators
-          # Extract gem names from additions (lines starting with +)
-          # Skip first 2 lines, get second column
-          changed_gems=$(echo "$diff_output" \
-            | awk '/^\+    [A-Za-z0-9_.-]+ \(/ {print $2}' \
-            | sort -u)
-          if [ -z "$changed_gems" ]; then
-            echo "No gem additions detected; skipping update."
-            exit 0
-          fi
-          # Update only the changed gems
-            echo "$changed_gems" | while IFS= read -r gem; do
-            [ -z "$gem" ] && continue
-            if bundle update --quiet "$gem"; then
-              echo "$gem updated successfully"
-            else
-              echo "Failed to update $gem, but continuing..."
-            fi
-          done
+            ${{ github.event.pull_request.head.sha }}
 
       - name: Commit changes
         run: |
