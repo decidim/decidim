@@ -292,9 +292,11 @@ eu:
         export: "%{user_name} parte-hartzaileak esportatu du %{resource_name} partaidetza-prozesua"
         import: "%{user_name} parte-hartzaileak inportatu du %{resource_name} partaidetza-prozesua"
         publish: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} partaidetza-prozesua"
+        publish_all_members: "%{user_name} parte-hartzaileak %{resource_name} partaidetza-prozesuko kide guztiak argitaratu ditu"
         restore: "%{user_name} parte-hartzaileak berreskuratu du %{resource_name} partaidetza-prozesua"
         soft_delete: "%{user_name} parte-hartzaileak zaborrontzira eraman du %{resource_name} partaidetza-prozesua"
         unpublish: "%{user_name} parte-hartzaileak despublikatu du %{resource_name} partaidetza-prozesua"
+        unpublish_all_members: "%{user_name} parte-hartzaileak %{resource_name} partaidetza-prozesuko kide guztiak desargitaratu ditu"
         update: "%{user_name} parte-hartzaileak %{resource_name} partaidetza-prozesua eguneratu du"
       participatory_process_group:
         create: "%{user_name} parte-hartzaileak sortu du %{resource_name} partaidetza-prozesuen multzoa"
