@@ -87,7 +87,7 @@
         "es": "South Carolina"
       }
     },
-    "private_space": false,
+    "access_mode": "open",
     "promoted": true,
     "scopes_enabled": true,
     "participatory_process_steps": null,

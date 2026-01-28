@@ -7,13 +7,8 @@ module Decidim
 
       private
 
-      def private_space?
-        (current_participatory_space.respond_to?(:restricted?) && current_participatory_space.restricted?) ||
-          (current_participatory_space.respond_to?(:transparent?) && current_participatory_space.transparent?)
-      end
-
-      def transparent_space?
-        current_participatory_space.respond_to?(:transparent?) && current_participatory_space.transparent?
+      def restricted_space?
+        current_participatory_space.respond_to?(:restricted?) && current_participatory_space.restricted?
       end
     end
   end

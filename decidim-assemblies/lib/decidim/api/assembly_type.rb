@@ -43,7 +43,6 @@ module Decidim
       field :parents_path, String, "Assembly hierarchy representation", null: true
       field :participatory_scope, Decidim::Core::TranslatedFieldType, "What is decided on this assembly", null: true
       field :participatory_structure, Decidim::Core::TranslatedFieldType, "How it is decided on this assembly", null: true
-
       field :promoted, Boolean, "If this assembly is promoted (therefore in the homepage)", null: true
       field :published_at, Decidim::Core::DateTimeType, "The time this assembly was published", null: false
       field :purpose_of_action, Decidim::Core::TranslatedFieldType, "Purpose of action", null: true

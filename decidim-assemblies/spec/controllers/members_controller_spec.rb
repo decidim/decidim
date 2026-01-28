@@ -19,7 +19,7 @@ module Decidim
           :assembly,
           :published,
           organization:,
-          private_space: true
+          access_mode: :restricted
         )
       end
 

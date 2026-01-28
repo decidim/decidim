@@ -121,7 +121,7 @@ module Decidim
                       [:process, :participatory_space].include?(permission_action.subject) &&
                       process
 
-        return disallow! unless can_view_private_space?
+        return disallow! unless can_view_restricted_space?
         return allow! if user&.admin?
         return allow! if process.published?
         return allow! if user_can_preview_space?
@@ -129,8 +129,8 @@ module Decidim
         toggle_allow(can_manage_process?)
       end
 
-      def can_view_private_space?
-        return true unless process.restricted? || process.transparent?
+      def can_view_restricted_space?
+        return true unless process.restricted?
         return false unless user
 
         user.admin? || user_has_any_role?(user, process, broad_check: true) || process.users.include?(user)

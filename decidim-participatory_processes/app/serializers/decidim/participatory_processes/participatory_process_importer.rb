@@ -40,7 +40,7 @@ module Decidim
             start_date: attributes["start_date"],
             end_date: attributes["end_date"],
             announcement: attributes["announcement"],
-            private_space: attributes["private_space"],
+            access_mode: attributes["access_mode"],
             participatory_process_group: process_group
           )
           @imported_process.attached_uploader(:hero_image).remote_url = attributes["remote_hero_image_url"] if attributes["remote_hero_image_url"].present?

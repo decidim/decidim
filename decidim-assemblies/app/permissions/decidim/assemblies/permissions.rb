@@ -108,7 +108,7 @@ module Decidim
                       [:assembly, :participatory_space].include?(permission_action.subject) &&
                       assembly
 
-        return disallow! unless can_view_private_space?
+        return disallow! unless can_view_restricted_space?
         return allow! if user&.admin?
         return allow! if assembly.published?
         return allow! if user_can_preview_space?
@@ -116,7 +116,7 @@ module Decidim
         toggle_allow(can_manage_assembly?)
       end
 
-      def can_view_private_space?
+      def can_view_restricted_space?
         return true unless assembly.restricted?
         return false unless user
 

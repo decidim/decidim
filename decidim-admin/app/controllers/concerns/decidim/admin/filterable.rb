@@ -162,7 +162,7 @@ module Decidim
         # - FilterableHelper#applied_filters_hidden_field_tags
         # To ensure that filters are kept in the search_form_for.
         def filters
-          [:private_space_eq, :published_at_null]
+          [:published_at_null]
         end
 
         # Informs which filters are being used OUTSIDE the dropdown.

@@ -212,8 +212,8 @@ describe Decidim::Meetings::Permissions do
       it { is_expected.to be true }
     end
 
-    context "when space is private and setting is enabled" do
-      let(:participatory_space) { create(:participatory_process, :with_steps, private_space: true) }
+    context "when space is restricted and setting is enabled" do
+      let(:participatory_space) { create(:participatory_process, :with_steps, :restricted) }
       let(:component_settings) do
         double(creation_enabled_for_participants?: true)
       end
