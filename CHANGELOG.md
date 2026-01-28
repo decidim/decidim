@@ -1,5 +1,98 @@
 # Changelog
 
+## [0.31.1](https://github.com/decidim/decidim/tree/0.31.1)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-elections**: Backport 'Use proper action authorizer for internal census form validation' to v0.31 [\#15586](https://github.com/decidim/decidim/pull/15586)
+- **decidim-admin**, **decidim-core**: Backport 'Fix deleted users follow in private participatory spaces' to v0.31 [\#15599](https://github.com/decidim/decidim/pull/15599)
+- **decidim-admin**, **decidim-assemblies**, **decidim-conferences**, **decidim-participatory processes**: Backport 'Conference admin seeing processes' to v0.31 [\#15597](https://github.com/decidim/decidim/pull/15597)
+- **decidim-participatory processes**: Backport 'Fix validation for start/end dates in processes' to v0.31 [\#15595](https://github.com/decidim/decidim/pull/15595)
+- **decidim-generators**: Backport 'Fix gitignore for ServiceWorker related files' to v0.31 [\#15602](https://github.com/decidim/decidim/pull/15602)
+- **decidim-core**: Backport 'Remove user data left behind by `Decidim::DestroyAccount`' to v0.31 [\#15623](https://github.com/decidim/decidim/pull/15623)
+- **decidim-proposals**: Backport 'Proposal index grid cards ' to v0.31 [\#15629](https://github.com/decidim/decidim/pull/15629)
+- **decidim-dev**, **decidim-participatory processes**: Backport 'System test for reordering component issue' to v0.31 [\#15628](https://github.com/decidim/decidim/pull/15628)
+- **decidim-admin**, **decidim-core**, **decidim-proposals**: Backport 'Fix I18n source strings' to v0.31 [\#15621](https://github.com/decidim/decidim/pull/15621)
+- **decidim-core**, **decidim-participatory processes**: Backport 'Process page announcement bug fix with system test' to v0.31 [\#15634](https://github.com/decidim/decidim/pull/15634)
+- **decidim-core**: Backport 'Fix accessibility on mobile account modal' to v0.31 [\#15644](https://github.com/decidim/decidim/pull/15644)
+- **decidim-core**, **decidim-proposals**: Backport 'Remove alt image on cards' to v0.31 [\#15646](https://github.com/decidim/decidim/pull/15646)
+- **decidim-core**: Backport 'Fix  accessibility on active order element' to v0.31 [\#15648](https://github.com/decidim/decidim/pull/15648)
+- **decidim-forms**, **decidim-surveys**: Backport 'Survey seperator on metadata & display condtion' to v0.31 [\#15651](https://github.com/decidim/decidim/pull/15651)
+- **decidim-forms**: Backport 'Fix alignment on survey responses' to v0.31 [\#15656](https://github.com/decidim/decidim/pull/15656)
+- **decidim-core**: Backport 'Fix accessibility update aria-current to static pages nav' to v0.31 [\#15653](https://github.com/decidim/decidim/pull/15653)
+- **decidim-admin**, **decidim-system**: Backport 'Fix for editing an organization on system with 5 locales' to v0.31 [\#15668](https://github.com/decidim/decidim/pull/15668)
+- **decidim-core**: Backport 'Fix participants selection and list in conversations' to v0.31 [\#15660](https://github.com/decidim/decidim/pull/15660)
+- **decidim-core**, **decidim-proposals**: Backport 'Prevent whitespace collapse in fingerprint source in fingerprint modal' to v0.31 [\#15672](https://github.com/decidim/decidim/pull/15672)
+- **decidim-conferences**: Backport 'Fix styles for registration modal in conferences' to v0.31 [\#15679](https://github.com/decidim/decidim/pull/15679)
+- **decidim-assemblies**: Backport 'Show children assemblies in breadcrumb with components' to v0.31 [\#15677](https://github.com/decidim/decidim/pull/15677)
+- **decidim-admin**, **decidim-core**, **decidim-dev**, **decidim-meetings**: Backport 'Reduce the number of parallel workers' to v0.31 [\#15691](https://github.com/decidim/decidim/pull/15691)
+- **decidim-budgets**, **decidim-initiatives**: Backport 'Missing route on admin-engine initiatives' to v0.31 [\#15697](https://github.com/decidim/decidim/pull/15697)
+- **decidim-accountability**, **decidim-comments**, **decidim-core**: Backport 'Filter invalid notifications from emails being sent' to v0.31 [\#15695](https://github.com/decidim/decidim/pull/15695)
+- **decidim-assemblies**, **decidim-conferences**, **decidim-initiatives**, **decidim-participatory processes**: Backport 'Show processes groups in breadcrumb with components' to v0.31 [\#15699](https://github.com/decidim/decidim/pull/15699)
+- **decidim-conferences**, **decidim-core**, **decidim-dev**, **decidim-generators**, **decidim-proposals**: Backport 'Change references from Faker::Twitter to Faker::X' to v0.31 [\#15716](https://github.com/decidim/decidim/pull/15716)
+- **decidim-comments**, **decidim-core**, **decidim-dev**: Backport 'Improve the commentable GraphQL field' to v0.31 [\#15705](https://github.com/decidim/decidim/pull/15705)
+- **decidim-accountability**, **decidim-admin**, **decidim-blogs**, **decidim-budgets**, **decidim-core**, **decidim-debates**, **decidim-meetings**, **decidim-proposals**: Backport 'Resources are displayed in general search if their component is unpublished' to v0.31 [\#15704](https://github.com/decidim/decidim/pull/15704)
+- **decidim-elections**: Backport 'Remove duplicate code in elections' to v0.31 [\#15725](https://github.com/decidim/decidim/pull/15725)
+- **decidim-accountability**, **decidim-blogs**, **decidim-debates**, **decidim-elections**, **decidim-meetings**, **decidim-participatory processes**, **decidim-proposals**: Backport 'Remove duplicate inclusion of SanitizeHelper' to v0.31 [\#15726](https://github.com/decidim/decidim/pull/15726)
+- **decidim-admin**, **decidim-demographics**, **decidim-elections**, **decidim-forms**, **decidim-meetings**: Backport 'Fix questionnaire drag-and-drop blocking input text selection' to v0.31 [\#15728](https://github.com/decidim/decidim/pull/15728)
+- **decidim-core**: Backport 'Fixing bug of off center external link warning modals in design pages' to v0.31 [\#15739](https://github.com/decidim/decidim/pull/15739)
+- **decidim-admin**: Backport 'Add taxonomy missing strings' to v0.31 [\#15741](https://github.com/decidim/decidim/pull/15741)
+- **decidim-core**, **decidim-generators**: Backport 'Lock connection_pool to 2.5.5' to v0.31 [\#15746](https://github.com/decidim/decidim/pull/15746)
+- **decidim-meetings**: Backport 'Fix copy meeting taxonomies' to v0.31 [\#15745](https://github.com/decidim/decidim/pull/15745)
+- **decidim-initiatives**: Backport 'Fix "request too large" error when exporting initiatives' to v0.31 [\#15751](https://github.com/decidim/decidim/pull/15751)
+- **decidim-admin**, **decidim-core**: Backport 'Fixing issue of link target reverting back to _blank' to v0.31 [\#15753](https://github.com/decidim/decidim/pull/15753)
+- **decidim-admin**, **decidim-budgets**, **decidim-core**, **decidim-proposals**: Backport 'Vote link updated to "button" within auth permissions' to v0.31 [\#15755](https://github.com/decidim/decidim/pull/15755)
+- **decidim-elections**: Backport 'Add total votes count to election results in admin and public views' to v0.31 [\#15780](https://github.com/decidim/decidim/pull/15780)
+- **decidim-elections**: Backport 'Allow editing last question on receipt page for per-question elections' to v0.31 [\#15781](https://github.com/decidim/decidim/pull/15781)
+- **decidim-elections**: Backport 'Change Vote button to Edit vote when user has already voted' to v0.31 [\#15784](https://github.com/decidim/decidim/pull/15784)
+- **decidim-elections**: Backport 'Prevent election editing after start regardless of publication status' to v0.31 [\#15783](https://github.com/decidim/decidim/pull/15783)
+- **decidim-comments**, **decidim-core**: Backport 'Fix search result comment with link' to v0.31 [\#15805](https://github.com/decidim/decidim/pull/15805)
+- **decidim-admin**, **decidim-surveys**: Backport 'Show responses menu entry in Surveys' admin' to v0.31 [\#15809](https://github.com/decidim/decidim/pull/15809)
+- **decidim-comments**, **decidim-core**: Backport 'Fix focus trap in modal dialog for sharing' to v0.31 [\#15815](https://github.com/decidim/decidim/pull/15815)
+- **decidim-budgets**: Backport 'Do not show "more information" modal when there isn't any' to v0.31 [\#15837](https://github.com/decidim/decidim/pull/15837)
+- **decidim-core**: Backport 'Fix notification from Component publication' to v0.31 [\#15835](https://github.com/decidim/decidim/pull/15835)
+- **decidim-admin**, **decidim-assemblies**, **decidim-conferences**, **decidim-initiatives**, **decidim-participatory processes**: Backport 'Sorting via created_at attribute within spaces' to v0.31 [\#15812](https://github.com/decidim/decidim/pull/15812)
+- **decidim-pages**: Backport 'Fix factories location pages module' to v0.31 [\#15840](https://github.com/decidim/decidim/pull/15840)
+- **decidim-assemblies**, **decidim-participatory processes**: Backport 'Fix process and assembly admin members action logs' to v0.31 [\#15818](https://github.com/decidim/decidim/pull/15818)
+- **decidim-admin**, **decidim-core**, **decidim-system**: Backport 'Add short_name field to Organizations for PWA' to v0.31 [\#15817](https://github.com/decidim/decidim/pull/15817)
+- **decidim-accountability**: Backport 'Fix accountability results filtering' to v0.31 [\#15870](https://github.com/decidim/decidim/pull/15870)
+- **decidim-api**, **decidim-dev**, **decidim-initiatives**: Backport 'Fix error when there are too many aliases in GraphQL API' to v0.31 [\#15902](https://github.com/decidim/decidim/pull/15902)
+- **decidim-accountability**, **decidim-api**, **decidim-assemblies**, **decidim-blogs**, **decidim-budgets**, **decidim-collaborative_texts**, **decidim-conferences**, **decidim-debates**, **decidim-dev**, **decidim-initiatives**, **decidim-meetings**, **decidim-pages**, **decidim-participatory processes**, **decidim-proposals**, **decidim-surveys**: Backport 'Disable introspection for regular users' to v0.31 [\#15905](https://github.com/decidim/decidim/pull/15905)
+- **decidim-api**, **decidim-budgets**, **decidim-dev**, **decidim-initiatives**, **decidim-meetings**: Backport 'Avoid GraphQL circular query (recursion limit)' to v0.31 [\#15907](https://github.com/decidim/decidim/pull/15907)
+- **decidim-core**: Backport 'Fix validation error in user name regular expression' to v0.31 [\#15923](https://github.com/decidim/decidim/pull/15923)
+- **decidim-participatory processes**: Backport 'Fix quality indicator content block' to v0.31 [\#15935](https://github.com/decidim/decidim/pull/15935)
+- **decidim-admin**, **decidim-assemblies**, **decidim-blogs**, **decidim-comments**, **decidim-conferences**, **decidim-core**, **decidim-dev**: Backport 'Fix username handling exceptions' to v0.31 [\#15940](https://github.com/decidim/decidim/pull/15940)
+- **decidim-elections**: Backport 'Fix auto-redirect when question voting closes' to v0.31 [\#15948](https://github.com/decidim/decidim/pull/15948)
+- **decidim-proposals**: Backport 'Prevent server error on proposal page when the user is not logged in' to v0.31 [\#15946](https://github.com/decidim/decidim/pull/15946)
+- **decidim-forms**, **decidim-surveys**: Backport 'Fix survey matrix responses export in forms' to v0.31 [\#15952](https://github.com/decidim/decidim/pull/15952)
+- **decidim-conferences**, **decidim-initiatives**, **decidim-meetings**: Backport 'Fix breadcrumb in conferences' program' to v0.31 [\#15941](https://github.com/decidim/decidim/pull/15941)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+- Backport 'Remove duplicate code in elections' to v0.31 [\#15725](https://github.com/decidim/decidim/pull/15725)
+- Backport 'Remove duplicate inclusion of SanitizeHelper' to v0.31 [\#15726](https://github.com/decidim/decidim/pull/15726)
+
+### Internal
+
+- **decidim-admin**, **decidim-core**, **decidim-proposals**: Backport 'Fix I18n source strings' to v0.31 [\#15621](https://github.com/decidim/decidim/pull/15621)
+- **decidim-elections**: Backport 'Remove duplicate code in elections' to v0.31 [\#15725](https://github.com/decidim/decidim/pull/15725)
+- **decidim-accountability**, **decidim-blogs**, **decidim-debates**, **decidim-elections**, **decidim-meetings**, **decidim-participatory processes**, **decidim-proposals**: Backport 'Remove duplicate inclusion of SanitizeHelper' to v0.31 [\#15726](https://github.com/decidim/decidim/pull/15726)
+
+### Unsorted
+
+- 387a30d87b Fix proposal import with other proposals states in budgets [\#](https://github.com/decidim/decidim/pull/) || 
 ## [0.31.0](https://github.com/decidim/decidim/tree/0.31.0)
 
 ### Added
