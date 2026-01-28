@@ -74,6 +74,7 @@ Nothing.
 - **decidim-proposals**: Backport 'Prevent server error on proposal page when the user is not logged in' to v0.31 [\#15946](https://github.com/decidim/decidim/pull/15946)
 - **decidim-forms**, **decidim-surveys**: Backport 'Fix survey matrix responses export in forms' to v0.31 [\#15952](https://github.com/decidim/decidim/pull/15952)
 - **decidim-conferences**, **decidim-initiatives**, **decidim-meetings**: Backport 'Fix breadcrumb in conferences' program' to v0.31 [\#15941](https://github.com/decidim/decidim/pull/15941)
+- 387a30d87b Fix proposal import with other proposals states in budgets [\#15846](https://github.com/decidim/decidim/pull/15846)
 
 ### Removed
 
@@ -92,7 +93,7 @@ Nothing.
 
 ### Unsorted
 
-- 387a30d87b Fix proposal import with other proposals states in budgets [\#15846](https://github.com/decidim/decidim/pull/15846)
+Nothing.
 
 ## [0.31.0](https://github.com/decidim/decidim/tree/0.31.0)
 
