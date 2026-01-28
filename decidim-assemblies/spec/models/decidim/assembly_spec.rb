@@ -141,7 +141,7 @@ module Decidim
         let!(:transparent_assembly) { create(:assembly, :transparent) }
         let!(:open_assembly) { create(:assembly, :open) }
 
-        it "returns the public ones" do
+        it "returns the active ones" do
           expect(described_class.active_spaces).to include transparent_assembly
           expect(described_class.active_spaces).to include open_assembly
           expect(described_class.active_spaces).not_to include restricted_assembly

@@ -22,7 +22,7 @@ describe "Restricted Space Proposal" do
     page.visit main_component_path(component)
   end
 
-  context "when the spaces is restricted" do
+  context "when the space is restricted" do
     let!(:participatory_space_restricted) { create(:assembly, :published, :restricted, organization:) }
 
     context "when the user is not logged in" do

@@ -26,7 +26,7 @@ describe "Transparent Space Proposal" do
     let!(:participatory_space_transparent) { create(:assembly, :published, :transparent, organization:) }
 
     context "when the user is not logged in" do
-      it "does not allow create a proposal" do
+      it "allows creating a proposal" do
         visit_component
 
         within "aside" do
