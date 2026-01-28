@@ -51,7 +51,7 @@ describe "Mobile header" do
       it "includes access to the language selector and search bar" do
         within ".menu-bar__main-dropdown__top" do
           expect(page).to have_css(".filter-search")
-          expect(page).to have_css("#dropdown-trigger-language-chooser-mobile")
+          expect(page).to have_css("#trigger-dropdown-menu-language-chooser-mobile")
         end
       end
     end

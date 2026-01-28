@@ -1,7 +1,4 @@
 <div class="flex items-center gap-x-8">
-  <div class="menu-bar__language-chooser-desktop">
-    <%= render partial: "layouts/decidim/header/main_language_chooser" %>
-  </div>
   <% if !current_user %>
     <div>
       <%= link_to decidim.new_user_session_path, class: "main-bar__links-desktop__item", "aria-label": t("layouts.decidim.header.log_in") do %>
