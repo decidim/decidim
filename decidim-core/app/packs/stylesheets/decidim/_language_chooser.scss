@@ -6,7 +6,7 @@ header {
       }
 
       > div[id*="dropdown-menu"] {
-        @apply bg-white shadow-[1px_4px_8px_3px_rgba(0,0,0,0.15)] overflow-auto max-h-[50vh] p-2 sm:w-fit;
+        @apply bg-white shadow-[1px_4px_8px_3px_rgba(0,0,0,0.15)] overflow-auto max-h-[50vh] p-2 sm:w-fit z-[100];
       }
 
       &.focus-mode {
