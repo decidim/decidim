@@ -179,7 +179,6 @@ pt-BR:
       front_page_link: Ir à página inicial
       logo: "Logotipo oficial de %{organization}"
       opens_in_new_tab: Abrir em nova aba
-      secondary_menu: Menu secundário
       skip_button: Pular para o conteúdo principal
     account:
       blocked: Esta conta foi bloqueada devido a violação de Termos e Condições
